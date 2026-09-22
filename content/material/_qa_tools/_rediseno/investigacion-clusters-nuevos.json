@@ -1,0 +1,28 @@
+[
+ {
+  "id": 912,
+  "cluster": 1,
+  "temas": [
+   "analisis-estadistico-de-resultados",
+   "argumentar-desde-evidencia",
+   "conclusion-y-comunicacion-de-resultados",
+   "construir-y-usar-un-modelo-cientifico",
+   "corrientes-filosofia-de-la-ciencia"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 913,
+  "cluster": 2,
+  "temas": [
+   "diseno-experimental-variables-y-control",
+   "hipotesis-buena-o-mala",
+   "observacion-y-pregunta-investigable",
+   "recoleccion-de-datos",
+   "metodologia-cualitativa-vs-cuantitativa",
+   "trabajo-de-campo-enfoque-socioantropologico",
+   "tecnicas-de-investigacion-social"
+  ],
+  "preguntas": 168
+ }
+]

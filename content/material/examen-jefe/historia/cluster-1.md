@@ -1,1419 +1,8 @@
-# Examen jefe — Crisis 2001 y Conquista del Desierto
+# Examen jefe — [PENDIENTE #721]
 
-> Logro #121. Completaste el parcial analizando la Conquista del Desierto, la crisis de 2001 y los cambios históricos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **105 preguntas totales** en 5/5 secciones.
+> Logro #721. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: antes-y-despues-de-cristo (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "basico"
-  tags: ["ano_0"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El calendario gregoriano no tiene año 0: se pasa directamente del año 1 a.C. al año 1 d.C."
-
-pasos:
-  - "Es la particularidad central que hace que calcular intervalos que cruzan ese punto sea distinto de una resta simple."
-
-explicacion: |
-  Verdadero: la ausencia de año 0 es la fuente de casi todos los
-  errores al calcular estos intervalos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "basico"
-  tags: ["despues_de_cristo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Después de Cristo (d.C.), los años aumentan con el tiempo: 100 d.C. es anterior a 200 d.C."
-
-pasos:
-  - "Es el sentido habitual de conteo, igual que cualquier número positivo creciente."
-
-explicacion: |
-  Verdadero: en d.C., el número más chico es siempre más antiguo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "intermedio"
-  tags: ["antes_de_cristo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Antes de Cristo (a.C.), los años disminuyen con el tiempo hacia el presente: el año 100 a.C. es posterior (más cercano al presente) que el año 200 a.C."
-
-pasos:
-  - "Cuanto más grande el número en a.C., más lejano en el pasado."
-
-explicacion: |
-  Verdadero: en a.C. la relación se invierte respecto de d.C.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "intermedio"
-  tags: ["antes_de_cristo", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "500 a.C."
-tipo: mc
-opciones_explicitas: ["500 a.C.", "300 a.C."]
-
-enunciado: "¿Cuál de estos dos años es más antiguo?"
-
-pasos:
-  - "En a.C., el número más grande es más antiguo (más lejano en el pasado)."
-
-explicacion: |
-  500 a.C. es más antiguo que 300 a.C., aunque el número sea mayor.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "intermedio"
-  tags: ["formula", "cruce_ano_0"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para calcular cuántos años pasaron entre un año X a.C. y un año Y d.C., se suman los dos números (no se restan), porque no hay año 0 que se pueda cancelar entre ambos."
-
-pasos:
-  - "Es la fórmula central de este tema: Intervalo = X (a.C.) + Y (d.C.)."
-
-explicacion: |
-  Verdadero: es la regla central de cálculo cuando el intervalo
-  cruza del a.C. al d.C.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "intermedio"
-  tags: ["cruce_ano_0", "practica"]
-
-variables:
-  anio_ac: random(200, 600)
-  anio_dc: random(100, 500)
-
-respuesta: anio_ac + anio_dc
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos años pasaron desde el año {anio_ac} a.C. hasta el año {anio_dc} d.C.?"
-
-pasos:
-  - "Sumar los dos números, porque el intervalo cruza el año 0 inexistente."
-
-explicacion: |
-  El intervalo se calcula sumando el año a.C. y el año d.C., no
-  restándolos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "intermedio"
-  tags: ["cruce_ano_0", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "500"
-tipo: completar
-
-enunciado: "¿Cuántos años pasaron desde el año 300 a.C. hasta el año 200 d.C.?"
-
-pasos:
-  - "300 + 200 = 500 años."
-
-explicacion: |
-  Es el ejemplo clásico usado en la teoría: 300 a.C. + 200 d.C. = 500
-  años de intervalo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "basico"
-  tags: ["mismo_lado", "practica"]
-
-variables:
-  anio_menor: random(400, 700)
-  anio_mayor: random(800, 1200)
-
-respuesta: anio_mayor - anio_menor
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos años pasaron desde el año {anio_menor} d.C. hasta el año {anio_mayor} d.C.?"
-
-pasos:
-  - "Si ambos años están en d.C., se resta normalmente: el mayor menos el menor."
-
-explicacion: |
-  Cuando ambos años están del mismo lado (d.C.), el cálculo es una
-  resta simple.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "intermedio"
-  tags: ["mismo_lado", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "200"
-tipo: completar
-
-enunciado: "¿Cuántos años pasaron desde el año 500 a.C. hasta el año 300 a.C.?"
-
-pasos:
-  - "500 - 300 = 200. En a.C., el número mayor es más antiguo, así que se resta el menor al mayor igual."
-
-explicacion: |
-  Cuando ambos años están en a.C., se resta el número menor al mayor,
-  igual que con d.C., pero recordando que \"más grande\" significa
-  \"más antiguo\" en este caso.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "avanzado"
-  tags: ["cruce_ano_0", "error_comun"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para calcular el intervalo entre 300 a.C. y 200 d.C., conviene restar 300 menos 200, igual que se haría si ambos años estuvieran del mismo lado."
-
-pasos:
-  - "Como el intervalo cruza el año 0 inexistente, hay que sumar los dos números, no restarlos."
-
-explicacion: |
-  Falso: restar en este caso da un resultado incorrecto; la fórmula
-  correcta al cruzar el año 0 es sumar ambos números.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "avanzado"
-  tags: ["recta_numerica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El a.C. se puede pensar como números negativos y el d.C. como números positivos, pero sin el cero real entre medio."
-
-pasos:
-  - "Es la analogía que ayuda a entender por qué se suman los valores absolutos en vez de restarlos."
-
-explicacion: |
-  Verdadero: es la analogía descrita en la teoría para justificar la
-  fórmula de suma.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "basico"
-  tags: ["antes_de_cristo", "despues_de_cristo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cualquier año a.C. es siempre anterior a cualquier año d.C., sin excepción."
-
-pasos:
-  - "Todo lo que ocurrió antes de Cristo (a.C.) es, por definición, anterior a cualquier fecha después de Cristo (d.C.)."
-
-explicacion: |
-  Verdadero: es una consecuencia directa de la definición del
-  sistema de datación.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "avanzado"
-  tags: ["cruce_ano_0", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "780"
-tipo: completar
-
-enunciado: "Si un imperio se fundó en el año 753 a.C. y desapareció en el año 27 d.C., ¿cuántos años duró?"
-
-pasos:
-  - "El intervalo cruza el año 0 inexistente: se suman los dos números (753 + 27)."
-
-explicacion: |
-  753 + 27 = 780 años de duración, aplicando la fórmula de suma para
-  intervalos que cruzan del a.C. al d.C.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "intermedio"
-  tags: ["identificacion", "practica"]
-
-variables:
-  pares: ["100 a.C. y 50 d.C.", "300 d.C. y 500 d.C."]
-  cruza: [verdadero, falso]
-  idx: uno_de([0, 1])
-
-respuesta: cruza[idx]
-tipo: vf
-
-enunciado: "El intervalo entre {pares[idx]} cruza el año 0 (hay que sumar los años en vez de restar)."
-
-pasos:
-  - "Si uno de los años es a.C. y el otro d.C., el intervalo cruza el año 0."
-
-explicacion: |
-  Identificar si un intervalo cruza el año 0 es el primer paso para
-  elegir la fórmula correcta (suma o resta).
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "avanzado"
-  tags: ["error_comun"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un error común es tratar los años a.C. como si aumentaran con el tiempo igual que los años d.C., cuando en realidad disminuyen hacia el presente."
-
-pasos:
-  - "Confundir el sentido de conteo del a.C. es la fuente más común de errores en este tema."
-
-explicacion: |
-  Verdadero: es el error conceptual central que este tema busca
-  evitar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "intermedio"
-  tags: ["cruce_ano_0", "practica"]
-
-variables:
-  anio_ac: random(50, 150)
-  anio_dc: random(50, 150)
-
-respuesta: anio_ac + anio_dc
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un evento ocurrió en el año {anio_ac} a.C. y otro en el año {anio_dc} d.C. ¿Cuántos años pasaron entre ambos eventos?"
-
-pasos:
-  - "Sumar los dos valores porque el intervalo cruza el año 0."
-
-explicacion: |
-  Aplicar la fórmula de suma para intervalos que cruzan del a.C. al
-  d.C.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "intermedio"
-  tags: ["mismo_lado", "practica"]
-
-variables:
-  anio_reciente: random(100, 300)
-  anio_antiguo: random(400, 700)
-
-respuesta: anio_antiguo - anio_reciente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos años pasaron desde el año {anio_antiguo} a.C. hasta el año {anio_reciente} a.C.?"
-
-pasos:
-  - "En a.C., el número mayor es el más antiguo: se resta el menor al mayor."
-
-explicacion: |
-  Cuando ambos años están en a.C., el cálculo sigue siendo una resta,
-  cuidando qué número representa el año más antiguo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "intermedio"
-  tags: ["metodo"]
-
-enunciado: "Ordená los pasos para calcular correctamente el intervalo entre dos años históricos."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar si ambos años están del mismo lado (los dos a.C. o los dos d.C.) o si cruzan el año 0"
-  - "Si están del mismo lado, restar el número menor al mayor"
-  - "Si cruzan el año 0, sumar los dos números (a.C. + d.C.)"
-  - "Verificar que el resultado tenga sentido según la duración esperada del período"
-respuesta_orden:
-  - "Identificar si ambos años están del mismo lado (los dos a.C. o los dos d.C.) o si cruzan el año 0"
-  - "Si están del mismo lado, restar el número menor al mayor"
-  - "Si cruzan el año 0, sumar los dos números (a.C. + d.C.)"
-  - "Verificar que el resultado tenga sentido según la duración esperada del período"
-
-explicacion: |
-  El proceso empieza identificando el caso (mismo lado o cruce del
-  año 0) para aplicar la fórmula correcta en cada situación.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Calcular estos intervalos con precisión es el prerrequisito directo de dividir la historia en períodos, que requiere poder calcular con exactitud cuánto duró cada uno."
-
-pasos:
-  - "Ver `../periodizacion-historica/`: es el tema siguiente de la cadena, incluidos períodos que cruzan del a.C. al d.C."
-
-explicacion: |
-  Verdadero: por eso este tema es prerrequisito directo del
-  siguiente en la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "antes_y_despues_de_cristo"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al estudiar la transición del mundo antiguo mediterráneo hacia la era cristiana, conviene aplicar la fórmula de suma (no de resta) para calcular correctamente cuántos años abarcó ese proceso, ya que cruza del a.C. al d.C."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema a un caso histórico real que cruza el año 0."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema en el análisis
-  de procesos históricos reales que cruzan el cambio de era.
-```
-
-## Sección: cambio-y-continuidad (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "basico"
-  tags: ["cambio_y_continuidad", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al comparar dos momentos históricos, siempre hay elementos que cambiaron y elementos que se mantuvieron igual (continuidad)."
-
-pasos:
-  - "Ningún proceso histórico es 100% cambio radical ni 100% continuidad absoluta."
-
-explicacion: |
-  Verdadero: es la definición central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["cambio_y_continuidad", "metodo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El trabajo del análisis histórico es identificar específicamente qué cambió y qué no, en vez de asumir que todo cambió o que nada cambió."
-
-pasos:
-  - "Es el objetivo central de este tema."
-
-explicacion: |
-  Verdadero: es el objetivo metodológico central del análisis de
-  cambio y continuidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["ejemplo_revolucion_de_mayo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Después de la Revolución de Mayo (1810), se reemplazó la autoridad virreinal por un gobierno local (la Primera Junta): es un ejemplo de cambio."
-
-pasos:
-  - "Es uno de los cambios concretos mencionados en el ejemplo de la teoría."
-
-explicacion: |
-  Verdadero: es un cambio político concreto y verificable ocurrido
-  tras la Revolución de Mayo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["ejemplo_revolucion_de_mayo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Después de la Revolución de Mayo, la estructura social (esclavitud, roles de género, jerarquías) no cambió de inmediato: es un ejemplo de continuidad."
-
-pasos:
-  - "Es una de las continuidades concretas mencionadas en el ejemplo de la teoría."
-
-explicacion: |
-  Verdadero: muestra que un evento político dramático no cambia
-  automáticamente todos los aspectos de una sociedad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["error_exagerar_cambio"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es un error común, sobre todo al estudiar \"revoluciones\" o \"hitos\", asumir que todo cambió radicalmente de un día para el otro."
-
-pasos:
-  - "En la práctica, la mayoría de los procesos sociales, económicos y culturales cambian gradualmente."
-
-explicacion: |
-  Verdadero: es uno de los dos errores centrales que este tema busca
-  evitar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["error_exagerar_continuidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El error opuesto es minimizar los cambios reales que sí ocurrieron, asumiendo que \"en el fondo todo sigue igual\"."
-
-pasos:
-  - "Es el otro de los dos errores centrales que este tema busca evitar."
-
-explicacion: |
-  Verdadero: es el segundo error central, opuesto al de exagerar el
-  cambio.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["error_exagerar_cambio", "error_exagerar_continuidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Tanto exagerar el cambio como exagerar la continuidad distorsionan el análisis histórico; la habilidad central es encontrar el balance específico entre ambos, caso por caso."
-
-pasos:
-  - "Ninguno de los dos extremos es correcto por defecto; hace falta analizar cada caso en particular."
-
-explicacion: |
-  Verdadero: es la conclusión central sobre cómo evitar ambos
-  errores.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["ritmos_de_cambio"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El cambio político (una nueva ley, un nuevo gobierno) puede ser rápido; el cambio social o cultural (formas de pensar, costumbres) suele ser mucho más lento."
-
-pasos:
-  - "Es la razón por la que distintos aspectos de una sociedad cambian a ritmos distintos."
-
-explicacion: |
-  Verdadero: es el concepto central de \"ritmos distintos de cambio\"
-  descrito en la teoría.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["ritmos_de_cambio"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Comparar dos momentos históricos requiere prestar atención a que distintos aspectos de una sociedad (político, económico, cultural, social) no cambian todos al mismo ritmo."
-
-pasos:
-  - "Es la conclusión central sobre los ritmos distintos de cambio."
-
-explicacion: |
-  Verdadero: es una consideración central para un análisis riguroso
-  de cambio y continuidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["causa_y_consecuencia", "prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para saber si algo \"cambió\", hace falta identificar qué causó ese cambio (o su ausencia); comparar dos momentos sin analizar las causas es una comparación incompleta."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/`: es el prerrequisito directo de este tema."
-
-explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["cambio_y_continuidad", "practica"]
-
-variables:
-  ejemplos: ["tras una revolución, se sancionó una nueva constitución", "tras una revolución, las mismas familias mantuvieron el control de las tierras y el poder económico durante décadas"]
-  tipos: ["cambio", "continuidad"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["cambio", "continuidad"]
-
-enunciado: "\"{ejemplos[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "Una nueva institución es un cambio; el mantenimiento de una estructura de poder previa es una continuidad."
-
-explicacion: |
-  Distinguir cambio de continuidad en un caso concreto es la
-  aplicación central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["cambio_y_continuidad", "matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un proceso histórico puede describirse correctamente como 100% cambio radical o 100% continuidad absoluta, sin ningún matiz intermedio."
-
-pasos:
-  - "Siempre hay elementos que cambian y elementos que se mantienen, la realidad histórica no cae en un extremo absoluto."
-
-explicacion: |
-  Falso: la afirmación de la teoría es exactamente lo contrario,
-  ningún proceso histórico es un extremo absoluto.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["ritmos_de_cambio", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al analizar un mismo evento histórico, se puede encontrar cambio en el ámbito político y continuidad en el ámbito social, ambos a la vez."
-
-pasos:
-  - "Es la aplicación práctica de que distintos aspectos de una sociedad cambian a ritmos distintos."
-
-explicacion: |
-  Verdadero: es una consecuencia directa de analizar los distintos
-  ámbitos de una sociedad por separado.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["ejemplo_revolucion_de_mayo", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El hecho de que un país se independizara políticamente no garantiza que sus estructuras económicas o sociales cambiaran al mismo ritmo o en la misma medida."
-
-pasos:
-  - "Coherente con el ejemplo de la Revolución de Mayo mencionado en la teoría."
-
-explicacion: |
-  Verdadero: es una aplicación general del principio de ritmos
-  distintos de cambio a procesos de independencia política.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["big_six"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cambio y continuidad es otro de los 6 conceptos del marco \"Big Six\" de pensamiento histórico, junto con causa y consecuencia."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/`: ambos temas forman parte del mismo marco teórico de referencia."
-
-explicacion: |
-  Verdadero: es el mismo contexto académico ya mencionado en el tema
-  anterior de la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["error_exagerar_cambio", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un relato histórico que afirma \"tras la revolución, absolutamente todo cambió de un día para el otro en todos los aspectos de la sociedad\" es un análisis riguroso y equilibrado según los criterios de este tema."
-
-pasos:
-  - "Es un ejemplo del error de exagerar el cambio, ignorando las continuidades reales que también existieron."
-
-explicacion: |
-  Falso: ese relato exagera el cambio, exactamente el error central
-  que este tema busca evitar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["error_exagerar_continuidad", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un relato histórico que afirma \"la revolución no cambió absolutamente nada, todo siguió exactamente igual\" es un análisis riguroso y equilibrado según los criterios de este tema."
-
-pasos:
-  - "Es un ejemplo del error de exagerar la continuidad, ignorando los cambios reales que sí ocurrieron."
-
-explicacion: |
-  Falso: ese relato exagera la continuidad, el otro error central que
-  este tema busca evitar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["cambio_y_continuidad", "metodo"]
-
-enunciado: "Ordená los pasos para analizar cambio y continuidad entre dos momentos históricos."
-tipo: ordenar
-opciones_explicitas:
-  - "Comparar los dos momentos en distintos ámbitos (político, social, económico, cultural)"
-  - "Identificar específicamente qué cambió en cada ámbito"
-  - "Identificar específicamente qué se mantuvo igual en cada ámbito"
-  - "Analizar las causas de esos cambios (o de su ausencia) en cada caso"
-respuesta_orden:
-  - "Comparar los dos momentos en distintos ámbitos (político, social, económico, cultural)"
-  - "Identificar específicamente qué cambió en cada ámbito"
-  - "Identificar específicamente qué se mantuvo igual en cada ámbito"
-  - "Analizar las causas de esos cambios (o de su ausencia) en cada caso"
-
-explicacion: |
-  El proceso va de comparar por ámbitos a identificar cambios y
-  continuidades específicos, cerrando con el análisis causal de cada
-  uno.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cambio y continuidad es prerrequisito directo de multicausalidad, que extiende el análisis de causa-consecuencia a que un hecho tenga varias causas a la vez."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el tema siguiente y último de la cadena de pensamiento histórico cubierta en esta sesión."
-
-explicacion: |
-  Verdadero: por eso este tema es prerrequisito directo del
-  siguiente en la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["cambio_y_continuidad", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al estudiar cualquier proceso histórico (una revolución, una reforma, una transición), conviene identificar tanto lo que cambió como lo que se mantuvo, evitando simplificar el relato hacia uno solo de los dos extremos."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema al análisis
-  equilibrado de cualquier proceso histórico.
-```
-
-## Sección: causa-y-consecuencia (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "basico"
-  tags: ["causa", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una causa es una condición o hecho que contribuye a producir otro hecho (la consecuencia)."
-
-pasos:
-  - "En historia, rara vez una causa \"obliga\" mecánicamente a la consecuencia, como en física."
-
-explicacion: |
-  Verdadero: es la definición central de causa en el análisis
-  histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "intermedio"
-  tags: ["causa", "probabilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En historia, una causa hace que la consecuencia sea más probable o posible, dentro de decisiones humanas que podrían haber sido distintas."
-
-pasos:
-  - "A diferencia de una relación mecánica como en física, hay margen de decisión humana involucrado."
-
-explicacion: |
-  Verdadero: es un matiz importante sobre cómo funciona la
-  causalidad en el análisis histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "intermedio"
-  tags: ["causas_inmediatas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "causa inmediata"
-tipo: mc
-opciones_explicitas: ["causa inmediata", "causa profunda"]
-
-enunciado: "El asesinato del archiduque Francisco Fernando, como el hecho puntual que \"disparó\" directamente la Primera Guerra Mundial, es un ejemplo de..."
-
-pasos:
-  - "Es el hecho puntual que desencadena directamente el acontecimiento."
-
-explicacion: |
-  La causa inmediata es el hecho puntual que dispara directamente un
-  acontecimiento.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "intermedio"
-  tags: ["causas_profundas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "causa profunda"
-tipo: mc
-opciones_explicitas: ["causa inmediata", "causa profunda"]
-
-enunciado: "Las tensiones entre potencias europeas, las alianzas militares y el nacionalismo, que ya existían antes del asesinato de Francisco Fernando, son ejemplos de..."
-
-pasos:
-  - "Son condiciones de fondo que venían gestándose desde antes del hecho puntual."
-
-explicacion: |
-  Las causas profundas (o estructurales) son condiciones de fondo que
-  explican por qué la causa inmediata tuvo el efecto que tuvo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "avanzado"
-  tags: ["causas_inmediatas", "causas_profundas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin las causas profundas, la causa inmediata (el asesinato del archiduque) no habría tenido el mismo efecto: explica por qué ese hecho puntual desató una guerra mundial y no un conflicto menor."
-
-pasos:
-  - "Es la razón por la que ambos tipos de causa se analizan juntos, no por separado."
-
-explicacion: |
-  Verdadero: es la relación central entre causa inmediata y causa
-  profunda en el análisis histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "intermedio"
-  tags: ["correlacion_vs_causalidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que dos hechos ocurran cerca en el tiempo no significa que uno haya causado al otro: puede ser coincidencia, o ambos pueden ser consecuencia de una tercera causa común."
-
-pasos:
-  - "Es el error más común al analizar relaciones causales en historia."
-
-explicacion: |
-  Verdadero: es el principio central para no confundir cercanía
-  temporal con causalidad real.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "intermedio"
-  tags: ["correlacion_vs_causalidad", "evidencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Establecer una relación de causa-consecuencia requiere evidencia de un mecanismo real que conecte ambos hechos, no sólo cercanía temporal."
-
-pasos:
-  - "Es el criterio central para validar una relación causal, más allá de que los hechos ocurran cerca en el tiempo."
-
-explicacion: |
-  Verdadero: es el requisito central para afirmar una relación
-  causal de forma rigurosa.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "avanzado"
-  tags: ["correlacion_vs_causalidad", "detectar_falacias"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Confundir correlación con causalidad en historia es el mismo tipo de error de razonamiento que la generalización apresurada ya vista en `../../lengua/detectar-falacias/`, aplicado ahora al análisis histórico."
-
-pasos:
-  - "Ver `../../lengua/detectar-falacias/`: es la conexión directa entre este tema y esa falacia ya estudiada."
-
-explicacion: |
-  Verdadero: es la relación entre este error histórico y su
-  equivalente ya conocido en Lengua.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "intermedio"
-  tags: ["consecuencias_corto_plazo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una consecuencia a corto plazo es un efecto que se ve poco después del hecho causante."
-
-pasos:
-  - "Es una de las dos categorías de consecuencia según el tiempo que tardan en manifestarse."
-
-explicacion: |
-  Verdadero: es la definición de consecuencia a corto plazo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "intermedio"
-  tags: ["consecuencias_largo_plazo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una consecuencia a largo plazo se manifiesta años o décadas después, y a veces es más importante que los efectos inmediatos, aunque menos evidente en el momento."
-
-pasos:
-  - "Es la otra categoría de consecuencia según el tiempo que tardan en manifestarse."
-
-explicacion: |
-  Verdadero: es la definición de consecuencia a largo plazo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "avanzado"
-  tags: ["cadenas_causales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las cadenas causales no terminan en un solo eslabón: la consecuencia de un hecho puede convertirse en la causa de otro hecho posterior."
-
-pasos:
-  - "Analizar historia a menudo implica seguir estas cadenas varios pasos hacia adelante o hacia atrás."
-
-explicacion: |
-  Verdadero: es el concepto de cadena causal, más allá de una
-  relación causa-consecuencia aislada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "intermedio"
-  tags: ["causas_inmediatas", "causas_profundas", "practica"]
-
-variables:
-  ejemplos: ["la firma de un tratado que desencadenó directamente una guerra", "décadas de crisis económica y descontento social que venían acumulándose antes de una revolución"]
-  tipos: ["causa inmediata", "causa profunda"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["causa inmediata", "causa profunda"]
-
-enunciado: "\"{ejemplos[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "El hecho puntual que dispara directamente es inmediata; las condiciones de fondo acumuladas son profundas."
-
-explicacion: |
-  Distinguir causa inmediata de causa profunda en un ejemplo concreto
-  es la aplicación central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "avanzado"
-  tags: ["causas_profundas", "matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un mismo hecho histórico puede tener varias causas profundas al mismo tiempo (económicas, sociales, políticas), no sólo una."
-
-pasos:
-  - "Es un anticipo del concepto de multicausalidad, tema más adelante en la cadena."
-
-explicacion: |
-  Verdadero: es coherente con la idea de que rara vez hay una única
-  causa detrás de un hecho histórico importante.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "intermedio"
-  tags: ["consecuencias_corto_plazo", "consecuencias_largo_plazo", "practica"]
-
-variables:
-  consecuencias: ["la caída inmediata de un gobierno tras un golpe de Estado", "un cambio profundo en las instituciones políticas de un país, visible recién décadas después"]
-  tipos: ["consecuencia a corto plazo", "consecuencia a largo plazo"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["consecuencia a corto plazo", "consecuencia a largo plazo"]
-
-enunciado: "\"{consecuencias[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "El efecto inmediato es corto plazo; el efecto que tarda décadas en verse es largo plazo."
-
-explicacion: |
-  Distinguir consecuencias según su horizonte temporal es una
-  aplicación práctica central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "avanzado"
-  tags: ["correlacion_vs_causalidad", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si dos hechos ocurrieron el mismo año en distintas partes del mundo sin ninguna relación demostrable entre ellos, se puede afirmar con seguridad que uno causó al otro."
-
-pasos:
-  - "Sin evidencia de un mecanismo real que los conecte, la simultaneidad no es suficiente para afirmar causalidad."
-
-explicacion: |
-  Falso: la coincidencia temporal sola no es evidencia suficiente de
-  causalidad, hace falta un mecanismo demostrable.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Analizar causas y consecuencias requiere un marco temporal claro (periodización), para poder ubicar en qué momento ocurrió cada hecho relacionado."
-
-pasos:
-  - "Ver `../periodizacion-historica/`: es el prerrequisito directo de este tema."
-
-explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito de la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "avanzado"
-  tags: ["big_six"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Causa y consecuencia es uno de los 6 conceptos del marco \"Big Six\" (Seixas & Morton) de pensamiento histórico, una referencia internacional en didáctica de la Historia."
-
-pasos:
-  - "Es el contexto académico de este tema, mencionado en la teoría."
-
-explicacion: |
-  Verdadero: es el marco teórico de referencia que organiza este
-  tema y varios de los siguientes en la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "intermedio"
-  tags: ["causa_y_consecuencia", "metodo"]
-
-enunciado: "Ordená los pasos para analizar las causas de un hecho histórico."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar la causa inmediata (el hecho puntual que disparó el acontecimiento)"
-  - "Buscar las causas profundas o estructurales que venían gestándose desde antes"
-  - "Revisar si hay evidencia real de conexión entre esas causas y la consecuencia, no sólo cercanía temporal"
-  - "Distinguir consecuencias a corto y largo plazo del hecho analizado"
-respuesta_orden:
-  - "Identificar la causa inmediata (el hecho puntual que disparó el acontecimiento)"
-  - "Buscar las causas profundas o estructurales que venían gestándose desde antes"
-  - "Revisar si hay evidencia real de conexión entre esas causas y la consecuencia, no sólo cercanía temporal"
-  - "Distinguir consecuencias a corto y largo plazo del hecho analizado"
-
-explicacion: |
-  El proceso va de la causa más visible (inmediata) a las más
-  profundas, verificando evidencia real y considerando el horizonte
-  temporal de las consecuencias.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Comparar qué cambió y qué se mantuvo en el tiempo (cambio y continuidad) presupone ya poder identificar qué causó cada cambio."
-
-pasos:
-  - "Ver `../cambio-y-continuidad/`: es el tema siguiente de la cadena de pensamiento histórico."
-
-explicacion: |
-  Verdadero: por eso este tema es prerrequisito directo del
-  siguiente en la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "causa_y_consecuencia"
-  nivel: "avanzado"
-  tags: ["causa_y_consecuencia", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al analizar cualquier hecho histórico o actual, conviene distinguir la causa inmediata de las causas profundas, y evitar afirmar una relación causal sin evidencia de un mecanismo real, sólo por cercanía temporal."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema al análisis de
-  cualquier hecho histórico, pasado o presente.
-```
 
 ## Sección: conquista-del-desierto-y-campana-al-chaco (24 preguntas)
 
@@ -1444,19 +33,19 @@ metadata:
   tags: ["conquista_del_desierto", "pueblos_originarios"]
 
 variables:
-  pueblos: ["mapuches", "pehuenches", "querandíes", "ranqueles"]
-  correctos: ["mapuches", "pehuenches", "querandíes"]
+  pueblos: ["mapuches", "pehuenches", "ranqueles", "querandíes"]
+  correctos: ["mapuches", "pehuenches", "ranqueles"]
 
 respuesta: |
   mapuches
   pehuenches
-  querandíes
+  ranqueles
 tipo: completar
 
 enunciado: "Nombra tres de los pueblos originarios que habitaban la Pampa y la Patagonia y fueron afectados por la Conquista del Desierto."
 
 explicacion: |
-  Los mapuches, pehuenches y querandíes, entre otros, eran los habitantes principales de la región que fue objeto de la campaña militar de 1879.
+  Los mapuches, pehuenches y ranqueles, entre otros, eran los habitantes principales de la región que fue objeto de la campaña militar de 1879.
 ```
 
 ```
@@ -1466,17 +55,13 @@ metadata:
   nivel: "intermedio"
   tags: ["campana_al_chaco", "cronologia"]
 
-variables:
-  inicio: 1884
-  fin: 1885
-
 respuesta: "1884-1885"
 tipo: input
 
-enunciado: "La Campaña al Chaco, dirigida a asegurar las fronteras del norte, se desarrolló principalmente durante los años: {inicio} y {fin}."
+enunciado: "¿Entre qué dos años se desarrolló principalmente la Campaña al Chaco, dirigida a asegurar las fronteras del norte? (formato: aaaa-aaaa)"
 
 explicacion: |
-  Aunque hubo acciones previas y posteriores, el periodo clave de la Campaña al Chaco bajo el gobierno de Miguel Juárez Celman fue entre 1884 y 1885.
+  Aunque hubo acciones previas y posteriores, el periodo clave de la Campaña al Chaco bajo el gobierno de Julio A. Roca fue entre 1884 y 1885.
 ```
 
 ```
@@ -1487,15 +72,15 @@ metadata:
   tags: ["campana_al_chaco", "gobierno"]
 
 variables:
-  presidente: "Miguel Juárez Celman"
+  presidente: "Julio A. Roca"
 
-respuesta: "Miguel Juárez Celman"
+respuesta: "Julio A. Roca"
 tipo: input
 
 enunciado: "¿Qué presidente estaba en el cargo durante el desarrollo principal de la Campaña al Chaco (1884-1885)?"
 
 explicacion: |
-  La Campaña al Chaco se llevó a cabo durante el gobierno de Miguel Juárez Celman, buscando consolidar el control estatal en el norte argentino.
+  La Campaña al Chaco se llevó a cabo durante el gobierno de Julio A. Roca, buscando consolidar el control estatal en el norte argentino.
 ```
 
 ```
@@ -1505,13 +90,10 @@ metadata:
   nivel: "intermedio"
   tags: ["consecuencias", "demografia"]
 
-variables:
-  efecto: "desplazamiento o muerte de miles de personas"
-
 respuesta: "desplazamiento o muerte de miles de personas"
 tipo: input
 
-enunciado: "Una de las consecuencias humanas inmediatas de la Conquista del Desierto fue el {efecto}."
+enunciado: "Una de las consecuencias humanas inmediatas de la Conquista del Desierto fue el ___."
 
 explicacion: |
   La campaña militar provocó el desalojo forzado, la muerte o la reducción a la servidumbre de miles de indígenas, alterando radicalmente la demografía regional.
@@ -1543,13 +125,10 @@ metadata:
   nivel: "basico"
   tags: ["roca", "liderazgo", "militar"]
 
-variables:
-  comandante: "Julio Argentino Roca"
-
 respuesta: "Julio Argentino Roca"
 tipo: completar
 
-enunciado: "La campaña de la Conquista del Desierto fue comandada por el general {comandante}."
+enunciado: "La campaña de la Conquista del Desierto fue comandada por el general ___."
 
 explicacion: |
   Julio Argentino Roca fue el general que lideró la expedición de 1879. Su éxito en esta campaña consolidó su posición política y lo llevó a la presidencia posteriormente.
@@ -1562,16 +141,13 @@ metadata:
   nivel: "intermedio"
   tags: ["territorio", "patagonia", "pampa"]
 
-variables:
-  region: "Pampa Patagónica"
-
 respuesta: "Pampa Patagónica"
 tipo: completar
 
-enunciado: "El objetivo geográfico principal de la Conquista del Desierto era avanzar sobre la {region}."
+enunciado: "El objetivo geográfico principal de la Conquista del Desierto era avanzar sobre la ___."
 
 explicacion: |
-  La campaña buscaba someter a los pueblos mapuches, pehuenches y querandíes que habitaban la Pampa y la Patagonia, integrando estas tierras al Estado nacional.
+  La campaña buscaba someter a los pueblos mapuches, pehuenches y ranqueles que habitaban la Pampa y la Patagonia, integrando estas tierras al Estado nacional.
 ```
 
 ```
@@ -1581,13 +157,10 @@ metadata:
   nivel: "intermedio"
   tags: ["pueblos_originarios", "mapuche", "pehuenche"]
 
-variables:
-  pueblos: "mapuches, pehuenches y querandíes"
-
-respuesta: "mapuches, pehuenches y querandíes"
+respuesta: "mapuches, pehuenches y ranqueles"
 tipo: completar
 
-enunciado: "Los principales pueblos originarios que habitaban los territorios conquistados en la campaña del sur eran los {pueblos}."
+enunciado: "Los principales pueblos originarios que habitaban los territorios conquistados en la campaña del sur eran los ___."
 
 explicacion: |
   Estos grupos mantenían una organización social y económica autónoma en la región pampeana y patagónica antes de la intervención militar estatal.
@@ -1625,7 +198,7 @@ tipo: input
 enunciado: "¿En qué año comenzó principalmente la Campaña al Chaco, paralela a la consolidación de la frontera sur?"
 
 explicacion: |
-  La Campaña al Chaco se desarrolló principalmente entre 1884 y 1885, bajo el gobierno de Miguel Juárez Celman, para asegurar la frontera norte.
+  La Campaña al Chaco se desarrolló principalmente entre 1884 y 1885, bajo el gobierno de Julio A. Roca, para asegurar la frontera norte.
 ```
 
 ```
@@ -1635,16 +208,13 @@ metadata:
   nivel: "intermedio"
   tags: ["juarez_celman", "presidencia", "gobierno"]
 
-variables:
-  presidente: "Miguel Juárez Celman"
-
-respuesta: "Miguel Juárez Celman"
+respuesta: "Julio A. Roca"
 tipo: completar
 
-enunciado: "La Campaña al Chaco se llevó a cabo durante el gobierno de {presidente}."
+enunciado: "La Campaña al Chaco se llevó a cabo durante el gobierno de ___."
 
 explicacion: |
-  Miguel Juárez Celman fue presidente de Argentina entre 1886 y 1890. Durante su mandato, se intensificó la expansión hacia el norte del país.
+  Julio A. Roca fue presidente de Argentina en su primer mandato entre 1880 y 1886 (tuvo un segundo mandato entre 1898 y 1904). Durante ese primer gobierno se intensificó la expansión hacia el norte del país.
 ```
 
 ```
@@ -1676,7 +246,7 @@ tipo: vf
 enunciado: "La Campaña al Chaco tuvo lugar principalmente entre 1884 y 1885."
 
 explicacion: |
-  Correcto. Aunque hubo conflictos anteriores y posteriores, este período marca el inicio de la ocupación sistemática del norte bajo el gobierno de Juárez Celman.
+  Correcto. Aunque hubo conflictos anteriores y posteriores, este período marca el inicio de la ocupación sistemática del norte bajo el gobierno de Roca.
 ```
 
 ```
@@ -1853,13 +423,13 @@ variables:
   mes: 12
   anio: 2001
 
-respuesta: "{dia}/{mes}/{anio}"
+respuesta: dia + "/" + mes + "/" + anio
 tipo: input
 
 enunciado: "¿En qué fecha (dd/mm/aaaa) se decretó el Corralito?"
 
 explicacion: |
-  El Corralito fue decretado el 1 de diciembre de 2001 por el ministro Ricardo López Murphy, aunque su implementación efectiva ocurrió poco después bajo Domingo Cavallo.
+  El Corralito fue decretado el 1 de diciembre de 2001 por el ministro de Economía Domingo Cavallo, mediante la Resolución 1570/2001, que restringió la extracción de efectivo de los bancos.
 ```
 
 ```
@@ -1869,13 +439,14 @@ metadata:
   nivel: "intermedio"
   tags: ["convertibilidad", "déficit_fiscal"]
 
-variables:
-  paridad: 1
-
 respuesta: "uno a uno"
 tipo: completar
+respuestas_validas:
+  - "uno a uno"
+  - "1 a 1"
+  - "1:1"
 
-enunciado: "Durante la década de los noventa, la convertibilidad vinculaba el peso argentino al dólar estadounidense a una paridad de {paridad} a {paridad}."
+enunciado: "Durante la década de los noventa, la convertibilidad vinculaba el peso argentino al dólar estadounidense a una paridad de ___."
 
 explicacion: |
   La paridad era de 1:1, lo que significaba que un dólar estadounidense equivalía exactamente a un peso argentino.
@@ -1888,13 +459,10 @@ metadata:
   nivel: "basico"
   tags: ["inflación", "déficit"]
 
-variables:
-  resultado: random(0, 1)
-
 respuesta: "déficit fiscal crónico"
 tipo: completar
 
-enunciado: "Aunque frenó la hiperinflación, la convertibilidad generó {resultado + 1} problema estructural principal mencionado: un _______________ crónico que obligó al endeudamiento."
+enunciado: "Aunque frenó la hiperinflación, la convertibilidad generó un problema estructural principal: un _______________ que obligó al endeudamiento."
 
 explicacion: |
   El texto indica que la convertibilidad generó desequilibrios estructurales, específicamente un déficit fiscal crónico.
@@ -1926,11 +494,11 @@ metadata:
   nivel: "intermedio"
   tags: ["fmi", "ajuste"]
 
-variables:
-  entidad: "Fondo Monetario Internacional"
-
-respuesta: "FMI"
+respuesta: "Fondo Monetario Internacional"
 tipo: completar
+respuestas_validas:
+  - "Fondo Monetario Internacional"
+  - "FMI"
 
 enunciado: "El gobierno intentó negociar un nuevo plan de ajuste con el _______________ (FMI), pero las negociaciones colapsaron."
 
@@ -1945,11 +513,12 @@ metadata:
   nivel: "basico"
   tags: ["reservas", "déficit"]
 
-variables:
-  falta: "falta"
-
-respuesta: "reservas"
+respuesta: "falta"
 tipo: completar
+respuestas_validas:
+  - "falta"
+  - "escasez"
+  - "carencia"
 
 enunciado: "La _______________ de reservas para defender la moneda fue un factor clave del pánico financiero."
 
@@ -2078,10 +647,7 @@ metadata:
   nivel: "intermedio"
   tags: ["protesta", "social"]
 
-variables:
-  transformacion: "transformar"
-
-respuesta: "transformar"
+respuesta: "transformadora"
 tipo: completar
 
 enunciado: "La indignación creció, buscando una salida _______________ a la crisis."
@@ -2116,13 +682,10 @@ metadata:
   nivel: "basico"
   tags: ["presidencia", "tiempo"]
 
-variables:
-  dias: 11
-
 respuesta: "11"
 tipo: input
 
-enunciado: "En apenas {dias} días, entre el 19 y el 30 de diciembre, Argentina tuvo cinco presidentes o figuras de poder."
+enunciado: "Entre el 19 y el 30 de diciembre de 2001, Argentina tuvo cinco presidentes o figuras de poder en apenas ___ días."
 
 explicacion: |
   El periodo de sucesión presidencial rápida duró 11 días en diciembre de 2001.
@@ -2135,13 +698,10 @@ metadata:
   nivel: "basico"
   tags: ["fechas", "diciembre"]
 
-variables:
-  inicio: 19
-
 respuesta: "19"
 tipo: input
 
-enunciado: "La sucesión presidencial crítica comenzó el {inicio} de diciembre de 2001."
+enunciado: "La sucesión presidencial crítica comenzó el ___ de diciembre de 2001."
 
 explicacion: |
   El 19 de diciembre fue el inicio de los eventos que llevaron a la renuncia de De la Rúa.
@@ -2154,13 +714,10 @@ metadata:
   nivel: "basico"
   tags: ["fechas", "diciembre"]
 
-variables:
-  fin: 30
-
 respuesta: "30"
 tipo: input
 
-enunciado: "La sucesión presidencial crítica finalizó el {fin} de diciembre de 2001."
+enunciado: "La sucesión presidencial crítica finalizó el ___ de diciembre de 2001."
 
 explicacion: |
   El 30 de diciembre marca el final del periodo de cinco presidentes en tan pocos días.
@@ -2192,16 +749,17 @@ metadata:
   nivel: "intermedio"
   tags: ["vicepresidente", "renuncia"]
 
-variables:
-  vp: "Carlos"
-
-respuesta: "Carlos"
+respuesta: "Carlos Álvarez"
 tipo: completar
+respuestas_validas:
+  - "Carlos Álvarez"
+  - "Chacho Álvarez"
+  - "Carlos \"Chacho\" Álvarez"
 
-enunciado: "La renuncia del vicepresidente _______________ (Carl...) fue parte de la inestabilidad."
+enunciado: "La renuncia del vicepresidente _______________ en octubre de 2000, en medio de denuncias de sobornos en el Senado, debilitó políticamente al gobierno de la Alianza y sentó las bases de la crisis de diciembre de 2001."
 
 explicacion: |
-  El texto menciona la renuncia del vicepresidente Carlos como parte de la sucesión caótica.
+  Carlos "Chacho" Álvarez renunció a la vicepresidencia en octubre de 2000, más de un año antes del estallido de diciembre de 2001, pero su salida profundizó la crisis política del gobierno de De la Rúa.
 ```
 
 ```
@@ -2241,3 +799,1582 @@ enunciado: "El Corralito fue visto como un _______________ de la incapacidad del
 explicacion: |
   La medida no solo fue económica, sino un indicador de la debilidad institucional.
 ```
+
+## Sección: guerra-civil-espanola-1936-1939 (26 preguntas)
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "basico"
+  tags: ["causas", "polarizacion"]
+
+variables:
+  anio_estallido: 1936
+
+respuesta: "1936"
+tipo: input
+
+enunciado: "En qué año comenzó oficialmente el conflicto armado interno conocido como la Guerra Civil Española?"
+
+explicacion: |
+  El conflicto estalló tras el intento de golpe de Estado en julio de 1936, marcando el fin de la Segunda República.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "basico"
+  tags: ["bandos", "nacionalistas"]
+
+variables:
+  lider: uno_de(["Francisco Franco", "José Sanjurjo"])
+
+respuesta: "Francisco Franco"
+tipo: input
+
+enunciado: "¿Quién lideró finalmente al bando sublevado o nacionalista hasta el final de la guerra?"
+
+explicacion: |
+  Aunque José Sanjurjo fue clave inicialmente, murió en un accidente aéreo. Francisco Franco se consolidó como el líder supremo del bando nacionalista.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["diplomacia", "occidente"]
+
+variables:
+  pais: uno_de(["Reino Unido", "Francia", "Estados Unidos"])
+
+respuesta: "no intervención"
+tipo: input
+
+enunciado: "¿Qué política adoptaron las democracias liberales como {pais} ante el conflicto?"
+
+explicacion: |
+  Estas potencias adoptaron una política de "no intervención", lo que dejó a la República en desventaja frente a los apoyos extranjeros a los nacionalistas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "basico"
+  tags: ["bandos", "republica"]
+
+variables:
+  nombre_bando: "republicano"
+
+respuesta: "republicano"
+tipo: input
+
+enunciado: "¿Cómo se denominaba al bando que defendía al gobierno legítimo de la Segunda República?"
+
+explicacion: |
+  El bando republicano o leal defendía la legalidad constitucional frente al golpe de Estado.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["batallas", "madrid"]
+
+variables:
+  ciudad: "Madrid"
+
+respuesta: "Madrid"
+tipo: input
+
+enunciado: "¿Qué capital resistió heroicamente durante años bajo asedio nacionalista?"
+
+explicacion: |
+  Madrid fue un símbolo de la resistencia republicana y permaneció en manos republicanas hasta el final de la guerra.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["sociedad", "polarizacion"]
+
+variables:
+  grupo_opositor: uno_de(["derecha conservadora", "jerarquía católica", "gran parte del ejército"])
+
+respuesta: "derecha conservadora"
+tipo: input
+
+enunciado: "¿Qué sector vio las reformas republicanas como una amenaza existencial al 'España tradicional'?"
+
+explicacion: |
+  La derecha conservadora, la jerarquía católica y gran parte del ejército se opusieron a las reformas progresistas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "basico"
+  tags: ["politica", "frente_popular"]
+
+variables:
+  alianza: "Frente Popular"
+
+respuesta: "Frente Popular"
+tipo: input
+
+enunciado: "¿Cómo se llamaba la coalición de izquierdas que apoyaba las reformas progresistas antes de la guerra?"
+
+explicacion: |
+  El Frente Popular ganó las elecciones en 1936, representando a quienes apoyaban la modernización y las reformas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["estrategia", "frentes"]
+
+variables:
+  tipo_guerra: "desgaste"
+
+respuesta: "desgaste"
+tipo: input
+
+enunciado: "¿Qué tipo de guerra caracterizó al frente de batalla, además de la brutalidad de ambos bandos?"
+
+explicacion: |
+  Fue una guerra de desgaste donde el control territorial se perdió progresivamente para la República.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["territorio", "autonomias"]
+
+variables:
+  region: uno_de(["Cataluña", "País Vasco"])
+
+respuesta: "Cataluña"
+tipo: input
+
+enunciado: "¿Qué región recibió reconocimiento de autonomía por parte del gobierno republicano, lo que generó resistencia conservadora?"
+
+explicacion: |
+  Cataluña y el País Vasco fueron regiones clave que buscaron o recibieron mayores autonomías, vistas como amenazas por la derecha.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["reformas", "iglesia"]
+
+variables:
+  reforma: "secularización"
+
+respuesta: "secularización"
+tipo: input
+
+enunciado: "¿Qué medida de modernización del gobierno republicano fue vista como una amenaza por la jerarquía católica?"
+
+explicacion: |
+  La secularización implicaba separar la iglesia del estado, reducir su influencia educativa y legal, lo que enfureció a los conservadores.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["reformas", "tierra"]
+
+variables:
+  reforma: "reforma agraria"
+
+respuesta: "reforma agraria"
+tipo: input
+
+enunciado: "¿Qué medida buscaba redistribuir la tierra y fue defendida por el Frente Popular?"
+
+explicacion: |
+  La reforma agraria era una de las principales demandas de la izquierda para modernizar el campo español.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "basico"
+  tags: ["inicio", "golpe"]
+
+variables:
+  evento: "golpe de Estado"
+
+respuesta: "golpe de Estado"
+tipo: input
+
+enunciado: "¿Qué evento desencadenó directamente la guerra civil tras ser parcialmente fallido?"
+
+explicacion: |
+  El intento de golpe de Estado en julio de 1936 no logró tomar el poder inmediatamente, derivando en conflicto armado.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "basico"
+  tags: ["final", "cronologia"]
+
+variables:
+  anio_fin: 1939
+
+respuesta: "1939"
+tipo: input
+
+enunciado: "¿En qué año terminó la Guerra Civil Española con la victoria del bando nacionalista?"
+
+explicacion: |
+  La guerra terminó en 1939, iniciando la dictadura de Franco que duraría hasta 1975.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["brutalidad", "guerra_aerea"]
+
+variables:
+  evento: "Guernica"
+
+respuesta: "Guernica"
+tipo: input
+
+enunciado: "¿Qué pueblo fue bombardeado por la Legión Cóndor alemana, convirtiéndose en símbolo de la brutalidad aérea?"
+
+explicacion: |
+  El bombardeo de Guernica fue un ataque indiscriminado que inspiró la famosa pintura de Picasso.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["intervencion", "internacional"]
+
+variables:
+  bando: "republicano"
+
+respuesta: "republicano"
+tipo: input
+
+enunciado: "¿A qué bando se unieron voluntarios internacionales conocidos como las Brigadas Internacionales?"
+
+explicacion: |
+  Las Brigadas Internacionales apoyaron principalmente al bando republicano, aunque la "no intervención" oficial dificultó su llegada.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["ideologia", "conflicto"]
+
+variables:
+  tipo_division: "ideológica"
+
+respuesta: "ideológica"
+tipo: input
+
+enunciado: "¿Qué tipo de división, más allá de la política, transformó la disputa electoral en una lucha por la supervivencia nacional?"
+
+explicacion: |
+  La división fue ideológica y cultural, entre dos visiones incompatibles de la nación: la moderna y la tradicional.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["contexto", "segunda_republica"]
+
+variables:
+  factor: "inestabilidad institucional"
+
+respuesta: "inestabilidad institucional"
+tipo: input
+
+enunciado: "¿Qué factor previo creó un clima de violencia latente en la Segunda República?"
+
+explicacion: |
+  La inestabilidad institucional, sumada a huelgas y enfrentamientos, preparó el terreno para la guerra.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["sociedad", "huelgas"]
+
+variables:
+  fenomeno: "huelgas generalizadas"
+
+respuesta: "huelgas generalizadas"
+tipo: input
+
+enunciado: "¿Qué fenómeno social caracterizó la intensa polarización antes de la guerra?"
+
+explicacion: |
+  Las huelgas generalizadas reflejaban el conflicto laboral y social entre obreros y patronos.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["economia", "conservadurismo"]
+
+variables:
+  valor: "propiedad privada"
+
+respuesta: "propiedad privada"
+tipo: input
+
+enunciado: "¿Qué valor defendían los sublevados como parte del orden tradicional?"
+
+explicacion: |
+  Los nacionalistas defendían la propiedad privada y el orden tradicional contra las reformas republicanas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["iglesia", "religion"]
+
+variables:
+  institucion: "Iglesia"
+
+respuesta: "Iglesia"
+tipo: input
+
+enunciado: "¿Qué institución tuvo a la jerarquía católica como opositora clave de las reformas republicanas?"
+
+explicacion: |
+  La jerarquía católica vio las reformas secularizadoras como una amenaza existencial.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["ejercito", "sublevacion"]
+
+variables:
+  actor: "ejército"
+
+respuesta: "ejército"
+tipo: input
+
+enunciado: "¿Qué institución fue clave en la sublevación contra la República?"
+
+explicacion: |
+  Gran parte del ejército se sublevó, liderando el inicio del conflicto armado.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["estrategia", "no_intervencion"]
+
+variables:
+  consecuencia: "desventaja estratégica"
+
+respuesta: "desventaja estratégica"
+tipo: input
+
+enunciado: "¿Qué consecuencia tuvo la política de no intervención para la República?"
+
+explicacion: |
+  La no intervención dejó a la República en desventaja, mientras los apoyos a los nacionalistas fluían sin obstáculos.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "intermedio"
+  tags: ["frentes", "avance"]
+
+variables:
+  proceso: "progresivamente"
+
+respuesta: "progresivamente"
+tipo: input
+
+enunciado: "¿Cómo fue controlado el resto del país por las tropas nacionalistas?"
+
+explicacion: |
+  El país fue controlado progresivamente, mientras Madrid resistía aislada.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["causas", "historia_larga"]
+
+variables:
+  causa_raiz: "luchas por el poder"
+
+respuesta: "luchas por el poder"
+tipo: input
+
+enunciado: "¿De qué fenómeno fueron resultado las décadas de tensión que precedieron al estallido del conflicto?"
+
+explicacion: |
+  Décadas de luchas por el poder y la identidad nacional precedieron al estallido.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["identidad", "nacion"]
+
+variables:
+  concepto: "identidad nacional"
+
+respuesta: "identidad nacional"
+tipo: input
+
+enunciado: "¿Qué concepto estaba en disputa entre quienes modernizaban y quienes defendían la tradición?"
+
+explicacion: |
+  La identidad nacional era el núcleo del conflicto: una visión moderna frente a una tradicional.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_civil_espanola_1936_1939"
+  nivel: "avanzado"
+  tags: ["importancia", "siglo_xx"]
+
+variables:
+  importancia: "punto de inflexión"
+
+respuesta: "punto de inflexión"
+tipo: input
+
+enunciado: "¿Qué representó la Guerra Civil Española en la historia del siglo XX?"
+
+explicacion: |
+  Fue un punto de inflexión que prefiguró los conflictos ideológicos de la Segunda Guerra Mundial.
+```
+
+## Sección: guerra-del-paraguay-y-triple-alianza (33 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["lideres", "solano_lopez"]
+
+respuesta: "Francisco Solano López"
+tipo: completar
+respuestas_validas:
+  - "Francisco Solano López"
+  - "Solano López"
+  - "López"
+
+enunciado: "El líder de Paraguay durante la Guerra de la Triple Alianza fue ___."
+
+explicacion: |
+  Francisco Solano López dirigió al Paraguay durante todo el conflicto hasta su muerte en 1870.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["lideres", "mitre"]
+
+respuesta: "Bartolomé Mitre"
+tipo: completar
+respuestas_validas:
+  - "Bartolomé Mitre"
+  - "Mitre"
+
+enunciado: "El presidente argentino que firmó el tratado de alianza fue ___."
+
+explicacion: |
+  Bartolomé Mitre fue el presidente de la Nación Argentina que firmó el Tratado de la Triple Alianza.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["tratados", "navegacion"]
+
+respuesta: "navegación libre"
+tipo: completar
+respuestas_validas:
+  - "navegación libre"
+  - "libre navegación"
+  - "libre navegacion"
+
+enunciado: "Uno de los objetivos del Tratado de la Triple Alianza era garantizar la ___ de los ríos Paraná y Uruguay."
+
+explicacion: |
+  La libre navegación de los ríos interiores era un objetivo clave para los aliados, especialmente para Brasil y Argentina.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["causas", "economia"]
+
+respuesta: "cuenca del Río de la Plata"
+tipo: completar
+respuestas_validas:
+  - "cuenca del Río de la Plata"
+  - "cuenca del rio de la plata"
+
+enunciado: "Brasil y las provincias argentinas buscaban expandir su influencia en la ___, creando tensión con Paraguay."
+
+explicacion: |
+  El control de la cuenca del Río de la Plata y sus ríos navegables era estratégico para el comercio regional.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["fin", "solano_lopez"]
+
+respuesta: "muerte de Solano López"
+tipo: completar
+respuestas_validas:
+  - "muerte de Solano López"
+  - "muerte de solano lopez"
+  - "muerte de Francisco Solano López"
+
+enunciado: "La guerra finalizó en 1870 con el ___."
+
+explicacion: |
+  La muerte del presidente Francisco Solano López en la batalla de Cerro Corá marcó el fin efectivo de la guerra.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["navegacion", "tratados"]
+
+respuesta: "Paraná y Uruguay"
+tipo: completar
+respuestas_validas:
+  - "Paraná y Uruguay"
+  - "parana y uruguay"
+  - "Paraná y el Uruguay"
+
+enunciado: "El tratado prometía garantizar la navegación libre de los ríos ___."
+
+explicacion: |
+  Los ríos Paraná y Uruguay eran las vías fluviales principales para el comercio y la logística militar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["tratados", "fronteras"]
+
+respuesta: "beneficiara a los aliados"
+tipo: completar
+respuestas_validas:
+  - "beneficiara a los aliados"
+
+enunciado: "El tratado buscaba definir las fronteras de manera que ___."
+
+explicacion: |
+  Los aliados buscaban redefinir las fronteras a su favor, lo que generó disputas posteriores.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["brasil", "contraataque"]
+
+respuesta: "invadiendo el norte"
+tipo: completar
+respuestas_validas:
+  - "invadiendo el norte"
+  - "invadiendo el norte del paraguay"
+
+enunciado: "Brasil respondió a la invasión paraguaya ___ del Paraguay."
+
+explicacion: |
+  Tras la invasión al Mato Grosso, Brasil lanzó una contraofensiva invadiendo el norte de Paraguay.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["estrategia", "superioridad"]
+
+respuesta: "numérica y logística"
+tipo: completar
+respuestas_validas:
+  - "numérica y logística"
+  - "superioridad numérica y logística"
+
+enunciado: "Con el tiempo, la superioridad ___ de la Triple Alianza comenzó a pesar contra Paraguay."
+
+explicacion: |
+  La combinación de más hombres y mejor suministro permitió a los aliados avanzar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["causas", "clima_politico"]
+
+respuesta: "desconfianza mutua"
+tipo: completar
+respuestas_validas:
+  - "desconfianza mutua"
+  - "desconfianza"
+
+enunciado: "La rivalidad creó un clima de ___ que terminó estallando en guerra."
+
+explicacion: |
+  La falta de confianza entre los estados de la región fue un factor subyacente importante.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["cronologia", "duracion"]
+
+respuesta: "6"
+tipo: input
+
+enunciado: "La guerra duró ___ años, desde 1864 hasta 1870."
+
+explicacion: |
+  El conflicto abarcó seis años completos de combate intenso.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["alianza", "participantes"]
+
+respuesta: "Brasil"
+tipo: completar
+
+enunciado: "La Triple Alianza estuvo conformada por el Imperio de ___, la Nación Argentina y la República Oriental del Uruguay."
+
+explicacion: |
+  La coalición aliada enfrentó al Paraguay y estaba integrada por Brasil, Argentina y Uruguay.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["lideres", "solano_lopez"]
+
+respuesta: "Francisco Solano López"
+tipo: completar
+
+enunciado: "El Paraguay, en ese entonces un país industrializado para su época, estaba bajo el mando de ___."
+
+explicacion: |
+  Francisco Solano López lideró al Paraguay durante la guerra, manteniendo una política de aislamiento relativo pero con desarrollo industrial interno.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["causas", "uruguay"]
+
+respuesta: "intervención de Brasil en los asuntos internos de Uruguay"
+tipo: completar
+
+enunciado: "El detonante final fue la ___, lo que el Paraguay vio como una amenaza a su soberanía."
+
+explicacion: |
+  Brasil apoyó a los colorados uruguayos, lo que llevó a Solano López a intervenir y comenzar las hostilidades.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["invasion", "mato_grosso"]
+
+respuesta: "Mato Grosso"
+tipo: completar
+
+enunciado: "En diciembre de 1864, Solano López invadió el territorio de ___, iniciando las hostilidades."
+
+explicacion: |
+  La invasión del Mato Grosso fue la primera acción militar concreta de la guerra en diciembre de 1864.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["tratado", "alianza"]
+
+respuesta: "mayo de 1865"
+tipo: completar
+
+enunciado: "Ante la invasión brasileña al norte del Paraguay, el gobierno argentino liderado por Bartolomé Mitre firmó el Tratado de la Triple Alianza en ___."
+
+explicacion: |
+  El tratado se firmó en mayo de 1865 para derrotar a Solano López y garantizar la navegación libre de los ríos.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["objetivos", "navegacion"]
+
+respuesta: "garantizar la navegación libre de los ríos Paraná y Uruguay"
+tipo: completar
+
+enunciado: "Uno de los compromisos del tratado era ___."
+
+explicacion: |
+  La libre navegación de los ríos fue un objetivo clave para los aliados, especialmente para Brasil y Argentina.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["economia", "industrializacion"]
+
+respuesta: "aislado pero industrializado"
+tipo: completar
+
+enunciado: "Para entender el conflicto, hay que notar que el Paraguay era un país ___ para sus estándares de la época."
+
+explicacion: |
+  A pesar de su aislamiento político, Paraguay tenía ferrocarriles, astilleros y fábricas de pólvora.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["causas", "hegemonia"]
+
+respuesta: "control de los ríos navegables y los territorios fronterizos"
+tipo: completar
+
+enunciado: "La tensión previa a la guerra se debía a la rivalidad por el ___ en la cuenca del Río de la Plata."
+
+explicacion: |
+  La disputa por el control territorial y comercial fue la raíz profunda del conflicto.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "avanzado"
+  tags: ["batallas", "humaita"]
+
+respuesta: "Curupayty"
+tipo: completar
+
+enunciado: "Inicialmente, los paraguayos lograron victorias tácticas, como el rechazo del asalto aliado en la batalla de ___ (1866)."
+
+explicacion: |
+  En Curupayty, los paraguayos rechazaron un asalto aliado infligiendo bajas enormes al atacante — una de las pocas victorias tácticas significativas iniciales de los paraguayos. Humaitá, en cambio, era la fortaleza paraguaya que resistió un largo asedio y cayó ante los aliados en 1868.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["ejercito", "demografia"]
+
+respuesta: "campesinos"
+tipo: completar
+
+enunciado: "El ejército paraguayo, que en su mayoría estaba compuesto por ___, enfrentó una superioridad logística adversa."
+
+explicacion: |
+  La fuerza principal del ejército paraguayo provenía del campesinado, lo que afectaba su logística comparada con los aliados.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["invasion", "mato_grosso"]
+
+variables:
+  territorio: "Mato Grosso"
+
+respuesta: "Mato Grosso"
+tipo: mc
+opciones: 4
+
+enunciado: "¿Qué territorio invadió Solano López en diciembre de 1864 para iniciar la guerra?"
+opciones_explicitas: ["Mato Grosso", "Corrientes", "Rio Grande do Sul", "Paraná"]
+
+explicacion: |
+  La primera acción fue la invasión al Mato Grosso, territorio brasileño.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["tratado", "fechas"]
+
+variables:
+  fecha: "mayo de 1865"
+
+respuesta: "mayo de 1865"
+tipo: mc
+opciones: 4
+
+enunciado: "¿En qué momento se firmó el Tratado de la Triple Alianza?"
+opciones_explicitas: ["mayo de 1865", "diciembre de 1864", "enero de 1866", "octubre de 1867"]
+
+explicacion: |
+  El tratado se firmó en mayo de 1865, después de que Paraguay invadiera Corrientes (territorio argentino) al no obtener paso libre hacia Rio Grande do Sul, lo que sumó a la Argentina al conflicto.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["lideres"]
+
+variables:
+  lider: "Francisco Solano López"
+
+respuesta: "Francisco Solano López"
+tipo: mc
+opciones: 4
+
+enunciado: "¿Quién era el líder del Paraguay durante la guerra?"
+opciones_explicitas: ["Francisco Solano López", "José Gaspar Rodríguez de Francia", "Juan Manuel de Rosas", "Bartolomé Mitre"]
+
+explicacion: |
+  Francisco Solano López fue el presidente y líder militar del Paraguay en este conflicto.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["alianza"]
+
+variables:
+  pais: "Uruguay"
+
+respuesta: "Uruguay"
+tipo: mc
+opciones: 4
+
+enunciado: "¿Cuál de los siguientes países formó parte de la Triple Alianza?"
+opciones_explicitas: ["Uruguay", "Bolivia", "Chile", "Paraguay"]
+
+explicacion: |
+  La Triple Alianza estaba compuesta por Brasil, Argentina y Uruguay.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["economia"]
+
+variables:
+  caracteristica: "industrializado"
+
+respuesta: "industrializado"
+tipo: mc
+opciones: 4
+
+enunciado: "¿Cómo se describe la economía del Paraguay previo al conflicto?"
+opciones_explicitas: ["industrializado", "exclusivamente agrícola", "dependiente del comercio exterior", "basado en la minería"]
+
+explicacion: |
+  Paraguay tenía ferrocarriles, astilleros y fábricas de pólvora, lo que lo hacía industrializado para la región.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["causas"]
+
+variables:
+  causa: "intervención de Brasil en Uruguay"
+
+respuesta: "intervención de Brasil en Uruguay"
+tipo: mc
+opciones: 4
+
+enunciado: "¿Qué evento fue el detonante final del conflicto?"
+opciones_explicitas: ["intervención de Brasil en Uruguay", "invasión argentina a Corrientes", "rebelión en Mato Grosso", "bloqueo naval a Buenos Aires"]
+
+explicacion: |
+  La intervención de Brasil en los asuntos internos de Uruguay fue el detonante directo.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["geografia", "navegacion"]
+
+variables:
+  rios: "Paraná y Uruguay"
+
+respuesta: "Paraná y Uruguay"
+tipo: mc
+opciones: 4
+
+enunciado: "El tratado prometía garantizar la navegación libre de los ríos:"
+opciones_explicitas: ["Paraná y Uruguay", "Amazonas y Madeira", "De la Plata y Uruguay", "Paraná y Paraguay"]
+
+explicacion: |
+  La libre navegación de los ríos Paraná y Uruguay era un objetivo clave de la alianza.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "intermedio"
+  tags: ["ejercito"]
+
+variables:
+  composicion: "campesinos"
+
+respuesta: "campesinos"
+tipo: mc
+opciones: 4
+
+enunciado: "¿De qué grupo social provenía la mayoría del ejército paraguayo?"
+opciones_explicitas: ["campesinos", "oficiales profesionales europeos", "esclavizados liberados", "nobles locales"]
+
+explicacion: |
+  La fuerza militar paraguaya estaba mayoritariamente compuesta por campesinos.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "avanzado"
+  tags: ["batallas"]
+
+variables:
+  batalla: "Curupayty"
+
+respuesta: "Curupayty"
+tipo: mc
+opciones_explicitas: ["Curupayty", "Humaitá", "Tuyutí", "Piribebuy"]
+
+enunciado: "¿En qué batalla rechazaron los paraguayos un asalto aliado con enormes bajas para el atacante, al inicio de la guerra?"
+
+explicacion: |
+  En Curupayty (1866) los paraguayos rechazaron el asalto aliado — una victoria táctica importante para Paraguay al inicio de la guerra. Humaitá era su fortaleza, y cayó ante los aliados recién en 1868, tras un largo asedio.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["cronologia"]
+
+variables:
+  anio: 1864
+
+respuesta: 1864
+tipo: input
+
+enunciado: "¿En qué año comenzó la Guerra del Paraguay con la invasión al Mato Grosso?"
+
+explicacion: |
+  El conflicto comenzó en 1864.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["cronologia"]
+
+variables:
+  anio: 1870
+
+respuesta: 1870
+tipo: input
+
+enunciado: "¿En qué año finalizó la Guerra del Paraguay?"
+
+explicacion: |
+  El conflicto terminó en 1870.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "guerra_del_paraguay_y_triple_alianza"
+  nivel: "basico"
+  tags: ["alianza"]
+
+variables:
+  pais1: "Brasil"
+  pais2: "Argentina"
+  pais3: "Uruguay"
+
+respuesta: "Uruguay"
+tipo: input
+
+enunciado: "Completa el nombre del tercer país que formó parte de la Triple Alianza junto a {pais1} y {pais2}."
+
+explicacion: |
+  Los tres miembros de la Triple Alianza fueron Brasil, Argentina y Uruguay.
+```
+
+## Sección: interpretar-una-fuente-historica (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "basico"
+  tags: ["fuente_historica", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una fuente histórica es cualquier resto del pasado que permite reconstruir o conocer lo que ocurrió: un documento, una carta, una fotografía, un objeto, un testimonio."
+
+pasos:
+  - "La historia accede al pasado a través de las fuentes que sobrevivieron."
+
+explicacion: |
+  Verdadero: es la definición central de fuente histórica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "basico"
+  tags: ["fuente_primaria"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "fuente primaria"
+tipo: mc
+opciones_explicitas: ["fuente primaria", "fuente secundaria"]
+
+enunciado: "Una carta escrita por un soldado durante una guerra, mientras la vivía, es un ejemplo de..."
+
+pasos:
+  - "Producida en el momento de los hechos, por quien los vivió."
+
+explicacion: |
+  La fuente primaria se produce en el momento de los hechos por
+  quienes los vivieron o presenciaron.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "basico"
+  tags: ["fuente_secundaria"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "fuente secundaria"
+tipo: mc
+opciones_explicitas: ["fuente primaria", "fuente secundaria"]
+
+enunciado: "Un libro de historia escrito décadas después, que analiza cartas de soldados de esa guerra, es un ejemplo de..."
+
+pasos:
+  - "Producida después, analizando o interpretando fuentes primarias."
+
+explicacion: |
+  La fuente secundaria interpreta o analiza fuentes primarias, no fue
+  producida en el momento de los hechos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "intermedio"
+  tags: ["fuente_primaria", "fuente_secundaria", "matiz"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un mismo texto puede ser fuente primaria para un tema y fuente secundaria para otro, según qué se esté investigando."
+
+pasos:
+  - "Un libro de historia de 1950 es secundario sobre los hechos que narra, pero es primario si se investiga cómo se pensaba la historia en 1950."
+
+explicacion: |
+  Verdadero: la clasificación primaria/secundaria depende del objeto
+  de investigación, no es una propiedad fija del documento.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "intermedio"
+  tags: ["punto_de_vista"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ninguna fuente histórica es completamente neutral u objetiva: quien la produjo tenía una posición, un interés, un contexto que influye en qué cuenta y cómo lo cuenta."
+
+pasos:
+  - "Esto no significa que la fuente sea inútil o mentirosa, sólo que hay que leerla sabiendo desde dónde habla."
+
+explicacion: |
+  Verdadero: es el punto de partida central del análisis crítico de
+  fuentes.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "intermedio"
+  tags: ["sesgo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un documento puede ser sincero y fiel a lo que su autor percibió, y aun así estar sesgado por su posición social, época o creencias."
+
+pasos:
+  - "El trabajo del historiador no es descartar fuentes sesgadas (todas lo están en algún grado), sino entender el sesgo."
+
+explicacion: |
+  Verdadero: es una distinción central para no confundir parcialidad
+  con deshonestidad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "basico"
+  tags: ["analisis_critico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una de las primeras preguntas del análisis crítico de una fuente es: ¿quién la produjo (autor, institución, y su posición respecto de los hechos)?"
+
+pasos:
+  - "Conocer al autor ayuda a entender desde qué perspectiva se cuenta lo narrado."
+
+explicacion: |
+  Verdadero: es una de las preguntas centrales del método de análisis
+  crítico de fuentes.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "basico"
+  tags: ["analisis_critico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Otra pregunta central del análisis crítico es: ¿cuándo y dónde se produjo la fuente (contemporánea a los hechos, o posterior; en qué lugar)?"
+
+pasos:
+  - "Determina si la fuente es primaria o secundaria, y qué distancia temporal/geográfica tiene con los hechos."
+
+explicacion: |
+  Verdadero: es otra pregunta central del método de análisis crítico
+  de fuentes.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "intermedio"
+  tags: ["analisis_critico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Otra pregunta central es: ¿para quién y con qué propósito se produjo la fuente? Una carta privada, un discurso público y un documento oficial tienen propósitos y audiencias distintas."
+
+pasos:
+  - "El propósito y la audiencia influyen directamente en qué se dice y cómo."
+
+explicacion: |
+  Verdadero: es otra pregunta central del método de análisis crítico
+  de fuentes.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "avanzado"
+  tags: ["analisis_critico", "omisiones"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Lo que una fuente omite también es información: por ejemplo, un censo que no cuenta a cierto grupo social revela algo sobre cómo se los consideraba en esa época."
+
+pasos:
+  - "Analizar las omisiones es parte del análisis crítico, no sólo lo que la fuente dice explícitamente."
+
+explicacion: |
+  Verdadero: las omisiones pueden ser tan reveladoras como lo
+  explícitamente dicho.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "intermedio"
+  tags: ["analisis_critico", "contraste"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Otra pregunta central es si la fuente se puede contrastar con otras fuentes independientes — la misma lógica ya vista al verificar noticias actuales, aplicada acá a documentos del pasado."
+
+pasos:
+  - "Ver `../../ciudadania-digital/verificacion-de-una-noticia/`: es el mismo principio de contraste de fuentes."
+
+explicacion: |
+  Verdadero: es la conexión directa entre este tema y el método de
+  verificación ya estudiado en otro contexto.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "intermedio"
+  tags: ["fuente_primaria", "fuente_secundaria", "practica"]
+
+variables:
+  ejemplos: ["un decreto oficial firmado en el momento de los hechos", "un documental producido 50 años después analizando ese decreto"]
+  tipos: ["fuente primaria", "fuente secundaria"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["fuente primaria", "fuente secundaria"]
+
+enunciado: "\"{ejemplos[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "Contemporáneo a los hechos = primaria. Posterior, analizando fuentes primarias = secundaria."
+
+explicacion: |
+  La clasificación depende de cuándo se produjo la fuente respecto de
+  los hechos que documenta.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "avanzado"
+  tags: ["sesgo", "distincion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si el autor de una fuente tenía un interés personal en los hechos que narra, esa fuente debe descartarse por completo como fuente histórica válida."
+
+pasos:
+  - "El trabajo del historiador es entender ese interés/sesgo para leer la fuente con precisión, no descartarla automáticamente."
+
+explicacion: |
+  Falso: casi toda fuente tiene algún interés o posición detrás; el
+  método consiste en contextualizarla, no en descartarla.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "avanzado"
+  tags: ["contraargumentos", "prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Interpretar una fuente histórica reusa directamente las herramientas de análisis crítico ya vistas en `../../lengua/contraargumentos/`: sopesar una postura sabiendo su origen e interés."
+
+pasos:
+  - "Es el mismo tipo de análisis crítico, aplicado ahora a documentos del pasado en vez de a un texto argumentativo actual."
+
+explicacion: |
+  Verdadero: es la conexión directa entre este tema y su
+  prerrequisito de Lengua.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "intermedio"
+  tags: ["fuente_historica", "tipos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una fuente histórica no tiene que ser necesariamente un texto escrito: un edificio, un objeto arqueológico o una fotografía también son fuentes válidas."
+
+pasos:
+  - "Cualquier resto del pasado que permita conocer lo ocurrido cuenta como fuente."
+
+explicacion: |
+  Verdadero: las fuentes históricas abarcan una gran variedad de
+  tipos de material, no sólo documentos escritos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "avanzado"
+  tags: ["analisis_critico", "testimonio_oral"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un testimonio oral recogido décadas después de un hecho se analiza con las mismas preguntas críticas (quién, cuándo, para quién, qué omite) que cualquier otra fuente, considerando además el efecto del paso del tiempo sobre la memoria."
+
+pasos:
+  - "El método de análisis crítico se aplica de forma consistente a distintos tipos de fuente, con matices propios de cada una."
+
+explicacion: |
+  Verdadero: el marco general de preguntas se adapta, pero se aplica
+  a cualquier tipo de fuente, incluidos los testimonios orales.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "avanzado"
+  tags: ["contraste", "matiz"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Contrastar una fuente con otras independientes aumenta la confianza en la interpretación, pero no garantiza una certeza absoluta sobre lo que realmente ocurrió."
+
+pasos:
+  - "El trabajo histórico maneja grados de confianza y evidencia, no certezas matemáticas."
+
+explicacion: |
+  Verdadero: es un matiz importante sobre los límites del método
+  histórico, coherente con el manejo de incertidumbre en cualquier
+  investigación seria.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "intermedio"
+  tags: ["analisis_critico", "metodo"]
+
+enunciado: "Ordená los pasos del análisis crítico de una fuente histórica."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar quién produjo la fuente y su posición respecto de los hechos"
+  - "Determinar cuándo y dónde se produjo (primaria o secundaria)"
+  - "Analizar para quién y con qué propósito se produjo"
+  - "Contrastar su contenido con otras fuentes independientes"
+respuesta_orden: ["Identificar quién produjo la fuente y su posición respecto de los hechos", "Determinar cuándo y dónde se produjo (primaria o secundaria)", "Analizar para quién y con qué propósito se produjo", "Contrastar su contenido con otras fuentes independientes"]
+explicacion: |
+  El orden sigue la secuencia lógica de las preguntas del análisis
+  crítico descritas en la teoría.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "avanzado"
+  tags: ["interpretar_una_fuente_historica", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aplicar este método crítico es la base de cualquier trabajo serio de investigación histórica, no sólo memorizar fechas y hechos ya interpretados por otros."
+
+pasos:
+  - "Es la conclusión central de por qué este tema es importante más allá de la mera acumulación de datos."
+
+explicacion: |
+  Verdadero: es la síntesis del propósito educativo central de este
+  tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "interpretar_una_fuente_historica"
+  nivel: "avanzado"
+  tags: ["interpretar_una_fuente_historica", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al leer un documento histórico, conviene preguntarse quién lo escribió, para quién, con qué propósito, y contrastarlo con otras fuentes, en vez de aceptarlo como un relato neutral y completo de lo ocurrido."
+
+pasos:
+  - "Es la aplicación práctica directa del método de análisis crítico estudiado en este tema."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema al leer cualquier
+  fuente histórica real.
+```
+

@@ -1,541 +1,8 @@
-# Examen jefe — Domina el entorno y blockchain
+# Examen jefe — [PENDIENTE #766]
 
-> Logro #187. Completaste el parcial integrando economía, modelos de negocio y cripto. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **121 preguntas totales** en 5/5 secciones.
+> Logro #766. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: ambiente-interno-y-externo-organizacion (28 preguntas)
-
-```
-metadata:
-  materia: "Economía"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["ambiente_interno", "definicion"]
-
-variables:
-  control_directo: "verdadero"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ambiente interno de una organización está compuesto por factores sobre los cuales la empresa tiene control directo."
-
-explicacion: |
-  El ambiente interno incluye recursos humanos, materiales, naturales y de conocimiento que la organización gestiona directamente.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["ambiente_interno", "recursos"]
-
-variables:
-  recurso: uno_de(["humano", "material", "natural", "de conocimiento"])
-
-respuesta: "recursos {recurso}"
-tipo: completar
-
-enunciado: "Los factores que componen el ambiente interno se denominan recursos {recurso}."
-
-explicacion: |
-  La teoría clasifica los elementos internos en cuatro tipos principales: humanos, materiales, naturales y de conocimiento.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "intermedio"
-  tags: ["recursos_humanos", "activos"]
-
-variables:
-  activo: uno_de(["el más importante", "el secundario", "el irrelevante"])
-
-respuesta: "recursos humanos"
-tipo: completar
-
-enunciado: "Los {activo} de una organización son los recursos humanos, debido a sus habilidades y experiencia."
-
-explicacion: |
-  Los recursos humanos son considerados el activo más valioso porque incluyen la cultura laboral y la capacidad de innovación.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["ambiente_externo", "control"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una organización tiene control directo sobre las condiciones del ambiente externo."
-
-explicacion: |
-  El ambiente externo abarca fuerzas fuera de la organización que no puede controlar directamente, solo adaptar su estrategia a ellas.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "avanzado"
-  tags: ["recursos_conocimiento", "patentes"]
-
-variables:
-  elemento: uno_de(["patentes", "procesos documentados", "cultura organizacional"])
-
-respuesta: "recursos de conocimiento"
-tipo: completar
-
-enunciado: "Las {elemento} forman parte de los recursos de conocimiento dentro de la organización."
-
-explicacion: |
-  Los recursos de conocimiento abarcan el saber hacer, patentes y procesos documentados que potencian la ventaja competitiva.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["definiciones", "ambiente_interno"]
-
-variables:
-  respuesta_correcta: "ambiente interno"
-
-respuesta: "ambiente interno"
-tipo: completar
-
-enunciado: "Los factores, recursos y condiciones que están dentro de la organización y sobre los cuales tiene control directo se denominan: ___"
-
-explicacion: |
-  El ambiente interno abarca todos los elementos internos de la organización, como la estructura, los recursos humanos y la cultura corporativa, sobre los cuales la empresa tiene influencia directa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["ambiente_externo", "micro_macro"]
-
-variables:
-  micro: "microambiente"
-  macro: "macroambiente"
-
-respuesta: "microambiente y macroambiente"
-tipo: completar
-
-enunciado: "El ambiente externo se divide generalmente en dos capas: el ___ y el ___."
-
-explicacion: |
-  El ambiente externo se clasifica en microambiente (actores directos como clientes y proveedores) y macroambiente (factores generales como leyes, economía y tecnología).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["recursos_humanos", "ambiente_interno"]
-
-variables:
-  activo_clave: "recursos humanos"
-
-respuesta: "recursos humanos"
-tipo: completar
-
-enunciado: "Según la teoría, quizás el activo más importante dentro del ambiente interno son los: ___"
-
-explicacion: |
-  Los recursos humanos incluyen habilidades, experiencia y cultura laboral, siendo fundamentales para la competitividad y la innovación interna.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "intermedio"
-  tags: ["sistemas_abiertos", "teoria"]
-
-variables:
-  tipo_sistema: "sistemas abiertos"
-
-respuesta: "sistemas abiertos"
-tipo: completar
-
-enunciado: "Las organizaciones se consideran ___ porque interactúan constantemente con su entorno."
-
-explicacion: |
-  Al ser sistemas abiertos, las organizaciones intercambian materia, energía e información con su entorno, por lo que no pueden operar en el vacío.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "intermedio"
-  tags: ["recursos_naturales", "gestion"]
-
-variables:
-  contexto: "inventario almacenado"
-
-respuesta: "ambiente interno"
-tipo: completar
-
-enunciado: "Cuando una organización gestiona directamente su inventario de materias primas almacenadas, estos recursos naturales forman parte del: ___"
-
-explicacion: |
-  Aunque los recursos naturales existen en el exterior, cuando son adquiridos y gestionados como inventario interno, pasan a ser parte del ambiente interno de la organización.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "avanzado"
-  tags: ["estrategia", "riesgo"]
-
-variables:
-  consecuencia: "obsoleta"
-
-respuesta: "obsoleta"
-tipo: completar
-
-enunciado: "Si una empresa ignora los cambios en el ambiente externo, como los gustos de los consumidores, puede volverse: ___"
-
-explicacion: |
-  La falta de adaptación a las fuerzas externas puede llevar a la obsolescencia del producto o servicio, perdiendo competitividad en el mercado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "intermedio"
-  tags: ["recursos_conocimiento", "intangible"]
-
-variables:
-  componentes: "patentes, procesos, cultura"
-
-respuesta: "patentes, procesos documentados y cultura organizacional"
-tipo: completar
-
-enunciado: "Los recursos de conocimiento abarcan el saber hacer, las ___ y los procesos documentados."
-
-explicacion: |
-  Los recursos de conocimiento incluyen activos intangibles como patentes, know-how y la cultura que permea la organización.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "intermedio"
-  tags: ["clasificacion", "definiciones"]
-
-variables:
-  micro: "microambiente"
-  macro: "macroambiente"
-
-respuesta: "microambiente"
-tipo: completar
-
-enunciado: "El ambiente externo que incluye a los actores directos como clientes, proveedores y competidores se denomina: ___"
-
-explicacion: |
-  El microambiente (o específico) afecta directamente a la organización y está compuesto por actores con los que interactúa frecuentemente.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["importancia", "decisiones"]
-
-variables:
-  objetivo: "decisiones informadas"
-
-respuesta: "decisiones más informadas y estratégicas"
-tipo: completar
-
-enunciado: "Comprender la dualidad entre ambiente interno y externo permite a los líderes tomar: ___"
-
-explicacion: |
-  El análisis de ambos ambientes es vital para la toma de decisiones estratégicas, permitiendo aprovechar oportunidades y mitigar amenazas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["recursos_materiales", "infraestructura"]
-
-variables:
-  elementos: "edificios, maquinaria"
-
-respuesta: "recursos materiales"
-tipo: completar
-
-enunciado: "La infraestructura física, como edificios y maquinaria, corresponde a los: ___"
-
-explicacion: |
-  Los recursos materiales son los activos físicos que determinan la capacidad productiva de la organización.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "intermedio"
-  tags: ["estrategia", "adaptacion"]
-
-variables:
-  accion: "adaptar estrategia"
-
-respuesta: "adaptar su estrategia"
-tipo: completar
-
-enunciado: "A las fuerzas del ambiente externo, la organización no puede controlarlas directamente, solo puede: ___"
-
-explicacion: |
-  Dado que el ambiente externo es incontrolable, la respuesta estratégica adecuada es la adaptación de la organización a dichas fuerzas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["cultura", "recursos_humanos"]
-
-variables:
-  factor: "colaboración e innovación"
-
-respuesta: "colaboración e innovación"
-tipo: completar
-
-enunciado: "Un ambiente interno sano fomenta la ___ y la innovación."
-
-explicacion: |
-  La cultura organizacional y el clima laboral positivo son pilares del ambiente interno que impulsan la productividad y la creatividad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "intermedio"
-  tags: ["macroambiente", "factores"]
-
-variables:
-  ejemplos: "leyes, economia, tecnologia"
-
-respuesta: "leyes, economía y tecnología"
-tipo: completar
-
-enunciado: "El macroambiente incluye factores generales como las ___, la situación económica y los avances tecnológicos."
-
-explicacion: |
-  El macroambiente abarca fuerzas amplias que afectan a todas las industrias, como el marco legal, el contexto económico y el desarrollo tecnológico.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "avanzado"
-  tags: ["sinergia", "eficiencia"]
-
-variables:
-  caracteristica: "bien integrados y potenciados"
-
-respuesta: "bien integrados y se potencian entre sí"
-tipo: completar
-
-enunciado: "Un ambiente interno fuerte es aquel donde los recursos están: ___"
-
-explicacion: |
-  La efectividad del ambiente interno depende de la integración sinérgica de sus recursos humanos, materiales y de conocimiento.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "intermedio"
-  tags: ["recursos_naturales", "diferenciacion"]
-
-variables:
-  ubicacion: "macroambiente"
-
-respuesta: "macroambiente"
-tipo: completar
-
-enunciado: "Los recursos naturales no gestionados directamente por la organización se consideran parte del: ___"
-
-explicacion: |
-  Los recursos naturales en su estado original son parte del entorno externo (macroambiente), solo pasan al interno cuando son adquiridos y gestionados.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["teoria", "fundamentos"]
-
-variables:
-  concepto: "sistemas abiertos"
-
-respuesta: "sistemas abiertos"
-tipo: completar
-
-enunciado: "Para entender cómo funciona una organización, es fundamental recordar que son ___ que interactúan con el entorno."
-
-explicacion: |
-  La teoría de sistemas clasifica a las organizaciones como abiertas debido a su constante intercambio con el ambiente externo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "intermedio"
-  tags: ["competitividad", "eficiencia"]
-
-variables:
-  condicion: "gestionar bien el ambiente interno"
-
-respuesta: "gestionar bien su ambiente interno"
-tipo: completar
-
-enunciado: "Si una organización no gestiona bien su ambiente interno, no podrá competir ni aprovechar las oportunidades del exterior."
-
-explicacion: |
-  Una gestión interna deficiente debilita la capacidad de la empresa para responder eficazmente a las oportunidades externas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["definiciones", "microambiente"]
-
-variables:
-  nombre: "microambiente"
-
-respuesta: "microambiente"
-tipo: completar
-
-enunciado: "La capa del ambiente externo que incluye a los actores directos se llama: ___"
-
-explicacion: |
-  El microambiente, también llamado específico, está compuesto por los actores con los que la organización tiene interacción directa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["importancia", "estrategia"]
-
-variables:
-  razon: "vital"
-
-respuesta: "vital"
-tipo: completar
-
-enunciado: "La distinción entre ambiente interno y externo es ___ para entender el funcionamiento de la organización."
-
-explicacion: |
-  Distinguir ambas dimensiones es vital para la planificación estratégica y la supervivencia de la organización en el mercado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "basico"
-  tags: ["recursos_materiales", "clasificacion"]
-
-variables:
-  ejemplo: "computadoras"
-
-respuesta: "recursos materiales"
-tipo: completar
-
-enunciado: "Las computadoras y la maquinaria son ejemplos de: ___"
-
-explicacion: |
-  Los recursos materiales son los activos físicos tangibles utilizados en el proceso productivo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "intermedio"
-  tags: ["influencia", "estrategia"]
-
-variables:
-  efecto: "influyen pero no controlan"
-
-respuesta: "influyen, pero no pueden controlar directamente"
-tipo: completar
-
-enunciado: "Las fuerzas del ambiente externo ___ a la organización, aunque la organización no las controla."
-
-explicacion: |
-  El ambiente externo influye en los resultados y decisiones de la empresa, pero estas fuerzas son externas al control directo de la misma.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "avanzado"
-  tags: ["recursos", "integracion"]
-
-variables:
-  resultado: "potenciarse mutuamente"
-
-respuesta: "se potencian entre sí"
-tipo: completar
-
-enunciado: "En un ambiente interno fuerte, los recursos están integrados y: ___"
-
-explicacion: |
-  La integración efectiva hace que los recursos internos se refuercen mutuamente, aumentando la eficiencia y la capacidad competitiva.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ambiente_interno_y_externo_organizacion"
-  nivel: "avanzado"
-  tags: ["estrategia", "resumen"]
-
-variables:
-  clave: "comprender la dualidad"
-
-respuesta: "comprender esta dualidad"
-tipo: completar
-
-enunciado: "Para tomar decisiones estratégicas informadas, es necesario: ___"
-
-explicacion: |
-  Comprender la dualidad entre lo interno (controlable) y lo externo (influyente) es la base de la estrategia organizacional efectiva.
-```
 
 ## Sección: balanza-comercial (21 preguntas)
 
@@ -1404,14 +871,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Software de gestión para contadores", "Optimizar el tiempo de cierre contable"],
-    ["Cafetería de especialidad", "Ofrecer un espacio de coworking con café premium"]
-  ]
+  escenarios: [["Software de gestión para contadores", "Optimizar el tiempo de cierre contable"], ["Cafetería de especialidad", "Ofrecer un espacio de coworking con café premium"]]
 
 tipo: completar
-respuestas_validas: ["Optimizar el tiempo de cierre contable", "Ofrecer un espacio de coworking con café premium"]
-respuesta: escenarios[escenario_idx][1
+respuestas_validas:
+  - "Optimizar el tiempo de cierre contable"
+  - "Ofrecer un espacio de coworking con café premium"
+respuesta: escenarios[escenario_idx][1]
 
 enunciado: "Si el segmento de cliente es {escenarios[escenario_idx][0]}, una propuesta de valor coherente sería: ___."
 
@@ -1428,7 +894,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Canales", "Presupuesto", "Organigrama", "Plan de Marketing"]
-respuesta: "Canales"
+respuesta: "Organigrama"
 
 enunciado: "¿Cuál de los siguientes NO es uno de los 9 bloques fundamentales del Business Model Canvas?"
 
@@ -1445,7 +911,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Definir Segmentos de Clientes", "Definir Propuesta de Valor", "Definir Canales de Distribución", "Definir Fuentes de Ingresos"]
-respuesta: ["Definir Segmentos de Clientes", "Definir Propuesta de Valor", "Definir Canales de Distribución", "Definir Fuentes de Ingresos"]
+respuesta_orden: ["Definir Segmentos de Clientes", "Definir Propuesta de Valor", "Definir Canales de Distribución", "Definir Fuentes de Ingresos"]
 
 enunciado: "Para construir un modelo de negocio coherente, se recomienda seguir un orden lógico de pensamiento. Ordena estos pasos desde el más fundamental al siguiente:"
 
@@ -1461,20 +927,16 @@ metadata:
   tags: ["modelo_de_negocio", "propuesta_de_valor"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  caso: uno_de([
-    ["Netflix", "Suscripción de streaming de películas y series"],
-    ["Tesla", "Vehículos eléctricos de alto rendimiento y energía sostenible"]
-  ])
+  caso: uno_de([["Netflix", "Suscripción de streaming de películas y series"], ["Tesla", "Vehículos eléctricos de alto rendimiento y energía sostenible"]])
 
-respuesta: caso[escenario_idx][1
+respuesta: "Propuesta de Valor"
 tipo: mc
 opciones_explicitas: ["Propuesta de Valor", "Segmentos de Clientes", "Canales", "Relación con Clientes"]
 
-enunciado: "En el modelo de negocio de {caso[escenario_idx][0]}, el elemento que describe el beneficio principal que se ofrece al cliente (en este caso, {caso[escenario_idx][1]}) corresponde al bloque de: ___"
+enunciado: "En el modelo de negocio de {caso[0]}, el elemento que describe el beneficio principal que se ofrece al cliente (en este caso, {caso[1]}) corresponde al bloque de: ___"
 
 explicacion: |
-  La Propuesta de Valor es el bloque que describe el conjunto de productos y servicios que crean valor para un segmento de clientes específico. En el caso de {caso[escenario_idx][0]}, es {caso[escenario_idx][1]}.
+  La Propuesta de Valor es el bloque que describe el conjunto de productos y servicios que crean valor para un segmento de clientes específico. En el caso de {caso[0]}, es {caso[1]}.
 ```
 
 ```
@@ -1501,18 +963,13 @@ metadata:
   nivel: "intermedio"
   tags: ["canales", "distribucion"]
 
-variables:
-  modelo_distribucion: uno_de([0, 1])
-  pasos_distribucion: uno_de([
-    ["Crear el producto", "Almacenar stock", "Enviar al cliente"],
-    ["Desarrollar software", "Procesar pago", "Entrega digital"]
-  ])
-
-respuesta: pasos_distribucion[modelo_distribucion][2
+respuesta: "Enviar al cliente"
 tipo: completar
+respuestas_validas:
+  - "Enviar al cliente"
 pasos:
-  - "Paso 1: {pasos_distribucion[modelo_distribucion][0]}"
-  - "Paso 2: {pasos_distribucion[modelo_distribucion][1]}"
+  - "Paso 1: Crear el producto"
+  - "Paso 2: Almacenar stock"
   - "Paso 3: ___"
 
 enunciado: "Para un modelo de negocio basado en productos físicos, el proceso de entrega sigue este orden lógico:"
@@ -1544,16 +1001,10 @@ metadata:
   nivel: "avanzado"
   tags: ["ingresos", "flujos"]
 
-variables:
-  tipo_ingreso_idx: uno_de([0, 1])
-  ejemplo_flujo: uno_de([
-    ["Venta de activos (venta de un producto único)"],
-    ["Tarifa de uso (pago por servicio por tiempo limitado)"]
-  ])
-
-respuesta: ejemplo_flujo[tipo_ingreso_idx][0
 tipo: mc
 opciones_explicitas: ["Venta de activos", "Tarifa de uso", "Licencia", "Alquiler"]
+
+respuesta: "Tarifa de uso"
 
 enunciado: "Si una empresa de software cobra por cada hora de uso de su plataforma, el flujo de ingresos se clasifica como: ___"
 
@@ -1570,7 +1021,8 @@ metadata:
 
 respuesta: "propuesta de valor"
 tipo: "completar"
-respuestas_validas: ["propuesta de valor"]
+respuestas_validas:
+  - "propuesta de valor"
 
 enunciado: "Un error común es confundir el producto o servicio físico con la ___ , la cual debe centrarse en la solución de un problema o la satisfacción de una necesidad del cliente."
 
@@ -1585,13 +1037,10 @@ metadata:
   nivel: "intermedio"
   tags: ["segmentos_de_clientes", "errores_comunes"]
 
-variables:
-  es_nicho: uno_de([verdadero, falso])
-
-respuesta: es_nicho
+respuesta: verdadero
 tipo: "vf"
 
-enunciado: "Si una empresa intenta dirigirse a 'todo el mundo' sin definir características específicas, está cometiendo el error de no definir correctamente sus {es_nicho}."
+enunciado: "Si una empresa intenta dirigirse a 'todo el mundo' sin definir características específicas, está cometiendo el error de no definir correctamente sus segmentos de clientes."
 
 explicacion: |
   Intentar ser todo para todos suele diluir la propuesta de valor. La segmentación permite enfocar recursos y mensajes.
@@ -1624,7 +1073,8 @@ metadata:
 
 respuesta: "monetización"
 tipo: "completar"
-respuestas_validas: ["monetización"]
+respuestas_validas:
+  - "monetización"
 
 enunciado: "Tener un producto exitoso no garantiza un modelo de negocio viable si no se define claramente la estrategia de ___."
 
@@ -1639,17 +1089,10 @@ metadata:
   nivel: "avanzado"
   tags: ["estructura_de_costos", "escalabilidad"]
 
-variables:
-  caso: uno_de([0, 1])
+enunciado: "En el modelo de consultoría tradicional, la estructura de costos suele ser variable y ligada al volumen (horas trabajadas), mientras que en el modelo de software SaaS, la estructura suele ser mayormente fija y escalable."
 
-enunciado: "En el modelo de {caso_texto}, la estructura de costos suele ser variable y ligada al volumen, mientras que en el modelo de {caso_texto}, la estructura suele ser mayormente fija."
-
-variables_extra:
-  caso_texto: uno_de(["software SaaS", "consultoría tradicional"])
-
-respuesta: [0, 1]
-tipo: "ordenar"
-opciones_explicitas: ["software SaaS", "consultoría tradicional"]
+respuesta: verdadero
+tipo: "vf"
 
 explicacion: |
   En el modelo SaaS (Software as a Service), los costos marginales son muy bajos y la estructura es altamente escalable. En la consultoría, el costo principal es el tiempo humano (costo variable/escalabilidad limitada).
@@ -1664,7 +1107,8 @@ metadata:
 
 respuesta: "Plan de Negocios"
 tipo: completar
-respuestas_validas: ["Plan de Negocios"]
+respuestas_validas:
+  - "Plan de Negocios"
 
 enunciado: "A diferencia del Business Model Canvas, que es una herramienta visual y dinámica para modelar hipótesis, el ___ es un documento detallado y extenso que describe la estrategia operativa y financiera a largo plazo."
 
@@ -1680,13 +1124,9 @@ metadata:
   tags: ["propuesta_de_valor", "segmentos"]
 
 variables:
-  escenario: uno_de([
-    ["Un software de gestión de turnos para peluquerías", "Propuesta de Valor"],
-    ["Un servicio de entrega de comida a domicilio", "Propuesta de Valor"],
-    ["Un gimnasio con entrenamiento personalizado", "Propuesta de Valor"]
-  ])
+  escenario: uno_de([["Un software de gestión de turnos para peluquerías", "Propuesta de Valor"], ["Un servicio de entrega de comida a domicilio", "Propuesta de Valor"], ["Un gimnasio con entrenamiento personalizado", "Propuesta de Valor"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["Segmentos de Cliente", "Propuesta de Valor", "Canales", "Relación con el Cliente"]
 
@@ -1720,7 +1160,7 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura", "componentes"]
 
-respuesta: ["Segmentos de Cliente", "Propuesta de Valor", "Canales", "Relación con el Cliente", "Fuentes de Ingresos", "Recursos Clave", "Actividades Clave", "Asociaciones Clave", "Estructura de Costos"]
+respuesta_orden: ["Segmentos de Cliente", "Propuesta de Valor", "Canales", "Relación con el Cliente", "Fuentes de Ingresos", "Recursos Clave", "Actividades Clave", "Asociaciones Clave", "Estructura de Costos"]
 tipo: ordenar
 
 opciones_explicitas: ["Segmentos de Cliente", "Propuesta de Valor", "Canales", "Relación con el Cliente", "Fuentes de Ingresos", "Recursos Clave", "Actividades Clave", "Asociaciones Clave", "Estructura de Costos"]
@@ -1780,10 +1220,11 @@ variables:
   datos: [["Entrega de comida en 10 minutos", "Rapidez y conveniencia"], ["Consultoría financiera personalizada", "Confianza y experto asesoramiento"], ["Suscripción de streaming sin anuncios", "Entretenimiento sin interrupciones"]]
   idx: uno_de([0, 1, 2])
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
-enunciado: "Si el modelo de negocio se basa en {datos[idx][0]}, la propuesta de valor principal es {___}."
+enunciado: "Si el modelo de negocio se basa en {datos[idx][0]}, la propuesta de valor principal es ___."
 
 explicacion: |
   La propuesta de valor es el conjunto de productos y servicios que crean valor para un segmento de clientes específico.
@@ -1802,7 +1243,10 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["Redes sociales y web", "Ubicación presencial", "Descarga digital"]
+respuestas_validas:
+  - "Redes sociales y web"
+  - "Ubicación presencial"
+  - "Descarga digital"
 
 enunciado: "Para una {datos[idx][0]}, el canal de comunicación y venta principal es ___."
 
@@ -1843,10 +1287,10 @@ variables:
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][1]
-tipo: ordenar
+tipo: mc
 opciones_explicitas: ["Cuota recurrente", "Transacción única", "Combinación de modelos"]
 
-enunciado: "Ordene los siguientes tipos de ingresos según el modelo de {datos[idx][0]} (de más recurrente a menos recurrente):"
+enunciado: "Según el modelo de {datos[idx][0]}, ¿qué tipo de flujo de ingresos corresponde?"
 
 explicacion: |
   El flujo de ingresos representa el efectivo que la empresa genera de cada segmento de clientes.
@@ -1864,6 +1308,8 @@ metadata:
 tipo: mc
 opciones_explicitas: ["La propiedad colectiva de los medios de producción", "La propiedad privada de los medios de producción y la búsqueda de ganancia", "La regulación estatal total de la economía", "La distribución equitativa de la riqueza sin excedentes"]
 
+respuesta: "La propiedad privada de los medios de producción y la búsqueda de ganancia"
+
 enunciado: "El capitalismo industrial se define fundamentalmente como un sistema económico basado en ___."
 
 explicacion: |
@@ -1879,14 +1325,12 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["el obrero vende su fuerza de trabajo a cambio de un salario", "salario"],
-    ["el trabajador ofrece su tiempo para producir mercancías", "salario"]
-  ]
+  datos: [["el obrero vende su fuerza de trabajo a cambio de un salario", "salario"], ["el trabajador ofrece su tiempo para producir mercancías", "salario"]]
 
 tipo: completar
-respuestas_validas: ["salario"]
-respuesta: datos[escenario_idx][1
+respuestas_validas:
+  - "salario"
+respuesta: datos[escenario_idx][1]
 
 enunciado: "En el sistema de capitalismo industrial, el trabajador que no posee medios de producción debe vender su fuerza de trabajo a cambio de un ___."
 
@@ -1903,7 +1347,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Tierra", "Trabajo", "Capital"]
-respuesta: ["Tierra", "Trabajo", "Capital"]
+respuesta_orden: ["Tierra", "Trabajo", "Capital"]
 
 enunciado: "Para que se produzca la acumulación de capital en la era industrial, es necesario combinar los factores de producción en un orden lógico de recursos naturales, mano de obra y medios técnicos. Ordene los siguientes elementos: Tierra, Trabajo y Capital."
 
@@ -1920,6 +1364,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Aumentar la productividad y reducir costos", "Eliminar la necesidad de obtener ganancias", "Garantizar el empleo pleno de forma permanente", "Reducir la propiedad privada de las máquinas"]
+
+respuesta: "Aumentar la productividad y reducir costos"
 
 enunciado: "En el contexto de la Revolución Industrial, la introducción de maquinaria pesada en las fábricas tenía como objetivo principal ___."
 
@@ -1941,6 +1387,8 @@ variables:
 tipo: completar
 tolerancia_abs: 0.01
 
+respuesta: valor_mercancia - salario_obrero
+
 enunciado: "Si un trabajador produce una mercancía cuyo valor de mercado es de {valor_mercancia} y el capitalista le paga un salario de {salario_obrero}, la plusvalía (el valor excedente que retiene el capitalista) es de ___."
 
 pasos:
@@ -1961,6 +1409,8 @@ metadata:
 tipo: mc
 opciones_explicitas: ["La propiedad de los medios de producción", "La capacidad física y mental para trabajar", "El tiempo libre del trabajador", "El capital acumulado por el patrón"]
 
+respuesta: "La capacidad física y mental para trabajar"
+
 enunciado: "En el sistema de trabajo asalariado, lo que el trabajador vende al empleador para obtener un salario es su ___."
 
 explicacion: |
@@ -1974,15 +1424,10 @@ metadata:
   nivel: "intermedio"
   tags: ["historia_economica", "servidumbre", "esclavitud"]
 
-variables:
-  escenario: uno_de([
-    ["esclavo", "poseído como propiedad"],
-    ["siervo", "vinculado a la tierra"],
-    ["artesano", "dueño de sus herramientas"]
-  ])
-
+respuesta: "esclavo"
 tipo: completar
-respuestas_validas: ["esclavo", "siervo", "artesano"]
+respuestas_validas:
+  - "esclavo"
 
 enunciado: "A diferencia del trabajador asalariado, el ___ es aquel que es considerado una propiedad del amo."
 
@@ -2002,6 +1447,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["El artesano posee sus herramientas y el asalariado no", "El artesano trabaja menos horas", "El asalariado es dueño de su tiempo", "No hay diferencia real"]
+
+respuesta: "El artesano posee sus herramientas y el asalariado no"
 
 enunciado: "Una diferencia clave entre el artesano independiente y el trabajador asalariado es que el artesano ___."
 
@@ -2023,6 +1470,7 @@ enunciado: "Ordene cronológicamente las etapas de la relación de producción a
 
 explicacion: |
   El ciclo comienza con el acuerdo de la fuerza de trabajo por un salario, seguido de la actividad productiva y culminando con la compensación económica.
+respuesta_orden: ["El trabajador ofrece su fuerza de trabajo", "El capitalista ofrece un salario", "Se produce la mercancía", "El trabajador recibe su compensación"]
 ```
 
 ```
@@ -2033,17 +1481,14 @@ metadata:
   tags: ["plusvalia", "salario", "valor"]
 
 variables:
-  datos: [
-    [100, 40],
-    [150, 60],
-    [200, 80]
-  ]
+  datos: [[100, 40], [150, 60], [200, 80]]
   idx: uno_de([0, 1, 2])
   valor_total: datos[idx][0]
   parte_salario: datos[idx][1]
 
 tipo: completar
 tolerancia_abs: 0
+respuesta: valor_total - parte_salario
 
 enunciado: "Si un trabajador genera un valor total de ${valor_total} en su jornada, pero su salario representa ${parte_salario}, ¿cuál es el valor de la plusvalía (la parte del valor que no se le paga al trabajador)?"
 
@@ -2060,7 +1505,8 @@ metadata:
 
 respuesta: "burguesía"
 tipo: completar
-respuestas_validas: ["burguesía"]
+respuestas_validas:
+  - "burguesía"
 
 enunciado: "En el sistema de capitalismo industrial, los dueños de los medios de producción (fábricas, maquinaria) pasaron a ser conocidos como la ___."
 
@@ -2076,15 +1522,11 @@ metadata:
   tags: ["proletariado", "salario"]
 
 variables:
-  escenario: uno_de([
-    ["el control del tiempo de trabajo", "la subordinación del trabajador al ritmo de la máquina"],
-    ["la propiedad de las herramientas", "la venta de la fuerza de trabajo a cambio de un salario"],
-    ["la gestión de la producción", "la transformación del trabajo en una mercancía"]
-  ])
+  escenario: uno_de([["el control del tiempo de trabajo", "la subordinación del trabajador al ritmo de la máquina"], ["la propiedad de las herramientas", "la venta de la fuerza de trabajo a cambio de un salario"], ["la gestión de la producción", "la transformación del trabajo en una mercancía"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
-opciones_explicitas: [escenario[0], escenario[1], escenario[2]]
+opciones_explicitas: ["la subordinación del trabajador al ritmo de la máquina", "la venta de la fuerza de trabajo a cambio de un salario", "la transformación del trabajo en una mercancía"]
 
 enunciado: "La principal transformación en la relación laboral durante la Revolución Industrial fue ___."
 
@@ -2101,7 +1543,8 @@ metadata:
 
 respuesta: "proletariado"
 tipo: completar
-respuestas_validas: ["proletariado"]
+respuestas_validas:
+  - "proletariado"
 
 enunciado: "Aquella clase social que solo posee su fuerza de trabajo para vender en el mercado laboral se denomina ___."
 
@@ -2116,7 +1559,7 @@ metadata:
   nivel: "intermedio"
   tags: ["causas", "transformacion"]
 
-respuesta: ["acumulación de capital", "desplazamiento de población", "mecanización de la producción"]
+respuesta_orden: ["acumulación de capital", "desplazamiento de población", "mecanización de la producción"]
 tipo: ordenar
 opciones_explicitas: ["acumulación de capital", "desplazamiento de población", "mecanización de la producción"]
 
@@ -2134,15 +1577,11 @@ metadata:
   tags: ["plusvalia", "valor"]
 
 variables:
-  caso: uno_de([
-    ["el salario cubre solo el costo de subsistencia", "el excedente generado por el trabajador es apropiado por el capitalista"],
-    ["el tiempo de trabajo es determinado por la necesidad humana", "el tiempo de trabajo es determinado por la necesidad de acumulación de capital"],
-    ["la producción es artesanal y descentralizada", "la producción es masiva y centralizada en la fábrica"]
-  ])
+  caso: uno_de([["el salario cubre solo el costo de subsistencia", "el excedente generado por el trabajador es apropiado por el capitalista"], ["el tiempo de trabajo es determinado por la necesidad humana", "el tiempo de trabajo es determinado por la necesidad de acumulación de capital"], ["la producción es artesanal y descentralizada", "la producción es masiva y centralizada en la fábrica"]])
 
-respuesta: caso[1
+respuesta: caso[1]
 tipo: mc
-opciones_explicitas: [caso[0], caso[1], caso[2]]
+opciones_explicitas: ["el excedente generado por el trabajador es apropiado por el capitalista", "el tiempo de trabajo es determinado por la necesidad de acumulación de capital", "la producción es masiva y centralizada en la fábrica"]
 
 enunciado: "En el modelo de capitalismo industrial, la extracción de plusvalía se basa en ___."
 
@@ -2157,16 +1596,9 @@ metadata:
   nivel: "basico"
   tags: ["revolucion_industrial", "condiciones_laborales"]
 
-variables:
-  escenario: uno_de([
-    ["14 horas", "16 horas", "12 horas"],
-    ["12 horas", "15 horas", "13 horas"],
-    ["15 horas", "14 horas", "16 horas"]
-  ])
+enunciado: "Durante el auge de la Revolución Industrial, era común que los obreros enfrentaran jornadas laborales de aproximadamente ___ diarias, lo que derivaba en un agotamiento físico extremo."
 
-enunciado: "Durante el auge de la Revolución Industrial, era común que los obreros enfrentaran jornadas laborales de aproximadamente {escenario[0]} diarias, lo que derivaba en un agotamiento físico extremo."
-
-respuesta: escenario[0
+respuesta: "14 horas"
 tipo: mc
 opciones_explicitas: ["14 horas", "16 horas", "12 horas"]
 
@@ -2181,16 +1613,9 @@ metadata:
   nivel: "basico"
   tags: ["trabajo_infantil", "historia_economica"]
 
-variables:
-  contexto: uno_de([
-    ["minas y textiles", "ferrocarriles y minas", "textiles y minería"],
-    ["textiles y minas", "ferrocarriles y textiles", "minería y textiles"],
-    ["minería y textiles", "textiles y ferrocarriles", "minería y ferrocarriles"]
-  ])
+enunciado: "El trabajo infantil fue una práctica extendida en sectores como las ___, donde los niños eran empleados debido a su pequeño tamaño y bajos costos."
 
-enunciado: "El trabajo infantil fue una práctica extendida en sectores como las {contexto[0]}, donde los niños eran empleados debido a su pequeño tamaño y bajos costos."
-
-respuesta: contexto[0
+respuesta: "minas y textiles"
 tipo: mc
 opciones_explicitas: ["minas y textiles", "ferrocarriles y minas", "textiles y minería"]
 
@@ -2207,17 +1632,16 @@ metadata:
 
 variables:
   causa_idx: uno_de([0, 1, 2])
-  causas: [
-    ["la falta de regulación de salarios", "la falta de regulación de salarios", "la falta de regulación de salarios"],
-    ["la falta de seguridad social", "la falta de seguridad social", "la falta de seguridad social"],
-    ["la falta de límites a la jornada", "la falta de límites a la jornada", "la falta de límites a la jornada"]
-  ]
+  causas: ["la falta de regulación de salarios", "la falta de seguridad social", "la falta de límites a la jornada"]
 
 enunciado: "La organización de los primeros sindicatos fue una respuesta directa a la precariedad, especialmente ante la ___."
 
-respuesta: causas[causa_idx
+respuesta: causas[causa_idx]
 tipo: completar
-respuestas_validas: ["la falta de regulación de salarios", "la falta de seguridad social", "la falta de límites a la jornada"]
+respuestas_validas:
+  - "la falta de regulación de salarios"
+  - "la falta de seguridad social"
+  - "la falta de límites a la jornada"
 
 explicacion: |
   La unión de los trabajadores permitía negociar colectivamente para mejorar salarios y reducir las jornadas inhumanas.
@@ -2240,7 +1664,7 @@ pasos:
   - "Segundo: Se establecieron límites máximos de horas por día."
   - "Tercero: Se reconoció legalmente el derecho de los trabajadores a la huelga."
 
-respuesta: orden_legal
+respuesta_orden: orden_legal
 tipo: ordenar
 opciones_explicitas: ["prohibición de trabajo infantil", "limitación de jornada laboral", "derecho a la huelga"]
 
@@ -2256,13 +1680,11 @@ metadata:
   tags: ["salario_real", "pobreza"]
 
 variables:
-  situacion: uno_de([
-    ["subsistencia", "subsistencia", "subsistencia"]
-  ])
+  situacion: uno_de([["subsistencia", "subsistencia", "subsistencia"]])
 
 enunciado: "En el modelo de capitalismo industrial temprano, el salario pagado a la clase obrera se caracterizaba por ser de ___."
 
-respuesta: situacion[0
+respuesta: situacion[0]
 tipo: mc
 opciones_explicitas: ["subsistencia", "competitivo", "alto"]
 
@@ -2304,7 +1726,10 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["fuerza de trabajo", "producto", "libertad"]
+respuestas_validas:
+  - "fuerza de trabajo"
+  - "producto"
+  - "libertad"
 
 enunciado: "En el capitalismo industrial, lo que el trabajador vende al capitalista para obtener un salario es su ___."
 
@@ -2323,7 +1748,7 @@ variables:
   secuencia: ["esclavismo", "feudalismo", "capitalismo"]
   idx: uno_de([0, 1, 2])
 
-respuesta: secuencia
+respuesta_orden: secuencia
 tipo: ordenar
 opciones_explicitas: ["esclavismo", "feudalismo", "capitalismo"]
 
@@ -2344,7 +1769,7 @@ variables:
   par: [["El salario es un pago por la propiedad de la persona.", "falso"], ["El salario es un pago por el uso de la capacidad de trabajo.", "verdadero"], ["El salario es una parte del producto que pertenece al trabajador.", "falso"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: par[idx][1
+respuesta: par[idx][1]
 tipo: mc
 opciones_explicitas: ["falso", "verdadero"]
 
@@ -2365,12 +1790,416 @@ variables:
   comparacion: [["El siervo tiene acceso limitado a la tierra pero no es propiedad.", "libertad_limitada"], ["El esclavo es propiedad total del amo.", "propiedad_total"], ["El asalariado es dueño de su fuerza de trabajo pero no de los medios.", "autonomia_parcial"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: comparacion[idx][1
+respuesta: comparacion[idx][1]
 tipo: completar
-respuestas_validas: ["libertad_limitada", "propiedad_total", "autonomia_parcial"]
+respuestas_validas:
+  - "libertad_limitada"
+  - "propiedad_total"
+  - "autonomia_parcial"
 
 enunciado: "La diferencia fundamental en el caso del esclavo es su ___."
 
 explicacion: |
   Según el escenario, la característica del esclavo es la {comparacion[idx][1]}.
 ```
+
+## Sección: comercio-internacional-ventaja-comparativa (21 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "basico"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Qué explica la teoría de la ventaja comparativa?"
+tipo: mc
+opciones_explicitas:
+  - "Por qué un país se especializa en producir ciertos bienes y comercia con otros países, en vez de producir todo por su cuenta"
+  - "Cómo se calcula el tipo de cambio de una moneda"
+  - "Cómo funciona el banco central de un país"
+respuesta: "Por qué un país se especializa en producir ciertos bienes y comercia con otros países, en vez de producir todo por su cuenta"
+
+explicacion: |
+  Es la pregunta central que responde este tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "basico"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Quién formuló la teoría de la ventaja comparativa, en 1817?"
+tipo: mc
+opciones_explicitas:
+  - "David Ricardo"
+  - "Adam Smith"
+  - "John Maynard Keynes"
+respuesta: "David Ricardo"
+
+explicacion: |
+  Es el economista que formuló esta teoría específica.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Qué es tener \"ventaja absoluta\" en la producción de un bien?"
+tipo: mc
+opciones_explicitas:
+  - "Producirlo con menos horas de trabajo que otro país, en términos absolutos"
+  - "Tener menor costo de oportunidad al producirlo, sin importar las horas totales"
+  - "Ser el único país que produce ese bien en el mundo"
+respuesta: "Producirlo con menos horas de trabajo que otro país, en términos absolutos"
+
+explicacion: |
+  Es la idea intuitiva (y limitada) que la ventaja comparativa viene a
+  superar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un país fuera mejor que otro produciendo TODOS los bienes en términos absolutos, la lógica de la ventaja absoluta sugeriría, incorrectamente, que no le conviene comerciar con nadie."
+
+explicacion: |
+  Es justamente el problema que Ricardo resolvió con el concepto de
+  costo de oportunidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "En el contexto de la ventaja comparativa, ¿qué es el costo de oportunidad de producir un bien?"
+tipo: mc
+opciones_explicitas:
+  - "Cuánto hay que dejar de producir de otro bien para producir una unidad más del primero"
+  - "El precio en dólares de ese bien"
+  - "El impuesto que paga ese bien al exportarse"
+respuesta: "Cuánto hay que dejar de producir de otro bien para producir una unidad más del primero"
+
+explicacion: |
+  Es el concepto central que reemplaza a la comparación absoluta de
+  horas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Cuándo tiene un país \"ventaja comparativa\" en un bien?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando su costo de oportunidad de producir ese bien es MENOR que el de otro país"
+  - "Cuando produce ese bien con menos horas en términos absolutos que otro país"
+  - "Cuando es el único país que exporta ese bien"
+respuesta: "Cuando su costo de oportunidad de producir ese bien es MENOR que el de otro país"
+
+explicacion: |
+  Es la definición central del tema: comparar costos de oportunidad,
+  no horas absolutas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "En el ejemplo clásico de Ricardo (Inglaterra y Portugal, tela y vino), ¿qué característica tiene Portugal en términos absolutos?"
+tipo: mc
+opciones_explicitas:
+  - "Es absolutamente mejor produciendo las dos cosas (tela y vino), necesita menos horas para ambas"
+  - "Es absolutamente peor produciendo las dos cosas"
+  - "Sólo puede producir vino, no tela"
+respuesta: "Es absolutamente mejor produciendo las dos cosas (tela y vino), necesita menos horas para ambas"
+
+explicacion: |
+  Es el punto de partida del ejemplo: Portugal gana en términos
+  absolutos en ambos bienes.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "En el ejemplo clásico de Ricardo, aunque Portugal sea absolutamente mejor en todo, ¿quién termina teniendo ventaja comparativa en tela?"
+tipo: mc
+opciones_explicitas:
+  - "Inglaterra, porque su costo de oportunidad de producir tela (en términos de vino) es menor que el de Portugal"
+  - "Portugal, porque produce tela con menos horas en términos absolutos"
+  - "Ninguno de los dos: la ventaja comparativa no aplica en este ejemplo"
+respuesta: "Inglaterra, porque su costo de oportunidad de producir tela (en términos de vino) es menor que el de Portugal"
+
+explicacion: |
+  Es el resultado central y contraintuitivo del ejemplo: la ventaja
+  comparativa no depende de quién es mejor en términos absolutos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "calculo"]
+
+variables:
+  horas_vino: random(2, 8)
+  multiplicador: uno_de([2, 3, 4])
+  horas_tela: horas_vino * multiplicador
+
+respuesta: horas_tela / horas_vino
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En un país, producir una unidad de tela lleva {horas_tela} horas, y producir una unidad de vino lleva {horas_vino} horas. ¿Cuántas unidades de vino se sacrifican (costo de oportunidad) por producir una unidad de tela?"
+
+explicacion: |
+  Costo de oportunidad de la tela (en vino) = horas de tela / horas de
+  vino.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "calculo"]
+
+variables:
+  horas_tela_pais1: random(50, 150)
+  horas_vino_pais1: random(50, 150)
+  horas_tela_pais2: random(50, 150)
+  horas_vino_pais2: random(50, 150)
+
+respuesta: (horas_tela_pais1 / horas_vino_pais1 < horas_tela_pais2 / horas_vino_pais2)
+tipo: vf
+
+enunciado: "País 1: {horas_tela_pais1} horas por tela, {horas_vino_pais1} horas por vino. País 2: {horas_tela_pais2} horas por tela, {horas_vino_pais2} horas por vino. ¿Tiene el País 1 ventaja comparativa en tela (menor costo de oportunidad de tela que el País 2)?"
+
+explicacion: |
+  Se compara el costo de oportunidad de tela (horas de tela / horas de
+  vino) de cada país; el menor tiene la ventaja comparativa en tela.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Según la teoría de la ventaja comparativa, si cada país se especializa en el bien donde tiene ventaja comparativa y comercian entre sí, los dos pueden terminar con más de ambos bienes que si cada uno hubiera intentado producir todo por su cuenta."
+
+explicacion: |
+  Es la conclusión central de la teoría: la especialización y el
+  comercio generan una ganancia conjunta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un país muy desarrollado, con salarios altos, puede seguir teniendo ventaja comparativa en ciertos productos frente a un país con salarios mucho más bajos, porque lo que importa es el costo de oportunidad relativo, no el nivel absoluto de desarrollo."
+
+explicacion: |
+  Es una consecuencia directa de que la ventaja comparativa se define
+  en términos relativos dentro de cada país, no en comparación
+  absoluta de niveles de desarrollo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Qué tipo de razonamiento comparte la ventaja comparativa con el \"punto de equilibrio\" de Administración?"
+tipo: mc
+opciones_explicitas:
+  - "El de \"por qué esta decisión y no otra\", comparando costos relativos en vez de valores absolutos"
+  - "Los dos calculan exactamente la misma fórmula matemática"
+  - "No comparten ningún tipo de razonamiento"
+respuesta: "El de \"por qué esta decisión y no otra\", comparando costos relativos en vez de valores absolutos"
+
+explicacion: |
+  Es la analogía que hace la teoría del MAPA para explicar por qué
+  esta idea cruza con Administración.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "problema"]
+
+enunciado: "Un país con mucha tierra fértil pero poca industria pesada exporta productos agrícolas e importa maquinaria, en vez de fabricar su propia maquinaria con mucho esfuerzo relativo. ¿Qué principio explica mejor esta decisión?"
+tipo: mc
+opciones_explicitas:
+  - "Ventaja comparativa: le conviene especializarse donde su costo de oportunidad es menor"
+  - "Devaluación de su moneda"
+  - "Déficit de su balanza comercial"
+respuesta: "Ventaja comparativa: le conviene especializarse donde su costo de oportunidad es menor"
+
+explicacion: |
+  Es una aplicación directa del concepto central del tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando se argumenta a favor del libre comercio diciendo que \"cada país debería producir lo que sabe hacer mejor, en términos relativos\", se está citando, en esencia, la ventaja comparativa."
+
+explicacion: |
+  Es la aplicación más habitual de esta teoría en el debate de
+  política comercial.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená esta secuencia de razonamiento sobre la ventaja comparativa entre dos países."
+opciones_explicitas:
+  - "Los países comercian entre sí, terminando con más de ambos bienes que produciendo todo por su cuenta"
+  - "Cada país se especializa en producir ese bien"
+  - "Se calcula el costo de oportunidad de cada bien en cada país"
+  - "Se identifica en qué bien tiene cada país el menor costo de oportunidad"
+respuesta_orden: ["Se calcula el costo de oportunidad de cada bien en cada país", "Se identifica en qué bien tiene cada país el menor costo de oportunidad", "Cada país se especializa en producir ese bien", "Los países comercian entre sí, terminando con más de ambos bienes que produciendo todo por su cuenta"]
+
+explicacion: |
+  Es el proceso completo de razonamiento detrás de la teoría de la
+  ventaja comparativa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "avanzado"
+  tags: ["comercio_internacional", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia central entre \"ventaja absoluta\" y \"ventaja comparativa\"?"
+tipo: mc
+opciones_explicitas:
+  - "La absoluta compara horas totales por unidad; la comparativa compara el costo de oportunidad relativo entre bienes"
+  - "Son exactamente lo mismo, con nombres distintos"
+  - "La comparativa sólo aplica quiénes tienen tipo de cambio fijo"
+respuesta: "La absoluta compara horas totales por unidad; la comparativa compara el costo de oportunidad relativo entre bienes"
+
+explicacion: |
+  Es la distinción central de todo el tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el ejemplo clásico de Ricardo, Portugal termina con ventaja comparativa en vino, aunque sea absolutamente mejor que Inglaterra en ambos bienes."
+
+explicacion: |
+  Es el resultado complementario al de la tela (que quedaba en manos
+  de Inglaterra).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "intermedio"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aunque la teoría de la ventaja comparativa se formuló en 1817, sigue siendo el argumento central que se usa hoy para explicar por qué los países se especializan y comercian entre sí."
+
+explicacion: |
+  Es una teoría económica clásica que sigue vigente en el debate
+  actual sobre comercio internacional.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "basico"
+  tags: ["comercio_internacional"]
+
+tipo: completar
+enunciado: "Completá: un país tiene ventaja comparativa en un bien cuando su costo de ___ (lo que sacrifica de otro bien) de producirlo es menor que el de otro país."
+respuestas_validas:
+  - "oportunidad"
+
+explicacion: |
+  Es el concepto central de todo el tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "comercio_internacional_ventaja_comparativa"
+  nivel: "basico"
+  tags: ["comercio_internacional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ventaja comparativa explica por qué a un país le conviene especializarse y comerciar según su costo de oportunidad relativo, incluso si otro país es absolutamente mejor produciendo todo."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+

@@ -1,0 +1,38 @@
+[
+ {
+  "id": 904,
+  "cluster": 1,
+  "temas": [
+   "acustica-instrumento-musical",
+   "armonia-basica-acordes-tonalidad",
+   "composicion-y-proporcion",
+   "danza-ritmo-tiempo-expresion-corporal",
+   "elementos-del-arte"
+  ],
+  "preguntas": 127
+ },
+ {
+  "id": 905,
+  "cluster": 2,
+  "temas": [
+   "lenguaje-musical-pentagrama-escalas-intervalos",
+   "origen-del-arte",
+   "principios-de-diseno",
+   "ritmo-compas-pulso-figuras-musicales",
+   "narrativa-audiovisual/plano"
+  ],
+  "preguntas": 129
+ },
+ {
+  "id": 906,
+  "cluster": 3,
+  "temas": [
+   "rosetones-y-simetria",
+   "narrativa-audiovisual/encuadre",
+   "teatro-dramaturgia-y-actuacion",
+   "narrativa-audiovisual/montaje",
+   "produccion-multimedial"
+  ],
+  "preguntas": 119
+ }
+]

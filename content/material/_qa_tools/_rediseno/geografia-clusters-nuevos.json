@@ -1,0 +1,98 @@
+[
+ {
+  "id": 796,
+  "cluster": 1,
+  "temas": [
+   "america-anglosajona",
+   "coordenadas-y-husos-horarios",
+   "densidad-poblacion",
+   "escala-de-mapa",
+   "huella-de-carbono-agua-virtual"
+  ],
+  "preguntas": 119
+ },
+ {
+  "id": 797,
+  "cluster": 2,
+  "temas": [
+   "orientacion-puntos-cardinales",
+   "urbanizacion-migracion-ciudad",
+   "mapa-plano-escala",
+   "coordenadas-geograficas",
+   "division-politica"
+  ],
+  "preguntas": 107
+ },
+ {
+  "id": 798,
+  "cluster": 3,
+  "temas": [
+   "sig-mapas-digitales",
+   "estados-y-globalizacion",
+   "region",
+   "sig-gps",
+   "relieve-clima-biomas"
+  ],
+  "preguntas": 106
+ },
+ {
+  "id": 799,
+  "cluster": 4,
+  "temas": [
+   "sig-imagenes-satelitales",
+   "recursos-actividades-economicas",
+   "regiones-naturales-de-argentina",
+   "geografia-economica-agricola-argentina",
+   "geografia-industrial-mundial"
+  ],
+  "preguntas": 136
+ },
+ {
+  "id": 800,
+  "cluster": 5,
+  "temas": [
+   "mineria-e-hidrocarburos-en-argentina",
+   "america-latina-industria-y-energia",
+   "poblacion-piramides-migraciones",
+   "produccion-agraria-mundial-y-biotecnologia",
+   "ambiente-y-recursos"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 801,
+  "cluster": 6,
+  "temas": [
+   "america-latina-formacion-poblacion",
+   "ambientalismo-liberal",
+   "conservacionismo",
+   "decrecimiento",
+   "ecologismo-politico"
+  ],
+  "preguntas": 105
+ },
+ {
+  "id": 802,
+  "cluster": 7,
+  "temas": [
+   "indicadores-sociales-de-argentina",
+   "migraciones-internacionales",
+   "indice-de-desarrollo-humano",
+   "migraciones-internas-en-argentina",
+   "paises-de-america-latina"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 803,
+  "cluster": 8,
+  "temas": [
+   "recursos-hidricos-y-gestion",
+   "riesgos-naturales-argentinos",
+   "trabajo-y-desempleo-mundial",
+   "riesgos-ambientales-mundiales",
+   "turismo-mundial"
+  ],
+  "preguntas": 130
+ }
+]

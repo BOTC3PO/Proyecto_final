@@ -1,6 +1,6 @@
-# Examen jefe — Dominio de la Vida y el Cuerpo
+# Examen jefe — [PENDIENTE #866]
 
-> Logro #154. Completaste el examen integrando ecología y fisiología, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **110 preguntas totales** en 5/5 secciones.
+> Logro #866. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -209,7 +209,8 @@ metadata:
 
 respuesta: "celular"
 tipo: completar
-respuestas_validas: ["celular"]
+respuestas_validas:
+  - "celular"
 
 enunciado: "El proceso que usa el oxígeno del aire para liberar la energía guardada en el alimento se llama respiración ___."
 
@@ -225,7 +226,7 @@ metadata:
   tags: ["supervivencia", "repaso"]
 
 variables:
-  escenario: [["aire", "pocos minutos"], ["agua", "pocos dias"], ["alimento", "semanas"]]
+  escenario: [["aire", "pocos minutos"], ["agua", "pocos días"], ["alimento", "semanas"]]
   idx: uno_de([0, 1, 2])
 
 respuesta: escenario[idx][1]
@@ -348,7 +349,9 @@ tipo: completar
 
 enunciado: "El conjunto de condiciones ambientales y recursos que utiliza una especie para sobrevivir y reproducirse se denomina ___."
 
-respuestas_validas: ["nicho ecológico", "nicho ecologico"]
+respuestas_validas:
+  - "nicho ecológico"
+  - "nicho ecologico"
 respuesta: "nicho ecológico"
 
 explicacion: |
@@ -366,7 +369,9 @@ tipo: completar
 
 enunciado: "Si el hábitat es la 'dirección' de un organismo, el nicho ecológico es su ___."
 
-respuestas_validas: ["profesión", "profesion"]
+respuestas_validas:
+  - "profesión"
+  - "profesion"
 respuesta: "profesión"
 
 explicacion: |
@@ -384,7 +389,8 @@ tipo: completar
 
 enunciado: "Cuando dos especies tienen exactamente el mismo nicho ecológico en un mismo hábitat, ocurre una ___ que suele llevar a la exclusión de una de ellas."
 
-respuestas_validas: ["competencia"]
+respuestas_validas:
+  - "competencia"
 respuesta: "competencia"
 
 explicacion: |
@@ -402,7 +408,9 @@ tipo: completar
 
 enunciado: "El nicho ecológico incluye tanto factores bióticos (como la alimentación) como factores ___ (como la temperatura o la humedad)."
 
-respuestas_validas: ["abióticos", "abioticos"]
+respuestas_validas:
+  - "abióticos"
+  - "abioticos"
 respuesta: "abióticos"
 
 explicacion: |
@@ -418,10 +426,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["un león en la sabana africana", "depredador de grandes herbívoros"],
-    ["un búho en un bosque", "depredador nocturno de pequeños roedores"]
-  ]
+  escenarios: [["un león en la sabana africana", "depredador de grandes herbívoros"], ["un búho en un bosque", "depredador nocturno de pequeños roedores"]]
 
 opciones_explicitas: ["depredador de grandes herbívoros", "depredador nocturno de pequeños roedores"]
 respuesta: escenarios[escenario_idx][1]
@@ -529,7 +534,8 @@ metadata:
 
 enunciado: "Según el principio de exclusión competitiva, si dos especies compiten por exactamente el mismo recurso limitado, una de ellas será desplazada o se extinguirá. Este proceso se conoce como la ___ de Gause."
 
-respuestas_validas: ["regla"]
+respuestas_validas:
+  - "regla"
 respuesta: "regla"
 tipo: completar
 
@@ -549,7 +555,9 @@ variables:
 
 enunciado: "En un ecosistema, la {escenario[0]} y la {escenario[1]} compiten por la misma fuente de alimento y el mismo espacio de caza. Si la {escenario[0]} es más eficiente capturando presas, a largo plazo la {escenario[1]} sufrirá una ___ de su nicho o desaparecerá del área."
 
-respuestas_validas: ["exclusión", "exclusion"]
+respuestas_validas:
+  - "exclusión"
+  - "exclusion"
 respuesta: "exclusión"
 tipo: completar
 
@@ -566,7 +574,9 @@ metadata:
 
 enunciado: "Para evitar la exclusión competitiva y permitir la coexistencia de especies similares, las poblaciones suelen recurrir a la ___ de nicho, donde utilizan diferentes partes del recurso o diferentes horarios de actividad."
 
-respuestas_validas: ["partición", "particion"]
+respuestas_validas:
+  - "partición"
+  - "particion"
 respuesta: "partición"
 tipo: completar
 
@@ -583,7 +593,9 @@ metadata:
 
 enunciado: "El nicho ecológico no es sólo el lugar donde vive una especie (hábitat), sino también la ___ de funciones y recursos que desempeña en ese ecosistema."
 
-respuestas_validas: ["función", "funcion"]
+respuestas_validas:
+  - "función"
+  - "funcion"
 respuesta: "función"
 tipo: completar
 
@@ -600,7 +612,8 @@ metadata:
 
 enunciado: "Si dos especies compiten por el mismo nicho, la especie que logre obtener más energía con menos gasto metabólico tendrá una ventaja ___ que le permitirá dominar el recurso."
 
-respuestas_validas: ["adaptativa"]
+respuestas_validas:
+  - "adaptativa"
 respuesta: "adaptativa"
 tipo: completar
 
@@ -634,7 +647,8 @@ metadata:
   tags: ["nicho_fundamental", "nicho_realizado"]
 
 tipo: completar
-respuestas_validas: ["nicho realizado"]
+respuestas_validas:
+  - "nicho realizado"
 respuesta: "nicho realizado"
 
 enunciado: "Cuando una especie se enfrenta a la competencia con otras especies por el mismo recurso, el espacio de recursos que efectivamente logra utilizar se denomina ___."
@@ -669,7 +683,8 @@ metadata:
   tags: ["relacion_nichos"]
 
 tipo: completar
-respuestas_validas: ["un subconjunto"]
+respuestas_validas:
+  - "un subconjunto"
 respuesta: "un subconjunto"
 
 enunciado: "Desde un punto de vista teórico, el nicho realizado es ___ del nicho fundamental."
@@ -705,17 +720,14 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["El búho y el ratón", "nocturno", "diurno"],
-    ["El águila y el halcón", "diurno", "nocturno"]
-  ]
+  escenarios: [["El búho", "nocturno", "diurno", "el halcón"], ["El halcón", "diurno", "nocturno", "el búho"]]
 
 opciones_explicitas: ["nocturno", "diurno"]
 
 respuesta: escenarios[escenario_idx][1]
 tipo: mc
 
-enunciado: "En un mismo bosque, un {escenarios[escenario_idx][0]} es predominantemente ___, mientras que su competidor potencial es {escenarios[escenario_idx][2]}. Esta diferencia de horario permite la coexistencia mediante la partición temporal del nicho."
+enunciado: "En un mismo bosque, {escenarios[escenario_idx][0]} es predominantemente ___, mientras que su competidor potencial, {escenarios[escenario_idx][3]}, es {escenarios[escenario_idx][2]}. Esta diferencia de horario permite la coexistencia mediante la partición temporal del nicho."
 
 explicacion: |
   La partición temporal es una estrategia donde especies con recursos similares se dividen el tiempo de uso del hábitat para evitar la competencia directa.
@@ -747,11 +759,7 @@ metadata:
   tags: ["dieta", "nicho", "especialista"]
 
 variables:
-  par_de_aves: [
-    ["un colibrí y un carpintero", "néctar", "insectos"],
-    ["un zorro y un conejo", "carne", "vegetales"],
-    ["un oso y un pez", "frutas", "proteína animal"]
-  ]
+  par_de_aves: [["un colibrí y un carpintero", "néctar", "insectos"], ["un zorro y un conejo", "carne", "vegetales"], ["un oso y un pez", "frutas", "proteína animal"]]
   idx: uno_de([0, 1, 2])
 
 opciones_explicitas: ["néctar", "insectos", "carne", "vegetales", "frutas", "proteína animal"]
@@ -946,7 +954,8 @@ metadata:
 
 respuesta: "imbibicion"
 tipo: completar
-respuestas_validas: ["imbibicion"]
+respuestas_validas:
+  - "imbibicion"
 
 enunciado: "La primera etapa, donde la semilla absorbe agua y se hincha, se llama ___."
 
@@ -1212,7 +1221,7 @@ variables:
   biomasa_productores: uno_de([1000, 5000, 10000, 20000])
 
 respuesta: biomasa_productores * 0.10
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "La biomasa de productores es {biomasa_productores} kg. Con la regla del 10%, ¿cuál es la biomasa aproximada del siguiente nivel?"
@@ -1232,7 +1241,7 @@ variables:
   biomasa_productores: uno_de([10000, 20000])
 
 respuesta: biomasa_productores * 0.10 * 0.10
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "Si la biomasa de los productores (nivel 1) es {biomasa_productores} kg, ¿cuál es la biomasa aproximada de los consumidores secundarios (2 niveles arriba), aplicando la regla del 10% dos veces?"
@@ -1383,7 +1392,8 @@ metadata:
 
 respuesta: "biomasa"
 tipo: completar
-respuestas_validas: ["biomasa"]
+respuestas_validas:
+  - "biomasa"
 
 enunciado: "La masa total de materia viva en un nivel trófico se llama ___."
 
@@ -1402,7 +1412,7 @@ variables:
   biomasa_base: uno_de([100000, 500000, 1000000])
 
 respuesta: biomasa_base * 0.1
-tipo: input
+tipo: completar
 tolerancia_abs: 1
 
 enunciado: "Si la biomasa de productores es {biomasa_base} kg, ¿cuánta se estima en el segundo nivel trófico (regla del 10%)?"
@@ -1491,7 +1501,8 @@ metadata:
 
 respuesta: "fuerza"
 tipo: completar
-respuestas_validas: ["fuerza"]
+respuestas_validas:
+  - "fuerza"
 
 enunciado: "La presión arterial es la ___ que ejerce la sangre contra las paredes de las arterias."
 
@@ -1542,7 +1553,10 @@ metadata:
 
 respuesta: "mmHg"
 tipo: completar
-respuestas_validas: ["mmHg", "mm Hg", "milímetros de mercurio"]
+respuestas_validas:
+  - "mmHg"
+  - "mm Hg"
+  - "milímetros de mercurio"
 
 enunciado: "La presión arterial se mide comúnmente en unidades de _______."
 
@@ -1574,7 +1588,7 @@ metadata:
   nivel: "intermedio"
   tags: ["pasos", "esfigmomanometro"]
 
-respuesta: ["inflar el manguito", "desinflar lentamente", "escuchar ruidos de Korotkoff"]
+respuesta_orden: ["inflar el manguito", "desinflar lentamente", "escuchar ruidos de Korotkoff"]
 tipo: ordenar
 opciones_explicitas: ["inflar el manguito", "desinflar lentamente", "escuchar ruidos de Korotkoff"]
 
@@ -1593,7 +1607,9 @@ metadata:
 
 respuesta: "aumenta"
 tipo: completar
-respuestas_validas: ["aumenta", "disminuye"]
+respuestas_validas:
+  - "aumenta"
+  - "disminuye"
 
 enunciado: "Si el diámetro de las arterias se reduce (vasoconstricción), la resistencia periférica _______ y, por lo tanto, la presión arterial aumenta."
 
@@ -1608,8 +1624,8 @@ metadata:
   nivel: "intermedio"
   tags: ["gasto_cardiaco"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Un aumento en el volumen de sangre expulsado por el corazón en cada latido (volumen sistólico) tiende a elevar la presión arterial."
 
 explicacion: |
@@ -1623,8 +1639,8 @@ metadata:
   nivel: "intermedio"
   tags: ["error", "medicion"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Realizar una toma de presión con el brazo por debajo del nivel del corazón no afecta el resultado de la lectura."
 
 explicacion: |
@@ -1640,7 +1656,9 @@ metadata:
 
 respuesta: "corazón"
 tipo: completar
-respuestas_validas: ["corazón", "pulmones"]
+respuestas_validas:
+  - "corazón"
+  - "pulmones"
 
 enunciado: "La presión arterial depende principalmente del gasto del _______ y la resistencia de los vasos sanguíneos."
 
@@ -1674,7 +1692,8 @@ metadata:
 
 respuesta: "hipertensión"
 tipo: completar
-respuestas_validas: ["hipertensión"]
+respuestas_validas:
+  - "hipertensión"
 
 enunciado: "Cuando la presión sistólica es consistentemente mayor a 140 mmHg, se diagnostica _______."
 
@@ -1726,8 +1745,8 @@ metadata:
   nivel: "intermedio"
   tags: ["edad"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La rigidez de las arterias asociada al envejecimiento suele provocar un aumento en la presión sistólica."
 
 explicacion: |
@@ -1743,7 +1762,9 @@ metadata:
 
 respuesta: "arterias"
 tipo: completar
-respuestas_validas: ["arterias", "venas"]
+respuestas_validas:
+  - "arterias"
+  - "venas"
 
 enunciado: "La presión arterial es significativamente más alta en las _______ que en las venas."
 
@@ -1777,7 +1798,9 @@ metadata:
 
 respuesta: "falsamente alta"
 tipo: completar
-respuestas_validas: ["falsamente alta", "falsamente baja"]
+respuestas_validas:
+  - "falsamente alta"
+  - "falsamente baja"
 
 enunciado: "Si el manguito es demasiado pequeño para el brazo del paciente, la lectura será _______."
 
@@ -1792,8 +1815,8 @@ metadata:
   nivel: "intermedio"
   tags: ["comparacion"]
 
-respuesta: "mayor"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La presión sistólica es siempre mayor que la presión diastólica."
 
 explicacion: |
@@ -1826,7 +1849,9 @@ metadata:
 
 respuesta: "disminuye"
 tipo: completar
-respuestas_validas: ["disminuye", "aumenta"]
+respuestas_validas:
+  - "disminuye"
+  - "aumenta"
 
 enunciado: "En un paciente con deshidratación severa, el volumen sanguíneo total disminuye, lo que causa que la presión arterial _______."
 
@@ -1858,8 +1883,8 @@ metadata:
   nivel: "intermedio"
   tags: ["cafeina", "estimulante"]
 
-respuesta: "aumenta"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "El consumo de grandes cantidades de cafeína puede provocar un aumento temporal de la presión arterial."
 
 explicacion: |
@@ -1875,7 +1900,9 @@ metadata:
 
 respuesta: "incorrecta"
 tipo: completar
-respuestas_validas: ["incorrecta", "correcta"]
+respuestas_validas:
+  - "incorrecta"
+  - "correcta"
 
 enunciado: "Si el paciente tiene las piernas cruzadas durante la toma de presión, la lectura obtenida será _______."
 
@@ -1899,3 +1926,4 @@ enunciado: "Una dieta con un contenido muy elevado de sodio (sal) tiende a _____
 explicacion: |
   El sodio retiene agua en el torrente sanguíneo, aumentando el volumen y la presión.
 ```
+

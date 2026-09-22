@@ -1,809 +1,8 @@
-# Examen jefe — Maestro del Ambiente y Recursos
+# Examen jefe — [PENDIENTE #796]
 
-> Logro #127. Completaste el examen sobre ambientalismo, recursos y la dinámica de América Latina y Anglosajona. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **127 preguntas totales** en 5/5 secciones.
+> Logro #796. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **119 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: ambientalismo-liberal (20 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "basico"
-  tags: ["ambientalismo_liberal", "vocabulario"]
-
-enunciado: "¿Qué sostiene el ambientalismo liberal (o de mercado)?"
-tipo: mc
-opciones_explicitas:
-  - "Que los mecanismos de mercado son herramientas más eficaces para proteger el ambiente que la regulación estatal directa"
-  - "Que el Estado debe controlar directamente toda actividad económica"
-  - "Que hay que reducir el crecimiento económico para proteger el ambiente"
-respuesta: "Que los mecanismos de mercado son herramientas más eficaces para proteger el ambiente que la regulación estatal directa"
-
-explicacion: |
-  También se lo llama ambientalismo de libre mercado o ecocapitalismo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "intermedio"
-  tags: ["ambientalismo_liberal"]
-
-enunciado: "¿Qué es la regulación de \"comando y control\" que critica el ambientalismo liberal?"
-tipo: mc
-opciones_explicitas:
-  - "Leyes ambientales que prohíben o limitan directamente por decreto estatal"
-  - "Un sistema de derechos de propiedad privada"
-  - "Un mecanismo de mercado de carbono"
-respuesta: "Leyes ambientales que prohíben o limitan directamente por decreto estatal"
-
-explicacion: |
-  Según esta corriente, ese tipo de regulación desalienta la inversión
-  y la innovación empresarial.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["propiedad_privada"]
-
-enunciado: "¿Qué es el problema de la \"tragedia de los comunes\" que esta corriente busca resolver?"
-tipo: mc
-opciones_explicitas:
-  - "Que si un recurso no tiene dueño claro, nadie internaliza el costo de dañarlo"
-  - "Que la propiedad privada siempre genera más contaminación"
-  - "Que el Estado siempre gestiona mejor un recurso que un privado"
-respuesta: "Que si un recurso no tiene dueño claro, nadie internaliza el costo de dañarlo"
-
-explicacion: |
-  Un río o el aire, al ser "de nadie", no tienen quién asuma el costo
-  económico de su degradación.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "intermedio"
-  tags: ["propiedad_privada"]
-
-enunciado: "Según el ambientalismo liberal, ¿por qué el dueño de un bosque privado tendría interés en cuidarlo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el valor futuro del bosque depende de su estado de conservación"
-  - "Porque la ley lo obliga estrictamente a hacerlo"
-  - "Porque no existe ningún interés económico real en cuidarlo"
-respuesta: "Porque el valor futuro del bosque depende de su estado de conservación"
-
-explicacion: |
-  Es el argumento central: un dueño claro tiene incentivo económico
-  directo para cuidar el recurso.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "intermedio"
-  tags: ["cap_and_trade"]
-
-enunciado: "¿Qué es el sistema de \"cap and trade\" (límite y comercio) de derechos de emisión?"
-tipo: mc
-opciones_explicitas:
-  - "El Estado fija un límite total de emisiones y emite certificados que las empresas pueden comprar y vender entre sí"
-  - "Una prohibición total de cualquier tipo de emisión"
-  - "Un impuesto fijo idéntico para todas las empresas sin excepción"
-respuesta: "El Estado fija un límite total de emisiones y emite certificados que las empresas pueden comprar y vender entre sí"
-
-explicacion: |
-  Es el instrumento de mercado más conocido de esta corriente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["cap_and_trade"]
-
-enunciado: "En un sistema de cap and trade, ¿quién puede vender su excedente de derechos de emisión?"
-tipo: mc
-opciones_explicitas:
-  - "Quien contamina menos de lo permitido"
-  - "Sólo el Estado que emitió los certificados"
-  - "Nadie, los derechos no se pueden vender"
-respuesta: "Quien contamina menos de lo permitido"
-
-explicacion: |
-  Puede vender su excedente a quien necesita emitir más, dirigiendo la
-  reducción hacia quien puede lograrla al menor costo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["cap_and_trade"]
-
-enunciado: "¿Qué busca lograr, en teoría, el mecanismo de cap and trade frente a un límite parejo impuesto a todas las empresas por igual?"
-tipo: mc
-opciones_explicitas:
-  - "Dirigir la reducción de emisiones hacia quien puede lograrla al menor costo"
-  - "Eliminar completamente cualquier emisión de inmediato"
-  - "Aumentar las emisiones totales permitidas cada año"
-respuesta: "Dirigir la reducción de emisiones hacia quien puede lograrla al menor costo"
-
-explicacion: |
-  Es el argumento de eficiencia económica detrás de este mecanismo de
-  mercado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "intermedio"
-  tags: ["referencia"]
-
-enunciado: "¿Cuál es el libro de referencia real que sistematiza el ambientalismo de mercado?"
-tipo: mc
-opciones_explicitas:
-  - "Free Market Environmentalism (Terry L. Anderson y Donald R. Leal, 1991)"
-  - "A Sand County Almanac (Aldo Leopold, 1949)"
-  - "El Capital (Karl Marx, 1867)"
-respuesta: "Free Market Environmentalism (Terry L. Anderson y Donald R. Leal, 1991)"
-
-explicacion: |
-  Argumenta que la propiedad privada y la responsabilidad civil son
-  más efectivas que la regulación de comando y control.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "intermedio"
-  tags: ["referencia"]
-
-enunciado: "¿En qué año se publicó Free Market Environmentalism de Anderson y Leal?"
-tipo: input
-respuesta: 1991
-
-explicacion: |
-  Es el libro que sistematizó esta corriente como propuesta coherente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["propiedad_privada"]
-
-enunciado: "Además de la propiedad privada, ¿qué otra herramienta legal propone Anderson y Leal para proteger el ambiente?"
-tipo: mc
-opciones_explicitas:
-  - "La responsabilidad civil, para poder demandar a quien contamina"
-  - "La nacionalización de todas las empresas contaminantes"
-  - "La eliminación total del sistema judicial en temas ambientales"
-respuesta: "La responsabilidad civil, para poder demandar a quien contamina"
-
-explicacion: |
-  Permite que quien sufre el daño ambiental pueda reclamar
-  judicialmente al responsable, sin necesitar regulación estatal
-  previa.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["matices_internos"]
-
-enunciado: "¿Qué proponen los \"coasianos\" (en referencia al economista Ronald Coase) dentro del ambientalismo de mercado?"
-tipo: mc
-opciones_explicitas:
-  - "El comercio supranacional de derechos de carbono como solución práctica"
-  - "La abolición completa de cualquier mercado de emisiones"
-  - "Que el Estado prohíba toda forma de propiedad privada"
-respuesta: "El comercio supranacional de derechos de carbono como solución práctica"
-
-explicacion: |
-  Aceptan el cap and trade como mecanismo válido y práctico.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["matices_internos"]
-
-enunciado: "¿Por qué los \"libertarios\" más estrictos dentro de esta corriente se oponen incluso al cap and trade?"
-tipo: mc
-opciones_explicitas:
-  - "Porque lo consideran una intervención gubernamental disfrazada"
-  - "Porque prefieren la regulación de comando y control"
-  - "Porque no creen en la propiedad privada"
-respuesta: "Porque lo consideran una intervención gubernamental disfrazada"
-
-explicacion: |
-  Para ellos, la única solución legítima es la propiedad privada y la
-  responsabilidad civil, sin ningún mercado regulado por el Estado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿En qué se diferencia el ambientalismo liberal del conservacionismo (`../conservacionismo/`)?"
-tipo: mc
-opciones_explicitas:
-  - "El ambientalismo liberal confía en mecanismos de mercado; el conservacionismo confía más en la acción directa del Estado"
-  - "Son exactamente la misma postura con distinto nombre"
-  - "El ambientalismo liberal rechaza cualquier forma de propiedad privada"
-respuesta: "El ambientalismo liberal confía en mecanismos de mercado; el conservacionismo confía más en la acción directa del Estado"
-
-explicacion: |
-  Es la diferencia clave entre las dos primeras corrientes del
-  espectro.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Con qué corriente económica ya vista en `E28P` (Corrientes del pensamiento económico) cruza directamente el ambientalismo liberal?"
-tipo: mc
-opciones_explicitas:
-  - "La escuela austriaca, crítica de la planificación centralizada"
-  - "El marxismo"
-  - "El mercantilismo"
-respuesta: "La escuela austriaca, crítica de la planificación centralizada"
-
-explicacion: |
-  Ambas confían en que los precios y mercados libres coordinan mejor
-  que la planificación estatal.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "intermedio"
-  tags: ["cruce"]
-
-enunciado: "El ambientalismo liberal considera que el crecimiento económico y la protección ambiental son incompatibles."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Los considera compatibles, si los incentivos de mercado están bien
-  diseñados — a diferencia del decrecimiento (`../decrecimiento/`).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿En qué se diferencia el ambientalismo liberal del ecologismo político (`../ecologismo-politico/`)?"
-tipo: mc
-opciones_explicitas:
-  - "El ambientalismo liberal no cuestiona el capitalismo; el ecologismo político sí exige repensar el sistema económico de fondo"
-  - "Son exactamente la misma postura"
-  - "El ecologismo político confía en el mercado libre y el ambientalismo liberal no"
-respuesta: "El ambientalismo liberal no cuestiona el capitalismo; el ecologismo político sí exige repensar el sistema económico de fondo"
-
-explicacion: |
-  Es la diferencia central entre las corrientes "dentro del sistema" y
-  las corrientes "que cuestionan el sistema".
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "basico"
-  tags: ["propiedad_privada"]
-
-enunciado: "Según el ambientalismo liberal, ¿qué genera que un recurso tenga un precio y un dueño claro?"
-tipo: mc
-opciones_explicitas:
-  - "Un incentivo económico concreto para cuidarlo"
-  - "Un incentivo para destruirlo lo antes posible"
-  - "Ningún efecto sobre cómo se lo cuida"
-respuesta: "Un incentivo económico concreto para cuidarlo"
-
-explicacion: |
-  Es el argumento central de esta corriente frente a recursos sin
-  dueño ("tragedia de los comunes").
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "avanzado"
-  tags: ["matices_internos"]
-
-enunciado: "El ambientalismo de mercado es una corriente completamente homogénea, sin ningún matiz interno."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Existen matices internos: coasianos (aceptan cap and trade) vs.
-  libertarios estrictos (lo rechazan por considerarlo intervención
-  disfrazada).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-enunciado: "¿Cuál de estos es otro nombre usado para referirse al ambientalismo liberal?"
-tipo: mc
-opciones_explicitas:
-  - "Ecocapitalismo"
-  - "Ecosocialismo"
-  - "Decrecimiento"
-respuesta: "Ecocapitalismo"
-
-explicacion: |
-  También se lo llama ambientalismo de libre mercado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambientalismo_liberal"
-  nivel: "basico"
-  tags: ["neutralidad"]
-
-enunciado: "¿El objetivo de este material es convencer de que el ambientalismo liberal es superior a las otras 3 corrientes?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  El objetivo es identificar qué sostiene, con la misma seriedad
-  expositiva que el resto, no evaluar cuál tiene razón.
-```
-
-## Sección: ambiente-y-recursos (22 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "basico"
-  tags: ["marco_legal"]
-
-enunciado: "¿Qué es la Ley 27.621?"
-tipo: mc
-opciones_explicitas:
-  - "La Ley para la Implementación de la Educación Ambiental Integral en la República Argentina (2021)"
-  - "La Constitución Nacional Argentina"
-  - "Un tratado internacional sobre cambio climático"
-respuesta: "La Ley para la Implementación de la Educación Ambiental Integral en la República Argentina (2021)"
-
-explicacion: |
-  Establece el derecho a la educación ambiental integral como política
-  pública nacional.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "intermedio"
-  tags: ["marco_legal"]
-
-enunciado: "¿En qué año se sancionó la Ley 27.621?"
-tipo: input
-respuesta: 2021
-
-explicacion: |
-  Confirmado con el texto oficial publicado en el Boletín Oficial.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "avanzado"
-  tags: ["marco_legal"]
-
-enunciado: "¿Qué hizo el artículo 25 de la Ley 27.621?"
-tipo: mc
-opciones_explicitas:
-  - "Incorporó y reescribió el inciso g del artículo 92 de la Ley de Educación Nacional"
-  - "Creó una nueva Constitución ambiental"
-  - "Derogó la Ley General del Ambiente"
-respuesta: "Incorporó y reescribió el inciso g del artículo 92 de la Ley de Educación Nacional"
-
-explicacion: |
-  Es el mecanismo legal concreto que conecta la Ley 27.621 con la
-  currícula educativa obligatoria.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "intermedio"
-  tags: ["marco_legal"]
-
-enunciado: "¿Cuál es el número de la Ley de Educación Nacional argentina, cuyo artículo 92 inciso g fue modificado?"
-tipo: mc
-opciones_explicitas:
-  - "Ley 26.206"
-  - "Ley 27.621"
-  - "Ley 25.675"
-respuesta: "Ley 26.206"
-
-explicacion: |
-  La Ley 26.206 es la Ley de Educación Nacional; la 27.621 es la que
-  modificó su artículo 92 g.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "intermedio"
-  tags: ["marco_legal"]
-
-enunciado: "¿Qué exige, en esencia, el art. 92 inciso g de la Ley de Educación Nacional (versión reescrita por la Ley 27.621)?"
-tipo: mc
-opciones_explicitas:
-  - "El desarrollo de conocimientos, valores y actitudes sobre la importancia del ambiente, la biodiversidad y los recursos naturales"
-  - "La enseñanza obligatoria de un segundo idioma"
-  - "La creación de un ministerio del ambiente"
-respuesta: "El desarrollo de conocimientos, valores y actitudes sobre la importancia del ambiente, la biodiversidad y los recursos naturales"
-
-explicacion: |
-  Es un objetivo de la política educativa nacional, no una elección
-  editorial de un plan de estudios.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "avanzado"
-  tags: ["marco_legal"]
-
-enunciado: "¿Qué otra ley argentina cita el art. 92 g como marco de referencia para el respeto y conservación del ambiente?"
-tipo: mc
-opciones_explicitas:
-  - "Ley 25.675 (Ley General del Ambiente)"
-  - "Ley 27.214"
-  - "Ley 26.206 exclusivamente, sin otra referencia"
-respuesta: "Ley 25.675 (Ley General del Ambiente)"
-
-explicacion: |
-  La Ley 27.621 no crea el derecho desde cero: instrumenta algo que la
-  Ley General del Ambiente ya establecía en principio.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "avanzado"
-  tags: ["marco_legal"]
-
-enunciado: "¿Qué artículo de la Constitución Nacional Argentina cita el art. 92 g como base del derecho ambiental?"
-tipo: mc
-opciones_explicitas:
-  - "Artículo 41"
-  - "Artículo 14"
-  - "Artículo 75"
-respuesta: "Artículo 41"
-
-explicacion: |
-  El artículo 41 de la Constitución es el que consagra el derecho a un
-  ambiente sano.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "avanzado"
-  tags: ["marco_legal"]
-
-enunciado: "La Ley 27.621 crea el derecho a la educación ambiental desde cero, sin ninguna ley previa relacionada."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Es una ley de implementación: instrumenta y hace obligatorio algo
-  que la Ley General del Ambiente (25.675) ya establecía en principio.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "intermedio"
-  tags: ["marco_legal"]
-
-enunciado: "Enseñar Educación Ambiental Integral en la escuela argentina es, según la ley, una elección optativa del plan de estudios de cada institución."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Es un mandato curricular explícito de política educativa nacional,
-  no una elección editorial.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-enunciado: "¿Qué es \"el ambiente\", en sentido técnico?"
-tipo: mc
-opciones_explicitas:
-  - "El conjunto de elementos naturales, sociales y culturales que interactúan en un lugar y condicionan la vida de quienes lo habitan"
-  - "Únicamente la naturaleza sin ninguna intervención humana"
-  - "El clima de una región exclusivamente"
-respuesta: "El conjunto de elementos naturales, sociales y culturales que interactúan en un lugar y condicionan la vida de quienes lo habitan"
-
-explicacion: |
-  Incluye también las modificaciones que la actividad humana introduce
-  (ciudades, cultivos), no sólo la naturaleza intacta.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "intermedio"
-  tags: ["vocabulario"]
-
-enunciado: "¿El concepto de \"ambiente\" excluye las modificaciones humanas del entorno (ciudades, cultivos)?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  El ambiente incluye también las modificaciones humanas y cómo
-  repercuten de vuelta sobre la sociedad.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "intermedio"
-  tags: ["presion_ambiental"]
-
-enunciado: "¿Qué es la \"presión ambiental\"?"
-tipo: mc
-opciones_explicitas:
-  - "La carga que la actividad económica y la población ejercen sobre el ambiente de un territorio"
-  - "La cantidad de leyes ambientales vigentes en un país"
-  - "La presión atmosférica de una región"
-respuesta: "La carga que la actividad económica y la población ejercen sobre el ambiente de un territorio"
-
-explicacion: |
-  Combina qué recursos se explotan y cuánta población hay concentrada
-  en ese territorio.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué `ambiente-y-recursos/` depende de `../poblacion-piramides-migraciones/`?"
-tipo: mc
-opciones_explicitas:
-  - "Porque la presión ambiental sobre un territorio está ligada directamente a cuánta población vive ahí y cómo se mueve"
-  - "Porque las pirámides poblacionales miden directamente la contaminación"
-  - "Porque no existe ninguna relación real entre ambos temas"
-respuesta: "Porque la presión ambiental sobre un territorio está ligada directamente a cuánta población vive ahí y cómo se mueve"
-
-explicacion: |
-  Es la razón anotada en `../dependencias.md`.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "intermedio"
-  tags: ["conceptos_tecnicos"]
-
-enunciado: "¿Qué significa \"conservación\" de un recurso natural, en sentido técnico?"
-tipo: mc
-opciones_explicitas:
-  - "Usarlo de forma sostenible, permitiendo su aprovechamiento sin agotarlo"
-  - "No usarlo bajo ninguna circunstancia"
-  - "Extraerlo lo más rápido posible antes de que se agote"
-respuesta: "Usarlo de forma sostenible, permitiendo su aprovechamiento sin agotarlo"
-
-explicacion: |
-  Ejemplo: pesca con cupos que permiten la reproducción de la especie.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "intermedio"
-  tags: ["conceptos_tecnicos"]
-
-enunciado: "¿Qué significa \"preservación\" de un área o especie?"
-tipo: mc
-opciones_explicitas:
-  - "Protegerla sin intervención humana directa, dejándola intacta"
-  - "Explotarla de forma sostenible"
-  - "Permitir cualquier uso comercial sin restricciones"
-respuesta: "Protegerla sin intervención humana directa, dejándola intacta"
-
-explicacion: |
-  Ejemplo: un parque nacional de acceso muy restringido.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "avanzado"
-  tags: ["conceptos_tecnicos"]
-
-enunciado: "¿Cuál es la diferencia central entre conservación y preservación?"
-tipo: mc
-opciones_explicitas:
-  - "La conservación permite aprovechamiento sostenible; la preservación protege sin intervención humana directa"
-  - "Son exactamente sinónimos sin ningún matiz"
-  - "La preservación siempre permite explotación comercial y la conservación no"
-respuesta: "La conservación permite aprovechamiento sostenible; la preservación protege sin intervención humana directa"
-
-explicacion: |
-  Son dos estrategias distintas frente a un recurso o área, ambas
-  mencionadas en el texto legal.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "intermedio"
-  tags: ["conceptos_tecnicos"]
-
-enunciado: "¿Qué significa \"prevención del daño\" ambiental?"
-tipo: mc
-opciones_explicitas:
-  - "Actuar antes de que ocurra un perjuicio ambiental, en vez de repararlo después"
-  - "Reparar un daño ambiental ya ocurrido"
-  - "Ignorar el impacto ambiental de una obra"
-respuesta: "Actuar antes de que ocurra un perjuicio ambiental, en vez de repararlo después"
-
-explicacion: |
-  Ejemplo: exigir un estudio de impacto ambiental antes de autorizar
-  una obra, no después de construida.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "intermedio"
-  tags: ["conceptos_tecnicos"]
-
-enunciado: "Exigir un estudio de impacto ambiental antes de autorizar una obra es un ejemplo de..."
-tipo: mc
-opciones_explicitas:
-  - "Prevención del daño"
-  - "Preservación"
-  - "Conservación"
-respuesta: "Prevención del daño"
-
-explicacion: |
-  Es actuar antes del perjuicio, no reparar después de ocurrido.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "avanzado"
-  tags: ["presion_ambiental"]
-
-enunciado: "La presión ambiental crece de forma perfectamente lineal y automática con la población, sin que la tecnología o la regulación puedan influir."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Es una tendencia de base, pero la tecnología y la regulación también
-  inciden, no es un vínculo automático.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Qué distingue a este tema (`AM1`) de los 4 nodos de corrientes de pensamiento ambiental que cuelgan de él?"
-tipo: mc
-opciones_explicitas:
-  - "Este tema es descriptivo/técnico (qué es el ambiente, qué exige la ley); las corrientes entran en la discusión ideológica sobre qué hacer al respecto"
-  - "Son exactamente el mismo tipo de contenido, sin ninguna diferencia"
-  - "Este tema ya incluye toda la discusión ideológica"
-respuesta: "Este tema es descriptivo/técnico (qué es el ambiente, qué exige la ley); las corrientes entran en la discusión ideológica sobre qué hacer al respecto"
-
-explicacion: |
-  Es la transición explícita hacia `../conservacionismo/`,
-  `../ambientalismo-liberal/`, `../ecologismo-politico/` y
-  `../decrecimiento/`.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "intermedio"
-  tags: ["cruce"]
-
-enunciado: "¿Dónde se explicó previamente qué es un recurso natural renovable y no renovable, antes de este tema?"
-tipo: mc
-opciones_explicitas:
-  - "En `../recursos-actividades-economicas/`"
-  - "En `../region/`"
-  - "En `../division-politica/`"
-respuesta: "En `../recursos-actividades-economicas/`"
-
-explicacion: |
-  Este tema reutiliza esa base conceptual, sin repetirla, para
-  construir el concepto de presión ambiental.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "intermedio"
-  tags: ["marco_legal"]
-
-enunciado: "¿Cuál es el objetivo central declarado de la Ley 27.621?"
-tipo: mc
-opciones_explicitas:
-  - "Generar conocimientos, valores, actitudes y prácticas para una relación sostenible con el ambiente"
-  - "Prohibir toda actividad minera en el país"
-  - "Crear un impuesto ambiental nacional"
-respuesta: "Generar conocimientos, valores, actitudes y prácticas para una relación sostenible con el ambiente"
-
-explicacion: |
-  Es una ley de educación, no de regulación económica directa ni de
-  creación de tributos.
-```
 
 ## Sección: america-anglosajona (25 preguntas)
 
@@ -1347,1222 +546,1842 @@ explicacion: |
   El ferrocarril fue la herramienta clave para integrar el vasto territorio canadiense.
 ```
 
-## Sección: america-latina-formacion-poblacion (25 preguntas)
+## Sección: coordenadas-y-husos-horarios (25 preguntas)
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
   nivel: "basico"
-  tags: ["mestizaje", "pueblos_originarios", "bolivia"]
+  tags: ["coordenadas", "vocabulario"]
 
-variables:
-  pais: "Bolivia"
-  grupo: "indígena"
+enunciado: "¿Desde dónde se mide la latitud de un punto?"
+tipo: mc
+opciones_explicitas:
+  - "Desde el ecuador, hacia el norte o el sur"
+  - "Desde el meridiano de Greenwich, hacia el este o el oeste"
+  - "Desde el Polo Norte, hacia cualquier dirección"
+respuesta: "Desde el ecuador, hacia el norte o el sur"
+
+explicacion: |
+  La latitud es el ángulo medido desde el ecuador (0°) hasta el punto,
+  hacia el norte o el sur, entre 0° y 90°.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "basico"
+  tags: ["coordenadas", "vocabulario"]
+
+enunciado: "¿Desde dónde se mide la longitud de un punto?"
+tipo: mc
+opciones_explicitas:
+  - "Desde el meridiano de Greenwich, hacia el este o el oeste"
+  - "Desde el ecuador, hacia el norte o el sur"
+  - "Desde el Polo Sur, hacia cualquier dirección"
+respuesta: "Desde el meridiano de Greenwich, hacia el este o el oeste"
+
+explicacion: |
+  La longitud es el ángulo medido desde el meridiano de Greenwich
+  (0°) hacia el este o el oeste, entre 0° y 180°.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "basico"
+  tags: ["coordenadas"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En {pais}, la población de origen {grupo} sigue siendo numéricamente significativa y políticamente relevante."
+enunciado: "El ecuador es el paralelo de referencia, con latitud 0°."
 
 explicacion: |
-  Bolivia es uno de los países donde la población indígena tiene una presencia demográfica y política mayoritaria, manteniendo vivos sus idiomas y cosmovisiones.
+  Todas las latitudes se miden como distancia angular al ecuador.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
   nivel: "basico"
-  tags: ["mestizaje", "historia"]
-
-variables:
-  grupo1: "europeos"
-  grupo2: "africanos"
-  grupo3: "originarios"
-
-respuesta: |
-  El mestizaje en América Latina es el resultado del encuentro entre los pueblos {grupo1}, los africanos esclavizados y los {grupo3}.
-tipo: completar
-
-enunciado: "La identidad demográfica latinoamericana es el resultado de una mezcla biológica y cultural entre tres grandes grupos: los __________, los africanos y los pueblos __________."
-
-explicacion: |
-  La formación histórica de la población se define por el encuentro entre europeos, africanos y pueblos originarios.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "intermedio"
-  tags: ["diaspora_africana", "brasil", "cultura"]
-
-variables:
-  pais: "Brasil"
-  area: "música, religión y gastronomía"
+  tags: ["coordenadas"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En {pais}, la influencia africana es tan profunda que define gran parte de la identidad nacional a través de su aporte en {area}."
+enunciado: "El meridiano de Greenwich es el meridiano de referencia, con longitud 0°."
 
 explicacion: |
-  La trata de esclavizados africanos introdujo elementos fundamentales a la cultura brasileña, desafiando la narrativa que priorizaba solo la herencia europea.
+  Todas las longitudes se miden como distancia angular a Greenwich,
+  hacia el este o hacia el oeste.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "intermedio"
-  tags: ["estructura_social", "colonialismo"]
-
-variables:
-  grupo: "descendientes de europeos"
-
-respuesta: |
-  Durante la época colonial, se otorgaba mayor estatus social y poder político a los {grupo}.
-tipo: completar
-
-enunciado: "Durante siglos, la sociedad latinoamericana se organizó jerárquicamente según el origen étnico, favoreciendo a los __________."
-
-explicacion: |
-  La sociedad colonial estaba estratificada, otorgando privilegios a los descendientes de los colonizadores europeos.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
   nivel: "basico"
-  tags: ["pueblos_originarios", "civilizaciones"]
+  tags: ["coordenadas", "completar"]
 
-variables:
-  civ1: "Incas"
-  civ2: "Mayas"
-  civ3: "Aztecas"
-
-respuesta: |
-  Los pueblos originarios desarrollaron civilizaciones sofisticadas como los {civ1}, {civ2} y {civ3}.
 tipo: completar
-
-enunciado: "Antes de la colonización, los pueblos originarios desarrollaron grandes civilizaciones como los {civ1}, los {civ2} y los {civ3}."
+enunciado: "Completá: la latitud va desde 0° (ecuador) hasta ___° (en los polos)."
+respuestas_validas:
+  - 90
 
 explicacion: |
-  Estas civilizaciones son ejemplos del desarrollo sofisticado de los pueblos originarios antes del contacto europeo.
+  90° norte es el Polo Norte; 90° sur es el Polo Sur.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "intermedio"
-  tags: ["demografia", "enfermedades"]
-
-variables:
-  causa1: "enfermedades"
-  causa2: "conflictos bélicos"
-
-respuesta: |
-  La población indígena disminuyó drásticamente debido a las {causa1} traídas por los europeos y a los {causa2}.
-tipo: completar
-
-enunciado: "Con la llegada de los españoles y portugueses, la población indígena disminuyó drásticamente por las {causa1} y los {causa2}."
-
-explicacion: |
-  Las enfermedades europeas y la guerra fueron las principales causas de la drástica reducción de la población nativa.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "intermedio"
-  tags: ["mestizaje", "identidad_nacional"]
-
-variables:
-  pais: "México"
-
-respuesta: |
-  En {pais}, la población de origen indígena sigue siendo numéricamente significativa.
-tipo: input
-
-enunciado: "Menciona un país de América Latina donde la población de origen indígena sigue siendo numéricamente significativa: {pais}."
-
-explicacion: |
-  México, Guatemala, Bolivia y Perú son ejemplos clave de países con una fuerte presencia indígena contemporánea.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
   nivel: "basico"
-  tags: ["terminologia", "demografia"]
+  tags: ["coordenadas", "completar"]
 
-variables:
-  definicion: "ascendencia mixta"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Hoy, la mayoría de la población latinoamericana se identifica como mestiza, lo que significa que posee {definicion}."
-
-explicacion: |
-  El término 'mestizo' en el contexto latinoamericano actual se refiere predominantemente a la ascendencia mixta europea, indígena y/o africana.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "intermedio"
-  tags: ["diaspora_africana", "geografia_humana"]
-
-variables:
-  zona1: "Caribe"
-  zona2: "Brasil"
-  zona3: "costa del Pacífico"
-
-respuesta: |
-  Los esclavizados africanos fueron traídos principalmente a las zonas costeras, el {zona1}, {zona2} y la {zona3}.
 tipo: completar
-
-enunciado: "La trata de esclavizados africanos se concentró principalmente en las zonas costeras, el {zona1}, {zona2} y la {zona3}."
+enunciado: "Completá: la longitud va desde 0° (Greenwich) hasta ___° (este u oeste)."
+respuestas_validas:
+  - 180
 
 explicacion: |
-  La ubicación geográfica de los esclavizados estaba ligada a las regiones de plantación y zonas portuarias estratégicas.
+  180° es el meridiano opuesto a Greenwich, cerca de la Línea
+  Internacional de Cambio de Fecha.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
   nivel: "intermedio"
-  tags: ["mestizaje", "historia"]
+  tags: ["coordenadas"]
 
-variables:
-  caracteristica: "no uniforme ni equitativo"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El proceso de mestizaje en América Latina ocurrió de manera {caracteristica}."
+enunciado: "Todos los puntos de un mismo paralelo comparten la misma..."
+tipo: mc
+opciones_explicitas:
+  - "Latitud"
+  - "Longitud"
+  - "Huso horario"
+respuesta: "Latitud"
 
 explicacion: |
-  La mezcla no fue homogénea; existieron grandes desigualdades y jerarquías durante el proceso de formación poblacional.
+  Un paralelo es un círculo imaginario paralelo al ecuador: todo punto
+  sobre él está a la misma distancia angular del ecuador.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "basico"
-  tags: ["cultura", "diaspora_africana"]
-
-variables:
-  elemento: "música"
-
-respuesta: |
-  La población africana aportó elementos fundamentales a la {elemento}, la religión y la gastronomía de la región.
-tipo: input
-
-enunciado: "Un elemento cultural fundamental aportado por la diáspora africana es la {elemento}."
-
-explicacion: |
-  La música, junto con la religión y la gastronomía, son pilares de la influencia africana en la identidad latinoamericana.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
   nivel: "intermedio"
-  tags: ["identidad", "modernidad"]
+  tags: ["coordenadas"]
 
-variables:
-  efecto: "se difuminaron"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Con el paso del tiempo y la independencia, las fronteras entre los grupos étnicos {efecto}."
+enunciado: "Todos los puntos de un mismo meridiano comparten la misma..."
+tipo: mc
+opciones_explicitas:
+  - "Longitud"
+  - "Latitud"
+  - "Hora local exacta durante todo el año"
+respuesta: "Longitud"
 
 explicacion: |
-  Aunque las jerarquías coloniales fueron estrictas, la realidad demográfica posterior a las independencias llevó a una mayor mezcla y difuminación de límites étnicos claros.
+  Un meridiano va de polo a polo: todo punto sobre él está a la misma
+  distancia angular de Greenwich.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
   nivel: "avanzado"
-  tags: ["sociologia", "identidad"]
+  tags: ["coordenadas", "problema"]
 
 variables:
-  concepto: "laboratorios sociales"
+  grados: random(10, 80)
+  minutos: uno_de([0, 10, 15, 20, 30, 40, 45, 50])
 
-respuesta: |
-  La realidad demográfica latinoamericana hace que la región sea uno de los {concepto} más interesantes para estudiar la interacción cultural.
+respuesta: redondear(grados + minutos / 60, 2)
 tipo: input
+tolerancia_abs: 0.01
 
-enunciado: "América Latina es considerada uno de los {concepto} más interesantes para estudiar cómo interactúan diferentes herencias culturales."
+enunciado: "Una latitud está expresada como {grados}° {minutos}′. Expresada en grados decimales (redondeando a 2 decimales), ¿cuánto es?"
+
+pasos:
+  - "decimal = grados + minutos/60 = {grados} + {minutos}/60"
+  - "= {redondear(grados + minutos / 60, 2)}°"
 
 explicacion: |
-  La compleja mezcla de herencias europeas, indígenas y africanas crea dinámicas sociales únicas en la región.
+  Cada grado tiene 60 minutos de arco, igual que cada hora tiene 60
+  minutos de tiempo.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "intermedio"
-  tags: ["diaspora_africana", "identidad_nacional"]
-
-variables:
-  pais: "Cuba"
-
-respuesta: |
-  En {pais}, la influencia africana es tan profunda que define gran parte de la identidad nacional.
-tipo: input
-
-enunciado: "Menciona un país caribeño donde la influencia africana define gran parte de la identidad nacional: {pais}."
-
-explicacion: |
-  Cuba, Brasil y Colombia son ejemplos donde la herencia africana es central en la definición de la identidad nacional.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "intermedio"
-  tags: ["sociedad", "mestizaje"]
-
-variables:
-  resultado: "nuevas estructuras sociales"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El mestizaje no solo transformó la composición étnica, sino que también generó {resultado}, lenguas y tradiciones."
-
-explicacion: |
-  La mezcla poblacional dio lugar a nuevas formas de organización social, lingüística y cultural que perduran hoy.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
   nivel: "basico"
-  tags: ["pueblos_originarios", "lengua"]
+  tags: ["husos"]
 
-variables:
-  accion: "manteniendo vivos sus idiomas"
-
-respuesta: |
-  En países como Bolivia y Perú, los pueblos originarios siguen {accion} y cosmovisiones.
+respuesta: 24
 tipo: input
 
-enunciado: "En Bolivia y Perú, los pueblos originarios siguen {accion} y cosmovisiones."
+enunciado: "¿En cuántos husos horarios se divide la superficie terrestre?"
 
 explicacion: |
-  A pesar de la disminución histórica, la resistencia cultural ha permitido la preservación de idiomas y visiones del mundo indígenas.
+  La Tierra gira 360° en 24 horas, y cada huso representa 1 hora.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
   nivel: "intermedio"
-  tags: ["historia", "demografia"]
+  tags: ["husos", "problema"]
 
-variables:
-  origen: "europeos"
-
-respuesta: |
-  Las enfermedades que devastaron a la población indígena fueron traídas por los {origen}.
+respuesta: 360 / 24
 tipo: input
 
-enunciado: "Las enfermedades que causaron la drástica disminución de la población indígena fueron traídas por los {origen}."
+enunciado: "Si la Tierra (360°) se divide en 24 husos horarios iguales, ¿cuántos grados de longitud mide cada huso?"
+
+pasos:
+  - "360° ÷ 24 husos = {360 / 24}° por huso"
 
 explicacion: |
-  La falta de inmunidad de los pueblos originarios ante las enfermedades europeas fue un factor demográfico crítico.
+  15° de longitud equivalen a 1 hora de diferencia horaria.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "basico"
-  tags: ["concepto_clave", "identidad"]
-
-variables:
-  eje: "el mestizaje"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El {eje} es el eje fundamental de la identidad latinoamericana."
-
-explicacion: |
-  El mestizaje, entendido como la mezcla biológica y cultural, se considera el núcleo de la formación de la identidad regional.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "intermedio"
-  tags: ["economia", "esclavitud"]
-
-variables:
-  zona: "regiones de plantación"
-
-respuesta: |
-  Los esclavizados africanos fueron traídos principalmente a las zonas costeras y a las {zona}.
-tipo: input
-
-enunciado: "La fuerza laboral esclavizada africana se concentró en las zonas costeras y en las {zona}."
-
-explicacion: |
-  La economía de plantación (azúcar, café, etc.) fue el principal motor de la demanda de mano de obra esclava africana.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "intermedio"
-  tags: ["comparativa", "identidad"]
-
-variables:
-  contraste: "homogeneidad cultural"
-
-respuesta: |
-  A diferencia de otras regiones donde la {contraste} fue predominante, la identidad latinoamericana es el resultado de la mezcla.
-tipo: input
-
-enunciado: "A diferencia de otras regiones donde la {contraste} fue predominante, América Latina se define por la mezcla."
-
-explicacion: |
-  La región se distingue por su heterogeneidad demográfica en contraste con regiones que tuvieron procesos de homogeneización más marcados.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "basico"
-  tags: ["historia", "pueblos_originarios"]
-
-variables:
-  civ: "Incas"
-
-respuesta: |
-  Los {civ} fueron uno de los pueblos originarios que desarrollaron civilizaciones sofisticadas.
-tipo: input
-
-enunciado: "Los {civ} son un ejemplo de las civilizaciones sofisticadas desarrolladas por los pueblos originarios."
-
-explicacion: |
-  Los Incas, junto con Mayas y Aztecas, son los ejemplos más conocidos de complejidad social y política prehispánica.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "basico"
-  tags: ["demografia", "actualidad"]
-
-variables:
-  tendencia: "mayoría"
-
-respuesta: |
-  Hoy, la {tendencia} de la población latinoamericana se identifica como mestiza.
-tipo: input
-
-enunciado: "Hoy, la {tendencia} de la población latinoamericana se identifica como mestiza."
-
-explicacion: |
-  El mestizaje ha sido el proceso demográfico dominante, llevando a una mayoría de población con ascendencia mixta.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
   nivel: "avanzado"
-  tags: ["ideologia", "historia"]
+  tags: ["husos", "problema"]
 
 variables:
-  narrativa: "priorizaba exclusivamente la herencia europea"
+  lonA: uno_de([0, 15, 30, 45, 60, 75, 90, 105, 120])
+  lonB: uno_de([0, 15, 30, 45, 60, 75, 90, 105, 120])
+
+restricciones:
+  - abs(lonA - lonB) > 0
+
+respuesta: abs(lonA - lonB) / 15
+tipo: input
+
+enunciado: "Dos ciudades del mismo hemisferio están en los meridianos {lonA}° y {lonB}°. ¿Cuántas horas de diferencia hay entre sus husos horarios?"
+
+pasos:
+  - "diferencia de longitud = |{lonA} − {lonB}| = {abs(lonA - lonB)}°"
+  - "horas de diferencia = {abs(lonA - lonB)} ÷ 15 = {abs(lonA - lonB) / 15}"
+
+explicacion: |
+  Cada 15° de diferencia de longitud equivalen a 1 hora, sin importar
+  el hemisferio (siempre que ambos puntos estén del mismo lado).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "intermedio"
+  tags: ["husos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La profunda influencia africana en países como Brasil desafía la narrativa histórica que {narrativa}."
+enunciado: "Moverse hacia el este (en dirección a Asia desde América) suma horas al huso horario; moverse hacia el oeste resta horas."
 
 explicacion: |
-  La realidad demológica y cultural africana contradice las versiones históricas antiguas que minimizaban la contribución no europea.
+  El Sol "sale antes" cuanto más al este se está, por eso los husos del
+  este están más adelantados.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "intermedio"
-  tags: ["biologia", "pueblos_originarios"]
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "avanzado"
+  tags: ["husos", "problema"]
 
 variables:
-  legado: "innegable"
+  huso: uno_de([-3, -5, -8, 1, 2, 5, 8])
+  hora_utc: random(0, 23)
 
-respuesta: |
-  A pesar de la disminución poblacional, el legado genético indígena es {legado}.
+restricciones:
+  - hora_utc + huso >= 0
+  - hora_utc + huso <= 23
+
+respuesta: hora_utc + huso
 tipo: input
 
-enunciado: "A pesar de la drástica disminución, el legado genético de los pueblos originarios es {legado}."
+enunciado: "Son las {hora_utc}:00 en el huso 0 (UTC/Greenwich). En una ciudad que está {huso} horas respecto de UTC (positivo = más adelantada hacia el este, negativo = más atrasada hacia el oeste), ¿qué hora es?"
+
+pasos:
+  - "hora local = hora UTC + huso = {hora_utc} + ({huso}) = {hora_utc + huso}"
 
 explicacion: |
-  La contribución genética indígena es una parte fundamental y evidente de la composición biológica actual de la región.
+  El huso de una ciudad es simplemente cuántas horas hay que sumar (o
+  restar) a la hora UTC para obtener su hora local.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_formacion_poblacion"
-  nivel: "intermedio"
-  tags: ["sociedad", "colonialismo"]
-
-variables:
-  criterio: "origen étnico"
-
-respuesta: |
-  Durante siglos, la sociedad se organizó jerárquicamente según el {criterio}.
-tipo: input
-
-enunciado: "Durante la colonia, la organización social jerárquica se basaba en el {criterio}."
-
-explicacion: |
-  El origen étnico determinaba el estatus social, el poder político y los derechos individuales.
-```
-
-## Sección: america-latina-industria-y-energia (35 preguntas)
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
   nivel: "basico"
-  tags: ["hidroelectricidad", "energia", "industria"]
+  tags: ["husos"]
 
-variables:
-  caudal: random(2000, 5000)
-  altura: random(50, 150)
-  eficiencia: random_float(0.7, 0.9)
-  potencia_watts: caudal * altura * 9.8 * eficiencia
-  potencia_mw: redondear(potencia_watts / 1000000, 2)
-
-respuesta: potencia_mw
-tipo: input
-
-enunciado: "Una represa hipotética en la región tiene un caudal de {caudal} m³/s y un salto de agua de {altura} metros. Si la eficiencia de los generadores es del {redondear(eficiencia*100, 0)}%, ¿cuál es la potencia instalada aproximada en MW? (Fórmula: P = caudal * gravedad * altura * eficiencia, con g=9.8)"
+enunciado: "¿Qué huso horario es la referencia UTC (antes llamada GMT)?"
+tipo: mc
+opciones_explicitas:
+  - "El huso 0, que contiene al meridiano de Greenwich"
+  - "El huso que contiene al ecuador"
+  - "El huso de la Línea Internacional de Cambio de Fecha"
+respuesta: "El huso 0, que contiene al meridiano de Greenwich"
 
 explicacion: |
-  La potencia hidroeléctrica depende del caudal, la altura del salto y la eficiencia. El cálculo muestra cómo la geografía física (caudal y desnivel) determina el potencial industrial energético.
+  Todos los demás husos se definen como una cantidad de horas de
+  diferencia respecto de este huso 0.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "basico"
-  tags: ["matriz_energetica", "renovable"]
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "intermedio"
+  tags: ["husos"]
 
-variables:
-  afirmacion_correcta: uno_de([verdadero, falso])
-
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "La matriz energética de América Latina es predominantemente renovable en comparación con otras regiones del mundo."
+enunciado: "La Línea Internacional de Cambio de Fecha está cerca del meridiano de Greenwich (longitud 0°)."
 
 explicacion: |
-  Verdadero. Gracias a la abundancia de recursos hídricos, solares y eólicos, la región tiene una de las matrices más limpias del planeta, lo que ofrece ventajas competitivas para industrias que buscan descarbonizar sus procesos.
+  Está cerca del meridiano opuesto, 180°, en pleno océano Pacífico —
+  ahí es donde "cierra" el círculo de husos horarios.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "avanzado"
+  tags: ["husos"]
+
+enunciado: "Al cruzar la Línea Internacional de Cambio de Fecha viajando hacia el oeste, ¿qué pasa con la fecha del calendario?"
+tipo: mc
+opciones_explicitas:
+  - "Se suma un día (se adelanta)"
+  - "Se resta un día (se atrasa)"
+  - "No cambia, sólo cambia la hora"
+respuesta: "Se suma un día (se adelanta)"
+
+explicacion: |
+  Es la costura necesaria: los husos suman hacia el este y restan hacia
+  el oeste, y algo tiene que "cerrar" la vuelta completa al planeta.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "intermedio"
+  tags: ["husos", "argentina"]
+
+enunciado: "¿Qué huso horario usa Argentina, sin horario de verano desde 2009?"
+tipo: mc
+opciones_explicitas:
+  - "UTC−3"
+  - "UTC+3"
+  - "UTC−5"
+respuesta: "UTC−3"
+
+explicacion: |
+  Argentina está 3 horas detrás de Greenwich durante todo el año.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "avanzado"
+  tags: ["husos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El huso horario que usa legalmente un país siempre coincide exactamente con el huso que le correspondería por su longitud geográfica."
+
+explicacion: |
+  Cada país decide su huso legal (a veces por conveniencia económica o
+  política), y ese huso puede diferir del huso "natural" que le
+  correspondería por longitud — no siempre coinciden.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
   nivel: "basico"
-  tags: ["hidrocarburos", "petroquimica", "reservas"]
+  tags: ["husos", "completar"]
 
-variables:
-  pais1: "Venezuela"
-  pais2: "Argentina"
-  pais3: "Brasil"
-  respuesta_correcta: pais1
-
-respuesta: respuesta_correcta
 tipo: completar
+enunciado: "Completá: la referencia horaria mundial, correspondiente al huso 0, se llama tiempo ___ coordinado (sigla ___)."
+respuestas_validas:
+  - "universal"
+  - "UTC"
 
-enunciado: "Entre los países con grandes reservas de hidrocarburos que moldearon la industria petroquímica regional se encuentran {pais2}, {pais3} y {pais1}."
+explicacion: |
+  UTC (Universal Time Coordinated/Coordinated Universal Time) reemplazó
+  al antiguo GMT como estándar internacional.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "avanzado"
+  tags: ["husos", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular qué hora es en otra ciudad, conociendo la hora UTC actual."
+tipo: ordenar
+opciones_explicitas:
+  - "Ajustar la fecha si el resultado pasa de las 24:00 o baja de las 0:00"
+  - "Averiguar el huso horario de la ciudad (horas de diferencia respecto de UTC)"
+  - "Sumar (o restar, si el huso es negativo) esa diferencia a la hora UTC"
+respuesta_orden: ["Averiguar el huso horario de la ciudad (horas de diferencia respecto de UTC)", "Sumar (o restar, si el huso es negativo) esa diferencia a la hora UTC", "Ajustar la fecha si el resultado pasa de las 24:00 o baja de las 0:00"]
+explicacion: |
+  El último paso es el que la Línea de Cambio de Fecha resuelve para
+  las 24 zonas en conjunto.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "basico"
+  tags: ["coordenadas", "aplicacion"]
+
+enunciado: "¿Qué par de datos usa un GPS para indicar la posición exacta de un punto en el planeta?"
+tipo: mc
+opciones_explicitas:
+  - "Latitud y longitud"
+  - "Huso horario y altitud"
+  - "Nombre de la ciudad y provincia"
+respuesta: "Latitud y longitud"
+
+explicacion: |
+  Con esos dos ángulos, cualquier punto de la superficie terrestre
+  queda ubicado sin ambigüedad.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "basico"
+  tags: ["husos", "aplicacion"]
+
+enunciado: "¿Por qué hace falta dividir el planeta en husos horarios en vez de usar la misma hora en todo el mundo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el Sol no está en la misma posición del cielo en todos los meridianos a la vez"
+  - "Porque cada país necesita un idioma distinto para la hora"
+  - "Porque la Tierra no gira, y por eso hace falta dividirla en zonas"
+respuesta: "Porque el Sol no está en la misma posición del cielo en todos los meridianos a la vez"
+
+explicacion: |
+  Los husos existen para que la hora del reloj se mantenga cerca del
+  mediodía solar real en cada lugar.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "avanzado"
+  tags: ["husos", "problema"]
+
+variables:
+  diferencia_grados: uno_de([10, 20, 40, 50, 70])
+
+respuesta: redondear(diferencia_grados / 15, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Dos puntos están separados por {diferencia_grados}° de longitud (no un múltiplo exacto de 15°). ¿Cuántas horas de diferencia representa eso, redondeando a 2 decimales?"
+
+pasos:
+  - "horas = grados ÷ 15 = {diferencia_grados} ÷ 15 = {redondear(diferencia_grados / 15, 2)}"
+
+explicacion: |
+  En la práctica los países ajustan su huso legal a números enteros (o
+  a veces medias/cuartos de hora), pero la relación grados↔horas de
+  base es siempre esta división por 15.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "coordenadas_y_husos_horarios"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender coordenadas y husos horarios juntos?"
+tipo: mc
+opciones_explicitas:
+  - "Para ubicar cualquier punto del planeta sin ambigüedad, y saber qué hora es ahí en cualquier momento"
+  - "Sólo sirve para leer mapas en papel"
+  - "Sólo aplica a los países que están sobre el meridiano de Greenwich"
+respuesta: "Para ubicar cualquier punto del planeta sin ambigüedad, y saber qué hora es ahí en cualquier momento"
+
+explicacion: |
+  La longitud, que ubica un punto en el espacio, es también el dato del
+  que sale directo su huso horario — las dos ideas están conectadas por
+  el mismo giro de la Tierra.
+```
+
+## Sección: densidad-poblacion (22 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "basico"
+  tags: ["densidad_poblacion", "vocabulario"]
+
+enunciado: "¿Qué es la densidad de población?"
+tipo: mc
+opciones_explicitas:
+  - "La cantidad de habitantes, en promedio, por cada unidad de superficie de un territorio"
+  - "La cantidad total de habitantes de un país"
+  - "El porcentaje de la población que vive en ciudades"
+respuesta: "La cantidad de habitantes, en promedio, por cada unidad de superficie de un territorio"
+
+explicacion: |
+  Es un promedio que combina dos datos: cuánta gente hay, y cuánto
+  espacio ocupa el territorio.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "intermedio"
+  tags: ["densidad_poblacion", "calculo"]
+
+variables:
+  poblacion: random(1, 50) * 1000000
+  superficie: random(50000, 2000000)
+
+respuesta: poblacion / superficie
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Un país tiene {poblacion} habitantes y {superficie} km² de superficie. ¿Cuál es su densidad de población, en hab/km²?"
+
+pasos:
+  - "densidad = {poblacion} ÷ {superficie}"
+
+explicacion: |
+  Se divide la población total por la superficie total.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "intermedio"
+  tags: ["densidad_poblacion", "calculo"]
+
+variables:
+  superficie: random(50000, 2000000)
+  densidad: random(5, 200)
+
+respuesta: densidad * superficie
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Un país tiene {superficie} km² de superficie y una densidad de {densidad} hab/km². ¿Cuál es su población total?"
+
+explicacion: |
+  Se despeja la población multiplicando la densidad por la superficie.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "intermedio"
+  tags: ["densidad_poblacion", "calculo"]
+
+variables:
+  poblacion: random(1, 50) * 1000000
+  densidad: random(5, 200)
+
+respuesta: poblacion / densidad
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Un país tiene {poblacion} habitantes y una densidad de {densidad} hab/km². ¿Cuál es su superficie, en km²?"
+
+explicacion: |
+  Se despeja la superficie dividiendo la población por la densidad.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "intermedio"
+  tags: ["densidad_poblacion", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Densidad de población alta no es lo mismo que población total alta: son dos datos distintos."
+
+explicacion: |
+  Uno depende sólo de la cantidad de habitantes; el otro depende también
+  de la superficie.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "avanzado"
+  tags: ["densidad_poblacion", "comparacion"]
+
+variables:
+  poblacion: random(5, 30) * 1000000
+  superficie_a: random(50000, 200000)
+  superficie_b: random(500000, 2000000)
+
+respuesta: ((poblacion / superficie_a) > (poblacion / superficie_b))
+tipo: vf
+
+enunciado: "País A tiene {poblacion} habitantes en {superficie_a} km². País B tiene la misma población, {poblacion} habitantes, pero en {superficie_b} km². ¿El país A tiene mayor densidad que el país B?"
+
+explicacion: |
+  Con la misma población, el país de menor superficie tiene mayor
+  densidad.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "avanzado"
+  tags: ["densidad_poblacion", "comparacion"]
+
+variables:
+  superficie: random(100000, 500000)
+  poblacion_a: random(1, 10) * 1000000
+  poblacion_b: random(11, 40) * 1000000
+
+respuesta: ((poblacion_b / superficie) > (poblacion_a / superficie))
+tipo: vf
+
+enunciado: "País A tiene {poblacion_a} habitantes en {superficie} km². País B tiene {poblacion_b} habitantes en la misma superficie, {superficie} km². ¿El país B tiene mayor densidad que el país A?"
+
+explicacion: |
+  Con la misma superficie, el país de mayor población tiene mayor
+  densidad.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "intermedio"
+  tags: ["densidad_poblacion", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un país puede tener una población total muy grande y, aun así, una densidad baja, si su superficie también es muy grande."
+
+explicacion: |
+  La densidad depende de la relación entre los dos datos, no de la
+  población sola.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "intermedio"
+  tags: ["densidad_poblacion", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un país puede tener una población total relativamente chica y, aun así, una densidad alta, si su superficie es chica."
+
+explicacion: |
+  Es el caso contrario: superficie chica con población concentrada.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "intermedio"
+  tags: ["densidad_poblacion", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La densidad de un país es un promedio: la población real casi nunca se reparte de forma pareja sobre todo el territorio."
+
+explicacion: |
+  Es la idea central para no malinterpretar lo que dice un número de
+  densidad promedio.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "avanzado"
+  tags: ["densidad_poblacion", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un país puede tener una densidad promedio baja y, al mismo tiempo, tener ciudades entre las más densamente pobladas del mundo — los dos datos no se contradicen."
+
+explicacion: |
+  Describen escalas distintas: el promedio de todo el país, y la
+  situación puntual de una ciudad dentro de él.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "basico"
+  tags: ["densidad_poblacion", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las zonas urbanas suelen tener una densidad de población mucho más alta que las zonas rurales o los territorios poco habitables (desiertos, montañas)."
+
+explicacion: |
+  Es la razón principal por la que el promedio de un país entero puede
+  no representar bien a ninguna zona en particular.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "intermedio"
+  tags: ["densidad_poblacion", "problema"]
+
+variables:
+  poblacion_ciudad: random(500000, 5000000)
+  superficie_ciudad: random(100, 800)
+
+respuesta: poblacion_ciudad / superficie_ciudad
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Una ciudad tiene {poblacion_ciudad} habitantes en {superficie_ciudad} km². ¿Cuál es su densidad de población?"
+
+explicacion: |
+  Las ciudades, por concentrar mucha población en poca superficie,
+  suelen tener densidades mucho más altas que el promedio de un país.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "intermedio"
+  tags: ["densidad_poblacion", "problema"]
+
+variables:
+  poblacion_pais: random(3, 15) * 1000000
+  superficie_pais: random(1000000, 3000000)
+
+respuesta: poblacion_pais / superficie_pais
+tipo: input
+tolerancia_abs: 0.1
+
+enunciado: "Un país tiene {poblacion_pais} habitantes en {superficie_pais} km². ¿Cuál es su densidad de población?"
+
+explicacion: |
+  Con una superficie muy grande y una población moderada, la densidad
+  promedio da un número bajo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "basico"
+  tags: ["densidad_poblacion", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos territorios de menor a mayor densidad de población."
+opciones_explicitas:
+  - "Zona rural despoblada: 2 hab/km²"
+  - "Ciudad grande: 8.000 hab/km²"
+  - "País de tamaño medio: 40 hab/km²"
+respuesta_orden: ["Zona rural despoblada: 2 hab/km²", "País de tamaño medio: 40 hab/km²", "Ciudad grande: 8.000 hab/km²"]
+
+explicacion: |
+  Las ciudades concentran población en poca superficie; las zonas
+  rurales, mucho menos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "intermedio"
+  tags: ["densidad_poblacion", "verificacion"]
+
+variables:
+  poblacion: random(1, 50) * 1000000
+  superficie: random(50000, 2000000)
+  correcto: poblacion / superficie
+  error: uno_de([0, 0, 0, 5, -5])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 0.5)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? Población de {poblacion} habitantes, superficie de {superficie} km², densidad informada: {redondear(mostrado, 2)} hab/km²."
+
+explicacion: |
+  Se vuelve a dividir población por superficie y se compara con el
+  valor informado.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "intermedio"
+  tags: ["densidad_poblacion"]
+
+variables:
+  poblacion: random(1, 50) * 1000000
+  superficie: random(50000, 2000000)
+  densidad: poblacion / superficie
+
+tipo: completar
+enunciado: "Un país tiene {poblacion} habitantes y una densidad de {redondear(densidad, 2)} hab/km². Completá: ___ (superficie en km²) = {poblacion} (población) ÷ {redondear(densidad, 2)} (densidad)."
+respuestas_validas:
+  - superficie
+
+explicacion: |
+  Se despeja la superficie dividiendo la población por la densidad.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "basico"
+  tags: ["densidad_poblacion", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La densidad de población se expresa habitualmente en habitantes por kilómetro cuadrado (hab/km²)."
+
+explicacion: |
+  Es la unidad estándar más usada para comparar densidades entre
+  distintos territorios.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "basico"
+  tags: ["densidad_poblacion", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para calcular la densidad de población de un territorio, hace falta conocer tanto su población como su superficie."
+
+explicacion: |
+  Con sólo uno de los dos datos no alcanza para calcular la densidad.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "intermedio"
+  tags: ["densidad_poblacion", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una zona de alta densidad de población suele necesitar una lógica de infraestructura distinta (transporte público, vivienda en altura) que una zona de baja densidad."
+
+explicacion: |
+  Es una de las razones prácticas por las que la densidad importa para
+  planificar servicios y ciudades.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "avanzado"
+  tags: ["densidad_poblacion", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿La densidad promedio de un país alcanza, por sí sola, para saber cómo se reparte realmente la población dentro de ese país?"
+
+explicacion: |
+  No: sólo da un promedio. Para saber la distribución real hace falta
+  mirar datos más detallados (por ciudad, por región), no sólo el
+  promedio de todo el país.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "densidad_poblacion"
+  nivel: "basico"
+  tags: ["densidad_poblacion", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La densidad de población es población dividida superficie; es un promedio que puede convivir con una distribución real muy despareja, con ciudades muy densas y zonas rurales casi vacías dentro del mismo país."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: escala-de-mapa (22 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "basico"
+  tags: ["escala_mapa", "vocabulario"]
+
+enunciado: "¿Qué es la escala de un mapa?"
+tipo: mc
+opciones_explicitas:
+  - "La razón entre una distancia medida en el mapa y la distancia real que representa"
+  - "El tamaño físico del papel donde está impreso el mapa"
+  - "La cantidad de colores que usa el mapa"
+respuesta: "La razón entre una distancia medida en el mapa y la distancia real que representa"
+
+explicacion: |
+  Dice exactamente cuánto se redujo la realidad para representarla en
+  el mapa.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "basico"
+  tags: ["escala_mapa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una escala de 1:100.000 significa que 1 unidad de medida en el mapa equivale a 100.000 de esas mismas unidades en la realidad."
+
+explicacion: |
+  Si la unidad es el centímetro, 1 cm en el mapa representa 100.000 cm
+  reales (1 km).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "intermedio"
+  tags: ["escala_mapa", "calculo"]
+
+variables:
+  escala: uno_de([10000, 25000, 50000, 100000, 250000, 500000])
+  distancia_mapa_cm: random(1, 20)
+
+respuesta: (distancia_mapa_cm * escala) / 100000
+tipo: input
+tolerancia_abs: 0.05
+
+enunciado: "En un mapa a escala 1:{escala}, dos ciudades están a {distancia_mapa_cm} cm de distancia. ¿Cuál es la distancia real, en km?"
+
+pasos:
+  - "Distancia real en cm: {distancia_mapa_cm} × {escala} = {distancia_mapa_cm * escala}"
+  - "En km: {distancia_mapa_cm * escala} ÷ 100.000"
+
+explicacion: |
+  Se multiplica la distancia del mapa por el denominador de la escala,
+  y se convierte de centímetros a kilómetros.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "intermedio"
+  tags: ["escala_mapa", "calculo"]
+
+variables:
+  escala: uno_de([1000, 2000, 5000, 10000, 25000])
+  distancia_mapa_cm: random(1, 20)
+
+respuesta: (distancia_mapa_cm * escala) / 100
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "En un mapa a escala 1:{escala}, dos puntos están a {distancia_mapa_cm} cm de distancia. ¿Cuál es la distancia real, en metros?"
+
+pasos:
+  - "Distancia real en cm: {distancia_mapa_cm} × {escala} = {distancia_mapa_cm * escala}"
+  - "En metros: {distancia_mapa_cm * escala} ÷ 100"
+
+explicacion: |
+  1 metro tiene 100 centímetros, así que se divide por 100 para pasar de
+  cm a m.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "avanzado"
+  tags: ["escala_mapa", "calculo"]
+
+variables:
+  escala: uno_de([10000, 25000, 50000, 100000, 250000, 500000])
+  distancia_real_km: random(1, 50)
+
+respuesta: (distancia_real_km * 100000) / escala
+tipo: input
+tolerancia_abs: 0.05
+
+enunciado: "En un mapa a escala 1:{escala}, ¿a cuántos cm de distancia deberían estar dibujadas dos ciudades que en la realidad están a {distancia_real_km} km?"
+
+pasos:
+  - "Distancia real en cm: {distancia_real_km} × 100.000 = {distancia_real_km * 100000}"
+  - "En el mapa: {distancia_real_km * 100000} ÷ {escala}"
+
+explicacion: |
+  Se despeja la distancia del mapa dividiendo la distancia real (en cm)
+  por el denominador de la escala.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "avanzado"
+  tags: ["escala_mapa", "calculo"]
+
+variables:
+  escala: uno_de([10000, 25000, 50000, 100000, 250000, 500000])
+  distancia_mapa_cm: random(1, 20)
+  distancia_real_km: (distancia_mapa_cm * escala) / 100000
+
+respuesta: escala
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "En un mapa, dos ciudades están a {distancia_mapa_cm} cm de distancia, y en la realidad esas ciudades están a {redondear(distancia_real_km, 2)} km. ¿Cuál es el denominador de la escala de ese mapa (el número después de \"1:\")?"
+
+explicacion: |
+  Se despeja el denominador de la fórmula de la escala, convirtiendo
+  primero la distancia real a centímetros.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "intermedio"
+  tags: ["escala_mapa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un mapa se agranda o se achica (por ejemplo, al fotocopiarlo), la escala gráfica (la barra dibujada) sigue siendo correcta, porque se agranda o achica junto con el dibujo."
+
+explicacion: |
+  Es la ventaja de la escala gráfica frente a la numérica.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "intermedio"
+  tags: ["escala_mapa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un mapa se imprime o se muestra en un tamaño distinto al original, la escala numérica (\"1:50.000\") escrita deja de ser válida."
+
+explicacion: |
+  Ese número asumía el tamaño original del mapa; si el mapa cambia de
+  tamaño, la relación real entre el mapa y el terreno ya no es esa.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "avanzado"
+  tags: ["escala_mapa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una escala 1:1.000 (denominador chico) se llama escala GRANDE, porque representa más detalle en una zona más chica — aunque el número 1.000 sea menor que el de otras escalas."
+
+explicacion: |
+  \"Grande\" se refiere a qué tan grande es la fracción 1/1.000 en sí,
+  no al tamaño del número del denominador.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "avanzado"
+  tags: ["escala_mapa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una escala 1:1.000.000 (denominador grande) se llama escala CHICA, porque representa menos detalle en una zona mucho más grande."
+
+explicacion: |
+  Es el matiz contraintuitivo del tema: más grande el número, más chica
+  se llama la escala.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "intermedio"
+  tags: ["escala_mapa", "vocabulario"]
+
+enunciado: "¿Cuál de estas dos escalas es la \"escala grande\": 1:5.000 o 1:500.000?"
+tipo: mc
+opciones_explicitas:
+  - "1:5.000"
+  - "1:500.000"
+  - "Las dos son igual de grandes"
+respuesta: "1:5.000"
+
+explicacion: |
+  El denominador más chico corresponde a la escala más grande (más
+  detalle, área más reducida).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "intermedio"
+  tags: ["escala_mapa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El plano de un barrio, con mucho detalle de sus calles, usa una escala grande (denominador chico)."
+
+explicacion: |
+  Mucho detalle en una zona chica es, justamente, lo que caracteriza a
+  una escala grande.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "intermedio"
+  tags: ["escala_mapa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un mapa que muestra un país entero, con poco detalle de cada ciudad, usa una escala chica (denominador grande)."
+
+explicacion: |
+  Poco detalle en una zona grande es lo que caracteriza a una escala
+  chica.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "avanzado"
+  tags: ["escala_mapa", "comparacion"]
+
+variables:
+  distancia_mapa_cm: random(2, 10)
+  escala_a: uno_de([10000, 25000])
+  escala_b: uno_de([250000, 500000])
+
+respuesta: (((distancia_mapa_cm * escala_b) / 100000) > ((distancia_mapa_cm * escala_a) / 100000))
+tipo: vf
+
+enunciado: "Dos mapas distintos miden la misma distancia de {distancia_mapa_cm} cm entre dos puntos. Mapa A tiene escala 1:{escala_a}. Mapa B tiene escala 1:{escala_b}. ¿La distancia real que representa el Mapa B es mayor que la del Mapa A?"
+
+explicacion: |
+  A igual medida en el mapa, la escala con denominador más grande
+  representa una distancia real mayor.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "avanzado"
+  tags: ["escala_mapa", "comparacion"]
+
+variables:
+  distancia_real_km: random(5, 40)
+  escala_a: uno_de([10000, 25000])
+  escala_b: uno_de([250000, 500000])
+
+respuesta: (((distancia_real_km * 100000) / escala_a) > ((distancia_real_km * 100000) / escala_b))
+tipo: vf
+
+enunciado: "Dos puntos están a {distancia_real_km} km de distancia real. Para representar esa misma distancia, ¿hace falta dibujar más centímetros en un mapa a escala 1:{escala_a} que en uno a escala 1:{escala_b}?"
+
+explicacion: |
+  Con un denominador más chico (escala más grande), la misma distancia
+  real ocupa más espacio dibujado en el mapa.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "basico"
+  tags: ["escala_mapa", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estas escalas de menor a mayor nivel de detalle (de escala más chica a escala más grande)."
+opciones_explicitas:
+  - "1:10.000"
+  - "1:1.000.000"
+  - "1:100.000"
+respuesta_orden: ["1:1.000.000", "1:100.000", "1:10.000"]
+
+explicacion: |
+  A menor denominador, mayor el nivel de detalle (escala más grande).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "intermedio"
+  tags: ["escala_mapa", "verificacion"]
+
+variables:
+  escala: uno_de([10000, 25000, 50000, 100000, 250000])
+  distancia_mapa_cm: random(1, 20)
+  correcto: (distancia_mapa_cm * escala) / 100000
+  error: uno_de([0, 0, 0, 2, -2])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 0.1)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? Mapa a escala 1:{escala}, distancia en el mapa {distancia_mapa_cm} cm, distancia real informada: {redondear(mostrado, 2)} km."
+
+explicacion: |
+  Se vuelve a calcular con la fórmula de la escala y se compara con el
+  valor informado.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "intermedio"
+  tags: ["escala_mapa"]
+
+variables:
+  escala: uno_de([10000, 25000, 50000, 100000])
+  distancia_mapa_cm: random(1, 20)
+  distancia_real_cm: distancia_mapa_cm * escala
+
+tipo: completar
+enunciado: "En un mapa a escala 1:{escala}, una distancia de {distancia_mapa_cm} cm representa una distancia real de ___ cm."
+respuestas_validas:
+  - distancia_real_cm
+
+explicacion: |
+  Se multiplica la distancia del mapa por el denominador de la escala.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "basico"
+  tags: ["escala_mapa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un mapa a escala 1:100.000, cada centímetro dibujado representa 1 kilómetro real."
+
+explicacion: |
+  100.000 cm equivalen exactamente a 1.000 metros, o sea, 1 km.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "avanzado"
+  tags: ["escala_mapa", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿La escala numérica de un mapa impreso sigue siendo exactamente la misma si esa imagen se agranda al hacer zoom en una pantalla?"
+
+explicacion: |
+  Al agrandar la imagen, la relación entre lo dibujado y la realidad
+  cambia — la escala numérica original deja de ser correcta, salvo que
+  el mapa también tenga una escala gráfica que se agrande junto con la
+  imagen.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "intermedio"
+  tags: ["escala_mapa", "vocabulario"]
+
+enunciado: "Para planificar una caminata dentro de un mismo barrio, ¿qué tipo de escala conviene usar?"
+tipo: mc
+opciones_explicitas:
+  - "Una escala grande (denominador chico), con mucho detalle"
+  - "Una escala chica (denominador grande), con poco detalle"
+  - "No importa la escala para ese uso"
+respuesta: "Una escala grande (denominador chico), con mucho detalle"
+
+explicacion: |
+  Cuanto más chica el área a recorrer, más conviene un mapa de escala
+  grande, con más detalle.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "escala_de_mapa"
+  nivel: "basico"
+  tags: ["escala_mapa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La escala de un mapa relaciona una distancia dibujada con la distancia real (distancia_real = distancia_mapa × denominador), y una escala \"grande\" (denominador chico) representa más detalle en menos área, al revés de lo que sugiere el tamaño del número."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: huella-de-carbono-agua-virtual (25 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "basico"
+  tags: ["conceptos", "gases_efecto_invernadero"]
+
+respuesta: "gases de efecto invernadero"
+tipo: completar
+respuestas_validas:
+  - "gases de efecto invernadero"
+
+enunciado: "La huella de carbono es la totalidad de ___ emitidos por un individuo, organización, evento o producto, expresados en toneladas de CO2 equivalente."
+
+explicacion: |
+  La huella de carbono mide la cantidad de gases de efecto invernadero (GEI) que liberamos a la atmósfera como consecuencia de nuestras actividades diarias o procesos productivos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "intermedio"
+  tags: ["ecologia", "niveles_troficos"]
+
+respuesta: "10%"
+tipo: completar
+respuestas_validas:
+  - "10%"
+
+enunciado: "En una cadena alimentaria, según la regla del diez por ciento, sólo aproximadamente el ___ de la energía de un nivel trófico se transfiere al siguiente nivel."
+
+explicacion: |
+  Debido a que la mayor parte de la energía se pierde en forma de calor y procesos metabólicos durante la transferencia entre niveles, se requiere mucha más biomasa vegetal para producir una cantidad pequeña de carne, lo que aumenta la huella de carbono de los productos animales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "intermedio"
+  tags: ["alimentacion", "impacto_ambiental"]
+
+respuesta: "la carne"
+tipo: completar
+respuestas_validas:
+  - "la carne"
+
+enunciado: "Debido a la pérdida de energía entre los niveles tróficos, la huella de carbono de ___ es significativamente mayor que la de las verduras."
+
+explicacion: |
+  Para producir un kilo de carne se necesita alimentar al animal con muchos kilos de plantas. Como la energía se reduce drásticamente en cada paso (regla del 10%), el proceso de producción de carne requiere más recursos y emite más gases que la producción directa de vegetales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "basico"
+  tags: ["gases_efecto_invernadero", "ganaderia"]
+
+respuesta: "metano"
+tipo: completar
+respuestas_validas:
+  - "metano"
+
+enunciado: "Además del dióxido de carbono, la ganadería intensiva contribuye significativamente a la huella de carbono mediante la emisión de ___ durante la digestión de los rumiantes."
+
+explicacion: |
+  El metano (CH4) es un gas de efecto invernadero muy potente. Las emisiones de metano provenientes del ganado son uno de los factores principales que elevan la huella de carbono de los productos de origen animal.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "intermedio"
+  tags: ["consumo_responsable", "ecologia"]
+
+respuesta: "reducir"
+tipo: completar
+respuestas_validas:
+  - "reducir"
+
+enunciado: "Para disminuir nuestra huella de carbono personal, es recomendable ___ el consumo de productos de origen animal y aumentar el de alimentos de origen vegetal."
+
+explicacion: |
+  Al consumir más productos vegetales, aprovechamos la energía de los productores primarios de forma más directa, evitando las ineficiencias de la cadena trófica y reduciendo la emisión de gases asociados a la ganadería.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "basico"
+  tags: ["conceptos", "recursos_naturales"]
+
+tipo: mc
+opciones_explicitas: ["El agua que contiene un producto y que podemos beber directamente.", "El volumen total de agua utilizada en todo el proceso de producción de un bien.", "La cantidad de agua que se evapora de los océanos debido al calentamiento global.", "El agua que se utiliza exclusivamente para la limpieza de las fábricas."]
+
+respuesta: "El volumen total de agua utilizada en todo el proceso de producción de un bien."
+
+enunciado: "El concepto de 'agua virtual' se refiere a..."
+
+explicacion: |
+  El agua virtual es el volumen total de agua dulce que se consume en todas las etapas de producción de un producto (desde la extracción de materia prima hasta el procesamiento), aunque el producto final no parezca contener agua líquida.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "intermedio"
+  tags: ["comparacion", "consumo"]
+
+tipo: mc
+opciones_explicitas: ["El café consume mucha más agua que un kilo de carne.", "La carne vacuna requiere una cantidad de agua significativamente mayor que el café.", "Ambos consumen la misma cantidad de agua por unidad.", "El café es un producto con huella hídrica nula."]
+
+respuesta: "La carne vacuna requiere una cantidad de agua significativamente mayor que el café."
+
+enunciado: "Considerando los valores promedio (café: ~140 litros/taza, carne vacuna: ~15.000 litros/kg), ¿cuál es la diferencia principal entre ambas huellas hídricas?"
+
+explicacion: |
+  La producción de carne vacuna requiere aproximadamente 15.000 litros de agua por kilo, mientras que una taza de café requiere cerca de 140 litros. La diferencia es masiva debido a la cantidad de agua necesaria para cultivar el forraje y el mantenimiento del ganado.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "intermedio"
+  tags: ["ejemplos", "consumo_masivo"]
+
+tipo: mc
+opciones_explicitas: ["hamburguesa", "arroz", "café", "carne vacuna"]
+
+enunciado: "De la siguiente lista, ¿cuál es el producto que requiere aproximadamente 2.500 litros de agua por kilo?"
+
+respuesta: "arroz"
+
+explicacion: |
+  El arroz es un cultivo que requiere una gran cantidad de agua para su crecimiento en campos inundados, lo que resulta en una huella hídrica de aproximadamente 2.500 litros por kilo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "avanzado"
+  tags: ["calculo", "impacto"]
+
+tipo: mc
+opciones_explicitas: ["Una hamburguesa tiene una huella hídrica menor que un kilo de arroz.", "La huella hídrica de una hamburguesa es de aproximadamente 2500 litros.", "El consumo de carne no afecta la huella hídrica global.", "El agua virtual sólo se mide en productos industriales, no en alimentos."]
+
+respuesta: "La huella hídrica de una hamburguesa es de aproximadamente 2500 litros."
+
+enunciado: "Si analizamos el impacto del consumo de alimentos procesados, ¿cuál de estas afirmaciones es correcta?"
+
+explicacion: |
+  Una hamburguesa representa un producto de alto impacto hídrico, con una huella de aproximadamente 2500 litros, debido a la suma de la producción de carne, cereales y otros ingredientes.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "El concepto de agua virtual implica que, aunque no veamos agua en un paquete de arroz, se han utilizado miles de litros para su producción."
+
+explicacion: |
+  Es verdadero. El agua virtual es el agua "oculta" que se utiliza en la agricultura y la industria para crear productos que consumimos habitualmente.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "basico"
+  tags: ["conceptos", "recursos_naturales"]
+
+respuesta: "virtual"
+tipo: completar
+respuestas_validas:
+  - "virtual"
+
+enunciado: "El término ___ se utiliza para referirse al volumen de agua que no se ve directamente pero que se utilizó en el proceso de producción de un bien o servicio."
+
+explicacion: |
+  Se llama "virtual" porque el agua no se consume en el sentido de desaparecer del planeta, sino que se utiliza en un proceso productivo y luego vuelve a la naturaleza a través del ciclo hidrológico.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "basico"
+  tags: ["ciclo_del_agua", "produccion"]
+
+respuesta: "ciclo del agua"
+tipo: completar
+respuestas_validas:
+  - "ciclo del agua"
+  - "ciclo hidrológico"
+
+enunciado: "El agua utilizada en la agricultura o la industria no deja de existir tras la producción; simplemente se integra nuevamente en el ___."
+
+explicacion: |
+  El concepto de agua virtual resalta que el agua sigue fluyendo en el ciclo natural, pero su uso en la producción "desplaza" o "compromete" ese recurso para otros usos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "intermedio"
+  tags: ["consumo", "recursos"]
+
+variables:
+  idx: uno_de([0, 1])
+  tabla: [["carne de vaca", "alto"], ["trigo", "bajo"]]
+
+respuesta: tabla[idx][1]
+tipo: completar
+respuestas_validas:
+  - "alto"
+  - "bajo"
+
+enunciado: "En la producción de {tabla[idx][0]}, el nivel de agua comprometida (agua virtual) para ese producto es ___."
+
+explicacion: |
+  El término "virtual" enfatiza que el agua está comprometida en la cadena de valor: la carne de vaca compromete mucha más agua que el trigo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "intermedio"
+  tags: ["impacto", "recursos"]
+
+respuesta: "comprometida"
+tipo: completar
+respuestas_validas:
+  - "comprometida"
+
+enunciado: "En lugar de decir que el agua es 'consumida' por un producto, se prefiere decir que es agua ___ en su proceso de fabricación."
+
+explicacion: |
+  Decir "consumida" daría la falsa idea de que el agua desaparece del planeta, mientras que "comprometida" indica que se ha utilizado para un fin específico.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "avanzado"
+  tags: ["comercio", "globalizacion"]
+
+respuesta: "importar"
+tipo: completar
+respuestas_validas:
+  - "importar"
+
+enunciado: "Cuando un país compra productos de una región con escasez hídrica, en realidad está realizando una acción de ___ agua virtual."
+
+explicacion: |
+  El comercio internacional permite a las naciones "importar" agua de forma indirecta a través de los productos que adquieren de otros países.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "intermedio"
+  tags: ["consumo_responsable", "recursos_naturales"]
+
+enunciado: "Un productor de aguacates en una zona con escasez de agua decide utilizar tecnología de riego por goteo muy eficiente para reducir el uso de agua. Sin embargo, para mantener la cadena de frío y el transporte internacional hacia Europa, utiliza barcos y camiones que queman grandes cantidades de combustibles fósiles. En este escenario, el producto presenta una ___ huella hídrica pero una ___ huella de carbono."
+
+opciones_explicitas: ["baja / alta", "alta / baja", "alta / alta", "baja / baja"]
+
+respuesta: "baja / alta"
+tipo: mc
+
+explicacion: |
+  El uso de riego eficiente reduce la huella hídrica, pero el transporte de larga distancia y la refrigeración incrementan la huella de carbono. Mirar ambos indicadores permite ver que la eficiencia en un recurso no compensa el impacto en otro.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "intermedio"
+  tags: ["consumo_responsable", "recursos_naturales"]
+
+enunciado: "Si analizamos la producción de carne de res, observamos que el proceso requiere grandes extensiones de tierra para pasturas y una cantidad masiva de agua para el riego de forraje y el consumo animal, además de las emisiones de metano. Por lo tanto, la carne de res se caracteriza por tener:"
+
+opciones_explicitas: ["Baja huella de carbono y baja huella hídrica", "Baja huella de carbono y alta huella hídrica", "Alta huella de carbono y baja huella hídrica", "Alta huella de carbono y alta huella hídrica"]
+
+respuesta: "Alta huella de carbono y alta huella hídrica"
+tipo: mc
+
+explicacion: |
+  La producción ganadera intensiva o extensiva suele impactar ambos indicadores: el agua necesaria para el ciclo de vida del animal y los gases de efecto invernadero producidos por el ganado y el cambio de uso de suelo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "basico"
+  tags: ["metodologia", "sustentabilidad"]
+
+enunciado: "Al evaluar el impacto ambiental de un producto importado, ¿cuál es la razón principal por la que es necesario mirar la huella de carbono Y la huella de agua de forma conjunta?"
+
+opciones_explicitas: ["Porque un producto puede ser eficiente en un recurso pero altamente costoso en otro.", "Porque la huella de carbono siempre es mayor que la huella hídrica.", "Porque sólo así se puede calcular el precio final del producto.", "Porque la huella hídrica sólo se aplica a productos agrícolas."]
+
+respuesta: "Porque un producto puede ser eficiente en un recurso pero altamente costoso en otro."
+tipo: mc
+
+explicacion: |
+  El análisis integral evita mostrar una imagen parcial: un producto puede parecer ecológico por su baja emisión de CO2, pero estar agotando acuíferos críticos (costo ambiental oculto).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "intermedio"
+  tags: ["conceptos_clave"]
+
+enunciado: "Cuando consumimos un producto que ha sido producido en una región con estrés hídrico extremo, aunque su transporte sea local y emita poco CO2, estamos consumiendo un ___ costo ambiental relacionado con el agua."
 
 respuestas_validas:
-  - "Venezuela"
-  - "venezuela"
+  - "alto"
+  - "elevado"
+  - "significativo"
+
+respuesta: "alto"
+tipo: completar
 
 explicacion: |
-  Venezuela posee las mayores reservas probadas de petróleo convencional en la región, lo que históricamente impulsó su industria petroquímica, aunque con fluctuaciones en su producción.
+  El concepto de "agua virtual" se refiere al agua que no vemos pero que se utilizó para producir un bien. Si esa agua proviene de zonas con escasez, el costo ambiental es muy alto para esa región.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "intermedio"
-  tags: ["costos", "competitividad", "energia"]
-
-variables:
-  costo_base: random_float(0.05, 0.15)
-  incremento_solar: random_float(0.01, 0.03)
-  costo_final: costo_base + incremento_solar
-  costo_formateado: redondear(costo_final, 3)
-
-respuesta: costo_formateado
-tipo: input
-
-enunciado: "Si una industria paga $0.12 por kWh de energía hidroeléctrica y decide instalar paneles solares para diversificar, aumentando el costo marginal en $0.025 por kWh, ¿cuál es el nuevo costo por kWh? (Redondear a 3 decimales)"
-
-explicacion: |
-  La transición energética implica costos iniciales. La diversificación hacia renovables como la solar busca competitividad a largo plazo, aunque pueda implicar ajustes en la estructura de costos inmediata.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "intermedio"
-  tags: ["riesgo", "sequia", "hidroelectricidad"]
-
-variables:
-  afirmacion: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La dependencia excesiva de la hidroelectricidad expone a la industria latinoamericana a la vulnerabilidad climática, como racionamientos por sequías."
-
-explicacion: |
-  Verdadero. Episdios recientes han demostrado que la falta de lluvia reduce la generación hidroeléctrica, poniendo en riesgo la continuidad operativa de industrias energívores.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "intermedio"
-  tags: ["eolica", "potencial", "renovable"]
-
-variables:
-  velocidad_viento: random_float(8, 15)
-  area_turbina: random_float(100, 200)
-  factor_capacidad: 0.35
-  potencia_kw: velocidad_viento * area_turbina * factor_capacidad
-  potencia_mw: redondear(potencia_kw / 1000, 2)
-
-respuesta: potencia_mw
-tipo: input
-
-enunciado: "Un parque eólico en la Patagonia tiene turbinas con un área de barrido de {area_turbina} m² y una velocidad media de viento de {velocidad_viento} m/s. Si el factor de capacidad es 0.35, ¿cuál es la potencia estimada en MW? (Fórmula simplificada: P = v * A * factor)"
-
-explicacion: |
-  La energía eólica es una fuente renovable clave para complementar la matriz hidroeléctrica, especialmente en regiones con vientos constantes como el sur de Argentina y Chile.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "basico"
-  tags: ["heterogeneidad", "desarrollo", "industria"]
-
-variables:
-  afirmacion: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La industria latinoamericana es homogénea; todos los países tienen el mismo nivel de desarrollo tecnológico y de servicios."
-
-explicacion: |
-  Falso. La región es heterogénea. Mientras algunos países desarrollan sectores tecnológicos avanzados, otros mantienen estructuras basadas en agroindustria y minería.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
   nivel: "avanzado"
-  tags: ["eficiencia", "industria", "energia"]
+  tags: ["industria", "impacto"]
 
-variables:
-  energia_total: random_float(100, 500)
-  energia_util: random_float(60, 90)
-  eficiencia: energia_util / energia_total
-  eficiencia_pct: redondear(eficiencia * 100, 1)
+enunciado: "Considerá dos productos textiles: A (algodón convencional con riego intensivo en zona seca) y B (poliéster derivado del petróleo con transporte transoceánico). Si comparamos sus impactos, es correcto afirmar que:"
 
-respuesta: eficiencia_pct
-tipo: input
+opciones_explicitas: ["El producto A tiene mayor huella hídrica y el B mayor huella de carbono.", "El producto B tiene mayor huella hídrica y el A mayor huella de carbono.", "Ambos tienen la misma huella en ambos indicadores.", "Ninguno de los dos tiene impacto ambiental significativo."]
 
-enunciado: "Si una planta industrial consume {energia_total} GWh de energía total y de ella solo {energia_util} GWh son efectivamente útiles para el proceso productivo, ¿cuál es el porcentaje de eficiencia energética? (Redondear a 1 decimal)"
+respuesta: "El producto A tiene mayor huella hídrica y el B mayor huella de carbono."
+tipo: mc
 
 explicacion: |
-  La eficiencia energética es crucial para la competitividad. Mejorarla reduce costos y dependencia de insumos energéticos externos.
+  El algodón requiere cantidades masivas de agua para su cultivo (huella hídrica), mientras que el poliéster es un plástico derivado de combustibles fósiles cuya producción y transporte global elevan su huella de carbono.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "basico"
+  tags: ["transporte", "emisiones", "consumo"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  datos: [["10 kg CO2"], ["50 kg CO2"], ["100 kg CO2"]]
+
+enunciado: "Un consumidor elige un producto importado cuyo transporte genera una huella de carbono de {datos[idx][0]}. Si decide cambiar a un producto local, la huella se reduce significativamente. ¿Cuál es la huella de carbono del producto importado según el escenario actual?"
+
+opciones_explicitas: ["10 kg CO2", "50 kg CO2", "100 kg CO2"]
+respuesta: datos[idx][0]
+tipo: mc
+
+explicacion: |
+  La huella de carbono del transporte depende de la distancia y el medio de transporte. Los productos locales reducen estas emisiones.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
   nivel: "intermedio"
-  tags: ["descarbonizacion", "sostenibilidad", "industria"]
+  tags: ["agua_virtual", "consumo_responsable", "recursos_naturales"]
 
 variables:
-  afirmacion: verdadero
+  idx: uno_de([0, 1])
+  datos: [["carne de vaca", "15000 litros"], ["carne de pollo", "4000 litros"]]
 
-respuesta: verdadero
-tipo: vf
+enunciado: "El concepto de agua virtual se refiere al agua utilizada para producir un bien. Para producir 1 kg de {datos[idx][0]} se requieren aproximadamente ___."
 
-enunciado: "La matriz energética renovable de América Latina constituye una oportunidad estratégica para descarbonizar la economía global."
+respuestas_validas:
+  - "15000 litros"
+  - "4000 litros"
+respuesta: datos[idx][1]
+tipo: completar
 
 explicacion: |
-  Verdadero. En un mundo que busca reducir emisiones, la capacidad de la región para proveer energía limpia es una ventaja comparativa clave para la industria.
+  La producción de carne roja requiere una cantidad significativamente mayor de agua (para riego de forraje y bebida del animal) que la carne blanca.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
+  nivel: "intermedio"
+  tags: ["dieta", "huella_hídrica", "impacto_ambiental"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["alta en proteína animal", "Mayor huella de agua"], ["basada en vegetales", "Menor huella de agua"]]
+
+enunciado: "Si una persona mantiene una dieta {datos[idx][0]}, su huella de agua virtual será ___ en comparación con una dieta equilibrada."
+
+opciones_explicitas: ["Mayor huella de agua", "Menor huella de agua", "Igual", "Nula"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  Las dietas con alto contenido de productos de origen animal suelen tener una huella de agua virtual mucho más elevada debido a los procesos de producción ganadera.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
   nivel: "avanzado"
-  tags: ["carbono", "huella", "renovable"]
+  tags: ["procesados", "emisiones", "ciclo_de_vida"]
 
 variables:
-  energia_renovable: random_float(1000, 5000)
-  factor_emision_carbono: 0.5
-  co2_evitado: energia_renovable * factor_emision_carbono
-  co2_formateado: redondear(co2_evitado, 0)
+  idx: uno_de([0, 1])
+  datos: [["muy procesado", "2.5 kg CO2"], ["mínimamente procesado", "0.8 kg CO2"]]
 
-respuesta: co2_formateado
-tipo: input
+enunciado: "Un producto {datos[idx][0]} tiene una huella de carbono de ___ por unidad."
 
-enunciado: "Si una industria utiliza {energia_renovable} MWh de energía solar en lugar de carbón, y el factor de emisión del carbón es 0.5 kg CO2/MWh, ¿cuántos kg de CO2 evita emitir? (Redondear a entero)"
+opciones_explicitas: ["2.5 kg CO2", "0.8 kg CO2", "5.0 kg CO2", "1.2 kg CO2"]
+respuesta: datos[idx][1]
+tipo: mc
 
 explicacion: |
-  La transición a renovables no solo es ambiental, sino también económica, al reducir costos de carbono y mejorar la imagen corporativa global.
+  Los productos altamente procesados suelen tener una huella de carbono más alta debido a las etapas de transformación industrial y empaquetado.
 ```
 
 ```
 metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
+  materia: "geografia"
+  tema: "huella_de_carbono_agua_virtual"
   nivel: "basico"
-  tags: ["agroindustria", "estructura", "productiva"]
+  tags: ["definiciones", "agua_virtual"]
 
-variables:
-  afirmacion: verdadero
+enunciado: "La cantidad de agua que se utiliza para producir un bien o servicio, incluyendo el agua utilizada en la extracción de materias primas y el procesamiento, se denomina ___."
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Algunos países latinoamericanos mantienen una estructura productiva basada en la agroindustria y la minería."
-
-explicacion: |
-  Verdadero. A pesar de los avances, la heterogeneidad regional hace que la agroindustria y la minería sigan siendo pilares importantes en varias economías.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "avanzado"
-  tags: ["industria", "aluminio", "electricidad"]
-
-variables:
-  industria: "siderúrgica y de aluminio"
-  requisito: "grandes cantidades de electricidad"
-
-respuesta: "{requisito}"
+respuestas_validas:
+  - "agua virtual"
+  - "huella hídrica"
+respuesta: "agua virtual"
 tipo: completar
 
-enunciado: "La instalación de industrias {industria} en países como Brasil y Paraguay ha sido posible gracias al acceso a grandes saltos de agua que permiten generar {requisito}."
-
 explicacion: |
-  La industria del aluminio y la siderurgia son intensivas en energía. La disponibilidad de hidroelectricidad barata en la región ha sido un factor clave para atraer este tipo de inversiones industriales.
+  El "agua virtual" es el volumen de agua que no vemos pero que se ha consumido para fabricar un producto (por ejemplo, para cultivar el algodón de una camiseta).
 ```
 
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "intermedio"
-  tags: ["hidrocarburos", "petroquímica", "Venezuela"]
-
-variables:
-  pais: uno_de(["Venezuela", "Argentina", "Brasil"])
-  industria: "petroquímica"
-
-respuesta: "{industria}"
-tipo: completar
-
-enunciado: "La presencia de grandes reservas de hidrocarburos en {pais} ha moldeado el desarrollo de la industria {industria} regional, permitiendo la producción de derivados del petróleo."
-
-explicacion: |
-  Países con grandes reservas de hidrocarburos han desarrollado industrias petroquímicas locales. Esto permite transformar la materia prima en productos de mayor valor agregado, aunque la dependencia de estos recursos también presenta desafíos económicos.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "basico"
-  tags: ["valor_agregado", "transformación", "materias_primas"]
-
-variables:
-  proceso: "transformar recursos en valor agregado"
-  factor: "procesos industriales intensivos en energía"
-
-respuesta: "{factor}"
-tipo: completar
-
-enunciado: "El desafío actual de América Latina es {proceso} mediante {factor}, pasando de ser un proveedor exclusivo de materias primas a un actor industrial relevante."
-
-explicacion: |
-  La región busca dejar atrás el modelo de exportación de materias primas sin procesar. La clave está en utilizar su energía y recursos para crear procesos industriales que generen mayor valor agregado.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "basico"
-  tags: ["matriz", "renovable", "descarbonización"]
-
-variables:
-  tendencia: "descarbonizar"
-  oportunidad: "estratégica"
-
-respuesta: "oportunidad"
-tipo: completar
-
-enunciado: "La matriz energética predominantemente renovable de América Latina constituye una {oportunidad} estratégica en un mundo que busca {tendencia} su economía."
-
-explicacion: |
-  La transición energética global favorece a regiones con matrices limpias. América Latina puede posicionarse como un proveedor de energía verde y productos manufacturados con baja huella de carbono.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "intermedio"
-  tags: ["competitividad", "precios", "inversión"]
-
-variables:
-  requisito: "precios competitivos"
-  resultado: "atraer inversiones"
-
-respuesta: "{resultado}"
-tipo: completar
-
-enunciado: "Sin acceso a fuentes de energía confiables y a {requisito}, es imposible {resultado} industriales que compitan en el mercado mundial."
-
-explicacion: |
-  La energía es un costo crítico para la industria. Si los precios son altos o el suministro es inestable, las inversiones industriales se dirigen a otras regiones con mejores condiciones energéticas.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "basico"
-  tags: ["zonas_franca", "comercio", "exportación"]
-
-variables:
-  fenomeno: "deslocalización"
-  consecuencia: "zonas francas"
-
-respuesta: "{consecuencia}"
-tipo: completar
-
-enunciado: "La {fenomeno} de empresas ha tenido un impacto dual, fomentando la instalación de maquiladoras y {consecuencia} en la región."
-
-explicacion: |
-  Las zonas francas son áreas designadas para incentivar la inversión extranjera y la exportación. Han surgido como respuesta a la deslocalización, permitiendo a las empresas operar con beneficios fiscales y aduaneros.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "intermedio"
-  tags: ["renovables", "solar", "eólica"]
-
-variables:
-  tipo1: "solar"
-  tipo2: "eólica"
-
-respuesta: "{tipo1} y {tipo2}"
-tipo: completar
-
-enunciado: "Más recientemente, los centros de desarrollo industrial se han concentrado en áreas con potencial para energías renovables como la {tipo1} y la {tipo2}."
-
-explicacion: |
-  Además de la hidroelectricidad, la región está aprovechando su potencial para energías limpias alternativas. El noroeste de Argentina, Chile y Brasil tienen gran potencial para estas fuentes.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "avanzado"
-  tags: ["dependencia", "cadenas_suministro", "externas"]
-
-variables:
-  condicion: "dependencia de cadenas de suministro externas"
-  requisito: "matriz energética robusta"
-
-respuesta: "{requisito}"
-tipo: completar
-
-enunciado: "La deslocalización genera {condicion} que requiere una {requisito} y competitiva para ser sostenible."
-
-explicacion: |
-  Aunque las maquiladoras reducen costos laborales, su viabilidad depende de una logística y energía eficientes. Una matriz energética débil aumenta los costos logísticos y de producción, haciendo inviable la dependencia externa.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "intermedio"
-  tags: ["siderurgia", "hidroelectricidad", "localización"]
-
-variables:
-  industria: "siderúrgica"
-  recurso: "grandes saltos de agua"
-
-respuesta: "{recurso}"
-tipo: completar
-
-enunciado: "La generación hidroeléctrica ha sido fundamental para el desarrollo industrial de países como Brasil y Paraguay, permitiendo la instalación de industrias {industria} gracias al acceso a {recurso}."
-
-explicacion: |
-  La siderurgia requiere grandes volúmenes de energía. Los grandes ríos y saltos de agua en la región han permitido instalar plantas siderúrgicas cerca de la fuente de energía, reduciendo costos.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "avanzado"
-  tags: ["racionamiento", "vulnerabilidad", "hidroelectricidad"]
-
-variables:
-  evento: "sequías prolongadas"
-  consecuencia: "racionamiento eléctrico"
-
-respuesta: "{consecuencia}"
-tipo: completar
-
-enunciado: "La dependencia de la hidroelectricidad expone a la región a la vulnerabilidad climática; {evento} pueden paralizar la producción industrial, como se ha observado en episodios recientes de {consecuencia}."
-
-explicacion: |
-  Los episodios de sequía en la Cuenca del Plata o en Brasil han demostrado que la falta de agua reduce la generación eléctrica, obligando a racionamientos que afectan gravemente a la industria.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "basico"
-  tags: ["transformación", "productiva", "historia"]
-
-variables:
-  pasado: "proveedor exclusivo de materias primas"
-  presente: "actor industrial relevante"
-
-respuesta: "{presente}"
-tipo: completar
-
-enunciado: "América Latina ha transitado un camino complejo, pasando de ser un {pasado} a intentar posicionarse como un {presente}."
-
-explicacion: |
-  El cambio estructural busca diversificar la economía. Ya no basta con exportar recursos naturales; se busca participar en la cadena de valor industrial global.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "intermedio"
-  tags: ["energía", "habilitante", "industria"]
-
-variables:
-  rol: "factor habilitante crítico"
-  condición: "acceso a fuentes confiables"
-
-respuesta: "{rol}"
-tipo: completar
-
-enunciado: "En este contexto, la energía actúa como el {rol}. Sin {condición} y a precios competitivos, es imposible atraer inversiones industriales."
-
-explicacion: |
-  La energía no es solo un insumo, es un requisito previo para la industrialización. Sin ella, no hay producción manufacturada competitiva.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "intermedio"
-  tags: ["geografía_industrial", "disparidad", "localización"]
-
-variables:
-  fenómeno: "desarrollo industrial"
-  concentración: "zonas con acceso a hidrocarburos"
-
-respuesta: "{concentración}"
-tipo: completar
-
-enunciado: "La geografía industrial de la región refleja esta disparidad: los centros de {fenómeno} se concentran en {concentración}, grandes saltos de agua o áreas con potencial renovable."
-
-explicacion: |
-  La industria no se distribuye uniformemente. Se localiza donde hay acceso a recursos energéticos clave, ya sean fósiles, hidráulicos o renovables.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "basico"
-  tags: ["impacto", "deslocalización", "dual"]
-
-variables:
-  positivo: "fomentado la instalación de maquiladoras"
-  negativo: "dependencia de cadenas externas"
-
-respuesta: "{negativo}"
-tipo: completar
-
-enunciado: "El impacto de la deslocalización ha sido dual: por un lado, {positivo}; por otro, ha generado {negativo}."
-
-explicacion: |
-  La deslocalización trae beneficios (empleo, inversión) pero también riesgos (dependencia tecnológica y logística). Es un equilibrio delicado para la soberanía industrial.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "basico"
-  tags: ["recursos", "valor_agregado", "comparativa"]
-
-variables:
-  ventaja: "ventaja comparativa histórica"
-  recurso: "recursos naturales"
-
-respuesta: "{recurso}"
-tipo: completar
-
-enunciado: "La región posee una {ventaja} en {recurso}, pero su desafío actual radica en cómo transformarlos en valor agregado."
-
-explicacion: |
-  Tener recursos no es suficiente. La clave está en la capacidad de transformarlos industrialmente. Sin industria, el valor se queda en la extracción.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "intermedio"
-  tags: ["hidrocarburos", "reservas", "Venezuela"]
-
-variables:
-  país1: "Venezuela"
-  país2: "Argentina"
-  país3: "Brasil"
-
-respuesta: "{país1}, {país2} y {país3}"
-tipo: completar
-
-enunciado: "Grandes reservas de hidrocarburos se encuentran en {país1}, {país2} y {país3}, moldeando la industria petroquímica regional."
-
-explicacion: |
-  Estos países tienen la capacidad de extraer y refinar petróleo. Esto les permite desarrollar una industria petroquímica propia, reduciendo la dependencia de importaciones de derivados.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "basico"
-  tags: ["matriz", "energética", "renovable"]
-
-variables:
-  característica: "predominantemente renovable"
-  oportunidad: "oportunidad estratégica"
-
-respuesta: "{oportunidad}"
-tipo: completar
-
-enunciado: "La matriz energética de América Latina es {característica}, lo que constituye una {oportunidad} en un mundo que busca descarbonizar su economía."
-
-explicacion: |
-  La transición energética global es una oportunidad para la región. Sus fuentes limpias pueden ser exportadas o utilizadas para producir bienes con baja huella de carbono.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "basico"
-  tags: ["deslocalización", "corporaciones", "costos"]
-
-variables:
-  sujeto: "corporaciones"
-  acción: "trasladan su producción"
-  motivo: "menores costos operativos"
-
-respuesta: "{motivo}"
-tipo: completar
-
-enunciado: "La {sujeto} {acción} a países con {motivo}, fenómeno conocido como deslocalización."
-
-explicacion: |
-  La búsqueda de eficiencia impulsa a las multinacionales a moverse. América Latina compite ofreciendo costos laborales y energéticos atractivos.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "avanzado"
-  tags: ["aluminio", "industria", "electricidad"]
-
-variables:
-  industria: "aluminio"
-  requisito: "grandes cantidades de electricidad"
-
-respuesta: "{requisito}"
-tipo: completar
-
-enunciado: "La generación hidroeléctrica ha permitido la instalación de industrias de {industria} que requieren {requisito}."
-
-explicacion: |
-  El aluminio es uno de los productos más intensivos en energía. La hidroelectricidad barata de Brasil y Paraguay ha sido clave para su desarrollo en la región.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "intermedio"
-  tags: ["vulnerabilidad", "clima", "hidroelectricidad"]
-
-variables:
-  causa: "dependencia de la hidroelectricidad"
-  efecto: "vulnerabilidad climática"
-
-respuesta: "{efecto}"
-tipo: completar
-
-enunciado: "La {causa} expone a la región a la {efecto}; sequías prolongadas pueden paralizar la producción industrial."
-
-explicacion: |
-  El cambio climático es un riesgo real. Si los patrones de lluvia cambian, la generación hidroeléctrica se ve afectada, impactando directamente a la industria.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "basico"
-  tags: ["tecnología", "servicios", "desarrollo"]
-
-variables:
-  sector: "tecnológicos y de servicios avanzados"
-  estructura: "agroindustria y minería"
-
-respuesta: "{estructura}"
-tipo: completar
-
-enunciado: "Mientras algunos países han logrado desarrollar sectores {sector}, otros mantienen una estructura productiva basada en {estructura}."
-
-explicacion: |
-  La heterogeneidad es la norma. Algunos países han logrado saltar la trampa de la renta media diversificando su economía, mientras otros siguen atrapados en la extracción.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "intermedio"
-  tags: ["precios", "competitividad", "energía"]
-
-variables:
-  requisito: "precios competitivos"
-  resultado: "atraer inversiones industriales"
-
-respuesta: "{resultado}"
-tipo: completar
-
-enunciado: "Sin acceso a fuentes de energía confiables y a {requisito}, es imposible {resultado} que compitan en el mercado mundial."
-
-explicacion: |
-  La energía es un costo fijo. Si es caro, el producto final es caro. Para competir globalmente, se necesita energía barata y confiable.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "basico"
-  tags: ["zonas_franca", "maquiladora", "exportación"]
-
-variables:
-  tipo1: "maquiladoras"
-  tipo2: "zonas francas"
-
-respuesta: "{tipo2}"
-tipo: completar
-
-enunciado: "La deslocalización ha fomentado la instalación de {tipo1} y {tipo2} en la región."
-
-explicacion: |
-  Las zonas francas son instrumentos de política económica para atraer inversión. Ofrecen beneficios fiscales y aduaneros para facilitar la exportación.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "america_latina_industria_y_energia"
-  nivel: "avanzado"
-  tags: ["transformación", "recursos", "valor"]
-
-variables:
-  acción: "transformar recursos en valor agregado"
-  medio: "procesos industriales intensivos en energía"
-
-respuesta: "{medio}"
-tipo: completar
-
-enunciado: "El desafío actual radica en {acción} mediante {medio}."
-
-explicacion: |
-  La clave del desarrollo industrial es la transformación. Sin procesos industriales que usen energía para agregar valor, los recursos naturales se exportan baratos y se importan caros.
-```

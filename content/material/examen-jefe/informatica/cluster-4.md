@@ -1,1006 +1,8 @@
-# Examen jefe — Maestro de Bucles y Lógica
+# Examen jefe — [PENDIENTE #819]
 
-> Logro #174. Completaste el parcial dominando estructuras de control, datos y ética de la IA. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **126 preguntas totales** en 5/5 secciones.
+> Logro #819. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: estructuras-de-control-bucles (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["conceptos", "terminologia"]
-
-respuesta: "iteración"
-tipo: completar
-respuestas_validas: ["iteración", "iteracion"]
-
-enunciado: "En programación, cada una de las repeticiones de un bloque de instrucciones dentro de un bucle se denomina ___."
-
-explicacion: |
-  Un bucle permite ejecutar un conjunto de instrucciones varias veces. Cada vez que el ciclo se ejecuta, se dice que ha ocurrido una iteración.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["diferencias", "for", "while"]
-
-respuesta: "falso"
-tipo: completar
-enunciado: "El bucle 'while' se utiliza preferentemente cuando se conoce de antemano el número exacto de veces que se debe repetir el bloque de código."
-
-explicacion: |
-  Falso. El bucle 'while' se basa en una condición lógica y se usa cuando no sabemos cuántas veces se repetirá. El bucle 'for' es el ideal cuando conocemos el número de iteraciones (iteraciones controladas).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "intermedio"
-  tags: ["for", "componentes"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["i", "inicio", "paso"], ["cont", "valor_inicial", "incremento"]]
-
-respuesta: datos[escenario_idx][0
-tipo: mc
-opciones_explicitas: ["i", "cont", "valor_inicial", "incremento"]
-
-enunciado: "En una estructura de control 'for' estándar, el primer parámetro suele representar la ___ que actúa como contador."
-
-explicacion: |
-  La variable de control (comúnmente llamada 'i' o 'j') es la que toma los valores sucesivos durante el ciclo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["flujo", "orden"]
-
-respuesta: ["Inicializar variable", "Evaluar condición", "Ejecutar cuerpo", "Actualizar variable"]
-tipo: ordenar
-opciones_explicitas: ["Inicializar variable", "Evaluar condición", "Ejecutar cuerpo", "Actualizar variable"]
-
-enunciado: "Ordena los pasos lógicos que sigue un bucle 'while' en cada ciclo para asegurar un funcionamiento correcto y evitar bucles infinitos."
-
-explicacion: |
-  Primero se verifica si la condición es verdadera, luego se ejecuta el código y finalmente se actualiza la variable de control para que la condición pueda llegar a ser falsa eventualmente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["errores", "bucle_infinito"]
-
-respuesta: "falso"
-tipo: completar
-enunciado: "Un bucle infinito ocurre únicamente cuando la condición de parada es siempre verdadera debido a un error de lógica en el programa."
-
-explicacion: |
-  Falso. Aunque es la causa más común (error de lógica), un bucle infinito también puede ser intencional (por ejemplo, en el bucle principal de un sistema operativo o un videojuego que espera una señal de salida).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["for", "iteracion", "suma"]
-
-variables:
-  escenario: uno_de([
-    [1, 10],
-    [1, 5],
-    [1, 20]
-  ])
-  limite: escenario[0]
-  suma_final: escenario[1]
-
-respuesta: suma_final
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Considera un bucle que recorre un rango desde 1 hasta {limite} (inclusive) sumando cada valor a una variable acumuladora que inicia en 0. ¿Cuál es el valor final de la suma?"
-
-pasos:
-  - "Inicializar acumulador = 0"
-  - "Iterar desde i = 1 hasta {limite}"
-  - "En cada paso, sumar i al acumulador"
-
-explicacion: |
-  El bucle recorre todos los enteros desde 1 hasta el límite definido. La suma de los primeros n números se calcula con la fórmula (n * (n + 1)) / 2. En este caso, para un límite de {limite}, la suma es {suma_final}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["while", "condicion"]
-
-variables:
-  valor_inicial: 10
-  divisor: 2
-  resultado_final: 1
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Se ejecuta el siguiente pseudocódigo: \n x = {valor_inicial} \n while (x > 1): \n   x = x / {divisor} \n \n ¿La variable x terminará siendo exactamente igual a 1 al finalizar el bucle? (Verdadero/Falso)"
-
-explicacion: |
-  En cada iteración, x se divide por 2. La secuencia es: 10, 5, 2.5, 1.25, 0.625... Como x siempre será mayor que 1 hasta que cruce el umbral, el bucle se detiene cuando x <= 1. En este caso, el valor final es 0.625, por lo tanto, no es exactamente 1.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "intermedio"
-  tags: ["for", "anidado", "iteraciones"]
-
-variables:
-  i_max: 3
-  j_max: 2
-
-respuesta: 6
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "En un bucle anidado donde el bucle externo corre desde i = 1 hasta {i_max} y el bucle interno corre desde j = 1 hasta {j_max}, ¿cuántas veces se ejecutará el cuerpo del bucle interno en total?"
-
-pasos:
-  - "El bucle externo se ejecuta {i_max} veces"
-  - "Por cada iteración del externo, el interno se ejecuta {j_max} veces"
-  - "Total = {i_max} * {j_max}"
-
-explicacion: |
-  Cuando tenemos bucles anidados, el número total de iteraciones es el producto del número de iteraciones de cada bucle. En este caso, 3 * 2 = 6.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "intermedio"
-  tags: ["ordenar", "flujo"]
-
-respuesta: ["inicializar_contador", "evaluar_condicion", "ejecutar_cuerpo", "actualizar_contador"]
-tipo: ordenar
-
-opciones_explicitas: ["inicializar_contador", "evaluar_condicion", "ejecutar_cuerpo", "actualizar_contador"]
-
-enunciado: "Ordena los pasos lógicos que sigue un bucle 'while' en cada iteración para asegurar su funcionamiento correcto:"
-
-explicacion: |
-  Primero se debe evaluar si la condición es verdadera. Si lo es, se ejecuta el código interno. Luego, es crucial actualizar la variable de control (incrementar o decrementar) para evitar un bucle infinito.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["while", "incremento"]
-
-variables:
-  puntos_iniciales: 5
-  incremento: 2
-  puntos_finales: 11
-
-respuesta: "11"
-tipo: completar
-
-opciones_explicitas: ["11"]
-respuestas_validas: ["11"]
-
-enunciado: "Un programa tiene un bucle 'while' que continúa mientras 'puntos' sea menor que 10. Si 'puntos' comienza en {puntos_iniciales} y en cada iteración se le suma {incremento}, ¿cuál será el valor final de 'puntos' cuando el bucle termine?"
-
-explicacion: |
-  1. Inicio: puntos = 5. ¿5 < 10? Sí. Sumamos 2 -> puntos = 7.
-  2. ¿7 < 10? Sí. Sumamos 2 -> puntos = 9.
-  3. ¿9 < 10? Sí. Sumamos 2 -> puntos = 11.
-  4. ¿11 < 10? No. El bucle termina. El valor final es 11.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "intermedio"
-  tags: ["error_comun", "while", "logica"]
-
-variables:
-  i: 0
-
-enunciado: "Analiza el siguiente fragmento de código en pseudocódigo: \n\n x = 10\n i = 0\n while (i < x):\n   print(i)\n   i = i - 1"
-
-opciones_explicitas: ["El bucle termina correctamente", "El bucle entra en un bucle infinito", "El bucle no se ejecuta nunca", "Se produce un error de sintaxis"]
-
-respuesta: "El bucle entra en un bucle infinito"
-tipo: mc
-
-explicacion: |
-  Al decrementar `i` en cada iteración (`i = i - 1`), la condición `i < 10` siempre será verdadera, ya que `i` se aleja cada vez más del valor 10 hacia los números negativos. Esto causa un bucle infinito.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["for", "index_out_of_bounds"]
-
-variables:
-  lista: ["A", "B", "C"]
-  largo_lista: largo(lista)
-
-enunciado: "Si tenemos una lista con {largo_lista} elementos (índices 0, 1 y 2) y ejecutamos el siguiente bucle:\n\n for i from 0 to 3:\n   print(lista[i])\n\n ¿Qué sucede al llegar a la última iteración?"
-
-opciones_explicitas: ["Se imprime el último elemento", "Se imprime un error de índice fuera de rango", "Se imprime un valor nulo", "El bucle se detiene sin error"]
-
-respuesta: "Se imprime un error de índice fuera de rango"
-tipo: mc
-
-explicacion: |
-  En la mayoría de los lenguajes, si una lista tiene 3 elementos, los índices válidos son 0, 1 y 2. Intentar acceder al índice 3 provocará un error de desbordamiento de índice (IndexOutOfBounds).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "intermedio"
-  tags: ["while", "logica"]
-
-enunciado: "En un bucle `while`, la condición evaluada determina si el cuerpo del bucle se ejecuta o no. Si la condición es falsa desde el primer momento, el bucle se ejecuta ___ veces."
-
-respuestas_validas: ["0"]
-tipo: completar
-
-explicacion: |
-  A diferencia de un bucle `do-while` (que garantiza al menos una ejecución), el bucle `while` evalúa la condición *antes* de entrar al bloque. Si la condición es falsa inicialmente, el cuerpo nunca se ejecuta.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "intermedio"
-  tags: ["anidados", "orden"]
-
-variables:
-  resultado: "A, B, C, D"
-
-enunciado: "Ordena la secuencia de salida de los mensajes para el siguiente código:\n\n for i from 1 to 2:\n   for j from 1 to 2:\n     print(i, j)"
-
-opciones_explicitas: ["(1,1), (1,2), (2,1), (2,2)", "(1,1), (2,1), (1,2), (2,2)", "(1,1), (1,2), (2,2), (2,1)", "(2,1), (2,2), (1,1), (1,2)"]
-
-respuesta: ["(1,1), (1,2), (2,1), (2,2)"]
-tipo: ordenar
-
-explicacion: |
-  En los bucles anidados, el bucle interno (j) debe completar todas sus iteraciones para cada una de las iteraciones del bucle externo (i). Por eso, primero se agota la secuencia de `j` para `i=1` y luego se pasa a `i=2`.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["boolean", "logica"]
-
-variables:
-  condicion_inicial: falso
-
-enunciado: "Supongamos que tenemos el siguiente código:\n\n x = 5\n while (x > 0):\n   x = x - 1\n   if (x == 2):\n     break\n\n ¿El valor final de `x` al salir del bucle es 2? (Responde verdadero o falso)"
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  El bucle se ejecuta para x=5, 4, 3. Cuando x llega a 2 tras la resta, la instrucción `break` interrumpe inmediatamente el bucle, dejando el valor de `x` en 2.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["bucles", "for", "while"]
-
-tipo: mc
-opciones_explicitas: ["El bucle for se usa cuando se conoce de antemano el número de iteraciones, mientras que el while depende de una condición lógica.", "El bucle for es más rápido que el while en todos los lenguajes.", "El bucle while solo puede usarse con números enteros.", "No existe diferencia funcional entre ambos."]
-
-respuesta: "El bucle for se usa cuando se conoce de antemano el número de iteraciones, mientras que el while depende de una condición lógica."
-
-enunciado: "En programación, ¿cuál es la distinción principal entre un bucle 'for' y un bucle 'while'?"
-
-explicacion: |
-  El bucle 'for' está diseñado para iterar sobre una secuencia finita o un rango conocido, mientras que el 'while' es una estructura de control que se ejecuta mientras una condición booleana sea verdadera, sin importar cuántas veces ocurra.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["while", "condicion"]
-
-tipo: completar
-respuestas_validas: ["falso"]
-
-respuesta: "falso"
-
-enunciado: "Si una condición en un bucle 'while' nunca cambia su valor y permanece siempre como ___, el programa entrará en un bucle infinito."
-
-explicacion: |
-  Un bucle 'while' evalúa la condición antes de cada iteración. Si la condición es siempre 'falso', el bucle no se ejecuta; si es siempre 'verdadero', el bucle nunca termina.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "intermedio"
-  tags: ["while", "booleano"]
-
-tipo: vf
-
-respuesta: verdadero
-
-enunciado: "¿Es posible que un bucle 'while' no se ejecute ni una sola vez si la condición inicial es falsa?"
-
-explicacion: |
-  Correcto. A diferencia del bucle 'do-while' (que ejecuta el bloque al menos una vez), el bucle 'while' evalúa la condición al principio. Si es falsa desde el inicio, el cuerpo del bucle se salta por completo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["iteracion", "pasos"]
-
-tipo: ordenar
-opciones_explicitas: ["Inicialización de la variable de control", "Evaluación de la condición", "Ejecución del cuerpo del bucle", "Actualización de la variable de control"]
-
-respuesta: ["Inicialización de la variable de control", "Evaluación de la condición", "Ejecución del cuerpo del bucle", "Actualización de la variable de control"]
-
-enunciado: "Ordena los pasos lógicos que ocurren en una iteración estándar de un bucle controlado por una variable:"
-
-explicacion: |
-  Para que un bucle funcione correctamente, primero se establece el punto de partida (inicialización), luego se verifica si se debe entrar (condición), se realiza la tarea (cuerpo) y finalmente se modifica la variable para avanzar (actualización).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "intermedio"
-  tags: ["break", "control"]
-
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: tabla[idx][1
-tabla: [["La instrucción 'break' termina el bucle inmediatamente, independientemente de si la condición del 'while' sigue siendo verdadera.", "La instrucción 'break' solo sirve para saltar una iteración y continuar con la siguiente."]]
-
-tipo: mc
-opciones_explicitas: ["La instrucción 'break' termina el bucle inmediatamente, independientemente de si la condición del 'while' sigue siendo verdadera.", "La instrucción 'break' solo sirve para saltar una iteración y continuar con la siguiente."]
-
-enunciado: "Considerando un bucle 'while' que está en ejecución, ¿qué diferencia marca el uso de la instrucción 'break' respecto a la condición del bucle?"
-
-explicacion: |
-  El comando 'break' fuerza la salida inmediata del bucle, ignorando la evaluación de la condición lógica que normalmente controlaría la repetición.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["for", "iteracion"]
-
-variables:
-  datos: [["i", "1", "3"], ["j", "0", "2"], ["k", "5", "7"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Si ejecutamos un bucle 'for' que recorre desde el valor inicial de {datos[idx][0]} hasta el valor final de {datos[idx][1]} inclusive, ¿cuántas veces se ejecutará el cuerpo del bucle?"
-
-respuesta: datos[idx][2]
-tipo: mc
-opciones_explicitas: ["1", "2", "3", "4"]
-
-explicacion: |
-  El número de iteraciones en un bucle que va de 'a' hasta 'b' (inclusive) se calcula como: (b - a) + 1.
-  En este caso: ({datos[idx][1]} - {datos[idx][0]}) + 1 = {respuesta}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "intermedio"
-  tags: ["while", "condicion"]
-
-variables:
-  datos: [["x", 10, 2], ["y", 20, 5], ["z", 15, 3]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Considera el siguiente código: \n`valor = {datos[idx][0]} \nwhile (valor > 1): \n    valor = valor - {datos[idx][1]}` \n\n¿Cuál será el valor final de la variable después de que el bucle termine?"
-
-respuesta: "1"
-tipo: mc
-opciones_explicitas: ["0", "1", "2", "5"]
-
-explicacion: |
-  El bucle se ejecuta mientras la variable sea mayor a 1. 
-  Si empezamos con {datos[idx][0]} y restamos {datos[idx][1]} sucesivamente, el último valor que cumple la condición es el que, al restarle {datos[idx][1]}, resulta en un valor <= 1.
-  En este escenario, el valor final será 1.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "avanzado"
-  tags: ["anidados", "complejidad"]
-
-variables:
-  datos: [["i", 3, "j", 4], ["i", 2, "j", 5], ["i", 4, "j", 2]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Dado el siguiente fragmento de código:\n`for i from 1 to {datos[idx][0]}:\n    for j from 1 to {datos[idx][2]}:\n        print(i, j)`\n\n¿Cuántas veces se imprimirá el mensaje en total?"
-
-respuestas_validas: [{datos[idx][0] * datos[idx][2]}]
-respuesta: {datos[idx][0] * datos[idx][2]}
-tipo: completar
-tolerancia_abs: 0
-
-explicacion: |
-  En un bucle anidado, el número total de iteraciones es el producto del número de iteraciones del bucle externo por el número de iteraciones del bucle interno.
-  {datos[idx][0]} * {datos[idx][2]} = {datos[idx][0] * datos[idx][2]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "basico"
-  tags: ["while", "infinito"]
-
-enunciado: "Si tenemos un bucle `while (i < 10)` y dentro del bucle la variable `i` nunca aumenta su valor, el programa entrará en un bucle infinito."
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Correcto. Si la condición de parada (`i < 10`) nunca deja de ser verdadera porque `i` no cambia, el programa nunca saldrá del bucle.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_bucles"
-  nivel: "intermedio"
-  tags: ["orden", "flujo"]
-
-enunciado: "Ordena los pasos de ejecución de un bucle 'for' que recorre una lista de elementos:"
-
-opciones_explicitas: ["Inicializar el contador", "Evaluar la condición de parada", "Ejecutar el cuerpo del bucle", "Incrementar el contador"]
-respuesta: ["Inicializar el contador", "Evaluar la condición de parada", "Ejecutar el cuerpo del bucle", "Incrementar el contador"]
-tipo: ordenar
-
-explicacion: |
-  El flujo estándar es: 1. Inicialización, 2. Evaluación de condición, 3. Ejecución de instrucciones, 4. Actualización/Incremento.
-```
-
-## Sección: estructuras-de-control-condicionales (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["conceptos", "logica"]
-
-tipo: mc
-opciones_explicitas: ["Una estructura que repite un bloque de código", "Una estructura que permite ejecutar código según una condición", "Una función que realiza cálculos matemáticos", "Un tipo de dato que almacena números"]
-
-enunciado: "En programación, una estructura condicional es..."
-
-explicacion: |
-  Las estructuras condicionales permiten que el flujo de un programa cambie de dirección dependiendo de si una condición es verdadera o falsa.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["booleanos", "logica"]
-
-tipo: vf
-opciones_explicitas: [verdadero, falso]
-
-enunciado: "Para que una sentencia 'if' ejecute su bloque de código, la expresión evaluada debe ser ___."
-
-explicacion: |
-  El cuerpo de un 'if' solo se ejecuta si la condición evaluada resulta en un valor booleano verdadero.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["if_else", "flujo"]
-
-tipo: completar
-respuestas_validas: ["else"]
-
-enunciado: "Si la condición del 'if' es falsa, el programa puede ejecutar un bloque alternativo utilizando la palabra clave ___."
-
-explicacion: |
-  La cláusula 'else' define el camino que toma el programa cuando la condición principal no se cumple.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "intermedio"
-  tags: ["evaluacion", "booleano"]
-
-variables:
-  escenario: uno_de([
-    [10 > 5, verdadero],
-    [5 > 10, falso],
-    [7 == 7, verdadero],
-    [3 != 3, falso]
-  ])
-
-enunciado: "Si evaluamos la expresión {escenario[0]}, el resultado es ___."
-
-respuesta: escenario[1
-tipo: mc
-opciones_explicitas: [verdadero, falso]
-
-explicacion: |
-  La expresión evaluada es verdadera, por lo tanto, el resultado booleano es verdadero.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "intermedio"
-  tags: ["flujo", "orden"]
-
-tipo: ordenar
-opciones_explicitas: ["1. Evaluar la condición", "2. Si es verdadera, ejecutar bloque A", "3. Si es falsa, ejecutar bloque B"]
-
-enunciado: "Ordena los pasos lógicos que sigue una estructura 'if-else' estándar:"
-
-respuesta: ["1. Evaluar la condición", "2. Si es verdadera, ejecutar bloque A", "3. Si es falsa, ejecutar bloque B"]
-
-explicacion: |
-  El flujo lógico siempre comienza con la evaluación de la condición para luego decidir qué camino seguir.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["if", "booleanos", "logica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un programa, si evaluamos la expresión {x > 5} siendo x = 10, el resultado de la condición es ___."
-
-explicacion: |
-  Dado que 10 es mayor que 5, la expresión es verdadera.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["if", "else", "flujo"]
-
-variables:
-  escenario: uno_de([["edad = 15", "reprobado"], ["edad = 18", "aprobado"]])
-
-respuesta: escenario[1
-tipo: mc
-opciones_explicitas: ["reprobado", "aprobado"]
-
-enunciado: "Si tenemos el siguiente código: \nif (edad >= 18) {\n  print('aprobado');\n} else {\n  print('reprobado');\n}\n\nSi la variable edad es 15, ¿qué se imprimirá en consola?"
-
-pasos:
-  - "Evaluar la condición: ¿15 >= 18? La respuesta es falso."
-  - "Como la condición es falsa, el programa salta el bloque 'if' y entra al bloque 'else'."
-  - "Se ejecuta la instrucción dentro del 'else'."
-
-explicacion: |
-  Al ser la condición falsa, se ejecuta la rama alternativa (else).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "intermedio"
-  tags: ["if", "else", "sintaxis"]
-
-respuesta: ["else", "if"]
-tipo: completar
-respuestas_validas: ["else", "if"]
-
-enunciado: "Completa la sintaxis correcta para este fragmento de código:\n\nif (puntuacion > 50) {\n  ___(puntuacion > 50) {\n    print('Excelente');\n  }\n} ___ {\n  print('Inténtalo de nuevo');\n}"
-
-explicacion: |
-  La estructura completa es 'if' para la condición inicial y 'else' para el caso contrario.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "intermedio"
-  tags: ["if", "else if", "logica"]
-
-variables:
-  caso: uno_de([["temp = 30", "calor"], ["temp = 10", "frio"]])
-
-respuesta: caso[0
-tipo: mc
-opciones_explicitas: ["calor", "frio", "templado"]
-
-enunciado: "Analiza el siguiente código:\n\nif (temp > 25) {\n  print('calor');\n} else if (temp > 0) {\n  print('templado');\n} else {\n  print('frio');\n}\n\nSi la variable temp es 30, ¿cuál es la salida?"
-
-pasos:
-  - "Se evalúa la primera condición: 30 > 25. Es verdadero."
-  - "Al cumplirse la primera condición, se ejecuta su bloque y se sale de la estructura."
-  - "Las condiciones 'else if' y 'else' se ignoran completamente."
-
-explicacion: |
-  En una estructura if/else if/else, solo se ejecuta el primer bloque cuya condición sea verdadera.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["flujo", "orden"]
-
-respuesta: ["evaluar_condicion", "decidir_camino", "ejecutar_bloque"]
-tipo: ordenar
-opciones_explicitas: ["evaluar_condicion", "decidir_camino", "ejecutar_bloque"]
-
-enunciado: "Ordena los pasos lógicos que sigue el procesador al encontrar una estructura condicional if-else:"
-
-explicacion: |
-  Primero se determina si la condición es verdadera o falsa, luego se elige qué camino seguir y finalmente se procesa la instrucción correspondiente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["error_comun", "if_else"]
-
-variables:
-  escenario: uno_de([
-    ["if (x > 0) \n  print('Positivo')", "error_sintaxis"],
-    ["if (x > 0) \n  print('Positivo') \n print('Siempre sale')", "error_logica"]
-  ])
-
-enunciado: "Observa el siguiente código: {escenario[0]}. Si el programador quería que el segundo 'print' SOLO se ejecute si x > 0, pero lo escribió fuera de la indentación, ¿qué tipo de error ha cometido?"
-
-opciones_explicitas: ["error_de_sintaxis", "error_de_logica", "error_de_tipo", "no hay error"]
-respuesta: escenario[1
-tipo: mc
-
-explicacion: |
-  El código es sintácticamente correcto (no dará error al compilar), pero la lógica es errónea porque el segundo comando se ejecutará siempre, independientemente de la condición.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["confusión_operadores"]
-
-variables:
-  caso: uno_de([
-    ["if (edad = 18) { ... }", "error_sintaxis"],
-    ["if (edad == 18) { ... }", "correcto"]
-  ])
-
-enunciado: "En muchos lenguajes de programación, intentar usar un solo signo de igual '{caso[0]}' dentro de una condición 'if' en lugar de un doble signo de igual suele provocar un error de tipo {caso[0][0]} o un comportamiento inesperado. ¿Cuál es el operador correcto para comparar igualdad?"
-
-opciones_explicitas: ["=", "==", "!=", "<=>"]
-respuesta: "=="
-tipo: mc
-
-explicacion: |
-  El signo '=' se usa para asignación (dar un valor a una variable), mientras que '==' se usa para comparación (verificar si dos valores son iguales).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "intermedio"
-  tags: ["truthy_falsy"]
-
-enunciado: "En lenguajes como Python o JavaScript, una lista vacía [] o el número 0 se evalúan como ___ en una estructura condicional 'if'. (Escribe 'falso' o 'verdadero')"
-
-respuestas_validas: ["falso"]
-respuesta: "falso"
-tipo: completar
-
-explicacion: |
-  En la evaluación de contextos booleanos (truthy/falsy), los valores vacíos, el cero y el valor null/none se consideran falsos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "intermedio"
-  tags: ["lógica_booleana"]
-
-variables:
-  test: uno_de([
-    [10, 20, 30],
-    [5, 15, 25]
-  ])
-  idx: uno_de([0, 1])
-
-enunciado: "Si tenemos la expresión: 'if (x > 5 && x < 15)'. Si x es {test[idx][1]}, ¿cuál es el resultado booleano de la condición?"
-
-opciones_explicitas: [verdadero, falso]
-respuesta: falso
-tipo: mc
-
-explicacion: |
-  Como el operador '&&' (AND) requiere que AMBAS condiciones sean verdaderas, y 20 no es menor que 15, el resultado es falso.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "avanzado"
-  tags: ["anidamiento"]
-
-enunciado: "Ordena los pasos lógicos que sigue el procesador al evaluar una estructura 'if-elif-else' para encontrar la primera coincidencia verdadera:"
-
-opciones_explicitas: ["Evaluar la condición del 'if' inicial", "Evaluar las condiciones de los 'elif' en orden", "Ejecutar el bloque 'else' si ninguna anterior fue verdadera"]
-respuesta: ["Evaluar la condición del 'if' inicial", "Evaluar las condiciones de los 'elif' en orden", "Ejecutar el bloque 'else' si ninguna anterior fue verdadera"]
-tipo: ordenar
-
-explicacion: |
-  Las estructuras condicionales múltiples se evalúan de arriba hacia abajo. En cuanto se encuentra una condición verdadera, se ejecuta su bloque y se salta el resto de la estructura.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["condicionales", "lógica"]
-
-respuesta: "else"
-tipo: "completar"
-respuestas_validas: ["else"]
-
-enunciado: "Mientras que la estructura 'if' permite ejecutar un bloque de código si una condición es verdadera, la cláusula ___ se utiliza para definir qué código debe ejecutarse cuando dicha condición es falsa."
-
-explicacion: |
-  La estructura 'if' evalúa una condición. Si es verdadera, ejecuta su bloque. El 'else' es el bloque opcional que se ejecuta únicamente cuando la condición del 'if' resulta ser falsa.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["booleanos", "lógica"]
-
-variables:
-  escenario: uno_de([
-    ["x > 5", "verdadero"],
-    ["x == 10", "falso"],
-    ["5 < 2", "falso"]
-  ])
-
-respuesta: escenario[1
-tipo: "mc"
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "Si evaluamos la expresión {escenario[0]}, el resultado booleano que la estructura de control procesará es ___."
-
-explicacion: |
-  En programación, las estructuras condicionales dependen de valores booleanos. Si la expresión matemática o lógica se cumple, el resultado es 'verdadero'; de lo contrario, es 'falso'.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "intermedio"
-  tags: ["flujo_de_control", "lógica"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "¿Es correcto afirmar que una estructura 'if' sin un bloque 'else' puede ser utilizada para ejecutar código de forma selectiva sin necesidad de manejar el caso contrario?"
-
-explicacion: |
-  Verdadero. Un 'if' independiente es perfectamente válido y se usa precisamente para ejecutar algo solo si se cumple una condición, ignorando el flujo si la condición es falsa.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "intermedio"
-  tags: ["anidamiento", "flujo"]
-
-respuesta: ["if", "else if", "else"]
-tipo: "ordenar"
-opciones_explicitas: ["if", "else if", "else"]
-
-enunciado: "En una estructura condicional compuesta (múltiples opciones), ¿cuál es el orden lógico de evaluación que debe seguir el procesador para evaluar condiciones de forma jerárquica?"
-
-explicacion: |
-  El programa evalúa primero la condición principal (if). Si no se cumple, pasa a las condiciones intermedias (else if) una por una. Si ninguna se cumple, se ejecuta el bloque por defecto (else).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["operadores", "comparación"]
-
-variables:
-  caso: uno_de([
-    ["5 == 5", "igualdad"],
-    ["5 != 5", "desigualdad"]
-  ])
-
-respuesta: caso[1
-tipo: "mc"
-opciones_explicitas: ["igualdad", "desigualdad"]
-
-enunciado: "Si comparamos la expresión {caso[0]}, el operador utilizado busca determinar la ___ entre los dos valores."
-
-explicacion: |
-  El operador '==' comprueba si dos valores son iguales, mientras que '!=' (o distinto de) comprueba si son diferentes. Son la base de las decisiones en los condicionales.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["if", "else", "logica"]
-
-variables:
-  datos: [["rojo", "detenerse"], ["verde", "avanzar"], ["amarillo", "precaucion"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["detenerse", "avanzar", "precaucion"]
-
-enunciado: "Un sensor detecta que el semáforo está en color {datos[idx][0]}. Según la lógica de control, la acción a ejecutar es ___."
-
-explicacion: |
-  El programa utiliza una estructura condicional para evaluar el estado de la variable 'color'. Si el color es rojo, la acción es detenerse.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["booleanos", "comparacion"]
-
-variables:
-  edad: uno_de([15, 20, 12])
-  es_mayor: edad >= 18
-
-respuesta: es_mayor
-tipo: completar
-enunciado: "Si tenemos una variable `edad` con el valor {edad}, la expresión `if (edad >= 18)` resultará en un valor booleano ___."
-
-explicacion: |
-  La expresión evalúa si el valor de la variable es mayor o igual a 18. Como {edad} es {edad}, el resultado es {es_mayor}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "intermedio"
-  tags: ["if_else", "condicionales_anidadas"]
-
-variables:
-  datos: [["compra_alta", "aplicar_descuento"], ["compra_media", "sin_descuento"], ["compra_baja", "sin_descuento"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1
-tipo: completar
-respuestas_validas: ["aplicar_descuento", "sin_descuento"]
-
-enunciado: "Un sistema de ventas evalúa el tipo de compra: {datos[idx][0]}. Si la condición es verdadera para una 'compra_alta', el sistema debe ___."
-
-pasos:
-  - "Evaluar el tipo de compra"
-  - "Asignar la acción correspondiente al bloque else o if"
-
-explicacion: |
-  En una estructura if/else, el flujo se desvía hacia el bloque que cumple la condición. Para 'compra_alta', se ejecuta el primer bloque.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "basico"
-  tags: ["comparacion"]
-
-variables:
-  temp: uno_de([35, 15, 25])
-  es_calor: temp > 30
-
-respuesta: es_calor
-tipo: completar
-enunciado: "Dada una variable `temp` con valor {temp}, la condición `if (temp > 30)` se evalúa como ___."
-
-explicacion: |
-  Al comparar {temp} con 30, obtenemos el valor booleano {es_calor}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructuras_de_control_condicionales"
-  nivel: "intermedio"
-  tags: ["ordenar", "logica_flujo"]
-
-respuesta: ["Verificar credenciales", "Validar permisos", "Acceder al sistema"]
-tipo: ordenar
-opciones_explicitas: ["Verificar credenciales", "Validar permisos", "Acceder al sistema"]
-
-enunciado: "Ordena los pasos lógicos de un programa que controla el acceso a un panel de administración mediante condicionales:"
-
-explicacion: |
-  Primero se debe verificar si la identidad es correcta (if password_ok), luego si el rol tiene permiso (if user_role == 'admin') y finalmente permitir el acceso.
-```
 
 ## Sección: estructuras-de-datos-listas-pilas-colas (26 preguntas)
 
@@ -1013,7 +15,10 @@ metadata:
 
 respuesta: "LIFO"
 tipo: completar
-respuestas_validas: ["LIFO", "lifo", "LIFO (Last In, First Out)"]
+respuestas_validas:
+  - "LIFO"
+  - "lifo"
+  - "LIFO (Last In, First Out)"
 
 enunciado: "La estructura de datos conocida como 'Pila' se rige por el principio de acceso ___ (Last In, First Out)."
 
@@ -1029,17 +34,18 @@ metadata:
   tags: ["colas", "fifo", "pilas"]
 
 variables:
+  pares: [["Pila", "Último en entrar, primero en salir"], ["Cola", "Primero en entrar, primero en salir"]]
   idx: uno_de([0, 1])
-  escenario: [[["Pila", "LIFO", "Último en entrar"], ["Cola", "FIFO", "Primero en entrar"]], [["Pila", "LIFO", "Último en entrar"], ["Cola", "FIFO", "Primero en entrar"]]]
 
-respuesta: escenario[idx][0
+respuesta: pares[idx][0]
 tipo: mc
 opciones_explicitas: ["Pila", "Cola"]
 
-enunciado: "Si una estructura de datos sigue el principio de 'Primero en entrar, primero en salir', estamos ante una ___."
+enunciado: "Si una estructura de datos sigue el principio de '{pares[idx][1]}', estamos ante una ___."
 
 explicacion: |
   El principio FIFO (First In, First Out) es característico de las colas, donde el primer elemento que llega es el primero en ser procesado.
+  El principio LIFO (Last In, First Out) es característico de las pilas.
 ```
 
 ```
@@ -1065,10 +71,10 @@ metadata:
   nivel: "basico"
   tags: ["pilas", "operaciones"]
 
-respuesta: ["push", "pop"]
+respuesta_orden: ["push", "pop"]
 tipo: ordenar
 
-opciones_explicitas: ["push", "pop", "enqueue", "dequeue"]
+opciones_explicitas: ["push", "pop"]
 
 enunciado: "Ordena las operaciones típicas de una Pila (Stack) desde la que agrega un elemento hasta la que lo retira:"
 
@@ -1085,11 +91,11 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  ejemplo: [["gestión de procesos en un CPU", "impresora"], ["historial de navegación", "gestión de procesos en un CPU"]]
+  ejemplo: [["gestión de procesos en un CPU", "impresora"], ["fila de espera en un banco", "gestión de procesos en un CPU"]]
 
-respuesta: ejemplo[idx][0
+respuesta: ejemplo[idx][0]
 tipo: mc
-opciones_explicitas: ["gestión de procesos en un CPU", "historial de navegación", "deshacer (undo)"]
+opciones_explicitas: ["gestión de procesos en un CPU", "fila de espera en un banco", "historial de navegación", "deshacer (undo)"]
 
 enunciado: "Las colas (FIFO) son ideales para escenarios de espera. ¿Cuál de estos es un uso común de una cola?"
 
@@ -1121,17 +127,15 @@ metadata:
   tags: ["pilas", "push", "pop"]
 
 variables:
-  escenario: uno_de([
-    ["push(10)", "push(20)", "push(30)", "pop"],
-    ["push('A')", "push('B')", "push('C')", "pop"],
-    ["push(5)", "push(15)", "push(25)", "pop"]
-  ])
+  valores: [["10", "20", "30"], ["A", "B", "C"], ["5", "15", "25"]]
+  resultados: ["20", "B", "15"]
+  idx: uno_de([0, 1, 2])
 
-respuesta: escenario[3
+respuesta: resultados[idx]
 tipo: mc
-opciones_explicitas: ["push(10)", "push(20)", "push(30)", "pop"]
+opciones_explicitas: ["20", "B", "15", "30"]
 
-enunciado: "Dada una pila vacía, si realizamos las siguientes operaciones en orden: {escenario[0]}, {escenario[1]}, {escenario[2]} y finalmente {escenario[3]}, ¿cuál es el elemento que queda en el tope de la pila?"
+enunciado: "Dada una pila vacía, si realizamos las siguientes operaciones en orden: push({valores[idx][0]}), push({valores[idx][1]}), push({valores[idx][2]}) y finalmente pop, ¿cuál es el elemento que queda en el tope de la pila?"
 
 pasos:
   - "Insertar el primer elemento (push)."
@@ -1150,18 +154,11 @@ metadata:
   nivel: "basico"
   tags: ["colas", "fifo"]
 
-variables:
-  datos: uno_de([
-    ["cliente_1", "cliente_2", "cliente_3"],
-    ["paquete_A", "paquete_B", "paquete_C"],
-    ["tarea_X", "tarea_Y", "tarea_Z"]
-  ])
-
-respuesta: datos[0
+respuesta: "cliente_1"
 tipo: mc
 opciones_explicitas: ["cliente_1", "cliente_2", "cliente_3", "cliente_4"]
 
-enunciado: "En una cola (Queue) de procesamiento de tareas, si entran los elementos {datos[0]}, {datos[1]} y {datos[2]} en ese orden, ¿cuál es el primer elemento en ser atendido y salir de la cola?"
+enunciado: "En una cola (Queue) de procesamiento de tareas, si entran los elementos cliente_1, cliente_2 y cliente_3 en ese orden, ¿cuál es el primer elemento en ser atendido y salir de la cola?"
 
 explicacion: |
   Las colas siguen el principio FIFO (First In, First Out). El primero en entrar es el primero en salir.
@@ -1174,20 +171,19 @@ metadata:
   nivel: "intermedio"
   tags: ["pilas", "ordenar"]
 
-respuesta: ["A", "B", "C", "D"]
+respuesta_orden: ["A", "B"]
 tipo: ordenar
-opciones_explicitas: ["A", "B", "C", "D"]
+opciones_explicitas: ["A", "B"]
 
-enunciado: "Ordena la secuencia de elementos que quedarían en la pila si realizamos las siguientes operaciones de forma consecutiva: push(A), push(B), push(C), push(D), pop, pop."
+enunciado: "Si realizamos las siguientes operaciones de forma consecutiva sobre una pila vacía: push(A), push(B), push(C), push(D), pop, pop — ordena los elementos que permanecen en la pila, desde la base hasta el tope."
 
 pasos:
   - "La pila contiene [A, B, C, D] con D en el tope."
   - "Se ejecuta pop: sale D, queda [A, B, C]."
   - "Se ejecuta pop: sale C, queda [A, B]."
-  - "El orden de los elementos restantes de base a tope es..."
 
 explicacion: |
-  Al hacer pop dos veces, eliminamos los dos últimos elementos insertados. Los que quedan son A y B, pero el orden solicitado es la secuencia de la estructura. (Nota: Para este ejercicio se pide el orden de los elementos que permanecen en la pila).
+  Al hacer pop dos veces, eliminamos los dos últimos elementos insertados (D y luego C). Los que quedan en la pila, de base a tope, son A y B.
 ```
 
 ```
@@ -1199,7 +195,9 @@ metadata:
 
 respuesta: "FIFO"
 tipo: completar
-respuestas_validas: ["FIFO", "Lifo", "lifo", "fifo"]
+respuestas_validas:
+  - "FIFO"
+  - "fifo"
 
 enunciado: "Mientras que la Pila utiliza el principio LIFO (Last In, First Out), la Cola utiliza el principio ___ (First In, First Out)."
 
@@ -1216,7 +214,10 @@ metadata:
 
 respuesta: "LIFO"
 tipo: completar
-respuestas_validas: ["LIFO", "lifo", "Lifo"]
+respuestas_validas:
+  - "LIFO"
+  - "lifo"
+  - "Lifo"
 
 enunciado: "En una estructura de datos de tipo Pila (Stack), el último elemento en ser insertado es el primero en ser extraído, principio conocido como ___."
 
@@ -1280,14 +281,9 @@ metadata:
   nivel: "intermedio"
   tags: ["operaciones", "pila"]
 
-opciones_explicitas: ["push(A) -> push(B) -> pop() -> push(C) -> pop()", "push(A) -> push(B) -> pop() -> push(C) -> pop()", "push(A) -> push(B) -> pop() -> push(C) -> pop()"]
-# Nota: El usuario debe identificar la secuencia que resulta en el estado final [A, C]
-# Para este ejercicio, definimos el orden de operaciones que lleva a un estado específico.
-# Vamos a pedir ordenar el proceso de inserción y extracción para obtener un resultado.
-
-opciones_explicitas: ["push(1)", "push(2)", "pop()", "push(3)", "pop()"]
-respuesta: ["push(1)", "push(2)", "pop()", "push(3)", "pop()"]
 tipo: ordenar
+opciones_explicitas: ["push(1)", "push(2)", "pop()", "push(3)"]
+respuesta_orden: ["push(1)", "push(2)", "pop()", "push(3)"]
 
 enunciado: "Ordena las siguientes operaciones de una Pila para que el elemento que quede en el tope (top) al finalizar sea el número 3."
 
@@ -1296,14 +292,7 @@ explicacion: |
   2. push(2) -> Pila: [1, 2]
   3. pop()   -> Pila: [1] (sale el 2)
   4. push(3) -> Pila: [1, 3]
-  5. pop()   -> Pila: [1] (sale el 3)
-  *Nota: Para que el 3 sea el último en salir, el orden debe ser ese. Si el objetivo es que el 3 quede en el tope, se requiere un pop final que lo extraiga o simplemente dejarlo ahí.*
-  *Re-ajustando para que el usuario ordene la secuencia que deja al 3 como elemento actual del tope:*
-  
-# Corregido para el ejemplo:
-# Si el usuario quiere que el estado final sea [1, 3]
-# El orden correcto de las operaciones para llegar a [1, 3] es:
-# push(1), push(2), pop(), push(3)
+  El tope final queda en 3.
 ```
 
 ```
@@ -1313,13 +302,9 @@ metadata:
   nivel: "intermedio"
   tags: ["operaciones", "pila"]
 
-opciones_explicitas: ["push(10) -> push(20) -> pop() -> push(30)", "push(10) -> push(20) -> pop() -> push(30)", "push(10) -> push(20) -> pop() -> push(30)"]
-# Para evitar confusión, usaré un ejemplo de orden de pasos para construir una pila específica
-# Pasos: 1. Insertar 10, 2. Insertar 20, 3. Sacar elemento, 4. Insertar 30.
-
-opciones_explicitas: ["push(10)", "push(20)", "pop()", "push(30)"]
-respuesta: ["push(10)", "push(20)", "pop()", "push(30)"]
 tipo: ordenar
+opciones_explicitas: ["push(10)", "push(20)", "pop()", "push(30)"]
+respuesta_orden: ["push(10)", "push(20)", "pop()", "push(30)"]
 
 enunciado: "Ordena las operaciones para obtener una pila que contenga únicamente los elementos [10, 30] (donde 30 es el tope)."
 
@@ -1339,7 +324,9 @@ metadata:
 
 respuesta: "LIFO"
 tipo: completar
-respuestas_validas: ["LIFO", "lifo"]
+respuestas_validas:
+  - "LIFO"
+  - "lifo"
 
 enunciado: "La estructura de datos tipo Pila se caracteriza por seguir el principio de acceso ___ (Last In, First Out)."
 
@@ -1387,15 +374,14 @@ metadata:
   nivel: "basico"
   tags: ["pilas", "operaciones"]
 
-respuesta: ["Push", "Push", "Pop"]
 tipo: ordenar
-opciones_explicitas: ["Push", "Push", "Pop", "Pop", "Pop"]
+opciones_explicitas: ["Push", "Push", "Pop", "Pop"]
+respuesta_orden: ["Push", "Push", "Pop", "Pop"]
 
 enunciado: "Si tenemos una pila vacía, ¿cuál es el orden de operaciones para insertar dos elementos (A y B) y luego extraer el primero que fue insertado?"
 
 explicacion: |
-  Para obtener el primer elemento insertado (A) en una pila, primero debemos meter A, luego B, y luego sacar (Pop) dos veces. Sin embargo, el orden de inserción/extracción solicitado para obtener el primero es: Push(A), Push(B), Pop(B), Pop(A). El orden de las operaciones para dejar la pila con el primer elemento fuera es Push, Push, Pop, Pop. Reajustando el enunciado para la secuencia de acciones: para sacar el elemento A tras haber metido A y B, se requiere: Push, Push, Pop, Pop.
-  *Nota: El usuario debe ordenar la secuencia de acciones para lograr el objetivo.*
+  Para insertar A y B en la pila usamos Push, Push (quedando B en el tope). Como una pila es LIFO, para llegar hasta A (el primero insertado) primero hay que sacar B con un Pop, y luego sacar A con un segundo Pop. La secuencia completa es: Push, Push, Pop, Pop.
 ```
 
 ```
@@ -1409,7 +395,7 @@ variables:
   idx: uno_de([0, 1])
   escenarios: [["gestionar una impresora con varios documentos esperando", "Cola (FIFO)"], ["gestionar el botón 'deshacer' (undo) de un editor", "Pila (LIFO)"]]
 
-respuesta: escenarios[idx][1
+respuesta: escenarios[idx][1]
 tipo: mc
 opciones_explicitas: ["Cola (FIFO)", "Pila (LIFO)", "Lista Dinámica"]
 
@@ -1451,9 +437,8 @@ variables:
   datos: [["Doc_A", "imprimir"], ["Doc_B", "imprimir"], ["Doc_C", "imprimir"]]
   idx: uno_de([0,1,2])
 
-respuestas_validas: ["imprimir"]
-respuesta: "imprimir"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En una cola de impresión (Spooler), los documentos se procesan en el orden en que llegan. Si el documento {datos[idx][0]} es el primero en la cola, ¿se procesará siguiendo el principio FIFO (First In, First Out)?"
 
 explicacion: |
@@ -1471,9 +456,9 @@ variables:
   datos: [["A", "B", "C"], ["X", "Y", "Z"], ["1", "2", "3"]]
   idx: uno_de([0,1,2])
 
-respuesta: ["C", "B", "A"]
+respuesta_orden: [datos[idx][2], datos[idx][1], datos[idx][0]]
 tipo: ordenar
-opciones_explicitas: ["A", "B", "C", "X", "Y", "Z", "1", "2", "3"]
+opciones_explicitas: datos[idx]
 
 enunciado: "Se insertan los elementos de la secuencia {datos[idx][0]}, {datos[idx][1]} y {datos[idx][2]} en una pila (Push) en ese orden exacto. ¿Cuál es el orden en que saldrán de la pila al realizar tres operaciones 'pop' consecutivas?"
 
@@ -1488,15 +473,12 @@ metadata:
   nivel: "intermedio"
   tags: ["listas", "acceso_aleatorio"]
 
-variables:
-  lista_tipo: uno_de(["Array", "Lista Enlazada"])
-  idx: uno_de([0,1])
-
 respuesta: "acceso_aleatorio"
 tipo: completar
-respuestas_validas: ["acceso_aleatorio", "secuencial"]
+respuestas_validas:
+  - "acceso_aleatorio"
 
-enunciado: "A diferencia de una pila o una cola, una {lista_tipo[idx]} permite el ___ a cualquier elemento mediante su índice sin necesidad de pasar por los anteriores."
+enunciado: "A diferencia de una pila o una cola, una lista permite el ___ a cualquier elemento mediante su índice sin necesidad de pasar por los anteriores."
 
 explicacion: |
   Las listas (especialmente los arrays) permiten el acceso aleatorio, mientras que las pilas y colas son estructuras de acceso restringido.
@@ -1510,7 +492,7 @@ metadata:
   tags: ["colas", "fifo"]
 
 variables:
-  datos: [["clientes en un banco", "true"], ["capas de pintura", "true"], ["botones de retroceso", "false"]]
+  datos: [["clientes en un banco", "true"], ["capas de pintura superpuestas", "false"], ["botones de retroceso", "false"]]
   idx: uno_de([0,1,2])
 
 respuesta: datos[idx][1]
@@ -1520,7 +502,7 @@ opciones_explicitas: ["true", "false"]
 enunciado: "Analiza el siguiente escenario: {datos[idx][0]}. ¿Se comporta este sistema como una cola (FIFO)?"
 
 explicacion: |
-  Si el caso es verdadero, el orden de llegada determina el orden de atención o procesamiento.
+  Los clientes en un banco forman una cola real (FIFO): el primero en llegar es el primero en ser atendido. En cambio, las capas de pintura superpuestas y los botones de retroceso se comportan como una pila (LIFO): la última capa aplicada es la primera que se ve o se quita, y el botón de retroceso vuelve primero a la página más reciente visitada.
 ```
 
 ## Sección: etica-de-la-ia-sesgo-privacidad (25 preguntas)
@@ -1567,19 +549,13 @@ metadata:
   nivel: "intermedio"
   tags: ["datos", "sesgo", "entrenamiento"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [
-    ["El conjunto de datos no representa la diversidad de la población real", "El diseño del algoritmo favorece erróneamente un resultado sobre otro"],
-    ["Falta de diversidad en los datos de entrenamiento", "Sesgo de diseño o algorítmico"]
-  ]
-
 tipo: completar
-respuestas_validas: ["Falta de diversidad en los datos de entrenamiento", "Sesgo de diseño o algorítmico"]
+respuestas_validas:
+  - "Falta de diversidad en los datos de entrenamiento"
 
 enunciado: "Si un modelo de reconocimiento facial falla sistemáticamente con personas de piel oscura porque el dataset era mayoritariamente de personas de piel clara, estamos ante un caso de: ___."
 
-respuesta: escenario[idx][0
+respuesta: "Falta de diversidad en los datos de entrenamiento"
 
 explicacion: |
   Cuando el problema reside en que los datos no cubren todas las categorías de la población, se denomina sesgo de representación o falta de diversidad en los datos.
@@ -1597,7 +573,7 @@ opciones_explicitas: ["Recolección de datos", "Limpieza y auditoría de sesgos"
 
 enunciado: "Para mitigar sesgos y proteger la privacidad, se debe seguir un orden lógico en el ciclo de vida del desarrollo de IA. Ordena las siguientes etapas de forma correcta:"
 
-respuesta: ["Recolección de datos", "Limpieza y auditoría de sesgos", "Entrenamiento del modelo", "Evaluación de impacto ético"]
+respuesta_orden: ["Recolección de datos", "Limpieza y auditoría de sesgos", "Entrenamiento del modelo", "Evaluación de impacto ético"]
 
 explicacion: |
   Un proceso ético comienza con la recolección responsable, sigue con la auditoría para detectar sesgos en los datos antes de entrenar, continúa con el entrenamiento y culmina con una evaluación del impacto que el modelo tendrá en la sociedad.
@@ -1632,7 +608,7 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [[0, "preferencia por candidatos masculinos"], [1, "preferencia por candidatos de ciertas etnias"]]
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["preferencia por candidatos masculinos", "preferencia por candidatos de ciertas etnias", "preferencia por candidatos con mayor edad", "preferencia por candidatos con títulos de universidades específicas"]
 
@@ -1666,7 +642,7 @@ metadata:
   tags: ["mitigacion", "proceso", "ia"]
 
 opciones_explicitas: ["Auditar los datos de entrenamiento", "Definir métricas de equidad", "Implementar el modelo en producción", "Evaluar el impacto en usuarios reales"]
-respuesta: ["Definir métricas de equidad", "Auditar los datos de entrenamiento", "Implementar el modelo en producción", "Evaluar el impacto en usuarios reales"]
+respuesta_orden: ["Definir métricas de equidad", "Auditar los datos de entrenamiento", "Implementar el modelo en producción", "Evaluar el impacto en usuarios reales"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para asegurar un despliegue ético de un sistema de IA que busca mitigar sesgos:"
@@ -1682,13 +658,10 @@ metadata:
   nivel: "intermedio"
   tags: ["explicabilidad", "privacidad"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  caso: [[0, "un sistema de crédito que niega préstamos sin explicar por qué"], [1, "un sistema de traducción que traduce textos sin errores"]]
-
-respuesta: caso[caso_idx][0
+respuesta: "un sistema de crédito que niega préstamos sin explicar por qué"
 tipo: completar
-respuestas_validas: ["un sistema de crédito que niega préstamos sin explicar por qué", "un sistema de traducción que traduce textos sin errores"]
+respuestas_validas:
+  - "un sistema de crédito que niega préstamos sin explicar por qué"
 
 enunciado: "Un problema ético común es la falta de explicabilidad (caja negra). Un ejemplo de esto es: ___"
 
@@ -1705,7 +678,9 @@ metadata:
 
 respuesta: "añadir ruido estadístico"
 tipo: completar
-respuestas_validas: ["añadir ruido estadístico", "eliminar todos los datos"]
+respuestas_validas:
+  - "añadir ruido estadístico"
+  - "eliminar todos los datos"
 
 enunciado: "Para proteger la privacidad en el entrenamiento de modelos de IA, se utiliza una técnica llamada Privacidad Diferencial, que consiste en ___ a los datos para que no se pueda identificar a un individuo específico."
 
@@ -1722,7 +697,9 @@ metadata:
 
 respuesta: "sesgo de representatividad"
 tipo: completar
-respuestas_validas: ["sesgo de representatividad", "sesgo de representatividad"]
+respuestas_validas:
+  - "sesgo de representatividad"
+  - "sesgo de representatividad"
 
 enunciado: "Cuando un modelo de IA presenta un desempeño inferior para un grupo demográfico específico porque dicho grupo estaba subrepresentado en el conjunto de entrenamiento, estamos ante un ___."
 
@@ -1737,18 +714,12 @@ metadata:
   nivel: "avanzado"
   tags: ["privacidad", "memorizacion", "seguridad"]
 
-variables:
-  caso: uno_de([
-    ["Un modelo de lenguaje revela la dirección de un usuario tras ser interrogado con prompts específicos.", "falso"],
-    ["Un modelo de lenguaje predice la probabilidad de que un usuario compre un producto basado en tendencias generales.", "verdadero"]
-  ])
-
-respuesta: caso[1
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si un modelo de IA ha memorizado datos sensibles de entrenamiento (como números de identificación) y los reproduce textualmente ante un prompt malintencionado, ¿se ha vulnerado la privacidad de los datos?"
 
 explicacion: |
-  La memorización de datos sensibles es un riesgo crítico de privacidad en modelos de lenguaje grandes (LLMs). Aunque el modelo prediga tendencias generales (caso verdadero), la capacidad de extraer datos específicos de individuos es una vulneración.
+  La memorización de datos sensibles es un riesgo crítico de privacidad en modelos de lenguaje grandes (LLMs). Si el modelo puede reproducir textualmente datos identificables ante un prompt malintencionado, se ha vulnerado la privacidad de esos individuos.
 ```
 
 ```
@@ -1760,7 +731,7 @@ metadata:
 
 opciones_explicitas: ["Recolección de datos", "Auditoría de modelos", "Limpieza de datos", "Implementación del modelo"]
 
-respuesta: ["Recolección de datos", "Limpieza de datos", "Auditoría de modelos", "Implementación del modelo"]
+respuesta_orden: ["Recolección de datos", "Limpieza de datos", "Auditoría de modelos", "Implementación del modelo"]
 tipo: ordenar
 
 enunciado: "Ordena las fases del ciclo de vida de un proyecto de IA donde se deben aplicar medidas de mitigación de sesgos, desde la fase inicial hasta la puesta en producción:"
@@ -1796,7 +767,9 @@ metadata:
 
 respuesta: "añadir ruido estadístico"
 tipo: completar
-respuestas_validas: ["añadir ruido estadístico", "añadir ruido estadístico"]
+respuestas_validas:
+  - "añadir ruido estadístico"
+  - "añadir ruido estadístico"
 
 enunciado: "Una técnica común para proteger la privacidad en el entrenamiento de modelos es la privacidad diferencial, que consiste en ___ a los datos para que no se pueda identificar a un individuo específico."
 
@@ -1831,10 +804,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Se eliminan los nombres de los usuarios pero se mantiene la combinación exacta de fecha de nacimiento, código postal y género.", "El proceso es insuficiente porque la re-identificación es posible mediante ataques de vinculación."],
-    ["Se aplica ruido estadístico (privacidad diferencial) para que no se pueda identificar a un individuo específico en el dataset.", "El proceso es efectivo para proteger la identidad individual manteniendo la utilidad estadística."]
-  ]
+  escenarios: [["Se eliminan los nombres de los usuarios pero se mantiene la combinación exacta de fecha de nacimiento, código postal y género.", "El proceso es insuficiente porque la re-identificación es posible mediante ataques de vinculación."], ["Se aplica ruido estadístico (privacidad diferencial) para que no se pueda identificar a un individuo específico en el dataset.", "Aunque la privacidad diferencial es una técnica robusta y mucho más efectiva, tampoco garantiza una privacidad matemáticamente 'total': sigue existiendo un riesgo residual controlado (el parámetro epsilon), por lo que la respuesta correcta sigue siendo falso."]]
 
 tipo: vf
 respuesta: falso
@@ -1854,7 +824,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Auditoría de los datos de entrenamiento", "Selección de métricas de equidad", "Implementación del modelo", "Monitoreo de resultados en producción"]
-respuesta: ["Auditoría de los datos de entrenamiento", "Selección de métricas de equidad", "Implementación del modelo", "Monitoreo de resultados en producción"]
+respuesta_orden: ["Auditoría de los datos de entrenamiento", "Selección de métricas de equidad", "Implementación del modelo", "Monitoreo de resultados en producción"]
 
 enunciado: "Ordene las etapas lógicas para mitigar el sesgo algorítmico en el ciclo de vida de un proyecto de IA, desde la preparación hasta el despliegue."
 
@@ -1870,7 +840,9 @@ metadata:
   tags: ["privacidad", "gdpr", "etica"]
 
 tipo: completar
-respuestas_validas: ["minimización", "reducción"]
+respuestas_validas:
+  - "minimización"
+  - "reducción"
 
 enunciado: "El principio de ___ de datos establece que solo se deben recolectar los datos estrictamente necesarios para el fin específico del modelo de IA."
 
@@ -1909,9 +881,11 @@ variables:
 
 enunciado: "En el caso de {escenarios[escenario_idx][0]}, el modelo está reproduciendo un sesgo de {escenarios[escenario_idx][1]}."
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["género", "etnia"]
+respuestas_validas:
+  - "género"
+  - "etnia"
 
 explicacion: |
   El sesgo algorítmico ocurre cuando los datos históricos utilizados para entrenar el modelo contienen prejuicios humanos o desequilibrios de representación, los cuales el modelo aprende y replica.
@@ -1940,15 +914,12 @@ metadata:
   nivel: "avanzado"
   tags: ["mitigacion", "sesgo", "datos"]
 
-variables:
-  accion_idx: uno_de([0, 1])
-  acciones: [["Aumentar la diversidad de los datos de entrenamiento", "A"], ["Eliminar variables sensibles como la raza de los ejemplos", "B"]]
-
 enunciado: "Para mitigar el sesgo algorítmico, una técnica común es la 'equidad mediante la ceguera' (fairness through unawareness), que consiste en: ___"
 
-respuesta: acciones[accion_idx][1
+respuesta: "Eliminar variables sensibles como la raza de los ejemplos"
 tipo: completar
-respuestas_validas: ["A", "B"]
+respuestas_validas:
+  - "Eliminar variables sensibles como la raza de los ejemplos"
 
 explicacion: |
   Aunque eliminar variables sensibles (como raza o género) es una técnica llamada 'ceguera', no siempre es efectiva porque otras variables (como el código postal) pueden actuar como 'proxies' de la variable sensible.
@@ -1980,7 +951,7 @@ metadata:
 
 enunciado: "Ordena los pasos lógicos para asegurar la equidad en un sistema de IA desde la fase de datos hasta la implementación:"
 
-respuesta: ["Auditar la calidad de los datos", "Entrenar el modelo", "Evaluar resultados en subgrupos", "Monitorear sesgos en producción"]
+respuesta_orden: ["Auditar la calidad de los datos", "Entrenar el modelo", "Evaluar resultados en subgrupos", "Monitorear sesgos en producción"]
 tipo: ordenar
 opciones_explicitas: ["Auditar la calidad de los datos", "Entrenar el modelo", "Evaluar resultados en subgrupos", "Monitorear sesgos en producción"]
 
@@ -1999,7 +970,8 @@ metadata:
 
 respuesta: "modularidad"
 tipo: completar
-respuestas_validas: ["modularidad"]
+respuestas_validas:
+  - "modularidad"
 
 enunciado: "La capacidad de dividir un programa complejo en partes más pequeñas, independientes y manejables se denomina ___."
 
@@ -2015,17 +987,13 @@ metadata:
   tags: ["sintaxis", "conceptos"]
 
 variables:
-  idx: uno_de([0, 1])
-  escenario: [[
-    "El valor que una función recibe para procesar",
-    "El valor que una función devuelve al finalizar su ejecución"
-  ]]
+  escenario: uno_de([["El valor que una función recibe para procesar", "Parámetro"], ["El valor que una función devuelve al finalizar su ejecución", "Retorno"]])
 
-respuesta: escenario[idx][0
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["Parámetro", "Retorno", "Llamada", "Variable local"]
 
-enunciado: "En el contexto de una función, {escenario[idx][0]} es el elemento que permite pasar información hacia el interior de la función."
+enunciado: "En el contexto de una función, {escenario[0]} es el elemento que permite pasar información hacia el interior de la función."
 
 explicacion: |
   Los parámetros son las variables de entrada que recibe una función para realizar su tarea.
@@ -2054,7 +1022,7 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo", "orden"]
 
-respuesta: ["Definición", "Llamada", "Ejecución", "Retorno"]
+respuesta_orden: ["Definición", "Llamada", "Ejecución", "Retorno"]
 tipo: ordenar
 opciones_explicitas: ["Definición", "Llamada", "Ejecución", "Retorno"]
 
@@ -2079,7 +1047,8 @@ metadata:
 
 respuesta: "local"
 tipo: completar
-respuestas_validas: ["local"]
+respuestas_validas:
+  - "local"
 
 enunciado: "Una variable declarada dentro del cuerpo de una función tiene un ámbito ___, lo que significa que no es accesible desde fuera de dicha función."
 
@@ -2111,13 +1080,9 @@ metadata:
   tags: ["sintaxis", "parametros"]
 
 variables:
-  escenario: uno_de([
-    ["calcular_area_rectangulo", "base", "altura"],
-    ["saludar_usuario", "nombre", "saludo"],
-    ["sumar_dos_numeros", "a", "b"]
-  ])
+  escenario: uno_de([["calcular_area_rectangulo", "base", "altura"], ["saludar_usuario", "nombre", "saludo"], ["sumar_dos_numeros", "a", "b"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["base", "nombre", "a"]
 
@@ -2135,26 +1100,21 @@ metadata:
   tags: ["flujo_control", "retorno"]
 
 variables:
-  datos: uno_de([
-    [10, 2, 20],
-    [5, 3, 15],
-    [8, 4, 32]
-  ])
+  datos: uno_de([[10, 2, 20], [5, 3, 15], [8, 4, 32]])
 
-respuesta: datos[2
-tipo: completat
+respuesta: datos[2]
+tipo: completar
 
-enunciado: "Dada la siguiente función:
-def multiplicar(x, y):
-    return x * y
+enunciado: |
+  Dada la siguiente función:
+  def multiplicar(x, y):
+      return x * y
 
-Si ejecutamos la llamada: resultado = multiplicar({datos[0]}, {datos[1]}), el valor de 'resultado' será ___."
+  Si ejecutamos la llamada: resultado = multiplicar({datos[0]}, {datos[1]}), el valor de 'resultado' será ___.
 
 pasos:
   - "Identificar los valores de entrada: x = {datos[0]} y y = {datos[1]}"
   - "Realizar la operación matemática: {datos[0]} * {datos[1]}"
-
-respuestas_validas: [datos[2]]
 
 explicacion: |
   La función realiza la operación de multiplicación y el comando 'return' devuelve el resultado hacia el punto donde fue llamada.
@@ -2167,7 +1127,7 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura", "orden"]
 
-respuesta: ["definir_funcion", "llamar_funcion", "mostrar_resultado"]
+respuesta_orden: ["definir_funcion", "llamar_funcion", "mostrar_resultado"]
 tipo: ordenar
 
 opciones_explicitas: ["definir_funcion", "llamar_funcion", "mostrar_resultado"]
@@ -2185,27 +1145,21 @@ metadata:
   nivel: "avanzado"
   tags: ["scope", "variables_globales"]
 
-variables:
-  contexto: uno_de([
-    ["x = 10", "valor_local", "error"],
-    ["x = 5", "valor_local", "error"],
-    ["x = 0", "error", "error"]
-  ])
-
-respuesta: "contexto[1]"
+respuesta: "5"
 tipo: mc
-opciones_explicitas: ["contexto[1]", "error", "contexto[0]"]
+opciones_explicitas: ["5", "10", "Error: variable no definida"]
 
-enunciado: "Considera el siguiente código:
-x = 10
-def mi_funcion():
-    x = 5
-    return x
+enunciado: |
+  Considera el siguiente código:
+  x = 10
+  def mi_funcion():
+      x = 5
+      return x
 
-Si llamamos a mi_funcion(), el valor devuelto es ___."
+  Si llamamos a mi_funcion(), el valor devuelto es ___.
 
 explicacion: |
-  Dentro de la función, se crea una variable local 'x' que tiene el mismo nombre que la global, pero la función trabaja con la local. Por lo tanto, el valor devuelto es el de la variable local definida dentro del bloque.
+  Dentro de la función, se crea una variable local 'x' que tiene el mismo nombre que la global, pero la función trabaja con la local. Por lo tanto, el valor devuelto es el de la variable local definida dentro del bloque, es decir, 5.
 ```
 
 ```
@@ -2218,13 +1172,13 @@ metadata:
 variables:
   escenario: uno_de([[1, "global"], [2, "local"]])
 
-enunciado: "En un programa, una variable definida dentro de una función tiene un alcance {escenario}."
+enunciado: "En un programa, una variable definida dentro de una función tiene un alcance ___."
 
 opciones_explicitas:
   - "global"
   - "local"
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 
 explicacion: |
@@ -2238,10 +1192,7 @@ metadata:
   nivel: "intermedio"
   tags: ["return", "side_effects", "output"]
 
-variables:
-  caso: uno_de([[1, "print"], [2, "return"]])
-
-enunciado: "Si una función utiliza {caso} para mostrar un resultado en pantalla pero no tiene una instrucción de salida de datos hacia el flujo principal, la función devuelve un valor de tipo ___."
+enunciado: "Si una función utiliza 'print' para mostrar un resultado en pantalla pero no tiene una instrucción de salida de datos hacia el flujo principal, la función devuelve un valor de tipo ___."
 
 respuestas_validas:
   - "None"
@@ -2262,11 +1213,8 @@ metadata:
 
 enunciado: "¿Es verdadero que una 'función pura' es aquella que, además de devolver siempre el mismo resultado para los mismos argumentos, no produce efectos secundarios (como modificar una variable global o escribir en un archivo)?"
 
-respuestas_validas:
-  - "verdadero"
-
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   La pureza en las funciones es la base de la programación funcional y de la modularidad robusta. Si una función modifica algo fuera de su propio ámbito, se dice que tiene un 'efecto secundario', lo cual dificulta el testing y la reutilización.
 ```
@@ -2286,7 +1234,7 @@ opciones_explicitas:
   - "Definir los parámetros de entrada y los valores de retorno necesarios"
   - "Llamar a las nuevas funciones desde el programa principal"
 
-respuesta: ["Identificar bloques de lógica con una responsabilidad única", "Extraer esos bloques en funciones independientes", "Definir los parámetros de entrada y los valores de retorno necesarios", "Llamar a las nuevas funciones desde el programa principal"]
+respuesta_orden: ["Identificar bloques de lógica con una responsabilidad única", "Extraer esos bloques en funciones independientes", "Definir los parámetros de entrada y los valores de retorno necesarios", "Llamar a las nuevas funciones desde el programa principal"]
 tipo: ordenar
 
 explicacion: |
@@ -2322,7 +1270,9 @@ metadata:
 
 respuesta: "reutilizar"
 tipo: completar
-respuestas_validas: ["reutilizar", "reutilización"]
+respuestas_validas:
+  - "reutilizar"
+  - "reutilización"
 
 enunciado: "Mientras que un bloque de código aislado realiza una tarea única, la modularidad busca dividir un programa en piezas que permitan ___ el código en diferentes partes del sistema."
 
@@ -2337,13 +1287,10 @@ metadata:
   nivel: "intermedio"
   tags: ["funciones", "terminologia"]
 
-variables:
-  es_diferente: verdadero
-
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En el contexto de la definición de funciones, el 'parámetro' es la variable declarada en la firma de la función, mientras que el 'argumento' es el valor real pasado al invocarla. ¿Es esta distinción correcta? {es_diferente}"
+enunciado: "En el contexto de la definición de funciones, el 'parámetro' es la variable declarada en la firma de la función, mientras que el 'argumento' es el valor real pasado al invocarla. ¿Es esta distinción correcta?"
 
 explicacion: |
   Correcto. El parámetro actúa como un marcador de posición (variable local) y el argumento es el dato concreto que se envía durante la llamada.
@@ -2373,7 +1320,7 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo_control", "modularidad"]
 
-respuesta: ["llamada", "ejecución", "retorno"]
+respuesta_orden: ["llamada", "ejecución", "retorno"]
 tipo: ordenar
 opciones_explicitas: ["llamada", "ejecución", "retorno"]
 
@@ -2397,14 +1344,11 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["local", "solo es visible dentro de la función"],
-    ["global", "es accesible desde cualquier parte del programa"]
-  ]
+  datos: [["local", "solo es visible dentro de la función"], ["global", "es accesible desde cualquier parte del programa"]]
 
-respuesta: "datos[escenario_idx][1]"
+respuesta: datos[escenario_idx][1]
 tipo: mc
-opciones_explicitas: ["datos[escenario_idx][1]", "datos[escenario_idx][0]", "ninguna de las anteriores"]
+opciones_explicitas: ["solo es visible dentro de la función", "es accesible desde cualquier parte del programa", "ninguna de las anteriores"]
 
 enunciado: "Si definimos una variable dentro de una función, su alcance es {datos[escenario_idx][0]}. ¿Cuál es la característica de este tipo de variable?"
 
@@ -2420,10 +1364,10 @@ metadata:
   tags: ["conceptos", "modularidad"]
 
 variables:
-  escenario_idx: uno_de([0,1])
-  escenarios: [["un programa de 1000 líneas en un solo bloque", "un programa dividido en funciones pequeñas"], ["difícil de mantener y testear", "fácil de mantener y reutilizar"]]
+  escenarios: [["un programa de 1000 líneas en un solo bloque", "difícil de mantener y testear"], ["un programa dividido en funciones pequeñas", "fácil de mantener y reutilizar"]]
+  escenario: uno_de(escenarios)
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["difícil de mantener y testear", "fácil de mantener y reutilizar"]
 
@@ -2442,16 +1386,15 @@ metadata:
 
 variables:
   caso_idx: uno_de([0,1,2])
-  casos: [
-    ["sumar(a, b)", "los valores que recibe la función"],
-    ["print('Hola')", "lo que la función devuelve"],
-    ["x = 5", "una variable global"]
-  ]
+  casos: [["sumar(a, b)", "los valores que recibe la función"], ["print('Hola')", "lo que la función devuelve"], ["x = 5", "una variable global"]]
   respuestas: ["los valores que recibe la función", "lo que la función devuelve", "una variable global"]
 
-respuesta: casos[caso_idx][1
+respuesta: casos[caso_idx][1]
 tipo: completar
-respuestas_validas: ["los valores que recibe la función", "lo que la función devuelve", "una variable global"]
+respuestas_validas:
+  - "los valores que recibe la función"
+  - "lo que la función devuelve"
+  - "una variable global"
 
 enunciado: "En la estructura de una función, la sección que define qué datos externos puede procesar la función se denomina ___."
 
@@ -2482,7 +1425,7 @@ metadata:
   nivel: "intermedio"
   tags: ["orden", "ejecucion"]
 
-respuesta: ["Definición de la función", "Llamada a la función", "Ejecución del cuerpo de la función", "Retorno al flujo principal"]
+respuesta_orden: ["Definición de la función", "Llamada a la función", "Ejecución del cuerpo de la función", "Retorno al flujo principal"]
 tipo: ordenar
 opciones_explicitas: ["Definición de la función", "Llamada a la función", "Ejecución del cuerpo de la función", "Retorno al flujo principal"]
 
@@ -2501,13 +1444,10 @@ metadata:
 
 variables:
   test_idx: uno_de([0,1])
-  tests: [
-    ["x = 10; def f(): print(x); f()", "10"],
-    ["x = 5; def f(): x = 2; f(); print(x)", "5"]
-  ]
-  resultados: ["10", "5"]
+  tests: [["x = 10; def f(): print(x); f()", "10"], ["x = 5; def f(): x = 2; f(); print(x)", "5"]]
+  resultado_correcto: tests[test_idx][1]
 
-respuesta: resultados[test_idx][1
+respuesta: resultado_correcto
 tipo: completar
 tolerancia_abs: 0
 
@@ -2516,3 +1456,949 @@ enunciado: "Analiza el siguiente código: {tests[test_idx][0]}. ¿Cuál será el
 explicacion: |
   En el primer caso, se accede a una variable global. En el segundo caso, la asignación `x = 2` dentro de la función crea una variable local, dejando la variable global `x` intacta para el `print` final.
 ```
+
+## Sección: historia-y-evolucion-de-los-sistemas-operativos (23 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "basico"
+  tags: ["definicion", "concepto_basico"]
+
+variables:
+  rol: uno_de(["director_de_orquesta", "intermediario", "gestor"])
+
+respuesta: "intermediario"
+tipo: mc
+opciones_explicitas: ["intermediario", "hardware", "aplicacion", "usuario"]
+
+enunciado: "En la analogía del director de orquesta, el Sistema Operativo actúa principalmente como el {rol} entre el usuario y los componentes físicos de la computadora."
+
+explicacion: |
+  El SO no es el hardware ni el usuario, sino el software que gestiona la comunicación y los recursos, actuando como intermediario.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["historia", "batch"]
+
+variables:
+  decada: random(1950, 1960)
+  caracteristica: uno_de(["secuencial", "paralelo", "interactivo"])
+
+respuesta: "secuencial"
+tipo: mc
+opciones_explicitas: ["secuencial", "paralelo", "interactivo", "distribuido"]
+
+enunciado: "En la década de {decada}, los primeros sistemas operativos utilizaban el procesamiento por lotes, donde los trabajos se ejecutaban de manera {caracteristica} sin intervención del usuario."
+
+explicacion: |
+  El procesamiento por lotes (batch) ejecutaba tareas una tras otra sin pausa ni interacción humana directa, a diferencia de los sistemas modernos interactivos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["mainframe", "multiusuario"]
+
+variables:
+  tipo_terminal: uno_de(["tontas", "inteligentes", "graficas"])
+
+respuesta: "tontas"
+tipo: mc
+opciones_explicitas: ["tontas", "inteligentes", "graficas", "touch"]
+
+enunciado: "Con la llegada de los mainframes en los años 60, los sistemas multiusuario permitían el acceso mediante terminales {tipo_terminal}, que no procesaban datos por sí mismas."
+
+explicacion: |
+  Las terminales tontas solo enviaban y recibían datos, delegando todo el procesamiento al mainframe central.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["microprocesador", "pc"]
+
+variables:
+  decada: uno_de([70, 80])
+  dispositivo: uno_de(["ordenadores_personales", "supercomputadoras", "mainframes"])
+
+respuesta: "ordenadores_personales"
+tipo: mc
+opciones_explicitas: ["ordenadores_personales", "supercomputadoras", "mainframes", "minicomputadoras"]
+
+enunciado: "La llegada de los microprocesadores en los años {decada} permitió la popularización de los {dispositivo} en los hogares."
+
+explicacion: |
+  El microprocesador abarató el costo de las computadoras, facilitando su entrada en el mercado doméstico.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["windows", "macos", "competencia"]
+
+variables:
+  sistema_estandar: uno_de(["Windows", "Mac OS"])
+  caracteristica_windows: uno_de(["interfaz_grafica_accesible", "codigo_abierto", "robustez_servidor"])
+  caracteristica_mac: uno_de(["experiencia_integrada", "precio_bajo", "maximo_hardware"])
+
+respuesta: "interfaz_grafica_accesible"
+tipo: mc
+opciones_explicitas: ["interfaz_grafica_accesible", "codigo_abierto", "robustez_servidor", "experiencia_integrada"]
+
+enunciado: "Durante los años 90, Windows se consolidó como el estándar corporativo y doméstico gracias a su {caracteristica_windows}, mientras que Mac OS destacaba por su experiencia más integrada."
+
+explicacion: |
+  Windows ganó mercado por su accesibilidad y compatibilidad, mientras que Mac OS se enfocaba en la integración hardware-software.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["linux", "codigo_abierto"]
+
+variables:
+  ambito: uno_de(["academico", "domestico", "gaming", "movil"])
+  ventaja_linux: uno_de(["codigo_abierto", "precio_alto", "interfaz_cerrada", "hardware_exclusivo"])
+
+respuesta: "codigo_abierto"
+tipo: mc
+opciones_explicitas: ["codigo_abierto", "precio_alto", "interfaz_cerrada", "hardware_exclusivo"]
+
+enunciado: "Paralelamente a Windows y Mac OS, Linux ganaba terreno en el ámbito {ambito} gracias a su {ventaja_linux} y robustez."
+
+explicacion: |
+  Linux se popularizó en servidores y entornos académicos por su modelo de código abierto y estabilidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "basico"
+  tags: ["impacto_social", "democratizacion"]
+
+variables:
+  antes: uno_de(["codigo_binario", "interfaces_graficas", "nube", "movilidad"])
+  despues: uno_de(["interfaces_graficas", "codigo_binario", "lotes", "maquinas_de_escribir"])
+
+respuesta: "interfaces_graficas"
+tipo: mc
+opciones_explicitas: ["interfaces_graficas", "codigo_binario", "lotes", "maquinas_de_escribir"]
+
+enunciado: "Gracias a los sistemas operativos, la interacción pasó de escribir {antes} a usar {despues} intuitivas, democratizando el acceso a la tecnología."
+
+explicacion: |
+  Los SO reemplazaron la necesidad de programar en binario o comandos complejos por interfaces gráficas amigables.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "avanzado"
+  tags: ["era_actual", "movilidad"]
+
+respuesta: "movilidad"
+tipo: completar
+enunciado: "En el siglo XXI, la evolución de los sistemas operativos se ha desplazado hacia la ___ y la integración en la nube."
+respuestas_validas:
+  - "movilidad"
+  - "Movilidad"
+
+explicacion: |
+  La popularización de smartphones y la nube han redefinido los sistemas operativos modernos hacia la movilidad constante.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "basico"
+  tags: ["gestion", "memoria"]
+
+variables:
+  recurso: uno_de(["memoria", "disco_duro", "pantalla", "teclado"])
+  accion: uno_de(["asignar", "fabricar", "vender", "desmontar"])
+
+respuesta: "asignar"
+tipo: mc
+opciones_explicitas: ["asignar", "fabricar", "vender", "desmontar"]
+
+enunciado: "Una de las tareas críticas del SO es {accion} la memoria RAM para las aplicaciones en ejecución."
+
+explicacion: |
+  El SO gestiona la memoria física, asignando y liberando espacio para que las aplicaciones funcionen sin conflictos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["terminologia", "mainframe"]
+
+variables:
+  nombre: uno_de(["terminales_tontas", "smartphones", "tablets", "laptops"])
+
+respuesta: "tontas"
+tipo: mc
+opciones_explicitas: ["tontas", "inteligentes", "graficas", "touch"]
+
+enunciado: "Las terminales que solo enviaban datos al mainframe sin procesarlos se denominaban {nombre}."
+
+explicacion: |
+  El término 'tonta' (dumb terminal) se usa para dispositivos sin capacidad de procesamiento independiente.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["conectividad", "historia"]
+
+variables:
+  evento: uno_de(["fin_del_aislamiento", "inicio_del_batch", "fin_del_grafico", "inicio_del_binario"])
+
+respuesta: "fin_del_aislamiento"
+tipo: mc
+opciones_explicitas: ["fin_del_aislamiento", "inicio_del_batch", "fin_del_grafico", "inicio_del_binario"]
+
+enunciado: "La era de los años 90 marcó el {evento} y el inicio de la conectividad masiva."
+
+explicacion: |
+  La integración de redes y la web transformaron las computadoras de herramientas aisladas en dispositivos conectados globalmente.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["linux", "servidores"]
+
+variables:
+  ventaja_linux: uno_de(["robustez", "precio_bajo", "interfaz_grafica", "juegos"])
+  ventaja_windows: uno_de(["estandar_corporativo", "codigo_abierto", "estabilidad_kernel", "gratuidad"])
+
+respuesta: "robustez"
+tipo: mc
+opciones_explicitas: ["robustez", "estandar_corporativo", "codigo_abierto", "gratuidad"]
+
+enunciado: "En el ámbito de servidores, Linux se destaca por su {ventaja_linux}, mientras que Windows es el {ventaja_windows} para entornos corporativos."
+
+explicacion: |
+  Linux es preferido en servidores por su estabilidad y eficiencia, mientras que Windows domina en entornos de oficina por su estandarización.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "basico"
+  tags: ["historia", "binario"]
+
+respuesta: "codigo_binario"
+tipo: completar
+enunciado: "Antes de los SO, los programadores debían escribir ___ directamente para controlar los transistores."
+respuestas_validas:
+  - "codigo_binario"
+  - "código binario"
+  - "Código binario"
+  - "Código Binario"
+
+explicacion: |
+  La programación directa en binario era extremadamente compleja y propensa a errores, sin abstracción de hardware.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["mainframe", "historia"]
+
+variables:
+  decada: random(1960, 1969)
+  acceso: uno_de(["multiusuario", "monousuario", "local", "remoto"])
+
+respuesta: "multiusuario"
+tipo: mc
+opciones_explicitas: ["multiusuario", "monousuario", "local", "remoto"]
+
+enunciado: "En la década de {decada}, los mainframes introdujeron el acceso {acceso} mediante terminales."
+
+explicacion: |
+  Los mainframes permitían que múltiples usuarios accedieran a la misma máquina simultáneamente, un concepto revolucionario para la época.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["windows", "corporativo"]
+
+variables:
+  sistema: uno_de(["Windows", "Mac OS", "Linux", "Unix"])
+  rol: uno_de(["estandar_corporativo", "sistema_movil", "sistema_embebido", "sistema_educativo"])
+
+respuesta: "Windows"
+tipo: mc
+opciones_explicitas: ["Windows", "Mac OS", "Linux", "Unix"]
+
+enunciado: "El sistema {sistema} se convirtió en el {rol} gracias a su interfaz gráfica accesible y compatibilidad."
+
+explicacion: |
+  Windows logró la hegemonía en oficinas y hogares por su facilidad de uso y amplia disponibilidad de software.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "basico"
+  tags: ["analogia", "gestion"]
+
+respuesta: "director_de_orquesta"
+tipo: completar
+enunciado: "El SO actúa como el ___ de la sinfonía de hardware, asegurando que todo funcione sin conflictos."
+respuestas_validas:
+  - "director_de_orquesta"
+  - "director de orquesta"
+  - "Director de orquesta"
+  - "Director_de_orquesta"
+
+explicacion: |
+  Esta analogía resalta la capacidad del SO para coordinar múltiples recursos simultáneamente de manera armoniosa.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["batch", "interactivo"]
+
+variables:
+  modelo_antiguo: uno_de(["procesamiento_por_lotes", "computacion_en_nube", "interfaz_grafica", "multiusuario"])
+  modelo_nuevo: uno_de(["interactivo", "batch", "monousuario", "binario"])
+
+respuesta: "interactivo"
+tipo: mc
+opciones_explicitas: ["interactivo", "batch", "monousuario", "binario"]
+
+enunciado: "La evolución histórica pasó del {modelo_antiguo} al modelo {modelo_nuevo}, permitiendo la intervención del usuario."
+
+explicacion: |
+  El paso de lotes secuenciales a sistemas interactivos fue clave para la usabilidad moderna.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "basico"
+  tags: ["aplicaciones", "ejecucion"]
+
+variables:
+  tarea: uno_de(["ejecutar", "compilar", "ensamblar", "grabar"])
+  recurso: uno_de(["cpu", "disco", "red", "usb"])
+
+respuesta: "ejecutar"
+tipo: mc
+opciones_explicitas: ["ejecutar", "compilar", "ensamblar", "grabar"]
+
+enunciado: "El SO se encarga de {tarea} las aplicaciones y asignar el recurso {recurso} necesario."
+
+explicacion: |
+  El SO gestiona la ejecución de programas, asegurando que cada uno tenga el tiempo de CPU y memoria que necesita.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["pc", "era"]
+
+respuesta: "entrada_de_pcs"
+tipo: completar
+enunciado: "Durante los años 70 y 80, los ordenadores personales comenzaron a tener su ___ en los hogares."
+respuestas_validas:
+  - "entrada_de_pcs"
+  - "entrada de pcs"
+  - "Entrada de PCs"
+  - "entrada_de_PCs"
+
+explicacion: |
+  Los años 70 y 80 marcaron el inicio de la computación personal, impulsada por microprocesadores más baratos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "intermedio"
+  tags: ["macos", "windows", "comparacion"]
+
+variables:
+  sistema: uno_de(["Mac OS", "Windows"])
+  caracteristica: uno_de(["experiencia_integrada", "interfaz_accesible", "codigo_abierto", "gratuidad"])
+
+respuesta: "experiencia_integrada"
+tipo: mc
+opciones_explicitas: ["experiencia_integrada", "interfaz_accesible", "codigo_abierto", "gratuidad"]
+
+enunciado: "Mac OS se diferenciaba de Windows por ofrecer una {caracteristica} más sólida y unificada."
+
+explicacion: |
+  Apple controlaba tanto hardware como software en Mac OS, lo que permitía una integración y estabilidad superior en esa época.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "basico"
+  tags: ["definicion", "intermediario"]
+
+respuesta: "intermediario"
+tipo: completar
+enunciado: "El SO actúa como el ___ entre el usuario y el hardware."
+respuestas_validas:
+  - "intermediario"
+  - "Intermediario"
+  - "puente"
+  - "Puente"
+
+explicacion: |
+  Sin este intermediario, el usuario tendría que interactuar directamente con la complejidad del hardware.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "avanzado"
+  tags: ["seguridad", "evolucion"]
+
+variables:
+  aspecto: uno_de(["movilidad", "seguridad", "lotes", "batch"])
+  importancia: uno_de(["alta", "baja", "nula", "media"])
+
+respuesta: "alta"
+tipo: mc
+opciones_explicitas: ["alta", "baja", "nula", "media"]
+
+enunciado: "En la era actual, la {aspecto} es un pilar fundamental de los sistemas operativos, con {importancia} prioridad."
+
+explicacion: |
+  Con la conectividad masiva, la seguridad (autenticación, cifrado, control de acceso) se volvió crítica en el diseño de SO.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "historia_y_evolucion_de_los_sistemas_operativos"
+  nivel: "avanzado"
+  tags: ["resumen", "cronologia"]
+
+variables:
+  orden: uno_de([1, 2, 3, 4])
+  evento: uno_de(["lotes", "mainframes", "microprocesadores", "nube"])
+  decada: uno_de([1950, 1960, 1970, 2000])
+
+respuesta: "lotes"
+tipo: mc
+opciones_explicitas: ["lotes", "mainframes", "microprocesadores", "nube"]
+
+enunciado: "En la década de {decada}, el modelo predominante era el procesamiento por {evento}."
+
+explicacion: |
+  El procesamiento por lotes fue el primer paso, seguido por mainframes, luego microcomputadoras y finalmente la nube.
+```
+
+## Sección: inteligencia-artificial-reglas-a-aprendizaje (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "inteligencia-artificial-reglas-a-aprendizaje"
+  nivel: "basico"
+  tags: ["conceptos", "historia"]
+
+respuesta: "aprendizaje automatico"
+tipo: completar
+respuestas_validas:
+  - "aprendizaje automatico"
+  - "machine learning"
+
+enunciado: "Mientras que los sistemas tradicionales se basan en reglas programadas manualmente, la disciplina que permite a las máquinas mejorar su rendimiento mediante la experiencia con datos se denomina ___."
+
+explicacion: |
+  El paso de la IA basada en reglas (sistemas expertos) al aprendizaje automático (Machine Learning) marca la transición de la programación explícita al entrenamiento mediante datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "inteligencia-artificial-reglas-a-aprendizaje"
+  nivel: "basico"
+  tags: ["sistemas-expertos", "logica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un sistema basado en reglas (como un sistema experto), el conocimiento es extraído y codificado manualmente por un experto humano bajo la forma de estructuras 'SI [condición] ENTONCES [acción]'."
+
+explicacion: |
+  Efectivamente, los sistemas de IA clásica dependen de que un programador o experto defina todas las reglas lógicas que el sistema debe seguir para tomar decisiones.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "inteligencia-artificial-reglas-a-aprendizaje"
+  nivel: "basico"
+  tags: ["datos", "entrenamiento"]
+
+variables:
+  escenario: uno_de([["un sistema de filtrado de spam basado en reglas", "palabra 'viagra'"], ["un modelo de reconocimiento de imágenes", "fotos de gatos"]])
+
+respuesta: "datos de entrenamiento"
+tipo: mc
+opciones_explicitas: ["datos de entrenamiento", "reglas explícitas", "Ninguna de las anteriores"]
+
+enunciado: "En el contexto de la IA moderna, ¿cuál de los siguientes elementos es el componente fundamental que sustituye a la regla explícita para permitir que el sistema aprenda? Ejemplo de insumo: {escenario[1]}."
+
+pasos:
+  - "Identificar qué elemento es el insumo para el entrenamiento."
+  - "Comparar con el concepto de 'regla manual' vs 'dato de entrenamiento'."
+
+explicacion: |
+  En el aprendizaje automático, el modelo no recibe la regla, sino los datos (como {escenario[1]}) para que él mismo infiera los patrones.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "inteligencia-artificial-reglas-a-aprendizaje"
+  nivel: "intermedio"
+  tags: ["terminologia", "machine-learning"]
+
+respuesta_orden: ["Datos", "Algoritmo", "Modelo"]
+tipo: ordenar
+
+opciones_explicitas: ["Datos", "Algoritmo", "Modelo"]
+
+enunciado: "Ordene los componentes en el orden lógico de un proceso de aprendizaje automático: primero se requieren los ___, luego se aplica un ___ sobre ellos y finalmente se obtiene un ___ capaz de realizar predicciones."
+
+explicacion: |
+  El flujo estándar es: Datos (input) $\rightarrow$ Algoritmo (proceso de entrenamiento) $\rightarrow$ Modelo (producto final entrenado).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "inteligencia-artificial-reglas-a-aprendizaje"
+  nivel: "intermedio"
+  tags: ["paradigma", "comparativa"]
+
+respuesta: "aprendizaje automatico"
+tipo: mc
+opciones_explicitas: ["sistemas expertos", "aprendizaje automatico", "programación lógica", "sistemas de reglas"]
+
+enunciado: "Si un programador debe escribir cada instrucción lógica para que la IA funcione, está usando un sistema de reglas. Si el sistema descubre la lógica por sí mismo analizando patrones, está usando:"
+
+explicacion: |
+  La diferencia clave es la fuente de la lógica: en los sistemas de reglas es el humano (codificación), en el aprendizaje automático es el patrón extraído de los datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "inteligencia_artificial_reglas"
+  nivel: "basico"
+  tags: ["ia", "logica", "reglas"]
+
+enunciado: "Un sistema experto de diagnóstico médico utiliza una regla lógica simple: 'Si el paciente tiene fiebre Y dolor de garganta, entonces el diagnóstico es Faringitis'. Si un paciente presenta fiebre pero NO presenta dolor de garganta, el sistema determinará que el diagnóstico NO es Faringitis según esta regla específica."
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  En los sistemas basados en reglas explícitas, el conocimiento es rígido. Si no se cumplen todas las condiciones de la premisa (antecedente), la regla no se dispara, independientemente de si hay otros síntomas presentes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ia_aprendizaje_datos"
+  nivel: "intermedio"
+  tags: ["machine_learning", "paradigma"]
+
+enunciado: "En el paradigma de Machine Learning, a diferencia de la programación tradicional, el componente principal que determina la lógica del sistema es:"
+
+opciones_explicitas: ["El código fuente escrito por el humano", "Los datos y los ejemplos proporcionados", "La memoria RAM del computador"]
+respuesta: "Los datos y los ejemplos proporcionados"
+tipo: mc
+
+explicacion: |
+  En la IA clásica (Sistemas Expertos), el humano codifica las reglas. En el Machine Learning, el humano proporciona datos y el algoritmo "aprende" las reglas (parámetros) mediante optimización.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "entrenamiento_ia"
+  nivel: "intermedio"
+  tags: ["machine_learning", "pasos"]
+
+enunciado: "Para que un modelo de IA aprenda a reconocer imágenes de gatos, se debe seguir un orden lógico de trabajo. Ordena los siguientes pasos:"
+
+opciones_explicitas: ["Recolección de imágenes de gatos y perros", "Entrenamiento del modelo con los datos", "Evaluación del modelo con datos nuevos", "Implementación en una aplicación"]
+respuesta_orden: ["Recolección de imágenes de gatos y perros", "Entrenamiento del modelo con los datos", "Evaluación del modelo con datos nuevos", "Implementación en una aplicación"]
+tipo: ordenar
+
+explicacion: |
+  El flujo estándar de Ciencia de Datos implica: 1. Obtener datos (Data Collection), 2. Entrenar (Training), 3. Validar/Testear (Evaluation) y 4. Desplegar (Deployment).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "clasificacion_ia"
+  nivel: "basico"
+  tags: ["machine_learning", "conceptos"]
+
+enunciado: "Un sistema de filtrado de SPAM analiza miles de correos electrónicos previos. Si el sistema detecta que la palabra 'Gratis' aparece en el 90% de los correos marcados como spam, aprenderá a asociar esa palabra con el spam. Este proceso de encontrar una función que asocie características con etiquetas se llama: ___"
+
+respuestas_validas:
+  - "Entrenamiento"
+respuesta: "Entrenamiento"
+tipo: completar
+
+explicacion: |
+  El entrenamiento es el proceso mediante el cual el algoritmo ajusta sus parámetros internos para minimizar el error entre sus predicciones y las etiquetas reales de los datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "generalizacion_ia"
+  nivel: "avanzado"
+  tags: ["machine_learning", "error"]
+
+enunciado: "Cuando un sistema de IA ha aprendido tan perfectamente los datos de entrenamiento que ha 'memorizado' el ruido y los detalles irrelevantes, perdiendo su capacidad de aplicarse a casos reales distintos, estamos ante un problema de:"
+
+opciones_explicitas: ["Overfitting", "Underfitting", "Bias", "Variance"]
+respuesta: "Overfitting"
+tipo: mc
+
+explicacion: |
+  El Overfitting (sobreajuste) ocurre cuando el modelo es demasiado complejo y se adapta excesivamente al ruido de los datos de entrenamiento, lo que resulta en un error muy alto cuando se le presentan datos nuevos (pérdida de generalización).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ia_reglas_vs_aprendizaje"
+  nivel: "basico"
+  tags: ["ia", "conceptos_base"]
+
+respuesta: "aprendizaje automático"
+tipo: "completar"
+respuestas_validas:
+  - "aprendizaje automático"
+  - "machine learning"
+
+enunciado: "Mientras que un sistema basado en reglas requiere que un programador defina manualmente cada condición lógica, el ___ es un paradigma donde el sistema identifica patrones directamente a partir de los datos."
+
+explicacion: |
+  En la IA clásica (sistemas expertos), el conocimiento es explícito y codificado por humanos. En el aprendizaje automático, el modelo "aprende" las reglas estadísticas a partir de la experiencia (datos).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ia_reglas_vs_aprendizaje"
+  nivel: "intermedio"
+  tags: ["escalabilidad", "sistemas_expertos"]
+
+variables:
+  es_complejo: falso
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "Un sistema basado en reglas explícitas es intrínsecamente más eficiente y fácil de mantener que un modelo de aprendizaje automático cuando el problema involucra miles de variables interdependientes y dinámicas."
+
+explicacion: |
+  Falso. A medida que la complejidad y el número de variables aumentan, las reglas manuales se vuelven imposibles de gestionar (explosión combinatoria), mientras que los modelos de aprendizaje están diseñados para manejar esa dimensionalidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ia_reglas_vs_aprendizaje"
+  nivel: "intermedio"
+  tags: ["naturaleza_aprendizaje"]
+
+respuesta: "correlaciones estadísticas"
+tipo: "mc"
+opciones_explicitas: ["correlaciones estadísticas", "lógica formal pura", "causalidad absoluta", "sentido común humano"]
+
+enunciado: "Es un error común pensar que un modelo de aprendizaje profundo entiende la 'causa' de un fenómeno. En realidad, lo que el modelo optimiza es la detección de ___ en los datos de entrenamiento."
+
+explicacion: |
+  Los modelos de IA actuales son excelentes encontrando patrones y correlaciones, pero no comprenden la causalidad ni el "porqué" de las cosas, a menos que se diseñen arquitecturas específicas para inferencia causal.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ia_reglas_vs_aprendizaje"
+  nivel: "basico"
+  tags: ["metodologia"]
+
+respuesta_orden: ["Definir reglas", "Escribir código de decisión", "Probar lógica"]
+tipo: "ordenar"
+opciones_explicitas: ["Definir reglas", "Escribir código de decisión", "Probar lógica"]
+
+enunciado: "Ordena los pasos típicos en el desarrollo de un Sistema Experto (basado en reglas) de forma lógica:"
+
+explicacion: |
+  En el enfoque basado en reglas, primero se extrae el conocimiento del experto (reglas), luego se traduce a código y finalmente se valida la lógica.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ia_reglas_vs_aprendizaje"
+  nivel: "avanzado"
+  tags: ["sesgo", "datos"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [["Un sistema de reglas tiene un error porque el programador olvidó una condición.", "error_programador"], ["Un sistema de aprendizaje tiene un error porque los datos de entrenamiento son parciales.", "error_datos"]]
+
+respuesta: "error_datos"
+tipo: "mc"
+opciones_explicitas: ["error_programador", "error_datos"]
+
+enunciado: "En el escenario {escenario[idx][0]}, el problema principal es un: ___"
+
+explicacion: |
+  Si el sistema es de reglas, el error es de diseño/lógica humana. Si el sistema es de aprendizaje, el error suele provenir de la calidad o representatividad de los datos (sesgo).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ia_reglas_vs_aprendizaje"
+  nivel: "basico"
+  tags: ["ia", "logica", "aprendizaje_automatico"]
+
+respuesta: "aprendizaje automático"
+tipo: completar
+respuestas_validas:
+  - "aprendizaje automático"
+
+enunciado: "Mientras que un sistema basado en reglas requiere que un programador defina manualmente cada condición lógica, el ___ permite que el sistema descubra patrones directamente desde los datos."
+
+explicacion: |
+  En la IA tradicional (sistemas expertos), la lógica es explícita y programada por humanos. En el Machine Learning, la lógica se infiere a partir de la observación de datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "aprendizaje_supervisado"
+  nivel: "intermedio"
+  tags: ["ia", "supervisado", "datos"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["clasificar_imágenes", "etiquetadas"], ["predecir_precios", "numéricas"]]
+
+respuesta: "etiquetadas"
+tipo: mc
+opciones_explicitas: ["etiquetadas", "no estructuradas", "aleatorias", "puramente sintácticas"]
+
+enunciado: "En un escenario de {escenarios[escenario_idx][0]}, el modelo requiere que los datos de entrenamiento estén {escenarios[escenario_idx][1]} para aprender la relación entre la entrada y la salida."
+
+explicacion: |
+  El aprendizaje supervisado se distingue de otros por el uso de un conjunto de datos donde la respuesta correcta (etiqueta) ya es conocida.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "generalizacion_ia"
+  nivel: "avanzado"
+  tags: ["ia", "generalizacion", "overfitting"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un sistema basado en reglas es capaz de manejar situaciones que no fueron explícitamente programadas mediante una regla 'si-entonces', a diferencia de un modelo de aprendizaje que puede generalizar patrones nuevos."
+
+explicacion: |
+  Falso. Un sistema de reglas es rígido: si no existe una regla para un caso específico, el sistema no puede decidir. El aprendizaje busca la generalización para manejar datos no vistos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "flujo_desarrollo_ia"
+  nivel: "intermedio"
+  tags: ["ia", "workflow", "datos"]
+
+respuesta_orden: ["Recolección de datos", "Preprocesamiento", "Entrenamiento del modelo", "Evaluación de precisión"]
+tipo: ordenar
+opciones_explicitas: ["Recolección de datos", "Preprocesamiento", "Entrenamiento del modelo", "Evaluación de precisión"]
+
+enunciado: "Ordene las etapas típicas del ciclo de vida de un proyecto de aprendizaje automático, desde la obtención de información hasta la validación del modelo."
+
+explicacion: |
+  A diferencia del desarrollo de software tradicional donde el centro es el código, en IA el flujo comienza con la gestión de datos y termina validando la capacidad de predicción.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "fuente_conocimiento"
+  nivel: "basico"
+  tags: ["ia", "conocimiento", "datos"]
+
+respuesta: "datos"
+tipo: mc
+opciones_explicitas: ["conocimiento experto", "datos", "reglas lógicas", "hardware"]
+
+enunciado: "En la IA clásica, el conocimiento proviene de la codificación de la experiencia humana; en la IA moderna basada en aprendizaje, el conocimiento se extrae de los ___."
+
+explicacion: |
+  La transición fundamental es pasar de la "codificación de reglas" (conocimiento manual) a la "extracción de patrones" (conocimiento derivado de datos).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "inteligencia_artificial_reglas_a_aprendizaje"
+  nivel: "basico"
+  tags: ["ia", "conceptos", "aprendizaje"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["Un sistema de diagnóstico médico basado en un árbol de decisión con reglas 'SI fiebre Y tos ENTONCES gripe'", "Basado en reglas explícitas"], ["Un sistema de reconocimiento de imágenes que identifica gatos tras ver 10.000 fotos de gatos", "Aprendizaje basado en datos"]]
+
+enunciado: "Identifica si el siguiente escenario representa un sistema basado en reglas explícitas o un sistema que aprende de datos: {datos[escenario_idx][0]}"
+
+opciones_explicitas: ["Basado en reglas explícitas", "Aprendizaje basado en datos"]
+respuesta: datos[escenario_idx][1]
+tipo: mc
+
+explicacion: |
+  Los sistemas basados en reglas dependen de la lógica programada manualmente por expertos (IF-THEN), mientras que el aprendizaje automático (Machine Learning) extrae patrones directamente de los datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "inteligencia_artificial_reglas_a_aprendizaje"
+  nivel: "intermedio"
+  tags: ["machine_learning", "datos"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  casos: [["Un modelo de detección de fraude que analiza millones de transacciones para encontrar anomalías."], ["Un chatbot que responde preguntas siguiendo un guion predefinido de 'si el usuario dice X, responde Y'."]]
+  respuestas: [["Aprendizaje basado en datos", "Basado en reglas explícitas"], ["Basado en reglas explícitas", "Aprendizaje basado en datos"]]
+
+enunciado: "En el caso: {casos[caso_idx][0]}, el paradigma predominante es ___."
+
+respuestas_validas:
+  - "Aprendizaje basado en datos"
+  - "Basado en reglas explícitas"
+respuesta: respuestas[caso_idx][0]
+tipo: completar
+
+explicacion: |
+  En el primer caso, el sistema descubre la estructura de los datos (aprendizaje), mientras que en el segundo, la estructura ya está definida por el programador (reglas).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "inteligencia_artificial_reglas_a_aprendizaje"
+  nivel: "avanzado"
+  tags: ["generalizacion", "ia"]
+
+variables:
+  textos: ["Un sistema de reglas que no reconoce un nuevo tipo de spam porque la palabra clave no está en su lista.", "Un modelo de IA que, al ver un objeto nunca visto, estima su categoría basándose en su similitud con datos previos."]
+  valores: [falso, verdadero]
+  escenario_idx: uno_de([0, 1])
+
+enunciado: "Analiza la situación: {textos[escenario_idx]}. ¿Es esta una característica típica de un sistema que aprende de datos?"
+
+respuesta: valores[escenario_idx]
+tipo: vf
+explicacion: |
+  La generalización es la capacidad de un modelo de aprendizaje para aplicar lo aprendido a datos no vistos durante el entrenamiento, algo que los sistemas de reglas puras no pueden hacer sin intervención humana.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "inteligencia_artificial_reglas_a_aprendizaje"
+  nivel: "intermedio"
+  tags: ["flujo_trabajo", "datos"]
+
+enunciado: "Ordena los pasos típicos para desarrollar un sistema de aprendizaje automático (Machine Learning):"
+
+opciones_explicitas: ["Recolección de datos", "Entrenamiento del modelo", "Evaluación de precisión", "Implementación en producción"]
+respuesta_orden: ["Recolección de datos", "Entrenamiento del modelo", "Evaluación de precisión", "Implementación en producción"]
+tipo: ordenar
+
+explicacion: |
+  A diferencia de los sistemas basados en reglas donde el paso principal es el "diseño de la lógica", en ML el flujo gira en torno a la gestión de datos y la optimización del modelo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "inteligencia_artificial_reglas_a_aprendizaje"
+  nivel: "basico"
+  tags: ["datos", "requisitos"]
+
+variables:
+  ejemplo_idx: uno_de([0, 1])
+  ejemplos: [["Un algoritmo de visión artificial sin acceso a imágenes previas."], ["Un algoritmo de recomendación de música sin historial de reproducciones del usuario."]]
+  resultado: ["No puede aprender", "No puede aprender"]
+
+enunciado: "Si tenemos el siguiente escenario: {ejemplos[ejemplo_idx][0]}, el sistema ___."
+
+respuestas_validas:
+  - "No puede aprender"
+  - "No puede aprender"
+respuesta: resultado[ejemplo_idx]
+tipo: completar
+
+explicacion: |
+  El aprendizaje automático requiere obligatoriamente de datos para identificar patrones; sin datos, el sistema no tiene materia prima para "aprender".
+```
+

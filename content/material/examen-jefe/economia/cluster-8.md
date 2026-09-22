@@ -1,2446 +1,2343 @@
-# Examen jefe — Maestro de la Estructura Económica
+# Examen jefe — [PENDIENTE #773]
 
-> Logro #194. Completaste el examen analizando la estructura organizacional, la dependencia productiva y los índices financieros con total maestría. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **123 preguntas totales** en 5/5 secciones.
+> Logro #773. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: estructura-organizacional (28 preguntas)
+## Sección: planificacion-administrativa (25 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_organizacional"
+  tema: "planificacion_administrativa"
   nivel: "basico"
-  tags: ["organigrama", "definicion", "estructura"]
+  tags: ["conceptos_basicos", "gestion"]
+
+tipo: mc
+opciones_explicitas: ["El proceso de tomar decisiones anticipadas para alcanzar objetivos", "La ejecución de tareas diarias sin un orden previo", "El análisis de los resultados obtenidos tras una crisis", "La asignación de recursos basada en la intuición"]
+respuesta: "El proceso de tomar decisiones anticipadas para alcanzar objetivos"
+
+enunciado: "La planificación administrativa se define como ___________."
+
+explicacion: |
+  La planificación es la función administrativa que consiste en establecer metas y elegir los medios para alcanzarlas, actuando de forma anticipada.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["elementos", "objetivos"]
+
+respuesta: "objetivos"
+tipo: completar
+respuestas_validas:
+  - "objetivos"
+
+enunciado: "Para que una planificación sea efectiva, debe definir claramente los ___________ que se desean alcanzar, así como las estrategias para lograrlos y los recursos necesarios para llevar a cabo las acciones."
+
+explicacion: |
+  La planificación requiere de objetivos (el qué), estrategias (el cómo) y recursos (con qué).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["temporalidad", "cronograma"]
+
+tipo: vf
+enunciado: "La planificación implica determinar el momento exacto (cuándo) en que deben ejecutarse las acciones para asegurar la eficiencia operativa."
 
 respuesta: verdadero
-tipo: vf
-
-enunciado: "Un organigrama es una representación gráfica que muestra la estructura formal de una organización, incluyendo la jerarquía y las relaciones de autoridad entre sus miembros."
 
 explicacion: |
-  El organigrama funciona como el 'esqueleto' visual de la empresa. Permite identificar quiénes reportan a quién, delimitando la cadena de mando y facilitando la comprensión de cómo se distribuyen las responsabilidades y la autoridad dentro del sistema organizacional.
+  La dimensión temporal es fundamental; sin un cronograma o tiempos definidos, la planificación carece de control y seguimiento.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "basico"
-  tags: ["jerarquia", "niveles", "autoridad"]
-
-respuesta: 1
-tipo: input
-
-variables:
-  nivel_superior: random(1, 3)
-  nivel_medio: random(4, 6)
-  nivel_inferior: random(7, 10)
-
-enunciado: "En un organigrama vertical tradicional, si los niveles se numeran del 1 al 10, ¿cuál es el nivel más alto que corresponde a la alta dirección?"
-
-explicacion: |
-  La jerarquía se representa mediante niveles verticales. La parte superior (números bajos en este ejemplo, como el 1) corresponde a la alta dirección (directorios, gerentes generales), mientras que los niveles inferiores (números altos) incluyen mandos medios y personal operativo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["especializacion", "departamentos", "eficiencia"]
+  tags: ["proceso_administrativo", "orden"]
 
-respuesta: "Permite enfocarse en tareas específicas y aprovechar economías de escala."
-tipo: completar
+tipo: ordenar
+opciones_explicitas: ["Establecer objetivos", "Analizar la situación actual", "Desarrollar planes de acción", "Implementar y controlar"]
 
-variables:
-  area: uno_de(["Finanzas", "Marketing", "Producción", "Recursos Humanos"])
+enunciado: "Ordene cronológicamente las etapas lógicas de un proceso de planificación administrativa:"
 
-enunciado: "La agrupación de personas en departamentos como {area} se basa en la especialización. ¿Cuál es el principal beneficio económico de esta división del trabajo?"
+respuesta_orden: ["Establecer objetivos", "Analizar la situación actual", "Desarrollar planes de acción", "Implementar y controlar"]
 
 explicacion: |
-  La especialización o división del trabajo permite que cada unidad se enfoque en su tarea principal. Esto aprovecha las economías de escala y la expertise técnica, mejorando la eficiencia y reduciendo la duplicidad de esfuerzos.
+  Aunque los modelos varían, la lógica administrativa requiere primero saber a dónde ir (objetivos), dónde estamos (diagnóstico), cómo llegaremos (planes) y cómo nos aseguramos de haber llegado (control).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_organizacional"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["relaciones", "asesoria", "coordinacion"]
+  tags: ["niveles", "estrategia"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  datos: [["estratégica", "largo plazo"], ["operativa", "corto plazo"]]
+  idx: uno_de([0, 1])
+  tipo_planificacion: datos[idx][0]
+  horizonte: datos[idx][1]
 
-enunciado: "En un organigrama, las líneas punteadas que conectan cuadros suelen indicar relaciones de autoridad formal directa, mientras que las líneas rectas indican asesoría."
-
+tipo: completar
+respuesta: tipo_planificacion
+respuestas_validas:
+  - tipo_planificacion
+enunciado: "La planificación que se realiza a nivel de alta dirección, enfocándose en la organización como un todo y con un horizonte de {horizonte}, es la planificación ___."
 explicacion: |
-  Es falso. Generalmente, las líneas rectas indican relaciones de autoridad formal (quién manda a quién), mientras que las líneas punteadas o discontinuas representan relaciones de asesoría, coordinación o comunicación informal entre unidades.
+  La planificación estratégica es global y de largo plazo, mientras que la operativa es específica y de corto plazo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_organizacional"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["gestion", "procesos"]
+
+respuesta: "establecer objetivos"
+tipo: completar
+respuestas_validas:
+  - "establecer objetivos"
+  - "definir metas"
+
+enunciado: "La primera etapa fundamental de la planificación administrativa consiste en ___ para saber hacia dónde se dirige la organización."
+
+explicacion: |
+  La planificación comienza con la definición de los objetivos o metas. Sin un norte claro, los demás pasos (cómo, cuándo y con qué recursos) carecen de propósito.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["funciones", "clarity", "coordination"]
+  tags: ["toma_de_decisiones", "estrategia"]
 
-respuesta: "Delimitar las funciones"
-tipo: completar
+respuesta: "aumentar costos fijos"
+tipo: mc
+opciones_explicitas: ["aumentar costos fijos", "reducir costos de envío", "maximizar beneficios", "reducir personal"]
 
-variables:
-  beneficio: uno_de(["Delimitar las funciones", "Aumentar la burocracia", "Reducir la comunicación", "Eliminar la jerarquía"])
-
-enunciado: "Una estructura clara ayuda a reducir la ambigüedad en la organización. ¿Qué acción clave permite esto según la teoría?"
+enunciado: "Una empresa decide expandirse mediante la apertura de una nueva sucursal física. Según la planificación estratégica, esta acción implica principalmente: ___"
 
 explicacion: |
-  Al definir claramente quién hace qué, la estructura delimita las funciones. Esto reduce la ambigüedad sobre las responsabilidades de cada miembro, mejora la coordinación y evita vacíos o duplicidades en la ejecución de tareas.
+  Al abrir una sucursal física, la empresa está planificando un crecimiento que conlleva un aumento en sus costos fijos (alquiler, servicios, salarios fijos), como se indica en la opción seleccionada.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "avanzado"
-  tags: ["recursos", "asignacion", "eficiencia"]
-
-respuesta: "Una estructura bien definida permite una asignación más racional de los recursos."
-tipo: completar
-
-variables:
-  recurso: uno_de(["humanos", "materiales", "de conocimiento"])
-
-enunciado: "Sin una estructura clara, los recursos {recurso} se dispersarían. ¿Qué facilita una estructura bien definida en el contexto económico?"
-
-explicacion: |
-  Una estructura bien definida permite una asignación más racional de los recursos (humanos, materiales o de conocimiento). Esto facilita la toma de decisiones, evita la dispersión de esfuerzos y mejora la evaluación del desempeño individual y grupal.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
+  tema: "planificacion_administrativa"
   nivel: "basico"
-  tags: ["cadena de mando", "reportes", "flujo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La cadena de mando se refiere a la secuencia de autoridad desde la alta dirección hasta el nivel operativo, mostrando quién le reporta a quién."
-
-explicacion: |
-  Verdadero. El organigrama permite comprender la cadena de mando, es decir, la ruta formal a través de la cual fluye la autoridad y la responsabilidad, definiendo claramente las líneas de reporte dentro de la compañía.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "basico"
-  tags: ["tipos", "representacion", "flexibilidad"]
-
-respuesta: "Dependiendo de la complejidad y el tamaño."
-tipo: completar
-
-variables:
-  factor: uno_de(["complejidad", "tamaño", "industria", "ubicación"])
-
-enunciado: "Existen diferentes formas de representar la estructura organizacional. La elección del tipo de organigrama suele depender de la {factor} de la organización."
-
-explicacion: |
-  La elección del tipo de organigrama (vertical, horizontal, matricial, etc.) depende de factores como la complejidad, el tamaño y la naturaleza de las operaciones de la organización, buscando la representación más clara y útil para su gestión.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "intermedio"
-  tags: ["evaluacion", "desempeño", "gestión"]
-
-respuesta: "Facilita la evaluación del desempeño individual y grupal."
-tipo: completar
-
-variables:
-  ambito: uno_de(["individual", "grupal", "departamental", "corporativo"])
-
-enunciado: "Más allá de la autoridad, la estructura organizacional es fundamental para la gestión. ¿Qué facilita directamente respecto al {ambito}?"
-
-explicacion: |
-  Una estructura clara facilita la evaluación del desempeño individual y grupal. Al conocerse las responsabilidades y los reportes, es posible medir la eficiencia y eficacia de cada miembro o unidad en el cumplimiento de los objetivos organizacionales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "basico"
-  tags: ["mandos medios", "intermediarios", "nivel"]
+  tags: ["conceptos"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "En la jerarquía tradicional, los mandos medios se ubican en la parte superior del organigrama, junto a la alta dirección."
+enunciado: "La planificación administrativa es un proceso estático que, una vez definido, no debe ser revisado aunque el entorno cambie."
 
 explicacion: |
-  Falso. Los mandos medios se ubican en los niveles intermedios del organigrama, actuando como enlace entre la alta dirección (parte superior) y el personal operativo (parte inferior). Su rol es traducir las estrategias superiores en operaciones concretas.
+  Falso. La planificación debe ser flexible. Si el entorno (economía, competencia, leyes) cambia, la planificación debe ajustarse para asegurar el cumplimiento de los objetivos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_organizacional"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["división del trabajo", "especialización", "departamentos"]
+  tags: ["pasos", "metodologia"]
 
-respuesta: "Departamentos o áreas funcionales"
-tipo: completar
+respuesta_orden: ["Definir metas", "Determinar acciones", "Asignar recursos", "Establecer cronograma"]
+tipo: ordenar
+opciones_explicitas: ["Definir metas", "Determinar acciones", "Asignar recursos", "Establecer cronograma"]
 
-variables:
-  criterio: uno_de(["habilidades", "conocimientos", "ubicación", "antigüedad"])
-
-enunciado: "Los organigramas agrupan a las personas en {criterio} específicos. ¿En qué se basan principalmente estas agrupaciones?"
+enunciado: "Para implementar un nuevo proyecto de producción, un gerente debe seguir un orden lógico de planificación. Ordene los siguientes pasos de forma secuencial:"
 
 explicacion: |
-  Las agrupaciones se basan en habilidades y conocimientos específicos, creando departamentos o áreas funcionales (como Finanzas, Marketing, etc.). Esto permite que cada unidad se especialice y aproveche su expertise técnica.
+  Primero se define el 'qué' (metas), luego el 'cómo' (acciones), después el 'con qué' (recursos) y finalmente el 'cuándo' (cronograma). La evaluación es un paso posterior al proceso de ejecución.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "basico"
-  tags: ["sistema", "objetivos", "eficiencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las organizaciones son sistemas diseñados para alcanzar objetivos específicos de manera eficiente, no grupos caóticos de personas."
-
-explicacion: |
-  Verdadero. La estructura organizacional existe precisamente para transformar un grupo de individuos en un sistema coherente y eficiente, orientado al logro de metas comunes mediante la coordinación de recursos y actividades.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "basico"
-  tags: ["alta dirección", "dirección", "gerencia"]
-
-respuesta: "Directorio o gerente general"
-tipo: completar
-
-variables:
-  cargo: uno_de(["directorio", "gerente general", "presidente", "CEO"])
-
-enunciado: "La parte superior del organigrama suele corresponder a la alta dirección. ¿Quiénes ocupan típicamente estos puestos?"
-
-explicacion: |
-  La alta dirección incluye cargos como el directorio, el gerente general, el presidente o el CEO. Son los responsables de la toma de decisiones estratégicas y la dirección general de la organización.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "basico"
-  tags: ["personal operativo", "ejecución", "nivel inferior"]
-
-respuesta: "Personal operativo"
-tipo: completar
-
-variables:
-  nivel: uno_de(["operativo", "táctico", "estratégico", "administrativo"])
-
-enunciado: "Los niveles inferiores del organigrama incluyen a los mandos medios y a los {nivel}."
-
-explicacion: |
-  Los niveles inferiores corresponden al personal operativo. Son quienes ejecutan las tareas diarias y las instrucciones derivadas de las estrategias definidas por la alta dirección y coordinadas por los mandos medios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["integración", "coherencia", "recursos"]
-
-respuesta: "Para funcionar como un todo coherente."
-tipo: completar
+  tags: ["presupuesto", "calculo"]
 
 variables:
-  objetivo: uno_de(["funcionar como un todo coherente", "reducir costos", "aumentar ventas", "expandirse"])
+  datos: [[5000, 1200, 3000], [8000, 2500, 5500], [3000, 900, 2100]]
+  idx: uno_de([0, 1, 2])
 
-enunciado: "Las líneas de conexión en el organigrama muestran cómo se integran los diferentes recursos de la organización. ¿Cuál es el propósito final de esta integración?"
-
-explicacion: |
-  El propósito es que la organización funcione como un todo coherente. La integración de recursos humanos, materiales y de conocimiento a través de la estructura permite sinergias y un logro más efectivo de los objetivos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "avanzado"
-  tags: ["economías de escala", "eficiencia", "costos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La especialización en departamentos permite aprovechar las economías de escala al concentrar tareas similares."
-
-explicacion: |
-  Verdadero. Al agrupar tareas similares en departamentos especializados, la organización puede optimizar el uso de recursos, reducir costos unitarios y mejorar la eficiencia operativa gracias a las economías de escala.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "intermedio"
-  tags: ["expertise", "conocimiento", "especialización"]
-
-respuesta: "Aprovechando la expertise técnica."
+respuesta: datos[idx][0] - datos[idx][1] - datos[idx][2]
 tipo: completar
+tolerancia_abs: 0.01
 
-variables:
-  ventaja: uno_de(["explotando la expertise técnica", "ignorando la experiencia", "centralizando todo", "descentralizando la autoridad"])
-
-enunciado: "La división del trabajo no solo organiza, sino que también busca {ventaja} de cada unidad."
-
-explicacion: |
-  La división del trabajo busca aprovechar la expertise técnica de cada unidad. Al enfocarse en áreas específicas, los empleados desarrollan mayor competencia y eficiencia en sus tareas asignadas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "intermedio"
-  tags: ["toma de decisiones", "rapidez", "claridad"]
-
-respuesta: "Facilita la toma de decisiones."
-tipo: completar
-
-variables:
-  proceso: uno_de(["facilita la toma de decisiones", "complica la comunicación", "aumenta la burocracia", "reduce la autoridad"])
-
-enunciado: "Una estructura bien definida tiene un impacto directo en la gestión. ¿Qué facilita principalmente?"
-
-explicacion: |
-  Una estructura bien definida facilita la toma de decisiones. Al conocerse los roles y las líneas de autoridad, los responsables pueden actuar con mayor rapidez y certeza, evitando confusiones sobre quién tiene la competencia para decidir.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "intermedio"
-  tags: ["duplicidad", "eficiencia", "recursos"]
-
-respuesta: "Evita la duplicidad de tareas."
-tipo: completar
-
-variables:
-  riesgo: uno_de(["evita la duplicidad de tareas", "promueve la competencia interna", "aumenta los costos", "reduce la calidad"])
-
-enunciado: "Sin una estructura clara, los recursos se dispersarían. ¿Qué ayuda a prevenir una estructura definida?"
-
-explicacion: |
-  Una estructura definida ayuda a prevenir la duplicidad de tareas y los vacíos de responsabilidad. Al delimitar claramente las funciones, se asegura que cada tarea sea cubierta por una persona o unidad específica sin solapamientos innecesarios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "basico"
-  tags: ["información", "flujo", "comunicación"]
-
-respuesta: "Cómo fluye la información dentro de la compañía."
-tipo: completar
-
-variables:
-  elemento: uno_de(["cómo fluye la información dentro de la compañía", "cuánto gana cada empleado", "qué productos se venden", "dónde está la sede"])
-
-enunciado: "El organigrama no es solo un dibujo; es una herramienta visual que permite comprender la cadena de mando y {elemento}."
-
-explicacion: |
-  El organigrama permite comprender cómo fluye la información dentro de la compañía. Entender los canales formales de comunicación es crucial para la coordinación y la eficiencia operativa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "basico"
-  tags: ["representación", "gráfica", "visual"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un organigrama es una representación gráfica de la estructura de una organización."
-
-explicacion: |
-  Verdadero. Esta es la definición fundamental. Es la herramienta visual primaria para entender la arquitectura interna de la empresa, mostrando sus componentes y sus interrelaciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "intermedio"
-  tags: ["responsabilidad", "vacíos", "delimitación"]
-
-respuesta: "Vacíos de responsabilidad."
-tipo: completar
-
-variables:
-  problema: uno_de(["vacíos de responsabilidad", "excedentes de presupuesto", "falta de innovación", "baja moral"])
-
-enunciado: "Sin una estructura clara, los recursos se dispersarían, generando duplicidad de tareas o {problema}."
-
-explicacion: |
-  La falta de estructura genera vacíos de responsabilidad, donde nadie se siente encargado de ciertas tareas críticas. La delimitación clara de funciones en el organigrama previene este riesgo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "intermedio"
-  tags: ["autoridad", "formal", "poder"]
-
-respuesta: "Refleja el poder formal y la autoridad para tomar decisiones."
-tipo: completar
-
-variables:
-  concepto: uno_de(["refleja el poder formal y la autoridad para tomar decisiones", "muestra la amistad entre empleados", "indica los salarios", "describe la cultura"])
-
-enunciado: "La disposición vertical en el organigrama {concepto}."
-
-explicacion: |
-  La disposición vertical refleja el poder formal y la autoridad para tomar decisiones. Los niveles superiores tienen mayor autoridad jerárquica sobre los inferiores, estableciendo el orden de mando.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "intermedio"
-  tags: ["coordinación", "eficiencia", "trabajo en equipo"]
-
-respuesta: "Mejora la coordinación."
-tipo: completar
-
-variables:
-  beneficio: uno_de(["mejora la coordinación", "reduce la comunicación", "aísla los departamentos", "elimina la jerarquía"])
-
-enunciado: "Al delimitar las funciones, la estructura organizacional {beneficio} entre los miembros del equipo."
-
-explicacion: |
-  Delimitar las funciones mejora la coordinación. Cuando cada miembro conoce su rol y el de los demás, se facilita el trabajo conjunto y se reducen los conflictos por superposición de funciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "intermedio"
-  tags: ["líneas", "conexión", "relaciones"]
-
-respuesta: "Las líneas que conectan los cuadros indican las relaciones de autoridad o de asesoría."
-tipo: completar
-
-variables:
-  elemento: uno_de(["las líneas que conectan los cuadros indican las relaciones de autoridad o de asesoría", "los colores indican el presupuesto", "el tamaño indica el salario", "las formas indican la antigüedad"])
-
-enunciado: "Además de los cuadros, {elemento}."
-
-explicacion: |
-  Las líneas que conectan los cuadros son esenciales para interpretar el organigrama. Indican las relaciones formales de autoridad (líneas rectas) o de asesoría/coordinación (líneas punteadas), mostrando la dinámica de la organización.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "basico"
-  tags: ["analogía", "esqueleto", "mapa"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Se puede imaginar el organigrama como el 'esqueleto' o el mapa de una empresa."
-
-explicacion: |
-  Verdadero. Esta analogía ayuda a visualizar su función: así como el esqueleto da soporte y forma al cuerpo, el organigrama da soporte y forma a la estructura interna de la empresa, permitiendo su funcionamiento.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "basico"
-  tags: ["miembros", "equipo", "composición"]
-
-respuesta: "Muestra quiénes son los miembros del equipo, en qué departamentos están agrupados y cómo se relacionan entre sí."
-tipo: completar
-
-variables:
-  contenido: uno_de(["muestra quiénes son los miembros del equipo, en qué departamentos están agrupados y cómo se relacionan entre sí", "indica los horarios de trabajo", "describe la decoración de la oficina", "lista los proveedores"])
-
-enunciado: "El organigrama muestra {contenido}."
-
-explicacion: |
-  El organigrama muestra quiénes son los miembros del equipo, en qué departamentos están agrupados y cómo se relacionan entre sí en términos de autoridad y responsabilidad. Es un mapa de la composición y la dinámica interna.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_organizacional"
-  nivel: "avanzado"
-  tags: ["comprensión", "teoría", "aplicación"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Entender cómo se organiza el trabajo es tan importante como conocer los recursos que se utilizan en el estudio de la economía y la administración de empresas."
-
-explicacion: |
-  Verdadero. La estructura organizacional es fundamental porque determina cómo se utilizan los recursos. Sin una organización eficiente, incluso los mejores recursos pueden ser mal gestionados, llevando al fracaso de los objetivos económicos.
-```
-
-## Sección: estructura-productiva-dependencia (25 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "basico"
-  tags: ["historia_economica", "agroexportador"]
-
-respuesta: "primarias"
-tipo: completar
-respuestas_validas: ["primarias"]
-
-enunciado: "La estructura productiva argentina, consolidada durante el modelo agroexportador, se caracterizó por una fuerte especialización en la exportación de productos de naturaleza ___."
-
-explicacion: |
-  El modelo agroexportador (1880-1930) posicionó a Argentina como el "granero del mundo", basando su economía en la exportación de materias primas (cereales, carnes) hacia Europa, lo que generó una dependencia estructural de los sectores primarios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["commodities", "volatilidad"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["soja", "caída"], ["trigo", "subida"]]
-  efecto: [["menor ingreso de divisas", "mayor ingreso de divisas"]]
-
-respuesta: datos[escenario_idx][1
-tipo: mc
-opciones_explicitas: ["datos[0][1]", "datos[1][1]", "sin cambios"]
-
-enunciado: "Si el precio internacional de la {datos[escenario_idx][0]} sufre una {datos[escenario_idx][1]}, el efecto inmediato en la balanza comercial argentina es un ___."
+enunciado: "En la fase de planificación de presupuesto, una empresa proyecta los siguientes valores para el próximo trimestre: Ingresos estimados: ${datos[idx][0]}, Gastos operativos: ${datos[idx][1]}, Impuestos proyectados: ${datos[idx][2]}. ¿Cuál es el beneficio neto planificado?"
 
 pasos:
-  - "Identificar el commodity y la tendencia del precio."
-  - "Relacionar el precio del producto de exportación con el ingreso de divisas."
+  - "Identificar los ingresos proyectados."
+  - "Restar los gastos operativos."
+  - "Restar los impuestos proyectados del resultado anterior."
 
 explicacion: |
-  Dado que Argentina es un exportador neto de commodities, la volatilidad de los precios internacionales impacta directamente en la recaudación fiscal y la disponibilidad de dólares (divisas).
+  El beneficio neto planificado se obtiene restando todos los costos y gastos proyectados de los ingresos totales previstos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_productiva_dependencia"
+  tema: "planificacion_administrativa"
   nivel: "basico"
-  tags: ["exportaciones", "commodities"]
-
-respuesta: "Dependencia de los precios de los commodities"
-tipo: mc
-opciones_explicitas: ["Diversificación industrial avanzada", "Dependencia de los precios de los commodities", "Autosuficiencia tecnológica"]
-
-enunciado: "¿Cuál es la principal vulnerabilidad de una estructura productiva basada en la exportación de materias primas?"
-
-explicacion: |
-  La falta de valor agregado en las exportaciones hace que la economía sea altamente sensible a los ciclos de precios internacionales, fenómeno conocido como la "vulnerabilidad externa".
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["ciclos_economicos", "exportación"]
-
-opciones_explicitas: ["Aumento de demanda externa", "Suba de precios internacionales", "Ingreso de divisas", "Crecimiento del PBI local"]
-respuesta: ["Aumento de demanda externa", "Suba de precios internacionales", "Ingreso de divisas", "Crecimiento del PBI local"]
-tipo: ordenar
-
-enunciado: "Ordene cronológicamente la cadena de efectos que genera un ciclo alcista en la economía argentina basado en el modelo agroexportador:"
-
-explicacion: |
-  Un aumento en la demanda mundial de productos agrícolas eleva los precios de los commodities, lo que permite un mayor ingreso de divisas al país, impulsando finalmente el crecimiento económico interno.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "avanzado"
-  tags: ["valor_agregado", "industria"]
-
-respuesta: "bajo"
-tipo: completar
-respuestas_validas: ["bajo", "nulo"]
-
-enunciado: "La estructura productiva heredada presenta un perfil de exportación con un ___ grado de valor agregado, lo que se traduce en una mayor dependencia de la demanda externa de materias primas."
-
-explicacion: |
-  A diferencia de las economías industrializadas, la estructura argentina exporta mayoritariamente bienes con poco procesamiento industrial, lo que limita la capacidad de captura de valor en la cadena global.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "basico"
-  tags: ["teoria_economica", "desarrollo"]
-
-tipo: mc
-opciones_explicitas: ["La subordinación de la economía local a las decisiones y precios de mercados externos.", "Un sistema donde el país exporta tecnología de punta y productos manufacturados.", "Un modelo de autosuficiencia total donde no se requiere comercio exterior.", "La capacidad de un país para fijar sus propios precios internacionales sin influencia externa."]
-
-enunciado: "Se define como dependencia económica cuando la estructura productiva de un país se encuentra ___________ por los ciclos económicos y las decisiones de precios de las economías centrales."
-
-respuesta: "La subordinación de la economía local a las decisiones y precios de mercados externos."
-
-explicacion: |
-  La dependencia económica ocurre cuando un país carece de autonomía para determinar sus ciclos internos, ya que su producción y consumo dependen de la demanda y los precios fijados en mercados externos o países desarrollados.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["comercio_exterior", "primarización"]
-
-variables:
-  escenario: uno_de([
-    ["exportación de materias primas", "vulnerabilidad a precios internacionales"],
-    ["importación de tecnología", "dependencia de patentes extranjeras"],
-    ["deuda externa", "dependencia de capitales volátiles"]
-  ])
-
-tipo: completar
-respuestas_validas: ["vulnerabilidad a precios internacionales", "dependencia de patentes extranjeras", "dependencia de capitales volátiles"]
-
-enunciado: "Un país que basa su matriz productiva principalmente en la {escenario[0]} suele enfrentar una alta {escenario[1]}."
-
-respuesta: "vulnerabilidad a precios internacionales"
-
-explicacion: |
-  La especialización en productos primarios (commodities) expone a las economías a la volatilidad de los precios internacionales, lo que caracteriza a los modelos de dependencia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["tecnologia", "desarrollo"]
-
-tipo: mc
-opciones_explicitas: ["Importación de bienes de capital y tecnología de punta.", "Exportación de servicios de alta complejidad.", "Sustitución de importaciones tecnológicas por producción local.", "Desarrollo de investigación y desarrollo (I+D) propio."]
-
-enunciado: "La dependencia tecnológica se manifiesta principalmente a través de la ___________."
-
-respuesta: "Importación de bienes de capital y tecnología de punta."
-
-explicacion: |
-  Cuando un país no desarrolla tecnología propia, debe importar maquinaria y conocimiento, quedando sujeto a los costos y condiciones impuestas por los países que sí poseen dicha tecnología.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "avanzado"
-  tags: ["procesos", "industrializacion"]
-
-tipo: ordenar
-opciones_explicitas: ["Especialización en recursos naturales", "Importación de manufacturas", "Dependencia de la demanda externa", "Vulnerabilidad ante crisis externas"]
-
-enunciado: "Ordene cronológicamente los elementos que suelen conformar un ciclo de dependencia económica estructural:"
-
-respuesta: ["Especialización en recursos naturales", "Importación de manufacturas", "Dependencia de la demanda externa", "Vulnerabilidad ante crisis externas"]
-
-explicacion: |
-  El ciclo comienza con la especialización productiva, lo que genera la necesidad de importar bienes procesados, creando una dependencia de la demanda externa y resultando en vulnerabilidad ante choques externos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["finanzas", "capitales"]
-
-variables:
-  caso: uno_de([
-    ["flujos de inversión extranjera directa", "crecimiento sostenido"],
-    ["salidas bruscas de capitales especulativos", "crisis de balanza de pagos"]
-  ])
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "En una economía dependiente, las {caso[0]} pueden ser positivas, pero las {caso[1]} suelen provocar una ___________."
-
-respuesta: "crisis de balanza de pagos"
-
-explicacion: |
-  La volatilidad de los capitales es un rasgo de la dependencia financiera; cuando los capitales salen del país repentinamente, se generan crisis en la cuenta de pagos y devaluaciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "basico"
-  tags: ["vulnerabilidad", "primarización"]
-
-variables:
-  escenario: uno_de([
-    ["soja", "400"],
-    ["trigo", "250"],
-    ["minería de cobre", "8000"]
-  ])
-
-enunciado: "Una economía que basa su ingreso en la exportación de {escenario[0]} enfrenta una alta volatilidad cuando el precio internacional cae a ${escenario[1]} por unidad. Este fenómeno se conoce como vulnerabilidad externa."
-
-respuesta: "vulnerabilidad externa"
-tipo: mc
-opciones_explicitas: ["vulnerabilidad externa", "estabilidad macroeconómica", "diversificación productiva", "proteccionismo"]
-
-explicacion: |
-  La dependencia de un solo producto primario expone a la economía a las fluctuaciones de los precios internacionales (commodities), lo que genera inestabilidad en la balanza de pagos y el tipo de cambio.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["balanza_de_pagos", "términos_de_intercambio"]
-
-variables:
-  caso: uno_de([
-    ["caída del precio de la soja", "déficit"],
-    ["aumento de demanda de materias primas", "superávit"]
-  ])
-
-enunciado: "Si ocurre una {caso[0]}, la cuenta corriente de la balanza de pagos tiende a presentar un ___."
-
-pasos:
-  - "Identificar el efecto del precio en el ingreso por exportaciones."
-  - "Relacionar el ingreso con el saldo de la cuenta corriente."
-
-respuestas_validas: ["déficit", "superávit"]
-respuesta: caso[1
-tipo: completar
-
-explicacion: |
-  Una caída en los precios de exportación reduce la entrada de divisas, lo que puede derivar en un déficit en la cuenta corriente si no se compensa con deuda o remesas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "avanzado"
-  tags: ["términos_de_intercambio", "deterioro"]
-
-variables:
-  tendencia: uno_de([
-    ["deterioro", "caen"],
-    ["mejora", "suben"]
-  ])
-
-enunciado: "Cuando los precios de los productos manufacturados crecen más rápido que los de los productos primarios, se produce un ___ en los términos de intercambio, lo que significa que los precios de los bienes que exporta la economía {}."
-
-respuestas_validas: ["deterioro", "mejora"]
-respuesta: tendencia[0
-tipo: completar
-
-explicacion: |
-  El deterioro de los términos de intercambio implica que se necesita exportar cada vez más volumen de materias primas para comprar la misma cantidad de bienes tecnológicos o manufacturados.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["enfermedad_holandesa", "cambio_real"]
-
-variables:
-  efecto: uno_de([
-    ["apreciación", "sube"],
-    ["depreciación", "baja"]
-  ])
-
-enunciado: "Un boom de precios en un recurso natural (como el petróleo) genera una entrada masiva de divisas que provoca la ___ del tipo de cambio real. Esto suele afectar la competitividad de la industria local."
-
-respuestas_validas: ["apreciación", "depreciación"]
-respuesta: efecto[0
-tipo: completar
-
-explicacion: |
-  La 'Enfermedad Holandesa' ocurre cuando la abundancia de un recurso natural aprecia la moneda local, haciendo que el resto de los sectores (industria, servicios) pierdan competitividad frente al exterior.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["ciclo_economico", "shock_externo"]
-
-enunciado: "Ordene la secuencia lógica de un shock externo negativo para una economía primario-exportadora:"
-
-opciones_explicitas: ["Caída de precios internacionales", "Menor ingreso de divisas", "Crisis de balanza de pagos", "Restricción externa"]
-respuesta: ["Caída de precios internacionales", "Menor ingreso de divisas", "Crisis de balanza de pagos", "Restricción externa"]
-tipo: ordenar
-
-explicacion: |
-  La cadena comienza con el shock de precios, que reduce el flujo de dólares, afectando la capacidad de pago del país y limitando la importación de insumos (restricción externa).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "basico"
-  tags: ["historia_economica", "agroexportacion"]
-
-respuesta: "modelo agroexportador"
-tipo: completar
-respuestas_validas: ["modelo agroexportador"]
-
-enunciado: "Antes de la industrialización por sustitución de importaciones, la economía argentina se basaba en el ___."
-
-explicacion: |
-  El modelo agroexportador consistía en la exportación de materias primas (carnes y cereales) e importación de manufacturas, consolidando una estructura de dependencia hacia los mercados centrales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["isi", "industrializacion"]
-
-variables:
-  escenario: uno_de([["Sustitución de importaciones", "Proteccionismo"], ["Sustitución de importaciones", "Libre cambio"]])
-
-respuesta: escenario[0
-tipo: mc
-opciones_explicitas: ["Sustitución de importaciones", "Libre cambio"]
-
-enunciado: "El proceso de Industrialización por Sustitución de Importaciones (ISI) buscaba principalmente la {escenario[0]} mediante políticas de protección de la industria nacional."
-
-explicacion: |
-  La ISI buscaba que el país dejara de depender de la compra de productos manufacturados en el exterior, fomentando la producción local mediante aranceles y subsidios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["migraciones", "urbanizacion"]
-
-respuesta: "urbanización"
-tipo: completar
-respuestas_validas: ["urbanización"]
-
-enunciado: "El crecimiento de la industria durante mediados del siglo XX impulsó un proceso de rápida ___ en la población argentina."
-
-explicacion: |
-  La demanda de mano de obra en las fábricas de los centros urbanos (especialmente en Buenos Aires, Rosario y Córdoba) fomentó grandes migraciones internas y la expansión de las ciudades.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "avanzado"
-  tags: ["ciclos_economicos", "transicion"]
-
-respuesta: ["Modelo Agroexportador", "Crisis de la demanda externa", "Industrialización por Sustitución de Importaciones"]
-tipo: ordenar
-opciones_explicitas: ["Modelo Agroexportador", "Crisis de la demanda externa", "Industrialización por Sustitución de Importaciones"]
-
-enunciado: "Ordene cronológicamente los procesos económicos que marcaron la transición de la estructura productiva argentina en el siglo XX:"
-
-explicacion: |
-  La crisis de la demanda externa (causada por las Guerras Mundiales y la Gran Depresión) hizo inviable seguir importando productos, lo que forzó el salto hacia la ISI.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["estado", "politica_industrial"]
-
-respuesta: "intervencionista"
-tipo: mc
-opciones_explicitas: ["intervencionista", "liberal", "ausente"]
-
-enunciado: "Para sostener el modelo ISI, el Estado argentino adoptó un rol principalmente _________."
-
-explicacion: |
-  El Estado asumió un rol activo mediante la regulación de aranceles, la creación de empresas públicas y el fomento del mercado interno para asegurar el crecimiento industrial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "basico"
-  tags: ["exportaciones", "primarización", "riesgo"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["país exportador de granos", "volatilidad de precios internacionales"], ["país exportador de litio", "dependencia de la demanda tecnológica externa"]]
-
-enunciado: "Un {datos[escenario_idx][0]} enfrenta un escenario donde su principal motor de ingresos es un commodity. El principal riesgo económico para este país es la {datos[escenario_idx][1]}."
-
-respuesta: datos[escenario_idx][1
-tipo: mc
-opciones_explicitas: ["volatilidad de precios internacionales", "dependencia de la demanda tecnológica externa", "estabilidad cambiaria", "diversificación industrial"]
-
-explicacion: |
-  La dependencia de un solo producto primario expone a la economía a las fluctuaciones de los precios internacionales, lo que genera inestabilidad en la balanza comercial y en la recaudación fiscal.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["industria", "valor_agregado", "empleo"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["un país con baja capacidad manufacturera", "un país con alta dependencia de bienes de capital"], ["pérdida de valor agregado", "vulnerabilidad ante choques externos"]]
-
-enunciado: "En el caso de {casos[caso_idx][0]}, el riesgo estructural más significativo es la {casos[caso_idx][1]}."
-
-respuesta: casos[caso_idx][1
-tipo: mc
-opciones_explicitas: ["pérdida de valor agregado", "vulnerabilidad ante choques externos", "exceso de ahorro interno", "estabilidad de precios"]
-
-explicacion: |
-  La falta de una base industrial sólida impide que el país capture mayor valor en la cadena de producción, limitando el crecimiento del empleo calificado y la diversificación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "avanzado"
-  tags: ["enfermedad_holandesa", "tipo_de_cambio", "recursos_naturales"]
-
-variables:
-  efecto_idx: uno_de([0, 1])
-  efectos: [["la apreciación de la moneda local", "la caída de los precios de los commodities"]]
-
-enunciado: "Cuando un país descubre un gran yacimiento de petróleo y aumenta sus exportaciones, se produce una apreciación de la moneda local. Este fenómeno, conocido como Enfermedad Holandesa, suele provocar la falta de competitividad de la ___."
-
-respuesta: industria manufacturera
-tipo: completar
-respuestas_validas: ["industria manufacturera"]
-
-explicacion: |
-  La entrada masiva de divisas aprecia el tipo de cambio real, lo que encarece las exportaciones de bienes no tradicionales y desincentiva la actividad industrial local.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "intermedio"
-  tags: ["secuencia", "riesgo", "estructura"]
-
-variables:
-  secuencia_idx: uno_de([0, 1])
-  secuencias: [
-    ["Concentración de exportaciones", "Caída de demanda externa", "Crisis de balanza de pagos"],
-    ["Dependencia tecnológica", "Aumento de importaciones", "Déficit de cuenta corriente"]
-  ]
-
-enunciado: "Ordene la secuencia lógica de un choque externo en una economía dependiente:"
-
-pasos:
-  - "Identificar el origen del choque"
-  - "Observar el efecto en la cuenta externa"
-  - "Evaluar el impacto en la estabilidad macroeconómica"
-
-respuesta: secuencias[secuencia_idx
-tipo: ordenar
-opciones_explicitas: ["Concentración de exportaciones", "Caída de demanda externa", "Crisis de balanza de pagos", "Dependencia tecnológica", "Aumento de importaciones", "Déficit de cuenta corriente"]
-
-explicacion: |
-  La estructura productiva determina la velocidad y la profundidad con la que un shock externo (como una caída de demanda) se traslada a la economía doméstica.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_productiva_dependencia"
-  nivel: "basico"
-  tags: ["indicador", "exportaciones", "concentracion"]
-
-variables:
-  escenario_val: uno_de([0, 1])
-  escenarios: [[80, "alta"], [15, "baja"]]
-
-enunciado: "Si el porcentaje de exportaciones concentrado en solo dos productos es del {escenarios[escenario_val][0]}%, se considera que la economía tiene una dependencia ___."
-
-respuesta: escenarios[escenario_val][1
-tipo: mc
-opciones_explicitas: ["alta", "baja", "nula", "moderada"]
-
-explicacion: |
-  A mayor concentración de la canasta exportadora en pocos productos, mayor es la vulnerabilidad de la economía ante cambios en los precios o volúmenes de esos bienes específicos.
-```
-
-## Sección: estudio-de-contexto-para-un-proyecto (26 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "basico"
-  tags: ["comparacion", "niveles"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El nivel local se refiere al entorno inmediato y directo (normativa municipal, barrio), mientras que el nivel regional abarca un ámbito más amplio como una provincia o factores macroeconómicos."
-
-explicacion: |
-  Correcto. El nivel local es el microentorno inmediato, y el regional es el macroentorno que influye de manera más general.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "intermedio"
-  tags: ["macroentorno", "control"]
+  tags: ["procesos", "administracion"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Los factores del entorno regional, como la tasa de cambio o la inflación, son controlables directamente por la organización mediante sus decisiones operativas."
+enunciado: "La planificación es un proceso que ocurre exclusivamente después de la ejecución de las actividades para corregir errores."
 
 explicacion: |
-  Falso. Los factores del macroentorno (regional) no son controlables por la organización, solo condicionan su operación.
+  La planificación es un proceso proactivo que se realiza antes de la acción. El proceso de comparar lo ejecutado con lo planificado es lo que se denomina 'control'.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "basico"
-  tags: ["definicion", "microentorno", "macroentorno"]
+  tema: "planificacion_administrativa"
+  nivel: "intermedio"
+  tags: ["elementos", "objetivos"]
 
 variables:
-  nivel: uno_de(["local", "regional"])
+  datos: [["definir el rumbo", "qué hacer"], ["establecer métodos", "cómo hacerlo"], ["fijar plazos", "cuándo hacerlo"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: "entorno"
+respuesta: datos[idx][1]
 tipo: completar
+respuestas_validas:
+  - "qué hacer"
+  - "cómo hacerlo"
+  - "cuándo hacerlo"
 
-enunciado: "El estudio de contexto analiza el {nivel} en el que se desarrolla una organización para identificar oportunidades y amenazas."
+enunciado: "En la etapa de planificación, cuando una empresa decide establecer los procedimientos y recursos necesarios para alcanzar sus metas, está definiendo ___."
 
 explicacion: |
-  El estudio de contexto se enfoca en analizar el entorno (local o regional) para entender las condiciones externas que afectan a la organización.
+  La planificación implica determinar las acciones (qué), los métodos (cómo) y los tiempos (cuándo).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "basico"
-  tags: ["microentorno", "actores"]
-
-variables:
-  actor: uno_de(["clientes", "proveedores", "competidores"])
-
-respuesta: "{actor}"
-tipo: input
-
-enunciado: "Menciona un actor clave del microentorno que define la viabilidad del producto o servicio: {actor}."
-
-explicacion: |
-  Los clientes, proveedores y competidores son los tres pilares del microentorno según la teoría presentada.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["macroentorno", "herramientas", "pest"]
+  tags: ["flexibilidad", "errores"]
 
-variables:
-  siglas: uno_de(["PEST", "FODA", "SWOT"])
-
-respuesta: "PEST"
-tipo: input
-
-enunciado: "¿Qué herramienta se utiliza comúnmente para analizar el entorno regional considerando factores Políticos, Económicos, Sociales y Tecnológicos? {siglas}."
-
-explicacion: |
-  El análisis PEST es la herramienta estándar para el macroentorno. FODA/SWOT es más general para la estrategia interna/externa combinada.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "avanzado"
-  tags: ["macroentorno", "argentina", "inflacion"]
-
-variables:
-  factor: uno_de(["tasa de cambio", "inflación", "empleo"])
-
-respuesta: "inflación"
-tipo: input
-
-enunciado: "En el contexto argentino, las fluctuaciones en {factor} son un factor macroeconómico crítico que condiciona la operación de las organizaciones."
-
-explicacion: |
-  La inflación y la tasa de cambio son factores clave del macroentorno en Argentina que afectan costos y precios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "basico"
-  tags: ["importancia", "estrategia"]
-
-variables:
-  riesgo: uno_de(["cimientos inestables", "errores de cálculo", "falta de visión"])
-
-respuesta: "cimientos inestables"
-tipo: completar
-
-enunciado: "Sin un diagnóstico previo del contexto, las estrategias se construyen sobre {riesgo}."
-
-explicacion: |
-  El texto enfatiza que sin el estudio de contexto, las estrategias carecen de base real y solidez.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "basico"
-  tags: ["oportunidades", "amenazas"]
-
-variables:
-  tipo_factor: uno_de(["oportunidades", "amenazas"])
-
-respuesta: "amenazas"
-tipo: input
-
-enunciado: "El estudio de contexto permite identificar {tipo_factor} que podrían poner en riesgo el proyecto."
-
-explicacion: |
-  El objetivo dual del análisis es encontrar oportunidades de crecimiento y amenazas potenciales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "intermedio"
-  tags: ["microentorno", "geografia"]
-
-variables:
-  factor: uno_de(["accesibilidad", "mano de obra", "cultura"])
-
-respuesta: "accesibilidad"
-tipo: input
-
-enunciado: "La {factor} a una zona comercial es un determinante clave en el análisis del entorno local."
-
-explicacion: |
-  La accesibilidad física es un elemento crítico del microentorno que afecta la llegada de clientes y proveedores.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "basico"
-  tags: ["microentorno", "cultura"]
-
-variables:
-  elemento: uno_de(["cultura vecinal", "normativa municipal", "infraestructura"])
-
-respuesta: "cultura vecinal"
-tipo: input
-
-enunciado: "La {elemento} puede influir en el éxito del proyecto al definir la aceptación social inmediata."
-
-explicacion: |
-  La cultura local es parte del microentorno y afecta cómo la comunidad recibe el proyecto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "intermedio"
-  tags: ["microentorno", "legal"]
-
-variables:
-  ambito: uno_de(["municipal", "provincial", "nacional"])
-
-respuesta: "municipal"
-tipo: input
-
-enunciado: "La normativa {ambito} es parte del entorno local que la organización debe cumplir diariamente."
-
-explicacion: |
-  Las leyes y regulaciones locales son parte del microentorno inmediato.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "intermedio"
-  tags: ["microentorno", "proveedores"]
-
-variables:
-  impacto: uno_de(["costos", "calidad", "innovacion"])
-
-respuesta: "costos"
-tipo: input
-
-enunciado: "La confiabilidad y los {impacto} de los proveedores impactan directamente en la cadena de valor."
-
-explicacion: |
-  Los proveedores afectan tanto el costo final como la calidad del producto/servicio.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "intermedio"
-  tags: ["microentorno", "competencia"]
-
-variables:
-  medio: uno_de(["precios", "calidad", "innovacion"])
-
-respuesta: "innovacion"
-tipo: input
-
-enunciado: "La presencia de competidores obliga a diferenciarse mediante {medio}, entre otros factores."
-
-explicacion: |
-  La competencia fuerza a la organización a buscar ventajas competitivas como innovación, precio o calidad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "avanzado"
-  tags: ["macroentorno", "finanzas"]
-
-variables:
-  variable: uno_de(["tasa de cambio", "inflación", "PIB"])
-
-respuesta: "tasa de cambio"
-tipo: input
-
-enunciado: "Las fluctuaciones en la {variable} son un ejemplo de factor macroeconómico en Argentina."
-
-explicacion: |
-  La tasa de cambio es un indicador clave del macroentorno económico argentino.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "basico"
-  tags: ["microentorno", "clientes"]
-
-variables:
-  actor: uno_de(["clientes"])
-
-respuesta: "clientes"
-tipo: input
-
-enunciado: "La satisfacción y comportamiento de los {actor} definen la viabilidad del producto o servicio."
-
-explicacion: |
-  Sin clientes satisfechos, el producto no es viable, independientemente de otros factores.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "basico"
-  tags: ["estrategia", "riesgo"]
-
-variables:
-  consecuencia: uno_de(["fracaso", "éxito", "estabilidad"])
-
-respuesta: "fracaso"
-tipo: input
-
-enunciado: "Ignorar las condiciones locales corre el riesgo de llevar al {consecuencia} del proyecto."
-
-explicacion: |
-  El texto advierte que ignorar el contexto local puede llevar al fracaso por falta de adaptación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "intermedio"
-  tags: ["planificacion", "recursos"]
-
-variables:
-  accion: uno_de(["priorizar", "desperdiciar", "ignorar"])
-
-respuesta: "priorizar"
-tipo: input
-
-enunciado: "El análisis de niveles ayuda a {accion} los recursos de manera eficiente."
-
-explicacion: |
-  Entender el contexto permite asignar recursos donde realmente importan.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "intermedio"
-  tags: ["microentorno", "recursos humanos"]
-
-variables:
-  disponibilidad: uno_de(["disponibilidad", "costo", "ubicacion"])
-
-respuesta: "disponibilidad"
-tipo: input
-
-enunciado: "La {disponibilidad} de mano de obra calificada en la ciudad es un factor local determinante."
-
-explicacion: |
-  La oferta de talento local es parte del microentorno y afecta la capacidad operativa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "intermedio"
-  tags: ["herramientas", "pest"]
-
-variables:
-  componente: uno_de(["Político", "Económico", "Social", "Tecnológico"])
-
-respuesta: "Político"
-tipo: input
-
-enunciado: "En el análisis PEST, la 'P' se refiere al factor {componente}."
-
-explicacion: |
-  PEST: Político, Económico, Social, Tecnológico.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "avanzado"
-  tags: ["macroentorno", "mercado"]
-
-variables:
-  factor: uno_de(["factores macroeconómicos", "factores microeconómicos"])
-
-respuesta: "factores macroeconómicos"
-tipo: input
-
-enunciado: "En el nivel regional, los {factor} influyen en la demanda y la oferta de manera general."
-
-explicacion: |
-  Los factores macroeconómicos afectan el mercado en su conjunto, no solo a una empresa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "basico"
-  tags: ["microentorno", "adaptacion"]
-
-variables:
-  riesgo: uno_de(["riesgo", "oportunidad", "ventaja"])
-
-respuesta: "riesgo"
-tipo: input
-
-enunciado: "No adaptarse a las necesidades específicas de la comunidad inmediata es un {riesgo}."
-
-explicacion: |
-  La adaptación local es crucial para evitar riesgos de rechazo o fracaso.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "intermedio"
-  tags: ["microentorno", "infraestructura"]
-
-variables:
-  elemento: uno_de(["infraestructura", "normativa", "cultura"])
-
-respuesta: "infraestructura"
-tipo: input
-
-enunciado: "La {elemento} disponible juega un papel determinante en el entorno local."
-
-explicacion: |
-  La infraestructura (transporte, servicios) es parte del entorno físico local.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "basico"
-  tags: ["vision", "mision", "contexto"]
-
-variables:
-  concepto: uno_de(["visión", "misión", "estrategia"])
-
-respuesta: "visión"
-tipo: input
-
-enunciado: "No basta con saber la {concepto} o la misión; es crucial entender el escenario real."
-
-explicacion: |
-  La visión/misión son internas; el contexto es externo. Ambos deben alinearse.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "intermedio"
-  tags: ["estrategia", "entorno"]
-
-variables:
-  elemento: uno_de(["reglas del juego", "costos fijos", "beneficios"])
-
-respuesta: "reglas del juego"
-tipo: input
-
-enunciado: "Ignorar el contexto es ignorar las {elemento} económicas y sociales."
-
-explicacion: |
-  El contexto define las "reglas del juego" bajo las cuales opera la organización.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "intermedio"
-  tags: ["microentorno", "calidad"]
-
-variables:
-  medio: uno_de(["calidad", "precio", "ubicacion"])
-
-respuesta: "calidad"
-tipo: input
-
-enunciado: "La organización puede diferenciarse mediante la {medio} frente a la competencia."
-
-explicacion: |
-  La calidad es una vía de diferenciación estratégica en el microentorno.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estudio_de_contexto_para_un_proyecto"
-  nivel: "avanzado"
-  tags: ["resumen", "importancia"]
-
-variables:
-  resultado: uno_de(["oportunidades", "amenazas", "ambas"])
-
-respuesta: "ambas"
-tipo: input
-
-enunciado: "El estudio de contexto permite identificar {resultado} para el proyecto."
-
-explicacion: |
-  El estudio sirve tanto para detectar oportunidades como amenazas.
-```
-
-## Sección: fondo-emergencia-diversificacion (22 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
-  nivel: "basico"
-  tags: ["fondo_emergencia", "vocabulario"]
-
-enunciado: "¿Qué es un fondo de emergencia?"
+respuesta: "Planificación excesivamente rígida"
 tipo: mc
-opciones_explicitas:
-  - "Una suma de plata guardada aparte, para gastos imprevistos, priorizando poder sacarla rápido"
-  - "El dinero que se invierte para hacer crecer el capital a largo plazo"
-  - "El monto mínimo que exige un banco para abrir una cuenta"
-respuesta: "Una suma de plata guardada aparte, para gastos imprevistos, priorizando poder sacarla rápido"
+opciones_explicitas: ["Planificación excesivamente rígida", "Falta de objetivos", "Exceso de control", "Delegación ineficiente"]
+
+enunciado: "Un error común en la planificación es diseñar planes que no permiten ajustes ante cambios en el entorno, lo que se conoce como:"
 
 explicacion: |
-  No es una inversión para crecer: es una reserva para lo inesperado,
-  pensada para estar disponible cuando haga falta.
+  Una planificación efectiva debe ser flexible para adaptarse a las contingencias del mercado sin perder de vista el objetivo final.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
-  nivel: "intermedio"
-  tags: ["fondo_emergencia", "vocabulario"]
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["procesos", "orden"]
 
-enunciado: "¿Cuál es el principal beneficio de tener un fondo de emergencia armado?"
+respuesta_orden: ["Planificación", "Organización", "Dirección", "Control"]
+tipo: ordenar
+opciones_explicitas: ["Planificación", "Organización", "Dirección", "Control"]
+
+enunciado: "Ordene las etapas del proceso administrativo en su secuencia lógica estándar:"
+
+explicacion: |
+  El proceso administrativo comienza con la planificación (establecer metas), seguido de la organización (asignar recursos), la dirección (ejecutar/guiar) y el control (evaluar).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "avanzado"
+  tags: ["incertidumbre", "riesgo"]
+
+variables:
+  caso: uno_de([[0.90, "baja"], [0.50, "moderada"], [0.15, "alta"]])
+
+respuesta: caso[1]
 tipo: mc
-opciones_explicitas:
-  - "Evita tener que pedir un préstamo caro o vender una inversión en mal momento ante un gasto imprevisto"
-  - "Genera el rendimiento más alto posible de todos los ahorros"
-  - "Elimina por completo la posibilidad de tener un gasto imprevisto"
-respuesta: "Evita tener que pedir un préstamo caro o vender una inversión en mal momento ante un gasto imprevisto"
+opciones_explicitas: ["alta", "baja", "moderada"]
+
+enunciado: "Si una empresa planifica basándose en un entorno con una probabilidad de éxito del {caso[0]}, la incertidumbre asociada a su planificación es ___."
 
 explicacion: |
-  Sin ese fondo, un imprevisto obliga a elegir entre dos opciones malas:
-  endeudarse caro, o malvender otra inversión.
+  A mayor probabilidad de éxito o mayor control sobre las variables, menor es la incertidumbre. Sin embargo, la planificación siempre busca reducir la incertidumbre, pero nunca puede eliminarla por completo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["procesos_administrativos", "gestion"]
+
+respuesta: "control"
+tipo: "completar"
+respuestas_validas:
+  - "control"
+  - "Control"
+
+enunciado: "Mientras que la planificación establece los objetivos y los medios para alcanzarlos, el proceso de ___ se encarga de verificar que las actividades se realicen conforme a lo planeado."
+
+explicacion: |
+  La planificación es la fase de diseño y establecimiento de metas, mientras que el control es la fase de monitoreo y corrección de desviaciones.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["conceptos_clave"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "La planificación administrativa se caracteriza por ser un proceso reactivo que solo se inicia una vez que los problemas han ocurrido en la organización."
+
+explicacion: |
+  Falso. La planificación es un proceso proactivo y preventivo que busca anticipar situaciones y establecer un curso de acción antes de que los eventos ocurran.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["fondo_emergencia", "vocabulario"]
+  tags: ["elementos", "metas"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["establecer un objetivo", "definir el camino"], ["determinar una meta", "asignar recursos"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: "mc"
+opciones_explicitas: [datos[escenario_idx][0], datos[escenario_idx][1], "evaluar resultados", "ejecutar órdenes"]
+
+enunciado: "En el proceso de planificación, una vez que se ha logrado {datos[escenario_idx][0]}, la siguiente etapa lógica es {datos[escenario_idx][1]}."
+
+explicacion: |
+  La planificación requiere primero la definición del 'qué' (objetivo) y luego el 'cómo' (estrategia o asignación de recursos).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "intermedio"
+  tags: ["jerarquia", "niveles"]
+
+respuesta_orden: ["Planificación Estratégica", "Planificación Táctica", "Planificación Operativa"]
+tipo: "ordenar"
+opciones_explicitas: ["Planificación Estratégica", "Planificación Táctica", "Planificación Operativa"]
+
+enunciado: "Ordene los niveles de planificación de la organización desde el alcance más global y a largo plazo hasta el más específico y de corto plazo:"
+
+explicacion: |
+  La jerarquía administrativa comienza con la Estratégica (toda la empresa/largo plazo), sigue con la Táctica (departamentos/mediano plazo) y finaliza con la Operativa (tareas específicas/corto plazo).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "intermedio"
+  tags: ["procesos_administrativos"]
+
+respuesta: "organizar"
+tipo: "completar"
+respuestas_validas:
+  - "organizar"
+  - "Organizar"
+
+enunciado: "La planificación determina qué se va a hacer y qué recursos se necesitan; por el contrario, la función de ___ se encarga de distribuir esos recursos y asignar responsabilidades entre los miembros de la empresa."
+
+explicacion: |
+  La planificación es el diseño de la acción, mientras que la organización es la estructura que permite ejecutar dicha acción mediante la asignación de tareas y autoridad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["gestion", "procesos"]
+
+respuesta: "definir_metas"
+tipo: mc
+opciones_explicitas: ["definir_metas", "distribuir_insumos", "fijar_tiempos", "evaluar_desempeño"]
+
+enunciado: "En el proceso de planificación, el primer paso fundamental consiste en ___."
+
+explicacion: |
+  La planificación comienza con la definición de objetivos o metas que la organización desea alcanzar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["conceptos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El fondo de emergencia prioriza estar disponible rápido y sin riesgo, aunque eso signifique un rendimiento más bajo que otras inversiones."
+enunciado: "La planificación administrativa implica decidir por adelantado qué se va a hacer, cómo se va a hacer y cuándo se va a hacer."
 
 explicacion: |
-  Ganar menos interés es el costo aceptado a cambio de poder usarlo en
-  el momento exacto en que hace falta.
+  Correcto. La esencia de la planificación es la anticipación de acciones para alcanzar objetivos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
+  tema: "planificacion_administrativa"
   nivel: "intermedio"
-  tags: ["fondo_emergencia", "calculo"]
+  tags: ["procesos", "orden"]
+
+respuesta_orden: ["Diagnóstico", "Objetivos", "Estrategias", "Control"]
+tipo: ordenar
+opciones_explicitas: ["Diagnóstico", "Objetivos", "Estrategias", "Control"]
+
+enunciado: "Ordene cronológicamente las etapas de un proceso de planificación estándar:"
+
+explicacion: |
+  La secuencia lógica siempre parte del análisis de la situación actual para luego proyectar metas y acciones.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "intermedio"
+  tags: ["componentes"]
 
 variables:
-  gasto_mensual: random(50, 500) * 1000
-  meses_cobertura: uno_de([3, 4, 5, 6])
+  datos: [["recursos_humanos", "personal"], ["presupuesto", "dinero"], ["maquinaria", "equipos"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: gasto_mensual * meses_cobertura
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "personal"
+  - "dinero"
+  - "equipos"
+
+enunciado: "Para ejecutar el plan de producción, la empresa debe planificar la asignación de ___."
+
+explicacion: |
+  La planificación requiere la asignación de recursos (humanos, financieros o materiales) para que los planes sean realizables.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "planificacion_administrativa"
+  nivel: "basico"
+  tags: ["tiempo", "cronograma"]
+
+variables:
+  datos: [["corto plazo", "1 año"], ["mediano plazo", "3 años"], ["largo plazo", "5 años"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["1 año", "3 años", "5 años", "10 años"]
+
+enunciado: "Si una empresa está realizando una planificación de {datos[idx][0]}, su horizonte temporal suele ser de ___."
+
+explicacion: |
+  El horizonte temporal define si la planificación es operativa (corto), táctica (mediano) o estratégica (largo).
+```
+
+## Sección: estados-contables (22 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué es el ciclo contable?"
+tipo: mc
+opciones_explicitas:
+  - "La secuencia completa de pasos desde que ocurre un movimiento económico hasta que aparece en los estados contables finales"
+  - "El período de un año calendario, sin más"
+  - "El nombre de un software de contabilidad"
+respuesta: "La secuencia completa de pasos desde que ocurre un movimiento económico hasta que aparece en los estados contables finales"
+
+explicacion: |
+  Conecta todos los pasos ya vistos por separado (asiento, Diario,
+  Mayor) con los estados contables finales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "intermedio"
+  tags: ["contabilidad", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos pasos del ciclo contable, del primero al último."
+opciones_explicitas:
+  - "Se arman los estados contables"
+  - "Ocurre el hecho económico"
+  - "Se pasa la información al Libro Mayor"
+  - "Se registra el asiento en el Libro Diario"
+respuesta_orden: ["Ocurre el hecho económico", "Se registra el asiento en el Libro Diario", "Se pasa la información al Libro Mayor", "Se arman los estados contables"]
+
+explicacion: |
+  Cada paso depende del anterior: sin el hecho económico no hay
+  asiento, sin asiento no hay mayor, sin mayor no hay estados
+  contables.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué muestra el Estado de Situación Patrimonial?"
+tipo: mc
+opciones_explicitas:
+  - "Una foto de un instante puntual: qué tiene y qué debe la empresa en esa fecha"
+  - "Todo lo que ganó y gastó la empresa durante un período completo"
+  - "Sólo las cuentas de Caja y Bancos"
+respuesta: "Una foto de un instante puntual: qué tiene y qué debe la empresa en esa fecha"
+
+explicacion: |
+  Es una fotografía, no una película: describe un momento, no un
+  período.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué muestra el Estado de Resultados?"
+tipo: mc
+opciones_explicitas:
+  - "Todo lo que ganó y gastó la empresa durante un período completo"
+  - "Una foto de un instante puntual de la empresa"
+  - "Sólo los préstamos pendientes de pago"
+respuesta: "Todo lo que ganó y gastó la empresa durante un período completo"
+
+explicacion: |
+  Es una película de un período (un mes, un año), no una foto de un
+  instante.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Estado de Situación Patrimonial se arma con la misma ecuación ya vista en Debe y Haber: Activo = Pasivo + Patrimonio Neto."
+
+explicacion: |
+  Es la misma ecuación contable fundamental, aplicada acá como
+  producto final del ciclo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "intermedio"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  activo: random(500, 900) * 1000
+  pasivo: random(100, 400) * 1000
+
+respuesta: activo - pasivo
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Los gastos esenciales mensuales de una familia son ${gasto_mensual}. Si se recomienda tener {meses_cobertura} meses de cobertura, ¿cuánto debería tener ahorrado su fondo de emergencia?"
+enunciado: "Una empresa tiene un Activo de ${activo} y un Pasivo de ${pasivo}. ¿Cuál es su Patrimonio Neto?"
 
 explicacion: |
-  Se multiplica el gasto mensual esencial por la cantidad de meses de
-  cobertura deseada.
+  Patrimonio Neto = Activo - Pasivo, despejando la ecuación contable.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
+  tema: "estados_contables"
   nivel: "intermedio"
-  tags: ["fondo_emergencia", "calculo"]
+  tags: ["contabilidad", "calculo"]
 
 variables:
-  gasto_mensual: random(50, 500) * 1000
-  meses_cobertura: uno_de([3, 4, 5, 6])
-  monto_ahorrado: gasto_mensual * meses_cobertura
+  pasivo: random(100, 400) * 1000
+  patrimonio_neto: random(200, 600) * 1000
 
-respuesta: meses_cobertura
+respuesta: pasivo + patrimonio_neto
 tipo: input
-tolerancia_abs: 0.1
+tolerancia_abs: 0
 
-enunciado: "Una familia tiene ${monto_ahorrado} ahorrados, y gasta ${gasto_mensual} por mes en lo esencial. ¿Cuántos meses de cobertura le da ese fondo de emergencia?"
+enunciado: "Una empresa tiene un Pasivo de ${pasivo} y un Patrimonio Neto de ${patrimonio_neto}. ¿Cuál es su Activo total?"
 
 explicacion: |
-  Se divide el monto ahorrado por el gasto mensual esencial.
+  Activo = Pasivo + Patrimonio Neto, aplicando la ecuación directo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
+  tema: "estados_contables"
   nivel: "basico"
-  tags: ["fondo_emergencia", "vocabulario"]
+  tags: ["contabilidad", "vocabulario"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El fondo de emergencia no es lo mismo que una inversión pensada para hacer crecer el capital a largo plazo."
-
-explicacion: |
-  Tienen objetivos distintos: uno busca estar disponible ante lo
-  imprevisto, el otro busca crecer con el tiempo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
-  nivel: "intermedio"
-  tags: ["fondo_emergencia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Usar el fondo de emergencia ante un gasto imprevisto evita tener que pedir un préstamo a una tasa de interés alta, como la de una tarjeta de crédito."
-
-explicacion: |
-  Es plata que ya estaba separada para ese fin, sin necesidad de
-  endeudarse.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
-  nivel: "intermedio"
-  tags: ["fondo_emergencia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin un fondo de emergencia, un gasto imprevisto puede forzar a vender otra inversión justo cuando conviene menos hacerlo (por ejemplo, con esa inversión en baja)."
-
-explicacion: |
-  El fondo de emergencia evita quedar obligado a vender algo en el peor
-  momento posible.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
-  nivel: "basico"
-  tags: ["fondo_emergencia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El fondo de emergencia se guarda en algo de fácil y rápido acceso, no en un instrumento difícil o lento de convertir en efectivo."
-
-explicacion: |
-  Si la plata no está disponible cuando hace falta, no cumple su
-  función de fondo de emergencia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
-  nivel: "basico"
-  tags: ["diversificacion", "vocabulario"]
-
-enunciado: "¿Qué es diversificar una inversión?"
+enunciado: "¿Cuándo una empresa tiene ganancia en el Estado de Resultados?"
 tipo: mc
 opciones_explicitas:
-  - "Repartir el dinero entre varias inversiones distintas, en vez de ponerlo todo en una sola"
-  - "Elegir la inversión con el rendimiento esperado más alto posible"
-  - "Cambiar de inversión constantemente para aprovechar cada oportunidad"
-respuesta: "Repartir el dinero entre varias inversiones distintas, en vez de ponerlo todo en una sola"
+  - "Cuando los Ingresos son mayores que los Gastos"
+  - "Cuando el Activo es mayor que el Pasivo"
+  - "Cuando el Pasivo es igual a cero"
+respuesta: "Cuando los Ingresos son mayores que los Gastos"
 
 explicacion: |
-  Es la idea de "no poner todos los huevos en la misma canasta".
+  Resultado = Ingresos - Gastos; si da positivo, es ganancia.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
+  tema: "estados_contables"
   nivel: "intermedio"
-  tags: ["diversificacion", "vocabulario"]
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  ingresos: random(300, 700) * 1000
+  gastos: random(100, 250) * 1000
+
+respuesta: ingresos - gastos
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Durante el mes, una empresa tuvo Ingresos por ${ingresos} y Gastos por ${gastos}. ¿Cuál es su resultado del período?"
+
+explicacion: |
+  Resultado = Ingresos - Gastos. Un número positivo es ganancia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "intermedio"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  ingresos: random(100, 400) * 1000
+  gastos: random(300, 700) * 1000
+  resultado: ingresos - gastos
+
+respuesta: (resultado < 0)
+tipo: vf
+
+enunciado: "Una empresa tuvo Ingresos de ${ingresos} y Gastos de ${gastos} en el período. ¿Es correcto decir que tuvo una pérdida?"
+
+explicacion: |
+  Se compara Ingresos contra Gastos: si Gastos es mayor, el resultado
+  es negativo, o sea pérdida.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Para qué sirve el balance de comprobación, dentro del ciclo contable?"
+tipo: mc
+opciones_explicitas:
+  - "Para verificar que la suma de todos los saldos deudores coincida con la suma de todos los saldos acreedores del Mayor"
+  - "Para calcular el impuesto a las ganancias del período"
+  - "Para registrar un nuevo asiento contable"
+respuesta: "Para verificar que la suma de todos los saldos deudores coincida con la suma de todos los saldos acreedores del Mayor"
+
+explicacion: |
+  Es un control: si no coinciden, hay un error de carga en algún
+  asiento del período.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué son los ajustes de cierre, en el ciclo contable?"
+tipo: mc
+opciones_explicitas:
+  - "Correcciones que reconocen algo que ya pasó pero no se había registrado todavía (por ejemplo, la depreciación de una máquina)"
+  - "Los primeros asientos que se cargan al empezar un ejercicio"
+  - "Un tipo de impuesto que paga la empresa"
+respuesta: "Correcciones que reconocen algo que ya pasó pero no se había registrado todavía (por ejemplo, la depreciación de una máquina)"
+
+explicacion: |
+  No vienen de un movimiento nuevo, sino de reconocer contablemente
+  algo que ya venía ocurriendo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "avanzado"
+  tags: ["contabilidad", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Diversificar reduce el riesgo total de una cartera de inversiones, sin necesariamente reducir su valor esperado."
+enunciado: "Al cerrar el ejercicio, el resultado del período (ganancia o pérdida) pasa a formar parte del Patrimonio Neto."
 
 explicacion: |
-  Es uno de los pocos "beneficios gratis" en finanzas: bajar el riesgo
-  sin sacrificar el promedio esperado.
+  Es el punto donde se conectan los dos estados contables: lo que
+  ganó o perdió la empresa modifica lo que le queda a los dueños.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
+  tema: "estados_contables"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una empresa tiene ganancia en un período, su Patrimonio Neto aumenta al cerrar el ejercicio."
+
+explicacion: |
+  La ganancia se suma al Patrimonio Neto en el cierre.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una empresa tiene pérdida en un período, su Patrimonio Neto se reduce al cerrar el ejercicio."
+
+explicacion: |
+  La pérdida se resta del Patrimonio Neto en el cierre.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "avanzado"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  patrimonio_inicial: random(500, 900) * 1000
+  ingresos: random(200, 500) * 1000
+  gastos: random(50, 180) * 1000
+
+respuesta: patrimonio_inicial + (ingresos - gastos)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una empresa arrancó el período con un Patrimonio Neto de ${patrimonio_inicial}. Durante el período tuvo Ingresos de ${ingresos} y Gastos de ${gastos}. ¿Cuál es su Patrimonio Neto al cierre?"
+
+pasos:
+  - "Resultado del período: {ingresos} - {gastos} = {ingresos - gastos}"
+  - "Patrimonio final: {patrimonio_inicial} + {ingresos - gastos}"
+
+explicacion: |
+  El Patrimonio Neto final es el inicial más el resultado del
+  período (que puede ser positivo o negativo).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
   nivel: "basico"
-  tags: ["diversificacion", "vocabulario"]
+  tags: ["contabilidad", "vocabulario"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"No poner todos los huevos en la misma canasta\" es una forma popular de resumir la idea de diversificación."
+enunciado: "¿Cuál de estas comparaciones describe mejor la diferencia entre el Estado de Situación Patrimonial y el Estado de Resultados?"
+tipo: mc
+opciones_explicitas:
+  - "El Patrimonial es una foto de un instante; el de Resultados es una película de un período"
+  - "El Patrimonial es mensual y el de Resultados es siempre anual"
+  - "No hay ninguna diferencia real entre los dos"
+respuesta: "El Patrimonial es una foto de un instante; el de Resultados es una película de un período"
 
 explicacion: |
-  Si se rompe una sola canasta con todos los huevos, se pierden todos;
-  repartidos en varias, un problema en una no arrastra al resto.
+  Es la metáfora central del tema: uno describe un momento, el otro
+  describe un tramo de tiempo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
+  tema: "estados_contables"
   nivel: "intermedio"
-  tags: ["diversificacion", "vocabulario"]
+  tags: ["contabilidad", "problema"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La diversificación reduce más el riesgo cuando los activos elegidos no reaccionan siempre de la misma forma a los mismos eventos."
+enunciado: "Un banco quiere saber qué tiene y qué debe una empresa HOY antes de decidir si le da un crédito. ¿Qué estado contable conviene consultar?"
+tipo: mc
+opciones_explicitas:
+  - "El Estado de Situación Patrimonial"
+  - "El Estado de Resultados"
+  - "El balance de comprobación únicamente"
+respuesta: "El Estado de Situación Patrimonial"
 
 explicacion: |
-  Si dos activos siempre suben y bajan exactamente igual, combinarlos no
-  reduce nada el riesgo.
+  Es la foto del instante presente: exactamente lo que necesita el
+  banco para esa decisión.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
-  nivel: "avanzado"
-  tags: ["diversificacion", "calculo"]
-
-variables:
-  p_sol: random(30, 70)
-  ganancia_a_sol: random(30, 60) * 1000
-  ganancia_a_lluvia: random(0, 15) * 1000
-
-respuesta: (p_sol / 100) * ganancia_a_sol + (1 - p_sol / 100) * ganancia_a_lluvia
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Una heladería gana ${ganancia_a_sol} en un día soleado y ${ganancia_a_lluvia} en un día lluvioso. La probabilidad de que un día sea soleado es {p_sol}%. ¿Cuál es la ganancia esperada de la heladería?"
-
-pasos:
-  - "E(heladería) = {p_sol/100} × {ganancia_a_sol} + {1 - p_sol/100} × {ganancia_a_lluvia}"
-
-explicacion: |
-  Se pondera cada resultado posible por su probabilidad, igual que
-  cualquier valor esperado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
-  nivel: "avanzado"
-  tags: ["diversificacion", "calculo"]
-
-variables:
-  p_sol: random(30, 70)
-  ganancia_b_sol: random(0, 15) * 1000
-  ganancia_b_lluvia: random(30, 60) * 1000
-
-respuesta: (p_sol / 100) * ganancia_b_sol + (1 - p_sol / 100) * ganancia_b_lluvia
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Una fábrica de paraguas gana ${ganancia_b_sol} en un día soleado y ${ganancia_b_lluvia} en un día lluvioso. La probabilidad de que un día sea soleado es {p_sol}%. ¿Cuál es la ganancia esperada de la fábrica?"
-
-pasos:
-  - "E(paraguas) = {p_sol/100} × {ganancia_b_sol} + {1 - p_sol/100} × {ganancia_b_lluvia}"
-
-explicacion: |
-  Es la misma fórmula que en la heladería, con los resultados invertidos
-  entre día soleado y lluvioso.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
-  nivel: "avanzado"
-  tags: ["diversificacion", "calculo"]
-
-variables:
-  p_sol: random(30, 70)
-  ganancia_a_sol: random(30, 60) * 1000
-  ganancia_a_lluvia: random(0, 15) * 1000
-  ganancia_b_sol: random(0, 15) * 1000
-  ganancia_b_lluvia: random(30, 60) * 1000
-  esperado_a: (p_sol / 100) * ganancia_a_sol + (1 - p_sol / 100) * ganancia_a_lluvia
-  esperado_b: (p_sol / 100) * ganancia_b_sol + (1 - p_sol / 100) * ganancia_b_lluvia
-
-respuesta: 0.5 * esperado_a + 0.5 * esperado_b
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Con la heladería (ganancia esperada ${redondear(esperado_a, 2)}) y la fábrica de paraguas (ganancia esperada ${redondear(esperado_b, 2)}), alguien invierte la mitad de su plata en cada una. ¿Cuál es la ganancia esperada del portafolio combinado?"
-
-pasos:
-  - "E(portafolio) = 0,5 × {redondear(esperado_a, 2)} + 0,5 × {redondear(esperado_b, 2)}"
-
-explicacion: |
-  El valor esperado del portafolio es el promedio ponderado de los
-  valores esperados de cada activo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
+  tema: "estados_contables"
   nivel: "intermedio"
-  tags: ["diversificacion", "vocabulario"]
+  tags: ["contabilidad", "problema"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El valor esperado de un portafolio con varios activos es siempre el promedio ponderado (según cuánto se invirtió en cada uno) de los valores esperados individuales — eso no cambia por diversificar."
+enunciado: "Un inversor quiere saber si una empresa gana o pierde plata de forma sostenida en los últimos años. ¿Qué estado contable conviene consultar?"
+tipo: mc
+opciones_explicitas:
+  - "El Estado de Resultados de varios períodos"
+  - "El Estado de Situación Patrimonial de un solo día"
+  - "El Libro Diario del último mes"
+respuesta: "El Estado de Resultados de varios períodos"
 
 explicacion: |
-  Lo que baja al diversificar es el riesgo, no el valor esperado
-  combinado.
+  Muestra la evolución de ganancias y pérdidas período a período, que
+  es justo lo que necesita evaluar.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
-  nivel: "avanzado"
-  tags: ["diversificacion", "calculo"]
-
-variables:
-  p_sol: random(30, 70)
-  ganancia_a_sol: random(30, 60) * 1000
-  ganancia_a_lluvia: random(0, 15) * 1000
-  esperado_a: (p_sol / 100) * ganancia_a_sol + (1 - p_sol / 100) * ganancia_a_lluvia
-  varianza_a: (p_sol / 100) * (ganancia_a_sol - esperado_a) ^ 2 + (1 - p_sol / 100) * (ganancia_a_lluvia - esperado_a) ^ 2
-
-respuesta: sqrt(varianza_a)
-tipo: input
-tolerancia_abs: 3
-
-enunciado: "Invirtiendo todo en la heladería (ganancia esperada ${redondear(esperado_a, 2)}, {p_sol}% de probabilidad de día soleado), ¿cuál es el desvío estándar de ese resultado?"
-
-explicacion: |
-  Se calcula la varianza ponderando cada resultado posible según su
-  distancia al valor esperado, y se toma la raíz cuadrada.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
-  nivel: "avanzado"
-  tags: ["diversificacion", "calculo"]
-
-variables:
-  p_sol: random(30, 70)
-  ganancia_a_sol: random(30, 60) * 1000
-  ganancia_a_lluvia: random(0, 15) * 1000
-  ganancia_b_sol: random(0, 15) * 1000
-  ganancia_b_lluvia: random(30, 60) * 1000
-  resultado_sol: 0.5 * ganancia_a_sol + 0.5 * ganancia_b_sol
-  resultado_lluvia: 0.5 * ganancia_a_lluvia + 0.5 * ganancia_b_lluvia
-  esperado_portafolio: (p_sol / 100) * resultado_sol + (1 - p_sol / 100) * resultado_lluvia
-  varianza_portafolio: (p_sol / 100) * (resultado_sol - esperado_portafolio) ^ 2 + (1 - p_sol / 100) * (resultado_lluvia - esperado_portafolio) ^ 2
-
-respuesta: sqrt(varianza_portafolio)
-tipo: input
-tolerancia_abs: 3
-
-enunciado: "Invirtiendo la mitad en la heladería y la mitad en la fábrica de paraguas, ¿cuál es el desvío estándar del resultado combinado?"
-
-explicacion: |
-  Como las dos ganan en climas opuestos, el resultado combinado varía
-  mucho menos entre un día soleado y uno lluvioso que cualquiera de las
-  dos por separado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
-  nivel: "avanzado"
-  tags: ["diversificacion", "comparacion"]
-
-variables:
-  p_sol: random(30, 70)
-  ganancia_a_sol: random(30, 60) * 1000
-  ganancia_a_lluvia: random(0, 15) * 1000
-  ganancia_b_sol: random(0, 15) * 1000
-  ganancia_b_lluvia: random(30, 60) * 1000
-  esperado_a: (p_sol / 100) * ganancia_a_sol + (1 - p_sol / 100) * ganancia_a_lluvia
-  varianza_a: (p_sol / 100) * (ganancia_a_sol - esperado_a) ^ 2 + (1 - p_sol / 100) * (ganancia_a_lluvia - esperado_a) ^ 2
-  resultado_sol: 0.5 * ganancia_a_sol + 0.5 * ganancia_b_sol
-  resultado_lluvia: 0.5 * ganancia_a_lluvia + 0.5 * ganancia_b_lluvia
-  esperado_portafolio: (p_sol / 100) * resultado_sol + (1 - p_sol / 100) * resultado_lluvia
-  varianza_portafolio: (p_sol / 100) * (resultado_sol - esperado_portafolio) ^ 2 + (1 - p_sol / 100) * (resultado_lluvia - esperado_portafolio) ^ 2
-
-respuesta: (varianza_portafolio < varianza_a)
-tipo: vf
-
-enunciado: "Comparando invertir todo en la heladería contra invertir la mitad en la heladería y la mitad en la fábrica de paraguas, ¿el portafolio combinado tiene menor riesgo (menor varianza) que invertir todo en la heladería sola?"
-
-explicacion: |
-  Como ganan en climas opuestos, combinarlas amortigua la variación
-  total — el portafolio combinado queda más estable que cualquiera de
-  las dos por separado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
+  tema: "estados_contables"
   nivel: "basico"
-  tags: ["diversificacion", "orden"]
+  tags: ["contabilidad"]
+
+variables:
+  ingresos: random(200, 600) * 1000
+  gastos: random(50, 150) * 1000
+  resultado: ingresos - gastos
+
+tipo: completar
+enunciado: "Completá: Resultado = {ingresos} - {gastos} = ___ (resultado)."
+respuestas_validas:
+  - resultado
+
+explicacion: |
+  Es la aplicación directa de la fórmula del Estado de Resultados.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "avanzado"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El ciclo contable completo es el PROCESO, y los estados contables (patrimonio y resultados) son el PRODUCTO de ese proceso: por eso se enseñan como un solo tema."
+
+explicacion: |
+  Es la idea central que conecta las dos partes del título de este
+  tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estados_contables"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El ciclo contable completo va desde que ocurre un movimiento económico (asiento, Diario, Mayor) hasta que se arman los estados contables finales de la empresa."
+
+explicacion: |
+  Es el resumen de todo el recorrido de esta sub-rama de Contabilidad.
+```
+
+## Sección: plazo-fijo-vs-inflacion (22 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "basico"
+  tags: ["rendimiento_real", "vocabulario"]
+
+enunciado: "¿Qué es el rendimiento real de una inversión?"
+tipo: mc
+opciones_explicitas:
+  - "Cuánto creció el poder adquisitivo del dinero, descontando la inflación del período"
+  - "La tasa de interés que informa el banco, sin ajustar por nada más"
+  - "La diferencia entre dos bancos distintos que ofrecen la misma inversión"
+respuesta: "Cuánto creció el poder adquisitivo del dinero, descontando la inflación del período"
+
+explicacion: |
+  Es la diferencia entre "cuántos pesos más tengo" (nominal) y "cuánto
+  más puedo comprar con esos pesos" (real).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "basico"
+  tags: ["rendimiento_real", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La tasa nominal es la que informa el banco: cuántos pesos de más da la inversión, sin ajustar por la inflación del período."
+
+explicacion: |
+  Es el punto de partida del cálculo, pero por sí sola no dice si el
+  dinero ganó o perdió poder de compra.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "intermedio"
+  tags: ["rendimiento_real", "calculo"]
+
+variables:
+  tasa_nominal: random(20, 150)
+  inflacion: random(20, 150)
+
+respuesta: ((1 + tasa_nominal / 100) / (1 + inflacion / 100) - 1) * 100
+tipo: input
+tolerancia_abs: 0.3
+
+enunciado: "Un plazo fijo pagó una tasa nominal anual del {tasa_nominal}%, en un año con una inflación del {inflacion}%. ¿Cuál fue el rendimiento real, en porcentaje?"
+
+pasos:
+  - "rendimiento_real = (1 + {tasa_nominal/100}) / (1 + {inflacion/100}) - 1"
+
+explicacion: |
+  Se aplica la ecuación de Fisher: se divide (1 + tasa nominal) por
+  (1 + inflación), y se le resta 1.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "intermedio"
+  tags: ["rendimiento_real", "vocabulario"]
+
+variables:
+  inflacion: random(50, 150)
+  tasa_nominal: random(20, 49)
+
+respuesta: (((1 + tasa_nominal / 100) / (1 + inflacion / 100) - 1) < 0)
+tipo: vf
+
+enunciado: "Un plazo fijo pagó una tasa nominal anual del {tasa_nominal}%, en un año con una inflación del {inflacion}%. ¿El rendimiento real fue negativo?"
+
+explicacion: |
+  Cuando la inflación supera a la tasa nominal, el rendimiento real
+  siempre da negativo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "intermedio"
+  tags: ["rendimiento_real", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Es posible tener un rendimiento real negativo aunque el saldo en pesos de la cuenta haya crecido: el dinero es \"más\" en pesos, pero compra menos que antes."
+
+explicacion: |
+  Eso es justamente lo que revela el rendimiento real, que la sola tasa
+  nominal no muestra.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "intermedio"
+  tags: ["rendimiento_real"]
+
+enunciado: "¿Cuál es la fórmula correcta del rendimiento real (ecuación de Fisher)?"
+tipo: mc
+opciones_explicitas:
+  - "(1 + tasa_nominal) / (1 + inflación) - 1"
+  - "tasa_nominal / inflación"
+  - "tasa_nominal + inflación"
+respuesta: "(1 + tasa_nominal) / (1 + inflación) - 1"
+
+explicacion: |
+  La segunda y la tercera opción no son la fórmula de Fisher: no
+  reflejan cómo se combinan tasa nominal e inflación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "intermedio"
+  tags: ["rendimiento_real", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"Rendimiento real ≈ tasa nominal − inflación\" es sólo una aproximación de la ecuación de Fisher, válida cuando ambas tasas son chicas — no es el cálculo exacto."
+
+explicacion: |
+  El cálculo exacto es (1 + tasa_nominal) / (1 + inflación) - 1, no la
+  resta directa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "avanzado"
+  tags: ["rendimiento_real", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Con tasas de interés e inflación altas (como suele pasar en Argentina), la aproximación \"tasa nominal − inflación\" se aleja bastante del resultado exacto de la ecuación de Fisher."
+
+explicacion: |
+  La aproximación ignora el término que divide por (1 + inflación); ese
+  error se vuelve grande cuando la inflación no es chica.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "avanzado"
+  tags: ["rendimiento_real", "calculo"]
+
+variables:
+  tasa_nominal: random(60, 150)
+  inflacion: random(60, 150)
+
+respuesta: (tasa_nominal - inflacion) - ((1 + tasa_nominal / 100) / (1 + inflacion / 100) - 1) * 100
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Con una tasa nominal del {tasa_nominal}% y una inflación del {inflacion}%, ¿cuántos puntos porcentuales de diferencia hay entre la aproximación simple (resta directa) y el resultado exacto de Fisher?"
+
+pasos:
+  - "Aproximación: {tasa_nominal} - {inflacion} = {tasa_nominal - inflacion}"
+  - "Exacto: (1 + {tasa_nominal/100}) / (1 + {inflacion/100}) - 1, en porcentaje"
+
+explicacion: |
+  Con tasas de esta magnitud, la diferencia entre ambos cálculos ya no
+  es despreciable.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "intermedio"
+  tags: ["rendimiento_real", "comparacion"]
+
+variables:
+  tasa_nominal: random(20, 150)
+  inflacion_a: random(20, 60)
+  inflacion_b: random(61, 150)
+
+respuesta: (((1 + tasa_nominal / 100) / (1 + inflacion_b / 100) - 1) < ((1 + tasa_nominal / 100) / (1 + inflacion_a / 100) - 1))
+tipo: vf
+
+enunciado: "Con la misma tasa nominal del {tasa_nominal}%, ¿una inflación del {inflacion_b}% da un rendimiento real menor que una inflación del {inflacion_a}%?"
+
+explicacion: |
+  A mayor inflación, con la misma tasa nominal, menor el rendimiento
+  real — la inflación erosiona más el poder de compra.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "intermedio"
+  tags: ["rendimiento_real", "comparacion"]
+
+variables:
+  inflacion: random(20, 150)
+  tasa_a: random(20, 60)
+  tasa_b: random(61, 150)
+
+respuesta: (((1 + tasa_b / 100) / (1 + inflacion / 100) - 1) > ((1 + tasa_a / 100) / (1 + inflacion / 100) - 1))
+tipo: vf
+
+enunciado: "Con la misma inflación del {inflacion}%, ¿una tasa nominal del {tasa_b}% da un rendimiento real mayor que una del {tasa_a}%?"
+
+explicacion: |
+  A igual inflación, a mayor tasa nominal, mayor el rendimiento real.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "avanzado"
+  tags: ["rendimiento_real", "calculo"]
+
+variables:
+  inflacion: random(20, 150)
+
+respuesta: inflacion
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Si la inflación de un año fue del {inflacion}%, ¿qué tasa nominal anual necesitaba pagar una inversión para que el rendimiento real diera exactamente 0%?"
+
+explicacion: |
+  Por la ecuación de Fisher, el rendimiento real da 0% sólo cuando la
+  tasa nominal es exactamente igual a la inflación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "avanzado"
+  tags: ["rendimiento_real", "calculo"]
+
+variables:
+  inflacion: random(30, 150)
+  rendimiento_real_objetivo: random(5, 20)
+  tasa_nominal: (1 + rendimiento_real_objetivo / 100) * (1 + inflacion / 100) * 100 - 100
+
+respuesta: tasa_nominal
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "En un año con {inflacion}% de inflación, ¿qué tasa nominal anual hace falta para lograr un rendimiento real del {rendimiento_real_objetivo}%?"
+
+pasos:
+  - "tasa_nominal = (1 + rendimiento_real) × (1 + inflación) - 1"
+
+explicacion: |
+  Se despeja la tasa nominal de la ecuación de Fisher: (1 + tasa_nominal)
+  = (1 + rendimiento_real) × (1 + inflación).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "avanzado"
+  tags: ["rendimiento_real", "problema"]
+
+variables:
+  capital: random(100, 1000) * 1000
+  tasa_nominal: random(30, 150)
+  inflacion: random(30, 150)
+  monto_nominal: capital * (1 + tasa_nominal / 100)
+
+respuesta: monto_nominal / (1 + inflacion / 100)
+tipo: input
+tolerancia_abs: 5
+
+enunciado: "Un capital de ${capital} se puso a plazo fijo un año, a una tasa nominal anual del {tasa_nominal}%, en un año con {inflacion}% de inflación. El monto nominal al final es ${redondear(monto_nominal, 2)}. ¿Cuánto vale eso en poder de compra de hoy (valor real, en los pesos de hace un año)?"
+
+pasos:
+  - "Valor real = monto nominal ÷ (1 + inflación) = {redondear(monto_nominal, 2)} ÷ {1 + inflacion/100}"
+
+explicacion: |
+  Se divide el monto nominal final por (1 + inflación) para expresarlo
+  en el poder de compra del momento en que se empezó a invertir.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "intermedio"
+  tags: ["rendimiento_real", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Elegir un plazo fijo sólo por tener la tasa nominal más alta, sin comparar contra la inflación esperada, puede llevar a un resultado real peor que otra opción con tasa nominal más baja pero rendimiento real mayor."
+
+explicacion: |
+  Lo mismo que ya pasaba al comparar créditos por CFT en vez de por TNA:
+  el número nominal más llamativo no siempre es el mejor dato para
+  decidir.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "intermedio"
+  tags: ["rendimiento_real"]
+
+variables:
+  tasa_nominal: random(20, 60)
+  inflacion: random(20, 60)
+  aproximado: tasa_nominal - inflacion
+
+tipo: completar
+enunciado: "Con una tasa nominal del {tasa_nominal}% y una inflación del {inflacion}%, completá la aproximación simple: {tasa_nominal} (tasa nominal) - {inflacion} (inflación) = ___ (rendimiento real aproximado, en puntos porcentuales)."
+respuestas_validas:
+  - aproximado
+
+explicacion: |
+  Es la aproximación simple (válida sólo con tasas chicas) — no la
+  ecuación de Fisher exacta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "basico"
+  tags: ["rendimiento_real", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La inflación reduce el rendimiento real de una inversión, incluso si esa inversión paga intereses positivos."
+
+explicacion: |
+  Los intereses suman pesos; la inflación resta poder de compra a esos
+  mismos pesos — el resultado neto es lo que mide el rendimiento real.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "intermedio"
+  tags: ["rendimiento_real", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Que el rendimiento real dé exactamente 0% es un caso muy puntual: sólo pasa cuando la tasa nominal coincide exactamente con la inflación del mismo período."
+
+explicacion: |
+  Cualquier diferencia entre ambas, para cualquier lado, ya da un
+  rendimiento real distinto de cero.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "basico"
+  tags: ["rendimiento_real", "orden"]
 
 tipo: ordenar
-enunciado: "Ordená estas tres formas de invertir de menor a mayor riesgo."
+enunciado: "Con una inflación anual del 50% fija, ordená estos rendimientos nominales de menor a mayor rendimiento real."
 opciones_explicitas:
-  - "Todo el dinero en las acciones de una sola empresa"
-  - "Plazo fijo a tasa fija"
-  - "Portafolio diversificado en muchas empresas distintas"
-respuesta_orden: ["Plazo fijo a tasa fija", "Portafolio diversificado en muchas empresas distintas", "Todo el dinero en las acciones de una sola empresa"]
+  - "Nominal 80%"
+  - "Nominal 40%"
+  - "Nominal 60%"
+respuesta_orden: ["Nominal 40%", "Nominal 60%", "Nominal 80%"]
 
 explicacion: |
-  El plazo fijo prácticamente no tiene riesgo; diversificar reduce el
-  riesgo frente a apostar todo a una sola empresa, pero sigue teniendo
-  más riesgo que un instrumento garantizado.
+  A igual inflación, a mayor tasa nominal, mayor rendimiento real — el
+  orden de la tasa nominal es el mismo que el del rendimiento real.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "fondo_emergencia_diversificacion"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "intermedio"
+  tags: ["rendimiento_real", "verificacion"]
+
+variables:
+  tasa_nominal: random(20, 150)
+  inflacion: random(20, 150)
+  correcto: ((1 + tasa_nominal / 100) / (1 + inflacion / 100) - 1) * 100
+  error: uno_de([0, 0, 0, 5, -5])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 0.5)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? Tasa nominal {tasa_nominal}%, inflación {inflacion}%, rendimiento real informado: {redondear(mostrado, 2)}%."
+
+explicacion: |
+  Se vuelve a aplicar la ecuación de Fisher y se compara con el valor
+  informado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
   nivel: "basico"
-  tags: ["fondo_emergencia", "diversificacion", "vocabulario"]
+  tags: ["rendimiento_real", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El fondo de emergencia es la reserva líquida y de bajo riesgo para lo imprevisto; la diversificación es repartir el resto de las inversiones para reducir el riesgo total sin sacrificar el valor esperado — las dos son piezas del mismo objetivo: manejar mejor el riesgo de la vida financiera de una persona."
+enunciado: "Un aumento de sueldo que queda por debajo de la inflación del mismo período es, en términos reales, una pérdida de poder adquisitivo — aunque el número en el recibo de sueldo sea más alto que antes."
+
+explicacion: |
+  Es el mismo concepto de rendimiento real aplicado a un sueldo en vez
+  de a una inversión.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "plazo_fijo_vs_inflacion"
+  nivel: "basico"
+  tags: ["rendimiento_real", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El rendimiento real se calcula con (1 + tasa nominal) / (1 + inflación) - 1: mide cuánto cambió el poder de compra del dinero, no sólo cuántos pesos de más hay."
 
 explicacion: |
   Es la idea central de todo el tema.
 ```
 
-## Sección: indices-financieros (22 preguntas)
+## Sección: contabilidad-ambiental (25 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
-  nivel: "basico"
-  tags: ["liquidez", "corriente"]
-
-variables:
-  ac: random(100, 500)
-  pc: random(50, 150)
-  resultado: redondear(ac / pc, 2)
-
-respuesta: "{resultado}"
-tipo: input
-
-enunciado: "Una empresa tiene Activos Corrientes de {ac} y Pasivos Corrientes de {pc}. Calculá el índice de Liquidez Corriente. Redondeá a 2 decimales."
-
-explicacion: |
-  La Liquidez Corriente se calcula dividiendo los Activos Corrientes entre los Pasivos Corrientes.
-  Fórmula: AC / PC.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "indices_financieros"
+  tema: "contabilidad_ambiental"
   nivel: "intermedio"
-  tags: ["rotacion", "stock"]
+  tags: ["calculos", "externalidades"]
 
 variables:
-  costo: random(1000, 5000)
-  inventario: random(100, 500)
-  resultado: redondear(costo / inventario, 2)
+  costo_externo: random(1000, 5000)
+  costo_privado: random(2000, 8000)
 
-respuesta: "{resultado}"
+respuesta: "{costo_privado + costo_externo}"
 tipo: input
 
-enunciado: "El Costo de Mercadería Vendida es {costo} y el Inventario Promedio es {inventario}. Calculá la rotación de stock."
+enunciado: "Una empresa tiene un costo privado de producción de {costo_privado} pesos y genera una externalidad negativa valorizada en {costo_externo} pesos. Según la contabilidad ambiental, ¿cuál es el costo económico total real de esta actividad?"
 
 explicacion: |
-  La rotación de stock mide cuántas veces se renueva el inventario. Se calcula como Costo de Mercadería Vendida / Inventario Promedio.
+  El costo económico total es la suma del costo privado (pagado por la empresa) más el costo externo (impuesto a la sociedad). Internalizar la externalidad implica reconocer esta suma como el costo real de la actividad.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
-  nivel: "basico"
-  tags: ["balance", "activos"]
-
-variables:
-  ac: random(100, 300)
-  af: random(400, 900)
-  resultado: ac + af
-
-respuesta: "{resultado}"
-tipo: input
-
-enunciado: "Los Activos Corrientes son {ac} y los Activos Fijos son {af}. ¿Cuál es el total de Activos?"
-
-explicacion: |
-  Activos Totales = Activos Corrientes + Activos Fijos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "indices_financieros"
+  tema: "contabilidad_ambiental"
   nivel: "intermedio"
-  tags: ["liquidez", "acida"]
+  tags: ["eficiencia", "calculos"]
 
 variables:
-  ac: random(200, 500)
-  inventario: random(50, 150)
-  pc: random(100, 300)
-  numerador: ac - inventario
-  resultado: redondear(numerador / pc, 2)
+  ingreso_bruto: random(100000, 200000)
+  costo_operativo: random(40000, 60000)
+  costo_ambiental: random(10000, 30000)
 
-respuesta: "{resultado}"
+respuesta: "{ingreso_bruto - costo_operativo - costo_ambiental}"
 tipo: input
 
-enunciado: "Activos Corrientes: {ac}, Inventario: {inventario}, Pasivos Corrientes: {pc}. Calculá la Liquidez Ácida."
+enunciado: "Una empresa tiene un ingreso bruto de {ingreso_bruto}, costos operativos de {costo_operativo} y un costo ambiental internalizado de {costo_ambiental}. ¿Cuál es su beneficio económico real ajustado?"
 
 explicacion: |
-  Liquidez Ácida = (Activos Corrientes - Inventario) / Pasivos Corrientes.
-  Elimina el inventario porque es el activo menos líquido.
+  El beneficio real se calcula restando tanto los costos operativos tradicionales como los costos ambientales internalizados. Esto muestra la verdadera sostenibilidad financiera de la actividad.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
-  nivel: "basico"
-  tags: ["conceptos", "costo"]
+  tema: "contabilidad_ambiental"
+  nivel: "avanzado"
+  tags: ["carbono", "calculos"]
 
 variables:
-  tasa: random(5, 15)
-  monto: random(1000, 5000)
-  interes: redondear(monto * (tasa / 100), 0)
+  emisiones_co2: random(100, 1000)
+  precio_carbono: random(10, 50)
 
-respuesta: "{interes}"
+respuesta: "{emisiones_co2 * precio_carbono}"
+tipo: input
+
+enunciado: "Si una fábrica emite {emisiones_co2} toneladas de CO2 y el precio social del carbono es de {precio_carbono} pesos por tonelada, ¿cuál es el costo ambiental total de estas emisiones?"
+
+explicacion: |
+  El costo ambiental se calcula multiplicando la cantidad de emisiones por el precio social del carbono, que representa el daño económico estimado por cada unidad emitida.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "intermedio"
+  tags: ["suelos", "recuperacion"]
+
+variables:
+  costo_recuperacion: random(10000, 50000)
+  vida_util: random(5, 10)
+
+respuesta: "{costo_recuperacion / vida_util}"
+tipo: input
+
+enunciado: "Si el costo total de recuperación de un suelo degradado es de {costo_recuperacion} pesos y la vida útil estimada de la recuperación es de {vida_util} años, ¿cuál es el costo anualizado?"
+
+explicacion: |
+  El costo anualizado permite distribuir el gasto de recuperación a lo largo del tiempo, facilitando su comparación con los beneficios anuales de la actividad productiva que causó el daño.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "avanzado"
+  tags: ["eficiencia", "recursos"]
+
+variables:
+  valor_produccion: random(100000, 300000)
+  consumo_recursos: random(1000, 5000)
+
+respuesta: "{valor_produccion / consumo_recursos}"
+tipo: input
+
+enunciado: "Si una empresa genera {valor_produccion} pesos de valor con {consumo_recursos} unidades de recurso natural, ¿cuál es su eficiencia de recursos (valor por unidad de recurso)?"
+
+explicacion: |
+  La eficiencia de recursos mide cuánta valor económico se genera por cada unidad de recurso consumido. Un valor más alto indica una gestión más sostenible y eficiente.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "intermedio"
+  tags: ["daños", "estimacion"]
+
+variables:
+  daño_directo: random(5000, 20000)
+  daño_indirecto: random(10000, 40000)
+
+respuesta: "{daño_directo + daño_indirecto}"
+tipo: input
+
+enunciado: "Si un derrame causa un daño directo de {daño_directo} y un daño indirecto (pérdida de turismo, etc.) de {daño_indirecto}, ¿cuál es el costo total del incidente?"
+
+explicacion: |
+  El costo total de un incidente ambiental incluye tanto los daños directos (limpieza, multas) como los indirectos (pérdida de ingresos para otros sectores, salud pública), reflejando el impacto completo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "intermedio"
+  tags: ["externalidades", "costos"]
+
+variables:
+  a: random(10, 50)
+  b: random(1, 10)
+  costo_total: a + b
+
+respuesta: costo_total
+tipo: input
+
+enunciado: "Si una fábrica genera un beneficio privado de {a} millones pero traslada un costo de salud pública de {b} millones a la comunidad, ¿cuál es el costo social total no internalizado inicialmente?"
+
+explicacion: |
+  La externalidad negativa traslada el costo a terceros. El costo social total es la suma del beneficio privado (que no refleja el daño) más el costo del daño. En este contexto de cálculo simple de impacto, sumamos las magnitudes dadas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "avanzado"
+  tags: ["riesgo", "sostenibilidad"]
+
+variables:
+  a: random(1, 5)
+  b: random(1, 5)
+
+respuesta: "{max(a, b)}"
+tipo: input
+
+enunciado: "Si ignoramos los costos ocultos, el riesgo financiero asociado al cambio climático se subestima. Si el riesgo directo es {a} y el indirecto es {b}, ¿cuál es el valor máximo de riesgo individual considerado en la evaluación básica?"
+
+explicacion: |
+  Se pide el máximo de dos valores de riesgo hipotéticos para evaluar la comprensión de la magnitud del impacto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "intermedio"
+  tags: ["calculos", "emisiones"]
+
+variables:
+  a: random(100, 500)
+  b: random(100, 500)
+  c: random(100, 500)
+  promedio: redondear((a + b + c) / 3, 2)
+
+respuesta: promedio
+tipo: input
+
+enunciado: "Si una empresa emitió {a} toneladas en Q1, {b} en Q2 y {c} en Q3, ¿cuál fue la emisión promedio trimestral?"
+
+explicacion: |
+  Se calcula el promedio aritmético de las emisiones para entender la magnitud del impacto ambiental anual.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "intermedio"
+  tags: ["costos", "suelos"]
+
+variables:
+  a: random(10, 100)
+  b: random(1, 10)
+  costo: a * b
+
+respuesta: costo
+tipo: input
+
+enunciado: "Si el costo de recuperación por hectárea es de {a} mil pesos y se degradaron {b} hectáreas, ¿cuál es el costo total de recuperación?"
+
+explicacion: |
+  Multiplicación simple para estimar el costo financiero de la restauración ambiental mencionada en la teoría.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "avanzado"
+  tags: ["precios", "GEE"]
+
+variables:
+  a: random(5, 20)
+  b: random(100, 1000)
+  costo_total: a * b
+
+respuesta: costo_total
+tipo: input
+
+enunciado: "Si el precio por tonelada de CO2 es de {a} dólares y la empresa emite {b} toneladas, ¿cuál es el costo total de las emisiones?"
+
+explicacion: |
+  Cálculo del costo interno que la empresa debería asumir si internalizara el costo de las emisiones.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "intermedio"
+  tags: ["costos", "limpieza"]
+
+variables:
+  a: random(50, 200)
+  b: random(10, 50)
+  total: a + b
+
+respuesta: total
+tipo: input
+
+enunciado: "Si el costo de limpieza del río es {a} millones y el de salud pública es {b} millones, ¿cuál es el costo total trasladado a la comunidad?"
+
+explicacion: |
+  Suma de los costos externos generados por la contaminación, que la contabilidad ambiental busca internalizar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "avanzado"
+  tags: ["huella_carbono", "calculos"]
+
+variables:
+  a: random(10, 50)
+  b: random(10, 50)
+  c: random(10, 50)
+  total: a + b + c
+
+respuesta: total
+tipo: input
+
+enunciado: "Si las fuentes fijas emiten {a}, las móviles {b} y los residuos {c}, ¿cuál es la huella total de emisiones?"
+
+explicacion: |
+  Suma de las emisiones directas e indirectas para determinar el impacto ambiental total.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "avanzado"
+  tags: ["costo_oportunidad", "decisiones"]
+
+variables:
+  a: random(100, 500)
+  b: random(10, 50)
+  ratio: redondear(a / b, 2)
+
+respuesta: ratio
+tipo: input
+
+enunciado: "Si el beneficio privado es {a} y el costo ambiental es {b}, ¿cuál es la relación beneficio/costo ambiental?"
+
+explicacion: |
+  Cálculo de la relación para evaluar la eficiencia económica ignorando el impacto ambiental.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "basico"
+  tags: ["capital_natural", "recursos"]
+
+variables:
+  recurso: "uno_de(['agua potable', 'aire limpio', 'fertilidad del suelo'])"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El {recurso} es considerado un bien gratuito e infinito en los modelos económicos tradicionales, pero tiene un valor económico real en la contabilidad ambiental."
+
+explicacion: |
+  Falso en la teoría moderna/ambiental. La contabilidad ambiental sostiene que estos recursos tienen valor económico real y no son infinitos, por lo que deben ser cuantificados.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "intermedio"
+  tags: ["internalizacion", "mecanismos"]
+
+variables:
+  agente: "uno_de(['quien contamina', 'el consumidor', 'el estado'])"
+
+respuesta: "quien contamina"
 tipo: completar
 
-enunciado: "Si inviertes {monto} a una tasa del {tasa}% anual, el rendimiento futuro es {interes}. Este monto representa el costo de oportunidad de no tener el dinero disponible hoy."
+enunciado: "El principio de 'quien contamina paga' busca que el costo de la degradación ambiental sea asumido por {agente}."
+
+respuestas_validas:
+  - "quien contamina"
+  - "el contaminador"
 
 explicacion: |
-  El costo de oportunidad en finanzas suele referirse al retorno perdido al elegir una alternativa sobre otra. Aquí se calcula el interés generado.
+  La internalización de costos implica que el agente que genera la externalidad negativa debe asumir el costo económico del daño causado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
-  nivel: "intermedio"
-  tags: ["rotacion", "cuentas_cobrar"]
-
-variables:
-  ventas_credito: random(10000, 50000)
-  cuentas_cobrar: random(1000, 5000)
-  dias: 360
-  rotacion: ventas_credito / cuentas_cobrar
-  resultado: floor(dias / rotacion)
-
-respuesta: "{resultado}"
-tipo: input
-
-enunciado: "Ventas a Crédito: {ventas_credito}, Cuentas por Cobrar: {cuentas_cobrar}. Usando un año de 360 días, calculá el período promedio de cobro en días."
-
-explicacion: |
-  Período de Cobro = 360 / (Ventas a Crédito / Cuentas por Cobrar).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "indices_financieros"
+  tema: "contabilidad_ambiental"
   nivel: "avanzado"
-  tags: ["valor_tiempo", "vp"]
+  tags: ["servicios_ecosistemicos", "valoracion"]
 
 variables:
-  vf: random(1000, 5000)
-  tasa: random(5, 10)
-  anios: uno_de([1, 2, 3])
-  resultado: redondear(vf / ((1 + tasa/100) ^ anios), 2)
+  valor_polinizacion: random(10000, 20000)
+  valor_purificacion_agua: random(5000, 10000)
+  porcentaje_perdida: uno_de([0.1, 0.2, 0.3])
 
-respuesta: "{resultado}"
+respuesta: redondear((valor_polinizacion + valor_purificacion_agua) * porcentaje_perdida, 0)
 tipo: input
 
-enunciado: "Un valor futuro de {vf} dentro de {anios} años, con una tasa de descuento del {tasa}%, tiene un Valor Presente de aproximadamente:"
+enunciado: "Si el valor anual de los servicios de polinización es {valor_polinizacion} y de purificación de agua es {valor_purificacion_agua}, y un proyecto destruye el {porcentaje_perdida} de estos servicios, ¿cuál es el costo económico de la pérdida?"
 
 explicacion: |
-  VP = VF / (1 + r)^n.
+  Se calcula sumando los valores de los servicios ecosistémicos y aplicando el porcentaje de daño causado por la actividad humana.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
+  tema: "contabilidad_ambiental"
   nivel: "basico"
-  tags: ["liquidez", "efectivo"]
+  tags: ["externalidades", "definicion"]
 
 variables:
-  caja: random(100, 500)
-  bancos: random(200, 800)
-  resultado: caja + bancos
+  tipo_ext: "una externalidad negativa"
 
-respuesta: "{resultado}"
-tipo: input
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Caja: {caja}, Bancos: {bancos}. ¿Cuál es el total de Efectivo y Equivalentes de Efectivo?"
+enunciado: "Una {tipo_ext} ocurre cuando una actividad económica afecta a terceros sin compensación monetaria."
 
 explicacion: |
-  Efectivo = Caja + Bancos. Es el activo más líquido.
+  Correcto. Las externalidades negativas son costos impuestos a terceros que no figuran en los precios de mercado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
+  tema: "contabilidad_ambiental"
+  nivel: "basico"
+  tags: ["sostenibilidad", "gestion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La contabilidad ambiental permite tomar decisiones que consideren la sostenibilidad futura, no solo la rentabilidad inmediata."
+
+explicacion: |
+  Correcto. Al integrar variables ecológicas, se evalúa el impacto a largo plazo de las decisiones económicas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "intermedio"
+  tags: ["eficiencia", "recursos"]
+
+variables:
+  input_total: random(1000, 5000)
+  output_util: random(600, 4000)
+
+respuesta: redondear((output_util / input_total) * 100, 2)
+tipo: input
+
+enunciado: "Si una empresa utiliza {input_total} unidades de recurso para generar {output_util} unidades de producto útil, ¿cuál es el porcentaje de eficiencia de uso?"
+
+explicacion: |
+  La eficiencia se calcula como (producto útil / insumo total) * 100.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "basico"
+  tags: ["salud", "externalidades"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La contaminación industrial puede generar costos de salud pública que deben ser considerados en la contabilidad ambiental."
+
+explicacion: |
+  Correcto. Los impactos en la salud de la comunidad son externalidades negativas que tienen un costo económico.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
+  nivel: "basico"
+  tags: ["incentivos", "practicas_limpias"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Asignar un precio a la contaminación crea incentivos económicos para favorecer prácticas más limpias."
+
+explicacion: |
+  Correcto. Al internalizar el costo, las empresas tienen un incentivo financiero para reducir su impacto ambiental.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_ambiental"
   nivel: "avanzado"
-  tags: ["costo", "capital"]
+  tags: ["sensibilidad", "riesgo"]
 
 variables:
-  dividendo: random(2, 10)
-  precio: random(20, 50)
-  crecimiento: random(2, 8)
-  costo: redondear((dividendo / precio) + (crecimiento / 100), 4)
+  costo_base: random(10000, 50000)
+  factor_riesgo: uno_de([1.1, 1.2, 1.5, 2.0])
 
-respuesta: "{costo}"
+respuesta: redondear(costo_base * factor_riesgo, 0)
 tipo: input
 
-enunciado: "Dividendo esperado: {dividendo}, Precio de la acción: {precio}, Tasa de crecimiento: {crecimiento}%. Calculá el Costo de Capital Accionario (Modelo Gordon)."
+enunciado: "Si el costo base de un proyecto es {costo_base} y se aplica un factor de riesgo ambiental del {factor_riesgo}, ¿cuál es el costo ajustado por riesgo?"
 
 explicacion: |
-  Ke = (D1 / P0) + g.
-  Donde D1 es dividendo, P0 precio y g tasa de crecimiento.
+  El costo ajustado se obtiene multiplicando el costo base por el factor de riesgo ambiental seleccionado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
+  tema: "contabilidad_ambiental"
   nivel: "intermedio"
-  tags: ["costos", "equilibrio"]
+  tags: ["agua", "costos"]
 
 variables:
-  costos_fijos: random(1000, 5000)
-  precio: random(100, 300)
-  costo_variable: random(40, 80)
-  resultado: floor(costos_fijos / (precio - costo_variable))
+  litros_usados: random(1000, 10000)
+  costo_por_litro: random(0.1, 1.0)
 
-respuesta: "{resultado}"
+respuesta: redondear(litros_usados * costo_por_litro, 2)
 tipo: input
 
-enunciado: "Costos Fijos: {costos_fijos}, Precio de Venta: {precio}, Costo Variable Unitario: {costo_variable}. Calculá el punto de equilibrio en unidades."
+enunciado: "Si una industria utiliza {litros_usados} litros de agua y el costo económico del recurso es {costo_por_litro} por litro, ¿cuál es el costo total del agua utilizada?"
 
 explicacion: |
-  Punto de Equilibrio = Costos Fijos / (Precio - Costo Variable Unitario).
+  El costo total se calcula multiplicando el volumen de agua por su costo económico unitario.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
-  nivel: "intermedio"
-  tags: ["valor_tiempo", "vf"]
+  tema: "contabilidad_ambiental"
+  nivel: "basico"
+  tags: ["visibilidad", "transparencia"]
 
-variables:
-  pv: random(1000, 5000)
-  tasa: random(5, 10)
-  anios: uno_de([1, 2, 3])
-  resultado: redondear(pv * ((1 + tasa/100) ^ anios), 2)
+respuesta: verdadero
+tipo: vf
 
-respuesta: "{resultado}"
-tipo: input
-
-enunciado: "Si inviertes {pv} hoy a una tasa del {tasa}% anual durante {anios} años, el Valor Futuro será:"
+enunciado: "La contabilidad ambiental busca dar visibilidad a los costos ocultos que los modelos tradicionales ignoran."
 
 explicacion: |
-  VF = PV * (1 + r)^n.
+  Correcto. Su objetivo es revelar el verdadero impacto económico de las actividades productivas sobre el medio ambiente.
+```
+
+## Sección: contabilidad-como-sistema-de-informacion (26 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["sistema_informacion", "definicion"]
+
+variables:
+  analogia: uno_de(["sistema nervioso", "corazón", "estómago"])
+
+respuesta: "sistema nervioso"
+tipo: completar
+
+enunciado: "En la analogía corporativa, la contabilidad funciona como el {analogia} de la empresa, llevando información vital a quienes toman decisiones."
+
+explicacion: |
+  La contabilidad se compara con el sistema nervioso y circulatorio porque transporta datos financieros cruciales para la "salud" y decisión empresarial.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
-  nivel: "intermedio"
-  tags: ["liquidez", "inmediata"]
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["objetivo", "informacion"]
 
 variables:
-  efectivo: random(50, 200)
-  pc: random(100, 400)
-  resultado: redondear(efectivo / pc, 2)
+  dato_crudo: random(1, 100)
+  conocimiento: redondear(dato_crudo / 10, 1)
 
-respuesta: "{resultado}"
-tipo: input
+respuesta: "conocimiento"
+tipo: completar
 
-enunciado: "Efectivo y Equivalentes: {efectivo}, Pasivos Corrientes: {pc}. Calculá la Liquidez Inmediata."
+enunciado: "La contabilidad transforma datos crudos como ventas o compras en {conocimiento} útil para la gestión."
 
 explicacion: |
-  Liquidez Inmediata = Efectivo / Pasivos Corrientes.
-  Mide la capacidad de pago sin vender inventario.
+  El proceso clave es la transformación de datos operativos en información procesada que permite la toma de decisiones.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
-  nivel: "intermedio"
-  tags: ["recuperacion", "inversion"]
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["ciclo_comercial", "comercio"]
 
 variables:
-  inversion: random(5000, 15000)
-  flujo_anual: random(1000, 3000)
-  resultado: floor(inversion / flujo_anual)
+  ejemplo: uno_de(["supermercado", "fábrica de autos", "panadería"])
+  accion: "compra y venta de bienes ya terminados"
 
-respuesta: "{resultado}"
-tipo: input
+respuesta: "compra y venta de bienes ya terminados"
+tipo: completar
 
-enunciado: "Inversión Inicial: {inversion}, Flujo de Caja Anual Constante: {flujo_anual}. Calculá el periodo de recuperación simple en años."
+enunciado: "En el ciclo comercial, típico de empresas como {ejemplo}, la actividad central es la {accion}."
 
 explicacion: |
-  Periodo de Recuperación = Inversión Inicial / Flujo de Caja Anual.
+  El ciclo comercial implica intermediación: comprar productos terminados y venderlos sin alterar su forma física.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
+  tema: "contabilidad_como_sistema_de_informacion"
   nivel: "avanzado"
-  tags: ["wacc", "capital"]
+  tags: ["costos", "industrial"]
 
 variables:
-  deuda_ratio: 0.4
-  eq_ratio: 0.6
-  costo_deuda: 0.08
-  costo_equity: 0.12
-  impuesto: 0.30
-  wacc: redondear((deuda_ratio * costo_deuda * (1 - impuesto)) + (eq_ratio * costo_equity), 4)
+  costo1: "materiales directos"
+  costo2: "mano de obra directa"
+  costo3: "gastos generales de fabricación"
 
-respuesta: "{wacc}"
-tipo: input
+respuesta: "gastos generales de fabricación"
+tipo: completar
 
-enunciado: "Estructura de Capital: 40% Deuda, 60% Equity. Costo Deuda: 8%, Costo Equity: 12%, Impuesto: 30%. Calculá el WACC."
+enunciado: "La contabilidad industrial rastrea materiales directos, mano de obra directa y {costo3}."
 
 explicacion: |
-  WACC = (Wd * Kd * (1-T)) + (We * Ke).
+  Los tres componentes esenciales del costo de producción son materiales, mano de obra y gastos indirectos o generales.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
+  tema: "contabilidad_como_sistema_de_informacion"
   nivel: "basico"
-  tags: ["liquidez", "interpretacion"]
+  tags: ["informes", "balance"]
 
 variables:
-  ac: random(100, 300)
-  pc: random(301, 500)
+  informe: "Balance General"
 
-respuesta: falso
-tipo: vf
+respuesta: "Balance General"
+tipo: completar
 
-enunciado: "Si una empresa tiene Activos Corrientes de {ac} y Pasivos Corrientes de {pc}, su Liquidez Corriente indica que tiene holgura para pagar sus deudas a corto plazo."
+enunciado: "Uno de los principales informes que actúan como 'informes médicos' de la compañía es el {informe}."
 
 explicacion: |
-  Falso. Al ser {ac} < {pc}, el índice es menor a 1 ({redondear(ac/pc, 2)}), lo que indica dificultad potencial para cubrir obligaciones a corto plazo.
+  El Balance General muestra la situación patrimonial (activos, pasivos y patrimonio) en un momento dado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
-  nivel: "intermedio"
-  tags: ["rotacion", "eficiencia"]
-
-variables:
-  costo_ventas: random(1000, 5000)
-  inventario: random(100, 500)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un índice de rotación de inventario alto indica que la empresa vende su mercadería rápidamente y la mantiene poco tiempo en almacén."
-
-explicacion: |
-  Verdadero. Una rotación alta significa que el inventario se renueva frecuentemente, lo que suele ser un signo de buena gestión y demanda.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "indices_financieros"
-  nivel: "intermedio"
-  tags: ["estructura", "riesgo"]
-
-variables:
-  ratio: uno_de([0.3, 0.4, 0.5, 0.6, 0.7])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un ratio de endeudamiento del {ratio} se considera generalmente de muy bajo riesgo financiero para cualquier tipo de empresa."
-
-explicacion: |
-  Falso. Un ratio de {ratio} ({ratio*100}%) indica que el 40-70% de los activos está financiado con deuda, lo que representa un nivel de riesgo moderado a alto, dependiendo del sector.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "indices_financieros"
+  tema: "contabilidad_como_sistema_de_informacion"
   nivel: "basico"
-  tags: ["rentabilidad", "interpretacion"]
+  tags: ["informes", "resultados"]
 
 variables:
-  margen: uno_de([0.05, 0.1, 0.15, 0.2, 0.3])
+  informe: "Estado de Resultados"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "Estado de Resultados"
+tipo: completar
 
-enunciado: "Un margen neto del {margen*100}% significa que por cada peso vendido, la empresa se queda con {redondear(margen*100, 1)} centavos de ganancia después de todos los gastos."
+enunciado: "El {informe} muestra la capacidad de generar ganancias o pérdidas en un período."
 
 explicacion: |
-  Verdadero. El margen neto refleja la eficiencia global de la empresa en la conversión de ventas en ganancias.
+  El Estado de Resultados (o de Ganancias y Pérdidas) resume ingresos y egresos del periodo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
+  tema: "contabilidad_como_sistema_de_informacion"
   nivel: "intermedio"
-  tags: ["estructura", "riesgo"]
+  tags: ["comercio", "inventario"]
 
 variables:
-  ratio: uno_de([0.5, 0.8, 1.2, 1.5, 2.0])
+  foco: "control de inventarios"
 
-respuesta: falso
-tipo: vf
+respuesta: "control de inventarios"
+tipo: completar
 
-enunciado: "Un ratio Deuda/Patrimonio de {ratio} indica que la empresa está financiada principalmente con recursos propios (patrimonio)."
+enunciado: "En el ciclo comercial, la contabilidad se centra en el {foco} de mercadería."
 
 explicacion: |
-  Falso. Si el ratio es mayor a 1 (como {ratio}), significa que la deuda es mayor que el patrimonio, por lo que la financiación es principalmente ajena.
+  Para los comerciantes, el manejo preciso del stock es vital para calcular el margen de ganancia.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
+  tema: "contabilidad_como_sistema_de_informacion"
   nivel: "basico"
-  tags: ["rentabilidad", "interpretacion"]
+  tags: ["ejemplos", "industria"]
 
 variables:
-  margen: uno_de([0.05, 0.1, 0.15, 0.2, 0.3])
+  ejemplo: uno_de(["fábrica de muebles", "supermercado", "agencia de viajes"])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "fábrica de muebles"
+tipo: completar
 
-enunciado: "Un margen operativo del {margen*100}% indica la eficiencia de la empresa en la gestión de sus costos y gastos operativos antes de impuestos e intereses."
+enunciado: "Un ejemplo clásico de ciclo industrial es una {ejemplo}."
 
 explicacion: |
-  Verdadero. El margen operativo refleja la rentabilidad del negocio principal, excluyendo efectos financieros y tributarios.
+  Las fábricas transforman madera en muebles, requiriendo contabilidad de costos compleja.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
-  nivel: "intermedio"
-  tags: ["rentabilidad", "interpretacion"]
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["ejemplos", "comercio"]
 
 variables:
-  roe: uno_de([0.05, 0.1, 0.15, 0.2, 0.3])
+  ejemplo: uno_de(["tienda de ropa", "planta de alimentos", "taller mecánico"])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "tienda de ropa"
+tipo: completar
 
-enunciado: "Un ROE del {roe*100}% indica que por cada peso invertido por los accionistas, la empresa generó {redondear(roe*100, 1)} centavos de ganancia."
+enunciado: "Un ejemplo clásico de ciclo comercial es una {ejemplo}."
 
 explicacion: |
-  Verdadero. El ROE es una medida clave de la rentabilidad desde la perspectiva del accionista.
+  Las tiendas de ropa compran prendas terminadas y las venden, sin manufacturarlas.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "indices_financieros"
-  nivel: "intermedio"
-  tags: ["rotacion", "interpretacion"]
-
-variables:
-  rotacion: uno_de([0.5, 1.0, 1.5, 2.0, 3.0])
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["definicion", "sistema_informacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una rotación de activo total de {rotacion} indica que la empresa genera {rotacion} pesos de ventas por cada peso de activo que posee."
+enunciado: "La contabilidad se define fundamentalmente como un sistema de información diseñado para captar, procesar y comunicar datos económicos, más que como un simple conjunto de cálculos numéricos."
 
 explicacion: |
-  Verdadero. Este ratio refleja la eficiencia en el uso de los activos para generar ingresos.
+  Correcto. La contabilidad funciona como el 'sistema nervioso' de la empresa, transformando datos crudos en información útil para la toma de decisiones.
 ```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "intermedio"
+  tags: ["clasificacion", "ciclo_industrial"]
+
+variables:
+  caso: uno_de(["fabrica_de_muebles", "planta_de_alimentos", "taller_de_autos"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una {caso} opera bajo el ciclo industrial porque transforma materias primas en productos terminados."
+
+explicacion: |
+  Correcto. La transformación física del producto es la marca distintiva del ciclo industrial frente al comercial.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "avanzado"
+  tags: ["gastos", "industrial"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El alquiler de un galpón de producción se considera un gasto general de fabricación en el ciclo industrial."
+
+explicacion: |
+  Correcto. Los gastos indirectos necesarios para la producción, como el alquiler de la fábrica, son gastos generales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "avanzado"
+  tags: ["materia_prima", "industrial"]
+
+variables:
+  materia: uno_de(["madera", "cuero", "harina"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "{materia} es un ejemplo de materia prima directa en una fábrica de muebles."
+
+explicacion: |
+  La madera es el insumo principal que se transforma en el producto final en una carpintería.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["analogia", "comunicacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la analogía, la contabilidad también funciona como el sistema circulatorio, distribuyendo la información a los stakeholders."
+
+explicacion: |
+  La analogía completa incluye el sistema nervioso (captación) y circulatorio (distribución) de la información.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["accountability", "ética"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La contabilidad facilita la rendición de cuentas (accountability) a dueños e inversores."
+
+explicacion: |
+  Permite verificar que los recursos se usen conforme a lo esperado y reportar resultados reales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "intermedio"
+  tags: ["ejemplo", "industrial"]
+
+variables:
+  planta: uno_de(["planta_de_alimentos", "fábrica_de_textiles", "fundición"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "{planta} es un ejemplo de entidad que opera en el ciclo industrial."
+
+explicacion: |
+  Estas plantas transforman materias primas en productos finales mediante procesos productivos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["transparencia", "confianza"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La transparencia financiera promovida por la contabilidad ayuda a atraer socios e inversores."
+
+explicacion: |
+  Los inversores confían en empresas con informes claros y auditables.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["definicion", "sistema_informacion"]
+
+variables:
+  pass: 1
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La contabilidad se define fundamentalmente como un sistema de información diseñado para captar, procesar y comunicar datos económicos, más que como un mero conjunto de cálculos numéricos."
+
+explicacion: |
+  La contabilidad es el sistema nervioso de la empresa. Su función principal es transformar datos crudos en información útil para la toma de decisiones, asegurando transparencia y rendición de cuentas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["analogia", "funcion"]
+
+variables:
+  pass: 1
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la analogía propuesta, la contabilidad funciona como el sistema nervioso y circulatorio de la empresa, llevando información vital sobre su salud financiera a los decisores."
+
+explicacion: |
+  Sin este flujo de información, dueños e inversores navegarían a ciegas. La contabilidad permite saber si hay ganancias, cuánto se debe y cómo se usan los recursos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "intermedio"
+  tags: ["comparacion"]
+
+variables:
+  pass: 1
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La diferencia estructural clave entre ciclo comercial e industrial es la existencia de un proceso de transformación de materias primas en el industrial."
+
+explicacion: |
+  El comercial solo mueve bienes terminados. El industrial los crea, lo que exige un sistema de costos más complejo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["transparencia"]
+
+variables:
+  pass: 1
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La contabilidad es la herramienta básica para la transparencia y la rendición de cuentas en el mundo de los negocios."
+
+explicacion: |
+  Permite a los externos (inversores, bancos) y internos verificar el estado real de la organización y la gestión de los recursos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "avanzado"
+  tags: ["complejidad"]
+
+variables:
+  pass: 1
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La contabilidad del ciclo industrial es más compleja que la del ciclo comercial debido al rastreo de tres tipos de costos."
+
+explicacion: |
+  La necesidad de imputar costos indirectos y calcular el costo de producción hace que el sistema contable industrial sea más robusto y detallado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "intermedio"
+  tags: ["impacto"]
+
+variables:
+  pass: 1
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La claridad en los informes contables determina la capacidad de la empresa para conseguir créditos y atraer socios."
+
+explicacion: |
+  Los terceros externos confían en la información contable para evaluar el riesgo y la solvencia de la empresa antes de prestar dinero o invertir.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["consecuencias"]
+
+variables:
+  pass: 1
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin el sistema de información contable, los dueños e inversores navegarían a ciegas respecto a la salud financiera."
+
+explicacion: |
+  La falta de información impide detectar problemas a tiempo, optimizar recursos o justificar la gestión ante los stakeholders.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "avanzado"
+  tags: ["estructura_costos"]
+
+variables:
+  pass: 1
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el ciclo industrial, la diferencia clave es la necesidad de rastrear materiales directos, mano de obra y gastos generales."
+
+explicacion: |
+  Esta triple estructura de costos es lo que distingue contablemente a la industria del comercio puro.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "contabilidad_como_sistema_de_informacion"
+  nivel: "basico"
+  tags: ["definicion"]
+
+variables:
+  pass: 1
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La contabilidad NO es simplemente una obligación tributaria, sino un sistema de información clave."
+
+explicacion: |
+  Aunque tiene fines fiscales, su esencia es la gestión interna y la comunicación externa de la realidad económica de la empresa.
+```
+

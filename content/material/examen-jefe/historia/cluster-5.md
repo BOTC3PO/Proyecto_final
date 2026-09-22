@@ -1,17 +1,17 @@
-# Examen jefe — Revoluciones y Positivismo
+# Examen jefe — [PENDIENTE #725]
 
-> Logro #125. Completaste el parcial sobre las revoluciones y el positivismo, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **109 preguntas totales** en 5/5 secciones.
+> Logro #725. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 8 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **160 preguntas totales** en 8/8 secciones.
 
 ---
 
-## Sección: periodizacion-historica (20 preguntas)
+## Sección: significancia-historica (20 preguntas)
 
 ```
 metadata:
   materia: "historia"
-  tema: "periodizacion_historica"
+  tema: "significancia_historica"
   nivel: "basico"
-  tags: ["periodizacion", "definicion"]
+  tags: ["significancia_historica", "definicion"]
 
 variables:
   n: uno_de([1, 1])
@@ -19,420 +19,279 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Periodizar es dividir el tiempo histórico en bloques delimitados por hechos que se consideran lo suficientemente importantes como para marcar un antes y un después."
+enunciado: "La significancia histórica es el criterio que usan los historiadores para decidir qué hechos merecen ser estudiados, recordados y enseñados."
 
 pasos:
-  - "Es una herramienta de análisis que los historiadores construyen, no una división natural del tiempo."
+  - "Nadie puede estudiar cada detalle de todo lo que ocurrió en el pasado."
 
 explicacion: |
-  Verdadero: es la definición central de periodización.
+  Verdadero: es la definición central de significancia histórica.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "basico"
-  tags: ["prehistoria"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Prehistoria"
-tipo: mc
-opciones_explicitas: ["Prehistoria", "Edad Antigua", "Edad Media"]
-
-enunciado: "El período que va desde el origen de la humanidad hasta la invención de la escritura se llama..."
-
-pasos:
-  - "Es el primer período de la periodización clásica occidental."
-
-explicacion: |
-  La Prehistoria es el período anterior a la invención de la
-  escritura.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "basico"
-  tags: ["edad_antigua"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Edad Antigua"
-tipo: mc
-opciones_explicitas: ["Prehistoria", "Edad Antigua", "Edad Media"]
-
-enunciado: "El período que va desde la invención de la escritura hasta la caída del Imperio Romano de Occidente (476 d.C.) se llama..."
-
-pasos:
-  - "Es el segundo período de la periodización clásica occidental."
-
-explicacion: |
-  La Edad Antigua va desde la escritura hasta la caída de Roma.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "basico"
-  tags: ["edad_media"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Edad Media"
-tipo: mc
-opciones_explicitas: ["Edad Antigua", "Edad Media", "Edad Moderna"]
-
-enunciado: "El período que va desde el 476 d.C. hasta 1453 o 1492 (según el criterio usado) se llama..."
-
-pasos:
-  - "Es el tercer período de la periodización clásica occidental."
-
-explicacion: |
-  La Edad Media va desde la caída de Roma hasta la caída de
-  Constantinopla o el descubrimiento de América.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "basico"
-  tags: ["edad_moderna"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Edad Moderna"
-tipo: mc
-opciones_explicitas: ["Edad Media", "Edad Moderna", "Edad Contemporánea"]
-
-enunciado: "El período que va desde fines del siglo XV hasta la Revolución Francesa (1789) se llama..."
-
-pasos:
-  - "Es el cuarto período de la periodización clásica occidental."
-
-explicacion: |
-  La Edad Moderna va desde fines del s. XV hasta 1789.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "basico"
-  tags: ["edad_contemporanea"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Edad Contemporánea"
-tipo: mc
-opciones_explicitas: ["Edad Moderna", "Edad Contemporánea", "Edad Media"]
-
-enunciado: "El período que va desde 1789 hasta la actualidad se llama..."
-
-pasos:
-  - "Es el quinto y último período de la periodización clásica occidental."
-
-explicacion: |
-  La Edad Contemporánea va desde la Revolución Francesa hasta hoy.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
+  tema: "significancia_historica"
   nivel: "intermedio"
-  tags: ["periodizacion", "orden"]
+  tags: ["significancia_historica", "seleccion"]
 
-enunciado: "Ordená cronológicamente los cinco períodos de la periodización clásica occidental."
-tipo: ordenar
-opciones_explicitas:
-  - "Prehistoria"
-  - "Edad Antigua"
-  - "Edad Media"
-  - "Edad Moderna"
-  - "Edad Contemporánea"
-respuesta_orden:
-  - "Prehistoria"
-  - "Edad Antigua"
-  - "Edad Media"
-  - "Edad Moderna"
-  - "Edad Contemporánea"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Todo lo que ocurrió en el pasado es, en sentido literal, \"historia\", pero nadie puede ni querría estudiar cada detalle de cada día de cada persona que vivió alguna vez."
+
+pasos:
+  - "Es la razón por la que hace falta un criterio de selección."
 
 explicacion: |
-  El orden sigue la secuencia cronológica estándar de la
-  periodización clásica occidental.
+  Verdadero: es el punto de partida de por qué existe este concepto.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "periodizacion_historica"
+  tema: "significancia_historica"
+  nivel: "intermedio"
+  tags: ["criterios", "impacto_profundo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "impacto profundo"
+tipo: mc
+opciones_explicitas: ["impacto profundo", "alcance amplio", "duración de los efectos"]
+
+enunciado: "El criterio que evalúa si un hecho afectó a las personas de forma significativa (una guerra mundial vs. una discusión de vecinos) se llama..."
+
+pasos:
+  - "Es uno de los cinco criterios de significancia mencionados en la teoría."
+
+explicacion: |
+  El impacto profundo evalúa la intensidad del efecto de un hecho
+  sobre las personas afectadas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
+  nivel: "intermedio"
+  tags: ["criterios", "alcance_amplio"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "alcance amplio"
+tipo: mc
+opciones_explicitas: ["impacto profundo", "alcance amplio", "resonancia hoy"]
+
+enunciado: "El criterio que evalúa si un hecho afectó a muchas personas o regiones, o sólo a un grupo muy chico y localizado, se llama..."
+
+pasos:
+  - "Es otro de los cinco criterios de significancia mencionados en la teoría."
+
+explicacion: |
+  El alcance amplio evalúa cuántas personas o regiones se vieron
+  afectadas por un hecho.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
+  nivel: "intermedio"
+  tags: ["criterios", "duracion_de_efectos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "duración de los efectos"
+tipo: mc
+opciones_explicitas: ["duración de los efectos", "alcance amplio", "revela algo más general"]
+
+enunciado: "El criterio que evalúa si las consecuencias de un hecho se sintieron sólo un momento, o durante generaciones, se llama..."
+
+pasos:
+  - "Es otro de los cinco criterios de significancia mencionados en la teoría."
+
+explicacion: |
+  La duración de los efectos evalúa por cuánto tiempo se sintieron
+  las consecuencias de un hecho.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
+  nivel: "intermedio"
+  tags: ["criterios", "resonancia_hoy"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "resonancia/relevancia hoy"
+tipo: mc
+opciones_explicitas: ["resonancia/relevancia hoy", "impacto profundo", "alcance amplio"]
+
+enunciado: "El criterio que evalúa si un hecho ayuda a entender el presente o problemas actuales se llama..."
+
+pasos:
+  - "Es otro de los cinco criterios de significancia mencionados en la teoría."
+
+explicacion: |
+  La resonancia/relevancia hoy evalúa si el hecho sigue siendo útil
+  para entender problemas actuales.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
   nivel: "avanzado"
-  tags: ["limites_convencionales"]
+  tags: ["criterios", "revela_algo_general"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Decir que \"la Edad Media terminó en 1492\" es una convención útil para organizar el estudio, no un hecho que ocurrió literalmente ese día para todas las sociedades del planeta."
-
-pasos:
-  - "Ningún cambio histórico ocurre de un día para el otro en todo el mundo a la vez."
-
-explicacion: |
-  Verdadero: los límites de los períodos son convencionales, no
-  hechos absolutos y simultáneos en todas partes.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "intermedio"
-  tags: ["limites_convencionales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Distintos historiadores pueden proponer límites algo distintos para un mismo período, según qué criterio prioricen."
-
-pasos:
-  - "Por ejemplo, la Edad Media puede terminar en 1453 o en 1492, según el criterio elegido."
-
-explicacion: |
-  Verdadero: es un matiz importante sobre la flexibilidad de los
-  límites de período según el criterio historiográfico usado.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "avanzado"
-  tags: ["periodizacion_occidental"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La periodización clásica (Prehistoria/Antigua/Media/Moderna/Contemporánea) está construida desde la historia europea, y aplicarla sin más a otras regiones puede ser engañoso."
-
-pasos:
-  - "Los hitos que la organizan (caída de Roma, Revolución Francesa) no tienen el mismo peso o sentido en otras historias regionales."
-
-explicacion: |
-  Verdadero: es un matiz importante sobre las limitaciones de esta
-  periodización fuera del contexto europeo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "avanzado"
-  tags: ["periodizacion_occidental", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aplicar directamente el rótulo \"Edad Media\" a la historia de los pueblos originarios de América antes de 1492 puede ser engañoso, porque ese período fue definido a partir de hitos europeos que no aplican de la misma forma a esas sociedades."
-
-pasos:
-  - "Es el ejemplo concreto mencionado en la teoría sobre las limitaciones de esta periodización."
-
-explicacion: |
-  Verdadero: es la aplicación práctica de por qué esta periodización
-  es una herramienta útil pero no neutral.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "intermedio"
-  tags: ["utilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dividir la historia en períodos permite comparar etapas entre sí, como preguntar qué caracterizaba a la Edad Media que ya no estaba en la Edad Moderna."
-
-pasos:
-  - "Es una de las utilidades centrales de periodizar."
-
-explicacion: |
-  Verdadero: la comparación entre períodos es una de las razones
-  principales por las que periodizar ayuda a pensar históricamente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "intermedio"
-  tags: ["utilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin periodizar, la historia sería una lista interminable de hechos sueltos sin ningún marco organizador."
-
-pasos:
-  - "Es la razón central de por qué periodizar es una herramienta valiosa, más allá de memorizar fechas de corte."
-
-explicacion: |
-  Verdadero: es la conclusión central sobre por qué periodizar ayuda
-  a pensar, no sólo a clasificar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "intermedio"
-  tags: ["periodizacion", "conceptual"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El tiempo histórico en sí es continuo; la división en períodos es una construcción de los historiadores, no una propiedad del tiempo mismo."
-
-pasos:
-  - "Es la aclaración conceptual central de por qué periodizar es una \"herramienta\" y no una \"división natural\"."
-
-explicacion: |
-  Verdadero: es el punto de partida conceptual de todo este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "intermedio"
-  tags: ["edad_antigua", "edad_media"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "476"
-tipo: completar
-
-enunciado: "El año que marca convencionalmente el límite entre la Edad Antigua y la Edad Media (caída del Imperio Romano de Occidente) es el..."
-
-pasos:
-  - "Es uno de los hitos clásicos de la periodización occidental."
-
-explicacion: |
-  El 476 d.C. es el año convencional de la caída de Roma que marca el
-  inicio de la Edad Media.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "intermedio"
-  tags: ["edad_moderna", "edad_contemporanea"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "1789"
-tipo: completar
-
-enunciado: "El año que marca convencionalmente el límite entre la Edad Moderna y la Edad Contemporánea (Revolución Francesa) es el..."
-
-pasos:
-  - "Es otro de los hitos clásicos de la periodización occidental."
-
-explicacion: |
-  1789 es el año convencional de la Revolución Francesa que marca el
-  inicio de la Edad Contemporánea.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "periodizacion_historica"
-  nivel: "intermedio"
-  tags: ["periodizacion", "practica"]
-
-variables:
-  anios: [1200, 1700, 1900]
-  periodos: ["Edad Media", "Edad Moderna", "Edad Contemporánea"]
-  idx: uno_de([0, 1, 2])
-
-respuesta: periodos[idx]
+respuesta: "revela algo más general"
 tipo: mc
-opciones_explicitas: ["Edad Antigua", "Edad Media", "Edad Moderna", "Edad Contemporánea"]
+opciones_explicitas: ["revela algo más general", "duración de los efectos", "impacto profundo"]
 
-enunciado: "El año {anios[idx]} corresponde a la..."
+enunciado: "El criterio que evalúa si un hecho es un ejemplo que ilumina un proceso más amplio, aunque en sí mismo sea un episodio menor, se llama..."
 
 pasos:
-  - "Ubicar cada año dentro del rango de fechas de cada período de la periodización clásica."
+  - "Es el quinto criterio de significancia mencionado en la teoría."
 
 explicacion: |
-  Aplicar los límites de cada período para ubicar años concretos es
-  la práctica central de este tema.
+  Un hecho puede ser significativo no por su magnitud propia, sino
+  por lo que revela sobre un proceso histórico más general.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "periodizacion_historica"
+  tema: "significancia_historica"
   nivel: "intermedio"
-  tags: ["periodizacion", "metodo"]
+  tags: ["significancia_cambiante"]
 
-enunciado: "Ordená los pasos para periodizar un tema histórico específico."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar el rango temporal total del tema a estudiar"
-  - "Buscar hechos suficientemente importantes que marquen posibles cortes de período"
-  - "Dividir el rango en bloques delimitados por esos hechos"
-  - "Verificar que la periodización elegida tenga sentido para el criterio que se quiere analizar"
-respuesta_orden:
-  - "Identificar el rango temporal total del tema a estudiar"
-  - "Buscar hechos suficientemente importantes que marquen posibles cortes de período"
-  - "Dividir el rango en bloques delimitados por esos hechos"
-  - "Verificar que la periodización elegida tenga sentido para el criterio que se quiere analizar"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un mismo hecho puede considerarse muy significativo en un momento histórico y perder relevancia después, o al revés."
+
+pasos:
+  - "La significancia histórica cambia según qué preguntas le interesan a cada generación."
 
 explicacion: |
-  El proceso va de delimitar el rango total a construir la división
-  en bloques según hitos relevantes.
+  Verdadero: es un matiz central sobre la naturaleza no fija de la
+  significancia histórica.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "periodizacion_historica"
+  tema: "significancia_historica"
+  nivel: "avanzado"
+  tags: ["historiografia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La historia política tradicional prioriza reyes y batallas como significativos; la historia social prioriza la vida cotidiana de la gente común."
+
+pasos:
+  - "Ver `../../filosofia/historia-de-la-filosofia-y-corrientes/`: distintas corrientes historiográficas eligen distinto tipo de hechos como significativos."
+
+explicacion: |
+  Verdadero: es un ejemplo concreto de cómo la corriente
+  historiográfica influye en qué se considera significativo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
+  nivel: "intermedio"
+  tags: ["no_es_gusto_personal"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Decir \"me interesa la historia militar, así que sólo eso es significativo\" es un juicio válido y suficiente de significancia histórica."
+
+pasos:
+  - "La significancia se argumenta con criterios (impacto, alcance, duración, resonancia), no es una simple cuestión de gusto individual."
+
+explicacion: |
+  Falso: la significancia histórica no es una preferencia personal
+  sin fundamento, requiere argumentación con criterios objetivos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
+  nivel: "avanzado"
+  tags: ["hecho_pequeno_significativo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El asesinato de un solo archiduque puede desencadenar consecuencias enormes (una guerra mundial), volviéndolo altamente significativo pese a su escala aparentemente menor en el momento en que ocurrió."
+
+pasos:
+  - "El tamaño aparente de un hecho no determina por sí solo su significancia."
+
+explicacion: |
+  Verdadero: es el ejemplo central de por qué la magnitud aparente de
+  un hecho no es el único criterio de significancia.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
+  nivel: "intermedio"
+  tags: ["criterios", "practica"]
+
+variables:
+  hechos: ["una reforma que cambió cómo funciona una sociedad durante siglos", "un evento que ayuda a entender debates políticos actuales"]
+  criterios: ["duración de los efectos", "resonancia/relevancia hoy"]
+  idx: uno_de([0, 1])
+
+respuesta: criterios[idx]
+tipo: mc
+opciones_explicitas: ["impacto profundo", "alcance amplio", "duración de los efectos", "resonancia/relevancia hoy"]
+
+enunciado: "\"{hechos[idx]}\" se evalúa principalmente con el criterio de..."
+
+pasos:
+  - "Cada descripción corresponde principalmente a uno de los criterios de significancia estudiados."
+
+explicacion: |
+  Reconocer qué criterio aplica a un caso concreto es la práctica
+  central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
   nivel: "avanzado"
   tags: ["prerrequisito"]
 
@@ -442,22 +301,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Periodizar con precisión es el prerrequisito directo de analizar causa y consecuencia: antes de estudiar por qué ocurrió algo, hace falta un marco temporal claro donde ubicar esas causas y consecuencias."
+enunciado: "Decidir qué del pasado vale la pena estudiar presupone ya tener un marco de períodos organizado donde ubicar esa selección."
 
 pasos:
-  - "Ver `../causa-y-consecuencia/`: es el tema siguiente de la cadena de pensamiento histórico."
+  - "Ver `../periodizacion-historica/`: es el prerrequisito directo de este tema."
 
 explicacion: |
-  Verdadero: por eso este tema es prerrequisito directo del
-  siguiente en la cadena.
+  Verdadero: es la conexión central entre este tema y su
+  prerrequisito.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "periodizacion_historica"
+  tema: "significancia_historica"
   nivel: "avanzado"
-  tags: ["periodizacion", "aplicacion"]
+  tags: ["big_six"]
 
 variables:
   n: uno_de([1, 1])
@@ -465,14 +324,1528 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Al estudiar un hecho histórico, ubicarlo primero dentro de la periodización general (qué edad, qué siglo) ayuda a comparar rápidamente con otros procesos conocidos de esa misma etapa."
+enunciado: "Significancia histórica es uno de los 6 conceptos del marco \"Big Six\" de pensamiento histórico, junto a causa/consecuencia y cambio/continuidad."
 
 pasos:
-  - "Es la aplicación práctica directa de este tema como estrategia de estudio."
+  - "Ver `../causa-y-consecuencia/` y `../cambio-y-continuidad/`: son los otros conceptos de ese marco ya cubiertos en la cadena."
 
 explicacion: |
-  Verdadero: es la aplicación concreta de este tema al estudiar
-  cualquier hecho histórico nuevo.
+  Verdadero: es el mismo marco teórico ya mencionado en temas
+  anteriores de esta cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
+  nivel: "avanzado"
+  tags: ["criterios", "combinacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Evaluar la significancia de un hecho suele combinar varios de los cinco criterios a la vez (impacto, alcance, duración, resonancia, revelar algo general), no basta con aplicar sólo uno."
+
+pasos:
+  - "Un hecho puede ser significativo por varias razones combinadas al mismo tiempo."
+
+explicacion: |
+  Verdadero: es una aplicación práctica de cómo se usan estos
+  criterios en conjunto, no de forma aislada.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
+  nivel: "avanzado"
+  tags: ["significancia_cambiante", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un hecho que en su momento pareció menor puede ganar significancia histórica más adelante, si se descubre que anticipaba o explicaba un proceso posterior importante."
+
+pasos:
+  - "Es la aplicación concreta de que la significancia cambia con el tiempo."
+
+explicacion: |
+  Verdadero: es la aplicación práctica del principio de significancia
+  no fija estudiado en la teoría.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
+  nivel: "avanzado"
+  tags: ["seleccion", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cualquier programa de estudio de historia, incluida esta cadena de Tronco 6, aplica implícitamente criterios de significancia al decidir qué temas incluir y cuáles dejar afuera."
+
+pasos:
+  - "Es la aplicación reflexiva de este concepto a la propia estructura del material de estudio."
+
+explicacion: |
+  Verdadero: es una aplicación autorreferencial de por qué este
+  concepto es relevante más allá de la teoría abstracta.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
+  nivel: "intermedio"
+  tags: ["significancia_historica", "metodo"]
+
+enunciado: "Ordená los pasos para evaluar si un hecho histórico es significativo."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar el hecho y a quiénes afectó directamente"
+  - "Evaluar impacto profundo y alcance amplio de ese efecto"
+  - "Evaluar la duración de los efectos y su resonancia en el presente"
+  - "Concluir si, combinando esos criterios, el hecho merece un lugar en el estudio histórico"
+respuesta_orden: ["Identificar el hecho y a quiénes afectó directamente", "Evaluar impacto profundo y alcance amplio de ese efecto", "Evaluar la duración de los efectos y su resonancia en el presente", "Concluir si, combinando esos criterios, el hecho merece un lugar en el estudio histórico"]
+explicacion: |
+  El proceso va de identificar el hecho a evaluar los distintos
+  criterios combinados de significancia.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
+  nivel: "avanzado"
+  tags: ["significancia_historica", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Distintos historiadores pueden argumentar distinta significancia para un mismo hecho, según qué criterios prioricen o desde qué corriente historiográfica trabajen, sin que exista una respuesta única y absoluta."
+
+pasos:
+  - "Es la síntesis de por qué la significancia es un juicio argumentado, no un hecho fijo."
+
+explicacion: |
+  Verdadero: es la conclusión central de este tema sobre la
+  naturaleza del concepto de significancia histórica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "significancia_historica"
+  nivel: "avanzado"
+  tags: ["significancia_historica", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al proponer un tema histórico para estudiar, conviene poder justificar su significancia con criterios concretos (impacto, alcance, duración, resonancia), en vez de sólo decir que \"parece interesante\"."
+
+pasos:
+  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema al proponer o
+  justificar el estudio de un hecho histórico.
+```
+
+## Sección: escuela-de-los-annales (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "basico"
+  tags: ["escuela_de_los_annales", "criterio_central"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Escuela de los Annales propone mirar la historia a través de estructuras de larga duración: clima, geografía, demografía, economía."
+
+pasos:
+  - "En vez de centrarse en sucesos puntuales de reyes y batallas."
+
+explicacion: |
+  Verdadero: es el criterio central de esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "intermedio"
+  tags: ["contexto_historico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Escuela de los Annales se llama así por la revista académica Annales donde publicaban sus fundadores, en Francia, durante el siglo XX."
+
+pasos:
+  - "Es el origen del nombre de esta corriente historiográfica."
+
+explicacion: |
+  Verdadero: es el origen del nombre de esta escuela.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "intermedio"
+  tags: ["marc_bloch"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Bloch"
+tipo: completar
+
+enunciado: "Uno de los fundadores de la Escuela de los Annales, autor de \"Apología para la historia\", se apellida..."
+
+pasos:
+  - "Marc Bloch es uno de los referentes centrales de esta corriente."
+
+explicacion: |
+  Bloch es autor central de esta corriente historiográfica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "avanzado"
+  tags: ["marc_bloch", "contexto_historico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"Apología para la historia\" de Marc Bloch se publicó póstumamente en 1949, después de que Bloch fuera fusilado por la resistencia francesa contra la ocupación nazi."
+
+pasos:
+  - "Es un dato histórico sobre las circunstancias de publicación de esta obra clásica."
+
+explicacion: |
+  Verdadero: es el contexto histórico de la publicación de esta obra
+  fundamental de la corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "intermedio"
+  tags: ["fernand_braudel"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Braudel"
+tipo: completar
+
+enunciado: "El historiador de la Escuela de los Annales que propuso distinguir tres ritmos distintos de cambio histórico se apellida..."
+
+pasos:
+  - "Fernand Braudel es otro referente central de esta corriente."
+
+explicacion: |
+  Braudel es autor central de esta corriente, referente de los tres
+  niveles de tiempo histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "intermedio"
+  tags: ["larga_duracion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "larga duración"
+tipo: mc
+opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
+
+enunciado: "El nivel de tiempo histórico que abarca estructuras casi inmóviles (geografía, clima) que cambian en siglos o milenios se llama..."
+
+pasos:
+  - "Es el nivel más lento de los tres propuestos por Braudel."
+
+explicacion: |
+  La larga duración es el nivel de cambio más lento de los tres
+  ritmos propuestos por Braudel.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "intermedio"
+  tags: ["coyunturas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "coyunturas"
+tipo: mc
+opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
+
+enunciado: "El nivel de tiempo histórico que abarca ciclos económicos y sociales de mediano plazo (décadas) se llama..."
+
+pasos:
+  - "Es el nivel intermedio de los tres propuestos por Braudel."
+
+explicacion: |
+  Las coyunturas son el nivel intermedio de cambio, de duración
+  media (décadas).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "intermedio"
+  tags: ["acontecimientos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "acontecimientos"
+tipo: mc
+opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
+
+enunciado: "El nivel de tiempo histórico que abarca los hechos puntuales (batallas, tratados), llamado por Braudel la \"espuma\" de la historia, se llama..."
+
+pasos:
+  - "Es el nivel más rápido y visible, pero según Braudel menos determinante."
+
+explicacion: |
+  Los acontecimientos son el nivel más rápido y visible, pero para
+  Braudel el menos determinante de los tres.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "avanzado"
+  tags: ["acontecimientos", "metafora"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Braudel describió a los acontecimientos como la \"espuma\" superficial de la historia: la parte más visible pero menos determinante."
+
+pasos:
+  - "Es la metáfora central usada por Braudel para describir la relación entre los tres niveles de tiempo."
+
+explicacion: |
+  Verdadero: es la metáfora central que usa Braudel para jerarquizar
+  los tres niveles de tiempo histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "intermedio"
+  tags: ["niveles_de_tiempo", "orden"]
+
+enunciado: "Ordená los tres niveles de tiempo histórico de Braudel, del más lento al más rápido."
+tipo: ordenar
+opciones_explicitas:
+  - "Larga duración"
+  - "Coyunturas"
+  - "Acontecimientos"
+respuesta_orden: ["Larga duración", "Coyunturas", "Acontecimientos"]
+explicacion: |
+  El orden va de las estructuras casi inmóviles (siglos/milenios) a
+  los ciclos de mediano plazo (décadas) y finalmente a los hechos
+  puntuales (días/años).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "avanzado"
+  tags: ["estructuras"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Según la Escuela de los Annales, el clima, la geografía y la demografía de una región condicionan durante siglos qué es posible o probable en esa sociedad, más allá de qué rey gobierne en un momento dado."
+
+pasos:
+  - "Es la justificación central de por qué esta corriente prioriza las estructuras de larga duración."
+
+explicacion: |
+  Verdadero: es la razón central por la que esta corriente considera
+  más determinantes las estructuras que los sucesos puntuales.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "avanzado"
+  tags: ["materialismo_historico", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El materialismo histórico prioriza específicamente relaciones de clase y producción; la Escuela de los Annales incluye también factores geográficos y climáticos, no ligados directamente al conflicto de clases."
+
+pasos:
+  - "Ver `../materialismo-historico/`: es la diferencia de foco entre estas dos corrientes que ambas miran \"estructuras\"."
+
+explicacion: |
+  Verdadero: aunque ambas corrientes miran estructuras en vez de
+  grandes figuras, difieren en qué tipo de estructuras priorizan.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "avanzado"
+  tags: ["materialismo_historico", "positivismo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Tanto el materialismo histórico como la Escuela de los Annales se apartan del foco en grandes figuras y hechos puntuales, propio del positivismo."
+
+pasos:
+  - "Ver `../positivismo/`: es el contraste común de ambas corrientes con la primera de la subrama."
+
+explicacion: |
+  Verdadero: ambas corrientes comparten esa distancia respecto del
+  enfoque positivista, aunque prioricen estructuras distintas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "avanzado"
+  tags: ["niveles_de_tiempo", "practica"]
+
+variables:
+  ejemplos: ["la firma de un tratado de paz en un año específico", "el clima de una región que condicionó su agricultura durante siglos"]
+  niveles: ["acontecimientos", "larga duración"]
+  idx: uno_de([0, 1])
+
+respuesta: niveles[idx]
+tipo: mc
+opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
+
+enunciado: "\"{ejemplos[idx]}\" corresponde al nivel de tiempo histórico de..."
+
+pasos:
+  - "Un hecho puntual es acontecimiento; un factor que cambia en siglos es larga duración."
+
+explicacion: |
+  Clasificar un ejemplo según su ritmo de cambio (siglos, décadas o
+  puntual) es la aplicación central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "avanzado"
+  tags: ["acontecimientos", "matiz"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Escuela de los Annales no ignora por completo los acontecimientos puntuales, sino que los considera menos determinantes que las estructuras de fondo, sin eliminarlos del análisis."
+
+pasos:
+  - "Es un matiz importante: la jerarquía entre los tres niveles no significa descartar por completo el nivel de los acontecimientos."
+
+explicacion: |
+  Verdadero: es un matiz importante sobre la relación entre los tres
+  niveles de tiempo propuestos por Braudel.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
+
+pasos:
+  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
+
+explicacion: |
+  Verdadero: es la misma conexión conceptual ya vista en las
+  corrientes anteriores de esta subrama.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "intermedio"
+  tags: ["larga_duracion", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Que un pueblo se haya desarrollado alrededor de un río navegable durante siglos, condicionando su comercio y su forma de organización social, es un ejemplo de análisis desde la larga duración de los Annales."
+
+pasos:
+  - "Es la aplicación práctica del foco en geografía como estructura de larga duración."
+
+explicacion: |
+  Verdadero: es un ejemplo concreto de análisis desde la perspectiva
+  de la larga duración de esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "intermedio"
+  tags: ["escuela_de_los_annales", "metodo"]
+
+enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque de la Escuela de los Annales."
+tipo: ordenar
+opciones_explicitas:
+  - "Revisar si el foco está en estructuras de larga duración (clima, geografía, demografía)"
+  - "Identificar si se distinguen distintos ritmos de cambio (larga duración, coyunturas, acontecimientos)"
+  - "Revisar si los sucesos puntuales se tratan como menos determinantes que las estructuras de fondo"
+  - "Concluir si el texto corresponde al enfoque de la Escuela de los Annales"
+respuesta_orden: ["Revisar si el foco está en estructuras de larga duración (clima, geografía, demografía)", "Identificar si se distinguen distintos ritmos de cambio (larga duración, coyunturas, acontecimientos)", "Revisar si los sucesos puntuales se tratan como menos determinantes que las estructuras de fondo", "Concluir si el texto corresponde al enfoque de la Escuela de los Annales"]
+explicacion: |
+  El análisis va del foco temático a la jerarquía de niveles de
+  tiempo, para concluir si corresponde a esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "avanzado"
+  tags: ["sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Escuela de los Annales es la tercera de las cuatro corrientes historiográficas de esta subrama, hermana de positivismo, materialismo histórico e historia cultural."
+
+pasos:
+  - "Ver `../positivismo/`, `../materialismo-historico/` y `../historia-cultural/`: los cuatro nodos hermanos dependen de `../multicausalidad/`."
+
+explicacion: |
+  Verdadero: es la relación entre este tema y los otros tres de la
+  subrama.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escuela_de_los_annales"
+  nivel: "avanzado"
+  tags: ["escuela_de_los_annales", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al leer un libro de historia centrado en cómo el clima y la geografía de una región condicionaron su desarrollo económico y social a lo largo de siglos, conviene reconocer que está aplicando un enfoque cercano a la Escuela de los Annales."
+
+pasos:
+  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema para reconocer el
+  enfoque historiográfico de un texto real.
+```
+
+## Sección: historia-cultural (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "basico"
+  tags: ["historia_cultural", "criterio_central"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La historia cultural propone analizar un caso chico y aparentemente insignificante en profundidad, mostrando que puede revelar toda una estructura social, mental o cultural de su época."
+
+pasos:
+  - "Invierte la lógica de escala de las corrientes que priorizan lo macro (Annales, positivismo)."
+
+explicacion: |
+  Verdadero: es el criterio central de esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "intermedio"
+  tags: ["microhistoria"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La historia cultural también se asocia con el nombre \"microhistoria\", por su foco en casos individuales y localizados."
+
+pasos:
+  - "Ambos nombres se usan para referirse a esta misma corriente historiográfica."
+
+explicacion: |
+  Verdadero: es la relación entre los dos nombres usados para esta
+  corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "intermedio"
+  tags: ["carlo_ginzburg"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Ginzburg"
+tipo: completar
+
+enunciado: "El historiador italiano referente central de la historia cultural/microhistoria se apellida..."
+
+pasos:
+  - "Carlo Ginzburg es el autor central asociado a esta corriente."
+
+explicacion: |
+  Ginzburg es autor central de esta corriente historiográfica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "avanzado"
+  tags: ["carlo_ginzburg", "obra_clave"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La obra más famosa de Ginzburg, \"El queso y los gusanos\" (1976), reconstruye el caso de un molinero friulano del siglo XVI, juzgado por la Inquisición por sus ideas heterodoxas sobre el origen del mundo."
+
+pasos:
+  - "Es la obra clave que ejemplifica el método de la microhistoria."
+
+explicacion: |
+  Verdadero: es la obra fundamental de referencia de esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "avanzado"
+  tags: ["carlo_ginzburg", "obra_clave"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ginzburg usa el caso individual del molinero para iluminar la mentalidad popular de toda una época, algo que las fuentes oficiales rara vez documentan."
+
+pasos:
+  - "Es el propósito central del uso de un caso micro para revelar algo macro."
+
+explicacion: |
+  Verdadero: es la conclusión central de por qué un caso individual
+  puede tener valor histórico más allá de sí mismo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "avanzado"
+  tags: ["fuentes_no_convencionales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las fuentes oficiales (el foco del positivismo) rara vez documentan la vida cotidiana y la mentalidad de la gente común."
+
+pasos:
+  - "Es la razón por la que la historia cultural recurre a otro tipo de fuentes."
+
+explicacion: |
+  Verdadero: es la razón central de por qué esta corriente amplía
+  qué cuenta como fuente legítima.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "intermedio"
+  tags: ["fuentes_no_convencionales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La historia cultural suele recurrir a actas de juicios de personas comunes, diarios personales y objetos cotidianos, en vez de sólo tratados y decretos oficiales."
+
+pasos:
+  - "Son las fuentes no convencionales mencionadas en la teoría, distintas del archivo oficial priorizado por el positivismo."
+
+explicacion: |
+  Verdadero: son las fuentes típicas de esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "intermedio"
+  tags: ["objeto_de_estudio", "mentalidades"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las mentalidades (cómo la gente entendía el mundo) son uno de los objetos de estudio centrales de la historia cultural."
+
+pasos:
+  - "Es uno de los tres objetos de estudio mencionados en la teoría."
+
+explicacion: |
+  Verdadero: las mentalidades son un objeto central de estudio de
+  esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "intermedio"
+  tags: ["objeto_de_estudio", "practicas_cotidianas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las prácticas cotidianas (rituales, costumbres) son otro de los objetos de estudio centrales de la historia cultural."
+
+pasos:
+  - "Es otro de los tres objetos de estudio mencionados en la teoría."
+
+explicacion: |
+  Verdadero: las prácticas cotidianas son otro objeto central de
+  estudio de esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "intermedio"
+  tags: ["objeto_de_estudio", "cultura_popular"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La cultura popular (no sólo la cultura de elite) es otro de los objetos de estudio centrales de la historia cultural."
+
+pasos:
+  - "Es el tercero de los objetos de estudio mencionados en la teoría."
+
+explicacion: |
+  Verdadero: la cultura popular es otro objeto central de estudio de
+  esta corriente, ampliando el foco tradicional en la elite.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "avanzado"
+  tags: ["objeto_de_estudio"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de las corrientes anteriores, la historia cultural amplía qué cuenta como objeto legítimo de estudio histórico, incluyendo mentalidades, prácticas cotidianas y cultura popular."
+
+pasos:
+  - "Es la conclusión central sobre la amplitud de foco de esta corriente."
+
+explicacion: |
+  Verdadero: es una de las contribuciones centrales de esta corriente
+  a la disciplina.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "avanzado"
+  tags: ["escuela_de_los_annales", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Escuela de los Annales mira grandes estructuras de larga duración; la historia cultural invierte la escala, mirando casos individuales chicos para revelar algo general."
+
+pasos:
+  - "Ver `../escuela-de-los-annales/`: es el contraste de escala entre estas dos corrientes."
+
+explicacion: |
+  Verdadero: es la diferencia central de escala entre estas dos
+  corrientes de la subrama.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "avanzado"
+  tags: ["positivismo", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El positivismo se centra en grandes figuras y documentos oficiales; la historia cultural se centra en personas comunes y fuentes no convencionales."
+
+pasos:
+  - "Ver `../positivismo/`: es el contraste de foco entre estas dos corrientes."
+
+explicacion: |
+  Verdadero: es la diferencia central de foco entre estas dos
+  corrientes de la subrama.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "avanzado"
+  tags: ["historia_cultural", "practica"]
+
+variables:
+  analisis: ["estudiar el diario personal de una campesina para entender cómo pensaba la gente común de su época", "estudiar un tratado firmado entre dos reyes"]
+  corrientes: ["historia cultural", "positivismo"]
+  idx: uno_de([0, 1])
+
+respuesta: corrientes[idx]
+tipo: mc
+opciones_explicitas: ["historia cultural", "positivismo", "materialismo histórico", "Escuela de los Annales"]
+
+enunciado: "\"{analisis[idx]}\" corresponde principalmente al enfoque de..."
+
+pasos:
+  - "Fuente no convencional (diario personal) + caso individual = historia cultural. Documento oficial + grandes figuras = positivismo."
+
+explicacion: |
+  Reconocer el tipo de fuente y de sujeto estudiado permite
+  identificar la corriente historiográfica aplicada.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "avanzado"
+  tags: ["historia_cultural", "valor_del_caso_micro"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Según la historia cultural, la magnitud aparente de un caso (una sola persona, un solo juicio) no determina su valor histórico: un caso bien documentado puede revelar mucho sobre una época entera."
+
+pasos:
+  - "Es coherente con el ejemplo de Ginzburg sobre el molinero friulano."
+
+explicacion: |
+  Verdadero: es la conclusión central sobre el valor de los casos
+  micro en esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
+
+pasos:
+  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
+
+explicacion: |
+  Verdadero: es la misma conexión conceptual ya vista en las
+  corrientes anteriores de esta subrama.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "avanzado"
+  tags: ["neutralidad", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Positivismo, materialismo histórico, Escuela de los Annales e historia cultural son cuatro lentes distintas y legítimas para hacer historia, ninguna reemplaza del todo a las demás."
+
+pasos:
+  - "Ver `../positivismo/`, `../materialismo-historico/` y `../escuela-de-los-annales/`: mismo criterio de neutralidad aplicado a las cuatro."
+
+explicacion: |
+  Verdadero: es la síntesis del principio de neutralidad aplicado a
+  toda la subrama de corrientes historiográficas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "intermedio"
+  tags: ["historia_cultural", "metodo"]
+
+enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque de la historia cultural."
+tipo: ordenar
+opciones_explicitas:
+  - "Revisar si el foco está en un caso individual chico, no en grandes estructuras o figuras"
+  - "Identificar si usa fuentes no convencionales (diarios, juicios de personas comunes)"
+  - "Revisar si el objeto de estudio incluye mentalidades, prácticas cotidianas o cultura popular"
+  - "Concluir si el texto corresponde al enfoque de la historia cultural"
+respuesta_orden: ["Revisar si el foco está en un caso individual chico, no en grandes estructuras o figuras", "Identificar si usa fuentes no convencionales (diarios, juicios de personas comunes)", "Revisar si el objeto de estudio incluye mentalidades, prácticas cotidianas o cultura popular", "Concluir si el texto corresponde al enfoque de la historia cultural"]
+explicacion: |
+  El análisis va de la escala del caso estudiado al tipo de fuentes y
+  objeto de estudio, para concluir si corresponde a esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "avanzado"
+  tags: ["sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La historia cultural cierra la subrama de corrientes historiográficas: hechos y figuras (positivismo) → clases y producción (materialismo histórico) → estructuras de larga duración (Annales) → lo micro que revela lo macro (historia cultural)."
+
+pasos:
+  - "Ver `../positivismo/`, `../materialismo-historico/` y `../escuela-de-los-annales/`: es el recorrido completo de las cuatro corrientes de esta subrama."
+
+explicacion: |
+  Verdadero: es la síntesis del recorrido completo de la subrama de
+  corrientes historiográficas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "historia_cultural"
+  nivel: "avanzado"
+  tags: ["historia_cultural", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al leer un libro de historia centrado en el diario de una sola persona común, usado para entender cómo se vivía y pensaba en su época, conviene reconocer que está aplicando un enfoque cercano a la historia cultural."
+
+pasos:
+  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema para reconocer el
+  enfoque historiográfico de un texto real.
+```
+
+## Sección: materialismo-historico (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "basico"
+  tags: ["materialismo_historico", "criterio_central"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El materialismo histórico sostiene que lo que mueve la historia son las condiciones materiales de producción, no las ideas o decisiones de grandes individuos."
+
+pasos:
+  - "Ver `../positivismo/`: es un criterio opuesto al de esa corriente, que sí prioriza grandes figuras."
+
+explicacion: |
+  Verdadero: es el criterio central del materialismo histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "intermedio"
+  tags: ["marx"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Marx"
+tipo: completar
+
+enunciado: "El pensador que desarrolló el materialismo histórico como método para explicar la historia se apellida..."
+
+pasos:
+  - "Karl Marx es el autor central asociado a esta corriente."
+
+explicacion: |
+  Marx es el autor central del materialismo histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "intermedio"
+  tags: ["condiciones_materiales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las condiciones materiales de producción son cómo una sociedad produce lo que necesita para vivir, y cómo se organiza el trabajo y la propiedad alrededor de esa producción."
+
+pasos:
+  - "Es la definición central de este concepto en el materialismo histórico."
+
+explicacion: |
+  Verdadero: es la definición central de condiciones materiales de
+  producción.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "intermedio"
+  tags: ["lucha_de_clases"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Según el materialismo histórico, la historia avanza a través del conflicto entre clases sociales con intereses económicos opuestos."
+
+pasos:
+  - "Es el mecanismo central del cambio histórico según esta corriente."
+
+explicacion: |
+  Verdadero: la lucha de clases es el motor central del cambio
+  histórico según esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "intermedio"
+  tags: ["lucha_de_clases", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Señores feudales vs. siervos, y burguesía vs. proletariado, son ejemplos de conflictos entre clases sociales mencionados en la teoría."
+
+pasos:
+  - "Son los ejemplos concretos de conflictos de clase mencionados en la teoría."
+
+explicacion: |
+  Verdadero: son ejemplos de conflictos de clase citados en la
+  teoría de esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "avanzado"
+  tags: ["lucha_de_clases", "politica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Según el materialismo histórico, los cambios políticos e ideológicos son, en gran medida, reflejo de los conflictos materiales de fondo, no su causa."
+
+pasos:
+  - "Es una diferencia central con corrientes que priorizan la política o las ideas como causa principal."
+
+explicacion: |
+  Verdadero: es la relación causal central que propone esta
+  corriente entre lo material y lo político/ideológico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "intermedio"
+  tags: ["materialismo_historico", "positivismo", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Donde el positivismo mira grandes figuras y hechos políticos puntuales, el materialismo histórico mira estructuras económicas y grupos sociales."
+
+pasos:
+  - "Ver `../positivismo/`: es la diferencia de foco central entre ambas corrientes."
+
+explicacion: |
+  Verdadero: es la diferencia de foco entre estas dos corrientes
+  historiográficas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "avanzado"
+  tags: ["materialismo_historico", "positivismo", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Analizar un tratado firmado por un rey preguntando \"qué relaciones de producción sostenían el poder de ese rey y de la clase que representaba\" es un ejemplo del enfoque del materialismo histórico, en vez de simplemente narrar las cláusulas del tratado (enfoque positivista)."
+
+pasos:
+  - "Es la aplicación práctica del contraste de foco descrito en la teoría."
+
+explicacion: |
+  Verdadero: es un ejemplo concreto de cómo cambia el análisis según
+  la corriente historiográfica aplicada.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "avanzado"
+  tags: ["metodo_vs_programa_politico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El materialismo histórico como método historiográfico (una forma de explicar el pasado) es distinto del marxismo como corriente político-económica (una postura sobre cómo debería organizarse la sociedad hoy)."
+
+pasos:
+  - "Ver `../../filosofia/historia-de-la-filosofia-y-corrientes/`: el marxismo aparece ahí como corriente político-económica, con un foco distinto."
+
+explicacion: |
+  Verdadero: es la aclaración central de este tema para no confundir
+  dos usos distintos del mismo pensamiento.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "avanzado"
+  tags: ["metodo_vs_programa_politico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un historiador puede usar el método del materialismo histórico (analizar condiciones económicas de fondo) sin necesariamente compartir el programa político marxista, y viceversa."
+
+pasos:
+  - "Es la aclaración central de que método historiográfico y postura política son cosas distintas."
+
+explicacion: |
+  Verdadero: es un matiz importante para separar el uso metodológico
+  del compromiso ideológico personal.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "avanzado"
+  tags: ["aporte_metodologico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Independientemente de su origen en el pensamiento de Marx, el materialismo histórico introdujo un aporte que muchos historiadores de corrientes distintas siguen usando: prestar atención a las condiciones económicas y sociales de fondo."
+
+pasos:
+  - "Es la conclusión sobre la influencia metodológica de esta corriente más allá de su origen ideológico."
+
+explicacion: |
+  Verdadero: es la síntesis del aporte metodológico duradero de esta
+  corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "avanzado"
+  tags: ["influencia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La atención del materialismo histórico a las condiciones económicas y sociales de fondo se nota, por ejemplo, en la Escuela de los Annales, otra corriente de esta subrama."
+
+pasos:
+  - "Ver `../escuela-de-los-annales/`: es la conexión mencionada en la teoría entre estas dos corrientes."
+
+explicacion: |
+  Verdadero: es la influencia metodológica del materialismo histórico
+  sobre otra corriente posterior de esta subrama.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "avanzado"
+  tags: ["neutralidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El materialismo histórico es una de varias corrientes historiográficas legítimas, no la única forma correcta de hacer historia."
+
+pasos:
+  - "Es coherente con el principio de neutralidad aplicado a las cuatro corrientes de esta subrama."
+
+explicacion: |
+  Verdadero: cada corriente es una lente distinta, ninguna se
+  presenta como la única correcta.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "intermedio"
+  tags: ["materialismo_historico", "practica"]
+
+variables:
+  analisis: ["estudiar cómo se organizaba la producción agrícola y quién controlaba la tierra en una sociedad feudal", "estudiar la biografía y las decisiones diplomáticas de un rey medieval"]
+  corrientes: ["materialismo histórico", "positivismo"]
+  idx: uno_de([0, 1])
+
+respuesta: corrientes[idx]
+tipo: mc
+opciones_explicitas: ["materialismo histórico", "positivismo"]
+
+enunciado: "\"{analisis[idx]}\" corresponde principalmente al enfoque de..."
+
+pasos:
+  - "Foco en producción/propiedad = materialismo histórico. Foco en biografía/decisiones de una figura = positivismo."
+
+explicacion: |
+  Reconocer el foco temático (estructuras materiales vs. grandes
+  figuras) permite identificar la corriente historiográfica aplicada.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
+
+pasos:
+  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
+
+explicacion: |
+  Verdadero: es la misma conexión conceptual ya vista en
+  `../positivismo/`.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "intermedio"
+  tags: ["lucha_de_clases"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Según el materialismo histórico, distintas clases sociales tienen intereses económicos opuestos entre sí, lo que genera tensión y conflicto."
+
+pasos:
+  - "Es la base del concepto de lucha de clases como motor del cambio histórico."
+
+explicacion: |
+  Verdadero: la oposición de intereses económicos entre clases es la
+  base del conflicto que esta corriente identifica como motor
+  histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "avanzado"
+  tags: ["matiz"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El materialismo histórico no ignora por completo la política, sino que la analiza como reflejo de conflictos materiales de fondo, no como causa autónoma independiente de esas condiciones."
+
+pasos:
+  - "Es un matiz importante: no se trata de ignorar la política, sino de explicarla a partir de otra causa de fondo."
+
+explicacion: |
+  Verdadero: es un matiz importante sobre cómo esta corriente
+  incorpora (no ignora) el análisis político.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "intermedio"
+  tags: ["materialismo_historico", "metodo"]
+
+enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque del materialismo histórico."
+tipo: ordenar
+opciones_explicitas:
+  - "Revisar si el foco está en condiciones económicas y de producción, no en biografías individuales"
+  - "Identificar si se analizan clases sociales con intereses opuestos"
+  - "Revisar si los cambios políticos se explican como reflejo de esos conflictos materiales"
+  - "Concluir si el texto corresponde al enfoque del materialismo histórico"
+respuesta_orden: ["Revisar si el foco está en condiciones económicas y de producción, no en biografías individuales", "Identificar si se analizan clases sociales con intereses opuestos", "Revisar si los cambios políticos se explican como reflejo de esos conflictos materiales", "Concluir si el texto corresponde al enfoque del materialismo histórico"]
+explicacion: |
+  El análisis va del foco temático a la relación causal propuesta
+  entre lo material y lo político, para concluir si corresponde a
+  esta corriente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "avanzado"
+  tags: ["sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El materialismo histórico es la segunda de las cuatro corrientes historiográficas de esta subrama, hermana de positivismo, Escuela de los Annales e historia cultural."
+
+pasos:
+  - "Ver `../positivismo/`, `../escuela-de-los-annales/` y `../historia-cultural/`: los cuatro nodos hermanos dependen de `../multicausalidad/`."
+
+explicacion: |
+  Verdadero: es la relación entre este tema y los otros tres de la
+  subrama.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materialismo_historico"
+  nivel: "avanzado"
+  tags: ["materialismo_historico", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al leer un libro de historia centrado en las condiciones de trabajo, la propiedad de la tierra y los conflictos entre grupos sociales de una época, conviene reconocer que está aplicando un enfoque cercano al materialismo histórico."
+
+pasos:
+  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema para reconocer el
+  enfoque historiográfico de un texto real.
 ```
 
 ## Sección: positivismo (20 preguntas)
@@ -881,12 +2254,7 @@ opciones_explicitas:
   - "Revisar qué tipo de fuentes usa principalmente (documentos de archivo oficiales)"
   - "Revisar si el autor busca reportar \"lo que pasó\" sin imponer una interpretación teórica explícita"
   - "Concluir si el texto corresponde al enfoque positivista"
-respuesta_orden:
-  - "Revisar si el foco está en hechos verificables y grandes figuras, no en estructuras de larga duración"
-  - "Revisar qué tipo de fuentes usa principalmente (documentos de archivo oficiales)"
-  - "Revisar si el autor busca reportar \"lo que pasó\" sin imponer una interpretación teórica explícita"
-  - "Concluir si el texto corresponde al enfoque positivista"
-
+respuesta_orden: ["Revisar si el foco está en hechos verificables y grandes figuras, no en estructuras de larga duración", "Revisar qué tipo de fuentes usa principalmente (documentos de archivo oficiales)", "Revisar si el autor busca reportar \"lo que pasó\" sin imponer una interpretación teórica explícita", "Concluir si el texto corresponde al enfoque positivista"]
 explicacion: |
   El análisis va del foco temático a las fuentes usadas y al estilo
   interpretativo, para concluir si corresponde al enfoque
@@ -937,942 +2305,6 @@ pasos:
 explicacion: |
   Verdadero: es la aplicación concreta de este tema para reconocer el
   enfoque historiográfico de un texto real.
-```
-
-## Sección: reforma-universitaria-1918 (22 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "contexto_social"]
-
-variables:
-  anio_fundacion_uba: 1821
-
-respuesta: "1821"
-tipo: input
-
-enunciado: "La Universidad de Buenos Aires, institución central en el contexto de la Reforma de 1918, fue fundada en el año {anio_fundacion_uba}. ¿En qué año se fundó?"
-
-explicacion: |
-  La UBA fue fundada en 1821, durante los primeros años de la organización nacional. Sin embargo, su estructura permaneció rígida y elitista hasta la reforma de 1918.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "manifiesto"]
-
-variables:
-  significado: "abrir una nueva etapa"
-
-respuesta: "abrir una nueva etapa"
-tipo: completar
-
-enunciado: "El término 'liminar' en el Manifiesto Liminar se refiere a su función de {significado}."
-
-explicacion: |
-  "Liminar" proviene del latín *limen* (umbral). El documento buscaba abrir un umbral hacia una nueva etapa en la educación superior, rompiendo con el pasado.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "derechos"]
-
-variables:
-  principio: "gratuidad"
-
-respuesta: "gratuidad"
-tipo: completar
-
-enunciado: "El Manifiesto defendía la {principio} de la educación como un derecho humano y social, para que nadie fuera excluido por falta de recursos."
-
-explicacion: |
-  La gratuidad aseguraba que la universidad fuera un bien público accesible para todos, independientemente de su clase social, rompiendo con el elitismo anterior.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "cogobierno"]
-
-variables:
-  participacion: "voz y voto"
-
-respuesta: "voz y voto"
-tipo: completar
-
-enunciado: "Bajo el principio de cogobierno, los estudiantes ganaron derecho a {participacion} en los órganos de gobierno de la universidad."
-
-explicacion: |
-  El cogobierno integró a docentes, graduados y estudiantes. Por primera vez, los estudiantes tenían poder real de decisión, no solo opinión.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "geografia"]
-
-variables:
-  ciudad: "Córdoba"
-
-respuesta: "Córdoba"
-tipo: completar
-
-enunciado: "En abril de 1918, la protesta estudiantil estalló en la ciudad de {ciudad}, extendiéndose luego a todo el país."
-
-explicacion: |
-  La Universidad Nacional de Córdoba fue el epicentro. Desde allí, el movimiento se irradió a otras universidades argentinas y latinoamericanas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "pedagogia"]
-
-variables:
-  metodo: "memorística"
-
-respuesta: "memorística"
-tipo: completar
-
-enunciado: "Antes de la reforma, la enseñanza en la UBA era predominantemente {metodo}, basada en la repetición y exámenes arbitrarios."
-
-explicacion: |
-  El modelo antiguo se basaba en la transmisión pasiva del conocimiento. La reforma exigió clases dinámicas y una renovación pedagógica profunda.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "sociedad"]
-
-variables:
-  clase_social: "clase media"
-
-respuesta: "clase media"
-tipo: completar
-
-enunciado: "La llegada de inmigrantes generó una {clase_social} urbana más numerosa y exigente de cambios sociales y educativos."
-
-explicacion: |
-  El crecimiento de la clase media urbana fue clave. Estos sectores, aunque no siempre podían acceder a la universidad, exigían democratización y meritocracia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "avanzado"
-  tags: ["reforma_universitaria_1918", "impacto"]
-
-variables:
-  tipo_movimiento: "revolución cultural y política"
-
-respuesta: "revolución cultural y política"
-tipo: completar
-
-enunciado: "Este movimiento no fue solo una huelga escolar, sino una {tipo_movimiento} que cuestionaba quién tiene derecho a conocer."
-
-explicacion: |
-  Fue trascendente porque cuestionaba las estructuras de poder y saber, influyendo en la educación superior de toda América Latina.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "evaluacion"]
-
-variables:
-  caracteristica: "arbitrarios"
-
-respuesta: "arbitrarios"
-tipo: completar
-
-enunciado: "Los exámenes en la UBA pre-reforma eran considerados {caracteristica}, sin criterios claros ni participación estudiantil."
-
-explicacion: |
-  La arbitrariedad era una fuente de frustración. La reforma buscaba objetividad y transparencia en la evaluación del conocimiento.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "alcance"]
-
-variables:
-  alcance: "América Latina"
-
-respuesta: "América Latina"
-tipo: completar
-
-enunciado: "La protesta de 1918 se extendió a otras universidades de Argentina y de {alcance}."
-
-explicacion: |
-  El modelo de reforma se convirtió en un referente para movimientos estudiantiles en países como Chile, Perú, México y Cuba.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "definiciones"]
-
-variables:
-  definicion: "comunidad integrada"
-
-respuesta: "comunidad integrada"
-tipo: completar
-
-enunciado: "El cogobierno establece que la universidad es una {definicion} por docentes, graduados y estudiantes."
-
-explicacion: |
-  Esta visión rompe con la jerarquía rígida. La universidad se entiende como un espacio democrático donde todos los estamentos tienen peso.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "cronologia"]
-
-variables:
-  mes: "abril"
-
-respuesta: "abril"
-tipo: completar
-
-enunciado: "En el mes de {mes} de 1918, estalló la protesta en Córdoba."
-
-explicacion: |
-  Las protestas clave ocurrieron en abril de 1918, marcando el inicio oficial del proceso reformista.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "filosofia"]
-
-variables:
-  bien: "público"
-
-respuesta: "público"
-tipo: completar
-
-enunciado: "Si la universidad era un bien {bien}, nadie debía ser excluido por falta de recursos."
-
-explicacion: |
-  Este principio justificaba la gratuidad. La educación superior no era un privilegio de mercado, sino un derecho de la ciudadanía.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "metodos"]
-
-variables:
-  tipo_clase: "dinámicas"
-
-respuesta: "dinámicas"
-tipo: completar
-
-enunciado: "Se exigía la renovación pedagógica: clases más {tipo_clase} y cátedras libres."
-
-explicacion: |
-  Se pasaba de la lección magistral pasiva a un aprendizaje activo, crítico y participativo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "avanzado"
-  tags: ["reforma_universitaria_1918", "estructura_academica"]
-
-variables:
-  concepto: "cátedras libres"
-
-respuesta: "cátedras libres"
-tipo: completar
-
-enunciado: "El sistema de {concepto} permitía enseñar a quienes no podían asistir regularmente o enseñar materias no oficiales."
-
-explicacion: |
-  Las cátedras libres democratizaban el acceso al conocimiento, permitiendo la enseñanza de corrientes de pensamiento diversas y críticas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "simbolismo"]
-
-variables:
-  rol: "carta fundacional"
-
-respuesta: "carta fundacional"
-tipo: completar
-
-enunciado: "El Manifiesto Liminar es considerado la {rol} de la Reforma Universitaria."
-
-explicacion: |
-  Es el documento base que definió los principios éticos y políticos que rigen a muchas universidades públicas hoy.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "academico"]
-
-variables:
-  contenido: "planes de estudio"
-
-respuesta: "planes de estudio"
-tipo: completar
-
-enunciado: "La universidad podía definir libremente sus {contenido}."
-
-explicacion: |
-  Esto permitía actualizar los currículos, eliminar materias obsoletas y adaptar la formación a las necesidades sociales y científicas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "sociedad"]
-
-variables:
-  caracteristica: "elitista"
-
-respuesta: "elitista"
-tipo: completar
-
-enunciado: "La UBA pre-reforma era un espacio {caracteristica}, cerrado y controlado por una minoría."
-
-explicacion: |
-  Solo las élites tradicionales podían acceder y permanecer. La reforma buscó abrir las puertas a la clase trabajadora y media.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "basico"
-  tags: ["reforma_universitaria_1918", "economia"]
-
-variables:
-  motor: "exportación"
-
-respuesta: "exportación"
-tipo: completar
-
-enunciado: "La economía crecía gracias a la {motor} de productos agropecuarios."
-
-explicacion: |
-  Este boom económico generó riqueza, pero también desigualdad y una clase media que exigía participación política y cultural.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "historia_institucional"]
-
-variables:
-  estructura: "colonial"
-
-respuesta: "colonial"
-tipo: completar
-
-enunciado: "La UBA seguía funcionando con estructuras {estructura} y rígidas."
-
-explicacion: |
-  Se refería a un modelo heredado de la época virreinal, con jerarquías rígidas y falta de modernidad académica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "intermedio"
-  tags: ["reforma_universitaria_1918", "democracia"]
-
-variables:
-  participacion: "no había"
-
-respuesta: "no había"
-tipo: completar
-
-enunciado: "Antes de 1918, {participacion} participación de los estudiantes en las decisiones académicas."
-
-explicacion: |
-  Los estudiantes eran meros receptores pasivos. La reforma los convirtió en sujetos políticos dentro de la universidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "reforma_universitaria_1918"
-  nivel: "avanzado"
-  tags: ["reforma_universitaria_1918", "impacto_historico"]
-
-variables:
-  legado: "democratizar"
-
-respuesta: "democratizar"
-tipo: completar
-
-enunciado: "No querían solo mejorar las aulas; querían {legado} la institución."
-
-explicacion: |
-  El objetivo final era la democratización del saber y del poder académico, un legado que perdura en la educación pública latinoamericana.
-```
-
-## Sección: revolucion-mexicana-1910-1920 (27 preguntas)
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["porfiriato", "causas", "madero"]
-
-variables:
-  anio_postulacion: random(1908, 1910)
-
-respuesta: "re-election"
-tipo: completar
-
-enunciado: "Durante el Porfiriato, el líder {anio_postulacion} anunció su intención de volver a postularse, rompiendo la promesa de no reelección. ¿Qué concepto central buscaba defender Francisco I. Madero con su lema 'Sufragio efectivo, no ___'?"
-
-explicacion: |
-  El lema de Madero era "Sufragio efectivo, no reelección". La reelección perpetua era el símbolo del autoritarismo porfirista.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["zapata", "plan_de_ayala", "tierra"]
-
-variables:
-  lider: uno_de(["Emiliano Zapata", "Pancho Villa"])
-
-respuesta: "La tierra es de quien la trabaja"
-tipo: completar
-
-enunciado: "Si el líder revolucionario es {lider}, ¿cuál fue su principal consigna agraria plasmada en el Plan de Ayala?"
-
-explicacion: |
-  Emiliano Zapata redactó el Plan de Ayala. Su consigna principal era que la tierra pertenecía a quien la trabajaba, exigiendo la devolución de tierras comunales.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["villa", "division_del_norte", "ejercito"]
-
-variables:
-  caudillo: uno_de(["Francisco Villa", "Francisco I. Madero"])
-
-respuesta: "División del Norte"
-tipo: completar
-
-enunciado: "El general {caudillo} comandaba una fuerza militar masiva conocida como la _______________."
-
-explicacion: |
-  Pancho Villa lideraba la División del Norte, un ejército popular con gran capacidad de movilización en el norte de México.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["porfiriato", "modernizacion", "ferrocarriles"]
-
-variables:
-  sector: uno_de(["ferrocarriles", "minas", "puertos"])
-
-respuesta: "ferrocarriles"
-tipo: completar
-
-enunciado: "Durante el Porfiriato, el gobierno invirtió fuertemente en la expansión de los _______________ para conectar las regiones productivas con los puertos de exportación."
-
-explicacion: |
-  La construcción de ferrocarriles fue clave para la modernización económica, aunque benefició principalmente a las élites y a inversionistas extranjeros.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["madero", "diaz", "caida"]
-
-variables:
-  dictador: "Porfirio Díaz"
-
-respuesta: "democracia"
-tipo: completar
-
-enunciado: "Francisco I. Madero buscaba instaurar la _______________ como respuesta al largo régimen dictatorial de {dictador}."
-
-explicacion: |
-  Madero representaba la clase media liberal que exigía el fin de la dictadura y el establecimiento de un régimen democrático.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["alianzas", "traicion", "madero"]
-
-variables:
-  evento: "Traición de la Decena Trágica"
-
-respuesta: "frágil"
-tipo: completar
-
-enunciado: "El gobierno de Madero fue breve y _______________ porque antiguos aliados, como Victoriano Huerta, terminaron traicionándolo."
-
-explicacion: |
-  La coalición anti-díaz se desintegró rápidamente. Madero no pudo controlar a los caudillos revolucionarios ni a los conservadores, llevando a su asesinato.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "avanzado"
-  tags: ["zapata", "plan_de_ayala", "fechas"]
-
-variables:
-  mes: uno_de(["febrero", "marzo", "abril"])
-  dia: random(28, 30)
-
-respuesta: "1911"
-tipo: input
-
-enunciado: "El Plan de Ayala fue proclamado en {mes} de {dia}. ¿En qué año se emitió este documento?"
-
-explicacion: |
-  El Plan de Ayala se proclamó en marzo de 1911, cuando Zapata rompió con Madero al no cumplirse la reforma agraria prometida.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["tierra", "ejidos", "comunidades"]
-
-variables:
-  grupo: uno_de(["campesinos", "indígenas", "trabajadores"])
-
-respuesta: "comunales"
-tipo: completar
-
-enunciado: "Bajo el Porfiriato, las tierras {grupo} fueron despojadas y concentradas en latifundios. La revolución buscaba restituirlas como _______________."
-
-explicacion: |
-  La demanda central era la recuperación de las tierras comunales que habían sido expropiadas ilegalmente durante el Porfiriato.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["villa", "origen", "norte"]
-
-variables:
-  region: "norte"
-
-respuesta: "norte"
-tipo: completar
-
-enunciado: "Francisco Villa era originario de la región del _______________, lo que definió el perfil social y militar de su ejército."
-
-explicacion: |
-  Villa representaba los intereses de los campesinos y trabajadores del norte, con un carácter más popular y menos ideológico que Zapata.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["zapata", "origen", "sur"]
-
-variables:
-  estado: "Morelos"
-
-respuesta: "Morelos"
-tipo: completar
-
-enunciado: "Emiliano Zapata lideró la revolución desde el estado de _______________, donde la presión de las compañías azucareras era mayor."
-
-explicacion: |
-  Morelos era un estado altamente industrializado para la época (azúcar), lo que generaba un conflicto intenso entre campesinos y terratenientes.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["madero", "elecciones", "democracia"]
-
-variables:
-  concepto: "Sufragio efectivo"
-
-respuesta: "no reelección"
-tipo: completar
-
-enunciado: "El lema de Madero incluía 'Sufragio efectivo' y la promesa de _______________."
-
-explicacion: |
-  La no reelección era la propuesta concreta para evitar la perpetuidad en el poder que caracterizó al Porfiriato.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["naturaleza", "guerra_civil", "conflicto"]
-
-variables:
-  tipo_conflicto: "guerra civil"
-
-respuesta: "guerra civil"
-tipo: completar
-
-enunciado: "La Revolución Mexicana evolucionó de un levantamiento político a una _______________ entre diversos caudillos y facciones."
-
-explicacion: |
-  Al fracasar Madero en mediar entre las demandas, el conflicto se tornó en una guerra civil por el control del Estado y la tierra.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["porfiriato", "elite", "desigualdad"]
-
-variables:
-  grupo_beneficiado: "élite terrateniente"
-
-respuesta: "extranjeros"
-tipo: completar
-
-enunciado: "El crecimiento económico del Porfiriato benefició a la élite local y a inversionistas _______________."
-
-explicacion: |
-  La economía porfirista dependía mucho del capital extranjero, especialmente de EE.UU. y Europa, para explotar recursos naturales.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "avanzado"
-  tags: ["madero", "plan_san_luis", "levantamiento"]
-
-variables:
-  lider: "Madero"
-
-respuesta: "20 de noviembre"
-tipo: completar
-
-enunciado: "Francisco I. Madero firmó el Plan de San Luis para iniciar el levantamiento armado el _______________ de 1910."
-
-explicacion: |
-  El Plan de San Luis llamaba a las armas el 20 de noviembre de 1910, fecha que luego se convirtió en la fiesta patria de México.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["huerta", "traicion", "decena_tragica"]
-
-variables:
-  traidor: "Victoriano Huerta"
-
-respuesta: "asesinato"
-tipo: completar
-
-enunciado: "El general {traidor} fue responsable del _______________ de Madero durante la Decena Trágica."
-
-explicacion: |
-  Huerta, leal a Díaz, traicionó a Madero y lo obligó a renunciar y morir, instaurando una dictadura militar.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "avanzado"
-  tags: ["constitucion", "articulo_27", "tierra"]
-
-variables:
-  articulo: 27
-
-respuesta: "tierra"
-tipo: completar
-
-enunciado: "El artículo {articulo} de la Constitución de 1917 establecía que la propiedad originaria de la _______________ correspondía a la Nación."
-
-explicacion: |
-  El Art. 27 permitía al Estado redistribuir la tierra y expropiarlatifundios, cumpliendo una de las principales demandas zapatistas.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["villa", "batalla", "celaya"]
-
-variables:
-  batalla: "Celaya"
-
-respuesta: "derrota"
-tipo: completar
-
-enunciado: "En la batalla de {batalla}, las fuerzas de Villa sufrieron una crucial _______________ frente a las tropas de Álvaro Obregón."
-
-explicacion: |
-  La derrota en Celaya (1915) marcó el declive militar de Villa y consolidó el poder de Obregón y Carranza.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["obregon", "general", "victoria"]
-
-variables:
-  general: "Álvaro Obregón"
-
-respuesta: "Obregón"
-tipo: completar
-
-enunciado: "El general _______________ fue clave para derrotar a Villa y luego se convirtió en presidente."
-
-explicacion: |
-  Obregón fue el estratega militar más exitoso de la fase final de la revolución y luego presidente de México.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["zapata", "plan_de_ayala", "lema"]
-
-variables:
-  lema: "La tierra es de quien la trabaja"
-
-respuesta: "Zapata"
-tipo: completar
-
-enunciado: "El lema '{lema}' fue promovido por _______________."
-
-explicacion: |
-  Este lema resumía la filosofía agraria de Zapata: la legitimidad de la posesión viene del trabajo directo sobre la tierra.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["porfiriato", "estabilidad", "autoritarismo"]
-
-variables:
-  periodo: "Porfiriato"
-
-respuesta: "autoritaria"
-tipo: completar
-
-enunciado: "El {periodo} se caracterizó por una estabilidad _______________ pero marcada por la desigualdad social."
-
-explicacion: |
-  La estabilidad se lograba mediante la represión política y la exclusión de la participación democrática real.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["madero", "clase_media", "politico"]
-
-variables:
-  clase: "clase media"
-
-respuesta: "liberal"
-tipo: completar
-
-enunciado: "Madero representaba a la _______________ mexicana que quería modernizar el país sin destruir la estructura social existente."
-
-explicacion: |
-  Madero era un político liberal de clase media, preocupado por la democracia pero menos radical en la reforma social que Zapata o Villa.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["fin", "1920", "constitucion"]
-
-variables:
-  anio_fin: 1920
-
-respuesta: "1920"
-tipo: input
-
-enunciado: "Aunque la violencia continuó, se considera que la fase principal de la Revolución Mexicana concluyó alrededor del año _______________."
-
-explicacion: |
-  Con la muerte de Zapata (1919) y la renuncia de Carranza (1920), se inicia la etapa de consolidación institucional que lleva a la Constitución de 1917 ya vigente.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "avanzado"
-  tags: ["zapata", "muerte", "1919"]
-
-variables:
-  lider: "Emiliano Zapata"
-
-respuesta: "emboscada"
-tipo: completar
-
-enunciado: "Emiliano Zapata fue asesinado en una _______________ organizada por las fuerzas gubernamentales."
-
-explicacion: |
-  La muerte de Zapata fue un golpe duro para el movimiento agrarista, aunque sus ideales perduraron en la constitución.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "intermedio"
-  tags: ["villa", "exilio", "fin"]
-
-variables:
-  lider: "Pancho Villa"
-
-respuesta: "exilio"
-tipo: completar
-
-enunciado: "Tras su derrota militar, Villa aceptó un acuerdo y se retiró al _______________ antes de volver brevemente a la política."
-
-explicacion: |
-  Villa fue pacificado inicialmente, recibiendo una hacienda, pero su poder militar fue desmantelado.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "avanzado"
-  tags: ["constitucion", "articulo_123", "trabajo"]
-
-variables:
-  articulo: 123
-
-respuesta: "trabajo"
-tipo: completar
-
-enunciado: "El artículo {articulo} de la Constitución de 1917 estableció los derechos de los _______________."
-
-explicacion: |
-  El Art. 123 fue pionero en derechos laborales: jornada máxima, salario mínimo, derecho de huelga y descanso dominical.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "basico"
-  tags: ["madero", "lema", "sufragio"]
-
-variables:
-  parte1: "Sufragio efectivo"
-
-respuesta: "no reelección"
-tipo: completar
-
-enunciado: "Completa el lema: '{parte1}', _______________."
-
-explicacion: |
-  El lema completo era "Sufragio efectivo, no reelección", enfocándose en la democracia política.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "revolucion_mexicana_1910_1920"
-  nivel: "avanzado"
-  tags: ["internacional", "eeuu", "intervencion"]
-
-variables:
-  pais: "Estados Unidos"
-
-respuesta: "intervencion"
-tipo: completar
-
-enunciado: "La relación con {pais} fue complicada, ya que este país temía una _______________ extranjera en sus intereses económicos."
-
-explicacion: |
-  EE.UU. tuvo una postura ambigua, a veces apoyando a Madero o a Huerta según sus intereses, pero temiendo la inestabilidad en su frontera.
 ```
 
 ## Sección: revoluciones (20 preguntas)
@@ -2196,7 +2628,7 @@ opciones_explicitas:
   - "Invasiones Inglesas"
   - "Invasión napoleónica a España"
   - "Revolución de Mayo"
-respuesta: "Invasiones Inglesas"
+respuesta_orden: ["Invasiones Inglesas", "Invasión napoleónica a España", "Revolución de Mayo"]
 
 explicacion: |
   Las Invasiones Inglesas (1806-1807) fueron el precedente militar; la
@@ -2263,3 +2695,797 @@ explicacion: |
   Es el mismo patrón de "duplicación resuelta" (agregado v2.4) que ya
   usa el MAPA en otro punto de esta misma cadena.
 ```
+
+## Sección: independencias (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "basico"
+  tags: ["independencias", "vocabulario"]
+
+enunciado: "¿Qué es un proceso de independencia?"
+tipo: mc
+opciones_explicitas:
+  - "El proceso por el cual un territorio deja de estar bajo la soberanía de otro Estado y se constituye como Estado propio"
+  - "Un cambio de gobernante dentro del mismo Estado"
+  - "Un tratado comercial entre dos países"
+respuesta: "El proceso por el cual un territorio deja de estar bajo la soberanía de otro Estado y se constituye como Estado propio"
+
+explicacion: |
+  No es un evento instantáneo: es un proceso que puede durar años.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "intermedio"
+  tags: ["cruce"]
+
+enunciado: "En el caso rioplatense, ¿la independencia fue el primer paso del proceso o la consecuencia de una revolución previa?"
+tipo: mc
+opciones_explicitas:
+  - "Fue la consecuencia de la Revolución de Mayo, un proceso revolucionario previo"
+  - "Fue el primer paso, antes de cualquier revolución"
+  - "No tuvo ninguna relación con la Revolución de Mayo"
+respuesta: "Fue la consecuencia de la Revolución de Mayo, un proceso revolucionario previo"
+
+explicacion: |
+  Es la razón por la que `independencias/` depende de
+  `../revoluciones/` en `../dependencias.md`.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "avanzado"
+  tags: ["revolucion_de_mayo"]
+
+enunciado: "¿En nombre de quién decía gobernar la Junta de 1810, aunque en la práctica ejercía el poder de forma autónoma?"
+tipo: mc
+opciones_explicitas:
+  - "Del rey depuesto, Fernando VII"
+  - "Del rey de Portugal"
+  - "De ningún rey, declarándose independiente desde el primer día"
+respuesta: "Del rey depuesto, Fernando VII"
+
+explicacion: |
+  Era una ambigüedad deliberada para no provocar una reacción militar
+  inmediata mientras el nuevo gobierno se afianzaba.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "avanzado"
+  tags: ["revolucion_de_mayo"]
+
+enunciado: "¿Por qué la Junta de 1810 no declaró la independencia total de inmediato?"
+tipo: mc
+opciones_explicitas:
+  - "Para ganar tiempo y consolidarse sin provocar una reacción militar inmediata de España"
+  - "Porque no existía ninguna intención de romper con España"
+  - "Porque España ya había reconocido la independencia en 1810"
+respuesta: "Para ganar tiempo y consolidarse sin provocar una reacción militar inmediata de España"
+
+explicacion: |
+  Era una estrategia deliberada de radicalización progresiva, no
+  indecisión.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "basico"
+  tags: ["argentina"]
+
+enunciado: "¿En qué año se declaró formalmente la independencia de las Provincias Unidas en Sudamérica?"
+tipo: input
+respuesta: 1816
+
+explicacion: |
+  El Congreso de Tucumán declaró la independencia en 1816, 6 años
+  después de la Revolución de Mayo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "intermedio"
+  tags: ["argentina", "calculo"]
+
+variables:
+  anio_revolucion: 1810
+  anio_independencia: 1816
+
+respuesta: anio_independencia - anio_revolucion
+tipo: input
+
+enunciado: "Entre la Revolución de Mayo ({anio_revolucion}) y la declaración de independencia en el Congreso de Tucumán ({anio_independencia}), ¿cuántos años pasaron?"
+
+pasos:
+  - "{anio_independencia} - {anio_revolucion}"
+
+explicacion: |
+  El proceso completo llevó más tiempo que el evento fundacional que
+  se suele recordar como "punto de partida".
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "basico"
+  tags: ["argentina"]
+
+enunciado: "¿En qué Congreso se declaró la independencia argentina en 1816?"
+tipo: mc
+opciones_explicitas:
+  - "Congreso de Tucumán"
+  - "Congreso de Viena"
+  - "Congreso de Panamá"
+respuesta: "Congreso de Tucumán"
+
+explicacion: |
+  Fue el Congreso que reunió representantes de las Provincias Unidas
+  para declarar formalmente la independencia.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "intermedio"
+  tags: ["cruce"]
+
+enunciado: "¿Por qué declarar la independencia en 1816 no la hizo efectiva de forma automática?"
+tipo: mc
+opciones_explicitas:
+  - "Porque España no reconoció la declaración y siguió enviando fuerzas militares para reconquistar el territorio"
+  - "Porque el Congreso de Tucumán no tenía autoridad legal"
+  - "Porque la independencia ya era efectiva desde 1810"
+respuesta: "Porque España no reconoció la declaración y siguió enviando fuerzas militares para reconquistar el territorio"
+
+explicacion: |
+  La declaración política y la victoria militar que la sostiene son
+  dos cosas distintas — ver `../guerras/`.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "avanzado"
+  tags: ["cruce"]
+
+enunciado: "¿Son la declaración política de independencia y la victoria militar que la consolida exactamente lo mismo?"
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Son dos cosas distintas, aunque en la práctica una depende de la
+  otra: sin ganar la guerra, la declaración queda sin efecto real.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "avanzado"
+  tags: ["revolucion_de_mayo"]
+
+enunciado: "¿Qué provocó que la postura independentista se consolidara como la única salida viable con el paso de los años?"
+tipo: mc
+opciones_explicitas:
+  - "Los intentos de España de reconquistar el territorio"
+  - "Un tratado de paz firmado en 1810"
+  - "La ausencia total de conflicto con España"
+respuesta: "Los intentos de España de reconquistar el territorio"
+
+explicacion: |
+  A medida que España insistía en recuperar el control, la ambigüedad
+  inicial se volvió insostenible.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "intermedio"
+  tags: ["proceso_continental"]
+
+enunciado: "¿Qué campaña de San Martín llevó la independencia más allá del territorio rioplatense?"
+tipo: mc
+opciones_explicitas:
+  - "El cruce de los Andes y la liberación de Chile"
+  - "La expedición al Amazonas"
+  - "La conquista de México"
+respuesta: "El cruce de los Andes y la liberación de Chile"
+
+explicacion: |
+  Muestra que el proceso se pensó, en parte, como un proyecto
+  continental, no aislado a un solo territorio.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "intermedio"
+  tags: ["proceso_continental"]
+
+enunciado: "¿Qué líder independentista lideró procesos en el norte de Sudamérica, en paralelo al de San Martín en el sur?"
+tipo: mc
+opciones_explicitas:
+  - "Simón Bolívar"
+  - "Napoleón Bonaparte"
+  - "Bernardo O'Higgins"
+respuesta: "Simón Bolívar"
+
+explicacion: |
+  Junto con San Martín, es una de las dos grandes figuras de la
+  independencia hispanoamericana como proceso continental.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "avanzado"
+  tags: ["proceso_continental"]
+
+enunciado: "¿Por qué la independencia hispanoamericana se pensó, en parte, como un proyecto continental y no aislado por territorio?"
+tipo: mc
+opciones_explicitas:
+  - "Porque ningún territorio quedaba realmente seguro mientras España mantuviera fuerzas militares en la región"
+  - "Porque todos los territorios hispanoamericanos tenían el mismo gobierno"
+  - "Porque España ya había reconocido todas las independencias en 1810"
+respuesta: "Porque ningún territorio quedaba realmente seguro mientras España mantuviera fuerzas militares en la región"
+
+explicacion: |
+  Mientras hubiera fuerzas españolas activas en la región, cualquier
+  territorio independizado corría riesgo de reconquista.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "basico"
+  tags: ["independencias"]
+
+enunciado: "Un proceso de independencia siempre es un evento instantáneo, que ocurre en un solo día."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Es un proceso que puede durar años y atravesar varias etapas antes
+  de consolidarse — el caso rioplatense llevó al menos 6 años sólo
+  hasta la declaración formal, y más tiempo hasta consolidarse
+  militarmente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "intermedio"
+  tags: ["revolucion_de_mayo"]
+
+enunciado: "Ordená estas 3 etapas del proceso rioplatense: Declaración formal de independencia, Ambigüedad inicial (gobernar \"a nombre\" del rey), Radicalización progresiva."
+tipo: ordenar
+opciones_explicitas:
+  - "Ambigüedad inicial (gobernar \"a nombre\" del rey)"
+  - "Radicalización progresiva"
+  - "Declaración formal de independencia"
+respuesta_orden: ["Ambigüedad inicial (gobernar \"a nombre\" del rey)", "Radicalización progresiva", "Declaración formal de independencia"]
+
+explicacion: |
+  Es la secuencia real: 1810 (ambigüedad) → años intermedios
+  (radicalización) → 1816 (declaración formal).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "intermedio"
+  tags: ["independencias"]
+
+enunciado: "¿Qué necesita un territorio, además de declararse independiente, para consolidarse como Estado propio?"
+tipo: mc
+opciones_explicitas:
+  - "Gobierno y reconocimiento internacional autónomos"
+  - "Sólo una bandera y un himno nuevos"
+  - "La aprobación exclusiva de la antigua metrópoli"
+respuesta: "Gobierno y reconocimiento internacional autónomos"
+
+explicacion: |
+  Un Estado necesita ejercer soberanía real y ser reconocido, no sólo
+  declarar la intención.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "avanzado"
+  tags: ["independencias"]
+
+enunciado: "¿Por qué conviene analizar la independencia rioplatense como un \"proceso\" y no como un único \"evento\" (la Revolución de Mayo)?"
+tipo: mc
+opciones_explicitas:
+  - "Porque incluyó varias etapas a lo largo de años: ambigüedad, radicalización, declaración formal y consolidación militar"
+  - "Porque la Revolución de Mayo no tuvo ninguna relación con la independencia"
+  - "Porque el proceso terminó exactamente en 1810"
+respuesta: "Porque incluyó varias etapas a lo largo de años: ambigüedad, radicalización, declaración formal y consolidación militar"
+
+explicacion: |
+  Reducirlo a un solo evento (la Revolución de Mayo) pierde toda la
+  complejidad del proceso completo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "intermedio"
+  tags: ["cruce"]
+
+enunciado: "¿Por qué el proceso de independencia rioplatense se conecta directamente con `../guerras/`?"
+tipo: mc
+opciones_explicitas:
+  - "Porque España resistió militarmente la independencia declarada, generando las Guerras de independencia"
+  - "Porque `../guerras/` trata sobre un conflicto sin ninguna relación con la independencia"
+  - "Porque la independencia se logró sin ningún conflicto armado"
+respuesta: "Porque España resistió militarmente la independencia declarada, generando las Guerras de independencia"
+
+explicacion: |
+  Es la razón por la que `H2c` (guerras) depende de `H2b`
+  (independencias) en `../dependencias.md`.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "avanzado"
+  tags: ["cruce"]
+
+enunciado: "¿Cuál es la diferencia central entre \"revolución\" e \"independencia\" como procesos históricos?"
+tipo: mc
+opciones_explicitas:
+  - "La revolución cambia el poder o la estructura interna de una sociedad; la independencia rompe la relación de soberanía con otro Estado"
+  - "Son exactamente el mismo proceso con dos nombres distintos"
+  - "La independencia siempre ocurre antes que cualquier revolución"
+respuesta: "La revolución cambia el poder o la estructura interna de una sociedad; la independencia rompe la relación de soberanía con otro Estado"
+
+explicacion: |
+  Pueden estar conectadas (como en el caso rioplatense) pero son
+  conceptos distintos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "independencias"
+  nivel: "avanzado"
+  tags: ["cruce"]
+
+enunciado: "¿Por qué el desarrollo real y detallado de la independencia argentina se ubica en la cadena `AH4`-`AH5` de Tronco 8.c y no acá?"
+tipo: mc
+opciones_explicitas:
+  - "Para no duplicar el mismo contenido con dos IDs distintos — acá se explica el proceso general, allá el caso puntual con más contexto"
+  - "Porque Tronco 8.c no tiene relación alguna con la independencia"
+  - "Porque este tema y `AH4`/`AH5` tratan procesos completamente distintos"
+respuesta: "Para no duplicar el mismo contenido con dos IDs distintos — acá se explica el proceso general, allá el caso puntual con más contexto"
+
+explicacion: |
+  Mismo criterio de "no repetir el mismo tema dos veces" que ya usa el
+  MAPA en varios puntos (ver nota v2.4 sobre `AH12`/`AH13`).
+```
+
+## Sección: guerras (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "basico"
+  tags: ["guerras", "vocabulario"]
+
+enunciado: "¿Qué es una guerra, como proceso histórico?"
+tipo: mc
+opciones_explicitas:
+  - "Un conflicto armado sostenido entre grupos organizados que se resuelve por la fuerza en vez de por acuerdo"
+  - "Cualquier desacuerdo político sin uso de la fuerza"
+  - "Un tratado firmado entre dos Estados"
+respuesta: "Un conflicto armado sostenido entre grupos organizados que se resuelve por la fuerza en vez de por acuerdo"
+
+explicacion: |
+  Puede ser entre Estados, entre facciones internas, o ambos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "avanzado"
+  tags: ["cruce"]
+
+enunciado: "¿Qué rol suele cumplir la guerra respecto a procesos de revolución o independencia?"
+tipo: mc
+opciones_explicitas:
+  - "Es el medio por el que muchas veces se decide si esos procesos se consolidan o fracasan"
+  - "Es exactamente lo mismo que una revolución"
+  - "No tiene ninguna relación con esos procesos"
+respuesta: "Es el medio por el que muchas veces se decide si esos procesos se consolidan o fracasan"
+
+explicacion: |
+  Una revolución cambia estructura interna; una independencia rompe
+  soberanía; la guerra es a menudo el mecanismo que resuelve si eso se
+  logra.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "basico"
+  tags: ["tipos_de_guerra"]
+
+enunciado: "¿Qué caracteriza a una guerra de independencia?"
+tipo: mc
+opciones_explicitas:
+  - "Un territorio contra la metrópoli que no reconoce su independencia declarada"
+  - "Dos facciones del mismo territorio enfrentadas entre sí"
+  - "Dos Estados ya constituidos disputando un territorio puntual"
+respuesta: "Un territorio contra la metrópoli que no reconoce su independencia declarada"
+
+explicacion: |
+  Es el caso típico de las Guerras de independencia sudamericanas
+  contra España.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "basico"
+  tags: ["tipos_de_guerra"]
+
+enunciado: "¿Qué caracteriza a una guerra civil?"
+tipo: mc
+opciones_explicitas:
+  - "Un mismo territorio dividido internamente por un desacuerdo de fondo sobre cómo organizarse"
+  - "Un conflicto exclusivamente contra un enemigo externo"
+  - "Un conflicto entre dos Estados ya reconocidos internacionalmente"
+respuesta: "Un mismo territorio dividido internamente por un desacuerdo de fondo sobre cómo organizarse"
+
+explicacion: |
+  No es contra un enemigo externo, sino entre bandos del mismo país —
+  ejemplo real: unitarios y federales en Argentina.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "intermedio"
+  tags: ["argentina", "tipos_de_guerra"]
+
+enunciado: "¿Cuáles fueron los dos bandos de la guerra civil argentina del siglo XIX?"
+tipo: mc
+opciones_explicitas:
+  - "Unitarios y federales"
+  - "Realistas y patriotas"
+  - "Peronistas y radicales"
+respuesta: "Unitarios y federales"
+
+explicacion: |
+  El desacuerdo de fondo era un Estado centralizado desde Buenos Aires
+  vs. una confederación de provincias autónomas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "avanzado"
+  tags: ["argentina"]
+
+enunciado: "¿Cuál era el desacuerdo de fondo entre unitarios y federales?"
+tipo: mc
+opciones_explicitas:
+  - "Un Estado centralizado desde Buenos Aires vs. una confederación de provincias autónomas"
+  - "Si declarar o no la independencia de España"
+  - "Si mantener o abolir la esclavitud"
+respuesta: "Un Estado centralizado desde Buenos Aires vs. una confederación de provincias autónomas"
+
+explicacion: |
+  Era, en el fondo, la pregunta sin resolver de "cómo nos organizamos"
+  que quedó pendiente después de lograr la independencia.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "intermedio"
+  tags: ["tipos_de_guerra"]
+
+enunciado: "¿Qué caracteriza a una guerra internacional entre Estados ya constituidos, como Malvinas?"
+tipo: mc
+opciones_explicitas:
+  - "Es un conflicto entre dos Estados soberanos y reconocidos, por un territorio en disputa"
+  - "Es un conflicto donde uno de los dos Estados no existe todavía"
+  - "Es siempre una guerra civil disfrazada"
+respuesta: "Es un conflicto entre dos Estados soberanos y reconocidos, por un territorio en disputa"
+
+explicacion: |
+  No se discute la existencia de ninguno de los dos Estados, sólo la
+  soberanía sobre un territorio puntual — categoría distinta de la
+  guerra de independencia o la guerra civil.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "intermedio"
+  tags: ["cruce"]
+
+enunciado: "¿En qué nodo de Tronco 8.c está el desarrollo real de la Guerra de Malvinas?"
+tipo: mc
+opciones_explicitas:
+  - "AH13"
+  - "AH5"
+  - "AH1"
+respuesta: "AH13"
+
+explicacion: |
+  El desarrollo completo vive en Tronco 8.c, citando el art. 92 b —
+  acá sólo se referencia, sin duplicarlo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "intermedio"
+  tags: ["herramientas_analisis"]
+
+enunciado: "¿Casi ninguna guerra tiene una sola causa?"
+tipo: vf
+respuesta: verdadero
+
+explicacion: |
+  Combina intereses económicos, políticos e ideológicos, igual que
+  cualquier proceso analizado con la herramienta de multicausalidad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "avanzado"
+  tags: ["herramientas_analisis"]
+
+enunciado: "¿Cómo se relacionan, en el patrón `AH5 → AH6` de la cadena argentina, la guerra de independencia y la guerra civil posterior?"
+tipo: mc
+opciones_explicitas:
+  - "La guerra de independencia puede generar, como consecuencia, una guerra civil por no haber acuerdo claro sobre cómo organizar el nuevo Estado"
+  - "No tienen ninguna relación causal entre sí"
+  - "La guerra civil siempre ocurre antes que la de independencia"
+respuesta: "La guerra de independencia puede generar, como consecuencia, una guerra civil por no haber acuerdo claro sobre cómo organizar el nuevo Estado"
+
+explicacion: |
+  Es exactamente el patrón que explica `teoria.md`: independencia
+  resuelve "quién no nos gobierna", pero deja abierto "cómo nos
+  organizamos".
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "avanzado"
+  tags: ["herramientas_analisis"]
+
+enunciado: "¿Por qué el patrón \"independencia seguida de guerra civil\" no es exclusivo de Argentina?"
+tipo: mc
+opciones_explicitas:
+  - "Porque lograr la independencia deja sin resolver \"cómo organizarse entre sí\", pregunta que sin consenso previo suele derivar en conflicto interno"
+  - "Porque todos los países copiaron el modelo argentino"
+  - "Porque España provocaba directamente todas las guerras civiles de sus excolonias"
+respuesta: "Porque lograr la independencia deja sin resolver \"cómo organizarse entre sí\", pregunta que sin consenso previo suele derivar en conflicto interno"
+
+explicacion: |
+  Es un patrón típico de casi cualquier proceso de independencia real,
+  no sólo el argentino.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "avanzado"
+  tags: ["herramientas_analisis"]
+
+enunciado: "¿Qué herramienta del Big Six ayuda a juzgar una guerra pasada sin reducirla a una fecha para memorizar?"
+tipo: mc
+opciones_explicitas:
+  - "Dimensión ética"
+  - "Antes y después de Cristo"
+  - "Década, siglo, milenio"
+respuesta: "Dimensión ética"
+
+explicacion: |
+  Es el mismo criterio que ya se aplicó a `AH12`/`AH13` (Terrorismo de
+  Estado y Malvinas) en Tronco 8.c.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "basico"
+  tags: ["tipos_de_guerra"]
+
+enunciado: "Toda guerra es necesariamente contra un enemigo externo al propio territorio."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Una guerra civil es exactamente el caso contrario: el conflicto es
+  interno, entre bandos del mismo país.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "intermedio"
+  tags: ["tipos_de_guerra"]
+
+enunciado: "¿Cuál es la diferencia clave entre una guerra de independencia y una guerra civil?"
+tipo: mc
+opciones_explicitas:
+  - "La de independencia es contra una potencia externa; la civil es entre bandos del mismo territorio"
+  - "La guerra civil siempre involucra más países que la de independencia"
+  - "No hay ninguna diferencia real entre ambas"
+respuesta: "La de independencia es contra una potencia externa; la civil es entre bandos del mismo territorio"
+
+explicacion: |
+  Es la distinción central entre los dos primeros tipos de guerra
+  descritos en `teoria.md`.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "avanzado"
+  tags: ["tipos_de_guerra"]
+
+enunciado: "En la Guerra de Malvinas de 1982, ¿qué se disputaba entre Argentina y el Reino Unido?"
+tipo: mc
+opciones_explicitas:
+  - "La soberanía sobre un territorio puntual, sin discutir la existencia de ninguno de los dos Estados"
+  - "Si Argentina o el Reino Unido debían dejar de existir como Estados"
+  - "Un desacuerdo interno dentro de un mismo país"
+respuesta: "La soberanía sobre un territorio puntual, sin discutir la existencia de ninguno de los dos Estados"
+
+explicacion: |
+  Es la categoría "guerra internacional entre Estados ya
+  constituidos", distinta de las guerras de independencia y las
+  guerras civiles.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "intermedio"
+  tags: ["argentina"]
+
+enunciado: "Ordená cronológicamente estos 3 conflictos de la cadena argentina: Guerra de Malvinas, Guerras de independencia, Guerras civiles (unitarios y federales)."
+tipo: ordenar
+opciones_explicitas:
+  - "Guerras de independencia"
+  - "Guerras civiles (unitarios y federales)"
+  - "Guerra de Malvinas"
+respuesta_orden: ["Guerras de independencia", "Guerras civiles (unitarios y federales)", "Guerra de Malvinas"]
+
+explicacion: |
+  Guerras de independencia (principios del s. XIX) → Guerras civiles
+  (mediados del s. XIX) → Guerra de Malvinas (1982).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "intermedio"
+  tags: ["herramientas_analisis"]
+
+enunciado: "¿Cuál de estos es un tipo de causa que suele combinarse en el estallido de una guerra, según la multicausalidad?"
+tipo: mc
+opciones_explicitas:
+  - "Control de territorio, recursos o rutas comerciales"
+  - "El clima del día en que se firmó la declaración de guerra"
+  - "La cantidad de satélites GPS disponibles"
+respuesta: "Control de territorio, recursos o rutas comerciales"
+
+explicacion: |
+  Son causas económicas típicas, que se combinan con las políticas e
+  ideológicas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "avanzado"
+  tags: ["cruce"]
+
+enunciado: "¿Por qué `guerras/` no repite el desarrollo completo de las Guerras de independencia, guerras civiles y Malvinas, y sólo los referencia?"
+tipo: mc
+opciones_explicitas:
+  - "Para no escribir el mismo contenido histórico dos veces con distintos IDs (`H2c` y `AH5`/`AH6`/`AH12`/`AH13`)"
+  - "Porque esos temas no tienen ninguna relación con las guerras"
+  - "Porque el contenido de Tronco 8.c está desactualizado"
+respuesta: "Para no escribir el mismo contenido histórico dos veces con distintos IDs (`H2c` y `AH5`/`AH6`/`AH12`/`AH13`)"
+
+explicacion: |
+  Mismo criterio de "duplicación resuelta" ya aplicado en otros puntos
+  del MAPA (nota v2.4).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "intermedio"
+  tags: ["cruce"]
+
+enunciado: "¿Por qué `guerras/` depende de `../independencias/` como prerrequisito?"
+tipo: mc
+opciones_explicitas:
+  - "Porque muchas guerras de este período nacen de procesos de independencia sin resolver del todo"
+  - "Porque las guerras siempre ocurren antes que cualquier independencia"
+  - "Porque no existe relación real entre ambos procesos"
+respuesta: "Porque muchas guerras de este período nacen de procesos de independencia sin resolver del todo"
+
+explicacion: |
+  Ejemplo directo: las guerras civiles argentinas nacieron de la
+  pregunta sin resolver que dejó la independencia.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "guerras"
+  nivel: "avanzado"
+  tags: ["herramientas_analisis"]
+
+enunciado: "Independencia, guerra civil y guerra internacional entre Estados son 3 tipos de guerra distintos. ¿Qué tienen en común como forma de analizarlos?"
+tipo: mc
+opciones_explicitas:
+  - "Se benefician del mismo tipo de análisis histórico: multicausalidad, causa/consecuencia y dimensión ética"
+  - "Ninguno de los tres se puede analizar con las mismas herramientas"
+  - "Los tres ocurrieron exactamente el mismo año en Argentina"
+respuesta: "Se benefician del mismo tipo de análisis histórico: multicausalidad, causa/consecuencia y dimensión ética"
+
+explicacion: |
+  Comparten estructura de análisis aunque el contenido y los actores
+  sean distintos — por eso el MAPA los agrupó como 3 nodos hermanos
+  (`H2a`/`H2b`/`H2c`) en vez de tratarlos como temas sin relación.
+```
+

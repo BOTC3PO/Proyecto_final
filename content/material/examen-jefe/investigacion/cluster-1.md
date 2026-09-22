@@ -1,6 +1,6 @@
-# Examen jefe — Dominio del Método Científico
+# Examen jefe — [PENDIENTE #912]
 
-> Logro #185. Completaste el examen integrando filosofía, modelado y análisis estadístico con criterio crítico. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #912. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,7 +15,10 @@ metadata:
 
 respuesta: "promedio"
 tipo: completar
-respuestas_validas: ["promedio", "media", "media_aritmetica"]
+respuestas_validas:
+  - "promedio"
+  - "media"
+  - "media_aritmetica"
 
 enunciado: "El valor que representa el centro de un conjunto de datos numéricos, calculado sumando todos los valores y dividiendo por la cantidad de ellos, se conoce como ___."
 
@@ -30,18 +33,7 @@ metadata:
   nivel: "intermedio"
   tags: ["desviacion", "variabilidad"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: uno_de([
-    ["10", "11", "10", "11", "10"], 
-    ["10", "20", "0", "30", "10"]
-  ])
-  desviacion_esperada: uno_de([
-    "baja", 
-    "alta"
-  ])
-
-respuesta: datos[escenario_idx][1
+respuesta: "alta"
 tipo: mc
 opciones_explicitas: ["baja", "alta"]
 
@@ -74,7 +66,7 @@ metadata:
   nivel: "intermedio"
   tags: ["metodologia", "pasos"]
 
-respuesta: ["recoleccion", "limpieza", "calculo", "interpretacion"]
+respuesta_orden: ["recoleccion", "limpieza", "calculo", "interpretacion"]
 tipo: ordenar
 opciones_explicitas: ["recoleccion", "limpieza", "calculo", "interpretacion"]
 
@@ -93,7 +85,8 @@ metadata:
 
 respuesta: "frecuencia"
 tipo: completar
-respuestas_validas: ["frecuencia"]
+respuestas_validas:
+  - "frecuencia"
 
 enunciado: "La moda se define como el valor que presenta la mayor ___ dentro de un conjunto de datos."
 
@@ -153,7 +146,7 @@ variables:
   valor_real: 50.0
   mediciones: [49.8, 50.1, 49.9, 50.2, 50.0]
 
-respuesta: 0.2
+respuesta: 0.12
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -165,7 +158,7 @@ pasos:
   - "Dividir el resultado por el número total de mediciones."
 
 explicacion: |
-  El error absoluto promedio se calcula como: (|49.8-50| + |50.1-50| + |49.9-50| + |50.2-50| + |50.0-50|) / 5 = (0.2 + 0.1 + 0.1 + 0.2 + 0) / 5 = 0.6 / 5 = 0.12. (Nota: El ejemplo usa valores simplificados para el cálculo).
+  El error absoluto promedio se calcula como: (|49.8-50| + |50.1-50| + |49.9-50| + |50.2-50| + |50.0-50|) / 5 = (0.2 + 0.1 + 0.1 + 0.2 + 0) / 5 = 0.6 / 5 = 0.12.
 ```
 
 ```
@@ -175,7 +168,7 @@ metadata:
   nivel: "basico"
   tags: ["metodologia", "pasos"]
 
-respuesta: ["Recolección de datos", "Limpieza de datos", "Cálculo de estadísticos", "Interpretación de resultados"]
+respuesta_orden: ["Recolección de datos", "Limpieza de datos", "Cálculo de estadísticos", "Interpretación de resultados"]
 tipo: ordenar
 opciones_explicitas: ["Recolección de datos", "Limpieza de datos", "Cálculo de estadísticos", "Interpretación de resultados"]
 
@@ -193,18 +186,18 @@ metadata:
   tags: ["moda", "frecuencia"]
 
 variables:
-  frecuencias: [5, 12, 8, 12, 3]
+  frecuencias: [5, 10, 8, 12, 3]
   categorias: ["A", "B", "C", "D", "E"]
-  idx_moda: 3
 
 respuesta: "D"
 tipo: completar
-respuestas_validas: ["A", "B", "C", "D", "E"]
+respuestas_validas:
+  - "D"
 
 enunciado: "En un estudio de preferencias de consumo, las frecuencias de las categorías son {frecuencias}. La categoría que presenta la mayor frecuencia (la moda) es la categoría ___."
 
 explicacion: |
-  Observando el array de frecuencias, el valor máximo es 12. Este valor aparece en la posición index 1 y en la posición index 3. En este caso, el sistema identifica la categoría correspondiente al índice de la moda seleccionada.
+  Observando el array de frecuencias, el valor máximo es 12, que corresponde a la categoría D (índice 3).
 ```
 
 ```
@@ -234,16 +227,16 @@ variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [[0.03, "rechazar"], [0.07, "no rechazar"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["rechazar", "no rechazar"]
 
-enunciado: "En un estudio con un nivel de significancia $\alpha = 0.05$, se obtiene un p-valor de {escenarios[escenario_idx][0]}. Por lo tanto, la decisión estadística es ___ la hipótesis nula."
+enunciado: "En un estudio con un nivel de significancia $\\alpha = 0.05$, se obtiene un p-valor de {escenarios[escenario_idx][0]}. Por lo tanto, la decisión estadística es ___ la hipótesis nula."
 
 pasos:
-  - "Comparar el p-valor obtenido con el nivel de significancia $\alpha$."
-  - "Si p-valor < $\alpha$, se rechaza la hipótesis nula."
-  - "Si p-valor $\ge$ $\alpha$, no se rechaza la hipótesis nula."
+  - "Comparar el p-valor obtenido con el nivel de significancia $\\alpha$."
+  - "Si p-valor < $\\alpha$, se rechaza la hipótesis nula."
+  - "Si p-valor $\\ge$ $\\alpha$, no se rechaza la hipótesis nula."
 
 explicacion: |
   El p-valor representa la probabilidad de observar los resultados obtenidos (o más extremos) asumiendo que la hipótesis nula es cierta.
@@ -258,7 +251,8 @@ metadata:
 
 respuesta: "sesgo de selección"
 tipo: completar
-respuestas_validas: ["sesgo de selección"]
+respuestas_validas:
+  - "sesgo de selección"
 
 enunciado: "Cuando la muestra recolectada no es representativa de la población objetivo debido a un error en el proceso de muestreo, se ha incurrido en un ___."
 
@@ -290,9 +284,9 @@ metadata:
   nivel: "basico"
   tags: ["metodologia", "proceso", "orden"]
 
-respuesta: ["Limpieza de datos", "Análisis descriptivo", "Pruebas de hipótesis", "Interpretación de resultados"]
+respuesta_orden: ["Limpieza de datos", "Análisis descriptivo", "Pruebas de hipótesis", "Interpretación de resultados"]
 tipo: ordenar
-opciones_explicitas: ["Limpieza de datos", "Análisis descriptivo", "Pruebas de hipótesis", "Interpretación de resultados", "Recolección de datos"]
+opciones_explicitas: ["Limpieza de datos", "Análisis descriptivo", "Pruebas de hipótesis", "Interpretación de resultados"]
 
 enunciado: "Ordene las etapas del análisis de resultados de forma lógica para asegurar el rigor científico:"
 
@@ -324,16 +318,10 @@ metadata:
   nivel: "avanzado"
   tags: ["p-valor", "significancia", "relevancia"]
 
-variables:
-  escenario: uno_de([
-    ["Un estudio con n=100000 muestra que un fármaco reduce el dolor en 0.1 segundos con p < 0.001.", "falso"],
-    ["Un estudio con n=20 muestra que un fármaco reduce el dolor en 2 horas con p = 0.08.", "falso"]
-  ])
-
-respuesta: escenario[1][1
+respuesta: falso
 tipo: "vf"
 
-enunciado: "En el escenario donde un resultado tiene una significancia estadística muy alta (p < 0.001) pero el efecto real es despreciable para el paciente, ¿es el resultado clínicamente relevante? {escenario[0][0]}"
+enunciado: "Un estudio con n=100000 muestra que un fármaco reduce el dolor en 0.1 segundos con p < 0.001. Dado que el resultado tiene una significancia estadística muy alta pero el efecto real es despreciable para el paciente, ¿es el resultado clínicamente relevante?"
 
 explicacion: |
   La significancia estadística (p-valor) depende fuertemente del tamaño de la muestra. Con muestras muy grandes, diferencias minúsculas pueden ser estadísticamente significativas pero carecer de importancia en el mundo real (relevancia práctica).
@@ -347,14 +335,13 @@ metadata:
   tags: ["medidas_tendencia", "sesgo", "distribucion"]
 
 variables:
-  distribucion: uno_de([
-    ["simétrica", "media"],
-    ["sesgada a la derecha", "mediana"]
-  ])
+  distribucion: uno_de([["simétrica", "media"], ["sesgada a la derecha", "mediana"]])
 
 respuesta: "mediana"
 tipo: "completar"
-respuestas_validas: ["media", "mediana"]
+respuestas_validas:
+  - "media"
+  - "mediana"
 
 enunciado: "En una distribución de datos con un sesgo positivo marcado (cola larga a la derecha), la medida de tendencia central que mejor representa el centro de los datos sin verse afectada por los valores extremos es la ___."
 
@@ -369,16 +356,10 @@ metadata:
   nivel: "avanzado"
   tags: ["hipotesis", "error_tipo_i", "error_tipo_ii"]
 
-variables:
-  caso: uno_de([
-    ["Rechazar la hipótesis nula cuando es verdadera", "falso"],
-    ["No rechazar la hipótesis nula cuando es falsa", "verdadero"]
-  ])
-
-respuesta: caso[0][1
+respuesta: verdadero
 tipo: "vf"
 
-enunciado: "El Error Tipo I se define como el acto de ___? {caso[0][0]}"
+enunciado: "El Error Tipo I se define como el acto de rechazar la hipótesis nula cuando en realidad es verdadera (falso positivo)."
 
 explicacion: |
   El Error Tipo I (falso positivo) ocurre cuando se rechaza una hipótesis nula que es verdadera. El Error Tipo II (falso negativo) ocurre cuando no se rechaza una hipótesis nula que es falsa.
@@ -391,7 +372,7 @@ metadata:
   nivel: "intermedio"
   tags: ["análisis", "univariado", "multivariado"]
 
-respuesta: ["Análisis Univariado", "Análisis Bivariado", "Análisis Multivariado"]
+respuesta_orden: ["Análisis Univariado", "Análisis Bivariado", "Análisis Multivariado"]
 tipo: "ordenar"
 opciones_explicitas: ["Análisis Univariado", "Análisis Bivariado", "Análisis Multivariado"]
 
@@ -409,11 +390,12 @@ metadata:
   tags: ["mediana", "tendencia_central"]
 
 variables:
-  datos: [[10, 12, 15, 18, 20], [5, 8, 10, 12, 50], [100, 110, 120, 130, 140]]
+  datos: [[[10, 12, 15, 18, 20], 15], [[5, 8, 10, 12, 50], 10], [[100, 110, 120, 130, 140], 120]]
   idx: uno_de([0, 1, 2])
   mediana_correcta: datos[idx][1]
 
-respuestas_validas: [mediana_correcta]
+respuestas_validas:
+  - mediana_correcta
 respuesta: mediana_correcta
 tipo: completar
 tolerancia_abs: 0
@@ -436,12 +418,14 @@ metadata:
   tags: ["outliers", "desviacion"]
 
 variables:
-  datos_escenario: [[10, 10, 11, 12, 100], [50, 52, 48, 51, 49], [20, 21, 19, 20, 22]]
+  datos_escenario: [[[10, 10, 11, 12, 100], "sí"], [[50, 52, 48, 51, 49], "no"], [[20, 21, 19, 20, 22], "no"]]
   idx: uno_de([0, 1, 2])
   datos: datos_escenario[idx][0]
   es_outlier: datos_escenario[idx][1]
 
-respuestas_validas: [es_outlier]
+respuestas_validas:
+  - "sí"
+  - "no"
 respuesta: es_outlier
 tipo: completar
 enunciado: "Al analizar el conjunto de datos {datos}, ¿se observa la presencia de un valor atípico (outlier) que afecte significativamente la media aritmética?"
@@ -457,20 +441,14 @@ metadata:
   nivel: "intermedio"
   tags: ["desviacion_estandar", "dispersion"]
 
-variables:
-  datos: [["baja", "alta"], ["alta", "baja"], ["baja", "baja"]]
-  idx: uno_de([0, 1, 2])
-  tipo_dispersion: datos[idx][0]
-  valor_esperado: datos[idx][1]
-
-respuesta: valor_esperado
+respuesta: "baja"
 tipo: mc
 opciones_explicitas: ["baja", "alta"]
 
 enunciado: "Si un experimento presenta una desviación estándar muy cercana a cero respecto a la media, ¿cómo se describe la dispersión de los datos recolectados?"
 
 explicacion: |
-  Una desviación estándar cercana a cero indica que los datos están muy agrupados alrededor de la media, por lo tanto, la dispersión es {valor_esperado}.
+  Una desviación estándar cercana a cero indica que los datos están muy agrupados alrededor de la media, por lo tanto, la dispersión es baja.
 ```
 
 ```
@@ -480,7 +458,7 @@ metadata:
   nivel: "basico"
   tags: ["metodologia", "pasos"]
 
-respuesta: ["Recolección", "Limpieza", "Análisis", "Interpretación"]
+respuesta_orden: ["Recolección", "Limpieza", "Análisis", "Interpretación"]
 tipo: ordenar
 opciones_explicitas: ["Recolección", "Limpieza", "Análisis", "Interpretación"]
 
@@ -497,20 +475,15 @@ metadata:
   nivel: "avanzado"
   tags: ["correlacion", "causalidad"]
 
-variables:
-  datos: [["correlación", "causalidad"], ["causalidad", "correlación"], ["correlación", "significancia"]]
-  idx: uno_de([0, 1, 2])
-  term1: datos[idx][0]
-  term2: datos[idx][1]
-
-respuesta: term2
+respuesta: "correlación"
 tipo: completar
-respuestas_validas: ["causalidad", "correlación", "significancia"]
+respuestas_validas:
+  - "correlación"
 
-enunciado: "Es un error común en la investigación afirmar que existe una ___ entre dos variables basándose únicamente en que presentan una ___ estadística."
+enunciado: "Es un error común en la investigación afirmar que existe una causalidad entre dos variables basándose únicamente en que presentan una ___ estadística."
 
 explicacion: |
-  Es fundamental recordar que la existencia de una {term1} no implica necesariamente una {term2}.
+  Es fundamental recordar que la existencia de una correlación no implica necesariamente una causalidad.
 ```
 
 ## Sección: argumentar-desde-evidencia (25 preguntas)
@@ -524,7 +497,9 @@ metadata:
 
 respuesta: "datos"
 tipo: completar
-respuestas_validas: ["datos", "información empírica"]
+respuestas_validas:
+  - "datos"
+  - "información empírica"
 
 enunciado: "Para construir un argumento científico sólido, es necesario apoyarse en ___ que permitan validar o refutar una hipótesis."
 
@@ -540,17 +515,13 @@ metadata:
   tags: ["objecion", "debate"]
 
 variables:
-  escenario: uno_de([
-    ["Un científico presenta un estudio sobre el cambio climático.", "una observación contradictoria"],
-    ["Un investigador propone una nueva vacuna.", "un estudio que muestra efectos secundarios"],
-    ["Un biólogo afirma que una especie está en peligro.", "un censo que muestra población estable"]
-  ])
+  escenario: uno_de([["Un científico presenta un estudio sobre el cambio climático.", "una observación contradictoria"], ["Un investigador propone una nueva vacuna.", "un estudio que muestra efectos secundarios"], ["Un biólogo afirma que una especie está en peligro.", "un censo que muestra población estable"]])
 
-respuesta: escenario[1
+respuesta: "objeción"
 tipo: mc
-opciones_explicitas: ["una observación contradictoria", "un estudio que muestra efectos secundarios", "un censo que muestra población estable"]
+opciones_explicitas: ["objeción", "conclusión", "hipótesis", "premisa"]
 
-enunciado: "Si un investigador presenta una conclusión, la respuesta a una ___ es un componente clave del proceso de refutación o validación científica."
+enunciado: "Si un investigador presenta una conclusión, presentar evidencia contraria a ella (como {escenario[1]}) se conoce como plantear una ___."
 
 pasos:
   - "Identificar la conclusión del argumento original."
@@ -568,7 +539,7 @@ metadata:
   nivel: "basico"
   tags: ["veracidad", "booleano"]
 
-respuesta: verdadero
+respuesta: falso
 
 tipo: vf
 
@@ -585,9 +556,9 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura", "argumentacion"]
 
-respuesta: ["Premisa", "Evidencia", "Conclusión"]
+respuesta_orden: ["Premisa", "Evidencia", "Conclusión"]
 tipo: ordenar
-opciones_explicitas: ["Premisa", "Evidencia", "Conclusión", "Opinión", "Duda"]
+opciones_explicitas: ["Premisa", "Evidencia", "Conclusión"]
 
 enunciado: "Ordene los elementos de un argumento científico estándar, desde el punto de partida hasta el cierre lógico:"
 
@@ -603,13 +574,9 @@ metadata:
   tags: ["defensa", "argumentacion"]
 
 variables:
-  caso: uno_de([
-    ["La hipótesis es falsa", "la evidencia es insuficiente"],
-    ["La conclusión es correcta", "los datos son erróneos"],
-    ["El método es válido", "la muestra es sesgada"]
-  ])
+  caso: uno_de([["La hipótesis es falsa", "la evidencia es insuficiente"], ["La conclusión es correcta", "los datos son erróneos"], ["El método es válido", "la muestra es sesgada"]])
 
-respuesta: caso[1
+respuesta: caso[1]
 
 tipo: mc
 opciones_explicitas: ["la evidencia es insuficiente", "los datos son erróneos", "la muestra es sesgada"]
@@ -627,17 +594,11 @@ metadata:
   nivel: "intermedio"
   tags: ["evidencia", "argumentacion", "metodologia"]
 
-variables:
-  escenario: uno_de([
-    ["El aumento de la temperatura global coincide con el incremento de CO2", "El aumento de la temperatura global es causado por el CO2"],
-    ["El fármaco X reduce la presión arterial en el grupo de prueba", "El fármaco X es efectivo para tratar la hipertensión"]
-  ])
-
-respuesta: escenario[1
+respuesta: "un mecanismo causal directo"
 tipo: mc
-opciones_explicitas: ["La correlación no implica causalidad", escenario[1], "La muestra es demasiado pequeña", "Los datos son insuficientes"]
+opciones_explicitas: ["un mecanismo causal directo", "un aumento en el tamaño de la muestra", "un consenso de expertos", "una repetición de la misma correlación"]
 
-enunciado: "Ante la objeción de que los datos solo muestran una relación estadística, la defensa científica más sólida basada en la evidencia es: ___"
+enunciado: "Ante la objeción de que los datos solo muestran una relación estadística, la defensa científica más sólida basada en la evidencia consiste en demostrar: ___"
 
 explicacion: |
   Para defender una conclusión, no basta con señalar la correlación; se debe argumentar que la evidencia respalda el mecanismo causal propuesto.
@@ -666,9 +627,9 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura", "argumento", "evidencia"]
 
-respuesta: ["Observación/Dato", "Inferencia/Análisis", "Conclusión"]
+respuesta_orden: ["Observación/Dato", "Inferencia/Análisis", "Conclusión"]
 tipo: ordenar
-opciones_explicitas: ["Inferencia/Análisis", "Conclusión", "Observación/Dato", "Hipótesis sin datos", "Opinión personal"]
+opciones_explicitas: ["Inferencia/Análisis", "Conclusión", "Observación/Dato"]
 
 enunciado: "Para construir un argumento científico robusto que responda a una objeción, se debe seguir este orden lógico de presentación de la evidencia:"
 
@@ -684,17 +645,14 @@ metadata:
   tags: ["variables", "control", "evidencia"]
 
 variables:
-  caso: uno_de([
-    ["Aumento de ventas de helados y aumento de ataques de tiburones", "El calor causa ambos"],
-    ["Uso de fertilizante y crecimiento de plantas", "El fertilizante causa el crecimiento"]
-  ])
+  caso: uno_de([["Aumento de ventas de helados y aumento de ataques de tiburones", "El calor causa ambos"], ["Uso de fertilizante y crecimiento de plantas", "El fertilizante causa el crecimiento"]])
   solucion: ["Controlar variables externas", "Ignorar la objeción", "Cambiar la conclusión", "Aceptar la correlación"]
 
-respuesta: solucion[0
+respuesta: solucion[0]
 tipo: mc
 opciones_explicitas: ["Controlar variables externas", "Ignorar la objeción", "Cambiar la conclusión", "Aceptar la correlación"]
 
-enunciado: "En el caso de {caso}, si un revisor objeta que existe una variable de confusión (como el clima), la defensa científica correcta para mantener la validez de la conclusión es: ___"
+enunciado: "En el caso de {caso[0]}, si un revisor objeta que existe una variable de confusión (como el clima), la defensa científica correcta para mantener la validez de la conclusión es: ___"
 
 explicacion: |
   La defensa ante una variable de confusión consiste en demostrar, mediante el control de variables o análisis estadísticos adicionales, que el efecto observado persiste independientemente de la variable externa.
@@ -707,11 +665,12 @@ metadata:
   nivel: "intermedio"
   tags: ["refutacion", "evidencia", "metodologia"]
 
-respuesta: ["datos", "conclusión"]
+respuesta: "conclusión"
 tipo: completar
-respuestas_validas: ["datos", "conclusión"]
+respuestas_validas:
+  - "conclusión"
 
-enunciado: "Para refutar una objeción científica, el investigador debe presentar ___ que contradiga la crítica y así validar su ___ original."
+enunciado: "Para refutar una objeción científica, el investigador debe presentar datos que contradigan la crítica y así validar su ___ original."
 
 explicacion: |
   La ciencia se basa en la evidencia; sin datos que respalden la posición frente a una crítica, la conclusión pierde validez científica.
@@ -726,6 +685,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Una opinión basada en la experiencia personal", "Un dato estadístico derivado de un muestreo representativo", "Una afirmación sin respaldo verificable", "Una creencia compartida por la comunidad científica"]
+respuesta: "Un dato estadístico derivado de un muestreo representativo"
 
 enunciado: "En el contexto de la investigación científica, ¿cuál de las siguientes opciones constituye una evidencia sólida para defender una conclusión?"
 
@@ -758,18 +718,16 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["El investigador presenta un gráfico con tendencia clara y valores de p < 0.05", "El investigador repite su conclusión sin mostrar nuevos datos"],
-    ["El investigador utiliza una muestra de 1000 sujetos con control de variables", "El investigador utiliza una muestra de 5 sujetos sin grupo de control"]
-  ]
-  respuestas: [
-    "Es una defensa válida mediante evidencia cuantitativa", "Es una falacia de autoridad o repetición"]
+  escenarios: ["El investigador presenta un gráfico con tendencia clara y valores de p < 0.05", "El investigador repite su conclusión sin mostrar nuevos datos"]
+  respuestas: ["Es una defensa válida mediante evidencia cuantitativa", "Es una falacia de autoridad o repetición"]
 
 tipo: completar
-respuestas_validas: ["Es una defensa válida mediante evidencia cuantitativa", "Es una falacia de autoridad o repetición"]
-respuesta: escenarios[escenario_idx][1
+respuestas_validas:
+  - "Es una defensa válida mediante evidencia cuantitativa"
+  - "Es una falacia de autoridad o repetición"
+respuesta: respuestas[escenario_idx]
 
-enunciado: "Ante una objeción científica, si el investigador actúa como en el escenario {escenarios[escenario_idx][0]}, su respuesta es: ___"
+enunciado: "Ante una objeción científica, si el investigador actúa como en el escenario: {escenarios[escenario_idx]}, su respuesta es: ___"
 
 explicacion: |
   Para defender una conclusión, no basta con insistir en la idea; se requiere aportar datos que refuten la objeción o que fortalezcan la validez del hallazgo original.
@@ -789,6 +747,7 @@ enunciado: "Ordene los pasos lógicos para construir un argumento científico s�
 
 explicacion: |
   El proceso debe seguir un orden lógico: primero se obtiene la información, luego se procesa, se llega a una conclusión y finalmente se usa esa estructura para responder a críticas.
+respuesta_orden: ["Recopilar datos mediante observación o experimento", "Analizar los datos para encontrar patrones", "Formular una conclusión basada en la evidencia", "Contrastar la conclusión con la objeción recibida"]
 ```
 
 ```
@@ -803,9 +762,7 @@ tolerancia_abs: 0
 
 enunciado: "Si una conclusión científica es 'Todos los elementos X presentan la propiedad Y', y un crítico presenta un elemento X que NO tiene la propiedad Y, ¿qué ha presentado el crítico?"
 
-pasos:
-  - "Identificar si el dato presentado invalida la generalización"
-  - "Determinar si el dato es un contraejemplo"
+respuesta: "contraejemplo"
 
 explicacion: |
   Un solo contraejemplo basado en evidencia empírica es suficiente para refutar una generalización universal, obligando al investigador a revisar su conclusión o sus premisas.
@@ -820,7 +777,10 @@ metadata:
 
 respuesta: "evidencia"
 tipo: "completar"
-respuestas_validas: ["evidencia", "datos", "hechos"]
+respuestas_validas:
+  - "evidencia"
+  - "datos"
+  - "hechos"
 
 enunciado: "Mientras que una opinión es un juicio subjetivo sin necesidad de validación, la ___ es un dato o hecho comprobable que sustenta una conclusión científica."
 
@@ -837,16 +797,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0,1])
-  escenarios: [
-    ["Aumento de ventas de helados", "Aumento de ataques de tiburones"],
-    ["Aumento de temperatura global", "Aumento de incendios forestales"]
-  ]
+  escenarios: [["Aumento de ventas de helados", "Aumento de ataques de tiburones"], ["Aumento de temperatura global", "Aumento de incendios forestales"]]
 
 respuesta: "correlación"
 tipo: "mc"
 opciones_explicitas: ["causalidad", "correlación", "coincidencia", "hipótesis"]
 
-enunciado: "En el escenario {escenarios[escenario_idx][0]} y {escenarios[escenario_idx][1]}, la relación observada entre ambas variables es una {escenarios[escenario_idx][1]} pero no necesariamente una relación de causa-efecto. ¿Cómo se define este fenómeno?"
+enunciado: "En el escenario {escenarios[escenario_idx][0]} y {escenarios[escenario_idx][1]}, la relación observada entre ambas variables es una ___ pero no necesariamente una relación de causa-efecto. ¿Cómo se define este fenómeno?"
 
 explicacion: |
   La correlación indica que dos variables cambian juntas, pero no implica que una cause la otra. Confundir esto con causalidad es un error lógico común en la argumentación científica.
@@ -875,7 +832,7 @@ metadata:
   nivel: "avanzado"
   tags: ["metodologia", "jerarquia"]
 
-respuesta: ["Opinión de experto", "Estudio de caso", "Estudio observacional", "Ensayo clínico aleatorizado"]
+respuesta_orden: ["Opinión de experto", "Estudio de caso", "Estudio observacional", "Ensayo clínico aleatorizado"]
 tipo: "ordenar"
 opciones_explicitas: ["Opinión de experto", "Estudio de caso", "Estudio observacional", "Ensayo clínico aleatorizado"]
 
@@ -894,7 +851,10 @@ metadata:
 
 respuesta: "hipótesis"
 tipo: "completar"
-respuestas_validas: ["hipótesis", "suposición", "conjetura"]
+respuestas_validas:
+  - "hipótesis"
+  - "suposición"
+  - "conjetura"
 
 enunciado: "Una ___ es una explicación provisional que requiere ser contrastada con evidencia para ser aceptada, mientras que la evidencia es el soporte empírico que permite validarla o refutarla."
 
@@ -911,10 +871,10 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["el aumento de la temperatura global fue de 1.5°C", "los registros satelitales confirman el aumento"], ["la concentración de CO2 subió 50ppm", "los núcleos de hielo muestran niveles récord"]]
-  objecion: [["la variabilidad natural", "el ciclo solar"], ["la falta de mediciones precisas", "el error de los sensores"]]
+  objecion: ["la variabilidad natural", "la falta de mediciones precisas"]
+  evidencia_correcta: ["datos de núcleos de hielo", "datos de registros satelitales"]
 
-respuesta: datos[escenario_idx][1
+respuesta: evidencia_correcta[escenario_idx]
 tipo: mc
 opciones_explicitas: ["datos de registros satelitales", "datos de núcleos de hielo", "observaciones anecdóticas", "teorías sin sustento"]
 
@@ -956,9 +916,9 @@ variables:
   orden_idx: uno_de([0, 1])
   pasos_correctos: [["Observación de datos", "Formulación de hipótesis", "Contraste con evidencia", "Conclusión"], ["Recolección de muestra", "Análisis estadístico", "Revisión de pares", "Publicación de resultados"]]
 
-respuesta: pasos_correctos[orden_idx
+respuesta_orden: pasos_correctos[orden_idx]
 tipo: ordenar
-opciones_explicitas: ["Observación de datos", "Formulación de hipótesis", "Contraste con evidencia", "Conclusión", "Recolección de muestra", "Análisis estadístico", "Revisión de pares", "Publicación de resultados"]
+opciones_explicitas: pasos_correctos[orden_idx]
 
 enunciado: "Para construir un argumento científico sólido que resista una objeción, se debe seguir un orden lógico de validación. Ordene los pasos para el caso de una investigación de campo:"
 
@@ -979,9 +939,11 @@ variables:
 
 respuesta: "falacia de la evidencia insuficiente"
 tipo: completar
-respuestas_validas: ["falacia de la evidencia insuficiente", "error de generalización"]
+respuestas_validas:
+  - "falacia de la evidencia insuficiente"
+  - "error de generalización"
 
-enunciado: "Ante la objecion: '{objecion_texto[ejemplo_idx]}', el investigador debe identificar que el crítico está cometiendo una ___ para poder responder con datos que cubran el margen de error."
+enunciado: "Ante la objecion: '{objecion_texto[ejemplo_idx][0]}', el investigador debe identificar que el crítico está cometiendo una ___ para poder responder con datos que cubran el margen de error."
 
 explicacion: |
   Cuando un crítico exige una certeza absoluta (imposible en ciencia) para invalidar una tendencia, está incurriendo en una falacia de evidencia insuficiente.
@@ -996,11 +958,11 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenario: [["Se estudia la eficacia de un nuevo fertilizante", "Se estudia la relación entre horas de sueño y memoria"]]
-  dato_relevante: [["kg de biomasa por planta", "puntuación en test de retención"]]
+  escenario: ["Se estudia la eficacia de un nuevo fertilizante", "Se estudia la relación entre horas de sueño y memoria"]
+  dato_relevante: ["kg de biomasa por planta", "puntuación en test de retención"]
   objecion: ["la calidad del suelo no fue controlada", "el nivel de estrés de los sujetos"]
 
-respuesta: dato_relevante[escenario_idx
+respuesta: dato_relevante[escenario_idx]
 tipo: mc
 opciones_explicitas: ["kg de biomasa por planta", "puntuación en test de retención", "opinión de los agricultores", "color de las hojas"]
 
@@ -1021,7 +983,9 @@ metadata:
 
 respuesta: "síntesis"
 tipo: completar
-respuestas_validas: ["síntesis", "resumen"]
+respuestas_validas:
+  - "síntesis"
+  - "resumen"
 
 enunciado: "La conclusión de una investigación debe presentarse como una ___ de los hallazgos principales, integrando los resultados con los objetivos planteados."
 
@@ -1037,10 +1001,10 @@ metadata:
   tags: ["discusion", "interpretacion"]
 
 variables:
-  es_correcta: true
+  es_correcta: verdadero
 
 respuesta: es_correcta
-tipo: completar
+tipo: vf
 enunciado: "¿La sección de discusión tiene como objetivo principal comparar los resultados obtenidos con la literatura existente y las hipótesis previas?"
 
 explicacion: |
@@ -1071,7 +1035,7 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura", "reporte"]
 
-respuesta: ["resumen", "introducción", "metodología", "resultados", "discusión", "conclusión"]
+respuesta_orden: ["resumen", "introducción", "metodología", "resultados", "discusión", "conclusión"]
 tipo: ordenar
 
 opciones_explicitas: ["resumen", "introducción", "metodología", "resultados", "discusión", "conclusión"]
@@ -1089,8 +1053,8 @@ metadata:
   nivel: "intermedio"
   tags: ["limitaciones", "ética"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "¿Es una mala práctica de comunicación omitir las limitaciones encontradas en el estudio para que la investigación parezca más sólida?"
 
 explicacion: |
@@ -1117,16 +1081,9 @@ metadata:
   nivel: "intermedio"
   tags: ["comunicacion", "revision"]
 
-variables:
-  escenario: uno_de([
-    ["El investigador escribe el artículo y lo envía directamente a la revista sin revisión previa.", "error"],
-    ["El investigador envía el artículo a un colega para una revisión por pares informal antes de la revista.", "acierto"],
-    ["El investigador publica los resultados en un blog personal sin pasar por revisión científica.", "error"]
-  ])
+enunciado: "En el proceso de comunicación científica, ¿cuál de las siguientes prácticas es recomendada para mejorar la calidad del manuscrito antes de la sumisión formal?"
 
-enunciado: "En el proceso de comunicación científica, el paso que describe una práctica recomendada para mejorar la calidad del manuscrito antes de la sumisión formal es: {escenario[0]}"
-
-respuesta: escenario[1
+respuesta: "El investigador envía el artículo a un colega para una revisión por pares informal antes de la revista."
 tipo: mc
 opciones_explicitas: ["El investigador escribe el artículo y lo envía directamente a la revista sin revisión previa.", "El investigador envía el artículo a un colega para una revisión por pares informal antes de la revista.", "El investigador publica los resultados en un blog personal sin pasar por revisión científica."]
 ```
@@ -1141,12 +1098,12 @@ metadata:
 enunciado: "Para asegurar una comunicación efectiva de un nuevo descubrimiento científico, se deben seguir estos pasos en orden lógico:"
 
 pasos:
-  - "Redactar el manuscrito siguiendo las normas de la revista elegida."
   - "Realizar el análisis exhaustivo de los datos obtenidos."
+  - "Redactar el manuscrito siguiendo las normas de la revista elegida."
   - "Enviar el manuscrito a la editorial para la revisión por pares."
   - "Presentar los resultados en un congreso para recibir feedback."
 
-respuesta: ["Realizar el análisis exhaustivo de los datos obtenidos.", "Redactar el manuscrito siguiendo las normas de la revista elegida.", "Enviar el manuscrito a la editorial para la revisión por pares.", "Presentar los resultados en un congreso para recibir feedback."]
+respuesta_orden: ["Realizar el análisis exhaustivo de los datos obtenidos.", "Redactar el manuscrito siguiendo las normas de la revista elegida.", "Enviar el manuscrito a la editorial para la revisión por pares.", "Presentar los resultados en un congreso para recibir feedback."]
 tipo: ordenar
 opciones_explicitas: ["Realizar el análisis exhaustivo de los datos obtenidos.", "Redactar el manuscrito siguiendo las normas de la revista elegida.", "Enviar el manuscrito a la editorial para la revisión por pares.", "Presentar los resultados en un congreso para recibir feedback."]
 ```
@@ -1159,16 +1116,13 @@ metadata:
   tags: ["limitaciones", "etica"]
 
 variables:
-  caso: uno_de([
-    ["Un estudio sobre un fármaco que no menciona que la muestra fue de solo 5 personas.", "incorrecto"],
-    ["Un estudio que reconoce que el clima afectó la velocidad de reacción química.", "correcto"]
-  ])
+  caso: uno_de([["Un estudio sobre un fármaco que no menciona que la muestra fue de solo 5 personas.", "incorrecto"], ["Un estudio que reconoce que el clima afectó la velocidad de reacción química.", "correcto"]])
 
 enunciado: "En la sección de discusión y conclusiones, un investigador debe declarar las limitaciones del estudio. Un ejemplo de una declaración de limitaciones adecuada es: {caso[0]}"
 
-respuesta: caso[1
+respuesta: caso[1]
 tipo: mc
-opciones_explicitas: ["Un estudio sobre un fármaco que no menciona que la muestra fue de solo 5 personas.", "Un estudio que reconoce que el clima afectó la velocidad de reacción química."]
+opciones_explicitas: ["incorrecto", "correcto"]
 ```
 
 ```
@@ -1180,7 +1134,10 @@ metadata:
 
 enunciado: "Cuando un artículo científico es aceptado y publicado, se convierte en parte del ___ científico, permitiendo que otros investigadores citen los hallazgos para construir nuevo conocimiento."
 
-respuestas_validas: ["cuerpo", "conocimiento", "corpus"]
+respuestas_validas:
+  - "cuerpo"
+  - "conocimiento"
+  - "corpus"
 respuesta: "conocimiento"
 tipo: completar
 ```
@@ -1212,10 +1169,10 @@ variables:
   orden_correcto: ["Resumen", "Introducción", "Metodología", "Resultados", "Discusión", "Conclusión"]
   idx: uno_de([0,1,2,3,4,5])
 
-respuesta: orden_correcto
+respuesta_orden: orden_correcto
 tipo: ordenar
 
-opciones_explicitas: ["Resumen", "Introducción", "Metodología", "Resultados", "Discusión", "Conclusión", "Bibliografía", "Anexos"]
+opciones_explicitas: ["Resumen", "Introducción", "Metodología", "Resultados", "Discusión", "Conclusión"]
 
 enunciado: "Ordene los elementos de un artículo científico estándar siguiendo la estructura lógica de publicación (IMRyD extendido)."
 
@@ -1232,7 +1189,10 @@ metadata:
 
 respuesta: "generalización excesiva"
 tipo: completar
-respuestas_validas: ["generalización excesiva", "sesgo de confirmación", "error de muestreo"]
+respuestas_validas:
+  - "generalización excesiva"
+  - "sesgo de confirmación"
+  - "error de muestreo"
 
 enunciado: "Cuando un investigador extiende sus conclusiones más allá de los límites de su muestra o de los datos recolectados, está incurriendo en una ___."
 
@@ -1297,11 +1257,8 @@ metadata:
   nivel: "basico"
   tags: ["comunicacion", "estructura"]
 
-variables:
-  es_resumen_en_conclusio: falso
-
-respuesta: es_resumen_en_conclusio
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "En un artículo científico, la sección de conclusiones debe ser una mera repetición del texto del resumen (abstract) sin aportar una síntesis interpretativa de los hallazgos."
 
 explicacion: |
@@ -1315,7 +1272,7 @@ metadata:
   nivel: "intermedio"
   tags: ["difusion", "etica"]
 
-respuesta: ["publicar_en_revistas_con_revision_pares", "publicar_en_redes_sociales", "guardar_en_un_archivo_personal"]
+respuesta_orden: ["publicar_en_revistas_con_revision_pares", "publicar_en_redes_sociales", "guardar_en_un_archivo_personal"]
 tipo: ordenar
 
 opciones_explicitas: ["publicar_en_revistas_con_revision_pares", "publicar_en_redes_sociales", "guardar_en_un_archivo_personal"]
@@ -1333,9 +1290,10 @@ metadata:
   nivel: "basico"
   tags: ["metodologia"]
 
-respuesta: ["se_confirma_o_rechaza", "se_plantea_al_inicio"]
+respuesta: "se_confirma_o_rechaza"
 tipo: completar
-respuestas_validas: ["se_confirma_o_rechaza", "se_plantea_al_inicio"]
+respuestas_validas:
+  - "se_confirma_o_rechaza"
 
 enunciado: "Si la hipótesis es la proposición que se intenta verificar al inicio de la investigación, la conclusión es el espacio donde la hipótesis ___."
 
@@ -1355,7 +1313,7 @@ variables:
   escenarios: [["hallazgos_limitados", "relevancia_alta"], ["hallazgos_contradictorios", "necesidad_de_nuevos_estudios"]]
   respuestas: ["relevancia_alta", "necesidad_de_nuevos_estudios"]
 
-respuesta: respuestas[caso_idx
+respuesta: respuestas[caso_idx]
 tipo: mc
 opciones_explicitas: ["relevancia_alta", "necesidad_de_nuevos_estudios", "repetir_metodologia", "ignorar_errores"]
 
@@ -1393,7 +1351,7 @@ metadata:
   nivel: "basico"
   tags: ["etica", "comunicacion"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "En la comunicación de resultados, es éticamente aceptable omitir datos que contradicen la hipótesis principal para asegurar que la conclusión sea contundente."
@@ -1409,7 +1367,7 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura", "orden"]
 
-respuesta: ["Introducción", "Metodología", "Resultados", "Discusión y Conclusión"]
+respuesta_orden: ["Introducción", "Metodología", "Resultados", "Discusión y Conclusión"]
 tipo: ordenar
 opciones_explicitas: ["Introducción", "Metodología", "Resultados", "Discusión y Conclusión"]
 
@@ -1432,7 +1390,10 @@ variables:
 
 respuesta: "interpretar"
 tipo: completar
-respuestas_validas: ["interpretar", "repetir", "ignorar"]
+respuestas_validas:
+  - "interpretar"
+  - "repetir"
+  - "ignorar"
 
 enunciado: "En la sección de discusión de un informe, el investigador debe ___ los resultados obtenidos en relación con el marco teórico y los objetivos planteados."
 
@@ -1455,7 +1416,7 @@ respuesta: datos[idx][0]
 tipo: mc
 opciones_explicitas: ["un congreso científico", "una red social personal", "una revista indexada", "un blog de opinión"]
 
-enunciado: "Si el objetivo es la difusión académica formal de los resultados de una investigación, el medio más apropiado es {datos[idx][1]}."
+enunciado: "Si el objetivo es la difusión académica formal de los resultados de una investigación, el medio más apropiado es ___."
 
 explicacion: |
   Para la comunicación científica formal, se requieren canales con revisión por pares (peer-review) como revistas indexadas o presentaciones en congresos especializados.
@@ -1504,16 +1465,14 @@ metadata:
   nivel: "intermedio"
   tags: ["componentes", "variables"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["masa", "gravedad"], ["presión", "temperatura"]]
-
 tipo: completar
-respuestas_validas: ["masa", "gravedad", "presión", "temperatura"]
+respuestas_validas:
+  - "gravedad"
+  - "masa"
 
-enunciado: "Para modelar la caída de un objeto, un científico suele considerar como variables principales la ___ y la ___."
+enunciado: "Para modelar la caída de un objeto, un científico suele considerar como variables principales la masa y la ___."
 
-respuesta: datos[escenario_idx][1
+respuesta: "gravedad"
 
 explicacion: |
   Los modelos requieren la selección de variables clave. En el caso de la caída libre, la masa y la gravedad son determinantes para predecir la aceleración.
@@ -1531,7 +1490,7 @@ opciones_explicitas: ["Observación del fenómeno", "Construcción del modelo", 
 
 enunciado: "Ordene los pasos lógicos para el uso y refinamiento de un modelo científico:"
 
-respuesta: ["Observación del fenómeno", "Construcción del modelo", "Prueba del modelo con datos reales", "Ajuste del modelo según resultados"]
+respuesta_orden: ["Observación del fenómeno", "Construcción del modelo", "Prueba del modelo con datos reales", "Ajuste del modelo según resultados"]
 
 explicacion: |
   El proceso científico es cíclico: se observa, se propone un modelo, se pone a prueba y, si los resultados no coinciden con la realidad, el modelo se ajusta o se descarta.
@@ -1563,11 +1522,7 @@ metadata:
   tags: ["modelo", "representacion", "fisica"]
 
 variables:
-  datos: [
-    ["un objeto cae desde una torre", "caída libre"],
-    ["una pelota es lanzada hacia arriba", "lanzamiento vertical"],
-    ["una gota de lluvia cae al suelo", "caída de gota"]
-  ]
+  datos: [["un objeto cae desde una torre", "caída libre"], ["una pelota es lanzada hacia arriba", "lanzamiento vertical"], ["una gota de lluvia cae al suelo", "caída de gota"]]
   idx: uno_de([0,1,2])
   escenario: datos[idx][0]
 
@@ -1590,11 +1545,7 @@ metadata:
   tags: ["elementos", "modelo"]
 
 variables:
-  caso: uno_de([
-    ["el clima de una ciudad", "clima"],
-    ["el crecimiento de una población de bacterias", "población"],
-    ["el flujo de agua en un río", "río"]
-  ])
+  caso: uno_de([["el clima de una ciudad", "clima"], ["el crecimiento de una población de bacterias", "población"], ["el flujo de agua en un río", "río"]])
 
 enunciado: "Al construir un modelo para representar {caso[0]}, es necesario definir variables. Si queremos predecir el comportamiento del sistema, la capacidad de un modelo para decirnos qué pasará en el futuro se denomina:"
 
@@ -1616,14 +1567,9 @@ metadata:
 
 enunciado: "Para desarrollar un modelo científico sobre el efecto de un fertilizante en el crecimiento de una planta, se deben seguir estos pasos en orden lógico:"
 
-opciones_explicitas: [
-  "Observar el fenómeno y plantear una pregunta",
-  "Construir el modelo matemático o conceptual",
-  "Realar experimentos para validar el modelo",
-  "Ajustar el modelo según los resultados obtenidos"
-]
+opciones_explicitas: ["Observar el fenómeno y plantear una pregunta", "Construir el modelo matemático o conceptual", "Realizar experimentos para validar el modelo", "Ajustar el modelo según los resultados obtenidos"]
 
-respuesta: ["Observar el fenómeno y plantear una pregunta", "Construir el modelo matemático o conceptual", "Realar experimentos para validar el modelo", "Ajustar el modelo según los resultados obtenidos"]
+respuesta_orden: ["Observar el fenómeno y plantear una pregunta", "Construir el modelo matemático o conceptual", "Realizar experimentos para validar el modelo", "Ajustar el modelo según los resultados obtenidos"]
 tipo: ordenar
 
 explicacion: |
@@ -1655,7 +1601,10 @@ metadata:
 
 enunciado: "El modelo atómico de Bohr representa al átomo como un sistema solar en miniatura, donde los electrones orbitan el núcleo en trayectorias circulares fijas. En este modelo, la variable que determina el nivel de energía del electrón es la ___."
 
-respuestas_validas: ["distancia al núcleo", "carga del núcleo", "velocidad orbital"]
+respuestas_validas:
+  - "distancia al núcleo"
+  - "carga del núcleo"
+  - "velocidad orbital"
 
 respuesta: "distancia al núcleo"
 tipo: completar
@@ -1705,19 +1654,14 @@ metadata:
   nivel: "basico"
   tags: ["variables", "simplificacion"]
 
-variables:
-  escenario: uno_de([
-    ["Temperatura", "Presión", "Volumen"],
-    ["Velocidad", "Aceleración", "Fuerza"],
-    ["Concentración", "Molaridad", "Solvente"]
-  ])
-
 tipo: completar
-respuestas_validas: ["Temperatura", "Presión", "Volumen", "Velocidad", "Aceleración", "Fuerza", "Concentración", "Molaridad", "Solvente"]
+respuestas_validas:
+  - "Temperatura"
+  - "temperatura"
 
-enunciado: "Al construir un modelo para estudiar el comportamiento de un gas ideal, el científico debe seleccionar ciertas variables críticas. Si decidimos ignorar la variable {escenario[0]}, estamos realizando una simplificación para enfocarnos en la relación entre {escenario[1]} y {escenario[2]}."
+enunciado: "Al construir un modelo para estudiar el comportamiento de un gas ideal, el científico debe seleccionar ciertas variables críticas. Si mantenemos constante la temperatura para enfocarnos en la relación entre la presión y el volumen (Ley de Boyle), estamos ignorando la variable ___."
 
-respuesta: "Presión"
+respuesta: "Temperatura"
 
 explicacion: |
   La simplificación implica elegir qué variables incluir (variables independientes/dependientes) y cuáles omitir (variables controladas o ignoradas) para reducir la complejidad del sistema.
@@ -1735,7 +1679,7 @@ opciones_explicitas: ["Observación del fenómeno", "Construcción del modelo si
 
 enunciado: "Ordena los pasos lógicos en el proceso de construcción y uso de un modelo científico para resolver un problema de investigación:"
 
-respuesta: ["Observación del fenómeno", "Construcción del modelo simplificado", "Puesta a prueba mediante predicciones", "Refinamiento o descarte del modelo"]
+respuesta_orden: ["Observación del fenómeno", "Construcción del modelo simplificado", "Puesta a prueba mediante predicciones", "Refinamiento o descarte del modelo"]
 
 explicacion: |
   El ciclo científico comienza con la observación, sigue con la creación de una representación (modelo), se utiliza para predecir resultados y, finalmente, los datos experimentales permiten ajustar el modelo o descartarlo si no funciona.
@@ -1748,12 +1692,11 @@ metadata:
   nivel: "avanzado"
   tags: ["error_conceptual", "prediccion"]
 
-tipo: completar
-tolerancia_abs: 0
+tipo: vf
 
 enunciado: "Si un modelo predice que el valor de una variable será 10.5, pero el experimento arroja 10.7, ¿el modelo es necesariamente falso?"
 
-respuesta: 10.7
+respuesta: falso
 
 explicacion: |
   No necesariamente. En ciencia, los modelos suelen tener un margen de error debido a las simplificaciones realizadas. La discrepancia puede deberse a la incertidumbre de las mediciones o a que el modelo es una aproximación útil pero no exacta.
@@ -1768,7 +1711,9 @@ metadata:
 
 respuesta: "representacion"
 tipo: "completar"
-respuestas_validas: ["representacion", "representación"]
+respuestas_validas:
+  - "representacion"
+  - "representación"
 
 enunciado: "A diferencia de la realidad física completa, un modelo científico es una ___ simplificada de la misma que permite estudiar un fenómeno específico."
 
@@ -1784,16 +1729,13 @@ metadata:
   tags: ["propiedades", "utilidad"]
 
 variables:
-  escenario: uno_de([
-    ["predecir", "explicar"],
-    ["describir", "observar"]
-  ])
+  escenario: uno_de([["predecir", "explicar"], ["describir", "observar"]])
 
-respuesta: escenario[0
+respuesta: escenario[0]
 tipo: "mc"
 opciones_explicitas: ["predecir", "describir", "observar", "repetir"]
 
-enunciado: "Una de las funciones principales de un modelo científico es la capacidad de {escenario[1]} fenómenos futuros, diferenciándose de la simple observación pasiva."
+enunciado: "Una de las funciones principales de un modelo científico es la capacidad de ___ fenómenos futuros, diferenciándose de la simple observación pasiva."
 
 explicacion: |
   Mientras que la observación describe lo que ocurre, el modelo busca capturar la lógica del sistema para poder predecir comportamientos futuros.
@@ -1822,7 +1764,7 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso", "metodologia"]
 
-respuesta: ["Observación", "Construcción", "Validación", "Refinamiento"]
+respuesta_orden: ["Observación", "Construcción", "Validación", "Refinamiento"]
 tipo: "ordenar"
 opciones_explicitas: ["Observación", "Construcción", "Validación", "Refinamiento"]
 
@@ -1839,17 +1781,11 @@ metadata:
   nivel: "avanzado"
   tags: ["epistemologia", "conceptos"]
 
-variables:
-  caso: uno_de([
-    ["el modelo es una herramienta para aplicar una teoría", "la teoría es un modelo simplificado"],
-    ["el modelo es una generalización, la teoría es una herramienta", "la teoría es una generalización, el modelo es una herramienta"]
-  ])
-
-respuesta: caso[0
+respuesta: "la teoría es una generalización, el modelo es una herramienta"
 tipo: "mc"
-opciones_explicitas: ["el modelo es una herramienta para aplicar una teoría", "la teoría es un modelo simplificado", "son conceptos idénticos", "el modelo es una ley universal"]
+opciones_explicitas: ["el modelo es una herramienta para aplicar una teoría", "la teoría es un modelo simplificado", "la teoría es una generalización, el modelo es una herramienta", "el modelo es una ley universal"]
 
-enunciado: "En el marco del método científico, se distingue que {caso[1]}."
+enunciado: "En el marco del método científico, se distingue que ___."
 
 explicacion: |
   La teoría es un marco explicativo general, mientras que el modelo es una representación específica y simplificada que permite operacionalizar esa teoría para estudiar un fenómeno concreto.
@@ -1863,12 +1799,13 @@ metadata:
   tags: ["modelo", "simulacion", "fisica"]
 
 variables:
-  datos: [["Un objeto cae desde 10m", "6.38"], ["Un objeto cae desde 20m", "6.38"], ["Un objeto cae desde 5m", "6.38"]]
+  datos: [["Un objeto cae desde 10m", "1.43"], ["Un objeto cae desde 20m", "2.02"], ["Un objeto cae desde 5m", "1.01"]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "Para estudiar el movimiento, usamos un modelo que ignora la resistencia del aire. Si el objeto se lanza desde {datos[idx][0]}, el tiempo estimado de caída es de ___ segundos."
 
-respuestas_validas: ["6.38"]
+respuesta: datos[idx][1]
+tolerancia_abs: 0.05
 tipo: completar
 
 explicacion: |
@@ -1921,7 +1858,7 @@ metadata:
   tags: ["metodologia", "pasos"]
 
 opciones_explicitas: ["Observar el fenómeno", "Construir el modelo", "Validar con datos reales"]
-respuesta: ["Observar el fenómeno", "Construir el modelo", "Validar con datos reales"]
+respuesta_orden: ["Observar el fenómeno", "Construir el modelo", "Validar con datos reales"]
 tipo: ordenar
 
 enunciado: "Para desarrollar un modelo científico riguroso, se deben seguir estos pasos en orden:"
@@ -1937,14 +1874,10 @@ metadata:
   nivel: "avanzado"
   tags: ["error", "precisión"]
 
-variables:
-  datos: [["el modelo es demasiado simple", "error_simplificacion"], ["el modelo es demasiado complejo", "error_complejidad"]]
-  idx: uno_de([0, 1])
-
 enunciado: "Si un modelo matemático predice que un objeto caerá en 2 segundos, pero en el experimento real tarda 5 segundos debido a la fricción del aire (que el modelo ignoró), decimos que el modelo tiene un error de ___."
 
 opciones_explicitas: ["error_simplificacion", "error_complejidad", "error_medicion"]
-respuesta: datos[idx][1]
+respuesta: "error_simplificacion"
 tipo: mc
 
 explicacion: |
@@ -1962,7 +1895,9 @@ metadata:
 
 respuesta: "falsabilidad"
 tipo: completar
-respuestas_validas: ["falsabilidad", "falsacion"]
+respuestas_validas:
+  - "falsabilidad"
+  - "falsacion"
 
 enunciado: "Para Karl Popper, el criterio de demarcación que distingue a la ciencia de la metafísica es la ___________."
 
@@ -1977,16 +1912,9 @@ metadata:
   nivel: "intermedio"
   tags: ["kuhn", "paradigmas", "ciencia_normal"]
 
-variables:
-  escenario: uno_de([
-    ["ciencia_normal", "periodo de estabilidad donde se trabaja bajo un paradigma establecido"],
-    ["crisis", "periodo de acumulación de anomalías que el paradigma actual no puede resolver"],
-    ["revolucion", "periodo de cambio radical donde un paradigma es reemplazado por otro"]
-  ])
-
 opciones_explicitas: ["ciencia_normal", "crisis", "revolucion"]
 
-respuesta: escenario[1
+respuesta: "crisis"
 tipo: mc
 
 enunciado: "Según Thomas Kuhn, el periodo caracterizado por la acumulación de anomalías que el modelo vigente no puede explicar se denomina ___________."
@@ -2020,7 +1948,7 @@ metadata:
 
 opciones_explicitas: ["Ciencia Normal", "Crisis", "Revolución Científica", "Nuevo Paradigma"]
 
-respuesta: ["Ciencia Normal", "Crisis", "Revolución Científica", "Nuevo Paradigma"]
+respuesta_orden: ["Ciencia Normal", "Crisis", "Revolución Científica", "Nuevo Paradigma"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente las etapas del ciclo de desarrollo científico propuesto por Thomas Kuhn:"
@@ -2036,16 +1964,9 @@ metadata:
   nivel: "avanzado"
   tags: ["popper", "kuhn", "feyerabend"]
 
-variables:
-  comparacion: uno_de([
-    ["falsacionismo", "Popper propone que la ciencia avanza mediante la refutación de teorías."],
-    ["paradigmas", "Kuhn sostiene que la ciencia avanza mediante cambios de modelos compartidos."],
-    ["anarquismo", "Feyerabend defiende la pluralidad de métodos frente a la rigidez metodológica."]
-  ])
-
 opciones_explicitas: ["falsacionismo", "paradigmas", "anarquismo"]
 
-respuesta: comparacion[0
+respuesta: "falsacionismo"
 tipo: mc
 
 enunciado: "Si un autor afirma que el progreso científico se da a través de la eliminación de teorías que han sido refutadas por la experiencia, se refiere al ___________."
@@ -2062,16 +1983,14 @@ metadata:
   tags: ["popper", "falsacionismo", "demarcacion"]
 
 variables:
-  escenario: uno_de([
-    ["La teoría de la relatividad de Einstein predice que la luz de una estrella se curva al pasar cerca del sol.", "falsable"],
-    ["La teoría del psicoanálisis de Freud puede explicar tanto un comportamiento heroico como uno egoísta sin contradicciones.", "no_falsable"],
-    ["La teoría de la selección natural de Darwin propone cambios en las poblaciones a través de generaciones.", "falsable"]
-  ])
+  escenario: uno_de([["La teoría de la relatividad de Einstein predice que la luz de una estrella se curva al pasar cerca del sol.", "falsable"], ["La teoría del psicoanálisis de Freud puede explicar tanto un comportamiento heroico como uno egoísta sin contradicciones.", "no_falsable"], ["La teoría de la selección natural de Darwin propone cambios en las poblaciones a través de generaciones.", "falsable"]])
 
 enunciado: "De acuerdo con el falsacionismo de Karl Popper, una teoría es científica si es capaz de ser sometida a pruebas que podrían refutarla. Analizando el siguiente caso: '{escenario[0]}', la naturaleza de esta teoría es ___."
 
-respuestas_validas: ["falsable", "no_falsable"]
-respuesta: escenario[1
+respuestas_validas:
+  - "falsable"
+  - "no_falsable"
+respuesta: escenario[1]
 tipo: completar
 
 explicacion: |
@@ -2085,17 +2004,10 @@ metadata:
   nivel: "intermedio"
   tags: ["kuhn", "paradigmas", "ciencia_normal"]
 
-variables:
-  fase: uno_de([
-    ["Ciencia Normal", "Crisis"],
-    ["Ciencia Normal", "Revolución Científica"],
-    ["Ciencia Normal", "Cambio de Paradigma"]
-  ])
-
 enunciado: "Thomas Kuhn sostiene que la ciencia no progresa de forma lineal, sino mediante saltos. El proceso sigue este orden: primero ocurre la 'Ciencia Normal', luego surge una serie de anomalías que no pueden ser resueltas, lo que lleva a una ___ y, finalmente, a un cambio de paradigma."
 
 opciones_explicitas: ["Crisis", "Revolución Científica", "Cambio de Paradigma"]
-respuesta: fase[1
+respuesta: "Crisis"
 tipo: mc
 
 explicacion: |
@@ -2109,7 +2021,7 @@ metadata:
   nivel: "avanzado"
   tags: ["feyerabend", "anarquismo", "metodologia"]
 
-enunciado: "Paul Feyerabend argumenta en su obra 'Contra la muerte de la razón' que no existe un único método científico universal que deba seguirse estrictamente para que el conocimiento sea válido. Su principio fundamental es 'Anything goes' (Todo vale). ¿Es esto cierto?"
+enunciado: "Paul Feyerabend argumenta en su obra 'Contra el método' que no existe un único método científico universal que deba seguirse estrictamente para que el conocimiento sea válido. Su principio fundamental es 'Anything goes' (Todo vale). ¿Es esto cierto?"
 
 opciones_explicitas: [verdadero, falso]
 respuesta: verdadero
@@ -2129,7 +2041,7 @@ metadata:
 enunciado: "Ordena los eventos que describen el paso de la física Newtoniana a la física Relativista según el modelo de Kuhn:"
 
 opciones_explicitas: ["Predominio del paradigma de Newton", "Aparición de anomalías (ej. órbita de Mercurio)", "Crisis del modelo clásico", "Revolución y nuevo paradigma de Einstein"]
-respuesta: ["Predominio del paradigma de Newton", "Aparición de anomalías (ej. órbita de Mercurio)", "Crisis del modelo clásico", "Revolución y nuevo paradigma de Einstein"]
+respuesta_orden: ["Predominio del paradigma de Newton", "Aparición de anomalías (ej. órbita de Mercurio)", "Crisis del modelo clásico", "Revolución y nuevo paradigma de Einstein"]
 tipo: ordenar
 
 explicacion: |
@@ -2143,17 +2055,10 @@ metadata:
   nivel: "avanzado"
   tags: ["comparativa", "popper", "kuhn", "feyerabend"]
 
-variables:
-  caso: uno_de([
-    ["Un científico busca una teoría que sea lo más arriesgada y falsable posible.", "Popper"],
-    ["Un científico trabaja dentro de un marco de reglas aceptadas por su comunidad para resolver acertijos.", "Kuhn"],
-    ["Un científico decide ignorar las reglas lógicas establecidas para permitir una nueva idea creativa.", "Feyerabend"]
-  ])
-
 enunciado: "Si un investigador se enfoca exclusivamente en la capacidad de una teoría para ser refutada mediante la experimentación, ¿qué autor está siguiendo?"
 
 opciones_explicitas: ["Popper", "Kuhn", "Feyerabend"]
-respuesta: caso[0
+respuesta: "Popper"
 tipo: mc
 
 explicacion: |
@@ -2183,15 +2088,9 @@ metadata:
   nivel: "intermedio"
   tags: ["kuhn", "paradigmas", "ciencia-normal"]
 
-variables:
-  escenario: uno_de([
-    ["ciencia-normal", "periodo de estabilidad donde se trabaja bajo un paradigma establecido"],
-    ["revolucion-cientifica", "periodo de crisis donde el paradigma actual es reemplazado"]
-  ])
-
 opciones_explicitas: ["ciencia-normal", "revolucion-cientifica"]
 
-respuesta: escenario[0
+respuesta: "ciencia-normal"
 tipo: mc
 
 enunciado: "Según Thomas Kuhn, el periodo en el que los científicos se dedican a resolver 'enigmas' dentro de un marco teórico aceptado se denomina: ___"
@@ -2200,7 +2099,7 @@ pasos:
   - "Identificar si el enunciado describe un periodo de estabilidad o de crisis."
 
 explicacion: |
-  En la {escenario[0]}, los científicos no cuestionan los fundamentos, sino que resuelven problemas dentro del modelo vigente. La ruptura de este estado da lugar a la revolución científica.
+  En la ciencia-normal, los científicos no cuestionan los fundamentos, sino que resuelven problemas dentro del modelo vigente. La ruptura de este estado da lugar a la revolución científica.
 ```
 
 ```
@@ -2213,9 +2112,11 @@ metadata:
 respuesta: "contra el método"
 tipo: completar
 
-respuestas_validas: ["contra el método", "pro-método", "sin método"]
+respuestas_validas:
+  - "contra el método"
+  - "sin método"
 
-enunciado: "El principio de 'contra el método' de Paul Feyerabend sugiere que no existe una regla metodológica única y universal que guíe todo progreso científico."
+enunciado: "El principio de '___' de Paul Feyerabend sugiere que no existe una regla metodológica única y universal que guíe todo progreso científico."
 
 explicacion: |
   Feyerabend argumenta que la ciencia es una actividad pluralista y que imponer un método único (como el inductivismo o el falsacionismo) limitaría el progreso científico y la libertad de investigación.
@@ -2229,14 +2130,11 @@ metadata:
   tags: ["popper", "kuhn", "comparacion"]
 
 variables:
-  caso: uno_de([
-    ["popper", "enfocado en la lógica de la justificación y la refutación"],
-    ["kuhn", "enfocado en la historia y la sociología de la ciencia"]
-  ])
+  caso: uno_de([["popper", "enfocado en la lógica de la justificación y la refutación"], ["kuhn", "enfocado en la historia y la sociología de la ciencia"]])
 
 opciones_explicitas: ["popper", "kuhn"]
 
-respuesta: caso[0
+respuesta: caso[0]
 tipo: mc
 
 enunciado: "Si un filósofo analiza la ciencia centrándose en la estructura lógica de las leyes y cómo estas pueden ser refutadas, está adoptando una perspectiva principalmente ___."
@@ -2254,7 +2152,7 @@ metadata:
 
 opciones_explicitas: ["Ciencia Normal", "Crisis", "Revolución Científica", "Nuevo Paradigma"]
 
-respuesta: ["Ciencia Normal", "Crisis", "Revolución Científica", "Nuevo Paradigma"]
+respuesta_orden: ["Ciencia Normal", "Crisis", "Revolución Científica", "Nuevo Paradigma"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente las etapas del ciclo de cambio de paradigma propuesto por Thomas Kuhn:"
@@ -2278,7 +2176,10 @@ metadata:
 
 respuesta: "falsabilidad"
 tipo: completar
-respuestas_validas: ["falsabilidad", "falsacionabilidad", "falsable"]
+respuestas_validas:
+  - "falsabilidad"
+  - "falsacionabilidad"
+  - "falsable"
 
 enunciado: "Para Karl Popper, lo que distingue a una teoría científica de una pseudocientífica no es su capacidad de ser confirmada por la experiencia, sino su capacidad de ser ___."
 
@@ -2293,10 +2194,7 @@ metadata:
   nivel: "intermedio"
   tags: ["kuhn", "paradigmas", "ciencia_normal"]
 
-variables:
-  escenario: uno_de([["Ciencia Normal", "Resolución de acertijos"], ["Ciencia Normal", "Búsqueda de la verdad absoluta"], ["Crisis", "Resolución de acertijos"]])
-
-respuesta: escenario[0][1
+respuesta: "Resolución de acertijos"
 tipo: mc
 opciones_explicitas: ["Resolución de acertijos", "Búsqueda de la verdad absoluta", "Resolución de crisis"]
 
@@ -2332,7 +2230,7 @@ metadata:
 variables:
   secuencia: uno_de([[0, 1, 2], [0, 2, 1], [1, 0, 2]])
 
-respuesta: ["Ciencia Normal", "Crisis", "Revolución Científica"]
+respuesta_orden: ["Ciencia Normal", "Crisis", "Revolución Científica"]
 tipo: ordenar
 opciones_explicitas: ["Ciencia Normal", "Crisis", "Revolución Científica"]
 
@@ -2354,10 +2252,7 @@ metadata:
   nivel: "avanzado"
   tags: ["popper", "kuhn", "comparacion"]
 
-variables:
-  caso: uno_de([["Popper", "Refutación"], ["Kuhn", "Cambio de paradigma"]])
-
-respuesta: caso[0][1
+respuesta: "Refutación"
 tipo: mc
 opciones_explicitas: ["Cambio de paradigma", "Refutación", "Confirmación absoluta"]
 
@@ -2376,12 +2271,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Una teoría que afirma que 'mañana lloverá o no lloverá'", "falsa"],
-    ["Una teoría que afirma que 'todos los cisnes son blancos' y se observa un cisne negro", "verdadera"]
-  ]
+  escenarios: [["Una teoría que afirma que 'mañana lloverá o no lloverá'", "falsa"], ["Una teoría que afirma que 'todos los cisnes son blancos' y se observa un cisne negro", "verdadera"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["falsa", "verdadera", "inconmensurable", "paradigmática"]
 
@@ -2400,13 +2292,10 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [
-    ["Un científico resuelve un acertijo dentro del modelo actual", "ciencia-normal"],
-    ["La acumulación de anomalías provoca una crisis en el modelo", "crisis"]
-  ]
+  casos: [["Un científico resuelve un acertijo dentro del modelo actual", "ciencia-normal"], ["La acumulación de anomalías provoca una crisis en el modelo", "crisis"]]
   orden_kuhn: ["pre-ciencia", "ciencia-normal", "crisis", "revolución-científica", "nuevo-paradigma"]
 
-respuesta: casos[caso_idx][1
+respuesta: casos[caso_idx][1]
 tipo: mc
 opciones_explicitas: ["ciencia-normal", "crisis", "revolución-científica", "falsación"]
 
@@ -2425,9 +2314,10 @@ metadata:
 
 respuesta: "contra-intuitivo"
 tipo: completar
-respuestas_validas: ["contra-intuitivo", "metodico", "riguroso", "falsable"]
+respuestas_validas:
+  - "contra-intuitivo"
 
-enunciado: "Paul Feyerabend, en su obra 'Contra la muerte de la razón', sostiene que no existe un método único y universal para el progreso científico, proponiendo un enfoque que puede ser considerado ___ para la metodología tradicional."
+enunciado: "Paul Feyerabend, en su obra 'Contra el método', sostiene que no existe un método único y universal para el progreso científico, proponiendo un enfoque que puede ser considerado ___ para la metodología tradicional."
 
 explicacion: |
   Feyerabend defiende el 'anything goes' (todo vale), argumentando que la adherencia estricta a reglas metodológicas ha frenado el progreso científico.
@@ -2457,7 +2347,7 @@ metadata:
   nivel: "avanzado"
   tags: ["kuhn", "secuencia", "revolucion"]
 
-respuesta: ["pre-ciencia", "ciencia-normal", "crisis", "revolución-científica"]
+respuesta_orden: ["pre-ciencia", "ciencia-normal", "crisis", "revolución-científica"]
 tipo: ordenar
 opciones_explicitas: ["pre-ciencia", "ciencia-normal", "crisis", "revolución-científica"]
 
@@ -2466,3 +2356,4 @@ enunciado: "Ordene cronológicamente las fases del desarrollo científico según
 explicacion: |
   El ciclo comienza con la pre-ciencia (falta de consenso), sigue con la ciencia-normal (dominio de un paradigma), la crisis (aparición de anomalías insolubles) y finalmente la revolución científica (cambio de paradigma).
 ```
+

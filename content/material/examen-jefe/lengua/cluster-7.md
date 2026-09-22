@@ -1,17 +1,17 @@
-# Examen jefe — Maestro del Informe y Modernismo
+# Examen jefe — [PENDIENTE #657]
 
-> Logro #90. Completaste el examen con dominio del informe técnico, el modernismo y la estructura del texto. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **100 preguntas totales** en 5/5 secciones.
+> Logro #657. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: informe-tecnico (20 preguntas)
+## Sección: exposicion-oral (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "informe_tecnico"
+  tema: "exposicion_oral"
   nivel: "basico"
-  tags: ["informe_tecnico", "definicion"]
+  tags: ["exposicion_oral", "prerrequisito"]
 
 variables:
   n: uno_de([1, 1])
@@ -19,138 +19,251 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un informe técnico comunica de forma estructurada los resultados de un trabajo, investigación o proceso, para que un lector sin haber participado entienda qué se hizo, qué se encontró y qué se recomienda."
+enunciado: "Todo lo ya sabido de tesis, argumentos y contraargumentos sigue valiendo en una exposición oral, sólo cambia que se comunica en tiempo real frente a otra persona."
 
 pasos:
-  - "Es la definición central de este tipo de documento."
+  - "Ver `../tesis/`, `../argumentos/` y `../contraargumentos/`: son la base de contenido que se reutiliza."
 
 explicacion: |
-  Verdadero: es la definición central de informe técnico.
+  Verdadero: es la conexión central entre este tema y sus
+  prerrequisitos de la cadena argumentativa.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "informe_tecnico"
+  tema: "exposicion_oral"
   nivel: "basico"
-  tags: ["secciones", "resumen_ejecutivo"]
+  tags: ["planificacion"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "resumen ejecutivo"
-tipo: mc
-opciones_explicitas: ["resumen ejecutivo", "metodología", "conclusiones"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "La sección de un informe técnico que resume en uno o pocos párrafos qué se hizo, qué se encontró y qué se recomienda se llama..."
+enunciado: "El primer paso para planificar una exposición oral es definir el objetivo: informar, persuadir, o ambas cosas."
 
 pasos:
-  - "Pensada para alguien que sólo tiene tiempo de leer eso."
+  - "Es el primer paso de la planificación descrita en la teoría."
 
 explicacion: |
-  El resumen ejecutivo condensa lo esencial de todo el informe.
+  Verdadero: definir el objetivo orienta todas las decisiones
+  siguientes de la exposición.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "informe_tecnico"
-  nivel: "basico"
-  tags: ["secciones", "introduccion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "introducción/contexto"
-tipo: mc
-opciones_explicitas: ["introducción/contexto", "resultados", "resumen ejecutivo"]
-
-enunciado: "La sección que explica por qué se hizo el trabajo y qué problema o pregunta lo originó se llama..."
-
-pasos:
-  - "Da el contexto necesario antes de entrar en cómo se hizo el trabajo."
-
-explicacion: |
-  La introducción/contexto explica el origen y propósito del trabajo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "informe_tecnico"
+  tema: "exposicion_oral"
   nivel: "intermedio"
-  tags: ["secciones", "metodologia"]
+  tags: ["planificacion", "audiencia"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "metodología"
-tipo: mc
-opciones_explicitas: ["metodología", "resultados", "resumen ejecutivo"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "La sección que describe cómo se hizo el trabajo (qué proceso, herramientas o datos se usaron) se llama..."
+enunciado: "Al planificar una exposición oral, conviene conocer qué sabe ya la audiencia, qué necesita que se le explique, y cuánto tiempo hay disponible."
 
 pasos:
-  - "Permite que otra persona pueda evaluar la validez del resultado o repetir el proceso."
+  - "Es el segundo paso de la planificación descrito en la teoría."
 
 explicacion: |
-  La metodología detalla el proceso seguido para llegar a los
-  resultados.
+  Verdadero: adaptar el contenido a la audiencia es un paso central
+  de la planificación.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "informe_tecnico"
+  tema: "exposicion_oral"
   nivel: "basico"
-  tags: ["secciones", "resultados"]
+  tags: ["estructura"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "resultados"
-tipo: mc
-opciones_explicitas: ["resultados", "metodología", "introducción/contexto"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "La sección que presenta qué se encontró, con datos concretos (tablas, gráficos si corresponde), se llama..."
+enunciado: "Una exposición oral bien estructurada tiene introducción (qué se va a decir), desarrollo (el contenido central) y cierre (resumen + conclusión)."
 
 pasos:
-  - "Es la sección central donde se muestran los hallazgos del trabajo."
+  - "Es la estructura básica recomendada para organizar el contenido oral."
 
 explicacion: |
-  Los resultados presentan los hallazgos concretos del trabajo.
+  Verdadero: es la estructura de tres partes descrita en la teoría.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "informe_tecnico"
+  tema: "exposicion_oral"
   nivel: "intermedio"
-  tags: ["secciones", "conclusiones"]
+  tags: ["contenido"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "conclusiones y recomendaciones"
-tipo: mc
-opciones_explicitas: ["conclusiones y recomendaciones", "metodología", "resumen ejecutivo"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "La sección que explica qué implican los resultados y qué acción concreta se sugiere a partir de ellos se llama..."
+enunciado: "En una exposición oral conviene priorizar pocas ideas centrales bien explicadas, en vez de mucha información apretada, porque la audiencia sólo escucha una vez y no puede releer."
 
 pasos:
-  - "Es la sección de cierre que traduce los resultados en implicaciones prácticas."
+  - "A diferencia de un texto escrito, que sí se puede releer."
 
 explicacion: |
-  Las conclusiones y recomendaciones cierran el informe con
-  implicaciones y sugerencias concretas.
+  Verdadero: es la regla de \"menos es más\" central de la teoría de
+  este tema.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "informe_tecnico"
+  tema: "exposicion_oral"
+  nivel: "intermedio"
+  tags: ["tecnicas_de_entrega"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Hablar ni muy rápido ni muy lento, con pausas breves después de una idea importante, ayuda a que esa idea se asiente en la audiencia."
+
+pasos:
+  - "Es una de las técnicas de entrega oral descritas en la teoría."
+
+explicacion: |
+  Verdadero: el manejo del ritmo y las pausas es una técnica central
+  de la exposición oral.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "exposicion_oral"
+  nivel: "intermedio"
+  tags: ["tecnicas_de_entrega", "contacto_visual"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Mirar a la audiencia, en vez de sólo leer notas, genera conexión y credibilidad durante una exposición oral."
+
+pasos:
+  - "Es otra de las técnicas de entrega oral descritas en la teoría."
+
+explicacion: |
+  Verdadero: el contacto visual es una técnica central para conectar
+  con quien escucha.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "exposicion_oral"
+  nivel: "intermedio"
+  tags: ["tecnicas_de_entrega", "voz"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Variar el tono de voz evita la monotonía, y subir el volumen (sin gritar) en los puntos clave ayuda a marcar énfasis."
+
+pasos:
+  - "Es otra técnica de entrega oral descrita en la teoría."
+
+explicacion: |
+  Verdadero: la modulación de la voz es una herramienta central para
+  mantener la atención de la audiencia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "exposicion_oral"
+  nivel: "intermedio"
+  tags: ["tecnicas_de_entrega", "lenguaje_corporal"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una postura abierta y gestos que acompañen (no distraigan) lo que se dice son parte de las técnicas de entrega oral recomendadas."
+
+pasos:
+  - "Es otra técnica de entrega oral descrita en la teoría."
+
+explicacion: |
+  Verdadero: el lenguaje corporal es parte de la comunicación oral
+  efectiva, más allá de las palabras.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "exposicion_oral"
+  nivel: "intermedio"
+  tags: ["manejo_de_nervios"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una estrategia práctica para manejar los nervios antes de exponer es ensayar en voz alta, no sólo leer el contenido en silencio."
+
+pasos:
+  - "Ensayar en voz alta prepara mejor la entrega real que sólo repasar el contenido mentalmente."
+
+explicacion: |
+  Verdadero: es una de las estrategias prácticas mencionadas para
+  manejar los nervios.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "exposicion_oral"
+  nivel: "basico"
+  tags: ["manejo_de_nervios"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sentir nervios antes de hablar en público es normal, y la audiencia generalmente quiere que a quien expone le vaya bien, no busca que falle."
+
+pasos:
+  - "Es un dato útil para relativizar el miedo escénico habitual."
+
+explicacion: |
+  Verdadero: normalizar los nervios y entender la disposición de la
+  audiencia ayuda a manejarlos mejor.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "exposicion_oral"
   nivel: "avanzado"
-  tags: ["resumen_ejecutivo", "orden"]
+  tags: ["exposicion_oral", "exposicion_escrita", "diferenciacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -158,800 +271,72 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Es habitual escribir el resumen ejecutivo al final del proceso de redacción, pero se ubica al principio del documento, porque es lo primero que va a leer la mayoría de los destinatarios."
+enunciado: "En una exposición oral conviene repetir información clave de forma deliberada, algo que en un texto escrito sonaría redundante, porque la audiencia no puede \"volver atrás\" a releer."
 
 pasos:
-  - "Se escribe al final porque recién ahí se sabe con precisión qué decir de forma resumida."
+  - "Es una diferencia importante entre comunicación oral y escrita."
 
 explicacion: |
-  Verdadero: es una particularidad importante sobre el orden de
-  escritura vs. el orden de lectura del resumen ejecutivo.
+  Verdadero: la repetición deliberada compensa la imposibilidad de
+  releer que tiene la audiencia de una exposición oral.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "informe_tecnico"
+  tema: "exposicion_oral"
   nivel: "intermedio"
-  tags: ["objetividad"]
+  tags: ["planificacion", "objetivo"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia de un correo o un CV, el informe técnico prioriza la objetividad: describir lo hecho y encontrado con datos verificables, evitando opiniones sin sustento."
-
-pasos:
-  - "Es un principio central de redacción en este tipo de documento."
-
-explicacion: |
-  Verdadero: la objetividad es un principio distintivo del informe
-  técnico frente a otros géneros de escritura profesional.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "informe_tecnico"
-  nivel: "intermedio"
-  tags: ["objetividad", "practica"]
-
-variables:
-  frases: ["los resultados fueron muy buenos", "los resultados mejoraron un 23% respecto del período anterior"]
-  tipos: ["adjetivo vago sin sustento", "dato concreto verificable"]
+  objetivos: ["informar", "persuadir"]
   idx: uno_de([0, 1])
 
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["adjetivo vago sin sustento", "dato concreto verificable"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "\"{frases[idx]}\" es un ejemplo de..."
+enunciado: "Si el objetivo de la exposición es \"{objetivos[idx]}\", eso debería orientar tanto el contenido elegido como el estilo de entrega."
 
 pasos:
-  - "Los datos concretos verificables son preferibles a los adjetivos vagos sin sustento en un informe técnico."
+  - "Una exposición informativa prioriza claridad y datos; una persuasiva prioriza argumentos y conexión emocional."
 
 explicacion: |
-  El informe técnico privilegia datos concretos y verificables por
-  sobre adjetivos vagos.
+  Verdadero: el objetivo definido en la planificación condiciona
+  decisiones concretas de contenido y estilo.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "informe_tecnico"
+  tema: "exposicion_oral"
   nivel: "intermedio"
-  tags: ["estructura", "numeracion"]
+  tags: ["estructura", "practica"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un informe técnico largo se beneficia de títulos de sección numerados y, si corresponde, un índice, para que el lector pueda navegar directo a la parte que le interesa."
-
-pasos:
-  - "Permite no tener que leer todo el documento de corrida para encontrar una sección específica."
-
-explicacion: |
-  Verdadero: la organización con títulos numerados facilita la
-  navegación en documentos extensos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "informe_tecnico"
-  nivel: "avanzado"
-  tags: ["metodologia", "validez"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Describir la metodología con detalle permite que otra persona pueda evaluar si el proceso usado fue adecuado, o incluso intentar repetirlo."
-
-pasos:
-  - "Es la razón central por la que la metodología es una sección obligatoria en un informe técnico riguroso."
-
-explicacion: |
-  Verdadero: la transparencia metodológica es central para la
-  credibilidad de un informe técnico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "informe_tecnico"
-  nivel: "avanzado"
-  tags: ["informe_tecnico", "produccion_escrita_compleja"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Producción escrita compleja enseña a organizar un texto largo en general; el informe técnico agrega una estructura fija y específica (resumen, contexto, metodología, resultados, conclusiones) propia de este género."
-
-pasos:
-  - "Ver `../produccion-escrita-compleja/`: es el prerrequisito general que este tema especializa."
-
-explicacion: |
-  Verdadero: es la diferencia entre las herramientas generales de
-  escritura larga y la estructura específica de este género.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "informe_tecnico"
-  nivel: "intermedio"
-  tags: ["secciones", "orden"]
-
-enunciado: "Ordená las secciones típicas de un informe técnico según aparecen en el documento final."
-tipo: ordenar
-opciones_explicitas:
-  - "Resumen ejecutivo"
-  - "Introducción/contexto"
-  - "Metodología"
-  - "Resultados"
-  - "Conclusiones y recomendaciones"
-respuesta_orden:
-  - "Resumen ejecutivo"
-  - "Introducción/contexto"
-  - "Metodología"
-  - "Resultados"
-  - "Conclusiones y recomendaciones"
-
-explicacion: |
-  El orden sigue la estructura estándar de un informe técnico
-  completo, aunque el resumen ejecutivo se escriba último en el
-  proceso de redacción.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "informe_tecnico"
-  nivel: "avanzado"
-  tags: ["informe_tecnico", "audiencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un informe técnico debería poder entenderse sin necesitar explicaciones adicionales del autor, aunque el lector no haya participado del trabajo original."
-
-pasos:
-  - "Es un requisito central de claridad y autosuficiencia del documento."
-
-explicacion: |
-  Verdadero: la autosuficiencia del documento (no depender de
-  explicaciones orales adicionales) es un objetivo central del
-  informe técnico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "informe_tecnico"
-  nivel: "intermedio"
-  tags: ["resumen_ejecutivo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El resumen ejecutivo debería permitir que alguien que sólo lo lea a él entienda lo esencial de todo el informe, sin necesitar leer las demás secciones."
-
-pasos:
-  - "Es el propósito central de esta sección, distinta de una simple introducción."
-
-explicacion: |
-  Verdadero: el resumen ejecutivo debe funcionar como una versión
-  autosuficiente y condensada del informe completo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "informe_tecnico"
-  nivel: "intermedio"
-  tags: ["resultados", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La sección de resultados de un informe técnico debería incluir datos concretos (tablas, gráficos si corresponde), no sólo una descripción general sin cifras."
-
-pasos:
-  - "Es coherente con el principio general de objetividad y datos verificables del informe técnico."
-
-explicacion: |
-  Verdadero: los resultados con datos concretos son más útiles y
-  verificables que una descripción vaga.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "informe_tecnico"
-  nivel: "avanzado"
-  tags: ["conclusiones", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Se recomienda aumentar la frecuencia de mantenimiento a cada 3 meses, dado el incremento del 15% en fallas detectadas"
-tipo: mc
-opciones_explicitas: ["Se recomienda aumentar la frecuencia de mantenimiento a cada 3 meses, dado el incremento del 15% en fallas detectadas", "Habría que hacer algo con el mantenimiento en algún momento"]
-
-enunciado: "¿Cuál de estas dos recomendaciones sigue mejor los principios de un informe técnico?"
-
-pasos:
-  - "Una recomendación concreta, con acción específica y respaldo en datos, es más útil que una vaga sin sustento."
-
-explicacion: |
-  Las recomendaciones deberían ser concretas y estar respaldadas por
-  los datos presentados en el informe.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "informe_tecnico"
-  nivel: "intermedio"
-  tags: ["informe_tecnico", "metodo"]
-
-enunciado: "Ordená los pasos para redactar un informe técnico completo."
-tipo: ordenar
-opciones_explicitas:
-  - "Redactar contexto, metodología y resultados con datos concretos"
-  - "Redactar conclusiones y recomendaciones basadas en esos resultados"
-  - "Escribir el resumen ejecutivo al final, condensando lo esencial de todo el informe"
-  - "Ubicar el resumen ejecutivo al principio del documento, y revisar la numeración de secciones"
-respuesta_orden:
-  - "Redactar contexto, metodología y resultados con datos concretos"
-  - "Redactar conclusiones y recomendaciones basadas en esos resultados"
-  - "Escribir el resumen ejecutivo al final, condensando lo esencial de todo el informe"
-  - "Ubicar el resumen ejecutivo al principio del documento, y revisar la numeración de secciones"
-
-explicacion: |
-  El proceso de escritura no sigue el mismo orden que el de lectura:
-  el resumen ejecutivo se redacta último pero se ubica primero.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "informe_tecnico"
-  nivel: "avanzado"
-  tags: ["informe_tecnico", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El informe técnico es el tercero y último de los géneros de escritura profesional de esta subrama, junto a CV y correo formal."
-
-pasos:
-  - "Ver `../cv/` y `../correo-formal/`: los tres nodos hermanos dependen de `../produccion-escrita-compleja/`."
-
-explicacion: |
-  Verdadero: cierra la subrama completa de escritura profesional de
-  alta demanda práctica.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "informe_tecnico"
-  nivel: "avanzado"
-  tags: ["informe_tecnico", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al redactar un informe técnico real, conviene incluir un resumen ejecutivo claro, describir la metodología con suficiente detalle para que sea evaluable, y basar las conclusiones en datos concretos presentados en los resultados."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema en un contexto
-  laboral o académico real.
-```
-
-## Sección: modernismo (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "basico"
-  tags: ["modernismo", "contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Modernismo surge a fines del siglo XIX, en las últimas décadas."
-
-pasos:
-  - "Es posterior al Realismo, que dominó buena parte de la mitad del siglo."
-
-explicacion: |
-  Verdadero: el Modernismo es el movimiento de fin de siglo que sigue
-  al Realismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "intermedio"
-  tags: ["modernismo", "contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Modernismo es el primer gran movimiento literario en español que nace en Hispanoamérica y luego influye de vuelta en España."
-
-pasos:
-  - "A diferencia de Romanticismo y Realismo, que llegaron desde Europa, el flujo de influencia se invierte con el Modernismo."
-
-explicacion: |
-  Verdadero: es un rasgo histórico distintivo del Modernismo frente a
-  los movimientos anteriores.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "basico"
-  tags: ["modernismo", "caracteristicas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una característica central del Modernismo es el culto a la belleza formal: cuidado extremo del lenguaje, la musicalidad y el ritmo del verso, sin necesidad de una función social."
-
-pasos:
-  - "Es la idea de \"el arte por el arte\", sin obligación de denuncia o utilidad social."
-
-explicacion: |
-  Verdadero: el esteticismo puro es la marca más distintiva del
-  Modernismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "intermedio"
-  tags: ["modernismo", "cosmopolitismo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Modernismo muestra interés por culturas lejanas y exóticas (Francia, Oriente, la mitología grecolatina) como fuente de nuevas imágenes."
-
-pasos:
-  - "El cosmopolitismo busca escapar de lo local cotidiano hacia escenarios refinados y lejanos."
-
-explicacion: |
-  Verdadero: el cosmopolitismo es una característica típica del
-  Modernismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "intermedio"
-  tags: ["modernismo", "lenguaje"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Modernismo incorpora vocabulario nuevo, experimenta con la métrica y busca una sonoridad refinada en el verso."
-
-pasos:
-  - "Coherente con el cuidado extremo del lenguaje que persigue el movimiento."
-
-explicacion: |
-  Verdadero: la renovación formal del lenguaje poético es central en
-  el Modernismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "intermedio"
-  tags: ["modernismo", "simbolos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "cisne"
-tipo: completar
-
-enunciado: "El animal que se convirtió en símbolo recurrente del Modernismo, asociado a elegancia y exotismo, es el..."
-
-pasos:
-  - "Ver `../recursos-literarios/`: el cisne es un símbolo específico ligado a este movimiento."
-
-explicacion: |
-  El cisne es uno de los símbolos más característicos de la estética
-  modernista.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "intermedio"
-  tags: ["modernismo", "estilo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Modernismo prefiere lo aristocrático y lo artificioso frente a lo popular, buscando elegancia y refinamiento."
-
-pasos:
-  - "Es coherente con el interés por lo exótico y lejano frente a lo cotidiano popular."
-
-explicacion: |
-  Verdadero: la preferencia por lo elegante y refinado es una marca
-  estilística del Modernismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "avanzado"
-  tags: ["modernismo", "realismo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Mientras el Realismo buscaba mostrar la realidad social tal cual es, el Modernismo busca embellecer la realidad a través del lenguaje, volviendo a poner el foco en la forma."
-
-pasos:
-  - "Ver `../realismo/`: es la relación de reacción/retoma entre ambos movimientos."
-
-explicacion: |
-  Verdadero: es la diferencia central entre los dos movimientos
-  consecutivos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "basico"
-  tags: ["modernismo", "autores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Rubén Darío"
-tipo: completar
-
-enunciado: "El poeta nicaragüense considerado la figura fundacional e ineludible del Modernismo se llama..."
-
-pasos:
-  - "Su obra \"Azul...\" (1888) suele señalarse como el punto de inicio del movimiento."
-
-explicacion: |
-  Rubén Darío es la figura central del Modernismo en español.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "avanzado"
-  tags: ["modernismo", "autores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La obra \"Azul...\" de Rubén Darío, publicada en 1888, suele señalarse como el punto de inicio del Modernismo."
-
-pasos:
-  - "Es la referencia histórica más citada para marcar el nacimiento formal del movimiento."
-
-explicacion: |
-  Verdadero: \"Azul...\" es la obra fundacional más asociada al
-  Modernismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "avanzado"
-  tags: ["modernismo", "autores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "José Martí, de Cuba, es considerado un precursor del Modernismo."
-
-pasos:
-  - "Su obra anticipa varias de las características que Rubén Darío consolidaría como movimiento."
-
-explicacion: |
-  Verdadero: Martí es una figura de transición hacia el Modernismo
-  consolidado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "avanzado"
-  tags: ["modernismo", "autores", "argentina"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Lugones"
-tipo: completar
-
-enunciado: "El autor argentino representativo del Modernismo se apellida..."
-
-pasos:
-  - "Leopoldo Lugones es una de las figuras del Modernismo en Argentina."
-
-explicacion: |
-  Lugones es un autor representativo del Modernismo argentino.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "avanzado"
-  tags: ["modernismo", "realismo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El Modernismo, igual que el Realismo, prioriza la crítica social como objetivo central de la literatura."
-
-pasos:
-  - "El Modernismo pone el foco en la belleza formal (\"arte por el arte\"), no necesariamente en la denuncia social."
-
-explicacion: |
-  Falso: a diferencia del Realismo, el Modernismo no exige una
-  función social o moral en la obra.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "avanzado"
-  tags: ["modernismo", "contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Al igual que con el Romanticismo y el Realismo, el Modernismo llegó a Hispanoamérica desde España, no al revés."
-
-pasos:
-  - "El Modernismo es el primer movimiento que nace en Hispanoamérica y luego influye en España, invirtiendo el flujo habitual."
-
-explicacion: |
-  Falso: el Modernismo invierte el sentido de la influencia que
-  tenían los movimientos anteriores.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "intermedio"
-  tags: ["modernismo", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un poema con cisnes, princesas, jardines exóticos y un cuidado extremo por la sonoridad de los versos, sin ninguna intención de denuncia social, es un ejemplo típico de literatura modernista."
-
-pasos:
-  - "Combina símbolos típicos, cosmopolitismo y culto a la forma: marcas centrales del Modernismo."
-
-explicacion: |
-  Verdadero: reúne varias de las características centrales del
-  Modernismo estudiadas en este tema.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "avanzado"
-  tags: ["modernismo", "genero_lirico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Modernismo experimentó con la métrica del verso (ver `../genero-lirico/`), buscando nuevas combinaciones rítmicas más allá de las formas tradicionales."
-
-pasos:
-  - "Parte de la renovación del lenguaje poético incluye probar nuevas medidas y ritmos de verso."
-
-explicacion: |
-  Verdadero: la experimentación métrica es parte de la búsqueda
-  estética del Modernismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "avanzado"
-  tags: ["modernismo", "autores"]
-
-variables:
-  autores: ["Rubén Darío", "José Martí", "Leopoldo Lugones"]
-  origenes: ["Nicaragua", "Cuba", "Argentina"]
+  partes: ["anunciar de qué se va a hablar y por qué importa", "desarrollar el contenido central en pocos puntos organizados", "resumir lo dicho y cerrar con una conclusión"]
+  nombres: ["introducción", "desarrollo", "cierre"]
   idx: uno_de([0, 1, 2])
 
-respuesta: origenes[idx]
+respuesta: nombres[idx]
 tipo: mc
-opciones_explicitas: ["Nicaragua", "Cuba", "Argentina", "España"]
+opciones_explicitas: ["introducción", "desarrollo", "cierre"]
 
-enunciado: "El autor modernista {autores[idx]} es de..."
+enunciado: "La parte de la exposición oral que consiste en \"{partes[idx]}\" se llama..."
 
 pasos:
-  - "Cada autor representativo del Modernismo tiene un origen nacional hispanoamericano distinto."
+  - "Cada parte de la estructura de tres pasos cumple una función distinta."
 
 explicacion: |
-  El Modernismo tuvo referentes en distintos países de
-  Hispanoamérica, coherente con su origen regional.
+  Cada función descrita corresponde a una de las tres partes de la
+  estructura básica de exposición oral.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "modernismo"
+  tema: "exposicion_oral"
   nivel: "intermedio"
-  tags: ["modernismo", "metodo"]
-
-enunciado: "Ordená los pasos para reconocer si un texto pertenece al Modernismo."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si predomina el cuidado formal y la musicalidad sobre otros objetivos"
-  - "Buscar referencias a culturas lejanas o exóticas (cosmopolitismo)"
-  - "Identificar símbolos típicos (cisnes, princesas, mitología)"
-  - "Confirmar que no hay una intención central de crítica social"
-respuesta_orden:
-  - "Revisar si predomina el cuidado formal y la musicalidad sobre otros objetivos"
-  - "Buscar referencias a culturas lejanas o exóticas (cosmopolitismo)"
-  - "Identificar símbolos típicos (cisnes, princesas, mitología)"
-  - "Confirmar que no hay una intención central de crítica social"
-
-explicacion: |
-  El análisis va de la característica más general (esteticismo) a
-  las marcas más específicas (cosmopolitismo, símbolos).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "avanzado"
-  tags: ["modernismo", "generacion_98", "prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Entender el Modernismo es necesario para distinguirlo de la Generación del 98, un movimiento casi contemporáneo con el que suele confundirse."
-
-pasos:
-  - "Ver `../generacion-del-98/`: ambos son de fin de siglo XIX/principios XX, pero responden a preocupaciones distintas."
-
-explicacion: |
-  Verdadero: por eso el Modernismo es prerrequisito directo del
-  siguiente tema, para poder marcar la diferencia explícita.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "modernismo"
-  nivel: "avanzado"
-  tags: ["modernismo", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el objetivo de un autor es crear un texto centrado únicamente en la belleza sonora y visual del lenguaje, sin ninguna intención de denuncia social, el estilo modernista es más afín que el realista."
-
-pasos:
-  - "El Modernismo prioriza la forma y la estética; el Realismo prioriza la objetividad y la crítica social."
-
-explicacion: |
-  Verdadero: la elección de movimiento/estilo depende del propósito
-  estético o social que el autor busca lograr.
-```
-
-## Sección: narrador (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "basico"
-  tags: ["narrador", "definicion"]
+  tags: ["contenido", "practica"]
 
 variables:
   n: uno_de([1, 1])
@@ -959,212 +344,22 @@ variables:
 respuesta: falso
 tipo: vf
 
-enunciado: "El narrador de una historia es siempre exactamente la misma persona que el autor real del texto."
+enunciado: "Una buena exposición oral debería incluir la mayor cantidad posible de datos y detalles, para demostrar dominio completo del tema."
 
 pasos:
-  - "El narrador es una construcción del texto, elegida por el autor según el efecto que quiere lograr."
+  - "Priorizar pocas ideas centrales bien explicadas suele funcionar mejor que abrumar con demasiada información que la audiencia no puede retener."
 
 explicacion: |
-  Falso: igual que el hablante lírico, el narrador es una voz
-  construida, no necesariamente el autor real.
+  Falso: la regla de \"menos es más\" recomienda lo contrario, priorizar
+  claridad sobre cantidad de información.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "narrador"
-  nivel: "basico"
-  tags: ["narrador_protagonista"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "narrador protagonista"
-tipo: mc
-opciones_explicitas: ["narrador protagonista", "narrador testigo", "narrador omnisciente", "narrador observador"]
-
-enunciado: "\"Yo caminé hasta la plaza y me senté a esperar a mi amigo.\" ¿Qué tipo de narrador es?"
-
-pasos:
-  - "Cuenta en 1ª persona su propia historia, siendo el personaje central: es protagonista."
-
-explicacion: |
-  El narrador protagonista narra su propia historia en 1ª persona.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "basico"
-  tags: ["narrador_testigo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "narrador testigo"
-tipo: mc
-opciones_explicitas: ["narrador protagonista", "narrador testigo", "narrador omnisciente", "narrador observador"]
-
-enunciado: "\"Yo vi cómo Juan caminaba hasta la plaza y se sentaba a esperar.\" ¿Qué tipo de narrador es?"
-
-pasos:
-  - "Cuenta en 1ª persona, pero lo que le pasa a OTRO personaje (Juan), no a sí mismo: es testigo."
-
-explicacion: |
-  El narrador testigo está presente en la historia (1ª persona) pero
-  no es el protagonista de lo que cuenta.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "intermedio"
-  tags: ["narrador_omnisciente"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "narrador omnisciente"
-tipo: mc
-opciones_explicitas: ["narrador protagonista", "narrador testigo", "narrador omnisciente", "narrador observador"]
-
-enunciado: "\"Juan caminó hasta la plaza, pensando en lo que le diría a María.\" ¿Qué tipo de narrador es?"
-
-pasos:
-  - "Narra en 3ª persona (no es personaje) y accede a los PENSAMIENTOS de Juan: es omnisciente."
-
-explicacion: |
-  El narrador omnisciente sabe todo, incluso lo que piensan y sienten
-  los personajes, desde afuera de la historia.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "intermedio"
-  tags: ["narrador_observador"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "narrador observador"
-tipo: mc
-opciones_explicitas: ["narrador protagonista", "narrador testigo", "narrador omnisciente", "narrador observador"]
-
-enunciado: "\"Juan caminó hasta la plaza y se sentó en un banco, mirando el reloj.\" (sin acceder a lo que piensa) ¿Qué tipo de narrador es?"
-
-pasos:
-  - "Narra en 3ª persona, sin ser personaje, y sólo cuenta lo observable (acciones), sin pensamientos internos: es observador."
-
-explicacion: |
-  El narrador observador cuenta desde afuera, limitado a lo que se ve
-  y se oye, sin acceso a la mente de los personajes.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "basico"
-  tags: ["persona_gramatical"]
-
-variables:
-  tipos: ["narrador protagonista", "narrador testigo"]
-  idx: uno_de([0, 1])
-
-respuesta: "primera"
-tipo: mc
-opciones_explicitas: ["primera", "segunda", "tercera"]
-
-enunciado: "El {tipos[idx]} narra en persona gramatical..."
-
-pasos:
-  - "Ambos usan \"yo\" para narrar, sea contando su propia historia o la de otro."
-
-explicacion: |
-  Protagonista y testigo son los dos tipos de narrador en 1ª persona.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "basico"
-  tags: ["persona_gramatical"]
-
-variables:
-  tipos: ["narrador omnisciente", "narrador observador"]
-  idx: uno_de([0, 1])
-
-respuesta: "tercera"
-tipo: mc
-opciones_explicitas: ["primera", "segunda", "tercera"]
-
-enunciado: "El {tipos[idx]} narra en persona gramatical..."
-
-pasos:
-  - "Ambos cuentan desde afuera de la historia, sin ser personajes ni usar \"yo\"."
-
-explicacion: |
-  Omnisciente y observador son los dos tipos de narrador en 3ª
-  persona.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "intermedio"
-  tags: ["narrador_omnisciente", "narrador_observador", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La diferencia entre narrador omnisciente y observador es que el omnisciente accede a los pensamientos y sentimientos internos de los personajes, y el observador sólo cuenta lo que se puede ver u oír."
-
-pasos:
-  - "Ambos narran en 3ª persona, pero difieren en cuánto saben del interior de los personajes."
-
-explicacion: |
-  Verdadero: es exactamente el criterio que distingue a los dos
-  narradores en 3ª persona.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "intermedio"
-  tags: ["narrador_protagonista", "narrador_testigo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La diferencia entre narrador protagonista y testigo es que el protagonista cuenta su propia historia como personaje central, y el testigo cuenta lo que le pasa a otros."
-
-pasos:
-  - "Ambos narran en 1ª persona, pero difieren en si la historia les pasa a ellos o a otro personaje."
-
-explicacion: |
-  Verdadero: es el criterio que distingue a los dos narradores en 1ª
-  persona.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
+  tema: "exposicion_oral"
   nivel: "avanzado"
-  tags: ["narrador_protagonista", "limitacion"]
+  tags: ["exposicion_oral", "presentacion_con_apoyo_visual"]
 
 variables:
   n: uno_de([1, 1])
@@ -1172,211 +367,64 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un narrador protagonista sólo puede contar lo que él mismo vive, sabe o piensa — no puede acceder a los pensamientos de otros personajes."
+enunciado: "Este tema es la base sobre la que se agrega apoyo visual (diapositivas, gráficos) en el tema siguiente de la cadena."
 
 pasos:
-  - "A diferencia del omnisciente, el protagonista está limitado a su propia experiencia y conocimiento."
+  - "Ver `../presentacion-con-apoyo-visual/`: primero se domina la exposición oral sola, después se le agrega el soporte visual."
 
 explicacion: |
-  Verdadero: esa limitación es una de las razones por las que el
-  autor elige un tipo de narrador u otro, según el efecto buscado.
+  Verdadero: es la relación de prerrequisito con el tema siguiente.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "narrador"
+  tema: "exposicion_oral"
+  nivel: "avanzado"
+  tags: ["exposicion_oral", "teatro"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las técnicas de entrega oral (voz, ritmo, contacto visual, lenguaje corporal) se reutilizan directamente en la actuación teatral, llevadas a un contexto de ficción."
+
+pasos:
+  - "Ver `../../arte/teatro-dramaturgia-y-actuacion/`: es uno de los dos prerrequisitos de ese tema."
+
+explicacion: |
+  Verdadero: es la conexión entre este tema y su aplicación en el
+  arte dramático.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "exposicion_oral"
   nivel: "intermedio"
-  tags: ["narrador_omnisciente", "conocimiento"]
+  tags: ["exposicion_oral", "metodo"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El narrador omnisciente puede saber cosas que ningún personaje individual conoce por completo, como los pensamientos secretos de varios personajes a la vez."
-
-pasos:
-  - "Su conocimiento no está limitado a la perspectiva de un solo personaje."
-
-explicacion: |
-  Verdadero: la amplitud de conocimiento es la característica
-  distintiva del narrador omnisciente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "avanzado"
-  tags: ["narrador", "clasificacion"]
-
-variables:
-  fragmentos: ["María sentía que el corazón se le aceleraba, aunque nadie más en la sala lo notaba", "María entró a la sala y se sentó en la primera fila, en silencio"]
-  tipos: ["narrador omnisciente", "narrador observador"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["narrador omnisciente", "narrador observador"]
-
-enunciado: "\"{fragmentos[idx]}\" (narrado en 3ª persona) corresponde a un..."
-
-pasos:
-  - "Si accede a lo que siente María por dentro, es omnisciente. Si sólo describe acciones visibles, es observador."
-
-explicacion: |
-  El acceso (o no) al interior del personaje es el criterio que
-  distingue estos dos tipos de narrador en 3ª persona.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "avanzado"
-  tags: ["narrador_protagonista", "efecto"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Usar un narrador protagonista genera un efecto de inmediatez y subjetividad, porque el lector accede directamente a la experiencia del personaje central."
-
-pasos:
-  - "El costo de esa cercanía es la limitación: sólo se sabe lo que el protagonista sabe."
-
-explicacion: |
-  Verdadero: cada tipo de narrador tiene un efecto propio en cómo el
-  lector experimenta la historia.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "avanzado"
-  tags: ["narrador_observador", "efecto"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Usar un narrador observador genera un efecto de distancia y misterio, porque el lector debe interpretar a los personajes sin ayuda de sus pensamientos internos."
-
-pasos:
-  - "Al no acceder al interior de los personajes, el lector se apoya sólo en gestos y acciones, como si viera la escena."
-
-explicacion: |
-  Verdadero: la falta de acceso interno genera ambigüedad
-  interpretativa, un efecto buscado deliberadamente en muchos textos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "avanzado"
-  tags: ["narrador", "consistencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Generalmente, un cuento o novela mantiene el mismo tipo de narrador (persona y nivel de conocimiento) a lo largo de todo el texto, salvo que el autor cambie deliberadamente de narrador entre capítulos."
-
-pasos:
-  - "Cambiar de narrador sin aviso puede confundir al lector; los cambios deliberados suelen marcarse claramente (por capítulo, por ejemplo)."
-
-explicacion: |
-  Verdadero: la consistencia del narrador es la norma, salvo decisión
-  explícita del autor de alternar.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "avanzado"
-  tags: ["narrador", "genero_dramatico", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En una obra de teatro (género dramático), los personajes que hablan en los diálogos cumplen la misma función que un narrador en un cuento."
-
-pasos:
-  - "El género dramático no tiene narrador; los personajes hablan directamente entre sí (ver `../genero-dramatico/`)."
-
-explicacion: |
-  Falso: el género dramático justamente no tiene narrador — la
-  historia se conoce sólo a través del diálogo entre personajes.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "intermedio"
-  tags: ["narrador_testigo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El narrador testigo suele ser un personaje secundario de la historia, que observa y cuenta lo que le pasa al protagonista."
-
-pasos:
-  - "A diferencia del narrador protagonista, el testigo no es el centro de la trama, sólo participa como observador cercano."
-
-explicacion: |
-  Verdadero: el testigo típico es un personaje cercano al
-  protagonista, pero no el centro de los hechos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "narrador"
-  nivel: "intermedio"
-  tags: ["narrador", "metodo"]
-
-enunciado: "Ordená los pasos para identificar el tipo de narrador de un texto."
+enunciado: "Ordená los pasos para preparar una exposición oral."
 tipo: ordenar
 opciones_explicitas:
-  - "Revisar si el narrador dice \"yo\" y participa como personaje (1ª persona) o cuenta desde afuera (3ª persona)"
-  - "Si es 1ª persona, determinar si la historia le pasa a él (protagonista) o a otro (testigo)"
-  - "Si es 3ª persona, determinar si accede a pensamientos internos (omnisciente) o sólo a lo observable (observador)"
-  - "Confirmar que esa elección se mantiene a lo largo del texto"
-respuesta_orden:
-  - "Revisar si el narrador dice \"yo\" y participa como personaje (1ª persona) o cuenta desde afuera (3ª persona)"
-  - "Si es 1ª persona, determinar si la historia le pasa a él (protagonista) o a otro (testigo)"
-  - "Si es 3ª persona, determinar si accede a pensamientos internos (omnisciente) o sólo a lo observable (observador)"
-  - "Confirmar que esa elección se mantiene a lo largo del texto"
-
+  - "Definir el objetivo (informar, persuadir, o ambas)"
+  - "Analizar a la audiencia (qué sabe, qué necesita, cuánto tiempo hay)"
+  - "Armar la estructura de introducción, desarrollo y cierre"
+  - "Ensayar en voz alta, prestando atención a ritmo, pausas y contacto visual"
+respuesta_orden: ["Definir el objetivo (informar, persuadir, o ambas)", "Analizar a la audiencia (qué sabe, qué necesita, cuánto tiempo hay)", "Armar la estructura de introducción, desarrollo y cierre", "Ensayar en voz alta, prestando atención a ritmo, pausas y contacto visual"]
 explicacion: |
-  El método sigue el mismo árbol de decisión de la teoría: primero
-  persona gramatical, después el criterio específico de cada rama.
+  El proceso va de la planificación (objetivo, audiencia, estructura)
+  a la práctica de la entrega oral en sí.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "narrador"
+  tema: "exposicion_oral"
   nivel: "avanzado"
-  tags: ["narrador", "punto_de_vista", "prerrequisito"]
+  tags: ["exposicion_oral", "sintesis"]
 
 variables:
   n: uno_de([1, 1])
@@ -1384,22 +432,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El tipo de narrador elegido determina desde dónde y con cuánta información se cuenta la historia — eso es justamente lo que se profundiza en el tema \"punto de vista\"."
+enunciado: "Exposición oral es el primer nodo de la subrama de comunicación en vivo, que se completa con debate, negociación, presentación con apoyo visual y persuasión ética vs. manipulación."
 
 pasos:
-  - "Quién narra (protagonista/testigo/omnisciente/observador) fija los límites de lo que se puede contar."
+  - "Ver `../debate-refutar-en-vivo/`, `../negociacion/`, `../presentacion-con-apoyo-visual/` y `../persuasion-etica-vs-manipulacion/`."
 
 explicacion: |
-  Verdadero: por eso narrador es prerrequisito directo de punto de
-  vista, el siguiente tema de esta subrama.
+  Verdadero: es el punto de partida de toda la subrama de
+  comunicación oral y en vivo.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "narrador"
+  tema: "exposicion_oral"
   nivel: "avanzado"
-  tags: ["narrador", "aplicacion"]
+  tags: ["exposicion_oral", "aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -1407,14 +455,14 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si un autor quiere que el lector descubra la verdad al mismo tiempo que el protagonista, sin saber más que él, conviene usar un narrador protagonista antes que uno omnisciente."
+enunciado: "Antes de presentar un trabajo escolar en clase, conviene aplicar los pasos de planificación (objetivo, audiencia, estructura) y ensayar en voz alta, en vez de improvisar directamente frente al curso."
 
 pasos:
-  - "El narrador omnisciente le daría al lector información que el protagonista todavía no tiene, rompiendo esa sorpresa compartida."
+  - "Es la aplicación práctica más directa de este tema en la vida escolar cotidiana."
 
 explicacion: |
-  Verdadero: elegir el tipo de narrador es una decisión que controla
-  cuánta información recibe el lector y cuándo.
+  Verdadero: es la aplicación concreta del proceso de planificación y
+  entrega oral estudiado en este tema.
 ```
 
 ## Sección: negociacion (20 preguntas)
@@ -1826,12 +874,7 @@ opciones_explicitas:
   - "Escuchar la posición de la otra parte e indagar su interés real"
   - "Buscar opciones de beneficio mutuo antes de dividir un recurso fijo"
   - "Llegar a un acuerdo que ambas partes puedan sostener, cuidando también la relación"
-respuesta_orden:
-  - "Definir el propio límite antes de empezar a negociar"
-  - "Escuchar la posición de la otra parte e indagar su interés real"
-  - "Buscar opciones de beneficio mutuo antes de dividir un recurso fijo"
-  - "Llegar a un acuerdo que ambas partes puedan sostener, cuidando también la relación"
-
+respuesta_orden: ["Definir el propio límite antes de empezar a negociar", "Escuchar la posición de la otra parte e indagar su interés real", "Buscar opciones de beneficio mutuo antes de dividir un recurso fijo", "Llegar a un acuerdo que ambas partes puedan sostener, cuidando también la relación"]
 explicacion: |
   El proceso combina las estrategias centrales descritas en la teoría
   en un orden lógico de preparación, indagación y cierre del acuerdo.
@@ -1883,379 +926,1392 @@ explicacion: |
   la vida diaria.
 ```
 
-## Sección: nucleos-y-modificadores (20 preguntas)
+## Sección: persuasion-etica-vs-manipulacion (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "nucleos_y_modificadores"
+  tema: "persuasion_etica_vs_manipulacion"
   nivel: "basico"
-  tags: ["nucleo", "vocabulario"]
+  tags: ["prerrequisito"]
 
-enunciado: "¿Qué es el núcleo de un sintagma?"
-tipo: mc
-opciones_explicitas:
-  - "La palabra principal, que concentra el significado central y determina la categoría gramatical de todo el grupo"
-  - "La primera palabra del sintagma, sin importar su función"
-  - "Cualquier palabra que se pueda quitar sin cambiar el sentido"
-respuesta: "La palabra principal, que concentra el significado central y determina la categoría gramatical de todo el grupo"
-
-explicacion: |
-  En un sintagma nominal, el núcleo siempre es un sustantivo o
-  pronombre.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "basico"
-  tags: ["modificador", "vocabulario"]
-
-enunciado: "¿Qué es un modificador?"
-tipo: mc
-opciones_explicitas:
-  - "Una palabra o grupo de palabras que acompaña al núcleo, agregando información sin ser imprescindible para la estructura básica"
-  - "Otro nombre para el núcleo de un sintagma"
-  - "Una palabra que siempre va al final de la oración"
-respuesta: "Una palabra o grupo de palabras que acompaña al núcleo, agregando información sin ser imprescindible para la estructura básica"
-
-explicacion: |
-  Se puede quitar y la oración sigue siendo gramaticalmente correcta,
-  aunque pierda información.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "avanzado"
-  tags: ["nucleo", "modificador_directo", "problema"]
-
-enunciado: "Etiquetá el núcleo del sujeto y su modificador directo en esta oración."
-tipo: analisis_sintactico
-texto_analizar: "Los estudiantes de la clase aprobaron el examen"
-etiquetas_pedidas:
-  - { palabra: "estudiantes", etiqueta: "núcleo" }
-  - { palabra: "Los", etiqueta: "modificador directo" }
-
-explicacion: |
-  'Estudiantes' es el núcleo; 'Los' lo acompaña directamente, sin
-  preposición.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "intermedio"
-  tags: ["modificador_directo", "vocabulario"]
-
-enunciado: "¿Qué es un modificador directo?"
-tipo: mc
-opciones_explicitas:
-  - "Un determinante o adjetivo que se agrega al núcleo sin preposición ('el perro grande')"
-  - "Un sintagma con preposición que complementa al núcleo"
-  - "Un sustantivo que explica a otro, separado por comas"
-respuesta: "Un determinante o adjetivo que se agrega al núcleo sin preposición ('el perro grande')"
-
-explicacion: |
-  'El' y 'grande' son modificadores directos de 'perro'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "intermedio"
-  tags: ["modificador_indirecto", "vocabulario"]
-
-enunciado: "¿Qué es un modificador indirecto (complemento del nombre)?"
-tipo: mc
-opciones_explicitas:
-  - "Un sintagma CON preposición que complementa al núcleo ('la casa de María')"
-  - "Un determinante que acompaña al núcleo sin preposición"
-  - "Otro nombre para el núcleo del predicado"
-respuesta: "Un sintagma CON preposición que complementa al núcleo ('la casa de María')"
-
-explicacion: |
-  La preposición ('de', en este caso) es lo que distingue al
-  modificador indirecto del directo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "avanzado"
-  tags: ["modificador_indirecto", "problema"]
-
-enunciado: "Marcá el modificador indirecto (complemento del nombre) del núcleo 'estudiantes' en esta oración."
-tipo: analisis_spans
-texto_analizar: "Los estudiantes de la clase aprobaron el examen"
-spans_pedidos:
-  - { desde: 2, hasta: 4, etiqueta: "modificador indirecto" }
-
-explicacion: |
-  'De la clase' es un sintagma preposicional que complementa a
-  'estudiantes' — a diferencia de 'Los', que lo modifica sin
-  preposición.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "avanzado"
-  tags: ["aposicion", "vocabulario"]
-
-enunciado: "¿Qué es una aposición?"
-tipo: mc
-opciones_explicitas:
-  - "Un sustantivo (o sintagma nominal) que se agrega a otro para explicarlo, sin preposición, generalmente separado por comas"
-  - "Un adjetivo que concuerda en género y número con el núcleo"
-  - "Otro nombre para el modificador indirecto"
-respuesta: "Un sustantivo (o sintagma nominal) que se agrega a otro para explicarlo, sin preposición, generalmente separado por comas"
-
-explicacion: |
-  Como 'el profesor' en 'Javier, el profesor, llegó tarde'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "avanzado"
-  tags: ["aposicion", "problema"]
-
-tipo: completar
-enunciado: "En la oración 'Javier, el profesor, llegó tarde', ¿qué palabras forman la aposición de 'Javier'?"
-respuestas_validas:
-  - "el profesor"
-
-explicacion: |
-  Explica quién es Javier, sin usar ninguna preposición, separado por
-  comas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "intermedio"
-  tags: ["modificador"]
+variables:
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Se puede quitar un modificador de un sintagma y la oración sigue siendo gramaticalmente correcta, aunque pierda parte de la información."
+enunciado: "Este tema reusa dos cosas a la vez: las técnicas de convencer en vivo del debate, y el vocabulario de errores de razonamiento de detectar falacias."
+
+pasos:
+  - "Ver `../debate-refutar-en-vivo/` y `../detectar-falacias/`: son los dos prerrequisitos de este tema."
 
 explicacion: |
-  'Los estudiantes aprobaron el examen' (sin 'de la clase') sigue
-  siendo una oración válida, con menos precisión.
+  Verdadero: es la razón por la que este nodo tiene doble padre en el
+  MAPA.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "nucleos_y_modificadores"
+  tema: "persuasion_etica_vs_manipulacion"
   nivel: "intermedio"
-  tags: ["nucleo"]
+  tags: ["criterio_central"]
+
+variables:
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si se quita el núcleo de un sintagma, la oración deja de tener sentido o cambia por completo su estructura — a diferencia de quitar un modificador."
+enunciado: "El criterio central para distinguir persuasión ética de manipulación es si se respeta o se evita la capacidad de decisión libre e informada de la otra persona."
+
+pasos:
+  - "No está siempre en la técnica en sí, sino en si se respeta esa autonomía."
 
 explicacion: |
-  Es la prueba práctica para distinguir núcleo de modificador: lo
-  imprescindible vs. lo prescindible.
+  Verdadero: es el criterio central de este tema.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "avanzado"
-  tags: ["modificador_directo", "problema"]
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "basico"
+  tags: ["persuasion_etica"]
 
-enunciado: "Marcá los modificadores directos del núcleo 'perro' en esta oración."
-tipo: identificar_palabras
-texto_analizar: "El perro grande corre"
-respuestas_validas:
-  - "El"
-  - "grande"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La persuasión ética usa argumentos, evidencia y apelaciones emocionales honestas, dejando que la otra persona decida libremente e informada."
+
+pasos:
+  - "Es la definición central de persuasión legítima."
 
 explicacion: |
-  Ambos acompañan a 'perro' sin preposición: uno antes (determinante),
-  otro después (adjetivo).
+  Verdadero: es la definición de persuasión ética descrita en la
+  teoría.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "nucleos_y_modificadores"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "basico"
+  tags: ["manipulacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La manipulación usa técnicas que distorsionan la información o explotan sesgos psicológicos para que la otra persona decida algo sin haberlo evaluado realmente por sí misma."
+
+pasos:
+  - "Es la definición central de manipulación descrita en la teoría."
+
+explicacion: |
+  Verdadero: es la definición de manipulación descrita en la teoría.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
   nivel: "intermedio"
-  tags: ["nucleo", "problema"]
+  tags: ["manipulacion", "urgencia_artificial"]
 
-enunciado: "¿Cuál es el núcleo del sujeto en 'El perro grande corre'?"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "manipulación"
 tipo: mc
-opciones_explicitas:
-  - "perro"
-  - "El"
-  - "grande"
-respuesta: "perro"
+opciones_explicitas: ["persuasión ética", "manipulación"]
+
+enunciado: "Decir \"sólo por hoy\" cuando no es cierto, para evitar que la persona lo piense con calma, es un ejemplo de..."
+
+pasos:
+  - "La urgencia artificial busca evitar la reflexión informada, no facilitarla."
 
 explicacion: |
-  Es el sustantivo que concentra el significado central del sujeto.
+  Es un ejemplo clásico de manipulación por presión de urgencia
+  falsa.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "nucleos_y_modificadores"
+  tema: "persuasion_etica_vs_manipulacion"
   nivel: "intermedio"
+  tags: ["manipulacion", "miedo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "manipulación"
+tipo: mc
+opciones_explicitas: ["persuasión ética", "manipulación"]
+
+enunciado: "Exagerar un riesgo mínimo para generar una decisión apurada por pánico es un ejemplo de..."
+
+pasos:
+  - "Exagerar deliberadamente el riesgo distorsiona la información real."
+
+explicacion: |
+  Es un ejemplo de manipulación por explotación del miedo
+  desproporcionado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "intermedio"
+  tags: ["manipulacion", "ocultamiento"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "manipulación"
+tipo: mc
+opciones_explicitas: ["persuasión ética", "manipulación"]
+
+enunciado: "Ocultar información que cambiaría la decisión de la otra persona si la conociera es un ejemplo de..."
+
+pasos:
+  - "Impide que la persona decida con información completa."
+
+explicacion: |
+  Es un ejemplo de manipulación por ocultamiento de información
+  relevante.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "avanzado"
+  tags: ["manipulacion", "detectar_falacias"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Recurrir deliberadamente a un ad hominem o una falsa dicotomía, sabiendo que es un error de razonamiento porque \"funciona\" para convencer, es un ejemplo de manipulación."
+
+pasos:
+  - "Ver `../detectar-falacias/`: es la aplicación intencional de una falacia como técnica manipuladora."
+
+explicacion: |
+  Verdadero: es el punto central que conecta este tema con su
+  prerrequisito de falacias.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "intermedio"
+  tags: ["persuasion_etica", "datos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "persuasión ética"
+tipo: mc
+opciones_explicitas: ["persuasión ética", "manipulación"]
+
+enunciado: "Presentar datos verificables junto con su fuente para respaldar un argumento es un ejemplo de..."
+
+pasos:
+  - "Permite que la otra persona evalúe la información por sí misma."
+
+explicacion: |
+  Es un ejemplo de persuasión ética, porque da la información
+  necesaria para decidir informadamente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "intermedio"
+  tags: ["persuasion_etica", "concesion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "persuasión ética"
+tipo: mc
+opciones_explicitas: ["persuasión ética", "manipulación"]
+
+enunciado: "Reconocer honestamente las limitaciones del propio argumento (concesión), en vez de ocultarlas, es un ejemplo de..."
+
+pasos:
+  - "Ver `../contraargumentos/`: la concesión honesta es coherente con el respeto a la autonomía del otro."
+
+explicacion: |
+  Es un ejemplo de persuasión ética, porque da una imagen más
+  completa y honesta de la situación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "avanzado"
+  tags: ["persuasion_etica", "emociones"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "persuasión ética"
+tipo: mc
+opciones_explicitas: ["persuasión ética", "manipulación"]
+
+enunciado: "Mostrar el impacto real de un problema (sin exagerarlo) para apelar a una emoción genuina y relevante al tema es un ejemplo de..."
+
+pasos:
+  - "Apelar a una emoción no es automáticamente manipulación, si es genuina y no distorsiona la información."
+
+explicacion: |
+  Es un ejemplo de persuasión ética, porque la emoción apelada es
+  real y proporcional al problema, no exagerada.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "avanzado"
+  tags: ["criterio_central", "matiz"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Apelar a la emoción no es, por sí mismo, manipulación: depende de si la emoción apelada es genuina y relevante o está exagerada/inventada para nublar el juicio."
+
+pasos:
+  - "El criterio no es \"¿usa emociones?\" sino \"¿respeta que la otra persona decida con información real?\"."
+
+explicacion: |
+  Verdadero: es el matiz central que evita clasificar toda apelación
+  emocional como manipuladora de forma automática.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "avanzado"
+  tags: ["criterio_central", "practica"]
+
+variables:
+  usos: ["mostrar fotos reales del impacto de un desastre natural para pedir donaciones, con datos verificables sobre la ayuda necesaria", "mostrar imágenes exageradas y descontextualizadas de sufrimiento, sin datos concretos, sólo para generar pánico"]
+  tipos: ["persuasión ética", "manipulación"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["persuasión ética", "manipulación"]
+
+enunciado: "\"{usos[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "La diferencia está en si la emoción apelada es genuina y con datos verificables, o exagerada/descontextualizada para generar pánico sin sustento."
+
+explicacion: |
+  El mismo recurso (mostrar imágenes fuertes) puede usarse de forma
+  ética o manipuladora según cómo se emplee.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "intermedio"
+  tags: ["manipulacion", "distincion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Cualquier intento de convencer a alguien de algo, sin importar el método usado, cuenta como manipulación."
+
+pasos:
+  - "Persuadir con argumentos honestos y evidencia verificable (persuasión ética) es distinto de distorsionar información o explotar sesgos (manipulación)."
+
+explicacion: |
+  Falso: no todo intento de convencer es manipulación, sólo cuando se
+  distorsiona información o se explotan sesgos psicológicos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "avanzado"
+  tags: ["publicidad_enganosa"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La distinción entre persuasión ética y manipulación es relevante para analizar publicidad, política, ventas y cualquier contexto donde se busca influir en decisiones ajenas."
+
+pasos:
+  - "Ver `../../ciudadania-digital/publicidad-enganosa/`: es una de las aplicaciones prácticas más directas de este criterio."
+
+explicacion: |
+  Verdadero: es la conexión entre este tema y sus aplicaciones
+  prácticas en otros contextos ya estudiados.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "intermedio"
+  tags: ["persuasion_etica", "transparencia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ser transparente sobre las fuentes y limitaciones del propio argumento es central para que la persuasión sea considerada ética, no manipuladora."
+
+pasos:
+  - "La transparencia permite que la otra persona evalúe la información real antes de decidir."
+
+explicacion: |
+  Verdadero: la transparencia es uno de los pilares del criterio de
+  persuasión ética.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "avanzado"
+  tags: ["manipulacion", "matiz"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La manipulación no siempre usa una falacia lógica identificable: técnicas como la presión de urgencia artificial o el ocultamiento de información también son manipuladoras sin encajar en una falacia específica ya nombrada."
+
+pasos:
+  - "El criterio central de manipulación (distorsionar/explotar/no respetar autonomía) es más amplio que el catálogo de falacias formales."
+
+explicacion: |
+  Verdadero: es un matiz importante, la manipulación no se agota en
+  el catálogo de falacias ya estudiado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "intermedio"
+  tags: ["criterio_central", "metodo"]
+
+enunciado: "Ordená los pasos para analizar si un intento de convencer es persuasión ética o manipulación."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar la técnica usada (dato, apelación emocional, urgencia, etc.)"
+  - "Revisar si la información presentada es verificable y completa, o distorsionada/incompleta"
+  - "Revisar si se le da a la otra persona tiempo y espacio para decidir con calma"
+  - "Concluir si se respeta o se evita la autonomía de decisión informada del otro"
+respuesta_orden: ["Identificar la técnica usada (dato, apelación emocional, urgencia, etc.)", "Revisar si la información presentada es verificable y completa, o distorsionada/incompleta", "Revisar si se le da a la otra persona tiempo y espacio para decidir con calma", "Concluir si se respeta o se evita la autonomía de decisión informada del otro"]
+explicacion: |
+  El análisis va de identificar la técnica a evaluar si respeta o
+  evita la autonomía informada del otro, el criterio central del
+  tema.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "avanzado"
+  tags: ["sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Este tema cierra la subrama de comunicación en vivo con una capa ética: no sólo cómo convencer efectivamente, sino cuándo esas técnicas cruzan la línea hacia algo que no respeta la autonomía del otro."
+
+pasos:
+  - "Ver `../exposicion-oral/`, `../debate-refutar-en-vivo/` y `../negociacion/`: son los temas previos de la subrama que este tema completa con la dimensión ética."
+
+explicacion: |
+  Verdadero: es la síntesis del rol de este tema dentro de la
+  subrama completa de comunicación oral.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "persuasion_etica_vs_manipulacion"
+  nivel: "avanzado"
   tags: ["aplicacion"]
 
-enunciado: "¿Qué relación tiene 'núcleo y modificadores' con lo ya visto en `../sujeto-y-predicado/`?"
-tipo: mc
-opciones_explicitas:
-  - "Le da nombre formal a lo que ya se distinguía informalmente: el núcleo del sujeto (ya identificado) y todo lo que lo acompaña (ahora llamado 'modificador')"
-  - "No tiene ninguna relación real con sujeto y predicado"
-  - "Reemplaza por completo la necesidad de identificar sujeto y predicado"
-respuesta: "Le da nombre formal a lo que ya se distinguía informalmente: el núcleo del sujeto (ya identificado) y todo lo que lo acompaña (ahora llamado 'modificador')"
-
-explicacion: |
-  Es la continuación directa de ese módulo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "avanzado"
-  tags: ["predicado"]
+variables:
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El mismo patrón de núcleo y modificadores se repite en el predicado: su núcleo es el verbo, y sus complementos (objeto directo, objeto indirecto, circunstanciales) funcionan como modificadores de ese núcleo verbal."
+enunciado: "Al escuchar un discurso que busca convencer sobre algo importante (una compra, un voto, una decisión personal), conviene preguntarse si se está dando información completa y tiempo para decidir con calma, o si se están usando técnicas de urgencia artificial o miedo exagerado."
+
+pasos:
+  - "Es la aplicación práctica directa del criterio central de este tema para evaluar discursos persuasivos reales."
 
 explicacion: |
-  Profundizar en esos tipos específicos de complemento verbal es el
-  tema de un módulo posterior ('Objetos y circunstanciales').
+  Verdadero: es la aplicación concreta de este tema como herramienta
+  de pensamiento crítico ante intentos de persuasión cotidianos.
 ```
+
+## Sección: presentacion-con-apoyo-visual (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "avanzado"
-  tags: ["modificador_directo", "modificador_indirecto", "problema"]
-
-enunciado: "En 'la mesa de madera', ¿qué tipo de modificador es 'de madera' respecto del núcleo 'mesa'?"
-tipo: mc
-opciones_explicitas:
-  - "Modificador indirecto (complemento del nombre): usa la preposición 'de'"
-  - "Modificador directo: no usa ninguna preposición"
-  - "Aposición: es un sustantivo que explica a 'mesa'"
-respuesta: "Modificador indirecto (complemento del nombre): usa la preposición 'de'"
-
-explicacion: |
-  La presencia de la preposición 'de' es la marca distintiva del
-  modificador indirecto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "avanzado"
-  tags: ["aposicion", "modificador_indirecto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia del modificador indirecto, la aposición no usa ninguna preposición para unirse al núcleo — por eso 'el profesor' en 'Javier, el profesor,...' es aposición y no modificador indirecto."
-
-explicacion: |
-  Si dijera 'Javier, DE profesión profesor,...' ahí sí habría una
-  preposición de por medio.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "nucleos_y_modificadores"
+  tema: "presentacion_con_apoyo_visual"
   nivel: "basico"
-  tags: ["aplicacion"]
+  tags: ["apoyo_visual", "definicion"]
 
-enunciado: "¿Cómo ayuda distinguir núcleo de modificadores a resumir o parafrasear una oración larga?"
-tipo: mc
-opciones_explicitas:
-  - "Permite quedarse con el esqueleto básico (los núcleos) y decidir qué modificadores son prescindibles según qué tan importante sea la información que agregan"
-  - "No tiene ninguna utilidad práctica fuera del análisis gramatical"
-  - "Obliga a mantener siempre todos los modificadores de la oración original"
-respuesta: "Permite quedarse con el esqueleto básico (los núcleos) y decidir qué modificadores son prescindibles según qué tan importante sea la información que agregan"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El apoyo visual (diapositivas, gráficos) es un complemento para reforzar lo que se dice, no un guion para leer en voz alta palabra por palabra."
+
+pasos:
+  - "Ver `../exposicion-oral/`: la base sigue siendo la exposición oral bien planificada."
 
 explicacion: |
-  Es una aplicación práctica directa de este módulo a la producción
-  de textos.
+  Verdadero: es la relación central entre este tema y su
+  prerrequisito.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "nucleos_y_modificadores"
-  nivel: "avanzado"
-  tags: ["nucleo", "problema"]
-
-tipo: completar
-enunciado: "En 'Javier, el profesor, llegó tarde', ¿cuál es el núcleo del sujeto completo ('Javier, el profesor')?"
-respuestas_validas:
-  - "Javier"
-
-explicacion: |
-  La aposición ('el profesor') explica a 'Javier', pero no lo
-  reemplaza como núcleo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "nucleos_y_modificadores"
+  tema: "presentacion_con_apoyo_visual"
   nivel: "intermedio"
-  tags: ["modificador_directo"]
+  tags: ["errores_comunes"]
 
-enunciado: "¿Cuáles son las dos clases de palabras que típicamente funcionan como modificador directo de un sustantivo?"
-tipo: mc
-opciones_explicitas:
-  - "Determinantes (artículos) y adjetivos"
-  - "Preposiciones y conjunciones"
-  - "Verbos y adverbios"
-respuesta: "Determinantes (artículos) y adjetivos"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Llenar una diapositiva de texto y leerla en voz alta es el error más frecuente: la audiencia no puede leer y escuchar con atención al mismo tiempo."
+
+pasos:
+  - "Termina sin hacer bien ninguna de las dos cosas: ni leer con atención ni escuchar."
 
 explicacion: |
-  Ambos acompañan al sustantivo sin necesitar ninguna preposición de
-  por medio.
+  Verdadero: es el error central que describe la teoría de este tema.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "nucleos_y_modificadores"
+  tema: "presentacion_con_apoyo_visual"
   nivel: "basico"
-  tags: ["cierre"]
+  tags: ["principio_de_diseno"]
 
-enunciado: "¿Para qué sirve distinguir el núcleo de un sintagma de sus modificadores?"
-tipo: mc
-opciones_explicitas:
-  - "Para entender qué parte de un sintagma es imprescindible (el núcleo) y qué parte agrega información prescindible (los modificadores), la base de cualquier análisis sintáctico más detallado"
-  - "Sólo sirve para contar palabras de una oración"
-  - "No tiene relación con analizar objetos y circunstanciales más adelante"
-respuesta: "Para entender qué parte de un sintagma es imprescindible (el núcleo) y qué parte agrega información prescindible (los modificadores), la base de cualquier análisis sintáctico más detallado"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada diapositiva debería comunicar una sola idea central, con el mínimo texto necesario (títulos cortos, palabras clave, no oraciones completas)."
+
+pasos:
+  - "El detalle se explica hablando, no leyendo de la pantalla."
 
 explicacion: |
-  Es el paso siguiente después de `../sujeto-y-predicado/`, y la base
-  del módulo que sigue en la currícula: 'Objetos y circunstanciales'.
+  Verdadero: es el principio central de diseño de diapositivas
+  descrito en la teoría.
 ```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "intermedio"
+  tags: ["graficos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un gráfico de barras o de torta comunica una comparación de datos mucho más rápido que una tabla de números leída en voz alta."
+
+pasos:
+  - "Es uno de los casos recomendados para usar imagen/gráfico en vez de texto."
+
+explicacion: |
+  Verdadero: los datos numéricos comparativos se comunican mejor
+  visualmente que en formato de tabla leída.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "intermedio"
+  tags: ["diagramas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un diagrama de flujo o una línea de tiempo es más claro que describir un proceso paso a paso sólo con palabras."
+
+pasos:
+  - "Es otro de los casos recomendados para usar apoyo visual en vez de sólo texto/palabras."
+
+explicacion: |
+  Verdadero: los procesos y secuencias se comunican mejor con
+  diagramas que con descripción puramente verbal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "intermedio"
+  tags: ["conceptos_espaciales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un mapa, una foto o un esquema comunican mejor la disposición física de algo que una descripción verbal."
+
+pasos:
+  - "Es otro de los casos recomendados para usar apoyo visual, específicamente para conceptos espaciales."
+
+explicacion: |
+  Verdadero: los conceptos espaciales se comunican mejor con
+  elementos visuales que con palabras.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "intermedio"
+  tags: ["legibilidad", "tamano"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El tamaño de letra de una diapositiva debe ser suficientemente grande para leerse desde el fondo de la sala."
+
+pasos:
+  - "Una regla práctica: si no se lee bien impreso en una hoja a distancia de brazo extendido, es demasiado chico en pantalla."
+
+explicacion: |
+  Verdadero: es un criterio de legibilidad central para el apoyo
+  visual.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "intermedio"
+  tags: ["legibilidad", "contraste"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Usar texto oscuro sobre fondo claro (o viceversa), y evitar combinaciones de colores difíciles de distinguir, es un criterio de legibilidad recomendado."
+
+pasos:
+  - "Es otro de los criterios de legibilidad descritos en la teoría."
+
+explicacion: |
+  Verdadero: el contraste adecuado es central para que el contenido
+  visual sea legible.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "intermedio"
+  tags: ["legibilidad", "cantidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una diapositiva sobrecargada de elementos distrae en vez de ayudar: conviene usar pocos elementos y mucho espacio en blanco."
+
+pasos:
+  - "Es otro de los criterios de legibilidad descritos en la teoría."
+
+explicacion: |
+  Verdadero: la cantidad de contenido por diapositiva afecta
+  directamente su claridad.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "intermedio"
+  tags: ["sincronizacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El apoyo visual debe cambiar o resaltarse en el momento en que se habla de eso específicamente; mostrar contenido que todavía no se explicó genera confusión."
+
+pasos:
+  - "La audiencia intenta leer algo que no entiende todavía si se muestra antes de tiempo."
+
+explicacion: |
+  Verdadero: la sincronización entre lo dicho y lo mostrado es
+  central para que el apoyo visual funcione bien.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "avanzado"
+  tags: ["apoyo_visual", "exposicion_oral"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Tener buenas diapositivas hace innecesario planificar la estructura de introducción, desarrollo y cierre de la exposición oral."
+
+pasos:
+  - "Ver `../exposicion-oral/`: la estructura de la exposición sigue siendo necesaria, el apoyo visual sólo la complementa."
+
+explicacion: |
+  Falso: el apoyo visual no reemplaza la planificación de la
+  exposición oral, la complementa.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "intermedio"
+  tags: ["apoyo_visual", "practica"]
+
+variables:
+  contenidos: ["comparar las ventas de tres productos en un año", "explicar los pasos de un proceso de fabricación", "mostrar la ubicación geográfica de un evento histórico"]
+  tipos: ["gráfico de barras", "diagrama de flujo", "mapa"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["gráfico de barras", "diagrama de flujo", "mapa"]
+
+enunciado: "Para \"{contenidos[idx]}\", el apoyo visual más adecuado sería un..."
+
+pasos:
+  - "Cada tipo de contenido se comunica mejor con un tipo de apoyo visual específico."
+
+explicacion: |
+  Elegir el tipo correcto de apoyo visual depende de qué tipo de
+  información se quiere comunicar.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "intermedio"
+  tags: ["principio_de_diseno", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "\"Revolución Industrial — Inglaterra, fines s. XVIII\""
+tipo: mc
+opciones_explicitas: ["\"La Revolución Industrial comenzó en Inglaterra a fines del siglo XVIII debido a varios factores económicos y tecnológicos combinados\"", "\"Revolución Industrial — Inglaterra, fines s. XVIII\""]
+
+enunciado: "¿Cuál de estas dos versiones sigue mejor el principio de \"pocas palabras, una idea por diapositiva\"?"
+
+pasos:
+  - "La versión con palabras clave deja el detalle para ser explicado hablando, no leído de la pantalla."
+
+explicacion: |
+  La versión corta con palabras clave es más adecuada para una
+  diapositiva; los detalles se explican verbalmente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "avanzado"
+  tags: ["sincronizacion", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si se muestra una diapositiva con un gráfico complejo varios minutos antes de explicarlo, la audiencia puede distraerse intentando entenderlo por su cuenta, en vez de prestar atención a lo que se está diciendo mientras tanto."
+
+pasos:
+  - "Es la aplicación práctica de por qué la sincronización entre lo mostrado y lo dicho es importante."
+
+explicacion: |
+  Verdadero: es un ejemplo concreto del problema de falta de
+  sincronización descrito en la teoría.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "avanzado"
+  tags: ["apoyo_visual", "contexto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "No toda exposición oral necesita apoyo visual: para audiencias chicas o contenidos muy simples, puede bastar con la exposición oral sola, sin diapositivas."
+
+pasos:
+  - "El apoyo visual es una herramienta adicional, no un requisito obligatorio en todos los contextos."
+
+explicacion: |
+  Verdadero: es un matiz sobre cuándo conviene (o no) usar apoyo
+  visual, según el contexto de la exposición.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "avanzado"
+  tags: ["legibilidad", "distraccion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Usar demasiadas animaciones, transiciones o efectos visuales llamativos puede distraer a la audiencia del contenido central, en vez de ayudar a comunicarlo."
+
+pasos:
+  - "Es coherente con el principio general de que el apoyo visual debe apoyar el mensaje, no competir con él por atención."
+
+explicacion: |
+  Verdadero: el exceso de efectos visuales es otro tipo de
+  sobrecarga que dificulta, en vez de ayudar, la comunicación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "intermedio"
+  tags: ["principio_de_diseno", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una diapositiva con un título corto, una imagen relevante y pocas palabras clave, con texto grande y buen contraste, sigue los principios de diseño recomendados para apoyo visual."
+
+pasos:
+  - "Combina todos los criterios descritos en la teoría: una idea, pocos elementos, buena legibilidad."
+
+explicacion: |
+  Verdadero: es un ejemplo de diapositiva bien diseñada según los
+  criterios de este tema.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "intermedio"
+  tags: ["apoyo_visual", "metodo"]
+
+enunciado: "Ordená los pasos para diseñar una presentación con apoyo visual, después de ya tener planificada la exposición oral."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar qué partes del contenido se benefician de un apoyo visual (datos, procesos, conceptos espaciales)"
+  - "Diseñar cada diapositiva con una sola idea central y texto mínimo"
+  - "Revisar legibilidad: tamaño de letra, contraste, cantidad de elementos"
+  - "Ensayar la exposición sincronizando lo que se dice con lo que se muestra en cada momento"
+respuesta_orden: ["Identificar qué partes del contenido se benefician de un apoyo visual (datos, procesos, conceptos espaciales)", "Diseñar cada diapositiva con una sola idea central y texto mínimo", "Revisar legibilidad: tamaño de letra, contraste, cantidad de elementos", "Ensayar la exposición sincronizando lo que se dice con lo que se muestra en cada momento"]
+explicacion: |
+  El proceso va de decidir dónde usar apoyo visual a diseñarlo bien y
+  finalmente ensayar la sincronización con la exposición oral.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "avanzado"
+  tags: ["apoyo_visual", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Este tema agrega una capa práctica muy usada (presentaciones escolares, laborales, académicas) a la base de exposición oral ya dominada."
+
+pasos:
+  - "Ver `../exposicion-oral/`: es la relación de prerrequisito y complemento entre ambos temas."
+
+explicacion: |
+  Verdadero: es la síntesis de la relación entre este tema y su
+  prerrequisito.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "presentacion_con_apoyo_visual"
+  nivel: "avanzado"
+  tags: ["apoyo_visual", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al preparar diapositivas para un trabajo escolar, conviene usar pocas palabras clave por diapositiva, elegir gráficos o imágenes cuando ayuden a comunicar mejor que el texto, y ensayar la sincronización entre lo dicho y lo mostrado."
+
+pasos:
+  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema en la
+  preparación real de una presentación escolar.
+```
+
+## Sección: subjetivemas-y-modalizadores (22 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "basico"
+  tags: ["definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "manifiestan la presencia del hablante y sus valoraciones"
+tipo: mc
+opciones_explicitas: ["manifiestan la presencia del hablante y sus valoraciones", "sólo aparecen en textos científicos objetivos", "reemplazan siempre a la primera persona"]
+
+enunciado: "Los subjetivemas son elementos lingüísticos que..."
+
+explicacion: |
+  Muestran cómo se siente o qué valora el hablante sobre lo que dice,
+  haciendo visible que el discurso no es neutro.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "basico"
+  tags: ["definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "el grado de certeza, posibilidad o necesidad de lo enunciado"
+tipo: mc
+opciones_explicitas: ["el grado de certeza, posibilidad o necesidad de lo enunciado", "quién es el autor del texto", "el tema principal del párrafo"]
+
+enunciado: "Los modalizadores indican..."
+
+explicacion: |
+  A diferencia de los subjetivemas (que muestran valoración emocional),
+  los modalizadores matizan cuán segura es la afirmación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "intermedio"
+  tags: ["clasificacion subjetivema"]
+
+variables:
+  ejemplo: uno_de(["increíble", "lamentablemente", "afortunadamente"])
+
+respuesta: "subjetivema"
+tipo: mc
+opciones_explicitas: ["subjetivema", "modalizador dubitativo", "modalizador afirmativo"]
+
+enunciado: "\"{ejemplo}\" es un ejemplo de..."
+
+explicacion: |
+  Son adjetivos o adverbios evaluativos que expresan la valoración
+  emocional del hablante, no el grado de certeza.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "intermedio"
+  tags: ["clasificacion modalizador"]
+
+variables:
+  ejemplo: uno_de(["quizás", "probablemente", "tal vez"])
+
+respuesta: "modalizador hipotético o dubitativo"
+tipo: mc
+opciones_explicitas: ["subjetivema evaluativo", "modalizador hipotético o dubitativo", "modalizador afirmativo"]
+
+enunciado: "\"{ejemplo}\" es un ejemplo de..."
+
+explicacion: |
+  Expresan duda o posibilidad sobre lo enunciado, distinto de un
+  subjetivema que expresa valoración emocional.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "intermedio"
+  tags: ["clasificacion modalizador"]
+
+variables:
+  ejemplo: uno_de(["seguramente", "jamás"])
+
+respuesta: "modalizador afirmativo o negativo"
+tipo: mc
+opciones_explicitas: ["modalizador afirmativo o negativo", "modalizador hipotético o dubitativo", "subjetivema"]
+
+enunciado: "\"{ejemplo}\" es un ejemplo de..."
+
+explicacion: |
+  Confirman o niegan la verdad del enunciado, a diferencia de los
+  modalizadores dubitativos que expresan duda.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "avanzado"
+  tags: ["funcion argumentativa"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los modalizadores permiten al hablante protegerse de la refutación inmediata al no presentar su afirmación como una verdad absoluta."
+
+explicacion: |
+  Decir "quizás" o "probablemente" deja margen para no comprometerse
+  totalmente con la afirmación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "intermedio"
+  tags: ["caso"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "está siendo preciso y honesto con la incertidumbre"
+tipo: mc
+opciones_explicitas: ["está siendo preciso y honesto con la incertidumbre", "está mintiendo deliberadamente", "está siendo ambiguo sin ningún motivo"]
+
+enunciado: "Si un experto dice \"es probable que llueva\", según la teoría..."
+
+explicacion: |
+  A diferencia de decir "va a llover" sin fundamento (presentar una
+  hipótesis como hecho), el modalizador refleja honestamente el nivel
+  de certeza real.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "avanzado"
+  tags: ["caso engañoso"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Presentar una hipótesis como un hecho, sin usar ningún modalizador de incertidumbre, puede ser engañoso para quien escucha."
+
+explicacion: |
+  Decir "va a llover" como certeza absoluta, sin fundamento, oculta que
+  en realidad es sólo una posibilidad.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "basico"
+  tags: ["utilidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "detectar sesgos emocionales o ideológicos del autor"
+tipo: mc
+opciones_explicitas: ["detectar sesgos emocionales o ideológicos del autor", "memorizar la biografía del autor", "contar la cantidad de palabras del texto"]
+
+enunciado: "Identificar subjetivemas en un artículo de opinión permite principalmente..."
+
+explicacion: |
+  Ayuda a responder si el emisor busca manipular emocionalmente al
+  lector para que acepte su idea.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "intermedio"
+  tags: ["caso titular"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "lamentablemente"
+tipo: completar
+
+enunciado: "En el titular \"Lamentablemente, el egoísmo de algunos bloqueó la ciudad\", la palabra que funciona como subjetivema explícito es ___."
+
+respuestas_validas:
+  - "lamentablemente"
+
+explicacion: |
+  Expresa desaprobación del hablante, mientras que "egoísmo" también
+  carga de juicio moral la acción descrita.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "basico"
+  tags: ["caso neutro"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"El corte de ruta paralizó el tránsito en la 9 de Julio\" es un enunciado con pocos modalizadores y subjetivemas, orientado a informar un hecho."
+
+explicacion: |
+  Es el ejemplo de titular descriptivo de la teoría, en contraste con
+  el titular que sí usa subjetivemas para juzgar la situación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "intermedio"
+  tags: ["caso redes sociales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "increíble"
+tipo: completar
+
+enunciado: "En \"¡Qué golazo! ¡La selección jugó increíble!\", la palabra que expresa euforia como subjetivema es ___."
+
+respuestas_validas:
+  - "increíble"
+
+explicacion: |
+  Es un adjetivo evaluativo que muestra la emoción del hablante, no un
+  dato objetivo sobre el partido.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "avanzado"
+  tags: ["caso redes sociales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "podría"
+tipo: mc
+opciones_explicitas: ["podría", "ganó", "aplastó"]
+
+enunciado: "En \"Creo que la selección podría mejorar en la defensa\", el modalizador dubitativo usado es..."
+
+explicacion: |
+  "Podría" suaviza la crítica, mostrando que el hablante no presenta su
+  opinión como una verdad absoluta.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "basico"
+  tags: ["expresion de subjetividad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La expresión \"Creo que...\" funciona como una marca de subjetividad que muestra respeto por la posibilidad de equivocarse."
+
+explicacion: |
+  Antepone una postura personal en vez de presentar la afirmación como
+  un hecho universal e indiscutible.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "intermedio"
+  tags: ["produccion propia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "menos subjetivemas y más modalizadores de certeza basados en datos"
+tipo: mc
+opciones_explicitas: ["menos subjetivemas y más modalizadores de certeza basados en datos", "sólo subjetivemas, sin ningún modalizador", "ninguno de los dos recursos"]
+
+enunciado: "Para escribir un texto más objetivo, conviene usar..."
+
+explicacion: |
+  Reducir la carga emocional (subjetivemas) y apoyar las afirmaciones en
+  datos con modalizadores de certeza da un tono más objetivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "intermedio"
+  tags: ["produccion propia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "subjetivemas para conectar con la audiencia"
+tipo: mc
+opciones_explicitas: ["subjetivemas para conectar con la audiencia", "sólo cifras estadísticas sin ningún comentario", "modalizadores dubitativos únicamente"]
+
+enunciado: "Para escribir un texto más persuasivo y empático, conviene usar..."
+
+explicacion: |
+  Los subjetivemas ayudan a generar cercanía emocional con quien lee o
+  escucha.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "basico"
+  tags: ["ejemplos subjetivema"]
+
+variables:
+  tipo_palabra: uno_de(["adjetivos evaluativos", "adverbios de modo", "expresiones idiomáticas con carga emocional"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{tipo_palabra}\" es un tipo de recurso mencionado en la teoría que puede funcionar como subjetivema."
+
+explicacion: |
+  Palabras como "increíble" (adjetivo), "lamentablemente" (adverbio) o
+  expresiones cargadas emocionalmente son todas subjetivemas posibles.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "avanzado"
+  tags: ["ambitos de uso"]
+
+variables:
+  ambito: uno_de(["el periodismo", "la literatura", "los debates políticos"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{ambito}\" es uno de los ámbitos mencionados en la teoría donde se usan subjetivemas y modalizadores para expresar postura."
+
+explicacion: |
+  En estos ámbitos rara vez la comunicación es puramente objetiva, como
+  sí lo sería un manual de instrucciones.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "basico"
+  tags: ["ejemplo base"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "un juicio de valor sobre ese hecho"
+tipo: mc
+opciones_explicitas: ["un juicio de valor sobre ese hecho", "sólo el dato de la hora exacta", "ninguna información adicional"]
+
+enunciado: "Al decir \"Es una pena que hayas llegado tarde\", además de informar la hora de llegada, el hablante emite..."
+
+explicacion: |
+  "Es una pena" no es un dato neutro: es una valoración subjetiva sobre
+  el hecho de llegar tarde.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "avanzado"
+  tags: ["confusion comun"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Subjetivemas y modalizadores son exactamente el mismo recurso lingüístico con distinto nombre."
+
+explicacion: |
+  Aunque a veces se confunden, cumplen funciones distintas: uno muestra
+  valoración emocional, el otro grado de certeza.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "intermedio"
+  tags: ["pensamiento critico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Distinguir subjetivemas de modalizadores es fundamental para desarrollar pensamiento crítico y evaluar la solidez de un argumento."
+
+explicacion: |
+  Permite separar lo que es valoración emocional de lo que es
+  honestidad sobre el grado de certeza de una afirmación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subjetivemas_y_modalizadores"
+  nivel: "basico"
+  tags: ["primera persona"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un subjetivema requiere obligatoriamente el uso explícito de la primera persona del singular (\"yo\")."
+
+explicacion: |
+  Según la teoría, no se trata solo de usar "yo": basta con mostrar cómo
+  se siente o qué valora el hablante, aun sin decir "yo" explícitamente.
+```
+

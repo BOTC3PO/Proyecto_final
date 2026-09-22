@@ -1,396 +1,1285 @@
-# Examen jefe — Maestro de Coordenadas y Densidad
+# Examen jefe — [PENDIENTE #797]
 
-> Logro #128. Completaste el parcial integrando conservacionismo, coordenadas geográficas, husos horarios, decrecimiento y densidad poblacional. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **107 preguntas totales** en 5/5 secciones.
+> Logro #797. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **107 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: conservacionismo (20 preguntas)
+## Sección: orientacion-puntos-cardinales (22 preguntas)
 
 ```
 metadata:
   materia: "geografia"
-  tema: "conservacionismo"
+  tema: "orientacion_puntos_cardinales"
   nivel: "basico"
-  tags: ["conservacionismo", "vocabulario"]
+  tags: ["orientacion", "vocabulario"]
 
-enunciado: "¿Qué sostiene, en esencia, el conservacionismo?"
+enunciado: "¿Cuáles son los cuatro puntos cardinales?"
 tipo: mc
 opciones_explicitas:
-  - "Que la naturaleza tiene un valor que justifica protegerla activamente, con un rol central del Estado en esa protección"
-  - "Que el mercado libre es la única forma correcta de proteger el ambiente"
-  - "Que hay que reducir el crecimiento económico en general"
-respuesta: "Que la naturaleza tiene un valor que justifica protegerla activamente, con un rol central del Estado en esa protección"
+  - "Norte, Sur, Este, Oeste"
+  - "Arriba, Abajo, Izquierda, Derecha"
+  - "Norte, Sur, Noreste, Sudoeste"
+respuesta: "Norte, Sur, Este, Oeste"
 
 explicacion: |
-  Es la corriente más antigua y consolidada del ambientalismo moderno.
+  Son los cuatro puntos fijos de referencia, a diferencia de
+  izquierda/derecha que dependen de hacia dónde mira el observador.
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "conservacionismo"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "opuestos"]
+
+enunciado: "¿Cuál es el punto cardinal opuesto al norte?"
+tipo: mc
+opciones_explicitas:
+  - "Sur"
+  - "Este"
+  - "Oeste"
+respuesta: "Sur"
+
+explicacion: |
+  Norte y sur son opuestos entre sí, igual que este y oeste.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "opuestos"]
+
+enunciado: "¿Cuál es el punto cardinal opuesto al este?"
+tipo: mc
+opciones_explicitas:
+  - "Oeste"
+  - "Norte"
+  - "Sur"
+respuesta: "Oeste"
+
+explicacion: |
+  El este es por donde sale el Sol; el oeste, por donde se pone.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "sol"]
+
+enunciado: "¿Por qué punto cardinal sale el Sol?"
+tipo: mc
+opciones_explicitas:
+  - "Este"
+  - "Oeste"
+  - "Norte"
+respuesta: "Este"
+
+explicacion: |
+  El Sol sale por el este y se pone por el oeste, en cualquier
+  hemisferio.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "sol"]
+
+enunciado: "¿Por qué punto cardinal se pone el Sol?"
+tipo: mc
+opciones_explicitas:
+  - "Oeste"
+  - "Este"
+  - "Sur"
+respuesta: "Oeste"
+
+explicacion: |
+  Se pone por el oeste, opuesto al este por donde sale.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "colaterales"]
+
+enunciado: "¿Cómo se llama el punto intermedio entre el norte y el este?"
+tipo: mc
+opciones_explicitas:
+  - "Noreste"
+  - "Sudeste"
+  - "Noroeste"
+respuesta: "Noreste"
+
+explicacion: |
+  Se nombra combinando los dos cardinales que rodean al punto
+  intermedio: Norte + Este = Noreste.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "colaterales"]
+
+enunciado: "¿Cómo se llama el punto intermedio entre el sur y el este?"
+tipo: mc
+opciones_explicitas:
+  - "Sudeste"
+  - "Noreste"
+  - "Sudoeste"
+respuesta: "Sudeste"
+
+explicacion: |
+  Sur + Este = Sudeste.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "colaterales"]
+
+enunciado: "¿Cómo se llama el punto intermedio entre el sur y el oeste?"
+tipo: mc
+opciones_explicitas:
+  - "Sudoeste"
+  - "Noroeste"
+  - "Sudeste"
+respuesta: "Sudoeste"
+
+explicacion: |
+  Sur + Oeste = Sudoeste.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "colaterales"]
+
+enunciado: "¿Cómo se llama el punto intermedio entre el norte y el oeste?"
+tipo: mc
+opciones_explicitas:
+  - "Noroeste"
+  - "Noreste"
+  - "Sudoeste"
+respuesta: "Noroeste"
+
+explicacion: |
+  Norte + Oeste = Noroeste.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
   nivel: "intermedio"
-  tags: ["conservacionismo"]
+  tags: ["orientacion", "rosa_de_los_vientos"]
 
-enunciado: "¿Dónde y cuándo surgió el conservacionismo moderno?"
-tipo: mc
-opciones_explicitas:
-  - "En Estados Unidos, a fines del siglo XIX"
-  - "En Alemania, después de la Segunda Guerra Mundial"
-  - "En Argentina, a mediados del siglo XX"
-respuesta: "En Estados Unidos, a fines del siglo XIX"
-
-explicacion: |
-  Surgió con la creación de los primeros parques nacionales
-  estadounidenses.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "intermedio"
-  tags: ["preservacionismo"]
-
-enunciado: "¿Qué sostiene el preservacionismo de John Muir?"
-tipo: mc
-opciones_explicitas:
-  - "Que la naturaleza salvaje debe protegerse intacta, sin intervención humana, por su valor espiritual y estético"
-  - "Que los recursos deben explotarse al máximo antes de que se agoten"
-  - "Que el Estado no debe intervenir en la protección ambiental"
-respuesta: "Que la naturaleza salvaje debe protegerse intacta, sin intervención humana, por su valor espiritual y estético"
-
-explicacion: |
-  Muir fue clave en la creación del Parque Nacional Yosemite y fundó el
-  Sierra Club.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "intermedio"
-  tags: ["preservacionismo"]
-
-enunciado: "¿En qué parque nacional estadounidense fue clave la influencia de John Muir?"
-tipo: mc
-opciones_explicitas:
-  - "Yosemite"
-  - "Yellowstone"
-  - "Grand Canyon"
-respuesta: "Yosemite"
-
-explicacion: |
-  Su defensa de Yosemite es uno de los hitos fundacionales del
-  preservacionismo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "avanzado"
-  tags: ["preservacionismo"]
-
-enunciado: "¿Qué organización ambientalista fundó John Muir, que sigue activa hoy?"
-tipo: mc
-opciones_explicitas:
-  - "El Sierra Club"
-  - "Greenpeace"
-  - "WWF (Fondo Mundial para la Naturaleza)"
-respuesta: "El Sierra Club"
-
-explicacion: |
-  Es una de las organizaciones conservacionistas más antiguas de
-  Estados Unidos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "intermedio"
-  tags: ["conservacionismo_utilitario"]
-
-enunciado: "¿Qué sostiene el conservacionismo utilitario de Gifford Pinchot?"
-tipo: mc
-opciones_explicitas:
-  - "Que los recursos naturales deben gestionarse de forma racional y sostenible para asegurar su disponibilidad a largo plazo"
-  - "Que la naturaleza no debe tocarse bajo ninguna circunstancia"
-  - "Que el Estado no tiene ningún rol en la gestión de recursos"
-respuesta: "Que los recursos naturales deben gestionarse de forma racional y sostenible para asegurar su disponibilidad a largo plazo"
-
-explicacion: |
-  Es la lógica del manejo forestal científico: "el mayor bien para el
-  mayor número, por el mayor tiempo".
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "avanzado"
-  tags: ["preservacionismo", "conservacionismo_utilitario"]
-
-enunciado: "¿Cuál es la diferencia central entre el preservacionismo de Muir y el conservacionismo utilitario de Pinchot?"
-tipo: mc
-opciones_explicitas:
-  - "Muir busca proteger la naturaleza intacta, sin uso humano; Pinchot busca gestionarla racionalmente para su aprovechamiento sostenible"
-  - "Son exactamente la misma postura con distinto nombre"
-  - "Pinchot se opone a cualquier forma de parque nacional"
-respuesta: "Muir busca proteger la naturaleza intacta, sin uso humano; Pinchot busca gestionarla racionalmente para su aprovechamiento sostenible"
-
-explicacion: |
-  Es la tensión interna clásica del conservacionismo estadounidense de
-  fines del s. XIX.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "avanzado"
-  tags: ["aldo_leopold"]
-
-enunciado: "¿Qué hizo Aldo Leopold respecto a las posturas de Muir y Pinchot?"
-tipo: mc
-opciones_explicitas:
-  - "Tendió un puente, combinando la apreciación espiritual de la naturaleza con la gestión con criterio científico"
-  - "Rechazó completamente ambas posturas"
-  - "Sólo repitió la postura de Pinchot sin ningún aporte propio"
-respuesta: "Tendió un puente, combinando la apreciación espiritual de la naturaleza con la gestión con criterio científico"
-
-explicacion: |
-  Es la síntesis que lo convierte en la referencia más citada del
-  conservacionismo moderno.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "intermedio"
-  tags: ["aldo_leopold"]
-
-enunciado: "¿Cuál es la obra de referencia de Aldo Leopold para esta corriente?"
-tipo: mc
-opciones_explicitas:
-  - "A Sand County Almanac (1949)"
-  - "Silent Spring"
-  - "Walden"
-respuesta: "A Sand County Almanac (1949)"
-
-explicacion: |
-  Fue publicada póstumamente, en 1949, un año después de la muerte de
-  Leopold.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "intermedio"
-  tags: ["aldo_leopold"]
-
-enunciado: "¿En qué año se publicó A Sand County Almanac de Aldo Leopold?"
+enunciado: "Contando los 4 cardinales y los 4 intermedios, ¿cuántos puntos tiene la rosa de los vientos básica?"
 tipo: input
-respuesta: 1949
+respuesta: 8
 
 explicacion: |
-  Se publicó de forma póstuma, un año después de la muerte de Leopold
-  en 1948.
+  4 cardinales (N, S, E, O) + 4 colaterales (NE, SE, SO, NO) = 8 puntos.
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "avanzado"
-  tags: ["aldo_leopold", "land_ethic"]
-
-enunciado: "¿Qué es la \"ética de la tierra\" (land ethic) que introduce Leopold?"
-tipo: mc
-opciones_explicitas:
-  - "La idea de que la comunidad moral se extiende al suelo, el agua, las plantas y los animales, no sólo a los humanos"
-  - "Un impuesto sobre la propiedad de la tierra"
-  - "Un método de cultivo agrícola específico"
-respuesta: "La idea de que la comunidad moral se extiende al suelo, el agua, las plantas y los animales, no sólo a los humanos"
-
-explicacion: |
-  Es el concepto central de A Sand County Almanac, que amplía el
-  círculo de consideración ética más allá de la especie humana.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "avanzado"
-  tags: ["aldo_leopold", "land_ethic"]
-
-enunciado: "Según Leopold, ¿cuándo es correcta una acción sobre la naturaleza?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando tiende a preservar la integridad, estabilidad y belleza de la comunidad biótica"
-  - "Cuando maximiza la ganancia económica inmediata"
-  - "Cuando no involucra ninguna intervención humana bajo ninguna circunstancia"
-respuesta: "Cuando tiende a preservar la integridad, estabilidad y belleza de la comunidad biótica"
-
-explicacion: |
-  Es la formulación textual de su criterio ético en A Sand County
-  Almanac.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "conservacionismo"
+  tema: "orientacion_puntos_cardinales"
   nivel: "intermedio"
-  tags: ["cruce"]
+  tags: ["orientacion", "angulos"]
 
-enunciado: "¿Qué rol le asigna el conservacionismo al Estado en la protección ambiental?"
-tipo: mc
-opciones_explicitas:
-  - "Un rol central: crear áreas protegidas, parques nacionales, regular la caza y la tala"
-  - "Ningún rol, confía exclusivamente en el mercado"
-  - "Sólo un rol simbólico, sin poder regulatorio real"
-respuesta: "Un rol central: crear áreas protegidas, parques nacionales, regular la caza y la tala"
+enunciado: "¿Cuántos grados hay entre el norte y el este, medidos en la rosa de los vientos?"
+tipo: input
+respuesta: 90
 
 explicacion: |
-  Es lo que distingue al conservacionismo del ambientalismo liberal, que
-  confía más en mecanismos de mercado.
+  Los 4 cardinales dividen el círculo completo (360°) en 4 partes
+  iguales de 90° cada una.
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿En qué se diferencia el conservacionismo del ambientalismo liberal (`../ambientalismo-liberal/`)?"
-tipo: mc
-opciones_explicitas:
-  - "El conservacionismo confía más en la acción directa del Estado; el ambientalismo liberal confía más en mecanismos de mercado"
-  - "Son exactamente la misma postura"
-  - "El conservacionismo rechaza cualquier forma de propiedad privada"
-respuesta: "El conservacionismo confía más en la acción directa del Estado; el ambientalismo liberal confía más en mecanismos de mercado"
-
-explicacion: |
-  Es la diferencia clave entre las dos primeras corrientes del
-  espectro.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿En qué se diferencia el conservacionismo del ecologismo político (`../ecologismo-politico/`)?"
-tipo: mc
-opciones_explicitas:
-  - "El conservacionismo no cuestiona el sistema económico de fondo; busca proteger la naturaleza dentro del sistema existente"
-  - "El conservacionismo propone directamente abolir el capitalismo"
-  - "Son exactamente la misma corriente con distinto nombre"
-respuesta: "El conservacionismo no cuestiona el sistema económico de fondo; busca proteger la naturaleza dentro del sistema existente"
-
-explicacion: |
-  El ecologismo político, en cambio, sí exige repensar el sistema
-  económico en sí.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "conservacionismo"
+  tema: "orientacion_puntos_cardinales"
   nivel: "intermedio"
-  tags: ["preservacionismo"]
+  tags: ["orientacion", "angulos"]
 
-enunciado: "El preservacionismo de Muir y el conservacionismo utilitario de Pinchot son exactamente la misma postura."
+enunciado: "¿Cuántos grados hay entre el norte y su opuesto, el sur?"
+tipo: input
+respuesta: 180
+
+explicacion: |
+  Dos puntos opuestos están separados por media vuelta completa: 180°.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "angulos"]
+
+enunciado: "¿Cuántos grados tiene un giro completo (los 8 puntos de la rosa de los vientos, ida y vuelta al norte)?"
+tipo: input
+respuesta: 360
+
+explicacion: |
+  Un círculo completo siempre tiene 360°.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "avanzado"
+  tags: ["orientacion", "angulos"]
+
+variables:
+  total_puntos: 8
+  grados_totales: 360
+
+respuesta: grados_totales / total_puntos
+tipo: input
+
+enunciado: "Si la rosa de los vientos de 8 puntos divide el círculo en partes iguales, ¿cuántos grados separan a cada punto del siguiente (ej.: de norte a noreste)?"
+
+pasos:
+  - "{grados_totales}° ÷ {total_puntos} puntos"
+
+explicacion: |
+  360° repartidos en 8 puntos iguales dan 45° entre cada punto y el
+  siguiente.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "brujula"]
+
+enunciado: "La aguja imantada de una brújula se alinea sola con el campo magnético terrestre y señala el norte."
+tipo: vf
+respuesta: verdadero
+
+explicacion: |
+  Es el principio físico detrás de toda brújula: la aguja es un imán
+  chico que reacciona al campo magnético de la Tierra.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "relativo_absoluto"]
+
+enunciado: "\"Izquierda\" y \"derecha\" son referencias absolutas, iguales para cualquier persona sin importar hacia dónde mire."
 tipo: vf
 respuesta: falso
 
 explicacion: |
-  Son dos visiones internas distintas: una prioriza no intervenir, la
-  otra gestionar racionalmente.
+  Son referencias relativas: dependen de hacia dónde mira quien habla,
+  y cambian si esa persona se da vuelta. Los cardinales, en cambio, son
+  absolutos.
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "conservacionismo"
+  tema: "orientacion_puntos_cardinales"
   nivel: "basico"
-  tags: ["conservacionismo"]
+  tags: ["orientacion", "relativo_absoluto"]
 
-enunciado: "¿Cuál de estas es una herramienta típica que propone el conservacionismo?"
-tipo: mc
-opciones_explicitas:
-  - "Crear parques nacionales y áreas protegidas"
-  - "Eliminar todo tipo de regulación estatal sobre la naturaleza"
-  - "Aumentar la extracción de recursos sin ningún límite"
-respuesta: "Crear parques nacionales y áreas protegidas"
+enunciado: "El norte geográfico es el mismo punto fijo sin importar hacia dónde mire la persona que lo señala."
+tipo: vf
+respuesta: verdadero
 
 explicacion: |
-  Es la herramienta central de intervención estatal directa que
-  caracteriza a esta corriente.
+  Por eso los cardinales son la referencia usada en mapas y
+  navegación: no dependen del observador.
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "conservacionismo"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "intermedio"
+  tags: ["orientacion", "sol", "hemisferios"]
+
+enunciado: "En Argentina (hemisferio sur), al mediodía el Sol queda aproximadamente hacia el..."
+tipo: mc
+opciones_explicitas:
+  - "Norte"
+  - "Sur"
+  - "Este"
+respuesta: "Norte"
+
+explicacion: |
+  En el hemisferio sur, al mediodía el Sol queda hacia el norte
+  (al revés que en el hemisferio norte, donde queda hacia el sur).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "basico"
+  tags: ["orientacion", "mapas"]
+
+enunciado: "¿Para qué sirve la rosa de los vientos dibujada en un mapa?"
+tipo: mc
+opciones_explicitas:
+  - "Para indicar hacia dónde apunta el norte del mapa"
+  - "Para indicar la escala del mapa"
+  - "Para indicar la fecha en que se hizo el mapa"
+respuesta: "Para indicar hacia dónde apunta el norte del mapa"
+
+explicacion: |
+  Sin esa referencia, no se puede relacionar lo dibujado con el
+  territorio real: un mapa girado es ilegible aunque tenga toda la
+  información correcta.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
+  nivel: "intermedio"
+  tags: ["orientacion", "hemisferios"]
+
+enunciado: "¿Qué referencia estelar se usa en el hemisferio sur para aproximar el sur de noche?"
+tipo: mc
+opciones_explicitas:
+  - "La Cruz del Sur"
+  - "La Estrella Polar"
+  - "La Osa Mayor"
+respuesta: "La Cruz del Sur"
+
+explicacion: |
+  La Estrella Polar es la referencia del hemisferio norte; en el sur
+  no hay una estrella tan cercana al polo, se usa la Cruz del Sur.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "orientacion_puntos_cardinales"
   nivel: "avanzado"
-  tags: ["conservacionismo_utilitario"]
+  tags: ["orientacion", "rosa_de_los_vientos"]
 
-enunciado: "\"El mayor bien para el mayor número, por el mayor tiempo\" es una frase asociada a..."
-tipo: mc
+enunciado: "Ordená estos 4 puntos empezando desde el norte y avanzando en sentido horario: Este, Norte, Oeste, Sur."
+tipo: ordenar
 opciones_explicitas:
-  - "Gifford Pinchot y el conservacionismo utilitario"
-  - "John Muir y el preservacionismo"
-  - "Serge Latouche y el decrecimiento"
-respuesta: "Gifford Pinchot y el conservacionismo utilitario"
+  - "Norte"
+  - "Este"
+  - "Sur"
+  - "Oeste"
+respuesta_orden: ["Norte", "Este", "Sur", "Oeste"]
 
 explicacion: |
-  Resume la lógica de gestión racional de recursos a largo plazo de
-  esta visión.
+  En sentido horario desde el norte: Norte → Este → Sur → Oeste →
+  vuelta al Norte.
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "basico"
-  tags: ["neutralidad"]
+  tema: "orientacion_puntos_cardinales"
+  nivel: "intermedio"
+  tags: ["orientacion", "colaterales"]
 
-enunciado: "¿El objetivo de este material es convencer de que el conservacionismo es la corriente ambiental correcta?"
+enunciado: "El noreste (NE) es el punto intermedio entre..."
+tipo: mc
+opciones_explicitas:
+  - "Norte y Este"
+  - "Norte y Oeste"
+  - "Sur y Este"
+respuesta: "Norte y Este"
+
+explicacion: |
+  El nombre combina los dos cardinales entre los que está: Norte y
+  Este.
+```
+
+## Sección: urbanizacion-migracion-ciudad (25 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["historia", "revolucion_industrial"]
+
+respuesta: "Revolución Industrial"
+tipo: completar
+respuestas_validas:
+  - "Revolución Industrial"
+
+enunciado: "El proceso de crecimiento acelerado de las ciudades, conocido como urbanización, se vio fuertemente impulsado por la ___."
+
+explicacion: |
+  La Revolución Industrial provocó un éxodo masivo del campo a la ciudad debido a la mecanización de la agricultura y la creación de fábricas en los núcleos urbanos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["migracion", "causas"]
+
+respuesta: "atracción por empleos industriales"
+tipo: mc
+opciones_explicitas: ["falta de tierras y mecanización agrícola", "atracción por empleos industriales", "Crecimiento natural de la población urbana", "Políticas de vivienda"]
+
+enunciado: "En un contexto de urbanización acelerada, un factor de \"atracción\" (pull) que impulsa la migración desde el campo hacia la ciudad es: ___."
+
+explicacion: |
+  La migración suele responder a un factor de "expulsión" (lo que sucede en el origen) y un factor de "atracción" (lo que ofrece el destino).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["demografia", "densidad"]
+
+respuesta: 85
+tipo: completar
+tolerancia_abs: 5
+
+enunciado: "Si una ciudad tiene una superficie de 100 km² y una población de 8500 habitantes, ¿cuál es su densidad de población (habitantes por km²)? (Redondea al entero más cercano)"
+
+pasos:
+  - "Identificar la población total: 8500"
+  - "Identificar la superficie: 100 km²"
+  - "Dividir población / superficie: 8500 / 100"
+
+explicacion: |
+  La densidad de población se calcula dividiendo el número total de habitantes por la superficie territorial: 8500 / 100 = 85 hab/km².
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "avanzado"
+  tags: ["procesos", "urbanismo"]
+
+respuesta_orden: ["Consolidación del núcleo urbano", "Crecimiento de la zona industrial", "Densificación del centro", "Expansión de la periferia"]
+tipo: ordenar
+opciones_explicitas: ["Expansión de la periferia", "Densificación del centro", "Crecimiento de la zona industrial", "Consolidación del núcleo urbano"]
+
+enunciado: "Ordena cronológicamente las fases típicas de una ciudad que experimenta un crecimiento acelerado por la industrialización:"
+
+explicacion: |
+  El proceso suele comenzar con un núcleo consolidado, seguido por la creación de zonas industriales, la densificación del centro para albergar trabajadores y, finalmente, la expansión hacia la periferia.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["consecuencias", "social"]
+
+respuesta: "Desigualdad social"
+tipo: mc
+opciones_explicitas: ["Crecimiento demográfico natural", "Desigualdad social", "Despoblación de las metrópolis", "Migración estacional"]
+
+enunciado: "Un efecto común de la urbanización rápida y descontrolada es: ___."
+
+explicacion: |
+  Cuando la población urbana crece más rápido que la capacidad de la ciudad para proveer servicios y vivienda, surgen problemas como el hacinamiento o la falta de infraestructura.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["migracion", "campo", "ciudad"]
+
+tipo: mc
+opciones_explicitas: ["Falta de servicios y empleo en el campo", "Exceso de recursos naturales en la ciudad", "Deseo de vivir en zonas con menos población"]
+respuesta: "Falta de servicios y empleo en el campo"
+enunciado: "Uno de los principales motores que impulsa el éxodo rural hacia las grandes urbes es la ___."
+explicacion: |
+  La migración rural-urbana suele ser motivada por factores de 'expulsión' en el campo (falta de trabajo, servicios o tierras) y factores de 'atracción' en la ciudad (ofertas laborales y mejores servicios).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["urbanizacion", "crecimiento"]
+
+tipo: mc
+opciones_explicitas: ["crecimiento_planificado", "crecimiento_desordenado"]
+respuesta: "crecimiento_desordenado"
+
+enunciado: "Cuando la migración hacia la ciudad es masiva y rápida, suele producirse un ___ que genera problemas de vivienda."
+
+explicacion: |
+  El crecimiento desordenado ocurre cuando la infraestructura urbana no puede seguir el ritmo de la llegada de nuevos habitantes, derivando en asentamientos informales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["demografia", "poblacion"]
+
+tipo: completar
+respuestas_validas:
+  - "industrialización"
+  - "agricultura"
+
+enunciado: "Históricamente, el proceso de migración del campo a la ciudad ha estado estrechamente vinculado al proceso de ___."
+
+explicacion: |
+  La Revolución Industrial demandó mano de obra masiva en las ciudades para las fábricas, lo que aceleró el traslado de la población rural al ámbito urbano.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["proceso", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Búsqueda de empleo en la ciudad", "Dificultades económicas en el sector rural", "Asentamiento en la periferia urbana"]
+
+enunciado: "Ordena cronológicamente las etapas típicas de un proceso de migración rural-urbana:"
+
+explicacion: |
+  Primero surge la necesidad o dificultad en el origen (campo), luego se realiza el traslado buscando oportunidades y finalmente se establece la residencia en la zona de destino (ciudad).
+respuesta_orden: ["Dificultades económicas en el sector rural", "Búsqueda de empleo en la ciudad", "Asentamiento en la periferia urbana"]
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "avanzado"
+  tags: ["economia", "servicios"]
+
+tipo: mc
+opciones_explicitas: ["alta densidad", "baja densidad"]
+respuesta: "alta densidad"
+
+enunciado: "La llegada masiva de personas a las urbes provoca un aumento de la ___ en los centros urbanos."
+
+explicacion: |
+  La concentración de población en áreas limitadas aumenta la densidad demográfica, lo que puede sobrecargar los servicios públicos y el mercado laboral.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["servicios", "urbanismo"]
+
+respuesta: "saturación"
+tipo: completar
+respuestas_validas:
+  - "saturación"
+  - "colapso"
+
+enunciado: "Cuando la migración hacia las ciudades es más rápida de lo que el Estado puede planificar, se produce una ___ de los servicios públicos como el agua potable y el transporte."
+
+explicacion: |
+  La urbanización acelerada genera una demanda de infraestructura que supera la capacidad de respuesta de la ciudad, provocando la saturación de los servicios básicos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["consecuencias", "barrios_precarios"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["crecimiento de asentamientos informales", "falta de planificación urbana"], ["aumento de la contaminación", "congestión vehicular"]]
+
+respuesta: escenarios[escenario_idx][0]
+tipo: mc
+opciones_explicitas: ["crecimiento de asentamientos informales", "falta de planificación urbana", "aumento de la contaminación", "congestión vehicular"]
+
+enunciado: "La expansión descontrolada de la mancha urbana hacia las periferias suele derivar en ___."
+
+explicacion: |
+  La falta de regulación y el rápido crecimiento demográfico llevan a la formación de barrios precarios o asentamientos informales en zonas no planificadas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["oportunidades", "empleo"]
+
+respuesta: "empleo"
+tipo: mc
+opciones_explicitas: ["empleo", "aislamiento", "subsistencia", "degradación"]
+
+enunciado: "Uno de los principales motores de la migración campo-ciudad es la búsqueda de mejores oportunidades de _________ y acceso a servicios especializados."
+
+explicacion: |
+  Las ciudades concentran la mayor parte de la actividad económica, ofreciendo una mayor diversidad de empleo en comparación con las zonas rurales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["procesos", "secuencia"]
+
+respuesta_orden: ["migración rural", "crecimiento demográfico", "expansión urbana", "asentamientos informales"]
+tipo: ordenar
+opciones_explicitas: ["migración rural", "crecimiento demográfico", "expansión urbana", "asentamientos informales"]
+
+enunciado: "Ordena cronológicamente los elementos que suelen caracterizar un proceso de urbanización acelerada no planificada:"
+
+pasos:
+  - "Movimiento de personas desde el campo a la ciudad."
+  - "Aumento de la población en el área metropolitana."
+  - "Ocupación de terrenos periféricos por la ciudad."
+  - "Formación de barrios con servicios deficientes."
+
+explicacion: |
+  El proceso suele iniciar con la migración, seguido por el aumento de población, la expansión física de la ciudad y, finalmente, la consolidación de barrios precarios por la falta de servicios.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "avanzado"
+  tags: ["dualidad", "urbanismo"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  casos: [["positiva", "acceso a educación"], ["negativa", "hacinamiento"]]
+
+respuesta: casos[caso_idx][1]
+tipo: mc
+opciones_explicitas: ["positiva", "acceso a educación", "negativa", "hacinamiento"]
+
+enunciado: "La urbanización es un proceso dual: puede tener una consecuencia {casos[caso_idx][0]} como el ___."
+
+explicacion: |
+  La urbanización presenta una dualidad: por un lado, ofrece ventajas como el acceso a educación y salud; por otro, presenta desafíos como el hacinamiento y la falta de servicios.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["demografia", "urbanizacion"]
+
+respuesta: "urbana"
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Históricamente, la mayor parte de la población mundial vivía en entornos de carácter _____, pero en la actualidad la tendencia se ha invertido."
+
+explicacion: |
+  La transición de una sociedad mayoritariamente rural a una urbana es uno de los procesos demográficos más significativos de la historia moderna.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["poblacion", "ciudades"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[55, "más de la mitad"], [50, "exactamente la mitad"]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["menos de la mitad", "exactamente la mitad", "más de la mitad", "casi la totalidad"]
+
+enunciado: "En la actualidad, la población mundial es, aproximadamente, ___ urbana."
+
+explicacion: |
+  Hoy en día, la tendencia global muestra que la población urbana ha superado el umbral del 50% de la población total del planeta.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["migracion", "causas"]
+
+respuesta_orden: ["Industrialización", "Migración rural", "Crecimiento natural urbano"]
+tipo: ordenar
+
+opciones_explicitas: ["Migración rural", "Industrialización", "Crecimiento natural urbano"]
+
+enunciado: "Ordene cronológicamente los factores que impulsaron el crecimiento de las ciudades en la era moderna:"
+
+explicacion: |
+  El proceso comenzó con la migración del campo a la ciudad por la industrialización, seguido por el crecimiento demográfico dentro de las propias ciudades.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["densidad", "urbanismo"]
+
+respuesta: "densidad"
+tipo: completar
+respuestas_validas:
+  - "densidad"
+  - "extensión"
+  - "clima"
+
+enunciado: "El fenómeno de la urbanización implica una mayor ___ de población en áreas delimitadas en comparación con las zonas rurales."
+
+explicacion: |
+  La concentración de personas en núcleos urbanos genera un aumento en la densidad poblacional, lo que requiere infraestructuras más complejas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "avanzado"
+  tags: ["proyecciones", "globalizacion"]
+
+respuesta: "aumentará"
+tipo: mc
+opciones_explicitas: ["aumentará", "disminuirá", "se mantendrá igual", "desaparecerá"]
+
+enunciado: "Según las proyecciones de la ONU, la proporción de la población mundial que vive en ciudades ___ en las próximas décadas."
+
+explicacion: |
+  Se espera que el proceso de urbanización continúe, especialmente en países en vías de desarrollo, llevando la cifra urbana aún más arriba del 60% o 70%.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["migracion", "causas"]
+
+variables:
+  datos: [["La falta de infraestructura sanitaria y servicios de salud en el campo", "Mejorar la calidad de vida"], ["La mecanización de la agricultura que reduce la demanda de mano de obra", "Búsqueda de empleo"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Mejorar la calidad de vida", "Búsqueda de empleo", "Aumento de la densidad poblacional", "Contaminación acústica"]
+
+enunciado: "En el siguiente caso: {datos[idx][0]}, ¿cuál es la causa principal que impulsa la migración hacia la ciudad?"
+
+explicacion: |
+  La migración suele ser motivada por factores de "expulsión" en el origen (falta de servicios o empleo) y factores de "atracción" en el destino.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["consecuencias", "urbanismo"]
+
+variables:
+  datos: [["El crecimiento descontrolado de la periferia urbana", "Crecimiento de asentamientos informales"], ["La llegada masiva de personas en un corto periodo", "Saturación de los servicios públicos"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Crecimiento de asentamientos informales", "Saturación de los servicios públicos", "Reducción de la contaminación", "Descentralización económica"]
+
+enunciado: "Analice el siguiente fenómeno: {datos[idx][0]}. ¿Cuál es una consecuencia directa de este proceso?"
+
+explicacion: |
+  Cuando la urbanización supera la capacidad de planificación de la ciudad, se producen problemas de infraestructura y servicios.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "basico"
+  tags: ["factores_atracción"]
+
+respuesta: "oferta educativa"
+tipo: completar
+respuestas_validas:
+  - "oferta educativa"
+  - "centros de salud"
+  - "empleo industrial"
+
+enunciado: "Uno de los principales factores de atracción de las grandes urbes para la población joven es la mayor ___."
+
+explicacion: |
+  Las ciudades concentran instituciones de enseñanza superior y técnica que no están disponibles en zonas rurales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "intermedio"
+  tags: ["procesos", "secuencia"]
+
+respuesta_orden: ["Éxodo rural", "Crecimiento de la ciudad", "Expansión de la periferia"]
+tipo: ordenar
+opciones_explicitas: ["Éxodo rural", "Crecimiento de la ciudad", "Expansión de la periferia"]
+
+enunciado: "Ordene cronológicamente los procesos que caracterizan un proceso de urbanización acelerado:"
+
+explicacion: |
+  Primero ocurre el movimiento de población (éxodo), luego la ciudad se densifica y finalmente se expande hacia los bordes.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "urbanizacion_migracion_ciudad"
+  nivel: "avanzado"
+  tags: ["impacto_ambiental"]
+
+variables:
+  datos: [["La impermeabilización de suelos por el asfalto", "Aumento de la temperatura urbana"], ["La concentración de vehículos en el centro", "Creación de islas de calor"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Aumento de la temperatura urbana", "Creación de islas de calor", "Disminución de la huella de carbono", "Aumento de la biodiversidad"]
+
+enunciado: "Si observamos que {datos[idx][0]}, el fenómeno climático urbano resultante es el/la ___."
+
+explicacion: |
+  La sustitución de vegetación por materiales urbanos retiene el calor, generando el efecto de isla de calor.
+```
+
+## Sección: mapa-plano-escala (20 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "basico"
+  tags: ["plano_vs_mapa"]
+
+enunciado: "¿Cuál es la diferencia principal entre un plano y un mapa?"
+tipo: mc
+opciones_explicitas:
+  - "El plano representa un espacio chico donde la curvatura terrestre no importa; el mapa representa un espacio grande donde sí"
+  - "El plano usa colores y el mapa no"
+  - "No hay diferencia, son sinónimos exactos"
+respuesta: "El plano representa un espacio chico donde la curvatura terrestre no importa; el mapa representa un espacio grande donde sí"
+
+explicacion: |
+  Un plano de una casa o un barrio puede tratar la superficie como
+  plana; un mapa de un país o el mundo tiene que lidiar con la
+  curvatura real de la Tierra.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "basico"
+  tags: ["plano_vs_mapa"]
+
+enunciado: "¿Cuál de estos ejemplos es más probable que se represente con un plano en vez de un mapa?"
+tipo: mc
+opciones_explicitas:
+  - "El interior de un shopping"
+  - "Los países de Sudamérica"
+  - "El mundo entero"
+respuesta: "El interior de un shopping"
+
+explicacion: |
+  Un espacio chico y de detalle fino (un edificio, un barrio) se
+  representa con un plano.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "basico"
+  tags: ["tipos_de_mapa"]
+
+enunciado: "¿Qué muestra principalmente un mapa político?"
+tipo: mc
+opciones_explicitas:
+  - "Límites entre países o provincias y sus capitales"
+  - "El relieve del terreno"
+  - "La densidad de población"
+respuesta: "Límites entre países o provincias y sus capitales"
+
+explicacion: |
+  El mapa político representa la división administrativa del espacio,
+  no su forma natural ni datos estadísticos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "basico"
+  tags: ["tipos_de_mapa"]
+
+enunciado: "¿Qué muestra principalmente un mapa físico?"
+tipo: mc
+opciones_explicitas:
+  - "El relieve: montañas, llanuras, ríos y costas"
+  - "Los límites entre países"
+  - "El resultado de una elección por región"
+respuesta: "El relieve: montañas, llanuras, ríos y costas"
+
+explicacion: |
+  El mapa físico muestra la forma natural del terreno, sin límites
+  administrativos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "intermedio"
+  tags: ["tipos_de_mapa"]
+
+enunciado: "Un mapa que muestra la densidad de población de cada provincia con distintos colores es un ejemplo de mapa..."
+tipo: mc
+opciones_explicitas:
+  - "Temático"
+  - "Físico"
+  - "Político"
+respuesta: "Temático"
+
+explicacion: |
+  Un mapa temático muestra un dato específico distribuido en el
+  espacio — en este caso, densidad de población.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "basico"
+  tags: ["tipos_de_mapa"]
+
+enunciado: "Un buen mapa siempre muestra toda la información posible del territorio (relieve, límites políticos, población, clima) a la vez."
 tipo: vf
 respuesta: falso
 
 explicacion: |
-  El objetivo es identificar qué sostiene la corriente, con la misma
-  seriedad expositiva que las otras 3, no evaluar cuál tiene razón.
+  Cada tipo de mapa elige qué información representar y descarta el
+  resto — mostrar todo a la vez saturaría la lectura.
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "conservacionismo"
-  nivel: "intermedio"
-  tags: ["cruce"]
+  tema: "mapa_plano_escala"
+  nivel: "basico"
+  tags: ["escala", "vocabulario"]
 
-enunciado: "¿Por qué `conservacionismo/` depende de `../ambiente-y-recursos/` como prerrequisito?"
+enunciado: "¿Qué es la escala de un mapa?"
 tipo: mc
 opciones_explicitas:
-  - "Porque discutir cómo proteger recursos naturales presupone ya entender qué son el ambiente y los recursos en sentido técnico"
-  - "Porque ambiente-y-recursos ya incluye toda la discusión ideológica"
-  - "Porque no existe relación real entre ambos temas"
-respuesta: "Porque discutir cómo proteger recursos naturales presupone ya entender qué son el ambiente y los recursos en sentido técnico"
+  - "La relación entre el tamaño representado en el mapa y el tamaño real del territorio"
+  - "La cantidad de colores usados en el mapa"
+  - "El año en que se hizo el mapa"
+respuesta: "La relación entre el tamaño representado en el mapa y el tamaño real del territorio"
 
 explicacion: |
-  Es el paso de lo descriptivo/técnico a la discusión ideológica sobre
-  qué hacer con esos recursos.
+  Todo mapa reduce el territorio real para que entre en una hoja o
+  pantalla; la escala indica en qué proporción.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "intermedio"
+  tags: ["escala"]
+
+enunciado: "Una escala escrita como 1:100.000 significa que..."
+tipo: mc
+opciones_explicitas:
+  - "1 unidad en el mapa equivale a 100.000 de esas mismas unidades en la realidad"
+  - "El mapa tiene 100.000 kilómetros de ancho"
+  - "El mapa se hizo con 100.000 mediciones distintas"
+respuesta: "1 unidad en el mapa equivale a 100.000 de esas mismas unidades en la realidad"
+
+explicacion: |
+  Es una razón: por cada unidad de longitud en el papel, hay 100.000
+  unidades iguales en el territorio real.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "intermedio"
+  tags: ["escala"]
+
+enunciado: "¿Qué es una escala gráfica?"
+tipo: mc
+opciones_explicitas:
+  - "Una barra dibujada en el mapa con marcas de distancias reales"
+  - "Un número que indica cuántos colores tiene el mapa"
+  - "La cantidad de países que aparecen en el mapa"
+respuesta: "Una barra dibujada en el mapa con marcas de distancias reales"
+
+explicacion: |
+  Es una representación visual de la escala, útil porque se agranda o
+  achica junto con el mapa si éste cambia de tamaño.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "avanzado"
+  tags: ["escala"]
+
+enunciado: "¿Por qué una escala gráfica sigue siendo correcta después de fotocopiar el mapa agrandado, mientras que la escala numérica deja de serlo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque la barra gráfica se agranda junto con el mapa; el número de la escala numérica no cambia solo"
+  - "Porque la escala gráfica no depende del tamaño del mapa"
+  - "Porque la escala numérica es siempre más precisa"
+respuesta: "Porque la barra gráfica se agranda junto con el mapa; el número de la escala numérica no cambia solo"
+
+explicacion: |
+  Al fotocopiar agrandado, la barra dibujada crece en la misma
+  proporción que todo el mapa y sigue midiendo lo correcto; el "1:100.000"
+  escrito queda igual aunque el mapa ya no sea ese tamaño.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "intermedio"
+  tags: ["proyecciones"]
+
+enunciado: "Existe una forma de proyectar la superficie curva de la Tierra sobre un papel plano sin distorsionar nada."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Es matemáticamente imposible: toda proyección distorsiona algo (forma,
+  tamaño relativo, distancia o dirección) — no hay una perfecta.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "avanzado"
+  tags: ["proyecciones"]
+
+enunciado: "La proyección Mercator prioriza mantener las formas correctas (útil para navegación). ¿Qué distorsiona a cambio?"
+tipo: mc
+opciones_explicitas:
+  - "El tamaño relativo de las áreas, agrandando mucho las zonas cercanas a los polos"
+  - "Los límites políticos entre países"
+  - "El nombre de los océanos"
+respuesta: "El tamaño relativo de las áreas, agrandando mucho las zonas cercanas a los polos"
+
+explicacion: |
+  Por eso en un mapa Mercator Groenlandia se ve casi tan grande como
+  África, cuando África es unas 14 veces más grande en la realidad.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "avanzado"
+  tags: ["proyecciones"]
+
+enunciado: "En la proyección Mercator, Groenlandia se ve casi del mismo tamaño que África. En la realidad, ¿cuál es más grande?"
+tipo: mc
+opciones_explicitas:
+  - "África, ampliamente"
+  - "Groenlandia, ampliamente"
+  - "Son del mismo tamaño real"
+respuesta: "África, ampliamente"
+
+explicacion: |
+  África es real unas 14 veces más grande que Groenlandia — la
+  Mercator distorsiona el tamaño relativo para preservar las formas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "intermedio"
+  tags: ["plano_vs_mapa"]
+
+enunciado: "¿Por qué el plano de un barrio no necesita ninguna proyección especial para la curvatura terrestre, pero un mapa del mundo sí?"
+tipo: mc
+opciones_explicitas:
+  - "Porque en un área tan chica la curvatura de la Tierra es imperceptible"
+  - "Porque los barrios no tienen curvatura"
+  - "Porque los planos siempre son más precisos que los mapas"
+respuesta: "Porque en un área tan chica la curvatura de la Tierra es imperceptible"
+
+explicacion: |
+  A escala de un barrio o ciudad, tratar la superficie como plana no
+  genera un error perceptible; a escala de un continente, sí.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "basico"
+  tags: ["lectura_de_mapas"]
+
+enunciado: "¿Para qué sirve que un mapa incluya una rosa de los vientos o una flecha marcando el norte?"
+tipo: mc
+opciones_explicitas:
+  - "Para poder relacionar lo dibujado con la orientación real del territorio"
+  - "Para decorar el mapa"
+  - "Para indicar la escala"
+respuesta: "Para poder relacionar lo dibujado con la orientación real del territorio"
+
+explicacion: |
+  Sin esa referencia, un mapa girado respecto al terreno sería
+  ilegible aunque tuviera toda la información correcta — por eso este
+  tema depende de `../orientacion-puntos-cardinales/`.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "intermedio"
+  tags: ["tipos_de_mapa"]
+
+enunciado: "Para planificar una ruta de trekking por zonas montañosas, ¿qué tipo de mapa es más útil?"
+tipo: mc
+opciones_explicitas:
+  - "Un mapa físico, que muestra el relieve"
+  - "Un mapa político, que muestra límites de países"
+  - "Un mapa temático de resultados electorales"
+respuesta: "Un mapa físico, que muestra el relieve"
+
+explicacion: |
+  El relieve (montañas, pendientes, ríos) es justo lo que un mapa
+  físico representa.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "intermedio"
+  tags: ["tipos_de_mapa"]
+
+enunciado: "Para saber a qué provincia pertenece una ciudad, ¿qué tipo de mapa es más útil?"
+tipo: mc
+opciones_explicitas:
+  - "Un mapa político"
+  - "Un mapa físico"
+  - "Un mapa temático de clima"
+respuesta: "Un mapa político"
+
+explicacion: |
+  Los límites administrativos (provincias, países) son lo que muestra
+  un mapa político.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "avanzado"
+  tags: ["escala"]
+
+enunciado: "Si un mapa con escala numérica 1:50.000 se fotocopia agrandado al doble, ese \"1:50.000\" impreso sigue siendo la escala correcta de la fotocopia."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Al agrandar el papel, la relación real entre lo dibujado y el
+  territorio cambió, pero el número impreso quedó igual — por eso la
+  escala numérica deja de ser confiable después de una ampliación o
+  reducción, a diferencia de la gráfica.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "avanzado"
+  tags: ["proyecciones"]
+
+enunciado: "¿Existe una proyección cartográfica objetivamente \"mejor\" que las demás?"
+tipo: mc
+opciones_explicitas:
+  - "No: cada una es un compromiso distinto entre qué preservar (forma o tamaño relativo) y qué sacrificar"
+  - "Sí, la Mercator es la mejor en todos los casos"
+  - "Sí, cualquier proyección moderna elimina toda distorsión"
+respuesta: "No: cada una es un compromiso distinto entre qué preservar (forma o tamaño relativo) y qué sacrificar"
+
+explicacion: |
+  No existe una proyección perfecta — la elección depende de para qué
+  se va a usar el mapa (navegar, comparar superficies, etc.).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "mapa_plano_escala"
+  nivel: "basico"
+  tags: ["plano_vs_mapa"]
+
+enunciado: "Un dibujo que muestra las habitaciones de una casa con sus medidas es..."
+tipo: mc
+opciones_explicitas:
+  - "Un plano"
+  - "Un mapa físico"
+  - "Un mapa temático"
+respuesta: "Un plano"
+
+explicacion: |
+  Representa un espacio chico con nivel de detalle fino: es un plano,
+  no un mapa.
 ```
 
 ## Sección: coordenadas-geograficas (20 preguntas)
@@ -488,11 +1377,10 @@ variables:
 enunciado: "Para ubicar el punto ({lat}° S, {lon}° O) en un mapa, ¿qué dos líneas de la grilla tenés que encontrar?"
 tipo: mc
 opciones_explicitas:
-  - "El paralelo de {lat}° S y el meridiano de {lon}° O"
-  - "Sólo el meridiano de {lon}° O"
-  - "El ecuador y el ecuador"
-respuesta: "El paralelo de {lat}° S y el meridiano de {lon}° O"
-
+  - "El paralelo y el meridiano correspondientes a esas coordenadas"
+  - "Sólo el meridiano correspondiente a esa longitud"
+  - "El ecuador y el meridiano de Greenwich, siempre"
+respuesta: "El paralelo y el meridiano correspondientes a esas coordenadas"
 explicacion: |
   El punto está en la intersección del paralelo correspondiente a esa
   latitud y el meridiano correspondiente a esa longitud.
@@ -775,1316 +1663,388 @@ explicacion: |
   coordenadas.
 ```
 
-## Sección: coordenadas-y-husos-horarios (25 preguntas)
+## Sección: division-politica (20 preguntas)
 
 ```
 metadata:
   materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
+  tema: "division_politica"
   nivel: "basico"
-  tags: ["coordenadas", "vocabulario"]
+  tags: ["division_politica", "vocabulario"]
 
-enunciado: "¿Desde dónde se mide la latitud de un punto?"
+enunciado: "¿Qué es la división política de un territorio?"
 tipo: mc
 opciones_explicitas:
-  - "Desde el ecuador, hacia el norte o el sur"
-  - "Desde el meridiano de Greenwich, hacia el este o el oeste"
-  - "Desde el Polo Norte, hacia cualquier dirección"
-respuesta: "Desde el ecuador, hacia el norte o el sur"
+  - "Cómo se organiza en unidades administrativas con gobierno propio, delimitadas por límites reconocidos"
+  - "Cómo se distribuye el relieve del terreno"
+  - "Cómo se reparte la vegetación natural"
+respuesta: "Cómo se organiza en unidades administrativas con gobierno propio, delimitadas por límites reconocidos"
 
 explicacion: |
-  La latitud es el ángulo medido desde el ecuador (0°) hasta el punto,
-  hacia el norte o el sur, entre 0° y 90°.
+  A diferencia del relieve o el clima (rasgos naturales), la división
+  política es una construcción humana e histórica.
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
+  tema: "division_politica"
   nivel: "basico"
-  tags: ["coordenadas", "vocabulario"]
+  tags: ["jerarquia"]
 
-enunciado: "¿Desde dónde se mide la longitud de un punto?"
+enunciado: "¿Cuál es la unidad político-administrativa de mayor jerarquía, con gobierno propio y reconocimiento internacional?"
 tipo: mc
 opciones_explicitas:
-  - "Desde el meridiano de Greenwich, hacia el este o el oeste"
-  - "Desde el ecuador, hacia el norte o el sur"
-  - "Desde el Polo Sur, hacia cualquier dirección"
-respuesta: "Desde el meridiano de Greenwich, hacia el este o el oeste"
+  - "País / Estado nacional"
+  - "Municipio"
+  - "Región"
+respuesta: "País / Estado nacional"
 
 explicacion: |
-  La longitud es el ángulo medido desde el meridiano de Greenwich
-  (0°) hacia el este o el oeste, entre 0° y 180°.
+  Es la unidad soberana; provincias y municipios son subdivisiones
+  internas de un país.
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "basico"
-  tags: ["coordenadas"]
+  tema: "division_politica"
+  nivel: "intermedio"
+  tags: ["argentina"]
 
-respuesta: verdadero
+enunciado: "¿Cuántas provincias tiene Argentina, sin contar la Ciudad Autónoma de Buenos Aires?"
+tipo: input
+respuesta: 23
+
+explicacion: |
+  23 provincias más la Ciudad Autónoma de Buenos Aires, que tiene
+  estatus especial (autonomía similar, pero no es una provincia).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "division_politica"
+  nivel: "intermedio"
+  tags: ["argentina"]
+
+enunciado: "¿La Ciudad Autónoma de Buenos Aires es una provincia argentina más?"
 tipo: vf
-
-enunciado: "El ecuador es el paralelo de referencia, con latitud 0°."
-
-explicacion: |
-  Todas las latitudes se miden como distancia angular al ecuador.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "basico"
-  tags: ["coordenadas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El meridiano de Greenwich es el meridiano de referencia, con longitud 0°."
-
-explicacion: |
-  Todas las longitudes se miden como distancia angular a Greenwich,
-  hacia el este o hacia el oeste.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "basico"
-  tags: ["coordenadas", "completar"]
-
-tipo: completar
-enunciado: "Completá: la latitud va desde 0° (ecuador) hasta ___° (en los polos)."
-respuestas_validas:
-  - 90
-
-explicacion: |
-  90° norte es el Polo Norte; 90° sur es el Polo Sur.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "basico"
-  tags: ["coordenadas", "completar"]
-
-tipo: completar
-enunciado: "Completá: la longitud va desde 0° (Greenwich) hasta ___° (este u oeste)."
-respuestas_validas:
-  - 180
-
-explicacion: |
-  180° es el meridiano opuesto a Greenwich, cerca de la Línea
-  Internacional de Cambio de Fecha.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "intermedio"
-  tags: ["coordenadas"]
-
-enunciado: "Todos los puntos de un mismo paralelo comparten la misma..."
-tipo: mc
-opciones_explicitas:
-  - "Latitud"
-  - "Longitud"
-  - "Huso horario"
-respuesta: "Latitud"
-
-explicacion: |
-  Un paralelo es un círculo imaginario paralelo al ecuador: todo punto
-  sobre él está a la misma distancia angular del ecuador.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "intermedio"
-  tags: ["coordenadas"]
-
-enunciado: "Todos los puntos de un mismo meridiano comparten la misma..."
-tipo: mc
-opciones_explicitas:
-  - "Longitud"
-  - "Latitud"
-  - "Hora local exacta durante todo el año"
-respuesta: "Longitud"
-
-explicacion: |
-  Un meridiano va de polo a polo: todo punto sobre él está a la misma
-  distancia angular de Greenwich.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "avanzado"
-  tags: ["coordenadas", "problema"]
-
-variables:
-  grados: random(10, 80)
-  minutos: uno_de([0, 10, 15, 20, 30, 40, 45, 50])
-
-respuesta: redondear(grados + minutos / 60, 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una latitud está expresada como {grados}° {minutos}′. Expresada en grados decimales (redondeando a 2 decimales), ¿cuánto es?"
-
-pasos:
-  - "decimal = grados + minutos/60 = {grados} + {minutos}/60"
-  - "= {redondear(grados + minutos / 60, 2)}°"
-
-explicacion: |
-  Cada grado tiene 60 minutos de arco, igual que cada hora tiene 60
-  minutos de tiempo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "basico"
-  tags: ["husos"]
-
-respuesta: 24
-tipo: input
-
-enunciado: "¿En cuántos husos horarios se divide la superficie terrestre?"
-
-explicacion: |
-  La Tierra gira 360° en 24 horas, y cada huso representa 1 hora.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "intermedio"
-  tags: ["husos", "problema"]
-
-respuesta: 360 / 24
-tipo: input
-
-enunciado: "Si la Tierra (360°) se divide en 24 husos horarios iguales, ¿cuántos grados de longitud mide cada huso?"
-
-pasos:
-  - "360° ÷ 24 husos = {360 / 24}° por huso"
-
-explicacion: |
-  15° de longitud equivalen a 1 hora de diferencia horaria.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "avanzado"
-  tags: ["husos", "problema"]
-
-variables:
-  lonA: uno_de([0, 15, 30, 45, 60, 75, 90, 105, 120])
-  lonB: uno_de([0, 15, 30, 45, 60, 75, 90, 105, 120])
-
-restricciones:
-  - abs(lonA - lonB) > 0
-
-respuesta: abs(lonA - lonB) / 15
-tipo: input
-
-enunciado: "Dos ciudades del mismo hemisferio están en los meridianos {lonA}° y {lonB}°. ¿Cuántas horas de diferencia hay entre sus husos horarios?"
-
-pasos:
-  - "diferencia de longitud = |{lonA} − {lonB}| = {abs(lonA - lonB)}°"
-  - "horas de diferencia = {abs(lonA - lonB)} ÷ 15 = {abs(lonA - lonB) / 15}"
-
-explicacion: |
-  Cada 15° de diferencia de longitud equivalen a 1 hora, sin importar
-  el hemisferio (siempre que ambos puntos estén del mismo lado).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "intermedio"
-  tags: ["husos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Moverse hacia el este (en dirección a Asia desde América) suma horas al huso horario; moverse hacia el oeste resta horas."
-
-explicacion: |
-  El Sol "sale antes" cuanto más al este se está, por eso los husos del
-  este están más adelantados.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "avanzado"
-  tags: ["husos", "problema"]
-
-variables:
-  huso: uno_de([-3, -5, -8, 1, 2, 5, 8])
-  hora_utc: random(0, 23)
-
-restricciones:
-  - hora_utc + huso >= 0
-  - hora_utc + huso <= 23
-
-respuesta: hora_utc + huso
-tipo: input
-
-enunciado: "Son las {hora_utc}:00 en el huso 0 (UTC/Greenwich). En una ciudad que está {huso} horas respecto de UTC (positivo = más adelantada hacia el este, negativo = más atrasada hacia el oeste), ¿qué hora es?"
-
-pasos:
-  - "hora local = hora UTC + huso = {hora_utc} + ({huso}) = {hora_utc + huso}"
-
-explicacion: |
-  El huso de una ciudad es simplemente cuántas horas hay que sumar (o
-  restar) a la hora UTC para obtener su hora local.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "basico"
-  tags: ["husos"]
-
-enunciado: "¿Qué huso horario es la referencia UTC (antes llamada GMT)?"
-tipo: mc
-opciones_explicitas:
-  - "El huso 0, que contiene al meridiano de Greenwich"
-  - "El huso que contiene al ecuador"
-  - "El huso de la Línea Internacional de Cambio de Fecha"
-respuesta: "El huso 0, que contiene al meridiano de Greenwich"
-
-explicacion: |
-  Todos los demás husos se definen como una cantidad de horas de
-  diferencia respecto de este huso 0.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "intermedio"
-  tags: ["husos"]
-
 respuesta: falso
-tipo: vf
-
-enunciado: "La Línea Internacional de Cambio de Fecha está cerca del meridiano de Greenwich (longitud 0°)."
 
 explicacion: |
-  Está cerca del meridiano opuesto, 180°, en pleno océano Pacífico —
-  ahí es donde "cierra" el círculo de husos horarios.
+  Tiene un estatus especial con autonomía similar a una provincia,
+  pero formalmente no es una de las 23 provincias.
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "avanzado"
-  tags: ["husos"]
-
-enunciado: "Al cruzar la Línea Internacional de Cambio de Fecha viajando hacia el oeste, ¿qué pasa con la fecha del calendario?"
-tipo: mc
-opciones_explicitas:
-  - "Se suma un día (se adelanta)"
-  - "Se resta un día (se atrasa)"
-  - "No cambia, sólo cambia la hora"
-respuesta: "Se suma un día (se adelanta)"
-
-explicacion: |
-  Es la costura necesaria: los husos suman hacia el este y restan hacia
-  el oeste, y algo tiene que "cerrar" la vuelta completa al planeta.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
+  tema: "division_politica"
   nivel: "intermedio"
-  tags: ["husos", "argentina"]
+  tags: ["argentina", "jerarquia"]
 
-enunciado: "¿Qué huso horario usa Argentina, sin horario de verano desde 2009?"
+enunciado: "En la mayoría de las provincias argentinas, ¿en qué se subdividen?"
 tipo: mc
 opciones_explicitas:
-  - "UTC−3"
-  - "UTC+3"
-  - "UTC−5"
-respuesta: "UTC−3"
+  - "Departamentos"
+  - "Municipios directamente, sin nivel intermedio"
+  - "Regiones culturales"
+respuesta: "Departamentos"
 
 explicacion: |
-  Argentina está 3 horas detrás de Greenwich durante todo el año.
+  La excepción es la provincia de Buenos Aires, que usa el nombre
+  "partidos" en vez de "departamentos".
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
+  tema: "division_politica"
   nivel: "avanzado"
-  tags: ["husos"]
+  tags: ["argentina"]
 
-respuesta: falso
-tipo: vf
-
-enunciado: "El huso horario que usa legalmente un país siempre coincide exactamente con el huso que le correspondería por su longitud geográfica."
+enunciado: "¿Cómo se llama la subdivisión que usa la provincia de Buenos Aires en vez de \"departamento\"?"
+tipo: mc
+opciones_explicitas:
+  - "Partido"
+  - "Comuna"
+  - "Cantón"
+respuesta: "Partido"
 
 explicacion: |
-  Cada país decide su huso legal (a veces por conveniencia económica o
-  política), y ese huso puede diferir del huso "natural" que le
-  correspondería por longitud — no siempre coinciden.
+  Es un nombre propio de esa provincia para la misma jerarquía que
+  otras provincias llaman "departamento".
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
+  tema: "division_politica"
   nivel: "basico"
-  tags: ["husos", "completar"]
+  tags: ["jerarquia"]
 
-tipo: completar
-enunciado: "Completá: la referencia horaria mundial, correspondiente al huso 0, se llama tiempo ___ coordinado (sigla ___)."
-respuestas_validas:
-  - "universal"
-  - "UTC"
+enunciado: "¿Cuál es generalmente la unidad de gobierno más cercana a la vida cotidiana (recolección de basura, alumbrado, tránsito local)?"
+tipo: mc
+opciones_explicitas:
+  - "El municipio"
+  - "El país"
+  - "La región"
+respuesta: "El municipio"
 
 explicacion: |
-  UTC (Universal Time Coordinated/Coordinated Universal Time) reemplazó
-  al antiguo GMT como estándar internacional.
+  Es la subdivisión más chica de la jerarquía político-administrativa
+  típica, la más cercana a los servicios diarios.
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
+  tema: "division_politica"
   nivel: "avanzado"
-  tags: ["husos", "ordenar"]
+  tags: ["limite_frontera"]
 
-enunciado: "Ordená los pasos para calcular qué hora es en otra ciudad, conociendo la hora UTC actual."
+enunciado: "¿Cuál es la diferencia entre \"límite\" y \"frontera\"?"
+tipo: mc
+opciones_explicitas:
+  - "El límite es la línea abstracta que separa jurisdicciones; la frontera es la zona real con infraestructura donde ese límite se hace tangible"
+  - "Son exactamente sinónimos sin ningún matiz"
+  - "El límite es sólo terrestre; la frontera es sólo marítima"
+respuesta: "El límite es la línea abstracta que separa jurisdicciones; la frontera es la zona real con infraestructura donde ese límite se hace tangible"
+
+explicacion: |
+  Una frontera puede ser mucho más ancha que la línea exacta del
+  límite (una zona con doble control, por ejemplo).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "division_politica"
+  nivel: "intermedio"
+  tags: ["limites_naturales"]
+
+enunciado: "El límite entre Argentina y Uruguay sigue en gran parte un accidente geográfico natural. ¿Cuál?"
+tipo: mc
+opciones_explicitas:
+  - "El río Uruguay"
+  - "La Cordillera de los Andes"
+  - "El paralelo 40°"
+respuesta: "El río Uruguay"
+
+explicacion: |
+  Es un ejemplo típico de límite natural, que sigue un curso de agua
+  real en vez de una línea artificial trazada por decisión política.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "division_politica"
+  nivel: "intermedio"
+  tags: ["limites_naturales"]
+
+enunciado: "El límite entre Argentina y Chile sigue en gran parte una cordillera, por la línea de las altas cumbres. ¿Cuál cordillera?"
+tipo: mc
+opciones_explicitas:
+  - "La Cordillera de los Andes"
+  - "Los Alpes"
+  - "El Himalaya"
+respuesta: "La Cordillera de los Andes"
+
+explicacion: |
+  Es otro ejemplo de límite natural: sigue un rasgo del relieve, no una
+  línea artificial.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "division_politica"
+  nivel: "intermedio"
+  tags: ["limites_artificiales"]
+
+enunciado: "¿Qué es un límite artificial?"
+tipo: mc
+opciones_explicitas:
+  - "Una línea que no sigue ningún accidente geográfico, trazada por tratado o decisión política"
+  - "Un límite que sigue un río"
+  - "Un límite marcado por una cordillera"
+respuesta: "Una línea que no sigue ningún accidente geográfico, trazada por tratado o decisión política"
+
+explicacion: |
+  Suelen ser rectas o seguir un paralelo/meridiano — herencia de
+  acuerdos que no tuvieron en cuenta rasgos del territorio.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "division_politica"
+  nivel: "avanzado"
+  tags: ["limites_artificiales"]
+
+enunciado: "¿En qué región del mundo son especialmente comunes los límites artificiales, herencia de acuerdos coloniales que no tuvieron en cuenta a las poblaciones locales?"
+tipo: mc
+opciones_explicitas:
+  - "África"
+  - "Europa occidental"
+  - "El sudeste asiático insular"
+respuesta: "África"
+
+explicacion: |
+  Muchos límites africanos son líneas rectas trazadas en tratados
+  europeos del siglo XIX sin considerar pueblos ni geografía real.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "division_politica"
+  nivel: "basico"
+  tags: ["division_politica"]
+
+enunciado: "La división política de un territorio es un rasgo natural, igual que el relieve o el clima, y no cambia con el tiempo."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Es una construcción humana e histórica: puede cambiar por tratados,
+  guerras o decisiones internas, a diferencia del relieve o el clima.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "division_politica"
+  nivel: "avanzado"
+  tags: ["cruce"]
+
+enunciado: "¿En qué se diferencia la división política de una región (agrupar territorio por rasgos compartidos)?"
+tipo: mc
+opciones_explicitas:
+  - "La división política tiene límites oficiales y gobierno reconocido; una región puede no tener ninguno de los dos"
+  - "Son exactamente lo mismo"
+  - "Una región siempre coincide con los límites de un país"
+respuesta: "La división política tiene límites oficiales y gobierno reconocido; una región puede no tener ninguno de los dos"
+
+explicacion: |
+  Una región cultural, por ejemplo, puede atravesar varios países sin
+  cambiar ningún límite político.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "division_politica"
+  nivel: "avanzado"
+  tags: ["jerarquia"]
+
+enunciado: "¿El grado de autonomía de una \"provincia\" o \"estado\" (subdivisión interna de un país) es siempre igual en todos los países?"
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Varía mucho: desde provincias con constitución propia (como en
+  Argentina) hasta divisiones puramente administrativas sin poder
+  político real en otros países.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "division_politica"
+  nivel: "basico"
+  tags: ["jerarquia"]
+
+enunciado: "¿Qué es la \"capital\" de un país o una provincia?"
+tipo: mc
+opciones_explicitas:
+  - "La ciudad sede del gobierno de ese nivel administrativo"
+  - "La ciudad con más población de ese territorio, siempre"
+  - "El límite más al norte de ese territorio"
+respuesta: "La ciudad sede del gobierno de ese nivel administrativo"
+
+explicacion: |
+  No siempre coincide con la ciudad más poblada (ej.: la capital
+  nacional de Argentina, Buenos Aires, sí es la más poblada, pero en
+  otros países la capital y la ciudad más grande son distintas).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "division_politica"
+  nivel: "avanzado"
+  tags: ["limite_frontera"]
+
+enunciado: "¿Puede una \"zona de frontera\" ser más ancha que la línea exacta del límite entre dos países?"
+tipo: vf
+respuesta: verdadero
+
+explicacion: |
+  Una zona de frontera con pasos, aduana y doble control puede
+  extenderse varios kilómetros a cada lado de la línea exacta del
+  límite.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "division_politica"
+  nivel: "intermedio"
+  tags: ["division_politica"]
+
+enunciado: "¿Qué distingue a un país / Estado nacional de una provincia o municipio en la jerarquía político-administrativa?"
+tipo: mc
+opciones_explicitas:
+  - "El país es la unidad soberana, con reconocimiento internacional; las demás son subdivisiones internas"
+  - "El país es siempre la unidad más chica"
+  - "No hay ninguna diferencia jerárquica entre ellos"
+respuesta: "El país es la unidad soberana, con reconocimiento internacional; las demás son subdivisiones internas"
+
+explicacion: |
+  La soberanía y el reconocimiento internacional son lo que distingue
+  al país de cualquier subdivisión interna.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "division_politica"
+  nivel: "intermedio"
+  tags: ["jerarquia"]
+
+enunciado: "Ordená de mayor a menor jerarquía: Municipio, País, Provincia."
 tipo: ordenar
 opciones_explicitas:
-  - "Ajustar la fecha si el resultado pasa de las 24:00 o baja de las 0:00"
-  - "Averiguar el huso horario de la ciudad (horas de diferencia respecto de UTC)"
-  - "Sumar (o restar, si el huso es negativo) esa diferencia a la hora UTC"
-respuesta_orden:
-  - "Averiguar el huso horario de la ciudad (horas de diferencia respecto de UTC)"
-  - "Sumar (o restar, si el huso es negativo) esa diferencia a la hora UTC"
-  - "Ajustar la fecha si el resultado pasa de las 24:00 o baja de las 0:00"
+  - "País"
+  - "Provincia"
+  - "Municipio"
+respuesta_orden: ["País", "Provincia", "Municipio"]
 
 explicacion: |
-  El último paso es el que la Línea de Cambio de Fecha resuelve para
-  las 24 zonas en conjunto.
+  De mayor a menor escala: País → Provincia (o estado/departamento) →
+  Municipio.
 ```
 
 ```
 metadata:
   materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "basico"
-  tags: ["coordenadas", "aplicacion"]
-
-enunciado: "¿Qué par de datos usa un GPS para indicar la posición exacta de un punto en el planeta?"
-tipo: mc
-opciones_explicitas:
-  - "Latitud y longitud"
-  - "Huso horario y altitud"
-  - "Nombre de la ciudad y provincia"
-respuesta: "Latitud y longitud"
-
-explicacion: |
-  Con esos dos ángulos, cualquier punto de la superficie terrestre
-  queda ubicado sin ambigüedad.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "basico"
-  tags: ["husos", "aplicacion"]
-
-enunciado: "¿Por qué hace falta dividir el planeta en husos horarios en vez de usar la misma hora en todo el mundo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el Sol no está en la misma posición del cielo en todos los meridianos a la vez"
-  - "Porque cada país necesita un idioma distinto para la hora"
-  - "Porque la Tierra no gira, y por eso hace falta dividirla en zonas"
-respuesta: "Porque el Sol no está en la misma posición del cielo en todos los meridianos a la vez"
-
-explicacion: |
-  Los husos existen para que la hora del reloj se mantenga cerca del
-  mediodía solar real en cada lugar.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "avanzado"
-  tags: ["husos", "problema"]
-
-variables:
-  diferencia_grados: uno_de([10, 20, 40, 50, 70])
-
-respuesta: redondear(diferencia_grados / 15, 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Dos puntos están separados por {diferencia_grados}° de longitud (no un múltiplo exacto de 15°). ¿Cuántas horas de diferencia representa eso, redondeando a 2 decimales?"
-
-pasos:
-  - "horas = grados ÷ 15 = {diferencia_grados} ÷ 15 = {redondear(diferencia_grados / 15, 2)}"
-
-explicacion: |
-  En la práctica los países ajustan su huso legal a números enteros (o
-  a veces medias/cuartos de hora), pero la relación grados↔horas de
-  base es siempre esta división por 15.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "coordenadas_y_husos_horarios"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve entender coordenadas y husos horarios juntos?"
-tipo: mc
-opciones_explicitas:
-  - "Para ubicar cualquier punto del planeta sin ambigüedad, y saber qué hora es ahí en cualquier momento"
-  - "Sólo sirve para leer mapas en papel"
-  - "Sólo aplica a los países que están sobre el meridiano de Greenwich"
-respuesta: "Para ubicar cualquier punto del planeta sin ambigüedad, y saber qué hora es ahí en cualquier momento"
-
-explicacion: |
-  La longitud, que ubica un punto en el espacio, es también el dato del
-  que sale directo su huso horario — las dos ideas están conectadas por
-  el mismo giro de la Tierra.
-```
-
-## Sección: decrecimiento (20 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "basico"
-  tags: ["decrecimiento", "vocabulario"]
-
-enunciado: "¿Qué sostiene el decrecimiento sobre el crecimiento económico continuo?"
-tipo: mc
-opciones_explicitas:
-  - "Que es en sí mismo insostenible en un planeta de recursos finitos, y hay que reducirlo deliberadamente"
-  - "Que hay que acelerarlo con mejor tecnología"
-  - "Que sólo los países pobres deberían dejar de crecer"
-respuesta: "Que es en sí mismo insostenible en un planeta de recursos finitos, y hay que reducirlo deliberadamente"
-
-explicacion: |
-  Es la corriente más radical del espectro: rechaza el crecimiento en
-  sí, no sólo pide hacerlo "más limpio".
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "intermedio"
-  tags: ["decrecimiento"]
-
-enunciado: "¿Por qué el decrecimiento rechaza la idea de \"crecimiento verde\" (crecer de forma más limpia con mejor tecnología)?"
-tipo: mc
-opciones_explicitas:
-  - "Porque sostiene que el problema es el crecimiento continuo en sí, no sólo cómo se logra"
-  - "Porque el crecimiento verde es siempre más costoso"
-  - "Porque el decrecimiento no tiene ninguna postura sobre la tecnología"
-respuesta: "Porque sostiene que el problema es el crecimiento continuo en sí, no sólo cómo se logra"
-
-explicacion: |
-  Para esta corriente, mejor tecnología no resuelve el problema de
-  fondo si el objetivo sigue siendo crecer indefinidamente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "intermedio"
-  tags: ["referencia"]
-
-enunciado: "¿Quién es la referencia más citada del decrecimiento como corriente?"
-tipo: mc
-opciones_explicitas:
-  - "Serge Latouche"
-  - "Joel Kovel"
-  - "Terry Anderson"
-respuesta: "Serge Latouche"
-
-explicacion: |
-  Economista, filósofo y politólogo francés, profesor emérito de la
-  Universidad Paris-Sud.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "intermedio"
-  tags: ["referencia"]
-
-enunciado: "¿Cuál es el libro de referencia de Serge Latouche sobre el decrecimiento?"
-tipo: mc
-opciones_explicitas:
-  - "La apuesta por el decrecimiento: ¿cómo salir del imaginario dominante?"
-  - "Free Market Environmentalism"
-  - "A Sand County Almanac"
-respuesta: "La apuesta por el decrecimiento: ¿cómo salir del imaginario dominante?"
-
-explicacion: |
-  Publicado por la editorial Icaria.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "avanzado"
-  tags: ["decrecimiento"]
-
-enunciado: "¿Qué argumenta Latouche sobre el crecimiento económico infinito en relación con el planeta?"
-tipo: mc
-opciones_explicitas:
-  - "Que es matemáticamente imposible en un planeta finito"
-  - "Que es perfectamente sostenible con la tecnología actual"
-  - "Que sólo es un problema para los países en desarrollo"
-respuesta: "Que es matemáticamente imposible en un planeta finito"
-
-explicacion: |
-  Es el argumento central: no hay forma de crecer indefinidamente con
-  recursos finitos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "avanzado"
-  tags: ["decrecimiento"]
-
-enunciado: "¿Qué propone Latouche como alternativa a un colapso ecológico brutal y no planificado?"
-tipo: mc
-opciones_explicitas:
-  - "Elegir voluntariamente una sociedad de decrecimiento antes de que el colapso lo imponga de forma dramática"
-  - "Esperar sin actuar hasta que ocurra el colapso"
-  - "Acelerar el crecimiento para evitar el colapso"
-respuesta: "Elegir voluntariamente una sociedad de decrecimiento antes de que el colapso lo imponga de forma dramática"
-
-explicacion: |
-  Es el argumento de "apuesta" del título de su libro: una elección
-  deliberada, no una resignación pasiva.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "intermedio"
-  tags: ["decrecimiento"]
-
-enunciado: "¿Qué argumenta el decrecimiento sobre la relación entre bienestar humano y consumo material?"
-tipo: mc
-opciones_explicitas:
-  - "Que el bienestar no depende linealmente del consumo material, y se puede repensar la felicidad de forma independiente del crecimiento"
-  - "Que más consumo siempre genera más bienestar en la misma proporción"
-  - "Que el bienestar no tiene ninguna relación con la economía"
-respuesta: "Que el bienestar no depende linealmente del consumo material, y se puede repensar la felicidad de forma independiente del crecimiento"
-
-explicacion: |
-  Propone más tiempo libre y vínculos comunitarios en vez de más PBI
-  per cápita como medida de progreso.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "intermedio"
-  tags: ["decrecimiento"]
-
-enunciado: "¿El decrecimiento acepta al PBI per cápita como la medida única y correcta de progreso de una sociedad?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Propone medidas alternativas de bienestar, no atadas exclusivamente
-  al crecimiento del PBI.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "avanzado"
-  tags: ["decrecimiento"]
-
-enunciado: "¿Es lo mismo el \"decrecimiento\" que propone esta corriente que una recesión económica?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  El decrecimiento es una reducción deliberada y planificada, con
-  redistribución; la recesión es una caída no planificada, con
-  desempleo y crisis social.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "avanzado"
-  tags: ["decrecimiento"]
-
-enunciado: "¿Qué elemento clave distingue al decrecimiento propuesto de una recesión sufrida?"
-tipo: mc
-opciones_explicitas:
-  - "Que es planificado y acompañado de redistribución, no un colapso no controlado"
-  - "Que el decrecimiento nunca reduce la producción"
-  - "Que la recesión siempre es voluntaria"
-respuesta: "Que es planificado y acompañado de redistribución, no un colapso no controlado"
-
-explicacion: |
-  Es el matiz que suele generar confusión entre ambos conceptos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "intermedio"
-  tags: ["decrecimiento"]
-
-enunciado: "¿Por qué el decrecimiento propuesto incluye redistribución como parte del plan?"
-tipo: mc
-opciones_explicitas:
-  - "Para que la reducción de producción/consumo no recaiga desproporcionadamente en los más pobres"
-  - "Para aumentar la desigualdad de forma deliberada"
-  - "Porque la redistribución no tiene relación con esta corriente"
-respuesta: "Para que la reducción de producción/consumo no recaiga desproporcionadamente en los más pobres"
-
-explicacion: |
-  Sin redistribución, una reducción general de consumo afectaría más a
-  quien ya tiene menos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué el decrecimiento se considera la postura más radical de las 4 corrientes ambientales de este bloque?"
-tipo: mc
-opciones_explicitas:
-  - "Porque es la única que rechaza el crecimiento económico en sí mismo como objetivo, más allá de bajo qué sistema de propiedad ocurra"
-  - "Porque es la única que menciona el cambio climático"
-  - "Porque es la corriente más antigua de las 4"
-respuesta: "Porque es la única que rechaza el crecimiento económico en sí mismo como objetivo, más allá de bajo qué sistema de propiedad ocurra"
-
-explicacion: |
-  Las otras 3 corrientes, en distinto grado, siguen aceptando que
-  puede haber crecimiento bajo el sistema correcto.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿En qué se diferencia el foco del decrecimiento del foco del ecologismo político (`../ecologismo-politico/`)?"
-tipo: mc
-opciones_explicitas:
-  - "El decrecimiento pone el foco en el crecimiento económico en sí; el ecologismo político pone el foco en la estructura de clases y el capitalismo como sistema"
-  - "Son exactamente la misma corriente"
-  - "El decrecimiento acepta el capitalismo sin ningún cuestionamiento"
-respuesta: "El decrecimiento pone el foco en el crecimiento económico en sí; el ecologismo político pone el foco en la estructura de clases y el capitalismo como sistema"
-
-explicacion: |
-  Comparten crítica al crecimiento indefinido, pero un sistema
-  poscapitalista, en principio, también podría seguir creciendo — algo
-  que el decrecimiento rechazaría igual.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿En qué se diferencia el decrecimiento del conservacionismo y el ambientalismo liberal?"
-tipo: mc
-opciones_explicitas:
-  - "Esas dos corrientes buscan hacer el crecimiento compatible con la protección ambiental; el decrecimiento rechaza el crecimiento en sí"
-  - "Son exactamente las mismas 3 corrientes"
-  - "El decrecimiento confía completamente en el mercado libre para reducir el consumo"
-respuesta: "Esas dos corrientes buscan hacer el crecimiento compatible con la protección ambiental; el decrecimiento rechaza el crecimiento en sí"
-
-explicacion: |
-  Es el punto donde el decrecimiento se separa más claramente de las
-  otras 3 corrientes del espectro.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "avanzado"
-  tags: ["decrecimiento"]
-
-enunciado: "Según el decrecimiento, ¿basta con regular el mercado o redistribuir la riqueza dentro del crecimiento existente para resolver la crisis ambiental?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Para esta corriente, hay que dejar de perseguir el crecimiento en sí,
-  no sólo regularlo o redistribuirlo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "basico"
-  tags: ["referencia"]
-
-enunciado: "¿De qué nacionalidad es Serge Latouche?"
-tipo: mc
-opciones_explicitas:
-  - "Francesa"
-  - "Argentina"
-  - "Estadounidense"
-respuesta: "Francesa"
-
-explicacion: |
-  Es profesor emérito de economía de la Universidad Paris-Sud (Orsay).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "avanzado"
-  tags: ["referencia"]
-
-enunciado: "¿En qué se especializó académicamente Serge Latouche además de economía?"
-tipo: mc
-opciones_explicitas:
-  - "Filosofía y epistemología de las ciencias sociales"
-  - "Física cuántica"
-  - "Derecho penal internacional"
-respuesta: "Filosofía y epistemología de las ciencias sociales"
-
-explicacion: |
-  Combina formación en ciencia política, filosofía y economía en su
-  crítica al crecimiento.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "basico"
-  tags: ["neutralidad"]
-
-enunciado: "¿El objetivo de este material es convencer de que hay que decrecer económicamente?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  El objetivo es identificar qué sostiene esta corriente, con la misma
-  seriedad expositiva que las otras 3, no evaluar cuál tiene razón.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
-  nivel: "intermedio"
-  tags: ["decrecimiento"]
-
-enunciado: "¿Cuál de estos propone el decrecimiento como alternativa de \"progreso\" al consumo material creciente?"
-tipo: mc
-opciones_explicitas:
-  - "Más tiempo libre y más vínculos comunitarios"
-  - "Un aumento constante del PBI per cápita"
-  - "Más horas de trabajo dedicadas a producir bienes no esenciales"
-respuesta: "Más tiempo libre y más vínculos comunitarios"
-
-explicacion: |
-  Es la revaluación de "felicidad" y "calidad de vida" independiente
-  del crecimiento económico que propone esta corriente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "decrecimiento"
+  tema: "division_politica"
   nivel: "intermedio"
   tags: ["cruce"]
 
-enunciado: "¿Por qué `decrecimiento/` depende de `../ambiente-y-recursos/` como las otras 3 corrientes hermanas?"
+enunciado: "¿Por qué distinguir un límite internacional de uno provincial en un mapa presupone ya saber leer un mapa político y su escala?"
 tipo: mc
 opciones_explicitas:
-  - "Porque discutir si hay que reducir el crecimiento presupone ya entender qué son el ambiente y los recursos en sentido técnico"
-  - "Porque ambiente-y-recursos ya incluye toda la discusión ideológica sobre decrecer"
-  - "Porque no existe relación real entre ambos temas"
-respuesta: "Porque discutir si hay que reducir el crecimiento presupone ya entender qué son el ambiente y los recursos en sentido técnico"
+  - "Porque sin saber leer los símbolos y la escala del mapa no se puede identificar dónde empieza y termina cada jurisdicción"
+  - "Porque los límites internacionales nunca aparecen en mapas políticos"
+  - "Porque la escala determina el nombre del país"
+respuesta: "Porque sin saber leer los símbolos y la escala del mapa no se puede identificar dónde empieza y termina cada jurisdicción"
 
 explicacion: |
-  Es el mismo prerrequisito compartido por las 4 corrientes
-  ambientales.
+  Es la razón por la que `division-politica/` depende de
+  `../mapa-plano-escala/` en `../dependencias.md`.
 ```
 
-## Sección: densidad-poblacion (22 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "basico"
-  tags: ["densidad_poblacion", "vocabulario"]
-
-enunciado: "¿Qué es la densidad de población?"
-tipo: mc
-opciones_explicitas:
-  - "La cantidad de habitantes, en promedio, por cada unidad de superficie de un territorio"
-  - "La cantidad total de habitantes de un país"
-  - "El porcentaje de la población que vive en ciudades"
-respuesta: "La cantidad de habitantes, en promedio, por cada unidad de superficie de un territorio"
-
-explicacion: |
-  Es un promedio que combina dos datos: cuánta gente hay, y cuánto
-  espacio ocupa el territorio.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "intermedio"
-  tags: ["densidad_poblacion", "calculo"]
-
-variables:
-  poblacion: random(1, 50) * 1000000
-  superficie: random(50000, 2000000)
-
-respuesta: poblacion / superficie
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un país tiene {poblacion} habitantes y {superficie} km² de superficie. ¿Cuál es su densidad de población, en hab/km²?"
-
-pasos:
-  - "densidad = {poblacion} ÷ {superficie}"
-
-explicacion: |
-  Se divide la población total por la superficie total.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "intermedio"
-  tags: ["densidad_poblacion", "calculo"]
-
-variables:
-  superficie: random(50000, 2000000)
-  densidad: random(5, 200)
-
-respuesta: densidad * superficie
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Un país tiene {superficie} km² de superficie y una densidad de {densidad} hab/km². ¿Cuál es su población total?"
-
-explicacion: |
-  Se despeja la población multiplicando la densidad por la superficie.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "intermedio"
-  tags: ["densidad_poblacion", "calculo"]
-
-variables:
-  poblacion: random(1, 50) * 1000000
-  densidad: random(5, 200)
-
-respuesta: poblacion / densidad
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Un país tiene {poblacion} habitantes y una densidad de {densidad} hab/km². ¿Cuál es su superficie, en km²?"
-
-explicacion: |
-  Se despeja la superficie dividiendo la población por la densidad.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "intermedio"
-  tags: ["densidad_poblacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Densidad de población alta no es lo mismo que población total alta: son dos datos distintos."
-
-explicacion: |
-  Uno depende sólo de la cantidad de habitantes; el otro depende también
-  de la superficie.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "avanzado"
-  tags: ["densidad_poblacion", "comparacion"]
-
-variables:
-  poblacion: random(5, 30) * 1000000
-  superficie_a: random(50000, 200000)
-  superficie_b: random(500000, 2000000)
-
-respuesta: ((poblacion / superficie_a) > (poblacion / superficie_b))
-tipo: vf
-
-enunciado: "País A tiene {poblacion} habitantes en {superficie_a} km². País B tiene la misma población, {poblacion} habitantes, pero en {superficie_b} km². ¿El país A tiene mayor densidad que el país B?"
-
-explicacion: |
-  Con la misma población, el país de menor superficie tiene mayor
-  densidad.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "avanzado"
-  tags: ["densidad_poblacion", "comparacion"]
-
-variables:
-  superficie: random(100000, 500000)
-  poblacion_a: random(1, 10) * 1000000
-  poblacion_b: random(11, 40) * 1000000
-
-respuesta: ((poblacion_b / superficie) > (poblacion_a / superficie))
-tipo: vf
-
-enunciado: "País A tiene {poblacion_a} habitantes en {superficie} km². País B tiene {poblacion_b} habitantes en la misma superficie, {superficie} km². ¿El país B tiene mayor densidad que el país A?"
-
-explicacion: |
-  Con la misma superficie, el país de mayor población tiene mayor
-  densidad.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "intermedio"
-  tags: ["densidad_poblacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un país puede tener una población total muy grande y, aun así, una densidad baja, si su superficie también es muy grande."
-
-explicacion: |
-  La densidad depende de la relación entre los dos datos, no de la
-  población sola.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "intermedio"
-  tags: ["densidad_poblacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un país puede tener una población total relativamente chica y, aun así, una densidad alta, si su superficie es chica."
-
-explicacion: |
-  Es el caso contrario: superficie chica con población concentrada.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "intermedio"
-  tags: ["densidad_poblacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La densidad de un país es un promedio: la población real casi nunca se reparte de forma pareja sobre todo el territorio."
-
-explicacion: |
-  Es la idea central para no malinterpretar lo que dice un número de
-  densidad promedio.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "avanzado"
-  tags: ["densidad_poblacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un país puede tener una densidad promedio baja y, al mismo tiempo, tener ciudades entre las más densamente pobladas del mundo — los dos datos no se contradicen."
-
-explicacion: |
-  Describen escalas distintas: el promedio de todo el país, y la
-  situación puntual de una ciudad dentro de él.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "basico"
-  tags: ["densidad_poblacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las zonas urbanas suelen tener una densidad de población mucho más alta que las zonas rurales o los territorios poco habitables (desiertos, montañas)."
-
-explicacion: |
-  Es la razón principal por la que el promedio de un país entero puede
-  no representar bien a ninguna zona en particular.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "intermedio"
-  tags: ["densidad_poblacion", "problema"]
-
-variables:
-  poblacion_ciudad: random(500000, 5000000)
-  superficie_ciudad: random(100, 800)
-
-respuesta: poblacion_ciudad / superficie_ciudad
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Una ciudad tiene {poblacion_ciudad} habitantes en {superficie_ciudad} km². ¿Cuál es su densidad de población?"
-
-explicacion: |
-  Las ciudades, por concentrar mucha población en poca superficie,
-  suelen tener densidades mucho más altas que el promedio de un país.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "intermedio"
-  tags: ["densidad_poblacion", "problema"]
-
-variables:
-  poblacion_pais: random(3, 15) * 1000000
-  superficie_pais: random(1000000, 3000000)
-
-respuesta: poblacion_pais / superficie_pais
-tipo: input
-tolerancia_abs: 0.1
-
-enunciado: "Un país tiene {poblacion_pais} habitantes en {superficie_pais} km². ¿Cuál es su densidad de población?"
-
-explicacion: |
-  Con una superficie muy grande y una población moderada, la densidad
-  promedio da un número bajo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "basico"
-  tags: ["densidad_poblacion", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos territorios de menor a mayor densidad de población."
-opciones_explicitas:
-  - "Zona rural despoblada: 2 hab/km²"
-  - "Ciudad grande: 8.000 hab/km²"
-  - "País de tamaño medio: 40 hab/km²"
-respuesta_orden: ["Zona rural despoblada: 2 hab/km²", "País de tamaño medio: 40 hab/km²", "Ciudad grande: 8.000 hab/km²"]
-
-explicacion: |
-  Las ciudades concentran población en poca superficie; las zonas
-  rurales, mucho menos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "intermedio"
-  tags: ["densidad_poblacion", "verificacion"]
-
-variables:
-  poblacion: random(1, 50) * 1000000
-  superficie: random(50000, 2000000)
-  correcto: poblacion / superficie
-  error: uno_de([0, 0, 0, 5, -5])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 0.5)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? Población de {poblacion} habitantes, superficie de {superficie} km², densidad informada: {redondear(mostrado, 2)} hab/km²."
-
-explicacion: |
-  Se vuelve a dividir población por superficie y se compara con el
-  valor informado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "intermedio"
-  tags: ["densidad_poblacion"]
-
-variables:
-  poblacion: random(1, 50) * 1000000
-  superficie: random(50000, 2000000)
-  densidad: poblacion / superficie
-
-tipo: completar
-enunciado: "Un país tiene {poblacion} habitantes y una densidad de {redondear(densidad, 2)} hab/km². Completá: ___ (superficie en km²) = {poblacion} (población) ÷ {redondear(densidad, 2)} (densidad)."
-respuestas_validas:
-  - superficie
-
-explicacion: |
-  Se despeja la superficie dividiendo la población por la densidad.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "basico"
-  tags: ["densidad_poblacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La densidad de población se expresa habitualmente en habitantes por kilómetro cuadrado (hab/km²)."
-
-explicacion: |
-  Es la unidad estándar más usada para comparar densidades entre
-  distintos territorios.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "basico"
-  tags: ["densidad_poblacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para calcular la densidad de población de un territorio, hace falta conocer tanto su población como su superficie."
-
-explicacion: |
-  Con sólo uno de los dos datos no alcanza para calcular la densidad.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "intermedio"
-  tags: ["densidad_poblacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una zona de alta densidad de población suele necesitar una lógica de infraestructura distinta (transporte público, vivienda en altura) que una zona de baja densidad."
-
-explicacion: |
-  Es una de las razones prácticas por las que la densidad importa para
-  planificar servicios y ciudades.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "avanzado"
-  tags: ["densidad_poblacion", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿La densidad promedio de un país alcanza, por sí sola, para saber cómo se reparte realmente la población dentro de ese país?"
-
-explicacion: |
-  No: sólo da un promedio. Para saber la distribución real hace falta
-  mirar datos más detallados (por ciudad, por región), no sólo el
-  promedio de todo el país.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "densidad_poblacion"
-  nivel: "basico"
-  tags: ["densidad_poblacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La densidad de población es población dividida superficie; es un promedio que puede convivir con una distribución real muy despareja, con ciudades muy densas y zonas rurales casi vacías dentro del mismo país."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```

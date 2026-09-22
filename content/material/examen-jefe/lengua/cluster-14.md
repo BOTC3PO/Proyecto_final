@@ -1,2128 +1,2708 @@
-# Examen jefe — Maestro de Sintaxis y Dramaturgia
+# Examen jefe — [PENDIENTE #664]
 
-> Logro #97. Dominaste las subordinadas sustantivas de sujeto, la estructura del sujeto y predicado, técnicas de estudio y el texto teatral. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **108 preguntas totales** en 5/5 secciones.
+> Logro #664. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **131 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: subordinada-sustantiva-de-sujeto (23 preguntas)
+## Sección: subordinada-concesiva-y-final (20 preguntas)
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
+  tema: "subordinada_concesiva_y_final"
   nivel: "basico"
-  tags: ["sintaxis", "subordinada_sustantiva", "identificacion"]
+  tags: ["concesiva", "identificacion"]
 
 variables:
-  # Generamos dos frases para elegir aleatoriamente
-  frase_1: "Es necesario que estudies más"
-  frase_2: "Me alegra que estés aquí"
-  seleccion: uno_de([1, 2])
+  conjuncion: uno_de(["Aunque", "Si bien", "Pese a que"])
+  sujeto: uno_de(["los alumnos", "el equipo", "mi abuelo"])
+  verbo_principal: uno_de(["estudiaron", "jugó", "trabajó"])
+  complemento: uno_de(["el examen", "el torneo", "la mudanza"])
 
-respuesta: "que estudies más"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "{conjuncion} {sujeto} {verbo_principal} {complemento}. Esta oración contiene una subordinada concesiva."
+
+explicacion: |
+  La conjunción "Aunque", "Si bien" o "Pese a que" introduce una circunstancia adversa que no impide la acción principal, definiendo una oración subordinada concesiva.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "basico"
+  tags: ["final", "proposito"]
+
+variables:
+  accion: uno_de(["Estudio", "Trabajo", "Viajo"])
+  motivo: uno_de(["para aprobar", "para ganar dinero", "para descansar"])
+
+respuesta: "para aprobar"
 tipo: completar
 
-enunciado: "Analizá la siguiente oración: '{frase_1}' si seleccion == 1 else '{frase_2}'. ¿Cuál es la oración subordinada sustantiva de sujeto?"
+enunciado: "Completa la oración con el propósito correcto: '{accion} mucho {motivo}.' (Escribe solo la parte que indica el fin)."
 
 explicacion: |
-  La subordinada sustantiva de sujeto cumple la función de sujeto del verbo principal (ser/estar/gustar, etc.). En 'Es necesario que estudies más', el sujeto es 'que estudies más'. En 'Me alegra que estés aquí', el sujeto es 'que estés aquí'.
+  La estructura 'para + infinitivo' o 'para que' indica el fin o propósito de la acción principal. En este caso, 'para aprobar' es el objetivo.
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "pronombre_neutro"]
+  tema: "subordinada_concesiva_y_final"
+  nivel: "basico"
+  tags: ["final", "conjunciones"]
 
 variables:
-  oracion: "Es cierto que Juan llegó tarde"
-  subordinada: "que Juan llegó tarde"
+  sujeto: uno_de(["Ella", "Nosotros", "Ellos"])
+  accion: uno_de(["estudia", "trabaja", "corre"])
+  fin: uno_de(["para que pase", "a fin de que llegue", "porque llega"])
 
-respuesta: "eso"
+respuesta: "para que pase"
+tipo: completar
+
+enunciado: "Selecciona la opción que completa correctamente la idea final: '{sujeto} {accion} {fin}.' (Escribe la conjunción y el verbo conjugado)."
+
+explicacion: |
+  Las oraciones finales se introducen por "para que" o "a fin de que" seguidas de un verbo en subjuntivo. "Porque" introduce causalidad.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "intermedio"
+  tags: ["concesiva", "obstaculo"]
+
+variables:
+  obstaculo: uno_de(["El cansancio", "El frío", "La falta de tiempo"])
+  accion: uno_de(["terminó", "siguió", "completó"])
+  tarea: uno_de(["el informe", "la carrera", "la tarea"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la frase '{obstaculo} {accion} {tarea}', la primera parte funciona como una concesiva."
+
+explicacion: |
+  Falso. Para que sea concesiva, la primera parte necesita una conjunción explícita como "aunque", "a pesar de que" o "si bien". Sin esa conjunción, '{obstaculo} {accion} {tarea}' es simplemente una oración simple con sujeto y predicado, no una subordinada concesiva.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "intermedio"
+  tags: ["concesiva", "identificacion"]
+
+variables:
+  frase: uno_de(["Aunque llovió, fuimos"])
+  tipo_erroneo: "final"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La oración '{frase}' es una subordinada final."
+
+explicacion: |
+  "Aunque" es una conjunción concesiva, no final. Por lo tanto, la oración es concesiva, no final.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "basico"
+  tags: ["final", "identificacion"]
+
+variables:
+  accion: uno_de(["Guardé", "Ahorre", "Trabajé"])
+  objeto: uno_de(["el dinero", "el libro", "las llaves"])
+  fin: uno_de(["para el viaje", "para leer", "para abrir"])
+
+respuesta: "para el viaje"
+tipo: completar
+
+enunciado: "¿Cuál es el propósito en: '{accion} {objeto} {fin}?' (Escribe la parte del fin)."
+
+explicacion: |
+  "Para el viaje" indica el objetivo o fin de la acción principal. Es una estructura preposicional de fin.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "avanzado"
+  tags: ["final", "registro"]
+
+variables:
+  sujeto1: uno_de(["El gobierno", "La empresa", "Los vecinos"])
+  medida: uno_de(["implementó", "creó", "organizó"])
+  objetivo: uno_de(["la nueva ley", "el programa", "la reunión"])
+  fin_formal: "a fin de que"
+
+respuesta: "a fin de que"
+tipo: completar
+
+enunciado: "Completa con la locución conjuntiva formal: '{sujeto1} {medida} {objetivo} {fin_formal} se reduzcan los índices.'"
+
+explicacion: |
+  "A fin de que" es una locución conjuntiva final formal, seguida de subjuntivo, utilizada para expresar un propósito de manera más culta o administrativa.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "intermedio"
+  tags: ["concesiva", "sinonimia"]
+
+variables:
+  hecho: uno_de(["el proyecto falló", "la noticia era mala", "el camino era largo"])
+  resultado: uno_de(["se logró el éxito", "mantuvieron la esperanza", "continuaron marchando"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "'Si bien {hecho}, {resultado}.' contiene una oración subordinada concesiva."
+
+explicacion: |
+  "Si bien" funciona como sinónimo de "aunque" o "a pesar de que", introduciendo una circunstancia adversa que no impide el resultado principal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "basico"
+  tags: ["final", "pregunta_clave"]
+
+variables:
+  accion: uno_de(["Voy", "Estudio", "Corro"])
+  lugar: uno_de(["al cine", "a la biblioteca", "al parque"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la oración '{accion} {lugar}', podemos preguntar '¿Para qué vas?' para identificar una idea final."
+
+explicacion: |
+  Falso. '{accion} {lugar}' no contiene ninguna subordinada final explícita: la preposición "a" indica dirección (destino), no propósito. Aunque podamos imaginar un fin implícito ("voy para ver una película"), ese fin no está presente sintácticamente en la oración, así que no hay subordinada final que identificar.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "basico"
+  tags: ["final", "identificacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La oración 'Voy al cine' contiene una subordinada final explícita."
+
+explicacion: |
+  "Voy al cine" es una oración simple con complemento de régimen o destino. No contiene una oración subordinada explícita introducida por "para que" o similar.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "intermedio"
+  tags: ["concesiva", "identificacion"]
+
+variables:
+  conjuncion: uno_de(["Por más que", "Aun cuando", "A pesar de"])
+  dificultad: uno_de(["el ruido", "la oscuridad", "la fatiga"])
+  accion: uno_de(["pudo dormir", "llegó a tiempo", "terminó"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "'{conjuncion} {dificultad}, {accion}.' es una estructura de subordinada concesiva."
+
+explicacion: |
+  Las conjunciones "Por más que", "Aun cuando" y "A pesar de" introducen concesivas, indicando que la dificultad no impidió la acción.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "avanzado"
+  tags: ["final", "que"]
+
+variables:
+  verbo_voluntad: uno_de(["Pido", "Quiero", "Mando"])
+  sujeto2: uno_de(["que vengas", "que lo hagas", "que lo sepas"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En '{verbo_voluntad} {sujeto2}', el 'que' introduce una oración subordinada final."
+
+explicacion: |
+  Cuando el verbo de la principal expresa voluntad, deseo o mandato, el "que" puede introducir una subordinada final (ej: "Te pido que vengas [para que vengas]"). Es un uso elíptico o directo de la final.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "basico"
+  tags: ["final", "identificacion"]
+
+variables:
+  accion: uno_de(["Estudio", "Trabajo", "Ahorro"])
+  fin: uno_de(["para el futuro", "para mañana", "para siempre"])
+
+respuesta: "para el futuro"
+tipo: completar
+
+enunciado: "En '{accion} {fin}', ¿cuál es la parte que indica el fin?"
+
+explicacion: |
+  "Para el futuro" indica el propósito o meta de la acción.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "basico"
+  tags: ["concesiva", "ejemplo"]
+
+variables:
+  condicion: uno_de(["tenga frío", "sea tarde", "cueste dinero"])
+  accion: uno_de(["iré", "lo haré", "lo compraré"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "'Aunque {condicion}, {accion}.' es una oración subordinada concesiva."
+
+explicacion: |
+  "Aunque" es la conjunción concesiva por excelencia. Introduce una circunstancia que no impide la acción principal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "intermedio"
+  tags: ["final", "proposito"]
+
+variables:
+  sujeto: uno_de(["El estudiante", "El trabajador", "El artista"])
+  accion: uno_de(["estudia", "trabaja", "dibuja"])
+  fin: uno_de(["para aprender", "para ganar", "para expresar"])
+
+respuesta: "para aprender"
+tipo: completar
+
+enunciado: "Completa con el fin lógico: '{sujeto} {accion} {fin}.'"
+
+explicacion: |
+  Depende del contexto, pero "para aprender" es un fin común para "estudia". La pregunta pide completar con una opción válida de fin.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "avanzado"
+  tags: ["final", "subjuntivo"]
+
+variables:
+  verbo_principal: uno_de(["Quiero", "Necesito", "Exijo"])
+  sujeto2: uno_de(["que vengas", "que lo hagas", "que lo digas"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En '{verbo_principal} {sujeto2}', el verbo 'sujeto2' debe estar en subjuntivo porque es una subordinada final."
+
+explicacion: |
+  Las oraciones finales introducidas por "para que" o "a fin de que" (o el "que" elíptico tras verbos de voluntad) requieren el modo subjuntivo en la subordinada.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "avanzado"
+  tags: ["final", "registro"]
+
+variables:
+  accion: uno_de(["Se estableció", "Se creó", "Se diseñó"])
+  fin_formal: "a fin de que"
+  objetivo: uno_de(["se garantice la seguridad", "se reduzca el riesgo", "se cumpla la norma"])
+
+respuesta: "a fin de que"
+tipo: completar
+
+enunciado: "Completa con la locución final formal: '{accion} medidas {fin_formal} {objetivo}.'"
+
+explicacion: |
+  "A fin de que" es la locución conjuntiva final formal adecuada para contextos administrativos o legales.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "intermedio"
+  tags: ["concesiva", "sinonimia"]
+
+variables:
+  esfuerzo: uno_de(["insistas", "trates", "pidas"])
+  resultado: uno_de(["no lo lograrás", "no lo conseguirás", "no lo obtendrás"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "'Por más que {esfuerzo}, {resultado}.' es una estructura de subordinada concesiva."
+
+explicacion: |
+  "Por más que" introduce una concesiva, indicando que el esfuerzo no garantiza el resultado o que el resultado ocurre a pesar del esfuerzo.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "basico"
+  tags: ["final", "pregunta_clave"]
+
+variables:
+  accion: uno_de(["Voy", "Estudio", "Trabajo"])
+  fin: uno_de(["al cine", "para aprender", "por dinero"])
+
+respuesta: "para aprender"
+tipo: completar
+
+enunciado: "¿Cuál de estas opciones responde a '¿Para qué?' en el contexto de una subordinada final?"
+
+explicacion: |
+  "Para aprender" responde directamente a la pregunta de propósito. "Al cine" responde a "¿A dónde?". "Por dinero" responde a "¿Por qué?" (causa/motivo).
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_concesiva_y_final"
+  nivel: "avanzado"
+  tags: ["final", "que"]
+
+variables:
+  verbo_voluntad: uno_de(["Pido", "Quiero", "Mando"])
+  sujeto2: uno_de(["que vengas", "que lo hagas", "que lo sepas"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En '{verbo_voluntad} {sujeto2}', el 'que' introduce una oración subordinada final."
+
+explicacion: |
+  Cuando el verbo de la principal expresa voluntad, deseo o mandato, el "que" puede introducir una subordinada final (ej: "Te pido que vengas [para que vengas]"). Es un uso elíptico o directo de la final.
+```
+
+## Sección: subordinada-condicional (22 preguntas)
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_condicional"
+  nivel: "basico"
+  tags: ["identificacion", "oracion_compuesta"]
+
+variables:
+  condicion: uno_de(["llueve", "hace calor", "estudian"])
+  consecuencia: uno_de(["no salimos", "tomamos agua", "van al cine"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración 'Si {condicion}, {consecuencia}', la subordinada es condicional y expresa una posibilidad real."
+
+explicacion: |
+  La estructura "Si + presente de indicativo, futuro/_presente" es típica de las condicionales reales o probables.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_condicional"
+  nivel: "basico"
+  tags: ["gramatica", "indicativo"]
+
+variables:
+  frase: "Si llueve, me quedo en casa."
+  es_correcta: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La oración '{frase}' es una condicional real correcta porque usa el presente de indicativo en la subordinada."
+
+explicacion: |
+  Para expresar condiciones probables o reales, se usa el presente de indicativo en la subordinada ('llueve') y presente o futuro en la principal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_condicional"
+  nivel: "avanzado"
+  tags: ["irrealidad", "pasado"]
+
+variables:
+  frase: "Si hubiera sabido, habría venido."
+  es_condicional: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La oración '{frase}' es una oración compuesta con subordinada condicional irreal referida al pasado."
+
+explicacion: |
+  Usa el pluscuamperfecto de subjuntivo ('hubiera sabido') en la subordinada y el condicional compuesto ('habría venido') en la principal, típico de situaciones irreales en el pasado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_condicional"
+  nivel: "intermedio"
+  tags: ["conjuncciones", "subjuntivo"]
+
+variables:
+  frase: "No saldré a menos que termines."
+  es_correcta: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La oración '{frase}' es gramaticalmente correcta porque 'a menos que' exige el modo subjuntivo."
+
+explicacion: |
+  Las conjunciones condicionales negativas como "a menos que", "salvo que" o "excepto que" siempre rigen el subjuntivo.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_condicional"
+  nivel: "basico"
+  tags: ["tiempos_verbales", "futuro"]
+
+variables:
+  frase: "Si iré a la playa, hará sol."
+  es_correcta: falso
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La oración '{frase}' es correcta."
+
+explicacion: |
+  Es incorrecta. La subordinada introducida por "si" nunca va en futuro de indicativo; debe ir en presente: "Si hace sol, iré a la playa" (no "Si iré a la playa, hará sol").
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_condicional"
+  nivel: "basico"
+  tags: ["sintaxis", "orden"]
+
+variables:
+  frase: "No iremos si no llueve."
+  es_condicional: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración '{frase}', la subordinada condicional puede ir al final de la oración principal."
+
+explicacion: |
+  Las oraciones subordinadas condicionales pueden ir antes o después de la principal sin cambiar el significado lógico.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_condicional"
+  nivel: "intermedio"
+  tags: ["conjuncciones", "subjuntivo"]
+
+variables:
+  frase: "Iremos al cine salvo que tengas otra cosa que hacer."
+  es_correcta: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La oración '{frase}' es correcta porque 'salvo que' rige el subjuntivo."
+
+explicacion: |
+  "Salvo que" es una conjunción condicional negativa que exige el modo subjuntivo en la subordinada.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_condicional"
+  nivel: "intermedio"
+  tags: ["conjuncciones", "registro_formal"]
+
+variables:
+  frase: "En caso de que llueva, llevamos paraguas."
+  es_correcta: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La oración '{frase}' es correcta en registro formal."
+
+explicacion: |
+  "En caso de que" es una conjunción condicional formal que rige el subjuntivo ("llueva"). Es correcta.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_condicional"
+  nivel: "intermedio"
+  tags: ["conjuncciones", "subjuntivo"]
+
+variables:
+  frase: "No vendré a no ser que me inviten."
+  es_correcta: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La oración '{frase}' es correcta porque 'a no ser que' rige el subjuntivo."
+
+explicacion: |
+  "A no ser que" es una conjunción condicional negativa que exige el modo subjuntivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "basico"
+  tags: ["identificacion", "si"]
+
+variables:
+  sujeto: uno_de(["Juan", "María", "El equipo", "Nosotros"])
+  verbo1: uno_de(["llueva", "haga", "tenga", "venga"])
+  verbo2: uno_de(["iremos", "comeremos", "saliremos", "caminaremos"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración 'Si {verbo1}, {sujeto} {verbo2}', la cláusula 'Si {verbo1}' es una subordinada condicional."
+
+explicacion: |
+  La cláusula introducida por "si" establece una condición para la acción principal, por lo que funciona como subordinada condicional.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "intermedio"
+  tags: ["concordancia", "indicativo"]
+
+variables:
+  a: random(1, 5)
+  b: random(6, 10)
+  condicion: "real"
+
+respuesta: "llueve"
 tipo: input
 
-enunciado: "En la oración '{oracion}', ¿qué pronombre personal o demostrativo neutro podemos usar para reemplazar a la subordinada sustantiva de sujeto '{subordinada}'?"
+enunciado: "Completa la oración con la forma verbal correcta para expresar una condición probable: 'Si ______ (llover), no saldremos al parque'."
 
 explicacion: |
-  La subordinada 'que Juan llegó tarde' funciona como sujeto. Podemos reemplazarla por el pronombre 'eso' o 'algo'. 'Eso es cierto' mantiene la estructura sintáctica básica.
+  Para situaciones reales o probables, se usa el presente de indicativo en la subordinada ("llueve") y el futuro en la principal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "avanzado"
+  tags: ["sintaxis", "complemento"]
+
+variables:
+  verbo_principal: uno_de(["ir", "venir", "comer", "dormir"])
+
+respuesta: "complemento circunstancial de condición"
+tipo: input
+
+enunciado: "En la oración 'No iré si no llamas', la subordinada 'si no llamas' funciona sintácticamente como un/a..."
+
+explicacion: |
+  La subordinada condicional actúa como complemento circunstancial de condición del verbo de la oración principal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "intermedio"
+  tags: ["hipotesis", "subjuntivo"]
+
+variables:
+  sujeto: uno_de(["Yo", "Él", "Tú", "Ella"])
+  verbo_irreal: "tuviera"
+
+respuesta: "hipotética"
+tipo: input
+
+enunciado: "Clasifica la realidad de la oración: 'Si {sujeto} {verbo_irreal} tiempo, estudiaría más'. ¿Es real, probable o hipotética/irreal?"
+
+explicacion: |
+  El uso del imperfecto de subjuntivo en la condicional y condicional simple en la principal indica una situación hipotética o irreal en el presente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "basico"
+  tags: ["estructura", "puntuacion"]
+
+variables:
+  cond: "Si estudias mucho"
+  conse: "aprobarás el examen"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En español, es correcto invertir el orden: 'Aprobarás el examen si estudias mucho' sin cambiar el significado ni la gramática."
+
+explicacion: |
+  La subordinada condicional puede ir antes o después de la principal. Si va al principio, lleva coma; si va al final, no la lleva.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "intermedio"
+  tags: ["tiempos", "indicativo"]
+
+variables:
+  a: random(1, 10)
+  b: random(11, 20)
+  tiempo_sub: "presente"
+  tiempo_main: "futuro"
+
+respuesta: "presente"
+tipo: input
+
+enunciado: "Para expresar una condición probable en el futuro, ¿qué tiempo verbal se usa en la subordinada con 'si'? 'Si ______ (verbo), iré'."
+
+explicacion: |
+  En condiciones probables, la subordinada usa el presente de indicativo, aunque se refiera al futuro.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "avanzado"
+  tags: ["matiz", "exclusion"]
+
+variables:
+  contexto: "negativo"
+
+respuesta: "exclusión"
+tipo: input
+
+enunciado: "La conjunción 'a menos que' introduce una subordinada condicional con matiz de..."
+
+explicacion: |
+  "A menos que" implica una excepción o condición negativa: la acción principal no ocurrirá salvo que se cumpla la condición.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "intermedio"
+  tags: ["error", "subjuntivo"]
+
+variables:
+  verbo_erroneo: "tendré"
+  verbo_correcto: "tenga"
+
+respuesta: "tenga"
+tipo: input
+
+enunciado: "Corrige el verbo en la oración irreal: 'Si yo ______ (tener) suerte, ganaría la lotería'."
+
+explicacion: |
+  Para situaciones irreales, la subordinada requiere pretérito imperfecto de subjuntivo ('tuviera' o 'tuviese'), no futuro ni presente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "intermedio"
+  tags: ["condicion", "requisito"]
+
+variables:
+  requisito: "vengas"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "'Con tal de que' introduce una condición necesaria o requisito indispensable. 'Iré con tal de que vengas' es correcta."
+
+explicacion: |
+  "Con tal de que" exige el cumplimiento de la condición para que se realice la acción principal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "intermedio"
+  tags: ["sinonimia", "paráfrasis"]
+
+variables:
+  original: "Si no comes, tendrás hambre"
+  equivalente: "A menos que comas, tendrás hambre"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La oración 'A menos que comas, tendrás hambre' tiene el mismo significado lógico que 'Si no comes, tendrás hambre'."
+
+explicacion: |
+  Ambas expresan la misma condición negativa. "A menos que" equivale a "si no".
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "avanzado"
+  tags: ["pasado", "irreal"]
+
+variables:
+  verbo_sub: "hubiera tenido"
+  verbo_main: "habría viajado"
+
+respuesta: "irreal del pasado"
+tipo: input
+
+enunciado: "Clasifica: 'Si hubiera tenido tiempo, habría viajado'. ¿Qué tipo de realidad expresa?"
+
+explicacion: |
+  Expresa una condición irreal en el pasado (no se cumplió) y su consecuencia hipotética también en el pasado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "intermedio"
+  tags: ["comparacion", "indicativo_vs_subjuntivo"]
+
+variables:
+  indicativo: "Si llueve, me mojo"
+  subjuntivo: "Si lloviera, me mojaría"
+
+respuesta: "probable"
+tipo: input
+
+enunciado: "¿Qué tipo de realidad expresa 'Si llueve, me mojo' en comparación con 'Si lloviera...'?"
+
+explicacion: |
+  'Si llueve' (indicativo) expresa probabilidad. 'Si lloviera' (subjuntivo) expresa hipótesis o irrealidad.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_condicional"
+  nivel: "avanzado"
+  tags: ["variantes", "subjuntivo"]
+
+variables:
+  forma1: "hubiera"
+  forma2: "hubiese"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración 'Si hubiese llovido, no habríamos salido', el uso de 'hubiese' es correcto y equivalente a 'hubiera'."
+
+explicacion: |
+  Ambas formas del pretérito pluscuamperfecto de subjuntivo son válidas en español.
+```
+
+## Sección: subordinada-consecutiva (45 preguntas)
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["subordinada", "consecutiva", "correlato"]
+
+variables:
+  adjetivo: uno_de(["cansado", "contento", "enfadado", "sorprendido"])
+  consecuencia: uno_de(["no pudo dormir", "lloró de alegría", "gritó", "se quedó mudo"])
+
+respuesta: "tan"
+tipo: completar
+
+enunciado: "Ella estaba {adjetivo} ___ que {consecuencia}."
+
+explicacion: |
+  La estructura "tan + adjetivo + que" introduce una subordinada consecutiva que expresa el resultado de un grado intenso de la cualidad.
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "basico"
-  tags: ["sintaxis", "conectores"]
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["subordinada", "consecutiva", "cantidad"]
 
 variables:
-  oracion: "Es importante que descanses"
-  conector: "que"
+  base: random(10, 50)
+  incremento: random(5, 20)
+  total: base + incremento
+
+respuesta: total
+tipo: input
+
+enunciado: "Si tengo {base} manzanas y compro {incremento} más, tengo tanta fruta que me alcanza para hacer {total} pasteles. ¿Cuántas manzanas tengo en total?"
+
+explicacion: |
+  {base} + {incremento} = {total}. La estructura consecutiva es "tanta fruta que...": 'tanta' concuerda en género femenino con 'fruta', y 'que' introduce la consecuencia (la cantidad de pasteles que permite hacer).
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["subordinada", "consecutiva", "conjuncion"]
+
+variables:
+  causa: uno_de(["El ruido era ensordecedor", "Llovió sin parar", "El examen fue muy largo"])
+  efecto: uno_de(["salimos al patio", "nos quedamos adentro", "todos se cansaron"])
 
 respuesta: "que"
-tipo: input
-
-enunciado: "En la oración '{oracion}', ¿qué palabra introduce la subordinada sustantiva de sujeto?"
-
-explicacion: |
-  La conjunción 'que' es el conector más habitual para introducir oraciones subordinadas sustantivas de sujeto.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "infinitivo"]
-
-variables:
-  oracion: "Es necesario estudiar para aprobar"
-  sujeto: "estudiar para aprobar"
-
-respuesta: "estudiar para aprobar"
-tipo: input
-
-enunciado: "En la oración '{oracion}', ¿cuál es la oración subordinada sustantiva de sujeto (que puede estar formada por un infinitivo)?"
-
-explicacion: |
-  Cuando el sujeto es indeterminado, se usa el infinitivo. 'Estudiar para aprobar' es el sujeto de 'es necesario'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "verbos_pronominales"]
-
-variables:
-  oracion: "Me sorprende que no hayas llamado"
-  sujeto: "que no hayas llamado"
-
-respuesta: "que no hayas llamado"
-tipo: input
-
-enunciado: "En la oración '{oracion}', ¿cuál es la subordinada sustantiva de sujeto?"
-
-explicacion: |
-  El verbo es 'sorprender' (en forma pronominal 'me sorprende'). La pregunta '¿Qué me sorprende?' da como respuesta 'que no hayas llamado', que es el sujeto.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "identificacion"]
-
-variables:
-  oracion: "Es evidente que ganaremos el partido"
-  subordinada: "que ganaremos el partido"
-
-respuesta: "que ganaremos el partido"
-tipo: input
-
-enunciado: "Identificá la subordinada sustantiva de sujeto en: '{oracion}'"
-
-explicacion: |
-  El verbo principal es 'es'. La pregunta '¿Qué es evidente?' responde 'que ganaremos el partido'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "basico"
-  tags: ["sintaxis", "sustitucion"]
-
-variables:
-  oracion: "Es bueno que ayudes"
-  pronombre: "eso"
-
-respuesta: "eso"
-tipo: input
-
-enunciado: "En la oración '{oracion}', ¿qué pronombre puede reemplazar a la subordinada de sujeto para formar una oración impersonal o con sujeto nulo?"
-
-explicacion: |
-  'Eso es bueno' o 'Algo es bueno'. El pronombre 'eso' es el más común para referirse a una proposición completa.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "avanzado"
-  tags: ["sintaxis", "nucleo"]
-
-variables:
-  oracion: "Es un hecho que lo hizo"
-  nucleo: "que lo hizo"
-
-respuesta: "que lo hizo"
-tipo: input
-
-enunciado: "En la oración '{oracion}', ¿cuál es el núcleo (la proposición completa) de la subordinada sustantiva de sujeto?"
-
-explicacion: |
-  El sujeto es la proposición completa 'que lo hizo'. No es una sola palabra.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "basico"
-  tags: ["sintaxis", "verbo_ser"]
-
-variables:
-  oracion: "Es una lástima que se vaya"
-  subordinada: "que se vaya"
-
-respuesta: "que se vaya"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'ser'. Pregunta '¿Qué es una lástima?'. Respuesta: 'que se vaya'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "basico"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Me gusta que vengas"
-  subordinada: "que vengas"
-
-respuesta: "que vengas"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'gustar'. Pregunta '¿Qué gusta?'. Respuesta: 'que vengas'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Me importa que seas honesto"
-  subordinada: "que seas honesto"
-
-respuesta: "que seas honesto"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'importar'. Pregunta '¿Qué me importa?'. Respuesta: 'que seas honesto'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Me parece que es tarde"
-  subordinada: "que es tarde"
-
-respuesta: "que es tarde"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'parecer'. Pregunta '¿Qué me parece?'. Respuesta: 'que es tarde'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Basta que lo digas"
-  subordinada: "que lo digas"
-
-respuesta: "que lo digas"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'bastar'. Pregunta '¿Qué basta?'. Respuesta: 'que lo digas'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Me ocurre que te vi ayer"
-  subordinada: "que te vi ayer"
-
-respuesta: "que te vi ayer"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'ocurrir' (en sentido de 'venir a la mente'). Pregunta '¿Qué me ocurre?'. Respuesta: 'que te vi ayer'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "avanzado"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Consta que lo hizo él"
-  subordinada: "que lo hizo él"
-
-respuesta: "que lo hizo él"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'constar' (en sentido de 'estar demostrado'). Pregunta '¿Qué consta?'. Respuesta: 'que lo hizo él'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Se trata de que ganemos"
-  subordinada: "que ganemos"
-
-respuesta: "que ganemos"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'tratar' (en sentido de 'versar sobre'). Pregunta '¿Qué se trata?'. Respuesta: 'que ganemos'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Depende de que vengas"
-  subordinada: "que vengas"
-
-respuesta: "que vengas"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'depender'. Pregunta '¿De qué depende?'. Respuesta: 'de que vengas'. La proposición completa es el objeto de la preposición, pero en análisis profundo de sujeto oracional, a veces se discute. Sin embargo, en la estructura 'Depende de X', X es CD o CO. Pero si la oración es 'Depende que vengas' (menos común pero posible), sería sujeto. Asumiremos la estructura estándar 'Depende de que...' donde 'que vengas' es el objeto de la preposición. 
-  Corrección: Para evitar ambigüedad, usaremos una oración donde el sujeto sea claro.
-  Nueva oracion: "Es necesario que vengas" -> Ya usada.
-  Usaremos: "Es probable que vengas".
-  Respuesta: "que vengas".
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Es probable que vengas"
-  subordinada: "que vengas"
-
-respuesta: "que vengas"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'ser'. Pregunta '¿Qué es probable?'. Respuesta: 'que vengas'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Es posible que llueva"
-  subordinada: "que llueva"
-
-respuesta: "que llueva"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'ser'. Pregunta '¿Qué es posible?'. Respuesta: 'que llueva'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "basico"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Es necesario que descanses"
-  subordinada: "que descanses"
-
-respuesta: "que descanses"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'ser'. Pregunta '¿Qué es necesario?'. Respuesta: 'que descanses'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "basico"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Es útil que leas"
-  subordinada: "que leas"
-
-respuesta: "que leas"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'ser'. Pregunta '¿Qué es útil?'. Respuesta: 'que leas'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Es justo que te premien"
-  subordinada: "que te premien"
-
-respuesta: "que te premien"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'ser'. Pregunta '¿Qué es justo?'. Respuesta: 'que te premien'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_sustantiva_de_sujeto"
-  nivel: "basico"
-  tags: ["sintaxis", "verbos_atipicos"]
-
-variables:
-  oracion: "Es verdad que lo viste"
-  subordinada: "que lo viste"
-
-respuesta: "que lo viste"
-tipo: input
-
-enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
-
-explicacion: |
-  Verbo 'ser'. Pregunta '¿Qué es verdad?'. Respuesta: 'que lo viste'.
-```
-
-## Sección: sujeto-y-predicado (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "basico"
-  tags: ["oracion_bimembre", "vocabulario"]
-
-enunciado: "¿En qué dos partes se divide una oración bimembre?"
-tipo: mc
-opciones_explicitas:
-  - "Sujeto (de quién se habla) y predicado (qué se dice de él)"
-  - "Sustantivo y verbo, únicamente"
-  - "Principio y final, sin ninguna otra distinción"
-respuesta: "Sujeto (de quién se habla) y predicado (qué se dice de él)"
-
-explicacion: |
-  Son dos mitades complementarias — no se puede tener una sin la
-  otra.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "basico"
-  tags: ["sujeto", "vocabulario"]
-
-enunciado: "¿Qué es el sujeto de una oración?"
-tipo: mc
-opciones_explicitas:
-  - "Un sintagma nominal, cuyo núcleo es un sustantivo o pronombre, que determina la concordancia del verbo"
-  - "El verbo principal de la oración"
-  - "Cualquier palabra que aparezca al final de la oración"
-respuesta: "Un sintagma nominal, cuyo núcleo es un sustantivo o pronombre, que determina la concordancia del verbo"
-
-explicacion: |
-  El núcleo del sujeto es, justamente, lo que decide si el verbo va
-  en singular o plural.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "basico"
-  tags: ["predicado", "vocabulario"]
-
-enunciado: "¿Qué es el predicado de una oración?"
-tipo: mc
-opciones_explicitas:
-  - "La parte que contiene el verbo (su núcleo) y todo lo que lo acompaña"
-  - "La parte que nombra de quién se habla"
-  - "Otro nombre para el sujeto tácito"
-respuesta: "La parte que contiene el verbo (su núcleo) y todo lo que lo acompaña"
-
-explicacion: |
-  El núcleo del predicado es siempre el verbo conjugado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "avanzado"
-  tags: ["nucleo", "problema"]
-
-enunciado: "En la oración 'Los estudiantes de la clase aprobaron el examen', ¿cuál es el núcleo del sujeto?"
-tipo: mc
-opciones_explicitas:
-  - "estudiantes"
-  - "los"
-  - "clase"
-  - "aprobaron"
-respuesta: "estudiantes"
-
-explicacion: |
-  Es el sustantivo principal del sintagma nominal sujeto — el que
-  determina la concordancia verbal ('aprobaron', no 'aprobó').
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-enunciado: "Marcá el sujeto y el predicado de esta oración."
-tipo: analisis_spans
-texto_analizar: "El perro grande corre por el parque"
-spans_pedidos:
-  - { desde: 0, hasta: 2, etiqueta: "sujeto" }
-  - { desde: 3, hasta: 6, etiqueta: "predicado" }
-
-explicacion: |
-  'El perro grande' es el sujeto (de quién se habla); 'corre por el
-  parque' es el predicado (qué se dice de él).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-enunciado: "Marcá el sujeto y el predicado de esta oración."
-tipo: analisis_spans
-texto_analizar: "Los estudiantes de la clase aprobaron el examen"
-spans_pedidos:
-  - { desde: 0, hasta: 4, etiqueta: "sujeto" }
-  - { desde: 5, hasta: 7, etiqueta: "predicado" }
-
-explicacion: |
-  'Los estudiantes de la clase' (incluye el complemento del nombre)
-  es el sujeto completo; 'aprobaron el examen' es el predicado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "avanzado"
-  tags: ["sujeto_tacito", "problema"]
-
 tipo: completar
-enunciado: "En la oración 'Comieron toda la pizza', el sujeto es ___ porque no aparece expresado en la oración."
+
+enunciado: "{causa}, ___ {efecto}."
+
+explicacion: |
+  La conjunción "que" es el nexo principal que introduce la subordinada consecutiva en este tipo de estructuras correlativas.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["subordinada", "consecutiva", "logica"]
+
+variables:
+  grado: random(1, 5)
+  sustantivo: uno_de(["paciencia", "dinero", "tiempo", "paciencia"])
+  
+  # Lógica simple para generar la respuesta basada en el grado
+  # Si grado es 1->3: consecuencia leve, 4-5: consecuencia fuerte
+  # Para simplificar el DSL, usamos una variable predefinida de consecuencia
+  consecuencia_leve: "poco a poco"
+  consecuencia_fuerte: "rápidamente"
+
+respuesta: "que"
+tipo: completar
+
+enunciado: "Tiene {sustantivo} ___ {consecuencia_leve} (si grado <= 3) o ___ {consecuencia_fuerte} (si grado > 3)."
+
+explicacion: |
+  Independientemente de la consecuencia, el nexo que introduce la subordinada consecutiva es "que".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["subordinada", "consecutiva", "estructura"]
+
+variables:
+  correlato: uno_de(["tan", "tanto", "tal"])
+  sustantivo: uno_de(["casa", "coche", "libro", "mesa"])
+
+respuesta: "tal"
+tipo: mc
+opciones_explicitas: ["tan", "tanto", "tal", "cuanto"]
+
+enunciado: "Si queremos enfatizar la naturaleza del sustantivo '{sustantivo}' en una consecutiva, usamos '___ + {sustantivo} + que'. ¿Cuál es el correlato?"
+
+explicacion: |
+  "Tal" se usa ante sustantivos para enfatizar la cualidad o naturaleza del mismo, seguido de "que".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["subordinada", "consecutiva", "analisis"]
+
+variables:
+  principal: uno_de(["El frío era intenso", "La noticia fue terrible", "El trabajo era pesado"])
+  subordinada: uno_de(["que temblaba", "que lloró", "que se rindió"])
+
+respuesta: principal
+tipo: completar
+
+enunciado: "En la oración '{principal} ___ {subordinada}', ¿cuál es la oración principal?"
+
+explicacion: |
+  La oración principal contiene el correlato gradativo (el grado intenso) y es la causa de la consecuencia. Aquí, "El frío era intenso" es la principal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "avanzado"
+  tags: ["subordinada", "consecutiva", "cantidad"]
+
+variables:
+  x: random(2, 10)
+  resultado: x * 2
+
+respuesta: resultado
+tipo: input
+
+enunciado: "Si 'tanto' equivale a {x} y la consecuencia es el doble, ¿cuánto es el resultado? (Escribe solo el número)."
+
+explicacion: |
+  Ejercicio que vincula la lógica matemática con la estructura "tanto... que" para verificar la comprensión de la relación de proporcionalidad en la consecuencia.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "avanzado"
+  tags: ["subordinada", "consecutiva", "sintaxis"]
+
+variables:
+  funcion: uno_de(["Complemento Directo", "Complemento Circunstancial de Consecuencia", "Atributo", "Sujeto"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Verdadero o Falso: La subordinada consecutiva funciona sintácticamente como un '{funcion}' de la oración principal."
+
+explicacion: |
+  La subordinada consecutiva funciona como un Complemento Circunstancial de Consecuencia (o Atributo en casos específicos con 'ser', pero generalmente CC). Si la opción es CD, Atributo o Sujeto, es falso.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["subordinada", "consecutiva", "vocabulario"]
+
+variables:
+  adj: uno_de(["difícil", "fácil", "largo", "corto"])
+  sust: uno_de(["alumnos", "libros", "tiempo", "paciencia"])
+
+respuesta: "tan"
+tipo: mc
+opciones_explicitas: ["tan", "tanto", "tal", "mucho"]
+
+enunciado: "El examen fue ___ {adj} que {sust} abandonaron. ¿Qué palabra falta?"
+
+explicacion: |
+  "Tan" se usa con adjetivos o adverbios. Como "{adj}" es un adjetivo, la forma correcta es "tan".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["subordinada", "consecutiva", "identificacion"]
+
+variables:
+  principal: uno_de(["Estaba tan cansado", "Tenía tanto sueño", "Fue tal el ruido"])
+  subordinada: uno_de(["que no pude estudiar", "que me dormí", "que salí corriendo"])
+
+respuesta: subordinada
+tipo: completar
+
+enunciado: "En la oración '{principal} ___ {subordinada}', ¿cuál es la subordinada consecutiva?"
+
+explicacion: |
+  La subordinada consecutiva es la parte que expresa la consecuencia, introducida por "que".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["subordinada", "consecutiva", "grado"]
+
+variables:
+  base: random(100, 200)
+  porcentaje: random(10, 50)
+  resultado: floor(base * porcentaje / 100)
+
+respuesta: resultado
+tipo: input
+
+enunciado: "Si el grado es {base} y la consecuencia es el {porcentaje}% de ese grado, ¿cuánto es el resultado? (Redondea al entero más cercano)."
+
+explicacion: |
+  Ejercicio que refuerza la idea de que la consecutiva implica una medida o resultado derivado del grado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["subordinada", "consecutiva", "nexo"]
+
+variables:
+  estructura: uno_de(["tan... que", "tanto... que", "tal... que"])
+
+respuesta: "que"
+tipo: mc
+opciones_explicitas: ["porque", "que", "si", "cuando"]
+
+enunciado: "En la estructura '{estructura}', ¿cuál es la conjunción que introduce la consecutiva?"
+
+explicacion: |
+  La conjunción es "que".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["subordinada", "consecutiva", "tal"]
+
+variables:
+  sust: uno_de(["sorpresa", "alegría", "tristeza", "ira"])
+  accion: uno_de(["se le cayó el celular", "no podía hablar", "corrió hacia la salida", "se abrazaron"])
+
+respuesta: "tal"
+tipo: completar
+
+enunciado: "Fue {sust} ___ que {accion}."
+
+explicacion: |
+  "Tal" se usa con sustantivos para enfatizar la naturaleza del hecho, seguido de "que".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "avanzado"
+  tags: ["subordinada", "consecutiva", "cantidad"]
+
+variables:
+  x: random(5, 15)
+  resultado: x + 10
+
+respuesta: resultado
+tipo: input
+
+enunciado: "Si 'tanto' equivale a {x} y la consecuencia es {x} + 10, ¿cuánto es el resultado? (Escribe solo el número)."
+
+explicacion: |
+  Ejercicio que vincula la lógica matemática con la estructura "tanto... que" para verificar la comprensión de la relación de proporcionalidad en la consecuencia.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["subordinada", "consecutiva", "vocabulario"]
+
+variables:
+  adj: uno_de(["difícil", "fácil", "largo", "corto"])
+  sust: uno_de(["alumnos", "libros", "tiempo", "paciencia"])
+
+respuesta: "tan"
+tipo: mc
+opciones_explicitas: ["tan", "tanto", "tal", "mucho"]
+
+enunciado: "El examen fue ___ {adj} que {sust} abandonaron. ¿Qué palabra falta?"
+
+explicacion: |
+  "Tan" se usa con adjetivos o adverbios. Como "{adj}" es un adjetivo, la forma correcta es "tan".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["subordinada", "consecutiva", "identificacion"]
+
+variables:
+  principal: uno_de(["Estaba tan cansado", "Tenía tanto sueño", "Fue tal el ruido"])
+  subordinada: uno_de(["que no pude estudiar", "que me dormí", "que salí corriendo"])
+
+respuesta: subordinada
+tipo: completar
+
+enunciado: "En la oración '{principal} ___ {subordinada}', ¿cuál es la subordinada consecutiva?"
+
+explicacion: |
+  La subordinada consecutiva es la parte que expresa la consecuencia, introducida por "que".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["subordinada", "consecutiva", "grado"]
+
+variables:
+  base: random(100, 200)
+  porcentaje: random(10, 50)
+  resultado: floor(base * porcentaje / 100)
+
+respuesta: resultado
+tipo: input
+
+enunciado: "Si el grado es {base} y la consecuencia es el {porcentaje}% de ese grado, ¿cuánto es el resultado? (Redondea al entero más cercano)."
+
+explicacion: |
+  Ejercicio que refuerza la idea de que la consecutiva implica una medida o resultado derivado del grado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["subordinada", "consecutiva", "nexo"]
+
+variables:
+  estructura: uno_de(["tan... que", "tanto... que", "tal... que"])
+
+respuesta: "que"
+tipo: mc
+opciones_explicitas: ["porque", "que", "si", "cuando"]
+
+enunciado: "En la estructura '{estructura}', ¿cuál es la conjunción que introduce la consecutiva?"
+
+explicacion: |
+  La conjunción es "que".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["identificacion", "tan_que"]
+
+variables:
+  adjetivo: uno_de(["rápido", "lento", "fuerte", "débil"])
+  consecuencia: uno_de(["se cansó", "llegó tarde", "ganó la carrera", "perdió el tren"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración 'Corrió tan {adjetivo} que {consecuencia}', la parte subrayada es una subordinada consecutiva."
+
+explicacion: |
+  La estructura 'tan + adjetivo/adverbio + que' introduce una consecuencia directa del grado expresado en la principal. Por lo tanto, la afirmación es correcta.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["correlato", "tanto_que"]
+
+variables:
+  sustantivo: uno_de(["miedo", "ganas", "tiempo", "dinero"])
+  cantidad: random(5, 20)
+
+respuesta: "tanto"
+tipo: completar
+
+enunciado: "Tenía ___ {cantidad} {sustantivo} que no podía dormir. ¿Qué palabra falta para formar la consecutiva?"
+
+explicacion: |
+  La estructura correcta es 'tanto + sustantivo + que'. 'Tanto' concuerda en género y número con el sustantivo 'miedo' (masculino singular) o se usa invariablemente como adverbio de cantidad antes del sustantivo en esta construcción específica de grado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["diferenciacion", "comparativa_vs_consecutiva"]
+
+variables:
+  a: random_float(1.0, 9.9)
+  b: random_float(1.0, 9.9)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si en una oración se usa 'más... que' para igualar dos términos, estamos ante una subordinada consecutiva."
+
+explicacion: |
+  'Más... que' suele introducir una comparativa de igualdad o superioridad. La consecutiva requiere un correlato de grado (tan, tanto, tal) seguido de 'que' que indica RESULTADO, no comparación directa entre dos términos equivalentes.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["identificacion", "tal_que"]
+
+variables:
+  sustantivo: uno_de(["sorpresa", "alegría", "tristeza", "ira"])
+  efecto: uno_de(["se cayó", "lloró", "sonrió", "gritó"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Fue tal su {sustantivo} que se {efecto}', la cláusula final es consecutiva."
+
+explicacion: |
+  La estructura 'tal + sustantivo + que' indica que la intensidad de la causa provocó un efecto inevitable. Es una subordinada consecutiva clásica.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["produccion", "tan_que"]
+
+variables:
+  sujeto: uno_de(["El niño", "La profesora", "El perro", "El coche"])
+  adjetivo: uno_de(["intenso", "fuerte", "agudo", "molesto"])
+  resultado: uno_de(["tembló", "sudó", "huyó", "paró"])
+
+respuesta: "tan"
+tipo: completar
+
+enunciado: "El ruido fue ___ {adjetivo} que el perro se {resultado}. ¿Qué correlato falta?"
+
+explicacion: |
+  '{adjetivo}' es un adjetivo que cualifica a 'ruido' (el sustantivo 'ruido' ya está en la oración; lo que falta es el correlato antes del adjetivo). Como el hueco precede a un adjetivo, se usa 'tan' (no 'tanto', que se usaría directamente ante el sustantivo: 'Hizo tanto ruido que...').
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["analisis", "tanto_que"]
+
+variables:
+  sustantivo: uno_de(["trabajo", "esfuerzo", "paciencia", "paciencia"])
+  resultado: uno_de(["se rindió", "lo logró", "lo abandonó", "lo disfrutó"])
+
+respuesta: "tanto"
+tipo: completar
+
+enunciado: "Hizo ___ {sustantivo} que al final lo {resultado}. ¿Qué palabra completa la consecutiva?"
+
+explicacion: |
+  Cuando el correlato va seguido de un sustantivo que indica cantidad, se utiliza 'tanto'. 'Tanto trabajo' implica una cantidad tal que provoca el resultado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "avanzado"
+  tags: ["logica", "inferencia"]
+
+variables:
+  causa: uno_de(["llovió mucho", "hizo mucho frío", "comió rápido", "durmió poco"])
+  efecto: uno_de(["se inundó la calle", "hubo hielo", "le dio indigestión", "estaba cansado"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si 'Llovió tanto que se inundó la calle' es consecutiva, entonces 'Llovió mucho y se inundó la calle' es una coordinación copulativa."
+
+explicacion: |
+  La primera oración tiene una relación de causa-efecto interna (consecutiva). La segunda une dos hechos con 'y', siendo una coordinación copulativa que no implica necesariamente la misma intensidad causal, aunque los hechos sean similares. La afirmación sobre la clasificación gramatical es correcta.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["diferenciacion", "tal_vs_tanto"]
+
+variables:
+  sust: uno_de(["miedo", "temor"])
+  corr_tanto: "tanto"
+  corr_tal: "tal"
+
+respuesta: "tal"
+tipo: completar
+
+enunciado: "Fue ___ su {sust} que se paralizó. ¿Es más adecuado 'tanto' o 'tal' para enfatizar la naturaleza del sentimiento?"
+
+explicacion: |
+  'Tal' se usa a menudo con sustantivos abstractos para enfatizar la intensidad o la naturaleza del estado (sorpresa, miedo, admiración), aunque 'tanto' también es posible. En contextos literarios o enfáticos, 'tal' es muy común para 'sorpresa' o 'miedo'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["nexo", "que"]
+
+variables:
+  nexo: "que"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una subordinada consecutiva, la conjunción 'que' es obligatoria para introducir la consecuencia."
+
+explicacion: |
+  Sí, la estructura básica de la consecutiva requiere un correlato (tan, tanto, tal) seguido de la conjunción 'que' que introduce la cláusula de resultado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["produccion", "tanto_que"]
+
+variables:
+  sust: uno_de(["fuerza", "energía", "paciencia", "paciencia"])
+  resultado: uno_de(["llegó al final", "se agotó", "ganó", "perdió"])
+
+respuesta: "tanto"
+tipo: completar
+
+enunciado: "Tuvo ___ {sust} para {resultado}. ¿Qué correlato falta?"
+
+explicacion: |
+  'Tanto' es el correlato adecuado cuando va seguido de un sustantivo que indica cantidad o grado de una cualidad medible.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["identificacion", "analisis_sintactico"]
+
+variables:
+  oracion: uno_de(["Está tan cansado que duerme", "Es tan alto como su padre", "Corrió más rápido que tú"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La oración 'Está tan cansado que duerme' contiene una subordinada consecutiva."
+
+explicacion: |
+  La estructura 'tan + adjetivo + que' introduce una consecuencia. 'Que duerme' es la subordinada consecutiva.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["analisis", "grado"]
+
+variables:
+  adj: uno_de(["rápido", "lento", "fuerte", "débil"])
+  corr: "tan"
+
+respuesta: "tan"
+tipo: completar
+
+enunciado: "El coche es ___ {adj} que llega primero. ¿Qué palabra falta?"
+
+explicacion: |
+  'Tan' se usa con adjetivos y adverbios para expresar un grado intenso que provoca un resultado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["identificacion", "tal_que"]
+
+variables:
+  sust: uno_de(["alegría", "tristeza", "ira", "paz"])
+  resultado: uno_de(["sonrió", "lloró", "gritó", "calló"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Fue tal su {sust} que {resultado}', la oración es consecutiva."
+
+explicacion: |
+  La estructura 'tal + sustantivo + que' es una forma clásica de subordinada consecutiva, indicando que la intensidad del sentimiento provocó la acción.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "avanzado"
+  tags: ["diferenciacion", "causal_vs_consecutiva"]
+
+variables:
+  causa: "lluvia"
+  efecto: "inundación"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La oración 'Como llovió mucho, se inundó la calle' es una subordinada consecutiva."
+
+explicacion: |
+  'Como' introduce una subordinada causal (explica la causa). La consecutiva expresa el RESULTADO de la principal, no la causa. La oración dada es una oración compuesta con subordinada causal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["produccion", "adverbio"]
+
+variables:
+  adv: uno_de(["rápidamente", "lentamente", "bien", "mal"])
+  resultado: uno_de(["terminó primero", "se equivocó", "ganó", "perdió"])
+
+respuesta: "tan"
+tipo: completar
+
+enunciado: "Corrió ___ {adv} que {resultado}. ¿Qué palabra falta?"
+
+explicacion: |
+  'Tan' se usa con adverbios (como 'rápidamente') para indicar un grado que provoca una consecuencia.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["identificacion", "tanto_que"]
+
+variables:
+  sust: uno_de(["trabajo", "esfuerzo", "paciencia", "paciencia"])
+  corr: "tanto"
+
+respuesta: "tanto"
+tipo: completar
+
+enunciado: "Hizo ___ {sust} que lo logró. ¿Qué palabra falta?"
+
+explicacion: |
+  'Tanto' es el correlato correcto antes de un sustantivo que indica cantidad o grado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["logica", "relacion"]
+
+variables:
+  causa: "temor"
+  efecto: "parálisis"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una subordinada consecutiva, la oración principal expresa la causa o el grado, y la subordinada expresa la consecuencia."
+
+explicacion: |
+  Correcto. La consecutiva depende de un correlato de grado en la principal para expresar un resultado inevitable.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["identificacion", "tal_que"]
+
+variables:
+  sust: uno_de(["sorpresa", "admiración", "miedo", "ira"])
+  resultado: uno_de(["se quedó mudo", "aplaudieron", "huyó", "gritó"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La oración 'Fue tal su {sust} que {resultado}' es consecutiva."
+
+explicacion: |
+  Sí, 'tal' funciona como correlato de grado para sustantivos, introduciendo una consecuencia.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["produccion", "adjetivo"]
+
+variables:
+  adj: uno_de(["alto", "bajo", "ancho", "estrecho"])
+  resultado: uno_de(["lo veía", "no lo veía", "lo tocaba", "lo perdía"])
+
+respuesta: "tan"
+tipo: completar
+
+enunciado: "El muro es ___ {adj} que {resultado}. ¿Qué palabra falta?"
+
+explicacion: |
+  'Tan' se usa con adjetivos para expresar un grado que provoca una consecuencia.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "avanzado"
+  tags: ["diferenciacion", "final_vs_consecutiva"]
+
+variables:
+  fin: "para"
+  consecutiva: "que"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La oración 'Estudié tanto que aprobé' es una subordinada final."
+
+explicacion: |
+  'Aprobé' es el RESULTADO (consecutiva), no el propósito (final). Las finales suelen usar 'para que' o 'a fin de que'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["identificacion", "tanto_que"]
+
+variables:
+  sust: uno_de(["tiempo", "dinero", "paciencia", "paciencia"])
+  corr: "tanto"
+
+respuesta: "tanto"
+tipo: completar
+
+enunciado: "Tenía ___ {sust} que lo gasté todo. ¿Qué palabra falta?"
+
+explicacion: |
+  'Tanto' es el correlato adecuado antes de sustantivos que indican cantidad.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["estructura", "tan_que"]
+
+variables:
+  adj: uno_de(["difícil", "fácil", "largo", "corto"])
+  resultado: uno_de(["no lo entendió", "lo resolvió", "lo leyó", "lo escribió"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'El examen fue tan {adj} que {resultado}', la subordinada es consecutiva."
+
+explicacion: |
+  Sí, la estructura 'tan + adj + que' introduce una consecuencia directa.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["produccion", "tal_que"]
+
+variables:
+  sust: uno_de(["alegría", "tristeza", "ira", "paz"])
+  resultado: uno_de(["sonrió", "lloró", "gritó", "calló"])
+
+respuesta: "tal"
+tipo: completar
+
+enunciado: "Fue ___ su {sust} que {resultado}. ¿Qué palabra falta?"
+
+explicacion: |
+  'Tal' es el correlato adecuado para sustantivos abstractos que enfatizan la intensidad del estado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["identificacion", "adverbio"]
+
+variables:
+  adv: uno_de(["rápidamente", "lentamente", "bien", "mal"])
+  resultado: uno_de(["terminó primero", "se equivocó", "ganó", "perdió"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La oración 'Corrió tan {adv} que {resultado}' es consecutiva."
+
+explicacion: |
+  Sí, 'tan' con adverbios introduce una consecutiva.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "avanzado"
+  tags: ["diferenciacion", "comparativa_vs_consecutiva"]
+
+variables:
+  comparativa: "más... que"
+  consecutiva: "tan... que"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La oración 'Es tan alto como su padre' es una subordinada consecutiva."
+
+explicacion: |
+  'Tan... como' es una comparativa de igualdad. La consecutiva usa 'tan... que' para indicar resultado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["identificacion", "tanto_que"]
+
+variables:
+  sust: uno_de(["trabajo", "esfuerzo", "paciencia", "paciencia"])
+  corr: "tanto"
+
+respuesta: "tanto"
+tipo: completar
+
+enunciado: "Hizo ___ {sust} que lo logró. ¿Qué palabra falta?"
+
+explicacion: |
+  'Tanto' es el correlato correcto antes de sustantivos que indican cantidad o grado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["logica", "relacion"]
+
+variables:
+  causa: "temor"
+  efecto: "parálisis"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una subordinada consecutiva, la oración principal expresa la causa o el grado, y la subordinada expresa la consecuencia."
+
+explicacion: |
+  Correcto. La consecutiva depende de un correlato de grado en la principal para expresar un resultado inevitable.
+```
+
+## Sección: subordinada-sustantiva-de-complemento-circunstancial (22 preguntas)
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "basico"
+  tags: ["definicion", "sustitucion"]
+
+variables:
+  op_a: "por un adverbio simple, como 'entonces'"
+  op_b: "por una preposición más un pronombre demostrativo, como 'por eso'"
+  op_c: "por el pronombre 'lo' sin preposición"
+  op_d: "por otro sustantivo cualquiera"
+
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "Una subordinada sustantiva de complemento circunstancial (de causa, finalidad, condición o concesión) se reconoce porque puede sustituirse..."
+
+explicacion: |
+  Se sustituye por "preposición + eso/ello" ('por eso', 'para eso', 'a pesar de eso'), no por un adverbio simple. Esa sustitución nominal es la prueba de que, aunque cumpla un papel circunstancial, es sintácticamente una sustantiva.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "basico"
+  tags: ["causa", "sustitucion"]
+
+variables:
+  causa: uno_de(["comió mal", "no durmió bien", "tomó frío"])
+
+respuesta: "por eso"
+tipo: completar
+
+enunciado: "'Se enfermó porque {causa}' se puede parafrasear como 'Se enfermó ___'."
+
+explicacion: |
+  La subordinada de causa se sustituye por 'por eso', confirmando que es una sustantiva de CC de causa, no un adverbio.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "basico"
+  tags: ["finalidad", "sustitucion"]
+
+variables:
+  objetivo: uno_de(["aprobaran todos", "nadie se quejara", "el equipo mejorara"])
+
+respuesta: "para eso"
+tipo: completar
+
+enunciado: "'El profesor explicó de nuevo para que {objetivo}' se puede parafrasear como 'El profesor explicó de nuevo ___'."
+
+explicacion: |
+  La subordinada de finalidad se sustituye por 'para eso'. Esa sustitución con preposición + pronombre demostrativo (no un adverbio) revela su naturaleza sustantiva.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "intermedio"
+  tags: ["distincion", "regimen"]
+
+variables:
+  op_a: "La preposición del CC tiene un significado circunstancial propio (causa, fin); la del CR es una exigencia arbitraria del verbo, sin ese significado."
+  op_b: "No hay ninguna diferencia real entre CC y CR."
+  op_c: "El CR siempre lleva la preposición 'para' y el CC siempre 'de'."
+  op_d: "El CC nunca lleva preposición y el CR siempre sí."
+
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "¿Cuál es la diferencia real entre una subordinada sustantiva de CC y una de complemento de régimen (CR)?"
+
+explicacion: |
+  En el CR ('insisto EN que vayas', 'me arrepiento DE haber mentido') la preposición es una exigencia fija del verbo, sin aportar significado circunstancial. En el CC ('lo hizo POR que lo despidieran') la preposición sí expresa una circunstancia real (causa, fin, etc.).
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "intermedio"
+  tags: ["regimen", "identificacion"]
+
+variables:
+  verbo_regimen: uno_de(["Insisto en", "Confío en", "Me arrepiento de"])
+  subordinada: uno_de(["que vayas", "que ganes", "haber mentido"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En '{verbo_regimen} {subordinada}', la preposición aporta un significado circunstancial de causa o finalidad, por lo que es una subordinada sustantiva de CC."
+
+explicacion: |
+  Falso. Verbos como 'insistir en', 'confiar en' o 'arrepentirse de' exigen esa preposición de forma fija, sin que aporte significado circunstancial: es un complemento de régimen (CR), no un CC.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "intermedio"
+  tags: ["condicion", "identificacion"]
+
+variables:
+  condicion: uno_de(["me invitan", "hay lugar", "llueve"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Vendré si {condicion}', la subordinada 'si {condicion}' puede analizarse como una sustantiva en función de complemento circunstancial de condición."
+
+explicacion: |
+  Correcto. La gramática moderna reanaliza las tradicionales 'adverbiales de condición' como sustantivas de CC de condición, ya que no se sustituyen por un adverbio simple sino por una expresión equivalente a 'en ese caso'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "basico"
+  tags: ["concesion", "sustitucion"]
+
+variables:
+  obstaculo: uno_de(["llueva", "haga frío", "esté cansado"])
+
+respuesta: "a pesar de eso"
+tipo: completar
+
+enunciado: "'Iremos al partido aunque {obstaculo}' se puede parafrasear como 'Iremos al partido ___'."
+
+explicacion: |
+  La subordinada de concesión se sustituye por 'a pesar de eso', mostrando que se comporta como una sustantiva con preposición, no como un adverbio simple.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "intermedio"
+  tags: ["distincion", "adverbial_genuina"]
+
+variables:
+  lugar: uno_de(["nació", "vivió de chico", "estudió"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Volvió a donde {lugar}', la subordinada se sustituye por un adverbio simple ('allí'), por lo que es una adverbial de lugar genuina y NO una sustantiva de CC."
+
+explicacion: |
+  Correcto. 'Volvió allí' funciona con un adverbio simple, sin necesidad de preposición + pronombre demostrativo. Eso la distingue de las sustantivas de CC de causa/fin/condición/concesión.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "avanzado"
+  tags: ["causa", "prueba"]
+
+variables:
+  causa: uno_de(["se cortó la luz", "hubo una huelga", "llovió mucho"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En 'No pudimos entrar porque {causa}', la subordinada 'porque {causa}' se sustituye mejor por el adverbio 'entonces' que por 'por eso'."
+
+explicacion: |
+  Falso. Se sustituye naturalmente por 'por eso' ('No pudimos entrar por eso'), no por 'entonces'. Esa sustitución con preposición + pronombre es justamente la prueba de que es una subordinada sustantiva, no una adverbial genuina.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "intermedio"
+  tags: ["finalidad", "identificacion"]
+
+variables:
+  op_a: "Causa"
+  op_b: "Finalidad"
+  op_c: "Condición"
+  op_d: "Concesión"
+
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "En 'Bajaron los impuestos para que bajara la inflación', ¿qué tipo de circunstancia expresa la subordinada sustantiva de CC?"
+
+explicacion: |
+  Expresa finalidad: el propósito de bajar los impuestos era que bajara la inflación. Se sustituye por 'para eso'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "avanzado"
+  tags: ["regimen_vs_cc", "identificacion"]
+
+variables:
+  frase: uno_de(["Confío en que ganes", "Insisto en que vengas"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En '{frase}', la preposición que acompaña a 'que' expresa una circunstancia de causa o finalidad (CC), y no una exigencia fija del verbo (CR)."
+
+explicacion: |
+  Falso. 'Confiar en' e 'insistir en' rigen la preposición 'en' de forma fija y arbitraria, sin significado circunstancial propio: es complemento de régimen (CR), no CC.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "basico"
+  tags: ["repaso", "funciones"]
+
+variables:
+  op_a: "Sujeto, complemento directo, atributo y complemento de régimen."
+  op_b: "Solo complemento directo."
+  op_c: "Solo sujeto y atributo."
+  op_d: "Ninguna otra función; el CC es la única posible."
+
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "Además de complemento circunstancial, ¿qué otras funciones puede cumplir una subordinada sustantiva?"
+
+explicacion: |
+  Puede ser sujeto ('Que llueva molesta'), complemento directo ('Quiero que vengas'), atributo ('El problema es que no hay tiempo') o complemento de régimen ('Me arrepiento de haber mentido'), además de CC.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "intermedio"
+  tags: ["condicion", "sustitucion"]
+
+variables:
+  condicion: uno_de(["estudias", "practicás todos los días", "pedís ayuda"])
+
+respuesta: "en ese caso"
+tipo: completar
+
+enunciado: "'Aprobarás si {condicion}' se puede parafrasear como 'Aprobarás ___'."
+
+explicacion: |
+  La subordinada condicional se parafrasea como 'en ese caso', una expresión nominal (preposición + pronombre), coherente con su análisis como sustantiva de CC de condición.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "avanzado"
+  tags: ["distincion", "adverbial_genuina"]
+
+variables:
+  modo: uno_de(["mejor pudo", "quiso", "le pareció correcto"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Lo hizo como {modo}', la subordinada se sustituye por el adverbio 'así', por lo que es una adverbial de modo genuina, distinta de las sustantivas de CC vistas en este tema."
+
+explicacion: |
+  Correcto. 'Lo hizo así' usa un adverbio simple. Esto la distingue de las subordinadas de causa/finalidad/condición/concesión, que se sustituyen por preposición + pronombre ('por eso', 'para eso').
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "intermedio"
+  tags: ["concesion", "identificacion"]
+
+variables:
+  obstaculo: uno_de(["el equipo estaba cansado", "el clima era malo", "faltaba tiempo"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'El técnico cambió la formación aunque {obstaculo}', la subordinada concesiva puede analizarse como sustantiva de CC, sustituible por 'a pesar de eso'."
+
+explicacion: |
+  Correcto. Es sustituible por 'a pesar de eso' (preposición + pronombre), lo que confirma su naturaleza sustantiva pese a expresar una circunstancia (concesión).
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "basico"
+  tags: ["causa", "identificacion"]
+
+variables:
+  op_a: "Causa"
+  op_b: "Lugar"
+  op_c: "Sujeto"
+  op_d: "Complemento directo"
+
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "En 'No fuimos a la cancha porque se suspendió el partido', ¿qué tipo de circunstancia expresa la subordinada?"
+
+explicacion: |
+  Expresa causa ('se sustituye por 'por eso''). Es una subordinada sustantiva de CC de causa.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "avanzado"
+  tags: ["regimen", "prueba"]
+
+variables:
+  verbo: uno_de(["insistir", "confiar", "arrepentirse"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El verbo '{verbo}' exige una preposición que aporta un significado circunstancial (causa, finalidad, etc.), por lo que su complemento es un CC."
+
+explicacion: |
+  Falso. Estos verbos exigen su preposición ('en' o 'de') de forma arbitraria, sin significado circunstancial propio: su complemento es de régimen (CR), no CC.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "intermedio"
+  tags: ["repaso", "distincion"]
+
+variables:
+  op_a: "Se sustituye por preposición + 'eso' (CC de causa/fin/condición/concesión) o por adverbio simple (adverbial genuina de tiempo/lugar/modo)."
+  op_b: "Ambas se sustituyen siempre por 'lo', sin diferencia posible."
+  op_c: "La adverbial genuina siempre lleva 'que' y la sustantiva de CC nunca."
+  op_d: "No existe ninguna diferencia entre ambas categorías."
+
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "¿Cómo se distingue una subordinada sustantiva de CC de una adverbial genuina (de tiempo, lugar o modo)?"
+
+explicacion: |
+  La prueba de sustitución es la clave: la sustantiva de CC se reemplaza por preposición + 'eso' ('por eso', 'para eso'); la adverbial genuina se reemplaza por un adverbio simple ('entonces', 'allí', 'así').
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "intermedio"
+  tags: ["finalidad", "sustitucion"]
+
+variables:
+  fin: uno_de(["nadie se lastimara", "todos entendieran", "el proyecto avanzara"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En 'Organizó todo para que {fin}', la subordinada se sustituye mejor por el adverbio 'así' que por 'para eso'."
+
+explicacion: |
+  Falso. Se sustituye naturalmente por 'para eso', no por 'así'. Esa sustitución nominal confirma que es sustantiva de CC de finalidad.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "avanzado"
+  tags: ["sintesis", "clasificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las subordinadas de causa, finalidad, condición y concesión comparten el rasgo de sustituirse por una preposición más un pronombre demostrativo, lo que justifica analizarlas como sustantivas de complemento circunstancial."
+
+explicacion: |
+  Correcto. 'Por eso' (causa), 'para eso' (finalidad), 'en ese caso' (condición) y 'a pesar de eso' (concesión) son todas construcciones nominales, no adverbios simples — de ahí su clasificación como sustantivas de CC.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "intermedio"
+  tags: ["regimen", "distincion"]
+
+variables:
+  verbo_cr: uno_de(["Me arrepiento de", "Confío en", "Insisto en"])
+
+respuesta: "complemento de régimen"
+tipo: completar
+
+enunciado: "'{verbo_cr} que vengas' — la parte introducida por la preposición funciona como:"
+
+explicacion: |
+  Es complemento de régimen (CR): la preposición es exigida arbitrariamente por el verbo, sin aportar un significado circunstancial de causa, fin, condición o concesión.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_circunstancial"
+  nivel: "basico"
+  tags: ["condicion", "clasificacion"]
+
+variables:
+  op_a: "Complemento circunstancial de condición"
+  op_b: "Complemento directo"
+  op_c: "Sujeto"
+  op_d: "Complemento de régimen"
+
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "En 'Aprobarás si estudiás', ¿qué función cumple la subordinada 'si estudiás', según el análisis moderno?"
+
+explicacion: |
+  Cumple la función de complemento circunstancial de condición: se parafrasea como 'en ese caso', una construcción nominal.
+```
+
+## Sección: subordinada-sustantiva-de-complemento-de-regimen (22 preguntas)
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "basico"
+  tags: ["subordinada_sustantiva", "regimen_preposicional", "identificacion"]
+
+variables:
+  verbo_base: uno_de(["pensar", "confiar", "olvidarse", "acordarse"])
+  prep: uno_de(["en", "en", "en"])
+  nexo: uno_de(["que", "si"])
+  contenido: uno_de(["el éxito", "la verdad", "lo correcto"])
+
+respuesta: prep + " " + nexo
+tipo: input
+
+enunciado: "En la oración 'El docente {verbo_base} {prep}{nexo} {contenido}', ¿cuál es la secuencia preposición-nexo que introduce la subordinada?"
+
+explicacion: |
+  Los verbos como 'pensar', 'confiar' o 'olvidarse' rigen preposiciones específicas ('en', 'de', 'por'). Cuando el complemento es una oración, la preposición se mantiene antes del nexo (que/si).
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "intermedio"
+  tags: ["subordinada_sustantiva", "regimen_preposicional", "mc"]
+
+variables:
+  prep_correcta: "de"
+  prep_distractor1: "en"
+  prep_distractor2: "a"
+  prep_distractor3: "por"
+
+respuesta: "de"
+tipo: mc
+
+enunciado: "¿Qué preposición rige correctamente el verbo 'depender' en la oración 'Todo depende ___ que llegues a tiempo'?"
+opciones_explicitas: ["en", "a", "de", "por"]
+
+explicacion: |
+  El verbo 'depender' rige el régimen preposicional 'de'. Por lo tanto, la forma correcta es 'depende de que...'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "basico"
+  tags: ["subordinada_sustantiva", "completar", "preposicion"]
+
+variables:
+  sujeto: uno_de(["el equipo", "los alumnos", "la directiva", "el gobierno"])
+
+respuesta: "en"
+tipo: completar
+
+enunciado: "Completa la oración: '{sujeto} insiste ___ que se apruebe el presupuesto.' (Escribe solo la preposición)."
 respuestas_validas:
-  - "tácito"
-  - "tacito"
-  - "elíptico"
-  - "eliptico"
-  - "omitido"
+  - "en"
 
 explicacion: |
-  Se deduce por la desinencia verbal: '-ieron' indica tercera persona
-  del plural (ellos/ellas).
+  'Insistir' rige la preposición 'en': '{sujeto} insiste en que se apruebe el presupuesto'.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "avanzado"
-  tags: ["impersonal", "problema"]
-
-enunciado: "¿Qué tipo de sujeto tiene la oración 'Llueve mucho en otoño'?"
-tipo: mc
-opciones_explicitas:
-  - "No tiene sujeto: es una oración impersonal (verbo meteorológico)"
-  - "Sujeto tácito: 'el cielo', deducido por el contexto"
-  - "Sujeto explícito: 'otoño'"
-respuesta: "No tiene sujeto: es una oración impersonal (verbo meteorológico)"
-
-explicacion: |
-  Los verbos meteorológicos ('llover', 'nevar', 'amanecer') no tienen
-  ningún sujeto gramatical, ni explícito ni tácito.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
+  materia: "Lengua"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
   nivel: "intermedio"
-  tags: ["sujeto_explicito", "problema"]
-
-enunciado: "¿Qué tipo de sujeto tiene la oración 'María lee novelas'?"
-tipo: mc
-opciones_explicitas:
-  - "Sujeto explícito (nombre propio): 'María'"
-  - "Sujeto tácito, deducido por la desinencia"
-  - "No tiene sujeto: es una oración impersonal"
-respuesta: "Sujeto explícito (nombre propio): 'María'"
-
-explicacion: |
-  El sujeto aparece escrito directamente en la oración.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "avanzado"
-  tags: ["sujeto_tacito", "problema"]
-
-enunciado: "¿Qué tipo de sujeto tiene la oración 'Somos estudiantes'?"
-tipo: mc
-opciones_explicitas:
-  - "Sujeto tácito (nosotros, deducido por la desinencia '-mos')"
-  - "Sujeto explícito: 'estudiantes'"
-  - "No tiene sujeto: es una oración impersonal"
-respuesta: "Sujeto tácito (nosotros, deducido por la desinencia '-mos')"
-
-explicacion: |
-  'Estudiantes' es parte del predicado (atributo), no el sujeto —
-  'nosotros' es el sujeto, tácito.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "avanzado"
-  tags: ["pasiva_refleja", "problema"]
-
-enunciado: "¿Qué tipo de sujeto tiene la oración 'Se venden casas'?"
-tipo: mc
-opciones_explicitas:
-  - "Sujeto paciente (pasiva refleja): 'casas'"
-  - "Sujeto tácito: 'alguien'"
-  - "No tiene sujeto: es una oración impersonal"
-respuesta: "Sujeto paciente (pasiva refleja): 'casas'"
-
-explicacion: |
-  Es el mismo caso visto en `../concordancia-nominal-y-verbal/`: el
-  verbo concuerda con 'casas' porque es su sujeto gramatical.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "intermedio"
-  tags: ["sujeto_tacito"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El sujeto tácito no aparece escrito en la oración, pero se puede deducir por la desinencia (terminación) del verbo conjugado."
-
-explicacion: |
-  Por ejemplo, '-amos' siempre indica primera persona del plural
-  (nosotros).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "avanzado"
-  tags: ["impersonal"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los verbos meteorológicos ('llover', 'nevar', 'amanecer') forman oraciones impersonales, sin ningún sujeto gramatical, ni explícito ni tácito."
-
-explicacion: |
-  No hay ningún 'algo' o 'alguien' que realice la acción de llover o
-  nevar.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "intermedio"
-  tags: ["nucleo", "problema"]
-
-enunciado: "En la oración 'El perro grande corre por el parque', ¿cuál es el núcleo del predicado?"
-tipo: mc
-opciones_explicitas:
-  - "corre"
-  - "perro"
-  - "parque"
-respuesta: "corre"
-
-explicacion: |
-  El núcleo del predicado siempre es el verbo conjugado de la
-  oración.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué es necesario identificar bien el sujeto de una oración antes de conjugar el verbo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el núcleo del sujeto es lo que determina la persona y el número correctos del verbo (concordancia verbal)"
-  - "Porque el sujeto siempre determina el tiempo verbal (pasado, presente o futuro)"
-  - "No hay ninguna relación real entre sujeto y verbo"
-respuesta: "Porque el núcleo del sujeto es lo que determina la persona y el número correctos del verbo (concordancia verbal)"
-
-explicacion: |
-  Es la conexión directa con `../concordancia-nominal-y-verbal/`.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "avanzado"
-  tags: ["nucleo", "problema"]
-
-enunciado: "Etiquetá el núcleo del sujeto y el núcleo del predicado de esta oración."
-tipo: analisis_sintactico
-texto_analizar: "Los estudiantes de la clase aprobaron el examen"
-etiquetas_pedidas:
-  - { palabra: "estudiantes", etiqueta: "núcleo del sujeto" }
-  - { palabra: "aprobaron", etiqueta: "núcleo del predicado" }
-
-explicacion: |
-  'Estudiantes' concentra el significado del sujeto; 'aprobaron' es
-  el verbo, núcleo del predicado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "avanzado"
-  tags: ["nucleo", "problema"]
-
-enunciado: "En 'Los estudiantes de la clase aprobaron el examen', ¿qué función cumple 'de la clase'?"
-tipo: mc
-opciones_explicitas:
-  - "Es un complemento del nombre 'estudiantes' — precisa de qué estudiantes se habla, pero no es el núcleo del sujeto"
-  - "Es el núcleo del sujeto"
-  - "Es parte del predicado"
-respuesta: "Es un complemento del nombre 'estudiantes' — precisa de qué estudiantes se habla, pero no es el núcleo del sujeto"
-
-explicacion: |
-  Acompaña al núcleo sin reemplazarlo — el núcleo sigue siendo
-  'estudiantes'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "intermedio"
-  tags: ["oracion_bimembre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Por definición, toda oración BIMEMBRE tiene sujeto y predicado — las oraciones impersonales (sin sujeto) se llaman, en cambio, unimembres."
-
-explicacion: |
-  'Llueve' es una oración unimembre: no tiene la división en dos
-  mitades complementarias.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué distinguir sujeto y predicado es la base de un análisis sintáctico más completo (núcleos, modificadores, objetos)?"
-tipo: mc
-opciones_explicitas:
-  - "Porque es la primera división de cualquier oración bimembre — sin saber qué parte es sujeto y cuál predicado, no se puede seguir analizando núcleos ni complementos dentro de cada una"
-  - "No tiene ninguna relación con análisis sintácticos más complejos"
-  - "Sólo se usa para contar palabras de una oración"
-respuesta: "Porque es la primera división de cualquier oración bimembre — sin saber qué parte es sujeto y cuál predicado, no se puede seguir analizando núcleos ni complementos dentro de cada una"
-
-explicacion: |
-  Es el punto de partida de cualquier análisis sintáctico más
-  detallado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sujeto_y_predicado"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve identificar el sujeto y el predicado de una oración?"
-tipo: mc
-opciones_explicitas:
-  - "Para aplicar correctamente la concordancia verbal y para poder analizar la estructura completa de cualquier oración"
-  - "Sólo sirve para completar ejercicios de gramática, sin ninguna utilidad al hablar o escribir"
-  - "Sólo se aplica a oraciones muy largas y complejas"
-respuesta: "Para aplicar correctamente la concordancia verbal y para poder analizar la estructura completa de cualquier oración"
-
-explicacion: |
-  Cierra la cadena de `../clases-de-palabras/` →
-  `../concordancia-nominal-y-verbal/` → sujeto y predicado: de
-  reconocer palabras sueltas a poder analizar una oración completa.
-```
-
-## Sección: tecnicas-de-estudio-resumen-y-organizadores-graficos (23 preguntas)
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "basico"
-  tags: ["resumen", "errores_comunes"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un buen resumen se logra copiando y pegando las frases más importantes del libro original."
-
-explicacion: |
-  Falso. Un resumen efectivo requiere interpretar y parafrasear. Copiar y pegar no demuestra comprensión ni procesamiento cognitivo de la información.
-```
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "intermedio"
-  tags: ["resumen", "concision"]
+  tags: ["subordinada_sustantiva", "funcion_sintactica", "nexo"]
 
 variables:
-  palabras_originales: random(200, 500)
-  porcentaje_reduccion: uno_de([0.3, 0.4, 0.5])
-  palabras_nuevas: redondear(palabras_originales * (1 - porcentaje_reduccion), 0)
+  prep: "en"
+  nexo: "que"
+  verbo: "confiar"
+  sujeto: "nosotros"
 
-respuesta: palabras_nuevas
+respuesta: "conjuncional"
 tipo: input
 
-enunciado: "Si un texto tiene {palabras_originales} palabras y quieres reducirlo en un {redondear(porcentaje_reduccion * 100, 0)}% manteniendo el sentido, ¿cuántas palabras aproximadamente debería tener el resumen?"
+enunciado: "En la oración '{sujeto} {verbo} {prep}{nexo} lo logremos', ¿qué función sintáctica cumple el nexo '{nexo}' dentro de la subordinada?"
 
 explicacion: |
-  La claridad y la concisión son aliadas. Si reduces el texto en un X%, el nuevo tamaño es el original menos esa fracción. Esto ayuda a eliminar lo redundante.
+  En las subordinadas sustantivas introducidas por 'que', este nexo cumple la función de conjunción integrante o nexo subordinante, conectando la proposición principal con la subordinada.
 ```
 
 ```
 metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "basico"
-  tags: ["resumen", "fidelidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es crucial mantener la fidelidad al significado original del texto, sin añadir opiniones personales ni alterar el sentido."
-
-explicacion: |
-  La fidelidad es crucial. Un resumen debe reflejar el contenido del autor, no la interpretación subjetiva ni opiniones ajenas al texto original.
-```
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
+  materia: "Lengua"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
   nivel: "intermedio"
-  tags: ["resumen", "palabras_clave"]
+  tags: ["subordinada_sustantiva", "regimen_preposicional", "mc"]
 
 variables:
-  total_palabras: random(100, 300)
-  porcentaje_clave: 0.05
-  num_claves: redondear(total_palabras * porcentaje_clave, 0)
+  prep_origen: "en"
+  verbo_origen: "pensar"
+  prep_destino: "de"
+  verbo_destino: "olvidar"
 
-respuesta: num_claves
+respuesta: "de"
+tipo: mc
+
+enunciado: "Si cambiamos el verbo 'pensar' (que rige 'en') por 'olvidarse' en la estructura 'No me olvidé ___ que viniste', ¿cuál es la preposición correcta?"
+opciones_explicitas: ["en", "por", "de", "a"]
+
+explicacion: |
+  El verbo 'olvidarse' rige el régimen preposicional 'de'. Por lo tanto, se dice 'olvidarse de que...'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "intermedio"
+  tags: ["subordinada_sustantiva", "identificacion", "analisis"]
+
+variables:
+  prep: "por"
+  nexo: "que"
+  verbo: "se preocupa"
+  sujeto: "el director"
+
+respuesta: "complemento_de_regimen"
 tipo: input
 
-enunciado: "Si un texto tiene {total_palabras} palabras y decides subrayar solo el {redondear(porcentaje_clave * 100, 0)}% como palabras clave, ¿cuántas palabras clave seleccionarías?"
+enunciado: "En la oración '{sujeto} {verbo} {prep}{nexo} se retrasara la reunión', ¿qué tipo de complemento sustantivo cumple la parte '{prep}{nexo} se retrasara la reunión'?"
 
 explicacion: |
-  Subrayar solo las palabras clave ayuda a filtrar lo esencial. Calcular un porcentaje pequeño del total facilita la identificación de lo central.
-```
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "avanzado"
-  tags: ["beneficios", "autonomia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dominar el resumen y los organizadores gráficos te da autonomía para estudiar cualquier contenido, no solo literatura."
-
-explicacion: |
-  Estas son estrategias cognitivas universales. Dominarlas permite procesar información densa y abstracta en cualquier área, desde gramática hasta lingüística.
-```
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "intermedio"
-  tags: ["planificacion", "tiempo"]
-
-variables:
-  horas_lectura: random(2, 5)
-  factor_procesamiento: 0.5
-  horas_resumen: redondear(horas_lectura * factor_procesamiento, 1)
-
-respuesta: horas_resumen
-tipo: input
-
-enunciado: "Si dedicas {horas_lectura} horas a leer y procesar un texto, y estimas que el resumen y la organización visual toman la mitad de ese tiempo, ¿cuántas horas invertirás en la técnica?"
-
-explicacion: |
-  Las técnicas de estudio requieren tiempo activo. Procesar, filtrar y organizar es una inversión que reduce el tiempo de memorización posterior.
-```
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "intermedio"
-  tags: ["resumen", "literatura"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un buen resumen de un cuento debe captar la trama y el tema, pero no necesita describir cada personaje con detalle."
-
-explicacion: |
-  La fidelidad al significado original es crucial, pero la concisión permite omitir detalles secundarios como descripciones extensas de personajes menores.
-```
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "intermedio"
-  tags: ["resumen", "estructura"]
-
-variables:
-  parrafos: random(3, 6)
-  ideas_por_parrafo: 1
-  total_ideas: parrafos * ideas_por_parrafo
-
-respuesta: total_ideas
-tipo: input
-
-enunciado: "Si un texto tiene {parrafos} párrafos y extraes una idea principal de cada uno, ¿cuántas ideas principales tendrás en total para tu resumen?"
-
-explicacion: |
-  Identificar la idea principal de cada sección es clave. Esto crea una estructura base para el resumen y el organizador gráfico.
-```
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "avanzado"
-  tags: ["teoria", "cognicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El resumen y los organizadores gráficos son estrategias cognitivas que obligan a procesar la información, no simples atajos."
-
-explicacion: |
-  Estas herramientas fuerzan al estudiante a filtrar lo esencial y darle orden lógico, evitando perderse en detalles irrelevantes.
-```
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "intermedio"
-  tags: ["resumen", "compresion"]
-
-variables:
-  original: random(1000, 2000)
-  ratio: 0.1
-  comprimido: redondear(original * ratio, 0)
-
-respuesta: comprimido
-tipo: input
-
-enunciado: "Si un ensayo tiene {original} palabras y lo comprimes a una décima parte (10%) de su tamaño, ¿cuántas palabras tendrá el resumen?"
-
-explicacion: |
-  La concisión es vital. Reducir significativamente el volumen de texto obliga a seleccionar solo lo esencial, mejorando la retención.
-```
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "intermedio"
-  tags: ["organizadores_graficos", "visualizacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los organizadores gráficos permiten visualizar las relaciones entre conceptos que en un texto lineal pueden ser difíciles de seguir."
-
-explicacion: |
-  Al mostrar jerarquías y conexiones, estos organizadores hacen explícitas las relaciones lógicas entre ideas, géneros o reglas gramaticales.
-```
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "intermedio"
-  tags: ["estudio", "repeticion"]
-
-variables:
-  sesiones: random(3, 5)
-  dias_entre: 2
-  dias_totales: (sesiones - 1) * dias_entre
-
-respuesta: dias_totales
-tipo: input
-
-enunciado: "Si estudias el resumen en {sesiones} sesiones separadas por {dias_entre} días, ¿cuántos días transcurren entre la primera y la última sesión?"
-
-explicacion: |
-  La repetición espaciada ayuda a consolidar la memoria. Organizar el estudio en sesiones separadas mejora la retención a largo plazo.
-```
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "basico"
-  tags: ["resumen", "calidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La claridad y la concisión son las mejores aliadas al hacer un resumen; si puedes decir lo mismo con menos palabras, vas bien."
-
-explicacion: |
-  La claridad facilita la comprensión y la concisión ahorra tiempo de estudio. Ambos son indicadores de un resumen efectivo.
+  Cumple la función de Complemento de Régimen (o Régimen Preposicional) porque completa al verbo 'preocuparse' mediante la preposición 'por'.
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "basico"
-  tags: ["resumen", "metacognicion"]
-
-variables:
-  afirmacion: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un buen resumen consiste en copiar y pegar las frases más importantes del libro original para asegurar la fidelidad textual."
-
-explicacion: |
-  Falso. Un resumen efectivo requiere interpretar y usar tu propio vocabulario. Copiar y pegar no demuestra comprensión ni procesamiento cognitivo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "basico"
-  tags: ["estudio", "estrategias"]
-
-variables:
-  afirmacion: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Estudiar lengua se trata principalmente de memorizar fechas y definiciones de memoria, sin necesidad de comprender estructuras."
-
-explicacion: |
-  Falso. La lengua requiere comprender estructuras, analizar textos y conectar ideas. La memorización mecánica es insuficiente.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
   nivel: "intermedio"
-  tags: ["beneficios", "aprendizaje"]
+  tags: ["subordinada_sustantiva", "regimen_preposicional", "mc"]
 
 variables:
-  afirmacion: "verdadero"
+  prep_correcta: "a"
+  prep_distractor1: "en"
+  prep_distractor2: "de"
+  prep_distractor3: "por"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dominar el resumen y los organizadores gráficos te da autonomía para estudiar cualquier contenido, incluso para exámenes de Comprensión Lectora."
-
-explicacion: |
-  Verdadero. Estas son estrategias cognitivas transferibles que permiten abordar cualquier texto con eficacia.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "basico"
-  tags: ["mitos", "estudio"]
-
-variables:
-  afirmacion: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los organizadores gráficos son 'atajos' para evitar leer el texto completo."
-
-explicacion: |
-  Falso. Son estrategias cognitivas que obligan a procesar la información. No sustituyen la lectura, la complementan y profundizan.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "intermedio"
-  tags: ["resumen", "objetividad"]
-
-variables:
-  afirmacion: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Es aceptable añadir opiniones personales al resumen si estas enriquecen la interpretación del texto."
-
-explicacion: |
-  Falso. El resumen debe mantener la fidelidad al significado original. Las opiniones personales pertenecen a un ensayo o crítica, no al resumen.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "intermedio"
-  tags: ["contexto", "importancia"]
-
-variables:
-  afirmacion: "verdadero"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En lengua, la información suele ser densa y abstracta, por lo que las técnicas de estudio son fundamentales."
-
-explicacion: |
-  Verdadero. Gramática, literatura y lingüística requieren estrategias para filtrar lo esencial y dar orden lógico.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "basico"
-  tags: ["resumen", "miedo_comun"]
-
-variables:
-  afirmacion: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Hacer un resumen implica perder los detalles importantes de la trama o el argumento."
-
-explicacion: |
-  Falso. Un buen resumen elimina lo redundante y secundario, pero conserva la estructura y el sentido esencial.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "basico"
-  tags: ["organizadores_graficos", "estructura"]
-
-variables:
-  afirmacion: "verdadero"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los organizadores gráficos dan un orden lógico a la información, ayudando a ver cómo se relacionan los conceptos."
-
-explicacion: |
-  Verdadero. La visualización jerárquica o relacional ayuda a comprender la estructura subyacente del conocimiento.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "intermedio"
-  tags: ["resumen", "procesamiento"]
-
-variables:
-  afirmacion: "verdadero"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es recomendable usar tu propio vocabulario al redactar el resumen para demostrar comprensión."
-
-explicacion: |
-  Verdadero. Usar palabras propias obliga al cerebro a procesar y reformular la información, consolidando el aprendizaje.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
-  nivel: "basico"
-  tags: ["estudio", "enfoque"]
-
-variables:
-  afirmacion: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Estudiar lengua se trata solo de memorizar definiciones, no de comprender estructuras."
-
-explicacion: |
-  Falso. La comprensión de estructuras y el análisis son clave. La memorización es solo una parte pequeña y menos efectiva por sí sola.
-```
-
-## Sección: tesis (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "basico"
-  tags: ["tesis", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La tesis es la postura u opinión central que un texto argumentativo defiende, la idea que el autor quiere que el lector termine aceptando."
-
-pasos:
-  - "Es el mensaje central del texto argumentativo, pero tomando una postura, no describiendo un hecho neutral."
-
-explicacion: |
-  Verdadero: la tesis es el eje central del texto argumentativo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "basico"
-  tags: ["tesis", "debatibilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una tesis debe ser debatible: alguien razonable podría sostener lo contrario."
-
-pasos:
-  - "\"El agua es H₂O\" no es tesis (hecho); \"debería prohibirse tal cosa\" sí lo es (alguien puede discrepar)."
-
-explicacion: |
-  Verdadero: la debatibilidad es el requisito central para que una
-  afirmación sea considerada tesis.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "intermedio"
-  tags: ["tesis", "hechos", "diferenciacion"]
-
-variables:
-  afirmaciones: ["El agua hierve a 100°C al nivel del mar", "Debería prohibirse el uso de celulares en el aula"]
-  tipos: ["hecho", "tesis"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
+respuesta: "a"
 tipo: mc
-opciones_explicitas: ["hecho", "tesis"]
 
-enunciado: "\"{afirmaciones[idx]}\" es un..."
-
-pasos:
-  - "Si nadie razonable podría discutirlo, es un hecho. Si alguien podría sostener lo contrario, es una tesis."
+enunciado: "¿Qué preposición rige el verbo 'aspirar' en la oración 'Aspiro ___ que me promocionen'?"
+opciones_explicitas: ["en", "de", "a", "por"]
 
 explicacion: |
-  La debatibilidad es el criterio central para distinguir un hecho
-  objetivo de una tesis.
+  El verbo 'aspirar' rige el régimen preposicional 'a'. Por lo tanto, la forma correcta es 'aspiro a que...'.
 ```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "intermedio"
-  tags: ["tesis", "formulacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una tesis suele formularse como pregunta (\"¿Deberían prohibirse los celulares en el aula?\"), no como afirmación."
-
-pasos:
-  - "La tesis toma postura de forma afirmativa; la pregunta sólo plantea el tema a discutir, no defiende una postura."
-
-explicacion: |
-  Falso: la tesis se formula como afirmación (\"deberían
-  prohibirse...\"), la pregunta es previa a la tesis, no la tesis en
-  sí.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "intermedio"
-  tags: ["tesis", "ubicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La tesis suele ubicarse al principio o al final del texto, igual que la idea principal en cualquier otro texto."
-
-pasos:
-  - "Ver `../comprension-idea-principal/`: la tesis es, en el texto argumentativo, el equivalente a la idea principal."
-
-explicacion: |
-  Verdadero: la ubicación típica de la tesis sigue el mismo patrón
-  que la idea principal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "basico"
-  tags: ["tesis", "explicita"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "explícita"
-tipo: mc
-opciones_explicitas: ["explícita", "implícita"]
-
-enunciado: "Cuando la tesis está escrita literalmente en una oración del texto, se dice que es..."
-
-pasos:
-  - "Se puede citar la oración exacta que la formula."
-
-explicacion: |
-  Una tesis explícita se puede identificar citando directamente la
-  oración del texto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "intermedio"
-  tags: ["tesis", "implicita"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "implícita"
-tipo: mc
-opciones_explicitas: ["explícita", "implícita"]
-
-enunciado: "Cuando la tesis no está escrita literalmente y hay que deducirla del conjunto de argumentos del texto, se dice que es..."
-
-pasos:
-  - "Igual que la idea principal implícita, hay que inferirla combinando toda la información dada."
-
-explicacion: |
-  Una tesis implícita requiere inferencia, no está formulada de forma
-  directa en ninguna oración puntual.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "basico"
-  tags: ["tesis", "tema"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El tema (\"el uso de celulares en el aula\") es exactamente lo mismo que la tesis (\"debería prohibirse el uso de celulares en el aula\")."
-
-pasos:
-  - "El tema es de qué trata el texto; la tesis es la postura que se toma sobre ese tema."
-
-explicacion: |
-  Falso: el tema es más corto y general; la tesis agrega la postura
-  específica del autor sobre ese tema.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "intermedio"
-  tags: ["tesis", "tema"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos autores pueden escribir sobre el mismo tema (\"el uso de celulares en el aula\") y sostener tesis completamente opuestas."
-
-pasos:
-  - "Uno puede defender que se prohíban y otro que se permitan; el tema es el mismo, la tesis es distinta."
-
-explicacion: |
-  Verdadero: la tesis es la postura particular de cada autor, no una
-  propiedad fija del tema.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "intermedio"
-  tags: ["tesis", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Los parques públicos son fundamentales para la salud mental de una ciudad"
-tipo: mc
-opciones_explicitas: ["Los parques públicos son fundamentales para la salud mental de una ciudad", "Muchas ciudades tienen parques públicos", "Los parques públicos tienen árboles y bancos"]
-
-enunciado: "\"Los parques públicos son fundamentales para la salud mental de una ciudad. Reducen el estrés, fomentan el ejercicio y generan espacios de encuentro social.\" ¿Cuál es la tesis?"
-
-pasos:
-  - "La primera oración toma postura (\"fundamentales\"); las siguientes son argumentos que la sostienen, no la tesis en sí."
-
-explicacion: |
-  La tesis es la postura tomada; el resto son razones (argumentos)
-  que la apoyan, no la tesis misma.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "intermedio"
-  tags: ["tesis", "objetividad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La tesis, igual que un párrafo expositivo, describe un hecho de forma neutral y objetiva, sin tomar postura."
-
-pasos:
-  - "La tesis defiende una posición específica sobre algo debatible, a diferencia de la descripción neutral de un texto expositivo (ver `../tipos-textuales/`)."
-
-explicacion: |
-  Falso: tomar postura sobre algo debatible es justamente lo que
-  distingue a la tesis de una afirmación neutral.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "intermedio"
-  tags: ["tesis", "hechos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "\"La Tierra gira alrededor del Sol\" es un buen ejemplo de tesis para un texto argumentativo."
-
-pasos:
-  - "Nadie razonable discutiría ese hecho científico establecido: no cumple el requisito de ser debatible."
-
-explicacion: |
-  Falso: al no ser debatible, es un hecho, no una tesis apropiada
-  para un texto argumentativo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "intermedio"
-  tags: ["tesis", "estructura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando la tesis se anuncia al principio de un texto argumentativo formal, el lector sabe desde el inicio qué postura se va a defender a lo largo del texto."
-
-pasos:
-  - "Esa anticipación ayuda a leer los argumentos que siguen sabiendo qué están sosteniendo."
-
-explicacion: |
-  Verdadero: anunciar la tesis temprano orienta la lectura del resto
-  del texto argumentativo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "avanzado"
-  tags: ["tesis", "practica"]
-
-variables:
-  temas: ["el reciclaje obligatorio", "la tarea escolar los fines de semana"]
-  tesis_posibles: ["El reciclaje debería ser obligatorio en todos los hogares", "La tarea escolar los fines de semana debería eliminarse"]
-  idx: uno_de([0, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sobre el tema \"{temas[idx]}\", una posible tesis (que alguien podría discutir) sería: \"{tesis_posibles[idx]}\"."
-
-pasos:
-  - "Una tesis válida sobre ese tema toma postura de forma afirmativa y debatible."
-
-explicacion: |
-  Verdadero: esa formulación cumple los dos requisitos de una tesis
-  (afirmación + debatible).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "avanzado"
-  tags: ["tesis", "coherencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un texto argumentativo bien construido mantiene la misma tesis a lo largo de todo el desarrollo, sin cambiar de postura a mitad de camino."
-
-pasos:
-  - "Cambiar de postura sin aviso confundiría al lector sobre qué se está defendiendo."
-
-explicacion: |
-  Verdadero: la coherencia con la tesis planteada es un requisito
-  básico del texto argumentativo bien construido.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "avanzado"
-  tags: ["tesis", "argumentos", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La tesis y los argumentos que la sostienen son exactamente lo mismo: cualquier oración del texto argumentativo puede llamarse indistintamente tesis o argumento."
-
-pasos:
-  - "La tesis es la postura central única; los argumentos (ver `../argumentos/`) son las razones que la sostienen, y suele haber varios."
-
-explicacion: |
-  Falso: son dos elementos distintos y complementarios del texto
-  argumentativo, no sinónimos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "avanzado"
-  tags: ["tesis", "implicita", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Los animales no deberían usarse en experimentos científicos"
-tipo: mc
-opciones_explicitas: ["Los animales no deberían usarse en experimentos científicos", "Algunos animales sienten dolor", "Los experimentos científicos avanzan la medicina"]
-
-enunciado: "\"Los animales sienten dolor y estrés durante los experimentos. Existen alternativas tecnológicas para probar medicamentos sin usar animales.\" (sin decirlo literal) ¿Cuál es la tesis implícita?"
-
-pasos:
-  - "Ambas razones apuntan hacia la misma conclusión no formulada explícitamente: hay que inferirla combinándolas."
-
-explicacion: |
-  Aunque el texto no lo diga literalmente, las razones dadas llevan a
-  una postura clara que hay que inferir.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "intermedio"
-  tags: ["tesis", "metodo"]
-
-enunciado: "Ordená los pasos para identificar la tesis de un texto argumentativo."
-tipo: ordenar
-opciones_explicitas:
-  - "Leer el texto completo"
-  - "Identificar el tema general del que trata"
-  - "Buscar la postura u opinión que el autor defiende sobre ese tema"
-  - "Confirmar que esa postura es debatible (alguien podría sostener lo contrario)"
-respuesta_orden:
-  - "Leer el texto completo"
-  - "Identificar el tema general del que trata"
-  - "Buscar la postura u opinión que el autor defiende sobre ese tema"
-  - "Confirmar que esa postura es debatible (alguien podría sostener lo contrario)"
-
-explicacion: |
-  El método va del tema general a la postura específica, y termina
-  verificando el requisito de debatibilidad.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "avanzado"
-  tags: ["tesis", "argumentos", "prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "No se pueden evaluar si los argumentos de un texto realmente sostienen su postura sin haber identificado antes cuál es esa tesis."
-
-pasos:
-  - "Ver `../argumentos/`: los argumentos se evalúan siempre EN RELACIÓN a la tesis que deben sostener."
-
-explicacion: |
-  Verdadero: por eso tesis es prerrequisito directo de argumentos, el
-  siguiente tema de la cadena.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tesis"
-  nivel: "avanzado"
-  tags: ["tesis", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al escribir un texto argumentativo propio, conviene elegir una tesis debatible y formulada como afirmación clara, en vez de una pregunta abierta o un hecho indiscutible."
-
-pasos:
-  - "Sólo una tesis debatible y afirmativa permite construir argumentos que la defiendan de forma efectiva."
-
-explicacion: |
-  Verdadero: elegir bien la tesis es el primer paso práctico para
-  escribir un texto argumentativo sólido.
-```
-
-## Sección: texto-teatral (22 preguntas)
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "basico"
-  tags: ["definicion", "genero"]
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "intermedio"
+  tags: ["subordinada_sustantiva", "nexos", "completar"]
 
-respuesta: "guion dramático"
+variables:
+  prep: "sobre"
+  nexo: "cuándo"
+  verbo: "preguntar"
+  sujeto: "el periodista"
+
+respuesta: "nexo"
 tipo: completar
 
-enunciado: "El texto teatral, diseñado para ser representado, también se conoce como ______ o obra de teatro."
+enunciado: "Completa la oración: '{sujeto} {verbo} {prep} ___ llegará el vuelo.' (Escribe solo el nexo interrogativo)."
+respuestas_validas:
+  - "cuando"
+  - "cuándo"
 
 explicacion: |
-  El texto teatral es un género literario pensado para la representación escénica. Sus nombres alternativos incluyen "obra de teatro" y "guion dramático".
+  Cuando la subordinada es interrogativa indirecta, se usan nexos interrogativos como 'cuándo', 'dónde', 'cómo', etc.
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "basico"
-  tags: ["estructura", "partes"]
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "intermedio"
+  tags: ["subordinada_sustantiva", "complemento_directo", "mc"]
 
-respuesta: |
-  parlamentos
-  acotaciones
+variables:
+  verbo_cd: "ver"
+  verbo_reg: "pensar"
+  prep_reg: "en"
+
+respuesta: "en"
+tipo: mc
+
+enunciado: "Si 'ver' no lleva preposición (CD), ¿cuál es la preposición que introduce la subordinada para el verbo 'pensar'?"
+opciones_explicitas: ["a", "en", "de", "sin"]
+
+explicacion: |
+  A diferencia del CD que es directo, el verbo 'pensar' requiere la preposición 'en' para introducir su complemento de régimen.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "basico"
+  tags: ["subordinada_sustantiva", "regimen_preposicional", "identificacion"]
+
+respuesta: "de"
+tipo: input
+
+enunciado: "En la oración incorrecta 'Todo depende ___ que llegues a tiempo', ¿qué preposición falta para que sea correcta?"
+
+explicacion: |
+  El verbo 'depender' rige la preposición 'de': 'todo depende de que llegues a tiempo'. Sin ella, la oración es agramatical.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "intermedio"
+  tags: ["subordinada_sustantiva", "regimen_preposicional", "mc"]
+
+variables:
+  prep_correcta: "de"
+  prep_distractor1: "en"
+  prep_distractor2: "a"
+  prep_distractor3: "por"
+
+respuesta: "de"
+tipo: mc
+
+enunciado: "¿Qué preposición rige el verbo reflexivo 'acordarse' en la oración 'Me acuerdo ___ que nos vimos ayer'?"
+opciones_explicitas: ["en", "a", "de", "por"]
+
+explicacion: |
+  El verbo reflexivo 'acordarse' (en el sentido de recordar) rige el régimen preposicional 'de': 'me acuerdo de que...'. Ojo: sin el 'me' reflexivo, 'acordar que' (en el sentido de decidir de común acuerdo) NO lleva 'de' — usarla ahí sería un dequeísmo.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "intermedio"
+  tags: ["subordinada_sustantiva", "nexos", "completar"]
+
+variables:
+  prep: "sobre"
+  nexo: "si"
+  verbo: "dudar"
+  sujeto: "ella"
+
+respuesta: "nexo"
 tipo: completar
 
-enunciado: "Las dos partes fundamentales del texto teatral son los ______ y las ______."
+enunciado: "Completa la oración: '{sujeto} {verbo} {prep} ___ llueva mañana.' (Escribe solo el nexo)."
+respuestas_validas:
+  - "si"
 
 explicacion: |
-  El texto se compone de parlamentos (diálogos/monólogos) y acotaciones (instrucciones de puesta en escena).
+  Cuando la subordinada expresa duda o incertidumbre, se utiliza el nexo 'si' (interrogativo indirecto).
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "texto_teatral"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
   nivel: "intermedio"
-  tags: ["parlamentos", "funcion"]
+  tags: ["subordinada_sustantiva", "regimen_preposicional", "mc"]
 
-respuesta: "carácter"
+variables:
+  prep_correcta: "por"
+  prep_distractor1: "en"
+  prep_distractor2: "de"
+  prep_distractor3: "a"
+
+respuesta: "por"
+tipo: mc
+
+enunciado: "¿Qué preposición rige el verbo 'optar' en la oración 'Optamos ___ que se posponga la reunión'?"
+opciones_explicitas: ["en", "de", "a", "por"]
+
+explicacion: |
+  El verbo 'optar' rige el régimen preposicional 'por'. Por lo tanto, 'optamos por que...'. (Nota: 'lamentar que se haya perdido el tren' NO lleva preposición — es complemento directo, no de régimen.)
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "intermedio"
+  tags: ["subordinada_sustantiva", "identificacion", "analisis"]
+
+variables:
+  prep: "a"
+  nexo: "que"
+  verbo: "aspirar"
+  sujeto: "el candidato"
+
+respuesta: "regimen_preposicional"
 tipo: input
 
-enunciado: "A través de los parlamentos se revela el ______ de cada personaje, se avanza la trama y se expresan los conflictos."
+enunciado: "En la oración '{sujeto} {verbo} {prep}{nexo} gane las elecciones', ¿cómo se clasifica la subordinada '{prep}{nexo} gane las elecciones'?"
 
 explicacion: |
-  Los parlamentos son el alma de la obra y permiten definir la personalidad y el carácter de los interlocutores mediante su lenguaje.
+  Se clasifica como Subordinada Sustantiva de Complemento de Régimen, ya que completa al verbo 'aspirar' mediante la preposición 'a'.
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "texto_teatral"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "intermedio"
+  tags: ["subordinada_sustantiva", "regimen_preposicional", "mc"]
+
+variables:
+  prep_correcta: "con"
+  prep_distractor1: "en"
+  prep_distractor2: "de"
+  prep_distractor3: "a"
+
+respuesta: "con"
+tipo: mc
+
+enunciado: "¿Qué preposición rige el verbo 'contar' en la oración 'Cuento ___ me apoyes'?"
+opciones_explicitas: ["en", "de", "a", "con"]
+
+explicacion: |
+  El verbo 'contar' (en el sentido de depender de) rige el régimen preposicional 'con'. Por lo tanto, 'cuento con que...'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
   nivel: "basico"
-  tags: ["estructura", "lectura"]
+  tags: ["subordinada_sustantiva", "completar", "preposicion"]
 
-respuesta: "nombre"
-tipo: input
-
-enunciado: "En el texto impreso, los parlamentos suelen ir precedidos del ______ del personaje que habla."
-
-explicacion: |
-  El nombre del personaje antecede al parlamento para facilitar la identificación de quién es el interlocutor en la obra.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "intermedio"
-  tags: ["parlamentos", "lenguaje"]
-
-respuesta: "origen social"
-tipo: input
-
-enunciado: "La variación del lenguaje en los parlamentos ayuda a definir el ______ y la personalidad del personaje."
-
-explicacion: |
-  El uso de modismos, jerga o lenguaje culto refleja el origen social y la identidad del personaje dentro de la obra.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "avanzado"
-  tags: ["lectura", "imaginacion"]
-
-respuesta: |
-  ver
-  imaginar
+respuesta: "en"
 tipo: completar
 
-enunciado: "Leer una obra requiere la capacidad de ______ la obra en la mente del lector mientras se siguen las indicaciones."
+enunciado: "Completa la oración: 'Insisto ___ que todo salga bien.' (Escribe la preposición correcta para el verbo 'insistir')."
+respuestas_validas:
+  - "en"
 
 explicacion: |
-  El lector debe "ver" o "imaginar" la obra mentalmente, ya que no hay un narrador que describa todo explícitamente.
+  'Insistir' rige la preposición 'en': 'insisto en que todo salga bien'.
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "texto_teatral"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
   nivel: "intermedio"
-  tags: ["acotaciones", "detalles"]
+  tags: ["subordinada_sustantiva", "regimen_preposicional", "mc"]
 
-respuesta: "escenario"
-tipo: input
+variables:
+  prep_correcta: "sobre"
+  prep_distractor1: "en"
+  prep_distractor2: "de"
+  prep_distractor3: "a"
 
-enunciado: "Las acotaciones pueden describir el ______ (lugar y época), el vestuario y los gestos de los personajes."
+respuesta: "sobre"
+tipo: mc
+
+enunciado: "¿Qué preposición rige el verbo 'informar' en la oración 'Te informo ___ que se canceló'?"
+opciones_explicitas: ["en", "de", "a", "sobre"]
 
 explicacion: |
-  Las acotaciones proporcionan contexto espacial y temporal, así como indicaciones físicas y visuales para la representación.
+  El verbo 'informar' rige el régimen preposicional 'sobre' (o 'de'). En este caso, 'sobre' es la opción más precisa para el contexto.
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "avanzado"
-  tags: ["comprension", "inferencia"]
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "intermedio"
+  tags: ["subordinada_sustantiva", "identificacion", "analisis"]
 
-respuesta: "dialogo"
+variables:
+  prep: "de"
+  nexo: "que"
+  verbo: "olvidar"
+  sujeto: "él"
+
+respuesta: "complemento_de_regimen"
 tipo: input
 
-enunciado: "En el texto teatral, inferimos las emociones a partir del ______ directo y de las indicaciones de cómo decirlo."
+enunciado: "En la oración '{sujeto} olvidó ___ fue ayer', ¿qué función cumple la parte '{prep}{nexo} fue ayer'?"
 
 explicacion: |
-  Al no haber narrador, las emociones se deducen del contenido del diálogo y de las acotaciones sobre el tono o gesto.
+  Cumple la función de Complemento de Régimen, completando al verbo 'olvidar' mediante la preposición 'de'.
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "basico"
-  tags: ["estructura", "identificacion"]
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "intermedio"
+  tags: ["subordinada_sustantiva", "regimen_preposicional", "mc"]
 
-respuesta: |
-  nombre
-  personaje
+variables:
+  prep_correcta: "para"
+  prep_distractor1: "en"
+  prep_distractor2: "de"
+  prep_distractor3: "a"
+
+respuesta: "para"
+tipo: mc
+
+enunciado: "¿Qué preposición rige el verbo 'preparar' en la oración 'Me preparo ___ que llegue la prueba'?"
+opciones_explicitas: ["en", "de", "a", "para"]
+
+explicacion: |
+  El verbo 'preparar' rige el régimen preposicional 'para'. Por lo tanto, 'me preparo para que...'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
+  nivel: "intermedio"
+  tags: ["subordinada_sustantiva", "nexos", "completar"]
+
+variables:
+  prep: "sobre"
+  nexo: "quién"
+  verbo: "preguntar"
+  sujeto: "el alumno"
+
+respuesta: "nexo"
 tipo: completar
 
-enunciado: "El ______ del personaje que habla precede al parlamento para identificar al interlocutor."
+enunciado: "Completa la oración: '{sujeto} {verbo} {prep} ___ ganó el concurso.' (Escribe solo el nexo interrogativo)."
+respuestas_validas:
+  - "quien"
+  - "quién"
 
 explicacion: |
-  El nombre o la etiqueta del personaje es la clave para saber quién está hablando en cada momento de la obra.
+  Cuando la subordinada es interrogativa indirecta sobre una persona, se utiliza el nexo 'quién'.
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "texto_teatral"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
   nivel: "intermedio"
-  tags: ["acotaciones", "guia"]
+  tags: ["subordinada_sustantiva", "regimen_preposicional", "mc"]
 
-respuesta: "representacion"
-tipo: input
+variables:
+  prep_correcta: "en"
+  prep_distractor1: "de"
+  prep_distractor2: "a"
+  prep_distractor3: "por"
 
-enunciado: "Las acotaciones guían la ______ de la obra, indicando gestos, tonos y escenario."
+respuesta: "en"
+tipo: mc
+
+enunciado: "¿Qué preposición rige el verbo 'consistir' en la oración 'El plan consiste ___ que todos participen'?"
+opciones_explicitas: ["de", "a", "en", "por"]
 
 explicacion: |
-  Su función principal es orientar la puesta en escena para que la interpretación sea fiel a la intención del autor.
+  El verbo 'consistir' rige el régimen preposicional 'en'. Por lo tanto, 'consiste en que...'. (Nota: 'creo que es correcto' NO lleva preposición — 'creer que' para expresar opinión es complemento directo, no de régimen; solo 'creer EN' con sentido de fe o confianza rige 'en', y no suele combinarse con 'que'.)
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "texto_teatral"
+  tema: "subordinada_sustituta_de_complemento_de_regimen"
   nivel: "intermedio"
-  tags: ["parlamentos", "registro"]
+  tags: ["subordinada_sustantiva", "identificacion", "analisis"]
 
-respuesta: "coloquial"
+variables:
+  prep: "por"
+  nexo: "que"
+  verbo: "optamos"
+  sujeto: "nosotros"
+
+respuesta: "regimen_preposicional"
 tipo: input
 
-enunciado: "Mientras uno puede usar lenguaje culto, otro puede utilizar modismos o un registro ______ para definir su personalidad."
+enunciado: "En la oración '{sujeto} {verbo} {prep}{nexo} se posponga la reunión', ¿cómo se clasifica la subordinada '{prep}{nexo} se posponga la reunión'?"
 
 explicacion: |
-  La variedad lingüística entre personajes es una herramienta clave para diferenciar sus orígenes sociales y temperamentos.
+  Se clasifica como Subordinada Sustantiva de Complemento de Régimen, ya que completa al verbo 'optar' mediante la preposición 'por'.
 ```
 
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "intermedio"
-  tags: ["tema", "conflicto"]
-
-respuesta: "conflicto"
-tipo: input
-
-enunciado: "Estudiar el teatro nos ayuda a comprender la estructura del ______ humano y la dinámica entre personajes."
-
-explicacion: |
-  El teatro es un espejo de la condición humana, centrado en la resolución o desarrollo de conflictos interpersonales.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "avanzado"
-  tags: ["acotaciones", "equipo"]
-
-respuesta: |
-  director
-  tecnico
-tipo: completar
-
-enunciado: "Las acotaciones son instrucciones para los actores, el ______ y el equipo ______."
-
-explicacion: |
-  Además de los actores, las acotaciones son vitales para el director y el equipo técnico (luces, sonido, etc.).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "basico"
-  tags: ["metfora", "estructura"]
-
-respuesta: "esqueleto"
-tipo: input
-
-enunciado: "El texto teatral es la base, el ______ sobre el cual se construye la puesta en escena."
-
-explicacion: |
-  El texto proporciona la estructura fundamental (el esqueleto) que luego se viste con elementos escénicos.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "intermedio"
-  tags: ["comprension", "lectura"]
-
-respuesta: "intenciones"
-tipo: input
-
-enunciado: "Debemos inferir las emociones y las ______ a partir de lo que se dice y de cómo se indica."
-
-explicacion: |
-  La lectura activa del texto teatral exige captar las intenciones ocultas o explícitas de los personajes.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "basico"
-  tags: ["definicion", "sinonimos"]
-
-respuesta: "obra"
-tipo: input
-
-enunciado: "El texto teatral también se conoce como ______ de teatro."
-
-explicacion: |
-  "Obra de teatro" es el término más comúnmente usado para referirse al género literario dramático.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "intermedio"
-  tags: ["acotaciones", "vestuario"]
-
-respuesta: "vestuario"
-tipo: input
-
-enunciado: "Las acotaciones pueden describir el escenario, el ______ de los personajes y sus gestos."
-
-explicacion: |
-  El vestuario es un elemento visual clave que se especifica mediante acotaciones para definir la apariencia de los personajes.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "avanzado"
-  tags: ["tema", "impacto"]
-
-respuesta: "transformar"
-tipo: input
-
-enunciado: "El texto teatral muestra el poder de la palabra para ______ realidades."
-
-explicacion: |
-  El lenguaje dramático tiene la capacidad de cambiar percepciones, emociones y situaciones dentro de la trama y el público.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "intermedio"
-  tags: ["acotaciones", "entonacion"]
-
-respuesta: "tonos"
-tipo: input
-
-enunciado: "Las acotaciones pueden indicar los ______ de voz de los personajes."
-
-explicacion: |
-  El tono de voz es una instrucción acotada que guía la interpretación emocional y verbal del actor.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "basico"
-  tags: ["estructura", "basico"]
-
-respuesta: "esqueleto"
-tipo: input
-
-enunciado: "El texto es el ______ sobre el cual se construye la puesta en escena."
-
-explicacion: |
-  Se utiliza la metáfora del esqueleto para describir la función estructural del texto dramático.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "intermedio"
-  tags: ["parlamentos", "trama"]
-
-respuesta: "trama"
-tipo: input
-
-enunciado: "A través de los parlamentos se revela el carácter y se avanza la ______."
-
-explicacion: |
-  El diálogo es el motor que impulsa la acción y desarrolla la trama de la obra.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "texto_teatral"
-  nivel: "avanzado"
-  tags: ["contexto", "representacion"]
-
-respuesta: "contexto"
-tipo: input
-
-enunciado: "Las palabras adquieren matices al decirse en un ______ específico frente al público."
-
-explicacion: |
-  El contexto escénico (lugar, época, relación entre actores) da significado a las palabras más allá del texto escrito.
-```

@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de Dinámica y Termodinámica
+# Examen jefe — [PENDIENTE #739]
 
-> Logro #159. Completaste el examen dominando fuerzas, energías y la entropía. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **130 preguntas totales** en 5/5 secciones.
+> Logro #739. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -75,11 +75,7 @@ opciones_explicitas:
   - "Sumar todas las componentes x y todas las componentes y por separado, para obtener la fuerza neta"
   - "Dibujar el diagrama de cuerpo libre con todas las fuerzas"
   - "Descomponer cada fuerza en sus componentes x e y"
-respuesta_orden:
-  - "Dibujar el diagrama de cuerpo libre con todas las fuerzas"
-  - "Descomponer cada fuerza en sus componentes x e y"
-  - "Sumar todas las componentes x y todas las componentes y por separado, para obtener la fuerza neta"
-
+respuesta_orden: ["Dibujar el diagrama de cuerpo libre con todas las fuerzas", "Descomponer cada fuerza en sus componentes x e y", "Sumar todas las componentes x y todas las componentes y por separado, para obtener la fuerza neta"]
 explicacion: |
   Es la misma secuencia de
   `../../matematica/suma-de-vectores-y-descomposicion/`, aplicada a
@@ -578,7 +574,8 @@ metadata:
 
 respuesta: "onda"
 tipo: "completar"
-respuestas_validas: ["onda", "particula"]
+respuestas_validas:
+  - "onda"
 
 enunciado: "Cuando la luz presenta fenómenos como la difracción o la interferencia, se comporta como una ___."
 
@@ -593,7 +590,7 @@ metadata:
   nivel: "basico"
   tags: ["fotón", "particula"]
 
-respuesta: "verdadero"
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "Un fotón es una partícula elemental de luz que no tiene masa en reposo."
@@ -628,7 +625,8 @@ metadata:
 
 respuesta: "Planck"
 tipo: "completar"
-respuestas_validas: ["Planck", "Einstein", "Newton", "Maxwell"]
+respuestas_validas:
+  - "Planck"
 
 enunciado: "La constante que relaciona la energía de un fotón con su frecuencia es la constante de ___."
 
@@ -662,20 +660,20 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [[1.0e-24, "1.0e-24"], [2.0e-24, "2.0e-24"]]
+  datos: [[1.0e-24, 1.0e24], [2.0e-24, 5.0e23]]
 
-respuesta: "datos[idx][1]"
-tipo: "input"
-tolerancia_abs: 0.001
+respuesta: datos[idx][1]
+tipo: "completar"
+tolerancia_abs: 1e20
 
-enunciado: "Si un electrón tiene un momento lineal de {datos[idx][0]} kg·m/s, su longitud de onda de De Broglie es aproximadamente {datos[idx][0]} m (asumiendo h = 1)."
+enunciado: "Si un electrón tiene un momento lineal de {datos[idx][0]} kg·m/s, su longitud de onda de De Broglie es aproximadamente ___ m (asumiendo h = 1)."
 
 pasos:
   - "Calcular lambda = h / p"
   - "Sustituir el valor de p dado"
 
 explicacion: |
-  La fórmula es lambda = h / p.
+  La fórmula es lambda = h / p = 1 / {datos[idx][0]} = {datos[idx][1]} m.
 ```
 
 ```
@@ -685,7 +683,7 @@ metadata:
   nivel: "intermedio"
   tags: ["fotoeléctrico", "einstein"]
 
-respuesta: "verdadero"
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "El efecto fotoeléctrico fue la evidencia experimental que confirmó la naturaleza corpuscular de la luz."
@@ -718,7 +716,7 @@ metadata:
   nivel: "avanzado"
   tags: ["electrones", "cuantica"]
 
-respuesta: "verdadero"
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "Si lanzamos electrones uno por uno a través de una doble rendija, eventualmente se observa un patrón de interferencia."
@@ -736,7 +734,8 @@ metadata:
 
 respuesta: "inversamente"
 tipo: "completar"
-respuestas_validas: ["directamente", "inversamente", "exponencialmente", "logarítmicamente"]
+respuestas_validas:
+  - "inversamente"
 
 enunciado: "La longitud de onda de De Broglie es ___ proporcional al momento lineal de la partícula."
 
@@ -751,7 +750,7 @@ metadata:
   nivel: "basico"
   tags: ["error", "fotón"]
 
-respuesta: "falso"
+respuesta: falso
 tipo: "vf"
 
 enunciado: "Un fotón tiene una masa de reposo mayor que un electrón."
@@ -768,7 +767,7 @@ metadata:
   tags: ["ordenar", "proceso"]
 
 opciones_explicitas: ["Emisión de fotón", "Interacción con material", "Detección de señal"]
-respuesta: ["Emisión de fotón", "Interacción con material", "Detección de señal"]
+respuesta_orden: ["Emisión de fotón", "Interacción con material", "Detección de señal"]
 tipo: "ordenar"
 
 enunciado: "Ordena los pasos de un proceso de detección de luz mediante el efecto fotoeléctrico:"
@@ -803,7 +802,8 @@ metadata:
 
 respuesta: "posición"
 tipo: "completar"
-respuestas_validas: ["posición", "momento", "energía", "carga"]
+respuestas_validas:
+  - "posición"
 
 enunciado: "El principio de incertidumbre de Heisenberg establece que no podemos conocer simultáneamente con precisión la ___ y el momento de una partícula."
 
@@ -818,7 +818,7 @@ metadata:
   nivel: "intermedio"
   tags: ["error", "frecuencia"]
 
-respuesta: "falso"
+respuesta: falso
 tipo: "vf"
 
 enunciado: "Si duplicamos la frecuencia de una onda electromagnética, su energía se reduce a la mitad."
@@ -835,20 +835,19 @@ metadata:
   tags: ["calculo", "rayos_x"]
 
 variables:
-  idx: uno_de([0, 1])
-  datos: [[6.6e-34, "6.6e-34"], [6.6e-34, "6.6e-34"]]
+  h_val: 6.6e-34
 
-respuesta: "datos[idx][1]"
-tipo: "input"
+respuesta: 1
+tipo: "completar"
 tolerancia_abs: 0.001
 
-enunciado: "Si la constante de Planck es {datos[idx][0]} J·s y un fotón tiene una energía de {datos[idx][0]} J, su frecuencia es {datos[idx][0]} Hz."
+enunciado: "Si la constante de Planck es {h_val} J·s y un fotón tiene una energía de {h_val} J, su frecuencia es ___ Hz."
 
 pasos:
   - "Usar f = E / h"
 
 explicacion: |
-  Como E = h * f, si E = h, entonces f = 1.
+  Como E = h * f, si E = h, entonces f = E/h = 1.
 ```
 
 ```
@@ -875,7 +874,7 @@ metadata:
   nivel: "avanzado"
   tags: ["macro", "de_broglie"]
 
-respuesta: "falso"
+respuesta: falso
 tipo: "vf"
 
 enunciado: "Los objetos macroscópicos, como una pelota de béisbol, muestran efectos de difracción claramente visibles debido a su naturaleza ondulatoria."
@@ -909,20 +908,19 @@ metadata:
   tags: ["calculo", "de_broglie"]
 
 variables:
-  idx: uno_de([0, 1])
-  datos: [[1.0e-34, "1.0e-34"], [1.0e-34, "1.0e-34"]]
+  p_val: 1.0e-34
 
-respuesta: "datos[idx][1]"
-tipo: "input"
-tolerancia_abs: 0.001
+respuesta: 1.0e34
+tipo: "completar"
+tolerancia_abs: 1e30
 
-enunciado: "Si un objeto tiene un momento de {datos[idx][0]} kg·m/s y h = 1, su longitud de onda es {datos[idx][0]} m."
+enunciado: "Si un objeto tiene un momento de {p_val} kg·m/s y h = 1, su longitud de onda es ___ m."
 
 pasos:
   - "lambda = h / p"
 
 explicacion: |
-  Aplicación directa de la fórmula de De Broglie.
+  Aplicación directa de la fórmula de De Broglie: lambda = 1 / {p_val} = 1.0e34 m.
 ```
 
 ```
@@ -949,7 +947,7 @@ metadata:
   nivel: "avanzado"
   tags: ["doppler", "frecuencia"]
 
-respuesta: "verdadero"
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "El efecto Doppler puede aplicarse a los fotones, provocando un cambio en su frecuencia (color)."
@@ -966,7 +964,7 @@ metadata:
   tags: ["ordenar", "escala"]
 
 opciones_explicitas: ["Fotón (luz visible)", "Electrón (De Broglie)", "Pelota de béisbol (De Broglie)"]
-respuesta: ["Fotón (luz visible)", "Electrón (De Broglie)", "Pelota de béisbol (De Broglie)"]
+respuesta_orden: ["Fotón (luz visible)", "Electrón (De Broglie)", "Pelota de béisbol (De Broglie)"]
 tipo: "ordenar"
 
 enunciado: "Ordena estos objetos de mayor a menor longitud de onda de De Broglie:"
@@ -999,7 +997,7 @@ metadata:
   nivel: "basico"
   tags: ["conclusion"]
 
-respuesta: "verdadero"
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "La dualidad onda-partícula es un concepto fundamental de la mecánica cuántica que rompe con la física clásica."
@@ -1036,21 +1034,22 @@ metadata:
   tags: ["formula", "relacion"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[10, 2], [5, 4]] # [masa, velocidad]
+  scenario_idx: uno_de([0, 1])
+  datos: [[10, 2], [5, 4]]
 
 tipo: completar
-respuestas_validas: ["100.0", "40.0"]
-respuesta: datos[escenario_idx][0] * (datos[escenario_idx][1] * datos[scenario_idx][1]) / 2
+respuestas_validas:
+  - "20.0"
+  - "40.0"
+respuesta: datos[scenario_idx][0] * (datos[scenario_idx][1] * datos[scenario_idx][1]) / 2
 
-enunciado: "Si un objeto tiene una masa de {datos[escenario_idx][0]} kg y una velocidad de {datos[scenario_idx][1]} m/s, su energía cinética es ___ J."
+enunciado: "Si un objeto tiene una masa de {datos[scenario_idx][0]} kg y una velocidad de {datos[scenario_idx][1]} m/s, su energía cinética es ___ J."
 
 explicacion: |
   Usando la fórmula $E_c = \frac{1}{2} \cdot m \cdot v^2$:
-  Si m = {datos[0][0]} y v = {datos[0][1]}, $E_c = 0.5 \cdot 10 \cdot 2^2 = 20$ (Nota: El ejemplo en el enunciado debe coincidir con la lógica, corrigiendo para el ejemplo de la variable).
-  Para el caso 0: $0.5 \cdot 10 \cdot 4 = 20$.
-  Para el caso 1: $0.5 \cdot 5 \cdot 16 = 40$.
-  *Nota: Ajustando lógica de respuesta para que coincida con el cálculo exacto.*
+  Para el caso sorteado, se calcula $0.5 \cdot m \cdot v^2$.
+  Si scenario_idx es 0: $0.5 \cdot 10 \cdot 2^2 = 20$.
+  Si scenario_idx es 1: $0.5 \cdot 5 \cdot 4^2 = 40$.
 ```
 
 ```
@@ -1065,7 +1064,9 @@ variables:
   datos: [[10, 2], [5, 4]] 
 
 tipo: completar
-respuestas_validas: ["20.0", "40.0"]
+respuestas_validas:
+  - "20.0"
+  - "40.0"
 respuesta: redondear(datos[escenario_idx][0] * (datos[escenario_idx][1] * datos[escenario_idx][1]) / 2, 1)
 
 enunciado: "Si un objeto tiene una masa de {datos[escenario_idx][0]} kg y una velocidad de {datos[escenario_idx][1]} m/s, su energía cinética es ___ J."
@@ -1119,9 +1120,9 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Masa", "Velocidad", "Constante (1/2)"]
-respuesta: ["Masa", "Velocidad", "Constante (1/2)"]
+respuesta_orden: ["Masa", "Velocidad", "Constante (1/2)"]
 
-enunciado: "Ordena los componentes de la fórmula de la energía cinética ($E_c = \frac{1}{2} m v^2$) según aparecen en la expresión matemática de izquierda a derecha:"
+enunciado: "Ordena los componentes de la fórmula de la energía cinética ($E_c = \\frac{1}{2} m v^2$) según aparecen en la expresión matemática de izquierda a derecha:"
 
 explicacion: |
   La expresión es $\frac{1}{2}$ (constante) $\cdot m$ (masa) $\cdot v^2$ (velocidad al cuadrado).
@@ -1137,9 +1138,9 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Constante (1/2)", "Masa", "Velocidad"]
-respuesta: ["Constante (1/2)", "Masa", "Velocidad"]
+respuesta_orden: ["Constante (1/2)", "Masa", "Velocidad"]
 
-enunciado: "Ordena los elementos de la fórmula $E_c = \frac{1}{2} m v^2$ tal como aparecen de izquierda a derecha:"
+enunciado: "Ordena los elementos de la fórmula $E_c = \\frac{1}{2} m v^2$ tal como aparecen de izquierda a derecha:"
 
 explicacion: |
   El orden es: 1) El factor constante 1/2, 2) La masa (m) y 3) La velocidad (v).
@@ -1180,7 +1181,7 @@ metadata:
   nivel: "intermedio"
   tags: ["relacion", "proporcionalidad"]
 
-respuesta: "se cuadruplica"
+respuesta: "se duplica"
 tipo: mc
 opciones_explicitas: ["se duplica", "se cuadruplica", "se mantiene igual", "se reduce a la mitad"]
 
@@ -1214,7 +1215,10 @@ metadata:
   nivel: "basico"
   tags: ["formula"]
 
-respuestas_validas: ["1/2", "0.5", "0,5"]
+respuestas_validas:
+  - "1/2"
+  - "0.5"
+  - "0,5"
 respuesta: "1/2"
 tipo: completar
 
@@ -1267,7 +1271,7 @@ variables:
   v_final: 6
 
 respuesta: 27.0
-type: input
+tipo: input
 tolerancia_abs: 0.1
 
 enunciado: "Un cuerpo de {m} kg aumenta su velocidad de {v_inicial} m/s a {v_final} m/s. ¿Cuál es el cambio en su energía cinética (ΔEc) en Joules?"
@@ -1290,15 +1294,14 @@ metadata:
   tags: ["energia_cinetica", "relacion_cuadratica"]
 
 variables:
-  idx: uno_de([0, 1])
   datos: [[10, 2, 4], [5, 4, 32]]
 
 enunciado: "Si un objeto duplica su velocidad (v_final = 2 * v_inicial) sin cambiar su masa, su energía cinética final será ___ veces la inicial."
 
-respuesta: tabla[idx][1
-tabla: [[2, "4"], [2, "4"]]
+respuesta: "4"
 tipo: completar
-respuestas_validas: ["4"]
+respuestas_validas:
+  - "4"
 
 explicacion: |
   La energía cinética depende del cuadrado de la velocidad ($E_c \propto v^2$). Si la velocidad se multiplica por 2, la energía se multiplica por $2^2 = 4$.
@@ -1312,13 +1315,13 @@ metadata:
   tags: ["errores_comunes", "proporcionalidad"]
 
 opciones_explicitas: ["Se duplica", "Se cuadruplica", "Se mantiene igual", "Se reduce a la mitad"]
-respuesta: "Se cuadruplica"
+respuesta: "Se duplica"
 tipo: mc
 
-enunciado: "Un error común es pensar que si la masa de un objeto se duplica, su energía cinética también se duplica. Sin embargo, si la masa se duplica y la velocidad se mantiene constante, la energía cinética real se: ___"
+enunciado: "Un error común es pensar que si la masa de un objeto se duplica, su energía cinética se cuadruplica (confundiendo esta relación con la de la velocidad). Si la masa se duplica y la velocidad se mantiene constante, la energía cinética real se: ___"
 
 explicacion: |
-  La energía cinética es directamente proporcional a la masa ($E_c \propto m$). Si la masa se duplica, la energía cinética también se duplica. El error común suele ser confundir la relación de la masa con la de la velocidad.
+  La energía cinética es directamente proporcional a la masa ($E_c \propto m$). Si la masa se duplica, la energía cinética también se duplica. El error común suele ser confundir la relación de la masa con la de la velocidad (que sí es cuadrática).
 ```
 
 ```
@@ -1351,16 +1354,16 @@ variables:
 enunciado: "Calcula la velocidad de un objeto de {escenarios[idx][0]} kg que posee una energía cinética de {escenarios[idx][1]} J."
 
 pasos:
-  - "Identificar la fórmula: $E_c = \frac{1}{2} \cdot m \cdot v^2$"
-  - "Despejar la velocidad: $v = \sqrt{\frac{2 \cdot E_c}{m}}$"
-  - "Sustituir los valores: $v = \sqrt{\frac{2 \cdot 10}{2}} = \sqrt{10}$"
+  - "Identificar la fórmula: Ec = (1/2) · m · v²"
+  - "Despejar la velocidad: v = raíz(2 · Ec / m)"
+  - "Sustituir los valores y calcular"
 
 respuesta: sqrt(2 * escenarios[idx][1] / escenarios[idx][0])
 tipo: completar
 tolerancia_abs: 0.01
 
 explicacion: |
-  Usando la fórmula despejada $v = \sqrt{2E_c / m}$, obtenemos el resultado correcto.
+  Usando la fórmula despejada v = raíz(2·Ec/m), obtenemos el resultado correcto.
 ```
 
 ```
@@ -1377,7 +1380,7 @@ tipo: mc
 enunciado: "Al calcular la energía cinética en el Sistema Internacional, la combinación de unidades resultante es: ___"
 
 explicacion: |
-  La fórmula es $\frac{1}{2} \cdot \text{masa} \cdot \text{velocidad}^2$. En unidades SI esto es $\text{kg} \cdot (\text{m/s})^2$, lo que equivale a $\text{kg} \cdot \text{m}^2/\text{s}^2$, también conocido como Joule (J).
+  La fórmula es 1/2 * masa * velocidad^2. En unidades SI esto es kg * (m/s)^2, lo que equivale a kg * m^2/s^2, también conocido como Joule (J).
 ```
 
 ```
@@ -1389,7 +1392,8 @@ metadata:
 
 respuesta: "cinetica"
 tipo: completar
-respuestas_validas: ["cinetica"]
+respuestas_validas:
+  - "cinetica"
 
 enunciado: "Mientras que la energía potencial es la energía que un objeto posee debido a su posición o configuración, la energía que un objeto posee debido a su movimiento se denomina energía ___."
 
@@ -1405,11 +1409,7 @@ metadata:
   tags: ["relacion", "variables"]
 
 variables:
-  escenario: uno_de([
-    [2, 4],
-    [5, 10],
-    [10, 20]
-  ])
+  escenario: uno_de([[2, 4], [5, 10], [10, 20]])
 
 respuesta: "cuadriplica"
 tipo: mc
@@ -1445,13 +1445,10 @@ metadata:
   tags: ["calculo", "comparacion"]
 
 variables:
-  datos: uno_de([
-    [2.0, 10.0],
-    [4.0, 5.0],
-    [1.0, 20.0]
-  ])
+  datos: uno_de([[2.0, 10.0], [4.0, 5.0], [1.0, 20.0]])
+  resultado: 0.5 * datos[0] * datos[1] * datos[1]
 
-respuesta: 100.0
+respuesta: resultado
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -1463,7 +1460,7 @@ pasos:
   - "Aplicar la fórmula: Ec = 0.5 * m * v^2"
 
 explicacion: |
-  Usando la fórmula $E_c = \frac{1}{2} \cdot {datos[0]} \cdot ({datos[1]})^2$, el resultado es {datos[2]} J.
+  Usando la fórmula Ec = 0.5 * m * v^2, el resultado es {resultado} J.
 ```
 
 ```
@@ -1473,7 +1470,7 @@ metadata:
   nivel: "basico"
   tags: ["energia_mecanica", "suma"]
 
-respuesta: ["energia_cinetica", "energia_potencial"]
+respuesta_orden: ["energia_cinetica", "energia_potencial"]
 tipo: ordenar
 
 opciones_explicitas: ["energia_cinetica", "energia_potencial"]
@@ -1492,13 +1489,15 @@ metadata:
   tags: ["mecanica", "cinetica"]
 
 variables:
-  datos: [["1200", "1500"], ["800", "400"], ["1500", "900"]]
+  datos: [[1200, 25], [800, 20], [1500, 15]]
   idx: uno_de([0, 1, 2])
   m: datos[idx][0]
   v: datos[idx][1]
+  ec: 0.5 * m * v * v
 
-respuestas_validas: [0.5 * m * v * v]
-respuesta: 0.5 * m * v * v
+respuestas_validas:
+  - ec
+respuesta: ec
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -1512,7 +1511,7 @@ pasos:
 
 explicacion: |
   La energía cinética se calcula con la fórmula $E_c = \frac{1}{2} m v^2$.
-  Para este caso: $0.5 \cdot {m} \cdot {v}^2 = {0.5 * m * v * v}$ J.
+  Para este caso: $0.5 \cdot {m} \cdot {v}^2 = {ec}$ J.
 ```
 
 ```
@@ -1528,7 +1527,7 @@ variables:
   factor_m: datos[idx][0]
   factor_ec: datos[idx][1]
 
-respuesta: factor_ec
+respuesta: factor_m
 tipo: mc
 opciones_explicitas: ["el doble", "el triple", "el cuádruple", "se mantiene igual"]
 
@@ -1546,12 +1545,13 @@ metadata:
   tags: ["velocidad", "seguridad_vial"]
 
 variables:
-  datos: [["20", "40"], ["30", "90"], ["10", "20"]]
+  datos: [["20", "40"], ["30", "60"], ["10", "20"]]
   idx: uno_de([0, 1, 2])
   v1: datos[idx][0]
   v2: datos[idx][1]
 
-respuestas_validas: [verdadero]
+respuestas_validas:
+  - verdadero
 respuesta: verdadero
 
 tipo: completar
@@ -1569,22 +1569,23 @@ metadata:
   tags: ["despeje", "velocidad"]
 
 variables:
-  datos: [["100", "10"], ["500", "20"], ["80", "20"]]
+  datos: [[500, 10, 10], [1000, 5, 20], [100, 8, 5]]
   idx: uno_de([0, 1, 2])
   ec: datos[idx][0]
   m: datos[idx][1]
-  v: sqrt(2 * ec / m)
+  v: datos[idx][2]
 
 respuesta: v
 tipo: completar
-respuestas_validas: ["10", "20", "20"]
+tolerancia_abs: 0.01
 
 enunciado: "Un objeto de {m} kg posee una energía cinética de {ec} J. La velocidad del objeto es de ___ m/s."
 
 explicacion: |
-  Despejamos la velocidad de la fórmula $E_c = \frac{1}{2} m v^2$:
-  $v^2 = \frac{2 \cdot E_c}{m} \implies v = \sqrt{\frac{2 \cdot E_c}{m}}$
-  $v = \sqrt{\frac{2 \cdot {ec}}{{m}}} = {v}$ m/s.
+  Despejamos la velocidad de la fórmula Ec = 1/2 * m * v^2:
+  v^2 = (2 * Ec) / m
+  v = sqrt((2 * ec) / m)
+  v = {v} m/s.
 ```
 
 ```
@@ -1596,7 +1597,10 @@ metadata:
 
 respuesta: "masa y velocidad"
 tipo: completar
-respuestas_validas: ["masa y velocidad", "posición y masa", "altura y velocidad"]
+respuestas_validas:
+  - "masa y velocidad"
+  - "posición y masa"
+  - "altura y velocidad"
 
 enunciado: "La energía cinética de un cuerpo depende de dos variables principales: la ___ y la ___."
 
@@ -1615,7 +1619,8 @@ metadata:
 
 respuesta: "energia_potencial_gravitatoria"
 tipo: completar
-respuestas_validas: ["energia_potencial_gravitatoria"]
+respuestas_validas:
+  - "energia_potencial_gravitatoria"
 
 enunciado: "La capacidad de un cuerpo de realizar un trabajo debido a su posición en un campo gravitatorio se denomina ___."
 
@@ -1633,9 +1638,9 @@ metadata:
 variables:
   caso: uno_de([[10, "10 kg"], [25, "25 kg"], [50, "50 kg"]])
 
-respuesta: caso[0
+respuesta: "Se duplica"
 tipo: mc
-opciones_explicitas: ["10 kg", "25 kg", "50 kg", "No depende de la masa"]
+opciones_explicitas: ["Se duplica", "Se cuadruplica", "Se reduce a la mitad", "No cambia"]
 
 enunciado: "Si duplicamos la masa de un objeto manteniendo su altura y la gravedad constantes, la energía potencial gravitatoria de un objeto de {caso[1]} se..."
 
@@ -1672,7 +1677,8 @@ metadata:
 
 respuesta: "altura"
 tipo: completar
-respuestas_validas: ["altura"]
+respuestas_validas:
+  - "altura"
 
 enunciado: "En la expresión matemática Ep = m · g · h, la variable 'h' representa la ___."
 
@@ -1711,10 +1717,10 @@ metadata:
   nivel: "basico"
   tags: ["conceptos", "definicion"]
 
-respuesta: "positiva"
-tipo: "vf"
+tipo: vf
+respuesta: verdadero
 
-enunciado: "Si un objeto con masa positiva se encuentra a una altura positiva sobre el nivel de referencia, su energía potencial gravitatoria será ____."
+enunciado: "Si un objeto con masa positiva se encuentra a una altura positiva sobre el nivel de referencia, su energía potencial gravitatoria será positiva."
 
 explicacion: |
   La fórmula es Ep = m · g · h. Si la masa (m), la gravedad (g) y la altura (h) son todas positivas, el resultado es necesariamente positivo.
@@ -1728,11 +1734,7 @@ metadata:
   tags: ["calculo", "numerico"]
 
 variables:
-  escenario: uno_de([
-    [2, "15", "5", 10],
-    [3, "10", "4", 20],
-    [4, "5", "10", 50]
-  ])
+  escenario: uno_de([[2, "15", "5", 150], [3, "10", "4", 120], [4, "5", "10", 200]])
   m: escenario[0]
   h: escenario[1]
   g: escenario[2]
@@ -1779,7 +1781,10 @@ metadata:
 
 respuesta: "Joules"
 tipo: "completar"
-respuestas_validas: ["Joules", "J", "joules"]
+respuestas_validas:
+  - "Joules"
+  - "J"
+  - "joules"
 
 enunciado: "En el Sistema Internacional de Unidades, la unidad para medir la energía potencial gravitatoria es el _________."
 
@@ -1794,16 +1799,11 @@ metadata:
   nivel: "intermedio"
   tags: ["metodologia", "ordenar"]
 
-respuesta: ["identificar_datos", "aplicar_formula", "realizar_multiplicacion"]
-tipo: "ordenar"
-opciones_explicitas: ["aplicar_formula", "realizar_multiplicacion", "identificar_datos"]
+tipo: ordenar
+opciones_explicitas: ["identificar_datos", "aplicar_formula", "realizar_multiplicacion"]
+respuesta_orden: ["identificar_datos", "aplicar_formula", "realizar_multiplicacion"]
 
 enunciado: "Ordena los pasos lógicos para resolver un problema de cálculo de energía potencial gravitatoria:"
-
-pasos:
-  - "1. Identificar los datos (m, g, h)."
-  - "2. Aplicar la fórmula Ep = m·g·h."
-  - "3. Realizar la operación matemática y asignar unidades."
 
 explicacion: |
   Para resolver problemas físicos de forma sistemática, primero debemos extraer los datos, luego plantear la ecuación y finalmente operar.
@@ -1818,9 +1818,12 @@ metadata:
 
 respuesta: "h"
 tipo: completar
-respuestas_validas: ["h", "la altura", "la posición vertical"]
+respuestas_validas:
+  - "h"
+  - "la altura"
+  - "la posición vertical"
 
-enunciado: "En la fórmula de la energía potencial gravitatoria $E_p = m \cdot g \cdot h$, la variable $h$ representa la ___ respecto a un nivel de referencia."
+enunciado: "En la fórmula de la energía potencial gravitatoria $E_p = m \\cdot g \\cdot h$, la variable $h$ representa la ___ respecto a un nivel de referencia."
 
 explicacion: |
   La energía potencial gravitatoria depende de la posición vertical (altura) del objeto respecto a un punto de referencia elegido. Si cambias el nivel de referencia, la energía potencial cambia, aunque el objeto sea el mismo.
@@ -1834,15 +1837,11 @@ metadata:
   tags: ["conceptos", "relacion_variables"]
 
 variables:
-  escenario: uno_de([
-    ["un objeto de 2 kg", 2, "2 kg"],
-    ["un objeto de 5 kg", 5, "5 kg"],
-    ["un objeto de 10 kg", 10, "10 kg"]
-  ])
+  escenario: uno_de([["un objeto de 2 kg", 2, "2 kg"], ["un objeto de 5 kg", 5, "5 kg"], ["un objeto de 10 kg", 10, "10 kg"]])
 
-respuesta: "a"
 tipo: mc
 opciones_explicitas: ["La energía es mayor", "La energía es menor", "La energía es igual"]
+respuesta: "La energía es mayor"
 
 enunciado: "Si duplicamos la masa de {escenario[0]} manteniendo su altura y la gravedad constantes, la energía potencial gravitatoria será: ___"
 
@@ -1874,13 +1873,9 @@ metadata:
   tags: ["calculo", "despeje"]
 
 variables:
-  datos: uno_de([
-    [100, 9.8, 50],
-    [50, 9.8, 20],
-    [200, 9.8, 100]
-  ])
+  datos: uno_de([[100, 9.8, 50], [50, 9.8, 20], [200, 9.8, 100]])
 
-respuesta: "datos[2]"
+respuesta: redondear(datos[2]/(datos[0]*datos[1]), 2)
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -1902,12 +1897,12 @@ metadata:
   nivel: "basico"
   tags: ["conceptos", "orden"]
 
-respuesta: ["m", "g", "h"]
+respuesta_orden: ["m", "g", "h"]
 tipo: ordenar
 
 opciones_explicitas: ["h", "g", "m"]
 
-enunciado: "Para calcular la energía potencial gravitatoria siguiendo la estructura de la fórmula $E_p = m \cdot g \cdot h$, el orden de los factores es:"
+enunciado: "Para calcular la energía potencial gravitatoria siguiendo la estructura de la fórmula $E_p = m \\cdot g \\cdot h$, el orden de los factores es:"
 
 explicacion: |
   Aunque el orden de los factores no altera el producto, la fórmula estándar se presenta como Masa $\cdot$ Gravedad $\cdot$ Altura.
@@ -1941,7 +1936,7 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [[10, 9.8, 2, 196.0], [5, 9.8, 5, 245.0]]
 
-respuesta: datos[escenario_idx][3
+respuesta: datos[escenario_idx][3]
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -1982,9 +1977,9 @@ variables:
   caso_idx: uno_de([0, 1])
   objetos: [[10, 20], [5, 15]]
 
-respuesta: objetos[caso_idx][1
+respuesta: "El segundo objeto tiene más energía"
 tipo: mc
-opciones_explicitas: ["El objeto de 10 kg tiene más energía", "El objeto de 20 kg tiene más energía", "Ambos tienen la misma energía", "No se puede determinar"]
+opciones_explicitas: ["El primer objeto tiene más energía", "El segundo objeto tiene más energía", "Ambos tienen la misma energía", "No se puede determinar"]
 
 enunciado: "Si dos objetos están a la misma altura, pero el primero tiene {objetos[caso_idx][0]} kg y el segundo tiene {objetos[caso_idx][1]} kg, ¿cuál posee mayor energía potencial gravitatoria?"
 
@@ -1999,10 +1994,10 @@ metadata:
   nivel: "basico"
   tags: ["formula", "variables"]
 
-respuesta: ["masa", "gravedad", "altura"]
+respuesta_orden: ["masa", "gravedad", "altura"]
 tipo: ordenar
 
-opciones_explicitas: ["altura", "gravedad", "masa", "velocidad", "tiempo"]
+opciones_explicitas: ["altura", "gravedad", "masa"]
 
 enunciado: "Ordena de menor a mayor las variables que determinan la magnitud de la energía potencial gravitatoria (Ep = m · g · h):"
 
@@ -2018,12 +2013,13 @@ metadata:
   tags: ["energia", "gravitacion"]
 
 variables:
-  escenario: uno_de([[0.5, "50"], [1.5, "150"], [2.0, "200"]])
+  escenario: uno_de([[0.5, 50], [1.5, 150], [2.0, 200]])
   m: escenario[0]
   h: escenario[1]
   g: 9.8
+  ep: m * g * h
 
-respuesta: m * g * h
+respuesta: ep
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -2037,7 +2033,7 @@ pasos:
 
 explicacion: |
   La energía potencial se calcula multiplicando la masa por la gravedad por la altura:
-  Ep = {m} kg * {g} m/s² * {h} m = {m * g * h} J.
+  Ep = {m} kg * {g} m/s² * {h} m = {ep} J.
 ```
 
 ```
@@ -2053,8 +2049,8 @@ variables:
   m: datos[idx][0]
   ep: datos[idx][1]
 
-respuesta: ep == (m * 9.8 * 10)
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Un paquete de {m} kg se encuentra en un estante a 10 metros de altura. Si la energía potencial es de {ep} J, ¿es correcto afirmar que la gravedad aplicada fue de 9.8 m/s²?"
 
 explicacion: |
@@ -2088,12 +2084,12 @@ metadata:
   tags: ["energia", "calculo"]
 
 variables:
-  caso: uno_de([[2, 5, 10], [5, 2, 10], [10, 5, 2]])
+  caso: uno_de([[2, 5, 98.0], [5, 2, 98.0], [10, 5, 490.0]])
   m: caso[0]
   h: caso[1]
   ep: caso[2]
 
-respuesta: ["m * g * h", "m * g / h", "m / (g * h)", "g * h / m"]
+respuesta_orden: ["m * g / h", "m / (g * h)", "g * h / m", "m * g * h"]
 tipo: ordenar
 
 opciones_explicitas: ["m * g * h", "m * g / h", "m / (g * h)", "g * h / m"]
@@ -2116,9 +2112,9 @@ variables:
   m: escenario[0]
   h: escenario[1]
 
-respuesta: "500"
+respuesta: m * 10 * h
 tipo: completar
-respuestas_validas: ["500", "500.0", "500.00"]
+tolerancia_abs: 0.1
 
 enunciado: "Un dron de {m} kg vuela a una altura de {h} metros. Su energía potencial gravitatoria es de ___ Joules (usa g = 10 m/s²)."
 
@@ -2138,7 +2134,9 @@ metadata:
 
 respuesta: "desorden"
 tipo: completar
-respuestas_validas: ["desorden", "caos"]
+respuestas_validas:
+  - "desorden"
+  - "caos"
 
 enunciado: "En términos macroscópicos, la entropía se asocia comúnmente con el grado de ___ de un sistema."
 
@@ -2157,9 +2155,9 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [[100, 20], [50, 10]]
 
-opciones_explicitas: ["De un cuerpo a 100°C a uno a 20°C", "De un cuerpo a 20°C a uno a 100°C", "No hay flujo de calor"]
+opciones_explicitas: ["Del cuerpo más caliente al más frío", "Del cuerpo más frío al más caliente", "No hay flujo de calor"]
 
-respuesta: uno_de([0, 1, 2])[escenario_idx]
+respuesta: "Del cuerpo más caliente al más frío"
 tipo: mc
 
 enunciado: "Considerando un sistema con dos cuerpos a temperaturas de {datos[escenario_idx][0]}°C y {datos[escenario_idx][1]}°C, el calor fluirá espontáneamente ___."
@@ -2194,7 +2192,7 @@ metadata:
 
 opciones_explicitas: ["Hielo derritiéndose", "Agua líquida congelándose", "Vapor de agua condensándose"]
 
-respuesta: ["Hielo derritiéndose", "Agua líquida congelándose", "Vapor de agua condensándose"]
+respuesta_orden: ["Hielo derritiéndose", "Agua líquida congelándose", "Vapor de agua condensándose"]
 tipo: ordenar
 
 enunciado: "Ordena los siguientes procesos de mayor a menor desorden (entropía) de sus estados de agregación:"
@@ -2211,15 +2209,14 @@ metadata:
   tags: ["microestados", "probabilidad"]
 
 variables:
-  estado_idx: uno_de([0, 1])
-  escenarios: [["ordenado", "baja"], ["desordenado", "alta"]]
+  escenario: uno_de([["ordenado", "baja"], ["desordenado", "alta"]])
 
-respuesta: uno_de([0, 1])[estado_idx][1]
+respuesta: escenario[1]
 tipo: mc
 
 opciones_explicitas: ["baja", "alta", "nula"]
 
-enunciado: "Un estado con una configuración altamente ___ tiene una probabilidad estadística más ___ de ocurrir espontáneamente."
+enunciado: "Un estado con una configuración altamente {escenario[0]} tiene una probabilidad estadística más {escenario[1]} de ocurrir espontáneamente."
 
 explicacion: |
   Los sistemas evolucionan hacia estados con mayor número de microestados posibles (mayor desorden), ya que estos son estadísticamente mucho más probables.
@@ -2236,25 +2233,23 @@ variables:
   Q: 5000.0
   T_caliente: 400.0
   T_frio: 300.0
-  delta_S: Q / T_caliente - Q / T_frio
+  delta_S: Q / T_frio - Q / T_caliente
 
 respuesta: delta_S
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un sistema absorbe {Q} J de calor a una temperatura de {T_caliente} K y luego se transfiere a un foco frío a {T_frio} K. ¿Cuál es el cambio de entropía del universo en este proceso reversible? (Expresar en J/K)"
+enunciado: "Un foco caliente a {T_caliente} K cede {Q} J de calor a un foco frío a {T_frio} K. ¿Cuál es el cambio de entropía total del universo en este proceso? (Expresar en J/K)"
 
 pasos:
-  - "Calcular la entropía del sistema: ΔS_sis = Q / T_caliente"
-  - "Calcular la entropía del entorno: ΔS_ent = -Q / T_frio"
-  - "Sumar ambos valores para obtener el cambio total: ΔS_total = ΔS_sis + ΔS_ent"
+  - "Calcular la entropía perdida por el foco caliente: ΔS_caliente = -Q / T_caliente"
+  - "Calcular la entropía ganada por el foco frío: ΔS_frio = +Q / T_frio"
+  - "Sumar ambos valores para obtener el cambio total: ΔS_total = ΔS_frio - ΔS_caliente en magnitud, es decir Q/T_frio - Q/T_caliente"
 
 explicacion: |
-  La entropía total del universo en un proceso reversible es cero, pero aquí estamos calculando el cambio de entropía de los componentes. 
-  ΔS_sis = 5000 / 400 = 12.5 J/K
-  ΔS_ent = -5000 / 300 = -16.666... J/K
-  ΔS_total = 12.5 - 16.666 = -4.166... J/K (Nota: El enunciado pide el cambio de entropía del sistema/proceso según los datos).
-  *Corrección conceptual: Si el proceso es reversible, la suma es 0. Si el cálculo da distinto, es un proceso irreversible.*
+  ΔS_caliente = -5000 / 400 = -12.5 J/K (el foco caliente pierde entropía al ceder calor).
+  ΔS_frio = +5000 / 300 = 16.666... J/K (el foco frío gana más entropía de la que pierde el caliente, por estar a menor temperatura).
+  ΔS_total = 16.666 - 12.5 = 4.166... J/K, un valor positivo, consistente con la Segunda Ley (la entropía del universo aumenta en un proceso espontáneo de transferencia de calor).
 ```
 
 ```
@@ -2304,7 +2299,8 @@ variables:
 
 respuesta: 4.0
 tipo: completar
-respuestas_validas: [4.0]
+respuestas_validas:
+  - 4.0
 
 enunciado: "Si un sistema recibe ___ J de calor a una temperatura constante de ___ K, el cambio de entropía es de ___ J/K."
 
@@ -2322,7 +2318,7 @@ metadata:
 
 opciones_explicitas: ["Calcular ΔS del sistema", "Calcular ΔS del entorno", "Sumar ΔS_sis + ΔS_ent", "Verificar si ΔS_total > 0"]
 
-respuesta: ["Calcular ΔS del sistema", "Calcular ΔS del entorno", "Sumar ΔS_sis + ΔS_ent", "Verificar si ΔS_total > 0"]
+respuesta_orden: ["Calcular ΔS del sistema", "Calcular ΔS del entorno", "Sumar ΔS_sis + ΔS_ent", "Verificar si ΔS_total > 0"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para determinar si un proceso termodinámico es espontáneo analizando la entropía del universo:"
@@ -2338,11 +2334,9 @@ metadata:
   nivel: "basico"
   tags: ["termodinamica", "calor", "entropia"]
 
-tipo: mc
-opciones_explicitas: ["El calor fluye de un cuerpo frío a uno caliente de forma espontánea.", "El calor fluye de un cuerpo caliente a uno frío de forma espontánea.", "El calor no fluye entre cuerpos con la misma temperatura.", "El calor fluye en ambas direcciones con la misma probabilidad."]
-
+tipo: completar
 enunciado: "En un sistema aislado, según la segunda ley de la termodinamica, el flujo espontáneo de calor ocurre siempre desde un cuerpo con mayor ___ hacia uno con menor ___."
-
+respuesta: "temperatura"
 explicacion: |
   La segunda ley de la termodinámica establece que el calor fluye espontáneamente de los cuerpos con mayor temperatura a los de menor temperatura, aumentando la entropía total del universo.
 ```
@@ -2370,13 +2364,10 @@ metadata:
   nivel: "avanzado"
   tags: ["entropia", "sistemas_abiertos", "orden"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[10, "aumenta"], [20, "disminuye"]]
-
 tipo: completar
-respuestas_validas: ["aumenta", "disminuye"]
-respuesta: datos[escenario_idx][1
+respuestas_validas:
+  - "aumenta"
+respuesta: "aumenta"
 
 enunciado: "Si un sistema abierto (como un ser vivo) crea orden interno reduciendo su entropía local, la entropía total del universo ___ debido a la energía disipada en forma de calor."
 
@@ -2393,9 +2384,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["La entropía total del universo siempre disminuye en un ciclo ideal.", "La entropía total del universo aumenta en un ciclo real debido a la irreversibilidad.", "La entropía de un sistema cerrado se mantiene constante en cualquier proceso.", "La entropía de un sistema aumenta si el proceso es reversible."]
-
 enunciado: "En un motor real (irreversible), la variación de la entropía total del universo es siempre:"
-
+respuesta: "La entropía total del universo aumenta en un ciclo real debido a la irreversibilidad."
 explicacion: |
   Debido a la irreversibilidad (fricción, turbulencias, transferencias de calor finitas), la entropía total del universo siempre aumenta en procesos reales.
 ```
@@ -2408,9 +2398,9 @@ metadata:
   tags: ["entropia", "procesos", "termodinamica"]
 
 tipo: ordenar
-opciones_explicitas: ["Un gas se expande espontáneamente ocupando todo el recipiente.", "Un gas se comprime espontáneamente ocupando solo una esquina del recipiente.", "Un gas se expande espontáneamente ocupando solo una esquina del recipiente.", "Un gas se comprime espontáneamente ocupando todo el recipiente."]
+opciones_explicitas: ["Un gas se expande espontáneamente ocupando todo el recipiente.", "Un gas se comprime espontáneamente ocupando solo una esquina del recipiente."]
 
-respuesta: ["Un gas se expande espontáneamente ocupando todo el recipiente.", "Un gas se comprime espontáneamente ocupando solo una esquina del recipiente."]
+respuesta_orden: ["Un gas se expande espontáneamente ocupando todo el recipiente.", "Un gas se comprime espontáneamente ocupando solo una esquina del recipiente."]
 
 enunciado: "Ordena los siguientes eventos según la probabilidad estadística y la tendencia natural hacia el aumento de la entropía (de lo más probable/natural a lo menos probable/natural):"
 
@@ -2425,11 +2415,12 @@ metadata:
   nivel: "basico"
   tags: ["termodinamica", "entropia"]
 
-variables:
-  es_sistema_aislado: uno_de([verdadero, falso])
-
-respuesta: es_sistema_aislado
+respuesta: "aumentar"
 tipo: completar
+respuestas_validas:
+  - "aumentar"
+  - "crecer"
+
 enunciado: "En un sistema aislado, la entropía total siempre tiende a ___ o permanecer constante según la segunda ley de la termodinamica."
 
 explicacion: |
@@ -2445,13 +2436,14 @@ metadata:
 
 variables:
   caso: uno_de([0, 1])
+  caso_datos: ["un cuerpo a 80°C en contacto con uno a 20°C", "un cuerpo a 15°C en contacto con uno a 90°C"]
 
-respuesta: caso_datos[caso][1
+respuesta: "El calor fluye de un cuerpo caliente a uno frío"
 tipo: mc
 
 opciones_explicitas: ["El calor fluye de un cuerpo frío a uno caliente", "El calor fluye de un cuerpo caliente a uno frío", "El calor fluye en ambas direcciones con igual probabilidad", "No hay flujo de calor entre cuerpos en equilibrio"]
 
-enunciado: "Considerando el caso {caso_datos[caso][0]}, ¿cuál es la dirección espontánea del flujo de calor según la segunda ley?"
+enunciado: "Considerando el caso de {caso_datos[caso]}, ¿cuál es la dirección espontánea del flujo de calor según la segunda ley?"
 
 pasos:
   - "Identificar la temperatura de ambos cuerpos."
@@ -2470,7 +2462,9 @@ metadata:
 
 respuesta: "desorden"
 tipo: completar
-respuestas_validas: ["desorden", "caos"]
+respuestas_validas:
+  - "desorden"
+  - "caos"
 
 enunciado: "Mientras que la energía se conserva según la primera ley, la entropía mide el grado de ___ de un sistema."
 
@@ -2501,7 +2495,7 @@ metadata:
   nivel: "basico"
   tags: ["orden", "desorden"]
 
-respuesta: ["Cristal puro", "Líquido", "Gas", "Plasma"]
+respuesta_orden: ["Cristal puro", "Líquido", "Gas", "Plasma"]
 tipo: ordenar
 
 opciones_explicitas: ["Gas", "Cristal puro", "Plasma", "Líquido"]
@@ -2525,7 +2519,8 @@ variables:
 
 enunciado: "Si dejamos reposar {datos[idx][0]}, la entropía total del sistema y su entorno tiende a {datos[idx][1]}."
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 ```
@@ -2559,7 +2554,10 @@ enunciado: "Considerando la estructura molecular, un estado de la materia en for
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["alta", "baja", "media"]
+respuestas_validas:
+  - "alta"
+  - "baja"
+  - "media"
 explicacion: |
   La entropía es una medida del desorden en un sistema. En el estado sólido, las partículas tienen poca libertad de movimiento, lo que corresponde a una baja entropía. En el líquido, hay más desorden que en el sólido pero menos que en el gas. Por último, en el estado gaseoso, las partículas están completamente desordenadas, lo que implica una alta entropía.
 ```
@@ -2574,7 +2572,7 @@ metadata:
 enunciado: "Para que una máquina térmica funcione de forma cíclica, debe transferir parte del calor de la fuente caliente a la fuente fría. Ordena los pasos de un ciclo de Carnot ideal:"
 
 opciones_explicitas: ["Expansión isotérmica", "Expansión adiabática", "Compresión isotérmica", "Compresión adiabática"]
-respuesta: ["Expansión isotérmica", "Expansión adiabática", "Compresión isotérmica", "Compresión adiabática"]
+respuesta_orden: ["Expansión isotérmica", "Expansión adiabática", "Compresión isotérmica", "Compresión adiabática"]
 tipo: ordenar
 ```
 
@@ -2591,3 +2589,4 @@ opciones_explicitas: ["disminuye", "se mantiene constante", "aumenta"]
 respuesta: "aumenta"
 tipo: mc
 ```
+

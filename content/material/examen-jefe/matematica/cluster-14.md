@@ -1,2846 +1,2298 @@
-# Examen jefe — Maestro de Funciones
+# Examen jefe — [PENDIENTE #614]
 
-> Logro #65. Dominaste las funciones lineales, cuadráticas y sus propiedades clave. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **130 preguntas totales** en 5/5 secciones.
+> Logro #614. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: funcion-cuadratica-parabola (28 preguntas)
+## Sección: raices (26 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "intermedio"
-  tags: ["vertice"]
+  tema: "raices"
+  nivel: "basico"
+  tags: ["raices", "vocabulario"]
+
+enunciado: "¿Qué es la raíz cuadrada de un número a?"
+tipo: mc
+opciones_explicitas:
+  - "El número b tal que b² = a"
+  - "El número a dividido 2"
+  - "El número a multiplicado por sí mismo"
+respuesta: "El número b tal que b² = a"
+
+explicacion: |
+  La raíz cuadrada es la operación inversa de elevar al cuadrado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "basico"
+  tags: ["raices"]
 
 variables:
-  a: random(1, 6)
-  xv: random(-10, 10)
-  b: -2 * a * xv
-  c: random(-10, 10)
+  k: random(2, 15)
+  n: k ^ 2
 
-respuesta: xv
+respuesta: sqrt(n)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "f(x) = {a}x² + {b}x + {c}. ¿Cuál es la coordenada x del vértice?"
+enunciado: "¿Cuál es la raíz cuadrada de {n}?"
 
 pasos:
-  - "xᵥ = −{b} / (2×{a}) = {-b} / {2 * a} = {(-b) / (2 * a)}"
+  - "{n} es {k}², así que su raíz cuadrada es {k}"
 
 explicacion: |
-  xᵥ = −b/(2a).
+  Cuando el radicando es un cuadrado perfecto, la raíz da exacta.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "avanzado"
-  tags: ["vertice"]
-
-variables:
-  a: random(1, 6)
-  xv: random(-10, 10)
-  b: -2 * a * xv
-  c: random(-10, 10)
-
-respuesta: a * xv ^ 2 + b * xv + c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {a}x² + {b}x + {c}. Ya sabiendo que xᵥ = {xv}, ¿cuál es la coordenada y del vértice (o sea, f({xv}))?"
-
-explicacion: |
-  yᵥ = f(xᵥ) = {a}×{xv}² + {b}×{xv} + {c} = {a * xv ^ 2 + b * xv + c}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "basico"
-  tags: ["ordenada_origen"]
-
-variables:
-  a: random(1, 8)
-  b: random(-15, 15)
-  c: random(-20, 20)
-
-respuesta: c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {a}x² + {b}x + {c}. ¿Cuál es la ordenada al origen (f(0))?"
-
-explicacion: |
-  f(0) = {c} — se lee directo, sin ninguna cuenta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "basico"
-  tags: ["evaluar"]
-
-variables:
-  a: random(1, 6)
-  b: random(-10, 10)
-  c: random(-10, 10)
-  x: random(-8, 8)
-
-respuesta: a * x ^ 2 + b * x + c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {a}x² + {b}x + {c}. ¿Cuánto vale f({x})?"
-
-explicacion: |
-  Se reemplaza x por {x} y se calcula.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
+  tema: "raices"
   nivel: "intermedio"
   tags: ["raices"]
 
 variables:
-  r1: random(1, 15)
-  r2: random(1, 15)
-  b: -(r1 + r2)
-  c: r1 * r2
+  k: random(10, 30)
+  n: k ^ 2
 
-respuesta: max(r1, r2)
+respuesta: sqrt(n)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "f(x) = x² + {b}x + {c}. ¿Cuál es la mayor raíz (dónde f(x)=0)?"
+enunciado: "¿Cuál es la raíz cuadrada de {n}?"
 
 explicacion: |
-  Mismo procedimiento que `../ecuacion-cuadratica/`: las raíces son
-  {r1} y {r2}.
+  El procedimiento es el mismo con números más grandes: buscar qué número
+  elevado al cuadrado da {n}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
+  tema: "raices"
   nivel: "intermedio"
   tags: ["raices"]
 
 variables:
-  r1: random(1, 15)
-  r2: random(1, 15)
-  b: -(r1 + r2)
-  c: r1 * r2
+  k: random(2, 10)
+  n: k ^ 3
 
-respuesta: min(r1, r2)
+respuesta: raiz(n, 3)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "f(x) = x² + {b}x + {c}. ¿Cuál es la menor raíz?"
-
-explicacion: |
-  Las raíces son {r1} y {r2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "basico"
-  tags: ["concavidad", "verdadero_falso"]
-
-variables:
-  a: random(1, 10)
-  b: random(-15, 15)
-  c: random(-15, 15)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "f(x) = {a}x² + {b}x + {c}. ¿Abre hacia arriba la parábola (el vértice es un mínimo)?"
-
-explicacion: |
-  El coeficiente principal {a} es positivo, así que abre hacia arriba.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "basico"
-  tags: ["concavidad", "verdadero_falso"]
-
-variables:
-  a: random(-10, -1)
-  b: random(-15, 15)
-  c: random(-15, 15)
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "f(x) = {a}x² + {b}x + {c}. ¿Abre hacia arriba la parábola?"
-
-explicacion: |
-  El coeficiente principal {a} es negativo, así que abre hacia ABAJO (el
-  vértice es un máximo).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "intermedio"
-  tags: ["eje_simetria"]
-
-variables:
-  a: random(1, 6)
-  xv: random(-10, 10)
-  b: -2 * a * xv
-  c: random(-10, 10)
-
-respuesta: xv
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {a}x² + {b}x + {c}. ¿En qué valor de x está el eje de simetría?"
-
-explicacion: |
-  El eje de simetría pasa siempre por la coordenada x del vértice.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "avanzado"
-  tags: ["eje_simetria", "verdadero_falso"]
-
-variables:
-  a: random(1, 6)
-  xv: random(-8, 8)
-  b: -2 * a * xv
-  c: random(-10, 10)
-  d: random(1, 8)
-
-respuesta: ((a * (xv + d) ^ 2 + b * (xv + d) + c) == (a * (xv - d) ^ 2 + b * (xv - d) + c))
-tipo: vf
-
-enunciado: "f(x) = {a}x² + {b}x + {c}, con vértice en xᵥ={xv}. ¿f({xv}+{d}) es igual a f({xv}−{d})?"
-
-explicacion: |
-  Dos puntos a la misma distancia del eje de simetría siempre dan el
-  mismo valor de f — es la definición de simetría.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-variables:
-  r1: random(1, 10)
-  r2: random(1, 10)
-  b: -(r1 + r2)
-  c: r1 * r2
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "f(x) = x² + {b}x + {c}. ¿Cruza esta parábola el eje x en dos puntos distintos?"
-
-explicacion: |
-  Al tener dos raíces reales distintas ({r1} y {r2}), la parábola cruza
-  el eje x en dos puntos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una parábola abre hacia arriba, el vértice es el punto más bajo de toda la curva."
-
-explicacion: |
-  Es el mínimo absoluto de la función en ese caso.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La coordenada x del vértice se calcula como b/(2a), sin ningún signo negativo."
-
-explicacion: |
-  Es −b/(2a), con el signo negativo — un error muy común es olvidarlo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La ordenada al origen (f(0)) es siempre el mismo punto que el vértice de la parábola."
-
-explicacion: |
-  Sólo coinciden cuando b=0 (el vértice está sobre el eje y) — en
-  general son dos puntos distintos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "basico"
-  tags: ["vertice"]
-
-variables:
-  a: random(1, 8)
-  c: random(-15, 15)
-
-respuesta: 0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {a}x² + {c} (sin término x). ¿Cuál es la coordenada x del vértice?"
-
-explicacion: |
-  Con b=0, xᵥ = −0/(2a) = 0 — el vértice está sobre el eje y.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "intermedio"
-  tags: ["vertice", "verdadero_falso"]
-
-variables:
-  a: random(1, 8)
-  c: random(-15, 15)
-
-respuesta: ((0) == (0))
-tipo: vf
-
-enunciado: "f(x) = {a}x² + {c}. ¿Coincide el vértice con la ordenada al origen, en este caso particular?"
-
-explicacion: |
-  Sí, porque b=0: el vértice cae justo sobre el eje y, en el mismo punto
-  que f(0).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "avanzado"
-  tags: ["problema", "concavidad"]
-
-variables:
-  tv: random(1, 10)
-  a: -random(1, 5)
-  b: -2 * a * tv
-  altura_inicial: random(0, 20)
-
-respuesta: tv
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La altura de un objeto lanzado es h(t) = {a}t² + {b}t + {altura_inicial}. ¿En qué instante t alcanza la altura máxima?"
+enunciado: "¿Cuál es la raíz cúbica de {n}?"
 
 pasos:
-  - "Como a={a} es negativo, la parábola abre hacia abajo: el vértice es un máximo, en t = −{b}/(2×{a})"
+  - "{n} es {k}³, así que su raíz cúbica es {k}"
 
 explicacion: |
-  El instante de altura máxima es siempre la coordenada t del vértice.
+  La raíz cúbica busca qué número, elevado al cubo, da el radicando.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
+  tema: "raices"
+  nivel: "intermedio"
+  tags: ["raices", "vocabulario"]
+
+variables:
+  b: random(2, 20)
+  a: b ^ 2
+
+respuesta: (sqrt(a) == b)
+tipo: vf
+
+enunciado: "Sabiendo que {b}² = {a}, ¿es cierto que √{a} = {b}?"
+
+explicacion: |
+  La raíz cuadrada deshace lo que hizo elevar al cuadrado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
   nivel: "avanzado"
-  tags: ["problema", "concavidad"]
+  tags: ["raices"]
 
 variables:
-  tv: random(1, 10)
-  a: -random(1, 5)
-  b: -2 * a * tv
-  altura_inicial: random(0, 20)
+  k: random(2, 6)
+  n: k ^ 4
 
-respuesta: a * tv ^ 2 + b * tv + altura_inicial
+respuesta: raiz(n, 4)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "h(t) = {a}t² + {b}t + {altura_inicial}, con instante de altura máxima en t = {tv}. ¿Cuál es esa altura máxima?"
+enunciado: "¿Cuál es la raíz cuarta de {n}?"
 
 explicacion: |
-  Se evalúa h en t={tv}: h({tv}) = {a * tv ^ 2 + b * tv + altura_inicial}.
+  Con índice 4, se busca qué número elevado a la 4 da el radicando.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  a: random(1, 6)
-  xv: random(-10, 10)
-  b: -2 * a * xv
-  c: random(-10, 10)
-  error: uno_de([0, 0, 1, -1])
-  propuesto: xv + error
-
-respuesta: (propuesto == xv)
-tipo: vf
-
-enunciado: "f(x) = {a}x² + {b}x + {c}. ¿Es correcto que la coordenada x del vértice sea {propuesto}?"
-
-explicacion: |
-  El valor correcto es xᵥ = −b/(2a) = {xv}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "basico"
-  tags: ["concepto", "dominio", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El dominio de cualquier función cuadrática f(x) = ax² + bx + c son todos los números reales."
-
-explicacion: |
-  No tiene denominador, ni raíz, ni logaritmo — nada que restrinja el
-  dominio (ver `../funcion-dominio/`).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "intermedio"
-  tags: ["concepto", "imagen", "verdadero_falso"]
-
-variables:
-  a: random(1, 8)
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Con a = {a} (positivo), la imagen de la función es 'y ≤ yᵥ'."
-
-explicacion: |
-  Con a positivo (abre hacia arriba), la imagen es 'y ≥ yᵥ', no ≤ — ver
-  `../funcion-imagen/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "intermedio"
-  tags: ["raices", "factoreo"]
-
-variables:
-  r: random(1, 20)
-
-respuesta: r
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = x² − {2 * r}x + {r ^ 2} se factorea como (x − {r})². ¿Cuál es la única raíz (doble) de f?"
-
-explicacion: |
-  Con discriminante 0, la parábola sólo toca el eje x en un punto: el
-  vértice coincide con la raíz.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si f(x) = a(x − r₁)(x − r₂), entonces r₁ y r₂ son exactamente los puntos donde la parábola cruza el eje x."
-
-explicacion: |
-  Es la misma conexión ya vista entre factoreo y raíces en
-  `../ecuacion-cuadratica/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "basico"
-  tags: ["raices", "verdadero_falso"]
-
-variables:
-  r1: random(1, 15)
-  r2: random(1, 15)
-  b: -(r1 + r2)
-  c: r1 * r2
-
-respuesta: ((r1 ^ 2 + b * r1 + c) == 0)
-tipo: vf
-
-enunciado: "f(x) = x² + {b}x + {c}. ¿Es f({r1}) igual a 0?"
-
-explicacion: |
-  Por definición, evaluar la función en una raíz siempre da 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
+  tema: "raices"
   nivel: "avanzado"
-  tags: ["concepto", "opcion_multiple"]
-
-respuesta: "Ninguna"
-tipo: mc
-opciones_explicitas:
-  - "Ninguna"
-  - "Una"
-  - "Dos"
-
-enunciado: "Si el discriminante de una función cuadrática es negativo, ¿en cuántos puntos cruza el eje x?"
-
-explicacion: |
-  Sin raíces reales, la parábola no toca el eje x en absoluto — queda
-  completamente arriba o completamente abajo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "avanzado"
-  tags: ["problema", "concavidad"]
+  tags: ["raices"]
 
 variables:
-  pv: random(5, 30)
-  a: -random(1, 4)
-  b: -2 * a * pv
+  n: random(2, 99)
 
-respuesta: pv
+respuesta: sqrt(n)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.01
 
-enunciado: "El ingreso de una empresa según el precio p es I(p) = {a}p² + {b}p. ¿A qué precio p se maximiza el ingreso?"
+enunciado: "¿Cuánto es (aproximadamente) √{n}?"
 
 explicacion: |
-  El precio óptimo es la coordenada del vértice, igual que en el
-  problema de altura máxima.
+  No todos los números tienen raíz cuadrada exacta: cuando no la tiene,
+  el resultado es un decimal con infinitas cifras, y se acepta una
+  aproximación.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
+  tema: "raices"
+  nivel: "intermedio"
+  tags: ["raices", "propiedades"]
 
-respuesta: verdadero
+variables:
+  a: random(2, 20) ^ 2
+  b: random(2, 20) ^ 2
+
+respuesta: (sqrt(a * b) == sqrt(a) * sqrt(b))
 tipo: vf
 
-enunciado: "Toda parábola de una función cuadrática es simétrica respecto de una recta vertical (el eje de simetría)."
+enunciado: "¿Es cierto que √({a} × {b}) da lo mismo que √{a} × √{b}?"
 
 explicacion: |
-  Es una propiedad geométrica central de la parábola.
+  Es la propiedad de la raíz de un producto: se puede separar en la raíz
+  de cada factor.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_cuadratica_parabola"
-  nivel: "avanzado"
-  tags: ["vertice"]
-
-variables:
-  a: random(1, 8)
-  xv: random(-15, 15)
-
-respuesta: -2 * a * xv
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se quiere que f(x) = {a}x² + bx + c tenga vértice en xᵥ = {xv}. ¿Cuánto tiene que valer b?"
-
-explicacion: |
-  De xᵥ = −b/(2a), despejando: b = −2a×xᵥ = −2×{a}×{xv} = {-2 * a * xv}.
-```
-
-## Sección: funcion-dominio (24 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "basico"
-  tags: ["denominador"]
-
-variables:
-  a: random(1, 20)
-
-respuesta: a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = 1 / (x − {a}). ¿Para qué valor de x la función NO está definida?"
-
-explicacion: |
-  El denominador se anula cuando x = {a}: no se puede dividir por 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "basico"
-  tags: ["denominador"]
-
-variables:
-  a: random(1, 20)
-
-respuesta: -a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = 1 / (x + {a}). ¿Para qué valor de x la función NO está definida?"
-
-explicacion: |
-  x + {a} = 0 → x = −{a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
+  tema: "raices"
   nivel: "intermedio"
-  tags: ["denominador"]
+  tags: ["raices", "propiedades"]
 
 variables:
-  p: random(2, 8)
-  sol: random(1, 15)
-  q: p * sol
+  b: random(2, 15) ^ 2
+  k: random(2, 10) ^ 2
+  a: b * k
 
-respuesta: q / p
+respuesta: (sqrt(a / b) == sqrt(a) / sqrt(b))
+tipo: vf
+
+enunciado: "¿Es cierto que √({a} ÷ {b}) da lo mismo que √{a} ÷ √{b}?"
+
+explicacion: |
+  Es la propiedad de la raíz de un cociente: se puede separar en la raíz
+  del numerador dividida por la raíz del denominador.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "avanzado"
+  tags: ["raices", "propiedades"]
+
+variables:
+  a: random(2, 15) ^ 2
+  b: random(2, 15) ^ 2
+
+respuesta: sqrt(a) * sqrt(b)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "f(x) = 1 / ({p}x − {q}). ¿Para qué valor de x la función NO está definida?"
+enunciado: "Usando la propiedad de la raíz de un producto, ¿cuánto es √({a} × {b})?"
 
 pasos:
-  - "{p}x − {q} = 0 → x = {q}/{p} = {q / p}"
+  - "√{a} × √{b} = {sqrt(a)} × {sqrt(b)} = {sqrt(a) * sqrt(b)}"
 
 explicacion: |
-  Hay que resolver la ecuación completa, no sólo mirar el número suelto.
+  Separar el producto en dos raíces cuadradas perfectas hace la cuenta
+  más fácil.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "intermedio"
-  tags: ["denominador"]
-
-variables:
-  p: random(2, 8)
-  sol: random(1, 15)
-  q: p * sol
-
-respuesta: -q / p
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = 1 / ({p}x + {q}). ¿Para qué valor de x la función NO está definida?"
-
-explicacion: |
-  {p}x + {q} = 0 → x = −{q}/{p}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
+  tema: "raices"
   nivel: "basico"
-  tags: ["denominador", "verdadero_falso"]
+  tags: ["raices", "vocabulario"]
 
-variables:
-  a: random(1, 20)
-  offset: uno_de([1, -1, 2, -2, 3])
-  val: a + offset
-
-respuesta: (val != a)
+respuesta: verdadero
 tipo: vf
 
-enunciado: "f(x) = 1 / (x − {a}). ¿x = {val} pertenece al dominio de f?"
+enunciado: "Dentro de los números reales, la raíz cuadrada de un número negativo no tiene solución."
 
 explicacion: |
-  Pertenece siempre que x sea distinto de {a} (el único valor excluido).
+  Ningún número real, elevado al cuadrado, puede dar un resultado
+  negativo: el cuadrado de cualquier número real es siempre positivo o
+  cero.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_dominio"
+  tema: "raices"
   nivel: "intermedio"
-  tags: ["denominador", "verdadero_falso"]
+  tags: ["raices"]
 
 variables:
-  a: random(1, 20)
-  val: uno_de([0, 1]) + a - uno_de([0, 1])
+  k: random(2, 10)
+  n: -(k ^ 3)
 
-respuesta: (val != a)
-tipo: vf
-
-enunciado: "f(x) = 1 / (x − {a}). ¿x = {val} pertenece al dominio de f?"
-
-explicacion: |
-  Sólo el valor exacto x = {a} queda excluido — cualquier otro,
-  incluso muy cercano, sí pertenece.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "basico"
-  tags: ["raiz"]
-
-variables:
-  a: random(1, 20)
-
-respuesta: a
+respuesta: -k
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "f(x) = √(x − {a}). ¿A partir de qué valor empieza el dominio de f (el mínimo x permitido)?"
-
-explicacion: |
-  x − {a} ≥ 0 → x ≥ {a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "basico"
-  tags: ["raiz"]
-
-variables:
-  a: random(1, 20)
-
-respuesta: -a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = √(x + {a}). ¿A partir de qué valor empieza el dominio de f?"
-
-explicacion: |
-  x + {a} ≥ 0 → x ≥ −{a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "intermedio"
-  tags: ["raiz"]
-
-variables:
-  p: random(2, 8)
-  sol: random(1, 15)
-  q: p * sol
-
-respuesta: q / p
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = √({p}x − {q}). ¿A partir de qué valor empieza el dominio de f?"
+enunciado: "¿Cuál es la raíz cúbica de {n}?"
 
 pasos:
-  - "{p}x − {q} ≥ 0 → x ≥ {q}/{p} = {q / p}"
+  - "(-{k})³ = {n}, así que la raíz cúbica de {n} es -{k}"
 
 explicacion: |
-  Se resuelve la inecuación completa, igual que en `../inecuaciones/`.
+  A diferencia de la raíz cuadrada, la raíz cúbica de un negativo sí tiene
+  solución (negativa): un número negativo elevado a un exponente impar
+  sigue dando negativo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "intermedio"
-  tags: ["raiz", "verdadero_falso"]
-
-variables:
-  a: random(1, 20)
-
-respuesta: (a >= a)
-tipo: vf
-
-enunciado: "f(x) = √(x − {a}). ¿x = {a} (el valor exacto del borde) pertenece al dominio de f?"
-
-explicacion: |
-  Con raíz, el borde SÍ está incluido (≥, no > estricto): √0 = 0, un
-  resultado real válido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
+  tema: "raices"
   nivel: "basico"
-  tags: ["raiz", "verdadero_falso"]
-
-variables:
-  a: random(1, 20)
-  offset: uno_de([-5, -2, -1, 1, 3, 5])
-  val: a + offset
-
-respuesta: (val >= a)
-tipo: vf
-
-enunciado: "f(x) = √(x − {a}). ¿x = {val} pertenece al dominio de f?"
-
-explicacion: |
-  Pertenece si x ≥ {a}; si x es menor, el radicando queda negativo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "intermedio"
-  tags: ["logaritmo"]
-
-variables:
-  a: random(1, 20)
-
-respuesta: a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = log(x − {a}). ¿A partir de qué valor de x empieza a estar definida f (sin incluir ese valor)?"
-
-explicacion: |
-  x − {a} > 0 → x > {a}, con desigualdad ESTRICTA: a diferencia de la
-  raíz, el logaritmo no admite el borde.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "intermedio"
-  tags: ["logaritmo"]
-
-variables:
-  p: random(2, 8)
-  sol: random(1, 15)
-  q: p * sol
-
-respuesta: q / p
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = log({p}x − {q}). ¿A partir de qué valor de x (sin incluirlo) empieza el dominio de f?"
-
-explicacion: |
-  {p}x − {q} > 0 → x > {q}/{p}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "intermedio"
-  tags: ["logaritmo", "verdadero_falso"]
-
-variables:
-  a: random(1, 20)
-
-respuesta: (a > a)
-tipo: vf
-
-enunciado: "f(x) = log(x − {a}). ¿x = {a} (el valor exacto del borde) pertenece al dominio de f?"
-
-explicacion: |
-  No: log(0) no está definido. A diferencia de la raíz, el logaritmo
-  excluye el borde.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "basico"
-  tags: ["logaritmo", "verdadero_falso"]
-
-variables:
-  a: random(1, 20)
-  offset: uno_de([-5, -2, -1, 1, 3, 5])
-  val: a + offset
-
-respuesta: (val > a)
-tipo: vf
-
-enunciado: "f(x) = log(x − {a}). ¿x = {val} pertenece al dominio de f?"
-
-explicacion: |
-  Pertenece sólo si x es estrictamente mayor que {a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "intermedio"
-  tags: ["denominador", "opcion_multiple"]
-
-variables:
-  a: random(1, 20)
-
-respuesta: concatenar("x ≠ ", a)
-tipo: mc
-opciones_explicitas:
-  - concatenar("x ≠ ", a)
-  - concatenar("x ≥ ", a)
-  - concatenar("x = ", a)
-
-enunciado: "¿Cuál describe el dominio de f(x) = 1/(x − {a})?"
-
-explicacion: |
-  Se excluye un único punto — se escribe con "≠", no con una
-  desigualdad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "intermedio"
-  tags: ["raiz", "opcion_multiple"]
-
-variables:
-  a: random(1, 20)
-
-respuesta: concatenar("x ≥ ", a)
-tipo: mc
-opciones_explicitas:
-  - concatenar("x ≥ ", a)
-  - concatenar("x > ", a)
-  - concatenar("x ≠ ", a)
-
-enunciado: "¿Cuál describe el dominio de f(x) = √(x − {a})?"
-
-explicacion: |
-  El borde SÍ está incluido: ≥, no > estricto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "intermedio"
-  tags: ["logaritmo", "opcion_multiple"]
-
-variables:
-  a: random(1, 20)
-
-respuesta: concatenar("x > ", a)
-tipo: mc
-opciones_explicitas:
-  - concatenar("x > ", a)
-  - concatenar("x ≥ ", a)
-  - concatenar("x ≠ ", a)
-
-enunciado: "¿Cuál describe el dominio de f(x) = log(x − {a})?"
-
-explicacion: |
-  El borde queda excluido: > estricto, no ≥.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["raices", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En una función, cada valor de x tiene que corresponder a exactamente un valor de y."
+enunciado: "La raíz cuadrada es la operación inversa de elevar al cuadrado, igual que la resta es inversa de la suma."
 
 explicacion: |
-  Si un mismo x diera dos resultados distintos, no sería una función.
+  Aplicar una y después la otra vuelve al número original.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El dominio de una función polinómica (como f(x) = x² + 3x − 1) son todos los números reales, sin ninguna restricción."
-
-explicacion: |
-  No hay denominador, ni raíz par, ni logaritmo — nada que restrinja qué
-  valores de x se pueden usar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
+  tema: "raices"
   nivel: "intermedio"
-  tags: ["concepto", "raiz", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La raíz cúbica de un número negativo no está definida, igual que la raíz cuadrada."
-
-explicacion: |
-  La restricción de "no negativo" es sólo para raíces de índice PAR. La
-  raíz cúbica (índice impar) de un número negativo sí está definida.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un valor de x queda fuera del dominio si hace que algún denominador de la función se anule."
-
-explicacion: |
-  Dividir por 0 no está definido, así que ese x no puede estar en el
-  dominio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "El dominio de un logaritmo y el de una raíz cuadrada tratan el valor límite (el borde) de la misma manera."
-
-explicacion: |
-  La raíz incluye el borde (≥); el logaritmo lo excluye (>) — log(0) no
-  está definido, pero √0 sí.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_dominio"
-  nivel: "intermedio"
-  tags: ["denominador", "verificacion", "verdadero_falso"]
+  tags: ["raices"]
 
 variables:
-  p: random(2, 8)
-  sol: random(1, 15)
-  q: p * sol
-  real: q / p
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "f(x) = 1 / ({p}x − {q}). ¿Es correcto que el valor excluido del dominio sea x = {propuesto}?"
-
-explicacion: |
-  El valor correcto es {q}/{p} = {real}.
-```
-
-## Sección: funcion-imagen (24 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "basico"
-  tags: ["lineal", "verdadero_falso"]
-
-variables:
-  m: random(1, 10)
-  b: random(-10, 10)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "f(x) = {m}x + {b}. ¿Es la imagen de f todos los números reales?"
-
-explicacion: |
-  Cualquier función lineal no constante (m ≠ 0) tiene como imagen todos
-  los reales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "basico"
-  tags: ["constante"]
-
-variables:
-  k: random(1, 30)
+  k: random(2, 20)
+  n: k ^ 2
 
 respuesta: k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {k} para todo x. ¿Cuál es el único valor de la imagen de f?"
-
-explicacion: |
-  Una función constante siempre devuelve el mismo valor: {k}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["cuadratica"]
-
-variables:
-  h: random(-10, 10)
-  k: random(-10, 10)
-
-respuesta: k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = (x − {h})² + {k}. ¿Cuál es el valor mínimo de la imagen de f?"
-
-explicacion: |
-  El vértice está en ({h}, {k}), y como abre hacia arriba, {k} es el
-  mínimo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["cuadratica"]
-
-variables:
-  h: random(-15, 15)
-  k: random(-15, 15)
-
-respuesta: k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = (x + {h})² − {k}. ¿Cuál es el valor mínimo de la imagen de f?"
-
-explicacion: |
-  El vértice está en (−{h}, −{k}) — el mínimo de la imagen es −{k}, el
-  mismo número que ya está restando en la fórmula.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["cuadratica", "signos"]
-
-variables:
-  h: random(-10, 10)
-  k: random(-10, 10)
-
-respuesta: k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = −(x − {h})² + {k}. ¿Cuál es el valor máximo de la imagen de f?"
-
-explicacion: |
-  El signo negativo adelante hace que la parábola abra hacia abajo: el
-  vértice ({h}, {k}) es ahora un máximo, no un mínimo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["cuadratica", "signos"]
-
-variables:
-  h: random(-15, 15)
-  k: random(-15, 15)
-
-respuesta: k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = −(x + {h})² + {k}. ¿Cuál es el valor máximo de la imagen de f?"
-
-explicacion: |
-  Vértice en (−{h}, {k}), y como abre hacia abajo, {k} es el máximo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["valor_absoluto"]
-
-variables:
-  h: random(-10, 10)
-  k: random(-10, 10)
-
-respuesta: k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = |x − {h}| + {k}. ¿Cuál es el valor mínimo de la imagen de f?"
-
-explicacion: |
-  El valor absoluto nunca da negativo, así que el mínimo se alcanza
-  cuando |x−{h}| = 0, dando f = {k}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["valor_absoluto"]
-
-variables:
-  h: random(-15, 15)
-  k: random(-15, 15)
-
-respuesta: k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = |x + {h}| + {k}. ¿Cuál es el valor mínimo de la imagen de f?"
-
-explicacion: |
-  El mínimo se alcanza en x = −{h}, dando f = {k}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["cuadratica", "verdadero_falso"]
-
-variables:
-  h: random(-10, 10)
-  k: random(-10, 10)
-  offset: uno_de([-5, -2, -1, 1, 3, 5])
-  val: k + offset
-
-respuesta: (val >= k)
-tipo: vf
-
-enunciado: "f(x) = (x − {h})² + {k}. ¿y = {val} pertenece a la imagen de f?"
-
-explicacion: |
-  Pertenece si y ≥ {k} (el mínimo del vértice).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["cuadratica", "verdadero_falso"]
-
-variables:
-  h: random(-10, 10)
-  k: random(-10, 10)
-
-respuesta: (k >= k)
-tipo: vf
-
-enunciado: "f(x) = (x − {h})² + {k}. ¿y = {k} (el valor exacto del vértice) pertenece a la imagen de f?"
-
-explicacion: |
-  Sí: se alcanza justo en x = {h}, así que el borde está incluido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["cuadratica", "signos", "verdadero_falso"]
-
-variables:
-  h: random(-10, 10)
-  k: random(-10, 10)
-  offset: uno_de([-5, -2, -1, 1, 3, 5])
-  val: k + offset
-
-respuesta: (val <= k)
-tipo: vf
-
-enunciado: "f(x) = −(x − {h})² + {k}. ¿y = {val} pertenece a la imagen de f?"
-
-explicacion: |
-  Con la parábola hacia abajo, pertenece si y ≤ {k} (el máximo).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["valor_absoluto", "verdadero_falso"]
-
-variables:
-  h: random(-10, 10)
-  k: random(-10, 10)
-  offset: uno_de([-5, -2, -1, 1, 3, 5])
-  val: k + offset
-
-respuesta: (val >= k)
-tipo: vf
-
-enunciado: "f(x) = |x − {h}| + {k}. ¿y = {val} pertenece a la imagen de f?"
-
-explicacion: |
-  El valor absoluto nunca baja de su vértice: pertenece si y ≥ {k}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["cuadratica", "verdadero_falso"]
-
-variables:
-  h: random(-10, 10)
-  k: random(-5, 15)
-  offset: random(1, 10)
-  val: k - offset
-
-respuesta: (val >= k)
-tipo: vf
-
-enunciado: "f(x) = (x − {h})² + {k}. ¿y = {val} pertenece a la imagen de f?"
-
-explicacion: |
-  {val} está por debajo del mínimo {k}, así que no pertenece a la
-  imagen — la parábola nunca baja de su vértice.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["cuadratica", "signos", "verdadero_falso"]
-
-variables:
-  h: random(-10, 10)
-  k: random(-5, 15)
-  offset: random(1, 10)
-  val: k + offset
-
-respuesta: (val <= k)
-tipo: vf
-
-enunciado: "f(x) = −(x − {h})² + {k}. ¿y = {val} pertenece a la imagen de f?"
-
-explicacion: |
-  {val} está por encima del máximo {k}, así que no pertenece — la
-  parábola hacia abajo nunca supera su vértice.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["cuadratica", "opcion_multiple"]
-
-variables:
-  h: random(-10, 10)
-  k: random(-10, 10)
-
-respuesta: concatenar("y ≥ ", k)
 tipo: mc
 opciones_explicitas:
-  - concatenar("y ≥ ", k)
-  - concatenar("y ≤ ", k)
-  - concatenar("y ≠ ", k)
+  - k
+  - n / 2
+  - k + 1
 
-enunciado: "¿Cuál describe la imagen de f(x) = (x − {h})² + {k}?"
+enunciado: "¿Cuál es la raíz cuadrada de {n}?"
 
 explicacion: |
-  Abre hacia arriba (sin signo negativo adelante): imagen y ≥ {k}.
+  Las otras opciones confunden la raíz con dividir por 2, o se equivocan
+  por poco.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_imagen"
+  tema: "raices"
   nivel: "intermedio"
-  tags: ["cuadratica", "signos", "opcion_multiple"]
+  tags: ["raices", "verificacion"]
 
 variables:
-  h: random(-10, 10)
-  k: random(-10, 10)
+  k: random(2, 20)
+  n: k ^ 2
+  error: uno_de([0, 0, 0, 1, -1])
+  mostrado: k + error
 
-respuesta: concatenar("y ≤ ", k)
+respuesta: (mostrado * mostrado == n)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? √{n} = {mostrado}"
+
+explicacion: |
+  Se verifica elevando {mostrado} al cuadrado y comparando con {n}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "avanzado"
+  tags: ["raices"]
+
+variables:
+  k: random(2, 8)
+  indice: uno_de([2, 3, 4])
+  n: k ^ indice
+
+tipo: completar
+enunciado: "___√{n} = {k}. Completá el índice de la raíz (2, 3 o 4)."
+respuestas_validas:
+  - indice
+
+explicacion: |
+  Hay que encontrar a qué índice hay que elevar {k} para llegar a {n}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "intermedio"
+  tags: ["raices"]
+
+variables:
+  k: random(2, 20)
+
+tipo: completar
+enunciado: "Completá: √___ = {k}."
+respuestas_validas:
+  - k ^ 2
+
+explicacion: |
+  El radicando que falta es {k} elevado al cuadrado (para deshacer la
+  raíz).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "intermedio"
+  tags: ["raices", "problema"]
+
+variables:
+  lado: random(2, 30)
+  area: lado ^ 2
+
+respuesta: lado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un cuadrado tiene un área de {area} cm². ¿Cuánto mide su lado?"
+
+pasos:
+  - "El lado es la raíz cuadrada del área: √{area} = {lado}"
+
+explicacion: |
+  Como el área de un cuadrado es lado², el lado se encuentra con la raíz
+  cuadrada del área.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "intermedio"
+  tags: ["raices", "problema"]
+
+variables:
+  arista: random(2, 15)
+  volumen: arista ^ 3
+
+respuesta: arista
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un cubo tiene un volumen de {volumen} cm³. ¿Cuánto mide su arista?"
+
+pasos:
+  - "La arista es la raíz cúbica del volumen: ∛{volumen} = {arista}"
+
+explicacion: |
+  Como el volumen de un cubo es arista³, la arista se encuentra con la
+  raíz cúbica del volumen.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "intermedio"
+  tags: ["raices", "orden"]
+
+tipo: ordenar
+enunciado: "Calculá estas raíces y ordená los resultados de menor a mayor."
+opciones_explicitas:
+  - "√81"
+  - "√16"
+  - "√49"
+  - "√4"
+respuesta_orden: ["√4", "√16", "√49", "√81"]
+
+explicacion: |
+  √4=2, √16=4, √49=7, √81=9: hay que calcular cada una antes de poder
+  ordenarlas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "intermedio"
+  tags: ["raices", "comparacion"]
+
+variables:
+  a: random(2, 99)
+  b: random(2, 99)
+
+restricciones:
+  - a != b
+
+respuesta: (sqrt(a) > sqrt(b))
+tipo: vf
+
+enunciado: "¿Es √{a} mayor que √{b}?"
+
+explicacion: |
+  A mayor radicando, mayor la raíz cuadrada: no hace falta calcular las
+  dos raíces exactas para saber cuál es mayor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "intermedio"
+  tags: ["raices"]
+
+variables:
+  n: random(2, 99)
+  k: floor(sqrt(n))
+
+respuesta: (k * k == n)
+tipo: vf
+
+enunciado: "¿Es exacta la raíz cuadrada de {n} (da como resultado un número entero)?"
+
+explicacion: |
+  Es exacta sólo cuando el radicando es un cuadrado perfecto (1, 4, 9, 16,
+  25...).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "basico"
+  tags: ["raices", "casos_especiales"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La raíz cuadrada de 0 es 0, y la raíz cuadrada de 1 es 1."
+
+explicacion: |
+  0² = 0 y 1² = 1: los dos son casos especiales donde el número y su raíz
+  coinciden.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "avanzado"
+  tags: ["raices"]
+
+variables:
+  base: random(2, 20)
+
+respuesta: base
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es √({base}²)?"
+
+pasos:
+  - "La raíz cuadrada deshace el cuadrado: √({base}²) = {base}"
+
+explicacion: |
+  Elevar al cuadrado y después sacar raíz cuadrada son operaciones
+  inversas: se cancelan entre sí.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "intermedio"
+  tags: ["raices", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aunque √2 no tenga una cantidad finita de cifras decimales, sigue siendo un número real, ubicable en la recta numérica."
+
+explicacion: |
+  No tener un valor "exacto y corto" no significa que no sea un número
+  real de verdad — es el adelanto del próximo tema, irracionales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "raices"
+  nivel: "basico"
+  tags: ["raices", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sacar raíz es la operación inversa de elevar a una potencia: buscar qué número, elevado al índice de la raíz, da el radicando."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: distribucion-binomial (20 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_binomial"
+  nivel: "basico"
+  tags: ["binomial", "vocabulario"]
+
+enunciado: "¿Qué modela la distribución binomial?"
 tipo: mc
 opciones_explicitas:
-  - concatenar("y ≤ ", k)
-  - concatenar("y ≥ ", k)
-  - concatenar("y ≠ ", k)
-
-enunciado: "¿Cuál describe la imagen de f(x) = −(x − {h})² + {k}?"
+  - "La cantidad de éxitos en n intentos independientes, todos con la misma probabilidad de éxito"
+  - "El tiempo que pasa hasta el próximo éxito"
+  - "El promedio de un conjunto de datos ya medidos"
+respuesta: "La cantidad de éxitos en n intentos independientes, todos con la misma probabilidad de éxito"
 
 explicacion: |
-  El signo negativo da vuelta la parábola: imagen y ≤ {k}.
+  Como la cantidad de caras en varios tiros de moneda.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_imagen"
+  tema: "distribucion_binomial"
   nivel: "intermedio"
-  tags: ["valor_absoluto", "opcion_multiple"]
+  tags: ["binomial", "completar"]
 
-variables:
-  h: random(-10, 10)
-  k: random(-10, 10)
+tipo: completar
+enunciado: "Completá: P(X=k) = C(n,k) × pᵏ × (1−p)^___."
+respuestas_validas:
+  - "n-k"
+  - "n−k"
 
-respuesta: concatenar("y ≥ ", k)
+explicacion: |
+  El exponente del complemento (1−p) es la cantidad de fracasos: n−k.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_binomial"
+  nivel: "intermedio"
+  tags: ["binomial", "combinaciones"]
+
+enunciado: "En la fórmula binomial, ¿qué representa el factor C(n,k)?"
 tipo: mc
 opciones_explicitas:
-  - concatenar("y ≥ ", k)
-  - concatenar("y ≤ ", k)
-  - concatenar("y = ", k)
-
-enunciado: "¿Cuál describe la imagen de f(x) = |x − {h}| + {k}?"
+  - "De cuántas formas distintas pueden caer exactamente k éxitos entre los n intentos"
+  - "La probabilidad de un único intento exitoso"
+  - "La cantidad total de intentos posibles"
+respuesta: "De cuántas formas distintas pueden caer exactamente k éxitos entre los n intentos"
 
 explicacion: |
-  El valor absoluto siempre da ≥ 0, así que f nunca baja de {k}.
+  Es exactamente el mismo `C(n,k)` de `../combinaciones/`.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "El dominio y la imagen de una función son exactamente la misma idea, sólo con otro nombre."
-
-explicacion: |
-  El dominio restringe los valores de ENTRADA (x); la imagen describe los
-  valores de SALIDA (y) que la función realmente produce.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "basico"
-  tags: ["concepto", "cuadratica", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El vértice de una parábola marca el valor mínimo o máximo de su imagen."
-
-explicacion: |
-  Según hacia dónde abra la parábola, el vértice es el punto más bajo o
-  el más alto que alcanza la función.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "basico"
-  tags: ["concepto", "valor_absoluto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El valor absoluto de cualquier número nunca es negativo."
-
-explicacion: |
-  Por eso la imagen de f(x) = |x − h| + k siempre tiene un mínimo (k), y
-  nunca un máximo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La imagen de cualquier función de la forma f(x) = mx + b siempre son todos los reales, sin excepción."
-
-explicacion: |
-  Hay una excepción: si m = 0, la función es constante, y su imagen es
-  un único valor, no todos los reales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Da lo mismo escribir 'y ≥ k' o 'y ≤ k' para describir la imagen de una parábola, sea cual sea el signo que tenga adelante."
-
-explicacion: |
-  No da lo mismo: si abre hacia abajo (signo negativo) hay que usar
-  ≤; usar ≥ ahí sería un error de signo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  h: random(-10, 10)
-  k: random(-10, 10)
-  error: uno_de([0, 0, 1, -1])
-  propuesto: k + error
-
-respuesta: (propuesto == k)
-tipo: vf
-
-enunciado: "f(x) = (x − {h})² + {k}. ¿Es correcto que el mínimo de la imagen sea {propuesto}?"
-
-explicacion: |
-  El mínimo correcto es {k}, el valor del vértice.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_imagen"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  h: random(-10, 10)
-  k: random(-10, 10)
-  error: uno_de([0, 0, 1, -1])
-  propuesto: k + error
-
-respuesta: (propuesto == k)
-tipo: vf
-
-enunciado: "f(x) = −(x − {h})² + {k}. ¿Es correcto que el máximo de la imagen sea {propuesto}?"
-
-explicacion: |
-  El máximo correcto es {k}, el valor del vértice.
-```
-
-## Sección: funcion-inversa-composicion (24 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "intermedio"
-  tags: ["composicion"]
-
-variables:
-  m: random(2, 8)
-  b: random(1, 15)
-  x: random(1, 10)
-
-respuesta: m * (x ^ 2) + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {m}x + {b}, g(x) = x². ¿Cuánto vale (f∘g)({x})?"
-
-pasos:
-  - "Primero g({x}) = {x}² = {x ^ 2}"
-  - "Después f({x ^ 2}) = {m}×{x ^ 2} + {b} = {m * (x ^ 2) + b}"
-
-explicacion: |
-  (f∘g)(x) = f(g(x)): primero se aplica g, y el resultado entra a f.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "intermedio"
-  tags: ["composicion"]
-
-variables:
-  m: random(2, 8)
-  b: random(1, 15)
-  x: random(1, 10)
-
-respuesta: (m * x + b) ^ 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {m}x + {b}, g(x) = x². ¿Cuánto vale (g∘f)({x})?"
-
-pasos:
-  - "Primero f({x}) = {m}×{x} + {b} = {m * x + b}"
-  - "Después g({m * x + b}) = ({m * x + b})² = {(m * x + b) ^ 2}"
-
-explicacion: |
-  Acá el orden es al revés: primero f, después g — da un resultado
-  distinto al ejercicio anterior.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "intermedio"
-  tags: ["composicion"]
-
-variables:
-  m1: random(2, 6)
-  b1: random(1, 10)
-  m2: random(2, 6)
-  b2: random(1, 10)
-  x: random(1, 15)
-
-respuesta: m1 * (m2 * x + b2) + b1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {m1}x + {b1}, g(x) = {m2}x + {b2}. ¿Cuánto vale (f∘g)({x})?"
-
-explicacion: |
-  Se calcula g({x}) primero, y ese resultado se usa como entrada de f.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "intermedio"
-  tags: ["composicion"]
-
-variables:
-  m1: random(2, 6)
-  b1: random(1, 10)
-  m2: random(2, 6)
-  b2: random(1, 10)
-  x: random(1, 15)
-
-respuesta: m2 * (m1 * x + b1) + b2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {m1}x + {b1}, g(x) = {m2}x + {b2}. ¿Cuánto vale (g∘f)({x})?"
-
-explicacion: |
-  Ahora se calcula f primero — el resultado, en general, es distinto al
-  de (f∘g).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "intermedio"
-  tags: ["composicion"]
-
-variables:
-  m: random(2, 5)
-  b: random(1, 10)
-  x: random(1, 15)
-
-respuesta: m * (m * x + b) + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {m}x + {b}. ¿Cuánto vale (f∘f)({x})?"
-
-pasos:
-  - "Primero f({x}) = {m * x + b}"
-  - "Después f({m * x + b}) = {m} × {m * x + b} + {b} = {m * (m * x + b) + b}"
-
-explicacion: |
-  Componer una función consigo misma es aplicarla dos veces seguidas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "intermedio"
-  tags: ["composicion", "verificacion", "verdadero_falso"]
-
-variables:
-  m: random(2, 8)
-  b: random(1, 15)
-  x: random(1, 10)
-  real: m * (x ^ 2) + b
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "f(x) = {m}x + {b}, g(x) = x². ¿Es correcto que (f∘g)({x}) = {propuesto}?"
-
-explicacion: |
-  El valor correcto es f(g({x})) = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "En general, (f∘g)(x) es igual a (g∘f)(x)."
-
-explicacion: |
-  El orden en que se componen dos funciones cambia el resultado, salvo
-  casos particulares.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "intermedio"
-  tags: ["inversa"]
-
-variables:
-  m: random(2, 8)
-  b: random(1, 15)
-  x_sol: random(1, 20)
-  y: m * x_sol + b
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {m}x + {b}. ¿Cuánto vale f⁻¹({y})?"
-
-pasos:
-  - "f⁻¹(y) deshace lo que hace f: buscar qué x cumple {m}x + {b} = {y}"
-  - "x = ({y} − {b}) / {m} = {(y - b) / m}"
-
-explicacion: |
-  f⁻¹({y}) es el x que, aplicado a f, da {y} — el mismo cálculo que
-  despejar x en la ecuación {m}x + {b} = {y}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "intermedio"
-  tags: ["inversa"]
-
-variables:
-  m: random(2, 10)
-  b: random(1, 20)
-  x_sol: random(1, 15)
-  y: m * x_sol - b
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {m}x − {b}. ¿Cuánto vale f⁻¹({y})?"
-
-explicacion: |
-  x = ({y} + {b}) / {m}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "basico"
-  tags: ["inversa"]
-
-variables:
-  b: random(1, 20)
-  x_sol: random(1, 30)
-  y: x_sol + b
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = x + {b}. ¿Cuánto vale f⁻¹({y})?"
-
-explicacion: |
-  Si f suma {b}, f⁻¹ resta {b}: x = {y} − {b}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
+  tema: "distribucion_binomial"
   nivel: "avanzado"
-  tags: ["inversa", "verificacion", "verdadero_falso"]
+  tags: ["binomial", "problema"]
 
 variables:
-  m: random(2, 8)
-  b: random(1, 15)
-  x_sol: random(1, 20)
-  y: m * x_sol + b
-  inv_y: (y - b) / m
+  n: 5
+  p: 0.5
+  k: uno_de([2, 3])
 
-respuesta: ((m * inv_y + b) == y)
-tipo: vf
+respuesta: redondear(combinations(n, k) * p ^ k * (1 - p) ^ (n - k), 4)
+tipo: input
+tolerancia_abs: 0.001
 
-enunciado: "f(x) = {m}x + {b}. Si f⁻¹({y}) = {inv_y}, ¿f({inv_y}) da de vuelta {y}?"
+enunciado: "Se tira una moneda {n} veces (p=0,5 de cara en cada tiro). ¿Cuál es la probabilidad de que salgan exactamente {k} caras (P(X={k}))?"
+
+pasos:
+  - "C({n},{k}) = {combinations(n, k)}"
+  - "P(X={k}) = {combinations(n, k)} × {p}^{k} × {1-p}^{n-k} = {redondear(combinations(n, k) * p ^ k * (1 - p) ^ (n - k), 4)}"
 
 explicacion: |
-  Aplicar f y después f⁻¹ (o al revés) tiene que devolver el valor
-  original — es la definición misma de función inversa.
+  Se combina la cantidad de formas posibles (combinatoria) con la
+  probabilidad de una secuencia particular (probabilidad compuesta).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_inversa_composicion"
+  tema: "distribucion_binomial"
   nivel: "avanzado"
-  tags: ["inversa", "verificacion", "verdadero_falso"]
+  tags: ["binomial", "problema"]
 
 variables:
-  m: random(2, 8)
-  b: random(1, 15)
-  x: random(1, 20)
-  fx: m * x + b
+  n: uno_de([4, 6])
+  p: uno_de([0.2, 0.3, 0.7])
+  k: uno_de([1, 2])
 
-respuesta: (((fx - b) / m) == x)
-tipo: vf
+respuesta: redondear(combinations(n, k) * p ^ k * (1 - p) ^ (n - k), 4)
+tipo: input
+tolerancia_abs: 0.001
 
-enunciado: "f(x) = {m}x + {b}. Si f({x}) = {fx}, ¿f⁻¹({fx}) da de vuelta {x}?"
+enunciado: "Un jugador convierte penales con probabilidad p={p} en cada intento (independientes entre sí). De {n} penales pateados, ¿cuál es la probabilidad de que convierta exactamente {k}?"
+
+pasos:
+  - "C({n},{k}) = {combinations(n, k)}"
+  - "P(X={k}) = {combinations(n, k)} × {p}^{k} × {1-p}^{n-k} = {redondear(combinations(n, k) * p ^ k * (1 - p) ^ (n - k), 4)}"
 
 explicacion: |
-  f⁻¹ deshace exactamente lo que hizo f.
+  Se aplica la misma fórmula con la probabilidad de éxito propia de
+  este escenario.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_inversa_composicion"
+  tema: "distribucion_binomial"
   nivel: "intermedio"
-  tags: ["inversa", "opcion_multiple"]
+  tags: ["binomial", "vocabulario"]
 
-variables:
-  m: random(2, 8)
-  b: random(1, 15)
-  x: random(1, 20)
-
-respuesta: (x - b) / m
+enunciado: "¿Cuáles son los tres requisitos para poder usar la distribución binomial?"
 tipo: mc
 opciones_explicitas:
-  - (x - b) / m
-  - (x + b) / m
-  - m * x - b
-
-enunciado: "f(x) = {m}x + {b}. ¿Cuál es f⁻¹({x})?"
+  - "Una cantidad fija de intentos independientes, con la misma probabilidad de éxito en cada uno, y sólo dos resultados posibles por intento"
+  - "Que la cantidad de intentos sea siempre mayor a 30"
+  - "Que la probabilidad de éxito cambie en cada intento"
+respuesta: "Una cantidad fija de intentos independientes, con la misma probabilidad de éxito en cada uno, y sólo dos resultados posibles por intento"
 
 explicacion: |
-  Se despeja x de y = {m}x + {b}: x = (y − {b}) / {m}. Cambiar el signo
-  del −{b} o no dividir por {m} son los errores típicos.
+  Si la probabilidad cambiara de un intento a otro, la fórmula no
+  aplicaría directo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "f⁻¹(x) significa lo mismo que 1/f(x)."
-
-explicacion: |
-  f⁻¹ es la función inversa (deshace la operación de f); 1/f(x) es el
-  recíproco numérico del resultado — son cosas distintas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "No toda función tiene inversa: hace falta que sea biyectiva (cada entrada con una salida distinta, y se alcancen todos los valores de llegada)."
-
-explicacion: |
-  Por ejemplo, f(x) = x² no es invertible en todo su dominio, porque
-  f(2) y f(−2) dan el mismo resultado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "f(f⁻¹(x)) tiene que dar x, para cualquier x del dominio de f⁻¹."
-
-explicacion: |
-  Es exactamente la definición: aplicar una función y su inversa
-  devuelve el valor original.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-variables:
-  m: random(2, 10)
-  b: random(1, 20)
-  x: random(1, 20)
-
-respuesta: ((m * x + b) == (m * x + b))
-tipo: vf
-
-enunciado: "f(x) = {m}x + {b}, id(x) = x (la función identidad). ¿(f∘id)({x}) es igual a f({x})?"
-
-explicacion: |
-  Componer con la identidad no cambia nada: id no modifica su entrada
-  antes de pasarla a f.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
+  tema: "distribucion_binomial"
   nivel: "avanzado"
-  tags: ["composicion", "problema"]
+  tags: ["binomial", "clasificar"]
 
-variables:
-  desc: random(1, 20)
-  envio: random(5, 30)
-  precio: random(50, 200)
-
-respuesta: precio - desc + envio
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "d(p) = p − {desc} (aplica un descuento fijo), e(p) = p + {envio} (agrega el envío). Si el precio de lista es {precio} y se aplica primero el descuento y después se suma el envío, ¿cuál es el precio final? (Esto es (e∘d)({precio}))"
-
-explicacion: |
-  (e∘d)(p) = e(d(p)): primero se descuenta, y al resultado se le suma el
-  envío — el mismo orden que las operaciones se hacen en la vida real.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "avanzado"
-  tags: ["inversa", "problema"]
-
-variables:
-  m: random(2, 5)
-  b: random(10, 40)
-  temp_sol: random(1, 30)
-  resultado: m * temp_sol + b
-
-respuesta: temp_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una fórmula de conversión es f(t) = {m}t + {b}. Si el resultado de aplicarla fue {resultado}, ¿cuál era el valor original de t (o sea, f⁻¹({resultado}))?"
-
-explicacion: |
-  Se despeja t de {m}t + {b} = {resultado}, el mismo procedimiento de
-  siempre para hallar la inversa evaluada en un punto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "avanzado"
-  tags: ["verificacion", "error_comun", "verdadero_falso"]
-
-variables:
-  m: random(2, 8)
-  b: random(1, 15)
-  x_sol: random(1, 20)
-  y: m * x_sol + b
-  inv_mal: (y + b) / m
-
-respuesta: ((m * inv_mal + b) == y)
-tipo: vf
-
-enunciado: "f(x) = {m}x + {b}. Si por error se calcula f⁻¹({y}) como ({y}+{b})/{m} (con el signo cambiado), ¿el resultado de f en ese valor sigue dando {y}?"
-
-explicacion: |
-  No: con el signo equivocado, f(f⁻¹({y})) ya no da {y} — la
-  verificación es exactamente lo que detecta este tipo de error.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "avanzado"
-  tags: ["composicion", "verdadero_falso"]
-
-variables:
-  m1: random(2, 6)
-  b1: random(1, 10)
-  m2: random(2, 6)
-  b2: random(1, 10)
-  x: random(1, 10)
-
-respuesta: ((m1 * (m2 * x + b2) + b1) == (m2 * (m1 * x + b1) + b2))
-tipo: vf
-
-enunciado: "f(x) = {m1}x + {b1}, g(x) = {m2}x + {b2}. ¿(f∘g)({x}) es igual a (g∘f)({x})?"
-
-explicacion: |
-  Salvo coincidencia numérica puntual, componer en órdenes distintos da
-  resultados distintos — por eso siempre hay que fijarse cuál función va
-  primero.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "avanzado"
-  tags: ["composicion"]
-
-variables:
-  a: random(1, 5)
-  b: random(1, 5)
-  c: random(1, 5)
-  x: random(1, 10)
-
-respuesta: x + a + b + c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = x + {a}, g(x) = x + {b}, h(x) = x + {c}. ¿Cuánto vale (f∘g∘h)({x})?"
-
-pasos:
-  - "h({x}) = {x + c}, g({x + c}) = {x + c + b}, f({x + c + b}) = {x + a + b + c}"
-
-explicacion: |
-  Componer más de dos funciones se hace de a pasos, de adentro hacia
-  afuera.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La inversa de f⁻¹ es la propia f."
-
-explicacion: |
-  Deshacer lo que deshace f vuelve a hacer lo que hacía f — (f⁻¹)⁻¹ = f.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_inversa_composicion"
-  nivel: "intermedio"
-  tags: ["inversa", "opcion_multiple"]
-
-variables:
-  b: random(1, 20)
-  x: random(1, 30)
-
-respuesta: x - b
+enunciado: "Se sacan 3 cartas de un mazo SIN reposición, y se cuenta cuántas son ases. ¿Corresponde usar la fórmula binomial directo para este caso?"
 tipo: mc
 opciones_explicitas:
-  - x - b
-  - x + b
-  - -x - b
-
-enunciado: "f(x) = x + {b}. ¿Cuál es f⁻¹({x})?"
+  - "No, porque sin reposición la probabilidad de sacar un as cambia de una extracción a la siguiente — no es constante como exige la binomial"
+  - "Sí, porque cualquier conteo de 'éxitos' siempre es binomial"
+respuesta: "No, porque sin reposición la probabilidad de sacar un as cambia de una extracción a la siguiente — no es constante como exige la binomial"
 
 explicacion: |
-  Si f suma {b}, la inversa resta {b}: f⁻¹(x) = x − {b}.
+  Es el mismo caso 'dependiente' de
+  `../independencia-de-eventos-y-diagrama-de-arbol/` — rompe el
+  requisito de probabilidad constante.
 ```
-
-## Sección: funcion-lineal-pendiente (30 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "basico"
-  tags: ["pendiente"]
+  tema: "distribucion_binomial"
+  nivel: "intermedio"
+  tags: ["binomial", "completar"]
+
+tipo: completar
+enunciado: "Completá: el valor esperado de una distribución binomial es E(X) = n × ___."
+respuestas_validas:
+  - "p"
+
+explicacion: |
+  n intentos por la probabilidad de éxito de cada uno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_binomial"
+  nivel: "intermedio"
+  tags: ["binomial", "problema"]
 
 variables:
-  x1: random(1, 10)
-  y1: random(1, 20)
-  m: random(2, 8)
-  dx: random(1, 6)
-  x2: x1 + dx
-  y2: y1 + m * dx
+  n: uno_de([10, 20, 40])
+  p: uno_de([0.1, 0.25, 0.5])
 
-respuesta: (y2 - y1) / (x2 - x1)
+respuesta: redondear(n * p, 2)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.01
 
-enunciado: "Una recta pasa por ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es su pendiente?"
+enunciado: "Se repite un experimento {n} veces, con probabilidad de éxito p={p} en cada uno. ¿Cuál es el valor esperado de la cantidad de éxitos, E(X)?"
 
 pasos:
-  - "m = ({y2}−{y1})/({x2}−{x1}) = {y2 - y1}/{x2 - x1} = {(y2 - y1) / (x2 - x1)}"
+  - "E(X) = {n} × {p} = {redondear(n * p, 2)}"
 
 explicacion: |
-  m = (y₂−y₁)/(x₂−x₁).
+  El valor esperado no tiene por qué ser un número entero: es un
+  promedio a largo plazo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "intermedio"
-  tags: ["pendiente", "signos"]
-
-variables:
-  x1: random(1, 10)
-  y1: random(20, 40)
-  m: random(2, 8)
-  dx: random(1, 6)
-  x2: x1 + dx
-  y2: y1 - m * dx
-
-respuesta: (y2 - y1) / (x2 - x1)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una recta pasa por ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es su pendiente?"
-
-explicacion: |
-  Como y disminuye mientras x aumenta, la pendiente da negativa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "intermedio"
-  tags: ["pendiente", "verdadero_falso"]
-
-variables:
-  x1: random(1, 10)
-  y1: random(1, 20)
-  m: random(2, 8)
-  dx: random(1, 6)
-  x2: x1 + dx
-  y2: y1 + m * dx
-
-respuesta: (((y2 - y1) / (x2 - x1)) == ((y1 - y2) / (x1 - x2)))
-tipo: vf
-
-enunciado: "Una recta pasa por ({x1}, {y1}) y ({x2}, {y2}). ¿Da lo mismo calcular la pendiente como (y₂−y₁)/(x₂−x₁) que como (y₁−y₂)/(x₁−x₂)?"
-
-explicacion: |
-  Sí: mientras se reste en el mismo orden arriba y abajo, el resultado
-  es el mismo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
+  tema: "distribucion_binomial"
   nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-variables:
-  x: random(1, 20)
-  y1: random(1, 20)
-  y2: random(21, 40)
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Los puntos ({x}, {y1}) y ({x}, {y2}) definen una función lineal con pendiente bien definida."
-
-explicacion: |
-  Con la misma x en los dos puntos, el denominador (x₂−x₁) da 0 — una
-  recta vertical no es el gráfico de una función (no cumple que cada x
-  tenga un único y).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "basico"
-  tags: ["ordenada_origen"]
-
-variables:
-  m: random(1, 10)
-  b: random(-20, 20)
-
-respuesta: b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {m}x + {b}. ¿Cuál es la ordenada al origen?"
-
-explicacion: |
-  f(0) = {b}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "basico"
-  tags: ["evaluar"]
-
-variables:
-  m: random(1, 10)
-  b: random(-20, 20)
-  x: random(-15, 15)
-
-respuesta: m * x + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {m}x + {b}. ¿Cuánto vale f({x})?"
-
-explicacion: |
-  {m}×{x} + {b} = {m * x + b}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "intermedio"
-  tags: ["punto_pendiente"]
-
-variables:
-  m: random(1, 10)
-  x1: random(1, 15)
-  y1: random(1, 30)
-
-respuesta: y1 - m * x1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una recta tiene pendiente {m} y pasa por ({x1}, {y1}). ¿Cuál es su ordenada al origen b?"
-
-pasos:
-  - "y₁ = m×x₁ + b → b = {y1} − {m}×{x1} = {y1 - m * x1}"
-
-explicacion: |
-  Se reemplaza el punto conocido en y=mx+b y se despeja b.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "avanzado"
-  tags: ["punto_pendiente"]
-
-variables:
-  x1: random(1, 10)
-  y1: random(1, 20)
-  m: random(2, 8)
-  dx: random(1, 6)
-  x2: x1 + dx
-  y2: y1 + m * dx
-
-respuesta: y1 - m * x1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una recta pasa por ({x1}, {y1}) y ({x2}, {y2}). Ya sabiendo que m={m}, ¿cuál es su ordenada al origen b?"
-
-explicacion: |
-  b = y₁ − m×x₁ = {y1} − {m}×{x1} = {y1 - m * x1}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "basico"
-  tags: ["signos", "verdadero_falso"]
-
-variables:
-  m: random(1, 15)
-  b: random(-20, 20)
+  tags: ["binomial"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "f(x) = {m}x + {b}. ¿Es creciente esta función?"
+enunciado: "El valor esperado E(X)=n×p de una binomial no tiene por qué ser un número entero, aunque X en sí (la cantidad de éxitos observada) siempre lo sea."
 
 explicacion: |
-  m={m} es positivo, así que f crece cuando x aumenta.
+  Es un promedio a largo plazo, no un resultado posible puntual — por
+  ejemplo, E(X)=2,5 con n=5 y p=0,5.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "basico"
-  tags: ["signos", "verdadero_falso"]
+  tema: "distribucion_binomial"
+  nivel: "avanzado"
+  tags: ["binomial", "problema"]
 
 variables:
-  m: random(-15, -1)
-  b: random(-20, 20)
+  n: uno_de([3, 4, 5])
+  p: uno_de([0.2, 0.3])
 
-respuesta: falso
+respuesta: redondear((1 - p) ^ n, 4)
+tipo: input
+tolerancia_abs: 0.001
 
-tipo: vf
+enunciado: "Con n={n} intentos y probabilidad de éxito p={p} en cada uno, ¿cuál es la probabilidad de que NO haya NINGÚN éxito (P(X=0))?"
 
-enunciado: "f(x) = {m}x + {b}. ¿Es creciente esta función?"
+pasos:
+  - "C({n},0) = 1, así que P(X=0) = (1−{p})^{n} = {redondear((1 - p) ^ n, 4)}"
 
 explicacion: |
-  m={m} es negativo, así que f DECRECE cuando x aumenta.
+  Con k=0, C(n,0)=1 y pᵏ=1, así que la fórmula se reduce a
+  (1−p)ⁿ: todos los intentos fallan.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "basico"
-  tags: ["signos", "opcion_multiple"]
+  tema: "distribucion_binomial"
+  nivel: "avanzado"
+  tags: ["binomial", "problema"]
 
 variables:
-  b: random(-20, 20)
+  n: uno_de([3, 4, 5])
+  p: uno_de([0.6, 0.8])
 
-respuesta: "Constante"
+respuesta: redondear(p ^ n, 4)
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "Con n={n} intentos y probabilidad de éxito p={p} en cada uno, ¿cuál es la probabilidad de que TODOS sean éxitos (P(X={n}))?"
+
+pasos:
+  - "C({n},{n}) = 1, así que P(X={n}) = {p}^{n} = {redondear(p ^ n, 4)}"
+
+explicacion: |
+  Con k=n, C(n,n)=1 y (1−p)⁰=1, así que la fórmula se reduce a pⁿ:
+  todos los intentos son éxito.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_binomial"
+  nivel: "basico"
+  tags: ["binomial", "aplicacion"]
+
+enunciado: "Una máquina produce piezas con un 2% de probabilidad de defecto en cada una, independiente entre piezas. Se inspecciona un lote de 50 piezas. ¿Qué distribución conviene usar para calcular la probabilidad de encontrar exactamente 3 piezas defectuosas?"
 tipo: mc
 opciones_explicitas:
-  - "Constante"
-  - "Creciente"
-  - "Decreciente"
-
-enunciado: "f(x) = 0x + {b} (o sea, f(x) = {b} para cualquier x). ¿Es creciente, decreciente o constante?"
+  - "La distribución binomial, con n=50 y p=0,02"
+  - "La distribución exponencial, con λ=0,02"
+  - "La distribución normal, con media 50"
+respuesta: "La distribución binomial, con n=50 y p=0,02"
 
 explicacion: |
-  Con m=0, la función no cambia, sea cual sea x — es constante.
+  Cantidad fija de intentos (50 piezas), independientes, misma
+  probabilidad de defecto en cada una — el caso central de la
+  binomial.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "intermedio"
-  tags: ["paralelas", "verdadero_falso"]
-
-variables:
-  m: random(1, 10)
-  b1: random(-20, 20)
-  b2: random(-20, 20)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "f(x) = {m}x + {b1} y g(x) = {m}x + {b2}. ¿Son paralelas estas dos rectas?"
-
-explicacion: |
-  Tienen la misma pendiente ({m}), así que son paralelas (nunca se
-  cruzan, salvo que sean exactamente la misma recta).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "intermedio"
-  tags: ["paralelas", "verdadero_falso"]
-
-variables:
-  m1: random(1, 10)
-  m2: random(11, 20)
-  b1: random(-20, 20)
-  b2: random(-20, 20)
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "f(x) = {m1}x + {b1} y g(x) = {m2}x + {b2}. ¿Son paralelas estas dos rectas?"
-
-explicacion: |
-  Tienen pendientes distintas ({m1} y {m2}), así que se cruzan en algún
-  punto — no son paralelas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
+  tema: "distribucion_binomial"
   nivel: "avanzado"
-  tags: ["perpendiculares"]
+  tags: ["binomial", "aplicacion"]
 
-variables:
-  a: random(2, 10)
-  b: random(2, 10)
-
-respuesta: -b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una recta tiene pendiente {a}/{b} (como fracción, sin simplificar). La pendiente perpendicular se escribe con denominador {a}. ¿Cuál es su numerador?"
-
-pasos:
-  - "m₁ × m₂ = −1 → m₂ = −1/m₁ = −{b}/{a}: numerador −{b}"
-
-explicacion: |
-  La pendiente perpendicular es la inversa y opuesta: numerador y
-  denominador se intercambian, y cambia el signo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "intermedio"
-  tags: ["perpendiculares", "verdadero_falso"]
-
-variables:
-  a: random(2, 10)
-  b: random(2, 10)
-
-respuesta: ((a * (-b)) == -(b * a))
-tipo: vf
-
-enunciado: "Dos rectas tienen pendientes {a}/{b} y −{b}/{a}. ¿Son perpendiculares?"
-
-explicacion: |
-  Se verifica sin dividir, cruzando numeradores y denominadores: si
-  m₁=p/q y m₂=r/s, son perpendiculares cuando p×r = −q×s.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "avanzado"
-  tags: ["perpendiculares", "error_comun", "verdadero_falso"]
-
-variables:
-  m: random(2, 10)
-
-respuesta: ((m * (-m)) == -1)
-tipo: vf
-
-enunciado: "Dos rectas tienen pendientes {m} y −{m} (mismo número, signo opuesto). ¿Son perpendiculares?"
-
-explicacion: |
-  Sólo son perpendiculares si {m}×(−{m}) da exactamente −1 — eso pasa
-  únicamente si m=1. Tener signos opuestos NO alcanza por sí solo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La pendiente mide cuánto cambia y por cada unidad que aumenta x."
-
-explicacion: |
-  Es la tasa de cambio constante de una función lineal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "basico"
-  tags: ["concepto", "dominio", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El dominio de cualquier función lineal (con m≠0) son todos los números reales."
-
-explicacion: |
-  No hay ninguna restricción de dominio, como ya se vio en
-  `../funcion-dominio/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "basico"
-  tags: ["concepto", "imagen", "verdadero_falso"]
-
-variables:
-  m: random(1, 10)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La imagen de f(x) = {m}x + b (con m distinto de 0) son todos los números reales."
-
-explicacion: |
-  Ya visto en `../funcion-imagen/`: cualquier recta no horizontal cubre
-  todos los valores de y posibles.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-variables:
-  m: random(1, 10)
-  b: random(-20, 20)
-
-respuesta: ((m * 0 + b) == b)
-tipo: vf
-
-enunciado: "f(x) = {m}x + {b}. ¿Pasa la recta por el punto (0, {b})?"
-
-explicacion: |
-  f(0) siempre da exactamente b — la ordenada al origen es, literalmente,
-  el punto donde cruza el eje y.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "intermedio"
-  tags: ["problema"]
-
-variables:
-  tarifa_fija: random(5, 30)
-  precio_km: random(2, 10)
-  km: random(1, 40)
-
-respuesta: precio_km * km + tarifa_fija
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un viaje cuesta C(km) = {precio_km}·km + {tarifa_fija} (tarifa fija más precio por km). ¿Cuánto cuesta un viaje de {km} km?"
-
-explicacion: |
-  Es una función lineal: {precio_km} es la pendiente (cuánto sube por
-  km), {tarifa_fija} es la ordenada al origen (el costo con 0 km).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  tarifa_fija: random(5, 30)
-  precio_km: random(2, 10)
-  km1: random(1, 10)
-  km2: random(11, 30)
-  costo1: precio_km * km1 + tarifa_fija
-  costo2: precio_km * km2 + tarifa_fija
-
-respuesta: (costo2 - costo1) / (km2 - km1)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un viaje de {km1} km costó {costo1}, y uno de {km2} km costó {costo2}. ¿Cuál es el precio por km (la pendiente)?"
-
-explicacion: |
-  m = (costo2−costo1)/(km2−km1) — la misma fórmula de pendiente, con
-  nombres de contexto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  x1: random(1, 10)
-  y1: random(1, 20)
-  m: random(2, 8)
-  dx: random(1, 6)
-  x2: x1 + dx
-  y2: y1 + m * dx
-  real: (y2 - y1) / (x2 - x1)
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "Una recta pasa por ({x1}, {y1}) y ({x2}, {y2}). ¿Es correcto que la pendiente sea {propuesto}?"
-
-explicacion: |
-  La pendiente correcta es {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos puntos distintos (con distinta x) determinan una única recta que pasa por los dos."
-
-explicacion: |
-  Con dos puntos alcanza para calcular m y b, y quedan completamente
-  determinados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "intermedio"
-  tags: ["evaluar"]
-
-variables:
-  m: random(2, 10)
-  b: random(1, 20)
-  x_sol: random(1, 20)
-  y: m * x_sol + b
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {m}x + {b}. ¿Para qué valor de x es f(x) = {y}?"
-
-explicacion: |
-  Se despeja x de {m}x + {b} = {y}, el mismo procedimiento de
-  `../ecuacion-primer-grado/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "intermedio"
-  tags: ["raiz"]
-
-variables:
-  m: random(2, 10)
-  b: random(-30, -1)
-
-respuesta: -b / m
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {m}x + {b}. ¿En qué valor de x cruza la recta el eje x (f(x)=0)?"
-
-explicacion: |
-  {m}x + {b} = 0 → x = −{b}/{m} = {-b / m}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "basico"
-  tags: ["concepto"]
-
-respuesta: 0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es la pendiente de una recta horizontal?"
-
-explicacion: |
-  Una recta horizontal no sube ni baja — su pendiente es 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
-  nivel: "intermedio"
-  tags: ["signos", "opcion_multiple"]
-
-variables:
-  m1: random(1, 10)
-  m2: random(11, 20)
-
-respuesta: "g(x)"
+enunciado: "Una pareja tiene 4 hijos. Cada hijo tiene, independientemente, una probabilidad de 1/4 de heredar un genotipo recesivo particular (según el cuadro de Punnett). ¿Qué distribución conviene usar para calcular la probabilidad de que exactamente 2 de los 4 hijos lo hereden?"
 tipo: mc
 opciones_explicitas:
-  - "g(x)"
-  - "f(x)"
-  - "Crecen igual"
-
-enunciado: "f(x) = {m1}x + 3, g(x) = {m2}x − 5. ¿Cuál de las dos crece más rápido?"
+  - "La distribución binomial, con n=4 y p=1/4"
+  - "La distribución de Poisson, con λ=4"
+respuesta: "La distribución binomial, con n=4 y p=1/4"
 
 explicacion: |
-  La que tiene mayor pendiente ({m2} > {m1}) sube más rápido, sin
-  importar la ordenada al origen.
+  Es la misma probabilidad compuesta de `../probabilidad-compuesta/`
+  aplicada a genética, ahora generalizada a 'exactamente k de n'.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
+  tema: "distribucion_binomial"
   nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["binomial", "problema"]
+
+variables:
+  n: 4
+  p: 0.25
+  k: 2
+
+respuesta: redondear(combinations(n, k) * p ^ k * (1 - p) ^ (n - k), 4)
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "Con {n} hijos y probabilidad p={p} de heredar el alelo recesivo cada uno (independiente), ¿cuál es la probabilidad de que exactamente {k} lo hereden?"
+
+pasos:
+  - "C({n},{k}) = {combinations(n, k)}"
+  - "P(X={k}) = {combinations(n, k)} × {p}^{k} × {1-p}^{n-k} = {redondear(combinations(n, k) * p ^ k * (1 - p) ^ (n - k), 4)}"
+
+explicacion: |
+  Aplicación directa de la binomial a un caso genético con más de dos
+  hijos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_binomial"
+  nivel: "avanzado"
+  tags: ["binomial"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cuanto mayor es el valor absoluto de la pendiente, más 'inclinada' (más vertical) se ve la recta."
+enunciado: "La suma de P(X=0) + P(X=1) + ... + P(X=n) (para todos los valores posibles de k) siempre da exactamente 1, igual que en cualquier distribución de variable aleatoria discreta."
 
 explicacion: |
-  Una pendiente grande significa que y cambia mucho por cada unidad de
-  x, así que la recta sube o baja más pronunciada.
+  Es la misma propiedad general de `../variable-aleatoria-discreta-continua/`.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "funcion_lineal_pendiente"
+  tema: "distribucion_binomial"
   nivel: "avanzado"
-  tags: ["punto_pendiente"]
+  tags: ["binomial", "problema"]
 
 variables:
-  x1: random(1, 10)
-  y1: random(1, 20)
-  m: random(2, 8)
-  dx: random(1, 6)
-  x2: x1 + dx
-  y2: y1 + m * dx
-  b: y1 - m * x1
-  x_eval: random(1, 30)
+  n: 5
+  k: 3
+  p_bajo: 0.2
+  p_alto: 0.7
 
-respuesta: m * x_eval + b
-tipo: input
-tolerancia_abs: 0
+respuesta: (combinations(n, k) * p_alto ^ k * (1 - p_alto) ^ (n - k)) > (combinations(n, k) * p_bajo ^ k * (1 - p_bajo) ^ (n - k))
+tipo: vf
 
-enunciado: "Una recta pasa por ({x1}, {y1}) y ({x2}, {y2}). Usando su ecuación completa, ¿cuánto vale f({x_eval})?"
-
-pasos:
-  - "m = {m}, b = {b} → f(x) = {m}x + {b}"
+enunciado: "Con n={n} y k={k}, ¿P(X={k}) es MAYOR cuando p={p_alto} que cuando p={p_bajo}?"
 
 explicacion: |
-  Una vez armada la ecuación completa, evaluarla en cualquier x es
-  directo.
+  Con una probabilidad de éxito más alta, es más probable observar
+  una cantidad alta de éxitos como k={k}.
 ```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_binomial"
+  nivel: "basico"
+  tags: ["binomial", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La distribución binomial es discreta, porque X (la cantidad de éxitos) siempre es un número entero entre 0 y n."
+
+explicacion: |
+  Es el ejemplo central de variable discreta usado en
+  `../variable-aleatoria-discreta-continua/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_binomial"
+  nivel: "avanzado"
+  tags: ["binomial", "poisson"]
+
+enunciado: "¿Qué distribución se obtiene como caso límite de la binomial cuando n es muy grande y p es muy chico, con n×p constante?"
+tipo: mc
+opciones_explicitas:
+  - "La distribución de Poisson"
+  - "La distribución normal"
+  - "La distribución exponencial"
+respuesta: "La distribución de Poisson"
+
+explicacion: |
+  Es la conexión mencionada en `../distribucion-de-poisson/`, entre
+  'muchos intentos con probabilidad chica' y 'conteo de eventos
+  raros'.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_binomial"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve la distribución binomial?"
+tipo: mc
+opciones_explicitas:
+  - "Para calcular la probabilidad de obtener exactamente k éxitos en n intentos independientes, todos con la misma probabilidad de éxito"
+  - "Para calcular el tiempo de espera hasta el próximo evento"
+  - "Para calcular el promedio de un conjunto de datos ya medidos"
+respuesta: "Para calcular la probabilidad de obtener exactamente k éxitos en n intentos independientes, todos con la misma probabilidad de éxito"
+
+explicacion: |
+  Combina directo la combinatoria de `../combinaciones/` con la
+  probabilidad compuesta de `../probabilidad-compuesta/`.
+```
+
+## Sección: esperanza-matematica-valor-esperado (20 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "basico"
+  tags: ["esperanza", "vocabulario"]
+
+enunciado: "¿Qué es el valor esperado E(X) de una variable aleatoria?"
+tipo: mc
+opciones_explicitas:
+  - "Un promedio ponderado de los valores posibles, donde cada valor se pondera por su propia probabilidad de ocurrir"
+  - "El valor más probable entre todos los posibles"
+  - "El promedio simple de los valores posibles, sin considerar sus probabilidades"
+respuesta: "Un promedio ponderado de los valores posibles, donde cada valor se pondera por su propia probabilidad de ocurrir"
+
+explicacion: |
+  A diferencia de la media simple, cada valor pesa según qué tan
+  probable es.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "intermedio"
+  tags: ["esperanza", "completar"]
+
+tipo: completar
+enunciado: "Completá: E(X) = x₁×P(x₁) + x₂×P(x₂) + ... + xₙ×___."
+respuestas_validas:
+  - "P(xₙ)"
+  - "P(xn)"
+
+explicacion: |
+  Cada valor posible se multiplica por su propia probabilidad, y se
+  suman todos los términos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "avanzado"
+  tags: ["esperanza", "problema"]
+
+variables:
+  v1: random(1, 3)
+  v2: random(4, 6)
+  v3: random(7, 9)
+
+respuesta: redondear(0.3 * v1 + 0.5 * v2 + 0.2 * v3, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "X tiene distribución: P(X={v1})=0,3, P(X={v2})=0,5, P(X={v3})=0,2. ¿Cuánto vale E(X)?"
+
+pasos:
+  - "E(X) = {v1}×0,3 + {v2}×0,5 + {v3}×0,2"
+  - "= {redondear(v1 * 0.3, 2)} + {redondear(v2 * 0.5, 2)} + {redondear(v3 * 0.2, 2)} = {redondear(0.3 * v1 + 0.5 * v2 + 0.2 * v3, 2)}"
+
+explicacion: |
+  Se multiplica cada valor por su probabilidad y se suman los
+  resultados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "avanzado"
+  tags: ["esperanza"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El valor esperado E(X) no tiene por qué coincidir con ninguno de los valores que X puede tomar realmente — es un promedio a largo plazo, no un resultado posible puntual."
+
+explicacion: |
+  Por ejemplo, E(X)=4,7 aunque X sólo pueda valer 2, 5 u 8.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "avanzado"
+  tags: ["esperanza", "problema"]
+
+variables:
+  costo: uno_de([50, 100])
+  premio: uno_de([300, 500])
+  p_ganar: uno_de([0.1, 0.15])
+
+respuesta: redondear(premio * p_ganar - costo, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un juego cuesta ${costo} jugar y paga ${premio} con probabilidad {p_ganar} (y $0 el resto de las veces). ¿Cuál es el valor esperado de la GANANCIA neta de jugar (premio esperado menos el costo)?"
+
+pasos:
+  - "Premio esperado = {premio} × {p_ganar} = {redondear(premio * p_ganar, 2)}"
+  - "Ganancia esperada = {redondear(premio * p_ganar, 2)} − {costo} = {redondear(premio * p_ganar - costo, 2)}"
+
+explicacion: |
+  Si el resultado es negativo, el juego es desfavorable en promedio
+  para quien juega, aunque en una partida puntual se pueda ganar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "intermedio"
+  tags: ["esperanza", "aplicacion"]
+
+enunciado: "Si el valor esperado de la ganancia de un juego de azar da negativo, ¿qué significa?"
+tipo: mc
+opciones_explicitas:
+  - "Que, en promedio y a largo plazo, quien juega repetidamente pierde dinero — aunque una partida individual pueda ganar"
+  - "Que es matemáticamente imposible ganar en ese juego"
+  - "Que el juego siempre hace perder en cada partida, sin excepción"
+respuesta: "Que, en promedio y a largo plazo, quien juega repetidamente pierde dinero — aunque una partida individual pueda ganar"
+
+explicacion: |
+  Es la lógica detrás de cualquier casino: el valor esperado del
+  jugador es negativo, aunque partidas puntuales puedan ganar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "avanzado"
+  tags: ["esperanza", "problema"]
+
+variables:
+  premio_a: 1000
+  p_a: 0.05
+  premio_b: 200
+  p_b: 0.3
+
+respuesta: (premio_a * p_a) > (premio_b * p_b)
+tipo: vf
+
+enunciado: "Apuesta A paga ${premio_a} con probabilidad {p_a}. Apuesta B paga ${premio_b} con probabilidad {p_b}. Sin considerar el costo de entrada, ¿el valor esperado del premio de la Apuesta A es MAYOR que el de la Apuesta B?"
+
+explicacion: |
+  E(A) = {premio_a}×{p_a} = {premio_a * p_a}; E(B) = {premio_b}×{p_b}
+  = {premio_b * p_b} — comparar el producto, no el premio ni la
+  probabilidad por separado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "intermedio"
+  tags: ["esperanza", "binomial"]
+
+enunciado: "¿Qué relación tiene la fórmula E(X)=n×p de la distribución binomial con el valor esperado en general?"
+tipo: mc
+opciones_explicitas:
+  - "Es el mismo promedio ponderado general, aplicado al caso particular de una variable que sólo puede tomar valores enteros de 0 a n"
+  - "No tiene ninguna relación, son fórmulas completamente distintas"
+  - "E(X)=n×p sólo aplica quando la variable es continua"
+respuesta: "Es el mismo promedio ponderado general, aplicado al caso particular de una variable que sólo puede tomar valores enteros de 0 a n"
+
+explicacion: |
+  `../distribucion-binomial/` adelantó este resultado sin
+  demostrarlo — es un caso particular de esta fórmula más general.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "intermedio"
+  tags: ["esperanza", "problema"]
+
+variables:
+  valor1: uno_de([10, 20])
+  p1: uno_de([0.4, 0.6])
+  valor2: uno_de([50, 80])
+
+respuesta: redondear(valor1 * p1 + valor2 * (1 - p1), 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "X toma el valor {valor1} con probabilidad {p1}, y el valor {valor2} con la probabilidad restante. ¿Cuánto vale E(X)?"
+
+pasos:
+  - "P({valor2}) = 1 − {p1} = {redondear(1 - p1, 2)}"
+  - "E(X) = {valor1}×{p1} + {valor2}×{redondear(1 - p1, 2)} = {redondear(valor1 * p1 + valor2 * (1 - p1), 2)}"
+
+explicacion: |
+  Con sólo dos valores posibles, sus probabilidades deben sumar 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "basico"
+  tags: ["esperanza", "aplicacion"]
+
+enunciado: "¿Cómo usa una aseguradora el valor esperado para decidir cuánto cobrar por una póliza?"
+tipo: mc
+opciones_explicitas:
+  - "Calcula el valor esperado del siniestro (costo posible × probabilidad de que ocurra) y cobra por encima de ese valor, para tener ganancia en promedio"
+  - "Cobra siempre el mismo monto fijo, sin ningún cálculo de probabilidad"
+  - "El valor esperado no tiene ninguna aplicación en seguros"
+respuesta: "Calcula el valor esperado del siniestro (costo posible × probabilidad de que ocurra) y cobra por encima de ese valor, para tener ganancia en promedio"
+
+explicacion: |
+  Es la misma lógica de `../../economia/valor-esperado-riesgo/`,
+  aplicada a seguros en particular.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "avanzado"
+  tags: ["esperanza", "problema"]
+
+variables:
+  ganancia: uno_de([200, 300])
+  p_ganancia: 0.4
+  perdida: uno_de([100, 150])
+  p_perdida: 0.5
+
+respuesta: redondear(ganancia * p_ganancia - perdida * p_perdida, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una inversión da una ganancia de ${ganancia} con probabilidad {p_ganancia}, una pérdida de ${perdida} con probabilidad {p_perdida}, y queda igual el resto de las veces (probabilidad {redondear(1 - p_ganancia - p_perdida, 2)}, resultado $0). ¿Cuál es el valor esperado del resultado?"
+
+pasos:
+  - "E(X) = {ganancia}×{p_ganancia} + (−{perdida})×{p_perdida} + 0×{redondear(1 - p_ganancia - p_perdida, 2)}"
+  - "= {redondear(ganancia * p_ganancia, 2)} − {redondear(perdida * p_perdida, 2)} = {redondear(ganancia * p_ganancia - perdida * p_perdida, 2)}"
+
+explicacion: |
+  Los valores negativos (pérdidas) se ponderan igual que los
+  positivos: por su propia probabilidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "intermedio"
+  tags: ["esperanza"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de la media simple de `../media-mediana-y-moda/` (que pesa todos los datos por igual), el valor esperado pesa cada resultado posible según su propia probabilidad de ocurrir."
+
+explicacion: |
+  Es la diferencia central entre 'promedio de datos ya medidos' y
+  'promedio ponderado de resultados posibles antes de que ocurran'.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "avanzado"
+  tags: ["esperanza", "problema"]
+
+variables:
+  costo_siniestro: 10000
+  p_siniestro: uno_de([0.02, 0.05])
+
+respuesta: redondear(costo_siniestro * p_siniestro, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un siniestro cuesta en promedio ${costo_siniestro}, y ocurre con probabilidad {p_siniestro} en un año. ¿Cuál es el valor esperado del costo anual del siniestro (lo mínimo que debería cobrar la aseguradora, sin ganancia)?"
+
+pasos:
+  - "E(costo) = {costo_siniestro} × {p_siniestro} = {redondear(costo_siniestro * p_siniestro, 2)}"
+
+explicacion: |
+  Cualquier prima por debajo de este valor haría perder dinero a la
+  aseguradora, en promedio, a largo plazo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "avanzado"
+  tags: ["esperanza"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para calcular el valor esperado de una variable aleatoria con muchos valores posibles, hay que sumar TODOS los términos (cada valor por su probabilidad), no sólo el valor más probable."
+
+explicacion: |
+  Ignorar los demás valores posibles subestima o distorsiona el
+  promedio real.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "intermedio"
+  tags: ["esperanza", "problema"]
+
+respuesta: redondear((1 + 2 + 3 + 4 + 5 + 6) / 6, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un dado de 6 caras tiene la misma probabilidad (1/6) para cada resultado del 1 al 6. ¿Cuál es el valor esperado del resultado de un tiro?"
+
+pasos:
+  - "E(X) = 1×1/6 + 2×1/6 + 3×1/6 + 4×1/6 + 5×1/6 + 6×1/6"
+  - "= (1+2+3+4+5+6)/6 = {redondear((1 + 2 + 3 + 4 + 5 + 6) / 6, 3)}"
+
+explicacion: |
+  Cuando todos los resultados tienen la misma probabilidad, el valor
+  esperado coincide con el promedio simple.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "basico"
+  tags: ["esperanza", "aplicacion"]
+
+enunciado: "¿Cómo ayuda el valor esperado a decidir entre dos inversiones de riesgo distintas?"
+tipo: mc
+opciones_explicitas:
+  - "Comparando el promedio ponderado del retorno posible de cada una, aunque también haga falta mirar la dispersión (riesgo) alrededor de ese promedio"
+  - "El valor esperado garantiza el resultado exacto de la inversión, sin ningún riesgo"
+  - "El valor esperado no sirve para decisiones financieras"
+respuesta: "Comparando el promedio ponderado del retorno posible de cada una, aunque también haga falta mirar la dispersión (riesgo) alrededor de ese promedio"
+
+explicacion: |
+  Es exactamente el enfoque de `../../economia/valor-esperado-riesgo/`:
+  valor esperado Y dispersión, no sólo uno de los dos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "avanzado"
+  tags: ["esperanza", "problema"]
+
+variables:
+  v1: 100
+  p1: 0.7
+  v2: 500
+  p2: 0.25
+  v3: 2000
+  p3: 0.05
+
+respuesta: redondear(v1 * p1 + v2 * p2 + v3 * p3, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un premio de lotería da ${v1} con probabilidad {p1}, ${v2} con probabilidad {p2}, y ${v3} con probabilidad {p3}. ¿Cuál es el valor esperado del premio?"
+
+pasos:
+  - "E(X) = {v1}×{p1} + {v2}×{p2} + {v3}×{p3}"
+  - "= {redondear(v1 * p1, 2)} + {redondear(v2 * p2, 2)} + {redondear(v3 * p3, 2)} = {redondear(v1 * p1 + v2 * p2 + v3 * p3, 2)}"
+
+explicacion: |
+  Aunque el premio grande (${v3}) sea llamativo, su probabilidad
+  chica ({p3}) hace que aporte relativamente poco al valor esperado
+  total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "avanzado"
+  tags: ["esperanza"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El valor esperado describe el promedio a largo plazo de MUCHAS repeticiones, no predice el resultado de una única repetición puntual del experimento."
+
+explicacion: |
+  Por eso un juego con valor esperado negativo puede, en una partida
+  puntual, dar ganancia igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "avanzado"
+  tags: ["esperanza", "problema"]
+
+variables:
+  costo: 20
+  p_ganar: 0.2
+
+respuesta: costo / p_ganar
+tipo: input
+
+enunciado: "Un juego cuesta ${costo} jugar y sólo paga premio (y nada más) con probabilidad {p_ganar}. ¿Cuánto debería ser el premio para que el juego sea 'justo' (valor esperado de la ganancia neta = 0)?"
+
+pasos:
+  - "premio × {p_ganar} − {costo} = 0"
+  - "premio = {costo} / {p_ganar} = {costo / p_ganar}"
+
+explicacion: |
+  Un juego 'justo' es aquel donde, en promedio, ni la casa ni el
+  jugador ganan ni pierden dinero.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "esperanza_matematica_valor_esperado"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve el valor esperado?"
+tipo: mc
+opciones_explicitas:
+  - "Para tomar decisiones racionales bajo incertidumbre, resumiendo en un solo número el resultado promedio esperado de una situación azarosa"
+  - "Para predecir con certeza el resultado de un único evento futuro"
+  - "Sólo se usa en juegos de casino, sin otras aplicaciones"
+respuesta: "Para tomar decisiones racionales bajo incertidumbre, resumiendo en un solo número el resultado promedio esperado de una situación azarosa"
+
+explicacion: |
+  Es la base de seguros, inversiones y cualquier decisión que
+  involucre azar y consecuencias medibles.
+```
+
+## Sección: irracionales-y-reales (24 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "basico"
+  tags: ["irracionales", "vocabulario"]
+
+enunciado: "¿Qué es un número irracional?"
+tipo: mc
+opciones_explicitas:
+  - "Un número que no se puede escribir como fracción de dos enteros"
+  - "Cualquier número negativo"
+  - "Un número muy grande"
+respuesta: "Un número que no se puede escribir como fracción de dos enteros"
+
+explicacion: |
+  Su desarrollo decimal tiene infinitas cifras que nunca repiten un
+  patrón.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "intermedio"
+  tags: ["irracionales"]
+
+variables:
+  n: random(2, 99)
+  k: floor(sqrt(n))
+
+respuesta: (k * k != n)
+tipo: vf
+
+enunciado: "¿Es √{n} un número irracional?"
+
+explicacion: |
+  Es irracional siempre que {n} no sea un cuadrado perfecto (que la raíz
+  no dé exacta).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "intermedio"
+  tags: ["irracionales"]
+
+variables:
+  k: random(2, 20)
+  n: k ^ 2
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es √{n} un número irracional?"
+
+explicacion: |
+  {n} es {k}², un cuadrado perfecto: su raíz da exacta ({k}), así que es
+  racional, no irracional.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "basico"
+  tags: ["irracionales", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "√2 es un número irracional."
+
+explicacion: |
+  Se demuestra por reducción al absurdo: no existe ninguna fracción a/b
+  que sea exactamente igual a √2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "basico"
+  tags: ["irracionales", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "π (pi) es un número irracional."
+
+explicacion: |
+  3,14159265... nunca repite un patrón: π no se puede escribir como
+  fracción de dos enteros.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "avanzado"
+  tags: ["irracionales", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "π es trascendente, una categoría más exigente que ser irracional: no es raíz de ningún polinomio con coeficientes racionales (a diferencia de √2, que sí es raíz de x² − 2 = 0)."
+
+explicacion: |
+  Todo trascendente es irracional, pero no todo irracional es
+  trascendente — √2 es el ejemplo que marca la diferencia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "basico"
+  tags: ["reales", "vocabulario"]
+
+enunciado: "¿Qué es el conjunto de los números reales?"
+tipo: mc
+opciones_explicitas:
+  - "La unión de todos los racionales y todos los irracionales"
+  - "Sólo los números que se pueden contar"
+  - "Sólo los números positivos"
+respuesta: "La unión de todos los racionales y todos los irracionales"
+
+explicacion: |
+  Todo punto de la recta numérica es un número real, sea racional o
+  irracional.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "basico"
+  tags: ["reales", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Todo número racional es también un número real."
+
+explicacion: |
+  Los reales incluyen a TODOS los racionales, sin excepción.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "basico"
+  tags: ["reales", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Todo número irracional es también un número real."
+
+explicacion: |
+  Los reales incluyen a TODOS los irracionales también: es la unión de
+  los dos grupos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "intermedio"
+  tags: ["reales", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Todo número real es racional."
+
+explicacion: |
+  No es cierto: √2 y π son reales, pero no son racionales — son
+  irracionales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "intermedio"
+  tags: ["irracionales", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "0,333... (con el 3 repitiéndose para siempre) es un número racional, no irracional."
+
+explicacion: |
+  Aunque tenga infinitas cifras, sigue un patrón que se repite (periódico)
+  — eso lo hace racional: 0,333... = 1/3.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "intermedio"
+  tags: ["irracionales", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un número con infinitas cifras decimales que nunca repiten ningún patrón es irracional."
+
+explicacion: |
+  Es exactamente la definición de número irracional.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "intermedio"
+  tags: ["irracionales"]
+
+variables:
+  n_no_cuadrado: uno_de([2, 3, 5, 7, 10, 11, 15])
+
+respuesta: sqrt(n_no_cuadrado)
+tipo: mc
+opciones_explicitas:
+  - sqrt(n_no_cuadrado)
+  - 1 / 3
+  - 0.5
+
+enunciado: "¿Cuál de estos tres números es irracional?"
+
+explicacion: |
+  1/3 y 0,5 son fracciones (racionales); una raíz no exacta como
+  √{n_no_cuadrado} no se puede escribir como fracción.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "intermedio"
+  tags: ["irracionales"]
+
+variables:
+  k: random(2, 20)
+  n_cuadrado: k ^ 2
+  n_no_cuadrado: uno_de([2, 3, 5, 7, 10, 11])
+
+respuesta: sqrt(n_cuadrado)
+tipo: mc
+opciones_explicitas:
+  - sqrt(n_cuadrado)
+  - sqrt(n_no_cuadrado)
+
+enunciado: "¿Cuál de estos dos números es racional (da una raíz exacta)?"
+
+explicacion: |
+  √{n_cuadrado} da exacto ({k}), así que es racional; la otra raíz no es
+  exacta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "basico"
+  tags: ["irracionales", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cualquier fracción de dos números enteros (como 1/7) es un número racional."
+
+explicacion: |
+  Es la propia definición de racional: se puede escribir como a/b.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "intermedio"
+  tags: ["reales", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Con los números reales, cada punto de la recta numérica corresponde a exactamente un número, sin huecos."
+
+explicacion: |
+  Antes de sumar los irracionales, había puntos de la recta (como donde
+  va √2) sin un número racional que los ocupara exactamente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "avanzado"
+  tags: ["irracionales"]
+
+variables:
+  n: random(100, 999)
+  k: floor(sqrt(n))
+
+respuesta: (k * k != n)
+tipo: vf
+
+enunciado: "¿Es √{n} irracional?"
+
+explicacion: |
+  Se verifica si {n} es o no un cuadrado perfecto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "avanzado"
+  tags: ["irracionales", "problema"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La diagonal de un cuadrado de lado 1 mide √2, un número irracional."
+
+explicacion: |
+  Es el mismo ejemplo histórico que llevó a descubrir los irracionales:
+  ni siquiera una figura tan simple como un cuadrado de lado 1 tiene
+  diagonal racional.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "avanzado"
+  tags: ["irracionales", "comparacion"]
+
+variables:
+  a: uno_de([2, 3, 5, 7, 10])
+  b: uno_de([2, 3, 5, 7, 10])
+
+restricciones:
+  - a != b
+
+respuesta: (sqrt(a) > sqrt(b))
+tipo: vf
+
+enunciado: "¿Es √{a} mayor que √{b}?"
+
+explicacion: |
+  Aunque los dos sean irracionales (no se puedan escribir exactos), se
+  pueden seguir comparando: a mayor radicando, mayor la raíz.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "avanzado"
+  tags: ["reales", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos números reales de menor a mayor (aproximá los irracionales: √2≈1,41, π≈3,14)."
+opciones_explicitas:
+  - "π"
+  - "1"
+  - "√2"
+  - "3,5"
+respuesta_orden: ["1", "√2", "π", "3,5"]
+
+explicacion: |
+  Racionales e irracionales se ordenan juntos en la misma recta numérica,
+  sin ninguna regla especial distinta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "basico"
+  tags: ["reales", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Todo número entero es racional (se puede escribir como una fracción con denominador 1)."
+
+explicacion: |
+  5 = 5/1: cualquier entero es, trivialmente, también una fracción.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "intermedio"
+  tags: ["reales", "vocabulario"]
+
+enunciado: "¿Cuál de estos conjuntos NO está incluido dentro de los números reales?"
+tipo: mc
+opciones_explicitas:
+  - "Ninguno, todos los que aparecen en el mapa hasta acá están incluidos"
+  - "Los números naturales"
+  - "Los números irracionales"
+respuesta: "Ninguno, todos los que aparecen en el mapa hasta acá están incluidos"
+
+explicacion: |
+  Naturales, enteros, racionales (fracciones y decimales) e irracionales
+  son todos subconjuntos de los números reales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "avanzado"
+  tags: ["irracionales", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "22/7 es exactamente igual a π."
+
+explicacion: |
+  22/7 (≈3,142857...) es sólo una aproximación racional usada en la
+  práctica; π es irracional, así que ninguna fracción puede ser
+  exactamente igual a π.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "irracionales_y_reales"
+  nivel: "basico"
+  tags: ["irracionales", "reales", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los números reales son la unión de los racionales y los irracionales, y llenan por completo la recta numérica, sin dejar ningún punto sin número."
+
+explicacion: |
+  Es la idea de cierre de todo el bloque numérico: con los reales, la
+  recta numérica queda completa.
+```
+
+## Sección: probabilidad-condicional (20 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "basico"
+  tags: ["condicional", "vocabulario"]
+
+enunciado: "¿Qué es P(A|B), la probabilidad condicional de A dado B?"
+tipo: mc
+opciones_explicitas:
+  - "La probabilidad de que ocurra A, ya sabiendo que B ocurrió"
+  - "La probabilidad de que ocurran A y B al mismo tiempo"
+  - "La probabilidad de que no ocurra ni A ni B"
+respuesta: "La probabilidad de que ocurra A, ya sabiendo que B ocurrió"
+
+explicacion: |
+  Saber que B pasó cambia el universo de posibilidades sobre el que
+  se calcula la probabilidad de A.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "intermedio"
+  tags: ["condicional", "completar"]
+
+tipo: completar
+enunciado: "Completá: P(A|B) = P(A y B) / ___."
+respuestas_validas:
+  - "P(B)"
+
+explicacion: |
+  Siempre con P(B) > 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional", "problema"]
+
+variables:
+  p_a_y_b: uno_de([0.1, 0.15, 0.2])
+  p_b: uno_de([0.3, 0.4, 0.5])
+
+respuesta: redondear(p_a_y_b / p_b, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "P(A y B) = {p_a_y_b} y P(B) = {p_b}. ¿Cuál es P(A|B)?"
+
+pasos:
+  - "P(A|B) = {p_a_y_b} / {p_b} = {redondear(p_a_y_b / p_b, 3)}"
+
+explicacion: |
+  Se divide la probabilidad conjunta por la probabilidad del evento
+  que ya se sabe que ocurrió.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional", "independencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si A y B son eventos independientes, entonces P(A|B) = P(A) — saber que B ocurrió no cambia en nada la probabilidad de A."
+
+explicacion: |
+  Es la definición formal de independencia en términos de
+  probabilidad condicional.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional", "problema"]
+
+variables:
+  p_a: 0.3
+  p_a_dado_b: uno_de([0.3, 0.5])
+
+respuesta: p_a_dado_b == p_a
+tipo: vf
+
+enunciado: "P(A) = {p_a} y P(A|B) = {p_a_dado_b}. ¿Son A y B eventos independientes?"
+
+explicacion: |
+  Son independientes sólo si P(A|B) es exactamente igual a P(A) — si
+  cambia, B sí aporta información sobre A.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional", "problema"]
+
+respuesta: redondear(3 / 39, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "De un mazo de 40 cartas (4 ases), se saca una carta y sale as (no se devuelve). ¿Cuál es la probabilidad de que la SEGUNDA carta también sea as, dado que la primera lo fue?"
+
+pasos:
+  - "Quedan 39 cartas, de las cuales 3 son ases (ya salió uno)."
+  - "P(as en 2ª | as en 1ª) = 3/39 = {redondear(3 / 39, 3)}"
+
+explicacion: |
+  Es exactamente el caso 'sin reposición' de
+  `../independencia-de-eventos-y-diagrama-de-arbol/`, formalizado como
+  probabilidad condicional.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "basico"
+  tags: ["condicional", "vocabulario"]
+
+enunciado: "¿Cómo se lee la notación P(A|B)?"
+tipo: mc
+opciones_explicitas:
+  - "Probabilidad de A dado B"
+  - "Probabilidad de A dividido B"
+  - "Probabilidad de A o B"
+respuesta: "Probabilidad de A dado B"
+
+explicacion: |
+  La barra vertical se lee "dado".
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional", "problema"]
+
+variables:
+  estudio_aprobo: 40
+  no_estudio_aprobo: 15
+  total_aprobo: estudio_aprobo + no_estudio_aprobo
+
+respuesta: redondear(estudio_aprobo / total_aprobo, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "De 100 estudiantes: {estudio_aprobo} estudiaron y aprobaron, {no_estudio_aprobo} no estudiaron pero igual aprobaron. Entre los que aprobaron en total, ¿cuál es la probabilidad de que ese estudiante haya estudiado (P(estudió | aprobó))?"
+
+pasos:
+  - "Total de aprobados = {estudio_aprobo} + {no_estudio_aprobo} = {total_aprobo}"
+  - "P(estudió | aprobó) = {estudio_aprobo}/{total_aprobo} = {redondear(estudio_aprobo / total_aprobo, 3)}"
+
+explicacion: |
+  Se restringe el universo a la columna 'aprobó' antes de calcular la
+  proporción.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "basico"
+  tags: ["condicional", "aplicacion"]
+
+enunciado: "'¿Cuál es la probabilidad de tener una enfermedad, dado que el test dio positivo?' es una pregunta de qué tipo de probabilidad?"
+tipo: mc
+opciones_explicitas:
+  - "Probabilidad condicional: P(enfermedad | test positivo)"
+  - "Probabilidad simple, sin ninguna condición"
+  - "Probabilidad compuesta del tipo 'Y', sin condicionar nada"
+respuesta: "Probabilidad condicional: P(enfermedad | test positivo)"
+
+explicacion: |
+  Es el ejemplo central de `../teorema-de-bayes/`, el módulo que
+  sigue.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En general, P(A|B) no es lo mismo que P(B|A) — invertir el orden de la condición puede cambiar el resultado."
+
+explicacion: |
+  Es exactamente el punto de partida del teorema de Bayes: cómo pasar
+  de un condicional al otro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional", "problema"]
+
+variables:
+  p_a_y_b: uno_de([0.06, 0.09, 0.12])
+  p_b: uno_de([0.2, 0.3])
+
+respuesta: redondear(p_a_y_b / p_b, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "En una fábrica, P(defecto Y turno noche) = {p_a_y_b} y P(turno noche) = {p_b}. ¿Cuál es la probabilidad de defecto, dado que la pieza se hizo en el turno noche?"
+
+pasos:
+  - "P(defecto | turno noche) = {p_a_y_b} / {p_b} = {redondear(p_a_y_b / p_b, 3)}"
+
+explicacion: |
+  Aplicación directa de la fórmula a control de calidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "intermedio"
+  tags: ["condicional", "arbol"]
+
+enunciado: "En un diagrama de árbol SIN reposición, ¿qué representan las probabilidades de las ramas del segundo paso?"
+tipo: mc
+opciones_explicitas:
+  - "Probabilidades condicionales: la probabilidad de cada resultado del segundo paso, dado lo que ya ocurrió en el primero"
+  - "Siempre son idénticas a las probabilidades del primer paso"
+  - "No tienen relación con lo que pasó en el primer paso"
+respuesta: "Probabilidades condicionales: la probabilidad de cada resultado del segundo paso, dado lo que ya ocurrió en el primero"
+
+explicacion: |
+  Por eso cambian de una rama a otra en el caso sin reposición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional", "problema"]
+
+variables:
+  estudio_no_aprobo: 10
+  estudio_aprobo: 40
+  total_estudio: estudio_aprobo + estudio_no_aprobo
+
+respuesta: redondear(estudio_aprobo / total_estudio, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "De los estudiantes que SÍ estudiaron: {estudio_aprobo} aprobaron y {estudio_no_aprobo} no aprobaron. ¿Cuál es P(aprobó | estudió)?"
+
+pasos:
+  - "Total que estudió = {estudio_aprobo} + {estudio_no_aprobo} = {total_estudio}"
+  - "P(aprobó | estudió) = {estudio_aprobo}/{total_estudio} = {redondear(estudio_aprobo / total_estudio, 3)}"
+
+explicacion: |
+  Notar que este resultado es distinto del de P(estudió | aprobó) del
+  problema anterior — confirma que invertir la condición cambia el
+  resultado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Calcular una probabilidad condicional P(A|B) equivale a restringir el espacio muestral sólo a los casos donde B ya ocurrió, y calcular ahí la proporción de A."
+
+explicacion: |
+  Es la misma idea de la tabla de contingencia: mirar sólo la
+  fila/columna donde se cumple la condición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional", "completar"]
+
+tipo: completar
+enunciado: "Despejando la fórmula de probabilidad condicional: P(A y B) = P(A|B) × ___."
+respuestas_validas:
+  - "P(B)"
+
+explicacion: |
+  Es la misma fórmula de `../probabilidad-compuesta/`, ahora expresada
+  con probabilidad condicional en vez de asumir independencia directo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional", "problema"]
+
+variables:
+  p_b: uno_de([0.4, 0.6])
+  p_a_dado_b: uno_de([0.5, 0.7])
+
+respuesta: redondear(p_a_dado_b * p_b, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "P(B) = {p_b} y P(A|B) = {p_a_dado_b}. ¿Cuál es P(A y B)?"
+
+pasos:
+  - "P(A y B) = P(A|B) × P(B) = {p_a_dado_b} × {p_b} = {redondear(p_a_dado_b * p_b, 3)}"
+
+explicacion: |
+  Es la fórmula de probabilidad condicional despejada para la
+  probabilidad conjunta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional", "problema"]
+
+variables:
+  p_a_y_b: 0.15
+  p_b: 0.3
+  p_a: 0.4
+
+respuesta: (p_a_y_b / p_b) > p_a
+tipo: vf
+
+enunciado: "P(A y B) = {p_a_y_b}, P(B) = {p_b}, P(A) = {p_a}. ¿Es P(A|B) MAYOR que P(A) (es decir, saber que ocurrió B hace más probable a A)?"
+
+explicacion: |
+  P(A|B) = {p_a_y_b}/{p_b} = 0,5, que es mayor que P(A) = {p_a} — B
+  está asociado con una mayor probabilidad de A.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "avanzado"
+  tags: ["condicional"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si P(A|B) es mayor que P(A), entonces saber que B ocurrió aumenta la probabilidad de A (hay una asociación positiva entre ambos eventos)."
+
+explicacion: |
+  Si en cambio P(A|B) fuera menor que P(A), B estaría asociado con
+  una probabilidad MENOR de A.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "intermedio"
+  tags: ["condicional"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si B implica necesariamente A (siempre que ocurre B, también ocurre A), entonces P(A|B) = 1."
+
+explicacion: |
+  El espacio muestral restringido a B queda completamente contenido
+  dentro de A.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_condicional"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve la probabilidad condicional?"
+tipo: mc
+opciones_explicitas:
+  - "Para recalcular una probabilidad cuando aparece información nueva (que otro evento ya ocurrió), achicando el universo de posibilidades"
+  - "Sólo sirve para calcular probabilidades de eventos independientes"
+  - "Es sólo otro nombre para la probabilidad simple"
+respuesta: "Para recalcular una probabilidad cuando aparece información nueva (que otro evento ya ocurrió), achicando el universo de posibilidades"
+
+explicacion: |
+  Es el prerrequisito directo de `../teorema-de-bayes/`, que invierte
+  esta misma fórmula.
+```
+

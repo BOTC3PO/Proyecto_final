@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de la Medición y la Materia
+# Examen jefe — [PENDIENTE #845]
 
-> Logro #145. Completaste el examen jefe dominando mediciones, mezclas, modelos atómicos y nanotecnología. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **107 preguntas totales** en 5/5 secciones.
+> Logro #845. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **107 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -372,11 +372,7 @@ opciones_explicitas:
   - "Leer la marca en la parte inferior del menisco"
   - "Colocar la probeta sobre una superficie plana"
   - "Poner el ojo a la misma altura que la superficie del líquido, para evitar el error de paralaje"
-respuesta_orden:
-  - "Colocar la probeta sobre una superficie plana"
-  - "Poner el ojo a la misma altura que la superficie del líquido, para evitar el error de paralaje"
-  - "Leer la marca en la parte inferior del menisco"
-
+respuesta_orden: ["Colocar la probeta sobre una superficie plana", "Poner el ojo a la misma altura que la superficie del líquido, para evitar el error de paralaje", "Leer la marca en la parte inferior del menisco"]
 explicacion: |
   El orden importa: primero la posición del recipiente, después la
   altura del ojo, y recién ahí la lectura.
@@ -547,7 +543,9 @@ metadata:
 
 respuesta: "solucion"
 tipo: completar
-respuestas_validas: ["solucion", "solución"]
+respuestas_validas:
+  - "solucion"
+  - "solución"
 
 enunciado: "Una mezcla homogénea, donde sus componentes no se distinguen a simple vista, también se llama ___."
 
@@ -600,7 +598,8 @@ metadata:
 
 respuesta: "heterogenea"
 tipo: completar
-respuestas_validas: ["heterogenea"]
+respuestas_validas:
+  - "heterogenea"
 
 enunciado: "Una mezcla con dos o más fases visibles se llama mezcla ___."
 
@@ -671,7 +670,8 @@ metadata:
 
 respuesta: "magnetica"
 tipo: completar
-respuestas_validas: ["magnetica"]
+respuestas_validas:
+  - "magnetica"
 
 enunciado: "La separación de limaduras de hierro de arena se realiza mediante separación ___."
 
@@ -721,7 +721,8 @@ metadata:
 
 respuesta: "solubilidad"
 tipo: completar
-respuestas_validas: ["solubilidad"]
+respuestas_validas:
+  - "solubilidad"
 
 enunciado: "La cristalización es un método de separación que aprovecha que la ___ de un sólido cambia con la temperatura."
 
@@ -775,7 +776,8 @@ metadata:
 
 respuesta: "destilacion"
 tipo: completar
-respuestas_validas: ["destilacion"]
+respuestas_validas:
+  - "destilacion"
 
 enunciado: "El método usado para separar una mezcla de dos líquidos miscibles, aprovechando sus diferentes puntos de ebullición, se denomina ___."
 
@@ -825,7 +827,8 @@ metadata:
 
 respuesta: "filtracion"
 tipo: completar
-respuestas_validas: ["filtracion"]
+respuestas_validas:
+  - "filtracion"
 
 enunciado: "El proceso para separar un sólido de un líquido mediante el uso de un papel poroso se denomina ___."
 
@@ -842,7 +845,7 @@ metadata:
   nivel: "basico"
   tags: ["historia", "atomos"]
 
-respuesta: ["Dalton", "Thomson", "Rutherford", "Bohr"]
+respuesta_orden: ["Dalton", "Thomson", "Rutherford", "Bohr"]
 tipo: ordenar
 opciones_explicitas: ["Dalton", "Thomson", "Rutherford", "Bohr"]
 
@@ -901,7 +904,8 @@ variables:
 
 respuesta: metal
 tipo: completar
-respuestas_validas: [metal]
+respuestas_validas:
+  - metal
 
 enunciado: "El experimento que llevó a Rutherford a proponer un núcleo denso y positivo consistió en bombardear con partículas alfa una fina lámina de ___."
 
@@ -971,7 +975,8 @@ variables:
 
 respuesta: descriptor
 tipo: completar
-respuestas_validas: [descriptor]
+respuestas_validas:
+  - descriptor
 
 enunciado: "En el modelo de Bohr, los electrones giran en niveles de energía ___ (no en cualquier órbita)."
 
@@ -1079,7 +1084,8 @@ metadata:
 
 respuesta: "Rutherford"
 tipo: completar
-respuestas_validas: ["Rutherford"]
+respuestas_validas:
+  - "Rutherford"
 
 enunciado: "El átomo con carga positiva concentrada en un punto pequeño y denso, con electrones lejos girando alrededor, es el modelo de ___."
 
@@ -1145,7 +1151,9 @@ metadata:
 
 respuesta: "budín de pasas"
 tipo: completar
-respuestas_validas: ["budín de pasas", "budin de pasas"]
+respuestas_validas:
+  - "budín de pasas"
+  - "budin de pasas"
 
 enunciado: "El modelo atómico de Thomson es conocido popularmente como el modelo del ___."
 
@@ -1263,7 +1271,8 @@ metadata:
 
 respuesta: "N_A"
 tipo: completar
-respuestas_validas: ["N_A"]
+respuestas_validas:
+  - "N_A"
 
 enunciado: "En VBLang, la constante del número de Avogadro ya está precargada con el nombre ___."
 
@@ -1297,17 +1306,17 @@ metadata:
 
 variables:
   h: 1
-  o: 16
+  masa_o: 16
 
-respuesta: 2 * h + o
-tipo: input
+respuesta: 2 * h + masa_o
+tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Calcula la masa molar del agua (H2O) si la masa atómica del H es {h} y la del O es {o}."
+enunciado: "Calcula la masa molar del agua (H2O) si la masa atómica del H es {h} y la del O es {masa_o}."
 
 pasos:
   - "Multiplicar la masa del H por 2 (hay 2 átomos de H): 2 × {h}"
-  - "Sumar la masa del O: (2 × {h}) + {o}"
+  - "Sumar la masa del O: (2 × {h}) + {masa_o}"
 
 explicacion: |
   La masa molar de H2O es (2 × 1) + 16 = 18 g/mol.
@@ -1322,17 +1331,17 @@ metadata:
 
 variables:
   c: 12
-  o: 16
+  masa_o: 16
 
-respuesta: c + 2 * o
-tipo: input
+respuesta: c + 2 * masa_o
+tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Calcula la masa molar del dióxido de carbono (CO2) si la masa atómica del C es {c} y la del O es {o}."
+enunciado: "Calcula la masa molar del dióxido de carbono (CO2) si la masa atómica del C es {c} y la del O es {masa_o}."
 
 pasos:
   - "Sumar la masa de un átomo de C: {c}"
-  - "Sumar la masa de dos átomos de O: 2 × {o}"
+  - "Sumar la masa de dos átomos de O: 2 × {masa_o}"
 
 explicacion: |
   La masa molar de CO2 es 12 + (2 × 16) = 44 g/mol.
@@ -1350,7 +1359,7 @@ variables:
   cl: 35.5
 
 respuesta: na + cl
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "Calcula la masa molar del cloruro de sodio (NaCl) si la masa atómica del Na es {na} y la del Cl es {cl}."
@@ -1388,7 +1397,7 @@ variables:
   masa: masa_molar * moles_deseados
 
 respuesta: moles_deseados
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Una muestra contiene {masa} g de una sustancia cuya masa molar es {masa_molar} g/mol. ¿Cuántos moles hay en la muestra?"
@@ -1409,7 +1418,7 @@ variables:
   moles: random(1, 10)
 
 respuesta: masa_molar * moles
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Si hay {moles} moles de una sustancia con masa molar {masa_molar} g/mol, ¿cuál es la masa de la muestra en gramos?"
@@ -1443,7 +1452,8 @@ metadata:
 
 respuesta: "mol"
 tipo: completar
-respuestas_validas: ["mol"]
+respuestas_validas:
+  - "mol"
 
 enunciado: "La unidad de la masa molar es gramos por ___."
 
@@ -1459,7 +1469,7 @@ metadata:
   tags: ["avogadro", "mol"]
 
 respuesta: N_A
-tipo: input
+tipo: completar
 tolerancia_abs: 1000000000000000000
 
 enunciado: "¿Cuántas partículas (átomos o moléculas) hay en exactamente 1 mol de cualquier sustancia?"
@@ -1480,7 +1490,7 @@ variables:
   gramos: uno_de([18, 36, 54, 72, 90])
 
 respuesta: gramos / masa_molar_agua
-tipo: input
+tipo: completar
 tolerancia_abs: 0.001
 
 enunciado: "Una muestra de agua tiene {gramos} gramos. ¿Cuántos moles de agua hay? (masa molar del agua = {masa_molar_agua} g/mol)"
@@ -1537,7 +1547,7 @@ variables:
   masa_atomica_na: 23
 
 respuesta: masa_atomica_na
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Si la masa atómica del sodio (Na) en la tabla periódica es {masa_atomica_na}, ¿cuál es su masa molar en g/mol?"
@@ -1571,15 +1581,15 @@ metadata:
 
 variables:
   c: 12
-  o: 16
-  masa_molar_co2: c + 2 * o
+  masa_o: 16
+  masa_molar_co2: c + 2 * masa_o
   gramos_co2: uno_de([44, 88, 132, 176])
 
 respuesta: gramos_co2 / masa_molar_co2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.001
 
-enunciado: "El CO2 tiene masa molar {masa_molar_co2} g/mol (C={c}, O={o}). Si hay {gramos_co2} g de CO2, ¿cuántos moles son?"
+enunciado: "El CO2 tiene masa molar {masa_molar_co2} g/mol (C={c}, O={masa_o}). Si hay {gramos_co2} g de CO2, ¿cuántos moles son?"
 
 explicacion: |
   n = m / M = {gramos_co2} / {masa_molar_co2} moles.
@@ -2011,3 +2021,4 @@ enunciado: "La alta reactividad de las nanopartículas se debe a que una gran fr
 explicacion: |
   Superficie. Las reacciones químicas ocurren en la superficie, por lo que más superficie significa mayor reactividad.
 ```
+

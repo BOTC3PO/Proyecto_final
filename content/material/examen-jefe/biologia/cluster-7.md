@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de la Vida Humana
+# Examen jefe — [PENDIENTE #867]
 
-> Logro #155. Completaste el examen integrador sobre los sistemas del cuerpo, la evolución y la bioética jefe. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas. **172 preguntas totales** en 7/7 secciones.
+> Logro #867. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **172 preguntas totales** en 7/7 secciones.
 
 ---
 
@@ -189,13 +189,14 @@ metadata:
   nivel: "basico"
   tags: ["definicion", "organismos"]
 
-variables:
-  organismos: uno_de(["bacterias", "arqueas"])
-
 respuesta: "bacterias y arqueas"
 tipo: completar
+respuestas_validas:
+  - "bacterias y arqueas"
+  - "bacterias"
+  - "arqueas"
 
-enunciado: "La quimiosíntesis es un proceso llevado a cabo principalmente por {organismos} que producen su propio alimento."
+enunciado: "La quimiosíntesis es un proceso llevado a cabo principalmente por ___ que producen su propio alimento."
 
 explicacion: |
   A diferencia de los organismos fotosintéticos, las bacterias y arqueas quimiosintéticas utilizan energía química inorgánica para sintetizar materia orgánica.
@@ -208,13 +209,10 @@ metadata:
   nivel: "basico"
   tags: ["energia", "comparacion"]
 
-variables:
-  fuente: uno_de(["luz solar", "reacciones químicas inorgánicas"])
-
 respuesta: "reacciones químicas inorgánicas"
 tipo: completar
 
-enunciado: "Mientras la fotosíntesis usa luz solar, la quimiosíntesis obtiene energía de {fuente}."
+enunciado: "Mientras la fotosíntesis usa luz solar, la quimiosíntesis obtiene energía de ___."
 
 explicacion: |
   La clave de la quimiosíntesis es la oxidación de compuestos inorgánicos (como sulfuro de hidrógeno o amoníaco) para obtener la energía necesaria para fijar el carbono.
@@ -227,13 +225,10 @@ metadata:
   nivel: "intermedio"
   tags: ["ecologia", "productores"]
 
-variables:
-  rol: uno_de(["productores primarios", "descomponedores", "consumidores secundarios"])
-
 respuesta: "productores primarios"
 tipo: completar
 
-enunciado: "En ecosistemas extremos sin luz, las bacterias quimiosintéticas actúan como {rol}."
+enunciado: "En ecosistemas extremos sin luz, las bacterias quimiosintéticas actúan como ___."
 
 explicacion: |
   Estas bacterias forman la base de la cadena alimentaria en hábitats como las fuentes hidrotermales, al igual que las plantas en ecosistemas terrestres.
@@ -245,9 +240,6 @@ metadata:
   tema: "quimiosintesis"
   nivel: "intermedio"
   tags: ["sustratos", "azufre"]
-
-variables:
-  sustrato: uno_de(["sulfuro de hidrógeno", "amoníaco", "hierro ferroso"])
 
 respuesta: "sulfuro de hidrógeno"
 tipo: input
@@ -265,13 +257,14 @@ metadata:
   nivel: "intermedio"
   tags: ["nitrificacion", "nitrogeno"]
 
-variables:
-  paso: random(1,2)
-
-respuesta: "nitrito"
+respuesta: "nitrato"
 tipo: input
+respuestas_validas:
+  - "nitrato"
+  - "NO3-"
+  - "NO3"
 
-enunciado: "En la nitrificación, las bacterias oxidan amoníaco ($NH_3$) a {paso}. Si el paso es 2, responde 'nitrato'."
+enunciado: "En la nitrificación, las bacterias oxidan primero amoníaco ($NH_3$) a nitrito ($NO_2^-$) y luego a ___."
 
 explicacion: |
   El primer paso de la nitrificación convierte amoníaco en nitrito ($NO_2^-$). El segundo paso convierte nitrito en nitrato ($NO_3^-$).
@@ -283,9 +276,6 @@ metadata:
   tema: "quimiosintesis"
   nivel: "basico"
   tags: ["habitat", "hidrotermal"]
-
-variables:
-  ambiente: uno_de(["fuentes hidrotermales", "superficie del océano", "bosques tropicales"])
 
 respuesta: "fuentes hidrotermales"
 tipo: input
@@ -303,13 +293,10 @@ metadata:
   nivel: "intermedio"
   tags: ["ATP", "bioquimica"]
 
-variables:
-  mol: "ATP"
-
 respuesta: "ATP"
 tipo: input
 
-enunciado: "La energía liberada en la oxidación inorgánica se almacena temporalmente en moléculas de {mol}."
+enunciado: "La energía liberada en la oxidación inorgánica se almacena temporalmente en moléculas de ___."
 
 explicacion: |
   Similar a la fotosíntesis, la energía química se convierte en ATP para ser utilizada en la fijación de carbono.
@@ -322,13 +309,10 @@ metadata:
   nivel: "basico"
   tags: ["carbono", "comparacion"]
 
-variables:
-  sustrato_c: "dióxido de carbono"
-
 respuesta: "dióxido de carbono"
 tipo: input
 
-enunciado: "Tanto la fotosíntesis como la quimiosíntesis utilizan {sustrato_c} como fuente de carbono."
+enunciado: "Tanto la fotosíntesis como la quimiosíntesis utilizan ___ como fuente de carbono."
 
 explicacion: |
   Ambas procesos fijan el carbono inorgánico ($CO_2$) para producir materia orgánica, pero difieren en la fuente de energía.
@@ -341,13 +325,10 @@ metadata:
   nivel: "avanzado"
   tags: ["ciclo", "calvin"]
 
-variables:
-  ciclo: "Calvin"
-
 respuesta: "Calvin"
 tipo: input
 
-enunciado: "La fijación de carbono en bacterias quimiosintéticas ocurre mediante un mecanismo similar al {ciclo} de las plantas."
+enunciado: "La fijación de carbono en bacterias quimiosintéticas ocurre mediante un mecanismo similar al ciclo de ___ de las plantas."
 
 explicacion: |
   El ciclo de Calvin es utilizado para convertir $CO_2$ en glucosa, utilizando el ATP y NADPH generados por la oxidación inorgánica.
@@ -360,13 +341,10 @@ metadata:
   nivel: "intermedio"
   tags: ["crecimiento", "comparacion"]
 
-variables:
-  tasa: uno_de(["rápida", "lenta"])
-
 respuesta: "lenta"
 tipo: input
 
-enunciado: "Las comunidades quimiosintéticas suelen tener tasas de crecimiento {tasa} comparadas con las fotosintéticas."
+enunciado: "Las comunidades quimiosintéticas suelen tener tasas de crecimiento ___ comparadas con las fotosintéticas."
 
 explicacion: |
   La energía obtenida de la oxidación de compuestos inorgánicos es menor que la de la fotosíntesis, lo que resulta en crecimiento más lento.
@@ -378,9 +356,6 @@ metadata:
   tema: "quimiosintesis"
   nivel: "basico"
   tags: ["ecologia", "base"]
-
-variables:
-  base: 1
 
 respuesta: 1
 tipo: input
@@ -402,7 +377,8 @@ metadata:
 
 respuesta: "proceso mediante el cual los organismos mejor adaptados a su entorno tienen mayores probabilidades de sobrevivir y reproducirse"
 tipo: completar
-respuestas_validas: ["proceso mediante el cual los organismos mejor adaptados a su entorno tienen mayores probabilidades de sobrevivir y reproducirse"]
+respuestas_validas:
+  - "proceso mediante el cual los organismos mejor adaptados a su entorno tienen mayores probabilidades de sobrevivir y reproducirse"
 
 enunciado: "La selección natural es el ___ que permite la evolución de las poblaciones."
 
@@ -419,7 +395,9 @@ metadata:
 
 respuesta: "variación heredable"
 tipo: completar
-respuestas_validas: ["variación heredable", "variación genética"]
+respuestas_validas:
+  - "variación heredable"
+  - "variación genética"
 
 enunciado: "Para que la selección natural actúe, debe existir una ___ entre los individuos de una misma población, la cual debe poder transmitirse a la descendencia."
 
@@ -435,15 +413,12 @@ metadata:
   tags: ["presion_ambiental", "adaptacion"]
 
 variables:
-  escenario: uno_de([
-    ["un cambio brusco en la temperatura del clima", "el calor extremo"],
-    ["la presencia de un nuevo depredador en el bosque", "la depredación"],
-    ["la escasez de un tipo específico de alimento", "la falta de alimento"]
-  ])
+  escenario: uno_de([["un cambio brusco en la temperatura del clima", "el calor extremo"], ["la presencia de un nuevo depredador en el bosque", "la depredación"], ["la escasez de un tipo específico de alimento", "la falta de alimento"]])
 
 respuesta: "presión ambiental"
 tipo: completar
-respuestas_validas: ["presión ambiental"]
+respuestas_validas:
+  - "presión ambiental"
 
 enunciado: "Cuando ocurre {escenario[0]}, se genera una ___ que actúa como filtro sobre las características de los individuos."
 
@@ -460,7 +435,8 @@ metadata:
 
 respuesta: "reproducción diferencial"
 tipo: completar
-respuestas_validas: ["reproducción diferencial"]
+respuestas_validas:
+  - "reproducción diferencial"
 
 enunciado: "El éxito de la selección natural depende de la ___: la capacidad de ciertos individuos para dejar más descendencia que otros."
 
@@ -589,7 +565,7 @@ metadata:
   tags: ["mecanismos", "evolucion"]
 
 opciones_explicitas: ["Variabilidad", "Selección natural", "Herencia"]
-respuesta: ["Variabilidad", "Selección natural", "Herencia"]
+respuesta_orden: ["Variabilidad", "Selección natural", "Herencia"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos que permiten que la selección natural actúe sobre una población de pinzones para que aparezca una nueva adaptación:"
@@ -624,7 +600,9 @@ metadata:
 
 respuesta: "adaptación"
 tipo: completar
-respuestas_validas: ["adaptación", "adaptacion"]
+respuestas_validas:
+  - "adaptación"
+  - "adaptacion"
 
 enunciado: "Cuando un grupo de pinzones desarrolla un pico especializado para un tipo de semilla predominante en su isla, se dice que la población ha desarrollado una ___."
 
@@ -661,7 +639,8 @@ metadata:
 
 respuesta: "claro"
 tipo: completar
-respuestas_validas: ["claro"]
+respuestas_validas:
+  - "claro"
 
 enunciado: "En las poblaciones de la polilla Biston betularia antes de la Revolución Industrial, la mayoría de los individuos presentaban un color ___ debido a que los troncos de los árboles estaban cubiertos de líquenes claros."
 
@@ -695,7 +674,8 @@ metadata:
 
 respuesta: "oscuro"
 tipo: completar
-respuestas_validas: ["oscuro"]
+respuestas_validas:
+  - "oscuro"
 
 enunciado: "En un ambiente con troncos oscurecidos por el hollín, las polillas de color ___ tienen una mayor probabilidad de sobrevivir y reproducirse."
 
@@ -729,7 +709,9 @@ metadata:
 
 respuesta: "fenotipos"
 tipo: completar
-respuestas_validas: ["fenotipos", "fenotipo"]
+respuestas_validas:
+  - "fenotipos"
+  - "fenotipo"
 
 enunciado: "La selección natural actúa sobre los ___ de los individuos, permitiendo que aquellos con rasgos ventajosos sobrevivan mejor en un ambiente determinado."
 
@@ -746,7 +728,9 @@ metadata:
 
 respuesta: "selección"
 tipo: completar
-respuestas_validas: ["selección", "seleccion"]
+respuestas_validas:
+  - "selección"
+  - "seleccion"
 
 enunciado: "La resistencia a los antibióticos es un ejemplo de ___ natural, donde el fármaco actúa como un factor de presión ambiental."
 
@@ -763,7 +747,9 @@ metadata:
 
 respuesta: "mutación previa"
 tipo: completar
-respuestas_validas: ["mutación previa", "mutacion previa"]
+respuestas_validas:
+  - "mutación previa"
+  - "mutacion previa"
 
 enunciado: "En un entorno con presencia de antibióticos, la supervivencia de una población bacteriana depende de una ___ que ocurrió antes del contacto con el fármaco."
 
@@ -784,7 +770,8 @@ metadata:
 
 respuesta: "aumenta"
 tipo: completar
-respuestas_validas: ["aumenta"]
+respuestas_validas:
+  - "aumenta"
 
 enunciado: "Si un pesticida elimina a todos los insectos sensibles pero no a los que poseen una mutación de resistencia, la frecuencia de genes de resistencia en la siguiente generación ___."
 
@@ -801,7 +788,9 @@ metadata:
 
 respuesta: "agente"
 tipo: completar
-respuestas_validas: ["agente", "causa"]
+respuestas_validas:
+  - "agente"
+  - "causa"
 
 enunciado: "En el proceso de evolución por selección natural, el antibiótico actúa como un ___ de selección que determina qué individuos logran reproducirse."
 
@@ -889,7 +878,8 @@ metadata:
 
 respuesta: "respiracion"
 tipo: completar
-respuestas_validas: ["respiracion"]
+respuestas_validas:
+  - "respiracion"
 
 enunciado: "Liberar la energía guardada en el alimento se llama ___."
 
@@ -1165,7 +1155,8 @@ metadata:
 
 respuesta: "hormona"
 tipo: completar
-respuestas_validas: ["hormona"]
+respuestas_validas:
+  - "hormona"
 
 enunciado: "Las sustancias químicas producidas por las glándulas endocrinas que viajan a través de la sangre para regular funciones corporales se denominan ___."
 
@@ -1182,7 +1173,8 @@ metadata:
 
 respuesta: "lento"
 tipo: completar
-respuestas_validas: ["lento"]
+respuestas_validas:
+  - "lento"
 
 enunciado: "A diferencia del sistema nervioso, que utiliza impulsos eléctricos para una respuesta inmediata, el sistema endocrino se caracteriza por tener un efecto ___."
 
@@ -1199,7 +1191,10 @@ metadata:
 
 respuesta: "torrente sanguíneo"
 tipo: completar
-respuestas_validas: ["torrente sanguíneo", "torrente sanguineo", "sangre"]
+respuestas_validas:
+  - "torrente sanguíneo"
+  - "torrente sanguineo"
+  - "sangre"
 
 enunciado: "Mientras que las neuronas transmiten señales a través de axones, las glándulas endocrinas liberan sus mensajeros directamente al ___."
 
@@ -1214,14 +1209,12 @@ metadata:
   nivel: "intermedio"
   tags: ["comparacion", "señales"]
 
-variables:
-  escenario: uno_de([["eléctricas", "rápidas"], ["químicas", "lentas"]])
-
-respuesta: escenario[1]
+respuesta: "lentas"
 tipo: completar
-respuestas_validas: ["rápidas", "lentas"]
+respuestas_validas:
+  - "lentas"
 
-enunciado: "El sistema endocrino utiliza señales {escenario[0]} para transmitir su mensaje, lo que hace que la respuesta sea ___."
+enunciado: "El sistema endocrino utiliza señales químicas para transmitir su mensaje, lo que hace que la respuesta sea ___."
 
 explicacion: |
   El sistema nervioso es como un mensaje de texto instantáneo (rápido/eléctrico), mientras que el endocrino es como una carta (lento/químico).
@@ -1236,7 +1229,8 @@ metadata:
 
 respuesta: "sangre"
 tipo: completar
-respuestas_validas: ["sangre"]
+respuestas_validas:
+  - "sangre"
 
 enunciado: "El medio principal de transporte para las hormonas en el organismo es la ___."
 
@@ -1270,7 +1264,9 @@ metadata:
 
 tipo: completar
 respuesta: "glucagón"
-respuestas_validas: ["glucagón", "glucagon"]
+respuestas_validas:
+  - "glucagón"
+  - "glucagon"
 
 enunciado: "Cuando los niveles de glucosa en sangre disminuyen, el páncreas secreta la hormona ___ para provocar que los niveles de azúcar suban."
 
@@ -1304,7 +1300,9 @@ metadata:
 
 tipo: completar
 respuesta: "estrógeno"
-respuestas_validas: ["estrógeno", "estrogeno"]
+respuestas_validas:
+  - "estrógeno"
+  - "estrogeno"
 
 enunciado: "En el sistema reproductor femenino, las gónadas (ovarios) producen principalmente la hormona ___."
 
@@ -1338,7 +1336,9 @@ metadata:
 
 respuesta: "hipofisis"
 tipo: completar
-respuestas_validas: ["hipofisis", "hipófisis"]
+respuestas_validas:
+  - "hipofisis"
+  - "hipófisis"
 
 enunciado: "La glándula situada en la base del cerebro que coordina y regula el funcionamiento de otras glándulas endocrinas se denomina ___."
 
@@ -1355,7 +1355,8 @@ metadata:
 
 respuesta: "receptor"
 tipo: completar
-respuestas_validas: ["receptor"]
+respuestas_validas:
+  - "receptor"
 
 enunciado: "Aunque las hormonas viajan a través de toda la sangre circulando por el organismo, sólo pueden ejercer su efecto sobre las células que poseen un ___ específico."
 
@@ -1372,7 +1373,8 @@ metadata:
 
 respuesta: "sangre"
 tipo: completar
-respuestas_validas: ["sangre"]
+respuestas_validas:
+  - "sangre"
 
 enunciado: "A diferencia del sistema nervioso que usa impulsos eléctricos, el sistema endocrino transporta sus mensajeros químicos (hormonas) a través de la ___."
 
@@ -1389,7 +1391,8 @@ metadata:
 
 respuesta: "tiroides"
 tipo: completar
-respuestas_validas: ["tiroides"]
+respuestas_validas:
+  - "tiroides"
 
 enunciado: "La hipófisis secreta la hormona tirotropina (TSH), cuya función principal es regular el funcionamiento de la glándula ___."
 
@@ -1406,7 +1409,9 @@ metadata:
 
 respuesta: "célula diana"
 tipo: completar
-respuestas_validas: ["célula diana", "celula diana"]
+respuestas_validas:
+  - "célula diana"
+  - "celula diana"
 
 enunciado: "El término utilizado para designar a la célula sobre la cual actúa una hormona específica se conoce como ___."
 
@@ -1552,7 +1557,8 @@ variables:
 
 enunciado: "{escenarios[idx][0]}"
 
-respuestas_validas: ["tiroxina"]
+respuestas_validas:
+  - "tiroxina"
 respuesta: "tiroxina"
 tipo: completar
 
@@ -1612,13 +1618,14 @@ metadata:
   tags: ["neurona", "mielina", "velocidad"]
 
 variables:
-  velocidad_sin_miélina: random(1, 5)
-  velocidad_con_miélina: random(50, 120)
+  velocidad_sin_mielina: random(1, 5)
+  factor_mielina: uno_de([20, 30, 50])
+  velocidad_con_mielina: velocidad_sin_mielina * factor_mielina
 
-respuesta: "{velocidad_con_miélina} m/s"
+respuesta: velocidad_con_mielina
 tipo: input
 
-enunciado: "Si una neurona amielínica transmite a {velocidad_sin_miélina} m/s, ¿cuál es la velocidad aproximada de una neurona mielinizada en el mismo contexto? (Valor entero entre {velocidad_con_miélina} y {velocidad_con_miélina + 10})"
+enunciado: "Una neurona amielínica transmite a {velocidad_sin_mielina} m/s. Si la mielinización multiplica la velocidad de conducción por un factor de {factor_mielina}, ¿a qué velocidad (en m/s) transmite la neurona mielinizada?"
 
 explicacion: |
   La vaina de mielina permite la conducción saltatoria, acelerando drásticamente la velocidad del impulso nervioso comparado con neuronas sin mielina.
@@ -1636,7 +1643,7 @@ variables:
   porcentaje_liberacion: uno_de([10, 20, 50])
   resultado: floor(neurotransmisores * porcentaje_liberacion / 100)
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si un terminal sináptico contiene {neurotransmisores} vesículas y se libera un {porcentaje_liberacion}% durante el estímulo, ¿cuántas vesículas se liberan aproximadamente?"
@@ -1652,16 +1659,14 @@ metadata:
   nivel: "basico"
   tags: ["soma", "cuerpo celular"]
 
-variables:
-  nombre: uno_de(["soma", "cuerpo celular", "pericario"])
-
 respuesta: "soma"
 tipo: completar
 
-enunciado: "El cuerpo celular de la neurona, donde se encuentra el núcleo y se realizan las funciones metabólicas, se denomina {nombre}."
+enunciado: "El cuerpo celular de la neurona, donde se encuentra el núcleo y se realizan las funciones metabólicas, se denomina ___."
 respuestas_validas:
   - "soma"
   - "cuerpo celular"
+  - "pericarion"
 
 explicacion: |
   El soma o cuerpo celular contiene el núcleo y es el centro metabólico de la neurona.
@@ -1674,17 +1679,13 @@ metadata:
   nivel: "intermedio"
   tags: ["sinapsis", "conversión"]
 
-variables:
-  tipo1: "eléctrica"
-  tipo2: "química"
-
-respuesta: "eléctrica a química"
+respuesta: "eléctrica"
 tipo: completar
 
-enunciado: "En la sinapsis, el impulso {tipo1} se convierte en señal {tipo2} para cruzar la hendidura."
+enunciado: "En la sinapsis, el impulso ___ se convierte en señal química para cruzar la hendidura."
 respuestas_validas:
-  - "eléctrica a química"
-  - "electrica a quimica"
+  - "eléctrica"
+  - "electrica"
 
 explicacion: |
   El impulso eléctrico no puede saltar el espacio físico de la hendidura sináptica, por lo que se convierte en señal química mediante neurotransmisores.
@@ -1702,7 +1703,7 @@ variables:
   tiempo_refractario_relativo: random(3, 5)
   total: tiempo_refractario_absoluto + tiempo_refractario_relativo
 
-respuesta: "{total}"
+respuesta: total
 tipo: input
 
 enunciado: "Si el período refractario absoluto dura {tiempo_refractario_absoluto} ms y el relativo dura {tiempo_refractario_relativo} ms, ¿cuál es el tiempo total mínimo para que la neurona pueda generar otro potencial de acción?"
@@ -1725,7 +1726,7 @@ variables:
   potencial_accion: 30
   valor_final: potencial_reposo + despolarizacion
 
-respuesta: "{valor_final}"
+respuesta: valor_final
 tipo: input
 
 enunciado: "Si el potencial de reposo es {potencial_reposo} mV y una excitación causa una despolarización de {despolarizacion} mV, ¿cuál es el nuevo potencial de membrana antes de alcanzar el umbral?"
@@ -1746,7 +1747,7 @@ variables:
   volumen: random(10, 20)
   concentracion: floor(moléculas / volumen)
 
-respuesta: "{concentracion}"
+respuesta: concentracion
 tipo: input
 
 enunciado: "Si se liberan {moléculas} moléculas de neurotransmisor en una hendidura de volumen {volumen} µm³, ¿cuál es la concentración aproximada (moléculas/µm³)?"
@@ -1762,13 +1763,10 @@ metadata:
   nivel: "basico"
   tags: ["sinapsis", "espacio"]
 
-variables:
-  nombre: "hendidura sináptica"
-
 respuesta: "hendidura sináptica"
 tipo: completar
 
-enunciado: "El pequeño espacio físico entre dos neuronas donde ocurre la transmisión química se llama {nombre}."
+enunciado: "El pequeño espacio físico entre dos neuronas donde ocurre la transmisión química se llama ___."
 respuestas_validas:
   - "hendidura sináptica"
   - "hendidura sinaptica"
@@ -1789,10 +1787,10 @@ variables:
   velocidad: 50
   tiempo: distancia / velocidad
 
-respuesta: "{redondear(tiempo, 2)}"
+respuesta: redondear(tiempo, 2)
 tipo: input
 
-enunciado: "Si un impulso viaja {distancia} mm a una velocidad de {velocidad} m/s (convertido a mm/ms: {velocidad}/1000), ¿cuánto tarda en llegar? (Resultado en ms)"
+enunciado: "Si un impulso viaja {distancia} mm a una velocidad de conducción de {velocidad} mm/ms (equivalente a {velocidad} m/s), ¿cuánto tarda en llegar? (Resultado en ms, con dos decimales)"
 
 explicacion: |
   El tiempo de transmisión depende de la distancia y la velocidad de conducción, que se ve afectada por la mielina.
@@ -1810,7 +1808,7 @@ variables:
   largo_dendrita: random(1, 5)
   ratio: floor(largo_axon / largo_dendrita)
 
-respuesta: "{ratio}"
+respuesta: ratio
 tipo: input
 
 enunciado: "Si el axón mide {largo_axon} µm y las dendritas {largo_dendrita} µm, ¿cuántas veces es más largo el axón que las dendritas?"
@@ -1826,13 +1824,10 @@ metadata:
   nivel: "basico"
   tags: ["terminal", "liberación"]
 
-variables:
-  nombre: "terminal sináptica"
-
 respuesta: "terminal sináptica"
 tipo: completar
 
-enunciado: "Las estructuras al final del axón que contienen vesículas con neurotransmisores se llaman {nombre}."
+enunciado: "Las estructuras al final del axón que contienen vesículas con neurotransmisores se llaman ___."
 respuestas_validas:
   - "terminal sináptica"
   - "terminal sinaptica"
@@ -1854,7 +1849,7 @@ variables:
   velocidad_amielinizada: random(1, 5)
   factor: floor(velocidad_mielinizada / velocidad_amielinizada)
 
-respuesta: "{factor}"
+respuesta: factor
 tipo: input
 
 enunciado: "Si la neurona mielinizada viaja a {velocidad_mielinizada} m/s y la amielínica a {velocidad_amielinizada} m/s, ¿cuántas veces más rápida es la primera?"
@@ -1870,13 +1865,10 @@ metadata:
   nivel: "intermedio"
   tags: ["mielina", "nodo"]
 
-variables:
-  nombre: "nodo de Ranvier"
-
 respuesta: "nodo de Ranvier"
 tipo: completar
 
-enunciado: "Los espacios sin mielina a lo largo del axón se denominan {nombre}."
+enunciado: "Los espacios sin mielina a lo largo del axón se denominan ___."
 respuestas_validas:
   - "nodo de Ranvier"
   - "nodo de ranvier"
@@ -1911,13 +1903,13 @@ metadata:
   nivel: "basico"
   tags: ["dendritas", "estructura"]
 
-variables:
-  funcion: "recepcion"
-
 respuesta: "reciben"
 tipo: completar
 
-enunciado: "Las {funcion} son prolongaciones cortas y ramificadas que {funcion} mensajes de otras neuronas."
+enunciado: "Las dendritas son prolongaciones cortas y ramificadas que ___ mensajes de otras neuronas."
+respuestas_validas:
+  - "reciben"
+  - "captan"
 
 explicacion: |
   Las dendritas tienen la función de recibir señales de otras neuronas y transmitirlas hacia el cuerpo celular.
@@ -1930,13 +1922,14 @@ metadata:
   nivel: "basico"
   tags: ["axon", "impulso"]
 
-variables:
-  direccion: "salida"
-
 respuesta: "lleva"
 tipo: completar
 
-enunciado: "El axón es una prolongación larga que {direccion} el impulso nervioso desde el cuerpo celular hacia las terminales."
+enunciado: "El axón es una prolongación larga que ___ el impulso nervioso desde el cuerpo celular hacia las terminales."
+respuestas_validas:
+  - "lleva"
+  - "conduce"
+  - "transmite"
 
 explicacion: |
   El axón conduce el impulso eléctrico desde el soma (cuerpo celular) hacia las terminales sinápticas para enviarlo a otras células.
@@ -1949,13 +1942,13 @@ metadata:
   nivel: "intermedio"
   tags: ["mielina", "celulas_gliales"]
 
-variables:
-  origen: "celulas_gliales"
-
-respuesta: "celulas gliales"
+respuesta: "células gliales"
 tipo: completar
 
-enunciado: "La vaina de mielina está formada por células llamadas {origen}."
+enunciado: "La vaina de mielina está formada por células llamadas ___."
+respuestas_validas:
+  - "células gliales"
+  - "celulas gliales"
 
 explicacion: |
   Las células gliales (como los oligodendrocitos en el SNC y las células de Schwann en el SNP) forman la vaina de mielina alrededor de los axones.
@@ -1968,13 +1961,10 @@ metadata:
   nivel: "intermedio"
   tags: ["mielina", "patologia"]
 
-variables:
-  consecuencia: "lenta"
-
 respuesta: "lenta"
 tipo: completar
 
-enunciado: "Si la mielina se daña, la comunicación entre el cerebro y el cuerpo se vuelve {consecuencia} o falla."
+enunciado: "Si la mielina se daña, la comunicación entre el cerebro y el cuerpo se vuelve ___ o falla."
 
 explicacion: |
   El daño a la mielina (desmielinización) interrumpe o ralentiza la conducción del impulso nervioso, afectando la función motora y sensorial.
@@ -1987,13 +1977,10 @@ metadata:
   nivel: "basico"
   tags: ["sinapsis", "comunicacion"]
 
-variables:
-  concepto: "puente"
-
 respuesta: "sinapsis"
 tipo: completar
 
-enunciado: "La {concepto} es el proceso mediante el cual la señal eléctrica se convierte en química y luego vuelve a ser eléctrica."
+enunciado: "La ___ es el proceso mediante el cual la señal eléctrica se convierte en química y luego vuelve a ser eléctrica."
 
 explicacion: |
   La sinapsis es el punto de comunicación entre dos neuronas (o entre una neurona y una efectora) donde se produce el relevo de la señal.
@@ -2006,13 +1993,14 @@ metadata:
   nivel: "intermedio"
   tags: ["hendidura", "espacio"]
 
-variables:
-  espacio: "hendidura"
-
 respuesta: "hendidura sináptica"
 tipo: completar
 
-enunciado: "Existe un pequeño espacio físico entre las neuronas llamado {espacio}."
+enunciado: "Existe un pequeño espacio físico entre las neuronas llamado ___."
+respuestas_validas:
+  - "hendidura sináptica"
+  - "hendidura sinaptica"
+  - "hendidura"
 
 explicacion: |
   La hendidura sináptica es el espacio extracelular por donde difunden los neurotransmisores para llegar a la neurona postsináptica.
@@ -2025,14 +2013,13 @@ metadata:
   nivel: "intermedio"
   tags: ["señal", "conversion"]
 
-variables:
-  tipo1: "electrica"
-  tipo2: "quimica"
-
 respuesta: "química"
 tipo: completar
 
-enunciado: "En la sinapsis, la señal {tipo1} se convierte en {tipo2} y luego vuelve a ser eléctrica."
+enunciado: "En la sinapsis, la señal eléctrica se convierte en señal ___ y luego vuelve a ser eléctrica."
+respuestas_validas:
+  - "química"
+  - "quimica"
 
 explicacion: |
   El impulso eléctrico llega a la terminal, libera neurotransmisores (señal química) que cruzan la hendidura y generan un nuevo impulso eléctrico en la siguiente neurona.
@@ -2045,13 +2032,13 @@ metadata:
   nivel: "basico"
   tags: ["soma", "cuerpo_celular"]
 
-variables:
-  contenido: "nucleo"
-
 respuesta: "núcleo"
 tipo: completar
 
-enunciado: "En el cuerpo celular (soma) se encuentra el {contenido} y se realizan funciones metabólicas."
+enunciado: "En el cuerpo celular (soma) se encuentra el ___ y se realizan funciones metabólicas."
+respuestas_validas:
+  - "núcleo"
+  - "nucleo"
 
 explicacion: |
   El soma contiene el núcleo con el material genético y es el centro metabólico de la neurona.
@@ -2064,13 +2051,14 @@ metadata:
   nivel: "avanzado"
   tags: ["ranvier", "impulso"]
 
-variables:
-  funcion: "salto"
-
-respuesta: "nodos de Ranvier"
+respuesta: "nodo de Ranvier"
 tipo: completar
 
-enunciado: "El impulso 'salta' de un {funcion} a otro en los axones mielinizados."
+enunciado: "El impulso 'salta' de un ___ a otro en los axones mielinizados."
+respuestas_validas:
+  - "nodo de Ranvier"
+  - "nodo de ranvier"
+  - "nodos de Ranvier"
 
 explicacion: |
   Los nodos de Ranvier son los espacios sin mielina entre los segmentos de vaina, donde se regenera el potencial de acción.
@@ -2083,13 +2071,10 @@ metadata:
   nivel: "basico"
   tags: ["funcion", "comando"]
 
-variables:
-  rol: "centro_de_comando"
-
 respuesta: "centro de comando"
 tipo: completar
 
-enunciado: "El sistema nervioso funciona como el {rol} y la red de comunicación del cuerpo."
+enunciado: "El sistema nervioso funciona como el ___ y la red de comunicación del cuerpo."
 
 explicacion: |
   Su rol principal es integrar información, procesarla y generar respuestas coordinadas para mantener la homeostasis y la interacción con el entorno.
@@ -2102,13 +2087,10 @@ metadata:
   nivel: "intermedio"
   tags: ["neurotransmisor", "quimico"]
 
-variables:
-  sustancia: "neurotransmisor"
-
 respuesta: "neurotransmisores"
 tipo: completar
 
-enunciado: "Los {sustancia} son las moléculas que cruzan la hendidura sináptica."
+enunciado: "Los ___ son las moléculas que cruzan la hendidura sináptica."
 
 explicacion: |
   Los neurotransmisores son mensajeros químicos liberados por la neurona presináptica que se unen a receptores en la postsináptica.
@@ -2121,13 +2103,10 @@ metadata:
   nivel: "basico"
   tags: ["direccion", "flujo"]
 
-variables:
-  flujo: "dendritas_a_axon"
-
 respuesta: "dendritas"
 tipo: completar
 
-enunciado: "La información llega a la neurona principalmente a través de las {flujo}."
+enunciado: "La información llega a la neurona principalmente a través de las ___."
 
 explicacion: |
   El flujo típico de información es: Dendritas -> Soma -> Axón -> Terminales sinápticas.
@@ -2140,13 +2119,10 @@ metadata:
   nivel: "basico"
   tags: ["mielina", "aislante"]
 
-variables:
-  propiedad: "aislante"
-
 respuesta: "aislante"
 tipo: completar
 
-enunciado: "La vaina de mielina actúa como una capa {propiedad} alrededor del axón."
+enunciado: "La vaina de mielina actúa como una capa ___ alrededor del axón."
 
 explicacion: |
   La mielina es rica en lípidos y actúa como aislante eléctrico, impidiendo que la carga se escape y forzando el salto entre nodos.
@@ -2159,13 +2135,14 @@ metadata:
   nivel: "basico"
   tags: ["respuesta", "estimulo"]
 
-variables:
-  accion: "reaccion"
-
 respuesta: "respuesta"
 tipo: completar
 
-enunciado: "El sistema nervioso procesa datos para generar una {accion} adecuada."
+enunciado: "El sistema nervioso procesa datos para generar una ___ adecuada."
+respuestas_validas:
+  - "respuesta"
+  - "reacción"
+  - "reaccion"
 
 explicacion: |
   La función integradora del sistema nervioso es generar una respuesta motora o secretora apropiada ante un estímulo.
@@ -2178,13 +2155,13 @@ metadata:
   nivel: "avanzado"
   tags: ["sinapsis", "tipos"]
 
-variables:
-  tipo_comun: "quimica"
-
 respuesta: "química"
 tipo: completar
 
-enunciado: "La mayoría de las sinapsis en el sistema nervioso humano son de tipo {tipo_comun}."
+enunciado: "La mayoría de las sinapsis en el sistema nervioso humano son de tipo ___."
+respuestas_validas:
+  - "química"
+  - "quimica"
 
 explicacion: |
   Aunque existen sinapsis eléctricas, la gran mayoría de la comunicación neuronal en humanos es química, mediada por neurotransmisores.
@@ -2197,13 +2174,10 @@ metadata:
   nivel: "basico"
   tags: ["funcion", "vital"]
 
-variables:
-  tarea: "mantener"
-
 respuesta: "mantener"
 tipo: completar
 
-enunciado: "El sistema nervioso ayuda a {tarea} funciones vitales como la respiración."
+enunciado: "El sistema nervioso ayuda a ___ funciones vitales como la respiración."
 
 explicacion: |
   El sistema nervioso autónomo regula funciones involuntarias como la respiración, el ritmo cardíaco y la digestión.
@@ -2216,13 +2190,14 @@ metadata:
   nivel: "basico"
   tags: ["terminal", "emision"]
 
-variables:
-  destino: "otras_celulas"
-
 respuesta: "terminales"
 tipo: completar
 
-enunciado: "El axón termina en {destino} para enviar el mensaje."
+enunciado: "El axón termina en ___ para enviar el mensaje a otras células."
+respuestas_validas:
+  - "terminales"
+  - "terminales sinápticas"
+  - "terminales sinapticas"
 
 explicacion: |
   Las terminales sinápticas (botones terminales) son las puntas del axón donde se almacenan y liberan los neurotransmisores.
@@ -2235,13 +2210,10 @@ metadata:
   nivel: "avanzado"
   tags: ["plasticidad", "sinapsis"]
 
-variables:
-  proceso: "aprender"
-
 respuesta: "sinapsis"
 tipo: completar
 
-enunciado: "Entender cómo trabajan juntas las neuronas y su {proceso} es clave para comprender el aprendizaje."
+enunciado: "Entender cómo trabajan juntas las neuronas y cómo se comunican a través de la ___ es clave para comprender el aprendizaje."
 
 explicacion: |
   La plasticidad sináptica (cambio en la fuerza de la sinapsis) es la base celular del aprendizaje y la memoria.
@@ -2254,13 +2226,10 @@ metadata:
   nivel: "basico"
   tags: ["dendrita", "forma"]
 
-variables:
-  forma: "ramificada"
-
 respuesta: "dendritas"
 tipo: completar
 
-enunciado: "Las {forma} son prolongaciones cortas y ramificadas."
+enunciado: "Las ___ son prolongaciones cortas y ramificadas."
 
 explicacion: |
   La ramificación de las dendritas aumenta la superficie de contacto para recibir más señales de otras neuronas.
@@ -2273,13 +2242,13 @@ metadata:
   nivel: "avanzado"
   tags: ["impulso", "electrico"]
 
-variables:
-  nombre: "potencial"
-
 respuesta: "potencial de acción"
 tipo: completar
 
-enunciado: "El impulso nervioso es también conocido como {nombre}."
+enunciado: "El impulso nervioso es también conocido como ___."
+respuestas_validas:
+  - "potencial de acción"
+  - "potencial de accion"
 
 explicacion: |
   El potencial de acción es la onda de despolarización que viaja por el axón, permitiendo la transmisión rápida de la señal.
@@ -2292,13 +2261,10 @@ metadata:
   nivel: "intermedio"
   tags: ["receptor", "uniones"]
 
-variables:
-  objetivo: "receptores"
-
 respuesta: "receptores"
 tipo: completar
 
-enunciado: "Los neurotransmisores se unen a {objetivo} en la membrana de la siguiente neurona."
+enunciado: "Los neurotransmisores se unen a ___ en la membrana de la siguiente neurona."
 
 explicacion: |
   Los receptores específicos en la membrana postsináptica detectan los neurotransmisores y generan la respuesta celular correspondiente.
@@ -2661,7 +2627,8 @@ metadata:
 
 respuesta: "homeostasis"
 tipo: completar
-respuestas_validas: ["homeostasis"]
+respuestas_validas:
+  - "homeostasis"
 
 enunciado: "El equilibrio interno del cuerpo que se mantiene aunque el ambiente externo cambie se llama ___."
 
@@ -2728,7 +2695,8 @@ metadata:
 
 respuesta: "transgenico"
 tipo: completar
-respuestas_validas: ["transgenico"]
+respuestas_validas:
+  - "transgenico"
 
 enunciado: "Un organismo con un gen de otra especie insertado se llama organismo ___."
 
@@ -3050,3 +3018,4 @@ enunciado: "Distintas personas pueden llegar a distintas conclusiones sobre los 
 explicacion: |
   Correcto, distintos criterios de "bueno" o "justo" dan conclusiones distintas.
 ```
+

@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de la Dinámica Evolutiva
+# Examen jefe — [PENDIENTE #863]
 
-> Logro #151. Completaste el examen jefe dominando los mecanismos de cambio poblacional y molecular. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **131 preguntas totales** en 5/5 secciones.
+> Logro #863. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **131 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -112,7 +112,8 @@ metadata:
 
 respuesta: "independiente"
 tipo: completar
-respuestas_validas: ["independiente"]
+respuestas_validas:
+  - "independiente"
 
 enunciado: "La ley que dice que los genes en cromosomas distintos se heredan sin influirse entre sí se llama ley de segregación ___."
 
@@ -196,7 +197,7 @@ variables:
   genes: uno_de([1, 2, 3])
 
 respuesta: 2 ^ genes
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Un individuo heterocigoto para {genes} genes produce 2 elevado a n tipos de gametos. ¿Cuántos tipos produce?"
@@ -314,7 +315,9 @@ metadata:
 
 respuesta: "1"
 tipo: completar
-respuestas_validas: ["1", "un"]
+respuestas_validas:
+  - "1"
+  - "un"
 
 enunciado: "En la proporción 9:3:3:1, la fracción recesiva en ambos genes es ___ dieciseisavos."
 
@@ -366,7 +369,7 @@ variables:
   p2: uno_de([3, 1])
 
 respuesta: (p1 / 4) * (p2 / 4)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En AaBb × AaBb, P(dominante gen1) = {p1}/4 y P(dominante gen2) = {p2}/4. ¿Cuál es la probabilidad combinada?"
@@ -422,7 +425,7 @@ variables:
   total: uno_de([16, 32, 48, 64])
 
 respuesta: total * 9 / 16
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En AaBb × AaBb con {total} descendientes totales, ¿cuántos se esperan con fenotipo dominante en ambos genes?"
@@ -442,7 +445,7 @@ variables:
   total: uno_de([16, 32, 48, 64])
 
 respuesta: total * 1 / 16
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En AaBb × AaBb con {total} descendientes totales, ¿cuántos se esperan con fenotipo recesivo en ambos genes?"
@@ -462,7 +465,7 @@ variables:
   total: uno_de([16, 32, 48, 64])
 
 respuesta: total * 3 / 16
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En AaBb × AaBb con {total} descendientes totales, ¿cuántos se esperan con fenotipo dominante en el gen 1 y recesivo en el gen 2?"
@@ -546,7 +549,8 @@ metadata:
 
 respuesta: "azar"
 tipo: completar
-respuestas_validas: ["azar"]
+respuestas_validas:
+  - "azar"
 
 enunciado: "La deriva genética se define como el cambio en las frecuencias alélicas de una población debido a eventos de ___."
 
@@ -566,7 +570,9 @@ variables:
 
 respuesta: escenario[1]
 tipo: completar
-respuestas_validas: ["pequeña", "grande"]
+respuestas_validas:
+  - "pequeña"
+  - "grande"
 
 enunciado: "La deriva genética tiene un impacto mucho más significativo y es más notoria en una población de tamaño ___."
 
@@ -583,7 +589,8 @@ metadata:
 
 respuesta: "disminuye"
 tipo: completar
-respuestas_validas: ["disminuye"]
+respuestas_validas:
+  - "disminuye"
 
 enunciado: "Debido a que los alelos pueden desaparecer de la población por puro azar, la deriva genética generalmente hace que la variabilidad genética ___."
 
@@ -600,7 +607,8 @@ metadata:
 
 respuesta: "fundador"
 tipo: completar
-respuestas_validas: ["fundador"]
+respuestas_validas:
+  - "fundador"
 
 enunciado: "Cuando un grupo muy pequeño de individuos coloniza un nuevo hábitat, se produce un fenómeno de deriva genética conocido como efecto ___."
 
@@ -671,7 +679,8 @@ metadata:
 
 tipo: completar
 respuesta: "alta"
-respuestas_validas: ["alta"]
+respuestas_validas:
+  - "alta"
 
 enunciado: "Si por azar uno de los pocos individuos fundadores porta un alelo que era raro en la población original, ese alelo puede terminar con una frecuencia ___ en la nueva población, muy distinta a su frecuencia original."
 
@@ -808,7 +817,9 @@ metadata:
 
 respuesta: "migración"
 tipo: completar
-respuestas_validas: ["migración", "migracion"]
+respuestas_validas:
+  - "migración"
+  - "migracion"
 
 enunciado: "El movimiento de genes entre poblaciones, causado por la ___ de individuos que se reproducen en un nuevo grupo, se conoce como flujo génico."
 
@@ -825,7 +836,10 @@ metadata:
 
 respuesta: "homogeneizar"
 tipo: completar
-respuestas_validas: ["homogeneizar", "homogeneizacion", "homogeneización"]
+respuestas_validas:
+  - "homogeneizar"
+  - "homogeneizacion"
+  - "homogeneización"
 
 enunciado: "Uno de los efectos principales del flujo génico constante entre dos poblaciones es que tiende a ___ sus frecuencias alélicas, haciéndolas más similares entre sí."
 
@@ -842,7 +856,9 @@ metadata:
 
 respuesta: "reducir"
 tipo: completar
-respuestas_validas: ["reducir", "disminuir"]
+respuestas_validas:
+  - "reducir"
+  - "disminuir"
 
 enunciado: "Mientras que la deriva genética tiende a aumentar la diferenciación entre poblaciones, el flujo génico tiende a ___ esa diferenciación entre ellas."
 
@@ -859,7 +875,9 @@ metadata:
 
 respuesta: "aumentar"
 tipo: completar
-respuestas_validas: ["aumentar", "incrementar"]
+respuestas_validas:
+  - "aumentar"
+  - "incrementar"
 
 enunciado: "Cuando un grupo de individuos llega a una población que es genéticamente muy similar, el flujo génico puede servir para ___ la variabilidad genética dentro de esa población receptora."
 
@@ -909,7 +927,9 @@ metadata:
 
 tipo: completar
 respuesta: "homogeneización"
-respuestas_validas: ["homogeneización", "homogeneizacion"]
+respuestas_validas:
+  - "homogeneización"
+  - "homogeneizacion"
 
 enunciado: "El flujo génico (migración) actúa como un agente de ___, ya que introduce nuevos alelos en una población pero tiende a hacer que las poblaciones sean más similares entre sí."
 
@@ -943,7 +963,9 @@ metadata:
 
 tipo: completar
 respuesta: "baja"
-respuestas_validas: ["baja", "menor"]
+respuestas_validas:
+  - "baja"
+  - "menor"
 
 enunciado: "Si el flujo génico entre dos poblaciones de plantas es muy alto y constante, la probabilidad de que estas poblaciones se conviertan en especies distintas es ___, debido a que el intercambio de genes mantiene la similitud genética."
 
@@ -979,7 +1001,8 @@ metadata:
 
 respuesta: "grupo de individuos de la misma especie que habitan en un mismo lugar y tiempo"
 tipo: completar
-respuestas_validas: ["grupo de individuos de la misma especie que habitan en un mismo lugar y tiempo"]
+respuestas_validas:
+  - "grupo de individuos de la misma especie que habitan en un mismo lugar y tiempo"
 
 enunciado: "En biología, una población se define como un ___."
 
@@ -996,13 +1019,15 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["bacteria", "2"], ["levadura", "3"]]
+  datos: [["bacteria", "duplica", "2"], ["levadura", "triplica", "3"]]
 
-respuesta: datos[escenario_idx][1]
+respuesta: datos[escenario_idx][2]
 tipo: completar
-respuestas_validas: ["2", "3"]
+respuestas_validas:
+  - "2"
+  - "3"
 
-enunciado: "Si una población de {datos[escenario_idx][0]} se duplica en cada intervalo de tiempo, y empezamos con una unidad, el crecimiento sigue un modelo exponencial donde el factor de multiplicación por intervalo es ___."
+enunciado: "Si una población de {datos[escenario_idx][0]} se {datos[escenario_idx][1]} en cada intervalo de tiempo, y empezamos con una unidad, el crecimiento sigue un modelo exponencial donde el factor de multiplicación por intervalo es ___."
 
 explicacion: |
   En el modelo de crecimiento exponencial, la tasa de crecimiento es proporcional al número de individuos presentes, lo que genera una curva en forma de 'J'.
@@ -1017,7 +1042,8 @@ metadata:
 
 respuesta: "recursos"
 tipo: completar
-respuestas_validas: ["recursos"]
+respuestas_validas:
+  - "recursos"
 
 enunciado: "El crecimiento exponencial teórico asume que no existen limitaciones por ___ como alimento o espacio."
 
@@ -1034,7 +1060,8 @@ metadata:
 
 respuesta: "J"
 tipo: completar
-respuestas_validas: ["J"]
+respuestas_validas:
+  - "J"
 
 enunciado: "Cuando una población crece de manera exponencial sin restricciones, la representación gráfica de su crecimiento tiene forma de letra ___."
 
@@ -1049,18 +1076,14 @@ metadata:
   nivel: "avanzado"
   tags: ["tasa_crecimiento", "modelo_exponencial"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  valores: [["0.5", "0.8"], ["1.2", "1.5"]]
+respuesta: "más rápido"
+tipo: mc
+opciones_explicitas: ["más rápido", "más lento", "igual", "no depende de r"]
 
-respuesta: valores[caso_idx][0]
-tipo: completar
-respuestas_validas: ["0.5", "0.8", "1.2", "1.5"]
-
-enunciado: "En un modelo de crecimiento exponencial, la tasa de crecimiento intrínseca para el caso seleccionado es de ___ por individuo por unidad de tiempo."
+enunciado: "En un modelo de crecimiento exponencial, cuanto mayor es la tasa de crecimiento intrínseca (r) de una población, ___ crece esa población por unidad de tiempo."
 
 explicacion: |
-  En el modelo exponencial, la tasa de crecimiento per cápita se mantiene constante, lo que provoca que el número total de individuos crezca cada vez más rápido.
+  En el modelo exponencial, la tasa de crecimiento per cápita (r) se mantiene constante; cuanto mayor es r, más rápido crece el número total de individuos.
 ```
 
 ```
@@ -1155,7 +1178,8 @@ metadata:
 
 respuesta: "K"
 tipo: completar
-respuestas_validas: ["K"]
+respuestas_validas:
+  - "K"
 
 enunciado: "El valor máximo de individuos de una especie que un entorno puede sostener de forma indefinida se denomina capacidad de carga, y se representa con la letra ___."
 
@@ -1175,7 +1199,11 @@ variables:
 
 respuesta: recurso
 tipo: completar
-respuestas_validas: ["comida", "agua", "espacio", "refugio"]
+respuestas_validas:
+  - "comida"
+  - "agua"
+  - "espacio"
+  - "refugio"
 
 enunciado: "La capacidad de carga de un ecosistema está determinada por la disponibilidad de recursos esenciales. Si el recurso considerado en este caso es {recurso}, escribí ese mismo recurso como respuesta: ___."
 
@@ -1192,7 +1220,8 @@ metadata:
 
 respuesta: "fijo"
 tipo: completar
-respuestas_validas: ["fijo"]
+respuestas_validas:
+  - "fijo"
 
 enunciado: "La capacidad de carga no es un número ___, ya que puede cambiar si las condiciones ambientales o la disponibilidad de recursos varían."
 
@@ -1209,7 +1238,9 @@ metadata:
 
 respuesta: "cambia"
 tipo: completar
-respuestas_validas: ["cambia", "disminuye"]
+respuestas_validas:
+  - "cambia"
+  - "disminuye"
 
 enunciado: "Si un ecosistema sufre una degradación de su suelo que reduce la disponibilidad de plantas, la capacidad de carga de los herbívoros en ese lugar ___."
 
@@ -1226,7 +1257,8 @@ metadata:
 
 respuesta: "recursos"
 tipo: completar
-respuestas_validas: ["recursos"]
+respuestas_validas:
+  - "recursos"
 
 enunciado: "Cuando una población alcanza su capacidad de carga, se establece un equilibrio dinámico determinado por la disponibilidad de ___."
 
@@ -1260,7 +1292,8 @@ metadata:
 
 tipo: completar
 respuesta: "ambas"
-respuestas_validas: ["ambas"]
+respuestas_validas:
+  - "ambas"
 
 enunciado: "Cuando una población supera ampliamente su capacidad de carga, aumenta la mortalidad y disminuye la natalidad — es decir, ocurren ___ cosas a la vez."
 
@@ -1295,7 +1328,8 @@ metadata:
 
 tipo: completar
 respuesta: "factores dependientes de la densidad"
-respuestas_validas: ["factores dependientes de la densidad"]
+respuestas_validas:
+  - "factores dependientes de la densidad"
 
 enunciado: "El aumento de la competencia por recursos cuando la población supera su capacidad de carga es un ejemplo de: ___"
 
@@ -1350,7 +1384,8 @@ metadata:
 
 respuesta: "500"
 tipo: completar
-respuestas_validas: ["500"]
+respuestas_validas:
+  - "500"
 
 enunciado: "En un modelo de crecimiento logístico, la variable K representa la capacidad de carga del ecosistema. Si un ambiente tiene recursos que sólo permiten sostener a un máximo de 500 individuos de una especie, ¿cuál es el valor de K?"
 
@@ -1387,7 +1422,8 @@ variables:
 
 respuesta: "dependiente de la densidad"
 tipo: completar
-respuestas_validas: ["dependiente de la densidad"]
+respuestas_validas:
+  - "dependiente de la densidad"
 
 enunciado: "Factores como {factor} actúan sobre la población de manera ___ (más fuerte cuanto más densa está la población)."
 
@@ -1426,7 +1462,8 @@ metadata:
 
 respuesta: "acelerar"
 tipo: completar
-respuestas_validas: ["acelerar"]
+respuestas_validas:
+  - "acelerar"
 
 enunciado: "Las enzimas son biomoléculas que permiten ___ las reacciones químicas en los seres vivos."
 
@@ -1443,7 +1480,9 @@ metadata:
 
 respuesta: "proteínas"
 tipo: completar
-respuestas_validas: ["proteínas", "proteinas"]
+respuestas_validas:
+  - "proteínas"
+  - "proteinas"
 
 enunciado: "Desde el punto de vista químico, la gran mayoría de las enzimas son ___."
 
@@ -1460,7 +1499,8 @@ metadata:
 
 respuesta: "sustrato"
 tipo: completar
-respuestas_validas: ["sustrato"]
+respuestas_validas:
+  - "sustrato"
 
 enunciado: "La molécula sobre la cual actúa una enzima para transformarla en un producto se denomina ___."
 
@@ -1477,7 +1517,9 @@ metadata:
 
 respuesta: "óptimo"
 tipo: completar
-respuestas_validas: ["óptimo", "optimo"]
+respuestas_validas:
+  - "óptimo"
+  - "optimo"
 
 enunciado: "Cada enzima tiene un pH ___ en el cual su actividad es máxima; si el pH cambia drásticamente, la enzima puede desnaturalizarse."
 
@@ -1494,7 +1536,9 @@ metadata:
 
 respuesta: "igual"
 tipo: completar
-respuestas_validas: ["igual", "el mismo"]
+respuestas_validas:
+  - "igual"
+  - "el mismo"
 
 enunciado: "Aunque las enzimas aumentan la velocidad de una reacción, el resultado final de la reacción química (los productos obtenidos) será ___ que si la reacción ocurriera sin la enzima."
 
@@ -1527,7 +1571,8 @@ metadata:
   tags: ["especificidad", "sustrato"]
 
 tipo: completar
-respuestas_validas: ["especificidad"]
+respuestas_validas:
+  - "especificidad"
 respuesta: "especificidad"
 
 enunciado: "La propiedad por la cual una enzima sólo puede actuar sobre un sustrato determinado debido a su forma geométrica se denomina ___."
@@ -1561,7 +1606,8 @@ metadata:
   tags: ["complejo", "reaccion"]
 
 tipo: completar
-respuestas_validas: ["complejo enzima-sustrato"]
+respuestas_validas:
+  - "complejo enzima-sustrato"
 respuesta: "complejo enzima-sustrato"
 
 enunciado: "Cuando el sustrato se une al sitio activo de la enzima, se forma un ___."
@@ -1596,7 +1642,8 @@ metadata:
 
 enunciado: "Las enzimas humanas funcionan de manera óptima a una temperatura corporal aproximada de ___ °C."
 
-respuestas_validas: ["37"]
+respuestas_validas:
+  - "37"
 respuesta: "37"
 tipo: completar
 
@@ -1613,7 +1660,9 @@ metadata:
 
 enunciado: "Cuando una enzima se somete a un calor excesivo, su estructura tridimensional se altera, proceso conocido como ___."
 
-respuestas_validas: ["desnaturalización", "desnaturalizacion"]
+respuestas_validas:
+  - "desnaturalización"
+  - "desnaturalizacion"
 respuesta: "desnaturalización"
 tipo: completar
 
@@ -1630,7 +1679,8 @@ metadata:
 
 enunciado: "Si una enzima se desnaturaliza por exceso de calor, este cambio en su forma es generalmente ___."
 
-respuestas_validas: ["irreversible"]
+respuestas_validas:
+  - "irreversible"
 respuesta: "irreversible"
 tipo: completar
 
@@ -1647,7 +1697,8 @@ metadata:
 
 enunciado: "La función de una enzima depende estrictamente de su ___."
 
-respuestas_validas: ["forma tridimensional"]
+respuestas_validas:
+  - "forma tridimensional"
 respuesta: "forma tridimensional"
 tipo: completar
 
@@ -1664,7 +1715,9 @@ metadata:
 
 enunciado: "En un gráfico de actividad enzimática vs. temperatura, el punto más alto de la curva representa la temperatura ___."
 
-respuestas_validas: ["óptima", "optima"]
+respuestas_validas:
+  - "óptima"
+  - "optima"
 respuesta: "óptima"
 tipo: completar
 
@@ -1790,7 +1843,9 @@ variables:
 
 respuesta: datos[escenario_idx][2]
 tipo: completar
-respuestas_validas: ["pepsina", "tripsina"]
+respuestas_validas:
+  - "pepsina"
+  - "tripsina"
 
 enunciado: "En el {datos[escenario_idx][0]}, donde el pH ronda {datos[escenario_idx][1]}, la enzima digestiva que actúa predominantemente es la ___."
 
@@ -1824,7 +1879,8 @@ metadata:
 
 respuesta: "sustrato"
 tipo: completar
-respuestas_validas: ["sustrato"]
+respuestas_validas:
+  - "sustrato"
 
 enunciado: "El modelo de 'llave-cerradura' sugiere que la enzima tiene una forma única que sólo encaja con una molécula específica llamada ___."
 
@@ -1841,7 +1897,9 @@ metadata:
 
 respuesta: "7.5"
 tipo: completar
-respuestas_validas: ["7.5", "7,5"]
+respuestas_validas:
+  - "7.5"
+  - "7,5"
 
 enunciado: "Una enzima intestinal tiene su pH óptimo de trabajo en ___ (valor numérico aproximado)."
 
@@ -1860,7 +1918,9 @@ metadata:
 
 respuesta: "fértil"
 tipo: completar
-respuestas_validas: ["fértil", "fertil"]
+respuestas_validas:
+  - "fértil"
+  - "fertil"
 
 enunciado: "Según el concepto biológico de especie, los individuos de una misma especie pueden reproducirse entre sí y producir descendencia ___."
 
@@ -1877,7 +1937,9 @@ metadata:
 
 respuesta: "dos o más"
 tipo: completar
-respuestas_validas: ["dos o más", "dos o mas"]
+respuestas_validas:
+  - "dos o más"
+  - "dos o mas"
 
 enunciado: "La especiación es el proceso mediante el cual una población original da origen a ___ especies distintas."
 
@@ -1897,7 +1959,8 @@ tipo: completar
 
 enunciado: "Para que ocurra la especiación, deben existir ___ reproductivas que impidan el flujo de genes entre los grupos de individuos."
 
-respuestas_validas: ["barreras"]
+respuestas_validas:
+  - "barreras"
 
 explicacion: |
   Las barreras (ya sean geográficas, conductuales o mecánicas) son fundamentales para que los grupos dejen de intercambiar material genético y diverjan.
@@ -1912,7 +1975,8 @@ metadata:
 
 respuesta: "distintas"
 tipo: completar
-respuestas_validas: ["distintas"]
+respuestas_validas:
+  - "distintas"
 
 enunciado: "Cuando un proceso de especiación se completa con éxito, los nuevos grupos de organismos se consideran especies ___."
 
@@ -1932,7 +1996,9 @@ tipo: completar
 
 enunciado: "Si dos poblaciones se cruzan pero su descendencia es estéril, no se ha cumplido el criterio de reproducción para formar una nueva especie, ya que no se produce descendencia ___."
 
-respuestas_validas: ["fértil", "fertil"]
+respuestas_validas:
+  - "fértil"
+  - "fertil"
 
 explicacion: |
   La clave del concepto biológico es que la descendencia sea capaz de seguir reproduciéndose (fértil) para mantener el linaje.
@@ -2080,7 +2146,9 @@ metadata:
 
 tipo: completar
 respuesta: "geográfico"
-respuestas_validas: ["geográfico", "geografico"]
+respuestas_validas:
+  - "geográfico"
+  - "geografico"
 
 enunciado: "Cuando una barrera física separa a dos poblaciones, hablamos de un aislamiento ___ — el primer paso de la especiación alopátrica."
 
@@ -2131,7 +2199,8 @@ metadata:
 
 tipo: completar
 respuesta: "temporal"
-respuestas_validas: ["temporal"]
+respuestas_validas:
+  - "temporal"
 
 enunciado: "Si dos poblaciones de la misma especie habitan en el mismo lugar, pero una se reproduce en primavera y la otra en otoño, el mecanismo de aislamiento se llama aislamiento ___."
 
@@ -2165,7 +2234,9 @@ metadata:
 
 tipo: completar
 respuesta: "etológico"
-respuestas_validas: ["etológico", "etologico"]
+respuestas_validas:
+  - "etológico"
+  - "etologico"
 
 enunciado: "Cuando las diferencias en los rituales de cortejo o en los cantos de apareamiento impiden que dos grupos se reproduzcan entre sí, estamos ante un aislamiento ___."
 
@@ -2199,7 +2270,8 @@ metadata:
 
 respuesta: "reproductivo"
 tipo: completar
-respuestas_validas: ["reproductivo"]
+respuestas_validas:
+  - "reproductivo"
 
 enunciado: "El criterio biológico más utilizado para definir si dos individuos pertenecen a la misma especie es su capacidad de tener descendencia con éxito ___."
 
@@ -2215,15 +2287,14 @@ metadata:
   tags: ["flujo_genico", "aislamiento"]
 
 variables:
-  escenario: uno_de([
-    ["una montaña que divide un bosque", "aislamiento geográfico"],
-    ["un cambio en el comportamiento de apareamiento", "aislamiento etológico"],
-    ["una diferencia en la época de celo", "aislamiento temporal"]
-  ])
+  escenario: uno_de([["una montaña que divide un bosque", "aislamiento geográfico"], ["un cambio en el comportamiento de apareamiento", "aislamiento etológico"], ["una diferencia en la época de celo", "aislamiento temporal"]])
 
 respuesta: escenario[1]
 tipo: completar
-respuestas_validas: ["aislamiento geográfico", "aislamiento etológico", "aislamiento temporal"]
+respuestas_validas:
+  - "aislamiento geográfico"
+  - "aislamiento etológico"
+  - "aislamiento temporal"
 
 enunciado: "Cuando una población queda dividida por {escenario[0]}, ocurre un tipo de barrera reproductiva llamada ___."
 
@@ -2240,7 +2311,9 @@ metadata:
 
 respuesta: "selección natural"
 tipo: completar
-respuestas_validas: ["selección natural", "seleccion natural"]
+respuestas_validas:
+  - "selección natural"
+  - "seleccion natural"
 
 enunciado: "Si una población, aislada de otra, cambia sus rasgos debido a la presión por sobrevivir en un ambiente específico, el proceso responsable de ese cambio se llama ___."
 
@@ -2257,7 +2330,8 @@ metadata:
 
 respuesta: "azar"
 tipo: completar
-respuestas_validas: ["azar"]
+respuestas_validas:
+  - "azar"
 
 enunciado: "A diferencia de la selección natural, la deriva genética provoca cambios en las frecuencias alélicas de una población debido al ___."
 
@@ -2274,10 +2348,13 @@ metadata:
 
 respuesta: "interrumpido"
 tipo: completar
-respuestas_validas: ["interrumpido", "cortado"]
+respuestas_validas:
+  - "interrumpido"
+  - "cortado"
 
 enunciado: "Para que la especiación ocurra, el flujo génico entre dos poblaciones debe estar ___."
 
 explicacion: |
   Si el flujo génico continúa, los genes se mezclan constantemente y las poblaciones se mantienen genéticamente similares. La especiación requiere que el intercambio de genes cese para que las diferencias se acumulen.
 ```
+

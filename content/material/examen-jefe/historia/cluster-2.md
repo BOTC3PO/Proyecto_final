@@ -1,8 +1,883 @@
-# Examen jefe — Maestro del Tiempo y la Ética
+# Examen jefe — [PENDIENTE #722]
 
-> Logro #122. Completaste el parcial dominando las escalas temporales, las economías tempranas y la metodología de los Annales. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **104 preguntas totales** en 5/5 secciones.
+> Logro #722. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **109 preguntas totales** en 5/5 secciones.
 
 ---
+
+## Sección: linea-de-tiempo-y-antes-despues (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "basico"
+  tags: ["linea_de_tiempo", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una línea de tiempo es una representación gráfica donde los hechos se ordenan según el momento en que ocurrieron."
+
+pasos:
+  - "El eje representa el paso del tiempo, y cada hecho se ubica en el punto que le corresponde."
+
+explicacion: |
+  Verdadero: es la definición central de línea de tiempo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "basico"
+  tags: ["antes_despues"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Se puede afirmar que \"la Revolución de Mayo fue antes que la Declaración de la Independencia\" sin necesitar saber el año exacto de ninguno de los dos hechos."
+
+pasos:
+  - "El orden temporal (antes/después) es una habilidad más básica que fechar con precisión."
+
+explicacion: |
+  Verdadero: es la habilidad más elemental del pensamiento histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "basico"
+  tags: ["antes_despues", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "la Revolución de Mayo"
+tipo: mc
+opciones_explicitas: ["la Revolución de Mayo", "la Declaración de la Independencia"]
+
+enunciado: "Entre \"la Revolución de Mayo\" (1810) y \"la Declaración de la Independencia\" (1816), ¿cuál ocurrió antes?"
+
+pasos:
+  - "Comparar los años para determinar el orden temporal."
+
+explicacion: |
+  1810 es anterior a 1816, por lo tanto la Revolución de Mayo ocurrió
+  antes.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "intermedio"
+  tags: ["simultaneidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos hechos pueden ser simultáneos (ocurrir en el mismo período), incluso en lugares muy distintos del mundo."
+
+pasos:
+  - "Reconocer la simultaneidad ayuda a entender que la historia no es una sola línea de sucesos."
+
+explicacion: |
+  Verdadero: es la definición central de simultaneidad en historia.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "intermedio"
+  tags: ["simultaneidad", "multiples_procesos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Reconocer la simultaneidad ayuda a entender que la historia es muchos procesos ocurriendo en paralelo en distintas regiones, no una sola línea de sucesos."
+
+pasos:
+  - "Es la conclusión central de por qué la simultaneidad es un concepto importante."
+
+explicacion: |
+  Verdadero: es la razón por la que la simultaneidad enriquece la
+  comprensión histórica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "intermedio"
+  tags: ["duracion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Además de indicar qué pasó antes y después, una línea de tiempo permite ver cuánto tiempo (la duración) separa a dos hechos."
+
+pasos:
+  - "Un intervalo corto se ve distinto en la línea que uno largo, aunque ambos sean técnicamente \"antes y después\"."
+
+explicacion: |
+  Verdadero: la duración es otra dimensión que aporta una línea de
+  tiempo, además del orden.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "intermedio"
+  tags: ["duracion", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos hechos separados por 5 años se representan más cerca entre sí en una línea de tiempo que dos hechos separados por 300 años."
+
+pasos:
+  - "La distancia visual en la línea refleja la duración real del intervalo temporal."
+
+explicacion: |
+  Verdadero: es la aplicación práctica de cómo se representa la
+  duración en una línea de tiempo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "avanzado"
+  tags: ["linea_de_tiempo", "utilidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ordenar hechos visualmente en una línea de tiempo hace evidentes relaciones que un listado de fechas sueltas no muestra, como qué hechos son cercanos entre sí."
+
+pasos:
+  - "Es la razón central de por qué la línea de tiempo es una herramienta útil, más allá de memorizar fechas."
+
+explicacion: |
+  Verdadero: es la conclusión central sobre la utilidad de este
+  recurso visual.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "avanzado"
+  tags: ["linea_de_tiempo", "vacios"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una línea de tiempo puede mostrar dónde hay \"vacíos\" en el registro histórico disponible, es decir, períodos sin hechos documentados."
+
+pasos:
+  - "Es otra utilidad de la representación visual sobre un simple listado de fechas."
+
+explicacion: |
+  Verdadero: los vacíos temporales son otra información que revela
+  la línea de tiempo, más allá del orden y la duración.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "basico"
+  tags: ["linea_de_tiempo", "estructura"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una línea de tiempo, el eje horizontal (o vertical) representa el paso del tiempo, no otra magnitud."
+
+pasos:
+  - "Cada hecho se ubica en el punto del eje que corresponde a su momento de ocurrencia."
+
+explicacion: |
+  Verdadero: es la estructura básica de cualquier línea de tiempo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "intermedio"
+  tags: ["antes_despues", "practica"]
+
+enunciado: "Ordená estos tres hechos de más antiguo a más reciente: Independencia Argentina (1816), llegada de Colón a América (1492), Segunda Guerra Mundial (1939-1945)."
+tipo: ordenar
+opciones_explicitas:
+  - "Llegada de Colón a América (1492)"
+  - "Independencia Argentina (1816)"
+  - "Segunda Guerra Mundial (1939-1945)"
+respuesta_orden: ["Llegada de Colón a América (1492)", "Independencia Argentina (1816)", "Segunda Guerra Mundial (1939-1945)"]
+explicacion: |
+  El orden sigue estrictamente la cronología de los años en que
+  ocurrió cada hecho.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "intermedio"
+  tags: ["simultaneidad", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Mientras en América ocurrían las guerras de independencia a principios del siglo XIX, en Europa se desarrollaban procesos históricos propios de esa misma época: son hechos simultáneos en regiones distintas."
+
+pasos:
+  - "Es un ejemplo concreto de simultaneidad entre procesos históricos en distintas regiones del mundo."
+
+explicacion: |
+  Verdadero: es la aplicación práctica del concepto de simultaneidad
+  a un caso histórico real.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "intermedio"
+  tags: ["antes_despues"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para poder decir que un hecho ocurrió \"antes\" que otro, es imprescindible conocer el año exacto de ambos hechos."
+
+pasos:
+  - "Se puede establecer el orden relativo (antes/después) con información parcial, sin necesitar fechas exactas."
+
+explicacion: |
+  Falso: el orden relativo antes/después es una habilidad más básica
+  que no siempre requiere fechas precisas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "intermedio"
+  tags: ["duracion", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "el intervalo entre 1810 y 1816"
+tipo: mc
+opciones_explicitas: ["el intervalo entre 1810 y 1816", "el intervalo entre 1500 y 1800"]
+
+enunciado: "¿Cuál de estos dos intervalos de tiempo es más corto?"
+
+pasos:
+  - "1810 a 1816 son 6 años; 1500 a 1800 son 300 años."
+
+explicacion: |
+  Comparar la duración de distintos intervalos es una aplicación
+  directa de este concepto.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin poder ordenar hechos en el tiempo, no se puede avanzar hacia unidades más precisas como década, siglo o milenio."
+
+pasos:
+  - "Ver `../decada-siglo-milenio/`: es el tema siguiente de la cadena de pensamiento histórico."
+
+explicacion: |
+  Verdadero: por eso este tema es el prerrequisito directo del
+  siguiente en la cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "avanzado"
+  tags: ["causa_y_consecuencia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Saber qué pasó antes y qué pasó después es una condición necesaria (aunque no suficiente) para poder analizar relaciones de causa y consecuencia entre hechos históricos."
+
+pasos:
+  - "Una causa siempre tiene que ocurrir antes que su consecuencia en el tiempo."
+
+explicacion: |
+  Verdadero: el orden temporal es la base sobre la que se construyen
+  herramientas de análisis histórico más complejas, más adelante en
+  la cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "avanzado"
+  tags: ["antes_despues", "distincion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si un hecho A ocurrió antes que un hecho B, eso significa automáticamente que A causó B."
+
+pasos:
+  - "El orden temporal (antes/después) es necesario pero no suficiente para afirmar una relación de causa: dos hechos pueden ser antes/después sin que uno cause al otro."
+
+explicacion: |
+  Falso: el orden temporal es la base, pero establecer causalidad
+  requiere un análisis adicional, que es el tema de más adelante en
+  la cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "basico"
+  tags: ["linea_de_tiempo", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una línea de tiempo horizontal, un hecho ubicado más a la derecha ocurrió después que un hecho ubicado más a la izquierda (siguiendo la convención habitual de izquierda=pasado, derecha=presente)."
+
+pasos:
+  - "Es la convención estándar de lectura de una línea de tiempo horizontal."
+
+explicacion: |
+  Verdadero: es la convención de lectura habitual de una línea de
+  tiempo horizontal.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "intermedio"
+  tags: ["linea_de_tiempo", "metodo"]
+
+enunciado: "Ordená los pasos para construir una línea de tiempo con varios hechos históricos."
+tipo: ordenar
+opciones_explicitas:
+  - "Reunir los hechos que se quieren representar"
+  - "Determinar el orden relativo (antes/después) entre todos ellos"
+  - "Ubicar cada hecho en el eje según su momento, respetando la duración de los intervalos"
+  - "Revisar si hay hechos simultáneos que deban marcarse en el mismo punto del eje"
+respuesta_orden: ["Reunir los hechos que se quieren representar", "Determinar el orden relativo (antes/después) entre todos ellos", "Ubicar cada hecho en el eje según su momento, respetando la duración de los intervalos", "Revisar si hay hechos simultáneos que deban marcarse en el mismo punto del eje"]
+explicacion: |
+  El proceso va de reunir los hechos a ordenarlos y ubicarlos
+  correctamente en el eje temporal.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "linea_de_tiempo_y_antes_despues"
+  nivel: "avanzado"
+  tags: ["linea_de_tiempo", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Antes de estudiar un período histórico complejo, puede ayudar armar primero una línea de tiempo simple con los hechos principales, para tener claro el orden y la duración antes de profundizar en las causas."
+
+pasos:
+  - "Es la aplicación práctica directa de este tema como estrategia de estudio."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema como herramienta
+  de estudio de cualquier período histórico.
+```
+
+## Sección: reforma-universitaria-1918 (22 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "basico"
+  tags: ["reforma_universitaria_1918", "contexto_social"]
+
+variables:
+  anio_fundacion_unc: 1613
+
+respuesta: "1613"
+tipo: input
+
+enunciado: "La Universidad Nacional de Córdoba, epicentro de la Reforma de 1918, fue fundada por la orden jesuita en el año {anio_fundacion_unc}. ¿En qué año se fundó?"
+
+explicacion: |
+  La Universidad Nacional de Córdoba, fundada en 1613, es la más antigua del país. Su estructura permaneció rígida, elitista y bajo fuerte influencia clerical hasta la reforma de 1918.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "intermedio"
+  tags: ["reforma_universitaria_1918", "manifiesto"]
+
+variables:
+  significado: "abrir una nueva etapa"
+
+respuesta: "abrir una nueva etapa"
+tipo: completar
+
+enunciado: "El término 'liminar' en el Manifiesto Liminar se refiere a su función de {significado}."
+
+explicacion: |
+  "Liminar" proviene del latín *limen* (umbral). El documento buscaba abrir un umbral hacia una nueva etapa en la educación superior, rompiendo con el pasado.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "basico"
+  tags: ["reforma_universitaria_1918", "derechos"]
+
+variables:
+  principio: "gratuidad"
+
+respuesta: "gratuidad"
+tipo: completar
+
+enunciado: "El Manifiesto defendía la {principio} de la educación como un derecho humano y social, para que nadie fuera excluido por falta de recursos."
+
+explicacion: |
+  La gratuidad aseguraba que la universidad fuera un bien público accesible para todos, independientemente de su clase social, rompiendo con el elitismo anterior.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "intermedio"
+  tags: ["reforma_universitaria_1918", "cogobierno"]
+
+variables:
+  participacion: "voz y voto"
+
+respuesta: "voz y voto"
+tipo: completar
+
+enunciado: "Bajo el principio de cogobierno, los estudiantes ganaron derecho a {participacion} en los órganos de gobierno de la universidad."
+
+explicacion: |
+  El cogobierno integró a docentes, graduados y estudiantes. Por primera vez, los estudiantes tenían poder real de decisión, no solo opinión.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "basico"
+  tags: ["reforma_universitaria_1918", "geografia"]
+
+variables:
+  ciudad: "Córdoba"
+
+respuesta: "Córdoba"
+tipo: completar
+
+enunciado: "En abril de 1918, la protesta estudiantil estalló en la ciudad de {ciudad}, extendiéndose luego a todo el país."
+
+explicacion: |
+  La Universidad Nacional de Córdoba fue el epicentro. Desde allí, el movimiento se irradió a otras universidades argentinas y latinoamericanas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "intermedio"
+  tags: ["reforma_universitaria_1918", "pedagogia"]
+
+variables:
+  metodo: "memorística"
+
+respuesta: "memorística"
+tipo: completar
+
+enunciado: "Antes de la reforma, la enseñanza en la Universidad Nacional de Córdoba era predominantemente {metodo}, basada en la repetición y exámenes arbitrarios."
+
+explicacion: |
+  El modelo antiguo se basaba en la transmisión pasiva del conocimiento. La reforma exigió clases dinámicas y una renovación pedagógica profunda.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "basico"
+  tags: ["reforma_universitaria_1918", "sociedad"]
+
+variables:
+  clase_social: "clase media"
+
+respuesta: "clase media"
+tipo: completar
+
+enunciado: "La llegada de inmigrantes generó una {clase_social} urbana más numerosa y exigente de cambios sociales y educativos."
+
+explicacion: |
+  El crecimiento de la clase media urbana fue clave. Estos sectores, aunque no siempre podían acceder a la universidad, exigían democratización y meritocracia.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "avanzado"
+  tags: ["reforma_universitaria_1918", "impacto"]
+
+variables:
+  tipo_movimiento: "revolución cultural y política"
+
+respuesta: "revolución cultural y política"
+tipo: completar
+
+enunciado: "Este movimiento no fue solo una huelga escolar, sino una {tipo_movimiento} que cuestionaba quién tiene derecho a conocer."
+
+explicacion: |
+  Fue trascendente porque cuestionaba las estructuras de poder y saber, influyendo en la educación superior de toda América Latina.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "basico"
+  tags: ["reforma_universitaria_1918", "evaluacion"]
+
+variables:
+  caracteristica: "arbitrarios"
+
+respuesta: "arbitrarios"
+tipo: completar
+
+enunciado: "Los exámenes en la Universidad Nacional de Córdoba, pre-reforma, eran considerados {caracteristica}, sin criterios claros ni participación estudiantil."
+
+explicacion: |
+  La arbitrariedad era una fuente de frustración. La reforma buscaba objetividad y transparencia en la evaluación del conocimiento.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "intermedio"
+  tags: ["reforma_universitaria_1918", "alcance"]
+
+variables:
+  alcance: "América Latina"
+
+respuesta: "América Latina"
+tipo: completar
+
+enunciado: "La protesta de 1918 se extendió a otras universidades de Argentina y de {alcance}."
+
+explicacion: |
+  El modelo de reforma se convirtió en un referente para movimientos estudiantiles en países como Chile, Perú, México y Cuba.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "intermedio"
+  tags: ["reforma_universitaria_1918", "definiciones"]
+
+variables:
+  definicion: "comunidad integrada"
+
+respuesta: "comunidad integrada"
+tipo: completar
+
+enunciado: "El cogobierno establece que la universidad es una {definicion} por docentes, graduados y estudiantes."
+
+explicacion: |
+  Esta visión rompe con la jerarquía rígida. La universidad se entiende como un espacio democrático donde todos los estamentos tienen peso.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "basico"
+  tags: ["reforma_universitaria_1918", "cronologia"]
+
+variables:
+  mes: "abril"
+
+respuesta: "abril"
+tipo: completar
+
+enunciado: "En el mes de {mes} de 1918, estalló la protesta en Córdoba."
+
+explicacion: |
+  Las protestas clave ocurrieron en abril de 1918, marcando el inicio oficial del proceso reformista.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "intermedio"
+  tags: ["reforma_universitaria_1918", "filosofia"]
+
+variables:
+  bien: "público"
+
+respuesta: "público"
+tipo: completar
+
+enunciado: "Si la universidad era un bien {bien}, nadie debía ser excluido por falta de recursos."
+
+explicacion: |
+  Este principio justificaba la gratuidad. La educación superior no era un privilegio de mercado, sino un derecho de la ciudadanía.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "intermedio"
+  tags: ["reforma_universitaria_1918", "metodos"]
+
+variables:
+  tipo_clase: "dinámicas"
+
+respuesta: "dinámicas"
+tipo: completar
+
+enunciado: "Se exigía la renovación pedagógica: clases más {tipo_clase} y cátedras libres."
+
+explicacion: |
+  Se pasaba de la lección magistral pasiva a un aprendizaje activo, crítico y participativo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "avanzado"
+  tags: ["reforma_universitaria_1918", "estructura_academica"]
+
+variables:
+  concepto: "cátedras libres"
+
+respuesta: "cátedras libres"
+tipo: completar
+
+enunciado: "El sistema de {concepto} permitía enseñar a quienes no podían asistir regularmente o enseñar materias no oficiales."
+
+explicacion: |
+  Las cátedras libres democratizaban el acceso al conocimiento, permitiendo la enseñanza de corrientes de pensamiento diversas y críticas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "intermedio"
+  tags: ["reforma_universitaria_1918", "simbolismo"]
+
+variables:
+  rol: "carta fundacional"
+
+respuesta: "carta fundacional"
+tipo: completar
+
+enunciado: "El Manifiesto Liminar es considerado la {rol} de la Reforma Universitaria."
+
+explicacion: |
+  Es el documento base que definió los principios éticos y políticos que rigen a muchas universidades públicas hoy.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "intermedio"
+  tags: ["reforma_universitaria_1918", "academico"]
+
+variables:
+  contenido: "planes de estudio"
+
+respuesta: "planes de estudio"
+tipo: completar
+
+enunciado: "La universidad podía definir libremente sus {contenido}."
+
+explicacion: |
+  Esto permitía actualizar los currículos, eliminar materias obsoletas y adaptar la formación a las necesidades sociales y científicas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "basico"
+  tags: ["reforma_universitaria_1918", "sociedad"]
+
+variables:
+  caracteristica: "elitista"
+
+respuesta: "elitista"
+tipo: completar
+
+enunciado: "La Universidad Nacional de Córdoba, pre-reforma, era un espacio {caracteristica}, cerrado y controlado por una minoría."
+
+explicacion: |
+  Solo las élites tradicionales podían acceder y permanecer. La reforma buscó abrir las puertas a la clase trabajadora y media.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "basico"
+  tags: ["reforma_universitaria_1918", "economia"]
+
+variables:
+  motor: "exportación"
+
+respuesta: "exportación"
+tipo: completar
+
+enunciado: "La economía crecía gracias a la {motor} de productos agropecuarios."
+
+explicacion: |
+  Este boom económico generó riqueza, pero también desigualdad y una clase media que exigía participación política y cultural.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "intermedio"
+  tags: ["reforma_universitaria_1918", "historia_institucional"]
+
+variables:
+  estructura: "colonial"
+
+respuesta: "colonial"
+tipo: completar
+
+enunciado: "La Universidad Nacional de Córdoba seguía funcionando con estructuras {estructura} y rígidas."
+
+explicacion: |
+  Se refería a un modelo heredado de la época virreinal, con jerarquías rígidas y falta de modernidad académica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "intermedio"
+  tags: ["reforma_universitaria_1918", "democracia"]
+
+variables:
+  participacion: "no había"
+
+respuesta: "no había"
+tipo: completar
+
+enunciado: "Antes de 1918, {participacion} participación de los estudiantes en las decisiones académicas."
+
+explicacion: |
+  Los estudiantes eran meros receptores pasivos. La reforma los convirtió en sujetos políticos dentro de la universidad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "reforma_universitaria_1918"
+  nivel: "avanzado"
+  tags: ["reforma_universitaria_1918", "impacto_historico"]
+
+variables:
+  legado: "democratizar"
+
+respuesta: "democratizar"
+tipo: completar
+
+enunciado: "No querían solo mejorar las aulas; querían {legado} la institución."
+
+explicacion: |
+  El objetivo final era la democratización del saber y del poder académico, un legado que perdura en la educación pública latinoamericana.
+```
 
 ## Sección: decada-siglo-milenio (20 preguntas)
 
@@ -408,12 +1283,7 @@ opciones_explicitas:
   - "Si termina en 00, dividir por 100 sin sumar nada más"
   - "Si no termina en 00, dividir por 100 y redondear hacia arriba (sumar 1 al resultado entero)"
   - "Expresar el resultado en números romanos, según la convención estándar"
-respuesta_orden:
-  - "Revisar si el año termina exactamente en 00"
-  - "Si termina en 00, dividir por 100 sin sumar nada más"
-  - "Si no termina en 00, dividir por 100 y redondear hacia arriba (sumar 1 al resultado entero)"
-  - "Expresar el resultado en números romanos, según la convención estándar"
-
+respuesta_orden: ["Revisar si el año termina exactamente en 00", "Si termina en 00, dividir por 100 sin sumar nada más", "Si no termina en 00, dividir por 100 y redondear hacia arriba (sumar 1 al resultado entero)", "Expresar el resultado en números romanos, según la convención estándar"]
 explicacion: |
   El proceso distingue el caso especial de años terminados en 00 del
   caso general, y cierra con la notación romana estándar.
@@ -465,242 +1335,857 @@ explicacion: |
   interpretar textos históricos con fluidez.
 ```
 
-## Sección: dimension-etica (20 preguntas)
+## Sección: revolucion-mexicana-1910-1920 (27 preguntas)
 
 ```
 metadata:
-  materia: "historia"
-  tema: "dimension_etica"
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
   nivel: "basico"
-  tags: ["dimension_etica", "definicion"]
+  tags: ["porfiriato", "causas", "madero"]
 
 variables:
-  n: uno_de([1, 1])
+  anio_postulacion: random(1908, 1910)
 
-respuesta: verdadero
-tipo: vf
+respuesta: "re-election"
+tipo: completar
 
-enunciado: "La dimensión ética pregunta qué le debemos, hoy, a la memoria de lo ocurrido, no sólo qué pasó en el pasado."
-
-pasos:
-  - "Es una pregunta sobre la responsabilidad del presente, no sobre el pasado en sí."
+enunciado: "Durante el Porfiriato, el líder {anio_postulacion} anunció su intención de volver a postularse, rompiendo la promesa de no reelección. ¿Qué concepto central buscaba defender Francisco I. Madero con su lema 'Sufragio efectivo, no ___'?"
 
 explicacion: |
-  Verdadero: es la definición central de dimensión ética en historia.
+  El lema de Madero era "Sufragio efectivo, no reelección". La reelección perpetua era el símbolo del autoritarismo porfirista.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "dimension_etica"
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
   nivel: "intermedio"
-  tags: ["dimension_etica", "big_six", "diferenciacion"]
+  tags: ["zapata", "plan_de_ayala", "tierra"]
 
 variables:
-  n: uno_de([1, 1])
+  lider: uno_de(["Emiliano Zapata", "Pancho Villa"])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "La tierra es de quien la trabaja"
+tipo: completar
 
-enunciado: "A diferencia de causa/consecuencia, cambio/continuidad y multicausalidad, que responden preguntas de hecho (qué pasó, por qué), la dimensión ética responde una pregunta distinta: qué debemos hoy frente a eso."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/`, `../cambio-y-continuidad/`, `../multicausalidad/`: son los conceptos de hecho ya estudiados."
+enunciado: "Si el líder revolucionario es {lider}, ¿cuál fue su principal consigna agraria plasmada en el Plan de Ayala?"
 
 explicacion: |
-  Verdadero: es la distinción central entre este tema y los
-  conceptos anteriores de la cadena.
+  Emiliano Zapata redactó el Plan de Ayala. Su consigna principal era que la tierra pertenecía a quien la trabajaba, exigiendo la devolución de tierras comunales.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "dimension_etica"
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
   nivel: "intermedio"
-  tags: ["proposito"]
+  tags: ["villa", "division_del_norte", "ejercito"]
 
 variables:
-  n: uno_de([1, 1])
+  caudillo: uno_de(["Francisco Villa", "Francisco I. Madero"])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "División del Norte"
+tipo: completar
 
-enunciado: "Sin esta habilidad enseñada explícitamente, un tema histórico grave puede quedar reducido a una fecha para memorizar, en vez de ser una herramienta de juicio que ayuda a evitar repetir el error."
-
-pasos:
-  - "Es la razón central por la que este concepto se incluyó explícitamente en el mapa."
+enunciado: "El general {caudillo} comandaba una fuerza militar masiva conocida como la _______________."
 
 explicacion: |
-  Verdadero: es el propósito central de este tema, mencionado en la
-  teoría.
+  Pancho Villa lideraba la División del Norte, un ejército popular con gran capacidad de movilización en el norte de México.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "dimension_etica"
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["porfiriato", "modernizacion", "ferrocarriles"]
+
+variables:
+  sector: uno_de(["ferrocarriles", "minas", "puertos"])
+
+respuesta: "ferrocarriles"
+tipo: completar
+
+enunciado: "Durante el Porfiriato, el gobierno invirtió fuertemente en la expansión de los _______________ para conectar las regiones productivas con los puertos de exportación."
+
+explicacion: |
+  La construcción de ferrocarriles fue clave para la modernización económica, aunque benefició principalmente a las élites y a inversionistas extranjeros.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["madero", "diaz", "caida"]
+
+variables:
+  dictador: "Porfirio Díaz"
+
+respuesta: "democracia"
+tipo: completar
+
+enunciado: "Francisco I. Madero buscaba instaurar la _______________ como respuesta al largo régimen dictatorial de {dictador}."
+
+explicacion: |
+  Madero representaba la clase media liberal que exigía el fin de la dictadura y el establecimiento de un régimen democrático.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
   nivel: "intermedio"
-  tags: ["preguntas_centrales", "quien_cuenta"]
+  tags: ["alianzas", "traicion", "madero"]
 
 variables:
-  n: uno_de([1, 1])
+  evento: "Traición de la Decena Trágica"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "frágil"
+tipo: completar
 
-enunciado: "Las víctimas, los perpetradores, el Estado y los historiadores académicos pueden tener versiones legítimas pero parciales de un mismo hecho, y ninguna reemplaza del todo a las demás."
-
-pasos:
-  - "Es una de las preguntas centrales de la dimensión ética mencionadas en la teoría."
+enunciado: "El gobierno de Madero fue breve y _______________ porque antiguos aliados, como Victoriano Huerta, terminaron traicionándolo."
 
 explicacion: |
-  Verdadero: es una de las preguntas centrales de este tema.
+  La coalición anti-díaz se desintegró rápidamente. Madero no pudo controlar a los caudillos revolucionarios ni a los conservadores, llevando a su asesinato.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "intermedio"
-  tags: ["preguntas_centrales", "victimas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Distintas sociedades han respondido de formas distintas qué le deben a las víctimas de un hecho histórico grave: reconocimiento, verdad, justicia, reparación."
-
-pasos:
-  - "Juicios penales, comisiones de la verdad, monumentos y educación obligatoria son ejemplos de respuestas concretas mencionadas en la teoría."
-
-explicacion: |
-  Verdadero: es otra de las preguntas centrales de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "intermedio"
-  tags: ["preguntas_centrales", "practica"]
-
-variables:
-  herramientas: ["juicios penales", "comisiones de la verdad", "monumentos"]
-  idx: uno_de([0, 1, 2])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{herramientas[idx]}\" es un ejemplo mencionado en la teoría de cómo una sociedad puede responder a la pregunta de qué le debe a las víctimas de un hecho histórico grave."
-
-pasos:
-  - "Son ejemplos concretos de las distintas formas en que las sociedades intentan responder esa pregunta."
-
-explicacion: |
-  Verdadero: son ejemplos de mecanismos reales que distintas
-  sociedades han usado para responder esta pregunta ética.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "intermedio"
-  tags: ["preguntas_centrales", "prevencion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Entender las condiciones que hicieron posible un hecho grave es parte de la responsabilidad de estudiarlo, no sólo narrar los hechos en sí."
-
-pasos:
-  - "Es otra de las preguntas centrales de la dimensión ética mencionadas en la teoría."
-
-explicacion: |
-  Verdadero: es otra de las preguntas centrales de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "intermedio"
-  tags: ["preguntas_centrales", "memoria_selectiva"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Qué monumentos se erigen, qué fechas se conmemoran y qué se enseña en la escuela son decisiones que reflejan valores del presente, no sólo hechos del pasado."
-
-pasos:
-  - "Es otra de las preguntas centrales de la dimensión ética mencionadas en la teoría, sobre la memoria selectiva."
-
-explicacion: |
-  Verdadero: es otra de las preguntas centrales de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "intermedio"
-  tags: ["memoria_selectiva"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La memoria histórica es selectiva: no todo lo ocurrido se conmemora o enseña de la misma manera, y esas decisiones son parte de lo que estudia la dimensión ética."
-
-pasos:
-  - "Es la conclusión central sobre el carácter selectivo de la memoria colectiva."
-
-explicacion: |
-  Verdadero: es un concepto central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
   nivel: "avanzado"
-  tags: ["juicio_historico", "juicio_etico", "diferenciacion"]
+  tags: ["zapata", "plan_de_ayala", "fechas"]
 
 variables:
-  afirmaciones: ["el hecho X ocurrió por razones económicas y políticas combinadas", "el hecho X fue incorrecto y genera una responsabilidad hoy"]
-  tipos: ["juicio histórico", "juicio ético"]
+  mes: uno_de(["febrero", "marzo", "abril"])
+  dia: random(28, 30)
+
+respuesta: "1911"
+tipo: input
+
+enunciado: "El Plan de Ayala fue proclamado en {mes} de {dia}. ¿En qué año se emitió este documento?"
+
+explicacion: |
+  El Plan de Ayala se proclamó en marzo de 1911, cuando Zapata rompió con Madero al no cumplirse la reforma agraria prometida.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["tierra", "ejidos", "comunidades"]
+
+variables:
+  grupo: uno_de(["campesinos", "indígenas", "trabajadores"])
+
+respuesta: "comunales"
+tipo: completar
+
+enunciado: "Bajo el Porfiriato, las tierras {grupo} fueron despojadas y concentradas en latifundios. La revolución buscaba restituirlas como _______________."
+
+explicacion: |
+  La demanda central era la recuperación de las tierras comunales que habían sido expropiadas ilegalmente durante el Porfiriato.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["villa", "origen", "norte"]
+
+variables:
+  region: "norte"
+
+respuesta: "norte"
+tipo: completar
+
+enunciado: "Francisco Villa era originario de la región del _______________, lo que definió el perfil social y militar de su ejército."
+
+explicacion: |
+  Villa representaba los intereses de los campesinos y trabajadores del norte, con un carácter más popular y menos ideológico que Zapata.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["zapata", "origen", "sur"]
+
+variables:
+  estado: "Morelos"
+
+respuesta: "Morelos"
+tipo: completar
+
+enunciado: "Emiliano Zapata lideró la revolución desde el estado de _______________, donde la presión de las compañías azucareras era mayor."
+
+explicacion: |
+  Morelos era un estado altamente industrializado para la época (azúcar), lo que generaba un conflicto intenso entre campesinos y terratenientes.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["madero", "elecciones", "democracia"]
+
+variables:
+  concepto: "Sufragio efectivo"
+
+respuesta: "no reelección"
+tipo: completar
+
+enunciado: "El lema de Madero incluía 'Sufragio efectivo' y la promesa de _______________."
+
+explicacion: |
+  La no reelección era la propuesta concreta para evitar la perpetuidad en el poder que caracterizó al Porfiriato.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["naturaleza", "guerra_civil", "conflicto"]
+
+variables:
+  tipo_conflicto: "guerra civil"
+
+respuesta: "guerra civil"
+tipo: completar
+
+enunciado: "La Revolución Mexicana evolucionó de un levantamiento político a una _______________ entre diversos caudillos y facciones."
+
+explicacion: |
+  Al fracasar Madero en mediar entre las demandas, el conflicto se tornó en una guerra civil por el control del Estado y la tierra.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["porfiriato", "elite", "desigualdad"]
+
+variables:
+  grupo_beneficiado: "élite terrateniente"
+
+respuesta: "extranjeros"
+tipo: completar
+
+enunciado: "El crecimiento económico del Porfiriato benefició a la élite local y a inversionistas _______________."
+
+explicacion: |
+  La economía porfirista dependía mucho del capital extranjero, especialmente de EE.UU. y Europa, para explotar recursos naturales.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "avanzado"
+  tags: ["madero", "plan_san_luis", "levantamiento"]
+
+variables:
+  lider: "Madero"
+
+respuesta: "20 de noviembre"
+tipo: completar
+
+enunciado: "Francisco I. Madero firmó el Plan de San Luis para iniciar el levantamiento armado el _______________ de 1910."
+
+explicacion: |
+  El Plan de San Luis llamaba a las armas el 20 de noviembre de 1910, fecha que luego se convirtió en la fiesta patria de México.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["huerta", "traicion", "decena_tragica"]
+
+variables:
+  traidor: "Victoriano Huerta"
+
+respuesta: "asesinato"
+tipo: completar
+
+enunciado: "El general {traidor} fue responsable del _______________ de Madero durante la Decena Trágica."
+
+explicacion: |
+  Huerta, leal a Díaz, traicionó a Madero y lo obligó a renunciar y morir, instaurando una dictadura militar.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "avanzado"
+  tags: ["constitucion", "articulo_27", "tierra"]
+
+variables:
+  articulo: 27
+
+respuesta: "tierra"
+tipo: completar
+
+enunciado: "El artículo {articulo} de la Constitución de 1917 establecía que la propiedad originaria de la _______________ correspondía a la Nación."
+
+explicacion: |
+  El Art. 27 permitía al Estado redistribuir la tierra y expropiarlatifundios, cumpliendo una de las principales demandas zapatistas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["villa", "batalla", "celaya"]
+
+variables:
+  batalla: "Celaya"
+
+respuesta: "derrota"
+tipo: completar
+
+enunciado: "En la batalla de {batalla}, las fuerzas de Villa sufrieron una crucial _______________ frente a las tropas de Álvaro Obregón."
+
+explicacion: |
+  La derrota en Celaya (1915) marcó el declive militar de Villa y consolidó el poder de Obregón y Carranza.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["obregon", "general", "victoria"]
+
+variables:
+  general: "Álvaro Obregón"
+
+respuesta: "Obregón"
+tipo: completar
+
+enunciado: "El general _______________ fue clave para derrotar a Villa y luego se convirtió en presidente."
+
+explicacion: |
+  Obregón fue el estratega militar más exitoso de la fase final de la revolución y luego presidente de México.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["zapata", "plan_de_ayala", "lema"]
+
+variables:
+  lema: "La tierra es de quien la trabaja"
+
+respuesta: "Zapata"
+tipo: completar
+
+enunciado: "El lema '{lema}' fue promovido por _______________."
+
+explicacion: |
+  Este lema resumía la filosofía agraria de Zapata: la legitimidad de la posesión viene del trabajo directo sobre la tierra.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["porfiriato", "estabilidad", "autoritarismo"]
+
+variables:
+  periodo: "Porfiriato"
+
+respuesta: "autoritaria"
+tipo: completar
+
+enunciado: "El {periodo} se caracterizó por una estabilidad _______________ pero marcada por la desigualdad social."
+
+explicacion: |
+  La estabilidad se lograba mediante la represión política y la exclusión de la participación democrática real.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["madero", "clase_media", "politico"]
+
+variables:
+  clase: "clase media"
+
+respuesta: "liberal"
+tipo: completar
+
+enunciado: "Madero representaba a la _______________ mexicana que quería modernizar el país sin destruir la estructura social existente."
+
+explicacion: |
+  Madero era un político liberal de clase media, preocupado por la democracia pero menos radical en la reforma social que Zapata o Villa.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["fin", "1920", "constitucion"]
+
+variables:
+  anio_fin: 1920
+
+respuesta: "1920"
+tipo: input
+
+enunciado: "Aunque la violencia continuó, se considera que la fase principal de la Revolución Mexicana concluyó alrededor del año _______________."
+
+explicacion: |
+  Con la muerte de Zapata (1919) y la caída y asesinato de Carranza (1920, tras el Plan de Agua Prieta), se cierra la fase armada principal, ya bajo la Constitución de 1917 vigente.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "avanzado"
+  tags: ["zapata", "muerte", "1919"]
+
+variables:
+  lider: "Emiliano Zapata"
+
+respuesta: "emboscada"
+tipo: completar
+
+enunciado: "Emiliano Zapata fue asesinado en una _______________ organizada por las fuerzas gubernamentales."
+
+explicacion: |
+  La muerte de Zapata fue un golpe duro para el movimiento agrarista, aunque sus ideales perduraron en la constitución.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "intermedio"
+  tags: ["villa", "exilio", "fin"]
+
+variables:
+  lider: "Pancho Villa"
+
+respuesta: "exilio"
+tipo: completar
+
+enunciado: "Tras su derrota militar, Villa aceptó un acuerdo y se retiró al _______________ antes de volver brevemente a la política."
+
+explicacion: |
+  Villa fue pacificado inicialmente, recibiendo una hacienda, pero su poder militar fue desmantelado.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "avanzado"
+  tags: ["constitucion", "articulo_123", "trabajo"]
+
+variables:
+  articulo: 123
+
+respuesta: "trabajo"
+tipo: completar
+
+enunciado: "El artículo {articulo} de la Constitución de 1917 estableció los derechos de los _______________."
+
+explicacion: |
+  El Art. 123 fue pionero en derechos laborales: jornada máxima, salario mínimo, derecho de huelga y descanso dominical.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "basico"
+  tags: ["madero", "lema", "sufragio"]
+
+variables:
+  parte1: "Sufragio efectivo"
+
+respuesta: "no reelección"
+tipo: completar
+
+enunciado: "Completa el lema: '{parte1}', _______________."
+
+explicacion: |
+  El lema completo era "Sufragio efectivo, no reelección", enfocándose en la democracia política.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "revolucion_mexicana_1910_1920"
+  nivel: "avanzado"
+  tags: ["internacional", "eeuu", "intervencion"]
+
+variables:
+  pais: "Estados Unidos"
+
+respuesta: "intervencion"
+tipo: completar
+
+enunciado: "La relación con {pais} fue complicada, ya que este país temía una _______________ extranjera en sus intereses económicos."
+
+explicacion: |
+  EE.UU. tuvo una postura ambigua, a veces apoyando a Madero o a Huerta según sus intereses, pero temiendo la inestabilidad en su frontera.
+```
+
+## Sección: antes-y-despues-de-cristo (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "basico"
+  tags: ["ano_0"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El calendario gregoriano no tiene año 0: se pasa directamente del año 1 a.C. al año 1 d.C."
+
+pasos:
+  - "Es la particularidad central que hace que calcular intervalos que cruzan ese punto sea distinto de una resta simple."
+
+explicacion: |
+  Verdadero: la ausencia de año 0 es la fuente de casi todos los
+  errores al calcular estos intervalos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "basico"
+  tags: ["despues_de_cristo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Después de Cristo (d.C.), los años aumentan con el tiempo: 100 d.C. es anterior a 200 d.C."
+
+pasos:
+  - "Es el sentido habitual de conteo, igual que cualquier número positivo creciente."
+
+explicacion: |
+  Verdadero: en d.C., el número más chico es siempre más antiguo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "intermedio"
+  tags: ["antes_de_cristo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Antes de Cristo (a.C.), los años disminuyen con el tiempo hacia el presente: el año 100 a.C. es posterior (más cercano al presente) que el año 200 a.C."
+
+pasos:
+  - "Cuanto más grande el número en a.C., más lejano en el pasado."
+
+explicacion: |
+  Verdadero: en a.C. la relación se invierte respecto de d.C.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "intermedio"
+  tags: ["antes_de_cristo", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "500 a.C."
+tipo: mc
+opciones_explicitas: ["500 a.C.", "300 a.C."]
+
+enunciado: "¿Cuál de estos dos años es más antiguo?"
+
+pasos:
+  - "En a.C., el número más grande es más antiguo (más lejano en el pasado)."
+
+explicacion: |
+  500 a.C. es más antiguo que 300 a.C., aunque el número sea mayor.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "intermedio"
+  tags: ["formula", "cruce_ano_0"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para calcular cuántos años pasaron entre un año X a.C. y un año Y d.C., se suman los dos números (no se restan), porque no hay año 0 que se pueda cancelar entre ambos."
+
+pasos:
+  - "Es la fórmula central de este tema: Intervalo = X (a.C.) + Y (d.C.)."
+
+explicacion: |
+  Verdadero: es la regla central de cálculo cuando el intervalo
+  cruza del a.C. al d.C.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "intermedio"
+  tags: ["cruce_ano_0", "practica"]
+
+variables:
+  anio_ac: random(200, 600)
+  anio_dc: random(100, 500)
+
+respuesta: anio_ac + anio_dc
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos años pasaron desde el año {anio_ac} a.C. hasta el año {anio_dc} d.C.?"
+
+pasos:
+  - "Sumar los dos números, porque el intervalo cruza el año 0 inexistente."
+
+explicacion: |
+  El intervalo se calcula sumando el año a.C. y el año d.C., no
+  restándolos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "intermedio"
+  tags: ["cruce_ano_0", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "500"
+tipo: completar
+
+enunciado: "¿Cuántos años pasaron desde el año 300 a.C. hasta el año 200 d.C.?"
+
+pasos:
+  - "300 + 200 = 500 años."
+
+explicacion: |
+  Es el ejemplo clásico usado en la teoría: 300 a.C. + 200 d.C. = 500
+  años de intervalo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "basico"
+  tags: ["mismo_lado", "practica"]
+
+variables:
+  anio_menor: random(400, 700)
+  anio_mayor: random(800, 1200)
+
+respuesta: anio_mayor - anio_menor
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos años pasaron desde el año {anio_menor} d.C. hasta el año {anio_mayor} d.C.?"
+
+pasos:
+  - "Si ambos años están en d.C., se resta normalmente: el mayor menos el menor."
+
+explicacion: |
+  Cuando ambos años están del mismo lado (d.C.), el cálculo es una
+  resta simple.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "intermedio"
+  tags: ["mismo_lado", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "200"
+tipo: completar
+
+enunciado: "¿Cuántos años pasaron desde el año 500 a.C. hasta el año 300 a.C.?"
+
+pasos:
+  - "500 - 300 = 200. En a.C., el número mayor es más antiguo, así que se resta el menor al mayor igual."
+
+explicacion: |
+  Cuando ambos años están en a.C., se resta el número menor al mayor,
+  igual que con d.C., pero recordando que \"más grande\" significa
+  \"más antiguo\" en este caso.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "avanzado"
+  tags: ["cruce_ano_0", "error_comun"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para calcular el intervalo entre 300 a.C. y 200 d.C., conviene restar 300 menos 200, igual que se haría si ambos años estuvieran del mismo lado."
+
+pasos:
+  - "Como el intervalo cruza el año 0 inexistente, hay que sumar los dos números, no restarlos."
+
+explicacion: |
+  Falso: restar en este caso da un resultado incorrecto; la fórmula
+  correcta al cruzar el año 0 es sumar ambos números.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "avanzado"
+  tags: ["recta_numerica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El a.C. se puede pensar como números negativos y el d.C. como números positivos, pero sin el cero real entre medio."
+
+pasos:
+  - "Es la analogía que ayuda a entender por qué se suman los valores absolutos en vez de restarlos."
+
+explicacion: |
+  Verdadero: es la analogía descrita en la teoría para justificar la
+  fórmula de suma.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "basico"
+  tags: ["antes_de_cristo", "despues_de_cristo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cualquier año a.C. es siempre anterior a cualquier año d.C., sin excepción."
+
+pasos:
+  - "Todo lo que ocurrió antes de Cristo (a.C.) es, por definición, anterior a cualquier fecha después de Cristo (d.C.)."
+
+explicacion: |
+  Verdadero: es una consecuencia directa de la definición del
+  sistema de datación.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "avanzado"
+  tags: ["cruce_ano_0", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "780"
+tipo: completar
+
+enunciado: "Si un imperio se fundó en el año 753 a.C. y desapareció en el año 27 d.C., ¿cuántos años duró?"
+
+pasos:
+  - "El intervalo cruza el año 0 inexistente: se suman los dos números (753 + 27)."
+
+explicacion: |
+  753 + 27 = 780 años de duración, aplicando la fórmula de suma para
+  intervalos que cruzan del a.C. al d.C.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "intermedio"
+  tags: ["identificacion", "practica"]
+
+variables:
+  pares: ["100 a.C. y 50 d.C.", "300 d.C. y 500 d.C."]
+  cruza: [verdadero, falso]
   idx: uno_de([0, 1])
 
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["juicio histórico", "juicio ético"]
+respuesta: cruza[idx]
+tipo: vf
 
-enunciado: "\"{afirmaciones[idx]}\" es un ejemplo de..."
+enunciado: "El intervalo entre {pares[idx]} cruza el año 0 (hay que sumar los años en vez de restar)."
 
 pasos:
-  - "Analizar por qué ocurrió algo es un juicio histórico; evaluar si fue correcto/incorrecto y qué responsabilidad genera es un juicio ético."
+  - "Si uno de los años es a.C. y el otro d.C., el intervalo cruza el año 0."
 
 explicacion: |
-  Distinguir juicio histórico de juicio ético es la aplicación
-  central de este tema.
+  Identificar si un intervalo cruza el año 0 es el primer paso para
+  elegir la fórmula correcta (suma o resta).
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "dimension_etica"
+  tema: "antes_y_despues_de_cristo"
   nivel: "avanzado"
-  tags: ["juicio_historico", "juicio_etico"]
+  tags: ["error_comun"]
 
 variables:
   n: uno_de([1, 1])
@@ -708,66 +2193,90 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El juicio histórico (por qué ocurrió algo) y el juicio ético (si fue correcto y qué responsabilidad genera hoy) son ambos necesarios para entender un hecho grave del pasado, pero son preguntas distintas."
+enunciado: "Un error común es tratar los años a.C. como si aumentaran con el tiempo igual que los años d.C., cuando en realidad disminuyen hacia el presente."
 
 pasos:
-  - "Ver `../../filosofia/etica-como-rama-propia/`: es la misma distinción entre descripción y evaluación, aplicada ahora al pasado histórico."
+  - "Confundir el sentido de conteo del a.C. es la fuente más común de errores en este tema."
 
 explicacion: |
-  Verdadero: es la distinción central de este tema entre analizar y
-  evaluar un hecho histórico.
+  Verdadero: es el error conceptual central que este tema busca
+  evitar.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["consenso_variable"]
+  tema: "antes_y_despues_de_cristo"
+  nivel: "intermedio"
+  tags: ["cruce_ano_0", "practica"]
 
 variables:
-  n: uno_de([1, 1])
+  anio_ac: random(50, 150)
+  anio_dc: random(50, 150)
 
-respuesta: verdadero
-tipo: vf
+respuesta: anio_ac + anio_dc
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "Algunos juicios éticos sobre el pasado tienen amplio consenso; otros (como la forma exacta de reparar un daño histórico) son objeto de debate legítimo."
+enunciado: "Un evento ocurrió en el año {anio_ac} a.C. y otro en el año {anio_dc} d.C. ¿Cuántos años pasaron entre ambos eventos?"
 
 pasos:
-  - "Reconocer esa diferencia es parte de manejar esta dimensión con rigor, no con simplificación."
+  - "Sumar los dos valores porque el intervalo cruza el año 0."
 
 explicacion: |
-  Verdadero: es un matiz importante sobre la variedad de consenso
-  posible en juicios éticos históricos.
+  Aplicar la fórmula de suma para intervalos que cruzan del a.C. al
+  d.C.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["consenso_variable", "anacronismo"]
+  tema: "antes_y_despues_de_cristo"
+  nivel: "intermedio"
+  tags: ["mismo_lado", "practica"]
 
 variables:
-  n: uno_de([1, 1])
+  anio_reciente: random(100, 300)
+  anio_antiguo: random(400, 700)
 
-respuesta: verdadero
-tipo: vf
+respuesta: anio_antiguo - anio_reciente
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "Hasta qué punto juzgar a personas del pasado con estándares éticos actuales es uno de los temas de debate legítimo mencionados en la teoría, sin una respuesta única y cerrada."
+enunciado: "¿Cuántos años pasaron desde el año {anio_antiguo} a.C. hasta el año {anio_reciente} a.C.?"
 
 pasos:
-  - "Es un ejemplo concreto de la variedad de consenso posible dentro de la dimensión ética."
+  - "En a.C., el número mayor es el más antiguo: se resta el menor al mayor."
 
 explicacion: |
-  Verdadero: es un ejemplo específico mencionado del tipo de debate
-  legítimo dentro de esta dimensión.
+  Cuando ambos años están en a.C., el cálculo sigue siendo una resta,
+  cuidando qué número representa el año más antiguo.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "dimension_etica"
+  tema: "antes_y_despues_de_cristo"
+  nivel: "intermedio"
+  tags: ["metodo"]
+
+enunciado: "Ordená los pasos para calcular correctamente el intervalo entre dos años históricos."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar si ambos años están del mismo lado (los dos a.C. o los dos d.C.) o si cruzan el año 0"
+  - "Si están del mismo lado, restar el número menor al mayor"
+  - "Si cruzan el año 0, sumar los dos números (a.C. + d.C.)"
+  - "Verificar que el resultado tenga sentido según la duración esperada del período"
+respuesta_orden: ["Identificar si ambos años están del mismo lado (los dos a.C. o los dos d.C.) o si cruzan el año 0", "Si están del mismo lado, restar el número menor al mayor", "Si cruzan el año 0, sumar los dos números (a.C. + d.C.)", "Verificar que el resultado tenga sentido según la duración esperada del período"]
+explicacion: |
+  El proceso empieza identificando el caso (mismo lado o cruce del
+  año 0) para aplicar la fórmula correcta en cada situación.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "antes_y_despues_de_cristo"
   nivel: "avanzado"
   tags: ["prerrequisito"]
 
@@ -777,22 +2286,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Juzgar qué le debemos a la memoria de lo ocurrido presupone ya poder distinguir qué de ese pasado cambió y qué sigue vigente hoy (deudas no saldadas, patrones que persisten)."
+enunciado: "Calcular estos intervalos con precisión es el prerrequisito directo de dividir la historia en períodos, que requiere poder calcular con exactitud cuánto duró cada uno."
 
 pasos:
-  - "Ver `../cambio-y-continuidad/`: es el prerrequisito directo de este tema."
+  - "Ver `../periodizacion-historica/`: es el tema siguiente de la cadena, incluidos períodos que cruzan del a.C. al d.C."
 
 explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito.
+  Verdadero: por eso este tema es prerrequisito directo del
+  siguiente en la cadena.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "dimension_etica"
+  tema: "antes_y_despues_de_cristo"
   nivel: "avanzado"
-  tags: ["big_six", "sintesis"]
+  tags: ["aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -800,1522 +2309,13 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Dimensión ética es el sexto y último concepto del marco Big Six de pensamiento histórico, cerrando el conjunto completo de esta cadena."
+enunciado: "Al estudiar la transición del mundo antiguo mediterráneo hacia la era cristiana, conviene aplicar la fórmula de suma (no de resta) para calcular correctamente cuántos años abarcó ese proceso, ya que cruza del a.C. al d.C."
 
 pasos:
-  - "Ver `../causa-y-consecuencia/`, `../cambio-y-continuidad/`, `../significancia-historica/`, `../evidencia/`: son los otros 5 conceptos del marco ya cubiertos."
+  - "Es la aplicación práctica directa de este tema a un caso histórico real que cruza el año 0."
 
 explicacion: |
-  Verdadero: es el sexto concepto del marco Big Six, completando el
-  conjunto de herramientas de pensamiento histórico.
+  Verdadero: es la aplicación concreta de este tema en el análisis
+  de procesos históricos reales que cruzan el cambio de era.
 ```
 
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["memoria_selectiva", "presente"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que un país decida hoy erigir (o retirar) un monumento a una figura histórica es una decisión que dice tanto sobre los valores actuales de esa sociedad como sobre el hecho histórico en sí."
-
-pasos:
-  - "Es la aplicación práctica de que la memoria histórica refleja valores del presente."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de cómo las decisiones de memoria
-  colectiva combinan pasado y presente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["dimension_etica", "rigor"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La dimensión ética permite reemplazar el análisis histórico riguroso (causas, evidencia) por un juicio moral directo sobre los hechos, sin necesitar evidencia ni análisis causal."
-
-pasos:
-  - "Ambos tipos de juicio (histórico y ético) son necesarios; uno no sustituye al otro."
-
-explicacion: |
-  Falso: el juicio ético se construye SOBRE el análisis histórico
-  riguroso, no lo reemplaza.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "intermedio"
-  tags: ["dimension_etica", "metodo"]
-
-enunciado: "Ordená los pasos para abordar la dimensión ética de un hecho histórico grave, después de ya analizarlo históricamente (causas, evidencia)."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar quiénes tienen versiones legítimas pero parciales del hecho (víctimas, perpetradores, historiadores)"
-  - "Preguntarse qué le debe la sociedad actual a las víctimas del hecho"
-  - "Analizar las condiciones que hicieron posible el hecho, para pensar cómo evitar repetirlo"
-  - "Revisar qué se recuerda y qué se olvida hoy sobre ese hecho, y por qué"
-respuesta_orden:
-  - "Identificar quiénes tienen versiones legítimas pero parciales del hecho (víctimas, perpetradores, historiadores)"
-  - "Preguntarse qué le debe la sociedad actual a las víctimas del hecho"
-  - "Analizar las condiciones que hicieron posible el hecho, para pensar cómo evitar repetirlo"
-  - "Revisar qué se recuerda y qué se olvida hoy sobre ese hecho, y por qué"
-
-explicacion: |
-  El proceso recorre las cuatro preguntas centrales de la dimensión
-  ética descritas en la teoría, en un orden lógico de análisis.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["dimension_etica", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La dimensión ética es lo que conecta el estudio del pasado con la responsabilidad del presente, la razón última por la que estudiar historia importa más allá de acumular información."
-
-pasos:
-  - "Es la síntesis central de por qué este tema cierra el marco Big Six de esta manera."
-
-explicacion: |
-  Verdadero: es la conclusión central sobre el propósito de este
-  tema dentro de toda la cadena de pensamiento histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["dimension_etica", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al estudiar un hecho histórico grave (una dictadura, un genocidio, una injusticia masiva), conviene complementar el análisis de causas y evidencia con las preguntas de la dimensión ética: qué le debemos a las víctimas y cómo se evita repetir el error."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema al estudio
-  responsable de hechos históricos graves.
-```
-
-## Sección: economias-regionales-tempranas (24 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["ley_aduanas", "urquiza", "proteccionismo"]
-
-variables:
-  anio: 1854
-
-respuesta: "proteger la producción local"
-tipo: completar
-
-enunciado: "La Ley de Aduanas promulgada en {anio} por el gobierno de Justo José de Urquiza tenía como objetivo principal:"
-
-explicacion: |
-  La ley buscaba proteger la industria naciente y la producción local frente a la competencia extranjera, especialmente la británica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["comercio_exterior", "britanicos"]
-
-variables:
-  pais: "británica"
-
-respuesta: "británica"
-tipo: completar
-
-enunciado: "La Ley de Aduanas de 1854 buscaba proteger la producción local frente a la competencia de la industria {pais}."
-
-explicacion: |
-  La industria británica era la principal competidora en el mercado argentino de la época.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["litoral", "entre_rios", "corrientes"]
-
-variables:
-  regiones: "Entre Ríos y Corrientes"
-
-respuesta: "Entre Ríos y Corrientes"
-tipo: completar
-
-enunciado: "Las provincias que más resistieron la Ley de Aduanas por considerar que amenazaba su autonomía económica fueron:"
-
-explicacion: |
-  Las provincias del Litoral, especialmente Entre Ríos y Corrientes, dependían más del comercio internacional y menos de la protección arancelaria.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["economia_litoral", "comercio"]
-
-variables:
-  caracteristica: "abierta"
-
-respuesta: "abierta"
-tipo: completar
-
-enunciado: "La economía de las provincias del Litoral se caracterizaba por ser más {caracteristica} al comercio internacional."
-
-explicacion: |
-  A diferencia del centro del país, el Litoral tenía una economía más integrada y dependiente del comercio exterior.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["conflicto_armado", "causas"]
-
-variables:
-  causa: "Ley de Aduanas"
-
-respuesta: "Ley de Aduanas"
-tipo: completar
-
-enunciado: "La resistencia a la {causa} se convirtió en el detonante de una nueva guerra civil entre la Confederación y el Litoral."
-
-explicacion: |
-  La aplicación estricta de la ley por Urquiza provocó la reacción armada de los caudillos litorales.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["lopez_jordan", "lideres"]
-
-variables:
-  lider: "Ricardo López Jordán"
-
-respuesta: "Ricardo López Jordán"
-tipo: completar
-
-enunciado: "El gobernador entrerriano que lideró la resistencia contra la Ley de Aduanas fue:"
-
-explicacion: |
-  Ricardo López Jordán fue el principal líder de la oposición en Entre Ríos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "avanzado"
-  tags: ["ideologia", "descentralizacion"]
-
-variables:
-  vision: "descentralizada"
-
-respuesta: "descentralizada"
-tipo: completar
-
-enunciado: "Los rebeldes del Litoral defendían una visión política más {vision}, donde las provincias tendrían mayor control sobre sus recursos."
-
-explicacion: |
-  Los caudillos litorales argumentaban a favor de una mayor autonomía provincial frente al centralismo confederado.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["exportaciones", "carne"]
-
-variables:
-  productos: "carne salada y cueros"
-
-respuesta: "carne salada y cueros"
-tipo: completar
-
-enunciado: "En la década de 1850, las exportaciones de {productos} seguían siendo vitales para la economía argentina."
-
-explicacion: |
-  Aunque la industria nacía, la ganadería y sus derivados seguían siendo la base de las exportaciones.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["fiscalidad", "estado"]
-
-variables:
-  fin: "asegurar ingresos"
-
-respuesta: "asegurar ingresos"
-tipo: completar
-
-enunciado: "Además de proteger la industria, la Ley de Aduanas buscaba {fin} para el Estado nacional."
-
-explicacion: |
-  El Estado nacional necesitaba recursos fiscales para estructurarse tras la caída de Rosas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "avanzado"
-  tags: ["soberania", "comercio"]
-
-variables:
-  objetivo_confederacion: "soberanía sobre el comercio exterior"
-
-respuesta: "soberanía sobre el comercio exterior"
-tipo: completar
-
-enunciado: "Mientras la Confederación buscaba consolidar la {objetivo_confederacion}, los rebeldes defendían la autonomía provincial."
-
-explicacion: |
-  El conflicto fue también una disputa sobre quién controlaba las tarifas y el comercio exterior.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["confederacion", "estructuracion"]
-
-variables:
-  estado: "recién comenzaba a estructurarse"
-
-respuesta: "recién comenzaba a estructurarse"
-tipo: completar
-
-enunciado: "La Ley de Aduanas se promulgó cuando el Estado nacional {estado} tras la caída de Rosas."
-
-explicacion: |
-  El nuevo orden constitucional estaba frágil y necesitaba consolidar su autoridad fiscal.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["percepcion", "amenaza"]
-
-variables:
-  percepcion: "amenaza directa"
-
-respuesta: "amenaza directa"
-tipo: completar
-
-enunciado: "Los caudillos litorales percibieron la Ley de Aduanas como una {percepcion} a su autonomía y prosperidad."
-
-explicacion: |
-  La ley fue vista no como una medida técnica, sino como un ataque político y económico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "avanzado"
-  tags: ["consecuencias", "guerra"]
-
-variables:
-  resultado: "no se resolvió con una victoria clara inmediata"
-
-respuesta: "no se resolvió con una victoria clara inmediata"
-tipo: completar
-
-enunciado: "La guerra entre la Confederación y el Litoral {resultado}, dejando un legado de desconfianza."
-
-explicacion: |
-  El conflicto prolongado debilitó la legitimidad del gobierno de Urquiza sin definir una supremacía clara de inmediato.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["acuerdos", "federalismo"]
-
-variables:
-  argumento: "violaba los acuerdos federales"
-
-respuesta: "violaba los acuerdos federales"
-tipo: completar
-
-enunciado: "Los rebeldes argumentaban que la ley {argumento} y perjudicaba sus economías locales."
-
-explicacion: |
-  La imposición unilateral de tarifas fue vista como una violación de los pactos federativos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["diplomacia", "conflicto"]
-
-variables:
-  evento: "rompimiento de relaciones"
-
-respuesta: "rompimiento de relaciones"
-tipo: completar
-
-enunciado: "La situación escaló rápidamente, llevando al {evento} diplomáticas entre el gobierno nacional y el Litoral."
-
-explicacion: |
-  La tensión económica derivó en una crisis política y diplomática abierta.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["rosas", "urquiza", "control"]
-
-variables:
-  control_rosas: "control absoluto"
-
-respuesta: "control absoluto"
-tipo: completar
-
-enunciado: "La tensión se generó aunque la capital ya no tuviera el {control_rosas} que había tenido bajo Rosas."
-
-explicacion: |
-  Urquiza intentaba centralizar el poder que Rosas había ejercido desde Buenos Aires, pero con menos fuerza coercitiva inicial.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "avanzado"
-  tags: ["constitucion", "fragilidad"]
-
-variables:
-  problema: "fragilidad del nuevo orden constitucional"
-
-respuesta: "fragilidad del nuevo orden constitucional"
-tipo: completar
-
-enunciado: "El conflicto puso de manifiesto la {problema} y la dificultad de integrar intereses dispares."
-
-explicacion: |
-  La incapacidad de resolver el conflicto fiscal mostró los límites del nuevo marco legal.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "avanzado"
-  tags: ["integracion", "economia"]
-
-variables:
-  desafio: "integrar intereses económicos tan dispares"
-
-respuesta: "integrar intereses económicos tan dispares"
-tipo: completar
-
-enunciado: "El gran desafío del momento era {desafio} bajo un mismo marco legal."
-
-explicacion: |
-  Los intereses de Buenos Aires/Confederación y los del Litoral eran económicamente antagónicos en términos arancelarios.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["tarifas", "proteccionismo"]
-
-variables:
-  politica: "tarifas altas"
-
-respuesta: "tarifas altas"
-tipo: completar
-
-enunciado: "La Ley de Aduanas imponía {politica} a las importaciones para proteger la industria local."
-
-explicacion: |
-  El proteccionismo se lograba mediante barreras arancelarias elevadas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["regulacion", "comercio_exterior"]
-
-variables:
-  accion: "regular el comercio exterior"
-
-respuesta: "regular el comercio exterior"
-tipo: completar
-
-enunciado: "Además de las tarifas, la ley buscaba {accion} bajo el control del Estado nacional."
-
-explicacion: |
-  La centralización del comercio exterior era clave para la soberanía nacional.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["litoral", "economia"]
-
-variables:
-  valor: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Las provincias del Litoral dependían más de la protección arancelaria que el centro del país."
-
-explicacion: |
-  Falso. El Litoral tenía una economía más abierta y dependía menos de la protección que el centro.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["guerra", "resultado"]
-
-variables:
-  valor: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La guerra entre la Confederación y el Litoral se resolvió con una victoria clara inmediata."
-
-explicacion: |
-  Falso. El conflicto dejó un legado de desconfianza y no tuvo un ganador claro de inmediato.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["urquiza", "aplicacion"]
-
-variables:
-  valor: "verdadero"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Justo José de Urquiza intentó aplicar la Ley de Aduanas de manera estricta."
-
-explicacion: |
-  Verdadero. Su estricta aplicación fue el detonante de la rebelión litoraleña.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["industria", "proteccion"]
-
-variables:
-  valor: "verdadero"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Ley de Aduanas buscaba fomentar la industria naciente argentina."
-
-explicacion: |
-  Verdadero. El proteccionismo arancelario tenía como fin desarrollar la manufactura local.
-```
-
-## Sección: escuela-de-los-annales (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "basico"
-  tags: ["escuela_de_los_annales", "criterio_central"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales propone mirar la historia a través de estructuras de larga duración: clima, geografía, demografía, economía."
-
-pasos:
-  - "En vez de centrarse en sucesos puntuales de reyes y batallas."
-
-explicacion: |
-  Verdadero: es el criterio central de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales se llama así por la revista académica Annales donde publicaban sus fundadores, en Francia, durante el siglo XX."
-
-pasos:
-  - "Es el origen del nombre de esta corriente historiográfica."
-
-explicacion: |
-  Verdadero: es el origen del nombre de esta escuela.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["marc_bloch"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Bloch"
-tipo: completar
-
-enunciado: "Uno de los fundadores de la Escuela de los Annales, autor de \"Apología para la historia\", se apellida..."
-
-pasos:
-  - "Marc Bloch es uno de los referentes centrales de esta corriente."
-
-explicacion: |
-  Bloch es autor central de esta corriente historiográfica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["marc_bloch", "contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"Apología para la historia\" de Marc Bloch se publicó póstumamente en 1949, después de que Bloch fuera fusilado por la resistencia francesa contra la ocupación nazi."
-
-pasos:
-  - "Es un dato histórico sobre las circunstancias de publicación de esta obra clásica."
-
-explicacion: |
-  Verdadero: es el contexto histórico de la publicación de esta obra
-  fundamental de la corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["fernand_braudel"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Braudel"
-tipo: completar
-
-enunciado: "El historiador de la Escuela de los Annales que propuso distinguir tres ritmos distintos de cambio histórico se apellida..."
-
-pasos:
-  - "Fernand Braudel es otro referente central de esta corriente."
-
-explicacion: |
-  Braudel es autor central de esta corriente, referente de los tres
-  niveles de tiempo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["larga_duracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "larga duración"
-tipo: mc
-opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
-
-enunciado: "El nivel de tiempo histórico que abarca estructuras casi inmóviles (geografía, clima) que cambian en siglos o milenios se llama..."
-
-pasos:
-  - "Es el nivel más lento de los tres propuestos por Braudel."
-
-explicacion: |
-  La larga duración es el nivel de cambio más lento de los tres
-  ritmos propuestos por Braudel.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["coyunturas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "coyunturas"
-tipo: mc
-opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
-
-enunciado: "El nivel de tiempo histórico que abarca ciclos económicos y sociales de mediano plazo (décadas) se llama..."
-
-pasos:
-  - "Es el nivel intermedio de los tres propuestos por Braudel."
-
-explicacion: |
-  Las coyunturas son el nivel intermedio de cambio, de duración
-  media (décadas).
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["acontecimientos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "acontecimientos"
-tipo: mc
-opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
-
-enunciado: "El nivel de tiempo histórico que abarca los hechos puntuales (batallas, tratados), llamado por Braudel la \"espuma\" de la historia, se llama..."
-
-pasos:
-  - "Es el nivel más rápido y visible, pero según Braudel menos determinante."
-
-explicacion: |
-  Los acontecimientos son el nivel más rápido y visible, pero para
-  Braudel el menos determinante de los tres.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["acontecimientos", "metafora"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Braudel describió a los acontecimientos como la \"espuma\" superficial de la historia: la parte más visible pero menos determinante."
-
-pasos:
-  - "Es la metáfora central usada por Braudel para describir la relación entre los tres niveles de tiempo."
-
-explicacion: |
-  Verdadero: es la metáfora central que usa Braudel para jerarquizar
-  los tres niveles de tiempo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["niveles_de_tiempo", "orden"]
-
-enunciado: "Ordená los tres niveles de tiempo histórico de Braudel, del más lento al más rápido."
-tipo: ordenar
-opciones_explicitas:
-  - "Larga duración"
-  - "Coyunturas"
-  - "Acontecimientos"
-respuesta_orden:
-  - "Larga duración"
-  - "Coyunturas"
-  - "Acontecimientos"
-
-explicacion: |
-  El orden va de las estructuras casi inmóviles (siglos/milenios) a
-  los ciclos de mediano plazo (décadas) y finalmente a los hechos
-  puntuales (días/años).
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["estructuras"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según la Escuela de los Annales, el clima, la geografía y la demografía de una región condicionan durante siglos qué es posible o probable en esa sociedad, más allá de qué rey gobierne en un momento dado."
-
-pasos:
-  - "Es la justificación central de por qué esta corriente prioriza las estructuras de larga duración."
-
-explicacion: |
-  Verdadero: es la razón central por la que esta corriente considera
-  más determinantes las estructuras que los sucesos puntuales.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["materialismo_historico", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico prioriza específicamente relaciones de clase y producción; la Escuela de los Annales incluye también factores geográficos y climáticos, no ligados directamente al conflicto de clases."
-
-pasos:
-  - "Ver `../materialismo-historico/`: es la diferencia de foco entre estas dos corrientes que ambas miran \"estructuras\"."
-
-explicacion: |
-  Verdadero: aunque ambas corrientes miran estructuras en vez de
-  grandes figuras, difieren en qué tipo de estructuras priorizan.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["materialismo_historico", "positivismo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Tanto el materialismo histórico como la Escuela de los Annales se apartan del foco en grandes figuras y hechos puntuales, propio del positivismo."
-
-pasos:
-  - "Ver `../positivismo/`: es el contraste común de ambas corrientes con la primera de la subrama."
-
-explicacion: |
-  Verdadero: ambas corrientes comparten esa distancia respecto del
-  enfoque positivista, aunque prioricen estructuras distintas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["niveles_de_tiempo", "practica"]
-
-variables:
-  ejemplos: ["la firma de un tratado de paz en un año específico", "el clima de una región que condicionó su agricultura durante siglos"]
-  niveles: ["acontecimientos", "larga duración"]
-  idx: uno_de([0, 1])
-
-respuesta: niveles[idx]
-tipo: mc
-opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
-
-enunciado: "\"{ejemplos[idx]}\" corresponde al nivel de tiempo histórico de..."
-
-pasos:
-  - "Un hecho puntual es acontecimiento; un factor que cambia en siglos es larga duración."
-
-explicacion: |
-  Clasificar un ejemplo según su ritmo de cambio (siglos, décadas o
-  puntual) es la aplicación central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["acontecimientos", "matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales no ignora por completo los acontecimientos puntuales, sino que los considera menos determinantes que las estructuras de fondo, sin eliminarlos del análisis."
-
-pasos:
-  - "Es un matiz importante: la jerarquía entre los tres niveles no significa descartar por completo el nivel de los acontecimientos."
-
-explicacion: |
-  Verdadero: es un matiz importante sobre la relación entre los tres
-  niveles de tiempo propuestos por Braudel.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la misma conexión conceptual ya vista en las
-  corrientes anteriores de esta subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["larga_duracion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que un pueblo se haya desarrollado alrededor de un río navegable durante siglos, condicionando su comercio y su forma de organización social, es un ejemplo de análisis desde la larga duración de los Annales."
-
-pasos:
-  - "Es la aplicación práctica del foco en geografía como estructura de larga duración."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de análisis desde la perspectiva
-  de la larga duración de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["escuela_de_los_annales", "metodo"]
-
-enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque de la Escuela de los Annales."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si el foco está en estructuras de larga duración (clima, geografía, demografía)"
-  - "Identificar si se distinguen distintos ritmos de cambio (larga duración, coyunturas, acontecimientos)"
-  - "Revisar si los sucesos puntuales se tratan como menos determinantes que las estructuras de fondo"
-  - "Concluir si el texto corresponde al enfoque de la Escuela de los Annales"
-respuesta_orden:
-  - "Revisar si el foco está en estructuras de larga duración (clima, geografía, demografía)"
-  - "Identificar si se distinguen distintos ritmos de cambio (larga duración, coyunturas, acontecimientos)"
-  - "Revisar si los sucesos puntuales se tratan como menos determinantes que las estructuras de fondo"
-  - "Concluir si el texto corresponde al enfoque de la Escuela de los Annales"
-
-explicacion: |
-  El análisis va del foco temático a la jerarquía de niveles de
-  tiempo, para concluir si corresponde a esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales es la tercera de las cuatro corrientes historiográficas de esta subrama, hermana de positivismo, materialismo histórico e historia cultural."
-
-pasos:
-  - "Ver `../positivismo/`, `../materialismo-historico/` y `../historia-cultural/`: los cuatro nodos hermanos dependen de `../multicausalidad/`."
-
-explicacion: |
-  Verdadero: es la relación entre este tema y los otros tres de la
-  subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["escuela_de_los_annales", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer un libro de historia centrado en cómo el clima y la geografía de una región condicionaron su desarrollo económico y social a lo largo de siglos, conviene reconocer que está aplicando un enfoque cercano a la Escuela de los Annales."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema para reconocer el
-  enfoque historiográfico de un texto real.
-```
-
-## Sección: evidencia (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "basico"
-  tags: ["evidencia", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Toda afirmación histórica debe apoyarse en evidencia (fuentes que la respalden); sin evidencia, es sólo una opinión o especulación."
-
-pasos:
-  - "No importa qué tan razonable suene una afirmación, sin evidencia no es un aporte histórico riguroso."
-
-explicacion: |
-  Verdadero: es el punto de partida central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["alcance"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Este tema no repite qué es fuente primaria vs. secundaria, ya visto en interpretar una fuente histórica; profundiza específicamente en criterios de confiabilidad."
-
-pasos:
-  - "Ver `../interpretar-una-fuente-historica/`: es la aclaración de alcance central de este tema."
-
-explicacion: |
-  Verdadero: es la delimitación de alcance explícita entre estos dos
-  temas relacionados.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["criterios_de_confiabilidad", "cercania_a_hechos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En general, una fuente primaria contemporánea a los hechos es más confiable para reconstruir detalles concretos que una fuente muy posterior basada en memoria o tradición oral distante."
-
-pasos:
-  - "Es uno de los criterios de confiabilidad mencionados en la teoría, aunque no es una regla absoluta."
-
-explicacion: |
-  Verdadero: es el criterio de cercanía a los hechos, con el matiz de
-  que \"en general\" no es una regla sin excepciones.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["criterios_de_confiabilidad", "independencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si varias fuentes independientes entre sí (que no se copiaron unas a otras) coinciden en un dato, ese dato es más confiable que si viene de una sola fuente aislada."
-
-pasos:
-  - "Es otro de los criterios de confiabilidad mencionados en la teoría."
-
-explicacion: |
-  Verdadero: la coincidencia entre fuentes independientes es un
-  criterio central de confiabilidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["criterios_de_confiabilidad", "consistencia_interna"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una fuente que se contradice a sí misma es menos confiable que una internamente coherente."
-
-pasos:
-  - "Es otro de los criterios de confiabilidad mencionados en la teoría."
-
-explicacion: |
-  Verdadero: la consistencia interna es un criterio básico para
-  evaluar la confiabilidad de una fuente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["criterios_de_confiabilidad", "conflicto_de_interes"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una fuente producida por alguien con un interés directo en cómo se cuentan los hechos (un gobierno hablando de su propio desempeño) necesita contrastarse con más cuidado que una fuente sin ese interés directo."
-
-pasos:
-  - "Es otro de los criterios de confiabilidad mencionados en la teoría."
-
-explicacion: |
-  Verdadero: el conflicto de interés es un factor central a
-  considerar al evaluar la confiabilidad de una fuente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["criterios_de_confiabilidad", "corroboracion_material"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La evidencia material (restos arqueológicos, registros no narrativos como censos o recibos), cuando existe, puede confirmar o contradecir lo que dicen las fuentes narrativas."
-
-pasos:
-  - "Es otro de los criterios de confiabilidad mencionados en la teoría."
-
-explicacion: |
-  Verdadero: la corroboración con evidencia material es un criterio
-  adicional de confiabilidad, distinto de las fuentes narrativas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["confiabilidad_gradual"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La confiabilidad de una fuente no es binaria (confiable/no confiable), sino una cuestión de grado que varía según para qué se usa la fuente."
-
-pasos:
-  - "Una fuente muy sesgada puede seguir siendo confiable para reconstruir hechos puntuales verificables, aunque no para reconstruir motivaciones."
-
-explicacion: |
-  Verdadero: es un matiz central sobre la naturaleza gradual de la
-  confiabilidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["confiabilidad_gradual", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una carta muy sesgada políticamente puede seguir siendo confiable para confirmar una fecha o un nombre concreto, aunque no lo sea para reconstruir las motivaciones políticas de quien la escribió."
-
-pasos:
-  - "Es la aplicación práctica de que la confiabilidad varía según para qué se usa la fuente."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de por qué la confiabilidad no es
-  un juicio único sobre toda la fuente en bloque.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["triangulacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La triangulación consiste en cruzar información de varias fuentes de tipo distinto (documentos, testimonios, evidencia material) para ver si coinciden."
-
-pasos:
-  - "Es la estrategia central para evaluar evidencia descrita en la teoría."
-
-explicacion: |
-  Verdadero: es la definición central de triangulación en este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["triangulacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuantas más fuentes independientes coincidan en un dato, más confiable es esa reconstrucción del pasado."
-
-pasos:
-  - "Es la conclusión central de por qué la triangulación es la estrategia más sólida."
-
-explicacion: |
-  Verdadero: es el principio central de la triangulación como
-  estrategia de evaluación de evidencia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["criterios_de_confiabilidad", "practica"]
-
-variables:
-  situaciones: ["tres cronistas de distintos países, sin contacto entre sí, describen la misma batalla con detalles coincidentes", "una carta que primero dice que el rey estaba en la capital y más adelante dice que estaba de viaje ese mismo día"]
-  criterios: ["independencia de la fuente", "consistencia interna (ausente)"]
-  idx: uno_de([0, 1])
-
-respuesta: criterios[idx]
-tipo: mc
-opciones_explicitas: ["independencia de la fuente", "consistencia interna (ausente)", "conflicto de interés", "corroboración material"]
-
-enunciado: "\"{situaciones[idx]}\" es un ejemplo relacionado con el criterio de..."
-
-pasos:
-  - "Fuentes distintas que coinciden sin contacto entre sí: independencia. Una fuente que se contradice: falta de consistencia interna."
-
-explicacion: |
-  Reconocer qué criterio de confiabilidad aplica a un caso concreto
-  es la práctica central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Evaluar la confiabilidad de una fuente reusa el mismo tipo de escrutinio que exige establecer una relación causal con evidencia real, no sólo cercanía temporal."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/`: es el prerrequisito directo de este tema."
-
-explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["big_six"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Evidencia es uno de los 6 conceptos del marco \"Big Six\" de pensamiento histórico, junto a causa/consecuencia y significancia histórica."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/` y `../significancia-historica/`: son otros conceptos de ese mismo marco."
-
-explicacion: |
-  Verdadero: es el mismo marco teórico ya mencionado en varios temas
-  de esta cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["confiabilidad_gradual"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Incluso una fuente muy sesgada o parcial suele aportar algún tipo de información confiable, aunque haya que contrastarla con cuidado."
-
-pasos:
-  - "Es coherente con la idea de que la confiabilidad es una cuestión de grado, no un juicio absoluto."
-
-explicacion: |
-  Verdadero: es la aplicación práctica de que ninguna fuente es
-  completamente confiable ni completamente inútil.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["cercania_a_hechos", "matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una fuente contemporánea a los hechos es SIEMPRE más confiable que una fuente posterior, sin ninguna excepción."
-
-pasos:
-  - "La teoría marca explícitamente \"en general, no siempre\": una fuente contemporánea puede estar igualmente sesgada o incluso más comprometida con los hechos que una posterior con perspectiva."
-
-explicacion: |
-  Falso: es una tendencia general, no una regla absoluta sin
-  excepciones.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["corroboracion_material", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una crónica narrativa afirma que una ciudad tenía cierta cantidad de habitantes, y los restos arqueológicos disponibles contradicen esa cifra, la evidencia material puede llevar a reconsiderar la confiabilidad de la crónica en ese punto."
-
-pasos:
-  - "Es la aplicación práctica de por qué la corroboración material es un criterio útil de confiabilidad."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de cómo la evidencia material
-  puede confirmar o contradecir fuentes narrativas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["evidencia", "metodo"]
-
-enunciado: "Ordená los pasos para evaluar la confiabilidad de una fuente histórica, después de ya clasificarla como primaria o secundaria."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si la fuente es internamente consistente, sin contradecirse"
-  - "Revisar si hay un conflicto de interés evidente en quien la produjo"
-  - "Buscar otras fuentes independientes que confirmen o contradigan el mismo dato"
-  - "Contrastar, si existe, con evidencia material disponible"
-respuesta_orden:
-  - "Revisar si la fuente es internamente consistente, sin contradecirse"
-  - "Revisar si hay un conflicto de interés evidente en quien la produjo"
-  - "Buscar otras fuentes independientes que confirmen o contradigan el mismo dato"
-  - "Contrastar, si existe, con evidencia material disponible"
-
-explicacion: |
-  El proceso aplica sucesivamente los criterios de confiabilidad
-  descritos en la teoría, terminando con la triangulación completa.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["evidencia", "significancia_historica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Evidencia (qué tan confiable es una fuente) y significancia histórica (qué del pasado vale la pena estudiar) son dos conceptos hermanos del marco Big Six, complementarios pero distintos entre sí."
-
-pasos:
-  - "Ver `../significancia-historica/`: ambos cuelgan de puntos distintos de la misma cadena de pensamiento histórico."
-
-explicacion: |
-  Verdadero: son dos preguntas distintas (qué estudiar vs. cómo saber
-  si es confiable lo que se encuentra) que se complementan en la
-  investigación histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["evidencia", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer una fuente histórica sobre un tema controvertido, conviene aplicar la triangulación: buscar otras fuentes independientes que confirmen o contradigan la información, en vez de aceptar una sola fuente como suficiente."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema al analizar
-  cualquier fuente histórica real, especialmente sobre temas
-  controvertidos.
-```

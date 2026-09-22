@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de las Conservaciones
+# Examen jefe — [PENDIENTE #738]
 
-> Logro #158. Dominaste la energía, la corriente y las radiaciones para cerrar este parcial con éxito. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **122 preguntas totales** en 5/5 secciones.
+> Logro #738. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -48,7 +48,9 @@ metadata:
 
 respuesta: ["energia_cinetica", "energia_potencial"]
 tipo: completar
-respuestas_validas: ["energia_cinetica", "energia_potencial"]
+respuestas_validas:
+  - "energia_cinetica"
+  - "energia_potencial"
 
 enunciado: "La energía mecánica de un objeto en movimiento se compone de la ___ y la ___."
 
@@ -109,7 +111,7 @@ enunciado: "Calcula la energía cinética de un objeto de {m} kg que se desplaza
 
 pasos:
   - "Identificar la masa (m = 10 kg) y la velocidad (v = 5 m/s)."
-  - "Aplicar la fórmula $E_c = \frac{1}{2} \cdot m \cdot v^2$."
+  - "Aplicar la fórmula $E_c = \\frac{1}{2} \\cdot m \\cdot v^2$."
 
 explicacion: |
   $E_c = 0.5 \cdot 10 \cdot 5^2 = 0.5 \cdot 10 \cdot 25 = 125$ Joules.
@@ -135,7 +137,7 @@ enunciado: "Calcula la energía potencial gravitatoria de un objeto de {m} kg si
 
 pasos:
   - "Identificar masa (m=2) y altura (h=10)."
-  - "Usar la fórmula $E_p = m \cdot g \cdot h$."
+  - "Usar la fórmula $E_p = m \\cdot g \\cdot h$."
 
 explicacion: |
   $E_p = 2 \cdot 9.8 \cdot 10 = 196$ Joules.
@@ -154,19 +156,22 @@ variables:
   h: 10
   g: 9.8
 
-respuesta: 510
+respuesta: 530
 tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "Un objeto de {m} kg se encuentra a una altura de {h} metros con una velocidad de {v} m/s. ¿Cuál es su energía mecánica total?"
 
 pasos:
-  - "Calcular $E_c = 0.5 \cdot 5 \cdot 4^2 = 40$ J."
-  - "Calcular $E_p = 5 \cdot 9.8 \cdot 10 = 490$ J."
-  - "Sumar $E_c + E_p = 40 + 490 = 530$."
+  - "Calcular Ec = 0.5 * {m} * {v}^2 = 40 J."
+  - "Calcular Ep = {m} * {g} * {h} = 490 J."
+  - "Sumar Ec + Ep = 40 + 490 = 530."
 
 explicacion: |
-  $E_{total} = 530$ J. (Nota: El enunciado pide el cálculo, el valor es 530).
+  La energía mecánica total es la suma de la energía cinética y la potencial.
+  Ec = 0.5 * m * v^2 = 0.5 * 5 * 16 = 40 J
+  Ep = m * g * h = 5 * 9.8 * 10 = 490 J
+  Et = 40 + 490 = 530 J
 ```
 
 ```
@@ -209,13 +214,13 @@ metadata:
   nivel: "intermedio"
   tags: ["error", "relacion"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Si duplicamos la masa de un objeto, su energía cinética se duplica para una misma velocidad."
 
 explicacion: |
-  Verdadero. $E_c = 0.5 \cdot m \cdot v^2$, por lo tanto es directamente proporcional a la masa. (Nota: El usuario debe saber que es verdadero).
+  Verdadero. $E_c = 0.5 \cdot m \cdot v^2$, por lo tanto es directamente proporcional a la masa.
 ```
 
 ```
@@ -259,11 +264,10 @@ tolerancia_abs: 1
 enunciado: "En una montaña rusa, un carrito de {m} kg parte del reposo desde una altura de {h_inicial} m. ¿Cuál es su energía mecánica total en ese punto?"
 
 pasos:
-  - "Como está en reposo, $E_c = 0$."
-  - "Calcular $E_p = m \cdot g \cdot h = 100 \cdot 9.8 \cdot 50$."
+  - "Como está en reposo, E_c = 0."
+  - "Calcular E_p = m * g * h = 100 * 9.8 * 50."
 
-explicacion: |
-  $E_{total} = 49000$ J.
+explicacion: "E_total = 49000 J."
 ```
 
 ```
@@ -301,7 +305,8 @@ pasos:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 tolerancia_abs: 0.1
 
 explicacion: |
@@ -344,7 +349,8 @@ pasos:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 tolerancia_abs: 0.1
 
 explicacion: |
@@ -386,7 +392,8 @@ pasos:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 tolerancia_abs: 0.1
 
 explicacion: |
@@ -430,7 +437,8 @@ pasos:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 tolerancia_abs: 0.1
 
 explicacion: |
@@ -460,7 +468,9 @@ metadata:
   nivel: "intermedio"
   tags: ["pendulo", "completar"]
 
-respuestas_validas: ["máximo", "maximo"]
+respuestas_validas:
+  - "máximo"
+  - "maximo"
 respuesta: "máximo"
 tipo: completar
 
@@ -489,7 +499,8 @@ pasos:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 tolerancia_abs: 0.1
 
 explicacion: |
@@ -523,7 +534,9 @@ metadata:
 
 respuesta: "flujo de carga"
 tipo: completar
-respuestas_validas: ["flujo de carga", "movimiento de cargas"]
+respuestas_validas:
+  - "flujo de carga"
+  - "movimiento de cargas"
 
 enunciado: "La corriente eléctrica se define físicamente como el ___ a través de un conductor."
 
@@ -538,10 +551,7 @@ metadata:
   nivel: "basico"
   tags: ["unidades", "amperio"]
 
-variables:
-  opciones: [["Amperio", "Voltio", "Ohmio", "Coulomb"]]
-
-respuesta: opciones[uno_de([0,1,2,3])]
+respuesta: "Amperio"
 tipo: mc
 opciones_explicitas: ["Amperio", "Voltio", "Ohmio", "Coulomb"]
 
@@ -599,7 +609,7 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-respuesta: ["Carga eléctrica", "Conductor", "Fuente de energía"]
+respuesta_orden: ["Carga eléctrica", "Conductor", "Fuente de energía"]
 tipo: ordenar
 
 opciones_explicitas: ["Carga eléctrica", "Conductor", "Fuente de energía"]
@@ -618,10 +628,10 @@ metadata:
   tags: ["intensidad", "carga", "amperios"]
 
 variables:
-  datos: [[0.005, "0.005"], [0.012, "0.012"], [0.025, "0.025"]]
-  idx: uno_de([0,1,2])
-  carga: datos[idx][0]
-  respuesta_str: datos[idx][1]
+  idx: uno_de([0, 1, 2])
+  cargas: [0.005, 0.012, 0.025]
+  carga: cargas[idx]
+  resultados_texto: ["0.0025", "0.006", "0.0125"]
 
 respuesta: carga / 2.0
 tipo: completar
@@ -636,7 +646,7 @@ pasos:
   - "Calcular: {carga} / 2"
 
 explicacion: |
-  La intensidad de corriente (I) se define como la cantidad de carga que pasa por un punto en un tiempo determinado. La fórmula es I = Q / t. En este caso, {carga} / 2 = {respuesta_str} A.
+  La intensidad de corriente (I) se define como la cantidad de carga que pasa por un punto en un tiempo determinado. La fórmula es I = Q / t. En este caso, {carga} / 2 = {resultados_texto[idx]} A.
 ```
 
 ```
@@ -680,20 +690,19 @@ metadata:
   tags: ["calculo", "corriente"]
 
 variables:
-  escenario: [[10, 2, "0.5"], [20, 5, "4.0"], [5, 1, "5.0"]]
+  escenario: [[10, 2], [20, 5], [5, 1]]
   idx: uno_de([0,1,2])
   q: escenario[idx][0]
   t: escenario[idx][1]
-  res: escenario[idx][2]
 
-respuesta: res
+respuesta: q / t
 tipo: completar
-respuestas_validas: ["0.5", "4.0", "5.0"]
+tolerancia_abs: 0.01
 
-enunciado: "Si una corriente de ___ A fluye por un cable, la carga que atraviesa el conductor en ___ segundos es de ___ C."
+enunciado: "Si una carga de {q} C atraviesa un conductor en un tiempo de {t} segundos, ¿cuál es la intensidad de corriente (en Amperios)?"
 
 explicacion: |
-  Usando la relación despejada de la fórmula I = Q / t, tenemos que Q = I * t. Para este caso: {res} = {q} * {t}.
+  Usando la fórmula I = Q / t: {q} / {t} = {q / t} A.
 ```
 
 ```
@@ -704,7 +713,7 @@ metadata:
   tags: ["procedimiento", "pasos"]
 
 opciones_explicitas: ["Identificar valores de carga y tiempo", "Aplicar la fórmula I = Q / t", "Dividir la carga por el tiempo"]
-respuesta: ["Identificar valores de carga y tiempo", "Aplicar la fórmula I = Q / t", "Dividir la carga por el tiempo"]
+respuesta_orden: ["Identificar valores de carga y tiempo", "Aplicar la fórmula I = Q / t", "Dividir la carga por el tiempo"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para resolver un problema de cálculo de intensidad de corriente eléctrica:"
@@ -740,18 +749,18 @@ metadata:
 variables:
   escenario: uno_de([[1.2, 2.0], [3.5, 5.0], [0.8, 1.5]])
 
-respuesta: escenario[0][1
+respuesta: escenario[0] / escenario[1]
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Una carga eléctrica de {escenario[0][0]} Coulombs atraviesa una sección transversal de un conductor en un intervalo de tiempo de {escenario[0][1]} segundos. ¿Cuál es la intensidad de corriente eléctrica (en Amperios)?"
+enunciado: "Una carga eléctrica de {escenario[0]} Coulombs atraviesa una sección transversal de un conductor en un intervalo de tiempo de {escenario[1]} segundos. ¿Cuál es la intensidad de corriente eléctrica (en Amperios)?"
 
 pasos:
   - "Identificar la fórmula de intensidad: I = ΔQ / Δt"
   - "Dividir la carga total por el tiempo transcurrido"
 
 explicacion: |
-  La intensidad de corriente se define como la cantidad de carga que pasa por un punto en un tiempo determinado: I = Q/t. En este caso, {escenario[0][0]} / {escenario[0][1]} = {escenario[0][1]}.
+  La intensidad de corriente se define como la cantidad de carga que pasa por un punto en un tiempo determinado: I = Q/t. En este caso, {escenario[0]} / {escenario[1]} = {escenario[0] / escenario[1]}.
 ```
 
 ```
@@ -778,16 +787,19 @@ metadata:
   tags: ["electrones", "carga_elemental"]
 
 variables:
-  caso: uno_de([[2, 2.0e-19], [5, 1.6e-19], [10, 1.6e-19]])
+  caso: uno_de([[2, 1.6e-19], [5, 1.6e-19], [10, 1.6e-19]])
+  n: caso[0]
+  e: caso[1]
+  q_total: n * e
 
-respuesta: caso[0][0
+respuesta: n
 tipo: completar
-respuestas_validas: ["1", "2", "5", "10"]
+tolerancia_abs: 0
 
-enunciado: "Si por un conductor circula una corriente tal que en un segundo pasan {caso[0][1]} Coulombs de carga, ¿cuántos electrones han atravesado la sección en ese tiempo? (Considere la carga del electrón como {caso[0][1]} C)"
+enunciado: "Si por un conductor circula una corriente tal que en total pasan {q_total} Coulombs de carga, y la carga de cada electrón es {e} C, ¿cuántos electrones han atravesado la sección en ese tiempo?"
 
 explicacion: |
-  Para hallar el número de electrones (n), usamos la relación Q = n * e, donde e es la carga elemental. Despejando: n = Q / e. En este caso: {caso[0][0]} / {caso[0][1]} = {caso[0][0]}.
+  Para hallar el número de electrones (n), usamos la relación Q = n * e, donde e es la carga elemental. Despejando: n = Q / e. En este caso: {q_total} / {e} = {n}.
 ```
 
 ```
@@ -797,9 +809,9 @@ metadata:
   nivel: "basico"
   tags: ["procedimiento", "calculo"]
 
-respuesta: ["identificar_carga", "identificar_tiempo", "dividir_valores"]
+respuesta_orden: ["identificar_carga", "identificar_tiempo", "dividir_valores"]
 tipo: ordenar
-opciones_explicitas: ["identificar_carga", "identificar_tiempo", "dividir_valores", "multiplicar_valores"]
+opciones_explicitas: ["identificar_carga", "identificar_tiempo", "dividir_valores"]
 
 enunciado: "Ordena los pasos lógicos para calcular la intensidad de corriente eléctrica si se conoce la carga total y el tiempo transcurrido."
 
@@ -816,7 +828,8 @@ metadata:
 
 respuesta: "corriente"
 tipo: "completar"
-respuestas_validas: ["corriente"]
+respuestas_validas:
+  - "corriente"
 
 enunciado: "Mientras que la carga eléctrica es una propiedad intrínseca de las partículas, la ___ es la medida del flujo de carga que atraviesa una sección transversal por unidad de tiempo."
 
@@ -832,25 +845,21 @@ metadata:
   tags: ["voltaje", "corriente", "diferencia"]
 
 variables:
-  escenario: uno_de([
-    ["un cable conectado a una batería de 9V", "9", "0.5"],
-    ["un cable conectado a una batería de 12V", "12", "0.8"],
-    ["un cable conectado a una batería de 5V", "5", "0.3"]
-  ])
+  escenario: uno_de([[9, "0.9"], [12, "1.2"], [5, "0.5"]])
 
-respuesta: escenario[2
+respuesta: escenario[1]
 tipo: "mc"
-opciones_explicitas: ["escenario[1]", "escenario[2]", "escenario[0]"]
+opciones_explicitas: ["0.9", "1.2", "0.5"]
 
-enunciado: "Si mantenemos la resistencia constante, ¿cuál es la intensidad de corriente que circula por el circuito dado el voltaje de {escenario[0]}?"
+enunciado: "Si mantenemos la resistencia constante en R = 10 Ω, ¿cuál es la intensidad de corriente que circula por el circuito dado un voltaje de {escenario[0]} V?"
 
 pasos:
-  - "Identificar el voltaje: {escenario[1]} V"
-  - "Identificar la resistencia (asumida constante para el ejemplo)"
+  - "Identificar el voltaje: {escenario[0]} V"
+  - "Usar la resistencia constante R = 10 Ω"
   - "Calcular I = V / R"
 
 explicacion: |
-  La intensidad de corriente es directamente proporcional al voltaje según la Ley de Ohm. Al aumentar el voltaje, la corriente aumenta proporcionalmente.
+  La intensidad de corriente es directamente proporcional al voltaje según la Ley de Ohm (I = V/R). Con R = 10 Ω constante: I = {escenario[0]} / 10 = {escenario[1]} A.
 ```
 
 ```
@@ -893,9 +902,9 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo", "carga", "orden"]
 
-respuesta: ["carga", "movimiento", "corriente"]
-tipo: "ordenar"
+tipo: ordenar
 opciones_explicitas: ["carga", "movimiento", "corriente"]
+respuesta_orden: ["carga", "movimiento", "corriente"]
 
 enunciado: "Ordena los conceptos para describir el proceso físico que da origen a la corriente eléctrica: primero la existencia de ___, luego el ___ de estas a través de un conductor, y finalmente el fenómeno resultante llamado ___."
 
@@ -916,7 +925,10 @@ variables:
 
 enunciado: "Si tenemos {datos[idx][0]}, la intensidad de corriente que circula es de aproximadamente ___ A."
 
-respuestas_validas: ["0.0227", "0.5", "10.0"]
+respuestas_validas:
+  - "0.0227"
+  - "0.5"
+  - "10.0"
 respuesta: datos[idx][1]
 tipo: completar
 
@@ -932,12 +944,15 @@ metadata:
   tags: ["carga", "electrones"]
 
 variables:
-  datos: [["2.0", "1.25e25"], ["0.5", "3.12e24"], ["4.0", "2.50e25"]]
+  datos: [["2.0", "1.25e19"], ["0.5", "3.13e18"], ["4.0", "2.50e19"]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "Si por un conductor circula una carga de {datos[idx][0]} Coulombs en un tiempo de 1 segundo, la cantidad de electrones que fluyen es aproximadamente ___."
 
-respuestas_validas: ["1.25e25", "3.12e24", "2.50e25"]
+respuestas_validas:
+  - "1.25e19"
+  - "3.13e18"
+  - "2.50e19"
 respuesta: datos[idx][1]
 tipo: completar
 
@@ -954,9 +969,8 @@ metadata:
 
 enunciado: "¿La corriente que suministran las baterías de un teléfono móvil es de tipo alterna (AC)?"
 
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 explicacion: |
   Las baterías proporcionan corriente continua (DC), donde los electrones fluyen en un solo sentido. La corriente alterna (AC) es la que llega a los enchufes de las casas.
 ```
@@ -992,7 +1006,7 @@ metadata:
 enunciado: "Ordena los pasos correctos para medir la intensidad de corriente en un componente usando un multímetro en serie:"
 
 opciones_explicitas: ["Abrir el circuito", "Conectar el multímetro en serie", "Cerrar el circuito para medir"]
-respuesta: ["Abrir el circuito", "Conectar el multímetro en serie", "Cerrar el circuito para medir"]
+respuesta_orden: ["Abrir el circuito", "Conectar el multímetro en serie", "Cerrar el circuito para medir"]
 tipo: ordenar
 
 explicacion: |
@@ -1010,7 +1024,9 @@ metadata:
 
 respuesta: "núcleo de helio"
 tipo: completar
-respuestas_validas: ["núcleo de helio", "particula alfa"]
+respuestas_validas:
+  - "núcleo de helio"
+  - "particula alfa"
 
 enunciado: "La radiación alfa consiste en la emisión de un ___."
 
@@ -1025,15 +1041,11 @@ metadata:
   nivel: "basico"
   tags: ["beta", "electrones"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  particula_beta: uno_de(["electrón", "positrón"])
-
 respuesta: "negativa"
 tipo: mc
 opciones_explicitas: ["positiva", "negativa", "neutra"]
 
-enunciado: "En el decaimiento beta menos ($\beta^-$), un neutrón se transforma en un protón y se emite una partícula de carga {particula_beta}."
+enunciado: "En el decaimiento beta menos ($\\beta^-$), un neutrón se transforma en un protón y se emite una partícula de carga ___."
 
 explicacion: |
   En el decaimiento beta menos, el neutrón se convierte en protón y emite un electrón (carga negativa).
@@ -1063,14 +1075,14 @@ metadata:
   tags: ["alcance", "radiacion"]
 
 variables:
-  tipo_rad: uno_de(["alfa", "beta", "gamma"])
-  alcance_desc: uno_de(["muy corto", "moderado", "muy alto"])
+  datos: [["alfa", "muy corto"], ["beta", "moderado"], ["gamma", "muy alto"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: alcance_desc[tipo_rad
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["muy corto", "moderado", "muy alto"]
 
-enunciado: "El alcance de la radiación tipo {tipo_rad} en el aire es {alcance_desc}."
+enunciado: "El alcance de la radiación tipo {datos[idx][0]} en el aire es ___."
 
 explicacion: |
   La partícula alfa tiene un alcance muy corto (se detiene con una hoja de papel), la beta un alcance moderado y la gamma un alcance muy alto.
@@ -1083,7 +1095,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "nucleo"]
 
-respuesta: ["emisión de partículas alfa", "emisión de partículas beta", "emisión de radiación gamma"]
+respuesta_orden: ["emisión de partículas alfa", "emisión de partículas beta", "emisión de radiación gamma"]
 tipo: ordenar
 opciones_explicitas: ["emisión de partículas alfa", "emisión de partículas beta", "emisión de radiación gamma"]
 
@@ -1102,7 +1114,9 @@ metadata:
 
 enunciado: "Una partícula alfa consiste en un núcleo de helio. Por lo tanto, una partícula alfa está compuesta por ___ neutrones y ___ protones."
 
-respuestas_validas: ["2", "2"]
+respuestas_validas:
+  - "2"
+  - "2"
 
 respuesta: ["2", "2"]
 tipo: completar
@@ -1119,17 +1133,13 @@ metadata:
   tags: ["beta", "nucleica"]
 
 variables:
-  escenario: uno_de([
-    ["14", "14", "15", "14"],
-    ["238", "238", "239", "238"],
-    ["12", "12", "13", "12"]
-  ])
+  escenario: uno_de([[14, 15], [238, 239], [12, 13]])
 
-enunciado: "Un núcleo radiactivo de un isótopo con número de masa {escenario[0]} emite una partícula beta negativa ($\beta^-$). ¿Cuál será el número de masa del nuevo núcleo resultante?"
+enunciado: "Un núcleo radiactivo de un isótopo con número de masa {escenario[0]} emite una partícula beta negativa ($\\beta^-$). ¿Cuál será el número de masa del nuevo núcleo resultante?"
 
-opciones_explicitas: ["{escenario[0]}", "{escenario[2]}", "{escenario[1]}", "1"]
+opciones_explicitas: [escenario[0], escenario[1], 1]
 
-respuesta: "{escenario[0]}"
+respuesta: escenario[0]
 tipo: mc
 
 explicacion: |
@@ -1144,24 +1154,20 @@ metadata:
   tags: ["calculo", "vida_media"]
 
 variables:
-  datos: uno_de([
-    [100, 10, 50],
-    [80, 5, 40],
-    [200, 20, 100]
-  ])
+  datos: uno_de([[100, 10, 50], [80, 5, 40], [200, 20, 100]])
 
 enunciado: "Una muestra contiene {datos[0]} gramos de una sustancia con una vida media de {datos[1]} años. ¿Cuánta masa de la sustancia permanecerá después de transcurridos {datos[1]} años (es decir, una vida media)?"
 
-respuesta: datos[2
+respuesta: datos[2]
 tipo: completar
 tolerancia_abs: 0.001
 
 pasos:
-  - "Identificar la masa inicial ($N_0$): {datos[0]} g"
-  - "Identificar el tiempo transcurrido ($t$): {datos[1]} años"
-  - "Identificar la vida media ($T_{1/2}$): {datos[1]} años"
-  - "Aplicar la fórmula de decaimiento: $N(t) = N_0 \cdot (1/2)^{(t/T_{1/2})}$"
-  - "Calcular: $N(t) = {datos[0]} \cdot (1/2)^{1} = {datos[2]}$"
+  - "Identificar la masa inicial: {datos[0]} g"
+  - "Identificar el tiempo transcurrido: {datos[1]} años"
+  - "Identificar la vida media: {datos[1]} años"
+  - "Aplicar la fórmula de decaimiento: N(t) = N0 * (1/2)^(t/T1/2)"
+  - "Calcular: N(t) = {datos[0]} * (1/2)^1 = {datos[2]}"
 
 explicacion: |
   Después de transcurrir una vida media, la cantidad de la sustancia se reduce exactamente a la mitad de su valor inicial.
@@ -1217,7 +1223,10 @@ tolerancia_abs: 0
 
 enunciado: "Un átomo de número atómico {datos[idx][0]} sufre un decaimiento beta menos (emisión de un electrón). El nuevo número atómico será ___."
 
-respuestas_validas: ["7", "12", "27"]
+respuestas_validas:
+  - "7"
+  - "12"
+  - "27"
 
 explicacion: |
   En el decaimiento beta menos, un neutrón se transforma en un protón, aumentando el número atómico en 1.
@@ -1230,7 +1239,7 @@ metadata:
   nivel: "intermedio"
   tags: ["penetracion", "radiacion"]
 
-respuesta: ["alfa", "beta", "gamma"]
+respuesta_orden: ["alfa", "beta", "gamma"]
 tipo: ordenar
 
 opciones_explicitas: ["alfa", "beta", "gamma"]
@@ -1267,7 +1276,10 @@ metadata:
 
 enunciado: "La radiación alfa está compuesta por un núcleo de helio, lo que significa que posee una carga eléctrica de ___."
 
-respuestas_validas: ["+2", "+2", "+2"]
+respuestas_validas:
+  - "+2"
+  - "+2"
+  - "+2"
 respuesta: "+2"
 tipo: completar
 
@@ -1316,16 +1328,15 @@ metadata:
   nivel: "avanzado"
   tags: ["beta", "neutrino", "nucleo"]
 
-variables:
-  escenario: uno_de([[1, "electrón"], [2, "neutrón"]])
-
-enunciado: "En un decaimiento beta negativo, un neutrón se transforma en un protón y emite una partícula tipo {escenario[idx]} para conservar la carga."
+enunciado: "En un decaimiento beta negativo, un neutrón se transforma en un protón y emite una partícula tipo ___ para conservar la carga."
 
 pasos:
   - "Identificar la partícula emitida en el decaimiento beta-"
   - "Comparar con la composición del núcleo"
 
-respuestas_validas: ["electrón", "electrón"]
+respuestas_validas:
+  - "electrón"
+  - "electrón"
 respuesta: "electrón"
 tipo: completar
 
@@ -1340,11 +1351,11 @@ metadata:
   nivel: "intermedio"
   tags: ["interacción", "materia", "orden"]
 
-opciones_explicitas: ["Alfa, Beta, Gamma", "Gamma, Beta, Alfa", "Alfa, Gamma, Beta"]
+opciones_explicitas: ["Gamma", "Beta", "Alfa"]
 
 enunciado: "Ordena las radiaciones de mayor a menor capacidad de penetración (de la que más atraviesa a la que menos atraviesa):"
 
-respuesta: ["Gamma, Beta, Alfa"]
+respuesta_orden: ["Gamma", "Beta", "Alfa"]
 tipo: ordenar
 
 explicacion: |
@@ -1364,9 +1375,10 @@ variables:
 
 enunciado: "En el siguiente escenario: {escenarios[escenario_idx][0]}, la radiación emitida es una ___."
 
-respuestas_validas: ["particula_alfa"]
+respuestas_validas:
+  - "particula_alfa"
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: completar
 
 explicacion: |
@@ -1388,7 +1400,7 @@ enunciado: "Si nos enfrentamos a una radiación tipo {datos[tipo_rad][0]}, el ma
 
 opciones_explicitas: ["papel", "aluminio", "plomo"]
 
-respuesta: datos[tipo_rad][1
+respuesta: datos[tipo_rad][1]
 tipo: mc
 
 explicacion: |
@@ -1422,7 +1434,7 @@ enunciado: "Ordene los pasos de un decaimiento alfa para un núcleo de Uranio-23
 
 opciones_explicitas: ["Emisión de 2 protones", "Emisión de 2 neutrones", "Transformación en Torio-234"]
 
-respuesta: ["Emisión de 2 protones", "Emisión de 2 neutrones", "Transformación en Torio-234"]
+respuesta_orden: ["Emisión de 2 protones", "Emisión de 2 neutrones", "Transformación en Torio-234"]
 tipo: ordenar
 
 explicacion: |
@@ -1442,9 +1454,10 @@ variables:
 
 enunciado: "En el caso de {casos[caso_idx][0]}, lo que se emite es radiación gamma, la cual está compuesta por ___."
 
-respuestas_validas: ["fotones"]
+respuestas_validas:
+  - "fotones"
 
-respuesta: casos[caso_idx][1
+respuesta: casos[caso_idx][1]
 tipo: completar
 
 explicacion: |
@@ -1931,7 +1944,7 @@ variables:
   material_idx: uno_de([0, 1])
   datos: [[0.000012, "acero"], [0.000024, "aluminio"]]
 
-respuesta: datos[material_idx][0
+respuesta: datos[material_idx][0]
 tipo: completar
 tolerancia_abs: 0.0000001
 
@@ -1957,7 +1970,7 @@ opciones_explicitas: ["proporcional", "inversamente proporcional", "no tiene rel
 respuesta: "proporcional"
 tipo: mc
 
-enunciado: "En un material sólido, el cambio en la longitud ($\Delta L$) es ___ al cambio en la temperatura ($\Delta T$), asumiendo un coeficiente constante."
+enunciado: "En un material sólido, el cambio en la longitud ($\\Delta L$) es ___ al cambio en la temperatura ($\\Delta T$), asumiendo un coeficiente constante."
 
 explicacion: |
   De la fórmula $\Delta L = L_0 \cdot \alpha \cdot \Delta T$ se observa que, al mantener constantes la longitud inicial y el coeficiente, el cambio de longitud es directamente proporcional al cambio de temperatura.
@@ -1970,11 +1983,15 @@ metadata:
   nivel: "intermedio"
   tags: ["formula", "terminologia"]
 
-respuesta: ["L_0", "$\Delta L$", "$\alpha$", "$\Delta T$"]
+respuesta: ["L_0", "$\\Delta L$", "$\\alpha$", "$\\Delta T$"]
 tipo: completar
-respuestas_validas: ["L_0", "$\Delta L$", "$\alpha$", "$\Delta T$"]
+respuestas_validas:
+  - "L_0"
+  - "$\\Delta L$"
+  - "$\\alpha$"
+  - "$\\Delta T$"
 
-enunciado: "En la fórmula de la dilatación lineal $\Delta L = L_0 \cdot \alpha \cdot \Delta T$, el término ___ representa la longitud inicial, el término ___ representa la variación de longitud, el término ___ es el coeficiente de dilatación lineal y el término ___ es la variación de temperatura."
+enunciado: "En la fórmula de la dilatación lineal $\\Delta L = L_0 \\cdot \\alpha \\cdot \\Delta T$, el término ___ representa la longitud inicial, el término ___ representa la variación de longitud, el término ___ es el coeficiente de dilatación lineal y el término ___ es la variación de temperatura."
 
 explicacion: |
   Es fundamental identificar correctamente cada variable en la ecuación fundamental de la dilatación térmica lineal.
@@ -1992,7 +2009,7 @@ opciones_explicitas: ["Longitud inicial y coeficiente de dilatación", "Solo la 
 respuesta: "Longitud inicial y coeficiente de dilatación"
 tipo: mc
 
-enunciado: "¿De qué factores depende la variación de la longitud ($\Delta L$) de una barra sólida cuando se calienta?"
+enunciado: "¿De qué factores depende la variación de la longitud ($\\Delta L$) de una barra sólida cuando se calienta?"
 
 explicacion: |
   La variación de longitud depende de tres factores: la longitud original del objeto ($L_0$), el coeficiente de dilatación del material ($\alpha$) y el cambio de temperatura experimentado ($\Delta T$).
@@ -2098,7 +2115,7 @@ metadata:
   tags: ["metodologia"]
 
 opciones_explicitas: ["Identificar datos (L₀, α, ΔT)", "Calcular la variación ΔL", "Sumar ΔL a L₀ para hallar L_f"]
-respuesta: ["Identificar datos (L₀, α, ΔT)", "Calcular la variación ΔL", "Sumar ΔL a L₀ para hallar L_f"]
+respuesta_orden: ["Identificar datos (L₀, α, ΔT)", "Calcular la variación ΔL", "Sumar ΔL a L₀ para hallar L_f"]
 tipo: ordenar
 
 enunciado: "Para resolver un problema que pida hallar la longitud final de un objeto tras un cambio de temperatura, ¿cuál es el orden lógico de los pasos?"
@@ -2114,18 +2131,11 @@ metadata:
   nivel: "basico"
   tags: ["dilatacion", "masa", "densidad"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [
-    [0.1, "aumenta"],
-    [0.2, "se mantiene igual"]
-  ]
-
 enunciado: "Si una barra de hierro se calienta de 20°C a 100°C, su longitud aumenta debido a la dilatación térmica. Sin embargo, un error común es pensar que su masa también cambia. En realidad, la masa de la barra ___."
 
 opciones_explicitas: ["aumenta", "se mantiene igual", "disminuye"]
 
-respuesta: datos[idx][1
+respuesta: "se mantiene igual"
 tipo: mc
 
 explicacion: |
@@ -2155,18 +2165,11 @@ metadata:
   nivel: "intermedio"
   tags: ["coeficientes", "comparacion"]
 
-variables:
-  material_idx: uno_de([0, 1])
-  escenario: [
-    ["aluminio", "mayor"],
-    ["acero", "menor"]
-  ]
-
-enunciado: "Si comparamos dos barras de igual longitud y sección transversal, una de {escenario[material_idx][0]} y otra de acero, ante un mismo incremento de temperatura, la barra de {escenario[material_idx][0]} experimentará una dilatación lineal ___."
+enunciado: "Si comparamos dos barras de igual longitud y sección transversal, una de aluminio y otra de acero, ante un mismo incremento de temperatura, la barra de aluminio experimentará una dilatación lineal ___."
 
 opciones_explicitas: ["mayor", "menor", "nula"]
 
-respuesta: escenario[material_idx][1
+respuesta: "mayor"
 tipo: mc
 
 explicacion: |
@@ -2182,7 +2185,9 @@ metadata:
 
 enunciado: "La dilatación térmica ocurre porque al aumentar la temperatura, la energía cinética de los átomos ___."
 
-respuestas_validas: ["aumenta", "disminuye"]
+respuestas_validas:
+  - "aumenta"
+  - "disminuye"
 
 respuesta: "aumenta"
 tipo: completar
@@ -2198,11 +2203,11 @@ metadata:
   nivel: "avanzado"
   tags: ["formula", "variables"]
 
-enunciado: "Para calcular la variación de longitud ($\Delta L$) de un objeto, se deben considerar los siguientes factores en el orden de su dependencia en la fórmula $\Delta L = L_0 \cdot \alpha \cdot \Delta T$:"
+enunciado: "Para calcular la variación de longitud ($\\Delta L$) de un objeto, se deben considerar los siguientes factores en el orden de su dependencia en la fórmula $\\Delta L = L_0 \\cdot \\alpha \\cdot \\Delta T$:"
 
 opciones_explicitas: ["Longitud inicial", "Coeficiente de dilatación", "Variación de temperatura"]
 
-respuesta: ["Longitud inicial", "Coeficiente de dilatación", "Variación de temperatura"]
+respuesta_orden: ["Longitud inicial", "Coeficiente de dilatación", "Variación de temperatura"]
 tipo: ordenar
 
 explicacion: |
@@ -2234,10 +2239,6 @@ metadata:
   nivel: "intermedio"
   tags: ["coeficiente", "material"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [[["aluminio", 2.3e-5], ["hierro", 1.2e-5]], [["aluminio", 2.3e-5], ["hierro", 1.2e-5]]]
-
 tipo: mc
 opciones_explicitas: ["El coeficiente de dilatación lineal es una propiedad intrínseca del material y no depende de la cantidad de masa.", "El coeficiente de dilatación lineal depende de la longitud inicial del objeto.", "A mayor masa del objeto, mayor es el coeficiente de dilatación lineal.", "El coeficiente de dilatación lineal es igual para todos los metales."]
 
@@ -2257,7 +2258,7 @@ metadata:
   tags: ["relacion_coeficientes", "geometria"]
 
 tipo: vf
-enunciado: "Para un sólido isotrópico, el coeficiente de dilatación volumétrica ($\gamma$) es aproximadamente tres veces el coeficiente de dilatación lineal ($\alpha$)."
+enunciado: "Para un sólido isotrópico, el coeficiente de dilatación volumétrica ($\\gamma$) es aproximadamente tres veces el coeficiente de dilatación lineal ($\\alpha$)."
 
 respuesta: verdadero
 
@@ -2273,11 +2274,13 @@ metadata:
   tags: ["factores", "calculo"]
 
 tipo: completar
-respuestas_validas: ["$\Delta T$", "la temperatura inicial"]
+respuestas_validas:
+  - "$\\Delta T$"
+  - "la temperatura inicial"
 
-enunciado: "En la fórmula de la dilatación lineal $\Delta L = \alpha \cdot L_0 \cdot \Delta T$, el término $\Delta T$ representa la ___."
+enunciado: "En la fórmula de la dilatación lineal $\\Delta L = \\alpha \\cdot L_0 \\cdot \\Delta T$, el término $\\Delta T$ representa la ___."
 
-respuesta: "$\Delta T$"
+respuesta: "$\\Delta T$"
 
 explicacion: |
   $\Delta T$ es el cambio de temperatura (temperatura final menos temperatura inicial). Sin un cambio de temperatura, no hay dilatación térmica.
@@ -2295,7 +2298,7 @@ opciones_explicitas: ["Aumento de la energía cinética de las partículas", "In
 
 enunciado: "Ordena los pasos que describen el fenómeno de la dilatación térmica lineal desde el nivel microscópico al macroscópico:"
 
-respuesta: ["Aumento de la energía cinética de las partículas", "Incremento de la distancia promedio entre átomos", "Aumento de la longitud total del objeto"]
+respuesta_orden: ["Aumento de la energía cinética de las partículas", "Incremento de la distancia promedio entre átomos", "Aumento de la longitud total del objeto"]
 
 explicacion: |
   El calor aumenta la vibración (energía cinética) de los átomos, lo que aumenta la distancia media entre ellos, resultando en un aumento macroscópico de la longitud.
@@ -2338,18 +2341,14 @@ metadata:
   nivel: "basico"
   tags: ["materiales", "conceptos"]
 
-variables:
-  material: [[0, "Aluminio"], [1, "Acero"], [2, "Vidrio"]]
-  idx: uno_de([0,1,2])
-
-respuesta: material[idx][1
+respuesta: "Acero"
 tipo: mc
 opciones_explicitas: ["Aluminio", "Acero", "Vidrio"]
 
 enunciado: "Se requiere un material para las vías de un ferrocarril que tenga una dilatación térmica lineal muy baja para evitar que las vías se deformen en verano. Basado en los materiales comunes, ¿cuál de estos es más estable térmicamente?"
 
 explicacion: |
-  El {material[idx][1]} tiene un coeficiente de dilatación menor que el {material[0]} (Aluminio), lo que lo hace más adecuado para estructuras que requieren estabilidad dimensional frente a cambios de temperatura.
+  El acero tiene un coeficiente de dilatación menor que el aluminio y es el material real utilizado en las vías férreas, lo que lo hace más adecuado para estructuras que requieren estabilidad dimensional frente a cambios de temperatura.
 ```
 
 ```
@@ -2376,7 +2375,10 @@ metadata:
   tags: ["conceptos"]
 
 respuesta: ["aumento", "expansión", "crecimiento"]
-respuestas_validas: ["aumento", "expansión", "crecimiento"]
+respuestas_validas:
+  - "aumento"
+  - "expansión"
+  - "crecimiento"
 tipo: completar
 
 enunciado: "Cuando un material sólido se somete a un incremento de temperatura, su longitud experimenta un ___ lineal."
@@ -2392,7 +2394,7 @@ metadata:
   nivel: "basico"
   tags: ["procesos"]
 
-respuesta: ["Aumento de temperatura", "Aumento de vibración molecular", "Aumento de longitud"]
+respuesta_orden: ["Aumento de temperatura", "Aumento de vibración molecular", "Aumento de longitud"]
 tipo: ordenar
 
 opciones_explicitas: ["Aumento de temperatura", "Aumento de vibración molecular", "Aumento de longitud"]
@@ -2402,3 +2404,4 @@ enunciado: "Ordena los siguientes eventos según ocurren de forma causal durante
 explicacion: |
   Primero aumenta la temperatura, lo que incrementa la energía cinética (vibración) de los átomos, resultando finalmente en un incremento de la longitud macroscópica.
 ```
+

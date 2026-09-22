@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de la Estequiometria y Gases
+# Examen jefe — [PENDIENTE #844]
 
-> Logro #144. Completaste el parcial dominando cálculos estequiométricos, gases ideales y la geometría molecular. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **106 preguntas totales** en 5/5 secciones.
+> Logro #844. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **106 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -369,11 +369,7 @@ opciones_explicitas:
   - "Convertir moles de B a masa de B, multiplicando por la masa molar de B"
   - "Convertir la masa de A a moles de A, dividiendo por la masa molar de A"
   - "Convertir moles de A a moles de B, usando la razón de los coeficientes balanceados"
-respuesta_orden:
-  - "Convertir la masa de A a moles de A, dividiendo por la masa molar de A"
-  - "Convertir moles de A a moles de B, usando la razón de los coeficientes balanceados"
-  - "Convertir moles de B a masa de B, multiplicando por la masa molar de B"
-
+respuesta_orden: ["Convertir la masa de A a moles de A, dividiendo por la masa molar de A", "Convertir moles de A a moles de B, usando la razón de los coeficientes balanceados", "Convertir moles de B a masa de B, multiplicando por la masa molar de B"]
 explicacion: |
   Nunca se salta el paso de los moles: es el único puente válido entre
   cantidades de sustancias distintas.
@@ -598,7 +594,8 @@ metadata:
 
 respuesta: "Gay-Lussac"
 tipo: completar
-respuestas_validas: ["Gay-Lussac"]
+respuestas_validas:
+  - "Gay-Lussac"
 
 enunciado: "La ley que relaciona presión y temperatura a volumen constante es la ley de ___."
 
@@ -621,7 +618,7 @@ variables:
   r: 0.0821
 
 respuesta: datos_n[n_idx] * r * datos_t[t_idx]
-tipo: input
+tipo: completar
 tolerancia_abs: 0.5
 
 enunciado: "Calculá el producto PV usando PV=nRT, con n = {datos_n[n_idx]} mol y T = {datos_t[t_idx]} K (R = {r})."
@@ -650,7 +647,7 @@ variables:
   r: 0.0821
 
 respuesta: (p_vals[p_idx] * v_vals[v_idx]) / (r * t_vals[t_idx])
-tipo: input
+tipo: completar
 tolerancia_abs: 0.2
 
 enunciado: "Con P = {p_vals[p_idx]} atm, V = {v_vals[v_idx]} L y T = {t_vals[t_idx]} K (R = {r}), calculá el número de moles (n)."
@@ -687,7 +684,8 @@ metadata:
 
 respuesta: "273"
 tipo: completar
-respuestas_validas: ["273"]
+respuestas_validas:
+  - "273"
 
 enunciado: "La conversión de grados Celsius a Kelvin es: K = C + ___."
 
@@ -723,7 +721,7 @@ variables:
   idx: uno_de([0, 1, 2, 3])
 
 respuesta: moles_lista[idx] * 22.4
-tipo: input
+tipo: completar
 tolerancia_abs: 0.5
 
 enunciado: "En condiciones normales, ¿qué volumen ocupan {moles_lista[idx]} moles de un gas ideal?"
@@ -777,7 +775,8 @@ metadata:
 
 respuesta: "R"
 tipo: completar
-respuestas_validas: ["R"]
+respuestas_validas:
+  - "R"
 
 enunciado: "La constante de los gases ideales ya está precargada en VBLang con el nombre ___."
 
@@ -816,7 +815,7 @@ variables:
   r: 0.0821
 
 respuesta: n_val * r * t_val / p_val
-tipo: input
+tipo: completar
 tolerancia_abs: 0.5
 
 enunciado: "Calculá el volumen (V) de un gas ideal con P = {p_val} atm, n = {n_val} mol, R = {r} L·atm/(K·mol) y T = {t_val} K."
@@ -958,7 +957,8 @@ metadata:
 
 respuesta: "lineal"
 tipo: completar
-respuestas_validas: ["lineal"]
+respuestas_validas:
+  - "lineal"
 
 enunciado: "La geometría con 2 pares de electrones alrededor del centro y un ángulo de enlace de 180 grados es la ___."
 
@@ -1061,7 +1061,8 @@ metadata:
 
 respuesta: "libres"
 tipo: completar
-respuestas_validas: ["libres"]
+respuestas_validas:
+  - "libres"
 
 enunciado: "El oxígeno del agua tiene 4 pares de electrones alrededor: 2 enlaces O-H y 2 pares ___."
 
@@ -1143,7 +1144,8 @@ metadata:
 
 respuesta: "cancelan"
 tipo: completar
-respuestas_validas: ["cancelan"]
+respuestas_validas:
+  - "cancelan"
 
 enunciado: "Una molécula es polar en conjunto cuando sus momentos dipolares individuales no se ___."
 
@@ -1193,7 +1195,8 @@ metadata:
 
 respuesta: "plana"
 tipo: completar
-respuestas_validas: ["plana"]
+respuestas_validas:
+  - "plana"
 
 enunciado: "La geometría con 3 pares de electrones enlazantes y un ángulo de 120 grados es la trigonal ___."
 
@@ -1299,7 +1302,8 @@ metadata:
 
 respuesta: "ol"
 tipo: completar
-respuestas_validas: ["ol"]
+respuestas_validas:
+  - "ol"
 
 enunciado: "Los compuestos con grupo hidroxilo (-OH) se nombran con el sufijo ___."
 
@@ -1464,7 +1468,8 @@ metadata:
 
 respuesta: "ester"
 tipo: completar
-respuestas_validas: ["ester"]
+respuestas_validas:
+  - "ester"
 
 enunciado: "El grupo funcional que se forma cuando un ácido reacciona con un alcohol se llama ___."
 
@@ -1618,7 +1623,8 @@ metadata:
 
 respuesta: "ano"
 tipo: completar
-respuestas_validas: ["ano"]
+respuestas_validas:
+  - "ano"
 
 enunciado: "Los alcanos, con un solo tipo de enlace entre carbonos, terminan con el sufijo ___."
 
@@ -1653,7 +1659,7 @@ variables:
   n: uno_de([1, 2, 3, 4, 5])
 
 respuesta: 2 * n + 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá la cantidad de átomos de hidrógeno en un alcano con {n} átomos de carbono."
@@ -1695,7 +1701,8 @@ metadata:
 
 respuesta: "eno"
 tipo: completar
-respuestas_validas: ["eno"]
+respuestas_validas:
+  - "eno"
 
 enunciado: "Los alquenos, con al menos un doble enlace, terminan con el sufijo ___."
 
@@ -1730,7 +1737,7 @@ variables:
   n: uno_de([2, 3, 4, 5])
 
 respuesta: 2 * n
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá la cantidad de hidrógenos de un alqueno con {n} carbonos y 1 doble enlace."
@@ -1767,7 +1774,8 @@ metadata:
 
 respuesta: "ino"
 tipo: completar
-respuestas_validas: ["ino"]
+respuestas_validas:
+  - "ino"
 
 enunciado: "Los alquinos, con al menos un triple enlace, terminan con el sufijo ___."
 
@@ -1802,7 +1810,7 @@ variables:
   n: uno_de([2, 3, 4, 5])
 
 respuesta: 2 * n - 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá la cantidad de hidrógenos de un alquino lineal con {n} carbonos."
@@ -1910,7 +1918,7 @@ variables:
   n: uno_de([3, 4, 5, 6])
 
 respuesta: (2 * n + 2) - (2 * n - 2)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para {n} carbonos, ¿cuántos hidrógenos MÁS tiene el alcano que el alquino (con 1 triple enlace)?"
@@ -1954,3 +1962,4 @@ enunciado: "El metano (CH4) puede existir como alqueno o alquino, dependiendo de
 explicacion: |
   Falso. Con un solo carbono no hay otro carbono con el que formar un enlace doble o triple — el metano es siempre un alcano.
 ```
+

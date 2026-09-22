@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de la Cronología Terrestre
+# Examen jefe — [PENDIENTE #685]
 
-> Logro #103. Desbloqueaste el conocimiento sobre datación radiométrica, descolonización, biomas, división del trabajo y eclipses. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **124 preguntas totales** en 5/5 secciones.
+> Logro #685. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -18,7 +18,8 @@ tipo: completar
 
 enunciado: "El tiempo necesario para que la mitad de los núcleos de un isótopo radiactivo se desintegren se denomina ___."
 
-respuestas_validas: ["vida media"]
+respuestas_validas:
+  - "vida media"
 
 explicacion: |
   La vida media (o periodo de semidesintegración) es el tiempo constante en el que la cantidad de un isótopo radiactivo se reduce a la mitad.
@@ -33,12 +34,9 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [
-    ["Carbono-14", 5730, 0.5],
-    ["Potasio-40", 1250000000, 0.25]
-  ]
+  datos: [["Carbono-14", 5730], ["Potasio-40", 1250000000]]
 
-respuesta: datos[idx][2
+respuesta: "0.5"
 tipo: mc
 opciones_explicitas: ["0.5", "0.25", "0.125", "0.0625"]
 
@@ -57,12 +55,9 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [
-    ["10.0", "0.1", 2],
-    ["25.0", "0.0625", 4]
-  ]
+  escenario: [["200", "0.25", 2], ["400", "0.0625", 4]]
 
-respuesta: escenario[idx][0
+respuesta: escenario[idx][0]
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -74,7 +69,7 @@ pasos:
   - "Multiplicar el número de periodos por la duración de la vida media."
 
 explicacion: |
-  Si la fracción es 0.1 y han pasado 2 periodos (en el caso 1), la edad es 2 * 100 = 200. En el caso 2, 4 * 100 = 400. El cálculo depende de la relación entre la fracción y la constante de desintegración.
+  Si la fracción es 0.25 y han pasado 2 periodos (en el caso 1), la edad es 2 * 100 = 200. En el caso 2, con fracción 0.0625 y 4 periodos, la edad es 4 * 100 = 400.
 ```
 
 ```
@@ -84,7 +79,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "isótopos"]
 
-respuesta: ["Isótopo de vida larga", "Isótopo de vida media", "Isótopo de vida corta"]
+respuesta_orden: ["Isótopo de vida larga", "Isótopo de vida media", "Isótopo de vida corta"]
 tipo: ordenar
 opciones_explicitas: ["Isótopo de vida larga", "Isótopo de vida media", "Isótopo de vida corta"]
 
@@ -101,9 +96,8 @@ metadata:
   nivel: "basico"
   tags: ["teoria", "constante"]
 
+tipo: vf
 respuesta: verdadero
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
 
 enunciado: "¿Es la tasa de desintegración de un isótopo radiactivo una constante que no depende del tiempo ni de la cantidad de muestra presente?"
 
@@ -120,7 +114,8 @@ metadata:
 
 enunciado: "El método de datación por Carbono-14 es útil para datar materia orgánica con una antigüedad máxima de aproximadamente ___ años."
 
-respuestas_validas: ["50000"]
+respuestas_validas:
+  - "50000"
 tipo: completar
 
 explicacion: |
@@ -140,7 +135,7 @@ variables:
 
 enunciado: "La vida media del isótopo Carbono-14 es de aproximadamente {datos[idx][0]} años."
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 10
 
@@ -180,7 +175,7 @@ pasos:
   - "Potasio-Argón -> Rocas antiguas"
 
 opciones_explicitas: ["Carbono-14 -> Materia orgánica", "Uranio-Plomo -> Rocas antiguas", "Potasio-Argón -> Rocas antiguas"]
-respuesta: ["Carbono-14 -> Materia orgánica", "Uranio-Plomo -> Rocas antiguas", "Potasio-Argón -> Rocas antiguas"]
+respuesta_orden: ["Carbono-14 -> Materia orgánica", "Uranio-Plomo -> Rocas antiguas", "Potasio-Argón -> Rocas antiguas"]
 tipo: ordenar
 
 explicacion: |
@@ -196,11 +191,11 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [["fósil de madera de 40,000 años", "uranio-plomo"], ["cristal de circon en roca de 1,000 millones de años", "potasio-argón"]]
+  escenario: [["fósil de madera de 40,000 años", "carbono-14"], ["cristal de circón en roca de 1,000 millones de años", "uranio-plomo"]]
 
 enunciado: "Si un arqueólogo encuentra {escenario[idx][0]}, el método más adecuado de datación sería el de {escenario[idx][1]}."
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: mc
 
 opciones_explicitas: ["uranio-plomo", "potasio-argón", "carbono-14"]
@@ -218,9 +213,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["El tiempo que tarda una muestra en perder la mitad de sus átomos radiactivos.", "El tiempo que tarda una muestra en duplicar su masa total.", "El tiempo que tarda un átomo en transformarse en un átomo de oro.", "El tiempo que tarda la radiación en viajar una unidad de distancia."]
-
+respuesta: "El tiempo que tarda una muestra en perder la mitad de sus átomos radiactivos."
 enunciado: "En el contexto de la datación radiométrica, ¿qué se entiende por 'vida media'?"
-
 explicacion: |
   La vida media es el intervalo de tiempo necesario para que la cantidad de un radioisótopo en una muestra se reduzca exactamente a la mitad de su valor inicial.
 ```
@@ -234,6 +228,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["50%", "75%", "25%", "0%"]
+respuesta: "50%"
 
 enunciado: "Si una muestra de un isótopo radiactivo ha transcurrido exactamente una vida media, ¿qué porcentaje de los átomos originales permanece en la muestra?"
 
@@ -250,14 +245,13 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenarios: [
-    ["dos", "25%"],
-    ["tres", "12.5%"]
-  ]
+  escenarios: [["dos", "25%"], ["tres", "12.5%"]]
 
 tipo: completar
-respuestas_validas: ["25%", "12.5%"]
-respuesta: escenarios[idx][1
+respuestas_validas:
+  - "25%"
+  - "12.5%"
+respuesta: escenarios[idx][1]
 
 enunciado: "Si una muestra ha transcurrido {escenarios[idx][0]} vidas medias, el porcentaje de átomos originales que queda es ___."
 
@@ -273,11 +267,7 @@ metadata:
   tags: ["calculo", "tiempo"]
 
 variables:
-  datos: [
-    [100, 50, 500],
-    [80, 40, 1000],
-    [60, 30, 1500]
-  ]
+  datos: [[100, 50, 50], [80, 40, 40], [60, 30, 30]]
   idx: uno_de([0, 1, 2])
 
 tipo: completar
@@ -291,6 +281,8 @@ pasos:
 
 explicacion: |
   En el caso seleccionado, la muestra pasó de {datos[idx][0]} a {datos[idx][2]}, lo que representa exactamente una vida media. Por lo tanto, han pasado {datos[idx][1]} años.
+
+respuesta: datos[idx][1]
 ```
 
 ```
@@ -302,7 +294,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["100%", "50%", "25%", "12.5%", "6.25%"]
-respuesta: ["100%", "50%", "25%", "12.5%", "6.25%"]
+respuesta_orden: ["100%", "50%", "25%", "12.5%", "6.25%"]
 
 enunciado: "Ordene las siguientes cantidades de material radiactivo restante, desde la muestra original (sin decaimiento) hasta después de cuatro vidas medias:"
 
@@ -319,7 +311,9 @@ metadata:
 
 respuesta: "vida media"
 tipo: completar
-respuestas_validas: ["vida media", "vida-media"]
+respuestas_validas:
+  - "vida media"
+  - "vida-media"
 
 enunciado: "El método de datación por Carbono-14 no es útil para datar fósiles de dinosaurios de hace millones de años debido a que su ___ es demasiado corta."
 
@@ -334,9 +328,9 @@ metadata:
   nivel: "intermedio"
   tags: ["carbono-14", "isótopos", "geocronologia"]
 
-opciones_explicitas: ["La cantidad de C-14 es demasiado grande", "La cantidad de C-14 es demasiado pequeña para ser medida", "El C-14 es un isótopo muy estable", "El C-14 solo se encuentra en rocas"]
+opciones_explicitas: ["La cantidad de C-14 es demasiado pequeña para ser medida", "La cantidad de C-14 es demasiado grande", "El C-14 es un isótopo muy estable", "El C-14 solo se encuentra en rocas"]
 
-respuesta: uno_de(["La cantidad de C-14 es demasiado pequeña para ser medida", "La cantidad de C-14 es demasiado grande", "El C-14 es un isótopo muy estable", "El C-14 solo se encuentra en rocas"])[0]
+respuesta: "La cantidad de C-14 es demasiado pequeña para ser medida"
 tipo: mc
 
 enunciado: "Si intentamos datar una roca de 100 millones de años usando el método del Carbono-14, ¿cuál es el problema principal?"
@@ -354,14 +348,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["Carbono-14", "5730 años", "Fósiles orgánicos recientes"],
-    ["Uranio-238", "4468 millones de años", "Rocas muy antiguas"]
-  ]
+  datos: [["Carbono-14", "5730 años", "Fósiles orgánicos recientes"], ["Uranio-238", "4468 millones de años", "Rocas muy antiguas"]]
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["5730 años", "4468 millones de años"]
+respuestas_validas:
+  - "5730 años"
+  - "4468 millones de años"
 
 enunciado: "Para datar el escenario de {datos[escenario_idx][0]}, se utiliza un isótopo con una vida media de {datos[escenario_idx][1]}. Sin embargo, para {datos[escenario_idx][2]}, se requiere un isótopo con una vida media mucho mayor."
 
@@ -396,7 +389,9 @@ metadata:
 
 respuesta: "corto"
 tipo: completar
-respuestas_validas: ["corto", "breve"]
+respuestas_validas:
+  - "corto"
+  - "breve"
 
 enunciado: "El Carbono-14 tiene un tiempo de vida media muy ___ comparado con los procesos geológicos que forman las rocas de la corteza terrestre."
 
@@ -412,15 +407,14 @@ metadata:
   tags: ["isotopos", "carbono-14"]
 
 variables:
-  escenario: [[100, "25"], [200, "50"], [400, "100"]]
   idx: uno_de([0, 1, 2])
-  masa_inicial: escenario[idx][0]
-  respuesta_esperada: escenario[idx][1]
+  masas_iniciales: [100, 200, 400]
 
+respuesta: "25%"
 tipo: mc
 opciones_explicitas: ["25%", "50%", "75%", "100%"]
 
-enunciado: "Una muestra orgánica contiene {masa_inicial} g de Carbono-14. Si han transcurrido exactamente 2 vidas medias, ¿qué porcentaje de la masa inicial de este isótopo permanece en la muestra?"
+enunciado: "Una muestra orgánica contiene {masas_iniciales[idx]} g de Carbono-14. Si han transcurrido exactamente 2 vidas medias, ¿qué porcentaje de la masa inicial de este isótopo permanece en la muestra?"
 
 explicacion: |
   Tras una vida media, queda el 50%. Tras dos vidas medias, queda el 50% del 50%, es decir, el 25%.
@@ -440,7 +434,8 @@ variables:
   m_f: datos[idx][1]
 
 tipo: completar
-respuestas_validas: ["10", "20", "40"]
+respuestas_validas:
+  - "3"
 
 enunciado: "Se analiza una roca con una masa inicial de {m_i} g de un isótopo radiactivo. Si tras el paso del tiempo la masa remanente es de {m_f} g, ¿cuántas vidas medias han transcurrido?"
 
@@ -470,6 +465,8 @@ tolerancia_abs: 0.1
 
 enunciado: "Un fósil contiene {m_ini} mg de Potasio-40. Si han transcurrido 3 vidas medias, ¿cuántos mg de este isótopo quedan en el fósil?"
 
+respuesta: m_res
+
 explicacion: |
   La fórmula es masa_final = masa_inicial / (2^n). Para n=3, dividimos por 8.
 ```
@@ -483,6 +480,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["se reduce a la mitad", "se duplica", "se mantiene constante", "desaparece por completo"]
+respuesta: "se reduce a la mitad"
 
 enunciado: "En un proceso de datación radiométrica, ¿qué sucede con la cantidad de un isótopo radiactivo tras transcurrir exactamente una vida media?"
 
@@ -504,104 +502,415 @@ enunciado: "Ordene de mayor a menor la cantidad de isótopo remanente tras 0, 1,
 
 explicacion: |
   Cada vida media reduce la cantidad a la mitad de la anterior: 100% -> 50% -> 25% -> 12.5% -> 6.25%.
+respuesta_orden: ["100%", "50%", "25%", "12.5%", "6.25%"]
 ```
 
-## Sección: descolonizacion-de-africa-y-asia (24 preguntas)
+## Sección: descolonizacion-de-africa-y-asia (25 preguntas)
 
 ```
-### 2 — Conferencia de Bandung
-```
-
-```
-### 3 — Líder de la independencia de Ghana
-```
-
-```
-### 4 — Masacre de Sétif
-```
-
-```
-### 5 — Partición de la India
-```
-
-```
-### 6 — Acuerdo de Zúrich y Londres
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["indochina", "francia", "vietnam", "1954"]
+enunciado: "El colapso del dominio colonial francés en Indochina se consolidó tras la derrota en la batalla de Dien Bien Phu y la firma de los acuerdos que dividieron temporalmente el territorio en dos zonas militares. ¿En qué año se firmaron estos acuerdos?"
+tipo: completar
+respuesta: "1954"
+respuestas_validas:
+  - "1954"
+  - "1954."
+explicacion: "Los Acuerdos de Ginebra se firmaron en julio de 1954, estableciendo el cese del fuego y la división de Vietnam a lo largo del paralelo 17."
 ```
 
 ```
-### 7 — Tratado de Amity
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["bandung", "no-alineados", "1955", "solidaridad"]
+enunciado: "En 1955, se reunió en Indonesia una histórica asamblea de estados asiáticos y africanos que buscaba promover la cooperación económica y cultural y oponerse al colonialismo. ¿Cómo se denominó esta conferencia fundacional del movimiento de Países No Alineados?"
+tipo: completar
+respuesta: "bandung"
+respuestas_validas:
+  - "bandung"
+  - "Bandung"
+  - "conferencia de bandung"
+  - "Conferencia de Bandung"
+explicacion: "La Conferencia de Bandung fue un hito en la historia de la descolonización, sentando las bases para la futura solidaridad del Sur global."
 ```
 
 ```
-### 8 — Guerra de los Seis Días
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["ghana", "nkrumah", "independencia", "1957"]
+enunciado: "Ghana fue el primer país de África subsahariana en obtener la independencia de la metropoli británica en 1957, bajo el liderazgo carismático de un político que promovió el panaficanismo. ¿Quién fue este líder?"
+tipo: completar
+respuesta: "kwame nkrumah"
+respuestas_validas:
+  - "kwame nkrumah"
+  - "Kwame Nkrumah"
+  - "nkrumah"
+  - "Nkrumah"
+explicacion: "Kwame Nkrumah lideró la Gold Coast hacia la independencia como Ghana y se convirtió en su primer primer ministro y presidente."
 ```
 
 ```
-### 9 — Liderazgo de Sukarno
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["argelia", "francia", "colonialismo", "1945"]
+enunciado: "En mayo de 1945, mientras se celebraba la victoria aliada en la Segunda Guerra Mundial, estallaron violentos disturbios en Argelia que fueron reprimidos brutalmente por las fuerzas coloniales francesas, marcando el inicio del camino hacia la guerra de independencia. ¿En qué ciudad argelina ocurrió el brote inicial de esta masacre?"
+tipo: completar
+respuesta: "setif"
+respuestas_validas:
+  - "setif"
+  - "Sétif"
+  - "setif"
+  - "Sétif"
+explicacion: "La masacre de Sétif (y Guelma) de 1945 fue un punto de inflexión donde la contradicción entre los ideales democráticos aliados y el colonialismo francés se hizo evidente."
 ```
 
 ```
-### 10 — Masacre de Malaya
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["india", "pakistan", "montbatten", "1947"]
+enunciado: "El plan que definió la partición del subcontinente indio en dos dominios independientes, India y Pakistán, fue anunciado en junio de 1947 por el último virrey británico. ¿Quién fue este virrey responsable de la transición?"
+tipo: completar
+respuesta: "louis mountbatten"
+respuestas_validas:
+  - "louis mountbatten"
+  - "Louis Mountbatten"
+  - "mountbatten"
+  - "Mountbatten"
+explicacion: "Lord Louis Mountbatten diseñó el calendario acelerado para la independencia y la partición, lo que resultó en una de las mayores migraciones forzadas de la historia."
 ```
 
 ```
-### 11 — Independencia de Marruecos
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["chipre", "britania", "grecia", "turquia"]
+enunciado: "La independencia de Chipre en 1960 fue el resultado de acuerdos entre el Reino Unido, Grecia y Turquía. Este proceso puso fin a la enosis (unión con Grecia) y la taksim (partición). ¿Qué isla mediterránea fue el objeto de este proceso descolonizador?"
+tipo: completar
+respuesta: "chipre"
+respuestas_validas:
+  - "chipre"
+  - "Chipre"
+explicacion: "Chipre logró su independencia bajo un tratado que garantizaba la protección de las comunidades turcochipriota y griegochipriota, aunque con bases soberanas británicas."
 ```
 
 ```
-### 12 — Acuerdo de Rangoon
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["india", "china", "tibet", "1954"]
+enunciado: "En 1954, India y China firmaron el Tratado de Amity y Coordinación, que incluía los Cinco Principios de la Coexistencia Pacífica. Este tratado fue significativo porque la primera parte lo negoció un líder de un país recién independiente que reclamaba la soberanía sobre un territorio del Himalaya que China disputaba. ¿Qué territorio fue el foco de esta disputa inicial en el tratado?"
+tipo: completar
+respuesta: "tibet"
+respuestas_validas:
+  - "tibet"
+  - "Tibet"
+explicacion: "India reconoció la soberanía china sobre Tibet en el tratado, pero luego la invasión china de 1950-51 y la posterior guerra de 1962 invalidaron la confianza en estos principios."
 ```
 
 ```
-### 13 — Masacre de Jaffna
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["canal de suez", "egipto", "israel", "1956"]
+enunciado: "La nacionalización del Canal de Suez por Gamal Abdel Nasser en 1956 provocó una invasión coordinada por Israel, Reino Unido y Francia. ¿En qué mes y año comenzó esta guerra que demostró el fin de la hegemonía colonial europea directa en la región?"
+tipo: completar
+respuesta: "octubre 1956"
+respuestas_validas:
+  - "octubre 1956"
+  - "octubre de 1956"
+  - "1956"
+  - "octubre"
+explicacion: "La crisis de Suez (1956) marcó el declive final de Gran Bretaña y Francia como potencias globiales independentes, obligadas a retirarse bajo presión de EE.UU. y la URSS."
 ```
 
 ```
-### 14 — Tratado de Lausana
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["indonesia", "holanda", "sukarno", "independencia"]
+enunciado: "Indonesia proclamó su independencia en 1945, pero los Países Bajos no reconocieron formalmente la soberanía hasta 1949 tras una guerra de guerrillas y presión diplomática. ¿Quién fue el primer presidente de Indonesia y figura central del nacionalismo indonesio?"
+tipo: completar
+respuesta: "sukarno"
+respuestas_validas:
+  - "sukarno"
+  - "Sukarno"
+explicacion: "Sukarno fue el arquitecto de la independencia indonesia y un líder clave del Movimiento de Países No Alineados."
 ```
 
 ```
-### 15 — Líder de la independencia de Kenia
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["malaya", "emergencia", "comunistas", "britania"]
+enunciado: "Antes de la independencia de Malaya en 1957, el Reino Unido enfrentó una insurgencia armada liderada principalmente por el Partido Comunista de Malaya. ¿Cómo se denominó oficialmente este conflicto de baja intensidad que duró desde 1948 hasta 1960?"
+tipo: completar
+respuesta: "emergencia de malaya"
+respuestas_validas:
+  - "emergencia de malaya"
+  - "Emergencia de Malaya"
+  - "la emergencia"
+explicacion: "La 'Emergencia' fue un ejemplo de guerra contrainsurgente donde las fuerzas britanas combinaron tácticas militares con la reubicación de la población rural china malaya."
 ```
 
 ```
-### 16 — Acuerdo de Acosia
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["marruecos", "francia", "sultan", "1956"]
+enunciado: "Marruecos logró su independencia de Francia en 1956 mediante negociaciones políticas que restauraron el poder del monarca. ¿Quién fue el sultán que se convirtió en rey y símbolo de la unidad nacional marroquí?"
+tipo: completar
+respuesta: "mohammed v"
+respuestas_validas:
+  - "mohammed v"
+  - "Mohammed V"
+  - "muhammad v"
+  - "Muhammad V"
+explicacion: "Mohammed V (Sidi Mohammed ben Youssef) fue exiliado por los franceses en 1953 por su activismo nacionalista, pero su regreso precipitó la independencia."
 ```
 
 ```
-### 17 — Independencia de Etiopía
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["birmania", "britania", "u nu", "independencia"]
+enunciado: "Birmania fue el primer país de la Commonwealth en abandonar la unión al obtener la independencia en 1948, un año antes que la India. ¿Quién fue el primer ministro birmano que negoció la independencia con Clement Attlee y luego lideró el país?"
+tipo: completar
+respuesta: "u nu"
+respuestas_validas:
+  - "u nu"
+  - "U Nu"
+explicacion: "U Nu negoció la independencia bajo la condición de que Birmania no se uniera a la Commonwealth, manteniendo una política de no alineamiento."
 ```
 
 ```
-### 18 — Conferencia de Brazzaville
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["ceilan", "sri lanka", "britania", "1958"]
+enunciado: "Aunque Ceilán (actual Sri Lanka) obtuvo la independencia en 1948 de forma relativamente pacífica, las tensiones étnicas entre cingaleses y tamiles estallaron violentamente años después. ¿En qué año ocurrieron los primeros disturbios intercomunitarios masivos en la isla?"
+tipo: completar
+respuesta: "1958"
+respuestas_validas:
+  - "1958"
+  - "1958."
+explicacion: "Los disturbios de 1958 marcaron el inicio de la violencia política estructurada basada en la identidad étnica en Sri Lanka."
 ```
 
 ```
-### 19 — Líder de la independencia de Tanzania (Tanganyika)
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["turquia", "imperio otomano", "mustafa kemal", "1923"]
+enunciado: "Aunque anterior a la ola principal de descolonización del siglo XX, este tratado puso fin formalmente al Imperio Otomano y estableció la República de Turquía como un estado soberano moderno. ¿En qué ciudad suiza se firmó este tratado?"
+tipo: completar
+respuesta: "lausana"
+respuestas_validas:
+  - "lausana"
+  - "Lausana"
+  - "lausanne"
+  - "Lausanne"
+explicacion: "El Tratado de Lausana (1923) fue un precedente crucial de autodeterminación nacional que inspiró a movimientos nacionalistas en Asia y África."
 ```
 
 ```
-### 20 — Masacre de Thiaroye
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["kenia", "mau mau", "jomo kenatta", "independencia"]
+enunciado: "Kenia luchó una guerra de liberación contra el dominio británico, conocida como la Rebelión Mau-Mau, antes de obtener la independencia en 1963. ¿Quién fue el líder nacionalista que se convirtió en el primer presidente de Kenia?"
+tipo: completar
+respuesta: "jomo kenatta"
+respuestas_validas:
+  - "jomo kenatta"
+  - "Jomo Kenyatta"
+  - "kenyatta"
+  - "Kenyatta"
+explicacion: "Jomo Kenyatta fue encarcelado por los británicos durante la rebelión Mau-Mau, pero luego se convirtió en la figura unificadora de la independencia."
 ```
 
 ```
-### 21 — Acuerdo de Finkenstein
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["argelia", "francia", "evian", "1962"]
+enunciado: "Tras ocho años de guerra brutal, Francia y los nacionalistas argelinos (FLN) firmaron unos acuerdos que pusieron fin al conflicto y permitieron la independencia de Argelia. ¿En qué ciudad francesa se firmaron estos acuerdos en marzo de 1962?"
+tipo: completar
+respuesta: "evian"
+respuestas_validas:
+  - "evian"
+  - "Évian"
+  - "evian-les-bains"
+  - "Évian-les-Bains"
+explicacion: "Los Acuerdos de Évian-Les-Bains establecieron el cese al fuego y el referéndum de independencia que se celebró poco después."
 ```
 
 ```
-### 22 — Independencia de Libia
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["etiopia", "italia", "ocupacion", "1941"]
+enunciado: "A diferencia de la mayoría de los países africanos, Etiopía fue solo brevemente ocupada por Italia fascista. ¿En qué año las fuerzas aliadas y los patriotas etíopes liberaron Addis Abeba, restaurando la soberanía etíope?"
+tipo: completar
+respuesta: "1941"
+respuestas_validas:
+  - "1941"
+  - "1941."
+explicacion: "La liberación de 1941 reafirmó a Etiopía como un símbolo de resistencia anticolonial en África, aunque mantuvo su estatus de monarquía hasta 1974."
 ```
 
 ```
-### 23 — Masacre de Mawlamyine
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["francia", "africa", "colonialismo", "1944"]
+enunciado: "En 1944, el general de Gaulle convocó una conferencia en la capital de la África Ecuatorial Francesa para discutir el futuro de las colonias. ¿Qué ciudad fue sede de esta conferencia que prometía reformas pero rechazaba la independencia inmediata?"
+tipo: completar
+respuesta: "brazzaville"
+respuestas_validas:
+  - "brazzaville"
+  - "Brazzaville"
+explicacion: "La Conferencia de Brazzaville fue un intento de reformar el imperio colonial francés sin conceder la autodeterminación política total."
 ```
 
 ```
-### 24 — Acuerdo de Irán
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["tanganyika", "nyerere", "tanzania", "independencia"]
+enunciado: "Tanganyika obtuvo la independencia de Gran Bretaña en 1961. Su líder, conocido por su filosofía de 'Ujamaa' (familia), se convirtió en el primer presidente. ¿Quién fue este líder?"
+tipo: completar
+respuesta: "julius nyerere"
+respuestas_validas:
+  - "julius nyerere"
+  - "Julius Nyerere"
+  - "nyerere"
+  - "Nyerere"
+explicacion: "Julius Nyerere fue un intelectual y líder socialista que unió Tanganyika con Zanzíbar para formar Tanzania."
 ```
 
 ```
-### 25 — Masacre de Mendi
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["senegal", "francia", "veteranos", "1944"]
+enunciado: "En diciembre de 1944, en las afueras de Dakar, las tropas coloniales francesas dispararon contra sus propios camaradas veteranos que reclamaban sus pagas y licencias. ¿En qué localidad senegalesa ocurrió esta masacre?"
+tipo: completar
+respuesta: "thiaroye"
+respuestas_validas:
+  - "thiaroye"
+  - "Thiaroye"
+  - "thiaroye sur mer"
+  - "Thiaroye-sur-Mer"
+explicacion: "La masacre de Thiaroye simbolizó la traición de las potencias coloniales hacia los soldados africanos que habían luchado por la libertad en Europa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["argelia", "argel", "francia", "1961"]
+enunciado: "En abril de 1961, se intentó negociar un alto el fuego entre el gobierno francés y el FLN argelino en una villa en las afueras de Argel. ¿En qué localidad se celebraron estas conversaciones fallidas?"
+tipo: completar
+respuesta: "finkenstein"
+respuestas_validas:
+  - "finkenstein"
+  - "Finkenstein"
+  - "finkenstein-sur-mer"
+  - "Finkenstein-sur-Mer"
+explicacion: "Las conversaciones de Finkenstein-sur-Mer fracasaron debido a la intransigencia de la OAS (Organización del Ejército Secreto) y la desconfianza mutua."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["libia", "italia", "onu", "1951"]
+enunciado: "Libia fue el único país africano que obtuvo la independencia a través de una resolución de la ONU que estableció un reino constitucional. ¿Quién fue el primer rey de Libia y líder de la dinastía Idrisida?"
+tipo: completar
+respuesta: "idris"
+respuestas_validas:
+  - "idris"
+  - "Idris"
+  - "idris i"
+  - "Idris I"
+explicacion: "El Rey Idris I gobernó Libia hasta 1969, cuando fue derrocado por Muamar Gadafi en un golpe de estado."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["birmania", "britania", "independencia", "1947"]
+enunciado: "Justo antes de la independencia de Birmania, estallaron disturbios comunitarios en una ciudad importante. Aunque menos conocida que otras, la violencia en 1947 marcó las tensiones étnicas tempranas. Sin embargo, un evento más simbólico de la transición fue la ejecución de un líder nacionalista birmano por parte de los británicos en 1947. ¿Quién fue este líder ejecutado?"
+tipo: completar
+respuesta: "aung san"
+respuestas_validas:
+  - "aung san"
+  - "Aung San"
+explicacion: "Aung San fue negociado la independencia pero fue asesinado antes de su implementación, convirtiéndose en un héroe nacional."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["iran", "britania", "petroleo", "mosaddeq"]
+enunciado: "En 1951, Irán nacionalizó su industria petrolera, desafiando los intereses de la Anglo-Iranian Oil Company. El primer ministro iraní que lideró esta resistencia fue derrocado en un golpe de estado en 1953 apoyado por EE.UU. y el Reino Unido. ¿Quién fue este primer ministro?"
+tipo: completar
+respuesta: "mohammad mosaddeq"
+respuestas_validas:
+  - "mohammad mosaddeq"
+  - "Mohammad Mosaddeq"
+  - "mosaddeq"
+  - "Mosaddeq"
+explicacion: "La nacionalización petrolera irana fue un acto de soberanía económica que desafió el neocolonialismo occidental en Oriente Medio."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "descolonizacion-de-africa-y-asia"
+  nivel: "avanzado"
+  tags: ["india", "segunda guerra mundial", "transporte", "1943"]
+enunciado: "Durante la Segunda Guerra Mundial, el transporte de tropas indias sufrió una tragedia marítima masiva. El buque SS Mendi fue hundido por un submarino alemán en 1943, causando cientos de muertes entre soldados del Cuerpo de Trabajo Indio. ¿Qué nacionalidad tenían las víctimas principales de este desastre?"
+tipo: mc
+opciones_explicitas:
+  - "Pacistaníes"
+  - "Indios"
+  - "Bangladesíes"
+  - "Sri Lankeses"
+respuesta: "Indios"
+explicacion: "Las víctimas eran soldados y trabajadores indios del Imperio Británico, recordados como héroes en la historia militar de la India."
 ```
 
 ## Sección: distribucion-biomas (25 preguntas)
@@ -618,6 +927,8 @@ opciones_explicitas: ["Una agrupación de especies animales y vegetales en un á
 
 enunciado: "Un bioma se define como ___."
 
+respuesta: "Una gran región con clima, vegetación y fauna característicos."
+
 explicacion: |
   Un bioma es una unidad ecológica de gran escala que se caracteriza por tener un clima, un tipo de vegetación y una fauna específicos que se repiten en diferentes partes del planeta.
 ```
@@ -631,9 +942,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["La altitud y la presión atmosférica.", "La latitud y el clima.", "La distancia a la costa y la humedad.", "La actividad volcánica y el relieve."]
-
 enunciado: "La distribución de los biomas en la superficie terrestre está determinada principalmente por:"
-
+respuesta: "La latitud y el clima."
 explicacion: |
   La latitud determina la radiación solar recibida, lo cual, junto con la humedad y la temperatura (clima), define el tipo de vegetación y el bioma resultante.
 ```
@@ -647,13 +957,12 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Selva Tropical", "Desierto"],
-    ["Altas precipitaciones y calor constante", "Escasez extrema de agua y temperaturas extremas"]
-  ]
+  escenarios: [["Selva Tropical", "Desierto"], ["Altas precipitaciones y calor constante", "Escasez extrema de agua y temperaturas extremas"]]
 
 tipo: completar
-respuestas_validas: ["Selva Tropical", "Desierto"]
+respuestas_validas:
+  - "Selva Tropical"
+  - "Desierto"
 
 enunciado: "El bioma caracterizado por {escenarios[escenario_idx][1]} es la {escenarios[escenario_idx][0]}."
 
@@ -669,7 +978,8 @@ metadata:
   tags: ["clima", "vegetacion"]
 
 tipo: completar
-respuestas_validas: ["Tundra", "Taiga", "Sabana"]
+respuestas_validas:
+  - "Tundra"
 
 enunciado: "El bioma de clima frío, con suelos congelados (permafrost) y vegetación de musgos y líquenes, se denomina ___."
 
@@ -691,6 +1001,7 @@ enunciado: "Ordene de menor a mayor complejidad los niveles de organización eco
 
 explicacion: |
   La jerarquía parte desde el organismo individual, pasa por grupos de la misma especie (población), interacciones entre especies (comunidad), la relación con el medio físico (ecosistema) y finalmente la escala global (bioma).
+respuesta_orden: ["Individuo", "Población", "Comunidad", "Ecosistema", "Bioma"]
 ```
 
 ```
@@ -717,18 +1028,12 @@ metadata:
   nivel: "intermedio"
   tags: ["altitud", "gradiente_termico"]
 
-variables:
-  escenario: uno_de([
-    ["un ascenso constante en la montaña", "disminución de temperatura"],
-    ["un descenso desde la cima", "aumento de temperatura"],
-    ["un desplazamiento hacia el ecuador", "aumento de temperatura"]
-  ])
-
-respuesta: escenario[1
+respuesta: "disminución de temperatura"
 tipo: completar
-respuestas_validas: ["disminución de temperatura", "aumento de temperatura", "cambio de humedad"]
+respuestas_validas:
+  - "disminución de temperatura"
 
-enunciado: "Al aumentar la altitud en una montaña, se produce un gradiente térmico donde ocurre una {escenario[0]}."
+enunciado: "Al aumentar la altitud en una montaña, se produce un gradiente térmico donde ocurre una ___."
 
 explicacion: |
   A mayor altitud, la presión atmosférica disminuye y la temperatura desciende, lo que puede cambiar el bioma local (piso térmico).
@@ -742,13 +1047,9 @@ metadata:
   tags: ["latitud", "zonas_climaticas"]
 
 variables:
-  datos: uno_de([
-    ["Ecuador", "Selva Tropical"],
-    ["Zonas Templadas", "Bosques Caducifolios"],
-    ["Polos", "Tundra"]
-  ])
+  datos: uno_de([["Ecuador", "Selva Tropical"], ["Zonas Templadas", "Bosques Caducifolios"], ["Polos", "Tundra"]])
 
-respuesta: datos[1
+respuesta: datos[1]
 tipo: mc
 opciones_explicitas: ["Selva Tropical", "Bosques Caducifolios", "Tundra", "Desierto"]
 
@@ -765,7 +1066,7 @@ metadata:
   nivel: "avanzado"
   tags: ["altitud", "zonas_verticales"]
 
-respuesta: ["Bosque de niebla", "Páramo", "Superpáramo", "Nieves perpetuas"]
+respuesta_orden: ["Bosque de niebla", "Páramo", "Superpáramo", "Nieves perpetuas"]
 tipo: ordenar
 opciones_explicitas: ["Bosque de niebla", "Páramo", "Superpáramo", "Nieves perpetuas"]
 
@@ -818,7 +1119,8 @@ metadata:
   tags: ["desierto", "subtropical", "clima"]
 
 tipo: completar
-respuestas_validas: ["seco", "húmedo"]
+respuestas_validas:
+  - "seco"
 
 enunciado: "Los desiertos se localizan generalmente en zonas subtropicales y se caracterizan por tener un clima muy ___."
 
@@ -836,18 +1138,23 @@ metadata:
   tags: ["tundra", "polar", "latitud"]
 
 variables:
+  datos: [["Tundra", "Zonas polares"], ["Bosque templado", "Zonas de latitudes medias"]]
   escenario_idx: uno_de([0, 1])
-  datos: [[["Tundra", "Zonas polares"], ["Bosque templado", "Zonas de latitudes medias"]]]
+  bioma: datos[escenario_idx][0]
+  ubicacion: datos[escenario_idx][1]
 
 tipo: mc
 opciones_explicitas: ["Tundra", "Bosque templado", "Selva tropical", "Desierto"]
 
-enunciado: "Considerando el bioma de {datos[escenario_idx][0]}, este se encuentra ubicado típicamente en {datos[escenario_idx][1]}."
+enunciado: "Considerando el bioma de {bioma}, este se encuentra ubicado típicamente en {ubicacion}."
 
-respuesta: "Tundra"
+respuesta: bioma
 
 explicacion: |
   La tundra se caracteriza por condiciones climáticas extremas en las zonas polares.
+  El bosque templado se ubica en zonas de latitudes medias.
+  La selva tropical en zonas ecuatoriales.
+  El desierto en zonas áridas.
 ```
 
 ```
@@ -860,7 +1167,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Selva tropical", "Bosque templado", "Tundra"]
 
-respuesta: ["Selva tropical", "Bosque templado", "Tundra"]
+respuesta_orden: ["Selva tropical", "Bosque templado", "Tundra"]
 
 enunciado: "Ordena los siguientes biomas de mayor a menor temperatura (del más cálido al más frío):"
 
@@ -894,15 +1201,11 @@ metadata:
   tags: ["biogeografia", "tectonica_de_placas"]
 
 variables:
-  escenario: uno_de([
-    ["Pangea", "la unión de todas las masas de tierra"],
-    ["Gondwana", "el supercontinente del hemisferio sur"],
-    ["Laurasia", "el supercontinente del hemisferio norte"]
-  ])
+  escenario: uno_de([["Pangea", "Pangea"], ["Gondwana", "Gondwana"], ["Laurasia", "Laurasia"]])
 
 enunciado: "La distribución actual de biomas y especies está influenciada por la fragmentación de {escenario[0]}."
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["Pangea", "Gondwana", "Laurasia", "Panthalassa"]
 
@@ -917,15 +1220,9 @@ metadata:
   nivel: "intermedio"
   tags: ["biogeografia", "aislamiento"]
 
-variables:
-  caso: uno_de([
-    ["Australia", "el continente que permitió el aislamiento de marsupiales"],
-    ["América del Sur", "el continente que se unió a Norteamérica por el istmo"]
-  ])
+enunciado: "La separación de Australia permitió que la fauna evolucionara de manera única (el aislamiento de los marsupiales), un proceso clave en la biogeografía histórica."
 
-enunciado: "La separación de {caso[0]} permitió que la fauna evolucionara de manera única, un proceso clave en la biogeografía histórica."
-
-respuesta: caso[0
+respuesta: "Australia"
 tipo: mc
 opciones_explicitas: ["Australia", "América del Sur", "África", "Antártida"]
 
@@ -941,14 +1238,11 @@ metadata:
   tags: ["factores_climaticos", "biomas"]
 
 variables:
-  factor: uno_de([
-    ["latitud", "la distancia respecto al ecuador"],
-    ["altitud", "la altura sobre el nivel del mar"]
-  ])
+  factor: uno_de([["latitud", "la distancia respecto al ecuador"], ["altitud", "la altura sobre el nivel del mar"]])
 
 enunciado: "La distribución de los biomas no solo depende de la tectónica, sino también de factores climáticos como la {factor[0]}."
 
-respuesta: factor[0
+respuesta: factor[0]
 tipo: mc
 opciones_explicitas: ["latitud", "altitud", "presión", "salinidad"]
 
@@ -971,7 +1265,7 @@ pasos:
   - "Evolución y especiación por aislamiento"
   - "Establecimiento de biomas actuales"
 
-respuesta: ["Formación de supercontinentes (ej. Pangea)", "Fragmentación de las masas continentales", "Evolución y especiación por aislamiento", "Establecimiento de biomas actuales"]
+respuesta_orden: ["Formación de supercontinentes (ej. Pangea)", "Fragmentación de las masas continentales", "Evolución y especiación por aislamiento", "Establecimiento de biomas actuales"]
 tipo: ordenar
 opciones_explicitas: ["Formación de supercontinentes (ej. Pangea)", "Fragmentación de las masas continentales", "Evolución y especiación por aislamiento", "Establecimiento de biomas actuales"]
 
@@ -986,18 +1280,13 @@ metadata:
   nivel: "avanzado"
   tags: ["biogeografia", "tectonica"]
 
-variables:
-  relacion: uno_de([
-    ["directa", "existe una conexión clara entre movimiento de placas y especies"],
-    ["inversa", "el movimiento de placas impide la distribución de especies"]
-  ])
-
 enunciado: "La relación entre la tectónica de placas y la biogeografía es ___________."
 
-respuesta: tabla[0][1
+respuesta: "directa"
 tipo: completar
 opciones_explicitas: ["directa", "inversa"]
-respuestas_validas: ["directa", "inversa"]
+respuestas_validas:
+  - "directa"
 
 pasos:
   - "Analizar cómo el movimiento de placas crea o destruye barreras físicas."
@@ -1014,13 +1303,9 @@ metadata:
   nivel: "basico"
   tags: ["clima", "latitud", "selva"]
 
-variables:
-  datos: [["latitud_ecuatorial", "Selva Tropical"], ["latitud_polar", "Tundra"], ["latitud_desertica", "Desierto"]]
-  idx: uno_de([0,1,2])
+enunciado: "Un ecosistema con temperaturas elevadas durante todo el año, precipitaciones constantes y una biodiversidad extrema se encuentra en la zona de latitud ecuatorial. ¿Qué bioma es?"
 
-enunciado: "Un ecosistema con temperaturas elevadas durante todo el año, precipitaciones constantes y una biodiversidad extrema se encuentra en la {datos[idx][0]}."
-
-respuesta: datos[idx][1]
+respuesta: "Selva Tropical"
 tipo: mc
 opciones_explicitas: ["Selva Tropical", "Tundra", "Desierto"]
 
@@ -1035,15 +1320,12 @@ metadata:
   nivel: "basico"
   tags: ["clima", "precipitacion"]
 
-variables:
-  datos: [["precipitaciones_nulas", "Desierto"], ["precipitaciones_moderadas", "Bosque Templado"], ["precipitaciones_altas", "Selva Tropical"]]
-  idx: uno_de([0,1,2])
+enunciado: "Si un área presenta precipitaciones prácticamente nulas y una evaporación muy superior a la precipitación, el bioma es un ___."
 
-enunciado: "Si un área presenta {datos[idx][0]} y una evaporación muy superior a la precipitación, el bioma es un ___."
-
-respuesta: datos[idx][1
+respuesta: "Desierto"
 tipo: completar
-respuestas_validas: ["Desierto"]
+respuestas_validas:
+  - "Desierto"
 
 explicacion: |
   Los desiertos se definen por la escasez extrema de agua y la alta tasa de evaporación.
@@ -1058,7 +1340,7 @@ metadata:
 
 enunciado: "Ordene los siguientes biomas desde la zona ecuatorial hacia los polos (de mayor a menor temperatura):"
 
-respuesta: ["Selva Tropical", "Bosque Templado", "Tundra"]
+respuesta_orden: ["Selva Tropical", "Bosque Templado", "Tundra"]
 tipo: ordenar
 opciones_explicitas: ["Selva Tropical", "Bosque Templado", "Tundra"]
 
@@ -1073,15 +1355,12 @@ metadata:
   nivel: "intermedio"
   tags: ["clima", "suelo", "tundra"]
 
-variables:
-  datos: [["permafrost_permanente", "Tundra"], ["suelo_nutritivo", "Selva"], ["estaciones_marcadas", "Bosque Templado"]]
-  idx: uno_de([0,1,2])
+enunciado: "Un bioma caracterizado por el permafrost permanente y la presencia de musgos y líquenes es la ___."
 
-enunciado: "Un bioma caracterizado por el {datos[idx][0]} y la presencia de musgos y líquenes es la ___."
-
-respuesta: datos[idx][1]
+respuesta: "Tundra"
 tipo: completar
-respuestas_validas: ["Tundra"]
+respuestas_validas:
+  - "Tundra"
 
 explicacion: |
   La tundra se define por el permafrost, un suelo que permanece congelado casi todo el año.
@@ -1094,13 +1373,9 @@ metadata:
   nivel: "basico"
   tags: ["clima", "estaciones"]
 
-variables:
-  datos: [["estaciones_bien_definidas", "Bosque Templado"], ["clima_extremadamente_seco", "Desierto"], ["clima_calido_húmedo", "Selva"]]
-  idx: uno_de([0,1,2])
+enunciado: "Un ecosistema con estaciones bien definidas y árboles que pierden sus hojas en otoño es un ___."
 
-enunciado: "Un ecosistema con {datos[idx][0]} y árboles que pierden sus hojas en otoño es un ___."
-
-respuesta: datos[idx][1]
+respuesta: "Bosque Templado"
 tipo: mc
 opciones_explicitas: ["Bosque Templado", "Desierto", "Selva"]
 
@@ -1119,7 +1394,8 @@ metadata:
 
 respuesta: "especialización"
 tipo: completar
-respuestas_validas: ["especialización"]
+respuestas_validas:
+  - "especialización"
 
 enunciado: "La división del trabajo consiste en la ___ de distintas personas o grupos en tareas específicas, en lugar de que todos realicen todas las actividades."
 
@@ -1152,20 +1428,14 @@ metadata:
   nivel: "intermedio"
   tags: ["historia_economica", "procesos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Artesano medieval", "Realiza todas las etapas de un producto de principio a fin"],
-    ["Fábrica moderna", "Cada operario realiza una sola tarea repetitiva en una línea de montaje"]
-  ]
-
-enunciado: "En un escenario de {escenarios[escenario_idx][1]}, el modelo de producción se caracteriza por ser: ___"
+enunciado: "En un escenario de fábrica moderna, donde cada operario realiza una sola tarea repetitiva en una línea de montaje, el modelo de producción se caracteriza por ser: ___"
 
 pasos:
   - "Identificar el escenario seleccionado."
   - "Analizar si el trabajador realiza todo el proceso o solo una parte."
 
-respuestas_validas: ["integral", "fragmentado"]
+respuestas_validas:
+  - "fragmentado"
 respuesta: "fragmentado"
 tipo: completar
 
@@ -1182,7 +1452,7 @@ metadata:
 
 opciones_explicitas: ["Extracción de materia prima", "Transformación especializada", "Distribución del producto final"]
 
-respuesta: ["Extracción de materia prima", "Transformación especializada", "Distribución del producto final"]
+respuesta_orden: ["Extracción de materia prima", "Transformación especializada", "Distribución del producto final"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente las etapas de una cadena de producción altamente dividida:"
@@ -1218,7 +1488,9 @@ metadata:
 
 respuesta: "excedente agrícola"
 tipo: completar
-respuestas_validas: ["excedente agrícola", "excedente"]
+respuestas_validas:
+  - "excedente agrícola"
+  - "excedente"
 
 enunciado: "La división del trabajo surgió históricamente como una consecuencia directa de la aparición del ___."
 
@@ -1238,7 +1510,7 @@ variables:
   roles: [["artesanos", "comerciantes", "sacerdotes"], ["artesanos", "comerciantes", "sacerdotes"], ["artesanos", "comerciantes", "sacerdotes"]]
 
 opciones_explicitas: ["artesanos", "comerciantes", "sacerdotes", "agricultores"]
-respuesta: roles[rol_idx][2
+respuesta: roles[rol_idx][2]
 tipo: mc
 
 enunciado: "Gracias al excedente de alimentos, algunas personas pudieron dedicarse a funciones no productoras de comida, como es el caso de los {roles[rol_idx][2]}."
@@ -1274,7 +1546,7 @@ variables:
   escenarios: [["artesanos, comerciantes y sacerdotes", "artesanos, comerciantes y sacerdotes"], ["artesanos, comerciantes y sacerdotes", "artesanos, comerciantes y sacerdotes"]]
 
 opciones_explicitas: ["agricultores y guerreros", "artesanos, comerciantes y sacerdotes", "cazadores y recolectores", "nómadas y pastores"]
-respuesta: escenarios[escenario_idx][0
+respuesta: escenarios[escenario_idx][0]
 tipo: mc
 
 enunciado: "Al producirse un excedente agrícola, la estructura social se vuelve más compleja, pasando de ser mayoritariamente agricultores a incluir roles como ___."
@@ -1291,7 +1563,7 @@ metadata:
   tags: ["proceso", "causalidad"]
 
 opciones_explicitas: ["Agricultura de subsistencia", "Producción de excedentes", "División del trabajo"]
-respuesta: ["Agricultura de subsistencia", "Producción de excedentes", "División del trabajo"]
+respuesta_orden: ["Agricultura de subsistencia", "Producción de excedentes", "División del trabajo"]
 tipo: ordenar
 
 enunciado: "Ordena los siguientes procesos históricos que permitieron la aparición de la especialización laboral:"
@@ -1314,7 +1586,9 @@ metadata:
 
 respuesta: "eficiencia"
 tipo: completar
-respuestas_validas: ["eficiencia", "productividad"]
+respuestas_validas:
+  - "eficiencia"
+  - "productividad"
 
 enunciado: "Cuando un proceso se divide en tareas simples y cada trabajador se especializa en una de ellas, se logra una mayor ___ en la producción total."
 
@@ -1334,7 +1608,7 @@ variables:
   datos: [["taller de costura", "un sastre"], ["fábrica de clavos", "un operario"]]
   resultado: [["mayor rapidez", "un sastre"], ["mayor volumen", "un operario"]]
 
-respuesta: resultado[escenario_idx][1
+respuesta: resultado[escenario_idx][0]
 tipo: mc
 opciones_explicitas: ["mayor rapidez", "mayor volumen", "menor calidad", "más costos"]
 
@@ -1368,7 +1642,7 @@ metadata:
   nivel: "intermedio"
   tags: ["orden", "proceso"]
 
-respuesta: ["materias primas", "tareas especializadas", "producto terminado"]
+respuesta_orden: ["materias primas", "tareas especializadas", "producto terminado"]
 tipo: ordenar
 opciones_explicitas: ["materias primas", "tareas especializadas", "producto terminado"]
 
@@ -1393,9 +1667,9 @@ metadata:
 variables:
   caso_idx: uno_de([0, 1])
   valores: [[10, 50], [5, 100]]
-  total: [500, 500]
+  total: [500, 1000]
 
-respuesta: total[caso_idx
+respuesta: total[caso_idx]
 tipo: completar
 tolerancia_abs: 0
 
@@ -1433,15 +1707,12 @@ metadata:
   nivel: "intermedio"
   tags: ["economia", "recursos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["agricultores", "excedente"], ["artesanos", "especialización"]]
-
-respuesta: datos[escenario_idx][1
+respuesta: "excedente"
 tipo: completar
-respuestas_validas: ["excedente", "especialización"]
+respuestas_validas:
+  - "excedente"
 
-enunciado: "En los primeros asentamientos sedentarios, la división del trabajo permitió que ciertos grupos controlaran el {datos[escenario_idx][1]}, consolidando la desigualdad."
+enunciado: "En los primeros asentamientos sedentarios, la división del trabajo permitió que ciertos grupos controlaran el excedente, consolidando la desigualdad."
 
 explicacion: |
   El control sobre el excedente de producción (como el grano) o sobre procesos técnicos específicos permitió que ciertos individuos acumularan poder sobre el resto de la comunidad.
@@ -1454,7 +1725,7 @@ metadata:
   nivel: "avanzado"
   tags: ["estructura_social", "clases"]
 
-respuesta: ["Especialización técnica", "Producción de subsistencia", "Servicio doméstico"]
+respuesta_orden: ["Especialización técnica", "Producción de subsistencia", "Servicio doméstico"]
 tipo: ordenar
 
 opciones_explicitas: ["Especialización técnica", "Producción de subsistencia", "Servicio doméstico"]
@@ -1493,12 +1764,12 @@ variables:
   caso_idx: uno_de([0, 1])
   casos: [["tierras", "dueños"], ["herramientas", "maestros"]]
 
-respuesta: casos[caso_idx][1
+respuesta: casos[caso_idx][1]
 
 tipo: mc
 opciones_explicitas: ["dueños", "maestros", "trabajadores", "esclavos"]
 
-enunciado: "Cuando la división del trabajo se vinculó con la propiedad de los medios de producción, surgieron grupos como los {casos[caso_idx][0]} que controlaban a los demás."
+enunciado: "Cuando la división del trabajo se vinculó con la propiedad de los medios de producción (como {casos[caso_idx][0]}), surgieron grupos de ___ que controlaban a los demás."
 
 explicacion: |
   La combinación de la especialización con la propiedad privada de los recursos (tierra o herramientas) es el motor fundamental de la estratificación de clases.
@@ -1511,11 +1782,7 @@ metadata:
   nivel: "basico"
   tags: ["especializacion", "prehistoria"]
 
-variables:
-  datos: [["un grupo de nómadas que fabrica puntas de lanza de piedra", "cazador"], ["un grupo de nómadas que trabaja el cuero", "curtidor"], ["un grupo que fabrica vasijas de arcilla", "alfarero"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "alfarero"
 tipo: mc
 opciones_explicitas: ["cazador", "curtidor", "alfarero", "agricultor"]
 
@@ -1532,13 +1799,10 @@ metadata:
   nivel: "intermedio"
   tags: ["jerarquia", "especializacion"]
 
-variables:
-  datos: [["el agricultor", "productor"], ["el escriba", "registrador"], ["el guerrero", "protector"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "registrador"
 tipo: completar
-respuestas_validas: ["productor", "registrador", "protector"]
+respuestas_validas:
+  - "registrador"
 
 enunciado: "Si en una civilización antigua la función principal de un escriba es llevar el control de los granos, su rol especializado es el de ___."
 
@@ -1553,7 +1817,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procesos", "especializacion"]
 
-respuesta: ["pastoreo", "hilado", "tejido", "confección"]
+respuesta_orden: ["pastoreo", "hilado", "tejido", "confección"]
 tipo: ordenar
 opciones_explicitas: ["pastoreo", "hilado", "tejido", "confección"]
 
@@ -1570,11 +1834,7 @@ metadata:
   nivel: "avanzado"
   tags: ["excedente", "sociedad"]
 
-variables:
-  datos: [["el excedente de comida permite que alguien sea sacerdote", "religioso"], ["el excedente de comida permite que alguien sea soldado", "militar"], ["el excedente de comida permite que alguien sea metalúrgico", "herrero"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "religioso"
 tipo: mc
 opciones_explicitas: ["religioso", "militar", "herrero", "comerciante"]
 
@@ -1591,13 +1851,10 @@ metadata:
   nivel: "basico"
   tags: ["oficios", "identificacion"]
 
-variables:
-  oficio_datos: [["trabaja el metal", "herrero"], ["domina el agua", "irrigador"], ["mide la tierra", "agrimensor"]]
-  idx: uno_de([0,1,2])
-
-respuesta: oficio_datos[idx][1
+respuesta: "agrimensor"
 tipo: completar
-respuestas_validas: ["herrero", "irrigador", "agrimensor"]
+respuestas_validas:
+  - "agrimensor"
 
 enunciado: "Un individuo cuya tarea principal es medir los límites de las tierras para la distribución de impuestos es un ___."
 
@@ -1616,6 +1873,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["La Luna se interpone entre la Tierra y el Sol", "La Tierra se interpone entre el Sol y la Luna", "El Sol se interpone entre la Tierra y la Luna"]
+respuesta: "La Luna se interpone entre la Tierra y el Sol"
 
 enunciado: "Un eclipse solar ocurre cuando ___."
 
@@ -1630,19 +1888,13 @@ metadata:
   nivel: "basico"
   tags: ["fases_lunares", "eclipse_solar"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Luna Llena", "Luna Nueva"], ["Luna Nueva", "Luna Llena"]]
-  opciones: datos[idx]
-  respuesta_correcta: datos[idx][1]
-
 enunciado: "Para que sea posible observar un eclipse solar, la Luna debe encontrarse en fase de ___."
 
 pasos:
   - "Identificar la fase lunar necesaria para que la Luna esté entre la Tierra y el Sol."
 
-opciones_explicitas: {opciones}
-respuesta: {respuesta_correcta}
+opciones_explicitas: ["Luna Llena", "Luna Nueva"]
+respuesta: "Luna Nueva"
 tipo: mc
 
 explicacion: |
@@ -1656,11 +1908,9 @@ metadata:
   nivel: "basico"
   tags: ["eclipse_lunar", "fases_lunares"]
 
-tipo: mc
-opciones_explicitas: ["Luna Nueva", "Luna Llena", "Cuarto Creciente", "Cuarto Menguante"]
-
+tipo: completar
 enunciado: "Un eclipse lunar ocurre únicamente durante la fase de ___."
-
+respuesta: "Luna Llena"
 explicacion: |
   Un eclipse lunar requiere que la Tierra esté entre el Sol y la Luna, lo cual solo sucede cuando la Luna está en su fase de Luna Llena.
 ```
@@ -1674,7 +1924,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Sol", "Tierra", "Luna"]
-respuesta: ["Sol", "Tierra", "Luna"]
+respuesta_orden: ["Sol", "Tierra", "Luna"]
 
 enunciado: "Ordena los cuerpos celestes desde el que emite la luz hasta el que recibe la sombra durante un eclipse lunar:"
 
@@ -1691,15 +1941,15 @@ metadata:
 
 variables:
   escenario: uno_de([0, 1])
+  datos: [["Sol - Tierra - Luna", "lunar"], ["Sol - Luna - Tierra", "solar"]]
 
 enunciado: "Si la posición de los astros es {datos[escenario][0]}, entonces el eclipse es de tipo ___."
 
-variables_datos:
-  datos: [["Sol - Tierra - Luna", "lunar"], ["Sol - Luna - Tierra", "solar"]]
-
 opciones_explicitas: ["solar", "lunar"]
-respuestas_validas: ["lunar", "solar"]
-respuesta: ["lunar", "solar"][escenario]
+respuestas_validas:
+  - "lunar"
+  - "solar"
+respuesta: datos[escenario][1]
 tipo: completar
 
 explicacion: |
@@ -1752,7 +2002,7 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [["Luna Nueva", "Solar"], ["Luna Llena", "Lunar"]]
 
-respuesta: tabla[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["Solar", "Lunar", "Ninguno"]
 
@@ -1789,7 +2039,7 @@ metadata:
 
 opciones_explicitas: ["Luna Nueva -> Eclipse Solar", "Luna Llena -> Eclipse Lunar"]
 
-respuesta: ["Luna Nueva -> Eclipse Solar", "Luna Llena -> Eclipse Lunar"]
+respuesta_orden: ["Luna Nueva -> Eclipse Solar", "Luna Llena -> Eclipse Lunar"]
 tipo: ordenar
 
 enunciado: "Ordena las condiciones necesarias para los dos tipos principales de eclipses:"
@@ -1811,7 +2061,8 @@ metadata:
 
 respuesta: "umbra"
 tipo: completar
-respuestas_validas: ["umbra", "penumbra"]
+respuestas_validas:
+  - "umbra"
 
 enunciado: "La parte más oscura y central de la sombra proyectada por la Luna sobre la Tierra se denomina ___."
 
@@ -1827,13 +2078,9 @@ metadata:
   tags: ["eclipses", "solar"]
 
 variables:
-  escenario: uno_de([
-    ["la Luna cubre totalmente el Sol", "total"],
-    ["la Luna cubre solo una parte del Sol", "parcial"],
-    ["la Luna está entre la Tierra y el Sol pero es más pequeña y deja un anillo", "anular"]
-  ])
+  escenario: uno_de([["la Luna cubre totalmente el Sol", "total"], ["la Luna cubre solo una parte del Sol", "parcial"], ["la Luna está entre la Tierra y el Sol pero es más pequeña y deja un anillo", "anular"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["total", "parcial", "anular"]
 
@@ -1867,7 +2114,7 @@ metadata:
   nivel: "intermedio"
   tags: ["observacion"]
 
-respuesta: ["crescendo", "totalidad", "decrescendo"]
+respuesta_orden: ["crescendo", "totalidad", "decrescendo"]
 tipo: ordenar
 opciones_explicitas: ["crescendo", "totalidad", "decrescendo"]
 
@@ -1884,17 +2131,14 @@ metadata:
   nivel: "avanzado"
   tags: ["calculo", "geometria"]
 
-variables:
-  distancia_luna: uno_de([384400, 405500])
-
-respuesta: redondear(distancia_luna, 0)
+respuesta: 384400
 tipo: completar
-tolerancia_abs: 0
+tolerancia_abs: 5000
 
-enunciado: "Si la Luna se encuentra a una distancia de {distancia_luna} km de la Tierra, ¿cuál es ese valor en kilómetros?"
+enunciado: "¿Cuál es la distancia promedio entre la Tierra y la Luna, en kilómetros?"
 
 explicacion: |
-  El valor de la distancia varía según la órbita elíptica de la Luna.
+  La distancia promedio es de unos 384.400 km, aunque varía entre unos 363.300 km (perigeo) y 405.500 km (apogeo) debido a la órbita elíptica de la Luna.
 ```
 
 ```
@@ -1926,7 +2170,9 @@ variables:
 
 respuesta: "umbra"
 tipo: "completar"
-respuestas_validas: ["umbra", "penumbra"]
+respuestas_validas:
+  - "umbra"
+  - "penumbra"
 
 enunciado: "En un eclipse solar, la parte de la sombra donde la totalidad del Sol es bloqueada por la Luna se denomina ___."
 
@@ -1958,9 +2204,9 @@ metadata:
   nivel: "basico"
   tags: ["alineacion", "orden"]
 
-respuesta: ["Sol", "Tierra", "Luna"]
 tipo: "ordenar"
-opciones_explicitas: ["Sol", "Tierra", "Luna", "Luna", "Tierra", "Sol"]
+opciones_explicitas: ["Sol", "Tierra", "Luna"]
+respuesta_orden: ["Sol", "Tierra", "Luna"]
 
 enunciado: "Para que ocurra un eclipse lunar, los astros deben alinearse en el siguiente orden desde el Sol hacia la Luna:"
 
@@ -2020,8 +2266,8 @@ metadata:
   tags: ["astronomia"]
 
 variables:
-  escenario_datos: [["Luna-Sol-Tierra", "Solar"], ["Sol-Luna-Tierra", "Lunar"], ["Sol-Tierra-Luna", "Lunar"]]
-  idx: uno_de([0, 1, 2])
+  escenario_datos: [["Sol-Luna-Tierra", "Solar"], ["Sol-Tierra-Luna", "Lunar"]]
+  idx: uno_de([0, 1])
 
 enunciado: "Dada la configuración {escenario_datos[idx][0]}, el tipo de eclipse es ___."
 
@@ -2029,7 +2275,7 @@ respuestas_validas:
   - "Solar"
   - "Lunar"
 
-respuesta: escenario_datos[idx][1
+respuesta: escenario_datos[idx][1]
 tipo: completar
 
 explicacion: |
@@ -2077,7 +2323,8 @@ opciones_explicitas:
   - "Solar"
   - "Lunar"
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 
@@ -2108,3 +2355,4 @@ tipo: completar
 explicacion: |
   Cuando la Luna entra en la sombra de la Tierra, vemos un eclipse lunar.
 ```
+

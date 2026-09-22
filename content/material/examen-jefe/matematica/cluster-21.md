@@ -1,1696 +1,1238 @@
-# Examen jefe — Maestro de los Enteros y Fracciones
+# Examen jefe — [PENDIENTE #621]
 
-> Logro #72. ¡Aprobaste el parcial dominando números enteros, primos, fracciones y complejos! Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **136 preguntas totales** en 5/5 secciones.
+> Logro #621. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **134 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: numeros-complejos (30 preguntas)
+## Sección: funcion-lineal-pendiente (30 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_complejos"
+  tema: "funcion_lineal_pendiente"
   nivel: "basico"
-  tags: ["suma"]
+  tags: ["pendiente"]
 
 variables:
-  a: random(-15, 15)
-  b: random(-15, 15)
-  c: random(-15, 15)
-  d: random(-15, 15)
+  x1: random(1, 10)
+  y1: random(1, 20)
+  m: random(2, 8)
+  dx: random(1, 6)
+  x2: x1 + dx
+  y2: y1 + m * dx
 
-respuesta: a + c
+respuesta: (y2 - y1) / (x2 - x1)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "({a} + {b}i) + ({c} + {d}i). ¿Cuál es la parte real del resultado?"
-
-explicacion: |
-  Las partes reales se suman entre sí: {a} + {c}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "basico"
-  tags: ["suma"]
-
-variables:
-  a: random(-15, 15)
-  b: random(-15, 15)
-  c: random(-15, 15)
-  d: random(-15, 15)
-
-respuesta: b + d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "({a} + {b}i) + ({c} + {d}i). ¿Cuál es la parte imaginaria del resultado?"
-
-explicacion: |
-  Las partes imaginarias se suman entre sí: {b} + {d}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "basico"
-  tags: ["resta"]
-
-variables:
-  a: random(-15, 15)
-  b: random(-15, 15)
-  c: random(-15, 15)
-  d: random(-15, 15)
-
-respuesta: a - c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "({a} + {b}i) − ({c} + {d}i). ¿Cuál es la parte real del resultado?"
-
-explicacion: |
-  {a} − {c}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "basico"
-  tags: ["resta"]
-
-variables:
-  a: random(-15, 15)
-  b: random(-15, 15)
-  c: random(-15, 15)
-  d: random(-15, 15)
-
-respuesta: b - d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "({a} + {b}i) − ({c} + {d}i). ¿Cuál es la parte imaginaria del resultado?"
-
-explicacion: |
-  {b} − {d}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "intermedio"
-  tags: ["multiplicacion"]
-
-variables:
-  a: random(-8, 8)
-  b: random(-8, 8)
-  c: random(-8, 8)
-  d: random(-8, 8)
-
-respuesta: a * c - b * d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "({a} + {b}i) × ({c} + {d}i). ¿Cuál es la parte real del resultado?"
+enunciado: "Una recta pasa por ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es su pendiente?"
 
 pasos:
-  - "(ac − bd) = ({a}×{c}) − ({b}×{d}) = {a * c} − {b * d} = {a * c - b * d}"
+  - "m = ({y2}−{y1})/({x2}−{x1}) = {y2 - y1}/{x2 - x1} = {(y2 - y1) / (x2 - x1)}"
 
 explicacion: |
-  La parte real es ac − bd (el −bd viene de que i² = −1).
+  m = (y₂−y₁)/(x₂−x₁).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_complejos"
+  tema: "funcion_lineal_pendiente"
   nivel: "intermedio"
-  tags: ["multiplicacion"]
+  tags: ["pendiente", "signos"]
 
 variables:
-  a: random(-8, 8)
-  b: random(-8, 8)
-  c: random(-8, 8)
-  d: random(-8, 8)
+  x1: random(1, 10)
+  y1: random(20, 40)
+  m: random(2, 8)
+  dx: random(1, 6)
+  x2: x1 + dx
+  y2: y1 - m * dx
 
-respuesta: a * d + b * c
+respuesta: (y2 - y1) / (x2 - x1)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "({a} + {b}i) × ({c} + {d}i). ¿Cuál es la parte imaginaria del resultado?"
-
-pasos:
-  - "(ad + bc) = ({a}×{d}) + ({b}×{c}) = {a * d} + {b * c} = {a * d + b * c}"
+enunciado: "Una recta pasa por ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es su pendiente?"
 
 explicacion: |
-  La parte imaginaria junta los dos términos cruzados: ad + bc.
+  Como y disminuye mientras x aumenta, la pendiente da negativa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "basico"
-  tags: ["multiplicacion"]
-
-variables:
-  k: random(2, 10)
-  a: random(-10, 10)
-  b: random(-10, 10)
-
-respuesta: k * b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "{k} × ({a} + {b}i). ¿Cuál es la parte imaginaria del resultado?"
-
-explicacion: |
-  Multiplicar por un real puro multiplica las dos partes por igual:
-  {k}×{b}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
+  tema: "funcion_lineal_pendiente"
   nivel: "intermedio"
-  tags: ["potencias_i"]
+  tags: ["pendiente", "verdadero_falso"]
 
 variables:
-  k: random(1, 10) * 4
+  x1: random(1, 10)
+  y1: random(1, 20)
+  m: random(2, 8)
+  dx: random(1, 6)
+  x2: x1 + dx
+  y2: y1 + m * dx
 
-respuesta: 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto vale i^{k}?"
-
-explicacion: |
-  {k} es múltiplo de 4, así que i^{k} = 1 (vuelve al inicio del ciclo).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "intermedio"
-  tags: ["potencias_i", "opcion_multiple"]
-
-variables:
-  k: random(0, 9) * 4 + 1
-
-respuesta: "i"
-tipo: mc
-opciones_explicitas:
-  - "i"
-  - "1"
-  - "-1"
-  - "-i"
-
-enunciado: "¿Cuánto vale i^{k}?"
-
-explicacion: |
-  {k} deja resto 1 al dividir por 4, así que i^{k} = i.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "intermedio"
-  tags: ["potencias_i"]
-
-variables:
-  k: random(0, 9) * 4 + 2
-
-respuesta: -1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto vale i^{k}?"
-
-explicacion: |
-  {k} deja resto 2 al dividir por 4, así que i^{k} = i² = −1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "intermedio"
-  tags: ["potencias_i", "opcion_multiple"]
-
-variables:
-  k: random(0, 9) * 4 + 3
-
-respuesta: "-i"
-tipo: mc
-opciones_explicitas:
-  - "-i"
-  - "i"
-  - "1"
-  - "-1"
-
-enunciado: "¿Cuánto vale i^{k}?"
-
-explicacion: |
-  {k} deja resto 3 al dividir por 4, así que i^{k} = −i.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
+respuesta: (((y2 - y1) / (x2 - x1)) == ((y1 - y2) / (x1 - x2)))
 tipo: vf
 
-enunciado: "Por definición, i² = −1."
+enunciado: "Una recta pasa por ({x1}, {y1}) y ({x2}, {y2}). ¿Da lo mismo calcular la pendiente como (y₂−y₁)/(x₂−x₁) que como (y₁−y₂)/(x₁−x₂)?"
 
 explicacion: |
-  Es la única regla nueva que hace falta para operar con números
-  complejos.
+  Sí: mientras se reste en el mismo orden arriba y abajo, el resultado
+  es el mismo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "basico"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
+  tema: "funcion_lineal_pendiente"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+variables:
+  x: random(1, 20)
+  y1: random(1, 20)
+  y2: random(21, 40)
 
 respuesta: falso
 
 tipo: vf
 
-enunciado: "i² es igual a 1 (como el cuadrado de cualquier número)."
+enunciado: "Los puntos ({x}, {y1}) y ({x}, {y2}) definen una función lineal con pendiente bien definida."
 
 explicacion: |
-  i² = −1, no 1 — es justo lo que hace especial a la unidad imaginaria:
-  ningún número real cumple eso.
+  Con la misma x en los dos puntos, el denominador (x₂−x₁) da 0 — una
+  recta vertical no es el gráfico de una función (no cumple que cada x
+  tenga un único y).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_complejos"
+  tema: "funcion_lineal_pendiente"
   nivel: "basico"
-  tags: ["conjugado"]
+  tags: ["ordenada_origen"]
 
 variables:
-  a: random(-15, 15)
-  b: random(1, 15)
+  m: random(1, 10)
+  b: random(-20, 20)
+
+respuesta: b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {m}x + {b}. ¿Cuál es la ordenada al origen?"
+
+explicacion: |
+  f(0) = {b}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "basico"
+  tags: ["evaluar"]
+
+variables:
+  m: random(1, 10)
+  b: random(-20, 20)
+  x: random(-15, 15)
+
+respuesta: m * x + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {m}x + {b}. ¿Cuánto vale f({x})?"
+
+explicacion: |
+  {m}×{x} + {b} = {m * x + b}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "intermedio"
+  tags: ["punto_pendiente"]
+
+variables:
+  m: random(1, 10)
+  x1: random(1, 15)
+  y1: random(1, 30)
+
+respuesta: y1 - m * x1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una recta tiene pendiente {m} y pasa por ({x1}, {y1}). ¿Cuál es su ordenada al origen b?"
+
+pasos:
+  - "y₁ = m×x₁ + b → b = {y1} − {m}×{x1} = {y1 - m * x1}"
+
+explicacion: |
+  Se reemplaza el punto conocido en y=mx+b y se despeja b.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "avanzado"
+  tags: ["punto_pendiente"]
+
+variables:
+  x1: random(1, 10)
+  y1: random(1, 20)
+  m: random(2, 8)
+  dx: random(1, 6)
+  x2: x1 + dx
+  y2: y1 + m * dx
+
+respuesta: y1 - m * x1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una recta pasa por ({x1}, {y1}) y ({x2}, {y2}). Ya sabiendo que m={m}, ¿cuál es su ordenada al origen b?"
+
+explicacion: |
+  b = y₁ − m×x₁ = {y1} − {m}×{x1} = {y1 - m * x1}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "basico"
+  tags: ["signos", "verdadero_falso"]
+
+variables:
+  m: random(1, 15)
+  b: random(-20, 20)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "f(x) = {m}x + {b}. ¿Es creciente esta función?"
+
+explicacion: |
+  m={m} es positivo, así que f crece cuando x aumenta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "basico"
+  tags: ["signos", "verdadero_falso"]
+
+variables:
+  m: random(-15, -1)
+  b: random(-20, 20)
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "f(x) = {m}x + {b}. ¿Es creciente esta función?"
+
+explicacion: |
+  m={m} es negativo, así que f DECRECE cuando x aumenta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "basico"
+  tags: ["signos", "opcion_multiple"]
+
+variables:
+  b: random(-20, 20)
+
+respuesta: "Constante"
+tipo: mc
+opciones_explicitas:
+  - "Constante"
+  - "Creciente"
+  - "Decreciente"
+
+enunciado: "f(x) = 0x + {b} (o sea, f(x) = {b} para cualquier x). ¿Es creciente, decreciente o constante?"
+
+explicacion: |
+  Con m=0, la función no cambia, sea cual sea x — es constante.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "intermedio"
+  tags: ["paralelas", "verdadero_falso"]
+
+variables:
+  m: random(1, 10)
+  b1: random(-20, 20)
+  b2: random(-20, 20)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "f(x) = {m}x + {b1} y g(x) = {m}x + {b2}. ¿Son paralelas estas dos rectas?"
+
+explicacion: |
+  Tienen la misma pendiente ({m}), así que son paralelas (nunca se
+  cruzan, salvo que sean exactamente la misma recta).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "intermedio"
+  tags: ["paralelas", "verdadero_falso"]
+
+variables:
+  m1: random(1, 10)
+  m2: random(11, 20)
+  b1: random(-20, 20)
+  b2: random(-20, 20)
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "f(x) = {m1}x + {b1} y g(x) = {m2}x + {b2}. ¿Son paralelas estas dos rectas?"
+
+explicacion: |
+  Tienen pendientes distintas ({m1} y {m2}), así que se cruzan en algún
+  punto — no son paralelas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "avanzado"
+  tags: ["perpendiculares"]
+
+variables:
+  a: random(2, 10)
+  b: random(2, 10)
 
 respuesta: -b
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es la parte imaginaria del conjugado de {a} + {b}i?"
-
-explicacion: |
-  El conjugado cambia el signo de la parte imaginaria: −{b}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "intermedio"
-  tags: ["conjugado"]
-
-variables:
-  a: random(1, 15)
-  b: random(1, 15)
-
-respuesta: a ^ 2 + b ^ 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "({a} + {b}i) × ({a} − {b}i). ¿Cuánto da (la parte real, ya que la imaginaria da 0)?"
+enunciado: "Una recta tiene pendiente {a}/{b} (como fracción, sin simplificar). La pendiente perpendicular se escribe con denominador {a}. ¿Cuál es su numerador?"
 
 pasos:
-  - "(a+bi)(a−bi) = a² − (bi)² = a² − b²×i² = a² + b² = {a ^ 2 + b ^ 2}"
+  - "m₁ × m₂ = −1 → m₂ = −1/m₁ = −{b}/{a}: numerador −{b}"
 
 explicacion: |
-  Multiplicar un complejo por su conjugado siempre da un número real:
-  a² + b².
+  La pendiente perpendicular es la inversa y opuesta: numerador y
+  denominador se intercambian, y cambia el signo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "avanzado"
-  tags: ["conjugado", "verdadero_falso"]
-
-variables:
-  a: random(1, 15)
-  b: random(1, 15)
-
-respuesta: ((a * (-b) + b * a) == 0)
-tipo: vf
-
-enunciado: "({a} + {b}i) × ({a} − {b}i). ¿Da 0 la parte imaginaria del resultado?"
-
-explicacion: |
-  El término cruzado se cancela siempre al multiplicar por el conjugado
-  — por eso el resultado es un número real puro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-variables:
-  n: random(1, 15)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "√(−{n * n}) se escribe como {n}i. Si el radicando es −{n * n}, ¿cuál es el coeficiente de i?"
-
-explicacion: |
-  √(−{n * n}) = √({n * n}) × √(−1) = {n} × i.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-variables:
-  b: random(-10, 10) * 2
-  m: random(1, 8)
-
-respuesta: -b / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x² + {b}x + {(b ^ 2) / 4 + m ^ 2} = 0 tiene discriminante negativo. Las soluciones son x = −{b}/2 ± {m}i. ¿Cuál es la parte real de esas soluciones?"
-
-explicacion: |
-  Cuando Δ<0, la parte real de las dos soluciones complejas es siempre
-  −b/(2a) — el mismo punto donde estaría el vértice de la parábola.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-variables:
-  b: random(-10, 10) * 2
-  m: random(1, 8)
-
-respuesta: m
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x² + {b}x + {(b ^ 2) / 4 + m ^ 2} = 0 tiene discriminante negativo. Las soluciones son x = −{b}/2 ± {m}i. ¿Cuál es el coeficiente de i?"
-
-explicacion: |
-  Viene directo de √Δ con Δ negativo: √Δ = {m}i.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
+  tema: "funcion_lineal_pendiente"
   nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando una ecuación cuadrática con coeficientes reales tiene discriminante negativo, sus dos soluciones complejas son conjugadas entre sí."
-
-explicacion: |
-  Vienen de −b/(2a) ± (algo)i — la misma parte real, partes imaginarias
-  opuestas: exactamente la definición de conjugados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todo número real es también un número complejo, con parte imaginaria igual a 0."
-
-explicacion: |
-  a + 0i es simplemente a — los complejos incluyen a los reales como
-  caso particular.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un número de la forma bi (con b distinto de 0, y parte real 0) se llama 'imaginario puro'."
-
-explicacion: |
-  Ni real ni con parte real distinta de 0 — sólo la parte imaginaria.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "intermedio"
-  tags: ["multiplicacion"]
+  tags: ["perpendiculares", "verdadero_falso"]
 
 variables:
+  a: random(2, 10)
   b: random(2, 10)
-  d: random(2, 10)
 
-respuesta: -(b * d)
+respuesta: ((a * (-b)) == -(b * a))
+tipo: vf
+
+enunciado: "Dos rectas tienen pendientes {a}/{b} y −{b}/{a}. ¿Son perpendiculares?"
+
+explicacion: |
+  Se verifica sin dividir, cruzando numeradores y denominadores: si
+  m₁=p/q y m₂=r/s, son perpendiculares cuando p×r = −q×s.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "avanzado"
+  tags: ["perpendiculares", "error_comun", "verdadero_falso"]
+
+variables:
+  m: random(2, 10)
+
+respuesta: ((m * (-m)) == -1)
+tipo: vf
+
+enunciado: "Dos rectas tienen pendientes {m} y −{m} (mismo número, signo opuesto). ¿Son perpendiculares?"
+
+explicacion: |
+  Sólo son perpendiculares si {m}×(−{m}) da exactamente −1 — eso pasa
+  únicamente si m=1. Tener signos opuestos NO alcanza por sí solo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La pendiente mide cuánto cambia y por cada unidad que aumenta x."
+
+explicacion: |
+  Es la tasa de cambio constante de una función lineal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "basico"
+  tags: ["concepto", "dominio", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El dominio de cualquier función lineal (con m≠0) son todos los números reales."
+
+explicacion: |
+  No hay ninguna restricción de dominio, como ya se vio en
+  `../funcion-dominio/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "basico"
+  tags: ["concepto", "imagen", "verdadero_falso"]
+
+variables:
+  m: random(1, 10)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La imagen de f(x) = {m}x + b (con m distinto de 0) son todos los números reales."
+
+explicacion: |
+  Ya visto en `../funcion-imagen/`: cualquier recta no horizontal cubre
+  todos los valores de y posibles.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+variables:
+  m: random(1, 10)
+  b: random(-20, 20)
+
+respuesta: ((m * 0 + b) == b)
+tipo: vf
+
+enunciado: "f(x) = {m}x + {b}. ¿Pasa la recta por el punto (0, {b})?"
+
+explicacion: |
+  f(0) siempre da exactamente b — la ordenada al origen es, literalmente,
+  el punto donde cruza el eje y.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "intermedio"
+  tags: ["problema"]
+
+variables:
+  tarifa_fija: random(5, 30)
+  precio_km: random(2, 10)
+  km: random(1, 40)
+
+respuesta: precio_km * km + tarifa_fija
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "({b}i) × ({d}i). ¿Cuánto da (un número real)?"
-
-pasos:
-  - "({b}i)({d}i) = {b * d}×i² = {b * d}×(−1) = {-(b * d)}"
+enunciado: "Un viaje cuesta C(km) = {precio_km}·km + {tarifa_fija} (tarifa fija más precio por km). ¿Cuánto cuesta un viaje de {km} km?"
 
 explicacion: |
-  Multiplicar dos imaginarios puros siempre da un real (negativo, si los
-  dos coeficientes son positivos).
+  Es una función lineal: {precio_km} es la pendiente (cuánto sube por
+  km), {tarifa_fija} es la ordenada al origen (el costo con 0 km).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "intermedio"
-  tags: ["suma", "verdadero_falso"]
+  tema: "funcion_lineal_pendiente"
+  nivel: "avanzado"
+  tags: ["problema"]
 
 variables:
-  a: random(-15, 15)
-  b: random(1, 15)
+  tarifa_fija: random(5, 30)
+  precio_km: random(2, 10)
+  km1: random(1, 10)
+  km2: random(11, 30)
+  costo1: precio_km * km1 + tarifa_fija
+  costo2: precio_km * km2 + tarifa_fija
 
-respuesta: ((b + (-b)) == 0)
-tipo: vf
+respuesta: (costo2 - costo1) / (km2 - km1)
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "({a} + {b}i) + ({a} − {b}i). ¿Da 0 la parte imaginaria del resultado (o sea, el resultado es un real puro)?"
+enunciado: "Un viaje de {km1} km costó {costo1}, y uno de {km2} km costó {costo2}. ¿Cuál es el precio por km (la pendiente)?"
 
 explicacion: |
-  Sumar un complejo con su conjugado siempre cancela la parte
-  imaginaria, dejando 2a como resultado real.
+  m = (costo2−costo1)/(km2−km1) — la misma fórmula de pendiente, con
+  nombres de contexto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "avanzado"
+  tema: "funcion_lineal_pendiente"
+  nivel: "intermedio"
   tags: ["verificacion", "verdadero_falso"]
 
 variables:
-  a: random(-8, 8)
-  b: random(-8, 8)
-  c: random(-8, 8)
-  d: random(-8, 8)
-  real: a * c - b * d
+  x1: random(1, 10)
+  y1: random(1, 20)
+  m: random(2, 8)
+  dx: random(1, 6)
+  x2: x1 + dx
+  y2: y1 + m * dx
+  real: (y2 - y1) / (x2 - x1)
   error: uno_de([0, 0, 1, -1])
   propuesto: real + error
 
 respuesta: (propuesto == real)
 tipo: vf
 
-enunciado: "({a} + {b}i) × ({c} + {d}i). ¿Es correcto que la parte real del resultado sea {propuesto}?"
+enunciado: "Una recta pasa por ({x1}, {y1}) y ({x2}, {y2}). ¿Es correcto que la pendiente sea {propuesto}?"
 
 explicacion: |
-  La parte real correcta es ac − bd = {real}.
+  La pendiente correcta es {real}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_complejos"
+  tema: "funcion_lineal_pendiente"
   nivel: "intermedio"
   tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para calcular i elevado a un exponente muy grande, alcanza con mirar el resto de dividir el exponente por 4."
+enunciado: "Dos puntos distintos (con distinta x) determinan una única recta que pasa por los dos."
 
 explicacion: |
-  El patrón 1, i, −1, −i se repite cada 4 potencias — el resto módulo 4
-  dice en qué parte del ciclo cae.
+  Con dos puntos alcanza para calcular m y b, y quedan completamente
+  determinados.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_complejos"
+  tema: "funcion_lineal_pendiente"
   nivel: "intermedio"
-  tags: ["resta", "verdadero_falso"]
+  tags: ["evaluar"]
 
 variables:
-  a: random(-15, 15)
-  b: random(1, 15)
-  d: random(1, 15)
+  m: random(2, 10)
+  b: random(1, 20)
+  x_sol: random(1, 20)
+  oy: m * x_sol + b
 
-respuesta: ((a - a) == 0)
-tipo: vf
-
-enunciado: "({a} + {b}i) − ({a} + {d}i). ¿Da 0 la parte real del resultado?"
-
-explicacion: |
-  Al tener la misma parte real en los dos complejos, se cancela al
-  restar, dejando un imaginario puro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Se puede decir que un número complejo es 'mayor' o 'menor' que otro, igual que con los números reales."
-
-explicacion: |
-  Los complejos no tienen un orden natural como los reales — no tiene
-  sentido preguntar si 3+2i es mayor o menor que 1+5i.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "avanzado"
-  tags: ["multiplicacion"]
-
-variables:
-  a: random(1, 10)
-  b: random(1, 10)
-
-respuesta: a ^ 2 - b ^ 2
+respuesta: x_sol
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "({a} + {b}i)². ¿Cuál es la parte real del resultado?"
-
-pasos:
-  - "(a+bi)² = a² + 2abi + b²i² = a² − b² + 2abi"
+enunciado: "f(x) = {m}x + {b}. ¿Para qué valor de x es f(x) = {oy}?"
 
 explicacion: |
-  La parte real es a² − b² (el término i² convierte +b² en −b²).
+  Se despeja x de {m}x + {b} = {oy}, el mismo procedimiento de
+  `../ecuacion-primer-grado/`.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_complejos"
-  nivel: "avanzado"
-  tags: ["multiplicacion"]
+  tema: "funcion_lineal_pendiente"
+  nivel: "intermedio"
+  tags: ["raiz"]
 
 variables:
-  a: random(1, 10)
-  b: random(1, 10)
+  m: random(2, 10)
+  b: random(-30, -1)
 
-respuesta: 2 * a * b
+respuesta: -b / m
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "({a} + {b}i)². ¿Cuál es la parte imaginaria del resultado?"
+enunciado: "f(x) = {m}x + {b}. ¿En qué valor de x cruza la recta el eje x (f(x)=0)?"
 
 explicacion: |
-  2ab = 2×{a}×{b} = {2 * a * b}.
+  {m}x + {b} = 0 → x = −{b}/{m} = {-b / m}.
 ```
-
-## Sección: numeros-enteros (26 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_enteros"
+  tema: "funcion_lineal_pendiente"
   nivel: "basico"
-  tags: ["numeros_enteros", "vocabulario"]
+  tags: ["concepto"]
 
-enunciado: "¿Qué agrega el conjunto de los números enteros a los naturales?"
+respuesta: 0
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es la pendiente de una recta horizontal?"
+
+explicacion: |
+  Una recta horizontal no sube ni baja — su pendiente es 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_lineal_pendiente"
+  nivel: "intermedio"
+  tags: ["signos", "opcion_multiple"]
+
+variables:
+  m1: random(1, 10)
+  m2: random(11, 20)
+
+respuesta: "g(x)"
 tipo: mc
 opciones_explicitas:
-  - "El cero y los números negativos"
-  - "Sólo las fracciones"
-  - "Sólo los números muy grandes"
-respuesta: "El cero y los números negativos"
+  - "g(x)"
+  - "f(x)"
+  - "Crecen igual"
+
+enunciado: "f(x) = {m1}x + 3, g(x) = {m2}x − 5. ¿Cuál de las dos crece más rápido?"
 
 explicacion: |
-  Los naturales sirven para contar; los enteros agregan el 0 y los
-  negativos para representar deudas, temperaturas bajo cero, etc.
+  La que tiene mayor pendiente ({m2} > {m1}) sube más rápido, sin
+  importar la ordenada al origen.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "basico"
-  tags: ["numeros_enteros", "orden"]
-
-variables:
-  a: random(1, 50)
-  b: -random(1, 50)
-
-respuesta: (a > b)
-tipo: vf
-
-enunciado: "¿Es {a} mayor que {b}?"
-
-explicacion: |
-  Cualquier número positivo es mayor que cualquier número negativo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "intermedio"
-  tags: ["numeros_enteros", "orden"]
-
-variables:
-  a: -random(1, 50)
-  b: -random(1, 50)
-
-respuesta: (a > b)
-tipo: vf
-
-enunciado: "¿Es {a} mayor que {b}?"
-
-explicacion: |
-  Entre dos negativos, es mayor el que está más cerca de 0 (el que tiene
-  menor valor absoluto).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "intermedio"
-  tags: ["numeros_enteros", "orden"]
-
-variables:
-  chico: random(1, 9)
-  grande: chico + random(10, 40)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es cierto que -{grande} es mayor que -{chico}?"
-
-explicacion: |
-  Aunque {grande} sea un número más grande que {chico}, con el signo
-  negativo pasa al revés: -{grande} está más lejos de 0 hacia la
-  izquierda, así que es MENOR que -{chico}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "basico"
-  tags: ["numeros_enteros", "valor_absoluto"]
-
-variables:
-  n: random(1, 999)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el valor absoluto de {n}?"
-
-explicacion: |
-  El valor absoluto de un número positivo es el mismo número.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "basico"
-  tags: ["numeros_enteros", "valor_absoluto"]
-
-variables:
-  n: random(1, 999)
-  neg: -n
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el valor absoluto de {neg}?"
-
-explicacion: |
-  El valor absoluto de un número negativo es ese mismo número, sin el
-  signo — la distancia al 0 siempre se cuenta positiva.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "basico"
-  tags: ["numeros_enteros", "opuesto"]
-
-variables:
-  n: random(1, 999)
-
-respuesta: -n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el opuesto de {n}?"
-
-explicacion: |
-  El opuesto tiene el mismo valor pero signo contrario.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "basico"
-  tags: ["numeros_enteros", "opuesto"]
-
-variables:
-  n: random(1, 999)
-  neg: -n
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el opuesto de {neg}?"
-
-explicacion: |
-  El opuesto de un negativo es el positivo correspondiente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "intermedio"
-  tags: ["numeros_enteros", "orden"]
-
-variables:
-  a: -random(1, 50)
-  b: random(1, 50)
-  c: -random(1, 50)
-
-respuesta: max(a, b, c)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el mayor entre {a}, {b} y {c}?"
-
-explicacion: |
-  Cualquier positivo ya le gana a cualquier negativo; entre los
-  negativos, gana el que está más cerca de 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "intermedio"
-  tags: ["numeros_enteros", "orden"]
-
-variables:
-  a: -random(1, 50)
-  b: random(1, 50)
-  c: -random(1, 50)
-
-respuesta: min(a, b, c)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el menor entre {a}, {b} y {c}?"
-
-explicacion: |
-  Entre los negativos, es menor el que está más lejos de 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "basico"
-  tags: ["numeros_enteros", "orden", "vocabulario"]
+  tema: "funcion_lineal_pendiente"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cualquier número entero negativo es menor que cualquier número entero positivo."
+enunciado: "Cuanto mayor es el valor absoluto de la pendiente, más 'inclinada' (más vertical) se ve la recta."
 
 explicacion: |
-  En la recta numérica, todos los negativos están a la izquierda del 0, y
-  todos los positivos a la derecha.
+  Una pendiente grande significa que y cambia mucho por cada unidad de
+  x, así que la recta sube o baja más pronunciada.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "basico"
-  tags: ["numeros_enteros", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El 0 no es positivo ni negativo: es el punto de referencia entre los dos."
-
-explicacion: |
-  Es un caso especial: ni tiene signo positivo ni negativo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "intermedio"
-  tags: ["numeros_enteros", "valor_absoluto"]
+  tema: "funcion_lineal_pendiente"
+  nivel: "avanzado"
+  tags: ["punto_pendiente"]
 
 variables:
-  a: -random(1, 30)
-  b: random(1, 30)
+  x1: random(1, 10)
+  y1: random(1, 20)
+  m: random(2, 8)
+  dx: random(1, 6)
+  x2: x1 + dx
+  y2: y1 + m * dx
+  b: y1 - m * x1
+  x_eval: random(1, 30)
 
-respuesta: abs(a - b)
+respuesta: m * x_eval + b
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿A qué distancia está {a} de {b} en la recta numérica?"
+enunciado: "Una recta pasa por ({x1}, {y1}) y ({x2}, {y2}). Usando su ecuación completa, ¿cuánto vale f({x_eval})?"
 
 pasos:
-  - "La distancia es el valor absoluto de la resta: |{a} - {b}| = {abs(a - b)}"
+  - "m = {m}, b = {b} → f(x) = {m}x + {b}"
 
 explicacion: |
-  La distancia entre dos puntos siempre es positiva, aunque uno de los dos
-  sea negativo: se calcula con el valor absoluto de la resta.
+  Una vez armada la ecuación completa, evaluarla en cualquier x es
+  directo.
 ```
+
+## Sección: mcd (24 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "intermedio"
-  tags: ["numeros_enteros", "orden"]
+  tema: "mcd"
+  nivel: "basico"
+  tags: ["mcd", "vocabulario"]
 
-tipo: ordenar
-enunciado: "Ordená estos números de menor a mayor."
+enunciado: "¿Qué es el Máximo Común Divisor (MCD) de dos números?"
+tipo: mc
 opciones_explicitas:
-  - "3"
-  - "-7"
-  - "0"
-  - "-2"
-respuesta_orden: ["-7", "-2", "0", "3"]
+  - "El mayor número que es divisor de los dos a la vez"
+  - "El menor número que es múltiplo de los dos a la vez"
+  - "La suma de todos los divisores en común"
+respuesta: "El mayor número que es divisor de los dos a la vez"
 
 explicacion: |
-  Los negativos van primero (el más lejos de 0 primero), después el 0, y
-  después los positivos.
+  Se buscan los divisores en común de los dos números, y se toma el más
+  grande.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "intermedio"
-  tags: ["numeros_enteros", "valor_absoluto"]
+  tema: "mcd"
+  nivel: "basico"
+  tags: ["mcd"]
 
 variables:
-  a: -random(1, 50)
-  b: random(1, 50)
+  a: random(4, 40)
+  b: random(4, 40)
+
+respuesta: mcd(a, b)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCD de {a} y {b}?"
+
+explicacion: |
+  Se buscan los divisores en común de {a} y {b}, y se toma el mayor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "intermedio"
+  tags: ["mcd"]
+
+variables:
+  a: random(40, 200)
+  b: random(40, 200)
+
+respuesta: mcd(a, b)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCD de {a} y {b}?"
+
+explicacion: |
+  Con números más grandes conviene usar la factorización prima en vez de
+  listar todos los divisores.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "intermedio"
+  tags: ["mcd", "factorizacion"]
+
+variables:
+  primo_comun: uno_de([2, 3, 5])
+  k1: random(2, 9)
+  k2: random(2, 9)
+  a: primo_comun * k1
+  b: primo_comun * k2
 
 restricciones:
-  - abs(a) != abs(b)
+  - k1 != k2
 
-respuesta: (abs(a) < abs(b))
-tipo: vf
+respuesta: mcd(a, b)
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "¿Es {a} el que está más cerca de 0, entre {a} y {b}?"
+enunciado: "¿Cuál es el MCD de {a} y {b}?"
+
+pasos:
+  - "{a} = {primo_comun} × {k1}. {b} = {primo_comun} × {k2}. Comparten el factor {primo_comun}."
 
 explicacion: |
-  Se compara la distancia al 0 (el valor absoluto) de cada uno, no el
-  valor del número en sí.
+  Al menos comparten el factor primo {primo_comun}; el MCD real puede ser
+  más grande si {k1} y {k2} también comparten factores.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "intermedio"
-  tags: ["numeros_enteros", "opuesto"]
+  tema: "mcd"
+  nivel: "basico"
+  tags: ["mcd", "divisores"]
 
 variables:
-  n: random(1, 999)
+  d: random(2, 9)
+  a: d * random(2, 10)
+  b: d * random(2, 10)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es {d} un divisor común de {a} y {b}?"
+
+explicacion: |
+  {d} divide a los dos, aunque no sea necesariamente el MCD (podría haber
+  un divisor común más grande).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "intermedio"
+  tags: ["mcd"]
+
+variables:
+  n: random(2, 200)
+
+respuesta: mcd(n, n + 1)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCD de {n} y {n + 1} (dos números consecutivos)?"
+
+explicacion: |
+  Dos números consecutivos nunca comparten ningún factor (salvo el 1): su
+  MCD siempre es 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "basico"
+  tags: ["mcd"]
+
+variables:
+  n: random(2, 999)
 
 respuesta: n
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es el opuesto del opuesto de {n}?"
+enunciado: "¿Cuál es el MCD de {n} y {n}?"
 
 explicacion: |
-  Aplicar el opuesto dos veces vuelve al número original.
+  El mayor divisor en común de un número consigo mismo es el propio
+  número.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_enteros"
+  tema: "mcd"
   nivel: "basico"
-  tags: ["numeros_enteros", "valor_absoluto", "vocabulario"]
+  tags: ["mcd", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El valor absoluto de cualquier número entero nunca es negativo."
+enunciado: "El MCD de dos números nunca puede ser mayor que el más chico de los dos."
 
 explicacion: |
-  Es una distancia, y las distancias no pueden ser negativas: siempre da
-  positivo o cero.
+  Un divisor de un número nunca puede ser mayor que ese número; como el
+  MCD divide a los dos, no puede superar al más chico.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_enteros"
+  tema: "mcd"
   nivel: "intermedio"
-  tags: ["numeros_enteros", "valor_absoluto"]
+  tags: ["mcd"]
 
 variables:
-  n: random(2, 30)
+  a: random(10, 60)
+  b: random(10, 60)
+  correcto: mcd(a, b)
+
+respuesta: correcto
+tipo: mc
+opciones_explicitas:
+  - correcto
+  - correcto + 1
+  - a
+
+enunciado: "¿Cuál es el MCD de {a} y {b}?"
+
+explicacion: |
+  Las otras opciones no son divisores en común de los dos números (o no
+  son el mayor de ellos).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "intermedio"
+  tags: ["mcd", "problema"]
+
+variables:
+  d: random(2, 9)
+  num: d * random(2, 9)
+  den: d * random(2, 9)
+  divisor_comun: mcd(num, den)
+
+restricciones:
+  - num != den
+
+respuesta: num / divisor_comun
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Para simplificar la fracción {num}/{den} al máximo, hay que dividir numerador y denominador por su MCD. ¿Cuál queda el numerador?"
+
+pasos:
+  - "El MCD de {num} y {den} es {divisor_comun}. {num} ÷ {divisor_comun} = {num / divisor_comun}"
+
+explicacion: |
+  Dividir numerador y denominador por su MCD da la fracción equivalente
+  más simple posible.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "intermedio"
+  tags: ["mcd", "problema"]
+
+variables:
+  a: random(10, 60)
+  b: random(10, 60)
+
+respuesta: mcd(a, b)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Tenés {a} caramelos y {b} chocolates, y querés armar la mayor cantidad posible de bolsitas iguales usando todos, sin mezclar tipos ni que sobre nada. ¿Cuántas bolsitas podés armar?"
+
+explicacion: |
+  La cantidad máxima de grupos iguales, sin que sobre nada de ninguno de
+  los dos, es el MCD de las dos cantidades.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "intermedio"
+  tags: ["mcd", "problema"]
+
+variables:
+  a: random(20, 200)
+  b: random(20, 200)
+
+respuesta: mcd(a, b)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Tenés dos varillas de {a} cm y {b} cm, y querés cortarlas en pedazos iguales, del mayor tamaño posible, sin que sobre nada de ninguna. ¿De cuántos cm tiene que ser cada pedazo?"
+
+explicacion: |
+  El pedazo más grande posible que entra exacto en las dos varillas es el
+  MCD de sus longitudes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "avanzado"
+  tags: ["mcd"]
+
+variables:
+  a: random(10, 80)
+  b: random(10, 80)
+  c: random(10, 80)
+
+respuesta: mcd(mcd(a, b), c)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCD de {a}, {b} y {c}?"
+
+pasos:
+  - "Se calcula de a dos: MCD({a}, {b}) = {mcd(a, b)}, y después MCD({mcd(a, b)}, {c}) = {mcd(mcd(a, b), c)}"
+
+explicacion: |
+  El MCD de tres números se calcula de a pares: primero entre dos, y
+  después ese resultado con el tercero.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "intermedio"
+  tags: ["mcd", "verificacion"]
+
+variables:
+  a: random(10, 80)
+  b: random(10, 80)
+  correcto: mcd(a, b)
+  error: uno_de([0, 0, 0, 1, -1])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
+tipo: vf
+
+enunciado: "¿Es correcto decir que el MCD de {a} y {b} es {mostrado}?"
+
+explicacion: |
+  Hay que verificar dos cosas: que {mostrado} sea divisor de los dos
+  números, y que no haya ningún divisor común más grande.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "intermedio"
+  tags: ["mcd"]
+
+variables:
+  primos: [2, 3, 5, 7, 11, 13]
+  p1: uno_de(primos)
+  p2: uno_de(primos)
+
+restricciones:
+  - p1 != p2
+
+respuesta: 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCD de {p1} y {p2} (dos números primos distintos)?"
+
+explicacion: |
+  Dos primos distintos no comparten ningún factor además del 1: su MCD
+  siempre es 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "basico"
+  tags: ["mcd", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El MCD de dos números siempre es divisor de los dos, además de ser el mayor de los divisores en común."
+
+explicacion: |
+  Es la propia definición: el MCD tiene que dividir a ambos números para
+  contar como divisor común.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "intermedio"
+  tags: ["mcd", "divisores"]
+
+variables:
+  d: random(2, 9)
+  a: d * random(2, 9)
+  b: d * random(2, 9)
 
 tipo: completar
-enunciado: "¿Qué dos números enteros tienen valor absoluto {n}? (nombrá uno de los dos)"
+enunciado: "Nombrá un divisor común de {a} y {b} (no hace falta que sea el MCD, alcanza con que sea común a los dos)."
 respuestas_validas:
-  - n
-  - -n
+  - d
+  - 1
 
 explicacion: |
-  El {n} y el -{n} están a la misma distancia del 0, así que los dos
-  tienen valor absoluto {n}.
+  Cualquier divisor que aparezca en las dos listas de divisores sirve; el
+  1 siempre es válido porque divide a todos los números.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "basico"
-  tags: ["numeros_enteros", "problema"]
+  tema: "mcd"
+  nivel: "intermedio"
+  tags: ["mcd"]
 
 variables:
-  a: -random(1, 15)
-  b: -random(1, 15)
+  a: random(2, 30)
+  k: random(2, 9)
+  b: a * k
+
+respuesta: a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCD de {a} y {b}, sabiendo que {b} es múltiplo de {a}?"
+
+explicacion: |
+  Cuando un número es múltiplo del otro, el más chico de los dos ya es el
+  MCD: no hace falta calcular nada más.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "intermedio"
+  tags: ["mcd", "divisores"]
+
+variables:
+  d: random(2, 9)
+  a: d * random(2, 9)
+  b: d * random(2, 9)
+  no_comun: a + 1
+
+respuesta: no_comun
+tipo: mc
+opciones_explicitas:
+  - d
+  - 1
+  - no_comun
+
+enunciado: "¿Cuál de estos tres números NO es divisor común de {a} y {b}?"
+
+explicacion: |
+  {no_comun} es mayor que {a}, así que ni siquiera puede ser divisor de
+  {a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "basico"
+  tags: ["mcd", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El MCD de dos números consecutivos (como 8 y 9) siempre es 1."
+
+explicacion: |
+  Dos números consecutivos nunca comparten factores, salvo el 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcd"
+  nivel: "avanzado"
+  tags: ["mcd", "problema"]
+
+variables:
+  d: random(2, 9)
+  a: d * random(2, 9)
+  b: d * random(2, 9)
+  divisor_comun: mcd(a, b)
 
 restricciones:
   - a != b
 
-respuesta: (a > b)
-tipo: vf
-
-enunciado: "En una ciudad hace {a}°C y en otra hace {b}°C. ¿Hace más calor en la primera ciudad?"
-
-explicacion: |
-  Con temperaturas bajo cero, "más calor" es el número mayor (el más
-  cerca de 0), no el que tiene el número "más grande" adelante.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "intermedio"
-  tags: ["numeros_enteros", "problema"]
-
-variables:
-  altura: random(100, 3000)
-  profundidad: -random(10, 500)
-
-respuesta: (altura > profundidad)
-tipo: vf
-
-enunciado: "Una montaña está a {altura} metros sobre el nivel del mar, y un submarino está a {profundidad} metros (bajo el nivel del mar, por eso el signo negativo). ¿Está la montaña más alta que el submarino?"
-
-explicacion: |
-  Sobre el nivel del mar es positivo; bajo el nivel del mar es negativo:
-  cualquier altura positiva está por encima de cualquier profundidad
-  negativa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "intermedio"
-  tags: ["numeros_enteros", "problema"]
-
-variables:
-  deuda: -random(100, 5000)
-
-respuesta: abs(deuda)
+respuesta: b / divisor_comun
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "El saldo de una cuenta es ${deuda} (negativo porque es una deuda). ¿Cuántos pesos debe esa persona?"
-
-explicacion: |
-  La deuda, en valor positivo, es el valor absoluto del saldo negativo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "intermedio"
-  tags: ["numeros_enteros", "opuesto", "valor_absoluto"]
-
-variables:
-  n: random(1, 500)
-
-respuesta: (abs(n) == abs(-n))
-tipo: vf
-
-enunciado: "¿Es cierto que {n} y su opuesto ({-n}) tienen el mismo valor absoluto?"
-
-explicacion: |
-  Están a la misma distancia del 0, uno de cada lado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "basico"
-  tags: ["numeros_enteros", "opuesto"]
-
-variables:
-  n: random(2, 50)
-
-respuesta: -n
-tipo: mc
-opciones_explicitas:
-  - -n
-  - n
-  - n + 1
-
-enunciado: "¿Cuál es el opuesto de {n}?"
-
-explicacion: |
-  El opuesto cambia el signo, pero no el valor absoluto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "avanzado"
-  tags: ["numeros_enteros", "orden"]
-
-variables:
-  a: -random(1, 20)
-  b: random(1, 20)
-
-respuesta: b - a + 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos números enteros hay entre {a} y {b}, contando a los dos extremos?"
+enunciado: "En un salón hay {a} varones y {b} mujeres. Para escribir esa razón de la forma más simple posible, hay que dividir los dos números por su MCD. ¿Cuál queda el número de mujeres?"
 
 pasos:
-  - "Se cuenta igual que con positivos: {b} - {a} + 1 = {b - a + 1}"
+  - "MCD({a}, {b}) = {divisor_comun}. {b} ÷ {divisor_comun} = {b / divisor_comun}"
 
 explicacion: |
-  La fórmula (B − A + 1) funciona igual con negativos, siempre que se
-  reste el menor al mayor respetando el orden real en la recta numérica.
+  Simplificar una razón es la misma idea que simplificar una fracción:
+  dividir ambos números por su MCD.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "intermedio"
-  tags: ["numeros_enteros", "orden", "problema"]
-
-tipo: ordenar
-enunciado: "Ordená estas temperaturas de más fría a más calurosa."
-opciones_explicitas:
-  - "-3°C"
-  - "-10°C"
-  - "5°C"
-  - "0°C"
-respuesta_orden: ["-10°C", "-3°C", "0°C", "5°C"]
-
-explicacion: |
-  Más frío es el número menor; más calor es el número mayor — igual que
-  ordenar cualquier lista de enteros.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_enteros"
-  nivel: "basico"
-  tags: ["numeros_enteros", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todos los números naturales son también números enteros, pero no todos los enteros son naturales."
-
-explicacion: |
-  Los enteros incluyen a los naturales y les agregan el 0 y los negativos:
-  los naturales son un subconjunto de los enteros.
-```
-
-## Sección: numeros-primos (24 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "basico"
-  tags: ["numeros_primos", "vocabulario"]
-
-enunciado: "¿Qué es un número primo?"
-tipo: mc
-opciones_explicitas:
-  - "Un número mayor que 1 con exactamente 2 divisores: el 1 y él mismo"
-  - "Un número que no se puede dividir por ningún otro"
-  - "Cualquier número impar"
-respuesta: "Un número mayor que 1 con exactamente 2 divisores: el 1 y él mismo"
-
-explicacion: |
-  Todo número primo tiene exactamente dos divisores, ni más ni menos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "basico"
-  tags: ["numeros_primos"]
+  tema: "mcd"
+  nivel: "avanzado"
+  tags: ["mcd", "factorizacion"]
 
 variables:
-  n: random(2, 50)
-
-respuesta: es_primo(n)
-tipo: vf
-
-enunciado: "¿Es {n} un número primo?"
-
-explicacion: |
-  Se prueba si {n} tiene algún divisor además de 1 y él mismo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "intermedio"
-  tags: ["numeros_primos"]
-
-variables:
-  n: random(50, 150)
-
-respuesta: es_primo(n)
-tipo: vf
-
-enunciado: "¿Es {n} un número primo?"
-
-explicacion: |
-  Con números más grandes conviene probar dividir por los primos chicos
-  (2, 3, 5, 7, 11...) hasta la raíz cuadrada de {n}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "basico"
-  tags: ["numeros_primos", "vocabulario"]
-
-enunciado: "¿Qué es un número compuesto?"
-tipo: mc
-opciones_explicitas:
-  - "Un número mayor que 1 con más de 2 divisores"
-  - "Cualquier número par"
-  - "Un número que no tiene divisores"
-respuesta: "Un número mayor que 1 con más de 2 divisores"
-
-explicacion: |
-  Si tiene más de 2 divisores, no puede ser primo: es compuesto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "basico"
-  tags: ["numeros_primos"]
-
-variables:
-  n: random(4, 100)
-
-respuesta: (es_primo(n) == falso)
-tipo: vf
-
-enunciado: "¿Es {n} un número compuesto?"
-
-explicacion: |
-  Un número mayor que 1 que no es primo, es compuesto — no hay una tercera
-  opción (salvo el propio 1).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "basico"
-  tags: ["numeros_primos", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El número 1 no es primo ni compuesto."
-
-explicacion: |
-  El 1 tiene un solo divisor (él mismo), no dos, así que no cumple la
-  definición de ninguno de los dos grupos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "basico"
-  tags: ["numeros_primos", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El 2 es el único número primo que es par."
-
-explicacion: |
-  Cualquier otro número par tiene, como mínimo, tres divisores (1, 2, y él
-  mismo), así que ya es compuesto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "intermedio"
-  tags: ["numeros_primos"]
-
-variables:
-  candidatos: [11, 13, 17, 19, 23, 29, 31]
-  primo: uno_de(candidatos)
-  compuesto1: primo + 1
-  compuesto2: primo - 1
-
-respuesta: primo
-tipo: mc
-opciones_explicitas:
-  - primo
-  - compuesto1
-  - compuesto2
-
-enunciado: "¿Cuál de estos tres números es primo?"
-
-explicacion: |
-  Los otros dos son pares (compuestos): el número que queda entre dos
-  pares consecutivos suele ser el único candidato a primo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "intermedio"
-  tags: ["numeros_primos"]
-
-variables:
-  candidatos: [11, 13, 17, 19, 23, 29, 31]
-  primo1: uno_de(candidatos)
-  primo2: uno_de(candidatos)
-  compuesto: primo1 + 1
+  a: uno_de([12, 18, 24, 36])
+  b: uno_de([12, 18, 24, 36])
+  correcto: mcd(a, b)
 
 restricciones:
-  - primo1 != primo2
+  - a != b
 
-respuesta: compuesto
+respuesta: correcto
 tipo: mc
 opciones_explicitas:
-  - primo1
-  - primo2
-  - compuesto
+  - correcto
+  - a * b
+  - correcto + 6
 
-enunciado: "¿Cuál de estos tres números NO es primo?"
+enunciado: "¿Cuál es el MCD de {a} y {b}?"
 
 explicacion: |
-  {compuesto} es par (y mayor que 2), así que ya tiene al 2 como tercer
-  divisor.
+  Conviene factorizar los dos números en primos y quedarse con los
+  factores en común, usando el menor exponente de cada uno.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "basico"
-  tags: ["numeros_primos"]
-
-variables:
-  candidatos: [2, 3, 5, 7, 11, 13, 17, 19, 23]
-  n: uno_de(candidatos)
-
-respuesta: 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos divisores tiene el número primo {n}?"
-
-explicacion: |
-  Todo número primo tiene exactamente 2 divisores: el 1 y él mismo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
+  tema: "mcd"
   nivel: "intermedio"
-  tags: ["numeros_primos"]
+  tags: ["mcd", "propiedades"]
 
 variables:
-  n: random(4, 60)
+  a: random(10, 90)
+  b: random(10, 90)
 
-respuesta: largo(divisores(n))
-tipo: input
-tolerancia_abs: 0
+respuesta: (mcd(a, b) == mcd(b, a))
+tipo: vf
 
-enunciado: "¿Cuántos divisores tiene {n}?"
+enunciado: "¿Es cierto que el MCD de {a} y {b} da lo mismo que el MCD de {b} y {a}?"
 
 explicacion: |
-  Se cuentan todos los divisores; si son más de 2, ya se sabe que {n} no
-  es primo.
+  El orden en que se comparan los dos números no cambia el resultado: el
+  MCD es conmutativo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "numeros_primos"
+  tema: "mcd"
   nivel: "basico"
-  tags: ["numeros_primos"]
-
-respuesta: 11
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el 5° número primo (contando el 2 como el primero: 2, 3, 5, 7, 11...)?"
-
-explicacion: |
-  Los primeros primos son 2, 3, 5, 7, 11 — el quinto es 11.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "intermedio"
-  tags: ["numeros_primos", "factorizacion"]
-
-variables:
-  primos: [2, 3, 5, 7]
-  p1: uno_de(primos)
-  p2: uno_de(primos)
-  p3: uno_de(primos)
-  n: p1 * p2 * p3
-
-respuesta: largo(factorizar(n))
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos factores primos tiene la factorización de {n} (contando cada repetido)?"
-
-explicacion: |
-  {n} se armó multiplicando 3 primos (a veces repetidos), así que su
-  factorización tiene 3 factores en total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "basico"
-  tags: ["numeros_primos", "factorizacion"]
-
-variables:
-  primos: [2, 3, 5, 7, 11]
-  p1: uno_de(primos)
-  p2: uno_de(primos)
-
-respuesta: p1 * p2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Si la factorización prima de un número es {p1} × {p2}, ¿cuál es ese número?"
-
-explicacion: |
-  Multiplicar los factores primos reconstruye el número original.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "intermedio"
-  tags: ["numeros_primos", "factorizacion"]
-
-variables:
-  primos: [2, 3, 5]
-  p: uno_de(primos)
-
-respuesta: p * p * p
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Si la factorización prima de un número es {p} × {p} × {p}, ¿cuál es ese número?"
-
-explicacion: |
-  Un mismo primo puede repetirse en la factorización: {p} × {p} × {p} es
-  {p} elevado al cubo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "basico"
-  tags: ["numeros_primos", "factorizacion", "vocabulario"]
+  tags: ["mcd", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Todo número compuesto tiene una única factorización prima (sin contar el orden de los factores)."
+enunciado: "El MCD sirve para saber, entre otras cosas, cuál es el tamaño de grupo más grande que se puede repetir exacto en dos cantidades distintas, sin que sobre nada."
 
 explicacion: |
-  Es el Teorema Fundamental de la Aritmética: no hay dos formas distintas
-  de descomponer el mismo número en primos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "basico"
-  tags: ["numeros_primos", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ningún número par mayor que 2 puede ser primo."
-
-explicacion: |
-  Todo número par mayor que 2 tiene al 2 como divisor extra, además de 1 y
-  él mismo: ya son 3 divisores como mínimo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "basico"
-  tags: ["numeros_primos"]
-
-variables:
-  n: random(3, 200) * 2
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es {n} un número primo?"
-
-explicacion: |
-  {n} es par y mayor que 2: la regla de divisibilidad del 2 ya alcanza
-  para descartarlo como primo, sin necesidad de probar más divisores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "intermedio"
-  tags: ["numeros_primos"]
-
-variables:
-  n: random(3, 200) * 3 + uno_de([0, 3, 6])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es {n} un número primo?"
-
-explicacion: |
-  La suma de las cifras de {n} es múltiplo de 3, así que ya se sabe que
-  tiene al 3 como divisor extra — no puede ser primo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "basico"
-  tags: ["numeros_primos", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos números primos de menor a mayor."
-opciones_explicitas:
-  - "17"
-  - "5"
-  - "13"
-  - "11"
-respuesta_orden: ["5", "11", "13", "17"]
-
-explicacion: |
-  Los cuatro son primos; sólo hace falta ordenarlos por tamaño.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "intermedio"
-  tags: ["numeros_primos", "factorizacion"]
-
-variables:
-  primos: [2, 3, 5, 7]
-  p: uno_de(primos)
-  k: random(2, 20)
-  n: p * k
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es {p} uno de los factores primos de {n}?"
-
-explicacion: |
-  {n} se construyó multiplicando {p} por otro número, así que {p} tiene
-  que aparecer en su factorización.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "avanzado"
-  tags: ["numeros_primos", "problema"]
-
-variables:
-  primos: [2, 3, 5, 7]
-  p1: uno_de(primos)
-  p2: uno_de(primos)
-  n: p1 * p2
-
-respuesta: p2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un salón con {n} sillas se organiza en {p1} filas iguales. ¿Cuántas sillas hay en cada fila?"
-
-explicacion: |
-  Como {n} = {p1} × {p2}, dividir por {p1} da exactamente {p2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "intermedio"
-  tags: ["numeros_primos"]
-
-variables:
-  n: random(3, 100) * 5
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es {n} un número primo?"
-
-explicacion: |
-  {n} termina en 0 o en 5 (regla del 5): salvo que sea el propio 5, ya no
-  puede ser primo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "numeros_primos"
-  nivel: "avanzado"
-  tags: ["numeros_primos"]
-
-variables:
-  candidatos: [3, 5, 11, 17, 29]
-  p: uno_de(candidatos)
-
-respuesta: es_primo(p + 2)
-tipo: vf
-
-enunciado: "{p} es primo. ¿{p} + 2 también es primo?"
-
-explicacion: |
-  Cuando dos primos están separados por sólo 2 (como 3 y 5, u 11 y 13) se
-  llaman "primos gemelos" — no todos los primos tienen un gemelo así.
+  Es la aplicación práctica más común del MCD: repartir o cortar en la
+  mayor cantidad posible de partes iguales.
 ```
 
 ## Sección: operaciones-enteros (28 preguntas)
@@ -2323,677 +1865,1220 @@ explicacion: |
   absolutos y quedarse con el signo del que pesa más.
 ```
 
-## Sección: operaciones-fracciones (28 preguntas)
+## Sección: fracciones (28 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "operaciones_fracciones"
+  tema: "fracciones"
   nivel: "basico"
-  tags: ["operaciones_fracciones", "suma"]
+  tags: ["fracciones", "vocabulario"]
 
-variables:
-  b: random(5, 12)
-  a: random(1, b - 3)
-  c: random(1, b - a - 1)
-
-respuesta: a + c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el numerador de {a}/{b} + {c}/{b}?"
-
-pasos:
-  - "Mismo denominador: se suman los numeradores. {a} + {c} = {a + c} (el denominador queda {b})"
+enunciado: "En la fracción 3/4, ¿qué representa el 3 (el numerador)?"
+tipo: mc
+opciones_explicitas:
+  - "Cuántas partes se toman"
+  - "En cuántas partes se dividió el todo"
+  - "El resultado de la división"
+respuesta: "Cuántas partes se toman"
 
 explicacion: |
-  Con el mismo denominador, se suman los numeradores y se deja el mismo
-  denominador.
+  El numerador dice cuántas partes del todo se están tomando.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "operaciones_fracciones"
+  tema: "fracciones"
   nivel: "basico"
-  tags: ["operaciones_fracciones", "resta"]
+  tags: ["fracciones", "vocabulario"]
 
-variables:
-  b: random(5, 12)
-  a: random(2, b - 1)
-  c: random(1, a - 1)
-
-respuesta: a - c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el numerador de {a}/{b} - {c}/{b}?"
+enunciado: "En la fracción 3/4, ¿qué representa el 4 (el denominador)?"
+tipo: mc
+opciones_explicitas:
+  - "En cuántas partes iguales se dividió el todo"
+  - "Cuántas partes se toman"
+  - "El resultado de la división"
+respuesta: "En cuántas partes iguales se dividió el todo"
 
 explicacion: |
-  Con el mismo denominador, se restan los numeradores y se deja el mismo
-  denominador.
+  El denominador dice en cuántas partes iguales se dividió el entero.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "operaciones_fracciones"
+  tema: "fracciones"
   nivel: "intermedio"
-  tags: ["operaciones_fracciones", "suma"]
+  tags: ["fracciones", "equivalencia"]
 
 variables:
-  b: random(2, 12)
-  d: random(2, 12)
-
-respuesta: mcm(b, d)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Para sumar una fracción de denominador {b} con otra de denominador {d}, ¿cuál es el común denominador más chico?"
-
-explicacion: |
-  El común denominador más chico es el MCM de los dos denominadores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "intermedio"
-  tags: ["operaciones_fracciones", "suma"]
-
-variables:
-  a: random(1, 5)
+  a: random(1, 9)
   b: random(2, 9)
-  d: random(2, 9)
-  comun: mcm(b, d)
+  k: random(2, 8)
+  c: a * k
+  d: b * k
 
-respuesta: a * (comun / b)
-tipo: input
-tolerancia_abs: 0
+respuesta: (a * d == b * c)
+tipo: vf
 
-enunciado: "Para sumar {a}/{b} con una fracción de denominador {d}, hay que amplificar {a}/{b} hasta el común denominador {comun}. ¿Cuál queda el nuevo numerador?"
+enunciado: "¿Son equivalentes las fracciones {a}/{b} y {c}/{d}?"
 
 pasos:
-  - "{comun} ÷ {b} = {comun / b} (factor de amplificación). {a} × {comun / b} = {a * (comun / b)}"
+  - "Producto cruzado: {a} × {d} = {a * d}. {b} × {c} = {b * c}. ¿Son iguales?"
 
 explicacion: |
-  El numerador se multiplica por el mismo factor que hizo falta para
-  llegar del denominador original al común.
+  Dos fracciones son equivalentes si el producto cruzado da lo mismo de
+  los dos lados.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "operaciones_fracciones"
+  tema: "fracciones"
   nivel: "intermedio"
-  tags: ["operaciones_fracciones", "suma"]
+  tags: ["fracciones", "equivalencia"]
 
 variables:
-  c: random(1, 5)
+  a: random(1, 9)
   b: random(2, 9)
+  c: random(1, 9)
   d: random(2, 9)
-  comun: mcm(b, d)
-
-respuesta: c * (comun / d)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Para sumar {c}/{d} con una fracción de denominador {b}, hay que amplificar {c}/{d} hasta el común denominador {comun}. ¿Cuál queda el nuevo numerador?"
-
-explicacion: |
-  Mismo procedimiento que con la primera fracción, ahora aplicado a la
-  segunda.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "avanzado"
-  tags: ["operaciones_fracciones", "suma"]
-
-variables:
-  a: random(1, 4)
-  b: random(2, 6)
-  c: random(1, 4)
-  d: random(2, 6)
-  comun: mcm(b, d)
-  num_a: a * (comun / b)
-  num_c: c * (comun / d)
-
-respuesta: num_a + num_c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el numerador de {a}/{b} + {c}/{d}, expresado sobre el común denominador {comun}?"
-
-pasos:
-  - "{a}/{b} = {num_a}/{comun}. {c}/{d} = {num_c}/{comun}. {num_a} + {num_c} = {num_a + num_c}"
-
-explicacion: |
-  Primero se amplifican las dos fracciones al común denominador, y recién
-  ahí se suman los numeradores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "avanzado"
-  tags: ["operaciones_fracciones", "resta"]
-
-variables:
-  a: random(2, 5)
-  b: random(2, 6)
-  c: random(1, 4)
-  d: random(2, 6)
-  comun: mcm(b, d)
-  num_a: a * (comun / b)
-  num_c: c * (comun / d)
 
 restricciones:
-  - num_a > num_c
+  - (a * d) != (b * c)
 
-respuesta: num_a - num_c
-tipo: input
-tolerancia_abs: 0
+respuesta: falso
+tipo: vf
 
-enunciado: "¿Cuál es el numerador de {a}/{b} - {c}/{d}, expresado sobre el común denominador {comun}?"
+enunciado: "¿Son equivalentes las fracciones {a}/{b} y {c}/{d}?"
 
 explicacion: |
-  Igual que en la suma, primero se amplifican las dos fracciones al común
-  denominador, y recién ahí se restan los numeradores.
+  El producto cruzado no da igual de los dos lados: no son equivalentes.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "operaciones_fracciones"
+  tema: "fracciones"
   nivel: "basico"
-  tags: ["operaciones_fracciones", "multiplicacion"]
+  tags: ["fracciones", "amplificar"]
 
 variables:
   a: random(1, 9)
   b: random(2, 9)
-  c: random(1, 9)
-  d: random(2, 9)
+  k: random(2, 9)
 
-respuesta: a * c
+respuesta: a * k
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es el numerador de {a}/{b} × {c}/{d}?"
-
-explicacion: |
-  Se multiplican los numeradores entre sí.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "basico"
-  tags: ["operaciones_fracciones", "multiplicacion"]
-
-variables:
-  a: random(1, 9)
-  b: random(2, 9)
-  c: random(1, 9)
-  d: random(2, 9)
-
-respuesta: b * d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el denominador de {a}/{b} × {c}/{d}?"
-
-explicacion: |
-  Se multiplican los denominadores entre sí.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "basico"
-  tags: ["operaciones_fracciones", "division"]
-
-variables:
-  a: random(1, 9)
-  b: random(2, 9)
-
-respuesta: b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el numerador de la recíproca de {a}/{b}?"
-
-explicacion: |
-  La recíproca "da vuelta" la fracción: el denominador original pasa a
-  ser el nuevo numerador.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "intermedio"
-  tags: ["operaciones_fracciones", "division"]
-
-variables:
-  a: random(1, 9)
-  b: random(2, 9)
-  c: random(1, 9)
-  d: random(2, 9)
-
-respuesta: a * d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el numerador de {a}/{b} ÷ {c}/{d}?"
+enunciado: "Para amplificar {a}/{b} multiplicando por {k}, ¿cuál queda el nuevo numerador?"
 
 pasos:
-  - "Dividir es multiplicar por la recíproca: {a}/{b} × {d}/{c}. Numerador: {a} × {d} = {a * d}"
+  - "{a} × {k} = {a * k} (y el denominador queda {b} × {k} = {b * k})"
 
 explicacion: |
-  Se multiplica por la recíproca de la segunda fracción: numerador por
-  denominador de la que divide.
+  Amplificar es multiplicar numerador y denominador por el mismo número,
+  para llegar a una fracción equivalente.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "operaciones_fracciones"
+  tema: "fracciones"
   nivel: "intermedio"
-  tags: ["operaciones_fracciones", "division"]
+  tags: ["fracciones", "simplificar"]
 
 variables:
-  a: random(1, 9)
-  b: random(2, 9)
-  c: random(1, 9)
-  d: random(2, 9)
-
-respuesta: b * c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el denominador de {a}/{b} ÷ {c}/{d}?"
-
-pasos:
-  - "Dividir es multiplicar por la recíproca: {a}/{b} × {d}/{c}. Denominador: {b} × {c} = {b * c}"
-
-explicacion: |
-  Se multiplica por la recíproca: denominador por numerador de la que
-  divide.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "basico"
-  tags: ["operaciones_fracciones", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para sumar o restar fracciones, primero hay que llevarlas al mismo denominador."
-
-explicacion: |
-  Sólo se pueden sumar (o restar) directamente los numeradores cuando el
-  denominador ya es el mismo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "basico"
-  tags: ["operaciones_fracciones", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para multiplicar fracciones NO hace falta que tengan el mismo denominador."
-
-explicacion: |
-  A diferencia de la suma y la resta, multiplicar fracciones se puede
-  hacer directamente, sin importar los denominadores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "basico"
-  tags: ["operaciones_fracciones", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dividir por una fracción es lo mismo que multiplicar por su recíproca."
-
-explicacion: |
-  Es la regla clave para dividir fracciones: dar vuelta la segunda
-  fracción y multiplicar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "avanzado"
-  tags: ["operaciones_fracciones", "multiplicacion", "simplificar"]
-
-variables:
-  a: random(1, 6)
-  b: random(2, 6)
-  c: random(1, 6)
-  d: random(2, 6)
-  num: a * c
-  den: b * d
+  divisor_comun: random(2, 9)
+  num: divisor_comun * random(2, 9)
+  den: divisor_comun * random(2, 9)
   simplificador: mcd(num, den)
+
+restricciones:
+  - num != den
 
 respuesta: num / simplificador
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "{a}/{b} × {c}/{d} da como resultado {num}/{den}. Simplificado al máximo (dividiendo por el MCD), ¿cuál queda el numerador?"
+enunciado: "Al simplificar {num}/{den} al máximo (dividiendo por su MCD), ¿cuál queda el numerador?"
 
 pasos:
   - "MCD({num}, {den}) = {simplificador}. {num} ÷ {simplificador} = {num / simplificador}"
 
 explicacion: |
-  Después de multiplicar, conviene simplificar el resultado al máximo
-  usando su MCD.
+  Simplificar al máximo es dividir numerador y denominador por su MCD.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "operaciones_fracciones"
+  tema: "fracciones"
   nivel: "intermedio"
-  tags: ["operaciones_fracciones", "problema"]
+  tags: ["fracciones", "simplificar"]
 
 variables:
-  b: random(5, 10)
-  a: random(1, b - 3)
-  c: random(1, b - a - 1)
-
-respuesta: a + c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El lunes hiciste {a}/{b} de un trabajo, y el martes hiciste {c}/{b} más. ¿Cuál es el numerador de la fracción total hecha (sobre {b})?"
-
-explicacion: |
-  Sumar partes hechas en distintos momentos es sumar fracciones — acá con
-  el mismo denominador.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "intermedio"
-  tags: ["operaciones_fracciones", "multiplicacion", "problema"]
-
-variables:
-  b: random(2, 9)
-  d: random(2, 9)
-
-respuesta: b * d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el denominador de \"1/{b} de 1/{d}\" de una torta (es decir, 1/{b} × 1/{d})?"
-
-explicacion: |
-  "Una fracción de otra fracción" es multiplicar: los denominadores se
-  multiplican entre sí.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "avanzado"
-  tags: ["operaciones_fracciones", "division", "problema"]
-
-variables:
-  a: random(1, 5)
-  b: random(2, 9)
-  personas: random(2, 6)
-
-respuesta: b * personas
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Tenés {a}/{b} de una torta y la repartís en partes iguales entre {personas} personas. ¿Cuál es el denominador de la fracción que le toca a cada una (es decir, {a}/{b} ÷ {personas})?"
-
-pasos:
-  - "{a}/{b} ÷ {personas} = {a}/{b} × 1/{personas}: el denominador queda {b} × {personas} = {b * personas}"
-
-explicacion: |
-  Repartir una fracción entre varias personas es dividir esa fracción por
-  la cantidad de personas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "intermedio"
-  tags: ["operaciones_fracciones", "suma"]
-
-variables:
-  b: random(5, 12)
-  a: random(1, b - 3)
-  c: random(1, b - a - 1)
-  correcto: a + c
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - a * c
-  - correcto + 1
-
-enunciado: "¿Cuál es el numerador correcto de {a}/{b} + {c}/{b}?"
-
-explicacion: |
-  Con el mismo denominador, se suman los numeradores — no se multiplican.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "intermedio"
-  tags: ["operaciones_fracciones", "multiplicacion"]
-
-variables:
-  a: random(1, 8)
-  b: random(2, 8)
-  c: random(1, 8)
-  d: random(2, 8)
-  correcto: a * c
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - a + c
-  - correcto + 1
-
-enunciado: "¿Cuál es el numerador correcto de {a}/{b} × {c}/{d}?"
-
-explicacion: |
-  Al multiplicar fracciones, los numeradores se multiplican — no se
-  suman.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "avanzado"
-  tags: ["operaciones_fracciones", "verificacion"]
-
-variables:
-  a: random(1, 4)
-  b: random(2, 6)
-  c: random(1, 4)
-  d: random(2, 6)
-  comun: mcm(b, d)
-  num_a: a * (comun / b)
-  num_c: c * (comun / d)
-  correcto: num_a + num_c
-  error: uno_de([0, 0, 0, 1, -1])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien resuelto esto? {a}/{b} + {c}/{d} = {mostrado}/{comun}"
-
-explicacion: |
-  Hay que amplificar cada fracción al común denominador y sumar recién
-  ahí los numeradores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "intermedio"
-  tags: ["operaciones_fracciones", "verificacion"]
-
-variables:
-  a: random(1, 8)
-  b: random(2, 8)
-  c: random(1, 8)
-  d: random(2, 8)
-  correcto: a * c
-  error: uno_de([0, 0, 0, 1, -1])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien resuelto esto? {a}/{b} × {c}/{d} = {mostrado}/{b * d}"
-
-explicacion: |
-  El numerador correcto es el producto de los dos numeradores originales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "intermedio"
-  tags: ["operaciones_fracciones", "suma"]
-
-variables:
-  b: random(2, 9)
-  d: random(2, 9)
-
-tipo: completar
-enunciado: "Para sumar 1/{b} + 1/{d}, ¿cuál conviene usar como común denominador (el más chico posible)?"
-respuestas_validas:
-  - mcm(b, d)
-
-explicacion: |
-  El común denominador más chico posible es el MCM de {b} y {d}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "basico"
-  tags: ["operaciones_fracciones", "division"]
-
-variables:
-  a: random(1, 9)
-  b: random(2, 9)
-
-respuesta: b
-tipo: mc
-opciones_explicitas:
-  - b
-  - a
-  - a + b
-
-enunciado: "¿Cuál es el numerador de la recíproca de {a}/{b}?"
-
-explicacion: |
-  La recíproca intercambia numerador y denominador.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "avanzado"
-  tags: ["operaciones_fracciones", "resta"]
-
-variables:
-  b: random(2, 8)
-  d: random(2, 8)
-  comun: mcm(b, d)
-  num_a: random(2, comun - 1)
-  num_c: random(1, num_a - 1)
-
-respuesta: num_a - num_c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Dos fracciones, ya amplificadas sobre el común denominador {comun}, tienen numeradores {num_a} y {num_c}. ¿Cuál es el numerador de la resta?"
-
-explicacion: |
-  Una vez que las dos fracciones ya están sobre el mismo denominador,
-  restar es tan simple como restar los numeradores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "avanzado"
-  tags: ["operaciones_fracciones", "resta", "problema"]
-
-variables:
-  b: random(5, 10)
-  usado: random(1, b - 1)
-
-respuesta: b - usado
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un tanque estaba lleno y se usó {usado}/{b} de su capacidad. ¿Cuál es el numerador de la fracción que queda (sobre {b})?"
-
-pasos:
-  - "El tanque lleno es {b}/{b}: {b}/{b} - {usado}/{b} = ({b} - {usado})/{b} = {b - usado}/{b}"
-
-explicacion: |
-  Lo que queda es 1 entero (el todo) menos la fracción usada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "operaciones_fracciones"
-  nivel: "basico"
-  tags: ["operaciones_fracciones", "vocabulario"]
+  a: random(1, 20)
+  b: a + 1
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Sumar y restar fracciones necesita el mismo denominador; multiplicar y dividir no."
+enunciado: "¿Es {a}/{b} una fracción irreducible (que ya no se puede simplificar más)?"
 
 explicacion: |
-  Es la diferencia clave entre las dos parejas de operaciones con
-  fracciones.
+  Como {a} y {b} son números consecutivos, su MCD es 1: no se pueden
+  simplificar más.
 ```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "basico"
+  tags: ["fracciones", "comparacion"]
+
+variables:
+  b: random(5, 20)
+  a: random(1, b - 1)
+  c: random(1, b - 1)
+
+restricciones:
+  - a != c
+
+respuesta: (a > c)
+tipo: vf
+
+enunciado: "¿Es {a}/{b} mayor que {c}/{b}?"
+
+explicacion: |
+  Con el mismo denominador, alcanza con comparar los numeradores.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "intermedio"
+  tags: ["fracciones", "comparacion"]
+
+variables:
+  a: random(1, 9)
+  b: random(2, 9)
+  c: random(1, 9)
+  d: random(2, 9)
+
+restricciones:
+  - (a * d) != (b * c)
+
+respuesta: (a * d > b * c)
+tipo: vf
+
+enunciado: "¿Es {a}/{b} mayor que {c}/{d}?"
+
+pasos:
+  - "Producto cruzado: {a} × {d} = {a * d}. {b} × {c} = {b * c}."
+
+explicacion: |
+  Con distinto denominador, se compara el producto cruzado: a/b es mayor
+  que c/d si a×d es mayor que b×c.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "basico"
+  tags: ["fracciones", "vocabulario"]
+
+variables:
+  b: random(2, 9)
+  a: random(1, b - 1)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es {a}/{b} una fracción propia (menor que 1 entero)?"
+
+explicacion: |
+  Como el numerador es menor que el denominador, la fracción vale menos
+  que un entero completo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "basico"
+  tags: ["fracciones", "vocabulario"]
+
+variables:
+  b: random(2, 9)
+  a: b + random(1, 9)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es {a}/{b} una fracción propia (menor que 1 entero)?"
+
+explicacion: |
+  Como el numerador es mayor que el denominador, esta fracción es
+  impropia: vale 1 entero o más.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "intermedio"
+  tags: ["fracciones", "numero_mixto"]
+
+variables:
+  b: random(2, 9)
+  entero: random(1, 5)
+  resto: random(1, b - 1)
+  a: b * entero + resto
+
+respuesta: entero
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Al convertir la fracción impropia {a}/{b} a número mixto, ¿cuál es la parte entera?"
+
+pasos:
+  - "{a} ÷ {b} da cociente {entero} (y resto {resto})"
+
+explicacion: |
+  La parte entera es el cociente de dividir el numerador por el
+  denominador.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "intermedio"
+  tags: ["fracciones", "numero_mixto"]
+
+variables:
+  b: random(2, 9)
+  entero: random(1, 5)
+  resto: random(1, b - 1)
+  a: b * entero + resto
+
+respuesta: resto
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Al convertir {a}/{b} a número mixto, ¿cuál queda el numerador de la parte fraccionaria (sobre el mismo denominador {b})?"
+
+pasos:
+  - "El resto de {a} ÷ {b} es {resto}: el número mixto queda {entero} entero(s) y {resto}/{b}"
+
+explicacion: |
+  La parte fraccionaria es el resto de la división, sobre el mismo
+  denominador original.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "intermedio"
+  tags: ["fracciones", "numero_mixto"]
+
+variables:
+  entero: random(1, 6)
+  b: random(2, 9)
+  resto: random(1, b - 1)
+
+respuesta: entero * b + resto
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El número mixto es {entero} entero(s) y {resto}/{b}. ¿Cuál es el numerador de la fracción impropia equivalente (sobre el mismo denominador {b})?"
+
+pasos:
+  - "{entero} × {b} + {resto} = {entero * b + resto}"
+
+explicacion: |
+  Se multiplica la parte entera por el denominador y se suma el
+  numerador de la parte fraccionaria.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "basico"
+  tags: ["fracciones", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estas fracciones de menor a mayor (todas tienen el mismo denominador)."
+opciones_explicitas:
+  - "5/8"
+  - "1/8"
+  - "6/8"
+  - "3/8"
+respuesta_orden: ["1/8", "3/8", "5/8", "6/8"]
+
+explicacion: |
+  Con el mismo denominador, alcanza con ordenar los numeradores.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "intermedio"
+  tags: ["fracciones", "equivalencia"]
+
+variables:
+  a: random(1, 9)
+  b: random(2, 9)
+  k: random(2, 6)
+
+respuesta: a * k
+tipo: mc
+opciones_explicitas:
+  - a * k
+  - a * k + 1
+  - a + k
+
+enunciado: "¿Cuál es el numerador de una fracción equivalente a {a}/{b}, con denominador {b * k}?"
+
+explicacion: |
+  Si el denominador se multiplicó por {k}, el numerador también tiene que
+  multiplicarse por {k} para que la fracción siga valiendo lo mismo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "intermedio"
+  tags: ["fracciones", "equivalencia"]
+
+variables:
+  a: random(1, 9)
+  b: random(2, 9)
+  k: random(2, 6)
+  equivalente: a * k
+  no_equivalente: equivalente + 1
+
+respuesta: no_equivalente
+tipo: mc
+opciones_explicitas:
+  - equivalente
+  - no_equivalente
+
+enunciado: "¿Cuál de estos dos numeradores NO forma una fracción equivalente a {a}/{b}, con denominador {b * k}?"
+
+explicacion: |
+  Sólo {a} × {k} = {equivalente} mantiene la misma proporción.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "basico"
+  tags: ["fracciones", "problema"]
+
+variables:
+  porciones: random(4, 12)
+  comidas: random(1, porciones - 1)
+
+respuesta: comidas
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una pizza se cortó en {porciones} porciones iguales. Si te comiste {comidas} porciones, ¿cuál es el numerador de la fracción de pizza que comiste (sobre {porciones})?"
+
+explicacion: |
+  La cantidad de porciones comidas es, directamente, el numerador de la
+  fracción sobre el total de porciones.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "intermedio"
+  tags: ["fracciones", "verificacion"]
+
+variables:
+  a: random(1, 9)
+  b: random(2, 9)
+  k: random(2, 8)
+  c_correcto: a * k
+  error: uno_de([0, 0, 0, 1, -1])
+  c_mostrado: c_correcto + error
+  d: b * k
+
+respuesta: (a * d == c_mostrado * b)
+tipo: vf
+
+enunciado: "¿Es {c_mostrado}/{d} equivalente a {a}/{b}?"
+
+explicacion: |
+  Se verifica con el producto cruzado: si no coincide, no son
+  equivalentes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "intermedio"
+  tags: ["fracciones", "simplificar"]
+
+variables:
+  divisor_comun: random(2, 9)
+  num: divisor_comun * random(2, 9)
+  den: divisor_comun * random(2, 9)
+  simplificador: mcd(num, den)
+
+restricciones:
+  - num != den
+
+respuesta: den / simplificador
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Al simplificar {num}/{den} al máximo, ¿cuál queda el denominador?"
+
+explicacion: |
+  Se divide también el denominador por el mismo MCD que se usó en el
+  numerador.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "intermedio"
+  tags: ["fracciones", "comparacion"]
+
+variables:
+  a: random(1, 9)
+  b: random(2, 9)
+  c: random(1, 9)
+  d: random(2, 9)
+
+restricciones:
+  - (a * d) != (b * c)
+
+respuesta: (a * d > b * c)
+tipo: mc
+opciones_explicitas:
+  - verdadero
+  - falso
+
+enunciado: "¿Es cierto que {a}/{b} es mayor que {c}/{d}?"
+
+explicacion: |
+  Se compara con el producto cruzado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "basico"
+  tags: ["fracciones", "vocabulario"]
+
+variables:
+  n: random(2, 20)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es cierto que {n}/{n} representa exactamente 1 entero?"
+
+explicacion: |
+  Cuando el numerador y el denominador son iguales, la fracción vale 1: el
+  todo entero se dividió en n partes y se tomaron las n.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "basico"
+  tags: ["fracciones", "vocabulario"]
+
+variables:
+  n: random(2, 20)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es cierto que 0/{n} vale 0?"
+
+explicacion: |
+  No tomar ninguna parte (numerador 0) de cualquier cantidad de partes
+  vale 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "basico"
+  tags: ["fracciones", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una fracción no puede tener 0 como denominador."
+
+explicacion: |
+  Dividir por 0 no está definido (ver la teoría de división): el
+  denominador siempre tiene que ser distinto de 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "avanzado"
+  tags: ["fracciones", "comparacion"]
+
+variables:
+  b: random(6, 12)
+  a: random(1, b - 1)
+  c: random(1, b - 1)
+  e: random(1, b - 1)
+
+restricciones:
+  - a != c
+  - a != e
+  - c != e
+
+respuesta: max(a, c, e)
+tipo: mc
+opciones_explicitas:
+  - a
+  - c
+  - e
+
+enunciado: "Entre {a}/{b}, {c}/{b} y {e}/{b} (mismo denominador), ¿cuál numerador corresponde a la fracción mayor?"
+
+explicacion: |
+  Con el mismo denominador, la fracción mayor es la que tiene el
+  numerador más grande.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "intermedio"
+  tags: ["fracciones", "equivalencia"]
+
+variables:
+  a: random(1, 9)
+  b: random(2, 9)
+  k: random(2, 8)
+
+tipo: completar
+enunciado: "Completá: {a}/{b} = ___/{b * k} (fracciones equivalentes)."
+respuestas_validas:
+  - a * k
+
+explicacion: |
+  El numerador que falta tiene que guardar la misma proporción: se
+  multiplica {a} por el mismo {k} que multiplicó al denominador.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "avanzado"
+  tags: ["fracciones", "problema"]
+
+variables:
+  total: random(10, 40)
+  parte_a: random(1, total - 1)
+
+respuesta: total - parte_a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un grupo de {total} personas se divide en dos: {parte_a} van a un lado. ¿Cuántas personas quedan del otro lado (el numerador de la fracción complementaria, sobre {total})?"
+
+explicacion: |
+  Las dos partes complementarias siempre suman el total: si una fracción
+  es {parte_a}/{total}, la otra es ({total} - {parte_a})/{total}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "fracciones"
+  nivel: "basico"
+  tags: ["fracciones", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una fracción representa una parte de un todo dividido en partes iguales."
+
+explicacion: |
+  Es la idea central de toda esta unidad: numerador y denominador,
+  equivalencia, comparación — todo se apoya en esta definición.
+```
+
+## Sección: mcm (24 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "basico"
+  tags: ["mcm", "vocabulario"]
+
+enunciado: "¿Qué es el Mínimo Común Múltiplo (MCM) de dos números?"
+tipo: mc
+opciones_explicitas:
+  - "El menor número (mayor que 0) que es múltiplo de los dos a la vez"
+  - "El mayor número que es divisor de los dos a la vez"
+  - "El producto de los dos números"
+respuesta: "El menor número (mayor que 0) que es múltiplo de los dos a la vez"
+
+explicacion: |
+  Se buscan los múltiplos en común de los dos números, y se toma el más
+  chico (sin contar el 0).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "basico"
+  tags: ["mcm"]
+
+variables:
+  a: random(2, 12)
+  b: random(2, 12)
+
+respuesta: mcm(a, b)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCM de {a} y {b}?"
+
+explicacion: |
+  Se buscan los múltiplos de {a} y de {b} hasta encontrar el primero que
+  coincide en las dos listas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm"]
+
+variables:
+  a: random(10, 40)
+  b: random(10, 40)
+
+respuesta: mcm(a, b)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCM de {a} y {b}?"
+
+explicacion: |
+  Con números más grandes conviene usar el atajo del MCD en vez de listar
+  múltiplos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm", "mcd"]
+
+variables:
+  a: random(4, 40)
+  b: random(4, 40)
+  divisor_comun: mcd(a, b)
+
+respuesta: (a * b) / divisor_comun
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El MCD de {a} y {b} es {divisor_comun}. Usando la fórmula MCM = (a × b) ÷ MCD, ¿cuál es el MCM?"
+
+pasos:
+  - "({a} × {b}) ÷ {divisor_comun} = {a * b} ÷ {divisor_comun} = {(a * b) / divisor_comun}"
+
+explicacion: |
+  Es el atajo más rápido: multiplicar los dos números y dividir por su
+  MCD.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "basico"
+  tags: ["mcm", "multiplos"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 9)
+  candidato: a * b
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es {candidato} un múltiplo común de {a} y {b}?"
+
+explicacion: |
+  {candidato} es {a} × {b}, así que es múltiplo de los dos a la vez
+  (aunque no sea necesariamente el MCM: podría haber uno más chico).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm"]
+
+variables:
+  a: random(3, 15)
+  b: a + 1
+
+respuesta: a * b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCM de {a} y {b} (dos números consecutivos, que no comparten factores)?"
+
+pasos:
+  - "Como no comparten ningún factor (MCD = 1), el MCM es directamente el producto: {a} × {b} = {a * b}"
+
+explicacion: |
+  Cuando dos números son primos entre sí (su MCD es 1), su MCM es
+  directamente el producto de los dos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "basico"
+  tags: ["mcm"]
+
+variables:
+  n: random(2, 999)
+
+respuesta: n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCM de {n} y {n}?"
+
+explicacion: |
+  El menor múltiplo en común de un número consigo mismo es el propio
+  número.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "basico"
+  tags: ["mcm", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El MCM de dos números nunca puede ser menor que el más grande de los dos."
+
+explicacion: |
+  Un múltiplo de un número nunca puede ser menor que ese número (salvo el
+  0); como el MCM es múltiplo de los dos, no puede ser menor que el más
+  grande.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm"]
+
+variables:
+  a: random(3, 15)
+  b: random(3, 15)
+  correcto: mcm(a, b)
+
+respuesta: correcto
+tipo: mc
+opciones_explicitas:
+  - correcto
+  - a * b
+  - correcto + a
+
+enunciado: "¿Cuál es el MCM de {a} y {b}?"
+
+explicacion: |
+  El producto a×b es un múltiplo común, pero no siempre es el MÍNIMO — sólo
+  coincide con el MCM cuando los dos números son primos entre sí.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm", "problema"]
+
+variables:
+  a: random(2, 12)
+  b: random(2, 12)
+
+respuesta: mcm(a, b)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Para sumar dos fracciones con denominadores {a} y {b}, conviene usar como común denominador el MCM de los dos. ¿Cuál es ese común denominador?"
+
+explicacion: |
+  El MCM de los denominadores es el común denominador más chico posible
+  para sumar o restar las fracciones.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm", "problema"]
+
+variables:
+  a: random(4, 20)
+  b: random(4, 20)
+
+respuesta: mcm(a, b)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un colectivo pasa por una parada cada {a} minutos, y otro cada {b} minutos. Si los dos pasaron juntos a las 0, ¿en qué minuto vuelven a pasar juntos por primera vez?"
+
+explicacion: |
+  El primer momento en que coinciden de nuevo es el MCM de los dos
+  intervalos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm", "problema"]
+
+variables:
+  a: random(2, 15)
+  b: random(2, 15)
+
+respuesta: mcm(a, b)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una luz titila cada {a} segundos y otra cada {b} segundos. Si las dos titilaron juntas en el segundo 0, ¿en qué segundo van a volver a titilar juntas?"
+
+explicacion: |
+  Es el mismo tipo de problema que los colectivos: el primer encuentro es
+  el MCM de los dos ritmos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "avanzado"
+  tags: ["mcm"]
+
+variables:
+  a: random(2, 10)
+  b: random(2, 10)
+  c: random(2, 10)
+
+respuesta: mcm(mcm(a, b), c)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCM de {a}, {b} y {c}?"
+
+pasos:
+  - "Se calcula de a dos: MCM({a}, {b}) = {mcm(a, b)}, y después MCM({mcm(a, b)}, {c}) = {mcm(mcm(a, b), c)}"
+
+explicacion: |
+  El MCM de tres números se calcula de a pares: primero entre dos, y
+  después ese resultado con el tercero.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm", "verificacion"]
+
+variables:
+  a: random(3, 15)
+  b: random(3, 15)
+  correcto: mcm(a, b)
+  error: uno_de([0, 0, 0, a, -a])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
+tipo: vf
+
+enunciado: "¿Es correcto decir que el MCM de {a} y {b} es {mostrado}?"
+
+explicacion: |
+  Hay que verificar que {mostrado} sea múltiplo de los dos números, y que
+  no haya ningún múltiplo común más chico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm"]
+
+variables:
+  primos: [2, 3, 5, 7, 11, 13]
+  p1: uno_de(primos)
+  p2: uno_de(primos)
+
+restricciones:
+  - p1 != p2
+
+respuesta: p1 * p2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCM de {p1} y {p2} (dos números primos distintos)?"
+
+explicacion: |
+  Como no comparten ningún factor, el MCM es directamente el producto de
+  los dos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "basico"
+  tags: ["mcm", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El MCM de dos números siempre es múltiplo de los dos, además de ser el menor de los múltiplos en común."
+
+explicacion: |
+  Es la propia definición: el MCM tiene que ser múltiplo de ambos números
+  para contar como múltiplo común.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm", "multiplos"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 9)
+
+tipo: completar
+enunciado: "Nombrá un múltiplo común de {a} y {b} (no hace falta que sea el MCM, alcanza con que sea múltiplo de los dos)."
+respuestas_validas:
+  - a * b
+  - mcm(a, b)
+
+explicacion: |
+  El producto de los dos números siempre es un múltiplo común válido,
+  aunque no sea siempre el más chico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm"]
+
+variables:
+  a: random(2, 30)
+  k: random(2, 9)
+  b: a * k
+
+respuesta: b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el MCM de {a} y {b}, sabiendo que {b} es múltiplo de {a}?"
+
+explicacion: |
+  Cuando un número es múltiplo del otro, el más grande de los dos ya es
+  el MCM: no hace falta calcular nada más.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm", "multiplos"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 9)
+  comun: a * b
+  no_comun: comun + 1
+
+respuesta: no_comun
+tipo: mc
+opciones_explicitas:
+  - comun
+  - mcm(a, b)
+  - no_comun
+
+enunciado: "¿Cuál de estos tres números NO es múltiplo común de {a} y {b}?"
+
+explicacion: |
+  {no_comun} le sobra 1 respecto de un múltiplo común real: eso rompe la
+  divisibilidad exacta con al menos uno de los dos números.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "intermedio"
+  tags: ["mcm", "propiedades"]
+
+variables:
+  a: random(3, 20)
+  b: random(3, 20)
+
+respuesta: (mcm(a, b) == mcm(b, a))
+tipo: vf
+
+enunciado: "¿Es cierto que el MCM de {a} y {b} da lo mismo que el MCM de {b} y {a}?"
+
+explicacion: |
+  El orden en que se comparan los dos números no cambia el resultado: el
+  MCM es conmutativo (igual que el MCD).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "avanzado"
+  tags: ["mcm", "problema"]
+
+variables:
+  a: random(2, 10)
+  b: random(2, 10)
+  comun: mcm(a, b)
+
+respuesta: comun / a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Para sumar una fracción con denominador {a} con otra de denominador {b}, se usa el común denominador {comun} (el MCM de los dos). ¿Por cuánto hay que multiplicar el numerador de la primera fracción?"
+
+pasos:
+  - "{comun} ÷ {a} = {comun / a}: ese es el factor que hay que usar para pasar la primera fracción al nuevo denominador."
+
+explicacion: |
+  Al cambiar de denominador, el numerador se multiplica por el mismo
+  factor que el denominador (para no cambiar el valor de la fracción).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "avanzado"
+  tags: ["mcm", "factorizacion"]
+
+variables:
+  a: uno_de([4, 6, 8, 9])
+  b: uno_de([4, 6, 8, 9])
+  correcto: mcm(a, b)
+
+restricciones:
+  - a != b
+
+respuesta: correcto
+tipo: mc
+opciones_explicitas:
+  - correcto
+  - a * b
+  - mcd(a, b)
+
+enunciado: "¿Cuál es el MCM de {a} y {b}?"
+
+explicacion: |
+  Conviene factorizar los dos números en primos y quedarse con TODOS los
+  factores, usando el mayor exponente de cada uno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "avanzado"
+  tags: ["mcm", "mcd"]
+
+variables:
+  a: random(4, 40)
+  b: random(4, 40)
+
+respuesta: (mcd(a, b) * mcm(a, b) == a * b)
+tipo: vf
+
+enunciado: "¿Es cierto que el MCD de {a} y {b}, multiplicado por el MCM de {a} y {b}, da lo mismo que {a} × {b}?"
+
+explicacion: |
+  Es la fórmula que conecta MCD y MCM: MCD × MCM siempre da el producto de
+  los dos números originales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mcm"
+  nivel: "basico"
+  tags: ["mcm", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El MCM sirve para saber, entre otras cosas, cuándo dos sucesos que se repiten con ritmos distintos vuelven a coincidir por primera vez."
+
+explicacion: |
+  Es la aplicación práctica más común del MCM: encontrar el primer punto
+  de encuentro entre dos ciclos distintos.
+```
+

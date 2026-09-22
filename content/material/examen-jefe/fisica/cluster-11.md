@@ -1,971 +1,8 @@
-# Examen jefe — Maestro de Movimientos y Óptica
+# Examen jefe — [PENDIENTE #746]
 
-> Logro #166. Completaste el examen jefazo integrando MRUV, óptica, oscilaciones y potencia. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **132 preguntas totales** en 5/5 secciones.
+> Logro #746. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: mruv (28 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "basico"
-  tags: ["velocidad"]
-
-variables:
-  v0: random(0, 20)
-  a: random(1, 10)
-  t: random(1, 10)
-
-respuesta: v0 + a * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v(t) = {v0} + {a}t (m/s). ¿Cuánto vale v({t})?"
-
-explicacion: |
-  v({t}) = {v0} + {a}×{t} = {v0 + a * t}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["velocidad", "signos"]
-
-variables:
-  v0: random(30, 60)
-  a: random(1, 5)
-  t: random(1, 8)
-
-respuesta: v0 - a * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v(t) = {v0} − {a}t (m/s, frenando). ¿Cuánto vale v({t})?"
-
-explicacion: |
-  v({t}) = {v0} − {a}×{t} = {v0 - a * t}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["posicion"]
-
-variables:
-  x0: random(0, 20)
-  v0: random(0, 15)
-  a: random(2, 6) * 2
-  t: random(1, 6)
-
-respuesta: x0 + v0 * t + (a * t ^ 2) / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x(t) = {x0} + {v0}t + ½×{a}t² (m). ¿Cuánto vale x({t})?"
-
-pasos:
-  - "x({t}) = {x0} + {v0}×{t} + ({a}×{t}²)/2 = {x0 + v0 * t + (a * t ^ 2) / 2}"
-
-explicacion: |
-  Se evalúan los tres términos y se suman.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "basico"
-  tags: ["posicion"]
-
-variables:
-  a: random(2, 8) * 2
-  t: random(1, 8)
-
-respuesta: (a * t ^ 2) / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto parte del reposo (v₀=0, x₀=0) con aceleración {a} m/s². ¿Cuánto recorrió en t={t} s?"
-
-explicacion: |
-  x(t) = ½at² = {a}×{t}²/2 = {(a * t ^ 2) / 2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["sin_tiempo"]
-
-variables:
-  v0: random(0, 10)
-  a: random(1, 5)
-  k: random(1, 5)
-  v_final: v0 + 2 * a * k
-  dx: k * (v_final + v0)
-
-respuesta: v_final
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v₀={v0} m/s, a={a} m/s². Después de recorrer {dx} m, ¿cuál es la velocidad final? (usando v²=v₀²+2aΔx)"
-
-pasos:
-  - "v² = {v0}² + 2×{a}×{dx} = {v0 ^ 2 + 2 * a * dx}"
-  - "v = √{v0 ^ 2 + 2 * a * dx} = {v_final}"
-
-explicacion: |
-  Se usa la fórmula sin tiempo cuando no hace falta (o no se conoce) t.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["sin_tiempo"]
-
-variables:
-  v0: random(0, 10)
-  a: random(1, 6)
-  dx_sol: random(5, 20)
-
-respuesta: dx_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v₀={v0} m/s, a={a} m/s². La velocidad final da un número que no hace falta calcular a mano — sabiendo que v²−v₀² = {2 * a * dx_sol}, ¿cuánto vale Δx?"
-
-pasos:
-  - "Δx = (v²−v₀²)/(2a) = {2 * a * dx_sol}/{2 * a} = {dx_sol}"
-
-explicacion: |
-  Se despeja Δx de la ecuación sin tiempo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["aceleracion"]
-
-variables:
-  v0: random(0, 20)
-  a_sol: random(1, 10)
-  t: random(1, 8)
-  v: v0 + a_sol * t
-
-respuesta: (v - v0) / t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto pasa de v₀={v0} m/s a v={v} m/s en t={t} s. ¿Cuál es su aceleración?"
-
-explicacion: |
-  a = (v−v₀)/t = ({v}−{v0})/{t} = {(v - v0) / t}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["tiempo"]
-
-variables:
-  v0: random(0, 20)
-  a: random(1, 10)
-  t_sol: random(1, 10)
-  v: v0 + a * t_sol
-
-respuesta: t_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v₀={v0} m/s, a={a} m/s². ¿Cuánto tiempo tarda en llegar a v={v} m/s?"
-
-explicacion: |
-  t = (v−v₀)/a = {t_sol}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El gráfico v-t de un MRUV es una recta (no horizontal, salvo que a=0)."
-
-explicacion: |
-  v(t)=v₀+at es una función lineal de t, con pendiente a.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El gráfico x-t de un MRUV es una parábola."
-
-explicacion: |
-  x(t)=x₀+v₀t+½at² es una función cuadrática de t.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el gráfico v-t, la pendiente de la recta es exactamente la aceleración."
-
-explicacion: |
-  Mismo principio que en x-t con MRU: la pendiente es la tasa de
-  cambio — acá, de la velocidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["error_comun", "opcion_multiple"]
-
-variables:
-  a: random(2, 10)
-  t: random(1, 8)
-
-respuesta: (a * t ^ 2) / 2
-tipo: mc
-opciones_explicitas:
-  - (a * t ^ 2) / 2
-  - a * t ^ 2
-  - (a * t) / 2
-
-enunciado: "Un objeto parte del reposo con aceleración {a} m/s². ¿Cuánto recorrió en t={t} s?"
-
-explicacion: |
-  x=½at² — olvidar el ½ (o el cuadrado) es el error más común de la
-  fórmula.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "En un MRUV, la fórmula v=d/t (de MRU) sigue dando la velocidad en cualquier instante."
-
-explicacion: |
-  v=d/t asume velocidad CONSTANTE — en MRUV la velocidad cambia, así que
-  hacen falta las fórmulas específicas de MRUV.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  v0: random(0, 20)
-  a: random(1, 10)
-  t: random(1, 10)
-  real: v0 + a * t
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "v(t) = {v0} + {a}t. ¿Es correcto que v({t}) sea {propuesto}?"
-
-explicacion: |
-  El valor correcto es {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  a: random(2, 6)
-  t: random(10, 30)
-
-respuesta: (a * t ^ 2) / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un avión acelera desde el reposo a {a} m/s² durante {t} s antes de despegar. ¿Qué distancia recorrió en la pista?"
-
-explicacion: |
-  x=½at², partiendo del reposo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "v₀ (velocidad inicial) y v(t) (velocidad en un instante t cualquiera) son siempre el mismo número."
-
-explicacion: |
-  Sólo coinciden en t=0 — en cualquier otro instante, difieren según la
-  aceleración acumulada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una aceleración negativa no significa automáticamente que el objeto está frenando — depende del signo de la velocidad."
-
-explicacion: |
-  Si v es negativa y a también, el objeto en realidad acelera (cada vez
-  más rápido) en sentido negativo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  v0: random(0, 15)
-  a: random(1, 8)
-  t: random(1, 8)
-  v: v0 + a * t
-  dx: v0 * t + (a * t ^ 2) / 2
-
-respuesta: ((v ^ 2) == (v0 ^ 2 + 2 * a * dx))
-tipo: vf
-
-enunciado: "v₀={v0}, a={a}, t={t}. Con v={v} y Δx={dx} (calculados con las otras dos fórmulas), ¿se cumple v²=v₀²+2aΔx?"
-
-explicacion: |
-  Las tres fórmulas de MRUV son consistentes entre sí — cualquier par
-  de ellas tiene que dar el mismo resultado que la tercera.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  t: random(1, 8)
-
-respuesta: 10 * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto se suelta desde el reposo con aceleración g=10 m/s² (caída libre). ¿Cuál es su velocidad después de {t} s?"
-
-explicacion: |
-  v=at, con v₀=0 — el caso más simple de caída libre, antes de ver
-  `../tiro-vertical/` con velocidad inicial.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La unidad de la aceleración en el sistema SI es m/s² (metros por segundo, por segundo)."
-
-explicacion: |
-  Es "cuánto cambia la velocidad (m/s) por cada segundo que pasa" — de
-  ahí la unidad al cuadrado en el denominador.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["velocidad"]
-
-variables:
-  v0_sol: random(0, 20)
-  a: random(1, 10)
-  t: random(1, 8)
-  v: v0_sol + a * t
-
-respuesta: v0_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto con aceleración {a} m/s² llega a v={v} m/s después de {t} s. ¿Cuál era su velocidad inicial?"
-
-explicacion: |
-  v₀ = v−at = {v}−{a}×{t} = {v0_sol}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si en las fórmulas de MRUV se pone a=0, se recuperan exactamente las fórmulas de MRU."
-
-explicacion: |
-  v(t)=v₀+0·t=v₀ (constante), x(t)=x₀+v₀t+0=x₀+v₀t — el MRU es el caso
-  particular de MRUV sin aceleración.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  a: random(2, 6)
-  n: random(1, 5)
-  v0: 2 * a * n
-  dx: 2 * a * n ^ 2
-
-respuesta: dx
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un auto frena desde v₀={v0} m/s con desaceleración {a} m/s² hasta detenerse (v=0). ¿Qué distancia recorre hasta parar?"
-
-pasos:
-  - "0 = v₀² − 2aΔx → Δx = v₀²/(2a)"
-
-explicacion: |
-  Es la misma cuenta que se profundiza en
-  `../../vida-cotidiana/distancia-frenado/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el instante en que v=0 dentro de un MRUV, la aceleración puede seguir siendo distinta de 0 (por ejemplo, en el punto más alto de un tiro vertical)."
-
-explicacion: |
-  v=0 es sólo un instante; a sigue actuando (la gravedad no se apaga en
-  el punto más alto) — adelanto de `../tiro-vertical/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  x0: random(0, 20)
-  v0: random(0, 15)
-  a: random(2, 6) * 2
-  t: random(1, 6)
-  real: x0 + v0 * t + (a * t ^ 2) / 2
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "x(t) = {x0} + {v0}t + ½×{a}t². ¿Es correcto que x({t}) sea {propuesto}?"
-
-explicacion: |
-  El valor correcto es {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["concepto", "opcion_multiple"]
-
-respuesta: "v² = v₀² + 2aΔx"
-tipo: mc
-opciones_explicitas:
-  - "v² = v₀² + 2aΔx"
-  - "v = v₀ + at"
-  - "x = x₀ + v₀t + ½at²"
-
-enunciado: "Un problema da v₀, a y Δx, y pide la velocidad final — sin dar el tiempo. ¿Qué fórmula conviene usar?"
-
-explicacion: |
-  Es la única de las tres que no necesita el tiempo como dato.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "intermedio"
-  tags: ["problema"]
-
-variables:
-  v0: random(20, 60)
-  a: random(2, 10)
-
-respuesta: v0 / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto con v₀={v0} m/s frena con desaceleración {a} m/s². ¿Cuánto tarda en detenerse (v=0)?"
-
-explicacion: |
-  0 = v₀ − at → t = v₀/a.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mruv"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para encontrar en qué instante un objeto en MRUV pasa por una posición dada, hay que resolver una ecuación cuadrática en t."
-
-explicacion: |
-  x(t)=x₀+v₀t+½at² es cuadrática en t — despejar t de una posición dada
-  usa la fórmula resolvente de `../../matematica/ecuacion-cuadratica/`.
-```
-
-## Sección: ojo-humano-instrumento-optico (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "basico"
-  tags: ["anatomia", "optica"]
-
-respuesta: "lente convergente"
-tipo: completar
-respuestas_validas: ["lente convergente", "lente divergente", "espejo plano"]
-
-enunciado: "El cristalino es una estructura del ojo que actúa como una ___ para enfocar la luz en la retina."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "basico"
-  tags: ["anatomia", "imagen"]
-
-respuesta: "real e invertida"
-tipo: completar
-respuestas_validas: ["real e invertida", "virtual y derecha", "real y derecha", "virtual e invertida"]
-
-enunciado: "La imagen que se forma sobre la ___ es de naturaleza ___."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "basico"
-  tags: ["fisiologia"]
-
-respuesta: "verdadero"
-tipo: completar
-enunciado: "¿El cristalino cambia su distancia focal para permitir la acomodación visual?"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "basico"
-  tags: ["secuencia"]]
-
-respuesta: ["entrada de luz", "refracción en el cristalino", "proyección en la retina"]
-tipo: ordenar
-opciones_explicitas: ["entrada de luz", "refracción en el cristalino", "proyección en la retina"]
-
-enunciado: "Ordene el camino de la luz desde el exterior hasta la detección visual:"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "basico"
-  tags: ["anatomia"]
-
-respuesta: "controlar la cantidad de luz"
-tipo: completar
-respuestas_validas: ["controlar la cantidad de luz", "enfocar la imagen", "producir la visión"]
-
-enunciado: "La función principal del iris es ___."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "intermedio"
-  tags: ["defectos", "miopia"]
-
-respuesta: "divergente"
-tipo: completar
-respuestas_validas: ["divergente", "convergente", "plana"]
-
-enunciado: "En un ojo con miopía, la imagen se forma antes de la retina, por lo que se requiere una lente ___ para corregirlo."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "intermedio"
-  tags: ["defectos", "hipermetropia"]
-
-respuesta: "convergente"
-tipo: completar
-respuestas_validas: ["convergente", "divergente", "neutra"]
-
-enunciado: "Para corregir la hipermetropía, donde el punto focal está detrás de la retina, se utiliza una lente ___."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "intermedio"
-  tags: ["defectos"]
-
-respuesta: "detrás"
-tipo: completar
-respuestas_validas: ["detrás", "delante", "sobre"]
-
-enunciado: "En un ojo miope, el punto focal de los rayos paralelos se encuentra ___ de la retina."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "intermedio"
-  tags: ["defectos"]
-
-respuesta: "cilíndrica"
-tipo: completar
-respuestas_validas: ["cilíndrica", "esférica", "plana"]
-
-enunciado: "El astigmatismo se debe a una curvatura irregular de la córnea o el cristalino y se corrige con lentes ___."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-respuesta: "miopía"
-tipo: mc
-opciones_explicitas: ["miopía", "hipermetropía", "astigmatismo", "presbicia"]
-
-enunciado: "¿Qué defecto impide ver con claridad los objetos lejanos?"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "avanzado"
-  tags: ["calculo"]
-
-variables:
-  f: 25.0
-  d: 100.0
-
-respuesta: 0.25
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Si un objeto se coloca a {d} cm de una lente con una distancia focal de {f} cm, ¿cuál es la distancia de la imagen en metros? (Use la fórmula 1/f = 1/d + 1/d')"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "avanzado"
-  tags: ["calculo"]
-
-variables:
-  f_m: 0.5
-
-respuesta: 2.0
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Calcule la potencia (en dioptrías) de una lente cuya distancia focal es {f_m} metros."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "avanzado"
-  tags: ["calculo"]
-
-variables:
-  f_ojo: 0.02
-  d_obj: 0.5
-
-respuesta: 0.0416
-tipo: completar
-tolerancia_abs: 0.001
-
-enunciado: "Un ojo tiene una distancia focal de {f_ojo} m. Si un objeto está a {d_obj} m, ¿a qué distancia de la lente se forma la imagen? (Calcule en metros)"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "avanzado"
-  tags: ["calculo"]
-
-variables:
-  h_obj: 2.0
-  h_img: 10.0
-
-respuesta: 5.0
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Si el tamaño de un objeto es {h_obj} cm y el tamaño de su imagen es {h_img} cm, ¿cuál es el aumento lateral?"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "avanzado"
-  tags: ["calculo"]
-
-variables:
-  p_correcta: 2.0
-  p_incorrecta: -2.0
-
-respuesta: "convergente"
-tipo: mc
-opciones_explicitas: ["convergente", "divergente"]
-
-enunciado: "Si una lente tiene una potencia de +2.0 dioptrías, ¿es una lente ___?"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "basico"
-  tags: ["teoria"]
-
-respuesta: "verdadero"
-tipo: completar
-enunciado: "¿La luz debe refractarse al pasar del aire al córnea?"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "basico"
-  tags: ["teoria"]
-
-respuesta: "falso"
-tipo: completar
-enunciado: "¿La retina es la parte del ojo encargada de enfocar la luz mediante la refracción?"
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "intermedio"
-  tags: ["fisiologia"]
-
-respuesta: "pupila más pequeña"
-tipo: completar
-respuestas_validas: ["pupila más pequeña", "pupila más grande", "cristalino más plano"]
-
-enunciado: "En condiciones de mucha luz, la pupila experimenta miosis, lo que significa que la pupila es ___."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "intermedio"
-  tags: ["fisiologia"]
-
-respuesta: "pupila más grande"
-tipo: completar
-respuestas_validas: ["pupila más grande", "pupila más pequeña", "cristalino más esférico"]
-
-enunciado: "La midriasis es la dilatación de la pupila, es decir, la ___."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "intermedio"
-  tags: ["teoria"]
-
-respuesta: "distancia mínima"
-tipo: completar
-respuestas_validas: ["distancia mínima", "distancia máxima", "foco infinito"]
-
-enunciado: "El punto remoto se define como la ___ a la que un objeto puede estar para ser visto con nitidez por un ojo con un defecto."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-variables:
-  idx: uno_de([0,1])
-  tipo_lente: uno_de(["divergente", "convergente"])
-  lente_texto: uno_de(["divergente", "convergente"])
-
-respuesta: "divergente"
-tipo: mc
-opciones_explicitas: ["divergente", "convergente"]
-
-enunciado: "Un paciente tiene miopía. El médico le receta una lente ___ para corregir su visión."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-respuesta: "convergente"
-tipo: mc
-opciones_explicitas: ["convergente", "divergente"]
-
-enunciado: "Para un paciente con hipermetropía, el tipo de lente necesario es ___."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-respuesta: "se desvía"
-tipo: completar
-respuestas_validas: ["se desvía", "no cambia", "se refleja"]
-
-enunciado: "Cuando la luz pasa del aire al cristalino, su velocidad cambia y, por lo tanto, el rayo ___."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-respuesta: "real"
-tipo: completar
-respuestas_validas: ["real", "virtual", "imaginaria"]
-
-enunciado: "Si la imagen se puede proyectar sobre una pantalla, decimos que la imagen es ___."
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "ojo_humano_instrumento_optico"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-respuesta: "presbicia"
-tipo: completar
-respuestas_validas: ["presbicia", "miopía", "astigmatismo"]
-
-enunciado: "La pérdida de la capacidad de acomodación del cristalino debido a la edad se conoce como ___."
-```
 
 ## Sección: oscilacion-periodo (25 preguntas)
 
@@ -978,7 +15,9 @@ metadata:
 
 respuesta: "oscilación"
 tipo: completar
-respuestas_validas: ["oscilación", "oscilacion"]
+respuestas_validas:
+  - "oscilación"
+  - "oscilacion"
 
 enunciado: "El movimiento de vaivén de un objeto alrededor de una posición de equilibrio se denomina ___."
 
@@ -993,18 +32,11 @@ metadata:
   nivel: "basico"
   tags: ["periodo", "tiempo"]
 
-variables:
-  escenario: uno_de([
-    ["un ciclo completo", "el tiempo que tarda en realizarse un ciclo completo"],
-    ["la frecuencia", "la cantidad de ciclos por unidad de tiempo"],
-    ["la amplitud", "la distancia máxima desde el equilibrio"]
-  ])
-
-respuesta: escenario[1
+respuesta: "el tiempo que tarda en realizarse un ciclo completo"
 tipo: mc
 opciones_explicitas: ["el tiempo que tarda en realizarse un ciclo completo", "la cantidad de ciclos por unidad de tiempo", "la distancia máxima desde el equilibrio"]
 
-enunciado: "El periodo (T) se define como: {escenario[0]}."
+enunciado: "El periodo (T) se define como: ___."
 
 explicacion: |
   El periodo es precisamente el intervalo de tiempo necesario para que el sistema complete un ciclo completo de movimiento.
@@ -1033,18 +65,11 @@ metadata:
   nivel: "basico"
   tags: ["unidades", "dimensiones"]
 
-variables:
-  unidad: uno_de([
-    ["segundos", "s"],
-    ["metros", "m"],
-    ["hertz", "Hz"]
-  ])
-
-respuesta: unidad[1
+respuesta: "s"
 tipo: mc
 opciones_explicitas: ["s", "m", "Hz"]
 
-enunciado: "Dado que el periodo mide el tiempo de un ciclo, su unidad en el Sistema Internacional es el/la {unidad[0]}."
+enunciado: "Dado que el periodo mide el tiempo de un ciclo, su unidad en el Sistema Internacional es ___."
 
 explicacion: |
   El tiempo se mide en segundos (s) en el SI. El metro (m) es longitud y el Hertz (Hz) es frecuencia.
@@ -1060,7 +85,7 @@ metadata:
 variables:
   secuencia: ["Equilibrio", "Amplitud máxima positiva", "Equilibrio", "Amplitud máxima negativa", "Equilibrio"]
 
-respuesta: secuencia
+respuesta_orden: secuencia
 tipo: ordenar
 opciones_explicitas: ["Equilibrio", "Amplitud máxima positiva", "Equilibrio", "Amplitud máxima negativa", "Equilibrio"]
 
@@ -1079,7 +104,9 @@ metadata:
 
 respuesta: "el tiempo que tarda en completarse un ciclo completo"
 tipo: completar
-respuestas_validas: ["el tiempo que tarda en completarse un ciclo completo", "el tiempo de un ciclo completo"]
+respuestas_validas:
+  - "el tiempo que tarda en completarse un ciclo completo"
+  - "el tiempo de un ciclo completo"
 
 enunciado: "En un movimiento oscilatorio, el periodo se define como ___"
 
@@ -1096,11 +123,11 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [["0.5", "2.0"], ["0.2", "5.0"]]
+  datos: [[0.5, 2.0], [0.2, 5.0]]
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["0.5 Hz", "2.0 Hz", "1.0 Hz", "5.0 Hz"]
+opciones_explicitas: [2.0, 5.0, 0.5, 1.0]
 
 enunciado: "Si un objeto realiza un ciclo completo en {datos[idx][0]} segundos, ¿cuál es su frecuencia en Hz?"
 
@@ -1138,21 +165,21 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [["1.0", "0.5"], ["0.4", "1.2]]
+  longitudes: [1.0, 0.4]
 
-respuesta: escenario[idx][1
+respuesta: 2 * 3.14159 * sqrt(longitudes[idx] / 9.8)
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un péndulo simple tiene una longitud de {escenario[idx][0]} metros. Calcula su periodo (T) usando la fórmula T = 2 * pi * sqrt(L / g). (Usa g = 9.8 m/s²)"
+enunciado: "Un péndulo simple tiene una longitud de {longitudes[idx]} metros. Calcula su periodo (T) usando la fórmula T = 2 * pi * sqrt(L / g). (Usa g = 9.8 m/s²)"
 
 pasos:
-  - "L = {escenario[idx][0]} m"
-  - "T = 2 * pi * sqrt({escenario[idx][0]} / 9.8)"
-  - "T = 2 * 3.14159 * sqrt({escenario[idx][0] / 9.8})"
+  - "L = {longitudes[idx]} m"
+  - "T = 2 * pi * sqrt({longitudes[idx]} / 9.8)"
+  - "T = 2 * 3.14159 * sqrt({longitudes[idx] / 9.8})"
 
 explicacion: |
-  Aplicando la fórmula: T = 2 * pi * sqrt({escenario[idx][0]} / 9.8) ≈ {escenario[idx][1]} s.
+  Aplicando la fórmula: T = 2 * pi * sqrt(L / 9.8) ≈ {2 * 3.14159 * sqrt(longitudes[idx] / 9.8)} s.
 ```
 
 ```
@@ -1162,7 +189,7 @@ metadata:
   nivel: "basico"
   tags: ["movimiento", "secuencia"]
 
-respuesta: ["Extremo A", "Punto de equilibrio", "Extremo B", "Punto de equilibrio"]
+respuesta_orden: ["Extremo A", "Punto de equilibrio", "Extremo B", "Punto de equilibrio"]
 tipo: ordenar
 opciones_explicitas: ["Extremo A", "Punto de equilibrio", "Extremo B", "Punto de equilibrio"]
 
@@ -1181,7 +208,9 @@ metadata:
 
 respuesta: "un ciclo completo"
 tipo: completar
-respuestas_validas: ["un ciclo completo", "un ciclo"]
+respuestas_validas:
+  - "un ciclo completo"
+  - "un ciclo"
 
 enunciado: "En un movimiento oscilatorio, el tiempo necesario para que el objeto complete ___ se denomina periodo."
 
@@ -1197,14 +226,15 @@ metadata:
   tags: ["frecuencia", "periodo"]
 
 variables:
-  idx: uno_de([0, 1])
   datos: [["0.5", "2"], ["2", "0.5"]]
+  idx: uno_de([0, 1])
+  periodo: datos[idx][0]
+  frecuencia_correcta: datos[idx][1]
 
-respuesta: datos[idx][1
-tipo: mc
-opciones_explicitas: ["0.5 Hz", "2 Hz", "1 Hz", "0.2 Hz"]
+respuesta: frecuencia_correcta
+tipo: completar
 
-enunciado: "Si un objeto realiza un movimiento oscilatorio con un periodo de {datos[idx][0]} segundos, su frecuencia es de ___."
+enunciado: "Si un objeto realiza un movimiento oscilatorio con un periodo de {periodo} segundos, su frecuencia es de ___."
 
 explicacion: |
   La frecuencia (f) es el inverso del periodo (T), es decir, f = 1/T. Si T = 0.5s, f = 1/0.5 = 2 Hz. Si T = 2s, f = 1/2 = 0.5 Hz.
@@ -1235,7 +265,9 @@ metadata:
 
 respuesta: "punto de equilibrio"
 tipo: completar
-respuestas_validas: ["punto de equilibrio", "posición de equilibrio"]
+respuestas_validas:
+  - "punto de equilibrio"
+  - "posición de equilibrio"
 
 enunciado: "Un ciclo completo de oscilación se define como el tiempo que tarda el objeto en ir desde el ___ hasta el extremo opuesto y regresar al mismo punto inicial."
 
@@ -1250,7 +282,7 @@ metadata:
   nivel: "basico"
   tags: ["secuencia", "movimiento"]
 
-respuesta: ["extremo", "punto de equilibrio", "extremo opuesto", "punto de equilibrio"]
+respuesta_orden: ["extremo", "punto de equilibrio", "extremo opuesto", "punto de equilibrio"]
 tipo: ordenar
 opciones_explicitas: ["extremo", "punto de equilibrio", "extremo opuesto", "punto de equilibrio"]
 
@@ -1270,7 +302,7 @@ metadata:
 variables:
   frecuencia_ejemplo: 5.0
 
-respuesta: "frecuencia_ejemplo"
+respuesta: "El tiempo que tarda en completarse un ciclo"
 tipo: mc
 opciones_explicitas: ["El tiempo que tarda en completarse un ciclo", "El número de ciclos por unidad de tiempo", "La distancia máxima desde el punto de equilibrio", "La velocidad máxima del objeto"]
 
@@ -1287,11 +319,8 @@ metadata:
   nivel: "basico"
   tags: ["ciclo", "movimiento_repetitivo"]
 
-variables:
-  valor_ciclo: 1.0
-
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En un movimiento oscilatorio, un 'ciclo completo' implica que el objeto regresa exactamente a su posición inicial con la misma dirección de movimiento que tenía al comenzar."
 
 explicacion: |
@@ -1309,9 +338,11 @@ variables:
   idx: uno_de([0, 1])
   datos: [[2.0, 0.5], [0.5, 2.0]]
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: [0.5, 2.0]
+respuestas_validas:
+  - 0.5
+  - 2.0
 
 enunciado: "Si el periodo de una oscilación es de {datos[idx][0]} segundos, la frecuencia de dicha oscilación es de ___ Hz."
 
@@ -1347,7 +378,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "ciclo", "posicion"]
 
-respuesta: ["Extremo derecho", "Punto de equilibrio", "Extremo izquierdo", "Punto de equilibrio", "Extremo derecho"]
+respuesta_orden: ["Extremo derecho", "Punto de equilibrio", "Extremo izquierdo", "Punto de equilibrio", "Extremo derecho"]
 tipo: ordenar
 opciones_explicitas: ["Extremo derecho", "Punto de equilibrio", "Extremo izquierdo", "Punto de equilibrio", "Extremo derecho"]
 
@@ -1370,7 +401,8 @@ variables:
 
 enunciado: "En un reloj antiguo, observamos que {datos[idx][0]} completa un ciclo de vaivén en {datos[idx][1]} segundos. ¿Cuál es el periodo de este movimiento?"
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0.1
@@ -1444,14 +476,12 @@ metadata:
   tags: ["fases", "ciclo"]
 
 variables:
-  estado_inicial: uno_de(["máximo desplazamiento positivo", "máximo desplazamiento negativo"])
-  idx: uno_de([0, 1])
-  secuencia: [["máximo desplazamiento positivo", "punto de equilibrio", "máximo desplazamiento negativo", "punto de equilibrio"], ["máximo desplazamiento negativo", "punto de equilibrio", "máximo desplazamiento positivo", "punto de equilibrio"]]
+  estado_inicial: ["máximo desplazamiento positivo", "punto de equilibrio", "máximo desplazamiento negativo", "punto de equilibrio"]
 
-enunciado: "Un pistón de motor realiza un movimiento oscilatorio. Si su estado inicial es {estado_inicial[idx]}, ordene los eventos que marcan un ciclo completo de oscilación."
+enunciado: "Un pistón de motor realiza un movimiento oscilatorio. Si su estado inicial es {estado_inicial[0]}, ordene los eventos que marcan un ciclo completo de oscilación."
 
 opciones_explicitas: ["máximo desplazamiento positivo", "punto de equilibrio", "máximo desplazamiento negativo", "punto de equilibrio"]
-respuesta: ["máximo desplazamiento positivo", "punto de equilibrio", "máximo desplazamiento negativo", "punto de equilibrio"]
+respuesta_orden: ["máximo desplazamiento positivo", "punto de equilibrio", "máximo desplazamiento negativo", "punto de equilibrio"]
 tipo: ordenar
 
 explicacion: |
@@ -1957,11 +987,7 @@ opciones_explicitas:
   - "Comparar P∥ con el rozamiento máximo: si P∥ es mayor, el objeto desliza"
   - "Calcular la componente del peso paralela al plano (P∥ = peso × sen θ)"
   - "Calcular la normal y con ella la fuerza de rozamiento estático máximo"
-respuesta_orden:
-  - "Calcular la componente del peso paralela al plano (P∥ = peso × sen θ)"
-  - "Calcular la normal y con ella la fuerza de rozamiento estático máximo"
-  - "Comparar P∥ con el rozamiento máximo: si P∥ es mayor, el objeto desliza"
-
+respuesta_orden: ["Calcular la componente del peso paralela al plano (P∥ = peso × sen θ)", "Calcular la normal y con ella la fuerza de rozamiento estático máximo", "Comparar P∥ con el rozamiento máximo: si P∥ es mayor, el objeto desliza"]
 explicacion: |
   La comparación final es la que decide si hay movimiento o no.
 ```
@@ -2065,7 +1091,9 @@ metadata:
 
 respuesta: "potencia"
 tipo: "completar"
-respuestas_validas: ["potencia", "Potencia"]
+respuestas_validas:
+  - "potencia"
+  - "Potencia"
 
 enunciado: "La rapidez con la que un dispositivo consume o transforma energía eléctrica en otro tipo de energía se denomina ___."
 
@@ -2098,17 +1126,19 @@ metadata:
   tags: ["relacion_variables", "formula"]
 
 variables:
-  escenario: uno_de([
-    ["V=12, I=2", "24"],
-    ["V=220, I=5", "1100"],
-    ["V=10, I=0.5", "5"]
-  ])
+  voltajes: [12, 220, 10]
+  corrientes: [2, 5, 0.5]
+  resultados: [24, 1100, 5]
+  idx: uno_de([0, 1, 2])
+  v: voltajes[idx]
+  i: corrientes[idx]
+  p: resultados[idx]
 
-respuesta: escenario[2][1
+respuesta: p
 tipo: "input"
 tolerancia_abs: 0
 
-enunciado: "Si un dispositivo tiene un voltaje de {escenario[2][0]}, ¿cuál es su potencia eléctrica en vatios?"
+enunciado: "Si un dispositivo tiene un voltaje de {v} V y una intensidad de {i} A, ¿cuál es su potencia eléctrica en vatios?"
 
 pasos:
   - "Identificar el voltaje (V) y la intensidad (I)."
@@ -2116,7 +1146,7 @@ pasos:
 
 explicacion: |
   Usando la fórmula P = V · I:
-  P = 10V · 0.5A = 5W.
+  P = {v}V · {i}A = {p}W.
 ```
 
 ```
@@ -2254,7 +1284,10 @@ metadata:
   nivel: "basico"
   tags: ["completar", "formula"]
 
-respuestas_validas: ["V * I", "V*I", "V·I"]
+respuestas_validas:
+  - "V * I"
+  - "V*I"
+  - "V·I"
 respuesta: "V * I"
 tipo: completar
 
@@ -2273,7 +1306,8 @@ metadata:
 
 respuesta: "aumenta"
 tipo: completar
-respuestas_validas: ["aumenta"]
+respuestas_validas:
+  - "aumenta"
 
 enunciado: "Si mantenemos la resistencia de un componente constante y aumentamos el voltaje aplicado, la potencia eléctrica consumida por dicho componente ___."
 
@@ -2289,10 +1323,7 @@ metadata:
   tags: ["resistencia", "serie", "potencia"]
 
 variables:
-  escenario: uno_de([
-    ["R1", "R2", "R3", "R1+R2+R3"],
-    ["10", "20", "30", "60"]
-  ])
+  escenario: uno_de([["R1", "R2", "R3", "R1+R2+R3"], ["10", "20", "30", "60"]])
 
 respuesta: "R1+R2+R3"
 tipo: mc
@@ -2328,13 +1359,9 @@ metadata:
   tags: ["calculo", "ley_de_ohm"]
 
 variables:
-  datos: uno_de([
-    [12, 2],
-    [220, 5],
-    [12, 0.5]
-  ])
+  datos: uno_de([[12, 2], [220, 5], [12, 0.5]])
 
-respuesta: 24.0
+respuesta: datos[0] * datos[1]
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -2345,7 +1372,7 @@ pasos:
   - "Aplicar la fórmula P = V * I."
 
 explicacion: |
-  La potencia se calcula multiplicando el voltaje por la intensidad: $P = 12\text{V} \cdot 2\text{A} = 24\text{W}$.
+  La potencia se calcula multiplicando el voltaje por la intensidad: $P = V \cdot I$.
 ```
 
 ```
@@ -2353,13 +1380,13 @@ metadata:
   materia: "fisica"
   tema: "potencia_electrica"
   nivel: "intermedio"
-  tags: ["procedimiento", "resistencia", "voltaje"]]
+  tags: ["procedimiento", "resistencia", "voltaje"]
 
 opciones_explicitas: ["Calcular la corriente usando Ohm", "Multiplicar voltaje por corriente", "Calcular potencia final"]
-respuesta: ["Calcular la corriente usando Ohm", "Multiplicar voltaje por corriente", "Calcular potencia final"]
+respuesta_orden: ["Calcular la corriente usando Ohm", "Multiplicar voltaje por corriente", "Calcular potencia final"]
 tipo: ordenar
 
-enunciado: "Si conoces el voltaje (V) y la resistencia (R) de una bombilla, pero no la corriente (I), ¿cuál es el orden lógico para hallar la potencia usando $P = V \cdot I$?"
+enunciado: "Si conoces el voltaje (V) y la resistencia (R) de una bombilla, pero no la corriente (I), ¿cuál es el orden lógico para hallar la potencia usando P = V · I?"
 
 explicacion: |
   Primero debes hallar la incógnita faltante ($I = V/R$) y luego aplicar la fórmula de potencia.
@@ -2391,14 +1418,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [[10, 5, 2], [20, 2, 4]]
-  comparacion: datos[escenario_idx][2] > datos[escenario_idx][1]
+  datos: [[2, 5, "mayor"], [4, 2, "menor"]]
 
-respuesta: "mayor"
+respuesta: datos[escenario_idx][2]
 tipo: "mc"
 opciones_explicitas: ["menor", "mayor", "igual", "nula"]
 
-enunciado: "Si mantenemos el voltaje constante en un circuito, un componente con una resistencia de {datos[escenario_idx][2]} $\Omega$ disipará una potencia {\"mayor\" if comparacion else \"menor\"} que uno con una resistencia de {datos[escenario_idx][1]} $\Omega$."
+enunciado: "Si mantenemos el voltaje constante en un circuito, un componente con una resistencia de {datos[escenario_idx][0]} $\\Omega$ disipará una potencia ___ que uno con una resistencia de {datos[escenario_idx][1]} $\\Omega$."
 
 explicacion: |
   Usando la fórmula $P = V^2 / R$, la potencia es inversamente proporcional a la resistencia cuando el voltaje es constante.
@@ -2416,13 +1442,13 @@ variables:
   corriente_final: 4.0
   resistencia: 10.0
 
-respuesta: "verdadero"
-tipo: "vf"
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Si la corriente que atraviesa una resistencia de {resistencia} $\Omega$ se duplica de {corriente_inicial} A a {corriente_final} A, la potencia disipada se cuadruplica."
+enunciado: "Si la corriente que atraviesa una resistencia de {resistencia} ohmios se duplica de {corriente_inicial} A a {corriente_final} A, la potencia disipada se cuadruplica."
 
 explicacion: |
-  Según la fórmula $P = I^2 \cdot R$, la potencia depende del cuadrado de la intensidad. Si la corriente se multiplica por 2, la potencia se multiplica por $2^2 = 4$.
+  Según la fórmula P = I^2 * R, la potencia depende del cuadrado de la intensidad. Si la corriente se multiplica por 2, la potencia se multiplica por 2^2 = 4.
 ```
 
 ```
@@ -2432,14 +1458,14 @@ metadata:
   nivel: "basico"
   tags: ["unidades"]
 
-respuesta: ["vatio", "voltio", "amperio", "ohmio"]
-tipo: "ordenar"
+tipo: ordenar
 opciones_explicitas: ["vatio", "voltio", "amperio", "ohmio"]
+respuesta_orden: ["vatio", "voltio", "amperio", "ohmio"]
 
-enunciado: "Ordena las siguientes magnitudes de mayor a menor según su símbolo en el Sistema Internacional (W, V, A, $\Omega$):"
+enunciado: "Ordena las siguientes magnitudes de mayor a menor según su símbolo en el Sistema Internacional (W, V, A, Ω):"
 
 explicacion: |
-  El orden solicitado es: W (vatio), V (voltio), A (amperio) y $\Omega$ (ohmio).
+  El orden solicitado es: W (vatio), V (voltio), A (amperio) y Ω (ohmio).
 ```
 
 ```
@@ -2453,22 +1479,20 @@ variables:
   escenario_idx: uno_de([0, 1])
   valores: [[12, 2], [24, 3]]
 
-respuesta: 36.0
+respuesta: valores[escenario_idx][0] * valores[escenario_idx][0] * valores[escenario_idx][1]
 tipo: "input"
 tolerancia_abs: 0.1
 
-enunciado: "Un dispositivo eléctrico tiene una resistencia de {valores[escenario_idx][1]} $\Omega$ y es atravesado por una corriente de {valores[escenario_idx][0]} A. ¿Cuál es su potencia eléctrica en Watts?"
+enunciado: "Un dispositivo eléctrico tiene una resistencia de {valores[escenario_idx][1]} $\\Omega$ y es atravesado por una corriente de {valores[escenario_idx][0]} A. ¿Cuál es su potencia eléctrica en Watts?"
 
 pasos:
   - "Identificar la corriente (I) y la resistencia (R)."
-  - "Aplicar la fórmula $P = I^2 \cdot R$."
+  - "Aplicar la fórmula $P = I^2 \\cdot R$."
   - "Calcular el resultado final."
 
 explicacion: |
   Aplicando $P = I^2 \cdot R$:
-  Si I = 2 y R = 2 $\rightarrow$ $2^2 \cdot 2 = 8$ (Nota: El ejemplo en el código usa valores específicos, el usuario verá uno de los dos casos).
-  Si I = 4 y R = 2 $\rightarrow$ $4^2 \cdot 2 = 32$.
-  *(Nota para el generador: El valor de respuesta debe ser calculado dinámicamente según el escenario seleccionado en la variable `valores`)*.
+  P = {valores[escenario_idx][0]}² · {valores[escenario_idx][1]} = {valores[escenario_idx][0] * valores[escenario_idx][0] * valores[escenario_idx][1]} W.
 ```
 
 ```
@@ -2541,7 +1565,7 @@ variables:
   limite: escenario[1]
 
 respuesta: p > limite
-tipo: completar
+tipo: vf
 enunciado: "Un dispositivo consume una potencia de {p} W. Si el límite de seguridad de la instalación es de {limite} W, ¿se ha superado el límite de seguridad?"
 
 explicacion: |
@@ -2557,7 +1581,7 @@ metadata:
   tags: ["voltaje", "resistencia", "corriente"]
 
 variables:
-  escenario: uno_de([[120, 10], [230, 5], [12, 100]])
+  escenario: uno_de([[120, 10], [230, 100], [12, 10]])
   v: escenario[0]
   r: escenario[1]
   i: escenario[0] / escenario[1]
@@ -2565,9 +1589,9 @@ variables:
 respuesta: i
 tipo: mc
 
-opciones_explicitas: ["0.5 A", "1.2 A", "2.3 A", "12.0 A"]
+opciones_explicitas: [12.0, 2.3, 1.2, 0.5]
 
-enunciado: "Un calefactor tiene una resistencia interna de {r} Ω y se conecta a una toma de corriente de {v} V. ¿Qué intensidad de corriente circulará por el circuito?"
+enunciado: "Un calefactor tiene una resistencia interna de {r} Ω y se conecta a una toma de corriente de {v} V. ¿Qué intensidad de corriente circulará por el circuito (en amperios)?"
 
 explicacion: |
   Usamos la relación derivada de la ley de Ohm y la potencia: P = V²/R, pero para hallar la corriente usamos I = V / R.
@@ -2583,7 +1607,7 @@ metadata:
 
 opciones_explicitas: ["Medir voltaje y corriente", "Multiplicar V por I", "Calcular el resultado en Watts"]
 
-respuesta: ["Medir voltaje y corriente", "Multiplicar V por I", "Calcular el resultado en Watts"]
+respuesta_orden: ["Medir voltaje y corriente", "Multiplicar V por I", "Calcular el resultado en Watts"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para determinar la potencia eléctrica de un electrodoméstico desconocido usando un multímetro en serie y paralelo."
@@ -2591,3 +1615,969 @@ enunciado: "Ordena los pasos lógicos para determinar la potencia eléctrica de 
 explicacion: |
   Para hallar la potencia P = V * I, primero debemos obtener los valores de la tensión (V) y la intensidad (I) mediante mediciones, luego realizar la multiplicación matemática y finalmente expresar el resultado en la unidad de potencia (W).
 ```
+
+## Sección: potencia-mecanica (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["definicion", "trabajo", "tiempo"]
+
+tipo: mc
+opciones_explicitas: ["El trabajo realizado por unidad de tiempo", "La energía almacenada en un sistema", "La fuerza aplicada sobre un objeto", "El cambio en la velocidad de un cuerpo"]
+respuesta: "El trabajo realizado por unidad de tiempo"
+enunciado: "La potencia mecánica se define físicamente como ___."
+
+explicacion: |
+  La potencia mide la rapidez con la que se realiza un trabajo o se transfiere energía. Su fórmula es P = W/t.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["unidades", "sistema_internacional"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "¿La unidad de potencia en el Sistema Internacional de Unidades (SI) es el Joule (J)?"
+
+explicacion: |
+  Falso. El Joule (J) es la unidad de trabajo o energía. La unidad de potencia es el Vatio (W), que equivale a 1 Joule por segundo (1 J/s).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["relacion", "proporcionalidad"]
+
+variables:
+  escenario: uno_de([[100, 10], [200, 20], [50, 5]])
+
+tipo: completar
+respuestas_validas:
+  - 10.0
+  - 10.0
+  - 10.0
+respuesta: escenario[0] / escenario[1]
+
+enunciado: "Si un motor realiza un trabajo de {escenario[0]} J en un tiempo de {escenario[1]} s, la potencia mecánica resultante es de ___ W."
+
+pasos:
+  - "Identificar el trabajo (W): {escenario[0]} J"
+  - "Identificar el tiempo (t): {escenario[1]} s"
+  - "Aplicar la fórmula P = W / t"
+
+explicacion: |
+  Dividiendo el trabajo entre el tiempo obtenemos: {escenario[0]} / {escenario[1]} = {escenario[0]/escenario[1]} W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["proporcionalidad", "conceptos"]
+
+tipo: mc
+opciones_explicitas: ["Directamente proporcional al trabajo realizado", "Inversamente proporcional al tiempo", "Inversamente proporcional al trabajo realizado", "Directamente proporcional al tiempo"]
+respuesta: "Directamente proporcional al trabajo realizado"
+
+enunciado: "Si mantenemos el tiempo constante, la relación entre la potencia y el trabajo realizado es: ___."
+
+explicacion: |
+  Según la fórmula P = W/t: si W aumenta, P aumenta (directamente proporcional). Si t aumenta, P disminuye (inversamente proporcional).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["procesos", "conceptos"]
+
+tipo: ordenar
+opciones_explicitas: ["Aplicar una fuerza", "Desplazar un objeto", "Realizar un trabajo", "Calcular la potencia"]
+
+enunciado: "Ordene lógicamente los pasos para determinar la potencia mecánica en un proceso físico:"
+
+explicacion: |
+  Primero debe existir una fuerza que cause un desplazamiento, lo cual genera un trabajo (W). Una vez obtenido el trabajo y el tiempo, se puede calcular la potencia (P).
+respuesta_orden: ["Aplicar una fuerza", "Desplazar un objeto", "Realizar un trabajo", "Calcular la potencia"]
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["definicion", "trabajo", "tiempo"]
+
+respuesta: "trabajo / tiempo"
+tipo: completar
+respuestas_validas:
+  - "trabajo / tiempo"
+  - "W / t"
+  - "trabajo dividido tiempo"
+
+enunciado: "La potencia mecánica se define matemáticamente como el ___ realizado por un objeto por unidad de tiempo."
+
+explicacion: |
+  La potencia (P) mide la rapidez con la que se realiza un trabajo (W). Su fórmula es P = W / t.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["calculo", "unidades"]
+
+variables:
+  escenario: uno_de([[100, 10, 10], [500, 5, 100], [1200, 20, 60]])
+
+respuesta: escenario[2]
+
+tipo: mc
+opciones_explicitas: [10, 100, 60, 50]
+
+enunciado: "Un motor realiza un trabajo de {escenario[0]} Joules en un tiempo de {escenario[1]} segundos. ¿Cuál es su potencia mecánica (en watts)?"
+
+pasos:
+  - "Identificar el trabajo (W): {escenario[0]} J"
+  - "Identificar el tiempo (t): {escenario[1]} s"
+  - "Aplicar la fórmula: P = W / t"
+  - "Calcular: {escenario[0]} / {escenario[1]} = {escenario[2]}"
+
+explicacion: |
+  La potencia se calcula dividiendo el trabajo total por el tiempo empleado. En este caso: 100J / 10s = 10 W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["unidades", "si_sistema"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "¿La unidad de potencia en el Sistema Internacional (SI) es el Vatio (Watt), que equivale a 1 Julio por segundo?"
+
+explicacion: |
+  Correcto. 1 W = 1 J/s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["relacion", "tiempo"]
+
+variables:
+  caso: uno_de([[10, 2], [20, 5], [30, 3]])
+
+respuesta: caso[0] / caso[1]
+
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Si un sistema realiza un trabajo de {caso[0]} J en {caso[1]} segundos, ¿cuántos Watts de potencia está desarrollando?"
+
+pasos:
+  - "Datos: W = {caso[0]} J, t = {caso[1]} s"
+  - "Fórmula: P = W / t"
+  - "Cálculo: {caso[0]} / {caso[1]}"
+
+explicacion: |
+  Dividiendo el trabajo entre el tiempo obtenemos la potencia: {caso[0]} / {caso[1]} = {caso[0] / caso[1]} W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["procedimiento", "pasos"]
+
+respuesta_orden: ["Identificar el trabajo realizado (W) en Joules", "Identificar el tiempo transcurrido (t) en segundos", "Dividir el trabajo por el tiempo (W/t) para obtener Watts"]
+tipo: ordenar
+opciones_explicitas: ["Dividir el trabajo por el tiempo (W/t) para obtener Watts", "Identificar el trabajo realizado (W) en Joules", "Identificar el tiempo transcurrido (t) en segundos"]
+
+enunciado: "Ordena los pasos lógicos para calcular la potencia mecánica de un objeto dado un trabajo y un tiempo."
+
+explicacion: |
+  Para resolver problemas de potencia, primero debemos asegurar que tenemos las magnitudes de trabajo y tiempo en unidades SI, y luego aplicar la división.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["conceptos_fundamentales", "trabajo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si un objeto realiza el mismo trabajo que otro, pero lo hace en la mitad del tiempo, ambos han desarrollado la misma potencia mecánica."
+
+explicacion: |
+  La potencia se define como $P = W/t$. Si el tiempo disminuye, la potencia aumenta. Por lo tanto, quien realiza el mismo trabajo en menos tiempo es más potente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["unidades", "dimensiones"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  trabajos: [100, 50, 10]
+  tiempos: [5, 2, 10]
+
+respuesta: trabajos[idx] / tiempos[idx]
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Calcula la potencia mecánica realizada por un motor que efectúa un trabajo de {trabajos[idx]} J en un tiempo de {tiempos[idx]} s."
+
+pasos:
+  - "Identifica el trabajo realizado (W): {trabajos[idx]} J"
+  - "Identifica el tiempo empleado (t): {tiempos[idx]} s"
+  - "Aplica la fórmula P = W / t"
+
+explicacion: |
+  La potencia se calcula dividiendo el trabajo (Joules) por el tiempo (segundos), resultando en Watts (W).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["dinamica", "conceptos"]
+
+respuesta: "La potencia mecánica depende de la fuerza aplicada y la velocidad."
+tipo: mc
+opciones_explicitas: ["La potencia mecánica depende únicamente de la fuerza aplicada.", "La potencia mecánica depende únicamente de la velocidad del objeto.", "La potencia mecánica depende de la fuerza aplicada y la velocidad.", "La potencia mecánica no depende de la fuerza si la velocidad es constante."]
+
+enunciado: "Un error común es pensar que si un objeto se mueve a velocidad constante, la potencia es cero. ¿Cuál es la relación correcta entre potencia, fuerza y velocidad?"
+
+explicacion: |
+  Para un objeto en movimiento, la potencia instantánea se puede expresar como $P = F \cdot v$. Aunque el trabajo neto sea cero en un ciclo cerrado, la potencia mecánica de la fuerza aplicada puede ser distinta de cero.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["analisis_dimensional"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "Si duplicamos la fuerza aplicada a un objeto y también duplicamos su velocidad, la potencia mecánica resultante se cuadruplica."
+
+explicacion: |
+  Dado que $P = F \cdot v$, si $F' = 2F$ y $v' = 2v$, entonces $P' = (2F) \cdot (2v) = 4(F \cdot v)$, es decir, $4P$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "avanzado"
+  tags: ["procedimiento", "calculo"]
+
+variables:
+  datos: uno_de([["1000 N", "5 m/s", "2 s"], ["500 N", "10 m/s", "5 s"], ["200 N", "2 m/s", "10 s"]])
+
+respuesta_orden: ["Calcular el trabajo realizado (W = F * d)", "Identificar el tiempo total (t)", "Dividir el trabajo por el tiempo (P = W / t)"]
+tipo: ordenar
+opciones_explicitas: ["Calcular el trabajo realizado (W = F * d)", "Identificar el tiempo total (t)", "Dividir el trabajo por el tiempo (P = W / t)"]
+
+enunciado: "Para calcular la potencia mecánica de un motor que levanta una carga de {datos[0]} con una velocidad de {datos[1]} durante {datos[2]}, ¿cuál es el orden lógico de resolución?"
+
+explicacion: |
+  Primero debemos obtener la energía transferida (Trabajo) o usar la relación directa de potencia instantánea, y finalmente dividir por el intervalo de tiempo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["conceptos", "definiciones"]
+
+respuesta: "velocidad"
+tipo: completar
+respuestas_validas:
+  - "velocidad"
+  - "rapidez"
+  - "aceleracion"
+
+enunciado: "Mientras que el trabajo describe la transferencia de energía en un proceso, la potencia describe la ___ con la que se realiza dicho trabajo."
+
+explicacion: |
+  La potencia es la rapidez con la que se realiza un trabajo o se transfiere energía. Se define matemáticamente como el trabajo realizado dividido por el tiempo empleado ($P = W/t$).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["relacion", "proporcionalidad"]
+
+variables:
+  escenario: uno_de([[100, 2, 50], [100, 5, 20], [100, 10, 10]])
+  valor_w: escenario[0]
+  valor_t: escenario[1]
+  valor_p: escenario[2]
+
+respuesta: valor_p
+tipo: mc
+opciones_explicitas: [20, 50, 10, 100]
+
+enunciado: "Si un sistema realiza un trabajo de {valor_w} Joules en un tiempo de {valor_t} segundos, su potencia mecánica es de ___ Watts."
+
+explicacion: |
+  Aplicando la fórmula $P = W/t$, tenemos que $P = {valor_w} / {valor_t} = {valor_p}$ W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["conceptos", "tiempo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si se realiza el mismo trabajo en el doble de tiempo, la potencia mecánica resultante será el doble de la potencia original."
+
+explicacion: |
+  Falso. Como la potencia es inversamente proporcional al tiempo ($P \propto 1/t$), si el tiempo se duplica, la potencia se reduce a la mitad.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["unidades", "sistema_internacional"]
+
+respuesta: "W"
+tipo: mc
+opciones_explicitas: ["J", "W", "N", "m/s"]
+
+enunciado: "En el Sistema Internacional (SI), la unidad de potencia mecánica es el ___ (Watt), que equivale a un Joule por segundo."
+
+explicacion: |
+  El Watt (W) es la unidad derivada que combina la unidad de trabajo (Joule) y la de tiempo (segundo).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["comparacion", "calculo"]
+
+variables:
+  caso: uno_de([[100, 2, 50], [200, 5, 40], [50, 10, 5]])
+  w: caso[0]
+  t: caso[1]
+  p: caso[2]
+
+respuesta: p
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Un motor realiza un trabajo de {w} J en un intervalo de tiempo de {t} s. ¿Cuál es su potencia en Watts?"
+
+pasos:
+  - "Identificar el trabajo (W) y el tiempo (t)."
+  - "Dividir el trabajo por el tiempo: P = W / t."
+
+explicacion: |
+  El cálculo realizado es $P = {w} / {t} = {p}$ W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["trabajo", "tiempo", "potencia"]
+
+variables:
+  escenario: uno_de([[1000, 500, 2000], [2500, 1000, 400], [1500, 800, 600]])
+  w: escenario[0]
+  t: escenario[1]
+  p: escenario[2]
+
+respuesta: w / t
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un motor realiza un trabajo de {w} J para elevar una carga durante un tiempo de {t} s. ¿Cuál es la potencia mecánica desarrollada por el motor en Watts?"
+
+pasos:
+  - "Identificar el trabajo realizado (W = {w} J)"
+  - "Identificar el tiempo transcurrido (t = {t} s)"
+  - "Aplicar la fórmula de potencia: P = W / t"
+
+explicacion: |
+  La potencia mecánica se define como la rapidez con la que se realiza un trabajo. 
+  En este caso: P = {w} J / {t} s = {redondear(w/t, 2)} W.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["conceptos", "unidades"]
+
+respuesta: "W"
+tipo: mc
+opciones_explicitas: ["J", "W", "N", "m/s"]
+
+enunciado: "Si un objeto realiza un trabajo de 500 Joules en 10 segundos, la unidad de medida de la potencia resultante es la unidad de..."
+
+explicacion: |
+  La potencia es la relación entre trabajo (J) y tiempo (s). 
+  J/s es equivalente a la unidad de potencia, el Watt (W).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["comparacion", "calculo"]
+
+variables:
+  datos: [[100, 5, 1000, 20], [50, 2, 500, 50], [200, 10, 100, 5]]
+  idx: uno_de([0, 1, 2])
+  w1: datos[idx][0]
+  t1: datos[idx][1]
+  w2: datos[idx][2]
+  t2: datos[idx][3]
+  p1: w1 / t1
+  p2: w2 / t2
+
+respuesta: p1 > p2
+tipo: vf
+enunciado: "Se comparan dos máquinas. La máquina A realiza {w1} J en {t1} s. La máquina B realiza {w2} J en {t2} s. ¿Es la potencia de la máquina A mayor que la de la máquina B?"
+
+explicacion: |
+  Calculamos las potencias:
+  P_A = {w1} / {t1} = {redondear(p1, 2)} W
+  P_B = {w2} / {t2} = {redondear(p2, 2)} W
+  La afirmación es {p1 > p2}.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "intermedio"
+  tags: ["despeje", "tiempo"]
+
+variables:
+  escenario: uno_de([[500, 100], [1200, 300], [400, 50]])
+  w: escenario[0]
+  p: escenario[1]
+  t: w / p
+
+respuesta: t
+tipo: completar
+respuestas_validas:
+  - 5
+  - 4
+  - 8
+
+enunciado: "Una máquina tiene una potencia constante de {p} W. ¿Cuántos segundos tardará en realizar un trabajo de {w} J? La respuesta es ___ s."
+
+explicacion: |
+  Para hallar el tiempo, despejamos la fórmula de potencia:
+  P = W / t  =>  t = W / P
+  t = {w} / {p} = {t} s.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "potencia_mecanica"
+  nivel: "basico"
+  tags: ["metodologia"]
+
+opciones_explicitas: ["Calcular el trabajo realizado", "Dividir el trabajo por el tiempo", "Identificar los datos de trabajo y tiempo"]
+respuesta_orden: ["Identificar los datos de trabajo y tiempo", "Calcular el trabajo realizado", "Dividir el trabajo por el tiempo"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para resolver un problema donde se pide la potencia, pero solo se conocen la fuerza, la distancia y el tiempo."
+
+pasos:
+  - "Paso 1: Identificar los datos de trabajo y tiempo"
+  - "Paso 2: Calcular el trabajo realizado (W = F * d)"
+  - "Paso 3: Dividir el trabajo por el tiempo (P = W / t)"
+
+explicacion: |
+  Primero debemos obtener el trabajo (W) usando la fuerza y la distancia, y luego aplicar la definición de potencia dividiendo por el tiempo.
+```
+
+## Sección: presion-atmosferica (22 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "basico"
+  tags: ["presion_atmosferica", "vocabulario"]
+
+enunciado: "¿Qué es la presión atmosférica?"
+tipo: mc
+opciones_explicitas:
+  - "El peso del aire que hay por encima de un punto, repartido sobre su área"
+  - "La temperatura del aire en un punto dado"
+  - "La cantidad de nubes que hay en el cielo"
+respuesta: "El peso del aire que hay por encima de un punto, repartido sobre su área"
+
+explicacion: |
+  Es la misma idea general de presión (P=F/A) aplicada al peso de la
+  columna de aire de la atmósfera.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "basico"
+  tags: ["presion_atmosferica", "formula"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La presión atmosférica se calcula con la misma fórmula general de presión, P = F/A."
+
+explicacion: |
+  El "F" es el peso de la columna de aire, y el "A" el área sobre la que
+  se reparte.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "basico"
+  tags: ["presion_atmosferica", "vocabulario"]
+
+enunciado: "¿Aproximadamente cuánto vale la presión atmosférica a nivel del mar, en hectopascales (hPa)?"
+tipo: mc
+opciones_explicitas:
+  - "1013 hPa"
+  - "100 hPa"
+  - "10000 hPa"
+respuesta: "1013 hPa"
+
+explicacion: |
+  Esa es la presión de referencia de "1 atmósfera" (1 atm).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "basico"
+  tags: ["presion_atmosferica", "altitud"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A mayor altitud, la presión atmosférica disminuye, porque hay menos columna de aire por encima empujando hacia abajo."
+
+explicacion: |
+  Por eso cuesta más respirar en la cima de una montaña alta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "intermedio"
+  tags: ["presion_atmosferica", "altitud"]
+
+enunciado: "¿Por qué los aviones presurizan la cabina en vuelo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque a la altitud de crucero la presión externa es demasiado baja para respirar sin ayuda"
+  - "Porque a la altitud de crucero la presión externa es demasiado alta"
+  - "Para que los pasajeros no sientan el frío"
+respuesta: "Porque a la altitud de crucero la presión externa es demasiado baja para respirar sin ayuda"
+
+explicacion: |
+  A esa altura hay muy poca columna de aire por encima, la presión (y el
+  oxígeno disponible) cae mucho.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "basico"
+  tags: ["presion_atmosferica", "temperatura"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El aire caliente es menos denso que el aire frío, porque sus moléculas están más separadas."
+
+explicacion: |
+  Por eso el aire caliente tiende a subir.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "intermedio"
+  tags: ["presion_atmosferica", "temperatura"]
+
+enunciado: "¿Qué zona de presión en superficie tiende a generar el aire cálido, que asciende y se aleja?"
+tipo: mc
+opciones_explicitas:
+  - "Una zona de baja presión"
+  - "Una zona de alta presión"
+  - "No afecta a la presión en superficie"
+respuesta: "Una zona de baja presión"
+
+explicacion: |
+  Al subir y alejarse, el aire cálido deja una zona de menor presión
+  detrás.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "intermedio"
+  tags: ["presion_atmosferica", "temperatura"]
+
+enunciado: "¿Qué zona de presión en superficie tiende a generar el aire frío, más denso, que desciende y se acumula?"
+tipo: mc
+opciones_explicitas:
+  - "Una zona de alta presión"
+  - "Una zona de baja presión"
+  - "No afecta a la presión en superficie"
+respuesta: "Una zona de alta presión"
+
+explicacion: |
+  El aire frío es más denso, baja y se acumula, generando mayor presión.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "basico"
+  tags: ["presion_atmosferica", "isobaras"]
+
+enunciado: "¿Qué es una isobara en un mapa del clima?"
+tipo: mc
+opciones_explicitas:
+  - "Una línea que une puntos con la misma presión atmosférica"
+  - "Una línea que une puntos con la misma temperatura"
+  - "Una línea que marca el límite entre dos países"
+respuesta: "Una línea que une puntos con la misma presión atmosférica"
+
+explicacion: |
+  Es análoga a las curvas de nivel de un mapa de relieve, pero para
+  presión.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "intermedio"
+  tags: ["presion_atmosferica", "isobaras"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando las isobaras de un mapa están muy juntas entre sí, eso indica vientos más fuertes."
+
+explicacion: |
+  Isobaras juntas significan un cambio de presión brusco en poco
+  espacio, lo que genera vientos fuertes.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "intermedio"
+  tags: ["presion_atmosferica", "vocabulario"]
+
+enunciado: "¿Cómo se llama una zona de alta presión, con aire frío que desciende y suele traer cielo despejado?"
+tipo: mc
+opciones_explicitas:
+  - "Anticiclón"
+  - "Ciclón"
+  - "Frente"
+respuesta: "Anticiclón"
+
+explicacion: |
+  El aire que baja se comprime y se seca, dificultando que se formen
+  nubes.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "intermedio"
+  tags: ["presion_atmosferica", "vocabulario"]
+
+enunciado: "¿Cómo se llama una zona de baja presión, con aire cálido y húmedo que asciende y suele traer nubosidad e inestabilidad?"
+tipo: mc
+opciones_explicitas:
+  - "Ciclón (o depresión)"
+  - "Anticiclón"
+  - "Isobara"
+respuesta: "Ciclón (o depresión)"
+
+explicacion: |
+  El aire que sube se enfría y puede condensar su humedad, generando
+  nubes y lluvia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "intermedio"
+  tags: ["presion_atmosferica", "viento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El viento siempre sopla desde la zona de alta presión hacia la zona de baja presión, buscando equilibrar la diferencia."
+
+explicacion: |
+  Es el mismo principio que iguala cualquier diferencia de presión.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "intermedio"
+  tags: ["presion_atmosferica", "calculo"]
+
+variables:
+  fuerza: random(100, 1000)
+  area: random(2, 10)
+
+respuesta: fuerza / area
+tipo: input
+tolerancia_abs: 0.1
+
+enunciado: "Una fuerza de {fuerza} N actúa sobre un área de {area} m². ¿Cuál es la presión resultante, en Pa?"
+
+pasos:
+  - "P = F/A = {fuerza}/{area}"
+
+explicacion: |
+  Se aplica la fórmula general de presión, P = F/A.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "avanzado"
+  tags: ["presion_atmosferica", "calculo"]
+
+variables:
+  presion: random(50, 500)
+  area: random(2, 8)
+
+respuesta: presion * area
+tipo: input
+tolerancia_abs: 0.1
+
+enunciado: "Sobre un área de {area} m² se ejerce una presión de {presion} Pa. ¿Cuál es la fuerza total, en N?"
+
+pasos:
+  - "F = P·A = {presion}·{area}"
+
+explicacion: |
+  Se despeja F de P = F/A, multiplicando ambos lados por A.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "intermedio"
+  tags: ["presion_atmosferica", "altitud"]
+
+variables:
+  altura_a: random(0, 1000)
+  altura_b: random(2000, 5000)
+
+respuesta: "el punto A"
+tipo: mc
+opciones_explicitas:
+  - "el punto A"
+  - "el punto B"
+  - "tienen la misma presión"
+
+enunciado: "El punto A está a {altura_a} m de altitud, y el punto B está a {altura_b} m de altitud. ¿En cuál de los dos la presión atmosférica es mayor?"
+
+explicacion: |
+  A menor altitud hay más columna de aire por encima, así que la
+  presión es mayor.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "avanzado"
+  tags: ["presion_atmosferica", "clima"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Muchas zonas desérticas del planeta coinciden con bandas de alta presión subtropical permanente, donde el aire que desciende se comprime y se seca."
+
+explicacion: |
+  La presión atmosférica es una pieza del mecanismo que explica por qué
+  ciertas regiones tienen clima seco o húmedo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "avanzado"
+  tags: ["presion_atmosferica", "clima"]
+
+enunciado: "¿Qué tipo de presión predomina en las zonas ecuatoriales, donde el aire cálido y húmedo asciende casi todo el año?"
+tipo: mc
+opciones_explicitas:
+  - "Baja presión"
+  - "Alta presión"
+  - "Presión constante, igual que en los polos"
+respuesta: "Baja presión"
+
+explicacion: |
+  El aire que asciende deja zonas de baja presión, asociadas a las
+  fuertes lluvias tropicales.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "basico"
+  tags: ["presion_atmosferica", "vocabulario"]
+
+tipo: completar
+respuestas_validas:
+  - "hectopascales"
+  - "hPa"
+
+enunciado: "Los mapas del clima suelen expresar la presión atmosférica en ____ (unidad, o su abreviatura)."
+
+explicacion: |
+  Hectopascal (hPa) es la unidad más usada en meteorología para la
+  presión.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "intermedio"
+  tags: ["presion_atmosferica", "altitud"]
+
+variables:
+  nivel_mar: 0
+  cerro: 1500
+  montana: 4000
+
+tipo: ordenar
+opciones_explicitas:
+  - "nivel del mar"
+  - "cerro (1500 m)"
+  - "montaña (4000 m)"
+respuesta_orden: ["nivel del mar", "cerro (1500 m)", "montaña (4000 m)"]
+enunciado: "Ordená estos tres lugares de mayor a menor presión atmosférica."
+
+explicacion: |
+  A mayor altitud, menor presión: nivel del mar tiene la mayor presión,
+  la montaña la menor.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "avanzado"
+  tags: ["presion_atmosferica", "calculo"]
+
+variables:
+  fuerza: random(100, 500)
+  area: random(2, 5)
+  presion_correcta: fuerza / area
+  error: uno_de([0, 0, 0, 5, -5])
+  presion_mostrada: presion_correcta + error
+
+respuesta: (abs(presion_mostrada - presion_correcta) < 0.01)
+tipo: vf
+
+enunciado: "Una fuerza de {fuerza} N sobre un área de {area} m² da, según un cálculo, una presión de {presion_mostrada} Pa. ¿Es correcto ese resultado?"
+
+explicacion: |
+  La presión correcta es P = F/A = {presion_correcta}.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "presion_atmosferica"
+  nivel: "avanzado"
+  tags: ["presion_atmosferica", "sintesis"]
+
+enunciado: "¿Cuál de estas afirmaciones resume mejor la relación entre presión, altitud y temperatura?"
+tipo: mc
+opciones_explicitas:
+  - "A mayor altitud la presión baja, y el aire cálido (menos denso) genera zonas de baja presión al ascender"
+  - "A mayor altitud la presión sube, y el aire cálido genera zonas de alta presión"
+  - "La presión atmosférica no depende ni de la altitud ni de la temperatura"
+respuesta: "A mayor altitud la presión baja, y el aire cálido (menos denso) genera zonas de baja presión al ascender"
+
+explicacion: |
+  Son las dos relaciones centrales del tema: presión vs. altitud, y
+  presión vs. temperatura.
+```
+

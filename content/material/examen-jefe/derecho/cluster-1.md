@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de la Apelación y Argumentación
+# Examen jefe — [PENDIENTE #894]
 
-> Logro #202. Aprobaste el parcial dominando las instancias procesales, la interpretación jurídica y el derecho administrativo. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **126 preguntas totales** en 5/5 secciones.
+> Logro #894. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,7 +15,9 @@ metadata:
 
 respuesta: "recurso de apelación"
 tipo: completar
-respuestas_validas: ["recurso de apelación", "apelación"]
+respuestas_validas:
+  - "recurso de apelación"
+  - "apelación"
 
 enunciado: "El medio de impugnación que permite a una parte solicitar que un tribunal superior revise la resolución dictada por un juez de primera instancia se denomina ___."
 
@@ -32,11 +34,11 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [[["Juez de Primera Instancia", "Tribunal de Alzada"], ["Juez de Primera Instancia", "Corte Suprema"]]]
+  escenarios: [["Juez de Primera Instancia", "Tribunal de Alzada"], ["Juez de Primera Instancia", "Corte Suprema"]]
 
 opciones_explicitas: ["Juez de Primera Instancia", "Tribunal de Alzada", "Corte Suprema"]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 
 enunciado: "En un proceso judicial estándar, cuando se interpone un recurso contra la sentencia de un {escenarios[escenario_idx][0]}, el órgano que debe conocer la cuestión es el {escenarios[escenario_idx][1]}."
@@ -70,7 +72,9 @@ metadata:
 
 respuesta: "agravio"
 tipo: completar
-respuestas_validas: ["agravio", "perjuicio"]
+respuestas_validas:
+  - "agravio"
+  - "perjuicio"
 
 enunciado: "Para que un recurso de apelación sea admisible, la parte recurrente debe demostrar la existencia de un ___, es decir, un perjuicio real derivado de la decisión judicial."
 
@@ -87,7 +91,7 @@ metadata:
 
 opciones_explicitas: ["Interposición del recurso", "Expresión de agravios", "Elevación a la segunda instancia", "Sentencia de Alzada"]
 
-respuesta: ["Interposición del recurso", "Expresión de agravios", "Elevación a la segunda instancia", "Sentencia de Alzada"]
+respuesta_orden: ["Interposición del recurso", "Expresión de agravios", "Elevación a la segunda instancia", "Sentencia de Alzada"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente las etapas típicas de un proceso de apelación:"
@@ -142,7 +146,7 @@ metadata:
 
 opciones_explicitas: ["Dictado de la sentencia de primera instancia", "Interposición del recurso de apelación", "Expresión de agravios", "Resolución de la Cámara/Tribal Superior"]
 
-respuesta: ["Dictado de la sentencia de primera instancia", "Interposición del recurso de apelación", "Expresión de agravios", "Resolución de la Cámara/Tribal Superior"]
+respuesta_orden: ["Dictado de la sentencia de primera instancia", "Interposición del recurso de apelación", "Expresión de agravios", "Resolución de la Cámara/Tribal Superior"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente las etapas de un proceso judicial que incluye la revisión por una segunda instancia:"
@@ -158,15 +162,11 @@ metadata:
   nivel: "avanzado"
   tags: ["efectos", "suspension", "ejecucion"]
 
-variables:
-  idx: uno_de([0,1])
-  datos: [["suspende la ejecución de la sentencia", "suspensivo"], ["no suspende la ejecución de la sentencia", "devolutivo"]]
-
-respuesta: datos[idx][1]
+respuesta: "suspensivo"
 tipo: mc
 opciones_explicitas: ["suspensivo", "devolutivo"]
 
-enunciado: "Si un recurso de apelación se admite con efecto {datos[idx][0]}, la ejecución de la sentencia queda paralizada hasta que el superior resuelva. ¿Cómo se denomina técnicamente a este efecto?"
+enunciado: "Si un recurso de apelación se admite con un efecto tal que la ejecución de la sentencia queda paralizada hasta que el superior resuelva, ¿cómo se denomina técnicamente a ese efecto?"
 
 explicacion: |
   El efecto suspensivo detiene la ejecución de la resolución recurrida, mientras que el efecto devolutivo permite que la sentencia se cumpla a pesar de la apelación.
@@ -181,7 +181,10 @@ metadata:
 
 respuesta: "confirmar"
 tipo: completar
-respuestas_validas: ["confirmar", "revocar", "anular"]
+respuestas_validas:
+  - "confirmar"
+  - "revocar"
+  - "anular"
 
 enunciado: "Si el tribunal de alzada (segunda instancia) coincide con el criterio del juez de primera instancia y considera que la sentencia es correcta, su decisión será ___ la sentencia original."
 
@@ -196,16 +199,16 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso_civil", "recursos"]
 
-variables:
-  escenario: uno_de([
-    ["La sentencia es definitiva", "se suspende la ejecución"],
-    ["La sentencia es provisional", "no se suspende la ejecución"]
-  ])
+enunciado: "En un proceso civil, si se interpone un recurso de apelación con efecto suspensivo, la ejecución de la sentencia ___."
 
-enunciado: "En un proceso civil, si se interpone un recurso de apelación contra una sentencia que tiene efecto suspensivo, la ejecución de la misma {escenario[1]}."
-
-respuesta: escenario[1
+respuesta: "se suspende"
 tipo: completar
+respuestas_validas:
+  - "se suspende"
+  - "queda suspendida"
+
+explicacion: |
+  El efecto suspensivo detiene la ejecución de la sentencia hasta que el tribunal superior resuelva el recurso.
 ```
 
 ```
@@ -215,24 +218,11 @@ metadata:
   nivel: "avanzado"
   tags: ["principios_procesales", "limitacion_tribunal"]
 
-variables:
-  caso: uno_de([
-    ["el tribunal superior puede dictar una sentencia distinta a la que pidió el apelante", "el tribunal superior no puede pronunciarse sobre lo que no fue objeto de la apelación"],
-    ["el tribunal superior puede dictar una sentencia distinta a la que pidió el apelante", "el tribunal superior no puede pronunciarse sobre lo que no fue objeto de la apelación"]
-  ])
-  # Nota: El escenario se define para que la respuesta sea la segunda opción del par.
-  # Re-estructurando para cumplir regla de un_de en variables:
-  datos: [
-    ["El tribunal puede resolver sobre temas no apelados", "El tribunal no puede resolver sobre temas no apelados"],
-    ["El tribunal puede resolver sobre temas no apelados", "El tribunal no puede resolver sobre temas no apelados"]
-  ]
-  idx: uno_de([0, 1])
-
-enunciado: "De acuerdo al principio de congruencia, en segunda instancia, {datos[idx][0]}."
-
-respuesta: datos[idx][1
+respuesta: "El tribunal no puede resolver sobre temas no apelados"
 tipo: mc
 opciones_explicitas: ["El tribunal puede resolver sobre temas no apelados", "El tribunal no puede resolver sobre temas no apelados"]
+
+enunciado: "De acuerdo al principio de congruencia, en segunda instancia, ___."
 
 explicacion: |
   El tribunal de alzada está limitado por la materia de la apelación (principio de congrucia), no pudiendo extender su conocimiento a cuestiones que no hayan sido objeto de impugnación.
@@ -245,13 +235,10 @@ metadata:
   nivel: "basico"
   tags: ["garantias", "derechos_fundamentales"]
 
-variables:
-  es_garantia: falso
+enunciado: "El derecho a la doble instancia es considerado una garantía fundamental en los sistemas procesales modernos. ¿Es esto correcto?"
 
-enunciado: "El derecho a la doble instancia es considerado una garantía fundamental en los sistemas procesales modernos."
-
-respuesta: es_garantia
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   La doble instancia permite que un órgano superior revise la aplicación de la ley o la valoración de la prueba realizada por el juez de primera instancia.
 ```
@@ -273,7 +260,7 @@ pasos:
   - "Expresión de agravios"
   - "Resolución de la Alzada"
 
-respuesta: ["Interposición del recurso", "Expresión de agravios", "Resolución de la Alzada"]
+respuesta_orden: ["Interposición del recurso", "Expresión de agravios", "Resolución de la Alzada"]
 tipo: ordenar
 opciones_explicitas: ["Interposición del recurso", "Expresión de agravios", "Resolución de la Alzada"]
 
@@ -289,17 +276,16 @@ metadata:
   tags: ["agravios", "errores_comunes"]
 
 variables:
-  error_tipo: uno_de([
-    ["reiterar los argumentos de la demanda sin criticar la sentencia", "presentar argumentos nuevos que no fueron debatidos en primera instancia"],
-    ["reiterar los argumentos de la demanda sin criticar la sentencia", "presentar argumentos nuevos que no fueron debatidos en primera instancia"]
-  ])
+  errores: ["reiterar los argumentos de la demanda sin criticar la sentencia", "presentar argumentos nuevos que no fueron debatidos en primera instancia"]
   idx: uno_de([0, 1])
 
 enunciado: "Un error común que puede llevar a la improcedencia de un recurso de apelación es ___."
 
-respuesta: error_tipo[idx
+respuesta: errores[idx]
 tipo: completar
-respuestas_validas: ["reiterar los argumentos de la demanda sin criticar la sentencia", "presentar argumentos nuevos que no fueron debatidos en primera instancia"]
+respuestas_validas:
+  - "reiterar los argumentos de la demanda sin criticar la sentencia"
+  - "presentar argumentos nuevos que no fueron debatidos en primera instancia"
 
 explicacion: |
   La apelación requiere la crítica concreta y concreta de los fundamentos de la sentencia. Simplemente repetir lo dicho en la demanda no constituye un agravio jurídico.
@@ -314,7 +300,10 @@ metadata:
 
 respuesta: "revisión"
 tipo: completar
-respuestas_validas: ["revisión", "revisar", "revisar la sentencia"]
+respuestas_validas:
+  - "revisión"
+  - "revisar"
+  - "revisar la sentencia"
 
 enunciado: "A diferencia de la reposición, que busca que el mismo juez corrija su decisión, la apelación tiene como finalidad la ___ de la sentencia por un tribunal de jerarquía superior."
 
@@ -332,7 +321,7 @@ metadata:
 variables:
   escenario: uno_de([["apelación", "recurso", "instancia"], ["reposición", "recurso", "instancia"], ["casación", "recurso", "instancia"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["recurso", "instancia", "sentencia"]
 
@@ -365,7 +354,7 @@ metadata:
   nivel: "basico"
   tags: ["jerarquia", "tribunales"]
 
-respuesta: ["Sentencia de Primera Instancia", "Sentencia de Segunda Instancia", "Sentencia de Casación"]
+respuesta_orden: ["Sentencia de Primera Instancia", "Sentencia de Segunda Instancia", "Sentencia de Casación"]
 tipo: ordenar
 opciones_explicitas: ["Sentencia de Primera Instancia", "Sentencia de Segunda Instancia", "Sentencia de Casación"]
 
@@ -384,7 +373,9 @@ metadata:
 
 respuesta: "derecho"
 tipo: completar
-respuestas_validas: ["derecho", "norma"]
+respuestas_validas:
+  - "derecho"
+  - "norma"
 
 enunciado: "Mientras que la apelación en sede ordinaria permite revisar tanto los hechos como el ___ aplicado, la casación suele limitarse estrictamente a la correcta aplicación de la ley."
 
@@ -407,7 +398,8 @@ enunciado: "En el caso planteado, donde {datos[idx][0]}, la parte afectada decid
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["apelacion"]
+respuestas_validas:
+  - "apelacion"
 
 explicacion: |
   El recurso de apelación es el medio de impugnación que permite que un tribunal de jerarquía superior (segunda instancia) revise la resolución dictada por un juez de primera instancia, con el fin de que la modifique, revoque o anule.
@@ -446,7 +438,7 @@ variables:
 
 enunciado: "Ordene correctamente el flujo jerárquico de la revisión judicial desde el inicio del conflicto hasta la máxima autoridad."
 
-respuesta: ["Juzgado de Primera Instancia", "Tribunal de Alzada (Segunda Instancia)", "Corte Suprema"]
+respuesta_orden: ["Juzgado de Primera Instancia", "Tribunal de Alzada (Segunda Instancia)", "Corte Suprema"]
 tipo: ordenar
 opciones_explicitas: ["Juzgado de Primera Instancia", "Tribunal de Alzada (Segunda Instancia)", "Corte Suprema"]
 
@@ -461,14 +453,11 @@ metadata:
   nivel: "basico"
   tags: ["impugnacion", "derecho_defensa"]
 
-variables:
-  datos: [[true, "se puede apelar"], [false, "no se puede apelar"]]
-  idx: uno_de([0, 1])
+enunciado: "Si una sentencia ha sido dictada con violación al debido proceso, ¿es jurídicamente posible impugnarla mediante un recurso de apelación?"
 
-enunciado: "Si una sentencia ha sido dictada con violación al debido proceso, ¿es jurídicamente posible impugnarla mediante un recurso de apelación? {datos[idx][0]}"
-
-respuestas_validas: [datos[idx][1]]
-respuesta: datos[idx][1]
+respuestas_validas:
+  - "se puede apelar"
+respuesta: "se puede apelar"
 tipo: completar
 explicacion: |
   La apelación es un derecho fundamental derivado del principio de la doble instancia, que permite corregir errores de hecho o de derecho cometidos por el juez de primera instancia.
@@ -538,22 +527,17 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura", "precedentes"]
 
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1
+respuesta: "precedente"
 tipo: completar
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - "precedente"
+  - "argumento de autoridad"
 
 enunciado: "Cuando un abogado utiliza una decisión previa de un tribunal superior para sustentar su postura, está recurriendo al ___."
 
 pasos:
   - "Identificar la fuente de la autoridad (jurisprudencia o precedente)."
   - "Verificar la pertinencia del caso anterior con el caso actual."
-
-datos:
-  - ["precedente", "precedente"]
-  - ["argumento de autoridad", "argumento de autoridad"]
 
 explicacion: |
   El uso de decisiones previas es la base de la doctrina del precedente, permitiendo la predictibilidad del sistema jurídico.
@@ -568,7 +552,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Premisa Normativa", "Premisa Fáctica", "Conclusión"]
-respuesta: ["Premisa Normativa", "Premisa Fáctica", "Conclusión"]
+respuesta_orden: ["Premisa Normativa", "Premisa Fáctica", "Conclusión"]
 
 enunciado: "Ordene los elementos lógicos que componen la estructura de un argumento jurídico estándar:"
 
@@ -603,7 +587,10 @@ metadata:
 
 respuesta: "premisa_mayor"
 tipo: completar
-respuestas_validas: ["premisa_mayor", "premisa_menor", "conclusión"]
+respuestas_validas:
+  - "premisa_mayor"
+  - "premisa_menor"
+  - "conclusión"
 
 enunciado: "En un silogismo jurídico, la norma general o ley aplicable se denomina ___."
 
@@ -620,12 +607,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Se aplica una norma de un contrato de compraventa a uno de permuta por similitud de objeto.", "falso"],
-    ["Se aplica una norma de derecho penal para sancionar una conducta no prevista por analogia in malam partem.", "falso"]
-  ]
+  escenarios: [["Se aplica una norma de un contrato de compraventa a uno de permuta por similitud de objeto.", "falso"], ["Se aplica una norma de derecho penal para sancionar una conducta no prevista por analogia in malam partem.", "falso"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: completar
 enunciado: "En el escenario donde {escenarios[escenario_idx][0]}, la aplicación analógica de la norma es jurídicamente válida para crear nuevas obligaciones."
 
@@ -657,10 +641,10 @@ metadata:
   nivel: "intermedio"
   tags: ["precedente", "ratio_decidendi"]
 
-respuesta: ["Identificación de los hechos relevantes", "Determinación de la ratio decidendi", "Extracción del principio jurídico", "Aplicación al caso actual"]
+respuesta_orden: ["Identificación de los hechos relevantes", "Determinación de la ratio decidendi", "Extracción del principio jurídico", "Aplicación al caso actual"]
 tipo: ordenar
 
-opciones_explicitas: ["Identificación de los hechos relevantes", "Determinación de la ratio decidendi", "Extracción del principio jurídico", "Aplicación al caso actual", "Dictar sentencia final"]
+opciones_explicitas: ["Identificación de los hechos relevantes", "Determinación de la ratio decidendi", "Extracción del principio jurídico", "Aplicación al caso actual"]
 
 enunciado: "Para utilizar un precedente judicial de forma sólida en un nuevo argumento, se debe seguir este orden lógico:"
 
@@ -677,12 +661,9 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [
-    ["El demandado alega un hecho extintivo de la obligación.", "falso"],
-    ["El actor afirma la existencia de un contrato verbal.", "verdadero"]
-  ]
+  casos: [["El demandado alega un hecho extintivo de la obligación.", "verdadero"], ["El actor afirma la existencia de un contrato verbal.", "falso"]]
 
-respuesta: casos[caso_idx][1
+respuesta: casos[caso_idx][1]
 tipo: completar
 enunciado: "En el caso donde {casos[caso_idx][0]}, la carga de la prueba recae sobre el demandado (quien debe probar el hecho que afirma)."
 
@@ -699,7 +680,8 @@ metadata:
 
 respuesta: "Constitución"
 tipo: completar
-respuestas_validas: ["Constitución"]
+respuestas_validas:
+  - "Constitución"
 
 enunciado: "En un sistema de argumentación jurídica basado en la jerarquía de Kelsen, ninguna norma puede contradecir a la ___."
 
@@ -714,12 +696,10 @@ metadata:
   nivel: "intermedio"
   tags: ["precedente", "jurisprudencia", "fuentes"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-
-respuesta: uno_de([0, 1])[1]
 tipo: mc
 opciones_explicitas: ["El precedente es una norma de aplicación general e inmediata para todos los casos futuros.", "El precedente es una guía interpretativa que debe ser analizada caso por caso según su ratio decidendi."]
+
+respuesta: "El precedente es una guía interpretativa que debe ser analizada caso por caso según su ratio decidendi."
 
 enunciado: "Al utilizar la jurisprudencia como fuente de argumentación, ¿cuál es el error más común al aplicar un precedente?"
 
@@ -750,7 +730,7 @@ metadata:
   nivel: "intermedio"
   tags: ["silogismo", "estructura", "logica"]
 
-respuesta: ["Premisa mayor", "Premisa menor", "Conclusión"]
+respuesta_orden: ["Premisa mayor", "Premisa menor", "Conclusión"]
 tipo: ordenar
 opciones_explicitas: ["Premisa mayor", "Premisa menor", "Conclusión"]
 
@@ -767,12 +747,10 @@ metadata:
   nivel: "avanzado"
   tags: ["analogia", "interpretacion"]
 
-variables:
-  escenario: uno_de([0, 1])
-
-respuesta: uno_de([0, 1])[1]
 tipo: mc
 opciones_explicitas: ["La analogía es válida siempre que la laguna legal sea absoluta y no existan normas de principios.", "La analogía solo es lícita si existe identidad de razón entre el caso regulado y el caso no regulado, evitando la analogía in malam partem en derecho penal."]
+
+respuesta: "La analogía solo es lícita si existe identidad de razón entre el caso regulado y el caso no regulado, evitando la analogía in malam partem en derecho penal."
 
 enunciado: "En un argumento basado en la analogía, ¿cuál es el límite fundamental para evitar la arbitrariedad?"
 
@@ -789,7 +767,8 @@ metadata:
 
 respuesta: "argumento"
 tipo: "completar"
-respuestas_validas: ["argumento"]
+respuestas_validas:
+  - "argumento"
 
 enunciado: "Mientras que una opinión es una manifestación subjetiva de un juicio de valor, un ___ se construye mediante el uso de premisas normativas y hechos probados para llegar a una conclusión jurídica."
 
@@ -805,11 +784,7 @@ metadata:
   tags: ["silogismo", "estructura"]
 
 variables:
-  escenario: uno_de([
-    ["La norma prohíbe conducir ebrio", "El sujeto conducía con 0.8 g/l", "El sujeto es culpable"],
-    ["La ley otorga propiedad a quien compra", "Juan compró la casa con escritura", "Juan es el dueño"],
-    ["El contrato exige firma para validez", "El contrato no tiene firma", "El contrato es nulo"]
-  ])
+  escenario: uno_de([["La norma prohíbe conducir ebrio", "El sujeto conducía con 0.8 g/l", "El sujeto es culpable"], ["La ley otorga propiedad a quien compra", "Juan compró la casa con escritura", "Juan es el dueño"], ["El contrato exige firma para validez", "El contrato no tiene firma", "El contrato es nulo"]])
 
 respuesta: "premisa_mayor"
 tipo: "mc"
@@ -861,9 +836,9 @@ metadata:
   nivel: "intermedio"
   tags: ["subsuncion", "metodologia"]
 
-respuesta: ["enunciado_normativo", "enunciado_fáctico", "subsuncion", "conclusión"]
 tipo: "ordenar"
 opciones_explicitas: ["enunciado_normativo", "enunciado_fáctico", "subsunción", "conclusión"]
+respuesta_orden: ["enunciado_normativo", "enunciado_fáctico", "subsunción", "conclusión"]
 
 enunciado: "Para construir un argumento sólido mediante la técnica de la subsunción, el jurista debe seguir este orden lógico de elementos:"
 
@@ -879,18 +854,13 @@ metadata:
   tags: ["jerarquia_normativa", "constitucionalidad"]
 
 variables:
-  escenario: uno_de([
-    ["Una ley provincial contradice la Constitución Nacional.", "inconstitucional"],
-    ["Un decreto reglamentario contradice la Ley Nacional.", "ilegal"],
-    ["Un reglamento municipal contradice una Ley Provincial.", "inválido"]
-  ])
-  idx: uno_de([0,1,2])
+  escenario: uno_de([["Una ley provincial contradice la Constitución Nacional.", "inconstitucional"], ["Un decreto reglamentario contradice la Ley Nacional.", "ilegal"], ["Un reglamento municipal contradice una Ley Provincial.", "inválido"]])
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["inconstitucional", "ilegal", "inválido"]
 
-enunciado: "De acuerdo al principio de jerarquía normativa, si {escenario[idx][0]}, el argumento jurídico debe concluir que la norma inferior es ___."
+enunciado: "De acuerdo al principio de jerarquía normativa, si {escenario[0]}, el argumento jurídico debe concluir que la norma inferior es ___."
 
 explicacion: |
   En el sistema jurídico, la norma de mayor rango (como la Constitución) prevalece sobre las de menor rango. Un argumento sólido debe identificar la norma superior para invalidar la inferior.
@@ -904,16 +874,14 @@ metadata:
   tags: ["silogismo", "premisa_mayor", "premisa_menor"]
 
 variables:
-  silogismo: uno_de([
-    ["La norma establece una sanción para el robo. Juan robó. Por tanto, Juan debe ser sancionado.", "premisa_menor"],
-    ["El contrato exige firma para ser válido. El contrato no tiene firma. Por tanto, es nulo.", "premisa_mayor"],
-    ["La ley prohíbe conducir sin licencia. Pedro no tiene licencia. Por tanto, Pedro infringe la ley.", "premisa_menor"]
-  ])
-  idx: uno_de([0,1,2])
+  silogismo: uno_de([["La norma establece una sanción para el robo. Juan robó. Por tanto, Juan debe ser sancionado.", "Juan robó", "premisa_menor"], ["El contrato exige firma para ser válido. El contrato no tiene firma. Por tanto, es nulo.", "El contrato exige firma para ser válido", "premisa_mayor"], ["La ley prohíbe conducir sin licencia. Pedro no tiene licencia. Por tanto, Pedro infringe la ley.", "Pedro no tiene licencia", "premisa_menor"]])
 
-respuesta: "premisa_menor"
+respuesta: silogismo[2]
 tipo: completar
-enunciado: "En el siguiente silogismo: '{silogismo[idx][0]}', el elemento '{silogismo[idx][1]}' actúa como la ___ (la subsunción del hecho a la norma)."
+respuestas_validas:
+  - "premisa_menor"
+  - "premisa_mayor"
+enunciado: "En el siguiente silogismo: '{silogismo[0]}', el elemento '{silogismo[1]}' actúa como la ___ (la subsunción del hecho a la norma)."
 
 explicacion: |
   El silogismo jurídico se compone de la premisa mayor (la norma), la premisa menor (el hecho) y la conclusión. La subsunción es el proceso de encuadrar el hecho en la norma.
@@ -927,18 +895,13 @@ metadata:
   tags: ["stare_decisis", "argumentacion"]
 
 variables:
-  caso: uno_de([
-    ["Un fallo de la Corte Suprema sobre libertad de expresión.", "obligatorio"],
-    ["Una sentencia de un juzgado de primera instancia sobre un contrato.", "persuasivo"],
-    ["Un dictamen de un tribunal administrativo sobre un trámite.", "persuasivo"]
-  ])
-  idx: uno_de([0,1,2])
+  caso: uno_de([["Un fallo de la Corte Suprema sobre libertad de expresión.", "obligatorio"], ["Una sentencia de un juzgado de primera instancia sobre un contrato.", "persuasivo"], ["Un dictamen de un tribunal administrativo sobre un trámite.", "persuasivo"]])
 
-respuesta: caso[idx][1
+respuesta: caso[1]
 tipo: mc
 opciones_explicitas: ["obligatorio", "persuasivo", "irrelevante"]
 
-enunciado: "Al construir un argumento basado en la jurisprudencia, si se cita {caso[idx][0]}, el valor del precedente para el juez es ___."
+enunciado: "Al construir un argumento basado en la jurisprudencia, si se cita {caso[0]}, el valor del precedente para el juez es ___."
 
 explicacion: |
   Los precedentes de tribunales superiores (como la Corte) suelen tener carácter obligatorio (stare decisis), mientras que los de instancias inferiores o administrativas sirven como argumento persuasivo.
@@ -951,8 +914,9 @@ metadata:
   nivel: "intermedio"
   tags: ["argumentos", "autoridad", "razonamiento"]
 
-respuesta: ["Premisa Mayor", "Premisa Menor", "Conclusión"]
 tipo: ordenar
+opciones_explicitas: ["Premisa Mayor", "Premisa Menor", "Conclusión"]
+respuesta_orden: ["Premisa Mayor", "Premisa Menor", "Conclusión"]
 
 enunciado: "Ordene los elementos necesarios para construir un argumento jurídico deductivo sólido, desde la norma general hasta el caso concreto:"
 
@@ -973,17 +937,15 @@ metadata:
   tags: ["falacias", "argumentacion_logica"]
 
 variables:
-  falacia: uno_de([
-    ["El abogado dice: 'Es culpable porque siempre miente'.", "ad_hominem"],
-    ["El abogado dice: 'Es culpable porque todos los vecinos dicen que es malo'.", "ad_populum"],
-  ])
-  idx: uno_de([0,1])
+  falacia: uno_de([["El abogado dice: 'Es culpable porque siempre miente'.", "ad_hominem"], ["El abogado dice: 'Es culpable porque todos los vecinos dicen que es malo'.", "ad_populum"]])
 
-respuesta: falacia[idx][1
+respuesta: falacia[1]
 tipo: completar
-respuestas_validas: ["ad_hominem", "ad_populum"]
+respuestas_validas:
+  - "ad_hominem"
+  - "ad_populum"
 
-enunciado: "Si un abogado argumenta que: '{falacia[idx][0]}', está incurriendo en una falacia de tipo ___."
+enunciado: "Si un abogado argumenta que: '{falacia[0]}', está incurriendo en una falacia de tipo ___."
 
 explicacion: |
   La falacia ad hominem ataca a la persona y no al argumento, mientras que la ad populum apela a la mayoría para validar una conclusión.
@@ -1014,18 +976,11 @@ metadata:
   nivel: "basico"
   tags: ["iuspositivismo", "norma"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [
-    [ "una norma es válida si ha sido creada por la autoridad competente siguiendo el procedimiento legal", "la validez de una norma depende de su concordancia con la moral" ],
-    [ "la validez de una norma depende de su concordancia con la moral", "una norma es válida si ha sido creada por la autoridad competente siguiendo el procedimiento legal" ]
-  ]
-
-respuesta: datos[idx][0]
+respuesta: "una norma es válida si ha sido creada por la autoridad competente siguiendo el procedimiento legal"
 tipo: mc
 opciones_explicitas: ["una norma es válida si ha sido creada por la autoridad competente siguiendo el procedimiento legal", "la validez de una norma depende de su concordancia con la moral"]
 
-enunciado: "Desde la perspectiva del iuspositivismo, {datos[idx][0]}"
+enunciado: "¿Cuál de las siguientes afirmaciones representa correctamente la perspectiva del iuspositivismo?"
 
 explicacion: |
   Para el iuspositivismo, la validez de una norma es una cuestión de forma y procedencia (derecho puesto), separando la validez jurídica de la moralidad.
@@ -1040,7 +995,9 @@ metadata:
 
 respuesta: "lo que los jueces hacen en la práctica"
 tipo: completar
-respuestas_validas: ["lo que los jueces hacen en la práctica", "la conducta judicial efectiva"]
+respuestas_validas:
+  - "lo que los jueces hacen en la práctica"
+  - "la conducta judicial efectiva"
 
 enunciado: "Para el realismo jurídico, el derecho no es un conjunto de normas abstractas, sino ___."
 
@@ -1071,7 +1028,7 @@ metadata:
   nivel: "intermedio"
   tags: ["teoria_del_derecho", "ordenar"]
 
-respuesta: ["Derecho Natural", "Derecho Positivo", "Realismo Jurídico"]
+respuesta_orden: ["Derecho Natural", "Derecho Positivo", "Realismo Jurídico"]
 tipo: ordenar
 opciones_explicitas: ["Derecho Natural", "Derecho Positivo", "Realismo Jurídico"]
 
@@ -1105,14 +1062,12 @@ metadata:
   nivel: "intermedio"
   tags: ["realismo_juridico"]
 
-variables:
-  escenario: uno_de([["El juez decide basándose en la jurisprudencia predominante de su tribunal.", "El juez ignora la norma para seguir su propia convicción."], ["El juez decide basándose en la jurisprudencia predominante de su tribunal.", "El juez ignora la norma para seguir su propia convicción."]])
-
-respuesta: scenario[0][0
 tipo: mc
 opciones_explicitas: ["El juez decide basándose en la jurisprudencia predominante de su tribunal.", "El juez ignora la norma para seguir su propia convicción.", "El juez aplica la ley de forma mecánica sin considerar el contexto."]
 
-enunciado: "Un estudioso del derecho observa que, ante una ley ambigua, los jueces de una ciudad siempre fallan a favor de las empresas locales para mantener la estabilidad económica. El estudioso concluye que el derecho no es la norma en el papel, sino la conducta de los jueces. El escenario donde se aplica esta visión es: {escenario}."
+respuesta: "El juez decide basándose en la jurisprudencia predominante de su tribunal."
+
+enunciado: "Un estudioso del derecho observa que, ante una ley ambigua, los jueces de una ciudad siempre fallan a favor de las empresas locales para mantener la estabilidad económica. El estudioso concluye que el derecho no es la norma en el papel, sino la conducta de los jueces. ¿Cuál de las siguientes conductas judiciales ejemplifica mejor esta visión realista?"
 
 explicacion: |
   El realismo jurídico sostiene que el derecho es lo que los jueces hacen en la práctica, desplazando la importancia de la norma abstracta por la realidad de la función judicial.
@@ -1141,7 +1096,7 @@ metadata:
   nivel: "intermedio"
   tags: ["metodologia"]
 
-respuesta: ["Identificar la norma escrita", "Analizar la moralidad de la norma", "Decidir la aplicación según principios superiores"]
+respuesta_orden: ["Identificar la norma escrita", "Analizar la moralidad de la norma", "Decidir la aplicación según principios superiores"]
 tipo: ordenar
 
 opciones_explicitas: ["Identificar la norma escrita", "Analizar la moralidad de la norma", "Decidir la aplicación según principios superiores"]
@@ -1159,12 +1114,10 @@ metadata:
   nivel: "avanzado"
   tags: ["realismo_juridico"]
 
-variables:
-  caso: uno_de([[["El juez decide basándose en la jurisprudencia predominante de su tribunal.", "El juez ignora la norma para seguir su propia convicción."], ["El juez decide basándose en la jurisprudencia predominante de su tribunal.", "El juez ignora la norma para seguir su propia convicción."]])
-
 respuesta: "El derecho es la acción judicial"
 tipo: completar
-respuestas_validas: ["El derecho es la acción judicial"]
+respuestas_validas:
+  - "El derecho es la acción judicial"
 
 enunciado: "En un escenario de realismo jurídico, si un abogado quiere saber cómo se aplicará una nueva ley, no leerá solo el código, sino que estudiará cómo actúan los jueces. Para esta corriente, el derecho es ___."
 
@@ -1181,7 +1134,8 @@ metadata:
 
 respuesta: "iusnaturalismo"
 tipo: completar
-respuestas_validas: ["iusnaturalismo"]
+respuestas_validas:
+  - "iusnaturalismo"
 
 enunciado: "La corriente que sostiene que la validez de una norma jurídica depende de su conformidad con principios morales o derechos universales superiores, independientemente de si ha sido promulgada por el Estado, es el ___."
 
@@ -1214,16 +1168,13 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
+  datos: [["realismo jurídico", "El derecho es la predicción de lo que los jueces decidirán en la práctica."], ["formalismo jurídico", "El derecho es un conjunto de normas abstractas contenidas en los códigos."]]
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["El derecho es un conjunto de normas abstractas contenidas en los códigos.", "El derecho es la predicción de lo que los jueces decidirán en la práctica."]
 
-enunciado: "Según la perspectiva del {datos[idx][0]}, el derecho no es un sistema lógico de normas, sino un fenómeno social basado en la conducta judicial."
-datos: [
-  ["realismo jurídico", "El derecho es la predicción de lo que los jueces decidirán en la práctica."],
-  ["formalismo jurídico", "El derecho es un conjunto de normas abstractas contenidas en los códigos."]
-]
+enunciado: "Según la perspectiva del {datos[idx][0]}, ¿cuál es la naturaleza del derecho?"
 
 explicacion: |
   El realismo jurídico desplaza el foco de la norma escrita a la conducta real de los tribunales y los jueces.
@@ -1238,7 +1189,8 @@ metadata:
 
 respuesta: "El iuspositivismo busca la certeza jurídica mediante la norma escrita, mientras que el iusnaturalismo busca la justicia mediante la moral."
 tipo: completar
-respuestas_validas: ["El iuspositivismo busca la certeza jurídica mediante la norma escrita, mientras que el iusnaturalismo busca la justicia mediante la moral."]
+respuestas_validas:
+  - "El iuspositivismo busca la certeza jurídica mediante la norma escrita, mientras que el iusnaturalismo busca la justicia mediante la moral."
 
 enunciado: "Una distinción fundamental es que ___."
 
@@ -1253,7 +1205,7 @@ metadata:
   nivel: "basico"
   tags: ["ordenar"]
 
-respuesta: ["Iusnaturalismo", "Iuspositivismo", "Realismo jurídico"]
+respuesta_orden: ["Iusnaturalismo", "Iuspositivismo", "Realismo jurídico"]
 tipo: ordenar
 opciones_explicitas: ["Iusnaturalismo", "Iuspositivismo", "Realismo jurídico"]
 
@@ -1272,7 +1224,8 @@ metadata:
 
 respuesta: "iusnaturalismo"
 tipo: "completar"
-respuestas_validas: ["iusnaturalismo"]
+respuestas_validas:
+  - "iusnaturalismo"
 
 enunciado: "A diferencia del iuspositivismo, que sostiene que la validez de una norma depende exclusivamente de su origen formal y su vigencia, el ___ sostiene que existe un conjunto de principios morales universales superiores al derecho positivo."
 
@@ -1323,8 +1276,8 @@ metadata:
 
 opciones_explicitas: ["Iusnaturalismo (Derecho basado en la moral)", "Iuspositivismo (Derecho basado en la norma escrita)", "Realismo Jurídico (Derecho basado en la eficacia judicial)"]
 
-respuesta: ["Iusnaturalismo (Derecho basado en la moral)", "Iuspositivismo (Derecho basado en la norma escrita)", "Realismo Jurídico (Derecho basado en la eficacia judicial)"]
 tipo: "ordenar"
+respuesta_orden: ["Iusnaturalismo (Derecho basado en la moral)", "Iuspositivismo (Derecho basado en la norma escrita)", "Realismo Jurídico (Derecho basado en la eficacia judicial)"]
 
 enunciado: "Ordene cronológicamente la evolución predominante de las corrientes de pensamiento jurídico en la historia del derecho occidental:"
 
@@ -1341,19 +1294,15 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [
-    ["El iuspositivismo se centra en la norma escrita.", "El realismo jurídico se centra en la conducta del juez."],
-    ["El iusnaturalismo se centra en la justicia universal.", "El iuspositivismo se centra en la validez formal."]
-  ]
+  frases: ["El iuspositivismo se centra en la norma escrita, mientras que el realismo jurídico se centra en la conducta del juez.", "El iusnaturalismo se centra en la justicia universal, mientras que el iuspositivismo se centra en la validez formal."]
 
-respuesta: escenario[idx][1
-tipo: "mc"
-opciones_explicitas: ["Escenario A", "Escenario B"]
+respuesta: verdadero
+tipo: "vf"
 
-enunciado: "Identifique la pareja de conceptos que define correctamente el contraste de enfoque entre las corrientes mencionadas en el {escenario[idx][0]}."
+enunciado: "Determina si la siguiente afirmación es correcta: {frases[idx]}"
 
 explicacion: |
-  El ejercicio requiere identificar cuál de las dos descripciones de la variable `escenario` es correcta según la teoría jurídica.
+  Ambas afirmaciones posibles son correctas: el iuspositivismo prioriza la norma escrita mientras el realismo jurídico se centra en la conducta judicial efectiva, y el iusnaturalismo prioriza la justicia universal mientras el iuspositivismo prioriza la validez formal.
 ```
 
 ```
@@ -1367,7 +1316,7 @@ variables:
   datos: [["Un juez decide que una ley es injusta porque viola la dignidad humana y, por tanto, no es aplicable", "iusnaturalismo"], ["Un juez aplica una ley que considera moralmente cuestionable simplemente porque fue promulgada por la autoridad competente", "iuspositivismo"]]
   idx: uno_de([0, 1])
 
-enunciado: "Si un jurista sostiene que el derecho debe basarse en principios morales universales y superiores a la ley escrita, estamos ante el..."
+enunciado: "{datos[idx][0]}. ¿Qué corriente de interpretación jurídica ejemplifica esta actitud?"
 
 respuesta: datos[idx][1]
 tipo: mc
@@ -1385,14 +1334,14 @@ metadata:
   tags: ["iuspositivismo"]
 
 variables:
-  datos: [["La ley es válida porque cumple con el proceso legislativo, independientemente de su contenido moral", "Verdadero"], ["La validez de una norma depende de su conformidad con la moralidad social", "Falso"]]
+  textos: ["La ley es válida porque cumple con el proceso legislativo, independientemente de su contenido moral", "La validez de una norma depende de su conformidad con la moralidad social"]
+  valores: [verdadero, falso]
   idx: uno_de([0, 1])
 
-enunciado: "En el iuspositivismo estricto, la validez de una norma jurídica reside en su origen formal y no en su contenido ético."
+enunciado: "Según el iuspositivismo estricto, ¿es correcta la siguiente afirmación? '{textos[idx]}'"
 
-respuestas_validas: [datos[idx][1]]
-respuesta: datos[idx][1]
-tipo: completar
+respuesta: valores[idx]
+tipo: vf
 explicacion: |
   Para el iuspositivismo, la separación entre derecho y moral es fundamental para determinar la validez de la norma.
 ```
@@ -1404,15 +1353,13 @@ metadata:
   nivel: "avanzado"
   tags: ["realismo_juridico"]
 
-variables:
-  datos: [["El derecho es el conjunto de normas escritas en el código", "normativismo"], ["El derecho es lo que los jueces deciden en sus sentencias", "realismo_juridico"]]
-  idx: uno_de([0, 1])
+respuesta: "lo que los jueces deciden en sus sentencias"
+tipo: completar
+respuestas_validas:
+  - "lo que los jueces realmente hacen"
+  - "lo que los jueces deciden en sus sentencias"
 
 enunciado: "Desde la perspectiva del realismo jurídico, el derecho se define como ___."
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas: ["lo que los jueces realmente hacen", "lo que los jueces deciden en sus sentencias"]
 
 explicacion: |
   El realismo jurídico desplaza el foco de la norma escrita hacia la conducta y decisiones de los tribunales.
@@ -1432,7 +1379,7 @@ pasos:
   - "La conducta social predominante"
   - "El texto de la norma legal"
 
-respuesta: ["La decisión del juez en el caso concreto", "La conducta social predominante", "El texto de la norma legal"]
+respuesta_orden: ["La decisión del juez en el caso concreto", "La conducta social predominante", "El texto de la norma legal"]
 tipo: ordenar
 opciones_explicitas: ["La decisión del juez en el caso concreto", "La conducta social predominante", "El texto de la norma legal"]
 
@@ -1447,15 +1394,11 @@ metadata:
   nivel: "basico"
   tags: ["iusnaturalismo", "iuspositivismo"]
 
-variables:
-  datos: [["La ley es la ley y debe aplicarse sin importar la percepción de injusticia", "positivismo"], ["La ley debe ser sometida al juicio de la justicia natural", "iusnaturalismo"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si un sistema jurídico afirma que 'la ley es la ley' y su aplicación es obligatoria incluso si es considerada injusta, el sistema está operando bajo el principio de ___."
-
-respuesta: datos[idx][1]
+respuesta: "positivismo"
 tipo: mc
 opciones_explicitas: ["positivismo", "iusnaturalismo", "realismo_juridico"]
+
+enunciado: "Si un sistema jurídico afirma que 'la ley es la ley' y su aplicación es obligatoria incluso si es considerada injusta, el sistema está operando bajo el principio de ___."
 
 explicacion: |
   El principio de legalidad estricta es un pilar del iuspositivismo, donde la validez es formal.
@@ -1492,7 +1435,7 @@ tipo: vf
 
 enunciado: "El objetivo principal de la etapa de instrucción es determinar si existe mérito para llevar a juicio a una persona."
 
-respuesta: falso
+respuesta: verdadero
 
 explicacion: |
   La instrucción tiene como fin la investigación de la verdad real y la recolección de pruebas para determinar si hay elementos suficientes para el juicio.
@@ -1505,11 +1448,7 @@ metadata:
   nivel: "intermedio"
   tags: ["pruebas", "instruccion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["testimonio", "pericia"], ["allanamiento", "interrogatorio"]]
-
-enunciado: "Durante la etapa de instrucción, el fiscal o el juez pueden ordenar un {datos[escenario_idx][0]} para obtener evidencia física o técnica."
+enunciado: "Durante la etapa de instrucción, si el fiscal o el juez necesitan la opinión técnica de un experto para analizar una evidencia física, ordenan un ___."
 
 pasos:
   - "Se identifica el hecho delictivo."
@@ -1518,7 +1457,8 @@ pasos:
 respuesta: "pericia"
 
 tipo: completar
-respuestas_validas: ["pericia"]
+respuestas_validas:
+  - "pericia"
 
 explicacion: |
   La pericia es un medio de prueba técnico fundamental en la etapa de instrucción para esclarecer hechos complejos.
@@ -1536,7 +1476,7 @@ opciones_explicitas: ["Denuncia", "Instrucción", "Juicio Oral", "Sentencia"]
 
 enunciado: "Ordene cronológicamente las etapas del proceso penal desde el inicio hasta la resolución final:"
 
-respuesta: ["Denuncia", "Instrucción", "Juicio Oral", "Sentencia"]
+respuesta_orden: ["Denuncia", "Instrucción", "Juicio Oral", "Sentencia"]
 
 explicacion: |
   El proceso comienza con la denuncia, sigue con la investigación (instrucción), la etapa de debate (juicio) y finaliza con la sentencia.
@@ -1584,15 +1524,8 @@ metadata:
   nivel: "intermedio"
   tags: ["fiscalia", "investigacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [
-    ["El Fiscal debe dirigir la investigación para recolectar pruebas.", "verdadero"],
-    ["El Fiscal decide la culpabilidad final del imputado.", "falso"]
-  ]
-
-respuesta: escenario[escenario_idx][1
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En la etapa de instrucción, el Fiscal tiene la función de dirigir la investigación y recolectar elementos de convicción para determinar si existe un caso para ir a juicio. ¿Es esto correcto en el sistema acusatorio?"
 
 explicacion: |
@@ -1606,7 +1539,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "orden_cronologico"]
 
-respuesta: ["Denuncia", "Investigación preliminar", "Requerimiento de acusación", "Juicio Oral"]
+respuesta_orden: ["Denuncia", "Investigación preliminar", "Requerimiento de acusación", "Juicio Oral"]
 tipo: ordenar
 opciones_explicitas: ["Denuncia", "Investigación preliminar", "Requerimiento de acusación", "Juicio Oral"]
 
@@ -1623,14 +1556,7 @@ metadata:
   nivel: "avanzado"
   tags: ["pruebas", "instruccion"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  caso: [
-    ["testimonio", "pericia"],
-    ["testimonio", "sentencia"]
-  ]
-
-respuesta: caso[caso_idx][1
+respuesta: "pericia"
 tipo: mc
 opciones_explicitas: ["testimonio", "pericia", "sentencia", "recurso"]
 
@@ -1649,7 +1575,8 @@ metadata:
 
 respuesta: "sobreseimiento"
 tipo: completar
-respuestas_validas: ["sobreseimiento", "condena", "absolución"]
+respuestas_validas:
+  - "sobreseimiento"
 
 enunciado: "Si durante la etapa de instrucción se demuestra que el hecho denunciado no existió o que el imputado no participó en él, el juez debe dictar el ___ para finalizar el proceso sin llegar a juicio."
 
@@ -1666,7 +1593,8 @@ metadata:
 
 respuesta: "denuncia"
 tipo: completar
-respuestas_validas: ["denuncia", "querella"]
+respuestas_validas:
+  - "denuncia"
 
 enunciado: "El proceso penal puede iniciarse de diversas formas; cuando un ciudadano comunica un hecho presuntamente delictivo ante la autoridad, el acto formal se denomina ___."
 
@@ -1697,12 +1625,10 @@ metadata:
   nivel: "intermedio"
   tags: ["querella", "denuncia"]
 
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1
 tipo: mc
 opciones_explicitas: ["La denuncia requiere la participación activa de la víctima como parte procesal, mientras que la querella es un mero aviso.", "La querella implica la constitución de la víctima como parte en el proceso, mientras que la denuncia es un deber ciudadano de informar."]
+
+respuesta: "La querella implica la constitución de la víctima como parte en el proceso, mientras que la denuncia es un deber ciudadano de informar."
 
 enunciado: "Según la doctrina procesal, ¿cuál es la diferencia fundamental entre la denuncia y la querella?"
 
@@ -1717,7 +1643,7 @@ metadata:
   nivel: "basico"
   tags: ["etapas_procesales", "orden"]
 
-respuesta: ["Notitia criminis", "Instrucción", "Juicio Oral"]
+respuesta_orden: ["Notitia criminis", "Instrucción", "Juicio Oral"]
 tipo: ordenar
 opciones_explicitas: ["Juicio Oral", "Instrucción", "Notitia criminis"]
 
@@ -1734,12 +1660,10 @@ metadata:
   nivel: "avanzado"
   tags: ["fiscalia", "investigacion"]
 
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1
 tipo: mc
 opciones_explicitas: ["El Fiscal tiene la carga de la prueba y dirige la investigación para esclarecer los hechos.", "El Fiscal es el encargado de dictar la sentencia definitiva tras la etapa de instrucción."]
+
+respuesta: "El Fiscal tiene la carga de la prueba y dirige la investigación para esclarecer los hechos."
 
 enunciado: "En el sistema acusatorio moderno, ¿cuál es la función principal del Ministerio Público durante la etapa de instrucción?"
 
@@ -1791,11 +1715,13 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [["denuncia", "noticia criminal"], ["querella", "acción penal privada/pública con legitimación"]]
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][0]
 tipo: completar
-respuestas_validas: ["noticia criminal", "acción penal privada/pública con legitimación"]
+respuestas_validas:
+  - "denuncia"
+  - "querella"
 
-enunciado: "En el escenario seleccionado, la diferencia fundamental es que la ___ se caracteriza por ser una {datos[escenario_idx][1]}."
+enunciado: "En el escenario seleccionado, se caracteriza por ser una {datos[escenario_idx][1]}. Esta figura procesal se denomina ___."
 
 explicacion: |
   La distinción radica en la legitimación y la participación procesal de la víctima.
@@ -1808,7 +1734,7 @@ metadata:
   nivel: "basico"
   tags: ["secuencia", "etapas"]
 
-respuesta: ["Noticia criminis", "Etapa de Instrucción", "Etapa de Juicio"]
+respuesta_orden: ["Noticia criminis", "Etapa de Instrucción", "Etapa de Juicio"]
 tipo: ordenar
 opciones_explicitas: ["Noticia criminis", "Etapa de Instrucción", "Etapa de Juicio"]
 
@@ -1827,7 +1753,8 @@ metadata:
 
 respuesta: "investigar"
 tipo: completar
-respuestas_validas: ["investigar", "sentenciar", "acusar"]
+respuestas_validas:
+  - "investigar"
 
 enunciado: "Mientras que el Tribunal de Juicio tiene la función de dictar sentencia, el Juez de Instrucción tiene la función primordial de ___ los hechos."
 
@@ -1867,10 +1794,11 @@ variables:
   datos: [["presunto homicidio", "investigar la autoría y las pruebas"], ["presunto hurto", "recaudar elementos de convicción"]]
   idx: uno_de([0,1])
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
-enunciado: "En la etapa de instrucción, el objetivo principal del fiscal es {datos[idx][0]}."
+enunciado: "Ante un caso de {datos[idx][0]}, el objetivo principal del fiscal en la etapa de instrucción es ___."
 
 explicacion: |
   La etapa de instrucción tiene como fin la recolección de elementos de convicción para determinar si existe mérito para llevar a juicio a una persona.
@@ -1883,7 +1811,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "ordenar"]
 
-respuesta: ["Presentación de la denuncia", "Apertura de la investigación", "Recolección de pruebas", "Elevación a juicio"]
+respuesta_orden: ["Presentación de la denuncia", "Apertura de la investigación", "Recolección de pruebas", "Elevación a juicio"]
 tipo: ordenar
 opciones_explicitas: ["Presentación de la denuncia", "Apertura de la investigación", "Recolección de pruebas", "Elevación a juicio"]
 
@@ -1906,7 +1834,9 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["imputación", "archivo"]
+respuestas_validas:
+  - "imputación"
+  - "archivo"
 
 enunciado: "Si tras la investigación el fiscal determina que {datos[idx][0]}, la consecuencia procesal es la ___."
 
@@ -1941,7 +1871,8 @@ metadata:
 
 respuesta: "regula la organización y actividad del Estado y su relación con los ciudadanos"
 tipo: completar
-respuestas_validas: ["regula la organización y actividad del Estado y su relación con los ciudadanos"]
+respuestas_validas:
+  - "regula la organización y actividad del Estado y su relación con los ciudadanos"
 
 enunciado: "El Derecho Administrativo es la rama del derecho público que ___."
 
@@ -1956,18 +1887,12 @@ metadata:
   nivel: "basico"
   tags: ["sujeto", "administracion"]
 
-variables:
-  escenario: uno_de([
-    ["Administración Pública", "Estado"],
-    ["Ciudadano", "Particular"],
-    ["Administración Pública", "Estado"]
-  ])
-
-respuesta: escenario[0
 tipo: mc
 opciones_explicitas: ["Administración Pública", "Poder Judicial", "Legislativo", "Empresa Privada"]
 
-enunciado: "En una relación administrativa típica, el sujeto que actúa en nombre del Estado es la {escenario[1]}."
+respuesta: "Administración Pública"
+
+enunciado: "En una relación administrativa típica, ¿cuál es el sujeto que actúa en nombre del Estado?"
 
 explicacion: |
   La Administración Pública es el brazo ejecutor del Estado que interactúa con los ciudadanos.
@@ -1996,7 +1921,7 @@ metadata:
   nivel: "intermedio"
   tags: ["elementos", "acto_administrativo"]
 
-respuesta: ["Sujeto", "Objeto", "Motivo", "Finalidad"]
+respuesta_orden: ["Sujeto", "Objeto", "Motivo", "Finalidad"]
 tipo: ordenar
 opciones_explicitas: ["Sujeto", "Objeto", "Motivo", "Finalidad"]
 
@@ -2013,17 +1938,10 @@ metadata:
   nivel: "intermedio"
   tags: ["principios", "legalidad"]
 
-variables:
-  caso: uno_de([
-    ["La Administración puede actuar solo si una norma la autoriza.", "verdadero"],
-    ["La Administración puede actuar incluso sin norma previa si es urgente.", "falso"]
-  ])
+respuesta: falso
+tipo: vf
 
-respuesta: caso[1
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "Según el Principio de Legalidad, la afirmación siguiente es {caso[0]}: 'La Administración puede actuar incluso sin norma previa si es urgente'."
+enunciado: "Según el Principio de Legalidad, es correcto afirmar que 'La Administración puede actuar incluso sin norma previa si es urgente'."
 
 explicacion: |
   El Principio de Legalidad establece que la Administración solo puede realizar aquello que la ley le permite expresamente.
@@ -2038,16 +1956,15 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["La Municipalidad otorga una licencia de construcción a un ciudadano.", "licencia"],
-    ["El Ministerio de Salud dicta una resolución de clausura para un restaurante.", "clausura"]
-  ]
+  escenarios: [["La Municipalidad otorga una licencia de construcción a un ciudadano.", "licencia"], ["El Ministerio de Salud dicta una resolución de clausura para un restaurante.", "clausura"]]
 
 enunciado: "Considerando que {escenarios[escenario_idx][0]}, estamos ante un acto administrativo que regula la actividad del Estado frente a un particular."
 
-respuesta: "{escenarios[escenario_idx][1]}"
+respuesta: escenarios[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["licencia", "clausura"]
+respuestas_validas:
+  - "licencia"
+  - "clausura"
 
 explicacion: |
   El acto administrativo es una declaración de voluntad del Estado que produce efectos jurídicos directos sobre los administrados.
@@ -2093,12 +2010,9 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "pasos"]
 
-variables:
-  pasos_ordenados: ["Inicio del trámite", "Instrucción/Prueba", "Resolución", "Notificación"]
-
 enunciado: "Ordene la secuencia lógica de un procedimiento administrativo estándar para la resolución de un reclamo ciudadano:"
 
-respuesta: ["Inicio del trámite", "Instrucción/Prueba", "Resolución", "Notificación"]
+respuesta_orden: ["Inicio del trámite", "Instrucción/Prueba", "Resolución", "Notificación"]
 tipo: ordenar
 opciones_explicitas: ["Inicio del trámite", "Instrucción/Prueba", "Resolución", "Notificación"]
 
@@ -2113,18 +2027,12 @@ metadata:
   nivel: "avanzado"
   tags: ["control", "recurso"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [
-    ["Un ciudadano considera que una multa de tránsito es ilegal.", "impugnar"],
-    ["Una empresa cree que una concesión fue otorgada arbitrariamente.", "impugnar"]
-  ]
-
 enunciado: "Ante un acto administrativo que el administrado considera lesivo a sus derechos, el paso siguiente es ___ el acto mediante un recurso administrativo."
 
 respuesta: "impugnar"
 tipo: completar
-respuestas_validas: ["impugnar"]
+respuestas_validas:
+  - "impugnar"
 
 explicacion: |
   La impugnación es el derecho de los ciudadanos de cuestionar la legalidad de los actos del Estado para que sean revisados.
@@ -2139,7 +2047,8 @@ metadata:
 
 respuesta: "regula la organización y actividad del Estado y su relación con los ciudadanos"
 tipo: completar
-respuestas_validas: ["regula la organización y actividad del Estado y su relación con los ciudadanos"]
+respuestas_validas:
+  - "regula la organización y actividad del Estado y su relación con los ciudadanos"
 
 enunciado: "El Derecho Administrativo es la rama del derecho público que ___."
 
@@ -2172,12 +2081,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["La Constitución establece la estructura básica del Estado.", "El Derecho Administrativo desarrolla el funcionamiento concreto de esa estructura."],
-    ["La Constitución define los derechos fundamentales.", "El Derecho Administrativo establece los procedimientos para que el Estado los garantice o los limite."]
-  ]
+  escenarios: [["La Constitución establece la estructura básica del Estado.", "El Derecho Administrativo desarrolla el funcionamiento concreto de esa estructura."], ["La Constitución define los derechos fundamentales.", "El Derecho Administrativo establece los procedimientos para que el Estado los garantice o los limite."]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: [escenarios[escenario_idx][0], escenarios[escenario_idx][1]]
 
@@ -2196,7 +2102,8 @@ metadata:
 
 respuesta: "Sujeto, Objeto, Motivo, Finalidad y Procedimiento"
 tipo: completar
-respuestas_validas: ["Sujeto, Objeto, Motivo, Finalidad y Procedimiento"]
+respuestas_validas:
+  - "Sujeto, Objeto, Motivo, Finalidad y Procedimiento"
 
 enunciado: "Para que un acto administrativo sea válido, debe contar con ciertos elementos esenciales: ___, ___, ___, ___ y ___."
 
@@ -2211,7 +2118,7 @@ metadata:
   nivel: "avanzado"
   tags: ["jerarquia", "orden_normativo"]
 
-respuesta: ["Constitución Nacional", "Tratados Internacionales", "Leyes", "Reglamentos/Decretos"]
+respuesta_orden: ["Constitución Nacional", "Tratados Internacionales", "Leyes", "Reglamentos/Decretos"]
 tipo: ordenar
 opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales", "Leyes", "Reglamentos/Decretos"]
 
@@ -2230,7 +2137,8 @@ metadata:
 
 respuesta: "Derecho Administrativo"
 tipo: "completar"
-respuestas_validas: ["Derecho Administrativo"]
+respuestas_validas:
+  - "Derecho Administrativo"
 
 enunciado: "Mientras que el Derecho Privado regula las relaciones entre particulares, el ___ regula la organización y actividad del Estado en su función pública."
 
@@ -2263,19 +2171,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["un contrato de alquiler entre dos vecinos", "Derecho Privado"],
-    ["la concesión de una licencia de conducir por un municipio", "Derecho Administrativo"]
-  ]
+  escenarios: [["un contrato de alquiler entre dos vecinos", "Derecho Privado"], ["la concesión de una licencia de conducir por un municipio", "Derecho Administrativo"]]
 
-respuesta: escenario_idx_res[1
+respuesta: escenarios[escenario_idx][1]
 tipo: "mc"
-opciones_explicitas: ["escenario_idx_res[0]", "escenario_idx_res[1]"]
+opciones_explicitas: ["Derecho Privado", "Derecho Administrativo"]
 
-enunciado: "Identifique la situación que pertenece al ámbito del Derecho Administrativo: {escenario_idx_res[0]}"
-
-variables_extra:
-  escenario_idx_res: [["un contrato de alquiler entre dos vecinos", "Derecho Privado"], ["la concesión de una licencia de conducir por un municipio", "Derecho Administrativo"]]
+enunciado: "Identifique a qué rama del derecho pertenece la siguiente situación: {escenarios[escenario_idx][0]}"
 
 explicacion: |
   El Derecho Administrativo regula los actos de la administración pública, como la emisión de licencias o permisos, mientras que los contratos entre particulares pertenecen al Derecho Privado.
@@ -2292,7 +2194,7 @@ variables:
   idx: uno_de([0, 1])
   datos: [["un contrato de alquiler entre dos vecinos", "Derecho Privado"], ["la concesión de una licencia de conducir por un municipio", "Derecho Administrativo"]]
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: "mc"
 opciones_explicitas: ["Derecho Privado", "Derecho Administrativo"]
 
@@ -2311,7 +2213,8 @@ metadata:
 
 respuesta: "Derecho Público"
 tipo: "completar"
-respuestas_validas: ["Derecho Público"]
+respuestas_validas:
+  - "Derecho Público"
 
 enunciado: "A diferencia del Derecho Privado, el Derecho Administrativo se clasifica dentro del ___."
 
@@ -2326,9 +2229,9 @@ metadata:
   nivel: "avanzado"
   tags: ["procedimiento", "orden"]
 
-respuesta: ["Sujeto Activo (Estado)", "Sujeto Pasivo (Administrado)", "Objeto (Acto Administrativo)", "Motivación (Causa/Fin)"]
 tipo: "ordenar"
 opciones_explicitas: ["Sujeto Activo (Estado)", "Sujeto Pasivo (Administrado)", "Objeto (Acto Administrativo)", "Motivación (Causa/Fin)"]
+respuesta_orden: ["Sujeto Activo (Estado)", "Sujeto Pasivo (Administrado)", "Objeto (Acto Administrativo)", "Motivación (Causa/Fin)"]
 
 enunciado: "Ordene los elementos esenciales que configuran la relación administrativa, partiendo desde la entidad que ejerce la función hasta la justificación del acto:"
 
@@ -2350,18 +2253,13 @@ metadata:
   tags: ["acto_administrativo", "nulidad"]
 
 variables:
-  escenario: uno_de([
-    ["Un funcionario dicta una resolución sin tener competencia sobre la materia", "nulo"],
-    ["La administración emite un acto con vicio en el objeto, siendo imposible de ejecutar", "nulo"],
-    ["Un acto administrativo carece de la motivación exigida por la ley", "nulo"]
-  ])
-  idx: uno_de([0,1,2])
+  escenario: uno_de([["Un funcionario dicta una resolución sin tener competencia sobre la materia", "nulo"], ["La administración emite un acto con vicio en el objeto, siendo imposible de ejecutar", "nulo"], ["Un acto administrativo carece de la motivación exigida por la ley", "nulo"]])
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["nulo", "válido", "anulable"]
 
-enunciado: "En el siguiente caso: {escenario[idx][0]}, la validez del acto administrativo es: ___"
+enunciado: "En el siguiente caso: {escenario[0]}, la validez del acto administrativo es: ___"
 
 explicacion: |
   Un acto administrativo presenta nulidad absoluta cuando carece de elementos esenciales (competencia, objeto, causa, motivación o finalidad) o cuando el vicio es de tal magnitud que impide su subsistencia legal.
@@ -2375,17 +2273,13 @@ metadata:
   tags: ["silencio_administrativo", "procedimiento"]
 
 variables:
-  tipo_silencio: uno_de([
-    ["El interesado solicita una licencia y la administración no responde en el plazo legal. La ley establece que esto implica una denegación.", "negativo"],
-    ["El interesado solicita una subvención y la administración no responde en el plazo legal. La ley establece que esto implica una concesión.", "positivo"]
-  ])
-  idx: uno_de([0,1])
+  tipo_silencio: uno_de([["El interesado solicita una licencia y la administración no responde en el plazo legal. La ley establece que esto implica una denegación.", "negativo"], ["El interesado solicita una subvención y la administración no responde en el plazo legal. La ley establece que esto implica una concesión.", "positivo"]])
 
-respuesta: tipo_silencio[idx][1
+respuesta: tipo_silencio[1]
 tipo: mc
 opciones_explicitas: ["negativo", "positivo"]
 
-enunciado: "Ante el escenario donde {tipo_silencio[idx][0]}, estamos ante un silencio administrativo de carácter: ___"
+enunciado: "Ante el escenario donde {tipo_silencio[0]}, estamos ante un silencio administrativo de carácter: ___"
 
 explicacion: |
   El silencio administrativo puede ser positivo (la falta de respuesta equivale a la aceptación de la petición) o negativo (la falta de respuesta equivale a un rechazo), dependiendo de lo que la norma específica determine para ese trámite.
@@ -2400,7 +2294,8 @@ metadata:
 
 respuesta: "competencia, objeto, causa, motivación, finalidad"
 tipo: completar
-respuestas_validas: ["competencia, objeto, causa, motivación, finalidad"]
+respuestas_validas:
+  - "competencia, objeto, causa, motivación, finalidad"
 
 enunciado: "Para que un acto administrativo sea válido, debe reunir una serie de elementos esenciales. Estos son: ___, ___, ___, ___ y ___."
 
@@ -2431,7 +2326,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "fases"]
 
-respuesta: ["Iniciación", "Instrucción", "Finalización"]
+respuesta_orden: ["Iniciación", "Instrucción", "Finalización"]
 tipo: ordenar
 opciones_explicitas: ["Iniciación", "Instrucción", "Finalización"]
 
@@ -2440,3 +2335,4 @@ enunciado: "Ordene cronológicamente las etapas típicas de un procedimiento adm
 explicacion: |
   El procedimiento comienza con la Iniciación (de oficio o a parte), sigue con la Instrucción (donde se aportan pruebas y alegaciones) y concluye con la Finalización (mediante resolución o acto administrativo).
 ```
+

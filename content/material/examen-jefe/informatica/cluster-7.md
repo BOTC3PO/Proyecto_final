@@ -1,1395 +1,8 @@
-# Examen jefe — Maestro del POO y Patrones
+# Examen jefe — [PENDIENTE #822]
 
-> Logro #177. Completaste el examen sobre POO, patrones, paginación, permisos y planificación de procesos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **121 preguntas totales** en 5/5 secciones.
+> Logro #822. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: paginacion (21 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "basico"
-  tags: ["conceptos", "memoria-virtual"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La paginación es un mecanismo que permite a un programa utilizar más espacio de memoria del que físicamente está disponible en la RAM."
-
-explicacion: |
-  Correcto. La paginación gestiona la memoria virtual, dividiendo la memoria lógica en páginas y la física en marcos, permitiendo usar el disco duro como extensión de la RAM.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "intermedio"
-  tags: ["fallos", "procesos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un 'fallo de página' ocurre cuando un programa intenta acceder a una página que no se encuentra actualmente en la RAM."
-
-explicacion: |
-  Verdadero. El sistema operativo debe entonces detener el proceso, buscar un marco libre (o liberar uno), cargar la página desde el disco y actualizar la tabla de páginas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "intermedio"
-  tags: ["estructura", "traduccion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La tabla de páginas es una estructura de datos utilizada por el sistema operativo para mapear las páginas virtuales a los marcos de página físicos."
-
-explicacion: |
-  Verdadero. Esta tabla es esencial para que la MMU sepa dónde está cada página en la memoria física.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "intermedio"
-  tags: ["rendimiento", "discos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El intercambio constante de datos entre la RAM y el disco duro debido a fallos de página puede degradar significativamente el rendimiento del sistema."
-
-explicacion: |
-  Verdadero. El disco duro es mucho más lento que la RAM. Si hay muchos fallos de página (thrashing), el sistema pasa más tiempo moviendo datos que ejecutando instrucciones.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "basico"
-  tags: ["conceptos", "ilusion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La paginación crea la ilusión de tener una memoria infinita, aunque la RAM física sea limitada."
-
-explicacion: |
-  Correcto. Esta ilusión se llama memoria virtual y permite ejecutar programas que son más grandes que la memoria física disponible.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "avanzado"
-  tags: ["eficiencia", "tipos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La paginación introduce fragmentación externa porque los bloques de memoria asignados pueden ser de tamaños variables."
-
-explicacion: |
-  Falso. La paginación elimina la fragmentación externa porque las páginas y marcos tienen tamaños fijos. Sin embargo, puede haber fragmentación interna (espacio desperdiciado dentro de un marco).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "avanzado"
-  tags: ["problemas", "rendimiento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El 'thrashing' o agotamiento de memoria ocurre cuando el sistema pasa más tiempo gestionando fallos de página que ejecutando procesos útiles."
-
-explicacion: |
-  Verdadero. Es una condición crítica donde la actividad de paginación impide el progreso real de los programas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "intermedio"
-  tags: ["procesos", "mmu"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La traducción de direcciones virtuales a físicas se realiza completamente por software, sin intervención del hardware."
-
-explicacion: |
-  Falso. La MMU (hardware) realiza la traducción en tiempo real. El sistema operativo (software) gestiona las tablas, pero la traducción es hardware.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "avanzado"
-  tags: ["eficiencia", "desperdicio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La paginación puede causar fragmentación interna, que es el espacio desperdiciado dentro del último marco de página de un proceso si este no llena el marco completamente."
-
-explicacion: |
-  Verdadero. Como el tamaño de la última página lógica puede ser menor que el tamaño del marco físico, el espacio restante en ese marco se pierde.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "intermedio"
-  tags: ["comparacion", "segmentacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una ventaja clave de la paginación sobre la segmentación es que no requiere que el espacio de direcciones del programa sea contiguo en la memoria física."
-
-explicacion: |
-  Correcto. Las páginas pueden estar dispersas en la RAM, mientras que los segmentos suelen requerir bloques contiguos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "avanzado"
-  tags: ["optimizacion", "estructuras"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una tabla de páginas invertida indexa por marcos de página físicos en lugar de por direcciones virtuales, lo que puede ahorrar memoria en sistemas con mucho espacio de direcciones."
-
-explicacion: |
-  Verdadero. En lugar de una entrada por página virtual, hay una entrada por marco físico, reduciendo el tamaño de la tabla en sistemas con grandes espacios virtuales.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "avanzado"
-  tags: ["algoritmos", "reemplazo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El algoritmo LRU (Least Recently Used) selecciona para reemplazo la página que no se ha utilizado durante el periodo de tiempo más largo."
-
-explicacion: |
-  Verdadero. Se basa en la premisa de que las páginas usadas recientemente probablemente se usarán de nuevo pronto, y las no usadas en mucho tiempo, menos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "avanzado"
-  tags: ["hardware", "caché"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La TLB es una caché de hardware que almacena las traducciones más recientes de direcciones virtuales a físicas para acelerar el acceso."
-
-explicacion: |
-  Verdadero. Sin la TLB, cada acceso a memoria requeriría dos accesos a la RAM (uno para la tabla de páginas y otro para el dato), lo cual es muy lento.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "intermedio"
-  tags: ["procesos", "io"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando ocurre un fallo de página, el sistema operativo debe realizar una operación de entrada/salida (I/O) desde el disco para cargar la página."
-
-explicacion: |
-  Verdadero. La página debe ser leída desde el archivo de paginación o swap en el disco hasta un marco libre en la RAM.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "basico"
-  tags: ["conceptos", "disco"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El área del disco duro utilizada para guardar páginas que no están en la RAM se denomina comúnmente 'swap' o archivo de paginación."
-
-explicacion: |
-  Verdadero. Es el espacio de memoria virtual en el disco que actúa como extensión de la RAM.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "intermedio"
-  tags: ["algoritmos", "reemplazo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El algoritmo FIFO (First-In, First-Out) reemplaza la página que ha estado en la memoria física por el mayor tiempo, independientemente de su frecuencia de uso."
-
-explicacion: |
-  Verdadero. Es simple pero puede tener un comportamiento subóptimo comparado con LRU, ya que no considera el patrón de acceso.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "avanzado"
-  tags: ["eficiencia", "recursos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un inconveniente de la paginación es el consumo de memoria RAM para almacenar las tablas de páginas de cada proceso."
-
-explicacion: |
-  Verdadero. Cada proceso necesita su propia tabla de páginas, lo que consume memoria física, especialmente si el espacio de direcciones es muy grande.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "avanzado"
-  tags: ["estructuras", "comparacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La paginación directa usa tablas indexadas por dirección virtual, mientras que la paginación inversa usa tablas indexadas por dirección física."
-
-explicacion: |
-  Verdadero. Esto cambia la forma en que se busca la traducción y el tamaño de la estructura de datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "basico"
-  tags: ["seguridad", "aislamiento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La paginación ayuda al aislamiento de procesos porque cada proceso tiene su propio espacio de direcciones virtuales."
-
-explicacion: |
-  Verdadero. Un proceso no puede acceder directamente a la memoria de otro, ya que sus direcciones virtuales se traducen a marcos físicos diferentes o no mapeados.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "avanzado"
-  tags: ["algoritmos", "teoria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El algoritmo de reemplazo óptimo (OPT) reemplaza la página que no se usará durante el periodo de tiempo más largo en el futuro. Es ideal pero no implementable en la práctica."
-
-explicacion: |
-  Verdadero. OPT requiere conocer la secuencia futura de accesos a memoria, lo cual es imposible de predecir con certeza en un sistema en ejecución.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "paginacion"
-  nivel: "avanzado"
-  tags: ["consistencia", "hardware"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando el sistema operativo modifica la tabla de páginas, puede ser necesario invalidar las entradas correspondientes en la TLB para evitar que se usen direcciones obsoletas."
-
-explicacion: |
-  Verdadero. La TLB puede tener caché de traducciones antiguas. Si la tabla de páginas cambia, esas entradas en la TLB deben ser descartadas o actualizadas.
-```
-
-## Sección: patrones-y-buenas-practicas (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_y_buenas_practicas"
-  nivel: "basico"
-  tags: ["conceptos", "patrones"]
-
-respuesta: "solucion"
-tipo: "completar"
-respuestas_validas: ["solucion", "soluciones"]
-
-enunciado: "Un patrón de diseño es una ________ reutilizable que sirve para resolver un problema común dentro de un contexto de diseño de software."
-
-explicacion: |
-  Los patrones de diseño no son fragmentos de código, sino descripciones de soluciones a problemas recurrentes en el desarrollo de software.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_y_buenas_practicas"
-  nivel: "basico"
-  tags: ["clasificacion", "categorias"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  escenario: [
-    ["Creacionales", "se enfocan en la creación de objetos."],
-    ["Estructurales", "se enfocan en cómo se componen las clases y objetos."],
-    ["De Comportamiento", "se enfocan en la comunicación entre objetos."]
-  ]
-
-respuesta: escenario[idx][1
-tipo: "mc"
-opciones_explicitas: ["creacionales", "estructurales", "de comportamiento"]
-
-enunciado: "Si un programador utiliza el patrón 'Singleton' para asegurar que una clase tenga una única instancia, está utilizando un patrón de tipo: {escenario[idx][0]}."
-
-explicacion: |
-  Los patrones se dividen en tres categorías principales según su propósito: Creacionales, Estructurales y de Comportamiento.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_y_buenas_practicas"
-  nivel: "intermedio"
-  tags: ["solid", "buenas_practicas"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "El principio de Responsabilidad Única (SRP) establece que una clase debe tener una, y solo una, razón para cambiar."
-
-explicacion: |
-  Correcto. El SRP busca que cada módulo o clase sea responsable de una única parte de la funcionalidad, facilitando el mantenimiento y la testabilidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_y_buenas_practicas"
-  nivel: "basico"
-  tags: ["proceso", "desarrollo"]
-
-respuesta: ["Identificar el problema", "Analizar la solución existente", "Implementar el patrón", "Refactorizar el código"]
-tipo: "ordenar"
-opciones_explicitas: ["Identificar el problema", "Analizar la solución existente", "Implementar el patrón", "Refactorizar el código"]
-
-enunciado: "Ordena los pasos lógicos para la aplicación correcta de un patrón de diseño en un sistema existente:"
-
-explicacion: |
-  Primero se debe entender el problema, luego evaluar si un patrón conocido aplica, se implementa y finalmente se refactoriza para asegurar la calidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_y_buenas_practices"
-  nivel: "basico"
-  tags: ["reutilizacion", "eficiencia"]
-
-variables:
-  idx: uno_de([0, 1])
-  ejemplo: [
-    ["reutilizar", "reutilizar"],
-    ["copiar", "copiar"]
-  ]
-
-respuesta: ejemplo[idx][0
-tipo: "mc"
-opciones_explicitas: ["reutilizar", "copiar"]
-
-enunciado: "El objetivo principal de aplicar buenas prácticas y patrones es poder ________ la lógica de solución en diferentes partes del sistema sin duplicar código innecesariamente."
-
-explicacion: |
-  La reutilización es un pilar de la ingeniería de software que permite aumentar la productividad y reducir la probabilidad de errores.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_de_diseno"
-  nivel: "intermedio"
-  tags: ["creacionales", "singleton"]
-
-variables:
-  escenario: uno_de([
-    ["Gestión de conexión a base de datos", "DatabaseConnection"],
-    ["Gestión de configuración global", "ConfigManager"],
-    ["Gestión de sistema de logs", "LoggerInstance"]
-  ])
-
-enunciado: "Se requiere implementar un patrón que garantice que una clase tenga una única instancia y proporcione un punto de acceso global a ella. En el caso de un {escenario[0]}, la clase sería {escenario[1]}."
-
-opciones_explicitas: ["Singleton", "Factory", "Observer", "Strategy"]
-respuesta: "Singleton"
-tipo: "mc"
-
-explicacion: |
-  El patrón Singleton asegura que una clase tenga una única instancia durante toda la ejecución del programa, lo cual es ideal para recursos compartidos como conexiones a bases de datos o configuraciones.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_de_diseno"
-  nivel: "intermedio"
-  tags: ["comportamiento", "observer"]
-
-enunciado: "En el patrón Observer, un objeto llamado 'Subject' mantiene una lista de sus dependientes. Cuando el estado del Subject cambia, este debe notificar a sus ___ para que actualicen su estado."
-
-respuestas_validas: ["observadores", "observers", "subscriptores"]
-respuesta: "observadores"
-tipo: "completar"
-
-explicacion: |
-  El patrón Observer define una relación de uno a muchos, donde cuando un objeto cambia su estado, todos sus dependientes (observadores) son notificados automáticamente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "buenas_practicas"
-  nivel: "basico"
-  tags: ["clean_code", "refactoring"]
-
-variables:
-  caso: uno_de([
-    ["un método que calcula el IVA, aplica un descuento y luego imprime el total", "calcular_total_con_impuestos"],
-    ["un método que valida datos, conecta a la red y procesa un archivo", "procesar_archivo_seguro"]
-  ])
-
-enunciado: "Tienes un método llamado '{caso[0]}' que es demasiado largo y realiza múltiples tareas distintas. Para aplicar la técnica de 'Extract Method', deberías dividirlo en métodos más pequeños y específicos. ¿Cuál es el objetivo principal de esta práctica?"
-
-opciones_explicitas: ["Aumentar la complejidad del código", "Mejorar la legibilidad y reutilización", "Hacer que el código sea más lento", "Eliminar la necesidad de comentarios"]
-respuesta: "Mejorar la legibilidad y reutilización"
-tipo: "mc"
-
-explicacion: |
-  La extracción de métodos permite que cada función tenga una única responsabilidad (Single Responsibility Principle), facilitando la lectura y permitiendo reutilizar fragmentos de lógica en otros lugares.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "buenas_practicas"
-  nivel: "intermedio"
-  tags: ["solid", "srp"]
-
-variables:
-  clase_mala: uno_de([
-    ["Clase Usuario que guarda datos en BD y también envía emails", "Usuario"],
-    ["Clase Factura que calcula totales y también genera un PDF", "Factura"]
-  ])
-
-enunciado: "Si tenemos una clase llamada {clase_mala[0]} que realiza la lógica de negocio y además se encarga de la persistencia en base de datos y el envío de notificaciones, ¿está cumpliendo con el Principio de Responsabilidad Única (SRP)?"
-
-opciones_explicitas: [verdadero, falso]
-respuesta: falso
-tipo: "vf"
-
-explicacion: |
-  El SRP dicta que una clase debe tener una, y solo una, razón para cambiar. Si una clase maneja lógica de negocio y también detalles de infraestructura (como BD o envío de emails), viola este principio.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_de_diseno"
-  nivel: "avanzado"
-  tags: ["comportamiento", "command"]
-
-enunciado: "Para implementar correctamente el patrón Command, se deben seguir estos pasos en orden para transformar una acción en un objeto ejecutable:"
-
-opciones_explicitas: [
-    "Definir el Command con el método execute()",
-    "Crear el Receiver que contiene la lógica real",
-    "El Invoker solicita la ejecución al Command",
-    "El Cliente instancia el Command y lo vincula al Receiver"
-]
-respuesta: [
-    "Definir el Command con el método execute()",
-    "Crear el Receiver que contiene la lógica real",
-    "El Invoker solicita la ejecución al Command",
-    "El Cliente instancia el Command y lo vincula al Receiver"
-]
-tipo: "ordenar"
-
-explicacion: |
-  El patrón Command encapsula una solicitud como un objeto, permitiendo parametrizar clientes, colar solicitudes o soportar operaciones que se pueden deshacer (undo).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_de_diseno"
-  nivel: "intermedio"
-  tags: ["creacionales", "singleton"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: uno_de([
-    ["Instancia única garantizada", "Permite múltiples instancias"],
-    ["Dificulta el testing unitario", "Facilita el testing unitario"]
-  ])[idx]
-
-enunciado: "El patrón Singleton se utiliza para asegurar que una clase tenga una única instancia y proporciona un punto de acceso global a ella. Sin embargo, una crítica común es que su uso excesivo puede ___."
-
-opciones_explicitas: ["mejorar la modularidad", "crear un estado global difícil de testear", "aumentar la velocidad de ejecución", "eliminar la necesidad de clases"]
-
-respuesta: escenario[1
-tipo: mc
-
-explicacion: |
-  El patrón Singleton es criticado frecuentemente porque introduce un estado global en la aplicación, lo que dificulta el aislamiento de componentes durante las pruebas unitarias (testing), ya que el estado de la instancia persiste entre diferentes tests.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "buenas_practicas"
-  nivel: "basico"
-  tags: ["solid", "srp"]
-
-variables:
-  clase_nombre: uno_de(["GestorBaseDeDatos", "CalculadoraMatematica"])
-
-enunciado: "De acuerdo al Principio de Responsabilidad Única (SRP), una clase como {clase_nombre} debe tener una única razón para cambiar. Si esta clase además de procesar datos también se encarga de la interfaz de usuario, se está violando este principio."
-
-respuesta: falso
-tipo: vf
-
-explicacion: |
-  El SRP establece que una clase debe tener una sola responsabilidad. Si una clase maneja lógica de negocio y también la presentación (UI), se vuelve rígida y difícil de mantener, violando el principio.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_de_diseno"
-  nivel: "avanzado"
-  tags: ["inversion_de_control", "di"]
-
-variables:
-  caso: uno_de([
-    ["El objeto crea sus propias dependencias internamente.", "El objeto recibe sus dependencias desde el exterior."],
-    ["El objeto recibe sus dependencias desde el exterior.", "El objeto crea sus propias dependencias internamente."]
-  ])[0]
-
-enunciado: "En el patrón de Inyección de Dependencias (DI), el comportamiento correcto es que ___"
-
-opciones_explicitas: ["el objeto crea sus propias dependencias internamente", "el objeto recibe sus dependencias desde el exterior"]
-
-respuesta: "el objeto recibe sus dependencias desde el exterior"
-tipo: mc
-
-explicacion: |
-  La Inyección de Dependencias es una forma de Inversión de Control (IoC) donde las dependencias de un objeto se le pasan (inyectan) desde el exterior (por constructor, setter o interfaz), en lugar de que el objeto las instancie por sí mismo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_de_diseno"
-  nivel: "intermedio"
-  tags: ["creacionales", "factory"]
-
-enunciado: "Para implementar correctamente un patrón Factory Method y asegurar la extensibilidad, se deben seguir estos pasos en orden:"
-
-opciones_explicitas: ["Definir la interfaz del producto", "Crear las implementaciones concretas del producto", "Implementar la clase creadora con el método factory"]
-
-respuesta: ["Definir la interfaz del producto", "Crear las implementaciones concretas del producto", "Implementar la clase creadora con el método factory"]
-tipo: ordenar
-
-explicacion: |
-  Primero se define qué es lo que se va a crear (la interfaz del producto), luego se crean las versiones específicas (productos concretos) y finalmente se crea la lógica que decide qué producto instanciar (el método factory en la clase creadora).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "buenas_practicas"
-  nivel: "basico"
-  tags: ["calidad_codigo", "acoplamiento"]
-
-variables:
-  valor: uno_de([0, 1])
-  objetivo_acoplamiento: uno_de(["alto", "bajo"])
-  objetivo_cohesion: uno_de(["baja", "alta"])
-
-enunciado: "En un diseño de software de alta calidad, buscamos que el acoplamiento entre módulos sea ___ y que la cohesión dentro de un módulo sea ___."
-
-opciones_explicitas: ["alto y baja", "bajo y alta"]
-
-respuesta: "bajo y alta"
-tipo: mc
-
-explicacion: |
-  El acoplamiento bajo significa que los módulos son independientes y cambian poco entre sí. La cohesión alta significa que los elementos de un módulo están estrechamente relacionados y trabajan para un único objetivo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_y_buenas_practicas"
-  nivel: "intermedio"
-  tags: ["patrones_de_diseno", "conceptos_basicos"]
-
-respuesta: "algoritmo"
-tipo: completar
-respuestas_validas: ["algoritmo"]
-
-enunciado: "Mientras que un patrón de diseño es una solución general a un problema recurrente de diseño de software, un ___ es una secuencia de pasos finitos y precisos para resolver un problema computacional específico."
-
-explicacion: |
-  Un patrón de diseño es una plantilla de alto nivel para resolver problemas de estructura, mientras que un algoritmo es una receta paso a paso para realizar un cálculo o tarea.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_de_diseno"
-  nivel: "intermedio"
-  tags: ["creacionales", "singleton", "factory"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-
-respuesta: uno_de(["Singleton", "Factory"])
-tipo: mc
-opciones_explicitas: ["Singleton", "Factory"]
-
-enunciado: "Si el objetivo principal es garantizar que una clase tenga una única instancia en toda la aplicación, estamos ante un patrón ___."
-
-explicacion: |
-  El patrón Singleton asegura una instancia única, mientras que el patrón Factory se encarga de delegar la responsabilidad de la creación de objetos a una clase especializada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "buenas_practicas"
-  nivel: "avanzado"
-  tags: ["limpieza_de_codigo", "principios"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En el diseño de software orientado a objetos, una buena práctica consiste en buscar un diseño con alto acoplamiento y baja cohesión."
-
-explicacion: |
-  Es exactamente lo contrario: se busca un **bajo acoplamiento** (que los módulos sean independientes) y una **alta cohesión** (que cada módulo haga una sola cosa y la haga bien).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_de_diseno"
-  nivel: "intermedio"
-  tags: ["procesos", "desarrollo"]
-
-respuesta: ["Identificar el problema", "Elegir el patrón adecuado", "Implementar la solución", "Refactorizar si es necesario"]
-tipo: ordenar
-opciones_explicitas: ["Identificar el problema", "Elegir el patrón adecuado", "Implementar la solución", "Refactorizar si es necesario"]
-
-enunciado: "Ordene los pasos lógicos para aplicar correctamente un patrón de diseño en un proyecto de software:"
-
-explicacion: |
-  El proceso comienza con la comprensión del problema, seguido de la selección del patrón, la codificación y finalmente la revisión/refactorización para asegurar la calidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_de_diseno"
-  nivel: "avanzado"
-  tags: ["oop", "herencia", "interfaces"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  datos: [["interfaz", "interfaz"], ["clase_abstracta", "clase_abstracta"]]
-
-respuesta: datos[caso_idx][1]
-tipo: mc
-opciones_explicitas: ["interfaz", "clase_abstracta"]
-
-enunciado: "Si necesitamos definir un contrato que solo especifique comportamientos (métodos sin implementación) sin poseer estado o lógica compartida, lo más adecuado es usar una {datos[caso_idx][0]}."
-
-explicacion: |
-  Las interfaces definen "qué" puede hacer un objeto (contrato puro), mientras que las clases abstractas pueden definir "cómo" se hace algo (compartiendo código y estado) pero impidiendo la instanciación directa.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_de_diseno"
-  nivel: "intermedio"
-  tags: ["diseño", "creacionales"]
-
-variables:
-  escenario: uno_de([
-    ["Se requiere que una clase de conexión a base de datos solo tenga una instancia única en toda la aplicación.", "Singleton"],
-    ["Se requiere que un objeto pueda tener múltiples representaciones (como un checkbox o un botón) según el contexto.", "Flyweight"],
-    ["Se requiere que un objeto delegue la creación de otros objetos a una subclase.", "Factory Method"]
-  ])
-  idx: uno_de([0, 1, 2])
-
-tipo: mc
-opciones_explicitas: ["Singleton", "Flyweight", "Factory Method", "Observer"]
-
-enunciado: "Un desarrollador necesita asegurar que una clase de gestión de configuración no permita la creación de múltiples instancias, garantizando un único punto de acceso. ¿Qué patrón de diseño debe aplicar para resolver este escenario: {escenario[idx][0]}?"
-
-respuesta: escenario[idx][1
-
-explicacion: |
-  El patrón Singleton garantiza que una clase tenga una única instancia y proporciona un punto de acceso global a ella.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "buenas_practicas"
-  nivel: "basico"
-  tags: ["clean_code", "refactorizacion"]
-
-variables:
-  caso: uno_de([
-    ["Una función tiene 150 líneas de código y realiza tres tareas distintas.", "Dividir la función en funciones más pequeñas."],
-    ["Una variable se llama 'x' y su valor cambia constantemente sin contexto claro.", "Renombrar la variable con un nombre descriptivo."],
-    ["Un bloque de código se repite exactamente igual en tres archivos diferentes.", "Extraer el código repetido a una función o clase común."]
-  ])
-  idx: uno_de([0, 1, 2])
-
-tipo: completar
-respuestas_validas: ["Dividir la función en funciones más pequeñas.", "Renombrar la variable con un nombre descriptivo.", "Extraer el código repetido a una función o clase común."]
-
-enunciado: "Para mejorar la mantenibilidad del software, se detecta que: {caso[idx][0]} La acción recomendada es: ___"
-
-respuesta: caso[idx][1
-
-explicacion: |
-  La legibilidad y la reutilización son pilares de las buenas prácticas. Cada caso presentado requiere una acción de refactorización específica para cumplir con principios como SOLID o Clean Code.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "patrones_de_diseno"
-  nivel: "avanzado"
-  tags: ["comportamiento", "eventos"]
-
-variables:
-  escenario: uno_de([
-    ["Un sistema de clima donde varios sensores notifican cambios a una pantalla y a una base de datos simultáneamente.", "Observer"],
-    ["Un sistema donde un objeto complejo se construye paso a paso mediante varios métodos.", "Builder"],
-    ["Un sistema donde se envían mensajes de un emisor a múltiples receptores sin que estos se conozcan."]
-  ])
-  idx: uno_de([0, 1, 2])
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "En el escenario: {escenario[idx][0]}, el patrón de diseño que permite que un objeto (sujeto) notifique automáticamente a otros objetos (observadores) sobre cambios en su estado es el patrón {escenario[idx][0]}."
-
-explicacion: |
-  El patrón Observer define una relación de uno a muchos, de modo que cuando el objeto cambia de estado, todos sus dependientes son notificados.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "buenas_practicas"
-  nivel: "intermedio"
-  tags: ["solid", "arquitectura"]
-
-variables:
-  error_clase: uno_de([
-    ["Una clase 'Usuario' que gestiona los datos del perfil Y también se encarga de guardar el archivo en el disco.", "Responsabilidad Única"],
-    ["Una clase 'Calculadora' que solo realiza operaciones matemáticas.", "Responsabilidad Única"],
-    ["Una clase 'Reporte' que solo formatea datos para la vista."]
-  ])
-  idx: uno_de([0, 1, 2])
-
-tipo: mc
-opciones_explicitas: ["Responsabilidad Única", "Acoplamiento Fuerte", "Cohesión Baja", "Incapacidad de Testeo"]
-
-enunciado: "Analizando el siguiente caso: {error_clase[idx][0]}. La clase está violando el principio de: ___"
-
-respuesta: "Responsabilidad Única"
-
-explicacion: |
-  El Principio de Responsabilidad Única (SRP) establece que una clase debe tener una única razón para cambiar. Si una clase gestiona datos y además la persistencia, tiene dos responsabilidades.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "buenas_practicas"
-  nivel: "basico"
-  tags: ["calidad", "procesos"]
-
-variables:
-  flujo: [
-    ["Reportar error", "Asignar a desarrollador", "Corregir error", "Verificar solución", "Cerrar ticket"],
-    "Flujo de resolución de errores"
-  ]
-  idx: 0
-
-tipo: ordenar
-opciones_explicitas: ["Reportar error", "Asignar a desarrollador", "Corregir error", "Verificar solución", "Cerrar ticket"]
-respuesta: ["Reportar error", "Asignar a desarrollador", "Corregir error", "Verificar solución", "Cerrar ticket"]
-
-enunciado: "Para asegurar la calidad de software, el proceso estándar de gestión de un defecto (bug) debe seguir este orden lógico: ___"
-
-explicacion: |
-  Un flujo de trabajo ordenado permite la trazabilidad del error desde su detección hasta su validación final por parte de QA.
-```
-
-## Sección: permisos-y-usuarios (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "basico"
-  tags: ["seguridad", "conceptos"]
-
-respuesta: "permisos"
-tipo: completar
-respuestas_validas: ["permisos"]
-
-enunciado: "Las reglas que determinan qué acciones puede realizar un usuario sobre un recurso se conocen como ___."
-
-explicacion: |
-  Los permisos definen la capacidad de lectura, escritura o ejecución sobre un objeto del sistema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "basico"
-  tags: ["unix", "linux"]
-
-variables:
-  opciones: [["lectura", "escritura", "ejecución"], ["lectura", "escritura", "modificación"], ["lectura", "escritura", "borrado"]]
-  idx: uno_de([0, 1])
-
-respuesta: opciones[idx][2
-tipo: mc
-opciones_explicitas: ["lectura", "escritura", "modificación", "ejecución"]
-
-enunciado: "En un sistema de archivos estándar, además de leer y escribir, un archivo puede tener permiso de ___."
-
-explicacion: |
-  El permiso de ejecución permite que un archivo sea tratado como un programa o script.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "basico"
-  tags: ["usuarios", "seguridad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un sistema operativo, el usuario 'root' (o superusuario) tiene la capacidad de ignorar la mayoría de las restricciones de permisos del sistema."
-
-explicacion: |
-  El superusuario tiene privilegios totales sobre el núcleo y los archivos del sistema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "intermedio"
-  tags: ["seguridad", "jerarquia"]
-
-variables:
-  escenario: [["Usuario común", "Grupo", "Propietario"], ["Usuario común", "Propietario", "Grupo"], ["Usuario común", "Grupo", "Administrador"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: escenario[idx][2
-tipo: ordenar
-
-opciones_explicitas: ["Usuario común", "Grupo", "Propietario"]
-
-enunciado: "Ordena los niveles de acceso de menor a mayor jerarquía de privilegios sobre un archivo específico:"
-
-explicacion: |
-  El orden jerárquico estándar es: el usuario (dueño), el grupo al que pertenece y, finalmente, los otros usuarios.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "avanzado"
-  tags: ["acl", "seguridad"]
-
-variables:
-  tabla: [["Lista de Control de Acceso", "permisos estándar"], ["Lista de Control de Acceso", "permisos de red"], ["Lista de Control de Acceso", "permisos de hardware"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: tabla[idx][1
-tipo: mc
-opciones_explicitas: ["permisos estándar", "permisos de red", "permisos de hardware", "permisos de memoria"]
-
-enunciado: "Las ACL (Access Control Lists) se utilizan para definir ___ más granulares que los permisos tradicionales de un archivo."
-
-explicacion: |
-  Las ACL permiten asignar permisos específicos a múltiples usuarios y grupos sin depender solo del modelo propietario/grupo/otros.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "basico"
-  tags: ["linux", "permisos", "chmod"]
-
-enunciado: "Un administrador desea que un archivo llamado 'datos.txt' sea legible por el dueño, pero que nadie más pueda leerlo, escribirlo ni ejecutarlo. ¿Cuál es la representación numérica de los permisos para este archivo?"
-
-opciones_explicitas: ["644", "400", "755", "666"]
-respuesta: "400"
-tipo: "mc"
-
-explicacion: |
-  En sistemas Unix/Linux, los permisos se calculan sumando valores: Lectura (4), Escritura (2) y Ejecución (1).
-  Para el dueño (Read): 4 + 0 + 0 = 4.
-  Para el grupo (None): 0.
-  Para otros (None): 0.
-  Resultado: 400.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "basico"
-  tags: ["usuarios", "ownership"]
-
-enunciado: "Si un usuario intenta modificar un archivo que pertenece al 'root' y el usuario actual no tiene permisos de escritura, la operación será denegada."
-
-respuesta: falso
-tipo: "vf"
-
-explicacion: |
-  El sistema operativo verifica primero si el usuario es el dueño del archivo. Si no lo es, comprueba los permisos del grupo y, finalmente, los permisos para 'otros'. Si el permiso de escritura no está concedido en la categoría correspondiente, el acceso se deniega.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "intermedio"
-  tags: ["chmod", "simbolico"]
-
-variables:
-  comando_ejemplo: uno_de(["chmod u+x", "chmod g-w", "chmod o+r"])
-  resultado_esperado: uno_de(["u+x", "g-w", "o+r"])
-
-enunciado: "Si aplicamos el comando {comando_ejemplo} a un archivo, estamos modificando los permisos de forma simbólica."
-
-pasos:
-  - "Identificar el usuario (u=user, g=group, o=others)"
-  - "Identificar la acción (+ para añadir, - para quitar)"
-  - "Identificar el permiso (r, w, x)"
-
-respuesta: "resultado_esperado"
-tipo: "completar"
-respuestas_validas: ["u+x", "g-w", "o+r"]
-
-explicacion: |
-  El modo simbólico permite modificar permisos específicos sin redefinir todos los valores. 
-  En el caso de {comando_ejemplo}, estamos operando directamente sobre la categoría seleccionada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "intermedio"
-  tags: ["secuencia", "ejecucion"]
-
-enunciado: "Para que un script de Bash sea ejecutable por un usuario después de haberlo creado, se deben seguir estos pasos en orden:"
-
-opciones_explicitas: ["Crear el archivo con un editor", "Asignar permisos de ejecución con chmod", "Ejecutar el script con ./script.sh"]
-respuesta: ["Crear el archivo con un editor", "Asignar permisos de ejecución con chmod", "Ejecutar el script con ./script.sh"]
-tipo: "ordenar"
-
-explicacion: |
-  Primero el archivo debe existir (creación), luego el sistema operativo debe permitir su ejecución (permisos) y finalmente se puede lanzar el proceso (ejecución).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "avanzado"
-  tags: ["binario", "permisos"]
-
-variables:
-  valor_permiso: uno_de([6, 7, 5])
-  valor_binario: uno_de(["110", "111", "101"])
-
-enunciado: "Un archivo tiene permisos de lectura y escritura para el dueño, pero ningún permiso para el grupo ni para otros. ¿Cuál es su valor decimal y su representación binaria?"
-
-respuesta: "valor_permiso"
-tipo: "completar"
-respuestas_validas: ["6", "7", "5"]
-
-explicacion: |
-  Lectura (4) + Escritura (2) + Ejecución (0) = 6.
-  En binario: 110.
-  Si el valor fuera 7, sería 111 (rwx).
-  Si el valor fuera 5, sería 101 (r-x).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "intermedio"
-  tags: ["linux", "permisos", "directorios"]
-
-tipo: mc
-opciones_explicitas: ["Permitir leer el contenido de los archivos dentro del directorio", "Permitir listar los nombres de archivos dentro del directorio", "Permitir entrar/acceder al directorio (hacer cd)", "Permitir ejecutar archivos binarios dentro del directorio"]
-
-enunciado: "En sistemas tipo Unix, si un usuario tiene permisos de lectura (r) pero NO tiene permisos de ejecución (x) en un directorio, ¿qué acción NO podrá realizar?"
-
-respuesta: "Permitir entrar/acceder al directorio (hacer cd)"
-
-explicacion: |
-  El permiso de ejecución (x) en un directorio es el que permite al usuario 'entrar' en él (hacer `cd`) y acceder a los metadatos de los archivos que contiene. Sin `x`, no puedes acceder a los archivos aunque sepas sus nombres.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "basico"
-  tags: ["linux", "usuarios", "grupos"]
-
-variables:
-  escenario: uno_de([
-    ["archivo_A", "usuario_1", "grupo_admin"],
-    ["archivo_B", "usuario_2", "grupo_staff"],
-    ["archivo_C", "usuario_3", "grupo_dev"]
-  ])
-
-tipo: vf
-respuesta: falso
-
-enunciado: "Si el archivo {escenario[0]} tiene como dueño a {escenario[1]} y pertenece al grupo {escenario[2]}, cualquier usuario que pertenezca al grupo {escenario[2]} tiene automáticamente todos los permisos de lectura, escritura y ejecución sobre el archivo, independientemente de los permisos asignados al grupo."
-
-explicacion: |
-  Falso. El hecho de pertenecer al grupo otorga los permisos definidos para el 'grupo' en la máscara de permisos (rwx), pero estos pueden estar limitados (por ejemplo, solo lectura).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "avanzado"
-  tags: ["seguridad", "linux", "lógica"]
-
-tipo: mc
-opciones_explicitas: ["Usuario -> Grupo -> Otros", "Otros -> Grupo -> Usuario", "Usuario -> Otros -> Grupo", "El que tenga el permiso más restrictivo gana"]
-
-enunciado: "Cuando un proceso intenta acceder a un archivo, ¿en qué orden evalúa el sistema operativo los permisos de un usuario?"
-
-respuesta: "Usuario -> Grupo -> Otros"
-
-explicacion: |
-  El sistema operativo busca la coincidencia más específica primero. Si el usuario es el dueño, se aplican sus permisos y se deja de evaluar. Si no, se mira si pertenece al grupo del archivo, y si no, se aplican los permisos de 'otros'.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "basico"
-  tags: ["seguridad", "root", "sudo"]
-
-tipo: completar
-respuestas_validas: ["root", "superuser", "administrador"]
-
-enunciado: "En sistemas operativos basados en Linux, el usuario que posee todos los privilegios del sistema y puede saltarse cualquier restricción de permisos es conocido como ___."
-
-respuesta: "root"
-
-explicacion: |
-  El usuario 'root' es la cuenta de superusuario por excelencia. Aunque en contextos generales se le llame administrador, el nombre técnico del usuario con UID 0 es root.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "intermedio"
-  tags: ["comandos", "chmod", "linux"]
-
-tipo: ordenar
-opciones_explicitas: ["identificar el archivo y sus permisos actuales", "aplicar el comando chmod con los nuevos permisos", "verificar que los cambios se aplicaron correctamente"]
-
-enunciado: "Ordena los pasos lógicos para cambiar de forma segura los permisos de un archivo crítico en un servidor de producción:"
-
-respuesta: ["identificar el archivo y sus permisos actuales", "aplicar el comando chmod con los nuevos permisos", "verificar que los cambios se aplicaron correctamente"]
-
-explicacion: |
-  Antes de modificar permisos en entornos críticos, es vital saber qué estamos cambiando (usando `ls -l`) para evitar bloquear el acceso a servicios esenciales o dejar brechas de seguridad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "basico"
-  tags: ["permisos", "usuarios", "sistemas_operativos"]
-
-respuesta: "grupo"
-tipo: completar
-respuestas_validas: ["grupo"]
-
-enunciado: "Mientras que un usuario es una entidad individual con sus propios permisos, un ___ es una colección de usuarios que comparten los mismos privilegios de acceso a los recursos."
-
-explicacion: |
-  Los grupos permiten administrar permisos de manera colectiva. En lugar de asignar permisos a cada usuario uno por uno, se asignan al grupo y los usuarios se añaden a él.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "intermedio"
-  tags: ["privilegios", "root", "seguridad"]
-
-variables:
-  escenario_idx: uno_de([0,1])
-  escenarios: [
-    ["Un usuario estándar intenta modificar archivos del sistema.", "denegado"],
-    ["El superusuario (root) intenta modificar archivos del sistema.", "permitido"]
-  ]
-
-respuesta: escenarios[escenario_idx][1
-tipo: mc
-opciones_explicitas: ["denegado", "permitido", "error de sintaxis", "requiere contraseña"]
-
-enunciado: "En un sistema basado en Unix, ante el escenario: {escenarios[escenario_idx][0]}, el acceso es ___."
-
-explicacion: |
-  El usuario 'root' tiene privilegios totales sobre el sistema, mientras que un usuario estándar está restringido a su propio directorio personal y archivos para los que tenga permisos explícitos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "basico"
-  tags: ["permisos", "chmod", "linux"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un sistema de archivos Linux, el permiso de 'ejecución' (x) en un directorio permite al usuario entrar en él (hacer cd), lo cual es distinto al permiso de ejecución en un archivo, que permite correr un programa."
-
-explicacion: |
-  Es una distinción fundamental: en archivos, 'x' es ejecución; en directorios, 'x' es la capacidad de acceder al contenido del directorio (traverse).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "avanzado"
-  tags: ["seguridad", "principios"]
-
-respuesta: ["Identificar el usuario", "Asignar permisos mínimos", "Auditar el acceso"]
-tipo: ordenar
-opciones_explicitas: ["Identificar el usuario", "Asignar permisos mínimos", "Auditar el acceso"]
-
-enunciado: "Para implementar correctamente el principio de menor privilegio en la gestión de recursos, se deben seguir estos pasos en orden lógico:"
-
-explicacion: |
-  Primero se define quién es el sujeto (usuario), luego se le da solo lo que necesita para su tarea (mínimo privilegio) y finalmente se supervisa que no se desvíe de su función.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "avanzado"
-  tags: ["acl", "permisos", "seguridad"]
-
-variables:
-  es_acl: uno_de([0,1])
-  comparacion: [
-    ["permisos_tradicionales", "solo permiten definir dueño, grupo y otros"],
-    ["ACL", "permiten definir permisos específicos para múltiples usuarios"]
-  ]
-
-respuesta: comparacion[es_acl][1
-tipo: mc
-opciones_explicitas: ["solo permiten definir dueño, grupo y otros", "permiten definir permisos específicos para múltiples usuarios", "son solo para archivos comprimidos", "no se pueden usar en Linux"]
-
-enunciado: "A diferencia de los {comparacion[es_acl][0]}, las listas de control de acceso (___) ofrecen una granularidad mucho mayor."
-
-explicacion: |
-  Los permisos tradicionales (rwx para owner, group, others) son limitados. Las ACL (Access Control Lists) permiten asignar permisos a un usuario específico que no es el dueño, sin necesidad de crear un grupo nuevo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "basico"
-  tags: ["linux", "permisos"]
-
-variables:
-  datos: [["archivo_secreto.txt", "600"], ["config.sys", "644"], ["script.sh", "755"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Se desea que el archivo {datos[idx][0]} tenga permisos donde el dueño tenga lectura y escritura, pero nadie más tenga acceso. El modo octal correspondiente es ___."
-
-respuestas_validas:
-  - "600"
-
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  En sistemas tipo Unix, el primer dígito (6) representa al dueño (lectura=4 + escritura=2), el segundo (0) al grupo y el tercero (0) a otros.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "basico"
-  tags: ["usuarios", "root"]
-
-enunciado: "¿Es el usuario 'root' el superusuario que tiene control total sobre el sistema operativo, pudiendo ignorar la mayoría de las restricciones de permisos?"
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  El usuario root es el superusuario en sistemas basados en Unix/Linux y tiene privilegios máximos sobre todos los recursos del sistema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "intermedio"
-  tags: ["permisos", "octal"]
-
-variables:
-  datos: [["rwx r-- ---", "754"], ["rw- r-- r--", "644"], ["rwx rwx ---", "770"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Si un comando 'ls -l' muestra que un archivo tiene los permisos {datos[idx][0]}, ¿cuál es su representación en formato octal?"
-
-opciones_explicitas:
-  - "754"
-  - "644"
-  - "770"
-
-respuesta: datos[idx][1]
-tipo: mc
-
-explicacion: |
-  Cada bloque de tres caracteres (dueño, grupo, otros) se suma: r=4, w=2, x=1.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "intermedio"
-  tags: ["proceso", "seguridad"]
-
-enunciado: "Ordena los pasos lógicos para asegurar un archivo recién creado en un servidor compartido para que solo el usuario actual pueda leerlo y editarlo, sin que otros puedan verlo."
-
-opciones_explicitas:
-  - "Crear el archivo con el contenido necesario"
-  - "Cambiar el propietario con 'chown' si es necesario"
-  - "Restringir permisos con 'chmod 600'"
-  - "Verificar la configuración de la umask del sistema"
-
-respuesta: ["Crear el archivo con el contenido necesario", "Cambiar el propietario con 'chown' si es necesario", "Restringir permisos con 'chmod 600'", "Verificar la configuración de la umask del sistema"]
-tipo: ordenar
-
-explicacion: |
-  Para asegurar un recurso, primero se crea, se asegura la propiedad del dueño, se aplican los permisos restrictivos y se valida que la umask no haya aplicado permisos por defecto más abiertos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "permisos_y_usuarios"
-  nivel: "avanzado"
-  tags: ["umask", "permisos"]
-
-variables:
-  datos: [["022", "755"], ["027", "750"], ["077", "700"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Si la umask del sistema está configurada como {datos[idx][0]}, un nuevo archivo creado por un usuario tendrá como permiso máximo (en modo octal) el valor ___."
-
-respuestas_validas:
-  - "755"
-  - "750"
-  - "700"
-
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  La umask (User Mask) se resta de los permisos base (normalmente 777 para directorios o 666 para archivos) para determinar los permisos finales.
-```
 
 ## Sección: planificacion-de-procesos (25 preguntas)
 
@@ -1402,7 +15,9 @@ metadata:
 
 respuesta: "scheduler"
 tipo: completar
-respuestas_validas: ["scheduler", "planificador"]
+respuestas_validas:
+  - "scheduler"
+  - "planificador"
 
 enunciado: "El componente del sistema operativo encargado de decidir qué proceso en la cola de listos tendrá el control de la CPU se denomina ___."
 
@@ -1417,15 +32,11 @@ metadata:
   nivel: "intermedio"
   tags: ["tipos", "algoritmos"]
 
-variables:
-  tipo_idx: uno_de([0, 1])
-  escenario: [[0, "Preemptiva"], [1, "No preemptiva"]]
-
-respuesta: escenario[tipo_idx][1
+respuesta: "No preemptiva"
 tipo: mc
 opciones_explicitas: ["Preemptiva", "No preemptiva"]
 
-enunciado: "En un modelo de planificación {escenario[tipo_idx][1]}, una vez que un proceso toma el control de la CPU, no puede ser retirado de él hasta que finalice o se bloquee por una operación de E/S."
+enunciado: "En un modelo de planificación ___, una vez que un proceso toma el control de la CPU, no puede ser retirado de él hasta que finalice o se bloquee por una operación de E/S."
 
 explicacion: |
   En la planificación no preemptiva, el proceso mantiene la CPU hasta que termina su ejecución o realiza una llamada al sistema que lo deja en estado de espera.
@@ -1454,9 +65,9 @@ metadata:
   nivel: "intermedio"
   tags: ["estados", "secuencia"]
 
-respuesta: ["Nuevo", "Listo", "Ejecución", "Terminado"]
+respuesta_orden: ["Nuevo", "Listo", "Ejecución", "Terminado"]
 tipo: ordenar
-opciones_explicitas: ["Nuevo", "Listo", "Ejecución", "Terminado", "Esperando"]
+opciones_explicitas: ["Nuevo", "Listo", "Ejecución", "Terminado"]
 
 enunciado: "Ordene cronológicamente los estados típicos de un proceso desde su creación hasta su finalización, omitiendo el estado de espera (I/O wait):"
 
@@ -1471,15 +82,11 @@ metadata:
   nivel: "avanzado"
   tags: ["metricas", "rendimiento"]
 
-variables:
-  metrica_idx: uno_de([0, 1])
-  metrica_nombre: [["Tiempo de respuesta", "Turnaround"], ["Response Time", "Turnaround"]]
-
-respuesta: metrica_nombre[metrica_idx][0
+respuesta: "Tiempo de respuesta"
 tipo: mc
 opciones_explicitas: ["Tiempo de respuesta", "Turnaround"]
 
-enunciado: "El tiempo que transcurre desde que se envía una solicitud hasta que se produce la primera respuesta es una métrica clave llamada {metrica_nombre[metrica_idx][0]}."
+enunciado: "El tiempo que transcurre desde que se envía una solicitud hasta que se produce la primera respuesta es una métrica clave llamada ___."
 
 explicacion: |
   El 'Response Time' es vital en sistemas interactivos para garantizar que el usuario sienta que el sistema responde rápidamente.
@@ -1493,11 +100,7 @@ metadata:
   tags: ["scheduling", "fcfs", "cpu"]
 
 variables:
-  escenario: uno_de([
-    [10, 5, 8],
-    [2, 7, 4],
-    [5, 5, 5]
-  ])
+  escenario: uno_de([[10, 5, 8], [2, 7, 4], [5, 5, 5]])
 
 enunciado: "En un sistema con planificación FCFS, tres procesos llegan en el orden dado con los siguientes tiempos de ráfaga (burst time): P1: {escenario[0]}, P2: {escenario[1]} y P3: {escenario[2]}. Si el tiempo de llegada de todos es 0, ¿cuál es el tiempo de espera promedio?"
 
@@ -1521,12 +124,7 @@ metadata:
   tags: ["sjf", "scheduling", "optimal"]
 
 variables:
-  procesos: [
-    ["P1", 8],
-    ["P2", 3],
-    ["P3", 6],
-    ["P4", 2]
-  ]
+  procesos: [["P1", 8], ["P2", 3], ["P3", 6], ["P4", 2]]
 
 enunciado: "Se tiene una cola de procesos con los siguientes tiempos de ráfaga: P1: 8ms, P2: 3ms, P3: 6ms y P4: 2ms. Si el planificador utiliza el algoritmo SJF (Non-preemptive), ¿cuál es el orden de ejecución de los procesos?"
 
@@ -1546,18 +144,15 @@ metadata:
   tags: ["priority", "scheduling"]
 
 variables:
-  caso: uno_de([
-    [1, 5],
-    [10, 2],
-    [5, 8]
-  ])
+  caso: uno_de([[1, 5], [10, 2], [5, 8]])
 
 enunciado: "En un sistema operativo con planificación por prioridades (donde un número menor indica mayor prioridad), se tienen dos procesos: P1 con prioridad {caso[0]} y P2 con prioridad {caso[1]}. Si P1 llega primero, pero P2 tiene una prioridad más alta, en un sistema de planificación por prioridades NO PREEMPTIVE, ¿cuál es la prioridad del proceso que se está ejecutando actualmente si P1 ya tomó la CPU?"
 
-respuesta: "falso"
+respuesta: caso[0]
 tipo: completar
+tolerancia_abs: 0
 explicacion: |
-  En la planificación por prioridades NO PREEMPTIVE, una vez que un proceso toma la CPU, no puede ser expulsado por uno de mayor prioridad; debe esperar a que termine su ráfaga actual.
+  En la planificación por prioridades NO PREEMPTIVE, una vez que un proceso toma la CPU, no puede ser expulsado por uno de mayor prioridad; debe esperar a que termine su ráfaga actual. Por lo tanto, el proceso en ejecución sigue siendo P1, con su prioridad original ({caso[0]}).
 ```
 
 ```
@@ -1590,8 +185,8 @@ metadata:
 
 enunciado: "Ordena correctamente los estados por los que pasa un proceso desde que se crea hasta que termina su ejecución en un sistema operativo estándar:"
 
-opciones_explicitas: ["Nuevo, Listo, Ejecución, Bloqueado, Terminado", "Nuevo, Ejecución, Listo, Bloqueado, Terminado", "Nuevo, Listo, Bloqueado, Ejecución, Terminado", "Nuevo, Listo, Ejecución, Terminado, Bloqueado"]
-respuesta: ["Nuevo, Listo, Ejecución, Bloqueado, Terminado"]
+opciones_explicitas: ["Nuevo", "Listo", "Ejecución", "Bloqueado", "Terminado"]
+respuesta_orden: ["Nuevo", "Listo", "Ejecución", "Bloqueado", "Terminado"]
 tipo: ordenar
 
 explicacion: |
@@ -1623,17 +218,13 @@ metadata:
   tags: ["overhead", "context_switch"]
 
 variables:
-  escenario: uno_de([
-    ["El sistema operativo guarda el estado de los registros del proceso A para cargar el proceso B.", "Cambio de contexto"],
-    ["El procesador ejecuta instrucciones de un proceso de usuario de forma continua.", "Ejecución"],
-    ["Un proceso solicita acceso a un recurso de E/S y queda bloqueado.", "Espera de E/S"]
-  ])
+  escenario: uno_de([["El sistema operativo guarda el estado de los registros del proceso A para cargar el proceso B.", "Cambio de contexto"], ["El procesador ejecuta instrucciones de un proceso de usuario de forma continua.", "Ejecución"], ["Un proceso solicita acceso a un recurso de E/S y queda bloqueado.", "Espera de E/S"]])
 
 enunciado: "En el siguiente escenario, ¿qué acción se está describiendo?: {escenario[0]}"
 
 opciones_explicitas: ["Cambio de contexto", "Ejecución", "Espera de E/S"]
 
-respuesta: escenario[1
+respuesta: escenario[1]
 
 tipo: mc
 
@@ -1648,18 +239,11 @@ metadata:
   nivel: "avanzado"
   tags: ["algoritmos", "sjf", "eficiencia"]
 
-variables:
-  caso: uno_de([
-    [10, 2, 5],
-    [1, 8, 4],
-    [5, 5, 5]
-  ])
+enunciado: "Se tienen tres procesos con tiempos de ráfaga de CPU (burst time) de 10, 2 y 5 ms respectivamente. Si aplicamos el algoritmo Shortest Job First (SJF) sin preempción, ordena los tiempos de ráfaga de menor a mayor (ese es el orden de ejecución):"
 
-enunciado: "Se tienen tres procesos con tiempos de ráfaga de CPU (burst time) de {caso[0]}, {caso[1]} y {caso[2]} ms respectivamente. Si aplicamos el algoritmo Shortest Job First (SJF) sin preempción, el orden de ejecución de los procesos será el indicado por sus tiempos de ráfaga (de menor a mayor):"
+opciones_explicitas: ["10", "2", "5"]
 
-opciones_explicitas: ["{caso[1]}, {caso[2]}, {caso[0]}", "{caso[0]}, {caso[1]}, {caso[2]}", "{caso[2]}, {caso[1]}, {caso[0]}"]
-
-respuesta: ["{caso[1]}", "{caso[2]}", "{caso[0]}"]
+respuesta_orden: ["2", "5", "10"]
 
 tipo: ordenar
 
@@ -1680,7 +264,9 @@ tipo: completar
 
 enunciado: "En un sistema de planificación basado en prioridades, si los procesos de alta prioridad llegan constantemente, los procesos de baja prioridad pueden no recibir tiempo de CPU nunca, un fenómeno conocido como ___."
 
-respuestas_validas: ["inanición", "starvation"]
+respuestas_validas:
+  - "inanición"
+  - "starvation"
 
 explicacion: |
   La inanición ocurre cuando un proceso es ignorado indefinidamente porque el planificador siempre elige otros procesos con mayor prioridad o que se ajustan mejor a un criterio específico.
@@ -1726,10 +312,7 @@ metadata:
   nivel: "intermedio"
   tags: ["algoritmos", "scheduling"]
 
-variables:
-  escenario: uno_de([["Round Robin", "FCFS"], ["FCFS", "Round Robin"]])
-
-respuesta: escenario[0
+respuesta: "Round Robin"
 tipo: mc
 
 opciones_explicitas: ["Round Robin", "FCFS"]
@@ -1747,7 +330,7 @@ metadata:
   nivel: "basico"
   tags: ["estados", "ciclo_de_vida"]
 
-respuesta: ["Creado", "Listo", "Ejecución", "Bloqueado", "Terminado"]
+respuesta_orden: ["Creado", "Listo", "Ejecución", "Bloqueado", "Terminado"]
 tipo: ordenar
 
 opciones_explicitas: ["Creado", "Listo", "Ejecución", "Bloqueado", "Terminado"]
@@ -1768,7 +351,9 @@ metadata:
 respuesta: "cambio de contexto"
 tipo: completar
 
-respuestas_validas: ["cambio de contexto", "context switch"]
+respuestas_validas:
+  - "cambio de contexto"
+  - "context switch"
 
 enunciado: "El proceso de guardar el estado de un proceso que está en uso por la CPU para cargar el estado de un nuevo proceso se denomina ___."
 
@@ -1783,15 +368,13 @@ metadata:
   nivel: "intermedio"
   tags: ["prioridad", "scheduling"]
 
-variables:
-  caso: uno_de([[10, "Prioridad"], [5, "Tiempo de ráfaga"]])
+respuesta: "la prioridad"
+tipo: completar
+respuestas_validas:
+  - "la prioridad"
+  - "prioridad"
 
-respuesta: caso[1
-tipo: mc
-
-opciones_explicitas: ["Prioridad", "Tiempo de ráfaga"]
-
-enunciado: "En un algoritmo de planificación basado en el tiempo de ráfaga (Shortest Job First), el criterio de decisión para elegir el siguiente proceso es el valor de {caso[0]}. ¿En qué se diferencia este criterio de un algoritmo basado en {caso[1]}?"
+enunciado: "En un algoritmo de planificación Shortest Job First (SJF), el criterio de decisión para elegir el siguiente proceso es el tiempo de ráfaga. En cambio, un algoritmo de planificación por prioridades toma su decisión basándose en ___."
 
 explicacion: |
   En SJF se busca minimizar el tiempo de espera promedio priorizando procesos cortos. En el de prioridad, se busca atender primero tareas críticas independientemente de su duración.
@@ -1805,11 +388,12 @@ metadata:
   tags: ["scheduler", "round_robin", "cpu"]
 
 variables:
-  datos: [[10, 4], [15, 5], [8, 3]]
+  datos: [[10, 2], [15, 3], [8, 1]]
   idx: uno_de([0, 1, 2])
   quantum: 4
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0
@@ -1848,7 +432,7 @@ metadata:
   nivel: "basico"
   tags: ["estados", "process_control_block"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Es verdadero que un proceso en estado 'Waiting' (Esperando) se encuentra actualmente utilizando la CPU para ejecutar sus instrucciones?"
@@ -1864,14 +448,10 @@ metadata:
   nivel: "intermedio"
   tags: ["fifo", "fcfs"]
 
-variables:
-  orden: [[2, 5, 8], [5, 2, 8], [8, 5, 2]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: orden[idx
 tipo: ordenar
 
 opciones_explicitas: [2, 5, 8]
+respuesta_orden: [2, 5, 8]
 
 enunciado: "Se tienen tres procesos que llegan a la cola de listos en el siguiente orden de tiempo de llegada: P1 (t=2), P2 (t=5) y P3 (t=8). Si el planificador utiliza el algoritmo FCFS (First-Come, First-Served), ordene la secuencia de ejecución de los procesos."
 
@@ -1887,14 +467,17 @@ metadata:
   tags: ["turnaround", "waiting_time"]
 
 variables:
-  datos: [[12, 5], [20, 10], [15, 7]]
+  datos: [12, 20, 15]
   idx: uno_de([0, 1, 2])
 
-respuesta: datos[idx][1
+respuesta: datos[idx]
 tipo: completar
-respuestas_validas: [5, 10, 7]
+respuestas_validas:
+  - 12
+  - 20
+  - 15
 
-enunciado: "Un proceso llega al sistema en el tiempo 0. Su tiempo de ráfaga de CPU es de {datos[idx][0]} ms. Si el proceso termina exactamente cuando su tiempo de ejecución se completa sin esperas adicionales de E/S, su tiempo de retorno (turnaround time) es de ___ ms."
+enunciado: "Un proceso llega al sistema en el tiempo 0. Su tiempo de ráfaga de CPU es de {datos[idx]} ms. Si el proceso termina exactamente cuando su tiempo de ejecución se completa sin esperas adicionales de E/S, su tiempo de retorno (turnaround time) es de ___ ms."
 
 explicacion: |
   El tiempo de retorno (turnaround time) es el tiempo transcurrido desde que el proceso llega hasta que termina. En este caso simple: Turnaround = Tiempo de finalización - Tiempo de llegada.
@@ -1911,7 +494,9 @@ metadata:
 
 respuesta: "molde"
 tipo: completar
-respuestas_validas: ["molde", "plantilla"]
+respuestas_validas:
+  - "molde"
+  - "plantilla"
 
 enunciado: "En la programación orientada a objetos, una clase se define como un ___ para crear objetos."
 
@@ -1927,10 +512,10 @@ metadata:
   tags: ["poo", "atributos", "metodos"]
 
 opciones_explicitas: ["Estado (datos)", "Acciones (comportamiento)", "Ambas anteriores"]
-respuesta: "Ambas anteriores"
+respuesta: "Estado (datos)"
 tipo: mc
 
-enunciado: "Un objeto se compone de atributos que representan su {estado} y métodos que representan su {comportamiento}. ¿Qué representan los atributos?"
+enunciado: "Un objeto se compone de atributos que representan su estado y métodos que representan su comportamiento. ¿Qué representan los atributos?"
 
 explicacion: |
   Los atributos son variables que almacenan el estado o las características de un objeto, mientras que los métodos son funciones que definen lo que el objeto puede hacer.
@@ -1959,16 +544,11 @@ metadata:
   nivel: "intermedio"
   tags: ["poo", "clases", "objetos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["Perro", "Fido"], ["Auto", "Toyota"]]
-  respuestas: [["Fido es una instancia de Perro", "Toyota es una instancia de Auto"]]
-
-respuesta: datos[escenario_idx][1
+respuesta: "Fido es una instancia concreta de la clase Perro"
 tipo: mc
-opciones_explicitas: ["datos[escenario_idx][0]", "datos[escenario_idx][1]"]
+opciones_explicitas: ["Fido es una instancia concreta de la clase Perro", "Perro es una instancia de Fido", "Fido y Perro son la misma cosa", "Ninguna clase puede tener objetos"]
 
-enunciado: "Si tenemos la clase {datos[escenario_idx][0]}, la afirmación correcta sobre un objeto es que {datos[escenario_idx][1]}."
+enunciado: "Si tenemos la clase 'Perro' y un objeto llamado 'Fido' creado a partir de ella, ¿cuál de las siguientes afirmaciones es correcta?"
 
 explicacion: |
   La clase es la definición abstracta (Perro), mientras que el objeto es la realización concreta con datos específicos (Fido).
@@ -1982,7 +562,7 @@ metadata:
   tags: ["poo", "ordenar", "proceso"]
 
 opciones_explicitas: ["Definir la clase", "Declarar la variable", "Instanciar el objeto"]
-respuesta: ["Definir la clase", "Declarar la variable", "Instanciar el objeto"]
+respuesta_orden: ["Definir la clase", "Declarar la variable", "Instanciar el objeto"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para tener un objeto listo para usar en memoria:"
@@ -2016,15 +596,14 @@ metadata:
   tags: ["atributos", "estado"]
 
 variables:
-  escenario: uno_de([
-    ["color", "marca", "modelo"],
-    ["modelo", "color", "marca"],
-    ["marca", "modelo", "color"]
-  ])
+  escenario: uno_de([["color", "marca", "modelo"], ["modelo", "color", "marca"], ["marca", "modelo", "color"]])
 
-respuesta: escenario[0
+respuesta: escenario[0]
 tipo: "completar"
-respuestas_validas: ["color", "marca", "modelo"]
+respuestas_validas:
+  - "color"
+  - "marca"
+  - "modelo"
 
 enunciado: "Si definimos una clase 'Auto' con las propiedades 'color', 'marca' y 'modelo', estas propiedades se conocen como ___."
 
@@ -2055,7 +634,7 @@ metadata:
   nivel: "intermedio"
   tags: ["instanciacion", "orden"]
 
-respuesta: ["Definir la clase", "Instanciar el objeto", "Acceder a sus atributos"]
+respuesta_orden: ["Definir la clase", "Instanciar el objeto", "Acceder a sus atributos"]
 tipo: "ordenar"
 opciones_explicitas: ["Acceder a sus atributos", "Instanciar el objeto", "Definir la clase"]
 
@@ -2073,14 +652,10 @@ metadata:
   tags: ["metodos", "calculo"]
 
 variables:
-  datos: uno_de([
-    [5.0, 10.0, 50.0],
-    [3.0, 4.0, 12.0],
-    [2.0, 6.0, 12.0]
-  ])
+  datos: uno_de([[5.0, 10.0, 50.0], [3.0, 4.0, 12.0], [2.0, 6.0, 12.0]])
 
-respuesta: datos[2
-tipo: "input"
+respuesta: datos[2]
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Tenemos una clase 'Rectangulo' con los atributos 'base' y 'altura'. Si un objeto de esta clase tiene base = {datos[0]} y altura = {datos[1]}, ¿cuál es el valor resultante del método 'calcular_area()'?"
@@ -2117,17 +692,11 @@ metadata:
   nivel: "intermedio"
   tags: ["memoria", "alcance"]
 
-variables:
-  escenario: uno_de([
-    ["Atributo de instancia", "valor_especifico"],
-    ["Atributo de clase", "valor_compartido"]
-  ])
-
-respuesta: escenario[1
+respuesta: "Atributo de clase"
 tipo: mc
 opciones_explicitas: ["Atributo de instancia", "Atributo de clase"]
 
-enunciado: "Si definimos una variable dentro de una clase pero fuera de cualquier método, y dicha variable es compartida por todos los objetos de esa clase, estamos ante un: {escenario[0]}."
+enunciado: "Si definimos una variable dentro de una clase pero fuera de cualquier método, y dicha variable es compartida por todos los objetos de esa clase, estamos ante un: ___."
 
 explicacion: |
   Los atributos de clase pertenecen a la clase misma y se comparten entre todas las instancias, mientras que los de instancia son únicos para cada objeto.
@@ -2142,7 +711,10 @@ metadata:
 
 respuesta: "constructor"
 tipo: completar
-respuestas_validas: ["constructor", "init", "inicializador"]
+respuestas_validas:
+  - "constructor"
+  - "init"
+  - "inicializador"
 
 enunciado: "Un error común al programar POO es olvidar definir el método _________ (o constructor), lo que impide que los atributos de un objeto se inicialicen correctamente al momento de su creación."
 
@@ -2173,7 +745,7 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo_ejecucion"]
 
-respuesta: ["Definir clase", "Instanciar objeto", "Acceder a atributos/métodos"]
+respuesta_orden: ["Definir clase", "Instanciar objeto", "Acceder a atributos/métodos"]
 tipo: ordenar
 opciones_explicitas: ["Definir clase", "Instanciar objeto", "Acceder a atributos/métodos"]
 
@@ -2192,7 +764,10 @@ metadata:
 
 respuesta: "molde"
 tipo: completar
-respuestas_validas: ["molde", "plantilla", "definicion"]
+respuestas_validas:
+  - "molde"
+  - "plantilla"
+  - "definicion"
 
 enunciado: "Si comparamos la relación entre un plano de construcción y una casa real, la clase actúa como el plano, mientras que el objeto es la ___."
 
@@ -2207,14 +782,11 @@ metadata:
   nivel: "basico"
   tags: ["poo", "atributos", "metodos"]
 
-variables:
-  es_estado: uno_de([true, false])
-
-respuesta: uno_de(["estado", "comportamiento"])
+respuesta: "estado"
 tipo: mc
 opciones_explicitas: ["estado", "comportamiento"]
 
-enunciado: "En el paradigma de POO, la principal distinción es que los atributos representan el {es_estado}, mientras que los métodos representan el comportamiento."
+enunciado: "En el paradigma de POO, la principal distinción es que los atributos representan el ___, mientras que los métodos representan el comportamiento."
 
 pasos:
   - "Identificar qué elemento define las características (datos)."
@@ -2247,7 +819,7 @@ metadata:
   nivel: "intermedio"
   tags: ["poo", "ciclo_de_vida"]
 
-respuesta: ["Definición de clase", "Instanciación de objeto", "Llamada a método"]
+respuesta_orden: ["Definición de clase", "Instanciación de objeto", "Llamada a método"]
 tipo: ordenar
 opciones_explicitas: ["Definición de clase", "Instanciación de objeto", "Llamada a método"]
 
@@ -2310,9 +882,12 @@ variables:
 
 enunciado: "En la programación orientada a objetos, los métodos representan el comportamiento de un objeto. Si tenemos un método llamado '{accion[0]}', su propósito funcional es {accion[1]}."
 
-respuesta: accion[1
+respuesta: accion[1]
 tipo: completar
-respuestas_validas: ["aumentar_velocidad", "decir_hola", "cambiar_estado"]
+respuestas_validas:
+  - "aumentar_velocidad"
+  - "decir_hola"
+  - "cambiar_estado"
 
 explicacion: |
   Los métodos son funciones definidas dentro de una clase que operan sobre los atributos del objeto o realizan acciones específicas.
@@ -2343,7 +918,7 @@ metadata:
 
 enunciado: "Para implementar correctamente una clase con atributos y métodos, ¿cuál es el orden lógico de definición en la estructura de la clase?"
 
-respuesta: ["Definir atributos", "Definir métodos", "Instanciar objeto"]
+respuesta_orden: ["Definir atributos", "Definir métodos", "Instanciar objeto"]
 tipo: ordenar
 opciones_explicitas: ["Definir atributos", "Definir métodos", "Instanciar objeto"]
 
@@ -2369,3 +944,1382 @@ tipo: vf
 explicacion: |
   Aunque dos objetos tengan los mismos valores en sus atributos, cada instancia ocupa un lugar distinto en la memoria y tiene una identidad única.
 ```
+
+## Sección: interrupciones (24 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "basico"
+  tags: ["definicion", "concepto"]
+
+respuesta: "una señal que detiene la ejecución actual"
+tipo: completar
+
+enunciado: "Una interrupción es, básicamente, ___ que detiene momentáneamente la ejecución actual del procesador para atender una prioridad más urgente."
+
+explicacion: |
+  Las interrupciones son señales (de hardware o software) que permiten al procesador responder a eventos externos o internos de manera prioritaria, pausando temporalmente la tarea en curso.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "basico"
+  tags: ["procesador", "ejecucion"]
+
+variables:
+  instruccion_actual: random(1, 100)
+
+respuesta: "terminar"
+tipo: completar
+
+enunciado: "Cuando un dispositivo envía una señal de interrupción, el procesador ___ de ejecutar la instrucción actual por seguridad antes de atender la solicitud."
+
+explicacion: |
+  Por razones de seguridad y consistencia del estado, el procesador completa la instrucción en curso antes de cambiar el flujo de control hacia el vector de interrupción.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["vector", "memoria", "hardware"]
+
+variables:
+  tipo_vector: uno_de(["dirección", "registro", "puerto"])
+
+respuesta: "dirección"
+tipo: completar
+
+enunciado: "El procesador busca una ___ de memoria especial llamada Vector de Interrupción, la cual apunta al Controlador de Interrupción."
+
+explicacion: |
+  El Vector de Interrupción es una tabla en la memoria que mapea cada tipo de interrupción a la dirección de memoria de su respectivo manejador (ISR).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["isr", "software", "hardware"]
+
+respuesta: "Controlador de Interrupción"
+tipo: completar
+
+enunciado: "La dirección del Vector de Interrupción apunta a un pequeño programa específico conocido como el ___ (o ISR)."
+
+explicacion: |
+  El Controlador de Interrupción (Interrupt Service Routine) es el código que se ejecuta para manejar el evento de interrupción específico.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "basico"
+  tags: ["hardware", "ejemplos"]
+
+variables:
+  dispositivo: uno_de(["teclado", "mouse", "disco duro"])
+
+respuesta: "hardware"
+tipo: completar
+
+enunciado: "La señal generada por el clic de un botón del mouse o el ingreso de datos por un ___ es un ejemplo clásico de interrupción de hardware."
+
+explicacion: |
+  Las interrupciones de hardware son generadas por dispositivos físicos externos para informar al procesador de que necesitan atención.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["software", "excepciones"]
+
+variables:
+  error: uno_de(["dividir por cero", "acceso ilegal", "memoria llena"])
+
+respuesta: "software"
+tipo: completar
+
+enunciado: "Las interrupciones generadas por el propio programa o sistema operativo para reportar errores como dividir por cero se llaman interrupciones de ___."
+
+explicacion: |
+  Estas se denominan interrupciones de software, traps o excepciones, y surgen de la ejecución del código o del OS, no de un dispositivo físico externo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["estado", "pila", "registros"]
+
+variables:
+  componente: uno_de(["registros", "memoria cache", "disco"])
+
+respuesta: "registros"
+tipo: completar
+
+enunciado: "El controlador de interrupción guarda el estado actual del procesador, como los valores de los ___, en la pila de memoria."
+
+explicacion: |
+  Guardar el estado de los registros es crucial para que el programa principal pueda reanudarse sin notar la pausa, restaurando los valores exactos previos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["comparacion", "clasificacion"]
+
+variables:
+  origen_hw: "dispositivo fisico"
+  origen_sw: "programa o OS"
+
+respuesta: "dispositivo fisico"
+tipo: completar
+
+enunciado: "Las interrupciones de hardware son generadas por ___, mientras que las de software son generadas por el propio programa o el sistema operativo."
+
+explicacion: |
+  La distinción clave es el origen: hardware proviene de señales eléctricas externas; software proviene de instrucciones ejecutadas o condiciones del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["ejemplos", "software"]
+
+variables:
+  accion: uno_de(["solicitar servicio del sistema", "leer teclado", "enviar datos a red"])
+
+respuesta: "solicitar servicio del sistema"
+tipo: completar
+
+enunciado: "Un ejemplo común de interrupción de software es cuando un programa necesita ___ del sistema operativo."
+
+explicacion: |
+  Las llamadas al sistema (syscalls) a menudo se implementan mediante interrupciones de software para pasar el control al kernel de manera segura.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["vector", "estructura"]
+
+variables:
+  funcion: uno_de(["identificar", "ejecutar", "borrar"])
+
+respuesta: "identificar"
+tipo: completar
+
+enunciado: "El Vector de Interrupción ayuda al procesador a ___ qué dispositivo solicitó la atención mediante la dirección correspondiente."
+
+explicacion: |
+  Cada entrada en la tabla de vectores apunta a la rutina específica para manejar ese tipo de interrupción, facilitando su identificación y procesamiento.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "basico"
+  tags: ["hardware", "redes"]
+
+variables:
+  evento: uno_de(["llegada de datos", "pérdida de energía", "actualización de driver"])
+
+respuesta: "llegada de datos"
+tipo: completar
+
+enunciado: "La ___ por una tarjeta de red es un evento que genera una interrupción de hardware."
+
+explicacion: |
+  Cuando la NIC (Network Interface Card) recibe paquetes, envía una señal de interrupción al CPU para procesar la información sin esperar polling.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["proceso", "secuencia"]
+
+variables:
+  paso1: "pausa"
+  paso2: "atender"
+  paso3: "reanudar"
+
+respuesta: "pausa"
+tipo: completar
+
+enunciado: "El proceso sigue esta secuencia: 1. La interrupción ___ la tarea actual. 2. Se atiende la prioridad. 3. Se reanuda la tarea original."
+
+explicacion: |
+  La secuencia lógica es siempre: interrupción (pausa), servicio (atención) y retorno (reanudación).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "basico"
+  tags: ["hardware", "dispositivos"]
+
+respuesta: "dispositivo físico externo"
+tipo: completar
+
+enunciado: "El clic del mouse es generado por un ___."
+
+explicacion: |
+  El mouse es un periférico externo que envía señales eléctricas al controlador de interrupciones del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["software", "errores"]
+
+respuesta: "el propio programa o el sistema operativo"
+tipo: completar
+
+enunciado: "Una división por cero es generada por ___."
+
+explicacion: |
+  Es un error de ejecución detectado por la CPU o el OS, clasificándose como interrupción de software (trap).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["memoria", "direccion"]
+
+variables:
+  tipo_memoria: uno_de(["especial", "común", "virtual"])
+
+respuesta: "especial"
+tipo: completar
+
+enunciado: "El procesador busca una dirección de memoria ___ llamada Vector de Interrupción."
+
+explicacion: |
+  Esta dirección es parte de una tabla reservada y especial en la memoria, no memoria de usuario común.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "basico"
+  tags: ["hardware", "almacenamiento"]
+
+variables:
+  evento: uno_de(["fin de lectura", "inicio de formateo", "cambio de nombre"])
+
+respuesta: "fin de lectura"
+tipo: completar
+
+enunciado: "El ___ por un disco duro es un evento que genera una interrupción de hardware."
+
+explicacion: |
+  Cuando el disco termina de leer/escribir datos, envía una interrupción al CPU para informar que está listo para la siguiente operación.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["estado", "registros"]
+
+variables:
+  dato: uno_de(["valores de los registros", "código del programa", "datos del usuario"])
+
+respuesta: "valores de los registros"
+tipo: completar
+
+enunciado: "El controlador de interrupción guarda en la pila los ___ del procesador."
+
+explicacion: |
+  Los registros contienen el estado de ejecución (PC, flags, datos temporales) y deben preservarse para la reanudación.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "basico"
+  tags: ["definicion", "señal"]
+
+respuesta: "señal"
+tipo: completar
+
+enunciado: "Una interrupción es una ___ de hardware o software."
+
+explicacion: |
+  Es una señal eléctrica (hardware) o una instrucción especial (software) que notifica al CPU.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["comparacion", "origen"]
+
+variables:
+  origen_hw: "externo"
+  origen_sw: "interno"
+
+respuesta: "externo"
+tipo: completar
+
+enunciado: "Las interrupciones de hardware tienen un origen ___, mientras que las de software son internas."
+
+explicacion: |
+  Hardware: externo (periféricos). Software: interno (CPU/OS).
+```
+
+```
+metadata:
+  materia: "informática"
+  tema: "interrupciones"
+  nivel: "basico"
+  tags: ["analogia", "comprension"]
+
+variables:
+  situacion: uno_de(["leer un libro", "cocinar", "conducir"])
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La analogía de dejar de leer un libro para contestar el teléfono y luego retomar la lectura ilustra correctamente el concepto de pausa y recuperación de estado en las interrupciones."
+
+explicacion: |
+  La analogía es precisa: la tarea principal (leer) se pausa, se atiende la prioridad (teléfono) y luego se restaura el estado (continuar leyendo desde donde se quedó).
+```
+
+```
+metadata:
+  materia: "informática"
+  tema: "interrupciones"
+  nivel: "basico"
+  tags: ["espera_pasiva", "concepto"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Sin interrupciones, el procesador actuaría de manera activa, ejecutando tareas paralelas sin detenerse."
+
+explicacion: |
+  Falso. Sin interrupciones, el procesador tendría que esperar pasivamente o hacer polling (preguntar constantemente), lo cual es ineficiente y no es "actividad paralela" en el sentido moderno.
+```
+
+```
+metadata:
+  materia: "informática"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["vector", "memoria"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "El Vector de Interrupción apunta a la dirección de memoria donde comienza el código del Controlador de Interrupción."
+
+explicacion: |
+  Verdadero. Es la tabla que mapea cada tipo de interrupción a su rutina de servicio correspondiente.
+```
+
+```
+metadata:
+  materia: "informática"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["polling", "comparacion"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "El método de 'preguntar constantemente' a los dispositivos si tienen datos se conoce como polling y es menos eficiente que el uso de interrupciones."
+
+explicacion: |
+  Verdadero. El polling consume ciclos de CPU innecesariamente, mientras que las interrupciones son eventos asíncronos que despiertan al CPU solo cuando es necesario.
+```
+
+```
+metadata:
+  materia: "informática"
+  tema: "interrupciones"
+  nivel: "intermedio"
+  tags: ["transparencia", "recuperacion"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "El objetivo de guardar y restaurar el estado es que el programa principal no note que hubo una pausa."
+
+explicacion: |
+  Verdadero. La interrupción debe ser transparente para el programa en ejecución, devolviéndolo a un estado idéntico al previo.
+```
+
+## Sección: proceso-programa-en-ejecucion (26 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "basico"
+  tags: ["sistemas_operativos", "conceptos_basicos"]
+
+respuesta: "proceso"
+tipo: completar
+respuestas_validas:
+  - "proceso"
+
+enunciado: "Un programa es una entidad pasiva que reside en el disco, mientras que un ___ es una entidad activa que se encuentra en ejecución en la memoria."
+
+explicacion: |
+  Un programa es simplemente un conjunto de instrucciones almacenadas (archivo), mientras que un proceso es la instancia de ese programa en ejecución, con su propio estado, contador de programa y recursos asignados.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "basico"
+  tags: ["sistemas_operativos"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["El archivo 'navegador.exe' guardado en el disco", "programa"], ["La ventana del navegador abierta y consumiendo RAM", "proceso"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["programa", "proceso"]
+
+enunciado: "Identifica la naturaleza del siguiente elemento: {datos[escenario_idx][0]}"
+
+explicacion: |
+  {datos[escenario_idx][0]} se clasifica como {datos[escenario_idx][1]} porque la distinción principal radica en si la entidad está estática en almacenamiento o activa en la CPU/Memoria.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "intermedio"
+  tags: ["gestion_de_procesos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que un proceso incluye no solo el código del programa, sino también el estado de los registros de la CPU y la memoria asignada?"
+
+explicacion: |
+  Verdadero. A diferencia del programa (que es solo código), el proceso es un paquete completo que incluye el contexto de ejecución (registros, pila, contador de programa, etc.).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "intermedio"
+  tags: ["gestion_de_procesos"]
+
+respuesta_orden: ["Programa en disco", "Carga en memoria", "Ejecución en CPU", "Terminación"]
+tipo: ordenar
+opciones_explicitas: ["Programa en disco", "Carga en memoria", "Ejecución en CPU", "Terminación"]
+
+enunciado: "Ordena cronológicamente las etapas desde que un usuario hace doble clic en un ejecutable hasta que este finaliza:"
+
+explicacion: |
+  El flujo lógico comienza con el archivo estático en el almacenamiento secundario, pasa a la memoria principal (RAM) mediante el cargador, se asigna tiempo de CPU para su ejecución y finalmente se liberan los recursos al terminar.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "basico"
+  tags: ["sistemas_operativos"]
+
+respuesta: 3
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si un usuario abre tres instancias diferentes de un mismo editor de texto (por ejemplo, tres notas distintas), ¿cuántos procesos habrá corriendo en el sistema operativo?"
+
+pasos:
+  - "Identificar si las instancias son entidades independientes en ejecución."
+  - "Relacionar cada instancia con un proceso distinto."
+
+explicacion: |
+  Cada vez que se inicia una instancia de un programa, el sistema operativo crea un proceso nuevo con su propio espacio de memoria y estado, aunque el código base (el programa) sea el mismo. Por lo tanto, con tres instancias hay 3 procesos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "basico"
+  tags: ["sistemas_operativos"]
+
+respuesta: 3
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si un usuario abre tres instancias diferentes de un mismo editor de texto (por ejemplo, tres notas distintas), ¿cuántos procesos habrá corriendo en el sistema operativo?"
+
+explicacion: |
+  Cada vez que se inicia una instancia de un programa, el sistema operativo crea un proceso nuevo con su propio espacio de memoria y estado. Por lo tanto, hay 3 procesos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "basico"
+  tags: ["conceptos_basicos", "sistema_operativo"]
+
+respuesta: "proceso"
+tipo: "mc"
+opciones_explicitas: ["archivo_en_disco", "proceso", "instruccion_suelta", "hardware"]
+
+enunciado: "Un programa es una entidad pasiva que reside en el almacenamiento secundario; cuando este programa se carga en la memoria y se inicia su ejecución, se convierte en un ___."
+
+explicacion: |
+  Un programa es un conjunto de instrucciones estáticas (un archivo en el disco), mientras que un proceso es la entidad dinámica que representa la ejecución de dichas instrucciones en la memoria RAM y con recursos asignados.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "basico"
+  tags: ["diferencias"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "Si abro dos instancias diferentes del mismo navegador web (por ejemplo, dos ventanas independientes), estoy ejecutando dos procesos distintos que comparten el mismo código de programa original."
+
+explicacion: |
+  Es verdadero. El programa (el ejecutable en disco) es el mismo, pero cada ventana es un proceso independiente con su propio espacio de memoria, contador de programa y estado de ejecución.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "intermedio"
+  tags: ["memoria", "estructura"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["recursos_asignados", "estado_de_ejecucion"], ["memoria_y_registros", "contexto_del_cpu"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: "completar"
+respuestas_validas:
+  - "recursos_asignados"
+  - "estado_de_ejecucion"
+  - "memoria_y_registros"
+  - "contexto_del_cpu"
+
+enunciado: "Al pasar de un programa a un proceso, el sistema operativo debe asignar {datos[escenario_idx][0]} para que este pueda operar."
+
+explicacion: |
+  Un proceso no es solo el código; requiere recursos como memoria (stack, heap), archivos abiertos y el estado de los registros del procesador para poder ejecutarse.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "intermedio"
+  tags: ["estados_proceso"]
+
+tipo: "ordenar"
+opciones_explicitas: ["creado", "listo", "ejecutando", "terminado"]
+respuesta_orden: ["creado", "listo", "ejecutando", "terminado"]
+
+enunciado: "Ordena las etapas lógicas por las que pasa un proceso desde que se solicita su creación hasta que finaliza su tarea:"
+
+explicacion: |
+  El flujo estándar es: 1. Creado (se solicita), 2. Listo (esperando CPU), 3. Ejecutando (usando CPU), 4. Terminado (finaliza).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "avanzado"
+  tags: ["gestion_recursos"]
+
+respuesta: "controlar_ejecucion"
+tipo: "mc"
+opciones_explicitas: ["gestionar_recursos", "controlar_ejecucion", "modificar_el_codigo", "eliminar_el_archivo"]
+
+enunciado: "Cuando un programa se convierte en proceso, el Sistema Operativo asume la tarea de gestionar_recursos para asegurar que el proceso pueda realizar su función sin interferir con otros. Además, ¿qué otra tarea clave realiza el SO sobre el proceso?"
+
+explicacion: |
+  El SO actúa como un administrador que asigna tiempo de CPU y memoria (gestiona recursos) y decide cuándo un proceso puede estar en la CPU (controla la ejecución).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "basico"
+  tags: ["conceptos_basicos", "sistemas_operativos"]
+
+respuesta: "proceso"
+tipo: mc
+opciones_explicitas: ["archivo", "proceso", "compilador", "kernel"]
+
+enunciado: "Un programa es una entidad pasiva que reside en el disco, mientras que un ___ es una entidad activa que posee recursos del sistema (CPU, memoria, etc.)."
+
+explicacion: |
+  El programa es el código estático (un archivo en el disco), mientras que el proceso es la instancia de ese programa en ejecución, con su propio estado y recursos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "basico"
+  tags: ["recursos", "memoria"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si ejecutas dos veces el mismo archivo 'navegador.exe', tendrás un único proceso con dos ventanas abiertas."
+
+explicacion: |
+  Falso. Cada vez que ejecutas un programa, el sistema operativo crea un proceso distinto con su propio espacio de direcciones y recursos, aunque el código de origen sea el mismo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "intermedio"
+  tags: ["estructura", "memoria"]
+
+tipo: completar
+respuesta: "Contador de instrucciones"
+
+enunciado: "Un proceso requiere de un ___ para saber cuál es la próxima instrucción que debe ejecutar la CPU."
+
+explicacion: |
+  El Program Counter (PC) o Contador de Instrucciones es un registro que indica la dirección de la próxima instrucción a ejecutar.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "intermedio"
+  tags: ["estados", "ciclo_de_vida"]
+
+respuesta_orden: ["Nuevo", "Listo", "Ejecución", "Bloqueado", "Terminado"]
+tipo: ordenar
+opciones_explicitas: ["Nuevo", "Listo", "Ejecución", "Bloqueado", "Terminado"]
+
+enunciado: "Ordena los estados típicos por los que pasa un proceso en un sistema operativo, desde su creación hasta su finalización:"
+
+explicacion: |
+  El ciclo de vida estándar implica la creación (Nuevo), la espera en cola (Listo), el uso de CPU (Ejecución), la espera por E/S (Bloqueado) y el cierre (Terminado).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "avanzado"
+  tags: ["memoria", "ejecucion"]
+
+tipo: completar
+respuesta: "dinámico"
+respuestas_validas:
+  - "dinámico"
+
+enunciado: "Mientras que el programa se considera un ente estático almacenado en soporte persistente, el proceso es un ente ___ que reside principalmente en la memoria RAM."
+
+explicacion: |
+  El programa es una secuencia de instrucciones en un archivo (estático), mientras que el proceso es la entidad viva que gestiona memoria y registros (dinámico).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_vs_programa"
+  nivel: "basico"
+  tags: ["sistemas_operativos", "conceptos_basicos"]
+
+tipo: mc
+opciones_explicitas: ["Un archivo estático en el disco", "Una instancia activa en memoria", "Una instrucción de CPU", "Un lenguaje de programación"]
+
+enunciado: "La diferencia fundamental es que un programa es una entidad pasiva almacenada en el disco, mientras que un proceso es..."
+
+respuesta: "Una instancia activa en memoria"
+
+explicacion: |
+  Un programa es el conjunto de instrucciones estáticas (el archivo .exe, por ejemplo), mientras que un proceso es la ejecución real de ese programa, con su propio estado, memoria y recursos asignados por el sistema operativo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estados_del_proceso"
+  nivel: "intermedio"
+  tags: ["gestion_procesos", "so"]
+
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que un programa puede estar en estado 'listo' (ready) o 'bloqueado' (blocked)?"
+
+respuesta: falso
+
+explicacion: |
+  Los estados (listo, bloqueado, ejecución, etc.) son atributos de un PROCESO, no de un programa. Un programa es solo el código en disco y no tiene estados de ejecución hasta que el sistema operativo crea un proceso a partir de él.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "estructura_proceso"
+  nivel: "avanzado"
+  tags: ["memoria", "so"]
+
+variables:
+  datos: [["Contador de instrucciones", "Contexto de CPU"], ["Contenido de memoria", "Estado de E/S"], ["Identificador de proceso (PID)", "Puntero de pila"]]
+  idx: uno_de([0, 1, 2])
+
+tipo: completar
+respuestas_validas:
+  - "Contador de instrucciones"
+  - "Contenido de memoria"
+  - "Identificador de proceso (PID)"
+
+enunciado: "Un proceso contiene información dinámica que un programa no posee, como por ejemplo el {datos[idx][0]}."
+
+respuesta: datos[idx][0]
+
+explicacion: |
+  Mientras que el programa contiene el código, el proceso contiene el contexto de ejecución: el contador de programa (PC), los registros de la CPU, la pila (stack) y el estado de los recursos de entrada/salida.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "ciclo_de_vida"
+  nivel: "intermedio"
+  tags: ["planificacion", "so"]
+
+tipo: ordenar
+opciones_explicitas: ["Creación", "Listo", "Ejecución", "Terminación"]
+
+enunciado: "Ordene correctamente las etapas típicas por las que pasa un proceso desde que se carga hasta que finaliza su tarea:"
+
+respuesta_orden: ["Creación", "Listo", "Ejecución", "Terminación"]
+
+explicacion: |
+  El ciclo de vida estándar implica: 1. Creación (el SO asigna recursos), 2. Listo (esperando CPU), 3. Ejecución (usando la CPU) y 4. Terminación (liberación de recursos).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "identificacion_procesos"
+  nivel: "basico"
+  tags: ["pid", "so"]
+
+tipo: completar
+
+enunciado: "Si un usuario abre dos veces el mismo navegador (ej. Chrome), el sistema operativo crea dos procesos distintos. ¿Cómo se denomina el identificador único numérico que el SO asigna a cada uno de estos procesos para distinguirlos?"
+
+respuesta: "PID"
+respuestas_validas:
+  - "PID"
+  - "pid"
+  - "Process Identifier"
+  - "identificador de proceso"
+
+explicacion: |
+  Aunque el código sea el mismo, cada instancia en ejecución es un proceso distinto y posee un identificador único llamado PID (Process Identifier), asignado por el sistema operativo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "basico"
+  tags: ["conceptos_basicos", "sistema_operativo"]
+
+variables:
+  datos: [["El archivo 'editor.exe' está guardado en el disco duro", "falso"], ["El proceso 'editor.exe' está usando 500MB de RAM", "verdadero"]]
+  idx: uno_de([0, 1])
+
+respuestas_validas:
+  - datos[idx][1]
+respuesta: datos[idx][1]
+tipo: completar
+enunciado: "Analice el siguiente escenario: {datos[idx][0]}. ¿Es esto una descripción de un proceso en ejecución?"
+
+explicacion: |
+  Un programa es una entidad pasiva (un archivo en disco), mientras que un proceso es una entidad activa (un programa en ejecución con recursos asignados como RAM y CPU).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "basico"
+  tags: ["diferencias"]
+
+respuesta: "proceso"
+tipo: completar
+respuestas_validas:
+  - "proceso"
+
+enunciado: "Un programa es una secuencia de instrucciones almacenadas en un medio no volátil, mientras que un ___ es la instancia de esa secuencia siendo ejecutada por la CPU."
+
+explicacion: |
+  La diferencia clave es el estado de actividad: el programa es el código estático y el proceso es la ejecución dinámica.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "intermedio"
+  tags: ["recursos", "gestion_memoria"]
+
+respuesta: "Un proceso requiere: [Memoria, CPU, Registradores]"
+tipo: mc
+opciones_explicitas: ["Un proceso requiere: [Memoria, CPU, Registradores]", "El programa en disco requiere: [Almacenamiento, Instrucciones, Nombre de archivo]"]
+
+enunciado: "¿Cuál de las siguientes opciones describe correctamente los recursos que gestiona un proceso en ejecución, a diferencia de un programa almacenado en disco?"
+
+explicacion: |
+  Un proceso necesita recursos volátiles y de procesamiento (RAM, CPU, registros) para poder operar.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "intermedio"
+  tags: ["ciclo_vida", "ordenar"]
+
+respuesta_orden: ["Cargar programa", "Asignar memoria", "Ejecutar instrucciones", "Liberar recursos"]
+tipo: ordenar
+opciones_explicitas: ["Cargar programa", "Asignar memoria", "Ejecutar instrucciones", "Liberar recursos"]
+
+enunciado: "Ordene los pasos lógicos que ocurren desde que un usuario hace doble clic en un ejecutable hasta que el proceso finaliza:"
+
+explicacion: |
+  El sistema operativo primero carga el código del disco a la RAM, asigna memoria y recursos, la CPU ejecuta las instrucciones y, finalmente, el proceso se cierra liberando los recursos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "proceso_programa_en_ejecucion"
+  nivel: "avanzado"
+  tags: ["instancias", "pids"]
+
+variables:
+  datos: [["Se abren dos ventanas independientes del navegador Chrome", "Dos procesos distintos"], ["Se abre un solo archivo de texto", "Un solo proceso"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Dos procesos distintos", "Un solo proceso"]
+
+enunciado: "Analice el escenario: {datos[idx][0]}. ¿Qué sucede a nivel de sistema operativo?"
+
+explicacion: |
+  Cada vez que se inicia una instancia de un programa, el sistema operativo crea un proceso nuevo con su propio espacio de memoria y un PID (Process Identifier) único, incluso si el código fuente es el mismo.
+```
+
+## Sección: protocolo-http-peticion-respuesta (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["http", "redes", "web"]
+
+tipo: vf
+
+enunciado: "En el modelo de comunicación de la web, el dispositivo que inicia una comunicación solicitando un recurso (como una página HTML) se denomina cliente."
+
+respuesta: verdadero
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["http", "peticion", "metodo"]
+
+tipo: mc
+
+opciones_explicitas: ["URL", "Método HTTP", "Código de estado", "Cuerpo de la respuesta"]
+
+enunciado: "En una petición HTTP, el verbo que indica la acción a realizar (como GET o POST) se conoce como:"
+
+respuesta: "Método HTTP"
+
+explicacion: |
+  El método HTTP (GET, POST, PUT, DELETE, etc.) define la naturaleza de la operación que el cliente desea realizar sobre el recurso.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["http", "secuencia"]
+
+tipo: ordenar
+
+opciones_explicitas: ["El cliente envía una petición HTTP", "El servidor procesa la solicitud", "El servidor envía una respuesta HTTP", "El cliente recibe el contenido"]
+
+enunciado: "Ordena los pasos que describen el flujo básico de una interacción HTTP:"
+
+respuesta_orden: ["El cliente envía una petición HTTP", "El servidor procesa la solicitud", "El servidor envía una respuesta HTTP", "El cliente recibe el contenido"]
+
+explicacion: |
+  La comunicación HTTP es un protocolo de tipo petición-respuesta: el cliente siempre debe iniciar la comunicación para que el servidor pueda responder.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "intermedio"
+  tags: ["http", "status_code"]
+
+tipo: completar
+
+respuestas_validas:
+  - "404"
+
+enunciado: "Si un cliente solicita una página que no existe en el servidor, el servidor responderá con un código de estado HTTP de tipo ___."
+
+respuesta: "404"
+
+explicacion: |
+  El código 404 indica que el servidor no pudo encontrar el recurso solicitado. El código 200 indica que la petición fue exitosa.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "intermedio"
+  tags: ["http", "cabeceras"]
+
+tipo: mc
+
+opciones_explicitas: ["Cabeceras (Headers)", "Cuerpo (Body)", "Línea de estado", "Todas las anteriores"]
+
+enunciado: "Una respuesta HTTP estándar está compuesta por varias partes. ¿Cuál de las siguientes opciones describe los elementos que contienen metadatos sobre el contenido (como el tipo de archivo o la fecha)?"
+
+respuesta: "Cabeceras (Headers)"
+
+explicacion: |
+  Las cabeceras (Headers) contienen información adicional sobre la respuesta, mientras que el cuerpo (Body) contiene el recurso solicitado propiamente dicho.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["http", "web", "cliente_servidor"]
+
+respuesta: "GET"
+tipo: completar
+respuestas_validas:
+  - "GET"
+
+enunciado: "Cuando un usuario escribe una URL en su navegador y presiona Enter, el navegador actúa como cliente y envía una petición de tipo ___ al servidor para solicitar el recurso."
+
+explicacion: |
+  En el protocolo HTTP, el método GET se utiliza para solicitar y recibir una representación de un recurso (como un archivo HTML) del servidor.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "intermedio"
+  tags: ["http", "status_code"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["200 OK", "El recurso se encontró y se envió correctamente."], ["404 Not Found", "El servidor no pudo encontrar el recurso solicitado."]]
+
+respuesta: datos[idx][0]
+tipo: mc
+opciones_explicitas: ["200 OK", "404 Not Found", "500 Internal Server Error", "301 Moved Permanently"]
+
+enunciado: "Si el servidor responde con el código de estado {datos[idx][1]}, ¿cuál es el mensaje de estado que acompaña a la respuesta?"
+
+explicacion: |
+  El código de estado indica el resultado de la petición. El código 200 indica éxito, mientras que el 404 indica que la URL no existe en el servidor.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["http", "estado"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El protocolo HTTP es un protocolo 'stateful', lo que significa que el servidor recuerda automáticamente quién es el cliente entre una petición y otra sin ayuda de cookies o tokens."
+
+explicacion: |
+  Falso. HTTP es un protocolo 'stateless' (sin estado). Cada petición es independiente; para mantener el estado (como un carrito de compras), se usan mecanismos adicionales como Cookies o sesiones.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["http", "flujo"]
+
+respuesta_orden: ["Petición del cliente", "Procesamiento en el servidor", "Respuesta del servidor", "Renderizado en el navegador"]
+tipo: ordenar
+opciones_explicitas: ["Petición del cliente", "Procesamiento en el servidor", "Respuesta del servidor", "Renderizado en el navegador"]
+
+enunciado: "Ordena cronológicamente los pasos que ocurren desde que un usuario hace clic en un enlace hasta que ve la página en su pantalla:"
+
+explicacion: |
+  El flujo comienza con el cliente enviando la petición, el servidor la procesa, envía la respuesta y finalmente el navegador interpreta (renderiza) el contenido.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "intermedio"
+  tags: ["http", "error_server"]
+
+respuesta: 500
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si un servidor web experimenta un error inesperado en su código interno (por ejemplo, un error de sintaxis en un script de backend) al intentar procesar una petición, el servidor responderá con un código de estado de la familia 5xx. ¿Cuál es el código específico para 'Internal Server Error'?"
+
+pasos:
+  - "Identificar la familia de errores (4xx para cliente, 5xx para servidor)."
+  - "Localizar el código estándar para errores genéricos del servidor."
+
+explicacion: |
+  El código 500 indica que el servidor encontró una condición inesperada que le impidió completar la petición, generalmente debido a un error en el software del lado del servidor.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["http", "cliente_servidor"]
+
+respuesta: "cliente"
+tipo: completar
+respuestas_validas:
+  - "cliente"
+
+enunciado: "En el modelo de comunicación HTTP, el dispositivo o software que inicia una comunicación solicitando un recurso es el ___."
+
+explicacion: |
+  El modelo cliente-servidor se basa en que el cliente inicia la interacción mediante una petición (request), y el servidor espera estas peticiones para responder (response).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "intermedio"
+  tags: ["estado", "stateless"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El protocolo HTTP es considerado un protocolo 'stateful' (con estado), lo que significa que el servidor recuerda automáticamente todas las peticiones anteriores de un mismo cliente."
+
+explicacion: |
+  Falso. HTTP es un protocolo 'stateless' (sin estado). Cada petición es independiente y el servidor no guarda información de sesiones previas por defecto, por eso se usan cookies o tokens para mantener el estado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "intermedio"
+  tags: ["estructura_respuesta", "status_code"]
+
+respuesta: "404"
+tipo: mc
+opciones_explicitas: ["404", "200", "500", "301"]
+
+enunciado: "Si un cliente solicita una página que no existe en el servidor, el servidor responderá con un código de estado de la serie 4xx. En este caso específico, el código será ___."
+
+explicacion: |
+  Los códigos de la serie 4xx indican errores del cliente (Client Error), como el 404 cuando el recurso no se encuentra.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["flujo_comunicacion"]
+
+respuesta_orden: ["Petición del cliente", "Procesamiento en servidor", "Respuesta del servidor"]
+tipo: ordenar
+opciones_explicitas: ["Petición del cliente", "Procesamiento en servidor", "Respuesta del servidor"]
+
+enunciado: "Ordena cronológicamente los pasos de una interacción estándar de HTTP:"
+
+explicacion: |
+  Primero el cliente envía la petición, luego el servidor la procesa y finalmente envía la respuesta con el contenido solicitado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "intermedio"
+  tags: ["metodos_http", "verbos"]
+
+respuesta: "GET"
+tipo: mc
+opciones_explicitas: ["GET", "POST", "PUT", "DELETE"]
+
+enunciado: "Si un cliente desea simplemente recuperar (leer) la información de un recurso sin modificar nada en el servidor, el método HTTP más apropiado es ___."
+
+explicacion: |
+  El método GET se utiliza para solicitar la representación de un recurso específico, mientras que POST, PUT y DELETE se utilizan para crear, actualizar o eliminar datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "intermedio"
+  tags: ["redes", "protocolos", "modelo_cliente_servidor"]
+
+respuesta: "capa_aplicacion"
+tipo: completar
+respuestas_validas:
+  - "capa_aplicacion"
+  - "capa_aplicacion"
+
+enunciado: "Mientras que TCP opera en la capa de transporte para garantizar la entrega de datos, el protocolo HTTP opera en la ___."
+
+explicacion: |
+  HTTP es un protocolo de la capa de aplicación que define cómo se estructuran los mensajes, mientras que TCP se encarga de la conexión y fiabilidad del transporte de esos mensajes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["protocolos", "web"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "A diferencia de FTP, que está diseñado principalmente para la transferencia de archivos, HTTP es un protocolo orientado a la transferencia de hipermedios (páginas web, imágenes, etc.). ¿Es correcto afirmar que HTTP es un protocolo sin estado (stateless) por diseño?"
+
+explicacion: |
+  HTTP es stateless porque cada petición es independiente; el servidor no guarda memoria de peticiones anteriores por defecto (para eso se usan cookies o sesiones).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "intermedio"
+  tags: ["metodos", "http"]
+
+respuesta: "POST"
+tipo: mc
+opciones_explicitas: ["GET", "POST", "PUT", "DELETE"]
+
+enunciado: "En el modelo petición-respuesta, ¿qué método se distingue por enviar los datos del cuerpo en el cuerpo del mensaje y no en la URL, siendo ideal para enviar información sensible?"
+
+explicacion: |
+  El método GET envía los parámetros en la URL (query string), lo que los hace visibles en el historial y logs. El método POST envía la información en el cuerpo (body) de la petición.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["flujo", "modelo_cliente_servidor"]
+
+respuesta_orden: ["Petición del cliente", "Procesamiento del servidor", "Respuesta del servidor"]
+tipo: ordenar
+opciones_explicitas: ["Petición del cliente", "Procesamiento del servidor", "Respuesta del servidor"]
+
+enunciado: "Ordena cronológicamente los pasos que ocurren en un ciclo estándar de comunicación HTTP:"
+
+explicacion: |
+  El cliente inicia la comunicación con una petición (Request), el servidor procesa dicha petición y finalmente devuelve una respuesta (Response) al cliente.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["codigos_estado", "http"]
+
+respuesta: "Error del cliente"
+tipo: mc
+opciones_explicitas: ["Éxito del servidor", "Redirección", "Error del cliente", "Error del servidor"]
+
+enunciado: "Un código de estado HTTP de la serie 400 (como el 404) se distingue de un código de la serie 500 porque el primero indica un ___."
+
+explicacion: |
+  Los códigos 4xx indican que el problema reside en la petición del cliente (ej. recurso no encontrado), mientras que los 5xx indican que el servidor falló al procesar una petición válida.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["http", "cliente_servidor", "web"]
+
+variables:
+  datos: [["El navegador solicita la página principal de un sitio", "GET"], ["El navegador envía un formulario de registro", "POST"], ["El navegador solicita un archivo de estilo CSS", "GET"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "En el modelo cliente-servidor, cuando {datos[idx][0]}, el método HTTP utilizado es ___."
+
+respuestas_validas:
+  - "GET"
+  - "POST"
+  - "PUT"
+  - "DELETE"
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  El método HTTP indica la acción que el cliente desea realizar. 'GET' se usa para solicitar datos y 'POST' para enviar datos al servidor.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "intermedio"
+  tags: ["http", "status_code", "headers"]
+
+variables:
+  datos: [["404", "Not Found"], ["200", "OK"], ["500", "Internal Server Error"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si el servidor responde con el código de estado {datos[idx][0]}, el significado de la respuesta es ___."
+
+opciones_explicitas: ["Not Found", "OK", "Internal Server Error", "Bad Request"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  Los códigos de estado HTTP informan sobre el resultado de la petición: 2xx son éxitos, 4xx errores del cliente y 5xx errores del servidor.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "basico"
+  tags: ["conceptos", "modelo_cliente_servidor"]
+
+enunciado: "En el protocolo HTTP, el servidor es el encargado de iniciar la comunicación enviando una petición al cliente para que este pueda mostrar contenido."
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  Es falso. En el modelo petición-respuesta de HTTP, el cliente (como un navegador) siempre inicia la comunicación mediante una petición, y el servidor responde a dicha petición.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "intermedio"
+  tags: ["flujo", "protocolo"]
+
+enunciado: "Ordena los pasos que ocurren durante una navegación web estándar:"
+
+opciones_explicitas: ["El cliente envía una petición HTTP", "El servidor procesa la petición", "El servidor envía una respuesta HTTP", "El cliente recibe y renderiza el contenido"]
+respuesta_orden: ["El cliente envía una petición HTTP", "El servidor procesa la petición", "El servidor envía una respuesta HTTP", "El cliente recibe y renderiza el contenido"]
+tipo: ordenar
+
+explicacion: |
+  El flujo lógico es: Petición (Cliente) -> Procesamiento (Servidor) -> Respuesta (Servidor) -> Renderizado (Cliente).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "protocolo_http_peticion_respuesta"
+  nivel: "intermedio"
+  tags: ["metodos", "http"]
+
+variables:
+  datos: [["actualizar un recurso existente", "PUT"], ["eliminar un recurso", "DELETE"], ["enviar datos para crear un nuevo usuario", "POST"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si el objetivo de la operación es {datos[idx][0]}, el método HTTP más adecuado es ___."
+
+opciones_explicitas: ["GET", "POST", "PUT", "DELETE"]
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  Cada método tiene una semántica definida: GET para lectura, POST para creación, PUT para actualización y DELETE para eliminación.
+```
+

@@ -1,6 +1,6 @@
-# Examen jefe — Maestro del Átomo y Biomoléculas
+# Examen jefe — [PENDIENTE #841]
 
-> Logro #141. Demuestra dominio de partículas subatómicas, balanceo de ecuaciones, biomoléculas, tetravalencia del carbono y cinética de reacciones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **110 preguntas totales** en 5/5 secciones.
+> Logro #841. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -51,7 +51,9 @@ metadata:
 
 respuesta: "neutron"
 tipo: completar
-respuestas_validas: ["neutron", "neutrón"]
+respuestas_validas:
+  - "neutron"
+  - "neutrón"
 
 enunciado: "La partícula sin carga eléctrica, ubicada en el núcleo, es el ___."
 
@@ -154,7 +156,8 @@ metadata:
 
 respuesta: "ion"
 tipo: completar
-respuestas_validas: ["ion"]
+respuestas_validas:
+  - "ion"
 
 enunciado: "Un átomo cargado eléctricamente, por ganar o perder electrones, se llama ___."
 
@@ -220,7 +223,8 @@ metadata:
 
 respuesta: "nucleones"
 tipo: completar
-respuestas_validas: ["nucleones"]
+respuestas_validas:
+  - "nucleones"
 
 enunciado: "Los protones y neutrones juntos se llaman ___."
 
@@ -272,7 +276,7 @@ variables:
   protones: random(1, 20)
 
 respuesta: protones
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Un átomo neutro tiene {protones} protones. ¿Cuántos electrones tiene este átomo?"
@@ -323,7 +327,8 @@ metadata:
 
 respuesta: "positiva"
 tipo: completar
-respuestas_validas: ["positiva"]
+respuestas_validas:
+  - "positiva"
 
 enunciado: "Un catión tiene carga ___ porque perdió electrones."
 
@@ -340,7 +345,8 @@ metadata:
 
 respuesta: "negativa"
 tipo: completar
-respuestas_validas: ["negativa"]
+respuestas_validas:
+  - "negativa"
 
 enunciado: "Un anión tiene carga ___ porque ganó electrones."
 
@@ -1003,7 +1009,9 @@ metadata:
 
 respuesta: "energetica"
 tipo: completar
-respuestas_validas: ["energetica", "energética"]
+respuestas_validas:
+  - "energetica"
+  - "energética"
 
 enunciado: "La función principal de los glúcidos es la ___ rápida."
 
@@ -1036,7 +1044,8 @@ metadata:
 
 respuesta: "grasos"
 tipo: completar
-respuestas_validas: ["grasos"]
+respuestas_validas:
+  - "grasos"
 
 enunciado: "Un triglicérido está formado por 1 glicerol y 3 ácidos ___."
 
@@ -1295,7 +1304,8 @@ metadata:
 
 respuesta: "catenacion"
 tipo: completar
-respuestas_validas: ["catenacion"]
+respuestas_validas:
+  - "catenacion"
 
 enunciado: "La propiedad del carbono de formar largas cadenas consigo mismo se llama ___."
 
@@ -1451,7 +1461,8 @@ metadata:
 
 respuesta: "alcanos"
 tipo: completar
-respuestas_validas: ["alcanos"]
+respuestas_validas:
+  - "alcanos"
 
 enunciado: "La distinción entre enlace simple, doble y triple entre carbonos es lo que separa a los ___, alquenos y alquinos."
 
@@ -1632,7 +1643,8 @@ metadata:
 
 respuesta: "tiempo"
 tipo: completar
-respuestas_validas: ["tiempo"]
+respuestas_validas:
+  - "tiempo"
 
 enunciado: "La velocidad de reacción se mide como el cambio de concentración dividido el cambio de ___."
 
@@ -1668,7 +1680,7 @@ variables:
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][0] / datos[idx][1]
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá la velocidad media de una reacción si el cambio de concentración es {datos[idx][0]} unidades y el intervalo de tiempo es {datos[idx][1]} segundos."
@@ -1689,7 +1701,8 @@ metadata:
 
 respuesta: "activacion"
 tipo: completar
-respuestas_validas: ["activacion"]
+respuestas_validas:
+  - "activacion"
 
 enunciado: "La energía mínima que necesitan las partículas para reaccionar al chocar se llama energía de ___."
 
@@ -1872,7 +1885,8 @@ metadata:
 
 respuesta: "equilibrio"
 tipo: completar
-respuestas_validas: ["equilibrio"]
+respuestas_validas:
+  - "equilibrio"
 
 enunciado: "Un catalizador permite que una reacción alcance el ___ de forma más rápida, sin cambiar las concentraciones finales."
 
@@ -1944,3 +1958,4 @@ enunciado: "Guardar comida en la heladera retrasa su descomposición porque baja
 explicacion: |
   Correcto. A menor temperatura, menos partículas alcanzan la energía de activación necesaria para las reacciones de descomposición: todo va más lento.
 ```
+

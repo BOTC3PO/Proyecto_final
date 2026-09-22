@@ -1,8 +1,2210 @@
-# Examen jefe — Maestro de la Huella Global
+# Examen jefe — [PENDIENTE #799]
 
-> Logro #130. Completaste el parcial dominando la geografía industrial, los indicadores sociales y la huella ecológica. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **117 preguntas totales** en 5/5 secciones.
+> Logro #799. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **136 preguntas totales** en 5/5 secciones.
 
 ---
+
+## Sección: sig-imagenes-satelitales (20 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "basico"
+  tags: ["teledeteccion", "vocabulario"]
+
+enunciado: "¿Qué es una imagen satelital?"
+tipo: mc
+opciones_explicitas:
+  - "Una medición de energía reflejada o emitida por la superficie terrestre, captada por un satélite en órbita"
+  - "Una foto tomada por un avión a baja altura"
+  - "Un mapa dibujado a mano por un cartógrafo"
+respuesta: "Una medición de energía reflejada o emitida por la superficie terrestre, captada por un satélite en órbita"
+
+explicacion: |
+  La disciplina que estudia esto se llama teledetección: percibir algo
+  a distancia, sin tocarlo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["teledeteccion"]
+
+enunciado: "¿Cómo se llama la disciplina que estudia cómo captar información de la superficie terrestre a distancia, sin contacto directo?"
+tipo: mc
+opciones_explicitas:
+  - "Teledetección"
+  - "Trilateración"
+  - "Geocodificación"
+respuesta: "Teledetección"
+
+explicacion: |
+  Es el nombre técnico de "percibir algo a distancia" — cubre tanto
+  imágenes satelitales como aéreas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["bandas_espectrales"]
+
+enunciado: "¿En qué se diferencia un sensor satelital de una cámara de fotos común?"
+tipo: mc
+opciones_explicitas:
+  - "El sensor satelital suele captar además bandas de luz invisibles al ojo humano, como el infrarrojo"
+  - "El sensor satelital sólo capta blanco y negro"
+  - "No hay ninguna diferencia real"
+respuesta: "El sensor satelital suele captar además bandas de luz invisibles al ojo humano, como el infrarrojo"
+
+explicacion: |
+  Una cámara común capta sólo luz visible (rojo, verde, azul); los
+  satélites suelen sumar infrarrojo, térmico y microondas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["bandas_espectrales", "agricultura"]
+
+enunciado: "¿Por qué la banda de infrarrojo cercano es clave para medir la salud de un cultivo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque la vegetación sana la refleja mucho más que la vegetación enferma o el suelo desnudo"
+  - "Porque el infrarrojo cercano muestra el color real de las plantas"
+  - "Porque sólo detecta agua, no plantas"
+respuesta: "Porque la vegetación sana la refleja mucho más que la vegetación enferma o el suelo desnudo"
+
+explicacion: |
+  Esa diferencia de reflectancia entre vegetación sana y enferma es la
+  base de los índices de vegetación usados en agricultura de precisión.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["bandas_espectrales"]
+
+enunciado: "¿Qué mide la banda de infrarrojo térmico de un satélite?"
+tipo: mc
+opciones_explicitas:
+  - "La temperatura de la superficie"
+  - "El color visible del terreno"
+  - "La altitud del satélite"
+respuesta: "La temperatura de la superficie"
+
+explicacion: |
+  Es útil para detectar incendios activos, islas de calor urbano o
+  temperatura del mar.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["bandas_espectrales"]
+
+enunciado: "¿Qué ventaja tiene la banda de microondas (radar) frente a la luz visible o el infrarrojo?"
+tipo: mc
+opciones_explicitas:
+  - "Puede atravesar nubes y funcionar de noche"
+  - "Muestra colores más realistas"
+  - "Sólo funciona sobre el océano"
+respuesta: "Puede atravesar nubes y funcionar de noche"
+
+explicacion: |
+  Es clave para monitorear zonas con clima muy nublado (como la selva
+  amazónica) o hacer seguimiento constante sin depender de luz solar.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["bandas_espectrales"]
+
+enunciado: "¿Qué es una imagen \"falso color\" en teledetección?"
+tipo: mc
+opciones_explicitas:
+  - "Combinar bandas invisibles al ojo humano en una imagen para resaltar lo que se quiere estudiar"
+  - "Una imagen tomada de noche sin luz"
+  - "Un error de calibración del sensor"
+respuesta: "Combinar bandas invisibles al ojo humano en una imagen para resaltar lo que se quiere estudiar"
+
+explicacion: |
+  Ej.: mostrar vegetación en rojo intenso combinando bandas de
+  infrarrojo, para verla mejor que en color natural.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "basico"
+  tags: ["usos"]
+
+enunciado: "¿Cómo se mide deforestación con imágenes satelitales?"
+tipo: mc
+opciones_explicitas:
+  - "Comparando imágenes del mismo lugar en dos fechas distintas"
+  - "Contando la cantidad de satélites que pasan por la zona"
+  - "Midiendo la temperatura del aire"
+respuesta: "Comparando imágenes del mismo lugar en dos fechas distintas"
+
+explicacion: |
+  La diferencia entre las dos imágenes muestra cuánto bosque
+  desapareció en ese período.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "basico"
+  tags: ["usos"]
+
+enunciado: "¿Qué información usan los satélites meteorológicos como base del pronóstico del tiempo?"
+tipo: mc
+opciones_explicitas:
+  - "Imágenes de nubes, ciclones y frentes"
+  - "Sólo la posición GPS de las ciudades"
+  - "El color del cielo visto desde el suelo"
+respuesta: "Imágenes de nubes, ciclones y frentes"
+
+explicacion: |
+  Buena parte del pronóstico del tiempo depende de imágenes satelitales
+  actualizadas constantemente.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["usos"]
+
+enunciado: "¿Para qué se usan las imágenes satelitales después de una inundación?"
+tipo: mc
+opciones_explicitas:
+  - "Para medir el área afectada comparando imágenes de antes y después"
+  - "Para calcular la posición GPS de las víctimas"
+  - "Para predecir el próximo terremoto"
+respuesta: "Para medir el área afectada comparando imágenes de antes y después"
+
+explicacion: |
+  Es el mismo principio que la detección de deforestación: comparar
+  el mismo lugar en dos momentos distintos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["usos"]
+
+enunciado: "¿Cómo se mide el crecimiento de una ciudad a lo largo de los años con imágenes satelitales?"
+tipo: mc
+opciones_explicitas:
+  - "Observando el cambio en la superficie construida entre imágenes de distintos años"
+  - "Contando la cantidad de satélites en órbita"
+  - "Midiendo sólo la temperatura del asfalto"
+respuesta: "Observando el cambio en la superficie construida entre imágenes de distintos años"
+
+explicacion: |
+  Es otro caso del mismo método de comparación temporal de imágenes.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["resolucion"]
+
+enunciado: "¿Qué indica la \"resolución espacial\" de una imagen satelital?"
+tipo: mc
+opciones_explicitas:
+  - "El tamaño real del área que representa cada píxel de la imagen"
+  - "La cantidad de colores que puede mostrar"
+  - "La velocidad del satélite en su órbita"
+respuesta: "El tamaño real del área que representa cada píxel de la imagen"
+
+explicacion: |
+  Un satélite de 10 metros de resolución no distingue nada más chico
+  que un cuadrado de 10 m de lado.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["resolucion"]
+
+enunciado: "Con un satélite de 10 metros de resolución, ¿qué pasa con dos autos estacionados uno al lado del otro?"
+tipo: mc
+opciones_explicitas:
+  - "Se ven como un solo punto, sin poder distinguirlos"
+  - "Se ven perfectamente separados y con detalle"
+  - "El satélite no puede fotografiar autos en absoluto"
+respuesta: "Se ven como un solo punto, sin poder distinguirlos"
+
+explicacion: |
+  Cada píxel de esa imagen representa un área de 10x10 m; dos autos
+  chicos caen dentro del mismo píxel.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["resolucion"]
+
+enunciado: "¿Qué compromiso suele existir entre resolución y frecuencia de paso de un satélite?"
+tipo: mc
+opciones_explicitas:
+  - "Un satélite que fotografía todo el planeta a diario suele tener menor resolución que uno especializado que pasa cada varias semanas"
+  - "No existe ningún compromiso, ambas cosas son independientes"
+  - "A mayor frecuencia de paso, siempre mayor resolución"
+respuesta: "Un satélite que fotografía todo el planeta a diario suele tener menor resolución que uno especializado que pasa cada varias semanas"
+
+explicacion: |
+  Es un trade-off real de ingeniería: cobertura amplia y frecuente vs.
+  detalle fino en un punto específico.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["cruce"]
+
+enunciado: "¿En qué se diferencia una imagen satelital del GPS?"
+tipo: mc
+opciones_explicitas:
+  - "La imagen satelital muestra una zona entera; el GPS sólo da una posición puntual"
+  - "Son exactamente la misma tecnología"
+  - "El GPS necesita cámaras y la imagen satelital no"
+respuesta: "La imagen satelital muestra una zona entera; el GPS sólo da una posición puntual"
+
+explicacion: |
+  Son dos usos distintos de satélites: uno da un punto (posición), el
+  otro da una imagen completa de una superficie.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "intermedio"
+  tags: ["teledeteccion"]
+
+enunciado: "Para tomar una imagen satelital de una zona hace falta un receptor especial instalado en esa zona."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  A diferencia del GPS (que necesita un receptor calculando su
+  posición), la imagen satelital se capta desde el satélite sin
+  necesitar nada en tierra.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "basico"
+  tags: ["bandas_espectrales"]
+
+enunciado: "Un satélite de observación terrestre sólo puede captar luz visible, igual que el ojo humano."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  La mayoría de los satélites de observación captan además bandas
+  invisibles (infrarrojo, térmico, microondas), cada una útil para
+  medir algo distinto.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "basico"
+  tags: ["cruce"]
+
+enunciado: "En una app de mapas, ¿qué capa se construye directamente a partir de imágenes satelitales?"
+tipo: mc
+opciones_explicitas:
+  - "La vista \"satélite\""
+  - "La capa de tránsito en tiempo real"
+  - "La capa de límites políticos"
+respuesta: "La vista \"satélite\""
+
+explicacion: |
+  Es la capa que muestra el terreno tal como se ve desde el espacio,
+  distinta de la capa vectorial de calles.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["bandas_espectrales"]
+
+enunciado: "Para monitorear deforestación en la selva amazónica, con nubosidad casi constante, ¿qué banda es especialmente útil?"
+tipo: mc
+opciones_explicitas:
+  - "Microondas (radar), que atraviesa las nubes"
+  - "Luz visible únicamente"
+  - "Sólo infrarrojo térmico"
+respuesta: "Microondas (radar), que atraviesa las nubes"
+
+explicacion: |
+  El radar permite captar imágenes útiles incluso con cobertura de
+  nubes casi permanente, donde la luz visible o el infrarrojo cercano
+  quedarían bloqueados.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "sig_imagenes_satelitales"
+  nivel: "avanzado"
+  tags: ["cruce"]
+
+enunciado: "De las 3 tecnologías del Sistema de Información Geográfica (mapas digitales, GPS, imágenes satelitales), ¿cuál da una imagen completa de una zona en vez de un punto o una capa de datos vectoriales?"
+tipo: mc
+opciones_explicitas:
+  - "Imágenes satelitales"
+  - "GPS"
+  - "Mapas digitales"
+respuesta: "Imágenes satelitales"
+
+explicacion: |
+  El GPS da un punto; el mapa digital organiza datos en capas
+  vectoriales (calles, edificios); la imagen satelital capta una
+  fotografía/medición completa de la superficie.
+```
+
+## Sección: recursos-actividades-economicas (22 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["recursos", "vocabulario"]
+
+enunciado: "¿Qué es un recurso natural?"
+tipo: mc
+opciones_explicitas:
+  - "Cualquier elemento del ambiente que una sociedad puede aprovechar para producir bienes o servicios"
+  - "Cualquier producto fabricado en una industria"
+  - "El dinero disponible en un territorio"
+respuesta: "Cualquier elemento del ambiente que una sociedad puede aprovechar para producir bienes o servicios"
+
+explicacion: |
+  El relieve, clima y bioma de un territorio determinan qué recursos
+  existen ahí.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["recursos"]
+
+enunciado: "¿Qué actividad económica depende directamente de tener suelo fértil, clima templado y lluvias moderadas?"
+tipo: mc
+opciones_explicitas:
+  - "Agricultura"
+  - "Minería"
+  - "Pesca"
+respuesta: "Agricultura"
+
+explicacion: |
+  Ejemplo real: la Pampa argentina, llanura con esas condiciones
+  climáticas exactas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["renovables"]
+
+enunciado: "¿Qué distingue a un recurso renovable de uno no renovable?"
+tipo: mc
+opciones_explicitas:
+  - "El renovable se regenera a un ritmo comparable al que se consume; el no renovable existe en cantidad fija y se agota"
+  - "El renovable siempre es más barato de explotar"
+  - "El no renovable siempre es un recurso energético"
+respuesta: "El renovable se regenera a un ritmo comparable al que se consume; el no renovable existe en cantidad fija y se agota"
+
+explicacion: |
+  Agua de lluvia, viento y sol se regeneran constantemente; petróleo y
+  minerales, no.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["renovables"]
+
+enunciado: "¿Cuál de estos es un recurso NO renovable?"
+tipo: mc
+opciones_explicitas:
+  - "Petróleo"
+  - "Viento"
+  - "Radiación solar"
+respuesta: "Petróleo"
+
+explicacion: |
+  Se forma en escalas de tiempo geológico, mucho más largas que
+  cualquier ritmo de consumo humano.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "avanzado"
+  tags: ["renovables"]
+
+enunciado: "¿Por qué el petróleo se clasifica como recurso no renovable a pesar de que técnicamente sigue formándose en la naturaleza?"
+tipo: mc
+opciones_explicitas:
+  - "Porque se forma en escalas de tiempo geológico, muchísimo más lentas que el ritmo al que se consume"
+  - "Porque no se puede volver a formar bajo ninguna circunstancia"
+  - "Porque no es un elemento natural"
+respuesta: "Porque se forma en escalas de tiempo geológico, muchísimo más lentas que el ritmo al que se consume"
+
+explicacion: |
+  En la práctica, para la escala de tiempo humana, es como si no se
+  regenerara.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["sectores"]
+
+enunciado: "¿Qué caracteriza al sector primario de la economía?"
+tipo: mc
+opciones_explicitas:
+  - "Extrae recursos directamente de la naturaleza sin transformarlos demasiado"
+  - "Transforma recursos en productos manufacturados"
+  - "Presta servicios en vez de producir bienes físicos"
+respuesta: "Extrae recursos directamente de la naturaleza sin transformarlos demasiado"
+
+explicacion: |
+  Agricultura, ganadería, pesca, minería y explotación forestal son
+  ejemplos de sector primario.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["sectores"]
+
+enunciado: "¿Qué hace el sector secundario de la economía?"
+tipo: mc
+opciones_explicitas:
+  - "Transforma recursos naturales en productos manufacturados"
+  - "Extrae recursos directamente de la naturaleza"
+  - "Presta servicios de salud y educación"
+respuesta: "Transforma recursos naturales en productos manufacturados"
+
+explicacion: |
+  Industria textil, alimenticia, metalúrgica y automotriz son ejemplos
+  de sector secundario.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["sectores"]
+
+enunciado: "¿Qué caracteriza al sector terciario?"
+tipo: mc
+opciones_explicitas:
+  - "Presta servicios en vez de producir bienes físicos"
+  - "Extrae recursos naturales"
+  - "Es siempre el sector más chico de cualquier economía"
+respuesta: "Presta servicios en vez de producir bienes físicos"
+
+explicacion: |
+  Comercio, educación, salud, turismo, finanzas y transporte son
+  ejemplos de sector terciario.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["sectores"]
+
+enunciado: "¿A qué sector económico pertenece la minería?"
+tipo: mc
+opciones_explicitas:
+  - "Sector primario"
+  - "Sector secundario"
+  - "Sector terciario"
+respuesta: "Sector primario"
+
+explicacion: |
+  Extrae un recurso mineral directamente de la naturaleza, sin
+  transformarlo en un producto manufacturado.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["sectores"]
+
+enunciado: "¿A qué sector económico pertenece la industria automotriz?"
+tipo: mc
+opciones_explicitas:
+  - "Sector secundario"
+  - "Sector primario"
+  - "Sector terciario"
+respuesta: "Sector secundario"
+
+explicacion: |
+  Transforma materias primas (metal, plástico, vidrio) en un producto
+  manufacturado.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["sectores"]
+
+enunciado: "¿A qué sector económico pertenece el turismo?"
+tipo: mc
+opciones_explicitas:
+  - "Sector terciario"
+  - "Sector primario"
+  - "Sector secundario"
+respuesta: "Sector terciario"
+
+explicacion: |
+  Presta un servicio (alojamiento, guía, transporte) en vez de
+  producir un bien físico.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "avanzado"
+  tags: ["sectores"]
+
+enunciado: "¿Qué sector económico suele crecer más, en proporción, a medida que una economía se desarrolla?"
+tipo: mc
+opciones_explicitas:
+  - "El sector terciario (servicios)"
+  - "El sector primario (extracción directa)"
+  - "Ninguno cambia su proporción con el desarrollo"
+respuesta: "El sector terciario (servicios)"
+
+explicacion: |
+  Es un patrón histórico observado en la mayoría de las economías que
+  se industrializan y luego se "terciarizan".
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "avanzado"
+  tags: ["sectores"]
+
+enunciado: "¿Por qué el sector secundario está \"menos atado\" al territorio local que el primario?"
+tipo: mc
+opciones_explicitas:
+  - "Porque una fábrica puede instalarse donde convenga logísticamente, no necesariamente donde está el recurso"
+  - "Porque el sector secundario no necesita ningún recurso natural"
+  - "Porque el sector secundario siempre se instala en la capital del país"
+respuesta: "Porque una fábrica puede instalarse donde convenga logísticamente, no necesariamente donde está el recurso"
+
+explicacion: |
+  A diferencia de la agricultura o la minería (atadas al lugar donde
+  está el recurso), una fábrica puede transportar la materia prima
+  desde otro lugar.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["recursos"]
+
+enunciado: "Los recursos naturales de un territorio determinan de forma automática y única qué actividades económicas se desarrollan ahí, sin margen para otras decisiones."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  La tecnología, el capital disponible y las decisiones políticas
+  también influyen — el territorio pone un piso de condiciones reales,
+  no un destino inevitable.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "avanzado"
+  tags: ["recursos"]
+
+enunciado: "¿Qué significa que el territorio pone un \"piso de condiciones reales\" para la economía, en vez de determinarla del todo?"
+tipo: mc
+opciones_explicitas:
+  - "Que hay límites reales que el territorio impone (ej.: sin costa no hay pesca marítima), aunque no elimina toda decisión humana sobre cómo aprovecharlo"
+  - "Que la economía nunca depende del territorio en absoluto"
+  - "Que sólo el sector primario depende del territorio"
+respuesta: "Que hay límites reales que el territorio impone (ej.: sin costa no hay pesca marítima), aunque no elimina toda decisión humana sobre cómo aprovecharlo"
+
+explicacion: |
+  Es el matiz entre "condiciona" y "determina" que explica
+  `teoria.md`.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "basico"
+  tags: ["recursos"]
+
+enunciado: "¿Puede un país sin salida al mar desarrollar pesca marítima?"
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Es un ejemplo directo de cómo el territorio pone un límite real —
+  puede tener pesca de agua dulce (ríos, lagos), pero no marítima.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "avanzado"
+  tags: ["argentina", "cruce"]
+
+enunciado: "¿Qué combinación de relieve/clima/bioma explica el perfil agroexportador histórico de Argentina (cereales, oleaginosas, carne)?"
+tipo: mc
+opciones_explicitas:
+  - "Llanura, clima templado y pastizal con suelo fértil de la Pampa húmeda"
+  - "Cordillera con clima muy frío"
+  - "Selva tropical con suelo pobre"
+respuesta: "Llanura, clima templado y pastizal con suelo fértil de la Pampa húmeda"
+
+explicacion: |
+  Es la misma cadena relieve → clima → bioma que ya explicó
+  `../relieve-clima-biomas/`, aplicada acá a un caso económico
+  concreto.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["recursos"]
+
+enunciado: "¿Para cuál de estos usos NO sirve típicamente el agua dulce como recurso?"
+tipo: mc
+opciones_explicitas:
+  - "Generación de energía nuclear"
+  - "Riego agrícola"
+  - "Generación de energía hidroeléctrica"
+respuesta: "Generación de energía nuclear"
+
+explicacion: |
+  La energía nuclear usa un combustible mineral (uranio), no el agua
+  como recurso energético directo (aunque el agua sí se use para
+  refrigerar la planta).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["recursos", "cruce"]
+
+enunciado: "¿Por qué el relieve montañoso suele tener más yacimientos minerales que una llanura?"
+tipo: mc
+opciones_explicitas:
+  - "Por la historia geológica del territorio, ligada a la formación de las montañas"
+  - "Porque las montañas siempre tienen más lluvia"
+  - "Porque las llanuras nunca tuvieron actividad volcánica"
+respuesta: "Por la historia geológica del territorio, ligada a la formación de las montañas"
+
+explicacion: |
+  La ubicación de yacimientos minerales depende de procesos geológicos
+  de largo plazo, distintos de los que forman una llanura.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["renovables", "cruce"]
+
+enunciado: "¿Por qué se dice que el potencial de energía solar o eólica de una zona está \"ligado directamente al clima\"?"
+tipo: mc
+opciones_explicitas:
+  - "Porque la cantidad de radiación solar o viento disponible depende directamente de las condiciones climáticas del lugar"
+  - "Porque el clima determina el precio de los paneles solares"
+  - "Porque sin clima no hay electricidad en ningún lugar"
+respuesta: "Porque la cantidad de radiación solar o viento disponible depende directamente de las condiciones climáticas del lugar"
+
+explicacion: |
+  A diferencia del petróleo o el gas (ligados a la historia geológica),
+  el potencial solar y eólico depende del clima actual del territorio.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "avanzado"
+  tags: ["sectores"]
+
+enunciado: "Ordená los tres sectores de más cercano al recurso natural (extrae directo) a más lejano (sólo servicios): Terciario, Primario, Secundario."
+tipo: ordenar
+opciones_explicitas:
+  - "Primario"
+  - "Secundario"
+  - "Terciario"
+respuesta_orden: ["Primario", "Secundario", "Terciario"]
+
+explicacion: |
+  Primario extrae directo; secundario transforma lo extraído;
+  terciario presta servicios sin producir un bien físico.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_actividades_economicas"
+  nivel: "intermedio"
+  tags: ["sectores", "cruce"]
+
+enunciado: "¿Por qué el sector primario es el más directamente dependiente del clima, relieve y bioma de un territorio?"
+tipo: mc
+opciones_explicitas:
+  - "Porque extrae recursos directamente de la naturaleza, sin la mediación de una fábrica que pueda instalarse en otro lado"
+  - "Porque el sector primario no usa ningún recurso natural"
+  - "Porque el sector primario siempre se ubica en la capital del país"
+respuesta: "Porque extrae recursos directamente de la naturaleza, sin la mediación de una fábrica que pueda instalarse en otro lado"
+
+explicacion: |
+  Es la razón por la que `recursos-actividades-economicas/` depende de
+  `../relieve-clima-biomas/`: sin saber qué clima/relieve/bioma tiene
+  un territorio, no se puede predecir qué recursos primarios ofrece.
+```
+
+## Sección: regiones-naturales-de-argentina (24 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "basico"
+  tags: ["definicion", "concepto_basico"]
+
+variables:
+  n: random(1, 5)
+
+respuesta: "regiones naturales"
+tipo: completar
+
+enunciado: "Los geógrafos dividen el territorio argentino en {n} grandes áreas basadas en características físicas similares como clima y relieve. ¿Cómo se llaman estas áreas?"
+
+explicacion: |
+  Estas áreas se denominan 'regiones naturales'. No son límites políticos, sino zonas con características físicas homogéneas (suelo, clima, flora, fauna).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "basico"
+  tags: ["clasificacion", "regiones"]
+
+variables:
+  n: random(1, 5)
+
+respuesta: "cinco"
+tipo: input
+
+enunciado: "Tradicionalmente, se reconocen {n} grandes regiones naturales en Argentina."
+
+explicacion: |
+  Las cinco regiones tradicionales son: NOA, NEA, Región Pampeana, Cuyo y Patagonia.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["noa", "relieve", "clima"]
+
+variables:
+  p: uno_de(["Jujuy", "Salta", "Tucumán", "Catamarca"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La provincia de {p} se encuentra dentro de la región del Noroeste (NOA), caracterizada por grandes contrastes entre picos andinos y valles áridos."
+
+explicacion: |
+  El NOA abarca provincias como Jujuy, Salta, Tucumán y Catamarca. Presenta una gran diversidad climática y de relieve.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["nea", "clima", "humedad"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "subtropical húmedo"
+tipo: completar
+
+enunciado: "El NEA (Noreste Argentino) tiene un clima predominantemente {n}."
+
+explicacion: |
+  El NEA es la región más húmeda y selvática del país, con un clima subtropical y lluvias abundantes durante todo el año.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["nea", "biodiversidad", "selva"]
+
+variables:
+  n: random(1, 3)
+
+respuesta: "Misiones"
+tipo: input
+
+enunciado: "La Selva Paranaense, una gran reserva de biodiversidad, se extiende principalmente en la provincia de {n}."
+
+explicacion: |
+  La Selva Paranaense es característica del NEA, especialmente en la provincia de Misiones, aunque también se encuentra en partes de Corrientes y Entre Ríos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["pampeana", "suelo", "agricultura"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "fértil"
+tipo: completar
+
+enunciado: "La Región Pampeana se destaca por tener un suelo profundo y {n}."
+
+explicacion: |
+  La fertilidad del suelo pampeano es su principal ventaja para la agricultura intensiva y la ganadería.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["pampeana", "clima"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "templado"
+tipo: input
+
+enunciado: "El clima de la Región Pampeana es de tipo {n}, con veranos calurosos e inviernos suaves."
+
+explicacion: |
+  La Región Pampeana tiene un clima templado, lo que favorece el cultivo de granos como trigo, maíz y soja.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "basico"
+  tags: ["nea", "provincias"]
+
+variables:
+  p: uno_de(["Misiones", "Corrientes", "Entre Ríos", "Chaco"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La provincia de {p} forma parte de la región del Noreste (NEA)."
+
+explicacion: |
+  El NEA incluye Misiones, Corrientes, Entre Ríos y Chaco.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["cuyo", "relieve", "andino"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "árido"
+tipo: completar
+
+enunciado: "Cuyo es una región de relieve montañoso y clima predominantemente {n}."
+
+explicacion: |
+  Cuyo se encuentra al oeste, con influencia de la Cordillera de los Andes. Es una zona árida donde la irrigación es clave para la agricultura (viñedos).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["patagonia", "clima", "frío"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "frío"
+tipo: input
+
+enunciado: "La Patagonia se caracteriza por un clima predominantemente {n} y seco."
+
+explicacion: |
+  La Patagonia es la región más extensa del sur, con climas fríos y secos, y paisajes que van desde estepas hasta glaciares.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["nea", "desafios", "inundaciones"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "inundaciones"
+tipo: input
+
+enunciado: "En el NEA, la abundancia de agua y lluvias puede causar {n} estacionales que afectan a ciudades ribereñas."
+
+explicacion: |
+  Las inundaciones son un desafío común en el NEA debido al clima húmedo y la proximidad a grandes ríos como el Paraná y el Uruguay.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "basico"
+  tags: ["pampeana", "ubicacion"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "Buenos Aires"
+tipo: input
+
+enunciado: "La Región Pampeana se extiende desde el norte de la provincia de {n} hasta el sur de Santa Fe y Córdoba."
+
+explicacion: |
+  El corazón productivo de Argentina abarca el norte de Buenos Aires, el sur de Santa Fe y el norte de Córdoba.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["cuyo", "produccion", "vino"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "viñedos"
+tipo: completar
+
+enunciado: "En Cuyo, el clima árido y la irrigación permiten el desarrollo de {n} de altura."
+
+explicacion: |
+  Cuyo es famoso mundialmente por sus viñedos, especialmente en provincias como Mendoza y San Juan.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "basico"
+  tags: ["patagonia", "extencion"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "extensa"
+tipo: input
+
+enunciado: "La Patagonia es la región más {n} de Argentina, ubicada en el sur del país."
+
+explicacion: |
+  La Patagonia ocupa una vasta porción del sur argentino, desde la cordillera hasta el océano Atlántico.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["noa", "contrastes"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "contrastes"
+tipo: completar
+
+enunciado: "El NOA es conocido por sus grandes {n} entre los picos andinos y las llanuras chaqueñas."
+
+explicacion: |
+  La diversidad geográfica del NOA es extrema, pasando de nevados a valles cálidos y áridos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["pampeana", "economia"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "motor"
+tipo: input
+
+enunciado: "Históricamente, la Región Pampeana ha sido el {n} de la economía argentina."
+
+explicacion: |
+  Gracias a su suelo fértil, la Región Pampeana ha sido clave para la exportación de granos y carnes.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "basico"
+  tags: ["cuyo", "provincias"]
+
+variables:
+  p: uno_de(["Mendoza", "San Juan", "San Luis"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La provincia de {p} pertenece a la región de Cuyo."
+
+explicacion: |
+  Cuyo está compuesto por Mendoza, San Juan y San Luis.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["patagonia", "fauna"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "glaciares"
+tipo: completar
+
+enunciado: "Además de estepas, la Patagonia es famosa por sus paisajes de {n} y fiordos."
+
+explicacion: |
+  La Patagonia alberga glaciares importantes como el Perito Moreno, fruto de su clima frío y precipitaciones.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["noa", "clima", "altitud"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "frío seco"
+tipo: completar
+
+enunciado: "En las cumbres del NOA, el clima es {n}."
+
+explicacion: |
+  A gran altitud en el NOA, las temperaturas bajan considerablemente y la humedad es escasa.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "basico"
+  tags: ["nea", "lluvias"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "abundantes"
+tipo: input
+
+enunciado: "En el NEA, las lluvias son {n} durante todo el año."
+
+explicacion: |
+  La humedad constante es una marca distintiva del NEA, diferenciándolo de las regiones áridas del oeste.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "basico"
+  tags: ["pampeana", "clima", "invierno"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "suaves"
+tipo: completar
+
+enunciado: "En la Región Pampeana, los inviernos son {n}."
+
+explicacion: |
+  El clima templado de la región implica inviernos no extremadamente fríos, a diferencia de la Patagonia.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["cuyo", "agricultura", "agua"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "irrigación"
+tipo: input
+
+enunciado: "En Cuyo, debido al clima árido, la agricultura depende de la {n}."
+
+explicacion: |
+  Sin sistemas de riego, la agricultura en Cuyo sería imposible debido a la baja precipitación.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "basico"
+  tags: ["patagonia", "ubicacion"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "sur"
+tipo: input
+
+enunciado: "La Patagonia se encuentra en el {n} de Argentina."
+
+explicacion: |
+  Es la región austral del país, extendiéndose hasta el fin del mundo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "regiones_naturales_de_argentina"
+  nivel: "intermedio"
+  tags: ["noa", "valles"]
+
+variables:
+  n: random(1, 2)
+
+respuesta: "interandinos"
+tipo: completar
+
+enunciado: "El NOA incluye valles {n} áridos entre las montañas andinas."
+
+explicacion: |
+  Los valles interandinos son zonas de transición con climas cálidos pero secos, ideales para ciertos cultivos.
+```
+
+## Sección: geografia-economica-agricola-argentina (44 preguntas)
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["pampa_humeda", "suelos", "agricultura"]
+
+variables:
+  region: "pampa_humeda"
+  caracteristica: "suelos_fertiles"
+
+respuesta: "suelos_fertiles"
+tipo: completar
+
+enunciado: "La región pampeana, corazón de la agricultura argentina, se destaca principalmente por tener {caracteristica} que favorecen el cultivo extensivo."
+
+explicacion: |
+  La Pampa Húmeda posee suelos ricos en nutrientes (limos y arcillas) que, sumados al clima templado, la hacen ideal para cereales y oleaginosas.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["soja", "exportacion", "economia"]
+
+variables:
+  producto: "soja"
+  rol: "principal"
+
+respuesta: "soja"
+tipo: input
+
+enunciado: "Identificá el producto agrícola que se convirtió en el {rol} producto de exportación de Argentina tras la adopción de la siembra directa."
+
+explicacion: |
+  La soja, especialmente la transgénica, desplazó a otros cultivos tradicionales y se volvió el eje de la balanza comercial argentina.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["siembra_directa", "tecnologia"]
+
+variables:
+  tecnica: "siembra_directa"
+  beneficio: "conservacion"
+
+respuesta: "siembra_directa"
+tipo: input
+
+enunciado: "La {tecnica} es una práctica agrícola que permite cultivar sin arar el suelo, facilitando la expansión de la frontera agrícola."
+
+explicacion: |
+  La siembra directa reduce la erosión y permite trabajar tierras más rápidamente, clave para la expansión de la soja.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["frontera_agicola", "expansion"]
+
+variables:
+  direccion: "norte"
+  provincias: ["santiago_del_estero", "chaco"]
+
+respuesta: "norte"
+tipo: input
+
+enunciado: "Desde finales del siglo XX, la frontera agrícola argentina se expandió hacia el {direccion}, ingresando en provincias como Santiago del Estero y Chaco."
+
+explicacion: |
+  La expansión hacia el norte (Chaco, Santiago del Estero, Formosa) fue posible gracias a la adaptación de la soja a climas más cálidos y secos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["noa", "vid", "olivo"]
+
+variables:
+  region: "noa"
+  cultivos: ["vid", "olivo"]
+
+respuesta: "noa"
+tipo: input
+
+enunciado: "En la región del {region}, los valles interandinos permiten el cultivo de vid y olivo gracias a la irrigación de ríos de deshielo."
+
+explicacion: |
+  El noroeste argentino (NOA) tiene un clima árido pero valles fértiles irrigados, ideales para la viticultura y el olivo.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["nea", "te", "citrinos"]
+
+variables:
+  region: "nea"
+  producto: "te"
+
+respuesta: "nea"
+tipo: input
+
+enunciado: "La provincia de Misiones, ubicada en el {region}, es la mayor productora nacional de {producto}."
+
+explicacion: |
+  El noreste argentino (NEA), especialmente Misiones, tiene el clima subtropical húmedo necesario para el cultivo del té.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["nea", "arroz", "agua"]
+
+variables:
+  region: "corrientes"
+  cultivo: "arroz"
+
+respuesta: "corrientes"
+tipo: input
+
+enunciado: "La provincia de {region} es un importante productor de arroz, aprovechando las abundantes lluvias y humedales del NEA."
+
+explicacion: |
+  Corrientes y Entre Ríos son los grandes productores de arroz, requiriendo grandes cantidades de agua para su cultivo.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "avanzado"
+  tags: ["sojizacion", "controversia"]
+
+variables:
+  fenomeno: "sojizacion"
+  efecto: "ambiental"
+
+respuesta: "sojizacion"
+tipo: input
+
+enunciado: "El fenómeno de {fenomeno} ha generado debates sobre sustentabilidad ambiental y concentración de la tierra."
+
+explicacion: |
+  La "sojización" se refiere a la monocultura extendida de soja, criticada por la degradación de suelos y el uso de agroquímicos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["trigo", "historia", "pampa"]
+
+variables:
+  cultivo: "trigo"
+  rol: "historico"
+
+respuesta: "trigo"
+tipo: input
+
+enunciado: "Antes de la expansión de la soja, el {cultivo} era uno de los pilares tradicionales de la agricultura pampeana."
+
+explicacion: |
+  El trigo y el maíz fueron los cultivos dominantes en la Pampa antes del boom de la soja en los años 90.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["noa", "frutales", "irrigacion"]
+
+variables:
+  frutal: "durazno"
+  region: "salta"
+
+respuesta: "durazno"
+tipo: input
+
+enunciado: "En la provincia de Salta, los valles del NOA producen {frutal} y ciruela gracias a la irrigación."
+
+explicacion: |
+  La variedad de microclimas en los valles del NOA permite cultivos de alta calidad como duraznos, peras y ciruelas.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["patagonia", "fruticultura", "seco"]
+
+variables:
+  region: "patagonia"
+  cultivo: "frutales"
+
+respuesta: "frutales"
+tipo: input
+
+enunciado: "En la {region}, la agricultura se concentra en el riego por goteo para producir {cultivo} de alta calidad."
+
+explicacion: |
+  La Patagonia argentina, aunque árida, produce manzanas, peras y uvas de exportación gracias a la irrigación de ríos andinos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "avanzado"
+  tags: ["sociedad", "tierra", "desigualdad"]
+
+variables:
+  problema: "concentracion"
+  sector: "agrario"
+
+respuesta: "concentracion"
+tipo: input
+
+enunciado: "Un desafío social del modelo agroexportador es la {problema} de la tierra en pocas manos."
+
+explicacion: |
+  El modelo de agronegocios tiende a la concentración de la propiedad rural, dejando a pequeños productores en situación precaria.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["misiones", "te", "produccion"]
+
+variables:
+  provincia: "misiones"
+  producto: "te"
+
+respuesta: "misiones"
+tipo: input
+
+enunciado: "La provincia de {provincia} lidera la producción nacional de {producto}."
+
+explicacion: |
+  Misiones es el principal productor de té de Argentina, con plantaciones en el norte de la provincia.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["santa_fe", "soja", "pampa"]
+
+variables:
+  provincia: "santa_fe"
+  producto: "soja"
+
+respuesta: "santa_fe"
+tipo: input
+
+enunciado: "Santa Fe es una provincia pampeana clave en la producción de {producto} y maíz."
+
+explicacion: |
+  Santa Fe, junto con Buenos Aires y Córdoba, es un núcleo fundamental de la producción de soja en la Pampa Húmeda.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["economia", "exportacion", "divisas"]
+
+variables:
+  rol: "clave"
+  sector: "agropecuario"
+
+respuesta: "clave"
+tipo: completar
+
+enunciado: "El sector {sector} sigue siendo {rol} para equilibrar la balanza comercial argentina."
+
+explicacion: |
+  Las exportaciones agropecuarias generan las divisas necesarias para importar insumos industriales y servicios.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["patagonia", "manzana", "pera"]
+
+variables:
+  cultivo: "manzana"
+  region: "patagonia"
+
+respuesta: "manzana"
+tipo: completar
+
+enunciado: "En la {region}, la fruticultura se especializa en {cultivo} y pera para exportación."
+
+explicacion: |
+  La Patagonia argentina es famosa por sus manzanas y peras de alta calidad, cultivadas con riego.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "avanzado"
+  tags: ["ambiental", "agroquimicos", "soja"]
+
+variables:
+  problema: "contaminacion"
+  causa: "agroquimicos"
+
+respuesta: "contaminacion"
+tipo: completar
+
+enunciado: "La expansión de la soja ha generado preocupaciones por la {problema} por uso excesivo de {causa}."
+
+explicacion: |
+  El uso intensivo de glifosato y otros agroquímicos en la monocultura de soja es un tema de debate ambiental y de salud.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["arroz", "corrientes", "nea"]
+
+variables:
+  region: "corrientes"
+  cultivo: "arroz"
+
+respuesta: "corrientes"
+tipo: completar
+
+enunciado: "La provincia de {region} es líder nacional en la producción de {cultivo}."
+
+explicacion: |
+  Corrientes, con sus humedales y lluvias abundantes, es el principal productor de arroz de Argentina.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["pampa", "soja", "exportaciones"]
+
+variables:
+  producto_principal: uno_de(["soja", "trigo", "maíz"])
+
+respuesta: "soja"
+tipo: mc
+
+enunciado: "Históricamente, la región pampeana ha sido el corazón de la agricultura argentina. En las últimas décadas, ¿qué cultivo se ha consolidado como el principal producto de exportación, desplazando a cereales tradicionales en muchas áreas?"
+
+opciones_explicitas: ["soja", "trigo", "maíz", "algodón"]
+
+explicacion: |
+  La expansión de la frontera agrícola y la adopción de la soja transgénica con siembra directa han posicionado a la soja como el principal motor de exportaciones agrícolas de Argentina, fenómeno conocido como "sojización".
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["tecnologia", "siembra_directa", "frontera_agricola"]
+
+variables:
+  tecnica: uno_de(["siembra directa", "labranza convencional", "rotación de cultivos", "riego por goteo"])
+
+respuesta: "siembra directa"
+tipo: mc
+
+enunciado: "Para cultivar en tierras antes consideradas marginales hacia el norte (Chaco, Santiago del Estero), fue fundamental la adopción de una técnica agrícola específica que reduce la erosión y permite trabajar suelos más secos. ¿Cuál es?"
+
+opciones_explicitas: ["siembra directa", "labranza convencional", "rotación de cultivos", "riego por goteo"]
+
+explicacion: |
+  La siembra directa permite cultivar sin remover el suelo, lo que es crucial para mantener la humedad y evitar la erosión en las zonas septentrionales de la frontera agrícola argentina.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["nea", "misiones", "produccion_regional"]
+
+variables:
+  region: uno_de(["NOA", "NEA", "Cuyo", "Pampa"])
+
+respuesta: "NEA"
+tipo: mc
+
+enunciado: "Provincias como Misiones y Corrientes se destacan por la producción de té, yerba mate y cítricos. ¿A qué región geográfica argentina pertenecen estas provincias?"
+
+opciones_explicitas: ["NOA", "NEA", "Cuyo", "Pampa"]
+
+explicacion: |
+  El Noreste Argentino (NEA) tiene un clima subtropical con lluvias abundantes, ideal para cultivos como el té, los cítricos y el arroz, diferenciándose de la llanura pampeana.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["pampa", "suelo", "relieve"]
+
+variables:
+  caracteristica: uno_de(["llanuras fértiles", "montañas áridas", "selvas húmedas", "desiertos"])
+
+respuesta: "llanuras fértiles"
+tipo: mc
+
+enunciado: "La región pampeana, corazón de la agricultura argentina, se define por una combinación específica de relieve y suelo. ¿Cuáles son sus características principales?"
+
+opciones_explicitas: ["llanuras fértiles", "montañas áridas", "selvas húmedas", "desiertos"]
+
+explicacion: |
+  La Pampa se caracteriza por extensas llanuras con suelos ricos en nutrientes (pantanosos originalmente, hoy muy fértiles para granos) y un clima templado, ideales para la agricultura extensiva.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["noa", "irrigacion", "vid", "olivo"]
+
+variables:
+  fuente_agua: uno_de(["ríos de deshielo", "aguas subterráneas salinas", "lluvias torrenciales", "desalinización"])
+
+respuesta: "ríos de deshielo"
+tipo: mc
+
+enunciado: "En los valles interandinos del Noroeste (NOA), el cultivo de vid, olivo y frutas de pepita depende críticamente de la irrigación. ¿De dónde proviene principalmente el agua utilizada?"
+
+opciones_explicitas: ["ríos de deshielo", "aguas subterráneas salinas", "lluvias torrenciales", "desalinización"]
+
+explicacion: |
+  El NOA es una región árida o semiárida. La agricultura en sus valles depende del agua de deshielo de la Cordillera de los Andes, conducida a través de canales de riego.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "avanzado"
+  tags: ["sojizacion", "debate", "sustentabilidad"]
+
+variables:
+  efecto: uno_de(["concentración de tierra", "aumento de biodiversidad", "disminución de exportaciones", "reforzamiento de comunidades rurales"])
+
+respuesta: "concentración de tierra"
+tipo: mc
+
+enunciado: "El fenómeno de la 'sojización' ha generado grandes ganancias económicas, pero también ha planteado debates sociales y ambientales. ¿Cuál de los siguientes es un efecto crítico frecuentemente asociado a este modelo?"
+
+opciones_explicitas: ["concentración de tierra", "aumento de biodiversidad", "disminución de exportaciones", "reforzamiento de comunidades rurales"]
+
+explicacion: |
+  La sojización está vinculada a la monopolización de la tierra por grandes productores y corporaciones, lo que ha llevado a la concentración de la tenencia de la tierra y al desplazamiento de pequeños agricultores.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["cuyo", "vid", "fruta"]
+
+variables:
+  cultivo_iconico: uno_de(["vid", "soja", "arroz", "té"])
+
+respuesta: "vid"
+tipo: mc
+
+enunciado: "Aunque la Pampa domina en granos, la región de Cuyo es famosa mundialmente por un cultivo específico, aprovechando su clima seco y la irrigación andina. ¿Cuál es?"
+
+opciones_explicitas: ["vid", "soja", "arroz", "té"]
+
+explicacion: |
+  Cuyo (principalmente Mendoza y San Juan) es el principal productor de uva de mesa y de vino de Argentina, gracias a la alta radiación solar y la irrigación controlada.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["economia", "exportaciones", "divisas"]
+
+variables:
+  rol: uno_de(["pilar de exportaciones", "sector marginal", "dependiente de importaciones", "exclusivo para consumo local"])
+
+respuesta: "pilar de exportaciones"
+tipo: mc
+
+enunciado: "¿Cuál es el rol fundamental del sector agropecuario en la economía argentina actual, a pesar del desarrollo industrial del país?"
+
+opciones_explicitas: ["pilar de exportaciones", "sector marginal", "dependiente de importaciones", "exclusivo para consumo local"]
+
+explicacion: |
+  El sector agropecuario sigue siendo clave para generar divisas (dólares) mediante la exportación de alimentos y materias primas, equilibrando la balanza comercial nacional.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["nea", "arroz", "corrientes"]
+
+variables:
+  provincia_lider: uno_de(["Corrientes", "Misiones", "Formosa", "Chaco"])
+
+respuesta: "Corrientes"
+tipo: mc
+
+enunciado: "Entre las provincias del Noreste (NEA), ¿cuál se destaca históricamente como la principal productora de arroz, aprovechando las llanuras aluviales y el agua abundante?"
+
+opciones_explicitas: ["Corrientes", "Misiones", "Formosa", "Chaco"]
+
+explicacion: |
+  Corrientes es el mayor productor de arroz de Argentina, utilizando técnicas de inundación en sus llanuras, un cultivo que requiere grandes cantidades de agua dulce.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["frontera_agricola", "expansion", "chaco", "santiago_del_estero"]
+
+variables:
+  direccion: uno_de(["hacia el norte", "hacia el sur", "hacia el este", "hacia el oeste"])
+
+respuesta: "hacia el norte"
+tipo: mc
+
+enunciado: "Desde finales del siglo XX, la agricultura argentina no se limitó a la Pampa. ¿Hacia qué dirección se expandió la frontera agrícola, incorporando provincias como Santiago del Estero y Chaco?"
+
+opciones_explicitas: ["hacia el norte", "hacia el sur", "hacia el este", "hacia el oeste"]
+
+explicacion: |
+  La frontera agrícola se expandió hacia el norte (Chaco, Santiago del Estero, Salta), donde antes predominaba la ganadería o el monte nativo, gracias a la soja transgénica y la siembra directa.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["clima", "pampa", "templado"]
+
+variables:
+  tipo_clima: uno_de(["templado", "subtropical", "árido", "polar"])
+
+respuesta: "templado"
+tipo: mc
+
+enunciado: "La región pampeana goza de un clima favorable para los cereales. ¿Qué tipo de clima predomina en esta zona?"
+
+opciones_explicitas: ["templado", "subtropical", "árido", "polar"]
+
+explicacion: |
+  El clima templado de la Pampa, con lluvias bien distribuidas y temperaturas moderadas, es ideal para el crecimiento de cultivos como el trigo, el maíz y la soja.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["noa", "vid", "valles_interandinos"]
+
+variables:
+  region_vid: uno_de(["Valles interandinos del NOA", "Llanura chaqueña", "Pampa Húmeda", "Patagonia"])
+
+respuesta: "Valles interandinos del NOA"
+tipo: mc
+
+enunciado: "Además de Cuyo, en qué zona geográfica específica del noroeste argentino se cultiva vid, aprovechando los valles interandinos y la irrigación?"
+
+opciones_explicitas: ["Valles interandinos del NOA", "Llanura chaqueña", "Pampa Húmeda", "Patagonia"]
+
+explicacion: |
+  Los valles interandinos del NOA (como en Salta y Catamarca) permiten el cultivo de vid y otras frutas de clima seco, irrigados por ríos de origen andino.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "avanzado"
+  tags: ["sustentabilidad", "controversia", "deforestacion"]
+
+variables:
+  impacto: uno_de(["deforestación", "reforestación masiva", "purificación de acuíferos", "aumento de fauna nativa"])
+
+respuesta: "deforestación"
+tipo: mc
+
+enunciado: "La expansión de la soja en la frontera agrícola ha generado controversia ambiental. ¿Cuál es uno de los principales impactos negativos asociados a esta expansión en el Chaco y Santiago del Estero?"
+
+opciones_explicitas: ["deforestación", "reforestación masiva", "purificación de acuíferos", "aumento de fauna nativa"]
+
+explicacion: |
+  La conversión de bosques nativos en campos de soja ha provocado una importante tasa de deforestación, pérdida de biodiversidad y degradación de suelos en el norte argentino.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["patagonia", "frutales", "clima_frio"]
+
+variables:
+  cultivo_patagonia: uno_de(["manzana", "soja", "algodón", "caña de azúcar"])
+
+respuesta: "manzana"
+tipo: mc
+
+enunciado: "Aunque la Patagonia es conocida por la ganadería ovina, en sus valles irrigados (como el Valle Inferior del Río Negro) se destaca la producción de frutales de clima frío. ¿Cuál es el principal ejemplo?"
+
+opciones_explicitas: ["manzana", "soja", "algodón", "caña de azúcar"]
+
+explicacion: |
+  La Patagonia oriental, especialmente en Río Negro y Neuquén, es líder en la producción de manzanas y otras frutas de hueso y pepita, gracias a su clima frío que favorece la calidad del fruto.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["pampa", "trigo", "historico"]
+
+variables:
+  cultivo_tradicional: uno_de(["trigo", "té", "vid", "arroz"])
+
+respuesta: "trigo"
+tipo: mc
+
+enunciado: "Antes de la hegemonía de la soja, la Pampa era sinónimo de ganadería y cultivo de cereales. ¿Cuál de los siguientes cereales fue históricamente un pilar de la exportación argentina junto al maíz?"
+
+opciones_explicitas: ["trigo", "té", "vid", "arroz"]
+
+explicacion: |
+  El trigo y el maíz han sido los cereales tradicionales de la Pampa, fundamentales para la economía argentina durante gran parte del siglo XX, antes de la expansión de la soja.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["misiones", "citricos", "nea"]
+
+variables:
+  producto_misiones: uno_de(["naranja", "uva", "manzana", "trigo"])
+
+respuesta: "naranja"
+tipo: mc
+
+enunciado: "Misiones, en el NEA, tiene un clima subtropical húmedo. Además del té, ¿qué otro cultivo es emblemático de la provincia, utilizado tanto para jugo como para exportación?"
+
+opciones_explicitas: ["naranja", "uva", "manzana", "trigo"]
+
+explicacion: |
+  Misiones es uno de los principales productores de cítricos (naranjas, limones) de Argentina, aprovechando su clima húmedo y cálido, ideal para estos frutales.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["noa", "olivo", "aceite"]
+
+variables:
+  cultivo_olivo: uno_de(["olivo", "café", "cacao", "sésamo"])
+
+respuesta: "olivo"
+tipo: mc
+
+enunciado: "En los valles secos del noroeste argentino, se ha desarrollado una industria oleícola. ¿Qué cultivo se adapta perfectamente al clima árido y a la irrigación de esta región?"
+
+opciones_explicitas: ["olivo", "café", "cacao", "sésamo"]
+
+explicacion: |
+  El olivo es un cultivo mediterráneo que se adapta bien a los climas secos y calurosos del NOA, donde la irrigación permite una producción de aceite de oliva de alta calidad.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["relieve", "pampa", "llanura"]
+
+variables:
+  tipo_relieve: uno_de(["llanura", "meseta", "valle estrecho", "cordillera"])
+
+respuesta: "llanura"
+tipo: mc
+
+enunciado: "La facilidad para el uso de maquinaria agrícola pesada en la Pampa se debe en gran parte a su relieve. ¿Qué característica del relieve define a esta región?"
+
+opciones_explicitas: ["llanura", "meseta", "valle estrecho", "cordillera"]
+
+explicacion: |
+  La Pampa es una extensa llanura con relieve suave, lo que facilita enormemente la mecanización agrícola a gran escala, un factor clave de su productividad.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["tecnologia", "soja", "transgenico"]
+
+variables:
+  tecnologia_clave: uno_de(["soja resistente a herbicidas", "trigo mejorado genéticamente", "maíz con insecticida propio", "arroz dorado"])
+
+respuesta: "soja resistente a herbicidas"
+tipo: mc
+
+enunciado: "La rápida expansión de la soja en Argentina estuvo ligada a una innovación biotecnológica específica. ¿Cuál fue?"
+
+opciones_explicitas: ["soja resistente a herbicidas", "trigo mejorado genéticamente", "maíz con insecticida propio", "arroz dorado"]
+
+explicacion: |
+  La introducción de soja transgénica resistente a herbicidas (como el glifosato) permitió controlar malezas fácilmente y cultivar en suelos antes difíciles, acelerando la sojización.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["misiones", "yerba_mate", "exotico"]
+
+variables:
+  cultivo_exotico: uno_de(["yerba mate", "café", "cacao", "jengibre"])
+
+respuesta: "yerba mate"
+tipo: mc
+
+enunciado: "Misiones es la única provincia argentina que produce comercialmente una planta nativa que es bebida nacional. ¿Cuál es?"
+
+opciones_explicitas: ["yerba mate", "café", "cacao", "jengibre"]
+
+explicacion: |
+  La yerba mate es un cultivo nativo del noreste argentino y sureste de Brasil. Misiones es el principal productor mundial, aprovechando su clima subtropical húmedo.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["patagonia", "aridez", "limitantes"]
+
+variables:
+  limitante: uno_de(["aridez extrema", "inundaciones constantes", "suelos salinos", "heladas tardías"])
+
+respuesta: "aridez extrema"
+tipo: mc
+
+enunciado: "Aunque la Patagonia tiene potencial frutícola en valles específicos, ¿cuál es la principal limitante natural para la agricultura extensiva en la mayor parte de la región?"
+
+opciones_explicitas: ["aridez extrema", "inundaciones constantes", "suelos salinos", "heladas tardías"]
+
+explicacion: |
+  La Patagonia es una región árida y semiárida. La falta de precipitaciones naturales hace que la agricultura dependa totalmente de la irrigación desde ríos de deshielo o napas.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["pampa", "maiz", "granero"]
+
+variables:
+  cultivo_grano: uno_de(["maíz", "arroz", "trigo", "cebada"])
+
+respuesta: "maíz"
+tipo: mc
+
+enunciado: "Junto con la soja y el trigo, ¿qué otro cereal es fundamental en la Pampa Húmeda, utilizado tanto para alimentación humana como para ganado?"
+
+opciones_explicitas: ["maíz", "arroz", "trigo", "cebada"]
+
+explicacion: |
+  El maíz es uno de los tres grandes cultivos de la Pampa Húmeda, requiriendo mayor cantidad de agua y calor que el trigo, por lo que se cultiva en las zonas más húmedas.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["nea", "algodon", "chaco"]
+
+variables:
+  cultivo_fibra: uno_de(["algodón", "lino", "sorgo", "girasol"])
+
+respuesta: "algodón"
+tipo: mc
+
+enunciado: "Históricamente, el norte argentino (Chaco y Santiago del Estero) fue el principal productor de una fibra textil. ¿Cuál es?"
+
+opciones_explicitas: ["algodón", "lino", "sorgo", "girasol"]
+
+explicacion: |
+  El algodón ha sido un cultivo tradicional del NEA, aunque su producción ha fluctuado por plagas y competencia de la soja. Sigue siendo importante en la frontera agrícola norteña.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "basico"
+  tags: ["pampa", "girasol", "aceites"]
+
+variables:
+  cultivo_oleaginoso: uno_de(["girasol", "soja", "maní", "nabo"])
+
+respuesta: "girasol"
+tipo: mc
+
+enunciado: "En las zonas más secas de la Pampa (pampeón), se cultiva frecuentemente una oleaginosa de flor amarilla, resistente a la sequía. ¿Cuál es?"
+
+opciones_explicitas: ["girasol", "soja", "maní", "nabo"]
+
+explicacion: |
+  El girasol es una oleaginosa que se adapta bien a las condiciones más secas del norte de la Pampa y el sur de Santa Fe, siendo importante para la producción de aceite.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "intermedio"
+  tags: ["norte", "sorgo", "resistencia"]
+
+variables:
+  cultivo_resistente: uno_de(["sorgo", "arroz", "trigo", "soja"])
+
+respuesta: "sorgo"
+tipo: mc
+
+enunciado: "En las zonas más áridas del norte argentino, donde el agua es escasa, se cultiva un cereal resistente a la sequía, utilizado para forraje y biocombustibles. ¿Cuál es?"
+
+opciones_explicitas: ["sorgo", "arroz", "trigo", "soja"]
+
+explicacion: |
+  El sorgo es un cereal C4 muy resistente a la sequía y al calor, cultivado en el norte argentino (Chaco, Santiago del Estero) como alternativa a los granos que requieren más agua.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "geografia_economica_agricola_argicola_argentina"
+  nivel: "avanzado"
+  tags: ["cuyo", "noa", "vid", "comparacion"]
+
+variables:
+  region_principal_vid: uno_de(["Cuyo", "NOA", "NEA", "Pampa"])
+
+respuesta: "Cuyo"
+tipo: mc
+
+enunciado: "Aunque el NOA también produce vid, ¿cuál es la región argentina indiscutiblemente líder en volumen y prestigio de la industria vitivinícola?"
+
+opciones_explicitas: ["Cuyo", "NOA", "NEA", "Pampa"]
+
+explicacion: |
+  Cuyo (Mendoza, San Juan, San Luis) es el corazón de la vitivinicultura argentina, produciendo la mayoría del vino de exportación y de alta calidad, gracias a su clima seco y riego andino.
+```
 
 ## Sección: geografia-industrial-mundial (26 preguntas)
 
@@ -103,7 +2305,7 @@ metadata:
 variables:
   factor: uno_de(["reducción de costos de transporte", "revolución de la información", "avances en telecomunicaciones"])
 
-respuesta: "{factor}"
+respuesta: factor
 tipo: completar
 
 enunciado: "Un factor clave que aceleró la deslocalización fue el {factor}."
@@ -179,7 +2381,7 @@ metadata:
 variables:
   pais: uno_de(["China", "India", "Vietnam"])
 
-respuesta: "{pais}"
+respuesta: pais
 tipo: completar
 
 enunciado: "Un ejemplo clásico de país receptor de deslocalización industrial es {pais}."
@@ -493,1797 +2695,3 @@ explicacion: |
   La globalización reciente intensificó un fenómeno que existía desde antes, pero a otra escala.
 ```
 
-## Sección: huella-de-carbono-agua-virtual (25 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "basico"
-  tags: ["conceptos", "gases_efecto_invernadero"]
-
-respuesta: "gases de efecto invernadero"
-tipo: completar
-respuestas_validas: ["gases de efecto invernadero"]
-
-enunciado: "La huella de carbono es la totalidad de ___ emitidos por un individuo, organización, evento o producto, expresados en toneladas de CO2 equivalente."
-
-explicacion: |
-  La huella de carbono mide la cantidad de gases de efecto invernadero (GEI) que liberamos a la atmósfera como consecuencia de nuestras actividades diarias o procesos productivos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "intermedio"
-  tags: ["ecologia", "niveles_troficos"]
-
-respuesta: "10%"
-tipo: completar
-respuestas_validas: ["10%"]
-
-enunciado: "En una cadena alimentaria, según la regla del diez por ciento, sólo aproximadamente el ___ de la energía de un nivel trófico se transfiere al siguiente nivel."
-
-explicacion: |
-  Debido a que la mayor parte de la energía se pierde en forma de calor y procesos metabólicos durante la transferencia entre niveles, se requiere mucha más biomasa vegetal para producir una cantidad pequeña de carne, lo que aumenta la huella de carbono de los productos animales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "intermedio"
-  tags: ["alimentacion", "impacto_ambiental"]
-
-respuesta: "la carne"
-tipo: completar
-respuestas_validas: ["la carne"]
-
-enunciado: "Debido a la pérdida de energía entre los niveles tróficos, la huella de carbono de ___ es significativamente mayor que la de las verduras."
-
-explicacion: |
-  Para producir un kilo de carne se necesita alimentar al animal con muchos kilos de plantas. Como la energía se reduce drásticamente en cada paso (regla del 10%), el proceso de producción de carne requiere más recursos y emite más gases que la producción directa de vegetales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "basico"
-  tags: ["gases_efecto_invernadero", "ganaderia"]
-
-respuesta: "metano"
-tipo: completar
-respuestas_validas: ["metano"]
-
-enunciado: "Además del dióxido de carbono, la ganadería intensiva contribuye significativamente a la huella de carbono mediante la emisión de ___ durante la digestión de los rumiantes."
-
-explicacion: |
-  El metano (CH4) es un gas de efecto invernadero muy potente. Las emisiones de metano provenientes del ganado son uno de los factores principales que elevan la huella de carbono de los productos de origen animal.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "intermedio"
-  tags: ["consumo_responsable", "ecologia"]
-
-respuesta: "reducir"
-tipo: completar
-respuestas_validas: ["reducir"]
-
-enunciado: "Para disminuir nuestra huella de carbono personal, es recomendable ___ el consumo de productos de origen animal y aumentar el de alimentos de origen vegetal."
-
-explicacion: |
-  Al consumir más productos vegetales, aprovechamos la energía de los productores primarios de forma más directa, evitando las ineficiencias de la cadena trófica y reduciendo la emisión de gases asociados a la ganadería.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "basico"
-  tags: ["conceptos", "recursos_naturales"]
-
-tipo: mc
-opciones_explicitas: ["El agua que contiene un producto y que podemos beber directamente.", "El volumen total de agua utilizada en todo el proceso de producción de un bien.", "La cantidad de agua que se evapora de los océanos debido al calentamiento global.", "El agua que se utiliza exclusivamente para la limpieza de las fábricas."]
-
-respuesta: "El volumen total de agua utilizada en todo el proceso de producción de un bien."
-
-enunciado: "El concepto de 'agua virtual' se refiere a..."
-
-explicacion: |
-  El agua virtual es el volumen total de agua dulce que se consume en todas las etapas de producción de un producto (desde la extracción de materia prima hasta el procesamiento), aunque el producto final no parezca contener agua líquida.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "intermedio"
-  tags: ["comparacion", "consumo"]
-
-tipo: mc
-opciones_explicitas: ["El café consume mucha más agua que un kilo de carne.", "La carne vacuna requiere una cantidad de agua significativamente mayor que el café.", "Ambos consumen la misma cantidad de agua por unidad.", "El café es un producto con huella hídrica nula."]
-
-respuesta: "La carne vacuna requiere una cantidad de agua significativamente mayor que el café."
-
-enunciado: "Considerando los valores promedio (café: ~140 litros/taza, carne vacuna: ~15.000 litros/kg), ¿cuál es la diferencia principal entre ambas huellas hídricas?"
-
-explicacion: |
-  La producción de carne vacuna requiere aproximadamente 15.000 litros de agua por kilo, mientras que una taza de café requiere cerca de 140 litros. La diferencia es masiva debido a la cantidad de agua necesaria para cultivar el forraje y el mantenimiento del ganado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "intermedio"
-  tags: ["ejemplos", "consumo_masivo"]
-
-tipo: mc
-opciones_explicitas: ["hamburguesa", "arroz", "café", "carne vacuna"]
-
-enunciado: "De la siguiente lista, ¿cuál es el producto que requiere aproximadamente 2.500 litros de agua por kilo?"
-
-respuesta: "arroz"
-
-explicacion: |
-  El arroz es un cultivo que requiere una gran cantidad de agua para su crecimiento en campos inundados, lo que resulta en una huella hídrica de aproximadamente 2.500 litros por kilo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "avanzado"
-  tags: ["calculo", "impacto"]
-
-tipo: mc
-opciones_explicitas: ["Una hamburguesa tiene una huella hídrica menor que un kilo de arroz.", "La huella hídrica de una hamburguesa es de aproximadamente 2500 litros.", "El consumo de carne no afecta la huella hídrica global.", "El agua virtual sólo se mide en productos industriales, no en alimentos."]
-
-respuesta: "La huella hídrica de una hamburguesa es de aproximadamente 2500 litros."
-
-enunciado: "Si analizamos el impacto del consumo de alimentos procesados, ¿cuál de estas afirmaciones es correcta?"
-
-explicacion: |
-  Una hamburguesa representa un producto de alto impacto hídrico, con una huella de aproximadamente 2500 litros, debido a la suma de la producción de carne, cereales y otros ingredientes.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-tipo: vf
-respuesta: verdadero
-
-enunciado: "El concepto de agua virtual implica que, aunque no veamos agua en un paquete de arroz, se han utilizado miles de litros para su producción."
-
-explicacion: |
-  Es verdadero. El agua virtual es el agua "oculta" que se utiliza en la agricultura y la industria para crear productos que consumimos habitualmente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "basico"
-  tags: ["conceptos", "recursos_naturales"]
-
-respuesta: "virtual"
-tipo: completar
-respuestas_validas: ["virtual"]
-
-enunciado: "El término ___ se utiliza para referirse al volumen de agua que no se ve directamente pero que se utilizó en el proceso de producción de un bien o servicio."
-
-explicacion: |
-  Se llama "virtual" porque el agua no se consume en el sentido de desaparecer del planeta, sino que se utiliza en un proceso productivo y luego vuelve a la naturaleza a través del ciclo hidrológico.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "basico"
-  tags: ["ciclo_del_agua", "produccion"]
-
-respuesta: "ciclo del agua"
-tipo: completar
-respuestas_validas: ["ciclo del agua", "ciclo hidrológico"]
-
-enunciado: "El agua utilizada en la agricultura o la industria no deja de existir tras la producción; simplemente se integra nuevamente en el ___."
-
-explicacion: |
-  El concepto de agua virtual resalta que el agua sigue fluyendo en el ciclo natural, pero su uso en la producción "desplaza" o "compromete" ese recurso para otros usos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "intermedio"
-  tags: ["consumo", "recursos"]
-
-variables:
-  idx: uno_de([0, 1])
-  tabla: [["carne de vaca", "alto"], ["trigo", "bajo"]]
-
-respuesta: tabla[idx][1]
-tipo: completar
-respuestas_validas: ["alto", "bajo"]
-
-enunciado: "En la producción de {tabla[idx][0]}, el nivel de agua comprometida (agua virtual) para ese producto es ___."
-
-explicacion: |
-  El término "virtual" enfatiza que el agua está comprometida en la cadena de valor: la carne de vaca compromete mucha más agua que el trigo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "intermedio"
-  tags: ["impacto", "recursos"]
-
-respuesta: "comprometida"
-tipo: completar
-respuestas_validas: ["comprometida"]
-
-enunciado: "En lugar de decir que el agua es 'consumida' por un producto, se prefiere decir que es agua ___ en su proceso de fabricación."
-
-explicacion: |
-  Decir "consumida" daría la falsa idea de que el agua desaparece del planeta, mientras que "comprometida" indica que se ha utilizado para un fin específico.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "avanzado"
-  tags: ["comercio", "globalizacion"]
-
-respuesta: "importar"
-tipo: completar
-respuestas_validas: ["importar"]
-
-enunciado: "Cuando un país compra productos de una región con escasez hídrica, en realidad está realizando una acción de ___ agua virtual."
-
-explicacion: |
-  El comercio internacional permite a las naciones "importar" agua de forma indirecta a través de los productos que adquieren de otros países.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "intermedio"
-  tags: ["consumo_responsable", "recursos_naturales"]
-
-enunciado: "Un productor de aguacates en una zona con escasez de agua decide utilizar tecnología de riego por goteo muy eficiente para reducir el uso de agua. Sin embargo, para mantener la cadena de frío y el transporte internacional hacia Europa, utiliza barcos y camiones que queman grandes cantidades de combustibles fósiles. En este escenario, el producto presenta una ___ huella hídrica pero una ___ huella de carbono."
-
-opciones_explicitas: ["baja / alta", "alta / baja", "alta / alta", "baja / baja"]
-
-respuesta: "baja / alta"
-tipo: mc
-
-explicacion: |
-  El uso de riego eficiente reduce la huella hídrica, pero el transporte de larga distancia y la refrigeración incrementan la huella de carbono. Mirar ambos indicadores permite ver que la eficiencia en un recurso no compensa el impacto en otro.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "intermedio"
-  tags: ["consumo_responsable", "recursos_naturales"]
-
-enunciado: "Si analizamos la producción de carne de res, observamos que el proceso requiere grandes extensiones de tierra para pasturas y una cantidad masiva de agua para el riego de forraje y el consumo animal, además de las emisiones de metano. Por lo tanto, la carne de res se caracteriza por tener:"
-
-opciones_explicitas: ["Baja huella de carbono y baja huella hídrica", "Baja huella de carbono y alta huella hídrica", "Alta huella de carbono y baja huella hídrica", "Alta huella de carbono y alta huella hídrica"]
-
-respuesta: "Alta huella de carbono y alta huella hídrica"
-tipo: mc
-
-explicacion: |
-  La producción ganadera intensiva o extensiva suele impactar ambos indicadores: el agua necesaria para el ciclo de vida del animal y los gases de efecto invernadero producidos por el ganado y el cambio de uso de suelo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "basico"
-  tags: ["metodologia", "sustentabilidad"]
-
-enunciado: "Al evaluar el impacto ambiental de un producto importado, ¿cuál es la razón principal por la que es necesario mirar la huella de carbono Y la huella de agua de forma conjunta?"
-
-opciones_explicitas: ["Porque un producto puede ser eficiente en un recurso pero altamente costoso en otro.", "Porque la huella de carbono siempre es mayor que la huella hídrica.", "Porque sólo así se puede calcular el precio final del producto.", "Porque la huella hídrica sólo se aplica a productos agrícolas."]
-
-respuesta: "Porque un producto puede ser eficiente en un recurso pero altamente costoso en otro."
-tipo: mc
-
-explicacion: |
-  El análisis integral evita mostrar una imagen parcial: un producto puede parecer ecológico por su baja emisión de CO2, pero estar agotando acuíferos críticos (costo ambiental oculto).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "intermedio"
-  tags: ["conceptos_clave"]
-
-enunciado: "Cuando consumimos un producto que ha sido producido en una región con estrés hídrico extremo, aunque su transporte sea local y emita poco CO2, estamos consumiendo un ___ costo ambiental relacionado con el agua."
-
-respuestas_validas: ["alto", "elevado", "significativo"]
-
-respuesta: "alto"
-tipo: completar
-
-explicacion: |
-  El concepto de "agua virtual" se refiere al agua que no vemos pero que se utilizó para producir un bien. Si esa agua proviene de zonas con escasez, el costo ambiental es muy alto para esa región.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "avanzado"
-  tags: ["industria", "impacto"]
-
-enunciado: "Considerá dos productos textiles: A (algodón convencional con riego intensivo en zona seca) y B (poliéster derivado del petróleo con transporte transoceánico). Si comparamos sus impactos, es correcto afirmar que:"
-
-opciones_explicitas: ["El producto A tiene mayor huella hídrica y el B mayor huella de carbono.", "El producto B tiene mayor huella hídrica y el A mayor huella de carbono.", "Ambos tienen la misma huella en ambos indicadores.", "Ninguno de los dos tiene impacto ambiental significativo."]
-
-respuesta: "El producto A tiene mayor huella hídrica y el B mayor huella de carbono."
-tipo: mc
-
-explicacion: |
-  El algodón requiere cantidades masivas de agua para su cultivo (huella hídrica), mientras que el poliéster es un plástico derivado de combustibles fósiles cuya producción y transporte global elevan su huella de carbono.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "basico"
-  tags: ["transporte", "emisiones", "consumo"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  datos: [["10 kg CO2"], ["50 kg CO2"], ["100 kg CO2"]]
-
-enunciado: "Un consumidor elige un producto importado cuyo transporte genera una huella de carbono de {datos[idx][0]}. Si decide cambiar a un producto local, la huella se reduce significativamente. ¿Cuál es la huella de carbono del producto importado según el escenario actual?"
-
-opciones_explicitas: ["10 kg CO2", "50 kg CO2", "100 kg CO2"]
-respuesta: datos[idx][0]
-tipo: mc
-
-explicacion: |
-  La huella de carbono del transporte depende de la distancia y el medio de transporte. Los productos locales reducen estas emisiones.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "intermedio"
-  tags: ["agua_virtual", "consumo_responsable", "recursos_naturales"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["carne de vaca", "15000 litros"], ["carne de pollo", "4000 litros"]]
-
-enunciado: "El concepto de agua virtual se refiere al agua utilizada para producir un bien. Para producir 1 kg de {datos[idx][0]} se requieren aproximadamente ___."
-
-respuestas_validas: ["15000 litros", "4000 litros"]
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  La producción de carne roja requiere una cantidad significativamente mayor de agua (para riego de forraje y bebida del animal) que la carne blanca.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "intermedio"
-  tags: ["dieta", "huella_hídrica", "impacto_ambiental"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["alta en proteína animal", "Mayor huella de agua"], ["basada en vegetales", "Menor huella de agua"]]
-
-enunciado: "Si una persona mantiene una dieta {datos[idx][0]}, su huella de agua virtual será ___ en comparación con una dieta equilibrada."
-
-opciones_explicitas: ["Mayor huella de agua", "Menor huella de agua", "Igual", "Nula"]
-respuesta: datos[idx][1]
-tipo: mc
-
-explicacion: |
-  Las dietas con alto contenido de productos de origen animal suelen tener una huella de agua virtual mucho más elevada debido a los procesos de producción ganadera.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "avanzado"
-  tags: ["procesados", "emisiones", "ciclo_de_vida"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["muy procesado", "2.5 kg CO2"], ["mínimamente procesado", "0.8 kg CO2"]]
-
-enunciado: "Un producto {datos[idx][0]} tiene una huella de carbono de ___ por unidad."
-
-opciones_explicitas: ["2.5 kg CO2", "0.8 kg CO2", "5.0 kg CO2", "1.2 kg CO2"]
-respuesta: datos[idx][1]
-tipo: mc
-
-explicacion: |
-  Los productos altamente procesados suelen tener una huella de carbono más alta debido a las etapas de transformación industrial y empaquetado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "huella_de_carbono_agua_virtual"
-  nivel: "basico"
-  tags: ["definiciones", "agua_virtual"]
-
-enunciado: "La cantidad de agua que se utiliza para producir un bien o servicio, incluyendo el agua utilizada en la extracción de materias primas y el procesamiento, se denomina ___."
-
-respuestas_validas: ["agua virtual", "huella hídrica"]
-respuesta: "agua virtual"
-tipo: completar
-
-explicacion: |
-  El "agua virtual" es el volumen de agua que no vemos pero que se ha consumido para fabricar un producto (por ejemplo, para cultivar el algodón de una camiseta).
-```
-
-## Sección: indicadores-sociales-de-argentina (23 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["hacinamiento", "calculos", "critico"]
-
-variables:
-  habitantes: 12
-  dormitorios: 3
-
-respuesta: "si"
-tipo: input
-
-enunciado: "En un hogar con {habitantes} habitantes y {dormitorios} dormitorios, ¿hay hacinamiento? (escribe 'si' o 'no')."
-
-explicacion: |
-  El ratio es 12 / 3 = 4. Como 4 es mayor que 2, hay hacinamiento.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["NBI", "definicion", "carencias"]
-
-variables:
-  condicion1: falso
-  condicion2: falso
-  condicion3: falso
-
-respuesta: "al menos una"
-tipo: completar
-
-enunciado: "Un hogar se considera con Necesidad Básica Insatisfecha (NBI) si cumple {condicion1} una de las condiciones de carencia (vivienda precaria, hacinamiento o niños sin escolaridad)."
-
-explicacion: |
-  El NBI es un indicador compuesto. No basta con tener un solo problema; la definición clásica establece que si el hogar presenta AL MENOS UNA de las carencias estructurales (vivienda precaria, hacinamiento o falta de escolaridad infantil), se clasifica como NBI.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["hacinamiento", "calculo", "densidad"]
-
-variables:
-  habitantes: random(5, 15)
-  dormitorios: random(1, 4)
-
-respuesta: "{redondear(habitantes / dormitorios, 1)}"
-tipo: input
-
-enunciado: "Si un hogar tiene {habitantes} habitantes y {dormitorios} dormitorios, ¿cuál es la relación de personas por dormitorio? (Redondear a 1 decimal)."
-
-explicacion: |
-  El hacinamiento se mide dividiendo el número de habitantes entre el número de dormitorios. Si esta relación es mayor a 2, se considera hacinamiento severo. En este caso, la relación es {redondear(habitantes / dormitorios, 1)}.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["pobreza", "ingreso", "canasta"]
-
-variables:
-  tipo_pobreza: uno_de(["indigente", "general"])
-
-respuesta: "{tipo_pobreza}"
-tipo: completar
-
-enunciado: "Cuando los ingresos de un hogar no alcanzan para cubrir la canasta básica de ALIMENTOS, se denomina pobreza {tipo_pobreza}."
-
-explicacion: |
-  La pobreza indigente se define específicamente por la incapacidad de cubrir la canasta básica de alimentos. La pobreza general abarca la canasta básica total (alimentos + bienes y servicios no alimentarios).
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["hacinamiento", "umbral", "regla"]
-
-variables:
-  valor: 2
-
-respuesta: "2"
-tipo: input
-
-enunciado: "Según los estándares utilizados en Argentina, se considera que hay hacinamiento cuando la relación habitantes/dormitorios es mayor a {valor}."
-
-explicacion: |
-  El umbral clásico para detectar hacinamiento es una relación superior a 2 personas por dormitorio. Esto indica que el espacio físico es insuficiente para garantizar la privacidad y el descanso adecuado.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["desigualdad", "territorio", "pobreza"]
-
-variables:
-  region: uno_de(["norte", "centro", "sur"])
-
-respuesta: "{region}"
-tipo: completar
-
-enunciado: "En Argentina, las provincias de la región {region} suelen presentar tasas más altas de pobreza e indicadores de carencia estructural en comparación con otras zonas del país."
-
-explicacion: |
-  Históricamente, las provincias del norte argentino presentan mayores índices de pobreza y NBI debido a factores estructurales, menos industrialización y menor acceso a servicios públicos comparado con el centro del país.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["vivienda", "NBI", "materiales"]
-
-variables:
-  material: uno_de(["ladrillo", "quincha", "madera"])
-
-respuesta: "{material}"
-tipo: completar
-
-enunciado: "Para ser considerada vivienda precaria en el cálculo del NBI, el techo o las paredes deben estar construidos con materiales como {material} o similares no dignos, en lugar de ladrillo o bloques sólidos."
-
-explicacion: |
-  La condición de vivienda precaria se refiere a la falta de materiales de construcción dignos. Materiales como quincha, cartón o madera en mal estado suelen ser indicadores de esta carencia en las encuestas.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "avanzado"
-  tags: ["migracion", "urbanizacion", "hacinamiento"]
-
-variables:
-  causa: "crecimiento_urbano_desordenado"
-
-respuesta: "{causa}"
-tipo: completar
-
-enunciado: "El fenómeno de migración interna y el {causa} generan asentamientos periféricos donde el hacinamiento se intensifica debido a la falta de planificación territorial."
-
-explicacion: |
-  El crecimiento urbano desordenado, impulsado a menudo por migraciones internas hacia grandes ciudades, conduce a la formación de barrios periféricos con infraestructura deficiente, lo que agrava el problema del hacinamiento.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["pobreza", "definicion", "diferencia"]
-
-variables:
-  diferencia: "canasta_basica_total"
-
-respuesta: "{diferencia}"
-tipo: completar
-
-enunciado: "La pobreza general se diferencia de la indigente porque toma como referencia la canasta básica de {diferencia}, que incluye alimentos y servicios no alimentarios."
-
-explicacion: |
-  La pobreza indigente mide la incapacidad de comprar alimentos. La pobreza general mide la incapacidad de cubrir la canasta básica total, que es más amplia e incluye servicios como transporte, salud y vestimenta.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["NBI", "logica", "condicion"]
-
-variables:
-  tiene_vivienda_pobre: verdadero
-  tiene_hacinamiento: falso
-  ninos_sin_escuela: falso
-
-respuesta: "si"
-tipo: completar
-
-enunciado: "Si un hogar tiene vivienda precaria ({tiene_vivienda_pobre}), no tiene hacinamiento ({tiene_hacinamiento}) y sus hijos asisten a la escuela ({ninos_sin_escuela}), ¿tiene NBI? (Responder 'si' o 'no')."
-
-explicacion: |
-  Si. El hogar tiene NBI porque cumple con al menos una de las condiciones: la vivienda precaria. No es necesario que cumpla todas las condiciones, solo una es suficiente para ser clasificado como tal.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["importancia", "calidad_vida", "estadistica"]
-
-variables:
-  funcion: "cuantificar"
-
-respuesta: "{funcion}"
-tipo: completar
-
-enunciado: "Los indicadores sociales permiten {funcion} la calidad de vida de una población, transformando condiciones subjetivas en datos objetivos y medibles."
-
-explicacion: |
-  Los indicadores sociales son herramientas estadísticas fundamentales para cuantificar (medir numéricamente) aspectos como la salud, educación y vivienda, permitiendo comparar realidades y diseñar políticas públicas.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["hacinamiento", "severo", "definicion"]
-
-variables:
-  limite: 2
-
-respuesta: "2"
-tipo: input
-
-enunciado: "Se considera hacinamiento severo cuando la relación de habitantes por dormitorio supera el límite de {limite}."
-
-explicacion: |
-  El umbral estándar para considerar hacinamiento es una relación mayor a 2 personas por dormitorio. Si la relación es mayor a este número, se considera que el espacio es insuficiente para el bienestar de los ocupantes.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "avanzado"
-  tags: ["desigualdad", "territorio", "patrones"]
-
-variables:
-  patron: "geograficos"
-
-respuesta: "{patron}"
-tipo: completar
-
-enunciado: "La distribución de la pobreza en Argentina revela patrones {patron} claros, concentrándose más en ciertas provincias y periferias urbanas que en otras."
-
-explicacion: |
-  La pobreza no se distribuye aleatoriamente; sigue patrones geográficos históricos y económicos, afectando desproporcionadamente a las regiones del norte y a los cinturones de pobreza alrededor de las grandes ciudades.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["NBI", "educacion", "escolaridad"]
-
-variables:
-  condicion: "asistir"
-
-respuesta: "{condicion}"
-tipo: completar
-
-enunciado: "Una de las variables del NBI es la escolaridad: se considera carencia si hay niños en el hogar que no {condicion} a la escuela."
-
-explicacion: |
-  La falta de escolaridad infantil es un indicador clave de pobreza intergeneracional. Si un niño en edad escolar no asiste a la escuela, el hogar es marcado como con NBI por esta variable.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["pobreza", "calcula", "porcentaje"]
-
-variables:
-  total_poblacion: random(1000000, 5000000)
-  poblacion_pobre: random(200000, 1500000)
-
-respuesta: "{redondear(poblacion_pobre / total_poblacion * 100, 1)}"
-tipo: input
-
-enunciado: "Si en una provincia de {total_poblacion} habitantes, {poblacion_pobre} viven en situación de pobreza, ¿cuál es la tasa de pobreza? (Expresar como número entero o decimal, sin el símbolo %)."
-
-explicacion: |
-  La tasa de pobreza se calcula dividiendo la población pobre entre la población total y multiplicando por 100. En este caso: {poblacion_pobre} / {total_poblacion} * 100 = {redondear(poblacion_pobre / total_poblacion * 100, 1)}%.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["hacinamiento", "privacidad", "impacto"]
-
-variables:
-  impacto: "menores"
-
-respuesta: "{impacto}"
-tipo: completar
-
-enunciado: "El hacinamiento se traduce en {impacto} oportunidades de desarrollo personal y comunitario debido a la falta de espacio físico y privacidad."
-
-explicacion: |
-  La falta de espacio adecuado afecta directamente la salud mental, el rendimiento escolar y la cohesión social, generando un ciclo de desventaja para las familias que viven en condiciones de hacinamiento.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["pobreza", "indigente", "alimentos"]
-
-variables:
-  referencia: "alimentos"
-
-respuesta: "{referencia}"
-tipo: completar
-
-enunciado: "La pobreza indigente se define como la incapacidad de cubrir la canasta básica de {referencia}."
-
-explicacion: |
-  La pobreza indigente es la forma más extrema de exclusión, donde el hogar no puede comprar ni siquiera los alimentos mínimos necesarios para sobrevivir.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["NBI", "servicios", "acceso"]
-
-variables:
-  relacion: "acceso"
-
-respuesta: "{relacion}"
-tipo: completar
-
-enunciado: "El NBI captura la falta de {relacion} a servicios básicos y educación, más allá de la situación económica del hogar."
-
-explicacion: |
-  El NBI es una medida de acceso a derechos básicos. Evalúa si la familia tiene acceso efectivo a una vivienda digna, un espacio habitable adecuado y la educación obligatoria para sus hijos.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["pobreza", "general", "servicios"]
-
-variables:
-  servicios: "no alimentarios"
-
-respuesta: "{servicios}"
-tipo: completar
-
-enunciado: "La pobreza general incluye la incapacidad de cubrir la canasta básica de alimentos más los bienes y servicios {servicios}."
-
-explicacion: |
-  La pobreza general es un indicador más amplio que la indigente. Incluye la capacidad de cubrir no solo la alimentación, sino también gastos esenciales como transporte, salud, vestimenta y vivienda.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "avanzado"
-  tags: ["hacinamiento", "distribucion", "urbano"]
-
-variables:
-  zona: "periferias"
-
-respuesta: "{zona}"
-tipo: completar
-
-enunciado: "El hacinamiento en Argentina es más frecuente en las {zona} de las grandes ciudades y en asentamientos informales, debido al crecimiento demográfico no planificado."
-
-explicacion: |
-  El hacinamiento no es uniforme. Se concentra en las periferias urbanas donde la oferta de vivienda formal es escasa y los precios son prohibitivos, forzando a las familias a ocupar espacios insuficientes.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "avanzado"
-  tags: ["hacinamiento", "salud", "impacto"]
-
-variables:
-  efecto: "mayor"
-
-respuesta: "{efecto}"
-tipo: completar
-
-enunciado: "El hacinamiento está ligado a un {efecto} riesgo de enfermedades respiratorias y infecciosas debido a la falta de ventilación y higiene adecuada."
-
-explicacion: |
-  La densidad poblacional excesiva en espacios reducidos facilita la transmisión de enfermedades y dificulta el mantenimiento de condiciones higiénicas, impactando negativamente en la salud pública.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "intermedio"
-  tags: ["pobreza", "economia", "fluctuacion"]
-
-variables:
-  variable: "economia"
-
-respuesta: "{variable}"
-tipo: completar
-
-enunciado: "La tasa de pobreza en Argentina suele fluctuar con la {variable} nacional, aumentando en tiempos de crisis y disminuyendo en etapas de crecimiento."
-
-explicacion: |
-  A diferencia del NBI que es más estructural y cambia lentamente, la pobreza por ingreso es más sensible a los ciclos económicos, variando rápidamente con la inflación y el empleo.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indicadores_sociales_de_argentina"
-  nivel: "basico"
-  tags: ["resumen", "indicadores", "importancia"]
-
-variables:
-  objetivo: "desigualdad"
-
-respuesta: "{objetivo}"
-tipo: completar
-
-enunciado: "Los indicadores sociales como NBI, pobreza y hacinamiento son fundamentales para entender la {objetivo} territorial en Argentina."
-
-explicacion: |
-  Estos indicadores permiten objetivar la desigualdad territorial, mostrando que la calidad de vida no es uniforme en el territorio y ayudando a identificar las zonas que requieren intervención prioritaria.
-```
-
-## Sección: indice-de-desarrollo-humano (23 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "intermedio"
-  tags: ["calculo", "normalizacion"]
-
-variables:
-  esperanza: random(40, 80)
-
-respuesta: redondear((esperanza - 20) / (85 - 20), 3)
-tipo: input
-
-enunciado: "Si la esperanza de vida es {esperanza} años, ¿cuál es el índice normalizado? (Rango min: 20, max: 85)."
-
-explicacion: |
-  Se resta el mínimo (20) al valor real y se divide por el rango (65).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "intermedio"
-  tags: ["calculo", "normalizacion"]
-
-variables:
-  esperanza: random(50, 84)
-
-respuesta: redondear((esperanza - 20) / (85 - 20), 3)
-tipo: input
-
-enunciado: "Con una esperanza de vida de {esperanza} años, calcula el índice de salud."
-
-explicacion: |
-  Fórmula: (valor_real - minimo) / (maximo - minimo)."
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "intermedio"
-  tags: ["calculo", "ejemplo"]
-
-variables:
-  val: uno_de([0.5, 0.6, 0.7, 0.8])
-
-respuesta: redondear(val, 3)
-tipo: input
-
-enunciado: "Si los índices de salud, educación e ingreso son todos {val}, ¿cuál es el IDH?"
-
-explicacion: |
-  La media geométrica de tres valores iguales es el valor mismo: (val * val * val)^(1/3) = val.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "intermedio"
-  tags: ["calculo", "limite"]
-
-variables:
-  esperanza: 85
-
-respuesta: 1.0
-tipo: input
-
-enunciado: "Si la esperanza de vida es 85 años, ¿cuál es el índice de salud? (min: 20, max: 85)."
-
-explicacion: |
-  (85 - 20) / (85 - 20) = 1.0. Es el valor máximo posible.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "intermedio"
-  tags: ["calculo", "limite"]
-
-variables:
-  esperanza: 20
-
-respuesta: 0.0
-tipo: input
-
-enunciado: "Si la esperanza de vida es 20 años, ¿cuál es el índice de salud? (min: 20, max: 85)."
-
-explicacion: |
-  (20 - 20) / (85 - 20) = 0.0. Es el valor mínimo posible.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "basico"
-  tags: ["definicion", "concepto"]
-
-variables:
-  opcion_correcta: "medir el bienestar humano"
-  opcion_a: "medir el crecimiento del PIB"
-  opcion_b: "medir la producción industrial"
-  opcion_c: "medir la superficie territorial"
-
-respuesta: opcion_correcta
-tipo: mc
-
-enunciado: "El Índice de Desarrollo Humano (IDH) fue creado para evaluar el progreso de los países más allá del simple crecimiento económico. ¿Qué busca medir principalmente?"
-
-opciones_explicitas: [opcion_a, opcion_b, opcion_correcta, opcion_c]
-
-explicacion: |
-  El IDH busca evaluar la capacidad de las personas para llevar una vida larga, saludable y creativa, yendo más allá del PIB.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "basico"
-  tags: ["dimensiones", "salud", "educacion"]
-
-variables:
-  dim1: "Salud"
-  dim2: "Educación"
-  dim3: "Estándar de vida digna"
-  distractor: "Seguridad nacional"
-
-respuesta: "Salud, Educación, Estándar de vida digna"
-tipo: completar
-
-enunciado: "El IDH se basa en tres dimensiones principales. Nombra las tres correctamente: {dim1}, {dim2} y {dim3}."
-
-respuestas_validas:
-  - "Salud, Educación, Estándar de vida digna"
-  - "Salud, educación, estándar de vida digna"
-  - "Salud, Educación, estándar de vida digna"
-
-explicacion: |
-  Las tres dimensiones son: Salud (esperanza de vida), Educación (años de escolaridad) y Estándar de vida digna (ingreso per cápita).
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "basico"
-  tags: ["indicadores", "salud"]
-
-variables:
-  indicador: "esperanza de vida al nacer"
-
-respuesta: indicador
-tipo: completar
-
-enunciado: "La dimensión de salud en el cálculo del IDH se mide a través del indicador: {indicador}."
-
-respuestas_validas:
-  - "esperanza de vida al nacer"
-  - "Esperanza de vida al nacer"
-  - "esperanza de vida"
-
-explicacion: |
-  La esperanza de vida al nacer refleja el acceso a servicios médicos y condiciones de higiene.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "intermedio"
-  tags: ["educacion", "indicadores"]
-
-variables:
-  comp1: "promedio de años de escolaridad"
-  comp2: "años esperados de escolarización"
-
-respuesta: "promedio de años de escolaridad y años esperados de escolarización"
-tipo: completar
-
-enunciado: "El índice de educación combina dos indicadores: el {comp1} para los adultos y los {comp2} para los niños."
-
-respuestas_validas:
-  - "promedio de años de escolaridad y años esperados de escolarización"
-  - "promedio de años de escolaridad, años esperados de escolarización"
-
-explicacion: |
-  La educación se mide combinando la escolaridad actual de los adultos y la proyección para los niños.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "intermedio"
-  tags: ["ingreso", "economia"]
-
-variables:
-  indicador_ingreso: "ingreso nacional bruto (INB) per cápita"
-
-respuesta: indicador_ingreso
-tipo: completar
-
-enunciado: "El estándar de vida digna se evalúa mediante el {indicador_ingreso}, ajustado por el poder adquisitivo."
-
-respuestas_validas:
-  - "ingreso nacional bruto (INB) per cápita"
-  - "ingreso nacional bruto per cápita"
-  - "INB per cápita"
-
-explicacion: |
-  Se utiliza el INB per cápita ajustado por paridad de poder adquisitivo para comparar niveles de vida.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "basico"
-  tags: ["escala", "valores"]
-
-variables:
-  min_val: "0"
-  max_val: "1"
-
-respuesta: "0 a 1"
-tipo: completar
-
-enunciado: "El puntaje único del IDH va de {min_val} a {max_val}, donde un valor más cercano a 1 indica mayor desarrollo."
-
-respuestas_validas:
-  - "0 a 1"
-  - "de 0 a 1"
-  - "0-1"
-
-explicacion: |
-  El índice está normalizado entre 0 (mínimo desarrollo) y 1 (máximo desarrollo).
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "basico"
-  tags: ["historia", "instituciones"]
-
-variables:
-  organizacion: "PNUD"
-
-respuesta: organizacion
-tipo: completar
-
-enunciado: "El Índice de Desarrollo Humano fue creado por el Programa de las Naciones Unidas para el Desarrollo, conocido como {organizacion}."
-
-respuestas_validas:
-  - "PNUD"
-  - "pnud"
-  - "Programa de las Naciones Unidas para el Desarrollo"
-
-explicacion: |
-  El PNUD (Programa de las Naciones Unidas para el Desarrollo) es la entidad creadora.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "basico"
-  tags: ["interpretacion"]
-
-variables:
-  valor_idh: "0.45"
-
-respuesta: "bajo desarrollo humano"
-tipo: completar
-
-enunciado: "Un país con un IDH de {valor_idh} se clasifica típicamente en:"
-
-respuestas_validas:
-  - "bajo desarrollo humano"
-  - "Bajo desarrollo humano"
-  - "desarrollo humano bajo"
-
-explicacion: |
-  Valores cercanos a 0 indican bajo desarrollo humano.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "intermedio"
-  tags: ["exclusion"]
-
-variables:
-  no_incluida: "Tasa de alfabetización"
-  incluida: "Esperanza de vida"
-
-respuesta: no_incluida
-tipo: mc
-
-enunciado: "¿Cuál de estos NO es un indicador directo en las dimensiones principales del IDH tradicional?"
-
-opciones_explicitas: [no_incluida, incluida, "Ingreso per cápita", "Años esperados de escolaridad"]
-
-explicacion: |
-  La tasa de alfabetización fue reemplazada por indicadores de años de escolaridad en versiones recientes.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "intermedio"
-  tags: ["calculos", "normalizacion"]
-
-variables:
-  esperanza: "85"
-  min_val: "20"
-  max_val: "85"
-
-respuesta: "1.0"
-tipo: input
-
-enunciado: "Si la esperanza de vida es {esperanza} años (máximo teórico {max_val}), ¿cuál es el índice normalizado?"
-
-explicacion: |
-  (85 - 20) / (85 - 20) = 1.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "intermedio"
-  tags: ["calculos", "normalizacion"]
-
-variables:
-  esperanza: "20"
-  min_val: "20"
-  max_val: "85"
-
-respuesta: "0.0"
-tipo: input
-
-enunciado: "Si la esperanza de vida es {esperanza} años (mínimo teórico {min_val}), ¿cuál es el índice normalizado?"
-
-explicacion: |
-  (20 - 20) / (85 - 20) = 0.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "basico"
-  tags: ["clasificacion"]
-
-variables:
-  umbral: "0.80"
-
-respuesta: "alto desarrollo humano"
-tipo: completar
-
-enunciado: "Un país con IDH superior a {umbral} se clasifica usualmente como:"
-
-respuestas_validas:
-  - "alto desarrollo humano"
-  - "Alto desarrollo humano"
-  - "desarrollo humano alto"
-
-explicacion: |
-  Tradicionalmente, >0.80 se considera alto desarrollo.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "basico"
-  tags: ["educacion"]
-
-variables:
-  indicador: "años esperados de escolarización"
-
-respuesta: indicador
-tipo: completar
-
-enunciado: "El indicador que proyecta el futuro educativo de los niños es el {indicador}."
-
-respuestas_validas:
-  - "años esperados de escolarización"
-  - "Años esperados de escolarización"
-
-explicacion: |
-  Este indicador mira hacia el futuro, a diferencia del promedio de años ya completados.
-```
-
-```
-metadata:
-  materia: "Geografía"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "avanzado"
-  tags: ["calculos"]
-
-variables:
-  i1: "1.0"
-  i2: "0.0"
-  i3: "1.0"
-
-respuesta: "0.0"
-tipo: input
-
-enunciado: "Si un país tiene índices de Salud: {i1}, Educación: {i2}, Ingreso: {i3}, ¿cuál es su IDH?"
-
-explicacion: |
-  (1.0 * 0.0 * 1.0)^(1/3) = 0. La media geométrica castiga fuertemente el cero.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "avanzado"
-  tags: ["idh", "calculo", "normalizacion"]
-
-variables:
-  esperanza_real: random(50, 80)
-
-respuesta: redondear((esperanza_real - 20) / (85 - 20), 3)
-tipo: input
-
-enunciado: "Si un país tiene una esperanza de vida de {esperanza_real} años, ¿cuál es su índice de salud normalizado (min 20, max 85)?"
-
-explicacion: |
-  Se usa la fórmula: (valor real - min) / (max - min). Aquí: (esperanza_real - 20) / 65.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "avanzado"
-  tags: ["idh", "calculo", "educación"]
-
-variables:
-  años_esperados: random(10, 18)
-  promedio_adultos: random(6, 15)
-
-respuesta: redondear((años_esperados + promedio_adultos) / 2 / 25, 3)
-tipo: input
-
-enunciado: "Si los años esperados de escolarización son {años_esperados} y el promedio de años de adultos es {promedio_adultos}, y la meta máxima es 25, ¿cuál es el índice educativo aproximado (media de los dos indicadores dividida por 25)?"
-
-explicacion: |
-  El índice de educación combina ambos indicadores. Aquí se simplifica como la media de los dos valores dividida por el máximo teórico (25).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "avanzado"
-  tags: ["idh", "calculo", "ingreso"]
-
-variables:
-  inb_real: random(2000, 40000)
-
-respuesta: redondear((log(inb_real) - log(100)) / (log(75000) - log(100)), 3)
-tipo: input
-
-enunciado: "Si el INB per cápita es {inb_real} dólares, y se usa la transformación logarítmica con min_log=100 y max_log=75000, ¿cuál es el índice de ingreso?"
-
-explicacion: |
-  El IDH usa logaritmo natural para el ingreso. Fórmula: (ln(valor) - ln(min)) / (ln(max) - ln(min)).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "indice_de_desarrollo_humano"
-  nivel: "intermedio"
-  tags: ["idh", "normalización", "escala"]
-
-respuesta: "0 a 1"
-tipo: completar
-
-enunciado: "Cada dimensión se normaliza a una escala de {0 a 1} antes de calcular el IDH final."
-
-explicacion: |
-  La normalización permite sumar o multiplicar indicadores con unidades diferentes (años, dólares, etc.).
-```
-
-## Sección: mapa-plano-escala (20 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "basico"
-  tags: ["plano_vs_mapa"]
-
-enunciado: "¿Cuál es la diferencia principal entre un plano y un mapa?"
-tipo: mc
-opciones_explicitas:
-  - "El plano representa un espacio chico donde la curvatura terrestre no importa; el mapa representa un espacio grande donde sí"
-  - "El plano usa colores y el mapa no"
-  - "No hay diferencia, son sinónimos exactos"
-respuesta: "El plano representa un espacio chico donde la curvatura terrestre no importa; el mapa representa un espacio grande donde sí"
-
-explicacion: |
-  Un plano de una casa o un barrio puede tratar la superficie como
-  plana; un mapa de un país o el mundo tiene que lidiar con la
-  curvatura real de la Tierra.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "basico"
-  tags: ["plano_vs_mapa"]
-
-enunciado: "¿Cuál de estos ejemplos es más probable que se represente con un plano en vez de un mapa?"
-tipo: mc
-opciones_explicitas:
-  - "El interior de un shopping"
-  - "Los países de Sudamérica"
-  - "El mundo entero"
-respuesta: "El interior de un shopping"
-
-explicacion: |
-  Un espacio chico y de detalle fino (un edificio, un barrio) se
-  representa con un plano.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "basico"
-  tags: ["tipos_de_mapa"]
-
-enunciado: "¿Qué muestra principalmente un mapa político?"
-tipo: mc
-opciones_explicitas:
-  - "Límites entre países o provincias y sus capitales"
-  - "El relieve del terreno"
-  - "La densidad de población"
-respuesta: "Límites entre países o provincias y sus capitales"
-
-explicacion: |
-  El mapa político representa la división administrativa del espacio,
-  no su forma natural ni datos estadísticos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "basico"
-  tags: ["tipos_de_mapa"]
-
-enunciado: "¿Qué muestra principalmente un mapa físico?"
-tipo: mc
-opciones_explicitas:
-  - "El relieve: montañas, llanuras, ríos y costas"
-  - "Los límites entre países"
-  - "El resultado de una elección por región"
-respuesta: "El relieve: montañas, llanuras, ríos y costas"
-
-explicacion: |
-  El mapa físico muestra la forma natural del terreno, sin límites
-  administrativos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "intermedio"
-  tags: ["tipos_de_mapa"]
-
-enunciado: "Un mapa que muestra la densidad de población de cada provincia con distintos colores es un ejemplo de mapa..."
-tipo: mc
-opciones_explicitas:
-  - "Temático"
-  - "Físico"
-  - "Político"
-respuesta: "Temático"
-
-explicacion: |
-  Un mapa temático muestra un dato específico distribuido en el
-  espacio — en este caso, densidad de población.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "basico"
-  tags: ["tipos_de_mapa"]
-
-enunciado: "Un buen mapa siempre muestra toda la información posible del territorio (relieve, límites políticos, población, clima) a la vez."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Cada tipo de mapa elige qué información representar y descarta el
-  resto — mostrar todo a la vez saturaría la lectura.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "basico"
-  tags: ["escala", "vocabulario"]
-
-enunciado: "¿Qué es la escala de un mapa?"
-tipo: mc
-opciones_explicitas:
-  - "La relación entre el tamaño representado en el mapa y el tamaño real del territorio"
-  - "La cantidad de colores usados en el mapa"
-  - "El año en que se hizo el mapa"
-respuesta: "La relación entre el tamaño representado en el mapa y el tamaño real del territorio"
-
-explicacion: |
-  Todo mapa reduce el territorio real para que entre en una hoja o
-  pantalla; la escala indica en qué proporción.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "intermedio"
-  tags: ["escala"]
-
-enunciado: "Una escala escrita como 1:100.000 significa que..."
-tipo: mc
-opciones_explicitas:
-  - "1 unidad en el mapa equivale a 100.000 de esas mismas unidades en la realidad"
-  - "El mapa tiene 100.000 kilómetros de ancho"
-  - "El mapa se hizo con 100.000 mediciones distintas"
-respuesta: "1 unidad en el mapa equivale a 100.000 de esas mismas unidades en la realidad"
-
-explicacion: |
-  Es una razón: por cada unidad de longitud en el papel, hay 100.000
-  unidades iguales en el territorio real.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "intermedio"
-  tags: ["escala"]
-
-enunciado: "¿Qué es una escala gráfica?"
-tipo: mc
-opciones_explicitas:
-  - "Una barra dibujada en el mapa con marcas de distancias reales"
-  - "Un número que indica cuántos colores tiene el mapa"
-  - "La cantidad de países que aparecen en el mapa"
-respuesta: "Una barra dibujada en el mapa con marcas de distancias reales"
-
-explicacion: |
-  Es una representación visual de la escala, útil porque se agranda o
-  achica junto con el mapa si éste cambia de tamaño.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "avanzado"
-  tags: ["escala"]
-
-enunciado: "¿Por qué una escala gráfica sigue siendo correcta después de fotocopiar el mapa agrandado, mientras que la escala numérica deja de serlo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque la barra gráfica se agranda junto con el mapa; el número de la escala numérica no cambia solo"
-  - "Porque la escala gráfica no depende del tamaño del mapa"
-  - "Porque la escala numérica es siempre más precisa"
-respuesta: "Porque la barra gráfica se agranda junto con el mapa; el número de la escala numérica no cambia solo"
-
-explicacion: |
-  Al fotocopiar agrandado, la barra dibujada crece en la misma
-  proporción que todo el mapa y sigue midiendo lo correcto; el "1:100.000"
-  escrito queda igual aunque el mapa ya no sea ese tamaño.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "intermedio"
-  tags: ["proyecciones"]
-
-enunciado: "Existe una forma de proyectar la superficie curva de la Tierra sobre un papel plano sin distorsionar nada."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Es matemáticamente imposible: toda proyección distorsiona algo (forma,
-  tamaño relativo, distancia o dirección) — no hay una perfecta.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "avanzado"
-  tags: ["proyecciones"]
-
-enunciado: "La proyección Mercator prioriza mantener las formas correctas (útil para navegación). ¿Qué distorsiona a cambio?"
-tipo: mc
-opciones_explicitas:
-  - "El tamaño relativo de las áreas, agrandando mucho las zonas cercanas a los polos"
-  - "Los límites políticos entre países"
-  - "El nombre de los océanos"
-respuesta: "El tamaño relativo de las áreas, agrandando mucho las zonas cercanas a los polos"
-
-explicacion: |
-  Por eso en un mapa Mercator Groenlandia se ve casi tan grande como
-  África, cuando África es unas 14 veces más grande en la realidad.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "avanzado"
-  tags: ["proyecciones"]
-
-enunciado: "En la proyección Mercator, Groenlandia se ve casi del mismo tamaño que África. En la realidad, ¿cuál es más grande?"
-tipo: mc
-opciones_explicitas:
-  - "África, ampliamente"
-  - "Groenlandia, ampliamente"
-  - "Son del mismo tamaño real"
-respuesta: "África, ampliamente"
-
-explicacion: |
-  África es real unas 14 veces más grande que Groenlandia — la
-  Mercator distorsiona el tamaño relativo para preservar las formas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "intermedio"
-  tags: ["plano_vs_mapa"]
-
-enunciado: "¿Por qué el plano de un barrio no necesita ninguna proyección especial para la curvatura terrestre, pero un mapa del mundo sí?"
-tipo: mc
-opciones_explicitas:
-  - "Porque en un área tan chica la curvatura de la Tierra es imperceptible"
-  - "Porque los barrios no tienen curvatura"
-  - "Porque los planos siempre son más precisos que los mapas"
-respuesta: "Porque en un área tan chica la curvatura de la Tierra es imperceptible"
-
-explicacion: |
-  A escala de un barrio o ciudad, tratar la superficie como plana no
-  genera un error perceptible; a escala de un continente, sí.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "basico"
-  tags: ["lectura_de_mapas"]
-
-enunciado: "¿Para qué sirve que un mapa incluya una rosa de los vientos o una flecha marcando el norte?"
-tipo: mc
-opciones_explicitas:
-  - "Para poder relacionar lo dibujado con la orientación real del territorio"
-  - "Para decorar el mapa"
-  - "Para indicar la escala"
-respuesta: "Para poder relacionar lo dibujado con la orientación real del territorio"
-
-explicacion: |
-  Sin esa referencia, un mapa girado respecto al terreno sería
-  ilegible aunque tuviera toda la información correcta — por eso este
-  tema depende de `../orientacion-puntos-cardinales/`.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "intermedio"
-  tags: ["tipos_de_mapa"]
-
-enunciado: "Para planificar una ruta de trekking por zonas montañosas, ¿qué tipo de mapa es más útil?"
-tipo: mc
-opciones_explicitas:
-  - "Un mapa físico, que muestra el relieve"
-  - "Un mapa político, que muestra límites de países"
-  - "Un mapa temático de resultados electorales"
-respuesta: "Un mapa físico, que muestra el relieve"
-
-explicacion: |
-  El relieve (montañas, pendientes, ríos) es justo lo que un mapa
-  físico representa.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "intermedio"
-  tags: ["tipos_de_mapa"]
-
-enunciado: "Para saber a qué provincia pertenece una ciudad, ¿qué tipo de mapa es más útil?"
-tipo: mc
-opciones_explicitas:
-  - "Un mapa político"
-  - "Un mapa físico"
-  - "Un mapa temático de clima"
-respuesta: "Un mapa político"
-
-explicacion: |
-  Los límites administrativos (provincias, países) son lo que muestra
-  un mapa político.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "avanzado"
-  tags: ["escala"]
-
-enunciado: "Si un mapa con escala numérica 1:50.000 se fotocopia agrandado al doble, ese \"1:50.000\" impreso sigue siendo la escala correcta de la fotocopia."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Al agrandar el papel, la relación real entre lo dibujado y el
-  territorio cambió, pero el número impreso quedó igual — por eso la
-  escala numérica deja de ser confiable después de una ampliación o
-  reducción, a diferencia de la gráfica.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "avanzado"
-  tags: ["proyecciones"]
-
-enunciado: "¿Existe una proyección cartográfica objetivamente \"mejor\" que las demás?"
-tipo: mc
-opciones_explicitas:
-  - "No: cada una es un compromiso distinto entre qué preservar (forma o tamaño relativo) y qué sacrificar"
-  - "Sí, la Mercator es la mejor en todos los casos"
-  - "Sí, cualquier proyección moderna elimina toda distorsión"
-respuesta: "No: cada una es un compromiso distinto entre qué preservar (forma o tamaño relativo) y qué sacrificar"
-
-explicacion: |
-  No existe una proyección perfecta — la elección depende de para qué
-  se va a usar el mapa (navegar, comparar superficies, etc.).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "mapa_plano_escala"
-  nivel: "basico"
-  tags: ["plano_vs_mapa"]
-
-enunciado: "Un dibujo que muestra las habitaciones de una casa con sus medidas es..."
-tipo: mc
-opciones_explicitas:
-  - "Un plano"
-  - "Un mapa físico"
-  - "Un mapa temático"
-respuesta: "Un plano"
-
-explicacion: |
-  Representa un espacio chico con nivel de detalle fino: es un plano,
-  no un mapa.
-```

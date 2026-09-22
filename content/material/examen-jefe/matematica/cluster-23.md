@@ -1,8 +1,1114 @@
-# Examen jefe — Experto en Polinomios y Probabilidad
+# Examen jefe — [PENDIENTE #623]
 
-> Logro #74. Completaste el parcial dominando factoreo, potencias, conteo y probabilidad compuesta. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **137 preguntas totales** en 5/5 secciones.
+> Logro #623. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **136 preguntas totales** en 5/5 secciones.
 
 ---
+
+## Sección: notacion-cientifica (26 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "basico"
+  tags: ["notacion_cientifica", "vocabulario"]
+
+enunciado: "¿Cómo se escribe un número en notación científica?"
+tipo: mc
+opciones_explicitas:
+  - "a × 10ⁿ, con a entre 1 y 10"
+  - "Cualquier número multiplicado por 10"
+  - "Un número con muchos ceros"
+respuesta: "a × 10ⁿ, con a entre 1 y 10"
+
+explicacion: |
+  El coeficiente a siempre tiene que estar entre 1 y 10 (1 ≤ a < 10).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "conversion"]
+
+variables:
+  a_entero: random(1, 9)
+  a_decimal: random(0, 9)
+  n: random(4, 8)
+  numero: (a_entero + a_decimal / 10) * (10 ^ n)
+
+respuesta: a_entero + a_decimal / 10
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Al escribir {numero} en notación científica, ¿cuál es el coeficiente (la parte \"a\")?"
+
+explicacion: |
+  Se corre la coma hasta que quede un solo dígito antes de ella: ese
+  número (con su parte decimal) es el coeficiente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "conversion"]
+
+variables:
+  a_entero: random(1, 9)
+  a_decimal: random(0, 9)
+  n: random(4, 8)
+  numero: (a_entero + a_decimal / 10) * (10 ^ n)
+
+respuesta: n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Al escribir {numero} en notación científica, ¿cuál es el exponente de 10?"
+
+explicacion: |
+  El exponente es la cantidad de lugares que se corrió la coma hacia la
+  izquierda.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "avanzado"
+  tags: ["notacion_cientifica", "conversion"]
+
+variables:
+  a_entero: random(1, 9)
+  a_decimal: random(0, 9)
+  n: random(3, 6)
+  numero: (a_entero + a_decimal / 10) / (10 ^ n)
+
+respuesta: a_entero + a_decimal / 10
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Al escribir {numero} en notación científica, ¿cuál es el coeficiente?"
+
+explicacion: |
+  Igual que con números grandes: se corre la coma hasta dejar un solo
+  dígito antes de ella.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "avanzado"
+  tags: ["notacion_cientifica", "conversion"]
+
+variables:
+  a_entero: random(1, 9)
+  a_decimal: random(0, 9)
+  n: random(3, 6)
+  numero: (a_entero + a_decimal / 10) / (10 ^ n)
+
+respuesta: -n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Al escribir {numero} en notación científica, ¿cuál es el exponente de 10?"
+
+explicacion: |
+  Con números menores a 1, el exponente da negativo: la coma se corrió
+  hacia la derecha.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "conversion"]
+
+variables:
+  a: random(1, 9)
+  n: random(3, 7)
+
+respuesta: a * (10 ^ n)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿A qué número equivale {a} × 10^{n}?"
+
+pasos:
+  - "{a} × 10^{n} corre la coma {n} lugares a la derecha: {a * (10 ^ n)}"
+
+explicacion: |
+  Un exponente positivo corre la coma hacia la derecha, agregando ceros.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "avanzado"
+  tags: ["notacion_cientifica", "conversion"]
+
+variables:
+  a: random(1, 9)
+  n: random(2, 5)
+
+respuesta: a / (10 ^ n)
+tipo: input
+tolerancia_abs: 0.00001
+
+enunciado: "¿A qué número equivale {a} × 10^(-{n})?"
+
+pasos:
+  - "Un exponente negativo corre la coma {n} lugares a la izquierda: {a / (10 ^ n)}"
+
+explicacion: |
+  Un exponente negativo corre la coma hacia la izquierda.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "basico"
+  tags: ["notacion_cientifica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la notación científica a × 10ⁿ, el coeficiente \"a\" siempre tiene que cumplir 1 ≤ a < 10."
+
+explicacion: |
+  Es la regla que define la forma correcta: ni con más de un dígito antes
+  de la coma, ni con la coma antes del primer dígito.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "35 × 10⁶ está bien escrito como notación científica."
+
+explicacion: |
+  El coeficiente 35 es mayor o igual a 10: no cumple la regla. La forma
+  correcta sería 3,5 × 10⁷.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "comparacion"]
+
+variables:
+  a1: random(1, 9)
+  n1: random(2, 8)
+  a2: random(1, 9)
+  n2: random(2, 8)
+
+restricciones:
+  - n1 != n2
+
+respuesta: (n1 > n2)
+tipo: vf
+
+enunciado: "¿Es {a1} × 10^{n1} mayor que {a2} × 10^{n2}?"
+
+explicacion: |
+  Con exponentes distintos, alcanza con comparar los exponentes: gana el
+  mayor, sin importar el coeficiente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "comparacion"]
+
+variables:
+  n: random(2, 8)
+  a1: random(1, 8)
+  a2: a1 + 1
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es {a1} × 10^{n} mayor que {a2} × 10^{n}?"
+
+explicacion: |
+  Con el mismo exponente, se compara el coeficiente: {a1} es menor que
+  {a2}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica"]
+
+variables:
+  a_entero: random(1, 9)
+  a_decimal: random(0, 9)
+  n: random(4, 8)
+  numero: (a_entero + a_decimal / 10) * (10 ^ n)
+  correcto: a_entero + a_decimal / 10
+
+respuesta: correcto
+tipo: mc
+opciones_explicitas:
+  - correcto
+  - correcto * 10
+  - correcto / 10
+
+enunciado: "¿Cuál es el coeficiente correcto para escribir {numero} en notación científica?"
+
+explicacion: |
+  Las otras opciones no cumplen la regla de que el coeficiente esté entre
+  1 y 10.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "verificacion"]
+
+variables:
+  a: random(1, 9)
+  n: random(3, 7)
+  correcto: a * (10 ^ n)
+  error: uno_de([0, 0, 0, 1, -1])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
+tipo: vf
+
+enunciado: "¿Está bien convertido esto? {a} × 10^{n} = {mostrado}"
+
+explicacion: |
+  Se vuelve a calcular corriendo la coma y se compara.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica"]
+
+variables:
+  a: random(1, 9)
+  n: random(3, 7)
+
+tipo: completar
+enunciado: "Completá: {a} × 10^___ = {a * (10 ^ n)}."
+respuestas_validas:
+  - n
+
+explicacion: |
+  Se cuenta cuántos lugares hay que correr la coma para llegar de {a} al
+  número completo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "problema"]
+
+variables:
+  a: random(1, 9)
+  n: random(6, 9)
+
+respuesta: a * (10 ^ n)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La distancia a una estrella es {a} × 10^{n} km. ¿Cuántos km son, escritos en forma normal?"
+
+explicacion: |
+  Las distancias astronómicas son un caso típico donde conviene la
+  notación científica.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "avanzado"
+  tags: ["notacion_cientifica", "problema"]
+
+variables:
+  a: random(1, 9)
+  n: random(6, 9)
+
+respuesta: a / (10 ^ n)
+tipo: input
+tolerancia_abs: 0.000000001
+
+enunciado: "El diámetro de una célula es {a} × 10^(-{n}) metros. ¿Cuántos metros son, escritos en forma normal?"
+
+explicacion: |
+  Las medidas microscópicas también se escriben cómodas en notación
+  científica, con exponente negativo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "basico"
+  tags: ["notacion_cientifica"]
+
+variables:
+  n: random(2, 9)
+
+respuesta: n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos ceros tiene 10^{n} escrito en forma normal (después del 1)?"
+
+explicacion: |
+  10 elevado a n se escribe como un 1 seguido de n ceros.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "0,35 × 10⁸ está bien escrito como notación científica."
+
+explicacion: |
+  El coeficiente 0,35 es menor a 1: no cumple la regla. La forma correcta
+  sería 3,5 × 10⁷.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "conversion"]
+
+variables:
+  a_entero: random(1, 9)
+  a_decimal: random(0, 9)
+  n: random(3, 7)
+  numero: (a_entero + a_decimal / 10) * (10 ^ n)
+  a: a_entero + a_decimal / 10
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "{numero} en notación científica es {a} × 10^{n}. ¿Es cierto que convertir {a} × 10^{n} de vuelta a forma normal da otra vez {numero}?"
+
+explicacion: |
+  Convertir y volver a convertir tiene que devolver el número original:
+  son dos formas de escribir la misma cantidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos números de menor a mayor."
+opciones_explicitas:
+  - "5 × 10^4"
+  - "2 × 10^6"
+  - "9 × 10^3"
+  - "1 × 10^5"
+respuesta_orden: ["9 × 10^3", "5 × 10^4", "1 × 10^5", "2 × 10^6"]
+
+explicacion: |
+  Primero se compara el exponente; entre exponentes iguales (acá no hay
+  ninguno repetido), recién se compararía el coeficiente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "comparacion"]
+
+variables:
+  a1: random(1, 9)
+  n1: random(2, 8)
+  a2: random(1, 9)
+  n2: random(2, 8)
+  a3: random(1, 9)
+  n3: random(2, 8)
+
+restricciones:
+  - n1 != n2
+  - n1 != n3
+  - n2 != n3
+
+respuesta: max(n1, n2, n3)
+tipo: mc
+opciones_explicitas:
+  - n1
+  - n2
+  - n3
+
+enunciado: "Entre {a1}×10^{n1}, {a2}×10^{n2} y {a3}×10^{n3}, ¿cuál exponente corresponde al número mayor?"
+
+explicacion: |
+  Con exponentes todos distintos, gana el mayor exponente sin importar el
+  coeficiente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "basico"
+  tags: ["notacion_cientifica"]
+
+variables:
+  n: random(3, 9)
+
+respuesta: 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Al escribir 10^{n} (un 1 seguido de {n} ceros) en notación científica, ¿cuál es el coeficiente?"
+
+explicacion: |
+  Cuando el número ya es una potencia exacta de 10, el coeficiente es 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "problema"]
+
+variables:
+  a_entero: random(1, 9)
+  a_decimal: random(0, 9)
+
+respuesta: a_entero + a_decimal / 10
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "La población mundial es aproximadamente {a_entero},{a_decimal} × 10⁹ personas. ¿Cuál es el coeficiente de esa notación?"
+
+explicacion: |
+  El coeficiente es, directamente, la parte antes de la potencia de 10.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "potencias"]
+
+variables:
+  n1: random(2, 6)
+  n2: random(2, 6)
+
+respuesta: n1 + n2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "10^{n1} × 10^{n2} = 10^x. ¿Cuánto vale x?"
+
+explicacion: |
+  Al multiplicar potencias de igual base (acá, 10), se suman los
+  exponentes — la misma propiedad de `../potencias/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "basico"
+  tags: ["notacion_cientifica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La notación científica sirve para escribir cómodo números muy grandes o muy chicos, sin tener que contar montones de ceros."
+
+explicacion: |
+  Es la razón de ser de esta notación: comparar y operar con magnitudes
+  extremas sin perderse entre los ceros.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "notacion_cientifica"
+  nivel: "basico"
+  tags: ["notacion_cientifica", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En a × 10ⁿ, un exponente positivo representa un número grande, y un exponente negativo representa un número menor a 1."
+
+explicacion: |
+  Es la idea central de todo el tema: el signo del exponente dice si el
+  número original era grande o chico.
+```
+
+## Sección: ecuacion-de-la-recta (26 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "basico"
+  tags: ["ecuacion_recta", "vocabulario"]
+
+enunciado: "¿Qué es la ordenada al origen de una recta?"
+tipo: mc
+opciones_explicitas:
+  - "El punto donde la recta cruza el eje y"
+  - "El punto donde la recta cruza el eje x"
+  - "La pendiente de la recta"
+respuesta: "El punto donde la recta cruza el eje y"
+
+explicacion: |
+  Es el punto (0, b): se obtiene evaluando la ecuación en x = 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "intermedio"
+  tags: ["ecuacion_recta", "vocabulario"]
+
+enunciado: "¿Qué es la abscisa al origen (o raíz) de una recta?"
+tipo: mc
+opciones_explicitas:
+  - "El punto donde la recta cruza el eje x"
+  - "El punto donde la recta cruza el eje y"
+  - "El punto más alejado del origen"
+respuesta: "El punto donde la recta cruza el eje x"
+
+explicacion: |
+  Se obtiene poniendo y = 0 en la ecuación y despejando x.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "basico"
+  tags: ["ecuacion_recta", "problema"]
+
+variables:
+  m: uno_de([2, 3, 4, 5, -2, -3])
+  b: uno_de([1, 2, 5, -3, -4, 6])
+
+respuesta: b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una recta tiene ecuación y = {m}x + {b}. ¿Cuál es su ordenada al origen?"
+
+pasos:
+  - "En x = 0: y = {m} × 0 + {b} = {b}"
+
+explicacion: |
+  La ordenada al origen es directamente el término independiente b.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "intermedio"
+  tags: ["ecuacion_recta", "problema"]
+
+variables:
+  m: uno_de([2, 4, 5])
+  k: random(-6, 6)
+  b: 0 - (m * k)
+
+respuesta: k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una recta tiene ecuación y = {m}x + {b}. ¿Cuál es su abscisa al origen (dónde cruza el eje x)?"
+
+pasos:
+  - "0 = {m}x + {b}"
+  - "x = -{b} ÷ {m} = {k}"
+
+explicacion: |
+  Se pone y = 0 y se despeja x.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "basico"
+  tags: ["ecuacion_recta", "problema"]
+
+variables:
+  m: uno_de([2, 3, 4, -2])
+  b: uno_de([1, 3, 5, -2])
+  x: random(1, 8)
+
+respuesta: (m * x) + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una recta tiene ecuación y = {m}x + {b}. ¿Cuál es el valor de y cuando x = {x}?"
+
+pasos:
+  - "y = {m} × {x} + {b} = {(m * x) + b}"
+
+explicacion: |
+  Se reemplaza x por el valor dado y se calcula y.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "intermedio"
+  tags: ["ecuacion_recta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si la ordenada al origen de una recta es b = 0, la recta pasa exactamente por el origen (0, 0)."
+
+explicacion: |
+  La ecuación queda y = mx, que en x = 0 da y = 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "intermedio"
+  tags: ["ecuacion_recta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si la pendiente de una recta es m = 0, la recta es horizontal: y = b para cualquier valor de x."
+
+explicacion: |
+  Sin inclinación, la recta no sube ni baja.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "avanzado"
+  tags: ["ecuacion_recta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una recta horizontal y = b, con b distinto de 0, nunca cruza el eje x."
+
+explicacion: |
+  Como y vale siempre b (nunca 0), no hay ningún punto de esa recta
+  sobre el eje x.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "avanzado"
+  tags: ["ecuacion_recta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una recta vertical (x = k, para cualquier k) no se puede escribir en la forma y = mx + b."
+
+explicacion: |
+  Su pendiente es indefinida: a un mismo x le corresponderían infinitos
+  valores de y.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "avanzado"
+  tags: ["ecuacion_recta", "vocabulario"]
+
+enunciado: "¿Por qué una recta vertical no tiene una pendiente definida?"
+tipo: mc
+opciones_explicitas:
+  - "Porque todos sus puntos comparten el mismo x, y la fórmula de pendiente dividiría por (x₂ − x₁) = 0"
+  - "Porque las rectas verticales no existen en geometría"
+  - "Porque su pendiente siempre vale exactamente 0"
+respuesta: "Porque todos sus puntos comparten el mismo x, y la fórmula de pendiente dividiría por (x₂ − x₁) = 0"
+
+explicacion: |
+  Dividir por 0 no está definido — por eso la pendiente de una recta
+  vertical no existe como número.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "intermedio"
+  tags: ["ecuacion_recta", "problema"]
+
+variables:
+  m: uno_de([2, 3, -2])
+  b: uno_de([1, 4, -3])
+  x: random(1, 6)
+  oy: (m * x) + b
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una recta tiene ecuación y = {m}x + {b}. ¿El punto ({x}, {oy}) está sobre esa recta?"
+
+explicacion: |
+  Reemplazando x = {x}: y = {m} × {x} + {b} = {oy}, que coincide con la
+  ordenada del punto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "intermedio"
+  tags: ["ecuacion_recta", "problema"]
+
+variables:
+  m: uno_de([2, 3, -2])
+  b: uno_de([1, 4, -3])
+  x: random(1, 6)
+  y_real: (m * x) + b
+  y_falso: y_real + random(1, 4)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Una recta tiene ecuación y = {m}x + {b}. ¿El punto ({x}, {y_falso}) está sobre esa recta?"
+
+explicacion: |
+  Reemplazando x = {x}, la recta da y = {y_real}, que NO coincide con
+  {y_falso}: el punto no está sobre la recta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "intermedio"
+  tags: ["ecuacion_recta", "ordenar"]
+
+enunciado: "Ordená los pasos para graficar la recta y = mx + b sin tabular muchos puntos."
+tipo: ordenar
+opciones_explicitas:
+  - "Trazar la recta que pasa por esos dos puntos"
+  - "Marcar el punto (0, b), la ordenada al origen"
+  - "Desde ese punto, usar la pendiente m para subir/bajar y avanzar, marcando un segundo punto"
+respuesta_orden: ["Marcar el punto (0, b), la ordenada al origen", "Desde ese punto, usar la pendiente m para subir/bajar y avanzar, marcando un segundo punto", "Trazar la recta que pasa por esos dos puntos"]
+explicacion: |
+  Con sólo dos puntos alcanza para trazar toda la recta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "intermedio"
+  tags: ["ecuacion_recta", "vocabulario"]
+
+enunciado: "Si una recta tiene pendiente m = 3/4, ¿cómo se usa ese valor para marcar un segundo punto desde la ordenada al origen?"
+tipo: mc
+opciones_explicitas:
+  - "Subir 3 unidades y avanzar 4 unidades hacia la derecha"
+  - "Avanzar 3 unidades y subir 4 unidades"
+  - "Subir 4 unidades y avanzar 3 hacia la izquierda"
+respuesta: "Subir 3 unidades y avanzar 4 unidades hacia la derecha"
+
+explicacion: |
+  La pendiente es "cuánto sube, dividido cuánto avanza": el numerador es
+  la subida, el denominador el avance horizontal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "avanzado"
+  tags: ["ecuacion_recta", "problema"]
+
+variables:
+  b: uno_de([1, 2, 3])
+  avance: uno_de([2, 3, 4])
+  subida: uno_de([1, 2, 3])
+
+respuesta: b + subida
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una recta pasa por (0, {b}) y tiene pendiente {subida}/{avance}. Si desde ese punto se avanza {avance} hacia la derecha, ¿en qué valor de y queda el nuevo punto?"
+
+pasos:
+  - "{b} + {subida} = {b + subida}"
+
+explicacion: |
+  Avanzar exactamente el denominador de la pendiente hace subir (o
+  bajar) exactamente el numerador.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "basico"
+  tags: ["ecuacion_recta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ordenada al origen de una recta se obtiene evaluando su ecuación en x = 0."
+
+explicacion: |
+  y = m×0 + b = b.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "basico"
+  tags: ["ecuacion_recta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La abscisa al origen de una recta se obtiene poniendo y = 0 en su ecuación y despejando x."
+
+explicacion: |
+  0 = mx + b, así que x = −b/m.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "avanzado"
+  tags: ["ecuacion_recta", "problema"]
+
+variables:
+  m: uno_de([-2, -3, -5])
+  k: random(1, 8)
+  b: 0 - (m * k)
+
+respuesta: k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una recta tiene ecuación y = {m}x + {b}. ¿Cuál es su abscisa al origen?"
+
+pasos:
+  - "0 = {m}x + {b}"
+  - "x = -{b} ÷ ({m}) = {k}"
+
+explicacion: |
+  Con pendiente negativa, el cálculo funciona exactamente igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "intermedio"
+  tags: ["ecuacion_recta", "vocabulario"]
+
+enunciado: "En geometría analítica, ¿qué es la 'raíz' de una recta?"
+tipo: mc
+opciones_explicitas:
+  - "Otro nombre para la abscisa al origen"
+  - "Otro nombre para la ordenada al origen"
+  - "Otro nombre para la pendiente"
+respuesta: "Otro nombre para la abscisa al origen"
+
+explicacion: |
+  Es el valor de x donde la recta "vale cero" (cruza el eje x).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "intermedio"
+  tags: ["ecuacion_recta", "problema"]
+
+variables:
+  m: random(2, 8)
+  x: random(1, 10)
+
+respuesta: m * x
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una recta pasa por el origen y tiene pendiente {m} (es decir, y = {m}x). ¿Cuánto vale y cuando x = {x}?"
+
+pasos:
+  - "{m} × {x} = {m * x}"
+
+explicacion: |
+  Sin ordenada al origen (b = 0), la ecuación se reduce a y = mx.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "avanzado"
+  tags: ["ecuacion_recta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Toda recta que no sea vertical cruza el eje y en algún punto, así que tiene una ordenada al origen definida."
+
+explicacion: |
+  Sólo las rectas verticales (x = k) pueden no cruzar el eje y en ningún
+  punto (salvo la propia recta x = 0).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "intermedio"
+  tags: ["ecuacion_recta", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia entre la ecuación de una recta horizontal y una vertical?"
+tipo: mc
+opciones_explicitas:
+  - "La horizontal es y = b (pendiente 0); la vertical es x = k (pendiente indefinida)"
+  - "Son la misma ecuación, escrita de dos formas distintas"
+  - "La horizontal es x = k; la vertical es y = b"
+respuesta: "La horizontal es y = b (pendiente 0); la vertical es x = k (pendiente indefinida)"
+
+explicacion: |
+  Sólo la horizontal se puede escribir en la forma y = mx + b (con
+  m = 0); la vertical no.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "avanzado"
+  tags: ["ecuacion_recta", "problema"]
+
+variables:
+  b: uno_de([2, 4, 6])
+  m: uno_de([2, 3])
+  x2: random(1, 5)
+
+respuesta: b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En un gráfico, una recta pasa por el punto (0, {b}) y por el punto ({x2}, {(m * x2) + b}). ¿Cuál es su ordenada al origen?"
+
+pasos:
+  - "El punto (0, {b}) ya está sobre el eje y: la ordenada al origen es {b}"
+
+explicacion: |
+  Cuando uno de los puntos marcados ya tiene x = 0, la ordenada al
+  origen se lee directamente, sin ningún cálculo extra.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "intermedio"
+  tags: ["ecuacion_recta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si b es distinto de 0 en y = mx + b, la recta no pasa por el origen (0, 0)."
+
+explicacion: |
+  En x = 0, y valdría b (no 0), así que el origen no está sobre esa
+  recta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "avanzado"
+  tags: ["ecuacion_recta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ecuación y = mx + b es el mismo objeto que la función lineal de Álgebra, ahora leída como el dibujo de una recta sobre el plano cartesiano."
+
+explicacion: |
+  Es la idea central de este módulo: la pendiente que se despeja
+  algebraicamente es la misma que se ve como inclinación en el gráfico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuacion_de_la_recta"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve poder pasar de la ecuación de una recta a su dibujo, y viceversa?"
+tipo: mc
+opciones_explicitas:
+  - "Para resolver problemas geométricos reales: hallar cruces con los ejes, verificar puntos, y comparar rectas entre sí"
+  - "Sólo sirve para memorizar más fórmulas"
+  - "Sólo aplica a rectas que pasan por el origen"
+respuesta: "Para resolver problemas geométricos reales: hallar cruces con los ejes, verificar puntos, y comparar rectas entre sí"
+
+explicacion: |
+  Es la base para el módulo siguiente,
+  `../rectas-paralelas-y-perpendiculares/`.
+```
 
 ## Sección: polinomios-factoreo (30 preguntas)
 
@@ -666,2289 +1772,1185 @@ explicacion: |
   cercano, no reproduce el polinomio original al multiplicar.
 ```
 
-## Sección: porcentaje (28 preguntas)
+## Sección: proporcionalidad-funcion (28 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "porcentaje"
+  tema: "proporcionalidad_funcion"
   nivel: "basico"
-  tags: ["porcentaje", "vocabulario"]
+  tags: ["directa"]
 
-enunciado: "¿Qué es un porcentaje?"
+variables:
+  k: random(2, 20)
+  x: random(1, 15)
+  oy: k * x
+
+respuesta: oy / x
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "y es directamente proporcional a x. Si x = {x} e y = {oy}, ¿cuál es la constante de proporcionalidad k?"
+
+explicacion: |
+  k = y/x = {oy}/{x} = {oy / x}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "basico"
+  tags: ["directa"]
+
+variables:
+  k: random(2, 20)
+  x: random(1, 30)
+
+respuesta: k * x
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "y = {k}x (proporcionalidad directa). ¿Cuánto vale y cuando x = {x}?"
+
+explicacion: |
+  y = {k}×{x} = {k * x}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["directa"]
+
+variables:
+  k: random(2, 15)
+  x_sol: random(1, 20)
+  oy: k * x_sol
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "y = {k}x. ¿Para qué valor de x es y = {oy}?"
+
+explicacion: |
+  x = y/k = {oy}/{k} = {oy / k}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["directa", "problema"]
+
+variables:
+  precio_kg: random(200, 2000)
+  kg1: random(1, 10)
+  kg2: random(1, 20)
+  costo1: precio_kg * kg1
+
+respuesta: precio_kg * kg2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "{kg1} kg de un producto cuestan {costo1}. ¿Cuánto cuestan {kg2} kg (proporcionalidad directa)?"
+
+pasos:
+  - "k = {costo1}/{kg1} = {precio_kg} (precio por kg)"
+  - "{kg2} kg cuestan {precio_kg}×{kg2} = {precio_kg * kg2}"
+
+explicacion: |
+  Es la misma regla de tres directa de `../regla-de-tres-directa/`,
+  mirada ahora como una función y=kx.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["directa", "verificacion", "verdadero_falso"]
+
+variables:
+  k: random(2, 15)
+  x1: random(1, 10)
+  x2: random(11, 20)
+  y1: k * x1
+  y2: k * x2
+
+respuesta: ((y1 / x1) == (y2 / x2))
+tipo: vf
+
+enunciado: "Un par de valores es ({x1}, {y1}) y otro es ({x2}, {y2}). ¿Son directamente proporcionales (o sea, y/x da lo mismo en los dos)?"
+
+explicacion: |
+  y₁/x₁ = {y1 / x1}, y₂/x₂ = {y2 / x2} — coinciden, así que sí son
+  directamente proporcionales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["directa", "verificacion", "verdadero_falso"]
+
+variables:
+  k1: random(2, 10)
+  k2: random(11, 20)
+  x1: random(1, 10)
+  x2: random(1, 10)
+  y1: k1 * x1
+  y2: k2 * x2
+
+respuesta: ((y1 / x1) == (y2 / x2))
+tipo: vf
+
+enunciado: "Un par de valores es ({x1}, {y1}) y otro es ({x2}, {y2}). ¿Son directamente proporcionales?"
+
+explicacion: |
+  y₁/x₁ = {y1 / x1}, y₂/x₂ = {y2 / x2} — al no coincidir, no son
+  directamente proporcionales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "basico"
+  tags: ["inversa"]
+
+variables:
+  x: random(2, 15)
+  oy: random(2, 15)
+
+respuesta: x * oy
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "y es inversamente proporcional a x. Si x = {x} e y = {oy}, ¿cuál es la constante de proporcionalidad k?"
+
+explicacion: |
+  k = x×y = {x}×{oy} = {x * oy}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["inversa"]
+
+variables:
+  x: random(2, 12)
+  y_deseado: random(2, 15)
+  k: x * y_deseado
+
+respuesta: k / x
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "y = {k}/x (proporcionalidad inversa). ¿Cuánto vale y cuando x = {x}?"
+
+explicacion: |
+  y = {k}/{x} = {k / x}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["inversa"]
+
+variables:
+  x_sol: random(2, 15)
+  oy: random(2, 15)
+  k: x_sol * oy
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "y = {k}/x. ¿Para qué valor de x es y = {oy}?"
+
+explicacion: |
+  x = k/y = {k}/{oy} = {k / oy}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["inversa", "problema"]
+
+variables:
+  dias1: random(2, 15)
+  dias2: random(2, 15)
+  m: random(2, 8)
+  obreros1: dias2 * m
+  obreros2: dias1 * m
+  trabajo_total: obreros1 * dias1
+
+respuesta: dias2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "{obreros1} obreros tardan {dias1} días en hacer un trabajo. ¿Cuántos días tardarían {obreros2} obreros (al mismo ritmo cada uno)?"
+
+pasos:
+  - "k = {obreros1}×{dias1} = {trabajo_total} (trabajo total)"
+  - "días = {trabajo_total}/{obreros2} = {dias2}"
+
+explicacion: |
+  Es la misma regla de tres inversa de `../regla-de-tres-inversa/`,
+  mirada como función y=k/x.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["inversa", "verificacion", "verdadero_falso"]
+
+variables:
+  x1: random(2, 8)
+  x2: random(2, 8)
+  m: random(2, 10)
+  y1: x2 * m
+  y2: x1 * m
+  k: x1 * y1
+
+respuesta: ((x1 * y1) == (x2 * y2))
+tipo: vf
+
+enunciado: "Dos pares de valores son ({x1}, {y1}) y ({x2}, {y2}), ambos con y=k/x para k={k}. ¿Es cierto que x×y da lo mismo en ambos casos?"
+
+explicacion: |
+  El producto x×y siempre da k, sea cual sea el par — eso es justamente
+  lo que define a la proporcionalidad inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "avanzado"
+  tags: ["inversa", "verificacion", "verdadero_falso"]
+
+variables:
+  k: random(2, 15)
+  x1: random(1, 10)
+  x2: random(11, 20)
+  y1: k * x1
+  y2: k * x2
+
+respuesta: ((x1 * y1) == (x2 * y2))
+tipo: vf
+
+enunciado: "Un par de valores es ({x1}, {y1}) y otro es ({x2}, {y2}) (que en realidad son directamente proporcionales). ¿Son también inversamente proporcionales (x×y constante)?"
+
+explicacion: |
+  x₁×y₁ = {x1 * y1}, x₂×y₂ = {x2 * y2} — no coinciden: una relación
+  directamente proporcional casi nunca es, a la vez, inversamente
+  proporcional.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["opcion_multiple"]
+
+respuesta: "Directa"
 tipo: mc
 opciones_explicitas:
-  - "Una razón con denominador 100"
-  - "Cualquier número decimal"
-  - "La mitad de un número"
-respuesta: "Una razón con denominador 100"
+  - "Directa"
+  - "Inversa"
+  - "Ninguna de las dos"
+
+enunciado: "x: 2, 4, 6 — y: 10, 20, 30. El cociente y/x siempre da 5. ¿Es directa o inversa?"
 
 explicacion: |
-  p% significa "p de cada 100": es una fracción con denominador fijo
-  en 100.
+  El cociente y/x constante es la marca de la proporcionalidad directa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "basico"
-  tags: ["porcentaje", "calcular"]
-
-variables:
-  v: random(10, 90) * 10
-  p: uno_de([10, 20, 25, 50])
-
-respuesta: v * p / 100
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "¿Cuánto es el {p}% de {v}?"
-
-pasos:
-  - "{v} × {p} ÷ 100 = {v * p / 100}"
-
-explicacion: |
-  Se multiplica el valor por el porcentaje y se divide por 100.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
+  tema: "proporcionalidad_funcion"
   nivel: "intermedio"
-  tags: ["porcentaje", "calcular"]
+  tags: ["opcion_multiple"]
 
-variables:
-  v: random(20, 900)
-  p: random(1, 99)
-
-respuesta: v * p / 100
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "¿Cuánto es el {p}% de {v}?"
-
-explicacion: |
-  El procedimiento es el mismo, aunque el porcentaje no sea uno
-  "redondo".
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "intermedio"
-  tags: ["porcentaje", "calcular"]
-
-variables:
-  t: random(2, 20) * 10
-  p: uno_de([10, 20, 25, 50, 75])
-  parte: t * p / 100
-
-respuesta: p
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "¿Qué porcentaje de {t} representa {parte}?"
-
-pasos:
-  - "({parte} ÷ {t}) × 100 = {(parte / t) * 100}"
-
-explicacion: |
-  Se divide la parte por el total y se multiplica por 100.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "intermedio"
-  tags: ["porcentaje", "calcular"]
-
-variables:
-  t: random(2, 20) * 10
-  p: uno_de([10, 20, 25, 50])
-  parte: t * p / 100
-
-respuesta: t
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "{parte} es el {p}% de un número. ¿Cuál es ese número?"
-
-pasos:
-  - "{parte} × 100 ÷ {p} = {(parte * 100) / p}"
-
-explicacion: |
-  Se multiplica la parte por 100 y se divide por el porcentaje.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "basico"
-  tags: ["porcentaje", "conversion"]
-
-enunciado: "¿A qué fracción equivale el 25%?"
+respuesta: "Inversa"
 tipo: mc
 opciones_explicitas:
-  - "1/4"
-  - "1/2"
-  - "1/3"
-respuesta: "1/4"
+  - "Inversa"
+  - "Directa"
+  - "Ninguna de las dos"
+
+enunciado: "x: 2, 4, 6 — y: 12, 6, 4. El producto x×y siempre da 24. ¿Es directa o inversa?"
 
 explicacion: |
-  25% = 25/100, que simplificado da 1/4.
+  El producto x×y constante es la marca de la proporcionalidad inversa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "porcentaje"
+  tema: "proporcionalidad_funcion"
   nivel: "basico"
-  tags: ["porcentaje", "conversion"]
-
-variables:
-  p: random(1, 99)
-
-respuesta: p / 100
-tipo: input
-tolerancia_abs: 0.001
-
-enunciado: "¿Cómo se escribe {p}% en decimal?"
-
-explicacion: |
-  Se divide el porcentaje por 100 (se corre la coma dos lugares a la
-  izquierda).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "basico"
-  tags: ["porcentaje", "conversion"]
-
-variables:
-  centesimos: random(1, 99)
-  n: centesimos / 100
-
-respuesta: centesimos
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "¿A qué porcentaje equivale {n}?"
-
-explicacion: |
-  Se multiplica el decimal por 100 (se corre la coma dos lugares a la
-  derecha).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "intermedio"
-  tags: ["porcentaje", "aumento"]
-
-variables:
-  v: random(20, 900)
-  p: uno_de([5, 10, 15, 20, 25])
-
-respuesta: v * (1 + p / 100)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Aumentá {v} en un {p}%. ¿Cuánto queda?"
-
-pasos:
-  - "{v} × (1 + {p}/100) = {v} × {1 + p / 100} = {v * (1 + p / 100)}"
-
-explicacion: |
-  Aumentar en p% es multiplicar por (1 + p/100).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "intermedio"
-  tags: ["porcentaje", "descuento"]
-
-variables:
-  v: random(20, 900)
-  p: uno_de([5, 10, 15, 20, 25])
-
-respuesta: v * (1 - p / 100)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Descontá un {p}% a {v}. ¿Cuánto queda?"
-
-pasos:
-  - "{v} × (1 - {p}/100) = {v} × {1 - p / 100} = {v * (1 - p / 100)}"
-
-explicacion: |
-  Descontar p% es multiplicar por (1 − p/100).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "avanzado"
-  tags: ["porcentaje", "descuento"]
-
-variables:
-  v: random(100, 900)
-  p1: uno_de([10, 20])
-  p2: uno_de([10, 20])
-
-respuesta: v * (1 - p1 / 100) * (1 - p2 / 100)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "A {v} se le aplica primero un {p1}% de descuento, y después otro {p2}% de descuento (sobre el nuevo precio). ¿Cuánto queda?"
-
-pasos:
-  - "{v} × (1 - {p1}/100) × (1 - {p2}/100) = {v * (1 - p1 / 100) * (1 - p2 / 100)}"
-
-explicacion: |
-  El segundo descuento se aplica sobre el precio YA descontado, no sobre
-  el original.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "avanzado"
-  tags: ["porcentaje", "aumento"]
-
-variables:
-  v: random(100, 900)
-  p1: uno_de([10, 20])
-  p2: uno_de([10, 20])
-
-respuesta: v * (1 + p1 / 100) * (1 + p2 / 100)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "{v} recibe primero un aumento del {p1}%, y después otro aumento del {p2}% (sobre el nuevo valor). ¿Cuánto queda?"
-
-explicacion: |
-  El segundo aumento se aplica sobre el valor ya aumentado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "intermedio"
-  tags: ["porcentaje", "problema"]
-
-variables:
-  precio: random(100, 900)
-
-respuesta: precio * 1.21
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un producto cuesta ${precio} sin IVA. Con un IVA del 21%, ¿cuál es el precio final?"
-
-explicacion: |
-  El precio final es el precio original más el 21% de aumento.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "intermedio"
-  tags: ["porcentaje", "problema"]
-
-variables:
-  precio: random(100, 900)
-  p: uno_de([10, 15, 20, 25, 30])
-
-respuesta: precio * (1 - p / 100)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una remera cuesta ${precio} y está en oferta con {p}% de descuento. ¿Cuánto sale ahora?"
-
-explicacion: |
-  El precio de oferta es el precio original menos el porcentaje de
-  descuento.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "intermedio"
-  tags: ["porcentaje", "problema"]
-
-variables:
-  venta: random(1000, 9000)
-  comision: uno_de([2, 5, 8, 10])
-
-respuesta: venta * comision / 100
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un vendedor cobra {comision}% de comisión sobre cada venta. Si vendió ${venta}, ¿cuánto cobra de comisión?"
-
-explicacion: |
-  La comisión es un porcentaje calculado sobre el monto vendido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "basico"
-  tags: ["porcentaje", "problema"]
-
-variables:
-  cuenta: random(1000, 9000)
-
-respuesta: cuenta * 0.1
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "La cuenta de un restaurante da ${cuenta}. Dejando un 10% de propina, ¿cuánto es la propina?"
-
-explicacion: |
-  Calcular una propina es calcular el porcentaje de un valor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "basico"
-  tags: ["porcentaje", "vocabulario"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El 100% de cualquier cantidad es esa misma cantidad completa."
+enunciado: "El gráfico de una relación de proporcionalidad directa siempre pasa por el origen (0,0)."
 
 explicacion: |
-  100% = 100/100 = 1: multiplicar por 1 no cambia nada.
+  y=kx da y=0 cuando x=0 — siempre pasa por el origen.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "basico"
-  tags: ["porcentaje", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El 50% de cualquier cantidad es la mitad de esa cantidad."
-
-explicacion: |
-  50% = 50/100 = 1/2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "basico"
-  tags: ["porcentaje", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El 0% de cualquier cantidad es 0."
-
-explicacion: |
-  0% = 0/100 = 0: no queda nada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
+  tema: "proporcionalidad_funcion"
   nivel: "intermedio"
-  tags: ["porcentaje"]
-
-variables:
-  v: random(100, 900)
-  p: uno_de([10, 20, 25, 50])
-  correcto: v * p / 100
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - v * p
-  - v / p
-
-enunciado: "¿Cuál es el {p}% de {v}?"
-
-explicacion: |
-  Las otras opciones se olvidan de dividir por 100, o confunden la
-  operación.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "intermedio"
-  tags: ["porcentaje", "verificacion"]
-
-variables:
-  v: random(100, 900)
-  p: uno_de([10, 20, 25, 50])
-  correcto: v * p / 100
-  error: uno_de([0, 0, 0, 1, -1])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 0.01)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? El {p}% de {v} es {mostrado}."
-
-explicacion: |
-  Se vuelve a calcular (valor × porcentaje ÷ 100) y se compara.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "intermedio"
-  tags: ["porcentaje"]
-
-variables:
-  t: random(2, 20) * 10
-  p: uno_de([10, 20, 25, 50, 75])
-  parte: t * p / 100
-
-tipo: completar
-enunciado: "Completá: el ___% de {t} es {parte}."
-respuestas_validas:
-  - p
-
-explicacion: |
-  Se despeja el porcentaje: (parte ÷ total) × 100.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "avanzado"
-  tags: ["porcentaje", "problema"]
-
-variables:
-  precio: random(500, 2000)
-  descuento_alto: 30
-  descuento_bajo: 20
-
-respuesta: (precio * (1 - descuento_alto / 100)) < (precio * (1 - descuento_bajo / 100))
-tipo: vf
-
-enunciado: "¿Es cierto que un descuento del {descuento_alto}% deja un precio final más barato que un descuento del {descuento_bajo}%, sobre el mismo precio de ${precio}?"
-
-explicacion: |
-  A mayor porcentaje de descuento, menor el precio final.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "avanzado"
-  tags: ["porcentaje", "vocabulario"]
-
-variables:
-  v: random(100, 900)
-  p: uno_de([10, 20, 25])
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: falso
+
 tipo: vf
 
-enunciado: "Si a {v} se le aumenta un {p}% y después se le descuenta ese mismo {p}%, el resultado vuelve a ser {v}."
+enunciado: "El gráfico de una relación de proporcionalidad inversa pasa por el origen (0,0), igual que la directa."
 
 explicacion: |
-  No vuelve al original: el aumento y el descuento se calculan sobre
-  valores distintos (el segundo, sobre el ya aumentado), así que el
-  resultado final queda un poco por debajo de {v}.
+  La inversa (y=k/x) ni siquiera está definida en x=0 — no puede pasar
+  por ese punto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "porcentaje"
+  tema: "proporcionalidad_funcion"
   nivel: "intermedio"
-  tags: ["porcentaje"]
-
-variables:
-  v: random(50, 500)
-
-respuesta: v * 1.5
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "¿Cuánto es el 150% de {v}?"
-
-explicacion: |
-  Un porcentaje mayor a 100% da un resultado mayor que el valor original
-  — 150% es "una vez y media" el valor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "intermedio"
-  tags: ["porcentaje", "orden"]
-
-tipo: ordenar
-enunciado: "Calculá estos porcentajes de 200, y ordená los resultados de menor a mayor."
-opciones_explicitas:
-  - "10% de 200"
-  - "50% de 200"
-  - "25% de 200"
-  - "5% de 200"
-respuesta_orden: ["5% de 200", "10% de 200", "25% de 200", "50% de 200"]
-
-explicacion: |
-  A mayor porcentaje del mismo valor, mayor el resultado: 10, 20, 50,
-  100.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "intermedio"
-  tags: ["porcentaje", "problema"]
-
-variables:
-  precio: random(500, 3000)
-  p: uno_de([10, 20, 30])
-
-respuesta: precio * p / 100
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un producto de ${precio} tiene {p}% de descuento. ¿Cuántos pesos te ahorrás (no el precio final, el ahorro)?"
-
-explicacion: |
-  El ahorro es, directamente, el porcentaje de descuento calculado sobre
-  el precio original.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "porcentaje"
-  nivel: "basico"
-  tags: ["porcentaje", "vocabulario"]
+  tags: ["concepto", "dominio", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Porcentaje, fracción con denominador 100 y decimal son tres formas distintas de escribir la misma cantidad."
+enunciado: "El dominio de y = k/x son todos los reales excepto 0."
 
 explicacion: |
-  25%, 25/100 y 0,25 representan exactamente el mismo valor.
-```
-
-## Sección: potencias (28 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "basico"
-  tags: ["potencias", "vocabulario"]
-
-enunciado: "¿Qué es 2⁴?"
-tipo: mc
-opciones_explicitas:
-  - "2 multiplicado por sí mismo 4 veces"
-  - "2 multiplicado por 4"
-  - "2 sumado 4 veces"
-respuesta: "2 multiplicado por sí mismo 4 veces"
-
-explicacion: |
-  Una potencia es multiplicar la base por sí misma tantas veces como
-  indica el exponente.
+  x=0 haría que el denominador se anule — mismo criterio que
+  `../funcion-dominio/`.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "potencias"
-  nivel: "basico"
-  tags: ["potencias"]
-
-variables:
-  base: random(2, 10)
-  exponente: random(2, 4)
-
-respuesta: base ^ exponente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {base}^{exponente}?"
-
-pasos:
-  - "{base}^{exponente} = {base} multiplicado por sí mismo {exponente} veces = {base ^ exponente}"
-
-explicacion: |
-  Se multiplica la base por sí misma, tantas veces como el exponente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
+  tema: "proporcionalidad_funcion"
   nivel: "intermedio"
-  tags: ["potencias"]
-
-variables:
-  base: random(2, 20)
-  exponente: random(2, 3)
-
-respuesta: base ^ exponente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {base}^{exponente}?"
-
-explicacion: |
-  El procedimiento es el mismo con bases más grandes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "basico"
-  tags: ["potencias", "casos_especiales"]
-
-variables:
-  base: random(1, 999)
-
-respuesta: base
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {base}¹?"
-
-explicacion: |
-  Elevar a la 1 no cambia el número: es multiplicarlo por sí mismo "una
-  sola vez", o sea, dejarlo igual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "basico"
-  tags: ["potencias", "casos_especiales"]
-
-variables:
-  base: random(2, 999)
-
-respuesta: 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {base}⁰?"
-
-explicacion: |
-  Cualquier número (distinto de 0) elevado a la 0 da 1. Es una convención
-  que hace que las propiedades de las potencias funcionen sin
-  excepciones.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "avanzado"
-  tags: ["potencias", "casos_especiales"]
-
-variables:
-  base: random(2, 10)
-  exponente: random(1, 3)
-
-respuesta: 1 / (base ^ exponente)
-tipo: input
-tolerancia_abs: 0.0001
-
-enunciado: "¿Cuánto es {base}^(-{exponente})?"
-
-pasos:
-  - "{base}^(-{exponente}) = 1 ÷ {base}^{exponente} = 1 ÷ {base ^ exponente} = {1 / (base ^ exponente)}"
-
-explicacion: |
-  El exponente negativo manda la potencia al denominador de una fracción.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "intermedio"
-  tags: ["potencias", "propiedades"]
-
-variables:
-  base: random(2, 9)
-  n: random(2, 5)
-  m: random(2, 5)
-
-respuesta: base ^ (n + m)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {base}^{n} × {base}^{m}, expresado como {base} elevado a un solo exponente?"
-
-pasos:
-  - "Se suman los exponentes: {n} + {m} = {n + m} → {base}^{n + m}"
-
-explicacion: |
-  Al multiplicar potencias de igual base, se suman los exponentes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "intermedio"
-  tags: ["potencias", "propiedades"]
-
-variables:
-  base: random(2, 9)
-  n: random(4, 8)
-  m: random(1, n - 1)
-
-respuesta: base ^ (n - m)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {base}^{n} ÷ {base}^{m}, expresado como {base} elevado a un solo exponente?"
-
-pasos:
-  - "Se restan los exponentes: {n} - {m} = {n - m} → {base}^{n - m}"
-
-explicacion: |
-  Al dividir potencias de igual base, se restan los exponentes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "intermedio"
-  tags: ["potencias", "propiedades"]
-
-variables:
-  base: random(2, 9)
-  n: random(2, 4)
-  m: random(2, 3)
-
-respuesta: base ^ (n * m)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es ({base}^{n})^{m}, expresado como {base} elevado a un solo exponente?"
-
-pasos:
-  - "Se multiplican los exponentes: {n} × {m} = {n * m} → {base}^{n * m}"
-
-explicacion: |
-  Al elevar una potencia a otro exponente, se multiplican los exponentes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "intermedio"
-  tags: ["potencias", "propiedades"]
-
-variables:
-  a: random(2, 9)
-  b: random(2, 9)
-  n: random(2, 3)
-
-respuesta: (a * b) ^ n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es ({a} × {b})^{n}?"
-
-pasos:
-  - "El exponente se distribuye a cada factor: {a}^{n} × {b}^{n} = {a ^ n} × {b ^ n} = {(a * b) ^ n}"
-
-explicacion: |
-  La potencia de un producto es el producto de las potencias.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "basico"
-  tags: ["potencias"]
-
-variables:
-  n: random(2, 30)
-
-respuesta: n ^ 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el cuadrado de {n}?"
-
-explicacion: |
-  El cuadrado de un número es elevarlo a la 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "basico"
-  tags: ["potencias"]
-
-variables:
-  n: random(2, 15)
-
-respuesta: n ^ 3
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el cubo de {n}?"
-
-explicacion: |
-  El cubo de un número es elevarlo a la 3.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "basico"
-  tags: ["potencias", "vocabulario"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cualquier número elevado a la 1 da como resultado ese mismo número."
+enunciado: "La proporcionalidad directa y=kx es el caso particular de una función lineal y=mx+b, con b=0."
 
 explicacion: |
-  a¹ = a, para cualquier a.
+  k hace el papel de la pendiente m, y la ordenada al origen es 0.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "potencias"
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La proporcionalidad inversa y=k/x también es una función lineal, como la directa."
+
+explicacion: |
+  No: su gráfico es una hipérbola, no una recta — x no tiene exponente 1
+  en una posición lineal, está dividiendo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
   nivel: "basico"
-  tags: ["potencias", "vocabulario"]
+  tags: ["concepto", "verdadero_falso"]
+
+variables:
+  k: random(1, 15)
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cualquier número (distinto de 0) elevado a la 0 da 1."
+enunciado: "En y = {k}x (con k positivo), si x aumenta, y también aumenta."
 
 explicacion: |
-  a⁰ = 1, para cualquier a ≠ 0.
+  Con k positivo, la relación es directamente proporcional: los dos
+  crecen juntos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "potencias"
-  nivel: "intermedio"
-  tags: ["potencias"]
+  tema: "proporcionalidad_funcion"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
 variables:
-  base: random(2, 9)
-  exponente: random(2, 4)
-  correcto: base ^ exponente
+  k: random(1, 15)
 
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - base * exponente
-  - correcto + base
+respuesta: falso
 
-enunciado: "¿Cuánto es {base}^{exponente}?"
-
-explicacion: |
-  La opción "base × exponente" es un error común: confunde potencia con
-  multiplicación simple.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "intermedio"
-  tags: ["potencias", "verificacion"]
-
-variables:
-  base: random(2, 9)
-  exponente: random(2, 4)
-  correcto: base ^ exponente
-  error: uno_de([0, 0, 0, base, -base])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
 tipo: vf
 
-enunciado: "¿Está bien calculado esto? {base}^{exponente} = {mostrado}"
+enunciado: "En y = {k}/x (con k positivo), si x aumenta, y también aumenta."
 
 explicacion: |
-  Se vuelve a calcular la potencia y se compara.
+  Al revés: si x aumenta, y DISMINUYE — el producto x×y se mantiene
+  constante.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "potencias"
-  nivel: "intermedio"
-  tags: ["potencias"]
+  tema: "proporcionalidad_funcion"
+  nivel: "avanzado"
+  tags: ["inversa", "problema"]
 
 variables:
-  base: random(2, 9)
-  exponente: random(2, 4)
+  tiempo1: random(1, 10)
+  tiempo2: random(1, 10)
+  m: random(5, 20)
+  velocidad1: tiempo2 * m
+  velocidad2: tiempo1 * m
+  distancia: velocidad1 * tiempo1
 
-tipo: completar
-enunciado: "Completá: {base}^___ = {base ^ exponente}."
-respuestas_validas:
-  - exponente
-
-explicacion: |
-  Hay que encontrar a qué exponente hay que elevar {base} para obtener
-  {base ^ exponente}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "basico"
-  tags: ["potencias", "problema"]
-
-variables:
-  lado: random(2, 30)
-
-respuesta: lado ^ 2
+respuesta: tiempo2
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Un cuadrado tiene {lado} cm de lado. ¿Cuál es su área (en cm²)?"
+enunciado: "Un viaje a {velocidad1} km/h tarda {tiempo1} horas. ¿Cuánto tardaría el mismo viaje a {velocidad2} km/h?"
+
+pasos:
+  - "La distancia (constante) es {velocidad1}×{tiempo1} = {distancia} km"
+  - "tiempo = {distancia}/{velocidad2} = {tiempo2}"
 
 explicacion: |
-  El área de un cuadrado es el lado elevado al cuadrado.
+  A distancia fija, velocidad y tiempo son inversamente proporcionales:
+  cuanto más rápido, menos tiempo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "potencias"
-  nivel: "basico"
-  tags: ["potencias", "problema"]
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
 
 variables:
-  arista: random(2, 15)
+  k: random(2, 20)
+  x: random(1, 15)
+  oy: k * x
+  error: uno_de([0, 0, 1, -1])
+  propuesto: k + error
 
-respuesta: arista ^ 3
+respuesta: (propuesto == k)
+tipo: vf
+
+enunciado: "y es directamente proporcional a x, con x = {x} e y = {oy}. ¿Es correcto que la constante k sea {propuesto}?"
+
+explicacion: |
+  k = y/x = {oy / x}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  x: random(2, 15)
+  oy: random(2, 15)
+  real: x * oy
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "y es inversamente proporcional a x, con x = {x} e y = {oy}. ¿Es correcto que la constante k sea {propuesto}?"
+
+explicacion: |
+  k = x×y = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "avanzado"
+  tags: ["concepto", "signos", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una proporcionalidad directa también puede tener constante k negativa (y = −3x, por ejemplo) — en ese caso, cuando x crece, y decrece."
+
+explicacion: |
+  El signo de k determina si es creciente o decreciente, pero sigue
+  siendo "directamente proporcional" mientras el cociente y/x sea
+  constante.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcionalidad_funcion"
+  nivel: "intermedio"
+  tags: ["directa", "problema"]
+
+variables:
+  escala: random(2, 8)
+  medida_real: random(5, 50)
+
+respuesta: medida_real * escala
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Un cubo tiene {arista} cm de arista. ¿Cuál es su volumen (en cm³)?"
+enunciado: "En un plano, cada medida real se multiplica por {escala} para dibujarla a escala. Si una pared mide {medida_real} en la realidad, ¿cuánto mide en el plano?"
 
 explicacion: |
-  El volumen de un cubo es la arista elevada al cubo.
+  Es una proporcionalidad directa simple, con k={escala}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "potencias"
-  nivel: "intermedio"
-  tags: ["potencias", "propiedades"]
+  tema: "proporcionalidad_funcion"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
 
-variables:
-  a: random(2, 9)
-  b: random(2, 9)
-  n: random(2, 3)
-
-respuesta: ((a * b) ^ n == (a ^ n) * (b ^ n))
+respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es cierto que ({a} × {b})^{n} da lo mismo que {a}^{n} × {b}^{n}?"
+enunciado: "Repartir un monto en partes directamente proporcionales a distintos valores (por ejemplo, según horas trabajadas) usa la misma idea de y=kx, con una k común para todos."
 
 explicacion: |
-  Es la propiedad de la potencia de un producto: el exponente se
-  distribuye a cada factor.
+  Cada parte se calcula como k×(su valor correspondiente), con el mismo
+  k para todos los repartos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "potencias"
+  tema: "proporcionalidad_funcion"
   nivel: "intermedio"
-  tags: ["potencias", "propiedades"]
+  tags: ["opcion_multiple"]
 
-variables:
-  base: random(2, 9)
-  n: random(2, 4)
-  m: random(2, 4)
-
-respuesta: ((base ^ n) * (base ^ m) == base ^ (n + m))
-tipo: vf
-
-enunciado: "¿Es cierto que {base}^{n} × {base}^{m} da lo mismo que {base}^({n} + {m})?"
-
-explicacion: |
-  Es la propiedad del producto de potencias de igual base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "intermedio"
-  tags: ["potencias", "orden"]
-
-tipo: ordenar
-enunciado: "Calculá estas potencias y ordená los resultados de menor a mayor."
+respuesta: "Inversa (más grifos, menos tiempo)"
+tipo: mc
 opciones_explicitas:
-  - "2^5"
-  - "3^3"
-  - "5^2"
-  - "2^3"
-respuesta_orden: ["2^3", "5^2", "3^3", "2^5"]
+  - "Inversa (más grifos, menos tiempo)"
+  - "Directa (más grifos, más tiempo)"
+
+enunciado: "Llenar un tanque con más grifos abiertos a la vez tarda menos tiempo. ¿Es una relación directa o inversa entre cantidad de grifos y tiempo?"
 
 explicacion: |
-  2³=8, 5²=25, 3³=27, 2⁵=32: hay que calcular cada una antes de poder
-  ordenarlas.
+  A más grifos, menos tiempo — el producto (grifos×tiempo) es lo que se
+  mantiene constante: proporcionalidad inversa.
 ```
+
+## Sección: division-polinomios-ruffini (26 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "potencias"
-  nivel: "intermedio"
-  tags: ["potencias"]
+  tema: "division_polinomios_ruffini"
+  nivel: "basico"
+  tags: ["teorema_resto"]
 
 variables:
-  exponente: random(2, 6)
+  c3: random(1, 5)
+  c2: random(-5, 5)
+  c1: random(-5, 5)
+  c0: random(-10, 10)
+  a: random(1, 6)
 
-respuesta: 10 ^ exponente
+respuesta: c3 * a ^ 3 + c2 * a ^ 2 + c1 * a + c0
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto es 10^{exponente}?"
+enunciado: "P(x) = {c3}x³ + {c2}x² + {c1}x + {c0}. Por el teorema del resto, ¿cuál es el resto de dividir P(x) por (x − {a})?"
 
 pasos:
-  - "10 elevado a n es un 1 seguido de n ceros: {10 ^ exponente}"
+  - "El resto es P({a}) = {c3}×{a}³ + {c2}×{a}² + {c1}×{a} + {c0} = {c3 * a ^ 3 + c2 * a ^ 2 + c1 * a + c0}"
 
 explicacion: |
-  Las potencias de 10 son la base de la notación científica, el próximo
-  tema del mapa.
+  No hace falta dividir: el resto es directamente el valor del polinomio
+  evaluado en a.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "potencias"
+  tema: "division_polinomios_ruffini"
   nivel: "intermedio"
-  tags: ["potencias", "comparacion"]
+  tags: ["teorema_resto", "signos"]
 
 variables:
-  base1: random(2, 9)
-  exp1: random(2, 4)
-  base2: random(2, 9)
-  exp2: random(2, 4)
+  c2: random(1, 6)
+  c1: random(-6, 6)
+  c0: random(-10, 10)
+  a: random(1, 6)
 
-restricciones:
-  - (base1 ^ exp1) != (base2 ^ exp2)
-
-respuesta: ((base1 ^ exp1) > (base2 ^ exp2))
-tipo: vf
-
-enunciado: "¿Es {base1}^{exp1} mayor que {base2}^{exp2}?"
-
-explicacion: |
-  Hay que calcular las dos potencias antes de poder compararlas — no
-  alcanza con comparar sólo las bases o sólo los exponentes por separado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "potencias"
-  nivel: "avanzado"
-  tags: ["potencias", "problema"]
-
-variables:
-  inicial: random(1, 10)
-  veces: random(3, 8)
-
-respuesta: inicial * (2 ^ veces)
+respuesta: c2 * (-a) ^ 2 + c1 * (-a) + c0
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Una población de {inicial} bacterias se duplica cada hora. ¿Cuántas bacterias hay después de {veces} horas?"
+enunciado: "P(x) = {c2}x² + {c1}x + {c0}. ¿Cuál es el resto de dividir P(x) por (x + {a})?"
 
 pasos:
-  - "{inicial} × 2^{veces} = {inicial} × {2 ^ veces} = {inicial * (2 ^ veces)}"
+  - "(x + {a}) es lo mismo que (x − (−{a})), así que se evalúa en x = −{a}"
 
 explicacion: |
-  Duplicarse varias veces seguidas es multiplicar por 2 elevado a la
-  cantidad de veces que se duplicó.
+  Dividir por (x+a) equivale a evaluar en x = −a, no en x = a — un
+  descuido común de signo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "potencias"
-  nivel: "avanzado"
-  tags: ["potencias", "casos_especiales"]
+  tema: "division_polinomios_ruffini"
+  nivel: "basico"
+  tags: ["teorema_resto"]
 
 variables:
-  base: random(2, 10)
-  exponente: random(1, 3)
+  c3: random(1, 4)
+  c1: random(-8, 8)
+  c0: random(-10, 10)
+  a: random(1, 5)
+
+respuesta: c3 * a ^ 3 + c1 * a + c0
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "P(x) = {c3}x³ + {c1}x + {c0} (sin término x²). ¿Cuál es el resto de dividir P(x) por (x − {a})?"
+
+explicacion: |
+  Falta el término x², pero el procedimiento es el mismo: evaluar en
+  x = {a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "division_polinomios_ruffini"
+  nivel: "intermedio"
+  tags: ["ruffini"]
+
+variables:
+  c3: random(1, 5)
+  c2: random(-8, 8)
+  a: random(1, 6)
+
+respuesta: c2 + c3 * a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Dividiendo por Ruffini un polinomio con coeficientes {c3}, {c2}, ... por (x − {a}): se baja el {c3}, se multiplica por {a}, y se suma al siguiente coeficiente ({c2}). ¿Qué número queda?"
+
+explicacion: |
+  {c2} + ({c3}×{a}) = {c2 + c3 * a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "division_polinomios_ruffini"
+  nivel: "intermedio"
+  tags: ["ruffini"]
+
+variables:
+  c3: random(1, 5)
+  c2: random(-8, 8)
+  c1: random(-8, 8)
+  a: random(1, 6)
+  paso2: c2 + c3 * a
+
+respuesta: c1 + paso2 * a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Siguiendo Ruffini: el paso anterior dio {paso2}. Se multiplica por {a} y se suma al siguiente coeficiente ({c1}). ¿Qué número queda?"
+
+explicacion: |
+  {c1} + ({paso2}×{a}) = {c1 + paso2 * a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "division_polinomios_ruffini"
+  nivel: "avanzado"
+  tags: ["ruffini"]
+
+variables:
+  c3: random(1, 4)
+  c2: random(-6, 6)
+  c1: random(-6, 6)
+  c0: random(-10, 10)
+  a: random(1, 5)
+  paso2: c2 + c3 * a
+  paso3: c1 + paso2 * a
+
+respuesta: c0 + paso3 * a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Último paso de Ruffini: el paso anterior dio {paso3}. Se multiplica por {a} y se suma al término independiente ({c0}). ¿Cuál es el resto?"
+
+explicacion: |
+  {c0} + ({paso3}×{a}) = {c0 + paso3 * a} — este último número es el
+  resto de la división.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "division_polinomios_ruffini"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  c3: random(1, 4)
+  c2: random(-6, 6)
+  c1: random(-6, 6)
+  c0: random(-10, 10)
+  a: random(1, 5)
+  paso2: c2 + c3 * a
+  paso3: c1 + paso2 * a
+  resto_ruffini: c0 + paso3 * a
+  resto_teorema: c3 * a ^ 3 + c2 * a ^ 2 + c1 * a + c0
+
+respuesta: (resto_ruffini == resto_teorema)
+tipo: vf
+
+enunciado: "P(x) = {c3}x³ + {c2}x² + {c1}x + {c0}. ¿El resto que da Ruffini al dividir por (x−{a}) coincide con P({a}) calculado directamente?"
+
+explicacion: |
+  Tienen que coincidir siempre — son dos formas distintas de calcular
+  exactamente lo mismo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "division_polinomios_ruffini"
+  nivel: "intermedio"
+  tags: ["teorema_factor", "verdadero_falso"]
+
+variables:
+  r: random(1, 10)
+  c1: random(1, 8)
+  c0: -c1 * r
+  a: uno_de([r, r + 1, r - 1, r + 2])
+
+respuesta: ((c1 * a + c0) == 0)
+tipo: vf
+
+enunciado: "P(x) = {c1}x + {c0}. ¿Es (x − {a}) un factor de P(x)?"
+
+explicacion: |
+  (x−{a}) es factor si y sólo si P({a}) = 0 — se verifica evaluando.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "division_polinomios_ruffini"
+  nivel: "avanzado"
+  tags: ["teorema_factor", "verdadero_falso"]
+
+variables:
+  r1: random(1, 5)
+  r2: random(1, 5)
+  a: uno_de([r1, r2, r1 + r2])
+
+respuesta: (((a - r1) * (a - r2) * a) == 0)
+tipo: vf
+
+enunciado: "P(x) = x(x − {r1})(x − {r2}) (ya factoreado). ¿Es (x − {a}) uno de sus factores?"
+
+explicacion: |
+  Los únicos factores de la forma (x−k) son con k = 0, {r1} o {r2} — los
+  valores que hacen 0 a cada factor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "division_polinomios_ruffini"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es cierto que {base}^(-{exponente}) da como resultado un número menor a 1?"
+enunciado: "El resto de dividir P(x) por (x − a) es igual a P(a)."
 
 explicacion: |
-  Un exponente negativo con base mayor a 1 siempre da una fracción entre
-  0 y 1.
+  Es el enunciado exacto del teorema del resto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "potencias"
-  nivel: "avanzado"
-  tags: ["potencias", "casos_especiales"]
-
-variables:
-  base: random(2, 9)
-  exponente: random(1, 3) * 2
+  tema: "division_polinomios_ruffini"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es cierto que (-{base})^{exponente} da como resultado un número positivo?"
+enunciado: "Si P(a) = 0, entonces (x − a) es un factor de P(x)."
 
 explicacion: |
-  Con exponente par, los signos negativos se van cancelando de a pares:
-  el resultado siempre da positivo.
+  Es el corolario directo del teorema del resto: resto 0 significa
+  división exacta, o sea, (x−a) divide a P(x) sin dejar resto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "potencias"
-  nivel: "basico"
-  tags: ["potencias", "vocabulario"]
+  tema: "division_polinomios_ruffini"
+  nivel: "intermedio"
+  tags: ["concepto", "signos", "opcion_multiple"]
+
+variables:
+  k: random(1, 15)
+
+respuesta: -k
+tipo: mc
+opciones_explicitas:
+  - -k
+  - k
+
+enunciado: "Para dividir un polinomio por (x + {k}) usando Ruffini, ¿qué valor de a hay que usar?"
+
+explicacion: |
+  (x + {k}) = (x − (−{k})), así que a = −{k}, no {k}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "division_polinomios_ruffini"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La regla de Ruffini se puede usar para dividir por cualquier polinomio, sin importar su grado."
+
+explicacion: |
+  Ruffini sólo funciona para divisores de la forma (x − a) — un binomio
+  de grado 1 con coeficiente 1 en x.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "division_polinomios_ruffini"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una potencia es multiplicar la base por sí misma tantas veces como indica el exponente."
+enunciado: "Para aplicar Ruffini a x³ − 1, hay que usar los coeficientes 1, 0, 0, −1 (completando con ceros los grados que no aparecen)."
 
 explicacion: |
-  Es la idea central de todo el tema: potenciación es multiplicación
-  repetida, igual que multiplicación es suma repetida.
-```
-
-## Sección: principio-multiplicativo-de-conteo (25 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "basico"
-  tags: ["conteo", "vocabulario"]
-
-enunciado: "¿Qué establece el principio multiplicativo de conteo?"
-tipo: mc
-opciones_explicitas:
-  - "Si una elección se compone de varios pasos independientes, el total de combinaciones es el producto de las opciones de cada paso"
-  - "Para contar combinaciones siempre hay que enumerarlas una por una"
-  - "El total de combinaciones es la suma de las opciones de cada paso"
-respuesta: "Si una elección se compone de varios pasos independientes, el total de combinaciones es el producto de las opciones de cada paso"
-
-explicacion: |
-  Es la herramienta que permite contar sin enumerar.
+  Faltan los términos x² y x — sus coeficientes son 0, y hay que
+  incluirlos para que Ruffini funcione bien.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "basico"
-  tags: ["conteo", "completar"]
-
-tipo: completar
-enunciado: "Completá: si hay n₁ opciones para el primer paso, n₂ para el segundo y n₃ para el tercero, el total de combinaciones es n₁ × n₂ × ___."
-respuestas_validas:
-  - "n₃"
-
-explicacion: |
-  Se multiplican las opciones de TODOS los pasos, sin importar cuántos
-  sean.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
+  tema: "division_polinomios_ruffini"
   nivel: "intermedio"
-  tags: ["conteo", "problema"]
+  tags: ["concepto"]
 
 variables:
-  entradas: random(2, 5)
-  platos: random(3, 6)
-  postres: random(2, 4)
+  n: random(2, 8)
 
-respuesta: entradas * platos * postres
+respuesta: n - 1
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Un restaurante ofrece {entradas} entradas, {platos} platos principales y {postres} postres. ¿Cuántos menús distintos (una entrada, un plato y un postre) se pueden armar?"
-
-pasos:
-  - "Total = {entradas} × {platos} × {postres} = {entradas * platos * postres}"
+enunciado: "Al dividir un polinomio de grado {n} por (x − a), ¿qué grado tiene el cociente?"
 
 explicacion: |
-  Cada elección es independiente de las otras dos.
+  Siempre un grado menos que el polinomio original, porque se le "saca"
+  el factor (x−a), de grado 1.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
+  tema: "division_polinomios_ruffini"
   nivel: "avanzado"
-  tags: ["conteo", "problema"]
+  tags: ["verificacion", "verdadero_falso"]
 
 variables:
-  digitos: uno_de([3, 4, 5])
+  x: random(1, 15)
+  a: random(1, 8)
+  q1: random(1, 6)
+  q0: random(-8, 8)
+  r: random(1, 9)
 
-respuesta: 10 ^ digitos
-tipo: input
+respuesta: (((x - a) * (q1 * x + q0) + r) == ((q1 * x ^ 2 + (q0 - a * q1) * x + (r - a * q0))))
+tipo: vf
 
-enunciado: "Una clave numérica tiene {digitos} dígitos, cada uno del 0 al 9, y se pueden repetir dígitos. ¿Cuántas claves distintas son posibles?"
-
-pasos:
-  - "Cada dígito tiene 10 opciones posibles, independientes entre sí: 10^{digitos} = {10 ^ digitos}"
+enunciado: "Si el cociente de dividir P(x) por (x−{a}) es {q1}x+{q0}, y el resto es {r}, ¿P(x) tiene que ser igual a (x−{a})({q1}x+{q0})+{r}, evaluado en x={x}?"
 
 explicacion: |
-  Es el mismo dígito repetido {digitos} veces en la multiplicación,
-  porque cada posición tiene las mismas 10 opciones.
+  Es la verificación general de cualquier división: dividendo = divisor
+  × cociente + resto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
+  tema: "division_polinomios_ruffini"
   nivel: "intermedio"
-  tags: ["conteo", "problema"]
+  tags: ["verificacion", "verdadero_falso"]
 
 variables:
-  camisas: random(3, 8)
-  pantalones: random(2, 6)
-  zapatos: random(2, 5)
+  c2: random(1, 6)
+  c1: random(-8, 8)
+  c0: random(-10, 10)
+  a: random(1, 6)
+  real: c2 * a ^ 2 + c1 * a + c0
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
 
-respuesta: camisas * pantalones * zapatos
-tipo: input
+respuesta: (propuesto == real)
+tipo: vf
 
-enunciado: "Alguien tiene {camisas} camisas, {pantalones} pantalones y {zapatos} pares de zapatos. ¿Cuántos outfits distintos (una camisa, un pantalón, un par de zapatos) puede armar?"
-
-pasos:
-  - "Total = {camisas} × {pantalones} × {zapatos} = {camisas * pantalones * zapatos}"
+enunciado: "P(x) = {c2}x² + {c1}x + {c0}. ¿Es correcto que el resto de dividir por (x−{a}) sea {propuesto}?"
 
 explicacion: |
-  Cada prenda se elige de forma independiente de las otras.
+  El resto correcto es P({a}) = {real}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
+  tema: "division_polinomios_ruffini"
+  nivel: "basico"
+  tags: ["ruffini"]
+
+variables:
+  c2: random(1, 8)
+  c1: random(-8, 8)
+  c0: random(-10, 10)
+
+respuesta: c0
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "P(x) = {c2}x² + {c1}x + {c0}. ¿Cuál es el resto de dividir P(x) por x (o sea, por x − 0)?"
+
+explicacion: |
+  P(0) = {c0} — el término independiente es directamente el resto de
+  dividir por x.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "division_polinomios_ruffini"
   nivel: "avanzado"
-  tags: ["conteo", "problema"]
+  tags: ["teorema_factor"]
 
 variables:
-  letras: uno_de([2, 3])
-  numeros: uno_de([3, 4])
+  r: random(1, 12)
 
-respuesta: 26 ^ letras * 10 ^ numeros
+respuesta: r
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Una patente tiene {letras} letras (de un alfabeto de 26, con repetición permitida) seguidas de {numeros} números (0-9, con repetición permitida). ¿Cuántas patentes distintas son posibles?"
-
-pasos:
-  - "Letras: 26^{letras} = {26 ^ letras}"
-  - "Números: 10^{numeros} = {10 ^ numeros}"
-  - "Total = {26 ^ letras} × {10 ^ numeros} = {26 ^ letras * 10 ^ numeros}"
+enunciado: "Se sabe que P(x) = x − {r} tiene resto 0 al dividir por (x − k), para un único valor de k. ¿Cuánto vale k?"
 
 explicacion: |
-  Se multiplican las combinaciones de las letras por las de los
-  números, porque son dos bloques independientes.
+  P(x) es cero exactamente en x = {r} — ese es el único k para el que
+  (x−k) divide exacto a P(x).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "intermedio"
-  tags: ["conteo"]
+  tema: "division_polinomios_ruffini"
+  nivel: "avanzado"
+  tags: ["ruffini", "signos"]
+
+variables:
+  c2: random(-8, -2)
+  c1: random(-8, 8)
+  a: random(1, 6)
+
+respuesta: c1 + c2 * a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Dividiendo por Ruffini {c2}x² + {c1}x + ... por (x − {a}): se baja {c2}, se multiplica por {a} y se suma al siguiente coeficiente ({c1}). ¿Qué número queda?"
+
+explicacion: |
+  El procedimiento no cambia con coeficientes negativos, sólo hay que
+  llevar el signo con cuidado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "division_polinomios_ruffini"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El principio multiplicativo, en su forma simple (multiplicar directo), funciona cuando cada paso es independiente: la cantidad de opciones de un paso no depende de lo que se elija en los otros."
+enunciado: "Un polinomio de grado n puede tener, como máximo, n factores distintos de la forma (x − a)."
 
 explicacion: |
-  Si un paso cambiara según la elección anterior de forma más
-  compleja que simplemente 'un elemento menos disponible', haría
-  falta un análisis más cuidadoso.
+  Cada factor (x−a) resta 1 al grado del cociente — no puede haber más
+  factores lineales que el grado total del polinomio.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
+  tema: "division_polinomios_ruffini"
   nivel: "avanzado"
-  tags: ["conteo"]
+  tags: ["teorema_factor", "verdadero_falso"]
 
-enunciado: "Si la cantidad de opciones de un paso cambiara de forma impredecible según lo elegido en un paso anterior, ¿qué pasaría con la multiplicación directa?"
+variables:
+  a: random(1, 5)
+  b: random(1, 5)
+  c: random(1, 5)
+  candidato: uno_de([a, b, c, a + b + c])
+
+respuesta: (((candidato - a) * (candidato - b) * (candidato - c)) == 0)
+tipo: vf
+
+enunciado: "P(x) = (x−{a})(x−{b})(x−{c}). ¿Es x = {candidato} una raíz de P(x) (o sea, P({candidato}) = 0)?"
+
+explicacion: |
+  Un producto da 0 si y sólo si alguno de sus factores da 0 — se verifica
+  si {candidato} coincide con {a}, {b} o {c}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "division_polinomios_ruffini"
+  nivel: "intermedio"
+  tags: ["ruffini", "opcion_multiple"]
+
+respuesta: "El primer coeficiente se baja igual, sin cambios"
 tipo: mc
 opciones_explicitas:
-  - "Ya no alcanzaría con multiplicar directo — habría que analizar los casos por separado"
-  - "No cambiaría nada, la multiplicación siempre funciona igual"
-  - "El resultado sería siempre cero"
-respuesta: "Ya no alcanzaría con multiplicar directo — habría que analizar los casos por separado"
+  - "El primer coeficiente se baja igual, sin cambios"
+  - "El primer coeficiente se multiplica por a antes de bajar"
+  - "El primer coeficiente pasa a ser el resto"
+
+enunciado: "En el primer paso de Ruffini, ¿qué se hace con el primer coeficiente del polinomio?"
 
 explicacion: |
-  La forma simple del principio presupone independencia entre los
-  pasos.
+  Se "baja" directamente, sin ninguna operación — recién el segundo paso
+  en adelante involucra multiplicar y sumar.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
+  tema: "division_polinomios_ruffini"
   nivel: "intermedio"
-  tags: ["conteo", "problema"]
-
-variables:
-  lanzamientos: uno_de([3, 4, 5, 6])
-
-respuesta: 2 ^ lanzamientos
-tipo: input
-
-enunciado: "Se lanza una moneda {lanzamientos} veces seguidas (cara o ceca cada vez). ¿Cuántas secuencias distintas de resultados son posibles?"
-
-pasos:
-  - "Cada lanzamiento tiene 2 resultados posibles, independientes: 2^{lanzamientos} = {2 ^ lanzamientos}"
-
-explicacion: |
-  Cada lanzamiento no depende de los anteriores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "intermedio"
-  tags: ["conteo", "problema"]
-
-variables:
-  lanzamientos: uno_de([2, 3, 4])
-
-respuesta: 6 ^ lanzamientos
-tipo: input
-
-enunciado: "Se lanza un dado de 6 caras {lanzamientos} veces seguidas. ¿Cuántas secuencias distintas de resultados son posibles?"
-
-pasos:
-  - "Cada lanzamiento tiene 6 resultados posibles: 6^{lanzamientos} = {6 ^ lanzamientos}"
-
-explicacion: |
-  Igual que con la moneda, pero con 6 opciones en vez de 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "avanzado"
-  tags: ["conteo", "ordenar"]
-
-enunciado: "Ordená los pasos para aplicar el principio multiplicativo a un problema de conteo."
-tipo: ordenar
-opciones_explicitas:
-  - "Multiplicar todas esas cantidades entre sí"
-  - "Identificar en cuántos pasos independientes se divide la elección completa"
-  - "Contar cuántas opciones hay disponibles en cada paso, por separado"
-respuesta_orden:
-  - "Identificar en cuántos pasos independientes se divide la elección completa"
-  - "Contar cuántas opciones hay disponibles en cada paso, por separado"
-  - "Multiplicar todas esas cantidades entre sí"
-
-explicacion: |
-  Sin identificar primero los pasos, no hay qué contar ni qué
-  multiplicar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "avanzado"
-  tags: ["conteo", "problema"]
-
-variables:
-  a: random(2, 4)
-  b: random(2, 4)
-  c: random(2, 4)
-  d: random(2, 4)
-
-respuesta: a * b * c * d
-tipo: input
-
-enunciado: "Para armar un producto hay {a} opciones de color, {b} de tamaño, {c} de material y {d} de acabado. ¿Cuántas combinaciones distintas de producto son posibles?"
-
-pasos:
-  - "Total = {a} × {b} × {c} × {d} = {a * b * c * d}"
-
-explicacion: |
-  El principio se extiende a cualquier cantidad de pasos, no sólo dos
-  o tres.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "basico"
-  tags: ["conteo"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Multiplicar las opciones de cada paso da exactamente el mismo resultado que enumerar todas las combinaciones una por una — sólo que mucho más rápido, sobre todo con números grandes."
+enunciado: "El teorema del resto sirve para probar rápidamente si un número candidato es raíz de un polinomio, antes de intentar factorearlo por completo."
 
 explicacion: |
-  Para pocas opciones se puede verificar enumerando; para miles o
-  millones, multiplicar es la única forma práctica.
+  En vez de adivinar un factoreo a ojo, se prueban candidatos evaluando
+  P(a) — si da 0, ya se encontró un factor real.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "basico"
-  tags: ["conteo", "aplicacion"]
-
-enunciado: "¿Por qué una clave numérica de 6 dígitos (con repetición) es más difícil de adivinar al azar que una de 4 dígitos?"
-tipo: mc
-opciones_explicitas:
-  - "Porque tiene 10⁶ = 1.000.000 de combinaciones posibles, muchas más que las 10⁴ = 10.000 de la de 4 dígitos"
-  - "Porque los números de 6 cifras son, en general, más grandes"
-  - "No hay ninguna diferencia real en la dificultad"
-respuesta: "Porque tiene 10⁶ = 1.000.000 de combinaciones posibles, muchas más que las 10⁴ = 10.000 de la de 4 dígitos"
-
-explicacion: |
-  Cada dígito extra multiplica por 10 la cantidad de combinaciones
-  posibles.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "intermedio"
-  tags: ["conteo", "problema"]
+  tema: "division_polinomios_ruffini"
+  nivel: "avanzado"
+  tags: ["ruffini", "teorema_resto"]
 
 variables:
-  lista1: random(4, 10)
-  lista2: random(4, 10)
+  c4: random(1, 3)
+  c3: random(-5, 5)
+  c2: random(-5, 5)
+  c1: random(-5, 5)
+  c0: random(-8, 8)
+  a: random(1, 4)
 
-respuesta: lista1 * lista2
+respuesta: c4 * a ^ 4 + c3 * a ^ 3 + c2 * a ^ 2 + c1 * a + c0
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Hay {lista1} colores de pintura y {lista2} tipos de acabado (mate, satinado, etc.). ¿Cuántas combinaciones distintas de color y acabado se pueden elegir?"
-
-pasos:
-  - "Total = {lista1} × {lista2} = {lista1 * lista2}"
+enunciado: "P(x) = {c4}x⁴ + {c3}x³ + {c2}x² + {c1}x + {c0}. ¿Cuál es el resto de dividir P(x) por (x − {a})?"
 
 explicacion: |
-  Dos pasos independientes, dos factores en la multiplicación.
+  El teorema del resto funciona igual sin importar el grado del
+  polinomio: siempre alcanza con evaluar en x = {a}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "avanzado"
-  tags: ["conteo"]
+  tema: "division_polinomios_ruffini"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
-respuesta: verdadero
+respuesta: falso
+
 tipo: vf
 
-enunciado: "Si en cada paso se permite repetir elementos ya usados en pasos anteriores (por ejemplo, el mismo dígito varias veces en una clave), la fórmula sigue siendo un producto simple de las opciones de cada paso."
+enunciado: "El resto de dividir un polinomio por (x − a) siempre da 0."
 
 explicacion: |
-  La independencia entre pasos no se rompe por permitir repetición —
-  al contrario, permitir repetición es lo que MANTIENE la cantidad de
-  opciones igual en cada paso.
+  Sólo da 0 cuando (x−a) es efectivamente un factor del polinomio — en
+  general, puede dar cualquier número.
 ```
 
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "intermedio"
-  tags: ["conteo", "completar"]
-
-tipo: completar
-enunciado: "Completá: permutaciones, variaciones y combinaciones son, en el fondo, aplicaciones del principio ___ con distintas restricciones sobre el orden y la repetición."
-respuestas_validas:
-  - "multiplicativo"
-
-explicacion: |
-  Cada uno de esos tres módulos agrega una restricción distinta sobre
-  el mismo principio de base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "avanzado"
-  tags: ["conteo"]
-
-enunciado: "¿En qué se diferencia el principio multiplicativo general de una permutación (ordenar TODOS los elementos de un conjunto)?"
-tipo: mc
-opciones_explicitas:
-  - "El principio multiplicativo es la herramienta general; la permutación es un caso particular donde, en cada paso, hay una opción menos disponible porque no se puede repetir ningún elemento"
-  - "No hay ninguna diferencia entre ambos conceptos"
-  - "La permutación no usa ninguna multiplicación"
-respuesta: "El principio multiplicativo es la herramienta general; la permutación es un caso particular donde, en cada paso, hay una opción menos disponible porque no se puede repetir ningún elemento"
-
-explicacion: |
-  Es el puente directo hacia `../permutaciones/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "avanzado"
-  tags: ["conteo", "problema"]
-
-respuesta: 10 * 9 * 8
-tipo: input
-
-enunciado: "Una clave tiene 3 dígitos (0 al 9), y NINGÚN dígito se puede repetir. ¿Cuántas claves distintas son posibles?"
-
-pasos:
-  - "Primer dígito: 10 opciones"
-  - "Segundo dígito: 9 opciones (ya se usó una)"
-  - "Tercer dígito: 8 opciones (ya se usaron dos)"
-  - "Total = 10 × 9 × 8 = {10 * 9 * 8}"
-
-explicacion: |
-  Cada paso sigue siendo independiente en el sentido de que la
-  CANTIDAD de opciones disponibles es predecible, aunque vaya
-  bajando — es el mismo principio, con una opción menos en cada paso.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "intermedio"
-  tags: ["conteo", "problema"]
-
-variables:
-  a: random(2, 3)
-  b: random(2, 3)
-  c: random(2, 3)
-  d: random(2, 3)
-  e: random(2, 3)
-
-respuesta: a * b * c * d * e
-tipo: input
-
-enunciado: "Un sistema de contraseñas usa 5 categorías de símbolos con {a}, {b}, {c}, {d} y {e} opciones respectivamente, una de cada categoría. ¿Cuántas contraseñas distintas son posibles?"
-
-pasos:
-  - "Total = {a} × {b} × {c} × {d} × {e} = {a * b * c * d * e}"
-
-explicacion: |
-  El principio no tiene límite en la cantidad de pasos que puede
-  combinar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "basico"
-  tags: ["conteo", "aplicacion"]
-
-enunciado: "Si hay 4 materias posibles para la primera hora y 5 para la segunda hora (sin repetir materia), ¿cómo se calcula la cantidad de combinaciones posibles para esas dos horas?"
-tipo: mc
-opciones_explicitas:
-  - "Multiplicando 4 × 5"
-  - "Sumando 4 + 5"
-  - "Dividiendo 5 ÷ 4"
-respuesta: "Multiplicando 4 × 5"
-
-explicacion: |
-  Dos decisiones independientes (una por cada hora) se multiplican,
-  no se suman.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "intermedio"
-  tags: ["conteo", "aplicacion"]
-
-enunciado: "En una final a 3 partidos independientes (cada uno con 2 resultados posibles: gana el equipo A o gana el equipo B), ¿cuántas secuencias distintas de resultados de los 3 partidos son posibles?"
-tipo: mc
-opciones_explicitas:
-  - "2³ = 8"
-  - "2 × 3 = 6"
-  - "3² = 9"
-respuesta: "2³ = 8"
-
-explicacion: |
-  Cada partido tiene 2 resultados posibles, y hay 3 partidos
-  independientes: 2×2×2 = 8.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "basico"
-  tags: ["conteo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el principio multiplicativo, no importa en qué orden se multipliquen las cantidades de cada paso — el resultado final es el mismo."
-
-explicacion: |
-  La multiplicación es conmutativa: 3×4×2 da lo mismo que 2×3×4.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "intermedio"
-  tags: ["conteo", "problema"]
-
-variables:
-  tapas: random(2, 4)
-  rellenos: random(3, 6)
-  coberturas: random(2, 5)
-
-respuesta: tapas * rellenos * coberturas
-tipo: input
-
-enunciado: "Una pastelería ofrece {tapas} tipos de masa, {rellenos} tipos de relleno y {coberturas} tipos de cobertura. ¿Cuántas tortas distintas (una masa, un relleno, una cobertura) se pueden armar?"
-
-pasos:
-  - "Total = {tapas} × {rellenos} × {coberturas} = {tapas * rellenos * coberturas}"
-
-explicacion: |
-  Es el mismo patrón del menú de la pregunta 3, con otro contexto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "principio_multiplicativo_de_conteo"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve el principio multiplicativo de conteo?"
-tipo: mc
-opciones_explicitas:
-  - "Para calcular cuántas combinaciones posibles hay en una elección de varios pasos, sin tener que enumerarlas una por una"
-  - "Sólo sirve para contar objetos físicos, uno por uno"
-  - "Sólo aplica cuando hay exactamente dos pasos"
-respuesta: "Para calcular cuántas combinaciones posibles hay en una elección de varios pasos, sin tener que enumerarlas una por una"
-
-explicacion: |
-  Es la base directa de permutaciones, variaciones y combinaciones —
-  los tres módulos que siguen.
-```
-
-## Sección: probabilidad-compuesta (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "basico"
-  tags: ["probabilidad_compuesta", "vocabulario"]
-
-enunciado: "¿Qué calcula la probabilidad compuesta?"
-tipo: mc
-opciones_explicitas:
-  - "La probabilidad de que ocurran varios eventos a la vez, o de que ocurra al menos uno de varios"
-  - "La probabilidad de un único evento simple"
-  - "Sólo la probabilidad de eventos que nunca pueden ocurrir"
-respuesta: "La probabilidad de que ocurran varios eventos a la vez, o de que ocurra al menos uno de varios"
-
-explicacion: |
-  Combina la probabilidad simple con la independencia entre eventos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "intermedio"
-  tags: ["probabilidad_compuesta", "completar"]
-
-tipo: completar
-enunciado: "Completá: si A y B son independientes, P(A y B) = P(A) × ___."
-respuestas_validas:
-  - "P(B)"
-
-explicacion: |
-  Es la misma regla del producto ya usada con los diagramas de árbol.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "problema"]
-
-variables:
-  pa: uno_de([0.3, 0.4, 0.5, 0.6])
-  pb: uno_de([0.2, 0.5, 0.7])
-
-respuesta: redondear(pa * pb, 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "A y B son eventos independientes, con P(A)={pa} y P(B)={pb}. ¿Cuál es P(A y B)?"
-
-pasos:
-  - "P(A y B) = {pa} × {pb} = {redondear(pa * pb, 3)}"
-
-explicacion: |
-  Se multiplican directo, porque son independientes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "intermedio"
-  tags: ["probabilidad_compuesta", "completar"]
-
-tipo: completar
-enunciado: "Completá: si A y B son mutuamente excluyentes (no pueden ocurrir juntos), P(A o B) = P(A) + ___."
-respuestas_validas:
-  - "P(B)"
-
-explicacion: |
-  Al no poder solaparse, no hay nada que restar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "intermedio"
-  tags: ["probabilidad_compuesta", "problema"]
-
-respuesta: redondear(2 / 6, 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Al tirar un dado de 6 caras, ¿cuál es la probabilidad de que salga 2 O que salga 5? (no pueden salir los dos a la vez en un solo tiro)"
-
-pasos:
-  - "P(2) = 1/6, P(5) = 1/6. Son mutuamente excluyentes."
-  - "P(2 o 5) = 1/6 + 1/6 = {redondear(2 / 6, 3)}"
-
-explicacion: |
-  En un solo tiro de dado, no puede salir 2 y 5 a la vez — se suman
-  directo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si A y B PUEDEN ocurrir juntos, sumar P(A) + P(B) directo sobrestima la probabilidad de 'A o B', porque el caso en que ocurren ambos se cuenta dos veces."
-
-explicacion: |
-  Por eso hay que restar P(A y B) una vez, igual que con la
-  cardinalidad de la unión de conjuntos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "completar"]
-
-tipo: completar
-enunciado: "Completá: en general (aunque A y B puedan solaparse), P(A o B) = P(A) + P(B) − ___."
-respuestas_validas:
-  - "P(A y B)"
-
-explicacion: |
-  Es la fórmula de inclusión-exclusión, igual que
-  |A∪B|=|A|+|B|−|A∩B|.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "problema"]
-
-variables:
-  pa: uno_de([0.3, 0.4, 0.5])
-  pb: uno_de([0.2, 0.3, 0.4])
-  pab: uno_de([0.1, 0.05])
-
-respuesta: redondear(pa + pb - pab, 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "P(A)={pa}, P(B)={pb}, y P(A y B)={pab} (A y B SÍ pueden ocurrir juntos). ¿Cuál es P(A o B)?"
-
-pasos:
-  - "P(A o B) = {pa} + {pb} − {pab} = {redondear(pa + pb - pab, 3)}"
-
-explicacion: |
-  Se resta la superposición para no contarla dos veces.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "intermedio"
-  tags: ["probabilidad_compuesta"]
-
-enunciado: "¿Cuál es la pista para saber si hay que multiplicar o sumar dos probabilidades?"
-tipo: mc
-opciones_explicitas:
-  - "'Y' (ambos a la vez) sugiere multiplicar; 'O' (cualquiera de los dos) sugiere sumar (ajustando si se solapan)"
-  - "Siempre hay que multiplicar, sin importar la pregunta"
-  - "Siempre hay que sumar, sin importar la pregunta"
-respuesta: "'Y' (ambos a la vez) sugiere multiplicar; 'O' (cualquiera de los dos) sugiere sumar (ajustando si se solapan)"
-
-explicacion: |
-  No es una regla mágica, pero es una guía práctica confiable para
-  empezar a plantear el problema.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "problema"]
-
-respuesta: redondear(4 / 6, 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Al tirar un dado de 6 caras, ¿cuál es la probabilidad de que salga un número PAR o un MÚLTIPLO DE 3? (el 6 es ambas cosas a la vez)"
-
-pasos:
-  - "P(par) = 3/6 = {2, 4, 6}. P(múltiplo de 3) = 2/6 = {3, 6}. P(par y múltiplo de 3) = 1/6 = {6}."
-  - "P(par o múltiplo de 3) = 3/6 + 2/6 − 1/6 = 4/6 = {redondear(4 / 6, 3)}"
-
-explicacion: |
-  El 6 cumple las dos condiciones — sin restar esa superposición, se
-  contaría dos veces.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "ordenar"]
-
-enunciado: "Ordená los pasos para decidir y aplicar la regla correcta de probabilidad compuesta."
-tipo: ordenar
-opciones_explicitas:
-  - "Si es 'O', revisar si los eventos pueden ocurrir juntos: si no, sumar directo; si sí, sumar y restar la superposición"
-  - "Identificar si la pregunta pide 'Y' (ambos) o 'O' (cualquiera)"
-  - "Si es 'Y', revisar si los eventos son independientes o dependientes, y multiplicar con las probabilidades correspondientes"
-respuesta_orden:
-  - "Identificar si la pregunta pide 'Y' (ambos) o 'O' (cualquiera)"
-  - "Si es 'Y', revisar si los eventos son independientes o dependientes, y multiplicar con las probabilidades correspondientes"
-  - "Si es 'O', revisar si los eventos pueden ocurrir juntos: si no, sumar directo; si sí, sumar y restar la superposición"
-
-explicacion: |
-  Identificar primero 'Y' vs 'O' es el paso que determina qué
-  operación aplicar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "problema"]
-
-respuesta: 0.25
-tipo: input
-
-enunciado: "Cada progenitor (Aa) tiene 1/2 de probabilidad de transmitir el alelo recesivo 'a' (independiente del otro progenitor). ¿Cuál es la probabilidad de que un hijo herede el alelo recesivo de AMBOS progenitores (genotipo aa)?"
-
-pasos:
-  - "P(a del padre) = 1/2. P(a de la madre) = 1/2. Son independientes."
-  - "P(aa) = 1/2 × 1/2 = 0,25"
-
-explicacion: |
-  Es exactamente la proporción 1/4 del cuadro de Punnett clásico
-  (Aa × Aa → 1 AA : 2 Aa : 1 aa), calculada con probabilidad compuesta
-  en vez de dibujar el cuadro de 4 casilleros.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "problema"]
-
-respuesta: 0.75
-tipo: input
-
-enunciado: "Se lanzan 2 monedas independientes. ¿Cuál es la probabilidad de que salga AL MENOS una cara (una o las dos)?"
-
-pasos:
-  - "P(ninguna cara) = P(ceca y ceca) = 0,5 × 0,5 = 0,25"
-  - "P(al menos una cara) = 1 − P(ninguna) = 1 − 0,25 = 0,75"
-
-explicacion: |
-  Para 'al menos uno', suele ser más fácil calcular el complemento
-  ('ninguno') y restar de 1, en vez de sumar todos los casos con al
-  menos una cara por separado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "basico"
-  tags: ["probabilidad_compuesta", "aplicacion"]
-
-enunciado: "¿Qué relación tiene el cuadro de Punnett de Biología con la probabilidad compuesta?"
-tipo: mc
-opciones_explicitas:
-  - "Es exactamente probabilidad compuesta (eventos independientes que se multiplican), con otra notación visual"
-  - "No tiene ninguna relación real, son temas separados"
-  - "El cuadro de Punnett reemplaza por completo a la probabilidad, no la necesita"
-respuesta: "Es exactamente probabilidad compuesta (eventos independientes que se multiplican), con otra notación visual"
-
-explicacion: |
-  Heredar un alelo de cada progenitor son eventos independientes —
-  el cuadro de Punnett es una forma visual de multiplicar esas
-  probabilidades.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "problema"]
-
-variables:
-  p_madre: uno_de([0.5, 1])
-  p_padre: uno_de([0.5, 1])
-
-respuesta: redondear(p_madre * p_padre, 3)
-tipo: input
-
-enunciado: "La probabilidad de que la madre transmita el alelo recesivo es {p_madre}, y la del padre es {p_padre} (eventos independientes). ¿Cuál es la probabilidad de que el hijo herede el alelo recesivo de ambos?"
-
-pasos:
-  - "P(ambos) = {p_madre} × {p_padre} = {redondear(p_madre * p_padre, 3)}"
-
-explicacion: |
-  Si un progenitor es homocigota (p=1), siempre transmite ese alelo,
-  pero la regla del producto sigue aplicando igual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "P(A y B) = P(A) × P(B) sólo vale directo si A y B son independientes; si son dependientes, la segunda probabilidad hay que recalcularla sabiendo que el primer evento ya ocurrió (como en el diagrama de árbol sin reposición)."
-
-explicacion: |
-  Es la misma distinción de `../independencia-de-eventos-y-diagrama-de-arbol/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "problema"]
-
-respuesta: redondear(8 / 40, 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "De un mazo de 40 cartas (4 ases, 4 reyes), ¿cuál es la probabilidad de sacar un AS o un REY en una sola extracción? (ninguna carta es las dos cosas a la vez)"
-
-pasos:
-  - "P(as) = 4/40, P(rey) = 4/40. Son mutuamente excluyentes (ninguna carta es ambas)."
-  - "P(as o rey) = 4/40 + 4/40 = 8/40 = {redondear(8 / 40, 3)}"
-
-explicacion: |
-  Ninguna carta puede ser as y rey a la vez, así que se suman directo
-  sin restar nada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "problema"]
-
-respuesta: redondear((12 / 40) + (10 / 40) - (3 / 40), 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "De un mazo de 40 cartas (4 palos de 10 cartas, con 3 figuras por palo: 12 figuras en total, 10 cartas de oro), ¿cuál es la probabilidad de sacar una FIGURA o una carta de ORO? (las figuras de oro son ambas cosas a la vez: 3 cartas)"
-
-pasos:
-  - "P(figura) = 12/40, P(oro) = 10/40, P(figura y oro) = 3/40 (las 3 figuras de oro)"
-  - "P(figura o oro) = 12/40 + 10/40 − 3/40 = {redondear((12 / 40) + (10 / 40) - (3 / 40), 3)}"
-
-explicacion: |
-  Hay 3 cartas que son figura Y de oro a la vez — sin restarlas, se
-  contarían dos veces.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "basico"
-  tags: ["probabilidad_compuesta", "aplicacion"]
-
-enunciado: "Si la probabilidad de que llueva es 0,4 y la de que se corte la luz (independiente de la lluvia) es 0,1, ¿cómo se calcula la probabilidad de que pasen LAS DOS COSAS a la vez?"
-tipo: mc
-opciones_explicitas:
-  - "Multiplicando 0,4 × 0,1, porque son eventos independientes y se pide 'Y'"
-  - "Sumando 0,4 + 0,1, porque se pide 'ambas cosas'"
-  - "No se puede calcular sin más información sobre el clima"
-respuesta: "Multiplicando 0,4 × 0,1, porque son eventos independientes y se pide 'Y'"
-
-explicacion: |
-  'Ambas cosas a la vez' es la palabra clave de la regla del producto,
-  no de la suma.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "problema"]
-
-variables:
-  falla1: uno_de([0.05, 0.1, 0.15])
-  falla2: uno_de([0.02, 0.08])
-
-respuesta: redondear(falla1 * falla2, 4)
-tipo: input
-tolerancia_abs: 0.001
-
-enunciado: "Dos máquinas funcionan de forma independiente. La probabilidad de que la máquina 1 falle es {falla1}, y la de que la máquina 2 falle es {falla2}. ¿Cuál es la probabilidad de que AMBAS fallen a la vez?"
-
-pasos:
-  - "P(ambas fallan) = {falla1} × {falla2} = {redondear(falla1 * falla2, 4)}"
-
-explicacion: |
-  Es mucho menos probable que fallen las dos juntas que que falle
-  sólo una — por eso los sistemas críticos usan componentes
-  redundantes e independientes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "P(A y B) nunca puede ser mayor que P(A) sola (pedir una condición extra nunca aumenta la probabilidad, como mucho la deja igual)."
-
-explicacion: |
-  Multiplicar por P(B) (que es como mucho 1) nunca puede aumentar el
-  valor de P(A).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta"]
-
-enunciado: "Al tirar UN SOLO dado, para calcular P(par Y mayor que 3), ¿por qué NO corresponde multiplicar P(par) × P(mayor que 3) como si fueran dos experimentos independientes?"
-tipo: mc
-opciones_explicitas:
-  - "Porque son dos condiciones sobre el MISMO resultado de un único tiro, no dos eventos de experimentos separados — hay que contar directo los casos que cumplen ambas condiciones a la vez"
-  - "Porque en realidad sí corresponde multiplicar, sin ninguna excepción"
-  - "Porque un dado nunca puede cumplir dos condiciones a la vez"
-respuesta: "Porque son dos condiciones sobre el MISMO resultado de un único tiro, no dos eventos de experimentos separados — hay que contar directo los casos que cumplen ambas condiciones a la vez"
-
-explicacion: |
-  Par y mayor que 3 en un dado: {4, 6} cumplen ambas → P=2/6, que en
-  general NO coincide con P(par)×P(mayor que 3) = (3/6)×(3/6) = 9/36 —
-  son cálculos distintos porque no es una multiplicación de dos
-  tiradas separadas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "problema"]
-
-respuesta: redondear(2 / 6, 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "En un solo tiro de un dado de 6 caras, ¿cuál es la probabilidad real de que salga un número PAR y MAYOR QUE 3 a la vez (contando los casos directo: {4, 6})?"
-
-pasos:
-  - "Los números pares y mayores que 3, del 1 al 6, son 4 y 6: 2 casos favorables."
-  - "P = 2/6 = {redondear(2 / 6, 3)}"
-
-explicacion: |
-  Es distinto del resultado de multiplicar P(par)×P(mayor que 3) —
-  confirma por qué esa multiplicación no aplicaba acá.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Antes de aplicar P(A y B) = P(A) × P(B), conviene confirmar que A y B son realmente independientes — asumirlo sin pensar puede llevar a un resultado incorrecto."
-
-explicacion: |
-  Es el error más común de este tema: multiplicar directo sin
-  verificar si corresponde.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "avanzado"
-  tags: ["probabilidad_compuesta", "problema"]
-
-variables:
-  p_exito: uno_de([0.3, 0.4])
-  intentos: uno_de([2, 3])
-
-respuesta: redondear((1 - p_exito) ^ intentos, 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un jugador tiene {p_exito} de probabilidad de éxito en cada intento (independientes entre sí). ¿Cuál es la probabilidad de que falle los {intentos} intentos, uno tras otro?"
-
-pasos:
-  - "P(falla) en cada intento = 1 − {p_exito} = {1 - p_exito}"
-  - "P(falla los {intentos}) = ({1 - p_exito})^{intentos} = {redondear((1 - p_exito) ^ intentos, 3)}"
-
-explicacion: |
-  Se multiplica la probabilidad de fallar, la misma cantidad de veces
-  que hay intentos, porque son independientes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "probabilidad_compuesta"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve la probabilidad compuesta?"
-tipo: mc
-opciones_explicitas:
-  - "Para calcular la probabilidad de que ocurran varios eventos a la vez, o al menos uno de varios, combinando las reglas del Y y del O"
-  - "Sólo sirve para dados y monedas"
-  - "Sólo aplica cuando los eventos son mutuamente excluyentes"
-respuesta: "Para calcular la probabilidad de que ocurran varios eventos a la vez, o al menos uno de varios, combinando las reglas del Y y del O"
-
-explicacion: |
-  Cierra este bloque de Tronco 4.b y es la puerta directa al cuadro
-  de Punnett de Biología — el mismo cálculo, otra notación.
-```

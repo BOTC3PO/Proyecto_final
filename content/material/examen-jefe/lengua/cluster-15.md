@@ -1,1725 +1,1987 @@
-# Examen jefe — Dominio de la Gramática
+# Examen jefe — [PENDIENTE #665]
 
-> Logro #98. Completaste el parcial integrando sujeto, voz y tipología textual con estilo. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **108 preguntas totales** en 5/5 secciones.
+> Logro #665. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: tipos-de-sujeto (25 preguntas)
+## Sección: subordinada-sustantiva-de-complemento-de-un-adjetivo (36 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "basico"
+  tags: ["subordinada", "adjetivo", "preposicion"]
+
+variables:
+  adj: uno_de(["seguro", "consciente", "orgulloso", "temeroso"])
+
+respuesta: "de"
+
+tipo: input
+
+enunciado: "En la oración 'Estoy {adj} de que llueva', ¿cuál es la preposición que introduce la subordinada sustantiva que complementa al adjetivo?"
+
+explicacion: |
+  El adjetivo {adj} requiere la preposición 'de' para introducir la oración subordinada sustantiva que completa su significado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "basico"
+  tags: ["funcion_sintactica", "complemento"]
+
+variables:
+  adj: uno_de(["contento", "triste", "alegre"])
+
+respuesta: "complemento del adjetivo"
+
+tipo: completar
+
+respuestas_validas:
+  - "complemento del adjetivo"
+  - "complemento adjetival"
+  - "complemento del adjetivo"
+
+enunciado: "En 'Estoy {adj} de que ganes', la oración 'que ganes' funciona como:"
+
+explicacion: |
+  La subordinada sustantiva actúa como complemento del adjetivo 'contento', completando su significado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["conjuncion", "que"]
+
+variables:
+  sujeto: uno_de(["Ella", "Ellos", "Nosotros"])
+  adj: uno_de(["seguro", "convencido"])
+
+respuesta: "que"
+
+tipo: input
+
+enunciado: "En la estructura '{sujeto} está {adj} [___] llueva', ¿qué conjunción introduce la subordinada sustantiva?"
+
+explicacion: |
+  La conjunción 'que' es el nexo más común para introducir oraciones subordinadas sustantivas completas tras un adjetivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "basico"
+  tags: ["preposicion", "orgulloso"]
+
+variables:
+  val: random(0, 1)
+
+respuesta: "de"
+
+tipo: input
+
+enunciado: "En 'Estoy orgulloso ___ de mis logros', ¿qué preposición falta?"
+
+explicacion: |
+  La preposición 'de' es obligatoria: 'orgulloso de que...' o 'orgulloso de mis logros'.
+```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "basico"
-  tags: ["sujeto_tacito", "elipsis"]
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["vf", "registro_formal"]
 
 variables:
-  pronombre: uno_de(["nosotros", "tú", "ellos", "yo"])
-  verbo: uno_de(["estudiamos", "estudias", "estudian", "estudio"])
+  adj: uno_de(["seguro", "consciente"])
+  prep: uno_de(["de", "de"])
+
+respuesta: falso
+
+enunciado: "Es gramaticalmente correcto en un registro formal decir 'Estoy {adj} que vendrás' sin la preposición '{prep}'."
+
+explicacion: |
+  Falso. En el registro formal, la preposición es obligatoria cuando el adjetivo la exige. Decir "Estoy seguro que vendrás" es considerado incorrecto o propio del lenguaje coloquial; la forma correcta es "Estoy seguro de que vendrás".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["vf", "infinitivo"]
+
+variables:
+  adj: uno_de(["fácil", "difícil", "imposible"])
+
+respuesta: verdadero
+
+enunciado: "Es posible que la subordinada sustantiva de complemento de un adjetivo esté introducida por un infinitivo (ej. 'Es fácil de entender')."
+
+explicacion: |
+  Verdadero. Aunque menos común en la estructura con 'que', los adjetivos pueden regir subordinadas infinitivas. En 'Es fácil de entender', "entender" funciona como complemento del adjetivo "fácil".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["vf", "semantica"]
+
+variables:
+  adj: uno_de(["contento", "seguro"])
+
+respuesta: verdadero
+
+enunciado: "Sin la subordinada de complemento, el adjetivo '{adj}' puede quedar incompleto o ambiguo en su significado."
+
+explicacion: |
+  Verdadero. Decir "Estoy contento" es vago. "Estoy contento de que hayas aprobado" especifica la causa. La subordinada aporta precisión semántica.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["vf", "regencia"]
+
+variables:
+  adj: uno_de(["seguro", "consciente"])
+
+respuesta: verdadero
+
+enunciado: "El adjetivo '{adj}' rige la preposición que introduce la subordinada sustantiva."
+
+explicacion: |
+  Verdadero. Es el adjetivo quien exige la presencia de la preposición y, por ende, de la subordinada que la sigue.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["vf", "obligatoriedad"]
+
+variables:
+  adj: uno_de(["seguro", "consciente"])
+
+respuesta: falso
+
+enunciado: "La preposición en la subordinada de complemento de un adjetivo es siempre opcional."
+
+explicacion: |
+  Falso. En el registro formal, la preposición es obligatoria cuando el adjetivo la exige. Su omisión puede cambiar el registro o la corrección gramatical.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "basico"
+  tags: ["funcion", "basico"]
+
+variables:
+  adj: uno_de(["alegre", "contento", "conforme"])
+  prep: "de"
+
+respuesta: "complemento del adjetivo"
+tipo: input
+
+enunciado: "En la estructura 'Estoy {adj} {prep} que...', la oración subordinada sustantiva cumple la función de:"
+
+explicacion: |
+  La subordinada sustantiva funciona como complemento del adjetivo, ya que este necesita ese complemento para tener un significado completo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "basico"
+  tags: ["reglas", "basico"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "En la oración '{verbo} mucho para el examen', el sujeto es expreso porque aparece escrito."
+enunciado: "Es correcto decir 'Estoy seguro que vendrás' en un registro formal culto, omitiendo la preposición."
 
 explicacion: |
-  Falso. El sujeto es tácito (elíptico). Aunque no se escribe, se sobreentiende por la conjugación verbal ('{pronombre}'). En español, es común omitir el pronombre sujeto.
+  Falso. En registro formal, la preposición es obligatoria: 'Estoy seguro DE que vendrás'. Omitirla (queísmo) puede considerarse incorrecto o coloquial.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
   nivel: "intermedio"
-  tags: ["sujeto_unimembre", "composicion"]
+  tags: ["preposicion", "intermedio"]
 
 variables:
-  nombre_propio: uno_de(["Pedro", "Laura", "Martín", "Sofía", "Tomás"])
+  adj: uno_de(["cansado", "harto", "fastidiado"])
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración '{nombre_propio} juega al fútbol', el sujeto es unimembre porque está compuesto por un solo núcleo sin modificadores."
-
-explicacion: |
-  Verdadero. El sujeto '{nombre_propio}' es un sustantivo propio que funciona como núcleo único. No tiene determinantes ni adjetivos que lo acompañen dentro del grupo nominal sujeto.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sujeto_bimembre", "composicion"]
-
-variables:
-  adjetivo: uno_de(["grandes", "inteligentes", "divertidos", "serios", "alegres"])
-  sustantivo: uno_de(["niños", "estudiantes", "amigos", "compañeros", "vecinos"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración 'Los {sustantivo} {adjetivo} llegaron tarde', el sujeto es bimembre."
-
-explicacion: |
-  Verdadero. El sujeto 'Los {sustantivo} {adjetivo}' está compuesto por un núcleo ('{sustantivo}') y modificadores ('Los', '{adjetivo}'). Esta estructura de dos o más elementos lo clasifica como bimembre.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sujeto_compuesto", "bimembre"]
-
-variables:
-  nombre1: uno_de(["María", "Juan", "Ana", "Luis", "Pedro"])
-  nombre2: uno_de(["Carlos", "Laura", "Sofía", "Martín", "Elena"])
-  accion: uno_de(["llegaron", "vinieron", "estudiaron", "jugaron", "hablaron"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración '{nombre1} y {nombre2} {accion} tarde', el sujeto es bimembre."
-
-explicacion: |
-  Verdadero. El sujeto está compuesto por dos núcleos ('{nombre1}' y '{nombre2}') unidos por la conjunción 'y'. Al tener más de un núcleo, es un sujeto bimembre (específicamente, un sujeto compuesto).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "basico"
-  tags: ["sujeto_unimembre", "pronombre"]
-
-variables:
-  pronombre: uno_de(["Yo", "Tú", "Él", "Nosotros", "Ellos"])
-  accion: uno_de(["estudio", "estudias", "estudia", "estudiamos", "estudian"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración '{pronombre} {accion} mañana', el sujeto es unimembre."
-
-explicacion: |
-  Verdadero. El sujeto '{pronombre}' es un pronombre personal que funciona como núcleo único. No tiene modificadores adjetivos o determinantes adicionales que lo acompañen en el grupo nominal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sujeto_bimembre", "modificador"]
-
-variables:
-  sustantivo: uno_de(["amigos", "compañeros", "vecinos", "colegas", "amantes"])
-  complemento: uno_de(["de la escuela", "del trabajo", "del barrio", "de la clase", "de la oficina"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración 'Los {sustantivo} {complemento} llegaron', el sujeto es bimembre."
-
-explicacion: |
-  Verdadero. El sujeto 'Los {sustantivo} {complemento}' tiene un núcleo ('{sustantivo}') y un modificador preposicional ('{complemento}'). Al tener núcleo y modificador, es bimembre.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "basico"
-  tags: ["sujeto_unimembre", "sustantivo_propio"]
-
-variables:
-  nombre: uno_de(["Buenos Aires", "España", "Argentina", "México", "Colombia"])
-  accion: uno_de(["es", "tiene", "tiene", "tiene", "tiene"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración '{nombre} {accion} mucha historia', el sujeto es unimembre."
-
-explicacion: |
-  Verdadero. El sujeto '{nombre}' es un sustantivo propio que funciona como núcleo único. No tiene modificadores adjetivos o determinantes adicionales.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sujeto_unimembre", "pronombre_demostrativo"]
-
-variables:
-  pronombre: uno_de(["Este", "Ese", "Ese", "Esto", "Eso"])
-  accion: uno_de(["es", "es", "es", "es", "es"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración '{pronombre} {accion} importante', el sujeto es unimembre."
-
-explicacion: |
-  Verdadero. El sujeto '{pronombre}' es un pronombre demostrativo que funciona como núcleo único. No tiene modificadores adjetivos o determinantes adicionales.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "basico"
-  tags: ["sujeto_unimembre", "sustantivo_comun"]
-
-variables:
-  sustantivo: uno_de(["El agua", "La luz", "El aire", "El fuego", "La tierra"])
-  accion: uno_de(["es", "es", "es", "es", "es"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración '{sustantivo} {accion} vital', el sujeto es unimembre."
-
-explicacion: |
-  Verdadero. El sujeto '{sustantivo}' es un sustantivo común que funciona como núcleo único. No tiene modificadores adjetivos o determinantes adicionales.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "basico"
-  tags: ["sujeto_tacito", "verdad_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración 'Estudiamos mucho', el sujeto 'nosotros' no aparece escrito pero se sobreentiende por la conjugación verbal. Esta afirmación es:"
-
-explicacion: |
-  Correcto. Es un sujeto tácito (o elíptico) porque la persona y número están indicados en el verbo 'estudiamos' (1ra persona del plural).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "basico"
-  tags: ["sujeto_expreso", "verdad_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración 'María lee un libro', el sujeto 'María' es un sujeto expreso porque aparece claramente en la oración. Esta afirmación es:"
-
-explicacion: |
-  Correcto. El sujeto está presente explícitamente en la oración.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sujeto_bimembre", "definicion"]
-
-respuesta: 2
-tipo: mc
-opciones: 4
-
-enunciado: "¿Cuál de las siguientes opciones define correctamente a un sujeto bimembre?"
-
-explicacion: |
-  Un sujeto bimembre está formado por dos partes: el núcleo (sustantivo o pronombre) y al menos un modificador (adjetivo, determinante, etc.).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "intermedio"
-  tags: ["sujeto_unimembre", "definicion"]
-
-respuesta: 1
-tipo: mc
-opciones: 4
-
-enunciado: "Un sujeto unimembre se caracteriza por:"
-
-explicacion: |
-  Un sujeto unimembre está compuesto por un solo elemento, generalmente un sustantivo o pronombre, sin modificadores.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "basico"
-  tags: ["identificacion", "sujeto_expreso"]
-
-variables:
-  sujeto: uno_de(["El perro", "La casa", "Mi hermano", "Tus amigos"])
-  verbo: uno_de(["corre", "brilla", "trabaja", "juegan"])
-  complemento: uno_de(["en el parque", "por la noche", "en la oficina", "con sus vecinos"])
-
-respuesta: "{sujeto}"
+respuesta: "de"
 tipo: input
 
-enunciado: "Identificá el sujeto en la siguiente oración: '{sujeto} {verbo} {complemento}'"
+enunciado: "Completa: 'Los vecinos están {adj} que el perro ladre toda la noche.' ¿Qué preposición falta?"
 
 explicacion: |
-  El sujeto es quien realiza la acción o sobre quien recae el estado. En este caso, '{sujeto}' es el sujeto.
+  Los adjetivos de estado o sentimiento como 'cansado', 'harto' o 'fastidiado' suelen regir la preposición 'de' cuando van seguidos de una subordinada.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "basico"
-  tags: ["concordancia", "sujeto"]
-
-respuesta: 3
-tipo: mc
-opciones: 4
-
-enunciado: "El sujeto concuerda con el verbo en:"
-
-explicacion: |
-  El sujeto y el verbo deben concordar en persona y número.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
   nivel: "intermedio"
-  tags: ["nucleo", "sujeto"]
+  tags: ["analisis", "intermedio"]
 
-respuesta: 2
+respuesta: "temeroso"
 tipo: mc
-opciones: 4
+opciones_explicitas: ["temeroso", "que", "del", "accidente"]
 
-enunciado: "En un sujeto bimembre, el núcleo es:"
+enunciado: "En la oración 'Estoy temeroso de que haya un accidente', ¿cuál es el adjetivo que rige la subordinada?"
 
 explicacion: |
-  El núcleo es la palabra principal del sujeto, generalmente un sustantivo o pronombre.
+  El adjetivo es 'temeroso'. Es él quien exige la preposición 'de' y la oración subordinada para completar su significado.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
   nivel: "intermedio"
-  tags: ["comparacion", "sujeto"]
+  tags: ["clasificacion", "intermedio"]
 
-respuesta: 1
-tipo: mc
-opciones: 4
+respuesta: "sustantiva"
+tipo: completar
+respuestas_validas:
+  - "sustantiva"
+  - "Sustantiva"
 
-enunciado: "La principal diferencia entre sujeto bimembre y unimembre es:"
+enunciado: "La oración 'Estoy convencido de que ganaremos' es una subordinada de tipo __________."
 
 explicacion: |
-  La diferencia radica en la cantidad de elementos que componen al sujeto (núcleo + modificadores vs. solo núcleo).
+  Es una oración subordinada sustantiva porque funciona como un sustantivo (complemento del adjetivo) y no como un adjetivo o adverbio.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["diferenciacion", "intermedio"]
+
+respuesta: "complemento del adjetivo"
+tipo: mc
+opciones_explicitas: ["sujeto", "complemento directo", "complemento del adjetivo", "complemento circunstancial"]
+
+enunciado: "En 'Estoy alegre de que estés bien', la subordinada 'de que estés bien' es:"
+
+explicacion: |
+  'De que estés bien' completa al adjetivo 'alegre', indicando la causa de la alegría: es complemento del adjetivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["preposicion", "intermedio"]
+
+variables:
+  adj: uno_de(["orgulloso", "orgullosa"])
+  prep: "de"
+
+respuesta: "de"
+tipo: input
+
+enunciado: "Completa: 'Estoy {adj} de que mi equipo haya ganado.' ¿Qué preposición se usa con 'orgulloso'?"
+
+explicacion: |
+  El adjetivo 'orgulloso' rige la preposición 'de' para introducir la causa o motivo del orgullo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
   nivel: "basico"
-  tags: ["sujeto_agente", "verdad_falso"]
+  tags: ["teoria", "basico"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El sujeto siempre es quien realiza la acción en una oración. Esta afirmación es:"
+enunciado: "La subordinada sustantiva de complemento de un adjetivo puede estar introducida por un infinitivo."
 
 explicacion: |
-  Falso. El sujeto puede ser agente (realiza la acción) o paciente (sobre quien recae la acción o estado).
+  Verdadero. Ejemplo: 'Estoy dispuesto a ayudarte' — 'a ayudarte' es una subordinada de infinitivo que completa al adjetivo 'dispuesto', igual que 'a que me ayuden' lo haría con 'que' + subjuntivo.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["preposicion", "intermedio"]
+
+respuesta: "de"
+tipo: mc
+opciones_explicitas: ["a", "de", "en", "por"]
+
+enunciado: "¿Qué preposición rige el adjetivo 'consciente' en 'Estoy consciente de que...'?"
+
+explicacion: |
+  El adjetivo 'consciente' rige la preposición 'de'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["estructura", "intermedio"]
+
+respuesta: "preposición"
+tipo: completar
+respuestas_validas:
+  - "preposición"
+  - "preposicion"
+  - "PREPOSICIÓN"
+  - "PREPOSICION"
+
+enunciado: "El elemento que une al adjetivo con la oración subordinada sustantiva es una __________."
+
+explicacion: |
+  La preposición es el puente obligatorio que permite que la oración completa funcione como complemento del adjetivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["analisis", "intermedio"]
+
+variables:
+  adj: uno_de(["temeroso", "temeroso"])
+  prep: "de"
+
+respuesta: adj
+tipo: input
+
+enunciado: "En 'Estoy {adj} de que llueva', ¿cuál es el adjetivo que rige la subordinada?"
+
+explicacion: |
+  El adjetivo es '{adj}'. Es el núcleo del sintagma adjetival que requiere la subordinada.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
   nivel: "avanzado"
-  tags: ["impersonal", "sujeto"]
+  tags: ["casos_especiales", "avanzado"]
 
-respuesta: 4
+respuesta: "si"
 tipo: mc
-opciones: 4
+opciones_explicitas: ["que", "si", "de", "a"]
 
-enunciado: "En las oraciones impersonales (ej: 'Llueve mucho'), el sujeto es:"
+enunciado: "En la oración 'No estoy seguro si vendrá', ¿qué conjunción introduce la subordinada?"
 
 explicacion: |
-  En las oraciones impersonales no hay sujeto.
+  Cuando el adjetivo expresa duda o certeza (como 'seguro'), puede usar 'si' para introducir la subordinada interrogativa indirecta que funciona como complemento.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
   nivel: "intermedio"
-  tags: ["modificadores", "sujeto_bimembre"]
+  tags: ["funcion", "intermedio"]
 
-respuesta: 2
-tipo: mc
-opciones: 4
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En un sujeto bimembre, ¿cuál de las siguientes palabras NO suele ser un modificador del núcleo?"
+enunciado: "Sin el complemento del adjetivo, una oración con adjetivos como 'seguro' o 'consciente' puede quedar ambigua o incompleta."
 
 explicacion: |
-  El núcleo es la palabra principal. Los modificadores acompañan al núcleo.
+  Verdadero. 'Estoy seguro' no especifica de qué. 'Estoy seguro de que...' completa el sentido.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "basico"
+  tags: ["ejemplos", "basico"]
+
+respuesta: "de"
+tipo: completar
+respuestas_validas:
+  - "de"
+  - "De"
+
+enunciado: "Completa: 'Estoy contento __________ que hayas aprobado.'"
+
+explicacion: |
+  El adjetivo 'contento' rige la preposición 'de' para indicar la causa de la alegría.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["identificacion", "intermedio"]
+
+respuesta: "de que el vecino haga ruido"
+tipo: mc
+opciones_explicitas: ["Los vecinos", "cansados", "de que el vecino haga ruido", "a las tres"]
+
+enunciado: "En 'Los vecinos están cansados de que el vecino haga ruido', ¿cuál es la subordinada sustantiva?"
+
+explicacion: |
+  La subordinada es 'de que el vecino haga ruido'. Es el complemento del adjetivo 'cansados'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["preposicion", "intermedio"]
+
+variables:
+  adj: uno_de(["orgulloso", "orgullosa"])
+
+respuesta: "de"
+tipo: input
+
+enunciado: "En 'Estoy {adj} de que mi hijo haya estudiado', ¿qué preposición falta?"
+
+explicacion: |
+  El adjetivo 'orgulloso' rige la preposición 'de'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["registro", "intermedio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La omisión de la preposición en 'Estoy seguro que...' es aceptable en todos los registros lingüísticos formales."
+
+explicacion: |
+  Falso. En registros formales, la preposición es obligatoria. Su omisión es propia del lenguaje coloquial.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
   nivel: "avanzado"
-  tags: ["comparacion", "sujeto_tacito"]
+  tags: ["preposicion", "avanzado"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "por"
+tipo: mc
+opciones_explicitas: ["de", "por", "a", "en"]
 
-enunciado: "A diferencia del español, el inglés generalmente requiere un sujeto explícito incluso cuando la persona está clara por la conjugación. Esta afirmación es:"
+enunciado: "¿Qué preposición rige el adjetivo 'preocupado' en 'Estoy preocupado por que llegues bien'?"
 
 explicacion: |
-  Correcto. El español permite la omisión del sujeto (tácito) con mayor frecuencia que el inglés.
+  El adjetivo 'preocupado' rige la preposición 'por' para indicar la causa de la preocupación.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "basico"
-  tags: ["sujeto_expreso", "pronombre"]
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["teoria", "intermedio"]
+
+respuesta: "complemento"
+tipo: completar
+respuestas_validas:
+  - "complemento"
+  - "Complemento"
+
+enunciado: "La subordinada sustantiva funciona como un __________ del adjetivo."
+
+explicacion: |
+  Funciona como complemento, ya que completa el significado del adjetivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["analisis", "intermedio"]
 
 variables:
-  pronombre: uno_de(["Ellos", "Ellas", "Nosotros", "Yo"])
-  verbo: uno_de(["juegan", "cantan", "estudiamos", "leo"])
-  complemento: uno_de(["fútbol", "canciones", "matemáticas", "un libro"])
+  adj: uno_de(["temeroso", "temeroso"])
+  prep: "de"
 
-respuesta: "{pronombre}"
+respuesta: adj
 tipo: input
 
-enunciado: "Identificá el sujeto en la oración: '{pronombre} {verbo} {complemento}'"
+enunciado: "En 'Estoy {adj} de que...', ¿cuál es el adjetivo?"
 
 explicacion: |
-  El sujeto es el pronombre '{pronombre}'.
+  El adjetivo es '{adj}'.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
   nivel: "intermedio"
-  tags: ["uso", "sujeto"]
+  tags: ["preposicion", "intermedio"]
 
-respuesta: 1
+respuesta: "a"
 tipo: mc
-opciones: 4
+opciones_explicitas: ["de", "a", "con", "por"]
 
-enunciado: "¿En qué tipo de texto es más común el uso de sujetos bimembres detallados?"
+enunciado: "¿Qué preposición rige 'dispuesto' en 'Estoy dispuesto a ayudarte'?"
 
 explicacion: |
-  La escritura formal suele utilizar sujetos bimembres para mayor precisión y claridad.
+  El adjetivo 'dispuesto' rige la preposición 'a'.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "tipos_de_sujeto"
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "avanzado"
+  tags: ["estructura", "avanzado"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una subordinada de complemento de un adjetivo puede estar introducida por un infinitivo."
+
+explicacion: |
+  Verdadero. Ejemplo: 'Es bueno para la salud comer verduras' o 'Estoy dispuesto a ayudar'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
   nivel: "basico"
-  tags: ["sujeto_bimembre", "adjetivo"]
+  tags: ["ejemplos", "basico"]
+
+respuesta: "de"
+tipo: completar
+respuestas_validas:
+  - "de"
+  - "De"
+
+enunciado: "Completa: 'Estoy seguro __________ que vendrás.'"
+
+explicacion: |
+  El adjetivo 'seguro' rige la preposición 'de'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["identificacion", "intermedio"]
+
+respuesta: "de"
+tipo: mc
+opciones_explicitas: ["a", "de", "por", "en"]
+
+enunciado: "En 'Estoy consciente de que...', ¿qué preposición se usa?"
+
+explicacion: |
+  El adjetivo 'consciente' rige la preposición 'de'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["analisis", "intermedio"]
 
 variables:
-  det: uno_de(["El", "La", "Los", "Las"])
-  sust: uno_de(["perro", "gato", "niño", "mujer"])
-  adj: uno_de(["grande", "pequeño", "alegre", "triste"])
-  sujeto: "{det} {sust} {adj}"
+  adj: uno_de(["contento", "conforme"])
+  prep: "de"
 
-respuesta: "{sujeto}"
+respuesta: adj
 tipo: input
 
-enunciado: "Identificá el sujeto en la oración: '{sujeto} corre rápido.'"
+enunciado: "En 'Estoy {adj} de que todo esté bien', ¿cuál es el adjetivo?"
 
 explicacion: |
-  El sujeto es '{sujeto}'.
+  El adjetivo es '{adj}'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "intermedio"
+  tags: ["funcion", "intermedio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Identificar estas oraciones ayuda a la precisión del lenguaje al evitar ambigüedades."
+
+explicacion: |
+  Verdadero. El complemento especifica la causa, contenido u opinión, dando precisión a la idea del adjetivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_de_un_adjetivo"
+  nivel: "avanzado"
+  tags: ["diferenciacion", "avanzado"]
+
+respuesta: "complemento del adjetivo"
+tipo: mc
+opciones_explicitas: ["complemento del verbo", "complemento del adjetivo", "complemento del sustantivo", "sujeto"]
+
+enunciado: "En 'Me alegra de que estés bien', si analizamos 'alegra' como adjetivo (en estructura impersonal o similar), la función es:"
+
+explicacion: |
+  En contextos donde el adjetivo es el núcleo (ej. 'Estoy alegre de que...'), la función es complemento del adjetivo.
+```
+
+## Sección: subordinada-sustantiva-de-complemento-del-nombre (27 preguntas)
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["identificacion", "complemento_del_nombre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración 'El profesor celebró la noticia de que aprobamos', la parte 'de que aprobamos' funciona como complemento del nombre 'noticia'."
+
+explicacion: |
+  La oración subordinada 'de que aprobamos' completa el significado del sustantivo 'noticia'. Se puede sustituir por 'eso': 'El profesor celebró la noticia de eso'. Por lo tanto, es una subordinada sustantiva de complemento del nombre.
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "tipos_de_sujeto"
-  nivel: "basico"
-  tags: ["definicion", "sujeto"]
-
-respuesta: 1
-tipo: mc
-opciones: 4
-
-enunciado: "El sujeto es:"
-
-explicacion: |
-  El sujeto es el elemento de la oración que concuerda en persona y número con el verbo.
-```
-
-## Sección: tipos-textuales (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "basico"
-  tags: ["narrativo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "narrativo"
-tipo: mc
-opciones_explicitas: ["narrativo", "descriptivo", "expositivo", "argumentativo", "instructivo"]
-
-enunciado: "\"Juan salió de su casa, caminó tres cuadras y se encontró con su amigo en la plaza.\" ¿Qué tipo textual es?"
-
-pasos:
-  - "Cuenta hechos que ocurren en el tiempo, con acciones y personajes: es narrativo."
-
-explicacion: |
-  El texto narrativo cuenta una secuencia de sucesos que le pasan a
-  alguien.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "basico"
-  tags: ["descriptivo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "descriptivo"
-tipo: mc
-opciones_explicitas: ["narrativo", "descriptivo", "expositivo", "argumentativo", "instructivo"]
-
-enunciado: "\"La casa era grande, de paredes blancas y techo rojo. Tenía un jardín lleno de flores amarillas.\" ¿Qué tipo textual es?"
-
-pasos:
-  - "Presenta características sin que pase el tiempo, con adjetivos y verbos de estado: es descriptivo."
-
-explicacion: |
-  El texto descriptivo detalla cómo es algo (aspecto, cualidades),
-  no cuenta una acción.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "basico"
-  tags: ["expositivo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "expositivo"
-tipo: mc
-opciones_explicitas: ["narrativo", "descriptivo", "expositivo", "argumentativo", "instructivo"]
-
-enunciado: "\"La fotosíntesis es el proceso por el cual las plantas transforman luz solar en energía química.\" ¿Qué tipo textual es?"
-
-pasos:
-  - "Explica un tema de forma objetiva, con definiciones: es expositivo."
-
-explicacion: |
-  El texto expositivo informa o explica sin dar la opinión del autor.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "basico"
-  tags: ["argumentativo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "argumentativo"
-tipo: mc
-opciones_explicitas: ["narrativo", "descriptivo", "expositivo", "argumentativo", "instructivo"]
-
-enunciado: "\"Deberíamos reducir el uso de plástico porque contamina los océanos y tarda siglos en degradarse.\" ¿Qué tipo textual es?"
-
-pasos:
-  - "Defiende una postura con razones para convencer: es argumentativo."
-
-explicacion: |
-  El texto argumentativo usa conectores causales (\"porque\") para
-  respaldar una opinión.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "basico"
-  tags: ["instructivo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "instructivo"
-tipo: mc
-opciones_explicitas: ["narrativo", "descriptivo", "expositivo", "argumentativo", "instructivo"]
-
-enunciado: "\"Primero, batir los huevos. Segundo, agregar el azúcar. Tercero, mezclar con la harina.\" ¿Qué tipo textual es?"
-
-pasos:
-  - "Da pasos numerados con verbos en infinitivo/imperativo: es instructivo."
-
-explicacion: |
-  El texto instructivo indica los pasos para hacer algo, típico de
-  recetas y manuales.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
   nivel: "intermedio"
-  tags: ["narrativo", "marcas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "narrativo"
-tipo: mc
-opciones_explicitas: ["narrativo", "descriptivo", "expositivo"]
-
-enunciado: "Un texto con muchos conectores temporales (\"luego\", \"después\", \"al día siguiente\") probablemente sea de tipo..."
-
-pasos:
-  - "Los conectores temporales marcan una secuencia de hechos en el tiempo, típica del narrativo."
-
-explicacion: |
-  Los conectores temporales son una marca característica del texto
-  narrativo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "intermedio"
-  tags: ["descriptivo", "marcas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "descriptivo"
-tipo: mc
-opciones_explicitas: ["narrativo", "descriptivo", "instructivo"]
-
-enunciado: "Un texto con muchos adjetivos y verbos como \"es\", \"tiene\", \"parece\" probablemente sea de tipo..."
-
-pasos:
-  - "Los adjetivos y verbos de estado detallan características, sin narrar una acción: marca del descriptivo."
-
-explicacion: |
-  Los adjetivos y verbos de estado son la marca típica del texto
-  descriptivo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "intermedio"
-  tags: ["expositivo", "marcas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "expositivo"
-tipo: mc
-opciones_explicitas: ["expositivo", "narrativo", "argumentativo"]
-
-enunciado: "Un texto con definiciones y vocabulario técnico, sin opiniones del autor, probablemente sea de tipo..."
-
-pasos:
-  - "Explicar un tema de forma objetiva, con definiciones, es la marca del expositivo."
-
-explicacion: |
-  El vocabulario técnico y las definiciones objetivas son típicas
-  del texto expositivo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "intermedio"
-  tags: ["argumentativo", "marcas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "argumentativo"
-tipo: mc
-opciones_explicitas: ["argumentativo", "descriptivo", "instructivo"]
-
-enunciado: "Un texto en primera persona que defiende una opinión con razones probablemente sea de tipo..."
-
-pasos:
-  - "Defender una postura con conectores de causa/consecuencia es la marca del argumentativo."
-
-explicacion: |
-  La opinión personal respaldada con razones es típica del texto
-  argumentativo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "intermedio"
-  tags: ["instructivo", "marcas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "instructivo"
-tipo: mc
-opciones_explicitas: ["instructivo", "narrativo", "expositivo"]
-
-enunciado: "Un texto con verbos en imperativo (\"agregue\", \"mezcle\") y pasos numerados probablemente sea de tipo..."
-
-pasos:
-  - "Indicar cómo hacer algo paso a paso es la marca del instructivo."
-
-explicacion: |
-  El imperativo/infinitivo y la numeración de pasos son típicos del
-  texto instructivo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "intermedio"
-  tags: ["tipos_textuales", "combinacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una noticia puede combinar partes narrativas (contar lo que pasó) con partes descriptivas (describir el lugar del hecho), y se clasifica por el tipo predominante."
-
-pasos:
-  - "No hace falta que un texto sea puro de un solo tipo para clasificarlo."
-
-explicacion: |
-  Verdadero: se clasifica según qué tipo predomina, no exige pureza
-  absoluta.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "basico"
-  tags: ["tipos_textuales", "proposito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El tipo textual se define principalmente por el propósito comunicativo del texto (contar, describir, explicar, convencer o instruir)."
-
-pasos:
-  - "No se define por el tema del texto, sino por para qué fue escrito."
-
-explicacion: |
-  Verdadero: dos textos sobre el mismo tema pueden ser de tipos
-  distintos según su propósito (contar una historia sobre un volcán
-  vs. explicar cómo funciona un volcán).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "intermedio"
-  tags: ["expositivo", "argumentativo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
+  tags: ["diferenciacion", "funcion_sintactica"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El texto expositivo, igual que el argumentativo, incluye la opinión personal del autor sobre el tema."
-
-pasos:
-  - "El expositivo busca informar de forma objetiva; el argumentativo, en cambio, sí defiende una postura."
+enunciado: "En la oración 'Es importante que estudies', la parte 'que estudies' es el complemento del nombre del adjetivo 'importante'."
 
 explicacion: |
-  Falso: la objetividad (sin opinión) es justamente lo que distingue
-  al expositivo del argumentativo.
+  En 'Es importante que estudies', la subordinada funciona como sujeto de la oración impersonal (o sujeto real de 'es importante'). No completa a un nombre, sino que ocupa la posición del sujeto. No se puede decir 'Es importante de eso' de la misma manera que se completa un nombre.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
   nivel: "basico"
-  tags: ["instructivo", "ejemplo"]
+  tags: ["preposicion", "estructura"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "de"
+tipo: completar
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una receta de cocina es un ejemplo típico de texto instructivo."
-
-pasos:
-  - "Da pasos ordenados para lograr un resultado (el plato), con verbos en imperativo/infinitivo."
+enunciado: "En la frase 'Tengo miedo de que vengan', ¿cuál es la preposición que introduce la subordinada sustantiva de complemento del nombre?"
 
 explicacion: |
-  Verdadero: la receta es el ejemplo clásico de texto instructivo.
+  La preposición 'de' enlaza el sustantivo 'miedo' con la oración subordinada 'que vengan'. Esta construcción es típica de sustantivos que requieren una preposición para ser completados por una oración (miedo de, duda de, idea de, etc.).
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "basico"
-  tags: ["narrativo", "ejemplo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un cuento es un ejemplo típico de texto narrativo."
-
-pasos:
-  - "Cuenta hechos que le pasan a personajes en un orden temporal."
-
-explicacion: |
-  Verdadero: el cuento es el ejemplo clásico de texto narrativo, y es
-  la puerta de entrada al género narrativo (tema siguiente).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "basico"
-  tags: ["expositivo", "ejemplo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un artículo de enciclopedia es un ejemplo típico de texto expositivo."
-
-pasos:
-  - "Explica un tema de forma objetiva, con definiciones y datos, sin opinión."
-
-explicacion: |
-  Verdadero: la enciclopedia es el ejemplo clásico de texto
-  expositivo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
   nivel: "intermedio"
-  tags: ["narrativo", "descriptivo", "diferenciacion"]
+  tags: ["analisis", "esperanza"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Guardamos la esperanza de que todo salga bien', la subordinada 'de que todo salga bien' es el complemento del nombre 'esperanza'."
+
+explicacion: |
+  Correcto. El sustantivo 'esperanza' necesita información adicional sobre su contenido. La oración 'de que todo salga bien' cumple esa función. Se puede probar con 'Guardamos la esperanza de eso'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "intermedio"
+  tags: ["confusion", "objeto_directo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En 'Quiero que vengas', la subordinada 'que vengas' es un complemento del nombre del verbo 'quiero'."
+
+explicacion: |
+  'Quiero' es un verbo, no un nombre. La subordinada 'que vengas' funciona como Objeto Directo del verbo 'quiero'. El complemento del nombre solo se da cuando la subordinada depende de un sustantivo (o adjetivo/pronombre nominalizado).
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["identificacion", "duda"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración 'Surgió la duda de si lo haría', la parte 'de si lo haría' es una subordinada sustantiva de complemento del nombre."
+
+explicacion: |
+  Sí, porque completa al sustantivo 'duda'. La preposición 'de' introduce la subordinada, y esta funciona como un complemento necesario para definir el contenido de la 'duda'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["sustitucion", "algo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Podemos sustituir la subordinada 'de que ganes' en 'El deseo de que ganes es grande' por 'de algo' para comprobar su función."
+
+explicacion: |
+  Sí. 'El deseo de algo es grande' es una oración gramaticalmente correcta. Esta prueba confirma que la subordinada original actúa como complemento del nombre 'deseo'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "intermedio"
+  tags: ["analisis", "noticia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Recibimos la noticia de que cierran la calle', la subordinada 'de que cierran la calle' es el complemento del nombre 'noticia'."
+
+explicacion: |
+  Correcto. El sustantivo 'noticia' es incompleto sin especificar el contenido. La oración subordinada introducida por 'de que' proporciona esa información y funciona como complemento nominal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["conjuncion", "que"]
+
+respuesta: "que"
+tipo: completar
+
+enunciado: "En la frase 'El miedo de que haya fuego', ¿qué conjunción introduce la subordinada?"
+
+explicacion: |
+  La conjunción 'que' introduce la oración subordinada sustantiva 'que haya fuego', la cual completa al sustantivo 'miedo' a través de la preposición 'de'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "avanzado"
+  tags: ["diferenciacion", "atributo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En 'Es cierto que lo hiciste', la subordinada 'que lo hiciste' es el complemento del nombre del adjetivo 'cierto'."
+
+explicacion: |
+  No. En oraciones con verbo copulativo o impersonal como 'es', la subordinada suele funcionar como Sujeto (Sujeto oracional). 'Que lo hiciste' es lo que es cierto. No completa a un nombre dentro de un sintagma nominal, sino que es el sujeto de la oración principal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "intermedio"
+  tags: ["analisis", "posibilidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Existe la posibilidad de que llueva mañana', la parte 'de que llueva mañana' es el complemento del nombre 'posibilidad'."
+
+explicacion: |
+  Sí. El sustantivo 'posibilidad' requiere un complemento para especificar en qué consiste esa posibilidad. La subordinada 'de que llueva mañana' cumple esa función sintáctica.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["identificacion", "idea"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Tengo la idea de que nos vamos a mudar', la subordinada 'de que nos vamos a mudar' es el complemento del nombre 'idea'."
+
+explicacion: |
+  Correcto. La 'idea' se define por su contenido, que es la oración subordinada. Se puede sustituir por 'Tengo la idea de eso', manteniendo la gramaticalidad.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "intermedio"
+  tags: ["confusion", "complemento_verbo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En 'Dijo que vendría', la subordinada 'que vendría' es el complemento del nombre del verbo 'dijo'."
+
+explicacion: |
+  Incorrecto. 'Dijo' es un verbo. La subordinada funciona como Objeto Directo del verbo 'dijo'. El complemento del nombre solo se aplica a sustantivos, adjetivos o pronombres nominalizados.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "intermedio"
+  tags: ["analisis", "temor"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Siente temor a que lo descubran', la parte 'a que lo descubran' es el complemento del nombre 'temor'."
+
+explicacion: |
+  Sí. El sustantivo 'temor' se complementa con la preposición 'a' (o 'de') seguida de una subordinada. La oración 'a que lo descubran' completa el significado del nombre.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["identificacion", "certeza"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Hay certeza de que ganará', la subordinada 'de que ganará' es el complemento del nombre 'certeza'."
+
+explicacion: |
+  Correcto. El sustantivo 'certeza' necesita especificar sobre qué hay certeza. La subordinada 'de que ganará' cumple esa función de complemento nominal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["sustitucion", "razon"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'La razón de que haya retraso es clara', podemos sustituir la subordinada por 'eso' para probar su función."
+
+explicacion: |
+  Sí. 'La razón de eso es clara' es gramatical. Esto confirma que 'de que haya retraso' es un complemento del nombre 'razón'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "intermedio"
+  tags: ["analisis", "convencimiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Tiene el convencimiento de que es justo', la subordinada 'de que es justo' es el complemento del nombre 'convencimiento'."
+
+explicacion: |
+  Sí. El sustantivo 'convencimiento' se completa con la información de qué se cree. La subordinada 'de que es justo' actúa como complemento nominal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["identificacion", "necesidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Existe la necesidad de que se actúe ya', la parte 'de que se actúe ya' es el complemento del nombre 'necesidad'."
+
+explicacion: |
+  Correcto. El sustantivo 'necesidad' requiere un complemento para especificar qué es necesario. La subordinada 'de que se actúe ya' cumple esa función.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "avanzado"
+  tags: ["confusion", "complemento_adjetivo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En 'Estoy seguro de que vendrás', la subordinada 'de que vendrás' es el complemento del nombre del adjetivo 'seguro'."
+
+explicacion: |
+  No. El adjetivo 'seguro' no es un nombre. La subordinada funciona como Complemento del Adjetivo (o Complemento del Agente en pasivas, pero aquí es C. Adj.). El tema es específicamente 'complemento del NOMBRE'. Aunque estructuralmente similar, la categoría gramatical del núcleo es diferente.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "intermedio"
+  tags: ["analisis", "obligacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Hay la obligación de que se pague', la subordinada 'de que se pague' es el complemento del nombre 'obligación'."
+
+explicacion: |
+  Sí. El sustantivo 'obligación' se completa con la especificación de qué debe hacerse. La subordinada 'de que se pague' actúa como complemento nominal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["identificacion", "sorpresa"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Me causó sorpresa de que lo hiciera', la parte 'de que lo hiciera' es el complemento del nombre 'sorpresa'."
+
+explicacion: |
+  Correcto. El sustantivo 'sorpresa' se complementa con la causa o el contenido de la misma. La subordinada 'de que lo hiciera' cumple esa función.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["sustitucion", "esperanza"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Guardamos la esperanza de que todo salga bien', podemos sustituir la subordinada por 'de algo'."
+
+explicacion: |
+  Sí. 'Guardamos la esperanza de algo' es gramatical. Esto confirma que la subordinada original es un complemento del nombre 'esperanza'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["identificacion", "certeza"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Hay certeza de que ganará', la subordinada 'de que ganará' es el complemento del nombre 'certeza'."
+
+explicacion: |
+  Correcto. El sustantivo 'certeza' necesita especificar sobre qué hay certeza. La subordinada 'de que ganará' cumple esa función de complemento nominal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["identificacion", "posibilidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Existe la posibilidad de que llueva mañana', la parte 'de que llueva mañana' es el complemento del nombre 'posibilidad'."
+
+explicacion: |
+  Sí. El sustantivo 'posibilidad' requiere un complemento para especificar en qué consiste esa posibilidad. La subordinada 'de que llueva mañana' cumple esa función sintáctica.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["identificacion", "idea"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Tengo la idea de que nos vamos a mudar', la subordinada 'de que nos vamos a mudar' es el complemento del nombre 'idea'."
+
+explicacion: |
+  Correcto. La 'idea' se define por su contenido, que es la oración subordinada. Se puede sustituir por 'Tengo la idea de eso', manteniendo la gramaticalidad.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["identificacion", "razon"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'La razón de que haya retraso es clara', la subordinada 'de que haya retraso' es el complemento del nombre 'razón'."
+
+explicacion: |
+  Sí. El sustantivo 'razón' necesita especificar la causa. La subordinada 'de que haya retraso' cumple esa función. Se puede sustituir por 'La razón de eso es clara'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_complemento_del_nombre"
+  nivel: "basico"
+  tags: ["identificacion", "temor"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Siente temor a que lo descubran', la parte 'a que lo descubran' es el complemento del nombre 'temor'."
+
+explicacion: |
+  Sí. El sustantivo 'temor' se complementa con la preposición 'a' (o 'de') seguida de una subordinada. La oración 'a que lo descubran' completa el significado del nombre.
+```
+
+## Sección: subordinada-sustantiva-de-complemento-directo (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "basico"
+  tags: ["identificacion", "complemento_directo"]
 
 variables:
-  frases: ["El río bajaba rápido, arrastrando ramas y piedras hacia el pueblo", "El río era ancho, de aguas turbias y orillas rocosas"]
-  tipos: ["narrativo", "descriptivo"]
+  sujeto: uno_de(["Juan", "María", "El profesor", "Los alumnos"])
+  verbo: uno_de(["dice", "sabe", "cree", "quiere"])
+  contenido: uno_de(["que llueva", "que gane el equipo", "que venga tarde", "que sea difícil"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración '{sujeto} {verbo} {contenido}', la parte '{contenido}' funciona como complemento directo."
+
+explicacion: |
+  La subordinada introducida por 'que' completa el sentido del verbo principal ('dice', 'sabe', etc.) y responde a la pregunta '¿qué?'. Se puede sustituir por 'lo': '{sujeto} {verbo} lo'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "intermedio"
+  tags: ["diferenciacion", "sujeto"]
+
+variables:
+  verbo: uno_de(["es importante", "parece", "resulta", "consta"])
+  contenido: uno_de(["que llegues", "que estudies", "que vengas", "que lo hagas"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la oración 'Es importante {contenido}', la parte '{contenido}' es el sujeto de la oración."
+
+explicacion: |
+  Falso. En construcciones impersonales con 'es importante', la subordinada funciona como sujeto (no hay un sujeto explícito distinto que realice la acción sobre ella). Compará con 'Juan cree que...', donde sí sería CD, porque ahí 'Juan' es el sujeto que ejerce la acción de creer.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "basico"
+  tags: ["verbo_rector", "analisis"]
+
+variables:
+  sujeto: uno_de(["El gobierno", "La empresa", "Mi madre", "El equipo"])
+  accion: uno_de(["anuncia", "promete", "niega", "confirma"])
+  hecho: uno_de(["los cambios", "la reunión", "el resultado", "la fecha"])
+
+respuesta: accion
+tipo: input
+
+enunciado: "En la oración '{sujeto} {accion} {hecho}', ¿cuál es el verbo principal que rige al complemento directo? Escribí el verbo."
+
+explicacion: |
+  El verbo principal es '{accion}'. Es él quien necesita un complemento para completar su significado (¿qué anuncia/promete/niega?). La subordinada (o el sustantivo que la reemplaza) es el objeto de esa acción verbal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "intermedio"
+  tags: ["interrogativa", "indirecta"]
+
+variables:
+  sujeto: uno_de(["No sé", "Me pregunto", "Ignoro", "Desconozco"])
+  interrogante: uno_de(["dónde está", "quién es", "cuándo llega", "por qué lo hizo"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración '{sujeto} {interrogante}', la parte '{interrogante}' es una subordinada sustantiva de complemento directo."
+
+explicacion: |
+  Verdadero. Las oraciones interrogativas indirectas ('dónde está', 'quién es') pueden funcionar como complemento directo de verbos como 'saber', 'preguntar', 'ignorar'. Se puede sustituir por 'lo': '{sujeto} lo'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "intermedio"
+  tags: ["distractor", "adjetiva"]
+
+variables:
+  sustantivo: uno_de(["el libro", "la casa", "el amigo", "el día"])
+  verbo_rel: uno_de(["leí", "construí", "conocí", "esperé"])
+  complemento: uno_de(["ayer", "en el parque", "con mi familia", "por la mañana"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la oración '{sustantivo} que {verbo_rel} {complemento}', la parte 'que {verbo_rel}' es una subordinada sustantiva de complemento directo."
+
+explicacion: |
+  Falso. 'Que {verbo_rel}' modifica al sustantivo '{sustantivo}', por lo que es una subordinada adjetiva (o de relativo). No funciona como objeto directo de un verbo principal externo, sino que integra el sintagma nominal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "avanzado"
+  tags: ["preposicion", "verbos"]
+
+variables:
+  verbo1: uno_de(["piensa", "cree", "sabe", "dice"])
+  contenido: uno_de(["que viene", "que lo hizo", "que es tarde", "que gane"])
+
+respuesta: verbo1
+tipo: input
+
+enunciado: "De los siguientes verbos, ¿cuál NO exige preposición antes de una subordinada sustantiva de complemento directo típica con 'que'? Opciones: '{verbo1}' o 'acordarse de'. Escribí el verbo correcto."
+
+explicacion: |
+  '{verbo1}' es un verbo que rige complemento directo sin preposición (ej. 'Pienso que...'). 'Acordarse' exige 'de'. La pregunta pide el que NO exige preposición.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "basico"
+  tags: ["nexo", "que"]
+
+variables:
+  sujeto: uno_de(["Yo", "Ellos", "Nosotros", "Tú"])
+  verbo: uno_de(["quiero", "necesito", "busco", "espero"])
+  accion: uno_de(["que vengas", "que salgas", "que comas", "que duermas"])
+
+respuesta: "que"
+tipo: input
+
+enunciado: "En la oración '{sujeto} {verbo} {accion}', ¿cuál es el nexo que introduce la subordinada sustantiva de complemento directo? Escribí la palabra."
+
+explicacion: |
+  El nexo es 'que'. Es la conjunción subordinante más común para introducir oraciones sustantivas que funcionan como CD.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "intermedio"
+  tags: ["sustitucion", "plural"]
+
+variables:
+  sujeto: uno_de(["Ellos", "Nosotros", "Ustedes", "Los chicos"])
+  verbo: uno_de(["ven", "dicen", "saben", "quieren"])
+  objetos: uno_de(["los libros", "las noticias", "los problemas", "las ideas"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la oración '{sujeto} {verbo} {objetos}', si reemplazamos '{objetos}' por un pronombre, la forma correcta es 'lo'."
+
+explicacion: |
+  Falso. '{objetos}' es plural (libros, noticias, etc.), por lo que el pronombre de complemento directo debe ser plural: 'los' o 'las', dependiendo del género. 'Lo' es singular.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "intermedio"
+  tags: ["comprension", "texto"]
+
+variables:
+  persona: uno_de(["El director", "La maestra", "El técnico", "El médico"])
+  accion: uno_de(["confirmó", "negó", "sugirió", "recordó"])
+  hecho: uno_de(["la reunión", "el error", "la fecha", "el detalle"])
+
+respuesta: accion
+tipo: input
+
+enunciado: "En la oración '{persona} {accion} {hecho}', ¿qué verbo es el principal que rige al sustantivo '{hecho}'? Escribí el verbo."
+
+explicacion: |
+  El verbo principal es '{accion}'. Es el núcleo del predicado que toma a '{hecho}' como su objeto directo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "intermedio"
+  tags: ["diferenciacion", "adverbial"]
+
+variables:
+  sujeto: uno_de(["Ellos", "Nosotros", "El equipo", "La gente"])
+  verbo: uno_de(["saben", "dicen", "creen", "ven"])
+  tiempo: uno_de(["cuando llegue", "donde está", "por qué lo hizo", "que gane"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la oración '{sujeto} {verbo} {tiempo}', si '{tiempo}' es 'cuando llegue', es una subordinada sustantiva de complemento directo."
+
+explicacion: |
+  Falso. 'Cuando llegue' es una subordinada adverbial temporal. Las sustantivas responden a 'qué' y pueden reemplazarse por 'lo'. 'Cuándo' introduce tiempo, no un objeto directo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "intermedio"
+  tags: ["verbos", "distractor"]
+
+variables:
+  v1: uno_de(["dice", "sabe", "cree", "piensa"])
+  v2: uno_de(["está", "parece", "va", "corre"])
+  contenido: uno_de(["que viene", "que hace", "que lo sabe", "que gane"])
+
+respuesta: v2
+tipo: input
+
+enunciado: "De los verbos '{v1}' y '{v2}', ¿cuál NO puede regir directamente una subordinada sustantiva de complemento directo con 'que' en el sentido de 'informar/opinar'? Escribí el verbo."
+
+explicacion: |
+  '{v2}' (como 'está', 'parece', 'va', 'corre') no rige CD con 'que' en el mismo sentido transitivo que 'dice' o 'sabe'. 'Dice que' es CD. 'Va que' no es una estructura estándar de CD.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "basico"
+  tags: ["estructura", "nexo"]
+
+variables:
+  sujeto: uno_de(["Juan", "María", "Ellos", "Nosotros"])
+  verbo: uno_de(["dice", "sabe", "cree", "quiere"])
+  contenido: uno_de(["que llueva", "que gane", "que venga", "que sea"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración '{sujeto} {verbo} {contenido}', el nexo 'que' siempre introduce la subordinada de complemento directo."
+
+explicacion: |
+  Verdadero. En esta estructura específica, 'que' es el marcador de la subordinada sustantiva que funciona como CD.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "avanzado"
+  tags: ["pronominal", "preposicion"]
+
+variables:
+  verbo: uno_de(["acordarse", "olvidarse", "quejarse", "arrepentirse"])
+  contenido: uno_de(["que lo hizo", "que no vino", "que fue tarde", "que lo dijo"])
+  preposicion: "de"
+
+respuesta: preposicion
+tipo: input
+
+enunciado: "El verbo '{verbo}' requiere una preposición antes de la subordinada. ¿Cuál es? Escribí la preposición."
+
+explicacion: |
+  Los verbos pronominales como 'acordarse', 'olvidarse' exigen la preposición 'de'. Ej: 'Me acuerdo de que lo hizo'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "intermedio"
+  tags: ["sujeto", "analisis"]
+
+variables:
+  contenido: uno_de(["que llueva", "que gane el equipo", "que venga Juan", "que sea fácil"])
+  verbo: uno_de(["es", "parece", "resulta", "consta"])
+  adjetivo: uno_de(["importante", "claro", "evidente", "necesario"])
+
+respuesta: contenido
+tipo: input
+
+enunciado: "En la oración '{verbo} {adjetivo} {contenido}', ¿cuál es el sujeto? Escribí la parte que funciona como sujeto."
+
+explicacion: |
+  El sujeto es '{contenido}'. En oraciones impersonales con 'es/parece', la subordinada es el sujeto real.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "basico"
+  tags: ["identificacion", "mc"]
+
+variables:
+  oracion1: uno_de(["Juan dice que viene", "Juan viene mañana", "Juan está feliz", "Juan corre rápido"])
+  oracion2: uno_de(["Juan viene mañana", "Juan está feliz", "Juan corre rápido", "Juan es alto"])
+  oracion3: uno_de(["Juan está feliz", "Juan corre rápido", "Juan es alto", "Juan duerme"])
+  oracion4: uno_de(["Juan corre rápido", "Juan es alto", "Juan duerme", "Juan lee"])
+
+respuesta: oracion1
+tipo: mc
+opciones_explicitas: [oracion1, oracion2, oracion3, oracion4]
+
+enunciado: "¿Cuál de estas oraciones contiene una subordinada sustantiva de complemento directo?"
+
+explicacion: |
+  '{oracion1}' contiene 'que viene', que es CD de 'dice'. Las otras son oraciones simples o con otros complementos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "intermedio"
+  tags: ["complemento_indirecto", "diferenciacion"]
+
+variables:
+  sujeto: uno_de(["Le", "Se", "Le dio", "Se lo"])
+  objeto: uno_de(["el libro", "la noticia", "el regalo", "el mensaje"])
+  destinatario: uno_de(["a Juan", "a María", "a ellos", "a nosotros"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la oración '{sujeto} {objeto} {destinatario}', la parte '{destinatario}' es una subordinada sustantiva de complemento directo."
+
+explicacion: |
+  Falso. '{destinatario}' es un sintagma preposicional que funciona como Complemento Indirecto (CI), no una subordinada sustantiva.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "basico"
+  tags: ["verbos", "opinacion"]
+
+variables:
+  verbo: uno_de(["cree", "piensa", "opina", "siente"])
+  contenido: uno_de(["que es justo", "que es injusto", "que es correcto", "que es erróneo"])
+  sujeto: uno_de(["Ella", "Él", "Nosotros", "Ellos"])
+
+respuesta: verbo
+tipo: input
+
+enunciado: "En la oración '{sujeto} {verbo} {contenido}', ¿cuál es el verbo de opinión que rige la subordinada? Escribí el verbo."
+
+explicacion: |
+  El verbo de opinión es '{verbo}'. Indica la postura del sujeto respecto a la proposición '{contenido}'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "intermedio"
+  tags: ["sustitucion", "pronombres"]
+
+variables:
+  sujeto: uno_de(["Yo", "Tú", "Él", "Ella"])
+  verbo: uno_de(["dice", "sabe", "cree", "quiere"])
+  contenido: uno_de(["que llueva", "que gane", "que venga", "que sea"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración '{sujeto} {verbo} {contenido}', se puede reemplazar '{contenido}' por 'lo' sin perder la estructura gramatical básica."
+
+explicacion: |
+  Verdadero. '{sujeto} {verbo} lo' es la forma correcta de sustituir una subordinada sustantiva de complemento directo singular.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "intermedio"
+  tags: ["interrogativa", "nexo"]
+
+variables:
+  sujeto: uno_de(["No sé", "Me pregunto", "Ignoro", "Desconozco"])
+  interrogante: uno_de(["qué es", "quién es", "dónde está", "cuándo llega"])
+
+respuesta: interrogante
+tipo: input
+
+enunciado: "En la oración '{sujeto} {interrogante}', ¿cuál es la parte interrogativa que funciona como CD? Escribí la parte."
+
+explicacion: |
+  La parte interrogativa '{interrogante}' funciona como CD. Responde a '¿qué?'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "subordinada_sustantiva_de_complemento_directo"
+  nivel: "avanzado"
+  tags: ["analisis", "estructura"]
+
+variables:
+  sujeto: uno_de(["El gobierno", "La empresa", "Mi madre", "El equipo"])
+  verbo: uno_de(["anuncia", "promete", "niega", "confirma"])
+  contenido: uno_de(["que hay cambios", "que es tarde", "que lo hizo", "que gane"])
+
+respuesta: verbo
+tipo: input
+
+enunciado: "En la oración '{sujeto} {verbo} {contenido}', ¿cuál es el verbo principal que rige a la subordinada? Escribí el verbo."
+
+explicacion: |
+  El verbo principal es '{verbo}'. Es el núcleo del predicado que toma a la subordinada como su objeto directo.
+```
+
+## Sección: subordinada-sustantiva-de-sujeto (23 preguntas)
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "basico"
+  tags: ["sintaxis", "subordinada_sustantiva", "identificacion"]
+
+variables:
+  pares: [["Es necesario que estudies más", "que estudies más"], ["Me alegra que estés aquí", "que estés aquí"]]
   idx: uno_de([0, 1])
+  frase: pares[idx][0]
 
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["narrativo", "descriptivo"]
+respuesta: pares[idx][1]
+tipo: completar
 
-enunciado: "\"{frases[idx]}\" es un texto de tipo..."
-
-pasos:
-  - "Si hay una acción que avanza en el tiempo, es narrativo. Si sólo describe cómo es algo, es descriptivo."
+enunciado: "Analizá la siguiente oración: '{frase}'. ¿Cuál es la oración subordinada sustantiva de sujeto?"
 
 explicacion: |
-  \"Bajaba\", \"arrastrando\" son acciones en desarrollo (narrativo);
-  \"era\", \"de aguas turbias\" son características fijas
-  (descriptivo).
+  La subordinada sustantiva de sujeto cumple la función de sujeto del verbo principal (ser/estar/gustar, etc.). En 'Es necesario que estudies más', el sujeto es 'que estudies más'. En 'Me alegra que estés aquí', el sujeto es 'que estés aquí'.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
   nivel: "intermedio"
-  tags: ["tipos_textuales", "metodo"]
-
-enunciado: "Ordená los pasos para identificar el tipo textual predominante de un texto."
-tipo: ordenar
-opciones_explicitas:
-  - "Leer el texto completo"
-  - "Preguntarse cuál es el propósito principal (contar, describir, explicar, convencer, instruir)"
-  - "Buscar marcas típicas (verbos, conectores) que confirmen esa respuesta"
-  - "Clasificar según el tipo predominante, aunque haya partes de otro tipo"
-respuesta_orden:
-  - "Leer el texto completo"
-  - "Preguntarse cuál es el propósito principal (contar, describir, explicar, convencer, instruir)"
-  - "Buscar marcas típicas (verbos, conectores) que confirmen esa respuesta"
-  - "Clasificar según el tipo predominante, aunque haya partes de otro tipo"
-
-explicacion: |
-  El método va del propósito general a las marcas concretas que lo
-  confirman, permitiendo tipos mixtos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "avanzado"
-  tags: ["tipos_textuales", "generos_literarios"]
+  tags: ["sintaxis", "pronombre_neutro"]
 
 variables:
-  n: uno_de([1, 1])
+  oracion: "Es cierto que Juan llegó tarde"
+  subordinada: "que Juan llegó tarde"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "eso"
+tipo: input
 
-enunciado: "El tipo narrativo es la base de lo que después se estudia como género narrativo (uno de los tres géneros literarios)."
-
-pasos:
-  - "Reconocer que un texto cuenta hechos (narrativo) es el paso previo para estudiar sus convenciones específicas como género literario."
+enunciado: "En la oración '{oracion}', ¿qué pronombre personal o demostrativo neutro podemos usar para reemplazar a la subordinada sustantiva de sujeto '{subordinada}'?"
 
 explicacion: |
-  Verdadero: tipos textuales es prerrequisito directo de la rama de
-  géneros literarios en la currícula.
+  La subordinada 'que Juan llegó tarde' funciona como sujeto. Podemos reemplazarla por el pronombre 'eso' o 'algo'. 'Eso es cierto' mantiene la estructura sintáctica básica.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "tipos_textuales"
-  nivel: "avanzado"
-  tags: ["tipos_textuales", "aplicacion"]
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "basico"
+  tags: ["sintaxis", "conectores"]
 
 variables:
-  n: uno_de([1, 1])
+  oracion: "Es importante que descanses"
+  conector: "que"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "que"
+tipo: input
 
-enunciado: "Si el objetivo es convencer a alguien de una idea, conviene escribir un texto de tipo argumentativo antes que uno puramente descriptivo."
-
-pasos:
-  - "El argumentativo está diseñado para defender una postura con razones; el descriptivo sólo detalla características."
+enunciado: "En la oración '{oracion}', ¿qué palabra introduce la subordinada sustantiva de sujeto?"
 
 explicacion: |
-  Verdadero: elegir el tipo textual correcto según el objetivo de
-  escritura es la aplicación práctica de este tema.
-```
-
-## Sección: variedades-de-la-lengua (23 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "basico"
-  tags: ["registro", "formalidad"]
-
-respuesta: "nivel de formalidad"
-tipo: completar
-
-enunciado: "Los __________ se refieren al nivel de formalidad o cercanía del lenguaje que utilizamos en un contexto dado."
-
-explicacion: |
-  Los registros determinan el grado de formalidad (formal, informal, técnico, etc.) con el que nos comunicamos, adaptándonos a la situación.
+  La conjunción 'que' es el conector más habitual para introducir oraciones subordinadas sustantivas de sujeto.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "basico"
-  tags: ["lecto", "identidad"]
-
-respuesta: "lectos"
-tipo: completar
-
-enunciado: "Los __________ aluden a las diferencias grupales determinadas por factores sociales como la edad, la clase social o la región geográfica."
-
-explicacion: |
-  Los lectos (o variedades sociolectales) funcionan como marcadores de identidad, vinculando al hablante con un grupo específico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "avanzado"
-  tags: ["competencia", "flexibilidad"]
-
-respuesta: "flexibilidad"
-tipo: completar
-
-enunciado: "La competencia lingüística consiste en la capacidad de moverse con __________ entre distintos códigos y registros."
-
-explicacion: |
-  La competencia lingüística implica saber adaptar el lenguaje al contexto, no solo conocer las reglas gramaticales.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
   nivel: "intermedio"
-  tags: ["voseo", "registro"]
-
-respuesta: "tuteo"
-tipo: completar
-
-enunciado: "En un registro académico, el 'voseo' y el uso de 'che' deben ser sustituidos por el __________."
-
-explicacion: |
-  En contextos formales o académicos, se prefiere el tuteo y las formas de cortesía estándar.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "basico"
-  tags: ["lecto", "identidad"]
-
-respuesta: "identidad"
-tipo: completar
-
-enunciado: "Los lectos funcionan como marcadores de __________, indicando de dónde venimos y a qué grupo pertenecemos."
-
-explicacion: |
-  El lenguaje refleja nuestra pertenencia social, generacional o geográfica, construyendo nuestra identidad.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "intermedio"
-  tags: ["lunfardo", "uso"]
-
-respuesta: "autenticidad"
-tipo: completar
-
-enunciado: "Un músico puede usar el lunfardo en una canción para evocar __________ y conexión con la cultura popular."
-
-explicacion: |
-  El uso de lectos populares en el arte busca generar cercanía, emotividad y una sensación de autenticidad.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "intermedio"
-  tags: ["lunfardo", "registro"]
-
-respuesta: "evitarlo"
-tipo: completar
-
-enunciado: "Un abogado podría __________ el uso del lunfardo en un juicio para mantener la formalidad."
-
-explicacion: |
-  En contextos jurídicos formales, se evita el lunfardo para garantizar la claridad y la seriedad del discurso.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "avanzado"
-  tags: ["diferencias", "conceptos"]
-
-respuesta: "formalidad"
-tipo: completar
-
-enunciado: "A diferencia de los lectos, los registros se centran principalmente en el grado de __________ del discurso."
-
-explicacion: |
-  Los registros varían según la situación comunicativa (formalidad), mientras que los lectos varían según el grupo social.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "intermedio"
-  tags: ["adaptación", "comunicación"]
-
-respuesta: "inconscientemente"
-tipo: completar
-
-enunciado: "Ajustamos nuestro habla según quién nos escucha de manera __________."
-
-explicacion: |
-  La adaptación al contexto y al interlocutor es un proceso natural e inconsciente para la mayoría de los hablantes.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "intermedio"
-  tags: ["registro", "vocabulario"]
-
-respuesta: "preciso"
-tipo: completar
-
-enunciado: "El registro formal se caracteriza por un vocabulario __________ y estructuras gramaticales completas."
-
-explicacion: |
-  La precisión léxica es una marca distintiva del lenguaje formal y académico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "intermedio"
-  tags: ["registro", "informal"]
-
-respuesta: "abreviaciones"
-tipo: completar
-
-enunciado: "El registro informal suele incluir __________, jerga y una sintaxis más libre."
-
-explicacion: |
-  La economía del lenguaje, como las abreviaciones, es típica de la comunicación informal y rápida.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "intermedio"
-  tags: ["adecuación", "registro"]
-
-respuesta: "adecuados"
-tipo: completar
-
-enunciado: "Los registros son __________ para contextos diferentes, no buenos o malos en sí mismos."
-
-explicacion: |
-  La clave está en la adecuación: usar el registro apropiado para la situación comunicativa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "avanzado"
-  tags: ["interacción", "análisis"]
-
-respuesta: "entrelazan"
-tipo: completar
-
-enunciado: "La formalidad y la identidad a menudo se __________ en el uso real de la lengua."
-
-explicacion: |
-  Es difícil separar completamente el registro (formalidad) del lecto (identidad), ya que ambos operan simultáneamente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "basico"
-  tags: ["lecto", "origen"]
-
-respuesta: "origen"
-tipo: completar
-
-enunciado: "Los lectos nos dicen de dónde venimos y a qué grupo __________ pertenecemos."
-
-explicacion: |
-  El lenguaje es un indicador clave de nuestra procedencia geográfica y social.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "avanzado"
-  tags: ["competencia", "códigos"]
-
-respuesta: "códigos"
-tipo: completar
-
-enunciado: "Un hablante competente sabe moverse entre distintos __________ según la necesidad."
-
-explicacion: |
-  La flexibilidad para cambiar de código (registro/lecto) es esencial para la competencia comunicativa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "intermedio"
-  tags: ["voseo", "rioplatense"]
-
-respuesta: "válidos"
-tipo: completar
-
-enunciado: "El 'voseo' y el uso de 'che' son perfectamente __________ en un lecto informal rioplatense."
-
-explicacion: |
-  Dentro del lecto informal rioplatense, estas formas son gramaticalmente correctas y socialmente aceptadas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "intermedio"
-  tags: ["registro", "sustitución"]
-
-respuesta: "sustituidos"
-tipo: completar
-
-enunciado: "En un registro académico, las formas informales deben ser __________ por otras de cortesía estándar."
-
-explicacion: |
-  La formalidad exige el reemplazo de marcas dialectales o coloquiales por formas estándar.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "basico"
-  tags: ["lecto", "generacional"]
-
-respuesta: "difieren"
-tipo: completar
-
-enunciado: "La forma de hablar de un grupo de adolescentes puede __________ significativamente de la de adultos mayores."
-
-explicacion: |
-  Las diferencias generacionales son una fuente importante de variación en los lectos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "variedades_de_la_lengua"
-  nivel: "avanzado"
-  tags: ["comprensión", "aplicación"]
-
-respuesta: "comprensión"
-tipo: completar
-
-enunciado: "Este tema evalúa la __________ y aplicación de los conceptos, no la memoria textual."
-
-explicacion: |
-  El objetivo es entender cómo funcionan las variedades de la lengua, no repetir definiciones de memoria.
-```
-
-```
-metadata:
-  materia: "Lengua y Literatura"
-  tema: "variedades_de_la_lengua"
-  nivel: "basico"
-  tags: ["lecto", "identidad", "sociolecto"]
+  tags: ["sintaxis", "infinitivo"]
 
 variables:
-  grupo: uno_de(["adolescentes en Buenos Aires", "adultos mayores en Córdoba", "trabajadores históricos porteños"])
-  factor_determinante: uno_de(["edad", "región", "clase social"])
+  oracion: "Es necesario estudiar para aprobar"
+  sujeto: "estudiar para aprobar"
 
-respuesta: "{grupo} se define principalmente por su {factor_determinante}."
-tipo: completar
+respuesta: "estudiar para aprobar"
+tipo: input
 
-enunciado: "Completa la frase: Los {grupo} se definen principalmente por su {factor_determinante}."
+enunciado: "En la oración '{oracion}', ¿cuál es la oración subordinada sustantiva de sujeto (que puede estar formada por un infinitivo)?"
 
-respuestas_validas:
-  - "adolescentes en Buenos Aires se definen principalmente por su edad."
-  - "adultos mayores en Córdoba se definen principalmente por su región."
-  - "trabajadores históricos porteños se definen principalmente por su clase social."
 explicacion: |
-  Los lectos son variedades sociolectales determinadas por factores como la edad, la región o la clase social, funcionando como marcadores de identidad.
+  Cuando el sujeto es indeterminado, se usa el infinitivo. 'Estudiar para aprobar' es el sujeto de 'es necesario'.
 ```
 
 ```
 metadata:
-  materia: "Lengua y Literatura"
-  tema: "variedades_de_la_lengua"
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
   nivel: "intermedio"
-  tags: ["competencia", "flexibilidad", "código"]
+  tags: ["sintaxis", "verbos_pronominales"]
 
 variables:
-  habilidad: uno_de(["hablar siempre igual", "moverse entre códigos", "ignorar el contexto"])
+  oracion: "Me sorprende que no hayas llamado"
+  sujeto: "que no hayas llamado"
 
-respuesta: falso
-tipo: vf
+respuesta: "que no hayas llamado"
+tipo: input
 
-enunciado: "La competencia lingüística consiste en la capacidad de hablar siempre de la misma manera, independientemente del interlocutor."
+enunciado: "En la oración '{oracion}', ¿cuál es la subordinada sustantiva de sujeto?"
 
 explicacion: |
-  Falso. La competencia lingüística es la capacidad de moverse entre diferentes códigos y registros según el contexto, no de ser rígido.
+  El verbo es 'sorprender' (en forma pronominal 'me sorprende'). La pregunta '¿Qué me sorprende?' da como respuesta 'que no hayas llamado', que es el sujeto.
 ```
 
 ```
 metadata:
-  materia: "Lengua y Literatura"
-  tema: "variedades_de_la_lengua"
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
   nivel: "intermedio"
-  tags: ["error", "inadecuacion"]
+  tags: ["sintaxis", "identificacion"]
 
 variables:
-  situacion: uno_de(["usar registro informal en un examen", "usar registro formal con amigos"])
-  consecuencia: uno_de(["error comunicativo", "generar distancia"])
+  oracion: "Es evidente que ganaremos el partido"
+  subordinada: "que ganaremos el partido"
 
-respuesta: "{situacion} es un {consecuencia}."
-tipo: completar
+respuesta: "que ganaremos el partido"
+tipo: input
 
-enunciado: "Completa: '{situacion}' es un '{consecuencia}'."
+enunciado: "Identificá la subordinada sustantiva de sujeto en: '{oracion}'"
 
-respuestas_validas:
-  - "usar registro informal en un examen es un error comunicativo."
-  - "usar registro formal con amigos es un generar distancia."
 explicacion: |
-  Usar el registro informal en un examen es un error comunicativo. Usar uno excesivamente formal con amigos puede generar distancia.
+  El verbo principal es 'es'. La pregunta '¿Qué es evidente?' responde 'que ganaremos el partido'.
 ```
 
 ```
 metadata:
-  materia: "Lengua y Literatura"
-  tema: "variedades_de_la_lengua"
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
   nivel: "basico"
-  tags: ["lecto", "region", "geografia"]
+  tags: ["sintaxis", "sustitucion"]
 
 variables:
-  region1: uno_de(["Buenos Aires", "Córdoba", "Rosario"])
-  region2: uno_de(["Córdoba", "Buenos Aires", "Mendoza"])
+  oracion: "Es bueno que ayudes"
+  pronombre: "eso"
 
-respuesta: "La forma de hablar en {region1} puede diferir de la en {region2}."
-tipo: completar
+respuesta: "eso"
+tipo: input
 
-enunciado: "Completa: La forma de hablar en '{region1}' puede diferir de la en '{region2}'."
-
-respuestas_validas:
-  - "La forma de hablar en Buenos Aires puede diferir de la en Córdoba."
-  - "La forma de hablar en Córdoba puede diferir de la en Buenos Aires."
-  - "La forma de hablar en Rosario puede diferir de la en Mendoza."
-explicacion: |
-  La región geográfica es un factor clave que determina las diferencias entre lectos.
-```
-
-## Sección: vocabulario-y-familia-de-palabras (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "basico"
-  tags: ["vocabulario", "definicion"]
-
-enunciado: "¿Qué es el vocabulario de una persona?"
-tipo: mc
-opciones_explicitas:
-  - "El conjunto de palabras que conoce y puede usar"
-  - "La cantidad de libros que leyó en su vida"
-  - "La velocidad con la que puede leer un texto"
-respuesta: "El conjunto de palabras que conoce y puede usar"
+enunciado: "En la oración '{oracion}', ¿qué pronombre puede reemplazar a la subordinada de sujeto para formar una oración impersonal o con sujeto nulo?"
 
 explicacion: |
-  Se distingue entre vocabulario receptivo (entender) y expresivo
-  (usar activamente).
+  'Eso es bueno' o 'Algo es bueno'. El pronombre 'eso' es el más común para referirse a una proposición completa.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "intermedio"
-  tags: ["vocabulario", "definicion"]
-
-enunciado: "¿Cuál es la diferencia entre vocabulario receptivo y vocabulario expresivo?"
-tipo: mc
-opciones_explicitas:
-  - "El receptivo son las palabras que se entienden al escuchar o leer; el expresivo son las que efectivamente se usan al hablar o escribir"
-  - "Son exactamente lo mismo, sólo cambia el nombre"
-  - "El expresivo siempre es más amplio que el receptivo"
-respuesta: "El receptivo son las palabras que se entienden al escuchar o leer; el expresivo son las que efectivamente se usan al hablar o escribir"
-
-explicacion: |
-  El vocabulario receptivo siempre es más amplio que el expresivo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "basico"
-  tags: ["familia_palabras", "vocabulario"]
-
-enunciado: "¿Qué es una familia de palabras?"
-tipo: mc
-opciones_explicitas:
-  - "Un grupo de palabras que comparten la misma raíz (lexema) y varían por prefijos o sufijos"
-  - "Un grupo de palabras que empiezan con la misma letra"
-  - "Un grupo de palabras que tienen la misma cantidad de sílabas"
-respuesta: "Un grupo de palabras que comparten la misma raíz (lexema) y varían por prefijos o sufijos"
-
-explicacion: |
-  Como 'tierra, terreno, terrestre, enterrar' — todas comparten la
-  raíz relacionada con 'tierr-'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "intermedio"
-  tags: ["familia_palabras", "problema"]
-
-enunciado: "¿Cuál de estas palabras NO pertenece a la familia de 'tierra'?"
-tipo: mc
-opciones_explicitas:
-  - "terraza (viene de una raíz distinta, relacionada con una construcción plana)"
-  - "terreno"
-  - "terrestre"
-  - "enterrar"
-respuesta: "terraza (viene de una raíz distinta, relacionada con una construcción plana)"
-
-explicacion: |
-  Aunque suene parecida, 'terraza' no comparte el significado de raíz
-  con 'tierra' de la misma forma directa que las otras tres.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "intermedio"
-  tags: ["familia_palabras", "problema"]
-
-enunciado: "¿Cuáles de estas palabras pertenecen a la misma familia que 'flor'?"
-tipo: mc
-opciones_explicitas:
-  - "Florecer, florero, floral"
-  - "Flotar, flojo, flauta"
-respuesta: "Florecer, florero, floral"
-
-explicacion: |
-  Todas comparten la raíz 'flor-' y el significado relacionado con
-  las flores.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "intermedio"
-  tags: ["morfema", "vocabulario"]
-
-enunciado: "¿Qué es el lexema (raíz) de una palabra?"
-tipo: mc
-opciones_explicitas:
-  - "La parte que lleva el significado base de la palabra, compartida por toda su familia"
-  - "La última letra de la palabra"
-  - "Un sinónimo de 'sufijo'"
-respuesta: "La parte que lleva el significado base de la palabra, compartida por toda su familia"
-
-explicacion: |
-  Es la pieza fija alrededor de la cual se arman todas las palabras de
-  una misma familia.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "intermedio"
-  tags: ["morfema", "vocabulario"]
-
-enunciado: "¿Qué es un morfema derivativo (prefijo o sufijo)?"
-tipo: mc
-opciones_explicitas:
-  - "Una pieza que se agrega a la raíz de una palabra para formar una palabra nueva relacionada"
-  - "La raíz principal de una familia de palabras"
-  - "Un morfema que sólo marca género y número, sin cambiar el significado"
-respuesta: "Una pieza que se agrega a la raíz de una palabra para formar una palabra nueva relacionada"
-
-explicacion: |
-  Un prefijo va antes de la raíz; un sufijo va después.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
   nivel: "avanzado"
-  tags: ["prefijo", "problema"]
+  tags: ["sintaxis", "nucleo"]
 
-enunciado: "La palabra 'desarmar' tiene el prefijo 'des-'. ¿Qué significa este prefijo?"
-tipo: mc
-opciones_explicitas:
-  - "Negación o lo contrario de la acción (desarmar = lo contrario de armar)"
-  - "Volver a hacer la acción"
-  - "Hacer la acción debajo de algo"
-respuesta: "Negación o lo contrario de la acción (desarmar = lo contrario de armar)"
+variables:
+  oracion: "Es un hecho que lo hizo"
+  nucleo: "que lo hizo"
+
+respuesta: "que lo hizo"
+tipo: input
+
+enunciado: "En la oración '{oracion}', ¿cuál es el núcleo (la proposición completa) de la subordinada sustantiva de sujeto?"
 
 explicacion: |
-  'Des-' es uno de los prefijos de negación más comunes en español.
+  El sujeto es la proposición completa 'que lo hizo'. No es una sola palabra.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "avanzado"
-  tags: ["sufijo", "problema"]
-
-enunciado: "La palabra 'decoración' termina en el sufijo '-ción'. ¿Qué tipo de significado suele aportar este sufijo?"
-tipo: mc
-opciones_explicitas:
-  - "Acción o efecto de algo (decoración = la acción/el resultado de decorar)"
-  - "Posibilidad de que algo ocurra"
-  - "Una cualidad negativa"
-respuesta: "Acción o efecto de algo (decoración = la acción/el resultado de decorar)"
-
-explicacion: |
-  '-ción' es uno de los sufijos más productivos del español para
-  formar sustantivos a partir de verbos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "intermedio"
-  tags: ["familia_palabras"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Conocer el significado de una palabra ayuda a inferir el significado de otras palabras de su misma familia, aunque nunca se las haya visto antes."
-
-explicacion: |
-  Es la razón principal por la que trabajar familias de palabras
-  amplía el vocabulario de forma eficiente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
   nivel: "basico"
-  tags: ["aplicacion"]
+  tags: ["sintaxis", "verbo_ser"]
 
-enunciado: "¿Por qué aprender vocabulario por familias de palabras es más eficiente que memorizar cada palabra por separado?"
-tipo: mc
-opciones_explicitas:
-  - "Porque una sola raíz conocida permite inferir el significado de muchas palabras relacionadas, en vez de tener que memorizar cada una desde cero"
-  - "Porque las palabras de una misma familia siempre se escriben exactamente igual"
-  - "No hay ninguna ventaja real, memorizar palabra por palabra es igual de eficiente"
-respuesta: "Porque una sola raíz conocida permite inferir el significado de muchas palabras relacionadas, en vez de tener que memorizar cada una desde cero"
+variables:
+  oracion: "Es una lástima que se vaya"
+  subordinada: "que se vaya"
+
+respuesta: "que se vaya"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
 
 explicacion: |
-  Es una estrategia que multiplica el vocabulario aprendido con
-  relativamente poco esfuerzo extra.
+  Verbo 'ser'. Pregunta '¿Qué es una lástima?'. Respuesta: 'que se vaya'.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "intermedio"
-  tags: ["prefijo", "problema"]
-
-tipo: completar
-enunciado: "Agregando el prefijo 're-' (volver a hacer) al verbo 'hacer', se forma la palabra ___."
-respuestas_validas:
-  - "rehacer"
-
-explicacion: |
-  'Re-' + 'hacer' = 'rehacer' (volver a hacer algo).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "intermedio"
-  tags: ["prefijo", "vocabulario"]
-
-enunciado: "¿Qué significa, en general, el prefijo 'des-' en español?"
-tipo: mc
-opciones_explicitas:
-  - "Negación o inversión de la acción (deshacer, desarmar, desordenar)"
-  - "Repetición de la acción"
-  - "Que la acción ocurre debajo de algo"
-respuesta: "Negación o inversión de la acción (deshacer, desarmar, desordenar)"
-
-explicacion: |
-  Es uno de los prefijos de negación más productivos del español.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "intermedio"
-  tags: ["prefijo", "vocabulario"]
-
-enunciado: "¿Qué significa, en general, el prefijo 're-' en español?"
-tipo: mc
-opciones_explicitas:
-  - "Volver a hacer la acción, o intensificarla (releer, rehacer, recontento)"
-  - "Negación de la acción"
-  - "Que la acción ocurre en contra de algo"
-respuesta: "Volver a hacer la acción, o intensificarla (releer, rehacer, recontento)"
-
-explicacion: |
-  'Releer' es 'volver a leer'; 'recontento' es 'muy contento'
-  (intensificación).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "avanzado"
-  tags: ["contexto", "problema"]
-
-enunciado: "'El perro estaba tan famélico que devoró su comida en segundos.' Sin conocer la palabra 'famélico', ¿qué sugiere el contexto de la oración sobre su significado?"
-tipo: mc
-opciones_explicitas:
-  - "Que significa 'con mucha hambre' — porque 'devoró en segundos' sugiere hambre extrema"
-  - "Que significa 'cansado', sin ninguna relación con la comida"
-  - "El contexto no da ninguna pista sobre el significado"
-respuesta: "Que significa 'con mucha hambre' — porque 'devoró en segundos' sugiere hambre extrema"
-
-explicacion: |
-  Es la estrategia de inferencia por contexto: usar el resto de la
-  oración como pista del significado de una palabra desconocida.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "avanzado"
-  tags: ["contexto", "familia_palabras"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Inferir el significado de una palabra por el contexto de la oración es una estrategia distinta de reconocer su familia de palabras — ambas sirven para ampliar vocabulario, pero de formas diferentes."
-
-explicacion: |
-  El contexto usa pistas de la oración completa; la familia de
-  palabras usa pistas de la estructura interna de la palabra misma.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
   nivel: "basico"
-  tags: ["aplicacion"]
+  tags: ["sintaxis", "verbos_atipicos"]
 
-enunciado: "Un alumno lee un texto con varias palabras desconocidas. ¿Qué estrategias puede usar, sin necesitar un diccionario, para entender esas palabras?"
-tipo: mc
-opciones_explicitas:
-  - "Reconocer la familia de palabras (raíz conocida + prefijo/sufijo) y usar el contexto de la oración como pistas"
-  - "Ninguna estrategia funciona sin un diccionario a mano"
-  - "Sólo sirve adivinar al azar el significado"
-respuesta: "Reconocer la familia de palabras (raíz conocida + prefijo/sufijo) y usar el contexto de la oración como pistas"
+variables:
+  oracion: "Me gusta que vengas"
+  subordinada: "que vengas"
+
+respuesta: "que vengas"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
 
 explicacion: |
-  Son las dos estrategias centrales de este módulo.
+  Verbo 'gustar'. Pregunta '¿Qué gusta?'. Respuesta: 'que vengas'.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
   nivel: "intermedio"
-  tags: ["familia_palabras", "problema"]
+  tags: ["sintaxis", "verbos_atipicos"]
 
-tipo: completar
-enunciado: "'Panadero', 'panadería' y 'pan' comparten la misma raíz. Completá esa raíz: ___."
-respuestas_validas:
-  - "pan"
+variables:
+  oracion: "Me importa que seas honesto"
+  subordinada: "que seas honesto"
+
+respuesta: "que seas honesto"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
 
 explicacion: |
-  Todas las palabras de esa familia giran en torno al significado de
-  'pan'.
+  Verbo 'importar'. Pregunta '¿Qué me importa?'. Respuesta: 'que seas honesto'.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "intermedio"
+  tags: ["sintaxis", "verbos_atipicos"]
+
+variables:
+  oracion: "Me parece que es tarde"
+  subordinada: "que es tarde"
+
+respuesta: "que es tarde"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
+
+explicacion: |
+  Verbo 'parecer'. Pregunta '¿Qué me parece?'. Respuesta: 'que es tarde'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "intermedio"
+  tags: ["sintaxis", "verbos_atipicos"]
+
+variables:
+  oracion: "Basta que lo digas"
+  subordinada: "que lo digas"
+
+respuesta: "que lo digas"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
+
+explicacion: |
+  Verbo 'bastar'. Pregunta '¿Qué basta?'. Respuesta: 'que lo digas'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "intermedio"
+  tags: ["sintaxis", "verbos_atipicos"]
+
+variables:
+  oracion: "Me ocurre que te vi ayer"
+  subordinada: "que te vi ayer"
+
+respuesta: "que te vi ayer"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
+
+explicacion: |
+  Verbo 'ocurrir' (en sentido de 'venir a la mente'). Pregunta '¿Qué me ocurre?'. Respuesta: 'que te vi ayer'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
   nivel: "avanzado"
-  tags: ["morfema"]
+  tags: ["sintaxis", "verbos_atipicos"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  oracion: "Consta que lo hizo él"
+  subordinada: "que lo hizo él"
 
-enunciado: "Un morfema flexivo (como la 's' de plural, o la terminación de tiempo verbal) no crea una palabra de otra familia — 'tierra' y 'tierras' siguen siendo la misma familia de palabras."
+respuesta: "que lo hizo él"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
 
 explicacion: |
-  Sólo los morfemas DERIVATIVOS (prefijos, sufijos que cambian el
-  significado o la categoría) generan nuevas palabras de la familia.
+  Verbo 'constar' (en sentido de 'estar demostrado'). Pregunta '¿Qué consta?'. Respuesta: 'que lo hizo él'.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "vocabulario_y_familia_de_palabras"
-  nivel: "basico"
-  tags: ["cierre"]
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "intermedio"
+  tags: ["sintaxis", "verbos_atipicos"]
 
-enunciado: "¿Para qué sirve ampliar el vocabulario a través de familias de palabras y contexto?"
-tipo: mc
-opciones_explicitas:
-  - "Para poder entender e inferir el significado de muchas palabras nuevas de forma eficiente, lo que es uno de los predictores más fuertes de la comprensión lectora"
-  - "Sólo sirve para ganar juegos de palabras"
-  - "No tiene ninguna relación real con entender un texto"
-respuesta: "Para poder entender e inferir el significado de muchas palabras nuevas de forma eficiente, lo que es uno de los predictores más fuertes de la comprensión lectora"
+variables:
+  oracion: "Se trata de que ganemos"
+  subordinada: "que ganemos"
+
+respuesta: "que ganemos"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
 
 explicacion: |
-  Es la base directa de `../clases-de-palabras/`, el módulo que
-  sigue: antes de clasificar una palabra, hace falta reconocerla y
-  entender qué significa.
+  Verbo 'tratar' (en sentido de 'versar sobre'). Pregunta '¿Qué se trata?'. Respuesta: 'que ganemos'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "intermedio"
+  tags: ["sintaxis", "verbos_atipicos"]
+
+variables:
+  oracion: "Falta que confirmes tu asistencia"
+  subordinada: "que confirmes tu asistencia"
+
+respuesta: "que confirmes tu asistencia"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
+
+explicacion: |
+  Verbo 'faltar' (en sentido de 'quedar pendiente'). Pregunta '¿Qué falta?'. Respuesta: 'que confirmes tu asistencia', que es el sujeto de 'falta'. (Ojo: 'Depende de que vengas' NO es un buen ejemplo de sujeto — 'depender de' rige la preposición 'de' de forma fija, por lo que 'de que vengas' ahí es complemento de régimen, no sujeto.)
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "intermedio"
+  tags: ["sintaxis", "verbos_atipicos"]
+
+variables:
+  oracion: "Es probable que vengas"
+  subordinada: "que vengas"
+
+respuesta: "que vengas"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
+
+explicacion: |
+  Verbo 'ser'. Pregunta '¿Qué es probable?'. Respuesta: 'que vengas'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "intermedio"
+  tags: ["sintaxis", "verbos_atipicos"]
+
+variables:
+  oracion: "Es posible que llueva"
+  subordinada: "que llueva"
+
+respuesta: "que llueva"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
+
+explicacion: |
+  Verbo 'ser'. Pregunta '¿Qué es posible?'. Respuesta: 'que llueva'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "basico"
+  tags: ["sintaxis", "verbos_atipicos"]
+
+variables:
+  oracion: "Es necesario que descanses"
+  subordinada: "que descanses"
+
+respuesta: "que descanses"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
+
+explicacion: |
+  Verbo 'ser'. Pregunta '¿Qué es necesario?'. Respuesta: 'que descanses'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "basico"
+  tags: ["sintaxis", "verbos_atipicos"]
+
+variables:
+  oracion: "Es útil que leas"
+  subordinada: "que leas"
+
+respuesta: "que leas"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
+
+explicacion: |
+  Verbo 'ser'. Pregunta '¿Qué es útil?'. Respuesta: 'que leas'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "intermedio"
+  tags: ["sintaxis", "verbos_atipicos"]
+
+variables:
+  oracion: "Es justo que te premien"
+  subordinada: "que te premien"
+
+respuesta: "que te premien"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
+
+explicacion: |
+  Verbo 'ser'. Pregunta '¿Qué es justo?'. Respuesta: 'que te premien'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_sustantiva_de_sujeto"
+  nivel: "basico"
+  tags: ["sintaxis", "verbos_atipicos"]
+
+variables:
+  oracion: "Es verdad que lo viste"
+  subordinada: "que lo viste"
+
+respuesta: "que lo viste"
+tipo: input
+
+enunciado: "En '{oracion}', la subordinada sustantiva de sujeto es:"
+
+explicacion: |
+  Verbo 'ser'. Pregunta '¿Qué es verdad?'. Respuesta: 'que lo viste'.
 ```
 
 ## Sección: voz-activa-y-pasiva (20 preguntas)
@@ -2006,12 +2268,7 @@ opciones_explicitas:
   - "Convertir ese objeto directo en el nuevo sujeto"
   - "Cambiar el verbo a \"ser\" (en el mismo tiempo) + participio"
   - "Convertir el sujeto original en complemento agente con \"por\""
-respuesta_orden:
-  - "Identificar el objeto directo de la oración activa"
-  - "Convertir ese objeto directo en el nuevo sujeto"
-  - "Cambiar el verbo a \"ser\" (en el mismo tiempo) + participio"
-  - "Convertir el sujeto original en complemento agente con \"por\""
-
+respuesta_orden: ["Identificar el objeto directo de la oración activa", "Convertir ese objeto directo en el nuevo sujeto", "Cambiar el verbo a \"ser\" (en el mismo tiempo) + participio", "Convertir el sujeto original en complemento agente con \"por\""]
 explicacion: |
   El orden lógico va del OD (lo que se transforma en sujeto) al
   verbo, y termina con el sujeto original convertido en agente.
@@ -2205,3 +2462,4 @@ explicacion: |
   Verdadero: elegir activa o pasiva es una decisión de estilo según
   qué elemento se quiere destacar primero en la oración.
 ```
+

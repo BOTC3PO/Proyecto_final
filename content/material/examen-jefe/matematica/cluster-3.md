@@ -1,3039 +1,2086 @@
-# Examen jefe — Maestro de Conjuntos y Gráficos
+# Examen jefe — [PENDIENTE #603]
 
-> Logro #54. Analizaste la concavidad, congruencia y conteo con precisión. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **143 preguntas totales** en 5/5 secciones.
+> Logro #603. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **107 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: concavidad-y-puntos-de-inflexion (27 preguntas)
+## Sección: caminos-y-ciclos (20 preguntas)
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
   nivel: "basico"
-  tags: ["derivada_segunda", "cubica"]
+  tags: ["camino", "vocabulario"]
 
-variables:
-  a: random(1, 5)
-  b: random(1, 5)
+enunciado: "¿Qué es un camino en un grafo?"
+tipo: mc
+opciones_explicitas:
+  - "Una secuencia de vértices donde cada par consecutivo está conectado por una arista, sin repetir ningún vértice"
+  - "La cantidad total de vértices de un grafo"
+  - "Un vértice que no tiene ninguna conexión"
+respuesta: "Una secuencia de vértices donde cada par consecutivo está conectado por una arista, sin repetir ningún vértice"
 
-respuesta: "{2*a}x"
+explicacion: |
+  Es la forma matemática de describir 'ir de un vértice a otro'.
+```
 
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "intermedio"
+  tags: ["camino", "vocabulario"]
+
+enunciado: "¿Qué mide la 'longitud' de un camino?"
+tipo: mc
+opciones_explicitas:
+  - "La cantidad de ARISTAS que recorre el camino"
+  - "La cantidad de VÉRTICES que recorre el camino"
+  - "La suma de los grados de todos los vértices del camino"
+respuesta: "La cantidad de ARISTAS que recorre el camino"
+
+explicacion: |
+  Un camino con 4 vértices tiene longitud 3 — una arista menos que la
+  cantidad de vértices.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "intermedio"
+  tags: ["camino", "problema"]
+
+respuesta: 4
 tipo: input
 
-enunciado: "Calculá la segunda derivada de la función f(x) = {a}x^3 + {b}x^2. Escribí solo el término que depende de x (si es constante, escribí 0)."
-
-explicacion: |
-  f'(x) = 3ax^2 + 2bx
-  f''(x) = 6ax + 2b
-  Para a={a}, b={b}: f''(x) = {6*a}x + {2*b}
-  La respuesta pedida es el coeficiente de x en la expresión simplificada si se pide solo la parte variable, o la expresión completa.
-  Ajuste: La respuesta debe ser la expresión completa simplificada.
-  Corrección: La respuesta es "{6*a}x + {2*b}"
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "basico"
-  tags: ["derivada_segunda", "cubica"]
-
-variables:
-  a: random(1, 5)
-  b: random(1, 5)
-  c: random(1, 5)
-
-respuesta: "{6*a}x + {2*b}"
-
-tipo: input
-
-enunciado: "La segunda derivada de f(x) = {a}x^3 + {b}x^2 + {c}x es f''(x) = ___"
-
-explicacion: |
-  f'(x) = 3ax^2 + 2bx + c
-  f''(x) = 6ax + 2b
-  Sustituyendo a={a} y b={b}, obtenemos {6*a}x + {2*b}.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["punto_inflexion", "cubica"]
-
-variables:
-  a: random(1, 4)
-  b: random(5, 15)
-  c: random(1, 4)
-
-respuesta: "{-b/(3*a)}"
-
-tipo: input
-
-enunciado: "Encontrá la coordenada x del punto de inflexión de la función f(x) = {a}x^3 + {b}x^2 + {c}x + 1."
-
-explicacion: |
-  f'(x) = 3ax^2 + 2bx + c
-  f''(x) = 6ax + 2b
-  El punto de inflexión ocurre donde f''(x) = 0.
-  6ax + 2b = 0  =>  x = -2b / 6a = -b / 3a
-  Para a={a} y b={b}, x = {-b/(3*a)}.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["concavidad", "intervalo", "vf"]
-
-variables:
-  a: random(1, 5)
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La función f(x) = -{a}x^2 + 5x es cóncava hacia abajo en todo su dominio."
-
-explicacion: |
-  f'(x) = -2ax + 5
-  f''(x) = -2a
-  Como a > 0, -2a es siempre negativo.
-  Por lo tanto, f''(x) < 0 para todo x, lo que implica concavidad hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["concavidad", "intervalo", "vf"]
-
-variables:
-  a: random(1, 5)
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La función f(x) = {a}x^2 - 3x es cóncava hacia arriba en todo su dominio."
-
-explicacion: |
-  f'(x) = 2ax - 3
-  f''(x) = 2a
-  Como a > 0, 2a es siempre positivo.
-  Por lo tanto, f''(x) > 0 para todo x, lo que implica concavidad hacia arriba.
-  La afirmación es verdadera, pero la pregunta dice "hacia abajo".
-  Espera, la afirmación es "es cóncava hacia arriba". Eso es VERDADERO.
-  Necesito una afirmación FALSA.
-  Cambio: "La función f(x) = {a}x^2 es cóncava hacia abajo..." -> Falso.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["concavidad", "intervalo", "vf"]
-
-variables:
-  a: random(1, 5)
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La función f(x) = {a}x^2 es cóncava hacia abajo en todo su dominio."
-
-explicacion: |
-  f''(x) = 2a. Como a > 0, f''(x) > 0.
-  La función es cóncava hacia arriba, no hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["punto_inflexion", "identificacion"]
-
-variables:
-  a: random(1, 3)
-  b: random(4, 8)
-
-respuesta: "{b/(3*a)}"
-
-tipo: input
-
-enunciado: "Para f(x) = {a}x^3 - {3*a*b}x^2 + 5, el punto de inflexión está en x = ___"
-
-explicacion: |
-  f'(x) = 3ax^2 - 6abx
-  f''(x) = 6ax - 6ab
-  f''(x) = 0 => 6ax = 6ab => x = b
-  Espera, simplifiqué mal.
-  f''(x) = 6ax - 6ab.
-  x = b.
-  Variable b es {b}.
-  Respuesta: "{b}"
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["punto_inflexion", "identificacion"]
-
-variables:
-  a: random(1, 3)
-  k: random(2, 5)
-
-respuesta: "{k/3}"
-
-tipo: input
-
-enunciado: "Si f(x) = {a}x^3 - {a*k}x^2, el punto de inflexión se encuentra en x = ___"
-
-explicacion: |
-  f'(x) = 3ax^2 - 2akx
-  f''(x) = 6ax - 2ak
-  6ax - 2ak = 0 => 6ax = 2ak => x = 2ak / 6a = k / 3
-  Con k={k}, x = {k/3}.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["exponencial", "concavidad", "vf"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La función f(x) = -e^x es cóncava hacia abajo para todo x real."
-
-explicacion: |
-  f'(x) = -e^x
-  f''(x) = -e^x
-  Como e^x > 0, -e^x < 0 siempre.
-  Por lo tanto, la función es cóncava hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["cambio_concavidad", "cubica"]
-
-variables:
-  a: random(1, 3)
-
-respuesta: "x = 0"
-
-tipo: input
-
-enunciado: "La función f(x) = {a}x^3 cambia su concavidad en x = ___"
-
-explicacion: |
-  f'(x) = 3ax^2
-  f''(x) = 6ax
-  f''(x) = 0 cuando x = 0.
-  Para x < 0, f''(x) tiene signo opuesto a a.
-  Para x > 0, f''(x) tiene signo de a.
-  Hay cambio de concavidad en x=0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["logaritmo", "concavidad", "vf"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La función f(x) = ln(x) es cóncava hacia abajo en su dominio (x > 0)."
-
-explicacion: |
-  f'(x) = 1/x
-  f''(x) = -1/x^2
-  Para x > 0, x^2 > 0, por lo que -1/x^2 < 0.
-  La función es cóncava hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["trigonometria", "punto_inflexion"]
-
-respuesta: "pi/2"
-
-tipo: input
-
-enunciado: "La función f(x) = sin(x) tiene un punto de inflexión en x = ___ (en el intervalo [0, pi])."
-
-explicacion: |
-  f'(x) = cos(x)
-  f''(x) = -sin(x)
-  f''(x) = 0 cuando sin(x) = 0.
-  En [0, pi], sin(x)=0 en x=0 y x=pi.
-  Sin embargo, el cambio de concavidad ocurre donde f'' cambia de signo.
-  f''(x) = -sin(x).
-  Para x en (0, pi), sin(x) > 0, entonces f''(x) < 0 (cóncava abajo).
-  Para x en (-pi, 0), sin(x) < 0, entonces f''(x) > 0 (cóncava arriba).
-  El punto de inflexión típico en el centro del ciclo es x=pi.
-  Pero en [0, pi], los extremos son 0 y pi.
-  En x=pi, la concavidad cambia de abajo (antes) a arriba (después).
-  La pregunta pide en [0, pi]. El punto pi es un punto de inflexión.
-  También x=0 es un punto de inflexión.
-  Usaremos pi/2 como distractor? No, pi/2 no es cero de f''.
-  f''(pi/2) = -1 != 0.
-  La respuesta correcta es "pi" o "0".
-  Cambiaré la pregunta para que sea más clara.
-  "El primer punto de inflexión positivo de sin(x) es x = ___" -> pi.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["trigonometria", "punto_inflexion"]
-
-respuesta: "pi"
-
-tipo: input
-
-enunciado: "El primer valor positivo x donde sin(x) tiene un punto de inflexión es x = ___"
-
-explicacion: |
-  f''(x) = -sin(x).
-  f''(x) = 0 en x = k*pi.
-  El primer positivo es pi.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["raiz_cuadrada", "concavidad", "vf"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La función f(x) = sqrt(x) es cóncava hacia abajo para x > 0."
-
-explicacion: |
-  f(x) = x^(1/2)
-  f'(x) = (1/2)x^(-1/2)
-  f''(x) = (-1/4)x^(-3/2) = -1 / (4x*sqrt(x))
-  Para x > 0, f''(x) < 0.
-  Es cóncava hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["derivada_segunda", "cuartica"]
-
-variables:
-  a: random(1, 3)
-  b: random(1, 5)
-
-respuesta: "{12*a}x^2 + {6*b}x"
-
-tipo: input
-
-enunciado: "La segunda derivada de f(x) = {a}x^4 + {b}x^3 es f''(x) = ___"
-
-explicacion: |
-  f'(x) = 4ax^3 + 3bx^2
-  f''(x) = 12ax^2 + 6bx
-  Sustituyendo a={a}, b={b}: {12*a}x^2 + {6*b}x.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "basico"
-  tags: ["interpretacion_f2", "concavidad"]
-
-variables:
-  a: random(1, 5)
-
-respuesta: "concava_hacia_arriba"
-
-tipo: mc
-
-enunciado: "Si f''(x) = {a}x^2 + {a}, la función f(x) es:"
-
-opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "no_se_puede_determinar"]
-
-explicacion: |
-  f''(x) = a(x^2 + 1).
-  Como x^2 + 1 > 0 siempre y a > 0, f''(x) > 0 siempre.
-  Por lo tanto, f es cóncava hacia arriba.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "basico"
-  tags: ["interpretacion_f2", "concavidad"]
-
-variables:
-  a: random(1, 5)
-
-respuesta: "concava_hacia_abajo"
-
-tipo: mc
-
-enunciado: "Si f''(x) = -{a}(x^2 + 1), la función f(x) es:"
-
-opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "no_se_puede_determinar"]
-
-explicacion: |
-  f''(x) = -a(x^2 + 1).
-  Como a > 0, -a < 0. Y (x^2+1) > 0.
-  Producto de negativo por positivo es negativo.
-  f''(x) < 0, por lo tanto cóncava hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["punto_inflexion", "cuartica"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La función f(x) = x^4 tiene un punto de inflexión en x = 0."
-
-explicacion: |
-  f'(x) = 4x^3
-  f''(x) = 12x^2
-  f''(0) = 0.
-  Sin embargo, f''(x) >= 0 para todo x.
-  No hay cambio de signo en f''(x) alrededor de 0.
-  Por lo tanto, NO es un punto de inflexión.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["cubica", "concavidad", "intervalo"]
-
-respuesta: "concava_hacia_abajo"
-
-tipo: mc
-
-enunciado: "Para la función f(x) = x^3 - x, en el intervalo (-infinity, -1/sqrt(3)), la concavidad es:"
-
-opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "oscilante"]
-
-explicacion: |
-  f'(x) = 3x^2 - 1
-  f''(x) = 6x
-  Para x < -1/sqrt(3) (que es negativo), f''(x) < 0.
-  Por lo tanto, cóncava hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["cubica", "concavidad", "intervalo"]
-
-respuesta: "concava_hacia_arriba"
-
-tipo: mc
-
-enunciado: "Para la función f(x) = x^3 - x, en el intervalo (1/sqrt(3), infinity), la concavidad es:"
-
-opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "oscilante"]
-
-explicacion: |
-  f''(x) = 6x.
-  Para x > 1/sqrt(3) (positivo), f''(x) > 0.
-  Por lo tanto, cóncava hacia arriba.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["punto_inflexion", "cubica"]
-
-respuesta: "0"
-
-tipo: input
-
-enunciado: "La función f(x) = x^3 - 3x tiene su punto de inflexión en x = ___"
-
-explicacion: |
-  f'(x) = 3x^2 - 3
-  f''(x) = 6x
-  f''(x) = 0 => x = 0.
-  Cambio de signo en x=0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["punto_inflexion", "quintica"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La función f(x) = x^5 tiene un punto de inflexión en x = 0."
-
-explicacion: |
-  f'(x) = 5x^4
-  f''(x) = 20x^3
-  f''(0) = 0.
-  Para x < 0, f''(x) < 0 (cóncava abajo).
-  Para x > 0, f''(x) > 0 (cóncava arriba).
-  Hay cambio de concavidad, por lo tanto sí es un punto de inflexión.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["trigonometria", "derivada_segunda"]
-
-respuesta: "-cos(x)"
-
-tipo: input
-
-enunciado: "La segunda derivada de f(x) = cos(x) es f''(x) = ___"
-
-explicacion: |
-  f'(x) = -sin(x)
-  f''(x) = -cos(x)
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["trigonometria", "concavidad", "intervalo"]
-
-respuesta: "concava_hacia_abajo"
-
-tipo: mc
-
-enunciado: "En el intervalo (0, pi/2), la función f(x) = cos(x) es:"
-
-opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "constante"]
-
-explicacion: |
-  f''(x) = -cos(x).
-  En (0, pi/2), cos(x) > 0.
-  Por lo tanto, -cos(x) < 0.
-  Cóncava hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["trigonometria", "concavidad", "intervalo"]
-
-respuesta: "concava_hacia_arriba"
-
-tipo: mc
-
-enunciado: "En el intervalo (pi, 3pi/2), la función f(x) = cos(x) es:"
-
-opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "constante"]
-
-explicacion: |
-  f''(x) = -cos(x).
-  En (pi, 3pi/2), cos(x) < 0.
-  Por lo tanto, -cos(x) > 0.
-  Cóncava hacia arriba.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["trigonometria", "punto_inflexion"]
-
-respuesta: "pi/2"
-
-tipo: input
-
-enunciado: "El primer punto de inflexión positivo de f(x) = cos(x) es x = ___"
-
-explicacion: |
-  f''(x) = -cos(x).
-  f''(x) = 0 cuando cos(x) = 0.
-  El primer positivo es pi/2.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "avanzado"
-  tags: ["racionales", "concavidad", "vf"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La función f(x) = x^2 + 1/x es cóncava hacia arriba para todo x > 0."
-
-explicacion: |
-  f'(x) = 2x - x^(-2)
-  f''(x) = 2 + 2x^(-3) = 2 + 2/x^3
-  Para x > 0, x^3 > 0, entonces 2/x^3 > 0.
-  f''(x) > 2 > 0.
-  Es cóncava hacia arriba.
-```
-
-## Sección: congruencia-de-triangulos (28 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "basico"
-  tags: ["congruencia", "vocabulario"]
-
-enunciado: "¿Qué significa que dos triángulos sean congruentes?"
-tipo: mc
-opciones_explicitas:
-  - "Que tienen exactamente la misma forma y el mismo tamaño"
-  - "Que tienen la misma forma, aunque sean de tamaños distintos"
-  - "Que tienen al menos un lado en común"
-respuesta: "Que tienen exactamente la misma forma y el mismo tamaño"
-
-explicacion: |
-  Sus lados y ángulos correspondientes miden exactamente lo mismo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "basico"
-  tags: ["congruencia", "vocabulario"]
-
-enunciado: "¿Qué son los \"lados correspondientes\" entre dos triángulos congruentes?"
-tipo: mc
-opciones_explicitas:
-  - "Los lados que ocupan la misma posición según cómo se nombran los vértices de cada triángulo"
-  - "Cualquier par de lados, elegidos al azar"
-  - "Sólo el lado más largo de cada triángulo"
-respuesta: "Los lados que ocupan la misma posición según cómo se nombran los vértices de cada triángulo"
-
-explicacion: |
-  El orden de los vértices al nombrar cada triángulo indica qué lado
-  corresponde a cuál.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "criterios", "vocabulario"]
-
-enunciado: "¿Qué dice el criterio de congruencia LAL (Lado-Ángulo-Lado)?"
-tipo: mc
-opciones_explicitas:
-  - "Si dos lados y el ángulo comprendido entre ellos son iguales en ambos triángulos, son congruentes"
-  - "Si los tres lados son iguales, son congruentes"
-  - "Si los tres ángulos son iguales, son congruentes"
-respuesta: "Si dos lados y el ángulo comprendido entre ellos son iguales en ambos triángulos, son congruentes"
-
-explicacion: |
-  El ángulo tiene que ser específicamente el que queda ENTRE esos dos
-  lados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "criterios", "vocabulario"]
-
-enunciado: "¿Qué dice el criterio de congruencia ALA (Ángulo-Lado-Ángulo)?"
-tipo: mc
-opciones_explicitas:
-  - "Si dos ángulos y el lado comprendido entre ellos son iguales en ambos triángulos, son congruentes"
-  - "Si los tres lados son iguales, son congruentes"
-  - "Si dos lados cualquiera son iguales, son congruentes"
-respuesta: "Si dos ángulos y el lado comprendido entre ellos son iguales en ambos triángulos, son congruentes"
-
-explicacion: |
-  El lado tiene que ser específicamente el que queda ENTRE esos dos
-  ángulos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "criterios", "vocabulario"]
-
-enunciado: "¿Qué dice el criterio de congruencia LLL (Lado-Lado-Lado)?"
-tipo: mc
-opciones_explicitas:
-  - "Si los tres lados de un triángulo son iguales a los tres lados del otro, son congruentes"
-  - "Si un solo lado es igual, ya son congruentes"
-  - "Si los tres ángulos son iguales, son congruentes"
-respuesta: "Si los tres lados de un triángulo son iguales a los tres lados del otro, son congruentes"
-
-explicacion: |
-  No hace falta conocer ningún ángulo para este criterio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "criterios", "problema"]
-
-variables:
-  a: random(4, 15)
-  b: random(4, 15)
-  c: random(4, 15)
-
-restricciones:
-  - a != b
-  - b != c
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El triángulo 1 tiene lados {a} cm, {b} cm y {c} cm. El triángulo 2 tiene lados {a} cm, {b} cm y {c} cm. ¿Son congruentes por el criterio LLL?"
-
-explicacion: |
-  Los tres lados coinciden uno a uno: sí son congruentes por LLL.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "criterios", "problema"]
-
-variables:
-  a: random(4, 15)
-  b: random(4, 15)
-  c: random(4, 15)
-  c2: c + random(1, 5)
-
-restricciones:
-  - a != b
-  - b != c
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El triángulo 1 tiene lados {a} cm, {b} cm y {c} cm. El triángulo 2 tiene lados {a} cm, {b} cm y {c2} cm. ¿Son congruentes por el criterio LLL?"
-
-explicacion: |
-  El tercer lado no coincide ({c} cm contra {c2} cm): no se cumple LLL.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "criterios", "problema"]
-
-variables:
-  a: random(4, 15)
-  b: random(4, 15)
-  angulo: random(30, 100)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El triángulo 1 tiene lados {a} cm y {b} cm, con un ángulo de {angulo}° comprendido entre ellos. El triángulo 2 tiene lados {a} cm y {b} cm, con un ángulo de {angulo}° comprendido entre ellos. ¿Son congruentes por el criterio LAL?"
-
-explicacion: |
-  Coinciden los dos lados Y el ángulo comprendido entre ellos: sí, por
-  LAL.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "criterios", "problema"]
-
-variables:
-  a: random(4, 15)
-  b: random(4, 15)
-  angulo: random(30, 90)
-  angulo2: angulo + random(5, 20)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El triángulo 1 tiene lados {a} cm y {b} cm, con un ángulo de {angulo}° comprendido entre ellos. El triángulo 2 tiene lados {a} cm y {b} cm, con un ángulo de {angulo2}° comprendido entre ellos. ¿Son congruentes por el criterio LAL?"
-
-explicacion: |
-  Aunque los lados coincidan, el ángulo comprendido es distinto
-  ({angulo}° contra {angulo2}°): no se cumple LAL.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "criterios", "problema"]
-
-variables:
-  angulo1: random(30, 70)
-  angulo2: random(30, 70)
-  lado: random(4, 15)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El triángulo 1 tiene ángulos de {angulo1}° y {angulo2}°, con un lado de {lado} cm comprendido entre ellos. El triángulo 2 tiene ángulos de {angulo1}° y {angulo2}°, con un lado de {lado} cm comprendido entre ellos. ¿Son congruentes por el criterio ALA?"
-
-explicacion: |
-  Coinciden los dos ángulos Y el lado comprendido entre ellos: sí, por
-  ALA.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "criterios", "problema"]
-
-variables:
-  angulo1: random(30, 70)
-  angulo2: random(30, 70)
-  lado: random(4, 15)
-  lado2: lado + random(1, 5)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El triángulo 1 tiene ángulos de {angulo1}° y {angulo2}°, con un lado de {lado} cm comprendido entre ellos. El triángulo 2 tiene ángulos de {angulo1}° y {angulo2}°, con un lado de {lado2} cm comprendido entre ellos. ¿Son congruentes por el criterio ALA?"
-
-explicacion: |
-  El lado comprendido no coincide ({lado} cm contra {lado2} cm): no se
-  cumple ALA.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "basico"
-  tags: ["congruencia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si dos triángulos son congruentes, sus tres pares de ángulos correspondientes miden exactamente lo mismo."
-
-explicacion: |
-  Es parte de la definición de congruencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "basico"
-  tags: ["congruencia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si dos triángulos son congruentes, sus tres pares de lados correspondientes miden exactamente lo mismo."
-
-explicacion: |
-  Es la otra mitad de la definición de congruencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "avanzado"
-  tags: ["congruencia", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si dos triángulos tienen sus 3 ángulos iguales, uno a uno, eso ya alcanza para garantizar que son congruentes."
-
-explicacion: |
-  Tener los mismos 3 ángulos sólo garantiza la misma FORMA (pueden ser de
-  tamaños distintos, como una foto ampliada) — eso se llama semejanza,
-  no congruencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "avanzado"
-  tags: ["congruencia", "semejanza", "vocabulario"]
-
-enunciado: "¿En qué se diferencia la semejanza de la congruencia?"
-tipo: mc
-opciones_explicitas:
-  - "La semejanza permite misma forma con tamaños distintos; la congruencia exige forma Y tamaño iguales"
-  - "Son exactamente lo mismo, con otro nombre"
-  - "La semejanza sólo aplica a círculos"
-respuesta: "La semejanza permite misma forma con tamaños distintos; la congruencia exige forma Y tamaño iguales"
-
-explicacion: |
-  Dos triángulos semejantes tienen ángulos iguales y lados
-  proporcionales (no necesariamente iguales).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "criterios"]
-
-enunciado: "Si se conocen dos lados de cada triángulo y el ángulo comprendido entre ellos, ¿qué criterio conviene usar?"
-tipo: mc
-opciones_explicitas:
-  - "LAL"
-  - "ALA"
-  - "LLL"
-respuesta: "LAL"
-
-explicacion: |
-  Lado-Ángulo-Lado: dos lados y el ángulo comprendido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "criterios"]
-
-enunciado: "Si se conocen dos ángulos de cada triángulo y el lado comprendido entre ellos, ¿qué criterio conviene usar?"
-tipo: mc
-opciones_explicitas:
-  - "ALA"
-  - "LAL"
-  - "LLL"
-respuesta: "ALA"
-
-explicacion: |
-  Ángulo-Lado-Ángulo: dos ángulos y el lado comprendido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "criterios"]
-
-enunciado: "Si se conocen los tres lados de cada triángulo (y ningún ángulo), ¿qué criterio conviene usar?"
-tipo: mc
-opciones_explicitas:
-  - "LLL"
-  - "LAL"
-  - "ALA"
-respuesta: "LLL"
-
-explicacion: |
-  Lado-Lado-Lado: los tres lados, sin necesidad de ángulos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Gracias a los criterios de congruencia, alcanza con verificar 3 datos bien elegidos (no los 6: 3 lados + 3 ángulos) para confirmar que dos triángulos son congruentes."
-
-explicacion: |
-  Es justamente para qué sirven los criterios: ahorrar verificaciones.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "avanzado"
-  tags: ["congruencia", "criterios", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para aplicar el criterio LAL, sirve cualquier ángulo del triángulo, no necesariamente el que está comprendido entre los dos lados conocidos."
-
-explicacion: |
-  Tiene que ser específicamente el ángulo ENTRE esos dos lados — usar
-  otro ángulo no garantiza la congruencia de la misma forma.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "avanzado"
-  tags: ["congruencia", "problema"]
-
-variables:
-  a: random(5, 12)
-  angulo: random(40, 90)
-  b: random(5, 12)
-
-enunciado: "Dos triángulos comparten un lado de {a} cm, un ángulo de {angulo}° comprendido, y otro lado de {b} cm. ¿Qué criterio de congruencia se está aplicando?"
-tipo: mc
-opciones_explicitas:
-  - "LAL"
-  - "ALA"
-  - "LLL"
-respuesta: "LAL"
-
-explicacion: |
-  Lado, ángulo comprendido, lado: es exactamente el patrón de LAL.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "basico"
-  tags: ["congruencia", "completar"]
-
-tipo: completar
-enunciado: "Completá: el criterio LLL no necesita conocer ningún ___ para garantizar la congruencia."
-respuestas_validas:
-  - "ángulo"
-
-explicacion: |
-  Con los tres lados alcanza.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "basico"
-  tags: ["congruencia", "completar"]
-
-tipo: completar
-enunciado: "Completá: dos triángulos congruentes tienen la misma forma y el mismo ___."
-respuestas_validas:
-  - "tamaño"
-
-explicacion: |
-  Forma Y tamaño: es la definición completa de congruencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "avanzado"
-  tags: ["congruencia", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená los pasos para demostrar que dos triángulos son congruentes usando el criterio LAL."
-opciones_explicitas:
-  - "Confirmar que el ángulo comprendido entre esos dos lados también es igual en ambos"
-  - "Identificar dos lados de un triángulo y sus correspondientes en el otro"
-  - "Concluir que los triángulos son congruentes por LAL"
-  - "Medir o verificar que esos dos pares de lados sean iguales"
-respuesta_orden:
-  - "Identificar dos lados de un triángulo y sus correspondientes en el otro"
-  - "Medir o verificar que esos dos pares de lados sean iguales"
-  - "Confirmar que el ángulo comprendido entre esos dos lados también es igual en ambos"
-  - "Concluir que los triángulos son congruentes por LAL"
-
-explicacion: |
-  Se identifican los lados correspondientes, se verifica su igualdad, se
-  confirma el ángulo comprendido, y recién ahí se concluye la
-  congruencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "avanzado"
-  tags: ["congruencia", "criterios", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para que el criterio ALA aplique, el lado conocido tiene que estar exactamente ENTRE los dos ángulos conocidos, no en cualquier otra posición."
-
-explicacion: |
-  Si el lado no está comprendido entre esos dos ángulos, no es el
-  patrón ALA (aunque sigue habiendo otras formas de probar congruencia
-  en ese caso, fuera del alcance de este módulo).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "avanzado"
-  tags: ["congruencia", "criterios", "problema"]
-
-variables:
-  a: random(5, 10)
-  b: random(11, 16)
-  c: random(17, 22)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El triángulo 1 tiene lados {a} cm, {b} cm y {c} cm. El triángulo 2 tiene esos mismos tres lados, pero nombrados en otro orden: {c} cm, {a} cm y {b} cm. ¿Siguen siendo congruentes por LLL?"
-
-explicacion: |
-  El orden en que se listan los lados no importa: lo que importa es que
-  el CONJUNTO de tres medidas coincida entre ambos triángulos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "intermedio"
-  tags: ["congruencia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el triángulo A es congruente con el triángulo B, entonces el triángulo B también es congruente con el triángulo A."
-
-explicacion: |
-  La congruencia no tiene una dirección: es una relación simétrica.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "congruencia_de_triangulos"
-  nivel: "basico"
-  tags: ["congruencia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los criterios LAL, ALA y LLL existen para poder afirmar que dos triángulos son congruentes sin tener que medir los 6 datos completos (3 lados y 3 ángulos) de cada uno."
-
-explicacion: |
-  Es la razón de ser de todo este módulo.
-```
-
-## Sección: conjuntos-pertenencia-e-inclusion (24 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "basico"
-  tags: ["conjuntos", "vocabulario"]
-
-enunciado: "¿Qué es un conjunto en matemática?"
-tipo: mc
-opciones_explicitas:
-  - "Una colección de objetos bien definida, sin importar el orden y sin repetir elementos"
-  - "Una lista de números que siempre debe estar ordenada"
-  - "Un conjunto sólo puede tener números, nunca letras u objetos"
-respuesta: "Una colección de objetos bien definida, sin importar el orden y sin repetir elementos"
-
-explicacion: |
-  {2, 4, 6} y {6, 4, 2} son el mismo conjunto — el orden no importa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "basico"
-  tags: ["conjuntos", "vocabulario"]
-
-enunciado: "¿Cómo se llama cada objeto que forma parte de un conjunto?"
-tipo: mc
-opciones_explicitas:
-  - "Elemento"
-  - "Subconjunto"
-  - "Universo"
-respuesta: "Elemento"
-
-explicacion: |
-  Un conjunto está formado por sus elementos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "basico"
-  tags: ["conjuntos", "completar"]
-
-tipo: completar
-enunciado: "Completá: el símbolo que indica que un elemento SÍ pertenece a un conjunto es ___."
-respuestas_validas:
-  - "∈"
-
-explicacion: |
-  3 ∈ {1, 2, 3} se lee "3 pertenece al conjunto".
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "basico"
-  tags: ["conjuntos", "completar"]
-
-tipo: completar
-enunciado: "Completá: el símbolo que indica que un elemento NO pertenece a un conjunto es ___."
-respuestas_validas:
-  - "∉"
-
-explicacion: |
-  5 ∉ {1, 2, 3} se lee "5 no pertenece al conjunto".
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "intermedio"
-  tags: ["conjuntos", "problema"]
-
-enunciado: "Dado el conjunto A = {3, 6, 9, 12, 15}, ¿el número 10 pertenece a A?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  10 no está en la lista de elementos de A — no cumple ninguna
-  propiedad especial, simplemente no fue incluido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "intermedio"
-  tags: ["conjuntos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El conjunto vacío (∅) es un conjunto válido, con cardinalidad 0 — no es lo mismo que 'no tener conjunto'."
-
-explicacion: |
-  ∅ = {} es una colección válida, simplemente sin elementos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "basico"
-  tags: ["conjuntos", "completar"]
-
-tipo: completar
-enunciado: "Completá: el conjunto vacío se representa con el símbolo ___ o con dos llaves sin nada adentro."
-respuestas_validas:
-  - "∅"
-
-explicacion: |
-  También se acepta escribirlo como {}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "basico"
-  tags: ["conjuntos", "vocabulario"]
-
-enunciado: "¿Qué mide la cardinalidad de un conjunto, escrita |A|?"
-tipo: mc
-opciones_explicitas:
-  - "La cantidad de elementos que tiene el conjunto"
-  - "El elemento más grande del conjunto"
-  - "La suma de todos los elementos del conjunto"
-respuesta: "La cantidad de elementos que tiene el conjunto"
-
-explicacion: |
-  |{2, 4, 6, 8}| = 4, sin importar cuáles sean esos elementos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "intermedio"
-  tags: ["conjuntos", "problema"]
-
-enunciado: "¿Cuál es la cardinalidad del conjunto A = {10, 20, 30, 40, 50, 60}?"
-tipo: input
-respuesta: 6
-
-explicacion: |
-  Se cuentan los elementos listados, sin importar su valor: hay 6.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "basico"
-  tags: ["conjuntos"]
-
-respuesta: 0
-tipo: input
-
-enunciado: "¿Cuál es la cardinalidad del conjunto vacío, |∅|?"
-
-explicacion: |
-  No tiene ningún elemento, así que su cardinalidad es 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "intermedio"
-  tags: ["conjuntos", "vocabulario"]
-
-enunciado: "¿Cuándo se dice que B es subconjunto de A (B ⊆ A)?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando TODOS los elementos de B también son elementos de A"
-  - "Cuando B y A tienen la misma cantidad de elementos"
-  - "Cuando B tiene al menos un elemento en común con A"
-respuesta: "Cuando TODOS los elementos de B también son elementos de A"
-
-explicacion: |
-  Con que un solo elemento de B no esté en A, ya no es subconjunto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "basico"
-  tags: ["conjuntos", "completar"]
-
-tipo: completar
-enunciado: "Completá: el símbolo que indica que B es subconjunto de A se escribe B ___ A."
-respuestas_validas:
-  - "⊆"
-
-explicacion: |
-  Se lee "B está incluido en A" o "B es subconjunto de A".
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "avanzado"
-  tags: ["conjuntos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todo conjunto A es subconjunto de sí mismo (A ⊆ A), aunque no sea subconjunto PROPIO."
-
-explicacion: |
-  Todos los elementos de A están, obviamente, en A — cumple la
-  definición, aunque no agregue nada nuevo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "avanzado"
-  tags: ["conjuntos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El conjunto vacío (∅) es subconjunto de cualquier conjunto A, sin excepción."
-
-explicacion: |
-  No hay ningún elemento en ∅ que pueda faltar en A (no hay ninguno),
-  así que la condición se cumple siempre, vacuamente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "avanzado"
-  tags: ["conjuntos", "vocabulario"]
-
-enunciado: "¿Qué diferencia a un subconjunto PROPIO (B ⊂ A) de un subconjunto cualquiera (B ⊆ A)?"
-tipo: mc
-opciones_explicitas:
-  - "En el propio, A tiene además al menos un elemento que B no tiene (son distintos)"
-  - "En el propio, B y A tienen que ser exactamente iguales"
-  - "No hay ninguna diferencia real entre ambos símbolos"
-respuesta: "En el propio, A tiene además al menos un elemento que B no tiene (son distintos)"
-
-explicacion: |
-  Si B = A, entonces B ⊆ A pero B NO es subconjunto propio de A.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "avanzado"
-  tags: ["conjuntos"]
-
-enunciado: "A = {2, 4, 6, 8, 10}. ¿B = {4, 8, 12} es subconjunto de A?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  12 es un elemento de B que NO está en A — alcanza con ese uno solo
-  para que B no sea subconjunto de A.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "intermedio"
-  tags: ["conjuntos", "vocabulario"]
-
-enunciado: "¿Qué es el conjunto universal (U) en un problema de conjuntos?"
-tipo: mc
-opciones_explicitas:
-  - "El conjunto de referencia que contiene a todos los elementos posibles en ese contexto"
-  - "El conjunto con más elementos que existe en matemática"
-  - "Un sinónimo del conjunto vacío"
-respuesta: "El conjunto de referencia que contiene a todos los elementos posibles en ese contexto"
-
-explicacion: |
-  Por ejemplo, si el problema habla de los días de la semana, U son
-  esos 7 días — cualquier otro conjunto del problema es subconjunto de U.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "intermedio"
-  tags: ["conjuntos", "vocabulario"]
-
-enunciado: "¿Cuál de estas dos formas escribe un conjunto 'por extensión'?"
-tipo: mc
-opciones_explicitas:
-  - "A = {2, 4, 6, 8}"
-  - "A = {x : x es par y 0 < x < 10}"
-  - "Ambas son la misma forma, sólo cambia el nombre"
-respuesta: "A = {2, 4, 6, 8}"
-
-explicacion: |
-  Por extensión se listan los elementos uno por uno; por comprensión
-  se describe la propiedad que cumplen.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "avanzado"
-  tags: ["conjuntos", "ordenar"]
-
-enunciado: "Ordená los pasos para verificar si un conjunto B es subconjunto de un conjunto A."
-tipo: ordenar
-opciones_explicitas:
-  - "Si en algún momento se encuentra un elemento de B que no está en A, se concluye que B NO es subconjunto de A"
-  - "Tomar cada elemento de B, uno por uno"
-  - "Revisar si ese elemento también pertenece a A"
-respuesta_orden:
-  - "Tomar cada elemento de B, uno por uno"
-  - "Revisar si ese elemento también pertenece a A"
-  - "Si en algún momento se encuentra un elemento de B que no está en A, se concluye que B NO es subconjunto de A"
-
-explicacion: |
-  Alcanza con UN elemento de B ausente en A para descartar la inclusión.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "avanzado"
-  tags: ["conjuntos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos conjuntos son iguales si y sólo si tienen exactamente los mismos elementos (sin importar el orden en que se escriban)."
-
-explicacion: |
-  {1, 2, 3} y {3, 1, 2} son el mismo conjunto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "intermedio"
-  tags: ["conjuntos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "{2, 2, 4, 4, 4, 6} representa el mismo conjunto que {2, 4, 6} — un conjunto nunca repite elementos, aunque se los escriba repetidos."
-
-explicacion: |
-  Por definición, un conjunto no tiene elementos duplicados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "basico"
-  tags: ["conjuntos", "aplicacion"]
-
-enunciado: "¿Dónde se usa la misma idea de pertenencia e inclusión de conjuntos, fuera de la matemática pura?"
-tipo: mc
-opciones_explicitas:
-  - "En bases de datos (una fila 'pertenece' a una tabla que cumple ciertas condiciones) y en lógica proposicional"
-  - "Sólo en geometría, para clasificar triángulos"
-  - "No tiene ninguna aplicación fuera de la matemática pura"
-respuesta: "En bases de datos (una fila 'pertenece' a una tabla que cumple ciertas condiciones) y en lógica proposicional"
-
-explicacion: |
-  Es el mismo vocabulario de fondo que usan las consultas de bases de
-  datos y la lógica proposicional de Filosofía.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
-  nivel: "avanzado"
-  tags: ["conjuntos", "problema"]
-
-variables:
-  limite: uno_de([10, 15, 20, 25, 30])
-
-respuesta: floor(limite / 2)
-tipo: input
-
-enunciado: "¿Cuántos elementos tiene el conjunto A = {x : x es un número par positivo y x ≤ {limite}}?"
+enunciado: "El camino A, B, C, D, E conecta 5 vértices, uno a continuación del otro. ¿Cuál es su longitud (cantidad de aristas)?"
 
 pasos:
-  - "Los pares positivos hasta {limite} son 2, 4, 6, ..., hasta el mayor par ≤ {limite}"
-  - "Cantidad = {limite} ÷ 2 (redondeado hacia abajo) = {floor(limite / 2)}"
+  - "Con 5 vértices en secuencia, hay 4 aristas: A-B, B-C, C-D, D-E"
 
 explicacion: |
-  Cada 2 números hay exactamente un par, así que la cantidad de pares
-  hasta un límite es ese límite dividido 2 (redondeado hacia abajo si
-  el límite es impar).
+  La longitud siempre es 'cantidad de vértices del camino menos 1'.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conjuntos_pertenencia_e_inclusion"
+  tema: "caminos_y_ciclos"
+  nivel: "basico"
+  tags: ["ciclo", "vocabulario"]
+
+enunciado: "¿Qué es un ciclo en un grafo?"
+tipo: mc
+opciones_explicitas:
+  - "Un camino que empieza y termina en el mismo vértice, sin repetir ningún otro vértice en el medio"
+  - "Cualquier grafo que tenga más de 3 vértices"
+  - "Un vértice con grado mayor a 2"
+respuesta: "Un camino que empieza y termina en el mismo vértice, sin repetir ningún otro vértice en el medio"
+
+explicacion: |
+  Un ciclo es, literalmente, un caso particular de camino.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "intermedio"
+  tags: ["ciclo", "camino"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un ciclo es un caso particular de camino: uno que empieza y termina exactamente en el mismo vértice."
+
+explicacion: |
+  Es la relación central que da nombre a este módulo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "avanzado"
+  tags: ["ciclo", "problema"]
+
+enunciado: "La secuencia A, B, C, D, A (volviendo al punto de partida, sin repetir A, B, C ni D en el medio) recorre las aristas A-B, B-C, C-D, D-A. ¿Es esto un ciclo?"
+tipo: mc
+opciones_explicitas:
+  - "Sí: empieza y termina en el mismo vértice (A), sin repetir ningún otro vértice en el camino"
+  - "No, porque tiene 4 vértices distintos"
+respuesta: "Sí: empieza y termina en el mismo vértice (A), sin repetir ningún otro vértice en el camino"
+
+explicacion: |
+  Cumple exactamente la definición de ciclo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "intermedio"
+  tags: ["acíclico", "vocabulario"]
+
+enunciado: "¿Qué es un grafo acíclico?"
+tipo: mc
+opciones_explicitas:
+  - "Un grafo que no contiene ningún ciclo — no se puede volver al punto de partida sin repetir una arista"
+  - "Un grafo que no tiene ninguna arista"
+  - "Un grafo con exactamente un solo vértice"
+respuesta: "Un grafo que no contiene ningún ciclo — no se puede volver al punto de partida sin repetir una arista"
+
+explicacion: |
+  Es el prerrequisito directo de `../arboles-grafo-sin-ciclos/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "intermedio"
+  tags: ["conexo", "vocabulario"]
+
+enunciado: "¿Qué significa que un grafo sea 'conexo'?"
+tipo: mc
+opciones_explicitas:
+  - "Que existe al menos un camino entre cualquier par de vértices — ningún vértice queda completamente aislado del resto"
+  - "Que todos los vértices tienen exactamente el mismo grado"
+  - "Que el grafo no tiene ningún ciclo"
+respuesta: "Que existe al menos un camino entre cualquier par de vértices — ningún vértice queda completamente aislado del resto"
+
+explicacion: |
+  'Conexo' y 'acíclico' son dos propiedades distintas e
+  independientes entre sí.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "avanzado"
+  tags: ["camino_mas_corto", "problema"]
+
+respuesta: 2
+tipo: input
+
+enunciado: "En un grafo con aristas A-B, B-C, A-D, D-C, ¿cuál es la longitud del camino MÁS CORTO entre A y C?"
+
+pasos:
+  - "Camino A-B-C: longitud 2. Camino A-D-C: longitud 2. Ambos son igual de cortos."
+
+explicacion: |
+  Hay dos caminos distintos, ambos de longitud 2 — el camino más
+  corto no siempre es único.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "avanzado"
+  tags: ["camino_mas_corto"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Entre dos vértices puede haber más de un camino con la misma longitud mínima — el camino más corto no siempre es único."
+
+explicacion: |
+  Es lo que muestra el problema anterior: dos caminos distintos, la
+  misma longitud mínima.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "basico"
+  tags: ["ciclo", "aplicacion"]
+
+enunciado: "El módulo A de un programa necesita al módulo B, que necesita al C, que a su vez necesita al A. ¿Qué problema representa esta situación, en términos de teoría de grafos?"
+tipo: mc
+opciones_explicitas:
+  - "Un ciclo en el grafo de dependencias — impide determinar un orden válido para cargar o compilar los módulos"
+  - "Un camino simple, sin ningún problema real"
+  - "Un grafo desconectado"
+respuesta: "Un ciclo en el grafo de dependencias — impide determinar un orden válido para cargar o compilar los módulos"
+
+explicacion: |
+  Es la razón por la que muchos sistemas de compilación detectan y
+  rechazan dependencias circulares.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "avanzado"
+  tags: ["ciclo", "ponderado", "problema"]
+
+variables:
+  peso1: uno_de([4, 5])
+  peso2: uno_de([3, 6])
+  peso3: uno_de([2, 4])
+  peso4: uno_de([5, 3])
+
+respuesta: peso1 + peso2 + peso3 + peso4
+tipo: input
+
+enunciado: "Un ciclo A-B-C-D-A en un grafo ponderado tiene aristas con pesos {peso1}, {peso2}, {peso3} y {peso4}. ¿Cuál es el peso total del ciclo?"
+
+pasos:
+  - "Peso total = {peso1} + {peso2} + {peso3} + {peso4} = {peso1 + peso2 + peso3 + peso4}"
+
+explicacion: |
+  Se suman los pesos de todas las aristas recorridas, igual que en
+  cualquier camino.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "intermedio"
+  tags: ["camino"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un camino simple, ningún vértice se repite (excepto en un ciclo, donde el primero y el último vértice sí son el mismo, por definición)."
+
+explicacion: |
+  Es la condición que distingue un camino válido de simplemente
+  'moverse por el grafo sin ningún orden'.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "basico"
+  tags: ["ciclo", "aplicacion"]
+
+enunciado: "¿Por qué un circuito eléctrico necesita formar un ciclo (un camino cerrado) para que fluya la corriente?"
+tipo: mc
+opciones_explicitas:
+  - "Porque la corriente necesita volver a la fuente de energía para completar el recorrido — sin un camino cerrado, el circuito queda 'abierto' y no circula corriente"
+  - "Los circuitos eléctricos nunca forman ciclos, siempre son caminos simples"
+  - "El concepto de ciclo no tiene ninguna aplicación en electricidad"
+respuesta: "Porque la corriente necesita volver a la fuente de energía para completar el recorrido — sin un camino cerrado, el circuito queda 'abierto' y no circula corriente"
+
+explicacion: |
+  Es la razón por la que se llama 'circuito' (del mismo origen que
+  'circular', volver al punto de partida).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "avanzado"
+  tags: ["acíclico", "problema"]
+
+enunciado: "Un grafo tiene 4 vértices (A, B, C, D) y sólo 3 aristas: A-B, B-C, C-D (sin ninguna arista que vuelva a cerrar el circuito). ¿Es este grafo acíclico?"
+tipo: mc
+opciones_explicitas:
+  - "Sí: no hay ninguna forma de volver al punto de partida sin repetir una arista ya usada"
+  - "No, cualquier grafo con 4 vértices tiene al menos un ciclo"
+respuesta: "Sí: no hay ninguna forma de volver al punto de partida sin repetir una arista ya usada"
+
+explicacion: |
+  De hecho, este grafo en particular también es un árbol — se retoma
+  en `../arboles-grafo-sin-ciclos/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "avanzado"
+  tags: ["conexo", "acíclico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "'Conexo' y 'acíclico' son dos propiedades independientes de un grafo — un grafo puede ser conexo y tener ciclos, o puede ser acíclico y no ser conexo (estar partido en varios pedazos sin conexión entre ellos)."
+
+explicacion: |
+  Sólo cuando un grafo es AMBAS cosas a la vez (conexo Y acíclico) se
+  llama árbol — el tema del módulo que sigue.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "avanzado"
+  tags: ["conexo", "problema"]
+
+enunciado: "Un grafo tiene 6 vértices: A, B, C están conectados entre sí (A-B, B-C), y D, E, F están conectados entre sí por separado (D-E, E-F), pero no hay ninguna arista entre los dos grupos. ¿Es este grafo conexo?"
+tipo: mc
+opciones_explicitas:
+  - "No: no existe ningún camino entre, por ejemplo, A y D — son dos componentes separadas"
+  - "Sí, porque todos los vértices tienen al menos una arista"
+respuesta: "No: no existe ningún camino entre, por ejemplo, A y D — son dos componentes separadas"
+
+explicacion: |
+  Ser conexo exige un camino entre CUALQUIER par de vértices, no sólo
+  dentro de cada grupo por separado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "avanzado"
+  tags: ["camino", "problema"]
+
+variables:
+  vertices_camino_a: 5
+  vertices_camino_b: 8
+
+respuesta: (vertices_camino_a - 1) < (vertices_camino_b - 1)
+tipo: vf
+
+enunciado: "El Camino A pasa por {vertices_camino_a} vértices; el Camino B pasa por {vertices_camino_b} vértices, ambos entre el mismo par de puntos. ¿La longitud (cantidad de aristas) del Camino A es MENOR que la del Camino B?"
+
+explicacion: |
+  A menos vértices en el camino, menos aristas — longitud menor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
+  nivel: "basico"
+  tags: ["ciclo", "aplicacion"]
+
+enunciado: "¿Por qué una red de tuberías de agua con un ciclo (una ruta alternativa que vuelve a conectar) es más robusta que una sin ningún ciclo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque si una parte de la tubería se rompe, el agua todavía puede llegar a destino por el camino alternativo del ciclo, en vez de quedar completamente cortada"
+  - "Un ciclo en una red de tuberías siempre es un error de diseño, sin ninguna ventaja"
+  - "Los ciclos no tienen ninguna aplicación práctica en redes de tuberías"
+respuesta: "Porque si una parte de la tubería se rompe, el agua todavía puede llegar a destino por el camino alternativo del ciclo, en vez de quedar completamente cortada"
+
+explicacion: |
+  Es la misma razón por la que las redes eléctricas y de internet
+  reales suelen tener rutas redundantes (ciclos) a propósito.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "caminos_y_ciclos"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirve el vocabulario de pertenencia e inclusión de conjuntos?"
+enunciado: "¿Para qué sirve identificar caminos y ciclos en un grafo?"
 tipo: mc
 opciones_explicitas:
-  - "Es la base formal sobre la que se construyen las operaciones entre conjuntos, los diagramas de Venn y toda la combinatoria de este tronco"
-  - "Sólo sirve para clasificar números pares e impares"
-  - "Sólo se usa en un único ejercicio de examen"
-respuesta: "Es la base formal sobre la que se construyen las operaciones entre conjuntos, los diagramas de Venn y toda la combinatoria de este tronco"
+  - "Para encontrar rutas entre vértices (el más corto o el de menor costo) y para detectar problemas como dependencias circulares, además de entender la robustez de una red"
+  - "Sólo sirve para dibujar el grafo de forma más prolija"
+  - "Sólo se aplica a grafos con menos de 5 vértices"
+respuesta: "Para encontrar rutas entre vértices (el más corto o el de menor costo) y para detectar problemas como dependencias circulares, además de entender la robustez de una red"
 
 explicacion: |
-  Sin esta base, "unión" e "intersección" (próximo módulo) serían sólo
-  palabras sueltas, sin una definición formal detrás.
+  Es la base de `../arboles-grafo-sin-ciclos/` (grafos sin ciclos) y
+  `../algoritmos-de-recorrido-bfs-dfs/` (cómo encontrar caminos de
+  forma sistemática).
 ```
 
-## Sección: construir-un-grafico (24 preguntas)
+## Sección: leer-grafico/barras (22 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
+  tema: "leer_grafico_de_barras"
   nivel: "basico"
-  tags: ["construir_grafico", "vocabulario"]
+  tags: ["barras", "vocabulario"]
 
-enunciado: "Para comparar valores entre categorías sin orden numérico propio (por ejemplo, ventas por producto), ¿qué tipo de gráfico conviene?"
+enunciado: "En un gráfico de barras, ¿qué representa la altura (o longitud) de cada barra?"
 tipo: mc
 opciones_explicitas:
-  - "Gráfico de barras"
-  - "Gráfico de líneas"
-  - "Gráfico de torta"
-respuesta: "Gráfico de barras"
+  - "El valor numérico de esa categoría"
+  - "El orden en que aparece la categoría"
+  - "El color de la categoría"
+respuesta: "El valor numérico de esa categoría"
 
 explicacion: |
-  Las categorías se comparan bien con la altura de una barra por cada
-  una.
+  Cuanto más alta la barra, mayor el valor que representa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
+  tema: "leer_grafico_de_barras"
   nivel: "basico"
-  tags: ["construir_grafico", "vocabulario"]
+  tags: ["barras", "vocabulario"]
 
-enunciado: "Para mostrar cómo cambia un valor a lo largo del tiempo (por ejemplo, temperatura mes a mes), ¿qué tipo de gráfico conviene?"
+enunciado: "¿Qué tipo de dato suele ir en el eje que NO mide altura (categorías)?"
 tipo: mc
 opciones_explicitas:
-  - "Gráfico de líneas"
-  - "Gráfico de barras"
-  - "Gráfico de torta"
-respuesta: "Gráfico de líneas"
+  - "Categorías sin un orden numérico propio (productos, colores, nombres)"
+  - "Siempre el tiempo, en orden cronológico"
+  - "Siempre porcentajes que suman 100%"
+respuesta: "Categorías sin un orden numérico propio (productos, colores, nombres)"
 
 explicacion: |
-  La línea conecta los puntos y muestra la tendencia completa.
+  A diferencia de un gráfico de líneas, el orden de las barras no
+  tiene por qué representar una secuencia numérica.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
-  nivel: "basico"
-  tags: ["construir_grafico", "vocabulario"]
-
-enunciado: "Para mostrar cómo se reparte un presupuesto total entre distintas categorías, ¿qué tipo de gráfico conviene?"
-tipo: mc
-opciones_explicitas:
-  - "Gráfico de torta"
-  - "Gráfico de líneas"
-  - "Gráfico de barras"
-respuesta: "Gráfico de torta"
-
-explicacion: |
-  Cada porción muestra directamente qué proporción del 100% ocupa
-  cada categoría.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "construir_un_grafico"
+  tema: "leer_grafico_de_barras"
   nivel: "intermedio"
-  tags: ["construir_grafico", "problema"]
+  tags: ["barras", "problema"]
 
-enunciado: "Se quiere mostrar cómo variaron las ventas de una tienda mes a mes durante todo el año. ¿Qué tipo de gráfico conviene?"
-tipo: mc
-opciones_explicitas:
-  - "De líneas"
-  - "De torta"
-  - "De barras horizontales sin ningún orden"
-respuesta: "De líneas"
+variables:
+  datos: [{producto: "Camisas", ventas: 45}, {producto: "Pantalones", ventas: 30}, {producto: "Camperas", ventas: 15}, {producto: "Zapatos", ventas: 25}]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: datos[idx].ventas
+tipo: input
+unidad: "unidades"
+
+enunciado: "Un gráfico de barras muestra las ventas del mes: Camisas 45, Pantalones 30, Camperas 15, Zapatos 25. ¿Cuántas unidades de {datos[idx].producto} se vendieron?"
 
 explicacion: |
-  Los meses son una secuencia temporal ordenada — el caso típico de
-  un gráfico de líneas.
+  Se lee la altura de la barra correspondiente a esa categoría.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
+  tema: "leer_grafico_de_barras"
   nivel: "intermedio"
-  tags: ["construir_grafico", "problema"]
+  tags: ["barras", "problema"]
 
-enunciado: "Se quiere comparar el puntaje final de 5 equipos de un torneo, sin relación temporal entre ellos. ¿Qué tipo de gráfico conviene?"
+enunciado: "En el gráfico de ventas — Camisas 45, Pantalones 30, Camperas 15, Zapatos 25 — ¿qué producto tiene la barra más alta?"
 tipo: mc
 opciones_explicitas:
-  - "De barras"
-  - "De líneas"
-  - "De torta"
-respuesta: "De barras"
+  - "Camisas"
+  - "Pantalones"
+  - "Zapatos"
+respuesta: "Camisas"
 
 explicacion: |
-  Los equipos son categorías sin un orden numérico propio entre sí.
+  45 es el valor más alto de los cuatro.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
+  tema: "leer_grafico_de_barras"
+  nivel: "avanzado"
+  tags: ["barras", "problema"]
+
+respuesta: 30
+tipo: input
+
+enunciado: "Con el mismo gráfico de ventas — Camisas 45, Pantalones 30, Camperas 15, Zapatos 25 — ¿cuál es la diferencia entre la barra más alta y la más baja?"
+
+pasos:
+  - "Más alta: Camisas (45). Más baja: Camperas (15)."
+  - "Diferencia = 45 − 15 = 30"
+
+explicacion: |
+  Se identifican los dos extremos y se resta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_barras"
   nivel: "intermedio"
-  tags: ["construir_grafico", "problema"]
-
-enunciado: "Se quiere mostrar qué porcentaje del presupuesto familiar se destina a cada gasto (alquiler, comida, transporte, etc.), sumando 100%. ¿Qué tipo de gráfico conviene?"
-tipo: mc
-opciones_explicitas:
-  - "De torta"
-  - "De líneas"
-  - "De barras"
-respuesta: "De torta"
-
-explicacion: |
-  Es exactamente el caso de proporciones de un total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "construir_un_grafico"
-  nivel: "basico"
-  tags: ["construir_grafico", "vocabulario"]
-
-enunciado: "¿Qué elementos básicos debería tener cualquier gráfico bien construido?"
-tipo: mc
-opciones_explicitas:
-  - "Título, ejes etiquetados con su unidad, y una escala con intervalos iguales"
-  - "Sólo los datos, sin ninguna etiqueta ni título"
-  - "Sólo colores llamativos, sin importar la escala"
-respuesta: "Título, ejes etiquetados con su unidad, y una escala con intervalos iguales"
-
-explicacion: |
-  Sin esos elementos, el gráfico se vuelve ambiguo o directamente
-  ilegible.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "construir_un_grafico"
-  nivel: "intermedio"
-  tags: ["construir_grafico"]
+  tags: ["barras"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la escala numérica de un gráfico, la distancia entre dos marcas consecutivas (por ejemplo, de 0 a 10, y de 10 a 20) siempre debería representar el mismo intervalo."
+enunciado: "Cada barra de un gráfico de barras corresponde exactamente a una fila de una tabla: la categoría es el nombre de la fila, y la altura es el valor de la columna graficada."
 
 explicacion: |
-  Si los intervalos no fueran iguales, la posición visual dejaría de
-  representar fielmente el valor real.
+  Es la misma información que una tabla, sólo que dibujada.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
+  tema: "leer_grafico_de_barras"
   nivel: "intermedio"
-  tags: ["construir_grafico"]
+  tags: ["barras"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El eje numérico de un gráfico de barras debería empezar en 0, para que la altura de cada barra represente fielmente la proporción real entre los valores."
+enunciado: "Un gráfico de barras puede dibujarse con barras horizontales (en vez de verticales) — la lógica de lectura es la misma, sólo cambia la orientación."
 
 explicacion: |
-  Si no empieza en 0, diferencias chicas entre barras pueden verse
-  exageradamente grandes.
+  Se usa sobre todo cuando los nombres de las categorías son largos y
+  no entran bien debajo de una barra vertical.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
+  tema: "leer_grafico_de_barras"
   nivel: "intermedio"
-  tags: ["construir_grafico"]
+  tags: ["barras", "ordenar"]
+
+enunciado: "Ordená los pasos para leer el valor exacto de una barra en un gráfico."
+tipo: ordenar
+opciones_explicitas:
+  - "Leer el número donde esa altura coincide con el eje numérico"
+  - "Identificar la barra correspondiente a la categoría que interesa"
+  - "Seguir su altura (o longitud) hasta el eje que tiene los números"
+respuesta_orden: ["Identificar la barra correspondiente a la categoría que interesa", "Seguir su altura (o longitud) hasta el eje que tiene los números", "Leer el número donde esa altura coincide con el eje numérico"]
+explicacion: |
+  Sin identificar primero la barra correcta, no hay altura que seguir.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_barras"
+  nivel: "basico"
+  tags: ["barras", "aplicacion"]
+
+enunciado: "¿Por qué los resultados electorales suelen mostrarse con un gráfico de barras (una barra por candidato o partido)?"
+tipo: mc
+opciones_explicitas:
+  - "Porque permite comparar de un vistazo cuántos votos sacó cada candidato, sin un orden numérico entre ellos"
+  - "Porque los votos siempre cambian con el tiempo, como en un gráfico de líneas"
+  - "Porque las barras muestran directamente porcentajes que suman 100%"
+respuesta: "Porque permite comparar de un vistazo cuántos votos sacó cada candidato, sin un orden numérico entre ellos"
+
+explicacion: |
+  Los candidatos son categorías, no una secuencia temporal ni
+  proporciones de un total (eso sería más propio de una torta).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_barras"
+  nivel: "avanzado"
+  tags: ["barras", "problema"]
+
+respuesta: 60
+tipo: input
+
+enunciado: "Con el gráfico de ventas — Camisas 45, Pantalones 30, Camperas 15, Zapatos 25 — ¿cuántas unidades se vendieron entre Camperas y Zapatos juntos?"
+
+pasos:
+  - "15 + 25 = 40"
+
+explicacion: |
+  Se suman los valores de las dos barras correspondientes.
+
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_barras"
+  nivel: "avanzado"
+  tags: ["barras"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La leyenda (qué representa cada color) es un elemento obligatorio en TODOS los gráficos, incluso cuando hay una sola serie de datos."
+enunciado: "Un gráfico de barras siempre muestra cómo cambia un valor a lo largo del tiempo."
 
 explicacion: |
-  Con una sola serie no hace falta distinguir colores — la leyenda se
-  vuelve necesaria recién cuando hay más de una serie.
+  Es falso en general: las categorías de un gráfico de barras
+  usualmente no tienen relación temporal entre sí (aunque se puede usar
+  para comparar el mismo dato en distintos años, ese no es su uso
+  típico ni exclusivo).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
-  nivel: "avanzado"
-  tags: ["construir_grafico", "problema"]
+  tema: "leer_grafico_de_barras"
+  nivel: "intermedio"
+  tags: ["barras", "problema"]
 
-variables:
-  minimo: 0
-  maximo: uno_de([50, 100, 200])
-  marcas: uno_de([5, 10])
-
-respuesta: maximo / marcas
-tipo: input
-
-enunciado: "Se quiere construir una escala de 0 a {maximo}, con {marcas} intervalos iguales. ¿De cuánto tiene que ser cada intervalo?"
-
-pasos:
-  - "Intervalo = ({maximo} − 0) / {marcas} = {maximo / marcas}"
-
-explicacion: |
-  Se reparte el rango total en la cantidad de intervalos pedida.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "construir_un_grafico"
-  nivel: "avanzado"
-  tags: ["construir_grafico", "ordenar"]
-
-enunciado: "Ordená los pasos generales para construir un gráfico a partir de una tabla de datos."
-tipo: ordenar
-opciones_explicitas:
-  - "Definir una escala con intervalos iguales que cubra el rango de los datos"
-  - "Decidir qué tipo de gráfico corresponde según el tipo de dato (categorías, tiempo, o proporciones)"
-  - "Dibujar los datos sobre esa escala, y agregar título, etiquetas de ejes y leyenda si hace falta"
-respuesta_orden:
-  - "Decidir qué tipo de gráfico corresponde según el tipo de dato (categorías, tiempo, o proporciones)"
-  - "Definir una escala con intervalos iguales que cubra el rango de los datos"
-  - "Dibujar los datos sobre esa escala, y agregar título, etiquetas de ejes y leyenda si hace falta"
-
-explicacion: |
-  Elegir el tipo de gráfico es siempre la primera decisión — condiciona
-  todo lo que sigue.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "construir_un_grafico"
-  nivel: "avanzado"
-  tags: ["construir_grafico"]
-
-enunciado: "¿Por qué usar un gráfico de torta para mostrar datos que cambian mes a mes sería una mala elección?"
+enunciado: "Con el gráfico de ventas — Camisas 45, Pantalones 30, Camperas 15, Zapatos 25 — ¿qué producto tiene la barra más baja?"
 tipo: mc
 opciones_explicitas:
-  - "Porque una torta no muestra tendencia en el tiempo — esconde si el valor subió, bajó o se mantuvo estable mes a mes"
-  - "Porque una torta nunca puede tener más de 2 categorías"
-  - "No hay ningún problema real en usarla para eso"
-respuesta: "Porque una torta no muestra tendencia en el tiempo — esconde si el valor subió, bajó o se mantuvo estable mes a mes"
+  - "Camperas"
+  - "Zapatos"
+  - "Pantalones"
+respuesta: "Camperas"
 
 explicacion: |
-  Cada tipo de gráfico está pensado para un tipo de pregunta distinta
-  sobre los datos.
+  15 es el valor más bajo de los cuatro.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
+  tema: "leer_grafico_de_barras"
   nivel: "avanzado"
-  tags: ["construir_grafico", "problema"]
+  tags: ["barras", "vocabulario"]
+
+enunciado: "¿Para qué sirve un gráfico de barras AGRUPADAS (dos barras juntas por cada categoría, de colores distintos)?"
+tipo: mc
+opciones_explicitas:
+  - "Para comparar dos series de datos distintas (por ejemplo, ventas de este año contra el año pasado) para cada categoría"
+  - "Para mostrar el promedio de todas las categorías juntas"
+  - "Es exactamente lo mismo que un gráfico de líneas"
+respuesta: "Para comparar dos series de datos distintas (por ejemplo, ventas de este año contra el año pasado) para cada categoría"
+
+explicacion: |
+  Cada categoría tiene dos barras (o más) en vez de una, una por cada
+  serie que se está comparando.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_barras"
+  nivel: "intermedio"
+  tags: ["barras", "problema"]
 
 variables:
-  maximo: uno_de([300, 500, 800])
-  marcas: uno_de([4, 5, 8])
+  datos: [{dia: "Lunes", clientes: 80}, {dia: "Martes", clientes: 65}, {dia: "Miércoles", clientes: 95}, {dia: "Jueves", clientes: 70}, {dia: "Viernes", clientes: 120}]
+  idx: uno_de([0, 1, 2, 3, 4])
 
-respuesta: maximo / marcas
+respuesta: datos[idx].clientes
 tipo: input
 
-enunciado: "Los datos van de 0 a {maximo}. Si se quiere marcar la escala en {marcas} intervalos iguales, ¿de cuánto debería ser cada intervalo?"
-
-pasos:
-  - "{maximo} / {marcas} = {maximo / marcas}"
+enunciado: "Un local registra clientes por día: Lunes 80, Martes 65, Miércoles 95, Jueves 70, Viernes 120. ¿Cuántos clientes tuvo el {datos[idx].dia}?"
 
 explicacion: |
-  Mismo procedimiento que la pregunta 11, con otros números.
+  Cada barra representa un día, con su cantidad de clientes.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
+  tema: "leer_grafico_de_barras"
   nivel: "intermedio"
-  tags: ["construir_grafico"]
+  tags: ["barras", "problema"]
+
+enunciado: "Con el gráfico de clientes — Lunes 80, Martes 65, Miércoles 95, Jueves 70, Viernes 120 — ¿qué día tuvo más clientes?"
+tipo: mc
+opciones_explicitas:
+  - "Viernes"
+  - "Miércoles"
+  - "Lunes"
+respuesta: "Viernes"
+
+explicacion: |
+  120 es el valor más alto de la semana mostrada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_barras"
+  nivel: "intermedio"
+  tags: ["barras"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un gráfico sin título sigue mostrando los datos correctamente, pero es más difícil saber de qué trata sin más contexto."
+enunciado: "Si se reordenan las barras de un gráfico (por ejemplo, de mayor a menor), los valores que representa cada una no cambian, sólo el orden en que se presentan."
 
 explicacion: |
-  El título no cambia los datos, pero ayuda mucho a interpretarlos sin
-  ambigüedad.
+  Es la misma idea que reordenar filas de una tabla.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
+  tema: "leer_grafico_de_barras"
+  nivel: "avanzado"
+  tags: ["barras"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin números en el eje que mide la altura, sólo se puede comparar qué barra es más alta o más baja, pero no leer el valor exacto de ninguna."
+
+explicacion: |
+  Los números del eje son los que permiten pasar de 'más alta' a
+  'exactamente cuánto'.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_barras"
+  nivel: "avanzado"
+  tags: ["barras", "problema"]
+
+respuesta: 30
+tipo: input
+
+enunciado: "Con el gráfico de ventas — Camisas 45, Pantalones 30, Camperas 15, Zapatos 25 — ¿cuál es el promedio de ventas de las 4 categorías?"
+
+pasos:
+  - "(45 + 30 + 15 + 25) ÷ 4 = 115 ÷ 4"
+  - "= 28,75, redondeado a la unidad más cercana ≈ 30"
+
+explicacion: |
+  Sumar todas las barras y dividir por la cantidad de categorías.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_barras"
   nivel: "basico"
-  tags: ["construir_grafico", "aplicacion"]
+  tags: ["barras", "aplicacion"]
 
-enunciado: "Un reporte anual quiere mostrar la evolución de las ventas mes a mes, y además qué porcentaje de las ventas totales representó cada producto. ¿Cuántos tipos de gráfico distintos convendría usar, y cuáles?"
+enunciado: "Un gráfico de barras muestra el precio del mismo producto en 4 supermercados distintos. ¿Para qué sirve este gráfico?"
 tipo: mc
 opciones_explicitas:
-  - "Dos: uno de líneas (evolución mensual) y uno de torta (porcentaje por producto)"
-  - "Uno solo de torta, sirve para ambas cosas"
-  - "Uno solo de barras, sirve para ambas cosas"
-respuesta: "Dos: uno de líneas (evolución mensual) y uno de torta (porcentaje por producto)"
+  - "Para comparar de un vistazo en qué supermercado el producto es más caro o más barato"
+  - "Para mostrar cómo cambió el precio a lo largo del año"
+  - "Para mostrar qué porcentaje del gasto total representa ese producto"
+respuesta: "Para comparar de un vistazo en qué supermercado el producto es más caro o más barato"
 
 explicacion: |
-  Son dos preguntas distintas sobre los datos, y cada una tiene su
-  tipo de gráfico más adecuado.
+  Los supermercados son categorías (sin orden numérico entre sí), el
+  caso típico de un gráfico de barras.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
+  tema: "leer_grafico_de_barras"
   nivel: "avanzado"
-  tags: ["construir_grafico", "problema"]
-
-enunciado: "Los datos de un gráfico van de 40 a 60. ¿Cuál de estas escalas para el eje numérico aprovecha mejor el espacio del gráfico?"
-tipo: mc
-opciones_explicitas:
-  - "De 0 a 100, en intervalos de 10"
-  - "De 0 a 10.000, en intervalos de 1.000"
-  - "De 0 a 1.000.000, en intervalos de 100.000"
-respuesta: "De 0 a 100, en intervalos de 10"
-
-explicacion: |
-  Las otras dos escalas son tan grandes comparadas con el rango real
-  de los datos (40-60) que toda la variación se vería aplastada en
-  una línea casi plana.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "construir_un_grafico"
-  nivel: "intermedio"
-  tags: ["construir_grafico"]
+  tags: ["barras"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El eje numérico de un gráfico de líneas también debería tener intervalos iguales entre sí, igual que el de un gráfico de barras."
+enunciado: "En un gráfico de barras simple, lo que importa es la ALTURA de cada barra — el ancho de las barras no representa ningún dato (suele ser sólo estético)."
 
 explicacion: |
-  La regla de intervalos iguales aplica a cualquier eje numérico, sin
-  importar el tipo de gráfico.
+  A diferencia de un histograma (donde el ancho también importa), en
+  un gráfico de barras categórico sólo la altura tiene significado.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
-  nivel: "intermedio"
-  tags: ["construir_grafico", "problema"]
+  tema: "leer_grafico_de_barras"
+  nivel: "avanzado"
+  tags: ["barras", "problema"]
 
-variables:
-  maximo: uno_de([25, 35, 45])
-
-respuesta: maximo / 5
+respuesta: 2
 tipo: input
 
-enunciado: "Se quiere marcar una escala de 0 a {maximo} en intervalos de tamaño 5. ¿Cuántas marcas (sin contar el 0) tendría esa escala?"
+enunciado: "Con el gráfico de clientes — Lunes 80, Martes 65, Miércoles 95, Jueves 70, Viernes 120 — ¿en cuántos días hubo MÁS de 90 clientes?"
 
 pasos:
-  - "{maximo} / 5 = {maximo / 5} marcas"
+  - "Miércoles (95) y Viernes (120) superan los 90. Los demás días no."
 
 explicacion: |
-  Se divide el máximo por el tamaño del intervalo elegido.
+  Se revisa cada barra y se cuentan las que cumplen la condición.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "construir_un_grafico"
-  nivel: "avanzado"
-  tags: ["construir_grafico"]
-
-enunciado: "Si el eje numérico de un gráfico de barras empieza, por ejemplo, en 80 en vez de en 0, ¿qué efecto visual puede producir?"
-tipo: mc
-opciones_explicitas:
-  - "Puede hacer que diferencias chicas entre barras se vean exageradamente grandes"
-  - "No produce ningún efecto, siempre se ve exactamente igual"
-  - "Hace que las barras sean automáticamente más precisas"
-respuesta: "Puede hacer que diferencias chicas entre barras se vean exageradamente grandes"
-
-explicacion: |
-  Es uno de los errores de construcción más comunes (a veces
-  intencional) para exagerar una diferencia real.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "construir_un_grafico"
-  nivel: "intermedio"
-  tags: ["construir_grafico"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La etiqueta de un eje numérico debería indicar la unidad de medida (pesos, personas, grados, etc.), no sólo los números sueltos."
-
-explicacion: |
-  Sin la unidad, un '50' en el eje podría significar cualquier cosa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "construir_un_grafico"
-  nivel: "avanzado"
-  tags: ["construir_grafico", "problema"]
-
-variables:
-  maximo: uno_de([120, 150, 180])
-  intervalo: uno_de([10, 15, 30])
-
-restricciones:
-  - maximo - floor(maximo / intervalo) * intervalo == 0
-
-respuesta: maximo / intervalo
-tipo: input
-
-enunciado: "Se quiere construir una escala de 0 a {maximo}, con intervalos de tamaño {intervalo}. ¿Cuántos intervalos tendría la escala completa?"
-
-pasos:
-  - "{maximo} / {intervalo} = {maximo / intervalo} intervalos"
-
-explicacion: |
-  Se divide el rango total por el tamaño de cada intervalo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "construir_un_grafico"
-  nivel: "basico"
-  tags: ["construir_grafico", "aplicacion"]
-
-enunciado: "Se quiere mostrar qué proporción de una clase de 30 estudiantes son varones y cuál mujeres. ¿Qué tipo de gráfico conviene?"
-tipo: mc
-opciones_explicitas:
-  - "De torta (dos porciones que suman el 100% de la clase)"
-  - "De líneas (porque el año tiene 12 meses)"
-  - "No se puede graficar ese tipo de dato"
-respuesta: "De torta (dos porciones que suman el 100% de la clase)"
-
-explicacion: |
-  Es exactamente proporciones de un total, aunque sean sólo 2
-  categorías.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "construir_un_grafico"
+  tema: "leer_grafico_de_barras"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirve saber construir un gráfico?"
+enunciado: "¿Para qué sirve un gráfico de barras?"
 tipo: mc
 opciones_explicitas:
-  - "Para elegir el tipo correcto según el dato, armar una escala razonable, y comunicar los datos de forma clara y sin distorsión"
-  - "Sólo sirve para hacer un gráfico más lindo visualmente"
-  - "Sólo aplica cuando los datos ya vienen en un gráfico hecho"
-respuesta: "Para elegir el tipo correcto según el dato, armar una escala razonable, y comunicar los datos de forma clara y sin distorsión"
+  - "Para comparar de un vistazo el valor de distintas categorías, usando la altura de cada barra"
+  - "Sólo sirve para mostrar datos que cambian con el tiempo"
+  - "Sólo aplica cuando hay exactamente 2 categorías"
+respuesta: "Para comparar de un vistazo el valor de distintas categorías, usando la altura de cada barra"
 
 explicacion: |
-  Es el paso siguiente a leer gráficos: ahora hay que decidir y armar
-  uno propio. Es también el prerrequisito de `../media-mediana-y-moda/`.
+  Es el hermano de `../lineas/` (para datos en el tiempo) y
+  `../torta/` (para proporciones de un total).
 ```
 
-## Sección: conteo (40 preguntas)
+## Sección: algoritmos-de-recorrido-bfs-dfs (20 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
   nivel: "basico"
-  tags: ["conteo", "sucesor"]
+  tags: ["recorrido", "vocabulario"]
 
-variables:
-  a: random(0, 8)
-  siguiente: a + 1
-
-respuesta: siguiente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el sucesor de {a}?"
-
-pasos:
-  - "El sucesor de un número es el que sigue: {a} + 1 = {siguiente}"
+enunciado: "¿Qué hace un algoritmo de recorrido de grafos?"
+tipo: mc
+opciones_explicitas:
+  - "Visita sistemáticamente todos los vértices alcanzables desde un vértice inicial, sin repetir ninguno"
+  - "Cuenta la cantidad total de vértices de un grafo"
+  - "Dibuja el grafo en la pantalla"
+respuesta: "Visita sistemáticamente todos los vértices alcanzables desde un vértice inicial, sin repetir ninguno"
 
 explicacion: |
-  El sucesor de un número n es n + 1, el próximo en la secuencia de conteo.
+  BFS y DFS son los dos algoritmos estándar, con órdenes de visita
+  distintos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "sucesor"]
-
-variables:
-  a: random(10, 98)
-  siguiente: a + 1
-
-respuesta: siguiente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el sucesor de {a}?"
-
-pasos:
-  - "{a} + 1 = {siguiente}"
-
-explicacion: |
-  El sucesor es siempre el número anterior más 1, aunque haya que cruzar
-  una decena (ej.: el sucesor de 29 es 30).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "sucesor"]
-
-variables:
-  a: random(100, 998)
-  siguiente: a + 1
-
-respuesta: siguiente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el sucesor de {a}?"
-
-pasos:
-  - "{a} + 1 = {siguiente}"
-
-explicacion: |
-  Igual que con números más chicos: se suma 1, aunque se cruce una centena
-  (ej.: el sucesor de 399 es 400).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "antecesor"]
-
-variables:
-  a: random(1, 9)
-  anterior: a - 1
-
-respuesta: anterior
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el antecesor de {a}?"
-
-pasos:
-  - "El antecesor es el número anterior: {a} - 1 = {anterior}"
-
-explicacion: |
-  El antecesor de un número n es n − 1, el que viene justo antes en la
-  secuencia de conteo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "antecesor"]
-
-variables:
-  a: random(11, 99)
-  anterior: a - 1
-
-respuesta: anterior
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el antecesor de {a}?"
-
-pasos:
-  - "{a} - 1 = {anterior}"
-
-explicacion: |
-  Se resta 1, aunque haya que bajar de decena (ej.: el antecesor de 40 es 39).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "antecesor"]
-
-variables:
-  a: random(101, 999)
-  anterior: a - 1
-
-respuesta: anterior
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el antecesor de {a}?"
-
-pasos:
-  - "{a} - 1 = {anterior}"
-
-explicacion: |
-  Se resta 1, aunque haya que bajar de centena (ej.: el antecesor de 500 es
-  499).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "sucesor"]
-
-variables:
-  a: random(1, 500)
-  b: a + uno_de([1, 1, 2, -1, 0])
-
-respuesta: (b == a + 1)
-tipo: vf
-
-enunciado: "¿Es {b} el sucesor de {a}?"
-
-explicacion: |
-  El sucesor de {a} es {a} + 1. Hay que comparar ese resultado con el número
-  propuesto, no alcanza con que "esté cerca".
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "antecesor"]
-
-variables:
-  a: random(2, 500)
-  b: a - uno_de([1, 1, 2, -1, 0])
-
-respuesta: (b == a - 1)
-tipo: vf
-
-enunciado: "¿Es {b} el antecesor de {a}?"
-
-explicacion: |
-  El antecesor de {a} es {a} − 1. Se compara ese resultado exacto con el
-  número propuesto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "conteo_salteado"]
-
-variables:
-  inicio: random(0, 20) * 2
-  n: random(3, 8)
-  termino: inicio + 2 * (n - 1)
-
-respuesta: termino
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Contando de 2 en 2 desde {inicio}, ¿qué número decís en el lugar {n}° (contando {inicio} como el 1°)?"
-
-pasos:
-  - "Cada paso suma 2. Del 1° al {n}° hay {n} - 1 pasos: {inicio} + 2 × ({n} - 1) = {termino}"
-
-explicacion: |
-  Contar salteado de a 2 es sumar siempre 2 al número anterior. El término
-  en el lugar n es inicio + 2×(n − 1).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "conteo_salteado"]
-
-variables:
-  inicio: random(0, 20) * 5
-  n: random(3, 8)
-  termino: inicio + 5 * (n - 1)
-
-respuesta: termino
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Contando de 5 en 5 desde {inicio}, ¿qué número decís en el lugar {n}°?"
-
-pasos:
-  - "{inicio} + 5 × ({n} - 1) = {termino}"
-
-explicacion: |
-  Contar de 5 en 5 es la base de la tabla del 5: cada salto suma 5 al
-  anterior.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "conteo_salteado"]
-
-variables:
-  inicio: random(0, 50) * 10
-  n: random(3, 8)
-  termino: inicio + 10 * (n - 1)
-
-respuesta: termino
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Contando de 10 en 10 desde {inicio}, ¿qué número decís en el lugar {n}°?"
-
-pasos:
-  - "{inicio} + 10 × ({n} - 1) = {termino}"
-
-explicacion: |
-  Contar de 10 en 10 sólo cambia la cifra de las decenas (o más arriba); las
-  unidades quedan fijas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "conteo_salteado"]
-
-variables:
-  inicio: random(0, 30) * 3
-  n: random(3, 8)
-  termino: inicio + 3 * (n - 1)
-
-respuesta: termino
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Contando de 3 en 3 desde {inicio}, ¿qué número decís en el lugar {n}°?"
-
-pasos:
-  - "{inicio} + 3 × ({n} - 1) = {termino}"
-
-explicacion: |
-  Igual que con otros saltos: se suma siempre el mismo número (acá, 3) al
-  anterior.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "conteo_salteado"]
-
-variables:
-  inicio: random(0, 30) * 4
-  n: random(3, 8)
-  termino: inicio + 4 * (n - 1)
-
-respuesta: termino
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Contando de 4 en 4 desde {inicio}, ¿qué número decís en el lugar {n}°?"
-
-pasos:
-  - "{inicio} + 4 × ({n} - 1) = {termino}"
-
-explicacion: |
-  El salto de 4 en 4 es la base de la tabla del 4.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
   nivel: "intermedio"
-  tags: ["conteo", "conteo_salteado"]
+  tags: ["bfs", "vocabulario"]
 
-variables:
-  inicio: random(1, 97)
-  paso: uno_de([2, 3, 5, 10])
-  n: random(3, 6)
-  termino: inicio + paso * (n - 1)
-
-respuesta: termino
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Contando de {paso} en {paso} desde {inicio} (sin que {inicio} sea necesariamente múltiplo de {paso}), ¿qué número decís en el lugar {n}°?"
-
-pasos:
-  - "{inicio} + {paso} × ({n} - 1) = {termino}"
+enunciado: "¿Cómo explora el grafo el algoritmo BFS (Breadth-First Search)?"
+tipo: mc
+opciones_explicitas:
+  - "Nivel por nivel: primero todos los vecinos directos del inicio, después los vecinos de esos vecinos, y así sucesivamente"
+  - "Se mete lo más profundo posible por una rama antes de probar otra"
+  - "Visita los vértices en orden alfabético, sin importar las conexiones reales"
+respuesta: "Nivel por nivel: primero todos los vecinos directos del inicio, después los vecinos de esos vecinos, y así sucesivamente"
 
 explicacion: |
-  El conteo salteado funciona igual aunque el número de inicio no sea
-  "redondo": el salto se suma siempre desde el propio inicio, no desde el
-  múltiplo más cercano.
+  BFS = 'recorrido en anchura' — nunca avanza a un nivel más lejano
+  sin terminar el actual.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "cuenta_regresiva"]
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "intermedio"
+  tags: ["dfs", "vocabulario"]
 
-variables:
-  inicio: random(20, 999)
-  pasos_atras: random(3, 9)
-  resultado: inicio - pasos_atras
-
-respuesta: resultado
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Contando hacia atrás de 1 en 1 desde {inicio}, ¿qué número decís después de {pasos_atras} pasos?"
-
-pasos:
-  - "{inicio} - {pasos_atras} = {resultado}"
+enunciado: "¿Cómo explora el grafo el algoritmo DFS (Depth-First Search)?"
+tipo: mc
+opciones_explicitas:
+  - "Se mete lo más profundo posible por una rama, y sólo retrocede (backtrack) cuando no puede avanzar más"
+  - "Explora nivel por nivel, como BFS"
+  - "Visita únicamente los vértices con grado par"
+respuesta: "Se mete lo más profundo posible por una rama, y sólo retrocede (backtrack) cuando no puede avanzar más"
 
 explicacion: |
-  Contar hacia atrás de a 1 es restar 1 en cada paso, tantas veces como
-  pasos se cuenten.
+  DFS = 'recorrido en profundidad' — prioriza avanzar antes que
+  explorar todas las opciones del nivel actual.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "cuenta_regresiva"]
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "avanzado"
+  tags: ["bfs", "vocabulario"]
 
-variables:
-  inicio: random(20, 200) * 2
-  pasos_atras: random(2, 6)
-  resultado: inicio - 2 * pasos_atras
-
-respuesta: resultado
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Contando hacia atrás de 2 en 2 desde {inicio}, ¿qué número decís después de {pasos_atras} pasos?"
-
-pasos:
-  - "{inicio} - 2 × {pasos_atras} = {resultado}"
+enunciado: "¿Qué estructura de datos usa internamente BFS?"
+tipo: mc
+opciones_explicitas:
+  - "Una cola (FIFO: el primero en entrar es el primero en salir)"
+  - "Una pila (LIFO: el último en entrar es el primero en salir)"
+  - "Ninguna estructura auxiliar, sólo el grafo original"
+respuesta: "Una cola (FIFO: el primero en entrar es el primero en salir)"
 
 explicacion: |
-  Igual que la cuenta regresiva de a 1, pero restando 2 en cada paso.
+  La cola es lo que fuerza a procesar los vértices en el orden exacto
+  en que fueron descubiertos, nivel por nivel.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "cuenta_regresiva"]
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "avanzado"
+  tags: ["dfs", "vocabulario"]
 
-variables:
-  inicio: random(20, 100) * 10
-  pasos_atras: random(2, 6)
-  resultado: inicio - 10 * pasos_atras
-
-respuesta: resultado
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Contando hacia atrás de 10 en 10 desde {inicio}, ¿qué número decís después de {pasos_atras} pasos?"
-
-pasos:
-  - "{inicio} - 10 × {pasos_atras} = {resultado}"
+enunciado: "¿Qué estructura de datos usa internamente DFS?"
+tipo: mc
+opciones_explicitas:
+  - "Una pila (LIFO), directa o mediante recursión (que es, en el fondo, una pila implícita)"
+  - "Una cola (FIFO), igual que BFS"
+  - "Un árbol binario ordenado"
+respuesta: "Una pila (LIFO), directa o mediante recursión (que es, en el fondo, una pila implícita)"
 
 explicacion: |
-  La cuenta regresiva de 10 en 10 sólo mueve la cifra de las decenas (o
-  superior).
+  La pila (o la recursión) es lo que permite 'meterse profundo' y
+  luego retroceder al último punto de decisión.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "cuenta_regresiva"]
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "avanzado"
+  tags: ["bfs"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Al contar hacia atrás (cuenta regresiva), cada número que se dice es menor que el anterior."
+enunciado: "En un grafo NO ponderado, BFS siempre encuentra el camino más corto (menos aristas) desde el vértice inicial hasta cualquier otro vértice."
 
 explicacion: |
-  Contar hacia atrás es restar en cada paso: por eso la secuencia siempre
-  desciende, nunca sube ni se repite.
+  Porque BFS visita los vértices en el orden exacto de su distancia
+  (en aristas) al vértice inicial.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "comparacion"]
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "avanzado"
+  tags: ["bfs", "problema", "ordenar"]
 
-variables:
-  a: random(1, 999)
-  b: random(1, 999)
+enunciado: "Grafo con aristas A-B, A-C, B-D, C-E, D-F. Ordená el recorrido BFS empezando desde A (visitando los vecinos disponibles en orden alfabético)."
+tipo: ordenar
+opciones_explicitas:
+  - "A"
+  - "C"
+  - "E"
+  - "B"
+  - "F"
+  - "D"
+respuesta_orden: ["A", "B", "C", "D", "E", "F"]
+explicacion: |
+  Nivel 0: A. Nivel 1: B, C (vecinos de A). Nivel 2: D (vecino de B),
+  E (vecino de C). Nivel 3: F (vecino de D).
+```
 
-respuesta: (a > b)
+```
+metadata:
+  materia: "matematicas"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "avanzado"
+  tags: ["dfs", "problema", "ordenar"]
+
+enunciado: "Mismo grafo (aristas A-B, A-C, B-D, C-E, D-F). Ordená el recorrido DFS empezando desde A (probando siempre el primer vecino no visitado en orden alfabético, antes de retroceder)."
+tipo: ordenar
+opciones_explicitas:
+  - "F"
+  - "A"
+  - "C"
+  - "D"
+  - "B"
+  - "E"
+respuesta_orden: ["A", "B", "D", "F", "C", "E"]
+explicacion: |
+  Desde A se mete por B, después por D, después por F (sin más
+  vecinos, retrocede); recién ahí vuelve a A para probar C, y de C
+  sigue a E.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "avanzado"
+  tags: ["bfs", "problema"]
+
+respuesta: 3
+tipo: input
+
+enunciado: "En el mismo grafo (aristas A-B, A-C, B-D, C-E, D-F), BFS visita a F recién en el nivel 3. ¿Cuál es la longitud del camino más corto entre A y F?"
+
+pasos:
+  - "El único camino de A a F es A-B-D-F: 3 aristas, coincide con el nivel en que BFS descubre a F"
+
+explicacion: |
+  El nivel en el que BFS descubre un vértice ES la longitud del
+  camino más corto hasta ese vértice.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "avanzado"
+  tags: ["dfs"]
+
+respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es {a} mayor que {b}?"
+enunciado: "DFS no garantiza encontrar el camino más corto entre dos vértices — puede llegar a un vértice recorriendo un camino más largo de lo necesario, antes de descubrir uno más directo por otra rama."
 
 explicacion: |
-  Un número es mayor que otro si aparece más adelante en la secuencia de
-  conteo (más lejos del cero).
+  DFS prioriza 'llegar hasta el final de una rama', no 'la distancia
+  mínima' como sí hace BFS.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
   nivel: "basico"
-  tags: ["conteo", "comparacion"]
+  tags: ["bfs", "aplicacion"]
 
-variables:
-  a: random(1, 999)
-  b: random(1, 999)
-
-respuesta: (a < b)
-tipo: vf
-
-enunciado: "¿Es {a} menor que {b}?"
-
-explicacion: |
-  Un número es menor que otro si aparece antes en la secuencia de conteo
-  (más cerca del cero).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "comparacion"]
-
-variables:
-  a: random(1, 200)
-  b: uno_de([a, a, random(1, 200)])
-
-respuesta: (a == b)
-tipo: vf
-
-enunciado: "¿{a} es igual a {b}?"
-
-explicacion: |
-  Dos cantidades son iguales sólo si representan exactamente el mismo
-  número, no alcanza con estar cerca.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "comparacion"]
-
-variables:
-  a: random(1, 999)
-  b: random(1, 999)
-
-restricciones:
-  - a != b
-
-respuesta: max(a, b)
+enunciado: "Una red social quiere calcular 'cuántos grados de separación' hay entre dos usuarios (la cantidad mínima de conexiones intermedias). ¿Qué algoritmo conviene usar?"
 tipo: mc
 opciones_explicitas:
-  - a
-  - b
-
-enunciado: "¿Cuál de estos dos números es mayor: {a} o {b}?"
+  - "BFS, porque garantiza encontrar el camino más corto (la menor cantidad de conexiones) entre dos usuarios"
+  - "DFS, porque siempre es más rápido que BFS en cualquier grafo"
+respuesta: "BFS, porque garantiza encontrar el camino más corto (la menor cantidad de conexiones) entre dos usuarios"
 
 explicacion: |
-  Para comparar dos números se los ubica mentalmente en la secuencia de
-  conteo: el que se dice más tarde es el mayor.
+  Es la aplicación directa de la propiedad de camino más corto de
+  BFS.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
   nivel: "basico"
-  tags: ["conteo", "comparacion"]
+  tags: ["dfs", "aplicacion"]
 
-variables:
-  a: random(1, 999)
-  b: random(1, 999)
-  c: random(1, 999)
-
-respuesta: max(a, b, c)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el mayor entre {a}, {b} y {c}?"
-
-explicacion: |
-  Se comparan de a pares hasta quedarse con el más grande de los tres.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "comparacion"]
-
-variables:
-  a: random(1, 999)
-  b: random(1, 999)
-  c: random(1, 999)
-
-respuesta: min(a, b, c)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el menor entre {a}, {b} y {c}?"
-
-explicacion: |
-  Se comparan de a pares hasta quedarse con el más chico de los tres.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos números de menor a mayor."
+enunciado: "Un programa necesita explorar TODAS las posibles jugadas de un juego (un árbol de decisiones) hasta llegar a un resultado final en cada rama, antes de pasar a la siguiente. ¿Qué algoritmo se ajusta mejor a esta lógica?"
+tipo: mc
 opciones_explicitas:
-  - "23"
-  - "7"
-  - "41"
-  - "16"
-respuesta_orden: ["7", "16", "23", "41"]
+  - "DFS, porque se mete hasta el final de cada rama (cada secuencia completa de jugadas) antes de retroceder y probar otra"
+  - "BFS, porque siempre usa menos memoria que DFS en cualquier caso"
+respuesta: "DFS, porque se mete hasta el final de cada rama (cada secuencia completa de jugadas) antes de retroceder y probar otra"
 
 explicacion: |
-  Ordenar de menor a mayor es ubicar los números según su lugar en la
-  secuencia de conteo, del más cercano al cero al más lejano.
+  Es exactamente cómo funcionan muchos algoritmos de juegos (como el
+  ajedrez) que exploran variantes completas antes de evaluarlas.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "orden"]
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "intermedio"
+  tags: ["bfs", "aplicacion"]
 
-tipo: ordenar
-enunciado: "Ordená estos números de mayor a menor."
+enunciado: "¿Qué relación tiene BFS con el enrutamiento de paquetes en una red de computadoras?"
+tipo: mc
 opciones_explicitas:
-  - "8"
-  - "34"
-  - "12"
-  - "50"
-respuesta_orden: ["50", "34", "12", "8"]
+  - "Un router que busca el camino más corto para un paquete de datos está, en esencia, corriendo un BFS sobre el grafo de la red — descubre la ruta, no la memoriza de antemano"
+  - "No tiene ninguna relación real con el enrutamiento"
+  - "El enrutamiento siempre usa DFS, nunca BFS"
+respuesta: "Un router que busca el camino más corto para un paquete de datos está, en esencia, corriendo un BFS sobre el grafo de la red — descubre la ruta, no la memoriza de antemano"
 
 explicacion: |
-  Ordenar de mayor a menor es el mismo criterio que de menor a mayor, pero
-  arrancando por el que está más lejos del cero.
+  Es la aplicación mencionada explícitamente en `troncos.md` como
+  motivo real para incluir teoría de grafos en el mapa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
-  nivel: "intermedio"
-  tags: ["conteo", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos números de menor a mayor."
-opciones_explicitas:
-  - "67"
-  - "19"
-  - "88"
-  - "45"
-  - "31"
-respuesta_orden: ["19", "31", "45", "67", "88"]
-
-explicacion: |
-  Con más números conviene ir descartando de a uno el menor (o el mayor)
-  restante, en vez de compararlos todos de una sola vez.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "intermedio"
-  tags: ["conteo", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos números de mayor a menor."
-opciones_explicitas:
-  - "402"
-  - "218"
-  - "990"
-  - "125"
-respuesta_orden: ["990", "402", "218", "125"]
-
-explicacion: |
-  Con números de más cifras, primero se compara la cantidad de cifras (más
-  cifras es siempre mayor) y recién después, si empatan, cifra por cifra de
-  izquierda a derecha.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "secuencia"]
-
-variables:
-  a: random(1, 96)
-
-tipo: completar
-enunciado: "Completá el número que falta: {a}, {a+1}, ___, {a+3}."
-respuestas_validas:
-  - a + 2
-
-explicacion: |
-  La secuencia avanza de 1 en 1: el número que falta es el anterior más 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "secuencia"]
-
-variables:
-  a: random(0, 90) * 2
-
-tipo: completar
-enunciado: "Completá el número que falta: {a}, {a+2}, ___, {a+6}."
-respuestas_validas:
-  - a + 4
-
-explicacion: |
-  La secuencia avanza de 2 en 2: cada término es el anterior más 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "secuencia"]
-
-variables:
-  a: random(0, 180) * 5
-
-tipo: completar
-enunciado: "Completá el número que falta: {a}, {a+5}, ___, {a+15}."
-respuestas_validas:
-  - a + 10
-
-explicacion: |
-  La secuencia avanza de 5 en 5: cada término es el anterior más 5.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "basico"
-  tags: ["conteo", "secuencia"]
-
-variables:
-  a: random(0, 90) * 10
-
-tipo: completar
-enunciado: "Completá el número que falta: {a}, {a+10}, ___, {a+30}."
-respuestas_validas:
-  - a + 20
-
-explicacion: |
-  La secuencia avanza de 10 en 10: cada término es el anterior más 10.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "intermedio"
-  tags: ["conteo", "secuencia", "cuenta_regresiva"]
-
-variables:
-  a: random(20, 999)
-
-tipo: completar
-enunciado: "Completá el número que falta: {a}, {a-1}, ___, {a-3}."
-respuestas_validas:
-  - a - 2
-
-explicacion: |
-  En una secuencia descendente cada término es el anterior menos el salto
-  (acá, menos 1).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
-  nivel: "intermedio"
-  tags: ["conteo", "cardinalidad"]
-
-variables:
-  a: random(1, 100)
-  b: a + random(5, 40)
-
-respuesta: b - a + 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos números hay entre {a} y {b}, contando a los dos extremos?"
-
-pasos:
-  - "Cantidad = {b} - {a} + 1 = {b - a + 1} (se suma 1 porque {a} también se cuenta)"
-
-explicacion: |
-  Si se cuentan los dos extremos, la cantidad de números entre A y B es
-  B − A + 1, no B − A: hay que sumar 1 porque el propio A ya es el primero
-  que se cuenta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conteo"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
   nivel: "avanzado"
-  tags: ["conteo", "cardinalidad", "pares"]
+  tags: ["bfs", "problema"]
 
-variables:
-  a: random(1, 100)
-  b: a + random(10, 50)
-  pares: floor(b / 2) - floor((a - 1) / 2)
-
-respuesta: pares
+respuesta: 2
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "¿Cuántos números pares hay entre {a} y {b}, contando a los dos extremos si son pares?"
+enunciado: "En el grafo con aristas A-B, A-C, B-D, C-E, D-F, ¿en qué nivel del recorrido BFS desde A se descubre al vértice E?"
 
 pasos:
-  - "Se cuentan los múltiplos de 2 hasta {b} y se descartan los que ya pasaron antes de {a}: {pares} números pares"
+  - "Nivel 0: A. Nivel 1: B, C. Nivel 2: D (vecino de B), E (vecino de C)"
 
 explicacion: |
-  Contar los pares en un rango es contar los múltiplos de 2 salteados, igual
-  que en el conteo salteado de 2 en 2, pero acotado entre dos extremos.
+  E es vecino directo de C, que está en el nivel 1 — así que E queda
+  en el nivel 2.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "intermedio"
+  tags: ["bfs", "dfs"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Tanto BFS como DFS visitan cada vértice alcanzable exactamente una vez — la diferencia entre ambos está en el ORDEN de esa visita, no en cuáles vértices visitan."
+
+explicacion: |
+  Ambos terminan visitando el mismo conjunto de vértices (todos los
+  alcanzables desde el inicio), sólo que en secuencias distintas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "intermedio"
+  tags: ["bfs", "dfs"]
+
+enunciado: "¿Cuál es la diferencia clave entre BFS y DFS?"
+tipo: mc
+opciones_explicitas:
+  - "BFS explora 'ancho primero' (nivel por nivel); DFS explora 'profundo primero' (rama por rama hasta el final)"
+  - "BFS sólo funciona en grafos dirigidos; DFS sólo en no dirigidos"
+  - "No hay ninguna diferencia real, son dos nombres para el mismo algoritmo"
+respuesta: "BFS explora 'ancho primero' (nivel por nivel); DFS explora 'profundo primero' (rama por rama hasta el final)"
+
+explicacion: |
+  Es la diferencia que da nombre a cada uno: 'breadth' (ancho) vs.
+  'depth' (profundidad).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
   nivel: "avanzado"
-  tags: ["conteo", "cardinalidad", "impares"]
+  tags: ["dfs", "aplicacion"]
 
-variables:
-  a: random(1, 100)
-  b: a + random(10, 50)
-  total: b - a + 1
-  pares: floor(b / 2) - floor((a - 1) / 2)
-  impares: total - pares
-
-respuesta: impares
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos números impares hay entre {a} y {b}, contando a los dos extremos si son impares?"
-
-pasos:
-  - "Total de números en el rango: {total}. De esos, {pares} son pares, así que {impares} son impares."
+enunciado: "¿Cómo ayuda DFS a detectar si un grafo tiene un ciclo (por ejemplo, una dependencia circular de `../caminos-y-ciclos/`)?"
+tipo: mc
+opciones_explicitas:
+  - "Si durante el recorrido DFS se llega a un vértice que ya está siendo explorado en la rama actual (no sólo ya visitado, sino todavía 'en el camino'), eso significa que hay un ciclo"
+  - "DFS no puede usarse para detectar ciclos, sólo BFS puede hacerlo"
+  - "Cualquier grafo recorrido con DFS automáticamente deja de tener ciclos"
+respuesta: "Si durante el recorrido DFS se llega a un vértice que ya está siendo explorado en la rama actual (no sólo ya visitado, sino todavía 'en el camino'), eso significa que hay un ciclo"
 
 explicacion: |
-  Los impares de un rango son los que no son pares: alcanza con contar el
-  total de números del rango y restarle la cantidad de pares.
+  Es la base de los algoritmos que detectan dependencias circulares
+  en sistemas de compilación.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "avanzado"
+  tags: ["bfs", "dfs", "problema"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En el grafo con aristas A-B, A-C, B-D, C-E, D-F, tanto BFS como DFS visitan al vértice F en la misma POSICIÓN del recorrido (4° vértice visitado en ambos casos)."
+
+explicacion: |
+  BFS visita F en la posición 6 (A,B,C,D,E,F); DFS lo visita en la
+  posición 4 (A,B,D,F,C,E) — las posiciones NO coinciden.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
+  nivel: "avanzado"
+  tags: ["dfs"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "DFS se puede implementar tanto con una pila explícita como con recursión — la recursión funciona porque cada llamada a función usa, internamente, la pila de llamadas del programa."
+
+explicacion: |
+  Es por eso que DFS se suele programar de forma más simple que BFS,
+  aprovechando la recursión en vez de armar una pila manualmente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "algoritmos_de_recorrido_bfs_dfs"
   nivel: "basico"
-  tags: ["conteo", "cardinalidad"]
+  tags: ["cierre"]
 
-variables:
-  lista: mezclar([3, 7, 12, 5, 9, 18, 2, 14, 6, 11])
-  cantidad_mostrada: random(4, 9)
-  elegidos: n_de(lista, cantidad_mostrada)
-
-respuesta: largo(elegidos)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Contá cuántos números hay en esta lista: {elegidos}."
-
-pasos:
-  - "Se cuenta un elemento por vez, sin saltear ni repetir: en total son {largo(elegidos)}"
+enunciado: "¿Para qué sirven los algoritmos BFS y DFS?"
+tipo: mc
+opciones_explicitas:
+  - "Para recorrer sistemáticamente un grafo completo, encontrar caminos (BFS garantiza el más corto en grafos no ponderados) y resolver problemas como enrutamiento, redes sociales o detección de ciclos"
+  - "Sólo sirven para dibujar un grafo de forma más prolija"
+  - "Sólo se aplican a grafos con menos de 10 vértices"
+respuesta: "Para recorrer sistemáticamente un grafo completo, encontrar caminos (BFS garantiza el más corto en grafos no ponderados) y resolver problemas como enrutamiento, redes sociales o detección de ciclos"
 
 explicacion: |
-  Contar los elementos de una lista es aplicar directamente la
-  correspondencia uno a uno: un número de la secuencia de conteo por cada
-  elemento de la lista.
+  Cierra la cadena completa de Tronco 4.c: de vértices y aristas
+  sueltos a poder recorrer y resolver problemas reales sobre un
+  grafo.
+```
+
+## Sección: leer-grafico/lineas (22 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "basico"
+  tags: ["lineas", "vocabulario"]
+
+enunciado: "¿Qué es un gráfico de líneas?"
+tipo: mc
+opciones_explicitas:
+  - "Un gráfico que conecta con segmentos los puntos de una serie de datos, casi siempre a lo largo del tiempo"
+  - "Un gráfico que muestra cada categoría como una porción de un círculo"
+  - "Un gráfico que sólo puede tener un único punto"
+respuesta: "Un gráfico que conecta con segmentos los puntos de una serie de datos, casi siempre a lo largo del tiempo"
+
+explicacion: |
+  La línea conecta los puntos para que se vea la tendencia completa,
+  no sólo valores sueltos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
-  nivel: "intermedio"
-  tags: ["conteo", "conteo_salteado", "problema"]
+  tema: "leer_grafico_de_lineas"
+  nivel: "basico"
+  tags: ["lineas", "vocabulario"]
 
-variables:
-  inicial: random(0, 20)
-  paso: uno_de([2, 3, 5, 10])
-  veces: random(2, 6)
-  total: inicial + paso * veces
-
-respuesta: veces
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Tenés {inicial} figuritas y le vas agregando de a {paso} por vez. ¿Cuántas veces tenés que agregar {paso} figuritas para llegar a {total}?"
-
-pasos:
-  - "Hay que juntar {total} - {inicial} = {total - inicial} figuritas más, de a {paso}: ({total} - {inicial}) / {paso} = {veces} veces"
+enunciado: "¿Qué tipo de dato suele ir en el eje horizontal de un gráfico de líneas?"
+tipo: mc
+opciones_explicitas:
+  - "Una magnitud continua y ordenada, casi siempre tiempo (horas, meses, años)"
+  - "Categorías sin ningún orden entre sí"
+  - "Siempre porcentajes que suman 100%"
+respuesta: "Una magnitud continua y ordenada, casi siempre tiempo (horas, meses, años)"
 
 explicacion: |
-  Agregar siempre la misma cantidad es contar salteado: la cantidad de
-  veces que hay que agregar es la diferencia total dividida por el salto.
+  Por eso tiene sentido "conectar" los puntos: hay un orden real entre
+  ellos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
+  tema: "leer_grafico_de_lineas"
   nivel: "intermedio"
-  tags: ["conteo", "conteo_salteado", "problema"]
+  tags: ["lineas", "problema"]
 
 variables:
-  paso: uno_de([2, 3, 5, 10])
-  cantidad_saltos: random(3, 8)
-  llegada: paso * cantidad_saltos
+  datos: [{mes: "Enero", temperatura: 28}, {mes: "Marzo", temperatura: 22}, {mes: "Junio", temperatura: 10}, {mes: "Septiembre", temperatura: 16}, {mes: "Diciembre", temperatura: 26}]
+  idx: uno_de([0, 1, 2, 3, 4])
 
-respuesta: cantidad_saltos + 1
+respuesta: datos[idx].temperatura
 tipo: input
-tolerancia_abs: 0
+unidad: "°C"
 
-enunciado: "Contando de {paso} en {paso} empezando en 0 (0, {paso}, {paso*2}, ...) hasta llegar a {llegada}, ¿cuántos números dijiste en total, contando el 0?"
-
-pasos:
-  - "Del 0 a {llegada} hay {cantidad_saltos} saltos de {paso}; como el 0 también se cuenta, en total son {cantidad_saltos} + 1 = {cantidad_saltos + 1} números"
+enunciado: "Un gráfico de líneas muestra la temperatura promedio mensual: Enero 28°C, Marzo 22°C, Junio 10°C, Septiembre 16°C, Diciembre 26°C. ¿Cuál fue la temperatura en {datos[idx].mes}?"
 
 explicacion: |
-  Igual que contar los elementos de un rango: hay que sumar 1 porque el
-  primer número dicho (el 0) también cuenta como uno de los números.
+  Se busca el punto correspondiente a ese mes y se lee su altura en
+  el eje de temperatura.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conteo"
+  tema: "leer_grafico_de_lineas"
   nivel: "intermedio"
-  tags: ["conteo", "cardinalidad", "ordinalidad"]
+  tags: ["lineas", "problema"]
 
-variables:
-  inicio: random(1, 10)
-  posicion: random(2, 8)
-  resultado: inicio + posicion - 1
-
-respuesta: resultado
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Si contás de uno en uno empezando en {inicio} (o sea, {inicio} es el 1°), ¿qué número decís en el lugar {posicion}°?"
-
-pasos:
-  - "El lugar {posicion}° está {posicion} - 1 pasos después del inicio: {inicio} + ({posicion} - 1) = {resultado}"
+enunciado: "Con el gráfico de temperatura — Enero 28°C, Marzo 22°C, Junio 10°C, Septiembre 16°C, Diciembre 26°C — ¿qué pasa entre Enero y Junio?"
+tipo: mc
+opciones_explicitas:
+  - "La temperatura baja"
+  - "La temperatura sube"
+  - "La temperatura se mantiene igual"
+respuesta: "La temperatura baja"
 
 explicacion: |
-  Distingue la cardinalidad (cuántos hay) de la ordinalidad (qué lugar
-  ocupa): el número en el lugar k, empezando a contar desde "inicio", es
-  inicio + (k − 1).
+  De 28°C a 10°C la línea desciende — es la mitad del año que va del
+  verano al invierno.
 ```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "intermedio"
+  tags: ["lineas", "problema"]
+
+enunciado: "Con el mismo gráfico — Enero 28°C, Marzo 22°C, Junio 10°C, Septiembre 16°C, Diciembre 26°C — ¿cuál es el mes más frío de los mostrados?"
+tipo: mc
+opciones_explicitas:
+  - "Junio"
+  - "Septiembre"
+  - "Marzo"
+respuesta: "Junio"
+
+explicacion: |
+  10°C es el valor más bajo de la serie — es el punto más bajo (valle)
+  de la línea.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "intermedio"
+  tags: ["lineas", "completar"]
+
+tipo: completar
+enunciado: "Completá: un punto de la línea notablemente más bajo que sus vecinos se llama un ___ (lo opuesto de un pico)."
+respuestas_validas:
+  - "valle"
+
+explicacion: |
+  Pico (más alto) y valle (más bajo) son los dos extremos que suele
+  destacarse al leer una línea.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "avanzado"
+  tags: ["lineas", "problema"]
+
+respuesta: 18
+tipo: input
+
+enunciado: "Con el gráfico de temperatura — Enero 28°C, Marzo 22°C, Junio 10°C, Septiembre 16°C, Diciembre 26°C — ¿cuál es la diferencia entre el mes más caluroso y el más frío?"
+
+pasos:
+  - "Más caluroso: Enero (28°C). Más frío: Junio (10°C)."
+  - "Diferencia = 28 − 10 = 18"
+
+explicacion: |
+  Se identifican los dos extremos de la línea y se restan.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "intermedio"
+  tags: ["lineas", "ordenar"]
+
+enunciado: "Ordená los pasos para leer el valor de un gráfico de líneas en un momento determinado."
+tipo: ordenar
+opciones_explicitas:
+  - "Leer el número donde esa línea vertical cruza a la línea del gráfico"
+  - "Ubicar ese momento (por ejemplo, un mes) en el eje horizontal"
+  - "Subir en línea vertical imaginaria desde ese punto hasta la línea del gráfico"
+respuesta_orden: ["Ubicar ese momento (por ejemplo, un mes) en el eje horizontal", "Subir en línea vertical imaginaria desde ese punto hasta la línea del gráfico", "Leer el número donde esa línea vertical cruza a la línea del gráfico"]
+explicacion: |
+  Es el mismo procedimiento que leer una barra, pero siguiendo la
+  línea en vez de una barra sólida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "basico"
+  tags: ["lineas", "aplicacion"]
+
+enunciado: "¿Por qué la cotización de una moneda a lo largo del año se muestra casi siempre con un gráfico de líneas?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el tiempo (los días del año) es una magnitud continua y ordenada, y la línea muestra la tendencia completa"
+  - "Porque las monedas sólo se pueden comparar entre sí, nunca en el tiempo"
+  - "Porque un gráfico de líneas siempre suma 100%"
+respuesta: "Porque el tiempo (los días del año) es una magnitud continua y ordenada, y la línea muestra la tendencia completa"
+
+explicacion: |
+  Es el caso de uso típico: ver cómo evoluciona un valor a lo largo
+  del tiempo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "avanzado"
+  tags: ["lineas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Que la línea termine más arriba de donde empezó no significa que haya subido de forma constante todo el tiempo — puede haber bajado y vuelto a subir en el medio."
+
+explicacion: |
+  Hay que mirar la forma completa de la línea, no sólo los dos
+  extremos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "intermedio"
+  tags: ["lineas", "problema"]
+
+variables:
+  datos: [{mes: "Enero", ventas: 200}, {mes: "Febrero", ventas: 250}, {mes: "Marzo", ventas: 180}, {mes: "Abril", ventas: 300}]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: datos[idx].ventas
+tipo: input
+
+enunciado: "Un gráfico de líneas muestra ventas mensuales: Enero 200, Febrero 250, Marzo 180, Abril 300. ¿Cuánto se vendió en {datos[idx].mes}?"
+
+explicacion: |
+  Se lee el punto correspondiente a ese mes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "avanzado"
+  tags: ["lineas", "problema"]
+
+enunciado: "Con las ventas — Enero 200, Febrero 250, Marzo 180, Abril 300 — ¿entre qué dos meses consecutivos hubo la mayor CAÍDA?"
+tipo: mc
+opciones_explicitas:
+  - "Entre Febrero y Marzo"
+  - "Entre Enero y Febrero"
+  - "Entre Marzo y Abril"
+respuesta: "Entre Febrero y Marzo"
+
+explicacion: |
+  De 250 a 180 hay una caída de 70 — la única caída entre esos meses
+  (los otros dos tramos suben).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "intermedio"
+  tags: ["lineas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un mismo gráfico puede tener varias líneas de colores distintos, cada una representando una serie de datos distinta, para comparar sus evoluciones."
+
+explicacion: |
+  Por ejemplo, la temperatura de dos ciudades distintas a lo largo del
+  mismo año.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "avanzado"
+  tags: ["lineas", "problema"]
+
+respuesta: 100
+tipo: input
+
+enunciado: "Con las ventas — Enero 200, Febrero 250, Marzo 180, Abril 300 — ¿cuánto creció el valor entre el primer mes (Enero) y el último (Abril)?"
+
+pasos:
+  - "Abril − Enero = 300 − 200 = 100"
+
+explicacion: |
+  Se compara el primer y el último punto de la serie, ignorando lo que
+  pasó en el medio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "basico"
+  tags: ["lineas", "vocabulario"]
+
+enunciado: "¿Cómo se le llama al conjunto completo de puntos que forma una línea en el gráfico?"
+tipo: mc
+opciones_explicitas:
+  - "Una serie de datos"
+  - "Un encabezado"
+  - "Una celda"
+respuesta: "Una serie de datos"
+
+explicacion: |
+  Es el mismo término que se usa cuando hay varias líneas
+  (series) en un mismo gráfico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "avanzado"
+  tags: ["lineas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Comparar sólo el primer y el último punto de una línea puede dar una idea equivocada de la tendencia real, si en el medio hubo subidas y bajadas grandes."
+
+explicacion: |
+  Una línea puede terminar igual que empezó y haber tenido un pico
+  enorme en el medio — mirar sólo los extremos no lo muestra.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "intermedio"
+  tags: ["lineas", "problema"]
+
+enunciado: "Con las ventas — Enero 200, Febrero 250, Marzo 180, Abril 300 — ¿cuál fue el mes con más ventas?"
+tipo: mc
+opciones_explicitas:
+  - "Abril"
+  - "Febrero"
+  - "Enero"
+respuesta: "Abril"
+
+explicacion: |
+  300 es el valor más alto de la serie.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "intermedio"
+  tags: ["lineas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un tramo de la línea completamente horizontal significa que el valor se mantuvo igual entre esos dos puntos."
+
+explicacion: |
+  Sin subir ni bajar, el valor permanece constante en ese tramo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "basico"
+  tags: ["lineas", "aplicacion"]
+
+enunciado: "¿Por qué el crecimiento de la población de una ciudad a lo largo de las décadas se muestra con un gráfico de líneas?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el tiempo (las décadas) es continuo y ordenado, y permite ver la tendencia de crecimiento completa"
+  - "Porque la población siempre suma 100% del total del país"
+  - "Porque no hay otra forma de mostrar ese dato"
+respuesta: "Porque el tiempo (las décadas) es continuo y ordenado, y permite ver la tendencia de crecimiento completa"
+
+explicacion: |
+  Es el mismo motivo por el que se usa para temperatura o cotizaciones.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "avanzado"
+  tags: ["lineas", "problema"]
+
+respuesta: 2
+tipo: input
+
+enunciado: "Con las ventas — Enero 200, Febrero 250, Marzo 180, Abril 300 — ¿en cuántos meses las ventas superaron las 240 unidades?"
+
+pasos:
+  - "Febrero (250) y Abril (300) superan las 240. Enero (200) y Marzo (180) no."
+
+explicacion: |
+  Se revisa cada punto de la serie y se cuentan los que cumplen la
+  condición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "avanzado"
+  tags: ["lineas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El segmento entre dos puntos consecutivos de un gráfico de líneas es una aproximación visual — no garantiza que el valor real haya seguido exactamente esa recta entre ambos momentos."
+
+explicacion: |
+  Sólo se conocen con certeza los valores en los puntos medidos; lo de
+  en el medio es interpolación visual, no un dato medido de verdad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_lineas"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve un gráfico de líneas?"
+tipo: mc
+opciones_explicitas:
+  - "Para ver la evolución de un valor a lo largo del tiempo, y detectar tendencias, picos y valles"
+  - "Sólo sirve para comparar categorías sin relación entre sí"
+  - "Sólo aplica cuando los datos suman exactamente 100%"
+respuesta: "Para ver la evolución de un valor a lo largo del tiempo, y detectar tendencias, picos y valles"
+
+explicacion: |
+  Es el hermano de `../barras/` (categorías) y `../torta/`
+  (proporciones de un total).
+```
+
+## Sección: leer-grafico/torta (23 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "basico"
+  tags: ["torta", "vocabulario"]
+
+enunciado: "¿Qué es un gráfico de torta (o circular)?"
+tipo: mc
+opciones_explicitas:
+  - "Un círculo dividido en porciones, donde cada una representa la proporción de una categoría sobre el total"
+  - "Un gráfico que conecta puntos con líneas a lo largo del tiempo"
+  - "Un gráfico donde cada categoría es una barra de distinta altura"
+respuesta: "Un círculo dividido en porciones, donde cada una representa la proporción de una categoría sobre el total"
+
+explicacion: |
+  El círculo completo siempre representa el 100% del total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "basico"
+  tags: ["torta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un gráfico de torta, todas las porciones mostradas tienen que sumar exactamente el 100% del total."
+
+explicacion: |
+  Si suman menos, falta alguna categoría en el gráfico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "intermedio"
+  tags: ["torta", "completar"]
+
+tipo: completar
+enunciado: "Completá: cantidad de la categoría = porcentaje × total / ___."
+respuestas_validas:
+  - "100"
+
+explicacion: |
+  Es la misma fórmula de porcentaje ya conocida, aplicada a una
+  porción del gráfico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "avanzado"
+  tags: ["torta", "problema"]
+
+variables:
+  porcentaje: uno_de([20, 25, 30, 40])
+  total: uno_de([50000, 80000, 100000])
+
+respuesta: porcentaje * total / 100
+tipo: input
+unidad: "$"
+
+enunciado: "En un gráfico de torta de un presupuesto total de ${total}, la categoría 'Alquiler' ocupa el {porcentaje}% de la torta. ¿A cuánto dinero equivale esa porción?"
+
+pasos:
+  - "Cantidad = {porcentaje} × {total} / 100 = {porcentaje * total / 100}"
+
+explicacion: |
+  Se aplica el porcentaje directamente sobre el total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "avanzado"
+  tags: ["torta", "problema"]
+
+variables:
+  total: uno_de([200, 400, 500])
+  cantidad: uno_de([50, 100])
+
+respuesta: redondear(cantidad * 100 / total, 1)
+tipo: input
+tolerancia_abs: 0.1
+unidad: "%"
+
+enunciado: "De un total de {total} personas encuestadas, {cantidad} eligieron la opción A. ¿Qué porcentaje de la torta representa esa opción?"
+
+pasos:
+  - "Porcentaje = {cantidad} × 100 / {total} = {redondear(cantidad * 100 / total, 1)}%"
+
+explicacion: |
+  Es la fórmula de porcentaje despejada al revés.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "avanzado"
+  tags: ["torta", "problema"]
+
+variables:
+  a: random(20, 35)
+  b: random(15, 30)
+  c: random(10, 20)
+
+respuesta: 100 - a - b - c
+tipo: input
+unidad: "%"
+
+enunciado: "Un gráfico de torta tiene 4 categorías. Se sabe que tres de ellas ocupan {a}%, {b}% y {c}% respectivamente. ¿Qué porcentaje ocupa la cuarta categoría?"
+
+pasos:
+  - "100 − {a} − {b} − {c} = {100 - a - b - c}%"
+
+explicacion: |
+  Como todas las porciones suman 100%, la que falta es lo que resta
+  hasta llegar a ese total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "intermedio"
+  tags: ["torta", "problema"]
+
+variables:
+  gastos: [{categoria: "Alquiler", porcentaje: 35}, {categoria: "Comida", porcentaje: 25}, {categoria: "Transporte", porcentaje: 15}, {categoria: "Ocio", porcentaje: 10}, {categoria: "Otros", porcentaje: 15}]
+  idx: uno_de([0, 1, 2, 3, 4])
+
+respuesta: gastos[idx].porcentaje
+tipo: input
+unidad: "%"
+
+enunciado: "Un gráfico de torta muestra la distribución de un presupuesto: Alquiler 35%, Comida 25%, Transporte 15%, Ocio 10%, Otros 15%. ¿Qué porcentaje ocupa {gastos[idx].categoria}?"
+
+explicacion: |
+  Se lee directamente el tamaño de la porción correspondiente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "intermedio"
+  tags: ["torta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si las porciones mostradas en un gráfico de torta suman menos del 100%, significa que falta alguna categoría (posiblemente agrupada como 'Otros')."
+
+explicacion: |
+  El círculo completo siempre debería representar el total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "intermedio"
+  tags: ["torta"]
+
+enunciado: "¿En qué situación conviene más usar un gráfico de torta?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando hay pocas categorías (hasta 5 o 6) y lo que importa es la proporción de cada una sobre el total"
+  - "Cuando se quiere mostrar la evolución de un valor a lo largo del tiempo"
+  - "Cuando hay 20 categorías distintas, todas del mismo tamaño"
+respuesta: "Cuando hay pocas categorías (hasta 5 o 6) y lo que importa es la proporción de cada una sobre el total"
+
+explicacion: |
+  Con muchas categorías chicas, las porciones se vuelven ilegibles.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "avanzado"
+  tags: ["torta"]
+
+enunciado: "¿Por qué no conviene usar un gráfico de torta con 20 categorías distintas, muchas de ellas muy chicas?"
+tipo: mc
+opciones_explicitas:
+  - "Porque las porciones más chicas se vuelven casi imposibles de distinguir o leer a simple vista"
+  - "Porque un gráfico de torta nunca puede tener más de 3 categorías"
+  - "No hay ningún problema real en hacerlo"
+respuesta: "Porque las porciones más chicas se vuelven casi imposibles de distinguir o leer a simple vista"
+
+explicacion: |
+  Es un límite práctico de legibilidad, no una regla matemática
+  estricta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "avanzado"
+  tags: ["torta", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular la cantidad real que representa una porción, dado su porcentaje y el total."
+tipo: ordenar
+opciones_explicitas:
+  - "El resultado es la cantidad real de esa categoría"
+  - "Identificar el porcentaje de la porción y el valor del total"
+  - "Multiplicar el porcentaje por el total y dividir por 100"
+respuesta_orden: ["Identificar el porcentaje de la porción y el valor del total", "Multiplicar el porcentaje por el total y dividir por 100", "El resultado es la cantidad real de esa categoría"]
+explicacion: |
+  Sin el total, el porcentaje solo no dice cuánto es en cantidad real.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "avanzado"
+  tags: ["torta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si dos gráficos de torta representan totales distintos (por ejemplo, presupuestos de distinto tamaño), una porción del 20% en uno no necesariamente es una cantidad mayor que una porción del 30% en el otro."
+
+explicacion: |
+  El porcentaje es relativo a SU propio total — sin conocer ambos
+  totales, no se puede comparar la cantidad real.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "basico"
+  tags: ["torta", "aplicacion"]
+
+enunciado: "¿Para qué sirve un gráfico de torta al mostrar la composición de una población por grupo de edad?"
+tipo: mc
+opciones_explicitas:
+  - "Para mostrar qué proporción del total de la población representa cada grupo de edad"
+  - "Para mostrar cómo cambió la población año a año"
+  - "Para comparar la población de dos países distintos en números absolutos"
+respuesta: "Para mostrar qué proporción del total de la población representa cada grupo de edad"
+
+explicacion: |
+  Es el caso de uso típico: proporciones de un total, no evolución en
+  el tiempo ni comparación de magnitudes absolutas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "intermedio"
+  tags: ["torta", "problema"]
+
+enunciado: "Con el gráfico de presupuesto — Alquiler 35%, Comida 25%, Transporte 15%, Ocio 10%, Otros 15% — ¿cuál es la categoría con la porción más grande?"
+tipo: mc
+opciones_explicitas:
+  - "Alquiler"
+  - "Comida"
+  - "Otros"
+respuesta: "Alquiler"
+
+explicacion: |
+  35% es el valor más alto de las 5 categorías.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "avanzado"
+  tags: ["torta", "problema"]
+
+respuesta: 10
+tipo: input
+unidad: "%"
+
+enunciado: "Con el mismo gráfico — Alquiler 35%, Comida 25%, Transporte 15%, Ocio 10%, Otros 15% — ¿cuál es la diferencia de porcentaje entre Alquiler y Comida?"
+
+pasos:
+  - "35 − 25 = 10 puntos porcentuales"
+
+explicacion: |
+  Se restan directamente los dos porcentajes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "intermedio"
+  tags: ["torta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una torta con muchas categorías muy chicas (por ejemplo, 15 categorías de 2-3% cada una) es más difícil de leer con precisión que una con pocas categorías grandes."
+
+explicacion: |
+  Las porciones muy finitas son difíciles de comparar visualmente
+  entre sí.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "avanzado"
+  tags: ["torta", "problema"]
+
+variables:
+  total: uno_de([60000, 90000, 120000])
+
+respuesta: 40 * total / 100
+tipo: input
+unidad: "$"
+
+enunciado: "Con el presupuesto — Alquiler 35%, Comida 25%, Transporte 15%, Ocio 10%, Otros 15% — y un total de ${total}, ¿cuánto se gasta en Comida y Transporte JUNTOS?"
+
+pasos:
+  - "Comida + Transporte = 25% + 15% = 40%"
+  - "40% de {total} = {40 * total / 100}"
+
+explicacion: |
+  Se suman primero los porcentajes de las categorías que interesan, y
+  después se aplica al total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "basico"
+  tags: ["torta", "aplicacion"]
+
+enunciado: "Una encuesta muestra en un gráfico de torta qué porcentaje de la gente prefiere cada una de 4 opciones. ¿Qué garantiza el hecho de que sea un gráfico de torta?"
+tipo: mc
+opciones_explicitas:
+  - "Que los 4 porcentajes mostrados suman exactamente 100% de los encuestados"
+  - "Que las 4 opciones tienen exactamente el mismo porcentaje"
+  - "Que la encuesta se hizo en un solo día"
+respuesta: "Que los 4 porcentajes mostrados suman exactamente 100% de los encuestados"
+
+explicacion: |
+  Es la propiedad definitoria de este tipo de gráfico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "intermedio"
+  tags: ["torta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La categoría 'Otros' en un gráfico de torta suele agrupar varias categorías chicas en una sola porción, para no saturar el gráfico con muchas porciones diminutas."
+
+explicacion: |
+  Es una simplificación visual habitual, no significa que esas
+  categorías no existan.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "avanzado"
+  tags: ["torta", "problema"]
+
+variables:
+  gastos: [{categoria: "Alquiler", porcentaje: 35}, {categoria: "Comida", porcentaje: 25}, {categoria: "Transporte", porcentaje: 15}]
+  idx: uno_de([0, 1, 2])
+  total: uno_de([40000, 60000, 80000])
+
+respuesta: gastos[idx].porcentaje * total / 100
+tipo: input
+unidad: "$"
+
+enunciado: "Con el presupuesto — Alquiler 35%, Comida 25%, Transporte 15% — y un total de ${total}, ¿cuánto dinero representa la categoría {gastos[idx].categoria}?"
+
+pasos:
+  - "{gastos[idx].porcentaje}% de {total} = {gastos[idx].porcentaje} × {total} / 100 = {gastos[idx].porcentaje * total / 100}"
+
+explicacion: |
+  Se aplica la fórmula de porcentaje a cada categoría por separado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "avanzado"
+  tags: ["torta"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un círculo dibujado más grande en un gráfico de torta siempre representa un total mayor que un círculo más chico en otra torta."
+
+explicacion: |
+  No necesariamente — el tamaño del dibujo es una decisión visual, no
+  garantiza nada sobre el total real que representa, salvo que el
+  gráfico lo aclare explícitamente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "avanzado"
+  tags: ["torta", "problema"]
+
+respuesta: 25
+tipo: input
+unidad: "%"
+
+enunciado: "Con el gráfico — Alquiler 35%, Comida 25%, Transporte 15%, Ocio 10%, Otros 15% — ¿qué porcentaje representan juntas Transporte y Ocio?"
+
+pasos:
+  - "Transporte (15%) + Ocio (10%) = 25%"
+
+explicacion: |
+  Se suman directamente los dos porcentajes de las categorías
+  pedidas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_grafico_de_torta"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve un gráfico de torta?"
+tipo: mc
+opciones_explicitas:
+  - "Para mostrar qué proporción de un total representa cada categoría, cuando hay pocas categorías"
+  - "Para mostrar la evolución de un dato a lo largo del tiempo"
+  - "Sólo aplica cuando todas las categorías tienen el mismo tamaño"
+respuesta: "Para mostrar qué proporción de un total representa cada categoría, cuando hay pocas categorías"
+
+explicacion: |
+  Es el hermano de `../barras/` (comparar categorías) y `../lineas/`
+  (evolución en el tiempo) — cierra el trío de gráficos básicos.
+```
+

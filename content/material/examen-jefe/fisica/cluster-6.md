@@ -1,6 +1,6 @@
-# Examen jefe — Experto en Física Médica y Nuclear
+# Examen jefe — [PENDIENTE #741]
 
-> Logro #161. Completaste el parcial dominando la intersección entre la física nuclear, la imagen médica y las fórmulas literales. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **139 preguntas totales** en 5/5 secciones.
+> Logro #741. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **142 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -834,7 +834,9 @@ metadata:
 
 respuesta: "fision"
 tipo: completar
-respuestas_validas: ["fision", "fisión"]
+respuestas_validas:
+  - "fision"
+  - "fisión"
 
 enunciado: "El proceso mediante el cual un núcleo pesado se divide en dos o más núcleos más pequeños, liberando una gran cantidad de energía, se denomina ___."
 
@@ -849,11 +851,8 @@ metadata:
   nivel: "basico"
   tags: ["fusion", "masa", "energia"]
 
-variables:
-  es_fusion: verdadero
-
-respuesta: es_fusion
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "¿En un proceso de fusión nuclear, la masa de los núcleos resultantes es mayor que la masa de los núcleos originales?"
 
 explicacion: |
@@ -886,7 +885,9 @@ metadata:
 
 respuesta: "defecto de masa"
 tipo: completar
-respuestas_validas: ["defecto de masa", "defecto de masa"]
+respuestas_validas:
+  - "defecto de masa"
+  - "defecto de masa"
 
 enunciado: "La diferencia entre la masa de los nucleones individuales y la masa del núcleo unido se conoce como ___."
 
@@ -901,7 +902,7 @@ metadata:
   nivel: "basico"
   tags: ["comparacion", "fision", "fusion"]
 
-respuesta: ["Fisión", "Fusión"]
+respuesta_orden: ["Fisión", "Fusión"]
 tipo: ordenar
 
 opciones_explicitas: ["Fusión", "Fisión"]
@@ -965,17 +966,14 @@ metadata:
   nivel: "intermedio"
   tags: ["fision", "fusion"]
 
-variables:
-  escenario: uno_de(["fision", "fusion"])
-
-respuesta: escenario
+respuesta: "fusion"
 tipo: mc
 opciones_explicitas: ["fision", "fusion"]
 
-enunciado: "El proceso que consiste en la unión de dos núcleos ligeros para formar uno más pesado se denomina {escenario}."
+enunciado: "El proceso que consiste en la unión de dos núcleos ligeros para formar uno más pesado se denomina ___."
 
 explicacion: |
-  Si el escenario seleccionado fue {escenario}, la respuesta es correcta. La fusión une núcleos ligeros (como el hidrógeno) y la fisión divide núcleos pesados (como el uranio).
+  La fusión une núcleos ligeros (como el hidrógeno) y la fisión divide núcleos pesados (como el uranio).
 ```
 
 ```
@@ -985,17 +983,10 @@ metadata:
   nivel: "avanzado"
   tags: ["calculo", "fusion"]
 
-variables:
-  datos: [
-    [0.002, "1.8e14"],
-    [0.005, "4.5e14"],
-    [0.001, "9.0e13"]
-  ]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1
+respuesta: "4.5e14"
 tipo: completar
-respuestas_validas: ["1.8e14", "4.5e14", "9.0e13"]
+respuestas_validas:
+  - "4.5e14"
 
 enunciado: "En una reacción de fusión, la masa inicial es de 1.005 kg y la masa final es de 1.000 kg. La energía liberada es de ___ J."
 
@@ -1015,7 +1006,7 @@ metadata:
   nivel: "intermedio"
   tags: ["orden", "procesos"]
 
-respuesta: ["Fisión", "Fusión"]
+respuesta_orden: ["Fisión", "Fusión"]
 tipo: ordenar
 opciones_explicitas: ["Fisión", "Fusión"]
 
@@ -1038,7 +1029,10 @@ variables:
 
 respuesta: "defecto de masa"
 tipo: completar
-respuestas_validas: ["defecto de masa", "pérdida de masa", "masa faltante"]
+respuestas_validas:
+  - "defecto de masa"
+  - "pérdida de masa"
+  - "masa faltante"
 
 enunciado: "En un proceso de fisión nuclear, la suma de las masas de los fragmentos resultantes es ligeramente menor que la masa del núcleo original. Esta diferencia se conoce como ___."
 
@@ -1053,11 +1047,8 @@ metadata:
   nivel: "basico"
   tags: ["conceptos", "reaccion"]
 
-variables:
-  es_fusion: true
-
-respuesta: es_fusion
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En la fusión nuclear, núcleos ligeros se combinan para formar un núcleo más pesado, liberando energía en el proceso. ¿Es esto correcto?"
 
 explicacion: |
@@ -1113,7 +1104,7 @@ metadata:
   tags: ["proceso", "secuencia"]
 
 opciones_explicitas: ["Unión de núcleos", "Aumento de energía cinética", "Disminución de masa total"]
-respuesta: ["Unión de núcleos", "Disminución de masa total", "Aumento de energía cinética"]
+respuesta_orden: ["Unión de núcleos", "Disminución de masa total", "Aumento de energía cinética"]
 tipo: ordenar
 
 enunciado: "Ordena los eventos que ocurren en una reacción de fusión nuclear desde el inicio hasta la liberación de energía:"
@@ -1136,7 +1127,9 @@ metadata:
 
 respuesta: "defecto de masa"
 tipo: "completar"
-respuestas_validas: ["defecto de masa", "defecto de masa"]
+respuestas_validas:
+  - "defecto de masa"
+  - "defecto de masa"
 
 enunciado: "Tanto en la fisión como en la fusión nuclear, la energía liberada proviene de la conversión de una pequeña parte de la masa de los núcleos en energía, fenómeno conocido como ___."
 
@@ -1151,12 +1144,9 @@ metadata:
   nivel: "basico"
   tags: ["comparacion", "nucleos"]
 
-variables:
-  escenario: uno_de([0, 1])
-
-respuesta: uno_de([0, 1])[1]
+respuesta: "La fisión divide núcleos pesados y la fusión une núcleos ligeros, ambas liberando energía"
 tipo: "mc"
-opciones_explicitas: ["La fisión une núcleos ligeros para liberar energía", "La fusión divide núcleos pesados para liberar energía", "La fusión une núcleos ligeros para liberar energía", "La fisión divide núcleos pesados para liberar energía"]
+opciones_explicitas: ["La fisión divide núcleos pesados y la fusión une núcleos ligeros, ambas liberando energía", "La fisión une núcleos ligeros y la fusión divide núcleos pesados, ambas liberando energía", "Tanto la fisión como la fusión dividen núcleos pesados", "Tanto la fisión como la fusión unen núcleos ligeros"]
 
 enunciado: "Considerando los procesos nucleares, ¿cuál de las siguientes afirmaciones describe correctamente la diferencia entre ambos?"
 
@@ -1187,10 +1177,7 @@ metadata:
   nivel: "avanzado"
   tags: ["magnitud", "energia"]
 
-variables:
-  caso: uno_de([0, 1])
-
-respuesta: uno_de([0, 1])[1]
+respuesta: "La fusión libera más energía por unidad de masa que la fisión"
 tipo: "mc"
 opciones_explicitas: ["La fisión libera más energía por unidad de masa que la fusión", "La fusión libera más energía por unidad de masa que la fisión", "Ambos liberan la misma cantidad de energía por nucleón", "La fisión requiere temperaturas mucho más altas que la fusión"]
 
@@ -1207,7 +1194,7 @@ metadata:
   nivel: "intermedio"
   tags: ["pasos", "energia"]
 
-respuesta: ["Reactivos con masa total mayor", "Transformación por interacción nuclear", "Productos con masa total menor", "Liberación de energía (E=mc²)"]
+respuesta_orden: ["Reactivos con masa total mayor", "Transformación por interacción nuclear", "Productos con masa total menor", "Liberación de energía (E=mc²)"]
 tipo: "ordenar"
 opciones_explicitas: ["Reactivos con masa total mayor", "Transformación por interacción nuclear", "Productos con masa total menor", "Liberación de energía (E=mc²)"]
 
@@ -1224,18 +1211,14 @@ metadata:
   nivel: "intermedio"
   tags: ["energia", "relatividad", "masa"]
 
-variables:
-  datos: [["Uranio-235", "fision"], ["Hidrogeno", "fusion"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "fision"
 tipo: mc
 opciones_explicitas: ["fision", "fusion", "combustion", "desintegracion"]
 
-enunciado: "En una central nuclear convencional, se utiliza el proceso de {datos[idx][0]} para liberar energía. Este proceso se denomina:"
+enunciado: "En una central nuclear convencional, se utiliza Uranio-235 para liberar energía. Este proceso se denomina:"
 
 explicacion: |
-  El proceso de {datos[idx][0]} en reactores nucleares se basa en la fisión, donde un núcleo pesado se divide.
+  Las centrales nucleares convencionales se basan en la fisión, donde un núcleo pesado (como el Uranio-235) se divide. La fusión, en cambio, aún no es una tecnología comercial madura.
 ```
 
 ```
@@ -1249,9 +1232,12 @@ variables:
   datos: [["1.005", "0.005"], ["1.010", "0.010"], ["0.998", "0.002"]]
   idx: uno_de([0,1,2])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["0.005", "0.010", "0.002"]
+respuestas_validas:
+  - "0.005"
+  - "0.010"
+  - "0.002"
 
 enunciado: "Si la masa de los fragmentos resultantes tras un proceso nuclear es de ___ unidades de masa atómica menos que la masa de los núcleos originales, ese valor se conoce como defecto de masa."
 
@@ -1287,10 +1273,10 @@ metadata:
   tags: ["e_mc2", "calculo"]
 
 variables:
-  valores: [["1.0e-30", "2.7e-13"], ["2.0e-30", "5.4e-13"], ["5.0e-30", "4.5e-13"]]
+  valores: [["1.0e-30", "9.0e-14"], ["2.0e-30", "1.8e-13"], ["5.0e-30", "4.5e-13"]]
   idx: uno_de([0,1,2])
 
-respuesta: valores[idx][1
+respuesta: valores[idx][1]
 tipo: completar
 tolerancia_abs: 0.00001e-13
 
@@ -1312,9 +1298,9 @@ metadata:
   nivel: "basico"
   tags: ["ordenar", "proceso"]
 
-respuesta: ["Masa de reactivos", "Defecto de masa", "Energía liberada"]
+respuesta_orden: ["Masa de reactivos", "Defecto de masa", "Energía liberada"]
 tipo: ordenar
-opciones_explicitas: ["Masa de reactivos", "Defecto de masa", "Energía liberada", "Masa de productos"]
+opciones_explicitas: ["Masa de reactivos", "Defecto de masa", "Energía liberada"]
 
 enunciado: "Ordena los conceptos según el orden lógico en el que ocurren para explicar la liberación de energía en un proceso nuclear:"
 
@@ -1366,11 +1352,12 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0,1])
-  datos: [[10, "virtual"], [5, "real"]]
+  datos: [[10, "virtual"], [5, "virtual"]]
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["virtual", "real"]
+respuestas_validas:
+  - "virtual"
 
 enunciado: "Si un objeto se coloca a una distancia de {datos[escenario_idx][0]} cm de un espejo convexo, la imagen resultante será ___."
 
@@ -1402,7 +1389,7 @@ metadata:
   tags: ["proceso", "formacion-imagen"]
 
 opciones_explicitas: ["Emisión de luz por el objeto", "Propagación de rayos hacia la lente", "Convergencia de rayos en un punto", "Proyección en una pantalla"]
-respuesta: ["Emisión de luz por el objeto", "Propagación de rayos hacia la lente", "Convergencia de rayos en un punto", "Proyección en una pantalla"]
+respuesta_orden: ["Emisión de luz por el objeto", "Propagación de rayos hacia la lente", "Convergencia de rayos en un punto", "Proyección en una pantalla"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los pasos necesarios para la formación de una imagen real mediante una lente convergente:"
@@ -1421,7 +1408,8 @@ metadata:
 enunciado: "Si un objeto se coloca a una distancia mayor que el doble de la distancia focal de un espejo cóncavo (d > 2f), la imagen formada es ___."
 
 opciones_explicitas: ["real", "virtual", "imaginaria"]
-respuestas_validas: ["real"]
+respuestas_validas:
+  - "real"
 
 respuesta: "real"
 tipo: "mc"
@@ -1514,7 +1502,7 @@ enunciado: "Ordena los pasos para determinar si una imagen es real o virtual usa
 
 opciones_explicitas: ["Calcular d_img con la ecuación de Gauss", "Determinar si el signo de d_img es positivo o negativo", "Concluir si la imagen es real o virtual"]
 
-respuesta: ["Calcular d_img con la ecuación de Gauss", "Determinar si el signo de d_img es positivo o negativo", "Concluir si la imagen es real o virtual"]
+respuesta_orden: ["Calcular d_img con la ecuación de Gauss", "Determinar si el signo de d_img es positivo o negativo", "Concluir si la imagen es real o virtual"]
 tipo: "ordenar"
 
 explicacion: |
@@ -1528,7 +1516,7 @@ metadata:
   nivel: "basico"
   tags: ["optica", "espejos", "imágenes"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Una imagen es siempre real si los rayos de luz convergen en un punto físico después de reflejarse o refractarse."
@@ -1544,11 +1532,7 @@ metadata:
   nivel: "intermedio"
   tags: ["espejos_curvos", "imágenes"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[10, "real", "invertida"], [5, "virtual", "derecha"]]
-
-respuesta: datos[escenario_idx][1
+respuesta: "real"
 tipo: mc
 opciones_explicitas: ["real", "virtual"]
 
@@ -1565,13 +1549,12 @@ metadata:
   nivel: "intermedio"
   tags: ["espejos", "lentes"]
 
-variables:
-  caso: uno_de([0, 1])
-  datos: [[15, "grande"], [5, "pequeña"]]
-
-respuesta: datos[caso][1
+respuesta: "pequeña"
 tipo: completar
-respuestas_validas: ["grande", "pequeña"]
+respuestas_validas:
+  - "pequeña"
+  - "menor"
+  - "reducida"
 
 enunciado: "En un espejo convexo, la imagen siempre es ___ respecto al objeto."
 
@@ -1588,7 +1571,8 @@ metadata:
 
 respuesta: "derecha"
 tipo: completar
-respuestas_validas: ["derecha", "invertida"]
+respuestas_validas:
+  - "derecha"
 
 enunciado: "En un espejo plano, la imagen que se observa es siempre de orientación ___."
 
@@ -1603,8 +1587,8 @@ metadata:
   nivel: "avanzado"
   tags: ["lentes", "proceso"]
 
-opciones_explicitas: ["Objeto frente a la lente", "Lente refracta los rayos", "Intersección de rayos divergentes", "Formación de imagen real"]
-respuesta: ["Objeto frente a la lente", "Lente refracta los rayos", "Intersección de rayos divergentes", "Formación de imagen real"]
+opciones_explicitas: ["Objeto frente a la lente", "Lente refracta los rayos", "Intersección de rayos convergentes", "Formación de imagen real"]
+respuesta_orden: ["Objeto frente a la lente", "Lente refracta los rayos", "Intersección de rayos convergentes", "Formación de imagen real"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los pasos para la formación de una imagen real con una lente convergente cuando el objeto está fuera del foco:"
@@ -1637,10 +1621,7 @@ metadata:
   nivel: "intermedio"
   tags: ["optica", "imagen_virtual"]
 
-variables:
-  es_derecha: uno_de([verdadero, falso])
-
-respuesta: es_derecha
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "En el caso de una imagen virtual formada por un espejo plano, la imagen es siempre derecha respecto al objeto."
@@ -1656,14 +1637,12 @@ metadata:
   nivel: "intermedio"
   tags: ["optica", "orientacion"]
 
-variables:
-  caso: uno_de([0, 1])
-
-respuesta: tabla[caso][1
+respuesta: "derecha"
 tipo: "completar"
-tabla: [["derecha", "derecha"], ["invertida", "invertida"]]
+respuestas_validas:
+  - "derecha"
 
-enunciado: "Si una imagen es real, su orientación respecto al objeto será _______, mientras que si la imagen es virtual en un espejo plano, será _______."
+enunciado: "Una imagen real suele ser invertida respecto al objeto; en cambio, si la imagen es virtual y se forma en un espejo plano, su orientación es siempre _______."
 
 explicacion: |
   Las imágenes reales suelen ser invertidas (en lentes o espejos convexos/cóncavos según posición), mientras que las imágenes virtuales en espejos planos son siempre derechas.
@@ -1677,7 +1656,7 @@ metadata:
   tags: ["optica", "rayos_luz"]
 
 opciones_explicitas: ["Rayos convergen en un punto real", "Rayos divergen y parecen provenir de un punto", "Rayos se propagan en línea recta sin interacción"]
-respuesta: ["Rayos convergen en un punto real", "Rayos divergen y parecen provenir de un punto", "Rayos se propagan en línea recta sin interacción"]
+respuesta_orden: ["Rayos convergen en un punto real", "Rayos divergen y parecen provenir de un punto", "Rayos se propagan en línea recta sin interacción"]
 tipo: "ordenar"
 
 enunciado: "Ordene los procesos físicos que describen la formación de una imagen real, una imagen virtual y la propagación de la luz, respectivamente."
@@ -1695,7 +1674,7 @@ metadata:
   nivel: "basico"
   tags: ["optica", "proyeccion"]
 
-respuesta: 0
+respuesta: "1"
 tipo: "mc"
 opciones_explicitas: ["0", "1"]
 
@@ -1714,13 +1693,15 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0,1])
-  datos: [["un espejo plano", "virtual"], ["una lupa (lupa)", "virtual"]]
+  datos: [["un espejo plano", "virtual"], ["una lupa", "virtual"]]
 
 enunciado: "Al colocar un objeto frente a {datos[escenario_idx][0]}, la imagen que se observa es de tipo ___."
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["virtual", "real"]
+respuestas_validas:
+  - "virtual"
+  - "real"
 
 explicacion: |
   En un espejo plano, los rayos de luz parecen provenir de un punto detrás del espejo, por lo que la imagen es virtual.
@@ -1799,429 +1780,6 @@ tipo: vf
 
 explicacion: |
   Correcto. Los espejos convexos siempre divergen los rayos, por lo que la imagen siempre es virtual, derecha y de menor tamaño.
-```
-
-## Sección: formacion-de-nubes (22 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "basico"
-  tags: ["nubes", "condensacion"]
-
-enunciado: "¿Qué ocurre con el vapor de agua cuando el aire que lo contiene se enfría lo suficiente al ascender?"
-tipo: mc
-opciones_explicitas:
-  - "Se condensa: pasa de gas a diminutas gotitas líquidas o cristales de hielo"
-  - "Se evapora todavía más"
-  - "Desaparece del aire por completo"
-respuesta: "Se condensa: pasa de gas a diminutas gotitas líquidas o cristales de hielo"
-
-explicacion: |
-  Esas gotitas o cristales, en gran cantidad, forman lo que vemos como
-  una nube.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "basico"
-  tags: ["nubes", "condensacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El aire se enfría a medida que asciende en la atmósfera."
-
-explicacion: |
-  Es la condición que dispara la condensación y la formación de nubes.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "basico"
-  tags: ["nubes", "punto_de_rocio"]
-
-enunciado: "¿Qué es el punto de rocío?"
-tipo: mc
-opciones_explicitas:
-  - "La temperatura a la que el aire debe enfriarse para que su vapor de agua empiece a condensarse"
-  - "La altura máxima que puede alcanzar una nube"
-  - "La cantidad total de agua que cae en una tormenta"
-respuesta: "La temperatura a la que el aire debe enfriarse para que su vapor de agua empiece a condensarse"
-
-explicacion: |
-  Es clave para saber si un aire dado va a formar nubes o no.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "intermedio"
-  tags: ["nubes", "punto_de_rocio"]
-
-enunciado: "Si la temperatura del aire está muy por encima de su punto de rocío, ¿qué se espera?"
-tipo: mc
-opciones_explicitas:
-  - "Cielo despejado, lejos de condensar"
-  - "Formación inmediata de nubes"
-  - "Nieve garantizada"
-respuesta: "Cielo despejado, lejos de condensar"
-
-explicacion: |
-  Cuanto más lejos esté la temperatura actual del punto de rocío, menos
-  probable es la condensación.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "intermedio"
-  tags: ["nubes", "punto_de_rocio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuanto más húmedo es el aire, más alto (más cerca de la temperatura actual) está su punto de rocío."
-
-explicacion: |
-  Necesita enfriarse menos para llegar a condensar.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "basico"
-  tags: ["nubes", "clasificacion"]
-
-enunciado: "¿Qué prefijo indica que una nube es de las capas más altas de la atmósfera?"
-tipo: mc
-opciones_explicitas:
-  - "Cirro-"
-  - "Alto-"
-  - "Estrato-"
-respuesta: "Cirro-"
-
-explicacion: |
-  Las nubes altas están formadas por cristales de hielo, por el frío
-  extremo a esa altura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "basico"
-  tags: ["nubes", "clasificacion"]
-
-enunciado: "¿Qué prefijo indica que una nube está en las capas medias de la atmósfera?"
-tipo: mc
-opciones_explicitas:
-  - "Alto-"
-  - "Cirro-"
-  - "Nimbo-"
-respuesta: "Alto-"
-
-explicacion: |
-  Por ejemplo, altocúmulos o altoestratos.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "intermedio"
-  tags: ["nubes", "clasificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las nubes de desarrollo vertical, como los cumulonimbos, atraviesan varias capas de altura, desde bajas hasta muy altas."
-
-explicacion: |
-  Pueden llegar a los 12-15 km de altura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "basico"
-  tags: ["nubes", "clasificacion"]
-
-enunciado: "¿Cómo son las nubes tipo cúmulo?"
-tipo: mc
-opciones_explicitas:
-  - "En forma de algodón, acumuladas, con base plana"
-  - "En capas extendidas y uniformes"
-  - "Finas y filamentosas"
-respuesta: "En forma de algodón, acumuladas, con base plana"
-
-explicacion: |
-  Son típicas de un día de buen tiempo, salvo que crezcan demasiado.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "basico"
-  tags: ["nubes", "clasificacion"]
-
-enunciado: "¿Cómo son las nubes tipo estrato?"
-tipo: mc
-opciones_explicitas:
-  - "En capas extendidas y uniformes, que suelen cubrir todo el cielo"
-  - "En forma de algodón, acumuladas"
-  - "Finas y filamentosas, en las capas más altas"
-respuesta: "En capas extendidas y uniformes, que suelen cubrir todo el cielo"
-
-explicacion: |
-  Se asocian a llovizna suave y prolongada, típica de un frente cálido.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "intermedio"
-  tags: ["nubes", "clasificacion"]
-
-enunciado: "¿Qué caracteriza a los cirros?"
-tipo: mc
-opciones_explicitas:
-  - "Son nubes altas, finas y filamentosas, y no producen lluvia"
-  - "Son nubes bajas que siempre producen tormenta"
-  - "Son nubes que cubren todo el cielo con lluvia sostenida"
-respuesta: "Son nubes altas, finas y filamentosas, y no producen lluvia"
-
-explicacion: |
-  Suelen anticipar un cambio de tiempo en las próximas 24-48 horas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "intermedio"
-  tags: ["nubes", "clasificacion"]
-
-enunciado: "¿Qué indica el prefijo/sufijo \"nimbo-\" en el nombre de una nube?"
-tipo: mc
-opciones_explicitas:
-  - "Que la nube produce precipitación"
-  - "Que la nube está en las capas más altas"
-  - "Que la nube nunca se mueve"
-respuesta: "Que la nube produce precipitación"
-
-explicacion: |
-  Nimboestratos y cumulonimbos son ejemplos: estratos o cúmulos que
-  llueven.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "intermedio"
-  tags: ["nubes", "clasificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los cumulonimbos son cúmulos que crecieron mucho, de desarrollo vertical, y producen tormenta."
-
-explicacion: |
-  Son el tipo de nube asociado a un frente frío muy activo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "intermedio"
-  tags: ["nubes", "clasificacion"]
-
-enunciado: "¿Qué tipo de precipitación se asocia a los nimboestratos?"
-tipo: mc
-opciones_explicitas:
-  - "Lluvia sostenida, más suave pero prolongada"
-  - "Tormenta eléctrica breve e intensa"
-  - "Ninguna, esas nubes nunca llueven"
-respuesta: "Lluvia sostenida, más suave pero prolongada"
-
-explicacion: |
-  Son estratos que llueven, típicos de un frente cálido.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "avanzado"
-  tags: ["nubes", "frentes"]
-
-enunciado: "¿Qué tipo de nube genera típicamente un frente frío, que fuerza un ascenso brusco del aire cálido?"
-tipo: mc
-opciones_explicitas:
-  - "Nubes de desarrollo vertical (cumulonimbos)"
-  - "Nubes en capas uniformes (estratos)"
-  - "Nubes altas y filamentosas (cirros)"
-respuesta: "Nubes de desarrollo vertical (cumulonimbos)"
-
-explicacion: |
-  El ascenso brusco empuja el aire con fuerza hacia arriba, formando
-  torres de nube.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "avanzado"
-  tags: ["nubes", "frentes"]
-
-enunciado: "¿Qué tipo de nube genera típicamente un frente cálido, con ascenso suave y gradual del aire?"
-tipo: mc
-opciones_explicitas:
-  - "Nubes en capas uniformes (estratos)"
-  - "Nubes de desarrollo vertical (cumulonimbos)"
-  - "Ninguna nube en absoluto"
-respuesta: "Nubes en capas uniformes (estratos)"
-
-explicacion: |
-  Un ascenso gradual produce nubes extendidas en capas, no torres.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "intermedio"
-  tags: ["nubes", "clasificacion"]
-
-tipo: completar
-respuestas_validas:
-  - "cirros"
-
-enunciado: "Las nubes altas, finas y filamentosas que suelen anticipar un cambio de tiempo en las próximas 24-48 horas se llaman ____."
-
-explicacion: |
-  Son cristales de hielo suspendidos, sin producir lluvia por sí mismas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "intermedio"
-  tags: ["nubes", "clasificacion"]
-
-tipo: ordenar
-opciones_explicitas:
-  - "estratos (nubes bajas)"
-  - "altocúmulos (nubes medias)"
-  - "cirros (nubes altas)"
-respuesta:
-  - "estratos (nubes bajas)"
-  - "altocúmulos (nubes medias)"
-  - "cirros (nubes altas)"
-
-enunciado: "Ordená estos tipos de nube de menor a mayor altura sobre el suelo."
-
-explicacion: |
-  Bajas, medias y altas es el orden de clasificación por altura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "intermedio"
-  tags: ["nubes", "punto_de_rocio", "calculo"]
-
-variables:
-  temperatura_actual: random(20, 35)
-  punto_de_rocio: random(5, 19)
-
-respuesta: temperatura_actual - punto_de_rocio
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La temperatura actual del aire es {temperatura_actual}°C y su punto de rocío es {punto_de_rocio}°C. ¿Cuántos grados le falta enfriarse al aire para empezar a condensar?"
-
-explicacion: |
-  Es la diferencia entre la temperatura actual y el punto de rocío.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "avanzado"
-  tags: ["nubes", "punto_de_rocio"]
-
-variables:
-  temp: random(20, 30)
-  rocio_ciudad_a: random(5, 12)
-  rocio_ciudad_b: random(15, 19)
-
-respuesta: "la ciudad B"
-tipo: mc
-opciones_explicitas:
-  - "la ciudad B"
-  - "la ciudad A"
-  - "las dos tienen la misma humedad"
-
-enunciado: "Con la misma temperatura de {temp}°C, la ciudad A tiene un punto de rocío de {rocio_ciudad_a}°C y la ciudad B de {rocio_ciudad_b}°C. ¿Cuál de las dos tiene el aire más húmedo?"
-
-explicacion: |
-  El aire más húmedo tiene el punto de rocío más cercano a la
-  temperatura actual (necesita enfriarse menos para condensar).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "basico"
-  tags: ["nubes", "clasificacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Todas las nubes, sin excepción, producen algún tipo de precipitación."
-
-explicacion: |
-  Los cúmulos de buen tiempo y los cirros, por ejemplo, no producen
-  lluvia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "formacion_de_nubes"
-  nivel: "avanzado"
-  tags: ["nubes", "sintesis"]
-
-enunciado: "¿Cuál resume mejor por qué se forman las nubes?"
-tipo: mc
-opciones_explicitas:
-  - "El aire asciende, se enfría, y cuando llega al punto de rocío el vapor de agua se condensa en gotitas o cristales suspendidos"
-  - "Las nubes aparecen al azar sin relación con la temperatura del aire"
-  - "Las nubes se forman sólo cuando hay viento fuerte, sin importar la humedad"
-respuesta: "El aire asciende, se enfría, y cuando llega al punto de rocío el vapor de agua se condensa en gotitas o cristales suspendidos"
-
-explicacion: |
-  Es el mecanismo central: ascenso, enfriamiento, condensación en el
-  punto de rocío.
 ```
 
 ## Sección: formulas-con-literales (28 preguntas)
@@ -2844,3 +2402,522 @@ explicacion: |
   Es exactamente el motivo por el que este tema depende de
   `../../matematica/despejar-formula/` y no al revés.
 ```
+
+## Sección: frecuencia (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_basica"
+  nivel: "basico"
+  tags: ["oscilaciones", "definicion"]
+
+tipo: mc
+opciones_explicitas: ["El tiempo que tarda en completarse una oscilación", "La cantidad de oscilaciones por unidad de tiempo", "La distancia máxima desde el punto de equilibrio", "La velocidad de un objeto en movimiento"]
+
+respuesta: "La cantidad de oscilaciones por unidad de tiempo"
+
+enunciado: "La frecuencia se define como ___."
+
+explicacion: |
+  La frecuencia mide cuántos ciclos o vueltas ocurren en un intervalo de tiempo determinado.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "relacion_frecuencia_periodo"
+  nivel: "basico"
+  tags: ["periodo", "formula"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["T = 2 s", "f = 0.5 Hz"], ["T = 0.5 s", "f = 2 Hz"]]
+
+tipo: mc
+opciones_explicitas: ["f = T", "f = 1 / T", "f = T * 2", "f = 1 / (2 * T)"]
+
+respuesta: "f = 1 / T"
+
+enunciado: "Si un fenómeno tiene un período de {datos[idx][0]}, su frecuencia es de {datos[idx][1]}."
+
+explicacion: |
+  La relación entre frecuencia (f) y período (T) es inversamente proporcional: f = 1/T.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "unidades_frecuencia"
+  nivel: "basico"
+  tags: ["unidades", "herتz"]
+
+tipo: completar
+respuestas_validas:
+  - "Hz"
+  - "Hertz"
+
+respuesta: "Hz"
+
+enunciado: "La unidad de medida de la frecuencia en el Sistema Internacional es el ___."
+
+explicacion: |
+  El Hertz (Hz) equivale a 1 ciclo por segundo (1/s).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "propiedades_frecuencia"
+  nivel: "basico"
+  tags: ["conceptual"]
+
+tipo: vf
+
+respuesta: falso
+
+enunciado: "Si el período de un péndulo aumenta, su frecuencia también aumenta."
+
+explicacion: |
+  Falso. Como la relación es inversa (f = 1/T), si el período aumenta, la frecuencia disminuye.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "calculo_frecuencia"
+  nivel: "intermedio"
+  tags: ["calculo", "ejercicio"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[5, 0.2], [10, 0.1]]
+
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un objeto realiza un ciclo completo cada {datos[idx][0]} segundos. ¿Cuál es su frecuencia en Hz?"
+
+pasos:
+  - "Identificar el período (T = {datos[idx][0]} s)"
+  - "Aplicar la fórmula f = 1 / T"
+  - "Calcular el resultado: 1 / {datos[idx][0]}"
+
+respuesta: datos[idx][1]
+
+explicacion: |
+  Usando la fórmula f = 1 / T:
+  f = 1 / {datos[idx][0]} = {datos[idx][1]} Hz.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
+  nivel: "basico"
+  tags: ["frecuencia", "periodo", "oscilaciones"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si el período de una oscilación aumenta, la frecuencia de la misma también aumenta."
+
+explicacion: |
+  La frecuencia ($f$) es inversamente proporcional al período ($T$), según la fórmula $f = 1/T$. Si el tiempo que tarda un ciclo (período) es mayor, ocurren menos ciclos por segundo (frecuencia menor).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_calculo"
+  nivel: "basico"
+  tags: ["frecuencia", "calculo"]
+
+variables:
+  periodo: 0.5
+
+respuesta: 2.0
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un péndulo completa un ciclo cada {periodo} segundos. ¿Cuál es su frecuencia en Hz?"
+
+pasos:
+  - "Identificar el período: $T = {periodo}$ s"
+  - "Aplicar la fórmula: $f = 1 / T$"
+  - "Calcular: $f = 1 / 0.5 = 2.0$ Hz"
+
+explicacion: |
+  La frecuencia se calcula dividiendo 1 entre el período. En este caso, $1 / 0.5 = 2$ Hz.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_definicion"
+  nivel: "basico"
+  tags: ["definicion", "frecuencia"]
+
+opciones_explicitas: ["Cantidad de ciclos por unidad de tiempo", "Tiempo que tarda un ciclo", "Distancia recorrida en un ciclo", "Velocidad de la oscilación"]
+respuesta: "Cantidad de ciclos por unidad de tiempo"
+tipo: mc
+
+enunciado: "¿Cuál es la definición física de frecuencia?"
+
+explicacion: |
+  La frecuencia mide cuántas veces se repite un evento (u oscilación) en un intervalo de tiempo determinado (generalmente un segundo).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_unidades"
+  nivel: "intermedio"
+  tags: ["unidades", "hercios"]
+
+variables:
+  f_valor: 50
+  f_unid: "Hz"
+
+respuesta: "50"
+tipo: completar
+respuestas_validas:
+  - "50"
+
+enunciado: "Si un objeto oscila con una frecuencia de {f_valor} {f_unid}, esto significa que realiza ___ oscilaciones por segundo."
+
+explicacion: |
+  El Hertz (Hz) es la unidad del Sistema Internacional para la frecuencia y equivale a $1/s$ (un ciclo por segundo).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_inversa"
+  nivel: "intermedio"
+  tags: ["frecuencia", "periodo"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[0.2, 5.0], [0.5, 2.0]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: [datos[idx][1]]
+
+enunciado: "Si el período de un fenómeno es de {datos[idx][0]} segundos, ¿cuál es su frecuencia?"
+
+pasos:
+  - "Datos: $T = {datos[idx][0]}$ s"
+  - "Fórmula: $f = 1 / T$"
+  - "Resultado: $f = 1 / {datos[idx][0]} = {datos[idx][1]}$ Hz"
+
+explicacion: |
+  Usando la relación $f = 1/T$, para un período de {datos[idx][0]} s, la frecuencia es {datos[idx][1]} Hz.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
+  nivel: "basico"
+  tags: ["oscilaciones", "periodo"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[0.5, "2.0"], [2.0, "0.5"]]
+
+enunciado: "Si un objeto realiza una oscilación cada {datos[idx][0]} segundos (período), ¿cuál será su frecuencia en Hz?"
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["0.5", "2.0", "1.0", "0.25"]
+
+explicacion: |
+  La frecuencia (f) es el inverso del período (T): f = 1/T. 
+  Si T = {datos[idx][0]} s, entonces f = 1 / {datos[idx][0]} = {datos[idx][1]} Hz.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "unidades_frecuencia"
+  nivel: "basico"
+  tags: ["unidades", "hertz"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La unidad de medida de la frecuencia, el Hertz (Hz), representa el tiempo que tarda en completarse un ciclo completo."
+
+explicacion: |
+  Falso. El Hertz (Hz) mide la cantidad de ciclos por segundo (1/s). 
+  La unidad que mide el tiempo de un ciclo es el segundo (s), que corresponde al período.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_oscilaciones"
+  nivel: "intermedio"
+  tags: ["calculo", "tiempo"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [[10, 60], [5, 120]]
+
+enunciado: "Un péndulo oscila con una frecuencia de {escenario[idx][0]} Hz. ¿Cuántas oscilaciones completará en un intervalo de tiempo de {escenario[idx][1]} segundos?"
+
+respuesta: escenario[idx][0] * escenario[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+pasos:
+  - "Identificar la frecuencia (f) y el tiempo (t)."
+  - "Multiplicar el número de ciclos por segundo por el tiempo total: N = f * t."
+
+explicacion: |
+  Para hallar el número total de oscilaciones, multiplicamos la frecuencia por el tiempo transcurrido.
+  N = {escenario[idx][0]} Hz * {escenario[idx][1]} s = {escenario[idx][0] * escenario[idx][1]} oscilaciones.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
+  nivel: "basico"
+  tags: ["relacion_inversa"]
+
+respuesta: "Si el período aumenta, la frecuencia disminuye"
+tipo: mc
+opciones_explicitas: ["Si el período aumenta, la frecuencia aumenta", "Si el período aumenta, la frecuencia disminuye", "Si el período aumenta, la frecuencia se mantiene igual"]
+
+enunciado: "Considerando la relación f = 1/T, ¿cuál de las siguientes afirmaciones es correcta sobre el comportamiento de la frecuencia cuando el período se hace más largo?"
+
+explicacion: |
+  Debido a que la frecuencia es inversamente proporcional al período, si el denominador (T) crece, el resultado (f) se reduce.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "metodologia_resolucion"
+  nivel: "intermedio"
+  tags: ["ordenar", "pasos"]
+
+respuesta_orden: ["Identificar el período (T)", "Calcular el inverso (1/T)", "Asignar la unidad Hertz (Hz)"]
+tipo: ordenar
+opciones_explicitas: ["Identificar el período (T)", "Calcular el inverso (1/T)", "Asignar la unidad Hertz (Hz)"]
+
+enunciado: "Ordena los pasos lógicos para convertir un período de 0.25 segundos a frecuencia en Hertz:"
+
+explicacion: |
+  1. Primero identificas el valor del período.
+  2. Aplicas la fórmula matemática de la inversa.
+  3. Expresas el resultado en la unidad de medida correcta.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
+  nivel: "basico"
+  tags: ["oscilaciones", "periodo"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["0.5", "2.0"], ["2.0", "0.5"]]
+
+enunciado: "Si el período de un oscilador es de {datos[idx][0]} segundos, ¿cuál será su frecuencia en Hz?"
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["0.5", "1.0", "2.0", "4.0"]
+
+explicacion: |
+  La frecuencia (f) es el inverso del período (T), es decir, f = 1/T. 
+  Si T = 0.5 s, entonces f = 1 / 0.5 = 2.0 Hz.
+  Si T = 2.0 s, entonces f = 1 / 2.0 = 0.5 Hz.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_definicion"
+  nivel: "basico"
+  tags: ["definicion", "conceptos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La frecuencia se define como la cantidad de ciclos o oscilaciones completas que ocurren en una unidad de tiempo."
+
+explicacion: |
+  Correcto. La frecuencia mide la rapidez con la que se repite un fenómeno periódico.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "unidades_frecuencia"
+  nivel: "basico"
+  tags: ["unidades", "si_no"]
+
+respuesta: "Hz"
+tipo: completar
+respuestas_validas:
+  - "Hz"
+  - "Hertz"
+
+enunciado: "La unidad de medida de la frecuencia en el Sistema Internacional es el ___."
+
+explicacion: |
+  La unidad es el Hertz (Hz), que equivale a 1/s (ciclos por segundo).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo_comparacion"
+  nivel: "intermedio"
+  tags: ["relacion_inversa"]
+
+respuesta: "inversamente"
+tipo: completar
+respuestas_validas:
+  - "inversamente"
+
+enunciado: "Mientras que el período mide el tiempo de un solo ciclo, la frecuencia y el período tienen una relación ___."
+
+explicacion: |
+  Es una relación inversa: a mayor período (más tiempo por ciclo), menor frecuencia (menos ciclos por segundo).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "magnitudes_periodicas"
+  nivel: "basico"
+  tags: ["identificacion"]
+
+respuesta_orden: ["Amplitud", "Período", "Frecuencia"]
+tipo: ordenar
+
+opciones_explicitas: ["Período", "Frecuencia", "Amplitud"]
+
+enunciado: "Un sistema oscilante tiene un período de 2 s, una frecuencia de 0.5 Hz y una amplitud de 5 m. Ordena estas tres magnitudes de mayor a menor según su valor numérico:"
+
+explicacion: |
+  Comparando los valores dados: Amplitud = 5, Período = 2, Frecuencia = 0.5.
+  De mayor a menor: Amplitud, Período, Frecuencia.
+  Nota: al ser magnitudes físicas distintas (metros, segundos y hertz) esta comparación es puramente numérica, no física.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
+  nivel: "basico"
+  tags: ["oscilaciones", "periodo"]
+
+variables:
+  periodo: uno_de([0.5, 2.0, 0.2])
+  frecuencia: 1 / periodo
+
+respuesta: frecuencia
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un péndulo de un reloj antiguo realiza un movimiento oscilatorio. Si el tiempo que tarda en completar una oscilación completa (período) es de {periodo} segundos, ¿cuál es la frecuencia de oscilación en Hz?"
+
+pasos:
+  - "Identificar el período T = {periodo} s"
+  - "Aplicar la fórmula de la frecuencia: f = 1 / T"
+  - "Calcular f = 1 / {periodo}"
+
+explicacion: |
+  La frecuencia (f) es el inverso del período (T). Si tarda {periodo} s en oscilar una vez, en un segundo realiza {frecuencia} oscilaciones.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
+  nivel: "intermedio"
+  tags: ["mecanica", "frecuencia"]
+
+variables:
+  motor_rpm: uno_de([1200, 3000, 600])
+  f_valor: motor_rpm / 60
+
+respuesta: f_valor
+tipo: mc
+opciones_explicitas: [20, 50, 10, 500]
+
+enunciado: "Un motor de combustión interna realiza {motor_rpm} revoluciones por minuto (RPM). ¿Cuántas revoluciones (frecuencia) realiza por segundo (Hz)?"
+
+explicacion: |
+  Para convertir de RPM a Hz, debemos dividir la cantidad de revoluciones por 60, ya que un minuto tiene 60 segundos. {motor_rpm} / 60 = {f_valor} Hz.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
+  nivel: "basico"
+  tags: ["ondas", "radio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una onda electromagnética tiene una frecuencia muy alta, su período de oscilación debe ser muy corto."
+
+explicacion: |
+  Es verdadero. Como f = 1/T, la frecuencia y el período son inversamente proporcionales. A mayor frecuencia, menor período.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
+  nivel: "basico"
+  tags: ["biologia_fisica", "frecuencia"]
+
+variables:
+  datos_ritmo: uno_de([60, 80, 100])
+  periodo_calculado: 60 / datos_ritmo
+
+respuesta: periodo_calculado
+tipo: completar
+respuestas_validas:
+  - 1
+  - 0.75
+  - 0.6
+
+enunciado: "Una persona tiene una frecuencia cardíaca de {datos_ritmo} latidos por minuto. El tiempo transcurrido entre cada latido (período) es de ___ segundos."
+
+explicacion: |
+  Si hay {datos_ritmo} latidos en 60 segundos, el tiempo por latido es 60 / {datos_ritmo} = {periodo_calculado} segundos.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "frecuencia_periodo"
+  nivel: "intermedio"
+  tags: ["ritmo", "orden"]
+
+variables:
+  f_val: 2.0
+  t_val: 0.5
+
+respuesta_orden: ["0.5", "1.0", "2.0"]
+tipo: ordenar
+opciones_explicitas: ["0.5", "1.0", "2.0"]
+
+enunciado: "Un metrónomo marca una frecuencia de {f_val} Hz. Ordena los siguientes valores de período (en segundos) de menor a mayor:"
+
+explicacion: |
+  Si f = 2 Hz, el período es T = 1/2 = 0.5 s. Los períodos correspondientes a frecuencias de 2Hz, 1Hz y 0.5Hz son 0.5s, 1s y 2s respectivamente.
+```
+

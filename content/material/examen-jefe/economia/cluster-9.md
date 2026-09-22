@@ -1,2401 +1,2281 @@
-# Examen jefe — Maestro de Intereses y Previsión
+# Examen jefe — [PENDIENTE #774]
 
-> Logro #195. Calculaste intereses, IVA y jubilaciones como un crack. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **118 preguntas totales** en 5/5 secciones.
+> Logro #774. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **115 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: interes-compuesto (22 preguntas)
+## Sección: indices-financieros (22 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "interes_compuesto"
+  tema: "indices_financieros"
   nivel: "basico"
-  tags: ["interes_compuesto", "vocabulario"]
+  tags: ["liquidez", "corriente"]
 
-enunciado: "¿Qué diferencia al interés compuesto del interés simple?"
-tipo: mc
-opciones_explicitas:
-  - "El interés generado se suma al capital, y el período siguiente genera interés sobre ese total"
-  - "Se calcula con una tasa más alta"
-  - "Sólo se usa en préstamos, nunca en inversiones"
-respuesta: "El interés generado se suma al capital, y el período siguiente genera interés sobre ese total"
+variables:
+  ac: random(100, 500)
+  pc: random(50, 150)
+  resultado: redondear(ac / pc, 2)
+
+respuesta: resultado
+tipo: input
+
+enunciado: "Una empresa tiene Activos Corrientes de {ac} y Pasivos Corrientes de {pc}. Calculá el índice de Liquidez Corriente. Redondeá a 2 decimales."
 
 explicacion: |
-  En el interés simple cada período usa siempre el capital original; en
-  el compuesto, el capital "crece" período a período.
+  La Liquidez Corriente se calcula dividiendo los Activos Corrientes entre los Pasivos Corrientes.
+  Fórmula: AC / PC.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "interes_compuesto"
+  tema: "indices_financieros"
+  nivel: "intermedio"
+  tags: ["rotacion", "stock"]
+
+variables:
+  costo: random(1000, 5000)
+  inventario: random(100, 500)
+  resultado: redondear(costo / inventario, 2)
+
+respuesta: resultado
+tipo: input
+
+enunciado: "El Costo de Mercadería Vendida es {costo} y el Inventario Promedio es {inventario}. Calculá la rotación de stock."
+
+explicacion: |
+  La rotación de stock mide cuántas veces se renueva el inventario. Se calcula como Costo de Mercadería Vendida / Inventario Promedio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
   nivel: "basico"
-  tags: ["interes_compuesto", "vocabulario"]
+  tags: ["balance", "activos"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  ac: random(100, 300)
+  af: random(400, 900)
+  resultado: ac + af
 
-enunciado: "En el interés compuesto, el interés generado en un período se suma al capital para calcular el interés del período siguiente."
+respuesta: resultado
+tipo: input
+
+enunciado: "Los Activos Corrientes son {ac} y los Activos Fijos son {af}. ¿Cuál es el total de Activos?"
 
 explicacion: |
-  Es exactamente la idea de "interés sobre interés".
+  Activos Totales = Activos Corrientes + Activos Fijos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "interes_compuesto"
+  tema: "indices_financieros"
+  nivel: "intermedio"
+  tags: ["liquidez", "acida"]
+
+variables:
+  ac: random(200, 500)
+  inventario: random(50, 150)
+  pc: random(100, 300)
+  numerador: ac - inventario
+  resultado: redondear(numerador / pc, 2)
+
+respuesta: resultado
+tipo: input
+
+enunciado: "Activos Corrientes: {ac}, Inventario: {inventario}, Pasivos Corrientes: {pc}. Calculá la Liquidez Ácida."
+
+explicacion: |
+  Liquidez Ácida = (Activos Corrientes - Inventario) / Pasivos Corrientes.
+  Elimina el inventario porque es el activo menos líquido.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
   nivel: "basico"
-  tags: ["interes_compuesto", "vocabulario"]
-
-enunciado: "El interés compuesto crece de manera..."
-tipo: mc
-opciones_explicitas:
-  - "Exponencial (cada período genera más interés que el anterior)"
-  - "Lineal (la misma cantidad de interés en cada período)"
-  - "Constante (el mismo monto final sin importar el tiempo)"
-respuesta: "Exponencial (cada período genera más interés que el anterior)"
-
-explicacion: |
-  Como el capital sobre el que se calcula crece cada período, el interés
-  generado también crece período a período.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "intermedio"
-  tags: ["interes_compuesto", "calculo"]
+  tags: ["conceptos", "costo"]
 
 variables:
-  capital: random(10, 100) * 1000
-  tasa: random(2, 20)
-  tiempo: random(1, 6)
+  tasa: random(5, 15)
+  monto: random(1000, 5000)
+  interes: redondear(monto * (tasa / 100), 0)
 
-respuesta: capital * (1 + tasa / 100) ^ tiempo
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Un capital de ${capital} se invierte a una tasa del {tasa}% anual, a interés compuesto, durante {tiempo} años. ¿Cuál es el monto final?"
-
-pasos:
-  - "M = C × (1 + r)^t = {capital} × (1 + {tasa/100})^{tiempo}"
-
-explicacion: |
-  Se multiplica el capital por (1 + la tasa en decimal) elevado a la
-  cantidad de períodos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "intermedio"
-  tags: ["interes_compuesto", "calculo"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tasa: random(2, 20)
-  tiempo: random(1, 6)
-
-respuesta: capital * (1 + tasa / 100) ^ tiempo - capital
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Un capital de ${capital} se invierte a una tasa del {tasa}% anual, a interés compuesto, durante {tiempo} años. ¿Cuánto interés total generó (sin contar el capital)?"
-
-pasos:
-  - "M = {capital} × (1 + {tasa/100})^{tiempo}"
-  - "I = M - {capital}"
-
-explicacion: |
-  El interés total es la diferencia entre el monto final y el capital
-  original.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "avanzado"
-  tags: ["interes_compuesto", "calculo"]
-
-variables:
-  tasa: random(2, 20)
-  tiempo: random(1, 6)
-  capital: random(10, 100) * 1000
-  monto: capital * (1 + tasa / 100) ^ tiempo
-
-respuesta: capital
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "A una tasa del {tasa}% anual a interés compuesto, un capital creció hasta ${monto} en {tiempo} años. ¿Cuál era ese capital?"
-
-pasos:
-  - "C = M ÷ (1 + r)^t = {monto} ÷ (1 + {tasa/100})^{tiempo}"
-
-explicacion: |
-  Se despeja C de M = C × (1 + r)^t dividiendo el monto por (1 + r)^t.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "intermedio"
-  tags: ["interes_compuesto", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para un solo período (t = 1), el interés simple y el interés compuesto dan exactamente el mismo monto final."
-
-explicacion: |
-  Recién a partir del segundo período el interés generado en el primero
-  empieza a generar interés propio, y ahí aparece la diferencia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "intermedio"
-  tags: ["interes_compuesto", "comparacion"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tasa: random(2, 20)
-  tiempo: random(2, 6)
-
-respuesta: ((capital * (1 + tasa / 100) ^ tiempo) > (capital * (1 + tasa / 100 * tiempo)))
-tipo: vf
-
-enunciado: "Con el mismo capital de ${capital}, la misma tasa del {tasa}% anual y el mismo plazo de {tiempo} años, ¿el monto final a interés compuesto es mayor que a interés simple?"
-
-explicacion: |
-  A partir de t > 1, el compuesto siempre da un monto mayor, porque
-  reinvierte el interés generado en cada período.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "intermedio"
-  tags: ["interes_compuesto", "comparacion"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tasa: random(2, 20)
-  tiempo_a: random(1, 3)
-  tiempo_b: random(4, 8)
-
-respuesta: ((capital * (1 + tasa / 100) ^ tiempo_b) > (capital * (1 + tasa / 100) ^ tiempo_a))
-tipo: vf
-
-enunciado: "Con el mismo capital de ${capital} y la misma tasa del {tasa}% anual, ¿dejarlo {tiempo_b} años a interés compuesto da un monto final mayor que dejarlo {tiempo_a} años?"
-
-explicacion: |
-  A más períodos capitalizando, mayor el monto final, con capital y tasa
-  fijos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "intermedio"
-  tags: ["interes_compuesto", "comparacion"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tiempo: random(2, 6)
-  tasa_a: random(2, 10)
-  tasa_b: random(11, 25)
-
-respuesta: ((capital * (1 + tasa_b / 100) ^ tiempo) > (capital * (1 + tasa_a / 100) ^ tiempo))
-tipo: vf
-
-enunciado: "Con el mismo capital de ${capital} y el mismo plazo de {tiempo} años, ¿una tasa del {tasa_b}% anual da un monto final mayor que una del {tasa_a}% anual, a interés compuesto?"
-
-explicacion: |
-  A mayor tasa, mayor monto final, con capital y tiempo fijos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "intermedio"
-  tags: ["interes_compuesto", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si la tasa de interés compuesto es anual pero se quiere capitalizar mes a mes, hay que convertir la tasa anual a mensual antes de aplicar la fórmula."
-
-explicacion: |
-  El exponente `t` de la fórmula cuenta períodos de capitalización, así
-  que la tasa `r` tiene que estar expresada en esa misma unidad de
-  tiempo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "avanzado"
-  tags: ["interes_compuesto", "problema"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tasa_anual: random(6, 24)
-  meses: random(3, 24)
-
-respuesta: capital * (1 + tasa_anual / 100 / 12) ^ meses
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Un capital de ${capital} capitaliza mes a mes a una tasa nominal del {tasa_anual}% anual, durante {meses} meses. ¿Cuál es el monto final?"
-
-pasos:
-  - "Tasa mensual: {tasa_anual}% ÷ 12 = {tasa_anual/100/12} (en decimal)"
-  - "M = {capital} × (1 + {tasa_anual/100/12})^{meses}"
-
-explicacion: |
-  Se convierte la tasa anual a mensual dividiendo por 12, y se usan los
-  meses como cantidad de períodos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "avanzado"
-  tags: ["interes_compuesto", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Con la misma tasa nominal anual, capitalizar mes a mes da un monto final mayor que capitalizar una sola vez al año."
-
-explicacion: |
-  Cuantos más períodos de capitalización hay en el mismo año, antes
-  empieza a generarse interés sobre interés — esa diferencia entre tasa
-  nominal y tasa efectiva es el tema del próximo módulo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "basico"
-  tags: ["interes_compuesto", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el saldo de una tarjeta de crédito no se paga, los intereses de un período se suman al saldo y generan interés propio en el período siguiente — por eso una deuda chica sin pagar puede crecer rápido."
-
-explicacion: |
-  Es un ejemplo real de interés compuesto: el interés no pagado pasa a
-  formar parte del capital sobre el que se calcula el siguiente interés.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "intermedio"
-  tags: ["interes_compuesto"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tasa: random(2, 20)
-  tiempo: random(1, 6)
-  monto: capital * (1 + tasa / 100) ^ tiempo
-  interes: monto - capital
-
+respuesta: interes
 tipo: completar
-enunciado: "Una inversión a interés compuesto generó ${interes} de interés y quedó en un monto final de ${monto}. Completá: ___ (capital) = {monto} (monto) - {interes} (interés)."
-respuestas_validas:
-  - capital
+
+enunciado: "Si inviertes {monto} a una tasa del {tasa}% anual, el rendimiento futuro es {interes}. Este monto representa el costo de oportunidad de no tener el dinero disponible hoy."
 
 explicacion: |
-  El capital es lo que queda del monto final al restarle el interés
-  total generado.
+  El costo de oportunidad en finanzas suele referirse al retorno perdido al elegir una alternativa sobre otra. Aquí se calcula el interés generado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "basico"
-  tags: ["interes_compuesto", "orden"]
-
-tipo: ordenar
-enunciado: "Con el mismo capital y la misma tasa, a interés compuesto, ordená estos plazos de menor a mayor monto final."
-opciones_explicitas:
-  - "5 años"
-  - "1 año"
-  - "10 años"
-  - "3 años"
-respuesta_orden: ["1 año", "3 años", "5 años", "10 años"]
-
-explicacion: |
-  A igual capital y tasa, a más años capitalizando, mayor el monto final.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
+  tema: "indices_financieros"
   nivel: "intermedio"
-  tags: ["interes_compuesto", "verificacion"]
+  tags: ["rotacion", "cuentas_cobrar"]
 
 variables:
-  capital: random(10, 100) * 1000
-  tasa: random(2, 20)
-  tiempo: random(1, 6)
-  correcto: capital * (1 + tasa / 100) ^ tiempo
-  error: uno_de([0, 0, 0, 1000, -1000])
-  mostrado: correcto + error
+  ventas_credito: random(10000, 50000)
+  cuentas_cobrar: random(1000, 5000)
+  dias: 360
+  rotacion: ventas_credito / cuentas_cobrar
+  resultado: floor(dias / rotacion)
 
-respuesta: (abs(mostrado - correcto) < 1)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? Capital ${capital}, tasa {tasa}% anual a interés compuesto, {tiempo} años, monto final: ${mostrado}."
-
-explicacion: |
-  Se vuelve a calcular M = C × (1 + r)^t y se compara con el valor
-  mostrado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "basico"
-  tags: ["interes_compuesto"]
-
-enunciado: "¿Cuál es la fórmula del monto final a interés compuesto?"
-tipo: mc
-opciones_explicitas:
-  - "M = C × (1 + r)^t"
-  - "M = C × (1 + r × t)"
-  - "M = C + r × t"
-respuesta: "M = C × (1 + r)^t"
-
-explicacion: |
-  La segunda opción es la fórmula del interés SIMPLE, no del compuesto —
-  la diferencia clave es el exponente en vez de la multiplicación directa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "intermedio"
-  tags: ["interes_compuesto", "problema"]
-
-variables:
-  capital: random(10, 60) * 1000
-  tasa: random(3, 15)
-
-respuesta: (capital * (1 + tasa / 100)) * (1 + tasa / 100)
+respuesta: resultado
 tipo: input
-tolerancia_abs: 1
 
-enunciado: "Un capital de ${capital} se pone a plazo fijo un año a una tasa del {tasa}% anual. Al vencimiento, se retira todo (capital + interés) y se vuelve a poner un año más, a la misma tasa. ¿Cuánto queda al final del segundo año?"
-
-pasos:
-  - "Fin del año 1: {capital} × (1 + {tasa/100}) = {capital * (1 + tasa/100)}"
-  - "Fin del año 2: {capital * (1 + tasa/100)} × (1 + {tasa/100})"
+enunciado: "Ventas a Crédito: {ventas_credito}, Cuentas por Cobrar: {cuentas_cobrar}. Usando un año de 360 días, calculá el período promedio de cobro en días."
 
 explicacion: |
-  Reinvertir capital + interés hace que el segundo año genere interés
-  también sobre el interés del primero — es interés compuesto, aunque
-  cada plazo fijo individual se haya calculado con interés simple.
+  Período de Cobro = 360 / (Ventas a Crédito / Cuentas por Cobrar).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "interes_compuesto"
+  tema: "indices_financieros"
   nivel: "avanzado"
-  tags: ["interes_compuesto", "vocabulario"]
+  tags: ["valor_tiempo", "vp"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  vf: random(1000, 5000)
+  tasa: random(5, 10)
+  anios: uno_de([1, 2, 3])
+  resultado: redondear(vf / ((1 + tasa/100) ^ anios), 2)
 
-enunciado: "Reinvertir capital + interés en un segundo plazo fijo de un año, a la misma tasa, da el mismo resultado que aplicar directamente M = C × (1 + r)^2."
+respuesta: resultado
+tipo: input
+
+enunciado: "Un valor futuro de {vf} dentro de {anios} años, con una tasa de descuento del {tasa}%, tiene un Valor Presente de aproximadamente:"
 
 explicacion: |
-  Multiplicar dos veces por (1 + r) es exactamente lo mismo que elevar
-  (1 + r) al cuadrado.
+  VP = VF / (1 + r)^n.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "interes_compuesto"
+  tema: "indices_financieros"
   nivel: "basico"
-  tags: ["interes_compuesto", "vocabulario"]
+  tags: ["liquidez", "efectivo"]
+
+variables:
+  caja: random(100, 500)
+  bancos: random(200, 800)
+  resultado: caja + bancos
+
+respuesta: resultado
+tipo: input
+
+enunciado: "Caja: {caja}, Bancos: {bancos}. ¿Cuál es el total de Efectivo y Equivalentes de Efectivo?"
+
+explicacion: |
+  Efectivo = Caja + Bancos. Es el activo más líquido.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "avanzado"
+  tags: ["costo", "capital"]
+
+variables:
+  dividendo: random(2, 10)
+  precio: random(20, 50)
+  crecimiento: random(2, 8)
+  costo: redondear((dividendo / precio) + (crecimiento / 100), 4)
+
+respuesta: costo
+tipo: input
+
+enunciado: "Dividendo esperado: {dividendo}, Precio de la acción: {precio}, Tasa de crecimiento: {crecimiento}%. Calculá el Costo de Capital Accionario (Modelo Gordon)."
+
+explicacion: |
+  Ke = (D1 / P0) + g.
+  Donde D1 es dividendo, P0 precio y g tasa de crecimiento.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "intermedio"
+  tags: ["costos", "equilibrio"]
+
+variables:
+  costos_fijos: random(1000, 5000)
+  precio: random(100, 300)
+  costo_variable: random(40, 80)
+  resultado: floor(costos_fijos / (precio - costo_variable))
+
+respuesta: resultado
+tipo: input
+
+enunciado: "Costos Fijos: {costos_fijos}, Precio de Venta: {precio}, Costo Variable Unitario: {costo_variable}. Calculá el punto de equilibrio en unidades."
+
+explicacion: |
+  Punto de Equilibrio = Costos Fijos / (Precio - Costo Variable Unitario).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "intermedio"
+  tags: ["valor_tiempo", "vf"]
+
+variables:
+  pv: random(1000, 5000)
+  tasa: random(5, 10)
+  anios: uno_de([1, 2, 3])
+  resultado: redondear(pv * ((1 + tasa/100) ^ anios), 2)
+
+respuesta: resultado
+tipo: input
+
+enunciado: "Si inviertes {pv} hoy a una tasa del {tasa}% anual durante {anios} años, el Valor Futuro será:"
+
+explicacion: |
+  VF = PV * (1 + r)^n.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "intermedio"
+  tags: ["liquidez", "inmediata"]
+
+variables:
+  efectivo: random(50, 200)
+  pc: random(100, 400)
+  resultado: redondear(efectivo / pc, 2)
+
+respuesta: resultado
+tipo: input
+
+enunciado: "Efectivo y Equivalentes: {efectivo}, Pasivos Corrientes: {pc}. Calculá la Liquidez Inmediata."
+
+explicacion: |
+  Liquidez Inmediata = Efectivo / Pasivos Corrientes.
+  Mide la capacidad de pago sin vender inventario.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "intermedio"
+  tags: ["recuperacion", "inversion"]
+
+variables:
+  inversion: random(5000, 15000)
+  flujo_anual: random(1000, 3000)
+  resultado: floor(inversion / flujo_anual)
+
+respuesta: resultado
+tipo: input
+
+enunciado: "Inversión Inicial: {inversion}, Flujo de Caja Anual Constante: {flujo_anual}. Calculá el periodo de recuperación simple en años."
+
+explicacion: |
+  Periodo de Recuperación = Inversión Inicial / Flujo de Caja Anual.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "avanzado"
+  tags: ["wacc", "capital"]
+
+variables:
+  deuda_ratio: 0.4
+  eq_ratio: 0.6
+  costo_deuda: 0.08
+  costo_equity: 0.12
+  impuesto: 0.30
+  wacc: redondear((deuda_ratio * costo_deuda * (1 - impuesto)) + (eq_ratio * costo_equity), 4)
+
+respuesta: wacc
+tipo: input
+
+enunciado: "Estructura de Capital: 40% Deuda, 60% Equity. Costo Deuda: 8%, Costo Equity: 12%, Impuesto: 30%. Calculá el WACC."
+
+explicacion: |
+  WACC = (Wd * Kd * (1-T)) + (We * Ke).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "basico"
+  tags: ["liquidez", "interpretacion"]
+
+variables:
+  ac: random(100, 300)
+  pc: random(301, 500)
 
 respuesta: falso
 tipo: vf
 
-enunciado: "En el interés compuesto, el capital original deja de tener importancia después del primer período, porque todo el cálculo pasa a depender sólo del interés acumulado."
+enunciado: "Si una empresa tiene Activos Corrientes de {ac} y Pasivos Corrientes de {pc}, su Liquidez Corriente indica que tiene holgura para pagar sus deudas a corto plazo."
 
 explicacion: |
-  El capital original sigue siendo la base de todo el cálculo: el monto
-  final siempre es C × (1 + r)^t, con el capital multiplicando todo el
-  resultado.
+  Falso. Al ser {ac} < {pc}, el índice es menor a 1 ({redondear(ac/pc, 2)}), lo que indica dificultad potencial para cubrir obligaciones a corto plazo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "interes_compuesto"
-  nivel: "basico"
-  tags: ["interes_compuesto", "vocabulario"]
+  tema: "indices_financieros"
+  nivel: "intermedio"
+  tags: ["rotacion", "eficiencia"]
+
+variables:
+  costo_ventas: random(1000, 5000)
+  inventario: random(100, 500)
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El interés compuesto se calcula con M = C × (1 + r)^t: el interés de cada período se suma al capital, y el período siguiente genera interés sobre ese nuevo total, por eso el crecimiento es exponencial."
+enunciado: "Un índice de rotación de inventario alto indica que la empresa vende su mercadería rápidamente y la mantiene poco tiempo en almacén."
+
+explicacion: |
+  Verdadero. Una rotación alta significa que el inventario se renueva frecuentemente, lo que suele ser un signo de buena gestión y demanda.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "intermedio"
+  tags: ["estructura", "riesgo"]
+
+variables:
+  ratio: uno_de([0.3, 0.4, 0.5, 0.6, 0.7])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un ratio de endeudamiento del {ratio} se considera generalmente de muy bajo riesgo financiero para cualquier tipo de empresa."
+
+explicacion: |
+  Falso. Un ratio de {ratio} ({ratio*100}%) indica que el 40-70% de los activos está financiado con deuda, lo que representa un nivel de riesgo moderado a alto, dependiendo del sector.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "basico"
+  tags: ["rentabilidad", "interpretacion"]
+
+variables:
+  margen: uno_de([0.05, 0.1, 0.15, 0.2, 0.3])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un margen neto del {margen*100}% significa que por cada peso vendido, la empresa se queda con {redondear(margen*100, 1)} centavos de ganancia después de todos los gastos."
+
+explicacion: |
+  Verdadero. El margen neto refleja la eficiencia global de la empresa en la conversión de ventas en ganancias.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "intermedio"
+  tags: ["estructura", "riesgo"]
+
+variables:
+  ratio: uno_de([0.5, 0.8, 1.2, 1.5, 2.0])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un ratio Deuda/Patrimonio de {ratio} indica que la empresa está financiada principalmente con recursos propios (patrimonio)."
+
+explicacion: |
+  Falso. Si el ratio es mayor a 1 (como {ratio}), significa que la deuda es mayor que el patrimonio, por lo que la financiación es principalmente ajena.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "basico"
+  tags: ["rentabilidad", "interpretacion"]
+
+variables:
+  margen: uno_de([0.05, 0.1, 0.15, 0.2, 0.3])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un margen operativo del {margen*100}% indica la eficiencia de la empresa en la gestión de sus costos y gastos operativos antes de impuestos e intereses."
+
+explicacion: |
+  Verdadero. El margen operativo refleja la rentabilidad del negocio principal, excluyendo efectos financieros y tributarios.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "intermedio"
+  tags: ["rentabilidad", "interpretacion"]
+
+variables:
+  roe: uno_de([0.05, 0.1, 0.15, 0.2, 0.3])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un ROE del {roe*100}% indica que por cada peso invertido por los accionistas, la empresa generó {redondear(roe*100, 1)} centavos de ganancia."
+
+explicacion: |
+  Verdadero. El ROE es una medida clave de la rentabilidad desde la perspectiva del accionista.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "indices_financieros"
+  nivel: "intermedio"
+  tags: ["rotacion", "interpretacion"]
+
+variables:
+  rotacion: uno_de([0.5, 1.0, 1.5, 2.0, 3.0])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una rotación de activo total de {rotacion} indica que la empresa genera {rotacion} pesos de ventas por cada peso de activo que posee."
+
+explicacion: |
+  Verdadero. Este ratio refleja la eficiencia en el uso de los activos para generar ingresos.
+```
+
+## Sección: pools-liquidez-amm (22 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "basico"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Qué es un pool de liquidez?"
+tipo: mc
+opciones_explicitas:
+  - "Un fondo compartido de dos tokens, guardado en un contrato inteligente, que sirve de contraparte automática de un swap"
+  - "Una cuenta bancaria compartida entre varias personas"
+  - "El nombre de un tipo especial de wallet"
+respuesta: "Un fondo compartido de dos tokens, guardado en un contrato inteligente, que sirve de contraparte automática de un swap"
+
+explicacion: |
+  Es lo que reemplaza al libro de órdenes de un exchange tradicional.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "basico"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Quién arma un pool de liquidez, depositando ambos tokens?"
+tipo: mc
+opciones_explicitas:
+  - "Proveedores de liquidez (LP), a cambio de ganar una comisión de cada swap"
+  - "Sólo la empresa dueña del DEX"
+  - "El banco central del país donde vive el usuario"
+respuesta: "Proveedores de liquidez (LP), a cambio de ganar una comisión de cada swap"
+
+explicacion: |
+  Son usuarios comunes que aportan sus propios tokens al pool.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "basico"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Qué es un AMM (creador de mercado automático)?"
+tipo: mc
+opciones_explicitas:
+  - "Una fórmula matemática que fija el precio automáticamente, según las reservas del pool, sin que una persona lo decida"
+  - "Una persona que decide manualmente el precio de cada swap"
+  - "Otro nombre para un contrato inteligente cualquiera"
+respuesta: "Una fórmula matemática que fija el precio automáticamente, según las reservas del pool, sin que una persona lo decida"
+
+explicacion: |
+  Reemplaza al \"market maker\" humano de una casa de cambio
+  tradicional por una fórmula.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Qué se mantiene constante en el AMM más usado, según la fórmula del producto constante?"
+tipo: mc
+opciones_explicitas:
+  - "El producto entre las dos reservas del pool (reserva_A × reserva_B)"
+  - "La suma entre las dos reservas del pool"
+  - "El precio del token, sin importar cuánto se opere"
+respuesta: "El producto entre las dos reservas del pool (reserva_A × reserva_B)"
+
+explicacion: |
+  Es la fórmula central del tema: x × y = k, con k constante.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "intermedio"
+  tags: ["defi", "calculo"]
+
+variables:
+  reserva_a: random(50, 150) * 10
+  reserva_b: random(6, 20) * 12
+
+respuesta: reserva_a * reserva_b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un pool tiene {reserva_a} unidades de Token A y {reserva_b} unidades de Token B. Según la fórmula del producto constante, ¿cuál es el valor de k?"
+
+explicacion: |
+  k = reserva_A × reserva_B, el valor que el pool mantiene fijo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "Si alguien deposita Token A en el pool para llevarse Token B, ¿qué pasa con las dos reservas del pool?"
+tipo: mc
+opciones_explicitas:
+  - "La reserva de A sube y la reserva de B baja"
+  - "Las dos reservas suben por igual"
+  - "Las dos reservas quedan exactamente iguales que antes"
+respuesta: "La reserva de A sube y la reserva de B baja"
+
+explicacion: |
+  El pool entrega B y recibe A: sube lo que entra, baja lo que sale.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "avanzado"
+  tags: ["defi", "calculo"]
+
+variables:
+  reserva_a: random(50, 150) * 10
+  reserva_b: random(6, 20) * 12
+  k: reserva_a * reserva_b
+  factor: uno_de([2, 3, 4, 6])
+  reserva_a_2: reserva_a * factor
+  reserva_b_2_correcto: reserva_b / factor
+  error: uno_de([0, 0, 0, 5, -5])
+  reserva_b_2_reportado: reserva_b_2_correcto + error
+
+respuesta: (reserva_a_2 * reserva_b_2_reportado == k)
+tipo: vf
+
+enunciado: "Un pool arrancó con {reserva_a} de Token A y {reserva_b} de Token B (k = {k}). Después de varios swaps, quedó con {reserva_a_2} de Token A y {reserva_b_2_reportado} de Token B. ¿Es correcto que el pool mantuvo el producto constante?"
+
+explicacion: |
+  Se multiplican las reservas nuevas y se compara el resultado contra
+  el k original.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "En un AMM de producto constante, ¿cómo se calcula el precio de un token en términos del otro?"
+tipo: mc
+opciones_explicitas:
+  - "Por la relación entre las dos reservas (cuánto hay de uno por cada unidad del otro)"
+  - "Lo fija manualmente el proveedor de liquidez que depositó más"
+  - "Siempre es 1 a 1, sin importar las reservas"
+respuesta: "Por la relación entre las dos reservas (cuánto hay de uno por cada unidad del otro)"
+
+explicacion: |
+  El precio surge de la proporción entre reservas, no de una decisión
+  manual.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "avanzado"
+  tags: ["defi", "calculo"]
+
+variables:
+  reserva_a: random(2, 20) * 10
+  precio: uno_de([2, 3, 4, 5])
+  reserva_b: reserva_a * precio
+
+respuesta: reserva_b / reserva_a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un pool tiene {reserva_a} unidades de Token A y {reserva_b} unidades de Token B. ¿Cuántas unidades de Token B vale, aproximadamente, cada unidad de Token A?"
+
+explicacion: |
+  Precio de A en términos de B = reserva_B / reserva_A.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Qué es el slippage (deslizamiento) en un swap?"
+tipo: mc
+opciones_explicitas:
+  - "La diferencia entre el precio esperado al empezar la operación y el precio real obtenido al terminarla"
+  - "La comisión fija que cobra el DEX por cada operación"
+  - "El tiempo que tarda en confirmarse un swap"
+respuesta: "La diferencia entre el precio esperado al empezar la operación y el precio real obtenido al terminarla"
+
+explicacion: |
+  Es consecuencia directa de que el precio se mueve mientras se
+  ejecuta la operación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "avanzado"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un swap grande cambia la relación entre las reservas de forma más brusca que uno chico, por eso el precio final que recibe quien opera es peor cuanto más grande es la operación."
+
+explicacion: |
+  El precio depende de la proporción entre reservas: moverla mucho
+  empeora el precio de la propia operación que la movió.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "avanzado"
+  tags: ["defi", "problema"]
+
+enunciado: "Para hacer un swap grande con el menor slippage posible, ¿qué conviene buscar?"
+tipo: mc
+opciones_explicitas:
+  - "Un pool con reservas grandes (mucha profundidad), donde la misma operación mueve menos la relación entre reservas"
+  - "El pool con las reservas más chicas disponibles"
+  - "Da exactamente igual el tamaño de las reservas del pool"
+respuesta: "Un pool con reservas grandes (mucha profundidad), donde la misma operación mueve menos la relación entre reservas"
+
+explicacion: |
+  Un mismo swap mueve proporcionalmente menos un pool grande que uno
+  chico.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "avanzado"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Qué es la \"pérdida impermanente\" para un proveedor de liquidez?"
+tipo: mc
+opciones_explicitas:
+  - "Que la combinación de tokens que le queda en el pool valga menos, en conjunto, que si se hubiera quedado con los tokens originales sin depositarlos"
+  - "La comisión que cobra el DEX por retirar fondos del pool"
+  - "La pérdida garantizada que sufre cualquier proveedor de liquidez, sin excepción"
+respuesta: "Que la combinación de tokens que le queda en el pool valga menos, en conjunto, que si se hubiera quedado con los tokens originales sin depositarlos"
+
+explicacion: |
+  Ocurre cuando el precio de mercado de los dos tokens diverge por
+  fuera del pool.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "avanzado"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La pérdida impermanente sólo se vuelve una pérdida real si el proveedor retira sus fondos del pool en ese momento; si los precios vuelven a acercarse, la pérdida se reduce o desaparece."
+
+explicacion: |
+  Es justamente lo que explica el nombre \"impermanente\": no está
+  fija hasta que se retira.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "intermedio"
+  tags: ["defi", "calculo"]
+
+variables:
+  volumen_swap: random(1, 50) * 1000
+  fee_pct: uno_de([1, 2, 5])
+
+respuesta: volumen_swap * fee_pct / 100
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un pool cobra una comisión del {fee_pct}% sobre cada swap. Si en un día se operó un volumen total de ${volumen_swap}, ¿cuánto se repartió en comisiones entre los proveedores de liquidez? (comisión simplificada a un número redondo para el cálculo; las reales suelen ser más chicas, del orden de 0.3%)"
+
+explicacion: |
+  Comisión = volumen operado × porcentaje de comisión.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "basico"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un AMM, ninguna persona decide manualmente el precio en cada operación: el precio surge automáticamente de la fórmula, según las reservas del pool en ese momento."
+
+explicacion: |
+  Es la idea central de \"automático\" en el nombre AMM.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "En una casa de cambio tradicional, ¿quién decide a qué precio comprar y vender?"
+tipo: mc
+opciones_explicitas:
+  - "Una persona (el \"market maker\")"
+  - "Una fórmula matemática automática"
+  - "Nadie: el precio siempre es fijo"
+respuesta: "Una persona (el \"market maker\")"
+
+explicacion: |
+  Es justo lo que el AMM reemplaza: la decisión humana por una
+  fórmula.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "avanzado"
+  tags: ["defi", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos pasos del ciclo de un proveedor de liquidez (LP) en un pool."
+opciones_explicitas:
+  - "El LP retira su parte del pool, incluyendo las comisiones ganadas"
+  - "El LP deposita una cantidad de ambos tokens en el pool"
+  - "El pool acumula comisiones de cada swap"
+  - "Otros usuarios hacen swaps usando ese pool como contraparte"
+respuesta_orden: ["El LP deposita una cantidad de ambos tokens en el pool", "Otros usuarios hacen swaps usando ese pool como contraparte", "El pool acumula comisiones de cada swap", "El LP retira su parte del pool, incluyendo las comisiones ganadas"]
+
+explicacion: |
+  Cada paso depende del anterior: sin depósito no hay pool, sin swaps
+  no hay comisión que acumular.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "avanzado"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando una app de DeFi muestra un \"APY estimado\" por dar liquidez, ese número suele reflejar las comisiones esperadas, sin incluir necesariamente el riesgo de pérdida impermanente."
+
+explicacion: |
+  Es una distinción importante: la comisión ganada y el riesgo del
+  pool son cosas separadas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "basico"
+  tags: ["defi"]
+
+tipo: completar
+enunciado: "Completá la fórmula del AMM de producto constante: reserva_A × ___ (la otra reserva) = k."
+respuestas_validas:
+  - "reserva_b"
+  - "reserva_B"
+
+explicacion: |
+  Es la fórmula central del tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "Cuando alguien hace un swap contra un pool de liquidez, ¿contra quién está intercambiando en términos prácticos?"
+tipo: mc
+opciones_explicitas:
+  - "Contra el fondo compartido del pool en su conjunto, no contra una persona específica"
+  - "Contra el proveedor de liquidez que depositó más recientemente"
+  - "Contra la empresa dueña del DEX"
+respuesta: "Contra el fondo compartido del pool en su conjunto, no contra una persona específica"
+
+explicacion: |
+  Es la diferencia con el libro de órdenes tradicional: no hay una
+  contraparte individual, sino el pool como conjunto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pools_liquidez_amm"
+  nivel: "basico"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un pool de liquidez guarda dos tokens aportados por proveedores de liquidez, y un AMM fija el precio automáticamente manteniendo constante el producto entre esas dos reservas."
 
 explicacion: |
   Es la idea central de todo el tema.
 ```
 
-## Sección: interes-compuesto-funcion (24 preguntas)
+## Sección: precio-final (24 preguntas)
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["evaluar"]
-
-variables:
-  c0: random(2, 20)
-  t: random(1, 4)
-  C: c0 * (2 ^ t)
-
-respuesta: c0 * (3 ^ t)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "M(t) = {C}×(1.5)^t (capital {C}, tasa 50% por período). ¿Cuánto vale M({t})?"
-
-pasos:
-  - "M({t}) = {C}×1.5^{t} = {c0 * (3 ^ t)}"
-
-explicacion: |
-  Se evalúa la función exponencial en t={t}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["evaluar"]
-
-variables:
-  c0: random(2, 15)
-  t: random(1, 4)
-  C: c0 * (2 ^ t)
-
-respuesta: c0 * (3 ^ t)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "M(t) = {C}×(1.5)^t. ¿Cuánto vale M({t})?"
-
-explicacion: |
-  M({t}) = {C}×1.5^{t} = {c0 * (3 ^ t)}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
+  materia: "economia"
+  tema: "precio_final"
   nivel: "basico"
-  tags: ["dominio"]
+  tags: ["precio_final", "vocabulario"]
 
-variables:
-  C: random(1000, 50000)
-
-respuesta: C
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "M(t) = {C}×(1+r)^t. ¿Cuánto vale M(0)?"
-
-explicacion: |
-  Cualquier base elevada a 0 da 1: M(0) = {C}×1 = {C}, el capital
-  inicial.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "basico"
-  tags: ["concepto"]
-
-variables:
-  r_por_mil: random(20, 200)
-
-respuesta: 1000 + r_por_mil
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Con una tasa r={r_por_mil}/1000 por período, ¿cuánto vale (1+r) multiplicado por 1000 (para trabajar sin decimales)?"
-
-explicacion: |
-  (1+r)×1000 = 1000+{r_por_mil} = {1000 + r_por_mil} — la base de la
-  función exponencial, escalada por 1000 para evitar decimales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["comparacion", "verdadero_falso"]
-
-variables:
-  C: random(1000, 50000)
-  r_pct: random(5, 30)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "C={C}, r={r_pct}%. ¿Dan el mismo monto el interés simple y el compuesto, para t=1 período?"
-
-explicacion: |
-  Para un solo período, todavía no hubo oportunidad de que el interés
-  generado gane su propio interés — coinciden exactamente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "avanzado"
-  tags: ["comparacion", "verdadero_falso"]
-
-variables:
-  C: 10000
-  r_pct: random(5, 30)
-
-respuesta: (((100 + r_pct) ^ 2) > (100 * (100 + 2 * r_pct)))
-tipo: vf
-
-enunciado: "C={C}, r={r_pct}%, t=2 períodos. ¿Da el interés compuesto un monto mayor que el interés simple?"
-
-explicacion: |
-  A partir de t>1, el compuesto siempre supera al simple, con la misma
-  tasa y capital.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "M(t)=C(1+r)^t tiene la misma forma que cualquier función exponencial f(x)=a·bˣ, con a=C y b=(1+r)."
-
-explicacion: |
-  Es exactamente la conexión con
-  `../../matematica/familias-exponencial-logaritmica/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "M(t)=C(1+rt) (interés simple) es una función lineal de t, con pendiente C·r y ordenada al origen C."
-
-explicacion: |
-  A diferencia del compuesto, acá t no está en el exponente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Con una tasa de interés positiva (r>0), la base (1+r) de la función M(t) siempre es mayor que 1."
-
-explicacion: |
-  Por eso M(t) es siempre creciente — es la misma condición a>1 de
-  `../../matematica/familias-exponencial-logaritmica/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin importar qué tan alta sea la tasa de interés simple, a la larga el interés compuesto (con la misma tasa) siempre termina dando un monto mayor."
-
-explicacion: |
-  Es el mismo principio general: cualquier exponencial con base>1
-  termina superando a cualquier función lineal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["duplicacion"]
-
-respuesta: 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Con una tasa del 100% por período (la base es 1+1=2), ¿cuántos períodos tardan en duplicar el capital?"
-
-explicacion: |
-  2 = 2^t → t=1 — con 100% de tasa, se duplica en un solo período, por
-  definición.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["duplicacion"]
-
-respuesta: 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Con una tasa del 100% por período (base 2), ¿cuántos períodos tardan en CUADRUPLICAR el capital?"
-
-pasos:
-  - "4 = 2^t → t=2"
-
-explicacion: |
-  Cuadruplicar es 2², así que hacen falta 2 períodos de duplicación.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Encontrar el tiempo de duplicación de un capital a interés compuesto es resolver una ecuación exponencial, del mismo tipo que `../../matematica/ecuaciones-exponenciales-logaritmicas/`."
-
-explicacion: |
-  2 = (1+r)^t se resuelve aplicando logaritmo a los dos lados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["concepto", "dominio", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el contexto financiero, el dominio útil de M(t) se restringe a t≥0 — no tiene sentido un período de tiempo negativo."
-
-explicacion: |
-  El modelo matemático permitiría evaluar en t negativo, pero no
-  representaría nada real en este contexto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["error_comun", "opcion_multiple"]
-
-variables:
-  C: random(1000, 20000)
-
-respuesta: "C×(1+r)^t"
+enunciado: "¿Qué compone el precio final que paga el consumidor?"
 tipo: mc
 opciones_explicitas:
-  - "C×(1+r)^t"
-  - "C×r^t"
-  - "C×(1+r×t)"
-
-enunciado: "¿Cuál es la fórmula correcta del monto a interés compuesto, como función del tiempo?"
-
-explicacion: |
-  La base es (1+r), no r solo — olvidar el "+1" es un error común. La
-  tercera opción es la fórmula de interés SIMPLE, no compuesto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  c0: random(2, 20)
-  t: random(1, 4)
-  C: c0 * (2 ^ t)
-  real: c0 * (3 ^ t)
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "M(t) = {C}×(1.5)^t. ¿Es correcto que M({t}) sea {propuesto}?"
+  - "Costo + margen de cada eslabón + IVA + otros impuestos y tasas (como Ingresos Brutos)"
+  - "Sólo el costo de producción"
+  - "Sólo el IVA"
+respuesta: "Costo + margen de cada eslabón + IVA + otros impuestos y tasas (como Ingresos Brutos)"
 
 explicacion: |
-  El valor correcto es {real}.
+  El IVA (ver `../iva/teoria.md`) es sólo una de las capas del precio
+  final.
 ```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El monto a interés compuesto no sólo crece: crece cada vez MÁS RÁPIDO a medida que pasa el tiempo (a diferencia del interés simple, que suma siempre lo mismo por período)."
-
-explicacion: |
-  Es la característica distintiva de cualquier crecimiento exponencial.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "avanzado"
-  tags: ["verdadero_falso"]
-
-variables:
-  c0_a: random(2, 10)
-  c0_b: random(11, 20)
-  t: random(1, 4)
-
-respuesta: ((c0_b * (3 ^ t)) > (c0_a * (3 ^ t)))
-tipo: vf
-
-enunciado: "Dos capitales, {c0_a * (2 ^ t)} y {c0_b * (2 ^ t)}, crecen a la misma tasa del 50% por período durante {t} períodos. ¿Termina siendo mayor el monto del capital que partió más grande?"
-
-explicacion: |
-  Con la misma tasa, el capital inicial mayor siempre da un monto final
-  mayor — la proporción se mantiene.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El interés compuesto es uno de los ejemplos clásicos del modelo dy/dt=ky (crecimiento proporcional a lo que ya se tiene), estudiado formalmente en `../../matematica/ecuaciones-diferenciales/`."
-
-explicacion: |
-  Es el mismo fenómeno matemático mirado, más adelante en el tronco, con
-  la herramienta de derivadas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-variables:
-  C: 1000
-  t_sol: random(1, 5)
-
-respuesta: t_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "M(t) = {C}×2^t (tasa 100%). ¿Para qué valor de t es M(t) = {C * (2 ^ t_sol)}?"
-
-pasos:
-  - "2^t = {2 ^ t_sol} → t = {t_sol}"
-
-explicacion: |
-  Se reconoce la potencia de 2 acumulada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para cualquier tasa r, M(0) siempre es igual al capital inicial C, sin importar cuál sea r."
-
-explicacion: |
-  (1+r)⁰=1 siempre, sea cual sea r — mismo principio que f(0)=1 en
-  cualquier exponencial.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "El gráfico de M(t) a interés compuesto es una recta, igual que el de interés simple."
-
-explicacion: |
-  Es una curva exponencial, no una recta — sólo el interés SIMPLE da una
-  recta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["concepto"]
-
-variables:
-  C: random(1000, 50000)
-  t: random(1, 10)
-
-respuesta: C
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "M(t) = {C}×(1+0)^t (tasa 0%). ¿Cuánto vale M({t})?"
-
-explicacion: |
-  Con r=0, la base es 1, y 1 elevado a cualquier exponente da 1 — el
-  capital nunca cambia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "interes_compuesto_funcion"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "M=C(1+r)^t es la misma fórmula en `../interes-compuesto/` y acá — lo que cambia es la lectura: antes, una cuenta puntual; ahora, una función completa de t, con dominio, comparación de crecimiento y tiempo de duplicación."
-
-explicacion: |
-  Es el resumen del módulo: mismo contenido matemático, otra manera de
-  mirarlo.
-```
-
-## Sección: interes-simple (24 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "interes_simple"
+  tema: "precio_final"
   nivel: "basico"
-  tags: ["interes_simple", "vocabulario"]
+  tags: ["precio_final", "vocabulario"]
 
-enunciado: "¿Qué es el interés?"
+enunciado: "¿Qué es el impuesto a los Ingresos Brutos?"
 tipo: mc
 opciones_explicitas:
-  - "El extra que se paga por usar plata prestada durante un tiempo"
-  - "El nombre que se le da al capital inicial"
-  - "Un impuesto que cobra el Estado sobre los préstamos"
-respuesta: "El extra que se paga por usar plata prestada durante un tiempo"
+  - "Un impuesto provincial que grava los ingresos de cualquier actividad económica"
+  - "Un impuesto nacional idéntico al IVA"
+  - "Un impuesto que sólo pagan las importaciones"
+respuesta: "Un impuesto provincial que grava los ingresos de cualquier actividad económica"
 
 explicacion: |
-  El interés es el costo de usar la plata de otro (o la ganancia de
-  prestar la propia) durante un período de tiempo.
+  A diferencia del IVA, es provincial: cada provincia fija su propia
+  alícuota.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "interes_simple"
+  tema: "precio_final"
   nivel: "basico"
-  tags: ["interes_simple", "vocabulario"]
-
-enunciado: "En la fórmula del interés simple, ¿qué es el capital (C)?"
-tipo: mc
-opciones_explicitas:
-  - "La plata original prestada o invertida"
-  - "El interés generado en un período"
-  - "El tiempo que dura el préstamo"
-respuesta: "La plata original prestada o invertida"
-
-explicacion: |
-  El capital es el punto de partida; el interés se calcula a partir de él.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "basico"
-  tags: ["interes_simple", "calculo"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tasa: random(2, 20)
-  tiempo: random(1, 5)
-
-respuesta: capital * (tasa / 100) * tiempo
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un capital de ${capital} se presta a una tasa del {tasa}% anual durante {tiempo} años. ¿Cuánto interés genera?"
-
-explicacion: |
-  I = C × r × t, con la tasa en forma decimal: {capital} × {tasa/100} × {tiempo}.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "basico"
-  tags: ["interes_simple", "calculo"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tasa: random(2, 20)
-  tiempo: random(1, 5)
-
-respuesta: capital * (1 + tasa / 100 * tiempo)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un capital de ${capital} se invierte a una tasa del {tasa}% anual durante {tiempo} años, a interés simple. ¿Cuál es el monto final?"
-
-pasos:
-  - "Interés: {capital} × {tasa/100} × {tiempo} = {capital * tasa/100 * tiempo}"
-  - "Monto: {capital} + {capital * tasa/100 * tiempo}"
-
-explicacion: |
-  El monto final es el capital más el interés generado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "avanzado"
-  tags: ["interes_simple", "calculo"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tiempo: random(1, 5)
-  tasa: random(2, 20)
-  interes: capital * (tasa / 100) * tiempo
-
-respuesta: tasa
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un capital de ${capital} generó ${interes} de interés en {tiempo} años, a interés simple. ¿Qué tasa anual (%) se aplicó?"
-
-pasos:
-  - "r = I ÷ (C × t) = {interes} ÷ ({capital} × {tiempo})"
-
-explicacion: |
-  Se despeja r de I = C × r × t: r = I ÷ (C × t), y se multiplica por 100
-  para expresarla como porcentaje.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "avanzado"
-  tags: ["interes_simple", "calculo"]
-
-variables:
-  tasa: random(2, 20)
-  tiempo: random(1, 5)
-  capital: random(10, 100) * 1000
-  interes: capital * (tasa / 100) * tiempo
-
-respuesta: capital
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "A una tasa del {tasa}% anual durante {tiempo} años, un capital generó ${interes} de interés. ¿Cuál era ese capital?"
-
-pasos:
-  - "C = I ÷ (r × t) = {interes} ÷ ({tasa/100} × {tiempo})"
-
-explicacion: |
-  Se despeja C de I = C × r × t: C = I ÷ (r × t).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "avanzado"
-  tags: ["interes_simple", "calculo"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tasa: random(2, 20)
-  tiempo: random(1, 5)
-  interes: capital * (tasa / 100) * tiempo
-
-respuesta: tiempo
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un capital de ${capital} a una tasa del {tasa}% anual generó ${interes} de interés. ¿Cuántos años estuvo prestado, a interés simple?"
-
-pasos:
-  - "t = I ÷ (C × r) = {interes} ÷ ({capital} × {tasa/100})"
-
-explicacion: |
-  Se despeja t de I = C × r × t: t = I ÷ (C × r).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "basico"
-  tags: ["interes_simple", "vocabulario"]
+  tags: ["precio_final", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En el interés simple, el interés de cada período se calcula siempre sobre el mismo capital inicial, no sobre el capital más los intereses ya generados."
+enunciado: "Ingresos Brutos es un impuesto provincial, a diferencia del IVA, que es nacional."
 
 explicacion: |
-  Esa es justamente la diferencia con el interés compuesto, que sí
-  reinvierte el interés generado.
+  Es la diferencia clave entre los dos impuestos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "interes_simple"
-  nivel: "basico"
-  tags: ["interes_simple", "vocabulario"]
-
-enunciado: "El interés simple crece de manera..."
-tipo: mc
-opciones_explicitas:
-  - "Lineal (la misma cantidad de interés en cada período)"
-  - "Exponencial (cada vez más interés por período)"
-  - "Logarítmica (cada vez menos interés por período)"
-respuesta: "Lineal (la misma cantidad de interés en cada período)"
-
-explicacion: |
-  Como siempre se calcula sobre el mismo capital, cada período agrega
-  exactamente la misma cantidad de interés.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "basico"
-  tags: ["interes_simple", "vocabulario"]
+  tema: "precio_final"
+  nivel: "intermedio"
+  tags: ["precio_final", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Antes de aplicar la fórmula del interés simple, una tasa del 8% se usa como 0,08, no como 8."
+enunciado: "Cada provincia argentina fija su propia alícuota de Ingresos Brutos, que puede llegar hasta aproximadamente el 9%."
 
 explicacion: |
-  Usar el 8 directo (sin dividir por 100) multiplicaría el interés por
-  100 de más.
+  Por eso el mismo tipo de producto puede pagar distinto Ingresos Brutos
+  según en qué provincia se venda.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "interes_simple"
+  tema: "precio_final"
   nivel: "intermedio"
-  tags: ["interes_simple", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si la tasa de interés es anual, el tiempo debe expresarse en años (o convertirse a años) antes de aplicar la fórmula."
-
-explicacion: |
-  Mezclar una tasa anual con un tiempo en meses sin convertir es el
-  error más común al calcular interés simple.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "avanzado"
-  tags: ["interes_simple", "problema"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tasa: random(4, 24)
-  meses: random(3, 36)
-
-respuesta: capital * (tasa / 100) * (meses / 12)
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un capital de ${capital} se presta a una tasa del {tasa}% anual durante {meses} meses. ¿Cuánto interés genera, a interés simple?"
-
-pasos:
-  - "Primero se convierten los meses a años: {meses} ÷ 12 = {meses/12}"
-  - "I = {capital} × {tasa/100} × {meses/12}"
-
-explicacion: |
-  Como la tasa es anual, el tiempo en meses se convierte a años (se
-  divide por 12) antes de multiplicar.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "intermedio"
-  tags: ["interes_simple", "comparacion"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tiempo: random(1, 5)
-  tasa_a: random(2, 15)
-  tasa_b: random(16, 30)
-
-respuesta: ((capital * (tasa_b / 100) * tiempo) > (capital * (tasa_a / 100) * tiempo))
-tipo: vf
-
-enunciado: "Con el mismo capital de ${capital} y el mismo plazo de {tiempo} años, ¿una tasa del {tasa_b}% anual genera más interés que una del {tasa_a}% anual?"
-
-explicacion: |
-  A mayor tasa, mayor interés, si el capital y el tiempo no cambian.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "intermedio"
-  tags: ["interes_simple", "comparacion"]
-
-variables:
-  tasa: random(2, 20)
-  tiempo: random(1, 5)
-  capital_a: random(10, 50) * 1000
-  capital_b: random(51, 100) * 1000
-
-respuesta: ((capital_b * (tasa / 100) * tiempo) > (capital_a * (tasa / 100) * tiempo))
-tipo: vf
-
-enunciado: "A la misma tasa del {tasa}% anual y el mismo plazo de {tiempo} años, ¿un capital de ${capital_b} genera más interés que uno de ${capital_a}?"
-
-explicacion: |
-  A mayor capital, mayor interés, si la tasa y el tiempo no cambian.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "intermedio"
-  tags: ["interes_simple", "comparacion"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tasa: random(2, 20)
-  tiempo_a: random(1, 3)
-  tiempo_b: random(4, 8)
-
-respuesta: ((capital * (tasa / 100) * tiempo_b) > (capital * (tasa / 100) * tiempo_a))
-tipo: vf
-
-enunciado: "Con el mismo capital de ${capital} y la misma tasa del {tasa}% anual, ¿dejarlo {tiempo_b} años genera más interés que dejarlo {tiempo_a} años?"
-
-explicacion: |
-  A mayor tiempo, mayor interés acumulado, si el capital y la tasa no
-  cambian.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "intermedio"
-  tags: ["interes_simple", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para un solo período (t = 1), el interés simple y el interés compuesto dan exactamente el mismo resultado."
-
-explicacion: |
-  La diferencia entre ambos aparece recién a partir del segundo período,
-  cuando el compuesto empieza a generar interés sobre el interés previo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "intermedio"
-  tags: ["interes_simple", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para un plazo de varios períodos (t > 1), el interés compuesto siempre da un monto final igual o menor que el interés simple."
-
-explicacion: |
-  Es al revés: a partir del segundo período, el compuesto siempre da un
-  monto mayor, porque reinvierte el interés generado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "intermedio"
-  tags: ["interes_simple"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tasa: random(2, 20)
-  tiempo: random(1, 5)
-  interes: capital * (tasa / 100) * tiempo
-  monto: capital + interes
-
-tipo: completar
-enunciado: "Un capital generó ${interes} de interés y quedó en un monto final de ${monto}. Completá: ___ (capital) = {monto} (monto) - {interes} (interés)."
-respuestas_validas:
-  - capital
-
-explicacion: |
-  El capital es lo que queda del monto final al restarle el interés
-  generado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "basico"
-  tags: ["interes_simple", "orden"]
-
-tipo: ordenar
-enunciado: "A la misma tasa y el mismo plazo, ordená estos capitales de menor a mayor interés generado."
-opciones_explicitas:
-  - "$30.000"
-  - "$10.000"
-  - "$50.000"
-  - "$20.000"
-respuesta_orden: ["$10.000", "$20.000", "$30.000", "$50.000"]
-
-explicacion: |
-  A igual tasa y tiempo, el interés generado sigue el mismo orden que el
-  capital: a mayor capital, mayor interés.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "intermedio"
-  tags: ["interes_simple", "problema"]
-
-variables:
-  capital: random(5, 50) * 1000
-  tasa_mensual: random(2, 8)
-  meses: random(2, 6)
-
-respuesta: capital * (1 + tasa_mensual / 100 * meses)
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un amigo presta ${capital} a otro, con un {tasa_mensual}% de interés simple por mes, a devolver en {meses} meses. ¿Cuánto tiene que devolver en total?"
-
-pasos:
-  - "Interés: {capital} × {tasa_mensual/100} × {meses} = {capital * tasa_mensual/100 * meses}"
-  - "Total: {capital} + {capital * tasa_mensual/100 * meses}"
-
-explicacion: |
-  El total a devolver es el capital prestado más el interés simple
-  acumulado en los {meses} meses.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "avanzado"
-  tags: ["interes_simple", "problema"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tna: random(20, 60)
-  dias: random(30, 180)
-
-respuesta: capital * (tna / 100) * (dias / 365)
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Un plazo fijo de ${capital} tiene una TNA (tasa nominal anual) del {tna}%, a {dias} días. Dentro de ese plazo el banco no capitaliza (interés simple proporcional a los días). ¿Cuánto interés genera?"
-
-pasos:
-  - "I = C × TNA ÷ 100 × días ÷ 365 = {capital} × {tna/100} × {dias}/365"
-
-explicacion: |
-  El plazo fijo tradicional aplica la TNA de forma proporcional a los
-  días del plazo, sin interés sobre interés dentro de ese mismo período.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "intermedio"
-  tags: ["interes_simple", "verificacion"]
-
-variables:
-  capital: random(10, 100) * 1000
-  tasa: random(2, 20)
-  tiempo: random(1, 5)
-  correcto: capital * (tasa / 100) * tiempo
-  error: uno_de([0, 0, 0, 500, -500])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 1)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? Capital ${capital}, tasa {tasa}% anual, {tiempo} años, interés generado: ${mostrado}."
-
-explicacion: |
-  Se vuelve a calcular I = C × r × t y se compara con el valor mostrado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "basico"
-  tags: ["interes_simple", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En el interés simple, el interés generado en un período se suma al capital para calcular el interés del período siguiente."
-
-explicacion: |
-  Eso es lo que hace el interés COMPUESTO. En el interés simple, cada
-  período usa siempre el capital original, nunca el capital más
-  intereses previos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "interes_simple"
-  nivel: "basico"
-  tags: ["interes_simple", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El interés simple se calcula con I = C × r × t: siempre sobre el capital original, con la tasa en forma decimal y el tiempo en la misma unidad que la tasa."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```
-
-## Sección: iva (26 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "basico"
-  tags: ["iva", "vocabulario"]
-
-enunciado: "¿Qué es el IVA?"
-tipo: mc
-opciones_explicitas:
-  - "Un impuesto nacional que se cobra sobre casi todas las ventas de bienes y servicios"
-  - "Un impuesto que sólo pagan las empresas grandes"
-  - "Un impuesto exclusivo de productos importados"
-respuesta: "Un impuesto nacional que se cobra sobre casi todas las ventas de bienes y servicios"
-
-explicacion: |
-  Es de los pocos impuestos verdaderamente parejos en casi todo lo que se
-  compra.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "basico"
-  tags: ["iva"]
-
-respuesta: 21
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es la alícuota general del IVA en Argentina?"
-
-explicacion: |
-  21% es la alícuota que aplica a la mayoría de productos y servicios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "intermedio"
-  tags: ["iva", "calculo"]
-
-variables:
-  precio_sin_iva: random(1, 50) * 1000
-
-respuesta: precio_sin_iva * 0.21
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un producto vale ${precio_sin_iva} sin IVA. ¿Cuánto es el IVA (21%)?"
-
-explicacion: |
-  Se calcula el 21% del precio sin IVA.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "intermedio"
-  tags: ["iva", "calculo"]
-
-variables:
-  precio_sin_iva: random(1, 50) * 1000
-
-respuesta: precio_sin_iva * 1.21
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un producto vale ${precio_sin_iva} sin IVA. ¿Cuánto es el precio final, con el 21% de IVA incluido?"
-
-explicacion: |
-  Se multiplica por 1,21 (el 100% original más el 21% de IVA).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "avanzado"
-  tags: ["iva", "calculo"]
-
-variables:
-  precio_sin_iva: random(1, 50) * 1000
-  precio_final: precio_sin_iva * 1.21
-
-respuesta: precio_sin_iva
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un producto cuesta ${precio_final} con IVA incluido (21%). ¿Cuánto vale sin IVA?"
-
-pasos:
-  - "{precio_final} ÷ 1,21 = {precio_final / 1.21}"
-
-explicacion: |
-  Se divide el precio final por 1,21 para deshacer el IVA incluido.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "avanzado"
-  tags: ["iva", "calculo"]
-
-variables:
-  precio_sin_iva: random(1, 50) * 1000
-  precio_final: precio_sin_iva * 1.21
-
-respuesta: precio_final - precio_sin_iva
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un producto cuesta ${precio_final} con IVA incluido. ¿Cuántos pesos de eso son el IVA en sí?"
-
-pasos:
-  - "Precio sin IVA: {precio_final} ÷ 1,21 = {precio_final / 1.21}. IVA: {precio_final} - {precio_final / 1.21} = {precio_final - precio_final / 1.21}"
-
-explicacion: |
-  El IVA es la diferencia entre el precio final y el precio sin IVA.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "basico"
-  tags: ["iva"]
-
-respuesta: 10.5
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "¿Cuál es la alícuota reducida del IVA (para ciertos bienes y servicios, como algunas frutas y verduras)?"
-
-explicacion: |
-  10,5% es la mitad, aproximadamente, de la alícuota general.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "intermedio"
-  tags: ["iva"]
-
-respuesta: 27
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es la alícuota agravada del IVA para algunos servicios públicos (electricidad, gas, telecomunicaciones), en ciertos casos?"
-
-explicacion: |
-  27% es más alta que la general, y aplica en casos puntuales de
-  servicios públicos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "basico"
-  tags: ["iva", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Algunos productos de la canasta básica están exentos de IVA (pagan 0%)."
-
-explicacion: |
-  No todo paga la alícuota general: hay una categoría exenta.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "intermedio"
-  tags: ["iva", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Desde 2018, servicios digitales del exterior como Netflix, Spotify o Steam pagan 21% de IVA en Argentina, cobrado directo en la tarjeta usada para pagar."
-
-explicacion: |
-  Es uno de los pocos impuestos que se aplica igual a lo digital que a lo
-  físico, aunque la empresa esté radicada afuera del país.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "basico"
-  tags: ["iva", "problema"]
-
-variables:
-  precio_dolares: random(5, 20)
-  cotizacion: random(900, 1300)
-  precio_pesos: precio_dolares * cotizacion
-
-respuesta: precio_pesos * 1.21
-tipo: input
-tolerancia_abs: 5
-
-enunciado: "Una suscripción a una plataforma extranjera cuesta US$ {precio_dolares}, que a ${cotizacion} el dólar son ${precio_pesos}. Con el 21% de IVA sobre servicios digitales, ¿cuánto se termina pagando en pesos?"
-
-explicacion: |
-  El IVA se suma sobre el monto en pesos de la suscripción, igual que a
-  cualquier otro servicio.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "intermedio"
-  tags: ["iva", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La compra, venta o intercambio de criptomonedas está excluida del objeto del IVA en Argentina: no se le cobra ese impuesto a esa operación."
-
-explicacion: |
-  La ley de IVA no la considera una \"venta\" en el sentido que el
-  impuesto grava.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "intermedio"
-  tags: ["iva", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Que una operación esté excluida del IVA (como las criptomonedas) significa que esa operación no tiene absolutamente ningún impuesto ni percepción."
-
-explicacion: |
-  Sólo significa que no se le cobra ESE impuesto puntual; pueden existir
-  otros impuestos o percepciones aplicando igual, según el caso.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "intermedio"
-  tags: ["iva"]
-
-enunciado: "¿Qué alícuota de IVA aplica a la mayoría de productos y servicios, salvo excepciones puntuales?"
-tipo: mc
-opciones_explicitas:
-  - "21%"
-  - "27%"
-  - "0%"
-respuesta: "21%"
-
-explicacion: |
-  Es la alícuota general, la que aplica "por defecto" salvo que el
-  producto tenga un tratamiento especial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "intermedio"
-  tags: ["iva", "verificacion"]
-
-variables:
-  precio_sin_iva: random(1, 50) * 1000
-  correcto: precio_sin_iva * 1.21
-  error: uno_de([0, 0, 0, 500, -500])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 1)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? Precio sin IVA ${precio_sin_iva}, con IVA incluido queda ${mostrado}."
-
-explicacion: |
-  Se vuelve a multiplicar por 1,21 y se compara.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "avanzado"
-  tags: ["iva"]
-
-variables:
-  precio_sin_iva: random(1, 50) * 1000
-  precio_final: precio_sin_iva * 1.21
-
-tipo: completar
-enunciado: "Completá: ___ (precio sin IVA) × 1,21 = ${precio_final} (precio final)."
-respuestas_validas:
-  - precio_sin_iva
-
-explicacion: |
-  Se despeja dividiendo el precio final por 1,21.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "intermedio"
-  tags: ["iva", "comparacion"]
+  tags: ["precio_final", "calculo"]
 
 variables:
   precio: random(10, 50) * 1000
 
-respuesta: ((precio * 0.27) > (precio * 0.105))
-tipo: vf
-
-enunciado: "Sobre el mismo precio de ${precio}, ¿el IVA calculado con la alícuota del 27% da más que con la del 10,5%?"
-
-explicacion: |
-  A mayor alícuota, mayor el monto de IVA sobre el mismo precio base.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "avanzado"
-  tags: ["iva", "problema"]
-
-variables:
-  precio_sin_iva: random(5, 100) * 1000
-  precio_final: precio_sin_iva * 1.21
-
-respuesta: precio_sin_iva
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Una factura muestra un total de ${precio_final}, con el 21% de IVA ya incluido. ¿Cuál es el monto neto (sin IVA) de esa factura?"
-
-explicacion: |
-  Es el mismo cálculo de \"deshacer\" el IVA: dividir por 1,21.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "basico"
-  tags: ["iva", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estas alícuotas de IVA de menor a mayor."
-opciones_explicitas:
-  - "21%"
-  - "0%"
-  - "27%"
-  - "10,5%"
-respuesta_orden: ["0%", "10,5%", "21%", "27%"]
-
-explicacion: |
-  Exenta (0%), reducida (10,5%), general (21%), agravada (27%).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "intermedio"
-  tags: ["iva", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El IVA se llama \"al valor agregado\" porque en cada etapa de una cadena de producción se cobra sólo sobre el valor que esa etapa agregó, no sobre el precio total de nuevo en cada paso."
-
-explicacion: |
-  Es la idea detrás del nombre del impuesto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "basico"
-  tags: ["iva", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El IVA se cobra tanto en productos físicos como en servicios digitales (con algunas excepciones puntuales, como las criptomonedas)."
-
-explicacion: |
-  Es uno de los pocos impuestos genuinamente parejos entre lo físico y lo
-  digital.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "intermedio"
-  tags: ["iva", "problema"]
-
-variables:
-  precio_sin_iva: random(5, 50) * 1000
-
-respuesta: precio_sin_iva * 1.105
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un producto con alícuota reducida (10,5%) vale ${precio_sin_iva} sin IVA. ¿Cuál es el precio final?"
-
-explicacion: |
-  Se multiplica por 1,105 en vez de 1,21.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "intermedio"
-  tags: ["iva", "problema"]
-
-variables:
-  precio_sin_iva: random(5, 50) * 1000
-
-respuesta: precio_sin_iva * 1.27
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un servicio con alícuota agravada (27%) vale ${precio_sin_iva} sin IVA. ¿Cuál es el precio final?"
-
-explicacion: |
-  Se multiplica por 1,27.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "avanzado"
-  tags: ["iva", "comparacion"]
-
-variables:
-  precio_a: random(10, 50) * 1000
-  precio_b: random(10, 50) * 1000
-
-respuesta: ((precio_a * 0.21) > (precio_b * 0.105))
-tipo: vf
-
-enunciado: "¿El IVA (21%) de un producto de ${precio_a} da más pesos que el IVA (10,5%) de otro de ${precio_b}?"
-
-explicacion: |
-  Hay que calcular los dos montos de IVA antes de poder comparar — ni la
-  alícuota ni el precio solos alcanzan.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "basico"
-  tags: ["iva", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aunque el 21% es la alícuota más conocida, el IVA argentino tiene otras alícuotas (10,5%, 27%, 0%) según el tipo de bien o servicio."
-
-explicacion: |
-  No hay un único porcentaje de IVA para todo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "iva"
-  nivel: "basico"
-  tags: ["iva", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El IVA es uno de los pocos impuestos que aplica de forma pareja a casi todo lo que se compra, físico o digital, con pocas excepciones reales (como las criptomonedas)."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```
-
-## Sección: jubilacion-sistema-previsional (22 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Cómo funciona un sistema previsional de reparto?"
-tipo: mc
-opciones_explicitas:
-  - "Lo que aportan los trabajadores activos hoy financia las jubilaciones que se pagan hoy"
-  - "Cada trabajador tiene una cuenta propia donde se acumula lo que aportó"
-  - "El Estado paga las jubilaciones con impuestos al consumo, no con aportes laborales"
-respuesta: "Lo que aportan los trabajadores activos hoy financia las jubilaciones que se pagan hoy"
-
-explicacion: |
-  Es un pacto entre generaciones: la generación activa sostiene a la
-  jubilada, con la expectativa de que la próxima haga lo mismo con ella.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Cómo funciona un sistema previsional de capitalización individual (privado)?"
-tipo: mc
-opciones_explicitas:
-  - "Cada trabajador aporta a una cuenta propia, que se invierte y crece según lo que rinda esa inversión"
-  - "El Estado reparte lo aportado hoy entre los jubilados de hoy"
-  - "No existen aportes: el Estado paga las jubilaciones directamente de su presupuesto general"
-respuesta: "Cada trabajador aporta a una cuenta propia, que se invierte y crece según lo que rinda esa inversión"
-
-explicacion: |
-  El haber jubilatorio de cada persona depende de lo acumulado
-  específicamente en su propia cuenta, no de un fondo común.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Cómo funciona un sistema previsional híbrido (mixto)?"
-tipo: mc
-opciones_explicitas:
-  - "Combina reparto (garantiza un piso mínimo) y capitalización individual (varía según la inversión)"
-  - "Es un sistema de reparto que además cobra una comisión fija a los trabajadores"
-  - "Es lo mismo que un sistema de capitalización individual, con otro nombre"
-respuesta: "Combina reparto (garantiza un piso mínimo) y capitalización individual (varía según la inversión)"
-
-explicacion: |
-  Reparte el riesgo entre los dos modelos: parte del aporte va a un
-  sistema solidario, parte va a una cuenta individual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "No existe un único modelo de sistema previsional: distintos países usan reparto, capitalización individual o modelos híbridos."
-
-explicacion: |
-  Cada modelo reparte el riesgo de forma distinta; ninguno es
-  intrínsecamente "el correcto" para cualquier contexto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Entre 1994 y 2008, en Argentina funcionó un sistema con capitalización individual, con cuentas administradas por empresas privadas llamadas AFJP."
-
-explicacion: |
-  Es un dato histórico real: Argentina usó ese modelo mixto durante 14
-  años, antes del cambio de 2008.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En 2008, la Ley 26.425 eliminó el régimen de capitalización individual administrado por las AFJP y estatizó esos fondos."
-
-explicacion: |
-  Fue el cambio que dio origen al sistema previsional argentino actual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Cómo se llama el sistema previsional que rige hoy en Argentina, creado en 2008?"
-tipo: mc
-opciones_explicitas:
-  - "SIPA (Sistema Integrado Previsional Argentino)"
-  - "AFJP (Administradoras de Fondos de Jubilaciones y Pensiones)"
-  - "PUAM (Prestación Universal para el Adulto Mayor)"
-respuesta: "SIPA (Sistema Integrado Previsional Argentino)"
-
-explicacion: |
-  Reemplazó al régimen de capitalización individual de las AFJP.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El SIPA es un sistema de reparto, administrado por ANSES."
-
-explicacion: |
-  Es el mismo modelo de reparto explicado en el módulo anterior, ahora
-  con el nombre y la historia del sistema que lo reemplazó.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El argumento oficial del gobierno para eliminar el régimen de las AFJP en 2008 fue que esas administradoras cobraban comisiones que reducían lo que efectivamente se acumulaba para cada trabajador."
-
-explicacion: |
-  Es el argumento que dio el gobierno de ese momento — no implica que
-  no haya habido otras posturas ni otros argumentos en el debate.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un sistema de capitalización individual, el haber jubilatorio de una persona depende específicamente de lo acumulado en su propia cuenta, no de un fondo común entre todos los trabajadores."
-
-explicacion: |
-  Es la diferencia central con el sistema de reparto, donde no hay
-  cuentas individuales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un sistema de reparto puro, el aporte de un trabajador activo se usa de inmediato para pagar la jubilación de otra persona — no se va acumulando en una cuenta a nombre de quien aportó."
-
-explicacion: |
-  Por eso, en el sistema de reparto, calcular un "valor futuro
-  acumulado" del aporte de una persona no describe cómo funciona
-  realmente ese sistema.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["aporte", "vocabulario"]
-
-enunciado: "En el sentido de ahorro personal para el futuro, ¿qué es \"el aporte\"?"
-tipo: mc
-opciones_explicitas:
-  - "Un monto fijo que se destina periódicamente (por ejemplo, cada mes) a un fondo que se va acumulando"
-  - "El haber jubilatorio que se cobra una vez jubilado"
-  - "La edad mínima para poder jubilarse"
-respuesta: "Un monto fijo que se destina periódicamente (por ejemplo, cada mes) a un fondo que se va acumulando"
-
-explicacion: |
-  Es la pieza que, capitalizada con interés compuesto durante muchos
-  años, determina cuánto se llega a acumular.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "avanzado"
-  tags: ["aporte", "calculo"]
-
-variables:
-  aporte: random(5, 50) * 1000
-  tasa: random(1, 3)
-  n: random(10, 40)
-
-respuesta: aporte * ((1 + tasa / 100) ^ n - 1) / (tasa / 100)
-tipo: input
-tolerancia_abs: 100
-
-enunciado: "Alguien aporta ${aporte} por período a una tasa del {tasa}% por período, durante {n} períodos. ¿Cuál es el valor futuro acumulado?"
-
-pasos:
-  - "VF = aporte × ((1+r)^n - 1) / r = {aporte} × ((1+{tasa/100})^{n} - 1) / {tasa/100}"
-
-explicacion: |
-  Cada aporte capitaliza por interés compuesto desde el momento en que
-  se hizo hasta el final del período total.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["aporte", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El valor futuro de una serie de aportes periódicos crece con interés compuesto, igual que un único capital invertido de una vez."
-
-explicacion: |
-  La diferencia es que cada aporte individual capitaliza por una
-  cantidad distinta de períodos, según cuándo se hizo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "intermedio"
-  tags: ["aporte", "comparacion"]
-
-variables:
-  aporte: random(5, 50) * 1000
-  tasa: random(1, 3)
-  n_a: random(10, 20)
-  n_b: random(21, 40)
-
-respuesta: ((aporte * ((1 + tasa / 100) ^ n_b - 1) / (tasa / 100)) > (aporte * ((1 + tasa / 100) ^ n_a - 1) / (tasa / 100)))
-tipo: vf
-
-enunciado: "Con el mismo aporte de ${aporte} por período y la misma tasa del {tasa}%, ¿aportar durante {n_b} períodos da un valor futuro mayor que aportar durante {n_a} períodos?"
-
-explicacion: |
-  A más períodos aportando, más tiempo tiene cada aporte para
-  capitalizar, y mayor el valor futuro acumulado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "avanzado"
-  tags: ["aporte", "comparacion"]
-
-variables:
-  tasa: random(1, 3)
-  aporte_chico: random(10, 20) * 1000
-  n_largo: random(30, 40)
-  aporte_grande: random(30, 60) * 1000
-  n_corto: random(10, 15)
-
-respuesta: ((aporte_chico * ((1 + tasa / 100) ^ n_largo - 1) / (tasa / 100)) > (aporte_grande * ((1 + tasa / 100) ^ n_corto - 1) / (tasa / 100)))
-tipo: vf
-
-enunciado: "Persona A aporta ${aporte_chico} por período durante {n_largo} períodos (empezó antes). Persona B aporta ${aporte_grande} por período (más que A) pero sólo durante {n_corto} períodos (empezó después). A la misma tasa del {tasa}%, ¿A termina con un valor futuro mayor que B, a pesar de aportar menos por período?"
-
-explicacion: |
-  El tiempo capitalizando pesa muchísimo: empezar antes con montos
-  chicos suele superar a empezar tarde con montos más altos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "avanzado"
-  tags: ["aporte", "calculo"]
-
-variables:
-  tasa: random(1, 3)
-  n: random(10, 40)
-  aporte: random(5, 50) * 1000
-  vf_objetivo: aporte * ((1 + tasa / 100) ^ n - 1) / (tasa / 100)
-
-respuesta: aporte
+respuesta: precio * 0.085
 tipo: input
 tolerancia_abs: 5
 
-enunciado: "Alguien quiere llegar a un valor futuro de ${redondear(vf_objetivo, 0)}, aportando por {n} períodos a una tasa del {tasa}% por período. ¿Cuál tiene que ser el aporte periódico?"
+enunciado: "Usando la estimación de que Ingresos Brutos representa, en promedio, un 8,5% del precio final, ¿cuántos pesos de un precio de ${precio} corresponden aproximadamente a este impuesto?"
 
 explicacion: |
-  Se despeja el aporte de la fórmula del valor futuro, con la tasa y la
-  cantidad de períodos ya conocidas.
+  Es una aproximación educativa (la cifra real varía por provincia y por
+  producto), no una alícuota fija y exacta.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion_sistema_previsional"
+  tema: "precio_final"
   nivel: "intermedio"
-  tags: ["aporte", "vocabulario"]
+  tags: ["precio_final", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Calcular el valor futuro de una serie de aportes tiene sentido claro en un sistema de capitalización individual, pero no describe cómo funciona un sistema de reparto puro, donde el aporte de hoy se usa de inmediato y no se acumula en una cuenta propia."
+enunciado: "Según estimaciones, Ingresos Brutos representa entre el 8% y el 9% del precio final que paga el consumidor, en promedio."
 
 explicacion: |
-  Sirve igual como herramienta general de ahorro personal, pero no es
-  literalmente cómo opera el sistema de reparto en sí.
+  Es un \"segundo impuesto\" bastante grande, aunque menos visible que el
+  IVA porque no aparece desglosado en el ticket como el IVA.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion_sistema_previsional"
+  tema: "precio_final"
   nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
+  tags: ["precio_final", "vocabulario"]
+
+enunciado: "¿Qué es el \"efecto cascada\" de Ingresos Brutos?"
+tipo: mc
+opciones_explicitas:
+  - "Se cobra sobre el ingreso total de cada eslabón de la cadena, varias veces, sin descontar lo ya pagado antes"
+  - "El impuesto baja automáticamente con el tiempo"
+  - "Sólo se cobra una vez, al final de toda la cadena"
+respuesta: "Se cobra sobre el ingreso total de cada eslabón de la cadena, varias veces, sin descontar lo ya pagado antes"
+
+explicacion: |
+  A diferencia del IVA (que sólo grava el valor agregado en cada etapa),
+  Ingresos Brutos se acumula etapa tras etapa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "intermedio"
+  tags: ["precio_final", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Con una población que en general vive más años y tiene menos hijos que antes, la relación entre trabajadores activos y personas jubiladas tiende a ajustarse con el tiempo en los sistemas de reparto — por eso muchos especialistas recomiendan un ahorro previsional propio, además del aporte obligatorio."
+enunciado: "Un mismo producto puede pagar Ingresos Brutos varias veces a lo largo de la cadena productiva: una vez por cada empresa que participó (fabricante, distribuidor, comercio)."
 
 explicacion: |
-  Es una observación demográfica general (no específica de ningún país
-  ni de ninguna postura política puntual), y una recomendación habitual
-  de las finanzas personales.
+  Es la característica que lo hace \"distorsivo\": no se descuenta lo
+  pagado en etapas anteriores.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion_sistema_previsional"
+  tema: "precio_final"
   nivel: "intermedio"
-  tags: ["aporte", "verificacion"]
+  tags: ["precio_final", "iva", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia clave entre el IVA e Ingresos Brutos?"
+tipo: mc
+opciones_explicitas:
+  - "El IVA es nacional y grava sólo el valor agregado; Ingresos Brutos es provincial y grava el ingreso total en cada etapa (cascada)"
+  - "Son exactamente el mismo impuesto con otro nombre"
+  - "El IVA es provincial e Ingresos Brutos es nacional"
+respuesta: "El IVA es nacional y grava sólo el valor agregado; Ingresos Brutos es provincial y grava el ingreso total en cada etapa (cascada)"
+
+explicacion: |
+  Son dos impuestos bien distintos, aunque los dos terminan formando
+  parte del mismo precio final.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "basico"
+  tags: ["precio_final", "iva", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El IVA es idéntico en todo el país; Ingresos Brutos puede variar según la provincia donde se venda el producto."
+
+explicacion: |
+  Es la razón central de por qué el precio final puede diferir entre
+  provincias, aunque el IVA sea el mismo en todos lados.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "avanzado"
+  tags: ["precio_final", "problema"]
 
 variables:
-  aporte: random(5, 50) * 1000
-  tasa: random(1, 3)
-  n: random(10, 40)
-  correcto: aporte * ((1 + tasa / 100) ^ n - 1) / (tasa / 100)
-  error: uno_de([0, 0, 0, 20000, -20000])
+  costo_mas_margen: random(5, 30) * 1000
+
+respuesta: costo_mas_margen * 1.21 * 1.085
+tipo: input
+tolerancia_abs: 5
+
+enunciado: "Un producto tiene un costo más margen de ${costo_mas_margen}, antes de impuestos. Sumando 21% de IVA y, en cascada, un 8,5% aproximado de Ingresos Brutos, ¿cuál es el precio final aproximado?"
+
+pasos:
+  - "{costo_mas_margen} × 1,21 × 1,085 = {costo_mas_margen * 1.21 * 1.085}"
+
+explicacion: |
+  Los dos impuestos se aplican en cadena (como descuentos o recargos
+  sucesivos, ver `../../vida-cotidiana/recargos-sucesivos/`), aunque en
+  la práctica real el orden y la base exacta pueden variar según el caso.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "intermedio"
+  tags: ["precio_final", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un mismo producto, del mismo fabricante, puede costar distinto en dos provincias distintas."
+
+explicacion: |
+  Ingresos Brutos (y otras cargas locales) puede diferir de una provincia
+  a otra, aunque el IVA sea idéntico.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "intermedio"
+  tags: ["precio_final", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La diferencia de precio de un mismo producto entre dos provincias NO se explica por el IVA (que es igual en todo el país)."
+
+explicacion: |
+  Hay que mirar los impuestos provinciales (como Ingresos Brutos) para
+  explicar esa diferencia, no el IVA.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "intermedio"
+  tags: ["precio_final"]
+
+enunciado: "¿Qué explica mejor que un producto cueste distinto en dos provincias?"
+tipo: mc
+opciones_explicitas:
+  - "Las distintas alícuotas de Ingresos Brutos (y otras cargas locales) de cada provincia"
+  - "El IVA, que cambia según la provincia"
+  - "El color del envase del producto"
+respuesta: "Las distintas alícuotas de Ingresos Brutos (y otras cargas locales) de cada provincia"
+
+explicacion: |
+  El IVA es nacional y no cambia por provincia; Ingresos Brutos sí.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "avanzado"
+  tags: ["precio_final", "verificacion"]
+
+variables:
+  costo_mas_margen: random(5, 30) * 1000
+  correcto: costo_mas_margen * 1.21 * 1.085
+  error: uno_de([0, 0, 0, 500, -500])
   mostrado: correcto + error
 
-respuesta: (abs(mostrado - correcto) < 200)
+respuesta: (abs(mostrado - correcto) < 10)
 tipo: vf
 
-enunciado: "¿Está bien calculado esto? Aporte de ${aporte} por período, tasa {tasa}% por período, {n} períodos, valor futuro informado: ${redondear(mostrado, 0)}."
+enunciado: "¿Está bien calculado esto? Costo+margen ${costo_mas_margen}, con IVA (21%) e Ingresos Brutos (8,5% aprox.), el precio final da ${mostrado}."
 
 explicacion: |
-  Se vuelve a calcular con la fórmula del valor futuro de aportes
-  periódicos y se compara con el valor informado.
+  Se vuelve a aplicar la cadena de multiplicaciones y se compara.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion_sistema_previsional"
+  tema: "precio_final"
   nivel: "avanzado"
-  tags: ["aporte"]
+  tags: ["precio_final"]
 
 variables:
-  aporte: random(10, 40) * 1000
-  tasa: uno_de([1, 2])
-  n: uno_de([15, 20, 25, 30])
-  vf: aporte * ((1 + tasa / 100) ^ n - 1) / (tasa / 100)
+  costo_mas_margen: random(5, 30) * 1000
+  precio_final: costo_mas_margen * 1.21 * 1.085
 
 tipo: completar
-enunciado: "Aportando ${aporte} por período a una tasa del {tasa}% por período, se llegó a un valor futuro de ${redondear(vf, 0)}. Completá: se aportó durante ___ períodos."
+enunciado: "Completá: ___ (costo+margen) × 1,21 (IVA) × 1,085 (Ingresos Brutos aprox.) = ${precio_final}."
 respuestas_validas:
-  - n
+  - costo_mas_margen
 
 explicacion: |
-  Entre las opciones típicas de cantidad de períodos, sólo una da
-  exactamente ese valor futuro con ese aporte y esa tasa.
+  Se despeja dividiendo el precio final por 1,21 y por 1,085.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion_sistema_previsional"
-  nivel: "basico"
-  tags: ["jubilacion", "aporte", "vocabulario"]
+  tema: "precio_final"
+  nivel: "intermedio"
+  tags: ["precio_final", "comparacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Existen tres modelos posibles de sistema previsional (reparto, capitalización individual, híbrido); Argentina usó capitalización individual con las AFJP entre 1994 y 2008, y desde entonces usa el SIPA, un sistema de reparto — y, más allá del modelo del país, el interés compuesto aplicado a aportes periódicos muestra por qué empezar antes a ahorrar pesa tanto como cuánto se aporta."
+enunciado: "En el precio final, el IVA (21%) representa un porcentaje mayor que Ingresos Brutos (8-9% aproximado en promedio)."
+
+explicacion: |
+  Aunque Ingresos Brutos es significativo, sigue siendo menor que la
+  alícuota general del IVA.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "avanzado"
+  tags: ["precio_final", "problema"]
+
+variables:
+  ingreso_fabricante: random(10, 30) * 1000
+  ingreso_distribuidor: ingreso_fabricante + random(5, 15) * 1000
+  ingreso_comercio: ingreso_distribuidor + random(5, 15) * 1000
+  alicuota: 0.03
+
+respuesta: (ingreso_fabricante + ingreso_distribuidor + ingreso_comercio) * alicuota
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "En una cadena simplificada de 3 etapas, cada una paga Ingresos Brutos (alícuota del 3%) sobre su propio ingreso: fabricante ${ingreso_fabricante}, distribuidor ${ingreso_distribuidor}, comercio ${ingreso_comercio}. ¿Cuánto se pagó de Ingresos Brutos en TOTAL entre las tres etapas?"
+
+pasos:
+  - "Se suma el impuesto de cada etapa por separado: ({ingreso_fabricante}+{ingreso_distribuidor}+{ingreso_comercio}) × 3% = {(ingreso_fabricante + ingreso_distribuidor + ingreso_comercio) * alicuota}"
+
+explicacion: |
+  Es el efecto cascada en acción: cada etapa paga sobre su propio
+  ingreso, sin descontar lo que ya pagaron las etapas anteriores.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "intermedio"
+  tags: ["precio_final", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ingresos Brutos representa, aproximadamente, el 80% de la recaudación tributaria de las provincias argentinas."
+
+explicacion: |
+  Es, por lejos, el impuesto provincial más importante en términos de
+  recaudación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "basico"
+  tags: ["precio_final", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Además de los impuestos, el precio final incluye el margen de ganancia de cada eslabón de la cadena (fabricante, distribuidor, comercio)."
+
+explicacion: |
+  No todo el precio final es impuesto: también hay costo y ganancia de
+  cada parte involucrada.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "avanzado"
+  tags: ["precio_final", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Especialistas consideran a Ingresos Brutos un impuesto \"distorsivo\", porque grava en cascada a toda la cadena productiva, encareciendo el precio final más de lo que su alícuota nominal sugeriría."
+
+explicacion: |
+  El efecto cascada hace que el impuesto \"pese\" más de lo que parece a
+  simple vista, comparado con un impuesto que sólo grava el valor
+  agregado (como el IVA).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "avanzado"
+  tags: ["precio_final", "problema"]
+
+variables:
+  costo_mas_margen: random(10, 30) * 1000
+  ib_provincia_a: 0.03
+  ib_provincia_b: 0.05
+
+respuesta: (costo_mas_margen * 1.21 * (1 + ib_provincia_b)) - (costo_mas_margen * 1.21 * (1 + ib_provincia_a))
+tipo: input
+tolerancia_abs: 5
+
+enunciado: "Un producto con costo+margen de ${costo_mas_margen} (más 21% de IVA, igual en las dos provincias) paga {ib_provincia_a * 100}% de Ingresos Brutos en la provincia A, y {ib_provincia_b * 100}% en la provincia B. ¿Cuánto más caro sale en la provincia B?"
+
+explicacion: |
+  La diferencia depende únicamente de la distinta alícuota de Ingresos
+  Brutos, ya que el IVA es igual en las dos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "intermedio"
+  tags: ["precio_final", "iva", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Conocer sólo el 21% de IVA no alcanza para saber cuánto de un precio final es impuesto: falta sumar Ingresos Brutos y otras cargas."
+
+explicacion: |
+  El IVA es la parte más visible (a veces se desglosa en el ticket), pero
+  no es la única carga tributaria del precio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "precio_final"
+  nivel: "basico"
+  tags: ["precio_final", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El precio final combina costo, margen, IVA (nacional, parejo) e Ingresos Brutos y otras cargas locales (que sí varían según la provincia)."
+
+explicacion: |
+  Es la idea central de todo el tema: el IVA es sólo una parte de la
+  historia completa del precio final.
+```
+
+## Sección: presupuesto-administrativo (25 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["definicion", "conceptos_clave"]
+
+respuesta: "estimación anticipada de ingresos y gastos"
+tipo: completar
+respuestas_validas:
+  - "estimación anticipada de ingresos y gastos"
+  - "estimación de ingresos y gastos"
+
+enunciado: "El presupuesto se define como una ___ para un período determinado."
+
+explicacion: |
+  El presupuesto es la herramienta de planificación que permite proyectar los recursos que entrarán (ingresos) y los que saldrán (gastos) de una organización.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["componentes", "ingresos", "gastos"]
+
+opciones_explicitas: ["Ingresos y Gastos", "Activos y Pasivos", "Oferta y Demanda"]
+respuesta: "Ingresos y Gastos"
+tipo: mc
+
+enunciado: "Un presupuesto se compone fundamentalmente de dos tipos de flujos: los ___."
+
+explicacion: |
+  Los ingresos representan las entradas de dinero, mientras que los gastos representan las salidas de recursos necesarias para la operación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["naturaleza", "planificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El presupuesto tiene un carácter preventivo, ya que se elabora antes de que ocurran los hechos económicos."
+
+explicacion: |
+  Correcto. Al ser una herramienta de planificación, su objetivo es anticiparse a los eventos para tomar decisiones informadas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["proceso", "ciclo_presupuestario"]
+
+opciones_explicitas: ["Elaboración", "Ejecución", "Control"]
+respuesta_orden: ["Elaboración", "Ejecución", "Control"]
+tipo: ordenar
+
+enunciado: "Ordene cronológicamente las etapas principales del ciclo presupuestario:"
+
+explicacion: |
+  Primero se planifica (elaboración), luego se pone en marcha (ejecución) y finalmente se compara lo real con lo proyectado (control).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["desviaciones", "control"]
+
+respuesta: "Desfavorable"
+tipo: mc
+opciones_explicitas: ["Favorable", "Desfavorable"]
+
+enunciado: "Si los ingresos reales son menores a los presupuestados, la desviación se considera: ___"
+
+pasos:
+  - "Comparar el valor real obtenido con el valor estimado."
+  - "Determinar si la diferencia impacta positivamente o negativamente en el saldo."
+
+explicacion: |
+  Una desviación es favorable cuando el resultado real mejora la posición financiera respecto al plan, y desfavorable cuando la empeora.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["conceptos", "definiciones"]
+
+respuesta: "estimación anticipada de ingresos y gastos"
+tipo: completar
+respuestas_validas:
+  - "estimación anticipada de ingresos y gastos"
+
+enunciado: "El presupuesto se define como una ___ para un período determinado."
+
+explicacion: |
+  El presupuesto es la herramienta de planificación que permite proyectar la situación financiera de una organización mediante la cuantificación de sus ingresos y gastos esperados.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["calculo", "saldo"]
+
+variables:
+  datos: [["Ingresos: 5000, Gastos: 4200", "800"], ["Ingresos: 3000, Gastos: 3500", "-500"], ["Ingresos: 1000, Gastos: 1000", "0"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["800", "-500", "0", "1000"]
+
+enunciado: "Si una empresa tiene un escenario de {datos[idx][0]}, ¿cuál es el saldo presupuestario resultante?"
+
+explicacion: |
+  El saldo se calcula restando los gastos a los ingresos: {datos[idx][0]}. El resultado es {datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["teoria"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Un presupuesto es un documento de carácter histórico que solo registra los movimientos financieros que ya han ocurrido."
+
+explicacion: |
+  Falso. El presupuesto es una herramienta de planificación hacia el futuro (proyectiva), no un registro de hechos pasados (contabilidad histórica).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["proceso", "orden"]
+
+respuesta_orden: ["Definición de objetivos", "Estimación de ingresos", "Asignación de gastos", "Control y seguimiento"]
+tipo: ordenar
+opciones_explicitas: ["Definición de objetivos", "Estimación de ingresos", "Asignación de gastos", "Control y seguimiento"]
+
+enunciado: "Ordene los pasos lógicos para la gestión de un presupuesto administrativo:"
+
+explicacion: |
+  Primero se definen las metas, luego se proyecta lo que entrará de dinero, se distribuye para cubrir las necesidades y finalmente se controla que se cumpla lo planeado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "avanzado"
+  tags: ["calculo", "déficit"]
+
+variables:
+  escenario: [["Ingresos: 12000, Gastos: 15000", "3000"], ["Ingresos: 8000, Gastos: 8500", "500"]]
+  idx: uno_de([0, 1])
+
+respuesta: escenario[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "En el escenario de {escenario[idx][0]}, ¿cuál es el monto del déficit (valor absoluto de la diferencia negativa)?"
+
+pasos:
+  - "Identificar ingresos y gastos según el escenario"
+  - "Calcular la diferencia: Ingresos - Gastos"
+  - "Obtener el valor absoluto del resultado"
+
+explicacion: |
+  El déficit ocurre cuando los gastos superan a los ingresos. En este caso, el déficit es de {escenario[idx][1]}.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["conceptos", "definicion"]
+
+respuesta: "estimación anticipada de ingresos y gastos"
+tipo: completar
+respuestas_validas:
+  - "estimación anticipada de ingresos y gastos"
+  - "estimación de ingresos y gastos"
+
+enunciado: "El presupuesto se define como una ___ realizada para un período determinado."
+
+explicacion: |
+  El presupuesto es una herramienta de planificación que proyecta los recursos que entrarán (ingresos) y los que saldrán (gastos) de una entidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["diferencia_conceptos"]
+
+variables:
+  es_proyectivo: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de la contabilidad, que registra hechos ya ocurridos, el presupuesto es una herramienta de carácter proyectivo."
+
+explicacion: |
+  Correcto. La contabilidad es histórica (mira hacia atrás), mientras que el presupuesto es una herramienta de planificación (mira hacia adelante).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["gestion", "errores"]
+
+tipo: mc
+opciones_explicitas: ["El presupuesto es una norma inamovible que no admite cambios ante contingencias", "El presupuesto debe ser flexible para adaptarse a cambios en el entorno", "Un presupuesto rígido es siempre el ideal para una empresa"]
+
+respuesta: "El presupuesto debe ser flexible para adaptarse a cambios en el entorno"
+
+enunciado: "Respecto a la flexibilidad presupuestaria, ¿cuál de las siguientes afirmaciones es correcta?"
+
+explicacion: |
+  Un error común es creer que el presupuesto es una "camisa de fuerza". Para que sea útil, debe permitir ajustes (reprogramaciones) ante cambios significativos en el mercado o la economía.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["componentes"]
+
+respuesta_orden: ["Ingresos", "Gastos", "Resultado"]
+tipo: ordenar
+
+opciones_explicitas: ["Ingresos", "Gastos", "Resultado"]
+
+enunciado: "Ordene los elementos fundamentales que conforman la estructura básica de un presupuesto para determinar el saldo final:"
+
+explicacion: |
+  Para determinar la situación financiera proyectada, se deben listar primero los ingresos, luego los gastos y finalmente el resultado (superávit o déficit).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "avanzado"
+  tags: ["confusiones_comunes"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "Es posible que una organización presente un presupuesto de ingresos positivo pero experimente problemas de liquidez, si esas ventas presupuestadas son a crédito y el dinero aún no ingresó a caja."
+
+explicacion: |
+  Este es un error clásico. El presupuesto puede mostrar ingresos por ventas (devengado), pero si esas ventas son a crédito, el dinero no está disponible inmediatamente en caja (flujo de efectivo).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["conceptos_clave", "flujo_de_caja"]
+
+respuesta: "flujo de caja"
+tipo: "completar"
+respuestas_validas:
+  - "flujo de caja"
+  - "cash flow"
+
+enunciado: "Mientras que el presupuesto es una planificación de ingresos y gastos proyectados, el ___ es el registro de las entradas y salidas reales de efectivo en un periodo determinado."
+
+explicacion: |
+  El presupuesto es una herramienta de planificación (estimación), mientras que el flujo de caja (cash flow) se enfoca en la liquidez real y el movimiento efectivo de dinero.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["contabilidad", "planificacion"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "El presupuesto se distingue de la contabilidad financiera principalmente porque el presupuesto tiene un carácter prospectivo (hacia el futuro), mientras que la contabilidad es histórica (registra lo ya ocurrido)."
+
+explicacion: |
+  Correcto. El presupuesto mira hacia adelante para la toma de decisiones, la contabilidad mira hacia atrás para rendir cuentas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["control_presupuestal", "desviaciones"]
+
+respuesta: "desfavorable"
+tipo: "mc"
+opciones_explicitas: ["favorable", "desfavorable"]
+
+enunciado: "Si en el control presupuestario se detecta que un gasto real es mayor al gasto presupuestado, la desviación se considera: ___"
+
+explicacion: |
+  Un gasto mayor al previsto consume más recursos de los planeados, por lo tanto, es una desviación desfavorable.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["proceso", "ciclo_presupuestal"]
+
+respuesta_orden: ["elaboración", "ejecución", "control", "evaluación"]
+tipo: "ordenar"
+opciones_explicitas: ["elaboración", "ejecución", "control", "evaluación"]
+
+enunciado: "Ordene cronológicamente las etapas del ciclo presupuestario de una organización:"
+
+explicacion: |
+  El ciclo comienza con la planificación (elaboración), sigue con la puesta en marcha (ejecución), se monitorea el proceso (control) y finalmente se analizan los resultados (evaluación).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "avanzado"
+  tags: ["base_cero", "incremental"]
+
+variables:
+  idx: uno_de([0, 1])
+  # 0: Base Cero, 1: Incremental
+  # datos: [ [nombre, caracteristica], [nombre, caracteristica] ]
+  datos: [["Base Cero", "requiere justificar cada gasto desde cero"], ["Incremental", "se basa en los saldos del periodo anterior"]]
+
+respuesta: datos[idx][1]
+tipo: "mc"
+opciones_explicitas: ["requiere justificar cada gasto desde cero", "se basa en los saldos del periodo anterior", "no considera la inflación", "es de aplicación automática"]
+
+enunciado: "Si una empresa decide aplicar el método de presupuesto de tipo {datos[idx][0]}, su característica principal es que: ___"
+
+explicacion: |
+  El presupuesto incremental simplemente ajusta los valores del año pasado, mientras que el Base Cero obliga a justificar cada partida como si fuera la primera vez.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["presupuesto", "ingresos", "gastos"]
+
+variables:
+  escenarios: [["Ventas: 5000, Gastos: 3200", "Superávit"], ["Ventas: 4500, Gastos: 4600", "Déficit"], ["Ventas: 3000, Gastos: 2500", "Superávit"]]
+  caso: uno_de(escenarios)
+  enunciado_caso: caso[0]
+  resultado_correcto: caso[1]
+
+tipo: mc
+respuesta: resultado_correcto
+opciones_explicitas: ["Superávit", "Déficit", "Equilibrio"]
+
+enunciado: "Si una organización proyecta un escenario donde {enunciado_caso}, el resultado presupuestario es un ___."
+
+explicacion: |
+  El resultado se obtiene restando los gastos de los ingresos. Si el resultado es positivo, hay superávit; si es negativo, hay déficit.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "basico"
+  tags: ["definiciones", "teoria"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "El presupuesto es una herramienta de planificación que permite estimar los recursos económicos necesarios para alcanzar objetivos en un periodo determinado."
+
+explicacion: |
+  Efectivamente, el presupuesto actúa como una hoja de ruta financiera para la gestión administrativa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["ingresos", "egresos", "clasificacion"]
+
+variables:
+  item: uno_de([["Alquiler de oficina", "Gasto"], ["Venta de servicios", "Ingreso"], ["Pago de salarios", "Gasto"]])
+
+tipo: completar
+respuestas_validas:
+  - "Ingreso"
+  - "Gasto"
+respuesta: item[1]
+
+enunciado: "El concepto '{item[0]}' se clasifica contablemente como un ___."
+
+explicacion: |
+  Los ingresos representan entradas de recursos, mientras que los gastos representan salidas o consumos de recursos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "intermedio"
+  tags: ["proceso", "etapas"]
+
+tipo: ordenar
+opciones_explicitas: ["Planificación", "Ejecución", "Control y Evaluación"]
+respuesta_orden: ["Planificación", "Ejecución", "Control y Evaluación"]
+
+enunciado: "Ordene las etapas lógicas del proceso presupuestario en una organización:"
+
+explicacion: |
+  Primero se planifica (se estima), luego se ejecuta (se gasta/ingresa) y finalmente se controla (se compara lo real vs lo presupuestado).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "presupuesto_administrativo"
+  nivel: "avanzado"
+  tags: ["desvio", "calculo", "analisis"]
+
+variables:
+  idx: uno_de([0, 1])
+  presupuestados: [1000, 500]
+  reales: [1200, 450]
+  desvios_texto: ["200", "-50"]
+
+respuesta: desvios_texto[idx]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si el presupuesto para un proyecto era de {presupuestados[idx]} y lo ejecutado fue {reales[idx]}, el desvío (real menos presupuestado) es de ___."
+
+pasos:
+  - "Identificar el valor presupuestado."
+  - "Identificar el valor real ejecutado."
+  - "Calcular la diferencia absoluta entre ambos valores."
+
+explicacion: |
+  El desvío mide la diferencia entre lo que se planeó y lo que realmente ocurrió, permitiendo ajustar la gestión.
+```
+
+## Sección: oferta-y-demanda (22 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "basico"
+  tags: ["mercado", "vocabulario"]
+
+enunciado: "Según la ley de la demanda, ¿qué pasa con la cantidad demandada cuando sube el precio de un bien?"
+tipo: mc
+opciones_explicitas:
+  - "Baja"
+  - "Sube"
+  - "No cambia nunca"
+respuesta: "Baja"
+
+explicacion: |
+  A mayor precio, menos gente está dispuesta a comprar esa cantidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "basico"
+  tags: ["mercado", "vocabulario"]
+
+enunciado: "Según la ley de la oferta, ¿qué pasa con la cantidad ofrecida cuando sube el precio de un bien?"
+tipo: mc
+opciones_explicitas:
+  - "Sube"
+  - "Baja"
+  - "No cambia nunca"
+respuesta: "Sube"
+
+explicacion: |
+  A mayor precio, a los vendedores les conviene más producir y
+  vender.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "basico"
+  tags: ["mercado", "vocabulario"]
+
+enunciado: "¿Qué es el precio de equilibrio?"
+tipo: mc
+opciones_explicitas:
+  - "El precio donde la cantidad demandada es igual a la cantidad ofrecida"
+  - "El precio más alto que alguien pagaría por un bien"
+  - "El precio fijado por el gobierno para todos los bienes"
+respuesta: "El precio donde la cantidad demandada es igual a la cantidad ofrecida"
+
+explicacion: |
+  Es el punto donde las dos curvas (oferta y demanda) se cruzan.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "basico"
+  tags: ["mercado", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ley de la demanda dice que, en general, cuando el precio de un bien sube, la cantidad demandada baja."
+
+explicacion: |
+  Es la relación inversa entre precio y cantidad demandada.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "basico"
+  tags: ["mercado", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ley de la oferta dice que, en general, cuando el precio de un bien sube, la cantidad ofrecida también sube."
+
+explicacion: |
+  Es la relación directa entre precio y cantidad ofrecida.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "intermedio"
+  tags: ["mercado", "vocabulario"]
+
+enunciado: "Si el precio de un bien está POR ENCIMA de su precio de equilibrio, ¿qué ocurre?"
+tipo: mc
+opciones_explicitas:
+  - "Exceso de oferta: sobra mercadería sin vender"
+  - "Exceso de demanda: falta mercadería"
+  - "El mercado se vacía exactamente"
+respuesta: "Exceso de oferta: sobra mercadería sin vender"
+
+explicacion: |
+  A ese precio los vendedores quieren ofrecer más de lo que los
+  compradores quieren llevarse.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "intermedio"
+  tags: ["mercado", "vocabulario"]
+
+enunciado: "Si el precio de un bien está POR DEBAJO de su precio de equilibrio, ¿qué ocurre?"
+tipo: mc
+opciones_explicitas:
+  - "Exceso de demanda: falta mercadería"
+  - "Exceso de oferta: sobra mercadería"
+  - "El mercado se vacía exactamente"
+respuesta: "Exceso de demanda: falta mercadería"
+
+explicacion: |
+  A ese precio los compradores quieren llevarse más de lo que los
+  vendedores quieren ofrecer.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "intermedio"
+  tags: ["mercado", "problema"]
+
+enunciado: "Una tienda de ropa liquida la colección de invierno porque quedó mucho stock sin vender. ¿Qué situación describe mejor esto?"
+tipo: mc
+opciones_explicitas:
+  - "Exceso de oferta al precio original"
+  - "Exceso de demanda al precio original"
+  - "El precio original ya era el de equilibrio"
+respuesta: "Exceso de oferta al precio original"
+
+explicacion: |
+  Si sobró stock sin vender, es porque a ese precio se ofrecía más de
+  lo que se demandaba.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "intermedio"
+  tags: ["mercado", "problema"]
+
+enunciado: "Las entradas de un recital, a precio fijo, se agotan en minutos y queda mucha gente sin poder comprar. ¿Qué situación describe mejor esto?"
+tipo: mc
+opciones_explicitas:
+  - "Exceso de demanda al precio fijado"
+  - "Exceso de oferta al precio fijado"
+  - "El precio fijado ya era el de equilibrio"
+respuesta: "Exceso de demanda al precio fijado"
+
+explicacion: |
+  Si mucha gente se queda sin comprar, es porque a ese precio se
+  demanda más de lo que se ofrece.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "avanzado"
+  tags: ["mercado", "vocabulario"]
+
+enunciado: "Si SÓLO cambia el precio de un bien (nada más), y con eso cambia la cantidad demandada, ¿cómo se describe ese cambio?"
+tipo: mc
+opciones_explicitas:
+  - "Un movimiento a lo largo de la misma curva de demanda"
+  - "Un desplazamiento de toda la curva de demanda"
+  - "Ninguno de los dos: no hay cambio real"
+respuesta: "Un movimiento a lo largo de la misma curva de demanda"
+
+explicacion: |
+  La curva no se mueve: sólo cambia el punto sobre ella, siguiendo la
+  misma ley.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "avanzado"
+  tags: ["mercado", "vocabulario"]
+
+enunciado: "Una sequía reduce la cosecha disponible de un cultivo, y eso mueve el propio precio de equilibrio hacia arriba, incluso antes de que cambie ningún otro precio. ¿Cómo se describe este efecto?"
+tipo: mc
+opciones_explicitas:
+  - "Un desplazamiento de la curva de oferta"
+  - "Un movimiento a lo largo de la curva de oferta"
+  - "No tiene relación con oferta y demanda"
+respuesta: "Un desplazamiento de la curva de oferta"
+
+explicacion: |
+  Cambió algo distinto del precio (la cantidad disponible para
+  cosechar): eso desplaza toda la curva, no sólo mueve un punto sobre
+  ella.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "avanzado"
+  tags: ["mercado", "calculo"]
+
+variables:
+  precio_eq: random(10, 40)
+  cantidad_eq: random(100, 400)
+  pendiente_demanda: random(2, 8)
+  ordenada_demanda: cantidad_eq + pendiente_demanda * precio_eq
+  precio_prueba: precio_eq - random(1, 5)
+
+respuesta: ordenada_demanda - pendiente_demanda * precio_prueba
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La cantidad demandada de un bien sigue esta fórmula: Qd = {ordenada_demanda} - {pendiente_demanda} × Precio. Si el precio es ${precio_prueba}, ¿cuál es la cantidad demandada?"
+
+explicacion: |
+  Se reemplaza el precio en la fórmula y se calcula Qd directo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "avanzado"
+  tags: ["mercado", "calculo"]
+
+variables:
+  precio_eq: random(10, 40)
+  cantidad_eq: random(100, 400)
+  pendiente_oferta: random(2, 8)
+  ordenada_oferta: cantidad_eq - pendiente_oferta * precio_eq
+  precio_prueba: precio_eq + random(1, 5)
+
+respuesta: ordenada_oferta + pendiente_oferta * precio_prueba
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La cantidad ofrecida de un bien sigue esta fórmula: Qs = {ordenada_oferta} + {pendiente_oferta} × Precio. Si el precio es ${precio_prueba}, ¿cuál es la cantidad ofrecida?"
+
+explicacion: |
+  Se reemplaza el precio en la fórmula y se calcula Qs directo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "avanzado"
+  tags: ["mercado", "calculo"]
+
+variables:
+  precio_eq: random(10, 40)
+  cantidad_eq: random(100, 400)
+  pendiente_demanda: random(2, 8)
+  pendiente_oferta: random(2, 8)
+  ordenada_demanda: cantidad_eq + pendiente_demanda * precio_eq
+  ordenada_oferta: cantidad_eq - pendiente_oferta * precio_eq
+  qd: ordenada_demanda - pendiente_demanda * precio_eq
+  qs: ordenada_oferta + pendiente_oferta * precio_eq
+
+respuesta: (qd == qs)
+tipo: vf
+
+enunciado: "Con Qd = {ordenada_demanda} - {pendiente_demanda} × Precio y Qs = {ordenada_oferta} + {pendiente_oferta} × Precio, al precio ${precio_eq}: ¿es correcto decir que la cantidad demandada es igual a la ofrecida (o sea, que ese es el precio de equilibrio)?"
+
+explicacion: |
+  Se evalúan las dos fórmulas al mismo precio y se comparan los
+  resultados.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "intermedio"
+  tags: ["mercado", "calculo"]
+
+variables:
+  qd: random(100, 300)
+  qs: qd + random(20, 80)
+
+respuesta: (qs > qd)
+tipo: vf
+
+enunciado: "A un precio determinado, la cantidad demandada es {qd} unidades y la cantidad ofrecida es {qs} unidades. ¿Es correcto decir que hay exceso de oferta a ese precio?"
+
+explicacion: |
+  Se ofrece más de lo que se demanda: exceso de oferta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "intermedio"
+  tags: ["mercado", "calculo"]
+
+variables:
+  qs: random(100, 300)
+  qd: qs + random(20, 80)
+
+respuesta: (qd > qs)
+tipo: vf
+
+enunciado: "A un precio determinado, la cantidad ofrecida es {qs} unidades y la cantidad demandada es {qd} unidades. ¿Es correcto decir que hay exceso de demanda a ese precio?"
+
+explicacion: |
+  Se demanda más de lo que se ofrece: exceso de demanda.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "intermedio"
+  tags: ["mercado", "vocabulario"]
+
+enunciado: "En un mercado libre, si hay exceso de oferta (sobra mercadería), ¿qué tiende a pasar con el precio?"
+tipo: mc
+opciones_explicitas:
+  - "Tiende a bajar, para vender lo que sobra"
+  - "Tiende a subir, para compensar la pérdida"
+  - "Se queda fijo siempre"
+respuesta: "Tiende a bajar, para vender lo que sobra"
+
+explicacion: |
+  Los vendedores bajan el precio para deshacerse del stock excedente,
+  acercándose de nuevo al equilibrio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "intermedio"
+  tags: ["mercado", "vocabulario"]
+
+enunciado: "En un mercado libre, si hay exceso de demanda (falta mercadería), ¿qué tiende a pasar con el precio?"
+tipo: mc
+opciones_explicitas:
+  - "Tiende a subir, porque hay compradores dispuestos a pagar más"
+  - "Tiende a bajar, para atraer más compradores"
+  - "Se queda fijo siempre"
+respuesta: "Tiende a subir, porque hay compradores dispuestos a pagar más"
+
+explicacion: |
+  Los vendedores suben el precio al ver que hay demanda dispuesta a
+  pagarlo, acercándose de nuevo al equilibrio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "avanzado"
+  tags: ["mercado", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos pasos de cómo un mercado libre se ajusta hacia el precio de equilibrio, partiendo de un precio demasiado bajo."
+opciones_explicitas:
+  - "El mercado se acerca al precio de equilibrio"
+  - "Los vendedores suben el precio"
+  - "El precio está por debajo del equilibrio"
+  - "Se genera exceso de demanda (falta mercadería)"
+respuesta_orden: ["El precio está por debajo del equilibrio", "Se genera exceso de demanda (falta mercadería)", "Los vendedores suben el precio", "El mercado se acerca al precio de equilibrio"]
+
+explicacion: |
+  El desequilibrio inicial genera la señal (falta de mercadería) que
+  empuja el precio de vuelta hacia el equilibrio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "intermedio"
+  tags: ["mercado", "problema"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si más gente quiere comprar dólares informales de la que quiere venderlos a un precio dado, el precio del dólar informal tiende a subir."
+
+explicacion: |
+  Es exceso de demanda a ese precio: empuja el precio hacia arriba,
+  igual que en cualquier otro mercado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "basico"
+  tags: ["mercado"]
+
+variables:
+  cantidad_eq: random(100, 400)
+
+tipo: completar
+enunciado: "En el precio de equilibrio, la cantidad demandada es igual a la cantidad ___ (misma palabra que describe lo que ponen a la venta los vendedores)."
+respuestas_validas:
+  - "ofrecida"
+  - "ofertada"
+
+explicacion: |
+  Es la definición misma de precio de equilibrio: demanda = oferta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "oferta_y_demanda"
+  nivel: "basico"
+  tags: ["mercado", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La oferta y la demanda son dos fuerzas que reaccionan al precio en sentidos opuestos, y el precio de equilibrio es el punto exacto donde ambas coinciden."
 
 explicacion: |
   Es la idea central de todo el tema.
 ```
+

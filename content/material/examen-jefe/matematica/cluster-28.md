@@ -1,633 +1,531 @@
-# Examen jefe — Maestro de las conversiones y series
+# Examen jefe — [PENDIENTE #628]
 
-> Logro #79. Resolviste el parcial integrando sistemas de ecuaciones, sucesiones y conversiones métricas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **152 preguntas totales** en 5/5 secciones.
+> Logro #628. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: sistema-metrico-y-conversiones (32 preguntas)
+## Sección: regla-de-tres-inversa (24 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
+  tema: "regla_de_tres_inversa"
   nivel: "basico"
-  tags: ["sistema_metrico", "vocabulario"]
-
-enunciado: "¿Qué es el sistema métrico decimal?"
-tipo: mc
-opciones_explicitas:
-  - "Un sistema que organiza las unidades en múltiplos y submúltiplos de 10 de una unidad base"
-  - "Un sistema que usa siempre la misma unidad para todo"
-  - "Un sistema exclusivo para medir masa"
-respuesta: "Un sistema que organiza las unidades en múltiplos y submúltiplos de 10 de una unidad base"
-
-explicacion: |
-  Por eso convertir siempre es multiplicar o dividir por una potencia de
-  10: todo el sistema está armado alrededor del 10.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["sistema_metrico", "vocabulario"]
-
-enunciado: "¿Cuál es la unidad base de LONGITUD en el sistema métrico?"
-tipo: mc
-opciones_explicitas:
-  - "El metro"
-  - "El gramo"
-  - "El litro"
-respuesta: "El metro"
-
-explicacion: |
-  Kilómetro, centímetro, milímetro: todas se definen a partir del metro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["sistema_metrico", "vocabulario"]
-
-enunciado: "¿Cuál es la unidad base de MASA en el sistema métrico?"
-tipo: mc
-opciones_explicitas:
-  - "El gramo"
-  - "El kilogramo"
-  - "El metro"
-respuesta: "El gramo"
-
-explicacion: |
-  El kilogramo (1000 g) es el que más se usa en la vida diaria, pero la
-  unidad base del sistema es el gramo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["sistema_metrico", "vocabulario"]
-
-enunciado: "¿Cuál es la unidad base de CAPACIDAD en el sistema métrico?"
-tipo: mc
-opciones_explicitas:
-  - "El litro"
-  - "El metro"
-  - "El gramo"
-respuesta: "El litro"
-
-explicacion: |
-  Mililitro y kilolitro se definen a partir del litro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "longitud"]
-
-respuesta: 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos metros hay en 1 kilómetro?"
-
-explicacion: |
-  kilo- significa "mil veces": 1 km = 1000 m.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "longitud"]
-
-respuesta: 100
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos centímetros hay en 1 metro?"
-
-explicacion: |
-  centi- significa "un centésimo": entran 100 centímetros en 1 metro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "longitud"]
-
-respuesta: 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos milímetros hay en 1 metro?"
-
-explicacion: |
-  mili- significa "un milésimo": entran 1000 milímetros en 1 metro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "longitud"]
-
-respuesta: 10
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos milímetros hay en 1 centímetro?"
-
-explicacion: |
-  1 cm = 10 mm.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "longitud"]
+  tags: ["regla_de_tres_inversa"]
 
 variables:
-  km: random(1, 30)
-
-respuesta: km * 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿A cuántos metros equivalen {km} km?"
-
-pasos:
-  - "{km} × 1000 = {km * 1000}"
-
-explicacion: |
-  De una unidad más grande a una más chica, se multiplica por el factor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "intermedio"
-  tags: ["conversion", "longitud"]
-
-variables:
-  km_original: random(1, 30)
-  m: km_original * 1000
-
-respuesta: km_original
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿A cuántos kilómetros equivalen {m} m?"
-
-pasos:
-  - "{m} ÷ 1000 = {m / 1000}"
-
-explicacion: |
-  De una unidad más chica a una más grande, se divide por el factor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "longitud"]
-
-variables:
-  m: random(1, 50)
-
-respuesta: m * 100
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿A cuántos centímetros equivalen {m} m?"
-
-explicacion: |
-  Se multiplica por 100.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "intermedio"
-  tags: ["conversion", "longitud"]
-
-variables:
-  m_original: random(1, 50)
-  cm: m_original * 100
-
-respuesta: m_original
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿A cuántos metros equivalen {cm} cm?"
-
-explicacion: |
-  Se divide por 100.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "longitud"]
-
-variables:
-  cm: random(1, 80)
-
-respuesta: cm * 10
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿A cuántos milímetros equivalen {cm} cm?"
-
-explicacion: |
-  Se multiplica por 10.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "avanzado"
-  tags: ["conversion", "longitud"]
-
-variables:
-  km: random(1, 5)
-
-respuesta: km * 100000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿A cuántos centímetros equivalen {km} km?"
-
-pasos:
-  - "{km} km × 1000 = {km * 1000} m. {km * 1000} m × 100 = {km * 100000} cm."
-
-explicacion: |
-  Conviene convertir en dos pasos: primero a metros, después a
-  centímetros.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "masa"]
-
-variables:
-  kg: random(1, 40)
-
-respuesta: kg * 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿A cuántos gramos equivalen {kg} kg?"
-
-explicacion: |
-  1 kg = 1000 g.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "intermedio"
-  tags: ["conversion", "masa"]
-
-variables:
-  kg_original: random(1, 40)
-  g: kg_original * 1000
-
-respuesta: kg_original
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿A cuántos kilogramos equivalen {g} g?"
-
-explicacion: |
-  Se divide por 1000.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "masa"]
-
-variables:
-  g: random(1, 60)
-
-respuesta: g * 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿A cuántos miligramos equivalen {g} g?"
-
-explicacion: |
-  1 g = 1000 mg.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "intermedio"
-  tags: ["conversion", "masa"]
-
-variables:
-  toneladas: random(1, 12)
-
-respuesta: toneladas * 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un camión transporta {toneladas} toneladas de carga. ¿Cuántos kilogramos son?"
-
-explicacion: |
-  1 tonelada = 1000 kg.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "capacidad"]
-
-variables:
-  l: random(1, 20)
-
-respuesta: l * 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿A cuántos mililitros equivalen {l} litros?"
-
-explicacion: |
-  1 l = 1000 ml.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "intermedio"
-  tags: ["conversion", "capacidad"]
-
-variables:
-  l_original: random(1, 20)
-  ml: l_original * 1000
-
-respuesta: l_original
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿A cuántos litros equivalen {ml} ml?"
-
-explicacion: |
-  Se divide por 1000.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "intermedio"
-  tags: ["conversion", "capacidad", "problema"]
-
-variables:
-  botellas: random(2, 10)
-  ml_por_botella: 500
-
-respuesta: botellas * ml_por_botella / 1000
+  a: random(2, 9)
+  b: random(10, 90)
+  c: random(2, 9)
+
+respuesta: (a * b) / c
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Hay {botellas} botellas de {ml_por_botella} ml cada una. ¿Cuántos litros son en total?"
+enunciado: "En una relación inversamente proporcional, {a} es a {b} como {c} es a x. ¿Cuánto vale x?"
 
 pasos:
-  - "{botellas} × {ml_por_botella} = {botellas * ml_por_botella} ml. {botellas * ml_por_botella} ÷ 1000 = {botellas * ml_por_botella / 1000} l."
+  - "x = ({a} × {b}) ÷ {c} = {a * b} ÷ {c} = {(a * b) / c}"
 
 explicacion: |
-  Primero se calcula el total en ml, y después se convierte a litros.
+  En la regla inversa se igualan los productos, no los cocientes: a×b =
+  c×x.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "vocabulario"]
-
-enunciado: "Al convertir de una unidad MÁS GRANDE a una MÁS CHICA (por ejemplo, de km a m), ¿se multiplica o se divide?"
-tipo: mc
-opciones_explicitas:
-  - "Se multiplica"
-  - "Se divide"
-respuesta: "Se multiplica"
-
-explicacion: |
-  Si la unidad de destino es más chica, entran más veces: el número
-  resultado es mayor, así que se multiplica.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "vocabulario"]
-
-enunciado: "Al convertir de una unidad MÁS CHICA a una MÁS GRANDE (por ejemplo, de cm a m), ¿se multiplica o se divide?"
-tipo: mc
-opciones_explicitas:
-  - "Se divide"
-  - "Se multiplica"
-respuesta: "Se divide"
-
-explicacion: |
-  Si la unidad de destino es más grande, entran menos veces: el número
-  resultado es menor, así que se divide.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "longitud"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "1 km equivale a 1000 m."
-
-explicacion: |
-  kilo- significa mil veces la unidad base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "masa"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "1 kg equivale a 100 g."
-
-explicacion: |
-  Es un error común: 1 kg equivale a 1000 g, no a 100 g.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "capacidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "1 litro equivale a 1000 ml."
-
-explicacion: |
-  1 l = 1000 ml.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "longitud"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "1 metro equivale a 10 cm."
-
-explicacion: |
-  1 metro equivale a 100 cm, no a 10 cm (que sería 1 decímetro).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
+  tema: "regla_de_tres_inversa"
   nivel: "intermedio"
-  tags: ["conversion", "capacidad", "volumen"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "1 litro ocupa exactamente el mismo espacio que 1 decímetro cúbico (1 l = 1 dm³)."
-
-explicacion: |
-  Es la relación que conecta capacidad con volumen — se retoma en
-  `../volumen-y-capacidad/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "completar"]
-
-tipo: completar
-enunciado: "Completá: el prefijo kilo- significa multiplicar la unidad base por ___."
-respuestas_validas:
-  - 1000
-
-explicacion: |
-  kilo- = mil veces.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "basico"
-  tags: ["conversion", "completar"]
-
-tipo: completar
-enunciado: "Completá: el prefijo mili- significa dividir la unidad base por ___."
-respuestas_validas:
-  - 1000
-
-explicacion: |
-  mili- = un milésimo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "intermedio"
-  tags: ["conversion", "longitud"]
+  tags: ["regla_de_tres_inversa", "problema"]
 
 variables:
-  km: random_float(1, 9, 1)
-  correcto: km * 1000
+  obreros_base: random(2, 8)
+  dias_base: random(4, 30)
+  obreros_nuevo: random(2, 12)
+
+respuesta: (obreros_base * dias_base) / obreros_nuevo
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "{obreros_base} obreros terminan una obra en {dias_base} días. Trabajando todos al mismo ritmo, ¿en cuántos días la terminan {obreros_nuevo} obreros?"
+
+pasos:
+  - "x = ({obreros_base} × {dias_base}) ÷ {obreros_nuevo}"
+
+explicacion: |
+  Más obreros, menos días: relación inversa, así que se igualan los
+  productos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa", "problema"]
+
+variables:
+  velocidad_base: random(20, 80)
+  horas_base: random(2, 8)
+  velocidad_nueva: random(20, 120)
+
+respuesta: (velocidad_base * horas_base) / velocidad_nueva
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "A {velocidad_base} km/h, un viaje tarda {horas_base} horas. ¿Cuánto tarda el mismo viaje a {velocidad_nueva} km/h?"
+
+explicacion: |
+  Para recorrer la misma distancia, más velocidad significa menos tiempo:
+  relación inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "basico"
+  tags: ["regla_de_tres_inversa", "problema"]
+
+variables:
+  personas_base: random(2, 8)
+  parte_base: random(10, 90)
+  personas_nueva: random(2, 12)
+
+respuesta: (personas_base * parte_base) / personas_nueva
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Repartiendo ${personas_base * parte_base} entre {personas_base} personas, a cada una le tocan ${parte_base}. Repartiendo la misma plata entre {personas_nueva} personas, ¿cuánto le toca a cada una?"
+
+explicacion: |
+  El total a repartir queda fijo: más personas, menos le toca a cada una
+  — relación inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa", "problema"]
+
+variables:
+  canillas_base: random(1, 4)
+  horas_base: random(4, 20)
+  canillas_nueva: random(2, 8)
+
+respuesta: (canillas_base * horas_base) / canillas_nueva
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Con {canillas_base} canilla(s) abierta(s), un tanque se llena en {horas_base} horas. Con {canillas_nueva} canillas (mismo caudal cada una), ¿en cuántas horas se llena?"
+
+explicacion: |
+  Más canillas abiertas, menos tiempo para llenar el mismo tanque:
+  relación inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa", "problema"]
+
+variables:
+  maquinas_base: random(2, 8)
+  dias_base: random(4, 20)
+  maquinas_nueva: random(2, 12)
+
+respuesta: (maquinas_base * dias_base) / maquinas_nueva
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "{maquinas_base} máquinas fabrican un pedido en {dias_base} días. Con {maquinas_nueva} máquinas (mismo ritmo cada una), ¿en cuántos días se fabrica el mismo pedido?"
+
+explicacion: |
+  Más máquinas trabajando, menos días necesarios: relación inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "basico"
+  tags: ["regla_de_tres_inversa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"Más obreros trabajando, menos días tarda la obra\" es un ejemplo de relación inversamente proporcional."
+
+explicacion: |
+  Una magnitud sube (obreros) mientras la otra baja (días): es inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "\"Más kilos de fruta comprados, más se paga\" es un ejemplo de relación inversamente proporcional."
+
+explicacion: |
+  Acá las dos magnitudes suben juntas: es una relación directa, no
+  inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "basico"
+  tags: ["regla_de_tres_inversa", "vocabulario"]
+
+enunciado: "¿Cómo se reconoce que un problema es de regla de tres inversa?"
+tipo: mc
+opciones_explicitas:
+  - "Una magnitud aumenta mientras la otra disminuye"
+  - "Las dos magnitudes son siempre números pares"
+  - "Una de las magnitudes tiene que ser el tiempo"
+respuesta: "Una magnitud aumenta mientras la otra disminuye"
+
+explicacion: |
+  Es el criterio clave: si al aumentar una la otra disminuye (manteniendo
+  el producto constante), es inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa", "vocabulario"]
+
+enunciado: "En una relación inversamente proporcional, ¿qué se mantiene constante?"
+tipo: mc
+opciones_explicitas:
+  - "El producto de las dos magnitudes"
+  - "El cociente entre las dos magnitudes"
+  - "La suma de las dos magnitudes"
+respuesta: "El producto de las dos magnitudes"
+
+explicacion: |
+  En la regla directa lo constante es el cociente (la razón); en la
+  inversa, lo constante es el producto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa"]
+
+variables:
+  a: random(2, 9)
+  b: random(10, 90)
+  c: random(2, 9)
+  correcto: (a * b) / c
 
 respuesta: correcto
 tipo: mc
 opciones_explicitas:
   - correcto
-  - km * 100
-  - km / 1000
+  - (b * c) / a
+  - a * b * c
 
-enunciado: "¿Cuántos metros son {km} km?"
+enunciado: "En la regla de tres inversa {a}—{b} / {c}—x, ¿cuál es la fórmula correcta para x?"
 
 explicacion: |
-  Se multiplica por 1000, no por 100 (eso confundiría con centímetros) ni
-  se divide (eso sería para ir de m a km).
+  La segunda opción es la fórmula de la regla DIRECTA (no aplica acá): en
+  la inversa se multiplican {a} y {b}, y se divide por {c}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "sistema_metrico_y_conversiones"
-  nivel: "avanzado"
-  tags: ["conversion", "orden", "longitud"]
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa", "verificacion"]
 
-tipo: ordenar
-enunciado: "Ordená estas longitudes de menor a mayor: 500 mm, 2 m, 30 cm, 0,001 km."
-opciones_explicitas:
-  - "2 m"
-  - "500 mm"
-  - "0,001 km"
-  - "30 cm"
-respuesta_orden: ["30 cm", "500 mm", "0,001 km", "2 m"]
+variables:
+  a: random(2, 9)
+  b: random(10, 90)
+  c: random(2, 9)
+  correcto: (a * b) / c
+  error: uno_de([0, 0, 0, c, -c])
+  mostrado: correcto + error
 
-pasos:
-  - "Todo pasado a cm: 30 cm; 500 mm = 50 cm; 0,001 km = 100 cm; 2 m = 200 cm."
+respuesta: (abs(mostrado - correcto) < 0.01)
+tipo: vf
+
+enunciado: "En una relación inversa, ¿está bien resuelto esto? {a} es a {b} como {c} es a {mostrado}."
 
 explicacion: |
-  Conviene pasar todas las medidas a la misma unidad antes de comparar:
-  30 cm < 50 cm < 100 cm < 200 cm.
+  Se verifica comprobando que el producto {a} × {b} sea igual a
+  {c} × {mostrado}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa"]
+
+variables:
+  a: random(2, 9)
+  b: random(10, 90)
+  c: random(2, 9)
+
+tipo: completar
+enunciado: "En una relación inversamente proporcional, completá: {a} es a {b} como {c} es a ___."
+respuestas_validas:
+  - (a * b) / c
+
+explicacion: |
+  Se aplica la fórmula de la regla de tres inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa", "problema"]
+
+variables:
+  personas_base: random(2, 6)
+  horas_base: random(4, 24)
+  personas_nueva: random(2, 10)
+
+respuesta: (personas_base * horas_base) / personas_nueva
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "{personas_base} personas pintan una casa en {horas_base} horas. Trabajando al mismo ritmo, ¿cuántas horas tardan {personas_nueva} personas?"
+
+explicacion: |
+  Más personas ayudando, menos horas necesarias: relación inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "avanzado"
+  tags: ["regla_de_tres_inversa", "regla_de_tres_directa"]
+
+variables:
+  a: random(2, 9)
+  b: random(10, 90)
+  c: random(2, 9)
+  formula_directa: (b * c) / a
+  formula_inversa: (a * b) / c
+
+restricciones:
+  - formula_directa != formula_inversa
+
+respuesta: formula_inversa
+tipo: mc
+opciones_explicitas:
+  - formula_directa
+  - formula_inversa
+
+enunciado: "\"Más obreros, menos días\" — con {a} es a {b} como {c} es a x, ¿cuál fórmula corresponde: la directa o la inversa?"
+
+explicacion: |
+  Como una magnitud sube y la otra baja, corresponde la fórmula inversa
+  (igualar productos), no la directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "avanzado"
+  tags: ["regla_de_tres_inversa", "problema"]
+
+variables:
+  velocidad_base: random(30, 100)
+  horas_base: random(2, 6)
+  horas_nueva: random(1, velocidad_base - 1)
+
+respuesta: (velocidad_base * horas_base) / horas_nueva
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un vehículo a {velocidad_base} km/h tarda {horas_base} horas en un viaje. ¿A qué velocidad hay que ir para tardar sólo {horas_nueva} horas en el mismo recorrido?"
+
+explicacion: |
+  Menos tiempo para el mismo recorrido significa más velocidad: relación
+  inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa", "problema"]
+
+variables:
+  animales_base: random(4, 20)
+  dias_base: random(5, 30)
+  animales_nuevo: random(4, 40)
+
+respuesta: (animales_base * dias_base) / animales_nuevo
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "La comida almacenada alcanza para {animales_base} animales durante {dias_base} días. ¿Para cuántos días alcanza esa misma comida si hay {animales_nuevo} animales?"
+
+explicacion: |
+  Más animales comiendo del mismo stock, menos días dura: relación
+  inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la regla de tres inversa, alcanza con invertir cualquier fracción del problema para resolverlo, sin pensar qué representa cada magnitud."
+
+explicacion: |
+  Hay que identificar primero si la relación es directa o inversa
+  analizando el problema — no es un truco mecánico de "dar vuelta" algo
+  al azar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa", "orden"]
+
+tipo: ordenar
+enunciado: "Resolvé estas tres reglas de tres inversas y ordenalas de menor a mayor resultado."
+opciones_explicitas:
+  - "2 es a 10 como 5 es a x"
+  - "4 es a 8 como 2 es a x"
+  - "3 es a 6 como 9 es a x"
+respuesta_orden: ["3 es a 6 como 9 es a x", "2 es a 10 como 5 es a x", "4 es a 8 como 2 es a x"]
+
+explicacion: |
+  Primero se resuelve cada una con la fórmula inversa (x=2, x=4, x=16) y
+  recién ahí se ordenan.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "avanzado"
+  tags: ["regla_de_tres_inversa", "problema"]
+
+variables:
+  desagues_base: random(1, 3)
+  horas_base: random(6, 30)
+  desagues_nuevo: random(2, 6)
+
+respuesta: (desagues_base * horas_base) / desagues_nuevo
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Con {desagues_base} desagüe(s) abierto(s), una pileta se vacía en {horas_base} horas. Con {desagues_nuevo} desagües (mismo caudal cada uno), ¿en cuántas horas se vacía?"
+
+explicacion: |
+  Más desagües abiertos, menos tiempo para vaciarse: relación inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa", "regla_de_tres_directa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"A mayor velocidad, menor tiempo para recorrer la misma distancia\" describe una relación inversamente proporcional."
+
+explicacion: |
+  Velocidad sube, tiempo baja (para una distancia fija): es inversa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_inversa"]
+
+variables:
+  a: random(2, 9)
+  b: random(10, 90)
+  c: random(2, 9)
+  x: (a * b) / c
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si {a} es a {b} como {c} es a {x} (relación inversa), ¿es cierto que {a} × {b} = {c} × {x}?"
+
+explicacion: |
+  Es la propiedad que define a la regla inversa: el producto de cada par
+  se mantiene igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "basico"
+  tags: ["regla_de_tres_inversa"]
+
+enunciado: "En la regla de tres inversa a—b / c—x, ¿cuál es la fórmula para x?"
+tipo: mc
+opciones_explicitas:
+  - "x = (a × b) ÷ c"
+  - "x = (b × c) ÷ a"
+  - "x = a + b + c"
+respuesta: "x = (a × b) ÷ c"
+
+explicacion: |
+  Se igualan los productos: a×b = c×x, y se despeja x dividiendo por c.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_inversa"
+  nivel: "basico"
+  tags: ["regla_de_tres_inversa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La regla de tres inversa sirve para encontrar un valor desconocido cuando, al aumentar una magnitud, la otra disminuye, manteniendo el producto constante."
+
+explicacion: |
+  Es la idea central de todo el tema, en contraste directo con la regla
+  de tres directa.
 ```
 
 ## Sección: sistemas-dos-ecuaciones (30 preguntas)
@@ -746,7 +644,7 @@ metadata:
   tags: ["igualacion"]
 
 variables:
-  m1: random(2, 6)
+  m1: random(5, 8)
   x_sol: random(1, 15)
   k1: random(1, 15)
   m2: random(1, 4)
@@ -776,7 +674,7 @@ metadata:
   tags: ["igualacion"]
 
 variables:
-  m1: random(2, 6)
+  m1: random(5, 8)
   x_sol: random(1, 15)
   k1: random(1, 15)
   m2: random(1, 4)
@@ -1414,588 +1312,6 @@ explicacion: |
   opuestos — sumando las dos ecuaciones se cancela directamente.
 ```
 
-## Sección: sucesiones-aritmeticas (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "basico"
-  tags: ["sucesiones_aritmeticas", "vocabulario"]
-
-enunciado: "¿Qué es una sucesión aritmética?"
-tipo: mc
-opciones_explicitas:
-  - "Una lista de números donde siempre se suma la misma cantidad para pasar al siguiente"
-  - "Una lista de números en cualquier orden"
-  - "Una lista donde cada número es el doble del anterior"
-respuesta: "Una lista de números donde siempre se suma la misma cantidad para pasar al siguiente"
-
-explicacion: |
-  Esa cantidad fija que se suma se llama diferencia común (d).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "basico"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: random(1, 20)
-  d: random(2, 10)
-  n: random(4, 10)
-
-respuesta: a1 + (n - 1) * d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión aritmética con a₁ = {a1} y d = {d}, ¿cuánto vale el término {n} (aₙ)?"
-
-pasos:
-  - "aₙ = a₁ + (n−1)×d = {a1} + ({n}−1)×{d} = {a1 + (n - 1) * d}"
-
-explicacion: |
-  Se aplica la fórmula del término general, sin tener que sumar la
-  diferencia término por término.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: random(1, 20)
-  d: random(2, 15)
-  n: random(15, 40)
-
-respuesta: a1 + (n - 1) * d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión aritmética con a₁ = {a1} y d = {d}, ¿cuánto vale a{n}?"
-
-explicacion: |
-  La fórmula sirve igual (y ahorra mucho más trabajo) para términos
-  lejanos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: random(50, 200)
-  d: -random(2, 10)
-  n: random(4, 10)
-
-respuesta: a1 + (n - 1) * d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión aritmética con a₁ = {a1} y d = {d} (decreciente), ¿cuánto vale a{n}?"
-
-pasos:
-  - "aₙ = {a1} + ({n}−1)×({d}) = {a1 + (n - 1) * d}"
-
-explicacion: |
-  Con d negativo, la fórmula funciona igual: el término va bajando.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "basico"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: random(1, 30)
-  d: random(2, 15)
-  a2: a1 + d
-
-respuesta: d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión aritmética, dos términos consecutivos son {a1} y {a2}. ¿Cuál es la diferencia común (d)?"
-
-explicacion: |
-  La diferencia es, directamente, el término siguiente menos el anterior.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "avanzado"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: random(1, 20)
-  d: random(2, 10)
-  n: random(3, 8)
-  an: a1 + (n - 1) * d
-
-respuesta: d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión aritmética, a₁ = {a1} y a{n} = {an}. ¿Cuál es la diferencia común?"
-
-pasos:
-  - "d = (a{n} − a₁) ÷ (n−1) = ({an} − {a1}) ÷ ({n}−1) = {(an - a1) / (n - 1)}"
-
-explicacion: |
-  Se despeja d de la fórmula del término general.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: random(1, 30)
-  d: random(2, 10)
-  n: random(3, 8)
-  an: a1 + (n - 1) * d
-
-respuesta: a1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión aritmética con d = {d}, el término {n} vale {an} (a{n} = {an}). ¿Cuál es a₁?"
-
-pasos:
-  - "a₁ = a{n} − (n−1)×d = {an} − ({n}−1)×{d} = {an - (n - 1) * d}"
-
-explicacion: |
-  Se despeja a₁ de la fórmula del término general.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: random(1, 20)
-  d: random(2, 10)
-  a2: a1 + d
-  a3: a2 + d
-  a4: a3 + d
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es aritmética la sucesión {a1}, {a2}, {a3}, {a4}?"
-
-explicacion: |
-  La diferencia entre cada par de términos consecutivos es siempre {d}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: random(1, 20)
-  d: random(2, 10)
-  a2: a1 + d
-  a3: a2 + d
-  a4: a3 + d + 1
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es aritmética la sucesión {a1}, {a2}, {a3}, {a4}?"
-
-explicacion: |
-  La diferencia entre los primeros pares es {d}, pero entre los últimos
-  dos términos cambia: no es una diferencia constante.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: random(1, 20)
-  d: random(2, 10)
-  n: random(4, 10)
-  correcto: a1 + (n - 1) * d
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - a1 + n * d
-  - a1 * n * d
-
-enunciado: "En una sucesión aritmética con a₁ = {a1} y d = {d}, ¿cuánto vale a{n}?"
-
-explicacion: |
-  El error común es multiplicar por n en vez de (n−1): el primer término
-  no suma ninguna diferencia todavía.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas", "verificacion"]
-
-variables:
-  a1: random(1, 20)
-  d: random(2, 10)
-  n: random(4, 10)
-  correcto: a1 + (n - 1) * d
-  error: uno_de([0, 0, 0, d, -d])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "En una sucesión con a₁ = {a1} y d = {d}, ¿está bien calculado que a{n} = {mostrado}?"
-
-explicacion: |
-  Se vuelve a aplicar la fórmula y se compara.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: random(1, 20)
-  d: random(2, 10)
-  a2: a1 + d
-  a4: a1 + 3 * d
-
-tipo: completar
-enunciado: "Completá el término que falta: {a1}, {a2}, ___, {a4}."
-respuestas_validas:
-  - a1 + 2 * d
-
-explicacion: |
-  El término que falta sigue el mismo salto d que el resto de la
-  sucesión.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "basico"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: random(1, 30)
-  d: random(2, 15)
-  a2: a1 + d
-
-tipo: completar
-enunciado: "En la sucesión {a1}, {a2}, ..., completá la diferencia común (d)."
-respuestas_validas:
-  - d
-
-explicacion: |
-  d es la distancia entre dos términos consecutivos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas", "problema"]
-
-variables:
-  inicial: random(500, 2000)
-  ahorro_mensual: random(200, 1000)
-  meses: random(4, 12)
-
-respuesta: inicial + (meses - 1) * ahorro_mensual
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El primer mes ahorraste ${inicial}, y cada mes siguiente ahorrás ${ahorro_mensual} más que el mes anterior (en total, no adicional). ¿Cuánto ahorraste en el mes {meses}?"
-
-explicacion: |
-  Es una sucesión aritmética: a₁ = {inicial}, d = {ahorro_mensual}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas", "problema"]
-
-variables:
-  primera_fila: random(10, 30)
-  incremento: random(2, 8)
-  fila: random(5, 15)
-
-respuesta: primera_fila + (fila - 1) * incremento
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La primera fila de un teatro tiene {primera_fila} asientos, y cada fila siguiente tiene {incremento} asientos más que la anterior. ¿Cuántos asientos tiene la fila {fila}?"
-
-explicacion: |
-  Es una sucesión aritmética aplicada a la cantidad de asientos por fila.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas", "problema"]
-
-variables:
-  inicial: random(15, 30)
-  baja_por_hora: random(1, 4)
-  hora: random(4, 10)
-
-respuesta: inicial - (hora - 1) * baja_por_hora
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A la hora 1, la temperatura era {inicial}°C, y baja {baja_por_hora} grados cada hora. ¿Qué temperatura hay en la hora {hora} (puede dar negativa)?"
-
-explicacion: |
-  Es una sucesión aritmética con diferencia negativa (decreciente).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "basico"
-  tags: ["sucesiones_aritmeticas", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una sucesión aritmética, la diferencia entre cualquier par de términos consecutivos es siempre la misma."
-
-explicacion: |
-  Es la propia definición de sucesión aritmética.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas", "casos_especiales"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si la diferencia común (d) de una sucesión aritmética es 0, todos los términos de la sucesión son iguales."
-
-explicacion: |
-  Sumar 0 en cada paso no cambia nada: la sucesión queda constante.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "basico"
-  tags: ["sucesiones_aritmeticas", "casos_especiales"]
-
-variables:
-  a1: random(1, 999)
-  n: random(2, 50)
-
-respuesta: a1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión aritmética con a₁ = {a1} y d = 0, ¿cuánto vale a{n}?"
-
-explicacion: |
-  Con d = 0, todos los términos son iguales al primero.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "avanzado"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: random(1, 20)
-  d: random(2, 10)
-  n: random(3, 12)
-  an: a1 + (n - 1) * d
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión aritmética con a₁ = {a1} y d = {d}, el término {an} (a? = {an}), ¿en qué posición está?"
-
-pasos:
-  - "n = (a? − a₁) ÷ d + 1 = ({an} − {a1}) ÷ {d} + 1 = {(an - a1) / d + 1}"
-
-explicacion: |
-  Se despeja n de la fórmula del término general.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "intermedio"
-  tags: ["sucesiones_aritmeticas", "problema"]
-
-variables:
-  a1: random(3, 10)
-  d: random(2, 6)
-  n: random(4, 10)
-
-respuesta: a1 + (n - 1) * d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La figura 1 de un patrón usa {a1} baldosas, y cada figura siguiente usa {d} baldosas más que la anterior. ¿Cuántas baldosas usa la figura {n}?"
-
-explicacion: |
-  Los patrones de figuras que crecen de a lo mismo son sucesiones
-  aritméticas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "avanzado"
-  tags: ["sucesiones_aritmeticas", "comparacion"]
-
-variables:
-  d1: random(2, 8)
-  d2: random(2, 8)
-
-restricciones:
-  - d1 != d2
-
-respuesta: (d1 > d2)
-tipo: vf
-
-enunciado: "Una sucesión aritmética tiene d = {d1} y otra tiene d = {d2}. ¿Crece más rápido la primera?"
-
-explicacion: |
-  A mayor diferencia común, más rápido crece la sucesión, sin importar
-  cuál sea el primer término.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "avanzado"
-  tags: ["sucesiones_aritmeticas", "orden"]
-
-tipo: ordenar
-enunciado: "Calculá el término 5 (a₅) de cada sucesión aritmética y ordená los resultados de menor a mayor."
-opciones_explicitas:
-  - "a₁=1, d=5"
-  - "a₁=10, d=1"
-  - "a₁=5, d=3"
-  - "a₁=0, d=4"
-respuesta_orden: ["a₁=10, d=1", "a₁=0, d=4", "a₁=5, d=3", "a₁=1, d=5"]
-
-explicacion: |
-  a₅ = a₁ + 4d en cada caso: 14, 16, 17, 21 — hay que calcular cada una
-  antes de poder ordenarlas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "avanzado"
-  tags: ["sucesiones_aritmeticas"]
-
-variables:
-  a1: -random(1, 20)
-  d: random(2, 10)
-  n: random(3, 8)
-
-respuesta: a1 + (n - 1) * d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión aritmética con a₁ = {a1} y d = {d}, ¿cuánto vale a{n}?"
-
-explicacion: |
-  La fórmula funciona igual aunque el primer término sea negativo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "basico"
-  tags: ["sucesiones_aritmeticas", "vocabulario"]
-
-enunciado: "¿Cuál es la fórmula del término general de una sucesión aritmética?"
-tipo: mc
-opciones_explicitas:
-  - "aₙ = a₁ + (n − 1) × d"
-  - "aₙ = a₁ × n × d"
-  - "aₙ = a₁ + n × d"
-respuesta: "aₙ = a₁ + (n − 1) × d"
-
-explicacion: |
-  El (n−1) es clave: el primer término no suma ninguna diferencia
-  todavía.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "sucesiones_aritmeticas"
-  nivel: "basico"
-  tags: ["sucesiones_aritmeticas", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una sucesión aritmética es una lista de números donde cada uno se obtiene sumando siempre la misma diferencia al anterior."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```
-
 ## Sección: sucesiones-y-series (24 preguntas)
 
 ```
@@ -2538,973 +1854,1183 @@ explicacion: |
   Es la idea central de todo el tema: Sₙ = n × (a₁+aₙ) ÷ 2.
 ```
 
-## Sección: suma (40 preguntas)
+## Sección: matrices/operaciones (26 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
+  tema: "matrices_operaciones"
   nivel: "basico"
-  tags: ["suma", "sin_llevar"]
+  tags: ["suma"]
 
 variables:
-  a: random(0, 9)
-  b: random(0, 9)
+  a11: random(1, 20)
+  a12: random(1, 20)
+  a21: random(1, 20)
+  a22: random(1, 20)
+  b11: random(1, 20)
+  b12: random(1, 20)
+  b21: random(1, 20)
+  b22: random(1, 20)
 
-restricciones:
-  - (a + b) <= 9
-
-respuesta: a + b
+respuesta: a11 + b11
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto es {a} + {b}?"
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (1,1) de A + B?"
 
 explicacion: |
-  Sumar sin llevar es contar hacia adelante desde el primer sumando tantas
-  veces como indica el segundo.
+  Se suma cada elemento con el de la misma posición: a11 + b11.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
+  tema: "matrices_operaciones"
   nivel: "basico"
-  tags: ["suma", "sin_llevar", "problema"]
+  tags: ["suma"]
 
 variables:
-  a: random(1, 9)
-  b: random(1, 9)
+  a11: random(1, 20)
+  a12: random(1, 20)
+  a21: random(1, 20)
+  a22: random(1, 20)
+  b11: random(1, 20)
+  b12: random(1, 20)
+  b21: random(1, 20)
+  b22: random(1, 20)
 
-restricciones:
-  - (a + b) <= 9
-
-respuesta: a + b
+respuesta: a22 + b22
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Tenés {a} caramelos y te regalan {b} más. ¿Cuántos caramelos tenés ahora?"
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (2,2) de A + B?"
 
 explicacion: |
-  "Tener y que te den más" es sumar: el total junta lo que ya tenías con lo
-  que se agregó.
+  a22 + b22.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
+  tema: "matrices_operaciones"
   nivel: "basico"
-  tags: ["suma", "sin_llevar"]
+  tags: ["resta"]
 
 variables:
-  da: random(1, 8)
-  au: random(0, 9)
-  db: random(1, 8)
-  bu: random(0, 9)
-  a: da * 10 + au
-  b: db * 10 + bu
+  a11: random(10, 30)
+  a12: random(10, 30)
+  a21: random(10, 30)
+  a22: random(10, 30)
+  b11: random(1, 9)
+  b12: random(1, 9)
+  b21: random(1, 9)
+  b22: random(1, 9)
 
-restricciones:
-  - (au + bu) <= 9
-  - (da + db) <= 9
-
-respuesta: a + b
+respuesta: a12 - b12
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto es {a} + {b}?"
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (1,2) de A − B?"
+
+explicacion: |
+  a12 − b12.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "basico"
+  tags: ["resta"]
+
+variables:
+  a11: random(10, 30)
+  a12: random(10, 30)
+  a21: random(10, 30)
+  a22: random(10, 30)
+  b11: random(1, 9)
+  b12: random(1, 9)
+  b21: random(1, 9)
+  b22: random(1, 9)
+
+respuesta: a21 - b21
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (2,1) de A − B?"
+
+explicacion: |
+  a21 − b21.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "basico"
+  tags: ["escalar"]
+
+variables:
+  k: random(2, 8)
+  a11: random(1, 15)
+  a12: random(1, 15)
+  a21: random(1, 15)
+  a22: random(1, 15)
+
+respuesta: k * a11
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]]. ¿Cuál es el elemento (1,1) de {k}·A?"
+
+explicacion: |
+  Multiplicar por un escalar multiplica cada elemento por ese número.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "basico"
+  tags: ["escalar"]
+
+variables:
+  k: random(2, 8)
+  a11: random(1, 15)
+  a12: random(1, 15)
+  a21: random(1, 15)
+  a22: random(1, 15)
+
+respuesta: k * a22
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]]. ¿Cuál es el elemento (2,2) de {k}·A?"
+
+explicacion: |
+  {k} × a22.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["producto"]
+
+variables:
+  a11: random(1, 10)
+  a12: random(1, 10)
+  a21: random(1, 10)
+  a22: random(1, 10)
+  b11: random(1, 10)
+  b12: random(1, 10)
+  b21: random(1, 10)
+  b22: random(1, 10)
+
+respuesta: a11 * b11 + a12 * b21
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (1,1) de A · B?"
 
 pasos:
-  - "Unidades: {au} + {bu} = {au + bu}. Decenas: {da} + {db} = {da + db}."
+  - "Fila 1 de A por columna 1 de B: ({a11}×{b11}) + ({a12}×{b21}) = {a11 * b11 + a12 * b21}"
 
 explicacion: |
-  Sin llevar, cada columna (unidades, decenas) se suma por separado y no
-  hay que ajustar nada entre ellas.
+  Regla fila por columna: se multiplican término a término y se suma.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["producto"]
+
+variables:
+  a11: random(1, 10)
+  a12: random(1, 10)
+  a21: random(1, 10)
+  a22: random(1, 10)
+  b11: random(1, 10)
+  b12: random(1, 10)
+  b21: random(1, 10)
+  b22: random(1, 10)
+
+respuesta: a11 * b12 + a12 * b22
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (1,2) de A · B?"
+
+pasos:
+  - "Fila 1 de A por columna 2 de B: ({a11}×{b12}) + ({a12}×{b22}) = {a11 * b12 + a12 * b22}"
+
+explicacion: |
+  Fila 1 de A, columna 2 de B.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["producto"]
+
+variables:
+  a11: random(1, 10)
+  a12: random(1, 10)
+  a21: random(1, 10)
+  a22: random(1, 10)
+  b11: random(1, 10)
+  b12: random(1, 10)
+  b21: random(1, 10)
+  b22: random(1, 10)
+
+respuesta: a21 * b11 + a22 * b21
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (2,1) de A · B?"
+
+explicacion: |
+  Fila 2 de A, columna 1 de B: (a21×b11) + (a22×b21).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["producto"]
+
+variables:
+  a11: random(1, 10)
+  a12: random(1, 10)
+  a21: random(1, 10)
+  a22: random(1, 10)
+  b11: random(1, 10)
+  b12: random(1, 10)
+  b21: random(1, 10)
+  b22: random(1, 10)
+
+respuesta: a21 * b12 + a22 * b22
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (2,2) de A · B?"
+
+explicacion: |
+  Fila 2 de A, columna 2 de B: (a21×b12) + (a22×b22).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["producto", "vector"]
+
+variables:
+  a11: random(1, 10)
+  a12: random(1, 10)
+  a21: random(1, 10)
+  a22: random(1, 10)
+  x1: random(1, 10)
+  x2: random(1, 10)
+
+respuesta: a11 * x1 + a12 * x2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], v = [{x1}, {x2}]. ¿Cuál es la primera componente de A · v?"
+
+explicacion: |
+  Fila 1 de A por el vector completo: (a11×x1) + (a12×x2).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["producto", "vector"]
+
+variables:
+  a11: random(1, 10)
+  a12: random(1, 10)
+  a21: random(1, 10)
+  a22: random(1, 10)
+  x1: random(1, 10)
+  x2: random(1, 10)
+
+respuesta: a21 * x1 + a22 * x2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], v = [{x1}, {x2}]. ¿Cuál es la segunda componente de A · v?"
+
+explicacion: |
+  Fila 2 de A por el vector completo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
   nivel: "basico"
-  tags: ["suma", "calculo_mental"]
+  tags: ["identidad"]
 
-variables:
-  da: random(1, 8)
-  db: random(1, 8)
-  a: da * 10
-  b: db * 10
-
-respuesta: a + b
+respuesta: 1
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto es {a} + {b}?"
-
-pasos:
-  - "Sumar decenas completas es sumar las decenas y agregar el cero: {da} + {db} = {da + db}, entonces {a} + {b} = {a + b}"
+enunciado: "¿Cuál es el elemento (1,1) de la matriz identidad 2×2?"
 
 explicacion: |
-  Cuando ambos números son "redondos" (terminan en cero), alcanza con sumar
-  las cifras significativas y agregar los ceros al final.
+  La diagonal principal de la identidad es siempre 1.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
-  nivel: "intermedio"
-  tags: ["suma", "con_llevada"]
-
-variables:
-  da: random(1, 8)
-  au: random(1, 9)
-  db: random(1, 8)
-  bu: random(1, 9)
-  a: da * 10 + au
-  b: db * 10 + bu
-
-restricciones:
-  - (au + bu) >= 10
-
-respuesta: a + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} + {b}?"
-
-pasos:
-  - "Unidades: {au} + {bu} = {au + bu} → se escribe {(au + bu) - 10} y se lleva 1 a las decenas"
-
-explicacion: |
-  Cuando la suma de una columna da 10 o más, se escribe sólo la cifra de
-  las unidades de ese resultado y se lleva 1 a la columna siguiente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "intermedio"
-  tags: ["suma", "con_llevada"]
-
-variables:
-  da: random(5, 9)
-  au: random(0, 4)
-  db: random(5, 9)
-  bu: random(0, 4)
-  a: da * 10 + au
-  b: db * 10 + bu
-
-respuesta: a + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} + {b}?"
-
-pasos:
-  - "Decenas: {da} + {db} = {da + db} → el resultado pasa a tener 3 cifras"
-
-explicacion: |
-  La llevada no es sólo cosa de las unidades: si la columna de las decenas
-  también suma 10 o más, se lleva 1 a las centenas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "intermedio"
-  tags: ["suma", "con_llevada", "problema"]
-
-variables:
-  au: random(5, 9)
-  da: random(1, 8)
-  bu: random(5, 9)
-  db: random(1, 8)
-  a: da * 10 + au
-  b: db * 10 + bu
-
-restricciones:
-  - (au + bu) >= 10
-
-respuesta: a + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En un colectivo suben {a} pasajeros en una parada y {b} en la siguiente. ¿Cuántos pasajeros subieron en total?"
-
-explicacion: |
-  El planteo es el mismo que una suma numérica; el contexto sólo dice qué
-  representa cada sumando.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "intermedio"
-  tags: ["suma", "con_llevada"]
-
-variables:
-  ca: random(1, 8)
-  da: random(0, 9)
-  au: random(1, 9)
-  cb: random(1, 8)
-  db: random(0, 9)
-  bu: random(1, 9)
-  a: ca * 100 + da * 10 + au
-  b: cb * 100 + db * 10 + bu
-
-restricciones:
-  - (au + bu) >= 10
-
-respuesta: a + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} + {b}?"
-
-explicacion: |
-  Con 3 cifras el procedimiento es el mismo, columna por columna, sólo que
-  la llevada puede seguir de las unidades a las decenas y de ahí a las
-  centenas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "avanzado"
-  tags: ["suma", "con_llevada"]
-
-variables:
-  ca: random(1, 8)
-  da: random(5, 9)
-  au: random(5, 9)
-  cb: random(1, 8)
-  db: random(5, 9)
-  bu: random(5, 9)
-  a: ca * 100 + da * 10 + au
-  b: cb * 100 + db * 10 + bu
-
-restricciones:
-  - (au + bu) >= 10
-  - (da + db) >= 9
-
-respuesta: a + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} + {b}?"
-
-explicacion: |
-  Acá la llevada de las unidades empuja también a las decenas a llevarse:
-  hay que arrastrar el 1 de una columna a la otra sin perderlo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "intermedio"
-  tags: ["suma", "con_llevada", "problema"]
-
-variables:
-  a: random(150, 899)
-  b: random(150, 899)
-
-respuesta: a + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Gastaste ${a} en el supermercado y ${b} en la farmacia. ¿Cuánto gastaste en total?"
-
-explicacion: |
-  Sumar montos de dinero es sumar los números igual que siempre; el signo
-  $ no cambia el procedimiento.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "intermedio"
-  tags: ["suma", "varios_sumandos"]
-
-variables:
-  a: random(1, 90)
-  b: random(1, 90)
-  c: random(1, 90)
-
-respuesta: a + b + c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} + {b} + {c}?"
-
-pasos:
-  - "Se puede sumar de a dos, en cualquier orden: ({a} + {b}) + {c} = {a + b + c}"
-
-explicacion: |
-  Sumar tres o más números es sumar de a dos, empezando por cualquier par
-  (propiedad asociativa).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "intermedio"
-  tags: ["suma", "varios_sumandos", "calculo_mental"]
-
-variables:
-  a: random(1, 8) * 10
-  b: random(1, 8)
-  c: random(1, 8) * 10
-
-respuesta: a + b + c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} + {b} + {c}?"
-
-pasos:
-  - "Conviene sumar primero las dos decenas redondas: {a} + {c} = {a + c}, y después sumar {b}: {a + c} + {b} = {a + b + c}"
-
-explicacion: |
-  La propiedad asociativa permite elegir qué par sumar primero: agrupar los
-  números "más fáciles" ahorra trabajo mental.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "avanzado"
-  tags: ["suma", "varios_sumandos"]
-
-variables:
-  a: random(100, 400)
-  b: random(100, 400)
-  c: random(100, 400)
-
-respuesta: a + b + c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} + {b} + {c}?"
-
-explicacion: |
-  Con más cifras el procedimiento no cambia: se suma de a dos hasta usar
-  todos los sumandos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
+  tema: "matrices_operaciones"
   nivel: "basico"
-  tags: ["suma", "propiedades"]
+  tags: ["identidad"]
 
-variables:
-  a: random(1, 90)
-  b: random(1, 90)
+respuesta: 0
+tipo: input
+tolerancia_abs: 0
 
-restricciones:
-  - a != b
-
-respuesta: a + b
-tipo: mc
-opciones_explicitas:
-  - b + a
-  - a + b + 1
-  - a + b - 1
-
-enunciado: "¿Cuál de estas opciones da el mismo resultado que {a} + {b}?"
+enunciado: "¿Cuál es el elemento (1,2) de la matriz identidad 2×2?"
 
 explicacion: |
-  Cambiar el orden de los sumandos no cambia el resultado (propiedad
-  conmutativa): {a} + {b} es exactamente lo mismo que {b} + {a}.
+  Fuera de la diagonal principal, la identidad tiene 0.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
-  nivel: "basico"
-  tags: ["suma", "propiedades"]
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["identidad", "verdadero_falso"]
+
+variables:
+  a11: random(1, 20)
+  a12: random(1, 20)
+  a21: random(1, 20)
+  a22: random(1, 20)
+
+respuesta: ((a11 * 1 + a12 * 0) == a11)
+tipo: vf
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]]. ¿El elemento (1,1) de A · I₂ es igual a {a11} (el mismo elemento (1,1) de A)?"
+
+explicacion: |
+  A · I = A: multiplicar por la identidad no cambia la matriz.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "En general, A · B es igual a B · A."
+
+explicacion: |
+  La multiplicación de matrices no es conmutativa — cambiar el orden
+  suele dar un resultado distinto (y a veces ni siquiera es posible
+  calcularlo, si los tamaños no coinciden al revés).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["compatibilidad", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cambiar el orden de los sumandos no cambia el resultado de una suma."
+enunciado: "¿Se puede multiplicar una matriz de 2×3 por otra de 3×2?"
 
 explicacion: |
-  Es la propiedad conmutativa: a + b siempre da lo mismo que b + a.
+  Las columnas de la primera (3) coinciden con las filas de la segunda
+  (3), así que sí se puede — el resultado sería de 2×2.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
+  tema: "matrices_operaciones"
   nivel: "intermedio"
-  tags: ["suma", "propiedades"]
-
-variables:
-  a: random(1, 30)
-  b: random(1, 30)
-  c: random(1, 30)
-
-respuesta: ((a + b) + c == a + (b + c))
-tipo: vf
-
-enunciado: "¿Es cierto que ({a} + {b}) + {c} da lo mismo que {a} + ({b} + {c})?"
-
-explicacion: |
-  Es la propiedad asociativa: no importa qué par de sumandos se sume
-  primero, el resultado final es siempre el mismo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "basico"
-  tags: ["suma", "propiedades"]
+  tags: ["compatibilidad", "verdadero_falso"]
 
 respuesta: falso
+
 tipo: vf
 
-enunciado: "Agrupar los sumandos de otra manera (por ejemplo, sumar primero el segundo y el tercero en vez del primero y el segundo) cambia el resultado final de la suma."
+enunciado: "¿Se puede multiplicar una matriz de 2×3 por otra de 2×3?"
 
 explicacion: |
-  Justamente al revés: agrupar distinto no cambia nada (propiedad
-  asociativa); el resultado final es siempre el mismo.
+  Las columnas de la primera (3) no coinciden con las filas de la
+  segunda (2), así que no se puede.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
+  tema: "matrices_operaciones"
   nivel: "basico"
-  tags: ["suma", "propiedades"]
+  tags: ["compatibilidad", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "¿Se puede sumar una matriz de 2×2 con otra de 2×3?"
+
+explicacion: |
+  Para sumar, las dos matrices tienen que tener exactamente el mismo
+  tamaño.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["compatibilidad"]
 
 variables:
-  a: random(1, 999)
+  m: random(2, 6)
+  n: random(2, 6)
+  p: random(2, 6)
 
-respuesta: a
+respuesta: m
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto es {a} + 0?"
+enunciado: "A es de tamaño {m}×{n} y B es de tamaño {n}×{p}. ¿Cuántas filas tiene A · B?"
 
 explicacion: |
-  Sumar 0 no agrega ni quita nada: el resultado es siempre el mismo número
-  con el que se empezó.
+  El resultado tiene tantas filas como A.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["compatibilidad"]
+
+variables:
+  m: random(2, 6)
+  n: random(2, 6)
+  p: random(2, 6)
+
+respuesta: p
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A es de tamaño {m}×{n} y B es de tamaño {n}×{p}. ¿Cuántas columnas tiene A · B?"
+
+explicacion: |
+  El resultado tiene tantas columnas como B.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["transpuesta"]
+
+variables:
+  a11: random(1, 20)
+  a12: random(1, 20)
+  a21: random(1, 20)
+  a22: random(1, 20)
+
+respuesta: a21
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]]. ¿Cuál es el elemento (1,2) de Aᵀ?"
+
+explicacion: |
+  El elemento (1,2) de la transpuesta es el elemento (2,1) de la
+  original: a21.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "intermedio"
+  tags: ["transpuesta"]
+
+variables:
+  a11: random(1, 20)
+  a12: random(1, 20)
+  a21: random(1, 20)
+  a22: random(1, 20)
+
+respuesta: a12
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]]. ¿Cuál es el elemento (2,1) de Aᵀ?"
+
+explicacion: |
+  El elemento (2,1) de la transpuesta es el elemento (1,2) de la
+  original: a12.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
   nivel: "basico"
-  tags: ["suma", "propiedades"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Sumarle 0 a cualquier número da como resultado ese mismo número, sin cambiarlo."
+enunciado: "Para sumar dos matrices, las dos tienen que tener el mismo tamaño."
 
 explicacion: |
-  El 0 es el elemento neutro de la suma: no aporta ni resta nada.
+  La suma se hace elemento a elemento, así que necesita esa
+  correspondencia exacta.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
-  nivel: "basico"
-  tags: ["suma", "vocabulario"]
-
-enunciado: "En la suma 8 + 5 = 13, ¿cómo se llama el 13?"
-tipo: mc
-opciones_explicitas:
-  - "Total"
-  - "Sumando"
-  - "Resto"
-respuesta: "Total"
-
-explicacion: |
-  El resultado de una suma se llama total (o suma); los números que se
-  suman son los sumandos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "basico"
-  tags: ["suma", "vocabulario"]
-
-enunciado: "En la suma 8 + 5 = 13, ¿cómo se llaman el 8 y el 5?"
-tipo: mc
-opciones_explicitas:
-  - "Sumandos"
-  - "Totales"
-  - "Restos"
-respuesta: "Sumandos"
-
-explicacion: |
-  Los números que se suman se llaman sumandos; el resultado es el total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
+  tema: "matrices_operaciones"
   nivel: "intermedio"
-  tags: ["suma", "estimacion"]
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La multiplicación de matrices se hace multiplicando los elementos que están en la misma posición, igual que en la suma."
+
+explicacion: |
+  Eso sería un error común. La multiplicación de matrices usa la regla
+  fila por columna, no posición por posición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_operaciones"
+  nivel: "avanzado"
+  tags: ["producto", "verificacion", "verdadero_falso"]
 
 variables:
-  a: random(11, 988)
-  b: random(11, 988)
-  ra: redondear(a / 10, 0) * 10
-  rb: redondear(b / 10, 0) * 10
+  a11: random(1, 8)
+  a12: random(1, 8)
+  a21: random(1, 8)
+  a22: random(1, 8)
+  b11: random(1, 8)
+  b12: random(1, 8)
+  b21: random(1, 8)
+  b22: random(1, 8)
+  c11_real: a11 * b11 + a12 * b21
+  error: uno_de([0, 0, 1, -1])
+  c11_propuesto: c11_real + error
 
-respuesta: ra + rb
+respuesta: (c11_propuesto == c11_real)
+tipo: vf
+
+enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Es correcto que el elemento (1,1) de A · B sea {c11_propuesto}?"
+
+explicacion: |
+  El valor correcto es (a11×b11) + (a12×b21) = {c11_real}.
+```
+
+## Sección: series-geometricas (26 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "basico"
+  tags: ["series_geometricas", "vocabulario"]
+
+enunciado: "¿Qué es una sucesión geométrica?"
+tipo: mc
+opciones_explicitas:
+  - "Una lista de números donde siempre se multiplica por la misma razón para pasar al siguiente"
+  - "Una lista de números donde siempre se suma la misma cantidad"
+  - "Una lista de números al azar"
+respuesta: "Una lista de números donde siempre se multiplica por la misma razón para pasar al siguiente"
+
+explicacion: |
+  Esa cantidad fija por la que se multiplica se llama razón (r).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "basico"
+  tags: ["series_geometricas"]
+
+variables:
+  a1: random(1, 10)
+  r: random(2, 4)
+  n: random(3, 6)
+
+respuesta: a1 * (r ^ (n - 1))
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Redondeá {a} y {b} a la decena más cercana, y sumá esos redondeos. ¿Cuánto da la estimación?"
+enunciado: "En una sucesión geométrica con a₁ = {a1} y razón r = {r}, ¿cuánto vale a{n}?"
 
 pasos:
-  - "{a} redondea a {ra}. {b} redondea a {rb}. {ra} + {rb} = {ra + rb}"
+  - "aₙ = a₁ × r^(n−1) = {a1} × {r}^{n - 1} = {a1} × {r ^ (n - 1)} = {a1 * (r ^ (n - 1))}"
 
 explicacion: |
-  Estimar una suma es redondear cada sumando por separado antes de sumar,
-  para tener una idea rápida del resultado sin hacer la cuenta exacta.
+  Se aplica la fórmula del término general: multiplicar el primer
+  término por la razón elevada a (n−1).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
+  tema: "series_geometricas"
   nivel: "intermedio"
-  tags: ["suma", "estimacion"]
+  tags: ["series_geometricas"]
 
 variables:
-  a: random(101, 9888)
-  b: random(101, 9888)
-  ra: redondear(a / 100, 0) * 100
-  rb: redondear(b / 100, 0) * 100
+  a1: random(1, 5)
+  r: 2
+  n: random(6, 10)
 
-respuesta: ra + rb
+respuesta: a1 * (r ^ (n - 1))
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Redondeá {a} y {b} a la centena más cercana, y sumá esos redondeos. ¿Cuánto da la estimación?"
-
-pasos:
-  - "{a} redondea a {ra}. {b} redondea a {rb}. {ra} + {rb} = {ra + rb}"
+enunciado: "En una sucesión geométrica con a₁ = {a1} y razón r = {r}, ¿cuánto vale a{n}?"
 
 explicacion: |
-  Con números más grandes conviene redondear a la centena (en vez de la
-  decena) para que la estimación sea más rápida de calcular.
+  El crecimiento geométrico se nota más cuanto más lejano es el término.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
+  tema: "series_geometricas"
   nivel: "basico"
-  tags: ["suma", "estimacion"]
+  tags: ["series_geometricas"]
+
+variables:
+  a1: random(1, 10)
+  r: random(2, 6)
+  a2: a1 * r
+
+respuesta: r
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En una sucesión geométrica, dos términos consecutivos son {a1} y {a2}. ¿Cuál es la razón?"
+
+explicacion: |
+  La razón es el término siguiente dividido por el anterior.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "intermedio"
+  tags: ["series_geometricas"]
+
+variables:
+  a1: random(1, 10)
+  r: random(2, 4)
+  a2: a1 * r
+  a3: a2 * r
+  a4: a3 * r
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es geométrica la sucesión {a1}, {a2}, {a3}, {a4}?"
+
+explicacion: |
+  La razón entre cada par de términos consecutivos es siempre {r}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "intermedio"
+  tags: ["series_geometricas"]
+
+variables:
+  a1: random(1, 10)
+  r: random(2, 4)
+  a2: a1 * r
+  a3: a2 * r
+  a4: a3 * r + 1
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Una estimación siempre tiene que dar exactamente el mismo número que la cuenta exacta."
+enunciado: "¿Es geométrica la sucesión {a1}, {a2}, {a3}, {a4}?"
 
 explicacion: |
-  Una estimación es sólo un valor aproximado, útil para controlar que la
-  cuenta exacta no tenga un error grosero — no tiene por qué coincidir al
-  dígito con el resultado real.
+  Los primeros pares mantienen razón {r}, pero el último par rompe esa
+  proporción: no es geométrica.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
+  tema: "series_geometricas"
   nivel: "basico"
-  tags: ["suma", "sumando_faltante"]
+  tags: ["series_geometricas", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia entre una sucesión aritmética y una geométrica?"
+tipo: mc
+opciones_explicitas:
+  - "La aritmética suma siempre la misma diferencia; la geométrica multiplica siempre por la misma razón"
+  - "No hay ninguna diferencia, son lo mismo"
+  - "La geométrica sólo sirve para figuras geométricas"
+respuesta: "La aritmética suma siempre la misma diferencia; la geométrica multiplica siempre por la misma razón"
+
+explicacion: |
+  Son dos formas distintas de generar el siguiente término.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "intermedio"
+  tags: ["series_geometricas"]
 
 variables:
-  a: random(1, 90)
-  x: random(1, 90)
-  total: a + x
+  a1: random(1, 10)
+  r: 2
+  n: random(3, 8)
 
-respuesta: x
+respuesta: a1 * ((r ^ n) - 1) / (r - 1)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.01
 
-enunciado: "¿Qué número hay que sumarle a {a} para obtener {total}?"
+enunciado: "Sumá los primeros {n} términos de una sucesión geométrica con a₁ = {a1} y r = {r}."
 
 pasos:
-  - "{total} - {a} = {total - a}"
+  - "Sₙ = a₁ × (rⁿ−1) ÷ (r−1) = {a1} × ({r}^{n}−1) ÷ ({r}−1) = {a1 * ((r ^ n) - 1) / (r - 1)}"
 
 explicacion: |
-  Buscar el sumando que falta es, en realidad, hacer la resta entre el
-  total y el sumando conocido.
+  Se aplica la fórmula de la suma de una serie geométrica finita.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
-  nivel: "intermedio"
-  tags: ["suma", "sumando_faltante"]
+  tema: "series_geometricas"
+  nivel: "avanzado"
+  tags: ["series_geometricas"]
 
 variables:
-  a: random(100, 800)
-  x: random(50, 199)
-  total: a + x
+  a1: random(1, 5)
+  r: 3
+  n: random(3, 6)
 
-respuesta: x
+respuesta: a1 * ((r ^ n) - 1) / (r - 1)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.01
 
-enunciado: "¿Qué número hay que sumarle a {a} para obtener {total}?"
+enunciado: "Sumá los primeros {n} términos de una sucesión geométrica con a₁ = {a1} y r = {r}."
 
 explicacion: |
-  El procedimiento es el mismo con números más grandes: restar el sumando
-  conocido al total.
+  El procedimiento es el mismo con cualquier razón (distinta de 1).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
+  tema: "series_geometricas"
   nivel: "intermedio"
-  tags: ["suma", "sumando_faltante"]
+  tags: ["series_geometricas", "verificacion"]
 
 variables:
-  a: random(1, 90)
-  x: random(1, 90)
-  total: a + x
+  a1: random(1, 10)
+  r: 2
+  n: random(3, 6)
+  correcto: a1 * ((r ^ n) - 1) / (r - 1)
+  error: uno_de([0, 0, 0, a1, -a1])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 0.01)
+tipo: vf
+
+enunciado: "¿Está bien calculada esta suma? Los primeros {n} términos (a₁={a1}, r={r}) suman {mostrado}."
+
+explicacion: |
+  Se vuelve a aplicar la fórmula y se compara.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "intermedio"
+  tags: ["series_geometricas"]
+
+variables:
+  a1: random(1, 10)
+  r: random(2, 4)
+  n: random(3, 6)
+  correcto: a1 * (r ^ (n - 1))
+
+respuesta: correcto
+tipo: mc
+opciones_explicitas:
+  - correcto
+  - a1 * r * n
+  - a1 + (r ^ (n - 1))
+
+enunciado: "En una sucesión geométrica con a₁={a1}, r={r}, ¿cuánto vale a{n}?"
+
+explicacion: |
+  Las otras opciones confunden multiplicar por r elevado al exponente con
+  multiplicar por r y n, o mezclan suma con potencia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "intermedio"
+  tags: ["series_geometricas"]
+
+variables:
+  a1: random(1, 10)
+  r: random(2, 4)
+  a2: a1 * r
+  a4: a1 * (r ^ 3)
 
 tipo: completar
-enunciado: "Completá: ___ + {a} = {total}."
+enunciado: "Completá el término que falta: {a1}, {a2}, ___, {a4}."
 respuestas_validas:
-  - x
+  - a1 * (r ^ 2)
 
 explicacion: |
-  El número que falta es el que, sumado a {a}, completa exactamente
-  {total}.
+  El término que falta sigue multiplicando por la misma razón r.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
-  nivel: "basico"
-  tags: ["suma", "verificacion"]
-
-variables:
-  a: random(1, 9)
-  b: random(1, 9)
-  correcto: a + b
-  error: uno_de([0, 0, 0, 1, -1])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien resuelta esta suma? {a} + {b} = {mostrado}"
-
-explicacion: |
-  Para verificar una suma hay que volver a calcularla y comparar el
-  resultado, no alcanza con que el número "parezca" razonable.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
+  tema: "series_geometricas"
   nivel: "intermedio"
-  tags: ["suma", "verificacion"]
+  tags: ["series_geometricas", "problema"]
 
 variables:
-  a: random(10, 90)
-  b: random(10, 90)
-  correcto: a + b
-  error: uno_de([0, 0, 0, 1, -1, 10])
-  mostrado: correcto + error
+  inicial: random(2, 20)
+  horas: random(3, 8)
 
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien resuelta esta suma? {a} + {b} = {mostrado}"
-
-explicacion: |
-  Un error típico al sumar en columna es olvidarse de la llevada: por eso
-  conviene siempre volver a revisar columna por columna.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "avanzado"
-  tags: ["suma", "verificacion"]
-
-variables:
-  a: random(100, 800)
-  b: random(100, 800)
-  correcto: a + b
-  error: uno_de([0, 0, 0, 1, -1, 100])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien resuelta esta suma? {a} + {b} = {mostrado}"
-
-explicacion: |
-  Con más cifras hay más columnas donde puede haber un error: conviene
-  verificar de derecha a izquierda, igual que al resolver.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "basico"
-  tags: ["suma", "problema"]
-
-variables:
-  a: random(5, 40)
-  b: random(5, 40)
-
-respuesta: a + b
+respuesta: inicial * (2 ^ horas)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "En un salón hay {a} varones y {b} mujeres. ¿Cuántas personas hay en total?"
-
-explicacion: |
-  Juntar dos grupos distintos en un solo total es sumar sus cantidades.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "intermedio"
-  tags: ["suma", "problema"]
-
-variables:
-  a: random(100, 500)
-  b: random(50, 300)
-
-respuesta: a + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un colectivo recorrió {a} metros hasta la primera parada y {b} metros más hasta la segunda. ¿Cuántos metros recorrió en total?"
-
-explicacion: |
-  Sumar dos tramos de un recorrido da la distancia total recorrida.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "intermedio"
-  tags: ["suma", "calculo_mental"]
-
-variables:
-  a: random(1, 988)
-  unidad: a - floor(a / 10) * 10
-  falta: 10 - unidad
-
-restricciones:
-  - unidad != 0
-
-respuesta: falta
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto le falta a {a} para llegar al próximo múltiplo de 10?"
+enunciado: "Una población de {inicial} bacterias se duplica cada hora. ¿Cuántas bacterias hay después de {horas} horas?"
 
 pasos:
-  - "La cifra de las unidades de {a} es {unidad}; falta {falta} para completar la decena"
+  - "Es una sucesión geométrica con r=2: {inicial} × 2^{horas} = {inicial * (2 ^ horas)}"
 
 explicacion: |
-  Encontrar cuánto falta para "redondear hacia arriba" es una suma
-  disfrazada de resta: se busca el número que, sumado, completa el
-  múltiplo de 10 más cercano.
+  Duplicarse cada hora es multiplicar por 2 en cada paso: razón
+  geométrica r=2.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
-  nivel: "intermedio"
-  tags: ["suma", "calculo_mental"]
+  tema: "series_geometricas"
+  nivel: "avanzado"
+  tags: ["series_geometricas", "problema"]
 
 variables:
-  a: random(1, 9888)
-  resto: a - floor(a / 100) * 100
-  falta: 100 - resto
+  capital: random(1000, 5000)
+  periodos: random(2, 5)
 
-restricciones:
-  - resto != 0
-
-respuesta: falta
+respuesta: capital * (1.1 ^ periodos)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.1
 
-enunciado: "¿Cuánto le falta a {a} para llegar al próximo múltiplo de 100?"
+enunciado: "Un capital de ${capital} crece un 10% cada período. ¿Cuánto queda después de {periodos} períodos?"
+
+pasos:
+  - "Cada período se multiplica por 1,1: {capital} × 1,1^{periodos} = {capital * (1.1 ^ periodos)}"
 
 explicacion: |
-  Mismo razonamiento que con los múltiplos de 10, mirando ahora las dos
-  últimas cifras del número.
+  El interés compuesto es, exactamente, una sucesión geométrica con razón
+  (1 + tasa).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
-  nivel: "intermedio"
-  tags: ["suma", "problema"]
+  tema: "series_geometricas"
+  nivel: "avanzado"
+  tags: ["series_geometricas", "problema"]
 
 variables:
-  a: random(100, 900)
-  meta: a + random(50, 400)
+  altura_inicial: random(100, 500)
+  rebotes: random(2, 4)
 
-respuesta: meta - a
+respuesta: altura_inicial * (0.5 ^ rebotes)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.1
 
-enunciado: "Tenés ahorrados ${a} y tu meta es juntar ${meta}. ¿Cuánto te falta ahorrar?"
+enunciado: "Una pelota cae desde {altura_inicial} cm, y en cada rebote alcanza la mitad de la altura anterior. ¿A qué altura llega en el rebote número {rebotes}?"
+
+pasos:
+  - "Razón r=0,5: {altura_inicial} × 0,5^{rebotes} = {altura_inicial * (0.5 ^ rebotes)}"
 
 explicacion: |
-  Lo ahorrado más lo que falta tiene que dar exactamente la meta: por eso
-  lo que falta es la meta menos lo ya ahorrado.
+  Con razón menor a 1, la sucesión geométrica decrece en vez de crecer.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
+  tema: "series_geometricas"
+  nivel: "avanzado"
+  tags: ["series_geometricas"]
+
+variables:
+  a1: random(50, 200)
+  n: random(2, 4)
+
+respuesta: a1 * (0.5 ^ (n - 1))
+tipo: input
+tolerancia_abs: 0.1
+
+enunciado: "En una sucesión geométrica con a₁ = {a1} y r = 0,5, ¿cuánto vale a{n}?"
+
+explicacion: |
+  La fórmula funciona igual con razones menores a 1: el resultado va
+  bajando en vez de subir.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "intermedio"
+  tags: ["series_geometricas", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Con el mismo punto de partida, una sucesión geométrica (con razón mayor a 1) termina superando a una aritmética, sin importar cuán grande sea la diferencia de la aritmética."
+
+explicacion: |
+  El crecimiento exponencial siempre "gana" al lineal a largo plazo,
+  aunque al principio la aritmética pueda ir adelante.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
   nivel: "basico"
-  tags: ["suma", "orden"]
+  tags: ["series_geometricas", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una sucesión geométrica, la razón entre cualquier par de términos consecutivos es siempre la misma."
+
+explicacion: |
+  Es la propia definición de sucesión geométrica.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "basico"
+  tags: ["series_geometricas", "orden"]
 
 tipo: ordenar
-enunciado: "Ordená estas sumas de menor a mayor resultado (sin calcularlas todas de una)."
+enunciado: "Ordená estos términos de una sucesión geométrica (a₁=2, r=3) de menor a mayor."
 opciones_explicitas:
-  - "6 + 7"
-  - "3 + 2"
-  - "9 + 9"
-  - "5 + 4"
-respuesta_orden: ["3 + 2", "5 + 4", "6 + 7", "9 + 9"]
+  - "54"
+  - "2"
+  - "18"
+  - "6"
+respuesta_orden: ["2", "6", "18", "54"]
 
 explicacion: |
-  3+2=5, 5+4=9, 6+7=13, 9+9=18: hay que resolver cada suma antes de poder
-  ordenarlas.
+  2, 2×3=6, 6×3=18, 18×3=54: con razón mayor a 1, ya están en orden
+  creciente por cómo se construyen.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
-  nivel: "basico"
-  tags: ["suma", "algoritmo_columna"]
+  tema: "series_geometricas"
+  nivel: "avanzado"
+  tags: ["series_geometricas"]
 
 variables:
-  da: random(1, 8)
-  au: random(1, 8)
-  db: random(1, 8)
-  bu: random(0, 9 - au)
-  a: da * 10 + au
-  b: db * 10 + bu
-  suma: a + b
+  a1: random(1, 10)
+  r: random(2, 4)
+  n: random(3, 5)
+  an: a1 * (r ^ (n - 1))
 
-tipo: completar
-enunciado: "Completá el resultado: {a} + {b} = ___."
-respuestas_validas:
-  - suma
-
-explicacion: |
-  Se resuelve la suma en columna, de derecha a izquierda, y se completa
-  con el resultado final.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "basico"
-  tags: ["suma", "sumando_faltante", "problema"]
-
-variables:
-  a: random(10, 80)
-  total: random(90, 150)
-
-restricciones:
-  - total > a
-
-respuesta: total - a
+respuesta: a1
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Llevás {a} puntos y necesitás llegar a {total} para ganar. ¿Cuántos puntos más tenés que sumar?"
-
-explicacion: |
-  Lo que ya tenés más lo que falta tiene que dar el total buscado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma"
-  nivel: "basico"
-  tags: ["suma", "calculo_mental", "varios_sumandos"]
-
-variables:
-  a: random(1, 9) * 100
-  b: random(1, 9) * 100
-  c: random(1, 9) * 100
-
-respuesta: a + b + c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} + {b} + {c}?"
+enunciado: "En una sucesión geométrica con r = {r}, el término {n} vale {an} (a{n} = {an}). ¿Cuál es a₁?"
 
 pasos:
-  - "Al ser todos números redondos, alcanza con sumar las centenas: {a / 100} + {b / 100} + {c / 100} = {a / 100 + b / 100 + c / 100}, y agregar los ceros"
+  - "a₁ = a{n} ÷ r^(n−1) = {an} ÷ {r}^{n - 1} = {an / (r ^ (n - 1))}"
 
 explicacion: |
-  Sumar números redondos (que terminan en cero) es más rápido: se suman
-  las cifras significativas y se agregan los ceros al final.
+  Se despeja a₁ de la fórmula del término general.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma"
-  nivel: "basico"
-  tags: ["suma", "vocabulario"]
+  tema: "series_geometricas"
+  nivel: "avanzado"
+  tags: ["series_geometricas", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Sumar es juntar dos o más cantidades en una sola."
+enunciado: "Si la razón de una sucesión geométrica está entre -1 y 1 (sin ser 0), la suma de TODOS sus infinitos términos da un resultado finito."
 
 explicacion: |
-  Es la idea central de la suma: combinar cantidades separadas en un único
-  total.
+  Es contraintuitivo, pero pasa porque cada término agregado es cada vez
+  más chico: la suma converge a a₁ ÷ (1−r).
 ```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "avanzado"
+  tags: ["series_geometricas", "casos_especiales"]
+
+variables:
+  a1: random(2, 10)
+  n: random(2, 5)
+
+respuesta: a1 * ((-2) ^ (n - 1))
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En una sucesión geométrica con a₁ = {a1} y r = -2, ¿cuánto vale a{n}?"
+
+explicacion: |
+  Con razón negativa, los signos de los términos van alternando entre
+  positivo y negativo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "avanzado"
+  tags: ["series_geometricas", "comparacion"]
+
+variables:
+  r1: random(2, 5)
+  r2: random(2, 5)
+
+restricciones:
+  - r1 != r2
+
+respuesta: (r1 > r2)
+tipo: vf
+
+enunciado: "Dos sucesiones geométricas empiezan igual (mismo a₁). Una tiene razón {r1} y la otra {r2}. Después de varios términos, ¿la primera va a estar por delante?"
+
+explicacion: |
+  A mayor razón (siendo ambas mayores a 1), más rápido crece la
+  sucesión.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "intermedio"
+  tags: ["series_geometricas", "problema"]
+
+variables:
+  inicial: random(2, 15)
+  ciclos: random(3, 6)
+
+respuesta: inicial * (3 ^ ciclos)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un cultivo de {inicial} bacterias se triplica en cada ciclo. ¿Cuántas bacterias hay después de {ciclos} ciclos?"
+
+explicacion: |
+  Triplicarse es multiplicar por 3 en cada paso: razón geométrica r=3.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "basico"
+  tags: ["series_geometricas", "vocabulario"]
+
+enunciado: "¿Cuál es la fórmula del término general de una sucesión geométrica?"
+tipo: mc
+opciones_explicitas:
+  - "aₙ = a₁ × r^(n−1)"
+  - "aₙ = a₁ + (n−1)×r"
+  - "aₙ = a₁ × n × r"
+respuesta: "aₙ = a₁ × r^(n−1)"
+
+explicacion: |
+  La segunda opción es la fórmula de la sucesión ARITMÉTICA, no la
+  geométrica.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "series_geometricas"
+  nivel: "basico"
+  tags: ["series_geometricas", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una sucesión geométrica es una lista de números donde cada uno se obtiene multiplicando siempre por la misma razón al anterior."
+
+explicacion: |
+  Es la idea central de todo el tema, y el puente hacia el crecimiento
+  exponencial que se profundiza en Álgebra.
+```
+

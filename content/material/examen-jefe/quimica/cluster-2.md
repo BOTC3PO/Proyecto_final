@@ -1,6 +1,6 @@
-# Examen jefe — Dominio de Soluciones y Electrones
+# Examen jefe — [PENDIENTE #842]
 
-> Logro #142. Resolviste el parcial integrando concentraciones, configuraciones y electrolisis. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **112 preguntas totales** en 5/5 secciones.
+> Logro #842. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **112 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -429,11 +429,7 @@ opciones_explicitas:
   - "Dividir la masa por el volumen y multiplicar por 100"
   - "Medir la masa del soluto (en gramos)"
   - "Medir el volumen total de la solución (en mL)"
-respuesta_orden:
-  - "Medir la masa del soluto (en gramos)"
-  - "Medir el volumen total de la solución (en mL)"
-  - "Dividir la masa por el volumen y multiplicar por 100"
-
+respuesta_orden: ["Medir la masa del soluto (en gramos)", "Medir el volumen total de la solución (en mL)", "Dividir la masa por el volumen y multiplicar por 100"]
 explicacion: |
   %m/V = (masa del soluto / volumen de la solución) × 100.
 ```
@@ -585,7 +581,8 @@ metadata:
 
 respuesta: "d"
 tipo: completar
-respuestas_validas: ["d"]
+respuestas_validas:
+  - "d"
 
 enunciado: "El subnivel con capacidad máxima de 10 electrones es el ___."
 
@@ -638,7 +635,7 @@ variables:
   idx: uno_de([0, 1, 2, 3, 4])
 
 respuesta: pares[idx][1]
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Dado un átomo neutro con número atómico Z = {pares[idx][0]}, ¿cuántos electrones tiene en total?"
@@ -677,7 +674,8 @@ metadata:
 
 respuesta: "5"
 tipo: completar
-respuestas_validas: ["5"]
+respuestas_validas:
+  - "5"
 
 enunciado: "La configuración electrónica del cloro (Z=17) es 1s² 2s² 2p⁶ 3s² 3p___."
 
@@ -748,7 +746,10 @@ metadata:
 
 respuesta: "más alto"
 tipo: completar
-respuestas_validas: ["más alto", "ultimo", "último"]
+respuestas_validas:
+  - "más alto"
+  - "ultimo"
+  - "último"
 
 enunciado: "Los electrones de valencia son los que están en el nivel ___ de la configuración electrónica."
 
@@ -851,7 +852,8 @@ metadata:
 
 respuesta: "10"
 tipo: completar
-respuestas_validas: ["10"]
+respuestas_validas:
+  - "10"
 
 enunciado: "En la configuración electrónica 1s² 2s² 2p⁶, el total de electrones es ___."
 
@@ -1265,11 +1267,7 @@ opciones_explicitas:
   - "Dividir la masa por el volumen"
   - "Medir la masa del objeto (con una balanza)"
   - "Medir el volumen del objeto (por ejemplo, con una probeta)"
-respuesta_orden:
-  - "Medir la masa del objeto (con una balanza)"
-  - "Medir el volumen del objeto (por ejemplo, con una probeta)"
-  - "Dividir la masa por el volumen"
-
+respuesta_orden: ["Medir la masa del objeto (con una balanza)", "Medir el volumen del objeto (por ejemplo, con una probeta)", "Dividir la masa por el volumen"]
 explicacion: |
   Densidad = Masa / Volumen, en ese orden de cálculo.
 ```
@@ -1454,7 +1452,8 @@ metadata:
 
 respuesta: "concentracion"
 tipo: completar
-respuestas_validas: ["concentracion"]
+respuestas_validas:
+  - "concentracion"
 
 enunciado: "Al diluir una solución, lo que cambia es el volumen total y por lo tanto baja la ___."
 
@@ -1493,7 +1492,7 @@ variables:
   c2: escenario[2]
 
 respuesta: c1 * v1 / c2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Se tienen {c1} M de una solución de volumen {v1} L. Se diluye hasta {c2} M. ¿Cuál es el volumen final (V2) en litros?"
@@ -1516,7 +1515,7 @@ variables:
   v2: escenario[2]
 
 respuesta: c1 * v1 / v2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Una solución tiene concentración {c1} M y volumen {v1} L. Se diluye hasta un volumen final de {v2} L. ¿Cuál es la nueva concentración (C2)?"
@@ -1539,7 +1538,7 @@ variables:
   v1: escenario[2]
 
 respuesta: c2 * v2 / v1
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Se quiere preparar {c2} M con un volumen final de {v2} L, partiendo de {v1} L de una solución concentrada. ¿Qué concentración (C1) debe tener esa solución original?"
@@ -1577,7 +1576,7 @@ variables:
   c2: 2
 
 respuesta: c1 * v1 / c2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Tengo una solución al {c1}% con volumen de {v1} mL y quiero diluirla hasta {c2}%. ¿Cuál será el volumen final (V2) en mL?"
@@ -1663,7 +1662,8 @@ metadata:
 
 respuesta: "concentrada"
 tipo: completar
-respuestas_validas: ["concentrada"]
+respuestas_validas:
+  - "concentrada"
 
 enunciado: "En la fórmula C1V1 = C2V2, los términos C1 y V1 representan la solución ___ (también llamada solución stock), antes de la dilución."
 
@@ -1703,7 +1703,7 @@ variables:
   v2: datos[idx][2]
 
 respuesta: c1 * v1 / v2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Una solución tiene concentración C1={c1} M y volumen V1={v1} mL. Se diluye hasta un volumen final V2={v2} mL. ¿Cuál es la nueva concentración C2 (en M)?"
@@ -1745,7 +1745,7 @@ variables:
   v2: 100
 
 respuesta: c1 * v1 / v2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si diluyo {v1} mL de una solución {c1} M hasta un volumen final de {v2} mL, ¿cuál es la concentración final?"
@@ -1960,7 +1960,7 @@ variables:
   volumen_o2: uno_de([1, 2, 3, 5])
 
 respuesta: volumen_o2 * 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En la electrólisis del agua la proporción H₂:O₂ es 2:1. Si se producen {volumen_o2} mL de O₂, ¿qué volumen de H₂ se produce?"
@@ -2121,3 +2121,4 @@ enunciado: "Cuanta más corriente eléctrica (y más tiempo) se aplique en una e
 explicacion: |
   Correcto. La cantidad de electrones que pasan (carga total) determina cuánta sustancia se oxida o reduce — más corriente y tiempo, más producto.
 ```
+

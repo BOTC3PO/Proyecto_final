@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de Conflictos Históricos
+# Examen jefe — [PENDIENTE #690]
 
-> Logro #108. Completaste el examen sobre guerras, descolonización y arte rupestre con éxito jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **126 preguntas totales** en 5/5 secciones.
+> Logro #690. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -30,14 +30,11 @@ metadata:
   nivel: "intermedio"
   tags: ["economia", "doctrinas"]
 
-variables:
-  escenario: uno_de([["Plan Marshall", "ayuda económica de EEUU"], ["COMECON", "cooperación económica del bloque socialista"]])
-
-respuesta: escenario[0][0
+respuesta: "Plan Marshall"
 tipo: mc
 opciones_explicitas: ["Plan Marshall", "COMECON", "Tratado de Varsovia", "Plan Molotov"]
 
-enunciado: "En el marco de la contención del comunismo, la estrategia de Estados Unidos para reconstruir las economías de Europa Occidental fue el {escenario[1]}."
+enunciado: "En el marco de la contención del comunismo, la estrategia de Estados Unidos para reconstruir las economías de Europa Occidental fue el ___."
 
 explicacion: |
   El Plan Marshall fue el programa de asistencia económica de EE.UU. para la reconstrucción de Europa tras la Segunda Guerra Mundial, diseñado para evitar el avance del comunismo.
@@ -67,14 +64,14 @@ metadata:
   nivel: "intermedio"
   tags: ["alemania", "fronteras"]
 
-respuesta: ["RFA", "RDA", "Alemania Oriental", "Alemania Occidental"]
+respuesta_orden: ["RFA (Alemania Occidental)", "RDA (Alemania Oriental)"]
 tipo: ordenar
-opciones_explicitas: ["RFA", "RDA", "Alemania Oriental", "Alemania Occidental"]
+opciones_explicitas: ["RFA (Alemania Occidental)", "RDA (Alemania Oriental)"]
 
 enunciado: "Ordena las entidades políticas resultantes de la división alemana, desde la capitalista hacia la socialista:"
 
 explicacion: |
-  La República Federal de Alemania (RFA) representaba al bloque occidental, mientras que la República Democrática Alemana (RDA) representaba al bloque soviético.
+  La República Federal de Alemania (RFA), es decir Alemania Occidental, representaba al bloque capitalista, mientras que la República Democrática Alemana (RDA), es decir Alemania Oriental, representaba al bloque soviético.
 ```
 
 ```
@@ -84,10 +81,12 @@ metadata:
   nivel: "intermedio"
   tags: ["descolonizacion", "asiatismo"]
 
-respuesta: tabla[0][1
+variables:
+  tabla: [["No alineados", "No alineados"], ["Aliados", "Aliados"]]
+
+respuesta: tabla[0][1]
 tipo: completar
 opciones_explicitas: ["No alineados", "Aliados"]
-tabla: [["No alineados", "No alineados"], ["Aliados", "Aliados"]]
 
 enunciado: "Durante la Guerra Fría, los países que decidieron no sumarse ni al bloque de EE.UU. ni al de la URSS se conocieron como países ________."
 
@@ -104,9 +103,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["El fortalecimiento de las potencias europeas", "El debilitamiento de las potencias europeas tras la Segunda Guerra Mundial", "La unión de todas las colonias bajo un mando único", "El apoyo de las colonias a los regímenes coloniales"]
-
+respuesta: "El debilitamiento de las potencias europeas tras la Segunda Guerra Mundial"
 enunciado: "Tras la Segunda Guerra Mundial, ¿cuál fue el principal factor que impulsó los procesos de independencia en África y Asia?"
-
 explicacion: |
   La Segunda Guerra Mundial dejó a las potencias coloniales tradicionales (como Reino Unido y Francia) agotadas económica y militarmente, lo que facilitó los movimientos de liberación nacional.
 ```
@@ -120,7 +118,8 @@ metadata:
 
 tipo: completar
 opciones_explicitas: ["soberanía", "colonialismo", "imperialismo"]
-respuestas_validas: ["soberanía"]
+respuestas_validas:
+  - "soberanía"
 
 enunciado: "El proceso de descolonización permitió que las antiguas colonias recuperaran su ___________ política y económica."
 
@@ -135,13 +134,11 @@ metadata:
   nivel: "intermedio"
   tags: ["onu", "diplomacia"]
 
-variables:
-  caso_onu: uno_de([["La Carta de las Naciones Unidas", "promovió la autodeterminación"], ["El Pacto de Varsovia", "no tuvo relación con la descolonización"]])
-
 tipo: mc
 opciones_explicitas: ["La Carta de las Naciones Unidas", "El Pacto de Varsovia", "La Liga de las Naciones", "El Tratado de Versalles"]
+respuesta: "La Carta de las Naciones Unidas"
 
-enunciado: "En el contexto de la descolonización, {caso_onu[0]} fue fundamental porque la {caso_onu[1]}."
+enunciado: "En el contexto de la descolonización, ___ fue fundamental porque promovió el principio de autodeterminación de los pueblos."
 
 explicacion: |
   La ONU, a través de su principio de autodeterminación de los pueblos, dio un marco jurídico internacional que legitimó los movimientos de independencia.
@@ -154,13 +151,11 @@ metadata:
   nivel: "avanzado"
   tags: ["geopolitica", "guerra_fria"]
 
-variables:
-  escenario: uno_de([["Asia y África", "se convirtieron en escenarios de disputa"], ["Europa", "se mantuvo estable"]])
-
 tipo: mc
 opciones_explicitas: ["Se unificaron en un solo bloque", "Se convirtieron en escenarios de disputa entre las superpotencias", "Eliminaron el capitalismo de sus territorios", "Se volvieron potencias nucleares de inmediato"]
+respuesta: "Se convirtieron en escenarios de disputa entre las superpotencias"
 
-enunciado: "Debido a la Guerra Fría, la descolonización en {escenario[0]} provocó que estos nuevos estados {escenario[1]} entre EE. UU. y la URSS."
+enunciado: "Debido a la Guerra Fría, la descolonización en Asia y África provocó que estos nuevos estados ___."
 
 explicacion: |
   Muchos nuevos estados independientes se convirtieron en "campos de batalla" por delegación (proxy wars) debido a la polarización de la Guerra Fría.
@@ -180,6 +175,7 @@ enunciado: "Ordena cronológicamente las etapas típicas de un proceso de descol
 
 explicacion: |
   Primero ocurre el debilitamiento de la metrópoli, luego la organización de movimientos locales, la ruptura formal y finalmente la formación del nuevo Estado.
+respuesta_orden: ["Agotamiento de potencias europeas", "Surgimiento de movimientos de liberación", "Declaración de independencia de las colonias", "Consolidación de nuevos Estados-Nación"]
 ```
 
 ```
@@ -190,16 +186,12 @@ metadata:
   tags: ["guerra_fria", "descolonizacion", "no_alineados"]
 
 variables:
-  escenario: uno_de([
-    ["Egipto de Nasser", "movimiento de no alineación", "Egipto de Nasser", "Egipto de Nasser"],
-    ["Yugoslavia de Tito", "movimiento de no alineación", "Yugoslavia de Tito", "Yugoslavia de Tito"],
-    ["India de Nehru", "movimiento de no alineación", "India de Nehru", "India de Nehru"]
-  ])
+  escenario: uno_de([["Egipto de Nasser", "movimiento de no alineación", "Egipto de Nasser", "Egipto de Nasser"], ["Yugoslavia de Tito", "movimiento de no alineación", "Yugoslavia de Tito", "Yugoslavia de Tito"], ["India de Nehru", "movimiento de no alineación", "India de Nehru", "India de Nehru"]])
 
 enunciado: "Durante la descolonización, muchos países intentaron evitar la lógica de bloques mediante la creación del ___."
 
 opciones_explicitas: ["movimiento de no alineación", "Pacto de Varsovia", "OTAN"]
-respuesta: escenario[2
+respuesta: "movimiento de no alineación"
 tipo: mc
 
 explicacion: |
@@ -215,7 +207,10 @@ metadata:
 
 enunciado: "Un país recién independizado que decide aceptar ayuda financiera masiva de la URSS para su industrialización pesada, corre el riesgo de alinearse con el bloque ___."
 
-respuestas_validas: ["comunista", "capitalista", "neutral"]
+respuestas_validas:
+  - "comunista"
+  - "capitalista"
+  - "neutral"
 respuesta: "comunista"
 tipo: completar
 
@@ -250,7 +245,7 @@ metadata:
 enunciado: "Ordena los factores que explican la intervención de las superpotencias en procesos de descolonización de menor a mayor impacto en la soberanía de los nuevos estados:"
 
 opciones_explicitas: ["Intereses económicos por recursos naturales", "Propagación de ideologías políticas", "Control de puntos estratégicos militares"]
-respuesta: ["Intereses económicos por recursos naturales", "Propagación de ideologías políticas", "Control de puntos estratégicos militares"]
+respuesta_orden: ["Intereses económicos por recursos naturales", "Propagación de ideologías políticas", "Control de puntos estratégicos militares"]
 tipo: ordenar
 
 explicacion: |
@@ -265,19 +260,16 @@ metadata:
   tags: ["vietnam", "conflicto_proxy"]
 
 variables:
-  caso: uno_de([
-    ["Vietnam del Sur", "apoyado por EE.UU.", "Vietnam del Sur", "Vietnam del Sur"],
-    ["Vietnam del Norte", "apoyado por la URSS", "Vietnam del Norte", "Vietnam del Norte"]
-  ])
+  caso: uno_de([["Vietnam del Sur", "apoyado por EE.UU.", "Vietnam del Sur", "Vietnam del Sur"], ["Vietnam del Norte", "apoyado por la URSS", "Vietnam del Norte", "Vietnam del Norte"]])
 
-enunciado: "En el conflicto de Vietnam, el país que era ___ fue el principal escenario de la lucha entre las ideologías de la Guerra Fría."
+enunciado: "En el conflicto de Vietnam, el país que era {caso[1]} fue el principal escenario de la lucha entre las ideologías de la Guerra Fría."
 
 opciones_explicitas: ["apoyado por EE.UU.", "apoyado por la URSS", "neutral"]
-respuesta: caso[2
+respuesta: caso[1]
 tipo: mc
 
 explicacion: |
-  Vietnam se convirtió en un conflicto de代理 (proxy war), donde la descolonización se vio truncada por la lucha de las superpotencias por expandir sus esferas de influencia.
+  Vietnam se convirtió en un conflicto de proxy war, donde la descolonización se vio truncada por la lucha de las superpotencias por expandir sus esferas de influencia.
 ```
 
 ```
@@ -289,6 +281,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["La caída del Muro de Berlín", "La Revolución Rusa", "La Crisis de los Misiles", "La Guerra de Vietnam"]
+respuesta: "La caída del Muro de Berlín"
 
 enunciado: "El evento ocurrido en 1989 que simbolizó el fin de la división de Europa y el colapso del bloque socialista fue ___."
 
@@ -303,13 +296,12 @@ metadata:
   nivel: "intermedio"
   tags: ["urss", "geopolitica"]
 
-variables:
-  escenario: uno_de([["URSS", "1991"], ["Alemania", "1989"]])
-
+respuesta: "1991"
 tipo: completar
-respuestas_validas: ["URSS", "1991"]
+respuestas_validas:
+  - "1991"
 
-enunciado: "La disolución formal de la {escenario[0]} ocurrió en el año {escenario[1]}."
+enunciado: "La disolución formal de la URSS ocurrió en el año ___."
 
 explicacion: |
   La desintegración de la Unión Soviética en 1991 puso fin a la existencia de la superpotencia que lideraba el bloque socialista, consolidando el orden mundial unipolar liderado por EE.UU.
@@ -324,6 +316,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Glasnost y Perestroika", "El Plan Marshall", "La Doctrina Monroe", "La Doctrina Truman"]
+respuesta: "Glasnost y Perestroika"
 
 enunciado: "Las reformas políticas y económicas implementadas por Mijaíl Gorbachachev que aceleraron el fin de la URSS fueron la ___."
 
@@ -339,12 +332,13 @@ metadata:
   tags: ["cronologia", "eventos"]
 
 tipo: ordenar
-opciones_explicitas: ["Caída del Muro de Berlín", "Disolución de la URSS", "Reunificación de Alemania", "Tratado de Malta"]
+opciones_explicitas: ["Caída del Muro de Berlín", "Tratado de Malta", "Reunificación de Alemania", "Disolución de la URSS"]
 
 enunciado: "Ordena cronológicamente los siguientes eventos que marcaron el fin de la Guerra Fría:"
 
 explicacion: |
-  La secuencia comenzó con la caída del muro (1989), seguida de la reunificación alemana (1990), la firma de acuerdos de paz/fin de la era (Tratado de Malta, 1989/90) y culminó con la disolución total de la URSS (1991).
+  La secuencia correcta es: caída del muro (noviembre de 1989), Cumbre de Malta (diciembre de 1989, donde EE.UU. y la URSS declararon el fin simbólico de la Guerra Fría), reunificación alemana (octubre de 1990) y, finalmente, la disolución total de la URSS (diciembre de 1991).
+respuesta_orden: ["Caída del Muro de Berlín", "Tratado de Malta", "Reunificación de Alemania", "Disolución de la URSS"]
 ```
 
 ```
@@ -359,6 +353,8 @@ tolerancia_abs: 0
 
 enunciado: "Tras la caída de la URSS, el mundo dejó de ser bipolar para convertirse en un sistema ___."
 
+respuesta: "unipolar"
+
 explicacion: |
   Con la desaparición de la URSS como superpotencia, el equilibrio de poder se desplazó hacia un modelo donde una sola nación (EE.UU.) dominaba la escena internacional, conocido como unipolaridad.
 ```
@@ -372,6 +368,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["unipolar", "bipolar", "tripolar", "multipolar"]
+respuesta: "unipolar"
 
 enunciado: "Tras la caída de la URSS, el mundo dejó de ser bipolar para convertirse en un sistema ___."
 
@@ -413,7 +410,10 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["Jawaharlal Nehru", "Gamal Abdel Nasser", "Josip Broz Tito"]
+respuestas_validas:
+  - "Jawaharlal Nehru"
+  - "Gamal Abdel Nasser"
+  - "Josip Broz Tito"
 
 enunciado: "Durante la descolonización, algunos líderes buscaron la neutralidad frente a las superpotencias. El líder que representó a {datos[idx][0]} en el Movimiento de Países No Alineados fue ___."
 
@@ -428,18 +428,14 @@ metadata:
   nivel: "avanzado"
   tags: ["crisis", "misiles"]
 
-variables:
-  datos: [["Cuba", "1962"], ["Berlín", "1961"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "1962"
 tipo: mc
 opciones_explicitas: ["1953", "1962", "1961", "1979"]
 
-enunciado: "La crisis de los misiles en {datos[idx][0]} llevó al mundo al borde de una guerra nuclear en el año ___."
+enunciado: "La crisis de los misiles en Cuba llevó al mundo al borde de una guerra nuclear en el año ___."
 
 explicacion: |
-  La Crisis de los Misiles (en Cuba en 1962 o la construcción del muro en Berlín en 1961) representó los momentos de mayor tensión de la Guerra Fría.
+  La Crisis de los Misiles de Cuba (octubre de 1962) representó el momento de mayor tensión nuclear de la Guerra Fría. (No confundir con la Crisis de Berlín de 1961, que no fue una 'crisis de misiles' sino el episodio de la construcción del Muro de Berlín.)
 ```
 
 ```
@@ -450,14 +446,15 @@ metadata:
   tags: ["independencia", "africa"]
 
 variables:
-  datos: [["La independencia de Argelia de Francia", "Guerra de Argelia"], ["La independencia de Ghana del Reino Unido", "Independencia de Ghana"]]
+  eventos: [["La independencia de Argelia de Francia", "Guerra de Argelia"], ["La independencia de Ghana del Reino Unido", "Movimiento independentista liderado por Nkrumah"]]
   idx: uno_de([0, 1])
+  evento_actual: eventos[idx]
 
-respuesta: [datos[idx][0], datos[idx][1]]
+respuesta_orden: [evento_actual[1], evento_actual[0]]
 tipo: ordenar
-opciones_explicitas: ["Guerra de Argelia", "Independencia de Ghana"]
+opciones_explicitas: [evento_actual[1], evento_actual[0]]
 
-enunciado: "Identifica el orden cronológico de los procesos de descolonización mencionados: {datos[idx][0]} y {datos[idx][1]}."
+enunciado: "Identifica el orden cronológico de los procesos de descolonización mencionados: {evento_actual[0]} y {evento_actual[1]}."
 
 explicacion: |
   La descolonización fue un proceso heterogéneo: en África subsahariana fue mayormente política (Ghana, 1957) y en el norte de África fue frecuentemente violenta (Argelia, 1954-1962).
@@ -476,7 +473,9 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["Truman", "Eisenhower"]
+respuestas_validas:
+  - "Truman"
+  - "Eisenhower"
 
 enunciado: "La política estadounidense de frenar la expansión del comunismo durante la Guerra Fría se conoció como la doctrina de ___."
 
@@ -529,14 +528,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["Buenos Aires", "centralizar la recaudación de la aduana para el gobierno central"],
-    ["Las provincias", "repartir los ingresos de la aduana de forma equitativa"]
-  ]
+  datos: [["Buenos Aires", "centralizar la recaudación de la aduana para el gobierno central"], ["Las provincias", "repartir los ingresos de la aduana de forma equitativa"]]
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["centralizar la recaudación de la aduana para el gobierno central", "repartir los ingresos de la aduana de forma equitativa"]
+respuestas_validas:
+  - "centralizar la recaudación de la aduana para el gobierno central"
+  - "repartir los ingresos de la aduana de forma equitativa"
 
 enunciado: "En el conflicto por la renta aduanera, el principal punto de discordia era que las provincias exigían ___."
 
@@ -551,7 +549,7 @@ metadata:
   nivel: "intermedio"
   tags: ["orden", "conceptos"]
 
-respuesta: ["Centralismo", "Autonomía provincial", "Guerras civiles"]
+respuesta_orden: ["Centralismo", "Autonomía provincial", "Guerras civiles"]
 tipo: ordenar
 opciones_explicitas: ["Centralismo", "Autonomía provincial", "Guerras civiles"]
 
@@ -597,11 +595,9 @@ metadata:
   nivel: "basico"
   tags: ["politica", "siglo_XIX"]
 
-tipo: mc
-opciones_explicitas: ["Unitarios", "Federales", "Anarquistas", "Libertadores"]
-
+tipo: completar
 enunciado: "Durante las guerras civiles argentinas del siglo XIX, las dos facciones políticas principales que se enfrentaron por el modelo de organización del Estado fueron los ___ y los ___."
-
+respuesta: "Unitarios, Federales"
 explicacion: |
   Los Unitarios buscaban un gobierno centralizado en Buenos Aires, mientras que los Federales defendían la autonomía de las provincias.
 ```
@@ -617,8 +613,10 @@ variables:
   escenario: uno_de([["centralismo", "Buenos Aires"], ["federalismo", "Provincias"]])
 
 tipo: completar
-respuestas_validas: ["centralismo", "federalismo"]
-respuesta: escenario[0
+respuestas_validas:
+  - "centralismo"
+  - "federalismo"
+respuesta: escenario[0]
 
 enunciado: "Si un grupo político propone que todas las leyes y decisiones administrativas deben emanar exclusivamente de un gobierno central en la capital, está defendiendo el ___."
 
@@ -633,11 +631,9 @@ metadata:
   nivel: "avanzado"
   tags: ["economia", "aduana"]
 
-variables:
-  causa_econ: uno_de([["la libre navegación de los ríos", "la nacionalización de la aduana"]])
-
 tipo: mc
 opciones_explicitas: ["la libre navegación de los ríos", "la nacionalización de la aduana", "la eliminación de los impuestos", "la unión aduanera"]
+respuesta: "la nacionalización de la aduana"
 
 enunciado: "Uno de los principales focos de conflicto económico entre las provincias y Buenos Aires fue ___."
 
@@ -659,6 +655,7 @@ enunciado: "Ordene cronológicamente los procesos que marcaron la transición de
 
 explicacion: |
   Primero hubo un largo periodo de guerras civiles, luego el debate constitucional de 1853 y finalmente la consolidación del Estado bajo la presidencia de Mitre, Sarmiento y Avellaneda.
+respuesta_orden: ["Caos de las guerras civiles", "Lucha por la organización constitucional", "Consolidación del Estado Nacional"]
 ```
 
 ```
@@ -669,7 +666,7 @@ metadata:
   tags: ["soberania", "provincias"]
 
 tipo: vf
-opciones_explicitas: [verdadero, falso]
+respuesta: verdadero
 
 enunciado: "El federalismo buscaba que cada provincia mantuviera su propia autonomía y autoridades locales, sin estar subordinada totalmente al poder central."
 
@@ -684,14 +681,11 @@ metadata:
   nivel: "intermedio"
   tags: ["rosas", "federales", "confederacion"]
 
-variables:
-  rol_rosas: uno_de(["gobernador de Buenos Aires", "presidente de la Confederación", "dictador de la nación"])
-
 respuesta: "gobernador de Buenos Aires"
 tipo: mc
 opciones_explicitas: ["gobernador de Buenos Aires", "presidente de la Confederación", "dictador de la nación"]
 
-enunciado: "Durante el período de la Confederación Argentina, Juan Manuel de Rosas ejercía el poder real como {rol_rosas}, manteniendo el control sobre la Aduana y los recursos de la provincia."
+enunciado: "Durante el período de la Confederación Argentina, ¿qué cargo ocupaba formalmente Juan Manuel de Rosas, aunque en la práctica ejercía una hegemonía sobre el resto de las provincias?"
 
 explicacion: |
   Aunque Rosas era el líder de facto de la Confederación, formalmente su cargo era el de Gobernador de la Provincia de Buenos Aires, cargo desde el cual ejercía una hegemonía política y económica sobre las demás provincias.
@@ -706,7 +700,8 @@ metadata:
 
 respuesta: "unitarios"
 tipo: completar
-respuestas_validas: ["unitarios"]
+respuestas_validas:
+  - "unitarios"
 
 enunciado: "En el contexto de las guerras civiles, el proyecto político de Rosas se alineaba con el bando ___ , enfrentándose a las aspiraciones de centralismo de los opositores."
 
@@ -741,7 +736,7 @@ metadata:
 variables:
   etapa_idx: uno_de([0,1,2])
 
-respuesta: ["Surgimiento del caudillismo", "Llegada al poder con facultades extraordinarias", "Consolidación del orden rosista"]
+respuesta_orden: ["Surgimiento del caudillismo", "Llegada al poder con facultades extraordinarias", "Consolidación del orden rosista"]
 tipo: ordenar
 opciones_explicitas: ["Surgimiento del caudillismo", "Llegada al poder con facultades extraordinarias", "Consolidación del orden rosista"]
 
@@ -799,7 +794,9 @@ metadata:
 
 respuesta: "Constitución Nacional"
 tipo: completar
-respuestas_validas: ["Constitución Nacional", "Constitución de 1853"]
+respuestas_validas:
+  - "Constitución Nacional"
+  - "Constitución de 1853"
 
 enunciado: "La derrota de Rosas en Caseros permitió la convocatoria al Congreso Constituyente de 1853, que dio como resultado la primera ___."
 
@@ -833,7 +830,8 @@ metadata:
 
 respuesta: "exilio"
 tipo: completar
-respuestas_validas: ["exilio", "muerte", "derrota"]
+respuestas_validas:
+  - "exilio"
 
 enunciado: "Tras la derrota en la batalla de Caseros, Juan Manuel de Rosas se vio obligado a partir hacia el ___."
 
@@ -849,7 +847,7 @@ metadata:
   tags: ["cronologia", "procesos"]
 
 opciones_explicitas: ["Tratado de San Justo", "Batalla de Caseros", "Sanción de la Constitución Nacional"]
-respuesta: ["Tratado de San Justo", "Batalla de Caseros", "Sanción de la Constitución Nacional"]
+respuesta_orden: ["Tratado de San Justo", "Batalla de Caseros", "Sanción de la Constitución Nacional"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los siguientes hitos relacionados con el fin del rosismo y la organización nacional:"
@@ -871,17 +869,13 @@ metadata:
   tags: ["politica", "argentina"]
 
 variables:
-  escenario: uno_de([
-    ["Un grupo de caudillos busca que cada provincia mantenga su propia autonomía y leyes locales.", "federal"],
-    ["Un gobierno centralizado busca concentrar todo el poder político y económico en Buenos Aires.", "unitario"]
-  ])
-  idx: uno_de([0,1])
+  escenario: uno_de([["Un grupo de caudillos busca que cada provincia mantenga su propia autonomía y leyes locales.", "federal"], ["Un gobierno centralizado busca concentrar todo el poder político y económico en Buenos Aires.", "unitario"]])
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["federal", "unitario"]
 
-enunciado: "En el contexto de las guerras civiles argentinas, si se propone que {escenario[idx][0]}, ¿qué postura se está defendiendo?"
+enunciado: "En el contexto de las guerras civiles argentinas, si se propone que {escenario[0]}, ¿qué postura se está defendiendo?"
 
 explicacion: |
   El Federalismo defendía la autonomía de las provincias, mientras que el Unitarismo buscaba un mando centralizado en Buenos Aires.
@@ -895,13 +889,9 @@ metadata:
   tags: ["economia", "aduana"]
 
 variables:
-  caso: uno_de([
-    ["La libre navegación de los ríos interiores es una demanda clave de las provincias.", "federal"],
-    ["El control exclusivo de la renta aduanera por parte del gobierno central es la prioridad.", "unitario"]
-  ])
-  idx: uno_de([0,1])
+  caso: uno_de([["La libre navegación de los ríos interiores es una demanda clave de las provincias.", "federal"], ["El control exclusivo de la renta aduanera por parte del gobierno central es la prioridad.", "unitario"]])
 
-respuesta: caso[idx][1
+respuesta: caso[1]
 tipo: mc
 opciones_explicitas: ["federal", "unitario"]
 
@@ -919,15 +909,12 @@ metadata:
   tags: ["constitucion", "poder"]
 
 variables:
-  modelo: uno_de([
-    ["Un gobierno central con un poder ejecutivo fuerte que designa a los gobernadores.", "unitario"],
-    ["Un sistema donde las provincias eligen a sus propios gobernadores de forma autónoma.", "federal"]
-  ])
-  idx: uno_de([0,1])
+  modelo: uno_de([["Un gobierno central con un poder ejecutivo fuerte que designa a los gobernadores.", "unitario"], ["Un sistema donde las provincias eligen a sus propios gobernadores de forma autónoma.", "federal"]])
 
-respuesta: modelo[idx][1
 tipo: completar
-respuestas_validas: ["unitario", "federal"]
+respuestas_validas:
+  - "unitario"
+  - "federal"
 
 enunciado: "Si el diseño institucional busca que {modelo[0]}, el modelo de gobierno es de tipo ___."
 
@@ -943,13 +930,9 @@ metadata:
   tags: ["causas"]
 
 variables:
-  conflicto: uno_de([
-    ["La disputa por la distribución de los ingresos de la aduana de Buenos Aires.", "federal"],
-    ["La lucha por la hegemonía política entre la élite porteña y los caudillos.", "unitario"]
-  ])
-  idx: uno_de([0,1])
+  conflicto: uno_de([["La disputa por la distribución de los ingresos de la aduana de Buenos Aires.", "federal"], ["La lucha por la hegemonía política entre la élite porteña y los caudillos.", "unitario"]])
 
-respuesta: conflicto[idx][1
+respuesta: conflicto[1]
 tipo: mc
 opciones_explicitas: ["federal", "unitario"]
 
@@ -967,17 +950,15 @@ metadata:
   tags: ["orden"]
 
 variables:
-  orden_de_poder: uno_de([
-    ["Provincia - Nación - Provincia", "federal"],
-    ["Nación - Provincia - Nación", "unitario"]
-  ])
-  idx: uno_de([0,1])
+  idx: uno_de([0, 1])
+  modelos: ["federal", "unitario"]
+  descripciones: ["La soberanía reside en las provincias, que delegan facultades a la nación", "La nación es la fuente de autoridad y las provincias dependen de ella"]
 
-respuesta: ["Provincia", "Nación", "Provincia", "Nación", "Provincia"]
-tipo: ordenar
-opciones_explicitas: ["Provincia", "Nación", "Provincia", "Nación", "Provincia"]
+respuesta: descripciones[idx]
+tipo: mc
+opciones_explicitas: ["La soberanía reside en las provincias, que delegan facultades a la nación", "La nación es la fuente de autoridad y las provincias dependen de ella"]
 
-enunciado: "Ordene la jerarquía de poder según el modelo {orden_de_poder[idx][0]}."
+enunciado: "Según el modelo {modelos[idx]}, ¿cómo se organiza la jerarquía de poder entre la nación y las provincias?"
 
 explicacion: |
   En el federalismo la soberanía reside en las provincias que delegan facultades a la nación; en el unitarismo la nación es la fuente de autoridad sobre las provincias.
@@ -994,6 +975,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["San Martín", "Manuel Belgrano", "José de San Martín", "Juan Martín de Pueyrredón"]
+respuesta: "Juan Martín de Pueyrredón"
 
 enunciado: "En el Congreso de Tucumán de 1816, ¿qué importante figura política fue elegida Director Supremo para liderar el proceso revolucionario?"
 
@@ -1009,7 +991,8 @@ metadata:
   tags: ["declaracion", "tucuman"]
 
 tipo: completar
-respuestas_validas: ["Provincias Unidas en Sudamérica"]
+respuestas_validas:
+  - "Provincias Unidas en Sudamérica"
 
 enunciado: "El acta de la independencia proclamada el 9 de julio de 1816 declaró la emancipación de las ___."
 
@@ -1026,6 +1009,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Monarquía Española", "República Francesa", "Imperio Británico", "Monarquía Absoluta"]
+respuesta: "Monarquía Española"
 
 enunciado: "La declaración de independencia buscaba romper definitivamente los vínculos de dependencia con la ___."
 
@@ -1042,11 +1026,12 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Manuel Belgrano", "Mariano Moreno", "Cornelio Saavedra", "Bernardino Rivadavia"]
+respuesta: "Manuel Belgrano"
 
-enunciado: "¿Qué importante legislador y creador de la bandera fue uno de los diputados que participó en el Congreso de Tucumán?"
+enunciado: "¿Qué importante militar y creador de la bandera fue convocado por el Congreso de Tucumán para exponer su opinión sobre la forma de gobierno a adoptar?"
 
 explicacion: |
-  Manuel Belgrano, además de su labor militar, tuvo un rol fundamental en el debate del Congreso de 1816.
+  Manuel Belgrano no era diputado del Congreso, pero fue invitado a dar su testimonio; allí propuso una monarquía constitucional con un descendiente de los incas, una idea que finalmente no prosperó.
 ```
 
 ```
@@ -1057,18 +1042,14 @@ metadata:
   tags: ["orden", "procesos"]
 
 tipo: ordenar
-opciones_explicitas: ["Revolución de Mayo", "Primer Triunvirato", "Congreso de Tucumán", "Batalla de San Lorenzo"]
+opciones_explicitas: ["Revolución de Mayo", "Primer Triunvirato", "Batalla de San Lorenzo", "Congreso de Tucumán"]
 
 enunciado: "Ordena cronológicamente los siguientes hitos clave del proceso de independencia argentina:"
 
 explicacion: |
-  El orden correcto es: Revolución de Mayo (1810), Primer Triunvirato (1812), Congreso de Tucumán (1816) y Batalla de San Lorenzo (1812 - nota: en este caso el usuario debe notar que San Lorenzo es anterior al Congreso, pero el DSL pide ordenar la lista proporcionada. Corregido para lógica temporal: Mayo -> Triunvirato -> San Lorenzo -> Congreso es incorrecto, el orden real es Mayo -> Triunvirato -> San Lorenzo -> Congreso si se considera la cronología estricta de los hechos, pero la lista debe ser coherente)."
+  El orden correcto es: Revolución de Mayo (1810), Primer Triunvirato (1812), Batalla de San Lorenzo (febrero de 1813) y Congreso de Tucumán (1816).
 
-# Reajuste para que el orden sea lógico en la respuesta:
-# 1. Revolución de Mayo (1810)
-# 2. Primer Triunvirato (1812)
-# 3. Batalla de San Lorenzo (1813)
-# 4. Congreso de Tucumán (1816)
+respuesta_orden: ["Revolución de Mayo", "Primer Triunvirato", "Batalla de San Lorenzo", "Congreso de Tucumán"]
 ```
 
 ```
@@ -1085,7 +1066,7 @@ opciones_explicitas: ["Chile", "Perú", "Bolivia", "Uruguay"]
 enunciado: "El General José de San Martín organizó el Cruce de los Andes con el objetivo principal de liberar el territorio de {pais} para asegurar la independencia de las Provincias Unidas."
 
 variables:
-  pais: "uno_de(['Chile', 'Chile', 'Chile'])"
+  pais: "Chile"
 
 explicacion: |
   La estrategia de San Martín consistía en cruzar la cordillera para liberar Chile y, desde allí, organizar una campaña marítima hacia el Perú, el centro del poder realista en Sudamérica.
@@ -1121,18 +1102,9 @@ metadata:
   nivel: "avanzado"
   tags: ["estrategia", "plan_continental"]
 
-respuesta: [
-  "Guerra de Zapa",
-  "Cruce de los Andes",
-  "Batalla de Chacabuco"
-]
+respuesta_orden: ["Guerra de Zapa", "Cruce de los Andes", "Batalla de Chacabuco"]
 tipo: ordenar
-opciones_explicitas: [
-  "Guerra de Zapa",
-  "Cruce de los Andes",
-  "Batalla de Chacabuco",
-  "Batalla de Maipú"
-]
+opciones_explicitas: ["Guerra de Zapa", "Cruce de los Andes", "Batalla de Chacabuco"]
 
 enunciado: "Ordene cronológicamente las fases de la campaña libertadora de San Martín hacia el oeste:"
 
@@ -1149,7 +1121,8 @@ metadata:
 
 respuesta: "Perú"
 tipo: completar
-respuestas_validas: ["Perú"]
+respuestas_validas:
+  - "Perú"
 
 enunciado: "Tras la liberación de Chile, San Martín comprendió que la independencia de la región solo sería segura si lograba expulsar a los españoles de ___."
 
@@ -1164,12 +1137,9 @@ metadata:
   nivel: "basico"
   tags: ["batalla_de_chacabuco", "victoria"]
 
-respuesta: "verdadero"
-tipo: completar
-enunciado: "¿La victoria en la Batalla de Chacabuco (12 de febrero de 1817) fue una consecuencia directa del éxito del Cruce de los Andes? {resultado}"
-
-variables:
-  resultado: "uno_de(['verdadero', 'falso'])"
+respuesta: verdadero
+tipo: vf
+enunciado: "La victoria en la Batalla de Chacabuco (12 de febrero de 1817) fue una consecuencia directa del éxito del Cruce de los Andes."
 
 explicacion: |
   Efectivamente, el éxito de la maniobra de cruce permitió sorprender a las fuerzas realistas y asegurar la victoria en Chacabuco, abriendo el camino para la independencia de Chile.
@@ -1184,7 +1154,8 @@ metadata:
 
 respuesta: "Cruce de los Andes"
 tipo: completar
-respuestas_validas: ["Cruce de los Andes"]
+respuestas_validas:
+  - "Cruce de los Andes"
 
 enunciado: "Para asegurar la independencia de las Provincias Unidas, San Martín diseñó una estrategia para evitar el avance realista por el Alto Perú, optando por el ___."
 
@@ -1199,17 +1170,11 @@ metadata:
   nivel: "basico"
   tags: ["san_martin", "chile", "batalla"]
 
-variables:
-  caso: uno_de([0, 1])
-
-respuesta: uno_de([datos[caso][1]])
+respuesta: "Batalla de Maipú"
 tipo: mc
 opciones_explicitas: ["Batalla de Maipú", "Batalla de Chacabuco", "Batalla de San Francisco", "Batalla de Yungay"]
 
-enunciado: "Tras la victoria en Chacabuco, la consolidación definitiva de la independencia de Chile fue sellada en la batalla de {datos[caso][0]}."
-
-variables:
-  datos: [["Maipú", "Batalla de Maipú"], ["Yungay", "Batalla de Yungay"]]
+enunciado: "Tras la victoria en Chacabuco, la consolidación definitiva de la independencia de Chile fue sellada en la ___."
 
 explicacion: |
   La Batalla de Maipú (1818) fue el enfrentamiento decisivo que consolidó la independencia de Chile y permitió a San Martín preparar la expedición al Perú.
@@ -1239,7 +1204,7 @@ metadata:
   nivel: "avanzado"
   tags: ["san_martin", "orden_cronologico"]
 
-respuesta: ["Cruce de los Andes", "Batalla de Maipú", "Expedición al Perú"]
+respuesta_orden: ["Cruce de los Andes", "Batalla de Maipú", "Expedición al Perú"]
 tipo: ordenar
 opciones_explicitas: ["Cruce de los Andes", "Batalla de Maipú", "Expedición al Perú"]
 
@@ -1278,7 +1243,8 @@ metadata:
 
 respuesta: "25 de mayo de 1810"
 tipo: completar
-respuestas_validas: ["25 de mayo de 1810"]
+respuestas_validas:
+  - "25 de mayo de 1810"
 
 enunciado: "La Primera Junta de Gobierno fue establecida el ___ tras el Cabildo Abierto."
 
@@ -1310,7 +1276,7 @@ metadata:
   nivel: "intermedio"
   tags: ["cronologia", "procesos_historicos"]
 
-respuesta: ["Revolución de Mayo", "Guerras de Independencia", "Declaración de la Independencia", "Cruce de los Andes"]
+respuesta_orden: ["Revolución de Mayo", "Guerras de Independencia", "Declaración de la Independencia", "Cruce de los Andes"]
 tipo: ordenar
 opciones_explicitas: ["Revolución de Mayo", "Guerras de Independencia", "Declaración de la Independencia", "Cruce de los Andes"]
 
@@ -1350,7 +1316,9 @@ metadata:
 
 respuesta: "soberana"
 tipo: completar
-respuestas_validas: ["soberana", "autónoma"]
+respuestas_validas:
+  - "soberana"
+  - "autónoma"
 
 enunciado: "Tras la declaración de 1816, las Provincias Unidas buscaron consolidar su condición de nación ___."
 
@@ -1365,18 +1333,14 @@ metadata:
   nivel: "basico"
   tags: ["revolucion_mayo", "fechas"]
 
-variables:
-  escenarios: [["1810", "25 de mayo"], ["1816", "9 de julio"], ["1810", "25 de mayo"]]
-  idx: uno_de([0, 1])
-
-respuesta: escenarios[idx][1
+respuesta: "25 de mayo"
 tipo: mc
 opciones_explicitas: ["25 de mayo", "9 de julio", "20 de junio", "12 de octubre"]
 
-enunciado: "La Revolución de Mayo, hito fundamental del proceso de independencia, tuvo lugar en el año {escenarios[idx][0]}."
+enunciado: "La Revolución de Mayo, hito fundamental del proceso de independencia, tuvo lugar el día ___ de 1810."
 
 explicacion: |
-  El proceso de independencia comenzó con la Revolución de Mayo en 1810, que llevó a la formación del primer gobierno patrio.
+  El proceso de independencia comenzó con la Revolución de Mayo el 25 de mayo de 1810, que llevó a la formación del primer gobierno patrio.
 ```
 
 ```
@@ -1390,9 +1354,11 @@ variables:
   hitos: [["Congreso de Tucumán", "9 de julio de 1816"], ["Revolución de Mayo", "25 de mayo de 1810"]]
   idx: uno_de([0, 1])
 
-respuesta: hitos[idx][1
+respuesta: hitos[idx][1]
 tipo: completar
-respuestas_validas: ["9 de julio de 1816", "25 de mayo de 1810"]
+respuestas_validas:
+  - "9 de julio de 1816"
+  - "25 de mayo de 1810"
 
 enunciado: "El hito conocido como {hitos[idx][0]} se consolidó formalmente el día ___."
 
@@ -1407,7 +1373,7 @@ metadata:
   nivel: "intermedio"
   tags: ["cronologia", "procesos"]
 
-respuesta: ["Revolución de Mayo", "Establecimiento del Directorio", "Declaración de la Independencia"]
+respuesta_orden: ["Revolución de Mayo", "Establecimiento del Directorio", "Declaración de la Independencia"]
 tipo: ordenar
 opciones_explicitas: ["Revolución de Mayo", "Establecimiento del Directorio", "Declaración de la Independencia"]
 
@@ -1428,7 +1394,7 @@ variables:
   batallas: [["San Lorenzo", "1813"], ["Maipú", "1818"], ["Chacabuco", "1817"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: batallas[idx][1
+respuesta: batallas[idx][1]
 tipo: completar
 tolerancia_abs: 0
 
@@ -1470,7 +1436,8 @@ metadata:
 
 respuesta: "Francisco Fernando"
 tipo: completar
-respuestas_validas: ["Francisco Fernando"]
+respuestas_validas:
+  - "Francisco Fernando"
 
 enunciado: "El asesinato del archiduque ___ en Sarajevo fue el detonante que activó el sistema de alianzas en Europa en 1914."
 
@@ -1483,16 +1450,15 @@ metadata:
   materia: "historia_profunda"
   tema: "alianzas_guerra"
   nivel: "intermedio"
-  tags: ["alianzas", "triple_entente", "triple_entente"]
+  tags: ["alianzas", "triple_entente"]
 
 variables:
   idx: uno_de([0, 1])
+  tabla: [["Triple Entente", "Triple Entente"], ["Triple Alianza", "Triple Alianza"]]
 
-respuesta: tabla[idx][1
+respuesta: tabla[idx][1]
 tipo: mc
-opciones_explicitas: 
-  - ["Triple Entente", "Triple Alianza"]
-  - ["Triple Entente", "Triple Alianza"]
+opciones_explicitas: ["Triple Entente", "Triple Alianza"]
 
 enunciado: "Si consideramos el bloque de potencias formado por Francia, Gran Bretaña y Rusia, estamos hablando de la {tabla[idx][0]}."
 
@@ -1502,10 +1468,6 @@ pasos:
 
 explicacion: |
   La Triple Entente estaba compuesta por Francia, Reino Unido y Rusia, mientras que la Triple Alianza (Potencias Centrales) incluía a Alemania, Austria-Hungría e Italia (inicialmente).
-
-tabla:
-  - ["Triple Entente", "Triple Entente"]
-  - ["Triple Alianza", "Triple Alianza"]
 ```
 
 ```
@@ -1549,7 +1511,7 @@ metadata:
   nivel: "avanzado"
   tags: ["ordenar", "causas"]
 
-respuesta: ["Imperialismo", "Nacionalismo", "Asesinato de Francisco Fernando"]
+respuesta_orden: ["Imperialismo", "Nacionalismo", "Asesinato de Francisco Fernando"]
 tipo: ordenar
 opciones_explicitas: ["Nacionalismo", "Imperialismo", "Asesinato de Francisco Fernando"]
 
@@ -1568,7 +1530,8 @@ metadata:
 
 respuesta: "Alemania"
 tipo: completar
-respuestas_validas: ["Alemania"]
+respuestas_validas:
+  - "Alemania"
 
 enunciado: "El régimen nazi, liderado por Adolf Hitler, tomó el poder político en ___ en 1933, consolidando un sistema totalitario."
 
@@ -1604,9 +1567,10 @@ variables:
   datos: [["genocidio", "Holocausto"], ["exterminio", "Holocausto"], ["persecución", "Holocausto"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["Holocausto"]
+respuestas_validas:
+  - "Holocausto"
 
 enunciado: "El asesinato sistemático y organizado de millones de judíos y otros grupos por parte del régimen nazi se conoce históricamente como el ___."
 
@@ -1621,18 +1585,11 @@ metadata:
   nivel: "intermedio"
   tags: ["atomica", "hiroshima", "nagasaki"]
 
-variables:
-  escenarios: [
-    ["Hiroshima", "Little Boy"],
-    ["Nagasaki", "Fat Man"]
-  ]
-  idx: uno_de([0, 1])
-
-respuesta: escenarios[idx][1
+respuesta: "Fat Man"
 tipo: mc
 opciones_explicitas: ["Little Boy", "Fat Man", "Enola Gay", "B-29"]
 
-enunciado: "En el segundo ataque atómico de la historia, ocurrido en la ciudad de {escenarios[idx][0]}, se utilizó la bomba llamada ___."
+enunciado: "En el segundo ataque atómico de la historia, ocurrido en la ciudad de Nagasaki, se utilizó la bomba llamada ___."
 
 explicacion: |
   El 9 de agosto de 1945, la bomba 'Fat Man' fue lanzada sobre Nagasaki, marcando el segundo uso de armas nucleares en combate.
@@ -1646,7 +1603,7 @@ metadata:
   tags: ["cronologia", "eventos_clave"]
 
 opciones_explicitas: ["Invasión de Polonia", "Ataque a Pearl Harbor", "Desarme de Japón"]
-respuesta: ["Invasión de Polonia", "Ataque a Pearl Harbor", "Desarme de Japón"]
+respuesta_orden: ["Invasión de Polonia", "Ataque a Pearl Harbor", "Desarme de Japón"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los siguientes eventos clave de la Segunda Guerra Mundial, desde el inicio hasta el fin:"
@@ -1664,6 +1621,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["La pérdida de territorios y reparaciones económicas", "La creación de la Sociedad de Naciones", "El ascenso del comunismo en Europa", "La firma del Pacto Molotov-Ribbentrop"]
+respuesta: "La pérdida de territorios y reparaciones económicas"
 
 enunciado: "Uno de los factores principales que generó un profundo resentimiento en la población alemana tras la Primera Guerra Mundial fue ___."
 
@@ -1682,7 +1640,10 @@ variables:
   escenario: uno_de([["reparaciones económicas", "hiperinflación"], ["pérdida de territorio", "expansionismo"], ["cláusula de culpa", "revanchismo"]])
 
 tipo: completar
-respuestas_validas: ["reparaciones económicas", "pérdida de territorio", "cláusula de culpa"]
+respuestas_validas:
+  - "reparaciones económicas"
+  - "pérdida de territorio"
+  - "cláusula de culpa"
 
 enunciado: "Las duras condiciones impuestas por el tratado de Versalles, específicamente las ___ , provocaron una crisis económica sin precedentes en la República de Weimar."
 
@@ -1701,11 +1662,9 @@ metadata:
   nivel: "basico"
   tags: ["sociedad_naciones", "diplomacia"]
 
-tipo: mc
-opciones_explicitas: ["Sociedad de Naciones", "Liga de las Naciones", "ONU", "Pacto de Varsovia"]
-
+tipo: completar
 enunciado: "El organismo internacional creado tras la Primera Guerra Mundial para mantener la paz, pero que demostró ser incapaz de evitar la Segunda Guerra Mundial, fue la ___."
-
+respuesta: "Sociedad de Naciones"
 explicacion: |
   La Sociedad de Naciones carecía de fuerza militar y de la participación de potencias clave como EE.UU., lo que la hizo ineficaz para frenar el expansionismo de Alemania, Italia y Japón.
 ```
@@ -1724,6 +1683,7 @@ enunciado: "Ordene cronológicamente los eventos que contribuyeron al estallido 
 
 explicacion: |
   La secuencia muestra cómo el orden impuesto en 1919 se desmoronó debido a la crisis económica, permitiendo el ascenso de regímenes totalitarios que finalmente desafiaron el orden internacional con la invasión de Polonia.
+respuesta_orden: ["Firma del Tratado de Versalles", "Crisis económica de 1929", "Ascenso del Partido Nazi al poder", "Invasión de Polonia"]
 ```
 
 ```
@@ -1737,6 +1697,8 @@ tipo: completar
 tolerancia_abs: 0
 
 enunciado: "En Alemania, el Tratado de Versalles fue visto por muchos sectores políticos no como un acuerdo de paz, sino como un ___ (término alemán que significa 'imposición')."
+
+respuesta: "Diktat"
 
 explicacion: |
   El término 'Diktat' fue utilizado por los políticos alemanes para denunciar que el tratado no fue negociado, sino impuesto por las potencias vencedoras, alimentando el sentimiento nacionalista.
@@ -1790,11 +1752,13 @@ variables:
   escenarios: [["La Gran Depresión", "El ascenso de los regímenes totalitarios"], ["La crisis económica de 1929", "La inestabilidad política europea"]]
 
 tipo: completar
-respuestas_validas: ["La Gran Depresión", "La crisis económica de 1929"]
+respuestas_validas:
+  - "La Gran Depresión"
+  - "La crisis económica de 1929"
 
 enunciado: "Durante el periodo de entreguerras, el mundo sufrió un colapso financiero conocido como ___."
 
-respuesta: escenarios[escenario_idx][0
+respuesta: escenarios[escenario_idx][0]
 
 explicacion: |
   El crack de 1929 y la posterior Gran Depresión generaron un clima de inestabilidad que facilitó el ascenso de ideologías extremistas.
@@ -1810,7 +1774,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Primera Guerra Mundial", "Crisis de 1929", "Segunda Guerra Mundial"]
 
-respuesta: ["Primera Guerra Mundial", "Crisis de 1929", "Segunda Guerra Mundial"]
+respuesta_orden: ["Primera Guerra Mundial", "Crisis de 1929", "Segunda Guerra Mundial"]
 
 enunciado: "Ordena cronológicamente los siguientes eventos históricos, desde el más antiguo al más reciente."
 
@@ -1893,7 +1857,9 @@ respuesta: datos[idx][1]
 tipo: completar
 
 enunciado: "El evento '{datos[idx][0]}' es un hito fundamental de la ___."
-respuestas_validas: ["Primera Guerra Mundial", "Segunda Guerra Mundial"]
+respuestas_validas:
+  - "Primera Guerra Mundial"
+  - "Segunda Guerra Mundial"
 
 explicacion: |
   El hito mencionado ocurrió durante la {datos[idx][1]}.
@@ -1927,21 +1893,14 @@ metadata:
   nivel: "avanzado"
   tags: ["cronologia", "eventos"]
 
-variables:
-  escenario: uno_de([
-    ["La guerra de movimientos", "El Tratado de Versalles", "La creación de la Sociedad de Naciones"],
-    ["La invasión de Francia", "El ataque a Pearl Harbor", "La rendición de Japón"]
-  ], [0, 1])
-  idx: uno_de([0, 1])
-
-respuesta: ["La guerra de movimientos", "El Tratado de Versalles", "La creación de la Sociedad de Naciones"]
+respuesta_orden: ["La guerra de movimientos", "El Tratado de Versalles", "La creación de la Sociedad de Naciones"]
 tipo: ordenar
-opciones_explicitas: ["La guerra de movimientos", "El Tratado de Versalles", "La Sociedad de Naciones"]
+opciones_explicitas: ["La guerra de movimientos", "El Tratado de Versalles", "La creación de la Sociedad de Naciones"]
 
-enunciado: "Ordena cronológicamente los hitos de la {escenario[idx][0]} (si es la opción 0) o los eventos de la {escenario[idx][1]} (si es la opción 1)."
+enunciado: "Ordena cronológicamente los siguientes hitos de la Primera Guerra Mundial y su posguerra:"
 
 explicacion: |
-  La secuencia correcta representa la cronología de la {escenario[idx][0]}.
+  La secuencia correcta representa la cronología: primero la guerra de movimientos (1914), luego el Tratado de Versalles (1919) que puso fin al conflicto, y finalmente la creación de la Sociedad de Naciones (1920).
 ```
 
 ## Sección: herramientas-arte-rupestre (25 preguntas)
@@ -1953,16 +1912,10 @@ metadata:
   nivel: "basico"
   tags: ["paleolitico", "tecnologia"]
 
-variables:
-  escenario: uno_de([
-    ["lasca", "fragmento desprendido de un núcleo"],
-    ["bifaz", "herramienta tallada por ambas caras"],
-    ["punta", "herramienta especializada para perforar"]
-  ])
+enunciado: "En la industria lítica, una lasca se define como un/a ___."
 
-enunciado: "En la industria lítica, un/a {escenario[0]} se define como un/a ___."
-
-respuestas_validas: ["fragmento desprendido de un núcleo"]
+respuestas_validas:
+  - "fragmento desprendido de un núcleo"
 tipo: completar
 
 explicacion: |
@@ -1981,7 +1934,7 @@ opciones_explicitas: ["Olduvayense", "Achelense", "Musteriense"]
 enunciado: "Ordene las siguientes tecnologías de la más antigua a la más reciente:"
 
 tipo: ordenar
-respuesta: ["Olduvayense", "Achelense", "Musteriense"]
+respuesta_orden: ["Olduvayense", "Achelense", "Musteriense"]
 
 explicacion: |
   La secuencia evolutiva comienza con el Olduvayense (choppers simples), sigue con el Achelense (bifaces elaborados) y continúa con el Musteriense (técnicas de lasca más complejas).
@@ -2011,16 +1964,10 @@ metadata:
   nivel: "avanzado"
   tags: ["especializacion", "paleolitico"]
 
-variables:
-  tipo_herramienta: uno_de([
-    ["raspador", "usado para tratar pieles"],
-    ["buril", "usado para grabar hueso o madera"],
-    ["punzón", "usado para perforar cuero"]
-  ])
+enunciado: "Un raspador es una herramienta especializada cuya función principal es ___."
 
-enunciado: "Un/a {tipo_herramienta[0]} es una herramienta especializada cuya función principal es ___."
-
-respuestas_validas: ["usado para tratar pieles", "usado para grabar hueso o madera", "usado para perforar cuero"]
+respuestas_validas:
+  - "usado para tratar pieles"
 tipo: completar
 
 explicacion: |
@@ -2034,14 +1981,7 @@ metadata:
   nivel: "avanzado"
   tags: ["tecnologia", "calculo"]
 
-variables:
-  caso: uno_de([
-    [12, "percusión"],
-    [45, "presión"],
-    [88, "percusión"]
-  ])
-
-enunciado: "Si un arqueólogo encuentra un conjunto de {caso[0]} herramientas que fueron producidas mediante la técnica de {caso[1]}, ¿cuál es la técnica utilizada?"
+enunciado: "Si un arqueólogo encuentra un conjunto de 12 herramientas líticas con bulbos de percusión pronunciados y plataformas anchas, ¿qué técnica de talla se utilizó probablemente?"
 
 tipo: mc
 opciones_explicitas: ["percusión", "presión"]
@@ -2060,6 +2000,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Paredes de piedra", "Lienzos de tela", "Pieles de animales", "Tablas de madera"]
+respuesta: "Paredes de piedra"
 
 enunciado: "En el arte rupestre de cuevas como Altamira o Lascaux, ¿cuál era el soporte principal utilizado para las pinturas?"
 
@@ -2074,13 +2015,9 @@ metadata:
   nivel: "intermedio"
   tags: ["grabado", "tecnicas"]
 
-variables:
-  tecnica_idx: uno_de([0, 1])
-  tecnica_nombre: uno_de(["grabado", "pintura"])
-  tecnica_desc: uno_de(["incisión en la piedra", "aplicación de pigmentos"])
-
 tipo: completar
-respuestas_validas: ["grabado", "pintura"]
+respuestas_validas:
+  - "grabado"
 
 enunciado: "Si un artista prehistórico utiliza una piedra afilada para realizar una incisión profunda en la roca, está realizando un ___."
 
@@ -2100,14 +2037,14 @@ metadata:
   tags: ["pigmentos", "quimica_prehistorica"]
 
 variables:
-  color_idx: uno_de([0, 1])
-  color_nombre: uno_de(["ocre", "negro"])
-  color_origen: uno_de(["óxido de hierro", "carbón vegetal"])
+  par: uno_de([["ocre", "óxido de hierro"], ["negro", "carbón vegetal"]])
 
 tipo: mc
 opciones_explicitas: ["óxido de hierro", "carbón vegetal", "arcilla blanca", "sangre de animal"]
 
-enunciado: "Para obtener el color {color_nombre} muy común en las pinturas de la Cueva de las Manos, los humanos utilizaban {color_origen}."
+enunciado: "Para obtener el color {par[0]} muy común en las pinturas de la Cueva de las Manos, los humanos utilizaban:"
+
+respuesta: par[1]
 
 explicacion: |
   Los pigmentos se obtenían de minerales (como el óxido de hierro para rojos/ocres) o de materia orgánica quemada (carbón para el negro).
@@ -2122,6 +2059,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Capacidad de abstracción", "Necesidad de decorar", "Falta de herramientas", "Supervivencia alimentaria"]
+respuesta: "Capacidad de abstracción"
 
 enunciado: "La presencia de signos abstractos y manos en negativo en las cuevas sugiere que el Homo sapiens ya poseía ___."
 
@@ -2143,6 +2081,7 @@ enunciado: "Ordena el proceso lógico que seguiría un artista en una cueva prof
 
 explicacion: |
   El artista primero debe asegurar la superficie, luego crear la mezcla de color y finalmente aplicarla, todo esto gestionando la limitada luz de la cueva.
+respuesta_orden: ["Preparación del soporte", "Preparación del pigmento", "Aplicación de la pintura", "Agotamiento de la luz"]
 ```
 
 ```
@@ -2154,6 +2093,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Animales de caza", "Paisajes urbanos", "Figuras geométricas abstractas", "Retratos de reyes"]
+respuesta: "Animales de caza"
 
 enunciado: "En el arte rupestre del Paleolítico, ¿qué tipo de figuras eran las representadas con mayor frecuencia en las paredes de las cuevas?"
 
@@ -2170,6 +2110,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Siluetas de manos", "Escenas de guerra", "Instrumentos musicales", "Mapas estelares"]
+respuesta: "Siluetas de manos"
 
 enunciado: "Además de animales, es muy común encontrar en las cuevas la técnica de la estarcido para representar ___."
 
@@ -2184,11 +2125,9 @@ metadata:
   nivel: "intermedio"
   tags: ["escenas", "caza"]
 
-variables:
-  escena_tipo: uno_de(["escenas de caza", "paisajes estáticos", "figuras aisladas"])
-
 tipo: mc
 opciones_explicitas: ["escenas de caza", "mapas de navegación", "diagramas matemáticos", "dibujos arquitectónicos"]
+respuesta: "escenas de caza"
 
 enunciado: "Cuando los artistas prehistóricos representaban la interacción entre humanos y animales, solían plasmar ___."
 
@@ -2204,7 +2143,10 @@ metadata:
   tags: ["identificacion"]
 
 tipo: completar
-respuestas_validas: ["animales", "manos", "escenas"]
+respuestas_validas:
+  - "animales"
+  - "manos"
+  - "escenas"
 
 enunciado: "El arte rupestre suele clasificarse en tres grandes categorías temáticas: ___, siluetas de ___ y ___."
 
@@ -2226,6 +2168,7 @@ enunciado: "Un arqueólogo sigue un proceso lógico para estudiar una pintura ru
 
 explicacion: |
   El método científico en arqueología comienza con la observación directa y el análisis material antes de pasar a la interpretación teórica.
+respuesta_orden: ["Observar la figura", "Identificar el pigmento", "Analizar el contexto de la cueva", "Interpretar el significado"]
 ```
 
 ```
@@ -2236,17 +2179,13 @@ metadata:
   tags: ["cognicion", "simbolismo", "hominidos"]
 
 variables:
-  escenario: uno_de([
-    ["pintura de manos en negativo", "capacidad de representación simbólica"],
-    ["herramientas de piedra tallada", "planificación técnica avanzada"],
-    ["adornos con conchas marinas", "pensamiento abstracto y estético"]
-  ])
+  escenario: uno_de([["pintura de manos en negativo", "capacidad de representación simbólica"], ["herramientas de piedra tallada", "planificación técnica avanzada"], ["adornos con conchas marinas", "pensamiento abstracto y estético"]])
 
-respuesta: escenario[2][1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["capacidad de representación simbólica", "planificación técnica avanzada", "pensamiento abstracto y estético"]
 
-enunciado: "La presencia de {escenario[0]} en cuevas prehistóricas es una evidencia fundamental de la {escenario[2][1]} del Homo sapiens."
+enunciado: "La presencia de {escenario[0]} en cuevas prehistóricas es una evidencia fundamental de la {escenario[1]} del Homo sapiens."
 
 explicacion: |
   El uso de pigmentos para dejar la huella de la mano indica que el individuo no solo interactuaba con el entorno, sino que proyectaba su identidad, un signo claro de pensamiento simbólico.
@@ -2261,7 +2200,9 @@ metadata:
 
 respuesta: "Homo sapiens"
 tipo: completar
-respuestas_validas: ["Homo sapiens", "Homo sapiens sapiens"]
+respuestas_validas:
+  - "Homo sapiens"
+  - "Homo sapiens sapiens"
 
 enunciado: "A diferencia de otros homínidos, el ___ desarrolló una capacidad de abstracción que le permitió crear herramientas complejas y arte rupestre."
 
@@ -2278,7 +2219,7 @@ metadata:
 
 opciones_explicitas: ["Preparación del soporte", "Preparación de pigmentos", "Aplicación del color", "Grabado de contornos"]
 
-respuesta: ["Preparación del soporte", "Preparación de pigmentos", "Grabado de contornos", "Aplicación del color"]
+respuesta_orden: ["Preparación del soporte", "Preparación de pigmentos", "Grabado de contornos", "Aplicación del color"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos que un artista del Paleolítico Superior seguiría para realizar una pintura de gran formato en una pared de la cueva:"
@@ -2295,17 +2236,13 @@ metadata:
   tags: ["cognicion", "herramientas"]
 
 variables:
-  caso: uno_de([
-    ["un bifaz perfectamente simétrico", "estética y precisión"],
-    ["un propulsor de lanza", "ingeniería y cálculo de trayectoria"],
-    ["un raspador de hueso", "especialización funcional"]
-  ])
+  caso: uno_de([["un bifaz perfectamente simétrico", "estética y precisión"], ["un propulsor de lanza", "ingeniería y cálculo de trayectoria"], ["un raspador de hueso", "especialización funcional"]])
 
-respuesta: caso[0][1
+respuesta: caso[1]
 tipo: mc
 opciones_explicitas: ["estética y precisión", "ingeniería y cálculo de trayectoria", "especialización funcional"]
 
-enunciado: "La fabricación de {caso[0]} sugiere que el homínido no solo buscaba utilidad, sino también {caso[0][1]}."
+enunciado: "La fabricación de {caso[0]} sugiere que el homínido no solo buscaba utilidad, sino también {caso[1]}."
 
 explicacion: |
   La simetría en herramientas de piedra que no es estrictamente necesaria para el corte indica una búsqueda de orden y belleza, propia de la mente moderna.
@@ -2335,12 +2272,12 @@ metadata:
   tags: ["arte_rupestre", "tecnicas"]
 
 variables:
-  datos: [["pigmentos mezclados con grasa animal aplicados con los dedos", "Pintura digital"], ["grabados realizados con piedras duras sobre la roca", "Petroglifos"], ["dibujos realizados con carbón vegetal sobre superficies claras", "Dibujo al carbón"]]
+  datos: [["pigmentos mezclados con grasa animal aplicados con los dedos", "Pintura con los dedos"], ["grabados realizados con piedras duras sobre la roca", "Petroglifos"], ["dibujos realizados con carbón vegetal sobre superficies claras", "Dibujo al carbón"]]
   idx: uno_de([0,1,2])
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["Pintura digital", "Petroglifos", "Dibujo al carbón"]
+opciones_explicitas: ["Pintura con los dedos", "Petroglifos", "Dibujo al carbón"]
 
 enunciado: "Se ha descubierto una cueva con las siguientes características: {datos[idx][0]}. ¿A qué técnica pertenece?"
 
@@ -2361,9 +2298,12 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["percutor", "estilete", "incisores"]
+respuestas_validas:
+  - "percutor"
+  - "estilete"
+  - "incisores"
 
-enunciado: "Para realizar la técnica de grabado descrita, el artista utilizó un/a ___."
+enunciado: "Para grabar la roca a partir de {datos[idx][0]}, el artista necesitó un/a ___."
 
 explicacion: |
   El instrumento utilizado para la acción descrita es un/a {datos[idx][1]}.
@@ -2397,7 +2337,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procesos", "orden"]
 
-respuesta: ["Preparación de la superficie", "Aplicación del pigmento", "Sellado con grasa"]
+respuesta_orden: ["Preparación de la superficie", "Aplicación del pigmento", "Sellado con grasa"]
 tipo: ordenar
 opciones_explicitas: ["Preparación de la superficie", "Aplicación del pigmento", "Sellado con grasa"]
 
@@ -2427,3 +2367,4 @@ enunciado: "La obra se encuentra plasmada sobre un/a {datos[idx][0]}. Por lo tan
 explicacion: |
   En arqueología, la ubicación física define el soporte: {datos[idx][1]}.
 ```
+

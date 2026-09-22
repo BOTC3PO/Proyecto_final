@@ -1,2536 +1,2228 @@
-# Examen jefe — Maestro de Costos y Cooperativas
+# Examen jefe — [PENDIENTE #768]
 
-> Logro #189. Dominaste las corrientes económicas, el costo de oportunidad y el funcionamiento de las cooperativas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **129 preguntas totales** en 5/5 secciones.
+> Logro #768. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: control-de-gestion-e-indicadores (25 preguntas)
+## Sección: costo-marginal (26 preguntas)
 
 ```
 metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "basico"
-  tags: ["definicion", "gestion"]
-
-respuesta: "proceso"
-tipo: "completar"
-respuestas_validas: ["proceso"]
-
-enunciado: "El control de gestión se define como el ________ de recolectar, analizar y utilizar información para asegurar que la organización alcance sus objetivos."
-
-explicacion: |
-  El control de gestión es un proceso continuo que permite comparar el desempeño real con los planes establecidos para tomar medidas correctivas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "basico"
-  tags: ["indicadores", "KPI"]
-
-variables:
-  tipo_indicador: uno_de(["eficiencia", "eficacia"])
-
-respuesta: uno_de(["eficiencia", "eficacia"])
-tipo: "mc"
-opciones_explicitas: ["eficiencia", "eficacia", "efectividad"]
-
-enunciado: "Si una empresa logra sus objetivos de ventas utilizando la menor cantidad de recursos posibles, está demostrando un alto nivel de {tipo_indicador}."
-
-explicacion: |
-  La eficiencia se refiere a la relación entre los resultados obtenidos y los recursos utilizados. La eficacia, en cambio, se centra solo en el cumplimiento del objetivo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
+  materia: "matematicas"
+  tema: "costo_marginal"
   nivel: "intermedio"
-  tags: ["balanced_scorecard", "perspectivas"]
-
-respuesta: verdadero
-tipo: "vf"
-
-enunciado: "¿El Cuadro de Mando Integral (Balanced Scorecard) propone medir a la organización únicamente desde una perspectiva financiera?"
-
-explicacion: |
-  Falso. El Balanced Scorecard integra cuatro perspectivas: Financiera, Cliente, Procesos Internos y Aprendizaje/Crecimiento.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "basico"
-  tags: ["ciclo_pdca", "gestion"]
-
-respuesta: ["Planificar", "Hacer", "Verificar", "Actuar"]
-tipo: "ordenar"
-opciones_explicitas: ["Planificar", "Hacer", "Verificar", "Actuar"]
-
-enunciado: "Ordene las etapas del ciclo PHVA (Ciclo de Deming) para asegurar la mejora continua en el control de gestión:"
-
-explicacion: |
-  El ciclo PHVA (Plan, Do, Check, Act) es la base de la mejora continua: se planifica, se ejecuta, se verifica el resultado y se actúa sobre las desviaciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "intermedio"
-  tags: ["desviacion", "analisis"]
+  tags: ["evaluar"]
 
 variables:
-  escenario: uno_de([0, 1])
-
-respuesta: tabla_desviacion[escenario][1
-tipo: "mc"
-opciones_explicitas: ["Positiva", "Negativa", "Nula"]
-
-variables_aux:
-  tabla_desviacion: [["Positiva", "Positiva"], ["Negativa", "Negativa"]]
-
-enunciado: "En un escenario donde el gasto real es mayor al presupuesto planificado, la desviación presupuestaria es considerada: {uno_de(['Positiva', 'Negativa'])}."
-
-explicacion: |
-  En términos de control de costos, una desviación negativa suele indicar que se ha excedido el presupuesto, lo cual requiere una acción correctiva.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "intermedio"
-  tags: ["eficiencia", "indicadores_desempeño"]
-
-variables:
-  datos: [[1200, 1500], [800, 1000], [2000, 2500]]
-  idx: uno_de([0,1,2])
-  produccion_real: datos[idx][0]
-  produccion_esperada: datos[idx][1]
-  eficiencia: (produccion_real / produccion_esperada) * 100
-
-respuesta: eficiencia
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "En una planta de ensamblaje, la producción real de la jornada fue de {produccion_real} unidades, mientras que el objetivo establecido era de {produccion_esperada} unidades. ¿Cuál es el índice de eficiencia de producción expresado en porcentaje?"
-
-pasos:
-  - "Dividir la producción real por la producción esperada: {produccion_real} / {produccion_esperada}"
-  - "Multiplicar el resultado por 100 para obtener el porcentaje."
-
-explicacion: |
-  La eficiencia se calcula como el cociente entre la producción real y la estándar. En este caso, la eficiencia es del {eficiencia}%."
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "basico"
-  tags: ["desviacion", "presupuesto"]
-
-variables:
-  escenario: [[100, 120], [150, 130], [200, 200]]
-  idx: uno_de([0,1,2])
-  costo_real: escenario[idx][0]
-  costo_presupuestado: escenario[idx][1]
-
-respuesta: "Desviación Negativa"
-tipo: mc
-opciones_explicitas: ["Desviación Positiva", "Desviación Negativa", "Sin Desviación"]
-
-enunciado: "Si el costo real de un proyecto es de ${costo_real} y el presupuesto asignado era de ${costo_presupuestado}, y considerando que un costo mayor al presupuestado es desfavorable para la organización, ¿cómo se clasifica la desviación?"
-
-explicacion: |
-  Cuando el costo real es mayor al presupuestado (como en el caso de {costo_real} vs {costo_presupuestado}), se produce una desviación desfavorable o negativa en términos de control de costos."
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "basico"
-  tags: ["kpi", "conceptos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un Indicador Clave de Desempeño (KPI) debe ser necesariamente medible y estar alineado con los objetivos estratégicos de la organización para ser útil en el control de gestión."
-
-explicacion: |
-  Correcto. Para que un indicador sea efectivo en el control de gestión, debe permitir la medición del progreso hacia un objetivo específico."
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "intermedio"
-  tags: ["proceso", "ciclo_pdca"]
-
-respuesta: ["Establecer estándares", "Medir el desempeño", "Comparar con estándares", "Tomar acciones correctivas"]
-tipo: ordenar
-
-opciones_explicitas: ["Establecer estándares", "Medir el desempeño", "Comparar con estándares", "Tomar acciones correctivas"]
-
-enunciado: "Ordene cronológicamente las etapas del proceso de control de gestión para asegurar que una empresa corrija una desviación en sus ventas:"
-
-explicacion: |
-  El proceso lógico comienza con la definición de la meta (estándar), sigue con la medición de lo ocurrido, la comparación para detectar brechas y finalmente la acción para corregir."
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "avanzado"
-  tags: ["roi", "rentabilidad"]
-
-variables:
-  datos: [[5000, 20000], [8000, 40000], [12000, 30000]]
-  idx: uno_de([0,1,2])
-  ganancia_neta: datos[idx][0]
-  inversion_total: datos[idx][1]
-  roi: (ganancia_neta / inversion_total) * 100
-
-respuesta: "ROI"
-tipo: completar
-respuestas_validas: ["ROI", "roi"]
-
-enunciado: "Si una empresa obtiene una ganancia neta de ${ganancia_neta} tras haber realizado una inversión total de ${inversion_total}, el indicador que mide la rentabilidad de esa inversión se denomina ___."
-
-explicacion: |
-  El ROI (Return on Investment) es el indicador que relaciona la ganancia obtenida con la inversión realizada. En este caso, el ROI es del {roi}%."
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "intermedio"
-  tags: ["indicadores", "gestion", "eficiencia"]
-
-respuesta: "eficiencia"
-tipo: mc
-opciones_explicitas: ["eficiencia", "eficacia", "efectividad", "productividad"]
-
-enunciado: "Un gerente observa que su equipo produjo 100 unidades usando 10 horas de trabajo. Si el objetivo era producir 80 unidades en 12 horas, el equipo cumplió con el objetivo (fue eficaz), pero no optimizó los recursos. El indicador que mide la relación entre resultados y recursos utilizados se denomina ___."
-
-explicacion: |
-  La eficacia mide el grado de cumplimiento de los objetivos (lograr la meta), mientras que la eficiencia mide la relación entre los resultados obtenidos y los recursos empleados para lograrlos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "avanzado"
-  tags: ["metricas", "vanidad", "toma_de_decisiones"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Las llamadas 'métricas de vanidad' (vanity metrics) son indicadores que, aunque muestran números positivos y crecientes, no proporcionan información relevante para la toma de decisiones estratégicas ni para medir el éxito real del modelo de negocio."
-
-explicacion: |
-  Es falso. Las métricas de vanidad son precisamente aquellas que parecen buenas (como el número de 'likes' o visitas) pero no ayudan a entender la salud real del negocio o el cumplimiento de objetivos críticos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "intermedio"
-  tags: ["jerarquia", "indicadores", "estrategia"]
-
-respuesta: ["Indicadores Estratégicos", "Indicadores Tácticos", "Indicadores Operativos"]
-tipo: ordenar
-
-opciones_explicitas: ["Indicadores Estratégicos", "Indicadores Tácticos", "Indicadores Operativos"]
-
-enunciado: "Ordene los siguientes niveles de indicadores de gestión desde el nivel de mayor visión global (longitudinal) hasta el nivel de ejecución diaria:"
-
-explicacion: |
-  La jerarquía parte de la estrategia (largo plazo/global), baja a la táctica (departamental/procesos) y culmina en la operación (tareas diarias/específicas).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "avanzado"
-  tags: ["indicadores", "predictivos", "rezagados"]
-
-variables:
-  escenario: uno_de([[0, "ventas_totales"], [1, "tasa_de_satisfaccion_cliente"]])
-
-respuesta: tabla[escenario][1
-tipo: mc
-opciones_explicitas: ["Indicador de resultado (Lagging)", "Indicador predictivo (Leading)", "Indicador de proceso"]
-
-enunciado: "Si un indicador se enfoca en medir un evento que ya ha ocurrido (como el ___), se considera un indicador de tipo 'Lagging' o rezagado."
-
-explicacion: |
-  Los indicadores 'Lagging' miden resultados pasados (lo que ya sucedió), mientras que los 'Leading' intentan predecir resultados futuros basándose en variables actuales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "basico"
-  tags: ["kpi", "definicion"]
-
-respuesta: ["KPI", "Key Performance Indicator"]
-tipo: completar
-respuestas_validas: ["KPI", "Key Performance Indicator"]
-
-enunciado: "Para que un indicador sea considerado un ___ real, debe estar directamente alineado con un objetivo crítico del negocio y permitir una acción correctiva clara."
-
-explicacion: |
-  No todo indicador es un KPI. Un KPI (Key Performance Indicator) es un indicador clave; es decir, aquel que es vital para medir el éxito de un proceso o estrategia específica.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "basico"
-  tags: ["indicadores", "gestion"]
-
-respuesta: "eficiencia"
-tipo: completar
-respuestas_validas: ["eficiencia"]
-
-enunciado: "Mientras que la eficacia se centra en el cumplimiento de las metas u objetivos propuestos, la ___ se enfoca en el uso óptimo de los recursos para alcanzar dichos objetivos."
-
-explicacion: |
-  La eficacia mide el grado de cumplimiento de los objetivos (lograr la meta), mientras que la eficiencia mide la relación entre los resultados obtenidos y los recursos utilizados (lograr la meta con el mínimo de recursos).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "intermedio"
-  tags: ["indicadores", "control"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[ "ventas_totales", "resultado_final" ], [ "costo_por_unidad", "medida_de_proceso" ]]
-
-respuesta: escenario[idx][1
-tipo: mc
-opciones_explicitas: ["resultado_final", "medida_de_proceso", "indicador_de_esfuerzo", "indicador_de_input"]
-
-enunciado: "Si una empresa mide el '___', está analizando un indicador de: {escenario[idx][0]}."
-
-explicacion: |
-  Los indicadores de resultado (lagging) miden el producto final de una actividad, mientras que los de proceso (leading) miden las actividades necesarias para llegar a ese resultado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "basico"
-  tags: ["kpi", "indicadores"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Un KPI (Indicador Clave de Desempeño) se distingue de un indicador común en que es crítico para la toma de decisiones estratégicas y está directamente vinculado a los objetivos principales de la organización?"
-
-explicacion: |
-  Correcto. Un KPI no es solo cualquier dato, sino un indicador seleccionado específicamente por su relevancia para medir el éxito de una estrategia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "intermedio"
-  tags: ["jerarquia", "indicadores"]
-
-respuesta: ["indicadores_operativos", "indicadores_tácticos", "indicadores_estratégicos"]
-tipo: ordenar
-opciones_explicitas: ["indicadores_operativos", "indicadores_tácticos", "indicadores_estratégicos"]
-
-enunciado: "Ordene los siguientes tipos de indicadores desde el nivel más bajo (operativo/día a día) hasta el nivel más alto (estratégico/largo plazo):"
-
-explicacion: |
-  La jerarquía típica va desde el control de las tareas diarias (operativo), pasando por el control de departamentos o áreas (táctico), hasta el control de la visión global de la empresa (estratégico).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion_e_indicadores"
-  nivel: "avanzado"
-  tags: ["calidad", "eficacia"]
-
-variables:
-  idx: uno_de([0, 1])
-  caso: [[ "cumplir_el_plazo", "eficacia" ], [ "cero_defectos", "calidad" ]]
-
-respuesta: caso[idx][1
-tipo: mc
-opciones_explicitas: ["eficacia", "calidad", "eficiencia", "rentabilidad"]
-
-enunciado: "En el contexto de control de gestión, si el objetivo es asegurar que un producto no tenga errores de fabricación, el indicador principal para medir este aspecto es la: {caso[idx][0]}."
-
-explicacion: |
-  Aunque la calidad puede influir en la eficacia, la medición de la ausencia de defectos se clasifica específicamente como un indicador de calidad o conformidad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion"
-  nivel: "intermedio"
-  tags: ["indicadores", "eficacia", "eficiencia"]
-
-variables:
-  escenario: uno_de([
-    ["La empresa produjo 100 unidades con 10 horas de trabajo, pero su objetivo era 120 unidades.", "eficacia"],
-    ["La empresa produjo 100 unidades usando 8 horas de trabajo, cumpliendo su objetivo de 100 unidades.", "eficiencia"],
-    ["La empresa produjo 120 unidades usando 15 horas de trabajo, superando su objetivo de 100 unidades.", "ambos"]
-  ])
-  idx: uno_de([0, 1, 2])
-
-enunciado: "En el escenario donde la empresa {escenario[idx][0]}, el indicador de {escenario[idx][1]} es..."
-
-respuesta: escenario[idx][1
-tipo: mc
-opciones_explicitas: ["eficacia", "eficiencia", "ambos", "ninguno"]
-
-explicacion: |
-  La eficacia mide el grado de cumplimiento de los objetivos (lograr la meta), mientras que la eficiencia mide la relación entre los resultados obtenidos y los recursos utilizados.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion"
-  nivel: "avanzado"
-  tags: ["presupuesto", "desviacion", "calculo"]
-
-variables:
-  datos: [
-    ["Presupuesto: $5000, Real: $4500", "-10%"],
-    ["Presupuesto: $8000, Real: $9200", "+15%"],
-    ["Presupuesto: $1000, Real: $1000", "0%"]
-  ]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Si el presupuesto asignado fue de {datos[idx][0].split(':')[1].split(',')[0].strip()} y el gasto real fue de {datos[idx][0].split(':')[1].split(',')[1].strip()}, la desviación porcentual respecto al presupuesto es de ___."
-
-pasos:
-  - "Identificar el valor presupuestado (P) y el valor real (R)."
-  - "Calcular la diferencia: (R - P) / P."
-  - "Multiplicar por 100 para obtener el porcentaje."
-
-respuesta: datos[idx][1
-tipo: completar
-respuestas_validas: ["-10%", "+15%", "0%"]
-
-explicacion: |
-  La desviación presupuestaria indica la diferencia entre lo planificado y lo ejecutado. Una desviación positiva indica sobre-ejecución (gasto mayor al previsto).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion"
-  nivel: "basico"
-  tags: ["kpi", "calidad", "verdadero_falso"]
-
-enunciado: "Un KPI (Key Performance Indicator) de calidad que mide el porcentaje de productos defectuosos sobre el total producido es un indicador de proceso."
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Los indicadores de calidad suelen medir la efectividad de los procesos internos para asegurar que el output cumpla con los estándares establecidos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion"
-  nivel: "intermedio"
-  tags: ["pdca", "deming", "procesos"]
-
-enunciado: "Ordene las etapas del ciclo de mejora continua (PDCA) en su secuencia lógica de ejecución:"
-
-opciones_explicitas: ["Planificar", "Hacer", "Verificar", "Actuar"]
-respuesta: ["Planificar", "Hacer", "Verificar", "Actuar"]
-tipo: ordenar
-
-explicacion: |
-  El ciclo PDCA consiste en: Planificar (establecer objetivos), Hacer (implementar), Verificar (comparar resultados con objetivos) y Actuar (ajustar para mejorar).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "control_de_gestion"
-  nivel: "avanzado"
-  tags: ["rentabilidad", "margen", "calculo"]
-
-variables:
-  caso: uno_de([
-    ["Ventas: 1000, Costos: 700", "300"],
-    ["Ventas: 500, Costos: 100", "400"],
-    ["Ventas: 2000, Costos: 1800", "200"]
-  ])
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Si una unidad de negocio presenta los siguientes datos: {caso[idx][0]}, su margen de contribución absoluto es de ___."
-
-pasos:
-  - "Identificar el total de ventas."
-  - "Identificar los costos variables/directos."
-  - "Restar los costos de las ventas."
-
-respuesta: caso[idx][1
-tipo: completar
+  a: random(1, 6)
+  b: random(5, 30)
+  costo_fijo: random(100, 1000)
+  q: random(1, 30)
+
+respuesta: 2 * a * q + b
+tipo: input
 tolerancia_abs: 0
 
-explicacion: |
-  El margen de contribución es la diferencia entre las ventas y los costos variables, indicando cuánto aporta cada unidad a cubrir los costos fijos y generar utilidad.
-```
-
-## Sección: cooperativismo-y-mutualismo (25 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "basico"
-  tags: ["definicion", "organizacion"]
-
-respuesta: "democráticamente"
-tipo: completar
-respuestas_validas: ["democráticamente"]
-
-enunciado: "Según los principios de la economía social, las cooperativas son organizaciones gestionadas ________ por sus miembros."
-
-explicacion: |
-  El principio de gestión democrática es fundamental: cada miembro tiene un voto, independientemente del capital aportado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "basico"
-  tags: ["principios", "gestion"]
-
-variables:
-  es_democratica: true
-
-respuesta: es_democratica
-tipo: completar
-enunciado: "En una cooperativa, el poder de decisión se distribuye de manera proporcional a la cantidad de acciones o capital aportado por cada socio."
+enunciado: "C(q) = {a}q² + {b}q + {costo_fijo}. ¿Cuál es el costo marginal en q={q}?"
 
 pasos:
-  - "Analizar el principio de 'una persona, un voto'."
+  - "Cmg(q) = C'(q) = {2 * a}q + {b}"
+  - "Cmg({q}) = {2 * a}×{q} + {b} = {2 * a * q + b}"
 
 explicacion: |
-  Falso. En las cooperativas rige el principio de gestión democrática (un socio, un voto), a diferencia de las sociedades de capital donde el voto depende de las acciones.
+  El costo fijo ({costo_fijo}) desaparece al derivar — el costo marginal
+  sólo refleja la parte variable.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["evaluar"]
+
+variables:
+  a: random(1, 5)
+  b: random(5, 20)
+  costo_fijo: random(200, 800)
+  q: random(1, 20)
+
+respuesta: 2 * a * q + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "C(q) = {a}q² + {b}q + {costo_fijo}. ¿Cuál es el costo marginal en q={q}?"
+
+explicacion: |
+  Cmg(q) = {2 * a}q + {b}, evaluado en q={q}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+variables:
+  costo_fijo_1: random(100, 500)
+  costo_fijo_2: random(501, 1000)
+  a: random(1, 5)
+  b: random(5, 20)
+  q: random(1, 20)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos empresas tienen la misma parte variable de costo ({a}q² + {b}q), pero costos fijos distintos ({costo_fijo_1} y {costo_fijo_2}). ¿Tienen el mismo costo marginal en q={q}?"
+
+explicacion: |
+  El costo fijo se anula al derivar — sólo importa la parte variable
+  para el costo marginal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "basico"
+  tags: ["evaluar"]
+
+variables:
+  b: random(10, 50)
+  costo_fijo: random(100, 500)
+
+respuesta: b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "C(q) = {b}q + {costo_fijo} (costo variable lineal). ¿Cuál es el costo marginal, para cualquier q?"
+
+explicacion: |
+  Cmg(q) = {b}, constante — no depende de q cuando el costo variable es
+  lineal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+variables:
+  a: random(1, 8)
+  b: random(5, 20)
+  costo_fijo: random(100, 500)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "C(q) = {a}q² + {b}q + {costo_fijo} (con a>0). ¿Es creciente el costo marginal a medida que aumenta q?"
+
+explicacion: |
+  Cmg(q)={2 * a}q+{b} es una función lineal creciente en q, porque el
+  coeficiente {2 * a} es positivo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["verdadero_falso"]
+
+variables:
+  a: random(1, 6)
+  b: random(5, 20)
+  q1: random(1, 10)
+  q2: random(11, 30)
+
+respuesta: ((2 * a * q2 + b) > (2 * a * q1 + b))
+tipo: vf
+
+enunciado: "C(q) = {a}q² + {b}q + costo fijo. ¿Es mayor el costo marginal en q={q2} que en q={q1}?"
+
+explicacion: |
+  Con a positivo, el costo marginal crece con q — producir más caro cada
+  vez la unidad siguiente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo marginal es, aproximadamente, cuánto cuesta producir una unidad adicional."
+
+explicacion: |
+  Es la definición central del tema.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cmg(q) = C'(q), la derivada de la función de costo total."
+
+explicacion: |
+  Es la definición formal, ya usada en las cuentas anteriores.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "El costo marginal (Cmg=C') y el costo promedio (Cme=C/q) son exactamente el mismo cálculo."
+
+explicacion: |
+  Son cálculos distintos: el marginal mira la próxima unidad; el
+  promedio reparte el costo total entre todas las unidades.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["costo_promedio"]
+
+variables:
+  q: random(2, 10)
+  m: random(5, 20)
+  k: random(1, 20)
+  costo_fijo: m * q
+  costo_variable_total: k * q
+
+respuesta: m + k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Producir {q} unidades cuesta un total de {costo_fijo + costo_variable_total} (fijo {costo_fijo} + variable {costo_variable_total}). ¿Cuál es el costo PROMEDIO por unidad?"
+
+explicacion: |
+  Cme = C(q)/q — reparte el costo total entre todas las unidades, algo
+  distinto del costo marginal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "El costo marginal incluye una parte proporcional de los costos fijos de la empresa."
+
+explicacion: |
+  No — el costo marginal sólo refleja el costo variable, porque la
+  derivada de una constante (el costo fijo) es 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cmg(q)=C'(q) es una aproximación de C(q+1)−C(q) (el costo real y exacto de producir una unidad más) — para funciones suaves, se parecen mucho, pero no son matemáticamente idénticos."
+
+explicacion: |
+  La derivada es un límite; C(q+1)−C(q) es una diferencia discreta —
+  ideas relacionadas, no la misma cuenta exacta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  a: random(1, 5)
+  b: random(5, 15)
+  q: random(5, 20)
+
+respuesta: a * (2 * q + 1) + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "C(q) = {a}q² + {b}q (sin costo fijo). ¿Cuánto vale C({q}+1) − C({q}) (el costo exacto de la unidad {q}+1)?"
+
+pasos:
+  - "C(q+1)−C(q) = {a}(2q+1) + {b}, evaluado en q={q}"
+
+explicacion: |
+  Esta es la diferencia EXACTA, distinta (aunque parecida) al costo
+  marginal Cmg({q}) = {2 * a * q + b}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el costo marginal decrece con la cantidad producida, significa que cada unidad adicional cuesta menos que la anterior (economías de escala)."
+
+explicacion: |
+  Es lo opuesto a los rendimientos decrecientes — producir más se vuelve
+  más eficiente por unidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(1, 6)
+  b: random(5, 30)
+  costo_fijo: random(100, 1000)
+  q: random(1, 30)
+  real: 2 * a * q + b
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "C(q) = {a}q² + {b}q + {costo_fijo}. ¿Es correcto que el costo marginal en q={q} sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es Cmg({q}) = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["aplicacion", "verdadero_falso"]
+
+variables:
+  a: random(1, 5)
+  b: random(10, 30)
+  q: random(1, 20)
+  precio_venta: random(50, 200)
+
+respuesta: ((2 * a * q + b) < precio_venta)
+tipo: vf
+
+enunciado: "C(q) = {a}q² + {b}q + costo fijo. El precio de venta de cada unidad es {precio_venta}. En q={q}, ¿conviene producir una unidad más (el costo marginal es menor que el precio de venta)?"
+
+explicacion: |
+  Mientras el costo marginal sea menor que el precio de venta, producir
+  una unidad más aumenta la ganancia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el costo marginal supera al precio de venta, producir una unidad más reduce la ganancia total de la empresa, en vez de aumentarla."
+
+explicacion: |
+  Esa unidad cuesta más de lo que se puede vender — es un cálculo que
+  conecta con `../../matematica/optimizacion/`: el punto óptimo de
+  producción es donde Cmg se iguala al precio (o al ingreso marginal).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["evaluar"]
+
+variables:
+  b: random(10, 50)
+  costo_fijo: random(100, 500)
+
+respuesta: b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "C(q) = 3q² + {b}q + {costo_fijo}. ¿Cuál es el costo marginal en q=0?"
+
+explicacion: |
+  Cmg(0) = 6×0+{b} = {b}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo marginal se mide en unidades de moneda por unidad producida (por ejemplo, pesos por unidad), no en pesos totales."
+
+explicacion: |
+  Es una TASA de cambio del costo respecto a la cantidad, no un costo
+  total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["evaluar"]
+
+variables:
+  a: random(1, 3)
+  b: random(1, 5)
+  c: random(5, 20)
+  q: random(1, 10)
+
+respuesta: 3 * a * q ^ 2 + 2 * b * q + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "C(q) = {a}q³ + {b}q² + {c}q (costo con rendimientos que cambian). ¿Cuál es el costo marginal en q={q}?"
+
+pasos:
+  - "Cmg(q) = {3 * a}q² + {2 * b}q + {c}"
+
+explicacion: |
+  Con un término cúbico en el costo, el costo marginal mismo ya no es
+  lineal — cambia de forma más compleja con q.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la mayoría de los modelos económicos razonables, el costo marginal es positivo — producir más siempre agrega algo de costo (aunque sea poco)."
+
+explicacion: |
+  Sería inusual (aunque matemáticamente posible en un modelo mal
+  planteado) que producir más redujera el costo total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Así como el costo marginal es la derivada del costo total, el 'ingreso marginal' (no cubierto en este módulo) sería la derivada del ingreso total — la misma idea aplicada al otro lado de la cuenta de una empresa."
+
+explicacion: |
+  Es el mismo patrón de "razón de cambio" aplicado a otra magnitud
+  económica — la comparación de Cmg con el precio de venta ya adelantó
+  esta idea.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  a: random(2, 6)
+  b: random(10, 30)
+  q: random(50, 100)
+
+respuesta: 2 * a * q + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una fábrica cerca de su capacidad máxima tiene C(q) = {a}q² + {b}q + costo fijo (el término cuadrático refleja que cuesta cada vez más producir cerca del límite). ¿Cuál es el costo marginal al producir la unidad {q}?"
+
+explicacion: |
+  Es un ejemplo real de por qué el costo marginal creciente es común
+  cerca de la capacidad instalada de una planta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo marginal en un punto es, geométricamente, la pendiente de la recta tangente al gráfico de C(q) en ese punto."
+
+explicacion: |
+  Es la misma interpretación geométrica de la derivada ya vista en
+  `../../matematica/derivada/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "basico"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  b: random(10, 50)
+  costo_fijo: random(100, 500)
+  propuesto: uno_de([0, 1]) * costo_fijo + b
+
+respuesta: (propuesto == b)
+tipo: vf
+
+enunciado: "C(q) = {b}q + {costo_fijo}. ¿Es correcto que el costo marginal sea {propuesto}?"
+
+explicacion: |
+  El costo marginal correcto es {b} — si el número propuesto incluye el
+  costo fijo, está mal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "costo_marginal"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo marginal es un ejemplo de cómo la derivada, entendida como 'razón de cambio', se aplica directamente a decisiones económicas reales de producción."
+
+explicacion: |
+  Es el mismo concepto matemático de `../../matematica/derivada/`,
+  ahora con significado económico.
+```
+
+## Sección: debe-haber-balance (22 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué es el activo de una empresa?"
+tipo: mc
+opciones_explicitas:
+  - "Todo lo que la empresa posee: bienes y derechos"
+  - "Todo lo que la empresa debe a terceros"
+  - "La ganancia del último mes"
+respuesta: "Todo lo que la empresa posee: bienes y derechos"
+
+explicacion: |
+  Incluye dinero en caja, mercadería, inmuebles, y créditos a favor.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué es el pasivo de una empresa?"
+tipo: mc
+opciones_explicitas:
+  - "Todo lo que la empresa debe a terceros: obligaciones y deudas"
+  - "Todo lo que la empresa posee"
+  - "El total de ventas del período"
+respuesta: "Todo lo que la empresa debe a terceros: obligaciones y deudas"
+
+explicacion: |
+  Incluye préstamos, deudas con proveedores, sueldos por pagar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué es el patrimonio neto de una empresa?"
+tipo: mc
+opciones_explicitas:
+  - "Lo que le queda al dueño después de descontar todas las deudas (Activo - Pasivo)"
+  - "El total de dinero en efectivo en caja"
+  - "El total de mercadería en stock"
+respuesta: "Lo que le queda al dueño después de descontar todas las deudas (Activo - Pasivo)"
+
+explicacion: |
+  Es la parte del activo que efectivamente le pertenece al dueño, libre
+  de deudas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ecuación contable fundamental es: Activo = Pasivo + Patrimonio Neto."
+
+explicacion: |
+  Siempre tiene que estar en equilibrio, sin importar cuántos
+  movimientos haya.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
   nivel: "intermedio"
-  tags: ["diferencias", "objetivo"]
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  activo: random(500, 5000) * 1000
+  pasivo: random(100, 2000) * 1000
+
+respuesta: activo - pasivo
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una empresa tiene un activo de ${activo} y un pasivo de ${pasivo}. ¿Cuál es su patrimonio neto?"
+
+explicacion: |
+  Patrimonio Neto = Activo - Pasivo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  pasivo: random(100, 2000) * 1000
+  patrimonio_neto: random(500, 3000) * 1000
+
+respuesta: pasivo + patrimonio_neto
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una empresa tiene un pasivo de ${pasivo} y un patrimonio neto de ${patrimonio_neto}. ¿Cuál es su activo?"
+
+explicacion: |
+  Se despeja de la ecuación contable: Activo = Pasivo + Patrimonio Neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  activo: random(500, 5000) * 1000
+  patrimonio_neto: random(300, 3000) * 1000
+
+respuesta: activo - patrimonio_neto
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una empresa tiene un activo de ${activo} y un patrimonio neto de ${patrimonio_neto}. ¿Cuál es su pasivo?"
+
+explicacion: |
+  Se despeja: Pasivo = Activo - Patrimonio Neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "En una cuenta contable, ¿qué es el \"Debe\"?"
+tipo: mc
+opciones_explicitas:
+  - "La columna de la izquierda"
+  - "La columna de la derecha"
+  - "El resultado final de la cuenta"
+respuesta: "La columna de la izquierda"
+
+explicacion: |
+  Es una convención de nomenclatura, no significa literalmente \"lo que
+  se debe\".
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "En una cuenta contable, ¿qué es el \"Haber\"?"
+tipo: mc
+opciones_explicitas:
+  - "La columna de la derecha"
+  - "La columna de la izquierda"
+  - "El total de gastos del mes"
+respuesta: "La columna de la derecha"
+
+explicacion: |
+  Es la columna opuesta al Debe.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"Debe\" y \"Haber\" son nombres técnicos de dos columnas contables, no significan literalmente \"lo que se debe\" y \"lo que se tiene\"."
+
+explicacion: |
+  Es una convención histórica del lenguaje contable.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las cuentas de Activo aumentan cuando se anota un importe en su Debe."
+
+explicacion: |
+  Es la convención básica para las cuentas de Activo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las cuentas de Activo disminuyen cuando se anota un importe en su Haber."
+
+explicacion: |
+  Es la contraparte de que el Activo aumente por el Debe.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las cuentas de Pasivo aumentan cuando se anota un importe en su Haber — al revés que el Activo."
+
+explicacion: |
+  Es esta regla \"opuesta\" entre Activo y Pasivo la que mantiene la
+  ecuación contable equilibrada.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las cuentas de Patrimonio Neto aumentan cuando se anota un importe en su Haber, igual que las de Pasivo."
+
+explicacion: |
+  Pasivo y Patrimonio Neto siguen la misma convención, opuesta a la del
+  Activo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "avanzado"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  total_debe: random(500, 3000) * 1000
+  total_haber: random(100, 2000) * 1000
+
+respuesta: total_debe - total_haber
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La cuenta \"Caja\" (de Activo) tiene un total de ${total_debe} en el Debe y ${total_haber} en el Haber. ¿Cuál es su saldo?"
+
+explicacion: |
+  En una cuenta de Activo, el saldo es Debe menos Haber.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "avanzado"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  total_haber: random(500, 3000) * 1000
+  total_debe: random(100, 2000) * 1000
+
+respuesta: total_haber - total_debe
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La cuenta \"Préstamos a pagar\" (de Pasivo) tiene un total de ${total_haber} en el Haber y ${total_debe} en el Debe. ¿Cuál es su saldo?"
+
+explicacion: |
+  En una cuenta de Pasivo, el saldo es Haber menos Debe — al revés que
+  en una cuenta de Activo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "avanzado"
+  tags: ["contabilidad", "comparacion"]
+
+variables:
+  activo_a: random(1000, 3000) * 1000
+  pasivo_a: random(500, 900) * 1000
+  activo_b: random(1000, 3000) * 1000
+  pasivo_b: random(1500, 2900) * 1000
+
+respuesta: ((activo_a - pasivo_a) > (activo_b - pasivo_b))
+tipo: vf
+
+enunciado: "Empresa A: activo ${activo_a}, pasivo ${pasivo_a}. Empresa B: activo ${activo_b}, pasivo ${pasivo_b}. ¿La empresa A tiene mayor patrimonio neto que la B?"
+
+explicacion: |
+  Hay que calcular el patrimonio neto de cada una (activo menos pasivo)
+  antes de comparar — el activo solo no alcanza.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ecuación Activo = Pasivo + Patrimonio Neto tiene que estar en equilibrio siempre, después de cada movimiento contable."
+
+explicacion: |
+  Si no se cumple, hay un error en el registro contable.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estas empresas de menor a mayor patrimonio neto."
+opciones_explicitas:
+  - "Activo $2.000.000, Pasivo $1.800.000"
+  - "Activo $2.000.000, Pasivo $500.000"
+  - "Activo $2.000.000, Pasivo $1.200.000"
+respuesta_orden: ["Activo $2.000.000, Pasivo $1.800.000", "Activo $2.000.000, Pasivo $1.200.000", "Activo $2.000.000, Pasivo $500.000"]
+
+explicacion: |
+  A igual activo, menor pasivo significa mayor patrimonio neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad", "verificacion"]
+
+variables:
+  activo: random(500, 5000) * 1000
+  pasivo: random(100, 2000) * 1000
+  correcto: activo - pasivo
+  error: uno_de([0, 0, 0, 100000, -100000])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 1000)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? Activo ${activo}, pasivo ${pasivo}, patrimonio neto informado: ${mostrado}."
+
+explicacion: |
+  Se vuelve a restar el pasivo del activo y se compara con el valor
+  informado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "intermedio"
+  tags: ["contabilidad"]
+
+variables:
+  activo: random(500, 5000) * 1000
+  patrimonio_neto: random(300, 3000) * 1000
+  pasivo: activo - patrimonio_neto
+
+tipo: completar
+enunciado: "Una empresa tiene un activo de ${activo} y un patrimonio neto de ${patrimonio_neto}. Completá: ___ (pasivo) = {activo} - {patrimonio_neto}."
+respuestas_validas:
+  - pasivo
+
+explicacion: |
+  Se despeja el pasivo de la ecuación contable fundamental.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "debe_haber_balance"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Activo = Pasivo + Patrimonio Neto es la ecuación que siempre debe cumplirse; Debe y Haber son las dos columnas técnicas de una cuenta, con reglas de aumento opuestas entre Activo y Pasivo/Patrimonio Neto."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: detectar-una-oportunidad-de-negocio (25 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "basico"
+  tags: ["conceptos", "mercado"]
+
+respuesta: "oportunidad de negocio"
+tipo: completar
+respuestas_validas:
+  - "oportunidad de negocio"
+
+enunciado: "Una ___ es la identificación de una necesidad insatisfecha o un problema no resuelto en un mercado específico que puede ser aprovechado para crear valor."
+
+explicacion: |
+  La oportunidad de negocio surge cuando se detecta un segmento de clientes con una necesidad que no está siendo cubierta adecuadamente por la oferta actual.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "basico"
+  tags: ["mercado", "clientes"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["Un grupo de personas busca comida saludable pero no hay locales cerca de su oficina.", "necesidad de conveniencia y salud"], ["Los usuarios de una app de transporte se quejan de los altos precios en hora pico.", "necesidad de economía"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["necesidad de conveniencia y salud", "necesidad de economía", "necesidad de estatus", "necesidad de entretenimiento"]
+
+enunciado: "Analiza el siguiente caso: {escenarios[escenario_idx][0]}. ¿Qué tipo de oportunidad se detecta principalmente?"
+
+explicacion: |
+  En el escenario seleccionado, el problema identificado apunta directamente a la {escenarios[escenario_idx][1]}.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "intermedio"
+  tags: ["validación", "riesgo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que una idea de negocio solo se convierte en una oportunidad real si existe un grupo de clientes dispuestos a pagar por la solución propuesta?"
+
+explicacion: |
+  Correcto. Una idea sin mercado potencial (clientes dispuestos a pagar) es solo una idea, no una oportunidad de negocio viable.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "intermedio"
+  tags: ["proceso", "metodología"]
+
+respuesta_orden: ["Observación del entorno", "Identificación del problema", "Análisis de la competencia", "Validación con clientes"]
+tipo: ordenar
+opciones_explicitas: ["Observación del entorno", "Identificación del problema", "Análisis de la competencia", "Validación con clientes"]
+
+enunciado: "Ordena cronológicamente los pasos lógicos para detectar y validar una oportunidad de negocio:"
+
+explicacion: |
+  Primero se observa el entorno, luego se define el problema, se analiza qué hace la competencia y finalmente se valida con usuarios reales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "basico"
+  tags: ["segmentación", "público"]
 
 variables:
   caso_idx: uno_de([0, 1])
-  datos: [["prestamos_y_ayuda", "ayuda_mutua"], ["excedentes_y_servicios", "servicios_comunes"]]
+  casos: [["Vender juguetes educativos para niños de 0 a 5 años.", "segmento infantil"], ["Ofrecer software contable para pequeñas empresas de servicios.", "segmento empresarial"]]
 
-respuesta: datos[caso_idx][1
+respuesta: casos[caso_idx][1]
 tipo: mc
-opciones_explicitas: ["datos[0][1]", "datos[1][1]", "datos[0][0]", "datos[1][0]"]
+opciones_explicitas: ["segmento infantil", "segmento empresarial", "segmento de lujo", "segmento masivo"]
 
-enunciado: "Si nos enfocamos en el objetivo principal de una mutual, estamos hablando de la práctica de la ________."
+enunciado: "Si el problema detectado es: {casos[caso_idx][0]}. ¿A qué grupo pertenece el mercado objetivo?"
 
 explicacion: |
-  Mientras las cooperativas buscan satisfacer necesidades de sus socios mediante la prestación de servicios, el mutualismo se centra en la ayuda mutua entre sus integrantes.
+  La segmentación permite enfocar los esfuerzos de marketing y producto hacia el {casos[caso_idx][1]}.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
+  tema: "detectar_una_oportunidad_de_negocio"
   nivel: "basico"
-  tags: ["vocabulario"]
+  tags: ["mercado", "necesidad", "oportunidad"]
 
-respuesta: "socios"
-tipo: completar
-respuestas_validas: ["socios"]
+enunciado: "Un emprendedor observa que en un barrio con muchas oficinas, la mayoría de los locales venden comida rápida con alto contenido de sodio y azúcar, pero no hay opciones de ensaladas o snacks naturales. Este vacío representa una ___."
 
-enunciado: "Las cooperativas están compuestas por un grupo de ________ que se unen voluntariamente para satisfacer sus necesidades económicas, sociales y culturales."
-
-explicacion: |
-  Los socios son la base fundamental de cualquier organización de economía social.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "intermedio"
-  tags: ["procedimiento"]
-
-respuesta: ["reunión_fundacional", "redacción_estatuto", "inscripción_registro"]
-tipo: ordenar
-opciones_explicitas: ["reunión_fundacional", "redacción_estatuto", "inscripción_registro", "elección_autoridades"]
-
-enunciado: "Ordene cronológicamente los pasos básicos para la formación legal de una cooperativa:"
-
-explicacion: |
-  Primero se debe realizar la reunión de fundadores, luego redactar los estatutos que regirán la entidad y finalmente inscribirse en el registro correspondiente para obtener la personería jurídica.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "basico"
-  tags: ["ley_26206", "gestion_democratica"]
-
-variables:
-  es_cooperativa: verdadero
-
-respuesta: es_cooperativa
-tipo: completar
-enunciado: "En una cooperativa de trabajo, según el principio de gestión democrática, cada asociado tiene un voto, independientemente del capital aportado."
-
-explicacion: |
-  Correcto. A diferencia de una sociedad anónima donde el poder depende de la cantidad de acciones, en las cooperativas rige el principio de 'un asociado, un voto', garantizando la gestión democrática.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "intermedio"
-  tags: ["caracteristicas", "economia_social"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Una agrupación de productores de leche que se unen para procesar su materia prima y distribuir sus productos bajo una marca común, compartiendo excedentes según el uso de servicios.", "cooperativa"],
-    ["Un grupo de vecinos que crean un fondo común para prestarse dinero entre ellos con tasas sociales, sin fines de lucro.", "mutual"]
-  ]
-
-respuesta: escenarios[escenario_idx][1
-tipo: mc
-opciones_explicitas: ["cooperativa", "mutual", "sociedad_anónima", "s.r.l."]
-
-enunciado: "Analice el siguiente caso: {escenarios[escenario_idx][0]}"
-
-explicacion: |
-  La respuesta es {escenarios[escenario_idx][1]}. Las cooperativas buscan satisfacer necesidades de sus miembros mediante la producción o comercialización de bienes/servicios, mientras que las mutuales se centran en la prestación de servicios sociales y ayuda recíproca.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "intermedio"
-  tags: ["excedentes", "distribucion"]
-
-variables:
-  excedente_total: 1000
-  porcentaje_reserva_legal: 0.05
-  porcentaje_fondo_educacion: 0.05
-  porcentaje_reparto_asociados: 0.90
-
-respuesta: redondear(excedente_total * porcentaje_reparto_asociados, 2)
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Una cooperativa de consumo al cierre de su ejercicio obtiene un excedente neto de ${excedente_total}. Tras destinar el 5% a la reserva legal y el 5% al fondo de educación, el resto se distribuye entre los asociados proporcionalmente al consumo realizado. ¿Cuánto dinero se reparte entre los asociados?"
-
-pasos:
-  - "Calcular el monto para reserva legal: ${excedente_total} * {porcentaje_reserva_legal}"
-  - "Calcular el monto para el fondo de educación: ${excedente_total} * {porcentaje_fondo_educacion}"
-  - "Restar ambos montos al excedente total para obtener el remanente a repartir."
-
-explicacion: |
-  El cálculo es: ${excedente_total} - (${excedente_total} * 0.05) - (${excedente_total} * 0.05) = ${excedente_total} * 0.90 = ${redondear(excedente_total * porcentaje_reparto_asociados, 2)}.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "avanzado"
-  tags: ["procedimiento", "constitucion"]
-
-respuesta: ["Reunión de fundadores", "Redacción de Estatuto", "Asamblea de constitución", "Inscripción en el INAES"]
-tipo: ordenar
-opciones_explicitas: ["Reunión de fundadores", "Redacción de Estatuto", "Asamblea de constitución", "Inscripción en el INAES"]
-
-enunciado: "Ordene cronológicamente los pasos para la constitución legal de una cooperativa de trabajo en Argentina:"
-
-explicacion: |
-  Primero se reúnen los interesados, luego se redacta el estatuto que regirá la entidad, se celebra la asamblea donde se aprueba dicho estatuto y finalmente se inscribe ante el ente regulador (INAES).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "basico"
-  tags: ["capital", "asociados"]
-
-respuesta: "variable"
-tipo: completar
-respuestas_validas: ["variable"]
-
-enunciado: "En el cooperativismo, el capital social es de naturaleza ___, ya que su monto cambia con la entrada y salida de nuevos asociados."
-
-explicacion: |
-  El capital es variable porque no está representado por acciones de libre negociación en bolsa, sino que depende de la integración de los asociados a la entidad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "basico"
-  tags: ["cooperativas", "diferencias"]
-
-respuesta: "sin fines de lucro"
-tipo: completar
-respuestas_validas: ["sin fines de lucro", "no lucrativa"]
-
-enunciado: "A diferencia de las sociedades comerciales tradicionales, las cooperativas se rigen por el principio de que su actividad es ___."
-
-explicacion: |
-  Las cooperativas son entidades de economía social cuyo objetivo principal es satisfacer las necesidades de sus asociados y no la maximización de beneficios para terceros. Aunque pueden generar excedentes, estos se reinvierten o distribuyen según el uso de servicios, no como lucro comercial puro.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "intermedio"
-  tags: ["gestion", "democracia"]
-
-variables:
-  es_democratica: true
-
-respuesta: es_democratica
-tipo: completar
-enunciado: "En una cooperativa, el poder de decisión se distribuye según el capital aportado por cada socio (a más capital, más votos)."
-
-explicacion: |
-  Falso. El principio de democracia cooperativa establece que cada socio tiene un voto, independientemente de la cantidad de capital que haya aportado. Esto es lo que las distingue de las sociedades anónimas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "basico"
-  tags: ["mutualismo", "ayuda_mutua"]
-
-respuesta: "ayuda mutua"
-tipo: mc
-opciones_explicitas: ["ayuda mutua", "maximización de dividendos", "especulación financiera", "competencia de mercado"]
-
-enunciado: "El principio fundamental que distingue al mutualismo de otras formas de asociación es la ___ entre sus miembros para satisfacer necesidades comunes."
-
-explicacion: |
-  El mutualismo se basa en el principio de ayuda mutua, donde los asociados se asocian para prestarse servicios de previsión, asistencia o ayuda recíproca.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "avanzado"
-  tags: ["ley_26206", "marco_legal"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [
-    ["La cooperativa es una sociedad de personas.", "sociedad de personas"],
-    ["La cooperativa es una sociedad de capitales.", "sociedad de capitales"]
-  ]
-
-respuesta: escenario[idx][1
-tipo: mc
-opciones_explicitas: ["sociedad de personas", "sociedad de capitales"]
-
-enunciado: "Según el marco legal de las cooperativas, estas se definen esencialmente como una ___."
-
-explicacion: |
-  Las cooperativas son sociedades de personas, ya que lo fundamental es la calidad de los asociados y su voluntad de cooperación, no la cuantía de su capital.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "intermedio"
-  tags: ["principios", "valores"]
-
-respuesta: ["Ingreso voluntario y abierto de socios", "Control democrático de los socios", "Participación económica de los socios"]
-tipo: ordenar
-opciones_explicitas: ["Ingreso voluntario y abierto de socios", "Control democrático de los socios", "Participación económica de los socios"]
-
-enunciado: "Ordene los siguientes principios cooperativos según la lógica de constitución de una organización: primero la apertura, luego la gestión y finalmente la distribución."
-
-explicacion: |
-  Para que exista una cooperativa, primero deben ingresar los socios libremente (apertura), luego deben decidir cómo gestionarse (democracia) y finalmente cómo gestionar sus recursos (participación económica).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "basico"
-  tags: ["gestion", "democracia"]
-
-tipo: mc
-opciones_explicitas: ["La búsqueda de lucro máximo para accionistas externos", "La gestión democrática por parte de sus miembros", "La propiedad estatal de los medios de producción", "La primacía del capital sobre el trabajo"]
-
-respuesta: "La gestión democrática por parte de sus miembros"
-
-enunciado: "A diferencia de las sociedades de capital tradicionales, donde el poder de voto depende de la cantidad de acciones, las cooperativas se distinguen por un modelo de gestión donde cada miembro tiene un voto, independientemente de su aporte. Esto se conoce como:"
-
-explicacion: |
-  En el cooperativismo, rige el principio de 'un hombre, un voto', asegurando que el control sea democrático y no dependa de la riqueza de los socios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "intermedio"
-  tags: ["mutualismo", "ayuda_mutua"]
-
-tipo: vf
-
-enunciado: "El mutualismo se distingue del cooperativismo principalmente en que su fin primordial es la ayuda mutua para satisfacer necesidades comunes, sin tener como objetivo principal la distribución de excedentes entre sus miembros."
-
-respuesta: falso
-
-explicacion: |
-  Aunque ambos pertenecen a la economía social, el mutualismo se centra en la prestación de servicios de asistencia mutua, mientras que la cooperativa busca satisfacer necesidades mediante la actividad económica de sus socios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "intermedio"
-  tags: ["ley_26206", "principios"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["gestión democrática", "ayuda mutua"], ["gestión democrática", "maximización de renta"]]
-
-tipo: completar
-respuestas_validas: ["ayuda mutua", "maximización de renta"]
-
-enunciado: "Según el espíritu de la Ley 26.206, una organización que se distingue de una empresa comercial por su fin social debe basarse en el principio de ___."
-
-pasos:
-  - "Identificar el principio fundamental de la economía social."
-
-explicacion: |
-  La ayuda mutua es el pilar que diferencia a estas organizaciones de las empresas de capital, donde el fin es el lucro.
-
-respuesta: datos[escenario_idx][1
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "avanzado"
-  tags: ["principios", "orden"]
-
-tipo: ordenar
-opciones_explicitas: ["Ingreso libre y voluntario", "Gestión democrática", "Participación económica"]
-
-respuesta: ["Ingreso libre y voluntario", "Gestión democrática", "Participación económica"]
-
-enunciado: "Para que una organización sea considerada cooperativa bajo los estándares de la economía social, debe seguir una secuencia lógica de principios. Ordene los siguientes principios según la estructura clásica de la identidad cooperativa (desde la pertenencia hasta la gestión):"
-
-explicacion: |
-  Primero se define quién puede entrar (Ingreso libre), luego cómo se decide (Gestión democrática) y finalmente cómo se gestionan los recursos (Participación económica).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "intermedio"
-  tags: ["excedente", "lucro"]
-
-variables:
-  es_cooperativa: true
-
-tipo: mc
-opciones_explicitas: ["El excedente es igual al lucro de una empresa comercial", "El excedente se distribuye según el capital aportado", "El excedente se distribuye según el uso de los servicios", "El excedente se reinvierte íntegramente en el Estado"]
-
-respuesta: "El excedente se distribuye según el uso de los servicios"
-
-enunciado: "Una diferencia clave entre el 'lucro' de una sociedad comercial y el 'excedente' de una cooperativa es que el segundo se distribuye en función de la ___ realizada por los socios."
-
-explicacion: |
-  En las cooperativas, el retorno de excedentes no depende de cuánto capital puso cada uno, sino de cuánto utilizó los servicios de la cooperativa (retorno cooperativo).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "basico"
-  tags: ["ley_26206", "organizacion"]
-
-variables:
-  datos: [["Un grupo de agricultores se une para comprar insumos por menor precio y vender su cosecha sin intermediarios", "cooperativa"], ["Un grupo de vecinos se une para prestar servicios de asistencia sanitaria y farmacia con fines de ayuda mutua", "mutual"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["cooperativa", "mutual"]
-
-enunciado: "Un grupo de personas se organiza bajo el modelo de economía social. Si el objetivo principal es la gestión de servicios de ayuda mutua y asistencia, estamos ante una: ___"
-
-explicacion: |
-  Según la normativa, las cooperativas buscan satisfacer necesidades de sus socios mediante la explotación de una actividad económica, mientras que las mutuales se centran en la ayuda mutua y servicios de asistencia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "intermedio"
-  tags: ["gestion", "democracia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una organización cooperativa, el principio de 'una persona, un voto' implica que el poder de decisión es proporcional al capital aportado por cada socio."
-
-explicacion: |
-  Falso. El principio fundamental de las cooperativas es la gestión democrática: cada socio tiene un voto, independientemente de la cantidad de capital que haya aportado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "basico"
-  tags: ["estructura", "socios"]
-
-variables:
-  datos: [["Asamblea de Socios", "Máximo órgano de decisión"], ["Consejo de Administración", "Órgano de gobierno y dirección"], ["Sindicatura", "Control de legalidad"]]
-
-respuesta: "Asamblea de Socios"
-tipo: completar
-respuestas_validas: ["Asamblea de Socios", "Consejo de Administración", "Sindicatura"]
-
-enunciado: "En la estructura de una cooperativa, el ___ es el órgano máximo de gobierno donde se toman las decisiones fundamentales por parte de los asociados."
-
-explicacion: |
-  La Asamblea de Socios es el órgano supremo donde se ejerce la soberanía de los miembros.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "intermedio"
-  tags: ["fin_lucro", "economia_social"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Las entidades de la economía social, como cooperativas y mutuales, tienen como objetivo primordial la maximización de beneficios económicos para sus accionistas externos."
-
-explicacion: |
-  Falso. El fin es satisfacer necesidades de los asociados y promover el bienestar de la comunidad; no buscan el lucro para terceros, sino el beneficio de sus propios miembros.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cooperativismo_y_mutualismo"
-  nivel: "avanzado"
-  tags: ["procedimiento", "pasos"]
-
-respuesta: ["Reunión de interesados y definición de objeto social", "Redacción del contrato social y estatutos", "Inscripción en el registro de cooperativas"]
-tipo: ordenar
-opciones_explicitas: ["Redacción del contrato social y estatutos", "Reunión de interesados y definición de objeto social", "Inscripción en el registro de cooperativas", "Elección de autoridades"]
-
-enunciado: "Ordene cronológicamente los pasos para la constitución legal de una cooperativa:"
-
-explicacion: |
-  Primero se define el objeto y los socios, luego se formaliza en un estatuto y finalmente se inscribe ante la autoridad de aplicación para obtener personería jurídica.
-```
-
-## Sección: coordinar-personas-y-recursos (25 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "basico"
-  tags: ["definicion", "organizacion"]
-
-respuesta: "coordinacion"
-tipo: completar
-respuestas_validas: ["coordinacion"]
-
-enunciado: "El proceso de integrar las actividades de diversos departamentos y asegurar que se dirijan hacia el cumplimiento de los objetivos organizacionales se denomina ___."
-
-explicacion: |
-  La coordinación es el proceso de asegurar que las actividades de los distintos miembros de una organización se realicen de manera armoniosa para alcanzar los objetivos comunes.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "basico"
-  tags: ["recursos", "factores_produccion"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [
-    ["capital", "recursos financieros y maquinaria"],
-    ["humanos", "conocimientos y habilidades de las personas"]
-  ]
-
-respuesta: uno_de(["capital", "humanos"])
-tipo: mc
-opciones_explicitas: ["capital", "humanos", "tecnología", "materias primas"]
-
-enunciado: "En el contexto de la coordinación de recursos, el factor representado por {datos[escenario_idx][0]} se refiere a {datos[escenario_idx][1]}."
-
-explicacion: |
-  Las organizaciones deben coordinar diversos recursos. El tipo seleccionado en este ejercicio es {datos[escenario_idx][0]}.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "basico"
-  tags: ["division_trabajo", "eficiencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La división del trabajo consiste en descomponer una tarea compleja en tareas más pequeñas y especializadas para aumentar la eficiencia."
-
-explicacion: |
-  Efectivamente, la especialización mediante la división del trabajo es una herramienta fundamental para optimizar la productividad en la coordinación de equipos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "intermedio"
-  tags: ["estructura", "jerarquia"]
-
-respuesta: ["Planificación", "Organización", "Dirección", "Control"]
-tipo: ordenar
-opciones_explicitas: ["Planificación", "Organización", "Dirección", "Control"]
-
-enunciado: "Ordene las cuatro funciones administrativas del proceso de gestión en el orden lógico de su ciclo de ejecución:"
-
-explicacion: |
-  El proceso administrativo clásico sigue la secuencia: primero se establece lo que se quiere hacer (Planificación), luego se asignan recursos (Organización), se guía a las personas (Dirección) y finalmente se verifica el cumplimiento (Control).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "intermedio"
-  tags: ["control", "supervision"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [
-    ["se detecta una desviación en la producción", "corregir la desviación"],
-    ["se comparan los resultados con los objetivos", "verificar el desempeño"]
-  ]
-
-respuesta: uno_de(["corregir la desviación", "verificar el desempeño"])
-tipo: mc
-opciones_explicitas: ["corregir la desviación", "verificar el desempeño", "asignar tareas", "contratar personal"]
-
-enunciado: "Si en una empresa {casos[caso_idx][0]}, la acción inmediata que corresponde a la función de control es {casos[caso_idx][1]}."
-
-explicacion: |
-  El control implica comparar el desempeño real con los estándares planeados y, si hay diferencias, tomar medidas para corregirlas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinacion_recursos"
-  nivel: "basico"
-  tags: ["gestion", "equipo"]
-
-enunciado: "Una empresa de desarrollo de software tiene dos programadores (A y B) y dos tareas (X e Y). El programador A es más eficiente en la tarea X, mientras que el programador B es más eficiente en la tarea Y. Para maximizar la productividad total, la asignación óptima es que el programador ___ realice la tarea ___."
-
-pasos:
-  - "Identificar la especialización de cada recurso."
-  - "Asignar cada tarea al recurso con mayor ventaja comparativa."
-
-opciones_explicitas: ["A, X", "A, Y", "B, X", "B, Y"]
-respuesta: "A, X"
+opciones_explicitas: ["amenaza", "oportunidad de negocio", "barrera de entrada", "pérdida de capital"]
+respuesta: "oportunidad de negocio"
 tipo: "mc"
 
 explicacion: |
-  La coordinación eficiente busca la especialización. Si asignamos a cada persona la tarea donde su productividad es mayor, la producción total del equipo será máxima.
+  Una oportunidad de negocio surge cuando se identifica una necesidad insatisfecha o un problema no resuelto en un segmento de mercado específico.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "coordinacion_recursos"
+  tema: "detectar_una_oportunidad_de_negocio"
   nivel: "intermedio"
-  tags: ["costo_oportunidad", "decision"]
+  tags: ["validación", "encuesta", "cliente"]
 
 variables:
-  escenario: uno_de([["recurso_a", "recurso_b"], ["tiempo_dev", "tiempo_marketing"]])
+  escenario: uno_de([["¿Compraría este producto si estuviera disponible mañana?", "verdadero"], ["¿Cuánto pagaría por este servicio?", "falso"]])
 
-enunciado: "Si una empresa decide utilizar todo su presupuesto disponible para contratar más personal de producción en lugar de invertir en publicidad, el costo de oportunidad es el ___ que se dejó de obtener."
+enunciado: "Para validar si la necesidad detectada es real, el emprendedor realiza una encuesta. Si la pregunta es '{escenario[0]}', el objetivo principal es validar la ___."
 
-respuestas_validas: ["beneficio de la publicidad", "incremento de ventas", "crecimiento de marca"]
-respuesta: "beneficio de la publicidad"
+respuestas_validas:
+  - "demanda"
+  - "rentabilidad"
+  - "ubicación"
+respuesta: "demanda"
 tipo: "completar"
 
 explicacion: |
-  El costo de oportunidad no es solo el dinero gastado, sino el valor de la mejor alternativa sacrificada al tomar una decisión de asignación.
+  La validación de la demanda busca confirmar si existe un grupo de clientes dispuestos a pagar por la solución propuesta antes de invertir capital.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "coordinacion_recursos"
+  tema: "detectar_una_oportunidad_de_negocio"
   nivel: "intermedio"
-  tags: ["rendimientos", "escala"]
+  tags: ["metodologia", "pasos"]
 
-enunciado: "Al duplicar la cantidad de trabajadores en una cocina pequeña sin aumentar el espacio físico ni el número de hornos, la producción total no se duplica, sino que aumenta de forma desproporcionada hacia abajo debido a la falta de coordinación y el exceso de gente en el mismo espacio. Este fenómeno se conoce como rendimientos decrecientes a escala."
+opciones_explicitas: ["Identificar una necesidad insatisfecha", "Analizar la competencia y el segmento", "Diseñar un prototipo o MVP", "Lanzar el producto al mercado"]
+respuesta_orden: ["Identificar una necesidad insatisfecha", "Analizar la competencia y el segmento", "Diseñar un prototipo o MVP", "Lanzar el producto al mercado"]
+tipo: "ordenar"
+
+enunciado: "Ordene los pasos lógicos que sigue un emprendedor desde que detecta una oportunidad de negocio hasta que lanza su producto al mercado:"
+
+explicacion: |
+  El proceso lógico comienza con la detección del problema, sigue con el análisis del entorno, la creación de una solución mínima viable y finalmente la salida al mercado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "basico"
+  tags: ["competencia", "ventaja_competitiva"]
+
+enunciado: "Si un emprendedor detecta una necesidad insatisfecha, pero ya existen tres empresas ofreciendo exactamente lo mismo con el mismo precio y calidad, la probabilidad de que sea una oportunidad de negocio rentable es baja sin una ventaja competitiva clara."
 
 respuesta: verdadero
 tipo: "vf"
 
 explicacion: |
-  La coordinación de recursos físicos es tan importante como la de recursos humanos. Si los recursos físicos (capital) no crecen al mismo ritmo que el trabajo, la eficiencia cae.
+  La saturación de un mercado con ofertas idénticas dificulta la entrada. Una oportunidad real requiere diferenciación o una mejora en la propuesta de valor.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "coordinacion_recursos"
-  nivel: "basico"
-  tags: ["flujo_trabajo", "procesos"]
-
-enunciado: "Para coordinar la producción de una silla de madera, se deben seguir los pasos lógicos de transformación de recursos. Ordena los siguientes pasos desde la adquisición de insumos hasta el producto final:"
-
-opciones_explicitas: ["Compra de madera y clavos", "Corte y ensamblado de piezas", "Lijado y barnizado", "Control de calidad y empaque"]
-respuesta: ["Compra de madera y clavos", "Corte y ensamblado de piezas", "Lijado y barnizado", "Control de calidad y empaque"]
-tipo: "ordenar"
-
-explicacion: |
-  La coordinación de procesos requiere una secuencia lógica donde la salida de una etapa sea la entrada de la siguiente para evitar cuellos de botella.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinacion_recursos"
+  tema: "detectar_una_oportunidad_de_negocio"
   nivel: "avanzado"
-  tags: ["tecnologia", "productividad"]
+  tags: ["TAM", "SAM", "SOM"]
 
 variables:
-  tecnologia: uno_de([["software_gestión", "maquinaria_automatica"]])
+  datos: uno_de([[10000, 2000, 500], [5000, 1000, 200]])
 
-enunciado: "Una fábrica decide implementar {tecnologia} para coordinar mejor sus turnos de trabajo. Si esta implementación reduce el tiempo de inactividad de los trabajadores en un 15%, la productividad laboral total de la empresa ___."
+enunciado: "Si el mercado total (TAM) es de {datos[0]} personas, el mercado que puede alcanzar tu modelo de negocio (SAM) es de {datos[1]} personas, y tu capacidad real de captación (SOM) es de {datos[2]} personas, ¿cuál es el valor del SOM?"
 
-respuestas_validas: ["aumentará", "disminuirá", "se mantendrá igual"]
-respuesta: "aumentará"
+respuesta: datos[2]
 tipo: "completar"
-
-explicacion: |
-  La tecnología actúa como un multiplicador de la coordinación. Al reducir los tiempos muertos (desperdicio de recursos), se produce más con la misma cantidad de insumos y horas hombre.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "intermedio"
-  tags: ["gestion", "recursos", "eficiencia"]
-
-respuesta: "ineficiencia"
-tipo: mc
-opciones_explicitas: ["eficiencia", "ineficiencia", "especializacion", "productividad"]
-
-enunciado: "Cuando un gestor asigna a un trabajador altamente capacitado a una tarea que requiere habilidades mínimas, ignorando el costo de oportunidad de su talento, está provocando una ___ en la organización."
-
-explicacion: |
-  La asignación ineficiente de recursos humanos (especialmente el talento especializado) genera un costo de oportunidad elevado, reduciendo la productividad global del equipo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "basico"
-  tags: ["gestion", "procesos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la gestión de equipos, la coordinación se limita exclusivamente a la supervisión directa y el control de horarios de los empleados."
-
-explicacion: |
-  Falso. La coordinación implica también la sincronización de flujos de información, la alineación de objetivos y la gestión de la interdependencia entre tareas y recursos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "avanzado"
-  tags: ["planificacion", "logistica"]
-
-variables:
-  pasos_orden: [0, 1, 2]
-
-respuesta: ["Identificar necesidades", "Asignar recursos", "Monitorear ejecución"]
-tipo: ordenar
-opciones_explicitas: ["Monitorear ejecución", "Identificar necesidades", "Asignar recursos"]
-
-enunciado: "Para coordinar eficazmente un proyecto, se debe seguir un orden lógico de gestión de recursos. Ordene los siguientes pasos:"
-
-pasos:
-  - "Determinar qué materiales y personas se requieren para el objetivo."
-  - "Distribuir los insumos y el personal a las tareas específicas."
-  - "Verificar que el uso de los recursos coincida con lo planificado."
-
-explicacion: |
-  La planificación requiere primero el diagnóstico de necesidades, luego la distribución (asignación) y finalmente el control para corregir desviaciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "intermedio"
-  tags: ["especializacion", "costos"]
-
-variables:
-  escenario: uno_de([[10, "exceso"], [5, "escasez"]])
-
-respuesta: "____"
-tipo: completar
-respuestas_validas: ["exceso", "escasez"]
-
-enunciado: "Si una empresa asigna demasiados trabajadores a una misma tarea de modo que se estorben entre sí, se produce un ____ de recursos humanos."
-
-explicacion: |
-  El exceso de recursos en una tarea específica genera rendimientos marginales decrecientes y aumenta los costos de coordinación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "intermedio"
-  tags: ["informacion", "asimetria"]
-
-respuesta: 25.5
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Un equipo de 10 personas debe completar 200 unidades. Si la capacidad actual es de 7 unidades por persona al día, pero la coordinación falla y la productividad cae un 20% por falta de comunicación, ¿cuántas unidades producirá el equipo en un día?"
-
-pasos:
-  - "Calcular la producción teórica: 10 personas * 7 unidades = 70 unidades."
-  - "Aplicar la reducción por falta de coordinación: 70 * (1 - 0.20) = 56."
-  - "Nota: El enunciado pide la producción final tras la caída."
-
-explicacion: |
-  La falta de coordinación actúa como una fricción que reduce la productividad real por debajo de la capacidad teórica de los recursos individuales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinacion_recursos_humanos"
-  nivel: "basico"
-  tags: ["coordinacion", "division_trabajo"]
-
-respuesta: "coordinacion"
-tipo: "completar"
-respuestas_validas: ["coordinacion"]
-
-enunciado: "Mientras que la división del trabajo se encarga de fragmentar una tarea compleja en actividades simples, la ___ es el proceso de asegurar que estas tareas fragmentadas se integren de manera coherente para alcanzar el objetivo común."
-
-explicacion: |
-  La división del trabajo aumenta la eficiencia mediante la especialización, pero genera la necesidad de la coordinación para evitar que los esfuerzos individuales se desvíen o choquen entre sí.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinacion_recursos_humanos"
-  nivel: "intermedio"
-  tags: ["administracion", "recursos"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["un equipo de producción de automóviles", "gestionar la cadena de suministros"],
-    ["una clínica médica", "coordinar turnos de especialistas"]
-  ]
-
-respuesta: uno_de(["gestionar la cadena de suministros", "coordinar turnos de especialistas"])
-tipo: "mc"
-opciones_explicitas: ["gestionar la cadena de suministros", "coordinar turnos de especialistas", "eliminar la necesidad de supervisión", "maximizar la autonomía individual sin control"]
-
-enunciado: "En el escenario de {escenarios[escenario_idx][0]}, la función principal de la coordinación de recursos es {escenarios[escenario_idx][1]}."
-
-explicacion: |
-  La coordinación busca sincronizar los recursos (humanos o materiales) con la demanda o el flujo de trabajo para evitar cuellos de botella.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinacion_recursos_humanos"
-  nivel: "intermedio"
-  tags: ["eficiencia", "eficacia"]
-
-respuesta: verdadero
-
-tipo: "vf"
-
-enunciado: "Si un equipo logra alcanzar la meta de producción establecida (eficacia) pero utiliza el doble de la materia prima presupuestada debido a una mala organización de los recursos, se ha fallado en la eficiencia de la coordinación."
-
-explicacion: |
-  La eficacia se refiere al cumplimiento del objetivo, mientras que la eficiencia se refiere al uso óptimo de los recursos para alcanzar dicho objetivo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinacion_recursos_humanos"
-  nivel: "avanzado"
-  tags: ["procesos", "organizacion"]
-
-respuesta: ["identificar tareas", "asignar responsabilidades", "establecer mecanismos de control"]
-tipo: "ordenar"
-opciones_explicitas: ["identificar tareas", "asignar responsabilidades", "establecer mecanismos de control"]
-
-enunciado: "Para coordinar eficazmente un equipo de trabajo, un gestor debe seguir este orden lógico de organización de recursos:"
-
-explicacion: |
-  Primero se descompone el trabajo (identificación), luego se distribuyen los roles (asignación) y finalmente se verifica el cumplimiento (control).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinacion_recursos_humanos"
-  nivel: "intermedio"
-  tags: ["estructura", "decision"]
-
-variables:
-  tipo_estructura: uno_de(["centralizada", "descentralizada"])
-
-respuesta: tipo_estructura
-tipo: "mc"
-opciones_explicitas: ["centralizada", "descentralizada"]
-
-enunciado: "En una estructura organizacional {tipo_estructura}, la coordinación se logra mediante la jerarquía y la toma de decisiones concentrada en la parte superior, a diferencia de la estructura opuesta."
-
-explicacion: |
-  La centralización busca uniformidad y control estricto, mientras que la descentralización busca agilidad y empoderamiento en los niveles operativos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "intermedio"
-  tags: ["gestion", "recursos", "productividad"]
-
-variables:
-  escenario: uno_de([
-    ["La empresa A tiene 10 operarios y cada uno produce 5 unidades/hora.", "50"],
-    ["La empresa B tiene 12 operarios y cada uno produce 4 unidades/hora.", "48"],
-    ["La empresa C tiene 8 operarios y cada uno produce 6 unidades/hora.", "48"]
-  ])
-  idx: uno_de([0, 1, 2])
-  valor_total: escenario[idx][0]
-  resultado_esperado: escenario[idx][1]
-
-tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si una empresa cuenta con {escenario[idx][0]}, ¿cuál es la capacidad de producción total de unidades por hora?"
-
 explicacion: |
-  La capacidad total se calcula multiplicando el número de operarios por la productividad individual de cada uno.
+  El SOM (Serviceable Obtainable Market) representa la parte del mercado que realmente puedes capturar en el corto plazo con tus recursos actuales.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "coordinar_personas_y_recursos"
+  tema: "detectar_una_oportunidad_de_negocio"
   nivel: "basico"
-  tags: ["costos", "decision"]
+  tags: ["emprendimiento", "error_comun"]
+
+respuesta: "necesidad"
+tipo: "completar"
+respuestas_validas:
+  - "necesidad"
+  - "problema"
+
+enunciado: "Un error común en el emprendimiento es centrarse exclusivamente en tener una idea innovadora y brillante, cuando el foco real debe estar en resolver una ___ insatisfecha en el mercado."
+
+explicacion: |
+  Una idea por sí sola no tiene valor si no resuelve un problema o satisface una necesidad real de un grupo de personas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "intermedio"
+  tags: ["conceptos_clave", "validacion"]
 
 variables:
-  caso: uno_de([
-    ["El costo de contratar un nuevo empleado es de $500 y el aumento en ingresos es de $600.", "verdadero"],
-    ["El costo de contratar un nuevo empleado es de $700 y el aumento en ingresos es de $650.", "falso"]
-  ])
-  idx: uno_de([0, 1])
+  escenario_idx: uno_de([0, 1])
+  textos: ["Un inventor crea un dispositivo para limpiar nubes, pero nadie está dispuesto a pagarlo.", "Un emprendedor nota que en su barrio no hay lavanderías y abre una con alta demanda."]
+  valores: [falso, verdadero]
+
+respuesta: valores[escenario_idx]
+tipo: "vf"
+
+enunciado: "Analice el caso: {textos[escenario_idx]} Si un producto es altamente innovador pero no existe un segmento de clientes con la disposición y capacidad de pago para adquirirlo, ¿podemos decir que se ha detectado una oportunidad de negocio real en este caso?"
+
+explicacion: |
+  Para que una idea sea oportunidad, debe haber un mercado (clientes con necesidad y capacidad de pago).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "intermedio"
+  tags: ["enfoque_cliente"]
+
+respuesta: "solución"
+tipo: "completar"
+respuestas_validas:
+  - "solución"
+  - "solucion"
+
+enunciado: "Muchos emprendedores cometen el error de enamorarse de su ___ (el producto) en lugar de enamorarse del problema del cliente."
+
+explicacion: |
+  El producto puede cambiar (pivotar), pero el problema que resuelves debe ser el centro de tu estrategia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "avanzado"
+  tags: ["metodologia", "validacion"]
+
+opciones_explicitas: ["Observar el mercado y detectar dolores", "Crear un producto mínimo viable (MVP)", "Validar la solución con clientes reales"]
+respuesta_orden: ["Observar el mercado y detectar dolores", "Crear un producto mínimo viable (MVP)", "Validar la solución con clientes reales"]
+tipo: "ordenar"
+
+enunciado: "Ordena los pasos lógicos para validar una oportunidad de negocio de manera eficiente, evitando el desperdicio de recursos:"
+
+explicacion: |
+  La validación debe ser incremental: primero entiendes el problema, luego pruebas una solución mínima y finalmente escalas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "intermedio"
+  tags: ["investigacion", "errores"]
 
 tipo: vf
+respuesta: falso
 
-enunciado: "Si el costo marginal de contratar a un nuevo trabajador es menor al ingreso marginal que este genera, la decisión de contratar es rentable. En el escenario actual: {caso[idx][0]}"
+enunciado: "¿Es suficiente con observar cómo se comporta la competencia para identificar una oportunidad de negocio única?"
 
 explicacion: |
-  En economía, una acción es rentable si el beneficio marginal es mayor al costo marginal.
+  Observar a la competencia es útil, pero centrarse solo en ellos puede llevarte a copiar modelos existentes en lugar de descubrir necesidades que la competencia está ignorando.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "intermedio"
-  tags: ["procesos", "orden"]
-
-tipo: ordenar
-
-opciones_explicitas: ["Planificación de tareas", "Asignación de recursos", "Ejecución del trabajo", "Control de calidad"]
-respuesta: ["Planificación de tareas", "Asignación de recursos", "Ejecución del trabajo", "Control de calidad"]
-
-enunciado: "Ordene cronológicamente las etapas lógicas para coordinar un equipo de trabajo en una línea de producción:"
-
-explicacion: |
-  Para una coordinación eficiente, primero se debe planificar, luego asignar los recursos necesarios, ejecutar la tarea y finalmente controlar los resultados.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "coordinar_personas_y_recursos"
+  tema: "detectar_una_oportunidad_de_negocio"
   nivel: "basico"
-  tags: ["productividad", "especializacion"]
+  tags: ["emprendimiento", "conceptos_clave"]
 
 variables:
-  escenario: uno_de([
-    ["En un taller, la división de tareas aumenta la eficiencia.", "Aumenta"],
-    ["En un taller, la división de tareas disminuye la eficiencia.", "Disminuye"]
-  ])
-  idx: uno_de([0, 1])
+  es_oportunidad: falso
 
+respuesta: es_oportunidad
+tipo: vf
+enunciado: "Una idea de negocio se convierte en una oportunidad real cuando existe un segmento de mercado con una necesidad insatisfecha y capacidad de pago. ¿Es una idea de negocio siempre una oportunidad de negocio?"
+
+explicacion: |
+  Una idea es un concepto abstracto, mientras que una oportunidad es una idea validada que tiene viabilidad comercial y un mercado dispuesto a pagar por ella.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "intermedio"
+  tags: ["segmentacion", "nicho"]
+
+variables:
+  escenario: uno_de([["vender calzado para corredores de montaña", "nicho"], ["vender calzado genérico para todo público", "mercado_masivo"], ["vender calzado de lujo para eventos", "nicho"]])
+
+respuesta: escenario[1]
 tipo: mc
 
-opciones_explicitas: ["Aumenta", "Disminuye", "Se mantiene igual"]
+opciones_explicitas: ["nicho", "mercado_masivo"]
 
-enunciado: "Considerando la teoría de la división del trabajo de Adam Smith, si aplicamos la especialización en un taller: la eficiencia ___"
+enunciado: "Si una empresa decide enfocarse exclusivamente en satisfacer las necesidades de un grupo de consumidores con características muy específicas y requerimientos particulares, como es el caso de {escenario[0]}, está buscando un ___."
 
 explicacion: |
-  La especialización permite que los trabajadores se vuelvan más hábiles en tareas específicas, reduciendo tiempos de transición y aumentando la productividad.
+  El nicho de mercado es un segmento especializado dentro de un mercado más amplio, caracterizado por necesidades muy particulares que no son cubiertas por los productos masivos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "coordinar_personas_y_recursos"
-  nivel: "avanzado"
-  tags: ["inventario", "recursos"]
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "basico"
+  tags: ["consumidor", "marketing"]
 
 variables:
-  datos: [
-    ["El stock actual es de 150 unidades y el consumo diario es de 30 unidades. Faltan ___ días para agotar el stock.", "5"],
-    ["El stock actual es de 200 unidades y el consumo diario es de 50 unidades. Faltan ___ días para agotar el stock.", "4"],
-    ["El stock actual es de 100 unidades y el consumo diario de 10 unidades. Faltan ___ días para agotar el stock.", "10"]
-  ]
-  idx: uno_de([0, 1, 2])
+  ejemplo: uno_de([["Tener sed", "necesidad"], ["Beber una gaseosa de marca específica", "deseo"], ["Tener hambre", "necesidad"], ["Comer una hamburguesa de una cadena famosa", "deseo"]])
 
+respuesta: ejemplo[1]
 tipo: completar
 
-respuestas_validas: ["5", "4", "10"]
-respuesta: datos[idx][1
+respuestas_validas:
+  - "necesidad"
+  - "deseo"
 
-enunciado: "Si el stock actual es de {datos[idx][0]}, ¿cuántos días faltan para agotar el stock?"
-
-explicacion: |
-  El tiempo de agotamiento se calcula dividiendo el stock total disponible por la tasa de consumo diaria.
-```
-
-## Sección: corrientes-pensamiento-economico (24 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué sostiene el mercantilismo sobre la riqueza de una nación?"
-tipo: mc
-opciones_explicitas:
-  - "Que se mide por la cantidad de oro y plata que acumula, y que el Estado debe fomentar exportaciones y restringir importaciones"
-  - "Que se mide sólo por la cantidad de tierra cultivada"
-  - "Que el Estado no debe intervenir nunca en el comercio"
-respuesta: "Que se mide por la cantidad de oro y plata que acumula, y que el Estado debe fomentar exportaciones y restringir importaciones"
+enunciado: "En marketing, es crucial distinguir entre una necesidad (un estado de carencia percibida) y un ___ (la forma específica en que se busca satisfacer esa carencia)."
 
 explicacion: |
-  Es la idea central del mercantilismo, dominante en Europa entre los
-  siglos XVI y XVIII.
+  La necesidad es la base (ej. transporte), mientras que el deseo es la forma cultural o personal de satisfacerla (ej. un coche de lujo).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "Según la fisiocracia, ¿cuál es la única fuente real de riqueza?"
-tipo: mc
-opciones_explicitas:
-  - "La tierra y la agricultura"
-  - "El oro acumulado por el Estado"
-  - "El comercio internacional"
-respuesta: "La tierra y la agricultura"
-
-explicacion: |
-  Para la fisiocracia, la industria y el comercio sólo transforman
-  una riqueza que ya generó la naturaleza.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué lema resume la postura fisiócrata sobre la intervención del Estado en la economía?"
-tipo: mc
-opciones_explicitas:
-  - "\"Laissez faire, laissez passer\" (dejar hacer, dejar pasar)"
-  - "\"El Estado ante todo\""
-  - "\"Balanza comercial favorable siempre\""
-respuesta: "\"Laissez faire, laissez passer\" (dejar hacer, dejar pasar)"
-
-explicacion: |
-  Defiende la mínima intervención estatal posible en la economía.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué corriente introduce la idea de la \"mano invisible\": que el interés individual, en un mercado libre, termina beneficiando a la sociedad entera?"
-tipo: mc
-opciones_explicitas:
-  - "El liberalismo clásico (Adam Smith)"
-  - "El marxismo"
-  - "El keynesianismo"
-respuesta: "El liberalismo clásico (Adam Smith)"
-
-explicacion: |
-  Es el concepto central de *La riqueza de las naciones* (1776).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué es la \"plusvalía\", concepto central del marxismo?"
-tipo: mc
-opciones_explicitas:
-  - "La diferencia entre el valor que un trabajador produce y el salario que recibe a cambio"
-  - "El impuesto que cobra el Estado sobre las ganancias"
-  - "La diferencia entre el precio de exportación e importación de un país"
-respuesta: "La diferencia entre el valor que un trabajador produce y el salario que recibe a cambio"
-
-explicacion: |
-  Marx sostiene que esa diferencia queda en manos de quien es dueño
-  del medio de producción.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "Según el marxismo, ¿cuál es el motor de la historia económica?"
-tipo: mc
-opciones_explicitas:
-  - "La lucha entre clases sociales"
-  - "La acumulación de oro y plata"
-  - "La libre competencia entre empresas"
-respuesta: "La lucha entre clases sociales"
-
-explicacion: |
-  Específicamente, entre quienes poseen los medios de producción y
-  quienes sólo poseen su fuerza de trabajo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué sostiene la escuela austriaca sobre la planificación económica centralizada?"
-tipo: mc
-opciones_explicitas:
-  - "Que un Estado central no puede tener toda la información necesaria para planificar la economía; los precios libres coordinan mejor"
-  - "Que el Estado debe fijar todos los precios para evitar la inflación"
-  - "Que sólo la agricultura genera riqueza real"
-respuesta: "Que un Estado central no puede tener toda la información necesaria para planificar la economía; los precios libres coordinan mejor"
-
-explicacion: |
-  Es la crítica central de Hayek en *Camino de servidumbre* (1944) a
-  la planificación centralizada.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "¿Qué propone el keynesianismo frente a una crisis económica con desempleo alto?"
-tipo: mc
-opciones_explicitas:
-  - "Que el Estado aumente el gasto público para sostener la demanda y el empleo, aunque implique déficit fiscal temporal"
-  - "Que el Estado reduzca el gasto público al mínimo posible"
-  - "Que el Estado fije el precio de todos los bienes"
-respuesta: "Que el Estado aumente el gasto público para sostener la demanda y el empleo, aunque implique déficit fiscal temporal"
-
-explicacion: |
-  Surge como respuesta a la Gran Depresión de la década de 1930.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El keynesianismo surgió como respuesta a la Gran Depresión, cuestionando la idea de que un mercado libre siempre se autorregula rápido frente a una crisis."
-
-explicacion: |
-  Es el contexto histórico que originó esta corriente.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-enunciado: "Según el monetarismo, ¿cuál es la causa principal de la inflación?"
-tipo: mc
-opciones_explicitas:
-  - "Que la cantidad de dinero en circulación crece más rápido que la producción real de bienes y servicios"
-  - "Que el Estado gasta demasiado poco"
-  - "Que hay demasiada competencia entre empresas"
-respuesta: "Que la cantidad de dinero en circulación crece más rápido que la producción real de bienes y servicios"
-
-explicacion: |
-  Es la idea central de Milton Friedman en *Capitalismo y libertad*
-  (1962): la inflación es, en esencia, un fenómeno monetario.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
+  tema: "detectar_una_oportunidad_de_negocio"
   nivel: "avanzado"
-  tags: ["corrientes", "vocabulario"]
+  tags: ["metodologia", "validacion"]
 
-enunciado: "¿Cuál es la diferencia central entre lo que propone el monetarismo y lo que propone el keynesianismo como herramienta principal de política económica?"
-tipo: mc
-opciones_explicitas:
-  - "El monetarismo prioriza controlar la cantidad de dinero que emite el banco central; el keynesianismo prioriza el gasto público directo"
-  - "Las dos corrientes proponen exactamente la misma herramienta"
-  - "El monetarismo propone eliminar el dinero; el keynesianismo propone eliminar el Estado"
-respuesta: "El monetarismo prioriza controlar la cantidad de dinero que emite el banco central; el keynesianismo prioriza el gasto público directo"
+variables:
+  pasos_ordenados: ["Observar el mercado y detectar problemas", "Entrevistar a clientes potenciales", "Diseñar un Producto Mínimo Viable (MVP)", "Analizar la viabilidad financiera"]
+
+respuesta_orden: pasos_ordenados
+tipo: ordenar
+
+opciones_explicitas: ["Observar el mercado y detectar problemas", "Entrevistar a clientes potenciales", "Diseñar un Producto Mínimo Viable (MVP)", "Analizar la viabilidad financiera"]
+
+enunciado: "Ordena los pasos lógicos para validar una oportunidad de negocio desde la detección hasta la viabilidad:"
 
 explicacion: |
-  Cada corriente identifica una palanca distinta como la más
-  importante para estabilizar la economía.
+  Primero se identifica el problema (observación), luego se valida con usuarios (entrevistas), se prueba la solución (MVP) y finalmente se asegura la rentabilidad (finanzas).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "corrientes_pensamiento_economico"
+  tema: "detectar_una_oportunidad_de_negocio"
   nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
+  tags: ["competencia", "valor"]
 
-enunciado: "¿A qué se le llama \"neoliberalismo\"?"
+variables:
+  caso: uno_de([["ofrecer un producto idéntico al de la competencia pero más caro", "no_hay_ventaja"], ["ofrecer un producto con una característica única que resuelve un problema mejor", "hay_ventaja"], ["ofrecer un producto con el mismo precio y calidad que la competencia", "no_hay_ventaja"]])
+
+respuesta: caso[1]
 tipo: mc
-opciones_explicitas:
-  - "Al programa de política económica, aplicado desde los años 80, cercano al monetarismo y a la escuela austriaca: privatización, apertura comercial, desregulación"
-  - "A la primera corriente económica de la historia, anterior al mercantilismo"
-  - "A un sinónimo exacto del keynesianismo"
-respuesta: "Al programa de política económica, aplicado desde los años 80, cercano al monetarismo y a la escuela austriaca: privatización, apertura comercial, desregulación"
+
+opciones_explicitas: ["hay_ventaja", "no_hay_ventaja"]
+
+enunciado: "Para que una oportunidad de negocio sea sostenible, la empresa debe presentar una propuesta de valor que se distinga de la competencia. Si una empresa logra {caso[0]}, podemos decir que ___."
 
 explicacion: |
-  Se lo asocia con políticas aplicadas en el Reino Unido, Estados
-  Unidos y Chile desde los años 80.
+  La ventaja competitiva es lo que hace que un cliente elija una opción sobre otra; sin una diferenciación clara, la oportunidad es débil.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "corrientes_pensamiento_economico"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "basico"
+  tags: ["mercado", "necesidades"]
+
+variables:
+  escenario_idx: uno_de([0, 1, 2])
+  escenarios: [["comunidad de ciclistas urbanos sin talleres cerca", "falta de servicios de reparación rápida"], ["estudiantes universitarios con poco tiempo para cocinar", "demanda de comida saludable y rápida"], ["dueños de mascotas que trabajan todo el día", "necesidad de cuidado canino a domicilio"]]
+  datos: [["ciclistas", "reparación"], ["estudiantes", "comida"], ["dueños de mascotas", "cuidado"]]
+
+enunciado: "Un emprendedor observa que en un barrio con muchos {datos[escenario_idx][0]} existe una oportunidad basada en la {datos[escenario_idx][1]}."
+
+respuesta: escenarios[escenario_idx][1]
+tipo: completar
+respuestas_validas:
+  - "reparación rápida"
+  - "comida saludable y rápida"
+  - "cuidado canino a domicilio"
+
+explicacion: |
+  La identificación de una oportunidad surge al detectar una brecha entre una necesidad existente y la oferta actual del mercado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
   nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
+  tags: ["validación", "mercado"]
+
+enunciado: "Si un emprendedor observa que los clientes de la competencia se quejan constantemente de la lentitud en la entrega, ¿es este un indicador válido para una nueva oportunidad de negocio?"
 
 respuesta: verdadero
 tipo: vf
-
-enunciado: "El neoliberalismo se asocia con políticas aplicadas en el Reino Unido (gobierno de Thatcher), Estados Unidos (gobierno de Reagan) y Chile (los \"Chicago Boys\") desde la década de 1980."
-
 explicacion: |
-  Son los ejemplos históricos más citados de aplicación de este
-  programa de política económica.
+  Las quejas de los clientes son "puntos de dolor" (pain points) que representan oportunidades de mejora y diferenciación para un nuevo negocio.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "corrientes_pensamiento_economico"
+  tema: "detectar_una_oportunidad_de_negocio"
   nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
+  tags: ["metodologia", "pasos"]
 
-enunciado: "¿Qué señala la economía feminista y del cuidado sobre el PBI?"
-tipo: mc
-opciones_explicitas:
-  - "Que no cuenta el trabajo doméstico y de cuidado no remunerado, aunque sea un trabajo real que sostiene la economía"
-  - "Que cuenta dos veces el trabajo doméstico no remunerado"
-  - "Que sólo debería medirse en base al trabajo doméstico"
-respuesta: "Que no cuenta el trabajo doméstico y de cuidado no remunerado, aunque sea un trabajo real que sostiene la economía"
+enunciado: "Ordena los pasos lógicos para validar una oportunidad de negocio desde la detección hasta el crecimiento:"
+
+opciones_explicitas: ["Observar el problema", "Entrevistar clientes potenciales", "Crear un Producto Mínimo Viable", "Escalar el modelo de negocio"]
+respuesta_orden: ["Observar el problema", "Entrevistar clientes potenciales", "Crear un Producto Mínimo Viable", "Escalar el modelo de negocio"]
+tipo: ordenar
 
 explicacion: |
-  Es el señalamiento central de Marilyn Waring en *If Women Counted*
-  (1988): al no tener precio de mercado, ese trabajo queda invisible
-  en las estadísticas oficiales.
+  Primero se identifica el problema, luego se valida con usuarios reales, se prueba con un producto mínimo y finalmente se escala.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "corrientes_pensamiento_economico"
+  tema: "detectar_una_oportunidad_de_negocio"
   nivel: "avanzado"
-  tags: ["corrientes", "vocabulario"]
+  tags: ["competencia", "estrategia"]
+
+enunciado: "Si el análisis de mercado muestra que la competencia es muy similar entre sí y no cubre una necesidad específica, la intensidad de la oportunidad se considera: ___"
+
+respuesta: "alta"
+tipo: completar
+respuestas_validas:
+  - "alta"
+
+explicacion: |
+  La falta de diferenciación en la competencia actual indica un espacio para la innovación y la captura de mercado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "detectar_una_oportunidad_de_negocio"
+  nivel: "basico"
+  tags: ["conceptos", "cliente"]
+
+enunciado: "¿Cuál de los siguientes elementos es el motor principal para identificar una oportunidad de negocio real?"
+
+opciones_explicitas: ["La cantidad de dinero que tiene un competidor", "La resolución de un problema o necesidad no satisfecha", "El uso de la tecnología más cara disponible", "Tener un local en la avenida principal"]
+respuesta: "La resolución de un problema o necesidad no satisfecha"
+tipo: mc
+
+explicacion: |
+  Una oportunidad de negocio no es solo una idea, es la capacidad de resolver un problema real para un grupo de personas dispuestas a pagar por ello.
+```
+
+## Sección: dex-swap (21 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
+  nivel: "basico"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Cómo funciona un exchange centralizado (CEX) de criptomonedas?"
+tipo: mc
+opciones_explicitas:
+  - "La empresa custodia el dinero de los usuarios y hace de intermediaria en cada operación"
+  - "No existe ninguna empresa: todo pasa directo entre dos usuarios"
+  - "Sólo permite comprar, nunca vender"
+respuesta: "La empresa custodia el dinero de los usuarios y hace de intermediaria en cada operación"
+
+explicacion: |
+  Funciona parecido a un banco o casa de cambio tradicional.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
+  nivel: "basico"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Qué es un DEX (exchange descentralizado)?"
+tipo: mc
+opciones_explicitas:
+  - "Un conjunto de contratos inteligentes que permite intercambiar criptomonedas directo desde la wallet de cada persona, sin custodio"
+  - "Una empresa que reemplaza a los bancos tradicionales"
+  - "Un tipo especial de criptomoneda"
+respuesta: "Un conjunto de contratos inteligentes que permite intercambiar criptomonedas directo desde la wallet de cada persona, sin custodio"
+
+explicacion: |
+  Es la definición central: contratos inteligentes, sin custodia de
+  una empresa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
+  nivel: "basico"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Qué es un \"swap\"?"
+tipo: mc
+opciones_explicitas:
+  - "La operación de intercambiar un token por otro dentro de un DEX"
+  - "El nombre de una wallet especial para DEX"
+  - "Un tipo de contrato inteligente distinto de los demás"
+respuesta: "La operación de intercambiar un token por otro dentro de un DEX"
+
+explicacion: |
+  El DEX es la plataforma; el swap es la operación puntual que se
+  hace en ella.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El PBI (ver el tema de PBI e inflación) sólo cuenta la producción que pasa por el mercado, por eso el trabajo doméstico no remunerado queda fuera de esa medición."
+enunciado: "Un swap no es un concepto distinto de un DEX: es, literalmente, la acción que un DEX ejecuta."
 
 explicacion: |
-  Es la conexión directa entre este tema y `pbi-e-inflacion/`: el
-  mismo concepto de PBI, visto desde un ángulo distinto.
+  Son el mismo objeto visto desde dos nombres: la plataforma y la
+  operación.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
+  tema: "dex_swap"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
 
-enunciado: "¿Quién escribió *El Capital* (1867), texto de referencia del marxismo?"
+enunciado: "En un DEX, ¿quién custodia los fondos de un usuario mientras NO está haciendo un swap?"
 tipo: mc
 opciones_explicitas:
-  - "Karl Marx"
-  - "Adam Smith"
-  - "John Maynard Keynes"
-respuesta: "Karl Marx"
+  - "El propio usuario, en su wallet"
+  - "La empresa que creó el DEX"
+  - "Un banco asociado al DEX"
+respuesta: "El propio usuario, en su wallet"
 
 explicacion: |
-  *El Capital* es la obra central del marxismo como corriente
-  económica.
+  Ninguna empresa custodia los fondos: siguen en la wallet del usuario
+  hasta el instante del intercambio.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
+  tema: "dex_swap"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
 
-enunciado: "¿Quién escribió *La riqueza de las naciones* (1776), texto fundacional del liberalismo clásico?"
+enunciado: "Cuando alguien hace un swap en un DEX, ¿contra quién intercambia sus tokens?"
 tipo: mc
 opciones_explicitas:
-  - "Adam Smith"
-  - "Karl Marx"
-  - "Milton Friedman"
-respuesta: "Adam Smith"
+  - "Contra un pool de liquidez, un fondo compartido aportado por muchos usuarios"
+  - "Contra otra persona específica, elegida de un libro de órdenes"
+  - "Contra el banco central del país donde vive"
+respuesta: "Contra un pool de liquidez, un fondo compartido aportado por muchos usuarios"
 
 explicacion: |
-  Es considerado el texto fundacional de la economía moderna como
-  disciplina.
+  A diferencia de un CEX (que empareja compradores y vendedores), un
+  DEX intercambia contra un pool automático.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
+  tema: "dex_swap"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
 
-enunciado: "¿Quién escribió la *Teoría general del empleo, el interés y el dinero* (1936), texto de referencia del keynesianismo?"
+enunciado: "¿Cuál es la diferencia central entre operar en un CEX y operar en un DEX?"
 tipo: mc
 opciones_explicitas:
-  - "John Maynard Keynes"
-  - "Friedrich Hayek"
-  - "Thomas Mun"
-respuesta: "John Maynard Keynes"
+  - "En el CEX se confía la custodia de los fondos a una empresa; en el DEX los fondos quedan en la wallet propia salvo en el instante del swap"
+  - "El DEX sólo permite operar con una sola criptomoneda"
+  - "El CEX no tiene ningún costo por operar"
+respuesta: "En el CEX se confía la custodia de los fondos a una empresa; en el DEX los fondos quedan en la wallet propia salvo en el instante del swap"
 
 explicacion: |
-  Da nombre a la corriente: keynesianismo.
+  Es la diferencia estructural central entre los dos modelos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "corrientes_pensamiento_economico"
+  tema: "dex_swap"
   nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
+  tags: ["defi", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Este tema presenta cada corriente explicando qué sostiene, con la misma seriedad expositiva, sin marcar ninguna como \"la correcta\"."
+enunciado: "La ventaja central de un DEX es que nadie más controla los fondos de un usuario en ningún momento, salvo el instante exacto del intercambio."
 
 explicacion: |
-  Es el criterio central de todo el tema: identificar argumentos, no
-  adoctrinar con una postura como la verdadera.
+  Elimina la necesidad de confiar en una empresa custodia.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "intermedio"
-  tags: ["corrientes", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Varias de estas corrientes conviven hoy y se siguen citando en debates de política económica actuales — no es una sucesión donde cada una \"reemplaza\" a la anterior."
-
-explicacion: |
-  Lo único estrictamente cronológico es cuándo apareció cada
-  corriente, no cuál es superior.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "intermedio"
-  tags: ["corrientes", "problema"]
-
-enunciado: "Un gobierno aumenta fuertemente el gasto público durante una recesión, para sostener el empleo aunque eso genere déficit fiscal. ¿Con qué corriente se corresponde mejor esta decisión?"
-tipo: mc
-opciones_explicitas:
-  - "Keynesianismo"
-  - "Escuela austriaca"
-  - "Fisiocracia"
-respuesta: "Keynesianismo"
-
-explicacion: |
-  Es exactamente la receta central del keynesianismo frente a una
-  crisis.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "intermedio"
-  tags: ["corrientes", "problema"]
-
-enunciado: "Un banco central sube fuertemente la tasa de interés, priorizando controlar cuánto dinero circula, para frenar la inflación. ¿Con qué corriente se corresponde mejor esta decisión?"
-tipo: mc
-opciones_explicitas:
-  - "Monetarismo"
-  - "Marxismo"
-  - "Fisiocracia"
-respuesta: "Monetarismo"
-
-explicacion: |
-  Controlar la cantidad de dinero es la herramienta central que
-  propone el monetarismo contra la inflación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "corrientes_pensamiento_economico"
+  tema: "dex_swap"
   nivel: "avanzado"
-  tags: ["corrientes", "orden"]
+  tags: ["defi", "vocabulario"]
+
+enunciado: "Si un usuario comete un error operando en un DEX (por ejemplo, aprueba mal una operación), ¿a quién puede reclamarle para revertirla?"
+tipo: mc
+opciones_explicitas:
+  - "A nadie: no hay una empresa ni soporte técnico que pueda revertir la operación"
+  - "Al soporte técnico del DEX, que revierte cualquier error"
+  - "Al banco central del país"
+respuesta: "A nadie: no hay una empresa ni soporte técnico que pueda revertir la operación"
+
+explicacion: |
+  Es la contracara del mismo mecanismo que da la ventaja de no
+  depender de una empresa custodia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un usuario que prefiere no dejar sus fondos en manos de un exchange tradicional suele operar directamente en un DEX, para mantener el control de sus propias claves."
+
+explicacion: |
+  Es la misma idea de autocustodia ya vista en el tema de wallets,
+  aplicada a la elección de dónde operar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Qué ejecuta materialmente el intercambio de tokens en un DEX?"
+tipo: mc
+opciones_explicitas:
+  - "El código del contrato inteligente"
+  - "Un empleado de la plataforma, de forma manual"
+  - "Un banco intermediario"
+respuesta: "El código del contrato inteligente"
+
+explicacion: |
+  Un DEX es, en esencia, un conjunto de contratos inteligentes que
+  ejecutan la operación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
+  nivel: "avanzado"
+  tags: ["defi", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Es una práctica habitual comparar el precio de un mismo par de tokens entre distintos DEX antes de operar, porque cada pool puede tener un precio levemente distinto en un momento dado."
+
+explicacion: |
+  Cada pool fija su propio precio según su propia composición interna
+  (tema siguiente: `pools-liquidez-amm/`).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
+  nivel: "basico"
+  tags: ["defi", "problema"]
+
+enunciado: "Alguien intercambia 100 unidades de un token por otro token distinto, directamente desde su wallet, sin pasar por ninguna empresa. ¿Cómo se llama esa operación?"
+tipo: mc
+opciones_explicitas:
+  - "Un swap"
+  - "Un depósito en garantía (escrow)"
+  - "Una devaluación"
+respuesta: "Un swap"
+
+explicacion: |
+  Es exactamente la definición de swap: intercambiar un token por
+  otro dentro de un DEX.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
+  nivel: "avanzado"
+  tags: ["defi", "orden"]
 
 tipo: ordenar
-enunciado: "Ordená estas corrientes según cuándo aparecieron, de la más antigua a la más reciente."
+enunciado: "Ordená estos pasos de cómo funciona un swap en un DEX."
 opciones_explicitas:
-  - "Neoliberalismo"
-  - "Marxismo"
-  - "Mercantilismo"
-  - "Monetarismo"
-  - "Keynesianismo"
-  - "Liberalismo clásico (Adam Smith)"
-respuesta_orden: ["Mercantilismo", "Liberalismo clásico (Adam Smith)", "Marxismo", "Keynesianismo", "Monetarismo", "Neoliberalismo"]
+  - "El usuario recibe el nuevo token directo en su wallet"
+  - "El contrato inteligente intercambia los tokens contra el pool de liquidez"
+  - "El usuario elige qué token quiere entregar y cuál quiere recibir"
+  - "El usuario aprueba la operación desde su propia wallet"
+respuesta_orden: ["El usuario elige qué token quiere entregar y cuál quiere recibir", "El usuario aprueba la operación desde su propia wallet", "El contrato inteligente intercambia los tokens contra el pool de liquidez", "El usuario recibe el nuevo token directo en su wallet"]
 
 explicacion: |
-  Mercantilismo (s. XVI-XVIII), liberalismo clásico (1776), marxismo
-  (1867), keynesianismo (1936), monetarismo (1962), neoliberalismo
-  (desde los 80). Esto es cronología verificable, no un ranking de
-  cuál es mejor.
+  Cada paso depende del anterior: sin elección no hay nada que
+  aprobar, sin aprobación el contrato no puede ejecutar el swap.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "corrientes_pensamiento_economico"
-  nivel: "basico"
-  tags: ["corrientes", "vocabulario"]
+  tema: "dex_swap"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cada corriente del pensamiento económico ofrece una lógica interna propia y coherente para explicar cómo funciona la economía — conocerlas todas permite entender un debate económico actual, sin necesidad de adoptar una sola como la única válida."
+enunciado: "A diferencia de un CEX, un DEX no necesita emparejar la orden de un comprador con la de un vendedor específico: intercambia directo contra el pool."
 
 explicacion: |
-  Es la idea de cierre de todo el tema.
+  Es la diferencia con el libro de órdenes tradicional de un exchange
+  centralizado.
 ```
-
-## Sección: costo-de-oportunidad (30 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "costo_de_oportunidad"
+  tema: "dex_swap"
   nivel: "basico"
-  tags: ["definicion", "concepto_basico"]
+  tags: ["defi", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El costo de oportunidad se define como el valor de la mejor alternativa a la que se renuncia al tomar una decisión."
+enunciado: "Un DEX es, en su base, un conjunto de contratos inteligentes que corren sobre una blockchain."
 
 explicacion: |
-  Esta es la definición fundamental. El costo no es lo que se gasta, sino lo que se deja de obtener por elegir otra opción.
+  Reutiliza directo el concepto ya visto en `contratos-inteligentes/`.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "costo_de_oportunidad"
+  tema: "dex_swap"
+  nivel: "intermedio"
+  tags: ["defi", "problema"]
+
+enunciado: "Una plataforma te pide transferir tus criptomonedas a una cuenta que ella administra antes de poder operar. ¿Es un DEX o un CEX?"
+tipo: mc
+opciones_explicitas:
+  - "Un CEX: te está pidiendo custodiar tus fondos"
+  - "Un DEX: los fondos siempre quedan en tu propia wallet"
+  - "Ninguno de los dos: ese modelo no existe"
+respuesta: "Un CEX: te está pidiendo custodiar tus fondos"
+
+explicacion: |
+  Pedir custodia de los fondos es justamente lo que caracteriza a un
+  exchange centralizado, no a un DEX.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
+  nivel: "avanzado"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Por qué operar en un DEX no requiere confiar en una empresa, a diferencia de un CEX?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el código del contrato inteligente, público y verificable, ejecuta la operación en vez de una empresa"
+  - "Porque los DEX son gratis y los CEX no"
+  - "Porque los DEX sólo operan con una moneda estable"
+respuesta: "Porque el código del contrato inteligente, público y verificable, ejecuta la operación en vez de una empresa"
+
+explicacion: |
+  Reemplaza la confianza en una empresa por confianza en un código
+  auditable.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
   nivel: "basico"
-  tags: ["intangibles", "tiempo"]
+  tags: ["defi"]
+
+tipo: completar
+enunciado: "Completá: el DEX es la ___ (plataforma), y el swap es la operación que se hace en ella."
+respuestas_validas:
+  - "plataforma"
+
+explicacion: |
+  Es la relación central entre los dos términos del tema.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
+  nivel: "intermedio"
+  tags: ["defi", "vocabulario"]
+
+enunciado: "¿Qué reemplaza al \"libro de órdenes\" de un exchange tradicional, dentro de un DEX?"
+tipo: mc
+opciones_explicitas:
+  - "El pool de liquidez, que actúa como contraparte automática de cualquier swap"
+  - "Un empleado que empareja manualmente cada operación"
+  - "Nada: los DEX también usan un libro de órdenes idéntico"
+respuesta: "El pool de liquidez, que actúa como contraparte automática de cualquier swap"
+
+explicacion: |
+  Es el puente hacia el tema siguiente: cómo ese pool fija el precio
+  se explica en `pools-liquidez-amm/`.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "dex_swap"
+  nivel: "basico"
+  tags: ["defi", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El costo de oportunidad puede incluir factores intangibles como el tiempo o la satisfacción personal, no solo dinero."
+enunciado: "Un DEX permite hacer swap de un token por otro directo desde la propia wallet, sin que ninguna empresa custodie los fondos, intercambiando contra un pool de liquidez en vez de contra otra persona específica."
 
 explicacion: |
-  Correcto. El tiempo dedicado a una actividad es tiempo que no se puede usar en otra, generando un costo de oportunidad.
+  Es la idea central de todo el tema.
 ```
+
+## Sección: division-formal-microeconomia-macroeconomia (20 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "costo_de_oportunidad"
+  tema: "division_formal_microeconomia_macroeconomia"
   nivel: "basico"
-  tags: ["escasez", "fundamento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El costo de oportunidad existe porque los recursos son limitados y los deseos humanos son prácticamente ilimitados."
-
-explicacion: |
-  La escasez es la condición necesaria para que exista el costo de oportunidad. Si todo fuera abundante, no habría que renunciar a nada.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "costo_de_oportunidad"
-  nivel: "basico"
-  tags: ["mitos", "confusion_comun"]
+  tags: ["interdependencia"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El costo de oportunidad es igual al dinero que se gasta en la opción elegida."
+enunciado: "La microeconomía y la macroeconomía son mundos completamente separados que no se influyen mutuamente."
 
 explicacion: |
-  Falso. El dinero gastado es el costo contable o explícito. El costo de oportunidad es el valor de la alternativa renuncada.
+  Falso. Ambas son lentes diferentes de la misma realidad y están interconectadas. Las decisiones micro afectan a la macro y viceversa.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "costo_de_oportunidad"
-  nivel: "intermedio"
-  tags: ["frontera_posibilidades", "grafico"]
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "avanzado"
+  tags: ["interdependencia", "politica-monetaria"]
+
+variables:
+  decision_macro: "aumento de tasas de interés"
+  efecto_micro: "encarecimiento de préstamos"
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la Frontera de Posibilidades de Producción (FPP), el costo de oportunidad se representa por la pendiente de la curva."
+enunciado: "Una decisión macroeconómica como el aumento de tasas de interés por parte del Banco Central afecta directamente el costo de oportunidad de ahorrar vs consumir para las familias."
 
 explicacion: |
-  La pendiente de la FPP indica cuánto de un bien hay que dejar de producir para obtener una unidad adicional del otro bien.
+  Correcto. La política macro cambia los incentivos y costos para los agentes microeconómicos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "costo_de_oportunidad"
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "intermedio"
+  tags: ["complementariedad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las decisiones de millones de individuos (micro) terminan definiendo los grandes indicadores nacionales (macro)."
+
+explicacion: |
+  Verdadero. La macroeconomía es la suma agregada de comportamientos microeconómicos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "division_formal_microeconomia_macroeconomia"
   nivel: "basico"
-  tags: ["tiempo_libre", "satisfaccion"]
+  tags: ["perspectiva"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si elegís leer un libro en lugar de dormir la siesta, el costo de oportunidad es la satisfacción del descanso perdido."
+enunciado: "La micro y la macroeconomía son lentes diferentes para observar la misma realidad económica."
 
 explicacion: |
-  Correcto. El costo de oportunidad es el beneficio de la mejor alternativa no elegida, en este caso, el descanso.
+  Verdadero. No son mundos separados, sino perspectivas complementarias.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "costo_de_oportunidad"
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "avanzado"
+  tags: ["interdependencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el Banco Central sube las tasas, el costo de oportunidad de consumir hoy aumenta para las familias."
+
+explicacion: |
+  Correcto. Ahorrar se vuelve más atractivo (mayor retorno) y consumir más caro (crédito costoso).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "division_formal_microeconomia_macroeconomia"
   nivel: "intermedio"
-  tags: ["costos_ocultos", "contabilidad"]
+  tags: ["ejemplo-clasico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Explicar por qué sube el precio del pan en una panadería específica es un problema microeconómico."
+
+explicacion: |
+  Sí, porque se refiere a un mercado y agente específico, no al nivel general de precios.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "avanzado"
+  tags: ["costo-oportunidad", "macro"]
+
+variables:
+  ejemplo: "política monetaria"
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "El costo de oportunidad es un concepto exclusivo de la microeconomía y no aplica a la macroeconomía."
+
+explicacion: |
+  El costo de oportunidad es fundamental en ambas ramas; la macro también evalúa renuncias al tomar políticas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "avanzado"
+  tags: ["interdependencia", "politica-monetaria"]
+
+variables:
+  decision_macro: "aumento de tasas de interés"
+  efecto_micro: uno_de(["mayor costo de endeudamiento para familias", "disminución del ahorro", "aumento del consumo inmediato"])
+
+respuesta: "mayor costo de endeudamiento para familias"
+tipo: mc
+
+opciones_explicitas: ["mayor costo de endeudamiento para familias", "disminución del ahorro", "aumento del consumo inmediato", "reducción de impuestos"]
+
+enunciado: "Si el Banco Central toma una decisión macroeconómica de {decision_macro}, ¿cuál es un efecto directo en el comportamiento microeconómico de las familias?"
+
+explicacion: |
+  Las tasas de interés más altas encarecen los préstamos, afectando directamente la decisión de consumo o ahorro de las familias.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "basico"
+  tags: ["costo-oportunidad", "micro"]
+
+variables:
+  recurso: "tiempo"
+  alternativa: uno_de(["estudiar", "trabajar", "descansar"])
+
+respuesta: "la mejor alternativa no elegida"
+tipo: completar
+
+enunciado: "El costo de oportunidad de dedicar {recurso} a {alternativa} es:"
+
+explicacion: |
+  El costo de oportunidad se define como el valor de la mejor alternativa a la que se renuncia al tomar una decisión.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "intermedio"
+  tags: ["interdependencia", "agregacion"]
+
+variables:
+  decision_micro: "reducir la producción"
+  resultado_macro: uno_de(["caída del PBI agregado", "aumento de la inflación", "devaluación del peso"])
+
+respuesta: "caída del PBI agregado"
+tipo: mc
+
+opciones_explicitas: ["caída del PBI agregado", "aumento de la inflación", "devaluación del peso", "reducción del desempleo"]
+
+enunciado: "Si todas las empresas del país toman una decisión microeconómica de {decision_micro}, ¿qué consecuencia macroeconómica es probable?"
+
+explicacion: |
+  La suma de reducciones de producción individual (micro) se traduce en una contracción de la actividad económica total (macro).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "basico"
+  tags: ["conceptos-basicos", "vf"]
+
+variables:
+  afirmacion: "micro y macro son mundos completamente separados"
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El costo de oportunidad siempre es un costo explícito que aparece en los libros contables."
+enunciado: "Verdadero o Falso: La micro y la macroeconomía son mundos completamente separados e independientes."
 
 explicacion: |
-  Falso. El costo de oportunidad es un costo implícito (no monetario directo) que no aparece en la contabilidad tradicional.
+  Falso. Son lentes complementarios para observar la misma realidad; las decisiones de uno afectan al otro.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "costo_de_oportunidad"
+  tema: "division_formal_microeconomia_macroeconomia"
   nivel: "basico"
-  tags: ["consumo", "decision_financiera"]
+  tags: ["microeconomia", "enfoque"]
 
-respuesta: "el valor del auto usado"
+variables:
+  analogia: "los árboles"
+  analogia_macro: "el bosque"
+
+respuesta: "los árboles"
 tipo: completar
 
-enunciado: "Si comprás un auto nuevo, el costo de oportunidad es el valor del auto usado que podrías haber comprado con ese mismo dinero."
+enunciado: "Se dice que la microeconomía estudia '{analogia}', mientras que la macroeconomía estudia '{analogia_macro}'."
 
 explicacion: |
-  El dinero gastado en el auto nuevo no puede usarse para comprar el auto usado. Ese es el sacrificio realizado.
+  La analogía clásica: la micro se enfoca en los detalles individuales (árboles) y la macro en el panorama general (bosque).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "costo_de_oportunidad"
-  nivel: "avanzado"
-  tags: ["analisis_marginal", "decision_limite"]
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "intermedio"
+  tags: ["costo-oportunidad", "calculo"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  ganancia_trabajo: random(10000, 50000)
+  ganancia_estudio: 0
 
-enunciado: "Las decisiones marginales se toman comparando el beneficio marginal con el costo de oportunidad marginal."
+respuesta: ganancia_trabajo
+tipo: input
+
+enunciado: "Si un estudiante deja de trabajar para estudiar y pierde una ganancia potencial de ${ganancia_trabajo}, ¿cuál es el costo de oportunidad monetario directo?"
 
 explicacion: |
-  Correcto. Una decisión racional se toma hasta que el beneficio marginal es igual al costo marginal (que incluye el costo de oportunidad).
+  El costo de oportunidad es el beneficio de la mejor alternativa no elegida (en este caso, el salario dejado de percibir).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "costo_de_oportunidad"
-  nivel: "intermedio"
-  tags: ["subjetividad", "valor_personal"]
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "avanzado"
+  tags: ["politica-fiscal", "interdependencia"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  politica: "subida de impuestos corporativos"
+  efecto_agregado: uno_de(["reducción del consumo agregado", "aumento de la productividad", "disminución de la inflación"])
 
-enunciado: "El costo de oportunidad es subjetivo porque depende del valor que el individuo asigna a las alternativas."
+respuesta: "reducción del consumo agregado"
+tipo: mc
+
+opciones_explicitas: ["reducción del consumo agregado", "aumento de la productividad", "disminución de la inflación", "incremento de las exportaciones"]
+
+enunciado: "Una política fiscal macroeconómica de {politica} puede llevar a un efecto microeconómico que, agregado, resulta en:"
 
 explicacion: |
-  Correcto. Dos personas pueden tener diferentes costos de oportunidad para la misma decisión según sus preferencias y circunstancias.
+  Al reducirse el ingreso disponible o las ganancias de las empresas, el consumo y la inversión individuales bajan, afectando el agregado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "costo_de_oportunidad"
-  nivel: "avanzado"
-  tags: ["politica_publica", "bien_comun"]
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "basico"
+  tags: ["conceptos-basicos", "escasez"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  concepto: "recursos escasos"
+  necesidad: "necesidades ilimitadas"
 
-enunciado: "El costo de oportunidad de mantener la paz es la infraestructura militar que no se puede construir con esos recursos."
+respuesta: "escasa"
+tipo: completar
+
+enunciado: "La economía estudia cómo administrar {concepto} para satisfacer {necesidad}."
 
 explicacion: |
-  Correcto. Los recursos destinados a la paz (o a otros bienes civiles) no pueden usarse para fines militares.
+  La definición fundamental de la economía gira en torno a la escasez de recursos frente a deseos ilimitados.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "costo_de_oportunidad"
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "intermedio"
+  tags: ["conceptos-basicos", "vf"]
+
+variables:
+  lente: "macroeconomía"
+  objeto: "el comportamiento de una familia"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Verdadero o Falso: El lente de la {lente} es el adecuado para analizar el comportamiento específico de una familia."
+
+explicacion: |
+  Falso. El comportamiento individual de una familia es objeto de estudio de la microeconomía.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "avanzado"
+  tags: ["politica-monetaria", "costo-oportunidad"]
+
+variables:
+  cambio_macro: "aumento de tasas de interés"
+  cambio_costo: "el costo de oportunidad de gastar"
+  direccion: uno_de(["aumenta", "disminuye", "se mantiene"])
+
+respuesta: "aumenta"
+tipo: mc
+
+opciones_explicitas: ["aumenta", "disminuye", "se mantiene", "es irrelevante"]
+
+enunciado: "Si hay un {cambio_macro}, el {cambio_costo} de gastar dinero en lugar de ahorrar:"
+
+explicacion: |
+  Con tasas más altas, el interés que se deja de ganar por gastar (costo de oportunidad) es mayor.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "division_formal_microeconomia_macroeconomia"
   nivel: "basico"
-  tags: ["condicion_necesaria", "teoria"]
+  tags: ["macroeconomia", "definicion", "vf"]
+
+variables:
+  definicion: "estudio de unidades individuales"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Verdadero o Falso: La macroeconomía se define como el {definicion}."
+
+explicacion: |
+  Falso. Eso es la microeconomía. La macro estudia el conjunto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "division_formal_microeconomia_macroeconomia"
+  nivel: "basico"
+  tags: ["microeconomia", "definicion", "vf"]
+
+variables:
+  definicion: "estudio de unidades individuales"
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si no existe ninguna alternativa viable, el costo de oportunidad de la decisión es cero."
+enunciado: "Verdadero o Falso: La microeconomía se define como el {definicion}."
 
 explicacion: |
-  Correcto. Sin alternativas, no hay nada que renunciar, por lo tanto, el costo de oportunidad es nulo.
+  Verdadero. Se enfoca en familias, trabajadores y empresas.
 ```
 
 ```
 metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
+  materia: "economia"
+  tema: "division_formal_microeconomia_macroeconomia"
   nivel: "intermedio"
-  tags: ["costo_explicito", "costo_implicito"]
+  tags: ["costo-oportunidad", "vf"]
 
 variables:
-  costo_alquiler: random(50000, 100000)
-  ganancia_potencial: random(120000, 200000)
+  concepto: "costo de oportunidad"
+  definicion: "lo que se gana al elegir una opción"
 
-respuesta: "{ganancia_potencial}"
-tipo: input
+respuesta: falso
+tipo: vf
 
-enunciado: "Un empresario deja de ganar {ganancia_potencial} pesos por su sueldo anterior para abrir su negocio. El alquiler del local cuesta {costo_alquiler}. ¿Cuál es el costo de oportunidad de la primera decisión (abrir el negocio) respecto a su empleo anterior?"
-
-explicacion: |
-  El costo de oportunidad de la decisión principal es la mejor alternativa renunciada (el sueldo), no el costo contable del alquiler.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "basico"
-  tags: ["ejemplo_cotidiano", "mc"]
-
-variables:
-  opcion_a: "El dinero gastado en la comida"
-  opcion_b: "El tiempo y disfrute de ver la película"
-  opcion_c: "El precio del transporte"
-  opcion_d: "El ahorro que dejaste de tener"
-
-respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
-opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
-tipo: mc
-
-enunciado: "Si decidís ver una película en casa en lugar de ir al trabajo, el costo de oportunidad es:"
+enunciado: "Verdadero o Falso: El {concepto} es {definicion}."
 
 explicacion: |
-  El costo de oportunidad es el beneficio de la mejor alternativa no elegida, en este caso, el salario del trabajo.
+  Falso. Es lo que se RENUNCIA (pierde) al elegir una opción.
 ```
 
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "intermedio"
-  tags: ["inversiones", "intereses"]
-
-variables:
-  capital: random(100000, 500000)
-  tasa_otro_banco: random(5, 15)
-  tasa_actual: 0
-
-respuesta: "{capital * tasa_otro_banco / 100}"
-tipo: input
-
-enunciado: "Tenés {capital} pesos. Si los dejás en tu cuenta corriente (0% interés) en lugar de invertirlos en un bono que paga {tasa_otro_banco}% anual, ¿cuánto dinero dejás de ganar en un año?"
-
-explicacion: |
-  El costo de oportunidad es el rendimiento perdido al no elegir la mejor alternativa de inversión.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "avanzado"
-  tags: ["comparacion", "racionalidad"]
-
-variables:
-  valor_opcion_a: random(100, 500)
-  valor_opcion_b: random(200, 600)
-  valor_opcion_c: random(50, 300)
-
-respuesta: uno_de(["opcion_b", "opcion_a", "opcion_c"])
-opciones_explicitas: ["opcion_b", "opcion_a", "opcion_c"]
-tipo: mc
-
-enunciado: "Si elegís la opción A (valor 100) en lugar de la B (valor 200) y la C (valor 50), ¿cuál fue el costo de oportunidad de tu decisión?"
-
-explicacion: |
-  El costo de oportunidad es el valor de la MEJOR alternativa no elegida. Entre B y C, la mejor es B.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "basico"
-  tags: ["educacion", "tiempo"]
-
-variables:
-  horas_estudio: random(2, 5)
-  salario_hora: random(800, 1200)
-
-respuesta: "{horas_estudio * salario_hora}"
-tipo: input
-
-enunciado: "Si dedicas {horas_estudio} horas a estudiar y podrías haber trabajado a {salario_hora} pesos/hora, tu costo de oportunidad monetario es:"
-
-explicacion: |
-  Multiplicamos el tiempo dedicado a la actividad no remunerada por el salario de la mejor alternativa laboral.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "intermedio"
-  tags: ["definicion_tecnica", "mc"]
-
-variables:
-  opcion_a: "El costo total de producción"
-  opcion_b: "El beneficio de la mejor alternativa renunciada"
-  opcion_c: "El gasto fijo"
-  opcion_d: "El ingreso marginal"
-
-respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
-opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
-tipo: mc
-
-enunciado: "En economía, el costo de oportunidad es:"
-
-explicacion: |
-  Es el beneficio de la mejor alternativa a la que se renuncia.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "avanzado"
-  tags: ["politica_publica", "presupuesto"]
-
-variables:
-  presupuesto: random(1000000000, 5000000000)
-  hospitales: 5
-  escuelas: 10
-
-respuesta: "{presuesto / escuelas}"
-tipo: input
-
-enunciado: "Con un presupuesto de {presupuesto}, un gobierno puede construir {escuelas} escuelas o {hospitales} hospitales. ¿Cuál es el costo de oportunidad de construir una escuela en términos de hospitales?"
-
-explicacion: |
-  Primero calculamos el costo de una escuela (presupuesto/escuelas) y luego cuántos hospitales se pueden construir con ese monto (costo escuela / costo hospital). Nota: La respuesta correcta requiere calcular el valor relativo. Aquí simplificamos a la proporción directa si los costos unitarios fueran iguales, pero en realidad es (Presupuesto/Escuelas) / (Presupuesto/Hospitales) = Hospitales/Escuelas. Corrigiendo lógica: Costo 1 escuela = P/E. Costo 1 hospital = P/H. Cuántos hospitales con P/E? (P/E) / (P/H) = H/E.
-```
-
-```
-variables:
-  presupuesto: random(1000000000, 5000000000)
-  hospitales: 5
-  escuelas: 10
-
-respuesta: "{hospitales / escuelas}"
-tipo: input
-
-enunciado: "Con un presupuesto de {presupuesto}, un gobierno puede construir {escuelas} escuelas o {hospitales} hospitales. ¿Cuántos hospitales se dejan de construir por cada escuela construida?"
-
-explicacion: |
-  La proporción de intercambio es Hospitales/Escuelas. Por cada escuela, renunciamos a 0.5 hospitales.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "intermedio"
-  tags: ["distractor", "relevancia"]
-
-variables:
-  costo_pasaje: random(200, 500)
-  tiempo_viaje: 1
-  salario_hora: 1000
-
-respuesta: "{costo_pasaje}"
-tipo: input
-
-enunciado: "Si vas al trabajo, gastas {costo_pasaje} en pasaje y tardas {tiempo_viaje} hora. Si quedás en casa, ahorrás el pasaje pero perdés el salario de {salario_hora}. Si tu decisión es ir al trabajo, ¿cuál es el costo de oportunidad de QUEDARTE en casa?"
-
-explicacion: |
-  Si te quedás en casa, el costo es el salario perdido. El pasaje es un costo de ir al trabajo, no de quedarte.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "intermedio"
-  tags: ["distractor", "relevancia"]
-
-variables:
-  costo_pasaje: random(200, 500)
-  tiempo_viaje: 1
-  salario_hora: 1000
-
-respuesta: "{salario_hora}"
-tipo: input
-
-enunciado: "Si vas al trabajo, gastas {costo_pasaje} en pasaje. Si quedás en casa, ahorrás el pasaje pero perdés el salario de {salario_hora}. Si tu opción elegida es 'quedarse en casa', ¿cuál es el costo de oportunidad monetario?"
-
-explicacion: |
-  El costo de oportunidad de quedarse en casa es el ingreso que dejás de ganar trabajando.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "basico"
-  tags: ["tiempo", "mc"]
-
-variables:
-  opcion_a: "El sueño perdido"
-  opcion_b: "El salario de la hora no trabajada"
-  opcion_c: "El precio del café"
-  opcion_d: "El tiempo de preparación del café"
-
-respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
-opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
-tipo: mc
-
-enunciado: "Si te tomás un café de 15 minutos en lugar de trabajar, el costo de oportunidad es:"
-
-explicacion: |
-  El costo de oportunidad es el valor de la mejor alternativa, es decir, el salario que dejás de ganar en esos 15 minutos.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "intermedio"
-  tags: ["educacion_superior", "costo_total"]
-
-variables:
-  matricula: random(10000, 50000)
-  mensualidad: random(5000, 20000)
-  salario_anual: random(2000000, 4000000)
-  anos: 4
-
-respuesta: "{matricula + (mensualidad * 12 * anos) + (salario_anual * anos)}"
-tipo: input
-
-enunciado: "Para estudiar una carrera de {anos} años, pagás {matricula} de matrícula y {mensualidad} mensuales. Además, dejás de ganar {salario_anual} anuales. ¿Cuál es el costo de oportunidad total de la carrera?"
-
-explicacion: |
-  El costo de oportunidad total incluye los costos directos (matrícula y mensualidades) más el ingreso perdido (salario).
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "basico"
-  tags: ["definicion", "mc"]
-
-variables:
-  opcion_a: "Cualquier alternativa"
-  opcion_b: "La alternativa con menor costo monetario"
-  opcion_c: "La mejor alternativa disponible"
-  opcion_d: "La primera alternativa pensada"
-
-respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
-opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
-tipo: mc
-
-enunciado: "El costo de oportunidad se calcula considerando:"
-
-explicacion: |
-  Solo la MEJOR alternativa disponible. Las otras opciones no elegidas no cuentan.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "basico"
-  tags: ["tiempo_libre", "ejemplo"]
-
-variables:
-  horas_libres: random(2, 4)
-  valor_hora_diversion: random(500, 1000)
-
-respuesta: "{horas_libres * valor_hora_diversion}"
-tipo: input
-
-enunciado: "Si valorás tu hora de diversión en {valor_hora_diversion} pesos y decidís trabajar por {horas_libres} horas en lugar de divertirte, ¿cuál es el costo de oportunidad de trabajar?"
-
-explicacion: |
-  El costo de oportunidad es el valor subjetivo de la diversión perdida.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "intermedio"
-  tags: ["costo_implicito", "mc"]
-
-variables:
-  opcion_a: "El alquiler del local"
-  opcion_b: "El salario que el dueño deja de ganar"
-  opcion_c: "La luz del negocio"
-  opcion_d: "El sueldo de los empleados"
-
-respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
-opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
-tipo: mc
-
-enunciado: "En un negocio propio, ¿cuál de estos es un costo de oportunidad implícito?"
-
-explicacion: |
-  El salario que el dueño deja de ganar trabajando en otra parte es un costo implícito. Los otros son costos explícitos.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "intermedio"
-  tags: ["tierra", "uso_suelo"]
-
-variables:
-  opcion_a: "El precio de venta de la tierra"
-  opcion_b: "El cultivo que se deja de sembrar"
-  opcion_c: "El costo de la maquinaria"
-  opcion_d: "El salario del agricultor"
-
-respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
-opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
-tipo: mc
-
-enunciado: "Si usás una tierra para construir casas en lugar de sembrar trigo, el costo de oportunidad es:"
-
-explicacion: |
-  El beneficio que hubieras obtenido con la siembra de trigo.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "basico"
-  tags: ["transporte", "tiempo"]
-
-variables:
-  tiempo_auto: 60
-  tiempo_bus: 90
-  salario_hora: 1000
-
-respuesta: "{(tiempo_bus - tiempo_auto) * salario_hora / 60}"
-tipo: input
-
-enunciado: "El auto tarda {tiempo_auto} minutos y el bus {tiempo_bus} minutos. Si tu hora vale {salario_hora} pesos, ¿cuánto dinero perdés de tiempo si elegís el bus en lugar del auto?"
-
-explicacion: |
-  La diferencia de tiempo multiplicada por el valor de tu hora.
-```
-
-```
-metadata:
-  materia: "Economía"
-  tema: "costo_de_oportunidad"
-  nivel: "avanzado"
-  tags: ["naturaleza", "subjetivo"]
-
-variables:
-  opcion_a: "Objetivo y contable"
-  opcion_b: "Subjetivo y basado en preferencias"
-  opcion_c: "Fijo e inmutable"
-  opcion_d: "Irrelevante para la decisión"
-
-respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
-opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
-tipo: mc
-
-enunciado: "El costo de oportunidad es fundamentalmente:"
-
-explicacion: |
-  Subjetivo, ya que depende de las preferencias y valoraciones individuales de la mejor alternativa.
-```

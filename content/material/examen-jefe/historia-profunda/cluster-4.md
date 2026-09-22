@@ -1,105 +1,394 @@
-# Examen jefe — De Mesoamérica al Cosmos
+# Examen jefe — [PENDIENTE #684]
 
-> Logro #102. Completaste el examen que abarca desde las civilizaciones precolombinas hasta la expansión del universo. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **124 preguntas totales** en 5/5 secciones.
+> Logro #684. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: civilizaciones-de-america-precolombinas (24 preguntas)
+## Sección: civilizaciones-de-america-precolombinas (25 preguntas)
 
 ```
-### 2 — Estructura política inca
-```
-
-```
-### 3 — Sistema de escritura azteca
-```
-
-```
-### 4 — Agricultura en el Valle de México
-```
-
-```
-### 5 — Descubrimiento de la pirámide de Kukulkán
-```
-
-```
-### 6 — Colapso de la civilización maya clásica
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["aztecas", "mexica", "tenochtitlan"]
+tipo: completar
+enunciado: "El centro ceremonial y político de la capital del Imperio Mexica, fundada en una isla del lago de Texcoco, se llamaba ___."
+respuesta: "tenochtitlan"
+respuestas_validas:
+  - "tenochtitlan"
+  - "Tenochtitlan"
+  - "Tenochtitlá"
+  - "Tenochtitlán"
+explicacion: "Tenochtitlan fue la capital azteca, construida sobre el lago de Texcoco y destruida por los conquistadores españoles en 1521."
 ```
 
 ```
-### 7 — Lengua franca del Tahuantinsuyo
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["inca", "tawantinsuyu", "administracion"]
+tipo: mc
+enunciado: "¿Cómo se denominaba el imperio incaico, que significaba 'Las cuatro regiones' o 'Los cuatro suyus'?"
+opciones_explicitas:
+  - "Tawantinsuyu"
+  - "Mesoamérica"
+  - "Teotihuacán"
+  - "Chinampas"
+respuesta: "Tawantinsuyu"
+explicacion: "El nombre Tawantinsuyu refleja la división territorial del imperio en cuatro grandes regiones unidas por el Sapa Inca."
 ```
 
 ```
-### 8 — Calendario maya
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["aztecas", "codices", "escritura"]
+tipo: vf
+enunciado: "Los aztecas poseían un sistema de escritura fonético completo idéntico al alfabeto latino."
+respuesta: falso
+explicacion: "Los aztecas utilizaban un sistema mixto pictográfico e ideográfico, no un alfabeto fonético completo. La escritura fonética completa es característica de los mayas."
 ```
 
 ```
-### 9 — Sacrificio humano azteca
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["aztecas", "chinampas", "agricultura"]
+tipo: completar
+enunciado: "Los aztecas desarrollaron ___ para cultivar en las aguas poco profundas del lago de Texcoco."
+respuesta: "chinampas"
+respuestas_validas:
+  - "chinampas"
+  - "Chinampas"
+explicacion: "Las chinampas eran islas artificiales creadas para la agricultura intensiva, permitiendo hasta siete cosechas al año."
 ```
 
 ```
-### 10 — Qhapaq Ñan
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["mayas", "chichen-itzá", "equinoccio"]
+tipo: vf
+enunciado: "Durante los equinoccios, la sombra proyectada por la pirámide de Kukulcán en Chichén Itzá crea la ilusión de una serpiente descendiendo por la escalinata principal."
+respuesta: verdadero
+explicacion: "Este fenómeno óptico demuestra el avanzado conocimiento astronómico de los mayas y su integración con la arquitectura religiosa."
 ```
 
 ```
-### 11 — Escritura jeroglífica maya
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["mayas", "colapso", "clasico"]
+tipo: mc
+enunciado: "¿Cuál de los siguientes factores es ampliamente citado por los arqueólogos como una causa probable del colapso de las ciudades estado mayas del período Clásico?"
+opciones_explicitas:
+  - "Sequías prolongadas combinadas con deforestación"
+  - "Invasión masiva de ejércitos europeos"
+  - "Epidemia de viruela traída por los nativos"
+  - "Erupción volcánica que enterró Tikal"
+respuesta: "Sequías prolongadas combinadas con deforestación"
+explicacion: "Evidencias paleoclimáticas sugieren que sequías severas agravaron la presión social y ambiental sobre los recursos hídricos."
 ```
 
 ```
-### 12 — Sapa Inca
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["inca", "quechua", "lengua"]
+tipo: completar
+enunciado: "El imperio incaico promovió el uso del ___ como lengua franca para unir a los diversos pueblos conquistados."
+respuesta: "quechua"
+respuestas_validas:
+  - "quechua"
+  - "Quechua"
+  - "runa simi"
+  - "Runa Simi"
+explicacion: "El quechua fue impuesto y difundido como herramienta administrativa y cultural del estado incaico."
 ```
 
 ```
-### 13 — Tenochtitlan y la Triple Alianza
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["mayas", "calendario", "tzolkin"]
+tipo: mc
+enunciado: "¿Qué calendario sagrado maya de 260 días se utilizaba principalmente para rituales y adivinación?"
+opciones_explicitas:
+  - "Tzolk'in"
+  - "Haab'"
+  - "Cuenta Larga"
+  - "Xul"
+respuesta: "Tzolk'in"
+explicacion: "El Tzolk'in era el calendario sagrado de 260 días, mientras que el Haab' era el solar de 365 días."
 ```
 
 ```
-### 14 — Quipu inca
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["aztecas", "sacrificio", "huitzilopochtli"]
+tipo: vf
+enunciado: "Los aztecas creían que el sacrificio humano era necesario para alimentar al sol y evitar que el mundo terminara."
+respuesta: verdadero
+explicacion: "La cosmovisión mexica exigía el 'nauxtlan' o sangre vital para mantener el ciclo cósmico y la posición de Huitzilopochtli."
 ```
 
 ```
-### 15 — Chichén Itzá y el equinoccio
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["inca", "qhapaq_ñan", "vías"]
+tipo: completar
+enunciado: "El sistema de caminos principal del imperio inca, que conectaba todo el territorio desde Colombia hasta Chile, se llamaba ___."
+respuesta: "qhapaq ñan"
+respuestas_validas:
+  - "qhapaq ñan"
+  - "Qhapaq Ñan"
+  - "camino real"
+  - "Camino Real"
+explicacion: "El Qhapaq Ñan era una red de más de 30,000 km de caminos, algunos pavimentados, fundamentales para la logística imperial."
 ```
 
 ```
-### 16 — Mesoamérica vs América del Sur
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["mayas", "escritura", "jeroglíficos"]
+tipo: vf
+enunciado: "La escritura jeroglífica maya fue completamente descifrada en el siglo XX y permite leer textos históricos y dinásticos."
+respuesta: verdadero
+explicacion: "Avances en la epigrafía maya desde la segunda mitad del siglo XX permitieron descifrar la mayor parte de sus glifos, revelando su naturaleza logofonética."
 ```
 
 ```
-### 17 — Tlaxcala y los españoles
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["inca", "sapa_inca", "gobernante"]
+tipo: completar
+enunciado: "El emperador del imperio inca, considerado hijo del dios Sol, recibía el título de ___."
+respuesta: "sapa inca"
+respuestas_validas:
+  - "sapa inca"
+  - "Sapa Inca"
+  - "capac"
+  - "Capac"
+explicacion: "El Sapa Inca ('Inca Único') era la máxima autoridad política y religiosa, visto como un ser divino."
 ```
 
 ```
-### 18 — Machu Picchu
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["aztecas", "triple_alianza", "tezcoco"]
+tipo: mc
+enunciado: "¿Qué dos ciudades-estado formaron la Triple Alianza junto con Tenochtitlan para dominar el Valle de México?"
+opciones_explicitas:
+  - "Texcoco y Tlacopan"
+  - "Teotihuacán y Cholula"
+  - "Tula y Xochicalco"
+  - "Monte Albán y Palenque"
+respuesta: "Texcoco y Tlacopan"
+explicacion: "La Triple Alianza (1428) unió a Tenochtitlan, Texcoco y Tlacopan, marcando el inicio del apogeo del poderío mexica."
 ```
 
 ```
-### 19 — Cosecha principal maya
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["inca", "quipu", "registro"]
+tipo: completar
+enunciado: "Los incas utilizaban ___ para registrar datos numéricos, censos y posiblemente narrativas históricas mediante nudos en cuerdas."
+respuesta: "quipus"
+respuestas_validas:
+  - "quipus"
+  - "Quipus"
+  - "quipo"
+  - "Quipo"
+explicacion: "Los quipus eran dispositivos de registro basados en cuerdas y nudos, siendo la principal herramienta de administración del estado inca."
 ```
 
 ```
-### 20 — Conquista de Tenochtitlan
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["mayas", "chichen-itzá", "astronomía"]
+tipo: mc
+enunciado: "¿En qué península se encuentra el sitio arqueológico de Chichén Itzá?"
+opciones_explicitas:
+  - "Yucatán"
+  - "Baja California"
+  - "Istmo de Tehuantepec"
+  - "Guerrero"
+respuesta: "Yucatán"
+explicacion: "Chichén Itzá está ubicada en la península de Yucatán, en el sureste de México, fue un importante centro maya y postclásico."
 ```
 
 ```
-### 21 — Pukara y Chavín
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["mesoamerica", "definicion", "geografia"]
+tipo: vf
+enunciado: "Mesoamérica es una región cultural que incluye exclusivamente el territorio de lo que hoy es México."
+respuesta: falso
+explicacion: "Mesoamérica se extiende desde el centro de México hasta partes de Guatemala, Belice, El Salvador y Honduras, compartiendo rasgos culturales comunes."
 ```
 
 ```
-### 22 — Calendario de Cuenta Larga
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["aztecas", "tlaxcala", "conquista"]
+tipo: mc
+enunciado: "¿Qué ciudad-estado mesoamericana, enemiga jurada de los aztecas, se alió con Hernán Cortés para derrotar a Tenochtitlan?"
+opciones_explicitas:
+  - "Tlaxcala"
+  - "Cholula"
+  - "Texcoco"
+  - "Tula"
+respuesta: "Tlaxcala"
+explicacion: "Tlaxcala resistió el dominio azteca durante décadas y su alianza fue crucial para la victoria española."
 ```
 
 ```
-### 23 — Mitmaes
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["inca", "machu_picchu", "patrimonio"]
+tipo: completar
+enunciado: "La ciudadela inca ubicada en una creasta montañosa a 2,430 metros de altura, conocida como la 'Ciudad Perdida', es ___."
+respuesta: "machu picchu"
+respuestas_validas:
+  - "machu picchu"
+  - "Machu Picchu"
+  - "machupicchu"
+explicacion: "Machu Picchu es un ejemplo magistral de ingeniería inca y arquitectura religiosa, probablemente una residencia real o santuario."
 ```
 
 ```
-### 24 — Teotihuacán
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["mayas", "maiz", "agricultura"]
+tipo: mc
+enunciado: "¿Cuál era el cultivo básico y sagrado para la alimentación y la cosmología de las civilizaciones mayas?"
+opciones_explicitas:
+  - "Maíz"
+  - "Trigo"
+  - "Arroz"
+  - "Cebada"
+respuesta: "Maíz"
+explicacion: "El maíz era la base de la dieta y el tema central del Popol Vuh, donde los humanos fueron creados de masa de maíz."
 ```
 
 ```
-### 25 — Yanaconas
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["aztecas", "conquista", "1521"]
+tipo: vf
+enunciado: "La caída de Tenochtitlan ante las fuerzas de Hernán Cortés y sus aliados indígenas ocurrió en 1521."
+respuesta: verdadero
+explicacion: "El asedio final terminó el 13 de agosto de 1521, marcando el fin del Imperio Mexica."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["andino", "chavin", "pukara", "culturas"]
+tipo: mc
+enunciado: "¿Cuál de estas culturas andinas es considerada una 'cultura matriz' o madre de las civilizaciones posteriores en los Andes centrales?"
+opciones_explicitas:
+  - "Chavín"
+  - "Moche"
+  - "Nazca"
+  - "Wari"
+respuesta: "Chavín"
+explicacion: "La cultura Chavín (900-200 a.C.) estableció patrones religiosos y artísticos que influyeron en toda la región andina posterior."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["mayas", "calendario", "cuenta_larga"]
+tipo: completar
+enunciado: "Los mayas utilizaban el sistema de ___ para contar días históricos desde una fecha de origen mítica."
+respuesta: "cuenta larga"
+respuestas_validas:
+  - "cuenta larga"
+  - "Cuenta Larga"
+  - "cuenta larga maya"
+  - "Cuenta Larga Maya"
+explicacion: "La Cuenta Larga es un sistema de conteo acumulativo que registra el paso del tiempo en periodos de 20 días (winal) y otros."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["inca", "mitmaes", "politica"]
+tipo: mc
+enunciado: "¿Cómo se llamaba a las poblaciones trasladadas por los incas a nuevas regiones para asegurar la lealtad y difundir la cultura?"
+opciones_explicitas:
+  - "Mitmaes"
+  - "Yanaconas"
+  - "Ayllu"
+  - "Curacas"
+respuesta: "Mitmaes"
+explicacion: "Los mitmaes eran grupos reasentados estratégicamente por el estado inca para romper lealtades previas y controlar territorios."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["teotihuacan", "mesoamerica", "clasico"]
+tipo: vf
+enunciado: "Teotihuacán fue una gran ciudad del período Clásico temprano que alcanzó gran poder antes del ascenso de los aztecas."
+respuesta: verdadero
+explicacion: "Teotihuacán floreció entre el 100 y el 750 d.C., mucho antes de que los aztecas llegaran al valle y la nombraran 'el lugar donde los hombres se convierten en dioses'."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "civilizaciones-de-america-precolombinas"
+  nivel: "intermedio"
+  tags: ["inca", "yanaconas", "servidumbre"]
+tipo: completar
+enunciado: "Los ___ eran personas entregadas al servicio personal del Sapa Inca o del estado, con un estatus de servidumbre vitalicia."
+respuesta: "yanaconas"
+respuestas_validas:
+  - "yanaconas"
+  - "Yanaconas"
+explicacion: "Los yanaconas servían en las haciendas reales o templos, diferenciándose de la mayoría de la población organizada en ayllus."
 ```
 
 ## Sección: conquista-colonizacion-america (25 preguntas)
@@ -113,6 +402,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["América", "Asia", "África", "Oceanía"]
+respuesta: "Asia"
 
 enunciado: "En el año 1492, el viaje de Cristóbal Colón buscaba una ruta comercial hacia ___."
 
@@ -128,13 +418,13 @@ metadata:
   tags: ["aztecas", "conquista", "mexico"]
 
 variables:
-  escenario: uno_de([
-    ["Hernán Cortés", "Tenochtitlán", "Mexicas"],
-    ["Francisco Pizarro", "Cuzco", "Incas"]
-  ])
+  escenario: uno_de([["Hernán Cortés", "Tenochtitlán", "Mexicas"], ["Francisco Pizarro", "Cuzco", "Incas"]])
 
 tipo: completar
-respuestas_validas: ["Hernán Cortés", "Tenochtitlán", "Mexicas"]
+respuestas_validas:
+  - "Hernán Cortés"
+  - "Tenochtitlán"
+  - "Mexicas"
 
 enunciado: "El conquistador español que lideró la caída del imperio de los {escenario[2]} fue {escenario[0]}, tomando como centro la ciudad de {escenario[1]}."
 
@@ -156,6 +446,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["España", "Portugal", "Inglaterra", "Francia"]
+respuesta: "Portugal"
 
 enunciado: "El Tratado de Tordesillas (1494) dividió las zonas de exploración y conquista entre España y ___."
 
@@ -175,7 +466,9 @@ tolerancia_abs: 0
 
 enunciado: "Además de las guerras, un factor determinante en la caída de la población indígena fue la llegada de enfermedades como la viruela. ¿El efecto demográfico fue de aumento o disminución? (Escribe 'aumento' o 'disminución')"
 
-respuestas_validas: ["aumento", "disminución"]
+respuesta: "disminución"
+respuestas_validas:
+  - "disminución"
 
 explicacion: |
   La introducción de patógenos europeos causó una catástrofe demográfica en las poblaciones originarias.
@@ -195,6 +488,7 @@ enunciado: "Ordena cronológicamente los siguientes hitos de la conquista españ
 
 explicacion: |
   Primero ocurrió el viaje de Colón (1492), luego la conquista del Imperio Azteca (1521) y finalmente la organización administrativa de los territorios en virreinatos.
+respuesta_orden: ["Llegada de Colón", "Caída de Tenochtitlán", "Establecimiento del Virreinato del Perú"]
 ```
 
 ```
@@ -206,7 +500,11 @@ metadata:
 
 respuesta: "viruela"
 tipo: completar
-respuestas_validas: ["viruela", "viruela", "sarampión", "sarampión"]
+respuestas_validas:
+  - "viruela"
+  - "viruela"
+  - "sarampión"
+  - "sarampión"
 
 enunciado: "Uno de los factores biológicos más devastadores durante la conquista fue la propagación de la ___, enfermedad que causó una mortalidad masiva en las poblaciones indígenas debido a la falta de inmunidad previa."
 
@@ -239,7 +537,7 @@ metadata:
   tags: ["proceso", "causas"]
 
 opciones_explicitas: ["Llegada de patógenos", "Desestructuración social", "Colapso demográfico masivo"]
-respuesta: ["Llegada de patógenos", "Desestructuración social", "Colapso demográfico masivo"]
+respuesta_orden: ["Llegada de patógenos", "Desestructuración social", "Colapso demográfico masivo"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los procesos que explican la catástrofe demográfica en el continente americano:"
@@ -263,7 +561,9 @@ pasos:
 
 respuesta: "sarampión"
 tipo: completar
-respuestas_validas: ["sarampión", "sarampión"]
+respuestas_validas:
+  - "sarampión"
+  - "sarampión"
 
 explicacion: |
   Al ser virus nuevos para estas poblaciones, no existían anticuerpos previos, lo que permitía que la enfermedad se propagara de forma explosiva entre comunidades enteras.
@@ -295,7 +595,8 @@ metadata:
 
 respuesta: "tributo"
 tipo: "completar"
-respuestas_validas: ["tributo"]
+respuestas_validas:
+  - "tributo"
 
 enunciado: "En el sistema de la encomienda, la Corona española otorgaba a un encomendero el derecho de recibir ___ en forma de trabajo o productos por parte de los indígenas a cambio de su evangelización."
 
@@ -312,13 +613,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0,1])
-  escenarios: [[["Potosí", "Plata"], ["Huancavelica", "Mercurio"]]]
+  escenarios: [["Potosí", "Plata"], ["Huancavelica", "Mercurio"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: "mc"
 opciones_explicitas: ["Plata", "Mercurio", "Oro", "Azogue"]
 
-enunciado: "Durante la colonia, la mita fue un sistema de trabajo obligatorio para los indígenas. En el caso de la mita de Potosí, el recurso principal extraído era el/la {escenarios[escenario_idx][0]}."
+enunciado: "Durante la colonia, la mita fue un sistema de trabajo obligatorio para los indígenas. En el caso de la mita de {escenarios[escenario_idx][0]}, el recurso principal extraído era el/la {escenarios[escenario_idx][1]}."
 
 explicacion: |
   La mita minera fue una adaptación de la mita incaica utilizada por los españoles para asegurar mano de obra en las minas de plata de Potosí y de mercurio en Huancavelica.
@@ -348,7 +649,7 @@ metadata:
   nivel: "avanzado"
   tags: ["orden", "procesos_coloniales"]
 
-respuesta: ["Conquista", "Encomienda", "Mita"]
+respuesta_orden: ["Conquista", "Encomienda", "Mita"]
 tipo: "ordenar"
 opciones_explicitas: ["Mita", "Conquista", "Encomienda"]
 
@@ -387,15 +688,11 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1, 2])
-  datos: [
-    ["maíz", "Eurasia", "Europa"],
-    ["caballo", "América", "Europa"],
-    ["viruela", "América", "Eurasia"]
-  ]
+  datos: [["maíz", "América", "Europa"], ["caballo", "Europa", "América"], ["viruela", "Europa", "América"]]
 
 enunciado: "Tras el contacto de 1492, el intercambio colombino permitió que el {datos[escenario_idx][0]} fuera llevado desde {datos[escenario_idx][1]} hacia {datos[escenario_idx][2]}."
 
-respuesta: datos[escenario_idx][2
+respuesta: datos[escenario_idx][2]
 tipo: mc
 opciones_explicitas: ["América", "Europa", "África", "Asia"]
 
@@ -412,16 +709,14 @@ metadata:
 
 variables:
   enfermedad_idx: uno_de([0, 1])
-  enfermedades: [
-    ["viruela", "catastrófico"],
-    ["sarampión", "catastrófico"]
-  ]
+  enfermedades: [["viruela", "catastrófico"], ["sarampión", "catastrófico"]]
 
 enunciado: "La llegada de la {enfermedades[enfermedad_idx][0]} a América tuvo un impacto ___ en la población indígena."
 
-respuesta: enfermedades[enfermedad_idx][1
+respuesta: enfermedades[enfermedad_idx][1]
 tipo: completar
-respuestas_validas: ["catastrófico"]
+respuestas_validas:
+  - "catastrófico"
 
 explicacion: |
   Las poblaciones indígenas de América no tenían inmunidad contra enfermedades euroasiáticas como la viruela o el sarampión, lo que causó un colapso demográfico masivo.
@@ -468,9 +763,10 @@ metadata:
   nivel: "avanzado"
   tags: ["procesos", "historia"]
 
-respuesta: ["Llegada de Colón", "Introducción de especies", "Transformación ecológica"]
+enunciado: "Ordená cronológicamente el proceso del intercambio colombino:"
+respuesta_orden: ["Llegada de Colón", "Introducción de especies", "Transformación ecológica"]
 tipo: ordenar
-opciones_explicitas: ["Llegada de Colón", "Introducción de especies", "Transformación ecológica", "Descubrimiento de oro"]
+opciones_explicitas: ["Introducción de especies", "Llegada de Colón", "Transformación ecológica"]
 
 explicacion: |
   El proceso comenzó con el contacto inicial, seguido por la transferencia biológica de especies y culminó en una transformación ecológica y cultural permanente de ambos hemisferios.
@@ -487,7 +783,7 @@ variables:
   escenario: [[ "maíz", "América" ], [ "trigo", "Eurasia" ], [ "papa", "América" ], [ "arroz", "Eurasia" ]]
   idx: uno_de([0,1,2,3])
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: mc
 opciones_explicitas: ["América", "Eurasia", "África", "Oceanía"]
 
@@ -508,7 +804,7 @@ variables:
   escenario: [[ "caballo", "Eurasia" ], [ "pavo", "América" ], [ "cerdo", "Eurasia" ], [ "tomate", "América" ]]
   idx: uno_de([0,1,2,3])
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: mc
 opciones_explicitas: ["América", "Eurasia", "Oceanía", "África"]
 
@@ -529,9 +825,11 @@ variables:
   escenario: [[ "Cacao", "América" ], [ "Café", "Eurasia" ], [ "Azúcar", "Eurasia" ], [ "Tabaco", "América" ]]
   idx: uno_de([0,1,2,3])
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: completar
-respuestas_validas: ["América", "Eurasia"]
+respuestas_validas:
+  - "América"
+  - "Eurasia"
 
 enunciado: "El producto {escenario[idx][0]} es originario de _______."
 
@@ -547,14 +845,14 @@ metadata:
   tags: ["intercambio_colombino", "orden"]
 
 variables:
-  escenario: [[ "Maíz, Trigo, Caballo", "América, Eurasia, Eurasia" ], [ "Papa, Café, Cerdo", "América, Eurasia, Eurasia" ]]
-  idx: uno_de([0,1,2])
+  idx: uno_de([0, 1])
+  escenario: [["Maíz, Trigo, Caballo", "América, Eurasia, Eurasia"], ["Papa, Trigo, Cerdo", "América, Eurasia, Eurasia"]]
 
-respuesta: escenario[idx][1
-tipo: ordenar
+respuesta: escenario[idx][1]
+tipo: mc
 opciones_explicitas: ["América, Eurasia, Eurasia", "Eurasia, América, América", "Eurasia, Eurasia, América"]
 
-enunciado: "Ordena el origen de los siguientes productos: {escenario[idx][0]}"
+enunciado: "Para los siguientes productos: {escenario[idx][0]}, ¿cuál es la secuencia correcta de su continente de origen?"
 
 explicacion: |
   La secuencia correcta refleja qué productos venían de América y cuáles de Eurasia.
@@ -568,10 +866,10 @@ metadata:
   tags: ["intercambio_colombino", "impacto"]
 
 variables:
-  escenario: [[ "Cebolla", "Eurasia" ], [ "Cacao", "América" ], [ "Cangrejo", "América" ], [ "Cabra", "Eurasia" ]]
+  escenario: [[ "Cebolla", "Eurasia" ], [ "Cacao", "América" ], [ "Girasol", "América" ], [ "Cabra", "Eurasia" ]]
   idx: uno_de([0,1,2,3])
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: mc
 opciones_explicitas: ["América", "Eurasia"]
 
@@ -592,7 +890,8 @@ metadata:
 
 respuesta: "plantas"
 tipo: completar
-respuestas_validas: ["plantas"]
+respuestas_validas:
+  - "plantas"
 
 enunciado: "Las primeras formas de vida en colonizar la tierra firme fueron las ___."
 
@@ -608,20 +907,16 @@ metadata:
   tags: ["cronologia", "evolucion"]
 
 variables:
-  escenario: uno_de([
-    ["plantas", "470", "artrópodos"],
-    ["artrópodos", "370", "plantas"],
-    ["tetrápodos", "370", "artrópodos"]
-  ])
+  escenario: uno_de([["plantas", "470"], ["artrópodos", "428"], ["tetrápodos", "365"]])
 
-respuesta: escenario[0
+respuesta: escenario[0]
 tipo: mc
 opciones_explicitas: ["plantas", "artrópodos", "tetrápodos"]
 
-enunciado: "De acuerdo con el registro fósil, ¿qué grupo fue el primero en colonizar la tierra firme hace {escenario[2]} millones de años?"
+enunciado: "De acuerdo con el registro fósil, ¿qué grupo colonizó la tierra firme hace aproximadamente {escenario[1]} millones de años?"
 
 explicacion: |
-  El orden de colonización fue: 1° Plantas (~470 Ma), 2° Artrópodos y 3° Tetrápodos (~370 Ma).
+  El orden de colonización fue: 1° Plantas (~470 Ma), 2° Artrópodos (~428 Ma) y 3° Tetrápodos (~365 Ma).
 ```
 
 ```
@@ -652,7 +947,7 @@ metadata:
   nivel: "avanzado"
   tags: ["orden", "evolucion"]
 
-respuesta: ["plantas", "artrópodos", "tetrápodos"]
+respuesta_orden: ["plantas", "artrópodos", "tetrápodos"]
 tipo: ordenar
 opciones_explicitas: ["plantas", "artrópodos", "tetrápodos"]
 
@@ -670,13 +965,9 @@ metadata:
   tags: ["comparacion", "tiempo"]
 
 variables:
-  datos: uno_de([
-    ["plantas", "artrópodos"],
-    ["artrópodos", "tetrápodos"],
-    ["plantas", "tetrápodos"]
-  ])
+  datos: uno_de([["plantas", "artrópodos"], ["artrópodos", "tetrápodos"], ["plantas", "tetrápodos"]])
 
-respuesta: datos[1
+respuesta: datos[1]
 tipo: mc
 opciones_explicitas: ["plantas", "artrópodos", "tetrápodos"]
 
@@ -695,7 +986,8 @@ metadata:
 
 respuesta: "cuticula"
 tipo: completar
-respuestas_validas: ["cuticula"]
+respuestas_validas:
+  - "cuticula"
 
 enunciado: "Para evitar la pérdida excesiva de agua por evaporación en ambientes terrestres, muchos organismos han desarrollado una capa protectora externa llamada ___."
 
@@ -710,15 +1002,11 @@ metadata:
   nivel: "intermedio"
   tags: ["soporte", "esqueleto"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["agua", "flotabilidad"], ["aire", "gravedad"]]
-
-respuesta: uno_de(["esqueleto interno", "flotabilidad"])
+respuesta: "esqueleto interno"
 tipo: mc
 opciones_explicitas: ["esqueleto interno", "flotabilidad", "flotabilidad neutra", "soporte hidrostático"]
 
-enunciado: "En el medio acuático, el empuje compensa el peso. Sin embargo, al pasar a vivir en el {datos[escenario_idx][0]}, los organismos necesitan estructuras de soporte para vencer la {datos[escenario_idx][1]}."
+enunciado: "En el medio acuático, el empuje compensa el peso. Sin embargo, al pasar a vivir en tierra firme, los organismos necesitan estructuras de soporte para vencer la gravedad, como un ___."
 
 explicacion: |
   En tierra, la gravedad actúa directamente sobre el cuerpo sin la ayuda del empuje hidrostático, lo que requiere estructuras rígidas (como esqueletos) para mantener la forma y permitir el movimiento.
@@ -748,18 +1036,12 @@ metadata:
   nivel: "avanzado"
   tags: ["evolucion", "respiracion"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  escenarios: [
-    ["branquias", "agua"],
-    ["pulmones", "aire"]
-  ]
-
-respuesta: uno_de(["branquias", "pulmones"])
+respuesta: "pulmones"
 tipo: completar
-respuestas_validas: ["branquias", "pulmones"]
+respuestas_validas:
+  - "pulmones"
 
-enunciado: "Si un organismo evoluciona de un medio de {escenarios[caso_idx][1]} a uno de aire, su sistema de intercambio gaseoso debe pasar de tener {escenarios[caso_idx][0]} a tener ___."
+enunciado: "Si un organismo evoluciona de un medio de agua a uno de aire, su sistema de intercambio gaseoso debe pasar de tener branquias a tener ___."
 
 explicacion: |
   La transición del agua al aire exige un cambio radical: de estructuras que dependen de la humedad constante (branquias) a órganos protegidos que eviten el colapso y la sequedad (pulmones).
@@ -772,9 +1054,9 @@ metadata:
   nivel: "avanzado"
   tags: ["evolucion", "secuencia"]
 
-respuesta: ["cuticula", "soporte", "pulmones"]
+respuesta_orden: ["cuticula", "soporte", "pulmones"]
 tipo: ordenar
-opciones_explicitas: ["cuticula", "soporte", "pulmones", "branquias", "flotabilidad"]
+opciones_explicitas: ["cuticula", "soporte", "pulmones"]
 
 enunciado: "Ordena las adaptaciones necesarias para colonizar la tierra firme, desde la prevención de la sequedad hasta la locomoción y la respiración:"
 
@@ -796,7 +1078,9 @@ metadata:
 
 respuesta: "sarcopterigios"
 tipo: completar
-respuestas_validas: ["sarcopterigios", "peces de aletas lobuladas"]
+respuestas_validas:
+  - "sarcopterigios"
+  - "peces de aletas lobuladas"
 
 enunciado: "Los tetrápodos evolucionaron a partir de un grupo específico de peces con aletas lobuladas conocidos como ___."
 
@@ -812,13 +1096,9 @@ metadata:
   tags: ["tiktaalik", "transicion", "paleontologia"]
 
 variables:
-  escenario: uno_de([
-    ["Tiktaalik roseae", "un fósil que muestra una transición entre peces y anfibios"],
-    ["Eusthenopteron", "un pez sarcopterigio más primitivo"],
-    ["Panderichthys", "un pez que muestra características de transición"]
-  ])
+  escenario: uno_de([["Tiktaalik roseae", "un fósil que muestra una transición entre peces y anfibios"], ["Eusthenopteron", "un pez sarcopterigio más primitivo"], ["Panderichthys", "un pez que muestra características de transición"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["un fósil que muestra una transición entre peces y anfibios", "un pez sarcopterigio más primitivo", "un pez que muestra características de transición"]
 
@@ -853,7 +1133,7 @@ metadata:
   tags: ["orden_evolutivo"]
 
 opciones_explicitas: ["Peces Actinopterigios", "Peces Sarcopterigios", "Tetrápodos"]
-respuesta: ["Peces Actinopterigios", "Peces Sarcopterigios", "Tetrápodos"]
+respuesta_orden: ["Peces Actinopterigios", "Peces Sarcopterigios", "Tetrápodos"]
 tipo: ordenar
 
 enunciado: "Ordena cronológicamente la línea evolutiva que lleva de los peces comunes a los vertebrados con cuatro extremidades:"
@@ -875,13 +1155,9 @@ metadata:
   tags: ["anatomia", "extremidades"]
 
 variables:
-  caracteristica: uno_de([
-    ["presencia de cuello", "permite mover la cabeza independientemente del tronco"],
-    ["presencia de escamas", "protección contra la desecación"],
-    ["presencia de branquias", "respiración acuática"]
-  ])
+  caracteristica: uno_de([["presencia de cuello", "permite mover la cabeza independientemente del tronco"], ["presencia de escamas", "protección contra la desecación"], ["presencia de branquias", "respiración acuática"]])
 
-respuesta: caracteristica[0
+respuesta: caracteristica[0]
 tipo: mc
 opciones_explicitas: ["presencia de cuello", "presencia de escamas", "presencia de branquias"]
 
@@ -945,14 +1221,10 @@ metadata:
   nivel: "intermedio"
   tags: ["ecologia", "sucesion", "animales"]
 
-opciones_explicitas:
-  - "Aparición de plantas pioneras"
-  - "Estabilización del suelo y ciclo del agua"
-  - "Colonización por animales terrestres"
-
-respuesta: ["Aparición de plantas pioneras", "Estabilización del suelo y ciclo del agua", "Colonización por animales terrestres"]
 tipo: ordenar
-
+opciones_explicitas: ["Aparición de plantas pioneras", "Estabilización del suelo y ciclo del agua", "Colonización por animales terrestres"]
+respuesta_orden: ["Aparición de plantas pioneras", "Estabilización del suelo y ciclo del agua", "Colonización por animales terrestres"]
+enunciado: "Ordená la secuencia correcta de la sucesión ecológica primaria."
 explicacion: |
   La sucesión ecológica comenzó con la colonización de sustratos desnudos por plantas pioneras, lo que permitió la formación de suelos y la regulación hídrica, creando finalmente el hábitat necesario para la fauna terrestre.
 ```
@@ -1004,41 +1276,52 @@ explicacion: |
 metadata:
   materia: "historia_profunda"
   tema: "conquista_tierra_firme"
-  nivel: "basico"
-  tags: ["conquista", "exploracion"]
+  nivel: "avanzado"
+  tags: ["artropodos", "silurico", "paleontologia"]
 
-variables:
-  datos: [["expedición de Colón", "1492"], ["expedición de Cortés", "1519"], ["expedición de Pizarro", "1532"]]
-  idx: uno_de([0,1,2])
+respuesta: "428"
+tipo: completar
+tolerancia_abs: 5
 
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["1492", "1519", "1532"]
-
-enunciado: "El año en que se produjo el evento de la {datos[idx][0]} fue en el año ___."
+enunciado: "El fósil de miriápodo Pneumodesmus newmani, considerado el animal terrestre que respira aire más antiguo conocido, data de hace aproximadamente ___ millones de años (período Silúrico)."
 
 explicacion: |
-  El año mencionado corresponde al inicio de la era de exploración y conquista según el escenario seleccionado.
+  Los artrópodos colonizaron la tierra firme mucho antes que los tetrápodos, ya en el Silúrico (hace ~428 millones de años), no recién hacia el final del Devónico.
 ```
 
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "conquista_tierra_ferme"
+  tema: "conquista_tierra_firme"
   nivel: "intermedio"
-  tags: ["ordenar", "cronologia"]
+  tags: ["plantas", "briofitas", "evolucion"]
 
-variables:
-  eventos: [["Llegada a las Antillas", "Llegada a México", "Conquista del Imperio Inca"], ["Llegada a las Antillas", "Llegada a México", "Conquista del Imperio Inca"]]
+respuesta: "falso"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
 
-respuesta: ["Llegada a las Antillas", "Llegada a México", "Conquista del Imperio Inca"]
-tipo: ordenar
-opciones_explicitas: ["Llegada a las Antillas", "Llegada a México", "Conquista del Imperio Inca"]
-
-enunciado: "Ordena cronológicamente los hitos de la conquista española en Tierra Firme:"
+enunciado: "¿Es correcto afirmar que las primeras plantas terrestres ya poseían raíces verdaderas y tejido vascular desarrollado, similares a los árboles actuales?"
 
 explicacion: |
-  La secuencia correcta comienza con las Antillas, sigue con la caída de los Aztecas y finaliza con la conquista de los Incas.
+  Falso. Las primeras plantas terrestres eran simples, parecidas a musgos y hepáticas, sin raíces verdaderas ni sistema vascular complejo; estas estructuras se desarrollaron más tarde, en plantas vasculares posteriores.
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "conquista_tierra_firme"
+  nivel: "intermedio"
+  tags: ["plantas", "esporas", "reproduccion"]
+
+respuesta: "esporas"
+tipo: completar
+respuestas_validas:
+  - "esporas"
+
+enunciado: "Las primeras plantas terrestres se reprodujeron principalmente mediante ___, estructuras resistentes a la desecación que les permitían dispersarse sin depender de un medio acuático constante."
+
+explicacion: |
+  A diferencia de las semillas (una innovación posterior), las esporas fueron el mecanismo reproductivo de las plantas pioneras, permitiéndoles colonizar ambientes terrestres secos.
 ```
 
 ```
@@ -1046,20 +1329,17 @@ metadata:
   materia: "historia_profunda"
   tema: "conquista_tierra_firme"
   nivel: "basico"
-  tags: ["personajes"]
+  tags: ["artropodos", "exoesqueleto", "adaptacion"]
 
-variables:
-  parejas: [["Hernán Cortés", "Imperio Azteca"], ["Francisco Pizarro", "Imperio Inca"], ["Diego Velázquez", "Cuba"]]
-  idx: uno_de([0,1,2])
+respuesta: "exoesqueleto"
+tipo: completar
+respuestas_validas:
+  - "exoesqueleto"
 
-respuesta: parejas[idx][1
-tipo: mc
-opciones_explicitas: ["Imperio Azteca", "Imperio Inca", "Cuba"]
-
-enunciado: "El conquistador {parejas[idx][0]} lideró la expedición contra el ___."
+enunciado: "La estructura externa rígida y cerosa que permitió a los artrópodos resistir la deshidratación al colonizar la tierra firme se denomina ___."
 
 explicacion: |
-  Cada conquistador estuvo vinculado a una región o imperio específico durante la expansión española.
+  El exoesqueleto de quitina, recubierto por una capa cerosa, reduce la pérdida de agua por evaporación, una de las principales amenazas para los primeros animales terrestres.
 ```
 
 ```
@@ -1067,40 +1347,16 @@ metadata:
   materia: "historia_profunda"
   tema: "conquista_tierra_firme"
   nivel: "avanzado"
-  tags: ["consecuencias"]
+  tags: ["tetrapodos", "diversificacion", "paleontologia"]
 
-variables:
-  datos: [["caída demográfica", "positiva"], ["encuentro cultural", "positiva"], ["colonización", "positiva"]]
-  idx: uno_de([0,1,2])
+respuesta: "falso"
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
 
-respuesta: datos[idx][1
-tipo: completar
-respuestas_validas: ["positiva"]
-
-enunciado: "Históricamente, el proceso de la {datos[idx][0]} se analiza como una consecuencia de carácter ___."
+enunciado: "¿Es correcto afirmar que, inmediatamente después de la aparición de los primeros tetrápodos en el Devónico, existe un registro fósil abundante y continuo de su diversificación en tierra?"
 
 explicacion: |
-  El término utilizado depende de la perspectiva historiográfica aplicada al evento seleccionado.
-```
-
-```
-metadata:
-  materia: "historia_profunda"
-  tema: "conquista_tierra_firme"
-  nivel: "intermedio"
-  tags: ["ordenar", "cronologia"]
-
-variables:
-  secuencia: ["Exploración de las Antillas", "Conquista de México", "Conquista del Perú"]
-
-respuesta: ["Exploración de las Antillas", "Conquista de México", "Conquista del Perú"]
-tipo: ordenar
-opciones_explicitas: ["Exploración de las Antillas", "Conquista de México", "Conquista del Perú"]
-
-enunciado: "Ordena los procesos de expansión territorial en orden cronológico:"
-
-explicacion: |
-  La expansión se movió desde el Caribe hacia el continente (México) y luego hacia el sur (Perú).
+  Falso. Existe un período con muy pocos fósiles de tetrápodos justo después de su aparición, conocido como el 'vacío de Romer' (Romer's Gap), que dificulta rastrear en detalle su diversificación temprana en el Carbonífero inicial.
 ```
 
 ## Sección: conquista-y-colonia-argentina (25 preguntas)
@@ -1113,13 +1369,9 @@ metadata:
   tags: ["conquista", "fundaciones"]
 
 variables:
-  escenario: uno_de([
-    ["Santiago del Estero", "1553"],
-    ["Córdoba", "1609"],
-    ["Buenos Aires (segunda)", "1580"]
-  ])
+  escenario: uno_de([["Santiago del Estero", "1553"], ["Córdoba", "1609"], ["Buenos Aires (segunda)", "1580"]])
 
-respuesta: escenario[0
+respuesta: escenario[0]
 tipo: mc
 opciones_explicitas: ["Santiago del Estero", "Córdoba", "Buenos Aires (segunda)"]
 
@@ -1138,7 +1390,7 @@ metadata:
 
 opciones_explicitas: ["Fundación de Santiago del Estero", "Segunda fundación de Buenos Aires", "Fundación de Córdoba"]
 
-respuesta: ["Fundación de Santiago del Estero", "Segunda fundación de Buenos Aires", "Fundación de Córdoba"]
+respuesta_orden: ["Fundación de Santiago del Estero", "Segunda fundación de Buenos Aires", "Fundación de Córdoba"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los siguientes eventos de la conquista y colonización:"
@@ -1161,7 +1413,8 @@ metadata:
 
 respuesta: "Juan de Garay"
 tipo: completar
-respuestas_validas: ["Juan de Garay"]
+respuestas_validas:
+  - "Juan de Garay"
 
 enunciado: "La segunda fundación de la ciudad de Buenos Aires en 1580 fue liderada por ___."
 
@@ -1194,14 +1447,10 @@ metadata:
   tags: ["geografia_historica"]
 
 variables:
-  datos: [
-    ["Santiago del Estero", "1553"],
-    ["Córdoba", "1609"],
-    ["Buenos Aires", "1580"]
-  ]
+  datos: [["Santiago del Estero", "1553"], ["Córdoba", "1609"], ["Buenos Aires", "1580"]]
   idx: uno_de([0,1,2])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["1553", "1609", "1580"]
 
@@ -1220,7 +1469,8 @@ metadata:
 
 respuesta: "Perú"
 tipo: completar
-respuestas_validas: ["Perú"]
+respuestas_validas:
+  - "Perú"
 
 enunciado: "Antes de la creación del Virreinato del Río de la Plata, el territorio que hoy ocupa Argentina pertenecía al Virreinato del ___."
 
@@ -1253,7 +1503,7 @@ metadata:
   tags: ["orden_cronologico", "virreinatos"]
 
 opciones_explicitas: ["Virreinato del Perú", "Virreinato del Río de la Plata", "Estado Argentino"]
-respuesta: ["Virreinato del Perú", "Virreinato del Río de la Plata", "Estado Argentino"]
+respuesta_orden: ["Virreinato del Perú", "Virreinato del Río de la Plata", "Estado Argentino"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente las etapas de organización política del territorio que hoy es Argentina:"
@@ -1269,17 +1519,12 @@ metadata:
   nivel: "basico"
   tags: ["capitales", "geografia_colonial"]
 
-variables:
-  escenario: uno_de([
-    ["1776", "Río de la Plata"],
-    ["1542", "Perú"]
-  ])
-
 respuesta: "Río de la Plata"
 tipo: completar
-respuestas_validas: ["Río de la Plata"]
+respuestas_validas:
+  - "Río de la Plata"
 
-enunciado: "En el año {escenario[0]}, se fundó el Virreinato del {escenario[1]}."
+enunciado: "En el año 1776, se fundó el Virreinato del ___."
 
 explicacion: |
   La reforma administrativa de 1776 fue fundamental para el desarrollo de la región del Plata.
@@ -1328,7 +1573,8 @@ metadata:
   tags: ["fundacion", "buenos_aires", "fracaso"]
 
 tipo: completar
-respuestas_validas: ["fracasó", "prosperó", "fue destruida"]
+respuestas_validas:
+  - "fracasó"
 
 enunciado: "A diferencia de la segunda fundación, la expedición de Pedro de Mendoza en 1536 ___ y la ciudad fue posteriormente abandonada."
 
@@ -1346,15 +1592,15 @@ metadata:
   tags: ["fundacion", "buenos_aires", "juan_de_garay"]
 
 variables:
+  datos: [["Juan de Garay", "Juan de Garay"], ["Pedro de Mendoza", "Pedro de Mendoza"]]
   idx: uno_de([0, 1])
+  respuesta_correcta: datos[idx][1]
 
-respuesta: datos[idx][1
+respuesta: respuesta_correcta
 tipo: mc
 opciones_explicitas: ["Juan de Garay", "Pedro de Mendoza"]
 
 enunciado: "En el año 1580, la segunda fundación de Buenos Aires, que finalmente logró consolidarse y prosperar, fue llevada a cabo por: ___"
-
-datos: [["Juan de Garay", "Juan de Garay"], ["Pedro de Mendoza", "Pedro de Mendoza"]]
 
 explicacion: |
   Juan de Garay lideró la segunda fundación en 1580, estableciendo un asentamiento que sí logró perdurar en el tiempo, a diferencia del intento de 1536.
@@ -1370,7 +1616,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Fundación de Mendoza (1536)", "Fundación de Garay (1580)", "Consolidación de la ciudad"]
 
-respuesta: ["Fundación de Mendoza (1536)", "Fundación de Garay (1580)", "Consolidación de la ciudad"]
+respuesta_orden: ["Fundación de Mendoza (1536)", "Fundación de Garay (1580)", "Consolidación de la ciudad"]
 
 enunciado: "Ordene cronológicamente los hitos de la fundación de Buenos Aires:"
 
@@ -1386,15 +1632,14 @@ metadata:
   tags: ["fundadores", "comparativa"]
 
 variables:
+  datos: [["Garay", "Garay"], ["Mendoza", "Mendoza"]]
   idx: uno_de([0, 1])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][0]
 tipo: mc
 opciones_explicitas: ["Garay", "Mendoza"]
 
 enunciado: "Si comparamos los dos intentos de fundación de Buenos Aires, el líder que logró establecer un asentamiento próspero fue ___."
-
-datos: [["Garay", "Garay"], ["Mendoza", "Mendoza"]]
 
 explicacion: |
   Mientras que Mendoza (1536) no logró establecer un asentamiento permanente, Juan de Garay (1580) fue el responsable de la fundación que prosperó.
@@ -1407,7 +1652,7 @@ metadata:
   nivel: "intermedio"
   tags: ["mapuche", "resistencia", "territorio"]
 
-respuesta: "mapuche"
+respuesta: "mapuches"
 tipo: mc
 
 opciones_explicitas: ["incas", "mapuches", "guaraníes", "diaguitas"]
@@ -1428,10 +1673,15 @@ metadata:
 variables:
   escenario: uno_de([["biológico", "cultural"], ["biológico", "político"], ["religioso", "militar"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: completar
 
-respuestas_validas: ["biológico", "cultural", "político", "religioso", "militar"]
+respuestas_validas:
+  - "biológico"
+  - "cultural"
+  - "político"
+  - "religioso"
+  - "militar"
 
 enunciado: "El proceso de mestizaje en el Virreinato del Río de la Plata fue de carácter tanto ___ como ___."
 
@@ -1467,7 +1717,7 @@ metadata:
   nivel: "avanzado"
   tags: ["encomienda", "sistema", "colonia"]
 
-respuesta: ["encomienda", "mita", "reparto"]
+respuesta_orden: ["encomienda", "mita", "reparto"]
 tipo: ordenar
 
 opciones_explicitas: ["encomienda", "mita", "reparto"]
@@ -1488,7 +1738,10 @@ metadata:
 respuesta: "sincretismo"
 tipo: completar
 
-respuestas_validas: ["sincretismo", "aislamiento", "extinción"]
+respuestas_validas:
+  - "sincretismo"
+  - "aislamiento"
+  - "extinción"
 
 enunciado: "La superposición de las creencias religiosas católicas sobre las prácticas espirituales de los pueblos originarios dio lugar a un fenómeno conocido como ___."
 
@@ -1504,17 +1757,13 @@ metadata:
   tags: ["conquista", "expediciones"]
 
 variables:
-  escenario: uno_de([
-    ["La expedición de Pedro de Mendoza (1536) se estableció en un asentamiento que luego fue abandonado debido a las condiciones climáticas y los ataques de los nativos.", "Asentamiento de Buenos Aires"],
-    ["La expedición de Juan de Garay (1554) fue fundamental para la consolidación de la presencia española en la región.", "Fundación de la segunda Buenos Aires"]
-  ])
-  idx: uno_de([0, 1])
+  escenario: uno_de([["La expedición de Pedro de Mendoza (1536) se estableció en un asentamiento que luego fue abandonado debido a las condiciones climáticas y los ataques de los nativos.", "Asentamiento de Buenos Aires"], ["La expedición de Juan de Garay (1580) fue fundamental para la consolidación de la presencia española en la región.", "Fundación de la segunda Buenos Aires"]])
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["Asentamiento de Buenos Aires", "Fundación de la segunda Buenos Aires", "Fundación de Asunción", "Expedición de Solís"]
 
-enunciado: "De acuerdo con la cronología de la conquista, ¿cuál fue el hito principal del escenario descrito: {escenario[idx][0]}?"
+enunciado: "De acuerdo con la cronología de la conquista, ¿cuál fue el hito principal del escenario descrito: {escenario[0]}?"
 
 explicacion: |
   El proceso de colonización fue errático. Mendoza fundó el primer asentamiento en 1536, pero fracasó, siendo Garay quien consolidó la presencia española años después.
@@ -1528,17 +1777,14 @@ metadata:
   tags: ["instituciones", "virreinato"]
 
 variables:
-  caso: uno_de([
-    ["El Virreinato del Río de la Plata fue creado para mejorar la defensa y administración del territorio frente a las potencias europeas.", "España"],
-    ["La administración de las colonias dependía directamente de la corona de...", "España"]
-  ])
-  idx: uno_de([0, 1])
+  caso: uno_de([["El Virreinato del Río de la Plata fue creado para mejorar la defensa y administración del territorio frente a las potencias europeas.", "España"], ["La administración de las colonias dependía directamente de la corona de...", "España"]])
 
-respuesta: caso[idx][1
+respuesta: caso[1]
 tipo: completar
-respuestas_validas: ["España"]
+respuestas_validas:
+  - "España"
 
-enunciado: "Complete la siguiente afirmación basada en el contexto: {caso[idx][0]}"
+enunciado: "Complete la siguiente afirmación basada en el contexto: {caso[0]}"
 
 explicacion: |
   La creación del Virreinato del Río de la Plata en 1776 fue una respuesta de la corona española a las presiones de Portugal y Gran Bretaña en el Atlántico Sur.
@@ -1551,7 +1797,7 @@ metadata:
   nivel: "avanzado"
   tags: ["cronologia", "conquista"]
 
-respuesta: ["Llegada de los españoles al Atlántico", "Fundación de ciudades en el Tucumán", "Establecimiento de las rutas comerciales coloniales"]
+respuesta_orden: ["Llegada de los españoles al Atlántico", "Fundación de ciudades en el Tucumán", "Establecimiento de las rutas comerciales coloniales"]
 tipo: ordenar
 opciones_explicitas: ["Llegada de los españoles al Atlántico", "Fundación de ciudades en el Tucumán", "Establecimiento de las rutas comerciales coloniales"]
 
@@ -1569,17 +1815,13 @@ metadata:
   tags: ["instituciones", "cabildo"]
 
 variables:
-  situacion: uno_de([
-    ["El órgano encargado de la administración de justicia y gobierno en las ciudades coloniales era el...", "Cabildo"],
-    ["La institución de gobierno local más importante en las ciudades del Virreinato era el...", "Cabildo"]
-  ])
-  idx: uno_de([0, 1])
+  situacion: uno_de([["El órgano encargado de la administración de justicia y gobierno en las ciudades coloniales era el...", "Cabildo"], ["La institución de gobierno local más importante en las ciudades del Virreinato era el...", "Cabildo"]])
 
-respuesta: situacion[idx][1
+respuesta: situacion[1]
 tipo: mc
 opciones_explicitas: ["Cabildo", "Real Audiencia", "Consejo de Indias", "Corregimiento"]
 
-enunciado: "Identifique la institución mencionada en el siguiente contexto: {situacion[idx][0]}"
+enunciado: "Identifique la institución mencionada en el siguiente contexto: {situacion[0]}"
 
 explicacion: |
   El Cabildo era la institución de gobierno local que permitía la participación de los vecinos en la administración de la ciudad.
@@ -1593,17 +1835,12 @@ metadata:
   tags: ["economia", "monopolio"]
 
 variables:
-  modelo: uno_de([
-    ["El sistema económico impuesto por la metrópoli que prohibía el comercio con otras naciones era el...", "Monopolio comercial"],
-    ["La política de comercio exclusivo de España con sus colonias se denominaba...", "Monopolio comercial"]
-  ])
-  idx: uno_de([0, 1])
+  modelo: uno_de([["El sistema económico impuesto por la metrópoli que prohibía el comercio con otras naciones era el...", "Monopolio comercial"], ["La política de comercio exclusivo de España con sus colonias se denominaba...", "Monopolio comercial"]])
 
-respuesta: modelo[idx][1
-tipo: completar
-opciones_explicitas: [verdadero, falso]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "El sistema de {modelo[idx][0]} fue el eje de la economía virreinal, limitando el crecimiento de puertos como Buenos Aires hasta la creación de la Capitanía General de Buenos Aires.", "verdadero"
+enunciado: "El sistema de {modelo[0]} fue el eje de la economía virreinal, limitando el crecimiento de puertos como Buenos Aires hasta la creación del Virreinato del Río de la Plata en 1776."
 
 explicacion: |
   El monopolio comercial obligaba a que todo el comercio pasara por puertos autorizados (como Sevilla o Cádiz), lo que fomentó el contrabando en el Río de la Plata.
@@ -1620,6 +1857,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["El acortamiento de la longitud de onda de la luz", "El estiramiento de la longitud de onda de la luz", "El cambio de color de la luz hacia el azul", "La pérdida de intensidad de la luz"]
+respuesta: "El estiramiento de la longitud de onda de la luz"
 
 enunciado: "En astronomía, el corrimiento al rojo (redshift) se define como ___ de la luz de un objeto que se aleja de un observador."
 
@@ -1635,7 +1873,9 @@ metadata:
   tags: ["analogia", "doppler"]
 
 tipo: completar
-respuestas_validas: ["Efecto Doppler", "Efecto Doppler"]
+respuestas_validas:
+  - "Efecto Doppler"
+  - "Efecto Doppler"
 
 enunciado: "El fenómeno del corrimiento al rojo es para la luz lo que el ___ es para el sonido."
 
@@ -1658,7 +1898,7 @@ opciones_explicitas: ["menor", "mayor", "igual"]
 
 enunciado: "Si observamos que el corrimiento al rojo de una galaxia es de {escenario[0]} unidades, esto indica que su velocidad de alejamiento es ___ que la de una galaxia con corrimiento nulo."
 
-respuesta: escenario[1
+respuesta: escenario[1]
 
 explicacion: |
   A mayor corrimiento al rojo, mayor es la velocidad a la que el objeto se está alejando de nosotros (según la ley de Hubble-Lemaître).
@@ -1676,7 +1916,7 @@ opciones_explicitas: ["Violeta", "Verde", "Amarillo", "Rojo", "Infrarrojo"]
 
 enunciado: "Ordena las longitudes de onda de la luz en orden CRECIENTE (de menor a mayor longitud de onda) para entender cómo se desplaza el espectro hacia el rojo."
 
-respuesta: ["Violeta", "Verde", "Amarillo", "Rojo", "Infrarrojo"]
+respuesta_orden: ["Violeta", "Verde", "Amarillo", "Rojo", "Infrarrojo"]
 
 explicacion: |
   El corrimiento al rojo consiste en desplazarse desde las longitudes de onda cortas (violeta/azul) hacia las longitudes de onda largas (rojo/infrarrojo).
@@ -1697,7 +1937,7 @@ tolerancia_abs: 0.1
 
 enunciado: "Una estrella emite luz en una longitud de onda de {datos[0]} nm. Debido al corrimiento al rojo, la longitud de onda observada es de ___ nm."
 
-respuesta: datos[1
+respuesta: datos[1]
 
 explicacion: |
   El corrimiento al rojo aumenta la longitud de onda observada respecto a la emitida. En este caso, el valor observado es el segundo elemento de nuestra tabla de datos.
@@ -1727,15 +1967,11 @@ metadata:
   nivel: "intermedio"
   tags: ["evidencia", "galaxias", "observacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[["galaxias lejanas", "se alejan"], ["galaxias cercanas", "se acercan"]]]
-
-respuesta: datos[escenario_idx][0][1
+respuesta: "se alejan"
 tipo: mc
-opciones_explicitas: ["se acercan", "se alejan", "están estables", "colapsan"]]
+opciones_explicitas: ["se acercan", "se alejan", "están estables", "colapsan"]
 
-enunciado: "La observación de que las {datos[escenario_idx][0][0]} muestran un corrimiento al rojo indica que estas ___ de nosotros."
+enunciado: "La observación de que las galaxias lejanas muestran un corrimiento al rojo indica que estas ___ de nosotros."
 
 explicacion: |
   El hecho de que la mayoría de las galaxias distantes presenten corrimiento al rojo es la evidencia fundamental de que el universo se está expandiendo.
@@ -1746,11 +1982,12 @@ metadata:
   materia: "historia_profunda"
   tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "basico"
-  tags: ["definicion", "espectro"]]
+  tags: ["definicion", "espectro"]
 
 respuesta: "alejamiento"
 tipo: completar
-respuestas_validas: ["alejamiento", "acercamiento", "estacionar"]
+respuestas_validas:
+  - "alejamiento"
 
 enunciado: "En el contexto de la cosmología, un corrimiento al rojo (redshift) es una medida que indica el ___ de una galaxia respecto al observador."
 
@@ -1773,10 +2010,10 @@ respuesta: velocidad_m[distancia_m/10 - 1]
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Si la expansión del universo es uniforme, a mayor distancia, mayor es la velocidad de recesión. Si una galaxia está a una distancia de {distancia_m} Mpc y su velocidad es de {velocidad_m[distancia_m/10 - 1]} km/s, ¿cuál es su velocidad?"
+enunciado: "Si la constante de Hubble es de 10 km/s/Mpc y una galaxia está a una distancia de {distancia_m} Mpc, ¿cuál es su velocidad de recesión en km/s (v = H₀ × d)?"
 
 pasos:
-  - "Identificar la velocidad correspondiente a la distancia dada según la relación lineal."
+  - "Multiplicar la constante de Hubble (10 km/s/Mpc) por la distancia dada."
 
 explicacion: |
   En un universo en expansión, la velocidad de alejamiento es proporcional a la distancia (Ley de Hubble).
@@ -1787,10 +2024,10 @@ metadata:
   materia: "historia_profunda"
   tema: "corrimiento_al_rojo_expansion_universo"
   nivel: "intermedio"
-  tags: ["orden", "logica"]]
+  tags: ["orden", "logica"]
 
-respuesta: ["observación de espectro", "detección de corrimiento al rojo", "conclusión de expansión"]
 tipo: ordenar
+respuesta_orden: ["observación de espectro", "detección de corrimiento al rojo", "conclusión de expansión"]
 opciones_explicitas: ["conclusión de expansión", "observación de espectro", "detección de corrimiento al rojo"]
 
 enunciado: "Ordena los pasos lógicos que llevaron a la conclusión de la expansión del universo:"
@@ -1808,6 +2045,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Las galaxias se desplazan a través del espacio vacío", "El espacio mismo se está estirando entre las galaxias", "Las galaxias se mueven debido a una fuerza centrífuga", "El universo está colapsando hacia un punto central"]
+respuesta: "El espacio mismo se está estirando entre las galaxias"
 
 enunciado: "Según el modelo de expansión cósmica, el corrimiento al rojo observado en las galaxias lejanas indica que:"
 
@@ -1822,14 +2060,11 @@ metadata:
   nivel: "basico"
   tags: ["analogia", "expansion"]
 
-variables:
-  idx: uno_de([0,1])
-  escenario: [["puntos en un globo desinflado", "puntos en un globo inflado"], ["distancia constante", "distancia creciente"]]
-
 tipo: completar
-respuestas_validas: ["distancia creciente"]
+respuestas_validas:
+  - "distancia creciente"
 
-enunciado: "Si imaginamos que las galaxias son puntos dibujados sobre la superficie de un globo que se infla, al aumentar el volumen del globo, la {escenario[idx][0]} entre los puntos se vuelve una {escenario[idx][1]}."
+enunciado: "Si imaginamos que las galaxias son puntos dibujados sobre la superficie de un globo que se infla, al aumentar el volumen del globo, la distancia constante entre los puntos se vuelve una ___."
 
 explicacion: |
   La analogía del globo ilustra que no es el objeto el que se mueve por la superficie, sino que la superficie misma crece, separando los puntos.
@@ -1844,6 +2079,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Efecto Doppler", "Efecto Doppler Cosmológico", "Efecto Doppler Gravitacional", "Efecto Doppler de Lorentz"]
+respuesta: "Efecto Doppler Cosmológico"
 
 enunciado: "Aunque se parece al efecto Doppler acústico, el corrimiento al rojo debido a la expansión del universo se denomina:"
 
@@ -1861,11 +2097,12 @@ metadata:
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si la expansión del universo es constante, la velocidad de recesión de una galaxia es proporcional a su distancia actual. ¿Cuál es el término técnico para este factor de escala que describe cómo cambia el tamaño del universo con el tiempo? (Escribe la respuesta en inglés, comienza con 'a' y termina con 'e')"
+enunciado: "Si la expansión del universo es constante, la velocidad de recesión de una galaxia es proporcional a su distancia actual. ¿Cómo se denomina técnicamente la función a(t) que describe cómo cambia el tamaño del universo con el tiempo en la métrica de Friedmann-Lemaître-Robertson-Walker?"
 
-pasos:
-  - "Identificar que la expansión se describe mediante el factor de escala."
-  - "Recordar el término en inglés: scale factor."
+respuestas_validas:
+  - "factor de escala"
+
+respuesta: "factor de escala"
 
 explicacion: |
   El factor de escala 'a(t)' es una función que describe la evolución del tamaño del universo con el tiempo en la métrica de Friedmann-Lemaître-Robertson-Walker.
@@ -1885,6 +2122,7 @@ enunciado: "Ordena cronológicamente los hitos que permitieron comprender que el
 
 explicacion: |
   Primero se observó el desplazamiento en las líneas espectrales (Slipher), luego se formuló la relación matemática (Hubble) y finalmente se consolidó el modelo de un universo en expansión.
+respuesta_orden: ["Observación de espectros con corrimiento al rojo", "Formulación de la Ley de Hubble-Lemaître", "Descubrimiento de la expansión del universo"]
 ```
 
 ```
@@ -1896,8 +2134,9 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["La expansión del espacio", "La rotación de las galaxias", "La formación de agujeros negros", "La existencia de la gravedad"]
+respuesta: "La expansión del espacio"
 
-enunciado: "El corrimiento al rojo cosmológico es una de las principales evidencias observacionales a favor de la teoría del ___."
+enunciado: "El corrimiento al rojo cosmológico es una de las principales evidencias observacionales a favor de la teoría del Big Bang."
 
 explicacion: |
   El corrimiento al rojo indica que las galaxias se alejan de nosotros, lo que implica que el universo se está expandiendo, una pieza clave para la teoría del Big Bang.
@@ -1910,12 +2149,9 @@ metadata:
   nivel: "intermedio"
   tags: ["espectro", "luz", "redshift"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [["se desplaza hacia el rojo", "se desplaza hacia el azul"], ["se aleja del observador", "se acerca al observador"]]
-
 tipo: mc
 opciones_explicitas: ["se desplaza hacia el rojo", "se desplaza hacia el azul", "se mantiene constante", "cambia de intensidad"]
+respuesta: "se desplaza hacia el rojo"
 
 enunciado: "Cuando la luz de una galaxia se estira debido a la expansión del universo, su espectro ___."
 
@@ -1933,9 +2169,11 @@ metadata:
 variables:
   caso_idx: uno_de([0, 1])
   datos: [[100, 700], [250, 1500]]
+  h0: redondear(datos[caso_idx][1] / datos[caso_idx][0], 2)
 
 tipo: completar
 tolerancia_abs: 0.1
+respuesta: h0
 
 enunciado: "Si una galaxia se encuentra a una distancia de {datos[caso_idx][0]} Mpc y su velocidad de recesión es de {datos[caso_idx][1]} km/s, ¿cuál es el valor aproximado de la constante de Hubble (H₀) en km/s/Mpc?"
 
@@ -1945,7 +2183,7 @@ pasos:
   - "Aplicar la fórmula H₀ = v / d"
 
 explicacion: |
-  Usando la ley de Hubble: H₀ = v / d. Para el caso seleccionado: {datos[caso_idx][1]} / {datos[caso_idx][0]} = {redondear(datos[caso_idx][1] / datos[caso_idx][0], 2)} km/s/Mpc.
+  Usando la ley de Hubble: H₀ = v / d. Para el caso seleccionado: {datos[caso_idx][1]} / {datos[caso_idx][0]} = {h0} km/s/Mpc.
 ```
 
 ```
@@ -1962,6 +2200,7 @@ enunciado: "Ordena cronológicamente los eventos relacionados con la expansión 
 
 explicacion: |
   El Big Bang da origen a todo, seguido por la expansión, lo que genera el corrimiento al rojo que observamos hoy en las galaxias lejanas.
+respuesta_orden: ["Gran explosión inicial", "Expansión del espacio-tiempo", "Corrimiento al rojo observado", "Universo actual"]
 ```
 
 ```
@@ -1972,7 +2211,10 @@ metadata:
   tags: ["causa", "espacio", "redshift"]
 
 tipo: completar
-respuestas_validas: ["espacio", "tejido", "espacio-tiempo"]
+respuestas_validas:
+  - "espacio"
+  - "tejido"
+  - "espacio-tiempo"
 
 enunciado: "A diferencia del efecto Doppler clásico, el corrimiento al rojo cosmológico es causado por el estiramiento del propio ___ entre las galaxias."
 
@@ -2014,7 +2256,9 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["alejándose", "acercándose"]
+respuestas_validas:
+  - "alejándose"
+  - "acercándose"
 
 enunciado: "Un astrónomo detecta un fenómeno de {datos[idx][0]} en una galaxia lejana. Esto significa que la galaxia está ___ del observador."
 
@@ -2033,7 +2277,7 @@ variables:
   datos: [["Luz roja", "alejándose"], ["Luz azul", "acercándose"]]
   idx: uno_de([0, 1])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["alejándose", "acercándose", "estacionaria"]
 
@@ -2052,7 +2296,8 @@ metadata:
 
 respuesta: "alejándose"
 tipo: completar
-respuestas_validas: ["alejándose", "acercándose"]
+respuestas_validas:
+  - "alejándose"
 
 enunciado: "Cuando la longitud de onda de la luz de una estrella aumenta debido a su movimiento relativo, decimos que tiene un corrimiento al rojo, lo que significa que la estrella se está ___."
 
@@ -2080,3 +2325,4 @@ enunciado: "Si la luz de un objeto se desplaza hacia el color {datos[idx][0]}, e
 explicacion: |
   El color azul tiene longitudes de onda más cortas, indicando acercamiento; el rojo, longitudes más largas, indicando alejamiento.
 ```
+

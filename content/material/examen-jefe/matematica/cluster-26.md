@@ -1,2642 +1,2921 @@
-# Examen jefe — Maestro de Reglas y Regresión
+# Examen jefe — [PENDIENTE #626]
 
-> Logro #77. Aprobaste el parcial dominando redondeo, L'Hôpital, reglas de tres y regresión lineal. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **121 preguntas totales** en 5/5 secciones.
+> Logro #626. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **135 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: redondeo (22 preguntas)
+## Sección: proporcion (22 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "redondeo"
+  tema: "proporcion"
   nivel: "basico"
-  tags: ["redondeo"]
+  tags: ["proporcion", "vocabulario"]
 
-variables:
-  entero: random(1, 50)
-  h: random(1, 9)
-  m: random(0, 9)
-  n: entero + h / 10 + m / 100
-
-respuesta: redondear(n, 1)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Redondeá {n} a 1 cifra decimal."
-
-pasos:
-  - "Se mira la segunda cifra decimal ({m}) para decidir si la primera sube o queda igual: {redondear(n, 1)}"
+enunciado: "¿Qué es una proporción?"
+tipo: mc
+opciones_explicitas:
+  - "La igualdad entre dos razones"
+  - "La suma de dos razones"
+  - "Cualquier fracción"
+respuesta: "La igualdad entre dos razones"
 
 explicacion: |
-  Se mira la cifra que sigue a la posición buscada: 5 o más, sube; menos
-  de 5, queda igual.
+  Una proporción dice que dos razones representan la misma relación:
+  a/b = c/d.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "redondeo"
-  nivel: "basico"
-  tags: ["redondeo"]
-
-variables:
-  entero: random(1, 50)
-  h: random(1, 9)
-  m: random(0, 9)
-  mil: random(0, 9)
-  n: entero + h / 10 + m / 100 + mil / 1000
-
-respuesta: redondear(n, 2)
-tipo: input
-tolerancia_abs: 0.001
-
-enunciado: "Redondeá {n} a 2 cifras decimales."
-
-pasos:
-  - "Se mira la tercera cifra decimal ({mil}) para decidir: {redondear(n, 2)}"
-
-explicacion: |
-  Es el mismo criterio, mirando ahora la tercera cifra decimal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "redondeo"
+  tema: "proporcion"
   nivel: "intermedio"
-  tags: ["redondeo"]
+  tags: ["proporcion"]
 
 variables:
-  entero: random(1, 50)
-  h: random(0, 9)
-  m: random(0, 9)
-  n: entero + h / 10 + m / 100 + 5 / 1000
+  a: random(1, 9)
+  b: random(2, 9)
+  k: random(2, 8)
+  c: a * k
+  d: b * k
 
-respuesta: redondear(n, 2)
-tipo: input
-tolerancia_abs: 0.001
-
-enunciado: "Redondeá {n} a 2 cifras decimales."
-
-pasos:
-  - "La tercera cifra decimal es 5: la segunda cifra sube."
-
-explicacion: |
-  Cuando la cifra que decide es exactamente 5, la posición anterior sube.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "redondeo"
-  nivel: "basico"
-  tags: ["redondeo"]
-
-variables:
-  entero: random(1, 100)
-  h: random(0, 9)
-  n: entero + h / 10
-
-respuesta: redondear(n, 0)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Redondeá {n} al entero más cercano."
-
-pasos:
-  - "Se mira la primera cifra decimal ({h}) para decidir: {redondear(n, 0)}"
-
-explicacion: |
-  Redondear al entero es mirar sólo la primera cifra decimal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "redondeo"
-  nivel: "intermedio"
-  tags: ["redondeo"]
-
-variables:
-  entero: random(1, 100)
-  n: entero + 5 / 10
-
-respuesta: redondear(n, 0)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Redondeá {n} al entero más cercano."
-
-pasos:
-  - "La primera cifra decimal es 5: la parte entera sube."
-
-explicacion: |
-  El caso frontera (cifra exactamente 5) sigue subiendo, igual que con
-  enteros.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "redondeo"
-  nivel: "basico"
-  tags: ["redondeo", "vocabulario"]
-
-respuesta: verdadero
+respuesta: (a * d == b * c)
 tipo: vf
 
-enunciado: "La regla de redondeo de decimales es la misma que la de enteros: se mira la cifra siguiente a la posición buscada."
+enunciado: "¿Es {a}/{b} = {c}/{d} una proporción válida?"
+
+pasos:
+  - "Producto de extremos: {a} × {d} = {a * d}. Producto de medios: {b} × {c} = {b * c}."
 
 explicacion: |
-  No es una regla nueva: es la misma idea de `../valor-posicional/`,
-  aplicada del otro lado de la coma.
+  Es proporción si el producto de los extremos (a×d) es igual al producto
+  de los medios (b×c).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "redondeo"
+  tema: "proporcion"
   nivel: "intermedio"
-  tags: ["redondeo", "truncar"]
+  tags: ["proporcion"]
 
 variables:
-  entero: random(1, 50)
-  h: random(0, 4)
-  m: random(0, 9)
-  n: entero + h / 10 + m / 100
-  truncado: floor(n * 10) / 10
+  a: random(1, 9)
+  b: random(2, 9)
+  c: random(1, 9)
+  d: random(2, 9)
 
-respuesta: (redondear(n, 1) == truncado)
+restricciones:
+  - (a * d) != (b * c)
+
+respuesta: falso
 tipo: vf
 
-enunciado: "¿Coinciden redondear {n} a 1 cifra decimal y truncarlo a 1 cifra decimal?"
+enunciado: "¿Es {a}/{b} = {c}/{d} una proporción válida?"
 
 explicacion: |
-  Cuando la cifra que decide el redondeo es menor a 5, redondear y
-  truncar dan el mismo resultado (los dos "se quedan" con la cifra
-  anterior).
+  El producto de extremos no coincide con el de medios: no es una
+  proporción.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "redondeo"
+  tema: "proporcion"
   nivel: "intermedio"
-  tags: ["redondeo", "truncar"]
+  tags: ["proporcion", "termino_desconocido"]
 
 variables:
-  entero: random(1, 50)
-  h: random(0, 9)
-  m: random(5, 9)
-  n: entero + h / 10 + m / 100
+  a: random(2, 9)
+  b: random(2, 9)
+  c: random(2, 9)
+  x: (b * c) / a
 
-respuesta: floor(n * 10) / 10
+restricciones:
+  - (b * c) - floor((b * c) / a) * a == 0
+
+respuesta: x
 tipo: input
-tolerancia_abs: 0.01
+tolerancia_abs: 0
 
-enunciado: "Truncá {n} a 1 cifra decimal (sin redondear, cortando directo)."
+enunciado: "En la proporción {a}/{b} = {c}/x, ¿cuánto vale x?"
+
+pasos:
+  - "{a} × x = {b} × {c} → x = ({b} × {c}) ÷ {a} = {b * c} ÷ {a} = {x}"
 
 explicacion: |
-  Truncar corta directo, sin mirar si la cifra siguiente es 5 o más — a
-  diferencia de redondear, siempre "se queda" con la cifra anterior tal
-  cual está.
+  Se aplica la propiedad fundamental y se despeja x.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "redondeo"
+  tema: "proporcion"
   nivel: "intermedio"
-  tags: ["redondeo", "truncar"]
+  tags: ["proporcion", "termino_desconocido"]
 
 variables:
-  entero: random(1, 50)
-  h: random(0, 9)
-  m: random(5, 9)
-  n: entero + h / 10 + m / 100
-  truncado: floor(n * 10) / 10
+  a: random(2, 9)
+  c: random(2, 9)
+  d: random(2, 9)
+  x: (a * d) / c
 
-respuesta: (redondear(n, 1) == truncado)
-tipo: vf
+restricciones:
+  - (a * d) - floor((a * d) / c) * c == 0
 
-enunciado: "¿Coinciden redondear {n} a 1 cifra decimal y truncarlo a 1 cifra decimal?"
-
-explicacion: |
-  Acá la cifra que decide es 5 o más, así que redondear hace subir la
-  cifra anterior — pero truncar no sube nunca. Por eso no coinciden.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "redondeo"
-  nivel: "intermedio"
-  tags: ["redondeo", "problema"]
-
-variables:
-  entero: random(10, 500)
-  c1: random(0, 9)
-  c2: random(0, 9)
-  c3: random(0, 9)
-  precio: entero + c1 / 10 + c2 / 100 + c3 / 1000
-
-respuesta: redondear(precio, 2)
+respuesta: x
 tipo: input
-tolerancia_abs: 0.001
+tolerancia_abs: 0
 
-enunciado: "Un cálculo da un precio de ${precio}. Redondeado a centavos (2 cifras decimales), ¿cuánto queda?"
+enunciado: "En la proporción {a}/x = {c}/{d}, ¿cuánto vale x?"
+
+pasos:
+  - "{a} × {d} = x × {c} → x = ({a} × {d}) ÷ {c} = {a * d} ÷ {c} = {x}"
 
 explicacion: |
-  Los precios en pesos se redondean a 2 cifras decimales porque no
-  existen fracciones de centavo.
+  Se despeja x aplicando la propiedad fundamental de la proporción.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "redondeo"
-  nivel: "avanzado"
-  tags: ["redondeo", "problema"]
-
-variables:
-  a: random(1, 10)
-  b: random(1, 10)
-  c: random(1, 10)
-  promedio: (a + b + c) / 3
-
-respuesta: redondear(promedio, 2)
-tipo: input
-tolerancia_abs: 0.001
-
-enunciado: "El promedio de {a}, {b} y {c} da {promedio}. Redondeado a 2 cifras decimales, ¿cuánto queda?"
-
-explicacion: |
-  Un promedio rara vez da un número "redondo": conviene redondearlo a una
-  cantidad razonable de cifras decimales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "redondeo"
+  tema: "proporcion"
   nivel: "intermedio"
-  tags: ["redondeo"]
+  tags: ["proporcion", "termino_desconocido"]
 
 variables:
-  entero: random(1, 50)
-  h: random(0, 9)
-  m: random(0, 9)
-  n: entero + h / 10 + m / 100
-  correcto: redondear(n, 1)
+  b: random(2, 9)
+  c: random(2, 9)
+  d: random(2, 9)
+  x: (b * c) / d
+
+restricciones:
+  - (b * c) - floor((b * c) / d) * d == 0
+
+respuesta: x
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En la proporción x/{b} = {c}/{d}, ¿cuánto vale x?"
+
+pasos:
+  - "x × {d} = {b} × {c} → x = ({b} × {c}) ÷ {d} = {b * c} ÷ {d} = {x}"
+
+explicacion: |
+  Igual que antes, se aplica el producto de extremos igual al producto de
+  medios.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcion"
+  nivel: "intermedio"
+  tags: ["proporcion", "termino_desconocido"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 9)
+  d: random(2, 9)
+  x: (a * d) / b
+
+restricciones:
+  - (a * d) - floor((a * d) / b) * b == 0
+
+respuesta: x
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En la proporción {a}/{b} = x/{d}, ¿cuánto vale x?"
+
+pasos:
+  - "{a} × {d} = {b} × x → x = ({a} × {d}) ÷ {b} = {a * d} ÷ {b} = {x}"
+
+explicacion: |
+  Se despeja x de la misma manera, cambiando en qué lugar de la
+  proporción está.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcion"
+  nivel: "intermedio"
+  tags: ["proporcion", "termino_desconocido"]
+
+variables:
+  a: random(2, 8)
+  b: random(2, 8)
+  c: random(2, 8)
+  correcto: (b * c) / a
+
+restricciones:
+  - (b * c) - floor((b * c) / a) * a == 0
 
 respuesta: correcto
 tipo: mc
 opciones_explicitas:
   - correcto
-  - floor(n * 10) / 10
-  - correcto + 0.1
+  - a * b * c
+  - correcto + 1
 
-enunciado: "¿Cuál es el redondeo correcto de {n} a 1 cifra decimal?"
+enunciado: "En la proporción {a}/{b} = {c}/x, ¿cuánto vale x?"
 
 explicacion: |
-  Las otras opciones son truncar (no mirar la cifra siguiente) o un error
-  de un décimo de más.
+  Las otras opciones no cumplen la propiedad fundamental (producto de
+  extremos = producto de medios).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "redondeo"
+  tema: "proporcion"
   nivel: "intermedio"
-  tags: ["redondeo", "verificacion"]
+  tags: ["proporcion", "problema"]
 
 variables:
-  entero: random(1, 50)
-  h: random(0, 9)
-  m: random(0, 9)
-  n: entero + h / 10 + m / 100
-  correcto: redondear(n, 1)
-  error: uno_de([0, 0, 0, 0.1, -0.1])
-  mostrado: correcto + error
+  personas_original: random(2, 6)
+  harina_original: random(1, 5)
+  personas_nueva: personas_original * random(2, 4)
 
-respuesta: (abs(mostrado - correcto) < 0.01)
-tipo: vf
-
-enunciado: "¿Está bien redondeado {n} a 1 cifra decimal, si el resultado dado es {mostrado}?"
-
-explicacion: |
-  Hay que volver a aplicar la regla (mirar la segunda cifra decimal) y
-  comparar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "redondeo"
-  nivel: "avanzado"
-  tags: ["redondeo"]
-
-variables:
-  entero: random(1, 20)
-  h: random(0, 9)
-  m: random(0, 9)
-  mil: random(0, 9)
-  diez_mil: random(0, 9)
-  n: entero + h / 10 + m / 100 + mil / 1000 + diez_mil / 10000
-
-respuesta: redondear(n, 3)
+respuesta: harina_original * (personas_nueva / personas_original)
 tipo: input
-tolerancia_abs: 0.0001
+tolerancia_abs: 0.01
 
-enunciado: "Redondeá {n} a 3 cifras decimales."
+enunciado: "Una receta para {personas_original} personas usa {harina_original} tazas de harina. Manteniendo la misma proporción, ¿cuántas tazas hacen falta para {personas_nueva} personas?"
+
+pasos:
+  - "{harina_original}/{personas_original} = x/{personas_nueva} → x = ({harina_original} × {personas_nueva}) ÷ {personas_original}"
 
 explicacion: |
-  Con más cifras decimales, el procedimiento es el mismo: mirar la cifra
-  que sigue a la posición buscada.
+  Escalar una receta manteniendo el sabor es armar una proporción entre
+  cantidad de personas e ingrediente.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "redondeo"
-  nivel: "basico"
-  tags: ["redondeo", "vocabulario"]
+  tema: "proporcion"
+  nivel: "avanzado"
+  tags: ["proporcion", "problema"]
 
-respuesta: verdadero
+variables:
+  cm_base: random(1, 5)
+  km_base: cm_base * random(10, 50)
+  cm_nueva: cm_base * random(2, 4)
+
+respuesta: km_base * (cm_nueva / cm_base)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "En un mapa, {cm_base} cm representan {km_base} km reales. Si dos ciudades están a {cm_nueva} cm en el mapa, ¿cuántos km reales las separan?"
+
+pasos:
+  - "{cm_base}/{km_base} = {cm_nueva}/x → x = ({km_base} × {cm_nueva}) ÷ {cm_base}"
+
+explicacion: |
+  La escala del mapa es una razón constante: se arma una proporción para
+  encontrar la distancia real.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "proporcion"
+  nivel: "intermedio"
+  tags: ["proporcion", "verificacion"]
+
+variables:
+  a: random(1, 9)
+  b: random(2, 9)
+  k: random(2, 8)
+  c_correcto: a * k
+  error: uno_de([0, 0, 0, 1, -1])
+  c_mostrado: c_correcto + error
+  d: b * k
+
+respuesta: (a * d == c_mostrado * b)
 tipo: vf
 
-enunciado: "Al redondear, la cifra de la posición buscada sólo puede subir en 1 o quedar igual — nunca baja."
+enunciado: "¿Es {a}/{b} = {c_mostrado}/{d} una proporción válida?"
 
 explicacion: |
-  Redondear nunca resta a la cifra buscada: como mucho, la deja igual (si
-  la siguiente es menor a 5) o la sube en 1 (si es 5 o más).
+  Se aplica la propiedad fundamental para verificar.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "redondeo"
+  tema: "proporcion"
   nivel: "intermedio"
-  tags: ["redondeo"]
+  tags: ["proporcion", "termino_desconocido"]
+
+variables:
+  a: random(1, 9)
+  b: random(2, 9)
+  k: random(2, 8)
 
 tipo: completar
-enunciado: "¿A partir de qué cifra (0 a 9) la posición anterior sube al redondear? Nombrá la más chica que hace subir."
+enunciado: "Completá: {a}/{b} = ___/{b * k} (que sea una proporción válida)."
 respuestas_validas:
-  - 5
+  - a * k
 
 explicacion: |
-  A partir del 5 (inclusive), la posición anterior sube.
+  El término que falta tiene que mantener la misma relación: {a}
+  multiplicado por el mismo {k} que multiplicó al denominador.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "redondeo"
+  tema: "proporcion"
   nivel: "basico"
-  tags: ["redondeo", "orden"]
+  tags: ["proporcion", "vocabulario"]
 
-tipo: ordenar
-enunciado: "Estos números ya están redondeados a 1 cifra decimal. Ordenalos de menor a mayor."
-opciones_explicitas:
-  - "3,4"
-  - "3,1"
-  - "3,8"
-  - "3,2"
-respuesta_orden: ["3,1", "3,2", "3,4", "3,8"]
-
-explicacion: |
-  Una vez redondeados, se ordenan igual que cualquier lista de decimales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "redondeo"
-  nivel: "basico"
-  tags: ["redondeo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Redondear un número a 0 cifras decimales es lo mismo que redondearlo al entero más cercano."
-
-explicacion: |
-  0 cifras decimales significa "sin ninguna cifra después de la coma": es
-  exactamente el entero más cercano.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "redondeo"
-  nivel: "basico"
-  tags: ["redondeo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Redondear un número casi siempre pierde algo de precisión: el número redondeado no es exactamente igual al original (salvo que ya terminara justo ahí)."
-
-explicacion: |
-  Redondear es una aproximación útil, no magia: se gana simplicidad a
-  cambio de exactitud.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "redondeo"
-  nivel: "avanzado"
-  tags: ["redondeo"]
-
-variables:
-  entero: random(1, 30)
-  m: random(5, 9)
-  n: entero + m / 10
-  correcto: redondear(n, 0)
-  mal_hecho: entero
-
-respuesta: mal_hecho
+enunciado: "¿Cómo se llama la propiedad que dice que, en una proporción, a × d = b × c?"
 tipo: mc
 opciones_explicitas:
-  - correcto
-  - mal_hecho
-
-enunciado: "Para redondear {n} al entero más cercano, ¿cuál de estos dos resultados está mal (no aplicó la regla)?"
+  - "Producto de extremos igual a producto de medios"
+  - "Regla de tres"
+  - "Teorema de Pitágoras"
+respuesta: "Producto de extremos igual a producto de medios"
 
 explicacion: |
-  {mal_hecho} simplemente descartó la parte decimal sin mirar si tenía
-  que subir — eso es truncar, no redondear.
+  a y d son los extremos (primero y último); b y c son los medios (los
+  del medio).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "redondeo"
-  nivel: "intermedio"
-  tags: ["redondeo"]
+  tema: "proporcion"
+  nivel: "basico"
+  tags: ["proporcion", "vocabulario"]
 
-variables:
-  entero: random(1, 999)
-
-respuesta: entero
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Redondeá {entero} (un número entero) a 2 cifras decimales."
+enunciado: "En la proporción a/b = c/d, ¿cuáles son los medios?"
+tipo: mc
+opciones_explicitas:
+  - "b y c"
+  - "a y d"
+  - "a y b"
+respuesta: "b y c"
 
 explicacion: |
-  Un número que ya no tiene cifras decimales de sobra no cambia al
-  redondearlo: queda igual.
+  Los extremos son el primero (a) y el último (d); los medios son los dos
+  del centro (b y c).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "redondeo"
-  nivel: "basico"
-  tags: ["redondeo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Redondear es aproximar un número a una cantidad determinada de cifras, mirando la cifra siguiente para decidir si la última que queda sube o se mantiene igual."
-
-explicacion: |
-  Es la idea central de todo el tema, aplicada tanto a enteros como a
-  decimales.
-```
-
-## Sección: regla-de-lhopital (31 preguntas)
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "basico"
-  tags: ["terminologia"]
+  tema: "proporcion"
+  nivel: "intermedio"
+  tags: ["proporcion", "problema"]
 
 variables:
-  nombre: "L'Hôpital"
-
-tipo: completar
-
-enunciado: "La regla que permite resolver indeterminaciones 0/0 y ∞/∞ mediante derivadas se llama Regla de {nombre}."
-
-respuestas_validas:
-  - "L'Hôpital"
-  - "Lhopital"
-  - "lhopital"
-  - "l'Hôpital"
-
-explicacion: |
-  La regla lleva el nombre del matemático francés Guillaume de l'Hôpital.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-variables:
-  forma: "0/0"
-
-tipo: completar
-
-enunciado: "Una de las dos formas indeterminadas principales que permiten aplicar L'Hôpital es {forma}."
-
-respuestas_validas:
-  - "0/0"
-  - "0 sobre 0"
-  - "cero sobre cero"
-
-explicacion: |
-  Las formas son 0/0 y ∞/∞.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "basico"
-  tags: ["historia"]
-
-variables:
-  apellido: "L'Hôpital"
-
-tipo: completar
-
-enunciado: "La regla lleva el nombre del matemático {apellido}."
-
-respuestas_validas:
-  - "L'Hôpital"
-  - "Lhopital"
-  - "l'Hôpital"
-
-explicacion: |
-  Guillaume de l'Hôpital publicó la regla en 1696.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "basico"
-  tags: ["limites", "lhopital", "polinomios"]
-
-variables:
-  a: random(2, 5)
-  b: random(1, 3)
-
-respuesta: "{a/b}"
-tipo: input
-
-enunciado: "Calcule el límite: lim(x→0) (x^{a} + {b}x) / x"
-
-explicacion: |
-  Al sustituir x=0 obtenemos 0/0. Aplicamos L'Hôpital derivando numerador y denominador:
-  Derivada num: a*x^{a-1} + {b}
-  Derivada den: 1
-  El límite es a*0^{a-1} + {b}. Como a >= 2, el término con x se anula.
-  Resultado: {b}.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "trigonometria", "seno"]
-
-variables:
-  k: random(2, 6)
-
-respuesta: "{k}"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (sin(k*x)) / x"
-
-explicacion: |
-  Es indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: k*cos(k*x)
-  Derivada den: 1
-  Evaluar en x=0: k*cos(0)/1 = k*1 = {k}.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "infinito", "logaritmo"]
-
-variables:
-  n: random(2, 5)
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→∞) (log(x)) / x^{n}"
-
-explicacion: |
-  Es indeterminación ∞/∞. Aplicamos L'Hôpital:
-  Derivada num: 1/x
-  Derivada den: n*x^{n-1}
-  Nuevo límite: lim(x→∞) (1/x) / (n*x^{n-1}) = lim(x→∞) 1 / (n*x^{n})
-  Como n > 0, el denominador crece infinitamente, por lo que el límite es 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "raices", "derivadas"]
-
-variables:
-  k: random(1, 4)
-
-respuesta: "{1/(2*k)}"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (sqrt(1 + k*x) - 1) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: (1/2)*(1+k*x)^{-1/2} * k
-  Derivada den: 1
-  Evaluar en x=0: (1/2)*(1)^{-1/2} * k = k/2.
-  El límite es k/2.
-  Espera, la derivada de sqrt(1+kx) es k / (2*sqrt(1+kx)).
-  En x=0: k / 2.
-  La respuesta correcta es "{k/2}".
-  Corrijo la respuesta:
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "raices", "derivadas"]
-
-variables:
-  k: random(1, 4)
-
-respuesta: "{k/2}"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (sqrt(1 + k*x) - 1) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: k / (2*sqrt(1+k*x))
-  Derivada den: 1
-  En x=0: k / 2.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "logaritmo", "infinito"]
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→∞) (log(x)) / x"
-
-explicacion: |
-  Indeterminación ∞/∞. Aplicamos L'Hôpital:
-  Derivada num: 1/x
-  Derivada den: 1
-  Límite: lim(x→∞) 1/x = 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "trigonometria", "coseno"]
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (1 - cos(x)) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: sin(x)
-  Derivada den: 1
-  Lim(x→0) sin(x)/1 = 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "exponencial", "infinito"]
-
-respuesta: "∞"
-tipo: input
-
-enunciado: "Calcule: lim(x→∞) (e^x) / x"
-
-explicacion: |
-  Indeterminación ∞/∞. Aplicamos L'Hôpital:
-  Derivada num: e^x
-  Derivada den: 1
-  Lim(x→∞) e^x/1 = ∞.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "trigonometria", "tangente"]
-
-respuesta: "1"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (tan(x)) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: sec^2(x)
-  Derivada den: 1
-  En x=0: sec^2(0) = 1/cos^2(0) = 1/1 = 1.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "logaritmo", "natural"]
-
-respuesta: "1"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (ln(1 + x)) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: 1/(1+x)
-  Derivada den: 1
-  En x=0: 1/(1+0) = 1.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "raices", "cubica"]
-
-variables:
-  k: random(1, 3)
-
-respuesta: "{k/3}"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) ( (1 + k*x)^{1/3} - 1 ) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: (1/3)*(1+k*x)^{-2/3} * k
-  Derivada den: 1
-  En x=0: (1/3)*1 * k = k/3.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "exponencial", "infinito"]
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→∞) (x) / e^x"
-
-explicacion: |
-  Indeterminación ∞/∞. Aplicamos L'Hôpital:
-  Derivada num: 1
-  Derivada den: e^x
-  Lim(x→∞) 1/e^x = 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "trigonometria", "coseno"]
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (cos(x) - 1) / x^2"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: -sin(x)
-  Derivada den: 2x
-  Resultado: -sin(x)/2x. En x=0 es 0/0.
-  Aplicamos L'Hôpital de nuevo:
-  Derivada num: -cos(x)
-  Derivada den: 2
-  En x=0: -cos(0)/2 = -1/2.
-  Espera, la respuesta es -0.5.
-  Cambiemos a (1-cos(x))/x^2 -> 1/2.
-  O dejemos -1/2.
-  Respuesta: "-0.5"
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "trigonometria", "coseno"]
-
-respuesta: "-0.5"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (cos(x) - 1) / x^2"
-
-explicacion: |
-  1ra derivada: -sin(x) / 2x (0/0)
-  2da derivada: -cos(x) / 2
-  En x=0: -1/2 = -0.5.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "avanzado"
-  tags: ["limites", "logaritmo", "raices"]
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (sqrt(1+x) - 1) / log(1+x)"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: 1/(2*sqrt(1+x))
-  Derivada den: 1/(1+x)
-  Fracción: (1/(2*sqrt(1+x))) / (1/(1+x)) = (1+x) / (2*sqrt(1+x))
-  Simplificamos: sqrt(1+x) / 2.
-  En x=0: sqrt(1)/2 = 1/2 = 0.5.
-  Respuesta: "0.5"
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "avanzado"
-  tags: ["limites", "logaritmo", "raices"]
-
-respuesta: "0.5"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (sqrt(1+x) - 1) / log(1+x)"
-
-explicacion: |
-  Derivada num: 1/(2*sqrt(1+x))
-  Derivada den: 1/(1+x)
-  Cociente: (1+x) / (2*sqrt(1+x)) = sqrt(1+x)/2.
-  En x=0: 1/2 = 0.5.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "basico"
-  tags: ["identificacion", "indeterminacion"]
-
-variables:
-  k: random(1, 5)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al calcular el límite de {k}x / sin({k}x) cuando x tiende a 0, se obtiene la forma indeterminada 0/0."
-
-explicacion: |
-  Al sustituir x = 0 en el numerador obtenemos {k}*0 = 0.
-  En el denominador obtenemos sin(0) = 0.
-  Por lo tanto, la forma resultante es 0/0, que es una indeterminación válida para aplicar L'Hôpital.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["infinito", "logaritmo"]
-
-variables:
-  k: random(2, 5)
-
-respuesta: 0
-tipo: input
-
-enunciado: "Calcula el límite de ln(x) / x^{k} cuando x tiende a infinito."
-
-explicacion: |
-  Forma indeterminada ∞/∞. Aplicamos L'Hôpital.
-  Derivada num: 1/x.
-  Derivada den: k*x^(k-1).
-  Nuevo límite: (1/x) / (k*x^(k-1)) = 1 / (k*x^k).
-  Cuando x -> ∞, el denominador crece sin límite, por lo que el resultado es 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "basico"
-  tags: ["errores_comunes", "aplicacion"]
-
-variables:
-  k: random(1, 5)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Se puede aplicar la Regla de L'Hôpital al límite de (x + {k}) / x cuando x tiende a 0."
-
-explicacion: |
-  Al sustituir x=0, el numerador tiende a {k} y el denominador a 0.
-  Esto da una forma {k}/0 (asíntota), no una indeterminación 0/0.
-  Por lo tanto, L'Hôpital no es aplicable directamente.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["teoria", "derivada"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para calcular el límite de f(x)/g(x) mediante L'Hôpital, debemos derivar la fracción completa como si fuera una función cociente."
-
-explicacion: |
-  Falso. L'Hôpital establece que el límite es igual al límite de (f'(x))/(g'(x)).
-  No se deriva el cociente f/g, sino que se derivan el numerador y el denominador por separado.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "avanzado"
-  tags: ["exponencial", "logaritmo"]
-
-variables:
-  k: random(1, 5)
-
-respuesta: 0
-tipo: input
-
-enunciado: "Calcula el límite de x / ln(x) cuando x tiende a 1."
-
-explicacion: |
-  Al sustituir x=1, el numerador es 1 y el denominador es ln(1)=0.
-  Esto no es 0/0 ni ∞/∞. Es 1/0 (asíntota).
-  Espera, el límite es infinito (o no existe en el sentido finito).
-  Si la pregunta pide un número finito, esta variable no sirve bien para input numérico simple sin especificar signo.
-  Cambiemos a x->∞ para ln(x)/x.
-  Nuevo enunciado: Lim ln(x)/x cuando x->∞.
-  Derivada num: 1/x. Derivada den: 1.
-  Lim (1/x)/1 = 0.
-  Reescribiendo bloque:
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["exponencial", "logaritmo"]
-
-respuesta: 0
-tipo: input
-
-enunciado: "Calcula el límite de ln(x) / x cuando x tiende a infinito."
-
-explicacion: |
-  Forma ∞/∞.
-  Derivada num: 1/x. Derivada den: 1.
-  El nuevo límite es lim (1/x) / 1 = 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["teoria", "existencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si al aplicar L'Hôpital el límite de f'(x)/g'(x) no existe (ni es infinito), entonces L'Hôpital no permite concluir nada sobre el límite original."
-
-explicacion: |
-  Correcto. La regla dice que si el límite de las derivadas existe, entonces el límite original es igual a él.
-  Si el límite de las derivadas no existe, la regla es inconclusa (el límite original podría existir o no).
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "avanzado"
-  tags: ["iteracion", "polinomio"]
-
-respuesta: 2
-tipo: input
-
-enunciado: "Calcula el límite de (x^{2} - 2x + 1) / (x^{3} - 1) cuando x tiende a 1."
-
-explicacion: |
-  Forma 0/0.
-  Derivada 1: Num (2x-2), Den (3x^2). En x=1: 0/3 = 0.
-  Espera, 0/3 es 0. No hay que derivar de nuevo.
-  Reviso: Num en 1: 1-2+1=0. Den en 1: 1-1=0.
-  Derivada Num: 2x-2. En 1: 0.
-  Derivada Den: 3x^2. En 1: 3.
-  Lim 0/3 = 0.
-  La respuesta es 0.
-  Cambio el ejercicio para que requiera 2 derivadas.
-  Usar (x-1)^2 / (x^3-1)?
-  Num derivada: 2(x-1) -> 0. Den derivada: 3x^2 -> 3. Resultado 0.
-  Usar (x-1)^3 / (x^2-1)?
-  Num derivada: 3(x-1)^2 -> 0. Den derivada: 2x -> 2. Resultado 0.
-  Para que sea distinto de 0 y requiera iteración, necesitamos que la primera derivada siga dando 0/0.
-  Ejemplo: (x-1)^2 / (x^2-1).
-  Derivada 1: Num 2(x-1)->0. Den 2x->2. Resultado 0.
-  Ejemplo: (x-1)^3 / (x-1)^2? Simplifica a x-1 -> 0.
-  Ejemplo clásico: (x - sin(x)) / x^3?
-  Derivada 1: (1-cos(x))/3x^2 -> 0/0.
-  Derivada 2: sin(x)/6x -> 0/0.
-  Derivada 3: cos(x)/6 -> 1/6.
-  Muy complejo para input simple.
-  Volvemos a (x^2 - 2x + 1)/(x-1)? No, eso es 0/0 directo.
-  Vamos a usar (x^2 - 1)/(x^3 - 1) en x->1.
-  Derivada 1: 2x / 3x^2 = 2/(3x). En 1: 2/3.
-  Respuesta 2/3.
-  Reescribiendo para evitar confusión de iteración innecesaria:
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "basico"
-  tags: ["propiedades", "linealidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el límite de f(x)/g(x) es indeterminado, el límite de c*f(x)/g(x) (con c constante) se puede calcular derivando f(x) y g(x) por separado."
-
-explicacion: |
-  Verdadero. La constante c se puede sacar fuera o derivar como parte del numerador (c*f'(x)).
-  El resultado será c veces el límite original de f/g.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["teoria", "limites_laterales"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Regla de L'Hôpital es aplicable también para límites laterales (x -> a+ o x -> a-)."
-
-explicacion: |
-  Verdadero. La regla se basa en la derivabilidad en un entorno, y los límites laterales son casos particulares de ese comportamiento local.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["trigonometria", "limite"]
-
-respuesta: 1
-tipo: input
-
-enunciado: "Calcula el límite de sen(3x) / x cuando x tiende a 0."
-
-explicacion: |
-  Forma 0/0.
-  Derivada num: 3cos(3x). Derivada den: 1.
-  En x=0: 3cos(0)/1 = 3.
-  Espera, la respuesta es 3.
-  Reescribiendo para que sea 1: sen(x)/x.
-  Pero quiero variar.
-  Si pongo sen(3x)/x, la respuesta es 3.
-  Si pongo sen(x)/3x, la respuesta es 1/3.
-  Vamos a usar sen(3x)/x para probar que el alumno deriva correctamente el argumento.
-  Respuesta: 3.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["trigonometria", "limite"]
-
-respuesta: 3
-tipo: input
-
-enunciado: "Calcula el límite de sen(3x) / x cuando x tiende a 0."
-
-explicacion: |
-  Forma 0/0.
-  Derivada num: 3cos(3x). Derivada den: 1.
-  En x=0: 3*1 / 1 = 3.
-```
-
-## Sección: regla-de-tres-directa (24 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "basico"
-  tags: ["regla_de_tres_directa"]
-
-variables:
-  a: random(2, 9)
-  b: random(2, 30)
-  c: random(2, 9)
-
-respuesta: (b * c) / a
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Resolvé la regla de tres directa: {a} es a {b} como {c} es a x. ¿Cuánto vale x?"
-
-pasos:
-  - "x = ({b} × {c}) ÷ {a} = {b * c} ÷ {a} = {(b * c) / a}"
-
-explicacion: |
-  Se multiplican los dos términos que están cruzados con la incógnita, y
-  se divide por el tercero.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "basico"
-  tags: ["regla_de_tres_directa", "problema"]
-
-variables:
-  kilos_base: random(2, 6)
-  precio_base: kilos_base * random(100, 500)
-  kilos_nuevo: random(2, 15)
-
-respuesta: (precio_base * kilos_nuevo) / kilos_base
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Si {kilos_base} kg de manzanas cuestan ${precio_base}, ¿cuánto cuestan {kilos_nuevo} kg (a precio proporcional)?"
-
-pasos:
-  - "x = ({precio_base} × {kilos_nuevo}) ÷ {kilos_base}"
-
-explicacion: |
-  Más kilos, más precio: es una relación directamente proporcional.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa", "problema"]
-
-variables:
+  km_base: random(20, 100)
   horas_base: random(1, 4)
-  km_base: horas_base * random(40, 100)
-  horas_nueva: random(2, 10)
+  horas_nueva: horas_base * random(2, 4)
 
-respuesta: (km_base * horas_nueva) / horas_base
+respuesta: km_base * (horas_nueva / horas_base)
 tipo: input
 tolerancia_abs: 0.01
 
 enunciado: "Un auto recorre {km_base} km en {horas_base} horas, a velocidad constante. ¿Cuántos km recorre en {horas_nueva} horas?"
 
 explicacion: |
-  A velocidad constante, más horas significa más distancia recorrida:
-  relación directa.
+  A velocidad constante, distancia y tiempo mantienen una proporción.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_de_tres_directa"
+  tema: "proporcion"
   nivel: "intermedio"
-  tags: ["regla_de_tres_directa", "problema"]
+  tags: ["proporcion"]
 
 variables:
-  horas_base: random(2, 8)
-  sueldo_base: horas_base * random(500, 2000)
-  horas_nueva: random(3, 12)
+  a: random(1, 9)
+  b: random(2, 9)
+  k: random(2, 8)
+  c_valida: a * k
+  d: b * k
+  c_invalida: c_valida + 1
 
-respuesta: (sueldo_base * horas_nueva) / horas_base
-tipo: input
-tolerancia_abs: 0.01
+respuesta: c_valida
+tipo: mc
+opciones_explicitas:
+  - c_valida
+  - c_invalida
 
-enunciado: "Por {horas_base} horas de trabajo se cobran ${sueldo_base}. Manteniendo la misma paga por hora, ¿cuánto se cobra por {horas_nueva} horas?"
+enunciado: "¿Cuál de estos dos valores hace que {a}/{b} = ___/{d} sea una proporción válida?"
 
 explicacion: |
-  Más horas trabajadas, más plata cobrada: relación directa.
+  Sólo {c_valida} cumple que {a} × {d} = {b} × {c_valida}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_de_tres_directa"
+  tema: "proporcion"
   nivel: "basico"
-  tags: ["regla_de_tres_directa", "problema"]
+  tags: ["proporcion"]
 
 variables:
-  personas_base: random(2, 6)
-  huevos_base: personas_base * random(1, 3)
-  personas_nueva: random(3, 20)
-
-respuesta: (huevos_base * personas_nueva) / personas_base
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una receta para {personas_base} personas usa {huevos_base} huevos. Manteniendo la proporción, ¿cuántos huevos hacen falta para {personas_nueva} personas?"
-
-explicacion: |
-  Más personas, más ingredientes en la misma proporción: relación
-  directa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa", "problema"]
-
-variables:
-  km_base: random(50, 200)
-  litros_base: random(4, 20)
-  km_nuevo: random(100, 600)
-
-respuesta: (litros_base * km_nuevo) / km_base
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un auto gasta {litros_base} litros cada {km_base} km. ¿Cuántos litros gasta en {km_nuevo} km?"
-
-explicacion: |
-  Más kilómetros recorridos, más combustible consumido: relación directa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa", "problema"]
-
-variables:
-  dolares_base: random(1, 10)
-  pesos_base: dolares_base * random(800, 1200)
-  dolares_nuevo: random(5, 100)
-
-respuesta: (pesos_base * dolares_nuevo) / dolares_base
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Si {dolares_base} dólar(es) equivalen a ${pesos_base}, ¿cuántos pesos equivalen a {dolares_nuevo} dólares (mismo tipo de cambio)?"
-
-explicacion: |
-  El tipo de cambio se mantiene constante: más dólares, más pesos en la
-  misma proporción.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa", "problema"]
-
-variables:
-  horas_base: random(1, 5)
-  piezas_base: horas_base * random(10, 40)
-  horas_nueva: random(2, 12)
-
-respuesta: (piezas_base * horas_nueva) / horas_base
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una máquina produce {piezas_base} piezas en {horas_base} horas, a ritmo constante. ¿Cuántas piezas produce en {horas_nueva} horas?"
-
-explicacion: |
-  Más horas de producción a ritmo constante, más piezas: relación
-  directa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "basico"
-  tags: ["regla_de_tres_directa", "vocabulario"]
+  n: random(1, 999)
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "\"Más horas trabajadas, más plata cobrada\" es un ejemplo de relación directamente proporcional."
+enunciado: "¿Es {n}/{n} = {n}/{n} una proporción válida?"
 
 explicacion: |
-  Las dos magnitudes suben juntas: es directa.
+  Cualquier razón es igual a sí misma: siempre forma una proporción
+  consigo misma.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "\"Más obreros trabajando, más días tarda en terminarse la obra\" es un ejemplo de relación directamente proporcional."
-
-explicacion: |
-  Acá pasa lo contrario: más obreros, MENOS días (terminan antes) — es
-  una relación inversa, no directa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
+  tema: "proporcion"
   nivel: "basico"
-  tags: ["regla_de_tres_directa", "vocabulario"]
+  tags: ["proporcion", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "\"Más kilos de fruta comprados, más se paga\" es una relación directamente proporcional."
+enunciado: "Las proporciones son la herramienta detrás de la regla de tres, el siguiente tema del mapa."
 
 explicacion: |
-  Las dos magnitudes (kilos y precio) aumentan juntas.
+  Resolver una regla de tres es, exactamente, hallar el término
+  desconocido de una proporción.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "basico"
-  tags: ["regla_de_tres_directa", "vocabulario"]
-
-enunciado: "¿Cómo se reconoce que un problema es de regla de tres directa?"
-tipo: mc
-opciones_explicitas:
-  - "Las dos magnitudes aumentan (o disminuyen) juntas"
-  - "Una magnitud siempre vale el doble de la otra"
-  - "Los números del problema son todos pares"
-respuesta: "Las dos magnitudes aumentan (o disminuyen) juntas"
-
-explicacion: |
-  Si al aumentar una también aumenta la otra (y al disminuir una también
-  disminuye la otra), es directa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa"]
-
-variables:
-  a: random(2, 9)
-  b: random(10, 90)
-  c: random(2, 9)
-  correcto: (b * c) / a
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - a * b * c
-  - (a * b) / c
-
-enunciado: "En la regla de tres directa {a}—{b} / {c}—x, ¿cuál es la fórmula correcta para x?"
-
-explicacion: |
-  x se calcula multiplicando los dos términos cruzados con la incógnita
-  ({b} y {c}) y dividiendo por el tercero ({a}).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa", "verificacion"]
-
-variables:
-  a: random(2, 9)
-  b: random(10, 90)
-  c: random(2, 9)
-  correcto: (b * c) / a
-  error: uno_de([0, 0, 0, a, -a])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 0.01)
-tipo: vf
-
-enunciado: "¿Está bien resuelta esta regla de tres? {a} es a {b} como {c} es a {mostrado}."
-
-explicacion: |
-  Se verifica volviendo a aplicar la fórmula x = (b × c) ÷ a.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa"]
-
-variables:
-  a: random(2, 9)
-  b: random(10, 90)
-  c: random(2, 9)
-
-tipo: completar
-enunciado: "Completá: {a} es a {b} como {c} es a ___."
-respuestas_validas:
-  - (b * c) / a
-
-explicacion: |
-  Se aplica la fórmula de la regla de tres directa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "basico"
-  tags: ["regla_de_tres_directa", "problema"]
-
-variables:
-  plantas_base: random(2, 6)
-  litros_base: plantas_base * random(1, 3)
-  plantas_nueva: random(3, 20)
-
-respuesta: (litros_base * plantas_nueva) / plantas_base
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Regar {plantas_base} plantas usa {litros_base} litros de agua. Manteniendo la misma cantidad por planta, ¿cuántos litros hacen falta para {plantas_nueva} plantas?"
-
-explicacion: |
-  Más plantas, más agua necesaria en la misma proporción: relación
-  directa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa", "problema"]
-
-variables:
-  entradas_base: random(2, 8)
-  recaudado_base: entradas_base * random(500, 3000)
-  entradas_nueva: random(5, 100)
-
-respuesta: (recaudado_base * entradas_nueva) / entradas_base
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Vendiendo {entradas_base} entradas se recaudaron ${recaudado_base}. Al mismo precio, ¿cuánto se recauda vendiendo {entradas_nueva} entradas?"
-
-explicacion: |
-  Más entradas vendidas, más dinero recaudado: relación directa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
+  tema: "proporcion"
   nivel: "avanzado"
-  tags: ["regla_de_tres_directa"]
+  tags: ["proporcion", "problema"]
 
 variables:
-  a: random(2, 9)
-  b: random(10, 90)
-  c: random(2, 9)
-  correcto_directa: (b * c) / a
-  formula_inversa: (a * b) / c
+  peso_base: random(10, 30)
+  dosis_base: random(5, 20)
+  peso_nuevo: peso_base * random(2, 3)
 
-restricciones:
-  - correcto_directa != formula_inversa
-
-respuesta: correcto_directa
-tipo: mc
-opciones_explicitas:
-  - correcto_directa
-  - formula_inversa
-
-enunciado: "En una regla de tres DIRECTA, {a} es a {b} como {c} es a x. ¿Cuál de estos dos valores es x?"
-
-explicacion: |
-  La segunda opción usa la fórmula de la regla de tres inversa (que no
-  aplica acá): hay que usar la fórmula directa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa", "problema"]
-
-variables:
-  horas_base: random(1, 3)
-  km_base: horas_base * random(60, 120)
-  horas_nueva: random(4, 10)
-
-respuesta: (km_base * horas_nueva) / horas_base
+respuesta: dosis_base * (peso_nuevo / peso_base)
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Un tren recorre {km_base} km en {horas_base} horas, a velocidad constante. ¿Cuántos km recorre en {horas_nueva} horas?"
+enunciado: "Para un paciente de {peso_base} kg se indican {dosis_base} mg de un medicamento (proporcional al peso). ¿Cuántos mg corresponden a un paciente de {peso_nuevo} kg?"
 
 explicacion: |
-  Misma idea que un auto: a velocidad constante, distancia y tiempo son
-  directamente proporcionales.
+  Cuando una dosis es proporcional al peso, se arma una proporción entre
+  peso y cantidad de medicamento.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_de_tres_directa"
+  tema: "proporcion"
   nivel: "avanzado"
-  tags: ["regla_de_tres_directa"]
+  tags: ["proporcion"]
 
 variables:
-  a: random(3, 9)
-  b: random(3, 9)
-  c: random(3, 9)
-
-respuesta: (b * c) / a
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "{a} es a {b} como {c} es a x. ¿Cuánto vale x (puede no ser un número entero)?"
-
-explicacion: |
-  La regla de tres no siempre da un resultado entero: hay que aceptar
-  también resultados con decimales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa", "orden"]
-
-tipo: ordenar
-enunciado: "Resolvé estas tres reglas de tres directas y ordenalas de menor a mayor resultado."
-opciones_explicitas:
-  - "2 es a 10 como 5 es a x"
-  - "4 es a 8 como 3 es a x"
-  - "3 es a 30 como 1 es a x"
-respuesta_orden: ["3 es a 30 como 1 es a x", "4 es a 8 como 3 es a x", "2 es a 10 como 5 es a x"]
-
-explicacion: |
-  Primero se resuelve cada una (x=10, x=6, x=25) y recién ahí se ordenan.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa", "problema"]
-
-variables:
-  m2_base: random(5, 20)
-  litros_base: random(1, 8)
-  m2_nuevo: random(20, 100)
-
-respuesta: (litros_base * m2_nuevo) / m2_base
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Se necesitan {litros_base} litros de pintura para {m2_base} m². ¿Cuántos litros hacen falta para {m2_nuevo} m²?"
-
-explicacion: |
-  Más superficie a pintar, más pintura necesaria en la misma proporción.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_directa", "vocabulario"]
+  a: random(10, 50)
+  b: random(10, 50)
+  k: random(2, 5)
+  c: a * k
+  d: b * k
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En una relación directamente proporcional, si se duplica una magnitud, la otra también se duplica."
+enunciado: "¿Es {a}/{b} = {c}/{d} una proporción válida?"
 
 explicacion: |
-  Es la esencia de la proporcionalidad directa: la razón entre las dos
-  magnitudes se mantiene siempre constante.
+  Con números más grandes, el procedimiento no cambia: se verifica el
+  producto de extremos contra el de medios.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_de_tres_directa"
-  nivel: "basico"
-  tags: ["regla_de_tres_directa", "vocabulario"]
+  tema: "proporcion"
+  nivel: "avanzado"
+  tags: ["proporcion", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La regla de tres directa sirve para encontrar un valor desconocido cuando dos magnitudes son directamente proporcionales."
+enunciado: "No todas las relaciones entre dos cantidades son proporciones directas: a veces, cuando una aumenta, la otra disminuye (proporción inversa)."
 
 explicacion: |
-  Es la idea central de todo el tema: aplicar la propiedad fundamental de
-  la proporción a un problema concreto.
+  Este tema cubrió la proporción directa; la inversa (y la regla de tres
+  inversa) es parte del próximo tema del mapa.
 ```
-
-## Sección: regla-de-tres-inversa (24 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_de_tres_inversa"
+  tema: "proporcion"
   nivel: "basico"
-  tags: ["regla_de_tres_inversa"]
-
-variables:
-  a: random(2, 9)
-  b: random(10, 90)
-  c: random(2, 9)
-
-respuesta: (a * b) / c
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "En una relación inversamente proporcional, {a} es a {b} como {c} es a x. ¿Cuánto vale x?"
-
-pasos:
-  - "x = ({a} × {b}) ÷ {c} = {a * b} ÷ {c} = {(a * b) / c}"
-
-explicacion: |
-  En la regla inversa se igualan los productos, no los cocientes: a×b =
-  c×x.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa", "problema"]
-
-variables:
-  obreros_base: random(2, 8)
-  dias_base: random(4, 30)
-  obreros_nuevo: random(2, 12)
-
-respuesta: (obreros_base * dias_base) / obreros_nuevo
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "{obreros_base} obreros terminan una obra en {dias_base} días. Trabajando todos al mismo ritmo, ¿en cuántos días la terminan {obreros_nuevo} obreros?"
-
-pasos:
-  - "x = ({obreros_base} × {dias_base}) ÷ {obreros_nuevo}"
-
-explicacion: |
-  Más obreros, menos días: relación inversa, así que se igualan los
-  productos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa", "problema"]
-
-variables:
-  velocidad_base: random(20, 80)
-  horas_base: random(2, 8)
-  velocidad_nueva: random(20, 120)
-
-respuesta: (velocidad_base * horas_base) / velocidad_nueva
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "A {velocidad_base} km/h, un viaje tarda {horas_base} horas. ¿Cuánto tarda el mismo viaje a {velocidad_nueva} km/h?"
-
-explicacion: |
-  Para recorrer la misma distancia, más velocidad significa menos tiempo:
-  relación inversa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "basico"
-  tags: ["regla_de_tres_inversa", "problema"]
-
-variables:
-  personas_base: random(2, 8)
-  parte_base: random(10, 90)
-  personas_nueva: random(2, 12)
-
-respuesta: (personas_base * parte_base) / personas_nueva
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Repartiendo ${personas_base * parte_base} entre {personas_base} personas, a cada una le tocan ${parte_base}. Repartiendo la misma plata entre {personas_nueva} personas, ¿cuánto le toca a cada una?"
-
-explicacion: |
-  El total a repartir queda fijo: más personas, menos le toca a cada una
-  — relación inversa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa", "problema"]
-
-variables:
-  canillas_base: random(1, 4)
-  horas_base: random(4, 20)
-  canillas_nueva: random(2, 8)
-
-respuesta: (canillas_base * horas_base) / canillas_nueva
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Con {canillas_base} canilla(s) abierta(s), un tanque se llena en {horas_base} horas. Con {canillas_nueva} canillas (mismo caudal cada una), ¿en cuántas horas se llena?"
-
-explicacion: |
-  Más canillas abiertas, menos tiempo para llenar el mismo tanque:
-  relación inversa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa", "problema"]
-
-variables:
-  maquinas_base: random(2, 8)
-  dias_base: random(4, 20)
-  maquinas_nueva: random(2, 12)
-
-respuesta: (maquinas_base * dias_base) / maquinas_nueva
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "{maquinas_base} máquinas fabrican un pedido en {dias_base} días. Con {maquinas_nueva} máquinas (mismo ritmo cada una), ¿en cuántos días se fabrica el mismo pedido?"
-
-explicacion: |
-  Más máquinas trabajando, menos días necesarios: relación inversa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "basico"
-  tags: ["regla_de_tres_inversa", "vocabulario"]
+  tags: ["proporcion", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "\"Más obreros trabajando, menos días tarda la obra\" es un ejemplo de relación inversamente proporcional."
+enunciado: "Una proporción es la igualdad entre dos razones, y se puede verificar comparando el producto de los extremos con el producto de los medios."
 
 explicacion: |
-  Una magnitud sube (obreros) mientras la otra baja (días): es inversa.
+  Es la idea central de todo el tema: a/b = c/d es proporción si
+  a × d = b × c.
 ```
+
+## Sección: derivada (30 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "\"Más kilos de fruta comprados, más se paga\" es un ejemplo de relación inversamente proporcional."
-
-explicacion: |
-  Acá las dos magnitudes suben juntas: es una relación directa, no
-  inversa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
+  tema: "derivada"
   nivel: "basico"
-  tags: ["regla_de_tres_inversa", "vocabulario"]
-
-enunciado: "¿Cómo se reconoce que un problema es de regla de tres inversa?"
-tipo: mc
-opciones_explicitas:
-  - "Una magnitud aumenta mientras la otra disminuye"
-  - "Las dos magnitudes son siempre números pares"
-  - "Una de las magnitudes tiene que ser el tiempo"
-respuesta: "Una magnitud aumenta mientras la otra disminuye"
-
-explicacion: |
-  Es el criterio clave: si al aumentar una la otra disminuye (manteniendo
-  el producto constante), es inversa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa", "vocabulario"]
-
-enunciado: "En una relación inversamente proporcional, ¿qué se mantiene constante?"
-tipo: mc
-opciones_explicitas:
-  - "El producto de las dos magnitudes"
-  - "El cociente entre las dos magnitudes"
-  - "La suma de las dos magnitudes"
-respuesta: "El producto de las dos magnitudes"
-
-explicacion: |
-  En la regla directa lo constante es el cociente (la razón); en la
-  inversa, lo constante es el producto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa"]
+  tags: ["regla_potencia"]
 
 variables:
-  a: random(2, 9)
-  b: random(10, 90)
-  c: random(2, 9)
-  correcto: (a * b) / c
+  n: random(2, 6)
 
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - (b * c) / a
-  - a * b * c
-
-enunciado: "En la regla de tres inversa {a}—{b} / {c}—x, ¿cuál es la fórmula correcta para x?"
-
-explicacion: |
-  La segunda opción es la fórmula de la regla DIRECTA (no aplica acá): en
-  la inversa se multiplican {a} y {b}, y se divide por {c}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa", "verificacion"]
-
-variables:
-  a: random(2, 9)
-  b: random(10, 90)
-  c: random(2, 9)
-  correcto: (a * b) / c
-  error: uno_de([0, 0, 0, c, -c])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 0.01)
-tipo: vf
-
-enunciado: "En una relación inversa, ¿está bien resuelto esto? {a} es a {b} como {c} es a {mostrado}."
-
-explicacion: |
-  Se verifica comprobando que el producto {a} × {b} sea igual a
-  {c} × {mostrado}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa"]
-
-variables:
-  a: random(2, 9)
-  b: random(10, 90)
-  c: random(2, 9)
-
-tipo: completar
-enunciado: "En una relación inversamente proporcional, completá: {a} es a {b} como {c} es a ___."
-respuestas_validas:
-  - (a * b) / c
-
-explicacion: |
-  Se aplica la fórmula de la regla de tres inversa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa", "problema"]
-
-variables:
-  personas_base: random(2, 6)
-  horas_base: random(4, 24)
-  personas_nueva: random(2, 10)
-
-respuesta: (personas_base * horas_base) / personas_nueva
+respuesta: n
 tipo: input
-tolerancia_abs: 0.01
+tolerancia_abs: 0
 
-enunciado: "{personas_base} personas pintan una casa en {horas_base} horas. Trabajando al mismo ritmo, ¿cuántas horas tardan {personas_nueva} personas?"
+enunciado: "f(x) = x^{n}. ¿Cuál es el coeficiente de f'(x)?"
 
 explicacion: |
-  Más personas ayudando, menos horas necesarias: relación inversa.
+  La derivada de xⁿ es n·x^(n−1) — el coeficiente es directamente n.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "avanzado"
-  tags: ["regla_de_tres_inversa", "regla_de_tres_directa"]
-
-variables:
-  a: random(2, 9)
-  b: random(10, 90)
-  c: random(2, 9)
-  formula_directa: (b * c) / a
-  formula_inversa: (a * b) / c
-
-restricciones:
-  - formula_directa != formula_inversa
-
-respuesta: formula_inversa
-tipo: mc
-opciones_explicitas:
-  - formula_directa
-  - formula_inversa
-
-enunciado: "\"Más obreros, menos días\" — con {a} es a {b} como {c} es a x, ¿cuál fórmula corresponde: la directa o la inversa?"
-
-explicacion: |
-  Como una magnitud sube y la otra baja, corresponde la fórmula inversa
-  (igualar productos), no la directa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "avanzado"
-  tags: ["regla_de_tres_inversa", "problema"]
-
-variables:
-  velocidad_base: random(30, 100)
-  horas_base: random(2, 6)
-  horas_nueva: random(1, velocidad_base - 1)
-
-respuesta: (velocidad_base * horas_base) / horas_nueva
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un vehículo a {velocidad_base} km/h tarda {horas_base} horas en un viaje. ¿A qué velocidad hay que ir para tardar sólo {horas_nueva} horas en el mismo recorrido?"
-
-explicacion: |
-  Menos tiempo para el mismo recorrido significa más velocidad: relación
-  inversa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa", "problema"]
-
-variables:
-  animales_base: random(4, 20)
-  dias_base: random(5, 30)
-  animales_nuevo: random(4, 40)
-
-respuesta: (animales_base * dias_base) / animales_nuevo
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "La comida almacenada alcanza para {animales_base} animales durante {dias_base} días. ¿Para cuántos días alcanza esa misma comida si hay {animales_nuevo} animales?"
-
-explicacion: |
-  Más animales comiendo del mismo stock, menos días dura: relación
-  inversa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la regla de tres inversa, alcanza con invertir cualquier fracción del problema para resolverlo, sin pensar qué representa cada magnitud."
-
-explicacion: |
-  Hay que identificar primero si la relación es directa o inversa
-  analizando el problema — no es un truco mecánico de "dar vuelta" algo
-  al azar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa", "orden"]
-
-tipo: ordenar
-enunciado: "Resolvé estas tres reglas de tres inversas y ordenalas de menor a mayor resultado."
-opciones_explicitas:
-  - "2 es a 10 como 5 es a x"
-  - "4 es a 8 como 2 es a x"
-  - "3 es a 6 como 9 es a x"
-respuesta_orden: ["3 es a 6 como 9 es a x", "2 es a 10 como 5 es a x", "4 es a 8 como 2 es a x"]
-
-explicacion: |
-  Primero se resuelve cada una con la fórmula inversa (x=2, x=4, x=16) y
-  recién ahí se ordenan.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "avanzado"
-  tags: ["regla_de_tres_inversa", "problema"]
-
-variables:
-  desagues_base: random(1, 3)
-  horas_base: random(6, 30)
-  desagues_nuevo: random(2, 6)
-
-respuesta: (desagues_base * horas_base) / desagues_nuevo
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Con {desagues_base} desagüe(s) abierto(s), una pileta se vacía en {horas_base} horas. Con {desagues_nuevo} desagües (mismo caudal cada uno), ¿en cuántas horas se vacía?"
-
-explicacion: |
-  Más desagües abiertos, menos tiempo para vaciarse: relación inversa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa", "regla_de_tres_directa", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"A mayor velocidad, menor tiempo para recorrer la misma distancia\" describe una relación inversamente proporcional."
-
-explicacion: |
-  Velocidad sube, tiempo baja (para una distancia fija): es inversa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "intermedio"
-  tags: ["regla_de_tres_inversa"]
-
-variables:
-  a: random(2, 9)
-  b: random(10, 90)
-  c: random(2, 9)
-  x: (a * b) / c
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si {a} es a {b} como {c} es a {x} (relación inversa), ¿es cierto que {a} × {b} = {c} × {x}?"
-
-explicacion: |
-  Es la propiedad que define a la regla inversa: el producto de cada par
-  se mantiene igual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
+  tema: "derivada"
   nivel: "basico"
-  tags: ["regla_de_tres_inversa"]
-
-enunciado: "En la regla de tres inversa a—b / c—x, ¿cuál es la fórmula para x?"
-tipo: mc
-opciones_explicitas:
-  - "x = (a × b) ÷ c"
-  - "x = (b × c) ÷ a"
-  - "x = a + b + c"
-respuesta: "x = (a × b) ÷ c"
-
-explicacion: |
-  Se igualan los productos: a×b = c×x, y se despeja x dividiendo por c.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_de_tres_inversa"
-  nivel: "basico"
-  tags: ["regla_de_tres_inversa", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La regla de tres inversa sirve para encontrar un valor desconocido cuando, al aumentar una magnitud, la otra disminuye, manteniendo el producto constante."
-
-explicacion: |
-  Es la idea central de todo el tema, en contraste directo con la regla
-  de tres directa.
-```
-
-## Sección: regresion-lineal (20 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "basico"
-  tags: ["regresion", "vocabulario"]
-
-enunciado: "¿Qué es la regresión lineal?"
-tipo: mc
-opciones_explicitas:
-  - "El método para encontrar la recta que mejor describe la tendencia de una nube de puntos de datos"
-  - "El método para calcular la media de un conjunto de datos"
-  - "El método para armar un gráfico de torta"
-respuesta: "El método para encontrar la recta que mejor describe la tendencia de una nube de puntos de datos"
-
-explicacion: |
-  Parte de la nube de puntos ya construida en `../construir-un-grafico/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "basico"
-  tags: ["regresion", "vocabulario"]
-
-enunciado: "En la ecuación de la recta de regresión y=m·x+b, ¿qué representan m y b?"
-tipo: mc
-opciones_explicitas:
-  - "m es la pendiente (cuánto cambia y por cada unidad que aumenta x) y b es la ordenada al origen (el valor de y cuando x=0)"
-  - "m y b son siempre iguales entre sí"
-  - "m es el valor máximo de y, y b es el valor mínimo"
-respuesta: "m es la pendiente (cuánto cambia y por cada unidad que aumenta x) y b es la ordenada al origen (el valor de y cuando x=0)"
-
-explicacion: |
-  Es la misma forma de la ecuación de la recta ya vista en Álgebra.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "intermedio"
-  tags: ["regresion", "problema"]
+  tags: ["regla_potencia"]
 
 variables:
-  m: uno_de([2, 3, 5])
-  b: uno_de([10, 20])
-  x: uno_de([4, 6, 8])
+  n: random(2, 8)
 
-respuesta: m * x + b
+respuesta: n - 1
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "La recta de regresión ajustada es y = {m}x + {b}. ¿Cuál es la predicción de y para x={x}?"
-
-pasos:
-  - "y = {m}×{x} + {b} = {m * x} + {b} = {m * x + b}"
+enunciado: "f(x) = x^{n}. ¿Cuál es el exponente de f'(x)?"
 
 explicacion: |
-  Se reemplaza el valor de x directo en la ecuación de la recta.
+  Se le resta 1 al exponente original.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "avanzado"
-  tags: ["regresion", "problema"]
+  tema: "derivada"
+  nivel: "intermedio"
+  tags: ["regla_potencia"]
 
 variables:
-  m: uno_de([2, 4])
-  b: 10
-  x_real: uno_de([5, 10])
+  k: random(2, 10)
+  n: random(2, 6)
 
-respuesta: x_real
+respuesta: k * n
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "La recta de regresión es y = {m}x + {b}. Si se observa y = {m * x_real + b}, ¿qué valor de x predice la recta?"
-
-pasos:
-  - "{m * x_real + b} = {m}x + {b}"
-  - "x = ({m * x_real + b} − {b}) / {m} = {x_real}"
+enunciado: "f(x) = {k}x^{n}. ¿Cuál es el coeficiente de f'(x)?"
 
 explicacion: |
-  Se despeja x de la ecuación de la recta, igual que en cualquier
-  ecuación de primer grado.
+  El coeficiente {k} se multiplica por el exponente {n}: {k}×{n} = {k * n}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "intermedio"
-  tags: ["correlacion", "vocabulario"]
-
-enunciado: "¿Qué mide el coeficiente de correlación (r)?"
-tipo: mc
-opciones_explicitas:
-  - "Qué tan bien la recta ajustada describe la relación real entre los datos, en una escala de −1 a 1"
-  - "La pendiente exacta de la recta de regresión"
-  - "La cantidad de puntos que tiene la nube de datos"
-respuesta: "Qué tan bien la recta ajustada describe la relación real entre los datos, en una escala de −1 a 1"
-
-explicacion: |
-  r cerca de ±1 indica un ajuste fuerte; cerca de 0, un ajuste débil.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "intermedio"
-  tags: ["correlacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un coeficiente de correlación cercano a +1 o a −1 indica que la recta ajusta muy bien a los datos; uno cercano a 0 indica un ajuste débil."
-
-explicacion: |
-  El valor absoluto de r es lo que indica la fuerza del ajuste; el
-  signo indica la dirección (directa o inversa).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "intermedio"
-  tags: ["correlacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un coeficiente de correlación positivo indica una relación directa (a mayor x, mayor y); uno negativo indica una relación inversa (a mayor x, menor y)."
-
-explicacion: |
-  El signo de r siempre coincide con el signo de la pendiente m de la
-  recta ajustada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "avanzado"
-  tags: ["regresion", "vocabulario"]
-
-enunciado: "¿En qué consiste el método de mínimos cuadrados para ajustar una recta?"
-tipo: mc
-opciones_explicitas:
-  - "Elegir la recta que hace mínima la suma de las distancias verticales AL CUADRADO entre cada punto real y la recta"
-  - "Elegir la recta que pasa exactamente por todos los puntos, sin excepción"
-  - "Elegir la recta con la pendiente más grande posible"
-respuesta: "Elegir la recta que hace mínima la suma de las distancias verticales AL CUADRADO entre cada punto real y la recta"
-
-explicacion: |
-  Es matemáticamente imposible, en general, que una única recta pase
-  por todos los puntos de datos reales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "avanzado"
-  tags: ["regresion"]
-
-enunciado: "¿Por qué el método de mínimos cuadrados usa distancias AL CUADRADO en vez de distancias directas?"
-tipo: mc
-opciones_explicitas:
-  - "Porque las distancias directas (positivas para puntos arriba de la recta, negativas para los de abajo) se cancelarían entre sí al sumarlas"
-  - "Porque elevar al cuadrado siempre da un número más chico"
-  - "No hay ninguna razón matemática, es sólo una convención arbitraria"
-respuesta: "Porque las distancias directas (positivas para puntos arriba de la recta, negativas para los de abajo) se cancelarían entre sí al sumarlas"
-
-explicacion: |
-  Es exactamente el mismo argumento usado para la varianza en
-  `../tablas-de-frecuencia-cuartiles-percentiles-y-varianza/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "avanzado"
-  tags: ["regresion", "extrapolacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Usar la recta de regresión para predecir valores de x fuera del rango de datos que realmente se observaron (extrapolar) es riesgoso, porque no hay garantía de que la misma tendencia lineal siga valiendo ahí afuera."
-
-explicacion: |
-  La recta se ajustó sólo con los datos observados — fuera de ese
-  rango, es una extensión sin evidencia directa que la respalde.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "intermedio"
-  tags: ["regresion", "problema"]
-
-enunciado: "Un estudio encuentra que, en una empresa, a mayor gasto en publicidad corresponden mayores ventas. ¿Qué signo debería tener la pendiente (m) de la recta de regresión ajustada a estos datos?"
-tipo: mc
-opciones_explicitas:
-  - "Positivo: a medida que aumenta el gasto en publicidad (x), también aumentan las ventas (y)"
-  - "Negativo: a medida que aumenta el gasto en publicidad, bajan las ventas"
-respuesta: "Positivo: a medida que aumenta el gasto en publicidad (x), también aumentan las ventas (y)"
-
-explicacion: |
-  Una relación directa (ambas variables suben juntas) siempre da una
-  pendiente positiva.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
+  tema: "derivada"
   nivel: "basico"
-  tags: ["regresion", "aplicacion"]
-
-enunciado: "Una empresa ajustó la recta ventas = 3×(gasto en publicidad) + 500, usando datos históricos. ¿Para qué sirve esta recta?"
-tipo: mc
-opciones_explicitas:
-  - "Para predecir las ventas esperadas dado un monto de gasto en publicidad, dentro del rango de datos ya observado"
-  - "Para calcular con certeza absoluta las ventas futuras, sin ningún margen de error"
-  - "Sólo sirve para describir datos pasados, nunca para predecir"
-respuesta: "Para predecir las ventas esperadas dado un monto de gasto en publicidad, dentro del rango de datos ya observado"
-
-explicacion: |
-  Es una predicción basada en la tendencia histórica, no una certeza
-  matemática exacta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "intermedio"
-  tags: ["regresion", "problema"]
+  tags: ["constante"]
 
 variables:
-  m: uno_de([-2, -3])
-  b: uno_de([100, 150])
-  x: uno_de([10, 20])
+  c: random(-30, 30)
 
-respuesta: m * x + b
+respuesta: 0
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Una recta de regresión con pendiente negativa es y = {m}x + {b} (por ejemplo: precio del producto vs. cantidad demandada). ¿Cuál es la predicción de y para x={x}?"
-
-pasos:
-  - "y = {m}×{x} + {b} = {m * x + b}"
+enunciado: "f(x) = {c} (una función constante). ¿Cuánto vale f'(x)?"
 
 explicacion: |
-  Con pendiente negativa, y BAJA a medida que x aumenta.
+  Una constante no cambia, así que su derivada es siempre 0.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "avanzado"
-  tags: ["correlacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un coeficiente de correlación cercano a 0 no significa que no haya ninguna relación entre las variables — sólo dice que no hay una relación LINEAL. Podría haber una relación fuerte pero curva."
-
-explicacion: |
-  Por ejemplo, una relación en forma de parábola puede dar r≈0 aunque
-  las variables estén claramente relacionadas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "intermedio"
-  tags: ["correlacion", "aplicacion"]
-
-enunciado: "¿Por qué conviene reportar el coeficiente de correlación (r) junto con la ecuación de la recta de regresión?"
-tipo: mc
-opciones_explicitas:
-  - "Porque una recta siempre se puede calcular, aunque ajuste mal — r dice qué tan confiable es esa recta para describir los datos reales"
-  - "Porque r reemplaza por completo a la ecuación de la recta"
-  - "No es necesario reportarlo, la pendiente ya dice todo lo importante"
-respuesta: "Porque una recta siempre se puede calcular, aunque ajuste mal — r dice qué tan confiable es esa recta para describir los datos reales"
-
-explicacion: |
-  Sin r, no hay forma de saber si la recta realmente describe bien la
-  tendencia o si los datos están demasiado dispersos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "avanzado"
-  tags: ["regresion", "problema"]
+  tema: "derivada"
+  nivel: "basico"
+  tags: ["regla_potencia"]
 
 variables:
-  m: uno_de([5, 8, 10])
+  m: random(1, 20)
 
 respuesta: m
 tipo: input
-unidad: "puntos por hora de estudio"
+tolerancia_abs: 0
 
-enunciado: "La recta ajustada entre horas de estudio y nota de examen es nota = {m}×horas + 40. Según esta recta, ¿cuánto aumenta la nota esperada por cada hora adicional de estudio?"
+enunciado: "f(x) = {m}x. ¿Cuánto vale f'(x)?"
+
+explicacion: |
+  La derivada de mx es simplemente m (la pendiente ya es constante).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "intermedio"
+  tags: ["polinomio"]
+
+variables:
+  a: random(1, 8)
+  b: random(1, 10)
+  c: random(-15, 15)
+  punto: random(-8, 8)
+
+respuesta: 2 * a * punto + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {a}x² + {b}x + {c}. ¿Cuánto vale f'({punto})?"
 
 pasos:
-  - "La pendiente m={m} es, directamente, el cambio en y por cada unidad de x."
+  - "f'(x) = {2 * a}x + {b}"
+  - "f'({punto}) = {2 * a}×{punto} + {b} = {2 * a * punto + b}"
 
 explicacion: |
-  Interpretar la pendiente en las unidades del problema es la parte
-  más útil de la regresión en la práctica.
+  Se deriva término a término y después se evalúa en {punto}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "intermedio"
-  tags: ["regresion", "aplicacion"]
-
-enunciado: "¿Qué relación tiene la regresión lineal con `../construir-un-grafico/`?"
-tipo: mc
-opciones_explicitas:
-  - "La regresión parte de una nube de puntos (gráfico de dispersión) ya construida, y ajusta la recta que mejor la describe"
-  - "No tienen ninguna relación entre sí"
-  - "La regresión reemplaza la necesidad de graficar los datos"
-respuesta: "La regresión parte de una nube de puntos (gráfico de dispersión) ya construida, y ajusta la recta que mejor la describe"
-
-explicacion: |
-  Por eso `../construir-un-grafico/` es el prerrequisito directo de
-  este módulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regresion_lineal"
+  tema: "derivada"
   nivel: "avanzado"
-  tags: ["correlacion", "causalidad"]
+  tags: ["polinomio"]
+
+variables:
+  a: random(1, 5)
+  b: random(1, 8)
+  c: random(-10, 10)
+  d: random(-10, 10)
+  punto: random(-5, 5)
+
+respuesta: 3 * a * punto ^ 2 + 2 * b * punto + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {a}x³ + {b}x² + {c}x + {d}. ¿Cuánto vale f'({punto})?"
+
+pasos:
+  - "f'(x) = {3 * a}x² + {2 * b}x + {c}"
+
+explicacion: |
+  Cada término se deriva con la regla de la potencia, por separado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "basico"
+  tags: ["suma", "verdadero_falso"]
+
+variables:
+  a: random(1, 10)
+  b: random(1, 10)
+  c: random(-20, 20)
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Que una recta ajuste muy bien a los datos (r cercano a ±1) no prueba que una de las variables CAUSE a la otra — podría haber otra explicación detrás de esa relación."
+enunciado: "f(x) = {a}x² + {b}x + {c}. ¿La derivada de f NO tiene término independiente (constante)?"
 
 explicacion: |
-  Es el punto central de `../correlacion-no-es-causalidad/`, el
-  módulo que sigue.
+  El término {c} desaparece al derivar (su derivada es 0), así que
+  f'(x) no tiene término constante propio, salvo que quede como
+  resultado de derivar el término lineal.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regresion_lineal"
-  nivel: "avanzado"
-  tags: ["regresion", "problema"]
+  tema: "derivada"
+  nivel: "intermedio"
+  tags: ["interpretacion_geometrica"]
 
 variables:
-  m: 4
-  b: 20
-  x1: 10
-  x2: 15
+  a: random(1, 6)
+  punto: random(-6, 6)
 
-respuesta: (m * x2 + b) - (m * x1 + b)
+respuesta: 2 * a * punto
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Con la recta y = {m}x + {b}, ¿cuánto AUMENTA la predicción de y al pasar de x={x1} a x={x2}?"
-
-pasos:
-  - "y({x1}) = {m * x1 + b}; y({x2}) = {m * x2 + b}"
-  - "Diferencia = {m * x2 + b} − {m * x1 + b} = {(m * x2 + b) - (m * x1 + b)}"
+enunciado: "f(x) = {a}x². ¿Cuál es la pendiente de la recta tangente al gráfico de f en x={punto}?"
 
 explicacion: |
-  El aumento siempre es m × (diferencia en x) — es la definición
-  misma de pendiente constante en una recta.
+  La pendiente de la tangente en un punto es, exactamente, la derivada
+  evaluada ahí: f'({punto}) = {2 * a}×{punto} = {2 * a * punto}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regresion_lineal"
+  tema: "derivada"
+  nivel: "intermedio"
+  tags: ["aplicacion", "fisica"]
+
+variables:
+  a: random(1, 10)
+  t: random(1, 10)
+
+respuesta: 2 * a * t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La posición de un objeto es s(t) = {a}t² (metros). ¿Cuál es su velocidad instantánea en t={t} segundos?"
+
+pasos:
+  - "s'(t) = {2 * a}t → s'({t}) = {2 * a}×{t} = {2 * a * t}"
+
+explicacion: |
+  La velocidad instantánea es la derivada de la posición respecto del
+  tiempo — el cruce clásico entre Análisis y Física.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La derivada de f en un punto mide la tasa de cambio instantánea de f ahí."
+
+explicacion: |
+  Es la definición central de la derivada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "f'(a) es exactamente la pendiente de la recta tangente al gráfico de f en el punto (a, f(a))."
+
+explicacion: |
+  Es la interpretación geométrica de la derivada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "f(a) y f'(a) son siempre el mismo número, para cualquier función f."
+
+explicacion: |
+  Son cosas distintas: f(a) es el VALOR de la función en a; f'(a) es la
+  PENDIENTE (tasa de cambio) en a — en general, números distintos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La derivada de cualquier función constante es 0."
+
+explicacion: |
+  Una constante nunca cambia, así que su tasa de cambio es siempre 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "intermedio"
+  tags: ["error_comun", "opcion_multiple"]
+
+variables:
+  n: random(3, 8)
+
+respuesta: n - 1
+tipo: mc
+opciones_explicitas:
+  - n - 1
+  - n
+  - n + 1
+
+enunciado: "f(x) = x^{n}. ¿Cuál es el exponente correcto de f'(x)?"
+
+explicacion: |
+  Es n−1, no n (dejar el mismo exponente) ni n+1 — hay que restar 1,
+  siempre.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "intermedio"
+  tags: ["polinomio", "signos"]
+
+variables:
+  a: random(2, 8)
+  b: random(2, 8)
+  punto: random(-8, 8)
+
+respuesta: 2 * a * punto - b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {a}x² − {b}x. ¿Cuánto vale f'({punto})?"
+
+pasos:
+  - "f'(x) = {2 * a}x − {b}"
+
+explicacion: |
+  El signo del término se mantiene al derivar cada uno por separado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  a: random(1, 8)
+  xv: random(-10, 10)
+  b: -2 * a * xv
+
+respuesta: xv
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {a}x² + {b}x. ¿En qué valor de x se anula f'(x) (o sea, dónde está el vértice de la parábola)?"
+
+pasos:
+  - "f'(x) = {2 * a}x + {b}"
+  - "{2 * a}x + {b} = 0 → x = −{b}/{2 * a} = {xv}"
+
+explicacion: |
+  Es la misma fórmula del vértice de `../funcion-cuadratica-parabola/`,
+  vista ahora como consecuencia de que la derivada se anula ahí — la
+  base de `../optimizacion/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(1, 8)
+  b: random(1, 10)
+  punto: random(-8, 8)
+  real: 2 * a * punto + b
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "f(x) = {a}x² + {b}x. ¿Es correcto que f'({punto}) sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es f'({punto}) = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La derivada de una función lineal f(x)=mx+b es siempre la misma constante m, sin importar en qué punto se evalúe."
+
+explicacion: |
+  Tiene sentido: la pendiente de una recta es la misma en todos sus
+  puntos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "avanzado"
+  tags: ["interpretacion_geometrica", "verdadero_falso"]
+
+variables:
+  a: random(1, 8)
+  xv: random(-10, 10)
+  b: -2 * a * xv
+
+respuesta: ((2 * a * xv + b) == 0)
+tipo: vf
+
+enunciado: "f(x) = {a}x² + {b}x. ¿Es 0 la pendiente de la recta tangente en x={xv} (el vértice)?"
+
+explicacion: |
+  En el vértice de una parábola, la recta tangente es horizontal —
+  pendiente 0, exactamente donde f' se anula.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "avanzado"
+  tags: ["polinomio"]
+
+variables:
+  a: random(1, 4)
+  b: random(1, 6)
+  c: random(1, 8)
+  d: random(-10, 10)
+  punto: random(1, 5)
+
+respuesta: 3 * a * punto ^ 2 + 2 * b * punto + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {a}x³ + {b}x² + {c}x + {d}. ¿Cuánto vale f'({punto})?"
+
+explicacion: |
+  f'(x) = {3 * a}x² + {2 * b}x + {c}, evaluado en x={punto}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Se puede derivar la derivada de una función, obteniendo la 'derivada segunda' — por ejemplo, la derivada de la velocidad es la aceleración."
+
+explicacion: |
+  Derivar dos veces mide "cómo cambia la tasa de cambio" — en física, la
+  aceleración es la derivada segunda de la posición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  a: random(1, 10)
+
+respuesta: 2 * a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "s(t) = {a}t² (posición). La velocidad es s'(t) = {2 * a}t. ¿Cuál es la aceleración (la derivada de la velocidad)?"
+
+explicacion: |
+  Derivar {2 * a}t (una función lineal en t) da la constante {2 * a} —
+  la aceleración es constante en este movimiento.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "basico"
+  tags: ["concepto"]
+
+respuesta: 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = x. ¿Cuánto vale f'(x)?"
+
+explicacion: |
+  x es x¹: derivando, 1×x⁰ = 1×1 = 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  a: random(1, 5)
+  b: random(10, 50)
+  cantidad: random(1, 20)
+
+respuesta: 2 * a * cantidad + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El costo de producir q unidades es C(q) = {a}q² + {b}q. ¿Cuál es el costo marginal (la derivada de C) en q={cantidad}?"
+
+explicacion: |
+  El costo marginal es, literalmente, la derivada del costo total —
+  cuánto cuesta producir "una unidad más" en ese punto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "intermedio"
+  tags: ["polinomio", "signos"]
+
+variables:
+  a: random(2, 8)
+  punto: random(-6, 6)
+
+respuesta: -2 * a * punto
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = −{a}x². ¿Cuánto vale f'({punto})?"
+
+pasos:
+  - "f'(x) = −{2 * a}x"
+
+explicacion: |
+  El signo negativo se conserva al derivar, igual que cualquier otro
+  coeficiente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si f'(a) es positiva, la función es creciente cerca de x=a; si f'(a) es negativa, es decreciente ahí."
+
+explicacion: |
+  El signo de la derivada indica la dirección del cambio, y su valor
+  absoluto, qué tan rápido cambia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  k: random(2, 10)
+  n: random(2, 6)
+  real: k * n
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "f(x) = {k}x^{n}. ¿Es correcto que el coeficiente de f'(x) sea {propuesto}?"
+
+explicacion: |
+  El coeficiente correcto es {k}×{n} = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La derivada de un producto de dos funciones es simplemente el producto de sus derivadas."
+
+explicacion: |
+  No es tan simple — la regla del producto real es más elaborada
+  (f·g)' = f'g + fg'. Sólo la SUMA se deriva término a término de forma
+  directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "derivada"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  a: random(1, 6)
+  x_sol: random(1, 10)
+  pendiente_deseada: 2 * a * x_sol
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {a}x². ¿En qué valor positivo de x la pendiente de la tangente es {pendiente_deseada}?"
+
+pasos:
+  - "f'(x) = {2 * a}x = {pendiente_deseada} → x = {pendiente_deseada}/{2 * a}"
+
+explicacion: |
+  Se plantea f'(x) = valor deseado, y se despeja x — la misma ecuación
+  de primer grado de siempre.
+```
+
+## Sección: rectas-paralelas-y-perpendiculares (25 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "basico"
+  tags: ["paralelas", "vocabulario"]
+
+enunciado: "¿Cuándo dos rectas son paralelas?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando tienen exactamente la misma pendiente"
+  - "Cuando sus pendientes multiplicadas dan -1"
+  - "Cuando tienen la misma ordenada al origen"
+respuesta: "Cuando tienen exactamente la misma pendiente"
+
+explicacion: |
+  m₁ = m₂ es el criterio ya visto en `../funcion-lineal-pendiente/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "basico"
+  tags: ["perpendiculares", "vocabulario"]
+
+enunciado: "¿Cuándo dos rectas son perpendiculares?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando el producto de sus pendientes es -1"
+  - "Cuando tienen exactamente la misma pendiente"
+  - "Cuando ambas pasan por el origen"
+respuesta: "Cuando el producto de sus pendientes es -1"
+
+explicacion: |
+  m₁ × m₂ = −1: cada pendiente es la recíproca y opuesta de la otra.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "intermedio"
+  tags: ["perpendiculares", "problema"]
+
+variables:
+  m: uno_de([2, 3, 4, 5])
+
+respuesta: -1 / m
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una recta tiene pendiente {m}. ¿Cuál es la pendiente de cualquier recta perpendicular a ella?"
+
+pasos:
+  - "-1 ÷ {m} = {-1 / m}"
+
+explicacion: |
+  Se invierte la pendiente y se cambia el signo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "avanzado"
+  tags: ["perpendiculares", "problema"]
+
+variables:
+  a: uno_de([2, 3, 4])
+  b: uno_de([5, 7])
+
+respuesta: 0 - (b / a)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una recta tiene pendiente {a}/{b}. ¿Cuál es la pendiente de cualquier recta perpendicular a ella?"
+
+pasos:
+  - "Se invierte la fracción y se cambia el signo: -{b}/{a} = {0 - (b / a)}"
+
+explicacion: |
+  ({a}/{b}) × (-{b}/{a}) = -1, verificando el criterio de
+  perpendicularidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "avanzado"
+  tags: ["paralelas", "problema"]
+
+variables:
+  m: uno_de([2, 3, -2])
+  x0: random(1, 5)
+  y0: random(1, 20)
+
+respuesta: y0 - (m * x0)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Se busca la recta paralela a y = {m}x + 7, que además pasa por el punto ({x0}, {y0}). ¿Cuál es la ordenada al origen de esa nueva recta?"
+
+pasos:
+  - "Misma pendiente: {m}"
+  - "{y0} = {m} × {x0} + b, entonces b = {y0} − {m}×{x0} = {y0 - (m * x0)}"
+
+explicacion: |
+  Se usa la misma pendiente de la recta original, y se despeja b con el
+  punto dado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "avanzado"
+  tags: ["perpendiculares", "problema"]
+
+variables:
+  m: uno_de([2, 4, 5])
+  m_perp: -1 / m
+  x0: uno_de([2, 4, 6, 8])
+  y0: random(1, 10)
+
+respuesta: redondear(y0 - (m_perp * x0), 2)
+tipo: input
+tolerancia_abs: 0.05
+
+enunciado: "Se busca la recta perpendicular a y = {m}x + 3, que además pasa por el punto ({x0}, {y0}). Su pendiente es {m_perp}. ¿Cuál es la ordenada al origen de esa nueva recta?"
+
+pasos:
+  - "{y0} = {m_perp} × {x0} + b, entonces b = {y0} − ({m_perp}×{x0}) = {redondear(y0 - (m_perp * x0), 2)}"
+
+explicacion: |
+  Se usa la pendiente perpendicular ya calculada, y se despeja b con el
+  punto dado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "intermedio"
+  tags: ["paralelas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos rectas con la misma pendiente Y la misma ordenada al origen son, en realidad, la misma recta (coincidentes), no dos rectas paralelas distintas."
+
+explicacion: |
+  Ser paralelas exige además que b₁ sea distinto de b₂.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "intermedio"
+  tags: ["paralelas", "vocabulario"]
+
+enunciado: "¿Qué condición hace que dos rectas con la misma pendiente sean coincidentes (la misma recta) en vez de paralelas distintas?"
+tipo: mc
+opciones_explicitas:
+  - "Que además tengan la misma ordenada al origen"
+  - "Que además tengan pendientes recíprocas"
+  - "No existe tal condición: siempre son paralelas distintas"
+respuesta: "Que además tengan la misma ordenada al origen"
+
+explicacion: |
+  Mismo m y mismo b: es literalmente la misma ecuación escrita dos
+  veces.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "intermedio"
+  tags: ["paralelas", "problema"]
+
+variables:
+  m: uno_de([2, 3, 4, 5])
+  b1: uno_de([1, 2, 3])
+  b2: b1 + random(1, 5)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Son paralelas las rectas y = {m}x + {b1} e y = {m}x + {b2}?"
+
+explicacion: |
+  Tienen la misma pendiente ({m}) y distinta ordenada al origen: son
+  paralelas, sin llegar a tocarse nunca.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "intermedio"
+  tags: ["perpendiculares", "problema"]
+
+variables:
+  m1: uno_de([2, 3, 4])
+  m2: 0 - (1 / m1)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Son perpendiculares las rectas con pendiente {m1} y con pendiente {m2}?"
+
+explicacion: |
+  {m1} × ({m2}) = -1: cumplen el criterio de perpendicularidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "avanzado"
+  tags: ["paralelas", "perpendiculares", "vocabulario"]
+
+enunciado: "¿Qué hay que verificar, usando pendientes, para confirmar que un cuadrilátero dado por sus 4 vértices es un rectángulo?"
+tipo: mc
+opciones_explicitas:
+  - "Que los lados opuestos sean paralelos entre sí, y los lados consecutivos sean perpendiculares"
+  - "Que las cuatro pendientes sean exactamente iguales"
+  - "Que ningún lado tenga pendiente 0"
+respuesta: "Que los lados opuestos sean paralelos entre sí, y los lados consecutivos sean perpendiculares"
+
+explicacion: |
+  Sin medir ningún ángulo con transportador: sólo comparando pendientes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "avanzado"
+  tags: ["paralelas", "problema"]
+
+variables:
+  m: uno_de([2, 3, -2])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un cuadrilátero tiene un lado con pendiente {m}, y el lado opuesto también tiene pendiente {m}. ¿Es compatible eso con que el cuadrilátero sea un rectángulo (en lo que respecta a ese par de lados)?"
+
+explicacion: |
+  Los lados opuestos de un rectángulo tienen que ser paralelos: misma
+  pendiente cumple esa condición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "intermedio"
+  tags: ["perpendiculares"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una recta tangente a una circunferencia es siempre perpendicular al radio, en el punto de contacto."
+
+explicacion: |
+  Ya se había mencionado en `../circunferencia-y-circulo/`; ahora se
+  puede verificar numéricamente con pendientes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "avanzado"
+  tags: ["perpendiculares", "problema"]
+
+variables:
+  m_radio: uno_de([2, 3, 4, 5])
+
+respuesta: -1 / m_radio
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "El radio de una circunferencia, en el punto de contacto con una tangente, tiene pendiente {m_radio}. ¿Cuál es la pendiente de la recta tangente en ese punto?"
+
+pasos:
+  - "-1 ÷ {m_radio} = {-1 / m_radio}"
+
+explicacion: |
+  La tangente es siempre perpendicular al radio en ese punto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "intermedio"
+  tags: ["paralelas", "ordenar"]
+
+enunciado: "Ordená los pasos para hallar la ecuación de la recta paralela a otra, que además pasa por un punto dado."
+tipo: ordenar
+opciones_explicitas:
+  - "Despejar la nueva ordenada al origen"
+  - "Usar la misma pendiente que la recta original"
+  - "Reemplazar las coordenadas del punto dado en y = mx + b"
+respuesta_orden: ["Usar la misma pendiente que la recta original", "Reemplazar las coordenadas del punto dado en y = mx + b", "Despejar la nueva ordenada al origen"]
+explicacion: |
+  La pendiente no cambia; sólo se recalcula b para que la recta pase por
+  el punto pedido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "intermedio"
+  tags: ["perpendiculares", "ordenar"]
+
+enunciado: "Ordená los pasos para hallar la ecuación de la recta perpendicular a otra, que además pasa por un punto dado."
+tipo: ordenar
+opciones_explicitas:
+  - "Despejar la nueva ordenada al origen"
+  - "Calcular la pendiente recíproca y opuesta de la recta original"
+  - "Reemplazar las coordenadas del punto dado en y = mx + b, con esa nueva pendiente"
+respuesta_orden: ["Calcular la pendiente recíproca y opuesta de la recta original", "Reemplazar las coordenadas del punto dado en y = mx + b, con esa nueva pendiente", "Despejar la nueva ordenada al origen"]
+explicacion: |
+  Primero cambia la pendiente (recíproca y opuesta); recién después se
+  ajusta b.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "avanzado"
+  tags: ["paralelas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos rectas verticales distintas (x = k₁ y x = k₂, con k₁ ≠ k₂) son siempre paralelas entre sí."
+
+explicacion: |
+  Aunque no tengan pendiente definida en la fórmula y=mx+b, nunca se
+  cruzan: son paralelas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "intermedio"
+  tags: ["perpendiculares"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una recta horizontal (y = b) y una recta vertical (x = k) son siempre perpendiculares entre sí."
+
+explicacion: |
+  Se cruzan formando exactamente 90°, aunque el criterio m₁×m₂=-1 no se
+  pueda aplicar literalmente (la vertical no tiene pendiente definida).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "intermedio"
+  tags: ["paralelas", "problema"]
+
+variables:
+  m: uno_de([2, 3, 4])
+  x0: uno_de([1, 2, 3])
+  producto: m * x0
+  b: random(1, 10)
+
+respuesta: b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La recta paralela a y = {m}x + 5 que pasa por ({x0}, {producto + b}) tiene ordenada al origen b. ¿Cuánto vale b?"
+
+pasos:
+  - "{producto + b} = {m} × {x0} + b, entonces b = {producto + b} − {producto} = {b}"
+
+explicacion: |
+  Se despeja b restando m×x₀ al valor de y del punto dado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "basico"
+  tags: ["perpendiculares"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el producto de las pendientes de dos rectas da exactamente -1, esas rectas son perpendiculares."
+
+explicacion: |
+  Es el criterio algebraico completo de perpendicularidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "basico"
+  tags: ["perpendiculares"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La pendiente recíproca y opuesta de m = 2 es -1/2."
+
+explicacion: |
+  2 × (-1/2) = -1, cumple el criterio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "avanzado"
+  tags: ["perpendiculares"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Dos rectas con pendientes 2 y -2 (mismo valor, signo opuesto) son perpendiculares entre sí."
+
+explicacion: |
+  2 × (-2) = -4, no -1: no cumplen el criterio. Tener signos opuestos no
+  alcanza, hace falta además que sean recíprocas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "avanzado"
+  tags: ["perpendiculares", "problema"]
+
+variables:
+  m: uno_de([2, 4, 5])
+
+respuesta: -1 / m
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un lado de un cuadrilátero tiene pendiente {m}. Para que el cuadrilátero sea un rectángulo, ¿qué pendiente tiene que tener el lado consecutivo (adyacente)?"
+
+pasos:
+  - "-1 ÷ {m} = {-1 / m}"
+
+explicacion: |
+  Los lados consecutivos de un rectángulo son perpendiculares entre sí.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
+  nivel: "intermedio"
+  tags: ["paralelas", "perpendiculares"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verificar paralelismo o perpendicularidad con pendientes permite confirmar propiedades geométricas sin necesidad de medir ángulos con transportador."
+
+explicacion: |
+  Es la ventaja de trabajar con coordenadas y ecuaciones en vez de con
+  el dibujo físico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rectas_paralelas_y_perpendiculares"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirve la regresión lineal?"
+enunciado: "¿Para qué sirve aplicar el criterio de paralelismo y perpendicularidad a problemas geométricos?"
 tipo: mc
 opciones_explicitas:
-  - "Para cuantificar y predecir la relación entre dos variables numéricas, ajustando la recta que mejor describe la tendencia de los datos observados"
-  - "Para calcular la media y la mediana de un conjunto de datos"
-  - "Sólo sirve para variables que ya se sabe que están relacionadas causalmente"
-respuesta: "Para cuantificar y predecir la relación entre dos variables numéricas, ajustando la recta que mejor describe la tendencia de los datos observados"
+  - "Para confirmar propiedades de figuras dadas por coordenadas: si un cuadrilátero es rectángulo, si dos calles son paralelas, si una estructura es realmente perpendicular"
+  - "Sólo sirve para practicar el cálculo de pendientes en abstracto"
+  - "Sólo aplica a rectas que pasan por el origen"
+respuesta: "Para confirmar propiedades de figuras dadas por coordenadas: si un cuadrilátero es rectángulo, si dos calles son paralelas, si una estructura es realmente perpendicular"
 
 explicacion: |
-  El paso siguiente, `../correlacion-no-es-causalidad/`, pone el
-  límite crítico a esta herramienta: ajustar bien no es lo mismo que
-  explicar por qué.
+  Es la aplicación geométrica del criterio algebraico ya conocido.
 ```
+
+## Sección: integral (30 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "basico"
+  tags: ["regla_potencia"]
+
+variables:
+  n: random(1, 8)
+
+respuesta: n + 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "∫x^{n} dx. ¿Cuál es el exponente de x en el resultado (antes de sumar la constante C)?"
+
+explicacion: |
+  Al integrar, se le suma 1 al exponente original.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "basico"
+  tags: ["regla_potencia"]
+
+variables:
+  n: random(1, 8)
+
+respuesta: n + 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "∫x^{n} dx. ¿Por qué número hay que dividir?"
+
+explicacion: |
+  Se divide por el nuevo exponente, n+1 = {n + 1}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["regla_potencia"]
+
+variables:
+  n: random(1, 5)
+  m: random(1, 10)
+  k: (n + 1) * m
+
+respuesta: m
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "∫{k}x^{n} dx. ¿Cuál es el coeficiente de x^{n + 1} en el resultado?"
+
+pasos:
+  - "El coeficiente es {k}/({n}+1) = {k}/{n + 1} = {m}"
+
+explicacion: |
+  El coeficiente original se divide por el nuevo exponente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["regla_potencia"]
+
+variables:
+  n: random(1, 6)
+  m: random(1, 8)
+  k: (n + 1) * m
+
+respuesta: m
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "∫{k}x^{n} dx. ¿Cuál es el coeficiente de x^{n + 1} en el resultado?"
+
+explicacion: |
+  {k}/{n + 1} = {m}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "basico"
+  tags: ["constante"]
+
+variables:
+  k: random(1, 20)
+  x: random(1, 15)
+
+respuesta: k * x
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "∫{k} dx da {k}x + C. Sin la constante C, ¿cuánto vale {k}x en x={x}?"
+
+explicacion: |
+  ∫k dx = kx + C — evaluando la parte sin C en x={x}: {k}×{x} = {k * x}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["definida"]
+
+variables:
+  m: random(2, 10)
+  a: random(0, 5)
+  b: random(6, 15)
+
+respuesta: m * (b ^ 2 - a ^ 2) / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "∫[{a},{b}] {m}x dx. ¿Cuánto vale?"
+
+pasos:
+  - "Antiderivada: F(x) = {m}x²/2"
+  - "F({b}) − F({a}) = {m}×{b ^ 2}/2 − {m}×{a ^ 2}/2 = {m * (b ^ 2 - a ^ 2) / 2}"
+
+explicacion: |
+  Es el área bajo la recta y={m}x, entre x={a} y x={b}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["definida"]
+
+variables:
+  m: random(2, 8)
+  a: random(1, 6)
+  b: random(7, 14)
+
+respuesta: m * (b ^ 2 - a ^ 2) / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "∫[{a},{b}] {m}x dx. ¿Cuánto vale?"
+
+explicacion: |
+  F(x) = {m}x²/2, evaluada entre {a} y {b}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "avanzado"
+  tags: ["definida"]
+
+variables:
+  m: random(2, 8)
+  c: random(1, 10)
+  a: random(0, 4)
+  b: random(5, 12)
+
+respuesta: (m * b ^ 2 / 2 + c * b) - (m * a ^ 2 / 2 + c * a)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "∫[{a},{b}] ({m}x + {c}) dx. ¿Cuánto vale?"
+
+pasos:
+  - "Antiderivada: F(x) = {m}x²/2 + {c}x"
+  - "F({b}) − F({a})"
+
+explicacion: |
+  Se integra término a término, y se evalúa la diferencia F(b)−F(a).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+variables:
+  velocidad: random(10, 100)
+  t1: random(0, 5)
+  t2: random(6, 15)
+
+respuesta: velocidad * (t2 - t1)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto se mueve a velocidad constante v(t) = {velocidad} km/h. ¿Qué distancia recorre entre t={t1} y t={t2} horas (∫v dt)?"
+
+explicacion: |
+  Con velocidad constante, la integral se reduce a velocidad×tiempo —
+  el área de un rectángulo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  aceleracion: random(2, 10)
+  t1: random(0, 3)
+  t2: random(4, 10)
+
+respuesta: aceleracion * (t2 ^ 2 - t1 ^ 2) / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto acelera desde el reposo con v(t) = {aceleracion}t. ¿Qué distancia recorre entre t={t1} y t={t2} (∫v dt)?"
+
+pasos:
+  - "F(t) = {aceleracion}t²/2, evaluada entre {t1} y {t2}"
+
+explicacion: |
+  La distancia recorrida es la integral de la velocidad — el área bajo
+  el gráfico de v(t).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "F es una antiderivada de f si F'(x) = f(x)."
+
+explicacion: |
+  Es la definición: la integral deshace la derivada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una integral indefinida siempre incluye una constante +C, porque la derivada de cualquier constante es 0."
+
+explicacion: |
+  F(x)+C también es una antiderivada válida de f, para cualquier C —
+  por eso ∫f(x)dx representa a TODAS las antiderivadas a la vez.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de la integral indefinida, la integral definida ∫[a,b] f(x)dx es un número concreto, no una familia de funciones."
+
+explicacion: |
+  Por eso la integral definida no lleva "+C" — la constante se cancela
+  al restar F(b)−F(a).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La integral definida ∫[a,b] f(x)dx representa el área entre el gráfico de f y el eje x, entre x=a y x=b."
+
+explicacion: |
+  Es la interpretación geométrica central de la integral definida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["error_comun", "opcion_multiple"]
+
+variables:
+  n: random(2, 8)
+
+respuesta: n + 1
+tipo: mc
+opciones_explicitas:
+  - n + 1
+  - n - 1
+  - n
+
+enunciado: "∫x^{n} dx. ¿Cuál es el exponente correcto del resultado?"
+
+explicacion: |
+  Al integrar se SUMA 1 al exponente (n−1 sería el error de confundirlo
+  con derivar).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "∫3x² dx = x³ es una respuesta completa y correcta."
+
+explicacion: |
+  Falta el "+C" — sin la constante, la respuesta está incompleta (no es
+  TODA antiderivada posible, sólo una).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  n: random(1, 6)
+  m: random(1, 8)
+  k: (n + 1) * m
+
+respuesta: ((m * (n + 1)) == k)
+tipo: vf
+
+enunciado: "Se propone que ∫{k}x^{n} dx = {m}x^{n + 1} + C. Derivando {m}x^{n + 1}, ¿se recupera {k}x^{n}?"
+
+pasos:
+  - "Derivando {m}x^{n + 1}: {m}×({n + 1})x^{n} = {m * (n + 1)}x^{n}"
+
+explicacion: |
+  Derivar el resultado de una integral tiene que devolver la función
+  original — es la forma de verificar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  m: random(2, 10)
+  a: random(0, 5)
+  b: random(6, 15)
+  real: m * (b ^ 2 - a ^ 2) / 2
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "∫[{a},{b}] {m}x dx. ¿Es correcto que el resultado sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "avanzado"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "En ∫[a,b] f(x)dx = F(b)−F(a), da lo mismo calcular F(a)−F(b) en vez de F(b)−F(a)."
+
+explicacion: |
+  Invertir el orden cambia el signo del resultado — no da lo mismo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La integral de una suma de funciones es la suma de las integrales de cada una, por separado."
+
+explicacion: |
+  Mismo criterio que al derivar: se integra término a término.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La regla ∫xⁿdx = x^(n+1)/(n+1)+C no se puede aplicar cuando n=−1 (dividiría por 0)."
+
+explicacion: |
+  Ese caso especial (∫x⁻¹dx = ∫(1/x)dx) da ln|x|+C — fuera del alcance
+  de este módulo, pero vale la pena saber que existe la excepción.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Integrar y derivar son operaciones inversas una de la otra, como sumar y restar."
+
+explicacion: |
+  Derivar la integral de f devuelve f; integrar la derivada de f
+  devuelve f (más una constante).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["definida"]
+
+variables:
+  m: random(2, 12)
+  b: random(3, 20)
+
+respuesta: m * b ^ 2 / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "∫[0,{b}] {m}x dx. ¿Cuánto vale?"
+
+pasos:
+  - "F({b}) − F(0) = {m}×{b ^ 2}/2 − 0 = {m * b ^ 2 / 2}"
+
+explicacion: |
+  Con el límite inferior en 0, F(0)=0 siempre, así que sólo hace falta
+  evaluar F en el límite superior.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una integral definida puede dar 0, si a=b (los dos límites son el mismo valor)."
+
+explicacion: |
+  F(a)−F(a) = 0 siempre — no hay ningún área entre un punto y sí mismo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "avanzado"
+  tags: ["regla_potencia"]
+
+variables:
+  n1: 1
+  m1: random(1, 8)
+  k1: (n1 + 1) * m1
+  k2: random(1, 20)
+
+respuesta: m1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "∫({k1}x + {k2}) dx. ¿Cuál es el coeficiente de x² en el resultado?"
+
+pasos:
+  - "∫{k1}x dx = {k1}x²/2 = {m1}x²"
+  - "∫{k2} dx = {k2}x"
+
+explicacion: |
+  Se integra cada término por separado, con la regla de la potencia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "avanzado"
+  tags: ["regla_potencia"]
+
+variables:
+  n1: 1
+  m1: random(1, 8)
+  k1: (n1 + 1) * m1
+  k2: random(1, 20)
+
+respuesta: k2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "∫({k1}x + {k2}) dx = {m1}x² + (algo)x + C. ¿Cuál es el coeficiente de ese término lineal?"
+
+explicacion: |
+  ∫{k2} dx = {k2}x — el coeficiente no cambia al integrar una constante.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una función toma valores negativos en parte del intervalo, la integral definida resta esa área (en vez de sumarla) para esa parte."
+
+explicacion: |
+  La integral definida da el área "con signo" — regiones bajo el eje x
+  cuentan negativo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  aceleracion: random(2, 8)
+  t_final: random(2, 12)
+
+respuesta: aceleracion * t_final ^ 2 / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v(t) = {aceleracion}t (velocidad, partiendo del reposo). ¿Qué distancia total recorre entre t=0 y t={t_final}?"
+
+explicacion: |
+  ∫[0,{t_final}] {aceleracion}t dt = {aceleracion}×{t_final}²/2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+variables:
+  a: random(1, 10)
+  b: random(1, 10)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si f(x) = {a}x² + {b}x, y se deriva para obtener f'(x), integrar f'(x) devuelve {a}x² + {b}x + C (la función original, salvo la constante)."
+
+explicacion: |
+  Integrar y derivar se cancelan entre sí, módulo la constante de
+  integración que se pierde al derivar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "integral"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  n: random(1, 5)
+  m: random(1, 8)
+  k: (n + 1) * m
+  error: uno_de([0, 0, 1, -1])
+  propuesto: m + error
+
+respuesta: (propuesto == m)
+tipo: vf
+
+enunciado: "∫{k}x^{n} dx. ¿Es correcto que el coeficiente de x^{n + 1} en el resultado sea {propuesto}?"
+
+explicacion: |
+  El coeficiente correcto es {k}/{n + 1} = {m}.
+```
+
+## Sección: optimizacion (28 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "intermedio"
+  tags: ["punto_critico"]
+
+variables:
+  a: random(1, 8)
+  xv: random(-10, 10)
+  b: -2 * a * xv
+
+respuesta: xv
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {a}x² + {b}x. ¿Cuál es el punto crítico de f (donde f'(x)=0)?"
+
+pasos:
+  - "f'(x) = {2 * a}x + {b} = 0 → x = −{b}/{2 * a} = {xv}"
+
+explicacion: |
+  El punto crítico se halla igualando la derivada a 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "intermedio"
+  tags: ["derivada_segunda"]
+
+variables:
+  a: random(1, 10)
+  b: random(-15, 15)
+  c: random(-15, 15)
+
+respuesta: 2 * a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {a}x² + {b}x + {c}. ¿Cuánto vale f''(x)?"
+
+pasos:
+  - "f'(x) = {2 * a}x + {b}. Derivando de nuevo: f''(x) = {2 * a}"
+
+explicacion: |
+  La derivada segunda de una cuadrática es siempre la constante 2a.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "intermedio"
+  tags: ["clasificar", "opcion_multiple"]
+
+variables:
+  a: random(1, 10)
+  xv: random(-10, 10)
+  b: -2 * a * xv
+
+respuesta: "Mínimo"
+tipo: mc
+opciones_explicitas:
+  - "Mínimo"
+  - "Máximo"
+  - "Ninguno de los dos"
+
+enunciado: "f(x) = {a}x² + {b}x tiene un punto crítico en x={xv}. Como f''(x)={2 * a}>0, ¿qué es ese punto?"
+
+explicacion: |
+  Derivada segunda positiva → mínimo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "intermedio"
+  tags: ["clasificar", "opcion_multiple"]
+
+variables:
+  a: random(1, 10)
+  xv: random(-10, 10)
+  b: 2 * a * xv
+
+respuesta: "Máximo"
+tipo: mc
+opciones_explicitas:
+  - "Máximo"
+  - "Mínimo"
+  - "Ninguno de los dos"
+
+enunciado: "f(x) = −{a}x² + {b}x tiene un punto crítico en x={xv}. Como f''(x)=−{2 * a}<0, ¿qué es ese punto?"
+
+explicacion: |
+  Derivada segunda negativa → máximo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  a: random(1, 6)
+  xv: random(1, 10)
+  b: -2 * a * xv
+  c: random(-10, 10)
+
+respuesta: a * xv ^ 2 + b * xv + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {a}x² + {b}x + {c} tiene su mínimo en x={xv}. ¿Cuál es el valor mínimo (f({xv}))?"
+
+explicacion: |
+  Se evalúa la función original en el punto crítico ya encontrado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  lado_optimo: random(2, 30)
+  perimetro: 4 * lado_optimo
+
+respuesta: lado_optimo
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un rectángulo tiene perímetro {perimetro}. ¿Qué medida de lado maximiza el área?"
+
+pasos:
+  - "A(x) = x(({perimetro}/2)−x), A'(x)=0 en x={lado_optimo} → el rectángulo óptimo es un cuadrado"
+
+explicacion: |
+  Entre todos los rectángulos con el mismo perímetro, el cuadrado es el
+  que maximiza el área.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  lado_optimo: random(2, 30)
+  perimetro: 4 * lado_optimo
+
+respuesta: lado_optimo ^ 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un rectángulo tiene perímetro {perimetro}, y su lado óptimo es {lado_optimo}. ¿Cuál es el área máxima?"
+
+explicacion: |
+  Área = lado² = {lado_optimo}² = {lado_optimo ^ 2} (el cuadrado óptimo).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  a: random(1, 5)
+  q_optimo: random(1, 20)
+  b: -2 * a * q_optimo
+
+respuesta: q_optimo
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El costo de producir q unidades es C(q) = {a}q² + {b}q. ¿Para qué cantidad q se minimiza el costo?"
+
+pasos:
+  - "C'(q) = {2 * a}q + {b} = 0 → q = {q_optimo}"
+  - "C''(q) = {2 * a} > 0 → es un mínimo"
+
+explicacion: |
+  Mismo procedimiento que cualquier optimización: derivar, igualar a 0,
+  clasificar con la derivada segunda.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  a: random(1, 5)
+  p_optimo: random(5, 30)
+  b: 2 * a * p_optimo
+
+respuesta: p_optimo
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La ganancia de una empresa según el precio p es G(p) = −{a}p² + {b}p. ¿A qué precio p se maximiza la ganancia?"
+
+pasos:
+  - "G'(p) = −{2 * a}p + {b} = 0 → p = {p_optimo}"
+  - "G''(p) = −{2 * a} < 0 → es un máximo"
+
+explicacion: |
+  Es el mismo problema de precio óptimo ya visto en
+  `../funcion-cuadratica-parabola/`, ahora resuelto formalmente con
+  derivadas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un punto crítico es un valor de x donde la derivada de la función se anula."
+
+explicacion: |
+  Es el candidato a máximo o mínimo — todavía hay que clasificarlo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un punto crítico no es automáticamente un máximo o un mínimo — hay que usar la derivada segunda (u otro análisis) para confirmar cuál es."
+
+explicacion: |
+  Si f''=0 en ese punto, el criterio de la derivada segunda ni siquiera
+  decide — hace falta un análisis más fino.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si f''(x₀) > 0 en un punto crítico x₀, ese punto es un mínimo local."
+
+explicacion: |
+  Derivada segunda positiva significa que la función "abre hacia
+  arriba" cerca de x₀ — un mínimo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Si f''(x₀) < 0 en un punto crítico x₀, ese punto es un mínimo local."
+
+explicacion: |
+  Al revés: f''<0 indica un MÁXIMO local, no un mínimo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Un punto crítico de f es lo mismo que una raíz de f (donde f(x)=0)."
+
+explicacion: |
+  Son preguntas distintas: raíz es donde f(x)=0; punto crítico es donde
+  f'(x)=0 — pueden coincidir por casualidad, pero en general no.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(1, 8)
+  xv: random(-10, 10)
+  b: -2 * a * xv
+  error: uno_de([0, 0, 1, -1])
+  propuesto: xv + error
+
+respuesta: (propuesto == xv)
+tipo: vf
+
+enunciado: "f(x) = {a}x² + {b}x. ¿Es correcto que el punto crítico sea x={propuesto}?"
+
+explicacion: |
+  El punto crítico correcto es x={xv} (donde f'(x)=0).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  suma_fija: random(20, 60)
+  x_optimo: suma_fija / 2
+
+respuesta: x_optimo
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Dos números positivos suman {suma_fija}. ¿Qué valor de x (uno de los dos números) maximiza el producto x(({suma_fija})−x)?"
+
+pasos:
+  - "P(x) = x({suma_fija}−x), P'(x) = {suma_fija}−2x = 0 → x = {suma_fija}/2"
+
+explicacion: |
+  El producto máximo entre dos números de suma fija se da cuando los dos
+  números son iguales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  suma_fija: random(20, 60)
+  x_optimo: suma_fija / 2
+
+respuesta: x_optimo * x_optimo
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Dos números positivos suman {suma_fija}, con valor óptimo x={x_optimo} para maximizar el producto. ¿Cuál es ese producto máximo?"
+
+explicacion: |
+  {x_optimo}×{x_optimo} = {x_optimo * x_optimo}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un problema de optimización con magnitudes físicas (longitud, cantidad, tiempo), hay que verificar que el punto crítico encontrado tenga sentido en ese contexto (por ejemplo, que no sea negativo)."
+
+explicacion: |
+  Una solución matemáticamente correcta puede no tener sentido en el
+  problema real.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  a: random(1, 3)
+  v_optimo: random(50, 100)
+  b: -2 * a * v_optimo
+
+respuesta: v_optimo
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El consumo de combustible según la velocidad v es C(v) = {a}v² + {b}v. ¿A qué velocidad se minimiza el consumo?"
+
+explicacion: |
+  Mismo procedimiento: C'(v)=0 da el punto crítico, y C''(v)={2 * a}>0
+  confirma que es un mínimo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para cualquier función cuadrática f(x)=ax²+bx+c, la derivada segunda f''(x) es siempre la misma constante (2a), sin importar el valor de x."
+
+explicacion: |
+  Por eso el signo de a solo alcanza para saber si el vértice es máximo
+  o mínimo, sin necesidad de evaluar f'' en ningún punto específico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El criterio de la derivada segunda para clasificar un punto crítico de una cuadrática es exactamente el mismo criterio de concavidad ya visto en `../funcion-cuadratica-parabola/` (signo de a)."
+
+explicacion: |
+  Antes se observaba directamente el signo de a; ahora se llega a la
+  misma conclusión derivando dos veces.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["punto_critico"]
+
+variables:
+  a: random(1, 8)
+  xv: random(-15, 15)
+
+respuesta: -2 * a * xv
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Se quiere que f(x) = {a}x² + bx tenga su punto crítico en x={xv}. ¿Cuánto tiene que valer b?"
+
+explicacion: |
+  De f'(x)={2 * a}x+b=0 en x={xv}: b = −{2 * a}×{xv} = {-2 * a * xv}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Un máximo local encontrado con derivadas es siempre también el valor más grande que la función alcanza en TODO su dominio."
+
+explicacion: |
+  "Local" significa que es el más alto CERCA de ese punto — puede haber
+  otro punto, en otra parte del dominio, donde la función valga más
+  (para funciones más complejas que una parábola simple).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(1, 10)
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "f''(x) = {a} (positivo) en un punto crítico. ¿Es correcto concluir que ese punto es un máximo?"
+
+explicacion: |
+  Con f''>0, es un MÍNIMO, no un máximo — es el error de clasificación
+  más común del tema.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  lado_optimo: random(4, 15)
+  area_fija: lado_optimo ^ 2
+
+respuesta: lado_optimo
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un rectángulo tiene área {area_fija}. ¿Qué medida de lado minimiza el perímetro?"
+
+pasos:
+  - "P(x) = 2x + 2({area_fija}/x), P'(x)=0 da x=√{area_fija} = {lado_optimo}"
+
+explicacion: |
+  Igual que con perímetro fijo y área máxima, el cuadrado también es la
+  forma que minimiza el perímetro para un área dada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(1, 8)
+  xv: random(-10, 10)
+  b: -2 * a * xv
+
+respuesta: (((2 * a * xv + b) == 0) == ((2 * a) > 0))
+tipo: vf
+
+enunciado: "f(x) = {a}x² + {b}x. ¿Es cierto, a la vez, que x={xv} es punto crítico Y que f'' es positiva ahí (o sea, que es un mínimo confirmado)?"
+
+explicacion: |
+  Las dos condiciones se verifican por separado: f'(x)=0 en {xv}, y
+  f''(x)={2 * a}>0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "basico"
+  tags: ["concepto", "opcion_multiple"]
+
+respuesta: "Plantear la función que se quiere maximizar o minimizar"
+tipo: mc
+opciones_explicitas:
+  - "Plantear la función que se quiere maximizar o minimizar"
+  - "Calcular la derivada segunda directamente"
+  - "Adivinar la respuesta y verificar"
+
+enunciado: "En un problema de optimización con palabras (no una función ya dada), ¿cuál es el primer paso?"
+
+explicacion: |
+  Sin la función planteada correctamente, no hay nada que derivar —
+  suele ser el paso más difícil del problema.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "optimizacion"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  total_fijo: random(20, 80)
+  x_optimo: total_fijo / 2
+
+respuesta: x_optimo
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un cable de longitud {total_fijo} se corta en dos partes, x y ({total_fijo}−x), para maximizar el producto de las dos partes. ¿Cuánto mide la parte x en el óptimo?"
+
+explicacion: |
+  Mismo problema de "dos números de suma fija, producto máximo" — las
+  dos partes iguales.
+```
+

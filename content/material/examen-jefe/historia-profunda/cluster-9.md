@@ -1,6 +1,6 @@
-# Examen jefe — Cosmos, Crisis y Memorias
+# Examen jefe — [PENDIENTE #689]
 
-> Logro #107. Dominaste la escala del universo, las rupturas políticas y la era digital. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **126 preguntas totales** en 5/5 secciones.
+> Logro #689. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,9 +15,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Un conjunto de planetas que orbitan una estrella", "Un sistema masivo de estrellas, gas, polvo y materia oscura unidos por la gravedad", "Un cúmulo de agujeros negros en el centro del universo", "Una nube de gas que colapsa para formar una estrella"]
-
+respuesta: "Un sistema masivo de estrellas, gas, polvo y materia oscura unidos por la gravedad"
 enunciado: "En términos astronómicos, ¿qué constituye fundamentalmente una galaxia?"
-
 explicacion: |
   Una galaxia es un sistema masivo que contiene estrellas, gas, polvo y una gran cantidad de materia oscura, todo mantenido unido por la fuerza de la gravedad.
 ```
@@ -30,7 +29,10 @@ metadata:
   tags: ["via_lactea", "ubicacion"]
 
 tipo: completar
-respuestas_validas: ["Vía Láctea", "Andrómeda", "Sagitario"]
+respuestas_validas:
+  - "Vía Láctea"
+  - "Andrómeda"
+  - "Sagitario"
 
 enunciado: "El nombre de nuestra galaxia, el sistema donde se encuentra el Sistema Solar, es la ___."
 
@@ -46,16 +48,13 @@ metadata:
   tags: ["componentes", "gravedad"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [
-    ["estrellas", "gas", "polvo", "materia oscura"],
-    ["estrellas", "planetas", "luna", "satélites"]
-  ]
+  componentes: ["estrellas", "gas", "polvo", "materia oscura"]
 
 tipo: mc
 opciones_explicitas: ["Solo estrellas y planetas", "Estrellas, gas, polvo y materia oscura", "Solo materia oscura y agujeros negros", "Solo gas y polvo estelar"]
+respuesta: "Estrellas, gas, polvo y materia oscura"
 
-enunciado: "Considerando los componentes de una galaxia según el escenario {datos[escenario_idx][0]}, {datos[escenario_idx][1]} y {datos[escenario_idx][2]}, ¿cuál es el cuarto elemento esencial que aporta la mayor parte de la masa?"
+enunciado: "Considerando los componentes de una galaxia: {componentes[0]}, {componentes[1]}, {componentes[2]}, ¿cuál es el cuarto elemento esencial que aporta la mayor parte de la masa?"
 
 explicacion: |
   La materia oscura es un componente fundamental que no emite luz pero ejerce la gravedad necesaria para mantener la estructura galáctica.
@@ -75,6 +74,7 @@ enunciado: "Ordena los siguientes objetos astronómicos de menor a mayor escala 
 
 explicacion: |
   La jerarquía correcta va desde el cuerpo celeste individual (planeta), pasando por su sistema de órbitas, el conjunto de sistemas (galaxia), hasta la totalidad del cosmos (universo).
+respuesta_orden: ["Planeta", "Sistema Solar", "Galaxia", "Universo"]
 ```
 
 ```
@@ -94,6 +94,8 @@ pasos:
 
 explicacion: |
   La gravedad es la fuerza de atracción que permite que la materia se agrupe en estructuras masivas como las galaxias.
+
+respuesta: "gravedad"
 ```
 
 ```
@@ -158,14 +160,14 @@ variables:
   idx: uno_de([0, 1, 2])
   escenario: [["espiral", "brazos"], ["elíptica", "forma ovalada"], ["irregular", "sin forma definida"]]
 
-respuesta: escenario[idx][0
+respuesta: escenario[idx][0]
 tipo: mc
 opciones_explicitas: ["espiral", "elíptica", "irregular"]
 
-enunciado: "Considerando que la Vía Láctea tiene una estructura de {escenario[idx][1]}, ¿qué tipo de galaxia es?"
+enunciado: "Se observa una galaxia con una estructura de {escenario[idx][1]}, ¿qué tipo de galaxia es?"
 
 explicacion: |
-  La Vía Láctea es una galaxia de tipo {escenario[idx][0]}.
+  Una galaxia con esa característica es de tipo {escenario[idx][0]}. La propia Vía Láctea, en particular, es de tipo espiral.
 ```
 
 ```
@@ -177,7 +179,9 @@ metadata:
 
 respuesta: "espiral, elíptica, irregular"
 tipo: completar
-respuestas_validas: ["espiral, elíptica, irregular", "espiral, irregular, elíptica"]
+respuestas_validas:
+  - "espiral, elíptica, irregular"
+  - "espiral, irregular, elíptica"
 
 enunciado: "El orden de los tres principales tipos de galaxias según su morfología es: 1) ___, 2) ___ y 3) ___."
 
@@ -194,6 +198,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Año luz", "Kilómetro", "Milla náutica", "Unidad Astronómica"]
+respuesta: "Año luz"
 
 enunciado: "Debido a que las distancias entre las galaxias son inmensas, los kilómetros resultan inmanejables. ¿Cuál es la unidad de medida que representa la distancia que recorre la luz en un año?"
 
@@ -212,15 +217,18 @@ variables:
   velocidad_luz_km_s: 299792
   segundos_en_un_dia: 86400
   dias_en_un_anio: 365.25
+  distancia_anio_luz_km: 9460730472580.8
 
 tipo: completar
-tolerancia_abs: 1000000
+tolerancia_abs: 1000000000000
 
 enunciado: "Si la luz viaja a aproximadamente {velocidad_luz_km_s} km/s, ¿cuántos kilómetros recorre aproximadamente en un año (considerando {dias_en_un_anio} días)? (Calcula el valor aproximado en km)"
 
 pasos:
   - "Multiplica la velocidad de la luz por los segundos en un día."
   - "Multiplica el resultado por la cantidad de días en un año."
+
+respuesta: distancia_anio_luz_km
 
 explicacion: |
   La distancia es: 299792 * 86400 * 365.25 ≈ 9.46 * 10^12 km.
@@ -234,7 +242,10 @@ metadata:
   tags: ["conceptos"]
 
 tipo: completar
-respuestas_validas: ["inmanejables", "imposibles", "infinitas"]
+respuestas_validas:
+  - "inmanejables"
+  - "imposibles"
+  - "infinitas"
 
 enunciado: "El uso de unidades como el año luz es necesario porque las distancias en kilómetros son ________ para el estudio de la escala galáctica."
 
@@ -249,16 +260,12 @@ metadata:
   nivel: "intermedio"
   tags: ["comparacion"]
 
-variables:
-  escenario: uno_de([
-    ["La Luna", "distancia corta"],
-    ["Andrómeda", "distancia larga"]
-  ])
-
 tipo: mc
 opciones_explicitas: ["distancia corta", "distancia larga"]
 
-enunciado: "Dependiendo de la escala, la distancia a {escenario[0]} se mide en kilómetros, mientras que la distancia a {escenario[1]} se mide en ________."
+enunciado: "Dependiendo de la escala, la distancia a la Luna se mide en kilómetros, mientras que la distancia a Andrómeda se mide en ________."
+
+respuesta: "distancia larga"
 
 explicacion: |
   La Luna está a unos 384,400 km (escala local), mientras que la Galaxia de Andrómeda está a millones de años luz (escala galáctica).
@@ -278,6 +285,7 @@ enunciado: "Ordena las siguientes estructuras de la escala más pequeña a la m�
 
 explicacion: |
   El orden correcto es: primero el Sistema Solar, luego la Galaxia (que contiene miles de millones de estrellas) y finalmente el Universo Observable.
+respuesta_orden: ["Sistema Solar", "Galaxia", "Universo Observable"]
 ```
 
 ```
@@ -289,7 +297,8 @@ metadata:
 
 respuesta: "cientos de miles de millones"
 tipo: completar
-respuestas_validas: ["cientos de miles de millones"]
+respuestas_validas:
+  - "cientos de miles de millones"
 
 enunciado: "Se estima que nuestra galaxia, la Vía Láctea, contiene ___ de estrellas."
 
@@ -304,14 +313,11 @@ metadata:
   nivel: "basico"
   tags: ["universo", "galaxias"]
 
-variables:
-  escala_galaxias: uno_de(["cientos de miles de millones", "pocos miles", "un millón"])
-
-respuesta: escala_galaxias
+respuesta: "cientos de miles de millones"
 tipo: mc
 opciones_explicitas: ["cientos de miles de millones", "pocos miles", "un millón"]
 
-enunciado: "En el universo observable se estima que existen {escala_galaxias} de galaxias."
+enunciado: "En el universo observable se estima que existen ___ de galaxias."
 
 explicacion: |
   La escala del universo es inmensa; la cantidad de galaxias es comparable en orden de magnitud a la cantidad de estrellas en nuestra propia galaxia.
@@ -324,19 +330,11 @@ metadata:
   nivel: "intermedio"
   tags: ["comparacion", "magnitud"]
 
-variables:
-  caso: uno_de([0, 1])
-
-respuesta: tabla[caso][1
+respuesta: "mayor"
 tipo: mc
 opciones_explicitas: ["mayor", "menor", "igual"]
 
-enunciado: "Si comparamos la cantidad de estrellas en la Vía Láctea con la cantidad de galaxias en el universo observable, la cantidad de estrellas es {tabla[caso][0]} que la de galaxias."
-
-tabla: [
-  ["mayor", "mayor"],
-  ["menor", "menor"]
-]
+enunciado: "Si comparamos la cantidad de estrellas en la Vía Láctea con la cantidad de galaxias en el universo observable, la cantidad de estrellas es ___ que la de galaxias."
 
 explicacion: |
   Aunque ambas cifras son de "cientos de miles de millones", la escala de estrellas en una sola galaxia es comparable a la escala de galaxias en el universo, pero matemáticamente la cantidad de estrellas es órdenes de magnitud superior a la de galaxias.
@@ -349,7 +347,7 @@ metadata:
   nivel: "avanzado"
   tags: ["jerarquia", "escala"]
 
-respuesta: ["Estrellas", "Galaxias", "Universo"]
+respuesta_orden: ["Estrellas", "Galaxias", "Universo"]
 tipo: ordenar
 
 opciones_explicitas: ["Estrellas", "Galaxias", "Universo"]
@@ -372,9 +370,8 @@ metadata:
   nivel: "basico"
   tags: ["verdadero_falso"]
 
+tipo: vf
 respuesta: verdadero
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
 
 enunciado: "Es correcto afirmar que el universo observable contiene cientos de miles de millones de galaxias."
 
@@ -393,7 +390,7 @@ variables:
   escenario: [[ "Una galaxia con un núcleo brillante y brazos curvos llenos de gas y polvo.", "Espiral" ], [ "Una galaxia con forma de disco pero sin brazos definidos.", "Lenticular" ], [ "Una galaxia con forma de esfera sin estructura de brazos.", "Elíptica" ]]
   idx: uno_de([0, 1, 2])
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: mc
 opciones_explicitas: ["Espiral", "Lenticular", "Elíptica"]
 
@@ -410,18 +407,14 @@ metadata:
   nivel: "basico"
   tags: ["astronomia", "galaxias"]
 
-variables:
-  escenario: [[ "Un sistema estelar masivo con forma de ovoide y poco gas.", "Elíptica" ], [ "Un sistema con un disco central y brazos de formación estelar.", "Espiral" ]]
-  idx: uno_de([0, 1])
-
-respuesta: escenario[idx][1
+respuesta: "Elíptica"
 tipo: mc
 opciones_explicitas: ["Espiral", "Elíptica"]
 
-enunciado: "Si una galaxia presenta una forma ovoide, carece de brazos espirales y tiene una cantidad mínima de gas interestelar, su tipo es: {escenario[idx][1]}"
+enunciado: "Si una galaxia presenta una forma ovoide, carece de brazos espirales y tiene una cantidad mínima de gas interestelar, ¿qué tipo de galaxia es?"
 
 explicacion: |
-  Las galaxias {escenario[idx][1]} se caracterizan por su falta de estructura de brazos y su forma redondeada o elíptica.
+  Las galaxias elípticas se caracterizan por su falta de estructura de brazos y su forma redondeada u ovoide.
 ```
 
 ```
@@ -432,17 +425,16 @@ metadata:
   tags: ["astronomia", "galaxias"]
 
 variables:
-  escenario: [[ "Presenta un disco prominente pero carece de brazos espirales.", "Lenticular" ], [ "Presenta brazos espirales muy marcados.", "Espiral" ]]
-  idx: uno_de([0, 1])
+  escenario: uno_de([["Presenta un disco prominente pero carece de brazos espirales.", "Lenticular"], ["Presenta brazos espirales muy marcados.", "Espiral"]])
 
-respuesta: escenario[idx][0
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["Lenticular", "Espiral"]
 
-enunciado: "Al analizar la morfología de la galaxia {escenario[idx][0]}, ¿qué tipo de galaxia estamos observando?"
+enunciado: "Al analizar la morfología de la galaxia {escenario[0]}, ¿qué tipo de galaxia estamos observando?"
 
 explicacion: |
-  Las galaxias {escenario[idx][0]} son un caso intermedio: tienen la forma de un disco como las espirales, pero no poseen los brazos característicos.
+  Las galaxias lenticulares son un caso intermedio: tienen la forma de un disco como las espirales, pero no poseen los brazos característicos.
 ```
 
 ```
@@ -456,9 +448,10 @@ variables:
   escenario: [[ "Espiral", "brazos curvos" ], [ "Elíptica", "forma esférica" ], [ "Lenticular", "disco sin brazos" ]]
   idx: uno_de([0, 1, 2])
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: completar
-respuestas_validas: ["brazos curvos", "forma esférica", "disco sin brazos"]
+respuestas_validas:
+  - escenario[idx][1]
 
 enunciado: "Una galaxia de tipo {escenario[idx][0]} se caracteriza principalmente por tener ___."
 
@@ -476,7 +469,7 @@ metadata:
 variables:
   orden_correcto: ["Elíptica", "Lenticular", "Espiral"]
 
-respuesta: orden_correcto
+respuesta_orden: orden_correcto
 tipo: ordenar
 opciones_explicitas: ["Elíptica", "Lenticular", "Espiral"]
 
@@ -497,7 +490,9 @@ metadata:
 
 respuesta: "interconexión"
 tipo: completar
-respuestas_validas: ["interconexión", "interconexion"]
+respuestas_validas:
+  - "interconexión"
+  - "interconexion"
 
 enunciado: "La globalización se define como el proceso de creciente ___ económica, cultural y tecnológica entre los países del mundo."
 
@@ -514,16 +509,10 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["la llegada de Internet", "la digitalización de la información"],
-    ["el desarrollo de la telefonía móvil", "la inmediatez de la comunicación"]
-  ]
-  respuestas_correctas: [
-    ["la llegada de Internet", "la digitalización de la información"],
-    ["el desarrollo de la telefonía móvil", "la inmediatez de la comunicación"]
-  ]
+  escenarios: [["la llegada de Internet", "la digitalización de la información"], ["el desarrollo de la telefonía móvil", "la inmediatez de la comunicación"]]
+  respuestas_correctas: [["la llegada de Internet", "la digitalización de la información"], ["el desarrollo de la telefonía móvil", "la inmediatez de la comunicación"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["la llegada de Internet", "la digitalización de la información", "el desarrollo de la telefonía móvil", "la inmediatez de la comunicación"]
 
@@ -557,7 +546,7 @@ metadata:
   nivel: "avanzado"
   tags: ["cronologia", "tecnologia"]
 
-respuesta: ["Internet", "Comercio electrónico", "Redes sociales", "Internet de las cosas"]
+respuesta_orden: ["Internet", "Comercio electrónico", "Redes sociales", "Internet de las cosas"]
 tipo: ordenar
 opciones_explicitas: ["Internet", "Comercio electrónico", "Redes sociales", "Internet de las cosas"]
 
@@ -574,19 +563,11 @@ metadata:
   nivel: "avanzado"
   tags: ["desigualdad", "brecha_digital"]
 
-variables:
-  es_positivo: uno_de([true, falso])
-  caso: [
-    ["la reducción de la brecha digital", "la homogeneización cultural"],
-    ["la homogeneización cultural", "la reducción de la brecha digital"]
-  ]
-  respuesta_correcta: ["la homogeneización cultural", "la reducción de la brecha digital"]
-
-respuesta: caso[es_positivo][0
+respuesta: "la homogeneización cultural"
 tipo: mc
 opciones_explicitas: ["la homogeneización cultural", "la reducción de la brecha digital"]
 
-enunciado: "Si se analiza la globalización desde una perspectiva crítica, un efecto cultural negativo común es {caso[0]}."
+enunciado: "Si se analiza la globalización desde una perspectiva crítica, un efecto cultural negativo común es ___."
 
 explicacion: |
   La homogeneización cultural se refiere a la pérdida de identidades locales frente a una cultura global dominante.
@@ -616,14 +597,12 @@ metadata:
   nivel: "intermedio"
   tags: ["telecomunicaciones", "internet"]
 
-variables:
-  tecnologia_clave: uno_de(["Internet", "Radio", "Telégrafo"])
-
-enunciado: "La globalización en la era digital se vio potenciada por el desarrollo de {tecnologia_clave}, que permitió la transferencia de datos instantánea entre continentes."
+enunciado: "La globalización en la era digital se vio potenciada por el desarrollo de ___, que permitió la transferencia de datos instantánea entre continentes."
 
 respuesta: "Internet"
 tipo: "completar"
-respuestas_validas: ["Internet"]
+respuestas_validas:
+  - "Internet"
 
 explicacion: |
   Mientras que el telégrafo fue el precursor, fue la llegada de Internet lo que permitió la globalización de los servicios y la economía digital actual.
@@ -656,7 +635,7 @@ metadata:
 enunciado: "Ordene cronológicamente estos hitos que impulsaron la integración global:"
 
 opciones_explicitas: ["Revolución Industrial (vapor)", "Expansión del Telégrafo", "Revolución Digital (Internet)"]
-respuesta: ["Revolución Industrial (vapor)", "Expansión del Telégrafo", "Revolución Digital (Internet)"]
+respuesta_orden: ["Revolución Industrial (vapor)", "Expansión del Telégrafo", "Revolución Digital (Internet)"]
 tipo: "ordenar"
 
 explicacion: |
@@ -670,20 +649,16 @@ metadata:
   nivel: "intermedio"
   tags: ["economia", "digital"]
 
-variables:
-  escenario: uno_de([0, 1])
-
-enunciado: "En un mundo altamente globalizado digitalmente, el costo de enviar información tiende a ser ___."
+enunciado: "En un mundo altamente globalizado digitalmente, el costo marginal de enviar información tiende a ser ___."
 
 pasos:
   - "Considerar la digitalización de bits vs el transporte físico de papel."
 
-respuesta: tabla[escenario][1
 tipo: "completar"
-respuestas_validas: ["nulo", "muy alto"]
-
-variables_contexto:
-  tabla: [["muy alto", "muy alto"], ["nulo", "nulo"]]
+respuesta: "nulo"
+respuestas_validas:
+  - "nulo"
+  - "cero"
 
 explicacion: |
   La digitalización permite que el costo marginal de transmitir información sea prácticamente cero, acelerando el comercio global.
@@ -698,7 +673,9 @@ metadata:
 
 respuesta: "instantánea"
 tipo: completar
-respuestas_validas: ["instantánea", "inmediata"]
+respuestas_validas:
+  - "instantánea"
+  - "inmediata"
 
 enunciado: "La llegada de internet transformó la escala de los intercambios humanos, permitiendo que la comunicación entre personas en distintos continentes sea de carácter ___."
 
@@ -713,18 +690,11 @@ metadata:
   nivel: "intermedio"
   tags: ["comercio", "e-commerce", "economia"]
 
-variables:
-  escenario: uno_de([
-    ["comercio electrónico", "comercio electrónico"],
-    ["transacciones bancarias", "transacciones bancarias"],
-    ["servicios en la nube", "servicios en la nube"]
-  ])
-
-respuesta: escenario[0
+respuesta: "comercio electrónico"
 tipo: mc
 opciones_explicitas: ["comercio electrónico", "transacciones bancarias", "servicios en la nube", "todos los anteriores"]
 
-enunciado: "La era digital ha facilitado la expansión del {escenario[0]} a nivel mundial, permitiendo que pequeñas empresas accedan a mercados globales sin necesidad de presencia física."
+enunciado: "La era digital ha facilitado la expansión del comercio electrónico a nivel mundial, permitiendo que pequeñas empresas accedan a mercados globales sin necesidad de presencia física."
 
 explicacion: |
   El e-commerce es uno de los motores más visibles de la globalización digital, permitiendo la integración de mercados de consumo de manera global y directa.
@@ -739,7 +709,9 @@ metadata:
 
 respuesta: "brecha digital"
 tipo: completar
-respuestas_validas: ["brecha digital", "desigualdad tecnológica"]
+respuestas_validas:
+  - "brecha digital"
+  - "desigualdad tecnológica"
 
 enunciado: "A pesar de la conectividad global, la distribución desigual de la infraestructura tecnológica ha generado una ___ que separa a las naciones desarrolladas de las que están en vías de desarrollo."
 
@@ -754,7 +726,7 @@ metadata:
   nivel: "intermedio"
   tags: ["historia", "tecnologia", "evolucion"]
 
-respuesta: ["telegrafía", "computación personal", "internet de banda ancha", "redes móviles 5G"]
+respuesta_orden: ["telegrafía", "computación personal", "internet de banda ancha", "redes móviles 5G"]
 tipo: ordenar
 opciones_explicitas: ["telegrafía", "computación personal", "internet de banda ancha", "redes móviles 5G"]
 
@@ -771,7 +743,7 @@ metadata:
   nivel: "basico"
   tags: ["teoria", "sociedad", "cultura"]
 
-respuesta: "Marsall McLuhan"
+respuesta: "Marshall McLuhan"
 tipo: completar
 tolerancia_abs: 0
 
@@ -808,11 +780,7 @@ metadata:
   nivel: "avanzado"
   tags: ["economia", "desigualdad"]
 
-variables:
-  datos: [[100, "Aumenta"], [100, "Disminuye"], [100, "Se mantiene"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1
+respuesta: "Aumenta"
 tipo: completar
 tolerancia_abs: 0
 
@@ -835,7 +803,8 @@ metadata:
 
 respuesta: "hibridación"
 tipo: completar
-respuestas_validas: ["hibridación", "aislamiento", "anulación"]
+respuestas_validas:
+  - "hibridación"
 
 enunciado: "Cuando elementos de diferentes culturas se mezclan a través de las redes sociales para crear nuevas formas de expresión, ocurre un proceso de ___ cultural."
 
@@ -850,7 +819,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procesos", "orden"]
 
-respuesta: ["Interconexión", "Estandarización", "Desigualdad"]
+respuesta_orden: ["Interconexión", "Estandarización", "Desigualdad"]
 tipo: ordenar
 opciones_explicitas: ["Interconexión", "Estandarización", "Desigualdad"]
 
@@ -867,16 +836,12 @@ metadata:
   nivel: "avanzado"
   tags: ["tecnologia", "poder"]
 
-variables:
-  caso: uno_de(["monopolio", "competencia"])
-  valor: uno_de(["creciente", "decreciente"])
-
-respuesta: caso
+respuesta: "monopolio"
 
 tipo: mc
 opciones_explicitas: ["monopolio", "competencia", "cooperación", "neutralidad"]
 
-enunciado: "La concentración de datos en pocas corporaciones tecnológicas globales tiende a fomentar un {caso} de información."
+enunciado: "La concentración de datos en pocas corporaciones tecnológicas globales tiende a fomentar un ___ de información."
 
 explicacion: |
   La economía de plataformas a menudo crea estructuras de poder centralizadas donde unos pocos actores controlan el flujo de información global.
@@ -933,7 +898,8 @@ metadata:
 
 enunciado: "La capacidad de transmitir datos de forma instantánea a través de satélites es un ejemplo de globalización ___."
 
-respuesta_validas: ["tecnológica"]
+respuestas_validas:
+  - "tecnológica"
 respuesta: "tecnológica"
 tipo: completar
 
@@ -956,7 +922,7 @@ pasos:
   - "Consolidación de un mercado de consumo global interconectado"
 
 opciones_explicitas: ["Desarrollo de infraestructura de fibra óptica y satélites", "Creación de plataformas de comercio electrónico transfronterizo", "Consolidación de un mercado de consumo global interconectado"]
-respuesta: ["Desarrollo de infraestructura de fibra óptica y satélites", "Creación de plataformas de comercio electrónico transfronterizo", "Consolidación de un mercado de consumo global interconectado"]
+respuesta_orden: ["Desarrollo de infraestructura de fibra óptica y satélites", "Creación de plataformas de comercio electrónico transfronterizo", "Consolidación de un mercado de consumo global interconectado"]
 tipo: ordenar
 
 explicacion: |
@@ -998,6 +964,8 @@ opciones_explicitas: ["La toma del poder mediante procesos electorales y respeto
 
 enunciado: "Un golpe de Estado se define fundamentalmente como:"
 
+respuesta: "La toma ilegítima e inconstitucional del poder político, generalmente por las fuerzas armadas."
+
 explicacion: |
   Un golpe de Estado es una ruptura del orden constitucional donde se toma el poder de forma ilegítima, interrumpiendo el mandato de las autoridades electas.
 ```
@@ -1010,16 +978,15 @@ metadata:
   tags: ["caracteristicas", "instituciones"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["El uso de la fuerza militar para deponer al ejecutivo.", "La ocupación de edificios gubernamentales y la suspensión de la Constitución."],
-    ["La movilización social masiva para exigir nuevas elecciones.", "La renuncia del gabinete ministerial ante una crisis parlamentaria."]
-  ]
+  escenarios: [["El uso de la fuerza militar para deponer al ejecutivo.", "La ocupación de edificios gubernamentales y la suspensión de la Constitución."], ["La movilización social masiva para exigir nuevas elecciones.", "La renuncia del gabinete ministerial ante una crisis parlamentaria."]]
+  escenario: uno_de(escenarios)
 
 tipo: mc
 opciones_explicitas: ["Uso de mecanismos legales para cambiar al presidente.", "Uso de la fuerza o la ruptura de la legalidad para tomar el control estatal.", "Un proceso de transición democrática supervisado."]
 
-enunciado: "En un escenario de {"escenarios[escenario_idx][0]}, el elemento central que caracteriza al golpe es:"
+enunciado: "En un escenario de {escenario[0]}, el elemento central que caracteriza al golpe es:"
+
+respuesta: "Uso de la fuerza o la ruptura de la legalidad para tomar el control estatal."
 
 explicacion: |
   La característica distintiva es la ruptura del marco legal preestablecido y el uso de medios no previstos por la norma constitucional.
@@ -1039,6 +1006,7 @@ enunciado: "Ordene cronológicamente los pasos típicos de una interrupción ins
 
 explicacion: |
   Un golpe suele comenzar con una crisis que debilita al gobierno, seguido de la acción directa que rompe el orden legal y culmina con la instauración de un régimen no electo.
+respuesta_orden: ["Crisis política o social", "Acción de las fuerzas armadas o grupos de poder", "Suspensión de la Constitución", "Establecimiento de un gobierno de facto"]
 ```
 
 ```
@@ -1049,7 +1017,9 @@ metadata:
   tags: ["consecuencias", "derecho"]
 
 tipo: completar
-respuestas_validas: ["inconstitucional", "ilegitima"]
+respuestas_validas:
+  - "inconstitucional"
+  - "ilegitima"
 
 enunciado: "Un golpe de Estado es un acto ___ que rompe con la legitimidad ___ del mandato popular."
 
@@ -1066,6 +1036,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["El cambio de gobierno es legal y sigue las leyes; el golpe es una ruptura de estas.", "Ambos son procesos de la misma naturaleza pero con distinta duración.", "El golpe siempre es pacífico y el cambio de gobierno es violento.", "No existe diferencia técnica entre ambos conceptos."]
+respuesta: "El cambio de gobierno es legal y sigue las leyes; el golpe es una ruptura de estas."
 
 enunciado: "¿Cuál es la diferencia fundamental entre un cambio de gobierno democrático y un golpe de Estado?"
 
@@ -1082,7 +1053,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["1930", "1943", "1955", "1966", "1976"]
-respuesta: ["1930", "1943", "1955", "1966", "1976"]
+respuesta_orden: ["1930", "1943", "1955", "1966", "1976"]
 
 enunciado: "Ordená cronológicamente los siguientes golpes de Estado que afectaron la institucionalidad argentina en el siglo XX:"
 
@@ -1116,14 +1087,11 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["1955", "la Revolución Sojera"],
-    ["1966", "la Revolución Argentina"]
-  ]
+  escenarios: [["1955", "la Revolución Libertadora"], ["1966", "la Revolución Argentina"]]
 
 tipo: mc
 opciones_explicitas: ["1955", "1962", "1966", "1976"]
-respuesta: escenarios[escenario_idx][0
+respuesta: escenarios[escenario_idx][0]
 
 enunciado: "Identificá el año correspondiente al golpe conocido como {escenarios[escenario_idx][1]}."
 
@@ -1139,7 +1107,8 @@ metadata:
   tags: ["historia", "argentina"]
 
 tipo: completar
-respuestas_validas: ["1976"]
+respuestas_validas:
+  - "1976"
 respuesta: "1976"
 
 enunciado: "El golpe de Estado más violento y de mayor duración en términos de represión sistemática ocurrió en el año ___."
@@ -1180,7 +1149,8 @@ metadata:
 
 respuesta: "1930"
 tipo: "completar"
-respuestas_validas: ["1930"]
+respuestas_validas:
+  - "1930"
 
 enunciado: "El primer golpe de Estado del siglo XX en Argentina, que derrocó al presidente Hipólito Yrigoyen, ocurrió en el año ___."
 
@@ -1197,12 +1167,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["El golpe de 1930 inició un ___ de intervenciones militares recurrentes.", "patrón"],
-    ["El derrocamiento de Yrigoyen inauguró un ___ de inestabilidad política.", "ciclo"]
-  ]
+  escenarios: [["El golpe de 1930 inició un ___ de intervenciones militares recurrentes.", "patrón"], ["El derrocamiento de Yrigoyen inauguró un ___ de inestabilidad política.", "ciclo"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: "mc"
 opciones_explicitas: ["patrón", "ciclo", "acuerdo", "proceso"]
 
@@ -1236,7 +1203,7 @@ metadata:
   nivel: "avanzado"
   tags: ["secuencia", "orden"]
 
-respuesta: ["Ley Sáenz Peña", "Derrocamiento de Yrigoyen", "Intervención militar"]
+respuesta_orden: ["Ley Sáenz Peña", "Derrocamiento de Yrigoyen", "Intervención militar"]
 tipo: "ordenar"
 opciones_explicitas: ["Ley Sáenz Peña", "Derrocamiento de Yrigoyen", "Intervención militar"]
 
@@ -1271,7 +1238,8 @@ metadata:
 
 respuesta: "24 de marzo de 1976"
 tipo: completar
-respuestas_validas: ["24 de marzo de 1976"]
+respuestas_validas:
+  - "24 de marzo de 1976"
 
 enunciado: "El golpe de Estado que dio inicio a la última dictadura militar en Argentina ocurrió el día ___."
 
@@ -1304,10 +1272,7 @@ metadata:
   nivel: "basico"
   tags: ["fechas", "periodo"]
 
-variables:
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1
+respuesta_orden: ["Inicio del golpe de Estado", "Guerra de Malvinas", "Fin de la dictadura militar", "Retorno a la democracia"]
 tipo: ordenar
 opciones_explicitas: ["Inicio del golpe de Estado", "Fin de la dictadura militar", "Guerra de Malvinas", "Retorno a la democracia"]
 
@@ -1328,7 +1293,7 @@ metadata:
   nivel: "basico"
   tags: ["fechas", "periodo"]
 
-respuesta: ["Inicio del golpe de Estado", "Guerra de Malvinas", "Fin de la dictadura militar"]
+respuesta_orden: ["Inicio del golpe de Estado", "Guerra de Malvinas", "Fin de la dictadura militar"]
 tipo: ordenar
 opciones_explicitas: ["Inicio del golpe de Estado", "Guerra de Malvinas", "Fin de la dictadura militar"]
 
@@ -1349,7 +1314,7 @@ variables:
   escenario: uno_de([0,1])
   datos: [["El uso de la estructura estatal para la represión ilegal", "terrorismo de Estado"], ["La participación en elecciones libres", "democracia representativa"]]
 
-respuesta: datos[escenario][1
+respuesta: datos[escenario][1]
 tipo: mc
 opciones_explicitas: ["terrorismo de Estado", "democracia representativa"]
 
@@ -1404,7 +1369,7 @@ metadata:
   nivel: "avanzado"
   tags: ["ordenar", "cronologia"]
 
-respuesta: ["Revolución Libertadora", "Revolución Argentina", "Onganía"]
+respuesta_orden: ["Revolución Libertadora", "Revolución Argentina", "Onganía"]
 tipo: ordenar
 opciones_explicitas: ["Revolución Libertadora", "Revolución Argentina", "Onganía"]
 
@@ -1427,7 +1392,8 @@ metadata:
 
 respuesta: "Proceso de Reorganización Nacional"
 tipo: completar
-respuestas_validas: ["Proceso de Reorganización Nacional"]
+respuestas_validas:
+  - "Proceso de Reorganización Nacional"
 
 enunciado: "El golpe de Estado iniciado el 24 de marzo de 1976 fue autodenominado por la junta militar como el ___."
 
@@ -1446,7 +1412,7 @@ variables:
   datos: [["Videla", "1976"], ["Anaya", "1981"]]
   idx: uno_de([0, 1])
 
-respuesta: datos[idx][0
+respuesta: datos[idx][0]
 tipo: mc
 opciones_explicitas: ["Videla", "Anaya", "Galtieri", "Borda"]
 
@@ -1499,17 +1465,12 @@ metadata:
   nivel: "intermedio"
   tags: ["geologia", "quimica"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [
-    ["el oxígeno reaccionó con el hierro disuelto en los océanos", "se formaron formaciones de hierro bandeado (BIF)"],
-    ["el oxígeno se acumuló rápidamente en la atmósfera", "se produjo un efecto invernadero masivo"]
-  ]
-
 tipo: mc
-opciones_explicitas: ["Escenario A", "Escenario B"]
+opciones_explicitas: ["reaccionó con el hierro disuelto en los océanos", "se acumuló rápidamente en la atmósfera"]
 
-enunciado: "Durante el inicio de la Gran Oxidación, el oxígeno liberado no fue a la atmósfera inmediatamente, sino que primero {escenario[escenario_idx][0]}."
+enunciado: "Durante el inicio de la Gran Oxidación, el oxígeno liberado no fue a la atmósfera inmediatamente. ¿Qué sucedió primero con él?"
+
+respuesta: "reaccionó con el hierro disuelto en los océanos"
 
 explicacion: |
   Antes de que el oxígeno se acumulara en la atmósfera, reaccionó con el hierro disuelto en los océanos, depositándolo en el fondo marino como hierro bandeado.
@@ -1523,7 +1484,9 @@ metadata:
   tags: ["clima", "extincion"]
 
 tipo: completar
-respuestas_validas: ["Glaciación", "calentamiento"]
+respuestas_validas:
+  - "Glaciación"
+  - "calentamiento"
 
 enunciado: "La acumulación de oxígeno en la atmósfera provocó la oxidación del metano (un potente gas de efecto invernadero), lo que derivó en una de las mayores ___ de la historia de la Tierra."
 
@@ -1545,6 +1508,7 @@ enunciado: "Ordena cronológicamente los eventos que caracterizaron el periodo d
 
 explicacion: |
   Primero surge la fotosíntesis, luego el oxígeno reacciona con el hierro (BIF), luego el oxígeno llega a la atmósfera y finalmente causa el enfriamiento global.
+respuesta_orden: ["Fotosíntesis oxigénica", "Oxidación de hierro disuelto", "Acumulación de O2 atmosférico", "Glaciación global"]
 ```
 
 ```
@@ -1559,6 +1523,8 @@ tolerancia_abs: 0
 
 enunciado: "Antes de la Gran Oxidación, la atmósfera terrestre era predominantemente ________ (escribe 'anóxica' o 'rica' según corresponda)."
 
+respuesta: "anóxica"
+
 explicacion: |
   La atmósfera primordial era anóxica, es decir, carecía de niveles significativos de oxígeno libre.
 ```
@@ -1572,7 +1538,8 @@ metadata:
 
 respuesta: "extinción masiva"
 tipo: completar
-respuestas_validas: ["extinción masiva"]
+respuestas_validas:
+  - "extinción masiva"
 
 enunciado: "El aumento repentino de oxígeno en la atmósfera terrestre durante la Gran Oxidación es considerado la primera ___ de la historia."
 
@@ -1587,14 +1554,11 @@ metadata:
   nivel: "basico"
   tags: ["anaerobico", "oxigeno"]
 
-variables:
-  tipo_organismo: uno_de(["anaeróbicos", "aeróbicos"])
-
-respuesta: "anaeróbicos"
 tipo: mc
-opciones_explicitas: ["anaeróbicos", "aeróbicos", "fotosintéticos", "eucariotas"])
+opciones_explicitas: ["anaeróbicos", "aeróbicos", "fotosintéticos", "eucariotas"]
+respuesta: "anaeróbicos"
 
-enunciado: "Antes de la Gran Oxidación, la atmósfera era rica en gases reductores y la vida estaba compuesta mayoritariamente por organismos de tipo {tipo_organismo}."
+enunciado: "Antes de la Gran Oxidación, la atmósfera era rica en gases reductores. ¿Qué tipo de organismos dominaba la vida en ese entonces?"
 
 explicacion: |
   Los organismos anaeróbicos no poseen mecanismos para neutralizar el oxígeno, por lo que este actuó como un veneno oxidante para ellos.
@@ -1609,7 +1573,7 @@ metadata:
 
 respuesta: "cianobacterias"
 tipo: mc
-opciones_explicitas: ["cianobacterias", "volcanes", "asteroides", "metano"])
+opciones_explicitas: ["cianobacterias", "volcanes", "asteroides", "metano"]
 
 enunciado: "La principal causa biológica del aumento de oxígeno atmosférico fue la aparición de las:"
 
@@ -1622,10 +1586,10 @@ metadata:
   materia: "historia_profunda"
   tema: "gran_oxidacion"
   nivel: "intermedio"
-  tags: ["secuencia", "oxigeno", "vida"])
+  tags: ["secuencia", "oxigeno", "vida"]
 
-respuesta: ["producción de oxígeno", "acumulación de oxígeno", "extinción de anaerobios", "aparición de la vida aeróbica"]
 tipo: ordenar
+respuesta_orden: ["producción de oxígeno", "acumulación de oxígeno", "extinción de anaerobios", "aparición de la vida aeróbica"]
 opciones_explicitas: ["producción de oxígeno", "acumulación de oxígeno", "extinción de anaerobios", "aparición de la vida aeróbica"]
 
 enunciado: "Ordena cronológicamente los eventos que caracterizaron la Gran Oxidación:"
@@ -1639,14 +1603,11 @@ metadata:
   materia: "historia_profunda"
   tema: "gran_oxidacion"
   nivel: "avanzado"
-  tags: ["quimica_atmosferica", "oxigeno"])
-
-variables:
-  estado_oxigeno: uno_de(["tóxico", "vital"])
+  tags: ["quimica_atmosferica", "oxigeno"]
 
 respuesta: "tóxico"
 tipo: mc
-opciones_explicitas: ["tóxico", "vital", "neutro", "incoloro"])
+opciones_explicitas: ["tóxico", "vital", "neutro", "incoloro"]
 
 enunciado: "Para la vida predominante en el Arcaico, el oxígeno atmosférico no era un elemento vital, sino un agente ___."
 
@@ -1663,7 +1624,8 @@ metadata:
 
 respuesta: "aeróbicos"
 tipo: completar
-respuestas_validas: ["aeróbicos"]
+respuestas_validas:
+  - "aeróbicos"
 
 enunciado: "La acumulación de oxígeno en la atmósfera tras la Gran Oxidación permitió la evolución de organismos de tipo ___."
 
@@ -1696,25 +1658,15 @@ metadata:
   nivel: "avanzado"
   tags: ["metabolismo", "oxigeno"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-
-respuesta: tabla[escenario_idx][1
+respuesta: "Aumento de la eficiencia energética"
 tipo: mc
 opciones_explicitas: ["Limitación energética", "Aumento de la eficiencia energética", "Reducción del tamaño celular", "Extinción de la vida multicelular"]
 
-enunciado: "Considerando el impacto metabólico de la Gran Oxidación, el oxígeno permitió un {resultado}."
+enunciado: "Considerando el impacto metabólico de la Gran Oxidación, ¿qué efecto tuvo el oxígeno sobre el metabolismo de los organismos que pudieron utilizarlo?"
 
 pasos:
   - "Analizar la diferencia entre metabolismo anaeróbico y aeróbico."
   - "Relacionar la eficiencia energética con el tamaño del organismo."
-
-variables_contexto:
-  tabla: [
-    ["Limitación energética", "Limitación energética"],
-    ["Aumento de la eficiencia energética", "Aumento de la eficiencia energética"]
-  ]
-  resultado: uno_de(["Limitación energética", "Aumento de la eficiencia energética"])
 
 explicacion: |
   La oxidación de la glucosa en presencia de oxígeno produce muchísima más energía (ATP) que los procesos anaeróbicos, permitiendo la multicelularidad.
@@ -1729,7 +1681,7 @@ metadata:
 
 opciones_explicitas: ["Producción de oxígeno", "Acumulación de oxígeno en la atmósfera", "Evolución de organismos aeróbicos", "Aparición de vida compleja"]
 
-respuesta: ["Producción de oxígeno", "Acumulación de oxígeno en la atmósfera", "Evolución de organismos aeróbicos", "Aparición de vida compleja"]
+respuesta_orden: ["Producción de oxígeno", "Acumulación de oxígeno en la atmósfera", "Evolución de organismos aeróbicos", "Aparición de vida compleja"]
 tipo: ordenar
 
 enunciado: "Ordena cronológicamente los eventos derivados de la actividad de los cianobacterias:"
@@ -1747,7 +1699,8 @@ metadata:
 
 respuesta: "oxígeno"
 tipo: completar
-respuestas_validas: ["oxígeno"]
+respuestas_validas:
+  - "oxígeno"
 
 enunciado: "El gas liberado masivamente que transformó la química de la Tierra fue el ___."
 
@@ -1764,8 +1717,9 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Formaciones de hierro bandeado (BIF)", "Capas de esquisto negro", "Depósitos de carbón", "Calizas de magnesio"]
+respuesta: "Formaciones de hierro bandeado (BIF)"
 
-enunciado: "Las evidencias geológicas de la Gran Oxidación se manifiestan principalmente en las llamadas ___."
+enunciado: "¿En qué evidencias geológicas se manifiestan principalmente los efectos de la Gran Oxidación?"
 
 explicacion: |
   Las Formaciones de Hierro Bandeado (BIF, por sus siglas en inglés) son capas de roca ricas en óxidos de hierro que se depositaron cuando el oxígeno liberado por la fotosíntesis reaccionó con el hierro disuelto en los océanos.
@@ -1778,12 +1732,9 @@ metadata:
   nivel: "intermedio"
   tags: ["quimica_prebiotica", "oceanos"]
 
-variables:
-  elemento_reactivo: "uno_de(['hierro disuelto', 'azufre líquido', 'silicato de magnesio'])"
-  idx: "uno_de([0, 1, 2])"
-
 tipo: completar
-respuestas_validas: ["hierro disuelto"]
+respuestas_validas:
+  - "hierro disuelto"
 
 enunciado: "Durante la Gran Oxidación, el ___ en los océanos reaccionó con el oxígeno molecular, provocando su precipitación en el fondo marino."
 
@@ -1805,6 +1756,7 @@ enunciado: "Ordena cronológicamente los eventos que llevaron a la formación de
 
 explicacion: |
   Primero la vida fotosintética produce oxígeno; luego este oxida el hierro disponible en el agua; esto genera los depósitos BIF; finalmente, una vez saturado el sumidero de hierro, el oxígeno comienza a acumularse en la atmósfera.
+respuesta_orden: ["Producción de O2 por cianobacterias", "Oxidación de hierro disuelto en el océano", "Precipitación de óxidos de hierro (BIF)", "Aumento de la oxigenación atmosférica"]
 ```
 
 ```
@@ -1815,9 +1767,10 @@ metadata:
   tags: ["sumideros", "oxigeno"]
 
 tipo: vf
-opciones_explicitas: ["verdadero", "falso"]
 
 enunciado: "La formación de las BIF actuó como un 'sumidero' que retrasó la acumulación masiva de oxígeno en la atmósfera durante millones de años."
+
+respuesta: verdadero
 
 explicacion: |
   Verdadero. El oxígeno producido se consumía rápidamente oxidando el hierro y otros compuestos en el océano antes de poder escapar a la atmósfera.
@@ -1830,20 +1783,18 @@ metadata:
   nivel: "avanzado"
   tags: ["geoquimica", "oxigeno"]
 
-variables:
-  concentracion_oxigeno: "random_float(0.0, 0.01)"
-  umbral_saturacion: "0.05"
-
 tipo: completar
 tolerancia_abs: 0.001
 
-enunciado: "Si la concentración de oxígeno en el océano es de {concentracion_oxigeno} moles/m³ y el umbral de saturación de los sumideros de hierro es de {umbral_saturacion} moles/m³, ¿cuál es la diferencia respecto al umbral?"
+enunciado: "Si la concentración de oxígeno en el océano es de 0.02 moles/m³ y el umbral de saturación de los sumideros de hierro es de 0.05 moles/m³, ¿cuál es la diferencia respecto al umbral?"
 
 pasos:
   - "Calcular la diferencia absoluta entre el umbral y la concentración actual."
 
 explicacion: |
-  La diferencia es el margen que faltaba para que el oxígeno comenzara a acumularse en la atmósfera tras saturar los sumideros químicos.
+  La diferencia es el margen que faltaba para que el oxígeno comenzara a acumularse en la atmósfera tras saturar los sumideros químicos: 0.05 - 0.02 = 0.03 moles/m³.
+
+respuesta: 0.03
 ```
 
 ```
@@ -1853,13 +1804,9 @@ metadata:
   nivel: "basico"
   tags: ["biologia", "atmosfera"]
 
-variables:
-  datos: [["cianobacterias", "fotosíntesis"], ["cianobacterias", "fotosíntesis"]]
-  idx: uno_de([0,1])
+enunciado: "El evento conocido como la Gran Oxidación fue impulsado por la aparición de organismos capaces de realizar la fotosíntesis."
 
-enunciado: "El evento conocido como la Gran Oxidación fue impulsado por la aparición de organismos capaces de realizar la {datos[idx][1]}."
-
-respuesta: datos[idx][0]
+respuesta: "fotosíntesis"
 tipo: mc
 opciones_explicitas: ["fotosíntesis", "quimiosíntesis", "respiración", "fermentación"]
 
@@ -1874,15 +1821,12 @@ metadata:
   nivel: "intermedio"
   tags: ["quimica", "oxigeno"]
 
-variables:
-  datos: [["oxígeno", "oxidación de metano"], ["oxígeno", "oxidación de metano"]]
-  idx: uno_de([0,1])
-
-enunciado: "La acumulación de {datos[idx][0]} en la atmósfera provocó la ___ de gases reductores como el metano."
+enunciado: "La acumulación de oxígeno en la atmósfera provocó la ___ de gases reductores como el metano."
 
 respuesta: "oxidación de metano"
 tipo: completar
-respuestas_validas: ["oxidación de metano"]
+respuestas_validas:
+  - "oxidación de metano"
 
 explicacion: |
   El oxígeno atmosférico reaccionó con el metano (un gas de efecto invernadero), alterando la química global.
@@ -1895,11 +1839,7 @@ metadata:
   nivel: "intermedio"
   tags: ["extincion", "biologia"]
 
-variables:
-  caso: uno_de([["oxígeno", "extinción masiva"], ["oxígeno", "extinción masiva"]])
-  tipo_efecto: uno_de(["extinción masiva", "explosión de vida"])
-
-enunciado: "Para los organismos anaerobios de la época, el aumento de ___ representó una ___."
+enunciado: "Para los organismos anaerobios de la época, el aumento de oxígeno en la atmósfera representó una ___."
 
 respuesta: "extinción masiva"
 tipo: mc
@@ -1921,9 +1861,9 @@ variables:
 
 enunciado: "Ordene los eventos que llevaron a la Gran Oxidación:"
 
-respuesta: ["Fotosíntesis oxigénica", "Saturación de sumideros de hierro", "Liberación de O2 a la atmósfera"]
+respuesta_orden: ["Fotosíntesis oxigénica", "Saturación de sumideros de hierro", "Liberación de O2 a la atmósfera"]
 tipo: ordenar
-opciones_explicitas: ["Fotosíntesis oxigénica", "Saturación de sumideros de hierro", "Liberación de O2 a la atmósfera", "Formación de la capa de ozono"]
+opciones_explicitas: ["Fotosíntesis oxigénica", "Saturación de sumideros de hierro", "Liberación de O2 a la atmósfera"]
 
 explicacion: |
   Primero se produjo el oxígeno, luego este fue absorbido por minerales (hierro) y finalmente se acumuló en la atmósfera.
@@ -1936,15 +1876,12 @@ metadata:
   nivel: "avanzado"
   tags: ["quimica", "atmosfera"]
 
-variables:
-  datos: [["oxígeno", "oxidante", "oxidante"], ["oxígeno", "oxidante", "oxidante"]]
-  idx: uno_de([0,1])
-
-enunciado: "La transición de una atmósfera reductora a una oxidante fue causada por la liberación de ___ que actuó como un potente ___."
+enunciado: "La transición de una atmósfera reductora a una oxidante fue causada por la liberación de oxígeno, que actuó como un potente ___."
 
 respuesta: "oxidante"
 tipo: completar
-respuestas_validas: ["oxidante"]
+respuestas_validas:
+  - "oxidante"
 
 explicacion: |
   El oxígeno es un agente oxidante fuerte que cambió radicalmente el potencial redox de la atmósfera terrestre.
@@ -1977,14 +1914,9 @@ metadata:
   tags: ["cronologia", "eventos"]
 
 variables:
-  eventos: [
-    ["Invasión de las islas", "Fuerzas argentinas ocupan las islas"],
-    ["Desembarco en San Carlos", "Fuerzas británicas desembarcan en la isla"],
-    ["Rendición argentina", "Fuerzas argentinas se rinden en Puerto Argentino"]
-  ]
-  idx: uno_de([0, 1, 2])
+  eventos: [["Invasión de las islas", "Fuerzas argentinas ocupan las islas"], ["Desembarco en San Carlos", "Fuerzas británicas desembarcan en la isla"], ["Rendición argentina", "Fuerzas argentinas se rinden en Puerto Argentino"]]
 
-respuesta: eventos[idx][1
+respuesta_orden: ["Invasión de las islas", "Desembarco en San Carlos", "Rendición argentina"]
 tipo: "ordenar"
 opciones_explicitas: ["Invasión de las islas", "Desembarco en San Carlos", "Rendición argentina"]
 
@@ -2001,11 +1933,11 @@ metadata:
   nivel: "avanzado"
   tags: ["naval", "tactic"]
 
-respuesta: 360
+respuesta: 200
 tipo: "input"
 tolerancia_abs: 1
 
-enunciado: "El crucero ARA General Belgrano fue hundido por un submarino británico el 2 de mayo de 1982. Si el submarino se encontraba a una profundidad de 200 metros y el crucero estaba en la superficie, ¿cuál es la distancia vertical (en metros) entre ambos?"
+enunciado: "El crucero ARA General Belgrano fue hundido por un submarino británico el 2 de mayo de 1982. Si, hipotéticamente, el submarino se encontraba a una profundidad de 200 metros y el crucero estaba en la superficie, ¿cuál sería la distancia vertical (en metros) entre ambos?"
 
 pasos:
   - "Identificar la profundidad del submarino: 200m"
@@ -2025,7 +1957,10 @@ metadata:
 
 respuesta: "soberanía"
 tipo: "completar"
-respuestas_validas: ["soberanía", "territorio", "recursos"]
+respuestas_validas:
+  - "soberanía"
+  - "territorio"
+  - "recursos"
 
 enunciado: "El reclamo argentino por las islas se fundamenta en el principio de ___ territorial."
 
@@ -2059,6 +1994,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["1833", "1982", "1776", "1810"]
+respuesta: "1833"
 
 enunciado: "El Reino Unido ocupó las Islas Malvinas de forma efectiva en el año ___."
 
@@ -2075,6 +2011,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Territorial", "Económica", "Religiosa", "Cultural"]
+respuesta: "Territorial"
 
 enunciado: "El reclamo argentino sobre las Islas Malvinas es de carácter ___."
 
@@ -2100,6 +2037,7 @@ enunciado: "Ordene cronológicamente los hitos clave de la disputa por las islas
 
 explicacion: |
   La cronología marca desde la ocupación británica en 1833, pasando por el conflicto armado en 1982, hasta el reclamo diplomático actual.
+respuesta_orden: ["1833", "1982", "Actualidad"]
 ```
 
 ```
@@ -2110,7 +2048,8 @@ metadata:
   tags: ["derecho_internacional", "onu"]
 
 tipo: completar
-respuestas_validas: ["integridad", "autodeterminación"]
+respuestas_validas:
+  - "integridad"
 
 enunciado: "Argentina sostiene que el principio de ___ territorial debe prevalecer sobre el principio de autodeterminación en el caso de las Malvinas."
 
@@ -2125,14 +2064,11 @@ metadata:
   nivel: "intermedio"
   tags: ["guerra", "1982"]
 
-variables:
-  idx: uno_de([0, 1])
-  eventos: [["desembarco", "inicio de la invasión"], ["cese", "fin de las hostilidades"]]
-
 tipo: mc
 opciones_explicitas: ["desembarco", "cese", "tratado", "armisticio"]
+respuesta: "cese"
 
-enunciado: "El conflicto bélico de 1982 se caracterizó por el ___ de las tropas argentinas en las islas."
+enunciado: "El conflicto bélico de 1982 se caracterizó por el cese de las tropas argentinas en las islas."
 
 explicacion: |
   El conflicto terminó con el cese de las hostilidades y la rendición de las fuerzas argentinas en junio de 1982.
@@ -2147,7 +2083,8 @@ metadata:
 
 respuesta: "dictadura militar"
 tipo: completar
-respuestas_validas: ["dictadura militar"]
+respuestas_validas:
+  - "dictadura militar"
 
 enunciado: "En 1982, Argentina se encontraba bajo el gobierno de una ___ que enfrentaba una profunda crisis interna."
 
@@ -2166,14 +2103,14 @@ variables:
   escenario_idx: uno_de([0, 1])
   escenario: [[ "reforzar la legitimidad", "recuperar el apoyo popular" ], [ "distraer de la crisis", "ocultar el malestar social" ]]
 
-respuesta: escenario[escenario_idx][1
+respuesta: escenario[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["reforzar la legitimidad", "recuperar el apoyo popular", "ocultar el malestar social", "evitar la crisis económica"]
 
 enunciado: "Uno de los objetivos estratégicos de la junta militar al ordenar el desembarco en las islas era ___."
 
 explicacion: |
-  La dictadura intentó utilizar el conflicto bélico para generar un sentimiento de unidad nacional y así ___."
+  La dictadura intentó utilizar el conflicto bélico para generar un sentimiento de unidad nacional y así recuperar el apoyo popular que había perdido por la crisis económica y la represión.
 ```
 
 ```
@@ -2183,7 +2120,7 @@ metadata:
   nivel: "intermedio"
   tags: ["cronologia", "fechas"]
 
-respuesta: ["Crisis interna de la dictadura", "Orden de desembarco", "Inicio de la guerra"]
+respuesta_orden: ["Crisis interna de la dictadura", "Orden de desembarco", "Inicio de la guerra"]
 tipo: ordenar
 opciones_explicitas: ["Crisis interna de la dictadura", "Orden de desembarco", "Inicio de la guerra"]
 
@@ -2219,7 +2156,8 @@ metadata:
 
 respuesta: "abril 1982"
 tipo: completar
-respuestas_validas: ["abril 1982"]
+respuestas_validas:
+  - "abril 1982"
 
 enunciado: "La orden de desembarco en las islas Malvinas se produjo en ___."
 
@@ -2236,7 +2174,10 @@ metadata:
 
 respuesta: "aceleró"
 tipo: completar
-respuestas_validas: ["aceleró", "acelerar", "aceleración"]
+respuestas_validas:
+  - "aceleró"
+  - "acelerar"
+  - "aceleración"
 
 enunciado: "La derrota militar argentina en la guerra de Malvinas en junio de 1982 ___ el proceso de deslegitimación de la Junta Militar y ___ el retorno a la democracia en 1983."
 
@@ -2269,13 +2210,13 @@ metadata:
   tags: ["democracia", "elecciones"]
 
 variables:
-  idx: uno_de([0, 1])
+  datos: [["Dictadura", "Democracia"]]
 
-respuesta: datos[idx][1
+respuesta: datos[0][1]
 tipo: mc
 opciones_explicitas: ["Dictadura", "Democracia"]
 
-enunciado: "Tras la derrota en Malvinas, el proceso político argentino se desplazó desde el mando de una {datos[idx][0]} hacia la restauración de la {datos[idx][1]} en 1983."
+enunciado: "Tras la derrota en Malvinas, el proceso político argentino se desplazó desde el mando de una {datos[0][0]} hacia la restauración de la {datos[0][1]} en 1983."
 
 pasos:
   - "Analizar el cambio de régimen tras la crisis de junio de 1982."
@@ -2293,7 +2234,7 @@ metadata:
   tags: ["orden", "cronologia"]
 
 opciones_explicitas: ["Conflicto bélico", "Retorno a la democracia", "Inicio de la dictadura"]
-respuesta: ["Inicio de la dictadura", "Conflicto bélico", "Retorno a la democracia"]
+respuesta_orden: ["Inicio de la dictadura", "Conflicto bélico", "Retorno a la democracia"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los siguientes hitos de la historia argentina reciente:"
@@ -2326,13 +2267,10 @@ metadata:
   nivel: "basico"
   tags: ["cronologia", "conflicto"]
 
-variables:
-  escenario: uno_de([[2, "2 de abril de 1982"], [1, "1 de abril de 1982"]])
-  fecha_evento: escenario[0]
-
-respuesta: fecha_evento
+respuesta: "2 de abril de 1982"
 tipo: completar
-respuestas_validas: ["2 de abril de 1982", "1 de abril de 1982"]
+respuestas_validas:
+  - "2 de abril de 1982"
 
 enunciado: "La operación de desembarco de las fuerzas argentinas en las islas Malvinas tuvo lugar el ___."
 
@@ -2347,13 +2285,10 @@ metadata:
   nivel: "intermedio"
   tags: ["hechos", "maritimo"]
 
-variables:
-  escenario: uno_de([[0, "2 de mayo de 1982"], [1, "25 de mayo de 1982"]])
-  fecha_hundimiento: escenario[0]
-
-respuesta: fecha_hundimiento
+respuesta: "2 de mayo de 1982"
 tipo: completar
-respuestas_validas: ["2 de mayo de 1982", "25 de mayo de 1982"]
+respuestas_validas:
+  - "2 de mayo de 1982"
 
 enunciado: "El hundimiento del crucero ARA General Belgrano por parte de un submarino británico ocurrió el ___."
 
@@ -2371,9 +2306,9 @@ metadata:
 variables:
   orden_correcta: ["Desembarco en las islas", "Hundimiento del Belgrano", "Rendición argentina"]
 
-respuesta: orden_correcta
+respuesta_orden: orden_correcta
 tipo: ordenar
-opciones_explicitas: ["Desembarco en las islas", "Hundimiento del Belgrano", "Rendición argentina", "Firma de la cesación de hostilidades"]
+opciones_explicitas: ["Desembarco en las islas", "Hundimiento del Belgrano", "Rendición argentina"]
 
 enunciado: "Ordene cronológicamente los siguientes hitos de la guerra:"
 
@@ -2388,13 +2323,10 @@ metadata:
   nivel: "basico"
   tags: ["final", "rendicion"]
 
-variables:
-  escenario: uno_de([[0, "14 de junio de 1982"], [1, "2 de abril de 1982"]])
-  fecha_final: escenario[0]
-
-respuesta: fecha_final
+respuesta: "14 de junio de 1982"
 tipo: completar
-respuestas_validas: ["14 de junio de 1982", "2 de abril de 1982"]
+respuestas_validas:
+  - "14 de junio de 1982"
 
 enunciado: "La firma de la rendición de las fuerzas argentinas en las islas Malvinas se produjo el ___."
 
@@ -2411,9 +2343,9 @@ metadata:
 
 variables:
   escenario: uno_de([[0, "2 de abril de 1982"], [1, "1 de mayo de 1982"]])
-  fecha_inicio: escenario[0]
+  fecha_inicio: escenario[1]
 
-respuesta: fecha_inicio
+respuesta: "2 de abril de 1982"
 tipo: mc
 opciones_explicitas: ["2 de abril de 1982", "1 de mayo de 1982", "2 de mayo de 1982", "14 de junio de 1982"]
 
@@ -2422,3 +2354,4 @@ enunciado: "¿En qué fecha se produjo el desembarco argentino que dio inicio al
 explicacion: |
   El conflicto bélico comenzó con el desembarco argentino el 2 de abril de 1982.
 ```
+

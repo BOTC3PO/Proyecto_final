@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de los Elementos Artísticos
+# Examen jefe — [PENDIENTE #904]
 
-> Logro #214. Completaste el examen que integra acústica, armonía, composición, danza y los elementos fundamentales del arte. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **127 preguntas totales** en 5/5 secciones.
+> Logro #904. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,7 +15,9 @@ metadata:
 
 respuesta: "vibracion"
 tipo: completar
-respuestas_validas: ["vibracion", "vibración"]
+respuestas_validas:
+  - "vibracion"
+  - "vibración"
 
 enunciado: "El sonido en un instrumento musical se produce mediante la ________ de un cuerpo u objeto."
 
@@ -31,13 +33,9 @@ metadata:
   tags: ["clasificacion", "instrumentos"]
 
 variables:
-  escenario: uno_de([
-    ["trompeta", "viento"],
-    ["guitarra", "cuerda"],
-    ["timbal", "percusion"]
-  ])
+  escenario: uno_de([["trompeta", "viento"], ["guitarra", "cuerda"], ["timbal", "percusion"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["viento", "cuerda", "percusion"]
 
@@ -72,7 +70,9 @@ metadata:
 
 respuesta: "caja de resonancia"
 tipo: completar
-respuestas_validas: ["caja de resonancia", "caja de resonancia acústica"]
+respuestas_validas:
+  - "caja de resonancia"
+  - "caja de resonancia acústica"
 
 enunciado: "En una guitarra acústica, el sonido producido por la cuerda es amplificado por la ________."
 
@@ -87,7 +87,7 @@ metadata:
   nivel: "intermedio"
   tags: ["armonicos", "timbre"]
 
-respuesta: ["frecuencia fundamental", "armónicos"]
+respuesta_orden: ["frecuencia fundamental", "armónicos"]
 tipo: ordenar
 
 opciones_explicitas: ["frecuencia fundamental", "armónicos"]
@@ -114,17 +114,16 @@ variables:
   tension: 120
   densidad_lineal: 0.005
 
-respuesta: 110.44
+respuesta: 119.17
 tipo: completar
-tolerancia_abs: 0.01
+tolerancia_abs: 0.1
 
 enunciado: "Una cuerda de una guitarra tiene una longitud de {L} metros, una tensión de {tension} N y una densidad lineal de {densidad_lineal} kg/m. ¿Cuál es la frecuencia fundamental de vibración de la cuerda en Hz?"
 
 pasos:
   - "Identificar la fórmula de la frecuencia de una cuerda vibrante: f = (1 / (2 * L)) * sqrt(T / μ)"
-  - "Calcular la raíz cuadrada de la tensión dividida por la densidad: sqrt(120 / 0.005) = sqrt(24000) ≈ 154.919"
-  - "Multiplicar por la longitud: 154.919 / (2 * 0.65) = 154.919 / 1.3 ≈ 119.16"
-  - "Nota: Usando los valores exactos: 110.44 Hz"
+  - "Calcular la raíz cuadrada de la tensión dividida por la densidad: sqrt(120 / 0.005) = sqrt(24000) ≈ 154.92"
+  - "Dividir por el doble de la longitud: 154.92 / (2 * 0.65) = 154.92 / 1.3 ≈ 119.17"
 
 explicacion: |
   La frecuencia fundamental de una cuerda tensa depende de su longitud, su tensión y su masa por unidad de longitud. A mayor tensión o menor longitud, la frecuencia es mayor (sonido más agudo).
@@ -140,20 +139,20 @@ metadata:
 variables:
   v: 340
   L: 0.5
-  idx: uno_de([1, 2, 3])
+  idx: uno_de([0, 1])
+  n_armonico: [1, 2][idx]
+  tabla: ["340.0", "680.0"]
 
-respuesta: tabla[idx][1
+respuesta: tabla[idx]
 tipo: mc
 opciones_explicitas: ["170.0", "340.0", "510.0", "680.0"]
 
-enunciado: "Un instrumento de viento funciona como un tubo abierto por ambos extremos con una longitud de {L} metros. Si la velocidad del sonido es de {v} m/s, ¿cuál es la frecuencia del {idx}-ésimo armónico?"
+enunciado: "Un instrumento de viento funciona como un tubo abierto por ambos extremos con una longitud de {L} metros. Si la velocidad del sonido es de {v} m/s, ¿cuál es la frecuencia del {n_armonico}-ésimo armónico?"
 
 explicacion: |
-  Para un tubo abierto en ambos extremos, las frecuencias de los armónicos siguen la serie: f_n = n * (v / 2L). 
+  Para un tubo abierto en ambos extremos, las frecuencias de los armónicos siguen la serie: f_n = n * (v / 2L).
   Si n=1 (fundamental): 340 / (2 * 0.5) = 340 Hz.
   Si n=2: 2 * 340 = 680 Hz.
-  Si n=3: 3 * 340 / 1 = 1020 Hz (ajustar según el índice sorteado).
-  *Nota: El cálculo depende del índice seleccionado.*
 ```
 
 ```
@@ -182,12 +181,12 @@ metadata:
   nivel: "basico"
   tags: ["ondas", "propiedades"]
 
-respuesta: ["Compresión", "Rarefacción", "Compresión", "Rarefacción"]
+respuesta_orden: ["Compresión", "Rarefacción"]
 tipo: ordenar
 
 enunciado: "Ordena las fases de las variaciones de presión en una onda longitudinal (como el sonido) desde el punto de máxima presión hasta el de mínima presión:"
 
-opciones_explicitas: ["Compresión", "Rarefacción", "Compresión", "Rarefacción"]
+opciones_explicitas: ["Compresión", "Rarefacción"]
 
 explicacion: |
   El sonido es una onda mecánica longitudinal. Se propaga mediante ciclos de compresión (aumento de presión) y rarefacción (disminución de presión).
@@ -203,18 +202,21 @@ metadata:
 variables:
   v: 340
   L: 0.25
-  idx: uno_de([1, 3])
+  idx: uno_de([0, 1])
+  n_armonico: [1, 3][idx]
+  tabla: ["340.0", "1020.0"]
 
-respuesta: tabla[idx][1
+respuesta: tabla[idx]
 tipo: completar
-opciones_explicitas: ["170.0", "510.0"]
-respuestas_validas: ["170.0", "510.0"]
+respuestas_validas:
+  - tabla[idx]
 
-enunciado: "Un tubo cerrado en un extremo (como una flauta de pan o un clarinete en ciertas condiciones) de {L} metros tiene una frecuencia fundamental de ___ Hz (si el índice del armónico es {idx})."
+enunciado: "Un tubo cerrado en un extremo (como una flauta de pan o un clarinete en ciertas condiciones) de {L} metros. Para su {n_armonico}-ésimo armónico permitido, la frecuencia es de ___ Hz."
 
 explicacion: |
   Para un tubo cerrado en un extremo, solo existen armónicos impares. La fórmula es f_n = n * v / (4 * L), donde n es 1, 3, 5...
-  Si n=1: 340 / (4 * 0.25) = 340 Hz. (Ajustar según el índice seleccionado).
+  Si n=1: 340 / (4 * 0.25) = 340 Hz.
+  Si n=3: 3 * 340 / (4 * 0.25) = 1020 Hz.
 ```
 
 ```
@@ -242,13 +244,10 @@ metadata:
   nivel: "intermedio"
   tags: ["resonancia", "frecuencia", "armonicos"]
 
-variables:
-  es_resonancia_correcta: true
+tipo: vf
+respuesta: verdadero
 
-tipo: completar
-respuesta: es_resonancia_correcta
-
-enunciado: "Si un instrumento musical tiene una frecuencia natural que coincide con la frecuencia de una onda sonora externa, se produce un aumento significativo en la amplitud de la vibración. ¿Es esto el fenómeno de la resonancia? {es_resonancia_correcta}"
+enunciado: "Si un instrumento musical tiene una frecuencia natural que coincide con la frecuencia de una onda sonora externa, se produce un aumento significativo en la amplitud de la vibración. ¿Es esto el fenómeno de la resonancia?"
 
 explicacion: |
   Correcto. La resonancia ocurre cuando un sistema vibra con mayor amplitud al ser excitado por una frecuencia cercana a su frecuencia natural.
@@ -262,7 +261,9 @@ metadata:
   tags: ["longitud", "tono", "frecuencia"]
 
 tipo: completar
-respuestas_validas: ["más agudo", "más grave"]
+respuestas_validas:
+  - "más agudo"
+  - "más grave"
 
 enunciado: "En un instrumento de viento como una flauta, si el músico tapa más agujeros (acortando la columna de aire efectiva), el sonido resultante será ___."
 
@@ -282,7 +283,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Excitación (vibración de la fuente)", "Filtrado (modificación por el cuerpo)", "Radiación (emisión al aire)"]
 
-respuesta: ["Excitación (vibración de la fuente)", "Filtrado (modificación por el cuerpo)", "Radiación (emisión al aire)"]
+respuesta_orden: ["Excitación (vibración de la fuente)", "Filtrado (modificación por el cuerpo)", "Radiación (emisión al aire)"]
 
 enunciado: "Ordena las etapas correctas de la cadena de producción de sonido en un instrumento musical:"
 
@@ -317,7 +318,9 @@ metadata:
 
 enunciado: "En un instrumento de cuerda pulsada, como la guitarra, el sonido se produce por la vibración de la cuerda. Sin embargo, para que este sonido sea audible y tenga cuerpo, es necesario que la cuerda transmita su vibración a un componente que actúe como amplificador natural. Este componente es la ___."
 
-respuestas_validas: ["caja de resonancia", "caja de resonancia acústica"]
+respuestas_validas:
+  - "caja de resonancia"
+  - "caja de resonancia acústica"
 tipo: completar
 
 explicacion: |
@@ -330,9 +333,6 @@ metadata:
   tema: "acustica_instrumentos"
   nivel: "intermedio"
   tags: ["timbre", "armonicos"]
-
-variables:
-  es_mismo_tono: falso
 
 enunciado: "Si dos instrumentos diferentes (por ejemplo, un piano y un violín) tocan exactamente la misma nota con la misma intensidad, ¿por qué percibimos que su sonido es distinto?"
 
@@ -375,7 +375,7 @@ enunciado: "Ordena los pasos que ocurren en un instrumento de viento cuando un m
 opciones_explicitas: ["Columna de aire en movimiento", "Vibración de la lengüeta o bisel", "Modificación del tono mediante los agujeros", "Proyección del sonido por la campana"]
 tipo: ordenar
 
-respuesta: ["Columna de aire en movimiento", "Vibración de la lengüeta o bisel", "Modificación del tono mediante los agujeros", "Proyección del sonido por la campana"]
+respuesta_orden: ["Columna de aire en movimiento", "Vibración de la lengüeta o bisel", "Modificación del tono mediante los agujeros", "Proyección del sonido por la campana"]
 
 explicacion: |
   El flujo de aire genera la vibración inicial, la cual se modula al cambiar la longitud de la columna de aire y finalmente se proyecta.
@@ -387,10 +387,6 @@ metadata:
   tema: "acustica_instrumentos"
   nivel: "intermedio"
   tags: ["frecuencia", "longitud"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Si la longitud de la columna de aire aumenta, la frecuencia disminuye.", "Si la longitud de la columna de aire disminuye, la frecuencia aumenta."], ["baja", "sube"]]
 
 enunciado: "En un instrumento de viento, si el músico tapa más agujeros (aumentando la longitud efectiva de la columna de aire), la frecuencia del sonido resultante ___."
 
@@ -409,12 +405,13 @@ metadata:
   tags: ["guitarra", "cuerdas", "vibracion"]
 
 variables:
-  datos: [["guitarra_acustica", "madera"], ["violín", "cuerdas de metal"], ["arpa", "cuerdas de nylon"]]
+  datos: [["guitarra acústica", "cuerdas de acero"], ["violín", "cuerdas de metal"], ["arpa", "cuerdas de nylon"]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "En una {datos[idx][0]}, el sonido se produce principalmente por la vibración de las {datos[idx][1]}."
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 explicacion: |
@@ -436,7 +433,8 @@ enunciado: "Al soplar en un {datos[idx][0]}, el sonido se genera mediante la vib
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["columna de aire", "caña de madera", "labios del músico"]
+respuestas_validas:
+  - datos[idx][1]
 
 explicacion: |
   En los instrumentos de viento, la columna de aire que resuena dentro del tubo es la responsable de la amplificación y el tono.
@@ -453,7 +451,7 @@ enunciado: "Ordena el proceso de generación de sonido en un piano desde que se 
 
 opciones_explicitas: ["Presión de la tecla", "Golpe del martillo en la cuerda", "Vibración de la cuerda", "Resonancia en la caja de madera"]
 
-respuesta: ["Presión de la tecla", "Golpe del martillo en la cuerda", "Vibración de la cuerda", "Resonancia en la caja de madera"]
+respuesta_orden: ["Presión de la tecla", "Golpe del martillo en la cuerda", "Vibración de la cuerda", "Resonancia en la caja de madera"]
 tipo: ordenar
 
 explicacion: |
@@ -475,7 +473,8 @@ enunciado: "Si un músico decide {datos[idx][0]} la nota, la amplitud de la onda
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["mayor", "menor"]
+respuestas_validas:
+  - datos[idx][1]
 
 explicacion: |
   La intensidad del sonido (lo que percibimos como volumen) está directamente relacionada con la amplitud de la onda sonora.
@@ -492,7 +491,7 @@ variables:
   datos: [["violonchelo", "caja de madera"], ["tambor", "parche de piel"], ["trompeta", "tubo de metal"]]
   idx: uno_de([0, 1, 2])
 
-enunciado: "¿Es cierto que la {datos[idx][0]} actúa como resonador para amplificar el sonido producido por la fuente vibratoria?"
+enunciado: "¿Es cierto que un instrumento como {datos[idx][0]} posee un cuerpo resonador (en este caso, {datos[idx][1]}) que amplifica el sonido producido por su fuente vibratoria?"
 
 respuesta: verdadero
 tipo: vf
@@ -518,7 +517,7 @@ respuesta: "La combinación de tres o más notas que suenan simultáneamente"
 enunciado: "En la teoría musical, un acorde se define como ___."
 
 explicacion: |
-  Un acorde es la superposición de dos o más notas musicales que suenan al mismo tiempo, creando una sonoridad específica.
+  Un acorde es la superposición de tres o más notas musicales que suenan al mismo tiempo, creando una sonoridad específica (dos notas simultáneas forman un intervalo, no un acorde).
 ```
 
 ```
@@ -545,11 +544,10 @@ metadata:
   nivel: "intermedio"
   tags: ["acordes", "intervalos"]
 
-variables:
-  es_mayor: uno_de([verdadero, falso])
-
 tipo: completar
-respuestas_validas: ["mayor", "menor"]
+respuesta: "mayor"
+respuestas_validas:
+  - "mayor"
 
 enunciado: "Si un acorde está formado por la raíz, una tercera mayor y una quinta justa, se trata de un acorde ___."
 
@@ -567,7 +565,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Raíz", "Tercera", "Quinta"]
 
-respuesta: ["Raíz", "Tercera", "Quinta"]
+respuesta_orden: ["Raíz", "Tercera", "Quinta"]
 
 enunciado: "Ordena los elementos de un acorde básico (tríada) desde la nota más grave a la más aguda:"
 
@@ -617,11 +615,8 @@ metadata:
   nivel: "basico"
   tags: ["tonalidad", "escala", "teoria"]
 
-variables:
-  es_do_mayor: uno_de([verdadero, falso])
-
-respuesta: es_do_mayor
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si una pieza musical utiliza exclusivamente las notas de la escala de Do Mayor (Do, Re, Mi, Fa, Sol, La, Si) y sus acordes derivados, ¿es correcto afirmar que la pieza está en la tonalidad de Do Mayor?"
 
 explicacion: |
@@ -636,19 +631,19 @@ metadata:
   tags: ["acordes", "semitonos"]
 
 variables:
-  base: uno_de([["Do", "4"], ["Re", "5"], ["Mi", "6"]])
+  base: uno_de(["Do", "Re", "Mi"])
 
-respuesta: tabla[idx][1
+respuesta: "3"
 tipo: completar
-respuestas_validas: ["4", "5", "6"]
+respuestas_validas:
+  - "3"
 
-enunciado: "Para transformar un acorde mayor en un acorde menor, debemos reducir la tercera mayor a una tercera menor. Si partimos de la nota fundamental {base[idx][0]}, debemos sumar exactamente ___ semitonos para obtener la tercera menor."
+enunciado: "Para transformar un acorde mayor en un acorde menor, debemos reducir la tercera mayor a una tercera menor. Si partimos de la nota fundamental {base}, debemos sumar exactamente ___ semitonos para obtener la tercera menor."
 
 pasos:
-  - "Identificar la nota fundamental: {base[idx][0]}"
+  - "Identificar la nota fundamental: {base}"
   - "Calcular la distancia de la tercera mayor (4 semitonos)"
   - "Restar 1 semitono para obtener la tercera menor (4 - 1 = 3 semitonos)"
-  - "Nota: En este ejercicio, el usuario debe identificar el valor de la tercera menor en semitonos para el ejemplo dado."
 
 explicacion: |
   La diferencia fundamental entre un acorde mayor y uno menor es la tercera. El acorde menor tiene la tercera menor (3 semitonos), mientras que el mayor tiene la tercera mayor (4 semitonos).
@@ -661,7 +656,7 @@ metadata:
   nivel: "basico"
   tags: ["acordes", "teoria"]
 
-respuesta: ["Fundamental", "Tercera", "Quinta"]
+respuesta_orden: ["Fundamental", "Tercera", "Quinta"]
 tipo: ordenar
 
 opciones_explicitas: ["Fundamental", "Tercera", "Quinta"]
@@ -677,24 +672,20 @@ metadata:
   materia: "arte"
   tema: "armonia_basica_acordes_tonalidad"
   nivel: "intermedio"
-  tags: ["intervalos", "calculo"]]
+  tags: ["intervalos", "calculo"]
 
 variables:
-  nota_base: uno_de([["Do", 0], ["Re", 2], ["Mi", 4], ["Fa", 5]])
+  nota_base: uno_de(["Do", "Re", "Mi", "Fa"])
 
-respuesta: tabla[idx][1
+respuesta: "7"
 tipo: completar
-respuestas_validas: ["7", "9", "11"]
+respuestas_validas:
+  - "7"
 
-enunciado: "En el sistema de semitonos, si la nota {nota_base[idx][0]} se encuentra en la posición {nota_base[idx][1]}, ¿cuántos semitonos debemos subir para llegar a una quinta justa (que requiere un total de 7 semitonos desde la fundamental)?"
-
-pasos:
-  - "Identificar la posición de la nota base: {nota_base[idx][1]}"
-  - "Establecer el objetivo: 7 semitonos"
-  - "Calcular la diferencia: 7 - {nota_base[idx][1]}"
+enunciado: "En el sistema de semitonos, una quinta justa siempre requiere un total de 7 semitonos desde la fundamental. Si partimos de la nota {nota_base}, ¿cuántos semitonos debemos subir para llegar a la quinta justa?"
 
 explicacion: |
-  Si la nota base es Do (0), la quinta es Sol (7), la diferencia es 7. Si la nota base es Re (2), la quinta es La (7), la diferencia es 5. Si la nota base es Mi (4), la quinta es Si (11), la diferencia es 7. El cálculo depende de la variable sorteada.
+  El tamaño del intervalo de quinta justa (7 semitonos) es siempre el mismo, sin importar cuál sea la nota fundamental de partida.
 ```
 
 ```
@@ -706,7 +697,9 @@ metadata:
 
 respuesta: "un conjunto de tres o más notas que suenan simultáneamente"
 tipo: completar
-respuestas_validas: ["un conjunto de tres o más notas que suenan simultáneamente", "un conjunto de notas que suenan al mismo tiempo"]
+respuestas_validas:
+  - "un conjunto de tres o más notas que suenan simultáneamente"
+  - "un conjunto de notas que suenan al mismo tiempo"
 
 enunciado: "En teoría musical, un acorde se define como ___."
 
@@ -721,11 +714,10 @@ metadata:
   nivel: "intermedio"
   tags: ["tonalidad", "escala"]
 
-variables:
-  es_escala: verdadero
-
-respuesta: es_escala
+respuesta: "tonalidad"
 tipo: completar
+respuestas_validas:
+  - "tonalidad"
 enunciado: "La escala es el conjunto de notas que forman la base de una ___."
 
 explicacion: |
@@ -740,15 +732,11 @@ metadata:
   tags: ["tonalidad", "tonica"]
 
 variables:
-  escenario: uno_de([
-    ["Do mayor", "Do"],
-    ["Sol mayor", "Sol"],
-    ["La menor", "La"]
-  ])
+  escenario: uno_de([["Do mayor", "Do"], ["Sol mayor", "Sol"], ["La menor", "La"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
-opciones_explicitas: ["escenario[0]", "escenario[1]", "escenario[2]", "Ninguna de las anteriores"]
+opciones_explicitas: ["Do", "Sol", "La", "Fa"]
 
 enunciado: "Si una pieza musical está en la tonalidad de {escenario[0]}, la nota que actúa como centro de gravedad y reposo es ___."
 
@@ -765,7 +753,8 @@ metadata:
 
 respuesta: "tercera mayor, tercera menor, quinta justa"
 tipo: completar
-respuestas_validas: ["tercera mayor, tercera menor, quinta justa"]
+respuestas_validas:
+  - "tercera mayor, tercera menor, quinta justa"
 
 enunciado: "Para construir un acorde mayor estándar, se requiere la fundamental, una ___ y una ___."
 
@@ -780,7 +769,7 @@ metadata:
   nivel: "intermedio"
   tags: ["jerarquia", "funcionalidad"]
 
-respuesta: ["Tónica", "Subdominante", "Dominante"]
+respuesta_orden: ["Tónica", "Subdominante", "Dominante"]
 tipo: ordenar
 opciones_explicitas: ["Tónica", "Subdominante", "Dominante"]
 
@@ -814,11 +803,10 @@ metadata:
   nivel: "intermedio"
   tags: ["tonalidad", "escala"]
 
-variables:
-  es_tonal: falso
-
-respuesta: es_tonal
+respuesta: "tonalidad"
 tipo: completar
+respuestas_validas:
+  - "tonalidad"
 enunciado: "Si una pieza musical utiliza un conjunto de notas que actúan como centro gravitacional, estableciendo una jerarquía de tensión y reposo, ¿podemos decir que la pieza posee una ___?"
 
 explicacion: |
@@ -837,7 +825,9 @@ variables:
 
 respuesta: "mayor"
 tipo: completar
-respuestas_validas: ["mayor", "menor"]
+respuestas_validas:
+  - "mayor"
+  - "menor"
 
 enunciado: "Un acorde se diferencia de una tríada de dos notas (intervalo) por tener tres notas. Si la distancia entre la primera y la tercera nota es de dos tonos enteros, el acorde es de tipo ___."
 
@@ -852,7 +842,7 @@ metadata:
   nivel: "basico"
   tags: ["armonia", "melodia"]
 
-respuesta: ["melodia", "armonia", "ritmo"]
+respuesta_orden: ["melodia", "armonia", "ritmo"]
 tipo: ordenar
 
 opciones_explicitas: ["melodia", "armonia", "ritmo"]
@@ -870,12 +860,9 @@ metadata:
   nivel: "intermedio"
   tags: ["consonancia", "disonancia"]
 
-variables:
-  es_consonante: verdadero
-
-respuesta: es_consonante
-tipo: completar
-enunciado: "En el contexto de la armonía, cuando un acorde produce una sensación de estabilidad y reposo, se dice que es una consonancia. ¿Es esto cierto? (verdadero/falso)"
+respuesta: verdadero
+tipo: vf
+enunciado: "En el contexto de la armonía, cuando un acorde produce una sensación de estabilidad y reposo, se dice que es una consonancia. ¿Es esto cierto?"
 
 explicacion: |
   La consonancia es la cualidad de los intervalos o acordes que suenan estables y no requieren resolución inmediata.
@@ -896,7 +883,10 @@ enunciado: "Un músico está practicando una escala y toca las notas {datos[idx]
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["tríada de Do", "tríada de Re", "tríada de Mi"]
+respuestas_validas:
+  - "tríada de Do"
+  - "tríada de Re"
+  - "tríada de Mi"
 
 explicacion: |
   Un acorde se forma al superponer tres o más notas distintas. En este caso, las notas pertenecen a la estructura de una tríada básica.
@@ -949,8 +939,8 @@ metadata:
 enunciado: "Para construir un acorde de Do Mayor de forma ascendente, ¿cuál es el orden correcto de sus notas?"
 
 opciones_explicitas: ["Do, Mi, Sol", "Sol, Mi, Do", "Do, Sol, Mi"]
-respuesta: ["Do, Mi, Sol", "Sol, Mi, Do", "Do, Sol, Mi"]
-tipo: ordenar
+respuesta: "Do, Mi, Sol"
+tipo: mc
 
 explicacion: |
   Un acorde se construye por intervalos superpuestos (terceras) partiendo desde la nota raíz hacia arriba.
@@ -964,7 +954,7 @@ metadata:
   tags: ["tonalidad", "teoria_musical"]
 
 variables:
-  datos: [["La pieza termina en Do", "Do"], ["La pieza termina en Sol", "Sol"], ["La pieza termina en Fa", "Fa"]]
+  datos: [["La pieza termina en Do", "Do mayor"], ["La pieza termina en Sol", "Sol mayor"], ["La pieza termina en Fa", "Fa mayor"]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "En una composición, {datos[idx][0]}. Si la última nota es la tónica, ¿cuál es la tonalidad probable?"
@@ -1344,11 +1334,7 @@ opciones_explicitas:
   - "Ubicar ese elemento sobre una línea, o en una de las cuatro intersecciones"
   - "Dividir el espacio de la obra en una cuadrícula de 3×3, con dos líneas horizontales y dos verticales"
   - "Identificar el elemento de mayor interés de la escena"
-respuesta_orden:
-  - "Dividir el espacio de la obra en una cuadrícula de 3×3, con dos líneas horizontales y dos verticales"
-  - "Identificar el elemento de mayor interés de la escena"
-  - "Ubicar ese elemento sobre una línea, o en una de las cuatro intersecciones"
-
+respuesta_orden: ["Dividir el espacio de la obra en una cuadrícula de 3×3, con dos líneas horizontales y dos verticales", "Identificar el elemento de mayor interés de la escena", "Ubicar ese elemento sobre una línea, o en una de las cuatro intersecciones"]
 explicacion: |
   Primero se traza la cuadrícula, y recién después se decide dónde va el
   punto de interés dentro de ella.
@@ -1495,11 +1481,9 @@ metadata:
   nivel: "intermedio"
   tags: ["expresion_corporal", "lenguaje"]
 
-variables:
-  escenario: uno_de([["gesto", "movimiento", "postura"], ["emoción", "acción", "forma"], ["espacio", "energía", "tiempo"]])
-
 tipo: completar
-respuestas_validas: ["gesto", "movimiento", "postura", "emoción", "acción", "forma", "espacio", "energía", "tiempo"]
+respuestas_validas:
+  - "gesto"
 
 enunciado: "La expresión corporal utiliza el ________ como unidad mínima de comunicación para transmitir significados."
 
@@ -1519,7 +1503,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Inspiración", "Movimiento", "Expresión", "Postura"]
 
-respuesta: ["Inspiración", "Movimiento", "Postura", "Expresión"]
+respuesta_orden: ["Inspiración", "Movimiento", "Postura", "Expresión"]
 
 enunciado: "Ordene los elementos según la progresión lógica de una acción corporal expresiva, desde la preparación hasta el resultado final:"
 
@@ -1534,16 +1518,11 @@ metadata:
   nivel: "intermedio"
   tags: ["ritmo", "pulso"]
 
-variables:
-  caso: uno_de([
-    ["pulso", "ritmo"],
-    ["ritmo", "pulso"]
-  ])
-
 tipo: completar
-respuestas_validas: ["pulso", "ritmo"]
+respuestas_validas:
+  - "pulso"
 
-enunciado: "Si el ________ es la unidad básica y constante de la música, el ________ es la organización de acentos sobre esa base."
+enunciado: "Si el ________ es la unidad básica y constante de la música, el ritmo es la organización de acentos sobre esa base."
 
 respuesta: "pulso"
 
@@ -1561,7 +1540,7 @@ metadata:
 variables:
   bpm: 120
 
-respuesta: 2.0
+respuesta: 0.5
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -1570,8 +1549,6 @@ enunciado: "Si una pieza musical tiene un tempo de {bpm} pulsos por minuto (BPM)
 pasos:
   - "Convertir BPM a pulsos por segundo: 120 / 60 = 2 pulsos por segundo."
   - "Calcular el tiempo de un pulso (periodo): 1 / 2 = 0.5 segundos."
-  - "Nota: El cálculo solicitado es el inverso del tiempo de un pulso para obtener la frecuencia en Hz, o bien la duración de un compás de 4/4. En este caso, calculamos el periodo de un pulso: 60 / 120 = 0.5."
-  - "Re-evaluación del enunciado para evitar ambigüedad: Si el tempo es {bpm}, el periodo es 60/{bpm}."
 
 explicacion: |
   El tempo indica la velocidad de los pulsos. Para hallar el tiempo en segundos de un solo pulso, dividimos 60 segundos por la cantidad de pulsos por minuto. 60 / 120 = 0.5 segundos.
@@ -1609,9 +1586,10 @@ variables:
   compases: 8
   bpm: 60
 
-respuesta: ["4", "8", "16", "32"]
+respuesta: "32"
 tipo: completar
-respuestas_validas: ["4", "8", "16", "32"]
+respuestas_validas:
+  - "32"
 
 enunciado: "Si una coreografía dura exactamente {compases} compases de 4/4 y el tempo es de {bpm} BPM, ¿cuántos pulsos totales ha ejecutado el bailarín?"
 
@@ -1633,13 +1611,13 @@ metadata:
 variables:
   tempo: 100
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Si el tempo es de {tempo} BPM, una subdivisión de corcheas (dos notas por pulso) implica que el bailarín realiza 200 movimientos por minuto."
 
 explicacion: |
-  Verdadero. Si hay 100 pulsos por minuto y cada pulso se divide en 2 corcheas, el total de movimientos es 100 * 2 = 200. (Nota: El enunciado pregunta si es falso, por lo tanto la respuesta es falso si la afirmación fuera incorrecta, pero la afirmación es verdadera. Corregido: La respuesta es verdadero).
+  Verdadero. Si hay 100 pulsos por minuto y cada pulso se divide en 2 corcheas, el total de movimientos es 100 * 2 = 200.
 ```
 
 ```
@@ -1649,7 +1627,7 @@ metadata:
   nivel: "basico"
   tags: ["expresion", "lenguaje"]
 
-respuesta: ["Respiración", "Gesto", "Movimiento", "Danza"]
+respuesta_orden: ["Respiración", "Gesto", "Movimiento", "Danza"]
 tipo: ordenar
 opciones_explicitas: ["Respiración", "Gesto", "Movimiento", "Danza"]
 
@@ -1684,12 +1662,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Un bailarín que solo mueve los brazos sin mirar al público", "una comunicación efectiva"],
-    ["Un bailarín que utiliza todo su cuerpo para transmitir una emoción", "una comunicación efectiva"]
-  ]
+  escenarios: [["Un bailarín que solo mueve los brazos sin mirar al público", "una expresión mecánica"], ["Un bailarín que utiliza todo su cuerpo para transmitir una emoción", "una comunicación efectiva"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["una comunicación efectiva", "una expresión mecánica", "un error de coordinación", "una falta de técnica"]
 
@@ -1707,7 +1682,7 @@ metadata:
   tags: ["secuencia", "percepcion", "ritmo"]
 
 opciones_explicitas: ["Escuchar el sonido", "Sentir el pulso", "Ejecutar el movimiento rítmico"]
-respuesta: ["Escuchar el sonido", "Sentir el pulso", "Ejecutar el movimiento rítmico"]
+respuesta_orden: ["Escuchar el sonido", "Sentir el pulso", "Ejecutar el movimiento rítmico"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos que sigue un bailarín para interpretar una pieza musical de forma rítmica:"
@@ -1725,16 +1700,14 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [
-    ["El acento cae en el tiempo débil", "un ritmo irregular"],
-    ["El acento cae en el tiempo fuerte", "un ritmo regular"]
-  ]
+  casos: [["El acento cae en el tiempo débil", "un ritmo irregular"], ["El acento cae en el tiempo fuerte", "un ritmo regular"]]
 
-respuesta: casos[caso_idx][1
+respuesta: casos[caso_idx][1]
 tipo: completar
-respuestas_validas: ["un ritmo irregular", "un ritmo regular"]
+respuestas_validas:
+  - casos[caso_idx][1]
 
-enunciado: "Si en una danza el acento rítmico se desplaza y ___, estamos ante ___."
+enunciado: "Si en una danza {casos[caso_idx][0]}, estamos ante ___."
 
 explicacion: |
   La regularidad rítmica depende de la consistencia de los acentos en los tiempos fuertes. Si el acento se desplaza, la percepción del tiempo cambia.
@@ -1749,7 +1722,11 @@ metadata:
 
 respuesta: "lenguaje"
 tipo: completar
-respuestas_validas: ["lenguaje", "ruido", "movimiento", "instinto"]
+respuestas_validas:
+  - "lenguaje"
+  - "ruido"
+  - "movimiento"
+  - "instinto"
 
 enunciado: "Cuando la danza utiliza el cuerpo para transmitir ideas, emociones o conceptos sin necesidad de palabras, el cuerpo actúa como un ___ artístico."
 
@@ -1764,9 +1741,8 @@ metadata:
   nivel: "basico"
   tags: ["ritmo", "danza", "musica"]
 
-tipo: mc
-opciones_explicitas: ["La melodía es la sucesión de sonidos con altura, mientras que el ritmo es la organización de la duración de los sonidos."]
-"En la danza, ¿cuál es la diferencia fundamental entre el ritmo y la melodía?"
+tipo: abierta
+enunciado: "En la danza, ¿cuál es la diferencia fundamental entre el ritmo y la melodía?"
 
 explicacion: |
   El ritmo se refiere a la duración y acentuación de los sonidos en el tiempo, mientras que la melodía es la sucesión de notas con diferentes alturas que forman una frase musical.
@@ -1779,13 +1755,10 @@ metadata:
   nivel: "intermedio"
   tags: ["tiempo", "ritmo"]
 
-variables:
-  es_ritmo_constante: uno_de([verdadero, falso])
+tipo: vf
+respuesta: verdadero
 
-tipo: completar
-respuesta: es_ritmo_constante
-
-enunciado: "Si un bailarín mantiene un movimiento con una duración de pulsos idéntica y regular, ¿se dice que está siguiendo un ritmo constante? {es_ritmo_constante}"
+enunciado: "Si un bailarín mantiene un movimiento con una duración de pulsos idéntica y regular, ¿se dice que está siguiendo un ritmo constante?"
 
 explicacion: |
   Un ritmo constante implica una regularidad en la subdivisión del tiempo, permitiendo una estructura predecible para el movimiento.
@@ -1799,7 +1772,9 @@ metadata:
   tags: ["expresion_corporal", "mimo"]
 
 tipo: completar
-respuestas_validas: ["gestualidad", "mimo"]
+respuestas_validas:
+  - "gestualidad"
+  - "mimo"
 
 enunciado: "Mientras que el ___ se basa principalmente en la pantomima y la ausencia de palabras para narrar, la expresión corporal en la danza utiliza el movimiento total del cuerpo para comunicar estados emocionales."
 
@@ -1817,7 +1792,7 @@ metadata:
 opciones_explicitas: ["Pulso", "Acento", "Ritmo"]
 
 tipo: ordenar
-respuesta: ["Pulso", "Acento", "Ritmo"]
+respuesta_orden: ["Pulso", "Acento", "Ritmo"]
 
 enunciado: "Ordene los elementos de la estructura rítmica desde la unidad más básica y constante hasta la organización compleja que genera el movimiento:"
 
@@ -1832,9 +1807,8 @@ metadata:
   nivel: "basico"
   tags: ["espacio", "movimiento"]
 
-tipo: mc
-opciones_explicitas: ["El movimiento es el desplazamiento o cambio de posición, mientras que el espacio es el lugar donde ocurre dicho movimiento."]
-"¿Cuál es la distinción principal entre movimiento y espacio en la danza?"
+tipo: abierta
+enunciado: "¿Cuál es la distinción principal entre movimiento y espacio en la danza?"
 
 explicacion: |
   El movimiento es la acción dinámica del cuerpo, mientras que el espacio es el entorno (kinesférico o escénico) que el bailarín ocupa y recorre.
@@ -1855,7 +1829,8 @@ enunciado: "Un coreógrafo está preparando una pieza basada en {datos[idx][0]}.
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["3/4", "4/4"]
+respuestas_validas:
+  - datos[idx][1]
 
 explicacion: |
   El ritmo en la danza está determinado por la métrica musical. El vals se caracteriza por un compás ternario (3/4), mientras que el tango y el reggaetón usan compases binarios/cuaternarios (4/4).
@@ -1897,8 +1872,9 @@ pasos:
   - "Clímax de la expresión corporal"
   - "Resolución o cierre de la secuencia"
 
-respuesta: ["Exploración del espacio y el ritmo base", "Desarrollo de frases de movimiento", "Clímax de la expresión corporal", "Resolución o cierre de la secuencia"]
+respuesta_orden: ["Exploración del espacio y el ritmo base", "Desarrollo de frases de movimiento", "Clímax de la expresión corporal", "Resolución o cierre de la secuencia"]
 tipo: ordenar
+opciones_explicitas: ["Exploración del espacio y el ritmo base", "Desarrollo de frases de movimiento", "Clímax de la expresión corporal", "Resolución o cierre de la secuencia"]
 
 explicacion: |
   Una estructura coreográfica requiere una progresión temporal: desde la preparación (exploración), pasando por el desarrollo, el punto de mayor intensidad (clímax) y el cierre.
@@ -1917,7 +1893,8 @@ variables:
 
 enunciado: "Si la música de la pieza es {datos[idx][0]}, el tempo de la danza será percibido como {datos[idx][1]}."
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 explicacion: |
@@ -1939,7 +1916,8 @@ enunciado: "En la danza, el concepto de {datos[idx][0]} se clasifica fundamental
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["espacio", "energía", "tiempo"]
+respuestas_validas:
+  - datos[idx][1]
 
 explicacion: |
   Los elementos de la danza incluyen el cuerpo, el espacio (niveles, direcciones), el tiempo (ritmo, duración) y la energía (tensión, peso).
@@ -2401,11 +2379,7 @@ opciones_explicitas:
   - "Agregar un pequeño brillo (el valor más claro) en el punto donde la luz pega directo"
   - "Dibujar el contorno de la forma con líneas"
   - "Definir de qué lado viene la luz, y sombrear el lado opuesto con valores más oscuros"
-respuesta_orden:
-  - "Dibujar el contorno de la forma con líneas"
-  - "Definir de qué lado viene la luz, y sombrear el lado opuesto con valores más oscuros"
-  - "Agregar un pequeño brillo (el valor más claro) en el punto donde la luz pega directo"
-
+respuesta_orden: ["Dibujar el contorno de la forma con líneas", "Definir de qué lado viene la luz, y sombrear el lado opuesto con valores más oscuros", "Agregar un pequeño brillo (el valor más claro) en el punto donde la luz pega directo"]
 explicacion: |
   El contorno (línea) va primero; el manejo del valor (sombras y
   brillos) es lo que después sugiere el volumen.
@@ -2464,3 +2438,4 @@ explicacion: |
   Aplican por igual a pintura, escultura, fotografía, diseño gráfico o
   audiovisual.
 ```
+

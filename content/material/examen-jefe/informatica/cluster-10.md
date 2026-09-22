@@ -1,6 +1,6 @@
-# Examen jefe — Guardián de los Datos
+# Examen jefe — [PENDIENTE #825]
 
-> Logro #180. Protegiste la información mediante firewalls, cifrado y sistemas de archivos seguros. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **120 preguntas totales** en 5/5 secciones.
+> Logro #825. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,7 +15,10 @@ metadata:
 
 respuesta: "filtrar"
 tipo: completar
-respuestas_validas: ["filtrar", "controlar", "bloquear"]
+respuestas_validas:
+  - "filtrar"
+  - "controlar"
+  - "bloquear"
 
 enunciado: "La función principal de un firewall es ___ el tráfico de red basándose en un conjunto de reglas de seguridad establecidas."
 
@@ -64,7 +67,7 @@ metadata:
   tags: ["protocolos", "seguridad", "ordenar"]
 
 opciones_explicitas: ["Cifrado", "Encapsulamiento", "Autenticación"]
-respuesta: ["Autenticación", "Encapsulamiento", "Cifrado"]
+respuesta_orden: ["Autenticación", "Encapsulamiento", "Cifrado"]
 tipo: ordenar
 
 enunciado: "Ordene los procesos lógicos que ocurren típicamente en la construcción de un túnel VPN seguro, desde la validación de identidad hasta la protección del contenido:"
@@ -80,10 +83,7 @@ metadata:
   nivel: "avanzado"
   tags: ["cifrado", "hash", "seguridad"]
 
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: tabla[idx][1
+respuesta: "El cifrado es reversible con una clave, el hashing es una función de una sola vía"
 tipo: mc
 opciones_explicitas: ["El cifrado es reversible con una clave, el hashing es una función de una sola vía", "El cifrado es de una vía, el hashing es reversible", "Ambos son lo mismo", "El cifrado es para archivos y el hashing para redes"]
 
@@ -91,11 +91,6 @@ enunciado: "Considerando las propiedades de los algoritmos de seguridad, ¿cuál
 
 explicacion: |
   El cifrado está diseñado para ser revertido (descifrado) mediante una clave, mientras que el hashing es una función unidireccional que no permite recuperar el dato original.
-
-tabla: [
-  ["El cifrado es reversible con una clave, el hashing es una función de una sola vía", "El cifrado es reversible con una clave, el hashing es una función de una sola vía"],
-  ["El cifrado es de una vía, el hashing es reversible", "El cifrado es de una vía, el hashing es reversible"]
-]
 ```
 
 ```
@@ -129,14 +124,10 @@ metadata:
   nivel: "intermedio"
   tags: ["vpn", "cifrado", "tunel"]
 
-variables:
-  protocolo: uno_de(["IPsec", "HTTP", "FTP"])
-  es_seguro: protocolo == "IPsec"
+enunciado: "Para establecer un túnel seguro en una VPN, se utiliza comúnmente el protocolo IPsec. ¿Es este protocolo un estándar utilizado para asegurar la comunicación en una VPN?"
 
-enunciado: "Para establecer un túnel seguro en una VPN, se utiliza comúnmente el protocolo {protocolo}. ¿Es este protocolo un estándar utilizado para asegurar la comunicación en una VPN?"
-
-respuesta: es_seguro
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   IPsec (Internet Protocol Security) es un conjunto de protocolos para asegurar las comunicaciones IP mediante la autenticación y el cifrado de cada paquete en una comunicación IP.
 ```
@@ -151,11 +142,12 @@ metadata:
 enunciado: "En un proceso de negociación de seguridad (como el handshake de TLS), el orden correcto de las fases es el siguiente:"
 
 opciones_explicitas:
-  - "Negociación de parámetros, Intercambio de claves, Verificación de certificados, Cifrado de datos"
-  - "Cifrado de datos, Verificación de certificados, Intercambio de claves, Negociación de parámetros"
-  - "Intercambio de claves, Cifrado de datos, Negociación de parámetros, Verificación de certificados"
+  - "Negociación de parámetros"
+  - "Intercambio de claves"
+  - "Verificación de certificados"
+  - "Cifrado de datos"
 
-respuesta: ["Negociación de parámetros", "Intercambio de claves", "Verificación de certificados", "Cifrado de datos"]
+respuesta_orden: ["Negociación de parámetros", "Intercambio de claves", "Verificación de certificados", "Cifrado de datos"]
 tipo: ordenar
 
 explicacion: |
@@ -169,11 +161,7 @@ metadata:
   nivel: "basico"
   tags: ["protocolos", "cifrado", "web"]
 
-variables:
-  protocolo_web: uno_de(["HTTPS", "HTTP"])
-  es_seguro: protocolo_web == "HTTPS"
-
-enunciado: "Un usuario navega por una web utilizando el protocolo {protocolo_web}. Si el usuario desea que sus datos (como contraseñas) viajen cifrados en tránsito, el protocolo utilizado debe ser ___."
+enunciado: "Un usuario navega por una web. Si el usuario desea que sus datos (como contraseñas) viajen cifrados en tránsito, el protocolo utilizado debe ser ___."
 
 respuestas_validas:
   - "HTTPS"
@@ -193,7 +181,6 @@ metadata:
   tags: ["hash", "integridad", "seguridad"]
 
 variables:
-  mensaje: uno_de(["Hola", "Mundo", "Seguro"])
   hash_original: "a1b2c3d4"
   hash_recibido: "a1b2c3d4"
 
@@ -237,10 +224,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Navegar en una red Wi-Fi pública de una cafetería", "proteger la privacidad de la conexión"],
-    ["Aumentar la velocidad de descarga de Internet", "proteger la privacidad de la conexión"]
-  ]
+  escenarios: [["Navegar en una red Wi-Fi pública de una cafetería", "proteger la privacidad de la conexión"], ["Aumentar la velocidad de descarga de Internet", "proteger la privacidad de la conexión"]]
 
 tipo: mc
 opciones_explicitas: ["Aumentar la velocidad de descarga de Internet", "proteger la privacidad de la conexión", "Eliminar la necesidad de usar contraseñas", "Evitar que el hardware se sobrecaliente"]
@@ -278,7 +262,8 @@ metadata:
   tags: ["http", "https", "seguridad"]
 
 tipo: completar
-respuestas_validas: ["HTTPS"]
+respuestas_validas:
+  - "HTTPS"
 
 enunciado: "Para asegurar que la comunicación entre un navegador y un servidor web esté cifrada, se debe utilizar el protocolo ___ en lugar de HTTP."
 
@@ -300,7 +285,7 @@ opciones_explicitas: ["Establecer túnel de comunicación", "Autenticar al usuar
 
 enunciado: "Para establecer una conexión VPN segura, los pasos lógicos suelen seguir este orden de negociación y autenticación:"
 
-respuesta: ["Negociar algoritmos de cifrado", "Intercambiar claves de cifrado", "Autenticar al usuario", "Establecer túnel de comunicación"]
+respuesta_orden: ["Negociar algoritmos de cifrado", "Intercambiar claves de cifrado", "Autenticar al usuario", "Establecer túnel de comunicación"]
 
 explicacion: |
   Primero el cliente y el servidor acuerdan qué algoritmos usarán, luego intercambian las llaves necesarias, después el servidor verifica la identidad del usuario y, finalmente, se establece el túnel de datos.
@@ -318,6 +303,8 @@ opciones_explicitas: ["El firewall analiza el tráfico de red y puertos, mientra
 
 enunciado: "En una estrategia de defensa en profundidad, ¿cuál es la distinción fundamental entre un firewall y un antivirus?"
 
+respuesta: "El firewall analiza el tráfico de red y puertos, mientras que el antivirus analiza archivos y procesos en el host."
+
 explicacion: |
   El firewall actúa como una barrera en el perímetro de la red o el sistema, controlando el flujo de datos basado en reglas de puertos y protocolos. El antivirus se enfoca en identificar y eliminar software malicioso (malware) dentro del sistema de archivos o la memoria.
 ```
@@ -330,7 +317,10 @@ metadata:
   tags: ["cifrado", "seguridad_datos"]
 
 tipo: completar
-respuestas_validas: ["confidencialidad", "integridad", "disponibilidad"]
+respuestas_validas:
+  - "confidencialidad"
+  - "integridad"
+  - "disponibilidad"
 
 enunciado: "Mientras que un mecanismo de checksum asegura la ___ de los datos, el cifrado de datos en tránsito tiene como objetivo principal garantizar la ___."
 
@@ -347,15 +337,14 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["VPN de Acceso Remoto", "crea un túnel virtual sobre una red pública"],
-    ["Cifrado de extremo a extremo (E2EE)", "asegura que solo los nodos finales puedan leer el mensaje"]
-  ]
+  escenarios: [["VPN de Acceso Remoto", "crea un túnel virtual sobre una red pública"], ["Cifrado de extremo a extremo (E2EE)", "asegura que solo los nodos finales puedan leer el mensaje"]]
 
 tipo: mc
 opciones_explicitas: ["La VPN cifra todo el tráfico de la interfaz de red, mientras que el cifrado E2EE solo cifra la aplicación específica.", "La VPN es un protocolo de capa 2 y el cifrado E2EE es de capa 7.", "La VPN requiere un servidor central y el cifrado E2EE no requiere infraestructura.", "No hay diferencia, ambos términos son sinónimos en redes modernas."]
 
 enunciado: "Considerando el escenario de {escenarios[escenario_idx][0]}, ¿cuál es la diferencia clave respecto al {escenarios[1 - escenario_idx][0]}?"
+
+respuesta: "La VPN cifra todo el tráfico de la interfaz de red, mientras que el cifrado E2EE solo cifra la aplicación específica."
 
 explicacion: |
   Una VPN establece un túnel que encapsula todo el tráfico de un dispositivo a través de una red (como Internet), mientras que el cifrado E2EE (End-to-End) se asegura de que el contenido sea ilegible para cualquier intermediario, incluso para el proveedor del servicio, centrándose en la aplicación.
@@ -387,7 +376,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Negociación de parámetros de cifrado", "Intercambio de claves públicas/privadas", "Autenticación de las partes", "Establecimiento del canal de datos cifrado"]
-respuesta: ["Negociación de parámetros de cifrado", "Intercambio de claves públicas/privadas", "Autenticación de las partes", "Establecimiento del canal de datos cifrado"]
+respuesta_orden: ["Negociación de parámetros de cifrado", "Intercambio de claves públicas/privadas", "Autenticación de las partes", "Establecimiento del canal de datos cifrado"]
 
 enunciado: "Ordene los pasos lógicos de un protocolo de negociación de seguridad (como TLS) para establecer una conexión segura:"
 
@@ -427,7 +416,8 @@ variables:
   datos: [["HTTPS", "seguro"], ["HTTP", "inseguro"]]
   idx: uno_de([0,1])
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 enunciado: "Si un usuario navega utilizando el protocolo {datos[idx][0]}, la información que transita por la red se considera {datos[idx][1]}."
@@ -445,7 +435,8 @@ metadata:
 
 respuesta: "túnel"
 tipo: completar
-respuestas_validas: ["túnel", "puente", "cable"]
+respuestas_validas:
+  - "túnel"
 
 enunciado: "Una VPN (Virtual Private Network) crea un ___ cifrado sobre una red pública para permitir el transporte seguro de datos."
 
@@ -460,7 +451,7 @@ metadata:
   nivel: "avanzado"
   tags: ["tls", "handshake", "seguridad"]
 
-respuesta: ["Negociación de versión", "Intercambio de certificados", "Intercambio de claves", "Cifrado de datos"]
+respuesta_orden: ["Negociación de versión", "Intercambio de certificados", "Intercambio de claves", "Cifrado de datos"]
 tipo: ordenar
 opciones_explicitas: ["Negociación de versión", "Intercambio de certificados", "Intercambio de claves", "Cifrado de datos"]
 
@@ -535,16 +526,13 @@ metadata:
   nivel: "intermedio"
   tags: ["ransomware", "amenazas"]
 
-variables:
-  escenario: uno_de([["cifrado", "secuestro"], ["borrado", "destrucción"]])
-
-respuesta: tabla_respuestas[idx][1
-tabla_respuestas: [["cifrado", "secuestro"], ["borrado", "destrucción"]]
-
 tipo: completar
-respuestas_validas: ["secuestro", "destrucción"]
+respuestas_validas:
+  - "secuestro"
 
-enunciado: "El ransomware es un tipo de malware que realiza un ___ de los archivos del usuario para luego exigir un pago a cambio de la clave de descifrado."
+respuesta: "secuestro"
+
+enunciado: "El ransomware es un tipo de malware que realiza un cifrado de los archivos del usuario para luego exigir un pago a cambio de la clave de descifrado. Esto se conoce como un ___ digital."
 
 explicacion: |
   El ransomware bloquea el acceso a tus datos (usualmente mediante cifrado) para extorsionar a la víctima.
@@ -560,7 +548,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Desconfiar de correos con enlaces sospechosos", "No hacer clic en ningún enlace ni descargar archivos", "Reportar el correo al departamento de seguridad", "Cambiar las contraseñas de las cuentas afectadas"]
 
-respuesta: ["Desconfiar de correos con enlaces sospechosos", "No hacer clic en ningún enlace ni descargar archivos", "Reportar el correo al departamento de seguridad", "Cambiar las contraseñas de las cuentas afectadas"]
+respuesta_orden: ["Desconfiar de correos con enlaces sospechosos", "No hacer clic en ningún enlace ni descargar archivos", "Reportar el correo al departamento de seguridad", "Cambiar las contraseñas de las cuentas afectadas"]
 
 enunciado: "Ordena los pasos lógicos que debe seguir un usuario al detectar un posible intento de phishing:"
 
@@ -595,12 +583,9 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  escenarios: [
-    ["Recibes un correo de tu banco diciendo que tu cuenta ha sido bloqueada y debes hacer clic en un enlace para 'verificar' tus datos.", "phishing"],
-    ["Recibes un mensaje de un amigo por redes sociales con un enlace extraño que dice ser un video gracioso, pero el remitente no es él.", "phishing"]
-  ]
+  escenarios: [["Recibes un correo de tu banco diciendo que tu cuenta ha sido bloqueada y debes hacer clic en un enlace para 'verificar' tus datos.", "phishing"], ["Recibes un mensaje de un amigo por redes sociales con un enlace extraño que dice ser un video gracioso, pero el remitente no es él.", "phishing"]]
 
-respuesta: escenarios[caso_idx][1
+respuesta: escenarios[caso_idx][1]
 tipo: mc
 opciones_explicitas: ["malware", "phishing", "ransomware", "spyware"]
 
@@ -633,23 +618,11 @@ metadata:
   nivel: "intermedio"
   tags: ["seguridad", "protocolo", "reaccion"]
 
-variables:
-  pasos_orden: [
-    ["Detectar el comportamiento sospechoso en el sistema.", "paso1"],
-    ["Desconectar el equipo de la red (Wi-Fi o cable).", "paso2"],
-    ["Informar al responsable de seguridad o soporte técnico.", "paso3"],
-    ["Realizar un escaneo completo con el antivirus.", "paso4"]
-  ]
-
-respuesta: ["paso1", "paso2", "paso3", "paso4"]
 tipo: ordenar
 
-opciones_explicitas: [
-  "Detectar el comportamiento sospechoso en el sistema.",
-  "Desconectar el equipo de la red (Wi-Fi o cable).",
-  "Informar al responsable de seguridad o soporte técnico.",
-  "Realizar un escaneo completo con el antivirus."
-]
+opciones_explicitas: ["Detectar el comportamiento sospechoso en el sistema.", "Desconectar el equipo de la red (Wi-Fi o cable).", "Informar al responsable de seguridad o soporte técnico.", "Realizar un escaneo completo con el antivirus."]
+
+respuesta_orden: ["Detectar el comportamiento sospechoso en el sistema.", "Desconectar el equipo de la red (Wi-Fi o cable).", "Informar al responsable de seguridad o soporte técnico.", "Realizar un escaneo completo con el antivirus."]
 
 enunciado: "Si sospechas que tu computadora ha sido infectada, ordena los pasos lógicos para mitigar el impacto del incidente:"
 
@@ -666,7 +639,8 @@ metadata:
 
 respuesta: "complejo"
 tipo: completar
-respuestas_validas: ["complejo"]
+respuestas_validas:
+  - "complejo"
 
 enunciado: "Para asegurar una cuenta, una contraseña debe ser ___ (que incluya mayúsculas, minúsculas, números y símbolos) en lugar de ser una palabra simple."
 
@@ -700,6 +674,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Un correo de un banco pidiendo tu contraseña", "Un software que mejora la velocidad del PC", "Un mensaje de un amigo con un link de un video", "Un antivirus que detecta un virus"]
+respuesta: "Un correo de un banco pidiendo tu contraseña"
 
 enunciado: "El phishing es una técnica de ingeniería social que se basa en el engaño. Un ejemplo típico de este ataque es:"
 
@@ -718,6 +693,8 @@ variables:
   es_secuestro: verdadero
 
 tipo: vf
+
+respuesta: verdadero
 
 enunciado: "El Ransomware es un tipo de malware que cifra los archivos del usuario y exige un pago para recuperarlos. ¿Es esto verdadero o falso?"
 
@@ -739,6 +716,7 @@ enunciado: "Ordena los pasos correctos que debes seguir cuando recibes un correo
 
 explicacion: |
   La regla de oro es la prevención: nunca interactuar con el contenido sospechoso y seguir los protocolos de reporte de la organización.
+respuesta_orden: ["Recibir correo con link extraño", "No hacer clic en el enlace ni descargar archivos", "Borrar el correo o reportarlo como spam", "Notificar al equipo de soporte técnico"]
 ```
 
 ```
@@ -753,7 +731,9 @@ variables:
   escenarios: [["google.com", "g00gle.com"], ["microsoft.com", "micros0ft.com"]]
 
 tipo: completar
-respuestas_validas: ["g00gle.com", "micros0ft.com"]
+respuestas_validas:
+  - "g00gle.com"
+  - "micros0ft.com"
 
 enunciado: "En un ataque de phishing, el atacante suele usar dominios visualmente similares al real (typosquatting). Si el sitio legítimo es {escenarios[escenario_idx][0]}, el atacante podría usar ___ para engañarte."
 
@@ -770,6 +750,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["123456", "MiNombre2024", "P@ssw0rd_2024!_Xy", "password"]
+respuesta: "P@ssw0rd_2024!_Xy"
 
 enunciado: "De la siguiente lista, ¿cuál es la opción que presenta una mayor resistencia ante un ataque de fuerza bruta debido a su complejidad?"
 
@@ -784,14 +765,12 @@ metadata:
   nivel: "basico"
   tags: ["malware", "phishing"]
 
-variables:
-  canal: uno_de(["email", "sms"])
-
-enunciado: "Si un ataque de ingeniería social se realiza a través de un mensaje de texto (SMS) en lugar de un {canal}, el término técnico correcto para este tipo de phishing es smishing."
+enunciado: "Si un ataque de ingeniería social se realiza a través de un mensaje de texto (SMS) en lugar de un correo electrónico, el término técnico correcto para este tipo de phishing es smishing."
 
 respuesta: "smishing"
 tipo: completar
-respuestas_validas: ["smishing"]
+respuestas_validas:
+  - "smishing"
 
 explicacion: |
   El phishing es el término general, pero se diferencia según el canal: phishing (email), smishing (SMS) y vishing (voz/llamadas).
@@ -806,8 +785,9 @@ metadata:
 
 opciones_explicitas: ["El ransomware cifra archivos para pedir un rescate, mientras que un virus se replica infectando otros archivos.", "Un virus siempre cifra archivos, mientras que el ransomware solo se propaga por redes.", "El ransomware es un tipo de virus que no requiere de un archivo anfitrión para ejecutarse."]
 
-respuesta: uno_de(["El ransomware cifra archivos para pedir un rescate, mientras que un virus se replica infectando otros archivos.", "El ransomware es un tipo de virus que no requiere de un archivo anfitrión para ejecutarse."])
+respuesta: "El ransomware cifra archivos para pedir un rescate, mientras que un virus se replica infectando otros archivos."
 tipo: mc
+enunciado: "¿Cuál es la distinción principal entre ransomware y virus?"
 
 explicacion: |
   La distinción principal es el objetivo: el ransomware busca extorsión mediante el secuestro de datos (cifrado), mientras que un virus es un concepto de propagación que infecta archivos existentes.
@@ -838,8 +818,10 @@ metadata:
 
 opciones_explicitas: ["Detección", "Contención", "Erradicación", "Recuperación"]
 
-respuesta: ["Detección", "Contención", "Erradicación", "Recuperación"]
+respuesta_orden: ["Detección", "Contención", "Erradicación", "Recuperación"]
 tipo: ordenar
+
+enunciado: "Ordena las siguientes fases de la respuesta a un incidente de seguridad informática, desde la primera hasta la última:"
 
 explicacion: |
   Ante un incidente, primero se debe detectar la anomalía, luego contener el daño para que no se propague, erradicar la causa raíz y finalmente recuperar los sistemas a su estado normal.
@@ -852,14 +834,12 @@ metadata:
   nivel: "intermedio"
   tags: ["malware", "gusano"]
 
-variables:
-  tipo_ataque: uno_de(["necesita_interaccion", "autonomo"])
-
 enunciado: "A diferencia de un gusano (worm), que se propaga de forma autónoma a través de la red, un troyano requiere que el usuario ___ para infectar el sistema."
 
 respuesta: "interacción del usuario"
 tipo: completar
-respuestas_validas: ["interacción del usuario"]
+respuestas_validas:
+  - "interacción del usuario"
 
 explicacion: |
   El gusano es capaz de replicarse sin intervención humana aprovechando vulnerabilidades de red, mientras que el troyano se disfraza de software legítimo y depende de que el usuario lo ejecute.
@@ -933,7 +913,7 @@ metadata:
 enunciado: "Has detectado que tu computadora está actuando de forma errática y aparecen ventanas emergentes constantes. Ordena los pasos lógicos para mitigar el riesgo:"
 
 opciones_explicitas: ["Desconectar el equipo de la red", "Realizar un escaneo con antivirus", "Cambiar contraseñas desde otro dispositivo seguro"]
-respuesta: ["Desconectar el equipo de la red", "Realizar un escaneo con antivirus", "Cambiar contraseñas desde otro dispositivo seguro"]
+respuesta_orden: ["Desconectar el equipo de la red", "Realizar un escaneo con antivirus", "Cambiar contraseñas desde otro dispositivo seguro"]
 tipo: ordenar
 
 explicacion: |
@@ -947,18 +927,15 @@ metadata:
   nivel: "basico"
   tags: ["phishing", "ingenieria_social"]
 
-variables:
-  tabla: [["ingeniería social", "phishing"], ["software malicioso", "malware"]]
-  idx: uno_de([0,1])
-
 enunciado: "El uso de técnicas psicológicas para engañar a las personas y obtener información confidencial se conoce como ___."
 
-respuestas_validas: ["ingeniería social", "malware"]
-respuesta: tabla[idx][0
+respuestas_validas:
+  - "ingeniería social"
+respuesta: "ingeniería social"
 tipo: completar
 
 explicacion: |
-  La técnica utilizada es la {tabla[idx][0]}. El eslabón más débil en la seguridad suele ser el usuario debido a la manipulación psicológica.
+  La técnica utilizada es la ingeniería social. El eslabón más débil en la seguridad suele ser el usuario debido a la manipulación psicológica.
 ```
 
 ## Sección: sistema-de-archivos (25 preguntas)
@@ -972,7 +949,9 @@ metadata:
 
 respuesta: "software"
 tipo: completar
-respuestas_validas: ["software", "sistema"]
+respuestas_validas:
+  - "software"
+  - "sistema"
 
 enunciado: "El sistema de archivos es el ___ que permite al sistema operativo gestionar la organización, almacenamiento y recuperación de datos en un dispositivo de almacenamiento."
 
@@ -987,18 +966,11 @@ metadata:
   nivel: "basico"
   tags: ["jerarquia", "directorios"]
 
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1
+respuesta: "Estructura jerárquica"
 tipo: mc
 opciones_explicitas: ["Estructura lineal", "Estructura jerárquica", "Estructura aleatoria", "Estructura plana"]
 
-enunciado: "La mayoría de los sistemas operativos modernos utilizan una estructura de archivos de tipo {datos[idx][0]} para organizar la información."
-
-datos:
-  - ["Estructura lineal", "Estructura jerárquica"]
-  - ["Estructura plana", "Estructura jerárquica"]
+enunciado: "¿Qué tipo de estructura de archivos utiliza la mayoría de los sistemas operativos modernos para organizar la información?"
 
 explicacion: |
   Una estructura jerárquica permite organizar archivos en directorios y subdirectorios, creando una "rama" o árbol de información.
@@ -1027,7 +999,7 @@ metadata:
   nivel: "intermedio"
   tags: ["componentes", "estructura"]
 
-respuesta: ["Extensión", "Nombre", "Ruta", "Metadatos"]
+respuesta_orden: ["Extensión", "Nombre", "Ruta", "Metadatos"]
 tipo: ordenar
 
 opciones_explicitas: ["Extensión", "Nombre", "Ruta", "Metadatos"]
@@ -1045,18 +1017,11 @@ metadata:
   nivel: "intermedio"
   tags: ["sectores", "clúster"]
 
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1
+respuesta: "Clúster"
 tipo: mc
 opciones_explicitas: ["Sector", "Clúster", "Pista", "Cilindro"]
 
-enunciado: "En un sistema de archivos, la unidad lógica mínima de asignación de espacio en el disco, que puede estar compuesta por varios sectores físicos, se denomina {datos[idx][0]}."
-
-datos:
-  - ["Sector", "Clúster"]
-  - ["Clúster", "Clúster"]
+enunciado: "En un sistema de archivos, la unidad lógica mínima de asignación de espacio en el disco, que puede estar compuesta por varios sectores físicos, se denomina ___."
 
 explicacion: |
   Un clúster es la unidad de asignación de espacio que utiliza el sistema de archivos para gestionar bloques de datos en el disco.
@@ -1071,7 +1036,9 @@ metadata:
 
 respuesta: "metadatos"
 tipo: completar
-respuestas_validas: ["metadatos", "metadato"]
+respuestas_validas:
+  - "metadatos"
+  - "metadato"
 
 enunciado: "En sistemas de archivos tipo Unix/Linux, la estructura que contiene la información sobre el tamaño, permisos y ubicación de los bloques de datos de un archivo, pero no su nombre, se denomina ___."
 
@@ -1088,14 +1055,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["archivo_A", "40KB", "fragmentado"], ["archivo_B", "12KB", "contiguo"]]
-  opcion_correcta: ["fragmentado", "contiguo"]
+  datos: [["archivo_A", "40KB", "en bloques no adyacentes, ya que el espacio libre está disperso", "fragmentado"], ["archivo_B", "12KB", "en un único bloque de espacio libre contiguo", "contiguo"]]
 
-respuesta: datos[escenario_idx][2
+respuesta: datos[escenario_idx][3]
 tipo: mc
 opciones_explicitas: ["fragmentado", "contiguo"]
 
-enunciado: "Un archivo de {datos[escenario_idx][0]} tiene un tamaño de {datos[escenario_idx][1]}. Si el sistema de archivos debe guardar este archivo en bloques no adyacentes debido a que el espacio libre está disperso, el archivo se encuentra ___."
+enunciado: "Un archivo de {datos[escenario_idx][0]} tiene un tamaño de {datos[escenario_idx][1]}. El sistema de archivos lo guarda {datos[escenario_idx][2]}. Por lo tanto, el archivo se encuentra ___."
 
 explicacion: |
   Cuando un archivo no se puede almacenar en bloques contiguos y debe repartirse por diferentes partes del disco, se produce la fragmentación.
@@ -1108,7 +1074,7 @@ metadata:
   nivel: "basico"
   tags: ["gestion", "orden"]
 
-respuesta: ["Crear", "Escribir", "Cerrar", "Eliminar"]
+respuesta_orden: ["Crear", "Escribir", "Cerrar", "Eliminar"]
 tipo: ordenar
 opciones_explicitas: ["Crear", "Escribir", "Cerrar", "Eliminar"]
 
@@ -1151,7 +1117,7 @@ metadata:
   nivel: "basico"
   tags: ["estructura", "jerarquia"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "En un sistema de archivos jerárquico, un directorio es una estructura especial que contiene una lista de nombres de archivos y sus correspondientes punteros a inodos o direcciones de inicio. ¿Es esto verdadero o falso?"
@@ -1169,7 +1135,9 @@ metadata:
 
 respuesta: "una lista de archivos"
 tipo: completar
-respuestas_validas: ["una lista de archivos", "una estructura que contiene archivos"]
+respuestas_validas:
+  - "una lista de archivos"
+  - "una estructura que contiene archivos"
 
 enunciado: "En un sistema de archivos, un directorio es ___ que permite organizar y localizar archivos en el disco."
 
@@ -1204,11 +1172,11 @@ variables:
   caso_idx: uno_de([0, 1])
   escenarios: [[ "el sistema marca el espacio como disponible", "el sistema sobreescribe los datos inmediatamente"], ["solo se borra el puntero en el directorio", "se limpian todos los bits del sector"]]
 
-respuesta: escenarios[caso_idx][0
+respuesta: escenarios[caso_idx][0]
 tipo: mc
 opciones_explicitas: ["el sistema marca el espacio como disponible", "el sistema sobreescribe los datos inmediatamente", "solo se borra el puntero en el directorio", "se limpian todos los bits del sector"]
 
-enunciado: "Cuando un usuario elimina un archivo de gran tamaño en un sistema de archivos estándar, {escenarios[caso_idx][0]}."
+enunciado: "Cuando un usuario elimina un archivo de gran tamaño en un sistema de archivos estándar, ¿qué ocurre realmente con los datos y el espacio en disco?"
 
 explicacion: |
   En la mayoría de los sistemas de archivos modernos, borrar un archivo no borra los datos reales del disco, sino que marca los clusters/sectores como "libres" en la tabla de asignación para que el SO pueda escribir nuevos datos allí en el futuro.
@@ -1221,7 +1189,7 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso", "creacion"]
 
-respuesta: ["Solicitud de creación", "Asignación de metadatos", "Asignación de bloques de datos", "Actualización del directorio"]
+respuesta_orden: ["Solicitud de creación", "Asignación de metadatos", "Asignación de bloques de datos", "Actualización del directorio"]
 tipo: ordenar
 opciones_explicitas: ["Solicitud de creación", "Asignación de metadatos", "Asignación de bloques de datos", "Actualización del directorio"]
 
@@ -1262,7 +1230,9 @@ metadata:
 
 respuesta: "directorio"
 tipo: completar
-respuestas_validas: ["directorio", "carpeta"]
+respuestas_validas:
+  - "directorio"
+  - "carpeta"
 
 enunciado: "Mientras que un archivo es una colección de datos almacenados bajo un nombre, un ___ es una estructura que permite organizar y agrupar dichos archivos."
 
@@ -1277,14 +1247,11 @@ metadata:
   nivel: "intermedio"
   tags: ["formatos", "comparacion"]
 
-variables:
-  escenario: uno_de([["FAT32", "No permite archivos mayores a 4GB"], ["NTFS", "Permite archivos de gran tamaño y seguridad"]])
-
-respuesta: escenario[0
+respuesta: "FAT32"
 tipo: mc
 opciones_explicitas: ["FAT32", "NTFS", "ext4"]
 
-enunciado: "Si comparamos un sistema de archivos moderno como NTFS con uno antiguo como {escenario[0]}, ¿cuál es la limitación principal de este último en cuanto al tamaño de archivos individuales?"
+enunciado: "Si comparamos un sistema de archivos moderno como NTFS con uno antiguo como FAT32, ¿cuál es el sistema de archivos que tiene una limitación de 4GB en el tamaño de archivos individuales?"
 
 explicacion: |
   El sistema FAT32 tiene una limitación técnica en el tamaño de los clusters que impide almacenar archivos individuales que superen los 4GB.
@@ -1297,7 +1264,7 @@ metadata:
   nivel: "basico"
   tags: ["metadatos", "atributos"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Es correcto afirmar que los metadatos de un archivo (como fecha de creación o tamaño) forman parte del contenido de datos del archivo mismo?"
@@ -1313,7 +1280,7 @@ metadata:
   nivel: "intermedio"
   tags: ["operaciones", "secuencia"]
 
-respuesta: ["Solicitud de espacio", "Asignación de metadatos", "Escritura de datos", "Actualización de tabla de archivos"]
+respuesta_orden: ["Solicitud de espacio", "Asignación de metadatos", "Escritura de datos", "Actualización de tabla de archivos"]
 tipo: ordenar
 opciones_explicitas: ["Solicitud de espacio", "Asignación de metadatos", "Escritura de datos", "Actualización de tabla de archivos"]
 
@@ -1330,14 +1297,11 @@ metadata:
   nivel: "avanzado"
   tags: ["rendimiento", "fragmentacion"]
 
-variables:
-  caso: uno_de([[100, "fragmentado"], [100, "contiguo"]])
-
-respuesta: caso[1
+respuesta: "contiguo"
 tipo: mc
 opciones_explicitas: ["fragmentado", "contiguo"]
 
-enunciado: "En un disco duro, si un archivo se almacena en bloques de datos que están físicamente separados en diferentes sectores del plato, el archivo se encuentra en un estado {caso[1]}. Si los bloques estuvieran en sectores adyacentes, se diría que es..."
+enunciado: "En un disco duro, si un archivo se almacena en bloques de datos que están físicamente separados en diferentes sectores del plato, el archivo se encuentra en un estado fragmentado. Si en cambio los bloques estuvieran en sectores adyacentes, se diría que el archivo está..."
 
 explicacion: |
   La fragmentación ocurre cuando el sistema de archivos no puede asignar bloques contiguos, lo que obliga al cabezal del disco a moverse más, reduciendo el rendimiento.
@@ -1356,7 +1320,8 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 
 enunciado: "Si tenemos la ruta absoluta {datos[idx][0]}, el nombre del archivo es ___."
 
@@ -1393,11 +1358,12 @@ metadata:
   tags: ["fragmentacion", "rendimiento"]
 
 variables:
-  datos: [[verdadero, "fragmentado"], [falso, "contiguo"]]
+  datos: ["fragmentado", "contiguo"]
   idx: uno_de([0,1])
 
-respuestas_validas: [datos[idx][1]]
-respuesta: datos[idx][1]
+respuestas_validas:
+  - datos[idx]
+respuesta: datos[idx]
 tipo: completar
 enunciado: "Si un archivo se almacena en sectores no contiguos debido a que el espacio libre está disperso, el disco está ___."
 
@@ -1412,7 +1378,7 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo_archivo", "operaciones"]
 
-respuesta: ["Crear entrada en tabla", "Asignar bloques de datos", "Actualizar metadatos", "Actualizar tabla de directorios"]
+respuesta_orden: ["Crear entrada en tabla", "Asignar bloques de datos", "Actualizar metadatos", "Actualizar tabla de directorios"]
 tipo: ordenar
 opciones_explicitas: ["Crear entrada en tabla", "Asignar bloques de datos", "Actualizar metadatos", "Actualizar tabla de directorios"]
 
@@ -1441,356 +1407,6 @@ enunciado: "Si el sistema reporta un tamaño de {datos[idx][0]} bytes, esto equi
 
 explicacion: |
   En informática, las unidades suelen basarse en potencias de 2 (binarias): 1024 bytes = 1 KB, 1024^2 = 1 MB, etc.
-```
-
-## Sección: sistema-de-archivos-por-bitacora (21 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "basico"
-  tags: ["journaling", "definicion", "consistencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La bitácora (journal) es un registro que almacena información sobre los cambios pendientes en los metadatos antes de aplicarlos al sistema de archivos."
-
-explicacion: |
-  Correcto. El propósito principal de la bitácora es registrar las intenciones de cambio en los metadatos para garantizar la consistencia del sistema ante fallos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["recuperacion", "consistencia", "reinicio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al reiniciar después de un fallo, el sistema lee la bitácora para determinar qué operaciones de metadatos estaban pendientes y las completa o revierte."
-
-explicacion: |
-  Correcto. La bitácora actúa como un plan de trabajo. Si hay operaciones incompletas, el sistema las procesa para restaurar la integridad lógica del sistema de archivos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["rendimiento", "fsck", "tiempo"]
-
-variables:
-  tiempo_fsck: random(30, 120)
-  tiempo_journal: random(1, 5)
-
-respuesta: "{tiempo_journal}"
-tipo: input
-
-enunciado: "Si un sistema sin journaling tarda {tiempo_fsck} segundos en escanear errores (fsck), ¿cuántos segundos tarda aproximadamente uno con journaling en recuperar la consistencia? (Redondea a entero)."
-
-explicacion: |
-  Con journaling, la recuperación es casi instantánea (segundos) porque solo se revisa la bitácora, a diferencia del escaneo completo del disco que toma minutos u horas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "basico"
-  tags: ["concepto", "analogia", "planificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La bitácora funciona como un 'cuaderno de apuntes' donde se escribe el plan antes de ejecutar la tarea física en el disco."
-
-explicacion: |
-  Correcto. Esta analogía ilustra cómo el sistema escribe la intención de cambio primero, garantizando que si falla, pueda saber qué había planeado hacer.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["integridad", "estructura", "coherencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El journaling garantiza la integridad lógica, asegurando que la estructura de carpetas y archivos siempre sea coherente."
-
-explicacion: |
-  Correcto. La integridad lógica se refiere a que la estructura del sistema de archivos no queda rota o inconsistente tras un fallo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["fsck", "comparacion", "rendimiento"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los sistemas con journaling requieren ejecutar fsck completo cada vez que se apaga la computadora para verificar la integridad."
-
-explicacion: |
-  Falso. Con journaling, el fsck es muy rápido porque solo verifica la bitácora. El fsck completo solo es necesario en sistemas sin journaling o si hay errores graves no resueltos por la bitácora.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["estado", "bitacora", "fallos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un sistema de archivos se marca como 'sucio' (dirty) si hubo un fallo durante una operación que involucra la bitácora."
-
-explicacion: |
-  Correcto. El estado 'sucio' indica que hay operaciones en la bitácora que deben ser procesadas al reiniciar para completar o deshacer cambios.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["rendimiento", "comparacion", "tiempo"]
-
-variables:
-  tiempo_sin_journal: random(10, 60)
-  tiempo_con_journal: random(1, 5)
-
-respuesta: "{tiempo_con_journal}"
-tipo: input
-
-enunciado: "Si un disco sin journaling tarda {tiempo_sin_journal} segundos en repararse, ¿cuántos segundos tarda uno con journaling? (Redondea a entero)."
-
-explicacion: |
-  La recuperación con journaling es mucho más rápida (segundos) porque solo se procesan las entradas pendientes de la bitácora.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["consistencia", "estructura", "integridad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La bitácora asegura que la estructura del sistema de archivos (directorios, bloques) sea consistente, aunque los datos de usuario estén intactos."
-
-explicacion: |
-  Correcto. El objetivo principal es la consistencia de la estructura (metadatos), permitiendo que el sistema acceda correctamente a los archivos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "basico"
-  tags: ["fallos", "recuperacion", "bitacora"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ante un fallo repentino, la bitácora permite al sistema saber qué tareas estaban pendientes al momento del corte."
-
-explicacion: |
-  Correcto. La bitácora contiene el registro de las operaciones incompletas, permitiendo una recuperación ordenada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["concepto", "diferencia", "backup"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La bitácora es un mecanismo de respaldo (backup) que copia los archivos de usuario a otro disco."
-
-explicacion: |
-  Falso. La bitácora no es un backup. Es un mecanismo de consistencia interna del sistema de archivos que registra cambios en metadatos, no una copia de seguridad de datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "basico"
-  tags: ["estabilidad", "usuario", "beneficio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El uso de journaling contribuye a una computadora más estable y menos propensa a corrupción de datos."
-
-explicacion: |
-  Correcto. Al prevenir inconsistencias en la estructura del sistema de archivos, se reduce la probabilidad de errores y corrupción de datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["verificacion", "fsck", "recuperacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El proceso de verificación tras un fallo con journaling es casi instantáneo porque el sistema ya sabe qué parte del disco está incompleta."
-
-explicacion: |
-  Correcto. La bitácora indica exactamente qué operaciones fallaron, evitando escanear todo el disco.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "basico"
-  tags: ["analogia", "funcionamiento", "bitacora"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La bitácora es como un asistente que escribe el plan antes de ejecutar la tarea, para saber qué hacer si se interrumpe el trabajo."
-
-explicacion: |
-  Correcto. Esta analogía ayuda a entender el rol de la bitácora como registro de intenciones de cambio.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["integridad", "carpetas", "estructura"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El journaling asegura que la estructura de carpetas sea coherente, evitando que apunten a directorios inexistentes."
-
-explicacion: |
-  Correcto. La integridad de la estructura de directorios es clave para que el sistema pueda navegar y acceder a los archivos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["rendimiento", "tiempo", "comparacion"]
-
-variables:
-  tiempo_sin_journal: random(20, 90)
-  tiempo_con_journal: random(1, 5)
-
-respuesta: "{tiempo_con_journal}"
-tipo: input
-
-enunciado: "Si un disco sin journaling tarda {tiempo_sin_journal} segundos en repararse, ¿cuántos segundos tarda uno con journaling? (Redondea a entero)."
-
-explicacion: |
-  La recuperación con journaling es rápida (segundos) porque solo se procesan las entradas pendientes de la bitácora.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "basico"
-  tags: ["fallos", "luz", "recuperacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ante un corte de luz, el journaling permite al sistema recuperar la consistencia de los metadatos al reiniciar."
-
-explicacion: |
-  Correcto. El journaling es crucial para manejar fallos de energía, asegurando que los cambios en metadatos se completen o se deshagan.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["registro", "intencion", "bitacora"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La bitácora es un registro de las intenciones de cambio en los metadatos antes de que se apliquen."
-
-explicacion: |
-  Correcto. El registro de intenciones permite al sistema saber qué hacer si la operación se interrumpe.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["consistencia", "logica", "integridad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El journaling garantiza la consistencia lógica, asegurando que la estructura del sistema de archivos sea coherente."
-
-explicacion: |
-  Correcto. La consistencia lógica es el objetivo principal del journaling, evitando estructuras rotas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["fsck", "rendimiento", "comparacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los sistemas con journaling requieren fsck completo cada vez que se apagan para verificar la integridad."
-
-explicacion: |
-  Falso. Con journaling, el fsck es rápido y solo verifica la bitácora. El fsck completo es innecesario en la mayoría de los casos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "sistema_de_archivos_por_bitacora"
-  nivel: "intermedio"
-  tags: ["estado", "sucio", "bitacora"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un sistema se marca como 'sucio' si hubo un fallo durante una operación que involucra la bitácora."
-
-explicacion: |
-  Correcto. El estado 'sucio' indica que hay operaciones pendientes en la bitácora que deben procesarse al reiniciar.
 ```
 
 ## Sección: sistemas-numeracion (24 preguntas)
@@ -2259,3 +1875,354 @@ enunciado: "El binario (base 2) es el sistema que usan las computadoras internam
 explicacion: |
   Es la idea central de todo el tema.
 ```
+
+## Sección: sistema-de-archivos-por-bitacora (21 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "basico"
+  tags: ["journaling", "definicion", "consistencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La bitácora (journal) es un registro que almacena información sobre los cambios pendientes en los metadatos antes de aplicarlos al sistema de archivos."
+
+explicacion: |
+  Correcto. El propósito principal de la bitácora es registrar las intenciones de cambio en los metadatos para garantizar la consistencia del sistema ante fallos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["recuperacion", "consistencia", "reinicio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al reiniciar después de un fallo, el sistema lee la bitácora para determinar qué operaciones de metadatos estaban pendientes y las completa o revierte."
+
+explicacion: |
+  Correcto. La bitácora actúa como un plan de trabajo. Si hay operaciones incompletas, el sistema las procesa para restaurar la integridad lógica del sistema de archivos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["rendimiento", "fsck", "tiempo"]
+
+variables:
+  tiempo_fsck: random(30, 120)
+  tiempo_journal: random(1, 5)
+
+respuesta: tiempo_journal
+tipo: input
+
+enunciado: "Si un sistema sin journaling tarda {tiempo_fsck} segundos en escanear errores (fsck), ¿cuántos segundos tarda aproximadamente uno con journaling en recuperar la consistencia? (Redondea a entero)."
+
+explicacion: |
+  Con journaling, la recuperación es casi instantánea (segundos) porque solo se revisa la bitácora, a diferencia del escaneo completo del disco que toma minutos u horas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "basico"
+  tags: ["concepto", "analogia", "planificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La bitácora funciona como un 'cuaderno de apuntes' donde se escribe el plan antes de ejecutar la tarea física en el disco."
+
+explicacion: |
+  Correcto. Esta analogía ilustra cómo el sistema escribe la intención de cambio primero, garantizando que si falla, pueda saber qué había planeado hacer.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["integridad", "estructura", "coherencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El journaling garantiza la integridad lógica, asegurando que la estructura de carpetas y archivos siempre sea coherente."
+
+explicacion: |
+  Correcto. La integridad lógica se refiere a que la estructura del sistema de archivos no queda rota o inconsistente tras un fallo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["fsck", "comparacion", "rendimiento"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los sistemas con journaling requieren ejecutar fsck completo cada vez que se apaga la computadora para verificar la integridad."
+
+explicacion: |
+  Falso. Con journaling, el fsck es muy rápido porque solo verifica la bitácora. El fsck completo solo es necesario en sistemas sin journaling o si hay errores graves no resueltos por la bitácora.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["estado", "bitacora", "fallos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un sistema de archivos se marca como 'sucio' (dirty) si hubo un fallo durante una operación que involucra la bitácora."
+
+explicacion: |
+  Correcto. El estado 'sucio' indica que hay operaciones en la bitácora que deben ser procesadas al reiniciar para completar o deshacer cambios.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["rendimiento", "comparacion", "tiempo"]
+
+variables:
+  tiempo_sin_journal: random(10, 60)
+  tiempo_con_journal: random(1, 5)
+
+respuesta: tiempo_con_journal
+tipo: input
+
+enunciado: "Si un disco sin journaling tarda {tiempo_sin_journal} segundos en repararse, ¿cuántos segundos tarda uno con journaling? (Redondea a entero)."
+
+explicacion: |
+  La recuperación con journaling es mucho más rápida (segundos) porque solo se procesan las entradas pendientes de la bitácora.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["consistencia", "estructura", "integridad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La bitácora asegura que la estructura del sistema de archivos (directorios, bloques) sea consistente, aunque los datos de usuario estén intactos."
+
+explicacion: |
+  Correcto. El objetivo principal es la consistencia de la estructura (metadatos), permitiendo que el sistema acceda correctamente a los archivos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "basico"
+  tags: ["fallos", "recuperacion", "bitacora"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ante un fallo repentino, la bitácora permite al sistema saber qué tareas estaban pendientes al momento del corte."
+
+explicacion: |
+  Correcto. La bitácora contiene el registro de las operaciones incompletas, permitiendo una recuperación ordenada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["concepto", "diferencia", "backup"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La bitácora es un mecanismo de respaldo (backup) que copia los archivos de usuario a otro disco."
+
+explicacion: |
+  Falso. La bitácora no es un backup. Es un mecanismo de consistencia interna del sistema de archivos que registra cambios en metadatos, no una copia de seguridad de datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "basico"
+  tags: ["estabilidad", "usuario", "beneficio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El uso de journaling contribuye a una computadora más estable y menos propensa a corrupción de datos."
+
+explicacion: |
+  Correcto. Al prevenir inconsistencias en la estructura del sistema de archivos, se reduce la probabilidad de errores y corrupción de datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["verificacion", "fsck", "recuperacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El proceso de verificación tras un fallo con journaling es casi instantáneo porque el sistema ya sabe qué parte del disco está incompleta."
+
+explicacion: |
+  Correcto. La bitácora indica exactamente qué operaciones fallaron, evitando escanear todo el disco.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "basico"
+  tags: ["analogia", "funcionamiento", "bitacora"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La bitácora es como un asistente que escribe el plan antes de ejecutar la tarea, para saber qué hacer si se interrumpe el trabajo."
+
+explicacion: |
+  Correcto. Esta analogía ayuda a entender el rol de la bitácora como registro de intenciones de cambio.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["integridad", "carpetas", "estructura"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El journaling asegura que la estructura de carpetas sea coherente, evitando que apunten a directorios inexistentes."
+
+explicacion: |
+  Correcto. La integridad de la estructura de directorios es clave para que el sistema pueda navegar y acceder a los archivos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["rendimiento", "tiempo", "comparacion"]
+
+variables:
+  tiempo_sin_journal: random(20, 90)
+  tiempo_con_journal: random(1, 5)
+
+respuesta: tiempo_con_journal
+tipo: input
+
+enunciado: "Si un disco sin journaling tarda {tiempo_sin_journal} segundos en repararse, ¿cuántos segundos tarda uno con journaling? (Redondea a entero)."
+
+explicacion: |
+  La recuperación con journaling es rápida (segundos) porque solo se procesan las entradas pendientes de la bitácora.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "basico"
+  tags: ["fallos", "luz", "recuperacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ante un corte de luz, el journaling permite al sistema recuperar la consistencia de los metadatos al reiniciar."
+
+explicacion: |
+  Correcto. El journaling es crucial para manejar fallos de energía, asegurando que los cambios en metadatos se completen o se deshagan.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["registro", "intencion", "bitacora"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La bitácora es un registro de las intenciones de cambio en los metadatos antes de que se apliquen."
+
+explicacion: |
+  Correcto. El registro de intenciones permite al sistema saber qué hacer si la operación se interrumpe.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["consistencia", "logica", "integridad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El journaling garantiza la consistencia lógica, asegurando que la estructura del sistema de archivos sea coherente."
+
+explicacion: |
+  Correcto. La consistencia lógica es el objetivo principal del journaling, evitando estructuras rotas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["fsck", "rendimiento", "comparacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los sistemas con journaling requieren fsck completo cada vez que se apagan para verificar la integridad."
+
+explicacion: |
+  Falso. Con journaling, el fsck es rápido y solo verifica la bitácora. El fsck completo es innecesario en la mayoría de los casos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "sistema_de_archivos_por_bitacora"
+  nivel: "intermedio"
+  tags: ["estado", "sucio", "bitacora"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un sistema se marca como 'sucio' si hubo un fallo durante una operación que involucra la bitácora."
+
+explicacion: |
+  Correcto. El estado 'sucio' indica que hay operaciones pendientes en la bitácora que deben procesarse al reiniciar.
+```
+

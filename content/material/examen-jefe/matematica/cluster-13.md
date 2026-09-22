@@ -1,1296 +1,1658 @@
-# Examen jefe — Maestro de los Complejos y Logaritmos
+# Examen jefe — [PENDIENTE #613]
 
-> Logro #64. Dominaste las fracciones, los números complejos en forma polar y las funciones exponenciales y logarítmicas para resolver el parcial. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **138 preguntas totales** en 5/5 secciones.
+> Logro #613. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **129 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: esperanza-matematica-valor-esperado (20 preguntas)
+## Sección: independencia-de-eventos-y-diagrama-de-arbol (24 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
   nivel: "basico"
-  tags: ["esperanza", "vocabulario"]
+  tags: ["independencia", "vocabulario"]
 
-enunciado: "¿Qué es el valor esperado E(X) de una variable aleatoria?"
+enunciado: "¿Qué significa que dos eventos sean independientes?"
 tipo: mc
 opciones_explicitas:
-  - "Un promedio ponderado de los valores posibles, donde cada valor se pondera por su propia probabilidad de ocurrir"
-  - "El valor más probable entre todos los posibles"
-  - "El promedio simple de los valores posibles, sin considerar sus probabilidades"
-respuesta: "Un promedio ponderado de los valores posibles, donde cada valor se pondera por su propia probabilidad de ocurrir"
+  - "Que el resultado de uno no cambia en nada la probabilidad del otro"
+  - "Que los dos eventos ocurren siempre al mismo tiempo"
+  - "Que los dos eventos nunca pueden ocurrir juntos"
+respuesta: "Que el resultado de uno no cambia en nada la probabilidad del otro"
 
 explicacion: |
-  A diferencia de la media simple, cada valor pesa según qué tan
-  probable es.
+  Tirar una moneda dos veces: el resultado de la primera no afecta a
+  la segunda.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "basico"
+  tags: ["independencia", "vocabulario"]
+
+enunciado: "¿Qué significa que dos eventos sean dependientes?"
+tipo: mc
+opciones_explicitas:
+  - "Que el resultado de uno SÍ cambia la probabilidad del otro"
+  - "Que uno de los dos eventos es imposible"
+  - "Que los dos eventos son exactamente el mismo"
+respuesta: "Que el resultado de uno SÍ cambia la probabilidad del otro"
+
+explicacion: |
+  Sacar dos cartas de un mazo sin devolver la primera: la segunda
+  extracción ya no tiene las mismas probabilidades que la primera.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
   nivel: "intermedio"
-  tags: ["esperanza", "completar"]
+  tags: ["independencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Tirar una moneda dos veces seguidas son dos eventos independientes: el resultado de la primera tirada no afecta la probabilidad de la segunda."
+
+explicacion: |
+  Cada tirada 'empieza de cero', sin memoria de la anterior.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "intermedio"
+  tags: ["independencia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Sacar dos cartas de un mazo, SIN devolver la primera antes de sacar la segunda, son dos eventos independientes."
+
+explicacion: |
+  Es falso: son dependientes — la segunda extracción tiene una carta
+  menos disponible, y potencialmente menos casos favorables.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "intermedio"
+  tags: ["independencia", "completar"]
 
 tipo: completar
-enunciado: "Completá: E(X) = x₁×P(x₁) + x₂×P(x₂) + ... + xₙ×___."
+enunciado: "Completá: cuando se extrae y se DEVUELVE lo extraído antes de la siguiente extracción (con reposición), los eventos son ___."
 respuestas_validas:
-  - "P(xₙ)"
-  - "P(xn)"
+  - "independientes"
 
 explicacion: |
-  Cada valor posible se multiplica por su propia probabilidad, y se
-  suman todos los términos.
+  Devolver lo extraído mantiene las mismas condiciones para la
+  siguiente extracción.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "intermedio"
+  tags: ["independencia", "completar"]
+
+tipo: completar
+enunciado: "Completá: cuando NO se devuelve lo extraído antes de la siguiente extracción (sin reposición), los eventos son ___."
+respuestas_validas:
+  - "dependientes"
+
+explicacion: |
+  Sin devolver, el total y los casos favorables cambian para el
+  siguiente paso.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
   nivel: "avanzado"
-  tags: ["esperanza", "problema"]
+  tags: ["independencia", "problema"]
 
 variables:
-  v1: random(1, 3)
-  v2: random(4, 6)
-  v3: random(7, 9)
+  rojas: random(3, 8)
+  totales: random(10, 20)
 
-respuesta: redondear(0.3 * v1 + 0.5 * v2 + 0.2 * v3, 2)
+respuesta: redondear((rojas / totales) ^ 2, 3)
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "X tiene distribución: P(X={v1})=0,3, P(X={v2})=0,5, P(X={v3})=0,2. ¿Cuánto vale E(X)?"
+enunciado: "Una bolsa tiene {totales} bolitas, {rojas} de ellas rojas. Se saca una, se anota el color, y SE DEVUELVE a la bolsa antes de sacar una segunda. ¿Cuál es la probabilidad de que ambas extracciones sean rojas?"
 
 pasos:
-  - "E(X) = {v1}×0,3 + {v2}×0,5 + {v3}×0,2"
-  - "= {redondear(v1 * 0.3, 2)} + {redondear(v2 * 0.5, 2)} + {redondear(v3 * 0.2, 2)} = {redondear(0.3 * v1 + 0.5 * v2 + 0.2 * v3, 2)}"
+  - "Con reposición, cada extracción tiene la misma probabilidad: P(roja) = {rojas}/{totales}"
+  - "Al ser independientes, se multiplican: ({rojas}/{totales})² = {redondear((rojas / totales) ^ 2, 3)}"
 
 explicacion: |
-  Se multiplica cada valor por su probabilidad y se suman los
-  resultados.
+  Como se devuelve la bolita, la segunda extracción parte de las
+  mismas condiciones que la primera.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
   nivel: "avanzado"
-  tags: ["esperanza"]
+  tags: ["independencia", "problema"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El valor esperado E(X) no tiene por qué coincidir con ninguno de los valores que X puede tomar realmente — es un promedio a largo plazo, no un resultado posible puntual."
-
-explicacion: |
-  Por ejemplo, E(X)=4,7 aunque X sólo pueda valer 2, 5 u 8.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
-  nivel: "avanzado"
-  tags: ["esperanza", "problema"]
-
-variables:
-  costo: uno_de([50, 100])
-  premio: uno_de([300, 500])
-  p_ganar: uno_de([0.1, 0.15])
-
-respuesta: redondear(premio * p_ganar - costo, 2)
+respuesta: redondear((4 / 40) * (3 / 39), 4)
 tipo: input
-tolerancia_abs: 0.01
+tolerancia_abs: 0.001
 
-enunciado: "Un juego cuesta ${costo} jugar y paga ${premio} con probabilidad {p_ganar} (y $0 el resto de las veces). ¿Cuál es el valor esperado de la GANANCIA neta de jugar (premio esperado menos el costo)?"
-
-pasos:
-  - "Premio esperado = {premio} × {p_ganar} = {redondear(premio * p_ganar, 2)}"
-  - "Ganancia esperada = {redondear(premio * p_ganar, 2)} − {costo} = {redondear(premio * p_ganar - costo, 2)}"
-
-explicacion: |
-  Si el resultado es negativo, el juego es desfavorable en promedio
-  para quien juega, aunque en una partida puntual se pueda ganar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
-  nivel: "intermedio"
-  tags: ["esperanza", "aplicacion"]
-
-enunciado: "Si el valor esperado de la ganancia de un juego de azar da negativo, ¿qué significa?"
-tipo: mc
-opciones_explicitas:
-  - "Que, en promedio y a largo plazo, quien juega repetidamente pierde dinero — aunque una partida individual pueda ganar"
-  - "Que es matemáticamente imposible ganar en ese juego"
-  - "Que el juego siempre hace perder en cada partida, sin excepción"
-respuesta: "Que, en promedio y a largo plazo, quien juega repetidamente pierde dinero — aunque una partida individual pueda ganar"
-
-explicacion: |
-  Es la lógica detrás de cualquier casino: el valor esperado del
-  jugador es negativo, aunque partidas puntuales puedan ganar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
-  nivel: "avanzado"
-  tags: ["esperanza", "problema"]
-
-variables:
-  premio_a: 1000
-  p_a: 0.05
-  premio_b: 200
-  p_b: 0.3
-
-respuesta: (premio_a * p_a) > (premio_b * p_b)
-tipo: vf
-
-enunciado: "Apuesta A paga ${premio_a} con probabilidad {p_a}. Apuesta B paga ${premio_b} con probabilidad {p_b}. Sin considerar el costo de entrada, ¿el valor esperado del premio de la Apuesta A es MAYOR que el de la Apuesta B?"
-
-explicacion: |
-  E(A) = {premio_a}×{p_a} = {premio_a * p_a}; E(B) = {premio_b}×{p_b}
-  = {premio_b * p_b} — comparar el producto, no el premio ni la
-  probabilidad por separado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
-  nivel: "intermedio"
-  tags: ["esperanza", "binomial"]
-
-enunciado: "¿Qué relación tiene la fórmula E(X)=n×p de la distribución binomial con el valor esperado en general?"
-tipo: mc
-opciones_explicitas:
-  - "Es el mismo promedio ponderado general, aplicado al caso particular de una variable que sólo puede tomar valores enteros de 0 a n"
-  - "No tiene ninguna relación, son fórmulas completamente distintas"
-  - "E(X)=n×p sólo aplica quando la variable es continua"
-respuesta: "Es el mismo promedio ponderado general, aplicado al caso particular de una variable que sólo puede tomar valores enteros de 0 a n"
-
-explicacion: |
-  `../distribucion-binomial/` adelantó este resultado sin
-  demostrarlo — es un caso particular de esta fórmula más general.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
-  nivel: "intermedio"
-  tags: ["esperanza", "problema"]
-
-variables:
-  valor1: uno_de([10, 20])
-  p1: uno_de([0.4, 0.6])
-  valor2: uno_de([50, 80])
-
-respuesta: redondear(valor1 * p1 + valor2 * (1 - p1), 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "X toma el valor {valor1} con probabilidad {p1}, y el valor {valor2} con la probabilidad restante. ¿Cuánto vale E(X)?"
+enunciado: "De un mazo de 40 cartas (4 ases), se sacan 2 cartas SIN devolver la primera. ¿Cuál es la probabilidad de que las dos sean ases?"
 
 pasos:
-  - "P({valor2}) = 1 − {p1} = {redondear(1 - p1, 2)}"
-  - "E(X) = {valor1}×{p1} + {valor2}×{redondear(1 - p1, 2)} = {redondear(valor1 * p1 + valor2 * (1 - p1), 2)}"
+  - "Primera carta: P(as) = 4/40"
+  - "Segunda carta (ya sin esa carta, y con un as menos si la primera fue as): P(as) = 3/39"
+  - "P(ambas ases) = (4/40) × (3/39) = {redondear((4 / 40) * (3 / 39), 4)}"
 
 explicacion: |
-  Con sólo dos valores posibles, sus probabilidades deben sumar 1.
+  Al no devolver la primera carta, la segunda probabilidad cambia: hay
+  una carta menos en total y un as menos disponible.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
   nivel: "basico"
-  tags: ["esperanza", "aplicacion"]
+  tags: ["arbol", "vocabulario"]
 
-enunciado: "¿Cómo usa una aseguradora el valor esperado para decidir cuánto cobrar por una póliza?"
+enunciado: "¿Qué representa un diagrama de árbol?"
 tipo: mc
 opciones_explicitas:
-  - "Calcula el valor esperado del siniestro (costo posible × probabilidad de que ocurra) y cobra por encima de ese valor, para tener ganancia en promedio"
-  - "Cobra siempre el mismo monto fijo, sin ningún cálculo de probabilidad"
-  - "El valor esperado no tiene ninguna aplicación en seguros"
-respuesta: "Calcula el valor esperado del siniestro (costo posible × probabilidad de que ocurra) y cobra por encima de ese valor, para tener ganancia en promedio"
+  - "Todos los resultados posibles de un experimento de varios pasos, como ramas que se van abriendo paso a paso"
+  - "Sólo el resultado final más probable"
+  - "Un gráfico de barras dibujado de forma vertical"
+respuesta: "Todos los resultados posibles de un experimento de varios pasos, como ramas que se van abriendo paso a paso"
 
 explicacion: |
-  Es la misma lógica de `../../economia/valor-esperado-riesgo/`,
-  aplicada a seguros en particular.
+  Cada rama nueva representa una opción posible en ese paso, con su
+  probabilidad anotada.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
   nivel: "avanzado"
-  tags: ["esperanza", "problema"]
-
-variables:
-  ganancia: uno_de([200, 300])
-  p_ganancia: 0.4
-  perdida: uno_de([100, 150])
-  p_perdida: 0.5
-
-respuesta: redondear(ganancia * p_ganancia - perdida * p_perdida, 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una inversión da una ganancia de ${ganancia} con probabilidad {p_ganancia}, una pérdida de ${perdida} con probabilidad {p_perdida}, y queda igual el resto de las veces (probabilidad {redondear(1 - p_ganancia - p_perdida, 2)}, resultado $0). ¿Cuál es el valor esperado del resultado?"
-
-pasos:
-  - "E(X) = {ganancia}×{p_ganancia} + (−{perdida})×{p_perdida} + 0×{redondear(1 - p_ganancia - p_perdida, 2)}"
-  - "= {redondear(ganancia * p_ganancia, 2)} − {redondear(perdida * p_perdida, 2)} = {redondear(ganancia * p_ganancia - perdida * p_perdida, 2)}"
-
-explicacion: |
-  Los valores negativos (pérdidas) se ponderan igual que los
-  positivos: por su propia probabilidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
-  nivel: "intermedio"
-  tags: ["esperanza"]
+  tags: ["arbol"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "A diferencia de la media simple de `../media-mediana-y-moda/` (que pesa todos los datos por igual), el valor esperado pesa cada resultado posible según su propia probabilidad de ocurrir."
+enunciado: "La cantidad total de caminos completos (de la raíz a una hoja final) de un diagrama de árbol es exactamente el resultado del principio multiplicativo de conteo."
 
 explicacion: |
-  Es la diferencia central entre 'promedio de datos ya medidos' y
-  'promedio ponderado de resultados posibles antes de que ocurran'.
+  Si el primer paso tiene n₁ ramas y el segundo n₂, hay n₁×n₂ caminos
+  completos — la misma cuenta de
+  `../principio-multiplicativo-de-conteo/`.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
-  nivel: "avanzado"
-  tags: ["esperanza", "problema"]
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "intermedio"
+  tags: ["arbol", "problema"]
 
 variables:
-  costo_siniestro: 10000
-  p_siniestro: uno_de([0.02, 0.05])
+  ramas1: uno_de([2, 3])
+  ramas2: uno_de([3, 4])
 
-respuesta: redondear(costo_siniestro * p_siniestro, 2)
+respuesta: ramas1 * ramas2
+tipo: input
+
+enunciado: "Un diagrama de árbol tiene {ramas1} ramas posibles en el primer paso, y {ramas2} ramas posibles en el segundo paso (para cada rama del primero). ¿Cuántos caminos completos tiene el árbol en total?"
+
+pasos:
+  - "Total = {ramas1} × {ramas2} = {ramas1 * ramas2}"
+
+explicacion: |
+  Por cada rama del primer paso, se abren todas las ramas del segundo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "avanzado"
+  tags: ["arbol", "problema"]
+
+variables:
+  p1: uno_de([0.3, 0.4, 0.5])
+  p2: uno_de([0.2, 0.6, 0.8])
+
+respuesta: redondear(p1 * p2, 3)
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Un siniestro cuesta en promedio ${costo_siniestro}, y ocurre con probabilidad {p_siniestro} en un año. ¿Cuál es el valor esperado del costo anual del siniestro (lo mínimo que debería cobrar la aseguradora, sin ganancia)?"
+enunciado: "En un diagrama de árbol de dos pasos, la rama elegida en el primer paso tiene probabilidad {p1}, y la rama elegida en el segundo paso (siguiendo esa primera rama) tiene probabilidad {p2}. ¿Cuál es la probabilidad de ese camino completo?"
 
 pasos:
-  - "E(costo) = {costo_siniestro} × {p_siniestro} = {redondear(costo_siniestro * p_siniestro, 2)}"
+  - "P(camino) = {p1} × {p2} = {redondear(p1 * p2, 3)}"
 
 explicacion: |
-  Cualquier prima por debajo de este valor haría perder dinero a la
-  aseguradora, en promedio, a largo plazo.
+  Se multiplican las probabilidades de todas las ramas que se
+  recorren en el camino.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
   nivel: "avanzado"
-  tags: ["esperanza"]
+  tags: ["arbol", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular la probabilidad de un resultado usando un diagrama de árbol."
+tipo: ordenar
+opciones_explicitas:
+  - "Multiplicar las probabilidades de todas las ramas de ese camino"
+  - "Dibujar todas las ramas posibles de cada paso, con su probabilidad anotada"
+  - "Identificar el camino (secuencia de ramas) que lleva al resultado buscado"
+respuesta_orden: ["Dibujar todas las ramas posibles de cada paso, con su probabilidad anotada", "Identificar el camino (secuencia de ramas) que lleva al resultado buscado", "Multiplicar las probabilidades de todas las ramas de ese camino"]
+explicacion: |
+  Sin dibujar primero todas las ramas, no queda claro cuál es 'el
+  camino' que interesa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "intermedio"
+  tags: ["independencia", "problema"]
+
+respuesta: 0.125
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Se lanza una moneda 3 veces (eventos independientes). ¿Cuál es la probabilidad de que las 3 veces salga cara?"
+
+pasos:
+  - "P = 0,5 × 0,5 × 0,5 = 0,125"
+
+explicacion: |
+  Al ser independientes, se multiplican las tres probabilidades de
+  0,5 cada una.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "avanzado"
+  tags: ["arbol"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para calcular el valor esperado de una variable aleatoria con muchos valores posibles, hay que sumar TODOS los términos (cada valor por su probabilidad), no sólo el valor más probable."
+enunciado: "En un diagrama de árbol, las probabilidades de todas las ramas que salen de un mismo punto (representando resultados que se excluyen entre sí) siempre suman exactamente 1."
 
 explicacion: |
-  Ignorar los demás valores posibles subestima o distorsiona el
-  promedio real.
+  Alguna de esas ramas tiene que ocurrir, así que juntas cubren el
+  100% de las posibilidades en ese paso.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
-  nivel: "intermedio"
-  tags: ["esperanza", "problema"]
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "avanzado"
+  tags: ["arbol", "problema"]
 
-respuesta: redondear((1 + 2 + 3 + 4 + 5 + 6) / 6, 3)
+variables:
+  azules: random(4, 10)
+  totales: random(12, 20)
+
+respuesta: redondear((azules / totales) ^ 2, 3)
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Un dado de 6 caras tiene la misma probabilidad (1/6) para cada resultado del 1 al 6. ¿Cuál es el valor esperado del resultado de un tiro?"
+enunciado: "Una bolsa tiene {totales} bolitas, {azules} azules. Se hacen 2 extracciones CON reposición. Dibujando el árbol de las dos extracciones, ¿cuál es la probabilidad del camino 'azul, azul'?"
 
 pasos:
-  - "E(X) = 1×1/6 + 2×1/6 + 3×1/6 + 4×1/6 + 5×1/6 + 6×1/6"
-  - "= (1+2+3+4+5+6)/6 = {redondear((1 + 2 + 3 + 4 + 5 + 6) / 6, 3)}"
+  - "Cada rama 'azul' tiene probabilidad {azules}/{totales} (no cambia con reposición)"
+  - "P(azul, azul) = ({azules}/{totales})² = {redondear((azules / totales) ^ 2, 3)}"
 
 explicacion: |
-  Cuando todos los resultados tienen la misma probabilidad, el valor
-  esperado coincide con el promedio simple.
+  Es el mismo camino del árbol recorrido dos veces con la misma
+  probabilidad, porque hay reposición.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "avanzado"
+  tags: ["arbol", "problema"]
+
+variables:
+  rojas: random(5, 10)
+  totales: random(15, 25)
+
+respuesta: redondear((rojas / totales) * ((rojas - 1) / (totales - 1)), 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una bolsa tiene {totales} bolitas, {rojas} rojas. Se hacen 2 extracciones SIN reposición. ¿Cuál es la probabilidad de sacar roja las dos veces?"
+
+pasos:
+  - "Primera: P(roja) = {rojas}/{totales}"
+  - "Segunda (una roja menos, una bolita menos en total): P(roja) = ({rojas}−1)/({totales}−1)"
+  - "P(ambas rojas) = {redondear((rojas / totales) * ((rojas - 1) / (totales - 1)), 3)}"
+
+explicacion: |
+  La segunda rama del árbol tiene una probabilidad distinta de la
+  primera, porque ya no hay reposición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
   nivel: "basico"
-  tags: ["esperanza", "aplicacion"]
+  tags: ["independencia", "aplicacion"]
 
-enunciado: "¿Cómo ayuda el valor esperado a decidir entre dos inversiones de riesgo distintas?"
+enunciado: "Si dos análisis médicos distintos, hechos con métodos totalmente distintos, se consideran independientes, ¿qué significa eso en la práctica?"
 tipo: mc
 opciones_explicitas:
-  - "Comparando el promedio ponderado del retorno posible de cada una, aunque también haga falta mirar la dispersión (riesgo) alrededor de ese promedio"
-  - "El valor esperado garantiza el resultado exacto de la inversión, sin ningún riesgo"
-  - "El valor esperado no sirve para decisiones financieras"
-respuesta: "Comparando el promedio ponderado del retorno posible de cada una, aunque también haga falta mirar la dispersión (riesgo) alrededor de ese promedio"
+  - "Que el resultado de un análisis no influye en la probabilidad del resultado del otro"
+  - "Que los dos análisis siempre dan el mismo resultado"
+  - "Que sólo uno de los dos análisis es confiable"
+respuesta: "Que el resultado de un análisis no influye en la probabilidad del resultado del otro"
 
 explicacion: |
-  Es exactamente el enfoque de `../../economia/valor-esperado-riesgo/`:
-  valor esperado Y dispersión, no sólo uno de los dos.
+  Es útil justamente para combinar evidencia de fuentes que no se
+  contaminan entre sí.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
   nivel: "avanzado"
-  tags: ["esperanza", "problema"]
-
-variables:
-  v1: 100
-  p1: 0.7
-  v2: 500
-  p2: 0.25
-  v3: 2000
-  p3: 0.05
-
-respuesta: redondear(v1 * p1 + v2 * p2 + v3 * p3, 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un premio de lotería da ${v1} con probabilidad {p1}, ${v2} con probabilidad {p2}, y ${v3} con probabilidad {p3}. ¿Cuál es el valor esperado del premio?"
-
-pasos:
-  - "E(X) = {v1}×{p1} + {v2}×{p2} + {v3}×{p3}"
-  - "= {redondear(v1 * p1, 2)} + {redondear(v2 * p2, 2)} + {redondear(v3 * p3, 2)} = {redondear(v1 * p1 + v2 * p2 + v3 * p3, 2)}"
-
-explicacion: |
-  Aunque el premio grande (${v3}) sea llamativo, su probabilidad
-  chica ({p3}) hace que aporte relativamente poco al valor esperado
-  total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
-  nivel: "avanzado"
-  tags: ["esperanza"]
+  tags: ["arbol", "independencia"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El valor esperado describe el promedio a largo plazo de MUCHAS repeticiones, no predice el resultado de una única repetición puntual del experimento."
+enunciado: "Un diagrama de árbol también sirve para eventos DEPENDIENTES — sólo que las probabilidades de las ramas del segundo paso cambian según qué rama se siguió en el primero."
 
 explicacion: |
-  Por eso un juego con valor esperado negativo puede, en una partida
-  puntual, dar ganancia igual.
+  La herramienta (el árbol) es la misma; lo que cambia es si las
+  probabilidades de las ramas posteriores son siempre iguales
+  (independientes) o dependen del camino recorrido (dependientes).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
   nivel: "avanzado"
-  tags: ["esperanza", "problema"]
+  tags: ["arbol", "problema"]
 
 variables:
-  costo: 20
-  p_ganar: 0.2
+  ramas1: uno_de([2, 3])
+  ramas2: uno_de([2, 3])
+  ramas3: uno_de([2, 3])
 
-respuesta: costo / p_ganar
+respuesta: ramas1 * ramas2 * ramas3
 tipo: input
 
-enunciado: "Un juego cuesta ${costo} jugar y sólo paga premio (y nada más) con probabilidad {p_ganar}. ¿Cuánto debería ser el premio para que el juego sea 'justo' (valor esperado de la ganancia neta = 0)?"
+enunciado: "Un diagrama de árbol tiene {ramas1} ramas en el primer paso, {ramas2} en el segundo y {ramas3} en el tercero. ¿Cuántos caminos completos tiene en total?"
 
 pasos:
-  - "premio × {p_ganar} − {costo} = 0"
-  - "premio = {costo} / {p_ganar} = {costo / p_ganar}"
+  - "Total = {ramas1} × {ramas2} × {ramas3} = {ramas1 * ramas2 * ramas3}"
 
 explicacion: |
-  Un juego 'justo' es aquel donde, en promedio, ni la casa ni el
-  jugador ganan ni pierden dinero.
+  El principio multiplicativo se aplica a cualquier cantidad de pasos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esperanza_matematica_valor_esperado"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "avanzado"
+  tags: ["independencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada extracción sin reposición reduce en exactamente 1 el total de elementos disponibles para la siguiente extracción."
+
+explicacion: |
+  Se extrae un elemento y no se devuelve, así que el total disponible
+  siempre baja de a uno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "avanzado"
+  tags: ["independencia", "arbol"]
+
+enunciado: "¿Cuál es la diferencia entre 'independencia de eventos' y 'diagrama de árbol'?"
+tipo: mc
+opciones_explicitas:
+  - "La independencia es una PROPIEDAD de los eventos (si uno afecta al otro o no); el diagrama de árbol es una HERRAMIENTA para representar visualmente cualquier secuencia de eventos, sean independientes o no"
+  - "Son exactamente lo mismo, sólo con nombres distintos"
+  - "El diagrama de árbol sólo puede usarse con eventos independientes"
+respuesta: "La independencia es una PROPIEDAD de los eventos (si uno afecta al otro o no); el diagrama de árbol es una HERRAMIENTA para representar visualmente cualquier secuencia de eventos, sean independientes o no"
+
+explicacion: |
+  Una es una característica matemática de los eventos; la otra, una
+  forma de dibujarlos y calcular con ellos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
+  nivel: "avanzado"
+  tags: ["independencia", "problema"]
+
+variables:
+  p1: uno_de([0.6, 0.7, 0.8])
+  p2: uno_de([0.5, 0.9])
+
+respuesta: redondear(p1 * p2, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una máquina tiene dos componentes independientes: el primero funciona bien con probabilidad {p1}, el segundo con probabilidad {p2}. ¿Cuál es la probabilidad de que AMBOS funcionen bien?"
+
+pasos:
+  - "Al ser independientes: P(ambos) = {p1} × {p2} = {redondear(p1 * p2, 3)}"
+
+explicacion: |
+  Es la misma regla del producto para eventos independientes,
+  aplicada a un contexto distinto del de bolitas o cartas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "independencia_de_eventos_y_diagrama_de_arbol"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirve el valor esperado?"
+enunciado: "¿Para qué sirve entender la independencia de eventos y el diagrama de árbol?"
 tipo: mc
 opciones_explicitas:
-  - "Para tomar decisiones racionales bajo incertidumbre, resumiendo en un solo número el resultado promedio esperado de una situación azarosa"
-  - "Para predecir con certeza el resultado de un único evento futuro"
-  - "Sólo se usa en juegos de casino, sin otras aplicaciones"
-respuesta: "Para tomar decisiones racionales bajo incertidumbre, resumiendo en un solo número el resultado promedio esperado de una situación azarosa"
+  - "Para saber si se puede multiplicar directo las probabilidades de varios eventos, y para organizar visualmente todos los caminos posibles de una secuencia de pasos"
+  - "Sólo sirve para tirar monedas"
+  - "Sólo aplica cuando hay exactamente dos eventos"
+respuesta: "Para saber si se puede multiplicar directo las probabilidades de varios eventos, y para organizar visualmente todos los caminos posibles de una secuencia de pasos"
 
 explicacion: |
-  Es la base de seguros, inversiones y cualquier decisión que
-  involucre azar y consecuencias medibles.
+  Es el prerrequisito directo de `../probabilidad-compuesta/`, el
+  próximo módulo.
 ```
 
-## Sección: expresiones-equivalentes (36 preguntas)
+## Sección: potencias (28 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "expresiones_equivalentes"
+  tema: "potencias"
   nivel: "basico"
-  tags: ["terminos_semejantes", "verdadero_falso"]
+  tags: ["potencias", "vocabulario"]
 
-variables:
-  x: random(1, 30)
-
-respuesta: (3 * x + 5 * x) == (8 * x)
-tipo: vf
-
-enunciado: "¿Son equivalentes 3x + 5x y 8x? Con x = {x}: 3×{x}+5×{x} = {3*x+5*x}; 8×{x} = {8*x}."
+enunciado: "¿Qué es 2⁴?"
+tipo: mc
+opciones_explicitas:
+  - "2 multiplicado por sí mismo 4 veces"
+  - "2 multiplicado por 4"
+  - "2 sumado 4 veces"
+respuesta: "2 multiplicado por sí mismo 4 veces"
 
 explicacion: |
-  Se suman los coeficientes de términos semejantes: 3x + 5x = 8x.
+  Una potencia es multiplicar la base por sí misma tantas veces como
+  indica el exponente.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "expresiones_equivalentes"
+  tema: "potencias"
   nivel: "basico"
-  tags: ["terminos_semejantes", "verdadero_falso"]
+  tags: ["potencias"]
 
 variables:
-  x: random(1, 30)
+  base: random(2, 10)
+  exponente: random(2, 4)
 
-respuesta: (2 * x + 3 * x - x) == (4 * x)
-tipo: vf
-
-enunciado: "¿Son equivalentes 2x + 3x − x y 4x? Con x = {x}: 2×{x}+3×{x}−{x} = {2*x+3*x-x}; 4×{x} = {4*x}."
-
-explicacion: |
-  Sumando y restando coeficientes: 2 + 3 − 1 = 4.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "basico"
-  tags: ["terminos_semejantes", "verdadero_falso"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: (x + x + x) == (3 * x)
-tipo: vf
-
-enunciado: "¿Son equivalentes x + x + x y 3x? Con x = {x}: {x}+{x}+{x} = {x+x+x}; 3×{x} = {3*x}."
-
-explicacion: |
-  Sumar el mismo valor 3 veces es lo mismo que multiplicarlo por 3.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "basico"
-  tags: ["terminos_semejantes", "verdadero_falso"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: (4 * x - x) == (3 * x)
-tipo: vf
-
-enunciado: "¿Son equivalentes 4x − x y 3x? Con x = {x}: 4×{x}−{x} = {4*x-x}; 3×{x} = {3*x}."
-
-explicacion: |
-  4x − x es 4x − 1x = 3x (el término "x" solo tiene coeficiente 1).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["distributiva", "verdadero_falso"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: (2 * (x + 3)) == (2 * x + 6)
-tipo: vf
-
-enunciado: "¿Son equivalentes 2(x + 3) y 2x + 6? Con x = {x}: 2×({x}+3) = {2*(x+3)}; 2×{x}+6 = {2*x+6}."
-
-explicacion: |
-  El 2 se distribuye a los dos términos de adentro: 2·x + 2·3 = 2x + 6.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["distributiva", "verdadero_falso"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: (5 * (x - 2)) == (5 * x - 10)
-tipo: vf
-
-enunciado: "¿Son equivalentes 5(x − 2) y 5x − 10? Con x = {x}: 5×({x}−2) = {5*(x-2)}; 5×{x}−10 = {5*x-10}."
-
-explicacion: |
-  El 5 distribuye a los dos términos: 5·x − 5·2 = 5x − 10.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["distributiva", "signos", "verdadero_falso"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: (-(x - 3)) == (-x + 3)
-tipo: vf
-
-enunciado: "¿Son equivalentes −(x − 3) y −x + 3? Con x = {x}: −({x}−3) = {-(x-3)}; −{x}+3 = {-x+3}."
-
-explicacion: |
-  El signo negativo distribuye cambiando el signo de los dos términos:
-  −x − (−3) = −x + 3.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "basico"
-  tags: ["asociativa", "verdadero_falso"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: (3 * (2 * x)) == (6 * x)
-tipo: vf
-
-enunciado: "¿Son equivalentes 3(2x) y 6x? Con x = {x}: 3×(2×{x}) = {3*(2*x)}; 6×{x} = {6*x}."
-
-explicacion: |
-  Multiplicar por 3 y después por 2 (o al revés) es lo mismo que
-  multiplicar directamente por 6.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "basico"
-  tags: ["conmutativa", "dos_variables", "verdadero_falso"]
-
-variables:
-  x: random(1, 30)
-  y: random(1, 30)
-
-respuesta: (2 * x + 3 * y) == (3 * y + 2 * x)
-tipo: vf
-
-enunciado: "¿Son equivalentes 2x + 3y y 3y + 2x? Con x = {x}, y = {y}: {2*x+3*y} y {3*y+2*x}."
-
-explicacion: |
-  El orden en que se suman dos términos no cambia el resultado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "basico"
-  tags: ["identidad", "verdadero_falso"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: (x * 1) == (x)
-tipo: vf
-
-enunciado: "¿Son equivalentes x × 1 y x? Con x = {x}: {x*1} y {x}."
-
-explicacion: |
-  Multiplicar por 1 no cambia el valor de una expresión.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["terminos_semejantes", "error_comun", "verdadero_falso"]
-
-variables:
-  x: random(2, 30)
-
-respuesta: (3 * x + 5) == (8 * x)
-tipo: vf
-
-enunciado: "¿Son equivalentes 3x + 5 y 8x? Con x = {x}: 3×{x}+5 = {3*x+5}; 8×{x} = {8*x}."
-
-explicacion: |
-  3x y 5 no son términos semejantes (uno tiene x, el otro no) — no se
-  pueden combinar en un solo término.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["distributiva", "error_comun", "verdadero_falso"]
-
-variables:
-  x: random(2, 30)
-
-respuesta: (2 * (x + 3)) == (2 * x + 3)
-tipo: vf
-
-enunciado: "¿Son equivalentes 2(x + 3) y 2x + 3? Con x = {x}: 2×({x}+3) = {2*(x+3)}; 2×{x}+3 = {2*x+3}."
-
-explicacion: |
-  Falta distribuir el 2 al 3: la forma correcta es 2x + 6, no 2x + 3.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["distributiva", "signos", "error_comun", "verdadero_falso"]
-
-variables:
-  x: random(2, 30)
-
-respuesta: (-(x - 3)) == (-x - 3)
-tipo: vf
-
-enunciado: "¿Son equivalentes −(x − 3) y −x − 3? Con x = {x}: −({x}−3) = {-(x-3)}; −{x}−3 = {-x-3}."
-
-explicacion: |
-  El signo del segundo término también cambia: −(x−3) = −x+3, no −x−3.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "avanzado"
-  tags: ["error_comun", "verdadero_falso"]
-
-variables:
-  x: random(2, 20)
-
-respuesta: (3 * x * (2 * x)) == (6 * x)
-tipo: vf
-
-enunciado: "¿Son equivalentes 3x × 2x y 6x? Con x = {x}: (3×{x})×(2×{x}) = {3*x*(2*x)}; 6×{x} = {6*x}."
-
-explicacion: |
-  3x × 2x = 6x² (se multiplican también las x), no 6x — multiplicar
-  términos no es lo mismo que sumarlos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["error_comun", "verdadero_falso"]
-
-variables:
-  x: random(2, 20)
-
-respuesta: (x + x) == (x ^ 2)
-tipo: vf
-
-enunciado: "¿Son equivalentes x + x y x²? Con x = {x}: {x+x} y {x^2}."
-
-explicacion: |
-  x + x es 2x (sumar el valor dos veces), no x² (multiplicarlo por sí
-  mismo) — son operaciones distintas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["distributiva", "error_comun", "verdadero_falso"]
-
-variables:
-  x: random(2, 30)
-
-respuesta: (2 * (x - 1)) == (2 * x - 1)
-tipo: vf
-
-enunciado: "¿Son equivalentes 2(x − 1) y 2x − 1? Con x = {x}: 2×({x}−1) = {2*(x-1)}; 2×{x}−1 = {2*x-1}."
-
-explicacion: |
-  La forma correcta es 2x − 2 (el 2 distribuye también al 1), no 2x − 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "avanzado"
-  tags: ["terminos_semejantes", "error_comun", "verdadero_falso"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: ((x + 3) - (x - 3)) == (0)
-tipo: vf
-
-enunciado: "¿Son equivalentes (x + 3) − (x − 3) y 0? Con x = {x}: ({x}+3)−({x}−3) = {(x+3)-(x-3)}."
-
-explicacion: |
-  (x+3)−(x−3) = x+3−x+3 = 6: las x se cancelan, pero el resultado es la
-  constante 6, no 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "avanzado"
-  tags: ["distributiva", "signos", "error_comun", "verdadero_falso"]
-
-variables:
-  x: random(1, 10)
-
-respuesta: (10 - (x - 4)) == (6 - x)
-tipo: vf
-
-enunciado: "¿Son equivalentes 10 − (x − 4) y 6 − x? Con x = {x}: 10−({x}−4) = {10-(x-4)}; 6−{x} = {6-x}."
-
-explicacion: |
-  10 − (x − 4) = 10 − x + 4 = 14 − x, no 6 − x — el signo del −4 también
-  cambia al distribuir el menos de afuera.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["distributiva", "opcion_multiple"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: 3 * x + 6
-tipo: mc
-opciones_explicitas:
-  - 3 * x + 6
-  - 3 * x + 2
-  - x + 6
-
-enunciado: "¿Cuál expresión es equivalente a 3(x + 2), para x = {x}?"
-
-explicacion: |
-  3(x+2) = 3x + 6: el 3 distribuye a los dos términos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["terminos_semejantes", "opcion_multiple"]
-
-variables:
-  x: random(2, 30)
-
-respuesta: 2 * x
-tipo: mc
-opciones_explicitas:
-  - 2 * x
-  - 2 * x ^ 2
-  - 6 * x
-
-enunciado: "¿Cuál expresión es equivalente a 4x − 2x, para x = {x}?"
-
-explicacion: |
-  4x − 2x = 2x (se restan los coeficientes). 2x² confunde restar con
-  elevar al cuadrado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["distributiva", "signos", "opcion_multiple"]
-
-variables:
-  x: random(3, 20)
-
-respuesta: -2 * x + 5
-tipo: mc
-opciones_explicitas:
-  - -2 * x + 5
-  - -2 * x - 5
-  - 2 * x - 5
-
-enunciado: "¿Cuál expresión es equivalente a −(2x − 5), para x = {x}?"
-
-explicacion: |
-  El menos de afuera cambia el signo de los dos términos: −2x + 5.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["terminos_semejantes", "opcion_multiple"]
-
-variables:
-  x: random(2, 20)
-
-respuesta: 4 * x
-tipo: mc
-opciones_explicitas:
-  - 4 * x
-  - x ^ 4
-  - 4 * x ^ 2
-
-enunciado: "¿Cuál expresión es equivalente a x + x + x + x, para x = {x}?"
-
-explicacion: |
-  Sumar x cuatro veces es 4x. x⁴ y 4x² confunden sumar repetido con
-  elevar a una potencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["terminos_semejantes", "opcion_multiple"]
-
-variables:
-  x: random(2, 30)
-
-respuesta: 4 * x
-tipo: mc
-opciones_explicitas:
-  - 4 * x
-  - 5
-  - 4
-
-enunciado: "¿Cuál expresión es equivalente a 5x − x, para x = {x}?"
-
-explicacion: |
-  "x" solo vale coeficiente 1, así que 5x − x = 5x − 1x = 4x. No se
-  "cancela" la x dejando sólo un número.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "basico"
-  tags: ["asociativa", "opcion_multiple"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: 6 * x
-tipo: mc
-opciones_explicitas:
-  - 6 * x
-  - 5 * x
-  - 3 * x + 2
-
-enunciado: "¿Cuál expresión es equivalente a 2(3x), para x = {x}?"
-
-explicacion: |
-  2(3x) = (2×3)x = 6x.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "avanzado"
-  tags: ["terminos_semejantes", "dos_variables", "opcion_multiple"]
-
-variables:
-  x: random(1, 20)
-  y: random(21, 40)
-
-respuesta: 4 * x + 2 * y
-tipo: mc
-opciones_explicitas:
-  - 4 * x + 2 * y
-  - 5 * x + 2 * y
-  - 3 * x + 3 * y
-
-enunciado: "¿Cuál expresión es equivalente a 3x + 2y + x, para x = {x}, y = {y}?"
-
-explicacion: |
-  Los dos términos con x se combinan: 3x + x = 4x. El término con y no
-  se toca porque no es semejante.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["terminos_semejantes", "opcion_multiple"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: 2 * x + 5
-tipo: mc
-opciones_explicitas:
-  - 2 * x + 5
-  - 2 * x + 6
-  - x + 5
-
-enunciado: "¿Cuál expresión es equivalente a (x + 2) + (x + 3), para x = {x}?"
-
-explicacion: |
-  Se combinan las x (x+x=2x) y los números sueltos (2+3=5): 2x + 5.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "avanzado"
-  tags: ["distributiva", "signos", "opcion_multiple"]
-
-variables:
-  x: random(1, 10)
-
-respuesta: 14 - x
-tipo: mc
-opciones_explicitas:
-  - 14 - x
-  - 6 - x
-  - x - 14
-
-enunciado: "¿Cuál expresión es equivalente a 10 − (x − 4), para x = {x}?"
-
-explicacion: |
-  10 − (x − 4) = 10 − x + 4 = 14 − x.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["terminos_semejantes", "opcion_multiple"]
-
-variables:
-  x: random(2, 30)
-
-respuesta: 3 * x
-tipo: mc
-opciones_explicitas:
-  - 3 * x
-  - 3 * x ^ 2
-  - 5 * x
-
-enunciado: "¿Cuál expresión es equivalente a x + 2x, para x = {x}?"
-
-explicacion: |
-  x + 2x = 3x (coeficiente 1 + coeficiente 2). 3x² confunde sumar con
-  elevar al cuadrado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "basico"
-  tags: ["terminos_semejantes", "evaluar"]
-
-variables:
-  x: random(1, 40)
-
-respuesta: 4 * x + 3 * x
+respuesta: base ^ exponente
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto vale 4x + 3x, si x = {x}?"
-
-explicacion: |
-  4x + 3x = 7x — combinar antes de multiplicar ahorra la cuenta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "basico"
-  tags: ["terminos_semejantes", "evaluar"]
-
-variables:
-  x: random(1, 40)
-
-respuesta: 10 * x - 4 * x
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto vale 10x − 4x, si x = {x}?"
-
-explicacion: |
-  10x − 4x = 6x.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["distributiva", "evaluar"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: 2 * (x + 5)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto vale 2(x + 5), si x = {x}?"
+enunciado: "¿Cuánto es {base}^{exponente}?"
 
 pasos:
-  - "Distribuir: 2×{x} + 2×5 = {2*x} + 10 = {2*(x+5)}"
+  - "{base}^{exponente} = {base} multiplicado por sí mismo {exponente} veces = {base ^ exponente}"
 
 explicacion: |
-  2(x+5) = 2x + 10.
+  Se multiplica la base por sí misma, tantas veces como el exponente.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "expresiones_equivalentes"
+  tema: "potencias"
   nivel: "intermedio"
-  tags: ["distributiva", "evaluar"]
+  tags: ["potencias"]
 
 variables:
-  x: random(1, 30)
+  base: random(2, 20)
+  exponente: random(2, 3)
 
-respuesta: 3 * (x - 2)
+respuesta: base ^ exponente
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto vale 3(x − 2), si x = {x}?"
+enunciado: "¿Cuánto es {base}^{exponente}?"
 
 explicacion: |
-  3(x−2) = 3x − 6.
+  El procedimiento es el mismo con bases más grandes.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["terminos_semejantes", "evaluar"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: 5 * x + 2 * x - x
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto vale 5x + 2x − x, si x = {x}?"
-
-explicacion: |
-  5x + 2x − x = 6x.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
-  nivel: "intermedio"
-  tags: ["distributiva", "signos", "evaluar"]
-
-variables:
-  x: random(1, 30)
-
-respuesta: -(x + 4)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto vale −(x + 4), si x = {x}?"
-
-explicacion: |
-  −(x+4) = −x − 4.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "expresiones_equivalentes"
+  tema: "potencias"
   nivel: "basico"
-  tags: ["dos_variables", "evaluar"]
+  tags: ["potencias", "casos_especiales"]
 
 variables:
-  x: random(1, 30)
-  y: random(1, 30)
+  base: random(1, 999)
 
-respuesta: 2 * x + 3 * y
+respuesta: base
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto vale 2x + 3y, si x = {x} e y = {y}?"
+enunciado: "¿Cuánto es {base}¹?"
 
 explicacion: |
-  Cada término se evalúa por separado y después se suman.
+  Elevar a la 1 no cambia el número: es multiplicarlo por sí mismo "una
+  sola vez", o sea, dejarlo igual.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "expresiones_equivalentes"
+  tema: "potencias"
   nivel: "basico"
-  tags: ["terminos_semejantes", "evaluar"]
+  tags: ["potencias", "casos_especiales"]
 
 variables:
-  x: random(1, 40)
-
-respuesta: x + x + x + x + x
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto vale x + x + x + x + x, si x = {x}?"
-
-explicacion: |
-  Sumar x cinco veces es lo mismo que 5x.
-```
-
-## Sección: familias-exponencial-logaritmica (28 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "basico"
-  tags: ["exponencial"]
-
-variables:
-  n: random(1, 6)
-
-respuesta: 10 ^ n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = 10^x. ¿Cuánto vale f({n})?"
-
-explicacion: |
-  10^{n} = {10 ^ n}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "basico"
-  tags: ["exponencial"]
-
-variables:
-  a: random(2, 10)
+  base: random(2, 999)
 
 respuesta: 1
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "f(x) = {a}^x. ¿Cuánto vale f(0)?"
+enunciado: "¿Cuánto es {base}⁰?"
 
 explicacion: |
-  Cualquier base elevada a 0 da 1, sin importar cuál sea la base.
+  Cualquier número (distinto de 0) elevado a la 0 da 1. Es una convención
+  que hace que las propiedades de las potencias funcionen sin
+  excepciones.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "basico"
-  tags: ["exponencial"]
+  tema: "potencias"
+  nivel: "avanzado"
+  tags: ["potencias", "casos_especiales"]
 
 variables:
-  a: random(2, 8)
-  n: random(1, 5)
+  base: random(2, 10)
+  exponente: random(1, 3)
 
-respuesta: a ^ n
+respuesta: 1 / (base ^ exponente)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.0001
 
-enunciado: "f(x) = {a}^x. ¿Cuánto vale f({n})?"
-
-explicacion: |
-  {a}^{n} = {a ^ n}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "intermedio"
-  tags: ["exponencial", "decaimiento"]
-
-variables:
-  base_inv: uno_de([2, 5])
-  n: random(1, 4)
-
-respuesta: 1 / (base_inv ^ n)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = (1/{base_inv})^x. ¿Cuánto vale f({n})?"
+enunciado: "¿Cuánto es {base}^(-{exponente})?"
 
 pasos:
-  - "(1/{base_inv})^{n} = 1/{base_inv}^{n} = 1/{base_inv ^ n} = {1 / (base_inv ^ n)}"
+  - "{base}^(-{exponente}) = 1 ÷ {base}^{exponente} = 1 ÷ {base ^ exponente} = {1 / (base ^ exponente)}"
 
 explicacion: |
-  Con base entre 0 y 1, la función decae en vez de crecer.
+  El exponente negativo manda la potencia al denominador de una fracción.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
+  tema: "potencias"
+  nivel: "intermedio"
+  tags: ["potencias", "propiedades"]
+
+variables:
+  base: random(2, 9)
+  n: random(2, 5)
+  m: random(2, 5)
+
+respuesta: base ^ (n + m)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {base}^{n} × {base}^{m}, expresado como {base} elevado a un solo exponente?"
+
+pasos:
+  - "Se suman los exponentes: {n} + {m} = {n + m} → {base}^{n + m}"
+
+explicacion: |
+  Al multiplicar potencias de igual base, se suman los exponentes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "intermedio"
+  tags: ["potencias", "propiedades"]
+
+variables:
+  base: random(2, 9)
+  n: random(4, 8)
+  m: random(1, n - 1)
+
+respuesta: base ^ (n - m)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {base}^{n} ÷ {base}^{m}, expresado como {base} elevado a un solo exponente?"
+
+pasos:
+  - "Se restan los exponentes: {n} - {m} = {n - m} → {base}^{n - m}"
+
+explicacion: |
+  Al dividir potencias de igual base, se restan los exponentes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "intermedio"
+  tags: ["potencias", "propiedades"]
+
+variables:
+  base: random(2, 9)
+  n: random(2, 4)
+  m: random(2, 3)
+
+respuesta: base ^ (n * m)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es ({base}^{n})^{m}, expresado como {base} elevado a un solo exponente?"
+
+pasos:
+  - "Se multiplican los exponentes: {n} × {m} = {n * m} → {base}^{n * m}"
+
+explicacion: |
+  Al elevar una potencia a otro exponente, se multiplican los exponentes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "intermedio"
+  tags: ["potencias", "propiedades"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 9)
+  n: random(2, 3)
+
+respuesta: (a * b) ^ n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es ({a} × {b})^{n}?"
+
+pasos:
+  - "El exponente se distribuye a cada factor: {a}^{n} × {b}^{n} = {a ^ n} × {b ^ n} = {(a * b) ^ n}"
+
+explicacion: |
+  La potencia de un producto es el producto de las potencias.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
   nivel: "basico"
-  tags: ["logaritmica"]
+  tags: ["potencias"]
+
+variables:
+  n: random(2, 30)
+
+respuesta: n ^ 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el cuadrado de {n}?"
+
+explicacion: |
+  El cuadrado de un número es elevarlo a la 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "basico"
+  tags: ["potencias"]
+
+variables:
+  n: random(2, 15)
+
+respuesta: n ^ 3
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el cubo de {n}?"
+
+explicacion: |
+  El cubo de un número es elevarlo a la 3.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "basico"
+  tags: ["potencias", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cualquier número elevado a la 1 da como resultado ese mismo número."
+
+explicacion: |
+  a¹ = a, para cualquier a.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "basico"
+  tags: ["potencias", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cualquier número (distinto de 0) elevado a la 0 da 1."
+
+explicacion: |
+  a⁰ = 1, para cualquier a ≠ 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "intermedio"
+  tags: ["potencias"]
+
+variables:
+  base: random(2, 9)
+  exponente: random(2, 4)
+  correcto: base ^ exponente
+
+respuesta: correcto
+tipo: mc
+opciones_explicitas:
+  - correcto
+  - base * exponente
+  - correcto + base
+
+enunciado: "¿Cuánto es {base}^{exponente}?"
+
+explicacion: |
+  La opción "base × exponente" es un error común: confunde potencia con
+  multiplicación simple.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "intermedio"
+  tags: ["potencias", "verificacion"]
+
+variables:
+  base: random(2, 9)
+  exponente: random(2, 4)
+  correcto: base ^ exponente
+  error: uno_de([0, 0, 0, base, -base])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? {base}^{exponente} = {mostrado}"
+
+explicacion: |
+  Se vuelve a calcular la potencia y se compara.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "intermedio"
+  tags: ["potencias"]
+
+variables:
+  base: random(2, 9)
+  exponente: random(2, 4)
+
+tipo: completar
+enunciado: "Completá: {base}^___ = {base ^ exponente}."
+respuestas_validas:
+  - exponente
+
+explicacion: |
+  Hay que encontrar a qué exponente hay que elevar {base} para obtener
+  {base ^ exponente}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "basico"
+  tags: ["potencias", "problema"]
+
+variables:
+  lado: random(2, 30)
+
+respuesta: lado ^ 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un cuadrado tiene {lado} cm de lado. ¿Cuál es su área (en cm²)?"
+
+explicacion: |
+  El área de un cuadrado es el lado elevado al cuadrado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "basico"
+  tags: ["potencias", "problema"]
+
+variables:
+  arista: random(2, 15)
+
+respuesta: arista ^ 3
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un cubo tiene {arista} cm de arista. ¿Cuál es su volumen (en cm³)?"
+
+explicacion: |
+  El volumen de un cubo es la arista elevada al cubo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "intermedio"
+  tags: ["potencias", "propiedades"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 9)
+  n: random(2, 3)
+
+respuesta: ((a * b) ^ n == (a ^ n) * (b ^ n))
+tipo: vf
+
+enunciado: "¿Es cierto que ({a} × {b})^{n} da lo mismo que {a}^{n} × {b}^{n}?"
+
+explicacion: |
+  Es la propiedad de la potencia de un producto: el exponente se
+  distribuye a cada factor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "intermedio"
+  tags: ["potencias", "propiedades"]
+
+variables:
+  base: random(2, 9)
+  n: random(2, 4)
+  m: random(2, 4)
+
+respuesta: ((base ^ n) * (base ^ m) == base ^ (n + m))
+tipo: vf
+
+enunciado: "¿Es cierto que {base}^{n} × {base}^{m} da lo mismo que {base}^({n} + {m})?"
+
+explicacion: |
+  Es la propiedad del producto de potencias de igual base.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "intermedio"
+  tags: ["potencias", "orden"]
+
+tipo: ordenar
+enunciado: "Calculá estas potencias y ordená los resultados de menor a mayor."
+opciones_explicitas:
+  - "2^5"
+  - "3^3"
+  - "5^2"
+  - "2^3"
+respuesta_orden: ["2^3", "5^2", "3^3", "2^5"]
+
+explicacion: |
+  2³=8, 5²=25, 3³=27, 2⁵=32: hay que calcular cada una antes de poder
+  ordenarlas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "intermedio"
+  tags: ["potencias"]
+
+variables:
+  exponente: random(2, 6)
+
+respuesta: 10 ^ exponente
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es 10^{exponente}?"
+
+pasos:
+  - "10 elevado a n es un 1 seguido de n ceros: {10 ^ exponente}"
+
+explicacion: |
+  Las potencias de 10 son la base de la notación científica, el próximo
+  tema del mapa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "intermedio"
+  tags: ["potencias", "comparacion"]
+
+variables:
+  base1: random(2, 9)
+  exp1: random(2, 4)
+  base2: random(2, 9)
+  exp2: random(2, 4)
+
+restricciones:
+  - (base1 ^ exp1) != (base2 ^ exp2)
+
+respuesta: ((base1 ^ exp1) > (base2 ^ exp2))
+tipo: vf
+
+enunciado: "¿Es {base1}^{exp1} mayor que {base2}^{exp2}?"
+
+explicacion: |
+  Hay que calcular las dos potencias antes de poder compararlas — no
+  alcanza con comparar sólo las bases o sólo los exponentes por separado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "avanzado"
+  tags: ["potencias", "problema"]
+
+variables:
+  inicial: random(1, 10)
+  veces: random(3, 8)
+
+respuesta: inicial * (2 ^ veces)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una población de {inicial} bacterias se duplica cada hora. ¿Cuántas bacterias hay después de {veces} horas?"
+
+pasos:
+  - "{inicial} × 2^{veces} = {inicial} × {2 ^ veces} = {inicial * (2 ^ veces)}"
+
+explicacion: |
+  Duplicarse varias veces seguidas es multiplicar por 2 elevado a la
+  cantidad de veces que se duplicó.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "avanzado"
+  tags: ["potencias", "casos_especiales"]
+
+variables:
+  base: random(2, 10)
+  exponente: random(1, 3)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es cierto que {base}^(-{exponente}) da como resultado un número menor a 1?"
+
+explicacion: |
+  Un exponente negativo con base mayor a 1 siempre da una fracción entre
+  0 y 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "avanzado"
+  tags: ["potencias", "casos_especiales"]
+
+variables:
+  base: random(2, 9)
+  exponente: random(1, 3) * 2
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es cierto que (-{base})^{exponente} da como resultado un número positivo?"
+
+explicacion: |
+  Con exponente par, los signos negativos se van cancelando de a pares:
+  el resultado siempre da positivo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "potencias"
+  nivel: "basico"
+  tags: ["potencias", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una potencia es multiplicar la base por sí misma tantas veces como indica el exponente."
+
+explicacion: |
+  Es la idea central de todo el tema: potenciación es multiplicación
+  repetida, igual que multiplicación es suma repetida.
+```
+
+## Sección: probabilidad-simple (25 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "basico"
+  tags: ["probabilidad", "vocabulario"]
+
+enunciado: "¿Qué mide la probabilidad de un evento?"
+tipo: mc
+opciones_explicitas:
+  - "Qué tan posible es que ocurra ese evento, con un número entre 0 (imposible) y 1 (seguro)"
+  - "Cuántas veces ya ocurrió ese evento en el pasado"
+  - "El tiempo que tarda en ocurrir ese evento"
+respuesta: "Qué tan posible es que ocurra ese evento, con un número entre 0 (imposible) y 1 (seguro)"
+
+explicacion: |
+  0 significa que nunca puede pasar; 1 significa que siempre pasa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "basico"
+  tags: ["probabilidad", "completar"]
+
+tipo: completar
+enunciado: "Completá: P(evento) = casos ___ / casos totales."
+respuestas_validas:
+  - "favorables"
+
+explicacion: |
+  Los casos favorables son los que cumplen la condición del evento.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "intermedio"
+  tags: ["probabilidad", "vocabulario"]
+
+enunciado: "¿Qué es el espacio muestral de un experimento?"
+tipo: mc
+opciones_explicitas:
+  - "El conjunto de TODOS los resultados posibles de ese experimento"
+  - "Sólo el resultado que finalmente ocurrió"
+  - "La cantidad de veces que se repite el experimento"
+respuesta: "El conjunto de TODOS los resultados posibles de ese experimento"
+
+explicacion: |
+  Al tirar un dado, el espacio muestral es {1, 2, 3, 4, 5, 6}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "intermedio"
+  tags: ["probabilidad", "vocabulario"]
+
+enunciado: "¿Qué es un evento, en términos de probabilidad?"
+tipo: mc
+opciones_explicitas:
+  - "Un subconjunto del espacio muestral (un conjunto de resultados que cumplen cierta condición)"
+  - "El espacio muestral completo, siempre"
+  - "Un número entre 0 y 100 fijo"
+respuesta: "Un subconjunto del espacio muestral (un conjunto de resultados que cumplen cierta condición)"
+
+explicacion: |
+  Es el mismo vocabulario de conjuntos que ya se usó en
+  `../diagramas-de-venn/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "intermedio"
+  tags: ["probabilidad", "problema"]
+
+respuesta: 0.5
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Al tirar un dado de 6 caras, ¿cuál es la probabilidad de que salga un número PAR (2, 4 o 6)?"
+
+pasos:
+  - "Casos favorables: {2, 4, 6} = 3. Casos totales: 6."
+  - "P = 3/6 = 0,5"
+
+explicacion: |
+  La mitad de los números del 1 al 6 son pares.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "intermedio"
+  tags: ["probabilidad", "problema"]
+
+respuesta: redondear(2 / 6, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Al tirar un dado de 6 caras, ¿cuál es la probabilidad de que salga un múltiplo de 3 (3 o 6)?"
+
+pasos:
+  - "Casos favorables: {3, 6} = 2. Casos totales: 6."
+  - "P = 2/6 = {redondear(2 / 6, 3)}"
+
+explicacion: |
+  Sólo el 3 y el 6, entre el 1 y el 6, son múltiplos de 3.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "basico"
+  tags: ["probabilidad", "problema"]
+
+respuesta: 0.5
+tipo: input
+
+enunciado: "Al lanzar una moneda equilibrada, ¿cuál es la probabilidad de que salga cara?"
+
+pasos:
+  - "1 caso favorable (cara) sobre 2 casos totales (cara o ceca): P = 1/2 = 0,5"
+
+explicacion: |
+  Ambos resultados son igual de probables en una moneda equilibrada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "avanzado"
+  tags: ["probabilidad", "problema"]
+
+variables:
+  totales: uno_de([12, 18, 24])
+  favorables: uno_de([4, 6])
+
+respuesta: fraccion(favorables, totales)
+tipo: input
+
+enunciado: "En una bolsa hay {totales} bolitas en total, y {favorables} son rojas. Expresá la probabilidad de sacar una bolita roja como fracción simplificada (formato p/q)."
+
+pasos:
+  - "P = {favorables}/{totales}, simplificada = {fraccion(favorables, totales)}"
+
+explicacion: |
+  Se simplifica la fracción dividiendo numerador y denominador por su
+  máximo común divisor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "basico"
+  tags: ["probabilidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si la probabilidad de un evento es exactamente 0, ese evento es imposible: no tiene ningún caso favorable."
+
+explicacion: |
+  Por ejemplo, sacar un 7 en un dado normal de 6 caras.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "basico"
+  tags: ["probabilidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si la probabilidad de un evento es exactamente 1, ese evento es seguro: todos los casos posibles lo cumplen."
+
+explicacion: |
+  Por ejemplo, sacar un número entre 1 y 6 en un dado de 6 caras.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "avanzado"
+  tags: ["probabilidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La suma de las probabilidades de TODOS los resultados posibles de un espacio muestral siempre da exactamente 1 (100%)."
+
+explicacion: |
+  Alguno de los resultados posibles tiene que ocurrir, así que la
+  probabilidad total de que 'pase alguno' es 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "intermedio"
+  tags: ["probabilidad", "completar"]
+
+tipo: completar
+enunciado: "Completá: P(Ā) = 1 − ___."
+respuestas_validas:
+  - "P(A)"
+
+explicacion: |
+  La probabilidad de que NO ocurra A es 1 menos la probabilidad de que
+  ocurra A.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "intermedio"
+  tags: ["probabilidad", "problema"]
+
+variables:
+  p_a: uno_de([0.2, 0.3, 0.4, 0.6, 0.7])
+
+respuesta: redondear(1 - p_a, 2)
+tipo: input
+
+enunciado: "Si la probabilidad de que llueva mañana es {p_a}, ¿cuál es la probabilidad de que NO llueva?"
+
+pasos:
+  - "P(no llueve) = 1 − {p_a} = {redondear(1 - p_a, 2)}"
+
+explicacion: |
+  Lluvia y no-lluvia son eventos complementarios: cubren entre los dos
+  todo lo posible.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "avanzado"
+  tags: ["probabilidad", "problema"]
+
+variables:
+  rojas: random(3, 8)
+  azules: random(3, 8)
+  verdes: random(3, 8)
+
+respuesta: redondear(rojas / (rojas + azules + verdes), 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una bolsa tiene {rojas} bolitas rojas, {azules} azules y {verdes} verdes. Si se saca una al azar, ¿cuál es la probabilidad de que sea roja?"
+
+pasos:
+  - "Total de bolitas = {rojas} + {azules} + {verdes} = {rojas + azules + verdes}"
+  - "P(roja) = {rojas} / {rojas + azules + verdes} = {redondear(rojas / (rojas + azules + verdes), 3)}"
+
+explicacion: |
+  Los casos favorables son las bolitas rojas; los totales, todas las
+  bolitas de la bolsa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "intermedio"
+  tags: ["probabilidad", "problema"]
+
+respuesta: redondear(4 / 40, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "En un mazo de 40 cartas españolas (4 palos, 10 cartas cada uno), ¿cuál es la probabilidad de sacar un as (hay 4 ases en total)?"
+
+pasos:
+  - "P(as) = 4/40 = {redondear(4 / 40, 3)}"
+
+explicacion: |
+  Hay exactamente un as por palo, 4 en total sobre 40 cartas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "intermedio"
+  tags: ["probabilidad", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular la probabilidad de un evento simple."
+tipo: ordenar
+opciones_explicitas:
+  - "El cociente entre ambos es la probabilidad del evento"
+  - "Contar cuántos casos totales hay en el espacio muestral"
+  - "Contar cuántos de esos casos son favorables al evento"
+respuesta_orden: ["Contar cuántos casos totales hay en el espacio muestral", "Contar cuántos de esos casos son favorables al evento", "El cociente entre ambos es la probabilidad del evento"]
+explicacion: |
+  Sin los dos números (favorables y totales) no hay cociente que
+  calcular.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "basico"
+  tags: ["probabilidad", "aplicacion"]
+
+enunciado: "Cuando un pronóstico dice '70% de probabilidad de lluvia', ¿qué significa ese número?"
+tipo: mc
+opciones_explicitas:
+  - "Que, en condiciones similares, llovió el 70% de las veces (es una estimación de qué tan probable es que llueva, no una certeza)"
+  - "Que va a llover exactamente el 70% del día"
+  - "Que sólo va a llover en el 70% del territorio"
+respuesta: "Que, en condiciones similares, llovió el 70% de las veces (es una estimación de qué tan probable es que llueva, no una certeza)"
+
+explicacion: |
+  Una probabilidad alta no es una garantía — sigue siendo posible que
+  no llueva ese día en particular.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "basico"
+  tags: ["probabilidad", "aplicacion"]
+
+enunciado: "¿Por qué la probabilidad de ganar el premio mayor de una lotería suele ser un número extremadamente chico (cercano a 0, pero no exactamente 0)?"
+tipo: mc
+opciones_explicitas:
+  - "Porque hay muchísimos casos totales posibles y muy pocos (o uno solo) son favorables"
+  - "Porque las loterías están diseñadas para que nadie pueda ganar nunca"
+  - "Porque la probabilidad de ganar siempre es exactamente 0"
+respuesta: "Porque hay muchísimos casos totales posibles y muy pocos (o uno solo) son favorables"
+
+explicacion: |
+  No es imposible (P=0), sólo muy poco probable — hay una diferencia
+  real entre ambas cosas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "avanzado"
+  tags: ["probabilidad", "problema"]
+
+variables:
+  rojas: random(3, 10)
+  azules: random(3, 10)
+
+respuesta: redondear(azules / (rojas + azules), 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una bolsa tiene {rojas} bolitas rojas y {azules} azules (nada más). ¿Cuál es la probabilidad de que la bolita extraída NO sea roja?"
+
+pasos:
+  - "P(no roja) = P(azul) = {azules} / ({rojas}+{azules}) = {redondear(azules / (rojas + azules), 3)}"
+
+explicacion: |
+  Como sólo hay dos colores, 'no roja' es exactamente lo mismo que
+  'azul'.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "intermedio"
+  tags: ["probabilidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La probabilidad de cualquier evento siempre está entre 0 y 1 (inclusive) — nunca puede ser negativa ni mayor a 1."
+
+explicacion: |
+  Los casos favorables nunca pueden ser más que los casos totales, ni
+  menos que cero.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "basico"
+  tags: ["probabilidad", "problema"]
+
+variables:
+  p: uno_de([0.25, 0.4, 0.6, 0.75])
+
+respuesta: p * 100
+tipo: input
+unidad: "%"
+
+enunciado: "Si la probabilidad de un evento es {p}, ¿a qué porcentaje equivale?"
+
+pasos:
+  - "{p} × 100 = {p * 100}%"
+
+explicacion: |
+  Multiplicar por 100 pasa de proporción (0 a 1) a porcentaje (0% a
+  100%).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "avanzado"
+  tags: ["probabilidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un evento con probabilidad muy baja (por ejemplo, 0,0001) NO es lo mismo que un evento imposible (probabilidad exactamente 0) — sigue pudiendo ocurrir."
+
+explicacion: |
+  'Muy poco probable' y 'imposible' son categorías distintas, aunque
+  en la vida cotidiana a veces se confundan.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "avanzado"
+  tags: ["probabilidad", "problema"]
+
+variables:
+  numeros_totales: uno_de([20, 30, 50])
+  multiplo: uno_de([4, 5])
+
+respuesta: redondear(floor(numeros_totales / multiplo) / numeros_totales, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Se elige al azar un número entre 1 y {numeros_totales}. ¿Cuál es la probabilidad de que sea múltiplo de {multiplo}?"
+
+pasos:
+  - "Cantidad de múltiplos de {multiplo} hasta {numeros_totales}: {floor(numeros_totales / multiplo)}"
+  - "P = {floor(numeros_totales / multiplo)} / {numeros_totales} = {redondear(floor(numeros_totales / multiplo) / numeros_totales, 3)}"
+
+explicacion: |
+  Se cuentan los múltiplos de {multiplo} en ese rango, y se divide por
+  el total de números posibles.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "avanzado"
+  tags: ["probabilidad", "problema"]
+
+variables:
+  total: uno_de([10, 15, 20, 25])
+  favorables: uno_de([2, 5])
+
+respuesta: fraccion(favorables, total)
+tipo: input
+
+enunciado: "Una ruleta tiene {total} casilleros iguales, {favorables} de ellos son de color dorado. Expresá la probabilidad de que caiga en dorado como fracción simplificada."
+
+pasos:
+  - "P = {favorables}/{total}, simplificada = {fraccion(favorables, total)}"
+
+explicacion: |
+  Simplificar la fracción no cambia el valor de la probabilidad, sólo
+  la forma en que se escribe.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_simple"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve calcular la probabilidad simple de un evento?"
+tipo: mc
+opciones_explicitas:
+  - "Para medir con un número qué tan posible es que ocurra un evento, a partir de casos favorables sobre casos totales"
+  - "Sólo sirve para juegos de azar, sin ninguna otra aplicación"
+  - "Sólo aplica cuando el espacio muestral tiene exactamente 6 resultados"
+respuesta: "Para medir con un número qué tan posible es que ocurra un evento, a partir de casos favorables sobre casos totales"
+
+explicacion: |
+  Es la base directa de `../independencia-de-eventos-y-diagrama-de-arbol/`
+  y `../probabilidad-compuesta/`, que combinan varios eventos simples
+  como este.
+```
+
+## Sección: logaritmos (26 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "basico"
+  tags: ["logaritmos", "vocabulario"]
+
+enunciado: "¿Qué es log₁₀ x?"
+tipo: mc
+opciones_explicitas:
+  - "El exponente al que hay que elevar 10 para obtener x"
+  - "x dividido 10"
+  - "10 elevado a x"
+respuesta: "El exponente al que hay que elevar 10 para obtener x"
+
+explicacion: |
+  log_b x = y significa que bʸ = x: el logaritmo despeja el exponente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "basico"
+  tags: ["logaritmos"]
 
 variables:
   n: random(1, 6)
@@ -1298,1654 +1660,1048 @@ variables:
 
 respuesta: log10(x)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.001
 
-enunciado: "g(x) = log₁₀(x). ¿Cuánto vale g({x})?"
+enunciado: "¿Cuánto es log₁₀({x})?"
+
+pasos:
+  - "{x} = 10^{n}, así que log₁₀({x}) = {n}"
 
 explicacion: |
-  log₁₀({x}) = {n}, porque 10^{n} = {x}.
+  El logaritmo en base 10 de una potencia exacta de 10 es, directamente,
+  el exponente.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
+  tema: "logaritmos"
+  nivel: "intermedio"
+  tags: ["logaritmos"]
+
+variables:
+  n: random(2, 9)
+  x: 10 ^ n
+
+respuesta: log10(x)
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "¿Cuánto es log₁₀({x})?"
+
+explicacion: |
+  Alcanza con contar cuántos ceros tiene {x} después del 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "intermedio"
+  tags: ["logaritmos", "vocabulario"]
+
+variables:
+  n: random(1, 6)
+  x: 10 ^ n
+
+respuesta: ((10 ^ n) == x)
+tipo: vf
+
+enunciado: "Sabiendo que log₁₀({x}) = {n}, ¿es cierto que 10^{n} = {x}?"
+
+explicacion: |
+  El logaritmo y la potencia son operaciones inversas: si log_b x = y,
+  entonces bʸ = x.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
   nivel: "basico"
-  tags: ["logaritmica"]
+  tags: ["logaritmos", "casos_especiales"]
 
 respuesta: 0
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.001
 
-enunciado: "g(x) = log₁₀(x). ¿Cuánto vale g(1)?"
+enunciado: "¿Cuánto es log₁₀(1)?"
 
 explicacion: |
-  El logaritmo de 1 siempre da 0, sin importar la base.
+  Cualquier base elevada a 0 da 1: por eso el logaritmo de 1, en
+  cualquier base, siempre es 0.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "intermedio"
-  tags: ["logaritmica"]
+  tema: "logaritmos"
+  nivel: "basico"
+  tags: ["logaritmos", "casos_especiales"]
 
-variables:
-  n: random(1, 5)
-  x: 10 ^ n * 10
-
-respuesta: n + 1
+respuesta: 1
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.001
 
-enunciado: "g(x) = log₁₀(x). ¿Cuánto vale g({x})?"
+enunciado: "¿Cuánto es log₁₀(10)?"
 
 explicacion: |
-  {x} = 10^{n + 1}, así que g({x}) = {n + 1}.
+  Cualquier base elevada a 1 da esa misma base: por eso log_b(b) siempre
+  es 1.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
+  tema: "logaritmos"
   nivel: "intermedio"
-  tags: ["inversa", "verdadero_falso"]
+  tags: ["logaritmos", "propiedades"]
 
 variables:
-  n: random(1, 6)
+  a: random(2, 90)
+  b: random(2, 90)
 
-respuesta: (log10(10 ^ n) == n)
+respuesta: (abs(log10(a * b) - (log10(a) + log10(b))) < 0.001)
 tipo: vf
 
-enunciado: "f(x) = 10^x, g(x) = log₁₀(x). ¿g(f({n})) da de vuelta {n}?"
+enunciado: "¿Es cierto que log₁₀({a} × {b}) da lo mismo que log₁₀({a}) + log₁₀({b})?"
 
 explicacion: |
-  Es la definición de funciones inversas: una deshace lo que hace la
-  otra.
+  Es la propiedad del logaritmo de un producto: se convierte en una suma
+  de logaritmos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
+  tema: "logaritmos"
   nivel: "intermedio"
-  tags: ["inversa", "verdadero_falso"]
+  tags: ["logaritmos", "propiedades"]
 
 variables:
-  n: random(1, 6)
-  x: 10 ^ n
+  a: random(20, 900)
+  b: random(2, 19)
 
-respuesta: ((10 ^ log10(x)) == x)
+respuesta: (abs(log10(a / b) - (log10(a) - log10(b))) < 0.001)
 tipo: vf
 
-enunciado: "f(x) = 10^x, g(x) = log₁₀(x). ¿f(g({x})) da de vuelta {x}?"
+enunciado: "¿Es cierto que log₁₀({a} ÷ {b}) da lo mismo que log₁₀({a}) - log₁₀({b})?"
 
 explicacion: |
-  Aplicar la exponencial después del logaritmo también devuelve el
-  valor original.
+  Es la propiedad del logaritmo de un cociente: se convierte en una resta
+  de logaritmos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "basico"
-  tags: ["concepto", "dominio", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El dominio de cualquier función exponencial f(x) = aˣ son todos los números reales."
-
-explicacion: |
-  Cualquier exponente (entero, fraccionario, negativo) tiene sentido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "basico"
-  tags: ["concepto", "dominio", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "El dominio de la función logarítmica también son todos los reales, igual que la exponencial."
-
-explicacion: |
-  El dominio del logaritmo es sólo x > 0 — no se puede sacar logaritmo
-  de 0 ni de un número negativo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "basico"
-  tags: ["concepto", "imagen", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La imagen de cualquier función exponencial f(x) = aˣ (con a>0) es y > 0."
-
-explicacion: |
-  Una potencia con base positiva nunca da 0 ni negativo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
+  tema: "logaritmos"
   nivel: "intermedio"
-  tags: ["concepto", "imagen", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La imagen de la función logarítmica son todos los números reales."
-
-explicacion: |
-  A diferencia del dominio (restringido a x>0), la imagen del logaritmo
-  cubre todos los reales — el dominio y la imagen se invierten entre
-  exponencial y logarítmica.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Existe algún valor de x para el cual 10^x da exactamente 0."
-
-explicacion: |
-  Nunca — la exponencial se acerca a 0 (asíntota horizontal) pero jamás
-  lo toca.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El gráfico de una función exponencial tiene una asíntota horizontal en y=0."
-
-explicacion: |
-  La curva se acerca cada vez más al eje x sin tocarlo nunca.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El gráfico de una función logarítmica tiene una asíntota vertical en x=0."
-
-explicacion: |
-  Cuando x se acerca a 0 por la derecha, el logaritmo se va hacia menos
-  infinito sin llegar nunca a x=0 (que ni siquiera está en el dominio).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A la larga, cualquier función exponencial con base mayor que 1 termina superando a cualquier función lineal, sin importar cuán grande sea la pendiente de esta última."
-
-explicacion: |
-  El crecimiento exponencial multiplica en cada paso; el lineal suma
-  siempre lo mismo — a la larga, multiplicar gana.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "avanzado"
-  tags: ["verdadero_falso"]
+  tags: ["logaritmos", "propiedades"]
 
 variables:
-  m: random(50, 200)
-  n: random(10, 15)
+  a: random(2, 90)
+  n: random(2, 4)
 
-respuesta: ((2 ^ n) > (m * n))
+respuesta: (abs(log10(a ^ n) - (n * log10(a))) < 0.001)
 tipo: vf
 
-enunciado: "f(x) = 2^x (exponencial) y g(x) = {m}x (lineal, con pendiente grande). ¿f({n}) ya supera a g({n})?"
+enunciado: "¿Es cierto que log₁₀({a}^{n}) da lo mismo que {n} × log₁₀({a})?"
 
 explicacion: |
-  Aunque {m} es una pendiente grande, el crecimiento exponencial termina
-  superándola para un x suficientemente grande.
+  Es la propiedad del logaritmo de una potencia: el exponente pasa a
+  multiplicar.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
+  tema: "logaritmos"
   nivel: "intermedio"
-  tags: ["concepto", "decaimiento", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Con base entre 0 y 1 (por ejemplo, f(x) = (1/2)ˣ), la función decrece en vez de crecer."
-
-explicacion: |
-  A diferencia de a>1, con 0<a<1 cada paso multiplica por un número
-  menor a 1, así que el valor disminuye.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "avanzado"
-  tags: ["exponencial", "decaimiento"]
+  tags: ["logaritmos", "propiedades"]
 
 variables:
-  base_inv: random(2, 5)
-  n: random(1, 4)
+  n1: random(1, 4)
+  n2: random(1, 4)
 
-respuesta: base_inv ^ n
+respuesta: n1 + n2
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.001
 
-enunciado: "f(x) = (1/{base_inv})^x. ¿Cuánto vale f(−{n})?"
+enunciado: "Sabiendo que log₁₀(10^{n1}) = {n1} y log₁₀(10^{n2}) = {n2}, ¿cuánto es log₁₀(10^{n1} × 10^{n2})?"
 
 pasos:
-  - "(1/{base_inv})^(−{n}) = {base_inv}^{n} = {base_inv ^ n}"
+  - "log₁₀(10^{n1} × 10^{n2}) = {n1} + {n2} = {n1 + n2}"
 
 explicacion: |
-  Un exponente negativo con base fraccionaria "da vuelta" la fracción,
-  volviendo a crecer.
+  El logaritmo de un producto es la suma de los logaritmos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
+  tema: "logaritmos"
   nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La función logarítmica es la función inversa de la exponencial de la misma base."
-
-explicacion: |
-  Una deshace lo que hace la otra — mismo concepto ya visto en
-  `../funcion-inversa-composicion/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los gráficos de una función exponencial y su logaritmo inverso son reflejos uno del otro respecto a la recta y=x."
-
-explicacion: |
-  Es una propiedad general de cualquier par de funciones inversas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  n: random(1, 5)
-  real: 10 ^ n
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "f(x) = 10^x. ¿Es correcto que f({n}) sea {propuesto}?"
-
-explicacion: |
-  El valor correcto es 10^{n} = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  n: random(1, 6)
-  x: 10 ^ n
-  error: uno_de([0, 0, 1, -1])
-  propuesto: n + error
-
-respuesta: (propuesto == n)
-tipo: vf
-
-enunciado: "g(x) = log₁₀(x). ¿Es correcto que g({x}) sea {propuesto}?"
-
-explicacion: |
-  El valor correcto es log₁₀({x}) = {n}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "avanzado"
-  tags: ["exponencial", "problema"]
-
-variables:
-  poblacion_inicial: random(100, 1000)
-  tasa: random(2, 4)
-  anios: random(1, 4)
-
-respuesta: poblacion_inicial * tasa ^ anios
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una población se duplica (o se multiplica por {tasa}) cada año: P(t) = {poblacion_inicial}×{tasa}^t. ¿Cuál es la población después de {anios} años?"
-
-explicacion: |
-  Es una función exponencial: el crecimiento multiplica, no suma, en
-  cada paso.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "log₁₀(x) y ln(x) son exactamente la misma función, sólo con otro nombre."
-
-explicacion: |
-  Son logaritmos de distinta base: log₁₀ es base 10, ln es logaritmo
-  natural (base e) — dan resultados distintos para el mismo x (ver
-  `../logaritmos/` de Tronco 1).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "basico"
-  tags: ["concepto", "dominio", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "log₁₀(−5) da un número real negativo."
-
-explicacion: |
-  No está definido: −5 no pertenece al dominio del logaritmo (x tiene
-  que ser mayor que 0).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "familias_exponencial_logaritmica"
-  nivel: "intermedio"
-  tags: ["exponencial", "logaritmica"]
+  tags: ["logaritmos"]
 
 variables:
   n: random(1, 6)
   x: 10 ^ n
 
 respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "10^x = {x}. ¿Cuánto vale x?"
-
-pasos:
-  - "x = log₁₀({x}) = {n}"
-
-explicacion: |
-  Despejar un exponente es, exactamente, aplicar el logaritmo — la
-  operación inversa.
-```
-
-## Sección: forma-polar-complejos (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "basico"
-  tags: ["modulo"]
-
-variables:
-  k: random(1, 15)
-  a: 3 * k
-  b: 4 * k
-
-respuesta: sqrt(a ^ 2 + b ^ 2)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el módulo de {a} + {b}i?"
-
-pasos:
-  - "|z| = √({a}² + {b}²) = √({a ^ 2} + {b ^ 2}) = √{a ^ 2 + b ^ 2} = {sqrt(a ^ 2 + b ^ 2)}"
-
-explicacion: |
-  El módulo es la distancia al origen, calculada con Pitágoras.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "basico"
-  tags: ["modulo"]
-
-variables:
-  k: random(1, 10)
-  a: 5 * k
-  b: 12 * k
-
-respuesta: sqrt(a ^ 2 + b ^ 2)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el módulo de {a} + {b}i?"
-
-explicacion: |
-  √({a}² + {b}²) = {sqrt(a ^ 2 + b ^ 2)}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "intermedio"
-  tags: ["modulo"]
-
-variables:
-  k: random(1, 8)
-  a: 8 * k
-  b: 15 * k
-
-respuesta: sqrt(a ^ 2 + b ^ 2)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el módulo de {a} + {b}i?"
-
-explicacion: |
-  √({a}² + {b}²) = {sqrt(a ^ 2 + b ^ 2)}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "intermedio"
-  tags: ["modulo"]
-
-variables:
-  k: random(1, 8)
-  a: 7 * k
-  b: 24 * k
-
-respuesta: sqrt(a ^ 2 + b ^ 2)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el módulo de {a} + {b}i?"
-
-explicacion: |
-  √({a}² + {b}²) = {sqrt(a ^ 2 + b ^ 2)}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "avanzado"
-  tags: ["modulo"]
-
-variables:
-  k: random(1, 6)
-  a: 20 * k
-  b: 21 * k
-
-respuesta: sqrt(a ^ 2 + b ^ 2)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el módulo de {a} + {b}i?"
-
-explicacion: |
-  √({a}² + {b}²) = {sqrt(a ^ 2 + b ^ 2)}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "intermedio"
-  tags: ["modulo", "signos"]
-
-variables:
-  k: random(1, 15)
-  signo_a: uno_de([1, -1])
-  signo_b: uno_de([1, -1])
-  a: 3 * k * signo_a
-  b: 4 * k * signo_b
-
-respuesta: sqrt(a ^ 2 + b ^ 2)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el módulo de {a} + {b}i?"
-
-explicacion: |
-  El signo no afecta al módulo: se eleva al cuadrado antes de sumar, así
-  que siempre da positivo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "basico"
-  tags: ["argumento"]
-
-variables:
-  a: random(1, 30)
-
-respuesta: 0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el argumento (en grados) de {a} (un real positivo puro)?"
-
-explicacion: |
-  Está sobre el eje real positivo: argumento 0°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "basico"
-  tags: ["argumento"]
-
-variables:
-  b: random(1, 30)
-
-respuesta: 90
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el argumento (en grados) de {b}i (un imaginario positivo puro)?"
-
-explicacion: |
-  Está sobre el eje imaginario positivo: argumento 90°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "basico"
-  tags: ["argumento"]
-
-variables:
-  a: random(1, 30)
-
-respuesta: 180
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el argumento (en grados) de −{a} (un real negativo puro)?"
-
-explicacion: |
-  Está sobre el eje real negativo: argumento 180°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "basico"
-  tags: ["argumento"]
-
-variables:
-  b: random(1, 30)
-
-respuesta: 270
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el argumento (en grados) de −{b}i (un imaginario negativo puro)?"
-
-explicacion: |
-  Está sobre el eje imaginario negativo: argumento 270°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "basico"
-  tags: ["modulo"]
-
-variables:
-  a: random(1, 40)
-
-respuesta: a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el módulo de −{a}?"
-
-explicacion: |
-  El módulo es siempre positivo: |−{a}| = {a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "basico"
-  tags: ["modulo"]
-
-variables:
-  b: random(1, 40)
-
-respuesta: b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el módulo de −{b}i?"
-
-explicacion: |
-  |−{b}i| = {b}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "intermedio"
-  tags: ["multiplicacion_polar"]
-
-variables:
-  r1: random(2, 15)
-  r2: random(2, 15)
-  t1: uno_de([0, 90, 180, 270])
-  t2: uno_de([0, 90, 180, 270])
-
-respuesta: r1 * r2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "z₁ tiene módulo {r1} y argumento {t1}°. z₂ tiene módulo {r2} y argumento {t2}°. ¿Cuál es el módulo de z₁×z₂?"
-
-explicacion: |
-  Los módulos se multiplican: {r1}×{r2} = {r1 * r2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "intermedio"
-  tags: ["multiplicacion_polar"]
-
-variables:
-  r1: random(2, 15)
-  r2: random(2, 15)
-  t1: uno_de([0, 90, 180, 270])
-  t2: uno_de([0, 90, 180, 270])
-
-respuesta: t1 + t2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "z₁ tiene módulo {r1} y argumento {t1}°. z₂ tiene módulo {r2} y argumento {t2}°. ¿Cuál es el argumento de z₁×z₂ (sin normalizar a menos de 360°)?"
-
-explicacion: |
-  Los argumentos se suman: {t1}° + {t2}° = {t1 + t2}°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "intermedio"
-  tags: ["division_polar"]
-
-variables:
-  r2: random(2, 10)
-  k: random(2, 8)
-  r1: r2 * k
-  t1: uno_de([0, 90, 180, 270])
-  t2: uno_de([0, 90, 180, 270])
-
-respuesta: r1 / r2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "z₁ tiene módulo {r1} y argumento {t1}°. z₂ tiene módulo {r2} y argumento {t2}°. ¿Cuál es el módulo de z₁/z₂?"
-
-explicacion: |
-  Los módulos se dividen: {r1}/{r2} = {r1 / r2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "intermedio"
-  tags: ["division_polar"]
-
-variables:
-  r1: random(2, 15)
-  r2: random(2, 15)
-  t1: uno_de([180, 270])
-  t2: uno_de([0, 90])
-
-respuesta: t1 - t2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "z₁ tiene módulo {r1} y argumento {t1}°. z₂ tiene módulo {r2} y argumento {t2}°. ¿Cuál es el argumento de z₁/z₂?"
-
-explicacion: |
-  Los argumentos se restan: {t1}° − {t2}° = {t1 - t2}°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El módulo de un número complejo es la distancia desde el origen hasta el punto (a, b) en el plano complejo."
-
-explicacion: |
-  Se calcula con el teorema de Pitágoras: √(a²+b²).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El módulo de un número complejo nunca puede dar negativo."
-
-explicacion: |
-  Es una distancia, y las distancias no son negativas — además, sale de
-  una raíz cuadrada de una suma de cuadrados, siempre ≥ 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Multiplicar dos números complejos en forma polar es más simple que en forma binómica: sólo hace falta multiplicar módulos y sumar argumentos."
-
-explicacion: |
-  En forma binómica hay que distribuir y usar i²=−1; en forma polar es
-  sólo una multiplicación y una suma.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Al multiplicar dos complejos en forma polar, los argumentos se multiplican entre sí, igual que los módulos."
-
-explicacion: |
-  Los módulos se multiplican, pero los argumentos se SUMAN — son reglas
-  distintas para cada parte.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La forma polar z = r(cos θ + i sen θ) usa el módulo r y el argumento θ para describir el mismo número que a + bi."
-
-explicacion: |
-  Son dos formas distintas de nombrar el mismo punto del plano complejo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Calcular el argumento sólo con arctan(b/a), sin fijarse en qué cuadrante cae el punto, puede dar un ángulo equivocado."
-
-explicacion: |
-  arctan por sí solo no distingue todos los cuadrantes — hay que ajustar
-  el resultado según los signos de a y b.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  k: random(1, 15)
-  a: 3 * k
-  b: 4 * k
-  real: sqrt(a ^ 2 + b ^ 2)
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "¿Es correcto que el módulo de {a} + {b}i sea {propuesto}?"
-
-explicacion: |
-  El módulo correcto es √({a}²+{b}²) = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El módulo de un número real puro (b=0) es simplemente su valor absoluto."
-
-explicacion: |
-  √(a²+0²) = √(a²) = |a|.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "avanzado"
-  tags: ["multiplicacion_polar"]
-
-variables:
-  r: random(2, 8)
-  t: uno_de([0, 90, 180, 270])
-
-respuesta: r * r * r
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "z tiene módulo {r} y argumento {t}°. ¿Cuál es el módulo de z³ (z×z×z)?"
-
-explicacion: |
-  Cada multiplicación multiplica los módulos: {r}×{r}×{r} = {r * r * r}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "forma_polar_complejos"
-  nivel: "avanzado"
-  tags: ["multiplicacion_polar"]
-
-variables:
-  r: random(2, 8)
-  t: uno_de([30, 45, 60, 90])
-
-respuesta: t * 3
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "z tiene módulo {r} y argumento {t}°. ¿Cuál es el argumento de z³ (sin normalizar), sumando el argumento tres veces?"
-
-explicacion: |
-  Cada multiplicación suma el argumento: {t}°×3 = {t * 3}°.
-```
-
-## Sección: fracciones (28 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "basico"
-  tags: ["fracciones", "vocabulario"]
-
-enunciado: "En la fracción 3/4, ¿qué representa el 3 (el numerador)?"
 tipo: mc
 opciones_explicitas:
-  - "Cuántas partes se toman"
-  - "En cuántas partes se dividió el todo"
-  - "El resultado de la división"
-respuesta: "Cuántas partes se toman"
+  - n
+  - x / 10
+  - n + 1
+
+enunciado: "¿Cuánto es log₁₀({x})?"
 
 explicacion: |
-  El numerador dice cuántas partes del todo se están tomando.
+  Las otras opciones confunden el logaritmo con dividir por 10, o se
+  equivocan por poco.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "fracciones"
-  nivel: "basico"
-  tags: ["fracciones", "vocabulario"]
-
-enunciado: "En la fracción 3/4, ¿qué representa el 4 (el denominador)?"
-tipo: mc
-opciones_explicitas:
-  - "En cuántas partes iguales se dividió el todo"
-  - "Cuántas partes se toman"
-  - "El resultado de la división"
-respuesta: "En cuántas partes iguales se dividió el todo"
-
-explicacion: |
-  El denominador dice en cuántas partes iguales se dividió el entero.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
+  tema: "logaritmos"
   nivel: "intermedio"
-  tags: ["fracciones", "equivalencia"]
+  tags: ["logaritmos", "verificacion"]
 
 variables:
-  a: random(1, 9)
-  b: random(2, 9)
-  k: random(2, 8)
-  c: a * k
-  d: b * k
-
-respuesta: (a * d == b * c)
-tipo: vf
-
-enunciado: "¿Son equivalentes las fracciones {a}/{b} y {c}/{d}?"
-
-pasos:
-  - "Producto cruzado: {a} × {d} = {a * d}. {b} × {c} = {b * c}. ¿Son iguales?"
-
-explicacion: |
-  Dos fracciones son equivalentes si el producto cruzado da lo mismo de
-  los dos lados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "intermedio"
-  tags: ["fracciones", "equivalencia"]
-
-variables:
-  a: random(1, 9)
-  b: random(2, 9)
-  c: random(1, 9)
-  d: random(2, 9)
-
-restricciones:
-  - (a * d) != (b * c)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Son equivalentes las fracciones {a}/{b} y {c}/{d}?"
-
-explicacion: |
-  El producto cruzado no da igual de los dos lados: no son equivalentes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "basico"
-  tags: ["fracciones", "amplificar"]
-
-variables:
-  a: random(1, 9)
-  b: random(2, 9)
-  k: random(2, 9)
-
-respuesta: a * k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Para amplificar {a}/{b} multiplicando por {k}, ¿cuál queda el nuevo numerador?"
-
-pasos:
-  - "{a} × {k} = {a * k} (y el denominador queda {b} × {k} = {b * k})"
-
-explicacion: |
-  Amplificar es multiplicar numerador y denominador por el mismo número,
-  para llegar a una fracción equivalente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "intermedio"
-  tags: ["fracciones", "simplificar"]
-
-variables:
-  divisor_comun: random(2, 9)
-  num: divisor_comun * random(2, 9)
-  den: divisor_comun * random(2, 9)
-  simplificador: mcd(num, den)
-
-restricciones:
-  - num != den
-
-respuesta: num / simplificador
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Al simplificar {num}/{den} al máximo (dividiendo por su MCD), ¿cuál queda el numerador?"
-
-pasos:
-  - "MCD({num}, {den}) = {simplificador}. {num} ÷ {simplificador} = {num / simplificador}"
-
-explicacion: |
-  Simplificar al máximo es dividir numerador y denominador por su MCD.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "intermedio"
-  tags: ["fracciones", "simplificar"]
-
-variables:
-  a: random(1, 20)
-  b: a + 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es {a}/{b} una fracción irreducible (que ya no se puede simplificar más)?"
-
-explicacion: |
-  Como {a} y {b} son números consecutivos, su MCD es 1: no se pueden
-  simplificar más.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "basico"
-  tags: ["fracciones", "comparacion"]
-
-variables:
-  b: random(5, 20)
-  a: random(1, b - 1)
-  c: random(1, b - 1)
-
-restricciones:
-  - a != c
-
-respuesta: (a > c)
-tipo: vf
-
-enunciado: "¿Es {a}/{b} mayor que {c}/{b}?"
-
-explicacion: |
-  Con el mismo denominador, alcanza con comparar los numeradores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "intermedio"
-  tags: ["fracciones", "comparacion"]
-
-variables:
-  a: random(1, 9)
-  b: random(2, 9)
-  c: random(1, 9)
-  d: random(2, 9)
-
-restricciones:
-  - (a * d) != (b * c)
-
-respuesta: (a * d > b * c)
-tipo: vf
-
-enunciado: "¿Es {a}/{b} mayor que {c}/{d}?"
-
-pasos:
-  - "Producto cruzado: {a} × {d} = {a * d}. {b} × {c} = {b * c}."
-
-explicacion: |
-  Con distinto denominador, se compara el producto cruzado: a/b es mayor
-  que c/d si a×d es mayor que b×c.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "basico"
-  tags: ["fracciones", "vocabulario"]
-
-variables:
-  b: random(2, 9)
-  a: random(1, b - 1)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es {a}/{b} una fracción propia (menor que 1 entero)?"
-
-explicacion: |
-  Como el numerador es menor que el denominador, la fracción vale menos
-  que un entero completo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "basico"
-  tags: ["fracciones", "vocabulario"]
-
-variables:
-  b: random(2, 9)
-  a: b + random(1, 9)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es {a}/{b} una fracción propia (menor que 1 entero)?"
-
-explicacion: |
-  Como el numerador es mayor que el denominador, esta fracción es
-  impropia: vale 1 entero o más.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "intermedio"
-  tags: ["fracciones", "numero_mixto"]
-
-variables:
-  b: random(2, 9)
-  entero: random(1, 5)
-  resto: random(1, b - 1)
-  a: b * entero + resto
-
-respuesta: entero
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Al convertir la fracción impropia {a}/{b} a número mixto, ¿cuál es la parte entera?"
-
-pasos:
-  - "{a} ÷ {b} da cociente {entero} (y resto {resto})"
-
-explicacion: |
-  La parte entera es el cociente de dividir el numerador por el
-  denominador.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "intermedio"
-  tags: ["fracciones", "numero_mixto"]
-
-variables:
-  b: random(2, 9)
-  entero: random(1, 5)
-  resto: random(1, b - 1)
-  a: b * entero + resto
-
-respuesta: resto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Al convertir {a}/{b} a número mixto, ¿cuál queda el numerador de la parte fraccionaria (sobre el mismo denominador {b})?"
-
-pasos:
-  - "El resto de {a} ÷ {b} es {resto}: el número mixto queda {entero} entero(s) y {resto}/{b}"
-
-explicacion: |
-  La parte fraccionaria es el resto de la división, sobre el mismo
-  denominador original.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "intermedio"
-  tags: ["fracciones", "numero_mixto"]
-
-variables:
-  entero: random(1, 6)
-  b: random(2, 9)
-  resto: random(1, b - 1)
-
-respuesta: entero * b + resto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El número mixto es {entero} entero(s) y {resto}/{b}. ¿Cuál es el numerador de la fracción impropia equivalente (sobre el mismo denominador {b})?"
-
-pasos:
-  - "{entero} × {b} + {resto} = {entero * b + resto}"
-
-explicacion: |
-  Se multiplica la parte entera por el denominador y se suma el
-  numerador de la parte fraccionaria.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "basico"
-  tags: ["fracciones", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estas fracciones de menor a mayor (todas tienen el mismo denominador)."
-opciones_explicitas:
-  - "5/8"
-  - "1/8"
-  - "6/8"
-  - "3/8"
-respuesta_orden: ["1/8", "3/8", "5/8", "6/8"]
-
-explicacion: |
-  Con el mismo denominador, alcanza con ordenar los numeradores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "intermedio"
-  tags: ["fracciones", "equivalencia"]
-
-variables:
-  a: random(1, 9)
-  b: random(2, 9)
-  k: random(2, 6)
-
-respuesta: a * k
-tipo: mc
-opciones_explicitas:
-  - a * k
-  - a * k + 1
-  - a + k
-
-enunciado: "¿Cuál es el numerador de una fracción equivalente a {a}/{b}, con denominador {b * k}?"
-
-explicacion: |
-  Si el denominador se multiplicó por {k}, el numerador también tiene que
-  multiplicarse por {k} para que la fracción siga valiendo lo mismo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "intermedio"
-  tags: ["fracciones", "equivalencia"]
-
-variables:
-  a: random(1, 9)
-  b: random(2, 9)
-  k: random(2, 6)
-  equivalente: a * k
-  no_equivalente: equivalente + 1
-
-respuesta: no_equivalente
-tipo: mc
-opciones_explicitas:
-  - equivalente
-  - no_equivalente
-
-enunciado: "¿Cuál de estos dos numeradores NO forma una fracción equivalente a {a}/{b}, con denominador {b * k}?"
-
-explicacion: |
-  Sólo {a} × {k} = {equivalente} mantiene la misma proporción.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "basico"
-  tags: ["fracciones", "problema"]
-
-variables:
-  porciones: random(4, 12)
-  comidas: random(1, porciones - 1)
-
-respuesta: comidas
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una pizza se cortó en {porciones} porciones iguales. Si te comiste {comidas} porciones, ¿cuál es el numerador de la fracción de pizza que comiste (sobre {porciones})?"
-
-explicacion: |
-  La cantidad de porciones comidas es, directamente, el numerador de la
-  fracción sobre el total de porciones.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "intermedio"
-  tags: ["fracciones", "verificacion"]
-
-variables:
-  a: random(1, 9)
-  b: random(2, 9)
-  k: random(2, 8)
-  c_correcto: a * k
+  n: random(1, 6)
+  x: 10 ^ n
   error: uno_de([0, 0, 0, 1, -1])
-  c_mostrado: c_correcto + error
-  d: b * k
+  mostrado: n + error
 
-respuesta: (a * d == c_mostrado * b)
+respuesta: (mostrado == n)
 tipo: vf
 
-enunciado: "¿Es {c_mostrado}/{d} equivalente a {a}/{b}?"
+enunciado: "¿Está bien calculado esto? log₁₀({x}) = {mostrado}"
 
 explicacion: |
-  Se verifica con el producto cruzado: si no coincide, no son
-  equivalentes.
+  Se verifica comprobando que 10 elevado al resultado dado sea igual a
+  {x}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "fracciones"
+  tema: "logaritmos"
   nivel: "intermedio"
-  tags: ["fracciones", "simplificar"]
+  tags: ["logaritmos"]
 
 variables:
-  divisor_comun: random(2, 9)
-  num: divisor_comun * random(2, 9)
-  den: divisor_comun * random(2, 9)
-  simplificador: mcd(num, den)
-
-restricciones:
-  - num != den
-
-respuesta: den / simplificador
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Al simplificar {num}/{den} al máximo, ¿cuál queda el denominador?"
-
-explicacion: |
-  Se divide también el denominador por el mismo MCD que se usó en el
-  numerador.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "intermedio"
-  tags: ["fracciones", "comparacion"]
-
-variables:
-  a: random(1, 9)
-  b: random(2, 9)
-  c: random(1, 9)
-  d: random(2, 9)
-
-restricciones:
-  - (a * d) != (b * c)
-
-respuesta: (a * d > b * c)
-tipo: mc
-opciones_explicitas:
-  - verdadero
-  - falso
-
-enunciado: "¿Es cierto que {a}/{b} es mayor que {c}/{d}?"
-
-explicacion: |
-  Se compara con el producto cruzado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "basico"
-  tags: ["fracciones", "vocabulario"]
-
-variables:
-  n: random(2, 20)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es cierto que {n}/{n} representa exactamente 1 entero?"
-
-explicacion: |
-  Cuando el numerador y el denominador son iguales, la fracción vale 1: el
-  todo entero se dividió en n partes y se tomaron las n.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "basico"
-  tags: ["fracciones", "vocabulario"]
-
-variables:
-  n: random(2, 20)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es cierto que 0/{n} vale 0?"
-
-explicacion: |
-  No tomar ninguna parte (numerador 0) de cualquier cantidad de partes
-  vale 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "basico"
-  tags: ["fracciones", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una fracción no puede tener 0 como denominador."
-
-explicacion: |
-  Dividir por 0 no está definido (ver la teoría de división): el
-  denominador siempre tiene que ser distinto de 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "avanzado"
-  tags: ["fracciones", "comparacion"]
-
-variables:
-  b: random(6, 12)
-  a: random(1, b - 1)
-  c: random(1, b - 1)
-  e: random(1, b - 1)
-
-restricciones:
-  - a != c
-  - a != e
-  - c != e
-
-respuesta: max(a, c, e)
-tipo: mc
-opciones_explicitas:
-  - a
-  - c
-  - e
-
-enunciado: "Entre {a}/{b}, {c}/{b} y {e}/{b} (mismo denominador), ¿cuál numerador corresponde a la fracción mayor?"
-
-explicacion: |
-  Con el mismo denominador, la fracción mayor es la que tiene el
-  numerador más grande.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "fracciones"
-  nivel: "intermedio"
-  tags: ["fracciones", "equivalencia"]
-
-variables:
-  a: random(1, 9)
-  b: random(2, 9)
-  k: random(2, 8)
+  n: random(1, 6)
 
 tipo: completar
-enunciado: "Completá: {a}/{b} = ___/{b * k} (fracciones equivalentes)."
+enunciado: "Completá: log₁₀(10^___) = {n}."
 respuestas_validas:
-  - a * k
+  - n
 
 explicacion: |
-  El numerador que falta tiene que guardar la misma proporción: se
-  multiplica {a} por el mismo {k} que multiplicó al denominador.
+  Hay que encontrar a qué exponente hay que elevar 10 para que el
+  logaritmo dé {n}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "fracciones"
+  tema: "logaritmos"
   nivel: "avanzado"
-  tags: ["fracciones", "problema"]
+  tags: ["logaritmos", "problema"]
 
 variables:
-  total: random(10, 40)
-  parte_a: random(1, total - 1)
+  n: random(100, 98765)
 
-respuesta: total - parte_a
+respuesta: floor(log10(n)) + 1
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Un grupo de {total} personas se divide en dos: {parte_a} van a un lado. ¿Cuántas personas quedan del otro lado (el numerador de la fracción complementaria, sobre {total})?"
+enunciado: "Usando que la cantidad de cifras de un número es floor(log₁₀(n)) + 1, ¿cuántas cifras tiene {n}?"
 
 explicacion: |
-  Las dos partes complementarias siempre suman el total: si una fracción
-  es {parte_a}/{total}, la otra es ({total} - {parte_a})/{total}.
+  El logaritmo en base 10 de un número dice, aproximadamente, cuántas
+  cifras tiene: tomar la parte entera y sumarle 1 da la cantidad exacta.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "fracciones"
-  nivel: "basico"
-  tags: ["fracciones", "vocabulario"]
+  tema: "logaritmos"
+  nivel: "intermedio"
+  tags: ["logaritmos", "comparacion"]
+
+variables:
+  a: random(2, 999)
+  b: random(2, 999)
+
+restricciones:
+  - a != b
+
+respuesta: (log10(a) > log10(b))
+tipo: vf
+
+enunciado: "¿Es log₁₀({a}) mayor que log₁₀({b})?"
+
+explicacion: |
+  Con base mayor a 1, a mayor argumento, mayor el logaritmo — no hace
+  falta calcular los dos logaritmos exactos para saber cuál es mayor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "avanzado"
+  tags: ["logaritmos", "problema"]
+
+variables:
+  n1: random(2, 6)
+  n2: n1 + 1
+
+respuesta: 10
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "La escala Richter es logarítmica en base 10: un sismo de magnitud {n2} libera 10 veces más energía que uno de magnitud {n1}. ¿Cuántas veces más energía libera cada punto de diferencia?"
+
+explicacion: |
+  En una escala logarítmica de base 10, cada unidad de diferencia
+  representa multiplicar por 10.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "avanzado"
+  tags: ["logaritmos", "casos_especiales"]
+
+variables:
+  n: random(1, 4)
+
+respuesta: -n
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "¿Cuánto es log₁₀(1 ÷ 10^{n})?"
+
+pasos:
+  - "1 ÷ 10^{n} = 10^(-{n}), así que su logaritmo es -{n}"
+
+explicacion: |
+  El logaritmo de un número menor a 1 (pero mayor a 0) siempre da
+  negativo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "intermedio"
+  tags: ["logaritmos", "orden"]
+
+tipo: ordenar
+enunciado: "Calculá estos logaritmos y ordená los resultados de menor a mayor."
+opciones_explicitas:
+  - "log₁₀(1000)"
+  - "log₁₀(10)"
+  - "log₁₀(100000)"
+  - "log₁₀(1)"
+respuesta_orden: ["log₁₀(1)", "log₁₀(10)", "log₁₀(1000)", "log₁₀(100000)"]
+
+explicacion: |
+  log₁₀(1)=0, log₁₀(10)=1, log₁₀(1000)=3, log₁₀(100000)=5.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "avanzado"
+  tags: ["logaritmos"]
+
+variables:
+  n: random(2, 999)
+
+respuesta: log10(n)
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "¿Cuánto es (aproximadamente) log₁₀({n})?"
+
+explicacion: |
+  No todos los logaritmos dan un número entero exacto: cuando no es
+  potencia exacta de la base, el resultado es un decimal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "avanzado"
+  tags: ["logaritmos", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una fracción representa una parte de un todo dividido en partes iguales."
+enunciado: "La parte entera de log₁₀(n) está directamente relacionada con el exponente que tendría n escrito en notación científica."
 
 explicacion: |
-  Es la idea central de toda esta unidad: numerador y denominador,
-  equivalencia, comparación — todo se apoya en esta definición.
+  Para un número entre 1×10ⁿ y 10×10ⁿ, log₁₀ del número da un valor
+  entre n y n+1 — la parte entera coincide con el exponente de la
+  notación científica.
 ```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "basico"
+  tags: ["logaritmos", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El logaritmo es la operación inversa de la potenciación, igual que la resta es inversa de la suma."
+
+explicacion: |
+  Aplicar la potenciación y después el logaritmo (en la misma base)
+  vuelve al exponente original.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "intermedio"
+  tags: ["logaritmos", "propiedades"]
+
+variables:
+  a: random(2, 90)
+  b: random(2, 90)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es cierto que log₁₀({a} × {b}) da lo mismo que log₁₀({a}) × log₁₀({b})?"
+
+explicacion: |
+  Es un error común: el logaritmo de un producto es la SUMA de los
+  logaritmos, no el producto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "intermedio"
+  tags: ["logaritmos", "vocabulario"]
+
+enunciado: "Cuando se escribe \"log x\" sin ninguna base aclarada, ¿a qué base se suele referir en el nivel secundario?"
+tipo: mc
+opciones_explicitas:
+  - "Base 10"
+  - "Base 2"
+  - "Siempre hay que aclarar la base, nunca se sobreentiende"
+respuesta: "Base 10"
+
+explicacion: |
+  "log" sin base es, por convención en este nivel, el logaritmo decimal
+  (base 10) — distinto de "ln", que es el logaritmo natural (base e).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "avanzado"
+  tags: ["logaritmos", "comparacion"]
+
+variables:
+  a: random(100, 999)
+  b: random(10, 99)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin calcular el valor exacto: ¿es cierto que log₁₀({a}) es mayor que log₁₀({b}), sabiendo que {a} tiene más cifras que {b}?"
+
+explicacion: |
+  Más cifras significa mayor magnitud, y el logaritmo en base 10 crece
+  junto con la magnitud del número.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "avanzado"
+  tags: ["logaritmos", "problema"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El pH de una solución se calcula con un logaritmo en base 10: por eso, una solución de pH 3 es 10 veces más ácida que una de pH 4."
+
+explicacion: |
+  Es otra aplicación real de una escala logarítmica, igual que la escala
+  Richter de terremotos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "logaritmos"
+  nivel: "basico"
+  tags: ["logaritmos", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El logaritmo despeja el exponente de una potencia, sabiendo la base y el resultado."
+
+explicacion: |
+  Es la idea central de todo el tema: log_b x = y ⟺ bʸ = x.
+```
+
+## Sección: probabilidad-compuesta (26 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "basico"
+  tags: ["probabilidad_compuesta", "vocabulario"]
+
+enunciado: "¿Qué calcula la probabilidad compuesta?"
+tipo: mc
+opciones_explicitas:
+  - "La probabilidad de que ocurran varios eventos a la vez, o de que ocurra al menos uno de varios"
+  - "La probabilidad de un único evento simple"
+  - "Sólo la probabilidad de eventos que nunca pueden ocurrir"
+respuesta: "La probabilidad de que ocurran varios eventos a la vez, o de que ocurra al menos uno de varios"
+
+explicacion: |
+  Combina la probabilidad simple con la independencia entre eventos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "intermedio"
+  tags: ["probabilidad_compuesta", "completar"]
+
+tipo: completar
+enunciado: "Completá: si A y B son independientes, P(A y B) = P(A) × ___."
+respuestas_validas:
+  - "P(B)"
+
+explicacion: |
+  Es la misma regla del producto ya usada con los diagramas de árbol.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "problema"]
+
+variables:
+  pa: uno_de([0.3, 0.4, 0.5, 0.6])
+  pb: uno_de([0.2, 0.5, 0.7])
+
+respuesta: redondear(pa * pb, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "A y B son eventos independientes, con P(A)={pa} y P(B)={pb}. ¿Cuál es P(A y B)?"
+
+pasos:
+  - "P(A y B) = {pa} × {pb} = {redondear(pa * pb, 3)}"
+
+explicacion: |
+  Se multiplican directo, porque son independientes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "intermedio"
+  tags: ["probabilidad_compuesta", "completar"]
+
+tipo: completar
+enunciado: "Completá: si A y B son mutuamente excluyentes (no pueden ocurrir juntos), P(A o B) = P(A) + ___."
+respuestas_validas:
+  - "P(B)"
+
+explicacion: |
+  Al no poder solaparse, no hay nada que restar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "intermedio"
+  tags: ["probabilidad_compuesta", "problema"]
+
+respuesta: redondear(2 / 6, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Al tirar un dado de 6 caras, ¿cuál es la probabilidad de que salga 2 O que salga 5? (no pueden salir los dos a la vez en un solo tiro)"
+
+pasos:
+  - "P(2) = 1/6, P(5) = 1/6. Son mutuamente excluyentes."
+  - "P(2 o 5) = 1/6 + 1/6 = {redondear(2 / 6, 3)}"
+
+explicacion: |
+  En un solo tiro de dado, no puede salir 2 y 5 a la vez — se suman
+  directo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si A y B PUEDEN ocurrir juntos, sumar P(A) + P(B) directo sobrestima la probabilidad de 'A o B', porque el caso en que ocurren ambos se cuenta dos veces."
+
+explicacion: |
+  Por eso hay que restar P(A y B) una vez, igual que con la
+  cardinalidad de la unión de conjuntos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "completar"]
+
+tipo: completar
+enunciado: "Completá: en general (aunque A y B puedan solaparse), P(A o B) = P(A) + P(B) − ___."
+respuestas_validas:
+  - "P(A y B)"
+
+explicacion: |
+  Es la fórmula de inclusión-exclusión, igual que
+  |A∪B|=|A|+|B|−|A∩B|.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "problema"]
+
+variables:
+  pa: uno_de([0.3, 0.4, 0.5])
+  pb: uno_de([0.2, 0.3, 0.4])
+  pab: uno_de([0.1, 0.05])
+
+respuesta: redondear(pa + pb - pab, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "P(A)={pa}, P(B)={pb}, y P(A y B)={pab} (A y B SÍ pueden ocurrir juntos). ¿Cuál es P(A o B)?"
+
+pasos:
+  - "P(A o B) = {pa} + {pb} − {pab} = {redondear(pa + pb - pab, 3)}"
+
+explicacion: |
+  Se resta la superposición para no contarla dos veces.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "intermedio"
+  tags: ["probabilidad_compuesta"]
+
+enunciado: "¿Cuál es la pista para saber si hay que multiplicar o sumar dos probabilidades?"
+tipo: mc
+opciones_explicitas:
+  - "'Y' (ambos a la vez) sugiere multiplicar; 'O' (cualquiera de los dos) sugiere sumar (ajustando si se solapan)"
+  - "Siempre hay que multiplicar, sin importar la pregunta"
+  - "Siempre hay que sumar, sin importar la pregunta"
+respuesta: "'Y' (ambos a la vez) sugiere multiplicar; 'O' (cualquiera de los dos) sugiere sumar (ajustando si se solapan)"
+
+explicacion: |
+  No es una regla mágica, pero es una guía práctica confiable para
+  empezar a plantear el problema.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "problema"]
+
+respuesta: redondear(4 / 6, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Al tirar un dado de 6 caras, ¿cuál es la probabilidad de que salga un número PAR o un MÚLTIPLO DE 3? (el 6 es ambas cosas a la vez)"
+
+pasos:
+  - "P(par) = 3/6 = {2, 4, 6}. P(múltiplo de 3) = 2/6 = {3, 6}. P(par y múltiplo de 3) = 1/6 = {6}."
+  - "P(par o múltiplo de 3) = 3/6 + 2/6 − 1/6 = 4/6 = {redondear(4 / 6, 3)}"
+
+explicacion: |
+  El 6 cumple las dos condiciones — sin restar esa superposición, se
+  contaría dos veces.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "ordenar"]
+
+enunciado: "Ordená los pasos para decidir y aplicar la regla correcta de probabilidad compuesta."
+tipo: ordenar
+opciones_explicitas:
+  - "Si es 'O', revisar si los eventos pueden ocurrir juntos: si no, sumar directo; si sí, sumar y restar la superposición"
+  - "Identificar si la pregunta pide 'Y' (ambos) o 'O' (cualquiera)"
+  - "Si es 'Y', revisar si los eventos son independientes o dependientes, y multiplicar con las probabilidades correspondientes"
+respuesta_orden: ["Identificar si la pregunta pide 'Y' (ambos) o 'O' (cualquiera)", "Si es 'Y', revisar si los eventos son independientes o dependientes, y multiplicar con las probabilidades correspondientes", "Si es 'O', revisar si los eventos pueden ocurrir juntos: si no, sumar directo; si sí, sumar y restar la superposición"]
+explicacion: |
+  Identificar primero 'Y' vs 'O' es el paso que determina qué
+  operación aplicar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "problema"]
+
+respuesta: 0.25
+tipo: input
+
+enunciado: "Cada progenitor (Aa) tiene 1/2 de probabilidad de transmitir el alelo recesivo 'a' (independiente del otro progenitor). ¿Cuál es la probabilidad de que un hijo herede el alelo recesivo de AMBOS progenitores (genotipo aa)?"
+
+pasos:
+  - "P(a del padre) = 1/2. P(a de la madre) = 1/2. Son independientes."
+  - "P(aa) = 1/2 × 1/2 = 0,25"
+
+explicacion: |
+  Es exactamente la proporción 1/4 del cuadro de Punnett clásico
+  (Aa × Aa → 1 AA : 2 Aa : 1 aa), calculada con probabilidad compuesta
+  en vez de dibujar el cuadro de 4 casilleros.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "problema"]
+
+respuesta: 0.75
+tipo: input
+
+enunciado: "Se lanzan 2 monedas independientes. ¿Cuál es la probabilidad de que salga AL MENOS una cara (una o las dos)?"
+
+pasos:
+  - "P(ninguna cara) = P(ceca y ceca) = 0,5 × 0,5 = 0,25"
+  - "P(al menos una cara) = 1 − P(ninguna) = 1 − 0,25 = 0,75"
+
+explicacion: |
+  Para 'al menos uno', suele ser más fácil calcular el complemento
+  ('ninguno') y restar de 1, en vez de sumar todos los casos con al
+  menos una cara por separado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "basico"
+  tags: ["probabilidad_compuesta", "aplicacion"]
+
+enunciado: "¿Qué relación tiene el cuadro de Punnett de Biología con la probabilidad compuesta?"
+tipo: mc
+opciones_explicitas:
+  - "Es exactamente probabilidad compuesta (eventos independientes que se multiplican), con otra notación visual"
+  - "No tiene ninguna relación real, son temas separados"
+  - "El cuadro de Punnett reemplaza por completo a la probabilidad, no la necesita"
+respuesta: "Es exactamente probabilidad compuesta (eventos independientes que se multiplican), con otra notación visual"
+
+explicacion: |
+  Heredar un alelo de cada progenitor son eventos independientes —
+  el cuadro de Punnett es una forma visual de multiplicar esas
+  probabilidades.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "problema"]
+
+variables:
+  p_madre: uno_de([0.5, 1])
+  p_padre: uno_de([0.5, 1])
+
+respuesta: redondear(p_madre * p_padre, 3)
+tipo: input
+
+enunciado: "La probabilidad de que la madre transmita el alelo recesivo es {p_madre}, y la del padre es {p_padre} (eventos independientes). ¿Cuál es la probabilidad de que el hijo herede el alelo recesivo de ambos?"
+
+pasos:
+  - "P(ambos) = {p_madre} × {p_padre} = {redondear(p_madre * p_padre, 3)}"
+
+explicacion: |
+  Si un progenitor es homocigota (p=1), siempre transmite ese alelo,
+  pero la regla del producto sigue aplicando igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "P(A y B) = P(A) × P(B) sólo vale directo si A y B son independientes; si son dependientes, la segunda probabilidad hay que recalcularla sabiendo que el primer evento ya ocurrió (como en el diagrama de árbol sin reposición)."
+
+explicacion: |
+  Es la misma distinción de `../independencia-de-eventos-y-diagrama-de-arbol/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "problema"]
+
+respuesta: redondear(8 / 40, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "De un mazo de 40 cartas (4 ases, 4 reyes), ¿cuál es la probabilidad de sacar un AS o un REY en una sola extracción? (ninguna carta es las dos cosas a la vez)"
+
+pasos:
+  - "P(as) = 4/40, P(rey) = 4/40. Son mutuamente excluyentes (ninguna carta es ambas)."
+  - "P(as o rey) = 4/40 + 4/40 = 8/40 = {redondear(8 / 40, 3)}"
+
+explicacion: |
+  Ninguna carta puede ser as y rey a la vez, así que se suman directo
+  sin restar nada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "problema"]
+
+respuesta: redondear((12 / 40) + (10 / 40) - (3 / 40), 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "De un mazo de 40 cartas (4 palos de 10 cartas, con 3 figuras por palo: 12 figuras en total, 10 cartas de oro), ¿cuál es la probabilidad de sacar una FIGURA o una carta de ORO? (las figuras de oro son ambas cosas a la vez: 3 cartas)"
+
+pasos:
+  - "P(figura) = 12/40, P(oro) = 10/40, P(figura y oro) = 3/40 (las 3 figuras de oro)"
+  - "P(figura o oro) = 12/40 + 10/40 − 3/40 = {redondear((12 / 40) + (10 / 40) - (3 / 40), 3)}"
+
+explicacion: |
+  Hay 3 cartas que son figura Y de oro a la vez — sin restarlas, se
+  contarían dos veces.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "basico"
+  tags: ["probabilidad_compuesta", "aplicacion"]
+
+enunciado: "Si la probabilidad de que llueva es 0,4 y la de que se corte la luz (independiente de la lluvia) es 0,1, ¿cómo se calcula la probabilidad de que pasen LAS DOS COSAS a la vez?"
+tipo: mc
+opciones_explicitas:
+  - "Multiplicando 0,4 × 0,1, porque son eventos independientes y se pide 'Y'"
+  - "Sumando 0,4 + 0,1, porque se pide 'ambas cosas'"
+  - "No se puede calcular sin más información sobre el clima"
+respuesta: "Multiplicando 0,4 × 0,1, porque son eventos independientes y se pide 'Y'"
+
+explicacion: |
+  'Ambas cosas a la vez' es la palabra clave de la regla del producto,
+  no de la suma.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "problema"]
+
+variables:
+  falla1: uno_de([0.05, 0.1, 0.15])
+  falla2: uno_de([0.02, 0.08])
+
+respuesta: redondear(falla1 * falla2, 4)
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "Dos máquinas funcionan de forma independiente. La probabilidad de que la máquina 1 falle es {falla1}, y la de que la máquina 2 falle es {falla2}. ¿Cuál es la probabilidad de que AMBAS fallen a la vez?"
+
+pasos:
+  - "P(ambas fallan) = {falla1} × {falla2} = {redondear(falla1 * falla2, 4)}"
+
+explicacion: |
+  Es mucho menos probable que fallen las dos juntas que que falle
+  sólo una — por eso los sistemas críticos usan componentes
+  redundantes e independientes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "P(A y B) nunca puede ser mayor que P(A) sola (pedir una condición extra nunca aumenta la probabilidad, como mucho la deja igual)."
+
+explicacion: |
+  Multiplicar por P(B) (que es como mucho 1) nunca puede aumentar el
+  valor de P(A).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta"]
+
+enunciado: "Al tirar UN SOLO dado, para calcular P(par Y mayor que 3), ¿por qué NO corresponde multiplicar P(par) × P(mayor que 3) como si fueran dos experimentos independientes?"
+tipo: mc
+opciones_explicitas:
+  - "Porque son dos condiciones sobre el MISMO resultado de un único tiro, no dos eventos de experimentos separados — hay que contar directo los casos que cumplen ambas condiciones a la vez"
+  - "Porque en realidad sí corresponde multiplicar, sin ninguna excepción"
+  - "Porque un dado nunca puede cumplir dos condiciones a la vez"
+respuesta: "Porque son dos condiciones sobre el MISMO resultado de un único tiro, no dos eventos de experimentos separados — hay que contar directo los casos que cumplen ambas condiciones a la vez"
+
+explicacion: |
+  Par y mayor que 3 en un dado: {4, 6} cumplen ambas → P=2/6, que en
+  general NO coincide con P(par)×P(mayor que 3) = (3/6)×(3/6) = 9/36 —
+  son cálculos distintos porque no es una multiplicación de dos
+  tiradas separadas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "problema"]
+
+respuesta: redondear(2 / 6, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "En un solo tiro de un dado de 6 caras, ¿cuál es la probabilidad real de que salga un número PAR y MAYOR QUE 3 a la vez (contando los casos directo: {4, 6})?"
+
+pasos:
+  - "Los números pares y mayores que 3, del 1 al 6, son 4 y 6: 2 casos favorables."
+  - "P = 2/6 = {redondear(2 / 6, 3)}"
+
+explicacion: |
+  Es distinto del resultado de multiplicar P(par)×P(mayor que 3) —
+  confirma por qué esa multiplicación no aplicaba acá.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Antes de aplicar P(A y B) = P(A) × P(B), conviene confirmar que A y B son realmente independientes — asumirlo sin pensar puede llevar a un resultado incorrecto."
+
+explicacion: |
+  Es el error más común de este tema: multiplicar directo sin
+  verificar si corresponde.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "avanzado"
+  tags: ["probabilidad_compuesta", "problema"]
+
+variables:
+  p_exito: uno_de([0.3, 0.4])
+  intentos: uno_de([2, 3])
+
+respuesta: redondear((1 - p_exito) ^ intentos, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un jugador tiene {p_exito} de probabilidad de éxito en cada intento (independientes entre sí). ¿Cuál es la probabilidad de que falle los {intentos} intentos, uno tras otro?"
+
+pasos:
+  - "P(falla) en cada intento = 1 − {p_exito} = {1 - p_exito}"
+  - "P(falla los {intentos}) = ({1 - p_exito})^{intentos} = {redondear((1 - p_exito) ^ intentos, 3)}"
+
+explicacion: |
+  Se multiplica la probabilidad de fallar, la misma cantidad de veces
+  que hay intentos, porque son independientes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "probabilidad_compuesta"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve la probabilidad compuesta?"
+tipo: mc
+opciones_explicitas:
+  - "Para calcular la probabilidad de que ocurran varios eventos a la vez, o al menos uno de varios, combinando las reglas del Y y del O"
+  - "Sólo sirve para dados y monedas"
+  - "Sólo aplica cuando los eventos son mutuamente excluyentes"
+respuesta: "Para calcular la probabilidad de que ocurran varios eventos a la vez, o al menos uno de varios, combinando las reglas del Y y del O"
+
+explicacion: |
+  Cierra este bloque de Tronco 4.b y es la puerta directa al cuadro
+  de Punnett de Biología — el mismo cálculo, otra notación.
+```
+

@@ -1,1440 +1,333 @@
-# Examen jefe — Dominio de Procesos y Protocolos
+# Examen jefe — [PENDIENTE #823]
 
-> Logro #178. Completaste el parcial integrando conceptos de ejecución, técnicas y protocolos HTTP. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **118 preguntas totales** en 5/5 secciones.
+> Logro #823. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: proceso-programa-en-ejecucion (26 preguntas)
+## Sección: comunicacion-entre-procesos (20 preguntas)
 
 ```
 metadata:
   materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
+  tema: "comunicacion_entre_procesos"
   nivel: "basico"
-  tags: ["sistemas_operativos", "conceptos_basicos"]
-
-respuesta: "proceso"
-tipo: completar
-respuestas_validas: ["proceso"]
-
-enunciado: "Un programa es una entidad pasiva que reside en el disco, mientras que un ___ es una entidad activa que se encuentra en ejecución en la memoria."
-
-explicacion: |
-  Un programa es simplemente un conjunto de instrucciones almacenadas (archivo), mientras que un proceso es la instancia de ese programa en ejecución, con su propio estado, contador de programa y recursos asignados.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "basico"
-  tags: ["sistemas_operativos"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [
-    ["El archivo 'navegador.exe' guardado en el disco", "programa"],
-    ["La ventana del navegador abierta y consumiendo RAM", "proceso"]
-  ]
-
-respuesta: datos[escenario_idx][1
-tipo: mc
-opciones_explicitas: ["programa", "proceso"]
-
-enunciado: "Identifica la naturaleza del siguiente elemento: {datos[escenario_idx][0]}"
-
-explicacion: |
-  {datos[escenario_idx][0]} se clasifica como {datos[escenario_idx][1]} porque la distinción principal radica en si la entidad está estática en almacenamiento o activa en la CPU/Memoria.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "intermedio"
-  tags: ["gestion_de_procesos"]
+  tags: ["procesos", "aislamiento"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es correcto afirmar que un proceso incluye no solo el código del programa, sino también el estado de los registros de la CPU y la memoria asignada?"
+enunciado: "Los procesos en un sistema operativo moderno funcionan de manera completamente integrada y comparten su espacio de memoria por defecto."
 
 explicacion: |
-  Verdadero. A diferencia del programa (que es solo código), el proceso es un paquete completo que incluye el contexto de ejecución (registros, pila, contador de programa, etc.).
+  Falso. Los procesos se gestionan de manera aislada por seguridad y estabilidad. Si uno falla, no necesariamente se cae el resto gracias a este aislamiento.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "intermedio"
-  tags: ["gestion_de_procesos"]
-
-respuesta: ["Programa en disco", "Carga en memoria", "Ejecución en CPU", "Terminación"]
-tipo: ordenar
-opciones_explicitas: ["Programa en disco", "Carga en memoria", "Ejecución en CPU", "Terminación"]
-
-enunciado: "Ordena cronológicamente las etapas desde que un usuario hace doble clic en un ejecutable hasta que este finaliza:"
-
-explicacion: |
-  El flujo lógico comienza con el archivo estático en el almacenamiento secundario, pasa a la memoria principal (RAM) mediante el cargador, se asigna tiempo de CPU para su ejecución y finalmente se liberan los recursos al terminar.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
+  tema: "comunicacion_entre_procesos"
   nivel: "basico"
-  tags: ["sistemas_operativos"]
+  tags: ["estabilidad", "seguridad"]
+
+respuesta: 1
+tipo: mc
+opciones: 4
+
+enunciado: "¿Cuál es una razón clave para que el sistema operativo gestione los procesos de forma aislada?"
+
+explicacion: |
+  El aislamiento mejora la estabilidad y la seguridad. Si un proceso falla, no corrompe la memoria de otros procesos ni cae todo el sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["ejemplo", "portapapeles"]
 
 respuesta: 2
-tipo: completar
-tolerancia_abs: 0
+tipo: mc
+opciones: 4
 
-enunciado: "Si un usuario abre tres instancias diferentes de un mismo editor de texto (por ejemplo, tres notas distintas), ¿cuántos procesos habrá corriendo en el sistema operativo?"
-
-pasos:
-  - "Identificar si las instancias son entidades independientes en ejecución."
-  - "Relacionar cada instancia con un proceso distinto."
+enunciado: "Cuando copias texto de un editor y lo pegas en otro, ¿qué mecanismo está involucrado indirectamente?"
 
 explicacion: |
-  Cada vez que se inicia una instancia de un programa, el sistema operativo crea un proceso nuevo con su propio espacio de memoria y estado, aunque el código base (el programa) sea el mismo. Por lo tanto, hay 2 procesos (en este ejemplo hipotético de 2 instancias, pero el usuario preguntó por 3, corregimos lógica: el usuario preguntó por 3, la respuesta debe ser 3). 
-
-# Corrigiendo para que la lógica sea coherente con la pregunta:
-# Si la pregunta dice "tres instancias", la respuesta debe ser 3.
+  El portapapeles es una forma de IPC. El editor A escribe en una región de memoria compartida (o envía un mensaje al gestor de portapapeles) y el editor B lee de ahí.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
+  tema: "comunicacion_entre_procesos"
+  nivel: "avanzado"
+  tags: ["seguridad", "comparacion"]
+
+respuesta: 1
+tipo: mc
+opciones: 4
+
+enunciado: "¿Qué mecanismo es generalmente más seguro por defecto al no requerir conocimiento de los detalles internos del otro proceso?"
+
+explicacion: |
+  El intercambio de mensajes es más seguro porque los procesos no compiten por el mismo espacio de memoria, reduciendo riesgos de corrupción accidental.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
   nivel: "basico"
-  tags: ["sistemas_operativos"]
+  tags: ["lenguaje", "sintaxis"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el lenguaje de descripción de ejercicios, los booleanos se escriben como 'true' o 'false'."
+
+explicacion: |
+  Falso. En este DSL, los booleanos literales son 'verdadero' y 'falso', sin comillas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["diseño", "ventajas"]
 
 respuesta: 3
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si un usuario abre tres instancias diferentes de un mismo editor de texto (por ejemplo, tres notas distintas), ¿cuántos procesos habrá corriendo en el sistema operativo?"
-
-explicacion: |
-  Cada vez que se inicia una instancia de un programa, el sistema operativo crea un proceso nuevo con su propio espacio de memoria y estado. Por lo tanto, hay 3 procesos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "basico"
-  tags: ["conceptos_basicos", "sistema_operativo"]
-
-respuesta: "proceso"
-tipo: "mc"
-opciones_explicitas: ["archivo_en_disco", "proceso", "instruccion_suelta", "hardware"]
-
-enunciado: "Un programa es una entidad pasiva que reside en el almacenamiento secundario; cuando este programa se carga en la memoria y se inicia su ejecución, se convierte en un ___."
-
-explicacion: |
-  Un programa es un conjunto de instrucciones estáticas (un archivo en el disco), mientras que un proceso es la entidad dinámica que representa la ejecución de dichas instrucciones en la memoria RAM y con recursos asignados.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "basico"
-  tags: ["diferencias"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "Si abro dos instancias diferentes del mismo navegador web (por ejemplo, dos ventanas independientes), estoy ejecutando dos procesos distintos que comparten el mismo código de programa original."
-
-explicacion: |
-  Es verdadero. El programa (el ejecutable en disco) es el mismo, pero cada ventana es un proceso independiente con su propio espacio de memoria, contador de programa y estado de ejecución.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "intermedio"
-  tags: ["memoria", "estructura"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["recursos_asignados", "estado_de_ejecucion"], ["memoria_y_registros", "contexto_del_cpu"]]
-
-respuesta: tabla[escenario_idx][1
-tipo: "completar"
-respuestas_validas: ["recursos_asignados", "estado_de_ejecucion", "memoria_y_registros", "contexto_del_cpu"]
-
-enunciado: "Al pasar de un programa a un proceso, el sistema operativo debe asignar {datos[escenario_idx][0]} para que este pueda operar."
-
-explicacion: |
-  Un proceso no es solo el código; requiere recursos como memoria (stack, heap), archivos abiertos y el estado de los registros del procesador para poder ejecutarse.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "intermedio"
-  tags: ["estados_proceso"]
-
-respuesta: ["creado", "listo", "ejecutando", "terminado"]
-tipo: "ordenar"
-opciones_explicitas: ["creado", "listo", "ejecutando", "terminado"]
-
-enunciado: "Ordena las etapas lógicas por las que pasa un proceso desde que se solicita su creación hasta que finaliza su tarea:"
-
-explicacion: |
-  El flujo estándar es: 1. Creado (se solicita), 2. Listo (esperando CPU), 3. Ejecutando (usando CPU), 4. Terminado (finaliza).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "avanzado"
-  tags: ["gestion_recursos"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["gestionar_recursos", "controlar_ejecucion"], ["gestionar_recursos", "modificar_el_codigo"]]
-
-respuesta: tabla[caso_idx][1
-tipo: "mc"
-opciones_explicitas: ["gestionar_recursos", "controlar_ejecucion", "modificar_el_codigo", "eliminar_el_archivo"]
-
-enunciado: "Cuando un programa se convierte en proceso, el Sistema Operativo asume la tarea de {datos[caso_idx][0]} para asegurar que el proceso pueda realizar su función sin interferir con otros."
-
-explicacion: |
-  El SO actúa como un administrador que asigna tiempo de CPU y memoria (gestiona recursos) y decide cuándo un proceso puede estar en la CPU (controla la ejecución).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "basico"
-  tags: ["conceptos_basicos", "sistemas_operativos"]
-
-respuesta: "proceso"
 tipo: mc
-opciones_explicitas: ["archivo", "proceso", "compilador", "kernel"]
+opciones: 4
 
-enunciado: "Un programa es una entidad pasiva que reside en el disco, mientras que un ___ es una entidad activa que posee recursos del sistema (CPU, memoria, etc.)."
+enunciado: "¿Cuál NO es una ventaja directa de usar IPC sobre un monolito gigante?"
 
 explicacion: |
-  El programa es el código estático (un archivo en el disco), mientras que el proceso es la instancia de ese programa en ejecución, con su propio estado y recursos.
+  La complejidad de implementación es una DESVENTAJA. Las ventajas son modularidad, seguridad, estabilidad y reutilización. La opción de "menor complejidad de código" es falsa.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
+  tema: "comunicacion_entre_procesos"
   nivel: "basico"
-  tags: ["recursos", "memoria"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si ejecutas dos veces el mismo archivo 'navegador.exe', tendrás un único proceso con dos ventanas abiertas."
-
-explicacion: |
-  Falso. Cada vez que ejecutas un programa, el sistema operativo crea un proceso distinto con su propio espacio de direcciones y recursos, aunque el código de origen sea el mismo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "intermedio"
-  tags: ["estructura", "memoria"]
-
-variables:
-  escenario: uno_de([[0, "Contador de instrucciones"], [1, "Espacio de direcciones"], [2, "Estado del proceso"]])
-
-respuesta: tabla_respuestas[escenario][1
-tipo: completar
-respuestas_validas: ["Contador de instrucciones", "Espacio de direcciones", "Estado del proceso"]
-
-tabla_respuestas: [
-  ["Contador de instrucciones", "Contador de instrucciones"],
-  ["Espacio de direcciones", "Espacio de direcciones"],
-  ["Estado del proceso", "Estado del proceso"]
-]
-
-enunciado: "Un proceso requiere de un ___ para saber cuál es la próxima instrucción que debe ejecutar la CPU."
-
-explicacion: |
-  El Program Counter (PC) o Contador de Instrucciones es un registro que indica la dirección de la próxima instrucción a ejecutar.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "intermedio"
-  tags: ["estados", "ciclo_de_vida"]
-
-respuesta: ["Nuevo", "Listo", "Ejecución", "Bloqueado", "Terminado"]
-tipo: ordenar
-opciones_explicitas: ["Nuevo", "Listo", "Ejecución", "Bloqueado", "Terminado"]
-
-enunciado: "Ordena los estados típicos por los que pasa un proceso en un sistema operativo, desde su creación hasta su finalización:"
-
-explicacion: |
-  El ciclo de vida estándar implica la creación (Nuevo), la espera en cola (Listo), el uso de CPU (Ejecución), la espera por E/S (Bloqueado) y el cierre (Terminado).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "avanzado"
-  tags: ["memoria", "ejecucion"]
-
-variables:
-  caso: uno_de([[0, "estático"], [1, "dinámico"]])
-
-respuesta: tabla_respuestas[caso][1
-tipo: completar
-respuestas_validas: ["estático", "dinámico"]
-
-tabla_respuestas: [
-  ["estático", "estático"],
-  ["dinámico", "dinámico"]
-]
-
-enunciado: "Mientras que el programa se considera un ente ___ almacenado en soporte persistente, el proceso es un ente ___ que reside principalmente en la memoria RAM."
-
-explicacion: |
-  El programa es una secuencia de instrucciones en un archivo (estático), mientras que el proceso es la entidad viva que gestiona memoria y registros (dinámico).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_vs_programa"
-  nivel: "basico"
-  tags: ["sistemas_operativos", "conceptos_basicos"]
-
-tipo: mc
-opciones_explicitas: ["Un archivo estático en el disco", "Una instancia activa en memoria", "Una instrucción de CPU", "Un lenguaje de programación"]
-
-enunciado: "La diferencia fundamental es que un programa es una entidad pasiva almacenada en el disco, mientras que un proceso es..."
-
-respuesta: "Una instancia activa en memoria"
-
-explicacion: |
-  Un programa es el conjunto de instrucciones estáticas (el archivo .exe, por ejemplo), mientras que un proceso es la ejecución real de ese programa, con su propio estado, memoria y recursos asignados por el sistema operativo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estados_del_proceso"
-  nivel: "intermedio"
-  tags: ["gestion_procesos", "so"]
-
-tipo: vf
-
-enunciado: "¿Es correcto afirmar que un programa puede estar en estado 'listo' (ready) o 'bloqueado' (blocked)?"
-
-respuesta: falso
-
-explicacion: |
-  Los estados (listo, bloqueado, ejecución, etc.) son atributos de un PROCESO, no de un programa. Un programa es solo el código en disco y no tiene estados de ejecución hasta que el sistema operativo crea un proceso a partir de él.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructura_proceso"
-  nivel: "avanzado"
-  tags: ["memoria", "so"]
-
-variables:
-  datos: [["Contador de instrucciones", "Contexto de CPU"], ["Contenido de memoria", "Estado de E/S"], ["Código fuente", "Archivo ejecutable"]]
-  idx: uno_de([0, 1, 2])
-
-tipo: completar
-respuestas_validas: ["Contador de instrucciones", "Contenido de memoria", "Código fuente"]
-
-enunciado: "Un proceso contiene información dinámica que un programa no posee, como por ejemplo el {datos[idx][0]}."
-
-respuesta: datos[idx][0
-
-explicacion: |
-  Mientras que el programa contiene el código, el proceso contiene el contexto de ejecución: el contador de programa (PC), los registros de la CPU, la pila (stack) y el estado de los recursos de entrada/salida.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "ciclo_de_vida"
-  nivel: "intermedio"
-  tags: ["planificacion", "so"]
-
-tipo: ordenar
-opciones_explicitas: ["Creación", "Listo", "Ejecución", "Terminación"]
-
-enunciado: "Ordene correctamente las etapas típicas por las que pasa un proceso desde que se carga hasta que finaliza su tarea:"
-
-respuesta: ["Creación", "Listo", "Ejecución", "Terminación"]
-
-explicacion: |
-  El ciclo de vida estándar implica: 1. Creación (el SO asigna recursos), 2. Listo (esperando CPU), 3. Ejecución (usando la CPU) y 4. Terminación (liberación de recursos).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "identificacion_procesos"
-  nivel: "basico"
-  tags: ["pid", "so"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si un usuario abre dos veces el mismo navegador (ej. Chrome), el sistema operativo crea dos procesos distintos. ¿Cómo se denomina el identificador único numérico que el SO asigna a cada uno de estos procesos para distinguirlos?"
-
-respuesta: 1024
-
-explicacion: |
-  Aunque el código sea el mismo, cada instancia en ejecución es un proceso distinto y posee un identificador único llamado PID (Process Identifier). Para este ejercicio, se asume que el usuario debe ingresar un valor numérico representativo (en este caso, el ejemplo es el número 1024).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "basico"
-  tags: ["conceptos_basicos", "sistema_operativo"]
-
-variables:
-  datos: [["El archivo 'editor.exe' está guardado en el disco duro", "falso"], ["El proceso 'editor.exe' está usando 500MB de RAM", "verdadero"]]
-  idx: uno_de([0, 1])
-
-respuestas_validas: [datos[idx][1]]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "Analice el siguiente escenario: {datos[idx][0]}. ¿Es esto una descripción de un proceso en ejecución?"
-
-explicacion: |
-  Un programa es una entidad pasiva (un archivo en disco), mientras que un proceso es una entidad activa (un programa en ejecución con recursos asignados como RAM y CPU).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "basico"
-  tags: ["diferencias"]
-
-respuesta: "proceso"
-tipo: completar
-respuestas_validas: ["proceso"]
-
-enunciado: "Un programa es una secuencia de instrucciones almacenadas en un medio no volátil, mientras que un ___ es la instancia de esa secuencia siendo ejecutada por la CPU."
-
-explicacion: |
-  La diferencia clave es el estado de actividad: el programa es el código estático y el proceso es la ejecución dinámica.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "intermedio"
-  tags: ["recursos", "gestion_memoria"]
-
-variables:
-  datos: [["Un proceso requiere: [Memoria, CPU, Registradores]", "El programa en disco requiere: [Almacenamiento, Instrucciones, Nombre de archivo]"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][0]
-tipo: mc
-opciones_explicitas: ["Un proceso requiere: [Memoria, CPU, Registradores]", "El programa en disco requiere: [Almacenamiento, Instrucciones, Nombre de archivo]"]
-
-enunciado: "Considere el siguiente caso: {datos[idx][0]}. ¿Cuál de las opciones describe correctamente los recursos que se gestionan en ese escenario?"
-
-explicacion: |
-  Un proceso necesita recursos volátiles y de procesamiento (RAM, CPU, registros) para poder operar.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "intermedio"
-  tags: ["ciclo_vida", "ordenar"]
-
-respuesta: ["Cargar programa", "Asignar memoria", "Ejecutar instrucciones", "Liberar recursos"]
-tipo: ordenar
-opciones_explicitas: ["Cargar programa", "Asignar memoria", "Ejecutar instrucciones", "Liberar recursos"]
-
-enunciado: "Ordene los pasos lógicos que ocurren desde que un usuario hace doble clic en un ejecutable hasta que el proceso finaliza:"
-
-explicacion: |
-  El sistema operativo primero carga el código del disco a la RAM, asigna memoria y recursos, la CPU ejecuta las instrucciones y, finalmente, el proceso se cierra liberando los recursos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "proceso_programa_en_ejecucion"
-  nivel: "avanzado"
-  tags: ["instancias", "pids"]
-
-variables:
-  datos: [["Se abren dos ventanas independientes del navegador Chrome", "Dos procesos distintos"], ["Se abre un solo archivo de texto", "Un solo proceso"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Dos procesos distintos", "Un solo proceso"]
-
-enunciado: "Analice el escenario: {datos[idx][0]}. ¿Qué sucede a nivel de sistema operativo?"
-
-explicacion: |
-  Cada vez que se inicia una instancia de un programa, el sistema operativo crea un proceso nuevo con su propio espacio de memoria y un PID (Process Identifier) único, incluso si el código fuente es el mismo.
-```
-
-## Sección: procesos-tecnicos-artesanales-e-industriales (22 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "un conjunto de pasos organizados para transformar materias primas en algo útil"
-tipo: mc
-opciones_explicitas: ["un conjunto de pasos organizados para transformar materias primas en algo útil", "sólo el resultado final de una fábrica", "un tipo de máquina específica"]
-
-enunciado: "Un proceso técnico es, en esencia..."
-
-explicacion: |
-  Tanto el proceso artesanal como el industrial son formas organizadas
-  de transformar materias primas en algo útil, aunque de maneras
-  distintas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["proceso artesanal"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "la habilidad manual y el conocimiento del oficio"
-tipo: mc
-opciones_explicitas: ["la habilidad manual y el conocimiento del oficio", "la velocidad de una máquina automatizada", "la estandarización de protocolos"]
-
-enunciado: "En el proceso artesanal, el motor principal de la producción es..."
-
-explicacion: |
-  La intervención directa y constante del trabajador, con su habilidad
-  y conocimiento específico, es lo que define al proceso artesanal.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["limite artesanal"]
-
-variables:
-  n: uno_de([1, 1])
+  tags: ["ipc", "definicion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El proceso artesanal tiene como límite natural el tiempo humano, ya que cada pieza requiere trabajo manual delicado."
+enunciado: "La comunicación entre procesos (IPC) es el conjunto de mecanismos que permiten que procesos independientes intercambien información o modifiquen su comportamiento."
 
 explicacion: |
-  No es posible producir miles de unidades idénticas en un día si cada
-  una necesita horas de trabajo manual individual.
+  Correcto. La IPC es fundamental para que aplicaciones aisladas colaboren, como cuando copiar y pegar texto involucra comunicación entre el editor y el sistema de almacenamiento temporal.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["proceso industrial"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "eficiencia, estandarización y producción en masa"
-tipo: mc
-opciones_explicitas: ["eficiencia, estandarización y producción en masa", "personalización única de cada pieza", "dependencia exclusiva del trabajo manual"]
-
-enunciado: "El proceso industrial prioriza..."
-
-explicacion: |
-  Usa maquinaria y algoritmos para repetir operaciones con precisión y
-  velocidad, reduciendo el costo unitario a costa de la unicidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
+  tema: "comunicacion_entre_procesos"
   nivel: "intermedio"
-  tags: ["estandarizacion digital"]
-
-variables:
-  elemento: uno_de(["protocolos", "formatos de archivo", "lenguajes de programación universales"])
+  tags: ["seguridad", "mensajes"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En el mundo digital, la estandarización se manifiesta en \"{elemento}\", permitiendo que un archivo creado en una ciudad se abra en otra sin problemas."
+enunciado: "El intercambio de mensajes es considerado más seguro que la memoria compartida porque los procesos no necesitan conocer los detalles internos del otro."
 
 explicacion: |
-  Así como antes las piezas mecánicas eran intercambiables, hoy los
-  protocolos y formatos digitales cumplen esa misma función de
-  compatibilidad universal.
+  Correcto. Al usar canales definidos por el SO, los procesos mantienen su aislamiento interno, reduciendo riesgos de corrupción accidental de memoria.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["ejemplo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "el correo electrónico"
-tipo: mc
-opciones_explicitas: ["redactar mil cartas a mano", "el correo electrónico", "ninguno de los dos métodos"]
-
-enunciado: "Para enviar un mensaje a mil personas de forma eficiente (lógica industrial), conviene usar..."
-
-explicacion: |
-  Redactar mil cartas a mano sería el enfoque artesanal, mucho menos
-  eficiente para esa escala; el correo electrónico es la solución
-  industrial/escalable.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "avanzado"
-  tags: ["desafios"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "la pérdida de la \"huella humana\" y la dependencia de sistemas rígidos"
-tipo: mc
-opciones_explicitas: ["la pérdida de la \"huella humana\" y la dependencia de sistemas rígidos", "el aumento del costo unitario de producción", "la imposibilidad de automatizar tareas"]
-
-enunciado: "La industrialización extrema de la informática (automatización con scripts y algoritmos) plantea como desafío..."
-
-explicacion: |
-  Democratiza el acceso a la información, pero también implica perder
-  unicidad y depender de sistemas que fallan si no se entienden sus
-  reglas internas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
+  tema: "comunicacion_entre_procesos"
   nivel: "basico"
-  tags: ["ejemplo argentino"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "artesanal"
-tipo: mc
-opciones_explicitas: ["artesanal", "industrial"]
-
-enunciado: "La panadería tradicional donde el panadero amasa cada pieza a mano, ajustando el agua según la humedad del día, es un ejemplo de proceso..."
-
-explicacion: |
-  Es flexible, depende del experto y tiene variaciones naturales en cada
-  producto: características típicas del proceso artesanal.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["ejemplo argentino"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "industrial"
-tipo: mc
-opciones_explicitas: ["artesanal", "industrial"]
-
-enunciado: "La fábrica de galletitas donde robots y cintas transportadoras aseguran que cada galletita pese exactamente lo mismo es un ejemplo de proceso..."
-
-explicacion: |
-  La estandarización extrema (mismo peso y sabor en millones de
-  unidades) es característica del proceso industrial.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["ejemplo informatico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "artesanal/prototipo"
-tipo: mc
-opciones_explicitas: ["artesanal/prototipo", "industrial", "ninguno de los dos"]
-
-enunciado: "Escribir código personalizado para resolver un problema específico de una empresa es, en la lógica de esta teoría, un proceso..."
-
-explicacion: |
-  Es único y adaptable a esa empresa en particular, a diferencia de un
-  sistema estandarizado y masivo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["ejemplo informatico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "rígido, estandarizado y obligatorio para millones de usuarios"
-tipo: mc
-opciones_explicitas: ["rígido, estandarizado y obligatorio para millones de usuarios", "único y personalizable para cada empresa", "opcional y sin ninguna regla fija"]
-
-enunciado: "El sistema de facturación electrónica que exige la AFIP es, según la teoría, un ejemplo de software..."
-
-explicacion: |
-  Es un sistema de software masivo: rígido, estandarizado y obligatorio,
-  a diferencia de una solución artesanal/personalizada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["medios tecnicos"]
-
-variables:
-  n: uno_de([1, 1])
+  tags: ["proceso", "definicion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Tanto el proceso artesanal como el industrial son considerados \"medios técnicos\" que extienden las capacidades humanas."
+enunciado: "Cada aplicación que abres en tu computadora, como un navegador o un reproductor de música, es considerada un proceso separado."
 
 explicacion: |
-  Ambos son formas de extender lo que el ser humano puede producir, sólo
-  que gestionan tiempo, calidad y escala de manera diferente.
+  Correcto. El sistema operativo trata a cada aplicación ejecutándose como un proceso independiente con su propio espacio de memoria.
 ```
 
 ```
 metadata:
   materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "avanzado"
-  tags: ["diferencia clave"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "en cómo se gestiona el tiempo, la calidad y la escala de producción"
-tipo: mc
-opciones_explicitas: ["en el resultado final obtenido", "en cómo se gestiona el tiempo, la calidad y la escala de producción", "en el país donde se fabrica el producto"]
-
-enunciado: "Según la teoría, la diferencia clave entre proceso artesanal e industrial no está en el resultado final, sino..."
-
-explicacion: |
-  Ambos pueden llegar a un producto similar; lo que cambia es la forma
-  de gestionar tiempo, calidad y escala durante la producción.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
+  tema: "comunicacion_entre_procesos"
   nivel: "intermedio"
-  tags: ["personalizacion vs escala"]
+  tags: ["eficiencia", "diseno"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dividir tareas complejas en procesos pequeños que se comunican mejora la eficiencia, seguridad y mantenimiento del software."
+
+explicacion: |
+  Correcto. La modularidad mediante IPC permite crear sistemas más robustos, fáciles de actualizar y menos propensos a fallos catastróficos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "intermedio"
+  tags: ["errores", "memoria_compartida"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si dos procesos intentan escribir en el mismo lugar de memoria compartida al mismo tiempo sin sincronización, pueden ocurrir errores."
+
+explicacion: |
+  Correcto. La condición de carrera puede llevar a corrupción de datos, por lo que se requieren mecanismos de exclusión mutua o semáforos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["ejemplo", "portapapeles"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando copias y pegas texto, hay comunicación constante entre el editor de texto y el sistema de almacenamiento temporal."
+
+explicacion: |
+  Correcto. El portapapeles es un ejemplo cotidiano de IPC, donde un proceso escribe datos y otro los lee desde una zona compartida o canal del SO.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["estabilidad", "aislamiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Debido al aislamiento, si un proceso falla, no necesariamente se cae el resto del sistema."
+
+explicacion: |
+  Correcto. El aislamiento de memoria previene que un error en un proceso afecte la integridad de otros procesos o del kernel.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "avanzado"
+  tags: ["aplicaciones", "rendimiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para aplicaciones gráficas, la memoria compartida es preferible por su eficiencia en grandes volúmenes de datos."
+
+explicacion: |
+  Correcto. Los gráficos requieren transferir grandes cantidades de píxeles o vectores rápidamente, lo que la memoria compartida facilita mejor que los mensajes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["mensajes", "estructura"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el intercambio de mensajes, los datos viajan a través de un canal definido por el sistema operativo."
+
+explicacion: |
+  Correcto. El SO proporciona la infraestructura (colas de mensajes, pipes, etc.) que actúa como el canal de comunicación.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "intermedio"
+  tags: ["diseno", "beneficios"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El uso de IPC mejora la capacidad de mantenimiento del software al permitir dividir tareas en partes manejables."
+
+explicacion: |
+  Correcto. Los módulos pueden desarrollarse, probarse y actualizarse independientemente, facilitando el mantenimiento a largo plazo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "intermedio"
+  tags: ["mensajes", "costo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El intercambio de mensajes implica copiar datos de un espacio de memoria a otro, lo que puede ser lento."
+
+explicacion: |
+  Correcto. La sobrecarga de copiar datos entre espacios de usuario y kernel (o entre procesos) es el principal costo del modelo de mensajes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "avanzado"
+  tags: ["memoria_compartida", "control"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La memoria compartida requiere mecanismos de sincronización para evitar que procesos escriban simultáneamente en el mismo lugar."
+
+explicacion: |
+  Correcto. Sin sincronización (mutex, semáforos), la escritura concurrente lleva a condiciones de carrera y corrupción de datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "basico"
+  tags: ["ejemplo", "portapapeles"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sistema de almacenamiento temporal (portapapeles) participa en la comunicación cuando copias texto."
+
+explicacion: |
+  Correcto. El portapapeles es un servicio del SO que actúa como intermediario de datos entre el proceso que copia y el que pega.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "comunicacion_entre_procesos"
+  nivel: "intermedio"
+  tags: ["sincronizacion", "riesgos"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El proceso industrial permite el mismo grado de personalización pieza por pieza que el proceso artesanal."
+enunciado: "La memoria compartida elimina por completo la necesidad de mecanismos de sincronización entre procesos, ya que el sistema operativo gestiona automáticamente la integridad de los datos sin intervención del desarrollador."
 
 explicacion: |
-  El proceso industrial gana en escala y costo unitario, pero sacrifica
-  la unicidad y personalización propia de lo artesanal.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["estandarizacion pre-digital"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "las piezas mecánicas eran intercambiables"
-tipo: mc
-opciones_explicitas: ["las piezas mecánicas eran intercambiables", "cada máquina tenía piezas únicas", "no existía ningún tipo de estándar"]
-
-enunciado: "En la era pre-digital, la estandarización industrial significaba principalmente que..."
-
-explicacion: |
-  La intercambiabilidad de piezas mecánicas fue la base de la
-  estandarización industrial antes de la era digital.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["decision"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "equilibrar eficiencia con calidad y adaptabilidad"
-tipo: mc
-opciones_explicitas: ["equilibrar eficiencia con calidad y adaptabilidad", "elegir siempre el proceso industrial sin excepción", "elegir siempre el proceso artesanal sin excepción"]
-
-enunciado: "Comprender la dualidad artesanal/industrial ayuda, según la teoría, a..."
-
-explicacion: |
-  No se trata de que uno sea siempre mejor: la clave es decidir cuándo
-  personalizar y cuándo adoptar un estándar industrial, equilibrando
-  eficiencia, calidad y adaptabilidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["costo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El proceso industrial reduce el costo unitario de producción respecto al proceso artesanal."
-
-explicacion: |
-  Al producir en masa con maquinaria y algoritmos, el costo por unidad
-  baja, aunque se pierda la unicidad de cada objeto.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "avanzado"
-  tags: ["automatizacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "scripts y algoritmos"
-tipo: completar
-
-enunciado: "En informática, lo que antes era un trabajo intelectual único hoy se automatiza mediante ___."
-
-respuestas_validas:
-  - "scripts y algoritmos"
-  - "algoritmos y scripts"
-
-explicacion: |
-  Esta automatización democratiza el acceso a la información, pero
-  también plantea el desafío de la pérdida de "huella humana" en la
-  creación de contenido.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["software y hardware"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En informática, el software y el hardware siguen lógicas similares a la distinción entre proceso artesanal e industrial."
-
-explicacion: |
-  Un código personalizado (artesanal) y un sistema masivo estandarizado
-  (industrial) reflejan la misma dualidad vista en la producción física.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "basico"
-  tags: ["escalabilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "su capacidad de escalar"
-tipo: mc
-opciones_explicitas: ["su capacidad de escalar", "su bajo nivel de estandarización", "su dependencia exclusiva del trabajo manual"]
-
-enunciado: "La principal ventaja del modelo industrial, según la teoría, es..."
-
-explicacion: |
-  Puede repetir operaciones con precisión y velocidad para producir a
-  gran escala, algo que el proceso artesanal no logra por su límite de
-  tiempo humano.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "avanzado"
-  tags: ["democratizacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La automatización informática democratiza el acceso a la información, pero también plantea desafíos sobre la pérdida de la \"huella humana\" en la creación de contenido."
-
-explicacion: |
-  Es una tensión real señalada en la teoría: más acceso y eficiencia,
-  pero menos marca personal en lo producido.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "procesos_tecnicos_artesanales_e_industriales"
-  nivel: "intermedio"
-  tags: ["conceptos clave"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "artesanal e industrial"
-tipo: mc
-opciones_explicitas: ["artesanal e industrial", "digital y analógico", "público y privado"]
-
-enunciado: "Las dos formas fundamentales de producir objetos o servicios que compara la teoría son el proceso..."
-
-explicacion: |
-  Artesanal e industrial son los dos "medios técnicos" cuya diferencia
-  central se explica en toda la teoría.
-```
-
-## Sección: protocolo-http-peticion-respuesta (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["http", "redes", "web"]
-
-tipo: vf
-
-enunciado: "En el modelo de comunicación de la web, el dispositivo que inicia una comunicación solicitando un recurso (como una página HTML) se denomina cliente."
-
-respuesta: verdadero
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["http", "peticion", "metodo"]
-
-tipo: mc
-
-opciones_explicitas: ["URL", "Método HTTP", "Código de estado", "Cuerpo de la respuesta"]
-
-enunciado: "En una petición HTTP, el verbo que indica la acción a realizar (como GET o POST) se conoce como:"
-
-respuesta: "Método HTTP"
-
-explicacion: |
-  El método HTTP (GET, POST, PUT, DELETE, etc.) define la naturaleza de la operación que el cliente desea realizar sobre el recurso.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["http", "secuencia"]
-
-tipo: ordenar
-
-opciones_explicitas: ["El cliente envía una petición HTTP", "El servidor procesa la solicitud", "El servidor envía una respuesta HTTP", "El cliente recibe el contenido"]
-
-enunciado: "Ordena los pasos que describen el flujo básico de una interacción HTTP:"
-
-respuesta: ["El cliente envía una petición HTTP", "El servidor procesa la solicitud", "El servidor envía una respuesta HTTP", "El cliente recibe el contenido"]
-
-explicacion: |
-  La comunicación HTTP es un protocolo de tipo petición-respuesta: el cliente siempre debe iniciar la comunicación para que el servidor pueda responder.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "intermedio"
-  tags: ["http", "status_code"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["404", "No encontrado"],
-    ["200", "OK"]
-  ]
-
-tipo: completar
-
-respuestas_validas: ["404", "200"]
-
-enunciado: "Si un cliente solicita una página que no existe en el servidor, el servidor responderá con un código de estado HTTP de tipo ___."
-
-respuesta: escenarios[escenario_idx][0
-
-explicacion: |
-  El código 404 indica que el servidor no pudo encontrar el recurso solicitado. El código 200 indica que la petición fue exitosa.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "intermedio"
-  tags: ["http", "cabeceras"]
-
-tipo: mc
-
-opciones_explicitas: ["Cabeceras (Headers)", "Cuerpo (Body)", "Línea de estado", "Todas las anteriores"]
-
-enunciado: "Una respuesta HTTP estándar está compuesta por varias partes. ¿Cuál de las siguientes opciones describe los elementos que contienen metadatos sobre el contenido (como el tipo de archivo o la fecha)?"
-
-respuesta: "Cabeceras (Headers)"
-
-explicacion: |
-  Las cabeceras (Headers) contienen información adicional sobre la respuesta, mientras que el cuerpo (Body) contiene el recurso solicitado propiamente dicho.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["http", "web", "cliente_servidor"]
-
-respuesta: "GET"
-tipo: completar
-respuestas_validas: ["GET"]
-
-enunciado: "Cuando un usuario escribe una URL en su navegador y presiona Enter, el navegador actúa como cliente y envía una petición de tipo ___ al servidor para solicitar el recurso."
-
-explicacion: |
-  En el protocolo HTTP, el método GET se utiliza para solicitar y recibir una representación de un recurso (como un archivo HTML) del servidor.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "intermedio"
-  tags: ["http", "status_code"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [
-    ["200 OK", "El recurso se encontró y se envió correctamente."],
-    ["404 Not Found", "El servidor no pudo encontrar el recurso solicitado."]
-  ]
-
-respuesta: datos[idx][0]
-tipo: mc
-opciones_explicitas: ["200 OK", "404 Not Found", "500 Internal Server Error", "301 Moved Permanently"]
-
-enunciado: "Si el servidor responde con el código de estado {datos[idx][1]}, ¿cuál es el mensaje de estado que acompaña a la respuesta?"
-
-explicacion: |
-  El código de estado indica el resultado de la petición. El código 200 indica éxito, mientras que el 404 indica que la URL no existe en el servidor.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["http", "estado"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El protocolo HTTP es un protocolo 'stateful', lo que significa que el servidor recuerda automáticamente quién es el cliente entre una petición y otra sin ayuda de cookies o tokens."
-
-explicacion: |
-  Falso. HTTP es un protocolo 'stateless' (sin estado). Cada petición es independiente; para mantener el estado (como un carrito de compras), se usan mecanismos adicionales como Cookies o sesiones.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["http", "flujo"]
-
-respuesta: ["Petición del cliente", "Procesamiento en el servidor", "Respuesta del servidor", "Renderizado en el navegador"]
-tipo: ordenar
-opciones_explicitas: ["Petición del cliente", "Procesamiento en el servidor", "Respuesta del servidor", "Renderizado en el navegador"]
-
-enunciado: "Ordena cronológicamente los pasos que ocurren desde que un usuario hace clic en un enlace hasta que ve la página en su pantalla:"
-
-explicacion: |
-  El flujo comienza con el cliente enviando la petición, el servidor la procesa, envía la respuesta y finalmente el navegador interpreta (renderiza) el contenido.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "intermedio"
-  tags: ["http", "error_server"]
-
-respuesta: 500
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si un servidor web experimenta un error inesperado en su código interno (por ejemplo, un error de sintaxis en un script de backend) al intentar procesar una petición, el servidor responderá con un código de estado de la familia 5xx. ¿Cuál es el código específico para 'Internal Server Error'?"
-
-pasos:
-  - "Identificar la familia de errores (4xx para cliente, 5xx para servidor)."
-  - "Localizar el código estándar para errores genéricos del servidor."
-
-explicacion: |
-  El código 500 indica que el servidor encontró una condición inesperada que le impidió completar la petición, generalmente debido a un error en el software del lado del servidor.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["http", "cliente_servidor"]
-
-respuesta: "cliente"
-tipo: completar
-respuestas_validas: ["cliente"]
-
-enunciado: "En el modelo de comunicación HTTP, el dispositivo o software que inicia una comunicación solicitando un recurso es el ___."
-
-explicacion: |
-  El modelo cliente-servidor se basa en que el cliente inicia la interacción mediante una petición (request), y el servidor espera estas peticiones para responder (response).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "intermedio"
-  tags: ["estado", "stateless"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El protocolo HTTP es considerado un protocolo 'stateful' (con estado), lo que significa que el servidor recuerda automáticamente todas las peticiones anteriores de un mismo cliente."
-
-explicacion: |
-  Falso. HTTP es un protocolo 'stateless' (sin estado). Cada petición es independiente y el servidor no guarda información de sesiones previas por defecto, por eso se usan cookies o tokens para mantener el estado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "intermedio"
-  tags: ["estructura_respuesta", "status_code"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["404", "Not Found"],
-    ["200", "OK"]
-  ]
-
-respuesta: escenarios[escenario_idx][0
-tipo: mc
-opciones_explicitas: ["404", "200", "500", "301"]
-
-enunciado: "Si un cliente solicita una página que no existe en el servidor, el servidor responderá con un código de estado de la serie 4xx. En este caso específico, el código será ___."
-
-explicacion: |
-  Los códigos de la serie 4xx indican errores del cliente (Client Error), como el 404 cuando el recurso no se encuentra.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["flujo_comunicacion"]
-
-respuesta: ["Petición del cliente", "Procesamiento en servidor", "Respuesta del servidor"]
-tipo: ordenar
-opciones_explicitas: ["Petición del cliente", "Procesamiento en servidor", "Respuesta del servidor"]
-
-enunciado: "Ordena cronológicamente los pasos de una interacción estándar de HTTP:"
-
-explicacion: |
-  Primero el cliente envía la petición, luego el servidor la procesa y finalmente envía la respuesta con el contenido solicitado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "intermedio"
-  tags: ["metodos_http", "verbos"]
-
-respuesta: "GET"
-tipo: mc
-opciones_explicitas: ["GET", "POST", "PUT", "DELETE"]
-
-enunciado: "Si un cliente desea simplemente recuperar (leer) la información de un recurso sin modificar nada en el servidor, el método HTTP más apropiado es ___."
-
-explicacion: |
-  El método GET se utiliza para solicitar la representación de un recurso específico, mientras que POST, PUT y DELETE se utilizan para crear, actualizar o eliminar datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "intermedio"
-  tags: ["redes", "protocolos", "modelo_cliente_servidor"]
-
-respuesta: "capa_aplicacion"
-tipo: completar
-respuestas_validas: ["capa_aplicacion", "capa_aplicacion"]
-
-enunciado: "Mientras que TCP opera en la capa de transporte para garantizar la entrega de datos, el protocolo HTTP opera en la ___."
-
-explicacion: |
-  HTTP es un protocolo de la capa de aplicación que define cómo se estructuran los mensajes, mientras que TCP se encarga de la conexión y fiabilidad del transporte de esos mensajes.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["protocolos", "web"]
-
-variables:
-  es_statica: uno_de([verdadero, falso])
-
-respuesta: es_statica
-tipo: completar
-enunciado: "A diferencia de FTP, que está diseñado principalmente para la transferencia de archivos, HTTP es un protocolo orientado a la transferencia de hipermedios (páginas web, imágenes, etc.). ¿Es correcto afirmar que HTTP es un protocolo sin estado (stateless) por diseño?"
-
-explicacion: |
-  HTTP es stateless porque cada petición es independiente; el servidor no guarda memoria de peticiones anteriores por defecto (para eso se usan cookies o sesiones).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "intermedio"
-  tags: ["metodos", "http"]
-
-respuesta: "POST"
-tipo: mc
-opciones_explicitas: ["GET", "POST", "PUT", "DELETE"]
-
-enunciado: "En el modelo petición-respuesta, ¿qué método se distingue por enviar los datos del cuerpo en el cuerpo del mensaje y no en la URL, siendo ideal para enviar información sensible?"
-
-explicacion: |
-  El método GET envía los parámetros en la URL (query string), lo que los hace visibles en el historial y logs. El método POST envía la información en el cuerpo (body) de la petición.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["flujo", "modelo_cliente_servidor"]
-
-respuesta: ["Petición del cliente", "Procesamiento del servidor", "Respuesta del servidor"]
-tipo: ordenar
-opciones_explicitas: ["Petición del cliente", "Procesamiento del servidor", "Respuesta del servidor"]
-
-enunciado: "Ordena cronológicamente los pasos que ocurren en un ciclo estándar de comunicación HTTP:"
-
-explicacion: |
-  El cliente inicia la comunicación con una petición (Request), el servidor procesa dicha petición y finalmente devuelve una respuesta (Response) al cliente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["codigos_estado", "http"]
-
-respuesta: "Error del cliente"
-tipo: mc
-opciones_explicitas: ["Éxito del servidor", "Redirección", "Error del cliente", "Error del servidor"]
-
-enunciado: "Un código de estado HTTP de la serie 400 (como el 404) se distingue de un código de la serie 500 porque el primero indica un ___."
-
-explicacion: |
-  Los códigos 4xx indican que el problema reside en la petición del cliente (ej. recurso no encontrado), mientras que los 5xx indican que el servidor falló al procesar una petición válida.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["http", "cliente_servidor", "web"]
-
-variables:
-  datos: [["El navegador solicita la página principal de un sitio", "GET"], ["El navegador envía un formulario de registro", "POST"], ["El navegador solicita un archivo de estilo CSS", "GET"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "En el modelo cliente-servidor, cuando {datos[idx][0]}, el método HTTP utilizado es ___."
-
-respuestas_validas: ["GET", "POST", "PUT", "DELETE"]
-respuesta: datos[idx][1]
-tipo: completar
-
-explicacion: |
-  El método HTTP indica la acción que el cliente desea realizar. 'GET' se usa para solicitar datos y 'POST' para enviar datos al servidor.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "intermedio"
-  tags: ["http", "status_code", "headers"]
-
-variables:
-  datos: [["404", "Not Found"], ["200", "OK"], ["500", "Internal Server Error"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Si el servidor responde con el código de estado {datos[idx][0]}, el significado de la respuesta es ___."
-
-opciones_explicitas: ["Not Found", "OK", "Internal Server Error", "Bad Request"]
-respuesta: datos[idx][1]
-tipo: mc
-
-explicacion: |
-  Los códigos de estado HTTP informan sobre el resultado de la petición: 2xx son éxitos, 4xx errores del cliente y 5xx errores del servidor.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "basico"
-  tags: ["conceptos", "modelo_cliente_servidor"]
-
-enunciado: "En el protocolo HTTP, el servidor es el encargado de iniciar la comunicación enviando una petición al cliente para que este pueda mostrar contenido."
-
-respuesta: falso
-tipo: vf
-
-explicacion: |
-  Es falso. En el modelo petición-respuesta de HTTP, el cliente (como un navegador) siempre inicia la comunicación mediante una petición, y el servidor responde a dicha petición.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "intermedio"
-  tags: ["flujo", "protocolo"]
-
-enunciado: "Ordena los pasos que ocurren durante una navegación web estándar:"
-
-opciones_explicitas: ["El cliente envía una petición HTTP", "El servidor procesa la petición", "El servidor envía una respuesta HTTP", "El cliente recibe y renderiza el contenido"]
-respuesta: ["El cliente envía una petición HTTP", "El servidor procesa la petición", "El servidor envía una respuesta HTTP", "El cliente recibe y renderiza el contenido"]
-tipo: ordenar
-
-explicacion: |
-  El flujo lógico es: Petición (Cliente) -> Procesamiento (Servidor) -> Respuesta (Servidor) -> Renderizado (Cliente).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "protocolo_http_peticion_respuesta"
-  nivel: "intermedio"
-  tags: ["metodos", "http"]
-
-variables:
-  datos: [["actualizar un recurso existente", "PUT"], ["eliminar un recurso", "DELETE"], ["enviar datos para crear un nuevo usuario", "POST"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Si el objetivo de la operación es ___, el método HTTP más adecuado es ___."
-
-opciones_explicitas: ["GET", "POST", "PUT", "DELETE"]
-respuesta: datos[idx][1]
-tipo: mc
-
-explicacion: |
-  Cada método tiene una semántica definida: GET para lectura, POST para creación, PUT para actualización y DELETE para eliminación.
+  Falso. La memoria compartida introduce el desafío de la sincronización. Si dos procesos escriben simultáneamente, pueden ocurrir condiciones de carrera o corrupción de datos, requiriendo semáforos o mutex.
 ```
 
 ## Sección: pruebas-unitarias-integracion (25 preguntas)
@@ -1448,7 +341,9 @@ metadata:
 
 respuesta: "unitario"
 tipo: completar
-respuestas_validas: ["unitario", "unitarias"]
+respuestas_validas:
+  - "unitario"
+  - "unitarias"
 
 enunciado: "Una prueba ___ se enfoca en verificar el funcionamiento de la unidad más pequeña y aislada de código, como una función o un método, sin dependencias externas."
 
@@ -1497,7 +392,7 @@ metadata:
   tags: ["flujo_de_trabajo"]
 
 opciones_explicitas: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
-respuesta: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
+respuesta_orden: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
 tipo: ordenar
 
 enunciado: "Ordena las etapas de testing de software desde el nivel más granular (más pequeño) hasta el nivel de sistema completo:"
@@ -1513,18 +408,11 @@ metadata:
   nivel: "intermedio"
   tags: ["diagnostico"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenarios: [
-    ["La función 'sumar(a, b)' devuelve un error de sintaxis", "unitario"],
-    ["El módulo de 'Pagos' no logra recibir los datos del módulo de 'Carrito'", "integracion"]
-  ]
-
-respuesta: escenarios[idx][1
+respuesta: "unitario"
 tipo: mc
 opciones_explicitas: ["unitario", "integracion"]
 
-enunciado: "Si una función matemática falla al calcular un resultado, pero el resto del sistema funciona bien, estamos ante un error de tipo: {escenarios[idx][0]}"
+enunciado: "Si una función matemática falla al calcular un resultado, pero el resto del sistema funciona bien, estamos ante un error de tipo: ___"
 
 explicacion: |
   Como el fallo está contenido en la lógica interna de una pieza aislada, el error se identifica mediante pruebas unitarias.
@@ -1539,16 +427,15 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Se verifica que la función 'sumar(a, b)' devuelva correctamente el resultado de la suma de dos enteros.", "unitarias"],
-    ["Se verifica que el módulo de 'pagos' se comunique correctamente con la 'base de datos' para registrar una transacción.", "integracion"]
-  ]
+  escenarios: [["Se verifica que la función 'sumar(a, b)' devuelva correctamente el resultado de la suma de dos enteros.", "unitarias"], ["Se verifica que el módulo de 'pagos' se comunique correctamente con la 'base de datos' para registrar una transacción.", "integracion"]]
 
 enunciado: "Si el objetivo es verificar {escenarios[escenario_idx][0]}, estamos realizando pruebas de tipo: ___"
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["unitarias", "integracion"]
+respuestas_validas:
+  - "unitarias"
+  - "integracion"
 
 explicacion: |
   Las pruebas unitarias se enfocan en la lógica interna de una función o componente de forma aislada. Las pruebas de integración verifican la interacción entre diferentes módulos o componentes del sistema.
@@ -1580,7 +467,7 @@ metadata:
 enunciado: "Ordena las etapas típicas de un ciclo de desarrollo de software orientado a calidad (Testing Pyramid):"
 
 opciones_explicitas: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema/E2E"]
-respuesta: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema/E2E"]
+respuesta_orden: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema/E2E"]
 tipo: ordenar
 
 explicacion: |
@@ -1596,15 +483,12 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [
-    ["El sistema debe validar que el módulo de 'Login' envíe las credenciales correctamente al servicio de 'Autenticación'.", "integracion"],
-    ["El sistema debe validar que el método 'calcular_iva(monto)' devuelva el 21% del monto ingresado.", "unitarias"]
-  ]
+  casos: [["El sistema debe validar que el módulo de 'Login' envíe las credenciales correctamente al servicio de 'Autenticación'.", "integracion"], ["El sistema debe validar que el método 'calcular_iva(monto)' devuelva el 21% del monto ingresado.", "unitarias"]]
 
 enunciado: "Analiza el siguiente caso: '{casos[caso_idx][0]}'. ¿Qué tipo de prueba es?"
 
 opciones_explicitas: ["unitarias", "integracion"]
-respuesta: casos[caso_idx][1
+respuesta: casos[caso_idx][1]
 tipo: mc
 
 explicacion: |
@@ -1618,18 +502,9 @@ metadata:
   nivel: "avanzado"
   tags: ["debug"]
 
-variables:
-  error_idx: uno_de([0, 1])
-  errores: [
-    ["Si una prueba de integración falla, el error puede estar en la lógica de un módulo o en la comunicación entre ellos.", "integracion"],
-    ["Si una prueba unitaria falla, el error está garantizado en la lógica interna de la función probada.", "unitaria"]
-  ]
-
-enunciado: "En el contexto de pruebas de ___, un fallo puede indicar un problema en la interfaz entre dos componentes, no necesariamente en la lógica interna de cada uno.", "completar"
-
-respuestas_validas: ["unitarias", "integracion"]
-respuesta: "integracion"
+enunciado: "En el contexto de pruebas de ___, un fallo puede indicar un problema en la interfaz entre dos componentes, no necesariamente en la lógica interna de cada uno."
 tipo: completar
+respuesta: "integracion"
 
 explicacion: |
   Las pruebas de integración son cruciales para detectar errores de contrato, protocolos de comunicación o formatos de datos incorrectos que las pruebas unitarias (por su naturaleza aislada) no pueden detectar.
@@ -1675,18 +550,11 @@ metadata:
   nivel: "intermedio"
   tags: ["testing", "errores_comunes"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["La función A llama a la función B y el error ocurre por un valor de retorno inesperado de B", "de_integracion"],
-    ["La función A tiene un error de lógica en su cálculo interno", "unitarias"]
-  ]
-
-respuesta: escenarios[escenario_idx][1
+respuesta: "de_integracion"
 tipo: mc
 opciones_explicitas: ["unitarias", "de_integracion"]
 
-enunciado: "Si una prueba falla porque la interacción entre dos módulos es incorrecta, pero cada módulo funciona bien por separado, estamos ante un error de tipo: {escenarios[escenario_idx][0]}."
+enunciado: "Si una prueba falla porque la interacción entre dos módulos es incorrecta, pero cada módulo funciona bien por separado, estamos ante un error de tipo: ___."
 
 explicacion: |
   En este caso, el problema no reside en la lógica interna de los módulos (unitario), sino en el contrato o la comunicación entre ellos (integración).
@@ -1699,7 +567,7 @@ metadata:
   nivel: "basico"
   tags: ["testing", "flujo_de_trabajo"]
 
-respuesta: ["Unitarias", "Integración", "Sistema"]
+respuesta_orden: ["Unitarias", "Integración", "Sistema"]
 tipo: ordenar
 opciones_explicitas: ["Unitarias", "Integración", "Sistema"]
 
@@ -1718,7 +586,8 @@ metadata:
 
 respuesta: "unitarias"
 tipo: completar
-respuestas_validas: ["unitarias"]
+respuestas_validas:
+  - "unitarias"
 
 enunciado: "Para aislar una pieza de código y evitar que dependencias externas (como una base de datos) afecten el resultado, se utilizan objetos simulados (Mocks/Stubs). Este enfoque es característico de las pruebas ___."
 
@@ -1770,14 +639,15 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["error_logica", "error_interfaz"],
-    ["error_calculo", "error_comunicacion"]
-  ]
+  escenarios: [["error_logica", "error_interfaz"], ["error_calculo", "error_comunicacion"]]
 
-respuesta: tabla[escenario_idx][1
 tipo: completar
-respuestas_validas: ["error_logica", "error_interfaz", "error_calculo", "error_comunicacion"]
+respuesta: escenarios[escenario_idx][1]
+respuestas_validas:
+  - "error_logica"
+  - "error_interfaz"
+  - "error_calculo"
+  - "error_comunicacion"
 
 enunciado: "Si una función calcula mal un impuesto debido a un error en su algoritmo interno, el tipo de error detectado es un ___; pero si la función envía el dato correcto pero el receptor no sabe interpretarlo, el problema es un ___."
 
@@ -1799,7 +669,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
 
-respuesta: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
+respuesta_orden: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
 
 enunciado: "Ordene los siguientes niveles de prueba según el orden lógico de ejecución en un proceso de desarrollo estándar (de lo más pequeño a lo más completo):"
 
@@ -1833,18 +703,13 @@ metadata:
   tags: ["testing", "calidad_software"]
 
 variables:
-  escenario: uno_de([
-    ["Se está probando si la función 'calcular_iva(monto)' devuelve el valor correcto para un número dado, sin considerar la base de datos.", "unitaria"],
-    ["Se está probando si el módulo de 'pagos' logra comunicarse correctamente con la 'pasarela_de_pagos' externa.", "integracion"],
-    ["Se está probando si un solo método de una clase procesa correctamente un string de entrada.", "unitaria"],
-    ["Se está probando si la interacción entre el módulo de 'inventario' y el de 'ventas' actualiza el stock tras una compra.", "integracion"]
-  ])
+  escenario: uno_de([["Se está probando si la función 'calcular_iva(monto)' devuelve el valor correcto para un número dado, sin considerar la base de datos.", "unitaria"], ["Se está probando si el módulo de 'pagos' logra comunicarse correctamente con la 'pasarela_de_pagos' externa.", "integracion"], ["Se está probando si un solo método de una clase procesa correctamente un string de entrada.", "unitaria"], ["Se está probando si la interacción entre el módulo de 'inventario' y el de 'ventas' actualiza el stock tras una compra.", "integracion"]])
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["unitaria", "integracion"]
 
-enunciado: "Dado el siguiente escenario: {escenario[idx][0]}. ¿Qué tipo de prueba se está ejecutando?"
+enunciado: "Dado el siguiente escenario: {escenario[0]}. ¿Qué tipo de prueba se está ejecutando?"
 
 explicacion: |
   Las pruebas unitarias se enfocan en la lógica interna de una pieza mínima de código (función, método) de forma aislada. Las pruebas de integración verifican que la interacción entre diferentes módulos o componentes funcione correctamente.
@@ -1858,14 +723,12 @@ metadata:
   tags: ["testing", "conceptos"]
 
 variables:
-  afirmacion: uno_de([
-    [true, "Verdadero"],
-    [false, "Falso"]
-  ])
+  respuesta_correcta: falso
 
-respuesta: afirmacion[idx][0
-tipo: completar
+tipo: vf
 enunciado: "Las pruebas de integración tienen como objetivo principal verificar que cada función individual cumpla con su contrato de entrada y salida, de forma aislada de otros módulos."
+
+respuesta: falso
 
 explicacion: |
   Falso. Eso es la definición de pruebas unitarias. Las de integración buscan detectar fallos en las interfaces y la comunicación entre componentes ya probados.
@@ -1878,7 +741,10 @@ metadata:
   nivel: "intermedio"
   tags: ["testing", "flujo_de_datos"]
 
-respuestas_validas: ["flujo", "interacción", "comunicación"]
+respuestas_validas:
+  - "flujo"
+  - "interacción"
+  - "comunicación"
 respuesta: "interacción"
 tipo: completar
 
@@ -1896,7 +762,7 @@ metadata:
   tags: ["testing", "metodologia"]
 
 opciones_explicitas: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
-respuesta: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
+respuesta_orden: ["Pruebas Unitarias", "Pruebas de Integración", "Pruebas de Sistema"]
 tipo: ordenar
 
 enunciado: "Ordena las fases de testing de menor a mayor alcance (de lo más pequeño a lo más complejo):"
@@ -1913,18 +779,13 @@ metadata:
   tags: ["testing", "debug"]
 
 variables:
-  caso: uno_de([
-    ["El módulo A envía un objeto JSON, pero el módulo B espera un XML.", "error_integracion"],
-    ["La función 'sumar(a, b)' devuelve un resultado incorrecto debido a un error de redondeo.", "error_unitario"],
-    ["Un método de validación de email no acepta caracteres especiales.", "error_unitario"],
-    ["El módulo de base de datos no responde ante una consulta de un módulo de reporte.", "error_integracion"]
-  ])
+  caso: uno_de([["El módulo A envía un objeto JSON, pero el módulo B espera un XML.", "error_integracion"], ["La función 'sumar(a, b)' devuelve un resultado incorrecto debido a un error de redondeo.", "error_unitario"], ["Un método de validación de email no acepta caracteres especiales.", "error_unitario"], ["El módulo de base de datos no responde ante una consulta de un módulo de reporte.", "error_integracion"]])
 
-respuesta: caso[idx][1
+respuesta: caso[1]
 tipo: mc
 opciones_explicitas: ["error_unitario", "error_integracion"]
 
-enunciado: "Se detecta el siguiente problema: {caso[idx][0]}. ¿A qué categoría de error pertenece principalmente?"
+enunciado: "Se detecta el siguiente problema: {caso[0]}. ¿A qué categoría de error pertenece principalmente?"
 
 explicacion: |
   Si el error reside en la lógica interna de una función, es unitario. Si el error surge por la incompatibilidad de formatos o la falta de comunicación entre dos componentes que por separado funcionan bien, es un error de integración.
@@ -2225,3 +1086,926 @@ enunciado: "Verdadero o Falso: Entender la diferencia entre técnica y tecnolog�
 explicacion: |
   Sí. Esta distinción permite pasar de la mera operación (técnica) al análisis crítico del sistema (tecnología), fomentando una ciudadanía digital más consciente y capaz de innovar.
 ```
+
+## Sección: recursividad (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_basica"
+  nivel: "basico"
+  tags: ["programacion", "conceptos"]
+
+respuesta: "recursividad"
+tipo: completar
+respuestas_validas:
+  - "recursividad"
+  - "Recursividad"
+
+enunciado: "La capacidad de una función para llamarse a sí misma durante su ejecución se denomina ________."
+
+explicacion: |
+  La recursividad es una técnica de programación donde una función se invoca a sí misma para resolver subproblemas del problema original.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_basica"
+  nivel: "basico"
+  tags: ["conceptos", "terminologia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para evitar un bucle infinito en una función recursiva, es indispensable contar con al menos un caso base que detenga las llamadas."
+
+explicacion: |
+  Sin un caso base, la función se llamaría a sí misma indefinidamente (causando un error de desbordamiento de pila o stack overflow).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_basica"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+variables:
+  escenario: uno_de([["el caso que detiene la función", "caso base"], ["la llamada a la propia función", "caso recursivo"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["caso base", "caso recursivo", "caso infinito", "caso nulo"]
+
+enunciado: "En una función recursiva, el componente que permite que la función se divida en problemas más pequeños se conoce como el {escenario[0]}."
+
+explicacion: |
+  El caso recursivo es la parte de la función donde se realiza la llamada recursiva, reduciendo el problema hacia el caso base.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_basica"
+  nivel: "intermedio"
+  tags: ["flujo_control"]
+
+respuesta_orden: ["Caso Base", "Caso Recursivo", "Retorno de valores"]
+tipo: ordenar
+
+opciones_explicitas: ["Caso Base", "Caso Recursivo", "Retorno de valores"]
+
+enunciado: "Ordena los pasos lógicos que ocurren en una ejecución recursiva típica desde que se entra a la función hasta que se obtiene el resultado final:"
+
+explicacion: |
+  Primero se ejecutan las llamadas (caso recursivo) hasta alcanzar el límite (caso base), y luego los valores se devuelven hacia atrás en la pila de llamadas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_basica"
+  nivel: "basico"
+  tags: ["errores", "memoria"]
+
+respuesta: "Stack Overflow"
+tipo: mc
+opciones_explicitas: ["Stack Overflow", "Syntax Error", "Null Pointer Exception", "Memory Leak"]
+
+enunciado: "Cuando una función recursiva no tiene un caso base definido correctamente, se produce un error de desbordamiento de pila conocido como ________."
+
+explicacion: |
+  Cada llamada recursiva ocupa un espacio en la pila de ejecución (stack). Si las llamadas son infinitas, la memoria asignada a la pila se agota.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_conceptos"
+  nivel: "basico"
+  tags: ["programacion", "conceptos"]
+
+tipo: mc
+opciones_explicitas: ["Una función que se llama a sí misma", "Una función que no tiene retorno", "Un bucle que nunca termina", "Una función que utiliza variables globales"]
+respuesta: "Una función que se llama a sí misma"
+enunciado: "En programación, ¿qué define técnicamente a una función recursiva?"
+explicacion: |
+  La recursividad ocurre cuando una función se invoca a sí misma dentro de su propio cuerpo para resolver una parte del problema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_componentes"
+  nivel: "basico"
+  tags: ["logica", "estructura"]
+
+tipo: completar
+respuestas_validas:
+  - "caso base"
+  - "caso recursivo"
+
+enunciado: "Para que una función recursiva no entre en un bucle infinito, es indispensable que exista un ___ que detenga las llamadas, y un ___ que reduzca el problema original."
+
+explicacion: |
+  El caso base es la condición de parada que devuelve un valor sin realizar más llamadas. El caso recursivo es donde la función se llama a sí misma con un argumento modificado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_ejecucion"
+  nivel: "intermedio"
+  tags: ["algoritmos", "factorial"]
+
+variables:
+  n: 4
+  resultado: 24
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Considera la siguiente función recursiva para calcular el factorial de n: \n`f(n) = if n == 0 then 1 else n * f(n-1)` \n\n¿Cuál es el valor de f({n})?"
+
+respuesta: resultado
+explicacion: |
+  El resultado de 4! (factorial de 4) es 24.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_memoria"
+  nivel: "intermedio"
+  tags: ["memoria", "stack"]
+
+tipo: vf
+
+enunciado: "¿Es verdadero que cada llamada recursiva consume memoria adicional en la pila de llamadas (call stack) de la computadora?"
+
+respuesta: verdadero
+
+explicacion: |
+  Verdadero. Cada llamada pendiente debe guardar su estado (variables locales, dirección de retorno) en la pila, lo que puede llevar a un error de 'stack overflow' si la recursión es muy profunda.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_orden"
+  nivel: "avanzado"
+  tags: ["flujo_control", "stack"]
+
+tipo: ordenar
+opciones_explicitas: ["Llamada a f(3)", "Llamada a f(2)", "Llamada a f(1)", "Llamada a f(0)", "Retorno de f(0)", "Retorno de f(1)", "Retorno de f(2)", "Retorno de f(3)"]
+respuesta_orden: ["Llamada a f(3)", "Llamada a f(2)", "Llamada a f(1)", "Llamada a f(0)", "Retorno de f(0)", "Retorno de f(1)", "Retorno de f(2)", "Retorno de f(3)"]
+
+enunciado: "Ordena cronológicamente los eventos en la ejecución de una función recursiva para f(3) donde el caso base es f(0):"
+
+explicacion: |
+  La ejecución sigue una estructura de LIFO (Last In, First Out): primero se van apilando todas las llamadas hacia el caso base y luego se van resolviendo (retornando) a medida que la pila se descarga.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_conceptos"
+  nivel: "basico"
+  tags: ["recursividad", "conceptos"]
+
+respuesta: "caso base"
+tipo: completar
+respuestas_validas:
+  - "caso base"
+  - "caso base"
+
+enunciado: "Para evitar que una función recursiva entre en un bucle infinito y agote la memoria (stack overflow), es indispensable definir un ___ que detenga las llamadas sucesivas."
+
+explicacion: |
+  El caso base es la condición que permite que la función deje de llamarse a sí misma, devolviendo un valor sin realizar una nueva llamada recursiva.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_errores"
+  nivel: "basico"
+  tags: ["stack_overflow", "errores"]
+
+variables:
+  es_infinito: verdadero
+
+respuesta: verdadero
+tipo: vf
+enunciado: "Si una función recursiva no reduce el tamaño del problema en cada paso hacia el caso base, ¿se producirá un error de desbordamiento de pila (stack overflow)?"
+
+explicacion: |
+  Si el problema no se aproxima al caso base, la recursión es infinita y la pila de llamadas se llena, causando un error de ejecución.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_flujo"
+  nivel: "intermedio"
+  tags: ["flujo_ejecucion", "recursividad"]
+
+respuesta: "f(3) -> f(2) -> f(1) -> f(0) -> Retorno"
+tipo: mc
+opciones_explicitas: ["f(3) -> f(2) -> f(1) -> f(0) -> Retorno", "f(3) -> f(4) -> f(5) -> ..."]
+
+enunciado: "Si tenemos una función que resta 1 al argumento en cada llamada y el caso base es cuando el argumento es 0, ¿cuál es la secuencia correcta de llamadas para f(3)?"
+
+explicacion: |
+  En una recursión correcta, cada llamada debe acercarse al caso base. La secuencia f(3) -> f(2) -> f(1) -> f(0) se detiene al llegar a 0.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_estructura"
+  nivel: "intermedio"
+  tags: ["estructura", "recursividad"]
+
+respuesta_orden: ["Caso base", "Caso recursivo", "Paso de parámetros"]
+tipo: ordenar
+
+opciones_explicitas: ["Caso base", "Caso recursivo", "Paso de parámetros"]
+
+enunciado: "Ordena los componentes lógicos necesarios para que una función sea recursiva y funcional, desde lo que detiene la ejecución hasta lo que permite la progresión:"
+
+explicacion: |
+  Primero se define la condición de parada (caso base), luego la lógica de la llamada (caso recursivo) y finalmente cómo se transforma el dato (paso de parámetros).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_errores"
+  nivel: "avanzado"
+  tags: ["retorno", "errores"]
+
+variables:
+  error_retorno: falso
+
+respuesta: error_retorno
+tipo: vf
+enunciado: "En una función recursiva que debe devolver la suma de los elementos de una lista, si olvidamos incluir la palabra clave 'return' en la llamada recursiva, la función devolverá un valor correcto."
+
+explicacion: |
+  Es un error común: si no se retorna el resultado de la llamada recursiva, la cadena de valores se rompe y la función principal no recibe el resultado acumulado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_conceptos"
+  nivel: "basico"
+  tags: ["recursividad", "conceptos"]
+
+respuesta: "caso base"
+tipo: completar
+respuestas_validas:
+  - "caso base"
+  - "condicion de parada"
+
+enunciado: "Para evitar que una función recursiva entre en un bucle infinito, es indispensable definir un ___ que detenga las llamadas sucesivas."
+
+explicacion: |
+  El caso base es la condición que permite que la función deje de llamarse a sí misma y comience a retornar valores, evitando un desbordamiento de pila (stack overflow).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_vs_iteracion"
+  nivel: "intermedio"
+  tags: ["recursividad", "iteracion", "comparacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En términos de complejidad de espacio en la memoria (stack), una función recursiva suele ser más costosa que un bucle iterativo equivalente debido al uso de la pila de llamadas."
+
+explicacion: |
+  Verdadero. Cada llamada recursiva añade un nuevo marco de pila (stack frame) con sus variables locales y dirección de retorno, mientras que la iteración reutiliza el mismo espacio de memoria.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_estructura"
+  nivel: "basico"
+  tags: ["recursividad", "estructura"]
+
+respuesta_orden: ["Caso base", "Caso recursivo", "Reducción del problema"]
+tipo: ordenar
+opciones_explicitas: ["Caso base", "Caso recursivo", "Reducción del problema"]
+
+enunciado: "Ordena los componentes lógicos necesarios para que un algoritmo recursivo sea correcto y termine:"
+
+explicacion: |
+  Para que la recursión funcione, primero se debe evaluar si llegamos al caso base; si no, se ejecuta el caso recursivo, el cual debe reducir el problema original hacia el caso base.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_estado"
+  nivel: "intermedio"
+  tags: ["recursividad", "estado", "memoria"]
+
+respuesta: "el estado se mantiene en la pila de llamadas"
+tipo: mc
+opciones_explicitas: ["el estado se mantiene en la pila de llamadas", "el estado se pierde en cada llamada", "el estado se guarda en una variable global única", "el estado no es necesario en recursión"]
+
+enunciado: "Al comparar una función recursiva con un bucle 'while', ¿en qué se diferencia la gestión de las variables locales?"
+
+explicacion: |
+  En la recursividad, cada llamada tiene su propio ámbito (scope) y sus propias variables, las cuales se almacenan en la pila de ejecución (stack).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_identificacion"
+  nivel: "basico"
+  tags: ["recursividad", "logica"]
+
+variables:
+  idx: uno_de([0,1])
+  escenarios: [["f(n) = n + f(n-1)", "recursivo"], ["f(n) = n + 1", "no recursivo"]]
+
+respuesta: escenarios[idx][1]
+tipo: mc
+opciones_explicitas: ["recursivo", "no recursivo"]
+
+enunciado: "Analiza la siguiente definición de función: {escenarios[idx][0]}. ¿Cuál es su naturaleza?"
+
+explicacion: |
+  Una función es recursiva si su definición incluye una llamada a sí misma con un argumento modificado, como se ve en el ejemplo seleccionado.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_conceptos"
+  nivel: "basico"
+  tags: ["teoria", "fundamentos"]
+
+respuesta: "caso base"
+tipo: "completar"
+respuestas_validas:
+  - "caso base"
+  - "caso recursivo"
+  - "condicion de parada"
+
+enunciado: "Para que una función recursiva no se ejecute infinitamente y cause un error de desbordamiento de pila, es indispensable que contenga un ___ que permita detener la recursión."
+
+explicacion: |
+  El caso base es la condición que se cumple cuando la función deja de llamarse a sí misma, permitiendo que la pila de llamadas se resuelva.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_estructura"
+  nivel: "basico"
+  tags: ["logica"]
+
+variables:
+  escenario: uno_de([["f(n) = n * f(n-1) con f(0)=1", "factorial"], ["f(n) = f(n-1) + f(n-2) con f(0)=0, f(1)=1", "fibonacci"], ["f(n) = n + f(n-1) con f(0)=0", "suma_naturales"]])
+
+respuesta: escenario[1]
+tipo: "mc"
+opciones_explicitas: ["factorial", "fibonacci", "suma_naturales", "potencia"]
+
+enunciado: "Dada la siguiente definición recursiva: {escenario[0]}, ¿cuál es el nombre del algoritmo que se está implementando?"
+
+explicacion: |
+  El algoritmo descrito corresponde a {escenario[1]}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_logica"
+  nivel: "intermedio"
+  tags: ["teoria"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "¿Es posible que una función recursiva sea correcta si su caso recursivo no reduce el tamaño del problema hacia el caso base?"
+
+explicacion: |
+  Falso. Si el problema no se reduce (por ejemplo, si llamamos a f(n) con f(n) en lugar de f(n-1)), nunca se alcanzará el caso base, resultando en una recursión infinita.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_ejecucion"
+  nivel: "intermedio"
+  tags: ["pila", "stack"]
+
+tipo: ordenar
+opciones_explicitas: ["Llamada 1", "Llamada 2", "Llamada 3", "Retorno 3", "Retorno 2", "Retorno 1"]
+respuesta_orden: ["Llamada 1", "Llamada 2", "Llamada 3", "Retorno 3", "Retorno 2", "Retorno 1"]
+
+enunciado: "Ordena cronológicamente los eventos de una función que llama a sí misma tres veces (n=3, n=2, n=1) antes de empezar a devolver valores (unwinding):"
+
+explicacion: |
+  En la recursión, primero se apilan todas las llamadas en la pila (stack) hasta llegar al caso base, y luego se procesan los retornos en orden inverso a la entrada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "recursividad_calculo"
+  nivel: "avanzado"
+  tags: ["calculo", "algoritmos"]
+
+variables:
+  datos: [[5, 120], [4, 24], [3, 6]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si tenemos una función para calcular el factorial de n, donde f(n) = n * f(n-1) y f(0) = 1, ¿cuál es el resultado de ejecutar la función con el valor n = {datos[idx][0]}?"
+
+explicacion: |
+  El factorial de {datos[idx][0]} es {datos[idx][1]}.
+```
+
+## Sección: medios-tecnicos-extension-capacidades-humanas (26 preguntas)
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "basico"
+  tags: ["sentidos", "cámara", "extensión"]
+
+respuesta: "cámara digital"
+tipo: completar
+
+enunciado: "Según la teoría, ¿qué dispositivo actúa como una extensión de la visión humana al capturar ondas electromagnéticas que el ojo no puede ver completamente?"
+
+explicacion: |
+  La cámara digital permite "ver" lo invisible al procesar el espectro de luz más allá de las limitaciones biológicas del ojo humano.
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "basico"
+  tags: ["memoria", "almacenamiento", "cerebro"]
+
+respuesta: "sistemas informáticos"
+tipo: completar
+
+enunciado: "Los sistemas informáticos actúan como una extensión de nuestra capacidad de almacenamiento, funcionando como una memoria externa de capacidad {n}."
+
+explicacion: |
+  A diferencia del cerebro humano, que tiene una capacidad finita, los sistemas informáticos ofrecen una memoria externa ilimitada.
+variables:
+  n: random(1, 1)
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "intermedio"
+  tags: ["procesador de textos", "escritura", "delegación"]
+
+respuesta: "correción ortográfica"
+tipo: completar
+
+enunciado: "Al usar un procesador de textos, delegamos la mecánica de la escritura y la {palabra} en el software."
+
+explicacion: |
+  El software se encarga de la corrección ortográfica, lo que libera al usuario para centrarse en el contenido y la estructura del texto.
+variables:
+  palabra: "correción"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "intermedio"
+  tags: ["precisión", "errores", "procesamiento"]
+
+respuesta: "imposible"
+tipo: completar
+
+enunciado: "Los sistemas informáticos permiten manejar grandes volúmenes de información con una precisión que sería {adjetivo} para la mente humana sola."
+
+explicacion: |
+  La mente humana comete errores al procesar grandes volúmenes de datos, mientras que los sistemas informáticos mantienen una alta precisión.
+variables:
+  adjetivo: "imposible"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "avanzado"
+  tags: ["autonomía", "pensamiento", "estructura cognitiva"]
+
+respuesta: "transforma"
+tipo: completar
+
+enunciado: "Al ampliar nuestras capacidades, los medios técnicos no solo dan más fuerza, sino que {verbo} la forma en que pensamos y resolvemos problemas."
+
+explicacion: |
+  La tecnología cambia nuestra estructura cognitiva, afectando cómo buscamos información y resolvemos problemas.
+variables:
+  verbo: "transforma"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "intermedio"
+  tags: ["información", "acceso", "velocidad"]
+
+respuesta: "instantánea"
+tipo: completar
+
+enunciado: "La capacidad de acceder a información de forma {adjetivo} ha modificado nuestra forma de buscar datos."
+
+explicacion: |
+  La inmediatez en el acceso a la información altera los procesos cognitivos tradicionales de búsqueda y retención.
+variables:
+  adjetivo: "instantánea"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "basico"
+  tags: ["historia", "herramientas", "evolución"]
+
+respuesta: "antigua"
+tipo: completar
+
+enunciado: "La noción de que las herramientas son extensiones humanas no es nueva; se remonta a una idea {adjetivo} como la rueda o el martillo."
+
+explicacion: |
+  Las herramientas históricas, desde la rueda hasta el martillo, han servido para potenciar lo que el cuerpo no puede hacer por sí solo.
+variables:
+  adjetivo: "antigua"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "intermedio"
+  tags: ["creatividad", "análisis", "tareas de alto nivel"]
+
+respuesta: "creatividad"
+tipo: completar
+
+enunciado: "Al delegar tareas mecánicas, liberamos energía mental para enfocarnos en tareas de mayor nivel, como la {sustantivo} y el análisis crítico."
+
+explicacion: |
+  La externalización de funciones cognitivas básicas permite al usuario enfocarse en procesos superiores como la creatividad.
+variables:
+  sustantivo: "creatividad"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "basico"
+  tags: ["visión", "espectro", "limitaciones"]
+
+respuesta: "completo"
+tipo: completar
+
+enunciado: "Nuestros ojos no pueden ver el espectro {adjetivo} de luz, pero una cámara digital sí puede procesarlo."
+
+explicacion: |
+  La visión humana tiene limitaciones biológicas que la tecnología puede superar, como capturar todo el espectro electromagnético visible e invisible.
+variables:
+  adjetivo: "completo"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "basico"
+  tags: ["prótesis", "definición", "tecnología"]
+
+respuesta: "prótesis"
+tipo: completar
+
+enunciado: "Desde una perspectiva profunda, la tecnología puede entenderse como una {sustantivo} cognitiva y física."
+
+explicacion: |
+  La tecnología actúa como una prótesis que amplifica las capacidades naturales del ser humano.
+variables:
+  sustantivo: "prótesis"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "intermedio"
+  tags: ["lógica", "razonamiento", "procesamiento"]
+
+respuesta: "razonamiento lógico"
+tipo: completar
+
+enunciado: "Los sistemas informáticos actúan como una extensión de nuestro {frase}."
+
+explicacion: |
+  La tecnología no solo almacena datos, sino que procesa información de manera que extiende nuestra capacidad de razonamiento lógico.
+variables:
+  frase: "razonamiento lógico"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "intermedio"
+  tags: ["GPS", "delegación", "espacio"]
+
+respuesta: "orientación espacial"
+tipo: completar
+
+enunciado: "Al usar un GPS, delegamos nuestra {frase} en un algoritmo."
+
+explicacion: |
+  La navegación, que antes dependía de la memoria espacial humana, ahora se delega en sistemas algorítmicos.
+variables:
+  frase: "orientación espacial"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "basico"
+  tags: ["biología", "límites", "humanos"]
+
+respuesta: "biológicas"
+tipo: completar
+
+enunciado: "Un medio técnico complementa al ser humano al llevar nuestras limitaciones {adjetivo} más allá de su alcance natural."
+
+explicacion: |
+  La tecnología supera las restricciones físicas y cognitivas impuestas por la biología humana.
+variables:
+  adjetivo: "biológicas"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "intermedio"
+  tags: ["memoria", "cerebro", "capacidad"]
+
+respuesta: "finita"
+tipo: completar
+
+enunciado: "Nuestro cerebro tiene una capacidad {adjetivo} para almacenar recuerdos, a diferencia de la memoria externa ilimitada de los sistemas informáticos."
+
+explicacion: |
+  El cerebro humano tiene límites naturales de almacenamiento, mientras que la tecnología ofrece escalabilidad.
+variables:
+  adjetivo: "finita"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "avanzado"
+  tags: ["conciencia", "uso", "responsabilidad"]
+
+respuesta: "consciente"
+tipo: completar
+
+enunciado: "Entender la tecnología como una extensión nos ayuda a usarla de manera más {adjetivo}."
+
+explicacion: |
+  La comprensión de la tecnología como extensión fomenta un uso más reflexivo y responsable.
+variables:
+  adjetivo: "consciente"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "avanzado"
+  tags: ["estructura", "cognitiva", "cambio"]
+
+respuesta: "cognitiva"
+tipo: completar
+
+enunciado: "La informática cambia nuestra estructura {adjetivo}, no solo nuestra fuerza o velocidad."
+
+explicacion: |
+  El impacto de la tecnología va más allá de lo físico; altera la forma en que estructuramos el pensamiento.
+variables:
+  adjetivo: "cognitiva"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "intermedio"
+  tags: ["decisiones", "estrategia", "nivel superior"]
+
+respuesta: "decisiones estratégicas"
+tipo: completar
+
+enunciado: "Al liberar energía mental, podemos enfocarnos en la toma de {frase}."
+
+explicacion: |
+  La delegación de tareas mecánicas permite al cerebro humano dedicarse a procesos de alto nivel como la estrategia.
+variables:
+  frase: "decisiones estratégicas"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "basico"
+  tags: ["complemento", "reemplazo", "relación"]
+
+respuesta: "complementa"
+tipo: completar
+
+enunciado: "Un medio técnico no reemplaza al ser humano, sino que lo {verbo}."
+
+explicacion: |
+  La tecnología es un complemento que potencia las capacidades humanas, no un sustituto total.
+variables:
+  verbo: "complementa"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "basico"
+  tags: ["física", "onda", "captura"]
+
+respuesta: "electromagnéticas"
+tipo: completar
+
+enunciado: "Una cámara digital captura y procesa esas ondas {adjetivo}, permitiéndonos ver lo invisible."
+
+explicacion: |
+  La cámara traduce la luz en señales procesables, extendiendo la percepción visual humana.
+variables:
+  adjetivo: "electromagnéticas"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "intermedio"
+  tags: ["cálculo", "precisión", "errores"]
+
+respuesta: "errores"
+tipo: completar
+
+enunciado: "Nuestro cerebro tiene una capacidad finita para realizar cálculos complejos sin cometer {sustantivo}."
+
+explicacion: |
+  La fatiga y los límites biológicos hacen que los cálculos humanos sean propensos a errores, algo que la tecnología mitiga.
+variables:
+  sustantivo: "errores"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "avanzado"
+  tags: ["externalización", "funciones", "cognitivas"]
+
+respuesta: "externalizamos"
+tipo: completar
+
+enunciado: "Al depender de estas herramientas, también {verbo} ciertas funciones cognitivas."
+
+explicacion: |
+  La dependencia tecnológica implica transferir funciones mentales a sistemas externos.
+variables:
+  verbo: "externalizamos"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "intermedio"
+  tags: ["escritura", "mecánica", "software"]
+
+respuesta: "mecánica"
+tipo: completar
+
+enunciado: "Al usar un procesador de textos, delegamos la {adjetivo} de la escritura en el software."
+
+explicacion: |
+  El software maneja los aspectos técnicos de la escritura, permitiendo al usuario centrarse en el mensaje.
+variables:
+  adjetivo: "mecánica"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "intermedio"
+  tags: ["ventajas", "potencia", "beneficios"]
+
+respuesta: "potentes"
+tipo: completar
+
+enunciado: "Entender la tecnología como una extensión nos ayuda a reconocer tanto sus {adjetivo} ventajas como la responsabilidad."
+
+explicacion: |
+  Es crucial balancear la apreciación de la potencia tecnológica con la conciencia de sus implicaciones.
+variables:
+  adjetivo: "potentes"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "avanzado"
+  tags: ["ceder", "nativas", "máquinas"]
+
+respuesta: "ceder"
+tipo: completar
+
+enunciado: "La tecnología implica la responsabilidad de {verbo} parte de nuestras capacidades nativas a máquinas."
+
+explicacion: |
+  El uso de tecnología requiere aceptar la transferencia de control de ciertas habilidades humanas a algoritmos.
+variables:
+  verbo: "ceder"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "avanzado"
+  tags: ["resolución", "problemas", "estructura"]
+
+respuesta: "problemas"
+tipo: completar
+
+enunciado: "Los medios técnicos transforman la forma en que pensamos y resolvemos {sustantivo}."
+
+explicacion: |
+  La tecnología no solo acelera procesos, sino que redefine la metodología de resolución de problemas.
+variables:
+  sustantivo: "problemas"
+```
+
+```
+metadata:
+  materia: "Informática"
+  tema: "medios_tecnicos_extension_capacidades_humanas"
+  nivel: "basico"
+  tags: ["visión", "invisible", "tecnología"]
+
+respuesta: "invisible"
+tipo: completar
+
+enunciado: "La cámara digital nos permite 'ver' lo {adjetivo} al procesar ondas que el ojo no capta."
+
+explicacion: |
+  La tecnología expande los límites de la percepción humana hacia lo que naturalmente es imperceptible.
+variables:
+  adjetivo: "invisible"
+```
+

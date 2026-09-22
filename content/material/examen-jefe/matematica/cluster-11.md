@@ -1,3052 +1,2923 @@
-# Examen jefe — Dominio de la Regla del 8
+# Examen jefe — [PENDIENTE #611]
 
-> Logro #62. Completaste el parcial dominando divisibilidad, Ruffini y ecuaciones cuadráticas jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **138 preguntas totales** en 5/5 secciones.
+> Logro #611. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **136 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: divisibilidad/regla-del-8 (20 preguntas)
+## Sección: transformaciones-geometricas/rotacion (23 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_8"]
+  tema: "rotacion"
+  nivel: "basico"
+  tags: ["rotacion", "vocabulario"]
 
-variables:
-  prefijo: random(1, 9)
-  suffix: random(0, 999)
-  n: prefijo * 1000 + suffix
-  resto: suffix - floor(suffix / 8) * 8
-
-respuesta: (resto == 0)
-tipo: vf
-
-enunciado: "¿Es {n} divisible por 8?"
+enunciado: "¿Qué es una rotación en geometría?"
+tipo: mc
+opciones_explicitas:
+  - "Girar una figura alrededor de un punto fijo, una cierta cantidad de grados"
+  - "Deslizar una figura sin girarla"
+  - "Reflejar una figura sobre una línea"
+respuesta: "Girar una figura alrededor de un punto fijo, una cierta cantidad de grados"
 
 explicacion: |
-  Alcanza con mirar el número formado por las últimas tres cifras: si ese
-  número es múltiplo de 8, todo el número lo es.
+  El punto fijo es el centro de rotación.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_8"]
+  tema: "rotacion"
+  nivel: "basico"
+  tags: ["rotacion", "vocabulario"]
 
-variables:
-  prefijo: random(10, 999)
-  suffix: random(0, 999)
-  n: prefijo * 1000 + suffix
-  resto: suffix - floor(suffix / 8) * 8
-
-respuesta: (resto == 0)
-tipo: vf
-
-enunciado: "¿Es {n} divisible por 8?"
+enunciado: "¿Qué dos datos definen una rotación?"
+tipo: mc
+opciones_explicitas:
+  - "El centro de rotación y el ángulo de rotación (con su sentido)"
+  - "Un vector de dirección y magnitud"
+  - "Un eje de simetría"
+respuesta: "El centro de rotación y el ángulo de rotación (con su sentido)"
 
 explicacion: |
-  Con números más grandes la regla no cambia: sólo importan las últimas
-  tres cifras.
+  El sentido puede ser horario o antihorario.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_del_8"
+  tema: "rotacion"
+  nivel: "basico"
+  tags: ["rotacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una rotación, el centro de rotación es el único punto que no cambia de lugar."
+
+explicacion: |
+  Todos los demás puntos giran alrededor de él, recorriendo un arco de
+  circunferencia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rotacion"
+  nivel: "basico"
+  tags: ["rotacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una rotación preserva la forma y el tamaño de la figura original."
+
+explicacion: |
+  Es una isometría: la imagen es congruente a la original.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rotacion"
   nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_8"]
+  tags: ["rotacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de la traslación, una rotación sí cambia la orientación de la figura (queda 'mirando' hacia otro lado)."
+
+explicacion: |
+  Sólo se mantiene el tamaño y la forma, no la orientación en el
+  espacio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rotacion"
+  nivel: "basico"
+  tags: ["rotacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una rotación de 360° deja la figura exactamente en la misma posición y orientación que al principio."
+
+explicacion: |
+  360° es una vuelta completa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rotacion"
+  nivel: "intermedio"
+  tags: ["rotacion", "problema"]
 
 variables:
-  prefijo: random(1, 9)
-  suffix: random(0, 999)
-  n: prefijo * 1000 + suffix
+  inicial: random(0, 350)
+  angulo: random(10, 340)
 
-respuesta: suffix
+respuesta: (inicial + angulo) - (floor((inicial + angulo) / 360) * 360)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Para aplicar la regla del 8, ¿qué número forman las últimas tres cifras de {n}?"
+enunciado: "Un punto está en la posición {inicial}° sobre una circunferencia. Se rota {angulo}° en sentido antihorario. ¿En qué posición (en grados, entre 0° y 360°) queda?"
+
+pasos:
+  - "{inicial}° + {angulo}° = {inicial + angulo}°"
+  - "Si pasa de 360°, se le resta una vuelta completa: {(inicial + angulo) - (floor((inicial + angulo) / 360) * 360)}°"
 
 explicacion: |
-  Es el primer paso: aislar las últimas tres cifras.
+  Rotar es sumar el ángulo; si el resultado supera 360°, se resta una
+  vuelta completa (la posición "da la vuelta").
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_8"]
-
-variables:
-  prefijo: random(1, 9)
-  suffix: random(0, 999)
-  n: prefijo * 1000 + suffix
-  resto: suffix - floor(suffix / 8) * 8
-
-respuesta: (resto == 0)
-tipo: vf
-
-enunciado: "Las últimas tres cifras de {n} forman el número {suffix}. ¿Eso alcanza para decir que {n} es divisible por 8?"
-
-explicacion: |
-  Alcanza con ver si {suffix} es múltiplo de 8.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_8"]
-
-variables:
-  base: random(3, 120) * 8
-  otro1: base + 1
-  otro2: base + 4
-
-respuesta: base
-tipo: mc
-opciones_explicitas:
-  - base
-  - otro1
-  - otro2
-
-enunciado: "¿Cuál de estos tres números es divisible por 8?"
-
-explicacion: |
-  Se comparan las últimas tres cifras de cada opción contra la tabla del 8.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_8"]
-
-variables:
-  base: random(3, 120) * 8 + 2
-  otro1: random(3, 120) * 8
-  otro2: random(3, 120) * 8
-
-respuesta: base
-tipo: mc
-opciones_explicitas:
-  - base
-  - otro1
-  - otro2
-
-enunciado: "¿Cuál de estos tres números NO es divisible por 8?"
-
-explicacion: |
-  Las últimas tres cifras de {base} no forman un múltiplo de 8.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_8"
+  tema: "rotacion"
   nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_8", "comparar_reglas"]
+  tags: ["rotacion", "problema"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  inicial: random(0, 179)
 
-enunciado: "Si un número es divisible por 8, también es divisible por 4."
+respuesta: inicial + 180
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un punto está en la posición {inicial}° sobre una circunferencia. Se rota 180°. ¿En qué posición queda?"
+
+pasos:
+  - "{inicial}° + 180° = {inicial + 180}°"
 
 explicacion: |
-  Como 8 = 4 × 2, todo múltiplo de 8 es también múltiplo de 4 (y de 2).
+  Una rotación de 180° pone al punto exactamente del otro lado del
+  centro, a la misma distancia.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_8", "comparar_reglas"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si un número es divisible por 4, siempre es divisible por 8 también."
-
-explicacion: |
-  No es cierto: 12 es divisible por 4 pero no por 8. La regla del 8 es más
-  exigente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_8", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todos los resultados de la tabla del 8 son números divisibles por 8."
-
-explicacion: |
-  La tabla del 8 (8, 16, 24, 32...) es, exactamente, la lista de los
-  números divisibles por 8.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_8"
+  tema: "rotacion"
   nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_8", "problema"]
+  tags: ["rotacion", "vocabulario"]
 
-variables:
-  prefijo: random(1, 9)
-  suffix: random(0, 999)
-  n: prefijo * 1000 + suffix
-  resto: suffix - floor(suffix / 8) * 8
-
-respuesta: (resto == 0)
-tipo: vf
-
-enunciado: "¿Se pueden repartir {n} figuritas entre 8 chicos, en partes iguales y sin que sobre ninguna?"
-
-explicacion: |
-  Se puede repartir exacto entre 8 sólo si el total es divisible por 8.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_8"]
-
-variables:
-  prefijo: random(1, 99)
-  n: prefijo * 1000
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es {n} divisible por 8?"
-
-explicacion: |
-  Termina en 000, que cuenta como múltiplo de 8.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_8"]
-
-variables:
-  base: random(200, 2000) * 8
-  otro1: base + 1
-  otro2: base + 3
-
-respuesta: base
+enunciado: "¿Qué es la simetría rotacional de una figura?"
 tipo: mc
 opciones_explicitas:
-  - base
-  - otro1
-  - otro2
-
-enunciado: "¿Cuál de estos tres números es divisible por 8?"
+  - "Que la figura se ve exactamente igual después de rotarla menos de 360°"
+  - "Que la figura tiene un eje de simetría"
+  - "Que todos sus lados miden lo mismo"
+respuesta: "Que la figura se ve exactamente igual después de rotarla menos de 360°"
 
 explicacion: |
-  Con números grandes la regla no cambia: sólo importan las últimas tres
-  cifras.
+  Por ejemplo, un cuadrado se ve igual rotado 90°, sin necesidad de
+  completar la vuelta entera.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_8", "orden"]
+  tema: "rotacion"
+  nivel: "avanzado"
+  tags: ["rotacion", "problema"]
 
+variables:
+  n: uno_de([3, 4, 5, 6, 8, 9, 10, 12])
+
+respuesta: 360 / n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el ángulo mínimo de rotación con el que un polígono REGULAR de {n} lados se ve exactamente igual a sí mismo?"
+
+pasos:
+  - "360° ÷ {n} = {360 / n}°"
+
+explicacion: |
+  Un polígono regular de n lados tiene simetría rotacional cada
+  360°/n.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rotacion"
+  nivel: "intermedio"
+  tags: ["rotacion", "completar"]
+
+tipo: completar
+enunciado: "Completá: el ángulo mínimo de simetría rotacional de un polígono regular de n lados es 360° dividido ___."
+respuestas_validas:
+  - "n"
+
+explicacion: |
+  A más lados, menor el ángulo mínimo de simetría.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rotacion"
+  nivel: "basico"
+  tags: ["rotacion", "vocabulario"]
+
+enunciado: "¿Cuál de estas es un ejemplo cotidiano de rotación?"
+tipo: mc
+opciones_explicitas:
+  - "Las aspas de un ventilador girando alrededor de su eje"
+  - "Un cajón que se desliza al abrirlo"
+  - "El reflejo de un objeto en un espejo"
+respuesta: "Las aspas de un ventilador girando alrededor de su eje"
+
+explicacion: |
+  El eje del ventilador es el centro de rotación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rotacion"
+  nivel: "intermedio"
+  tags: ["rotacion", "ordenar"]
+
+enunciado: "Ordená los pasos para aplicar una rotación a una figura."
 tipo: ordenar
-enunciado: "Ordená estos números de menor a mayor: son todos divisibles por 8."
 opciones_explicitas:
-  - "40"
-  - "8"
-  - "24"
-  - "16"
-respuesta_orden: ["8", "16", "24", "40"]
-
+  - "Girar cada punto de la figura ese ángulo alrededor del centro"
+  - "Elegir el centro de rotación (el punto que no se va a mover)"
+  - "Definir el ángulo de rotación y el sentido (horario o antihorario)"
+respuesta_orden: ["Elegir el centro de rotación (el punto que no se va a mover)", "Definir el ángulo de rotación y el sentido (horario o antihorario)", "Girar cada punto de la figura ese ángulo alrededor del centro"]
 explicacion: |
-  Los cuatro son múltiplos de 8; sólo hace falta ordenarlos por tamaño.
+  El centro se define primero: todo el resto del giro se mide respecto
+  de él.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_del_8"
+  tema: "rotacion"
   nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_8"]
-
-variables:
-  a: random(1, 100) * 8
-  b: random(1, 100) * 8
+  tags: ["rotacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es {a} + {b} siempre divisible por 8?"
+enunciado: "Salvo en el caso de 180°, rotar una figura X grados en sentido horario da un resultado distinto que rotarla X grados en sentido antihorario."
 
 explicacion: |
-  La suma de dos múltiplos de 8 sigue siendo múltiplo de 8.
+  El sentido importa tanto como la magnitud del ángulo — sólo a 180° dan
+  el mismo resultado, porque quedan exactamente opuestos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "regla_del_8"
+  tema: "rotacion"
   nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_8", "problema"]
+  tags: ["rotacion", "problema"]
 
 variables:
-  prefijo: random(1, 9)
-  suffix: random(0, 999)
-  n: prefijo * 1000 + suffix
-  resto: suffix - floor(suffix / 8) * 8
+  angulo1: random(20, 150)
+  angulo2: random(20, 150)
 
-respuesta: (resto == 0)
-tipo: vf
-
-enunciado: "Un producto se empaqueta en cajas cerradas de 8 unidades. ¿Se pueden empaquetar exactamente {n} unidades sin que sobre ninguna?"
-
-explicacion: |
-  Sólo si {n} es divisible por 8.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_8"]
-
-variables:
-  a: random(10, 150) * 8
-  b: random(10, 150) * 8 + 4
-  c: random(10, 150) * 8
-
-respuesta: b
-tipo: mc
-opciones_explicitas:
-  - a
-  - b
-  - c
-
-enunciado: "De estos tres números, ¿cuál es el único que NO es divisible por 8?"
-
-explicacion: |
-  Hay que comparar las últimas tres cifras de cada uno contra la tabla
-  del 8.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_8"]
-
-variables:
-  n: random(1, 200) * 8
-
-tipo: completar
-enunciado: "Completá el próximo múltiplo de 8 después de {n}."
-respuestas_validas:
-  - n + 8
-
-explicacion: |
-  Los múltiplos de 8 van de 8 en 8.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_8", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La regla del 8 mira tres cifras (no dos) porque 1.000 es múltiplo de 8, pero 100 no lo es."
-
-explicacion: |
-  Todo lo que esté "de las unidades de mil para arriba" ya es
-  automáticamente múltiplo de 8.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_8"]
-
-variables:
-  n: random(100, 999)
-  resto: n - floor(n / 8) * 8
-
-respuesta: (resto == 0)
-tipo: vf
-
-enunciado: "¿Es {n} divisible por 8?"
-
-explicacion: |
-  Con un número de 3 cifras, el número completo YA ES sus últimas tres
-  cifras.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_8"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_8", "comparar_reglas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un número es divisible por 8, también es divisible por 4 y por 2 al mismo tiempo."
-
-explicacion: |
-  8 = 4 × 2 = 2 × 2 × 2: todo múltiplo de 8 arrastra ambas divisibilidades.
-```
-
-## Sección: divisibilidad/regla-del-9 (20 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  n: random(10, 999)
-  resto: n - floor(n / 9) * 9
-
-respuesta: (resto == 0)
-tipo: vf
-
-enunciado: "¿Es {n} divisible por 9?"
-
-explicacion: |
-  Se suman todas las cifras de {n}; si esa suma es múltiplo de 9, el
-  número también lo es.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  n: random(1000, 98765)
-  resto: n - floor(n / 9) * 9
-
-respuesta: (resto == 0)
-tipo: vf
-
-enunciado: "¿Es {n} divisible por 9?"
-
-explicacion: |
-  Mismo procedimiento que con números más chicos: sumar todas las cifras.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  c: random(1, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  n: c * 100 + d * 10 + u
-
-respuesta: c + d + u
+respuesta: angulo1 + angulo2
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es la suma de las cifras de {n}?"
-
-explicacion: |
-  Es el mismo primer paso que la regla del 3: sumar todas las cifras.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  c: random(1, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  n: c * 100 + d * 10 + u
-  suma_cifras: c + d + u
-  resto: suma_cifras - floor(suma_cifras / 9) * 9
-
-respuesta: (resto == 0)
-tipo: vf
-
-enunciado: "La suma de las cifras de {n} es {suma_cifras}. ¿Eso alcanza para decir que {n} es divisible por 9?"
-
-explicacion: |
-  Alcanza con ver si esa suma es múltiplo de 9 (no de 3).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  base: random(3, 100) * 9
-  otro1: base + 1
-  otro2: base + 2
-
-respuesta: base
-tipo: mc
-opciones_explicitas:
-  - base
-  - otro1
-  - otro2
-
-enunciado: "¿Cuál de estos tres números es múltiplo de 9?"
-
-explicacion: |
-  Conviene sumar las cifras de cada opción y ver cuál suma da múltiplo
-  de 9.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  base: random(3, 100) * 9
-  otro: base + 1
-
-respuesta: otro
-tipo: mc
-opciones_explicitas:
-  - base
-  - otro
-
-enunciado: "¿Cuál de estos dos números NO es múltiplo de 9?"
-
-explicacion: |
-  {base} sí lo es; el otro rompe la condición de suma múltiplo de 9.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  c: random(1, 9)
-  d: random(0, 9)
-  suma_parcial: c + d
-  r: suma_parcial - floor(suma_parcial / 9) * 9
-  necesaria: (9 - r) - floor((9 - r) / 9) * 9
-
-tipo: completar
-enunciado: "El número tiene {c} centenas, {d} decenas, y falta la cifra de las unidades. Completá una cifra de unidades que haga que el número sea múltiplo de 9."
-respuestas_validas:
-  - necesaria
-
-explicacion: |
-  Hay que buscar qué cifra hace que la suma total de las cifras sea
-  múltiplo de 9.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_9", "comparar_reglas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un número es divisible por 9, también es divisible por 3."
-
-explicacion: |
-  Toda suma de cifras que sea múltiplo de 9 también es múltiplo de 3.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_9", "comparar_reglas"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si un número es divisible por 3, siempre es divisible por 9 también."
-
-explicacion: |
-  No es cierto: 12 es divisible por 3 pero no por 9. La regla del 9 es más
-  exigente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_9", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todos los resultados de la tabla del 9 son números divisibles por 9."
-
-explicacion: |
-  La tabla del 9 (9, 18, 27...) es, exactamente, la lista de los números
-  divisibles por 9.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_9", "problema"]
-
-variables:
-  n: random(10, 300)
-  resto: n - floor(n / 9) * 9
-
-respuesta: (resto == 0)
-tipo: vf
-
-enunciado: "¿Se pueden repartir {n} figuritas entre 9 chicos, en partes iguales y sin que sobre ninguna?"
-
-explicacion: |
-  Se puede repartir exacto entre 9 sólo si el total es divisible por 9.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  base: random(200, 1000) * 9
-  otro1: base + 1
-  otro2: base + 3
-
-respuesta: base
-tipo: mc
-opciones_explicitas:
-  - base
-  - otro1
-  - otro2
-
-enunciado: "¿Cuál de estos tres números es divisible por 9?"
-
-explicacion: |
-  Con números grandes hay que sumar todas las cifras, sin saltear ninguna.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  m: random(1, 9)
-  c: random(0, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  n: m * 1000 + c * 100 + d * 10 + u
-
-respuesta: m + c + d + u
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es la suma de las cifras de {n}?"
-
-explicacion: |
-  Igual que con menos cifras: se suman todas, sin saltear ninguna.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_9", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos números de menor a mayor: son todos divisibles por 9."
-opciones_explicitas:
-  - "36"
-  - "9"
-  - "27"
-  - "18"
-respuesta_orden: ["9", "18", "27", "36"]
-
-explicacion: |
-  Los cuatro tienen suma de cifras múltiplo de 9; sólo hace falta
-  ordenarlos por tamaño.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  a: random(1, 50) * 9
-  b: random(1, 50) * 9
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es {a} + {b} siempre divisible por 9?"
-
-explicacion: |
-  La suma de dos múltiplos de 9 sigue siendo múltiplo de 9.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_9", "problema"]
-
-variables:
-  n: random(10, 300)
-  resto: n - floor(n / 9) * 9
-
-respuesta: (resto == 0)
-tipo: vf
-
-enunciado: "Un producto se empaqueta en cajas cerradas de 9 unidades. ¿Se pueden empaquetar exactamente {n} unidades sin que sobre ninguna?"
-
-explicacion: |
-  Sólo si {n} es divisible por 9.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  a: random(10, 200) * 9
-  b: random(10, 200) * 9 + 1
-  c: random(10, 200) * 9
-
-respuesta: b
-tipo: mc
-opciones_explicitas:
-  - a
-  - b
-  - c
-
-enunciado: "De estos tres números, ¿cuál es el único que NO es múltiplo de 9?"
-
-explicacion: |
-  Hay que sumar las cifras de cada uno y comparar contra la tabla del 9.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  n: random(1, 100) * 9
-
-tipo: completar
-enunciado: "Completá el próximo múltiplo de 9 después de {n}."
-respuestas_validas:
-  - n + 9
-
-explicacion: |
-  Los múltiplos de 9 van de 9 en 9.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_9", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La regla del 9 usa exactamente el mismo método que la regla del 3 (sumar las cifras); sólo cambia el número contra el que se compara la suma."
-
-explicacion: |
-  Es la misma idea, con la tabla del 9 en vez de la tabla del 3.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "regla_del_9"
-  nivel: "avanzado"
-  tags: ["divisibilidad", "regla_del_9"]
-
-variables:
-  c: random(1, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  n1: c * 100 + d * 10 + u
-  n2: c * 100 + u * 10 + d
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "{n1} y {n2} tienen las mismas cifras en distinto orden. ¿Es cierto que los dos son divisibles por 9, o ninguno de los dos, al mismo tiempo?"
-
-explicacion: |
-  La suma de las cifras no cambia si se reordenan: por eso reordenar las
-  cifras nunca cambia si un número es o no divisible por 9.
-```
-
-## Sección: division (40 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "tablas"]
-
-variables:
-  cociente: random(1, 10)
-  dividendo: 2 * cociente
-
-respuesta: cociente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {dividendo} ÷ 2?"
-
-explicacion: |
-  Dividir por 2 es preguntar "¿qué número, multiplicado por 2, da
-  {dividendo}?" — la tabla del 2 al revés.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "tablas"]
-
-variables:
-  cociente: random(1, 10)
-  dividendo: 5 * cociente
-
-respuesta: cociente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {dividendo} ÷ 5?"
-
-explicacion: |
-  Es la tabla del 5 mirada al revés: buscar cuántas veces entra el 5 en
-  {dividendo}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "tablas"]
-
-variables:
-  cociente: random(1, 10)
-  dividendo: 9 * cociente
-
-respuesta: cociente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {dividendo} ÷ 9?"
-
-explicacion: |
-  Es la tabla del 9 mirada al revés.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "tablas"]
-
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 9)
-  dividendo: divisor * cociente
-
-respuesta: cociente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {dividendo} ÷ {divisor}?"
-
-explicacion: |
-  Como {dividendo} es exactamente {divisor} × {cociente}, la división da
-  {cociente} justo, sin resto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "intermedio"
-  tags: ["division", "division_entera"]
-
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 15)
-  resto: random(1, divisor - 1)
-  dividendo: divisor * cociente + resto
-
-respuesta: cociente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En {dividendo} ÷ {divisor}, ¿cuál es el cociente?"
+enunciado: "Una figura se rota {angulo1}° y después se rota otros {angulo2}° más, en el mismo sentido y alrededor del mismo centro. ¿A qué rotación total equivale?"
 
 pasos:
-  - "{divisor} entra {cociente} veces en {dividendo}, y sobran {resto}"
+  - "{angulo1}° + {angulo2}° = {angulo1 + angulo2}°"
 
 explicacion: |
-  El cociente es la cantidad de veces completas que entra el divisor en el
-  dividendo, sin contar lo que sobra.
+  Dos rotaciones sucesivas alrededor del mismo centro equivalen a una
+  sola rotación con la suma de los ángulos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
+  tema: "rotacion"
   nivel: "intermedio"
-  tags: ["division", "division_entera"]
+  tags: ["rotacion", "vocabulario"]
 
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 15)
-  resto: random(1, divisor - 1)
-  dividendo: divisor * cociente + resto
-
-respuesta: resto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En {dividendo} ÷ {divisor}, ¿cuál es el resto?"
-
-pasos:
-  - "{divisor} × {cociente} = {divisor * cociente}. {dividendo} - {divisor * cociente} = {resto}"
+enunciado: "¿Qué distingue a la rotación de la traslación?"
+tipo: mc
+opciones_explicitas:
+  - "La rotación tiene un punto fijo (el centro) y cambia la orientación; la traslación no tiene puntos fijos y mantiene la orientación"
+  - "La rotación cambia el tamaño de la figura; la traslación no"
+  - "No hay ninguna diferencia real entre las dos"
+respuesta: "La rotación tiene un punto fijo (el centro) y cambia la orientación; la traslación no tiene puntos fijos y mantiene la orientación"
 
 explicacion: |
-  El resto es lo que queda sin poder repartir, una vez sacadas todas las
-  veces completas que entra el divisor.
+  Son las dos diferencias clave entre ambas transformaciones.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
+  tema: "rotacion"
   nivel: "intermedio"
-  tags: ["division", "division_entera"]
-
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 15)
-  resto: random(1, divisor - 1)
-  dividendo: divisor * cociente + resto
-
-respuesta: dividendo
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Qué número resulta de dividir por {divisor}, obtener cociente {cociente} y que sobren {resto}?"
-
-pasos:
-  - "{divisor} × {cociente} + {resto} = {dividendo}"
-
-explicacion: |
-  Es la fórmula de la división entera al revés: divisor × cociente + resto
-  reconstruye el dividendo original.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "intermedio"
-  tags: ["division", "division_entera", "problema"]
-
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 15)
-  resto: random(1, divisor - 1)
-  dividendo: divisor * cociente + resto
-
-respuesta: cociente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Repartís {dividendo} caramelos entre {divisor} chicos, en partes iguales. ¿Cuántos caramelos le tocan a cada uno (sin contar los que sobran)?"
-
-explicacion: |
-  A cada chico le toca el cociente; lo que no se puede repartir en partes
-  iguales queda como resto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "prueba_de_la_division"]
-
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 15)
-  resto: random(0, divisor - 1)
-  dividendo: divisor * cociente + resto
-
-respuesta: (divisor * cociente + resto == dividendo)
-tipo: vf
-
-enunciado: "Si {dividendo} ÷ {divisor} da cociente {cociente} y resto {resto}, ¿tiene que ser cierto que {divisor} × {cociente} + {resto} da {dividendo}?"
-
-explicacion: |
-  Es la prueba de la división: multiplicar el divisor por el cociente y
-  sumar el resto siempre reconstruye el dividendo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "relacion_multiplicacion"]
-
-variables:
-  a: random(2, 9)
-  b: random(2, 20)
-  c: a * b
-
-respuesta: b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Sabiendo que {a} × {b} = {c}, ¿cuánto es {c} ÷ {a}?"
-
-explicacion: |
-  La división deshace lo que hizo la multiplicación: si {a} × {b} = {c},
-  entonces {c} ÷ {a} vuelve a dar {b}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "relacion_multiplicacion"]
-
-variables:
-  a: random(2, 9)
-  b: random(2, 20)
-  c: a * b
-
-respuesta: a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Sabiendo que {a} × {b} = {c}, ¿cuánto es {c} ÷ {b}?"
-
-explicacion: |
-  Dividiendo por el otro factor se recupera el que falta: {c} ÷ {b} = {a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "propiedades"]
-
-variables:
-  a: random(2, 90)
-  b: random(2, 90)
-
-restricciones:
-  - a != b
-
-respuesta: (a / b == b / a)
-tipo: vf
-
-enunciado: "¿Es cierto que {a} ÷ {b} da el mismo resultado que {b} ÷ {a}?"
-
-explicacion: |
-  A diferencia de la multiplicación, en la división el orden importa:
-  dividendo y divisor no se pueden intercambiar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "propiedades"]
+  tags: ["rotacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En una división, no es lo mismo el dividendo que el divisor: cambiarlos de lugar cambia el resultado."
+enunciado: "La rotación es una isometría: no cambia ni la forma ni el tamaño de la figura, sólo su orientación y posición."
 
 explicacion: |
-  Igual que en la resta, el orden de los términos en una división no se
-  puede cambiar sin cambiar el resultado.
+  Junto con la traslación y la reflexión, es una de las tres isometrías
+  (la homotecia es la excepción: sí cambia el tamaño).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "propiedades"]
+  tema: "rotacion"
+  nivel: "avanzado"
+  tags: ["rotacion", "problema"]
 
-respuesta: falso
-tipo: vf
+respuesta: 60
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "Se puede dividir cualquier número por 0 y obtener un resultado."
+enunciado: "¿Cada cuántos grados un hexágono regular se ve exactamente igual a sí mismo al rotarlo?"
+
+pasos:
+  - "360° ÷ 6 = 60°"
 
 explicacion: |
-  Dividir por 0 no está definido: no existe ningún número que, multiplicado
-  por 0, dé un resultado distinto de 0.
+  Un hexágono regular tiene 6 lados: 360° ÷ 6 = 60°.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "propiedades"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "0 dividido cualquier número distinto de 0 da siempre 0."
-
-explicacion: |
-  Repartir nada (0) entre cualquier cantidad de partes sigue dando 0 en
-  cada parte — distinto de dividir por 0, que no está definido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "vocabulario"]
-
-enunciado: "En 17 ÷ 5, ¿cómo se llama el 17?"
-tipo: mc
-opciones_explicitas:
-  - "Dividendo"
-  - "Divisor"
-  - "Cociente"
-respuesta: "Dividendo"
-
-explicacion: |
-  El número que se reparte es el dividendo; el que indica en cuántas
-  partes es el divisor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "vocabulario"]
-
-enunciado: "En 17 ÷ 5 = 3 y sobran 2, ¿cómo se llaman el 3 y el 2, respectivamente?"
-tipo: mc
-opciones_explicitas:
-  - "Cociente y resto"
-  - "Resto y cociente"
-  - "Divisor y dividendo"
-respuesta: "Cociente y resto"
-
-explicacion: |
-  El resultado de la división es el cociente; lo que queda sin repartir es
-  el resto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "potencias_de_10"]
+  tema: "rotacion"
+  nivel: "avanzado"
+  tags: ["rotacion", "problema"]
 
 variables:
-  potencia: uno_de([10, 100, 1000])
-  n: random(1, 90)
-  dividendo: n * potencia
+  n: uno_de([3, 4, 5, 6, 8, 9, 10, 12])
 
 respuesta: n
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto es {dividendo} ÷ {potencia}?"
+enunciado: "Un polígono regular tiene simetría rotacional cada {360 / n}°. ¿Cuántos lados tiene?"
+
+pasos:
+  - "360° ÷ {360 / n}° = {n}"
 
 explicacion: |
-  Dividir por una potencia de 10 es sacarle al número tantos ceros del
-  final como tenga esa potencia.
+  Se despeja n dividiendo 360° por el ángulo mínimo dado.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "potencias_de_10"]
+  tema: "rotacion"
+  nivel: "avanzado"
+  tags: ["rotacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si un número termina en dos ceros, dividirlo por 100 es sacarle esos dos ceros."
+enunciado: "Un círculo se ve exactamente igual sin importar cuántos grados se lo rote: tiene simetría rotacional para cualquier ángulo."
 
 explicacion: |
-  Es el mismo movimiento de valor posicional que multiplicar por una
-  potencia de 10, pero al revés.
+  Es el caso límite: al no tener vértices ni lados distinguibles,
+  cualquier rotación alrededor de su centro lo deja igual.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
+  tema: "rotacion"
+  nivel: "avanzado"
+  tags: ["rotacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El centro de rotación no tiene por qué estar dentro de la figura que se rota: puede ser cualquier punto del plano."
+
+explicacion: |
+  Por ejemplo, las manecillas de un reloj giran alrededor de un centro
+  que está fuera de cada manecilla individual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rotacion"
   nivel: "intermedio"
-  tags: ["division", "estimacion"]
+  tags: ["rotacion", "vocabulario"]
+
+enunciado: "¿Qué transformación explica que un rosetón (una ventana circular con un patrón repetido) se vea igual varias veces al girarlo?"
+tipo: mc
+opciones_explicitas:
+  - "La rotación, por su simetría rotacional"
+  - "La traslación"
+  - "La homotecia"
+respuesta: "La rotación, por su simetría rotacional"
+
+explicacion: |
+  El motivo del rosetón se repite girando un ángulo fijo alrededor del
+  centro de la ventana (ver `../../../arte/rosetones-y-simetria/`).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "rotacion"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender la rotación?"
+tipo: mc
+opciones_explicitas:
+  - "Para describir y diseñar cualquier objeto o patrón con un eje de giro: ruedas, relojes, rosetones"
+  - "Sólo sirve para calcular áreas"
+  - "Sólo aplica a triángulos"
+respuesta: "Para describir y diseñar cualquier objeto o patrón con un eje de giro: ruedas, relojes, rosetones"
+
+explicacion: |
+  Cualquier cosa que gire alrededor de un punto fijo se describe con
+  centro y ángulo de rotación.
+```
+
+## Sección: transformaciones-geometricas/traslacion (22 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "basico"
+  tags: ["traslacion", "vocabulario"]
+
+enunciado: "¿Qué es una traslación en geometría?"
+tipo: mc
+opciones_explicitas:
+  - "Deslizar una figura entera en una dirección, sin girarla y sin voltearla"
+  - "Girar una figura alrededor de un punto"
+  - "Reflejar una figura sobre una línea, como en un espejo"
+respuesta: "Deslizar una figura entera en una dirección, sin girarla y sin voltearla"
+
+explicacion: |
+  Todos los puntos de la figura se mueven la misma distancia, en la
+  misma dirección.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "basico"
+  tags: ["traslacion", "vocabulario"]
+
+enunciado: "¿Qué dos cosas define un vector de traslación?"
+tipo: mc
+opciones_explicitas:
+  - "Una dirección y una magnitud (longitud)"
+  - "Un ángulo y un centro de giro"
+  - "Un eje de simetría"
+respuesta: "Una dirección y una magnitud (longitud)"
+
+explicacion: |
+  Ese vector es el mismo para todos los puntos de la figura.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "basico"
+  tags: ["traslacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una traslación preserva la forma y el tamaño de la figura original."
+
+explicacion: |
+  Es una isometría: la imagen es congruente a la original.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "intermedio"
+  tags: ["traslacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de la rotación y la reflexión, una traslación no cambia la orientación de la figura: no queda girada ni espejada."
+
+explicacion: |
+  La figura sólo cambia de posición, se mantiene "mirando" hacia el
+  mismo lado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "basico"
+  tags: ["traslacion", "vocabulario"]
+
+enunciado: "¿Cuál de estas es un ejemplo de traslación?"
+tipo: mc
+opciones_explicitas:
+  - "Deslizar una ficha de ajedrez de una casilla a otra sin rotarla"
+  - "Girar la manecilla de un reloj"
+  - "Ver el reflejo de un objeto en un espejo"
+respuesta: "Deslizar una ficha de ajedrez de una casilla a otra sin rotarla"
+
+explicacion: |
+  La ficha cambia de lugar pero mantiene su orientación exacta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "intermedio"
+  tags: ["traslacion", "congruencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La figura resultante de una traslación (la imagen) es siempre congruente a la figura original."
+
+explicacion: |
+  Congruente significa mismo tamaño y forma — la traslación no altera
+  ninguna de las dos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "intermedio"
+  tags: ["traslacion", "problema"]
 
 variables:
-  divisor: uno_de([2, 5, 10])
-  base: random(2, 50)
-  dividendo: base * divisor * 10
-  redondeado: redondear(dividendo / 100, 0) * 100
+  punto: random(-10, 10)
+  vector: random(1, 15)
 
-respuesta: redondeado / divisor
+respuesta: punto + vector
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Redondeá {dividendo} a la centena más cercana y dividilo por {divisor}. ¿Cuánto da la estimación?"
+enunciado: "Un punto está en la posición {punto} de una recta numérica. Se le aplica una traslación de {vector} unidades hacia la derecha. ¿En qué posición queda?"
 
 pasos:
-  - "{dividendo} redondea a {redondeado}. {redondeado} ÷ {divisor} = {redondeado / divisor}"
+  - "{punto} + {vector} = {punto + vector}"
 
 explicacion: |
-  Estimar una división es redondear el dividendo antes de dividir, para
-  tener una idea rápida de cuántas cifras (y qué magnitud) va a tener el
-  cociente.
+  Trasladar hacia la derecha es sumar la magnitud del vector a la
+  posición original.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
+  tema: "traslacion"
   nivel: "intermedio"
-  tags: ["division", "estimacion"]
+  tags: ["traslacion", "problema"]
 
 variables:
-  divisor: uno_de([2, 5])
-  base: random(2, 90)
-  dividendo: base * divisor
-  redondeado: redondear(dividendo / 10, 0) * 10
+  punto: random(-5, 15)
+  vector: random(1, 15)
 
-respuesta: redondeado / divisor
+respuesta: punto - vector
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Redondeá {dividendo} a la decena más cercana y dividilo por {divisor}. ¿Cuánto da la estimación?"
-
-explicacion: |
-  Con números más chicos alcanza con redondear a la decena para tener una
-  estimación rápida.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "intermedio"
-  tags: ["division", "termino_faltante"]
-
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 20)
-
-respuesta: divisor * cociente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Qué número dividido por {divisor} da {cociente} (sin resto)?"
+enunciado: "Un punto está en la posición {punto} de una recta numérica. Se le aplica una traslación de {vector} unidades hacia la izquierda. ¿En qué posición queda?"
 
 pasos:
-  - "{divisor} × {cociente} = {divisor * cociente}"
+  - "{punto} − {vector} = {punto - vector}"
 
 explicacion: |
-  El dividendo que falta se encuentra multiplicando el divisor por el
-  cociente — la prueba de la división, usada al revés.
+  Trasladar hacia la izquierda es restar la magnitud del vector.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
-  nivel: "intermedio"
-  tags: ["division", "termino_faltante"]
+  tema: "traslacion"
+  nivel: "basico"
+  tags: ["traslacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una traslación, todos los puntos de la figura se mueven exactamente la misma distancia y en la misma dirección."
+
+explicacion: |
+  Es lo que define al vector de traslación: es único para toda la
+  figura, no varía punto por punto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "avanzado"
+  tags: ["traslacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Salvo el caso trivial de un vector de longitud cero, una traslación no deja ningún punto de la figura en su lugar original."
+
+explicacion: |
+  A diferencia de la rotación (que fija el centro) o la reflexión (que
+  fija el eje completo), la traslación mueve todo por igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "avanzado"
+  tags: ["traslacion", "problema"]
 
 variables:
-  divisor_real: random(2, 9)
-  cociente: random(2, 15)
-  dividendo: divisor_real * cociente
+  punto: random(0, 10)
+  vector: random(2, 8)
 
-respuesta: divisor_real
+respuesta: punto + (2 * vector)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Por qué número hay que dividir {dividendo} para obtener {cociente} (sin resto)?"
+enunciado: "Un punto está en la posición {punto}. Se le aplican dos traslaciones seguidas, cada una de {vector} unidades hacia la derecha (como un patrón que se repite). ¿En qué posición final queda?"
+
+pasos:
+  - "Primera traslación: {punto} + {vector} = {punto + vector}"
+  - "Segunda traslación: {punto + vector} + {vector} = {punto + (2 * vector)}"
 
 explicacion: |
-  El divisor que falta se encuentra dividiendo el dividendo por el
-  cociente conocido.
+  Aplicar la misma traslación dos veces equivale a sumar el vector dos
+  veces — la misma idea detrás de un patrón de baldosas repetido.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
-  nivel: "intermedio"
-  tags: ["division", "termino_faltante"]
+  tema: "traslacion"
+  nivel: "avanzado"
+  tags: ["traslacion", "vocabulario"]
 
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 20)
-  dividendo: divisor * cociente
+enunciado: "¿Qué tienen en común la traslación, la rotación y la reflexión?"
+tipo: mc
+opciones_explicitas:
+  - "Las tres son isometrías: no cambian ni la forma ni el tamaño de la figura"
+  - "Las tres cambian el tamaño de la figura"
+  - "Las tres necesitan un centro de giro"
+respuesta: "Las tres son isometrías: no cambian ni la forma ni el tamaño de la figura"
+
+explicacion: |
+  La homotecia (ver `../homotecia/`) es la única de las cuatro que sí
+  cambia el tamaño.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "intermedio"
+  tags: ["traslacion", "completar"]
 
 tipo: completar
-enunciado: "Completá: ___ ÷ {divisor} = {cociente}."
+enunciado: "Completá: la traslación conserva la forma, el tamaño Y la ___ de la figura (no la gira ni la voltea)."
 respuestas_validas:
-  - dividendo
+  - "orientación"
 
 explicacion: |
-  El número que falta es el dividendo: el que, dividido por {divisor}, da
-  exactamente {cociente}.
+  Es lo único que no conservan la rotación ni la reflexión.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "verificacion"]
-
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 9)
-  dividendo: divisor * cociente
-  error: uno_de([0, 0, 0, 1, -1])
-  mostrado: cociente + error
-
-respuesta: (mostrado * divisor == dividendo)
-tipo: vf
-
-enunciado: "¿Está bien resuelta esta división? {dividendo} ÷ {divisor} = {mostrado}"
-
-explicacion: |
-  Para verificar una división exacta alcanza con multiplicar el cociente
-  mostrado por el divisor y comparar con el dividendo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
+  tema: "traslacion"
   nivel: "intermedio"
-  tags: ["division", "verificacion"]
+  tags: ["traslacion", "ordenar"]
 
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 15)
-  resto: random(1, divisor - 1)
-  dividendo: divisor * cociente + resto
-  error: uno_de([0, 0, 0, 1, -1])
-  resto_mostrado: resto + error
-
-respuesta: ((divisor * cociente + resto_mostrado) == dividendo)
-tipo: vf
-
-enunciado: "¿Está bien resuelta esta división? {dividendo} ÷ {divisor} = {cociente}, resto {resto_mostrado}"
-
+enunciado: "Ordená los pasos para aplicar una traslación a una figura."
+tipo: ordenar
+opciones_explicitas:
+  - "La figura resultante (imagen) queda congruente a la original, sólo que desplazada"
+  - "Definir el vector de traslación: una dirección y una magnitud"
+  - "Mover cada punto de la figura esa misma distancia, en esa misma dirección"
+respuesta_orden: ["Definir el vector de traslación: una dirección y una magnitud", "Mover cada punto de la figura esa misma distancia, en esa misma dirección", "La figura resultante (imagen) queda congruente a la original, sólo que desplazada"]
 explicacion: |
-  Se aplica la prueba de la división: divisor × cociente + resto tiene que
-  reconstruir el dividendo exacto.
+  El vector es el mismo para toda la figura: no varía punto por punto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
+  tema: "traslacion"
+  nivel: "basico"
+  tags: ["traslacion", "problema"]
+
+variables:
+  origen: random(-20, 0)
+  destino: random(1, 20)
+
+respuesta: destino - origen
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una figura se traslada de la posición {origen} a la posición {destino} en una recta numérica. ¿Cuál es la magnitud del vector de traslación?"
+
+pasos:
+  - "{destino} − ({origen}) = {destino - origen}"
+
+explicacion: |
+  La magnitud del vector es la diferencia entre la posición final y la
+  inicial.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "basico"
+  tags: ["traslacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Una traslación y una rotación son exactamente lo mismo."
+
+explicacion: |
+  La traslación desliza sin girar; la rotación gira alrededor de un
+  centro fijo (ver `../rotacion/`) — son transformaciones distintas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "intermedio"
+  tags: ["traslacion", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un patrón de baldosas o un papel tapiz que repite el mismo motivo, siempre en la misma orientación, es un ejemplo de traslaciones repetidas."
+
+explicacion: |
+  El mismo motivo se desliza el mismo vector una y otra vez, sin girar
+  ni espejar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "intermedio"
+  tags: ["traslacion", "problema"]
+
+variables:
+  inicial: random(1, 15)
+  vector: random(-10, 10)
+
+respuesta: inicial + vector
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un punto en la posición {inicial} se traslada aplicando un vector de {vector} unidades (positivo hacia la derecha, negativo hacia la izquierda). ¿En qué posición queda?"
+
+pasos:
+  - "{inicial} + ({vector}) = {inicial + vector}"
+
+explicacion: |
+  Un vector negativo desplaza hacia la izquierda; uno positivo, hacia la
+  derecha.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
+  nivel: "basico"
+  tags: ["traslacion"]
+
+enunciado: "¿Qué es lo único que cambia en una figura después de una traslación?"
+tipo: mc
+opciones_explicitas:
+  - "Su posición"
+  - "Su tamaño"
+  - "Su forma"
+respuesta: "Su posición"
+
+explicacion: |
+  Forma, tamaño y orientación quedan exactamente igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
   nivel: "avanzado"
-  tags: ["division", "verificacion"]
+  tags: ["traslacion"]
 
-variables:
-  divisor: random(2, 9)
-  cociente: random(20, 90)
-  dividendo: divisor * cociente
-  error: uno_de([0, 0, 0, 1, -1, 10])
-  mostrado: cociente + error
-
-respuesta: (mostrado * divisor == dividendo)
+respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Está bien resuelta esta división? {dividendo} ÷ {divisor} = {mostrado}"
+enunciado: "Un vector de traslación de longitud cero deja la figura exactamente en el mismo lugar."
 
 explicacion: |
-  Con cocientes más grandes conviene verificar multiplicando de nuevo, en
-  vez de confiar en que el número "parece" razonable.
+  Es el único caso en el que una traslación sí deja puntos fijos: todos
+  ellos, porque nada se mueve.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
+  tema: "traslacion"
+  nivel: "intermedio"
+  tags: ["traslacion", "vocabulario"]
+
+enunciado: "Una figura cambia de posición pero NO cambia de tamaño, forma NI orientación. ¿Qué transformación es?"
+tipo: mc
+opciones_explicitas:
+  - "Una traslación"
+  - "Una homotecia"
+  - "Una reflexión"
+respuesta: "Una traslación"
+
+explicacion: |
+  Es la única de las cuatro que conserva también la orientación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "traslacion"
   nivel: "basico"
-  tags: ["division", "problema"]
+  tags: ["cierre"]
 
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 15)
-  dividendo: divisor * cociente
-
-respuesta: cociente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se reparten {dividendo} figuritas entre {divisor} amigos, en partes iguales y sin que sobre ninguna. ¿Cuántas figuritas le tocan a cada uno?"
+enunciado: "¿Para qué sirve entender la traslación?"
+tipo: mc
+opciones_explicitas:
+  - "Es la base de cualquier patrón repetitivo: mosaicos, guardas, papel tapiz"
+  - "Sólo sirve para triángulos rectángulos"
+  - "Sólo tiene aplicación en el espacio, nunca en el plano"
+respuesta: "Es la base de cualquier patrón repetitivo: mosaicos, guardas, papel tapiz"
 
 explicacion: |
-  Repartir en partes iguales, sin que sobre nada, es exactamente una
-  división exacta.
+  Cualquier diseño donde un motivo se repite sin girar ni cambiar de
+  tamaño usa traslaciones.
+```
+
+## Sección: union-interseccion-y-diferencia (26 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "basico"
+  tags: ["union", "vocabulario"]
+
+enunciado: "¿Qué es la unión de dos conjuntos A ∪ B?"
+tipo: mc
+opciones_explicitas:
+  - "Todos los elementos que están en A, en B, o en ambos, sin repetir ninguno"
+  - "Sólo los elementos que están en A y en B a la vez"
+  - "Sólo los elementos de A que no están en B"
+respuesta: "Todos los elementos que están en A, en B, o en ambos, sin repetir ninguno"
+
+explicacion: |
+  Es la combinación completa de los dos conjuntos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
-  nivel: "intermedio"
-  tags: ["division", "problema"]
+  tema: "union_interseccion_y_diferencia"
+  nivel: "basico"
+  tags: ["interseccion", "vocabulario"]
 
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 15)
-  resto: random(1, divisor - 1)
-  dividendo: divisor * cociente + resto
-
-respuesta: cociente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Tenés {dividendo} caramelos y querés armar bolsitas de {divisor} caramelos cada una. ¿Cuántas bolsitas completas podés armar?"
+enunciado: "¿Qué es la intersección de dos conjuntos A ∩ B?"
+tipo: mc
+opciones_explicitas:
+  - "Sólo los elementos que están en A y en B a la vez"
+  - "Todos los elementos de A y de B juntos"
+  - "Sólo los elementos de B que no están en A"
+respuesta: "Sólo los elementos que están en A y en B a la vez"
 
 explicacion: |
-  Sólo se cuentan las bolsitas completas: es el cociente de la división,
-  sin contar los caramelos que sobran (el resto).
+  Es lo que ambos conjuntos comparten.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "basico"
+  tags: ["diferencia", "vocabulario"]
+
+enunciado: "¿Qué es la diferencia A − B?"
+tipo: mc
+opciones_explicitas:
+  - "Los elementos de A que NO están en B"
+  - "Los elementos de B que no están en A"
+  - "Los elementos que están en A y en B a la vez"
+respuesta: "Los elementos de A que NO están en B"
+
+explicacion: |
+  Se lee "A menos B" — se parte de A y se le quita lo que comparte con B.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
   nivel: "intermedio"
-  tags: ["division", "problema"]
+  tags: ["union", "problema"]
+
+enunciado: "Dados A = {1, 2, 3, 4} y B = {3, 4, 5, 6}, ¿cuál es A ∪ B?"
+tipo: mc
+opciones_explicitas:
+  - "{1, 2, 3, 4, 5, 6}"
+  - "{3, 4}"
+  - "{1, 2}"
+respuesta: "{1, 2, 3, 4, 5, 6}"
+
+explicacion: |
+  Se juntan todos los elementos de ambos, sin repetir el 3 y el 4 que
+  comparten.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["interseccion", "problema"]
+
+enunciado: "Dados A = {1, 2, 3, 4} y B = {3, 4, 5, 6}, ¿cuál es A ∩ B?"
+tipo: mc
+opciones_explicitas:
+  - "{3, 4}"
+  - "{1, 2, 3, 4, 5, 6}"
+  - "{1, 2}"
+respuesta: "{3, 4}"
+
+explicacion: |
+  Son los únicos dos elementos que aparecen en los dos conjuntos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["diferencia", "problema"]
+
+enunciado: "Dados A = {1, 2, 3, 4} y B = {3, 4, 5, 6}, ¿cuál es A − B?"
+tipo: mc
+opciones_explicitas:
+  - "{1, 2}"
+  - "{5, 6}"
+  - "{3, 4}"
+respuesta: "{1, 2}"
+
+explicacion: |
+  Es lo que queda de A después de sacarle lo que comparte con B (el 3
+  y el 4).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["diferencia", "problema"]
+
+enunciado: "Con los mismos A = {1, 2, 3, 4} y B = {3, 4, 5, 6}, ¿cuál es B − A?"
+tipo: mc
+opciones_explicitas:
+  - "{5, 6}"
+  - "{1, 2}"
+  - "{3, 4}"
+respuesta: "{5, 6}"
+
+explicacion: |
+  B − A es distinto de A − B (pregunta 6) — la diferencia no es
+  conmutativa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["diferencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En general, A − B no es lo mismo que B − A."
+
+explicacion: |
+  Se ve claro en el ejemplo de las preguntas 6 y 7: {1,2} contra {5,6}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["union"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A ∪ B es siempre igual a B ∪ A, sin importar el orden."
+
+explicacion: |
+  Juntar los elementos de dos conjuntos no depende del orden en que se
+  los mencione.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["interseccion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A ∩ B es siempre igual a B ∩ A, sin importar el orden."
+
+explicacion: |
+  Lo que comparten A y B es lo mismo que lo que comparten B y A.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["union", "completar"]
+
+tipo: completar
+enunciado: "Completá: |A ∪ B| = |A| + |B| − ___."
+respuestas_validas:
+  - "|A ∩ B|"
+  - "A ∩ B"
+
+explicacion: |
+  Se resta la intersección porque, si no, sus elementos se contarían
+  dos veces.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["union", "problema"]
 
 variables:
-  divisor: random(2, 9)
-  cociente: random(20, 200)
-  dividendo: divisor * cociente
+  a: random(10, 30)
+  b: random(10, 30)
+  interseccion: random(1, 8)
 
-respuesta: cociente
+respuesta: a + b - interseccion
+tipo: input
+
+enunciado: "Un conjunto A tiene {a} elementos y un conjunto B tiene {b} elementos. Si A y B comparten {interseccion} elementos, ¿cuántos elementos tiene A ∪ B?"
+
+pasos:
+  - "|A∪B| = |A| + |B| − |A∩B| = {a} + {b} − {interseccion} = {a + b - interseccion}"
+
+explicacion: |
+  Se restan los elementos compartidos para no contarlos dos veces.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["interseccion", "problema"]
+
+variables:
+  a: random(10, 30)
+  b: random(10, 30)
+  interseccion_real: random(1, 8)
+
+respuesta: interseccion_real
+tipo: input
+
+enunciado: "Un conjunto A tiene {a} elementos, un conjunto B tiene {b} elementos, y A ∪ B tiene {a + b - interseccion_real} elementos. ¿Cuántos elementos comparten A y B (|A ∩ B|)?"
+
+pasos:
+  - "|A∩B| = |A| + |B| − |A∪B| = {a} + {b} − {a + b - interseccion_real} = {interseccion_real}"
+
+explicacion: |
+  Es la misma fórmula, despejada para la intersección en vez de la unión.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["diferencia", "problema"]
+
+variables:
+  a: random(15, 40)
+  interseccion: random(1, 10)
+
+respuesta: a - interseccion
+tipo: input
+
+enunciado: "Un conjunto A tiene {a} elementos, de los cuales {interseccion} también pertenecen a B. ¿Cuántos elementos tiene A − B?"
+
+pasos:
+  - "|A−B| = |A| − |A∩B| = {a} − {interseccion} = {a - interseccion}"
+
+explicacion: |
+  A − B es lo de A que no comparte con B, así que se le resta la parte
+  compartida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["disjuntos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si dos conjuntos A y B no comparten ningún elemento, se dice que son disjuntos, y A ∩ B = ∅."
+
+explicacion: |
+  Es el caso extremo: cero elementos en común.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["disjuntos", "problema"]
+
+variables:
+  a: random(5, 20)
+  b: random(5, 20)
+
+respuesta: a + b
+tipo: input
+
+enunciado: "Un conjunto A tiene {a} elementos y un conjunto B tiene {b} elementos. A y B son disjuntos (no comparten nada). ¿Cuántos elementos tiene A ∪ B?"
+
+pasos:
+  - "Como |A∩B| = 0: |A∪B| = |A| + |B| = {a} + {b} = {a + b}"
+
+explicacion: |
+  Sin nada compartido, no hace falta restar nada — se suman directo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "basico"
+  tags: ["disjuntos", "vocabulario"]
+
+enunciado: "¿Qué significa que dos conjuntos sean disjuntos?"
+tipo: mc
+opciones_explicitas:
+  - "Que no comparten ningún elemento"
+  - "Que tienen la misma cantidad de elementos"
+  - "Que uno es subconjunto del otro"
+respuesta: "Que no comparten ningún elemento"
+
+explicacion: |
+  Su intersección es el conjunto vacío.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["union", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular |A∪B|, sabiendo |A|, |B| y |A∩B|."
+tipo: ordenar
+opciones_explicitas:
+  - "El número que queda es |A∪B|"
+  - "Sumar |A| + |B|"
+  - "Restar |A∩B| a ese resultado"
+respuesta_orden: ["Sumar |A| + |B|", "Restar |A∩B| a ese resultado", "El número que queda es |A∪B|"]
+explicacion: |
+  El paso de restar la intersección es el que evita el doble conteo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Dónde se usa la misma idea de unión e intersección de conjuntos, fuera de la matemática pura?"
+tipo: mc
+opciones_explicitas:
+  - "En consultas de bases de datos: pedir filas que cumplan una condición Y otra (intersección) o cualquiera de dos condiciones O (unión)"
+  - "Sólo en geometría, para calcular áreas"
+  - "No tiene ninguna aplicación fuera de la matemática pura"
+respuesta: "En consultas de bases de datos: pedir filas que cumplan una condición Y otra (intersección) o cualquiera de dos condiciones O (unión)"
+
+explicacion: |
+  Es el mismo principio que después usa el álgebra relacional de
+  bases de datos (Informática).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una consulta con condiciones combinadas, el conector 'Y' corresponde a una intersección, y el conector 'O' corresponde a una unión."
+
+explicacion: |
+  "Cumple A Y B" son los elementos en ambos (intersección); "cumple A
+  O B" son los elementos en cualquiera de los dos (unión).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["diferencia", "problema"]
+
+variables:
+  a: random(20, 50)
+  b: random(1, 15)
+
+respuesta: a - b
+tipo: input
+
+enunciado: "Un conjunto A tiene {a} elementos, y B ⊆ A tiene {b} elementos (todos los de B ya están en A). ¿Cuántos elementos tiene A − B?"
+
+pasos:
+  - "Como B ⊆ A, todo B está incluido en la parte compartida: |A−B| = |A| − |B| = {a} − {b} = {a - b}"
+
+explicacion: |
+  Al ser B subconjunto de A, restar B de A es simplemente restar todos
+  sus elementos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["union"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si B es subconjunto de A (B ⊆ A), entonces A ∪ B es exactamente igual a A (unir no agrega nada nuevo)."
+
+explicacion: |
+  Todo lo que tiene B ya estaba en A, así que juntarlos no cambia nada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["interseccion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si B es subconjunto de A (B ⊆ A), entonces A ∩ B es exactamente igual a B."
+
+explicacion: |
+  Todo elemento de B ya está en A, así que lo que comparten es
+  exactamente todo B.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["union"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "|A ∪ B| siempre es mayor o igual que |A| y que |B|, sin importar qué conjuntos sean."
+
+explicacion: |
+  La unión sólo puede agregar elementos, nunca quitarlos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["interseccion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "|A ∩ B| siempre es menor o igual que |A| y que |B|, sin importar qué conjuntos sean."
+
+explicacion: |
+  La intersección sólo puede quedarse con una parte (o todo) de cada
+  conjunto, nunca con más de lo que cada uno tiene.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirven la unión, la intersección y la diferencia de conjuntos?"
+tipo: mc
+opciones_explicitas:
+  - "Para combinar conjuntos de formas distintas y calcular cuántos elementos resultan, sin necesidad de listarlos uno por uno"
+  - "Sólo sirven para dibujar círculos superpuestos"
+  - "Sólo aplican a conjuntos de números"
+respuesta: "Para combinar conjuntos de formas distintas y calcular cuántos elementos resultan, sin necesidad de listarlos uno por uno"
+
+explicacion: |
+  Son la base algebraica que el próximo módulo (diagramas de Venn)
+  representa visualmente.
+```
+
+## Sección: valor-posicional (40 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "identificar_cifra"]
+
+variables:
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: c * 100 + d * 10 + u
+
+respuesta: u
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Pagaste ${dividendo} por {divisor} entradas iguales. ¿Cuánto cuesta cada entrada?"
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las unidades?"
+
+pasos:
+  - "Las unidades son la cifra más a la derecha de {numero}: {u}"
 
 explicacion: |
-  El precio de cada unidad es el total dividido por la cantidad de
+  La cifra de las unidades es siempre la última, la que está más a la
+  derecha del número.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "identificar_cifra"]
+
+variables:
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: c * 100 + d * 10 + u
+
+respuesta: d
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las decenas?"
+
+pasos:
+  - "Las decenas son la segunda cifra desde la derecha de {numero}: {d}"
+
+explicacion: |
+  La cifra de las decenas es la que está un lugar a la izquierda de las
   unidades.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
-  nivel: "intermedio"
-  tags: ["division", "problema"]
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "identificar_cifra"]
 
 variables:
-  divisor: random(2, 8)
-  cociente: random(50, 500)
-  dividendo: divisor * cociente
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: c * 100 + d * 10 + u
 
-respuesta: cociente
+respuesta: c
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Un premio de ${dividendo} se reparte en partes iguales entre {divisor} personas. ¿Cuánto le toca a cada una?"
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las centenas?"
+
+pasos:
+  - "Las centenas son la tercera cifra desde la derecha de {numero}: {c}"
 
 explicacion: |
-  Repartir un monto en partes iguales es dividir el total por la cantidad
-  de personas.
+  La cifra de las centenas es la que está dos lugares a la izquierda de las
+  unidades.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
+  tema: "valor_posicional"
   nivel: "intermedio"
-  tags: ["division", "division_entera"]
+  tags: ["valor_posicional", "identificar_cifra"]
 
 variables:
-  divisor: random(2, 9)
-  cociente: random(2, 15)
-  resto: uno_de([0, 0, random(1, divisor - 1)])
-  dividendo: divisor * cociente + resto
+  m: random(1, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: m * 1000 + c * 100 + d * 10 + u
 
-respuesta: (resto == 0)
-tipo: vf
+respuesta: m
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "¿Es exacta la división {dividendo} ÷ {divisor} (da resto 0)?"
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las unidades de mil?"
+
+pasos:
+  - "Las unidades de mil son la cuarta cifra desde la derecha de {numero}: {m}"
 
 explicacion: |
-  Una división es exacta cuando no queda resto: el divisor entra un
-  número entero de veces en el dividendo.
+  Cada vez que se agrega un lugar más a la izquierda, el valor de la
+  posición se multiplica por 10: unidades → decenas → centenas →
+  unidades de mil.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
+  tema: "valor_posicional"
   nivel: "intermedio"
-  tags: ["division", "division_entera"]
+  tags: ["valor_posicional", "identificar_cifra"]
 
 variables:
-  divisor: random(3, 9)
-  cociente: random(2, 15)
-  resto: uno_de([0, random(1, divisor - 1), random(1, divisor - 1)])
-  dividendo: divisor * cociente + resto
+  dm: random(1, 9)
+  m: random(0, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: dm * 10000 + m * 1000 + c * 100 + d * 10 + u
 
-respuesta: (resto == 0)
-tipo: vf
+respuesta: dm
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "¿Es exacta la división {dividendo} ÷ {divisor} (da resto 0)?"
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las decenas de mil?"
+
+pasos:
+  - "Las decenas de mil son la quinta cifra desde la derecha de {numero}: {dm}"
 
 explicacion: |
-  Hay que resolver la división (o pensar las tablas) para saber si el
-  divisor entra justo o queda algo sin repartir.
+  Con 5 cifras, la primera de la izquierda es la de las decenas de mil.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "identificar_cifra"]
+
+variables:
+  cm: random(1, 9)
+  dm: random(0, 9)
+  m: random(0, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: cm * 100000 + dm * 10000 + m * 1000 + c * 100 + d * 10 + u
+
+respuesta: cm
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las centenas de mil?"
+
+pasos:
+  - "Las centenas de mil son la sexta cifra desde la derecha de {numero}: {cm}"
+
+explicacion: |
+  Con 6 cifras, la primera de la izquierda es la de las centenas de mil.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "basico"
-  tags: ["division", "algoritmo"]
+  tags: ["valor_posicional", "valor_de_cifra"]
 
 variables:
-  divisor: random(2, 9)
-  cociente: random(2, 15)
-  dividendo: divisor * cociente
+  c: random(1, 9)
+  d: random(1, 9)
+  u: random(0, 9)
+  numero: c * 100 + d * 10 + u
+
+respuesta: d * 10
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿cuánto VALE la cifra de las decenas (no cuál es, sino cuánto vale)?"
+
+pasos:
+  - "La cifra de las decenas es {d}, y en ese lugar vale {d} × 10 = {d * 10}"
+
+explicacion: |
+  No es lo mismo la cifra que su valor: la cifra es sólo el dígito (0-9); el
+  valor es ese dígito multiplicado por lo que vale su posición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "valor_de_cifra"]
+
+variables:
+  m: random(1, 9)
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: m * 1000 + c * 100 + d * 10 + u
+
+respuesta: c * 100
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿cuánto vale la cifra de las centenas?"
+
+pasos:
+  - "La cifra de las centenas es {c}, y en ese lugar vale {c} × 100 = {c * 100}"
+
+explicacion: |
+  El valor de una cifra es siempre el dígito multiplicado por la potencia de
+  10 que le corresponde a su lugar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "valor_de_cifra"]
+
+variables:
+  dm: random(1, 9)
+  m: random(1, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: dm * 10000 + m * 1000 + c * 100 + d * 10 + u
+
+respuesta: m * 1000
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿cuánto vale la cifra de las unidades de mil?"
+
+pasos:
+  - "La cifra de las unidades de mil es {m}, y en ese lugar vale {m} × 1.000 = {m * 1000}"
+
+explicacion: |
+  A partir de las unidades de mil, cada lugar vale 1.000 veces más que el
+  dígito solo, antes de seguir multiplicando por 10 hacia la izquierda.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "descomposicion"]
+
+variables:
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: c * 100 + d * 10 + u
+
+respuesta: numero
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Qué número resulta de {c} centenas + {d} decenas + {u} unidades?"
+
+pasos:
+  - "{c} × 100 + {d} × 10 + {u} = {numero}"
+
+explicacion: |
+  Componer un número es la operación inversa a descomponerlo: se suman los
+  valores de cada cifra en su lugar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "descomposicion"]
+
+variables:
+  m: random(1, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: m * 1000 + c * 100 + d * 10 + u
+
+respuesta: numero
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Qué número resulta de {m} unidades de mil + {c} centenas + {d} decenas + {u} unidades?"
+
+pasos:
+  - "{m} × 1.000 + {c} × 100 + {d} × 10 + {u} = {numero}"
+
+explicacion: |
+  Cada término de la descomposición aporta el valor de su cifra en su
+  lugar; sumados dan el número completo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "descomposicion"]
+
+variables:
+  dm: random(1, 9)
+  m: random(0, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: dm * 10000 + m * 1000 + c * 100 + d * 10 + u
+
+respuesta: numero
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Qué número resulta de {dm} decenas de mil + {m} unidades de mil + {c} centenas + {d} decenas + {u} unidades?"
+
+pasos:
+  - "{dm} × 10.000 + {m} × 1.000 + {c} × 100 + {d} × 10 + {u} = {numero}"
+
+explicacion: |
+  Con más cifras el procedimiento es el mismo: sumar el valor posicional de
+  cada una.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "comparacion"]
+
+variables:
+  a: random(10, 999)
+  b: random(10, 999)
+
+respuesta: (longitud(concatenar(a)) > longitud(concatenar(b)))
+tipo: vf
+
+enunciado: "¿Tiene {a} más cifras que {b}?"
+
+explicacion: |
+  Antes de mirar cifra por cifra, conviene contar cuántas cifras tiene cada
+  número: el que tiene más cifras es siempre el mayor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "comparacion"]
+
+variables:
+  a: random(1, 9999)
+  b: random(1, 9999)
+
+restricciones:
+  - longitud(concatenar(a)) != longitud(concatenar(b))
+
+respuesta: max(a, b)
+tipo: mc
+opciones_explicitas:
+  - a
+  - b
+
+enunciado: "¿Cuál de estos dos números tiene más cifras: {a} o {b}?"
+
+explicacion: |
+  La cantidad de cifras decide directamente cuál número es mayor, sin
+  necesidad de comparar cifra por cifra.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "comparacion"]
+
+variables:
+  c: random(1, 9)
+  d1: random(0, 9)
+  d2: random(0, 9)
+  u1: random(0, 9)
+  u2: random(0, 9)
+  a: c * 100 + d1 * 10 + u1
+  b: c * 100 + d2 * 10 + u2
+
+restricciones:
+  - d1 != d2
+
+respuesta: (a > b)
+tipo: vf
+
+enunciado: "{a} y {b} tienen la misma cifra de centenas. ¿Es {a} mayor que {b}?"
+
+explicacion: |
+  Cuando dos números tienen la misma cantidad de cifras y coinciden en la
+  primera, hay que seguir comparando la próxima cifra hacia la derecha
+  hasta encontrar una diferencia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "comparacion"]
+
+variables:
+  m: random(1, 9)
+  resto1: random(0, 999)
+  resto2: random(0, 999)
+  a: m * 1000 + resto1
+  b: m * 1000 + resto2
+
+restricciones:
+  - resto1 != resto2
+
+respuesta: max(a, b)
+tipo: mc
+opciones_explicitas:
+  - a
+  - b
+
+enunciado: "{a} y {b} tienen la misma cifra de unidades de mil. ¿Cuál de los dos es mayor?"
+
+explicacion: |
+  Si la primera cifra empata, la decisión queda en manos de las cifras
+  siguientes, comparadas en el mismo orden (de izquierda a derecha).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "comparacion"]
+
+variables:
+  c: random(1, 9)
+  d1: random(0, 8)
+  d2: random(0, 8)
+  u: random(0, 9)
+  a: c * 100 + d1 * 10 + u
+  b: c * 100 + d2 * 10 + u
+
+restricciones:
+  - d1 != d2
+
+respuesta: (a < b)
+tipo: vf
+
+enunciado: "{a} y {b} tienen la misma cifra de centenas y de unidades, sólo cambia la de decenas ({d1} contra {d2}). ¿Es {a} menor que {b}?"
+
+explicacion: |
+  Cuando todas las demás cifras coinciden, el número menor es el que tiene
+  la cifra más chica en la primera posición donde difieren.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "redondeo"]
+
+variables:
+  numero: random(11, 988)
+  resultado: redondear(numero / 10, 0) * 10
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Redondeá {numero} a la decena más cercana."
+
+pasos:
+  - "Se mira la cifra de las unidades de {numero} para decidir si la decena sube o queda igual: resultado {resultado}"
+
+explicacion: |
+  Se mira la cifra que está un lugar a la derecha de la posición a
+  redondear (acá, las unidades): 5 o más, la decena sube; menos de 5, queda
+  igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "redondeo"]
+
+variables:
+  base: random(1, 98)
+  numero: base * 10 + 5
+  resultado: redondear(numero / 10, 0) * 10
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Redondeá {numero} a la decena más cercana."
+
+pasos:
+  - "La cifra de las unidades es 5: por convención, la decena sube. {numero} → {resultado}"
+
+explicacion: |
+  Cuando la cifra que decide el redondeo es exactamente 5, la regla es que
+  la posición anterior sube (no se deja igual).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "redondeo"]
+
+variables:
+  numero: random(101, 9888)
+  resultado: redondear(numero / 100, 0) * 100
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Redondeá {numero} a la centena más cercana."
+
+pasos:
+  - "Se mira la cifra de las decenas de {numero} para decidir: resultado {resultado}"
+
+explicacion: |
+  Igual que redondear a la decena, pero mirando la cifra de las decenas
+  (un lugar a la derecha de las centenas).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "redondeo"]
+
+variables:
+  base: random(1, 98)
+  numero: base * 100 + 50
+  resultado: redondear(numero / 100, 0) * 100
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Redondeá {numero} a la centena más cercana."
+
+pasos:
+  - "La cifra de las decenas es 5: la centena sube. {numero} → {resultado}"
+
+explicacion: |
+  Mismo criterio que con las decenas: en el caso frontera (cifra 5), la
+  posición objetivo sube.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "redondeo"]
+
+variables:
+  numero: random(1001, 98888)
+  resultado: redondear(numero / 1000, 0) * 1000
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Redondeá {numero} al millar (unidad de mil) más cercano."
+
+pasos:
+  - "Se mira la cifra de las centenas de {numero} para decidir: resultado {resultado}"
+
+explicacion: |
+  El mismo criterio de siempre, ahora mirando la cifra de las centenas para
+  decidir si la unidad de mil sube o queda igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "decimales"]
+
+variables:
+  entero: random(1, 99)
+  t: random(1, 9)
+  h: random(0, 9)
+  numero: entero + t / 10 + h / 100
+
+respuesta: t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de los décimos?"
+
+pasos:
+  - "Los décimos son la primera cifra después de la coma: {t}"
+
+explicacion: |
+  Del otro lado de la coma la lógica se invierte: la primera posición
+  (décimos) vale ÷10, no ×10.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "decimales"]
+
+variables:
+  entero: random(1, 99)
+  t: random(0, 9)
+  h: random(1, 9)
+  numero: entero + t / 10 + h / 100
+
+respuesta: h
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de los centésimos?"
+
+pasos:
+  - "Los centésimos son la segunda cifra después de la coma: {h}"
+
+explicacion: |
+  Los centésimos valen ÷100: cada lugar después de la coma sigue dividiendo
+  por 10 respecto al anterior.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "avanzado"
+  tags: ["valor_posicional", "decimales", "valor_de_cifra"]
+
+variables:
+  entero: random(1, 99)
+  t: random(1, 9)
+  h: random(0, 9)
+  numero: entero + t / 10 + h / 100
+
+respuesta: t / 10
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "En el número {numero}, ¿cuánto vale la cifra de los décimos?"
+
+pasos:
+  - "La cifra de los décimos es {t}, y en ese lugar vale {t} ÷ 10 = {t / 10}"
+
+explicacion: |
+  Igual que del lado entero: el valor es la cifra multiplicada (acá,
+  dividida) por lo que vale su posición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "cantidad_de_cifras"]
+
+variables:
+  numero: random(100, 98765)
+
+respuesta: longitud(concatenar(numero))
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántas cifras tiene el número {numero}?"
+
+explicacion: |
+  Se cuentan todos los dígitos del número, de izquierda a derecha, sin
+  saltear ninguno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "cantidad_de_cifras"]
+
+variables:
+  numero: random(1000000, 987654321)
+
+respuesta: longitud(concatenar(numero))
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántas cifras tiene el número {numero}?"
+
+explicacion: |
+  El procedimiento es el mismo con números grandes: contar los dígitos, uno
+  por uno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "identificar_cifra"]
+
+variables:
+  m: random(1, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: m * 1000 + c * 100 + d * 10 + u
+
+respuesta: m
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿cuál es la cifra que ocupa el lugar de mayor valor (la que más vale)?"
+
+pasos:
+  - "La cifra de mayor valor es siempre la primera de la izquierda: {m}"
+
+explicacion: |
+  La cifra de mayor valor posicional es la más a la izquierda: es la que
+  está multiplicada por la potencia de 10 más grande.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "vocabulario"]
+
+enunciado: "¿Cómo se llama el lugar de la 3ª cifra contando desde la derecha de un número?"
+tipo: mc
+opciones_explicitas:
+  - "Unidades"
+  - "Decenas"
+  - "Centenas"
+respuesta: "Centenas"
+
+explicacion: |
+  Contando desde la derecha: 1ª unidades, 2ª decenas, 3ª centenas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "vocabulario"]
+
+enunciado: "¿Cómo se llama el lugar de la cifra que está más a la derecha en cualquier número entero?"
+tipo: mc
+opciones_explicitas:
+  - "Unidades"
+  - "Decenas"
+  - "Centenas"
+respuesta: "Unidades"
+
+explicacion: |
+  La cifra más a la derecha de un número entero siempre ocupa el lugar de
+  las unidades.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el número 4.257, la cifra 2 vale 200."
+
+explicacion: |
+  El 2 de 4.257 está en el lugar de las centenas: 2 × 100 = 200.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En el número 4.257, la cifra 5 vale 5."
+
+explicacion: |
+  El 5 de 4.257 está en el lugar de las decenas, no de las unidades: vale
+  5 × 10 = 50, no 5.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "descomposicion"]
+
+variables:
+  c: random(1, 9)
+  d: random(1, 9)
+  u: random(0, 9)
+  numero: c * 100 + d * 10 + u
 
 tipo: completar
-enunciado: "Completá el resultado: {dividendo} ÷ {divisor} = ___."
+enunciado: "Completá: {c} × 100 + ___ × 10 + {u} = {numero}."
 respuestas_validas:
-  - cociente
+  - d
 
 explicacion: |
-  Se busca cuántas veces entra el divisor en el dividendo, y ese número es
-  el cociente.
+  El hueco es la cifra de las decenas: la única que hace que la suma dé
+  exactamente el número de la derecha.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "division_entera"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una división entera, el resto siempre tiene que ser menor que el divisor."
-
-explicacion: |
-  Si el resto fuera igual o mayor que el divisor, todavía se podría sacar
-  una vez más el divisor completo: el cociente estaría mal calculado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
+  tema: "valor_posicional"
   nivel: "intermedio"
-  tags: ["division", "division_entera"]
+  tags: ["valor_posicional", "descomposicion"]
 
 variables:
-  divisor: random(2, 9)
-  cociente: random(2, 15)
-  resto_valido: random(0, divisor - 1)
-  resto_mostrado: uno_de([resto_valido, resto_valido, divisor + random(0, 3)])
-  dividendo: divisor * cociente + resto_mostrado
+  m: random(1, 9)
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: m * 1000 + c * 100 + d * 10 + u
 
-respuesta: (resto_mostrado < divisor)
-tipo: vf
-
-enunciado: "¿Puede ser correcto decir que {dividendo} ÷ {divisor} da cociente {cociente} y resto {resto_mostrado}?"
+tipo: completar
+enunciado: "Completá: {m} × 1.000 + ___ × 100 + {d} × 10 + {u} = {numero}."
+respuestas_validas:
+  - c
 
 explicacion: |
-  Un resto tiene que ser siempre menor que el divisor; si no lo es, el
-  cociente está mal — todavía entraba una vez más el divisor.
+  Se despeja la cifra que falta viendo cuál hace que la suma total coincida
+  con el número dado.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
+  tema: "valor_posicional"
   nivel: "basico"
-  tags: ["division", "orden"]
+  tags: ["valor_posicional", "orden"]
 
 tipo: ordenar
-enunciado: "Ordená estos cocientes de menor a mayor (sin calcularlos todos de una)."
+enunciado: "Ordená estas cifras de menor a mayor."
 opciones_explicitas:
-  - "20 ÷ 4"
-  - "18 ÷ 6"
-  - "24 ÷ 3"
-  - "12 ÷ 4"
-respuesta_orden: ["12 ÷ 4", "18 ÷ 6", "20 ÷ 4", "24 ÷ 3"]
+  - "7"
+  - "2"
+  - "9"
+  - "4"
+respuesta_orden: ["2", "4", "7", "9"]
 
 explicacion: |
-  12÷4=3, 18÷6=3... hay que resolver cada cociente antes de poder
-  ordenarlos: 12÷4=3, 18÷6=3, 20÷4=5, 24÷3=8.
+  Ordenar cifras sueltas es comparar dígitos, sin que ningún lugar
+  posicional entre en juego todavía.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "vocabulario"]
-
-variables:
-  divisor: random(2, 9)
-  cociente: random(2, 12)
-  dividendo: divisor * cociente
-
-respuesta: cociente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas veces entra el {divisor} en el {dividendo}?"
-
-explicacion: |
-  "Cuántas veces entra" es otra forma de decir "cuál es el cociente de la
-  división".
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
+  tema: "valor_posicional"
   nivel: "intermedio"
-  tags: ["division", "problema", "division_entera"]
+  tags: ["valor_posicional", "composicion"]
 
 variables:
-  divisor: random(2, 9)
-  cociente: random(2, 15)
-  resto: random(1, divisor - 1)
-  dividendo: divisor * cociente + resto
+  par: n_de([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)
+  d1: primero(par)
+  d2: ultimo(par)
+  menor_digito: primero(ordenar(par))
+  mayor_digito: ultimo(ordenar(par))
 
-respuesta: resto
+restricciones:
+  - d1 != d2
+
+respuesta: mayor_digito * 10 + menor_digito
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Repartís {dividendo} lápices entre {divisor} chicos, en partes iguales. ¿Cuántos lápices sobran, sin poder repartirse?"
-
-explicacion: |
-  Lo que sobra es exactamente el resto de la división entera.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division"
-  nivel: "basico"
-  tags: ["division", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dividir es repartir una cantidad en partes iguales, o ver cuántas veces entra un número dentro de otro."
-
-explicacion: |
-  Es la idea central de la división: repartir equitativamente o contar
-  cuántas veces cabe una cantidad dentro de otra.
-```
-
-## Sección: division-polinomios-ruffini (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "basico"
-  tags: ["teorema_resto"]
-
-variables:
-  c3: random(1, 5)
-  c2: random(-5, 5)
-  c1: random(-5, 5)
-  c0: random(-10, 10)
-  a: random(1, 6)
-
-respuesta: c3 * a ^ 3 + c2 * a ^ 2 + c1 * a + c0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "P(x) = {c3}x³ + {c2}x² + {c1}x + {c0}. Por el teorema del resto, ¿cuál es el resto de dividir P(x) por (x − {a})?"
+enunciado: "Con las cifras {d1} y {d2}, ¿cuál es el mayor número de 2 cifras que se puede formar (usando cada cifra una sola vez)?"
 
 pasos:
-  - "El resto es P({a}) = {c3}×{a}³ + {c2}×{a}² + {c1}×{a} + {c0} = {c3 * a ^ 3 + c2 * a ^ 2 + c1 * a + c0}"
+  - "Para que sea el mayor posible, la cifra más grande va en las decenas: {mayor_digito} decenas + {menor_digito} unidades = {mayor_digito * 10 + menor_digito}"
 
 explicacion: |
-  No hace falta dividir: el resto es directamente el valor del polinomio
-  evaluado en a.
+  Para armar el número más grande posible con cifras dadas, la cifra más
+  grande siempre va en el lugar de mayor valor.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division_polinomios_ruffini"
+  tema: "valor_posicional"
   nivel: "intermedio"
-  tags: ["teorema_resto", "signos"]
+  tags: ["valor_posicional", "composicion"]
 
 variables:
-  c2: random(1, 6)
-  c1: random(-6, 6)
-  c0: random(-10, 10)
-  a: random(1, 6)
+  par: n_de([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)
+  d1: primero(par)
+  d2: ultimo(par)
+  menor_digito: primero(ordenar(par))
+  mayor_digito: ultimo(ordenar(par))
 
-respuesta: c2 * (-a) ^ 2 + c1 * (-a) + c0
+restricciones:
+  - d1 != d2
+
+respuesta: menor_digito * 10 + mayor_digito
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "P(x) = {c2}x² + {c1}x + {c0}. ¿Cuál es el resto de dividir P(x) por (x + {a})?"
+enunciado: "Con las cifras {d1} y {d2}, ¿cuál es el menor número de 2 cifras que se puede formar (usando cada cifra una sola vez)?"
 
 pasos:
-  - "(x + {a}) es lo mismo que (x − (−{a})), así que se evalúa en x = −{a}"
+  - "Para que sea el menor posible, la cifra más chica va en las decenas: {menor_digito} decenas + {mayor_digito} unidades = {menor_digito * 10 + mayor_digito}"
 
 explicacion: |
-  Dividir por (x+a) equivale a evaluar en x = −a, no en x = a — un
-  descuido común de signo.
+  Al revés que para el mayor número: la cifra más chica va en el lugar de
+  mayor valor, para que pese lo menos posible.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division_polinomios_ruffini"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "descomposicion"]
+
+variables:
+  numero: random(1001, 98765)
+
+respuesta: floor(numero / 1000)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántas unidades de mil completas tiene el número {numero}?"
+
+pasos:
+  - "{numero} ÷ 1.000, tomando sólo la parte entera: {floor(numero / 1000)}"
+
+explicacion: |
+  Es lo mismo que preguntar por las cifras que quedan a la izquierda del
+  lugar de las centenas, leídas como un solo número.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "descomposicion"]
+
+variables:
+  numero: random(101, 9876)
+
+respuesta: floor(numero / 100)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántas centenas completas tiene el número {numero}?"
+
+pasos:
+  - "{numero} ÷ 100, tomando sólo la parte entera: {floor(numero / 100)}"
+
+explicacion: |
+  Son las cifras que quedan a la izquierda del lugar de las decenas, leídas
+  como un solo número.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "basico"
-  tags: ["teorema_resto"]
-
-variables:
-  c3: random(1, 4)
-  c1: random(-8, 8)
-  c0: random(-10, 10)
-  a: random(1, 5)
-
-respuesta: c3 * a ^ 3 + c1 * a + c0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "P(x) = {c3}x³ + {c1}x + {c0} (sin término x²). ¿Cuál es el resto de dividir P(x) por (x − {a})?"
-
-explicacion: |
-  Falta el término x², pero el procedimiento es el mismo: evaluar en
-  x = {a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "intermedio"
-  tags: ["ruffini"]
-
-variables:
-  c3: random(1, 5)
-  c2: random(-8, 8)
-  a: random(1, 6)
-
-respuesta: c2 + c3 * a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Dividiendo por Ruffini un polinomio con coeficientes {c3}, {c2}, ... por (x − {a}): se baja el {c3}, se multiplica por {a}, y se suma al siguiente coeficiente ({c2}). ¿Qué número queda?"
-
-explicacion: |
-  {c2} + ({c3}×{a}) = {c2 + c3 * a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "intermedio"
-  tags: ["ruffini"]
-
-variables:
-  c3: random(1, 5)
-  c2: random(-8, 8)
-  c1: random(-8, 8)
-  a: random(1, 6)
-  paso2: c2 + c3 * a
-
-respuesta: c1 + paso2 * a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Siguiendo Ruffini: el paso anterior dio {paso2}. Se multiplica por {a} y se suma al siguiente coeficiente ({c1}). ¿Qué número queda?"
-
-explicacion: |
-  {c1} + ({paso2}×{a}) = {c1 + paso2 * a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "avanzado"
-  tags: ["ruffini"]
-
-variables:
-  c3: random(1, 4)
-  c2: random(-6, 6)
-  c1: random(-6, 6)
-  c0: random(-10, 10)
-  a: random(1, 5)
-  paso2: c2 + c3 * a
-  paso3: c1 + paso2 * a
-
-respuesta: c0 + paso3 * a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Último paso de Ruffini: el paso anterior dio {paso3}. Se multiplica por {a} y se suma al término independiente ({c0}). ¿Cuál es el resto?"
-
-explicacion: |
-  {c0} + ({paso3}×{a}) = {c0 + paso3 * a} — este último número es el
-  resto de la división.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  c3: random(1, 4)
-  c2: random(-6, 6)
-  c1: random(-6, 6)
-  c0: random(-10, 10)
-  a: random(1, 5)
-  paso2: c2 + c3 * a
-  paso3: c1 + paso2 * a
-  resto_ruffini: c0 + paso3 * a
-  resto_teorema: c3 * a ^ 3 + c2 * a ^ 2 + c1 * a + c0
-
-respuesta: (resto_ruffini == resto_teorema)
-tipo: vf
-
-enunciado: "P(x) = {c3}x³ + {c2}x² + {c1}x + {c0}. ¿El resto que da Ruffini al dividir por (x−{a}) coincide con P({a}) calculado directamente?"
-
-explicacion: |
-  Tienen que coincidir siempre — son dos formas distintas de calcular
-  exactamente lo mismo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "intermedio"
-  tags: ["teorema_factor", "verdadero_falso"]
-
-variables:
-  r: random(1, 10)
-  c1: random(1, 8)
-  c0: -c1 * r
-  a: uno_de([r, r + 1, r - 1, r + 2])
-
-respuesta: ((c1 * a + c0) == 0)
-tipo: vf
-
-enunciado: "P(x) = {c1}x + {c0}. ¿Es (x − {a}) un factor de P(x)?"
-
-explicacion: |
-  (x−{a}) es factor si y sólo si P({a}) = 0 — se verifica evaluando.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "avanzado"
-  tags: ["teorema_factor", "verdadero_falso"]
-
-variables:
-  r1: random(1, 5)
-  r2: random(1, 5)
-  a: uno_de([r1, r2, r1 + r2])
-
-respuesta: (((a - r1) * (a - r2) * a) == 0)
-tipo: vf
-
-enunciado: "P(x) = x(x − {r1})(x − {r2}) (ya factoreado). ¿Es (x − {a}) uno de sus factores?"
-
-explicacion: |
-  Los únicos factores de la forma (x−k) son con k = 0, {r1} o {r2} — los
-  valores que hacen 0 a cada factor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["valor_posicional", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El resto de dividir P(x) por (x − a) es igual a P(a)."
+enunciado: "El valor de una cifra depende del lugar que ocupa dentro del número, no sólo de qué dígito es."
 
 explicacion: |
-  Es el enunciado exacto del teorema del resto.
+  Es la idea central de todo el tema: el mismo dígito vale distinto según
+  esté en el lugar de las unidades, las decenas, las centenas, etc.
 ```
+
+## Sección: diagramas-de-venn (25 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
+  tema: "diagramas_de_venn"
+  nivel: "basico"
+  tags: ["venn", "vocabulario"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si P(a) = 0, entonces (x − a) es un factor de P(x)."
-
-explicacion: |
-  Es el corolario directo del teorema del resto: resto 0 significa
-  división exacta, o sea, (x−a) divide a P(x) sin dejar resto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "intermedio"
-  tags: ["concepto", "signos", "opcion_multiple"]
-
-variables:
-  k: random(1, 15)
-
-respuesta: -k
+enunciado: "¿Qué es un diagrama de Venn?"
 tipo: mc
 opciones_explicitas:
-  - -k
-  - k
-
-enunciado: "Para dividir un polinomio por (x + {k}) usando Ruffini, ¿qué valor de a hay que usar?"
+  - "La representación visual de conjuntos (como círculos) y sus operaciones (superposición = intersección)"
+  - "Una tabla de números ordenados de menor a mayor"
+  - "Un gráfico de barras para comparar cantidades"
+respuesta: "La representación visual de conjuntos (como círculos) y sus operaciones (superposición = intersección)"
 
 explicacion: |
-  (x + {k}) = (x − (−{k})), así que a = −{k}, no {k}.
+  Es la forma visual de las operaciones ya definidas entre conjuntos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division_polinomios_ruffini"
+  tema: "diagramas_de_venn"
+  nivel: "basico"
+  tags: ["venn", "vocabulario"]
+
+enunciado: "¿Qué representa el rectángulo que envuelve a todos los círculos en un diagrama de Venn?"
+tipo: mc
+opciones_explicitas:
+  - "El conjunto universal U"
+  - "El conjunto vacío"
+  - "La intersección de todos los conjuntos"
+respuesta: "El conjunto universal U"
+
+explicacion: |
+  Contiene a todos los elementos posibles en el contexto del problema.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "basico"
+  tags: ["venn", "vocabulario"]
+
+enunciado: "En un diagrama de Venn con dos círculos A y B, ¿qué representa la zona donde se superponen?"
+tipo: mc
+opciones_explicitas:
+  - "La intersección, A ∩ B"
+  - "La unión, A ∪ B"
+  - "El conjunto universal"
+respuesta: "La intersección, A ∩ B"
+
+explicacion: |
+  Es la zona que pertenece a ambos círculos a la vez.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
   nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["venn", "completar"]
+
+tipo: completar
+enunciado: "Completá: la parte del círculo A que NO se superpone con B representa el conjunto ___."
+respuestas_validas:
+  - "A - B"
+  - "A−B"
+
+explicacion: |
+  Son los elementos de A que no comparte con B.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "intermedio"
+  tags: ["venn"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un diagrama de Venn, A ∪ B es toda la zona cubierta por cualquiera de los dos círculos (las tres regiones: sólo A, sólo B, y la intersección)."
+
+explicacion: |
+  Es la superficie total ocupada por al menos uno de los dos conjuntos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "intermedio"
+  tags: ["venn"]
 
 respuesta: falso
-
 tipo: vf
 
-enunciado: "La regla de Ruffini se puede usar para dividir por cualquier polinomio, sin importar su grado."
+enunciado: "La zona fuera de ambos círculos, pero dentro del rectángulo U, representa elementos que pertenecen a A o a B."
 
 explicacion: |
-  Ruffini sólo funciona para divisores de la forma (x − a) — un binomio
-  de grado 1 con coeficiente 1 en x.
+  Es exactamente lo opuesto: son los elementos que NO pertenecen ni a
+  A ni a B.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para aplicar Ruffini a x³ − 1, hay que usar los coeficientes 1, 0, 0, −1 (completando con ceros los grados que no aparecen)."
-
-explicacion: |
-  Faltan los términos x² y x — sus coeficientes son 0, y hay que
-  incluirlos para que Ruffini funcione bien.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "intermedio"
-  tags: ["concepto"]
+  tema: "diagramas_de_venn"
+  nivel: "avanzado"
+  tags: ["venn", "problema"]
 
 variables:
-  n: random(2, 8)
+  a: random(20, 35)
+  b: random(20, 35)
+  interseccion: random(1, min(a, b))
+  extra: random(5, 20)
+  total: a + b - interseccion + extra
 
-respuesta: n - 1
+respuesta: extra
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "Al dividir un polinomio de grado {n} por (x − a), ¿qué grado tiene el cociente?"
+enunciado: "En una encuesta a {total} personas, {a} tienen perro, {b} tienen gato, y {interseccion} tienen ambos. ¿Cuántas personas no tienen ni perro ni gato?"
+
+pasos:
+  - "Tienen perro o gato (unión) = {a} + {b} − {interseccion} = {a + b - interseccion}"
+  - "Ninguno = total − unión = {total} − {a + b - interseccion} = {extra}"
 
 explicacion: |
-  Siempre un grado menos que el polinomio original, porque se le "saca"
-  el factor (x−a), de grado 1.
+  Primero se calcula cuántos tienen al menos una de las dos cosas, y
+  se resta ese número del total.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  x: random(1, 15)
-  a: random(1, 8)
-  q1: random(1, 6)
-  q0: random(-8, 8)
-  r: random(1, 9)
-
-respuesta: (((x - a) * (q1 * x + q0) + r) == ((q1 * x ^ 2 + (q0 - a * q1) * x + (r - a * q0))))
-tipo: vf
-
-enunciado: "Si el cociente de dividir P(x) por (x−{a}) es {q1}x+{q0}, y el resto es {r}, ¿P(x) tiene que ser igual a (x−{a})({q1}x+{q0})+{r}, evaluado en x={x}?"
-
-explicacion: |
-  Es la verificación general de cualquier división: dividendo = divisor
-  × cociente + resto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
+  tema: "diagramas_de_venn"
   nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
+  tags: ["venn", "problema"]
 
 variables:
-  c2: random(1, 6)
-  c1: random(-8, 8)
-  c0: random(-10, 10)
-  a: random(1, 6)
-  real: c2 * a ^ 2 + c1 * a + c0
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
+  a: random(20, 50)
+  interseccion: random(1, 15)
 
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "P(x) = {c2}x² + {c1}x + {c0}. ¿Es correcto que el resto de dividir por (x−{a}) sea {propuesto}?"
-
-explicacion: |
-  El resto correcto es P({a}) = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "basico"
-  tags: ["ruffini"]
-
-variables:
-  c2: random(1, 8)
-  c1: random(-8, 8)
-  c0: random(-10, 10)
-
-respuesta: c0
+respuesta: a - interseccion
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "P(x) = {c2}x² + {c1}x + {c0}. ¿Cuál es el resto de dividir P(x) por x (o sea, por x − 0)?"
+enunciado: "En un diagrama de Venn, el conjunto A tiene {a} elementos en total, y {interseccion} de ellos están también en B. ¿Cuántos elementos hay en la región 'sólo A' (dentro del círculo A, pero fuera de la superposición)?"
+
+pasos:
+  - "Sólo A = |A| − |A∩B| = {a} − {interseccion} = {a - interseccion}"
 
 explicacion: |
-  P(0) = {c0} — el término independiente es directamente el resto de
-  dividir por x.
+  La región 'sólo A' es lo que queda del círculo A después de sacarle
+  la parte compartida con B.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "avanzado"
-  tags: ["teorema_factor"]
-
-variables:
-  r: random(1, 12)
-
-respuesta: r
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se sabe que P(x) = x − {r} tiene resto 0 al dividir por (x − k), para un único valor de k. ¿Cuánto vale k?"
-
-explicacion: |
-  P(x) es cero exactamente en x = {r} — ese es el único k para el que
-  (x−k) divide exacto a P(x).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "avanzado"
-  tags: ["ruffini", "signos"]
-
-variables:
-  c2: random(-8, -2)
-  c1: random(-8, 8)
-  a: random(1, 6)
-
-respuesta: c1 + c2 * a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Dividiendo por Ruffini {c2}x² + {c1}x + ... por (x − {a}): se baja {c2}, se multiplica por {a} y se suma al siguiente coeficiente ({c1}). ¿Qué número queda?"
-
-explicacion: |
-  El procedimiento no cambia con coeficientes negativos, sólo hay que
-  llevar el signo con cuidado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un polinomio de grado n puede tener, como máximo, n factores distintos de la forma (x − a)."
-
-explicacion: |
-  Cada factor (x−a) resta 1 al grado del cociente — no puede haber más
-  factores lineales que el grado total del polinomio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "avanzado"
-  tags: ["teorema_factor", "verdadero_falso"]
-
-variables:
-  a: random(1, 5)
-  b: random(1, 5)
-  c: random(1, 5)
-  candidato: uno_de([a, b, c, a + b + c])
-
-respuesta: (((candidato - a) * (candidato - b) * (candidato - c)) == 0)
-tipo: vf
-
-enunciado: "P(x) = (x−{a})(x−{b})(x−{c}). ¿Es x = {candidato} una raíz de P(x) (o sea, P({candidato}) = 0)?"
-
-explicacion: |
-  Un producto da 0 si y sólo si alguno de sus factores da 0 — se verifica
-  si {candidato} coincide con {a}, {b} o {c}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "division_polinomios_ruffini"
+  tema: "diagramas_de_venn"
   nivel: "intermedio"
-  tags: ["ruffini", "opcion_multiple"]
+  tags: ["venn", "problema"]
 
-respuesta: "El primer coeficiente se baja igual, sin cambios"
+variables:
+  b: random(20, 50)
+  interseccion: random(1, 15)
+
+respuesta: b - interseccion
+tipo: input
+
+enunciado: "En un diagrama de Venn, el conjunto B tiene {b} elementos en total, y {interseccion} de ellos están también en A. ¿Cuántos elementos hay en la región 'sólo B'?"
+
+pasos:
+  - "Sólo B = |B| − |A∩B| = {b} − {interseccion} = {b - interseccion}"
+
+explicacion: |
+  El mismo razonamiento que 'sólo A', ahora para el círculo B.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "avanzado"
+  tags: ["venn", "ordenar"]
+
+enunciado: "Ordená los pasos para completar un diagrama de Venn de dos conjuntos, a partir de los datos de una encuesta."
+tipo: ordenar
+opciones_explicitas:
+  - "Calcular las regiones 'sólo A' y 'sólo B', restando la intersección a cada total"
+  - "Anotar primero la cantidad de la intersección (el centro del diagrama)"
+  - "Calcular la región 'ninguno', restando el total de la unión al total de encuestados"
+respuesta_orden: ["Anotar primero la cantidad de la intersección (el centro del diagrama)", "Calcular las regiones 'sólo A' y 'sólo B', restando la intersección a cada total", "Calcular la región 'ninguno', restando el total de la unión al total de encuestados"]
+explicacion: |
+  Empezar por el centro es clave: las otras regiones se calculan
+  restando esa cantidad de los totales dados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "avanzado"
+  tags: ["venn", "problema"]
+
+variables:
+  a: random(20, 35)
+  b: random(20, 35)
+  interseccion_real: random(1, min(a, b))
+  ninguno: random(5, 20)
+  total: a + b - interseccion_real + ninguno
+
+respuesta: interseccion_real
+tipo: input
+
+enunciado: "En una encuesta a {total} personas, {a} usan transporte público, {b} usan bicicleta, y {ninguno} no usan ninguno de los dos. ¿Cuántas personas usan AMBOS medios?"
+
+pasos:
+  - "Usan al menos uno = total − ninguno = {total} − {ninguno} = {total - ninguno}"
+  - "|A∩B| = |A| + |B| − (usan al menos uno) = {a} + {b} − {total - ninguno} = {interseccion_real}"
+
+explicacion: |
+  Se calcula primero la unión (todos menos los que no usan ninguno), y
+  de ahí se despeja la intersección.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "intermedio"
+  tags: ["venn"]
+
+enunciado: "¿Por qué conviene completar primero la intersección al resolver un diagrama de Venn de dos conjuntos?"
 tipo: mc
 opciones_explicitas:
-  - "El primer coeficiente se baja igual, sin cambios"
-  - "El primer coeficiente se multiplica por a antes de bajar"
-  - "El primer coeficiente pasa a ser el resto"
-
-enunciado: "En el primer paso de Ruffini, ¿qué se hace con el primer coeficiente del polinomio?"
+  - "Porque las demás regiones (sólo A, sólo B) se calculan restando la intersección de los totales dados"
+  - "Porque la intersección siempre es la región más grande"
+  - "No hay ninguna razón particular, es sólo costumbre"
+respuesta: "Porque las demás regiones (sólo A, sólo B) se calculan restando la intersección de los totales dados"
 
 explicacion: |
-  Se "baja" directamente, sin ninguna operación — recién el segundo paso
-  en adelante involucra multiplicar y sumar.
+  Sin la intersección, no se puede calcular ninguna de las otras
+  regiones a partir de los totales de A y B.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division_polinomios_ruffini"
+  tema: "diagramas_de_venn"
   nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["venn"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El teorema del resto sirve para probar rápidamente si un número candidato es raíz de un polinomio, antes de intentar factorearlo por completo."
+enunciado: "Sin conocer las operaciones de unión, intersección y diferencia, un diagrama de Venn es sólo un dibujo de círculos superpuestos, sin significado matemático."
 
 explicacion: |
-  En vez de adivinar un factoreo a ojo, se prueban candidatos evaluando
-  P(a) — si da 0, ya se encontró un factor real.
+  El diagrama es la forma visual de esas operaciones — no las
+  reemplaza.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division_polinomios_ruffini"
-  nivel: "avanzado"
-  tags: ["ruffini", "teorema_resto"]
+  tema: "diagramas_de_venn"
+  nivel: "intermedio"
+  tags: ["venn", "problema"]
 
 variables:
-  c4: random(1, 3)
-  c3: random(-5, 5)
-  c2: random(-5, 5)
-  c1: random(-5, 5)
-  c0: random(-8, 8)
-  a: random(1, 4)
+  solo_a: random(10, 30)
+  solo_b: random(10, 30)
+  ambos: random(5, 20)
 
-respuesta: c4 * a ^ 4 + c3 * a ^ 3 + c2 * a ^ 2 + c1 * a + c0
+respuesta: solo_a + solo_b + ambos
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "P(x) = {c4}x⁴ + {c3}x³ + {c2}x² + {c1}x + {c0}. ¿Cuál es el resto de dividir P(x) por (x − {a})?"
+enunciado: "En un diagrama de Venn: la región 'sólo A' tiene {solo_a} elementos, 'sólo B' tiene {solo_b}, y la intersección tiene {ambos}. ¿Cuántos elementos tiene A ∪ B en total?"
+
+pasos:
+  - "|A∪B| = sólo A + sólo B + ambos = {solo_a} + {solo_b} + {ambos} = {solo_a + solo_b + ambos}"
 
 explicacion: |
-  El teorema del resto funciona igual sin importar el grado del
-  polinomio: siempre alcanza con evaluar en x = {a}.
+  La unión son las tres regiones sumadas: lo exclusivo de cada
+  conjunto más lo compartido.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "division_polinomios_ruffini"
+  tema: "diagramas_de_venn"
+  nivel: "intermedio"
+  tags: ["venn"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La cantidad de elementos en la región 'sólo A' es igual a |A| menos |A∩B|."
+
+explicacion: |
+  Es el total de A menos la parte que comparte con B.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "intermedio"
+  tags: ["venn"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La cantidad de elementos en la región 'sólo B' es igual a |B| menos |A∩B|."
+
+explicacion: |
+  El mismo razonamiento que 'sólo A', para el otro conjunto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "avanzado"
+  tags: ["venn", "problema"]
+
+variables:
+  a: random(25, 40)
+  b: random(25, 40)
+  interseccion: random(5, 15)
+  extra: random(10, 25)
+  total: a + b - interseccion + extra
+
+respuesta: total - extra
+tipo: input
+
+enunciado: "De {total} estudiantes, {a} hablan inglés, {b} hablan portugués, y {interseccion} hablan ambos idiomas. ¿Cuántos estudiantes hablan AL MENOS uno de los dos idiomas?"
+
+pasos:
+  - "Al menos uno = |A∪B| = {a} + {b} − {interseccion} = {a + b - interseccion}"
+
+explicacion: |
+  'Al menos uno' es exactamente la definición de unión.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "avanzado"
+  tags: ["venn", "problema"]
+
+variables:
+  a: random(25, 40)
+  b: random(25, 40)
+  interseccion: random(5, 15)
+  extra: random(10, 25)
+  total: a + b - interseccion + extra
+
+respuesta: extra
+tipo: input
+
+enunciado: "De {total} estudiantes, {a} hablan inglés, {b} hablan portugués, y {interseccion} hablan ambos idiomas. ¿Cuántos estudiantes NO hablan ninguno de los dos?"
+
+pasos:
+  - "Al menos uno = {a} + {b} − {interseccion} = {a + b - interseccion}"
+  - "Ninguno = {total} − {a + b - interseccion} = {extra}"
+
+explicacion: |
+  Es el mismo problema que el anterior, completando la última región
+  del diagrama.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
   nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
+  tags: ["venn", "aplicacion"]
+
+enunciado: "¿Para qué se usan los diagramas de Venn en Biología, por ejemplo al comparar especies?"
+tipo: mc
+opciones_explicitas:
+  - "Para mostrar visualmente qué características comparten dos o más grupos, y cuáles son exclusivas de cada uno"
+  - "Sólo para medir el tamaño de los animales"
+  - "No tienen ninguna aplicación en Biología"
+respuesta: "Para mostrar visualmente qué características comparten dos o más grupos, y cuáles son exclusivas de cada uno"
+
+explicacion: |
+  Es la misma lógica de conjuntos, aplicada a categorías biológicas en
+  vez de números.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "basico"
+  tags: ["venn", "aplicacion"]
+
+enunciado: "¿Para qué sirve un diagrama de Venn al estudiar probabilidad simple?"
+tipo: mc
+opciones_explicitas:
+  - "Para clasificar visualmente el espacio muestral en casos que cumplen una condición, otra, ambas, o ninguna"
+  - "Para calcular directamente el promedio de un conjunto de datos"
+  - "No se usa en probabilidad, sólo en geometría"
+respuesta: "Para clasificar visualmente el espacio muestral en casos que cumplen una condición, otra, ambas, o ninguna"
+
+explicacion: |
+  Es la base visual sobre la que se construye la probabilidad de
+  sucesos combinados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "intermedio"
+  tags: ["venn"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si en un diagrama de Venn dos círculos se dibujan sin tocarse (sin superposición), representan dos conjuntos disjuntos."
+
+explicacion: |
+  Sin superposición no hay intersección — es exactamente lo que
+  significa ser disjuntos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "intermedio"
+  tags: ["venn", "problema"]
+
+variables:
+  a: random(15, 30)
+  b: random(15, 30)
+  ninguno: random(5, 20)
+
+respuesta: a + b
+tipo: input
+
+enunciado: "En un diagrama de Venn, los círculos A ({a} elementos) y B ({b} elementos) NO se superponen (son disjuntos). ¿Cuántos elementos tiene A ∪ B?"
+
+pasos:
+  - "Sin intersección que restar: |A∪B| = |A| + |B| = {a} + {b} = {a + b}"
+
+explicacion: |
+  Al no compartir nada, la unión es simplemente la suma de los dos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "intermedio"
+  tags: ["venn"]
+
+enunciado: "¿Cuáles son las tres regiones en las que un diagrama de Venn de dos conjuntos divide a la unión A ∪ B?"
+tipo: mc
+opciones_explicitas:
+  - "Sólo A, sólo B, y la intersección (A∩B)"
+  - "El conjunto universal completo"
+  - "Sólo la intersección, dividida en dos mitades"
+respuesta: "Sólo A, sólo B, y la intersección (A∩B)"
+
+explicacion: |
+  Esas tres regiones sumadas son exactamente A ∪ B.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "diagramas_de_venn"
+  nivel: "avanzado"
+  tags: ["venn"]
 
 respuesta: falso
-
 tipo: vf
 
-enunciado: "El resto de dividir un polinomio por (x − a) siempre da 0."
+enunciado: "Dibujar un diagrama de Venn alcanza por sí solo para resolver un problema de conteo, sin necesidad de aplicar ninguna fórmula."
 
 explicacion: |
-  Sólo da 0 cuando (x−a) es efectivamente un factor del polinomio — en
-  general, puede dar cualquier número.
+  El diagrama ayuda a organizar visualmente los datos, pero las
+  cantidades de cada región siempre se calculan con las fórmulas de
+  unión/intersección/diferencia.
 ```
-
-## Sección: ecuacion-cuadratica (32 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_cuadratica"
+  tema: "diagramas_de_venn"
   nivel: "basico"
-  tags: ["discriminante"]
+  tags: ["cierre"]
 
-variables:
-  a: random(1, 6)
-  b: random(-15, 15)
-  c: random(-15, 15)
-
-respuesta: b ^ 2 - 4 * a * c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "{a}x² + {b}x + {c} = 0. ¿Cuál es el discriminante (Δ)?"
-
-pasos:
-  - "Δ = {b}² − 4×{a}×{c} = {b ^ 2} − {4 * a * c} = {b ^ 2 - 4 * a * c}"
-
-explicacion: |
-  Δ = b² − 4ac.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "basico"
-  tags: ["discriminante", "verdadero_falso"]
-
-variables:
-  r1: random(1, 15)
-  r2: random(1, 15)
-  b: -(r1 + r2)
-  c: r1 * r2
-
-respuesta: ((b ^ 2 - 4 * c) > 0)
-tipo: vf
-
-enunciado: "x² + {b}x + {c} = 0. ¿Es positivo el discriminante (o sea, tiene dos soluciones reales distintas)?"
-
-explicacion: |
-  Como se armó con dos raíces distintas ({r1} y {r2}), el discriminante
-  tiene que dar positivo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["discriminante"]
-
-variables:
-  r: random(1, 20)
-  b: -2 * r
-  c: r ^ 2
-
-respuesta: b ^ 2 - 4 * c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x² + {b}x + {c} = 0 (viene de (x−{r})²). ¿Cuál es el discriminante?"
-
-explicacion: |
-  Al ser un cuadrado perfecto, el discriminante da exactamente 0 — una
-  única solución (doble).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["discriminante", "verdadero_falso"]
-
-variables:
-  a: random(1, 4)
-  b: random(-6, 6)
-  c: random(10, 30)
-
-respuesta: ((b ^ 2 - 4 * a * c) < 0)
-tipo: vf
-
-enunciado: "{a}x² + {b}x + {c} = 0. ¿Es negativo el discriminante (o sea, no tiene soluciones reales)?"
-
-explicacion: |
-  Con {a} y {c} positivos y grandes en comparación con {b}, es frecuente
-  que 4ac supere a b², dando discriminante negativo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["formula_resolvente"]
-
-variables:
-  r1: random(1, 20)
-  r2: random(1, 20)
-  b: -(r1 + r2)
-  c: r1 * r2
-
-respuesta: max(r1, r2)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x² + {b}x + {c} = 0. ¿Cuál es la mayor de las dos soluciones?"
-
-pasos:
-  - "Δ = {b}² − 4×{c} = {b ^ 2 - 4 * c}"
-  - "x = (−({b}) ± √{b ^ 2 - 4 * c}) / 2"
-
-explicacion: |
-  Las dos soluciones son {r1} y {r2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["formula_resolvente"]
-
-variables:
-  r1: random(1, 20)
-  r2: random(1, 20)
-  b: -(r1 + r2)
-  c: r1 * r2
-
-respuesta: min(r1, r2)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x² + {b}x + {c} = 0. ¿Cuál es la menor de las dos soluciones?"
-
-explicacion: |
-  Las dos soluciones son {r1} y {r2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "avanzado"
-  tags: ["formula_resolvente"]
-
-variables:
-  a: random(2, 6)
-  r1: random(1, 15)
-  r2: random(1, 15)
-  b: -a * (r1 + r2)
-  c: a * r1 * r2
-
-respuesta: max(r1, r2)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "{a}x² + {b}x + {c} = 0. ¿Cuál es la mayor de las dos soluciones?"
-
-pasos:
-  - "Δ = {b}² − 4×{a}×{c} = {b ^ 2 - 4 * a * c}"
-  - "x = (−({b}) ± √{b ^ 2 - 4 * a * c}) / (2×{a})"
-
-explicacion: |
-  Con a distinto de 1, hay que dividir por 2a completo, no sólo por 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "avanzado"
-  tags: ["formula_resolvente"]
-
-variables:
-  a: random(2, 6)
-  r1: random(1, 15)
-  r2: random(1, 15)
-  b: -a * (r1 + r2)
-  c: a * r1 * r2
-
-respuesta: min(r1, r2)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "{a}x² + {b}x + {c} = 0. ¿Cuál es la menor de las dos soluciones?"
-
-explicacion: |
-  Las dos soluciones son {r1} y {r2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["formula_resolvente"]
-
-variables:
-  r: random(1, 25)
-  b: -2 * r
-  c: r ^ 2
-
-respuesta: r
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x² + {b}x + {c} = 0, con discriminante 0. ¿Cuál es la única solución?"
-
-explicacion: |
-  Con Δ=0, x = −b/(2a) = {r} — las dos "ramas" de la fórmula coinciden.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  r1: random(1, 15)
-  r2: random(1, 15)
-  b: -(r1 + r2)
-  c: r1 * r2
-
-respuesta: ((r1 ^ 2 + b * r1 + c) == 0)
-tipo: vf
-
-enunciado: "x² + {b}x + {c} = 0. ¿Es x = {r1} una solución?"
-
-explicacion: |
-  Se reemplaza x por {r1} y se comprueba que la ecuación dé 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  r1: random(1, 15)
-  r2: random(1, 15)
-  b: -(r1 + r2)
-  c: r1 * r2
-  propuesto: r1 + uno_de([1, -1, 2, -2])
-
-respuesta: ((propuesto ^ 2 + b * propuesto + c) == 0)
-tipo: vf
-
-enunciado: "x² + {b}x + {c} = 0. ¿Es x = {propuesto} una solución?"
-
-explicacion: |
-  Sólo {r1} y {r2} son soluciones — cualquier otro valor no cumple la
-  ecuación (salvo coincidencia numérica puntual).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["vieta"]
-
-variables:
-  a: random(1, 5)
-  r1: random(1, 15)
-  r2: random(1, 15)
-  b: -a * (r1 + r2)
-  c: a * r1 * r2
-
-respuesta: -b / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "{a}x² + {b}x + {c} = 0. Sin resolver la ecuación, ¿cuánto vale la suma de las dos raíces?"
-
-explicacion: |
-  Suma de raíces = −b/a = {-b / a}, sin necesidad de calcular cada raíz
-  por separado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["vieta"]
-
-variables:
-  a: random(1, 5)
-  r1: random(1, 15)
-  r2: random(1, 15)
-  b: -a * (r1 + r2)
-  c: a * r1 * r2
-
-respuesta: c / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "{a}x² + {b}x + {c} = 0. Sin resolver la ecuación, ¿cuánto vale el producto de las dos raíces?"
-
-explicacion: |
-  Producto de raíces = c/a = {c / a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "avanzado"
-  tags: ["vieta", "verificacion", "verdadero_falso"]
-
-variables:
-  r1: random(1, 15)
-  r2: random(1, 15)
-  b: -(r1 + r2)
-  c: r1 * r2
-
-respuesta: (((r1 + r2) == (-b)) == ((r1 * r2) == c))
-tipo: vf
-
-enunciado: "x² + {b}x + {c} = 0 tiene raíces {r1} y {r2}. ¿Coinciden a la vez la suma (−b) y el producto (c) con las relaciones de Vieta?"
-
-explicacion: |
-  Es la forma de verificar rápido si las raíces encontradas están bien,
-  sin tener que rehacer toda la fórmula resolvente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "basico"
-  tags: ["factoreo"]
-
-variables:
-  r1: random(1, 12)
-  r2: random(1, 12)
-
-respuesta: r1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x² − {r1 + r2}x + {r1 * r2} = 0 se factorea como (x − {r1})(x − {r2}) = 0. ¿Cuál es una de las soluciones?"
-
-explicacion: |
-  Un producto da 0 sólo si alguno de los factores da 0 — las soluciones
-  son directamente {r1} y {r2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["signos"]
-
-variables:
-  r1: random(1, 15)
-  r2: random(1, 15)
-  b: r2 - r1
-  c: -r1 * r2
-
-respuesta: r1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x² + {b}x + {c} = 0 tiene una raíz negativa (−{r2}) y una positiva. ¿Cuál es la raíz positiva?"
-
-pasos:
-  - "El producto de las raíces es {c}/1 = {c}, negativo — significa que las dos raíces tienen signos opuestos"
-
-explicacion: |
-  Con c negativo, las raíces siempre tienen signos opuestos entre sí.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "basico"
-  tags: ["concepto", "opcion_multiple"]
-
-respuesta: "Dos soluciones reales distintas"
+enunciado: "¿Para qué sirve el diagrama de Venn?"
 tipo: mc
 opciones_explicitas:
-  - "Dos soluciones reales distintas"
-  - "Una única solución"
-  - "Ninguna solución real"
-
-enunciado: "Si el discriminante de una ecuación cuadrática es positivo, ¿cuántas soluciones reales tiene?"
-
-explicacion: |
-  Δ>0 da dos raíces distintas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "basico"
-  tags: ["concepto", "opcion_multiple"]
-
-respuesta: "Una única solución (raíz doble)"
-tipo: mc
-opciones_explicitas:
-  - "Una única solución (raíz doble)"
-  - "Dos soluciones reales distintas"
-  - "Ninguna solución real"
-
-enunciado: "Si el discriminante de una ecuación cuadrática es 0, ¿cuántas soluciones reales tiene?"
+  - "Para representar visualmente conjuntos y sus operaciones, y organizar el cálculo de cuántos elementos hay en cada región"
+  - "Sólo sirve para dibujar figuras geométricas"
+  - "Sólo aplica a conjuntos de menos de 3 elementos"
+respuesta: "Para representar visualmente conjuntos y sus operaciones, y organizar el cálculo de cuántos elementos hay en cada región"
 
 explicacion: |
-  Δ=0 da una única solución, contada dos veces (raíz doble).
+  Es el puente visual entre las operaciones de conjuntos y el próximo
+  módulo: contar sin enumerar (principio multiplicativo de conteo).
 ```
 
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "basico"
-  tags: ["concepto", "opcion_multiple"]
-
-respuesta: "Ninguna solución real"
-tipo: mc
-opciones_explicitas:
-  - "Ninguna solución real"
-  - "Dos soluciones reales distintas"
-  - "Una única solución"
-
-enunciado: "Si el discriminante de una ecuación cuadrática es negativo, ¿cuántas soluciones reales tiene?"
-
-explicacion: |
-  Δ<0 no da soluciones reales — la raíz cuadrada de un número negativo
-  no es real (sí tiene solución compleja, tema de `../numeros-complejos/`).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En ax²+bx+c=0, si a fuera 0, la ecuación dejaría de ser cuadrática (pasaría a ser de primer grado, o ni siquiera una ecuación en x si b también fuera 0)."
-
-explicacion: |
-  Por eso la condición a≠0 es parte de la definición de ecuación
-  cuadrática.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "El símbolo ± en la fórmula resolvente es sólo una forma de escribir más corto, y en la práctica sólo hay que calcular un valor de x."
-
-explicacion: |
-  Hay que calcular DOS valores (uno sumando la raíz, otro restando),
-  salvo que Δ=0 (ahí coinciden en un solo valor).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "avanzado"
-  tags: ["error_comun", "verdadero_falso"]
-
-variables:
-  a: random(2, 5)
-  r1: random(1, 10)
-  r2: random(1, 10)
-  b: -a * (r1 + r2)
-  c: a * r1 * r2
-  disc: b ^ 2 - 4 * a * c
-
-respuesta: (((-b + sqrt(disc)) / (2 * a)) == max(r1, r2))
-tipo: vf
-
-enunciado: "{a}x² + {b}x + {c} = 0. ¿Es correcto que x = (−({b}) + √{disc}) / (2×{a}) dé la mayor raíz?"
-
-explicacion: |
-  Dividir por 2a completo (no sólo el numerador de un lado) es
-  justamente lo que hace falta para que la fórmula dé el resultado
-  correcto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  ancho: random(2, 15)
-  largo_extra: random(1, 10)
-
-respuesta: ancho
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un terreno rectangular tiene {largo_extra} metros más de largo que de ancho, y su área es {ancho * (ancho + largo_extra)} m². ¿Cuánto mide el ancho?"
-
-pasos:
-  - "Planteo: x(x+{largo_extra}) = {ancho * (ancho + largo_extra)} → x² + {largo_extra}x − {ancho * (ancho + largo_extra)} = 0"
-
-explicacion: |
-  Es la misma ecuación cuadrática de siempre, planteada desde un
-  problema de área — se descarta la raíz negativa porque un ancho no
-  puede ser negativo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En problemas donde x representa una magnitud física (longitud, tiempo, cantidad), si una de las dos raíces da negativa, normalmente se descarta."
-
-explicacion: |
-  La ecuación puede tener dos soluciones matemáticas válidas, pero sólo
-  una (o ninguna) tiene sentido en el contexto del problema real.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["formula_resolvente"]
-
-variables:
-  r: random(2, 15)
-  c: -(r ^ 2)
-
-respuesta: r
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x² + {c} = 0 (sin término x). ¿Cuál es la solución positiva?"
-
-pasos:
-  - "x² = {-c} → x = ±√{-c}"
-
-explicacion: |
-  Sin el término x, la ecuación se resuelve directo despejando x² y
-  sacando raíz cuadrada — no hace falta la fórmula completa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["factoreo"]
-
-variables:
-  r: random(1, 20)
-
-respuesta: r
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "x² − {r}x = 0 (sin término independiente). Factoreando: x(x − {r}) = 0. ¿Cuál es la solución distinta de 0?"
-
-explicacion: |
-  Sacando x como factor común, las soluciones son x=0 y x={r} — no hace
-  falta la fórmula resolvente completa acá tampoco.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["discriminante", "verificacion", "verdadero_falso"]
-
-variables:
-  r1: random(1, 12)
-  r2: random(1, 12)
-  b: -(r1 + r2)
-  c: r1 * r2
-  disc: b ^ 2 - 4 * c
-  raiz_disc: sqrt(disc)
-
-respuesta: (raiz_disc == abs(r1 - r2))
-tipo: vf
-
-enunciado: "x² + {b}x + {c} = 0 tiene raíces {r1} y {r2}. ¿Es √Δ igual a la diferencia (en valor absoluto) entre las dos raíces?"
-
-explicacion: |
-  √Δ = |r1 − r2| siempre, porque las dos raíces son (−b±√Δ)/2 —
-  la distancia entre ellas es exactamente √Δ.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "basico"
-  tags: ["factoreo"]
-
-variables:
-  r1: random(1, 20)
-  r2: random(1, 20)
-
-respuesta: r2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "(x − {r1})(x − {r2}) = 0. ¿Cuál es la segunda solución (la distinta de {r1})?"
-
-explicacion: |
-  Ya está factoreada — las soluciones se leen directo: {r1} y {r2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  a: random(1, 5)
-  b: random(-15, 15)
-  c: random(-15, 15)
-  real: b ^ 2 - 4 * a * c
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "{a}x² + {b}x + {c} = 0. ¿Es correcto que el discriminante sea {propuesto}?"
-
-explicacion: |
-  El discriminante correcto es b²−4ac = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un trinomio se puede factorear como (x−p)(x−q), entonces p y q son exactamente las soluciones de esa ecuación cuadrática."
-
-explicacion: |
-  Es la conexión directa con `../polinomios-factoreo/`: factorear y
-  resolver son, en el fondo, la misma pregunta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "avanzado"
-  tags: ["vieta"]
-
-variables:
-  r1: random(1, 20)
-  r2: random(1, 20)
-
-respuesta: -(r1 + r2)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se quiere armar una ecuación x² + bx + c = 0 cuyas raíces sean {r1} y {r2}. ¿Cuánto tiene que valer b?"
-
-explicacion: |
-  b = −(suma de las raíces) = −({r1}+{r2}) = {-(r1 + r2)}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_cuadratica"
-  nivel: "avanzado"
-  tags: ["vieta"]
-
-variables:
-  r1: random(1, 20)
-  r2: random(1, 20)
-
-respuesta: r1 * r2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se quiere armar una ecuación x² + bx + c = 0 cuyas raíces sean {r1} y {r2}. ¿Cuánto tiene que valer c?"
-
-explicacion: |
-  c = producto de las raíces = {r1}×{r2} = {r1 * r2}.
-```

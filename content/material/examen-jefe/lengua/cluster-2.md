@@ -1,771 +1,695 @@
-# Examen jefe — Maestro de la Sintaxis
+# Examen jefe — [PENDIENTE #652]
 
-> Logro #85. Completaste el parcial demostrando dominio total de la fonología, la concordancia y todos los modos verbales. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **100 preguntas totales** en 5/5 secciones.
+> Logro #652. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **106 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: conciencia-fonologica (20 preguntas)
+## Sección: comprension-idea-principal (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conciencia_fonologica"
+  tema: "comprension_idea_principal"
   nivel: "basico"
-  tags: ["conciencia_fonologica", "vocabulario"]
-
-enunciado: "¿Qué es la conciencia fonológica?"
-tipo: mc
-opciones_explicitas:
-  - "La capacidad de percibir y manipular los sonidos del habla, por separado de su significado y de la escritura"
-  - "La capacidad de reconocer letras escritas en un texto"
-  - "El vocabulario total que conoce una persona"
-respuesta: "La capacidad de percibir y manipular los sonidos del habla, por separado de su significado y de la escritura"
-
-explicacion: |
-  Es una habilidad auditiva y oral, no visual.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "basico"
-  tags: ["conciencia_fonologica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un chico puede tener buena conciencia fonológica sin saber todavía leer ni escribir ninguna letra."
-
-explicacion: |
-  Reconocer que dos palabras riman, por ejemplo, no requiere ver esas
-  palabras escritas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "basico"
-  tags: ["silaba", "vocabulario"]
-
-enunciado: "¿Qué es la conciencia silábica?"
-tipo: mc
-opciones_explicitas:
-  - "La capacidad de dividir una palabra en sus sílabas (contarlas, separarlas o combinarlas)"
-  - "La capacidad de reconocer si una palabra está bien escrita"
-  - "La capacidad de identificar el significado de una palabra"
-respuesta: "La capacidad de dividir una palabra en sus sílabas (contarlas, separarlas o combinarlas)"
-
-explicacion: |
-  Es un nivel intermedio entre 'palabra completa' y 'sonido
-  individual (fonema)'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "intermedio"
-  tags: ["silaba", "problema"]
+  tags: ["idea_principal", "explicita"]
 
 variables:
-  palabras: [{palabra: "mariposa", silabas: 4}, {palabra: "computadora", silabas: 5}, {palabra: "elefante", silabas: 4}, {palabra: "casa", silabas: 2}, {palabra: "sol", silabas: 1}]
-  idx: uno_de([0, 1, 2, 3, 4])
+  n: uno_de([1, 1])
 
-respuesta: palabras[idx].silabas
-tipo: input
-
-enunciado: "¿Cuántas sílabas tiene la palabra '{palabras[idx].palabra}'?"
-
-explicacion: |
-  Se cuenta cada golpe de voz al pronunciar la palabra despacio.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "basico"
-  tags: ["rima", "vocabulario"]
-
-enunciado: "¿Qué significa que dos palabras 'rimen' entre sí?"
+respuesta: "Los perros son animales muy sociables"
 tipo: mc
-opciones_explicitas:
-  - "Que suenan parecido a partir de la vocal acentuada hacia el final de la palabra"
-  - "Que empiezan con la misma letra"
-  - "Que tienen la misma cantidad de letras"
-respuesta: "Que suenan parecido a partir de la vocal acentuada hacia el final de la palabra"
+opciones_explicitas: ["Los perros son animales muy sociables", "Los perros viven en manada", "Los perros reconocen emociones"]
 
-explicacion: |
-  Es un nivel de conciencia fonológica llamado 'intrasilábica'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "intermedio"
-  tags: ["rima", "problema"]
-
-variables:
-  pares: [{a: "gato", b: "pato", rima: verdadero}, {a: "luna", b: "cuna", rima: verdadero}, {a: "flor", b: "amor", rima: verdadero}, {a: "perro", b: "cielo", rima: falso}, {a: "casa", b: "mesa", rima: falso}]
-  idx: uno_de([0, 1, 2, 3, 4])
-
-respuesta: pares[idx].rima
-tipo: vf
-
-enunciado: "¿Riman las palabras '{pares[idx].a}' y '{pares[idx].b}'?"
-
-explicacion: |
-  Hay que comparar el sonido desde la vocal acentuada hasta el final,
-  no sólo mirar si 'se parecen' a simple vista.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "intermedio"
-  tags: ["fonema", "vocabulario"]
-
-enunciado: "¿Qué es un fonema?"
-tipo: mc
-opciones_explicitas:
-  - "El sonido más chico del habla que puede cambiar el significado de una palabra si se reemplaza por otro"
-  - "Cada letra del alfabeto escrito"
-  - "Una sílaba completa"
-respuesta: "El sonido más chico del habla que puede cambiar el significado de una palabra si se reemplaza por otro"
-
-explicacion: |
-  Cambiar el fonema /g/ por /p/ en 'gato' da 'pato' — otra palabra.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "avanzado"
-  tags: ["fonema"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un fonema (sonido) no es exactamente lo mismo que una letra (símbolo escrito) — a veces dos letras representan un solo fonema."
-
-explicacion: |
-  El dígrafo 'ch' son dos letras que representan un único sonido.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "intermedio"
-  tags: ["fonema", "problema"]
-
-tipo: completar
-enunciado: "¿Con qué sonido empieza la palabra 'sol'?"
-respuestas_validas:
-  - "/s/"
-  - "s"
-
-explicacion: |
-  Se pide el SONIDO inicial, no necesariamente el nombre de la letra.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "avanzado"
-  tags: ["fonema", "problema"]
-
-tipo: completar
-enunciado: "Si a la palabra 'gato' le sacás el sonido /g/ del principio, ¿qué palabra queda?"
-respuestas_validas:
-  - "ato"
-
-explicacion: |
-  Es un ejercicio clásico de manipulación fonémica: quitar un sonido
-  y ver qué palabra nueva resulta.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué la conciencia fonológica es considerada el predictor más fuerte del éxito en la lectura inicial?"
-tipo: mc
-opciones_explicitas:
-  - "Porque sin distinguir bien los sonidos del habla, es muy difícil conectar cada letra con el sonido que representa (el paso siguiente: decodificación)"
-  - "Porque los chicos con buena conciencia fonológica ya saben leer de antemano"
-  - "No existe ninguna relación real entre ambas habilidades"
-respuesta: "Porque sin distinguir bien los sonidos del habla, es muy difícil conectar cada letra con el sonido que representa (el paso siguiente: decodificación)"
-
-explicacion: |
-  Es la razón por la que este módulo es la raíz de toda la rama de
-  Lengua.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "intermedio"
-  tags: ["fonema"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "De los niveles de conciencia fonológica, el fonémico (identificar y manipular sonidos individuales) es el más fino y, en general, el más difícil de dominar."
-
-explicacion: |
-  Es más fácil notar que dos palabras riman (nivel más grande) que
-  aislar un único sonido dentro de una palabra (nivel más chico).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "Un maestro de sala de 5 años pide a los chicos que den una palmada por cada sílaba de su nombre. ¿Qué habilidad está trabajando con esta actividad?"
-tipo: mc
-opciones_explicitas:
-  - "Conciencia silábica: dividir una palabra en sus partes sonoras, sin necesitar leer ni escribir nada"
-  - "Decodificación: convertir letras en sonidos"
-  - "Comprensión lectora de un texto"
-respuesta: "Conciencia silábica: dividir una palabra en sus partes sonoras, sin necesitar leer ni escribir nada"
-
-explicacion: |
-  Es una actividad típica de nivel inicial, previa a cualquier
-  trabajo con letras.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "avanzado"
-  tags: ["fonema", "problema"]
-
-variables:
-  palabras: [{palabra: "sol", fonemas: 3}, {palabra: "pan", fonemas: 3}, {palabra: "gato", fonemas: 4}, {palabra: "casa", fonemas: 4}]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: palabras[idx].fonemas
-tipo: input
-
-enunciado: "¿Cuántos fonemas (sonidos) tiene la palabra '{palabras[idx].palabra}'?"
-
-explicacion: |
-  Se cuenta cada sonido distinto, no cada letra — en estas palabras
-  coinciden, pero no siempre es así.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "avanzado"
-  tags: ["fonema"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El dígrafo 'ch' (como en 'chico') está formado por dos letras pero representa un único fonema (sonido)."
-
-explicacion: |
-  Es el ejemplo clásico de que 'cantidad de letras' y 'cantidad de
-  fonemas' de una palabra no siempre coinciden.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "avanzado"
-  tags: ["fonema", "problema"]
-
-respuesta: 4
-tipo: input
-
-enunciado: "La palabra 'queso' tiene 5 letras (q-u-e-s-o), pero el grupo 'qu' representa un único sonido /k/. ¿Cuántos FONEMAS tiene 'queso'?"
+enunciado: "\"Los perros son animales muy sociables. Viven en manada en estado salvaje y reconocen las emociones de las personas.\" ¿Cuál es la idea principal?"
 
 pasos:
-  - "Sonidos: /k/ (qu) - /e/ - /s/ - /o/ = 4 fonemas, aunque tenga 5 letras"
+  - "La primera oración suele anunciar la idea principal; el resto la desarrolla con ejemplos."
 
 explicacion: |
-  Es la misma idea del dígrafo, aplicada al grupo 'qu'.
+  \"Viven en manada\" y \"reconocen emociones\" son ideas secundarias
+  que apoyan la idea principal (que son sociables), no la reemplazan.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conciencia_fonologica"
+  tema: "comprension_idea_principal"
   nivel: "basico"
-  tags: ["rima", "aplicacion"]
+  tags: ["idea_principal", "tema"]
 
-enunciado: "Muchas canciones y poesías infantiles usan rimas ('un elefante se balanceaba, sobre la tela de una araña') a propósito. ¿Por qué son útiles para trabajar conciencia fonológica en el aula?"
-tipo: mc
-opciones_explicitas:
-  - "Porque ayudan a los chicos a notar de forma natural y divertida cómo suenan las palabras, entrenando el oído antes de trabajar con letras"
-  - "Porque enseñan directamente a escribir sin errores de ortografía"
-  - "No tienen ninguna utilidad pedagógica real"
-respuesta: "Porque ayudan a los chicos a notar de forma natural y divertida cómo suenan las palabras, entrenando el oído antes de trabajar con letras"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El tema de un texto (\"los perros\") es lo mismo que su idea principal."
+
+pasos:
+  - "El tema es una palabra o frase corta; la idea principal es una oración completa con lo que se dice sobre ese tema."
 
 explicacion: |
-  Es una de las razones por las que la poesía y las canciones son tan
-  usadas en la alfabetización inicial.
+  Falso: el tema es de qué habla el texto; la idea principal es QUÉ
+  dice sobre ese tema.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conciencia_fonologica"
-  nivel: "intermedio"
-  tags: ["ordenar"]
+  tema: "comprension_idea_principal"
+  nivel: "basico"
+  tags: ["idea_principal", "ideas_secundarias"]
 
-enunciado: "Ordená estos niveles de conciencia fonológica, del sonido más 'grande' (más fácil de percibir) al más 'chico' (más fino)."
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las ideas secundarias explican, ejemplifican o dan detalles sobre la idea principal, pero no son el mensaje central del párrafo."
+
+pasos:
+  - "Un párrafo tiene una sola idea principal y puede tener varias ideas secundarias."
+
+explicacion: |
+  Verdadero: las ideas secundarias apoyan, no reemplazan, la idea
+  principal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "intermedio"
+  tags: ["idea_principal", "ubicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "El reciclaje es una práctica clave para cuidar el planeta"
+tipo: mc
+opciones_explicitas: ["El reciclaje es una práctica clave para cuidar el planeta", "El vidrio se recicla infinitas veces", "El papel tarda semanas en descomponerse"]
+
+enunciado: "\"El vidrio se puede reciclar infinitas veces sin perder calidad. El papel, en cambio, sólo unas pocas veces. En definitiva, el reciclaje es una práctica clave para cuidar el planeta.\" ¿Cuál es la idea principal?"
+
+pasos:
+  - "Cuando el párrafo acumula datos y termina con una conclusión general, la idea principal suele estar al final."
+
+explicacion: |
+  Los datos sobre vidrio y papel son ejemplos que llevan a la
+  conclusión final, que es la idea principal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "avanzado"
+  tags: ["idea_principal", "implicita"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "El personaje estaba muy nervioso"
+tipo: mc
+opciones_explicitas: ["El personaje estaba muy nervioso", "El personaje tenía las manos frías", "El personaje miraba el reloj"]
+
+enunciado: "\"Le temblaban las manos. Miraba el reloj cada dos minutos. No podía quedarse sentado.\" Ninguna oración lo dice literalmente, pero ¿cuál es la idea principal implícita?"
+
+pasos:
+  - "Cuando ninguna oración resume el párrafo, hay que inferir la idea general a partir de todos los detalles juntos."
+
+explicacion: |
+  Los tres detalles (manos que tiemblan, mirar el reloj, no poder
+  quedarse quieto) son síntomas de nerviosismo — la idea principal
+  hay que deducirla, no está escrita literal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "intermedio"
+  tags: ["idea_principal", "resumen"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si se tuviera que resumir un texto en una sola oración, esa oración sería (o se parecería mucho a) su idea principal."
+
+pasos:
+  - "Resumir obliga a distinguir lo esencial (idea principal) de los detalles (ideas secundarias)."
+
+explicacion: |
+  Verdadero: es la estrategia práctica más directa para verificar
+  si se identificó bien la idea principal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "basico"
+  tags: ["idea_principal", "estructura"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un párrafo suele tener varias ideas principales, una por cada oración."
+
+pasos:
+  - "Un párrafo bien construido gira en torno a una sola idea central, con oraciones secundarias que la apoyan."
+
+explicacion: |
+  Falso: lo habitual es una idea principal por párrafo, acompañada de
+  varias ideas secundarias.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "intermedio"
+  tags: ["idea_principal", "detalles"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "El uso de energías renovables creció mucho en la última década"
+tipo: mc
+opciones_explicitas: ["El uso de energías renovables creció mucho en la última década", "La energía solar usa paneles fotovoltaicos", "La energía eólica usa turbinas de viento"]
+
+enunciado: "\"La energía solar usa paneles fotovoltaicos. La eólica usa turbinas de viento. El uso de energías renovables creció mucho en la última década.\" ¿Cuál es la idea principal?"
+
+pasos:
+  - "Los detalles técnicos (paneles, turbinas) son ejemplos de energías renovables; la afirmación general sobre su crecimiento es la idea principal."
+
+explicacion: |
+  Los detalles sobre cómo funciona cada energía son ideas
+  secundarias que ilustran la idea principal (el crecimiento del
+  uso).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "basico"
+  tags: ["idea_principal", "estrategia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Conviene leer el párrafo completo antes de decidir cuál es la idea principal, en vez de asumir que siempre es la primera oración."
+
+pasos:
+  - "La idea principal puede estar al final o ser implícita; asumir que siempre está al inicio lleva a errores."
+
+explicacion: |
+  Verdadero: aunque el inicio es el lugar más común, no es el único,
+  así que hay que confirmar leyendo todo el párrafo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "intermedio"
+  tags: ["idea_principal", "titulo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El título de un texto suele dar una pista sobre el tema, pero no reemplaza la necesidad de leer el párrafo para encontrar la idea principal completa."
+
+pasos:
+  - "El título anticipa el tema (una palabra/frase corta), pero la idea principal es una oración completa que hay que construir leyendo."
+
+explicacion: |
+  Verdadero: el título ayuda a ubicar el tema, pero la idea principal
+  necesita leer el desarrollo del párrafo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "intermedio"
+  tags: ["idea_principal", "narrativo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "La ciudad se quedó sin luz durante toda la noche"
+tipo: mc
+opciones_explicitas: ["La ciudad se quedó sin luz durante toda la noche", "Los vecinos salieron con velas", "Se escuchó un ruido fuerte en el barrio"]
+
+enunciado: "\"Se escuchó un ruido fuerte. Las luces se apagaron de golpe. Los vecinos salieron con velas a la calle. La ciudad se quedó sin luz durante toda la noche.\" ¿Cuál es la idea principal?"
+
+pasos:
+  - "El ruido, las velas y el apagón son los eventos que llevan a la idea central del corte de luz prolongado."
+
+explicacion: |
+  La idea principal resume el hecho central (el corte de luz); los
+  demás detalles son la secuencia de eventos que lo acompañan.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "intermedio"
+  tags: ["idea_principal", "ejemplos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un ejemplo dado dentro de un párrafo (\"por ejemplo, las manzanas y las peras\") suele ser la idea principal del párrafo."
+
+pasos:
+  - "Los ejemplos ilustran una afirmación más general (la idea principal), no la constituyen."
+
+explicacion: |
+  Falso: los ejemplos son ideas secundarias que apoyan o ilustran la
+  idea principal, casi nunca son la idea principal en sí.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "basico"
+  tags: ["idea_principal", "expositivo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "El agua es esencial para la vida en la Tierra"
+tipo: mc
+opciones_explicitas: ["El agua es esencial para la vida en la Tierra", "El agua cubre el 70% de la superficie terrestre", "El agua se congela a 0°C"]
+
+enunciado: "\"El agua es esencial para la vida en la Tierra. Cubre el 70% de la superficie terrestre y forma parte de todos los seres vivos.\" ¿Cuál es la idea principal?"
+
+pasos:
+  - "La primera oración anuncia la idea general; los datos que siguen la respaldan."
+
+explicacion: |
+  Los datos sobre el porcentaje de superficie y los seres vivos
+  apoyan la afirmación inicial, que es la idea principal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "avanzado"
+  tags: ["idea_principal", "ambiguedad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando un párrafo no tiene una oración que resuma explícitamente la idea principal, igual se puede (y se debe) inferir una a partir del conjunto de oraciones."
+
+pasos:
+  - "La idea implícita se construye combinando todos los detalles del párrafo, no citando una sola oración."
+
+explicacion: |
+  Verdadero: la ausencia de una oración-resumen no significa que no
+  haya idea principal, sólo que hay que inferirla.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "avanzado"
+  tags: ["idea_principal", "objetividad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La idea principal de un texto puede variar según lo que a cada lector le parezca más interesante del párrafo."
+
+pasos:
+  - "La idea principal es una propiedad del texto (lo que el autor quiso comunicar como central), no una preferencia subjetiva del lector."
+
+explicacion: |
+  Falso: aunque distintos lectores destaquen distintos detalles, la
+  idea principal es la que el párrafo desarrolla como eje central,
+  no una elección personal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "intermedio"
+  tags: ["idea_principal", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "El ejercicio regular mejora la salud física y mental"
+tipo: mc
+opciones_explicitas: ["El ejercicio regular mejora la salud física y mental", "Correr 30 minutos quema calorías", "El yoga reduce el estrés"]
+
+enunciado: "\"Correr 30 minutos quema calorías. El yoga reduce el estrés. En general, el ejercicio regular mejora la salud física y mental.\" ¿Cuál es la idea principal?"
+
+pasos:
+  - "Correr y el yoga son ejemplos concretos de ejercicio que respaldan la afirmación general."
+
+explicacion: |
+  La afirmación general que engloba a los dos ejemplos (correr, yoga)
+  es la idea principal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "intermedio"
+  tags: ["idea_principal", "texto_largo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un texto de varios párrafos, cada párrafo puede tener su propia idea principal, distinta de las de los otros párrafos."
+
+pasos:
+  - "El texto completo tiene un tema general, pero cada párrafo suele desarrollar un aspecto distinto de ese tema."
+
+explicacion: |
+  Verdadero: identificar la idea principal de CADA párrafo es el
+  primer paso para armar luego un resumen de todo el texto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "basico"
+  tags: ["idea_principal", "titulo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El título de un texto siempre coincide exactamente con la idea principal del primer párrafo."
+
+pasos:
+  - "El título suele ser más corto y general que la idea principal, que es una oración completa desarrollada en el texto."
+
+explicacion: |
+  Falso: el título anticipa el tema, pero la idea principal es más
+  específica y hay que construirla leyendo el párrafo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "comprension_idea_principal"
+  nivel: "intermedio"
+  tags: ["idea_principal", "metodo"]
+
+enunciado: "Ordená los pasos de la estrategia para encontrar la idea principal de un párrafo."
 tipo: ordenar
 opciones_explicitas:
-  - "Conciencia fonémica (sonidos individuales)"
-  - "Conciencia de palabras (una oración se divide en palabras)"
-  - "Conciencia silábica (una palabra se divide en sílabas)"
-  - "Conciencia intrasilábica (rima)"
-respuesta_orden:
-  - "Conciencia de palabras (una oración se divide en palabras)"
-  - "Conciencia silábica (una palabra se divide en sílabas)"
-  - "Conciencia intrasilábica (rima)"
-  - "Conciencia fonémica (sonidos individuales)"
-
+  - "Leer el párrafo completo"
+  - "Preguntarse de qué trata principalmente"
+  - "Distinguir esa respuesta de los detalles que sólo la apoyan"
+  - "Si no está escrita literal, resumirla con las propias palabras"
+respuesta_orden: ["Leer el párrafo completo", "Preguntarse de qué trata principalmente", "Distinguir esa respuesta de los detalles que sólo la apoyan", "Si no está escrita literal, resumirla con las propias palabras"]
 explicacion: |
-  El desarrollo va de unidades más grandes y fáciles de percibir a
-  unidades cada vez más chicas y finas.
+  El orden va de la lectura completa a la identificación, pasando por
+  descartar detalles, hasta inferir cuando no está escrita literal.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conciencia_fonologica"
+  tema: "comprension_idea_principal"
   nivel: "avanzado"
-  tags: ["fonema", "problema"]
+  tags: ["idea_principal", "aplicacion"]
 
-tipo: completar
-enunciado: "Si en la palabra 'pan' cambiás el sonido /p/ inicial por /f/, ¿qué palabra se forma?"
-respuestas_validas:
-  - "fan"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Identificar bien la idea principal es la base para poder resumir un texto y también para clasificar de qué tipo textual se trata (narrativo, expositivo, argumentativo...)."
+
+pasos:
+  - "Sin saber de qué trata un texto, no se puede decidir cómo está organizado ni para qué fue escrito."
 
 explicacion: |
-  Es otro ejercicio clásico de manipulación fonémica: sustituir un
-  sonido por otro.
+  Verdadero: por eso este tema es prerrequisito directo de \"tipos
+  textuales\", el siguiente módulo de la currícula.
 ```
+
+## Sección: signos-de-puntuacion (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conciencia_fonologica"
+  tema: "signos_de_puntuacion"
   nivel: "basico"
-  tags: ["cierre"]
+  tags: ["puntuacion", "sentido"]
 
-enunciado: "¿Para qué sirve trabajar la conciencia fonológica antes de enseñar a leer formalmente?"
-tipo: mc
-opciones_explicitas:
-  - "Porque prepara el oído para distinguir los sonidos del habla, la base necesaria para poder conectar después cada letra con su sonido correspondiente"
-  - "Porque enseña directamente el significado de las palabras nuevas"
-  - "No tiene relación real con aprender a leer"
-respuesta: "Porque prepara el oído para distinguir los sonidos del habla, la base necesaria para poder conectar después cada letra con su sonido correspondiente"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"Vamos a comer, niños\" (invitación) y \"vamos a comer niños\" (sin coma) tienen sentidos completamente distintos por la sola presencia o ausencia de una coma."
+
+pasos:
+  - "La coma de vocativo separa a quién se dirige la oración del resto."
 
 explicacion: |
-  Es el punto de partida de toda la rama de Lengua — el siguiente
-  paso es `../decodificacion-y-fluidez/`.
+  Verdadero: es el ejemplo clásico de cómo la puntuación cambia el
+  significado, no sólo el estilo.
 ```
-
-## Sección: concordancia-nominal-y-verbal (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
+  tema: "signos_de_puntuacion"
   nivel: "basico"
-  tags: ["concordancia", "vocabulario"]
+  tags: ["coma", "enumeracion"]
 
-enunciado: "¿Qué es la concordancia gramatical?"
-tipo: mc
-opciones_explicitas:
-  - "La regla que exige que ciertas palabras coincidan en género, número o persona dentro de una oración"
-  - "El orden en que aparecen las palabras en una oración"
-  - "La cantidad de sílabas de una palabra"
-respuesta: "La regla que exige que ciertas palabras coincidan en género, número o persona dentro de una oración"
-
-explicacion: |
-  Se aplica tanto dentro del sujeto (concordancia nominal) como entre
-  sujeto y verbo (concordancia verbal).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "intermedio"
-  tags: ["concordancia_nominal", "vocabulario"]
-
-enunciado: "¿Qué exige la concordancia nominal?"
-tipo: mc
-opciones_explicitas:
-  - "Que el artículo, el sustantivo y el adjetivo de un sintagma nominal coincidan en género y número"
-  - "Que el verbo coincida en persona con el sujeto"
-  - "Que todas las palabras de la oración empiecen con la misma letra"
-respuesta: "Que el artículo, el sustantivo y el adjetivo de un sintagma nominal coincidan en género y número"
-
-explicacion: |
-  Como en 'la casa blanca' (femenino singular los tres).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "intermedio"
-  tags: ["concordancia_verbal", "vocabulario"]
-
-enunciado: "¿Qué exige la concordancia verbal?"
-tipo: mc
-opciones_explicitas:
-  - "Que el verbo coincida en número y persona con el sujeto de la oración"
-  - "Que el sustantivo coincida en género con el adjetivo"
-  - "Que todos los verbos de un texto estén en el mismo tiempo"
-respuesta: "Que el verbo coincida en número y persona con el sujeto de la oración"
-
-explicacion: |
-  Como en 'los documentos fueron revisados' (sujeto plural, verbo
-  plural).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "avanzado"
-  tags: ["concordancia_verbal", "problema"]
-
-enunciado: "¿Cuál de estas oraciones tiene un error de concordancia?"
-tipo: mc
-opciones_explicitas:
-  - "Los documentos fue revisado ayer."
-  - "Los niños juegan en el parque."
-  - "La chica y el chico llegaron tarde."
-respuesta: "Los documentos fue revisado ayer."
-
-explicacion: |
-  El sujeto plural 'los documentos' requiere el verbo plural 'fueron
-  revisados', no la forma singular 'fue revisado'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "avanzado"
-  tags: ["concordancia_verbal", "problema"]
-
-tipo: completar
-enunciado: "Corregí: 'Los documentos fue revisado ayer.' → 'Los documentos ___ ayer.'"
-respuestas_validas:
-  - "fueron revisados"
-
-explicacion: |
-  El sujeto plural exige verbo plural.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "avanzado"
-  tags: ["haber_impersonal"]
+variables:
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "'Había muchas personas en el lugar' es gramaticalmente correcto: el 'haber' impersonal va siempre en singular, aunque el complemento ('personas') sea plural."
+enunciado: "En \"Compré pan, leche, huevos y manteca\", las comas separan los elementos de una enumeración, sin poner coma antes del \"y\" final."
+
+pasos:
+  - "La regla general del español no usa coma antes de \"y\" en una enumeración simple."
 
 explicacion: |
-  'Haber' impersonal (existencial) no concuerda con su complemento —
-  es una excepción real a la concordancia habitual.
+  Verdadero: es el uso más común de la coma, para listar elementos.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "avanzado"
-  tags: ["haber_impersonal", "problema"]
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["coma", "aclaracion"]
 
-enunciado: "'Habían muchas personas en la fiesta' es un error de concordancia MUY frecuente en el habla cotidiana. ¿Cuál es la forma normativa correcta?"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "coma de aclaración"
 tipo: mc
-opciones_explicitas:
-  - "'Había muchas personas en la fiesta' — el 'haber' impersonal va siempre en singular"
-  - "'Habían muchas persona en la fiesta' — sólo hay que cambiar el sustantivo a singular"
-respuesta: "'Había muchas personas en la fiesta' — el 'haber' impersonal va siempre en singular"
+opciones_explicitas: ["coma de aclaración", "coma de enumeración", "coma de vocativo"]
+
+enunciado: "En \"Mi hermano, que vive en Rosario, viene este fin de semana\", las comas que encierran \"que vive en Rosario\" son de tipo..."
+
+pasos:
+  - "Encierran información adicional no esencial para el sentido básico de la oración."
 
 explicacion: |
-  Es uno de los errores de concordancia más comunes del español
-  rioplatense y de otras variedades, pese a no ser normativo.
+  La coma de aclaración encierra información adicional, que se podría
+  quitar sin romper la oración.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "avanzado"
-  tags: ["pasiva_refleja"]
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["coma", "vocativo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "coma de vocativo"
+tipo: mc
+opciones_explicitas: ["coma de vocativo", "coma de enumeración", "coma de aclaración"]
+
+enunciado: "En \"Juan, vení un segundo\", la coma que separa \"Juan\" del resto es de tipo..."
+
+pasos:
+  - "Separa a quién se dirige la oración (el vocativo) del resto del enunciado."
+
+explicacion: |
+  La coma de vocativo separa el nombre de la persona a la que se le
+  habla directamente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["coma", "conectores"]
+
+variables:
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En 'Se venden pisos', el verbo 'venden' concuerda con 'pisos' porque, en esta construcción de pasiva refleja, 'pisos' funciona como sujeto paciente."
+enunciado: "Se coloca coma antes de conectores adversativos como \"pero\", \"sino\" y \"aunque\": \"Estudió, pero no aprobó\"."
+
+pasos:
+  - "Ver `../oracion-compuesta-coordinacion-y-subordinacion/`: es la coma que antecede a la coordinación adversativa."
 
 explicacion: |
-  Es distinto del caso de 'haber' impersonal: acá 'pisos' SÍ es el
-  sujeto gramatical, y el verbo sí debe concordar con él.
+  Verdadero: es una regla fija de puntuación para estos conectores.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "avanzado"
-  tags: ["pasiva_refleja", "problema"]
-
-tipo: completar
-enunciado: "Completá con la forma correcta de 'vender': 'Se ___ un piso en esta zona.' (un solo piso, singular)"
-respuestas_validas:
-  - "vende"
-
-explicacion: |
-  Con 'un piso' (singular), el verbo también debe ir en singular:
-  'se vende'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "intermedio"
-  tags: ["sujeto_compuesto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando el sujeto de una oración tiene dos o más núcleos unidos por 'y' (sujeto compuesto), el verbo va en plural, aunque cada elemento por separado sea singular."
-
-explicacion: |
-  Como en 'la chica y el chico llegaron' — dos elementos singulares,
-  verbo en plural.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "avanzado"
-  tags: ["sujeto_compuesto", "problema"]
-
-tipo: completar
-enunciado: "Completá: 'El profesor y la directora ___ (llegar) juntos a la reunión.'"
-respuestas_validas:
-  - "llegaron"
-
-explicacion: |
-  Sujeto compuesto (dos núcleos): 'el profesor' y 'la directora' →
-  verbo en plural.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "intermedio"
-  tags: ["concordancia_nominal", "problema"]
-
-enunciado: "¿Cuál de estos adjetivos concuerda correctamente con 'las mesas' (femenino plural)?"
-tipo: mc
-opciones_explicitas:
-  - "nuevas"
-  - "nuevo"
-  - "nuevos"
-respuesta: "nuevas"
-
-explicacion: |
-  'Mesas' es femenino plural — el adjetivo debe coincidir en ambos
-  rasgos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "intermedio"
-  tags: ["concordancia_nominal", "problema"]
-
-enunciado: "¿Cuál de estos artículos concuerda correctamente con 'águila' (femenino, pero empieza con 'a' tónica)?"
-tipo: mc
-opciones_explicitas:
-  - "el águila (por razones fonéticas, aunque 'águila' sea femenina)"
-  - "la águila"
-respuesta: "el águila (por razones fonéticas, aunque 'águila' sea femenina)"
-
-explicacion: |
-  Es una excepción fonética real del español: los sustantivos
-  femeninos que empiezan con 'a' tónica usan 'el' en singular (pero
-  siguen siendo femeninos: 'el águila blanca', no 'blanco').
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "avanzado"
-  tags: ["concordancia_nominal"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aunque se diga 'el águila' (con artículo masculino por razones fonéticas), el adjetivo que la acompañe sigue concordando en femenino: 'el águila blanca', no 'el águila blanco'."
-
-explicacion: |
-  La excepción fonética afecta sólo al artículo, no cambia el género
-  real del sustantivo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
+  tema: "signos_de_puntuacion"
   nivel: "basico"
-  tags: ["aplicacion"]
+  tags: ["punto"]
 
-enunciado: "¿Por qué un error de concordancia (como 'los documentos fue revisado') suele notarse incluso en una lectura muy rápida?"
+variables:
+  usos: ["separar oraciones dentro del mismo párrafo", "separar párrafos, marcando cambio de idea principal"]
+  tipos: ["punto y seguido", "punto y aparte"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
 tipo: mc
-opciones_explicitas:
-  - "Porque la concordancia es una de las reglas más automatizadas del idioma — el oído/ojo entrenado detecta la discordancia casi sin esfuerzo consciente"
-  - "Porque los errores de concordancia son extremadamente raros y por eso llaman la atención"
-  - "No hay ninguna razón real, se nota igual que cualquier otro error"
-respuesta: "Porque la concordancia es una de las reglas más automatizadas del idioma — el oído/ojo entrenado detecta la discordancia casi sin esfuerzo consciente"
+opciones_explicitas: ["punto y seguido", "punto y aparte", "punto final"]
+
+enunciado: "El uso de \"{usos[idx]}\" corresponde a..."
+
+pasos:
+  - "Punto y seguido queda dentro del mismo párrafo; punto y aparte inicia uno nuevo."
 
 explicacion: |
-  Por eso revisar la concordancia es uno de los primeros chequeos al
-  corregir un texto.
+  El tipo de punto usado depende de si se cambia de párrafo o se
+  sigue en el mismo.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
+  tema: "signos_de_puntuacion"
   nivel: "intermedio"
-  tags: ["concordancia_verbal", "problema"]
+  tags: ["punto", "idea_principal"]
 
-tipo: completar
-enunciado: "Completá: 'Ustedes ___ (tener) razón.'"
-respuestas_validas:
-  - "tienen"
-
-explicacion: |
-  'Ustedes' es tercera persona del plural, aunque se refiera a
-  varias segundas personas (los interlocutores).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "avanzado"
-  tags: ["concordancia_verbal"]
-
-enunciado: "'El equipo ganó el partido' usa el verbo en singular ('ganó'), aunque un equipo esté formado por varias personas. ¿Por qué es correcto?"
-tipo: mc
-opciones_explicitas:
-  - "Porque 'equipo' es un sustantivo colectivo pero gramaticalmente singular — la concordancia sigue la forma gramatical de la palabra, no la cantidad real de personas que representa"
-  - "Es un error, debería decir 'ganaron'"
-respuesta: "Porque 'equipo' es un sustantivo colectivo pero gramaticalmente singular — la concordancia sigue la forma gramatical de la palabra, no la cantidad real de personas que representa"
-
-explicacion: |
-  Es la misma lógica que 'la gente piensa' (singular), no 'la gente
-  piensan'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "avanzado"
-  tags: ["pasiva_refleja", "problema"]
-
-enunciado: "¿Cuál de estas dos oraciones tiene la concordancia correcta en la construcción con 'se'?"
-tipo: mc
-opciones_explicitas:
-  - "Se alquilan departamentos."
-  - "Se alquila departamentos."
-respuesta: "Se alquilan departamentos."
-
-explicacion: |
-  'Departamentos' (plural) es el sujeto paciente de la pasiva
-  refleja, y el verbo debe concordar con él: 'se alquilan'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
-  nivel: "avanzado"
-  tags: ["haber_impersonal", "pasiva_refleja"]
+variables:
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "'Haber' impersonal (nunca concuerda con su complemento) y la pasiva refleja con 'se' (sí concuerda con el sujeto paciente) son dos construcciones distintas, con reglas de concordancia opuestas entre sí."
+enunciado: "El punto y aparte suele marcar que la idea principal del texto cambia, iniciando un nuevo párrafo."
+
+pasos:
+  - "Ver `../comprension-idea-principal/`: cada párrafo suele desarrollar una idea principal distinta."
 
 explicacion: |
-  Es fácil confundirlas porque ambas 'suenan' parecido, pero siguen
-  reglas de concordancia contrarias.
+  Verdadero: la división en párrafos (marcada por punto y aparte)
+  suele corresponder a un cambio de idea principal.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "concordancia_nominal_y_verbal"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["punto_y_coma"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El punto y coma se usa para separar elementos de una enumeración que ya contienen comas internamente, o para unir dos oraciones muy relacionadas sin conector."
+
+pasos:
+  - "\"Juan estudia; María trabaja\" es un ejemplo de unión de dos oraciones relacionadas sin conector explícito."
+
+explicacion: |
+  Verdadero: son los dos usos principales del punto y coma en
+  español.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
+  nivel: "intermedio"
+  tags: ["dos_puntos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los dos puntos anuncian lo que sigue: una enumeración, una cita textual, o una explicación/consecuencia de lo anterior."
+
+pasos:
+  - "\"Faltaban tres cosas: pan, leche y manteca\" anuncia la enumeración que sigue."
+
+explicacion: |
+  Verdadero: es la función central de los dos puntos en español.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "signos_de_puntuacion"
   nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve respetar las reglas de concordancia al hablar y escribir?"
-tipo: mc
-opciones_explicitas:
-  - "Para que la oración se entienda con claridad y sin distraer al lector u oyente con discordancias que 'suenan mal' o generan ambigüedad"
-  - "Sólo sirve para aprobar exámenes de gramática"
-  - "La concordancia no tiene ninguna función comunicativa real"
-respuesta: "Para que la oración se entienda con claridad y sin distraer al lector u oyente con discordancias que 'suenan mal' o generan ambigüedad"
-
-explicacion: |
-  Es la base directa de `../sujeto-y-predicado/`: identificar bien el
-  sujeto es lo que permite decidir la concordancia correcta del
-  verbo.
-```
-
-## Sección: conectores-textuales (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conectores_textuales"
-  nivel: "basico"
-  tags: ["conectores_textuales", "definicion"]
+  tags: ["interrogacion", "exclamacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -773,188 +697,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un conector textual une oraciones o párrafos distintos, dándole cohesión al texto — sin conectores, un texto es una sucesión de oraciones sueltas."
+enunciado: "En español, los signos de interrogación y exclamación se abren y se cierran (¿...?, ¡...!), a diferencia del inglés, que sólo los cierra."
 
 pasos:
-  - "Ver `../oracion-compuesta-coordinacion-y-subordinacion/`: es distinto de un nexo, que une proposiciones DENTRO de la misma oración."
+  - "Ver `../oraciones-negativas-e-interrogativas/`: es una diferencia ortográfica propia del español."
 
 explicacion: |
-  Verdadero: el conector opera entre oraciones/párrafos, no dentro de
-  una sola oración.
+  Verdadero: el uso del signo de apertura es obligatorio en español,
+  a diferencia de otros idiomas.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conectores_textuales"
-  nivel: "basico"
-  tags: ["aditivos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "aditivo"
-tipo: mc
-opciones_explicitas: ["aditivo", "adversativo", "causal"]
-
-enunciado: "\"El libro es interesante. Además, está muy bien escrito.\" El conector \"además\" es de tipo..."
-
-pasos:
-  - "Suma información adicional en la misma dirección de la idea anterior."
-
-explicacion: |
-  Los conectores aditivos suman información en el mismo sentido.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conectores_textuales"
-  nivel: "basico"
-  tags: ["adversativos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "adversativo"
-tipo: mc
-opciones_explicitas: ["aditivo", "adversativo", "consecutivo"]
-
-enunciado: "\"Estudió mucho. Sin embargo, no aprobó.\" El conector \"sin embargo\" es de tipo..."
-
-pasos:
-  - "Opone la segunda idea a lo que se esperaría de la primera."
-
-explicacion: |
-  Los conectores adversativos marcan contraste u oposición entre
-  ideas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conectores_textuales"
-  nivel: "basico"
-  tags: ["causales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "causal"
-tipo: mc
-opciones_explicitas: ["causal", "consecutivo", "temporal"]
-
-enunciado: "\"Llegó tarde porque perdió el colectivo.\" El conector \"porque\" es de tipo..."
-
-pasos:
-  - "Explica la razón del hecho mencionado antes."
-
-explicacion: |
-  Los conectores causales explican el motivo o razón de algo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conectores_textuales"
-  nivel: "basico"
-  tags: ["consecutivos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "consecutivo"
-tipo: mc
-opciones_explicitas: ["causal", "consecutivo", "aditivo"]
-
-enunciado: "\"Estudió mucho. Por lo tanto, aprobó.\" El conector \"por lo tanto\" es de tipo..."
-
-pasos:
-  - "Marca el resultado o consecuencia de lo dicho antes."
-
-explicacion: |
-  Los conectores consecutivos marcan el resultado que se sigue de la
-  idea anterior.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conectores_textuales"
-  nivel: "basico"
-  tags: ["temporales"]
-
-variables:
-  conectores: ["primero", "luego", "finalmente"]
-  idx: uno_de([0, 1, 2])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{conectores[idx]}\" es un conector temporal, que ordena los hechos en el tiempo."
-
-pasos:
-  - "Este tipo de conector es especialmente frecuente en textos narrativos (ver `../tipos-textuales/`)."
-
-explicacion: |
-  Verdadero: los conectores temporales ordenan la secuencia de hechos
-  o pasos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conectores_textuales"
+  tema: "signos_de_puntuacion"
   nivel: "intermedio"
-  tags: ["de_orden"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "de orden/organización"
-tipo: mc
-opciones_explicitas: ["de orden/organización", "temporal", "causal"]
-
-enunciado: "\"En primer lugar\" y \"por último\", usados para organizar las PARTES de un texto (no el contenido narrado), son conectores de tipo..."
-
-pasos:
-  - "Organizan la estructura del texto en sí, no una secuencia de hechos narrados."
-
-explicacion: |
-  Los conectores de orden organizan las partes del propio texto,
-  distinto de ordenar hechos en el tiempo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conectores_textuales"
-  nivel: "intermedio"
-  tags: ["ejemplificadores"]
-
-variables:
-  conectores: ["por ejemplo", "es decir", "a saber"]
-  idx: uno_de([0, 1, 2])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{conectores[idx]}\" es un conector ejemplificador, que introduce un ejemplo o aclaración de lo dicho antes."
-
-pasos:
-  - "Frecuente en textos expositivos, para hacer más concreta una afirmación general."
-
-explicacion: |
-  Verdadero: los ejemplificadores introducen casos concretos que
-  ilustran lo afirmado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conectores_textuales"
-  nivel: "intermedio"
-  tags: ["conectores_textuales", "tipos_textuales"]
+  tags: ["comillas"]
 
 variables:
   n: uno_de([1, 1])
@@ -962,22 +720,21 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El tipo textual narrativo se apoya mucho en conectores temporales (\"luego\", \"después\", \"finalmente\")."
+enunciado: "Las comillas se usan para citas textuales o para señalar que una palabra se usa en sentido especial o irónico."
 
 pasos:
-  - "Ver `../tipos-textuales/`: coincide con la marca de conectores temporales ya vista ahí para el narrativo."
+  - "Ambos usos marcan que ese fragmento no es \"habla directa\" del propio autor en su sentido literal habitual."
 
 explicacion: |
-  Verdadero: cada tipo textual privilegia ciertas familias de
-  conectores según su propósito.
+  Verdadero: son los dos usos principales de las comillas.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conectores_textuales"
+  tema: "signos_de_puntuacion"
   nivel: "intermedio"
-  tags: ["conectores_textuales", "tesis", "argumentos"]
+  tags: ["raya", "genero_narrativo"]
 
 variables:
   n: uno_de([1, 1])
@@ -985,212 +742,161 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El texto argumentativo se apoya mucho en conectores causales y consecutivos, coherente con la lógica de \"porque\"/\"por lo tanto\" usada al construir argumentos."
+enunciado: "La raya o guion largo se usa para introducir cada intervención de un diálogo en un texto narrativo."
 
 pasos:
-  - "Ver `../argumentos/`: esos mismos conectores ya se mencionaron como típicos de la introducción de argumentos."
+  - "Ver `../genero-narrativo/`: es distinto de las acotaciones entre paréntesis del género dramático."
 
 explicacion: |
-  Verdadero: los conectores causales/consecutivos son centrales para
-  el texto argumentativo.
+  Verdadero: la raya de diálogo es la marca típica de las
+  intervenciones de personajes dentro de la prosa narrativa.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conectores_textuales"
+  tema: "signos_de_puntuacion"
   nivel: "avanzado"
-  tags: ["conectores_textuales", "errores"]
+  tags: ["raya", "genero_dramatico", "diferenciacion"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "\"Estudió mucho. Por lo tanto, no aprobó\" suena raro porque \"por lo tanto\" anuncia una consecuencia esperada, y la segunda idea contradice esa expectativa."
+enunciado: "La raya de diálogo narrativo y las acotaciones entre paréntesis del género dramático cumplen exactamente la misma función."
 
 pasos:
-  - "En ese caso correspondería un conector adversativo (\"sin embargo\"), no uno consecutivo."
+  - "Ver `../genero-dramatico/`: la raya introduce lo que dice un personaje en prosa; la acotación indica gestos/tono, no es diálogo."
 
 explicacion: |
-  Verdadero: elegir mal la familia de conector genera una relación
-  lógica incoherente entre las ideas, más allá de que suene raro.
+  Falso: son marcas distintas para funciones distintas, propias de
+  géneros distintos (narrativo vs. dramático).
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conectores_textuales"
+  tema: "signos_de_puntuacion"
   nivel: "intermedio"
-  tags: ["conectores_textuales", "practica"]
+  tags: ["coma", "practica"]
 
 variables:
-  relaciones: ["sumar una idea nueva en la misma dirección", "marcar que la segunda idea contradice la expectativa de la primera", "explicar la razón de un hecho", "marcar el resultado de lo dicho antes"]
-  familias: ["aditivo", "adversativo", "causal", "consecutivo"]
-  idx: uno_de([0, 1, 2, 3])
+  n: uno_de([1, 1])
 
-respuesta: familias[idx]
+respuesta: "vamos a comer, abuela"
 tipo: mc
-opciones_explicitas: ["aditivo", "adversativo", "causal", "consecutivo"]
+opciones_explicitas: ["vamos a comer, abuela", "vamos a comer abuela"]
 
-enunciado: "Para \"{relaciones[idx]}\", conviene usar un conector..."
+enunciado: "¿Cuál de estas dos versiones usa correctamente la coma de vocativo para invitar a la abuela a comer (sin comérsela)?"
 
 pasos:
-  - "Cada familia de conector corresponde a un tipo específico de relación lógica entre ideas."
+  - "La coma de vocativo separa el nombre de la persona a la que se dirige la oración."
 
 explicacion: |
-  Elegir la familia correcta de conector depende de qué relación
-  lógica real existe entre las dos ideas que se unen.
+  Sin la coma, \"abuela\" pasa a leerse como objeto directo del
+  verbo comer, cambiando radicalmente el sentido.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conectores_textuales"
+  tema: "signos_de_puntuacion"
   nivel: "avanzado"
-  tags: ["conectores_textuales", "oracion_compuesta", "diferenciacion"]
+  tags: ["punto_y_coma", "coma", "diferenciacion"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "\"Y\" (en \"Juan estudió y aprobó\") es un nexo dentro de una misma oración; \"además\" (en \"Juan estudió. Además, aprobó.\") es un conector textual entre dos oraciones distintas."
+enunciado: "El punto y coma y la coma son intercambiables en cualquier contexto, sin diferencia real de uso."
 
 pasos:
-  - "Ver `../oracion-compuesta-coordinacion-y-subordinacion/`: la diferencia clave es si unen proposiciones dentro de una oración o entre oraciones/párrafos distintos."
+  - "El punto y coma marca una pausa mayor que la coma, y se usa en casos específicos (enumeraciones con comas internas, unión de oraciones relacionadas)."
 
 explicacion: |
-  Verdadero: nexo y conector textual cumplen funciones similares en
-  escalas distintas (oración vs. texto).
+  Falso: cada signo tiene reglas de uso propias, no son
+  intercambiables libremente.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conectores_textuales"
-  nivel: "avanzado"
-  tags: ["conectores_textuales", "significado"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los conectores no cambian los hechos que se están contando, sólo señalan qué relación lógica existe entre esos hechos (suma, contraste, causa, consecuencia)."
-
-pasos:
-  - "El mismo par de oraciones puede leerse con relaciones distintas según qué conector se elija."
-
-explicacion: |
-  Verdadero: el conector es una señal de relación lógica, no un
-  cambio del contenido informativo en sí.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conectores_textuales"
+  tema: "signos_de_puntuacion"
   nivel: "intermedio"
-  tags: ["conectores_textuales", "practica"]
+  tags: ["dos_puntos", "practica"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "sin embargo"
-tipo: completar
-
-enunciado: "En \"El plan parecía perfecto. Sin embargo, algo salió mal en el último momento.\", ¿cuál es el conector textual usado?"
-
-pasos:
-  - "Marca el contraste entre la expectativa (\"parecía perfecto\") y lo que realmente pasó."
-
-explicacion: |
-  \"Sin embargo\" es un conector adversativo que marca la oposición
-  entre las dos ideas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conectores_textuales"
-  nivel: "intermedio"
-  tags: ["conectores_textuales", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "por lo tanto"
+respuesta: "Faltaban tres cosas: pan, leche y manteca"
 tipo: mc
-opciones_explicitas: ["por lo tanto", "sin embargo", "por ejemplo"]
+opciones_explicitas: ["Faltaban tres cosas: pan, leche y manteca", "Faltaban tres cosas, pan, leche y manteca"]
 
-enunciado: "\"Llovió toda la noche. ..., el partido se suspendió.\" ¿Qué conector completa mejor la relación de consecuencia entre ambas ideas?"
+enunciado: "¿Cuál de estas dos versiones usa correctamente los dos puntos para anunciar la enumeración que sigue?"
 
 pasos:
-  - "La lluvia (causa) llevó a la suspensión (consecuencia): corresponde un conector consecutivo."
+  - "Los dos puntos anuncian explícitamente que a continuación viene la enumeración prometida."
 
 explicacion: |
-  \"Por lo tanto\" marca correctamente que la segunda oración es
-  consecuencia de la primera.
+  Los dos puntos son el signo correcto para anunciar una enumeración,
+  no una coma.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conectores_textuales"
+  tema: "signos_de_puntuacion"
   nivel: "avanzado"
-  tags: ["conectores_textuales", "variedad"]
+  tags: ["puntuacion", "practica"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "Juan, mi mejor amigo, estudió mucho, pero no aprobó el examen."
+tipo: mc
+opciones_explicitas: ["Juan, mi mejor amigo, estudió mucho, pero no aprobó el examen.", "Juan mi mejor amigo estudió mucho pero no aprobó el examen."]
 
-enunciado: "\"Sin embargo\", \"no obstante\" y \"en cambio\" son conectores distintos que pueden expresar el mismo tipo de relación adversativa."
+enunciado: "¿Cuál versión puntúa correctamente combinando coma de aclaración (\"mi mejor amigo\") y coma antes de conector adversativo (\"pero\")?"
 
 pasos:
-  - "Elegir entre ellos suele ser una decisión de estilo, no cambia la relación lógica señalada."
+  - "Ambas comas cumplen funciones distintas: aclaración y antes de \"pero\"."
 
 explicacion: |
-  Verdadero: dentro de una misma familia hay varias opciones de
-  conector con matices de estilo, no de lógica.
+  La combinación correcta de ambos usos de coma hace que la oración
+  larga se lea sin ambigüedad.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conectores_textuales"
+  tema: "signos_de_puntuacion"
   nivel: "intermedio"
-  tags: ["conectores_textuales", "metodo"]
+  tags: ["puntuacion", "metodo"]
 
-enunciado: "Ordená los pasos para revisar si los conectores de un texto propio están bien elegidos."
+enunciado: "Ordená los pasos para revisar la puntuación de un párrafo propio."
 tipo: ordenar
 opciones_explicitas:
-  - "Identificar cada conector usado entre oraciones o párrafos"
-  - "Determinar qué relación lógica real existe entre las ideas que conecta (suma, contraste, causa, consecuencia)"
-  - "Comparar esa relación con la familia del conector elegido"
-  - "Corregir si el conector elegido no corresponde a la relación lógica real"
-respuesta_orden:
-  - "Identificar cada conector usado entre oraciones o párrafos"
-  - "Determinar qué relación lógica real existe entre las ideas que conecta (suma, contraste, causa, consecuencia)"
-  - "Comparar esa relación con la familia del conector elegido"
-  - "Corregir si el conector elegido no corresponde a la relación lógica real"
-
+  - "Revisar si hay enumeraciones, aclaraciones o vocativos que necesiten coma"
+  - "Revisar si hay conectores adversativos que necesiten coma antes"
+  - "Decidir dónde termina cada oración (punto y seguido) y cada párrafo (punto y aparte)"
+  - "Revisar si hace falta punto y coma o dos puntos en algún tramo específico"
+respuesta_orden: ["Revisar si hay enumeraciones, aclaraciones o vocativos que necesiten coma", "Revisar si hay conectores adversativos que necesiten coma antes", "Decidir dónde termina cada oración (punto y seguido) y cada párrafo (punto y aparte)", "Revisar si hace falta punto y coma o dos puntos en algún tramo específico"]
 explicacion: |
-  El proceso va de identificar los conectores usados a verificar si
-  corresponden realmente a la relación lógica entre las ideas.
+  El proceso va de los usos más frecuentes de la coma a la
+  organización general en oraciones y párrafos, y termina con los
+  signos más específicos.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conectores_textuales"
+  tema: "signos_de_puntuacion"
   nivel: "avanzado"
-  tags: ["conectores_textuales", "cohesion"]
+  tags: ["puntuacion", "prerrequisito"]
 
 variables:
   n: uno_de([1, 1])
@@ -1198,22 +904,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Los conectores textuales son una de las tres herramientas de cohesión estudiadas en esta subrama, junto con la referencia (anáfora/catáfora) y la progresión temática."
+enunciado: "Sin dominar coma, punto, punto y coma y dos puntos, combinar oraciones largas y complejas en un texto se vuelve ilegible, aunque la gramática de cada oración individual sea correcta."
 
 pasos:
-  - "Ver `../referencia-anafora-y-catafora/` y `../progresion-tematica/`: los tres son nodos hermanos que dependen de `../produccion-escrita-compleja/`."
+  - "Ver `../produccion-escrita-compleja/`: la puntuación es lo que hace legible un texto con oraciones compuestas y varias ideas encadenadas."
 
 explicacion: |
-  Verdadero: los tres temas abordan distintos mecanismos de cohesión
-  textual, complementarios entre sí.
+  Verdadero: por eso signos de puntuación es prerrequisito directo de
+  producción escrita compleja, el siguiente tema de la cadena.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conectores_textuales"
+  tema: "signos_de_puntuacion"
   nivel: "avanzado"
-  tags: ["conectores_textuales", "aplicacion"]
+  tags: ["puntuacion", "aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -1221,743 +927,1308 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Al revisar un texto propio (etapa de revisión de `../produccion-escrita-compleja/`), conviene chequear específicamente si los conectores usados reflejan la relación lógica real entre las ideas, no sólo si \"suenan bien\"."
+enunciado: "Al escribir un mensaje importante (un mail formal, una consigna de examen), revisar la puntuación es tan necesario como revisar la ortografía, porque ambas pueden generar ambigüedad si están mal."
 
 pasos:
-  - "Un conector que suena natural pero indica una relación lógica equivocada puede confundir al lector sobre la argumentación real del texto."
+  - "Una coma mal puesta puede cambiar completamente lo que se está pidiendo o afirmando."
 
 explicacion: |
-  Verdadero: la aplicación práctica de este tema es específicamente
-  auditar la lógica de los conectores durante la revisión de un
-  texto propio.
+  Verdadero: la puntuación es una herramienta práctica de precisión
+  comunicativa, no un detalle decorativo.
 ```
 
-## Sección: conjugacion-verbal-indicativo (20 preguntas)
+## Sección: tecnicas-de-estudio-resumen-y-organizadores-graficos (23 preguntas)
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "basico"
-  tags: ["indicativo", "vocabulario"]
+  tags: ["resumen", "errores_comunes"]
 
-enunciado: "¿Qué expresa el modo indicativo?"
-tipo: mc
-opciones_explicitas:
-  - "Acciones o estados que el hablante considera reales u objetivos"
-  - "Acciones que el hablante desea, duda o considera irreales"
-  - "Órdenes o pedidos directos"
-respuesta: "Acciones o estados que el hablante considera reales u objetivos"
+respuesta: falso
+tipo: vf
+
+enunciado: "Un buen resumen se logra copiando y pegando las frases más importantes del libro original."
 
 explicacion: |
-  Es el modo 'por defecto' para afirmar hechos.
+  Falso. Un resumen efectivo requiere interpretar y parafrasear. Copiar y pegar no demuestra comprensión ni procesamiento cognitivo de la información.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "intermedio"
-  tags: ["preterito_imperfecto", "problema"]
+  tags: ["resumen", "concision"]
 
-tipo: completar
-enunciado: "El verbo 'hablar' en primera persona del plural del pretérito imperfecto de indicativo es: nosotros ___."
-respuestas_validas:
-  - "hablábamos"
-  - "hablabamos"
+variables:
+  palabras_originales: random(200, 500)
+  porcentaje_reduccion: uno_de([0.3, 0.4, 0.5])
+  palabras_nuevas: redondear(palabras_originales * (1 - porcentaje_reduccion), 0)
+
+respuesta: palabras_nuevas
+tipo: input
+
+enunciado: "Si un texto tiene {palabras_originales} palabras y quieres reducirlo en un {redondear(porcentaje_reduccion * 100, 0)}% manteniendo el sentido, ¿cuántas palabras aproximadamente debería tener el resumen?"
 
 explicacion: |
-  La primera persona del plural del pretérito imperfecto de los
-  verbos en '-ar' termina en '-ábamos'.
+  La claridad y la concisión son aliadas. Si reduces el texto en un X%, el nuevo tamaño es el original menos esa fracción. Esto ayuda a eliminar lo redundante.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "avanzado"
-  tags: ["preterito_indefinido", "irregulares", "problema"]
-
-enunciado: "¿Cuál es la forma correcta del verbo 'ir' en la tercera persona del plural del pretérito indefinido?"
-tipo: mc
-opciones_explicitas:
-  - "fueron"
-  - "iban"
-  - "irán"
-respuesta: "fueron"
-
-explicacion: |
-  'Ir' es muy irregular en el pretérito indefinido: fui, fuiste, fue,
-  fuimos, fuisteis, fueron — comparte estas formas con 'ser'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "avanzado"
-  tags: ["pluscuamperfecto", "tiempos_compuestos"]
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
+  nivel: "basico"
+  tags: ["resumen", "fidelidad"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El pretérito pluscuamperfecto de indicativo se forma con el imperfecto de 'haber' (había, habías, había...) + el participio del verbo principal."
+enunciado: "Es crucial mantener la fidelidad al significado original del texto, sin añadir opiniones personales ni alterar el sentido."
 
 explicacion: |
-  Ejemplo: 'había comido', 'habíamos llegado'.
+  La fidelidad es crucial. Un resumen debe reflejar el contenido del autor, no la interpretación subjetiva ni opiniones ajenas al texto original.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "intermedio"
-  tags: ["tiempos_verbales", "problema"]
+  tags: ["resumen", "palabras_clave"]
 
-enunciado: "¿A qué tiempo del indicativo corresponde la forma 'cantaré'?"
-tipo: mc
-opciones_explicitas:
-  - "Futuro simple"
-  - "Pretérito imperfecto"
-  - "Condicional simple"
-respuesta: "Futuro simple"
+variables:
+  total_palabras: random(100, 300)
+  porcentaje_clave: 0.05
+  num_claves: redondear(total_palabras * porcentaje_clave, 0)
+
+respuesta: num_claves
+tipo: input
+
+enunciado: "Si un texto tiene {total_palabras} palabras y decides subrayar solo el {redondear(porcentaje_clave * 100, 0)}% como palabras clave, ¿cuántas palabras clave seleccionarías?"
 
 explicacion: |
-  La terminación '-é' de futuro (cantar-é) indica una acción que
-  todavía no ocurrió.
+  Subrayar solo las palabras clave ayuda a filtrar lo esencial. Calcular un porcentaje pequeño del total facilita la identificación de lo central.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "intermedio"
-  tags: ["tiempos_verbales", "problema"]
-
-enunciado: "¿A qué tiempo del indicativo corresponde la forma 'cantaba'?"
-tipo: mc
-opciones_explicitas:
-  - "Pretérito imperfecto"
-  - "Pretérito indefinido"
-  - "Futuro simple"
-respuesta: "Pretérito imperfecto"
-
-explicacion: |
-  Expresa una acción pasada habitual o en desarrollo ('cantaba todos
-  los días').
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "intermedio"
-  tags: ["tiempos_verbales", "problema"]
-
-enunciado: "¿A qué tiempo del indicativo corresponde la forma 'canté'?"
-tipo: mc
-opciones_explicitas:
-  - "Pretérito indefinido"
-  - "Pretérito imperfecto"
-  - "Condicional simple"
-respuesta: "Pretérito indefinido"
-
-explicacion: |
-  Expresa una acción pasada puntual y terminada ('canté esa canción
-  ayer, una sola vez').
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "intermedio"
-  tags: ["tiempos_verbales", "problema"]
-
-enunciado: "¿A qué tiempo del indicativo corresponde la forma 'cantaría'?"
-tipo: mc
-opciones_explicitas:
-  - "Condicional simple"
-  - "Futuro simple"
-  - "Pretérito indefinido"
-respuesta: "Condicional simple"
-
-explicacion: |
-  Expresa una acción hipotética ('cantaría si me invitaran') o
-  cortesía.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "basico"
-  tags: ["presente", "problema"]
-
-tipo: completar
-enunciado: "Completá: el verbo 'comer' en primera persona del singular del presente de indicativo es: yo ___."
-respuestas_validas:
-  - "como"
-
-explicacion: |
-  Es el tiempo más usado para hablar de hechos actuales o habituales.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "intermedio"
-  tags: ["futuro_simple", "problema"]
-
-tipo: completar
-enunciado: "Completá: el verbo 'vivir' en tercera persona del singular del futuro simple es: ella ___."
-respuestas_validas:
-  - "vivirá"
-  - "vivira"
-
-explicacion: |
-  El futuro simple regular agrega la terminación '-á' al infinitivo
-  completo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "intermedio"
-  tags: ["condicional", "problema"]
-
-tipo: completar
-enunciado: "Completá: el verbo 'salir' en primera persona del singular del condicional simple es: yo ___."
-respuestas_validas:
-  - "saldría"
-  - "saldria"
-
-explicacion: |
-  'Salir' es irregular en condicional/futuro: cambia la raíz a
-  'saldr-' antes de agregar la terminación.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "intermedio"
-  tags: ["tiempos_compuestos", "vocabulario"]
-
-enunciado: "¿Cómo se forma el pretérito perfecto compuesto (como en 'he comido')?"
-tipo: mc
-opciones_explicitas:
-  - "Presente de 'haber' + participio del verbo principal"
-  - "Imperfecto de 'haber' + participio del verbo principal"
-  - "Futuro de 'haber' + infinitivo del verbo principal"
-respuesta: "Presente de 'haber' + participio del verbo principal"
-
-explicacion: |
-  'He' es presente de 'haber'; 'comido' es el participio de 'comer'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "avanzado"
-  tags: ["tiempos_compuestos", "problema"]
-
-tipo: completar
-enunciado: "Completá: el verbo 'escribir' en primera persona del plural del pretérito perfecto compuesto es: nosotros ___."
-respuestas_validas:
-  - "hemos escrito"
-
-explicacion: |
-  'Escribir' tiene participio irregular: 'escrito' (no 'escribido').
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "basico"
-  tags: ["indicativo"]
+  tags: ["beneficios", "autonomia"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El modo indicativo es el que se usa por defecto para afirmar hechos que el hablante considera reales, a diferencia del subjuntivo (duda, deseo, irrealidad)."
+enunciado: "Dominar el resumen y los organizadores gráficos te da autonomía para estudiar cualquier contenido, no solo literatura."
 
 explicacion: |
-  Es la distinción central que separa ambos modos verbales.
+  Estas son estrategias cognitivas universales. Dominarlas permite procesar información densa y abstracta en cualquier área, desde gramática hasta lingüística.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "avanzado"
-  tags: ["persona", "problema"]
-
-enunciado: "La forma verbal 'hablábamos' (pretérito imperfecto), ¿a qué persona gramatical corresponde?"
-tipo: mc
-opciones_explicitas:
-  - "Primera persona del plural (nosotros)"
-  - "Tercera persona del singular (él/ella)"
-  - "Segunda persona del singular (tú)"
-respuesta: "Primera persona del plural (nosotros)"
-
-explicacion: |
-  La terminación '-ábamos' es específica de 'nosotros' en el
-  imperfecto de los verbos '-ar'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "intermedio"
-  tags: ["aplicacion"]
+  tags: ["planificacion", "tiempo"]
 
-enunciado: "Para contar algo que pasó una sola vez y ya terminó ('ayer fui al médico'), ¿qué tiempo del indicativo corresponde usar?"
-tipo: mc
-opciones_explicitas:
-  - "Pretérito indefinido, porque expresa una acción pasada puntual y terminada"
-  - "Pretérito imperfecto, porque expresa una acción habitual"
-  - "Futuro simple, porque habla de algo que todavía no pasó"
-respuesta: "Pretérito indefinido, porque expresa una acción pasada puntual y terminada"
+variables:
+  horas_lectura: random(2, 5)
+  factor_procesamiento: 0.5
+  horas_resumen: redondear(horas_lectura * factor_procesamiento, 1)
+
+respuesta: horas_resumen
+tipo: input
+
+enunciado: "Si dedicas {horas_lectura} horas a leer y procesar un texto, y estimas que el resumen y la organización visual toman la mitad de ese tiempo, ¿cuántas horas invertirás en la técnica?"
 
 explicacion: |
-  El pretérito imperfecto, en cambio, se usaría para 'iba al médico
-  todos los meses' (acción habitual repetida).
+  Las técnicas de estudio requieren tiempo activo. Procesar, filtrar y organizar es una inversión que reduce el tiempo de memorización posterior.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "avanzado"
-  tags: ["irregulares", "problema"]
-
-enunciado: "En la oración 'Fue el mejor jugador del equipo', ¿de qué verbo viene la forma 'fue'?"
-tipo: mc
-opciones_explicitas:
-  - "De 'ser' (fue el mejor jugador = era/resultó ser el mejor)"
-  - "De 'ir' (fue = se dirigió hacia algún lugar)"
-respuesta: "De 'ser' (fue el mejor jugador = era/resultó ser el mejor)"
-
-explicacion: |
-  Sólo el contexto de la oración distingue si 'fue' viene de 'ir' o
-  de 'ser', ya que comparten las mismas formas en pretérito
-  indefinido.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "avanzado"
-  tags: ["tiempos_compuestos", "problema"]
-
-tipo: completar
-enunciado: "Completá: el verbo 'terminar' en tercera persona del singular del futuro compuesto es: él ___."
-respuestas_validas:
-  - "habrá terminado"
-
-explicacion: |
-  Futuro de 'haber' (habrá) + participio ('terminado').
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "intermedio"
-  tags: ["tiempos_compuestos"]
+  tags: ["resumen", "literatura"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Todos los tiempos compuestos del indicativo se forman con alguna conjugación del verbo 'haber' seguida del participio del verbo principal."
+enunciado: "Un buen resumen de un cuento debe captar la trama y el tema, pero no necesita describir cada personaje con detalle."
 
 explicacion: |
-  Cambia el tiempo de 'haber' (presente, imperfecto, futuro,
-  condicional), pero el participio siempre acompaña.
+  La fidelidad al significado original es crucial, pero la concisión permite omitir detalles secundarios como descripciones extensas de personajes menores.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_indicativo"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve dominar los tiempos del modo indicativo?"
-tipo: mc
-opciones_explicitas:
-  - "Para poder narrar hechos reales en cualquier momento (pasado, presente o futuro) con precisión, y como base necesaria antes de abordar el modo subjuntivo"
-  - "Sólo sirve para hablar del presente"
-  - "El indicativo no tiene ninguna aplicación práctica fuera del aula"
-respuesta: "Para poder narrar hechos reales en cualquier momento (pasado, presente o futuro) con precisión, y como base necesaria antes de abordar el modo subjuntivo"
-
-explicacion: |
-  El módulo que sigue, `../conjugacion-verbal-subjuntivo/`, retoma
-  muchas de las mismas irregularidades de raíz ya vistas acá.
-```
-
-## Sección: conjugacion-verbal-subjuntivo (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
-  nivel: "basico"
-  tags: ["subjuntivo", "vocabulario"]
-
-enunciado: "¿Qué expresa el modo subjuntivo?"
-tipo: mc
-opciones_explicitas:
-  - "Duda, deseo, emoción, ruego o valoración subjetiva"
-  - "Hechos que el hablante considera reales y ciertos"
-  - "Órdenes directas exclusivamente"
-respuesta: "Duda, deseo, emoción, ruego o valoración subjetiva"
-
-explicacion: |
-  Se opone al indicativo, que expresa hechos considerados reales.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "intermedio"
-  tags: ["subjuntivo", "problema"]
+  tags: ["resumen", "estructura"]
 
-enunciado: "¿En cuál de estas oraciones se usa correctamente el subjuntivo?"
-tipo: mc
-opciones_explicitas:
-  - "Espero que vengas pronto."
-  - "Espero que vienes pronto."
-  - "Es obvio que vengas."
-respuesta: "Espero que vengas pronto."
+variables:
+  parrafos: random(3, 6)
+  ideas_por_parrafo: 1
+  total_ideas: parrafos * ideas_por_parrafo
+
+respuesta: total_ideas
+tipo: input
+
+enunciado: "Si un texto tiene {parrafos} párrafos y extraes una idea principal de cada uno, ¿cuántas ideas principales tendrás en total para tu resumen?"
 
 explicacion: |
-  Tras verbos de deseo (esperar, querer, desear) + 'que', el verbo de
-  la subordinada va en subjuntivo.
+  Identificar la idea principal de cada sección es clave. Esto crea una estructura base para el resumen y el organizador gráfico.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "avanzado"
-  tags: ["subjuntivo", "indicativo"]
+  tags: ["teoria", "cognicion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Con expresiones de certeza ('sé que', 'es obvio que', 'es cierto que'), corresponde usar el modo indicativo, no el subjuntivo."
+enunciado: "El resumen y los organizadores gráficos son estrategias cognitivas que obligan a procesar la información, no simples atajos."
 
 explicacion: |
-  'Sé que hablas español' (indicativo, correcto) vs. 'Sé que hables
-  español' (subjuntivo, incorrecto acá).
+  Estas herramientas fuerzan al estudiante a filtrar lo esencial y darle orden lógico, evitando perderse en detalles irrelevantes.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "intermedio"
-  tags: ["presente_subjuntivo", "problema"]
+  tags: ["resumen", "compresion"]
 
-tipo: completar
-enunciado: "Completá: 'Espero que tú ___ (hablar) con ella.'"
-respuestas_validas:
-  - "hables"
+variables:
+  original: random(1000, 2000)
+  ratio: 0.1
+  comprimido: redondear(original * ratio, 0)
+
+respuesta: comprimido
+tipo: input
+
+enunciado: "Si un ensayo tiene {original} palabras y lo comprimes a una décima parte (10%) de su tamaño, ¿cuántas palabras tendrá el resumen?"
 
 explicacion: |
-  Presente de subjuntivo de 'hablar', segunda persona del singular.
+  La concisión es vital. Reducir significativamente el volumen de texto obliga a seleccionar solo lo esencial, mejorando la retención.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
-  nivel: "avanzado"
-  tags: ["imperfecto_subjuntivo"]
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
+  nivel: "intermedio"
+  tags: ["organizadores_graficos", "visualizacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El pretérito imperfecto de subjuntivo tiene dos formas válidas: una en '-ra' y otra en '-se' (ej.: hablara / hablase), ambas igualmente normativas."
+enunciado: "Los organizadores gráficos permiten visualizar las relaciones entre conceptos que en un texto lineal pueden ser difíciles de seguir."
 
 explicacion: |
-  Son intercambiables en la mayoría de los contextos, reconocidas
-  ambas por la RAE.
+  Al mostrar jerarquías y conexiones, estos organizadores hacen explícitas las relaciones lógicas entre ideas, géneros o reglas gramaticales.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
-  nivel: "avanzado"
-  tags: ["imperfecto_subjuntivo", "problema"]
-
-tipo: completar
-enunciado: "La forma 'cantara' (pretérito imperfecto de subjuntivo) tiene una forma alternativa igualmente correcta, terminada en '-se'. ¿Cuál es?"
-respuestas_validas:
-  - "cantase"
-
-explicacion: |
-  Ambos paradigmas ('-ra' y '-se') son intercambiables.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "intermedio"
-  tags: ["subjuntivo", "problema"]
+  tags: ["estudio", "repeticion"]
 
-enunciado: "¿Por qué la oración 'Espero que vengas pronto' usa el verbo 'vengas' en subjuntivo y no 'vienes' en indicativo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque 'esperar' es un verbo de deseo, y los verbos de deseo + 'que' piden subjuntivo en la oración subordinada"
-  - "Porque 'venir' siempre se conjuga en subjuntivo, sin importar el contexto"
-  - "No hay ninguna razón gramatical, ambas formas son igual de correctas"
-respuesta: "Porque 'esperar' es un verbo de deseo, y los verbos de deseo + 'que' piden subjuntivo en la oración subordinada"
+variables:
+  sesiones: random(3, 5)
+  dias_entre: 2
+  dias_totales: (sesiones - 1) * dias_entre
+
+respuesta: dias_totales
+tipo: input
+
+enunciado: "Si estudias el resumen en {sesiones} sesiones separadas por {dias_entre} días, ¿cuántos días transcurren entre la primera y la última sesión?"
 
 explicacion: |
-  Es la regla práctica central de este módulo.
+  La repetición espaciada ayuda a consolidar la memoria. Organizar el estudio en sesiones separadas mejora la retención a largo plazo.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
-  nivel: "avanzado"
-  tags: ["subjuntivo", "problema"]
-
-enunciado: "'Sé que hables español' tiene un error de modo verbal. ¿Cuál es la corrección correcta?"
-tipo: mc
-opciones_explicitas:
-  - "'Sé que hablas español' — 'saber' expresa certeza y pide indicativo, no subjuntivo"
-  - "'Sé que hablarás español' — hay que usar futuro en vez de subjuntivo"
-respuesta: "'Sé que hablas español' — 'saber' expresa certeza y pide indicativo, no subjuntivo"
-
-explicacion: |
-  'Saber' (conocimiento seguro) no admite subjuntivo en la
-  subordinada.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
-  nivel: "intermedio"
-  tags: ["imperativo", "problema"]
-
-tipo: completar
-enunciado: "Para pedirle a un amigo que cierre la puerta, le decís: '___ la puerta, por favor.' (imperativo, tú, 'cerrar')"
-respuestas_validas:
-  - "cierra"
-  - "Cierra"
-
-explicacion: |
-  El imperativo de 'cerrar' para 'tú' toma la forma del presente de
-  indicativo sin la 's' final: 'cierras' → 'cierra'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
-  nivel: "avanzado"
-  tags: ["imperativo", "subjuntivo"]
+  materia: "Lengua y Literatura"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
+  nivel: "basico"
+  tags: ["resumen", "calidad"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El imperativo NEGATIVO usa exactamente las mismas formas que el presente de subjuntivo: '¡No cierres la puerta!' usa 'cierres', la misma forma que 'espero que cierres la puerta'."
+enunciado: "La claridad y la concisión son las mejores aliadas al hacer un resumen; si puedes decir lo mismo con menos palabras, vas bien."
 
 explicacion: |
-  Es la conexión directa entre imperativo y subjuntivo mencionada en
-  `teoria.md`.
+  La claridad facilita la comprensión y la concisión ahorra tiempo de estudio. Ambos son indicadores de un resumen efectivo.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
-  nivel: "intermedio"
-  tags: ["subjuntivo", "vocabulario"]
-
-enunciado: "¿Cuál de estos grupos de expresiones pide subjuntivo en la oración subordinada?"
-tipo: mc
-opciones_explicitas:
-  - "Deseo, duda, emoción, ruego, valoración subjetiva (esperar que, dudar que, alegrarse de que, pedir que, es una pena que)"
-  - "Certeza (saber que, es obvio que, es cierto que, ver que)"
-respuesta: "Deseo, duda, emoción, ruego, valoración subjetiva (esperar que, dudar que, alegrarse de que, pedir que, es una pena que)"
-
-explicacion: |
-  El segundo grupo (certeza) pide indicativo, no subjuntivo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
-  nivel: "avanzado"
-  tags: ["subjuntivo", "problema"]
-
-tipo: completar
-enunciado: "Completá: 'Me alegro de que ustedes ___ (estar) bien.'"
-respuestas_validas:
-  - "estén"
-
-explicacion: |
-  'Alegrarse de que' expresa emoción, así que pide subjuntivo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
+  materia: "Lengua"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "basico"
-  tags: ["aplicacion"]
+  tags: ["resumen", "metacognicion"]
 
-enunciado: "¿Por qué el modo subjuntivo suele considerarse más difícil de dominar que el indicativo, incluso para hablantes nativos en producción escrita formal?"
-tipo: mc
-opciones_explicitas:
-  - "Porque elegirlo depende de reconocer una intención subjetiva (duda, deseo, emoción) en el verbo principal, no de una regla mecánica simple como en el indicativo"
-  - "Porque el subjuntivo no tiene ninguna forma verbal propia"
-  - "Porque el subjuntivo sólo existe en la lengua escrita, nunca en la hablada"
-respuesta: "Porque elegirlo depende de reconocer una intención subjetiva (duda, deseo, emoción) en el verbo principal, no de una regla mecánica simple como en el indicativo"
+variables:
+  afirmacion: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un buen resumen consiste en copiar y pegar las frases más importantes del libro original para asegurar la fidelidad textual."
 
 explicacion: |
-  Es la razón por la que este módulo se separó del indicativo, aunque
-  comparta buena parte del mismo vocabulario de formas.
+  Falso. Un resumen efectivo requiere interpretar y usar tu propio vocabulario. Copiar y pegar no demuestra comprensión ni procesamiento cognitivo.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
+  materia: "Lengua"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
+  nivel: "basico"
+  tags: ["estudio", "estrategias"]
+
+variables:
+  afirmacion: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Estudiar lengua se trata principalmente de memorizar fechas y definiciones de memoria, sin necesidad de comprender estructuras."
+
+explicacion: |
+  Falso. La lengua requiere comprender estructuras, analizar textos y conectar ideas. La memorización mecánica es insuficiente.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "intermedio"
-  tags: ["subjuntivo", "problema"]
+  tags: ["beneficios", "aprendizaje"]
 
-tipo: completar
-enunciado: "Completá: 'Te pido que me ___ (ayudar) con esto.'"
-respuestas_validas:
-  - "ayudes"
-
-explicacion: |
-  'Pedir que' expresa ruego, pide subjuntivo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
-  nivel: "avanzado"
-  tags: ["subjuntivo", "indicativo"]
+variables:
+  afirmacion: "verdadero"
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "'Creo que viene' (indicativo, cierta seguridad) y 'No creo que venga' (subjuntivo, duda) usan el mismo verbo principal ('creer'), pero cambian de modo según si la oración es afirmativa o negativa."
+enunciado: "Dominar el resumen y los organizadores gráficos te da autonomía para estudiar cualquier contenido, incluso para exámenes de Comprensión Lectora."
 
 explicacion: |
-  Negar 'creer' introduce duda, y por eso cambia a subjuntivo — un
-  matiz avanzado de la regla general.
+  Verdadero. Estas son estrategias cognitivas transferibles que permiten abordar cualquier texto con eficacia.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
-  nivel: "avanzado"
-  tags: ["subjuntivo", "problema"]
+  materia: "Lengua"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
+  nivel: "basico"
+  tags: ["mitos", "estudio"]
 
-tipo: completar
-enunciado: "Completá: 'Dudo que ellos ___ (llegar) a tiempo.'"
-respuestas_validas:
-  - "lleguen"
+variables:
+  afirmacion: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los organizadores gráficos son 'atajos' para evitar leer el texto completo."
 
 explicacion: |
-  'Dudar que' expresa duda, pide subjuntivo.
+  Falso. Son estrategias cognitivas que obligan a procesar la información. No sustituyen la lectura, la complementan y profundizan.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
+  materia: "Lengua"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
   nivel: "intermedio"
-  tags: ["subjuntivo", "problema"]
+  tags: ["resumen", "objetividad"]
 
-enunciado: "'Es una pena que no puedas venir' usa el subjuntivo 'puedas'. ¿Por qué?"
-tipo: mc
-opciones_explicitas:
-  - "Porque 'es una pena que' expresa una valoración subjetiva sobre el hecho, no una afirmación de certeza"
-  - "Porque el verbo 'poder' siempre se conjuga en subjuntivo"
-  - "Es un error, debería decir 'puedes'"
-respuesta: "Porque 'es una pena que' expresa una valoración subjetiva sobre el hecho, no una afirmación de certeza"
+variables:
+  afirmacion: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Es aceptable añadir opiniones personales al resumen si estas enriquecen la interpretación del texto."
 
 explicacion: |
-  Las expresiones de valoración ('es una pena que', 'es genial que')
-  son otro disparador típico del subjuntivo.
+  Falso. El resumen debe mantener la fidelidad al significado original. Las opiniones personales pertenecen a un ensayo o crítica, no al resumen.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
+  nivel: "intermedio"
+  tags: ["contexto", "importancia"]
+
+variables:
+  afirmacion: "verdadero"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En lengua, la información suele ser densa y abstracta, por lo que las técnicas de estudio son fundamentales."
+
+explicacion: |
+  Verdadero. Gramática, literatura y lingüística requieren estrategias para filtrar lo esencial y dar orden lógico.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
+  nivel: "basico"
+  tags: ["resumen", "miedo_comun"]
+
+variables:
+  afirmacion: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Hacer un resumen implica perder los detalles importantes de la trama o el argumento."
+
+explicacion: |
+  Falso. Un buen resumen elimina lo redundante y secundario, pero conserva la estructura y el sentido esencial.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
+  nivel: "basico"
+  tags: ["organizadores_graficos", "estructura"]
+
+variables:
+  afirmacion: "verdadero"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los organizadores gráficos dan un orden lógico a la información, ayudando a ver cómo se relacionan los conceptos."
+
+explicacion: |
+  Verdadero. La visualización jerárquica o relacional ayuda a comprender la estructura subyacente del conocimiento.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
+  nivel: "intermedio"
+  tags: ["resumen", "procesamiento"]
+
+variables:
+  afirmacion: "verdadero"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Es recomendable usar tu propio vocabulario al redactar el resumen para demostrar comprensión."
+
+explicacion: |
+  Verdadero. Usar palabras propias obliga al cerebro a procesar y reformular la información, consolidando el aprendizaje.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tecnicas_de_estudio_resumen_y_organizadores_graficos"
+  nivel: "basico"
+  tags: ["estudio", "enfoque"]
+
+variables:
+  afirmacion: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Estudiar lengua se trata solo de memorizar definiciones, no de comprender estructuras."
+
+explicacion: |
+  Falso. La comprensión de estructuras y el análisis son clave. La memorización es solo una parte pequeña y menos efectiva por sí sola.
+```
+
+## Sección: tipos-textuales (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "basico"
+  tags: ["narrativo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "narrativo"
+tipo: mc
+opciones_explicitas: ["narrativo", "descriptivo", "expositivo", "argumentativo", "instructivo"]
+
+enunciado: "\"Juan salió de su casa, caminó tres cuadras y se encontró con su amigo en la plaza.\" ¿Qué tipo textual es?"
+
+pasos:
+  - "Cuenta hechos que ocurren en el tiempo, con acciones y personajes: es narrativo."
+
+explicacion: |
+  El texto narrativo cuenta una secuencia de sucesos que le pasan a
+  alguien.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
+  tema: "tipos_textuales"
+  nivel: "basico"
+  tags: ["descriptivo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "descriptivo"
+tipo: mc
+opciones_explicitas: ["narrativo", "descriptivo", "expositivo", "argumentativo", "instructivo"]
+
+enunciado: "\"La casa era grande, de paredes blancas y techo rojo. Tenía un jardín lleno de flores amarillas.\" ¿Qué tipo textual es?"
+
+pasos:
+  - "Presenta características sin que pase el tiempo, con adjetivos y verbos de estado: es descriptivo."
+
+explicacion: |
+  El texto descriptivo detalla cómo es algo (aspecto, cualidades),
+  no cuenta una acción.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "basico"
+  tags: ["expositivo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "expositivo"
+tipo: mc
+opciones_explicitas: ["narrativo", "descriptivo", "expositivo", "argumentativo", "instructivo"]
+
+enunciado: "\"La fotosíntesis es el proceso por el cual las plantas transforman luz solar en energía química.\" ¿Qué tipo textual es?"
+
+pasos:
+  - "Explica un tema de forma objetiva, con definiciones: es expositivo."
+
+explicacion: |
+  El texto expositivo informa o explica sin dar la opinión del autor.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "basico"
+  tags: ["argumentativo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "argumentativo"
+tipo: mc
+opciones_explicitas: ["narrativo", "descriptivo", "expositivo", "argumentativo", "instructivo"]
+
+enunciado: "\"Deberíamos reducir el uso de plástico porque contamina los océanos y tarda siglos en degradarse.\" ¿Qué tipo textual es?"
+
+pasos:
+  - "Defiende una postura con razones para convencer: es argumentativo."
+
+explicacion: |
+  El texto argumentativo usa conectores causales (\"porque\") para
+  respaldar una opinión.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "basico"
+  tags: ["instructivo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "instructivo"
+tipo: mc
+opciones_explicitas: ["narrativo", "descriptivo", "expositivo", "argumentativo", "instructivo"]
+
+enunciado: "\"Primero, batir los huevos. Segundo, agregar el azúcar. Tercero, mezclar con la harina.\" ¿Qué tipo textual es?"
+
+pasos:
+  - "Da pasos numerados con verbos en infinitivo/imperativo: es instructivo."
+
+explicacion: |
+  El texto instructivo indica los pasos para hacer algo, típico de
+  recetas y manuales.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "intermedio"
+  tags: ["narrativo", "marcas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "narrativo"
+tipo: mc
+opciones_explicitas: ["narrativo", "descriptivo", "expositivo"]
+
+enunciado: "Un texto con muchos conectores temporales (\"luego\", \"después\", \"al día siguiente\") probablemente sea de tipo..."
+
+pasos:
+  - "Los conectores temporales marcan una secuencia de hechos en el tiempo, típica del narrativo."
+
+explicacion: |
+  Los conectores temporales son una marca característica del texto
+  narrativo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "intermedio"
+  tags: ["descriptivo", "marcas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "descriptivo"
+tipo: mc
+opciones_explicitas: ["narrativo", "descriptivo", "instructivo"]
+
+enunciado: "Un texto con muchos adjetivos y verbos como \"es\", \"tiene\", \"parece\" probablemente sea de tipo..."
+
+pasos:
+  - "Los adjetivos y verbos de estado detallan características, sin narrar una acción: marca del descriptivo."
+
+explicacion: |
+  Los adjetivos y verbos de estado son la marca típica del texto
+  descriptivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "intermedio"
+  tags: ["expositivo", "marcas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "expositivo"
+tipo: mc
+opciones_explicitas: ["expositivo", "narrativo", "argumentativo"]
+
+enunciado: "Un texto con definiciones y vocabulario técnico, sin opiniones del autor, probablemente sea de tipo..."
+
+pasos:
+  - "Explicar un tema de forma objetiva, con definiciones, es la marca del expositivo."
+
+explicacion: |
+  El vocabulario técnico y las definiciones objetivas son típicas
+  del texto expositivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "intermedio"
+  tags: ["argumentativo", "marcas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "argumentativo"
+tipo: mc
+opciones_explicitas: ["argumentativo", "descriptivo", "instructivo"]
+
+enunciado: "Un texto en primera persona que defiende una opinión con razones probablemente sea de tipo..."
+
+pasos:
+  - "Defender una postura con conectores de causa/consecuencia es la marca del argumentativo."
+
+explicacion: |
+  La opinión personal respaldada con razones es típica del texto
+  argumentativo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "intermedio"
+  tags: ["instructivo", "marcas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "instructivo"
+tipo: mc
+opciones_explicitas: ["instructivo", "narrativo", "expositivo"]
+
+enunciado: "Un texto con verbos en imperativo (\"agregue\", \"mezcle\") y pasos numerados probablemente sea de tipo..."
+
+pasos:
+  - "Indicar cómo hacer algo paso a paso es la marca del instructivo."
+
+explicacion: |
+  El imperativo/infinitivo y la numeración de pasos son típicos del
+  texto instructivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "intermedio"
+  tags: ["tipos_textuales", "combinacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una noticia puede combinar partes narrativas (contar lo que pasó) con partes descriptivas (describir el lugar del hecho), y se clasifica por el tipo predominante."
+
+pasos:
+  - "No hace falta que un texto sea puro de un solo tipo para clasificarlo."
+
+explicacion: |
+  Verdadero: se clasifica según qué tipo predomina, no exige pureza
+  absoluta.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "basico"
+  tags: ["tipos_textuales", "proposito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El tipo textual se define principalmente por el propósito comunicativo del texto (contar, describir, explicar, convencer o instruir)."
+
+pasos:
+  - "No se define por el tema del texto, sino por para qué fue escrito."
+
+explicacion: |
+  Verdadero: dos textos sobre el mismo tema pueden ser de tipos
+  distintos según su propósito (contar una historia sobre un volcán
+  vs. explicar cómo funciona un volcán).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "intermedio"
+  tags: ["expositivo", "argumentativo", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El texto expositivo, igual que el argumentativo, incluye la opinión personal del autor sobre el tema."
+
+pasos:
+  - "El expositivo busca informar de forma objetiva; el argumentativo, en cambio, sí defiende una postura."
+
+explicacion: |
+  Falso: la objetividad (sin opinión) es justamente lo que distingue
+  al expositivo del argumentativo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "basico"
+  tags: ["instructivo", "ejemplo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una receta de cocina es un ejemplo típico de texto instructivo."
+
+pasos:
+  - "Da pasos ordenados para lograr un resultado (el plato), con verbos en imperativo/infinitivo."
+
+explicacion: |
+  Verdadero: la receta es el ejemplo clásico de texto instructivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "basico"
+  tags: ["narrativo", "ejemplo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un cuento es un ejemplo típico de texto narrativo."
+
+pasos:
+  - "Cuenta hechos que le pasan a personajes en un orden temporal."
+
+explicacion: |
+  Verdadero: el cuento es el ejemplo clásico de texto narrativo, y es
+  la puerta de entrada al género narrativo (tema siguiente).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "basico"
+  tags: ["expositivo", "ejemplo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un artículo de enciclopedia es un ejemplo típico de texto expositivo."
+
+pasos:
+  - "Explica un tema de forma objetiva, con definiciones y datos, sin opinión."
+
+explicacion: |
+  Verdadero: la enciclopedia es el ejemplo clásico de texto
+  expositivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "intermedio"
+  tags: ["narrativo", "descriptivo", "diferenciacion"]
+
+variables:
+  frases: ["El río bajaba rápido, arrastrando ramas y piedras hacia el pueblo", "El río era ancho, de aguas turbias y orillas rocosas"]
+  tipos: ["narrativo", "descriptivo"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["narrativo", "descriptivo"]
+
+enunciado: "\"{frases[idx]}\" es un texto de tipo..."
+
+pasos:
+  - "Si hay una acción que avanza en el tiempo, es narrativo. Si sólo describe cómo es algo, es descriptivo."
+
+explicacion: |
+  \"Bajaba\", \"arrastrando\" son acciones en desarrollo (narrativo);
+  \"era\", \"de aguas turbias\" son características fijas
+  (descriptivo).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "intermedio"
+  tags: ["tipos_textuales", "metodo"]
+
+enunciado: "Ordená los pasos para identificar el tipo textual predominante de un texto."
+tipo: ordenar
+opciones_explicitas:
+  - "Leer el texto completo"
+  - "Preguntarse cuál es el propósito principal (contar, describir, explicar, convencer, instruir)"
+  - "Buscar marcas típicas (verbos, conectores) que confirmen esa respuesta"
+  - "Clasificar según el tipo predominante, aunque haya partes de otro tipo"
+respuesta_orden: ["Leer el texto completo", "Preguntarse cuál es el propósito principal (contar, describir, explicar, convencer, instruir)", "Buscar marcas típicas (verbos, conectores) que confirmen esa respuesta", "Clasificar según el tipo predominante, aunque haya partes de otro tipo"]
+explicacion: |
+  El método va del propósito general a las marcas concretas que lo
+  confirman, permitiendo tipos mixtos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
   nivel: "avanzado"
-  tags: ["imperativo", "problema"]
+  tags: ["tipos_textuales", "generos_literarios"]
 
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El tipo narrativo es la base de lo que después se estudia como género narrativo (uno de los tres géneros literarios)."
+
+pasos:
+  - "Reconocer que un texto cuenta hechos (narrativo) es el paso previo para estudiar sus convenciones específicas como género literario."
+
+explicacion: |
+  Verdadero: tipos textuales es prerrequisito directo de la rama de
+  géneros literarios en la currícula.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "tipos_textuales"
+  nivel: "avanzado"
+  tags: ["tipos_textuales", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el objetivo es convencer a alguien de una idea, conviene escribir un texto de tipo argumentativo antes que uno puramente descriptivo."
+
+pasos:
+  - "El argumentativo está diseñado para defender una postura con razones; el descriptivo sólo detalla características."
+
+explicacion: |
+  Verdadero: elegir el tipo textual correcto según el objetivo de
+  escritura es la aplicación práctica de este tema.
+```
+
+## Sección: variedades-de-la-lengua (23 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "basico"
+  tags: ["registro", "formalidad"]
+
+respuesta: "nivel de formalidad"
 tipo: completar
-enunciado: "Completá el imperativo negativo: 'No ___ (hablar) tan fuerte.' (a 'tú')"
+
+enunciado: "Los __________ se refieren al nivel de formalidad o cercanía del lenguaje que utilizamos en un contexto dado."
+
+explicacion: |
+  Los registros determinan el grado de formalidad (formal, informal, técnico, etc.) con el que nos comunicamos, adaptándonos a la situación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "basico"
+  tags: ["lecto", "identidad"]
+
+respuesta: "lectos"
+tipo: completar
+
+enunciado: "Los __________ aluden a las diferencias grupales determinadas por factores sociales como la edad, la clase social o la región geográfica."
+
+explicacion: |
+  Los lectos (o variedades sociolectales) funcionan como marcadores de identidad, vinculando al hablante con un grupo específico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "avanzado"
+  tags: ["competencia", "flexibilidad"]
+
+respuesta: "flexibilidad"
+tipo: completar
+
+enunciado: "La competencia lingüística consiste en la capacidad de moverse con __________ entre distintos códigos y registros."
+
+explicacion: |
+  La competencia lingüística implica saber adaptar el lenguaje al contexto, no solo conocer las reglas gramaticales.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "intermedio"
+  tags: ["voseo", "registro"]
+
+respuesta: "ustedeo"
+tipo: completar
+
+enunciado: "En un registro académico o de máxima formalidad, el 'voseo' y el uso de 'che' suelen ser sustituidos por el __________."
+
+explicacion: |
+  En contextos formales o académicos, se prefiere el 'ustedeo' (la forma 'usted') — el tuteo (tú) prácticamente no se usa en ningún registro del español rioplatense.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "basico"
+  tags: ["lecto", "identidad"]
+
+respuesta: "identidad"
+tipo: completar
+
+enunciado: "Los lectos funcionan como marcadores de __________, indicando de dónde venimos y a qué grupo pertenecemos."
+
+explicacion: |
+  El lenguaje refleja nuestra pertenencia social, generacional o geográfica, construyendo nuestra identidad.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "intermedio"
+  tags: ["lunfardo", "uso"]
+
+respuesta: "autenticidad"
+tipo: completar
+
+enunciado: "Un músico puede usar el lunfardo en una canción para evocar __________ y conexión con la cultura popular."
+
+explicacion: |
+  El uso de lectos populares en el arte busca generar cercanía, emotividad y una sensación de autenticidad.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "intermedio"
+  tags: ["lunfardo", "registro"]
+
+respuesta: "evitarlo"
+tipo: completar
+
+enunciado: "Un abogado podría __________ el uso del lunfardo en un juicio para mantener la formalidad."
+
+explicacion: |
+  En contextos jurídicos formales, se evita el lunfardo para garantizar la claridad y la seriedad del discurso.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "avanzado"
+  tags: ["diferencias", "conceptos"]
+
+respuesta: "formalidad"
+tipo: completar
+
+enunciado: "A diferencia de los lectos, los registros se centran principalmente en el grado de __________ del discurso."
+
+explicacion: |
+  Los registros varían según la situación comunicativa (formalidad), mientras que los lectos varían según el grupo social.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "intermedio"
+  tags: ["adaptación", "comunicación"]
+
+respuesta: "inconscientemente"
+tipo: completar
+
+enunciado: "Ajustamos nuestro habla según quién nos escucha de manera __________."
+
+explicacion: |
+  La adaptación al contexto y al interlocutor es un proceso natural e inconsciente para la mayoría de los hablantes.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "intermedio"
+  tags: ["registro", "vocabulario"]
+
+respuesta: "preciso"
+tipo: completar
+
+enunciado: "El registro formal se caracteriza por un vocabulario __________ y estructuras gramaticales completas."
+
+explicacion: |
+  La precisión léxica es una marca distintiva del lenguaje formal y académico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "intermedio"
+  tags: ["registro", "informal"]
+
+respuesta: "abreviaciones"
+tipo: completar
+
+enunciado: "El registro informal suele incluir __________, jerga y una sintaxis más libre."
+
+explicacion: |
+  La economía del lenguaje, como las abreviaciones, es típica de la comunicación informal y rápida.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "intermedio"
+  tags: ["adecuación", "registro"]
+
+respuesta: "adecuados"
+tipo: completar
+
+enunciado: "Los registros son __________ para contextos diferentes, no buenos o malos en sí mismos."
+
+explicacion: |
+  La clave está en la adecuación: usar el registro apropiado para la situación comunicativa.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "avanzado"
+  tags: ["interacción", "análisis"]
+
+respuesta: "entrelazan"
+tipo: completar
+
+enunciado: "La formalidad y la identidad a menudo se __________ en el uso real de la lengua."
+
+explicacion: |
+  Es difícil separar completamente el registro (formalidad) del lecto (identidad), ya que ambos operan simultáneamente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "basico"
+  tags: ["lecto", "origen"]
+
+respuesta: "origen"
+tipo: completar
+
+enunciado: "Los lectos nos dicen de dónde venimos y a qué grupo __________ pertenecemos."
+
+explicacion: |
+  El lenguaje es un indicador clave de nuestra procedencia geográfica y social.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "avanzado"
+  tags: ["competencia", "códigos"]
+
+respuesta: "códigos"
+tipo: completar
+
+enunciado: "Un hablante competente sabe moverse entre distintos __________ según la necesidad."
+
+explicacion: |
+  La flexibilidad para cambiar de código (registro/lecto) es esencial para la competencia comunicativa.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "intermedio"
+  tags: ["voseo", "rioplatense"]
+
+respuesta: "válidos"
+tipo: completar
+
+enunciado: "El 'voseo' y el uso de 'che' son perfectamente __________ en un lecto informal rioplatense."
+
+explicacion: |
+  Dentro del lecto informal rioplatense, estas formas son gramaticalmente correctas y socialmente aceptadas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "intermedio"
+  tags: ["registro", "sustitución"]
+
+respuesta: "sustituidos"
+tipo: completar
+
+enunciado: "En un registro académico, las formas informales deben ser __________ por otras de cortesía estándar."
+
+explicacion: |
+  La formalidad exige el reemplazo de marcas dialectales o coloquiales por formas estándar.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "basico"
+  tags: ["lecto", "generacional"]
+
+respuesta: "difieren"
+tipo: completar
+
+enunciado: "La forma de hablar de un grupo de adolescentes puede __________ significativamente de la de adultos mayores."
+
+explicacion: |
+  Las diferencias generacionales son una fuente importante de variación en los lectos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "variedades_de_la_lengua"
+  nivel: "avanzado"
+  tags: ["comprensión", "aplicación"]
+
+respuesta: "comprensión"
+tipo: completar
+
+enunciado: "Este tema evalúa la __________ y aplicación de los conceptos, no la memoria textual."
+
+explicacion: |
+  El objetivo es entender cómo funcionan las variedades de la lengua, no repetir definiciones de memoria.
+```
+
+```
+metadata:
+  materia: "Lengua y Literatura"
+  tema: "variedades_de_la_lengua"
+  nivel: "basico"
+  tags: ["lecto", "identidad", "sociolecto"]
+
+variables:
+  pares: [["adolescentes en Buenos Aires", "edad"], ["adultos mayores en Córdoba", "región"], ["trabajadores históricos porteños", "clase social"]]
+  idx: uno_de([0, 1, 2])
+  grupo: pares[idx][0]
+  factor_determinante: pares[idx][1]
+
+respuesta: grupo + " se definen principalmente por su " + factor_determinante + "."
+tipo: completar
+
+enunciado: "Completa la frase: Los {grupo} se definen principalmente por su {factor_determinante}."
+
+explicacion: |
+  Los lectos son variedades sociolectales determinadas por factores como la edad, la región o la clase social, funcionando como marcadores de identidad.
+```
+
+```
+metadata:
+  materia: "Lengua y Literatura"
+  tema: "variedades_de_la_lengua"
+  nivel: "intermedio"
+  tags: ["competencia", "flexibilidad", "código"]
+
+variables:
+  habilidad: uno_de(["hablar siempre igual", "moverse entre códigos", "ignorar el contexto"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La competencia lingüística consiste en la capacidad de hablar siempre de la misma manera, independientemente del interlocutor."
+
+explicacion: |
+  Falso. La competencia lingüística es la capacidad de moverse entre diferentes códigos y registros según el contexto, no de ser rígido.
+```
+
+```
+metadata:
+  materia: "Lengua y Literatura"
+  tema: "variedades_de_la_lengua"
+  nivel: "intermedio"
+  tags: ["error", "inadecuacion"]
+
+variables:
+  pares: [["usar registro informal en un examen", "error comunicativo"], ["usar registro formal con amigos", "generador de distancia"]]
+  idx: uno_de([0, 1])
+  situacion: pares[idx][0]
+  consecuencia: pares[idx][1]
+
+respuesta: situacion + " es un " + consecuencia + "."
+tipo: completar
+
+enunciado: "Completa: '{situacion}' es un '{consecuencia}'."
+
+explicacion: |
+  Usar el registro informal en un examen es un error comunicativo. Usar uno excesivamente formal con amigos puede ser un generador de distancia.
+```
+
+```
+metadata:
+  materia: "Lengua y Literatura"
+  tema: "variedades_de_la_lengua"
+  nivel: "basico"
+  tags: ["lecto", "region", "geografia"]
+
+variables:
+  region1: uno_de(["Buenos Aires", "Córdoba", "Rosario"])
+  region2: uno_de(["Córdoba", "Buenos Aires", "Mendoza"])
+
+respuesta: "La forma de hablar en {region1} puede diferir de la en {region2}."
+tipo: completar
+
+enunciado: "Completa: La forma de hablar en '{region1}' puede diferir de la en '{region2}'."
+
 respuestas_validas:
-  - "hables"
-
+  - "La forma de hablar en Buenos Aires puede diferir de la en Córdoba."
+  - "La forma de hablar en Córdoba puede diferir de la en Buenos Aires."
+  - "La forma de hablar en Rosario puede diferir de la en Mendoza."
 explicacion: |
-  El imperativo negativo de 'tú' usa la misma forma que el presente
-  de subjuntivo de segunda persona.
+  La región geográfica es un factor clave que determina las diferencias entre lectos.
 ```
 
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "Al escribir una oración con 'que', ¿qué conviene revisar para decidir si el verbo de la subordinada va en indicativo o en subjuntivo?"
-tipo: mc
-opciones_explicitas:
-  - "Qué tipo de verbo o expresión introduce la oración: si es de certeza (indicativo) o de deseo/duda/emoción/ruego/valoración (subjuntivo)"
-  - "Sólo importa si el verbo principal es regular o irregular"
-  - "El modo no depende del verbo principal, es aleatorio"
-respuesta: "Qué tipo de verbo o expresión introduce la oración: si es de certeza (indicativo) o de deseo/duda/emoción/ruego/valoración (subjuntivo)"
-
-explicacion: |
-  Es la estrategia práctica central de todo este módulo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "conjugacion_verbal_subjuntivo"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve el modo subjuntivo?"
-tipo: mc
-opciones_explicitas:
-  - "Para expresar duda, deseo, emoción, ruego o valoración subjetiva, distinguiéndolo de las afirmaciones de hechos reales del indicativo"
-  - "Para narrar hechos que ya ocurrieron con certeza"
-  - "Sólo se usa en la lengua escrita formal, nunca al hablar"
-respuesta: "Para expresar duda, deseo, emoción, ruego o valoración subjetiva, distinguiéndolo de las afirmaciones de hechos reales del indicativo"
-
-explicacion: |
-  Cierra la cadena de `../conjugacion-verbal-indicativo/`: los dos
-  modos verbales centrales del español.
-```

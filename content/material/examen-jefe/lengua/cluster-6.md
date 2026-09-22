@@ -1,17 +1,17 @@
-# Examen jefe — Dominio de los géneros discursivos
+# Examen jefe — [PENDIENTE #656]
 
-> Logro #89. Completaste el parcial identificando y diferenciando los géneros dramático, lírico, narrativo y periodísticos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **129 preguntas totales** en 5/5 secciones.
+> Logro #656. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: genero-dramatico (20 preguntas)
+## Sección: contraargumentos (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_dramatico"
+  tema: "contraargumentos"
   nivel: "basico"
-  tags: ["genero_dramatico", "definicion"]
+  tags: ["contraargumentos", "definicion"]
 
 variables:
   n: uno_de([1, 1])
@@ -19,22 +19,298 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El género dramático agrupa textos escritos para ser representados en un escenario, organizados casi por completo a través de diálogos entre personajes."
+enunciado: "Un contraargumento es un argumento que sostendría la postura contraria a la tesis: la razón más fuerte que alguien en desacuerdo podría dar."
 
 pasos:
-  - "A diferencia del narrativo, no tiene un narrador que cuente los hechos."
+  - "Ver `../tesis/`: el contraargumento se define siempre en relación a la tesis que se está defendiendo."
 
 explicacion: |
-  Verdadero: la representación y el diálogo son las marcas centrales
-  del género dramático.
+  Verdadero: es la definición central del contraargumento.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_dramatico"
+  tema: "contraargumentos"
   nivel: "intermedio"
-  tags: ["genero_dramatico", "genero_narrativo", "diferenciacion"]
+  tags: ["contraargumentos", "efecto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Incluir y responder el contraargumento más fuerte dentro del propio texto es una estrategia que fortalece la persuasión, no una debilidad."
+
+pasos:
+  - "Demuestra que la tesis resiste incluso frente a la mejor objeción posible."
+
+explicacion: |
+  Verdadero: anticipar objeciones y responderlas es más persuasivo
+  que ignorarlas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "basico"
+  tags: ["refutacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "refutación"
+tipo: completar
+
+enunciado: "La respuesta que muestra por qué un contraargumento no es suficiente para invalidar la tesis se llama..."
+
+pasos:
+  - "Es el paso que sigue después de presentar el contraargumento."
+
+explicacion: |
+  La refutación es la respuesta argumentada al contraargumento
+  presentado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "intermedio"
+  tags: ["refutacion", "estrategias"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una estrategia de refutación es mostrar que el contraargumento se basa en un dato incorrecto o desactualizado."
+
+pasos:
+  - "Si el dato en el que se apoya el contraargumento es falso, la objeción pierde fuerza."
+
+explicacion: |
+  Verdadero: es una de las estrategias típicas para refutar un
+  contraargumento.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "intermedio"
+  tags: ["refutacion", "estrategias"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Otra estrategia de refutación es mostrar que el contraargumento aplica sólo a un caso excepcional, no a la regla general que defiende la tesis."
+
+pasos:
+  - "Reconocer una excepción no invalida la regla general defendida por la tesis."
+
+explicacion: |
+  Verdadero: distinguir excepción de regla general es una forma
+  válida de refutar sin negar el contraargumento por completo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "intermedio"
+  tags: ["concesion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "concesión"
+tipo: completar
+
+enunciado: "Aceptar que el contraargumento tiene algo de razón, antes de explicar por qué de todas formas la tesis se sostiene, se llama..."
+
+pasos:
+  - "Se marca con conectores como \"si bien\", \"aunque\", \"es cierto que... pero\"."
+
+explicacion: |
+  La concesión reconoce parcialmente la validez del contraargumento
+  sin abandonar la tesis.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "intermedio"
+  tags: ["concesion", "conectores"]
+
+variables:
+  conectores: ["si bien", "aunque", "es cierto que... pero"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{conectores[idx]}\" es un conector típico usado para introducir una concesión antes de la refutación."
+
+pasos:
+  - "Estos conectores son adversativos, coherentes con la coordinación adversativa vista en `../oracion-compuesta-coordinacion-y-subordinacion/`."
+
+explicacion: |
+  Verdadero: son los conectores más habituales para marcar la
+  concesión en un texto argumentativo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "intermedio"
+  tags: ["concesion", "refutacion", "estructura"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"Es cierto que [contraargumento], pero [refutación]\" es el patrón más común para incorporar un contraargumento sin debilitar la propia postura."
+
+pasos:
+  - "Primero se concede algo de razón, después se explica por qué la tesis igual se sostiene."
+
+explicacion: |
+  Verdadero: es la estructura típica que combina concesión y
+  refutación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "avanzado"
+  tags: ["concesion", "credibilidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Conceder que el contraargumento tiene algo de razón muestra que el autor analizó objetivamente ambos lados, en vez de ignorar la oposición."
+
+pasos:
+  - "Esa honestidad intelectual suele hacer que el texto resulte más convincente, no menos."
+
+explicacion: |
+  Verdadero: la concesión bien usada aumenta, no disminuye, la
+  credibilidad del texto argumentativo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "avanzado"
+  tags: ["contraargumentos", "honestidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para que la refutación sea convincente, el contraargumento elegido debe ser el más fuerte y honesto que la postura contraria realmente podría dar, no una versión débil o distorsionada fácil de tirar abajo."
+
+pasos:
+  - "Refutar una versión débil (un \"espantapájaros\") no demuestra nada sobre la fortaleza real de la tesis."
+
+explicacion: |
+  Verdadero: elegir un contraargumento débil a propósito es una
+  falacia argumentativa que debilita la credibilidad del texto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "intermedio"
+  tags: ["concesion", "refutacion", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "es cierto que reduce la libertad individual"
+tipo: completar
+
+enunciado: "En \"Es cierto que prohibir los celulares en el aula reduce la libertad individual de los alumnos, pero mejora significativamente su concentración durante las clases\", ¿cuál es la parte de concesión?"
+
+pasos:
+  - "La concesión es la parte que reconoce algo de razón al contraargumento, antes del \"pero\"."
+
+explicacion: |
+  La concesión aparece antes del conector adversativo \"pero\", que
+  introduce después la refutación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "intermedio"
+  tags: ["refutacion", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "mejora significativamente su concentración durante las clases"
+tipo: completar
+
+enunciado: "En \"Es cierto que prohibir los celulares en el aula reduce la libertad individual de los alumnos, pero mejora significativamente su concentración durante las clases\", ¿cuál es la parte de refutación?"
+
+pasos:
+  - "La refutación es la parte después del \"pero\", que explica por qué la tesis igual se sostiene."
+
+explicacion: |
+  La refutación viene después del conector adversativo y sostiene la
+  tesis pese a la objeción concedida.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "intermedio"
+  tags: ["contraargumentos", "efecto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ignorar por completo la postura contraria en un texto argumentativo puede hacer que el texto parezca no haber considerado otros puntos de vista."
+
+pasos:
+  - "Un texto que nunca menciona objeciones puede parecer parcial o poco riguroso."
+
+explicacion: |
+  Verdadero: ignorar el contraargumento es una debilidad
+  argumentativa, no una fortaleza.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "avanzado"
+  tags: ["refutacion", "distincion"]
 
 variables:
   n: uno_de([1, 1])
@@ -42,68 +318,22 @@ variables:
 respuesta: falso
 tipo: vf
 
-enunciado: "El género dramático, igual que el narrativo, tiene siempre un narrador que cuenta lo que va sucediendo."
+enunciado: "Refutar un contraargumento consiste simplemente en decir \"eso no es verdad\", sin dar ninguna razón adicional."
 
 pasos:
-  - "En el texto dramático, la historia se conoce a través de lo que dicen los personajes, no de una voz narradora."
+  - "Una refutación válida necesita mostrar POR QUÉ el contraargumento no alcanza a invalidar la tesis (dato incorrecto, excepción, peso insuficiente), no basta con negarlo sin más."
 
 explicacion: |
-  Falso: la ausencia de narrador es justamente lo que distingue al
-  dramático del narrativo.
+  Falso: la simple negación sin razones no es una refutación sólida,
+  necesita fundamento propio.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "basico"
-  tags: ["dialogo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "diálogo"
-tipo: completar
-
-enunciado: "La forma central del texto dramático, donde los personajes hablan entre sí, se llama..."
-
-pasos:
-  - "A través de esas intervenciones se conoce la historia, sin narrador."
-
-explicacion: |
-  El diálogo es el elemento estructural principal del texto
-  dramático.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "basico"
-  tags: ["acotaciones"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "acotaciones"
-tipo: completar
-
-enunciado: "Las indicaciones entre paréntesis o en cursiva que describen gestos, movimientos o tono de voz (y no forman parte del diálogo) se llaman..."
-
-pasos:
-  - "Son la única \"voz\" del autor visible en el texto dramático."
-
-explicacion: |
-  Las acotaciones guían la puesta en escena sin ser parte de lo que
-  dicen los personajes.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "intermedio"
-  tags: ["acotaciones", "funcion"]
+  tema: "contraargumentos"
+  nivel: "avanzado"
+  tags: ["contraargumentos", "complejidad"]
 
 variables:
   n: uno_de([1, 1])
@@ -111,117 +341,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En \"JUAN: (nervioso) ¿Vas a venir?\", la palabra \"nervioso\" es una acotación que indica cómo debería actuarse esa línea."
+enunciado: "Elegir el contraargumento más sólido de la postura contraria demuestra que el tema es más complejo de lo que parecía a simple vista, y que la tesis lo sostiene de todas formas."
 
 pasos:
-  - "Está entre paréntesis, fuera del texto que Juan efectivamente dice."
+  - "Un tema con una sola postura obvia y sin objeciones fuertes casi no necesitaría un texto argumentativo."
 
 explicacion: |
-  Verdadero: las acotaciones indican gestos/tono, no son parte del
-  parlamento del personaje.
+  Verdadero: reconocer complejidad y sostener la tesis igual es la
+  demostración de fuerza argumentativa buscada.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "intermedio"
-  tags: ["estructura", "acto"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "acto"
-tipo: mc
-opciones_explicitas: ["acto", "escena", "acotación"]
-
-enunciado: "Cada una de las grandes partes en que se divide una obra de teatro (equivalente a un capítulo) se llama..."
-
-pasos:
-  - "El acto es la unidad mayor de división de la obra."
-
-explicacion: |
-  El acto agrupa varias escenas y marca las grandes divisiones de la
-  obra.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "intermedio"
-  tags: ["estructura", "escena"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "escena"
-tipo: mc
-opciones_explicitas: ["acto", "escena", "acotación"]
-
-enunciado: "La subdivisión de un acto, marcada por la entrada o salida de un personaje o un cambio de escenario, se llama..."
-
-pasos:
-  - "La escena es una unidad más chica que el acto."
-
-explicacion: |
-  Un acto se compone de varias escenas, delimitadas por cambios en
-  los personajes presentes o en el escenario.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "intermedio"
-  tags: ["subgeneros", "tragedia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "tragedia"
-tipo: mc
-opciones_explicitas: ["tragedia", "comedia", "drama"]
-
-enunciado: "El subgénero dramático con conflicto grave, personajes de gran dignidad y final desdichado se llama..."
-
-pasos:
-  - "El desenlace desgraciado y la gravedad del conflicto son las marcas de la tragedia."
-
-explicacion: |
-  La tragedia clásica se caracteriza por su gravedad y su final
-  infeliz.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "intermedio"
-  tags: ["subgeneros", "comedia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "comedia"
-tipo: mc
-opciones_explicitas: ["tragedia", "comedia", "drama"]
-
-enunciado: "El subgénero dramático con conflicto liviano, tono humorístico y final feliz se llama..."
-
-pasos:
-  - "El humor y el final feliz son las marcas de la comedia."
-
-explicacion: |
-  La comedia se distingue de la tragedia por su tono y su desenlace.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_dramatico"
+  tema: "contraargumentos"
   nivel: "avanzado"
-  tags: ["subgeneros", "drama"]
+  tags: ["tesis", "argumentos", "contraargumentos", "sintesis"]
 
 variables:
   n: uno_de([1, 1])
@@ -229,22 +364,395 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El drama, como subgénero, mezcla tono serio y liviano, sin la rigidez de la tragedia clásica, y es el subgénero más común en el teatro moderno."
+enunciado: "Un texto argumentativo sólido integra las tres piezas de esta cadena: una tesis clara, argumentos que la sostienen, y al menos un contraargumento anticipado y refutado."
 
 pasos:
-  - "No exige ni el final necesariamente desdichado de la tragedia ni el tono siempre cómico de la comedia."
+  - "Ver `../tesis/` y `../argumentos/`: es la estructura completa que cierra esta subrama."
 
 explicacion: |
-  Verdadero: el drama moderno flexibiliza las reglas estrictas de
-  tragedia y comedia clásicas.
+  Verdadero: esa integración es el objetivo final de la cadena
+  tesis→argumentos→contraargumentos.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_dramatico"
+  tema: "contraargumentos"
   nivel: "avanzado"
-  tags: ["subgeneros", "vocabulario"]
+  tags: ["refutacion", "concesion", "distincion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "No siempre es necesario conceder algo de razón antes de refutar; a veces la refutación es directa (por ejemplo, si el contraargumento se basa en un dato falso)."
+
+pasos:
+  - "La concesión se usa cuando el contraargumento tiene algo de validez parcial; si es completamente incorrecto, no hace falta conceder nada."
+
+explicacion: |
+  Verdadero: la concesión es una estrategia útil pero no obligatoria
+  en toda refutación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "intermedio"
+  tags: ["contraargumentos", "metodo"]
+
+enunciado: "Ordená los pasos para incorporar bien un contraargumento en un texto argumentativo propio."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar el argumento más fuerte que alguien en desacuerdo podría dar"
+  - "Presentarlo de forma honesta, sin distorsionarlo (evitar el espantapájaros)"
+  - "Conceder, si corresponde, que tiene algo de razón"
+  - "Refutarlo explicando por qué la tesis se sostiene de todas formas"
+respuesta_orden: ["Identificar el argumento más fuerte que alguien en desacuerdo podría dar", "Presentarlo de forma honesta, sin distorsionarlo (evitar el espantapájaros)", "Conceder, si corresponde, que tiene algo de razón", "Refutarlo explicando por qué la tesis se sostiene de todas formas"]
+explicacion: |
+  El proceso va de identificar la objeción más fuerte a presentarla
+  honestamente, y termina con la concesión (si aplica) y la
+  refutación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "avanzado"
+  tags: ["contraargumentos", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El análisis completo de un texto argumentativo combina tres preguntas: qué se defiende (tesis), por qué (argumentos) y qué dirían en contra, y por qué la tesis igual se sostiene (contraargumentos)."
+
+pasos:
+  - "Cada tema de la cadena respondió una de esas tres preguntas, en ese orden."
+
+explicacion: |
+  Verdadero: contraargumentos cierra la cadena que empezó con tesis y
+  siguió con argumentos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "contraargumentos"
+  nivel: "avanzado"
+  tags: ["contraargumentos", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un debate, anticipar y refutar de antemano el contraargumento más fuerte del rival deja al orador mejor preparado que esperar a que el rival lo mencione primero."
+
+pasos:
+  - "Adelantarse a la objeción más fuerte reduce su impacto cuando (o si) el rival la presenta."
+
+explicacion: |
+  Verdadero: esta estrategia argumentativa tiene aplicación directa
+  más allá de la escritura, también en la oratoria y el debate.
+```
+
+## Sección: generacion-del-98 (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "basico"
+  tags: ["generacion_98", "contexto_historico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Generación del 98 reacciona al Desastre del 98: la derrota de España frente a Estados Unidos en 1898, que le hizo perder sus últimas colonias."
+
+pasos:
+  - "Esa derrota desató una crisis de identidad nacional que el grupo de escritores intenta pensar."
+
+explicacion: |
+  Verdadero: el Desastre del 98 es el hecho histórico que da nombre y
+  origen al movimiento.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "intermedio"
+  tags: ["generacion_98", "contexto_historico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Tras la derrota de 1898, España perdió sus últimas colonias: Cuba, Puerto Rico y Filipinas."
+
+pasos:
+  - "Esa pérdida marcó el fin del imperio colonial español."
+
+explicacion: |
+  Verdadero: es el hecho histórico concreto detrás de la crisis de
+  identidad nacional del movimiento.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "basico"
+  tags: ["generacion_98", "caracteristicas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una preocupación central de la Generación del 98 es \"el problema de España\": por qué el país entró en decadencia y cómo regenerarlo."
+
+pasos:
+  - "Es la pregunta central que atraviesa la obra de todo el grupo."
+
+explicacion: |
+  Verdadero: esa preocupación identitaria y nacional es el eje
+  temático central del movimiento.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "intermedio"
+  tags: ["generacion_98", "paisaje"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Castilla (su meseta austera, sus pueblos) se convierte en la Generación del 98 en símbolo de la esencia española a explorar y cuestionar."
+
+pasos:
+  - "A diferencia del cosmopolitismo modernista, la mirada se dirige hacia adentro, hacia lo propio."
+
+explicacion: |
+  Verdadero: el paisaje castellano es un símbolo recurrente del
+  movimiento.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "intermedio"
+  tags: ["generacion_98", "modernismo", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Frente al lenguaje ornamentado del Modernismo, la Generación del 98 prefiere un estilo más directo y austero."
+
+pasos:
+  - "Coherente con su tono crítico e introspectivo, distinto del esteticismo refinado modernista."
+
+explicacion: |
+  Verdadero: la sobriedad estilística contrasta directamente con el
+  refinamiento formal del Modernismo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "intermedio"
+  tags: ["generacion_98", "filosofia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Generación del 98 muestra preocupación filosófica y existencial por el sentido de la vida, la muerte y el tiempo, influida por el pensamiento existencialista europeo de la época."
+
+pasos:
+  - "Esta dimensión filosófica es parte de su carácter introspectivo."
+
+explicacion: |
+  Verdadero: la reflexión existencial es un componente importante del
+  movimiento, más allá de lo estrictamente nacional.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "intermedio"
+  tags: ["generacion_98", "autores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Unamuno"
+tipo: completar
+
+enunciado: "El autor de \"Niebla\", ensayista y novelista central del grupo de la Generación del 98, se apellida..."
+
+pasos:
+  - "Miguel de Unamuno es una de las figuras más representativas del movimiento."
+
+explicacion: |
+  Unamuno es autor central de la Generación del 98.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "intermedio"
+  tags: ["generacion_98", "autores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Antonio Machado"
+tipo: completar
+
+enunciado: "El poeta autor de \"Campos de Castilla\", donde el paisaje castellano es el eje central, se llama..."
+
+pasos:
+  - "Antonio Machado es el poeta representativo de la Generación del 98."
+
+explicacion: |
+  \"Campos de Castilla\" es una obra clave del movimiento por su
+  tratamiento del paisaje castellano.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "avanzado"
+  tags: ["generacion_98", "autores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "El árbol de la ciencia"
+tipo: completar
+
+enunciado: "La novela de Pío Baroja, autor representativo de la Generación del 98, se titula..."
+
+pasos:
+  - "Es una de las novelas más conocidas del grupo."
+
+explicacion: |
+  \"El árbol de la ciencia\" es la novela más representativa de Pío
+  Baroja dentro del movimiento.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "avanzado"
+  tags: ["generacion_98", "autores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Azorín (José Martínez Ruiz) fue quien acuñó el nombre \"Generación del 98\" para referirse a este grupo de escritores."
+
+pasos:
+  - "Es dato histórico sobre el origen del nombre del movimiento."
+
+explicacion: |
+  Verdadero: Azorín es el autor al que se le atribuye haber puesto
+  nombre al movimiento.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "avanzado"
+  tags: ["generacion_98", "modernismo", "diferenciacion"]
+
+variables:
+  miradas: ["cosmopolita, hacia afuera", "introspectiva, hacia adentro"]
+  movimientos: ["Modernismo", "Generación del 98"]
+  idx: uno_de([0, 1])
+
+respuesta: movimientos[idx]
+tipo: mc
+opciones_explicitas: ["Modernismo", "Generación del 98"]
+
+enunciado: "La mirada \"{miradas[idx]}\" corresponde principalmente al movimiento..."
+
+pasos:
+  - "Modernismo mira hacia culturas lejanas; Generación del 98 mira hacia adentro, a España."
+
+explicacion: |
+  Ambos movimientos casi contemporáneos difieren radicalmente en
+  dirección de su mirada: afuera vs. adentro.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "avanzado"
+  tags: ["generacion_98", "modernismo", "diferenciacion"]
+
+variables:
+  tonos: ["refinado, artificioso", "sobrio, austero, crítico"]
+  movimientos: ["Modernismo", "Generación del 98"]
+  idx: uno_de([0, 1])
+
+respuesta: movimientos[idx]
+tipo: mc
+opciones_explicitas: ["Modernismo", "Generación del 98"]
+
+enunciado: "El tono \"{tonos[idx]}\" corresponde principalmente al movimiento..."
+
+pasos:
+  - "Modernismo cultiva el refinamiento formal; Generación del 98 prefiere la sobriedad crítica."
+
+explicacion: |
+  El contraste de tono es una de las diferencias más marcadas entre
+  ambos movimientos contemporáneos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "intermedio"
+  tags: ["generacion_98", "modernismo", "diferenciacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -252,190 +760,1071 @@ variables:
 respuesta: falso
 tipo: vf
 
-enunciado: "\"Drama\" y \"género dramático\" son exactamente lo mismo: toda obra de género dramático se llama \"drama\"."
+enunciado: "La Generación del 98, igual que el Modernismo, nace en Hispanoamérica y luego se extiende a España."
 
 pasos:
-  - "\"Género dramático\" es la categoría general (con tragedia, comedia y drama como subgéneros); \"drama\" es sólo uno de esos tres subgéneros."
+  - "La Generación del 98 nace en España, directamente sobre el problema de la crisis nacional española."
 
 explicacion: |
-  Falso: el drama es un subgénero particular dentro del género
-  dramático, no un sinónimo de la categoría completa.
+  Falso: a diferencia del Modernismo, la Generación del 98 tiene
+  origen puramente español, ligado al Desastre del 98.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "basico"
-  tags: ["dialogo", "acotaciones", "diferenciacion"]
+  tema: "generacion_98"
+  nivel: "intermedio"
+  tags: ["generacion_98", "practica"]
 
 variables:
-  partes: ["¿Vas a venir a la fiesta?", "(nervioso)"]
-  tipos: ["diálogo", "acotación"]
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un ensayo con estilo sobrio que reflexiona sobre por qué España perdió su lugar en el mundo, describiendo con austeridad el paisaje de los pueblos castellanos, es un ejemplo típico de la Generación del 98."
+
+pasos:
+  - "Combina preocupación nacional, estilo austero y paisaje castellano: marcas centrales del movimiento."
+
+explicacion: |
+  Verdadero: reúne varias de las características centrales de la
+  Generación del 98 estudiadas en este tema.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "avanzado"
+  tags: ["generacion_98", "modernismo", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La Generación del 98, igual que el Modernismo, tiene como objetivo principal el \"arte por el arte\", sin preocupación por temas sociales o nacionales."
+
+pasos:
+  - "La Generación del 98 está centrada precisamente en un tema social/nacional: el \"problema de España\"."
+
+explicacion: |
+  Falso: es justo lo opuesto al esteticismo puro del Modernismo — la
+  preocupación nacional es su eje central.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "avanzado"
+  tags: ["generacion_98", "filosofia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Unamuno, además de reflexionar sobre España, también abordó preguntas existenciales sobre el sentido de la vida y la muerte."
+
+pasos:
+  - "La dimensión filosófica del movimiento va más allá de lo estrictamente nacional."
+
+explicacion: |
+  Verdadero: la reflexión existencial complementa la preocupación
+  nacional en la obra del grupo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "intermedio"
+  tags: ["generacion_98", "modernismo", "cronologia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Modernismo y la Generación del 98 son movimientos casi contemporáneos, ambos ubicados entre fines del siglo XIX y principios del XX."
+
+pasos:
+  - "Esa coincidencia temporal es justamente lo que genera la confusión frecuente entre ambos."
+
+explicacion: |
+  Verdadero: la cercanía cronológica explica por qué se suelen
+  confundir, pese a sus diferencias de contenido.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "avanzado"
+  tags: ["generacion_98", "modernismo", "metodo"]
+
+enunciado: "Ordená los pasos para decidir si un texto de fin de siglo XIX/principios XX pertenece al Modernismo o a la Generación del 98."
+tipo: ordenar
+opciones_explicitas:
+  - "Revisar si el foco es la belleza formal o la crisis de identidad nacional"
+  - "Determinar si la mirada es cosmopolita (hacia afuera) o introspectiva (hacia España)"
+  - "Comparar el tono: refinado/artificioso vs. sobrio/austero"
+  - "Confirmar el origen del texto (Hispanoamérica vs. España) como dato adicional"
+respuesta_orden: ["Revisar si el foco es la belleza formal o la crisis de identidad nacional", "Determinar si la mirada es cosmopolita (hacia afuera) o introspectiva (hacia España)", "Comparar el tono: refinado/artificioso vs. sobrio/austero", "Confirmar el origen del texto (Hispanoamérica vs. España) como dato adicional"]
+explicacion: |
+  El análisis va del criterio más decisivo (foco temático) a los
+  criterios complementarios (mirada, tono, origen).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "avanzado"
+  tags: ["generacion_98", "boom_latinoamericano", "prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Boom latinoamericano, movimiento que cierra la cadena, retoma (mucho después) la pregunta por la identidad nacional/regional que ya había explorado la Generación del 98, pero desde Hispanoamérica."
+
+pasos:
+  - "Ver `../boom-latinoamericano/`: la pregunta por la identidad se repite en otro contexto histórico y geográfico distinto."
+
+explicacion: |
+  Verdadero: es la conexión temática (aunque con gran distancia
+  temporal) que cierra la cadena de movimientos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generacion_98"
+  nivel: "avanzado"
+  tags: ["generacion_98", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el objetivo de un autor es reflexionar críticamente sobre la identidad y los problemas de su propio país, un estilo sobrio e introspectivo como el de la Generación del 98 es más afín que el cosmopolitismo modernista."
+
+pasos:
+  - "La Generación del 98 está construida precisamente para esa función: pensar el propio país en crisis."
+
+explicacion: |
+  Verdadero: la elección de movimiento/estilo depende del propósito
+  (mirar hacia adentro vs. buscar belleza cosmopolita) que el autor
+  persigue.
+```
+
+## Sección: detectar-falacias (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "basico"
+  tags: ["falacias", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una falacia es un razonamiento que parece válido pero no lo es: la conclusión no se sigue realmente de las premisas, aunque suene convincente."
+
+pasos:
+  - "Ver `../argumentos/`: no alcanza con que un argumento suene bien, hay que evaluar si realmente sostiene la conclusión."
+
+explicacion: |
+  Verdadero: la apariencia de validez sin sustento real es la
+  definición central de falacia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "basico"
+  tags: ["ad_hominem"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "ad hominem"
+tipo: mc
+opciones_explicitas: ["ad hominem", "falsa dicotomía", "pendiente resbaladiza"]
+
+enunciado: "\"No le hagas caso a su argumento económico, es un desastre con el dinero\" es un ejemplo de..."
+
+pasos:
+  - "Ataca a la persona (\"es un desastre con el dinero\") en vez de responder al argumento que dio."
+
+explicacion: |
+  El ad hominem ataca a la persona que argumenta en vez de su
+  argumento.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "basico"
+  tags: ["falsa_dicotomia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "falsa dicotomía"
+tipo: mc
+opciones_explicitas: ["ad hominem", "falsa dicotomía", "generalización apresurada"]
+
+enunciado: "\"O estás con nosotros o estás en contra\" es un ejemplo de..."
+
+pasos:
+  - "Presenta sólo dos opciones cuando en realidad hay posturas intermedias posibles."
+
+explicacion: |
+  La falsa dicotomía reduce las opciones a dos extremos, ignorando
+  posturas intermedias.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "intermedio"
+  tags: ["pendiente_resbaladiza"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "pendiente resbaladiza"
+tipo: mc
+opciones_explicitas: ["pendiente resbaladiza", "ad populum", "petición de principio"]
+
+enunciado: "\"Si dejamos que falten a esta clase, van a terminar abandonando la escuela\" es un ejemplo de..."
+
+pasos:
+  - "Afirma que un paso pequeño llevará inevitablemente a una consecuencia extrema, sin justificar esa cadena."
+
+explicacion: |
+  La pendiente resbaladiza encadena consecuencias extremas sin
+  justificación real de que cada paso lleve al siguiente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "intermedio"
+  tags: ["apelacion_autoridad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "apelación a la autoridad no pertinente"
+tipo: mc
+opciones_explicitas: ["apelación a la autoridad no pertinente", "ad hominem", "falsa dicotomía"]
+
+enunciado: "\"Este actor famoso recomienda esta dieta, así que debe funcionar\" es un ejemplo de..."
+
+pasos:
+  - "Cita a alguien famoso, pero sin relación de experticia real con el tema (nutrición)."
+
+explicacion: |
+  La apelación a la autoridad no pertinente cita a alguien admirado
+  pero sin conocimiento experto en el tema tratado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "intermedio"
+  tags: ["ad_populum"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "apelación a la popularidad"
+tipo: mc
+opciones_explicitas: ["apelación a la popularidad", "generalización apresurada", "pendiente resbaladiza"]
+
+enunciado: "\"Todo el mundo lo hace, así que no puede estar mal\" es un ejemplo de..."
+
+pasos:
+  - "Sostiene que algo es correcto sólo porque mucha gente lo cree o lo hace."
+
+explicacion: |
+  La apelación a la popularidad confunde \"muy común\" con
+  \"correcto\", sin dar otra razón.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "intermedio"
+  tags: ["generalizacion_apresurada"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "generalización apresurada"
+tipo: mc
+opciones_explicitas: ["generalización apresurada", "ad hominem", "petición de principio"]
+
+enunciado: "\"Conocí a dos personas de esa ciudad y las dos eran maleducadas, así que toda la gente de ahí es así\" es un ejemplo de..."
+
+pasos:
+  - "Saca una conclusión general (\"toda la gente\") a partir de muy pocos casos (dos personas)."
+
+explicacion: |
+  La generalización apresurada extiende una conclusión a partir de
+  una muestra demasiado chica para sostenerla.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "intermedio"
+  tags: ["espantapajaros"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "espantapájaros"
+tipo: mc
+opciones_explicitas: ["espantapájaros", "ad populum", "falsa dicotomía"]
+
+enunciado: "Responder \"así que vos querés que no haya ninguna regla en la escuela\" a alguien que sólo propuso flexibilizar un horario puntual es un ejemplo de..."
+
+pasos:
+  - "Distorsiona el argumento original (una propuesta puntual) hacia una versión extrema y fácil de rebatir."
+
+explicacion: |
+  La falacia del espantapájaros simplifica o exagera el argumento
+  ajeno para que sea más fácil de derribar (ver `../contraargumentos/`).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "avanzado"
+  tags: ["peticion_de_principio"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "petición de principio"
+tipo: mc
+opciones_explicitas: ["petición de principio", "pendiente resbaladiza", "generalización apresurada"]
+
+enunciado: "\"Este libro dice la verdad porque lo dice el libro, que siempre dice la verdad\" es un ejemplo de..."
+
+pasos:
+  - "La conclusión (\"dice la verdad\") ya está asumida dentro de la premisa (\"siempre dice la verdad\"): es circular."
+
+explicacion: |
+  La petición de principio (razonamiento circular) asume como premisa
+  lo mismo que quiere demostrar como conclusión.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "avanzado"
+  tags: ["falacias", "distincion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Señalar que un argumento es falaz no significa que su conclusión sea necesariamente falsa: significa que ESA razón en particular no la sostiene bien."
+
+pasos:
+  - "Puede haber una conclusión correcta defendida con un argumento falaz."
+
+explicacion: |
+  Verdadero: evaluar la falacia de un argumento es distinto de
+  evaluar si la conclusión en sí es verdadera.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "intermedio"
+  tags: ["ad_hominem", "estructura"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El ad hominem se reconoce porque la respuesta se dirige a la persona (su carácter, su historia) y no al contenido del argumento que esa persona presentó."
+
+pasos:
+  - "Aunque la crítica a la persona sea cierta, no dice nada sobre si el argumento en sí es correcto."
+
+explicacion: |
+  Verdadero: esa desviación del contenido hacia la persona es la
+  marca central del ad hominem.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "avanzado"
+  tags: ["generalizacion_apresurada", "argumento_de_datos", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un argumento de datos basado en un estudio con miles de casos es distinto de una generalización apresurada basada en dos o tres casos anecdóticos, aunque ambos generalicen a partir de ejemplos."
+
+pasos:
+  - "Ver `../argumentos/`: el tamaño y representatividad de la muestra es lo que distingue un argumento de datos sólido de una generalización apresurada."
+
+explicacion: |
+  Verdadero: la cantidad y calidad de la evidencia es lo que separa
+  un argumento válido de una falacia con estructura similar.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "avanzado"
+  tags: ["falacias", "practica"]
+
+variables:
+  frases: ["No hay que escucharlo, ni siquiera terminó la secundaria", "O bajamos los impuestos a cero o el país se hunde", "Si permitimos esto, mañana va a estar todo permitido"]
+  tipos: ["ad hominem", "falsa dicotomía", "pendiente resbaladiza"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["ad hominem", "falsa dicotomía", "pendiente resbaladiza", "ad populum"]
+
+enunciado: "\"{frases[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "Identificar si ataca a la persona, reduce a dos opciones extremas, o encadena consecuencias sin justificar."
+
+explicacion: |
+  Cada fragmento fue construido para representar un tipo distinto de
+  falacia común.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "avanzado"
+  tags: ["falacias", "validez"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un razonamiento puede ser lógicamente válido en su estructura y aun así llegar a una conclusión falsa, si alguna de sus premisas es falsa — eso es un problema distinto al de la falacia."
+
+pasos:
+  - "Ese análisis de \"validez\" formal es justamente el tema que sigue en la cadena, `Validez de un razonamiento` (Filosofía)."
+
+explicacion: |
+  Verdadero: falacia (error en la estructura del razonamiento) y
+  premisa falsa (error en el contenido) son problemas distintos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "intermedio"
+  tags: ["falacias", "publicidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "apelación a la autoridad no pertinente"
+tipo: mc
+opciones_explicitas: ["apelación a la autoridad no pertinente", "petición de principio", "falsa dicotomía"]
+
+enunciado: "Un anuncio de crema para la piel que usa a un futbolista famoso como testimonio de que \"funciona\", sin ninguna evidencia dermatológica, apela a..."
+
+pasos:
+  - "El futbolista no es experto en dermatología: es una autoridad no pertinente para el tema."
+
+explicacion: |
+  Es un caso muy común de apelación a la autoridad no pertinente en
+  publicidad.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "intermedio"
+  tags: ["falacias", "metodo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El primer paso para detectar una falacia es separar la conclusión de las razones dadas, y preguntar si esas razones realmente apoyan la conclusión o sólo distraen con algo relacionado."
+
+pasos:
+  - "Esa separación permite ver con claridad si hay un salto lógico injustificado."
+
+explicacion: |
+  Verdadero: es el método básico descrito en la teoría para
+  identificar una falacia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "intermedio"
+  tags: ["falsa_dicotomia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La falsa dicotomía funciona presentando sólo dos opciones extremas, cuando en realidad existen posturas intermedias que el argumento no menciona."
+
+pasos:
+  - "Esa reducción artificial a dos opciones es lo que la hace falaz, no que las dos opciones mencionadas sean falsas en sí."
+
+explicacion: |
+  Verdadero: ocultar las alternativas intermedias es el mecanismo
+  central de esta falacia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "intermedio"
+  tags: ["falacias", "metodo"]
+
+enunciado: "Ordená los pasos para evaluar si un argumento contiene una falacia."
+tipo: ordenar
+opciones_explicitas:
+  - "Separar la conclusión de las razones dadas"
+  - "Revisar si las razones responden directamente al contenido del argumento o se desvían (persona, popularidad, miedo)"
+  - "Comparar el patrón encontrado con las falacias comunes conocidas"
+  - "Nombrar la falacia específica si corresponde"
+respuesta_orden: ["Separar la conclusión de las razones dadas", "Revisar si las razones responden directamente al contenido del argumento o se desvían (persona, popularidad, miedo)", "Comparar el patrón encontrado con las falacias comunes conocidas", "Nombrar la falacia específica si corresponde"]
+explicacion: |
+  El proceso va de la separación básica al reconocimiento del patrón
+  específico de falacia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "avanzado"
+  tags: ["falacias", "prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Detectar falacias en lenguaje cotidiano es el puente directo hacia la lógica proposicional (Filosofía), que da herramientas más precisas y sistemáticas para analizar la validez de un razonamiento."
+
+pasos:
+  - "Ver `../../filosofia/logica-proposicional/`: es el mismo problema (razonamientos que fallan) visto con más formalismo."
+
+explicacion: |
+  Verdadero: por eso detectar falacias es prerrequisito directo del
+  siguiente tema en la cadena, ya en otra materia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "detectar_falacias"
+  nivel: "avanzado"
+  tags: ["falacias", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Reconocer falacias comunes (ad hominem, falsa dicotomía, apelación a la popularidad) es una herramienta directa para leer noticias, publicidad y debates con más ojo crítico."
+
+pasos:
+  - "Muchos argumentos persuasivos del día a día se apoyan, precisamente, en estas falacias en vez de en razones sólidas."
+
+explicacion: |
+  Verdadero: la aplicación práctica más directa de este tema es la
+  lectura crítica de textos persuasivos cotidianos.
+```
+
+## Sección: boom-latinoamericano (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "basico"
+  tags: ["boom_latinoamericano", "contexto_historico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Boom latinoamericano ocurre en las décadas de 1960 y 1970."
+
+pasos:
+  - "Es un movimiento del siglo XX, mucho más tardío que los movimientos del siglo XIX ya vistos."
+
+explicacion: |
+  Verdadero: el Boom es un fenómeno literario de mediados del siglo
+  XX.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "intermedio"
+  tags: ["boom_latinoamericano", "generacion_98", "cronologia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Entre la Generación del 98 y el Boom latinoamericano pasó más de medio siglo, con otros movimientos intermedios que no se cubren en esta cadena."
+
+pasos:
+  - "El MAPA los encadena como los dos últimos movimientos importantes en español, pero no son consecutivos en el tiempo."
+
+explicacion: |
+  Verdadero: la distancia temporal es real y se explicita a
+  propósito en la teoría, no se oculta.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "intermedio"
+  tags: ["boom_latinoamericano", "contexto_historico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Boom coincide con un momento de efervescencia política y cultural en América Latina, incluyendo la Revolución Cubana."
+
+pasos:
+  - "Ese contexto ayudó a que las obras llegaran con fuerza a un público internacional."
+
+explicacion: |
+  Verdadero: el contexto histórico-político es parte de las
+  condiciones que hicieron posible el fenómeno del Boom.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "basico"
+  tags: ["realismo_magico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "realismo mágico"
+tipo: completar
+
+enunciado: "El recurso característico del Boom donde lo fantástico se narra con total naturalidad, como parte normal de la realidad cotidiana, se llama..."
+
+pasos:
+  - "Es la característica más distintiva y famosa del movimiento."
+
+explicacion: |
+  El realismo mágico es la marca central del Boom latinoamericano.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "avanzado"
+  tags: ["realismo_magico", "fantastico", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el realismo mágico, lo sobrenatural se integra sin extrañeza dentro de un mundo realista; en la literatura fantástica pura, lo sobrenatural genera duda o extrañeza en los personajes."
+
+pasos:
+  - "Esa ausencia de sorpresa ante lo mágico es lo que distingue al realismo mágico de otras formas de literatura sobrenatural."
+
+explicacion: |
+  Verdadero: la naturalidad sin sorpresa es la marca distintiva del
+  realismo mágico frente al fantástico puro.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "intermedio"
+  tags: ["boom_latinoamericano", "experimentacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Boom se caracteriza también por la experimentación narrativa: estructuras complejas, múltiples narradores o puntos de vista, y saltos temporales frecuentes."
+
+pasos:
+  - "Ver `../estructura-narrativa/`: estas obras son mucho más audaces que la estructura clásica introducción-nudo-desenlace."
+
+explicacion: |
+  Verdadero: la experimentación estructural es otra característica
+  central del movimiento, además del realismo mágico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "intermedio"
+  tags: ["boom_latinoamericano", "identidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Boom explora la historia, la política y la cultura propias de América Latina, con frecuencia con una mirada crítica del poder (dictaduras, colonialismo)."
+
+pasos:
+  - "Esa exploración de la identidad regional es un eje temático central del movimiento."
+
+explicacion: |
+  Verdadero: el compromiso con la identidad y la política
+  latinoamericana es característico del Boom.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "intermedio"
+  tags: ["boom_latinoamericano", "proyeccion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Con el Boom, por primera vez la literatura escrita en español desde Hispanoamérica alcanza reconocimiento y venta masiva a nivel mundial."
+
+pasos:
+  - "Es un hito distinto de lo que había pasado con los movimientos anteriores de esta cadena."
+
+explicacion: |
+  Verdadero: la proyección internacional masiva es un rasgo distintivo
+  del fenómeno del Boom, más allá de lo estrictamente literario.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "basico"
+  tags: ["boom_latinoamericano", "autores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Cien años de soledad"
+tipo: completar
+
+enunciado: "La novela de Gabriel García Márquez, considerada la obra más emblemática del realismo mágico, se titula..."
+
+pasos:
+  - "García Márquez es el autor colombiano central del Boom."
+
+explicacion: |
+  \"Cien años de soledad\" es la novela más representativa del
+  realismo mágico y del Boom en general.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "intermedio"
+  tags: ["boom_latinoamericano", "autores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Rayuela"
+tipo: completar
+
+enunciado: "La novela de Julio Cortázar, referencia central de la experimentación narrativa del Boom, se titula..."
+
+pasos:
+  - "Cortázar es el autor argentino central de la experimentación estructural del Boom."
+
+explicacion: |
+  \"Rayuela\" es célebre por poder leerse en distintos órdenes de
+  capítulos, ejemplo extremo de experimentación narrativa.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "avanzado"
+  tags: ["boom_latinoamericano", "autores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Vargas Llosa"
+tipo: completar
+
+enunciado: "El autor peruano de \"La ciudad y los perros\" se apellida..."
+
+pasos:
+  - "Mario Vargas Llosa es uno de los autores centrales del Boom."
+
+explicacion: |
+  Vargas Llosa es autor representativo del Boom latinoamericano,
+  originario de Perú.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "avanzado"
+  tags: ["boom_latinoamericano", "autores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Carlos Fuentes"
+tipo: completar
+
+enunciado: "El autor mexicano de \"La muerte de Artemio Cruz\" se llama..."
+
+pasos:
+  - "Carlos Fuentes es otro de los autores centrales del Boom."
+
+explicacion: |
+  Fuentes es autor representativo del Boom, originario de México.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "avanzado"
+  tags: ["boom_latinoamericano", "autores"]
+
+variables:
+  autores: ["García Márquez", "Cortázar", "Vargas Llosa", "Fuentes"]
+  origenes: ["Colombia", "Argentina", "Perú", "México"]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: origenes[idx]
+tipo: mc
+opciones_explicitas: ["Colombia", "Argentina", "Perú", "México"]
+
+enunciado: "El autor del Boom {autores[idx]} es de..."
+
+pasos:
+  - "Cada autor representativo del Boom tiene un origen nacional distinto dentro de Hispanoamérica."
+
+explicacion: |
+  El Boom fue un fenómeno regional con referentes en varios países de
+  América Latina.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "intermedio"
+  tags: ["realismo_magico", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un relato donde un personaje asciende al cielo mientras cuelga la ropa, y nadie en el pueblo se asombra ni lo comenta como algo extraordinario, es un ejemplo típico de realismo mágico."
+
+pasos:
+  - "La clave es que lo sobrenatural se integra sin sorpresa dentro de la narración, tratado como parte normal de la realidad."
+
+explicacion: |
+  Verdadero: la ausencia de asombro ante lo fantástico es la marca
+  distintiva del realismo mágico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "avanzado"
+  tags: ["boom_latinoamericano", "identidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Boom latinoamericano no se caracteriza sólo por su innovación estilística (realismo mágico, experimentación), sino también por un fuerte contenido político y de crítica social."
+
+pasos:
+  - "Muchas obras del Boom abordan directamente dictaduras, colonialismo y desigualdad en la región."
+
+explicacion: |
+  Verdadero: forma y contenido político van de la mano en buena parte
+  de la literatura del Boom.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "intermedio"
+  tags: ["realismo_magico", "autores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aunque \"Cien años de soledad\" es el ejemplo más famoso, el realismo mágico aparece en la obra de varios autores del Boom, no sólo en García Márquez."
+
+pasos:
+  - "El realismo mágico es una característica compartida del movimiento, no una técnica exclusiva de un solo autor."
+
+explicacion: |
+  Verdadero: el realismo mágico es una de las marcas del movimiento
+  en su conjunto, aunque García Márquez sea su referente más
+  reconocido.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "boom_latinoamericano"
+  nivel: "avanzado"
+  tags: ["realismo_magico", "fantastico", "practica"]
+
+variables:
+  fragmentos: ["Un personaje encuentra un fantasma y grita aterrorizado, sin entender qué está pasando", "Llueven flores amarillas del cielo durante horas, y los vecinos simplemente barren la vereda como cualquier otro día"]
+  tipos: ["fantástico puro", "realismo mágico"]
   idx: uno_de([0, 1])
 
 respuesta: tipos[idx]
 tipo: mc
-opciones_explicitas: ["diálogo", "acotación"]
+opciones_explicitas: ["fantástico puro", "realismo mágico"]
 
-enunciado: "En \"JUAN: (nervioso) ¿Vas a venir a la fiesta?\", la parte \"{partes[idx]}\" es..."
+enunciado: "\"{fragmentos[idx]}\" es un ejemplo de..."
 
 pasos:
-  - "Lo que está entre paréntesis es acotación; lo que dice el personaje directamente es diálogo."
+  - "Si el personaje se sorprende o teme lo sobrenatural, es fantástico puro. Si lo sobrenatural se trata como normal, es realismo mágico."
 
 explicacion: |
-  El diálogo es lo que el personaje efectivamente dice; la acotación
-  es la indicación escénica entre paréntesis.
+  La reacción de los personajes ante lo sobrenatural es el criterio
+  que distingue estos dos tipos de literatura fantástica.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_dramatico"
+  tema: "boom_latinoamericano"
   nivel: "intermedio"
-  tags: ["genero_dramatico", "representacion"]
+  tags: ["boom_latinoamericano", "metodo"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El texto dramático está pensado principalmente para ser actuado en un escenario, aunque también se pueda leer como cualquier otro texto."
-
-pasos:
-  - "Su estructura en diálogos y acotaciones está orientada a la puesta en escena."
-
-explicacion: |
-  Verdadero: la representación es el destino principal del texto
-  dramático, la lectura es una forma alternativa de acceder a él.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "intermedio"
-  tags: ["estructura", "acto", "escena"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un acto puede estar formado por varias escenas."
-
-pasos:
-  - "La escena es una subdivisión del acto, no al revés."
-
-explicacion: |
-  Verdadero: el acto es la unidad mayor, compuesta de una o más
-  escenas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "intermedio"
-  tags: ["genero_dramatico", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "dramático"
-tipo: mc
-opciones_explicitas: ["narrativo", "lírico", "dramático"]
-
-enunciado: "Un texto compuesto por líneas como \"ANA: No puedo creerlo. (se sienta, sorprendida) ¿Cuándo pasó esto?\" es de género..."
-
-pasos:
-  - "Diálogo identificado por nombre del personaje + acotación entre paréntesis = marcas del género dramático."
-
-explicacion: |
-  La estructura de diálogo con acotaciones es exclusiva del género
-  dramático.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "avanzado"
-  tags: ["genero_dramatico", "genero_lirico", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El género dramático, igual que el lírico, se organiza principalmente alrededor de un único hablante que expresa sus emociones."
-
-pasos:
-  - "El dramático se organiza en diálogos entre VARIOS personajes, no en la voz de un único hablante."
-
-explicacion: |
-  Falso: la lírica gira en torno a un hablante; el dramático, en
-  torno al intercambio de varios personajes.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "intermedio"
-  tags: ["acotaciones"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las acotaciones no son pronunciadas por ningún personaje: son indicaciones del autor para quien monta o interpreta la obra."
-
-pasos:
-  - "Se distinguen tipográficamente (paréntesis/cursiva) precisamente porque no forman parte de lo hablado."
-
-explicacion: |
-  Verdadero: las acotaciones son la voz del autor guiando la puesta
-  en escena, no un parlamento de los personajes.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_dramatico"
-  nivel: "intermedio"
-  tags: ["genero_dramatico", "metodo"]
-
-enunciado: "Ordená los pasos para analizar la estructura de una obra dramática."
+enunciado: "Ordená los pasos para reconocer si un texto pertenece al Boom latinoamericano."
 tipo: ordenar
 opciones_explicitas:
-  - "Separar el texto en actos"
-  - "Dentro de cada acto, identificar las escenas"
-  - "Distinguir el diálogo de las acotaciones"
-  - "Determinar si el tono general corresponde a tragedia, comedia o drama"
-respuesta_orden:
-  - "Separar el texto en actos"
-  - "Dentro de cada acto, identificar las escenas"
-  - "Distinguir el diálogo de las acotaciones"
-  - "Determinar si el tono general corresponde a tragedia, comedia o drama"
-
+  - "Revisar si aparecen elementos sobrenaturales tratados con naturalidad (realismo mágico)"
+  - "Buscar estructuras narrativas complejas o poco convencionales"
+  - "Identificar si hay una exploración de la identidad o política latinoamericana"
+  - "Confirmar la época (décadas de 1960-1970) y el origen hispanoamericano del autor"
+respuesta_orden: ["Revisar si aparecen elementos sobrenaturales tratados con naturalidad (realismo mágico)", "Buscar estructuras narrativas complejas o poco convencionales", "Identificar si hay una exploración de la identidad o política latinoamericana", "Confirmar la época (décadas de 1960-1970) y el origen hispanoamericano del autor"]
 explicacion: |
-  El análisis va de la estructura mayor (actos) a la menor (escenas),
-  después distingue diálogo de acotación, y termina clasificando el
-  subgénero.
+  El análisis va de la marca más reconocible (realismo mágico) a los
+  datos contextuales que confirman la ubicación del texto en el
+  movimiento.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_dramatico"
+  tema: "boom_latinoamericano"
   nivel: "avanzado"
-  tags: ["genero_dramatico", "acotaciones"]
+  tags: ["boom_latinoamericano", "sintesis"]
 
 variables:
   n: uno_de([1, 1])
@@ -443,23 +1832,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El texto dramático puede describir el escenario o ambiente a través de acotaciones, sin necesitar párrafos descriptivos en prosa como en la narrativa."
+enunciado: "El Boom latinoamericano es el último eslabón de la cadena de movimientos literarios estudiada (Romanticismo → Realismo → Modernismo → Generación del 98 → Boom)."
 
 pasos:
-  - "Las acotaciones cumplen la función que en la narrativa cumpliría un párrafo descriptivo."
+  - "Cada movimiento se relacionó con el anterior por reacción, sucesión cronológica o tema compartido."
 
 explicacion: |
-  Verdadero: las acotaciones son el recurso propio del dramático para
-  describir escenario, gestos y tono, reemplazando la descripción en
-  prosa.
+  Verdadero: cierra la cadena histórica de movimientos literarios en
+  español de esta rama de la currícula.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_dramatico"
+  tema: "boom_latinoamericano"
   nivel: "avanzado"
-  tags: ["genero_dramatico", "aplicacion"]
+  tags: ["realismo_magico", "aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -467,24 +1855,24 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si el propósito es que una historia se represente en vivo ante un público, con personajes que interactúan directamente entre sí, conviene escribirla como texto dramático antes que como cuento."
+enunciado: "Si un autor quiere narrar un hecho sobrenatural para hablar simbólicamente de la historia de un pueblo, sin romper el tono realista general del relato, el realismo mágico es un recurso más afín que la literatura fantástica pura (donde lo sobrenatural genera extrañeza explícita)."
 
 pasos:
-  - "El cuento tiene narrador y se lee; el texto dramático se organiza para la actuación en escena."
+  - "El realismo mágico permite mezclar lo simbólico/sobrenatural con la crítica social sin quebrar la verosimilitud general de la narración."
 
 explicacion: |
-  Verdadero: la elección del género depende del propósito
-  (representación en vivo vs. lectura narrada).
+  Verdadero: la elección del tipo de literatura fantástica depende
+  del efecto narrativo y simbólico que el autor busca lograr.
 ```
 
-## Sección: genero-lirico (20 preguntas)
+## Sección: debate-refutar-en-vivo (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_lirico"
+  tema: "debate_refutar_en_vivo"
   nivel: "basico"
-  tags: ["genero_lirico", "definicion"]
+  tags: ["debate", "prerrequisito"]
 
 variables:
   n: uno_de([1, 1])
@@ -492,470 +1880,181 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El género lírico expresa sentimientos, emociones o reflexiones subjetivas, generalmente en verso, sin necesitar una historia con personajes y trama."
+enunciado: "Refutar en vivo exige reconocer errores de razonamiento, igual que en detectar-falacias, pero sin tiempo para revisar y corregir como en un texto escrito."
 
 pasos:
-  - "A diferencia del narrativo, su eje no es contar hechos sino expresar una experiencia interior."
+  - "Ver `../detectar-falacias/`: es el prerrequisito directo de este tema."
 
 explicacion: |
-  Verdadero: la expresión subjetiva, no el relato de hechos, define
-  al género lírico.
+  Verdadero: es la conexión central entre este tema y su
+  prerrequisito de Lengua.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "intermedio"
-  tags: ["hablante_lirico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El hablante lírico de un poema es siempre exactamente el poeta que lo escribió."
-
-pasos:
-  - "Igual que el narrador en la narrativa, el hablante lírico es una voz construida dentro del texto, no la persona real del autor."
-
-explicacion: |
-  Falso: el hablante lírico (o \"yo lírico\") puede coincidir con el
-  autor real o ser una construcción distinta.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
+  tema: "debate_refutar_en_vivo"
   nivel: "basico"
-  tags: ["verso"]
+  tags: ["estructura_del_debate", "apertura"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "verso"
-tipo: completar
-
-enunciado: "Cada línea de un poema se llama..."
-
-pasos:
-  - "Es la unidad básica de organización del poema."
-
-explicacion: |
-  El verso es la línea individual dentro de un poema.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "basico"
-  tags: ["estrofa"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "estrofa"
-tipo: completar
-
-enunciado: "Un grupo de versos separado de otros grupos por un espacio en blanco se llama..."
-
-pasos:
-  - "Es el equivalente al párrafo, pero en poesía."
-
-explicacion: |
-  La estrofa agrupa varios versos, igual que el párrafo agrupa
-  oraciones en prosa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "intermedio"
-  tags: ["rima", "consonante"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "consonante"
+respuesta: "apertura"
 tipo: mc
-opciones_explicitas: ["consonante", "asonante", "libre"]
+opciones_explicitas: ["apertura", "refutación", "réplica", "cierre"]
 
-enunciado: "En los versos que terminan en \"cantar\" y \"lugar\", donde coinciden TODOS los sonidos desde la última vocal acentuada, la rima es..."
+enunciado: "La etapa del debate en la que cada parte presenta su tesis y sus argumentos principales se llama..."
 
 pasos:
-  - "Consonante: coinciden vocales Y consonantes desde la última vocal acentuada."
+  - "Es la primera etapa de la estructura básica de un debate formal."
 
 explicacion: |
-  La rima consonante exige coincidencia total de sonidos, no sólo de
-  vocales.
+  La apertura presenta la postura inicial de cada parte.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "intermedio"
-  tags: ["rima", "asonante"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "asonante"
-tipo: mc
-opciones_explicitas: ["consonante", "asonante", "libre"]
-
-enunciado: "En los versos que terminan en \"cantar\" y \"amanecer\", donde sólo coinciden las vocales (a-a) desde la última acentuada, la rima es..."
-
-pasos:
-  - "Asonante: sólo coinciden las vocales, no las consonantes."
-
-explicacion: |
-  La rima asonante es más laxa: sólo exige coincidencia de vocales.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "intermedio"
-  tags: ["verso_libre"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El verso libre no tiene rima ni métrica fija, y es muy común en la poesía moderna."
-
-pasos:
-  - "A diferencia de la poesía clásica, el verso libre prescinde de las reglas de rima y medida."
-
-explicacion: |
-  Verdadero: el verso libre es una forma sin las restricciones
-  formales de rima/métrica regular.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "intermedio"
-  tags: ["metrica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "las sílabas de cada verso"
-tipo: mc
-opciones_explicitas: ["las sílabas de cada verso", "la cantidad de versos del poema", "la cantidad de estrofas"]
-
-enunciado: "La métrica de un poema cuenta..."
-
-pasos:
-  - "La métrica se ocupa de la medida silábica de cada verso, no de cuántos versos o estrofas tiene el poema."
-
-explicacion: |
-  La métrica mide la cantidad de sílabas por verso (con reglas
-  adicionales de sinalefa y acentuación final).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "intermedio"
-  tags: ["metrica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un poema tiene métrica regular cuando todos sus versos tienen la misma cantidad de sílabas."
-
-pasos:
-  - "Métrica irregular es cuando los versos varían de longitud silábica."
-
-explicacion: |
-  Verdadero: la regularidad se refiere a la igualdad en la medida
-  silábica entre los versos del poema.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "avanzado"
-  tags: ["recursos_literarios", "prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El género lírico, junto con el narrativo, es donde más se concentran los recursos literarios como la metáfora o la comparación."
-
-pasos:
-  - "La expresión subjetiva del género lírico se apoya fuertemente en un lenguaje figurado."
-
-explicacion: |
-  Verdadero: el estudio de recursos literarios se apoya
-  especialmente en ejemplos del género lírico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "intermedio"
-  tags: ["genero_lirico", "genero_narrativo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El género lírico, igual que el narrativo, necesita siempre personajes y una trama con conflicto."
-
-pasos:
-  - "El género lírico puede expresar una emoción sin contar ninguna historia con personajes."
-
-explicacion: |
-  Falso: la lírica se centra en la expresión subjetiva, no en el
-  relato de hechos con personajes.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
+  tema: "debate_refutar_en_vivo"
   nivel: "basico"
-  tags: ["verso", "estrofa", "diferenciacion"]
+  tags: ["estructura_del_debate", "refutacion"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: falso
-tipo: vf
-
-enunciado: "Verso y estrofa son sinónimos: ambos designan una sola línea del poema."
-
-pasos:
-  - "El verso es una línea; la estrofa es un grupo de varios versos."
-
-explicacion: |
-  Falso: la estrofa agrupa varios versos, no es equivalente a uno
-  solo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "basico"
-  tags: ["genero_lirico", "formas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El poema es la forma más representativa del género lírico."
-
-pasos:
-  - "La organización en versos y estrofas es característica de la poesía."
-
-explicacion: |
-  Verdadero: aunque hay prosa poética, el poema (organizado en verso)
-  es la forma más típica del género lírico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "avanzado"
-  tags: ["rima", "comparacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La rima consonante es más exigente que la asonante, porque requiere coincidencia de todos los sonidos (vocales y consonantes), no sólo de las vocales."
-
-pasos:
-  - "Consonante: coincide todo. Asonante: coinciden sólo vocales."
-
-explicacion: |
-  Verdadero: por eso la rima consonante es más difícil de lograr que
-  la asonante.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "intermedio"
-  tags: ["rima", "practica"]
-
-variables:
-  pares: ["flor / dolor", "cielo / sereno"]
-  tipos: ["consonante", "asonante"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
+respuesta: "refutación"
 tipo: mc
-opciones_explicitas: ["consonante", "asonante", "libre"]
+opciones_explicitas: ["apertura", "refutación", "réplica", "cierre"]
 
-enunciado: "El par de versos que terminan en \"{pares[idx]}\" tiene rima..."
+enunciado: "La etapa del debate en la que cada parte responde a los argumentos de la otra, señalando falacias o premisas débiles, se llama..."
 
 pasos:
-  - "Comparar todos los sonidos finales (consonante) o sólo las vocales (asonante) desde la última vocal acentuada."
+  - "Es la etapa central del debate, donde se aplica directamente el vocabulario de falacias."
 
 explicacion: |
-  \"flor/dolor\" coincide en todo el sonido final → consonante.
-  \"cielo/sereno\" sólo coincide en las vocales e-o → asonante.
+  La refutación es el momento de responder críticamente a los
+  argumentos del rival.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "avanzado"
-  tags: ["hablante_lirico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un poeta puede escribir un poema con un hablante lírico que exprese una emoción o punto de vista distinto al suyo propio."
-
-pasos:
-  - "El hablante lírico, igual que un narrador en una novela, es una construcción del texto, no una autobiografía obligatoria."
-
-explicacion: |
-  Verdadero: separar hablante lírico de autor real evita leer todo
-  poema como confesión literal del poeta.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "avanzado"
-  tags: ["verso_libre"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un poema en verso libre puede seguir organizado en versos y estrofas, aunque no tenga rima ni métrica regular."
-
-pasos:
-  - "Prescindir de rima/métrica no elimina la organización básica en líneas (versos) y grupos (estrofas)."
-
-explicacion: |
-  Verdadero: verso libre se refiere a la ausencia de rima/métrica
-  fija, no a la ausencia total de forma.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
+  tema: "debate_refutar_en_vivo"
   nivel: "intermedio"
-  tags: ["genero_lirico", "metodo"]
+  tags: ["estructura_del_debate", "replica"]
 
-enunciado: "Ordená los pasos para analizar la forma de un poema."
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "réplica"
+tipo: mc
+opciones_explicitas: ["apertura", "refutación", "réplica", "cierre"]
+
+enunciado: "La etapa del debate en la que se responde a la refutación recibida se llama..."
+
+pasos:
+  - "Sigue a la refutación, cerrando el intercambio directo de argumentos."
+
+explicacion: |
+  La réplica responde a la refutación que se recibió previamente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "debate_refutar_en_vivo"
+  nivel: "basico"
+  tags: ["estructura_del_debate", "cierre"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "cierre"
+tipo: mc
+opciones_explicitas: ["apertura", "refutación", "réplica", "cierre"]
+
+enunciado: "La etapa del debate en la que cada parte resume su postura y por qué resiste la refutación del rival se llama..."
+
+pasos:
+  - "Es la última etapa de la estructura básica del debate."
+
+explicacion: |
+  El cierre resume la postura final de cada parte del debate.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "debate_refutar_en_vivo"
+  nivel: "intermedio"
+  tags: ["estructura_del_debate", "orden"]
+
+enunciado: "Ordená las cuatro etapas básicas de un debate formal."
 tipo: ordenar
 opciones_explicitas:
-  - "Contar cuántos versos tiene y cómo se agrupan en estrofas"
-  - "Revisar si hay rima entre los versos, y de qué tipo (consonante/asonante)"
-  - "Contar las sílabas de cada verso para ver si la métrica es regular"
-  - "Identificar quién es el hablante lírico del poema"
-respuesta_orden:
-  - "Contar cuántos versos tiene y cómo se agrupan en estrofas"
-  - "Revisar si hay rima entre los versos, y de qué tipo (consonante/asonante)"
-  - "Contar las sílabas de cada verso para ver si la métrica es regular"
-  - "Identificar quién es el hablante lírico del poema"
-
+  - "Apertura"
+  - "Refutación"
+  - "Réplica"
+  - "Cierre"
+respuesta_orden: ["Apertura", "Refutación", "Réplica", "Cierre"]
 explicacion: |
-  El análisis va de la estructura visible (versos/estrofas) a la
-  sonora (rima), a la silábica (métrica) y termina en la voz que
-  habla en el poema.
+  El orden sigue la secuencia lógica del debate: presentar, refutar,
+  replicar y cerrar.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_lirico"
+  tema: "debate_refutar_en_vivo"
+  nivel: "intermedio"
+  tags: ["tecnicas_de_refutacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Nombrar con precisión la falacia del rival (\"eso es un ataque a la persona, no una respuesta a mi argumento\") es más contundente que decir vagamente \"eso no tiene sentido\"."
+
+pasos:
+  - "Ver `../detectar-falacias/`: nombrar el error con precisión demuestra dominio del vocabulario técnico."
+
+explicacion: |
+  Verdadero: es una de las técnicas de refutación en vivo más
+  efectivas descritas en la teoría.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "debate_refutar_en_vivo"
+  nivel: "intermedio"
+  tags: ["tecnicas_de_refutacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el rival da una cifra o un dato sin fuente, pedirla en el momento pone en evidencia la debilidad del argumento."
+
+pasos:
+  - "Es la misma lógica de cifras sin sustento ya vista en `../detectar-falacias/`, aplicada en vivo."
+
+explicacion: |
+  Verdadero: es otra de las técnicas de refutación descritas en la
+  teoría.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "debate_refutar_en_vivo"
   nivel: "avanzado"
-  tags: ["genero_lirico", "genero_dramatico", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El género lírico, igual que el dramático, está escrito principalmente para ser representado con diálogos entre personajes en un escenario."
-
-pasos:
-  - "El lírico expresa una voz subjetiva (el hablante lírico), no está organizado como diálogo escénico."
-
-explicacion: |
-  Falso: el género dramático se organiza en diálogos para
-  representación teatral; el lírico expresa la voz de un hablante,
-  sin esa estructura de diálogo escénico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_lirico"
-  nivel: "intermedio"
-  tags: ["genero_lirico", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "lírico"
-tipo: mc
-opciones_explicitas: ["lírico", "narrativo", "dramático"]
-
-enunciado: "Un texto breve, organizado en versos y estrofas, que expresa la tristeza de un hablante sin contar una historia con personajes ni presentar diálogos escénicos, es de género..."
-
-pasos:
-  - "Verso + estrofa + expresión subjetiva sin trama ni diálogo escénico = lírico."
-
-explicacion: |
-  Todas las marcas descriptas (verso, estrofa, expresión subjetiva)
-  corresponden al género lírico.
-```
-
-## Sección: genero-narrativo (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "basico"
-  tags: ["genero_narrativo", "definicion"]
+  tags: ["tecnicas_de_refutacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -963,232 +2062,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El género narrativo agrupa los textos literarios que cuentan una historia: hechos que le ocurren a personajes a lo largo del tiempo."
+enunciado: "Señalar específicamente cuál parte de un argumento es floja (en vez de descartar todo el argumento en bloque) es más preciso y más difícil de rebatir para el rival."
 
 pasos:
-  - "Es la especialización literaria del tipo textual narrativo."
+  - "Un argumento del rival puede tener una parte razonable y otra débil al mismo tiempo."
 
 explicacion: |
-  Verdadero: contar una historia con personajes y acciones en el
-  tiempo es la definición central del género narrativo.
+  Verdadero: es la técnica más sofisticada de refutación descrita en
+  la teoría.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "basico"
-  tags: ["cuento", "formas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "cuento"
-tipo: mc
-opciones_explicitas: ["cuento", "novela", "fábula", "mito"]
-
-enunciado: "Una narración breve, con pocos personajes y un solo conflicto central, es un/una..."
-
-pasos:
-  - "La brevedad y el conflicto único son las marcas del cuento frente a la novela."
-
-explicacion: |
-  El cuento se distingue de la novela por su extensión breve y su
-  foco en un solo conflicto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "basico"
-  tags: ["novela", "formas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "novela"
-tipo: mc
-opciones_explicitas: ["cuento", "novela", "leyenda", "mito"]
-
-enunciado: "Una narración extensa, con varios personajes y tramas que se desarrollan en profundidad, es un/una..."
-
-pasos:
-  - "La extensión y la multiplicidad de tramas distinguen a la novela del cuento."
-
-explicacion: |
-  La novela permite mayor desarrollo de personajes y subtramas que el
-  cuento.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "basico"
-  tags: ["fabula", "formas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "fábula"
-tipo: mc
-opciones_explicitas: ["cuento", "fábula", "leyenda", "mito"]
-
-enunciado: "Un relato breve protagonizado por animales, que termina con una moraleja explícita, es un/una..."
-
-pasos:
-  - "Animales como protagonistas + moraleja al final = fábula."
-
-explicacion: |
-  La fábula se distingue por sus protagonistas animales y su cierre
-  con una enseñanza moral explícita.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
+  tema: "debate_refutar_en_vivo"
   nivel: "intermedio"
-  tags: ["leyenda", "formas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "leyenda"
-tipo: mc
-opciones_explicitas: ["fábula", "leyenda", "mito", "novela"]
-
-enunciado: "Un relato tradicional que mezcla un hecho real con elementos fantásticos para explicar el origen de algo local, es un/una..."
-
-pasos:
-  - "Mezcla de real+fantástico y explicación de origen local son las marcas de la leyenda."
-
-explicacion: |
-  La leyenda se diferencia del mito en que suele anclarse a un lugar
-  o hecho real concreto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "intermedio"
-  tags: ["mito", "formas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "mito"
-tipo: mc
-opciones_explicitas: ["fábula", "leyenda", "mito", "cuento"]
-
-enunciado: "Un relato tradicional que explica fenómenos del mundo (como el día y la noche) a través de dioses o seres sobrenaturales, es un/una..."
-
-pasos:
-  - "Dioses/seres sobrenaturales + explicación de fenómenos del mundo son las marcas del mito."
-
-explicacion: |
-  El mito recurre a lo sobrenatural para explicar el origen de
-  fenómenos naturales o del mundo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "basico"
-  tags: ["elementos", "personajes"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "personajes"
-tipo: completar
-
-enunciado: "El elemento narrativo que responde a \"¿quiénes participan en la historia?\" se llama..."
-
-pasos:
-  - "Protagonista, antagonista y secundarios son tipos de este elemento."
-
-explicacion: |
-  Los personajes son quienes llevan adelante (o sufren) la acción de
-  la historia.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "basico"
-  tags: ["elementos", "trama"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "acción"
-tipo: completar
-
-enunciado: "El elemento narrativo que responde a \"¿qué sucede?\" (la serie de hechos encadenados) se llama..."
-
-pasos:
-  - "También se le llama \"trama\": la secuencia de sucesos de la historia."
-
-explicacion: |
-  La acción/trama es la serie de hechos que forman la historia
-  contada.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "basico"
-  tags: ["elementos", "tiempo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "tiempo"
-tipo: completar
-
-enunciado: "El elemento narrativo que responde a \"¿cuándo ocurre la historia?\" se llama..."
-
-pasos:
-  - "Incluye época, duración y orden en que se cuenta."
-
-explicacion: |
-  El tiempo narrativo define cuándo transcurren los hechos contados.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "basico"
-  tags: ["elementos", "espacio"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "espacio"
-tipo: completar
-
-enunciado: "El elemento narrativo que responde a \"¿dónde ocurre la historia?\" se llama..."
-
-pasos:
-  - "El lugar (real o imaginario) donde suceden los hechos."
-
-explicacion: |
-  El espacio narrativo es el escenario donde ocurre la acción.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "intermedio"
-  tags: ["conflicto"]
+  tags: ["escucha_activa"]
 
 variables:
   n: uno_de([1, 1])
@@ -1196,70 +2085,140 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Sin conflicto (un problema u obstáculo que enfrenta el protagonista), no hay historia que contar, sólo una descripción de hechos sin tensión."
+enunciado: "Un error común en un debate es preparar la respuesta propia mientras el rival todavía está hablando, sin escuchar realmente lo que dice."
 
 pasos:
-  - "El conflicto es lo que genera interés y avance en la trama."
+  - "Eso lleva a responder a un argumento distinto del que realmente se hizo."
 
 explicacion: |
-  Verdadero: el conflicto es el motor central de cualquier narración.
+  Verdadero: es el error central que describe la falta de escucha
+  activa en un debate.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "basico"
-  tags: ["personajes", "diferenciacion"]
+  tema: "debate_refutar_en_vivo"
+  nivel: "avanzado"
+  tags: ["escucha_activa", "espantapajaros"]
 
 variables:
-  tipos: ["protagonista", "antagonista"]
-  descripciones: ["el personaje principal, quien impulsa la acción", "el personaje que se opone al protagonista"]
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "No escuchar activamente al rival y responder a una versión imaginada de su argumento es, en la práctica, una forma involuntaria de la falacia del espantapájaros."
+
+pasos:
+  - "Ver `../detectar-falacias/`: es la misma falacia, ahora aplicada de forma no intencional por falta de atención."
+
+explicacion: |
+  Verdadero: es la conexión directa entre la falta de escucha activa
+  y una falacia ya conocida.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "debate_refutar_en_vivo"
+  nivel: "intermedio"
+  tags: ["escucha_activa"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Escuchar activamente es lo que permite refutar el argumento real del rival, no una versión distorsionada o imaginada de él."
+
+pasos:
+  - "Es la razón concreta por la que la escucha activa es central en un debate en vivo."
+
+explicacion: |
+  Verdadero: es la conclusión práctica de por qué la escucha activa
+  importa tanto en este contexto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "debate_refutar_en_vivo"
+  nivel: "intermedio"
+  tags: ["manejo_de_presion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Perder la calma o subir el tono durante un debate no fortalece un argumento, y puede hacer que la audiencia perciba menos credibilidad en quien lo pierde."
+
+pasos:
+  - "El manejo emocional bajo presión es parte de la habilidad de debatir en vivo, más allá del contenido argumentativo."
+
+explicacion: |
+  Verdadero: es la razón por la que el manejo de la calma es una
+  habilidad central del debate en vivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "debate_refutar_en_vivo"
+  nivel: "basico"
+  tags: ["debate", "presion_de_tiempo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un debate en vivo genera presión de tiempo, a diferencia de un texto escrito que se puede revisar y corregir con calma antes de presentarlo."
+
+pasos:
+  - "Es la diferencia central entre refutar en un texto y refutar en vivo."
+
+explicacion: |
+  Verdadero: es la diferencia de contexto que define este tema frente
+  a `../detectar-falacias/`.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "debate_refutar_en_vivo"
+  nivel: "intermedio"
+  tags: ["tecnicas_de_refutacion", "practica"]
+
+variables:
+  situaciones: ["decir \"eso es una apelación a la popularidad, no una razón real\"", "pedir la fuente exacta de un dato citado sin referencia"]
+  tecnicas: ["señalar la falacia por su nombre", "pedir evidencia concreta"]
   idx: uno_de([0, 1])
 
-respuesta: tipos[idx]
+respuesta: tecnicas[idx]
 tipo: mc
-opciones_explicitas: ["protagonista", "antagonista", "secundario"]
+opciones_explicitas: ["señalar la falacia por su nombre", "pedir evidencia concreta", "distinguir la parte válida de la débil"]
 
-enunciado: "El personaje que es \"{descripciones[idx]}\" se llama..."
+enunciado: "La acción de \"{situaciones[idx]}\" corresponde a la técnica de refutación de..."
 
 pasos:
-  - "El protagonista impulsa la historia; el antagonista se le opone."
+  - "Cada acción concreta corresponde a una de las técnicas de refutación descritas en la teoría."
 
 explicacion: |
-  Protagonista y antagonista son los dos roles centrales del
-  conflicto narrativo.
+  Reconocer qué técnica se está usando ayuda a aplicarlas de forma
+  deliberada durante un debate.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_narrativo"
+  tema: "debate_refutar_en_vivo"
   nivel: "avanzado"
-  tags: ["fabula", "mito", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La fábula y el mito son exactamente lo mismo, sólo cambia el nombre según la región."
-
-pasos:
-  - "La fábula usa animales para dejar una moraleja explícita; el mito usa dioses/seres sobrenaturales para explicar fenómenos del mundo."
-
-explicacion: |
-  Falso: se distinguen por sus protagonistas (animales vs. dioses) y
-  su propósito (enseñanza moral vs. explicación de fenómenos).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "intermedio"
-  tags: ["leyenda"]
+  tags: ["debate", "negociacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -1267,22 +2226,21 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una característica típica de la leyenda es combinar un hecho o lugar real con elementos fantásticos."
+enunciado: "Debatir y refutar en vivo es la base directa de la negociación, que agrega el objetivo de llegar a un acuerdo, no sólo \"ganar\" el intercambio."
 
 pasos:
-  - "A diferencia del mito (totalmente sobrenatural), la leyenda suele anclarse a algo real."
+  - "Ver `../negociacion/`: es el prerrequisito directo del siguiente tema de la subrama."
 
 explicacion: |
-  Verdadero: esa mezcla de real y fantástico es lo que distingue a la
-  leyenda de otras formas narrativas tradicionales.
+  Verdadero: es la relación de prerrequisito con el tema siguiente.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "intermedio"
-  tags: ["cuento", "conflicto"]
+  tema: "debate_refutar_en_vivo"
+  nivel: "avanzado"
+  tags: ["debate", "persuasion_etica"]
 
 variables:
   n: uno_de([1, 1])
@@ -1290,97 +2248,42 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "A diferencia de la novela, el cuento suele desarrollar un solo conflicto central, sin subtramas extensas."
+enunciado: "Este tema también es prerrequisito de persuasión ética vs. manipulación, que distingue técnicas legítimas de manipulación en este mismo contexto de debate en vivo."
 
 pasos:
-  - "La brevedad del cuento no permite el mismo desarrollo de múltiples tramas que la novela."
+  - "Ver `../persuasion-etica-vs-manipulacion/`: comparte este tema como uno de sus dos prerrequisitos."
 
 explicacion: |
-  Verdadero: la concentración en un solo conflicto es típica del
-  cuento por su extensión breve.
+  Verdadero: es otra de las relaciones de prerrequisito de este tema
+  dentro de la subrama.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_narrativo"
+  tema: "debate_refutar_en_vivo"
   nivel: "intermedio"
-  tags: ["formas", "clasificacion"]
+  tags: ["debate", "metodo"]
 
-variables:
-  descripciones: ["un zorro y una cigüeña se invitan a cenar mutuamente y aprenden una lección", "una joven se convierte en río para escapar de un dios enamorado, y así se explica el origen del río"]
-  formas: ["fábula", "mito"]
-  idx: uno_de([0, 1])
-
-respuesta: formas[idx]
-tipo: mc
-opciones_explicitas: ["cuento", "fábula", "leyenda", "mito"]
-
-enunciado: "Un relato donde \"{descripciones[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "Animales + moraleja = fábula. Dioses/seres sobrenaturales + explicación de fenómeno = mito."
-
-explicacion: |
-  Cada forma narrativa breve tiene protagonistas y propósitos
-  característicos que permiten identificarla.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "avanzado"
-  tags: ["conflicto", "descripcion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "\"La casa era grande, con paredes blancas y techo rojo\" es un ejemplo de narración con un conflicto claro."
-
-pasos:
-  - "Esa oración sólo describe características, no cuenta hechos ni presenta un problema: es descriptiva, no narrativa."
-
-explicacion: |
-  Falso: sin acción ni conflicto, el texto es descriptivo, no
-  narrativo — coherente con la distinción vista en tipos textuales.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "genero_narrativo"
-  nivel: "intermedio"
-  tags: ["elementos", "metodo"]
-
-enunciado: "Ordená (de más general a más específico) el proceso para analizar los elementos de una narración."
+enunciado: "Ordená los pasos para refutar un argumento en vivo durante un debate."
 tipo: ordenar
 opciones_explicitas:
-  - "Identificar los personajes (protagonista, antagonista, secundarios)"
-  - "Determinar el tiempo y el espacio donde ocurre"
-  - "Reconocer la acción/trama: la secuencia de hechos"
-  - "Identificar el conflicto central que motoriza la historia"
-respuesta_orden:
-  - "Identificar los personajes (protagonista, antagonista, secundarios)"
-  - "Determinar el tiempo y el espacio donde ocurre"
-  - "Reconocer la acción/trama: la secuencia de hechos"
-  - "Identificar el conflicto central que motoriza la historia"
-
+  - "Escuchar activamente el argumento completo del rival, sin preparar la respuesta antes de tiempo"
+  - "Identificar si hay una falacia o una premisa débil en ese argumento"
+  - "Nombrar con precisión el error encontrado"
+  - "Responder de forma clara y calmada, sin perder el foco por la presión del momento"
+respuesta_orden: ["Escuchar activamente el argumento completo del rival, sin preparar la respuesta antes de tiempo", "Identificar si hay una falacia o una premisa débil en ese argumento", "Nombrar con precisión el error encontrado", "Responder de forma clara y calmada, sin perder el foco por la presión del momento"]
 explicacion: |
-  Se parte de quiénes participan, luego cuándo/dónde, después qué
-  pasa, y se llega al conflicto que explica por qué la historia
-  avanza.
+  El proceso va de escuchar activamente a identificar el error y
+  responder con calma y precisión.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_narrativo"
+  tema: "debate_refutar_en_vivo"
   nivel: "avanzado"
-  tags: ["genero_narrativo", "prerrequisito"]
+  tags: ["debate", "etica"]
 
 variables:
   n: uno_de([1, 1])
@@ -1388,22 +2291,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Entender los elementos básicos del género narrativo (personajes, trama, tiempo, espacio, conflicto) es el prerrequisito para estudiar quién narra la historia (narrador) y desde qué perspectiva (punto de vista)."
+enunciado: "Refutar bien en un debate no significa usar cualquier técnica para \"ganar\" a toda costa, incluidas las falacias — significa señalar con precisión errores reales de razonamiento."
 
 pasos:
-  - "No se puede analizar CÓMO se cuenta una historia sin primero identificar QUÉ se está contando."
+  - "Es un anticipo del tema siguiente sobre persuasión ética vs. manipulación."
 
 explicacion: |
-  Verdadero: por eso este tema es el primer nodo de la subrama que
-  sigue con narrador, punto de vista y estructura narrativa.
+  Verdadero: refutar honestamente, no manipular, es el estándar
+  esperado en un debate bien conducido.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "genero_narrativo"
+  tema: "debate_refutar_en_vivo"
   nivel: "avanzado"
-  tags: ["formas", "aplicacion"]
+  tags: ["debate", "aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -1411,1335 +2314,13 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si el propósito es dejar una enseñanza moral clara usando animales como protagonistas, conviene escribir una fábula antes que una novela."
+enunciado: "Al participar en un debate escolar, conviene escuchar activamente al rival, identificar falacias con precisión y responder con calma, en vez de interrumpir o subir el tono para tratar de \"ganar\"."
 
 pasos:
-  - "La fábula está diseñada específicamente para ese propósito: brevedad + moraleja explícita."
+  - "Es la aplicación práctica directa de las técnicas estudiadas en este tema."
 
 explicacion: |
-  Verdadero: cada forma narrativa está adaptada a un propósito y
-  extensión distintos.
+  Verdadero: es la aplicación concreta de este tema en un contexto
+  escolar real de debate.
 ```
 
-## Sección: generos-discursivos (41 preguntas)
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["generos_primarios", "identificacion"]
-
-variables:
-  genero: uno_de(["conversacion telefonica", "chiste entre amigos", "orden simple"])
-
-respuesta: genero
-tipo: input
-
-enunciado: "¿Cuál de los siguientes es un ejemplo de género discursivo PRIMARIO, surgido espontáneamente en la interacción cotidiana?"
-
-explicacion: |
-  Los géneros primarios son intercambios básicos de la vida diaria, como conversaciones telefónicas, chistes entre amigos o órdenes simples, que surgen de manera espontánea y no están mediadas por instituciones complejas.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["generos_secundarios", "caracteristicas"]
-
-variables:
-  caracteristica: uno_de(["estructura flexible", "interacción inmediata", "sistematización compleja"])
-
-respuesta: caracteristica
-tipo: input
-
-enunciado: "Los géneros discursivos secundarios se caracterizan por ser más complejos y desarrollarse en ámbitos organizados. ¿Cuál es una característica clave de estos géneros?"
-
-explicacion: |
-  A diferencia de los primarios, los géneros secundarios se construyen sobre bases primarias pero las transforman y sistematizan, requiriendo normas estrictas y planificación cuidadosa (ej. informes, ensayos).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["funcion_social", "comunicacion"]
-
-variables:
-  funcion: uno_de(["guia social", "categoria rigida", "modelo literario"])
-
-respuesta: funcion
-tipo: input
-
-enunciado: "Los géneros discursivos actúan como '{funcion}' que nos ayudan a navegar situaciones de la vida cotidiana y profesional."
-
-explicacion: |
-  Los géneros discursivos no son categorías rígidas, sino modelos compartidos que funcionan como guías sociales para asegurar que el texto sea comprendido y tenga el impacto deseado en cada contexto.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["registro", "aplicacion"]
-
-variables:
-  situacion: uno_de(["trabajo academico", "anecdota con amigos"])
-  registro: "formal"
-  registro_inverso: "coloquial"
-
-respuesta: registro
-tipo: input
-
-enunciado: "Si intentamos escribir un '{situacion}' utilizando el lenguaje coloquial de un mensaje de WhatsApp, el mensaje puede perderse. ¿Qué tipo de registro sería más adecuado para un trabajo académico?"
-
-explicacion: |
-  Para un trabajo académico, se requiere un registro formal. Usar un registro coloquial (como en WhatsApp) en contextos formales puede llevar a malentendidos o falta de seriedad percibida.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["generos_secundarios", "ejemplos"]
-
-variables:
-  genero: uno_de(["noticia de prensa", "conversacion telefonica", "discusion familiar"])
-
-respuesta: genero
-tipo: input
-
-enunciado: "¿Cuál de los siguientes es un ejemplo claro de género discursivo SECUNDARIO, desarrollado en ámbitos organizados?"
-
-explicacion: |
-  La noticia de prensa es un género secundario porque toma elementos de la interacción primaria pero los organiza bajo normas estrictas de objetividad y estructura, a diferencia de la conversación telefónica o la discusión familiar que son primarios.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["generos_primarios", "estructura"]
-
-variables:
-  tipo_estructura: uno_de(["flexible", "estricta", "piramidal"])
-
-respuesta: tipo_estructura
-tipo: input
-
-enunciado: "La estructura de los géneros discursivos primarios suele ser '{tipo_estructura}' y su propósito es la interacción inmediata."
-
-explicacion: |
-  Los géneros primarios, al surgir de la interacción cotidiana espontánea, tienen una estructura flexible, a diferencia de los secundarios que suelen tener estructuras más definidas y rígidas.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["relacion_generos", "construccion"]
-
-variables:
-  relacion: uno_de(["se construyen sobre la base de los primarios", "son independientes de los primarios", "reemplazan totalmente a los primarios"])
-
-respuesta: relacion
-tipo: input
-
-enunciado: "Los géneros secundarios '{relacion}', pero los transforman y sistematizan."
-
-explicacion: |
-  Los géneros secundarios no surgen de la nada; se desarrollan sobre la base de los géneros primarios (interacciones básicas) pero les añaden complejidad, normas y sistematización.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["estructura", "tono"]
-
-variables:
-  elemento: uno_de(["vocabulario", "tono", "estructura"])
-
-respuesta: elemento
-tipo: input
-
-enunciado: "Cada género discursivo tiene una estructura, un '{elemento}' y un tono propios que nos indican cómo debemos comunicarnos en cada situación."
-
-explicacion: |
-  Cada género define no solo la estructura, sino también el vocabulario específico y el tono adecuado (formal, informal, técnico, etc.) para su uso correcto.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["generos_primarios", "proposito"]
-
-variables:
-  proposito: uno_de(["interaccion inmediata", "sistematizacion", "verificacion de datos"])
-
-respuesta: proposito
-tipo: input
-
-enunciado: "El propósito principal de los géneros discursivos primarios es la '{proposito}'."
-
-explicacion: |
-  Los géneros primarios están diseñados para la interacción directa y cotidiana, sin la necesidad de una planificación extensa o normas estrictas.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["generos_secundarios", "proposito"]
-
-variables:
-  proposito: uno_de(["comunicacion informal", "planificacion cuidadosa", "interaccion espontanea"])
-
-respuesta: proposito
-tipo: input
-
-enunciado: "Los géneros secundarios requieren un '{proposito}' que va más allá del intercambio espontáneo."
-
-explicacion: |
-  Los géneros secundarios, al ser más complejos y estar ligados a ámbitos institucionales, requieren una planificación cuidadosa y un conocimiento especializado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["definicion", "completar"]
-
-variables:
-  palabra1: "tipos"
-  palabra2: "textos"
-  palabra3: "funcion"
-  palabra4: "social"
-
-respuesta: palabra1
-tipo: completar
-
-enunciado: "Los géneros discursivos son los {palabra1} de textos que utilizamos habitualmente para cumplir con una {palabra4} específica."
-
-explicacion: |
-  Los géneros discursivos son los *tipos* de textos que usamos para cumplir funciones sociales. No son categorías literarias rígidas, sino modelos de uso común.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["ejemplo", "transformacion"]
-
-variables:
-  genero1: "conversacion"
-  genero2: "noticia"
-
-respuesta: genero2
-tipo: completar
-
-enunciado: "Una '{genero2}' de prensa toma elementos de una '{genero1}' o un reporte informal, pero los organiza bajo normas de objetividad."
-
-explicacion: |
-  La *noticia* de prensa es un género secundario que transforma elementos de la *conversación* o reporte informal primario mediante la aplicación de normas estrictas.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["registro", "completar"]
-
-variables:
-  palabra1: "perderse"
-  palabra2: "malinterpretado"
-
-respuesta: palabra1
-tipo: completar
-
-enunciado: "Si usamos lenguaje coloquial en un contexto formal, el mensaje puede {palabra1} o ser {palabra2}."
-
-explicacion: |
-  El uso inadecuado del registro puede hacer que el mensaje se *pierda* o sea *malinterpretado*, ya que no se ajusta a las expectativas del género discursivo esperado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["comparacion", "primario_secundario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los géneros primarios y secundarios tienen la misma estructura rígida y formal."
-
-explicacion: |
-  Falso. Los géneros primarios suelen tener una estructura flexible y surgen de la interacción espontánea, mientras que los secundarios son más complejos y sistematizados.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["vocabulario", "especializado"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Todos los géneros discursivos utilizan el mismo vocabulario estándar sin variaciones."
-
-explicacion: |
-  Falso. Cada género tiene un vocabulario propio que depende del contexto y la comunidad, como el lenguaje técnico en informes o el coloquial en chats.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "avanzado"
-  tags: ["naturaleza", "dinamica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los géneros discursivos son categorías rígidas e inmutables que no cambian con el tiempo."
-
-explicacion: |
-  Falso. Los géneros son modelos que se construyen y comparten a lo largo del tiempo, adaptándose a las necesidades de la comunidad.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["efectividad", "comunicacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Usar el género discursivo adecuado aumenta la efectividad y precisión del mensaje."
-
-explicacion: |
-  Verdadero. Entender y usar el género correcto asegura que el texto sea comprendido y tenga el impacto deseado en la situación dada.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["tono", "situacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El tono de un género discursivo es siempre el mismo, independientemente de la situación."
-
-explicacion: |
-  Falso. El tono varía según la situación y el género; lo que es apropiado en una conversación familiar puede ser inapropiado en un informe legal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["adaptacion", "registro"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Debemos adaptar nuestro lenguaje al género discursivo adecuado para evitar malentendidos."
-
-explicacion: |
-  Verdadero. Usar el género incorrecto (ej. coloquial en un trabajo académico) puede llevar a que el mensaje se pierda o sea malinterpretado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["generos_primarios", "identificacion"]
-
-variables:
-  genero: uno_de(["conversacion_familiar", "orden_de_trabajo", "chiste_entre_amigos"])
-
-respuesta: genero
-tipo: input
-
-enunciado: "¿Cuál de los siguientes es un ejemplo clásico de género discursivo PRIMARIO?"
-
-explicacion: |
-  Los géneros primarios surgen espontáneamente en la interacción cotidiana directa. La conversación familiar, la orden de trabajo o el chiste entre amigos cumplen con esta definición, a diferencia de textos más complejos como noticias o ensayos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["definicion", "flexibilidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los géneros discursivos son categorías rígidas e inmutables que no cambian con el tiempo ni con la comunidad."
-
-explicacion: |
-  Falso. Los géneros discursivos son modelos que se construyen y comparten dentro de una comunidad a lo largo del tiempo, adaptándose a las necesidades comunicativas de cada contexto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["primarios", "secundarios", "comparacion"]
-
-variables:
-  correcta: uno_de(["interaccion_cotidiana", "sistematizacion_institucional"])
-  distractor1: "rigidez_formal"
-  distractor2: "ausencia_de_estructura"
-
-respuesta: correcta
-tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
-
-enunciado: "La diferencia fundamental entre géneros primarios y secundarios radica en:"
-
-explicacion: |
-  Los primarios se basan en la interacción cotidiana y espontánea, mientras que los secundarios están sistematizados por instituciones complejas como la escuela, la ciencia o la administración.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["secundarios", "ejemplos"]
-
-variables:
-  correcta: uno_de(["noticia", "ensayo_cientifico", "informe_legal"])
-  distractor1: "conversacion_telefonica"
-  distractor2: "chiste"
-
-respuesta: correcta
-tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor2]
-
-enunciado: "¿Cuál de los siguientes es un ejemplo de género discursivo SECUNDARIO?"
-
-explicacion: |
-  La noticia, el ensayo científico y el informe legal son géneros secundarios porque se desarrollan en ámbitos organizados y requieren normas estrictas. La conversación y el chiste son primarios.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["registro", "efectividad"]
-
-variables:
-  genero_formal: uno_de(["informe_escolar", "carta_de_presentacion"])
-  genero_informal: uno_de(["mensaje_whatsapp", "chiste"])
-  contexto: uno_de(["academico", "profesional"])
-  registro: uno_de(["formal", "coloquial"])
-
-respuesta: registro
-tipo: input
-
-enunciado: "Si debes escribir un {genero_formal} en un contexto {contexto}, ¿qué registro debes evitar?"
-
-explicacion: |
-  Debes evitar el registro coloquial o informal, ya que el género formal requiere precisión y adecuación al contexto institucional o académico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["estructura", "primarios"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los géneros discursivos primarios suelen tener una estructura flexible y un propósito de interacción inmediata."
-
-explicacion: |
-  Verdadero. Al ser espontáneos y cotidianos, no están sujetos a las normas rígidas de los géneros secundarios, permitiendo mayor flexibilidad estructural.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["construccion", "relacion"]
-
-variables:
-  correcta: "generos_primarios"
-  distractor1: "normas_lingüisticas"
-  distractor2: "diccionarios"
-
-respuesta: correcta
-tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
-
-enunciado: "Los géneros secundarios se construyen sobre la base de:"
-
-explicacion: |
-  Los géneros secundarios toman elementos de los géneros primarios (como la conversación o el reporte informal) y los transforman mediante la sistematización institucional.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["identificacion", "secundarios"]
-
-variables:
-  genero: uno_de(["noticia_prensa", "novela", "ensayo"])
-  caracteristica: uno_de(["objetividad", "ficción_narrativa", "argumentacion"])
-
-respuesta: genero
-tipo: input
-
-enunciado: "Si un texto se caracteriza por la {caracteristica} y la verificación de datos en un ámbito organizado, ¿qué género secundario es más probable?"
-
-explicacion: |
-  La noticia de prensa se caracteriza por la objetividad y la verificación de datos. La novela implica ficción y el ensayo argumentación, pero la descripción encaja mejor con la noticia en este contexto de "verificación".
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["errores", "registro"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Es aceptable escribir un trabajo académico utilizando el lenguaje coloquial de un mensaje de WhatsApp para ser más cercano al lector."
-
-explicacion: |
-  Falso. El trabajo académico requiere un registro formal y preciso. Usar lenguaje coloquial puede hacer que el mensaje se pierda o sea malinterpretado por no cumplir con las expectativas del género.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["primarios", "ejemplos"]
-
-variables:
-  correcta: uno_de(["discusion_familiar", "conversacion_telefonica"])
-  distractor1: "informe_legal"
-  distractor2: "receta_cocina"
-
-respuesta: correcta
-tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
-
-enunciado: "¿Cuál de los siguientes es un ejemplo de género discursivo PRIMARIO?"
-
-explicacion: |
-  La discusión familiar y la conversación telefónica son interacciones cotidianas directas. La receta y el informe son géneros secundarios o estructurados institucionalmente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["instituciones", "secundarios"]
-
-variables:
-  institucion: uno_de(["escuela", "ciencia", "politica"])
-  genero: uno_de(["informe_escolar", "articulo_cientifico", "discurso_politico"])
-
-respuesta: genero
-tipo: input
-
-enunciado: "En el ámbito de la {institucion}, ¿qué tipo de género discursivo se desarrollaría típicamente?"
-
-explicacion: |
-  Cada institución desarrolla sus propios géneros secundarios. La escuela genera informes, la ciencia artículos, y la política discursos, todos sistematizados.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["secundarios", "complejidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los géneros secundarios como la literatura o el ensayo científico requieren un conocimiento especializado y una planificación cuidadosa."
-
-explicacion: |
-  Verdadero. A diferencia de los géneros primarios, los secundarios exigen una planificación previa y dominio de normas específicas del campo disciplinar o institucional.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["metforas", "explicacion"]
-
-variables:
-  correcta: uno_de(["recetas", "mapas"])
-  distractor1: "leyes"
-  distractor2: "reglas_de_juego"
-
-respuesta: correcta
-tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
-
-enunciado: "En la teoría, los géneros discursivos se comparan a menudo con:"
-
-explicacion: |
-  Se usan las metáforas de "guías" o "recetas" sociales para explicar cómo nos indican los pasos a seguir en la comunicación.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["contexto", "identificacion"]
-
-variables:
-  contexto: uno_de(["trabajo", "amigos", "familia"])
-  genero: uno_de(["orden_de_trabajo", "chiste", "conversacion_familiar"])
-
-respuesta: genero
-tipo: input
-
-enunciado: "En un contexto de {contexto}, ¿cuál sería un género discursivo primario típico?"
-
-explicacion: |
-  Dependiendo del contexto, la orden de trabajo, el chiste o la conversación familiar son ejemplos de interacciones primarias espontáneas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["primarios", "propósito"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El propósito principal de los géneros discursivos primarios es la interacción inmediata."
-
-explicacion: |
-  Verdadero. Estos géneros surgen para resolver necesidades comunicativas urgentes y cotidianas en el momento de la interacción.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["transformacion", "secundarios"]
-
-variables:
-  correcta: "sistematizan"
-  distractor1: "eliminan"
-  distractor2: "ignoran"
-
-respuesta: correcta
-tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
-
-enunciado: "Los géneros secundarios toman elementos de los primarios y los:"
-
-explicacion: |
-  Los géneros secundarios transforman y sistematizan los elementos de los primarios, organizándolos bajo normas estrictas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["primarios", "definicion"]
-
-variables:
-  genero: uno_de(["conversacion_telefonica", "orden_simple", "chiste"])
-
-respuesta: genero
-tipo: input
-
-enunciado: "¿Cuál de estos es un género discursivo primario que no está mediado por instituciones complejas?"
-
-explicacion: |
-  La conversación telefónica, la orden simple o el chiste son interacciones directas y cotidianas, sin mediación institucional compleja.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["estructura", "primarios"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los géneros discursivos primarios tienen una estructura rígida y estricta que no permite variaciones."
-
-explicacion: |
-  Falso. Los géneros primarios suelen tener una estructura flexible, adaptándose a la espontaneidad de la interacción diaria.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["secundarios", "complejidad"]
-
-variables:
-  correcta: uno_de(["informe_legal", "novela", "ensayo"])
-  distractor1: "conversacion"
-  distractor2: "chiste"
-
-respuesta: correcta
-tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
-
-enunciado: "¿Cuál de los siguientes es un ejemplo de género discursivo secundario complejo?"
-
-explicacion: |
-  El informe legal, la novela y el ensayo son géneros secundarios que requieren planificación y conocimiento especializado, a diferencia de los primarios.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["primarios", "interaccion"]
-
-variables:
-  interaccion: uno_de(["telefonica", "familiar", "laboral"])
-  genero: uno_de(["conversacion", "discusion", "orden"])
-
-respuesta: genero
-tipo: input
-
-enunciado: "En una interacción {interaccion}, ¿qué género primario sería más probable?"
-
-explicacion: |
-  La conversación, la discusión o la orden son géneros primarios típicos de interacciones cotidianas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "basico"
-  tags: ["instinto", "adquisicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sabemos casi instintivamente cómo escribir o hablar dependiendo de la situación gracias a los géneros discursivos."
-
-explicacion: |
-  Verdadero. La internalización de los géneros nos permite navegar la comunicación social de manera fluida y casi automática.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "generos_discursivos"
-  nivel: "intermedio"
-  tags: ["guia", "funcion"]
-
-variables:
-  correcta: "generos_discursivos"
-  distractor1: "gramatica"
-  distractor2: "ortografia"
-
-respuesta: correcta
-tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
-
-enunciado: "¿Qué actúa como 'guía' o 'receta' social para navegar situaciones de la vida cotidiana?"
-
-explicacion: |
-  Los géneros discursivos son las guías que nos indican el comportamiento textual adecuado, más allá de las reglas gramaticales o ortográficas aisladas.
-```
-
-## Sección: generos-periodisticos (28 preguntas)
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "basico"
-  tags: ["definicion", "concepto_basico"]
-
-variables:
-  definicion_correcta: "convenciones sociales que organizan la comunicación en medios"
-
-respuesta: "convenciones sociales que organizan la comunicación en medios"
-tipo: completar
-
-enunciado: "Los géneros periodísticos se definen como {definicion_correcta} que permiten distinguir entre informar un hecho o interpretarlo."
-
-explicacion: |
-  Los géneros periodísticos son convenciones sociales que estructuran la comunicación en los medios, diferenciando la objetividad de la subjetividad.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "basico"
-  tags: ["noticia", "objetivo"]
-
-variables:
-  objetivo: "informar un hecho de interés público con inmediatez"
-
-respuesta: "informar un hecho de interés público con inmediatez"
-tipo: completar
-
-enunciado: "El objetivo principal de la noticia es {objetivo}."
-
-explicacion: |
-  La noticia busca dar a conocer hechos de interés público de manera rápida y objetiva, priorizando la inmediatez.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["estructura", "noticia"]
-
-variables:
-  estructura: "la información más importante aparece al principio"
-
-respuesta: "la información más importante aparece al principio"
-tipo: completar
-
-enunciado: "En la estructura de pirámide invertida, {estructura}."
-
-explicacion: |
-  La pirámide invertida coloca los datos esenciales (qué, quién, cuándo, dónde, cómo, por qué) al inicio, disminuyendo la relevancia hacia el final.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["tono", "objetividad"]
-
-variables:
-  tono: "formal, preciso y neutral"
-
-respuesta: "formal, preciso y neutral"
-tipo: completar
-
-enunciado: "El lenguaje de la noticia busca un tono {tono} para mantener la objetividad."
-
-explicacion: |
-  La objetividad en la noticia se logra mediante un lenguaje formal, preciso y neutral, evitando la subjetividad del periodista.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["veracidad", "valor"]
-
-variables:
-  valor: "la veracidad es el valor supremo"
-
-respuesta: "la veracidad es el valor supremo"
-tipo: completar
-
-enunciado: "En el periodismo informativo, {valor}."
-
-explicacion: |
-  La veracidad es fundamental en la noticia; cada dato debe ser verificable para garantizar la confianza del lector.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["cronica", "interpretacion"]
-
-variables:
-  naturaleza: "narrar un hecho con profundidad e interpretación"
-
-respuesta: "narrar un hecho con profundidad e interpretación"
-tipo: completar
-
-enunciado: "La crónica se caracteriza por {naturaleza}."
-
-explicacion: |
-  A diferencia de la noticia, la crónica se toma el tiempo para narrar, describir y analizar un hecho, permitiendo la interpretación.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "avanzado"
-  tags: ["recursos", "cronica"]
-
-variables:
-  recursos: "metáforas, diálogos directos y descripciones detalladas"
-
-respuesta: "metáforas, diálogos directos y descripciones detalladas"
-tipo: completar
-
-enunciado: "La crónica utiliza recursos como {recursos} para hacer 'vivir' el evento al lector."
-
-explicacion: |
-  La crónica emplea recursos literarios para crear una experiencia sensorial y emocional, acercando al lector al hecho narrado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "avanzado"
-  tags: ["clasificacion", "linguistica"]
-
-variables:
-  clasificacion: "secundarios"
-
-respuesta: "secundarios"
-tipo: completar
-
-enunciado: "Desde la lingüística, los géneros periodísticos se consideran géneros {clasificacion}."
-
-explicacion: |
-  Son géneros secundarios porque surgen en contextos sociales complejos y requieren un aprendizaje formal, a diferencia de la conversación cotidiana (primaria).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["comparacion", "enfoque"]
-
-variables:
-  enfoque_noticia: "el hecho en sí mismo"
-  enfoque_cronica: "la experiencia del hecho"
-
-respuesta: "el hecho en sí mismo"
-tipo: completar
-
-enunciado: "Mientras la crónica se centra en la experiencia, la noticia se centra en {enfoque_noticia}."
-
-explicacion: |
-  La noticia prioriza la transmisión del hecho objetivo, mientras la crónica prioriza la vivencia y la interpretación subjetiva.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "basico"
-  tags: ["estructura", "verdadero_falso"]
-
-variables:
-  afirmacion: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la pirámide invertida, los detalles menos importantes aparecen al principio."
-
-explicacion: |
-  Falso. En la pirámide invertida, la información más importante va al principio y los detalles menos relevantes al final.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["cronica", "verdadero_falso"]
-
-variables:
-  afirmacion: "verdadero"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La crónica permite al lector interpretar lo sucedido a través de la descripción y el análisis."
-
-explicacion: |
-  Verdadero. La crónica no solo informa, sino que describe y analiza, invitando a la interpretación.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "avanzado"
-  tags: ["objetividad", "verdadero_falso"]
-
-variables:
-  afirmacion: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Es posible lograr una neutralidad absoluta en la noticia, eliminando por completo cualquier sesgo."
-
-explicacion: |
-  Falso. Si bien la noticia aspira a la objetividad, es imposible una neutralidad absoluta; se busca presentar hechos contrastables para que el lector forme su opinión.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["identificacion", "noticia"]
-
-variables:
-  genero: "noticia"
-
-respuesta: "noticia"
-tipo: completar
-
-enunciado: "Un texto que presenta hechos recientes, usa pirámide invertida y busca objetividad es una {genero}."
-
-explicacion: |
-  Las características descritas (hechos recientes, pirámide invertida, objetividad) definen a la noticia.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["identificacion", "cronica"]
-
-variables:
-  genero: "crónica"
-
-respuesta: "crónica"
-tipo: completar
-
-enunciado: "Un texto que narra un evento con detalle sensorial, diálogos y análisis personal es una {genero}."
-
-explicacion: |
-  El uso de recursos literarios, descripciones y análisis personal caracteriza a la crónica.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "basico"
-  tags: ["estructura", "opcion_multiple"]
-
-variables:
-  correcta: "pirámide invertida"
-
-respuesta: "pirámide invertida"
-tipo: mc
-opciones: 3
-
-enunciado: "¿Cuál es la estructura típica de una noticia?"
-opciones_explicitas: ["pirámide invertida", "estructura circular", "introducción-desarrollo-conclusión"]
-
-explicacion: |
-  La noticia utiliza la pirámide invertida para priorizar la información más importante desde el inicio.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["lenguaje", "opcion_multiple"]
-
-variables:
-  correcta: "más subjetivo y literario"
-
-respuesta: "más subjetivo y literario"
-tipo: mc
-opciones: 3
-
-enunciado: "En comparación con la noticia, el lenguaje de la crónica es:"
-opciones_explicitas: ["más subjetivo y literario", "puramente objetivo y técnico", "exclusivamente oral"]
-
-explicacion: |
-  La crónica permite la interpretación y usa recursos literarios, haciéndola más subjetiva que la noticia.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["valores", "opcion_multiple"]
-
-variables:
-  correcta: "la veracidad"
-
-respuesta: "la veracidad"
-tipo: mc
-opciones: 3
-
-enunciado: "¿Cuál es el valor supremo en la construcción de una noticia?"
-opciones_explicitas: ["la veracidad", "la velocidad", "la originalidad"]
-
-explicacion: |
-  La veracidad es fundamental; los datos deben ser contrastables y verificables.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "avanzado"
-  tags: ["clasificacion", "opcion_multiple"]
-
-variables:
-  correcta: "la conversación cotidiana"
-
-respuesta: "la conversación cotidiana"
-tipo: mc
-opciones: 3
-
-enunciado: "Según la lingüística, ¿cuál es un ejemplo de género primario?"
-opciones_explicitas: ["la conversación cotidiana", "la noticia", "la crónica"]
-
-explicacion: |
-  La conversación cotidiana es un género primario, espontáneo, a diferencia de los géneros periodísticos que son secundarios.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["estructura", "completar"]
-
-variables:
-  elementos: "qué, quién, cuándo, dónde, cómo y por qué"
-
-respuesta: "qué, quién, cuándo, dónde, cómo y por qué"
-tipo: completar
-
-enunciado: "La pirámide invertida responde a los elementos: {elementos}."
-
-explicacion: |
-  Estos seis elementos constituyen la información esencial que debe aparecer al inicio de la noticia.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["funcion", "completar"]
-
-variables:
-  funcion: "interpretar"
-
-respuesta: "interpretar"
-tipo: completar
-
-enunciado: "La crónica no solo informa, sino que también describe, analiza y {funcion} lo sucedido."
-
-explicacion: |
-  La interpretación es una función clave de la crónica, diferenciándola de la mera transmisión de datos.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["verdad", "completar"]
-
-variables:
-  relacion: "datos contrastables"
-
-respuesta: "datos contrastables"
-tipo: completar
-
-enunciado: "La noticia aspira a presentar los hechos para que el lector forme su opinión basándose en {relacion}, no en impresiones."
-
-explicacion: |
-  La base de la objetividad periodística son los datos que pueden ser verificados o contrastados.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["tiempo", "completar"]
-
-variables:
-  tiempo: "el tiempo necesario"
-
-respuesta: "el tiempo necesario"
-tipo: completar
-
-enunciado: "A diferencia de la prisa de la noticia, la crónica se toma {tiempo} para narrar con profundidad."
-
-explicacion: |
-  La crónica no está sujeta a la inmediatez extrema, permitiendo un análisis más pausado y detallado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "avanzado"
-  tags: ["recursos", "completar"]
-
-variables:
-  recursos: "recursos literarios"
-
-respuesta: "recursos literarios"
-tipo: completar
-
-enunciado: "La crónica utiliza {recursos} como metáforas y descripciones detalladas."
-
-explicacion: |
-  El uso de recursos literarios es una característica distintiva que enriquece la narrativa de la crónica.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "basico"
-  tags: ["objetivo", "completar"]
-
-variables:
-  objetivo: "dar a conocer un hecho"
-
-respuesta: "dar a conocer un hecho"
-tipo: completar
-
-enunciado: "El objetivo de la noticia es {objetivo} de interés público."
-
-explicacion: |
-  La noticia busca informar sobre hechos relevantes de manera rápida y clara.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["subjetividad", "completar"]
-
-variables:
-  contraste: "la subjetividad de la opinión"
-
-respuesta: "la subjetividad de la opinión"
-tipo: completar
-
-enunciado: "Entender los géneros ayuda a no confundir la objetividad de los datos con {contraste}."
-
-explicacion: |
-  La distinción entre datos objetivos y opiniones subjetivas es clave para el pensamiento crítico.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "avanzado"
-  tags: ["aprendizaje", "completar"]
-
-variables:
-  aprendizaje: "un aprendizaje formal"
-
-respuesta: "un aprendizaje formal"
-tipo: completar
-
-enunciado: "Los géneros periodísticos requieren {aprendizaje} y una intención comunicativa clara."
-
-explicacion: |
-  Al ser géneros secundarios, su dominio requiere estudio y práctica formal, a diferencia del habla cotidiana.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["rol_periodista", "completar"]
-
-variables:
-  rol: "desaparecer detrás de los hechos"
-
-respuesta: "desaparecer detrás de los hechos"
-tipo: completar
-
-enunciado: "En la noticia, el periodista intenta {rol} para mantener la objetividad."
-
-explicacion: |
-  La objetividad implica que el periodista no imponga su voz personal, sino que deje hablar a los hechos.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "generos_periodisticos"
-  nivel: "intermedio"
-  tags: ["lectura_critica", "completar"]
-
-variables:
-  autonomia: "mayor autonomía"
-
-respuesta: "mayor autonomía"
-tipo: completar
-
-enunciado: "Entender esta clasificación nos ayuda a leer los medios con {autonomia}."
-
-explicacion: |
-  El conocimiento de los géneros periodísticos fomenta una lectura crítica y autónoma de los medios.
-```

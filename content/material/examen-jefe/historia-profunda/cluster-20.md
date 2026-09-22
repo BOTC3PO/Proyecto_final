@@ -1,6 +1,6 @@
-# Examen jefe — Evolución de la Humanidad y la Tierra
+# Examen jefe — [PENDIENTE #700]
 
-> Logro #118. Completaste el parcial dominando las grandes revoluciones y la geología del planeta, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **123 preguntas totales** en 5/5 secciones.
+> Logro #700. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -13,12 +13,7 @@ metadata:
   nivel: "basico"
   tags: ["tecnologia", "energia"]
 
-variables:
-  idx: uno_de([0, 1])
-  combustible: uno_de(["carbón", "madera"])
-  motor: uno_de(["máquina de vapor", "motor de combustión"])
-
-enunciado: "La Revolución Industrial en Inglaterra se caracterizó por el uso masivo de {combustible} como fuente de energía para impulsar la nueva {motor}."
+enunciado: "La Revolución Industrial en Inglaterra se caracterizó por el uso masivo de carbón como fuente de energía para impulsar la nueva ___."
 
 respuesta: "máquina de vapor"
 tipo: mc
@@ -35,10 +30,7 @@ metadata:
   nivel: "intermedio"
   tags: ["social", "economia"]
 
-variables:
-  sistema: uno_de(["factory system", "domestic system"])
-
-enunciado: "El paso del 'putting-out system' (producción doméstica) al {sistema} supuso la concentración de trabajadores en grandes edificios llamados fábricas."
+enunciado: "El paso del 'putting-out system' (producción doméstica) al ___ supuso la concentración de trabajadores en grandes edificios llamados fábricas."
 
 respuesta: "factory system"
 tipo: mc
@@ -57,7 +49,10 @@ metadata:
 
 respuesta: "urbanización"
 tipo: completar
-respuestas_validas: ["urbanización", "ruralización", "industrialización"]
+respuestas_validas:
+  - "urbanización"
+  - "ruralización"
+  - "industrialización"
 
 enunciado: "El desplazamiento masivo de población desde el campo hacia las ciudades para trabajar en las nuevas industrias provocó un acelerado proceso de ___."
 
@@ -79,7 +74,7 @@ pasos:
   - "Introducción de maquinaria textil mecánica"
   - "Consolidación del sistema de fábricas y ferrocarril"
 
-respuesta: ["Producción artesanal en talleres pequeños", "Introducción de maquinaria textil mecánica", "Consolidación del sistema de fábricas y ferrocarril"]
+respuesta_orden: ["Producción artesanal en talleres pequeños", "Introducción de maquinaria textil mecánica", "Consolidación del sistema de fábricas y ferrocarril"]
 tipo: ordenar
 opciones_explicitas: ["Producción artesanal en talleres pequeños", "Introducción de maquinaria textil mecánica", "Consolidación del sistema de fábricas y ferrocarril"]
 
@@ -116,7 +111,8 @@ metadata:
 
 respuesta: "James Watt"
 tipo: completar
-respuestas_validas: ["James Watt"]
+respuestas_validas:
+  - "James Watt"
 
 enunciado: "El perfeccionamiento de la máquina de vapor por ___ fue el motor tecnológico que permitió la transición hacia la producción mecanizada."
 
@@ -153,7 +149,8 @@ metadata:
 
 respuesta: "mecanización"
 tipo: completar
-respuestas_validas: ["mecanización"]
+respuestas_validas:
+  - "mecanización"
 
 enunciado: "La implementación de la tecnología de Watt facilitó la ___ de procesos que anteriormente se realizaban de forma manual o artesanal."
 
@@ -168,7 +165,7 @@ metadata:
   nivel: "avanzado"
   tags: ["procesos", "causalidad"]
 
-respuesta: ["Revolución Agraria", "Máquina de Vapor", "Expansión de Ferrocarriles", "Urbanización Masiva"]
+respuesta_orden: ["Revolución Agraria", "Máquina de Vapor", "Expansión de Ferrocarriles", "Urbanización Masiva"]
 tipo: ordenar
 opciones_explicitas: ["Revolución Agraria", "Máquina de Vapor", "Expansión de Ferrocarriles", "Urbanización Masiva"]
 
@@ -203,13 +200,9 @@ metadata:
   tags: ["urbanizacion", "migracion"]
 
 variables:
-  escenario: uno_de([
-    ["el cercamiento de tierras", "la búsqueda de empleo en las fábricas"],
-    ["la mecanización de la agricultura", "la oferta de salarios en los centros urbanos"],
-    ["la crisis de la industria artesanal", "la promesa de una vida mejor en la ciudad"]
-  ])
+  escenario: uno_de([["el cercamiento de tierras", "la búsqueda de empleo en las fábricas"], ["la mecanización de la agricultura", "la oferta de salarios en los centros urbanos"], ["la crisis de la industria artesanal", "la promesa de una vida mejor en la ciudad"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: completar
 
 enunciado: "La Revolución Industrial provocó una migración masiva desde el campo hacia las ciudades, impulsada principalmente por {escenario[0]} y {escenario[1]}."
@@ -271,7 +264,7 @@ metadata:
   nivel: "intermedio"
   tags: ["urbanizacion", "causas"]
 
-respuesta: ["Mecanización agrícola", "Cercamientos de tierras", "Crecimiento de fábricas"]
+respuesta_orden: ["Mecanización agrícola", "Cercamientos de tierras", "Crecimiento de fábricas"]
 tipo: ordenar
 
 opciones_explicitas: ["Mecanización agrícola", "Cercamientos de tierras", "Crecimiento de fábricas"]
@@ -290,17 +283,14 @@ metadata:
   tags: ["salud_publica", "hacinamiento"]
 
 variables:
-  problema: uno_de([
-    ["el hacinamiento en barrios obreros", "la falta de sistemas de alcantarillado"],
-    ["la contaminación del aire", "la falta de agua potable"]
-  ])
+  problema: uno_de([["el hacinamiento en barrios obreros", "la falta de sistemas de alcantarillado"], ["la contaminación del aire", "la falta de agua potable"]])
 
-respuesta: problema[0
+respuesta: problema[0]
 tipo: mc
 
 opciones_explicitas: ["el hacinamiento en barrios obreros", "la falta de sistemas de alcantarillado", "la contaminación del aire", "la falta de agua potable"]
 
-enunciado: "Uno de los problemas sociales y sanitarios más graves de las ciudades industriales fue {problema}."
+enunciado: "Uno de los problemas sociales y sanitarios más graves de las ciudades industriales fue {problema[0]}."
 
 explicacion: |
   El crecimiento descontrolado de las ciudades atrajo a tanta gente que se crearon barrios obreros con condiciones de hacinamiento extremo, facilitando la propagación de enfermedades.
@@ -313,11 +303,9 @@ metadata:
   nivel: "basico"
   tags: ["tecnologia", "economia"]
 
-tipo: mc
-opciones_explicitas: ["Máquina de vapor", "Motor de combustión", "Telégrafo", "Locomotora de vapor"]
-
+tipo: completar
 enunciado: "La invención y perfeccionamiento de la ___ fue el motor tecnológico fundamental que impulsó la Primera Revolución Industrial."
-
+respuesta: "Máquina de vapor"
 explicacion: |
   La máquina de vapor, perfeccionada por James Watt, permitió mecanizar la producción y revolucionar el transporte, siendo el pilar del cambio industrial.
 ```
@@ -330,7 +318,8 @@ metadata:
   tags: ["capitalismo", "economia"]
 
 tipo: completar
-respuestas_validas: ["capitalismo industrial"]
+respuestas_validas:
+  - "capitalismo industrial"
 
 enunciado: "La Revolución Industrial transformó la economía mundial, sentando las bases del ___ moderno."
 
@@ -372,11 +361,11 @@ variables:
   datos: [["urbanización", "crecimiento"], ["proletariado", "clase obrera"]]
 
 tipo: mc
-opciones_explicitas: ["urbanización y crecimiento", "proletariado y clase obrera", "feudalismo y campesinado", "monarquía y aristocracia"]]
+opciones_explicitas: ["urbanización y crecimiento", "proletariado y clase obrera", "feudalismo y campesinado", "monarquía y aristocracia"]
 
 enunciado: "La Revolución Industrial provocó un proceso de {datos[escenario_idx][0]} y {datos[escenario_idx][1]} sin precedentes en las ciudades europeas."
 
-respuesta: datos[escenario_idx
+respuesta: datos[escenario_idx][0] + " y " + datos[escenario_idx][1]
 explicacion: |
   El desplazamiento de la población del campo a la ciudad (éxodo rural) transformó la demografía y la estructura social.
 ```
@@ -393,7 +382,7 @@ opciones_explicitas: ["Revolución Agraria", "Mecanización Textil", "Expansión
 
 enunciado: "Ordena cronológicamente los hitos que permitieron la consolidación de la era industrial:"
 
-respuesta: ["Revolución Agraria", "Mecanización Textil", "Expansión del Ferrocarril", "Segunda Revolución Industrial"]
+respuesta_orden: ["Revolución Agraria", "Mecanización Textil", "Expansión del Ferrocarril", "Segunda Revolución Industrial"]
 
 explicacion: |
   Primero la agricultura permitió alimentar a más gente; luego la industria textil se mecanizó; el ferrocarril conectó mercados y finalmente la segunda fase introdujo la electricidad y el acero.
@@ -431,9 +420,12 @@ variables:
   datos: [["Telégrafo", "Comunicación a larga distancia"], ["Ferrocarril", "Movilidad de mercancías"], ["Máquina de coser", "Producción de indumentaria"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["Comunicación a larga distancia", "Movilidad de mercancías", "Producción de indumentaria"]
+respuestas_validas:
+  - "Comunicación a larga distancia"
+  - "Movilidad de mercancías"
+  - "Producción de indumentaria"
 
 enunciado: "El invento del ___ permitió la ___."
 
@@ -454,7 +446,7 @@ metadata:
 
 opciones_explicitas: ["Máquina de vapor", "Locomotora de vapor", "Expansión ferroviaria"]
 
-respuesta: ["Máquina de vapor", "Locomotora de vapor", "Expansión ferroviaria"]
+respuesta_orden: ["Máquina de vapor", "Locomotora de vapor", "Expansión ferroviaria"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente la evolución tecnológica que impulsó el transporte en la Revolución Industrial:"
@@ -497,7 +489,9 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["Combustible fósil", "Biomasa"]
+respuestas_validas:
+  - "Combustible fósil"
+  - "Biomasa"
 
 enunciado: "El uso masivo de ___ permitió el acceso a un ___."
 
@@ -536,11 +530,13 @@ variables:
   escenario: uno_de([["nómadas", "se desplazan constantemente"], ["sedentarios", "se establecen en un lugar fijo"]])
 
 tipo: completar
-respuestas_validas: ["nómadas", "sedentarios"]
+respuestas_validas:
+  - "nómadas"
+  - "sedentarios"
 
 enunciado: "Antes de la agricultura, los grupos humanos eran principalmente {escenario[0]}, pero con la domesticación de especies se volvieron {escenario[1]}."
 
-respuesta: escenario[1
+respuesta: escenario[1]
 
 explicacion: |
   Al tener cultivos y ganado que cuidar, los grupos humanos ya no necesitaban desplazarse constantemente, dando origen a los primeros asentamientos permanentes.
@@ -574,7 +570,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Paleolítico", "Revolución Neolítica", "Edad de los Metales"]
 
-respuesta: ["Paleolítico", "Revolución Neolítica", "Edad de los Metales"]
+respuesta_orden: ["Paleolítico", "Revolución Neolítica", "Edad de los Metales"]
 
 enunciado: "Ordena cronológicamente las etapas de la historia humana según el uso de herramientas y tecnología de subsistencia:"
 
@@ -589,15 +585,12 @@ metadata:
   nivel: "avanzado"
   tags: ["demografia", "salud"]
 
-variables:
-  dato: uno_de([[12000, "aumentó"], [5000, "disminuyó"]])
-
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Se estima que hace aproximadamente {dato[0]} años, la transición hacia la agricultura provocó que la población mundial {dato[1]} de forma drástica."
+enunciado: "Se estima que hace aproximadamente 12000 años, la transición hacia la agricultura provocó que la población mundial ___ de forma drástica."
 
-respuesta: dato[1
+respuesta: "aumentó"
 
 explicacion: |
   La agricultura permitió una mayor densidad de población por unidad de superficie, aunque también trajo nuevos desafíos como enfermedades zoonóticas y carencias nutricionales específicas.
@@ -612,13 +605,12 @@ metadata:
 
 variables:
   escenario: uno_de([["Creciente Fértil", "trigo y cebada"], ["Mesoamérica", "maíz"]])
-  cereales: escenario[1]
 
-respuesta: escenario[1][0
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["trigo y cebada", "maíz", "papa", "arroz"]
 
-enunciado: "En la región del {escenario[0]}, los primeros agricultores se especializaron en el cultivo de {cereales[0]} y {cereales[1]}."
+enunciado: "En la región del {escenario[0]}, los primeros agricultores se especializaron en el cultivo de {escenario[1]}."
 
 explicacion: |
   En el Creciente Fértil (Mesopotamia y Levante), el trigo y la cebada fueron los pilares de la agricultura neolítica.
@@ -631,14 +623,11 @@ metadata:
   nivel: "basico"
   tags: ["ganaderia", "animales"]
 
-variables:
-  animal_base: uno_de([["oveja", "cabras"], ["vaca", "cerdos"]])
-
-respuesta: animal_base[0
+respuesta: "oveja"
 tipo: mc
 opciones_explicitas: ["oveja", "vaca", "cerdo", "caballo"]
 
-enunciado: "Uno de los animales más importantes para la obtención de lana y carne en el Neolítico fue la {animal_base[0]}."
+enunciado: "Uno de los animales más importantes para la obtención de lana y carne en el Neolítico fue la ___."
 
 explicacion: |
   La domesticación de la oveja permitió no solo alimento, sino también fibras textiles para la vestimenta.
@@ -651,8 +640,9 @@ metadata:
   nivel: "intermedio"
   tags: ["america", "papa"]
 
-respuesta: ["papa"]
-respuestas_validas: ["papa"]
+respuesta: "papa"
+respuestas_validas:
+  - "papa"
 tipo: completar
 
 enunciado: "A diferencia de los cereales de Eurasia, en la región de los Andes el cultivo fundamental fue la ___."
@@ -668,9 +658,9 @@ metadata:
   nivel: "avanzado"
   tags: ["procesos", "orden"]
 
-respuesta: ["Recolección de granos silvestres", "Selección de semillas", "Cultivo de campos"]
+respuesta_orden: ["Recolección de granos silvestres", "Selección de semillas", "Cultivo de campos"]
 tipo: ordenar
-opciones_explicitas: ["Recolección de granos silvestres", "Selección de semillas", "Cultivo de campos", "Comercio de excedentes"]
+opciones_explicitas: ["Recolección de granos silvestres", "Selección de semillas", "Cultivo de campos"]
 
 enunciado: "Ordena los pasos que permitieron la transición de la recolección a la agricultura intensiva:"
 
@@ -685,14 +675,11 @@ metadata:
   nivel: "intermedio"
   tags: ["consecuencias", "poblacion"]
 
-variables:
-  cambio: uno_de([["aumento", "crecimiento"], ["disminución", "caída"]])
-
-respuesta: cambio[0
+respuesta: "aumento"
 tipo: mc
 opciones_explicitas: ["aumento", "disminución", "estancamiento", "variación"]
 
-enunciado: "La capacidad de producir excedentes alimentarios provocó un {cambio} de la población humana."
+enunciado: "La capacidad de producir excedentes alimentarios provocó un ___ de la población humana."
 
 explicacion: |
   La agricultura permitió alimentar a más personas en un mismo territorio, lo que derivó en un crecimiento demográfico sostenido.
@@ -705,13 +692,9 @@ metadata:
   nivel: "basico"
   tags: ["agricultura", "origen", "neolitico"]
 
-variables:
-  datos: [["En un único punto geográfico", "falso"], ["De forma independiente en diversas regiones", "verdadero"], ["Fue un proceso importado de Europa", "falso"], ["Ocurrió solo en el Creciente Fértil", "falso"]]
-  idx: uno_de([0,1,2,3])
-
 tipo: mc
-opciones_explicitas: [datos[idx][0], datos[0][0], datos[1][0], datos[2][0]]
-respuesta: datos[idx][1]
+opciones_explicitas: ["En un único punto geográfico", "De forma independiente en diversas regiones", "Fue un proceso importado de Europa", "Ocurrió solo en el Creciente Fértil"]
+respuesta: "De forma independiente en diversas regiones"
 enunciado: "Sobre el surgimiento de la agricultura durante la Revolución Neolítica, es correcto afirmar que esta ocurrió ___."
 explicacion: |
   La agricultura no fue un evento único y global, sino que surgió de manera independiente en múltiples focos como el Creciente Fértil, China, Mesoamérica y los Andes.
@@ -726,18 +709,17 @@ metadata:
 
 variables:
   idx: uno_de([0, 1, 2, 3])
-  datos: [
-    ["Creciente Fértil", "trigo y cebada"],
-    ["China", "arroz y mijo"],
-    ["Mesoamérica", "maíz y calabaza"],
-    ["Andes", "papa y quinoa"]
-  ]
+  datos: [["Creciente Fértil", "trigo y cebada"], ["China", "arroz y mijo"], ["Mesoamérica", "maíz y calabaza"], ["Andes", "papa y quinoa"]]
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["trigo y cebada", "arroz y mijo", "maíz y calabaza", "papa y quinoa"]
+respuestas_validas:
+  - "trigo y cebada"
+  - "arroz y mijo"
+  - "maíz y calabaza"
+  - "papa y quinoa"
 
-enunciado: "En la región de {datos[idx][0]}, los primeros cultivos domesticados fueron principalmente {escenario[idx][1]}."
+enunciado: "En la región de {datos[idx][0]}, los primeros cultivos domesticados fueron principalmente {datos[idx][1]}."
 
 explicacion: |
   Cada región desarrolló sus propios cultivos base de forma autónoma: {datos[idx][0]} se centró en {datos[idx][1]}.
@@ -757,6 +739,7 @@ enunciado: "Ordena cronológicamente las etapas que generalmente preceden a la c
 
 explicacion: |
   El proceso comienza con la recolección, seguido de la selección de semillas (domesticación), lo que permite asentarse (sedentarismo) y finalmente permite que la población crezca.
+respuesta_orden: ["Recolección de granos silvestres", "Domesticación de plantas", "Sedentarismo", "Aumento de la densidad poblacional"]
 ```
 
 ```
@@ -767,9 +750,10 @@ metadata:
   tags: ["geografia", "determinismo"]
 
 tipo: vf
-opciones_explicitas: [verdadero, falso]
 
 enunciado: "La existencia de múltiples centros de origen de la agricultura sugiere que el clima y la disponibilidad de especies silvestres fueron factores clave en diferentes partes del mundo."
+
+respuesta: verdadero
 
 explicacion: |
   Es verdadero. La diversidad de cultivos en distintas regiones demuestra que la transición neolítica fue una respuesta adaptativa a entornos locales específicos.
@@ -784,10 +768,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [
-    ["Mesoamérica", "Maíz"],
-    ["Andes", "Papa"]
-  ]
+  datos: [["Mesoamérica", "Maíz"], ["Andes", "Papa"]]
 
 tipo: completar
 tolerancia_abs: 0
@@ -800,6 +781,8 @@ pasos:
 
 explicacion: |
   En {datos[idx][0]}, la domesticación de la {datos[idx][1]} fue el motor del cambio neolítico.
+
+respuesta: datos[idx][1]
 ```
 
 ```
@@ -811,7 +794,8 @@ metadata:
 
 respuesta: "excedente"
 tipo: completar
-respuestas_validas: ["excedente"]
+respuestas_validas:
+  - "excedente"
 
 enunciado: "La capacidad de producir más alimento del que se consume inmediatamente se denomina ___."
 
@@ -826,14 +810,11 @@ metadata:
   nivel: "basico"
   tags: ["sedentarismo", "agricultura"]
 
-variables:
-  escenario: uno_de([["agricultura estable", "sedentarismo"], ["caza nómada", "desplazamiento constante"]])
-
-respuesta: escenario[1
+respuesta: "sedentarismo"
 tipo: mc
 opciones_explicitas: ["sedentarismo", "desplazamiento constante", "nomadismo extremo", "migración estacional"]
 
-enunciado: "La adopción de la {escenario[0]} permitió que los grupos humanos abandonaran el nomadismo, dando paso al ___."
+enunciado: "La adopción de la agricultura estable permitió que los grupos humanos abandonaran el nomadismo, dando paso al ___."
 
 explicacion: |
   Al tener una fuente de alimento constante y predecible, las poblaciones pudieron establecer asentamientos permanentes.
@@ -863,7 +844,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "transicion"]
 
-respuesta: ["agricultura", "excedente", "sedentarismo", "especialización"]
+respuesta_orden: ["agricultura", "excedente", "sedentarismo", "especialización"]
 tipo: ordenar
 opciones_explicitas: ["agricultura", "excedente", "sedentarismo", "especialización"]
 
@@ -886,14 +867,11 @@ metadata:
   nivel: "avanzado"
   tags: ["causalidad", "sociedad"]
 
-variables:
-  caso: uno_de([["excedente", "sedentarismo"], ["caza", "nomadismo"]])
-
-respuesta: caso[1
+respuesta: "sedentarismo"
 tipo: mc
 opciones_explicitas: ["sedentarismo", "nomadismo", "migración", "recolección"]
 
-enunciado: "Si la agricultura genera un {caso[0]}, la consecuencia social directa es el ___."
+enunciado: "Si la agricultura genera un excedente, la consecuencia social directa es el ___."
 
 explicacion: |
   El excedente permite que la sociedad deje de moverse constantemente en busca de comida, fijando la población en un territorio.
@@ -906,15 +884,11 @@ metadata:
   nivel: "basico"
   tags: ["agricultura", "origen"]
 
-variables:
-  datos: [["Creciente Fértil", "Oriente Próximo"], ["China", "Río Amarillo"], ["Mesoamérica", "México"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "Oriente Próximo"
 tipo: mc
 opciones_explicitas: ["Oriente Próximo", "Río Amarillo", "México"]
 
-enunciado: "La domesticación de cereales como el trigo y la cebada ocurrió principalmente en la región de {datos[idx][0]}."
+enunciado: "La domesticación de cereales como el trigo y la cebada ocurrió principalmente en la región del Creciente Fértil, también conocida como ___."
 
 explicacion: |
   La región del Creciente Fértil fue el núcleo de la revolución neolítica, permitiendo el sedentarismo gracias al cultivo de cereales.
@@ -948,15 +922,12 @@ metadata:
   nivel: "intermedio"
   tags: ["nomadismo", "sedentarismo"]
 
-variables:
-  datos: [["Nómadas", "recolectores"], ["Sedentarios", "agricultores"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "agricultores"
 tipo: completar
-respuestas_validas: ["agricultores"]
+respuestas_validas:
+  - "agricultores"
 
-enunciado: "Antes de la revolución neolítica, los grupos humanos eran mayoritariamente ___; tras la domesticación de plantas, se convirtieron en ___."
+enunciado: "Antes de la revolución neolítica, los grupos humanos eran mayoritariamente nómadas y recolectores; tras la domesticación de plantas, se convirtieron en ___."
 
 explicacion: |
   La capacidad de producir alimento permitió que los grupos humanos dejaran de desplazarse constantemente.
@@ -969,15 +940,11 @@ metadata:
   nivel: "avanzado"
   tags: ["geografia", "cultivos"]
 
-variables:
-  datos: [["China", "arroz"], ["Andes", "papa"], ["Creciente Fértil", "trigo"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "papa"
 tipo: mc
 opciones_explicitas: ["arroz", "papa", "trigo"]
 
-enunciado: "Si un arqueólogo encuentra restos de tubérculos domesticados en la zona de {datos[idx][0]}, lo más probable es que se trate de ___."
+enunciado: "Si un arqueólogo encuentra restos de tubérculos domesticados en la zona de los Andes, lo más probable es que se trate de ___."
 
 explicacion: |
   La domesticación de la papa es un proceso clave que ocurrió en la región andina.
@@ -990,7 +957,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procesos", "orden"]
 
-respuesta: ["Recolección", "Domesticación", "Sedentarismo", "Excedente"]
+respuesta_orden: ["Recolección", "Domesticación", "Sedentarismo", "Excedente"]
 tipo: ordenar
 opciones_explicitas: ["Recolección", "Domesticación", "Sedentarismo", "Excedente"]
 
@@ -1011,7 +978,9 @@ metadata:
 
 respuesta: "burguesía"
 tipo: completar
-respuestas_validas: ["burguesía", "la burguesía"]
+respuestas_validas:
+  - "burguesía"
+  - "la burguesía"
 
 enunciado: "Durante el siglo XVIII, la clase social que lideró el desafío al Antiguo Régimen, buscando mayor participación política y la eliminación de los privilegios feudales, fue la ___."
 
@@ -1027,13 +996,12 @@ metadata:
   tags: ["derechos_humanos", "liberalismo"]
 
 variables:
-  es_derecho_natural: uno_de([true, falso])
+  es_derecho_natural: uno_de([verdadero, falso])
 
-respuesta: uno_de([true, falso])
-tipo: mc
-opciones_explicitas: [true, falso]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En el contexto de la Revolución Francesa, el principio de que los hombres nacen y permanecen libres e iguales en derechos es un pilar del liberalismo. ¿Se considera este un derecho natural según la filosofía ilustrada que impulsó la revolución? {es_derecho_natural}"
+enunciado: "En el contexto de la Revolución Francesa, el principio de que los hombres nacen y permanecen libres e iguales en derechos es un pilar del liberalismo. ¿Se considera este un derecho natural según la filosofía ilustrada que impulsó la revolución?"
 
 explicacion: |
   La Ilustración promovió la idea de que la libertad y la igualdad son derechos inherentes al ser humano, rompiendo con la idea de que los derechos eran concesiones del monarca.
@@ -1063,7 +1031,7 @@ metadata:
   nivel: "avanzado"
   tags: ["procesos", "etapas"]
 
-respuesta: ["Estados Generales", "Asamblea Nacional", "Convención Nacional", "Directorio"]
+respuesta_orden: ["Estados Generales", "Asamblea Nacional", "Convención Nacional", "Directorio"]
 tipo: ordenar
 opciones_explicitas: ["Estados Generales", "Asamblea Nacional", "Convención Nacional", "Directorio"]
 
@@ -1082,7 +1050,9 @@ metadata:
 
 respuesta: "Libre mercado"
 tipo: completar
-respuestas_validas: ["Libre mercado", "el libre mercado"]
+respuestas_validas:
+  - "Libre mercado"
+  - "el libre mercado"
 
 enunciado: "La burguesía, al consolidar su poder político, promovió la eliminación de las aduanas internas y los gremios, abogando por la libertad de comercio y el ___."
 
@@ -1099,7 +1069,9 @@ metadata:
 
 respuesta: "igualdad ante la ley"
 tipo: completar
-respuestas_validas: ["igualdad ante la ley", "igualdad jurídica"]
+respuestas_validas:
+  - "igualdad ante la ley"
+  - "igualdad jurídica"
 
 enunciado: "El liberalismo político postula que todos los ciudadanos deben ser tratados de la misma forma por el Estado, principio conocido como ___."
 
@@ -1114,14 +1086,11 @@ metadata:
   nivel: "intermedio"
   tags: ["poderes", "montesquieu"]
 
-variables:
-  escenario: uno_de([["Ejecutivo", "Legislativo", "Judicial"], ["Poder Real", "Parlamento", "Tribunales"]])
-
 respuesta: "separación de poderes"
 tipo: mc
 opciones_explicitas: ["centralización absoluta", "separación de poderes", "supremacía monárquica", "gobierno de facciones"]
 
-enunciado: "Para evitar la tiranía, el liberalismo clásico propone la {escenario[0]} como mecanismo de control mutuo."
+enunciado: "Para evitar la tiranía, el liberalismo clásico propone dividir el poder del Estado en órganos independientes (Ejecutivo, Legislativo y Judicial). Este mecanismo se conoce como:"
 
 explicacion: |
   La separación de poderes (Ejecutivo, Legislativo y Judicial) busca que ninguna entidad concentre todo el control del Estado.
@@ -1151,7 +1120,7 @@ metadata:
   nivel: "avanzado"
   tags: ["derechos", "individuo"]
 
-respuesta: ["libertad", "propiedad", "seguridad"]
+respuesta_orden: ["libertad", "propiedad", "seguridad"]
 tipo: ordenar
 opciones_explicitas: ["libertad", "propiedad", "seguridad"]
 
@@ -1187,6 +1156,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Libertad, Igualdad, Fraternidad", "Libertad, Igualdad, Propiedad", "Igualdad, Justicia, Libertad", "Libertad, Orden, Progreso"]
+respuesta: "Libertad, Igualdad, Fraternidad"
 
 enunciado: "El lema que sintetiza los ideales de la Revolución Francesa es:"
 
@@ -1202,7 +1172,8 @@ metadata:
   tags: ["derechos_humanos", "declaracion_1789"]
 
 tipo: completar
-respuestas_validas: ["1789"]
+respuestas_validas:
+  - "1789"
 
 enunciado: "La Declaración de los Derechos del Hombre y del Ciudadano fue adoptada por la Asamblea Nacional Constituyente en el año ____."
 
@@ -1218,13 +1189,14 @@ metadata:
   tags: ["derechos_humanos", "soberania"]
 
 variables:
-  idx: uno_de([0, 1])
   datos: [["La soberanía reside en la Nación", "La ley es la expresión de la voluntad general"], ["La ley es la expresión de la voluntad general", "La soberanía reside en la Nación"]]
 
 tipo: mc
-opciones_explicitas: ["La soberanía reside en la Nación", "La soberanía reside en el Monarca", "La soberanía reside en la Iglesia", "La soberanía reside en la Aristocracia"]]
+opciones_explicitas: ["La soberanía reside en la Nación", "La soberanía reside en el Monarca", "La soberanía reside en la Iglesia", "La soberanía reside en la Aristocracia"]
 
-enunciado: "Según la Declaración de 1789, el principio de soberanía establece que: {datos[idx][0]}"
+enunciado: "Según la Declaración de 1789, el principio de soberanía establece que: {datos[0][0]}"
+
+respuesta: "La soberanía reside en la Nación"
 
 explicacion: |
   El Artículo 3 de la Declaración establece que "El principio de toda soberanía reside esencialmente en la Nación".
@@ -1244,6 +1216,7 @@ enunciado: "Ordena cronológicamente los siguientes hitos de la Revolución Fran
 
 explicacion: |
   La Bastilla cayó en julio de 1789, la Declaración se aprobó en agosto de 1789 y la ejecución del Rey ocurrió en enero de 1793.
+respuesta_orden: ["Toma de la Bastilla", "Declaración de los Derechos del Hombre", "Ejecución de Luis XVI"]
 ```
 
 ```
@@ -1260,6 +1233,8 @@ enunciado: "La Declaración de 1789 establece que los hombres nacen y permanecen
 
 explicacion: |
   El concepto de igualdad ante la ley fue fundamental para desmantelar los privilegios estamentales del feudalismo.
+
+respuesta: "iguales"
 ```
 
 ```
@@ -1271,7 +1246,8 @@ metadata:
 
 respuesta: "soberanía_nacional"
 tipo: completar
-respuestas_validas: ["soberanía_nacional"]
+respuestas_validas:
+  - "soberanía_nacional"
 
 enunciado: "Con el ascenso de las revoluciones burguesas, el principio de la ___ desplazó al concepto de la soberanía de derecho divino del monarca."
 
@@ -1287,17 +1263,12 @@ metadata:
   tags: ["ciudadania", "estamentos"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [
-    ["El sistema de estamentos", "La sociedad de ciudadanos"],
-    ["El absolutismo monárquico", "El constitucionalismo liberal"]
-  ]
+  escenario: uno_de([["El sistema de estamentos", "La sociedad de ciudadanos"], ["El absolutismo monárquico", "El constitucionalismo liberal"]])
 
-respuesta: escenario[escenario_idx][1
-tipo: mc
-opciones_explicitas: ["escenario[0][1]", "escenario[1][1]"]
+tipo: completar
+respuesta: escenario[1]
 
-enunciado: "La burguesía buscaba reemplazar ___ por ___."
+enunciado: "La burguesía buscaba reemplazar {escenario[0]} por ___."
 
 explicacion: |
   El paso fundamental fue la transición de una sociedad dividida por privilegios de nacimiento (estamentos) a una sociedad de individuos con derechos iguales ante la ley (ciudadanía).
@@ -1310,7 +1281,7 @@ metadata:
   nivel: "intermedio"
   tags: ["constitucion", "derechos"]
 
-respuesta: ["Constitución", "División de poderes", "Derechos individuales"]
+respuesta_orden: ["Constitución", "División de poderes", "Derechos individuales"]
 tipo: ordenar
 opciones_explicitas: ["Constitución", "División de poderes", "Derechos individuales"]
 
@@ -1348,11 +1319,7 @@ metadata:
   nivel: "intermedio"
   tags: ["parlamento", "representacion"]
 
-variables:
-  tipo_sufragio: uno_de(["universal", "censitario"])
-  tipo_texto: ["universal", "censitario"]
-
-respuesta: tipo_texto[tipo_sufragio
+respuesta: "censitario"
 tipo: mc
 opciones_explicitas: ["universal", "censitario"]
 
@@ -1371,12 +1338,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Un sistema donde el Rey dicta las leyes, las ejecuta y las juzga a su voluntad.", "Separación de poderes"],
-    ["Un sistema donde el Rey tiene el control total de la justicia, el legislativo y el ejecutivo.", "Separación de poderes"]
-  ]
+  escenarios: [["Un sistema donde el Rey dicta las leyes, las ejecuta y las juzga a su voluntad.", "Separación de poderes"], ["Un sistema donde el Rey tiene el control total de la justicia, el legislativo y el ejecutivo.", "Separación de poderes"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["Igualdad", "Libertad", "Separación de poderes"]
 
@@ -1395,12 +1359,9 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [
-    ["la nobleza tiene privilegios legales que el campesino no posee", "Igualdad"],
-    ["el nacimiento determina los derechos civiles de una persona", "Igualdad"]
-  ]
+  casos: [["la nobleza tiene privilegios legales que el campesino no posee", "Igualdad"], ["el nacimiento determina los derechos civiles de una persona", "Igualdad"]]
 
-respuesta: casos[caso_idx][1
+respuesta: casos[caso_idx][1]
 tipo: mc
 opciones_explicitas: ["Igualdad", "Libertad", "Propiedad"]
 
@@ -1419,16 +1380,14 @@ metadata:
 
 variables:
   situacion_idx: uno_de([0, 1])
-  situaciones: [
-    ["el Estado prohíbe la libre circulación de mercancías", "Libertad"],
-    ["el Estado impone censura previa a las ideas publicadas", "Libertad"]
-  ]
+  situaciones: [["el Estado prohíbe la libre circulación de mercancías", "Libertad"], ["el Estado impone censura previa a las ideas publicadas", "Libertad"]]
 
-respuesta: situaciones[situacion_idx][1
+respuesta: situaciones[situacion_idx][1]
 tipo: completar
-respuestas_validas: ["Libertad"]
+respuestas_validas:
+  - "Libertad"
 
-enunciado: "Cuando el Estado interviene de forma arbitraria, como cuando ___ , se está vulnerando el principio de ___."
+enunciado: "Cuando el Estado interviene de forma arbitraria, como cuando {situaciones[situacion_idx][0]}, se está vulnerando el principio de ___."
 
 explicacion: |
   El liberalismo defiende un ámbito de acción individual (libertad de culto, expresión, comercio) donde el Estado no debe interferir.
@@ -1441,7 +1400,7 @@ metadata:
   nivel: "intermedio"
   tags: ["liberalismo", "conceptos"]
 
-respuesta: ["Igualdad", "Libertad", "Propiedad"]
+respuesta_orden: ["Igualdad", "Libertad", "Propiedad"]
 tipo: ordenar
 opciones_explicitas: ["Propiedad", "Igualdad", "Libertad"]
 
@@ -1460,12 +1419,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["la soberanía reside en el monarca por derecho divino", "Libertad"],
-    ["el poder emana del pueblo a través de la ley", "Libertad"]
-  ]
+  escenarios: [["la soberanía reside en el monarca por derecho divino", "Libertad"], ["el poder emana del pueblo a través de la ley", "Libertad"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["Igualdad", "Libertad", "Propiedad"]
 
@@ -1486,6 +1442,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Enfriamiento de magma o lava", "Acumulación de sedimentos", "Presión y temperatura extrema", "Evaporación de agua salada"]
+respuesta: "Enfriamiento de magma o lava"
 
 enunciado: "Las rocas ígneas se originan principalmente por el proceso de ___."
 
@@ -1504,7 +1461,9 @@ variables:
   escenario: uno_de([["granito", "intrusiva"], ["basalto", "extrusiva"]])
 
 tipo: completar
-respuestas_validas: ["intrusiva", "extrusiva"]
+respuestas_validas:
+  - "intrusiva"
+  - "extrusiva"
 
 enunciado: "Si el magma se enfría lentamente bajo la superficie terrestre, forma una roca de tipo {escenario[0]} y su clasificación es ___."
 
@@ -1521,6 +1480,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Granito y Basalto", "Caliza y Arenisca", "Mármol y Pizarra", "Granito y Caliza"]
+respuesta: "Granito y Basalto"
 
 enunciado: "¿Cuál de los siguientes pares de rocas son ejemplos de rocas ígneas?"
 
@@ -1535,11 +1495,9 @@ metadata:
   nivel: "basico"
   tags: ["magma", "lava"]
 
-tipo: mc
-opciones_explicitas: ["Magma", "Lava", "Sedimento", "Cristal"]
-
+tipo: completar
 enunciado: "Cuando el material fundido sale a la superficie terrestre, se denomina ___."
-
+respuesta: "Lava"
 explicacion: |
   El término magma se usa para el material fundido bajo la superficie, mientras que lava es el término para el material que ya ha emergido.
 ```
@@ -1555,7 +1513,9 @@ variables:
   caso: uno_de([["lento", "cristales grandes"], ["rápido", "cristales pequeños"]])
 
 tipo: completar
-respuestas_validas: ["cristales grandes", "cristales pequeños"]
+respuestas_validas:
+  - "cristales grandes"
+  - "cristales pequeños"
 
 enunciado: "Un enfriamiento de tipo {caso[0]} en el interior de la corteza produce rocas con ___."
 
@@ -1572,6 +1532,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Fragmentación de rocas ígneas", "Enfriamiento de magma", "Presión y calor extremo", "Sublimación de gases"]
+respuesta: "Fragmentación de rocas ígneas"
 
 enunciado: "Las rocas sedimentarias se forman principalmente a través del proceso de acumulación y compactación de ___."
 
@@ -1586,14 +1547,11 @@ metadata:
   nivel: "basico"
   tags: ["ejemplos", "sedimentarias"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[["arenisca", "caliza"], ["lutita", "conglomerado"]]]
-
 tipo: mc
 opciones_explicitas: ["Arenisca y caliza", "Granito y basalto", "Mármol y pizarra", "Obsidiana y pumita"]
+respuesta: "Arenisca y caliza"
 
-enunciado: "Un ejemplo clásico de rocas que se forman por la acumulación de sedimentos es el par: {datos[escenario_idx][0]}."
+enunciado: "Un ejemplo clásico de rocas que se forman por la acumulación de sedimentos es el par:"
 
 explicacion: |
   La arenisca (formada por granos de arena) y la caliza (frecuentemente de origen orgánico o químico) son ejemplos fundamentales de rocas sedimentarias.
@@ -1613,6 +1571,7 @@ enunciado: "Ordena cronológicamente los pasos necesarios para la formación de 
 
 explicacion: |
   Primero la roca madre se rompe (meteorización), los restos viajan (transporte), se asientan (deposición) y finalmente se transforman en roca sólida (litificación).
+respuesta_orden: ["Meteorización y erosión", "Transporte de sedimentos", "Deposición en capas", "Litificación (compactación y cementación)"]
 ```
 
 ```
@@ -1623,7 +1582,8 @@ metadata:
   tags: ["sedimentos", "composición"]
 
 tipo: completar
-respuestas_validas: ["restos orgánicos"]
+respuestas_validas:
+  - "restos orgánicos"
 
 enunciado: "Además de fragmentos de otras rocas, las rocas sedimentarias pueden formarse por la acumulación de ___."
 
@@ -1641,9 +1601,11 @@ metadata:
 variables:
   espesor_capa: random_float(1.5, 5.5)
   cantidad_capas: 12
+  espesor_total: espesor_capa * cantidad_capas
 
 tipo: completar
 tolerancia_abs: 0.1
+respuesta: espesor_total
 
 enunciado: "Si un afloramiento sedimentario presenta {cantidad_capas} capas, y cada capa tiene un espesor promedio de {espesor_capa} metros, ¿cuál es el espesor total del afloramiento en metros?"
 
@@ -1685,7 +1647,10 @@ variables:
   idx: uno_de([0, 1, 2])
 
 tipo: completar
-respuestas_validas: ["mármol", "gneis", "cuarcita"]
+respuestas_validas:
+  - "mármol"
+  - "gneis"
+  - "cuarcita"
 
 enunciado: "Cuando la roca ___ se somete a procesos metamórficos, se transforma en ___."
 
@@ -1711,7 +1676,7 @@ opciones_explicitas: ["Magma", "Roca Ígnea", "Roca Sedimentaria", "Roca Metamó
 
 enunciado: "Ordena el ciclo de formación de las rocas según su origen, desde el material fundido hasta la roca transformada por presión:"
 
-respuesta: ["Magma", "Roca Ígnea", "Roca Sedimentaria", "Roca Metamórfica"]
+respuesta_orden: ["Magma", "Roca Ígnea", "Roca Sedimentaria", "Roca Metamórfica"]
 
 explicacion: |
   El ciclo comienza con el magma que al enfriarse crea rocas ígneas; estas pueden erosionarse en sedimentos (sedimentarias) y finalmente transformarse por presión en metamórficas.
@@ -1724,11 +1689,9 @@ metadata:
   nivel: "basico"
   tags: ["fósiles", "sedimentarias"]
 
-tipo: mc
-opciones_explicitas: ["Rocas ígneas", "Rocas sedimentarias", "Rocas metamórficas"]
-
-enunciado: "Los fósiles se encuentran casi exclusivamente en un tipo de roca llamado ________."
-
+tipo: completar
+enunciado: "Los fósiles se encuentran casi exclusivamente en un tipo de roca llamado ___."
+respuesta: "Rocas sedimentarias"
 explicacion: |
   Los fósiles requieren la acumulación de sedimentos que entierren la materia orgánica rápidamente. Las rocas ígneas y metamórficas implican procesos de calor y presión que destruyen los restos orgánicos.
 ```
@@ -1742,6 +1705,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Calor y presión", "Erosión y sedimentación", "Cristalización y enfriamiento"]
+respuesta: "Calor y presión"
 
 enunciado: "Las rocas ígneas y metamórficas suelen destruir la materia orgánica debido a la acción de:"
 
@@ -1756,14 +1720,12 @@ metadata:
   nivel: "avanzado"
   tags: ["geologia", "fósiles"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-
-respuesta: tabla[escenario_idx][1
+respuesta: "ígneas"
 tipo: completar
-respuestas_validas: ["sedimentarias", "ígneas"]
+respuestas_validas:
+  - "ígneas"
 
-enunciado: "Si un paleontólogo busca restos de un trilobita, lo hará en rocas de tipo {tabla[escenario_idx][0]}. Si busca magma solidificado, lo hará en rocas {tabla[escenario_idx][1]}."
+enunciado: "Si un paleontólogo busca restos de un trilobita, lo hará en rocas de tipo sedimentarias. Si busca magma solidificado, lo hará en rocas ___."
 
 pasos:
   - "Identificar el tipo de roca donde se preserva la vida."
@@ -1771,9 +1733,6 @@ pasos:
 
 explicacion: |
   Los fósiles son indicadores de ambientes sedimentarios. Las rocas ígneas resultan de magma y las metamórficas de transformación por calor/presión.
-
-variables_contexto:
-  tabla: [["sedimentarias", "sedimentarias"], ["ígneas", "ígneas"]]
 ```
 
 ```
@@ -1790,6 +1749,7 @@ enunciado: "Ordena los pasos típicos para la formación de un fósil en una roc
 
 explicacion: |
   Primero los restos se cubren con sedimentos (sedimentación), luego esos sedimentos se compactan (litificación) y finalmente se preservan los restos (fosilización).
+respuesta_orden: ["Sedimentación", "Litificación", "Fosilización"]
 ```
 
 ```
@@ -1799,8 +1759,8 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-tipo: mc
-opciones_explicitas: ["Verdadero", "Falso"]
+tipo: vf
+respuesta: falso
 
 enunciado: "¿Es posible encontrar fósiles de plantas en una corriente de lava fresca?"
 
@@ -1842,7 +1802,10 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["sedimentaria", "ignea", "metamorfica"]
+respuestas_validas:
+  - "sedimentaria"
+  - "ignea"
+  - "metamorfica"
 
 enunciado: "El proceso observado es la {datos[idx][0]}. Por lo tanto, la roca es de tipo ___."
 
@@ -1878,18 +1841,14 @@ metadata:
   nivel: "intermedio"
   tags: ["ciclo_rocoso", "orden"]
 
-variables:
-  datos: [["Magma", "Sedimento", "Roca Metamorfica"], ["Lava", "Sedimento", "Roca Ignea"], ["Sedimento", "Roca Sedimentaria", "Roca Metamorfica"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx]
 tipo: ordenar
-opciones_explicitas: ["Magma", "Sedimento", "Roca Metamorfica", "Lava", "Sedimento", "Roca Ignea", "Sedimento", "Roca Sedimentaria", "Roca Metamorfica"]
+opciones_explicitas: ["Roca Ígnea", "Sedimento", "Roca Sedimentaria"]
+respuesta_orden: ["Roca Ígnea", "Sedimento", "Roca Sedimentaria"]
 
 enunciado: "Ordena los elementos según el proceso de formación de una roca sedimentaria a partir de material ígneo erosionado:"
 
 explicacion: |
-  El ciclo de las rocas implica la transformación constante de un tipo en otro mediante procesos geológicos.
+  El ciclo de las rocas implica la transformación constante de un tipo en otro: una roca ígnea expuesta en la superficie se erosiona en sedimentos, que luego se compactan y cementan para formar una roca sedimentaria.
 ```
 
 ```
@@ -1903,7 +1862,8 @@ variables:
   datos: [["fusión parcial", "ignea"], ["compactación", "sedimentaria"], ["reordenamiento atómico", "metamorfica"]]
   idx: uno_de([0, 1, 2])
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0
@@ -1925,7 +1885,8 @@ metadata:
 
 respuesta: "sedentarios"
 tipo: completar
-respuestas_validas: ["sedentarios"]
+respuestas_validas:
+  - "sedentarios"
 
 enunciado: "Al depender de la agricultura y la domesticación de plantas, los grupos humanos dejaron de ser nómadas para convertirse en ___."
 
@@ -1940,18 +1901,11 @@ metadata:
   nivel: "basico"
   tags: ["causas", "agricultura"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["El cultivo de cereales permitió el asentamiento", "la agricultura"],
-    ["La domesticación de plantas impulsó", "la agricultura"]
-  ]
-
-respuesta: escenarios[escenario_idx][1
+respuesta: "la agricultura"
 tipo: mc
 opciones_explicitas: ["la caza", "la agricultura", "la recolección", "la migración"]
 
-enunciado: "{escenarios[escenario_idx][0]} fue el motor principal de la sedentarización."
+enunciado: "La domesticación de plantas fue el motor principal de la sedentarización, un proceso conocido como ___."
 
 explicacion: |
   El paso de una economía de subsistencia basada en la recolección a una basada en la producción agrícola permitió la permanencia en un territorio.
@@ -1966,9 +1920,11 @@ metadata:
 
 respuesta: "especialización"
 tipo: completar
-respuestas_validas: ["especialización", "especializacion"]
+respuestas_validas:
+  - "especialización"
+  - "especializacion"
 
-enunciado: "La generación de un ___ agrícola permitió que no todos los individuos tuvieran que dedicarse a la producción de alimentos, dando lugar a la ___ del trabajo."
+enunciado: "La generación de un excedente agrícola permitió que no todos los individuos tuvieran que dedicarse a la producción de alimentos, dando lugar a la ___ del trabajo."
 
 explicacion: |
   El excedente alimentario permitió que surgieran otros roles sociales (artesanos, guerreros, sacerdotes), rompiendo la igualdad de la economía de subsistencia.
@@ -1981,7 +1937,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procesos", "ordenar"]
 
-respuesta: ["Domesticación de plantas", "Producción de excedentes", "Asentamientos permanentes", "Especialización social"]
+respuesta_orden: ["Domesticación de plantas", "Producción de excedentes", "Asentamientos permanentes", "Especialización social"]
 tipo: ordenar
 opciones_explicitas: ["Domesticación de plantas", "Producción de excedentes", "Asentamientos permanentes", "Especialización social"]
 
@@ -1998,18 +1954,11 @@ metadata:
   nivel: "avanzado"
   tags: ["territorio", "geografia_humana"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [
-    ["El asentamiento cerca de ríos", "fueron"],
-    ["La agricultura de riego", "fueron"]
-  ]
+respuesta: verdadero
+tipo: vf
+opciones_explicitas: [verdadero, falso]
 
-respuesta: "fueron"
-tipo: mc
-opciones_explicitas: ["fueron", "fueron"]
-
-enunciado: "Los asentamientos permanentes {casos[caso_idx][0]} una consecuencia directa de la necesidad de cuidar los cultivos."
+enunciado: "Los asentamientos permanentes fueron una consecuencia directa de la necesidad de cuidar los cultivos."
 
 explicacion: |
   La agricultura requiere una inversión de tiempo y cuidado constante en el mismo terreno, lo que obliga a la población a permanecer en un radio cercano a sus campos.
@@ -2024,6 +1973,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["La producción total de alimentos de una comunidad", "La producción de alimento por encima de lo necesario para la subsistencia", "El proceso de transformar granos en harina", "El intercambio de semillas entre comunidades"]
+respuesta: "La producción de alimento por encima de lo necesario para la subsistencia"
 
 enunciado: "En el contexto de la Revolución Neolítica, ¿qué se define como excedente agrícola?"
 
@@ -2039,16 +1989,15 @@ metadata:
   tags: ["sociedad", "especializacion"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["comerciar con otros grupos", "alimentar a artesanos y sacerdotes"],
-    ["almacenar para tiempos de sequía", "permitir la aparición de jerarquías sociales"]
-  ]
+  escenarios: [["comerciar con otros grupos", "alimentar a artesanos y sacerdotes"], ["almacenar para tiempos de sequía", "permitir la aparición de jerarquías sociales"]]
+  escenario: uno_de(escenarios)
 
 tipo: mc
 opciones_explicitas: ["Reducir el tamaño de las poblaciones", "Fomentar la autosuficiencia absoluta", "Permitir la especialización del trabajo", "Eliminar la necesidad de agricultura"]
 
-enunciado: "La existencia de un excedente agrícola permitió que parte de la población pudiera dedicarse a actividades distintas a la producción de alimentos, como {escenarios[escenario_idx][0]} o {escenarios[escenario_idx][1]}. ¿A qué proceso social dio lugar esto?"
+enunciado: "La existencia de un excedente agrícola permitió que parte de la población pudiera dedicarse a actividades distintas a la producción de alimentos, como {escenario[0]} o {escenario[1]}. ¿A qué proceso social dio lugar esto?"
+
+respuesta: "Permitir la especialización del trabajo"
 
 explicacion: |
   Al no tener que producir comida todos los días, surgieron especialistas (artesanos, guerreros, administradores) y se consolidaron las estructuras sociales complejas.
@@ -2068,6 +2017,7 @@ enunciado: "Ordena cronológicamente los procesos que permitieron la transición
 
 explicacion: |
   Primero se domestican especies, lo que permite producir más de lo que se consume; esto permite quedarse en un lugar (sedentarismo) y finalmente permite que no todos trabajen en el campo.
+respuesta_orden: ["Domesticación de plantas y animales", "Producción de excedente agrícola", "Formación de asentamientos permanentes", "Aparición de la división social del trabajo"]
 ```
 
 ```
@@ -2078,7 +2028,9 @@ metadata:
   tags: ["economia_antigua"]
 
 tipo: completar
-respuestas_validas: ["comercio", "intercambio"]
+respuestas_validas:
+  - "comercio"
+  - "intercambio"
 
 enunciado: "El excedente agrícola no solo servía para el almacenamiento, sino que también facilitó el ________ con otros grupos humanos."
 
@@ -2094,17 +2046,16 @@ metadata:
   tags: ["logica", "economia"]
 
 variables:
-  datos: [
-    [100, 70],
-    [250, 180],
-    [50, 45]
-  ]
+  datos: [[100, 70], [250, 180], [50, 45]]
   idx: uno_de([0, 1, 2])
   produccion: datos[idx][0]
   consumo: datos[idx][1]
+  excedente: produccion - consumo
 
 tipo: completar
 enunciado: "Si una comunidad agrícola produce {produccion} sacos de grano y el consumo necesario para su subsistencia es de {consumo} sacos, ¿cuántos sacos representan el excedente?"
+
+respuesta: excedente
 
 pasos:
   - "Identificar la producción total"
@@ -2112,7 +2063,7 @@ pasos:
   - "Restar el consumo de la producción para hallar el sobrante"
 
 explicacion: |
-  El excedente se calcula mediante la resta: Producción - Consumo. En este caso, el resultado es {produccion - consumo}.
+  El excedente se calcula mediante la resta: Producción - Consumo. En este caso, el resultado es {excedente}.
 ```
 
 ```
@@ -2124,6 +2075,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["La agricultura de subsistencia", "La acumulación de excedente", "La caza y recolección", "El nomadismo"]
+respuesta: "La acumulación de excedente"
 
 enunciado: "El fenómeno que permitió, por primera vez, que ciertos grupos humanos se dedicaran a tareas distintas a la obtención de alimento fue..."
 
@@ -2139,16 +2091,12 @@ metadata:
   tags: ["clases_sociales", "especializacion"]
 
 variables:
-  escenario: uno_de([
-    ["artesanos", "creadores de herramientas y objetos"],
-    ["sacerdotes", "encargados de rituales y la cosmogonía"],
-    ["gobernantes", "encargados de la administración y defensa"]
-  ])
+  escenario: uno_de([["artesanos", "creadores de herramientas y objetos"], ["sacerdotes", "encargados de rituales y la cosmogonía"], ["gobernantes", "encargados de la administración y defensa"]])
 
 tipo: completar
-respuestas_validas: ["artesanos", "sacerdotes", "gobernantes"]
+respuesta: escenario[0]
 
-enunciado: "Gracias al excedente, surgieron roles especializados. Un grupo dedicado a la producción de objetos se denomina {escenario[0]}, mientras que quienes gestionaban el orden político eran los {escenario[2]}."
+enunciado: "Gracias al excedente, surgieron roles sociales especializados. A quienes eran {escenario[1]} se los denominaba ___."
 
 pasos:
   - "Identificar la función social descrita."
@@ -2172,6 +2120,7 @@ enunciado: "Ordena cronológicamente los procesos que permitieron la aparición 
 
 explicacion: |
   Primero se establece el sedentarismo, lo que permite producir excedentes; esto a su vez permite la división del trabajo y finalmente la especialización de roles sociales.
+respuesta_orden: ["Producción de excedente", "Sedentarismo", "División del trabajo", "Especialización social"]
 ```
 
 ```
@@ -2183,6 +2132,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["La escasez de recursos", "La división del trabajo", "El excedente de producción", "La guerra constante"]
+respuesta: "El excedente de producción"
 
 enunciado: "La base fundamental que permitió la división del trabajo en las sociedades neolíticas fue..."
 
@@ -2197,17 +2147,11 @@ metadata:
   nivel: "avanzado"
   tags: ["especializacion", "clases_sociales"]
 
-variables:
-  rol: uno_de([
-    ["artesano", "el que transforma la materia prima"],
-    ["sacerdote", "el que media con lo sagrado"],
-    ["gobernante", "el que ejerce el poder político"]
-  ])
-
 tipo: mc
 opciones_explicitas: ["artesano", "sacerdote", "gobernante"]
+respuesta: "gobernante"
 
-enunciado: "Si una sociedad cuenta con excedentes y surge una clase dedicada exclusivamente a la gestión del orden y la defensa, estamos ante la figura del {rol[2]}."
+enunciado: "Si una sociedad cuenta con excedentes y surge una clase dedicada exclusivamente a la gestión del orden y la defensa, estamos ante la figura del:"
 
 explicacion: |
   La gestión del poder es una de las especializaciones más tempranas derivadas de la organización de sociedades con excedentes.
@@ -2222,7 +2166,8 @@ metadata:
 
 respuesta: "crecimiento"
 tipo: completar
-respuestas_validas: ["crecimiento"]
+respuestas_validas:
+  - "crecimiento"
 
 enunciado: "La transición de la vida nómada a la sedentarización favoreció el ___ poblacional debido a la estabilidad en el suministro de alimentos."
 
@@ -2255,14 +2200,13 @@ metadata:
   tags: ["nutrición", "recursos"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-
-enunciado: "Considerando el escenario de {escenarios[escenario_idx][0]}, el factor principal que impulsó el aumento de la población fue {escenarios[escenario_idx][1]}."
-
-variables:
   escenarios: [["estabilidad de recursos", "una mejor nutrición en cantidad"], ["excedente de granos", "la reducción de la mortalidad infantil"]]
+  idx: uno_de([0, 1])
+  factor: escenarios[idx][1]
 
-respuesta: "uno_de([escenarios[escenario_idx][1]])"
+enunciado: "Considerando el escenario de {escenarios[idx][0]}, el factor principal que impulsó el aumento de la población fue {factor}."
+
+respuesta: factor
 tipo: mc
 opciones_explicitas: ["una mejor nutrición en cantidad", "la reducción de la mortalidad infantil"]
 
@@ -2278,7 +2222,7 @@ metadata:
   tags: ["proceso", "causa_efecto"]
 
 opciones_explicitas: ["Agricultura", "Excedente de alimentos", "Aldeas permanentes"]
-respuesta: ["Agricultura", "Excedente de alimentos", "Aldeas permanentes"]
+respuesta_orden: ["Agricultura", "Excedente de alimentos", "Aldeas permanentes"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los procesos que permitieron la transición hacia la vida sedentaria:"
@@ -2334,7 +2278,7 @@ variables:
   datos: [["excedente alimentario", "especialización del trabajo"], ["excedente alimentario", "aparición de jerarquías"], ["excedente alimentario", "desarrollo del comercio"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["especialización del trabajo", "aparición de jerarquías", "desarrollo del comercio"]
 
@@ -2351,7 +2295,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "neolitico"]
 
-respuesta: ["Domesticación de plantas", "Producción de excedentes", "Sedentarización", "Estratificación social"]
+respuesta_orden: ["Domesticación de plantas", "Producción de excedentes", "Sedentarización", "Estratificación social"]
 tipo: ordenar
 opciones_explicitas: ["Domesticación de plantas", "Producción de excedentes", "Sedentarización", "Estratificación social"]
 
@@ -2374,7 +2318,8 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["aumento de la densidad poblacional"]
+respuestas_validas:
+  - "aumento de la densidad poblacional"
 
 enunciado: "La transición de la caza-recolección hacia {datos[idx][0]} provocó un ___."
 
@@ -2402,3 +2347,4 @@ enunciado: "El control y la gestión del {datos[idx][0]} fue el motor que impuls
 explicacion: |
   La necesidad de contabilizar y distribuir el excedente obligó a las sociedades a crear sistemas de registro y administración, dando origen a las primeras estructuras burocráticas.
 ```
+

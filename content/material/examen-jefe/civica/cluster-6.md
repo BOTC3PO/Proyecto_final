@@ -1,813 +1,387 @@
-# Examen jefe — Experto en Sistemas Políticos
+# Examen jefe — [PENDIENTE #884]
 
-> Logro #140. Completaste el parcial de Cívica dominando los sistemas políticos y el poder estatal, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas. **152 preguntas totales** en 6/6 secciones.
+> Logro #884. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **151 preguntas totales** en 6/6 secciones.
 
 ---
 
-## Sección: sistemas-politicos-comparados (21 preguntas)
+## Sección: partidos-politicos (20 preguntas)
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
   nivel: "basico"
-  tags: ["presidencialismo"]
+  tags: ["definicion"]
 
-enunciado: "¿Qué caracteriza al sistema presidencialista?"
+enunciado: "¿Qué es un partido político?"
 tipo: mc
 opciones_explicitas:
-  - "El Jefe de Estado y el Jefe de Gobierno son la misma persona, elegida por voto popular"
-  - "El Jefe de Gobierno es elegido por el Parlamento"
-  - "No existe un Jefe de Estado"
-respuesta: "El Jefe de Estado y el Jefe de Gobierno son la misma persona, elegida por voto popular"
+  - "Una organización estable que agrupa personas afines para competir por el poder en elecciones"
+  - "Un grupo de presión que sólo influye sin buscar cargos"
+  - "Una ONG dedicada a causas sociales sin fines electorales"
+respuesta: "Una organización estable que agrupa personas afines para competir por el poder en elecciones"
 
 explicacion: |
-  El Presidente concentra ambos roles, con mandato de duración fija.
+  A diferencia de un grupo de presión, el partido busca ocupar cargos
+  de gobierno, no sólo influir.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
-  nivel: "basico"
-  tags: ["presidencialismo"]
-
-enunciado: "¿Cuál de estos países es un ejemplo clásico de sistema presidencialista?"
-tipo: mc
-opciones_explicitas:
-  - "Argentina"
-  - "Reino Unido"
-  - "España"
-respuesta: "Argentina"
-
-explicacion: |
-  Junto con Estados Unidos y la mayoría de los países de América
-  Latina.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
   nivel: "intermedio"
-  tags: ["presidencialismo"]
+  tags: ["funciones"]
 
-enunciado: "¿Cómo puede caer, antes de tiempo, un Poder Ejecutivo presidencialista?"
+enunciado: "¿En qué consiste la función de 'agregación de intereses' de un partido?"
 tipo: mc
 opciones_explicitas:
-  - "Sólo por juicio político (impeachment), en casos extremos"
-  - "Por una moción de censura del Parlamento, en cualquier momento"
-  - "No puede caer nunca antes de terminar su mandato"
-respuesta: "Sólo por juicio político (impeachment), en casos extremos"
+  - "Junta demandas dispersas de la sociedad en una propuesta de gobierno coherente"
+  - "Elimina toda demanda social que no coincida con su ideología"
+  - "Se limita a repetir el programa de otro partido más grande"
+respuesta: "Junta demandas dispersas de la sociedad en una propuesta de gobierno coherente"
 
 explicacion: |
-  A diferencia del parlamentarismo, el Ejecutivo no depende de la
-  confianza permanente del Legislativo.
+  Salud, educación, seguridad — demandas dispersas que se agrupan en
+  una propuesta única.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
-  nivel: "basico"
-  tags: ["parlamentarismo"]
-
-enunciado: "¿Quién es el verdadero jefe de gobierno en un sistema parlamentarista?"
-tipo: mc
-opciones_explicitas:
-  - "El Primer Ministro, elegido por el Parlamento"
-  - "El rey o presidente, elegido por voto popular directo"
-  - "No hay jefe de gobierno en el parlamentarismo"
-respuesta: "El Primer Ministro, elegido por el Parlamento"
-
-explicacion: |
-  Elegido de entre los legisladores del partido o coalición con
-  mayoría, no directamente por voto popular.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
   nivel: "intermedio"
-  tags: ["parlamentarismo"]
+  tags: ["funciones"]
 
-enunciado: "¿Qué rol tiene el Jefe de Estado (rey o presidente) en un sistema parlamentarista?"
+enunciado: "¿Qué función cumple un partido al definir, mediante internas o listas, quién lo representa en cada elección?"
 tipo: mc
 opciones_explicitas:
-  - "Es una figura mayormente protocolar/de representación"
-  - "Concentra todo el poder ejecutivo real"
-  - "Es elegido directamente por el pueblo para gobernar"
-respuesta: "Es una figura mayormente protocolar/de representación"
+  - "Selección de candidatos"
+  - "Socialización política"
+  - "Formación de gobierno"
+respuesta: "Selección de candidatos"
 
 explicacion: |
-  El poder ejecutivo real recae en el Primer Ministro, no en el Jefe de
-  Estado.
+  Se conecta con cómo esos votos se traducen en bancas, según el
+  sistema electoral vigente.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
-  nivel: "intermedio"
-  tags: ["parlamentarismo"]
-
-enunciado: "¿Qué hace caer a un gobierno parlamentarista antes de tiempo?"
-tipo: mc
-opciones_explicitas:
-  - "Una moción de censura del Parlamento"
-  - "Un juicio político exclusivamente"
-  - "Nada, siempre completa su mandato fijo"
-respuesta: "Una moción de censura del Parlamento"
-
-explicacion: |
-  Si pierde la confianza del Parlamento, cae y se llama a nuevas
-  elecciones o se forma otro gobierno.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
   nivel: "basico"
-  tags: ["parlamentarismo"]
+  tags: ["funciones"]
 
-enunciado: "¿Cuál de estos países es un ejemplo de sistema parlamentarista?"
+enunciado: "¿Cuál es el rol de un partido que pierde una elección?"
 tipo: mc
 opciones_explicitas:
-  - "Reino Unido"
-  - "Argentina"
-  - "Estados Unidos"
-respuesta: "Reino Unido"
+  - "Ejercer la oposición, controlando al gobierno de turno"
+  - "Disolverse automáticamente"
+  - "Formar gobierno igual, sin importar el resultado"
+respuesta: "Ejercer la oposición, controlando al gobierno de turno"
 
 explicacion: |
-  Junto con España y Alemania, entre otros ejemplos de
-  parlamentarismo.
+  La oposición es una función democrática activa, no la ausencia de
+  rol político.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
   nivel: "avanzado"
-  tags: ["semipresidencialismo"]
+  tags: ["funciones"]
 
-enunciado: "¿Qué caracteriza al sistema semipresidencialista?"
+enunciado: "¿Qué función cumple un partido al formar cuadros dirigentes y educar políticamente a sus afiliados?"
 tipo: mc
 opciones_explicitas:
-  - "Coexisten un Presidente electo con poderes reales y un Primer Ministro que responde al Parlamento"
-  - "No tiene ni Presidente ni Primer Ministro"
-  - "El Presidente es sólo una figura protocolar sin poder real"
-respuesta: "Coexisten un Presidente electo con poderes reales y un Primer Ministro que responde al Parlamento"
+  - "Socialización política"
+  - "Agregación de intereses"
+  - "Selección de candidatos"
+respuesta: "Socialización política"
 
 explicacion: |
-  Un modelo híbrido entre presidencialismo y parlamentarismo.
+  Es la función de formación interna del partido, distinta de agregar
+  demandas o elegir candidatos.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
-  nivel: "intermedio"
-  tags: ["semipresidencialismo"]
-
-enunciado: "¿Cuál de estos países es el ejemplo clásico de semipresidencialismo?"
-tipo: mc
-opciones_explicitas:
-  - "Francia"
-  - "Argentina"
-  - "Reino Unido"
-respuesta: "Francia"
-
-explicacion: |
-  Presidente electo con poderes reales conviviendo con un Primer
-  Ministro que responde al Parlamento.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
   nivel: "basico"
-  tags: ["monarquia_republica"]
+  tags: ["sistemas_de_partidos"]
 
-enunciado: "¿Cuál es la diferencia entre monarquía y república, como eje de comparación?"
+enunciado: "¿Qué caracteriza a un sistema bipartidista?"
 tipo: mc
 opciones_explicitas:
-  - "En la monarquía el Jefe de Estado es hereditario, en la república es electo"
-  - "En la monarquía no hay ningún Jefe de Estado"
-  - "Son exactamente lo mismo, cambia sólo el nombre"
-respuesta: "En la monarquía el Jefe de Estado es hereditario, en la república es electo"
+  - "2 partidos grandes concentran casi todo el voto y se alternan en el poder"
+  - "Un solo partido gana siempre, sin competencia real"
+  - "Ningún partido supera el 10% de los votos"
+respuesta: "2 partidos grandes concentran casi todo el voto y se alternan en el poder"
 
 explicacion: |
-  Este eje es independiente de si el sistema es presidencialista o
-  parlamentarista.
+  Ejemplo histórico: Estados Unidos.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
+  nivel: "basico"
+  tags: ["sistemas_de_partidos"]
+
+enunciado: "¿Qué caracteriza a un sistema multipartidista?"
+tipo: mc
+opciones_explicitas:
+  - "Varios partidos con representación relevante, obligando a coaliciones de gobierno"
+  - "Sólo 2 partidos con representación relevante"
+  - "Un único partido, sin ninguna competencia legal"
+respuesta: "Varios partidos con representación relevante, obligando a coaliciones de gobierno"
+
+explicacion: |
+  Ninguno tiene mayoría absoluta habitual; ejemplo típico: la mayoría
+  de Europa continental.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "partidos_politicos"
   nivel: "avanzado"
-  tags: ["monarquia_republica"]
+  tags: ["sistemas_de_partidos"]
 
-enunciado: "¿Cómo se describe el Reino Unido combinando los 2 ejes de comparación (forma de gobierno y jefatura de Estado)?"
+enunciado: "¿En qué se diferencia un sistema de partido dominante de un sistema de partido único?"
 tipo: mc
 opciones_explicitas:
-  - "Monarquía parlamentaria: Jefe de Estado hereditario (rey) + Jefe de Gobierno elegido por el Parlamento (Primer Ministro)"
-  - "República presidencialista: Jefe de Estado electo con todo el poder ejecutivo"
-  - "Monarquía presidencialista: rey elegido por voto popular"
-respuesta: "Monarquía parlamentaria: Jefe de Estado hereditario (rey) + Jefe de Gobierno elegido por el Parlamento (Primer Ministro)"
+  - "En el dominante existe competencia legal formal de otros partidos, aunque uno gane siempre; en el único no hay competencia legal posible"
+  - "Son exactamente lo mismo con distinto nombre"
+  - "El partido único permite alternancia en el poder, el dominante no"
+respuesta: "En el dominante existe competencia legal formal de otros partidos, aunque uno gane siempre; en el único no hay competencia legal posible"
 
 explicacion: |
-  Combina jefatura de Estado hereditaria con jefatura de gobierno
-  parlamentaria.
+  El sistema de partido único ya no se considera democrático.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
+  nivel: "avanzado"
+  tags: ["sistemas_de_partidos"]
+
+enunciado: "¿A qué politólogo se atribuye la clasificación clásica de sistemas de partidos (bipartidismo, multipartidismo, partido dominante)?"
+tipo: mc
+opciones_explicitas:
+  - "Giovanni Sartori"
+  - "Domingo Faustino Sarmiento"
+  - "Victor D'Hondt"
+respuesta: "Giovanni Sartori"
+
+explicacion: |
+  Politólogo italiano de referencia en la teoría de sistemas de
+  partidos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "partidos_politicos"
   nivel: "intermedio"
-  tags: ["monarquia_republica"]
+  tags: ["argentina"]
 
-enunciado: "¿Cuál de estos países es una república, con Jefe de Estado electo (no hereditario)?"
+enunciado: "¿Cómo se describe el sistema de partidos argentino en los últimos años?"
 tipo: mc
 opciones_explicitas:
-  - "Argentina"
-  - "Reino Unido"
-  - "Japón"
-respuesta: "Argentina"
+  - "Multipartidismo con tendencia a agruparse en 2 grandes coaliciones electorales"
+  - "Bipartidismo puro, con sólo 2 partidos existentes"
+  - "Sistema de partido único, sin competencia legal"
+respuesta: "Multipartidismo con tendencia a agruparse en 2 grandes coaliciones electorales"
 
 explicacion: |
-  Argentina, Francia y Alemania son repúblicas; Reino Unido, España y
-  Japón son monarquías.
+  Conviven partidos provinciales y de menor escala con peso en
+  distritos puntuales.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
-  nivel: "intermedio"
-  tags: ["fundamento"]
+  tema: "partidos_politicos"
+  nivel: "avanzado"
+  tags: ["dependencia"]
 
-enunciado: "¿Cuál es la pregunta clave para comparar cualquier sistema político sin tomar postura?"
+enunciado: "En un sistema parlamentarista, ¿qué ocurre cuando un partido gana la elección legislativa?"
 tipo: mc
 opciones_explicitas:
-  - "De dónde saca su legitimidad el Jefe de Gobierno, y qué puede hacer caer a su gobierno antes de tiempo"
-  - "Cuál sistema tiene más ministros"
-  - "Cuál país tiene la bandera más antigua"
-respuesta: "De dónde saca su legitimidad el Jefe de Gobierno, y qué puede hacer caer a su gobierno antes de tiempo"
+  - "Forma directamente el gobierno, y su líder suele ser el Primer Ministro"
+  - "No tiene ninguna injerencia en la formación del gobierno"
+  - "Debe esperar una elección presidencial separada para gobernar"
+respuesta: "Forma directamente el gobierno, y su líder suele ser el Primer Ministro"
 
 explicacion: |
-  Esa pregunta permite comparar presidencialismo y parlamentarismo sin
-  tomar postura sobre cuál es mejor.
+  A diferencia del presidencialismo, ganar la elección legislativa
+  significa formar gobierno directamente.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
+  nivel: "avanzado"
+  tags: ["dependencia"]
+
+enunciado: "¿Qué puede ocurrir en un sistema presidencialista, a diferencia del parlamentarismo, respecto de qué partido gobierna?"
+tipo: mc
+opciones_explicitas:
+  - "Que el partido que gana la presidencia y el que gana la mayoría legislativa sean distintos (gobierno dividido)"
+  - "Es imposible que ocurra, siempre coinciden"
+  - "El Congreso elige directamente al presidente"
+respuesta: "Que el partido que gana la presidencia y el que gana la mayoría legislativa sean distintos (gobierno dividido)"
+
+explicacion: |
+  Presidencia y Congreso se eligen en elecciones separadas, con
+  resultados que pueden no coincidir.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "partidos_politicos"
   nivel: "avanzado"
   tags: ["fundamento"]
 
-enunciado: "¿Por qué este módulo depende de `../division-de-poderes/`?"
+enunciado: "¿Por qué este módulo depende de `../sistemas-politicos-comparados/`?"
 tipo: mc
 opciones_explicitas:
-  - "Porque comparar sistemas entre países presupone entender antes la división de poderes de un solo Estado"
-  - "Porque no tiene relación real, es sólo una dependencia formal"
-  - "Porque división de poderes explica exclusivamente el sistema de otros países"
-respuesta: "Porque comparar sistemas entre países presupone entender antes la división de poderes de un solo Estado"
+  - "Porque el rol de un partido político cambia según sea un sistema presidencialista o parlamentarista"
+  - "Porque no existe ninguna relación conceptual real entre ambos temas"
+  - "Porque los partidos políticos sólo existen en sistemas parlamentaristas"
+respuesta: "Porque el rol de un partido político cambia según sea un sistema presidencialista o parlamentarista"
 
 explicacion: |
-  Se compara la variante entre países de algo que ya se entendió en un
-  solo caso concreto (Argentina).
+  El mismo hecho (ganar una elección) tiene consecuencias distintas
+  según el sistema político de base.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
-  nivel: "avanzado"
-  tags: ["fundamento"]
-
-enunciado: "¿Por qué Ciencia Política se ubica dentro de la materia Cívica, en vez de abrir una materia propia?"
-tipo: mc
-opciones_explicitas:
-  - "Porque completa materias ya existentes (Cívica, Historia) sin abrir una fila nueva en el listado de materias"
-  - "Porque no es una orientación educativa real en Argentina"
-  - "Porque no tiene ningún contenido propio distinto de Cívica"
-respuesta: "Porque completa materias ya existentes (Cívica, Historia) sin abrir una fila nueva en el listado de materias"
-
-explicacion: |
-  Nota v2.8 de `troncos.md`: es una orientación NES real que completa
-  materias existentes, no un tronco nuevo.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
   nivel: "intermedio"
-  tags: ["presidencialismo"]
+  tags: ["definicion"]
 
-enunciado: "En el presidencialismo, el mandato del Ejecutivo tiene una duración fija que no depende de la confianza del Congreso."
+enunciado: "¿Cuál es la diferencia clave entre un partido político y un grupo de presión (lobby)?"
+tipo: mc
+opciones_explicitas:
+  - "El partido busca ocupar cargos de gobierno; el grupo de presión sólo busca influir sobre quien ya está en el poder"
+  - "No hay ninguna diferencia entre ambos"
+  - "El grupo de presión siempre es más grande que un partido"
+respuesta: "El partido busca ocupar cargos de gobierno; el grupo de presión sólo busca influir sobre quien ya está en el poder"
+
+explicacion: |
+  Esa diferencia de objetivo es la que distingue a ambos tipos de
+  organización.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "partidos_politicos"
+  nivel: "intermedio"
+  tags: ["sistemas_de_partidos"]
+
+enunciado: "En un sistema multipartidista, es habitual que se formen coaliciones de gobierno."
 tipo: vf
 respuesta: verdadero
 
 explicacion: |
-  Sólo cae por juicio político en casos extremos, no por perder
-  confianza legislativa.
+  Ningún partido suele tener mayoría absoluta por sí solo.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
   nivel: "intermedio"
-  tags: ["parlamentarismo"]
+  tags: ["sistemas_de_partidos"]
 
-enunciado: "En el parlamentarismo, el Primer Ministro es elegido directamente por voto popular."
+enunciado: "En un sistema bipartidista está legalmente prohibido que existan más de 2 partidos."
 tipo: vf
 respuesta: falso
 
 explicacion: |
-  Es elegido por el Parlamento, de entre los legisladores del partido
-  o coalición con mayoría.
+  Pueden existir otros partidos legalmente, pero 2 grandes concentran
+  casi todo el voto en la práctica.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
   nivel: "avanzado"
-  tags: ["semipresidencialismo"]
+  tags: ["sistemas_de_partidos"]
 
-enunciado: "Francia es un ejemplo de parlamentarismo puro, sin Presidente con poder real."
+enunciado: "El sistema de partido único, donde no hay competencia legal posible de otros partidos, se considera democrático."
 tipo: vf
 respuesta: falso
 
 explicacion: |
-  Francia es semipresidencialista: Presidente electo con poderes reales
-  conviviendo con un Primer Ministro parlamentario.
+  Se diferencia justamente del sistema de partido dominante (que sí
+  permite competencia legal) porque ese caso ya no es democrático.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
-  nivel: "basico"
-  tags: ["parlamentarismo"]
-
-enunciado: "En el parlamentarismo, el Primer Ministro es elegido por el ______."
-tipo: completar
-respuestas_validas:
-  - "Parlamento"
-
-explicacion: |
-  De entre los legisladores del partido o coalición con mayoría.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
   nivel: "intermedio"
-  tags: ["parlamentarismo"]
+  tags: ["funciones"]
 
-enunciado: "Un gobierno parlamentarista cae antes de tiempo si pierde una moción de ______."
+enunciado: "La función de juntar demandas dispersas de la sociedad en una propuesta coherente se llama agregación de ______."
 tipo: completar
 respuestas_validas:
-  - "censura"
+  - "intereses"
 
 explicacion: |
-  La moción de censura del Parlamento retira la confianza al gobierno.
+  Agregación de intereses, una de las funciones clásicas de un partido.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "sistemas_politicos_comparados"
+  tema: "partidos_politicos"
+  nivel: "intermedio"
+  tags: ["argentina"]
+
+enunciado: "En los últimos años, el sistema de partidos argentino tiende a agruparse en 2 grandes ______."
+tipo: completar
+respuestas_validas:
+  - "coaliciones"
+
+explicacion: |
+  Frentes electorales que concentran la mayoría del voto, sin dejar de
+  convivir con partidos menores.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "partidos_politicos"
   nivel: "avanzado"
   tags: ["sintesis"]
 
-enunciado: "Ordená estos 3 sistemas según el grado creciente en que el jefe de gobierno depende de la confianza del Parlamento."
+enunciado: "Ordená estas 3 funciones de un partido según el momento típico del ciclo electoral en que se cumplen."
 tipo: ordenar
 opciones_explicitas:
-  - "Presidencialismo"
-  - "Semipresidencialismo"
-  - "Parlamentarismo"
-respuesta:
-  - "Presidencialismo"
-  - "Semipresidencialismo"
-  - "Parlamentarismo"
-
+  - "Selección de candidatos (antes de la elección)"
+  - "Agregación de intereses (durante la campaña)"
+  - "Formación de gobierno u oposición (después de la elección)"
+respuesta_orden: ["Selección de candidatos (antes de la elección)", "Agregación de intereses (durante la campaña)", "Formación de gobierno u oposición (después de la elección)"]
 explicacion: |
-  El presidencialismo depende menos del Parlamento; el parlamentarismo,
-  totalmente; el semipresidencialismo queda en el medio.
-```
-
-## Sección: sueldo-promedio-pais (20 preguntas)
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "basico"
-  tags: ["uso_politico", "vocabulario"]
-
-enunciado: "Frente a la misma base de datos de ingresos, un discurso dice 'el salario promedio subió', y otro dice 'el salario típico casi no se movió'. ¿Qué es lo más probable?"
-tipo: mc
-opciones_explicitas:
-  - "Que ambas afirmaciones sean técnicamente verdaderas, cada una citando una medida distinta (media vs. mediana) de la misma distribución de ingresos"
-  - "Que una de las dos afirmaciones necesariamente sea falsa o esté inventada"
-  - "Que sea imposible que dos afirmaciones distintas sobre el mismo tema sean ambas correctas"
-respuesta: "Que ambas afirmaciones sean técnicamente verdaderas, cada una citando una medida distinta (media vs. mediana) de la misma distribución de ingresos"
-
-explicacion: |
-  El problema no es que alguna mienta con los números, sino que cada
-  una elige la medida que más conviene a lo que quiere mostrar.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "intermedio"
-  tags: ["uso_politico", "aplicacion"]
-
-enunciado: "¿Por qué un sector crítico de una gestión podría preferir citar la mediana de ingresos en vez del promedio?"
-tipo: mc
-opciones_explicitas:
-  - "Porque la mediana describe mejor lo que le pasa a 'la persona típica', sin la distorsión que meten los ingresos muy altos de una minoría en el promedio"
-  - "Porque la mediana siempre da un número más favorable para cualquier crítica, sin ninguna razón estadística real"
-  - "Porque la mediana es más fácil de calcular que el promedio"
-respuesta: "Porque la mediana describe mejor lo que le pasa a 'la persona típica', sin la distorsión que meten los ingresos muy altos de una minoría en el promedio"
-
-explicacion: |
-  Es la misma razón estadística de `../../economia/sueldo-promedio-pais/`,
-  ahora usada como argumento en un debate.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "intermedio"
-  tags: ["uso_politico"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "'El promedio subió' y 'la mediana casi no se movió' pueden ser dos afirmaciones matemáticamente correctas al mismo tiempo, sobre la misma base de datos."
-
-explicacion: |
-  Media y mediana miden cosas distintas — ninguna de las dos es 'la
-  mentira' por definición.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "intermedio"
-  tags: ["cherry_picking", "vocabulario"]
-
-enunciado: "¿Qué es el 'cherry-picking' estadístico?"
-tipo: mc
-opciones_explicitas:
-  - "Elegir selectivamente la medida, el período o la fuente de datos que más respalda el argumento que se quiere hacer, ignorando el resto de la información disponible"
-  - "Inventar datos falsos que no salen de ninguna fuente real"
-  - "Usar siempre el promedio en vez de la mediana, sin excepción"
-respuesta: "Elegir selectivamente la medida, el período o la fuente de datos que más respalda el argumento que se quiere hacer, ignorando el resto de la información disponible"
-
-explicacion: |
-  A diferencia de inventar datos, el cherry-picking usa datos reales
-  — pero elegidos con la conclusión ya decidida de antemano.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "avanzado"
-  tags: ["cherry_picking", "neutralidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El cherry-picking estadístico en el debate público no es un recurso exclusivo de ningún partido, gobierno u oposición en particular — el mismo patrón (elegir la medida o el período que más conviene) aparece en cualquier posición política."
-
-explicacion: |
-  Es una tentación general de cualquier argumento que necesite
-  respaldo numérico, sin importar la postura ideológica de quien lo
-  usa.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "intermedio"
-  tags: ["terminos_reales", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia entre un aumento de sueldo 'en términos nominales' y 'en términos reales'?"
-tipo: mc
-opciones_explicitas:
-  - "Nominal es el número tal cual, sin ajustar; real está ajustado por inflación, y muestra si de verdad se puede comprar más o menos con ese sueldo"
-  - "Son exactamente lo mismo, sólo cambia el nombre"
-  - "Real es el aumento antes de impuestos; nominal es después de impuestos"
-respuesta: "Nominal es el número tal cual, sin ajustar; real está ajustado por inflación, y muestra si de verdad se puede comprar más o menos con ese sueldo"
-
-explicacion: |
-  Un aumento nominal puede convivir con una pérdida real de poder
-  adquisitivo, si la inflación fue mayor.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "avanzado"
-  tags: ["terminos_reales", "problema"]
-
-variables:
-  aumento_nominal: uno_de([25, 30, 40])
-  inflacion: uno_de([20, 35, 45])
-
-respuesta: aumento_nominal - inflacion
-tipo: input
-unidad: "%"
-
-enunciado: "Un sueldo tuvo un aumento nominal del {aumento_nominal}% en un período donde la inflación fue del {inflacion}%. ¿Cuál es el aumento REAL aproximado (en puntos porcentuales)?"
-
-pasos:
-  - "Aumento real aproximado = {aumento_nominal}% − {inflacion}% = {aumento_nominal - inflacion} puntos"
-
-explicacion: |
-  Si el resultado es negativo, el poder adquisitivo BAJÓ aunque el
-  número nominal del sueldo haya subido.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "avanzado"
-  tags: ["terminos_reales"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es posible que un sueldo tenga un aumento nominal (el número en pesos sube) y, al mismo tiempo, represente una PÉRDIDA de poder adquisitivo, si la inflación del período fue mayor que ese aumento."
-
-explicacion: |
-  Es la situación descrita en el problema anterior cuando el aumento
-  real aproximado da negativo.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "avanzado"
-  tags: ["terminos_reales", "problema"]
-
-variables:
-  aumento_nominal: 30
-  inflacion_a: 25
-  inflacion_b: 38
-
-respuesta: (aumento_nominal - inflacion_a) > (aumento_nominal - inflacion_b)
-tipo: vf
-
-enunciado: "Con el mismo aumento nominal del {aumento_nominal}%, en el Período A la inflación fue {inflacion_a}% y en el Período B fue {inflacion_b}%. ¿El aumento REAL del Período A fue MAYOR que el del Período B?"
-
-explicacion: |
-  Con la misma suba nominal, una inflación más baja siempre deja un
-  resultado real más favorable.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "Al escuchar en un discurso 'el sueldo promedio subió X%', ¿qué preguntas conviene hacerse antes de sacar una conclusión?"
-tipo: mc
-opciones_explicitas:
-  - "¿Es promedio o mediana? ¿Está en términos reales o nominales? ¿Qué período cubre? ¿Cuál es la fuente primaria de ese dato?"
-  - "Ninguna: cualquier cifra citada en un discurso oficial se puede aceptar directamente sin revisar nada más"
-  - "Sólo importa quién lo dijo, no qué datos usó"
-respuesta: "¿Es promedio o mediana? ¿Está en términos reales o nominales? ¿Qué período cubre? ¿Cuál es la fuente primaria de ese dato?"
-
-explicacion: |
-  Son las cuatro preguntas básicas para leer con cuidado cualquier
-  estadística económica citada en público.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué comparar una serie histórica completa (varios años) suele ser más confiable que mirar un solo dato puntual?"
-tipo: mc
-opciones_explicitas:
-  - "Porque un solo dato puede ser el mejor (o el peor) momento de una tendencia más larga, y no representar el panorama completo"
-  - "Porque los datos históricos son siempre más precisos que los datos recientes"
-  - "No hay ninguna ventaja real en mirar series históricas"
-respuesta: "Porque un solo dato puede ser el mejor (o el peor) momento de una tendencia más larga, y no representar el panorama completo"
-
-explicacion: |
-  Es el mismo argumento que justifica desconfiar de un gráfico que
-  sólo muestra el rango de tiempo más favorable.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "avanzado"
-  tags: ["uso_politico", "eje_truncado"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Citar sólo el mejor mes o trimestre de una serie de datos, ignorando la tendencia completa, es un tipo de manipulación de la lectura de datos parecido en espíritu a truncar el eje de un gráfico: los datos no se inventan, pero se elige qué parte mostrar."
-
-explicacion: |
-  Es la conexión directa con `../../matematica/grafico-eje-truncado/`
-  — ahí se elegía un rango de eje, acá un rango de tiempo.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "avanzado"
-  tags: ["aplicacion", "problema"]
-
-variables:
-  mejor_mes: uno_de([8, 10])
-  promedio_anual: uno_de([3, 4])
-
-respuesta: mejor_mes > promedio_anual
-tipo: vf
-
-enunciado: "El mejor mes del año tuvo un aumento real del {mejor_mes}%, mientras que el promedio de los 12 meses del año fue de {promedio_anual}%. Si un discurso sólo menciona el dato del mejor mes, ¿da una impresión más favorable que el panorama completo del año?"
-
-explicacion: |
-  Mostrar sólo el mejor mes, sin aclarar que no es representativo del
-  resto del año, es una forma de selección sesgada de los datos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "intermedio"
-  tags: ["eje_truncado", "aplicacion"]
-
-enunciado: "¿Qué tienen en común elegir un 'período favorable' para citar una cifra económica y truncar el eje de un gráfico?"
-tipo: mc
-opciones_explicitas:
-  - "En ambos casos los datos reales no se alteran, pero se elige selectivamente qué mostrar (o cómo mostrarlo) para dar una impresión más favorable de lo que el panorama completo sugeriría"
-  - "No tienen absolutamente nada en común"
-  - "Ambos casos implican inventar datos falsos"
-respuesta: "En ambos casos los datos reales no se alteran, pero se elige selectivamente qué mostrar (o cómo mostrarlo) para dar una impresión más favorable de lo que el panorama completo sugeriría"
-
-explicacion: |
-  Es el mismo tipo de escepticismo estadístico aplicado a dos
-  contextos distintos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "Un discurso cita 'el sueldo promedio subió', sin decir de dónde sale el dato. ¿Qué es lo más razonable pedir para poder evaluar esa afirmación?"
-tipo: mc
-opciones_explicitas:
-  - "La fuente primaria del dato (un organismo oficial de estadísticas), el período exacto que cubre, y si está en términos reales o nominales"
-  - "Nada: si lo dice un discurso público, no hace falta ninguna fuente adicional"
-  - "Sólo importa que la persona que lo dijo tenga un cargo importante"
-respuesta: "La fuente primaria del dato (un organismo oficial de estadísticas), el período exacto que cubre, y si está en términos reales o nominales"
-
-explicacion: |
-  Sin esos tres datos, la cifra citada no se puede evaluar ni
-  contrastar con nada.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "avanzado"
-  tags: ["uso_politico"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que una cifra sea técnicamente correcta (calculada bien, con datos reales) no garantiza que la conclusión que alguien saca de ella sea honesta — depende de qué se eligió mostrar y qué se dejó afuera."
-
-explicacion: |
-  Es la idea central de todo el módulo: la honestidad no está sólo en
-  el cálculo, sino también en qué se elige comunicar.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "avanzado"
-  tags: ["terminos_reales", "problema"]
-
-variables:
-  aumento_nominal: uno_de([15, 20])
-  inflacion: uno_de([10, 12])
-
-respuesta: aumento_nominal - inflacion
-tipo: input
-unidad: "%"
-
-enunciado: "Con un aumento nominal del {aumento_nominal}% y una inflación del {inflacion}% en el mismo período, ¿cuál es el aumento real aproximado?"
-
-pasos:
-  - "Aumento real aproximado = {aumento_nominal}% − {inflacion}% = {aumento_nominal - inflacion} puntos"
-
-explicacion: |
-  Acá el resultado da positivo: el aumento nominal superó a la
-  inflación, así que hubo una mejora real del poder adquisitivo.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "basico"
-  tags: ["uso_politico", "aplicacion"]
-
-enunciado: "Dos dirigentes de posturas opuestas citan la misma fuente oficial de estadísticas de ingresos: uno dice 'mejoramos el poder adquisitivo', el otro dice 'el poder adquisitivo cayó'. ¿Cómo es posible que ambos citen la misma fuente y digan cosas opuestas?"
-tipo: mc
-opciones_explicitas:
-  - "Puede deberse a que eligieron distintos períodos, distintas medidas (media/mediana), o si el ajuste es en términos reales o nominales — la misma fuente permite varias lecturas según qué recorte se elija"
-  - "Es matemáticamente imposible, uno de los dos necesariamente está mintiendo sobre la fuente"
-  - "Sólo es posible si uno de los dos usa datos de otro país"
-respuesta: "Puede deberse a que eligieron distintos períodos, distintas medidas (media/mediana), o si el ajuste es en términos reales o nominales — la misma fuente permite varias lecturas según qué recorte se elija"
-
-explicacion: |
-  Es el resumen de todo el módulo: misma fuente, distintos recortes,
-  distintas conclusiones — todas potencialmente 'correctas' en su
-  propio recorte.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "avanzado"
-  tags: ["neutralidad", "aplicacion"]
-
-enunciado: "¿Cuál es la lectura más precisa de este fenómeno: 'todos los discursos políticos sobre economía mienten' o 'existe un patrón real de selección de datos que conviene poder identificar'?"
-tipo: mc
-opciones_explicitas:
-  - "La segunda: no se trata de que toda cifra política sea falsa, sino de reconocer el patrón de qué medida, período o ajuste se eligió mostrar, para poder evaluar la afirmación con criterio propio"
-  - "La primera: cualquier cifra que use un dirigente político es necesariamente falsa"
-  - "Ninguna de las dos: no hay forma de que un ciudadano evalúe este tipo de afirmaciones"
-respuesta: "La segunda: no se trata de que toda cifra política sea falsa, sino de reconocer el patrón de qué medida, período o ajuste se eligió mostrar, para poder evaluar la afirmación con criterio propio"
-
-explicacion: |
-  El objetivo de este módulo es dar herramientas de lectura crítica,
-  no fomentar un cinismo generalizado sin criterio.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sueldo_promedio_pais"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve entender cómo se usa la cifra del 'sueldo promedio' en el debate público?"
-tipo: mc
-opciones_explicitas:
-  - "Para poder evaluar con criterio propio las afirmaciones económicas de cualquier discurso político, identificando qué medida, período y ajuste se eligió citar"
-  - "Para descartar automáticamente cualquier cifra que mencione un dirigente político"
-  - "Sólo sirve para leer noticias de un país en particular"
-respuesta: "Para poder evaluar con criterio propio las afirmaciones económicas de cualquier discurso político, identificando qué medida, período y ajuste se eligió citar"
-
-explicacion: |
-  Cierra la cadena completa: `../../matematica/cual-miente-y-cuando/`
-  → `../../economia/sueldo-promedio-pais/` (la mecánica) → este módulo
-  (el uso público de esa mecánica).
+  Un ciclo típico: primero se seleccionan candidatos, luego se hace
+  campaña agregando demandas, y al final se gobierna o se hace
+  oposición según el resultado.
 ```
 
 ## Sección: sufragio-restringido-universal (25 preguntas)
@@ -837,13 +411,9 @@ metadata:
   tags: ["fraude", "historia"]
 
 variables:
-  escenario: uno_de([
-    ["el fraude mediante la falsificación de actas", "el control de la población por parte de los caudillos"],
-    ["la manipulación de los padrones", "el uso de la fuerza física en los centros de votación"],
-    ["la compra de votos", "la coacción de los votantes analfabetos"]
-  ])
+  escenario: uno_de([["el fraude mediante la falsificación de actas", "el control de la población por parte de los caudillos"], ["la manipulación de los padrones", "el uso de la fuerza física en los centros de votación"], ["la compra de votos", "la coacción de los votantes analfabetos"]])
 
-respuesta: escenario[1
+respuesta: escenario[0]
 tipo: "mc"
 opciones_explicitas: ["el fraude mediante la falsificación de actas", "la manipulación de los padrones", "la compra de votos"]
 
@@ -862,12 +432,13 @@ metadata:
 
 respuesta: "1912"
 tipo: "completar"
-respuestas_validas: ["1912"]
+respuestas_validas:
+  - "1912"
 
 enunciado: "La Ley de Sufragio Universal, Masculino, Secreto y Obligatorio en Argentina fue sancionada en el año ___."
 
 explicacion: |
-  La Ley 8.830, sancionada en 1912, fue el hito que permitió el paso del fraude al voto secreto, sentando las bases de la democracia moderna en el país.
+  La Ley 8.871, sancionada en 1912, fue el hito que permitió el paso del fraude al voto secreto, sentando las bases de la democracia moderna en el país.
 ```
 
 ```
@@ -894,9 +465,9 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "historia"]
 
-respuesta: ["voto censitario", "Ley Sáenz Peña", "voto femenino"]
 tipo: "ordenar"
 opciones_explicitas: ["voto censitario", "Ley Sáenz Peña", "voto femenino"]
+respuesta_orden: ["voto censitario", "Ley Sáenz Peña", "voto femenino"]
 
 enunciado: "Ordene cronológicamente los hitos del sistema electoral argentino:"
 
@@ -913,12 +484,13 @@ metadata:
 
 respuesta: "1912"
 tipo: completar
-respuestas_validas: ["1912"]
+respuestas_validas:
+  - "1912"
 
 enunciado: "La Ley Sáenz Peña, que estableció el voto universal, secreto y obligatorio para los varones, fue sancionada en el año ___."
 
 explicacion: |
-  La Ley 8.831 de 1912 permitió que la ciudadanía masculina pudiera votar de manera efectiva, terminando con el fraude electoral de la época.
+  La Ley 8.871 de 1912 permitió que la ciudadanía masculina pudiera votar de manera efectiva, terminando con el fraude electoral de la época.
 ```
 
 ```
@@ -928,14 +500,11 @@ metadata:
   nivel: "basico"
   tags: ["derechos_mujeres", "historia"]
 
-variables:
-  escenario: uno_de([["1947", "Ley 13.001"], ["1951", "Ley 13.001"]])
-
-respuesta: escenario[1
+respuesta: "1947"
 tipo: mc
 opciones_explicitas: ["1947", "1951", "1972", "1991"]
 
-enunciado: "La ley que garantizó el derecho de las mujeres argentinas a votar y ser elegidas fue sancionada en el año {escenario[0]} mediante la {escenario[1]}."
+enunciado: "La ley que garantizó el derecho de las mujeres argentinas a votar y ser elegidas fue sancionada en el año ___ mediante la Ley 13.010."
 
 explicacion: |
   Aunque el debate venía de décadas atrás, fue en 1947 cuando se promulgó la ley que permitió el voto femenino en Argentina.
@@ -948,7 +517,7 @@ metadata:
   nivel: "intermedio"
   tags: ["cronologia", "hitos"]
 
-respuesta: ["Ley Sáenz Peña", "Sufragio Femenino", "Voto Joven"]
+respuesta_orden: ["Ley Sáenz Peña", "Sufragio Femenino", "Voto Joven"]
 tipo: ordenar
 opciones_explicitas: ["Ley Sáenz Peña", "Sufragio Femenino", "Voto Joven"]
 
@@ -1003,7 +572,9 @@ metadata:
 
 respuesta: "universal"
 tipo: completar
-respuestas_validas: ["universal", "universalidad"]
+respuestas_validas:
+  - "universal"
+  - "universalidad"
 
 enunciado: "Cuando se establece que todos los ciudadanos adultos tienen derecho al voto sin distinción de raza, género o nivel socioeconómico, se está aplicando el sufragio _______."
 
@@ -1037,12 +608,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["En un modelo donde solo votan quienes poseen propiedades...", "restringido"],
-    ["En un modelo donde votan todos los ciudadanos adultos...", "universal"]
-  ]
+  escenarios: [["En un modelo donde solo votan quienes poseen propiedades...", "restringido"], ["En un modelo donde votan todos los ciudadanos adultos...", "universal"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["restringido", "universal"]
 
@@ -1061,7 +629,8 @@ metadata:
 
 respuesta: "democracia"
 tipo: completar
-respuestas_validas: ["democracia"]
+respuestas_validas:
+  - "democracia"
 
 enunciado: "La transición del sufragio restringido al sufragio universal es un paso fundamental para la consolidación de una _______ plena."
 
@@ -1076,8 +645,8 @@ metadata:
   nivel: "avanzado"
   tags: ["logica", "derechos"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "El sufragio universal implica que el derecho al voto puede ser limitado por el nivel de instrucción o alfabetismo del ciudadano."
 
 explicacion: |
@@ -1093,7 +662,8 @@ metadata:
 
 respuesta: "profundización"
 tipo: completar
-respuestas_validas: ["profundización"]
+respuestas_validas:
+  - "profundización"
 
 enunciado: "La ampliación del sufragio, pasando de un modelo restringido a uno universal, se considera un indicador clave de la _______ democrática."
 
@@ -1108,23 +678,11 @@ metadata:
   nivel: "intermedio"
   tags: ["representacion", "derechos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Solo propietarios", "Solo hombres con renta"],
-    ["Solo personas con estudios", "Solo militares"]
-  ]
-
 respuesta: "tener más personas con voz política formal en las decisiones colectivas"
 tipo: mc
-opciones_explicitas: [
-  "reducir la participación ciudadana",
-  "tener más personas con voz política formal en las decisiones colectivas",
-  "centralizar el poder en una sola élite",
-  "eliminar la necesidad de leyes"
-]
+opciones_explicitas: ["reducir la participación ciudadana", "tener más personas con voz política formal en las decisiones colectivas", "centralizar el poder en una sola élite", "eliminar la necesidad de leyes"]
 
-enunciado: "Si comparamos un sistema de sufragio restringido con uno universal, el principal cambio en la legitimidad del Estado es {escenarios[escenario_idx][0]} frente al derecho de {escenarios[escenario_idx][1]}."
+enunciado: "Si comparamos un sistema de sufragio restringido con uno universal, el principal cambio en la legitimidad del Estado es ___."
 
 explicacion: |
   La democracia se profundiza cuando la voluntad popular no es un privilegio de una minoría económica o social, sino un derecho que integra la diversidad de la sociedad en la toma de decisiones.
@@ -1139,12 +697,7 @@ metadata:
 
 respuesta: "universal"
 tipo: mc
-opciones_explicitas: [
-  "limitado",
-  "universal",
-  "censitario",
-  "indirecto"
-]
+opciones_explicitas: ["limitado", "universal", "censitario", "indirecto"]
 
 enunciado: "Cuando el derecho al voto se extiende a todos los ciudadanos adultos sin distinción de sexo, renta o instrucción, hablamos de sufragio _______."
 
@@ -1159,13 +712,9 @@ metadata:
   nivel: "avanzado"
   tags: ["historia", "derechos"]
 
-respuesta: ["Sufragio censitario", "Sufragio masculino", "Sufragio universal"]
+respuesta_orden: ["Sufragio censitario", "Sufragio masculino", "Sufragio universal"]
 tipo: ordenar
-opciones_explicitas: [
-  "Sufragio censitario",
-  "Sufragio masculino",
-  "Sufragio universal"
-]
+opciones_explicitas: ["Sufragio censitario", "Sufragio masculino", "Sufragio universal"]
 
 enunciado: "Ordene cronológicamente los modelos de sufragio según la evolución histórica de la profundización democrática:"
 
@@ -1180,7 +729,7 @@ metadata:
   nivel: "intermedio"
   tags: ["legitimidad", "participacion"]
 
-respuesta: 0
+respuesta: 9
 tipo: completar
 tolerancia_abs: 0
 
@@ -1223,17 +772,13 @@ metadata:
   tags: ["historia", "ordenamiento"]
 
 variables:
-  hito: uno_de([
-    ["Ley Sáenz Peña", "1912"],
-    ["Voto Femenino (Ley 14.243)", "1947"],
-    ["Sufragio Universal (Ley 18.640)", "1972"]
-  ])
+  hito: uno_de([["Ley Sáenz Peña", "1912"], ["Voto Femenino (Ley 14.243)", "1947"], ["Sufragio Universal (Ley 18.640)", "1972"]])
   idx: uno_de([0, 1, 2])
 
 enunciado: "Ordena cronológicamente los hitos del sufragio en Argentina, partiendo desde el más antiguo al más reciente."
 
 opciones_explicitas: ["Ley Sáenz Peña", "Voto Femenino (Ley 14.243)", "Sufragio Universal (Ley 18.640)"]
-respuesta: ["Ley Sáenz Peña", "Voto Femenino (Ley 14.243)", "Sufragio Universal (Ley 18.640)"]
+respuesta_orden: ["Ley Sáenz Peña", "Voto Femenino (Ley 14.243)", "Sufragio Universal (Ley 18.640)"]
 tipo: ordenar
 
 explicacion: |
@@ -1247,14 +792,11 @@ metadata:
   nivel: "basico"
   tags: ["fechas", "leyes"]
 
-variables:
-  datos: [["Ley Sáenz Peña", "1912"], ["Ley de Ciudadanía", "1892"]]
-  idx: uno_de([0, 1])
-
 enunciado: "La implementación del voto universal, secreto y obligatorio en Argentina ocurrió en el año ___."
 
-respuestas_validas: ["1912", "1892"]
-respuesta: datos[idx][1
+respuestas_validas:
+  - "1912"
+respuesta: "1912"
 tipo: completar
 
 explicacion: |
@@ -1268,14 +810,10 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-variables:
-  datos: [["1853", "restringido"], ["1912", "universal"]]
-  idx: uno_de([0, 1])
+enunciado: "Si comparamos el sistema de 1853 con el de 1912, el primero era de tipo ___."
 
-enunciado: "Si comparamos el sistema de ___ con el de 1912, el primero era de tipo ___."
-
-opciones_explicitas: ["1853", "1912"]
-respuesta: datos[idx][1]
+opciones_explicitas: ["restringido", "universal"]
+respuesta: "restringido"
 tipo: mc
 
 explicacion: |
@@ -1289,19 +827,396 @@ metadata:
   nivel: "intermedio"
   tags: ["derechos_mujer", "historia"]
 
-variables:
-  datos: [["Voto Femenino", "1947"], ["Ley Sáenz Peña", "1912"]]
-  idx: uno_de([0, 1])
+enunciado: "El hito histórico que permitió el ejercicio del voto por parte de las mujeres en Argentina fue el Voto Femenino, sancionado en el año ___."
 
-enunciado: "El hito histórico que permitió el ejercicio del voto por parte de las mujeres en Argentina fue el ___ en el año ___."
-
-respuesta: datos[idx][0] + " " + datos[idx][1]
+respuesta: "1947"
 tipo: completar
-tolerancia_abs: 0
 
-respuestas_validas: ["Voto Femenino", "1947"]
+respuestas_validas:
+  - "1947"
 explicacion: |
   La Ley 14.243 sancionada en 1947 garantizó la participación política de las mujeres en el sufragio argentino.
+```
+
+## Sección: organismos-internacionales (20 preguntas)
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "basico"
+  tags: ["onu"]
+
+enunciado: "¿En qué año se creó la ONU?"
+tipo: mc
+opciones_explicitas:
+  - "1945"
+  - "1919"
+  - "1948"
+respuesta: "1945"
+
+explicacion: |
+  Creada tras la Segunda Guerra Mundial, para mantener la paz y la
+  seguridad internacionales.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "basico"
+  tags: ["onu"]
+
+enunciado: "¿Cuál es el objetivo fundacional de la ONU?"
+tipo: mc
+opciones_explicitas:
+  - "Mantener la paz y la seguridad internacionales"
+  - "Regular exclusivamente el comercio mundial"
+  - "Otorgar préstamos a países con problemas económicos"
+respuesta: "Mantener la paz y la seguridad internacionales"
+
+explicacion: |
+  Ese objetivo se declaró explícitamente tras el fin de la Segunda
+  Guerra Mundial.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "intermedio"
+  tags: ["onu"]
+
+enunciado: "¿Cuál es el órgano más conocido de la ONU?"
+tipo: mc
+opciones_explicitas:
+  - "El Consejo de Seguridad"
+  - "La OEA"
+  - "El Mercosur"
+respuesta: "El Consejo de Seguridad"
+
+explicacion: |
+  Tiene 5 miembros permanentes con poder de veto.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "intermedio"
+  tags: ["onu"]
+
+enunciado: "¿Cuántos miembros permanentes tiene el Consejo de Seguridad de la ONU?"
+tipo: mc
+opciones_explicitas:
+  - "5"
+  - "10"
+  - "3"
+respuesta: "5"
+
+explicacion: |
+  Estados Unidos, Rusia, China, Reino Unido y Francia.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "intermedio"
+  tags: ["onu"]
+
+enunciado: "¿Qué significa el 'poder de veto' de los miembros permanentes del Consejo de Seguridad?"
+tipo: mc
+opciones_explicitas:
+  - "Pueden bloquear cualquier resolución con un solo voto en contra, aunque el resto esté de acuerdo"
+  - "Pueden proponer resoluciones pero no bloquearlas"
+  - "Sólo pueden votar en temas de comercio"
+respuesta: "Pueden bloquear cualquier resolución con un solo voto en contra, aunque el resto esté de acuerdo"
+
+explicacion: |
+  Un solo voto en contra de un miembro permanente bloquea la
+  resolución completa.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "intermedio"
+  tags: ["onu"]
+
+enunciado: "¿Cuál es el organismo especializado de la ONU dedicado a la salud?"
+tipo: mc
+opciones_explicitas:
+  - "La OMS"
+  - "La UNESCO"
+  - "El FMI"
+respuesta: "La OMS"
+
+explicacion: |
+  Organización Mundial de la Salud, organismo especializado dependiente
+  de la ONU.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "intermedio"
+  tags: ["onu"]
+
+enunciado: "¿Cuál es el organismo especializado de la ONU dedicado a educación, ciencia y cultura?"
+tipo: mc
+opciones_explicitas:
+  - "La UNESCO"
+  - "La OMS"
+  - "La OEA"
+respuesta: "La UNESCO"
+
+explicacion: |
+  Organismo dependiente de la ONU dedicado a esas 3 áreas.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "basico"
+  tags: ["oea"]
+
+enunciado: "¿En qué año se creó la OEA?"
+tipo: mc
+opciones_explicitas:
+  - "1948"
+  - "1945"
+  - "1991"
+respuesta: "1948"
+
+explicacion: |
+  Agrupa a los países del continente americano.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "intermedio"
+  tags: ["oea"]
+
+enunciado: "¿Cuál es la función declarada de la OEA?"
+tipo: mc
+opciones_explicitas:
+  - "Promover la democracia, los derechos humanos, la seguridad y el desarrollo en América"
+  - "Otorgar préstamos financieros a países miembros"
+  - "Regular exclusivamente el comercio entre 4 países"
+respuesta: "Promover la democracia, los derechos humanos, la seguridad y el desarrollo en América"
+
+explicacion: |
+  Agrupa a los países americanos con ese objetivo declarado.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "avanzado"
+  tags: ["oea"]
+
+enunciado: "¿Qué pasó con la membresía de Cuba en la OEA?"
+tipo: mc
+opciones_explicitas:
+  - "Fue reincorporada formalmente en 2009, aunque no participa activamente"
+  - "Nunca fue miembro de la OEA"
+  - "Es miembro pleno y activo desde su fundación en 1948"
+respuesta: "Fue reincorporada formalmente en 2009, aunque no participa activamente"
+
+explicacion: |
+  Excepción histórica dentro del bloque de países americanos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "basico"
+  tags: ["mercosur"]
+
+enunciado: "¿Qué es el Mercosur?"
+tipo: mc
+opciones_explicitas:
+  - "Un bloque económico regional para promover el libre comercio entre sus miembros"
+  - "Un organismo financiero mundial de préstamos"
+  - "Un tribunal internacional de derechos humanos"
+respuesta: "Un bloque económico regional para promover el libre comercio entre sus miembros"
+
+explicacion: |
+  Creado en 1991 por el Tratado de Asunción.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "intermedio"
+  tags: ["mercosur"]
+
+enunciado: "¿Cuáles fueron los 4 miembros plenos originales del Mercosur?"
+tipo: mc
+opciones_explicitas:
+  - "Argentina, Brasil, Paraguay y Uruguay"
+  - "Argentina, Chile, Perú y Bolivia"
+  - "Brasil, México, Colombia y Venezuela"
+respuesta: "Argentina, Brasil, Paraguay y Uruguay"
+
+explicacion: |
+  Fundadores del Tratado de Asunción de 1991.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "intermedio"
+  tags: ["mercosur"]
+
+enunciado: "¿Qué mecanismo usa el Mercosur para promover el libre comercio entre sus miembros?"
+tipo: mc
+opciones_explicitas:
+  - "La eliminación de aranceles internos"
+  - "El aumento de aranceles entre miembros"
+  - "La prohibición total del comercio entre miembros"
+respuesta: "La eliminación de aranceles internos"
+
+explicacion: |
+  Busca facilitar la circulación de bienes entre los países miembros.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "basico"
+  tags: ["fmi"]
+
+enunciado: "¿Qué es el FMI?"
+tipo: mc
+opciones_explicitas:
+  - "Un organismo financiero internacional que otorga préstamos a países con dificultades de balanza de pagos"
+  - "Un organismo político que reemplaza a la ONU"
+  - "Un bloque de libre comercio regional"
+respuesta: "Un organismo financiero internacional que otorga préstamos a países con dificultades de balanza de pagos"
+
+explicacion: |
+  Creado en 1944, distinto en naturaleza de organismos políticos como
+  la ONU o la OEA.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "intermedio"
+  tags: ["fmi"]
+
+enunciado: "¿Bajo qué condición suele otorgar préstamos el FMI?"
+tipo: mc
+opciones_explicitas:
+  - "A cambio de condiciones de política económica (programas o acuerdos stand-by)"
+  - "Sin ninguna condición, de forma incondicional"
+  - "Sólo a cambio de que el país se una a la ONU"
+respuesta: "A cambio de condiciones de política económica (programas o acuerdos stand-by)"
+
+explicacion: |
+  Los llamados "programas" del FMI incluyen condicionalidades de
+  política económica.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "avanzado"
+  tags: ["fundamento"]
+
+enunciado: "¿Cuál es la diferencia de fondo entre la competencia de partidos dentro de un Estado y los organismos internacionales?"
+tipo: mc
+opciones_explicitas:
+  - "Entre Estados no hay un 'gobierno mundial' elegido por elección: hay organismos de cooperación con reglas y vetos propios"
+  - "Son exactamente lo mismo, sólo cambia la escala"
+  - "Los organismos internacionales reemplazan a los partidos dentro de cada país"
+respuesta: "Entre Estados no hay un 'gobierno mundial' elegido por elección: hay organismos de cooperación con reglas y vetos propios"
+
+explicacion: |
+  Es el último paso de la cadena de Ciencia Política: de competir
+  dentro de un Estado a cooperar entre Estados.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "intermedio"
+  tags: ["onu"]
+
+enunciado: "Todos los países miembros de la ONU tienen poder de veto en el Consejo de Seguridad."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Sólo los 5 miembros permanentes del Consejo de Seguridad tienen ese
+  poder.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "intermedio"
+  tags: ["mercosur"]
+
+enunciado: "El Mercosur es un organismo financiero que otorga préstamos a sus países miembros."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Es un bloque de libre comercio regional, no un organismo de
+  préstamos como el FMI.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "intermedio"
+  tags: ["fmi"]
+
+enunciado: "El FMI (Fondo Monetario Internacional) se creó en el año ______."
+tipo: completar
+respuestas_validas:
+  - "1944"
+
+explicacion: |
+  Un año antes que la ONU (1945).
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "organismos_internacionales"
+  nivel: "avanzado"
+  tags: ["sintesis"]
+
+enunciado: "Ordená estos 4 organismos internacionales del más antiguo al más reciente."
+tipo: ordenar
+opciones_explicitas:
+  - "FMI (1944)"
+  - "ONU (1945)"
+  - "OEA (1948)"
+  - "Mercosur (1991)"
+respuesta_orden: ["FMI (1944)", "ONU (1945)", "OEA (1948)", "Mercosur (1991)"]
+explicacion: |
+  El FMI es el más antiguo de los 4, seguido por la ONU, la OEA y por
+  último el Mercosur, ya en la década de 1990.
 ```
 
 ## Sección: teoria-del-poder (44 preguntas)
@@ -1337,7 +1252,7 @@ variables:
   incremento: random(1, 5)
   resultado: base + incremento
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si la justicia ordena las relaciones de poder entre iguales, y consideramos que la 'razón' tiene un peso de {base} puntos y la 'virtud' un peso de {incremento} puntos en la legitimidad aristotélica, ¿cuál es la suma total de estos factores de legitimidad?"
@@ -1415,7 +1330,7 @@ variables:
   b: random(1, 10)
   resultado: a + b
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si la calidad de la comunicación pública tiene un peso de {a} y la transparencia tiene un peso de {b} en la legitimidad habermasiana, ¿cuál es la suma de estos factores?"
@@ -1493,7 +1408,7 @@ variables:
   b: random(1, 10)
   resultado: a * b
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si la libertad de expresión tiene un valor de {a} y la ausencia de coerción tiene un valor de {b} en la esfera pública, ¿cuál es el producto de estos valores en la legitimidad?"
@@ -1571,7 +1486,7 @@ variables:
   b: random(1, 10)
   resultado: a + b
 
-respuesta: "{resultado}"
+respuesta: resultado
 tipo: input
 
 enunciado: "Si el poder gestiona la diversidad de intereses (valor {a}) y la diversidad de valores (valor {b}), ¿cuál es la suma total de factores gestionados?"
@@ -2150,6 +2065,385 @@ explicacion: |
   La escuela es un microcosmos donde se aprenden las prácticas de la democracia y el poder legítimo.
 ```
 
+## Sección: tratados-internacionales (20 preguntas)
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "basico"
+  tags: ["definicion"]
+
+enunciado: "¿Qué es un tratado internacional?"
+tipo: mc
+opciones_explicitas:
+  - "Un acuerdo formal entre 2 o más Estados que genera obligaciones legales"
+  - "Una recomendación sin ninguna obligación legal"
+  - "Una ley interna de un solo país"
+respuesta: "Un acuerdo formal entre 2 o más Estados que genera obligaciones legales"
+
+explicacion: |
+  Genera obligaciones para las partes que lo firman y ratifican.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "intermedio"
+  tags: ["piramide_kelsen"]
+
+enunciado: "¿A qué jurista se atribuye la 'pirámide de normas' que ordena jerárquicamente el ordenamiento jurídico?"
+tipo: mc
+opciones_explicitas:
+  - "Hans Kelsen"
+  - "Giovanni Sartori"
+  - "Victor D'Hondt"
+respuesta: "Hans Kelsen"
+
+explicacion: |
+  Propuso pensar el ordenamiento jurídico como una pirámide donde cada
+  nivel respeta al que está por encima.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "intermedio"
+  tags: ["piramide_kelsen"]
+
+enunciado: "En la pirámide de Kelsen, ¿qué va inmediatamente debajo de la Constitución?"
+tipo: mc
+opciones_explicitas:
+  - "Los tratados internacionales"
+  - "Los decretos"
+  - "Las normas provinciales"
+respuesta: "Los tratados internacionales"
+
+explicacion: |
+  El orden completo: Constitución → tratados → leyes nacionales →
+  normas provinciales → decretos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "intermedio"
+  tags: ["piramide_kelsen"]
+
+enunciado: "Si una ley nacional común contradice un tratado internacional ya ratificado, ¿qué prevalece?"
+tipo: mc
+opciones_explicitas:
+  - "El tratado, porque está por encima de una ley común"
+  - "La ley, porque siempre es posterior al tratado"
+  - "Ninguno de los dos, ambos quedan sin efecto"
+respuesta: "El tratado, porque está por encima de una ley común"
+
+explicacion: |
+  Un tratado está en un escalón superior a una ley nacional común.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "basico"
+  tags: ["reforma_1994"]
+
+enunciado: "¿Qué hizo la reforma constitucional de 1994 con un grupo específico de tratados de derechos humanos?"
+tipo: mc
+opciones_explicitas:
+  - "Les dio jerarquía constitucional directa"
+  - "Los declaró inválidos"
+  - "Los subordinó a las leyes nacionales comunes"
+respuesta: "Les dio jerarquía constitucional directa"
+
+explicacion: |
+  Esos tratados quedan en pie de igualdad con la Constitución, no
+  "por debajo" de ella.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "basico"
+  tags: ["reforma_1994"]
+
+enunciado: "¿Qué artículo de la Constitución Nacional enumera los tratados con jerarquía constitucional?"
+tipo: mc
+opciones_explicitas:
+  - "Artículo 75, inciso 22"
+  - "Artículo 14"
+  - "Artículo 92"
+respuesta: "Artículo 75, inciso 22"
+
+explicacion: |
+  Incorporado por la reforma constitucional de 1994.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "intermedio"
+  tags: ["reforma_1994"]
+
+enunciado: "¿Cuántos instrumentos enumera originalmente el texto de 1994 del artículo 75 inciso 22?"
+tipo: mc
+opciones_explicitas:
+  - "11"
+  - "5"
+  - "20"
+respuesta: "11"
+
+explicacion: |
+  El listado puede crecer después con mayoría agravada del Congreso.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "avanzado"
+  tags: ["reforma_1994"]
+
+enunciado: "¿Cuántos instrumentos internacionales tienen hoy jerarquía constitucional en Argentina, sumando las incorporaciones posteriores a 1994?"
+tipo: mc
+opciones_explicitas:
+  - "15"
+  - "11"
+  - "22"
+respuesta: "15"
+
+explicacion: |
+  A los 11 originales se sumaron otros con el mecanismo de mayoría
+  agravada.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "avanzado"
+  tags: ["reforma_1994"]
+
+enunciado: "¿Qué mayoría necesita el Congreso para dar jerarquía constitucional a un nuevo tratado de derechos humanos?"
+tipo: mc
+opciones_explicitas:
+  - "Dos tercios de la totalidad de los miembros de cada Cámara"
+  - "Mayoría simple de los presentes"
+  - "Unanimidad absoluta de todos los legisladores del país"
+respuesta: "Dos tercios de la totalidad de los miembros de cada Cámara"
+
+explicacion: |
+  Una mayoría agravada, más difícil de alcanzar que la de una ley
+  común.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "intermedio"
+  tags: ["listado"]
+
+enunciado: "¿Cuál de estos tratados tiene jerarquía constitucional en Argentina según el artículo 75 inciso 22?"
+tipo: mc
+opciones_explicitas:
+  - "La Convención sobre los Derechos del Niño"
+  - "El Tratado de Asunción del Mercosur"
+  - "El Acuerdo stand-by con el FMI"
+respuesta: "La Convención sobre los Derechos del Niño"
+
+explicacion: |
+  Es uno de los 11 instrumentos originales enumerados en 1994, ya
+  vista en `../derechos-nino/`.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "intermedio"
+  tags: ["listado"]
+
+enunciado: "¿Cómo se conoce también a la Convención Americana sobre Derechos Humanos, uno de los tratados con jerarquía constitucional?"
+tipo: mc
+opciones_explicitas:
+  - "Pacto de San José de Costa Rica"
+  - "Pacto de Asunción"
+  - "Declaración de Ginebra"
+respuesta: "Pacto de San José de Costa Rica"
+
+explicacion: |
+  Nombre alternativo con el que se conoce este tratado del sistema
+  interamericano.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "avanzado"
+  tags: ["fundamento"]
+
+enunciado: "¿Por qué este módulo cierra un hueco que existía en `../derechos-y-garantias/`?"
+tipo: mc
+opciones_explicitas:
+  - "Porque parte de esos derechos llegan por la vía de tratados internacionales, no directamente del texto original de la Constitución"
+  - "Porque `../derechos-y-garantias/` no menciona ningún derecho real"
+  - "Porque los tratados reemplazan por completo a la Constitución"
+respuesta: "Porque parte de esos derechos llegan por la vía de tratados internacionales, no directamente del texto original de la Constitución"
+
+explicacion: |
+  Sin este módulo, esos derechos parecían "salir de la nada" del texto
+  constitucional, sin explicar el mecanismo real.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "intermedio"
+  tags: ["fundamento"]
+
+enunciado: "¿Por qué este módulo depende de `../organismos-internacionales/`?"
+tipo: mc
+opciones_explicitas:
+  - "Porque la mayoría de estos tratados de derechos humanos están vinculados a la ONU o al sistema interamericano (OEA)"
+  - "Porque no tiene ninguna relación con los organismos internacionales"
+  - "Porque los tratados reemplazan a los organismos internacionales"
+respuesta: "Porque la mayoría de estos tratados de derechos humanos están vinculados a la ONU o al sistema interamericano (OEA)"
+
+explicacion: |
+  Entender un tratado presupone conocer qué son los organismos que lo
+  promueven o administran.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "intermedio"
+  tags: ["reforma_1994"]
+
+enunciado: "Los tratados con jerarquía constitucional quedan por debajo del texto de la Constitución, en un escalón inferior."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Quedan en pie de igualdad con la Constitución, no por debajo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "intermedio"
+  tags: ["reforma_1994"]
+
+enunciado: "Cualquier tratado que Argentina firme automáticamente tiene jerarquía constitucional."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Sólo el grupo específico de tratados de derechos humanos enumerados
+  (o sumados por mayoría agravada) tiene ese rango; los demás tratados
+  quedan por debajo de la Constitución, aunque por encima de una ley
+  nacional común.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "avanzado"
+  tags: ["reforma_1994"]
+
+enunciado: "La lista de tratados con jerarquía constitucional quedó fija en 1994 y no puede crecer nunca más."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  El propio artículo prevé que puede crecer con el voto de dos tercios
+  de cada Cámara.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "intermedio"
+  tags: ["piramide_kelsen"]
+
+enunciado: "En la pirámide de Kelsen, un tratado internacional está por ______ de una ley nacional común."
+tipo: completar
+respuestas_validas:
+  - "encima"
+
+explicacion: |
+  Si una ley contradice al tratado, prevalece el tratado.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "basico"
+  tags: ["reforma_1994"]
+
+enunciado: "La reforma constitucional que dio jerarquía constitucional a ciertos tratados de derechos humanos fue en ______."
+tipo: completar
+respuestas_validas:
+  - "1994"
+
+explicacion: |
+  Reforma constitucional argentina de 1994.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "avanzado"
+  tags: ["listado"]
+
+enunciado: "¿Cuál de estos tratados, con jerarquía constitucional, trata específicamente la prevención y sanción de un delito internacional grave?"
+tipo: mc
+opciones_explicitas:
+  - "La Convención para la Prevención y la Sanción del Delito de Genocidio"
+  - "El Tratado de Asunción"
+  - "La Convención Americana sobre Derechos Humanos"
+respuesta: "La Convención para la Prevención y la Sanción del Delito de Genocidio"
+
+explicacion: |
+  Uno de los 11 instrumentos originales enumerados en el artículo 75
+  inciso 22.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "tratados_internacionales"
+  nivel: "avanzado"
+  tags: ["sintesis"]
+
+enunciado: "Ordená estos 4 niveles de la pirámide de Kelsen, del más alto al más bajo."
+tipo: ordenar
+opciones_explicitas:
+  - "Constitución"
+  - "Tratados internacionales"
+  - "Leyes nacionales"
+  - "Decretos"
+respuesta_orden: ["Constitución", "Tratados internacionales", "Leyes nacionales", "Decretos"]
+explicacion: |
+  Cada nivel debe respetar al nivel inmediatamente superior en esta
+  jerarquía normativa.
+```
+
 ## Sección: tipos-de-estado (22 preguntas)
 
 ```
@@ -2559,386 +2853,3 @@ explicacion: |
   Los impuestos progresivos permiten redistribuir la riqueza y financiar los servicios públicos universales del Estado de Bienestar.
 ```
 
-## Sección: tratados-internacionales (20 preguntas)
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "basico"
-  tags: ["definicion"]
-
-enunciado: "¿Qué es un tratado internacional?"
-tipo: mc
-opciones_explicitas:
-  - "Un acuerdo formal entre 2 o más Estados que genera obligaciones legales"
-  - "Una recomendación sin ninguna obligación legal"
-  - "Una ley interna de un solo país"
-respuesta: "Un acuerdo formal entre 2 o más Estados que genera obligaciones legales"
-
-explicacion: |
-  Genera obligaciones para las partes que lo firman y ratifican.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "intermedio"
-  tags: ["piramide_kelsen"]
-
-enunciado: "¿A qué jurista se atribuye la 'pirámide de normas' que ordena jerárquicamente el ordenamiento jurídico?"
-tipo: mc
-opciones_explicitas:
-  - "Hans Kelsen"
-  - "Giovanni Sartori"
-  - "Victor D'Hondt"
-respuesta: "Hans Kelsen"
-
-explicacion: |
-  Propuso pensar el ordenamiento jurídico como una pirámide donde cada
-  nivel respeta al que está por encima.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "intermedio"
-  tags: ["piramide_kelsen"]
-
-enunciado: "En la pirámide de Kelsen, ¿qué va inmediatamente debajo de la Constitución?"
-tipo: mc
-opciones_explicitas:
-  - "Los tratados internacionales"
-  - "Los decretos"
-  - "Las normas provinciales"
-respuesta: "Los tratados internacionales"
-
-explicacion: |
-  El orden completo: Constitución → tratados → leyes nacionales →
-  normas provinciales → decretos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "intermedio"
-  tags: ["piramide_kelsen"]
-
-enunciado: "Si una ley nacional común contradice un tratado internacional ya ratificado, ¿qué prevalece?"
-tipo: mc
-opciones_explicitas:
-  - "El tratado, porque está por encima de una ley común"
-  - "La ley, porque siempre es posterior al tratado"
-  - "Ninguno de los dos, ambos quedan sin efecto"
-respuesta: "El tratado, porque está por encima de una ley común"
-
-explicacion: |
-  Un tratado está en un escalón superior a una ley nacional común.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "basico"
-  tags: ["reforma_1994"]
-
-enunciado: "¿Qué hizo la reforma constitucional de 1994 con un grupo específico de tratados de derechos humanos?"
-tipo: mc
-opciones_explicitas:
-  - "Les dio jerarquía constitucional directa"
-  - "Los declaró inválidos"
-  - "Los subordinó a las leyes nacionales comunes"
-respuesta: "Les dio jerarquía constitucional directa"
-
-explicacion: |
-  Esos tratados quedan en pie de igualdad con la Constitución, no
-  "por debajo" de ella.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "basico"
-  tags: ["reforma_1994"]
-
-enunciado: "¿Qué artículo de la Constitución Nacional enumera los tratados con jerarquía constitucional?"
-tipo: mc
-opciones_explicitas:
-  - "Artículo 75, inciso 22"
-  - "Artículo 14"
-  - "Artículo 92"
-respuesta: "Artículo 75, inciso 22"
-
-explicacion: |
-  Incorporado por la reforma constitucional de 1994.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "intermedio"
-  tags: ["reforma_1994"]
-
-enunciado: "¿Cuántos instrumentos enumera originalmente el texto de 1994 del artículo 75 inciso 22?"
-tipo: mc
-opciones_explicitas:
-  - "11"
-  - "5"
-  - "20"
-respuesta: "11"
-
-explicacion: |
-  El listado puede crecer después con mayoría agravada del Congreso.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "avanzado"
-  tags: ["reforma_1994"]
-
-enunciado: "¿Cuántos instrumentos internacionales tienen hoy jerarquía constitucional en Argentina, sumando las incorporaciones posteriores a 1994?"
-tipo: mc
-opciones_explicitas:
-  - "15"
-  - "11"
-  - "22"
-respuesta: "15"
-
-explicacion: |
-  A los 11 originales se sumaron otros con el mecanismo de mayoría
-  agravada.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "avanzado"
-  tags: ["reforma_1994"]
-
-enunciado: "¿Qué mayoría necesita el Congreso para dar jerarquía constitucional a un nuevo tratado de derechos humanos?"
-tipo: mc
-opciones_explicitas:
-  - "Dos tercios de la totalidad de los miembros de cada Cámara"
-  - "Mayoría simple de los presentes"
-  - "Unanimidad absoluta de todos los legisladores del país"
-respuesta: "Dos tercios de la totalidad de los miembros de cada Cámara"
-
-explicacion: |
-  Una mayoría agravada, más difícil de alcanzar que la de una ley
-  común.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "intermedio"
-  tags: ["listado"]
-
-enunciado: "¿Cuál de estos tratados tiene jerarquía constitucional en Argentina según el artículo 75 inciso 22?"
-tipo: mc
-opciones_explicitas:
-  - "La Convención sobre los Derechos del Niño"
-  - "El Tratado de Asunción del Mercosur"
-  - "El Acuerdo stand-by con el FMI"
-respuesta: "La Convención sobre los Derechos del Niño"
-
-explicacion: |
-  Es uno de los 11 instrumentos originales enumerados en 1994, ya
-  vista en `../derechos-nino/`.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "intermedio"
-  tags: ["listado"]
-
-enunciado: "¿Cómo se conoce también a la Convención Americana sobre Derechos Humanos, uno de los tratados con jerarquía constitucional?"
-tipo: mc
-opciones_explicitas:
-  - "Pacto de San José de Costa Rica"
-  - "Pacto de Asunción"
-  - "Declaración de Ginebra"
-respuesta: "Pacto de San José de Costa Rica"
-
-explicacion: |
-  Nombre alternativo con el que se conoce este tratado del sistema
-  interamericano.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "avanzado"
-  tags: ["fundamento"]
-
-enunciado: "¿Por qué este módulo cierra un hueco que existía en `../derechos-y-garantias/`?"
-tipo: mc
-opciones_explicitas:
-  - "Porque parte de esos derechos llegan por la vía de tratados internacionales, no directamente del texto original de la Constitución"
-  - "Porque `../derechos-y-garantias/` no menciona ningún derecho real"
-  - "Porque los tratados reemplazan por completo a la Constitución"
-respuesta: "Porque parte de esos derechos llegan por la vía de tratados internacionales, no directamente del texto original de la Constitución"
-
-explicacion: |
-  Sin este módulo, esos derechos parecían "salir de la nada" del texto
-  constitucional, sin explicar el mecanismo real.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "intermedio"
-  tags: ["fundamento"]
-
-enunciado: "¿Por qué este módulo depende de `../organismos-internacionales/`?"
-tipo: mc
-opciones_explicitas:
-  - "Porque la mayoría de estos tratados de derechos humanos están vinculados a la ONU o al sistema interamericano (OEA)"
-  - "Porque no tiene ninguna relación con los organismos internacionales"
-  - "Porque los tratados reemplazan a los organismos internacionales"
-respuesta: "Porque la mayoría de estos tratados de derechos humanos están vinculados a la ONU o al sistema interamericano (OEA)"
-
-explicacion: |
-  Entender un tratado presupone conocer qué son los organismos que lo
-  promueven o administran.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "intermedio"
-  tags: ["reforma_1994"]
-
-enunciado: "Los tratados con jerarquía constitucional quedan por debajo del texto de la Constitución, en un escalón inferior."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Quedan en pie de igualdad con la Constitución, no por debajo.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "intermedio"
-  tags: ["reforma_1994"]
-
-enunciado: "Cualquier tratado que Argentina firme automáticamente tiene jerarquía constitucional."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Sólo el grupo específico de tratados de derechos humanos enumerados
-  (o sumados por mayoría agravada) tiene ese rango; los demás tratados
-  quedan por debajo de la Constitución, aunque por encima de una ley
-  nacional común.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "avanzado"
-  tags: ["reforma_1994"]
-
-enunciado: "La lista de tratados con jerarquía constitucional quedó fija en 1994 y no puede crecer nunca más."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  El propio artículo prevé que puede crecer con el voto de dos tercios
-  de cada Cámara.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "intermedio"
-  tags: ["piramide_kelsen"]
-
-enunciado: "En la pirámide de Kelsen, un tratado internacional está por ______ de una ley nacional común."
-tipo: completar
-respuestas_validas:
-  - "encima"
-
-explicacion: |
-  Si una ley contradice al tratado, prevalece el tratado.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "basico"
-  tags: ["reforma_1994"]
-
-enunciado: "La reforma constitucional que dio jerarquía constitucional a ciertos tratados de derechos humanos fue en ______."
-tipo: completar
-respuestas_validas:
-  - "1994"
-
-explicacion: |
-  Reforma constitucional argentina de 1994.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "avanzado"
-  tags: ["listado"]
-
-enunciado: "¿Cuál de estos tratados, con jerarquía constitucional, trata específicamente la prevención y sanción de un delito internacional grave?"
-tipo: mc
-opciones_explicitas:
-  - "La Convención para la Prevención y la Sanción del Delito de Genocidio"
-  - "El Tratado de Asunción"
-  - "La Convención Americana sobre Derechos Humanos"
-respuesta: "La Convención para la Prevención y la Sanción del Delito de Genocidio"
-
-explicacion: |
-  Uno de los 11 instrumentos originales enumerados en el artículo 75
-  inciso 22.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "tratados_internacionales"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-enunciado: "Ordená estos 4 niveles de la pirámide de Kelsen, del más alto al más bajo."
-tipo: ordenar
-opciones_explicitas:
-  - "Constitución"
-  - "Tratados internacionales"
-  - "Leyes nacionales"
-  - "Decretos"
-respuesta:
-  - "Constitución"
-  - "Tratados internacionales"
-  - "Leyes nacionales"
-  - "Decretos"
-
-explicacion: |
-  Cada nivel debe respetar al nivel inmediatamente superior en esta
-  jerarquía normativa.
-```

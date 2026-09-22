@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de Circuitos y Choques
+# Examen jefe — [PENDIENTE #737]
 
-> Logro #157. Dominaste los circuitos mixtos, choques y caudal, completaste ese examen jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **126 preguntas totales** en 5/5 secciones.
+> Logro #737. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,9 +15,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["El volumen de fluido que pasa por una sección por unidad de tiempo", "La velocidad con la que se desplaza un fluido", "La presión ejercida por un fluido en reposo", "La masa total de un fluido en un recipiente"]
-
+respuesta: "El volumen de fluido que pasa por una sección por unidad de tiempo"
 enunciado: "El caudal (Q) se define físicamente como ___."
-
 explicacion: |
   El caudal representa el volumen de fluido que atraviesa una sección transversal de un conducto en un intervalo de tiempo determinado.
 ```
@@ -30,7 +29,9 @@ metadata:
   tags: ["relacion_variables", "formula"]
 
 tipo: completar
-respuestas_validas: ["A", "v", "Q"]
+respuestas_validas:
+  - "velocidad"
+  - "velocidad media"
 
 enunciado: "En la ecuación del caudal para un fluido incompresible, Q = A · v, la variable 'A' representa el área de la sección transversal y 'v' representa la ___."
 
@@ -50,6 +51,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["m³/s", "m/s", "kg/m³", "N/m²"]
+respuesta: "m³/s"
 
 enunciado: "En el Sistema Internacional de Unidades (SI), la unidad resultante para el caudal es ___."
 
@@ -82,7 +84,10 @@ metadata:
   tags: ["componentes", "conceptos"]
 
 tipo: completar
-respuestas_validas: ["sección", "tiempo", "volumen"]
+respuestas_validas:
+  - "sección"
+  - "tiempo"
+  - "volumen"
 
 enunciado: "Para calcular el caudal, es necesario conocer el ___ que atraviesa una ___ en un determinado ___."
 
@@ -165,7 +170,8 @@ metadata:
 
 respuesta: "m³/s"
 tipo: completar
-respuestas_validas: ["m³/s", "m/s", "m²", "kg/m³"]
+respuestas_validas:
+  - "m³/s"
 
 enunciado: "En el Sistema Internacional, la unidad de medida del caudal es ___."
 
@@ -201,7 +207,7 @@ variables:
   radio: 0.05
   velocidad: 2.0
 
-respuesta: 0.00157
+respuesta: 0.0157
 tipo: completar
 tolerancia_abs: 0.0001
 
@@ -214,8 +220,7 @@ pasos:
 explicacion: |
   El caudal Q es el producto del área de la sección transversal por la velocidad.
   A = pi * (0.05)^2 = 0.007853... m²
-  Q = 0.007853 * 2.0 = 0.0157... m³/s. 
-  *Nota: Revisa si el resultado es 0.00157 o 0.0157 según el cálculo.*
+  Q = 0.007853 * 2.0 = 0.0157 m³/s.
 ```
 
 ```
@@ -230,7 +235,7 @@ opciones_explicitas: ["Es correcto", "Es incorrecto"]
 respuesta: "Es incorrecto"
 tipo: mc
 
-enunciado: "Si un problema te da el diámetro de una tubería de 0.4 m, y utilizas directamente el valor 0.4 en la fórmula del área (A = pi * r^2), ¿el caudal resultante será mayor o menor al real?"
+enunciado: "Si un problema te da el diámetro de una tubería de 0.4 m, y utilizas directamente el valor 0.4 en la fórmula del área (A = pi * r^2) en lugar de dividirlo por 2 primero, ¿es correcto este procedimiento?"
 
 explicacion: |
   Es incorrecto. El error común es usar el diámetro en lugar del radio. Como el radio es la mitad del diámetro, usar el diámetro directamente sobreestima el área y, por lo tanto, el caudal.
@@ -243,11 +248,10 @@ metadata:
   nivel: "intermedio"
   tags: ["continuidad", "velocidad"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [[0.5, 2.0, 1.0], [0.2, 1.0, 4.0]]
-
-respuesta: datos[idx][2
+respuesta: "duplicarse"
+respuestas_validas:
+  - "duplicarse"
+  - "aumentar al doble"
 tipo: completar
 enunciado: "En una tubería con sección constante, si el área de la sección transversal se reduce a la mitad, la velocidad del fluido debe ___ para mantener el mismo caudal."
 
@@ -266,7 +270,11 @@ metadata:
   nivel: "basico"
   tags: ["formula", "conceptos"]
 
-respuestas_validas: ["A * v", "v * A", "A * v", "v * A"]
+respuestas_validas:
+  - "A * v"
+  - "v * A"
+  - "A * v"
+  - "v * A"
 
 respuesta: "A * v"
 tipo: completar
@@ -320,20 +328,16 @@ metadata:
   tags: ["caudal", "seccion", "velocidad"]
 
 variables:
-  escenario: uno_de([
-    ["0.05", "2.0"],
-    ["0.10", "1.0"],
-    ["0.20", "0.5"]
-  ])
+  escenario: uno_de([["0.05", "2.0"], ["0.10", "1.0"], ["0.20", "0.5"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: "input"
 tolerancia_abs: 0.01
 
-enunciado: "Un fluido circula por una tubería con un caudal constante de $Q = 0.1\ m^3/s$. Si el área de la sección transversal es de $A = {escenario[0]}\ m^2$, ¿cuál es la velocidad $v$ del fluido en $m/s$?"
+enunciado: "Un fluido circula por una tubería con un caudal constante de $Q = 0.1\\ m^3/s$. Si el área de la sección transversal es de $A = {escenario[0]}\\ m^2$, ¿cuál es la velocidad $v$ del fluido en $m/s$?"
 
 pasos:
-  - "Identificar la fórmula del caudal: $Q = A \cdot v$"
+  - "Identificar la fórmula del caudal: $Q = A \\cdot v$"
   - "Despejar la velocidad: $v = Q / A$"
   - "Sustituir los valores: $v = 0.1 / {escenario[0]}$"
 
@@ -352,7 +356,7 @@ respuesta: verdadero
 
 tipo: "vf"
 
-enunciado: "Si un fluido tiene la misma densidad en dos puntos de una tubería, pero el área de la sección transversal disminuye, el caudal volumétrico $Q$ debe aumentar para mantener la continuidad si la velocidad se mantiene constante. (Nota: Evaluar si la afirmación sobre la relación entre $Q$, $A$ y $v$ es correcta bajo la premisa de $Q=A \cdot v$)."
+enunciado: "Si un fluido tiene la misma densidad en dos puntos de una tubería, pero el área de la sección transversal disminuye, el caudal volumétrico $Q$ debe aumentar para mantener la continuidad si la velocidad se mantiene constante. (Nota: Evaluar si la afirmación sobre la relación entre $Q$, $A$ y $v$ es correcta bajo la premisa de $Q=A \\cdot v$)."
 
 explicacion: |
   La afirmación es falsa en su lógica de comparación: si el área disminuye y el caudal $Q$ es constante (como en un fluido incompresible), la velocidad debe aumentar, no el caudal. El caudal es la constante en este escenario de continuidad.
@@ -365,14 +369,14 @@ metadata:
   nivel: "basico"
   tags: ["caudal", "componentes"]
 
-respuesta: ["sección transversal", "velocidad media"]
+respuesta_orden: ["sección transversal", "velocidad media"]
 tipo: "ordenar"
-opciones_explicitas: ["sección transversal", "velocidad media", "presión estática", "densidad del fluido"]
+opciones_explicitas: ["sección transversal", "velocidad media"]
 
-enunciado: "Para calcular el caudal volumétrico en un conducto, se requiere conocer el orden de magnitud de los siguientes dos parámetros físicos:"
+enunciado: "Ordena estos dos factores según el orden en que aparecen en la fórmula del caudal volumétrico Q = A · v:"
 
 explicacion: |
-  El caudal volumétrico $Q$ se define estrictamente como el producto del área de la sección transversal ($A$) por la velocidad media del fluido ($v$).
+  El caudal volumétrico Q se define estrictamente como el producto del área de la sección transversal (A) por la velocidad media del fluido (v).
 ```
 
 ```
@@ -383,20 +387,16 @@ metadata:
   tags: ["caudal", "densidad", "flujo_masico"]
 
 variables:
-  datos: uno_de([
-    [1000, 0.5],
-    [800, 0.5],
-    [1200, 0.5]
-  ])
+  datos: uno_de([[1000, 0.5], [800, 0.5], [1200, 0.5]])
 
 respuesta: "el mismo"
 tipo: "mc"
 opciones_explicitas: ["mayor", "menor", "el mismo", "indeterminado"]
 
-enunciado: "Si tenemos dos fluidos distintos (uno con densidad $\rho_1 = {datos[0]}\ kg/m^3$ y otro $\rho_2 = {datos[1]}\ kg/m^3$) que pasan por una misma tubería con la misma velocidad $v = 2\ m/s$ y la misma sección $A = 0.1\ m^2$, ¿cómo se comparan sus caudales volumétricos $Q$?"
+enunciado: "Si tenemos dos fluidos distintos (uno con densidad ρ1 = {datos[0]} kg/m³ y otro ρ2 = {datos[1]} kg/m³) que pasan por una misma tubería con la misma velocidad v = 2 m/s y la misma sección A = 0.1 m², ¿cómo se comparan sus caudales volumétricos Q?"
 
 explicacion: |
-  El caudal volumétrico $Q = A \cdot v$ depende únicamente de la geometría de la sección y la velocidad del fluido. La densidad afecta al flujo másico ($\dot{m} = \rho \cdot Q$), pero no al caudal volumétrico. Por lo tanto, los caudales son iguales.
+  El caudal volumétrico Q = A · v depende únicamente de la geometría de la sección y la velocidad del fluido. La densidad afecta al flujo másico (m = ρ · Q), pero no al caudal volumétrico. Por lo tanto, los caudales son iguales.
 ```
 
 ```
@@ -408,11 +408,11 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [["0.005", "0.2"], ["0.02", "1.5"]]
-  area: [0.0001, 0.0004]
-  velocidad: [2.0, 3.75]
+  area: [0.0005, 0.005]
+  velocidad: [2.0, 2.0]
+  resultados_texto: ["0.001 m³/s", "0.01 m³/s"]
 
-respuesta: datos[escenario_idx][1
+respuesta: resultados_texto[escenario_idx]
 tipo: mc
 opciones_explicitas: ["0.001 m³/s", "0.01 m³/s", "0.05 m³/s", "0.1 m³/s"]
 
@@ -420,8 +420,7 @@ enunciado: "Una manguera de jardín tiene una sección transversal de {area[esce
 
 explicacion: |
   El caudal se calcula con la fórmula Q = A · v.
-  Para el caso 1: 0.0001 m² * 2.0 m/s = 0.001 m³/s.
-  Para el caso 2: 0.0004 m² * 3.75 m/s = 0.0015 m³/s (Nota: ajuste de datos para coherencia en el ejemplo).
+  Para este caso: {area[escenario_idx]} m² * {velocidad[escenario_idx]} m/s = {resultados_texto[escenario_idx]}.
 ```
 
 ```
@@ -448,29 +447,29 @@ metadata:
   tags: ["caudal", "velocidad"]
 
 variables:
-  datos: [["0.002", "5.0"], ["0.005", "10.0"]]
-  caudal: [0.01, 0.05]
-  area: [0.0004, 0.0005]
+  escenarios: [[0.01, 0.0004, 25.0], [0.05, 0.0005, 100.0]]
+  idx: uno_de([0, 1])
+  caudal: escenarios[idx][0]
+  area: escenarios[idx][1]
+  velocidad_correcta: escenarios[idx][2]
 
-respuesta: datos[escenario_idx][1
 tipo: completar
-datos_escenario: [0, 1]
-idx: uno_de([0, 1])
 
-enunciado: "Un sistema de riego tiene un caudal de {caudal[idx]} m³/s a través de una tubería de {area[idx]} m². La velocidad del agua es de ___ m/s."
+enunciado: "Un sistema de riego tiene un caudal de {caudal} m³/s a través de una tubería de {area} m². La velocidad del agua es de ___ m/s."
 
 pasos:
   - "Identificar el caudal (Q) y el área (A)."
   - "Despejar la velocidad de la fórmula Q = A · v, obteniendo v = Q / A."
   - "Realizar la división."
 
-respuestas_validas: ["5.0", "10.0"]
+respuestas_validas:
+  - velocidad_correcta
 
 explicacion: |
   Usando v = Q / A:
-  Caso 1: 0.01 / 0.0004 = 25 (Ajuste de ejemplo: v = 5.0 si Q=0.002).
-  Para que coincida con la lógica: v = 0.01 / 0.0004 = 25. 
-  (Nota: El usuario debe ver los valores de la tabla seleccionada).
+  Caso 1: 0.01 / 0.0004 = 25.
+  Caso 2: 0.05 / 0.0005 = 100.
+  La respuesta depende del escenario sorteado.
 ```
 
 ```
@@ -482,7 +481,8 @@ metadata:
 
 respuesta: "m³/s"
 tipo: completar
-respuestas_validas: ["m³/s", "m/s", "m²", "kg/m³"]
+respuestas_validas:
+  - "m³/s"
 
 enunciado: "En el Sistema Internacional, la unidad fundamental para medir el caudal (Q) es ___."
 
@@ -497,9 +497,9 @@ metadata:
   nivel: "basico"
   tags: ["metodologia"]
 
-respuesta: ["Medir el área de la sección", "Medir la velocidad del fluido", "Multiplicar ambos valores"]
+respuesta_orden: ["Medir el área de la sección", "Medir la velocidad del fluido", "Multiplicar ambos valores"]
 tipo: ordenar
-opciones_explicitas: ["Medir el área de la sección", "Medir la velocidad del fluido", "Multiplicar ambos valores", "Dividir el área por la velocidad"]
+opciones_explicitas: ["Medir el área de la sección", "Medir la velocidad del fluido", "Multiplicar ambos valores"]
 
 enunciado: "Ordena los pasos necesarios para calcular el caudal Q de una tubería si conoces su geometría y la rapidez del fluido."
 
@@ -518,7 +518,9 @@ metadata:
 
 respuesta: "momento"
 tipo: completar
-respuestas_validas: ["momento", "cantidad_de_movimiento"]
+respuestas_validas:
+  - "momento"
+  - "cantidad_de_movimiento"
 
 enunciado: "En cualquier tipo de choque (elástico o inelástico), la _______ lineal del sistema se conserva siempre, siempre que no actúen fuerzas externas netas."
 
@@ -549,10 +551,7 @@ metadata:
   nivel: "basico"
   tags: ["clasificacion", "choque_inelastico"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-
-respuesta: datos[escenario_idx][1
+respuesta: "Inelástico"
 tipo: mc
 opciones_explicitas: ["Elástico", "Inelástico"]
 
@@ -564,10 +563,6 @@ pasos:
 
 explicacion: |
   Cuando los objetos quedan unidos tras el impacto, el choque es perfectamente inelástico, ya que se ha perdido la mayor parte de la energía cinética en la deformación.
-
-datos:
-  - ["Los objetos rebotan sin deformarse", "Inelástico"]
-  - ["Los objetos quedan pegados tras el impacto", "Inelástico"]
 ```
 
 ```
@@ -610,8 +605,8 @@ metadata:
   nivel: "basico"
   tags: ["conservacion", "energia", "impulso"]
 
-respuesta: true
-tipo: completar
+tipo: vf
+respuesta: falso
 enunciado: "En un choque perfectamente inelástico, la energía cinética total del sistema se conserva."
 
 explicacion: |
@@ -625,10 +620,7 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-variables:
-  es_elastico: uno_de([true, false])
-
-respuesta: es_elastico
+respuesta: "Elástico"
 tipo: mc
 opciones_explicitas: ["Elástico", "Inelástico"]
 
@@ -649,7 +641,7 @@ variables:
   m1: uno_de([2.0, 5.0])
   v1: uno_de([10.0, 4.0])
   m2: uno_de([3.0, 2.0])
-  v2: uno_de([0.0, 5.0])
+  v2: 0.0
 
 respuesta: m1 * v1 + m2 * v2
 tipo: completar
@@ -675,7 +667,7 @@ metadata:
 
 opciones_explicitas: ["Calcular momentos iniciales", "Aplicar conservación de energía", "Calcular momentos finales", "Resolver sistema de ecuaciones"]
 
-respuesta: ["Calcular momentos iniciales", "Aplicar conservación de energía", "Calcular momentos finales", "Resolver sistema de ecuaciones"]
+respuesta_orden: ["Calcular momentos iniciales", "Aplicar conservación de energía", "Calcular momentos finales", "Resolver sistema de ecuaciones"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para resolver un choque elástico donde se busca la velocidad final de dos cuerpos:"
@@ -697,7 +689,7 @@ variables:
   m2: 2.0
   v2: 6.0
 
-respuesta: 40.0
+respuesta: 52.0
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -712,7 +704,6 @@ explicacion: |
   Ek1 = 0.5 * 2 * 4^2 = 16 J.
   Ek2 = 0.5 * 2 * 6^2 = 36 J.
   Ek_total = 16 + 36 = 52 J.
-  *Nota: El valor calculado en la respuesta es el correcto para el ejercicio planteado.*
 ```
 
 ```
@@ -739,7 +730,7 @@ metadata:
   nivel: "intermedio"
   tags: ["energia_cinetica", "choque_elastico"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "En un choque perfectamente elástico entre dos partículas, la energía cinética total del sistema se conserva."
@@ -755,19 +746,13 @@ metadata:
   nivel: "intermedio"
   tags: ["clasificacion", "energia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-
-respuesta: tabla[escenario_idx][1
+respuesta: "inelástico"
 tipo: "completar"
-tabla: [
-  ["elástico", "elástico"],
-  ["inelástico", "inelástico"]
-]
 
 enunciado: "Si en una colisión la energía cinética total se reduce tras el impacto, el choque es de tipo ___."
 
-respuestas_validas: ["elástico", "inelástico"]
+respuestas_validas:
+  - "inelástico"
 
 explicacion: |
   Si hay pérdida de energía cinética (que se transforma en otra forma de energía), el choque es inelástico. Si la energía cinética se mantiene constante, es elástico.
@@ -780,11 +765,11 @@ metadata:
   nivel: "avanzado"
   tags: ["conservacion", "leyes"]
 
-respuesta: ["momento_lineal", "energia_cinetica"]
+respuesta_orden: ["momento_lineal", "energia_cinetica"]
 tipo: "ordenar"
-opciones_explicitas: ["momento_lineal", "energia_cinetica", "masa_total"]
+opciones_explicitas: ["momento_lineal", "energia_cinetica"]
 
-enunciado: "En un choque perfectamente elástico, ¿qué par de magnitudes se conservan necesariamente?"
+enunciado: "Al plantear las ecuaciones de un choque perfectamente elástico, ordena estas dos magnitudes conservadas según el orden habitual en que se escriben sus ecuaciones de conservación:"
 
 explicacion: |
   En un choque elástico se conservan tanto el momento lineal como la energía cinética. La masa total es una propiedad de la materia y no es una magnitud que se "conserve" mediante una ecuación de colisión como las otras dos.
@@ -816,7 +801,8 @@ metadata:
 
 respuesta: "momento_lineal"
 tipo: completar
-respuestas_validas: ["momento_lineal"]
+respuestas_validas:
+  - "momento_lineal"
 
 enunciado: "En cualquier tipo de choque (elástico o inelástico) entre dos cuerpos que interactúan, la propiedad que siempre se conserva es el ___."
 
@@ -831,15 +817,11 @@ metadata:
   nivel: "basico"
   tags: ["energia", "choques"]
 
-variables:
-  datos: [["El choque es elástico", "elástico"], ["El choque es inelástico", "inelástico"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "elástico"
 tipo: mc
-opciones_explicitas: ["El choque es elástico", "El choque es inelástico"]
+opciones_explicitas: ["elástico", "inelástico"]
 
-enunciado: "Si en un sistema de dos partículas se observa que la energía cinética total se mantiene constante antes y después del impacto, podemos afirmar que el choque es: {datos[idx][0]}."
+enunciado: "Si en un sistema de dos partículas se observa que la energía cinética total se mantiene constante antes y después del impacto, podemos afirmar que el choque es: ___"
 
 explicacion: |
   La característica distintiva del choque elástico es que la energía cinética se conserva. En el inelástico, parte de esa energía se transforma en calor o deformación.
@@ -869,13 +851,10 @@ metadata:
   nivel: "intermedio"
   tags: ["propiedades", "comparacion"]
 
-variables:
-  tipo_choque: uno_de([0, 1])
+respuesta: verdadero
 
-respuesta: tipo_choque == 0
-
-tipo: completar
-enunciado: "Si comparamos un choque elástico con uno inelástico, el choque elástico se distingue porque la energía cinética se conserva. (Verdadero/Falso)"
+tipo: vf
+enunciado: "Si comparamos un choque elástico con uno inelástico, el choque elástico se distingue porque la energía cinética se conserva."
 
 explicacion: |
   Efectivamente, la conservación de la energía cinética es el criterio que define la elasticidad de un choque.
@@ -890,7 +869,7 @@ metadata:
 
 opciones_explicitas: ["Calcular momento lineal inicial", "Determinar si hay pérdida de energía cinética", "Calcular momento lineal final", "Verificar si el choque fue elástico"]
 
-respuesta: ["Calcular momento lineal inicial", "Calcular momento lineal final", "Determinar si hay pérdida de energía cinética", "Verificar si el choque fue elástico"]
+respuesta_orden: ["Calcular momento lineal inicial", "Calcular momento lineal final", "Determinar si hay pérdida de energía cinética", "Verificar si el choque fue elástico"]
 tipo: ordenar
 
 enunciado: "Para analizar un choque y determinar su naturaleza, se deben seguir estos pasos lógicos:"
@@ -912,9 +891,11 @@ variables:
 
 enunciado: "En una {datos[escenario_idx][0]}, la energía cinética total del sistema ___."
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["se conserva", "no se conserva"]
+respuestas_validas:
+  - "se conserva"
+  - "no se conserva"
 
 explicacion: |
   En un choque elástico la energía cinética se conserva. En un choque inelástico parte de la energía se transforma en calor o deformación, por lo que no se conserva.
@@ -963,15 +944,12 @@ metadata:
   nivel: "intermedio"
   tags: ["energia", "momento"]
 
-variables:
-  tipo_choque: uno_de([0, 1])
-  info: [["elástico", "se conserva la energía cinética"], ["inelástico", "no se conserva la energía cinética"]]
+enunciado: "Un accidente de tránsito donde los vehículos quedan trabados tras el impacto es un ejemplo de choque inelástico. En este caso, la energía cinética ___."
 
-enunciado: "Un accidente de tránsito donde los vehículos quedan trabados tras el impacto es un ejemplo de choque {info[tipo_choque][0]}. En este caso, la energía cinética ___."
-
-respuesta: info[tipo_choque][1
+respuesta: "no se conserva la energía cinética"
 tipo: completar
-respuestas_validas: ["se conserva la energía cinética", "no se conserva la energía cinética"]
+respuestas_validas:
+  - "no se conserva la energía cinética"
 
 explicacion: |
   Al quedar los cuerpos unidos, se trata de un choque inelástico, donde la energía cinética no se conserva.
@@ -1007,7 +985,7 @@ metadata:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En un circuito en paralelo, todos los componentes conectados a las mismas ramas mantienen la misma ___."
+enunciado: "En un circuito en paralelo, todos los componentes conectados a las mismas ramas mantienen la misma tensión."
 
 explicacion: |
   En un circuito en paralelo, la diferencia de potencial (tensión o voltaje) es la misma para todas las ramas que están conectadas directamente a los terminales de la fuente.
@@ -1066,7 +1044,10 @@ metadata:
   nivel: "basico"
   tags: ["componentes", "nodos"]
 
-respuestas_validas: ["fuente", "cables", "cargas"]
+respuestas_validas:
+  - "fuente"
+  - "cables"
+  - "cargas"
 
 respuesta: ["fuente", "cables", "cargas"]
 tipo: completar
@@ -1107,25 +1088,24 @@ metadata:
   tags: ["resistencia", "paralelo"]
 
 variables:
-  datos: [[10.0, 10.0], [20.0, 5.0], [15.0, 30.0]]
-  idx: uno_de([0, 1, 2])
-  r1: datos[idx][0]
-  r2: datos[idx][1]
+  r1: 10.0
+  r2: 10.0
 
-respuestas_validas: [5.0]
+respuestas_validas:
+  - 5.0
 respuesta: 5.0
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Si tenemos dos resistencias en paralelo, una de {r1} $\Omega$ y otra de {r2} $\Omega$, ¿cuál es el valor de la resistencia equivalente ($R_{eq}$)?"
+enunciado: "Si tenemos dos resistencias en paralelo, una de {r1} Ω y otra de {r2} Ω, ¿cuál es el valor de la resistencia equivalente (Req)?"
 
 pasos:
-  - "Utilizar la fórmula para dos resistencias: $1/R_{eq} = 1/R_1 + 1/R_2$"
-  - "Calcular: $1/R_{eq} = 1/10 + 1/10 = 2/10$"
-  - "Invertir el resultado: $R_{eq} = 10/2 = 5 \Omega$"
+  - "Utilizar la fórmula para dos resistencias: 1/Req = 1/R1 + 1/R2"
+  - "Calcular: 1/Req = 1/10 + 1/10 = 2/10"
+  - "Invertir el resultado: Req = 10/2 = 5 Ω"
 
 explicacion: |
-  En un circuito en paralelo, la resistencia equivalente siempre es menor que la resistencia más pequeña del circuito. En este caso, $1/R_{eq} = 1/10 + 1/10 = 0.2$, por lo tanto $R_{eq} = 1/0.2 = 5 \Omega$.
+  En un circuito en paralelo, la resistencia equivalente siempre es menor que la resistencia más pequeña del circuito. En este caso, 1/Req = 1/10 + 1/10 = 0.2, por lo tanto Req = 1/0.2 = 5 Ω.
 ```
 
 ```
@@ -1159,21 +1139,21 @@ variables:
   i1: 2.0
   i2: 1.3333
 
-respuesta: "i1"
+respuesta: "3 A"
 tipo: mc
 
-opciones_explicitas: ["i1", "i2", "i_total"]
+opciones_explicitas: ["3 A", "2 A", "5 A"]
 
-enunciado: "Se tiene una fuente de {v_total}V conectada a dos resistencias en paralelo: $R_1 = {r1} \Omega$ y $R_2 = {r2} \Omega$. ¿Cuál es la corriente que circula por la rama de la resistencia $R_1$?"
+enunciado: "Se tiene una fuente de {v_total}V conectada a dos resistencias en paralelo: R1 = {r1} Ω y R2 = {r2} Ω. ¿Cuál es la corriente que circula por la rama de la resistencia R1?"
 
 pasos:
-  - "Calcular la corriente en la rama 1 usando la Ley de Ohm: $I_1 = V / R_1$"
-  - "$I_1 = 12V / 4 \Omega = 3A$"
-  - "Calcular la corriente en la rama 2: $I_2 = 12V / 6 \Omega = 2A$"
-  - "Verificar la corriente total: $I_{total} = 3A + 2A = 5A$"
+  - "Calcular la corriente en la rama 1 usando la Ley de Ohm: I1 = V / R1"
+  - "I1 = 12V / 4 Ω = 3A"
+  - "Calcular la corriente en la rama 2: I2 = 12V / 6 Ω = 2A"
+  - "Verificar la corriente total: I_total = 3A + 2A = 5A"
 
 explicacion: |
-  La corriente total se divide entre las ramas. Usando $I = V/R$, la corriente en la primera rama es $12/4 = 3A$. (Nota: El ejemplo en el enunciado usa valores para guiar el cálculo, el usuario debe calcular según los valores dados).
+  La corriente total se divide entre las ramas. Usando I = V/R, la corriente en la primera rama es 12/4 = 3A.
 ```
 
 ```
@@ -1194,15 +1174,15 @@ respuesta: 3.0
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Un circuito tiene dos resistencias en paralelo de {r1} $\Omega$ y {r2} $\Omega$. Si se aplica una tensión de {v}V, ¿cuál es la corriente total suministrada por la fuente?"
+enunciado: "Un circuito tiene dos resistencias en paralelo de {r1} Ω y {r2} Ω. Si se aplica una tensión de {v}V, ¿cuál es la corriente total suministrada por la fuente?"
 
 pasos:
-  - "Calcular la resistencia equivalente: $1/R_{eq} = 1/12 + 1/6 = 1/12 + 2/12 = 3/12 \Rightarrow R_{eq} = 4 \Omega$"
-  - "Calcular la corriente total con la Ley de Ohm: $I_{total} = V / R_{eq}$"
-  - "$I_{total} = 12V / 4 \Omega = 3A$"
+  - "Calcular la resistencia equivalente: 1/Req = 1/12 + 1/6 = 1/12 + 2/12 = 3/12, entonces Req = 4 Ω"
+  - "Calcular la corriente total con la Ley de Ohm: I_total = V / Req"
+  - "I_total = 12V / 4 Ω = 3A"
 
 explicacion: |
-  Primero hallamos la $R_{eq}$ que es $4 \Omega$. Luego, aplicamos $I = V/R$, resultando en $12/4 = 3A$.
+  Primero hallamos la Req que es 4 Ω. Luego, aplicamos I = V/R, resultando en 12/4 = 3A.
 ```
 
 ```
@@ -1214,7 +1194,7 @@ metadata:
 
 opciones_explicitas: ["Calcular R_eq", "Calcular I_total", "Calcular tensiones"]
 
-respuesta: ["Calcular R_eq", "Calcular I_total", "Calcular tensiones"]
+respuesta_orden: ["Calcular R_eq", "Calcular I_total", "Calcular tensiones"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para determinar la corriente que circula por una rama específica en un circuito de resistencias en paralelo con una fuente de tensión conocida:"
@@ -1264,27 +1244,25 @@ metadata:
   tags: ["ley_de_ohm", "corriente", "paralelo"]
 
 variables:
-  escenario: uno_de([
-    [12.0, 2.0, 4.0],
-    [24.0, 6.0, 3.0],
-    [9.0, 3.0, 9.0]
-  ])
+  escenario: uno_de([[12.0, 2.0, 4.0], [24.0, 6.0, 3.0], [9.0, 3.0, 9.0]])
+  v: escenario[0]
+  r1: escenario[1]
+  r2: escenario[2]
+  r_eq: (r1 * r2) / (r1 + r2)
 
-respuesta: escenario[0][1] + escenario[0][2]
-tipo: "input"
+respuesta: v / r_eq
+tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Se tiene una fuente de tensión de {escenario[0][0]} V conectada a dos resistencias en paralelo de {escenario[0][1]} $\Omega$ y {escenario[0][2]} $\Omega$. Calcule la corriente total suministrada por la fuente en Amperes (A)."
+enunciado: "Se tiene una fuente de tensión de {v} V conectada a dos resistencias en paralelo de {r1} Ω y {r2} Ω. Calcule la corriente total suministrada por la fuente en Amperes (A)."
 
 pasos:
-  - "Calcular la resistencia equivalente: $R_{eq} = (R_1 \cdot R_2) / (R_1 + R_2)$"
-  - "Aplicar la Ley de Ohm: $I_{total} = V / R_{eq}$"
+  - "Calcular la resistencia equivalente: Req = (R1 · R2) / (R1 + R2)"
+  - "Aplicar la Ley de Ohm: I_total = V / Req"
 
 explicacion: |
-  Para el caso dado:
-  1. $R_{eq} = (2 \cdot 4) / (2 + 4) = 8 / 6 = 1.333 \Omega$.
-  2. $I_{total} = 12 / 1.333 = 9.0$ A.
-  (Nota: El valor de la respuesta depende del escenario sorteado).
+  Req = ({r1} · {r2}) / ({r1} + {r2}) = {r_eq} Ω.
+  I_total = {v} / {r_eq} = {v / r_eq} A.
 ```
 
 ```
@@ -1296,7 +1274,10 @@ metadata:
 
 respuesta: "mayor"
 tipo: "completar"
-respuestas_validas: ["mayor", "menor", "igual"]
+respuestas_validas:
+  - "mayor"
+  - "menor"
+  - "igual"
 
 enunciado: "Si en un circuito en paralelo se añade una tercera resistencia en paralelo a las dos ya existentes, la corriente total que sale de la fuente será ___ que la corriente del circuito original."
 
@@ -1311,9 +1292,9 @@ metadata:
   nivel: "intermedio"
   tags: ["analisis", "pasos", "metodologia"]
 
-opciones_explicitas: ["Calcular R equivalente", "Calcular tensión en cada rama", "Calcular corriente total", "Calcular corrientes individuales"]
-respuesta: ["Calcular R equivalente", "Calcular corriente total", "Calcular corrientes individuales"]
-tipo: "ordenar"
+tipo: ordenar
+opciones_explicitas: ["Calcular R equivalente", "Calcular corriente total", "Calcular corrientes individuales", "Calcular tensión en cada rama"]
+respuesta_orden: ["Calcular R equivalente", "Calcular corriente total", "Calcular corrientes individuales", "Calcular tensión en cada rama"]
 
 enunciado: "Para analizar un circuito con una fuente de tensión y tres resistencias en paralelo, ordene los pasos lógicos para determinar la corriente que circula por la rama de mayor resistencia:"
 
@@ -1345,24 +1326,20 @@ metadata:
   tags: ["resistencia", "ley_de_ohm"]
 
 variables:
-  escenario: uno_de([
-    [10.0, 5.0],
-    [20.0, 10.0],
-    [30.0, 15.0]
-  ])
+  escenario: uno_de([[10.0, 5.0], [20.0, 10.0], [30.0, 15.0]])
 
-respuesta: escenario[0][1
+respuesta: escenario[1]
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Si tenemos dos resistencias idénticas en paralelo, cada una con un valor de {escenario[0][0]} $\Omega$, ¿cuál es el valor de la resistencia equivalente del sistema?"
+enunciado: "Si tenemos dos resistencias idénticas en paralelo, cada una con un valor de {escenario[0]} Ω, ¿cuál es el valor de la resistencia equivalente del sistema?"
 
 pasos:
   - "Identificar que para dos resistencias iguales en paralelo, la resistencia equivalente es la mitad de una de ellas."
-  - "Aplicar fórmula: $1/R_{eq} = 1/R_1 + 1/R_2$."
+  - "Aplicar fórmula: 1/Req = 1/R1 + 1/R2."
 
 explicacion: |
-  La resistencia equivalente en paralelo siempre es menor que la resistencia más pequeña del circuito. En este caso, $1/R_{eq} = 1/10 + 1/10 = 2/10$, por lo tanto $R_{eq} = 5 \Omega$.
+  La resistencia equivalente en paralelo siempre es menor que la resistencia más pequeña del circuito. Para R = {escenario[0]} Ω, Req = {escenario[0]} / 2 = {escenario[1]} Ω.
 ```
 
 ```
@@ -1374,7 +1351,10 @@ metadata:
 
 respuesta: "se divide"
 tipo: completar
-respuestas_validas: ["se divide", "se reparte", "se fragmenta"]
+respuestas_validas:
+  - "se divide"
+  - "se reparte"
+  - "se fragmenta"
 
 enunciado: "A diferencia de un circuito en serie donde la corriente es la misma en todos los puntos, en un circuito en paralelo la corriente total se ___ entre las distintas ramas."
 
@@ -1406,22 +1386,16 @@ metadata:
   nivel: "avanzado"
   tags: ["corriente", "resistencia"]
 
-variables:
-  caso: uno_de([
-    [10.0, 2.0, 5.0],
-    [10.0, 5.0, 2.0]
-  ])
-
-respuesta: ["10.0", "2.0", "5.0"]
 tipo: ordenar
-opciones_explicitas: ["10.0", "2.0", "5.0"]
+opciones_explicitas: ["corriente total", "corriente en la resistencia de 2 Ω", "corriente en la resistencia de 5 Ω"]
+respuesta_orden: ["corriente total", "corriente en la resistencia de 2 Ω", "corriente en la resistencia de 5 Ω"]
 
-enunciado: "En un circuito en paralelo con una fuente de tensión de {caso[0][0]} V y dos resistencias de {caso[0][1]} $\Omega$ y {caso[0][2]} $\Omega$, ordena las siguientes magnitudes de MAYOR a MENOR corriente de rama (en Amperios): {caso[0][1]} $\Omega$ , {caso[0][2]} $\Omega$ , y la corriente total."
+enunciado: "En un circuito en paralelo con una fuente de tensión de 10 V y dos resistencias de 2 Ω y 5 Ω, ordena estas magnitudes de MAYOR a MENOR corriente:"
 
 explicacion: |
-  1. La corriente total es la suma de las corrientes de las ramas.
-  2. A menor resistencia, mayor corriente ($I = V/R$).
-  3. Por lo tanto, la corriente total es la mayor, luego la corriente de la resistencia de 2 $\Omega$, y finalmente la de la resistencia de 5 $\Omega$.
+  1. La corriente total es la suma de las corrientes de las ramas, por lo tanto es la mayor.
+  2. A menor resistencia, mayor corriente (I = V/R): la rama de 2 Ω tiene más corriente que la de 5 Ω.
+  3. Orden: corriente total, luego la rama de 2 Ω, luego la rama de 5 Ω.
 ```
 
 ```
@@ -1437,12 +1411,11 @@ variables:
   R1: datos[idx][0]
   R_eq: datos[idx][1]
 
-enunciado: "En una instalación eléctrica doméstica, dos resistencias se conectan en paralelo. Si la primera resistencia es de {R1} $\Omega$ y la resistencia equivalente del circuito es de {R_eq} $\Omega$, ¿cuál es el valor de la segunda resistencia?"
+enunciado: "En una instalación eléctrica doméstica, dos resistencias se conectan en paralelo. Si la primera resistencia es de {R1} $\\Omega$ y la resistencia equivalente del circuito es de {R_eq} $\\Omega$, ¿cuál es el valor de la segunda resistencia?"
 
-respuestas_validas: [R_eq]
-respuesta: R_eq
+respuesta: (R1 * R_eq) / (R1 - R_eq)
 tipo: completar
-tolerancia_abs: 0.001
+tolerancia_abs: 0.01
 
 explicacion: |
   Para resistencias en paralelo, la fórmula es: 1/R_eq = 1/R1 + 1/R2.
@@ -1477,20 +1450,19 @@ metadata:
   tags: ["corriente", "ley_de_ohm"]
 
 variables:
-  datos: [[12.0, 3.0, 1.0], [24.0, 6.0, 2.0], [10.0, 5.0, 2.0]]
+  datos: [[12.0, 3.0, "4.0 A"], [24.0, 6.0, "4.0 A"], [10.0, 5.0, "2.0 A"]]
   idx: uno_de([0, 1, 2])
   V: datos[idx][0]
   R: datos[idx][1]
-  I_rama: datos[idx][2]
 
-enunciado: "En un circuito en paralelo con una fuente de {V} V, una de las ramas tiene una resistencia de {R} $\Omega$. ¿Cuál es la intensidad de corriente que circula por esa rama específica?"
+enunciado: "En un circuito en paralelo con una fuente de {V} V, una de las ramas tiene una resistencia de {R} $\\Omega$. ¿Cuál es la intensidad de corriente que circula por esa rama específica?"
 
 opciones_explicitas: ["0.5 A", "2.0 A", "4.0 A", "6.0 A"]
-respuesta: "4.0 A"
+respuesta: datos[idx][2]
 tipo: mc
 
 explicacion: |
-  Usando la Ley de Ohm: I = V / R. En este caso, {V} / {R} = {I_rama} A.
+  Usando la Ley de Ohm: I = V / R. En este caso, {V} / {R} = {datos[idx][2]}.
 ```
 
 ```
@@ -1524,7 +1496,7 @@ metadata:
 
 opciones_explicitas: ["Calcular la resistencia equivalente", "Identificar las tensiones de cada rama", "Sumar las corrientes de cada rama para obtener la total"]
 
-respuesta: ["Identificar las tensiones de cada rama", "Calcular la resistencia equivalente", "Sumar las corrientes de cada rama para obtener la total"]
+respuesta_orden: ["Identificar las tensiones de cada rama", "Calcular la resistencia equivalente", "Sumar las corrientes de cada rama para obtener la total"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para analizar un circuito en paralelo y hallar la corriente total si conocemos las resistencias y el voltaje de la fuente:"
@@ -1583,8 +1555,12 @@ variables:
   componentes: [["R1=2Ω, R2=4Ω", "R1=5Ω, R2=5Ω"], ["R1=10Ω, R2=10Ω", "R1=2Ω, R2=8Ω"]]
 
 tipo: completar
-respuestas_validas: ["12V", "24V", "10V", "20V"]
-respuesta: datos[escenario_idx][0
+respuestas_validas:
+  - "12V"
+  - "24V"
+  - "10V"
+  - "20V"
+respuesta: datos[escenario_idx][0]
 
 enunciado: "Si tenemos un circuito con una fuente de tensión de {datos[escenario_idx][0]} y dos resistencias, la suma de las caídas de tensión en cada resistencia debe ser igual a ___."
 
@@ -1601,7 +1577,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Fuente de tensión", "Interruptor", "Resistencias", "Cables de conexión"]
-respuesta: ["Fuente de tensión", "Interruptor", "Resistencias", "Cables de conexión"]
+respuesta_orden: ["Fuente de tensión", "Interruptor", "Resistencias", "Cables de conexión"]
 
 enunciado: "Ordena los elementos de un circuito básico desde la fuente de energía hasta el receptor, pasando por el control y la conducción:"
 
@@ -1642,7 +1618,7 @@ respuesta: r1 + r2 + r3
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Se conectan tres resistencias en serie con valores de {r1} $\Omega$, {r2} $\Omega$ y {r3} $\Omega$. ¿Cuál es el valor de la resistencia total del circuito?"
+enunciado: "Se conectan tres resistencias en serie con valores de {r1} $\\Omega$, {r2} $\\Omega$ y {r3} $\\Omega$. ¿Cuál es el valor de la resistencia total del circuito?"
 
 pasos:
   - "Identificar las resistencias: R1 = 10, R2 = 20, R3 = 30"
@@ -1682,28 +1658,19 @@ variables:
   r2: 8.0
   r3: 4.0
   idx: uno_de([0, 1])
+  resistencia_label: ["R1", "R2"]
+  resultados_texto: ["6.0 V", "12.0 V"]
 
-respuesta: [v_total * (r1 / (r1 + r2 + r3)), v_total * (r2 / (r1 + r2 + r3))][idx]
+respuesta: resultados_texto[idx]
 tipo: mc
-opciones_explicitas: ["8.0 V", "16.0 V", "12.0 V", "24.0 V"]
+opciones_explicitas: ["6.0 V", "12.0 V", "8.0 V", "16.0 V"]
 
-enunciado: "Un circuito en serie tiene una fuente de {v_total} V y tres resistencias: R1 = {r1} $\Omega$, R2 = {r2} $\Omega$ y R3 = {r3} $\Omega$. Si calculamos la caída de tensión en la resistencia R{if(idx == 0, 1, 2)} $\Omega$, ¿cuál es el valor obtenido?"
+enunciado: "Un circuito en serie tiene una fuente de {v_total} V y tres resistencias: R1 = {r1} Ω, R2 = {r2} Ω y R3 = {r3} Ω. Si calculamos la caída de tensión en la resistencia {resistencia_label[idx]}, ¿cuál es el valor obtenido?"
 
 explicacion: |
-  La tensión se reparte de forma proporcional a la resistencia. 
-  R_total = 4 + 8 + 4 = 16 $\Omega$.
-  Si elegimos R1 (4 $\Omega$): V1 = V_total * (R1 / R_total) = 24 * (4 / 16) = 6V (Nota: El ejemplo usa valores para que la respuesta coincida con la lógica de la variable).
-  Si la respuesta es 8V (para R2): 24 * (8/16) = 12V. 
-  *Corrección de lógica para el ejemplo*: Si R1=4, R2=8, R3=4 -> R_tot=16. V1=6, V2=12, V3=6.
-  Ajustando para que el usuario vea un valor coherente:
-  Si idx=0 (R1): 24 * (4/16) = 6. Si idx=1 (R2): 24 * (8/16) = 12.
-  Re-definiedo opciones para el ejemplo:
-  Si R1=4, R2=8, R3=4. V_total=24.
-  Si R1: 6V. Si R2: 12V.
-  Re-ajustando variables para que el ejemplo sea exacto:
-  r1=4, r2=8, r3=4, v_total=24.
-  Si idx=0, respuesta=6.0. Si idx=1, respuesta=12.0.
-  (Para este DSL, usaré valores fijos para evitar confusión de tipos en el ejemplo).
+  R_total = R1 + R2 + R3 = 16 Ω.
+  La caída de tensión en cada resistencia es proporcional a su valor: V = V_total * (R / R_total).
+  Para {resistencia_label[idx]}: V = {resultados_texto[idx]}.
 ```
 
 ```
@@ -1721,7 +1688,7 @@ respuesta: 3.0
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un circuito en serie tiene una resistencia total de {r_total} $\Omega$ y se alimenta con una fuente de {v_fuente} V. ¿Cuál es la intensidad de corriente total que circula por el circuito?"
+enunciado: "Un circuito en serie tiene una resistencia total de {r_total} $\\Omega$ y se alimenta con una fuente de {v_fuente} V. ¿Cuál es la intensidad de corriente total que circula por el circuito?"
 
 pasos:
   - "Aplicar la Ley de Ohm: I = V / R"
@@ -1740,7 +1707,7 @@ metadata:
   tags: ["metodologia"]
 
 opciones_explicitas: ["Calcular la resistencia total sumando las resistencias", "Calcular la corriente total usando la Ley de Ohm", "Calcular las caídas de tensión individuales"]
-respuesta: ["Calcular la resistencia total sumando las resistencias", "Calcular la corriente total usando la Ley de Ohm", "Calcular las caídas de tensión individuales"]
+respuesta_orden: ["Calcular la resistencia total sumando las resistencias", "Calcular la corriente total usando la Ley de Ohm", "Calcular las caídas de tensión individuales"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para determinar la tensión en una resistencia específica dentro de un circuito en serie dado el voltaje total y las resistencias."
@@ -1803,7 +1770,7 @@ variables:
   r1: 5
   r2: 7
 
-respuesta: ["V1", "V2"]
+respuesta_orden: ["V2", "V1"]
 tipo: ordenar
 
 opciones_explicitas: ["V1", "V2"]
@@ -1876,7 +1843,8 @@ variables:
   r2: datos[idx][1]
   r3: datos[idx][2]
 
-respuestas_validas: [r1 + r2 + r3]
+respuestas_validas:
+  - r1 + r2 + r3
 respuesta: r1 + r2 + r3
 tipo: completar
 tolerancia_abs: 0.01
@@ -1896,7 +1864,7 @@ metadata:
 
 opciones_explicitas: ["Es la misma en todos los puntos del circuito", "Se divide entre las distintas resistencias", "Es mayor en las resistencias más grandes"]
 
-respuesta: opciones_explicitas[0
+respuesta: "Es la misma en todos los puntos del circuito"
 tipo: mc
 
 enunciado: "Al comparar un circuito en serie con uno en paralelo, ¿cuál es la característica fundamental de la intensidad de corriente en un circuito en serie?"
@@ -1916,7 +1884,7 @@ variables:
   idx: uno_de([0, 1])
   datos: [["se reparte entre los componentes", "es la misma para todos los componentes"], ["se divide entre las distintas ramas", "es la misma en todas las ramas"]]
 
-respuesta: datos[idx][0
+respuesta: datos[idx][0]
 tipo: completar
 enunciado: "En un circuito en serie con múltiples receptores, la tensión total de la fuente ___."
 
@@ -1933,7 +1901,7 @@ metadata:
 
 opciones_explicitas: ["La corriente disminuye al aumentar la resistencia total", "La corriente aumenta al aumentar la resistencia total", "La corriente permanece constante sin importar la resistencia"]
 
-respuesta: opciones_explicitas[0
+respuesta: "La corriente disminuye al aumentar la resistencia total"
 tipo: mc
 
 enunciado: "Si añadimos una resistencia adicional en serie a un circuito ya existente, ¿qué sucede con la intensidad de corriente total (asumiendo voltaje constante)?"
@@ -1949,12 +1917,9 @@ metadata:
   nivel: "avanzado"
   tags: ["resistencia", "comparacion"]
 
-variables:
-  r_serie: 60
-  r_paralelo: 6.66
-
-respuesta: ["Resistencia en serie", "Resistencia en paralelo"]
 tipo: ordenar
+opciones_explicitas: ["Resistencia en serie", "Resistencia en paralelo"]
+respuesta_orden: ["Resistencia en serie", "Resistencia en paralelo"]
 
 enunciado: "Ordena los conceptos de mayor a menor valor de resistencia equivalente, considerando que tenemos dos resistencias de 10 Ω y 20 Ω conectadas de forma distinta."
 
@@ -1979,7 +1944,8 @@ variables:
   r2: datos[idx][1]
   r3: datos[idx][2]
 
-respuestas_validas: [r1 + r2 + r3]
+respuestas_validas:
+  - r1 + r2 + r3
 respuesta: r1 + r2 + r3
 tipo: completar
 tolerancia_abs: 0.01
@@ -2024,8 +1990,11 @@ variables:
   v_total: datos[idx][0]
   r1: datos[idx][1]
   r2: datos[idx][2]
+  r_total: r1 + r2
+  i: v_total / r_total
+  v1: i * r1
 
-respuesta: datos[idx][1
+respuesta: "4.0 V"
 tipo: mc
 
 opciones_explicitas: ["4.0 V", "8.0 V", "12.0 V", "24.0 V"]
@@ -2033,12 +2002,12 @@ opciones_explicitas: ["4.0 V", "8.0 V", "12.0 V", "24.0 V"]
 enunciado: "Se tiene una fuente de tensión de {v_total} V conectada a dos resistencias en serie de {r1} Ω y {r2} Ω. ¿Cuál es la caída de tensión (voltaje) en la primera resistencia ({r1} Ω)?"
 
 pasos:
-  - "Calcular la resistencia total: R_total = {r1} + {r2} = {r1 + r2} Ω."
-  - "Calcular la corriente total usando Ley de Ohm: I = V_total / R_total = {v_total} / {r1 + r2} A."
+  - "Calcular la resistencia total: R_total = {r1} + {r2} = {r_total} Ω."
+  - "Calcular la corriente total usando Ley de Ohm: I = V_total / R_total = {v_total} / {r_total} A."
   - "Calcular la tensión en R1: V1 = I * R1."
 
 explicacion: |
-  Primero hallamos la resistencia total: {r1 + r2} Ω. Luego la corriente: {v_total / (r1 + r2)} A. Finalmente, el voltaje en R1 es: {v_total / (r1 + r2)} * {r1} = {v_total * r1 / (r1 + r2)} V.
+  Primero hallamos la resistencia total: {r_total} Ω. Luego la corriente: {i} A. Finalmente, el voltaje en R1 es: {v1} V.
 ```
 
 ```
@@ -2049,7 +2018,7 @@ metadata:
   tags: ["metodologia"]
 
 opciones_explicitas: ["Calcular resistencia total", "Calcular corriente total", "Calcular voltajes parciales"]
-respuesta: ["Calcular resistencia total", "Calcular corriente total", "Calcular voltajes parciales"]
+respuesta_orden: ["Calcular resistencia total", "Calcular corriente total", "Calcular voltajes parciales"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para hallar la tensión en una resistencia específica dentro de un circuito en serie con una fuente de voltaje conocida."
@@ -2071,15 +2040,12 @@ variables:
   r_total: escenario[idx][0]
   r1: escenario[idx][1]
 
-respuestas_validas: [escenario[idx][1]]
-respuesta: escenario[idx][1
+respuestas_validas:
+  - r_total - r1
+respuesta: r_total - r1
 tipo: completar
 
-enunciado: "Si la resistencia total de un circuito en serie es de ___ Ω y una de las resistencias es de ___ Ω, la otra resistencia debe ser de ___ Ω."
-
-# Nota: El sistema de completar en VBLang para este prompt requiere que la respuesta sea el valor exacto. 
-# Debido a la restricción de no usar expresiones complejas en 'respuesta', 
-# se define la respuesta como el valor de la segunda resistencia de la tupla.
+enunciado: "Si la resistencia total de un circuito en serie es de {r_total} Ω y una de las resistencias es de {r1} Ω, la otra resistencia debe ser de ___ Ω."
 
 explicacion: |
   En serie: R_total = R1 + R2. Por lo tanto, R2 = R_total - R1.
@@ -2097,7 +2063,8 @@ metadata:
 
 respuesta: "resistencia equivalente"
 tipo: completar
-respuestas_validas: ["resistencia equivalente"]
+respuestas_validas:
+  - "resistencia equivalente"
 
 enunciado: "En un circuito complejo que combina tramos en serie y en paralelo, la única resistencia que permite simplificar todo el sistema a un solo componente es la ___."
 
@@ -2112,7 +2079,7 @@ metadata:
   nivel: "basico"
   tags: ["serie", "corriente", "voltaje"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "En un tramo de un circuito que está conectado en serie, la corriente eléctrica que circula por cada una de las resistencias es la misma."
@@ -2128,11 +2095,7 @@ metadata:
   nivel: "basico"
   tags: ["paralelo", "nodos", "voltaje"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["voltaje", "igual"], ["corriente", "se divide"]]
-
-respuesta: datos[idx][1
+respuesta: "voltaje"
 tipo: mc
 opciones_explicitas: ["voltaje", "corriente", "resistencia", "potencia"]
 
@@ -2149,7 +2112,7 @@ metadata:
   nivel: "intermedio"
   tags: ["metodologia", "resolucion"]
 
-respuesta: ["identificar", "simplificar", "calcular"]
+respuesta_orden: ["identificar", "simplificar", "calcular"]
 tipo: ordenar
 opciones_explicitas: ["identificar", "simplificar", "calcular"]
 
@@ -2175,15 +2138,15 @@ variables:
   idx: uno_de([0, 1])
   escenarios: [[10, 5, 15], [20, 30, 50]]
 
-respuesta: escenarios[idx][2
+respuesta: escenarios[idx][2]
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si tenemos un tramo de un circuito mixto con dos resistencias en serie de {escenarios[idx][0]} $\Omega$ y {escenarios[idx][1]} $\Omega$, ¿cuál es su resistencia equivalente?"
+enunciado: "Si tenemos un tramo de un circuito mixto con dos resistencias en serie de {escenarios[idx][0]} Ω y {escenarios[idx][1]} Ω, ¿cuál es su resistencia equivalente?"
 
 pasos:
   - "Identificar que las resistencias están en serie."
-  - "Sumar los valores de las resistencias: $R_{eq} = R_1 + R_2$."
+  - "Sumar los valores de las resistencias: Req = R1 + R2."
 
 explicacion: |
   En una conexión en serie, la resistencia total es la suma aritmética de las resistencias individuales.
@@ -2204,15 +2167,15 @@ respuesta: 8.0
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Dos resistencias, una de {R1} $\Omega$ y otra de {R2} $\Omega$, se encuentran conectadas en paralelo. ¿Cuál es el valor de la resistencia equivalente ($R_{eq}$)?"
+enunciado: "Dos resistencias, una de {R1} Ω y otra de {R2} Ω, se encuentran conectadas en paralelo. ¿Cuál es el valor de la resistencia equivalente (Req)?"
 
 pasos:
-  - "Calcular la resistencia equivalente usando la fórmula: $1/R_{eq} = 1/R_1 + 1/R_2$"
-  - "O la fórmula directa para dos resistencias: $R_{eq} = (R_1 \cdot R_2) / (R_1 + R_2)$"
-  - "$R_{eq} = (10 \cdot 40) / (10 + 40) = 400 / 50 = 8$"
+  - "Calcular la resistencia equivalente usando la fórmula: 1/Req = 1/R1 + 1/R2"
+  - "O la fórmula directa para dos resistencias: Req = (R1 · R2) / (R1 + R2)"
+  - "Req = (10 · 40) / (10 + 40) = 400 / 50 = 8"
 
 explicacion: |
-  En una conexión en paralelo, la resistencia equivalente siempre es menor que la menor de las resistencias individuales. En este caso, $8 < 10$.
+  En una conexión en paralelo, la resistencia equivalente siempre es menor que la menor de las resistencias individuales. En este caso, 8 < 10.
 ```
 
 ```
@@ -2241,20 +2204,19 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [[12, 4, 6], [20, 10, 20]]
   R_s: [6, 5]
   R_p: [4, 10]
-  R_eq: [3, 5]
+  R_eq: [8, 10]
 
-respuesta: R_eq[idx
+respuesta: R_eq[idx]
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "En un circuito mixto, una resistencia de {R_s[idx]} $\Omega$ está en serie con un bloque en paralelo compuesto por dos resistencias de {R_p[idx]} $\Omega$ y {R_p[idx]} $\Omega$. ¿Cuál es la resistencia equivalente total?"
+enunciado: "En un circuito mixto, una resistencia de {R_s[idx]} Ω está en serie con un bloque en paralelo compuesto por dos resistencias de {R_p[idx]} Ω y {R_p[idx]} Ω. ¿Cuál es la resistencia equivalente total?"
 
 pasos:
-  - "Primero calculamos la resistencia del bloque en paralelo: $R_p\_eq = (R_p \cdot R_p) / (R_p + R_p)$"
-  - "Luego sumamos la resistencia en serie: $R_{eq} = R_s + R_p\_eq$"
+  - "Primero calculamos la resistencia del bloque en paralelo: Rp_eq = (Rp · Rp) / (Rp + Rp)"
+  - "Luego sumamos la resistencia en serie: Req = Rs + Rp_eq"
 
 explicacion: |
   Para resolver circuitos mixtos, primero se simplifican las partes en paralelo para convertirlas en una resistencia equivalente, y luego se suma con las resistencias que están en serie.
@@ -2284,7 +2246,7 @@ metadata:
   tags: ["metodologia", "ordenar"]
 
 opciones_explicitas: ["Identificar ramas en paralelo", "Simplificar ramas en paralelo", "Sumar resistencias en serie", "Calcular resistencia equivalente total"]
-respuesta: ["Identificar ramas en paralelo", "Simplificar ramas en paralelo", "Sumar resistencias en serie", "Calcular resistencia equivalente total"]
+respuesta_orden: ["Identificar ramas en paralelo", "Simplificar ramas en paralelo", "Sumar resistencias en serie", "Calcular resistencia equivalente total"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para resolver la resistencia equivalente de un circuito mixto complejo:"
@@ -2308,7 +2270,7 @@ respuesta: 5
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Un error común es pensar que la resistencia equivalente de dos resistencias en paralelo es la suma de sus valores. Si tenemos dos resistencias de {r1} $\Omega$ y {r2} $\Omega$ conectadas en paralelo, la resistencia equivalente es de ___ $\Omega$."
+enunciado: "Un error común es pensar que la resistencia equivalente de dos resistencias en paralelo es la suma de sus valores. Si tenemos dos resistencias de {r1} $\\Omega$ y {r2} $\\Omega$ conectadas en paralelo, la resistencia equivalente es de ___ $\\Omega$."
 
 pasos:
   - "Identificar que las resistencias están en paralelo."
@@ -2344,7 +2306,10 @@ metadata:
 
 respuesta: "se divide"
 tipo: completar
-respuestas_validas: ["se divide", "se mantiene", "aumenta"]
+respuestas_validas:
+  - "se divide"
+  - "se mantiene"
+  - "aumenta"
 
 enunciado: "En un circuito mixto, cuando la corriente llega a un nodo donde el camino se divide en dos ramas en paralelo, la corriente total ___ en las ramas."
 
@@ -2360,21 +2325,17 @@ metadata:
   tags: ["resolucion", "pasos", "metodo"]
 
 variables:
-  idx: uno_de([0,1,2])
-  casos: [
-    [10, 5, 2, "serie-paralelo"],
-    [20, 20, 10, "paralelo-serie"],
-    [15, 30, 5, "serie-paralelo"]
-  ]
+  casos: [[10, 5, 2, "serie-paralelo"], [20, 20, 10, "paralelo-serie"], [15, 30, 5, "serie-paralelo"]]
+  idx: uno_de([0, 1, 2])
   r_serie: casos[idx][0]
   r_paralelo: casos[idx][1]
   r_extra: casos[idx][2]
+  r_correcto: verdadero
 
-respuesta: [r_paralelo, r_extra, r_serie]
-tipo: ordenar
-opciones_explicitas: [10, 5, 2, 20, 20, 10, 15, 30, 5]
+respuesta: r_correcto
+tipo: vf
 
-enunciado: "Para resolver un circuito mixto complejo, se debe seguir un orden lógico de simplificación. Dado un circuito donde una resistencia {r_serie} está en serie con un bloque paralelo compuesto por {r_paralelo} y {r_extra}, ¿cuál es el orden correcto para hallar la resistencia equivalente total?"
+enunciado: "Para resolver un circuito mixto complejo, se debe seguir un orden lógico de simplificación. Dado un circuito donde una resistencia {r_serie} está en serie con un bloque paralelo compuesto por {r_paralelo} y {r_extra}, ¿es correcto resolver primero el bloque paralelo y luego sumar la resistencia en serie?"
 
 explicacion: |
   Primero se debe resolver la parte más interna o el bloque más simple (en este caso el paralelo) y luego sumar la resistencia que está en serie con ese bloque.
@@ -2429,7 +2390,7 @@ metadata:
 tipo: vf
 enunciado: "En un circuito mixto que contiene una sección en paralelo, la resistencia equivalente de esa sección siempre será menor que la resistencia de cada uno de los componentes individuales en dicha sección."
 
-respuesta: falso
+respuesta: verdadero
 
 explicacion: |
   Verdadero. En una configuración en paralelo, la resistencia equivalente siempre es menor que la menor de las resistencias individuales, ya que se ofrecen más caminos para el flujo de carga.
@@ -2445,21 +2406,19 @@ metadata:
 variables:
   idx: uno_de([0, 1])
   datos: [[10, 20], [30, 60]]
+  resultados_texto: ["20", "60"]
 
 tipo: completar
-opciones_explicitas: ["10", "20", "30", "60", "40", "90"]
-respuestas_validas: [datos[idx][0], datos[idx][1]]
+respuesta: resultados_texto[idx]
 
-enunciado: "Si tenemos un circuito compuesto por una resistencia de {datos[idx][0]} $\Omega$ en serie con un bloque en paralelo formado por dos resistencias de {datos[idx][1]} $\Omega$ cada una, la resistencia equivalente total es de ___ $\Omega$."
+enunciado: "Si tenemos un circuito compuesto por una resistencia de {datos[idx][0]} Ω en serie con un bloque en paralelo formado por dos resistencias de {datos[idx][1]} Ω cada una, la resistencia equivalente total es de ___ Ω."
 
 pasos:
-  - "Calcular la resistencia equivalente de la sección en paralelo: $R_p = (R_2 * R_3) / (R_2 + R_3)$"
-  - "Sumar la resistencia en serie a la resistencia equivalente obtenida: $R_{total} = R_1 + R_p$"
-
-respuesta: "40" if datos[idx][0] == 10 else "90"
+  - "Calcular la resistencia equivalente de la sección en paralelo: Rp = (R2 * R3) / (R2 + R3)"
+  - "Sumar la resistencia en serie a la resistencia equivalente obtenida: Rtotal = R1 + Rp"
 
 explicacion: |
-  Para el caso 1: $R_p = (20*20)/(20+20) = 10$. Total: $10 + 10 = 20$ (Nota: El prompt pide completar con el valor exacto, corregido según lógica de datos: si datos[0]=10 y datos[1]=20, $R_p=10$, Total=20. Si datos[1]=60, $R_p=30$, Total=60. Ajustando lógica de respuesta para el DSL).
+  Para este caso: Rp = {datos[idx][1]}*{datos[idx][1]} / ({datos[idx][1]}+{datos[idx][1]}). Total = {resultados_texto[idx]} Ω.
 ```
 
 ```
@@ -2474,13 +2433,15 @@ variables:
   datos: [[10, 20], [30, 60]]
 
 tipo: completar
-respuestas_validas: [20, 60]
+respuestas_validas:
+  - 20
+  - 60
 
-enunciado: "Si tenemos un circuito compuesto por una resistencia de {datos[idx][0]} $\Omega$ en serie con un bloque en paralelo formado por dos resistencias de {datos[idx][1]} $\Omega$ cada una, la resistencia equivalente total es de ___ $\Omega$."
+enunciado: "Si tenemos un circuito compuesto por una resistencia de {datos[idx][0]} Ω en serie con un bloque en paralelo formado por dos resistencias de {datos[idx][1]} Ω cada una, la resistencia equivalente total es de ___ Ω."
 
 pasos:
-  - "Calcular la resistencia equivalente de la sección en paralelo: $R_p = (R_2 * R_3) / (R_2 + R_3)$"
-  - "Sumar la resistencia en serie a la resistencia equivalente obtenida: $R_{total} = R_1 + R_p$"
+  - "Calcular la resistencia equivalente de la sección en paralelo: Rp = (R2 * R3) / (R2 + R3)"
+  - "Sumar la resistencia en serie a la resistencia equivalente obtenida: Rtotal = R1 + Rp"
 
 respuesta: datos[idx][0] + (datos[idx][1] / 2)
 
@@ -2500,7 +2461,7 @@ opciones_explicitas: ["Identificar tramos en paralelo", "Calcular resistencias e
 
 enunciado: "Para resolver un circuito mixto, ¿cuál es el orden lógico de simplificación?"
 
-respuesta: ["Identificar tramos en paralelo", "Calcular resistencias equivalentes de cada tramo", "Sumar las resistencias en serie para el total"]
+respuesta_orden: ["Identificar tramos en paralelo", "Calcular resistencias equivalentes de cada tramo", "Sumar las resistencias en serie para el total"]
 
 explicacion: |
   Primero se deben simplificar las partes más complejas (paralelos) para convertir el circuito en una cadena de componentes en serie, facilitando el cálculo final.
@@ -2560,7 +2521,7 @@ metadata:
   tags: ["corriente", "ley_de_ohm"]
 
 variables:
-  datos: [[12, 2, 4], [24, 3, 6], [6, 2, 2]]
+  datos: [[12, 2, 4, 4], [24, 3, 6, 6], [6, 2, 2, 2]]
   V: datos[0][0]
   R1: datos[0][1]
   R2: datos[0][2]
@@ -2568,9 +2529,8 @@ variables:
 
 enunciado: "Si aplicamos un voltaje de {V}V a un circuito donde R1 está en serie con el paralelo de R2 y R3, y sabiendo que R2 = {R2}Ω y R3 = {R3}Ω, ¿la corriente total que sale de la fuente será mayor que si R2 y R3 estuvieran en serie?"
 
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 explicacion: |
   Al poner R2 y R3 en paralelo, la resistencia equivalente del bloque disminuye en comparación con ponerlas en serie. 
   Al disminuir la resistencia total, la corriente total (I = V/Req) aumenta.
@@ -2585,7 +2545,9 @@ metadata:
 
 enunciado: "En un circuito mixto, si dos resistencias están conectadas de tal forma que la corriente que pasa por una es la misma que pasa por la otra, decimos que están en ___."
 
-respuestas_validas: ["serie", "paralelo"]
+respuestas_validas:
+  - "serie"
+  - "paralelo"
 respuesta: "serie"
 tipo: completar
 
@@ -2633,9 +2595,10 @@ metadata:
 enunciado: "Para resolver un circuito mixto complejo, ¿cuál es el orden lógico de simplificación de los componentes?"
 
 opciones_explicitas: ["Identificar tramos en paralelo", "Simplificar tramos en paralelo a una resistencia equivalente", "Sumar resistencias en serie", "Calcular resistencia total"]
-respuesta: ["Identificar tramos en paralelo", "Simplificar tramos en paralelo a una resistencia equivalente", "Sumar resistencias en serie", "Calcular resistencia total"]
+respuesta_orden: ["Identificar tramos en paralelo", "Simplificar tramos en paralelo a una resistencia equivalente", "Sumar resistencias en serie", "Calcular resistencia total"]
 tipo: ordenar
 
 explicacion: |
   El método estándar consiste en reducir el circuito por partes, empezando por los nodos más internos (paralelos) para convertir el circuito en uno de serie simple.
 ```
+

@@ -1,2989 +1,2883 @@
-# Examen jefe — Maestro del mcm y estadística
+# Examen jefe — [PENDIENTE #620]
 
-> Logro #71. ¡Calculaste el mcm, analizaste datos con media, mediana y moda, y dominaste el muestreo sin sesgo! Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **135 preguntas totales** en 5/5 secciones.
+> Logro #620. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **128 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: mcm (24 preguntas)
+## Sección: despejar-formula (28 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcm"
+  tema: "despejar_formula"
   nivel: "basico"
-  tags: ["mcm", "vocabulario"]
-
-enunciado: "¿Qué es el Mínimo Común Múltiplo (MCM) de dos números?"
-tipo: mc
-opciones_explicitas:
-  - "El menor número (mayor que 0) que es múltiplo de los dos a la vez"
-  - "El mayor número que es divisor de los dos a la vez"
-  - "El producto de los dos números"
-respuesta: "El menor número (mayor que 0) que es múltiplo de los dos a la vez"
-
-explicacion: |
-  Se buscan los múltiplos en común de los dos números, y se toma el más
-  chico (sin contar el 0).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "basico"
-  tags: ["mcm"]
+  tags: ["perimetro", "rectangulo"]
 
 variables:
-  a: random(2, 12)
-  b: random(2, 12)
+  h: random(1, 30)
+  b_sol: random(1, 30)
+  P: 2 * (b_sol + h)
 
-respuesta: mcm(a, b)
+respuesta: P / 2 - h
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es el MCM de {a} y {b}?"
-
-explicacion: |
-  Se buscan los múltiplos de {a} y de {b} hasta encontrar el primero que
-  coincide en las dos listas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "intermedio"
-  tags: ["mcm"]
-
-variables:
-  a: random(10, 40)
-  b: random(10, 40)
-
-respuesta: mcm(a, b)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el MCM de {a} y {b}?"
-
-explicacion: |
-  Con números más grandes conviene usar el atajo del MCD en vez de listar
-  múltiplos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "intermedio"
-  tags: ["mcm", "mcd"]
-
-variables:
-  a: random(4, 40)
-  b: random(4, 40)
-  divisor_comun: mcd(a, b)
-
-respuesta: (a * b) / divisor_comun
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El MCD de {a} y {b} es {divisor_comun}. Usando la fórmula MCM = (a × b) ÷ MCD, ¿cuál es el MCM?"
+enunciado: "El perímetro de un rectángulo es P = 2(b + h). Si P = {P} y h = {h}, ¿cuánto vale b?"
 
 pasos:
-  - "({a} × {b}) ÷ {divisor_comun} = {a * b} ÷ {divisor_comun} = {(a * b) / divisor_comun}"
+  - "Dividir por 2: P/2 = b + h → {P}/2 = {P / 2}"
+  - "Restar h: b = {P / 2} − {h} = {P / 2 - h}"
 
 explicacion: |
-  Es el atajo más rápido: multiplicar los dos números y dividir por su
-  MCD.
+  Se deshacen las operaciones en orden inverso: primero la división por
+  2, después la resta de h.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcm"
+  tema: "despejar_formula"
   nivel: "basico"
-  tags: ["mcm", "multiplos"]
+  tags: ["perimetro", "rectangulo"]
 
 variables:
-  a: random(2, 9)
-  b: random(2, 9)
-  candidato: a * b
+  b: random(1, 30)
+  h_sol: random(1, 30)
+  P: 2 * (b + h_sol)
+
+respuesta: P / 2 - b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El perímetro de un rectángulo es P = 2(b + h). Si P = {P} y b = {b}, ¿cuánto vale h?"
+
+explicacion: |
+  h = P/2 − b, el mismo procedimiento con los roles de b y h invertidos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "basico"
+  tags: ["area", "rectangulo"]
+
+variables:
+  h: random(2, 20)
+  b_sol: random(1, 20)
+  A: b_sol * h
+
+respuesta: A / h
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El área de un rectángulo es A = b · h. Si A = {A} y h = {h}, ¿cuánto vale b?"
+
+explicacion: |
+  Como h multiplica a b, se deshace dividiendo: b = A/h.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "basico"
+  tags: ["area", "rectangulo"]
+
+variables:
+  b: random(2, 20)
+  h_sol: random(1, 20)
+  A: b * h_sol
+
+respuesta: A / b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El área de un rectángulo es A = b · h. Si A = {A} y b = {b}, ¿cuánto vale h?"
+
+explicacion: |
+  h = A/b.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "intermedio"
+  tags: ["area", "triangulo"]
+
+variables:
+  h: random(1, 10) * 2
+  b_sol: random(1, 20)
+  A: (b_sol * h) / 2
+
+respuesta: 2 * A / h
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El área de un triángulo es A = (b · h) / 2. Si A = {A} y h = {h}, ¿cuánto vale b?"
+
+pasos:
+  - "Multiplicar por 2: 2A = b · h → {2 * A}"
+  - "Dividir por h: b = {2 * A} / {h} = {2 * A / h}"
+
+explicacion: |
+  El 2 del denominador se despeja multiplicando primero.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "intermedio"
+  tags: ["area", "triangulo"]
+
+variables:
+  b: random(1, 10) * 2
+  h_sol: random(1, 20)
+  A: (b * h_sol) / 2
+
+respuesta: 2 * A / b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El área de un triángulo es A = (b · h) / 2. Si A = {A} y b = {b}, ¿cuánto vale h?"
+
+explicacion: |
+  h = 2A / b.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "basico"
+  tags: ["velocidad", "fisica"]
+
+variables:
+  v: random(2, 20)
+  t: random(2, 10)
+
+respuesta: v * t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v = d / t. Si v = {v} y t = {t}, ¿cuánto vale d?"
+
+explicacion: |
+  d ya está multiplicando implícitamente: d = v · t.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "intermedio"
+  tags: ["velocidad", "fisica", "denominador"]
+
+variables:
+  v: random(2, 20)
+  t_sol: random(1, 15)
+  d: v * t_sol
+
+respuesta: d / v
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v = d / t. Si v = {v} y d = {d}, ¿cuánto vale t?"
+
+pasos:
+  - "Pasar t multiplicando: v · t = d"
+  - "Dividir por v: t = {d} / {v} = {d / v}"
+
+explicacion: |
+  Cuando la letra a despejar divide, primero se la pasa multiplicando y
+  recién después se despeja — no se invierte la fracción directamente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "basico"
+  tags: ["velocidad", "fisica"]
+
+variables:
+  t: random(2, 10)
+  v_sol: random(2, 20)
+  d: v_sol * t
+
+respuesta: d / t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v = d / t. Si d = {d} y t = {t}, ¿cuánto vale v?"
+
+explicacion: |
+  v ya está despejada en la fórmula original: v = d/t.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "basico"
+  tags: ["densidad", "fisica"]
+
+variables:
+  dens: random(2, 10)
+  V: random(2, 15)
+
+respuesta: dens * V
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "d = m / V. Si d = {dens} y V = {V}, ¿cuánto vale m?"
+
+explicacion: |
+  m = d · V.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "intermedio"
+  tags: ["densidad", "fisica", "denominador"]
+
+variables:
+  dens: random(2, 10)
+  V_sol: random(2, 15)
+  m: dens * V_sol
+
+respuesta: m / dens
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "d = m / V. Si d = {dens} y m = {m}, ¿cuánto vale V?"
+
+pasos:
+  - "Pasar V multiplicando: d · V = m"
+  - "Dividir por d: V = {m} / {dens} = {m / dens}"
+
+explicacion: |
+  Mismo caso que despejar t en v = d/t: la letra divide, así que primero
+  pasa multiplicando.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "intermedio"
+  tags: ["interes", "tres_letras"]
+
+variables:
+  i: random(2, 10)
+  t: random(2, 8)
+  C_sol: random(1, 20)
+  I: C_sol * i * t
+
+respuesta: I / (i * t)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "I = C · i · t. Si I = {I}, i = {i} y t = {t}, ¿cuánto vale C?"
+
+pasos:
+  - "Dividir por i y por t (las dos letras que multiplican): C = {I} / ({i}×{t}) = {I / (i * t)}"
+
+explicacion: |
+  Cuando hay dos letras multiplicando además de la que se despeja, hay
+  que dividir por las dos — no sólo por una de ellas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "intermedio"
+  tags: ["interes", "tres_letras"]
+
+variables:
+  C: random(2, 20)
+  t: random(2, 8)
+  i_sol: random(1, 10)
+  I: C * i_sol * t
+
+respuesta: I / (C * t)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "I = C · i · t. Si I = {I}, C = {C} y t = {t}, ¿cuánto vale i?"
+
+explicacion: |
+  i = I / (C · t).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "intermedio"
+  tags: ["interes", "tres_letras"]
+
+variables:
+  C: random(2, 20)
+  i: random(2, 10)
+  t_sol: random(1, 8)
+  I: C * i * t_sol
+
+respuesta: I / (C * i)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "I = C · i · t. Si I = {I}, C = {C} e i = {i}, ¿cuánto vale t?"
+
+explicacion: |
+  t = I / (C · i).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "intermedio"
+  tags: ["problema", "dos_pasos"]
+
+variables:
+  precio: random(2, 15)
+  envio: random(1, 20)
+  cant_sol: random(1, 20)
+  T: precio * cant_sol + envio
+
+respuesta: (T - envio) / precio
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El costo total es T = c·p + e (c: cantidad, p: precio unitario, e: envío). Si T = {T}, p = {precio}, e = {envio}, ¿cuánto vale c?"
+
+explicacion: |
+  Mismo procedimiento que a·x + b = c: restar el envío, dividir por el
+  precio unitario.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "basico"
+  tags: ["problema", "dos_pasos"]
+
+variables:
+  precio: random(2, 15)
+  cant: random(1, 20)
+  envio_sol: random(1, 20)
+  T: precio * cant + envio_sol
+
+respuesta: T - precio * cant
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "T = c·p + e. Si T = {T}, c = {cant} y p = {precio}, ¿cuánto vale e?"
+
+explicacion: |
+  e = T − c·p.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "intermedio"
+  tags: ["problema", "dos_pasos"]
+
+variables:
+  cant: random(1, 20)
+  envio: random(1, 20)
+  precio_sol: random(2, 15)
+  T: cant * precio_sol + envio
+
+respuesta: (T - envio) / cant
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "T = c·p + e. Si T = {T}, c = {cant} y e = {envio}, ¿cuánto vale p?"
+
+explicacion: |
+  p = (T − e) / c.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "basico"
+  tags: ["perimetro", "una_letra"]
+
+variables:
+  l_sol: random(1, 30)
+  P: 3 * l_sol
+
+respuesta: P / 3
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El perímetro de un triángulo equilátero es P = 3l. Si P = {P}, ¿cuánto vale l?"
+
+explicacion: |
+  l = P/3.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "avanzado"
+  tags: ["area", "trapecio", "parentesis"]
+
+variables:
+  b: random(1, 15)
+  h: random(1, 10) * 2
+  B_sol: random(1, 20)
+  A: ((B_sol + b) * h) / 2
+
+respuesta: 2 * A / h - b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El área de un trapecio es A = ((B + b)·h) / 2. Si A = {A}, b = {b} y h = {h}, ¿cuánto vale B (la base mayor)?"
+
+pasos:
+  - "Multiplicar por 2 y dividir por h: B + b = 2A/h = {2 * A / h}"
+  - "Restar b: B = {2 * A / h} − {b} = {2 * A / h - b}"
+
+explicacion: |
+  B queda sola restando b del resultado — no dividiendo por (h − b), que
+  sería un error de paréntesis.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "avanzado"
+  tags: ["area", "trapecio", "parentesis"]
+
+variables:
+  B: random(10, 25)
+  b: random(1, 9)
+  h_sol: random(1, 10) * 2
+  A: ((B + b) * h_sol) / 2
+
+respuesta: 2 * A / (B + b)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = ((B + b)·h) / 2. Si A = {A}, B = {B} y b = {b}, ¿cuánto vale h?"
+
+pasos:
+  - "Multiplicar por 2: 2A = (B + b)·h"
+  - "Dividir por (B + b): h = {2 * A} / {B + b} = {2 * A / (B + b)}"
+
+explicacion: |
+  (B + b) se trata como un solo bloque al dividir, sin separarlo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "basico"
+  tags: ["verificacion", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es {candidato} un múltiplo común de {a} y {b}?"
+enunciado: "Al despejar h de A = b · h, se obtiene h = A / b."
 
 explicacion: |
-  {candidato} es {a} × {b}, así que es múltiplo de los dos a la vez
-  (aunque no sea necesariamente el MCM: podría haber uno más chico).
+  h multiplica a b para dar A, así que se despeja dividiendo: h = A/b.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcm"
+  tema: "despejar_formula"
   nivel: "intermedio"
-  tags: ["mcm"]
+  tags: ["verificacion", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Al despejar b de P = 2(b + h), se obtiene b = P/2 + h."
+
+explicacion: |
+  La forma correcta es b = P/2 − h (se resta h, no se suma) — error
+  típico de cambiar el signo al mover un término.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "intermedio"
+  tags: ["verificacion", "error_comun", "denominador", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Al despejar t de v = d/t, se obtiene t = v/d."
+
+explicacion: |
+  La forma correcta es t = d/v. Invertir directamente sin pasar t
+  multiplicando primero da vuelta el resultado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "basico"
+  tags: ["verificacion", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al despejar m de d = m/V, se obtiene m = d · V."
+
+explicacion: |
+  m es la que divide por V para dar d, así que se despeja multiplicando:
+  m = d·V.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "avanzado"
+  tags: ["verificacion", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Al despejar C de I = C · i · t, se obtiene C = I · i · t."
+
+explicacion: |
+  La forma correcta es C = I / (i·t): hay que dividir por las dos letras
+  que multiplican, no multiplicarlas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "intermedio"
+  tags: ["verificacion", "numerico", "verdadero_falso"]
 
 variables:
-  a: random(3, 15)
-  b: a + 1
+  b: random(2, 20)
+  h: random(2, 20)
+  A: b * h
+  propuesta: uno_de([A / b, A * b])
 
-respuesta: a * b
+respuesta: (propuesta == h)
+tipo: vf
+
+enunciado: "El área de un rectángulo es A = {A} y su base es b = {b}. ¿Es correcto que la altura sea h = {propuesta}?"
+
+explicacion: |
+  La altura correcta es A/b — si la opción mostrada usa A·b en cambio,
+  es el error de multiplicar en vez de dividir.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "intermedio"
+  tags: ["verificacion", "numerico", "verdadero_falso"]
+
+variables:
+  b: random(1, 30)
+  h: random(1, 30)
+  P: 2 * (b + h)
+  propuesta: uno_de([P / 2 - h, P / 2 + h])
+
+respuesta: (propuesta == b)
+tipo: vf
+
+enunciado: "El perímetro de un rectángulo es P = {P} y su altura es h = {h}. ¿Es correcto que la base sea b = {propuesta}?"
+
+explicacion: |
+  La base correcta es P/2 − h — sumar h en vez de restarlo es el error
+  típico de este despeje.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "despejar_formula"
+  nivel: "avanzado"
+  tags: ["verificacion", "numerico", "denominador", "verdadero_falso"]
+
+variables:
+  v: random(2, 20)
+  t: random(2, 10)
+  d: v * t
+  propuesta: uno_de([d / v, d * v])
+
+respuesta: (propuesta == t)
+tipo: vf
+
+enunciado: "v = d/t. Si v = {v} y d = {d}, ¿es correcto que t = {propuesta}?"
+
+explicacion: |
+  El tiempo correcto es d/v — multiplicar en vez de dividir es el error
+  típico cuando la letra despejada estaba en el denominador.
+```
+
+## Sección: funcion-dominio (24 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "basico"
+  tags: ["denominador"]
+
+variables:
+  a: random(1, 20)
+
+respuesta: a
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es el MCM de {a} y {b} (dos números consecutivos, que no comparten factores)?"
+enunciado: "f(x) = 1 / (x − {a}). ¿Para qué valor de x la función NO está definida?"
+
+explicacion: |
+  El denominador se anula cuando x = {a}: no se puede dividir por 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "basico"
+  tags: ["denominador"]
+
+variables:
+  a: random(1, 20)
+
+respuesta: -a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = 1 / (x + {a}). ¿Para qué valor de x la función NO está definida?"
+
+explicacion: |
+  x + {a} = 0 → x = −{a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["denominador"]
+
+variables:
+  p: random(2, 8)
+  sol: random(1, 15)
+  q: p * sol
+
+respuesta: q / p
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = 1 / ({p}x − {q}). ¿Para qué valor de x la función NO está definida?"
 
 pasos:
-  - "Como no comparten ningún factor (MCD = 1), el MCM es directamente el producto: {a} × {b} = {a * b}"
+  - "{p}x − {q} = 0 → x = {q}/{p} = {q / p}"
 
 explicacion: |
-  Cuando dos números son primos entre sí (su MCD es 1), su MCM es
-  directamente el producto de los dos.
+  Hay que resolver la ecuación completa, no sólo mirar el número suelto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcm"
-  nivel: "basico"
-  tags: ["mcm"]
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["denominador"]
 
 variables:
-  n: random(2, 999)
+  p: random(2, 8)
+  sol: random(1, 15)
+  q: p * sol
 
-respuesta: n
+respuesta: -q / p
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es el MCM de {n} y {n}?"
+enunciado: "f(x) = 1 / ({p}x + {q}). ¿Para qué valor de x la función NO está definida?"
 
 explicacion: |
-  El menor múltiplo en común de un número consigo mismo es el propio
+  {p}x + {q} = 0 → x = −{q}/{p}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "basico"
+  tags: ["denominador", "verdadero_falso"]
+
+variables:
+  a: random(1, 20)
+  offset: uno_de([1, -1, 2, -2, 3])
+  val: a + offset
+
+respuesta: (val != a)
+tipo: vf
+
+enunciado: "f(x) = 1 / (x − {a}). ¿x = {val} pertenece al dominio de f?"
+
+explicacion: |
+  Pertenece siempre que x sea distinto de {a} (el único valor excluido).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["denominador", "verdadero_falso"]
+
+variables:
+  a: random(1, 20)
+  val: uno_de([0, 1]) + a - uno_de([0, 1])
+
+respuesta: (val != a)
+tipo: vf
+
+enunciado: "f(x) = 1 / (x − {a}). ¿x = {val} pertenece al dominio de f?"
+
+explicacion: |
+  Sólo el valor exacto x = {a} queda excluido — cualquier otro,
+  incluso muy cercano, sí pertenece.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "basico"
+  tags: ["raiz"]
+
+variables:
+  a: random(1, 20)
+
+respuesta: a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = √(x − {a}). ¿A partir de qué valor empieza el dominio de f (el mínimo x permitido)?"
+
+explicacion: |
+  x − {a} ≥ 0 → x ≥ {a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "basico"
+  tags: ["raiz"]
+
+variables:
+  a: random(1, 20)
+
+respuesta: -a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = √(x + {a}). ¿A partir de qué valor empieza el dominio de f?"
+
+explicacion: |
+  x + {a} ≥ 0 → x ≥ −{a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["raiz"]
+
+variables:
+  p: random(2, 8)
+  sol: random(1, 15)
+  q: p * sol
+
+respuesta: q / p
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = √({p}x − {q}). ¿A partir de qué valor empieza el dominio de f?"
+
+pasos:
+  - "{p}x − {q} ≥ 0 → x ≥ {q}/{p} = {q / p}"
+
+explicacion: |
+  Se resuelve la inecuación completa, igual que en `../inecuaciones/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["raiz", "verdadero_falso"]
+
+variables:
+  a: random(1, 20)
+
+respuesta: (a >= a)
+tipo: vf
+
+enunciado: "f(x) = √(x − {a}). ¿x = {a} (el valor exacto del borde) pertenece al dominio de f?"
+
+explicacion: |
+  Con raíz, el borde SÍ está incluido (≥, no > estricto): √0 = 0, un
+  resultado real válido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "basico"
+  tags: ["raiz", "verdadero_falso"]
+
+variables:
+  a: random(1, 20)
+  offset: uno_de([-5, -2, -1, 1, 3, 5])
+  val: a + offset
+
+respuesta: (val >= a)
+tipo: vf
+
+enunciado: "f(x) = √(x − {a}). ¿x = {val} pertenece al dominio de f?"
+
+explicacion: |
+  Pertenece si x ≥ {a}; si x es menor, el radicando queda negativo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["logaritmo"]
+
+variables:
+  a: random(1, 20)
+
+respuesta: a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = log(x − {a}). ¿A partir de qué valor de x empieza a estar definida f (sin incluir ese valor)?"
+
+explicacion: |
+  x − {a} > 0 → x > {a}, con desigualdad ESTRICTA: a diferencia de la
+  raíz, el logaritmo no admite el borde.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["logaritmo"]
+
+variables:
+  p: random(2, 8)
+  sol: random(1, 15)
+  q: p * sol
+
+respuesta: q / p
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = log({p}x − {q}). ¿A partir de qué valor de x (sin incluirlo) empieza el dominio de f?"
+
+explicacion: |
+  {p}x − {q} > 0 → x > {q}/{p}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["logaritmo", "verdadero_falso"]
+
+variables:
+  a: random(1, 20)
+
+respuesta: (a > a)
+tipo: vf
+
+enunciado: "f(x) = log(x − {a}). ¿x = {a} (el valor exacto del borde) pertenece al dominio de f?"
+
+explicacion: |
+  No: log(0) no está definido. A diferencia de la raíz, el logaritmo
+  excluye el borde.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "basico"
+  tags: ["logaritmo", "verdadero_falso"]
+
+variables:
+  a: random(1, 20)
+  offset: uno_de([-5, -2, -1, 1, 3, 5])
+  val: a + offset
+
+respuesta: (val > a)
+tipo: vf
+
+enunciado: "f(x) = log(x − {a}). ¿x = {val} pertenece al dominio de f?"
+
+explicacion: |
+  Pertenece sólo si x es estrictamente mayor que {a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["denominador", "opcion_multiple"]
+
+variables:
+  a: random(1, 20)
+
+respuesta: concatenar("x ≠ ", a)
+tipo: mc
+opciones_explicitas:
+  - concatenar("x ≠ ", a)
+  - concatenar("x ≥ ", a)
+  - concatenar("x = ", a)
+
+enunciado: "¿Cuál describe el dominio de f(x) = 1/(x − {a})?"
+
+explicacion: |
+  Se excluye un único punto — se escribe con "≠", no con una
+  desigualdad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["raiz", "opcion_multiple"]
+
+variables:
+  a: random(1, 20)
+
+respuesta: concatenar("x ≥ ", a)
+tipo: mc
+opciones_explicitas:
+  - concatenar("x ≥ ", a)
+  - concatenar("x > ", a)
+  - concatenar("x ≠ ", a)
+
+enunciado: "¿Cuál describe el dominio de f(x) = √(x − {a})?"
+
+explicacion: |
+  El borde SÍ está incluido: ≥, no > estricto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["logaritmo", "opcion_multiple"]
+
+variables:
+  a: random(1, 20)
+
+respuesta: concatenar("x > ", a)
+tipo: mc
+opciones_explicitas:
+  - concatenar("x > ", a)
+  - concatenar("x ≥ ", a)
+  - concatenar("x ≠ ", a)
+
+enunciado: "¿Cuál describe el dominio de f(x) = log(x − {a})?"
+
+explicacion: |
+  El borde queda excluido: > estricto, no ≥.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una función, cada valor de x tiene que corresponder a exactamente un valor de y."
+
+explicacion: |
+  Si un mismo x diera dos resultados distintos, no sería una función.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El dominio de una función polinómica (como f(x) = x² + 3x − 1) son todos los números reales, sin ninguna restricción."
+
+explicacion: |
+  No hay denominador, ni raíz par, ni logaritmo — nada que restrinja qué
+  valores de x se pueden usar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["concepto", "raiz", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La raíz cúbica de un número negativo no está definida, igual que la raíz cuadrada."
+
+explicacion: |
+  La restricción de "no negativo" es sólo para raíces de índice PAR. La
+  raíz cúbica (índice impar) de un número negativo sí está definida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un valor de x queda fuera del dominio si hace que algún denominador de la función se anule."
+
+explicacion: |
+  Dividir por 0 no está definido, así que ese x no puede estar en el
+  dominio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "El dominio de un logaritmo y el de una raíz cuadrada tratan el valor límite (el borde) de la misma manera."
+
+explicacion: |
+  La raíz incluye el borde (≥); el logaritmo lo excluye (>) — log(0) no
+  está definido, pero √0 sí.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_dominio"
+  nivel: "intermedio"
+  tags: ["denominador", "verificacion", "verdadero_falso"]
+
+variables:
+  p: random(2, 8)
+  sol: random(1, 15)
+  q: p * sol
+  real: q / p
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "f(x) = 1 / ({p}x − {q}). ¿Es correcto que el valor excluido del dominio sea x = {propuesto}?"
+
+explicacion: |
+  El valor correcto es {q}/{p} = {real}.
+```
+
+## Sección: funcion-imagen (24 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "basico"
+  tags: ["lineal", "verdadero_falso"]
+
+variables:
+  m: random(1, 10)
+  b: random(-10, 10)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "f(x) = {m}x + {b}. ¿Es la imagen de f todos los números reales?"
+
+explicacion: |
+  Cualquier función lineal no constante (m ≠ 0) tiene como imagen todos
+  los reales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "basico"
+  tags: ["constante"]
+
+variables:
+  k: random(1, 30)
+
+respuesta: k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {k} para todo x. ¿Cuál es el único valor de la imagen de f?"
+
+explicacion: |
+  Una función constante siempre devuelve el mismo valor: {k}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["cuadratica"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-10, 10)
+
+respuesta: k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = (x − {h})² + {k}. ¿Cuál es el valor mínimo de la imagen de f?"
+
+explicacion: |
+  El vértice está en ({h}, {k}), y como abre hacia arriba, {k} es el
+  mínimo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["cuadratica"]
+
+variables:
+  h: random(-15, 15)
+  k: random(-15, 15)
+
+respuesta: k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = (x + {h})² − {k}. ¿Cuál es el valor mínimo de la imagen de f?"
+
+explicacion: |
+  El vértice está en (−{h}, −{k}) — el mínimo de la imagen es −{k}, el
+  mismo número que ya está restando en la fórmula.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["cuadratica", "signos"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-10, 10)
+
+respuesta: k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = −(x − {h})² + {k}. ¿Cuál es el valor máximo de la imagen de f?"
+
+explicacion: |
+  El signo negativo adelante hace que la parábola abra hacia abajo: el
+  vértice ({h}, {k}) es ahora un máximo, no un mínimo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["cuadratica", "signos"]
+
+variables:
+  h: random(-15, 15)
+  k: random(-15, 15)
+
+respuesta: k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = −(x + {h})² + {k}. ¿Cuál es el valor máximo de la imagen de f?"
+
+explicacion: |
+  Vértice en (−{h}, {k}), y como abre hacia abajo, {k} es el máximo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["valor_absoluto"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-10, 10)
+
+respuesta: k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = |x − {h}| + {k}. ¿Cuál es el valor mínimo de la imagen de f?"
+
+explicacion: |
+  El valor absoluto nunca da negativo, así que el mínimo se alcanza
+  cuando |x−{h}| = 0, dando f = {k}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["valor_absoluto"]
+
+variables:
+  h: random(-15, 15)
+  k: random(-15, 15)
+
+respuesta: k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = |x + {h}| + {k}. ¿Cuál es el valor mínimo de la imagen de f?"
+
+explicacion: |
+  El mínimo se alcanza en x = −{h}, dando f = {k}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["cuadratica", "verdadero_falso"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-10, 10)
+  offset: uno_de([-5, -2, -1, 1, 3, 5])
+  val: k + offset
+
+respuesta: (val >= k)
+tipo: vf
+
+enunciado: "f(x) = (x − {h})² + {k}. ¿y = {val} pertenece a la imagen de f?"
+
+explicacion: |
+  Pertenece si y ≥ {k} (el mínimo del vértice).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["cuadratica", "verdadero_falso"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-10, 10)
+
+respuesta: (k >= k)
+tipo: vf
+
+enunciado: "f(x) = (x − {h})² + {k}. ¿y = {k} (el valor exacto del vértice) pertenece a la imagen de f?"
+
+explicacion: |
+  Sí: se alcanza justo en x = {h}, así que el borde está incluido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["cuadratica", "signos", "verdadero_falso"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-10, 10)
+  offset: uno_de([-5, -2, -1, 1, 3, 5])
+  val: k + offset
+
+respuesta: (val <= k)
+tipo: vf
+
+enunciado: "f(x) = −(x − {h})² + {k}. ¿y = {val} pertenece a la imagen de f?"
+
+explicacion: |
+  Con la parábola hacia abajo, pertenece si y ≤ {k} (el máximo).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["valor_absoluto", "verdadero_falso"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-10, 10)
+  offset: uno_de([-5, -2, -1, 1, 3, 5])
+  val: k + offset
+
+respuesta: (val >= k)
+tipo: vf
+
+enunciado: "f(x) = |x − {h}| + {k}. ¿y = {val} pertenece a la imagen de f?"
+
+explicacion: |
+  El valor absoluto nunca baja de su vértice: pertenece si y ≥ {k}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["cuadratica", "verdadero_falso"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-5, 15)
+  offset: random(1, 10)
+  val: k - offset
+
+respuesta: (val >= k)
+tipo: vf
+
+enunciado: "f(x) = (x − {h})² + {k}. ¿y = {val} pertenece a la imagen de f?"
+
+explicacion: |
+  {val} está por debajo del mínimo {k}, así que no pertenece a la
+  imagen — la parábola nunca baja de su vértice.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["cuadratica", "signos", "verdadero_falso"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-5, 15)
+  offset: random(1, 10)
+  val: k + offset
+
+respuesta: (val <= k)
+tipo: vf
+
+enunciado: "f(x) = −(x − {h})² + {k}. ¿y = {val} pertenece a la imagen de f?"
+
+explicacion: |
+  {val} está por encima del máximo {k}, así que no pertenece — la
+  parábola hacia abajo nunca supera su vértice.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["cuadratica", "opcion_multiple"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-10, 10)
+
+respuesta: concatenar("y ≥ ", k)
+tipo: mc
+opciones_explicitas:
+  - concatenar("y ≥ ", k)
+  - concatenar("y ≤ ", k)
+  - concatenar("y ≠ ", k)
+
+enunciado: "¿Cuál describe la imagen de f(x) = (x − {h})² + {k}?"
+
+explicacion: |
+  Abre hacia arriba (sin signo negativo adelante): imagen y ≥ {k}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["cuadratica", "signos", "opcion_multiple"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-10, 10)
+
+respuesta: concatenar("y ≤ ", k)
+tipo: mc
+opciones_explicitas:
+  - concatenar("y ≤ ", k)
+  - concatenar("y ≥ ", k)
+  - concatenar("y ≠ ", k)
+
+enunciado: "¿Cuál describe la imagen de f(x) = −(x − {h})² + {k}?"
+
+explicacion: |
+  El signo negativo da vuelta la parábola: imagen y ≤ {k}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["valor_absoluto", "opcion_multiple"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-10, 10)
+
+respuesta: concatenar("y ≥ ", k)
+tipo: mc
+opciones_explicitas:
+  - concatenar("y ≥ ", k)
+  - concatenar("y ≤ ", k)
+  - concatenar("y = ", k)
+
+enunciado: "¿Cuál describe la imagen de f(x) = |x − {h}| + {k}?"
+
+explicacion: |
+  El valor absoluto siempre da ≥ 0, así que f nunca baja de {k}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "El dominio y la imagen de una función son exactamente la misma idea, sólo con otro nombre."
+
+explicacion: |
+  El dominio restringe los valores de ENTRADA (x); la imagen describe los
+  valores de SALIDA (y) que la función realmente produce.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "basico"
+  tags: ["concepto", "cuadratica", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El vértice de una parábola marca el valor mínimo o máximo de su imagen."
+
+explicacion: |
+  Según hacia dónde abra la parábola, el vértice es el punto más bajo o
+  el más alto que alcanza la función.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "basico"
+  tags: ["concepto", "valor_absoluto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El valor absoluto de cualquier número nunca es negativo."
+
+explicacion: |
+  Por eso la imagen de f(x) = |x − h| + k siempre tiene un mínimo (k), y
+  nunca un máximo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La imagen de cualquier función de la forma f(x) = mx + b siempre son todos los reales, sin excepción."
+
+explicacion: |
+  Hay una excepción: si m = 0, la función es constante, y su imagen es
+  un único valor, no todos los reales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Da lo mismo escribir 'y ≥ k' o 'y ≤ k' para describir la imagen de una parábola, sea cual sea el signo que tenga adelante."
+
+explicacion: |
+  No da lo mismo: si abre hacia abajo (signo negativo) hay que usar
+  ≤; usar ≥ ahí sería un error de signo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-10, 10)
+  error: uno_de([0, 0, 1, -1])
+  propuesto: k + error
+
+respuesta: (propuesto == k)
+tipo: vf
+
+enunciado: "f(x) = (x − {h})² + {k}. ¿Es correcto que el mínimo de la imagen sea {propuesto}?"
+
+explicacion: |
+  El mínimo correcto es {k}, el valor del vértice.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_imagen"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  h: random(-10, 10)
+  k: random(-10, 10)
+  error: uno_de([0, 0, 1, -1])
+  propuesto: k + error
+
+respuesta: (propuesto == k)
+tipo: vf
+
+enunciado: "f(x) = −(x − {h})² + {k}. ¿Es correcto que el máximo de la imagen sea {propuesto}?"
+
+explicacion: |
+  El máximo correcto es {k}, el valor del vértice.
+```
+
+## Sección: inecuaciones (28 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "basico"
+  tags: ["clasificar", "identidad", "opcion_multiple"]
+
+variables:
+  a: random(2, 10)
+  b: random(1, 20)
+
+respuesta: "Identidad"
+tipo: mc
+opciones_explicitas:
+  - "Identidad"
+  - "Ecuación"
+  - "Inecuación"
+
+enunciado: "¿{a}(x + {b}) = {a}x + {a * b} es una identidad, una ecuación o una inecuación?"
+
+explicacion: |
+  Distribuyendo el lado izquierdo se obtiene exactamente el lado
+  derecho — es verdadera para cualquier x, así que es una identidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "basico"
+  tags: ["clasificar", "identidad", "opcion_multiple"]
+
+variables:
+  a: random(2, 10)
+  c: random(2, 10)
+  b: random(1, 20)
+
+respuesta: "Identidad"
+tipo: mc
+opciones_explicitas:
+  - "Identidad"
+  - "Ecuación"
+  - "Inecuación"
+
+enunciado: "¿{a}x + {b} + {c}x = {a + c}x + {b} es una identidad, una ecuación o una inecuación?"
+
+explicacion: |
+  El lado izquierdo, al combinar los términos con x, da exactamente el
+  lado derecho — verdadera para cualquier x.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "basico"
+  tags: ["clasificar", "ecuacion", "opcion_multiple"]
+
+variables:
+  a: random(2, 10)
+  b: random(1, 20)
+  c: random(21, 60)
+
+respuesta: "Ecuación"
+tipo: mc
+opciones_explicitas:
+  - "Identidad"
+  - "Ecuación"
+  - "Inecuación"
+
+enunciado: "¿{a}x + {b} = {c} es una identidad, una ecuación o una inecuación?"
+
+explicacion: |
+  Tiene "=" y los dos lados no son la misma expresión — se cumple sólo
+  para un valor puntual de x, así que es una ecuación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "basico"
+  tags: ["clasificar", "ecuacion", "opcion_multiple"]
+
+variables:
+  a: random(2, 10)
+  b: random(1, 20)
+  c: random(1, 30)
+
+respuesta: "Ecuación"
+tipo: mc
+opciones_explicitas:
+  - "Identidad"
+  - "Ecuación"
+  - "Inecuación"
+
+enunciado: "¿{a}x − {b} = {c} es una identidad, una ecuación o una inecuación?"
+
+explicacion: |
+  Tiene una única solución puntual — es una ecuación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "basico"
+  tags: ["clasificar", "inecuacion", "opcion_multiple"]
+
+variables:
+  a: random(2, 10)
+  b: random(1, 20)
+  c: random(21, 60)
+
+respuesta: "Inecuación"
+tipo: mc
+opciones_explicitas:
+  - "Identidad"
+  - "Ecuación"
+  - "Inecuación"
+
+enunciado: "¿{a}x + {b} < {c} es una identidad, una ecuación o una inecuación?"
+
+explicacion: |
+  Usa un símbolo de desigualdad en vez de "=" — es una inecuación, y su
+  solución es un rango de valores, no uno solo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "basico"
+  tags: ["clasificar", "inecuacion", "opcion_multiple"]
+
+variables:
+  a: random(2, 10)
+  b: random(1, 20)
+  c: random(1, 30)
+
+respuesta: "Inecuación"
+tipo: mc
+opciones_explicitas:
+  - "Identidad"
+  - "Ecuación"
+  - "Inecuación"
+
+enunciado: "¿{a}x − {b} > {c} es una identidad, una ecuación o una inecuación?"
+
+explicacion: |
+  Cualquier símbolo <, >, ≤ o ≥ marca una inecuación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(2, 10)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+  offset: uno_de([-5, -2, -1, 1, 2, 5])
+  val: sol + offset
+
+respuesta: (a * val + b) < c
+tipo: vf
+
+enunciado: "¿x = {val} es solución de {a}x + {b} < {c}?"
+
+explicacion: |
+  Se reemplaza x por {val} y se compara: {a}×{val}+{b} = {a * val + b},
+  contra {c}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(2, 10)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+  offset: uno_de([-5, -2, -1, 1, 2, 5])
+  val: sol + offset
+
+respuesta: (a * val + b) > c
+tipo: vf
+
+enunciado: "¿x = {val} es solución de {a}x + {b} > {c}?"
+
+explicacion: |
+  Se reemplaza x por {val} en {a}x + {b} y se compara el resultado con
+  {c}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "avanzado"
+  tags: ["verificacion", "signos", "verdadero_falso"]
+
+variables:
+  a: random(-10, -2)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+  offset: uno_de([-5, -2, -1, 1, 2, 5])
+  val: sol + offset
+
+respuesta: (a * val + b) < c
+tipo: vf
+
+enunciado: "¿x = {val} es solución de {a}x + {b} < {c}?"
+
+explicacion: |
+  Con coeficiente negativo, aumentar x hace que {a}x + {b} disminuya —
+  al revés que con coeficiente positivo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "avanzado"
+  tags: ["verificacion", "signos", "verdadero_falso"]
+
+variables:
+  a: random(-10, -2)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+  offset: uno_de([-5, -2, -1, 1, 2, 5])
+  val: sol + offset
+
+respuesta: (a * val + b) > c
+tipo: vf
+
+enunciado: "¿x = {val} es solución de {a}x + {b} > {c}?"
+
+explicacion: |
+  Reemplazar x por {val} y comparar {a}×{val}+{b} con {c}, con cuidado
+  porque {a} es negativo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(2, 10)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+  offset: uno_de([-4, -2, 0, 1, 3])
+  val: sol + offset
+
+respuesta: (a * val + b) <= c
+tipo: vf
+
+enunciado: "¿x = {val} es solución de {a}x + {b} ≤ {c}?"
+
+explicacion: |
+  Con ≤, el propio valor frontera (offset 0) también es solución — a
+  diferencia de < estricto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "avanzado"
+  tags: ["verificacion", "signos", "verdadero_falso"]
+
+variables:
+  a: random(-10, -2)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+  offset: uno_de([-4, -2, 0, 1, 3])
+  val: sol + offset
+
+respuesta: (a * val + b) >= c
+tipo: vf
+
+enunciado: "¿x = {val} es solución de {a}x + {b} ≥ {c}?"
+
+explicacion: |
+  Con coeficiente negativo, el conjunto solución de "≥" queda del lado
+  contrario al que daría un coeficiente positivo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(2, 10)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+  offset: uno_de([-4, -2, 0, 1, 3])
+  val: sol + offset
+
+respuesta: (a * val + b) >= c
+tipo: vf
+
+enunciado: "¿x = {val} es solución de {a}x + {b} ≥ {c}?"
+
+explicacion: |
+  Se reemplaza x por {val} y se compara con {c} usando ≥.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "avanzado"
+  tags: ["verificacion", "signos", "verdadero_falso"]
+
+variables:
+  a: random(-10, -2)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+  offset: uno_de([-4, -2, 0, 1, 3])
+  val: sol + offset
+
+respuesta: (a * val + b) <= c
+tipo: vf
+
+enunciado: "¿x = {val} es solución de {a}x + {b} ≤ {c}?"
+
+explicacion: |
+  Mismo procedimiento de siempre: reemplazar y comparar, con {a}
+  negativo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "intermedio"
+  tags: ["frontera"]
+
+variables:
+  a: random(2, 10)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+
+respuesta: (c - b) / a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: {a}x + {b} < {c}. ¿Cuál es el valor frontera de x (el límite del conjunto solución)?"
+
+pasos:
+  - "Restar {b}: {a}x < {c - b}"
+  - "Dividir por {a}: x < {(c - b) / a}"
+
+explicacion: |
+  El valor frontera se calcula igual que resolver la ecuación asociada
+  {a}x + {b} = {c}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "intermedio"
+  tags: ["frontera"]
+
+variables:
+  a: random(2, 10)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+
+respuesta: (c - b) / a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: {a}x + {b} > {c}. ¿Cuál es el valor frontera de x?"
+
+explicacion: |
+  x = ({c} − {b}) / {a}, el mismo cálculo que para "<".
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "avanzado"
+  tags: ["frontera", "signos"]
+
+variables:
+  a: random(-10, -2)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+
+respuesta: (c - b) / a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: {a}x + {b} < {c}. ¿Cuál es el valor frontera de x?"
+
+pasos:
+  - "Restar {b}: {a}x < {c - b}"
+  - "Dividir por {a} (negativo): x = {c - b} / {a} = {(c - b) / a}"
+
+explicacion: |
+  El valor frontera se calcula igual sea {a} positivo o negativo — lo
+  único que cambia con el signo es la dirección de la desigualdad, no el
   número.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcm"
-  nivel: "basico"
-  tags: ["mcm", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El MCM de dos números nunca puede ser menor que el más grande de los dos."
-
-explicacion: |
-  Un múltiplo de un número nunca puede ser menor que ese número (salvo el
-  0); como el MCM es múltiplo de los dos, no puede ser menor que el más
-  grande.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "intermedio"
-  tags: ["mcm"]
-
-variables:
-  a: random(3, 15)
-  b: random(3, 15)
-  correcto: mcm(a, b)
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - a * b
-  - correcto + a
-
-enunciado: "¿Cuál es el MCM de {a} y {b}?"
-
-explicacion: |
-  El producto a×b es un múltiplo común, pero no siempre es el MÍNIMO — sólo
-  coincide con el MCM cuando los dos números son primos entre sí.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "intermedio"
-  tags: ["mcm", "problema"]
-
-variables:
-  a: random(2, 12)
-  b: random(2, 12)
-
-respuesta: mcm(a, b)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Para sumar dos fracciones con denominadores {a} y {b}, conviene usar como común denominador el MCM de los dos. ¿Cuál es ese común denominador?"
-
-explicacion: |
-  El MCM de los denominadores es el común denominador más chico posible
-  para sumar o restar las fracciones.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "intermedio"
-  tags: ["mcm", "problema"]
-
-variables:
-  a: random(4, 20)
-  b: random(4, 20)
-
-respuesta: mcm(a, b)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un colectivo pasa por una parada cada {a} minutos, y otro cada {b} minutos. Si los dos pasaron juntos a las 0, ¿en qué minuto vuelven a pasar juntos por primera vez?"
-
-explicacion: |
-  El primer momento en que coinciden de nuevo es el MCM de los dos
-  intervalos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "intermedio"
-  tags: ["mcm", "problema"]
-
-variables:
-  a: random(2, 15)
-  b: random(2, 15)
-
-respuesta: mcm(a, b)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una luz titila cada {a} segundos y otra cada {b} segundos. Si las dos titilaron juntas en el segundo 0, ¿en qué segundo van a volver a titilar juntas?"
-
-explicacion: |
-  Es el mismo tipo de problema que los colectivos: el primer encuentro es
-  el MCM de los dos ritmos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
+  tema: "inecuaciones"
   nivel: "avanzado"
-  tags: ["mcm"]
+  tags: ["frontera", "signos"]
+
+variables:
+  a: random(-10, -2)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+
+respuesta: (c - b) / a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: {a}x + {b} > {c}. ¿Cuál es el valor frontera de x?"
+
+explicacion: |
+  x = ({c} − {b}) / {a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "inecuaciones"
+  nivel: "intermedio"
+  tags: ["frontera"]
 
 variables:
   a: random(2, 10)
-  b: random(2, 10)
-  c: random(2, 10)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol - b
 
-respuesta: mcm(mcm(a, b), c)
+respuesta: (c + b) / a
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es el MCM de {a}, {b} y {c}?"
-
-pasos:
-  - "Se calcula de a dos: MCM({a}, {b}) = {mcm(a, b)}, y después MCM({mcm(a, b)}, {c}) = {mcm(mcm(a, b), c)}"
+enunciado: "Resolvé: {a}x − {b} < {c}. ¿Cuál es el valor frontera de x?"
 
 explicacion: |
-  El MCM de tres números se calcula de a pares: primero entre dos, y
-  después ese resultado con el tercero.
+  Primero se suma {b} a los dos lados, después se divide por {a}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcm"
+  tema: "inecuaciones"
   nivel: "intermedio"
-  tags: ["mcm", "verificacion"]
-
-variables:
-  a: random(3, 15)
-  b: random(3, 15)
-  correcto: mcm(a, b)
-  error: uno_de([0, 0, 0, a, -a])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Es correcto decir que el MCM de {a} y {b} es {mostrado}?"
-
-explicacion: |
-  Hay que verificar que {mostrado} sea múltiplo de los dos números, y que
-  no haya ningún múltiplo común más chico.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "intermedio"
-  tags: ["mcm"]
-
-variables:
-  primos: [2, 3, 5, 7, 11, 13]
-  p1: uno_de(primos)
-  p2: uno_de(primos)
-
-restricciones:
-  - p1 != p2
-
-respuesta: p1 * p2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el MCM de {p1} y {p2} (dos números primos distintos)?"
-
-explicacion: |
-  Como no comparten ningún factor, el MCM es directamente el producto de
-  los dos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "basico"
-  tags: ["mcm", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El MCM de dos números siempre es múltiplo de los dos, además de ser el menor de los múltiplos en común."
-
-explicacion: |
-  Es la propia definición: el MCM tiene que ser múltiplo de ambos números
-  para contar como múltiplo común.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "intermedio"
-  tags: ["mcm", "multiplos"]
-
-variables:
-  a: random(2, 9)
-  b: random(2, 9)
-
-tipo: completar
-enunciado: "Nombrá un múltiplo común de {a} y {b} (no hace falta que sea el MCM, alcanza con que sea múltiplo de los dos)."
-respuestas_validas:
-  - a * b
-  - mcm(a, b)
-
-explicacion: |
-  El producto de los dos números siempre es un múltiplo común válido,
-  aunque no sea siempre el más chico.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "intermedio"
-  tags: ["mcm"]
-
-variables:
-  a: random(2, 30)
-  k: random(2, 9)
-  b: a * k
-
-respuesta: b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el MCM de {a} y {b}, sabiendo que {b} es múltiplo de {a}?"
-
-explicacion: |
-  Cuando un número es múltiplo del otro, el más grande de los dos ya es
-  el MCM: no hace falta calcular nada más.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "intermedio"
-  tags: ["mcm", "multiplos"]
-
-variables:
-  a: random(2, 9)
-  b: random(2, 9)
-  comun: a * b
-  no_comun: comun + 1
-
-respuesta: no_comun
-tipo: mc
-opciones_explicitas:
-  - comun
-  - mcm(a, b)
-  - no_comun
-
-enunciado: "¿Cuál de estos tres números NO es múltiplo común de {a} y {b}?"
-
-explicacion: |
-  {no_comun} le sobra 1 respecto de un múltiplo común real: eso rompe la
-  divisibilidad exacta con al menos uno de los dos números.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "intermedio"
-  tags: ["mcm", "propiedades"]
-
-variables:
-  a: random(3, 20)
-  b: random(3, 20)
-
-respuesta: (mcm(a, b) == mcm(b, a))
-tipo: vf
-
-enunciado: "¿Es cierto que el MCM de {a} y {b} da lo mismo que el MCM de {b} y {a}?"
-
-explicacion: |
-  El orden en que se comparan los dos números no cambia el resultado: el
-  MCM es conmutativo (igual que el MCD).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "avanzado"
-  tags: ["mcm", "problema"]
+  tags: ["frontera"]
 
 variables:
   a: random(2, 10)
-  b: random(2, 10)
-  comun: mcm(a, b)
-
-respuesta: comun / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Para sumar una fracción con denominador {a} con otra de denominador {b}, se usa el común denominador {comun} (el MCM de los dos). ¿Por cuánto hay que multiplicar el numerador de la primera fracción?"
-
-pasos:
-  - "{comun} ÷ {a} = {comun / a}: ese es el factor que hay que usar para pasar la primera fracción al nuevo denominador."
-
-explicacion: |
-  Al cambiar de denominador, el numerador se multiplica por el mismo
-  factor que el denominador (para no cambiar el valor de la fracción).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "avanzado"
-  tags: ["mcm", "factorizacion"]
-
-variables:
-  a: uno_de([4, 6, 8, 9])
-  b: uno_de([4, 6, 8, 9])
-  correcto: mcm(a, b)
-
-restricciones:
-  - a != b
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - a * b
-  - mcd(a, b)
-
-enunciado: "¿Cuál es el MCM de {a} y {b}?"
-
-explicacion: |
-  Conviene factorizar los dos números en primos y quedarse con TODOS los
-  factores, usando el mayor exponente de cada uno.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "avanzado"
-  tags: ["mcm", "mcd"]
-
-variables:
-  a: random(4, 40)
-  b: random(4, 40)
-
-respuesta: (mcd(a, b) * mcm(a, b) == a * b)
-tipo: vf
-
-enunciado: "¿Es cierto que el MCD de {a} y {b}, multiplicado por el MCM de {a} y {b}, da lo mismo que {a} × {b}?"
-
-explicacion: |
-  Es la fórmula que conecta MCD y MCM: MCD × MCM siempre da el producto de
-  los dos números originales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcm"
-  nivel: "basico"
-  tags: ["mcm", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El MCM sirve para saber, entre otras cosas, cuándo dos sucesos que se repiten con ritmos distintos vuelven a coincidir por primera vez."
-
-explicacion: |
-  Es la aplicación práctica más común del MCM: encontrar el primer punto
-  de encuentro entre dos ciclos distintos.
-```
-
-## Sección: media-mediana-y-moda (25 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "basico"
-  tags: ["media", "vocabulario"]
-
-enunciado: "¿Qué es la media (promedio) de un conjunto de datos?"
-tipo: mc
-opciones_explicitas:
-  - "La suma de todos los valores, dividida por la cantidad de valores"
-  - "El valor que aparece más veces"
-  - "El valor que queda justo en el medio al ordenar los datos"
-respuesta: "La suma de todos los valores, dividida por la cantidad de valores"
-
-explicacion: |
-  Es la medida de tendencia central más usada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "basico"
-  tags: ["mediana", "vocabulario"]
-
-enunciado: "¿Qué es la mediana de un conjunto de datos?"
-tipo: mc
-opciones_explicitas:
-  - "El valor que queda exactamente en el medio, una vez que los datos están ordenados de menor a mayor"
-  - "El valor que aparece más veces"
-  - "La suma de todos los valores"
-respuesta: "El valor que queda exactamente en el medio, una vez que los datos están ordenados de menor a mayor"
-
-explicacion: |
-  Hay que ordenar los datos primero — sin ordenar, 'el del medio' no
-  significa nada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "basico"
-  tags: ["moda", "vocabulario"]
-
-enunciado: "¿Qué es la moda de un conjunto de datos?"
-tipo: mc
-opciones_explicitas:
-  - "El valor (o valores) que aparece con más frecuencia"
-  - "El valor más grande de todos"
-  - "El promedio de todos los valores"
-respuesta: "El valor (o valores) que aparece con más frecuencia"
-
-explicacion: |
-  Es la única de las tres medidas que también tiene sentido con datos
-  que no son números (como colores o talles).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "basico"
-  tags: ["media", "completar"]
-
-tipo: completar
-enunciado: "Completá: media = suma de todos los valores / ___."
-respuestas_validas:
-  - "cantidad de valores"
-  - "cantidad"
-
-explicacion: |
-  Dividir por la cantidad de datos es lo que convierte la suma total
-  en un promedio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "intermedio"
-  tags: ["media", "problema"]
-
-variables:
-  a: random(1, 20)
   b: random(1, 20)
-  c: random(1, 20)
-  d: random(1, 20)
-  e: random(1, 20)
-  datos: [a, b, c, d, e]
+  sol: random(1, 20)
+  c: a * sol + b
 
-respuesta: redondear(promedio(datos), 2)
+respuesta: (c - b) / a
 tipo: input
-tolerancia_abs: 0.01
+tolerancia_abs: 0
 
-enunciado: "Calculá la media de estos 5 valores: {a}, {b}, {c}, {d}, {e}."
-
-pasos:
-  - "Suma = {a}+{b}+{c}+{d}+{e} = {a + b + c + d + e}"
-  - "Media = {a + b + c + d + e} / 5 = {redondear(promedio(datos), 2)}"
+enunciado: "Resolvé: {a}x + {b} ≤ {c}. ¿Cuál es el valor frontera de x?"
 
 explicacion: |
-  Se suman los 5 valores y se divide por 5.
+  El procedimiento para hallar el valor frontera no cambia entre < y ≤ —
+  sólo cambia si ese valor frontera está incluido o no en la solución.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "intermedio"
-  tags: ["mediana", "problema"]
-
-variables:
-  a: random(1, 30)
-  b: random(1, 30)
-  c: random(1, 30)
-  d: random(1, 30)
-  e: random(1, 30)
-  datos: [a, b, c, d, e]
-
-respuesta: mediana(datos)
-tipo: input
-
-enunciado: "Calculá la mediana de estos 5 valores: {a}, {b}, {c}, {d}, {e}."
-
-pasos:
-  - "Se ordenan de menor a mayor, y se toma el valor del medio (el 3° de 5)."
-  - "Mediana = {mediana(datos)}"
-
-explicacion: |
-  Con 5 valores (cantidad impar), hay un único valor central una vez
-  ordenados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "avanzado"
-  tags: ["mediana", "problema"]
-
-variables:
-  a: random(1, 30)
-  b: random(1, 30)
-  c: random(1, 30)
-  d: random(1, 30)
-  datos: [a, b, c, d]
-
-respuesta: mediana(datos)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Calculá la mediana de estos 4 valores: {a}, {b}, {c}, {d}."
-
-pasos:
-  - "Se ordenan de menor a mayor, y se promedian los dos valores centrales (el 2° y el 3° de 4)."
-  - "Mediana = {mediana(datos)}"
-
-explicacion: |
-  Con una cantidad par de datos, no hay un único valor central — se
-  promedian los dos del medio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "intermedio"
-  tags: ["mediana"]
+  tema: "inecuaciones"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cuando hay una cantidad PAR de datos, la mediana es el promedio de los dos valores que quedan en el medio, una vez ordenados."
+enunciado: "Al resolver una inecuación, si se multiplican (o dividen) los dos lados por un número negativo, la desigualdad se da vuelta."
 
 explicacion: |
-  No hay un único valor central posible con una cantidad par, así que
-  se promedian los dos.
+  Es la única diferencia real respecto a resolver una ecuación.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "intermedio"
-  tags: ["moda", "problema"]
-
-variables:
-  repetido: random(1, 10)
-  otro1: random(11, 20)
-  otro2: random(11, 20)
-  datos: [repetido, repetido, repetido, otro1, otro2]
-
-respuesta: repetido
-tipo: input
-
-enunciado: "Calculá la moda de estos 5 valores: {repetido}, {repetido}, {repetido}, {otro1}, {otro2}."
-
-pasos:
-  - "{repetido} aparece 3 veces; los demás aparecen 1 vez cada uno."
-  - "Moda = {repetido}"
-
-explicacion: |
-  Es el valor con la frecuencia más alta del conjunto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "avanzado"
-  tags: ["moda"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si todos los valores de un conjunto de datos aparecen exactamente la misma cantidad de veces, no hay moda."
-
-explicacion: |
-  No hay ningún valor que se destaque por frecuencia más alta que los
-  demás.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "avanzado"
-  tags: ["moda"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si dos o más valores empatan en la frecuencia más alta, un conjunto de datos puede tener más de una moda a la vez."
-
-explicacion: |
-  Por ejemplo, en {1, 1, 2, 2, 3}, tanto 1 como 2 aparecen 2 veces —
-  hay dos modas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "intermedio"
-  tags: ["mediana", "ordenar"]
-
-enunciado: "Ordená los pasos para calcular la mediana de un conjunto de datos."
-tipo: ordenar
-opciones_explicitas:
-  - "Si la cantidad es par, promediar los dos valores centrales; si es impar, tomar el único valor central"
-  - "Ordenar todos los datos de menor a mayor"
-  - "Contar cuántos datos hay en total, para saber si es una cantidad par o impar"
-respuesta_orden:
-  - "Ordenar todos los datos de menor a mayor"
-  - "Contar cuántos datos hay en total, para saber si es una cantidad par o impar"
-  - "Si la cantidad es par, promediar los dos valores centrales; si es impar, tomar el único valor central"
-
-explicacion: |
-  Sin ordenar primero, 'el valor del medio' no tiene ningún sentido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "avanzado"
-  tags: ["media", "mediana", "problema"]
-
-variables:
-  a: random(8, 12)
-  b: random(8, 12)
-  c: random(8, 12)
-  d: random(8, 12)
-  atipico: random(80, 100)
-  datos: [a, b, c, d, atipico]
-
-respuesta: redondear(promedio(datos), 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un grupo de 5 valores son: {a}, {b}, {c}, {d} y un valor mucho más grande, {atipico}. ¿Cuál es la MEDIA de estos 5 valores?"
-
-pasos:
-  - "Media = ({a}+{b}+{c}+{d}+{atipico}) / 5 = {redondear(promedio(datos), 2)}"
-
-explicacion: |
-  El valor atípico ({atipico}) empuja bastante la media hacia arriba,
-  aunque los otros 4 valores sean todos parecidos y chicos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "avanzado"
-  tags: ["media", "mediana"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un valor atípico (mucho más grande o más chico que el resto) puede correr bastante el valor de la media, mientras que la mediana casi no se ve afectada por él."
-
-explicacion: |
-  La mediana sólo depende del ORDEN, no del valor exacto de cada
-  dato — un valor extremo sigue siendo 'el más alto', sin importar
-  cuán extremo sea.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
+  tema: "inecuaciones"
   nivel: "basico"
-  tags: ["media", "mediana", "aplicacion"]
-
-enunciado: "¿Por qué a veces se prefiere hablar del sueldo MEDIANO de un país en vez del sueldo PROMEDIO (media)?"
-tipo: mc
-opciones_explicitas:
-  - "Porque unos pocos sueldos extremadamente altos pueden subir mucho la media, sin representar el sueldo 'típico' de la mayoría"
-  - "Porque la mediana siempre da un número más alto que la media"
-  - "Porque la media no se puede calcular con sueldos"
-respuesta: "Porque unos pocos sueldos extremadamente altos pueden subir mucho la media, sin representar el sueldo 'típico' de la mayoría"
-
-explicacion: |
-  Es el ejemplo clásico de por qué elegir bien la medida importa —
-  desarrollado en detalle en `../cual-miente-y-cuando/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "intermedio"
-  tags: ["mediana", "problema"]
-
-variables:
-  paso: uno_de([2, 3, 5])
-  inicio: random(1, 10)
-  datos: [inicio, inicio + paso, inicio + paso * 2, inicio + paso * 3, inicio + paso * 4, inicio + paso * 5, inicio + paso * 6]
-
-respuesta: mediana(datos)
-tipo: input
-
-enunciado: "Estos 7 valores ya están ordenados de menor a mayor: {inicio}, {inicio + paso}, {inicio + paso * 2}, {inicio + paso * 3}, {inicio + paso * 4}, {inicio + paso * 5}, {inicio + paso * 6}. ¿Cuál es la mediana?"
-
-pasos:
-  - "Con 7 valores ya ordenados, la mediana es el 4° valor: {mediana(datos)}"
-
-explicacion: |
-  Ya estando ordenados, sólo hace falta contar hasta el valor central.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "avanzado"
-  tags: ["media", "mediana"]
-
-enunciado: "¿Cuál de las tres medidas de tendencia central es más resistente a la presencia de valores atípicos?"
-tipo: mc
-opciones_explicitas:
-  - "La mediana"
-  - "La media"
-  - "Las tres son igual de sensibles a los valores atípicos"
-respuesta: "La mediana"
-
-explicacion: |
-  Sólo depende del orden de los datos, no de cuán extremo sea el
-  valor más alto o más bajo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "avanzado"
-  tags: ["mediana"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando hay una cantidad par de datos, la mediana (el promedio de los dos centrales) puede ser un valor que no está entre los datos originales."
-
-explicacion: |
-  Por ejemplo, con {2, 4, 6, 8}, la mediana es (4+6)/2=5, que no
-  aparece en la lista original.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "avanzado"
-  tags: ["media", "mediana", "problema"]
-
-variables:
-  centro: random(20, 50)
-  paso: uno_de([3, 5, 8])
-  datos: [centro - paso * 2, centro - paso, centro, centro + paso, centro + paso * 2]
-
-respuesta: promedio(datos)
-tipo: input
-
-enunciado: "Con los valores {centro - paso * 2}, {centro - paso}, {centro}, {centro + paso}, {centro + paso * 2} (equidistantes entre sí), ¿cuál es la media?"
-
-pasos:
-  - "Al ser equidistantes alrededor de {centro}, la media coincide exactamente con la mediana: {promedio(datos)}"
-
-explicacion: |
-  Cuando los datos son simétricos alrededor de un valor central, media
-  y mediana coinciden.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "intermedio"
-  tags: ["moda", "problema"]
-
-variables:
-  talle_popular: uno_de([38, 40, 42])
-  otro1: uno_de([36, 44])
-  otro2: uno_de([36, 44])
-  datos: [talle_popular, talle_popular, talle_popular, talle_popular, otro1, otro2]
-
-respuesta: talle_popular
-tipo: input
-
-enunciado: "Una tienda vendió estos talles de zapatillas: {talle_popular}, {talle_popular}, {talle_popular}, {talle_popular}, {otro1}, {otro2}. ¿Cuál es el talle moda (el más vendido)?"
-
-pasos:
-  - "{talle_popular} se repite 4 veces, más que cualquier otro talle."
-
-explicacion: |
-  La moda es especialmente útil para decidir qué talle pedir más stock.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "avanzado"
-  tags: ["media", "mediana", "moda"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ninguna de las tres medidas (media, mediana, moda) es 'la correcta' en todos los casos — cuál conviene usar depende de qué pregunta se quiere responder y de cómo están distribuidos los datos."
-
-explicacion: |
-  Por eso el próximo módulo se llama justamente 'Cuál miente y
-  cuándo'.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "intermedio"
-  tags: ["media", "problema"]
-
-variables:
-  a: random(50, 70)
-  b: random(50, 70)
-  c: random(50, 70)
-  datos: [a, b, c]
-
-respuesta: redondear(promedio(datos), 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Tres exámenes de un alumno dieron estas notas: {a}, {b}, {c} (sobre 100). ¿Cuál es la nota media?"
-
-pasos:
-  - "({a}+{b}+{c}) / 3 = {redondear(promedio(datos), 2)}"
-
-explicacion: |
-  Con valores parecidos entre sí (sin atípicos), la media representa
-  bien el rendimiento típico.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "avanzado"
-  tags: ["moda"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La moda es la única de las tres medidas que tiene sentido calcular incluso con datos que no son números (como colores favoritos o marcas de auto más elegidas)."
-
-explicacion: |
-  No se puede sumar ni ordenar "rojo" y "azul", pero sí se puede
-  contar cuál aparece más veces.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "avanzado"
-  tags: ["mediana", "problema"]
-
-variables:
-  valor: random(10, 30)
-  extra1: random(1, 9)
-  extra2: random(31, 40)
-
-respuesta: valor
-tipo: input
-
-enunciado: "Estos 4 valores son: {extra1}, {valor}, {valor}, {extra2}. ¿Cuál es la mediana?"
-
-pasos:
-  - "Ordenados: {extra1}, {valor}, {valor}, {extra2}. Los dos centrales son {valor} y {valor}."
-  - "Mediana = ({valor}+{valor})/2 = {valor}"
-
-explicacion: |
-  Cuando los dos valores centrales son iguales, la mediana coincide
-  exactamente con ese valor repetido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "media_mediana_y_moda"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirven la media, la mediana y la moda?"
-tipo: mc
-opciones_explicitas:
-  - "Para resumir un conjunto de datos en un solo número que represente su 'centro', cada una desde un criterio distinto"
-  - "Sólo sirven para calcular notas escolares"
-  - "Las tres dan siempre exactamente el mismo resultado"
-respuesta: "Para resumir un conjunto de datos en un solo número que represente su 'centro', cada una desde un criterio distinto"
-
-explicacion: |
-  Es la base directa de `../cual-miente-y-cuando/` y de
-  `../tablas-de-frecuencia-cuartiles-percentiles-y-varianza/`.
-```
-
-## Sección: muestreo-y-sesgo (20 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "basico"
-  tags: ["muestreo", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia entre población y muestra?"
-tipo: mc
-opciones_explicitas:
-  - "La población es el grupo completo que interesa estudiar; la muestra es el subconjunto más chico que realmente se mide"
-  - "Son dos nombres distintos para exactamente lo mismo"
-  - "La muestra siempre es más grande que la población"
-respuesta: "La población es el grupo completo que interesa estudiar; la muestra es el subconjunto más chico que realmente se mide"
-
-explicacion: |
-  Se estudia la muestra para sacar conclusiones sobre la población
-  completa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "basico"
-  tags: ["muestreo"]
-
-enunciado: "¿Por qué casi siempre se estudia una muestra en vez de censar a toda la población?"
-tipo: mc
-opciones_explicitas:
-  - "Porque censar a toda la población suele ser demasiado caro, lento o directamente imposible"
-  - "Porque las muestras siempre dan resultados más precisos que censar a toda la población"
-  - "Porque está prohibido por ley censar poblaciones completas"
-respuesta: "Porque censar a toda la población suele ser demasiado caro, lento o directamente imposible"
-
-explicacion: |
-  Un censo completo (como el censo nacional) es la excepción, no la
-  regla, justamente por su costo y complejidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "basico"
-  tags: ["muestreo", "vocabulario"]
-
-enunciado: "¿Qué significa que una muestra sea 'representativa'?"
-tipo: mc
-opciones_explicitas:
-  - "Que sus características (promedios, proporciones, dispersión) se parecen a las de la población completa"
-  - "Que incluye a absolutamente todos los miembros de la población"
-  - "Que fue elegida por el investigador a mano, uno por uno"
-respuesta: "Que sus características (promedios, proporciones, dispersión) se parecen a las de la población completa"
-
-explicacion: |
-  Es lo que permite generalizar conclusiones de la muestra hacia toda
-  la población.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "intermedio"
-  tags: ["muestreo", "vocabulario"]
-
-enunciado: "¿Qué caracteriza al muestreo aleatorio simple?"
-tipo: mc
-opciones_explicitas:
-  - "Cada elemento de la población tiene exactamente la misma probabilidad de ser elegido"
-  - "Se eligen sólo los elementos más fáciles de conseguir"
-  - "Se elige un elemento cada 10 posiciones de una lista"
-respuesta: "Cada elemento de la población tiene exactamente la misma probabilidad de ser elegido"
-
-explicacion: |
-  Es el ideal teórico, como sortear nombres de un bolillero.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "intermedio"
-  tags: ["muestreo", "vocabulario"]
-
-enunciado: "¿En qué consiste el muestreo estratificado?"
-tipo: mc
-opciones_explicitas:
-  - "Se divide la población en subgrupos según alguna característica relevante, y se muestrea de cada subgrupo en proporción a su tamaño"
-  - "Se toman sólo los elementos más accesibles, sin ningún criterio adicional"
-  - "Se sortea un único elemento y se asume que representa a toda la población"
-respuesta: "Se divide la población en subgrupos según alguna característica relevante, y se muestrea de cada subgrupo en proporción a su tamaño"
-
-explicacion: |
-  Garantiza que ningún subgrupo quede sub- o sobre-representado por
-  puro azar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "intermedio"
-  tags: ["muestreo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el muestreo estratificado, la población se divide primero en subgrupos (estratos) antes de elegir a quién muestrear de cada uno."
-
-explicacion: |
-  Por ejemplo, dividir por provincia o por curso antes de sortear
-  dentro de cada grupo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "basico"
-  tags: ["sesgo", "vocabulario"]
-
-enunciado: "¿Qué significa que una muestra esté 'sesgada'?"
-tipo: mc
-opciones_explicitas:
-  - "Que el método usado para elegirla favorece sistemáticamente a cierto tipo de casos, así que no representa a la población real"
-  - "Que tiene muy pocos elementos"
-  - "Que se recolectó demasiado rápido"
-respuesta: "Que el método usado para elegirla favorece sistemáticamente a cierto tipo de casos, así que no representa a la población real"
-
-explicacion: |
-  El sesgo es un problema del MÉTODO de selección, no del tamaño de
-  la muestra.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "intermedio"
-  tags: ["sesgo", "aplicacion"]
-
-enunciado: "Un estudio encuesta a personas en la calle un martes a las 11 de la mañana, para estimar la opinión de 'toda la población adulta' sobre un tema. ¿Qué problema tiene este método?"
-tipo: mc
-opciones_explicitas:
-  - "Sesgo de selección: excluye sistemáticamente a quienes están trabajando en ese horario, un grupo grande de la población"
-  - "Ningún problema, porque la calle es un lugar público abierto a cualquiera"
-  - "El único problema es que la muestra es demasiado grande"
-respuesta: "Sesgo de selección: excluye sistemáticamente a quienes están trabajando en ese horario, un grupo grande de la población"
-
-explicacion: |
-  El horario y el lugar de la encuesta ya determinan qué tipo de
-  personas tienen chance de ser encuestadas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "intermedio"
-  tags: ["sesgo", "vocabulario"]
-
-enunciado: "¿Qué es el sesgo del voluntario?"
-tipo: mc
-opciones_explicitas:
-  - "Que quienes se ofrecen espontáneamente a participar de un estudio suelen tener características distintas del resto de la población"
-  - "Que los voluntarios siempre mienten en sus respuestas"
-  - "Que un estudio con voluntarios nunca puede tener sesgo"
-respuesta: "Que quienes se ofrecen espontáneamente a participar de un estudio suelen tener características distintas del resto de la población"
-
-explicacion: |
-  Por ejemplo, más motivación, más tiempo libre, u opiniones más
-  extremas que el promedio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "avanzado"
-  tags: ["sesgo", "aplicacion"]
-
-enunciado: "Una encuesta de 1936, con más de 2 millones de respuestas, predijo mal el resultado de una elección presidencial porque armó su lista de encuestados a partir de guías telefónicas y registros de autos (en plena Depresión, bienes de clase media-alta). ¿Qué enseña este caso?"
-tipo: mc
-opciones_explicitas:
-  - "Que una muestra gigante sigue estando sesgada si el método de selección está sesgado — el tamaño no arregla el sesgo"
-  - "Que las encuestas con más de un millón de respuestas nunca pueden estar equivocadas"
-  - "Que las guías telefónicas eran, en esa época, la mejor forma posible de armar una muestra"
-respuesta: "Que una muestra gigante sigue estando sesgada si el método de selección está sesgado — el tamaño no arregla el sesgo"
-
-explicacion: |
-  Es el ejemplo histórico estándar de sesgo de selección: el tamaño
-  de la muestra (2 millones) no compensó que el método excluía
-  sistemáticamente a buena parte del electorado real.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "avanzado"
-  tags: ["sesgo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una muestra grande no garantiza que sea representativa, si el método usado para elegirla está sesgado."
-
-explicacion: |
-  Agrandar una muestra reduce el error por azar, pero no corrige un
-  sesgo sistemático en cómo se la construyó.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "intermedio"
-  tags: ["muestreo", "completar"]
-
-tipo: completar
-enunciado: "Completá: un método de muestreo que le da a cada elemento de la población la misma probabilidad de ser elegido se llama muestreo aleatorio ___."
-respuestas_validas:
-  - "simple"
-
-explicacion: |
-  Es el ideal teórico, aunque en la práctica no siempre se puede
-  armar la lista completa de la población para sortear.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "avanzado"
-  tags: ["muestreo", "problema"]
-
-variables:
-  poblacion_total: 1000
-  poblacion_estrato: uno_de([200, 250, 400])
-  muestra_total: 100
-
-respuesta: redondear(muestra_total * (poblacion_estrato / poblacion_total), 0)
-tipo: input
-
-enunciado: "Una escuela tiene {poblacion_total} alumnos en total, de los cuales {poblacion_estrato} son de un curso particular. Si se arma una muestra estratificada de {muestra_total} alumnos, ¿cuántos deberían salir de ese curso, en proporción a su tamaño?"
-
-pasos:
-  - "Proporción del estrato = {poblacion_estrato}/{poblacion_total}"
-  - "Cantidad de la muestra = {muestra_total} × ({poblacion_estrato}/{poblacion_total}) = {redondear(muestra_total * (poblacion_estrato / poblacion_total), 0)}"
-
-explicacion: |
-  El muestreo estratificado respeta el peso real de cada subgrupo
-  dentro de la población.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "intermedio"
-  tags: ["muestreo", "vocabulario"]
-
-enunciado: "¿En qué consiste el muestreo sistemático?"
-tipo: mc
-opciones_explicitas:
-  - "Se elige un elemento cada k posiciones de una lista ordenada (por ejemplo, cada 10° cliente que entra a un local)"
-  - "Se dividen los elementos en subgrupos según alguna característica"
-  - "Se eligen sólo los elementos que están más a mano"
-respuesta: "Se elige un elemento cada k posiciones de una lista ordenada (por ejemplo, cada 10° cliente que entra a un local)"
-
-explicacion: |
-  Es más fácil de aplicar que el aleatorio simple puro, si ya existe
-  una lista ordenada de la población.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "intermedio"
-  tags: ["muestreo", "sesgo", "vocabulario"]
-
-enunciado: "¿Qué caracteriza al muestreo por conveniencia, y por qué es el más riesgoso de los cuatro?"
-tipo: mc
-opciones_explicitas:
-  - "Se toma lo que está más a mano (los primeros que responden, quienes pasan por la puerta) — es el más fácil y barato, pero también el que más riesgo tiene de terminar sesgado"
-  - "Se sortea entre absolutamente todos los elementos de la población con la misma probabilidad, por eso nunca tiene sesgo"
-  - "Es el método más costoso de todos, pero el más preciso"
-respuesta: "Se toma lo que está más a mano (los primeros que responden, quienes pasan por la puerta) — es el más fácil y barato, pero también el que más riesgo tiene de terminar sesgado"
-
-explicacion: |
-  La facilidad de armarlo es, justamente, lo que suele introducir
-  sesgo de selección.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "avanzado"
-  tags: ["sesgo", "muestreo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aumentar el tamaño de una muestra reduce el error debido al azar, pero NO corrige un sesgo sistemático que venga del método usado para elegirla."
-
-explicacion: |
-  Son dos problemas distintos: el error por azar se reduce con más
-  datos; el sesgo es un problema del método, no de la cantidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "avanzado"
-  tags: ["muestreo", "normal"]
-
-enunciado: "Si se toman muchas muestras distintas de la misma población y se calcula el promedio de cada una, ¿cómo tienden a distribuirse esos promedios?"
-tipo: mc
-opciones_explicitas:
-  - "Tienden a distribuirse en forma de campana (aproximadamente normal), sin importar cómo se distribuya la población original"
-  - "Siempre dan exactamente el mismo valor, sin ninguna variación"
-  - "Se distribuyen de forma completamente impredecible, sin ningún patrón"
-respuesta: "Tienden a distribuirse en forma de campana (aproximadamente normal), sin importar cómo se distribuya la población original"
-
-explicacion: |
-  Es la idea que se formaliza en `../teorema-central-del-limite/`, el
-  módulo que sigue.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "basico"
-  tags: ["muestreo", "aplicacion"]
-
-enunciado: "¿Por qué las encuestadoras políticas serias invierten tanto esfuerzo en el método de muestreo (y no sólo en juntar muchas respuestas)?"
-tipo: mc
-opciones_explicitas:
-  - "Porque una muestra sesgada, aunque sea grande, produce una estimación torcida de la opinión pública real — el método importa más que la cantidad"
-  - "Porque la ley obliga a usar un método de muestreo específico en todas las encuestas"
-  - "Porque cuantas más respuestas se junten, siempre es mejor sin importar cómo se consiguieron"
-respuesta: "Porque una muestra sesgada, aunque sea grande, produce una estimación torcida de la opinión pública real — el método importa más que la cantidad"
-
-explicacion: |
-  Es la misma lección del caso histórico de 1936, aplicada a encuestas
-  actuales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "intermedio"
-  tags: ["sesgo", "problema"]
-
-enunciado: "Una encuesta se publica únicamente en una app de noticias, y se pide a quien la vea que la responda si quiere. ¿Qué tipo de sesgo tiene más probabilidad de aparecer en los resultados?"
-tipo: mc
-opciones_explicitas:
-  - "Sesgo de selección (sólo llega a quien usa esa app) combinado con sesgo del voluntario (sólo responde quien elige hacerlo)"
-  - "Ningún sesgo, porque cualquiera con la app puede responder si quiere"
-  - "Sólo hay sesgo si la encuesta tiene menos de 100 respuestas"
-respuesta: "Sesgo de selección (sólo llega a quien usa esa app) combinado con sesgo del voluntario (sólo responde quien elige hacerlo)"
-
-explicacion: |
-  Quien no usa esa app queda afuera de entrada, y entre quienes sí la
-  usan, sólo responde quien decide hacerlo — dos filtros, dos sesgos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "muestreo_y_sesgo"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve entender los tipos de muestreo y de sesgo?"
-tipo: mc
-opciones_explicitas:
-  - "Para poder evaluar si una muestra realmente representa a la población que dice representar, antes de confiar en sus conclusiones"
-  - "Sólo sirve para diseñar encuestas políticas"
-  - "Sólo importa si la población es muy grande"
-respuesta: "Para poder evaluar si una muestra realmente representa a la población que dice representar, antes de confiar en sus conclusiones"
-
-explicacion: |
-  Es el fundamento sobre el que se construyen
-  `../teorema-central-del-limite/`, `../intervalo-de-confianza/` y
-  `../test-de-hipotesis/`.
-```
-
-## Sección: multiplicacion (40 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "tablas"]
-
-variables:
-  n: random(1, 10)
-
-respuesta: 2 * n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es 2 × {n}?"
-
-explicacion: |
-  La tabla del 2 es sumar 2 tantas veces como indique el otro factor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "tablas"]
-
-variables:
-  n: random(1, 10)
-
-respuesta: 5 * n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es 5 × {n}?"
-
-explicacion: |
-  La tabla del 5 siempre termina en 0 o en 5: sirve para verificar el
-  resultado a simple vista.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "tablas"]
-
-variables:
-  n: random(1, 10)
-
-respuesta: 9 * n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es 9 × {n}?"
-
-explicacion: |
-  La tabla del 9 tiene un patrón: la cifra de las decenas del resultado es
-  siempre uno menos que el otro factor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "tablas"]
-
-variables:
-  a: random(2, 9)
-  b: random(2, 9)
-
-respuesta: a * b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} × {b}?"
-
-explicacion: |
-  Es la tabla de multiplicar de {a} (o de {b}), en el lugar que le
-  corresponde a {b} (o a {a}).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "sin_llevar"]
-
-variables:
-  d: random(1, 4)
-  u: random(0, 4)
-  m: 2
-  a: d * 10 + u
-
-respuesta: a * m
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} × {m}?"
-
-pasos:
-  - "Unidades: {u} × {m} = {u * m}. Decenas: {d} × {m} = {d * m}."
-
-explicacion: |
-  Sin llevar, se multiplica cada cifra del número por el factor y se
-  colocan los resultados en su columna, sin ajustar nada entre ellas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "sin_llevar"]
-
-variables:
-  d: random(1, 3)
-  u: random(0, 3)
-  m: 3
-  a: d * 10 + u
-
-respuesta: a * m
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} × {m}?"
-
-explicacion: |
-  Mismo procedimiento con otro factor: cada cifra se multiplica por
-  separado, sin llevar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "intermedio"
-  tags: ["multiplicacion", "con_llevada"]
-
-variables:
-  d: random(1, 9)
-  u: random(4, 9)
-  m: random(4, 9)
-  a: d * 10 + u
-
-respuesta: a * m
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} × {m}?"
-
-pasos:
-  - "Unidades: {u} × {m} = {u * m} → se escribe {(u * m) - (floor((u * m) / 10) * 10)} y se lleva {floor((u * m) / 10)} a las decenas"
-
-explicacion: |
-  Cuando un producto parcial da 10 o más, se escribe sólo la cifra de las
-  unidades de ese resultado y se lleva el resto a la columna siguiente,
-  donde se suma al próximo producto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "intermedio"
-  tags: ["multiplicacion", "con_llevada", "problema"]
-
-variables:
-  d: random(1, 9)
-  u: random(4, 9)
-  m: random(4, 9)
-  a: d * 10 + u
-
-respuesta: a * m
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Cada caja tiene {a} lápices. ¿Cuántos lápices hay en {m} cajas?"
-
-explicacion: |
-  El planteo es el mismo que una multiplicación numérica; el contexto sólo
-  dice qué representa cada factor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "avanzado"
-  tags: ["multiplicacion", "con_llevada"]
-
-variables:
-  c: random(1, 9)
-  d: random(0, 9)
-  u: random(4, 9)
-  m: random(4, 9)
-  a: c * 100 + d * 10 + u
-
-respuesta: a * m
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} × {m}?"
-
-explicacion: |
-  Con más cifras el procedimiento es el mismo: se multiplica cada cifra por
-  el factor, llevando el sobrante de cada columna a la siguiente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "avanzado"
-  tags: ["multiplicacion", "columna_completa"]
-
-variables:
-  a: random(11, 49)
-  b: random(11, 49)
-
-respuesta: a * b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} × {b}?"
-
-pasos:
-  - "Se multiplica {a} por las unidades de {b}, después por las decenas de {b} (corriendo un lugar), y se suman los dos productos parciales"
-
-explicacion: |
-  Multiplicar por un número de 2 cifras es repetir el algoritmo una vez por
-  cada cifra del segundo factor, y sumar los productos parciales al final.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "avanzado"
-  tags: ["multiplicacion", "columna_completa"]
-
-variables:
-  a: random(50, 99)
-  b: random(11, 30)
-
-respuesta: a * b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} × {b}?"
-
-explicacion: |
-  El procedimiento no cambia con números más grandes: productos parciales,
-  uno por cada cifra del segundo factor, sumados al final.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "potencias_de_10"]
-
-variables:
-  a: random(1, 999)
-  potencia: uno_de([10, 100, 1000])
-
-respuesta: a * potencia
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} × {potencia}?"
-
-explicacion: |
-  Multiplicar por una potencia de 10 es agregar al final tantos ceros como
-  tenga esa potencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "potencias_de_10"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Multiplicar un número entero por 100 es agregarle dos ceros al final."
-
-explicacion: |
-  Cada cero de la potencia de 10 corre las cifras un lugar más hacia la
-  izquierda en el valor posicional.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "propiedades"]
-
-variables:
-  a: random(2, 90)
-  b: random(2, 90)
-
-restricciones:
-  - a != b
-
-respuesta: a * b
-tipo: mc
-opciones_explicitas:
-  - b * a
-  - a * b + 1
-  - a * b - 1
-
-enunciado: "¿Cuál de estas opciones da el mismo resultado que {a} × {b}?"
-
-explicacion: |
-  Cambiar el orden de los factores no cambia el resultado (propiedad
-  conmutativa): {a} × {b} es exactamente lo mismo que {b} × {a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "propiedades"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cambiar el orden de los factores no cambia el resultado de una multiplicación."
-
-explicacion: |
-  Es la propiedad conmutativa: a × b siempre da lo mismo que b × a.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "intermedio"
-  tags: ["multiplicacion", "propiedades"]
-
-variables:
-  a: random(2, 9)
-  b: random(2, 9)
-  c: random(2, 9)
-
-respuesta: ((a * b) * c == a * (b * c))
-tipo: vf
-
-enunciado: "¿Es cierto que ({a} × {b}) × {c} da lo mismo que {a} × ({b} × {c})?"
-
-explicacion: |
-  Es la propiedad asociativa: no importa qué par de factores se
-  multiplique primero, el resultado final es siempre el mismo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "intermedio"
-  tags: ["multiplicacion", "propiedades", "calculo_mental"]
-
-variables:
-  a: random(2, 9)
-  b: 5
-  c: random(2, 9)
-
-respuesta: a * b * c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} × {b} × {c}?"
-
-pasos:
-  - "Conviene multiplicar primero por el 5, que da un número redondo con un par: {b} × {c} = {b * c}, y después × {a}: {a} × {b * c} = {a * b * c}"
-
-explicacion: |
-  La propiedad asociativa permite elegir qué par multiplicar primero:
-  agrupar los números "más fáciles" ahorra trabajo mental.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "propiedades"]
-
-variables:
-  a: random(1, 999)
-
-respuesta: a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} × 1?"
-
-explicacion: |
-  Multiplicar por 1 no cambia nada: el resultado es siempre el mismo
-  número con el que se empezó.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "propiedades"]
-
-variables:
-  a: random(1, 999)
-
-respuesta: 0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} × 0?"
-
-explicacion: |
-  Multiplicar por 0 siempre da 0, sin importar qué tan grande sea el otro
-  factor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "propiedades"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: falso
+
 tipo: vf
 
-enunciado: "Multiplicar por 0 da como resultado el mismo número, igual que multiplicar por 1."
+enunciado: "Una identidad es verdadera sólo para un valor puntual de x, igual que una ecuación."
 
 explicacion: |
-  Son propiedades distintas: multiplicar por 1 no cambia el número
-  (elemento neutro), pero multiplicar por 0 siempre da 0 (elemento
-  absorbente).
+  Al revés: una identidad es verdadera para CUALQUIER valor de x. La que
+  tiene un valor puntual como solución es la ecuación.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "intermedio"
-  tags: ["multiplicacion", "propiedades"]
+  tema: "inecuaciones"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
-variables:
-  a: random(2, 9)
-  b: random(1, 40)
-  c: random(1, 40)
-
-respuesta: (a * (b + c) == a * b + a * c)
+respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es cierto que {a} × ({b} + {c}) da lo mismo que {a} × {b} + {a} × {c}?"
+enunciado: "El conjunto solución de una inecuación suele ser un rango de infinitos valores, no un único número."
 
 explicacion: |
-  Es la propiedad distributiva: repartir un factor entre una suma da lo
-  mismo que multiplicar cada término por separado y sumar después.
+  Por eso se escribe como "x < 3" y no como "x = 3".
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "multiplicacion"
+  tema: "inecuaciones"
   nivel: "intermedio"
-  tags: ["multiplicacion", "propiedades", "calculo_mental"]
+  tags: ["concepto", "verdadero_falso"]
 
-variables:
-  a: random(2, 9)
-  b: random(1, 8) * 10
-  c: random(1, 9)
+respuesta: verdadero
+tipo: vf
 
-respuesta: a * (b + c)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Usá la propiedad distributiva para calcular {a} × ({b} + {c})."
-
-pasos:
-  - "{a} × {b} + {a} × {c} = {a * b} + {a * c} = {a * b + a * c}"
+enunciado: "Si al dividir los dos lados de una inecuación por un número negativo no se da vuelta la desigualdad, el conjunto solución puede quedar completamente al revés."
 
 explicacion: |
-  Separar en una parte "redonda" ({b}) y una chica ({c}) hace que la
-  cuenta se pueda resolver mentalmente por partes.
+  El resultado incluiría valores que no cumplen la inecuación original, y
+  excluiría valores que sí la cumplen.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "multiplicacion"
+  tema: "inecuaciones"
   nivel: "intermedio"
-  tags: ["multiplicacion", "propiedades"]
+  tags: ["conjunto_solucion", "opcion_multiple"]
 
 variables:
-  a: random(2, 9)
+  a: random(2, 10)
   b: random(1, 20)
-  c: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
 
-respuesta: a * b + a * c
+respuesta: concatenar("x < ", sol)
 tipo: mc
 opciones_explicitas:
-  - a * (b + c)
-  - a * b + c
-  - a + b * c
+  - concatenar("x < ", sol)
+  - concatenar("x > ", sol)
+  - concatenar("x = ", sol)
 
-enunciado: "¿Cuál de estas expresiones es igual a {a} × {b} + {a} × {c}?"
+enunciado: "¿Cuál es el conjunto solución de {a}x + {b} < {c}?"
 
 explicacion: |
-  Es la propiedad distributiva mirada al revés: la suma de dos productos
-  con el mismo factor se puede escribir como ese factor por la suma de los
-  otros dos.
+  Coeficiente positivo: la desigualdad no se da vuelta al despejar.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "vocabulario"]
+  tema: "inecuaciones"
+  nivel: "intermedio"
+  tags: ["conjunto_solucion", "opcion_multiple"]
 
-enunciado: "En la multiplicación 4 × 5 = 20, ¿cómo se llama el 20?"
+variables:
+  a: random(2, 10)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+
+respuesta: concatenar("x > ", sol)
 tipo: mc
 opciones_explicitas:
-  - "Producto"
-  - "Factor"
-  - "Cociente"
-respuesta: "Producto"
+  - concatenar("x > ", sol)
+  - concatenar("x < ", sol)
+  - concatenar("x = ", sol)
+
+enunciado: "¿Cuál es el conjunto solución de {a}x + {b} > {c}?"
 
 explicacion: |
-  El resultado de una multiplicación se llama producto; los números que se
-  multiplican son los factores.
+  Coeficiente positivo: se despeja igual que en una ecuación, sin dar
+  vuelta la desigualdad.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "vocabulario"]
+  tema: "inecuaciones"
+  nivel: "avanzado"
+  tags: ["conjunto_solucion", "signos", "opcion_multiple"]
 
-enunciado: "En la multiplicación 4 × 5 = 20, ¿cómo se llaman el 4 y el 5?"
+variables:
+  a: random(-10, -2)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+
+respuesta: concatenar("x > ", sol)
 tipo: mc
 opciones_explicitas:
-  - "Factores"
-  - "Productos"
-  - "Divisores"
-respuesta: "Factores"
+  - concatenar("x > ", sol)
+  - concatenar("x < ", sol)
+  - concatenar("x = ", sol)
+
+enunciado: "¿Cuál es el conjunto solución de {a}x + {b} < {c}? (atención al signo de {a})"
 
 explicacion: |
-  Los números que se multiplican se llaman factores; el resultado es el
-  producto.
+  Como {a} es negativo, al dividir para despejar x la desigualdad se da
+  vuelta: de "<" pasa a ">".
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "intermedio"
-  tags: ["multiplicacion", "estimacion"]
-
-variables:
-  a: random(11, 88)
-  b: random(2, 9)
-  ra: redondear(a / 10, 0) * 10
-
-respuesta: ra * b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Redondeá {a} a la decena más cercana y multiplicalo por {b}. ¿Cuánto da la estimación?"
-
-pasos:
-  - "{a} redondea a {ra}. {ra} × {b} = {ra * b}"
-
-explicacion: |
-  Estimar una multiplicación es redondear uno de los factores antes de
-  multiplicar, para tener una idea rápida del resultado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
+  tema: "inecuaciones"
   nivel: "avanzado"
-  tags: ["multiplicacion", "estimacion"]
+  tags: ["conjunto_solucion", "signos", "opcion_multiple"]
 
 variables:
-  a: random(11, 88)
-  b: random(11, 88)
-  ra: redondear(a / 10, 0) * 10
-  rb: redondear(b / 10, 0) * 10
-
-respuesta: ra * rb
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Redondeá {a} y {b} a la decena más cercana y multiplicá esos redondeos. ¿Cuánto da la estimación?"
-
-explicacion: |
-  Redondear los dos factores antes de multiplicar da una idea rápida de la
-  magnitud del resultado, sin hacer la cuenta exacta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "verificacion"]
-
-variables:
-  a: random(2, 9)
-  b: random(2, 9)
-  correcto: a * b
-  error: uno_de([0, 0, 0, 1, -1])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien resuelta esta multiplicación? {a} × {b} = {mostrado}"
-
-explicacion: |
-  Para verificar una multiplicación hay que volver a calcularla, no
-  alcanza con que el número parezca razonable.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "intermedio"
-  tags: ["multiplicacion", "verificacion"]
-
-variables:
-  d: random(1, 9)
-  u: random(0, 9)
-  m: random(2, 9)
-  a: d * 10 + u
-  correcto: a * m
-  error: uno_de([0, 0, 0, 1, -1, 10])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien resuelta esta multiplicación? {a} × {m} = {mostrado}"
-
-explicacion: |
-  Un error típico es olvidarse de sumar la llevada de un producto parcial
-  al siguiente: conviene revisar columna por columna.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "avanzado"
-  tags: ["multiplicacion", "verificacion"]
-
-variables:
-  a: random(11, 60)
-  b: random(11, 30)
-  correcto: a * b
-  error: uno_de([0, 0, 0, 1, -1, 100])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien resuelta esta multiplicación? {a} × {b} = {mostrado}"
-
-explicacion: |
-  Con dos cifras en cada factor hay más productos parciales donde puede
-  haber un error de cálculo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "problema"]
-
-variables:
-  filas: random(3, 12)
-  columnas: random(3, 12)
-
-respuesta: filas * columnas
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un salón tiene {filas} filas de sillas, con {columnas} sillas cada fila. ¿Cuántas sillas hay en total?"
-
-explicacion: |
-  Contar un arreglo en filas y columnas es multiplicar la cantidad de filas
-  por la cantidad de columnas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "problema"]
-
-variables:
-  grupos: random(2, 10)
-  n: random(3, 15)
-
-respuesta: grupos * n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Hay {grupos} grupos de {n} alumnos cada uno. ¿Cuántos alumnos hay en total?"
-
-explicacion: |
-  Varios grupos con la misma cantidad de elementos es el caso típico de
-  multiplicación: grupos × elementos por grupo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "intermedio"
-  tags: ["multiplicacion", "problema"]
-
-variables:
-  precio: random(50, 500)
-  cantidad: random(2, 9)
-
-respuesta: precio * cantidad
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Cada entrada cuesta ${precio}. ¿Cuánto cuestan {cantidad} entradas?"
-
-explicacion: |
-  El costo total de varias unidades iguales es el precio de una, repetido
-  tantas veces como unidades se compren.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "intermedio"
-  tags: ["multiplicacion", "problema"]
-
-variables:
-  n: random(2, 10)
-  dias: random(3, 20)
-
-respuesta: n * dias
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Si tomás {n} vasos de agua por día, ¿cuántos vasos tomás en {dias} días?"
-
-explicacion: |
-  Repetir la misma cantidad todos los días es multiplicar esa cantidad por
-  la cantidad de días.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "intermedio"
-  tags: ["multiplicacion", "termino_faltante"]
-
-variables:
-  a: random(2, 9)
-  x: random(2, 20)
-  total: a * x
-
-respuesta: x
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Por qué número hay que multiplicar {a} para obtener {total}?"
-
-pasos:
-  - "{total} ÷ {a} = {total / a}"
-
-explicacion: |
-  Buscar el factor que falta es, en realidad, hacer la división entre el
-  producto y el factor conocido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "intermedio"
-  tags: ["multiplicacion", "termino_faltante"]
-
-variables:
-  a: random(3, 12)
-  x: random(3, 15)
-  total: a * x
-
-respuesta: x
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Por qué número hay que multiplicar {a} para obtener {total}?"
-
-explicacion: |
-  El procedimiento es el mismo con números más grandes: dividir el
-  producto por el factor que ya se conoce.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "intermedio"
-  tags: ["multiplicacion", "termino_faltante"]
-
-variables:
-  a: random(2, 9)
-  x: random(2, 12)
-  total: a * x
-
-tipo: completar
-enunciado: "Completá: {a} × ___ = {total}."
-respuestas_validas:
-  - x
-
-explicacion: |
-  El número que falta es el que, multiplicado por {a}, da exactamente
-  {total}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "algoritmo_columna"]
-
-variables:
-  d: random(1, 9)
-  u: random(0, 9)
-  m: random(2, 9)
-  a: d * 10 + u
-  producto: a * m
-
-tipo: completar
-enunciado: "Completá el resultado: {a} × {m} = ___."
-respuestas_validas:
-  - producto
-
-explicacion: |
-  Se resuelve la multiplicación en columna, cifra por cifra, y se completa
-  con el resultado final.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos productos de menor a mayor resultado (sin calcularlos todos de una)."
-opciones_explicitas:
-  - "3 × 4"
-  - "2 × 5"
-  - "6 × 6"
-  - "4 × 4"
-respuesta_orden: ["2 × 5", "3 × 4", "4 × 4", "6 × 6"]
-
-explicacion: |
-  2×5=10, 3×4=12, 4×4=16, 6×6=36: hay que resolver cada producto antes de
-  poder ordenarlos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "multiplicacion"
-  nivel: "basico"
-  tags: ["multiplicacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Multiplicar es sumar el mismo número varias veces."
-
-explicacion: |
-  Es la idea central de la multiplicación: 4 × 3 es lo mismo que
-  4 + 4 + 4.
-```
-
-## Sección: notacion-cientifica (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "basico"
-  tags: ["notacion_cientifica", "vocabulario"]
-
-enunciado: "¿Cómo se escribe un número en notación científica?"
+  a: random(-10, -2)
+  b: random(1, 20)
+  sol: random(1, 20)
+  c: a * sol + b
+
+respuesta: concatenar("x < ", sol)
 tipo: mc
 opciones_explicitas:
-  - "a × 10ⁿ, con a entre 1 y 10"
-  - "Cualquier número multiplicado por 10"
-  - "Un número con muchos ceros"
-respuesta: "a × 10ⁿ, con a entre 1 y 10"
+  - concatenar("x < ", sol)
+  - concatenar("x > ", sol)
+  - concatenar("x = ", sol)
+
+enunciado: "¿Cuál es el conjunto solución de {a}x + {b} > {c}? (atención al signo de {a})"
 
 explicacion: |
-  El coeficiente a siempre tiene que estar entre 1 y 10 (1 ≤ a < 10).
+  Como {a} es negativo, ">" se da vuelta a "<" al despejar x.
 ```
+
+## Sección: funcion-inversa-composicion (24 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "notacion_cientifica"
+  tema: "funcion_inversa_composicion"
   nivel: "intermedio"
-  tags: ["notacion_cientifica", "conversion"]
+  tags: ["composicion"]
 
 variables:
-  a_entero: random(1, 9)
-  a_decimal: random(0, 9)
-  n: random(4, 8)
-  numero: (a_entero + a_decimal / 10) * (10 ^ n)
+  m: random(2, 8)
+  b: random(1, 15)
+  x: random(1, 10)
 
-respuesta: a_entero + a_decimal / 10
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Al escribir {numero} en notación científica, ¿cuál es el coeficiente (la parte \"a\")?"
-
-explicacion: |
-  Se corre la coma hasta que quede un solo dígito antes de ella: ese
-  número (con su parte decimal) es el coeficiente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica", "conversion"]
-
-variables:
-  a_entero: random(1, 9)
-  a_decimal: random(0, 9)
-  n: random(4, 8)
-  numero: (a_entero + a_decimal / 10) * (10 ^ n)
-
-respuesta: n
+respuesta: m * (x ^ 2) + b
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Al escribir {numero} en notación científica, ¿cuál es el exponente de 10?"
-
-explicacion: |
-  El exponente es la cantidad de lugares que se corrió la coma hacia la
-  izquierda.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "avanzado"
-  tags: ["notacion_cientifica", "conversion"]
-
-variables:
-  a_entero: random(1, 9)
-  a_decimal: random(0, 9)
-  n: random(3, 6)
-  numero: (a_entero + a_decimal / 10) / (10 ^ n)
-
-respuesta: a_entero + a_decimal / 10
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Al escribir {numero} en notación científica, ¿cuál es el coeficiente?"
-
-explicacion: |
-  Igual que con números grandes: se corre la coma hasta dejar un solo
-  dígito antes de ella.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "avanzado"
-  tags: ["notacion_cientifica", "conversion"]
-
-variables:
-  a_entero: random(1, 9)
-  a_decimal: random(0, 9)
-  n: random(3, 6)
-  numero: (a_entero + a_decimal / 10) / (10 ^ n)
-
-respuesta: -n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Al escribir {numero} en notación científica, ¿cuál es el exponente de 10?"
-
-explicacion: |
-  Con números menores a 1, el exponente da negativo: la coma se corrió
-  hacia la derecha.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica", "conversion"]
-
-variables:
-  a: random(1, 9)
-  n: random(3, 7)
-
-respuesta: a * (10 ^ n)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿A qué número equivale {a} × 10^{n}?"
+enunciado: "f(x) = {m}x + {b}, g(x) = x². ¿Cuánto vale (f∘g)({x})?"
 
 pasos:
-  - "{a} × 10^{n} corre la coma {n} lugares a la derecha: {a * (10 ^ n)}"
+  - "Primero g({x}) = {x}² = {x ^ 2}"
+  - "Después f({x ^ 2}) = {m}×{x ^ 2} + {b} = {m * (x ^ 2) + b}"
 
 explicacion: |
-  Un exponente positivo corre la coma hacia la derecha, agregando ceros.
+  (f∘g)(x) = f(g(x)): primero se aplica g, y el resultado entra a f.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "avanzado"
-  tags: ["notacion_cientifica", "conversion"]
+  tema: "funcion_inversa_composicion"
+  nivel: "intermedio"
+  tags: ["composicion"]
 
 variables:
-  a: random(1, 9)
-  n: random(2, 5)
+  m: random(2, 8)
+  b: random(1, 15)
+  x: random(1, 10)
 
-respuesta: a / (10 ^ n)
+respuesta: (m * x + b) ^ 2
 tipo: input
-tolerancia_abs: 0.00001
+tolerancia_abs: 0
 
-enunciado: "¿A qué número equivale {a} × 10^(-{n})?"
+enunciado: "f(x) = {m}x + {b}, g(x) = x². ¿Cuánto vale (g∘f)({x})?"
 
 pasos:
-  - "Un exponente negativo corre la coma {n} lugares a la izquierda: {a / (10 ^ n)}"
+  - "Primero f({x}) = {m}×{x} + {b} = {m * x + b}"
+  - "Después g({m * x + b}) = ({m * x + b})² = {(m * x + b) ^ 2}"
 
 explicacion: |
-  Un exponente negativo corre la coma hacia la izquierda.
+  Acá el orden es al revés: primero f, después g — da un resultado
+  distinto al ejercicio anterior.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "basico"
-  tags: ["notacion_cientifica", "vocabulario"]
+  tema: "funcion_inversa_composicion"
+  nivel: "intermedio"
+  tags: ["composicion"]
 
-respuesta: verdadero
+variables:
+  m1: random(2, 6)
+  b1: random(1, 10)
+  m2: random(2, 6)
+  b2: random(1, 10)
+  x: random(1, 15)
+
+respuesta: m1 * (m2 * x + b2) + b1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {m1}x + {b1}, g(x) = {m2}x + {b2}. ¿Cuánto vale (f∘g)({x})?"
+
+explicacion: |
+  Se calcula g({x}) primero, y ese resultado se usa como entrada de f.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
+  nivel: "intermedio"
+  tags: ["composicion"]
+
+variables:
+  m1: random(2, 6)
+  b1: random(1, 10)
+  m2: random(2, 6)
+  b2: random(1, 10)
+  x: random(1, 15)
+
+respuesta: m2 * (m1 * x + b1) + b2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {m1}x + {b1}, g(x) = {m2}x + {b2}. ¿Cuánto vale (g∘f)({x})?"
+
+explicacion: |
+  Ahora se calcula f primero — el resultado, en general, es distinto al
+  de (f∘g).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
+  nivel: "intermedio"
+  tags: ["composicion"]
+
+variables:
+  m: random(2, 5)
+  b: random(1, 10)
+  x: random(1, 15)
+
+respuesta: m * (m * x + b) + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {m}x + {b}. ¿Cuánto vale (f∘f)({x})?"
+
+pasos:
+  - "Primero f({x}) = {m * x + b}"
+  - "Después f({m * x + b}) = {m} × {m * x + b} + {b} = {m * (m * x + b) + b}"
+
+explicacion: |
+  Componer una función consigo misma es aplicarla dos veces seguidas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
+  nivel: "intermedio"
+  tags: ["composicion", "verificacion", "verdadero_falso"]
+
+variables:
+  m: random(2, 8)
+  b: random(1, 15)
+  x: random(1, 10)
+  real: m * (x ^ 2) + b
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
 tipo: vf
 
-enunciado: "En la notación científica a × 10ⁿ, el coeficiente \"a\" siempre tiene que cumplir 1 ≤ a < 10."
+enunciado: "f(x) = {m}x + {b}, g(x) = x². ¿Es correcto que (f∘g)({x}) = {propuesto}?"
 
 explicacion: |
-  Es la regla que define la forma correcta: ni con más de un dígito antes
-  de la coma, ni con la coma antes del primer dígito.
+  El valor correcto es f(g({x})) = {real}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica", "vocabulario"]
+  tema: "funcion_inversa_composicion"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: falso
+
 tipo: vf
 
-enunciado: "35 × 10⁶ está bien escrito como notación científica."
+enunciado: "En general, (f∘g)(x) es igual a (g∘f)(x)."
 
 explicacion: |
-  El coeficiente 35 es mayor o igual a 10: no cumple la regla. La forma
-  correcta sería 3,5 × 10⁷.
+  El orden en que se componen dos funciones cambia el resultado, salvo
+  casos particulares.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "notacion_cientifica"
+  tema: "funcion_inversa_composicion"
   nivel: "intermedio"
-  tags: ["notacion_cientifica", "comparacion"]
+  tags: ["inversa"]
 
 variables:
-  a1: random(1, 9)
-  n1: random(2, 8)
-  a2: random(1, 9)
-  n2: random(2, 8)
+  m: random(2, 8)
+  b: random(1, 15)
+  x_sol: random(1, 20)
+  oy: m * x_sol + b
 
-restricciones:
-  - n1 != n2
-
-respuesta: (n1 > n2)
-tipo: vf
-
-enunciado: "¿Es {a1} × 10^{n1} mayor que {a2} × 10^{n2}?"
-
-explicacion: |
-  Con exponentes distintos, alcanza con comparar los exponentes: gana el
-  mayor, sin importar el coeficiente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica", "comparacion"]
-
-variables:
-  n: random(2, 8)
-  a1: random(1, 8)
-  a2: a1 + 1
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es {a1} × 10^{n} mayor que {a2} × 10^{n}?"
-
-explicacion: |
-  Con el mismo exponente, se compara el coeficiente: {a1} es menor que
-  {a2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica"]
-
-variables:
-  a_entero: random(1, 9)
-  a_decimal: random(0, 9)
-  n: random(4, 8)
-  numero: (a_entero + a_decimal / 10) * (10 ^ n)
-  correcto: a_entero + a_decimal / 10
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - correcto * 10
-  - correcto / 10
-
-enunciado: "¿Cuál es el coeficiente correcto para escribir {numero} en notación científica?"
-
-explicacion: |
-  Las otras opciones no cumplen la regla de que el coeficiente esté entre
-  1 y 10.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica", "verificacion"]
-
-variables:
-  a: random(1, 9)
-  n: random(3, 7)
-  correcto: a * (10 ^ n)
-  error: uno_de([0, 0, 0, 1, -1])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien convertido esto? {a} × 10^{n} = {mostrado}"
-
-explicacion: |
-  Se vuelve a calcular corriendo la coma y se compara.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica"]
-
-variables:
-  a: random(1, 9)
-  n: random(3, 7)
-
-tipo: completar
-enunciado: "Completá: {a} × 10^___ = {a * (10 ^ n)}."
-respuestas_validas:
-  - n
-
-explicacion: |
-  Se cuenta cuántos lugares hay que correr la coma para llegar de {a} al
-  número completo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica", "problema"]
-
-variables:
-  a: random(1, 9)
-  n: random(6, 9)
-
-respuesta: a * (10 ^ n)
+respuesta: x_sol
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "La distancia a una estrella es {a} × 10^{n} km. ¿Cuántos km son, escritos en forma normal?"
+enunciado: "f(x) = {m}x + {b}. ¿Cuánto vale f⁻¹({oy})?"
+
+pasos:
+  - "f⁻¹(y) deshace lo que hace f: buscar qué x cumple {m}x + {b} = {oy}"
+  - "x = ({oy} − {b}) / {m} = {(oy - b) / m}"
 
 explicacion: |
-  Las distancias astronómicas son un caso típico donde conviene la
-  notación científica.
+  f⁻¹({oy}) es el x que, aplicado a f, da {oy} — el mismo cálculo que
+  despejar x en la ecuación {m}x + {b} = {oy}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "notacion_cientifica"
+  tema: "funcion_inversa_composicion"
+  nivel: "intermedio"
+  tags: ["inversa"]
+
+variables:
+  m: random(2, 10)
+  b: random(1, 20)
+  x_sol: random(1, 15)
+  oy: m * x_sol - b
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = {m}x − {b}. ¿Cuánto vale f⁻¹({oy})?"
+
+explicacion: |
+  x = ({oy} + {b}) / {m}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
+  nivel: "basico"
+  tags: ["inversa"]
+
+variables:
+  b: random(1, 20)
+  x_sol: random(1, 30)
+  oy: x_sol + b
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = x + {b}. ¿Cuánto vale f⁻¹({oy})?"
+
+explicacion: |
+  Si f suma {b}, f⁻¹ resta {b}: x = {oy} − {b}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
   nivel: "avanzado"
-  tags: ["notacion_cientifica", "problema"]
+  tags: ["inversa", "verificacion", "verdadero_falso"]
 
 variables:
-  a: random(1, 9)
-  n: random(6, 9)
+  m: random(2, 8)
+  b: random(1, 15)
+  x_sol: random(1, 20)
+  oy: m * x_sol + b
+  inv_y: (oy - b) / m
 
-respuesta: a / (10 ^ n)
-tipo: input
-tolerancia_abs: 0.000000001
-
-enunciado: "El diámetro de una célula es {a} × 10^(-{n}) metros. ¿Cuántos metros son, escritos en forma normal?"
-
-explicacion: |
-  Las medidas microscópicas también se escriben cómodas en notación
-  científica, con exponente negativo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "basico"
-  tags: ["notacion_cientifica"]
-
-variables:
-  n: random(2, 9)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos ceros tiene 10^{n} escrito en forma normal (después del 1)?"
-
-explicacion: |
-  10 elevado a n se escribe como un 1 seguido de n ceros.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica", "vocabulario"]
-
-respuesta: falso
+respuesta: ((m * inv_y + b) == oy)
 tipo: vf
 
-enunciado: "0,35 × 10⁸ está bien escrito como notación científica."
+enunciado: "f(x) = {m}x + {b}. Si f⁻¹({oy}) = {inv_y}, ¿f({inv_y}) da de vuelta {oy}?"
 
 explicacion: |
-  El coeficiente 0,35 es menor a 1: no cumple la regla. La forma correcta
-  sería 3,5 × 10⁷.
+  Aplicar f y después f⁻¹ (o al revés) tiene que devolver el valor
+  original — es la definición misma de función inversa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica", "conversion"]
+  tema: "funcion_inversa_composicion"
+  nivel: "avanzado"
+  tags: ["inversa", "verificacion", "verdadero_falso"]
 
 variables:
-  a_entero: random(1, 9)
-  a_decimal: random(0, 9)
-  n: random(3, 7)
-  numero: (a_entero + a_decimal / 10) * (10 ^ n)
-  a: a_entero + a_decimal / 10
+  m: random(2, 8)
+  b: random(1, 15)
+  x: random(1, 20)
+  fx: m * x + b
 
-respuesta: verdadero
+respuesta: (((fx - b) / m) == x)
 tipo: vf
 
-enunciado: "{numero} en notación científica es {a} × 10^{n}. ¿Es cierto que convertir {a} × 10^{n} de vuelta a forma normal da otra vez {numero}?"
+enunciado: "f(x) = {m}x + {b}. Si f({x}) = {fx}, ¿f⁻¹({fx}) da de vuelta {x}?"
 
 explicacion: |
-  Convertir y volver a convertir tiene que devolver el número original:
-  son dos formas de escribir la misma cantidad.
+  f⁻¹ deshace exactamente lo que hizo f.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "notacion_cientifica"
+  tema: "funcion_inversa_composicion"
   nivel: "intermedio"
-  tags: ["notacion_cientifica", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos números de menor a mayor."
-opciones_explicitas:
-  - "5 × 10^4"
-  - "2 × 10^6"
-  - "9 × 10^3"
-  - "1 × 10^5"
-respuesta_orden: ["9 × 10^3", "5 × 10^4", "1 × 10^5", "2 × 10^6"]
-
-explicacion: |
-  Primero se compara el exponente; entre exponentes iguales (acá no hay
-  ninguno repetido), recién se compararía el coeficiente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica", "comparacion"]
+  tags: ["inversa", "opcion_multiple"]
 
 variables:
-  a1: random(1, 9)
-  n1: random(2, 8)
-  a2: random(1, 9)
-  n2: random(2, 8)
-  a3: random(1, 9)
-  n3: random(2, 8)
+  m: random(2, 8)
+  b: random(1, 15)
+  x: random(1, 20)
 
-restricciones:
-  - n1 != n2
-  - n1 != n3
-  - n2 != n3
-
-respuesta: max(n1, n2, n3)
+respuesta: (x - b) / m
 tipo: mc
 opciones_explicitas:
-  - n1
-  - n2
-  - n3
+  - (x - b) / m
+  - (x + b) / m
+  - m * x - b
 
-enunciado: "Entre {a1}×10^{n1}, {a2}×10^{n2} y {a3}×10^{n3}, ¿cuál exponente corresponde al número mayor?"
+enunciado: "f(x) = {m}x + {b}. ¿Cuál es f⁻¹({x})?"
 
 explicacion: |
-  Con exponentes todos distintos, gana el mayor exponente sin importar el
-  coeficiente.
+  Se despeja x de y = {m}x + {b}: x = (y − {b}) / {m}. Cambiar el signo
+  del −{b} o no dividir por {m} son los errores típicos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "notacion_cientifica"
+  tema: "funcion_inversa_composicion"
   nivel: "basico"
-  tags: ["notacion_cientifica"]
+  tags: ["concepto", "verdadero_falso"]
 
-variables:
-  n: random(3, 9)
+respuesta: falso
 
-respuesta: 1
-tipo: input
-tolerancia_abs: 0
+tipo: vf
 
-enunciado: "Al escribir 10^{n} (un 1 seguido de {n} ceros) en notación científica, ¿cuál es el coeficiente?"
+enunciado: "f⁻¹(x) significa lo mismo que 1/f(x)."
 
 explicacion: |
-  Cuando el número ya es una potencia exacta de 10, el coeficiente es 1.
+  f⁻¹ es la función inversa (deshace la operación de f); 1/f(x) es el
+  recíproco numérico del resultado — son cosas distintas.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "notacion_cientifica"
+  tema: "funcion_inversa_composicion"
   nivel: "intermedio"
-  tags: ["notacion_cientifica", "problema"]
-
-variables:
-  a_entero: random(1, 9)
-  a_decimal: random(0, 9)
-
-respuesta: a_entero + a_decimal / 10
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "La población mundial es aproximadamente {a_entero},{a_decimal} × 10⁹ personas. ¿Cuál es el coeficiente de esa notación?"
-
-explicacion: |
-  El coeficiente es, directamente, la parte antes de la potencia de 10.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "intermedio"
-  tags: ["notacion_cientifica", "potencias"]
-
-variables:
-  n1: random(2, 6)
-  n2: random(2, 6)
-
-respuesta: n1 + n2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "10^{n1} × 10^{n2} = 10^x. ¿Cuánto vale x?"
-
-explicacion: |
-  Al multiplicar potencias de igual base (acá, 10), se suman los
-  exponentes — la misma propiedad de `../potencias/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "notacion_cientifica"
-  nivel: "basico"
-  tags: ["notacion_cientifica", "vocabulario"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La notación científica sirve para escribir cómodo números muy grandes o muy chicos, sin tener que contar montones de ceros."
+enunciado: "No toda función tiene inversa: hace falta que sea biyectiva (cada entrada con una salida distinta, y se alcancen todos los valores de llegada)."
 
 explicacion: |
-  Es la razón de ser de esta notación: comparar y operar con magnitudes
-  extremas sin perderse entre los ceros.
+  Por ejemplo, f(x) = x² no es invertible en todo su dominio, porque
+  f(2) y f(−2) dan el mismo resultado.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "notacion_cientifica"
+  tema: "funcion_inversa_composicion"
   nivel: "basico"
-  tags: ["notacion_cientifica", "vocabulario"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En a × 10ⁿ, un exponente positivo representa un número grande, y un exponente negativo representa un número menor a 1."
+enunciado: "f(f⁻¹(x)) tiene que dar x, para cualquier x del dominio de f⁻¹."
 
 explicacion: |
-  Es la idea central de todo el tema: el signo del exponente dice si el
-  número original era grande o chico.
+  Es exactamente la definición: aplicar una función y su inversa
+  devuelve el valor original.
 ```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+variables:
+  m: random(2, 10)
+  b: random(1, 20)
+  x: random(1, 20)
+
+respuesta: ((m * x + b) == (m * x + b))
+tipo: vf
+
+enunciado: "f(x) = {m}x + {b}, id(x) = x (la función identidad). ¿(f∘id)({x}) es igual a f({x})?"
+
+explicacion: |
+  Componer con la identidad no cambia nada: id no modifica su entrada
+  antes de pasarla a f.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
+  nivel: "avanzado"
+  tags: ["composicion", "problema"]
+
+variables:
+  desc: random(1, 20)
+  envio: random(5, 30)
+  precio: random(50, 200)
+
+respuesta: precio - desc + envio
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "d(p) = p − {desc} (aplica un descuento fijo), e(p) = p + {envio} (agrega el envío). Si el precio de lista es {precio} y se aplica primero el descuento y después se suma el envío, ¿cuál es el precio final? (Esto es (e∘d)({precio}))"
+
+explicacion: |
+  (e∘d)(p) = e(d(p)): primero se descuenta, y al resultado se le suma el
+  envío — el mismo orden que las operaciones se hacen en la vida real.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
+  nivel: "avanzado"
+  tags: ["inversa", "problema"]
+
+variables:
+  m: random(2, 5)
+  b: random(10, 40)
+  temp_sol: random(1, 30)
+  resultado: m * temp_sol + b
+
+respuesta: temp_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una fórmula de conversión es f(t) = {m}t + {b}. Si el resultado de aplicarla fue {resultado}, ¿cuál era el valor original de t (o sea, f⁻¹({resultado}))?"
+
+explicacion: |
+  Se despeja t de {m}t + {b} = {resultado}, el mismo procedimiento de
+  siempre para hallar la inversa evaluada en un punto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
+  nivel: "avanzado"
+  tags: ["verificacion", "error_comun", "verdadero_falso"]
+
+variables:
+  m: random(2, 8)
+  b: random(1, 15)
+  x_sol: random(1, 20)
+  oy: m * x_sol + b
+  inv_mal: (oy + b) / m
+
+respuesta: ((m * inv_mal + b) == oy)
+tipo: vf
+
+enunciado: "f(x) = {m}x + {b}. Si por error se calcula f⁻¹({oy}) como ({oy}+{b})/{m} (con el signo cambiado), ¿el resultado de f en ese valor sigue dando {oy}?"
+
+explicacion: |
+  No: con el signo equivocado, f(f⁻¹({oy})) ya no da {oy} — la
+  verificación es exactamente lo que detecta este tipo de error.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
+  nivel: "avanzado"
+  tags: ["composicion", "verdadero_falso"]
+
+variables:
+  m1: random(2, 6)
+  b1: random(1, 10)
+  m2: random(2, 6)
+  b2: random(1, 10)
+  x: random(1, 10)
+
+respuesta: ((m1 * (m2 * x + b2) + b1) == (m2 * (m1 * x + b1) + b2))
+tipo: vf
+
+enunciado: "f(x) = {m1}x + {b1}, g(x) = {m2}x + {b2}. ¿(f∘g)({x}) es igual a (g∘f)({x})?"
+
+explicacion: |
+  Salvo coincidencia numérica puntual, componer en órdenes distintos da
+  resultados distintos — por eso siempre hay que fijarse cuál función va
+  primero.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
+  nivel: "avanzado"
+  tags: ["composicion"]
+
+variables:
+  a: random(1, 5)
+  b: random(1, 5)
+  c: random(1, 5)
+  x: random(1, 10)
+
+respuesta: x + a + b + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = x + {a}, g(x) = x + {b}, h(x) = x + {c}. ¿Cuánto vale (f∘g∘h)({x})?"
+
+pasos:
+  - "h({x}) = {x + c}, g({x + c}) = {x + c + b}, f({x + c + b}) = {x + a + b + c}"
+
+explicacion: |
+  Componer más de dos funciones se hace de a pasos, de adentro hacia
+  afuera.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La inversa de f⁻¹ es la propia f."
+
+explicacion: |
+  Deshacer lo que deshace f vuelve a hacer lo que hacía f — (f⁻¹)⁻¹ = f.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funcion_inversa_composicion"
+  nivel: "intermedio"
+  tags: ["inversa", "opcion_multiple"]
+
+variables:
+  b: random(1, 20)
+  x: random(1, 30)
+
+respuesta: x - b
+tipo: mc
+opciones_explicitas:
+  - x - b
+  - x + b
+  - -x - b
+
+enunciado: "f(x) = x + {b}. ¿Cuál es f⁻¹({x})?"
+
+explicacion: |
+  Si f suma {b}, la inversa resta {b}: f⁻¹(x) = x − {b}.
+```
+

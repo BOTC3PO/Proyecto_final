@@ -1,327 +1,1495 @@
-# Examen jefe — Maestro del Boom y la Gramática
+# Examen jefe — [PENDIENTE #651]
 
-> Logro #84. Completaste el parcial dominando el circuito de la comunicación, las clases de palabras y la esencia del Boom latinoamericano. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **104 preguntas totales** en 5/5 secciones.
+> Logro #651. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **109 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: argumentos (20 preguntas)
+## Sección: conciencia-fonologica (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "argumentos"
+  tema: "conciencia_fonologica"
   nivel: "basico"
-  tags: ["argumentos", "definicion"]
+  tags: ["conciencia_fonologica", "vocabulario"]
 
-variables:
-  n: uno_de([1, 1])
+enunciado: "¿Qué es la conciencia fonológica?"
+tipo: mc
+opciones_explicitas:
+  - "La capacidad de percibir y manipular los sonidos del habla, por separado de su significado y de la escritura"
+  - "La capacidad de reconocer letras escritas en un texto"
+  - "El vocabulario total que conoce una persona"
+respuesta: "La capacidad de percibir y manipular los sonidos del habla, por separado de su significado y de la escritura"
+
+explicacion: |
+  Es una habilidad auditiva y oral, no visual.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conciencia_fonologica"
+  nivel: "basico"
+  tags: ["conciencia_fonologica"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un argumento es una razón que sostiene la tesis de un texto: sin argumentos, la tesis es sólo una opinión sin respaldo."
-
-pasos:
-  - "Ver `../tesis/`: los argumentos son lo que convierte una opinión en una postura defendida."
+enunciado: "Un chico puede tener buena conciencia fonológica sin saber todavía leer ni escribir ninguna letra."
 
 explicacion: |
-  Verdadero: el argumento es lo que da sustento a la tesis.
+  Reconocer que dos palabras riman, por ejemplo, no requiere ver esas
+  palabras escritas.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "argumentos"
+  tema: "conciencia_fonologica"
   nivel: "basico"
-  tags: ["argumento_de_autoridad"]
+  tags: ["silaba", "vocabulario"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "argumento de autoridad"
+enunciado: "¿Qué es la conciencia silábica?"
 tipo: mc
-opciones_explicitas: ["argumento de autoridad", "argumento de ejemplo", "argumento por analogía"]
-
-enunciado: "\"Según la OMS, dormir menos de 7 horas afecta la salud\" es un ejemplo de..."
-
-pasos:
-  - "Se apoya en la opinión de una fuente reconocida (la OMS)."
+opciones_explicitas:
+  - "La capacidad de dividir una palabra en sus sílabas (contarlas, separarlas o combinarlas)"
+  - "La capacidad de reconocer si una palabra está bien escrita"
+  - "La capacidad de identificar el significado de una palabra"
+respuesta: "La capacidad de dividir una palabra en sus sílabas (contarlas, separarlas o combinarlas)"
 
 explicacion: |
-  El argumento de autoridad se apoya en la opinión de un experto o
-  fuente reconocida.
+  Es un nivel intermedio entre 'palabra completa' y 'sonido
+  individual (fonema)'.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "argumentos"
+  tema: "conciencia_fonologica"
+  nivel: "intermedio"
+  tags: ["silaba", "problema"]
+
+variables:
+  palabras: [{palabra: "mariposa", silabas: 4}, {palabra: "computadora", silabas: 5}, {palabra: "elefante", silabas: 4}, {palabra: "casa", silabas: 2}, {palabra: "sol", silabas: 1}]
+  idx: uno_de([0, 1, 2, 3, 4])
+
+respuesta: palabras[idx].silabas
+tipo: input
+
+enunciado: "¿Cuántas sílabas tiene la palabra '{palabras[idx].palabra}'?"
+
+explicacion: |
+  Se cuenta cada golpe de voz al pronunciar la palabra despacio.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conciencia_fonologica"
   nivel: "basico"
-  tags: ["argumento_de_ejemplo"]
+  tags: ["rima", "vocabulario"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "argumento de ejemplo"
+enunciado: "¿Qué significa que dos palabras 'rimen' entre sí?"
 tipo: mc
-opciones_explicitas: ["argumento de autoridad", "argumento de ejemplo", "argumento de datos"]
-
-enunciado: "\"Finlandia redujo la jornada escolar y mejoró sus resultados académicos\" es un ejemplo de..."
-
-pasos:
-  - "Usa un caso concreto (Finlandia) para ilustrar y respaldar la tesis."
+opciones_explicitas:
+  - "Que suenan parecido a partir de la vocal acentuada hacia el final de la palabra"
+  - "Que empiezan con la misma letra"
+  - "Que tienen la misma cantidad de letras"
+respuesta: "Que suenan parecido a partir de la vocal acentuada hacia el final de la palabra"
 
 explicacion: |
-  El argumento de ejemplo usa un caso concreto para respaldar la
-  tesis.
+  Es un nivel de conciencia fonológica llamado 'intrasilábica'.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "argumentos"
+  tema: "conciencia_fonologica"
   nivel: "intermedio"
-  tags: ["argumento_causa_consecuencia"]
+  tags: ["rima", "problema"]
 
 variables:
-  n: uno_de([1, 1])
+  pares: [{a: "gato", b: "pato", rima: verdadero}, {a: "luna", b: "cuna", rima: verdadero}, {a: "flor", b: "amor", rima: verdadero}, {a: "perro", b: "cielo", rima: falso}, {a: "casa", b: "mesa", rima: falso}]
+  idx: uno_de([0, 1, 2, 3, 4])
 
-respuesta: "argumento de causa-consecuencia"
-tipo: mc
-opciones_explicitas: ["argumento de causa-consecuencia", "argumento de ejemplo", "argumento de autoridad"]
+respuesta: pares[idx].rima
+tipo: vf
 
-enunciado: "\"Si se prohíben los celulares en el aula, mejora la concentración de los alumnos\" es un ejemplo de..."
-
-pasos:
-  - "Explica que, si se acepta la tesis, se sigue un resultado concreto (mejora la concentración)."
+enunciado: "¿Riman las palabras '{pares[idx].a}' y '{pares[idx].b}'?"
 
 explicacion: |
-  El argumento de causa-consecuencia conecta la aceptación de la
-  tesis con un resultado esperado.
+  Hay que comparar el sonido desde la vocal acentuada hasta el final,
+  no sólo mirar si 'se parecen' a simple vista.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "argumentos"
-  nivel: "basico"
-  tags: ["argumento_de_datos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "argumento de datos"
-tipo: mc
-opciones_explicitas: ["argumento de datos", "argumento de ejemplo", "argumento por analogía"]
-
-enunciado: "\"El 70% de los estudiantes reporta distracción por el celular en clase\" es un ejemplo de..."
-
-pasos:
-  - "Se apoya en una cifra concreta (70%)."
-
-explicacion: |
-  El argumento de datos/estadística se apoya en cifras o estudios
-  concretos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "argumentos"
+  tema: "conciencia_fonologica"
   nivel: "intermedio"
-  tags: ["argumento_por_analogia"]
+  tags: ["fonema", "vocabulario"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "argumento por analogía"
+enunciado: "¿Qué es un fonema?"
 tipo: mc
-opciones_explicitas: ["argumento por analogía", "argumento de autoridad", "argumento de datos"]
-
-enunciado: "\"Así como se prohíbe fumar en espacios cerrados por salud pública, debería regularse el celular en el aula por la misma lógica\" es un ejemplo de..."
-
-pasos:
-  - "Compara la situación con otra parecida ya aceptada (la prohibición de fumar)."
+opciones_explicitas:
+  - "El sonido más chico del habla que puede cambiar el significado de una palabra si se reemplaza por otro"
+  - "Cada letra del alfabeto escrito"
+  - "Una sílaba completa"
+respuesta: "El sonido más chico del habla que puede cambiar el significado de una palabra si se reemplaza por otro"
 
 explicacion: |
-  El argumento por analogía compara la situación actual con otra
-  situación similar ya aceptada.
+  Cambiar el fonema /g/ por /p/ en 'gato' da 'pato' — otra palabra.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "argumentos"
-  nivel: "intermedio"
-  tags: ["argumentos", "relevancia"]
-
-variables:
-  n: uno_de([1, 1])
+  tema: "conciencia_fonologica"
+  nivel: "avanzado"
+  tags: ["fonema"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un buen argumento sostiene directamente la tesis: un dato correcto pero irrelevante para la tesis no funciona como argumento válido, aunque sea cierto."
-
-pasos:
-  - "No basta con que un dato sea verdadero, tiene que dar una razón concreta para aceptar esa postura específica."
+enunciado: "Un fonema (sonido) no es exactamente lo mismo que una letra (símbolo escrito) — a veces dos letras representan un solo fonema."
 
 explicacion: |
-  Verdadero: la relación directa con la tesis es lo que distingue a
-  un argumento válido de un dato suelto (aunque verdadero).
+  El dígrafo 'ch' son dos letras que representan un único sonido.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "argumentos"
+  tema: "conciencia_fonologica"
   nivel: "intermedio"
-  tags: ["argumentos", "fortaleza"]
+  tags: ["fonema", "problema"]
 
-variables:
-  argumentos: ["Según un estudio de la Universidad de Harvard de 2020, el ejercicio regular mejora la memoria en un 20%", "Todo el mundo sabe que hacer ejercicio es bueno"]
-  tipos: ["fuerte", "débil"]
-  idx: uno_de([0, 1])
+tipo: completar
+enunciado: "¿Con qué sonido empieza la palabra 'sol'?"
+respuestas_validas:
+  - "/s/"
+  - "s"
 
-respuesta: tipos[idx]
+explicacion: |
+  Se pide el SONIDO inicial, no necesariamente el nombre de la letra.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conciencia_fonologica"
+  nivel: "avanzado"
+  tags: ["fonema", "problema"]
+
+tipo: completar
+enunciado: "Si a la palabra 'gato' le sacás el sonido /g/ del principio, ¿qué palabra queda?"
+respuestas_validas:
+  - "ato"
+
+explicacion: |
+  Es un ejercicio clásico de manipulación fonémica: quitar un sonido
+  y ver qué palabra nueva resulta.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conciencia_fonologica"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué la conciencia fonológica es considerada el predictor más fuerte del éxito en la lectura inicial?"
 tipo: mc
-opciones_explicitas: ["fuerte", "débil"]
-
-enunciado: "El argumento \"{argumentos[idx]}\" es..."
-
-pasos:
-  - "Cuanto más específico y verificable, más fuerte. Las generalidades vagas (\"todo el mundo sabe\") son argumentos débiles."
+opciones_explicitas:
+  - "Porque sin distinguir bien los sonidos del habla, es muy difícil conectar cada letra con el sonido que representa (el paso siguiente: decodificación)"
+  - "Porque los chicos con buena conciencia fonológica ya saben leer de antemano"
+  - "No existe ninguna relación real entre ambas habilidades"
+respuesta: "Porque sin distinguir bien los sonidos del habla, es muy difícil conectar cada letra con el sonido que representa (el paso siguiente: decodificación)"
 
 explicacion: |
-  La especificidad y verificabilidad son las claves para distinguir
-  argumentos fuertes de débiles.
+  Es la razón por la que este módulo es la raíz de toda la rama de
+  Lengua.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "argumentos"
+  tema: "conciencia_fonologica"
   nivel: "intermedio"
-  tags: ["argumentos", "conectores"]
+  tags: ["fonema"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "De los niveles de conciencia fonológica, el fonémico (identificar y manipular sonidos individuales) es el más fino y, en general, el más difícil de dominar."
+
+explicacion: |
+  Es más fácil notar que dos palabras riman (nivel más grande) que
+  aislar un único sonido dentro de una palabra (nivel más chico).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conciencia_fonologica"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "Un maestro de sala de 5 años pide a los chicos que den una palmada por cada sílaba de su nombre. ¿Qué habilidad está trabajando con esta actividad?"
+tipo: mc
+opciones_explicitas:
+  - "Conciencia silábica: dividir una palabra en sus partes sonoras, sin necesitar leer ni escribir nada"
+  - "Decodificación: convertir letras en sonidos"
+  - "Comprensión lectora de un texto"
+respuesta: "Conciencia silábica: dividir una palabra en sus partes sonoras, sin necesitar leer ni escribir nada"
+
+explicacion: |
+  Es una actividad típica de nivel inicial, previa a cualquier
+  trabajo con letras.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conciencia_fonologica"
+  nivel: "avanzado"
+  tags: ["fonema", "problema"]
 
 variables:
-  conectores: ["porque", "ya que", "puesto que"]
+  palabras: [{palabra: "sol", fonemas: 3}, {palabra: "pan", fonemas: 3}, {palabra: "gato", fonemas: 4}, {palabra: "casa", fonemas: 4}]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: palabras[idx].fonemas
+tipo: input
+
+enunciado: "¿Cuántos fonemas (sonidos) tiene la palabra '{palabras[idx].palabra}'?"
+
+explicacion: |
+  Se cuenta cada sonido distinto, no cada letra — en estas palabras
+  coinciden, pero no siempre es así.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conciencia_fonologica"
+  nivel: "avanzado"
+  tags: ["fonema"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El dígrafo 'ch' (como en 'chico') está formado por dos letras pero representa un único fonema (sonido)."
+
+explicacion: |
+  Es el ejemplo clásico de que 'cantidad de letras' y 'cantidad de
+  fonemas' de una palabra no siempre coinciden.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conciencia_fonologica"
+  nivel: "avanzado"
+  tags: ["fonema", "problema"]
+
+respuesta: 4
+tipo: input
+
+enunciado: "La palabra 'queso' tiene 5 letras (q-u-e-s-o), pero el grupo 'qu' representa un único sonido /k/. ¿Cuántos FONEMAS tiene 'queso'?"
+
+pasos:
+  - "Sonidos: /k/ (qu) - /e/ - /s/ - /o/ = 4 fonemas, aunque tenga 5 letras"
+
+explicacion: |
+  Es la misma idea del dígrafo, aplicada al grupo 'qu'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conciencia_fonologica"
+  nivel: "basico"
+  tags: ["rima", "aplicacion"]
+
+enunciado: "Muchas canciones y poesías infantiles usan rimas ('un elefante se balanceaba, sobre la tela de una araña') a propósito. ¿Por qué son útiles para trabajar conciencia fonológica en el aula?"
+tipo: mc
+opciones_explicitas:
+  - "Porque ayudan a los chicos a notar de forma natural y divertida cómo suenan las palabras, entrenando el oído antes de trabajar con letras"
+  - "Porque enseñan directamente a escribir sin errores de ortografía"
+  - "No tienen ninguna utilidad pedagógica real"
+respuesta: "Porque ayudan a los chicos a notar de forma natural y divertida cómo suenan las palabras, entrenando el oído antes de trabajar con letras"
+
+explicacion: |
+  Es una de las razones por las que la poesía y las canciones son tan
+  usadas en la alfabetización inicial.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conciencia_fonologica"
+  nivel: "intermedio"
+  tags: ["ordenar"]
+
+enunciado: "Ordená estos niveles de conciencia fonológica, del sonido más 'grande' (más fácil de percibir) al más 'chico' (más fino)."
+tipo: ordenar
+opciones_explicitas:
+  - "Conciencia fonémica (sonidos individuales)"
+  - "Conciencia de palabras (una oración se divide en palabras)"
+  - "Conciencia silábica (una palabra se divide en sílabas)"
+  - "Conciencia intrasilábica (rima)"
+respuesta_orden: ["Conciencia de palabras (una oración se divide en palabras)", "Conciencia silábica (una palabra se divide en sílabas)", "Conciencia intrasilábica (rima)", "Conciencia fonémica (sonidos individuales)"]
+explicacion: |
+  El desarrollo va de unidades más grandes y fáciles de percibir a
+  unidades cada vez más chicas y finas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conciencia_fonologica"
+  nivel: "avanzado"
+  tags: ["fonema", "problema"]
+
+tipo: completar
+enunciado: "Si en la palabra 'pan' cambiás el sonido /p/ inicial por /f/, ¿qué palabra se forma?"
+respuestas_validas:
+  - "fan"
+
+explicacion: |
+  Es otro ejercicio clásico de manipulación fonémica: sustituir un
+  sonido por otro.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conciencia_fonologica"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve trabajar la conciencia fonológica antes de enseñar a leer formalmente?"
+tipo: mc
+opciones_explicitas:
+  - "Porque prepara el oído para distinguir los sonidos del habla, la base necesaria para poder conectar después cada letra con su sonido correspondiente"
+  - "Porque enseña directamente el significado de las palabras nuevas"
+  - "No tiene relación real con aprender a leer"
+respuesta: "Porque prepara el oído para distinguir los sonidos del habla, la base necesaria para poder conectar después cada letra con su sonido correspondiente"
+
+explicacion: |
+  Es el punto de partida de toda la rama de Lengua — el siguiente
+  paso es `../decodificacion-y-fluidez/`.
+```
+
+## Sección: escritura-como-tecnologia (25 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["conceptos_fundamentales", "tecnologia"]
+
+tipo: mc
+opciones_explicitas: ["Un proceso biológico instintivo", "Un sistema tecnológico inventado", "Una capacidad natural del cerebro", "Un fenómeno meteorológico"]
+
+enunciado: "A diferencia del habla, que es una capacidad biológica natural de la especie humana, la escritura se define como:"
+
+respuesta: "Un sistema tecnológico inventado"
+
+explicacion: |
+  La escritura no es una facultad innata como el lenguaje oral; es una tecnología que requiere un aprendizaje cultural y técnico para registrar el pensamiento de forma visual y permanente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["habla_vs_escritura", "permanencia"]
+
+tipo: completar
+respuestas_validas:
+  - "permanente"
+  - "efímero"
+
+enunciado: "Mientras que el habla es predominantemente ___, la escritura funciona como una tecnología que permite que el mensaje sea ___."
+
+respuesta: ["efímero", "permanente"]
+
+explicacion: |
+  El habla es transitoria (se desvanece en el tiempo), mientras que la escritura permite la permanencia del mensaje a través del soporte físico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["soportes", "historia"]
+
+variables:
+  escenario: uno_de([["piedra", "cincel"], ["papiro", "caña"], ["papel", "pluma"], ["pantalla", "teclado"]])
+
+tipo: completar
+
+enunciado: "La tecnología de la escritura evoluciona junto a sus soportes. Por ejemplo, si el soporte es {escenario[0]}, la herramienta tradicional es un {escenario[1]}."
+
+respuesta: escenario[1]
+
+explicacion: |
+  Cada avance en la tecnología de la escritura ha estado ligado a la invención de nuevos soportes y herramientas para grabarlos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "avanzado"
+  tags: ["sistemas_de_signos", "tecnologia"]
+
+tipo: mc
+opciones_explicitas: ["Es un sistema de signos arbitrarios", "Es una extensión del pensamiento puro", "Es un reflejo exacto del sonido", "Es un proceso inconsciente"]
+
+enunciado: "Como tecnología de registro, la escritura se basa en un sistema de signos que no es natural, sino ___."
+
+respuesta: "Es un sistema de signos arbitrarios"
+
+explicacion: |
+  La relación entre el signo escrito (grafema) y el concepto no es natural, sino una convención social y tecnológica establecida por el sistema de escritura elegido.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["procesos", "tecnologia"]
+
+tipo: ordenar
+opciones_explicitas: ["Pensamiento", "Codificación visual", "Soporte físico", "Lectura/Interpretación"]
+
+enunciado: "Ordena los componentes de la cadena tecnológica de la escritura, desde la intención hasta la recepción:"
+
+respuesta_orden: ["Pensamiento", "Codificación visual", "Soporte físico", "Lectura/Interpretación"]
+
+explicacion: |
+  La escritura requiere un proceso de codificación (convertir pensamiento en signos visuales) sobre un soporte, para que luego otro sujeto pueda decodificarlo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["escritura", "pictografia"]
+
+respuesta: "pictográfico"
+tipo: mc
+
+opciones_explicitas: ["silábico", "alfabético", "pictográfico", "logográfico"]
+
+enunciado: "Un sistema de escritura que utiliza símbolos para representar objetos o ideas directamente, sin pasar necesariamente por el sonido de las palabras, se denomina sistema ___."
+
+explicacion: |
+  Los sistemas pictográficos utilizan dibujos que guardan una relación visual directa con el concepto representado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["evolucion", "sistemas"]
+
+variables:
+  escenario: uno_de([["dibujo de un sol", "pictográfico"], ["signo para la sílaba 'ma'", "silábico"], ["letra 'A'", "alfabético"]])
+  tipo_sistema: escenario[1]
+
+respuesta: tipo_sistema
+
+tipo: mc
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "Si un sistema de escritura utiliza un símbolo para representar el sonido de una sílaba completa, estamos ante un sistema ___."
+
+explicacion: |
+  En el sistema silábico, el signo no representa una letra (sonido individual) ni un objeto, sino una unidad de sonido llamada sílaba.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["alfabeto", "fonemas"]
+
+respuesta: "sonidos"
+tipo: completar
+respuestas_validas:
+  - "sonidos"
+  - "fonemas"
+
+enunciado: "A diferencia de los sistemas pictográficos, el sistema alfabético se basa en la representación de los ___ que constituyen el habla."
+
+explicacion: |
+  El alfabeto es un sistema donde cada signo (letra) representa un fonema o sonido mínimo, permitiendo una combinación infinita de palabras.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "avanzado"
+  tags: ["clasificacion", "tecnologia"]
+
+variables:
+  caso: uno_de([["jeroglíficos egipcios (fase temprana)", "pictográfico"], ["katakana japonés", "silábico"], ["alfabeto latino", "alfabético"]])
+  tipo_res: caso[1]
+
+respuesta: tipo_res
+
+tipo: mc
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "Considerando el caso de {caso[0]}, el sistema de escritura utilizado es de tipo ___."
+
+explicacion: |
+  Dependiendo de la etapa y la función, los sistemas pueden transicionar de lo pictográfico a lo logográfico o silábico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["secuencia", "sistemas"]
+
+respuesta_orden: ["pictográfico", "silábico", "alfabético"]
+tipo: ordenar
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "Ordena estos sistemas de escritura desde el que representa la unidad de significado más compleja (el objeto) hasta el que representa la unidad de sonido más simple (el fonema):"
+
+pasos:
+  - "Representación de objetos/ideas"
+  - "Representación de sílabas"
+  - "Representación de sonidos individuales"
+
+explicacion: |
+  La evolución tecnológica de la escritura tiende hacia la abstracción: de la imagen (pictograma) a la sílaba y finalmente al fonema (alfabeto).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["historia", "alfabeto"]
+
+respuesta: "Mediterráneo oriental"
+tipo: completar
+respuestas_validas:
+  - "Mediterráneo oriental"
+
+enunciado: "La escritura alfabética, tal como la conocemos, tuvo su origen en el ___."
+
+explicacion: |
+  El sistema alfabético se desarrolló en la región del Mediterráneo oriental, simplificando la representación de los sonidos de la lengua.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["aprendizaje", "tecnologia"]
+
+opciones_explicitas: ["Sistemas logográficos", "Sistemas silábicos", "Sistemas alfabéticos"]
+
+respuesta: "Sistemas alfabéticos"
+tipo: mc
+
+enunciado: "¿Qué sistema de escritura permitió una simplificación enorme en el proceso de aprendizaje de la lectura y la escritura en comparación con los sistemas logográficos o silábicos?"
+
+explicacion: |
+  Al representar sonidos individuales (fonemas) en lugar de conceptos (logogramas) o sílabas completas, el alfabeto requiere aprender un número mucho menor de signos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["griego", "latino"]
+
+respuesta: "griego"
+tipo: completar
+respuestas_validas:
+  - "griego"
+
+enunciado: "El alfabeto ___ y el alfabeto latino son descendientes directos de las innovaciones de la escritura alfabética antigua."
+
+explicacion: |
+  El alfabeto griego y el latino son los pilares de la escritura occidental, derivados de evoluciones de sistemas alfabéticos anteriores.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "avanzado"
+  tags: ["cognicion", "tecnologia"]
+
+variables:
+  datos: [["logográfico", "alta", "complejo"], ["silábico", "media", "intermedio"], ["alfabético", "baja", "simple"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{conectores[idx]}\" es un conector típico que introduce un argumento en un texto argumentativo."
-
-pasos:
-  - "Estos conectores marcan la relación de razón/causa entre el argumento y la tesis."
-
-explicacion: |
-  Verdadero: son conectores causales típicos del texto argumentativo,
-  la misma lógica de las subordinadas adverbiales de causa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "argumentos"
-  nivel: "intermedio"
-  tags: ["argumentos", "variedad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un texto argumentativo sólido suele combinar varios tipos de argumento (autoridad, datos, ejemplo) en vez de repetir sólo un tipo."
-
-pasos:
-  - "Combinar tipos distintos hace el texto más persuasivo que repetir siempre el mismo enfoque."
-
-explicacion: |
-  Verdadero: la variedad de tipos de argumento suele fortalecer un
-  texto argumentativo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "argumentos"
-  nivel: "avanzado"
-  tags: ["argumento_de_ejemplo", "argumento_de_datos", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La diferencia entre el argumento de ejemplo y el de datos/estadística es que el ejemplo usa un caso puntual concreto (un país, una persona), y los datos usan cifras generales agregadas (porcentajes, promedios)."
-
-pasos:
-  - "\"Finlandia hizo X\" (un caso) vs. \"el 70% de los estudiantes...\" (una cifra agregada)."
-
-explicacion: |
-  Verdadero: caso puntual vs. cifra agregada es la diferencia central
-  entre estos dos tipos de argumento.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "argumentos"
-  nivel: "avanzado"
-  tags: ["argumento_de_autoridad", "validez"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La fuerza de un argumento de autoridad depende de qué tan reconocida y relevante sea la fuente citada para el tema en cuestión."
-
-pasos:
-  - "Citar a un experto reconocido en el tema es más fuerte que citar a alguien sin relación con el campo."
-
-explicacion: |
-  Verdadero: no cualquier \"autoridad\" es igual de convincente, la
-  pertinencia de la fuente importa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "argumentos"
-  nivel: "intermedio"
-  tags: ["argumentos", "clasificacion"]
-
-variables:
-  frases: ["Un estudio de la Universidad de Buenos Aires demostró que el 60% de los adolescentes duerme menos de 6 horas", "Como sucedió con el cinturón de seguridad, que redujo las muertes en accidentes, el casco de bicicleta también debería ser obligatorio"]
-  tipos: ["argumento de datos", "argumento por analogía"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
+respuesta: datos[idx][2]
 tipo: mc
-opciones_explicitas: ["argumento de datos", "argumento por analogía", "argumento de autoridad", "argumento de ejemplo"]
+opciones_explicitas: ["complejo", "intermedio", "simple"]
 
-enunciado: "\"{frases[idx]}\" es un..."
-
-pasos:
-  - "Buscar si hay una cifra (datos), un experto citado (autoridad), un caso puntual (ejemplo) o una comparación con otra situación (analogía)."
+enunciado: "Si comparamos la carga cognitiva necesaria para aprender un sistema de escritura, un sistema {datos[idx][0]} presenta una dificultad de aprendizaje de tipo {datos[idx][1]}."
 
 explicacion: |
-  Cada fragmento fue construido para representar un tipo distinto de
-  argumento según su estructura.
+  La tecnología de la escritura alfabética redujo la dificultad de aprendizaje a un nivel {datos[idx][1]}, facilitando la alfabetización masiva.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "argumentos"
+  tema: "escritura_como_tecnologia"
   nivel: "intermedio"
-  tags: ["argumentos", "opinion"]
+  tags: ["evolucion", "orden"]
+
+opciones_explicitas: ["Logográfico", "Silábico", "Alfabético"]
+
+respuesta_orden: ["Logográfico", "Silábico", "Alfabético"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente la evolución de la complejidad tecnológica de los sistemas de escritura, desde el más complejo al más simplificado:"
+
+explicacion: |
+  La evolución tecnológica de la escritura muestra una tendencia hacia la reducción de signos: de miles de logogramas a decenas de fonemas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["historia", "comunicacion"]
+
+tipo: mc
+opciones_explicitas: ["Permitió la transmisión de conocimientos sin depender de la memoria humana", "Hizo que el lenguaje fuera más complejo y difícil de entender", "Eliminó la necesidad de hablar para comunicarse", "Solo sirve para registrar leyes y no ideas"]
+respuesta: "Permitió la transmisión de conocimientos sin depender de la memoria humana"
+
+enunciado: "Antes de la invención de la escritura, la transmisión de la cultura dependía exclusivamente de la memoria de los oradores. ¿Cuál fue el principal impacto tecnológico de la escritura en este proceso?"
+
+explicacion: |
+  La escritura actúa como un soporte externo que permite 'fijar' el lenguaje, liberando a la memoria humana de la carga de retener todo el saber de forma exacta, permitiendo que el conocimiento trascienda el tiempo y el espacio.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["memoria", "tecnologia"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: ["un consejo de un abuelo a su nieto, transmitido solo de forma oral", "una receta médica escrita en un papiro"]
+  consecuencia: ["La información se pierde si el nieto olvida el consejo", "La información se mantiene intacta aunque el médico no esté presente"]
+
+respuesta: consecuencia[escenario_idx]
+tipo: mc
+opciones_explicitas: ["La información se pierde si el nieto olvida el consejo", "La información se mantiene intacta aunque el médico no esté presente", "La escritura no cambia la naturaleza de la comunicación"]
+
+enunciado: "Considera el siguiente caso: {escenarios[escenario_idx]}. ¿Qué ocurre con la información en este caso?"
+
+explicacion: |
+  La escritura funciona como una 'memoria externa'. Mientras que en la oralidad la información es volátil, la escritura permite que el mensaje sea independiente del emisor original.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["conceptos"]
+
+tipo: completar
+respuestas_validas:
+  - "soporte"
+  - "signo"
+  - "código"
+
+enunciado: "Para que la escritura funcione como tecnología, se requiere de un ___ (donde se plasma el mensaje), un ___ (que representa la idea) y un ___ (el sistema de reglas que los une)."
+
+explicacion: |
+  La escritura requiere un soporte físico (piedra, papel, pantalla), un signo gráfico y un código lingüístico que permita la decodificación por parte de otro individuo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "avanzado"
+  tags: ["evolucion", "conocimiento"]
+
+tipo: ordenar
+opciones_explicitas: ["Cultura puramente oral", "Aparición de la escritura", "Acumulación de conocimiento complejo"]
+
+enunciado: "Ordena cronológicamente los procesos que describen la evolución de la transmisión del conocimiento humano gracias a la tecnología de la escritura."
+
+explicacion: |
+  La escritura permite la acumulación: al no tener que dedicar todo el esfuerzo cognitivo a recordar, la humanidad puede dedicar más recursos a la innovación y la complejidad, construyendo sobre lo ya escrito.
+respuesta_orden: ["Cultura puramente oral", "Aparición de la escritura", "Acumulación de conocimiento complejo"]
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["tecnologia", "cognicion"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si la oralidad es la comunicación en tiempo real, la escritura es una tecnología de comunicación asincrónica (escribe la palabra que describe la capacidad de la escritura de durar en el tiempo)."
+
+respuesta: "asincrónica"
+
+explicacion: |
+  La escritura permite la comunicación asincrónica; es decir, el emisor y el receptor no necesitan estar presentes al mismo tiempo para que el mensaje sea transmitido con éxito.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["escritura", "sistemas"]
+
+variables:
+  datos: [["un dibujo de un sol para representar el astro", "pictográfico"], ["un dibujo de un ojo para representar la visión", "pictográfico"], ["un dibujo de una mano para representar la acción de tocar", "pictográfico"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "Si un sistema de escritura utiliza un signo que representa directamente el objeto dibujado, como en el caso de {datos[idx][0]}, estamos ante un sistema ___."
+
+explicacion: |
+  Cuando el signo tiene una relación icónica (se parece al objeto) y representa el concepto o el objeto directamente, el sistema es pictográfico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["escritura", "sistemas"]
+
+variables:
+  datos: [["el signo 'ka' representa la sílaba completa", "silábico"], ["el signo 'ma' representa la sílaba completa", "silábico"], ["el signo 'lo' representa la sílaba completa", "silábico"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "En un sistema donde cada signo representa una unidad de sonido compuesta por consonante y vocal, como {datos[idx][0]}, el sistema se clasifica como ___."
+
+explicacion: |
+  Los sistemas silábicos (como el japonés hiragana) asignan un signo a una sílaba entera, no a sonidos individuales ni a conceptos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "basico"
+  tags: ["escritura", "sistemas"]
+
+variables:
+  datos: [["la letra 'A' representa un fonema", "alfabético"], ["la letra 'B' representa un fonema", "alfabético"], ["la letra 'S' representa un fonema", "alfabético"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: completar
+
+respuestas_validas:
+  - "alfabético"
+
+enunciado: "Si un sistema asigna un signo a cada fonema individual, como sucede con {datos[idx][0]}, el sistema es ___."
+
+explicacion: |
+  El sistema alfabético es el más eficiente en términos de cantidad de signos, ya que solo necesita un conjunto reducido de caracteres para representar todos los sonidos posibles.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "avanzado"
+  tags: ["escritura", "sistemas"]
+
+variables:
+  datos: [["un pictograma", "pictográfico"], ["una sílaba", "silábico"], ["un fonema", "alfabético"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "Si la unidad mínima de significado en el sistema es {datos[idx][0]}, la clasificación es ___."
+
+explicacion: |
+  La unidad de representación determina la clasificación: el pictograma representa el concepto, la sílaba el sonido silábico y el fonema el sonido alfabético.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "escritura_como_tecnologia"
+  nivel: "intermedio"
+  tags: ["escritura", "evolucion"]
+
+variables:
+  secuencia: ["pictográfico", "silábico", "alfabético"]
+
+respuesta_orden: secuencia
+tipo: ordenar
+
+opciones_explicitas: ["pictográfico", "silábico", "alfabético"]
+
+enunciado: "Ordena los siguientes sistemas de escritura desde el que representa conceptos (menos abstracto) hasta el que representa sonidos individuales (más abstracto):"
+
+explicacion: |
+  La evolución tecnológica de la escritura tiende hacia la abstracción: de la imagen del objeto (pictograma) al sonido de la sílaba (silabario) y finalmente al sonido mínimo (alfabeto).
+```
+
+## Sección: decodificacion-y-fluidez (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "basico"
+  tags: ["decodificacion", "vocabulario"]
+
+enunciado: "¿Qué es la decodificación, en el proceso de aprender a leer?"
+tipo: mc
+opciones_explicitas:
+  - "El proceso de convertir letras en sonidos para reconstruir la palabra hablada"
+  - "El proceso de entender el significado de un texto completo"
+  - "El proceso de memorizar palabras completas sin analizar sus letras"
+respuesta: "El proceso de convertir letras en sonidos para reconstruir la palabra hablada"
+
+explicacion: |
+  Aplica directo la conciencia fonológica al código escrito.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "basico"
+  tags: ["fluidez", "vocabulario"]
+
+enunciado: "¿Qué es la fluidez lectora?"
+tipo: mc
+opciones_explicitas:
+  - "Leer con precisión, velocidad y prosodia adecuadas, de forma automática"
+  - "Leer lo más rápido posible, sin importar la precisión"
+  - "Conocer el significado de todas las palabras de un texto"
+respuesta: "Leer con precisión, velocidad y prosodia adecuadas, de forma automática"
+
+explicacion: |
+  Velocidad sola, sin precisión ni entonación, no es fluidez real.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["ppm", "problema"]
+
+variables:
+  palabras: uno_de([80, 100, 120])
+  segundos: 60
+
+respuesta: redondear(palabras / segundos * 60, 0)
+tipo: input
+unidad: "palabras por minuto"
+
+enunciado: "Un alumno lee {palabras} palabras correctamente en {segundos} segundos. ¿Cuál es su fluidez en palabras por minuto (PPM)?"
+
+pasos:
+  - "PPM = ({palabras}/{segundos}) × 60 = {redondear(palabras / segundos * 60, 0)}"
+
+explicacion: |
+  Como el tiempo ya es exactamente 1 minuto (60 segundos), el PPM
+  coincide directamente con la cantidad de palabras leídas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["ppm", "problema"]
+
+variables:
+  palabras: uno_de([60, 90])
+  segundos: 45
+
+respuesta: redondear(palabras / segundos * 60, 0)
+tipo: input
+unidad: "palabras por minuto"
+
+enunciado: "Un alumno lee {palabras} palabras correctamente en sólo {segundos} segundos (menos de un minuto). ¿Cuál es su fluidez en palabras por minuto?"
+
+pasos:
+  - "PPM = ({palabras}/{segundos}) × 60 = {redondear(palabras / segundos * 60, 0)}"
+
+explicacion: |
+  Se escala el resultado a 'por minuto', igual que cualquier tasa
+  (como la velocidad = distancia/tiempo).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["decodificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La correspondencia entre letras y sonidos en español es, en general, más regular y predecible que en inglés, donde una misma letra puede sonar de formas muy distintas según la palabra."
+
+explicacion: |
+  Por eso decodificar en español suele ser más rápido de aprender una
+  vez conocidas las reglas básicas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué la fluidez lectora es un puente hacia la comprensión de un texto?"
+tipo: mc
+opciones_explicitas:
+  - "Porque cuando decodificar se vuelve automático, la atención que antes se gastaba en 'sonar' cada palabra queda libre para entender el significado"
+  - "Porque leer rápido garantiza automáticamente entender el texto, sin ninguna excepción"
+  - "No existe ninguna relación real entre fluidez y comprensión"
+respuesta: "Porque cuando decodificar se vuelve automático, la atención que antes se gastaba en 'sonar' cada palabra queda libre para entender el significado"
+
+explicacion: |
+  La capacidad de atención es limitada — automatizar un paso libera
+  recursos para el siguiente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["fluidez"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Leer muy rápido pero con errores o sin ninguna entonación (sin prosodia) no cuenta como verdadera fluidez lectora — hacen falta las tres cosas juntas: precisión, velocidad y prosodia."
+
+explicacion: |
+  Un lector 'fluido' pero impreciso no está realmente decodificando
+  bien.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["ppm", "problema"]
+
+variables:
+  palabras_a: 100
+  segundos_a: 50
+  palabras_b: 90
+  segundos_b: 60
+
+respuesta: (palabras_a / segundos_a * 60) > (palabras_b / segundos_b * 60)
+tipo: vf
+
+enunciado: "Lectura A: {palabras_a} palabras en {segundos_a} segundos. Lectura B: {palabras_b} palabras en {segundos_b} segundos. ¿La fluidez en PPM de la Lectura A es MAYOR que la de la Lectura B?"
+
+explicacion: |
+  PPM(A) = {redondear(palabras_a / segundos_a * 60, 0)}; PPM(B) =
+  {redondear(palabras_b / segundos_b * 60, 0)} — hay que calcular la
+  tasa, no comparar sólo la cantidad de palabras.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué conviene medir la fluidez de un alumno en varios textos y días distintos, en vez de con una sola lectura?"
+tipo: mc
+opciones_explicitas:
+  - "Porque una sola lectura puede estar afectada por factores puntuales (texto más difícil, cansancio, nervios) — promediar varias da una estimación más confiable"
+  - "Porque la fluidez de una persona cambia por completo de un día a otro sin ningún patrón"
+  - "No hay ninguna ventaja real en medir más de una vez"
+respuesta: "Porque una sola lectura puede estar afectada por factores puntuales (texto más difícil, cansancio, nervios) — promediar varias da una estimación más confiable"
+
+explicacion: |
+  Es la misma razón por la que `../../matematica/muestreo-y-sesgo/`
+  prefiere una muestra a un único dato suelto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["ppm", "problema"]
+
+variables:
+  ppm1: uno_de([95, 100])
+  ppm2: uno_de([105, 110])
+  ppm3: uno_de([90, 115])
+
+respuesta: redondear(promedio([ppm1, ppm2, ppm3]), 1)
+tipo: input
+tolerancia_abs: 0.1
+unidad: "palabras por minuto"
+
+enunciado: "Un alumno leyó a {ppm1}, {ppm2} y {ppm3} palabras por minuto en tres textos distintos. ¿Cuál es su fluidez promedio?"
+
+pasos:
+  - "Promedio = ({ppm1}+{ppm2}+{ppm3}) / 3 = {redondear(promedio([ppm1, ppm2, ppm3]), 1)}"
+
+explicacion: |
+  El promedio da una estimación más representativa que cualquiera de
+  las tres lecturas por separado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["prosodia", "vocabulario"]
+
+enunciado: "¿Qué es la prosodia, como parte de la fluidez lectora?"
+tipo: mc
+opciones_explicitas:
+  - "La entonación y el ritmo naturales con que se lee, respetando pausas, signos de puntuación y énfasis"
+  - "La cantidad de palabras leídas por minuto"
+  - "La cantidad de errores cometidos al leer"
+respuesta: "La entonación y el ritmo naturales con que se lee, respetando pausas, signos de puntuación y énfasis"
+
+explicacion: |
+  Leer 'como se habla', no en un tono monótono palabra por palabra.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["decodificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El objetivo final de aprender a decodificar es que el proceso se vuelva automático, sin necesitar esfuerzo consciente para convertir cada letra en su sonido."
+
+explicacion: |
+  Cuando eso pasa, decodificar deja de competir por atención con
+  comprender el texto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["ppm", "problema"]
+
+variables:
+  ppm: uno_de([80, 100])
+  palabras_texto: uno_de([40, 50])
+
+respuesta: redondear(palabras_texto / ppm * 60, 0)
+tipo: input
+unidad: "segundos"
+
+enunciado: "Un alumno lee a {ppm} palabras por minuto. Si un texto tiene {palabras_texto} palabras, ¿cuánto tiempo (en segundos) debería tardar en leerlo completo?"
+
+pasos:
+  - "Tiempo = ({palabras_texto}/{ppm}) × 60 = {redondear(palabras_texto / ppm * 60, 0)} segundos"
+
+explicacion: |
+  Es la fórmula de PPM despejada para el tiempo en vez de para la
+  velocidad.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "Muchas escuelas usan 'registros de lectura oral' (running records), donde un docente escucha leer a un alumno en voz alta y anota errores, tiempo y entonación. ¿Para qué sirve esta evaluación?"
+tipo: mc
+opciones_explicitas:
+  - "Para medir el progreso real de la fluidez lectora de un alumno a lo largo del tiempo, con datos concretos (precisión, PPM, prosodia)"
+  - "Sólo sirve para calificar la letra del alumno"
+  - "No tiene ninguna utilidad pedagógica real"
+respuesta: "Para medir el progreso real de la fluidez lectora de un alumno a lo largo del tiempo, con datos concretos (precisión, PPM, prosodia)"
+
+explicacion: |
+  Es la aplicación práctica de todo lo visto en este módulo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["ppm", "problema"]
+
+variables:
+  palabras_a: 70
+  segundos_a: 60
+  palabras_b: 70
+  segundos_b: 90
+
+respuesta: (palabras_a / segundos_a * 60) > (palabras_b / segundos_b * 60)
+tipo: vf
+
+enunciado: "Dos alumnos leen el mismo texto de {palabras_a} palabras: el Alumno A tarda {segundos_a} segundos, el Alumno B tarda {segundos_b} segundos. ¿El Alumno A tiene mayor fluidez en PPM?"
+
+explicacion: |
+  Con la misma cantidad de palabras, tardar MENOS tiempo da un PPM
+  MAYOR.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+enunciado: "¿Qué relación tiene la decodificación con `../conciencia-fonologica/`?"
+tipo: mc
+opciones_explicitas:
+  - "La decodificación aplica al código escrito la distinción de sonidos que ya construyó la conciencia fonológica — sin distinguir sonidos, no se puede saber qué sonido corresponde a cada letra"
+  - "No tienen ninguna relación real entre sí"
+  - "La decodificación reemplaza por completo la necesidad de conciencia fonológica"
+respuesta: "La decodificación aplica al código escrito la distinción de sonidos que ya construyó la conciencia fonológica — sin distinguir sonidos, no se puede saber qué sonido corresponde a cada letra"
+
+explicacion: |
+  Es el prerrequisito formal de este módulo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["ppm", "problema"]
+
+variables:
+  palabras: uno_de([150, 200])
+  segundos: 120
+
+respuesta: redondear(palabras / segundos * 60, 0)
+tipo: input
+unidad: "palabras por minuto"
+
+enunciado: "Un alumno lee un texto largo: {palabras} palabras en {segundos} segundos (2 minutos). ¿Cuál es su fluidez en PPM?"
+
+pasos:
+  - "PPM = ({palabras}/{segundos}) × 60 = {redondear(palabras / segundos * 60, 0)}"
+
+explicacion: |
+  La fórmula funciona igual sin importar si el tiempo es más o menos
+  de un minuto — siempre se escala a 'por minuto'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["fluidez"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La fluidez lectora de una misma persona puede variar según qué tan difícil o familiar sea el texto que está leyendo, no es un número fijo e invariable."
+
+explicacion: |
+  Es otra razón por la que conviene promediar mediciones de varios
+  textos distintos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+enunciado: "Un alumno decodifica correctamente cada palabra de un texto, pero al preguntarle de qué trataba, no puede responder. ¿Qué explica esto, en términos de fluidez?"
+tipo: mc
+opciones_explicitas:
+  - "Es posible que la decodificación todavía no sea automática para ese alumno, así que gasta toda su atención 'sonando' las palabras y no le queda capacidad para comprender el significado"
+  - "Es imposible que esto pase: decodificar bien siempre implica comprender el texto"
+  - "El alumno tiene un problema de vocabulario, sin ninguna relación con la fluidez"
+respuesta: "Es posible que la decodificación todavía no sea automática para ese alumno, así que gasta toda su atención 'sonando' las palabras y no le queda capacidad para comprender el significado"
+
+explicacion: |
+  Es exactamente el fenómeno que explica por qué la fluidez es un
+  puente necesario hacia la comprensión.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "decodificacion_y_fluidez"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirven la decodificación y la fluidez lectora?"
+tipo: mc
+opciones_explicitas:
+  - "Para convertir letras en sonidos de forma cada vez más automática, liberando la atención necesaria para poder comprender lo que se lee"
+  - "Sólo sirven para leer más rápido, sin ninguna relación con la comprensión"
+  - "Sólo se aplican en los primeros meses de la alfabetización, después dejan de ser relevantes"
+respuesta: "Para convertir letras en sonidos de forma cada vez más automática, liberando la atención necesaria para poder comprender lo que se lee"
+
+explicacion: |
+  Es el puente entre `../conciencia-fonologica/` y
+  `../vocabulario-y-familia-de-palabras/`, el módulo que sigue.
+```
+
+## Sección: ortografia-y-tildacion (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "ortografia_y_tildacion"
+  nivel: "basico"
+  tags: ["agudas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "aguda"
+tipo: mc
+opciones_explicitas: ["aguda", "grave", "esdrújula"]
+
+enunciado: "En la palabra \"camión\", la sílaba tónica es la última (\"ción\"). ¿Cómo se clasifica esta palabra?"
+
+pasos:
+  - "La sílaba tónica en la última posición define a las palabras agudas."
+
+explicacion: |
+  Las agudas tienen su sílaba tónica en la última posición.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "ortografia_y_tildacion"
+  nivel: "basico"
+  tags: ["graves"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "grave"
+tipo: mc
+opciones_explicitas: ["aguda", "grave", "esdrújula"]
+
+enunciado: "En la palabra \"árbol\", la sílaba tónica es la penúltima (\"ár\"). ¿Cómo se clasifica esta palabra?"
+
+pasos:
+  - "La sílaba tónica en la penúltima posición define a las palabras graves o llanas."
+
+explicacion: |
+  Las graves (o llanas) tienen su sílaba tónica en la penúltima
+  posición.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "ortografia_y_tildacion"
+  nivel: "basico"
+  tags: ["esdrujulas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "esdrújula"
+tipo: mc
+opciones_explicitas: ["aguda", "grave", "esdrújula"]
+
+enunciado: "En la palabra \"médico\", la sílaba tónica es la antepenúltima (\"mé\"). ¿Cómo se clasifica esta palabra?"
+
+pasos:
+  - "La sílaba tónica en la antepenúltima posición define a las palabras esdrújulas."
+
+explicacion: |
+  Las esdrújulas tienen su sílaba tónica en la antepenúltima
+  posición.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "ortografia_y_tildacion"
+  nivel: "intermedio"
+  tags: ["sobresdrujulas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "sobresdrújula"
+tipo: mc
+opciones_explicitas: ["esdrújula", "sobresdrújula", "aguda"]
+
+enunciado: "En la palabra \"cuéntaselo\", la sílaba tónica (\"cuén\") está antes de la antepenúltima. ¿Cómo se clasifica esta palabra?"
+
+pasos:
+  - "Cuando la sílaba tónica está más atrás que la antepenúltima, la palabra es sobresdrújula."
+
+explicacion: |
+  Las sobresdrújulas son frecuentes en verbos con pronombres
+  enclíticos (\"cuéntaselo\", \"tráemelo\").
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "ortografia_y_tildacion"
+  nivel: "intermedio"
+  tags: ["agudas", "regla"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las palabras agudas llevan tilde cuando terminan en n, s o vocal."
+
+pasos:
+  - "\"Camión\" (termina en n), \"aquí\" (vocal), \"compás\" (s) llevan tilde por ser agudas terminadas así."
+
+explicacion: |
+  Verdadero: es la regla básica de tildación de agudas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "ortografia_y_tildacion"
+  nivel: "intermedio"
+  tags: ["graves", "regla"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las palabras graves llevan tilde cuando terminan en cualquier consonante que NO sea n o s."
+
+pasos:
+  - "\"Árbol\" (termina en l), \"fácil\" (termina en l) llevan tilde. \"Casa\" (vocal), \"joven\" (n) no la llevan."
+
+explicacion: |
+  Verdadero: es la regla básica de tildación de graves, casi espejo
+  de la de agudas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "ortografia_y_tildacion"
+  nivel: "basico"
+  tags: ["esdrujulas", "regla"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las palabras esdrújulas llevan tilde siempre, sin excepción."
+
+pasos:
+  - "A diferencia de agudas y graves, no depende de en qué letra termina la palabra."
+
+explicacion: |
+  Verdadero: la esdrújula es la única clasificación sin condición
+  sobre la terminación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "ortografia_y_tildacion"
+  nivel: "intermedio"
+  tags: ["sobresdrujulas", "regla"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las palabras sobresdrújulas llevan tilde siempre, igual que las esdrújulas."
+
+pasos:
+  - "\"Cuéntaselo\", \"tráemelo\" siempre se tildan, sin condición de terminación."
+
+explicacion: |
+  Verdadero: sobresdrújulas y esdrújulas comparten la regla de tilde
+  obligatoria sin excepción.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "ortografia_y_tildacion"
+  nivel: "intermedio"
+  tags: ["agudas", "practica"]
 
 variables:
   n: uno_de([1, 1])
@@ -329,466 +1497,116 @@ variables:
 respuesta: falso
 tipo: vf
 
-enunciado: "Cualquier opinión personal (\"a mí me parece que sí\") cuenta como un argumento válido en un texto argumentativo."
+enunciado: "La palabra \"reloj\" (aguda, termina en \"j\") debería llevar tilde según la regla de las agudas."
 
 pasos:
-  - "Un argumento necesita una razón concreta (dato, ejemplo, autoridad, causa) que sostenga la tesis, no basta con repetir la opinión sin sustento."
+  - "La regla exige terminar en n, s o vocal; \"j\" no cumple ninguna de esas tres condiciones."
 
 explicacion: |
-  Falso: una opinión sin sustento no funciona como argumento, aunque
-  coincida con la tesis.
+  Falso: \"reloj\" es aguda pero no termina en n/s/vocal, por eso no
+  lleva tilde.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "argumentos"
-  nivel: "basico"
-  tags: ["argumentos", "estructura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un texto argumentativo puede presentar varios argumentos distintos para sostener una misma tesis."
-
-pasos:
-  - "Cuantos más argumentos sólidos y variados, más convincente suele ser el texto."
-
-explicacion: |
-  Verdadero: acumular argumentos (de distinto tipo, idealmente) es la
-  estrategia habitual para reforzar una tesis.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "argumentos"
-  nivel: "avanzado"
-  tags: ["argumentos", "tesis", "relacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que uno de los argumentos de un texto sea débil no significa automáticamente que la tesis sea falsa, sólo que ese argumento en particular no la sostiene bien."
-
-pasos:
-  - "La tesis puede ser cierta o razonable aunque algún argumento puntual esté mal construido."
-
-explicacion: |
-  Verdadero: evaluar la calidad de un argumento es distinto de
-  evaluar si la tesis en sí es correcta.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "argumentos"
-  nivel: "avanzado"
-  tags: ["argumentos", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Según un estudio publicado en una revista médica, el 80% de los pacientes mejoró con este tratamiento"
-tipo: mc
-opciones_explicitas: ["Según un estudio publicado en una revista médica, el 80% de los pacientes mejoró con este tratamiento", "Mucha gente dice que este tratamiento funciona bien"]
-
-enunciado: "Para sostener la tesis \"este tratamiento médico es efectivo\", ¿cuál de estos dos argumentos es más fuerte?"
-
-pasos:
-  - "El argumento con dato verificable y fuente específica es más fuerte que la generalidad vaga (\"mucha gente dice\")."
-
-explicacion: |
-  La especificidad y verificabilidad hacen que el primer argumento
-  sea más sólido que el segundo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "argumentos"
+  tema: "ortografia_y_tildacion"
   nivel: "intermedio"
-  tags: ["argumentos", "metodo"]
-
-enunciado: "Ordená los pasos para analizar los argumentos de un texto argumentativo."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar la tesis que el texto defiende"
-  - "Separar cada argumento presentado (buscando conectores como \"porque\", \"ya que\")"
-  - "Clasificar cada argumento según su tipo (autoridad, ejemplo, datos, causa-consecuencia, analogía)"
-  - "Evaluar si cada argumento sostiene directamente la tesis y qué tan fuerte es"
-respuesta_orden:
-  - "Identificar la tesis que el texto defiende"
-  - "Separar cada argumento presentado (buscando conectores como \"porque\", \"ya que\")"
-  - "Clasificar cada argumento según su tipo (autoridad, ejemplo, datos, causa-consecuencia, analogía)"
-  - "Evaluar si cada argumento sostiene directamente la tesis y qué tan fuerte es"
-
-explicacion: |
-  El análisis parte de la tesis (ya vista en el tema anterior), sigue
-  con la identificación de cada argumento, y termina en su
-  evaluación.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "argumentos"
-  nivel: "avanzado"
-  tags: ["argumentos", "contraargumentos", "prerrequisito"]
+  tags: ["graves", "practica"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "Saber construir bien los propios argumentos es necesario antes de poder anticipar y refutar los argumentos de la postura contraria (contraargumentos)."
+enunciado: "La palabra \"joven\" (grave, termina en \"n\") debería llevar tilde según la regla de las graves."
 
 pasos:
-  - "Ver `../contraargumentos/`: para refutar un argumento ajeno, primero hay que entender qué hace fuerte o débil a un argumento en general."
+  - "La regla de graves exige terminar en consonante distinta de n/s; \"n\" está excluida de esa condición."
 
 explicacion: |
-  Verdadero: por eso argumentos es prerrequisito directo de
-  contraargumentos, el siguiente tema de la cadena.
+  Falso: \"joven\" es grave terminada en \"n\", por eso no lleva
+  tilde (justo lo opuesto a la regla de agudas).
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "argumentos"
-  nivel: "avanzado"
-  tags: ["argumentos", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si la audiencia de un texto valora mucho la evidencia científica, conviene priorizar argumentos de datos/estadística o de autoridad antes que argumentos por analogía o de ejemplo suelto."
-
-pasos:
-  - "Elegir el tipo de argumento más persuasivo depende de qué valora la audiencia a la que se dirige el texto."
-
-explicacion: |
-  Verdadero: la elección del tipo de argumento es una decisión
-  estratégica según a quién se quiere convencer.
-```
-
-## Sección: boom-latinoamericano (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "basico"
-  tags: ["boom_latinoamericano", "contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Boom latinoamericano ocurre en las décadas de 1960 y 1970."
-
-pasos:
-  - "Es un movimiento del siglo XX, mucho más tardío que los movimientos del siglo XIX ya vistos."
-
-explicacion: |
-  Verdadero: el Boom es un fenómeno literario de mediados del siglo
-  XX.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
+  tema: "ortografia_y_tildacion"
   nivel: "intermedio"
-  tags: ["boom_latinoamericano", "generacion_98", "cronologia"]
+  tags: ["tilde_diacritica"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Entre la Generación del 98 y el Boom latinoamericano pasó más de medio siglo, con otros movimientos intermedios que no se cubren en esta cadena."
-
-pasos:
-  - "El MAPA los encadena como los dos últimos movimientos importantes en español, pero no son consecutivos en el tiempo."
-
-explicacion: |
-  Verdadero: la distancia temporal es real y se explicita a
-  propósito en la teoría, no se oculta.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "intermedio"
-  tags: ["boom_latinoamericano", "contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Boom coincide con un momento de efervescencia política y cultural en América Latina, incluyendo la Revolución Cubana."
-
-pasos:
-  - "Ese contexto ayudó a que las obras llegaran con fuerza a un público internacional."
-
-explicacion: |
-  Verdadero: el contexto histórico-político es parte de las
-  condiciones que hicieron posible el fenómeno del Boom.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "basico"
-  tags: ["realismo_magico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "realismo mágico"
+respuesta: "él"
 tipo: completar
 
-enunciado: "El recurso característico del Boom donde lo fantástico se narra con total naturalidad, como parte normal de la realidad cotidiana, se llama..."
+enunciado: "El pronombre personal (\"... vino a la fiesta\") se escribe con tilde diacrítica como..."
 
 pasos:
-  - "Es la característica más distintiva y famosa del movimiento."
+  - "\"Él\" (pronombre, con tilde) se distingue de \"el\" (artículo, sin tilde)."
 
 explicacion: |
-  El realismo mágico es la marca central del Boom latinoamericano.
+  La tilde diacrítica distingue el pronombre \"él\" del artículo
+  \"el\".
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "avanzado"
-  tags: ["realismo_magico", "fantastico", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el realismo mágico, lo sobrenatural se integra sin extrañeza dentro de un mundo realista; en la literatura fantástica pura, lo sobrenatural genera duda o extrañeza en los personajes."
-
-pasos:
-  - "Esa ausencia de sorpresa ante lo mágico es lo que distingue al realismo mágico de otras formas de literatura sobrenatural."
-
-explicacion: |
-  Verdadero: la naturalidad sin sorpresa es la marca distintiva del
-  realismo mágico frente al fantástico puro.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
+  tema: "ortografia_y_tildacion"
   nivel: "intermedio"
-  tags: ["boom_latinoamericano", "experimentacion"]
+  tags: ["tilde_diacritica"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Boom se caracteriza también por la experimentación narrativa: estructuras complejas, múltiples narradores o puntos de vista, y saltos temporales frecuentes."
-
-pasos:
-  - "Ver `../estructura-narrativa/`: estas obras son mucho más audaces que la estructura clásica introducción-nudo-desenlace."
-
-explicacion: |
-  Verdadero: la experimentación estructural es otra característica
-  central del movimiento, además del realismo mágico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "intermedio"
-  tags: ["boom_latinoamericano", "identidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Boom explora la historia, la política y la cultura propias de América Latina, con frecuencia con una mirada crítica del poder (dictaduras, colonialismo)."
-
-pasos:
-  - "Esa exploración de la identidad regional es un eje temático central del movimiento."
-
-explicacion: |
-  Verdadero: el compromiso con la identidad y la política
-  latinoamericana es característico del Boom.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "intermedio"
-  tags: ["boom_latinoamericano", "proyeccion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Con el Boom, por primera vez la literatura escrita en español desde Hispanoamérica alcanza reconocimiento y venta masiva a nivel mundial."
-
-pasos:
-  - "Es un hito distinto de lo que había pasado con los movimientos anteriores de esta cadena."
-
-explicacion: |
-  Verdadero: la proyección internacional masiva es un rasgo distintivo
-  del fenómeno del Boom, más allá de lo estrictamente literario.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "basico"
-  tags: ["boom_latinoamericano", "autores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Cien años de soledad"
+respuesta: "tú"
 tipo: completar
 
-enunciado: "La novela de Gabriel García Márquez, considerada la obra más emblemática del realismo mágico, se titula..."
+enunciado: "El pronombre personal (\"... sabés la respuesta\") se escribe con tilde diacrítica como..."
 
 pasos:
-  - "García Márquez es el autor colombiano central del Boom."
+  - "\"Tú\" (pronombre, con tilde) se distingue de \"tu\" (posesivo, sin tilde: \"tu casa\")."
 
 explicacion: |
-  \"Cien años de soledad\" es la novela más representativa del
-  realismo mágico y del Boom en general.
+  La tilde diacrítica distingue el pronombre \"tú\" del posesivo
+  \"tu\".
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "boom_latinoamericano"
+  tema: "ortografia_y_tildacion"
   nivel: "intermedio"
-  tags: ["boom_latinoamericano", "autores"]
+  tags: ["tilde_diacritica"]
 
 variables:
-  n: uno_de([1, 1])
+  usos: ["afirmación (\"... quiero ir\")", "condicional (\"... llueve, no salgo\")"]
+  respuestas: ["sí", "si"]
+  idx: uno_de([0, 1])
 
-respuesta: "Rayuela"
+respuesta: respuestas[idx]
 tipo: completar
 
-enunciado: "La novela de Julio Cortázar, referencia central de la experimentación narrativa del Boom, se titula..."
+enunciado: "Para el uso de {usos[idx]}, se escribe..."
 
 pasos:
-  - "Cortázar es el autor argentino central de la experimentación estructural del Boom."
+  - "\"Sí\" (afirmación/reflexivo, con tilde) se distingue de \"si\" (condicional, sin tilde)."
 
 explicacion: |
-  \"Rayuela\" es célebre por poder leerse en distintos órdenes de
-  capítulos, ejemplo extremo de experimentación narrativa.
+  La tilde diacrítica distingue la afirmación \"sí\" de la
+  conjunción condicional \"si\".
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "avanzado"
-  tags: ["boom_latinoamericano", "autores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Vargas Llosa"
-tipo: completar
-
-enunciado: "El autor peruano de \"La ciudad y los perros\" se apellida..."
-
-pasos:
-  - "Mario Vargas Llosa es uno de los autores centrales del Boom."
-
-explicacion: |
-  Vargas Llosa es autor representativo del Boom latinoamericano,
-  originario de Perú.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "avanzado"
-  tags: ["boom_latinoamericano", "autores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Carlos Fuentes"
-tipo: completar
-
-enunciado: "El autor mexicano de \"La muerte de Artemio Cruz\" se llama..."
-
-pasos:
-  - "Carlos Fuentes es otro de los autores centrales del Boom."
-
-explicacion: |
-  Fuentes es autor representativo del Boom, originario de México.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "avanzado"
-  tags: ["boom_latinoamericano", "autores"]
-
-variables:
-  autores: ["García Márquez", "Cortázar", "Vargas Llosa", "Fuentes"]
-  origenes: ["Colombia", "Argentina", "Perú", "México"]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: origenes[idx]
-tipo: mc
-opciones_explicitas: ["Colombia", "Argentina", "Perú", "México"]
-
-enunciado: "El autor del Boom {autores[idx]} es de..."
-
-pasos:
-  - "Cada autor representativo del Boom tiene un origen nacional distinto dentro de Hispanoamérica."
-
-explicacion: |
-  El Boom fue un fenómeno regional con referentes en varios países de
-  América Latina.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
+  tema: "ortografia_y_tildacion"
   nivel: "intermedio"
-  tags: ["realismo_magico", "practica"]
+  tags: ["tilde_diacritica", "sentido"]
 
 variables:
   n: uno_de([1, 1])
@@ -796,121 +1614,116 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un relato donde un personaje asciende al cielo mientras cuelga la ropa, y nadie en el pueblo se asombra ni lo comenta como algo extraordinario, es un ejemplo típico de realismo mágico."
+enunciado: "Confundir \"cómo\" (interrogativo, con tilde) con \"como\" (comparativo, sin tilde) puede cambiar el sentido de una oración."
 
 pasos:
-  - "La clave es que lo sobrenatural se integra sin sorpresa dentro de la narración, tratado como parte normal de la realidad."
+  - "\"¿Cómo comiste?\" (pregunta por la manera) vs. \"Como comiste, te vas\" (comparativo/causal, sin pregunta)."
 
 explicacion: |
-  Verdadero: la ausencia de asombro ante lo fantástico es la marca
-  distintiva del realismo mágico.
+  Verdadero: la tilde diacrítica no es un capricho ortográfico, marca
+  una diferencia real de significado.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "boom_latinoamericano"
+  tema: "ortografia_y_tildacion"
   nivel: "avanzado"
-  tags: ["boom_latinoamericano", "identidad"]
+  tags: ["diptongo", "hiato"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Boom latinoamericano no se caracteriza sólo por su innovación estilística (realismo mágico, experimentación), sino también por un fuerte contenido político y de crítica social."
-
-pasos:
-  - "Muchas obras del Boom abordan directamente dictaduras, colonialismo y desigualdad en la región."
-
-explicacion: |
-  Verdadero: forma y contenido político van de la mano en buena parte
-  de la literatura del Boom.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "intermedio"
-  tags: ["realismo_magico", "autores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aunque \"Cien años de soledad\" es el ejemplo más famoso, el realismo mágico aparece en la obra de varios autores del Boom, no sólo en García Márquez."
-
-pasos:
-  - "El realismo mágico es una característica compartida del movimiento, no una técnica exclusiva de un solo autor."
-
-explicacion: |
-  Verdadero: el realismo mágico es una de las marcas del movimiento
-  en su conjunto, aunque García Márquez sea su referente más
-  reconocido.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "avanzado"
-  tags: ["realismo_magico", "fantastico", "practica"]
-
-variables:
-  fragmentos: ["Un personaje encuentra un fantasma y grita aterrorizado, sin entender qué está pasando", "Llueven flores amarillas del cielo durante horas, y los vecinos simplemente barren la vereda como cualquier otro día"]
-  tipos: ["fantástico puro", "realismo mágico"]
+  palabras: ["cielo", "país"]
+  tipos: ["diptongo", "hiato"]
   idx: uno_de([0, 1])
 
 respuesta: tipos[idx]
 tipo: mc
-opciones_explicitas: ["fantástico puro", "realismo mágico"]
+opciones_explicitas: ["diptongo", "hiato"]
 
-enunciado: "\"{fragmentos[idx]}\" es un ejemplo de..."
+enunciado: "En la palabra \"{palabras[idx]}\", las dos vocales juntas forman un..."
 
 pasos:
-  - "Si el personaje se sorprende o teme lo sobrenatural, es fantástico puro. Si lo sobrenatural se trata como normal, es realismo mágico."
+  - "\"Cielo\": vocal fuerte+débil en la misma sílaba = diptongo. \"País\": vocal fuerte + débil tónica en sílabas distintas = hiato."
 
 explicacion: |
-  La reacción de los personajes ante lo sobrenatural es el criterio
-  que distingue estos dos tipos de literatura fantástica.
+  El diptongo mantiene las vocales en una sílaba; el hiato las separa
+  en sílabas distintas.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "boom_latinoamericano"
-  nivel: "intermedio"
-  tags: ["boom_latinoamericano", "metodo"]
+  tema: "ortografia_y_tildacion"
+  nivel: "avanzado"
+  tags: ["hiato", "regla"]
 
-enunciado: "Ordená los pasos para reconocer si un texto pertenece al Boom latinoamericano."
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En palabras como \"país\" o \"caída\", la vocal débil tónica lleva tilde aunque la palabra no cumpla la regla general de graves/agudas, específicamente para marcar el hiato."
+
+pasos:
+  - "Esa tilde no sigue la regla normal de acentuación, es una excepción para señalar que las vocales se separan en sílabas distintas."
+
+explicacion: |
+  Verdadero: el hiato con vocal débil tónica tiene una regla propia
+  de tildación, distinta de la regla general.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "ortografia_y_tildacion"
+  nivel: "avanzado"
+  tags: ["ortografia_y_tildacion", "practica"]
+
+variables:
+  palabras: ["facil", "cancion", "sabado"]
+  correctas: ["fácil", "canción", "sábado"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: correctas[idx]
+tipo: completar
+
+enunciado: "Escribí correctamente la palabra \"{palabras[idx]}\", agregando la tilde si corresponde."
+
+pasos:
+  - "Identificar la sílaba tónica, clasificar la palabra (aguda/grave/esdrújula) y aplicar la regla correspondiente."
+
+explicacion: |
+  Cada palabra requiere aplicar la regla de tildación según su
+  clasificación específica.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "ortografia_y_tildacion"
+  nivel: "intermedio"
+  tags: ["ortografia_y_tildacion", "metodo"]
+
+enunciado: "Ordená los pasos para decidir si una palabra necesita tilde."
 tipo: ordenar
 opciones_explicitas:
-  - "Revisar si aparecen elementos sobrenaturales tratados con naturalidad (realismo mágico)"
-  - "Buscar estructuras narrativas complejas o poco convencionales"
-  - "Identificar si hay una exploración de la identidad o política latinoamericana"
-  - "Confirmar la época (décadas de 1960-1970) y el origen hispanoamericano del autor"
-respuesta_orden:
-  - "Revisar si aparecen elementos sobrenaturales tratados con naturalidad (realismo mágico)"
-  - "Buscar estructuras narrativas complejas o poco convencionales"
-  - "Identificar si hay una exploración de la identidad o política latinoamericana"
-  - "Confirmar la época (décadas de 1960-1970) y el origen hispanoamericano del autor"
-
+  - "Identificar la sílaba tónica de la palabra"
+  - "Contar su posición (última, penúltima, antepenúltima o antes) para clasificarla"
+  - "Revisar en qué letra termina la palabra"
+  - "Aplicar la regla correspondiente a esa clasificación (aguda/grave/esdrújula/sobresdrújula)"
+respuesta_orden: ["Identificar la sílaba tónica de la palabra", "Contar su posición (última, penúltima, antepenúltima o antes) para clasificarla", "Revisar en qué letra termina la palabra", "Aplicar la regla correspondiente a esa clasificación (aguda/grave/esdrújula/sobresdrújula)"]
 explicacion: |
-  El análisis va de la marca más reconocible (realismo mágico) a los
-  datos contextuales que confirman la ubicación del texto en el
-  movimiento.
+  El proceso parte de identificar la sílaba tónica, la base de toda
+  la tildación en español.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "boom_latinoamericano"
+  tema: "ortografia_y_tildacion"
   nivel: "avanzado"
-  tags: ["boom_latinoamericano", "sintesis"]
+  tags: ["ortografia_y_tildacion", "prerrequisito"]
 
 variables:
   n: uno_de([1, 1])
@@ -918,22 +1731,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El Boom latinoamericano es el último eslabón de la cadena de movimientos literarios estudiada (Romanticismo → Realismo → Modernismo → Generación del 98 → Boom)."
+enunciado: "Antes de puntuar correctamente una oración, hace falta poder escribir bien cada palabra que la compone, incluida su tildación."
 
 pasos:
-  - "Cada movimiento se relacionó con el anterior por reacción, sucesión cronológica o tema compartido."
+  - "Ver `../signos-de-puntuacion/`: la corrección formal avanza de la palabra individual a la oración completa."
 
 explicacion: |
-  Verdadero: cierra la cadena histórica de movimientos literarios en
-  español de esta rama de la currícula.
+  Verdadero: por eso ortografía y tildación es prerrequisito directo
+  de signos de puntuación, el siguiente tema de la cadena.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "boom_latinoamericano"
+  tema: "ortografia_y_tildacion"
   nivel: "avanzado"
-  tags: ["realismo_magico", "aplicacion"]
+  tags: ["ortografia_y_tildacion", "aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -941,14 +1754,14 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si un autor quiere narrar un hecho sobrenatural para hablar simbólicamente de la historia de un pueblo, sin romper el tono realista general del relato, el realismo mágico es un recurso más afín que la literatura fantástica pura (donde lo sobrenatural genera extrañeza explícita)."
+enunciado: "Escribir \"¿Dónde estás?\" con tilde diacrítica en vez de \"donde\" sin tilde evita que se confunda una pregunta con una oración relativa (\"el lugar donde estás\")."
 
 pasos:
-  - "El realismo mágico permite mezclar lo simbólico/sobrenatural con la crítica social sin quebrar la verosimilitud general de la narración."
+  - "La tilde diacrítica marca específicamente el uso interrogativo o exclamativo de esas palabras."
 
 explicacion: |
-  Verdadero: la elección del tipo de literatura fantástica depende
-  del efecto narrativo y simbólico que el autor busca lograr.
+  Verdadero: aplicar correctamente la tildación diacrítica evita
+  ambigüedades reales de sentido en la escritura.
 ```
 
 ## Sección: circuito-de-la-comunicacion (24 preguntas)
@@ -1425,851 +2238,3 @@ explicacion: |
   El circuito de la comunicación es el modelo teórico que describe los elementos y procesos de la comunicación.
 ```
 
-## Sección: clases-de-palabras (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "basico"
-  tags: ["sustantivo", "vocabulario"]
-
-enunciado: "¿Qué es un sustantivo?"
-tipo: mc
-opciones_explicitas:
-  - "Una palabra que nombra personas, animales, cosas o ideas"
-  - "Una palabra que expresa una acción o un estado"
-  - "Una palabra que modifica a otra indicando una cualidad"
-respuesta: "Una palabra que nombra personas, animales, cosas o ideas"
-
-explicacion: |
-  Como 'mesa', 'ciudad' o 'amor'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "basico"
-  tags: ["verbo", "vocabulario"]
-
-enunciado: "¿Qué es un verbo?"
-tipo: mc
-opciones_explicitas:
-  - "Una palabra que expresa una acción o un estado"
-  - "Una palabra que nombra a una persona o cosa"
-  - "Una palabra invariable que modifica a un adjetivo"
-respuesta: "Una palabra que expresa una acción o un estado"
-
-explicacion: |
-  Como 'correr', 'saltar' o 'pensar'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "basico"
-  tags: ["adjetivo", "vocabulario"]
-
-enunciado: "¿Qué es un adjetivo?"
-tipo: mc
-opciones_explicitas:
-  - "Una palabra que modifica a un sustantivo, indicando una cualidad, y concuerda con él en género y número"
-  - "Una palabra que nombra a una persona, animal o cosa"
-  - "Una palabra invariable que modifica a un verbo"
-respuesta: "Una palabra que modifica a un sustantivo, indicando una cualidad, y concuerda con él en género y número"
-
-explicacion: |
-  Como 'grande', 'rojo' o 'feliz'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "intermedio"
-  tags: ["adjetivo", "problema"]
-
-tipo: completar
-enunciado: "En la oración 'El libro azul es mío', la palabra 'azul' es un ___ porque modifica al sustantivo 'libro'."
-respuestas_validas:
-  - "adjetivo"
-  - "adjetivo calificativo"
-
-explicacion: |
-  'Azul' concuerda en género (masculino) y número (singular) con
-  'libro', el sustantivo que modifica.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "intermedio"
-  tags: ["adverbio", "vocabulario"]
-
-enunciado: "¿Qué es un adverbio?"
-tipo: mc
-opciones_explicitas:
-  - "Una palabra invariable que modifica a un verbo, un adjetivo u otro adverbio"
-  - "Una palabra que modifica a un sustantivo y concuerda con él"
-  - "Una palabra que nombra una acción"
-respuesta: "Una palabra invariable que modifica a un verbo, un adjetivo u otro adverbio"
-
-explicacion: |
-  A diferencia del adjetivo, el adverbio no tiene género ni número.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "intermedio"
-  tags: ["adverbio", "problema"]
-
-enunciado: "¿Qué categoría gramatical es la palabra 'rápidamente'?"
-tipo: mc
-opciones_explicitas:
-  - "Adverbio: modifica al verbo e indica modo, y es invariable"
-  - "Adjetivo: modifica a un sustantivo"
-  - "Sustantivo: nombra algo"
-respuesta: "Adverbio: modifica al verbo e indica modo, y es invariable"
-
-explicacion: |
-  'Rápidamente' se formó a partir del adjetivo 'rápida' + el sufijo
-  '-mente' (ver `../vocabulario-y-familia-de-palabras/`).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "basico"
-  tags: ["pronombre", "vocabulario"]
-
-enunciado: "¿Qué es un pronombre?"
-tipo: mc
-opciones_explicitas:
-  - "Una palabra que reemplaza a un sustantivo, para no repetirlo"
-  - "Una palabra que siempre acompaña a un verbo"
-  - "Otro nombre para un artículo"
-respuesta: "Una palabra que reemplaza a un sustantivo, para no repetirlo"
-
-explicacion: |
-  Como 'yo', 'ella', 'esto' o 'quien'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "intermedio"
-  tags: ["articulo", "vocabulario"]
-
-enunciado: "¿Qué es un determinante?"
-tipo: mc
-opciones_explicitas:
-  - "Una palabra que acompaña al sustantivo y lo 'actualiza' (lo presenta como conocido o desconocido)"
-  - "Una palabra que reemplaza al sustantivo por completo"
-  - "Una palabra que sólo aparece en oraciones negativas"
-respuesta: "Una palabra que acompaña al sustantivo y lo 'actualiza' (lo presenta como conocido o desconocido)"
-
-explicacion: |
-  Como 'el', 'la', 'un', 'este' o 'mi'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "avanzado"
-  tags: ["articulo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los artículos (el, la, los, las, un, una) son, según la gramática normativa actual de la RAE, una subcategoría de los determinantes."
-
-explicacion: |
-  La RAE los clasifica dentro de los determinantes desde la Nueva
-  gramática de la lengua española (2009).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "basico"
-  tags: ["preposicion", "vocabulario"]
-
-enunciado: "¿Qué es una preposición?"
-tipo: mc
-opciones_explicitas:
-  - "Una palabra invariable que relaciona dos palabras o dos partes de una oración"
-  - "Una palabra que expresa una emoción"
-  - "Una palabra que modifica a un sustantivo"
-respuesta: "Una palabra invariable que relaciona dos palabras o dos partes de una oración"
-
-explicacion: |
-  Como 'de', 'a', 'en', 'con' o 'para'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "basico"
-  tags: ["conjuncion", "vocabulario"]
-
-enunciado: "¿Qué es una conjunción?"
-tipo: mc
-opciones_explicitas:
-  - "Una palabra invariable que une palabras u oraciones"
-  - "Una palabra que reemplaza a un sustantivo"
-  - "Una palabra que sólo se usa al principio de una oración"
-respuesta: "Una palabra invariable que une palabras u oraciones"
-
-explicacion: |
-  Como 'y', 'pero', 'aunque' u 'o'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "basico"
-  tags: ["interjeccion", "vocabulario"]
-
-enunciado: "¿Qué es una interjección?"
-tipo: mc
-opciones_explicitas:
-  - "Una palabra que expresa una emoción o reacción, casi siempre aislada del resto de la oración"
-  - "Una palabra que siempre modifica a un verbo"
-  - "Otro nombre para un pronombre"
-respuesta: "Una palabra que expresa una emoción o reacción, casi siempre aislada del resto de la oración"
-
-explicacion: |
-  Como '¡ay!', '¡oh!' o '¡uy!'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "intermedio"
-  tags: ["adjetivo", "morfologia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El adjetivo es una clase de palabra variable: cambia de forma según el género y el número del sustantivo que modifica ('rojo/roja', 'rojos/rojas')."
-
-explicacion: |
-  A diferencia del adverbio, que es invariable.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "intermedio"
-  tags: ["preposicion", "morfologia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La preposición es una clase de palabra invariable: 'de', 'en' o 'con' no cambian de forma sin importar el género o número de las palabras que relacionan."
-
-explicacion: |
-  Junto con el adverbio, la conjunción y la interjección, forma el
-  grupo de clases que no cambian de forma.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "avanzado"
-  tags: ["sustantivo", "problema"]
-
-enunciado: "Marcá los sustantivos de esta oración."
-tipo: identificar_palabras
-texto_analizar: "el gato negro duerme en la cama"
-respuestas_validas:
-  - "gato"
-  - "cama"
-
-explicacion: |
-  'Negro' es un adjetivo que modifica a 'gato'; 'duerme' es el verbo;
-  'el', 'en', 'la' son determinante y preposición.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "intermedio"
-  tags: ["verbo", "problema"]
-
-enunciado: "Marcá el verbo de esta oración."
-tipo: identificar_palabras
-texto_analizar: "María corre rápidamente por el parque"
-respuestas_validas:
-  - "corre"
-
-explicacion: |
-  'María' y 'parque' son sustantivos; 'rápidamente' es un adverbio;
-  'por' y 'el' son preposición y determinante.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "avanzado"
-  tags: ["adverbio", "problema"]
-
-enunciado: "Marcá el adverbio de esta oración."
-tipo: identificar_palabras
-texto_analizar: "María corre rápidamente por el parque"
-respuestas_validas:
-  - "rápidamente"
-
-explicacion: |
-  Es invariable y modifica al verbo 'corre', indicando el modo en que
-  se realiza la acción.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "basico"
-  tags: ["clasificar"]
-
-enunciado: "'Correr', 'saltar' y 'pensar' son ejemplos de una misma categoría gramatical. ¿Cuál?"
-tipo: mc
-opciones_explicitas:
-  - "Verbos"
-  - "Sustantivos"
-  - "Adjetivos"
-respuesta: "Verbos"
-
-explicacion: |
-  Las tres expresan una acción — la característica definitoria del
-  verbo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué es útil saber a qué clase gramatical pertenece cada palabra de una oración?"
-tipo: mc
-opciones_explicitas:
-  - "Porque es el paso previo para entender cómo se construye una oración: conjugar verbos, hacer concordar sujeto y predicado, o identificar cada parte de la oración"
-  - "Sólo sirve para completar ejercicios de gramática, sin ninguna utilidad práctica"
-  - "No tiene ninguna relación con escribir o hablar correctamente"
-respuesta: "Porque es el paso previo para entender cómo se construye una oración: conjugar verbos, hacer concordar sujeto y predicado, o identificar cada parte de la oración"
-
-explicacion: |
-  Es el prerrequisito directo de los tres módulos que siguen.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "clases_de_palabras"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve clasificar las palabras en categorías gramaticales?"
-tipo: mc
-opciones_explicitas:
-  - "Para entender la función de cada palabra dentro de una oración, base necesaria para conjugar verbos, lograr concordancia y analizar sujeto y predicado"
-  - "Sólo sirve para ordenar un diccionario"
-  - "Sólo se aplica a la lengua escrita, nunca a la hablada"
-respuesta: "Para entender la función de cada palabra dentro de una oración, base necesaria para conjugar verbos, lograr concordancia y analizar sujeto y predicado"
-
-explicacion: |
-  Es la base directa de `../conjugacion-verbal-indicativo/`,
-  `../concordancia-nominal-y-verbal/` y `../sujeto-y-predicado/`.
-```
-
-## Sección: comprension-idea-principal (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "basico"
-  tags: ["idea_principal", "explicita"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Los perros son animales muy sociables"
-tipo: mc
-opciones_explicitas: ["Los perros son animales muy sociables", "Los perros viven en manada", "Los perros reconocen emociones"]
-
-enunciado: "\"Los perros son animales muy sociables. Viven en manada en estado salvaje y reconocen las emociones de las personas.\" ¿Cuál es la idea principal?"
-
-pasos:
-  - "La primera oración suele anunciar la idea principal; el resto la desarrolla con ejemplos."
-
-explicacion: |
-  \"Viven en manada\" y \"reconocen emociones\" son ideas secundarias
-  que apoyan la idea principal (que son sociables), no la reemplazan.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "basico"
-  tags: ["idea_principal", "tema"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El tema de un texto (\"los perros\") es lo mismo que su idea principal."
-
-pasos:
-  - "El tema es una palabra o frase corta; la idea principal es una oración completa con lo que se dice sobre ese tema."
-
-explicacion: |
-  Falso: el tema es de qué habla el texto; la idea principal es QUÉ
-  dice sobre ese tema.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "basico"
-  tags: ["idea_principal", "ideas_secundarias"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las ideas secundarias explican, ejemplifican o dan detalles sobre la idea principal, pero no son el mensaje central del párrafo."
-
-pasos:
-  - "Un párrafo tiene una sola idea principal y puede tener varias ideas secundarias."
-
-explicacion: |
-  Verdadero: las ideas secundarias apoyan, no reemplazan, la idea
-  principal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "intermedio"
-  tags: ["idea_principal", "ubicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "El reciclaje es una práctica clave para cuidar el planeta"
-tipo: mc
-opciones_explicitas: ["El reciclaje es una práctica clave para cuidar el planeta", "El vidrio se recicla infinitas veces", "El papel tarda semanas en descomponerse"]
-
-enunciado: "\"El vidrio se puede reciclar infinitas veces sin perder calidad. El papel, en cambio, sólo unas pocas veces. En definitiva, el reciclaje es una práctica clave para cuidar el planeta.\" ¿Cuál es la idea principal?"
-
-pasos:
-  - "Cuando el párrafo acumula datos y termina con una conclusión general, la idea principal suele estar al final."
-
-explicacion: |
-  Los datos sobre vidrio y papel son ejemplos que llevan a la
-  conclusión final, que es la idea principal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "avanzado"
-  tags: ["idea_principal", "implicita"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "El personaje estaba muy nervioso"
-tipo: mc
-opciones_explicitas: ["El personaje estaba muy nervioso", "El personaje tenía las manos frías", "El personaje miraba el reloj"]
-
-enunciado: "\"Le temblaban las manos. Miraba el reloj cada dos minutos. No podía quedarse sentado.\" Ninguna oración lo dice literalmente, pero ¿cuál es la idea principal implícita?"
-
-pasos:
-  - "Cuando ninguna oración resume el párrafo, hay que inferir la idea general a partir de todos los detalles juntos."
-
-explicacion: |
-  Los tres detalles (manos que tiemblan, mirar el reloj, no poder
-  quedarse quieto) son síntomas de nerviosismo — la idea principal
-  hay que deducirla, no está escrita literal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "intermedio"
-  tags: ["idea_principal", "resumen"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si se tuviera que resumir un texto en una sola oración, esa oración sería (o se parecería mucho a) su idea principal."
-
-pasos:
-  - "Resumir obliga a distinguir lo esencial (idea principal) de los detalles (ideas secundarias)."
-
-explicacion: |
-  Verdadero: es la estrategia práctica más directa para verificar
-  si se identificó bien la idea principal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "basico"
-  tags: ["idea_principal", "estructura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un párrafo suele tener varias ideas principales, una por cada oración."
-
-pasos:
-  - "Un párrafo bien construido gira en torno a una sola idea central, con oraciones secundarias que la apoyan."
-
-explicacion: |
-  Falso: lo habitual es una idea principal por párrafo, acompañada de
-  varias ideas secundarias.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "intermedio"
-  tags: ["idea_principal", "detalles"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "El uso de energías renovables creció mucho en la última década"
-tipo: mc
-opciones_explicitas: ["El uso de energías renovables creció mucho en la última década", "La energía solar usa paneles fotovoltaicos", "La energía eólica usa turbinas de viento"]
-
-enunciado: "\"La energía solar usa paneles fotovoltaicos. La eólica usa turbinas de viento. El uso de energías renovables creció mucho en la última década.\" ¿Cuál es la idea principal?"
-
-pasos:
-  - "Los detalles técnicos (paneles, turbinas) son ejemplos de energías renovables; la afirmación general sobre su crecimiento es la idea principal."
-
-explicacion: |
-  Los detalles sobre cómo funciona cada energía son ideas
-  secundarias que ilustran la idea principal (el crecimiento del
-  uso).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "basico"
-  tags: ["idea_principal", "estrategia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Conviene leer el párrafo completo antes de decidir cuál es la idea principal, en vez de asumir que siempre es la primera oración."
-
-pasos:
-  - "La idea principal puede estar al final o ser implícita; asumir que siempre está al inicio lleva a errores."
-
-explicacion: |
-  Verdadero: aunque el inicio es el lugar más común, no es el único,
-  así que hay que confirmar leyendo todo el párrafo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "intermedio"
-  tags: ["idea_principal", "titulo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El título de un texto suele dar una pista sobre el tema, pero no reemplaza la necesidad de leer el párrafo para encontrar la idea principal completa."
-
-pasos:
-  - "El título anticipa el tema (una palabra/frase corta), pero la idea principal es una oración completa que hay que construir leyendo."
-
-explicacion: |
-  Verdadero: el título ayuda a ubicar el tema, pero la idea principal
-  necesita leer el desarrollo del párrafo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "intermedio"
-  tags: ["idea_principal", "narrativo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "La ciudad se quedó sin luz durante toda la noche"
-tipo: mc
-opciones_explicitas: ["La ciudad se quedó sin luz durante toda la noche", "Los vecinos salieron con velas", "Se escuchó un ruido fuerte en el barrio"]
-
-enunciado: "\"Se escuchó un ruido fuerte. Las luces se apagaron de golpe. Los vecinos salieron con velas a la calle. La ciudad se quedó sin luz durante toda la noche.\" ¿Cuál es la idea principal?"
-
-pasos:
-  - "El ruido, las velas y el apagón son los eventos que llevan a la idea central del corte de luz prolongado."
-
-explicacion: |
-  La idea principal resume el hecho central (el corte de luz); los
-  demás detalles son la secuencia de eventos que lo acompañan.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "intermedio"
-  tags: ["idea_principal", "ejemplos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un ejemplo dado dentro de un párrafo (\"por ejemplo, las manzanas y las peras\") suele ser la idea principal del párrafo."
-
-pasos:
-  - "Los ejemplos ilustran una afirmación más general (la idea principal), no la constituyen."
-
-explicacion: |
-  Falso: los ejemplos son ideas secundarias que apoyan o ilustran la
-  idea principal, casi nunca son la idea principal en sí.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "basico"
-  tags: ["idea_principal", "expositivo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "El agua es esencial para la vida en la Tierra"
-tipo: mc
-opciones_explicitas: ["El agua es esencial para la vida en la Tierra", "El agua cubre el 70% de la superficie terrestre", "El agua se congela a 0°C"]
-
-enunciado: "\"El agua es esencial para la vida en la Tierra. Cubre el 70% de la superficie terrestre y forma parte de todos los seres vivos.\" ¿Cuál es la idea principal?"
-
-pasos:
-  - "La primera oración anuncia la idea general; los datos que siguen la respaldan."
-
-explicacion: |
-  Los datos sobre el porcentaje de superficie y los seres vivos
-  apoyan la afirmación inicial, que es la idea principal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "avanzado"
-  tags: ["idea_principal", "ambiguedad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando un párrafo no tiene una oración que resuma explícitamente la idea principal, igual se puede (y se debe) inferir una a partir del conjunto de oraciones."
-
-pasos:
-  - "La idea implícita se construye combinando todos los detalles del párrafo, no citando una sola oración."
-
-explicacion: |
-  Verdadero: la ausencia de una oración-resumen no significa que no
-  haya idea principal, sólo que hay que inferirla.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "avanzado"
-  tags: ["idea_principal", "objetividad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La idea principal de un texto puede variar según lo que a cada lector le parezca más interesante del párrafo."
-
-pasos:
-  - "La idea principal es una propiedad del texto (lo que el autor quiso comunicar como central), no una preferencia subjetiva del lector."
-
-explicacion: |
-  Falso: aunque distintos lectores destaquen distintos detalles, la
-  idea principal es la que el párrafo desarrolla como eje central,
-  no una elección personal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "intermedio"
-  tags: ["idea_principal", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "El ejercicio regular mejora la salud física y mental"
-tipo: mc
-opciones_explicitas: ["El ejercicio regular mejora la salud física y mental", "Correr 30 minutos quema calorías", "El yoga reduce el estrés"]
-
-enunciado: "\"Correr 30 minutos quema calorías. El yoga reduce el estrés. En general, el ejercicio regular mejora la salud física y mental.\" ¿Cuál es la idea principal?"
-
-pasos:
-  - "Correr y el yoga son ejemplos concretos de ejercicio que respaldan la afirmación general."
-
-explicacion: |
-  La afirmación general que engloba a los dos ejemplos (correr, yoga)
-  es la idea principal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "intermedio"
-  tags: ["idea_principal", "texto_largo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un texto de varios párrafos, cada párrafo puede tener su propia idea principal, distinta de las de los otros párrafos."
-
-pasos:
-  - "El texto completo tiene un tema general, pero cada párrafo suele desarrollar un aspecto distinto de ese tema."
-
-explicacion: |
-  Verdadero: identificar la idea principal de CADA párrafo es el
-  primer paso para armar luego un resumen de todo el texto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "basico"
-  tags: ["idea_principal", "titulo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El título de un texto siempre coincide exactamente con la idea principal del primer párrafo."
-
-pasos:
-  - "El título suele ser más corto y general que la idea principal, que es una oración completa desarrollada en el texto."
-
-explicacion: |
-  Falso: el título anticipa el tema, pero la idea principal es más
-  específica y hay que construirla leyendo el párrafo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "intermedio"
-  tags: ["idea_principal", "metodo"]
-
-enunciado: "Ordená los pasos de la estrategia para encontrar la idea principal de un párrafo."
-tipo: ordenar
-opciones_explicitas:
-  - "Leer el párrafo completo"
-  - "Preguntarse de qué trata principalmente"
-  - "Distinguir esa respuesta de los detalles que sólo la apoyan"
-  - "Si no está escrita literal, resumirla con las propias palabras"
-respuesta_orden:
-  - "Leer el párrafo completo"
-  - "Preguntarse de qué trata principalmente"
-  - "Distinguir esa respuesta de los detalles que sólo la apoyan"
-  - "Si no está escrita literal, resumirla con las propias palabras"
-
-explicacion: |
-  El orden va de la lectura completa a la identificación, pasando por
-  descartar detalles, hasta inferir cuando no está escrita literal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "comprension_idea_principal"
-  nivel: "avanzado"
-  tags: ["idea_principal", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Identificar bien la idea principal es la base para poder resumir un texto y también para clasificar de qué tipo textual se trata (narrativo, expositivo, argumentativo...)."
-
-pasos:
-  - "Sin saber de qué trata un texto, no se puede decidir cómo está organizado ni para qué fue escrito."
-
-explicacion: |
-  Verdadero: por eso este tema es prerrequisito directo de \"tipos
-  textuales\", el siguiente módulo de la currícula.
-```

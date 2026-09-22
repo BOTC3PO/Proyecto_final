@@ -1,817 +1,1865 @@
-# Examen jefe — Maestro de Sintaxis y Subordinadas
+# Examen jefe — [PENDIENTE #661]
 
-> Logro #94. Dominaste los sintagmas, la subjetivación y las oraciones subordinadas adjetivas y adverbiales. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **119 preguntas totales** en 5/5 secciones.
+> Logro #661. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: sintagmas-nominal-adjetivo-preposicional-adverbial-verbal (21 preguntas)
+## Sección: coordinadas-distributivas (26 preguntas)
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
   nivel: "basico"
-  tags: ["verdad_falsa"]
+  tags: ["definicion", "pares-correlativos"]
 
 variables:
-  sustantivo: uno_de(["gato"])
-  adjetivo: uno_de(["negro"])
+  op_a: "un nexo como 'y' u 'o'"
+  op_b: "la repetición de una palabra correlativa ('ya... ya...', 'unos... otros...')"
+  op_c: "una coma sin ninguna palabra que se repita"
+  op_d: "el uso de 'pero' o 'sino'"
+
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "¿Qué marca principalmente a la coordinación distributiva, a diferencia de la copulativa, la disyuntiva y la adversativa?"
+
+explicacion: |
+  La distributiva no usa un nexo conjuntivo único: se reconoce por la repetición de una palabra correlativa al inicio de cada proposición ("ya... ya...", "unos... otros...", "bien... bien...", "ora... ora...").
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "basico"
+  tags: ["ejemplo", "ya-ya"]
+
+variables:
+  estado1: uno_de(["ríe", "canta", "duda"])
+  estado2: uno_de(["llora", "calla", "afirma"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Ya {estado1}, ya {estado2}', la repetición de 'ya' marca una coordinación distributiva que alterna entre dos momentos o estados."
+
+explicacion: |
+  Correcto. El par correlativo "ya... ya..." indica que el sujeto alterna entre esos estados en distintos momentos, sin que haya un nexo como "y" u "o" uniéndolos.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "basico"
+  tags: ["ejemplo", "unos-otros"]
+
+variables:
+  grupo: uno_de(["Los alumnos", "Los vecinos", "Los jugadores"])
+  accion1: uno_de(["cantan", "estudian", "corren"])
+  accion2: uno_de(["bailan", "dibujan", "descansan"])
+
+respuesta: "unos... otros..."
+tipo: completar
+
+enunciado: "'{grupo}: unos {accion1}, otros {accion2}' reparte la acción entre dos subgrupos mediante el par correlativo:"
+
+explicacion: |
+  El par "unos... otros..." distribuye la acción entre distintos miembros del mismo grupo: una parte hace una cosa, otra parte hace otra, simultáneamente.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "intermedio"
+  tags: ["distincion", "copulativa"]
+
+variables:
+  nombre1: uno_de(["Juan", "Pedro", "Luis"])
+  nombre2: uno_de(["María", "Ana", "Sofía"])
+  accion1: uno_de(["estudia", "lee", "escribe"])
+  accion2: uno_de(["cocina", "canta", "pinta"])
 
 respuesta: falso
 tipo: vf
 
-enunciado: "En el sintagma nominal 'el gato negro', la palabra 'negro' es el núcleo del sintagma."
+enunciado: "En '{nombre1} {accion1} y {nombre2} {accion2}', hay coordinación distributiva porque cada sujeto realiza una acción distinta."
 
 explicacion: |
-  Falso. El núcleo del sintagma nominal es el sustantivo ('gato'). 'Negro' es un adjetivo que lo modifica.
+  Falso. Es un error común confundir esto con la distributiva. Aquí solo hay dos proposiciones sumadas con "y" (copulativa); no hay ninguna palabra correlativa repetida. Que las acciones sean distintas no alcanza para que sea distributiva.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "basico"
-  tags: ["verdad_falsa"]
-
-variables:
-  adverbio1: uno_de(["casi"])
-  adverbio2: uno_de(["nunca"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el sintagma adverbial 'casi nunca', la palabra 'nunca' es el núcleo."
-
-explicacion: |
-  Verdadero. El núcleo es el adverbio principal, mientras que el otro actúa como modificador de grado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "basico"
-  tags: ["verdad_falsa"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un sintagma es un conjunto de palabras que funcionan como una unidad girando en torno a un núcleo."
-
-explicacion: |
-  Verdadero. Esta es la definición fundamental de un sintagma en gramática.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
   nivel: "intermedio"
-  tags: ["verdad_falsa"]
+  tags: ["ejemplo", "bien-bien"]
 
 variables:
-  preposicion: uno_de(["sobre"])
-  sustantivo: uno_de(["la mesa"])
+  medio1: uno_de(["por las buenas", "con paciencia", "con esfuerzo"])
+  medio2: uno_de(["por las malas", "con firmeza", "con tiempo"])
+
+respuesta: "bien... bien..."
+tipo: completar
+
+enunciado: "'Lo resolveremos, bien {medio1}, bien {medio2}' usa el par correlativo:"
+
+explicacion: |
+  "Bien... bien..." es otro par correlativo productivo de la distributiva: presenta dos vías o modos posibles, distribuidos, sin un nexo conjuntivo.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "avanzado"
+  tags: ["ejemplo", "ora-ora", "registro"]
+
+variables:
+  clima1: uno_de(["llueve", "truena", "nubla"])
+  clima2: uno_de(["escampa", "sale el sol", "aclara"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "'Ora {clima1}, ora {clima2}' es un uso literario o arcaizante del par correlativo distributivo 'ora... ora...'."
+
+explicacion: |
+  Correcto. "Ora... ora..." funciona igual que "ya... ya..." pero con un registro más literario o arcaizante, típico de textos narrativos o poéticos.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "intermedio"
+  tags: ["distincion", "disyuntiva"]
+
+variables:
+  op_a: "La distributiva reparte la acción entre elementos o momentos con un par correlativo; la disyuntiva plantea una alternativa excluyente con 'o'/'u'."
+  op_b: "Son exactamente lo mismo, solo cambia el nexo."
+  op_c: "La disyuntiva siempre implica reciprocidad y la distributiva no."
+  op_d: "La distributiva solo se usa con sujetos plurales y la disyuntiva no."
+
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "¿Cuál es la diferencia real entre coordinación distributiva y disyuntiva?"
+
+explicacion: |
+  La disyuntiva ("o"/"u") presenta opciones donde se elige o se excluye una; la distributiva reparte la acción entre elementos o momentos distintos mediante un par correlativo, sin plantear una elección excluyente.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "intermedio"
+  tags: ["distincion", "adversativa"]
+
+variables:
+  elem1: uno_de(["El primero", "El más chico", "El del fondo"])
+  elem2: uno_de(["el segundo", "el más grande", "el de adelante"])
+  cualidad1: uno_de(["es tímido", "corre rápido", "estudia mucho"])
+  cualidad2: uno_de(["es extrovertido", "corre lento", "estudia poco"])
 
 respuesta: falso
 tipo: vf
 
-enunciado: "En el sintagma preposicional 'sobre la mesa', la preposición 'sobre' es el núcleo del sintagma."
+enunciado: "'{elem1} {cualidad1}, pero {elem2} {cualidad2}' es un ejemplo de coordinación distributiva porque compara dos elementos."
 
 explicacion: |
-  Falso. La preposición introduce el término, pero el núcleo del sintagma preposicional completo suele considerarse el sustantivo del término que sigue, o se analiza la relación. En el contexto de clasificación por núcleo, la preposición no es el núcleo nominal/adjetival/adverbial.
+  Falso. El nexo "pero" marca una coordinación adversativa (contraste), no distributiva. La distributiva no usa "pero"; usa pares correlativos repetidos como "ya... ya..." o "unos... otros...".
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  tema: "coordinadas_distributivas"
   nivel: "basico"
-  tags: ["sintagma_adjetival", "clasificacion"]
+  tags: ["pares-correlativos", "reconocimiento"]
 
 variables:
-  adverbio: uno_de(["muy", "extremadamente", "tan", "bastante"])
-  adjetivo: uno_de(["feliz", "triste", "rápido", "lento"])
+  n: random(2, 4)
 
-respuesta: "sintagma_adjetival"
-tipo: input
+respuesta: falso
+tipo: vf
 
-enunciado: "Clasifica el siguiente sintagma: '{adverbio} {adjetivo}'. ¿Qué tipo de sintagma es?"
+enunciado: "El par correlativo 'ni... ni...' (como en 'Ni {n} vino ni {n} llamó') es un caso de coordinación distributiva."
 
 explicacion: |
-  Cuando el núcleo es un adjetivo (modificado por un adverbio), se trata de un sintagma adjetival.
+  Falso. "Ni... ni..." es la forma negativa de la coordinación copulativa (niega ambos elementos por igual), no una coordinación distributiva. La distributiva reparte acciones o momentos distintos entre elementos, no niega lo mismo dos veces.
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "basico"
-  tags: ["sintagma_adverbial", "definicion"]
+  tema: "coordinadas_distributivas"
+  nivel: "intermedio"
+  tags: ["ejemplo", "demostrativos"]
+
+variables:
+  tema: uno_de(["el problema", "la película", "el partido"])
+  opinion1: uno_de(["una cosa", "que estuvo bien", "que ganó el mejor"])
+  opinion2: uno_de(["la contraria", "que estuvo mal", "que perdió el mejor"])
+
+respuesta: "éste... aquél..."
+tipo: completar
+
+enunciado: "En 'Sobre {tema}, éste opina {opinion1}, aquél opina {opinion2}', el par correlativo demostrativo usado es:"
+
+explicacion: |
+  "Éste... aquél..." (o "uno... otro...") es un par correlativo demostrativo: distribuye opiniones o acciones distintas entre dos referentes ya mencionados o sobreentendidos.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "intermedio"
+  tags: ["puntuacion", "estructura"]
+
+variables:
+  par: uno_de(["ya... ya...", "unos... otros...", "bien... bien..."])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El sintagma adverbial tiene como núcleo un adverbio y modifica al verbo, al adjetivo u otro adverbio."
+enunciado: "Cuando se usa el par correlativo '{par}', las proposiciones distribuidas suelen ir separadas por comas, sin conjunción."
 
 explicacion: |
-  Correcto. El núcleo es un adverbio (ej. 'ayer', 'aquí', 'muy') y su función es precisar circunstancias.
+  Correcto. A diferencia de la copulativa, disyuntiva y adversativa (que llevan un nexo como "y", "o" o "pero"), la distributiva no necesita conjunción: las proposiciones quedan yuxtapuestas y separadas por comas.
 ```
 
 ```
 metadata:
   materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "basico"
-  tags: ["sintagma_verbal", "nucleo"]
-
-variables:
-  auxiliar: uno_de(["ha", "ha estado", "está"])
-  participio: uno_de(["comido", "dormido", "corrido", "leído"])
-
-respuesta: "verbo"
-tipo: completar
-
-enunciado: "En el sintagma '{auxiliar} {participio}', la palabra núcleo es un ___."
-respuestas_validas:
-  - "verbo"
-  - "nucleo"
-
-explicacion: |
-  El sintagma verbal tiene como núcleo un verbo conjugado (o forma verbal) que expresa la acción o estado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "intermedio"
-  tags: ["sintagma_adjetival", "sintagma_adverbial", "diferenciacion"]
-
-variables:
-  adverbio: uno_de(["muy", "extremadamente", "tan"])
-  adjetivo: uno_de(["feliz", "triste", "contento", "enojado"])
-
-respuesta: "sintagma_adjetival"
-tipo: input
-
-enunciado: "Clasifica el sintagma: '{adverbio} {adjetivo}'."
-
-explicacion: |
-  Aunque contiene un adverbio, el núcleo es el adjetivo '{adjetivo}', por lo que es un sintagma adjetival.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "intermedio"
-  tags: ["sintagma_preposicional", "estructura"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un sintagma preposicional, la preposición es siempre el núcleo gramatical."
-
-explicacion: |
-  Falso. La preposición es el nexo o cabeza funcional, pero el término que la sigue (sustantivo, pronombre, etc.) es el núcleo semántico del sintagma.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "basico"
-  tags: ["sintagma_preposicional", "estructura"]
-
-variables:
-  preposicion: uno_de(["de", "en", "con", "por"])
-  sustantivo: uno_de(["la casa", "el libro", "su amigo", "mi madre"])
-
-respuesta: "preposicion"
-tipo: completar
-
-enunciado: "El sintagma '{preposicion} {sustantivo}' comienza con una ___."
-respuestas_validas:
-  - "preposicion"
-  - "preposición"
-
-explicacion: |
-  Todo sintagma preposicional está encabezado obligatoriamente por una preposición.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "basico"
-  tags: ["sintagma_adverbial", "clasificacion"]
-
-variables:
-  adverbio: uno_de(["ayer", "hoy", "mañana", "nunca"])
-
-respuesta: "sintagma_adverbial"
-tipo: input
-
-enunciado: "Clasifica el sintagma: '{adverbio}'."
-
-explicacion: |
-  Es un sintagma adverbial porque su único elemento (y por tanto su núcleo) es un adverbio.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "intermedio"
-  tags: ["sintagma_verbal", "nucleo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El núcleo del sintagma verbal es un verbo conjugado."
-
-explicacion: |
-  Correcto. El verbo es el corazón del sintagma verbal y determina la estructura de la oración.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "basico"
-  tags: ["sintagma_nominal", "categoria_gramatical"]
-
-respuesta: "sustantivo"
-tipo: completar
-
-enunciado: "El núcleo del sintagma nominal es un ___ o un pronombre."
-respuestas_validas:
-  - "sustantivo"
-  - "sustantio"
-
-explicacion: |
-  El sintagma nominal se define por tener como núcleo un sustantivo o un pronombre.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "intermedio"
-  tags: ["sintagma_nominal", "sintagma_adverbial", "diferenciacion"]
-
-variables:
-  determinante: uno_de(["el", "la", "los", "las"])
-  sustantivo: uno_de(["perro", "gato", "casa", "árbol"])
-  adverbio: uno_de(["ayer", "hoy", "mañana", "nunca"])
-
-respuesta: "sintagma_nominal"
-tipo: input
-
-enunciado: "Clasifica el sintagma: '{determinante} {sustantivo}'."
-
-explicacion: |
-  Es un sintagma nominal porque su núcleo es un sustantivo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "basico"
-  tags: ["sintagma_verbal", "definicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El sintagma verbal expresa una acción o un estado y su núcleo es un verbo."
-
-explicacion: |
-  Correcto. Es el corazón de la oración.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "basico"
-  tags: ["sintagma_adjetival", "nucleo"]
-
-respuesta: "adjetivo"
-tipo: completar
-
-enunciado: "El núcleo del sintagma adjetival es un ___."
-respuestas_validas:
-  - "adjetivo"
-  - "adjetivo"
-
-explicacion: |
-  El sintagma adjetival gira en torno a un adjetivo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "basico"
-  tags: ["sintagma_preposicional", "clasificacion"]
-
-variables:
-  preposicion: uno_de(["en", "sobre", "bajo", "con"])
-  sustantivo: uno_de(["la mesa", "el suelo", "su cabeza", "su mente"])
-
-respuesta: "sintagma_preposicional"
-tipo: input
-
-enunciado: "Clasifica el sintagma: '{preposicion} {sustantivo}'."
-
-explicacion: |
-  Es un sintagma preposicional porque está encabezado por una preposición.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "intermedio"
-  tags: ["sintagma_adjetival", "nucleo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El núcleo del sintagma adjetival es un adjetivo."
-
-explicacion: |
-  Correcto. El adjetivo es la palabra más importante del grupo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "basico"
-  tags: ["sintagma_adverbial", "estructura"]
-
-respuesta: "adverbio"
-tipo: completar
-
-enunciado: "El núcleo del sintagma adverbial es un ___."
-respuestas_validas:
-  - "adverbio"
-  - "adverbio"
-
-explicacion: |
-  El sintagma adverbial tiene como núcleo un adverbio.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "intermedio"
-  tags: ["sintagma_verbal", "nucleo"]
-
-variables:
-  auxiliar: uno_de(["ha", "está", "va"])
-  participio: uno_de(["comido", "durmiendo", "yendo", "saliendo"])
-
-respuesta: "{auxiliar} {participio}"
-tipo: input
-
-enunciado: "En el sintagma '{auxiliar} {participio}', ¿cuál es el núcleo (escribe el verbo completo)?"
-
-explicacion: |
-  El núcleo es la forma verbal completa '{auxiliar} {participio}'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
-  nivel: "intermedio"
-  tags: ["sintagma_adverbial", "sintagma_preposicional", "diferenciacion"]
-
-variables:
-  adverbio: uno_de(["ayer", "hoy", "mañana", "nunca"])
-  preposicion: uno_de(["en", "sobre", "bajo", "con"])
-  sustantivo: uno_de(["la casa", "el libro", "su amigo", "mi madre"])
-
-respuesta: "sintagma_adverbial"
-tipo: input
-
-enunciado: "Clasifica el sintagma: '{adverbio}'."
-
-explicacion: |
-  Es un sintagma adverbial porque su núcleo es un adverbio.
-```
-
-## Sección: subjetivemas-y-modalizadores (22 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
-  nivel: "basico"
-  tags: ["definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "manifiestan la presencia del hablante y sus valoraciones"
-tipo: mc
-opciones_explicitas: ["manifiestan la presencia del hablante y sus valoraciones", "sólo aparecen en textos científicos objetivos", "reemplazan siempre a la primera persona"]
-
-enunciado: "Los subjetivemas son elementos lingüísticos que..."
-
-explicacion: |
-  Muestran cómo se siente o qué valora el hablante sobre lo que dice,
-  haciendo visible que el discurso no es neutro.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
-  nivel: "basico"
-  tags: ["definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "el grado de certeza, posibilidad o necesidad de lo enunciado"
-tipo: mc
-opciones_explicitas: ["el grado de certeza, posibilidad o necesidad de lo enunciado", "quién es el autor del texto", "el tema principal del párrafo"]
-
-enunciado: "Los modalizadores indican..."
-
-explicacion: |
-  A diferencia de los subjetivemas (que muestran valoración emocional),
-  los modalizadores matizan cuán segura es la afirmación.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
-  nivel: "intermedio"
-  tags: ["clasificacion subjetivema"]
-
-variables:
-  ejemplo: uno_de(["increíble", "lamentablemente", "afortunadamente"])
-
-respuesta: "subjetivema"
-tipo: mc
-opciones_explicitas: ["subjetivema", "modalizador dubitativo", "modalizador afirmativo"]
-
-enunciado: "\"{ejemplo}\" es un ejemplo de..."
-
-explicacion: |
-  Son adjetivos o adverbios evaluativos que expresan la valoración
-  emocional del hablante, no el grado de certeza.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
-  nivel: "intermedio"
-  tags: ["clasificacion modalizador"]
-
-variables:
-  ejemplo: uno_de(["quizás", "probablemente", "tal vez"])
-
-respuesta: "modalizador hipotético o dubitativo"
-tipo: mc
-opciones_explicitas: ["subjetivema evaluativo", "modalizador hipotético o dubitativo", "modalizador afirmativo"]
-
-enunciado: "\"{ejemplo}\" es un ejemplo de..."
-
-explicacion: |
-  Expresan duda o posibilidad sobre lo enunciado, distinto de un
-  subjetivema que expresa valoración emocional.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
-  nivel: "intermedio"
-  tags: ["clasificacion modalizador"]
-
-variables:
-  ejemplo: uno_de(["seguramente", "jamás"])
-
-respuesta: "modalizador afirmativo o negativo"
-tipo: mc
-opciones_explicitas: ["modalizador afirmativo o negativo", "modalizador hipotético o dubitativo", "subjetivema"]
-
-enunciado: "\"{ejemplo}\" es un ejemplo de..."
-
-explicacion: |
-  Confirman o niegan la verdad del enunciado, a diferencia de los
-  modalizadores dubitativos que expresan duda.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
+  tema: "coordinadas_distributivas"
   nivel: "avanzado"
-  tags: ["funcion argumentativa"]
+  tags: ["contexto-deportivo", "aplicacion"]
 
 variables:
-  n: uno_de([1, 1])
+  causa1: uno_de(["la lluvia", "el viento", "el calor"])
+  causa2: uno_de(["el cansancio", "las lesiones", "los nervios"])
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "Los modalizadores permiten al hablante protegerse de la refutación inmediata al no presentar su afirmación como una verdad absoluta."
+enunciado: "En 'El equipo, ya por {causa1}, ya por {causa2}, no pudo sostener el ritmo', la oración afirma con certeza cuál de las dos causas fue la responsable."
 
 explicacion: |
-  Decir "quizás" o "probablemente" deja margen para no comprometerse
-  totalmente con la afirmación.
+  Falso. El par "ya... ya..." distribuye dos causas posibles sin afirmar cuál de las dos fue exactamente la responsable, ni excluir a la otra (a diferencia de una disyuntiva con 'o').
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
   nivel: "intermedio"
-  tags: ["caso"]
+  tags: ["contexto-aula", "aplicacion"]
 
 variables:
-  n: uno_de([1, 1])
+  lugar1: uno_de(["en el pizarrón", "en la carpeta", "en la computadora"])
+  lugar2: uno_de(["en sus carpetas", "en el pizarrón", "en el cuaderno"])
 
-respuesta: "está siendo preciso y honesto con la incertidumbre"
-tipo: mc
-opciones_explicitas: ["está siendo preciso y honesto con la incertidumbre", "está mintiendo deliberadamente", "está siendo ambiguo sin ningún motivo"]
-
-enunciado: "Si un experto dice \"es probable que llueva\", según la teoría..."
-
-explicacion: |
-  A diferencia de decir "va a llover" sin fundamento (presentar una
-  hipótesis como hecho), el modalizador refleja honestamente el nivel
-  de certeza real.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
-  nivel: "avanzado"
-  tags: ["caso engañoso"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Presentar una hipótesis como un hecho, sin usar ningún modalizador de incertidumbre, puede ser engañoso para quien escucha."
-
-explicacion: |
-  Decir "va a llover" como certeza absoluta, sin fundamento, oculta que
-  en realidad es sólo una posibilidad.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
-  nivel: "basico"
-  tags: ["utilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "detectar sesgos emocionales o ideológicos del autor"
-tipo: mc
-opciones_explicitas: ["detectar sesgos emocionales o ideológicos del autor", "memorizar la biografía del autor", "contar la cantidad de palabras del texto"]
-
-enunciado: "Identificar subjetivemas en un artículo de opinión permite principalmente..."
-
-explicacion: |
-  Ayuda a responder si el emisor busca manipular emocionalmente al
-  lector para que acepte su idea.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
-  nivel: "intermedio"
-  tags: ["caso titular"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "lamentablemente"
+respuesta: "unos... otros..."
 tipo: completar
 
-enunciado: "En el titular \"Lamentablemente, el egoísmo de algunos bloqueó la ciudad\", la palabra que funciona como subjetivema explícito es ___."
-
-respuestas_validas:
-  - "lamentablemente"
+enunciado: "'Unos alumnos resuelven el ejercicio {lugar1}, otros lo hacen {lugar2}' reparte la actividad mediante el par:"
 
 explicacion: |
-  Expresa desaprobación del hablante, mientras que "egoísmo" también
-  carga de juicio moral la acción descrita.
+  "Unos... otros..." reparte una misma actividad entre dos subgrupos que la realizan de forma distinta y simultánea, sin nexo conjuntivo.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
   nivel: "basico"
-  tags: ["caso neutro"]
+  tags: ["copulativa", "distincion"]
 
 variables:
-  n: uno_de([1, 1])
+  sujeto1: uno_de(["El perro", "El gato", "El niño"])
+  sujeto2: uno_de(["el gato", "el niño", "el perro"])
+  cualidad: uno_de(["es grande", "es rápido", "es curioso"])
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "\"El corte de ruta paralizó el tránsito en la 9 de Julio\" es un enunciado con pocos modalizadores y subjetivemas, orientado a informar un hecho."
+enunciado: "'{sujeto1} y {sujeto2} {cualidad}' es una coordinación distributiva porque hay dos sujetos distintos."
 
 explicacion: |
-  Es el ejemplo de titular descriptivo de la teoría, en contraste con
-  el titular que sí usa subjetivemas para juzgar la situación.
+  Falso. Tener dos sujetos unidos por "y" no basta para que sea distributiva: eso sigue siendo copulativa (suma de sujetos). La distributiva se reconoce por el par correlativo repetido ("ya... ya...", "unos... otros..."), no por la mera presencia de dos sujetos.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
   nivel: "intermedio"
-  tags: ["caso redes sociales"]
+  tags: ["reconocimiento", "opciones"]
 
 variables:
-  n: uno_de([1, 1])
+  op_a: "unos... otros..."
+  op_b: "y... también..."
+  op_c: "porque... entonces..."
+  op_d: "si... entonces..."
 
-respuesta: "increíble"
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "¿Cuál de las siguientes es una pareja correlativa real de la coordinación distributiva?"
+
+explicacion: |
+  "Unos... otros..." es un par correlativo distributivo reconocido. Las otras opciones no son pares correlativos de coordinación distributiva en la gramática del español.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "avanzado"
+  tags: ["analisis", "sujeto"]
+
+variables:
+  n1: random(2, 5)
+  n2: random(2, 5)
+  total: n1 + n2
+
+respuesta: total
+tipo: input
+
+enunciado: "Si en un curso 'unos {n1} alumnos resuelven en el pizarrón, otros {n2} lo hacen en la carpeta', ¿cuántos alumnos en total participan de la actividad distribuida?"
+
+explicacion: |
+  {n1} + {n2} = {total}. Aunque la actividad está distribuida entre dos subgrupos (par "unos... otros..."), ambos forman parte del mismo curso, así que se suman.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "intermedio"
+  tags: ["ejemplo", "no-distributiva"]
+
+variables:
+  sujeto1: uno_de(["Los profesores", "Los directivos", "Los preceptores"])
+  sujeto2: uno_de(["los alumnos", "las familias", "los tutores"])
+  accion: uno_de(["se saludaron", "se reunieron", "conversaron"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "'{sujeto1} y {sujeto2} {accion}' es distributiva porque el verbo describe una acción entre dos grupos."
+
+explicacion: |
+  Falso. Que el verbo implique interacción entre los sujetos (verbos recíprocos como "saludarse") no la convierte en distributiva; eso es un fenómeno léxico del verbo, no una categoría de coordinación. Sigue siendo copulativa: no hay par correlativo repetido.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "basico"
+  tags: ["definicion", "nexo-ausente"]
+
+variables:
+  op_a: "Que siempre lleva 'y' repetido dos veces."
+  op_b: "Que no necesita un nexo conjuntivo único; la marca es la palabra correlativa repetida."
+  op_c: "Que solo puede tener dos proposiciones, nunca más."
+  op_d: "Que siempre describe acciones recíprocas entre personas."
+
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "¿Qué es correcto decir sobre la coordinación distributiva?"
+
+explicacion: |
+  Su rasgo distintivo es la ausencia de un nexo único: se marca con la repetición de una palabra correlativa ("ya... ya...", "bien... bien...", etc.), no con "y" ni con verbos recíprocos.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "avanzado"
+  tags: ["comparacion", "copulativa"]
+
+variables:
+  op_a: "La copulativa suma con un nexo ('y'/'ni'); la distributiva reparte con un par correlativo repetido, sin nexo."
+  op_b: "No hay diferencia real entre ambas."
+  op_c: "La copulativa nunca puede tener más de un sujeto."
+  op_d: "La distributiva siempre requiere verbos en pasado."
+
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "¿En qué se diferencia estructuralmente la coordinación distributiva de la copulativa?"
+
+explicacion: |
+  La copulativa suma elementos con un nexo fijo ("y", "e", "ni"). La distributiva no tiene nexo: reparte la acción o cualidad usando una palabra correlativa que se repite al inicio de cada proposición.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "intermedio"
+  tags: ["contexto-argentino", "aplicacion"]
+
+variables:
+  motivo1: uno_de(["por gusto", "por necesidad", "por curiosidad"])
+  motivo2: uno_de(["por obligación", "por costumbre", "por consejo"])
+
+respuesta: "ya... ya..."
 tipo: completar
 
-enunciado: "En \"¡Qué golazo! ¡La selección jugó increíble!\", la palabra que expresa euforia como subjetivema es ___."
-
-respuestas_validas:
-  - "increíble"
+enunciado: "'Ya {motivo1}, ya {motivo2}, mucha gente elige estudiar de noche' usa el par correlativo:"
 
 explicacion: |
-  Es un adjetivo evaluativo que muestra la emoción del hablante, no un
-  dato objetivo sobre el partido.
+  "Ya... ya..." distribuye dos motivos posibles sin afirmar cuál aplica en cada caso ni excluir al otro.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
-  nivel: "avanzado"
-  tags: ["caso redes sociales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "podría"
-tipo: mc
-opciones_explicitas: ["podría", "ganó", "aplastó"]
-
-enunciado: "En \"Creo que la selección podría mejorar en la defensa\", el modalizador dubitativo usado es..."
-
-explicacion: |
-  "Podría" suaviza la crítica, mostrando que el hablante no presenta su
-  opinión como una verdad absoluta.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
   nivel: "basico"
-  tags: ["expresion de subjetividad"]
+  tags: ["identificacion", "no-distributiva"]
 
 variables:
-  n: uno_de([1, 1])
+  op_a: "'Ya ríe, ya llora.'"
+  op_b: "'Juan estudia y María trabaja.'"
+  op_c: "'Unos cantan, otros bailan.'"
+  op_d: "'Bien por las buenas, bien por las malas.'"
 
-respuesta: verdadero
-tipo: vf
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
 
-enunciado: "La expresión \"Creo que...\" funciona como una marca de subjetividad que muestra respeto por la posibilidad de equivocarse."
+enunciado: "¿Cuál de estas oraciones NO es un ejemplo de coordinación distributiva?"
 
 explicacion: |
-  Antepone una postura personal en vez de presentar la afirmación como
-  un hecho universal e indiscutible.
+  "Juan estudia y María trabaja" es una coordinación copulativa (nexo "y", sin par correlativo repetido). Las otras tres sí presentan pares correlativos ("ya... ya...", "unos... otros...", "bien... bien...").
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
   nivel: "intermedio"
-  tags: ["produccion propia"]
+  tags: ["repeticion", "correlativos"]
 
 variables:
-  n: uno_de([1, 1])
+  par_valido: uno_de(["ya... ya...", "unos... otros...", "bien... bien...", "ora... ora..."])
 
-respuesta: "menos subjetivemas y más modalizadores de certeza basados en datos"
-tipo: mc
-opciones_explicitas: ["menos subjetivemas y más modalizadores de certeza basados en datos", "sólo subjetivemas, sin ningún modalizador", "ninguno de los dos recursos"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Para escribir un texto más objetivo, conviene usar..."
+enunciado: "El par correlativo '{par_valido}' funciona sin necesidad de una conjunción como 'y' u 'o' entre las proposiciones."
 
 explicacion: |
-  Reducir la carga emocional (subjetivemas) y apoyar las afirmaciones en
-  datos con modalizadores de certeza da un tono más objetivo.
+  Correcto. Ese es precisamente el rasgo definitorio de la distributiva: la palabra correlativa repetida reemplaza la función de un nexo conjuntivo.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "avanzado"
+  tags: ["registro", "literario"]
+
+variables:
+  op_a: "'ora... ora...', de uso más literario o arcaizante"
+  op_b: "'y... y...', de uso exclusivamente coloquial"
+  op_c: "'o sea... o sea...', propio de textos legales"
+  op_d: "'pero... pero...', típico de discursos formales"
+
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "¿Cuál de estos pares correlativos tiene un registro más literario o arcaizante?"
+
+explicacion: |
+  "Ora... ora..." (como en 'Ora llueve, ora escampa') es el par correlativo distributivo de uso más literario o arcaizante, equivalente en función a "ya... ya...".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
   nivel: "intermedio"
-  tags: ["produccion propia"]
+  tags: ["error-comun", "reciprocidad"]
+
+variables:
+  verbo: uno_de(["se pelearon", "se abrazaron", "se saludaron"])
+  sujeto1: uno_de(["Juan", "Pedro", "Luis"])
+  sujeto2: uno_de(["Carlos", "Diego", "Martín"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "'{sujeto1} y {sujeto2} {verbo}' es una coordinación distributiva porque el verbo recíproco reparte la acción entre ambos sujetos."
+
+explicacion: |
+  Falso. La reciprocidad es una propiedad léxica del verbo (verbos pronominales recíprocos), no una categoría de coordinación. La oración sigue siendo copulativa: dos núcleos de sujeto unidos por "y", sin par correlativo repetido.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "basico"
+  tags: ["sintesis", "definicion"]
+
+variables:
+  op_a: "Distributiva"
+  op_b: "Copulativa"
+  op_c: "Disyuntiva"
+  op_d: "Adversativa"
+
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "'Unos llegan temprano, otros llegan tarde' es un ejemplo de coordinación:"
+
+explicacion: |
+  Es distributiva: el par correlativo "unos... otros..." reparte la acción de llegar entre dos subgrupos, sin nexo conjuntivo entre las proposiciones.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_distributivas"
+  nivel: "avanzado"
+  tags: ["repaso-general", "las-cuatro-coordinaciones"]
+
+variables:
+  op_a: "Copulativa: 'y'/'e'/'ni'; Disyuntiva: 'o'/'u'; Adversativa: 'pero'/'sino'; Distributiva: par correlativo repetido, sin nexo."
+  op_b: "Las cuatro coordinaciones usan siempre el mismo nexo 'y'."
+  op_c: "Solo la distributiva admite más de dos proposiciones."
+  op_d: "La adversativa y la distributiva son la misma categoría con distinto nombre."
+
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "¿Cuál resume correctamente las cuatro coordinaciones (copulativa, disyuntiva, adversativa, distributiva)?"
+
+explicacion: |
+  Cada una se marca por su propio nexo (o su ausencia): copulativa suma con "y"/"e"/"ni", disyuntiva alterna con "o"/"u", adversativa contrasta con "pero"/"sino", y distributiva reparte con un par correlativo repetido, sin nexo conjuntivo.
+```
+
+## Sección: coordinadas-disyuntivas (28 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "avanzado"
+  tags: ["estilo", "estructura"]
+
+variables:
+  estructura: "ya... ya"
+  ejemplo: "ya"
+
+respuesta: "ya... ya"
+tipo: input
+
+enunciado: "En la expresión '______ llueve, ______ hace sol', ¿qué par de conjunciones disyuntivas se utiliza para enfatizar la alternancia de dos situaciones posibles?"
+
+explicacion: |
+  Las estructuras 'ya... ya', 'bien... bien' o 'ora... ora' son conjunciones disyuntivas compuestas que enfatizan la alternancia o la posibilidad de que ocurra una u otra de las acciones, a menudo con un matiz más literario o enfático que el simple 'o'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "basico"
+  tags: ["analisis", "identificacion"]
+
+variables:
+  texto: "Vamos al cine o nos quedamos en casa."
+  conjuncion: "o"
+
+respuesta: "o"
+tipo: input
+
+enunciado: "Lee la siguiente oración: '{texto}'. ¿Cuál es la conjunción disyuntiva que une las dos proposiciones?"
+
+explicacion: |
+  La oración está formada por dos proposiciones independientes ('Vamos al cine' y 'nos quedamos en casa') unidas por la conjunción disyuntiva 'o', que presenta una alternativa entre ambas opciones.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["sintaxis", "estructura"]
+
+variables:
+  proposicion1: "Juan estudia"
+  proposicion2: "María juega"
+  conjuncion: "o"
+
+respuesta: "coordinada disyuntiva"
+tipo: input
+
+enunciado: "En la oración '{proposicion1} {conjuncion} {proposicion2}', ¿qué tipo de coordinación se establece entre las dos proposiciones independientes?"
+
+explicacion: |
+  Se trata de una coordinación disyuntiva porque las dos proposiciones independientes están unidas por una conjunción disyuntiva ('o'), estableciendo una relación de alternativa o opción entre ellas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "basico"
+  tags: ["diferenciacion", "copulativa"]
+
+variables:
+  tipo_correcto: "disyuntiva"
+  ejemplo: "y"
+  ejemplo_disy: "o"
+
+respuesta: "disyuntiva"
+tipo: input
+
+enunciado: "Si la conjunción 'y' une proposiciones en una coordinación copulativa, ¿qué tipo de coordinación establece la conjunción 'o'?"
+
+explicacion: |
+  La conjunción 'o' establece una coordinación disyuntiva, a diferencia de 'y', 'e', 'ni' que son copulativas (suman información).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["estilo", "alternativas"]
+
+variables:
+  estructura: "bien... bien"
+  contexto: "formal"
+
+respuesta: "bien... bien"
+tipo: input
+
+enunciado: "Completa la frase: '______ aceptamos tu propuesta, ______ la rechazamos.' ¿Qué par de conjunciones disyuntivas se usa aquí para presentar dos extremos?"
+
+explicacion: |
+  'Bien... bien' es una conjunción disyuntiva compuesta que se utiliza para presentar dos alternativas claramente definidas, a menudo con un tono más formal o enfático.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "basico"
+  tags: ["identificacion", "lista"]
+
+variables:
+  lista: ["y", "ni", "o", "pero"]
+  disyuntiva: "o"
+
+respuesta: "o"
+tipo: input
+
+enunciado: "De la siguiente lista de conjunciones: 'y, ni, o, pero', ¿cuál es la única conjunción disyuntiva?"
+
+explicacion: |
+  'Y' es copulativa, 'ni' es copulativa negativa, 'pero' es adversativa. 'O' es la conjunción disyuntiva.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "avanzado"
+  tags: ["ambigüedad", "contexto"]
+
+variables:
+  frase: "Te voy a llamar o te escribo"
+  resolucion: "contexto"
+
+respuesta: "contexto"
+tipo: input
+
+enunciado: "En la frase 'Te voy a llamar o te escribo', la disyunción puede ser inclusiva o exclusiva. ¿Qué elemento ayuda a resolver esta ambigüedad?"
+
+explicacion: |
+  El contexto situacional y la intención del hablante son los que determinan si la opción es abierta (puedo hacer ambas) o cerrada (haré una de las dos). La gramática por sí sola no siempre lo define.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "avanzado"
+  tags: ["literario", "estructura"]
+
+variables:
+  estructura: "ora... ora"
+  ejemplo: "ora"
+
+respuesta: "ora... ora"
+tipo: input
+
+enunciado: "En textos literarios o formales, ¿qué par de conjunciones disyuntivas se usa para indicar alternancia en el tiempo: '______ caminaba, ______ descansaba'?"
+
+explicacion: |
+  'Ora... ora' es una conjunción disyuntiva compuesta de uso literario que indica alternancia de acciones o estados en el tiempo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["sintaxis", "proposiciones"]
+
+variables:
+  oracion: "Estudio o me divierto."
+  num_proposiciones: 2
+
+respuesta: "2"
+tipo: input
+
+enunciado: "En la oración 'Estudio o me divierto', ¿cuántas proposiciones independientes están coordinadas?"
+
+explicacion: |
+  Hay dos proposiciones independientes: 'Estudio' y 'me divierto', unidas por la conjunción disyuntiva 'o'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["estilo", "alternativas"]
+
+variables:
+  estructura: "bien... bien"
+  ejemplo: "bien"
+
+respuesta: "bien... bien"
+tipo: input
+
+enunciado: "Completa: '______ vienes con nosotros, ______ te quedás aquí.' ¿Qué conjunción disyuntiva compuesta falta?"
+
+explicacion: |
+  'Bien... bien' es una conjunción disyuntiva compuesta que presenta dos alternativas claras y a menudo excluyentes.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["analisis", "compleja"]
+
+variables:
+  oracion: "No solo estudia, o también trabaja."
+  conjuncion: "o"
+
+respuesta: "o"
+tipo: input
+
+enunciado: "En la oración 'No solo estudia, o también trabaja', ¿cuál es la conjunción disyuntiva?"
+
+explicacion: |
+  La conjunción disyuntiva es 'o', que une las dos proposiciones 'estudia' y 'trabaja' presentando una alternativa o adición de acciones.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "basico"
+  tags: ["funcion", "preguntas"]
+
+variables:
+  funcion: "presentar alternativas"
+  ejemplo: "o"
+
+respuesta: "presentar alternativas"
+tipo: input
+
+enunciado: "¿Cuál es la función principal de la conjunción disyuntiva 'o' en una pregunta como '¿Quieres té o café'?"
+
+explicacion: |
+  Su función es presentar alternativas entre las cuales el interlocutor debe elegir una.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "avanzado"
+  tags: ["identificacion", "estilo"]
+
+variables:
+  texto: "Ya llueve, ya hace sol."
+  conjuncion: "ya... ya"
+
+respuesta: "ya... ya"
+tipo: input
+
+enunciado: "En la frase 'Ya llueve, ya hace sol', ¿qué par de conjunciones disyuntivas se utiliza?"
+
+explicacion: |
+  'Ya... ya' es una conjunción disyuntiva compuesta que enfatiza la alternancia de dos situaciones.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "basico"
+  tags: ["identificacion", "conjunciones"]
+
+variables:
+  opcion_a: uno_de(["café", "té", "leche"])
+  opcion_b: uno_de(["té", "leche", "agua"])
+  conjuncion: uno_de(["o", "u"])
+
+respuesta: "o"
+tipo: input
+
+enunciado: "En la frase 'Prefiero {opcion_a} {conjuncion} {opcion_b}', ¿cuál es la conjunción disyuntiva que conecta ambas opciones?"
+
+explicacion: |
+  La conjunción disyuntiva principal en español es "o". Se usa para presentar alternativas entre las que se debe elegir una.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["ortografia", "cacofonia"]
+
+variables:
+  palabra1: uno_de(["hombre", "olivo"])
+  palabra2: uno_de(["mujer", "árbol"])
+
+respuesta: "u"
+tipo: input
+
+enunciado: "Si queremos unir 'hombre' y 'mujer' con una disyuntiva, pero la siguiente palabra comienza con 'o' o 'ho', ¿qué forma se utiliza para evitar la cacofonía? Ejemplo: 'hombre {palabra1} {palabra2}' (ajustar según la palabra que empiece con o/ho)."
+
+explicacion: |
+  Cuando la palabra siguiente a "o" comienza por 'o' o 'ho', se cambia la conjunción por "u" para evitar que suenen dos 'o' juntas (cacofonía).
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "basico"
+  tags: ["clasificacion", "tipos"]
+
+respuesta: "disyuntiva"
+tipo: input
+
+enunciado: "En la oración 'Estudio o no estudio', ¿qué tipo de coordinación se presenta?"
+
+explicacion: |
+  Se presenta una coordinación disyuntiva porque se ofrecen dos alternativas entre las cuales se debe elegir una.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "basico"
+  tags: ["contexto", "ejemplos"]
+
+respuesta: "o"
+tipo: input
+
+enunciado: "En la frase 'Vamos al cine o quedamos en casa', ¿cuál es la palabra que indica la disyunción?"
+
+explicacion: |
+  La palabra "o" establece la alternativa entre ir al cine o quedarse en casa.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["ortografia", "uso"]
+
+variables:
+  palabra: uno_de(["olivo", "hombre"])
+
+respuesta: "u"
+tipo: input
+
+enunciado: "Completa la frase correcta: 'Busco un olivo {palabra} un limonero' (si la palabra siguiente empieza con o/ho, usa la forma correcta)."
+
+explicacion: |
+  Si la palabra siguiente comienza con 'o' o 'ho', se debe usar "u" en lugar de "o" para evitar la cacofonía.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "basico"
+  tags: ["identificacion", "multiple"]
+
+opciones_explicitas: ["y", "o", "pero", "sino"]
+respuesta: "o"
+tipo: mc
+
+enunciado: "De las siguientes conjunciones, ¿cuál es disyuntiva?"
+
+explicacion: |
+  "Y" es copulativa, "pero" y "sino" son adversativas. "O" es la única disyuntiva de la lista.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["logica", "exclusividad"]
+
+respuesta: "exclusiva"
+tipo: input
+
+enunciado: "En la frase 'O te vas o te quedás', se entiende que no puedes hacer ambas cosas. ¿Qué tipo de disyunción se interpreta comúnmente aquí?"
+
+explicacion: |
+  Se interpreta como una disyunción exclusiva, donde las opciones son mutuamente excluyentes en el contexto dado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["semantica", "funcion"]
+
+respuesta: "alternativa"
+tipo: input
+
+enunciado: "¿Qué relación lógica establece principalmente la conjunción 'o' entre dos proposiciones?"
+
+explicacion: |
+  Establece una relación de alternativa u opción entre las proposiciones conectadas.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "avanzado"
+  tags: ["uso_arcaico", "numeros"]
+
+respuesta: "ó"
+tipo: input
+
+enunciado: "Antiguamente, ¿qué forma se usaba para la conjunción disyuntiva entre números para evitar confusión con la letra 'o'?"
+
+explicacion: |
+  Se usaba "ó" (con tilde diacrítica) en contextos numéricos, aunque hoy ya no se recomienda su uso salvo en contadas ocasiones.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "avanzado"
+  tags: ["ambiguedad", "contexto"]
+
+respuesta: "contexto"
+tipo: input
+
+enunciado: "Cuando una disyunción es inclusiva pero se interpreta como exclusiva, ¿qué elemento suele resolver la ambigüedad?"
+
+explicacion: |
+  El contexto es el principal elemento que resuelve si la disyunción se entiende como inclusiva o exclusiva.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["identificacion", "estructuras"]
+
+opciones_explicitas: ["ya... ya...", "porque", "aunque", "cuando"]
+respuesta: "ya... ya..."
+tipo: mc
+
+enunciado: "¿Cuál de estas estructuras es una coordinación disyuntiva?"
+
+explicacion: |
+  "Ya... ya..." es una estructura disyuntiva. "Porque" es causal, "aunque" es concesiva y "cuando" es temporal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["ortografia", "aplicacion"]
+
+variables:
+  palabra1: "hombre"
+  palabra2: "mujer"
+
+respuesta: "u"
+tipo: input
+
+enunciado: "En la frase 'Un {palabra1} {palabra2}', si quisiéramos usar una disyunción y la palabra siguiente a la conjunción empezara con 'o' (ejemplo hipotético: 'hombre o ...'), ¿cuál sería la forma correcta si la siguiente palabra fuera 'olivo'?"
+
+explicacion: |
+  Si la palabra siguiente a la conjunción comienza con 'o' o 'ho', se debe usar "u". En 'hombre u olivo', se usa "u".
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["clasificacion", "variantes"]
+
+respuesta: "disyuntiva"
+tipo: input
+
+enunciado: "La coordinación 'Bien vengas, bien no vengas' es de tipo..."
+
+explicacion: |
+  Es una coordinación disyuntiva, ya que presenta dos alternativas entre las que se debe elegir.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "intermedio"
+  tags: ["clasificacion", "adversativa"]
+
+respuesta: "adversativa"
+tipo: input
+
+enunciado: "La conjunción 'sino' es de tipo..."
+
+explicacion: |
+  "Sino" es una conjunción adversativa, utilizada para introducir una corrección o contraste.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_disyuntivas"
+  nivel: "avanzado"
+  tags: ["logica", "diferencia"]
+
+respuesta: "posibilidad de ambas"
+tipo: input
+
+enunciado: "¿Qué característica distingue a la disyunción inclusiva de la exclusiva?"
+
+explicacion: |
+  La disyunción inclusiva permite que ambas proposiciones sean verdaderas simultáneamente, mientras que la exclusiva no.
+```
+
+## Sección: discurso-referido (24 preguntas)
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "basico"
+  tags: ["estilo_directo", "identificacion"]
+
+respuesta: "estilo_directo"
+tipo: input
+
+enunciado: "En la oración 'Juan gritó: —¡Ayuda! —', ¿qué tipo de discurso referido se utiliza?"
+
+explicacion: |
+  El estilo directo reproduce textualmente las palabras del hablante, utilizando signos como rayas o comillas para aislar la cita.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["transformacion", "estilo_indirecto"]
+
+variables:
+  nombre: uno_de(["María", "Pedro", "Lucía"])
+  verbo: uno_de(["dijo", "comentó", "afirmó"])
+
+respuesta: "El " + nombre + " " + verbo + " que estaba lloviendo."
+tipo: completar
+
+enunciado: "Transformá al estilo indirecto: '{nombre} dijo: —Está lloviendo.'"
+
+explicacion: |
+  En el estilo indirecto, el verbo en presente ('está') cambia a imperfecto ('estaba') para mantener la concordancia temporal, y se introduce con la conjunción 'que'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "basico"
+  tags: ["puntuacion", "estilo_directo"]
+
+respuesta: "comillas"
+tipo: input
+
+enunciado: "¿Qué signo de puntuación se utiliza comúnmente en textos periodísticos o formales para delimitar el estilo directo?"
+
+explicacion: |
+  Las comillas (“ ” o ' ') son el recurso gráfico más habitual en contextos formales y periodísticos para citar textualmente.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "basico"
+  tags: ["estilo_indirecto", "identificacion"]
+
+respuesta: "estilo_indirecto"
+tipo: input
+
+enunciado: "En la oración 'La maestra explicó que la tarea era obligatoria', ¿qué tipo de discurso referido se observa?"
+
+explicacion: |
+  El estilo indirecto integra la cita dentro de la oración narrativa, utilizando nexos como 'que' y modificando los tiempos verbales y pronombres.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["pronombres", "transformacion"]
+
+variables:
+  sujeto: uno_de(["Ella", "Ellos"])
+  accion: uno_de(["vino", "llegaron"])
+
+respuesta: "El profesor dijo que " + sujeto + " " + accion + " tarde."
+tipo: completar
+
+enunciado: "Transformá al estilo indirecto: 'El profesor dijo: —{sujeto} {accion} tarde.'"
+
+explicacion: |
+  Al pasar a indirecto, los pronombres pueden mantenerse si el sujeto es el mismo, pero el verbo se conjuga en la tercera persona del singular o plural según corresponda, y se añade 'que'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["preguntas", "estilo_indirecto"]
+
+variables:
+  lugar: uno_de(["a la escuela", "al parque", "en casa"])
+
+respuesta: "Me preguntó si iba a " + lugar + "."
+tipo: completar
+
+enunciado: "Transformá al estilo indirecto: 'Me preguntó: —¿Vas a {lugar}?'"
+
+explicacion: |
+  Las preguntas directas en estilo indirecto se introducen con 'si' (si es pregunta sí/no) o con el pronombre interrogativo correspondiente, eliminando la entonación interrogativa y los signos de puntuación.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "basico"
+  tags: ["puntuacion", "estilo_directo"]
+
+respuesta: "rayas"
+tipo: input
+
+enunciado: "¿Qué signo gráfico se utiliza preferentemente en la narrativa literaria argentina para marcar el inicio de cada intervención en el estilo directo?"
+
+explicacion: |
+  La raya (—) es el signo estándar en la prosa narrativa para indicar el inicio de cada turno de habla en el diálogo directo.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["concordancia", "tiempos_verbales"]
+
+variables:
+  verbo: uno_de(["canto", "baila", "corro"])
+  sujeto: uno_de(["él", "ella"])
+
+respuesta: "Dijo que " + sujeto + " " + verbo + " bien."
+tipo: completar
+
+enunciado: "Transformá al estilo indirecto: 'Dijo: —{sujeto} {verbo} bien.'"
+
+explicacion: |
+  El presente de indicativo ('canto/baila/corro') cambia a imperfecto de indicativo ('cantaba/bailaba/corría') al pasar a estilo indirecto si el verbo introductorio está en pasado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["tiempos_verbales", "futuro"]
+
+variables:
+  accion: uno_de(["viajaré", "comeré", "dormiré"])
+
+respuesta: "Afirmó que " + accion + " mañana."
+tipo: completar
+
+enunciado: "Transformá al estilo indirecto: 'Afirmó: —{accion} mañana.'"
+
+explicacion: |
+  El futuro simple ('viajaré/comeré') cambia a condicional simple ('viajaría/comería') en el estilo indirecto cuando el verbo introductorio está en pasado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "basico"
+  tags: ["vocabulario", "verbos"]
+
+respuesta: "preguntó"
+tipo: input
+
+enunciado: "En la frase '—¿Qué hora es? —inquirió el pasajero', ¿cuál es el verbo introductorio o de enunciación?"
+
+explicacion: |
+  El verbo introductorio es 'inquirió' (o 'preguntó' como sinónimo), que señala quién habla o qué función cumple la cita.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["concordancia", "pluscuamperfecto"]
+
+variables:
+  accion: uno_de(["había comido", "había salido"])
+
+respuesta: "Me contó que " + accion + " antes."
+tipo: completar
+
+enunciado: "Transformá al estilo indirecto: 'Me contó: —Ya {accion} antes.'"
+
+explicacion: |
+  El pluscuamperfecto ('había comido') se mantiene igual en estilo indirecto si el verbo introductorio está en pasado, ya que el tiempo verbal ya es relativo al pasado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["imperativo", "transformacion"]
+
+variables:
+  orden: uno_de(["ven", "sal", "calla"])
+
+respuesta: "Me mandó que " + orden + "."
+tipo: completar
+
+enunciado: "Transformá al estilo indirecto: 'Me mandó: —¡{orden}!'"
+
+explicacion: |
+  El imperativo en estilo directo se transforma generalmente en subjuntivo en estilo indirecto ('venga/salga/calle'), pero en contextos informales o de resumen, a veces se mantiene la forma base o se usa 'que + subjuntivo'. Aquí se pide la forma más directa de reporte de mandato.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["gramatica", "cambios"]
+
+respuesta: "pronombres"
+tipo: input
+
+enunciado: "Además de los tiempos verbales, ¿qué otro elemento gramatical suele modificarse al pasar de estilo directo a indirecto?"
+
+explicacion: |
+  Los pronombres personales y demostrativos (yo/tú/este/ahora) cambian para adaptarse al punto de vista del narrador (él/ella/aquel/allí).
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["verbos_de_duda", "transformacion"]
+
+variables:
+  duda: uno_de(["no sé", "desconfío", "me pregunto"])
+
+respuesta: "Dijo que " + duda + "."
+tipo: completar
+
+enunciado: "Transformá al estilo indirecto: 'Dijo: —{duda} si viene.'"
+
+explicacion: |
+  Se integra la duda dentro de la oración principal, manteniendo la conjunción 'si' para la pregunta indirecta y ajustando la concordancia.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "avanzado"
+  tags: ["complejidad", "identificacion"]
+
+respuesta: "estilo_directo"
+tipo: input
+
+enunciado: "En la frase 'Ella dijo: \"No sé qué hacer\"', ¿qué estilo de discurso referido predomina en la parte citada?"
+
+explicacion: |
+  Predomina el estilo directo porque se cita textualmente la frase entre comillas, aunque la frase citada contenga una expresión de duda.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["pronombres", "demostrativos"]
+
+variables:
+  objeto: uno_de(["este", "ese"])
+  sustantivo: uno_de(["libro", "caso", "problema"])
+
+respuesta: "Dijo que " + objeto + " " + sustantivo + " era importante."
+tipo: completar
+
+enunciado: "Transformá al estilo indirecto: 'Dijo: —{objeto} {sustantivo} es importante.'"
+
+explicacion: |
+  Los demostrativos 'este' (cercanía al hablante original) suelen cambiar a 'ese' o 'aquel' (cercanía o lejanía respecto al narrador actual) en estilo indirecto.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "basico"
+  tags: ["funcion", "conceptos"]
+
+respuesta: "fidelidad"
+tipo: input
+
+enunciado: "¿Qué cualidad principal aporta el estilo directo a un relato?"
+
+explicacion: |
+  El estilo directo aporta fidelidad a la enunciación original, dando vivacidad y permitiendo al lector 'escuchar' la voz de los personajes.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["entonacion", "transformacion"]
+
+variables:
+  emocion: uno_de(["qué alegría", "qué dolor", "qué sorpresa"])
+
+respuesta: "Exclamó que " + emocion + "."
+tipo: completar
+
+enunciado: "Transformá al estilo indirecto: 'Exclamó: —¡{emocion}!'"
+
+explicacion: |
+  Las exclamaciones en estilo indirecto pierden los signos de exclamación y la entonación marcada, integrándose como una afirmación declarativa.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "basico"
+  tags: ["vocabulario", "preguntas"]
+
+respuesta: "preguntó"
+tipo: input
+
+enunciado: "Si la cita es '—¿Dónde está el baño?', ¿qué verbo introductorio es más apropiado?"
+
+explicacion: |
+  'Preguntó', 'inquirió' o 'consultó' son verbos adecuados para introducir una cita interrogativa.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["concordancia", "presente"]
+
+variables:
+  accion: uno_de(["trabaja", "estudia", "vive"])
+
+respuesta: "Dice que " + accion + " aquí."
+tipo: completar
+
+enunciado: "Transformá al estilo indirecto: 'Dice: —{accion} aquí.'"
+
+explicacion: |
+  Si el verbo introductorio está en presente ('dice'), los tiempos verbales de la cita NO cambian (no hay concordancia temporal hacia atrás).
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "basico"
+  tags: ["identificacion", "resumen"]
+
+respuesta: "estilo_indirecto"
+tipo: input
+
+enunciado: "En la oración 'El testigo afirmó que había visto al sospechoso', ¿qué estilo se usa?"
+
+explicacion: |
+  Es estilo indirecto porque el narrador resume lo dicho por el testigo sin citar sus palabras exactas, usando 'que' y modificando el tiempo verbal.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["adverbios", "tiempo"]
+
+variables:
+  adverbio: uno_de(["ahora", "hoy", "mañana"])
+
+respuesta: "Dijo que " + adverbio + " era difícil."
+tipo: completar
+
+enunciado: "Transformá al estilo indirecto: 'Dijo: —{adverbio} es difícil.'"
+
+explicacion: |
+  Los adverbios de tiempo como 'ahora', 'hoy' o 'mañana' suelen cambiar a 'entonces', 'ese día' o 'al día siguiente' en estilo indirecto, aunque en resúmenes informales a veces se mantienen.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "intermedio"
+  tags: ["puntuacion", "normas"]
+
+respuesta: "coma"
+tipo: input
+
+enunciado: "En '—Vamos al cine —dijo Juan', ¿qué signo separa la cita del verbo introductorio cuando este va al final?"
+
+explicacion: |
+  Se utiliza una raya para cerrar la cita y otra para iniciar el verbo introductorio. No hay coma entre la raya final y el verbo. (Nota: Si fuera comillas, sería '...cine", dijo Juan'. Con rayas, es '—cine —dijo Juan'). La pregunta busca el signo que cierra la cita antes del verbo.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "discurso_referido"
+  nivel: "avanzado"
+  tags: ["funcion", "comparacion"]
+
+respuesta: "agilidad"
+tipo: input
+
+enunciado: "¿Qué ventaja principal ofrece el estilo indirecto en la narración de hechos extensos?"
+
+explicacion: |
+  El estilo indirecto ofrece agilidad y economía narrativa, permitiendo resumir largos diálogos o pensamientos sin detener la acción con citas textuales.
+```
+
+## Sección: produccion-escrita-compleja (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "basico"
+  tags: ["produccion_escrita_compleja", "definicion"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "subjetivemas para conectar con la audiencia"
-tipo: mc
-opciones_explicitas: ["subjetivemas para conectar con la audiencia", "sólo cifras estadísticas sin ningún comentario", "modalizadores dubitativos únicamente"]
-
-enunciado: "Para escribir un texto más persuasivo y empático, conviene usar..."
-
-explicacion: |
-  Los subjetivemas ayudan a generar cercanía emocional con quien lee o
-  escucha.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
-  nivel: "basico"
-  tags: ["ejemplos subjetivema"]
-
-variables:
-  tipo_palabra: uno_de(["adjetivos evaluativos", "adverbios de modo", "expresiones idiomáticas con carga emocional"])
-
 respuesta: verdadero
 tipo: vf
 
-enunciado: "\"{tipo_palabra}\" es un tipo de recurso mencionado en la teoría que puede funcionar como subjetivema."
+enunciado: "Producción escrita compleja no enseña una técnica nueva, sino que integra la oración compuesta y la puntuación ya vistas para producir un texto largo y coherente."
+
+pasos:
+  - "Ver `../oracion-compuesta-coordinacion-y-subordinacion/` y `../signos-de-puntuacion/`: son sus dos prerrequisitos directos."
 
 explicacion: |
-  Palabras como "increíble" (adjetivo), "lamentablemente" (adverbio) o
-  expresiones cargadas emocionalmente son todas subjetivemas posibles.
+  Verdadero: este tema combina herramientas previas, no introduce
+  contenido gramatical nuevo.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
-  nivel: "avanzado"
-  tags: ["ambitos de uso"]
-
-variables:
-  ambito: uno_de(["el periodismo", "la literatura", "los debates políticos"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{ambito}\" es uno de los ámbitos mencionados en la teoría donde se usan subjetivemas y modalizadores para expresar postura."
-
-explicacion: |
-  En estos ámbitos rara vez la comunicación es puramente objetiva, como
-  sí lo sería un manual de instrucciones.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
+  tema: "produccion_escrita_compleja"
   nivel: "basico"
-  tags: ["ejemplo base"]
+  tags: ["planificacion"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "un juicio de valor sobre ese hecho"
+respuesta: "planificación"
 tipo: mc
-opciones_explicitas: ["un juicio de valor sobre ese hecho", "sólo el dato de la hora exacta", "ninguna información adicional"]
+opciones_explicitas: ["planificación", "redacción", "revisión"]
 
-enunciado: "Al decir \"Es una pena que hayas llegado tarde\", además de informar la hora de llegada, el hablante emite..."
+enunciado: "La etapa en la que se decide el tipo textual, la idea principal o tesis, y se arma un esquema de párrafos, ANTES de escribir, se llama..."
+
+pasos:
+  - "Es el primer paso del proceso, antes de poner una palabra en el papel."
 
 explicacion: |
-  "Es una pena" no es un dato neutro: es una valoración subjetiva sobre
-  el hecho de llegar tarde.
+  La planificación organiza el texto antes de comenzar a redactar.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
+  tema: "produccion_escrita_compleja"
+  nivel: "basico"
+  tags: ["redaccion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "redacción"
+tipo: mc
+opciones_explicitas: ["planificación", "redacción", "revisión"]
+
+enunciado: "La etapa en la que se escribe el borrador sin frenarse a corregir cada detalle, siguiendo el esquema hecho antes, se llama..."
+
+pasos:
+  - "El objetivo de esta etapa es sacar las ideas al papel, no lograr la versión final."
+
+explicacion: |
+  La redacción es la etapa de escribir el primer borrador completo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "basico"
+  tags: ["revision"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "revisión"
+tipo: mc
+opciones_explicitas: ["planificación", "redacción", "revisión"]
+
+enunciado: "La etapa en la que se relee con ojo crítico buscando errores de coherencia, gramática, ortografía y puntuación se llama..."
+
+pasos:
+  - "Es el paso que sigue a tener un borrador completo escrito."
+
+explicacion: |
+  La revisión busca errores y aspectos a mejorar antes de la versión
+  final.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "intermedio"
+  tags: ["edicion_final"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "edición final"
+tipo: mc
+opciones_explicitas: ["edición final", "planificación", "redacción"]
+
+enunciado: "La etapa en la que se aplican las correcciones encontradas en la revisión para producir la versión definitiva se llama..."
+
+pasos:
+  - "Es el último paso del proceso de escritura, después de revisar."
+
+explicacion: |
+  La edición final cierra el proceso aplicando todas las correcciones
+  detectadas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "intermedio"
+  tags: ["produccion_escrita_compleja", "proceso"]
+
+enunciado: "Ordená las cuatro etapas del proceso de escritura de un texto complejo."
+tipo: ordenar
+opciones_explicitas:
+  - "Planificación"
+  - "Redacción (borrador)"
+  - "Revisión"
+  - "Edición final"
+respuesta_orden: ["Planificación", "Redacción (borrador)", "Revisión", "Edición final"]
+explicacion: |
+  El proceso completo va de organizar las ideas a escribirlas, luego
+  revisarlas críticamente, y finalmente corregirlas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "basico"
+  tags: ["produccion_escrita_compleja", "proceso"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Escribir un texto complejo tiene etapas distintas, cada una con un objetivo propio, en vez de ser un proceso de \"escribir de una sola vez\"."
+
+pasos:
+  - "Planificar, redactar, revisar y editar son pasos con objetivos distintos entre sí."
+
+explicacion: |
+  Verdadero: separar el proceso en etapas es una estrategia central
+  de la producción escrita compleja.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "intermedio"
+  tags: ["parrafos", "idea_principal"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada párrafo de un texto complejo debería desarrollar una sola idea principal propia, conectada con la del párrafo anterior y siguiente."
+
+pasos:
+  - "Ver `../comprension-idea-principal/`: mezclar varias ideas grandes en un solo párrafo dificulta la lectura."
+
+explicacion: |
+  Verdadero: la organización \"un párrafo, una idea\" es un principio
+  central de la escritura clara.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "intermedio"
+  tags: ["estructura_sintactica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un texto complejo bien escrito combina oraciones simples y compuestas (coordinadas y subordinadas), en vez de repetir siempre la misma estructura corta."
+
+pasos:
+  - "Ver `../oracion-compuesta-coordinacion-y-subordinacion/`: la variedad sintáctica distingue la escritura madura."
+
+explicacion: |
+  Verdadero: la variedad en la estructura de las oraciones es una
+  marca de escritura compleja bien lograda.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "intermedio"
+  tags: ["puntuacion", "oraciones_largas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuanto más larga y combinada es una oración, más depende de una buena puntuación para seguir siendo legible."
+
+pasos:
+  - "Ver `../signos-de-puntuacion/`: es la razón concreta de por qué este tema depende también de la puntuación."
+
+explicacion: |
+  Verdadero: la puntuación es lo que hace legibles a las oraciones
+  compuestas más largas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "intermedio"
+  tags: ["redaccion", "estrategia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Durante la etapa de redacción del borrador, conviene no frenarse a corregir cada detalle, porque esa revisión detallada corresponde a una etapa posterior."
+
+pasos:
+  - "Mezclar redacción y revisión al mismo tiempo puede hacer más lento y difícil sacar las ideas completas al papel."
+
+explicacion: |
+  Verdadero: separar redactar de revisar es una estrategia práctica
+  para no trabarse durante el primer borrador.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "intermedio"
+  tags: ["planificacion", "tipos_textuales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la planificación se decide de qué tipo textual va a ser el texto (narrativo, expositivo, argumentativo...) antes de empezar a redactar."
+
+pasos:
+  - "Ver `../tipos-textuales/`: saber el propósito del texto orienta cómo se organiza el esquema."
+
+explicacion: |
+  Verdadero: definir el tipo textual es parte de la planificación
+  previa a la redacción.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "intermedio"
+  tags: ["revision", "errores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La etapa de revisión busca errores de distinto tipo: coherencia (¿se entiende la idea?), gramática, ortografía/tildación y puntuación."
+
+pasos:
+  - "No es una sola revisión de un solo aspecto, sino varias capas de lectura crítica."
+
+explicacion: |
+  Verdadero: la revisión abarca múltiples niveles del texto, no sólo
+  la ortografía.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "intermedio"
+  tags: ["planificacion", "esquema"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Armar un esquema breve de los párrafos que van a desarrollar la idea principal o tesis es parte de la planificación, antes de escribir el borrador completo."
+
+pasos:
+  - "Ese esquema orienta la redacción y evita perder el hilo del texto en el camino."
+
+explicacion: |
+  Verdadero: el esquema de párrafos es una herramienta práctica
+  central de la planificación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
   nivel: "avanzado"
-  tags: ["confusion comun"]
+  tags: ["prerrequisito", "estructura"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Producción escrita compleja tiene dos prerrequisitos directos en el MAPA: oración compuesta (para combinar oraciones) y signos de puntuación (para que esas combinaciones se lean sin ambigüedad)."
+
+pasos:
+  - "Ambos prerrequisitos son necesarios en conjunto: combinar oraciones sin puntuar bien resulta igual de ilegible."
+
+explicacion: |
+  Verdadero: es el caso de un nodo con doble padre en el MAPA,
+  explicado en `../dependencias.md`.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "intermedio"
+  tags: ["parrafos", "coherencia"]
 
 variables:
   n: uno_de([1, 1])
@@ -819,19 +1867,49 @@ variables:
 respuesta: falso
 tipo: vf
 
-enunciado: "Subjetivemas y modalizadores son exactamente el mismo recurso lingüístico con distinto nombre."
+enunciado: "Es una buena práctica de escritura mezclar varias ideas grandes distintas dentro de un mismo párrafo, para que el texto sea más corto."
+
+pasos:
+  - "Mezclar varias ideas grandes en un párrafo suele dificultar la lectura, en vez de facilitarla."
 
 explicacion: |
-  Aunque a veces se confunden, cumplen funciones distintas: uno muestra
-  valoración emocional, el otro grado de certeza.
+  Falso: la regla \"un párrafo, una idea\" existe justamente para
+  evitar esa confusión, no para acortar el texto a costa de la
+  claridad.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
+  tema: "produccion_escrita_compleja"
   nivel: "intermedio"
-  tags: ["pensamiento critico"]
+  tags: ["produccion_escrita_compleja", "practica"]
+
+variables:
+  acciones: ["armar un esquema de los párrafos antes de escribir", "corregir una falta de ortografía detectada al releer el borrador"]
+  etapas: ["planificación", "revisión"]
+  idx: uno_de([0, 1])
+
+respuesta: etapas[idx]
+tipo: mc
+opciones_explicitas: ["planificación", "redacción", "revisión", "edición final"]
+
+enunciado: "La acción de \"{acciones[idx]}\" corresponde a la etapa de..."
+
+pasos:
+  - "Antes de escribir = planificación. Detectar un error al releer = revisión."
+
+explicacion: |
+  Cada acción concreta del proceso de escritura corresponde a una
+  etapa específica.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "avanzado"
+  tags: ["produccion_escrita_compleja", "aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -839,31 +1917,60 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Distinguir subjetivemas de modalizadores es fundamental para desarrollar pensamiento crítico y evaluar la solidez de un argumento."
+enunciado: "Separar redactar (sacar todas las ideas) de revisar (corregir con ojo crítico) suele producir mejores textos que intentar escribir la versión perfecta desde la primera oración."
+
+pasos:
+  - "Frenar cada oración para corregirla antes de seguir suele hacer perder el hilo general del texto."
 
 explicacion: |
-  Permite separar lo que es valoración emocional de lo que es
-  honestidad sobre el grado de certeza de una afirmación.
+  Verdadero: es la justificación práctica de por qué separar el
+  proceso en etapas mejora el resultado final.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "subjetivemas_y_modalizadores"
-  nivel: "basico"
-  tags: ["primera persona"]
+  tema: "produccion_escrita_compleja"
+  nivel: "avanzado"
+  tags: ["produccion_escrita_compleja", "prerrequisito"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Un subjetivema requiere obligatoriamente el uso explícito de la primera persona del singular (\"yo\")."
+enunciado: "Una vez que se puede producir un borrador completo con estructura básica correcta, el siguiente paso es refinar específicamente cómo se conectan las oraciones y párrafos entre sí (cohesión y coherencia)."
+
+pasos:
+  - "Ver `../conectores-textuales/`, `../referencia-anafora-y-catafora/`, `../progresion-tematica/`: los tres temas siguientes de la cadena."
 
 explicacion: |
-  Según la teoría, no se trata solo de usar "yo": basta con mostrar cómo
-  se siente o qué valora el hablante, aun sin decir "yo" explícitamente.
+  Verdadero: por eso producción escrita compleja es prerrequisito
+  directo de esos tres temas de cohesión y coherencia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "produccion_escrita_compleja"
+  nivel: "avanzado"
+  tags: ["produccion_escrita_compleja", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Antes de escribir un informe escolar largo, conviene dedicar tiempo a planificar (tipo textual, tesis o idea central, esquema de párrafos) en vez de empezar a escribir directamente sin ningún plan."
+
+pasos:
+  - "La planificación previa suele ahorrar tiempo de reescritura y mejorar la coherencia general del texto final."
+
+explicacion: |
+  Verdadero: la aplicación práctica más directa de este tema es
+  planificar antes de encarar cualquier texto extenso real.
 ```
 
 ## Sección: subordinada-adjetiva-o-de-relativo (24 preguntas)
@@ -1053,7 +2160,7 @@ variables:
   verbo: uno_de(["leí", "construí", "conocí", "adopté"])
   adjetivo: uno_de(["nuevo", "grande", "viejo", "pequeño"])
 
-respuesta: "{antecedente}"
+respuesta: antecedente
 tipo: input
 
 enunciado: "En la oración 'El {antecedente} que {verbo} es {adjetivo}', ¿cuál es el antecedente de la subordinada adjetiva?"
@@ -1185,7 +2292,7 @@ variables:
   antecedente: uno_de(["el coche", "el avión", "el tren", "el barco", "el auto"])
   caracteristica: uno_de(["que viaja rápido", "que es nuevo", "que es rojo", "que es viejo", "que es caro"])
 
-respuesta: "{caracteristica}"
+respuesta: caracteristica
 tipo: input
 
 enunciado: "En 'El {antecedente} {caracteristica} es mío', ¿cuál es el segmento que forma la subordinada adjetiva?"
@@ -1322,8 +2429,8 @@ metadata:
 
 variables:
   poseedor: uno_de(["el hombre", "la mujer", "el niño", "la niña", "el padre"])
-  poseido: uno_de(["hija", "hijo", "madre", "padre", "hermano"])
-  forma_incorrecta: uno_de(["cuyas", "cuyos", "cuya", "cuyo"])
+  poseido: uno_de(["hija", "madre"])
+  forma_incorrecta: uno_de(["cuyas", "cuyos", "cuyo"])
 
 respuesta: verdadero
 tipo: vf
@@ -1334,1012 +2441,3 @@ explicacion: |
   Verdadero. Si '{poseido}' es femenino singular, debe ser 'cuya'. '{forma_incorrecta}' no concuerda.
 ```
 
-## Sección: subordinada-adverbial-de-lugar (25 preguntas)
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "basico"
-  tags: ["teoria", "sintaxis"]
-
-variables:
-  afirmacion: uno_de(["verdadero", "falso"])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La subordinada adverbial de lugar es una oración independiente que puede sostenerse por sí misma sin el verbo principal."
-
-explicacion: |
-  Falso. La subordinada adverbial de lugar depende sintácticamente de la oración principal para completar su significado espacial. No es una oración independiente.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["prueba", "identificacion"]
-
-variables:
-  prueba: uno_de(["verdadero", "falso"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es un truco útil para identificar una subordinada de lugar sustituirla por el adverbio 'allí' y verificar si la oración mantiene su sentido lógico."
-
-explicacion: |
-  Verdadero. Si la oración principal sigue teniendo sentido al reemplazar la subordinada por 'allí', es muy probable que se trate de una subordinada adverbial de lugar.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "basico"
-  tags: ["teoria", "dependencia"]
-
-variables:
-  afirmacion: uno_de(["verdadero", "falso"])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La subordinada adverbial de lugar puede interpretarse completamente sin referencia a la oración principal."
-
-explicacion: |
-  Falso. Su significado espacial solo se completa en relación con el verbo de la oración principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["nexos", "recorrido"]
-
-variables:
-  recorrido: uno_de(["verdadero", "falso"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El nexo 'por donde' puede introducir una subordinada adverbial de lugar indicando el trayecto o recorrido."
-
-explicacion: |
-  Verdadero. 'Por donde' indica el camino o el lugar por el cual se pasa, funcionando como complemento de lugar.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["nexos", "variedad"]
-
-variables:
-  afirmacion: uno_de(["verdadero", "falso"])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Solo existe un nexo posible para introducir subordinadas adverbiales de lugar: 'donde'."
-
-explicacion: |
-  Falso. Existen varios nexos como 'dondequiera que', 'a donde', 'desde donde', 'por donde', etc.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "avanzado"
-  tags: ["estilo", "ventaja"]
-
-variables:
-  ventaja: uno_de(["verdadero", "falso"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El uso de subordinadas de lugar ayuda a evitar la repetición de nombres propios o lugares en el texto."
-
-explicacion: |
-  Verdadero. Permite referirse a un lugar ya mencionado o implícito mediante una oración subordinada, enriqueciendo el estilo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["nexos", "trayecto"]
-
-variables:
-  trayecto: uno_de(["verdadero", "falso"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El nexo 'por donde' puede indicar el trayecto o el camino recorrido por la acción."
-
-explicacion: |
-  Verdadero. 'Por donde' especifica el lugar o camino por el cual se realiza la acción principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "basico"
-  tags: ["definicion", "verdadero_falso"]
-
-variables:
-  afirmacion: uno_de(["verdadero", "falso"])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: Una subordinada adverbial de lugar siempre funciona como sujeto de la oración principal."
-
-explicacion: |
-  Falso. Las subordinadas adverbiales de lugar funcionan como Complemento Circunstancial de Lugar, modificando al verbo de la oración principal, no como sujeto.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["prueba", "sustitucion"]
-
-variables:
-  oracion_principal: uno_de(["Voy al parque", "Esperé en la plaza", "Corrió hacia el bosque"])
-  oracion_sub: uno_de(["donde hay árboles", "donde nos vimos", "donde hace frío"])
-  resultado_valido: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En la oración '{oracion_principal} {oracion_sub}', la parte subrayada puede sustituirse por el adverbio 'allí' sin perder el sentido espacial."
-
-explicacion: |
-  Verdadero. La prueba de sustitución por 'allí' es un método válido para identificar subordinadas adverbiales de lugar, ya que 'allí' es el pronombre adverbial de lugar equivalente.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["funcion", "sintaxis"]
-
-variables:
-  tipo_funcion: uno_de(["Complemento Directo", "Complemento Circunstancial de Lugar", "Atributo", "Complemento Agente"])
-
-respuesta: "Complemento Circunstancial de Lugar"
-tipo: completar
-
-enunciado: "La subordinada adverbial de lugar funciona sintácticamente como un {tipo_funcion}."
-
-explicacion: |
-  Las subordinadas adverbiales de lugar desempeñan la función de Complemento Circunstancial de Lugar (CCL) respecto al verbo de la oración principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "basico"
-  tags: ["diferenciacion", "nexos"]
-
-variables:
-  nexo_lugar: uno_de(["donde", "a donde"])
-  nexo_tiempo: uno_de(["cuando", "mientras"])
-  es_lugar: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: El nexo '{nexo_lugar}' introduce una subordinada de lugar, mientras que '{nexo_tiempo}' introduce una de tiempo."
-
-explicacion: |
-  Verdadero. Los nexos como 'donde' y 'a donde' indican espacio, mientras que 'cuando' o 'mientras' indican tiempo. Confundirlos es un error común.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "basico"
-  tags: ["dependencia", "verdadero_falso"]
-
-variables:
-  afirmacion: falso
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: Una subordinada adverbial de lugar puede funcionar como una oración independiente y completa por sí misma."
-
-explicacion: |
-  Falso. Por definición, una oración subordinada depende sintáctica y semánticamente de la oración principal. No es independiente.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "basico"
-  tags: ["pregunta", "funcion"]
-
-variables:
-  pregunta: uno_de(["¿Dónde?", "¿Cuándo?", "¿Por qué?", "¿Cómo?"])
-
-respuesta: "¿Dónde?"
-tipo: completar
-
-enunciado: "La subordinada adverbial de lugar responde principalmente a la pregunta: '{pregunta}'."
-
-explicacion: |
-  Las subordinadas de lugar responden a '¿Dónde?', '¿Hacia dónde?' o '¿Desde dónde?'. '¿Cuándo?' es temporal, '¿Por qué?' causal, '¿Cómo?' modal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["posicion", "verdadero_falso"]
-
-variables:
-  posicion: uno_de(["solo al final", "solo al inicio", "puede ir al inicio o al final"])
-
-respuesta: "puede ir al inicio o al final"
-tipo: completar
-
-enunciado: "La subordinada adverbial de lugar '{posicion}' de la oración principal."
-
-explicacion: |
-  Las subordinadas adverbiales de lugar pueden aparecer tanto al inicio como al final de la oración principal, aunque es más común al final.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["origen", "nexos"]
-
-variables:
-  origen: uno_de(["desde donde", "a donde", "donde"])
-  contexto: "Te llamaré {origen} estoy."
-
-respuesta: "desde donde"
-tipo: completar
-
-enunciado: "Completa la oración '{contexto}' con el nexo que indica origen o punto de partida."
-
-explicacion: |
-  'Desde donde' indica el punto de origen de la acción. 'A donde' indica destino, 'donde' ubicación estática.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["prueba", "sustitucion"]
-
-variables:
-  afirmacion: falso
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: La prueba de sustitución por 'aquí' es igualmente válida que por 'allí' para identificar subordinadas de lugar."
-
-explicacion: |
-  Falso. 'Aquí' indica cercanía, 'allí' indica lejanía o lugar genérico. La prueba estándar usa 'allí' como pronombre adverbial de lugar neutro o de referencia lejana, que es más común en la teoría sintáctica para generalizar.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["destino", "nexos"]
-
-variables:
-  destino: uno_de(["a donde", "desde donde", "donde"])
-  contexto: "Iré {destino} me llames."
-
-respuesta: "a donde"
-tipo: completar
-
-enunciado: "Completa la oración '{contexto}' con el nexo que indica destino o dirección hacia un lugar."
-
-explicacion: |
-  'A donde' indica el punto de llegada o destino. 'Desde donde' indica origen, 'donde' ubicación.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "avanzado"
-  tags: ["produccion", "nexos"]
-
-variables:
-  lugar: uno_de(["la cima", "el fondo", "el centro"])
-  accion: uno_de(["se ve", "se escucha", "se siente"])
-
-respuesta: "allí donde"
-tipo: completar
-
-enunciado: "Completa con el nexo formal: '{lugar} {accion}'."
-
-explicacion: |
-  'Allí donde' es un nexo formal que introduce la idea de lugar, equivalente a 'en el lugar en que'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["funcion", "sintaxis"]
-
-variables:
-  funcion: uno_de(["Complemento Directo", "Complemento Circunstancial de Lugar", "Atributo", "Complemento Agente"])
-
-respuesta: "Complemento Circunstancial de Lugar"
-tipo: completar
-
-enunciado: "La subordinada adverbial de lugar funciona como un {funcion}."
-
-explicacion: |
-  Las subordinadas adverbiales de lugar desempeñan la función de Complemento Circunstancial de Lugar (CCL).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["dependencia", "sintaxis"]
-
-variables:
-  dependencia: verdadero
-
-respuesta: dependencia
-tipo: vf
-
-enunciado: "La subordinada adverbial de lugar puede funcionar como una oración independiente y completa sin la oración principal."
-
-explicacion: |
-  Falso. Por definición, es una oración subordinada, lo que significa que depende sintáctica y semánticamente de la principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "basico"
-  tags: ["nexo", "donde"]
-
-variables:
-  es_lugar: verdadero
-
-respuesta: es_lugar
-tipo: vf
-
-enunciado: "En la oración 'Voy donde tú vas', la palabra 'donde' introduce una subordinada adverbial de lugar."
-
-explicacion: |
-  Correcto. 'Donde' es el nexo más común para indicar ubicación o destino.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "basico"
-  tags: ["nexo", "a donde"]
-
-variables:
-  es_lugar: verdadero
-
-respuesta: es_lugar
-tipo: vf
-
-enunciado: "En 'Voy a donde tú vas', la parte 'a donde tú vas' es una subordinada adverbial de lugar."
-
-explicacion: |
-  Correcto. Indica el destino de la acción 'voy'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["estructura", "compuesta"]
-
-variables:
-  es_compuesta: verdadero
-
-respuesta: es_compuesta
-tipo: vf
-
-enunciado: "Una oración que contiene una subordinada adverbial de lugar es una oración compuesta."
-
-explicacion: |
-  Correcto. Al tener una oración principal y una subordinada, es compuesta.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "basico"
-  tags: ["nexo", "desde donde"]
-
-variables:
-  es_lugar: verdadero
-
-respuesta: es_lugar
-tipo: vf
-
-enunciado: "En 'Vengo desde donde tú viniste', la parte 'desde donde tú viniste' es una subordinada adverbial de lugar."
-
-explicacion: |
-  Correcto. Indica el origen de la acción 'vengo'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_lugar"
-  nivel: "intermedio"
-  tags: ["dependencia", "independencia"]
-
-variables:
-  es_independiente: falso
-
-respuesta: es_independiente
-tipo: vf
-
-enunciado: "La subordinada adverbial de lugar puede entenderse completamente sola, sin la oración principal."
-
-explicacion: |
-  Falso. Dependes de la principal para su significado espacial específico.
-```
-
-## Sección: subordinada-adverbial-de-modo (27 preguntas)
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "basico"
-  tags: ["definicion", "funcion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La subordinada adverbial de modo funciona sintácticamente como un adverbio de modo, especificando 'cómo' se lleva a cabo la acción del verbo principal."
-
-explicacion: |
-  Correcto. Su función es modificar al verbo principal indicando la manera o el modo de ejecución de la acción.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["puntuacion", "sintaxis"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando la subordinada adverbial de modo aparece al inicio de la oración principal, es recomendable separarla con una coma."
-
-explicacion: |
-  Correcto. Las oraciones subordinadas adverbiales extensas o colocadas al inicio suelen llevar coma para marcar la pausa sintáctica y facilitar la lectura.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["sustitucion", "prueba"]
-
-variables:
-  oracion_base: "Habló como si fuera un experto."
-  adverbio_sustituto: "así"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: La oración subordinada 'como si fuera un experto' en '{oracion_base}' puede ser sustituida por el adverbio '{adverbio_sustituto}' sin perder el sentido lógico general de la oración principal."
-
-explicacion: |
-  Una prueba fundamental para identificar una subordinada adverbial de modo es sustituirla por un adverbio de modo simple (así, bien, mal). Si la oración mantiene su sentido básico, la identificación es correcta.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["diferenciacion", "causal"]
-
-variables:
-  oracion_causal: "Llegué tarde porque se cortó la luz."
-  oracion_modal: "Llegué como me indicaron."
-
-respuesta: oracion_modal
-tipo: input
-
-enunciado: "De las siguientes oraciones, ¿cuál contiene una subordinada adverbial de modo? Opción A: '{oracion_causal}'. Opción B: '{oracion_modal}'."
-
-explicacion: |
-  La primera oración es causal (explica el *porqué*). La segunda contiene 'como', que indica la *manera* o *cómo* se realizó la acción, siendo por tanto una subordinada de modo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["nexos", "complejos"]
-
-variables:
-  frase: "Trabajó de manera que todos lo admiraran."
-  nexo_detectado: "de manera que"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En la frase '{frase}', el nexo '{nexo_detectado}' introduce una subordinada adverbial de modo."
-
-explicacion: |
-  'De manera que' es un nexo compuesto que introduce una oración subordinada adverbial de modo, especificando la forma en que se ejecutó la acción principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "avanzado"
-  tags: ["literatura", "analisis"]
-
-variables:
-  fragmento: "El viento soplaba como si quisiera apagar las estrellas."
-  nexo: "como si"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En el fragmento '{fragmento}', la parte '{nexo} quisiera apagar las estrellas' funciona como una subordinada de modo."
-
-explicacion: |
-  La estructura 'como si' introduce una comparación que describe la manera en que ocurría la acción del verbo principal ('soplaba'), cumpliendo la función de adverbio de modo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["distractor", "causal"]
-
-variables:
-  opcion_a: "Lo hizo porque tenía que hacerlo."
-  opcion_b: "Lo hizo como le enseñaron."
-
-respuesta: opcion_b
-tipo: input
-
-enunciado: "Seleccioná la oración que contiene una subordinada adverbial de modo: {opcion_a} / {opcion_b}."
-
-explicacion: |
-  'Porque' introduce una causa. 'Como' introduce la manera o modo, por lo que la segunda opción es la correcta.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "basico"
-  tags: ["nexos", "segun"]
-
-variables:
-  oracion: "Actuó según las normas establecidas."
-  nexo: "según"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En '{oracion}', el nexo '{nexo}' introduce una subordinada de modo."
-
-explicacion: |
-  'Según' puede funcionar como nexo de modo cuando indica la regla o criterio que se siguió para realizar la acción, equivalente a 'de la manera que'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["produccion", "nexos"]
-
-variables:
-  nexo1: "como"
-  nexo2: "conforme"
-
-respuesta: nexo1
-tipo: input
-
-enunciado: "Si quiero decir que alguien caminó 'de la manera en que lo hizo su padre', ¿cuál de estos nexos es el más común y directo para introducir la subordinada? {nexo1} o {nexo2}."
-
-explicacion: |
-  'Como' es el nexo más frecuente y directo para introducir subordinadas de modo en el lenguaje cotidiano y literario. 'Conforme' también es válido pero menos común en este contexto específico de comparación directa.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["puntuacion", "posicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: Las subordinadas adverbiales de modo, cuando aparecen al inicio de la oración principal, generalmente van separadas por una coma."
-
-explicacion: |
-  La norma ortográfica general indica que las oraciones subordinadas que anteceden a la principal suelen ir separadas por una coma para marcar el límite sintáctico y facilitar la lectura.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["nexos", "complejos"]
-
-variables:
-  oracion: "Habló bajo un micrófono de modo que todos lo escucharan."
-  nexo: "de modo que"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En '{oracion}', el nexo '{nexo}' introduce una subordinada de modo."
-
-explicacion: |
-  'De modo que' es un nexo compuesto que indica la manera específica en que se realizó la acción principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "avanzado"
-  tags: ["diferenciacion", "finalidad"]
-
-variables:
-  oracion_modo: "Lo hizo como le pidieron."
-  oracion_fin: "Lo hizo para que lo vieran."
-
-respuesta: oracion_modo
-tipo: input
-
-enunciado: "¿Cuál de estas oraciones tiene una subordinada de modo? {oracion_modo} / {oracion_fin}."
-
-explicacion: |
-  'Como' indica la manera (modo). 'Para que' indica la intención o propósito (finalidad), por lo que la primera es la correcta.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "basico"
-  tags: ["sustitucion", "prueba"]
-
-variables:
-  oracion: "Se vistió como le gustaba."
-  sustituto: "así"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: La parte 'como le gustaba' en '{oracion}' puede reemplazarse por '{sustituto}'."
-
-explicacion: |
-  La prueba de sustitución por 'así' es válida aquí, ya que 'como le gustaba' especifica la manera de vestir, funcionando como adverbio de modo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["nexos", "conforme"]
-
-variables:
-  oracion: "Procedió conforme a la ley."
-  nexo: "conforme"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En '{oracion}', el nexo '{nexo}' introduce una subordinada de modo."
-
-explicacion: |
-  'Conforme' indica que la acción se realizó de acuerdo con un criterio o regla, especificando la manera (modo) de proceder.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["analisis", "oracion"]
-
-variables:
-  oracion: "Escribió la carta como si fuera un profesional."
-  parte_subordinada: "como si fuera un profesional"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En '{oracion}', la parte '{parte_subordinada}' es una subordinada adverbial de modo."
-
-explicacion: |
-  La cláusula introducida por 'como si' describe la manera en que se escribió la carta, cumpliendo la función de adverbio de modo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["distractor", "comparativo"]
-
-variables:
-  oracion_a: "Es alto como su padre."
-  oracion_b: "Habló como un experto."
-
-respuesta: oracion_b
-tipo: input
-
-enunciado: "¿Cuál de estas oraciones contiene una subordinada adverbial de modo? {oracion_a} / {oracion_b}."
-
-explicacion: |
-  'Es alto como su padre' es una oración comparativa de igualdad (compara la altura con la del padre). 'Habló como un experto' indica la manera de hablar (modo), siendo la segunda la correcta.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["nexos", "complejos"]
-
-variables:
-  oracion: "Lo organizó de forma que nadie se perdiera."
-  nexo: "de forma que"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En '{oracion}', el nexo '{nexo}' introduce una subordinada de modo."
-
-explicacion: |
-  'De forma que' es un nexo compuesto que especifica la manera en que se realizó la acción principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["nexos", "como"]
-
-variables:
-  oracion: "Lo hizo como vio que hacían los demás."
-  nexo: "como"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En '{oracion}', el nexo '{nexo}' introduce una subordinada de modo."
-
-explicacion: |
-  Aquí 'como' no introduce una comparación directa de igualdad, sino que especifica la manera en que se realizó la acción, funcionando como nexo de modo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["diferenciacion", "causal"]
-
-variables:
-  oracion_causal: "Se fue porque estaba cansado."
-  oracion_modal: "Se fue como si no le importara."
-
-respuesta: oracion_modal
-tipo: input
-
-enunciado: "Seleccioná la oración con subordinada de modo: {oracion_causal} / {oracion_modal}."
-
-explicacion: |
-  'Porque' es causal. 'Como si' introduce la manera de irse (modo), haciendo a la segunda oración la correcta.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["nexos", "segun"]
-
-variables:
-  oracion: "Decidió según el clima."
-  nexo: "según"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En '{oracion}', el nexo '{nexo}' introduce una subordinada de modo."
-
-explicacion: |
-  'Según' indica el criterio o regla que determinó la decisión, especificando la manera (modo) en que se tomó.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["puntuacion", "posicion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: Las subordinadas adverbiales de modo, cuando aparecen al final de la oración principal, SIEMPRE van precedidas por una coma."
-
-explicacion: |
-  No siempre. Si la subordinada de modo es breve y está al final, a menudo no lleva coma. La coma es más frecuente si es extensa o si inicia la oración.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["nexos", "complejos"]
-
-variables:
-  oracion: "Lo preparó de manera que fuera perfecto."
-  nexo: "de manera que"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En '{oracion}', el nexo '{nexo}' introduce una subordinada de modo."
-
-explicacion: |
-  'De manera que' es un nexo compuesto que indica la forma específica en que se realizó la acción.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "avanzado"
-  tags: ["analisis", "hipotesis"]
-
-variables:
-  oracion: "Mira como si no supiera nada."
-  nexo: "como si"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En '{oracion}', el nexo '{nexo}' introduce una subordinada de modo."
-
-explicacion: |
-  'Como si' introduce una comparación hipotética que describe la manera de mirar, cumpliendo la función de adverbio de modo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "avanzado"
-  tags: ["diferenciacion", "consecutiva"]
-
-variables:
-  oracion_consecutiva: "Corrió tanto que se cansó."
-  oracion_modal: "Corrió como un profesional."
-
-respuesta: oracion_modal
-tipo: input
-
-enunciado: "¿Cuál de estas oraciones tiene una subordinada de modo? {oracion_consecutiva} / {oracion_modal}."
-
-explicacion: |
-  'Tan... que' introduce una consecuencia (consecutiva). 'Como' introduce la manera (modo), por lo que la segunda es la correcta.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "intermedio"
-  tags: ["nexos", "conforme"]
-
-variables:
-  oracion: "Avanzó conforme avanzaba la tarde."
-  nexo: "conforme"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: En '{oracion}', el nexo '{nexo}' introduce una subordinada de modo."
-
-explicacion: |
-  'Conforme' aquí indica la manera progresiva en que se realizó la acción, especificando el modo de avanzar.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "basico"
-  tags: ["sustitucion", "adverbio"]
-
-variables:
-  oracion: "Lo hizo bien."
-  sustituto: "como se esperaba"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: La oración '{oracion}' puede considerarse una versión simplificada de una subordinada de modo introducida por '{sustituto}'."
-
-explicacion: |
-  'Lo hizo bien' es una oración simple con un adverbio de modo. No contiene una subordinada. La pregunta evalúa la comprensión de que la subordinada es una estructura compleja, no un adverbio simple.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_modo"
-  nivel: "avanzado"
-  tags: ["diferenciacion", "finalidad"]
-
-variables:
-  oracion_modo: "Lo dijo de modo que todos entendieran."
-  oracion_fin: "Lo dijo de modo que lo escucharan."
-
-respuesta: oracion_modo
-tipo: input
-
-enunciado: "¿Cuál de estas oraciones usa 'de modo que' como nexo de modo? {oracion_modo} / {oracion_fin}."
-
-explicacion: |
-  'De modo que' puede tener valor consecutivo o final. En '{oracion_modo}', se refiere a la manera de decirlo (para que la forma de decirlo permitiera la comprensión). En '{oracion_fin}', el énfasis está en la intención (finalidad). La primera es más claramente de modo en contextos de análisis sintáctico estricto, aunque la distinción es sutil. (Nota: En muchos contextos, 'de modo que' se considera consecutivo/final. Para evaluar modo estricto, se prefiere 'como'. Sin embargo, en el contexto de este ejercicio, se busca distinguir la intención de la forma. La respuesta correcta es la que enfatiza la *forma* de la acción).
-```

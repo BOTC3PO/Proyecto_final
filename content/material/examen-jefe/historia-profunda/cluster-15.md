@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de Metales y Constelaciones
+# Examen jefe — [PENDIENTE #695]
 
-> Logro #113. Completaste el examen jefe sobre la metalurgia, la estructura mineral, el modelo agroexportador, la modernidad y el movimiento aparente de las estrellas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #695. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,7 +15,8 @@ metadata:
 
 respuesta: "metalurgia"
 tipo: completar
-respuestas_validas: ["metalurgia"]
+respuestas_validas:
+  - "metalurgia"
 
 enunciado: "El proceso de extracción y transformación de minerales para obtener metales se denomina ___."
 
@@ -30,18 +31,11 @@ metadata:
   nivel: "intermedio"
   tags: ["cobre", "propiedades"]
 
-variables:
-  escenario: uno_de([
-    ["cobre", "blando", "color rojizo"],
-    ["hierro", "duro", "color grisáceo"],
-    ["bronce", "aleación", "color amarillento"]
-  ])
-
-respuesta: escenario[0
+respuesta: "cobre"
 tipo: mc
 opciones_explicitas: ["cobre", "hierro", "bronce"]
 
-enunciado: "En la Edad del Cobre, este metal se caracterizaba por ser un material ___ y de color ___."
+enunciado: "Un material blando y de color rojizo, ampliamente usado antes de alearse con estaño, es el ___."
 
 explicacion: |
   El cobre fue uno de los primeros metales utilizados debido a su relativa abundancia y su capacidad para ser moldeado en frío o mediante fundición.
@@ -76,7 +70,7 @@ metadata:
   nivel: "intermedio"
   tags: ["cronologia", "edades"]
 
-respuesta: ["cobre", "bronce", "hierro"]
+respuesta_orden: ["cobre", "bronce", "hierro"]
 tipo: ordenar
 opciones_explicitas: ["cobre", "bronce", "hierro"]
 
@@ -93,18 +87,11 @@ metadata:
   nivel: "intermedio"
   tags: ["hierro", "impacto"]
 
-variables:
-  caso: uno_de([
-    ["más resistente", "mayor alcance de conquista"],
-    ["más blando", "menor expansión territorial"],
-    ["más caro", "menor uso en agricultura"]
-  ])
-
-respuesta: caso[0
+respuesta: "más resistente"
 tipo: mc
 opciones_explicitas: ["más resistente", "más blando", "más caro"]
 
-enunciado: "Debido a que el hierro es ___ que el cobre, su uso permitió un ___."
+enunciado: "Debido a que el hierro es ___ que el cobre, su uso permitió un mayor alcance de conquista."
 
 explicacion: |
   La disponibilidad y dureza del hierro permitieron una producción masiva de herramientas y armas, transformando la agricultura y la guerra.
@@ -119,7 +106,8 @@ metadata:
 
 enunciado: "Durante la Edad del Cobre, los seres humanos comenzaron a utilizar este metal para fabricar objetos, siendo el cobre puro un material más ___ que el hierro."
 
-respuestas_validas: ["blando"]
+respuestas_validas:
+  - "blando"
 tipo: completar
 
 explicacion: |
@@ -132,9 +120,6 @@ metadata:
   tema: "metalurgia_cobre_hierro"
   nivel: "intermedio"
   tags: ["Edad_del_Bronce", "aleaciones"]
-
-variables:
-  es_aleacion: true
 
 enunciado: "La Edad del Bronce se caracteriza por el uso de una aleación. ¿Cuál es la composición principal de este material?"
 
@@ -155,7 +140,8 @@ metadata:
 
 enunciado: "El paso de la Edad del Cobre a la Edad del Bronce supuso una mejora tecnológica debido a la ___ de las herramientas y armas."
 
-respuestas_validas: ["resistencia"]
+respuestas_validas:
+  - "resistencia"
 tipo: completar
 
 explicacion: |
@@ -170,7 +156,7 @@ metadata:
   tags: ["secuencia_temporal"]
 
 opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
-respuesta: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
+respuesta_orden: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
 tipo: ordenar
 
 enunciado: "Ordena cronológicamente las edades de la metalurgia según la evolución de la complejidad de los materiales utilizados:"
@@ -186,17 +172,15 @@ metadata:
   nivel: "avanzado"
   tags: ["propiedades_materiales"]
 
-variables:
-  idx: uno_de([0,1])
-  datos: [["Cobre", "Blando"], ["Bronce", "Duro"]]
+enunciado: "Si comparamos el cobre puro con el bronce, el cobre es notablemente más ___."
 
-enunciado: "Si comparamos el material de la Edad del Cobre con el de la Edad del Bronce, el material de la Edad del {datos[idx][0]} es más {datos[idx][1]} que el de la Edad del Bronce."
-
-respuestas_validas: ["Blando"]
+respuesta: "Blando"
+respuestas_validas:
+  - "Blando"
 tipo: completar
 
 explicacion: |
-  Dependiendo del escenario sorteado, el enunciado evalúa la relación de dureza entre el cobre y el bronce.
+  El cobre puro es más blando que el bronce, que gana dureza gracias a la aleación con estaño.
 ```
 
 ```
@@ -225,11 +209,9 @@ metadata:
   tags: ["recursos", "abundancia"]
 
 variables:
-  escenario: uno_de([["el hierro es más abundante que el bronce", "el hierro es más escaso que el bronce"], ["produce herramientas más resistentes", "produce herramientas más frágiles"]])
-  dato_enunciado: escenario[0]
-  dato_respuesta: escenario[1
+  dato_enunciado: uno_de(["el hierro es más abundante que el bronce", "el hierro, aunque más difícil de fundir, resulta mucho más duro que el bronce una vez trabajado"])
 
-enunciado: "En la Edad del Hierro, la ventaja principal sobre la Edad del Bronce es que {dato_enunciado} y, una vez dominada la técnica, {dato_respuesta}."
+enunciado: "En la Edad del Hierro, la ventaja principal sobre la Edad del Bronce es que {dato_enunciado} y, una vez dominada la técnica, produce herramientas más resistentes."
 
 respuesta: "produce herramientas más resistentes"
 tipo: mc
@@ -248,7 +230,8 @@ metadata:
 
 enunciado: "Si comparamos la durabilidad de las herramientas de la Edad del Bronce con las de la Edad del Hierro, las de hierro son notablemente más ___."
 
-respuestas_validas: ["resistentes", "frágiles", "blandas"]
+respuestas_validas:
+  - "resistentes"
 
 respuesta: "resistentes"
 tipo: completar
@@ -268,7 +251,7 @@ enunciado: "Ordena los procesos tecnológicos según su complejidad térmica cre
 
 opciones_explicitas: ["Cobre", "Bronce", "Hierro"]
 
-respuesta: ["Cobre", "Bronce", "Hierro"]
+respuesta_orden: ["Cobre", "Bronce", "Hierro"]
 tipo: ordenar
 
 explicacion: |
@@ -282,12 +265,7 @@ metadata:
   nivel: "avanzado"
   tags: ["economía", "recursos"]
 
-variables:
-  caso: uno_de([[1, "más abundante"], [2, "menos abundante"]])
-  desc: caso[0]
-  resp: caso[1]
-
-enunciado: "La transición a la Edad del Hierro se vio favorecida porque el hierro es {desc} que los componentes del bronce."
+enunciado: "La transición a la Edad del Hierro se vio favorecida porque el hierro es más abundante que los componentes del bronce."
 
 respuesta: "más abundante"
 tipo: mc
@@ -306,7 +284,8 @@ metadata:
 
 respuesta: "Cobre"
 tipo: completar
-respuestas_validas: ["Cobre"]
+respuestas_validas:
+  - "Cobre"
 
 enunciado: "La primera etapa de la Edad de los Metales, caracterizada por el uso de metales nativos y la posterior fundición de aleaciones simples, es la Edad del ___."
 
@@ -325,10 +304,7 @@ opciones_explicitas: ["Estaño", "Zinc", "Níquel", "Plomo"]
 respuesta: "Estaño"
 tipo: mc
 
-enunciado: "El bronce es una aleación metálica compuesta principalmente por cobre y un segundo elemento clave, que es el {elemento}."
-
-variables:
-  elemento: "uno_de(['Estaño', 'Zinc', 'Níquel', 'Plomo'])"
+enunciado: "El bronce es una aleación metálica compuesta principalmente por cobre y un segundo elemento clave, que es el ___."
 
 explicacion: |
   El bronce se obtiene al fundir cobre con estaño, lo que permite obtener un metal más duro y resistente.
@@ -342,7 +318,7 @@ metadata:
   tags: ["cronologia", "edades"]
 
 opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
-respuesta: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
+respuesta_orden: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
 tipo: ordenar
 
 enunciado: "Ordena cronológicamente las edades de los metales, desde la más antigua hasta la más reciente."
@@ -358,17 +334,11 @@ metadata:
   nivel: "intermedio"
   tags: ["tecnologia", "hierro"]
 
-variables:
-  es_hierro: uno_de([verdadero, falso])
-
 respuesta: "Edad del Hierro"
 tipo: mc
 opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
 
-enunciado: "La etapa que se caracteriza por la aparición de herramientas y armas mucho más resistentes y duraderas debido a la alta temperatura necesaria para su fundición es la {era}."
-
-variables:
-  era: "if(es_hierro, 'Edad del Hierro', 'Edad del Cobre')"
+enunciado: "La etapa que se caracteriza por la aparición de herramientas y armas mucho más resistentes y duraderas debido a la alta temperatura necesaria para su fundición es la ___."
 
 explicacion: |
   El hierro requiere temperaturas de fundición mucho más elevadas que el cobre o el bronce, marcando un salto tecnológico importante.
@@ -381,11 +351,11 @@ metadata:
   nivel: "basico"
   tags: ["metalurgia"]
 
-respuesta: 2
+respuesta: "Bronce"
 tipo: mc
 opciones_explicitas: ["Cobre puro", "Bronce", "Acero"]
 
-enunciado: "Si un metaloide es una mezcla de cobre y estaño, estamos hablando de la Edad del ___."
+enunciado: "Si mezclamos (aleamos) cobre y estaño, ¿qué material obtenemos, el que da nombre a la edad tecnológica posterior a la del cobre?"
 
 explicacion: |
   La aleación de cobre y estaño define la Edad del Bronce.
@@ -423,9 +393,12 @@ variables:
   datos: [["Cobre", "Edad del Cobre"], ["Bronce", "Edad del Bronce"], ["Hierro", "Edad del Hierro"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
+respuestas_validas:
+  - "Edad del Cobre"
+  - "Edad del Bronce"
+  - "Edad del Hierro"
 
 enunciado: "Si un yacimiento presenta una abundancia de herramientas hechas de {datos[idx][0]}, estamos ante la ___."
 
@@ -443,7 +416,7 @@ metadata:
 variables:
   orden_correcto: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
 
-respuesta: orden_correcto
+respuesta_orden: orden_correcto
 tipo: ordenar
 opciones_explicitas: ["Edad del Cobre", "Edad del Bronce", "Edad del Hierro"]
 
@@ -485,7 +458,8 @@ variables:
   datos: [["La democratización de las herramientas debido a la abundancia del metal.", "Edad del Hierro"], ["El auge del comercio de estaño para la aleación.", "Edad del Bronce"], ["El inicio de la metalurgia con metales nativos.", "Edad del Cobre"]]
   idx: uno_de([0, 1, 2])
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0
@@ -507,9 +481,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Una sustancia sólida, inorgánica, de origen natural, con composición química definida y estructura cristalina ordenada.", "Una sustancia sólida, orgánica, de origen volcánico, con composición variable y estructura amorfa.", "Un compuesto químico formado exclusivamente por elementos metálicos en estado sólido.", "Cualquier material sólido encontrado en la corteza terrestre."]
-
+respuesta: "Una sustancia sólida, inorgánica, de origen natural, con composición química definida y estructura cristalina ordenada."
 enunciado: "Según la mineralogía clásica, ¿cuál es la definición científica de un mineral?"
-
 explicacion: |
   Un mineral debe cumplir cinco condiciones: ser sólido, inorgánico, de origen natural, tener una fórmula química definida y una estructura atómica interna ordenada (cristalina).
 ```
@@ -522,17 +495,14 @@ metadata:
   tags: ["propiedades", "inorganico"]
 
 variables:
-  escenario: uno_de([
-    ["El carbón (formado por restos vegetales)", "falso"],
-    ["El cuarzo (formado por silicatos de silicio y oxígeno)", "verdadero"]
-  ])
+  escenario: uno_de([["El carbón (formado por restos vegetales)", "falso"], ["El cuarzo (formado por silicatos de silicio y oxígeno)", "verdadero"]])
 
 tipo: mc
 opciones_explicitas: ["verdadero", "falso"]
 
 enunciado: "Considerando que un mineral debe ser inorgánico, ¿es la afirmación '{escenario[0]}' verdadera o falsa para la definición de mineral?"
 
-respuesta: escenario[1
+respuesta: escenario[1]
 
 explicacion: |
   Los materiales de origen orgánico (como el carbón derivado de plantas) no se consideran minerales, aunque sean sólidos y naturales.
@@ -546,7 +516,8 @@ metadata:
   tags: ["estructura", "cristalografia"]
 
 tipo: completar
-respuestas_validas: ["cristalina"]
+respuestas_validas:
+  - "cristalina"
 
 enunciado: "Para que una sustancia sea considerada mineral, sus átomos deben estar dispuestos en una estructura ___."
 
@@ -564,18 +535,17 @@ metadata:
   tags: ["quimica", "composicion"]
 
 variables:
-  caso: uno_de([
-    ["El diamante (C)", "C"],
-    ["La sal común (NaCl)", "NaCl"],
-    ["La calcita (CaCO3)", "CaCO3"]
-  ])
+  caso: uno_de([["El diamante (C)", "C"], ["La sal común (NaCl)", "NaCl"], ["La calcita (CaCO3)", "CaCO3"]])
 
 tipo: completar
-respuestas_validas: ["C", "NaCl", "CaCO3"]
+respuestas_validas:
+  - "C"
+  - "NaCl"
+  - "CaCO3"
 
 enunciado: "Un mineral debe tener una composición química definida. Si tomamos el caso de {caso[0]}, su fórmula química es ___."
 
-respuesta: caso[1
+respuesta: caso[1]
 
 explicacion: |
   Cada mineral tiene una proporción fija de elementos que determina su identidad química.
@@ -593,7 +563,7 @@ opciones_explicitas: ["Origen natural", "Sólido", "Estructura cristalina", "Com
 
 enunciado: "Ordena los criterios fundamentales que definen a un mineral, desde el origen hasta su organización interna:"
 
-respuesta: ["Origen natural", "Sólido", "Inorgánico", "Composición química definida", "Estructura cristalina"]
+respuesta_orden: ["Origen natural", "Sólido", "Inorgánico", "Composición química definida", "Estructura cristalina"]
 
 explicacion: |
   La definición integral requiere la suma de estas cinco características esenciales para distinguir un mineral de otros materiales terrestres.
@@ -608,7 +578,10 @@ metadata:
 
 respuesta: "arreglo geométrico repetitivo y ordenado de átomos/iones"
 tipo: completar
-respuestas_validas: ["arreglo geométrico repetitivo y ordenado de átomos/iones", "un desorden total de partículas", "una estructura sin simetría"]
+respuestas_validas:
+  - "arreglo geométrico repetitivo y ordenado de átomos/iones"
+  - "un desorden total de partículas"
+  - "una estructura sin simetría"
 
 enunciado: "Una estructura cristalina se define como un ___."
 
@@ -626,7 +599,7 @@ metadata:
 variables:
   escenario: uno_de([["vidrio", "amorfo"], ["cuarzo", "cristalino"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["cristalino", "amorfo"]
 
@@ -645,7 +618,8 @@ metadata:
 
 respuesta: "átomos, iones o moléculas"
 tipo: completar
-respuestas_validas: ["átomos, iones o moléculas"]
+respuestas_validas:
+  - "átomos, iones o moléculas"
 
 enunciado: "La unidad básica que se repite para formar la red de un cristal está compuesta por ___."
 
@@ -680,7 +654,7 @@ metadata:
 variables:
   ejemplo: uno_de([["diamante", "cristalino"], ["plástico", "amorfo"]])
 
-respuesta: ejemplo[1
+respuesta: ejemplo[1]
 tipo: mc
 opciones_explicitas: ["cristalino", "amorfo"]
 
@@ -699,7 +673,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Un agregado de varios minerales", "Una sustancia pura con estructura cristalina definida", "Una mezcla de materia orgánica e inorgánica", "Un fragmento de corteza terrestre sin estructura"]
-
+respuesta: "Una sustancia pura con estructura cristalina definida"
 enunciado: "Desde una perspectiva geológica, ¿cuál es la definición fundamental de un mineral?"
 
 explicacion: |
@@ -714,16 +688,12 @@ metadata:
   tags: ["clasificacion", "rocas"]
 
 variables:
-  escenario: uno_de([
-    ["Granito", ["cuarzo", "feldespato", "mica"]],
-    ["Basalto", ["olivino", "piroxeno", "plagioclasa"]],
-    ["Caliza", ["calcita"]]
-  ])
+  escenario: uno_de([["Granito", "cuarzo", "feldespato", "mica"], ["Basalto", "olivino", "piroxeno", "plagioclasa"], ["Caliza", "calcita", "dolomita", "aragonito"]])
 
 tipo: completar
-respuestas_validas: ["cuarzo", "feldespato", "mica", "olivino", "piroxeno", "plagioclasa", "calcita"]
+respuesta: escenario[3]
 
-enunciado: "Si observamos una muestra de {escenario[0]}, estamos ante una roca compuesta por diversos minerales, como por ejemplo {escenario[1][0]}, {escenario[1][1]} y {escenario[1][2]}."
+enunciado: "Si observamos una muestra de {escenario[0]}, estamos ante una roca compuesta por varios minerales, entre ellos {escenario[1]} y {escenario[2]}. Otro mineral típico de esta roca es ___."
 
 pasos:
   - "Identifica si el material es una sustancia única o un agregado."
@@ -741,7 +711,9 @@ metadata:
   tags: ["relaciones", "estructuras"]
 
 tipo: completar
-respuestas_validas: ["mineral", "roca"]
+respuestas_validas:
+  - "mineral"
+  - "roca"
 
 enunciado: "Un ejemplar de cuarzo puro se clasifica como un ________, mientras que una masa de granito se clasifica como una ________."
 
@@ -763,6 +735,7 @@ enunciado: "Ordena los siguientes elementos de menor a mayor complejidad estruct
 
 explicacion: |
   Los átomos se organizan en redes cristalinas para formar minerales, y los minerales se agrupan para formar rocas.
+respuesta_orden: ["Átomos", "Cristales (Minerales)", "Rocas"]
 ```
 
 ```
@@ -773,13 +746,11 @@ metadata:
   tags: ["analisis", "composicion"]
 
 variables:
-  caso: uno_de([
-    ["feldespato", "mineral"],
-    ["granito", "roca"]
-  ])
+  caso: uno_de([["feldespato", "mineral"], ["granito", "roca"]])
 
 tipo: mc
 opciones_explicitas: ["mineral", "roca"]
+respuesta: caso[1]
 
 enunciado: "Considerando el elemento {caso[0]}, su clasificación técnica es: ________."
 
@@ -800,8 +771,13 @@ variables:
 
 enunciado: "Si tenemos un mineral cuya dureza es la que corresponde al elemento {mineral_datos[idx][0]}, su valor en la escala de Mohs es ___."
 
-respuestas_validas: ["1", "2", "3", "4", "5"]
-respuesta: mineral_datos[idx][1
+respuestas_validas:
+  - "1"
+  - "2"
+  - "3"
+  - "4"
+  - "5"
+respuesta: mineral_datos[idx][1]
 tipo: completar
 
 explicacion: |
@@ -833,13 +809,17 @@ metadata:
   tags: ["raya", "color"]
 
 variables:
-  escenario: [["Hematita", "Rojo"], ["Pirita", "Negro"], "Calcopirita", "Malaquita"]
-  idx: uno_de([0,1,2])
+  escenario: [["Hematita", "Rojo"], ["Pirita", "Negro"], ["Calcopirita", "Negro verdoso"], ["Malaquita", "Verde"]]
+  idx: uno_de([0, 1, 2, 3])
 
 enunciado: "Al realizar la prueba de la raya sobre una placa de porcelana sin esmaltar con el mineral {escenario[idx][0]}, el color resultante es ___."
 
-respuestas_validas: ["Rojo", "Negro", "Verde", "Amarillo"]
-respuesta: escenario[idx][1
+respuestas_validas:
+  - "Rojo"
+  - "Negro"
+  - "Negro verdoso"
+  - "Verde"
+respuesta: escenario[idx][1]
 tipo: completar
 
 explicacion: |
@@ -873,7 +853,7 @@ metadata:
 enunciado: "Ordene los siguientes minerales de menor a mayor dureza según la escala de Mohs:"
 
 opciones_explicitas: ["Talco", "Calcita", "Cuarzo", "Diamante"]
-respuesta: ["Talco", "Calcita", "Cuarzo", "Diamante"]
+respuesta_orden: ["Talco", "Calcita", "Cuarzo", "Diamante"]
 tipo: ordenar
 
 explicacion: |
@@ -888,7 +868,7 @@ metadata:
   tags: ["dureza", "mohs"]
 
 variables:
-  escenario: [[4, "Fluorita"], [7, "Cuarzo"], [9, "Diamante"]]
+  escenario: [[4, "Fluorita"], [7, "Cuarzo"], [10, "Diamante"]]
   idx: uno_de([0, 1, 2])
   dureza_dada: escenario[idx][0]
   nombre_mineral: escenario[idx][1]
@@ -918,7 +898,10 @@ variables:
   mineral_nombre: escenario[idx][1]
 
 tipo: completar
-respuestas_validas: ["Rubí", "Lapislázuli", "Azufre"]
+respuestas_validas:
+  - "Rubí"
+  - "Lapislázuli"
+  - "Azufre"
 
 enunciado: "Se observa un cristal de color ___ que presenta una estructura hexagonal característica."
 
@@ -940,13 +923,12 @@ metadata:
   tags: ["brillo", "propiedades"]
 
 variables:
-  escenario: [["metálico", "Pirita"], ["vítreo", "Cuarzo"], ["nacarado", "Mica"]]
-  idx: uno_de([0, 1, 2])
-  tipo_brillo: escenario[idx][0]
-  mineral_id: escenario[idx][1]
+  escenario: uno_de([["metálico", "Pirita"], ["vítreo", "Cuarzo"], ["nacarado", "Mica"]])
+  tipo_brillo: escenario[0]
+  mineral_id: escenario[1]
 
 tipo: mc
-opciones_explicitas: ["Metálico", "Vítreo", "Nacarado", "Mate"]
+opciones_explicitas: ["Pirita", "Cuarzo", "Mica", "Feldespato"]
 
 enunciado: "Un espécimen presenta un brillo de tipo {tipo_brillo}. ¿Cuál de estos minerales es el más probable?"
 
@@ -963,17 +945,12 @@ metadata:
   nivel: "avanzado"
   tags: ["cristalización", "geología"]
 
-variables:
-  proceso: [["Nucleación", "Crecimiento", "Terminación"], ["Nucleación", "Crecimiento", "Erosión"]]
-  idx: uno_de([0, 1])
-  etapas: proceso[idx]
-
 tipo: ordenar
-opciones_explicitas: ["Nucleación", "Crecimiento", "Terminación", "Erosión"]
+opciones_explicitas: ["Nucleación", "Crecimiento", "Terminación"]
 
 enunciado: "Ordene las etapas típicas de la formación de un cristal perfecto en una solución saturada:"
 
-respuesta: etapas
+respuesta_orden: ["Nucleación", "Crecimiento", "Terminación"]
 
 explicacion: |
   El proceso de cristalización requiere primero la nucleación, luego el crecimiento de la red y finalmente la terminación de los bordes.
@@ -987,7 +964,7 @@ metadata:
   tags: ["densidad", "propiedades_fisicas"]
 
 variables:
-  escenario: [[5.0, "Hematita"], [2.6, "Cuarzo"], [11.3, "Galena"]]
+  escenario: [[5.0, "Hematita"], [2.6, "Cuarzo"], [7.5, "Galena"]]
   idx: uno_de([0, 1, 2])
   valor_densidad: escenario[idx][0]
   mineral_ref: escenario[idx][1]
@@ -1014,6 +991,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Manufacturas industriales", "Materias primas agropecuarias", "Productos tecnológicos", "Servicios financieros"]
+respuesta: "Materias primas agropecuarias"
 
 enunciado: "El modelo agroexportador argentino, consolidado a fines del siglo XIX, se basaba fundamentalmente en la exportación de ___."
 
@@ -1029,13 +1007,13 @@ metadata:
   tags: ["capital", "infraestructura"]
 
 variables:
-  tipo_inversion_idx: uno_de([0, 1])
   inversion_tipo: uno_de(["Inversión extranjera en infraestructura", "Inversión nacional en industria"])
 
 tipo: mc
 opciones_explicitas: ["Inversión extranjera en infraestructura", "Inversión nacional en industria", "Préstamos de organismos internacionales", "Donaciones estatales"]
+respuesta: "Inversión extranjera en infraestructura"
 
-enunciado: "Para sostener el modelo agroexportador, fue fundamental la llegada de {inversion_tipo}."
+enunciado: "Para sostener el modelo agroexportador, fue fundamental la llegada de Inversión extranjera en infraestructura."
 
 explicacion: |
   La gran inversión extranjera (principalmente británica) se destinó a la construcción de ferrocarriles y puertos para facilitar la salida de productos.
@@ -1049,7 +1027,8 @@ metadata:
   tags: ["demografia", "inmigracion"]
 
 tipo: completar
-respuestas_validas: ["Europa", "Asia", "África", "Oceanía"]
+respuestas_validas:
+  - "Europa"
 
 enunciado: "Durante el periodo agroexportador, la mayoría de la corriente migratoria hacia la Argentina provenía de ___."
 
@@ -1071,6 +1050,7 @@ enunciado: "Ordene cronológicamente los procesos que permitieron la consolidaci
 
 explicacion: |
   Primero se expandió la frontera (con la conquista del desierto), luego se conectó con trenes, lo que permitió responder a la demanda europea y consolidar el modelo.
+respuesta_orden: ["Expansión de la frontera agrícola", "Llegada de ferrocarriles", "Aumento de la demanda europea", "Consolidación del modelo agroexportador"]
 ```
 
 ```
@@ -1080,18 +1060,15 @@ metadata:
   nivel: "avanzado"
   tags: ["estado", "politica"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  escenario: uno_de(["La exportación de granos fue ___", "La exportación de carne fue ___"])
-  resultado: uno_de(["el motor principal de la balanza comercial", "un proceso que requirió la expansión de frigoríficos"])
-
 tipo: mc
-opciones_explicitas: ["Un proceso de autosuficiencia", "Un motor de dependencia externa", "Un sistema de comercio cerrado", "Una economía de subsistencia"])
+opciones_explicitas: ["Un proceso de autosuficiencia", "Un motor de dependencia externa", "Un sistema de comercio cerrado", "Una economía de subsistencia"]
 
-enunciado: "En el contexto del modelo agroexportador, la dinámica comercial se caracterizó por ser {resultado}."
+enunciado: "En el contexto del modelo agroexportador, la dinámica comercial argentina con Europa se caracterizó fundamentalmente por ser:"
 
 explicacion: |
   El modelo generó una fuerte dependencia de los mercados externos (Europa) y de la tecnología/capital extranjero, integrando a Argentina al mercado mundial como proveedor de materias primas.
+
+respuesta: "Un motor de dependencia externa"
 ```
 
 ```
@@ -1118,14 +1095,11 @@ metadata:
   nivel: "basico"
   tags: ["nacionalidades", "europa"]
 
-variables:
-  escenario: uno_de([["italianos", "españoles"], ["españoles", "italianos"]])
-
-respuesta: escenario[0
+respuesta: "italianos"
 tipo: mc
 opciones_explicitas: ["italianos", "españoles", "alemanes", "franceses"]
 
-enunciado: "Si bien hubo diversas corrientes, los dos grupos de nacionalidades más representativos en la inmigración masiva a la Argentina fueron los _______ y los _______."
+enunciado: "Si bien hubo diversas corrientes migratorias, el grupo de nacionalidad más numeroso en la inmigración masiva a la Argentina (por delante de los españoles) fue el de los _______."
 
 explicacion: |
   La gran mayoría de los inmigrantes que llegaron entre 1880 y 1914 provenían de Italia y España, aunque también hubo presencia de otras nacionalidades europeas.
@@ -1140,7 +1114,8 @@ metadata:
 
 respuesta: "crisis económica y demográfica"
 tipo: completar
-respuestas_validas: ["crisis económica y demográfica", "guerras mundiales", "revolución industrial"]
+respuestas_validas:
+  - "crisis económica y demográfica"
 
 enunciado: "Los inmigrantes europeos huían de Europa debido a la _______ que afectaba sus países de origen."
 
@@ -1172,7 +1147,7 @@ metadata:
   nivel: "avanzado"
   tags: ["causalidad", "procesos"]
 
-respuesta: ["Demanda de mano de obra", "Expansión de la frontera agrícola", "Llegada masiva de inmigrantes"]
+respuesta_orden: ["Demanda de mano de obra", "Expansión de la frontera agrícola", "Llegada masiva de inmigrantes"]
 tipo: ordenar
 opciones_explicitas: ["Demanda de mano de obra", "Expansión de la frontera agrícola", "Llegada masiva de inmigrantes"]
 
@@ -1232,16 +1207,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
+  datos: [["Conquista del Desierto", "expansión de la frontera agrícola"], ["Guerra de la Triple Alianza", "consolidación de fronteras norteñas"]]
 
-variables:
-  datos: [
-    ["Conquista del Desierto", "expansión de la frontera agrícola"],
-    ["Guerra de la Triple Alianza", "consolidación de fronteras norteñas"]
-  ]
-
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: "completar"
-respuestas_validas: ["expansión de la frontera agrícola"]
+respuestas_validas:
+  - "expansión de la frontera agrícola"
+  - "consolidación de fronteras norteñas"
 
 enunciado: "La denominada {datos[escenario_idx][0]} permitió la {datos[escenario_idx][1]} para el modelo agroexportador."
 
@@ -1276,7 +1248,7 @@ metadata:
 
 opciones_explicitas: ["Demanda europea", "Expansión de frontera", "Ferrocarriles", "Inversión británica"]
 
-respuesta: ["Demanda europea", "Expansión de frontera", "Ferrocarriles", "Inversión británica"]
+respuesta_orden: ["Demanda europea", "Expansión de frontera", "Inversión británica", "Ferrocarriles"]
 tipo: "ordenar"
 
 enunciado: "Ordene cronológicamente los factores que permitieron la consolidación del modelo (desde el estímulo externo hasta la infraestructura de transporte):"
@@ -1292,14 +1264,11 @@ metadata:
   nivel: "intermedio"
   tags: ["demografia", "inmigracion"]
 
-variables:
-  escenario: uno_de(["el flujo masivo de inmigrantes europeos", "la llegada de colonias agrícolas"])
-
 respuesta: "el flujo masivo de inmigrantes europeos"
 tipo: mc
 opciones_explicitas: ["el flujo masivo de inmigrantes europeos", "la llegada de colonias agrícolas", "el crecimiento de la población nativa", "la migración interna desde el interior"]
 
-enunciado: "Durante el modelo agroexportador, la principal causa de la transformación demográfica en el litoral argentino fue {escenario}."
+enunciado: "Durante el modelo agroexportador, la principal causa de la transformación demográfica en el litoral argentino fue el flujo masivo de inmigrantes europeos."
 
 explicacion: |
   La gran escala de la inmigración europea (principalmente italianos y españoles) alteró radicalmente la proporción de población extranjera en las zonas portuarias y de exportación.
@@ -1314,7 +1283,8 @@ metadata:
 
 respuesta: "lunfardo"
 tipo: completar
-respuestas_validas: ["lunfardo"]
+respuestas_validas:
+  - "lunfardo"
 
 enunciado: "La convivencia de diversas lenguas y modismos de los inmigrantes en los conventillos de Buenos Aires dio origen a un léxico popular conocido como ___."
 
@@ -1329,7 +1299,7 @@ metadata:
   nivel: "intermedio"
   tags: ["urbanismo", "geografia"]
 
-respuesta: ["Buenos Aires", "Rosario", "Santa Fe"]
+respuesta_orden: ["Buenos Aires", "Rosario", "Santa Fe"]
 tipo: ordenar
 opciones_explicitas: ["Buenos Aires", "Rosario", "Santa Fe"]
 
@@ -1391,11 +1361,11 @@ variables:
   idx: uno_de([0, 1, 2])
   producto: datos[idx][0]
 
-respuesta: producto
+respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["trigo", "carne", "lana", "maíz"]
+opciones_explicitas: ["cereales", "ganadería", "ovinos"]
 
-enunciado: "Durante el modelo agroexportador, la economía argentina se centró en la exportación de productos primarios. Si el principal producto de exportación en el escenario dado es {producto}, ¿cuál es el rubro correspondiente?"
+enunciado: "Durante el modelo agroexportador, la economía argentina se centró en la exportación de productos primarios. El {producto} pertenece al rubro de la ___."
 
 explicacion: |
   El modelo agroexportador se basó en la exportación de materias primas hacia Europa, siendo el {producto} uno de los pilares fundamentales.
@@ -1413,11 +1383,11 @@ variables:
   idx: uno_de([0, 1, 2])
   nacionalidad: datos_migratorios[idx][0]
 
-respuesta: nacionalidad
+respuesta: datos_migratorios[idx][1]
 tipo: mc
-opciones_explicitas: ["italianos", "españoles", "alemanes", "británicos"]
+opciones_explicitas: ["Europa", "Asia", "América", "África"]
 
-enunciado: "La gran inmigración europea fue clave para la mano de obra en el campo. Si el grupo mencionado es de {nacionalidad}, ¿de qué nacionalidad se trata?"
+enunciado: "La gran inmigración fue clave para la mano de obra en el campo. El grupo de los {nacionalidad} llegó a la Argentina proveniente del continente: ___"
 
 explicacion: |
   La llegada masiva de inmigrantes de Europa (principalmente italianos y españoles) fue esencial para la expansión de la frontera agrícola.
@@ -1430,19 +1400,15 @@ metadata:
   nivel: "intermedio"
   tags: ["transporte", "infraestructura"]
 
-variables:
-  infraestructura: [["ferrocarril", "transporte"], ["puerto", "comercio"], ["telégrafo", "comunicación"]]
-  idx: uno_de([0, 1, 2])
-  elemento: infraestructura[idx][0]
-
-respuesta: elemento
+respuesta: "ferrocarril"
 tipo: completar
-respuestas_validas: ["ferrocarril", "puerto", "telégrafo"]
+respuestas_validas:
+  - "ferrocarril"
 
 enunciado: "Para integrar los centros de producción con los puertos, se construyó una red de ___ fundamental para el modelo."
 
 explicacion: |
-  El ___ permitió el traslado masivo de cargas desde el interior hacia los puertos de exportación de manera eficiente.
+  El ferrocarril permitió el traslado masivo de cargas desde el interior hacia los puertos de exportación de manera eficiente.
 ```
 
 ```
@@ -1452,16 +1418,11 @@ metadata:
   nivel: "intermedio"
   tags: ["puertos", "comercio"]
 
-variables:
-  puerto_clave: ["Buenos Aires", "Rosario", "Bahía Blanca"]
-  idx: uno_de([0, 1, 2])
-  ciudad: puerto_clave[idx]
-
-respuesta: ciudad
+respuesta: "Buenos Aires"
 tipo: mc
 opciones_explicitas: ["Buenos Aires", "Rosario", "Bahía Blanca", "Córdoba"]
 
-enunciado: "El sistema agroexportador dependía de la salida hacia el mundo a través de puertos específicos. Si el puerto central es {ciudad}, ¿cuál es?"
+enunciado: "El sistema agroexportador dependía de la salida hacia el mundo a través de puertos específicos. ¿Cuál fue el principal puerto de salida de la producción agroexportadora argentina?"
 
 explicacion: |
   Los puertos eran el punto de conexión vital entre la producción interna y el mercado mundial.
@@ -1474,14 +1435,14 @@ metadata:
   nivel: "avanzado"
   tags: ["proceso", "logistica"]
 
-respuesta: ["Producción", "Transporte", "Exportación"]
+respuesta_orden: ["Producción", "Transporte", "Exportación"]
 tipo: ordenar
 opciones_explicitas: ["Producción", "Transporte", "Exportación"]
 
 enunciado: "Ordene el proceso lógico de una mercancía en el modelo agroexportador: desde la cosecha hasta la salida del país."
 
 explicacion: |
-  El ciclo comenzaba con la ___ en el campo, seguía con el ___ ferroviario y terminaba con la ___ en el puerto.
+  El ciclo comenzaba con la producción en el campo, seguía con el transporte ferroviario y terminaba con la exportación en el puerto.
 ```
 
 ## Sección: modernidad-imprenta-navegacion-ciencia (25 preguntas)
@@ -1511,14 +1472,10 @@ metadata:
   nivel: "intermedio"
   tags: ["revolucion_cientifica", "imprenta"]
 
-variables:
-  datos: [["La imprenta permitió la estandarización de textos y mapas.", "La imprenta fomentó el análisis crítico y la alfabetización."], ["La imprenta dificultó la comunicación científica.", "La imprenta centralizó el conocimiento en la Iglesia."]]
-  idx: uno_de([0, 1])
-
 tipo: mc
 opciones_explicitas: ["Estandarización y alfabetización", "Centralización del saber", "Aislamiento de las ideas"]
 
-enunciado: "{datos[idx][0]}"
+enunciado: "La imprenta permitió la estandarización de textos y mapas, y fomentó el análisis crítico y la alfabetización. ¿Qué efecto describe mejor este proceso?"
 
 respuesta: "Estandarización y alfabetización"
 
@@ -1538,7 +1495,7 @@ opciones_explicitas: ["Manuscritos copiados a mano", "Imprenta de tipos móviles
 
 enunciado: "Ordena cronológicamente los métodos de producción de libros desde la Edad Media hasta la era moderna:"
 
-respuesta: ["Manuscritos copiados a mano", "Imprenta de tipos móviles", "Producción industrial de libros"]
+respuesta_orden: ["Manuscritos copiados a mano", "Imprenta de tipos móviles", "Producción industrial de libros"]
 
 explicacion: |
   La secuencia muestra la transición desde el trabajo manual intensivo (monjes), pasando por la revolución de Gutenberg, hasta la producción mecánica masiva.
@@ -1552,7 +1509,8 @@ metadata:
   tags: ["reforma_protestante", "imprenta"]
 
 tipo: completar
-respuestas_validas: ["Protestante", "Católica"]
+respuestas_validas:
+  - "Protestante"
 
 enunciado: "La capacidad de imprimir la Biblia en lenguas vernáculas (como el alemán) fue un factor clave para el éxito de la Reforma ___."
 
@@ -1587,14 +1545,11 @@ metadata:
   nivel: "basico"
   tags: ["navegacion", "tecnologia"]
 
-variables:
-  punto_cardinal: uno_de(["Norte", "Sur", "Este", "Oeste"])
-
-respuesta: punto_cardinal
+respuesta: "Norte"
 tipo: mc
 opciones_explicitas: ["Norte", "Sur", "Este", "Oeste"]
 
-enunciado: "La brújula, perfeccionada por los navegantes, permitía a los exploradores mantener un rumbo constante hacia el {punto_cardinal}, evitando perderse en mar abierto."
+enunciado: "La brújula, perfeccionada por los navegantes, funciona porque su aguja se orienta siempre hacia el polo magnético ___, permitiendo mantener un rumbo constante en mar abierto."
 
 explicacion: |
   La brújula permitía identificar el polo magnético de la Tierra, facilitando la navegación en condiciones de baja visibilidad o en alta mar.
@@ -1607,12 +1562,10 @@ metadata:
   nivel: "intermedio"
   tags: ["astrolabio", "astronomia"]
 
-variables:
-  instrumento: uno_de(["Astrolabio", "Sextante", "Cronómetro"])
-
-respuesta: instrumento
+respuesta: "Astrolabio"
 tipo: completar
-respuestas_validas: ["Astrolabio", "Sextante", "Cronómetro"]
+respuestas_validas:
+  - "Astrolabio"
 
 enunciado: "Para determinar la latitud mediante la observación de los astros, los navegantes de la Era de los Descubrimientos utilizaban principalmente el ___."
 
@@ -1627,10 +1580,7 @@ metadata:
   nivel: "intermedio"
   tags: ["carabela", "barcos"]
 
-variables:
-  caracteristica: uno_de(["velas cuadradas", "velas latinas", "remos de madera"])
-
-respuesta: caracteristica
+respuesta: "velas latinas"
 tipo: mc
 opciones_explicitas: ["velas cuadradas", "velas latinas", "remos de madera"]
 
@@ -1647,7 +1597,7 @@ metadata:
   nivel: "avanzado"
   tags: ["tecnologia", "secuencia"]
 
-respuesta: ["Brújula", "Astrolabio", "Carabela"]
+respuesta_orden: ["Brújula", "Astrolabio", "Carabela"]
 tipo: ordenar
 opciones_explicitas: ["Brújula", "Astrolabio", "Carabela"]
 
@@ -1664,10 +1614,7 @@ metadata:
   nivel: "intermedio"
   tags: ["imprenta", "conocimiento"]
 
-variables:
-  efecto: uno_de(["difusión", "recolección", "eliminación"])
-
-respuesta: efecto
+respuesta: "difusión"
 tipo: mc
 opciones_explicitas: ["difusión", "recolección", "eliminación"]
 
@@ -1686,7 +1633,8 @@ metadata:
 
 respuesta: "Copérnico"
 tipo: completar
-respuestas_validas: ["Copérnico"]
+respuestas_validas:
+  - "Copérnico"
 
 enunciado: "El modelo que propuso que el Sol, y no la Tierra, es el centro del sistema planetario fue formulado por ___."
 
@@ -1702,11 +1650,7 @@ metadata:
   tags: ["galileo", "telescopio"]
 
 variables:
-  escenario: uno_de([
-    ["observó las fases de Venus", "confirmó la teoría heliocéntrica"],
-    ["descubrió los satélites de Júpiter", "demostró que no todo giraba en torno a la Tierra"],
-    ["observó las manchas solares", "refutó la idea de la perfección de los cielos"]
-  ])
+  escenario: uno_de([["observó las fases de Venus", "confirmó la teoría heliocéntrica"], ["descubrió los satélites de Júpiter", "demostró que no todo giraba en torno a la Tierra"], ["observó las manchas solares", "refutó la idea de la perfección de los cielos"]])
 
 respuesta: "confirmó la teoría heliocéntrica"
 tipo: mc
@@ -1726,11 +1670,7 @@ metadata:
   tags: ["newton", "fisica"]
 
 variables:
-  caso: uno_de([
-    ["la fuerza con la que la Tierra atrae a una manzana", "la fuerza que mantiene a la Luna en órbita"],
-    ["la fuerza con la que la Tierra atrae a una manzana", "la fuerza que mantiene a los planetas en órbita"],
-    ["la fuerza con la que la Tierra atrae a una manzana", "la fuerza que rige el movimiento de los astros"]
-  ])
+  caso: uno_de([["la fuerza con la que la Tierra atrae a una manzana", "la fuerza que mantiene a la Luna en órbita"], ["la fuerza con la que la Tierra atrae a una manzana", "la fuerza que mantiene a los planetas en órbita"], ["la fuerza con la que la Tierra atrae a una manzana", "la fuerza que rige el movimiento de los astros"]])
 
 respuesta: "la fuerza que rige el movimiento de los astros"
 tipo: mc
@@ -1751,7 +1691,8 @@ metadata:
 
 respuesta: "observación"
 tipo: completar
-respuestas_validas: ["observación"]
+respuestas_validas:
+  - "observación"
 
 enunciado: "A diferencia de la escolástica, la nueva ciencia moderna se basa en la ___ y la experimentación para validar hipótesis."
 
@@ -1766,7 +1707,7 @@ metadata:
   nivel: "intermedio"
   tags: ["pasos", "metodologia"]
 
-respuesta: ["Observación", "Hipótesis", "Experimentación", "Conclusión"]
+respuesta_orden: ["Observación", "Hipótesis", "Experimentación", "Conclusión"]
 tipo: ordenar
 opciones_explicitas: ["Observación", "Hipótesis", "Experimentación", "Conclusión"]
 
@@ -1785,6 +1726,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["La estandarización de textos y diagramas", "La prohibición de la lectura en latín", "El aumento del costo de los libros", "La creación de bibliotecas privadas"]
+respuesta: "La estandarización de textos y diagramas"
 
 enunciado: "Antes de la imprenta de tipos móviles, los libros se copiaban a mano, lo que generaba errores constantes. ¿Cuál fue el principal impacto de la imprenta en la difusión del conocimiento científico durante el Renacimiento?"
 
@@ -1799,16 +1741,12 @@ metadata:
   nivel: "intermedio"
   tags: ["navegacion", "cartografia", "imprenta"]
 
-variables:
-  escenario: uno_de([
-    ["mapa_preciso", "cartografía náutica detallada"],
-    ["mapa_vago", "esquemas de navegación imprecisos"]
-  ])
-
 tipo: mc
 opciones_explicitas: ["Permitió la creación de mapas más precisos y repetibles", "Hizo que la navegación fuera más peligrosa", "Eliminó la necesidad de usar la brújula", "Limitó el conocimiento a los capitanes de flota"]
 
-enunciado: "La imprenta facilitó la reproducción de {escenario[0]}. ¿Cómo ayudó esto directamente a la era de las grandes navegaciones?"
+enunciado: "La imprenta facilitó la reproducción de cartografía náutica detallada. ¿Cómo ayudó esto directamente a la era de las grandes navegaciones?"
+
+respuesta: "Permitió la creación de mapas más precisos y repetibles"
 
 explicacion: |
   La capacidad de imprimir mapas y tablas de navegación (como las efemérides) permitió que los navegantes contaran con herramientas de orientación estandarizadas, reduciendo el margen de error en las rutas transoceánicas.
@@ -1828,6 +1766,7 @@ enunciado: "Ordena cronológicamente la cadena de causalidad que conectó la tec
 
 explicacion: |
   La tecnología de la imprenta (1) permitió la circulación masiva de ideas (2), lo que alimentó el debate constante y la validación de experimentos que caracterizan la Revolución Científica (3).
+respuesta_orden: ["Invención de la imprenta", "Difusión de textos clásicos y nuevos hallazgos", "Revolución Científica y debates académicos"]
 ```
 
 ```
@@ -1838,9 +1777,10 @@ metadata:
   tags: ["autoridad", "ciencia", "humanismo"]
 
 tipo: completar
-respuestas_validas: ["observación", "autoridad"]
+respuestas_validas:
+  - "observación"
 
-enunciado: "El Renacimiento promovió el paso de un conocimiento basado en la ___ de los textos antiguos a uno basado en la ___ directa de la naturaleza."
+enunciado: "El Renacimiento promovió el paso de un conocimiento basado en la autoridad de los textos antiguos a uno basado en la ___ directa de la naturaleza."
 
 explicacion: |
   La imprenta permitió que los textos antiguos fueran comparados entre sí, revelando contradicciones y fomentando que los científicos confiaran más en sus propios experimentos y observaciones que en la tradición dogmática.
@@ -1855,6 +1795,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["El ascenso de las lenguas vernáculas", "El dominio exclusivo del latín", "La desaparición de la escritura", "El uso de jeroglíficos científicos"]
+respuesta: "El ascenso de las lenguas vernáculas"
 
 enunciado: "Al imprimir libros en idiomas locales (español, francés, alemán) y no solo en latín, ¿qué efecto tuvo la imprenta en la democratización del saber científico?"
 
@@ -1894,9 +1835,11 @@ variables:
   datos: [["El uso del astrolabio en alta mar", "La navegación astronómica precisa"], ["La cartografía de Mercator", "La representación de rutas oceánicas"] ]
   idx: uno_de([0,1])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["La navegación astronómica precisa", "La representación de rutas oceánicas"]
+respuestas_validas:
+  - "La navegación astronómica precisa"
+  - "La representación de rutas oceánicas"
 
 enunciado: "El avance tecnológico de {datos[idx][0]} permitió fundamentalmente: ___"
 
@@ -1915,7 +1858,7 @@ variables:
   casos: [["La observación sistemática de los cielos", "El cuestionamiento del modelo geocéntrico"], ["El uso del microscopio", "El descubrimiento del mundo microscópico"]]
   idx: uno_de([0,1])
 
-respuesta: casos[idx][1
+respuesta: casos[idx][1]
 tipo: mc
 opciones_explicitas: ["El cuestionamiento del modelo geocéntrico", "El descubrimiento del mundo microscópico"]
 
@@ -1932,7 +1875,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "procesos"]
 
-respuesta: ["Imprenta", "Navegación", "Revolución Científica"]
+respuesta_orden: ["Imprenta", "Navegación", "Revolución Científica"]
 tipo: ordenar
 opciones_explicitas: ["Imprenta", "Navegación", "Revolución Científica"]
 
@@ -1956,7 +1899,8 @@ metadata:
 
 respuesta: "Copernicanismo"
 tipo: completar
-respuestas_validas: ["Copernicanismo", "Geocentrismo"]
+respuestas_validas:
+  - "Copernicanismo"
 
 enunciado: "El perfeccionamiento del telescopio por parte de Galileo Galilei fue clave para validar el ___."
 
@@ -1975,7 +1919,8 @@ metadata:
 
 respuesta: "rotación terrestre"
 tipo: completar
-respuestas_validas: ["rotación terrestre"]
+respuestas_validas:
+  - "rotación terrestre"
 
 enunciado: "El movimiento aparente de las estrellas durante la noche, donde parecen desplazarse de este a oeste, es causado en realidad por la ___ de la Tierra."
 
@@ -1990,11 +1935,7 @@ metadata:
   nivel: "basico"
   tags: ["observacion", "astronomia"]
 
-variables:
-  dir_estrellas: uno_de(["Este-Oeste", "Oeste-Este"])
-  sentido_estrellas: uno_de(["Este-Oeste", "Este-Oeste"])
-
-respuesta: dir_estrellas
+respuesta: "Este-Oeste"
 tipo: mc
 opciones_explicitas: ["Este-Oeste", "Oeste-Este", "Norte-Sur", "Sur-Norte"]
 
@@ -2027,11 +1968,7 @@ metadata:
   nivel: "avanzado"
   tags: ["eje_terrestre", "estrellas_fijas"]
 
-variables:
-  punto_fijo: uno_de(["Polo Norte Celeste", "Ecuador Celeste", "Polo Sur Celeste"])
-  nombre_fijo: uno_de(["Polo Norte Celeste", "Polo Sur Celeste"])
-
-respuesta: punto_fijo
+respuesta: "Polo Norte Celeste"
 tipo: mc
 opciones_explicitas: ["Polo Norte Celeste", "Ecuador Celeste", "Polo Sur Celeste"]
 
@@ -2048,7 +1985,7 @@ metadata:
   nivel: "intermedio"
   tags: ["observacion", "secuencia"]
 
-respuesta: ["Aparición por el Este", "Paso por el Meridiano", "Ocultación por el Oeste"]
+respuesta_orden: ["Aparición por el Este", "Paso por el Meridiano", "Ocultación por el Oeste"]
 tipo: ordenar
 opciones_explicitas: ["Aparición por el Este", "Paso por el Meridiano", "Ocultación por el Oeste"]
 
@@ -2072,7 +2009,9 @@ metadata:
 
 respuesta: "traslación"
 tipo: completar
-respuestas_validas: ["traslación", "traslación de la Tierra"]
+respuestas_validas:
+  - "traslación"
+  - "traslación de la Tierra"
 
 enunciado: "El cambio en las constelaciones visibles a lo largo de los meses ocurre debido al movimiento de ___ de la Tierra alrededor del Sol."
 
@@ -2090,7 +2029,7 @@ metadata:
 variables:
   escenario: uno_de([["Orión", "invierno"], ["Escorpio", "verano"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["invierno", "verano", "primavera", "otoño"]
 
@@ -2109,7 +2048,9 @@ metadata:
 
 respuesta: "Sol"
 tipo: completar
-respuestas_validas: ["Sol", "Sol"]
+respuestas_validas:
+  - "Sol"
+  - "Sol"
 
 enunciado: "Las constelaciones que vemos en el cielo nocturno cambian porque, al movernos en nuestra órbita, el ___ queda situado entre la Tierra y las estrellas que antes veíamos, ocultándolas durante la noche."
 
@@ -2124,7 +2065,7 @@ metadata:
   nivel: "avanzado"
   tags: ["orden", "ciclo_anual"]
 
-respuesta: ["Eje terrestre", "Traslación", "Cambio de constelaciones"]
+respuesta_orden: ["Eje terrestre", "Traslación", "Cambio de constelaciones"]
 tipo: ordenar
 opciones_explicitas: ["Eje terrestre", "Traslación", "Cambio de constelaciones"]
 
@@ -2147,8 +2088,7 @@ metadata:
   tags: ["conceptos"]
 
 respuesta: falso
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
+tipo: vf
 
 enunciado: "¿Es el movimiento de rotación (sobre su propio eje) la causa principal por la que las constelaciones cambian de una estación a otra?"
 
@@ -2159,13 +2099,14 @@ explicacion: |
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "movimiento_aparente_constratelaciones"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "basico"
   tags: ["astronomia", "orientacion"]
 
 respuesta: "eje de rotación"
 tipo: completar
-respuestas_validas: ["eje de rotación"]
+respuestas_validas:
+  - "eje de rotación"
 
 enunciado: "La estrella Polaris parece permanecer casi fija en el cielo debido a que se encuentra alineada con el ___ de la Tierra."
 
@@ -2176,7 +2117,7 @@ explicacion: |
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "movimiento_aparente_constratelaciones"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "basico"
   tags: ["orientacion", "navegacion"]
 
@@ -2194,20 +2135,16 @@ explicacion: |
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "movimiento_aparente_constratelaciones"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "intermedio"
   tags: ["movimiento_aparente", "rotacion"]
 
 variables:
-  caso: uno_de([0, 1])
+  respuesta_correcta: "se mueven en arcos circulares"
 
-respuesta: tabla[caso][1
 tipo: mc
-tabla: [
-  ["se mueven en líneas rectas", "se mueven en arcos circulares"],
-  ["se mueven en líneas rectas", "se mueven en arcos circulares"]
-]
 opciones_explicitas: ["se mueven en líneas rectas", "se mueven en arcos circulares"]
+respuesta: respuesta_correcta
 
 enunciado: "Debido a la rotación terrestre, las estrellas que no son Polaris parecen moverse en el cielo siguiendo un patrón de ___."
 
@@ -2218,13 +2155,14 @@ explicacion: |
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "movimiento_aparente_constratelaciones"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "intermedio"
   tags: ["geometria_celeste"]
 
 respuesta: "norte"
 tipo: completar
-respuestas_validas: ["norte"]
+respuestas_validas:
+  - "norte"
 
 enunciado: "Si observamos el cielo nocturno en el hemisferio norte, la estrella que marca el punto cardinal ___ es la Polaris."
 
@@ -2235,13 +2173,13 @@ explicacion: |
 ```
 metadata:
   materia: "historia_profunda"
-  tema: "movimiento_aparente_constratelaciones"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "avanzado"
   tags: ["observacion", "secuencia"]
 
 opciones_explicitas: ["Localizar la Osa Mayor", "Identificar la estrella Polaris", "Determinar el Norte"]
 
-respuesta: ["Localizar la Osa Mayor", "Identificar la estrella Polaris", "Determinar el Norte"]
+respuesta_orden: ["Localizar la Osa Mayor", "Identificar la estrella Polaris", "Determinar el Norte"]
 tipo: ordenar
 
 enunciado: "Un navegante antiguo sigue este proceso para orientarse usando las estrellas. Ordena los pasos correctamente:"
@@ -2259,7 +2197,8 @@ metadata:
 
 respuesta: "patrón aparente"
 tipo: completar
-respuestas_validas: ["patrón aparente"]
+respuestas_validas:
+  - "patrón aparente"
 
 enunciado: "Una constelación no es un grupo de estrellas unidas físicamente, sino un ___ formado por estrellas que parecen estar juntas desde nuestra perspectiva."
 
@@ -2292,21 +2231,17 @@ metadata:
   nivel: "intermedio"
   tags: ["perspectiva", "geometria_espacial"]
 
-variables:
-  idx: uno_de([0, 1])
-
-datos:
-  - ["Desde la Tierra, las estrellas parecen formar un dibujo", "La perspectiva visual crea la ilusión de proximidad"]
-  - ["Las estrellas están en un plano bidimensional", "La profundidad espacial es engañosa para el ojo humano"]
-
-respuesta: datos[idx][1
 tipo: mc
-opciones_explicitas: ["Desde la Tierra, las estrellas parecen formar un dibujo", "La perspectiva visual crea la ilusión de proximidad", "Las estrellas están en un plano bidimensional", "La profundidad espacial es engañosa para el ojo humano"]
-
-enunciado: "Si observamos una constelación, el fenómeno que explica por qué vemos estrellas que están a miles de años luz como si estuvieran juntas es: {datos[idx][0]}"
+enunciado: "Las estrellas de una constelación suelen estar a distancias radicalmente distintas de la Tierra, algunas mucho más cerca que otras. Sin embargo, las vemos formando una figura plana en el cielo. ¿Cuál es la explicación de este efecto?"
+opciones_explicitas:
+  - "La perspectiva visual proyecta estrellas a distancias muy distintas sobre un mismo plano aparente"
+  - "Las estrellas de una constelación están realmente cerca unas de otras en el espacio"
+  - "Todas las estrellas se encuentran exactamente a la misma distancia de la Tierra"
+  - "Las constelaciones son figuras físicas dibujadas en el espacio interestelar"
+respuesta: "La perspectiva visual proyecta estrellas a distancias muy distintas sobre un mismo plano aparente"
 
 explicacion: |
-  {datos[idx][1]}
+  Lo que vemos es una proyección: la línea de visión aplana la profundidad real del espacio, así que estrellas separadas por años luz de distancia entre sí pueden parecer vecinas cuando en realidad no lo están.
 ```
 
 ```
@@ -2318,7 +2253,8 @@ metadata:
 
 respuesta: "no están relacionadas físicamente entre sí"
 tipo: completar
-respuestas_validas: ["no están relacionadas físicamente entre sí"]
+respuestas_validas:
+  - "no están relacionadas físicamente entre sí"
 
 enunciado: "A diferencia de un sistema estelar como el Sol y sus planetas, las estrellas que componen una constelación ___."
 
@@ -2335,7 +2271,7 @@ metadata:
 
 opciones_explicitas: ["Luz de la estrella", "Distancia real de la estrella", "Posición aparente en el cielo", "Formación de la constelación"]
 
-respuesta: ["Luz de la estrella", "Distancia real de la estrella", "Posición aparente en el cielo", "Formación de la constelación"]
+respuesta_orden: ["Luz de la estrella", "Distancia real de la estrella", "Posición aparente en el cielo", "Formación de la constelación"]
 tipo: ordenar
 
 enunciado: "Ordena los conceptos según el proceso que explica la creación de una constelación (desde el origen físico hasta la percepción humana):"
@@ -2351,18 +2287,14 @@ metadata:
   nivel: "basico"
   tags: ["astronomia", "estaciones"]
 
-variables:
-  datos: [["Orión", "Leo"], ["Sirio", "Tauro"], ["Spica", "Cáncer"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "Leo"
 tipo: mc
 opciones_explicitas: ["Leo", "Tauro", "Cáncer", "Orión"]
 
-enunciado: "Durante la primavera en el hemisferio norte, la constelación que se encuentra en su punto más alto en el cielo es {datos[idx][0]}."
+enunciado: "Durante la primavera en el hemisferio norte, ¿cuál de las siguientes constelaciones se encuentra en su punto más alto (culminación) en el cielo nocturno?"
 
 explicacion: |
-  Debido al movimiento de traslación de la Tierra, diferentes constelaciones son visibles en diferentes épocas del año. En primavera, la constelación de {datos[idx][0]} es prominente.
+  Debido al movimiento de traslación de la Tierra, diferentes constelaciones son visibles en diferentes épocas del año. Leo es la constelación clásica de las noches de primavera, mientras que Tauro y Orión son constelaciones invernales.
 ```
 
 ```
@@ -2376,9 +2308,12 @@ variables:
   datos: [["verano", "Escorpio"], ["invierno", "Géminis"], ["otoño", "Libra"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["Escorpio", "Géminis", "Libra"]
+respuestas_validas:
+  - "Escorpio"
+  - "Géminis"
+  - "Libra"
 
 enunciado: "Si estamos en la estación de {datos[idx][0]}, la constelación del zodiaco que es más visible hacia el mediodía es ___."
 
@@ -2397,7 +2332,7 @@ variables:
   estrellas: [["Sirio", "Canis Mayor"], ["Betelgeuse", "Orión"], ["Arcturus", "Boote"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: estrellas[idx][1
+respuesta: estrellas[idx][1]
 tipo: mc
 opciones_explicitas: ["Canis Mayor", "Orión", "Boote"]
 
@@ -2415,12 +2350,12 @@ metadata:
   tags: ["secuencia", "ecliptic"]
 
 variables:
-  secuencia: [["Aries", "Tauro", "Géminis"], ["Cáncer", "Leo", "Virgo"], ["Libra", "Escorpio", "Sagitario"]]
-  idx: uno_de([0, 1, 2])
+  grupos: [["Aries", "Tauro", "Géminis"], ["Cáncer", "Leo", "Virgo"], ["Libra", "Escorpio", "Sagitario"]]
+  grupo_seleccionado: uno_de(grupos)
 
-respuesta: secuencia[idx
+respuesta_orden: grupo_seleccionado
 tipo: ordenar
-opciones_explicitas: ["Aries", "Tauro", "Géminis", "Cáncer", "Leo", "Virgo", "Libra", "Escorpio", "Sagitario"]
+opciones_explicitas: grupo_seleccionado
 
 enunciado: "Ordene las siguientes constelaciones según su orden de aparición en el zodíaco (eclíptica) para el grupo seleccionado:"
 
@@ -2436,10 +2371,10 @@ metadata:
   tags: ["sol", "ecliptic"]
 
 variables:
-  par: [["Junio", "Géminis"], ["Diciembre", "Sagitario"], ["Septiembre", "Virgo"]]
+  par: [["Géminis", "Sagitario"], ["Sagitario", "Géminis"], ["Virgo", "Piscis"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: par[idx][1
+respuesta: par[idx][1]
 tipo: completar
 tolerancia_abs: 0
 
@@ -2448,3 +2383,4 @@ enunciado: "Si el Sol se encuentra en la constelación de {par[idx][0]}, la cons
 explicacion: |
   Cuando el Sol está en una constelación, esa constelación es invisible de noche. La constelación opuesta es la que se observa en su punto más alto durante la medianoche.
 ```
+

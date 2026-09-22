@@ -1,483 +1,8 @@
-# Examen jefe — Domina recursión y SQL
+# Examen jefe — [PENDIENTE #824]
 
-> Logro #179. Aprobaste el parcial integrando lógica recursiva, bases de datos relacionales y requisitos del sistema. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **123 preguntas totales** en 5/5 secciones.
+> Logro #824. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: recursividad (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_basica"
-  nivel: "basico"
-  tags: ["programacion", "conceptos"]
-
-respuesta: "recursividad"
-tipo: completar
-respuestas_validas: ["recursividad", "Recursividad"]
-
-enunciado: "La capacidad de una función para llamarse a sí misma durante su ejecución se denomina ________."
-
-explicacion: |
-  La recursividad es una técnica de programación donde una función se invoca a sí misma para resolver subproblemas del problema original.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_basica"
-  nivel: "basico"
-  tags: ["conceptos", "terminologia"]
-
-variables:
-  es_necesario: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para evitar un bucle infinito en una función recursiva, es indispensable contar con un {es_necesario} caso base que detenga las llamadas."
-
-explicacion: |
-  Sin un caso base, la función se llamaría a sí misma indefinidamente (causando un error de desbordamiento de pila o stack overflow).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_basica"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-variables:
-  escenario: uno_de([
-    ["el caso que detiene la función", "caso base"],
-    ["la llamada a la propia función", "caso recursivo"]
-  ])
-
-respuesta: escenario[1
-tipo: mc
-opciones_explicitas: ["caso base", "caso recursivo", "caso infinito", "caso nulo"]
-
-enunciado: "En una función recursiva, el componente que permite que la función se divida en problemas más pequeños se conoce como el {escenario[0]}."
-
-explicacion: |
-  El caso recursivo es la parte de la función donde se realiza la llamada recursiva, reduciendo el problema hacia el caso base.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_basica"
-  nivel: "intermedio"
-  tags: ["flujo_control"]
-
-respuesta: ["Caso Base", "Caso Recursivo", "Retorno de valores"]
-tipo: ordenar
-
-opciones_explicitas: ["Caso Base", "Caso Recursivo", "Retorno de valores"]
-
-enunciado: "Ordena los pasos lógicos que ocurren en una ejecución recursiva típica desde que se entra a la función hasta que se obtiene el resultado final:"
-
-explicacion: |
-  Primero se ejecutan las llamadas (caso recursivo) hasta alcanzar el límite (caso base), y luego los valores se devuelven hacia atrás en la pila de llamadas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_basica"
-  nivel: "basico"
-  tags: ["errores", "memoria"]
-
-respuesta: "Stack Overflow"
-tipo: mc
-opciones_explicitas: ["Stack Overflow", "Syntax Error", "Null Pointer Exception", "Memory Leak"]
-
-enunciado: "Cuando una función recursiva no tiene un caso base definido correctamente, se produce un error de desbordamiento de pila conocido como ________."
-
-explicacion: |
-  Cada llamada recursiva ocupa un espacio en la pila de ejecución (stack). Si las llamadas son infinitas, la memoria asignada a la pila se agota.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_conceptos"
-  nivel: "basico"
-  tags: ["programacion", "conceptos"]
-
-tipo: mc
-opciones_explicitas: ["Una función que se llama a sí misma", "Una función que no tiene retorno", "Un bucle que nunca termina", "Una función que utiliza variables globales"]
-
-enunciado: "En programación, ¿qué define técnicamente a una función recursiva?"
-
-explicacion: |
-  La recursividad ocurre cuando una función se invoca a sí misma dentro de su propio cuerpo para resolver una parte del problema.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_componentes"
-  nivel: "basico"
-  tags: ["logica", "estructura"]
-
-tipo: completar
-respuestas_validas: ["caso base", "caso recursivo"]
-
-enunciado: "Para que una función recursiva no entre en un bucle infinito, es indispensable que exista un ___ que detenga las llamadas, y un ___ que reduzca el problema original."
-
-explicacion: |
-  El caso base es la condición de parada que devuelve un valor sin realizar más llamadas. El caso recursivo es donde la función se llama a sí misma con un argumento modificado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_ejecucion"
-  nivel: "intermedio"
-  tags: ["algoritmos", "factorial"]
-
-variables:
-  n: 4
-  resultado: 24
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Considera la siguiente función recursiva para calcular el factorial de n: \n`f(n) = if n == 0 then 1 else n * f(n-1)` \n\n¿Cuál es el valor de f({n})?"
-
-pasos:
-  - "f(4) = 4 * f(3)"
-  - "f(3) = 3 * f(2)"
-  - "f(2) = 2 * f(1)"
-  - "f(1) = 1 * f(0)"
-  - "f(0) = 1 (Caso base)"
-  - "Cálculo: 4 * 3 * 2 * 1 * 1"
-
-explicacion: |
-  El resultado de 4! (factorial de 4) es 24.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_memoria"
-  nivel: "intermedio"
-  tags: ["memoria", "stack"]
-
-tipo: vf
-
-enunciado: "¿Es verdadero que cada llamada recursiva consume memoria adicional en la pila de llamadas (call stack) de la computadora?"
-
-respuesta: verdadero
-
-explicacion: |
-  Verdadero. Cada llamada pendiente debe guardar su estado (variables locales, dirección de retorno) en la pila, lo que puede llevar a un error de 'stack overflow' si la recursión es muy profunda.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_orden"
-  nivel: "avanzado"
-  tags: ["flujo_control", "stack"]
-
-tipo: ordenar
-opciones_explicitas: ["Llamada a f(3)", "Llamada a f(2)", "Llamada a f(1)", "Llamada a f(0)", "Retorno de f(0)", "Retorno de f(1)", "Retorno de f(2)", "Retorno de f(3)"]
-respuesta: ["Llamada a f(3)", "Llamada a f(2)", "Llamada a f(1)", "Llamada a f(0)", "Retorno de f(0)", "Retorno de f(1)", "Retorno de f(2)", "Retorno de f(3)"]
-
-enunciado: "Ordena cronológicamente los eventos en la ejecución de una función recursiva para f(3) donde el caso base es f(0):"
-
-explicacion: |
-  La ejecución sigue una estructura de LIFO (Last In, First Out): primero se van apilando todas las llamadas hacia el caso base y luego se van resolviendo (retornando) a medida que la pila se descarga.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_conceptos"
-  nivel: "basico"
-  tags: ["recursividad", "conceptos"]
-
-respuesta: "caso base"
-tipo: completar
-respuestas_validas: ["caso base", "caso base"]
-
-enunciado: "Para evitar que una función recursiva entre en un bucle infinito y agote la memoria (stack overflow), es indispensable definir un ___ que detenga las llamadas sucesivas."
-
-explicacion: |
-  El caso base es la condición que permite que la función deje de llamarse a sí misma, devolviendo un valor sin realizar una nueva llamada recursiva.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_errores"
-  nivel: "basico"
-  tags: ["stack_overflow", "errores"]
-
-variables:
-  es_infinito: true
-
-respuesta: es_infinito
-tipo: completar
-enunciado: "Si una función recursiva no reduce el tamaño del problema en cada paso hacia el caso base, ¿se producirá un error de desbordamiento de pila (stack overflow)? {es_infinito}"
-
-explicacion: |
-  Si el problema no se aproxima al caso base, la recursión es infinita y la pila de llamadas se llena, causando un error de ejecución.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_flujo"
-  nivel: "intermedio"
-  tags: ["flujo_ejecucion", "recursividad"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [
-    ["f(3) -> f(2) -> f(1) -> f(0) -> Retorno", "f(3) -> f(2) -> f(1) -> f(0) -> Retorno"],
-    ["f(3) -> f(4) -> f(5) -> ...", "f(3) -> f(4) -> f(5) -> ..."]
-  ]
-
-respuesta: escenario[idx][1
-tipo: mc
-opciones_explicitas: ["f(3) -> f(2) -> f(1) -> f(0) -> Retorno", "f(3) -> f(4) -> f(5) -> ..."]
-
-enunciado: "Si tenemos una función que resta 1 al argumento en cada llamada y el caso base es cuando el argumento es 0, ¿cuál es la secuencia correcta de llamadas para f(3)?"
-
-explicacion: |
-  En una recursión correcta, cada llamada debe acercarse al caso base. En el escenario {escenario[idx][0]}, la secuencia se detiene al llegar a 0.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_estructura"
-  nivel: "intermedio"
-  tags: ["estructura", "recursividad"]
-
-respuesta: ["Caso base", "Caso recursivo", "Paso de parámetros"]
-tipo: ordenar
-
-opciones_explicitas: ["Caso base", "Caso recursivo", "Paso de parámetros"]
-
-enunciado: "Ordena los componentes lógicos necesarios para que una función sea recursiva y funcional, desde lo que detiene la ejecución hasta lo que permite la progresión:"
-
-explicacion: |
-  Primero se define la condición de parada (caso base), luego la lógica de la llamada (caso recursivo) y finalmente cómo se transforma el dato (paso de parámetros).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_errores"
-  nivel: "avanzado"
-  tags: ["retorno", "errores"]
-
-variables:
-  error_retorno: true
-
-respuesta: error_retorno
-tipo: completar
-enunciado: "En una función recursiva que debe devolver la suma de los elementos de una lista, si olvidamos incluir la palabra clave 'return' en la llamada recursiva, la función devolverá un valor correcto. {error_retorno}"
-
-explicacion: |
-  Es un error común: si no se retorna el resultado de la llamada recursiva, la cadena de valores se rompe y la función principal no recibe el resultado acumulado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_conceptos"
-  nivel: "basico"
-  tags: ["recursividad", "conceptos"]
-
-respuesta: "caso base"
-tipo: completar
-respuestas_validas: ["caso base", "condicion de parada"]
-
-enunciado: "Para evitar que una función recursiva entre en un bucle infinito, es indispensable definir un ___ que detenga las llamadas sucesivas."
-
-explicacion: |
-  El caso base es la condición que permite que la función deje de llamarse a sí misma y comience a retornar valores, evitando un desbordamiento de pila (stack overflow).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_vs_iteracion"
-  nivel: "intermedio"
-  tags: ["recursividad", "iteracion", "comparacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En términos de complejidad de espacio en la memoria (stack), una función recursiva suele ser más costosa que un bucle iterativo equivalente debido al uso de la pila de llamadas."
-
-explicacion: |
-  Verdadero. Cada llamada recursiva añade un nuevo marco de pila (stack frame) con sus variables locales y dirección de retorno, mientras que la iteración reutiliza el mismo espacio de memoria.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_estructura"
-  nivel: "basico"
-  tags: ["recursividad", "estructura"]
-
-respuesta: ["Caso base", "Caso recursivo", "Reducción del problema"]
-tipo: ordenar
-opciones_explicitas: ["Caso base", "Caso recursivo", "Reducción del problema"]
-
-enunciado: "Ordena los componentes lógicos necesarios para que un algoritmo recursivo sea correcto y termine:"
-
-explicacion: |
-  Para que la recursión funcione, primero se debe evaluar si llegamos al caso base; si no, se ejecuta el caso recursivo, el cual debe reducir el problema original hacia el caso base.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_estado"
-  nivel: "intermedio"
-  tags: ["recursividad", "estado", "memoria"]
-
-respuesta: "el estado se mantiene en la pila de llamadas"
-tipo: mc
-opciones_explicitas: ["el estado se mantiene en la pila de llamadas", "el estado se pierde en cada llamada", "el estado se guarda en una variable global única", "el estado no es necesario en recursión"]
-
-enunciado: "Al comparar una función recursiva con un bucle 'while', ¿en qué se diferencia la gestión de las variables locales?"
-
-explicacion: |
-  En la recursividad, cada llamada tiene su propio ámbito (scope) y sus propias variables, las cuales se almacenan en la pila de ejecución (stack).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_identificacion"
-  nivel: "basico"
-  tags: ["recursividad", "logica"]
-
-variables:
-  idx: uno_de([0,1])
-  escenarios: [
-    ["f(n) = n + f(n-1)", "recursivo"],
-    ["f(n) = n + 1", "no recursivo"]
-  ]
-
-respuesta: escenarios[idx][1
-tipo: mc
-opciones_explicitas: ["recursivo", "no recursivo"]
-
-enunciado: "Analiza la siguiente definición de función: {escenarios[idx][0]}. ¿Cuál es su naturaleza?"
-
-explicacion: |
-  Una función es recursiva si su definición incluye una llamada a sí misma con un argumento modificado, como se ve en el ejemplo seleccionado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_conceptos"
-  nivel: "basico"
-  tags: ["teoria", "fundamentos"]
-
-respuesta: "caso base"
-tipo: "completar"
-respuestas_validas: ["caso base", "caso recursivo", "condicion de parada"]
-
-enunciado: "Para que una función recursiva no se ejecute infinitamente y cause un error de desbordamiento de pila, es indispensable que contenga un ___ que permita detener la recursión."
-
-explicacion: |
-  El caso base es la condición que se cumple cuando la función deja de llamarse a sí misma, permitiendo que la pila de llamadas se resuelva.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_estructura"
-  nivel: "basico"
-  tags: ["logica"]
-
-variables:
-  escenario: uno_de([
-    ["f(n) = n * f(n-1) con f(0)=1", "factorial"],
-    ["f(n) = f(n-1) + f(n-2) con f(0)=0, f(1)=1", "fibonacci"],
-    ["f(n) = n + f(n-1) con f(0)=0", "suma_naturales"]
-  ])
-
-respuesta: escenario[idx][1
-tipo: "mc"
-opciones_explicitas: ["factorial", "fibonacci", "suma_naturales", "potencia"]
-
-enunciado: "Dada la siguiente definición recursiva: {escenario[idx][0]}, ¿cuál es el nombre del algoritmo que se está implementando?"
-
-explicacion: |
-  El algoritmo descrito corresponde a {escenario[idx][1]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_logica"
-  nivel: "intermedio"
-  tags: ["teoria"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "¿Es posible que una función recursiva sea correcta si su caso recursivo no reduce el tamaño del problema hacia el caso base?"
-
-explicacion: |
-  Falso. Si el problema no se reduce (por ejemplo, si llamamos a f(n) con f(n) en lugar de f(n-1)), nunca se alcanzará el caso base, resultando en una recursión infinita.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_ejecucion"
-  nivel: "intermedio"
-  tags: ["pila", "stack"]
-
-respuesta: ["Llamada 1", "Llamada 2", "Llamada 3", "Retorno 3", "Retorno 2", "Retorno 1"]
-tipo: "ordenar"
-opciones_explicitas: ["Llamada 1", "Llamada 2", "Llamada 3", "Retorno 3", "Retorno 2", "Retorno 1"]
-
-enunciado: "Ordena cronológicamente los eventos de una función que llama a sí misma tres veces (n=3, n=2, n=1) antes de empezar a devolver valores (unwinding):"
-
-explicacion: |
-  En la recursión, primero se apilan todas las llamadas en la pila (stack) hasta llegar al caso base, y luego se procesan los retornos en orden inverso a la entrada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "recursividad_calculo"
-  nivel: "avanzado"
-  tags: ["calculo", "algoritmos"]
-
-variables:
-  datos: [
-    [5, 120],
-    [4, 24],
-    [3, 6]
-  ]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1
-tipo: "input"
-tolerancia_abs: 0
-
-enunciado: "Si tenemos una función para calcular el factorial de n, donde f(n) = n * f(n-1) y f(0) = 1, ¿cuál es el resultado de ejecutar la función con el valor n = {datos[idx][0]}?"
-
-explicacion: |
-  El factorial de {datos[idx][0]} es {datos[idx][1]}.
-```
 
 ## Sección: relaciones-y-claves-foraneas (25 preguntas)
 
@@ -490,7 +15,9 @@ metadata:
 
 respuesta: "clave_primaria"
 tipo: completar
-respuestas_validas: ["clave_primaria", "primary_key"]
+respuestas_validas:
+  - "clave_primaria"
+  - "primary_key"
 
 enunciado: "El campo único que identifica de forma inequívoca a cada registro en una tabla se denomina ___."
 
@@ -523,12 +50,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Un Cliente y sus Pedidos", "uno_a_muchos"],
-    ["Un Estudiante y sus Materias (en un modelo N:M)", "muchos_a_muchos"]
-  ]
+  escenarios: [["Un Cliente y sus Pedidos", "uno_a_muchos"], ["Un Estudiante y sus Materias (en un modelo N:M)", "muchos_a_muchos"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["uno_a_uno", "uno_a_muchos", "muchos_a_muchos"]
 
@@ -547,7 +71,9 @@ metadata:
 
 respuesta: "Integridad Referencial"
 tipo: completar
-respuestas_validas: ["Integridad Referencial", "Integridad de Entidad"]
+respuestas_validas:
+  - "Integridad Referencial"
+  - "Integridad de Entidad"
 
 enunciado: "La regla que asegura que los valores de una clave foránea existan previamente en la tabla referenciada se conoce como ___."
 
@@ -562,7 +88,7 @@ metadata:
   nivel: "avanzado"
   tags: ["sql", "ddl"]
 
-respuesta: ["Tabla_Padre", "Tabla_Hija"]
+respuesta_orden: ["Tabla_Padre", "Tabla_Hija"]
 tipo: ordenar
 opciones_explicitas: ["Tabla_Hija", "Tabla_Padre"]
 
@@ -585,7 +111,9 @@ variables:
 
 enunciado: "En un modelo relacional, si tenemos una tabla de {datos[idx][0]} y una tabla de {datos[idx][1]}, la columna que permite vincular ambas tablas y hace referencia a la clave primaria de la primera tabla es la clave foránea, cuyo nombre en la tabla secundaria es ___."
 
-respuestas_validas: ["cliente_id", "autor_id"]
+respuestas_validas:
+  - "cliente_id"
+  - "autor_id"
 respuesta: datos[idx][2]
 tipo: completar
 
@@ -602,7 +130,7 @@ metadata:
 
 enunciado: "Si intentamos eliminar un registro de la tabla 'Clientes' que tiene un ID asociado a registros existentes en la tabla 'Pedidos', y la restricción de integridad referencial está activa, la base de datos impedirá la acción para evitar datos huérfanos."
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 explicacion: |
@@ -633,13 +161,10 @@ metadata:
   nivel: "avanzado"
   tags: ["diseño", "pasos", "normalizacion"]
 
-variables:
-  pasos_orden: [["Identificar entidades", "Definir claves primarias", "Establecer relaciones mediante claves foráneas"]]
-
 enunciado: "Para diseñar correctamente un esquema relacional desde un modelo conceptual, se deben seguir estos pasos en orden lógico:"
 
 opciones_explicitas: ["Identificar entidades", "Definir claves primarias", "Establecer relaciones mediante claves foráneas"]
-respuesta: ["Identificar entidades", "Definir claves primarias", "Establecer relaciones mediante claves foráneas"]
+respuesta_orden: ["Identificar entidades", "Definir claves primarias", "Establecer relaciones mediante claves foráneas"]
 tipo: ordenar
 
 explicacion: |
@@ -657,9 +182,10 @@ variables:
   datos: [["Estudiantes", "Cursos", 10, 5], ["Usuarios", "Roles", 100, 5]]
   idx: uno_de([0, 1])
 
-enunciado: "En un sistema donde cada {datos[idx][0]} puede inscribirse en múltiples {datos[idx][1]}, y cada {datos[idx][1]} puede tener múltiples {datos[idx][0]}, se requiere una tabla intermedia para resolver la relación. Si tenemos {datos[idx][0]} registros de origen y {datos[idx][1]} de destino, la tabla intermedia gestionará la relación de tipo ___."
+enunciado: "En un sistema donde cada {datos[idx][0]} puede inscribirse en múltiples {datos[idx][1]}, y cada {datos[idx][1]} puede tener múltiples {datos[idx][0]}, se requiere una tabla intermedia para resolver la relación. Si tenemos {datos[idx][2]} registros de origen y {datos[idx][3]} de destino, la tabla intermedia gestionará la relación de tipo ___."
 
-respuestas_validas: ["Muchos a Muchos"]
+respuestas_validas:
+  - "Muchos a Muchos"
 respuesta: "Muchos a Muchos"
 tipo: completar
 
@@ -676,7 +202,10 @@ metadata:
 
 respuesta: "integridad referencial"
 tipo: completar
-respuestas_validas: ["integridad referencial", "integridad de datos", "integridad referencial"]
+respuestas_validas:
+  - "integridad referencial"
+  - "integridad de datos"
+  - "integridad referencial"
 
 enunciado: "La restricción de clave foránea (Foreign Key) tiene como objetivo principal garantizar la ___ entre las tablas de una base de datos relacional."
 
@@ -708,17 +237,14 @@ metadata:
   tags: ["sql", "cascada", "errores"]
 
 variables:
-  escenario: uno_de([
-    ["Se borra un registro en la tabla 'Clientes' que tiene pedidos asociados", "error"],
-    ["Se intenta insertar un 'Pedido' con un 'Cliente_ID' que no existe", "error"],
-    ["Se intenta borrar un 'Producto' que está siendo referenciado por una 'Venta'", "error"]
-  ])
+  escenario: uno_de(["Se borra un registro en la tabla 'Clientes' que tiene pedidos asociados", "Se intenta insertar un 'Pedido' con un 'Cliente_ID' que no existe", "Se intenta borrar un 'Producto' que está siendo referenciado por una 'Venta'"])
 
-respuesta: escenario[1
-tipo: mc
-opciones_explicitas: ["escenario[0]", "escenario[1]", "escenario[2]"]
+respuesta: "error"
+tipo: completar
+respuestas_validas:
+  - "error"
 
-enunciado: "Si una base de datos tiene activada la restricción de integridad referencial estándar (sin ON DELETE CASCADE), ¿qué sucede en el caso: {escenario[0]}?"
+enunciado: "Si una base de datos tiene activada la restricción de integridad referencial estándar (sin ON DELETE CASCADE), ¿qué sucede en el caso: {escenario}? (responde con una palabra: error o éxito)"
 
 explicacion: |
   El sistema de gestión de base de datos (DBMS) bloqueará la operación y lanzará un error para evitar que queden registros de 'Pedidos' sin un 'Cliente' asociado.
@@ -731,7 +257,7 @@ metadata:
   nivel: "intermedio"
   tags: ["sql", "orden_ddl"]
 
-respuesta: ["Clientes", "Pedidos", "Detalles_Pedido"]
+respuesta_orden: ["Clientes", "Pedidos", "Detalles_Pedido"]
 tipo: ordenar
 
 opciones_explicitas: ["Pedidos", "Clientes", "Detalles_Pedido"]
@@ -800,16 +326,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["RESTRICT", "Impide la eliminación del registro padre si tiene hijos"],
-    ["CASCADE", "Elimina automáticamente los registros hijos al eliminar el padre"]
-  ]
+  escenarios: [["RESTRICT", "Impide la eliminación del registro padre si tiene hijos"], ["CASCADE", "Elimina automáticamente los registros hijos al eliminar el padre"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][0]
 tipo: "mc"
 opciones_explicitas: ["RESTRICT", "CASCADE", "SET NULL", "NO ACTION"]
 
-enunciado: "Si configuramos una relación con la acción '{escenarios[escenario_idx][0]}', el comportamiento resultante es: ___"
+enunciado: "Si el comportamiento deseado ante el borrado del registro padre es: '{escenarios[escenario_idx][1]}', la acción de configuración adecuada es: ___"
 
 explicacion: |
   La opción elegida define cómo reacciona la base de datos ante la pérdida de un registro padre. {escenarios[escenario_idx][0]} es el comportamiento específico seleccionado para este caso.
@@ -822,7 +345,7 @@ metadata:
   nivel: "basico"
   tags: ["diseño", "modelado"]
 
-respuesta: ["Definir entidades", "Establecer atributos", "Identificar claves primarias", "Establecer claves foráneas"]
+respuesta_orden: ["Definir entidades", "Establecer atributos", "Identificar claves primarias", "Establecer claves foráneas"]
 tipo: "ordenar"
 opciones_explicitas: ["Definir entidades", "Establecer atributos", "Identificar claves primarias", "Establecer claves foráneas"]
 
@@ -841,7 +364,9 @@ metadata:
 
 respuesta: "nulo"
 tipo: "completar"
-respuestas_validas: ["nulo", "NULL"]
+respuestas_validas:
+  - "nulo"
+  - "NULL"
 
 enunciado: "A diferencia de una clave primaria que nunca puede contener valores ___, una clave foránea puede permitir valores ___ si la relación es opcional."
 
@@ -857,16 +382,12 @@ metadata:
   tags: ["dbms", "sql", "relaciones"]
 
 variables:
-  escenario: uno_de([
-    ["Tabla_Clientes(id_cliente, nombre) y Tabla_Pedidos(id_pedido, id_cliente)", "id_cliente"],
-    ["Tabla_Autores(id_autor, nombre) y Tabla_Libros(id_libro, id_autor)", "id_autor"],
-    ["Tabla_Estudiantes(id_estudiante, nombre) y Tabla_Inscripciones(id_inscripcion, id_estudiante)", "id_estudiante"]
-  ])
+  escenario: uno_de([["Tabla_Clientes(id_cliente, nombre) y Tabla_Pedidos(id_pedido, id_cliente)", "id_cliente"], ["Tabla_Autores(id_autor, nombre) y Tabla_Libros(id_libro, id_autor)", "id_autor"], ["Tabla_Estudiantes(id_estudiante, nombre) y Tabla_Inscripciones(id_inscripcion, id_estudiante)", "id_estudiante"]])
 
-enunciado: "En el escenario de {escenario}, ¿cuál es el nombre del campo que actúa como clave foránea en la segunda tabla para establecer la relación?"
+enunciado: "En el escenario de {escenario[0]}, ¿cuál es el nombre del campo que actúa como clave foránea en la segunda tabla para establecer la relación?"
 
 opciones_explicitas: ["id_pedido", "id_cliente", "nombre", "id_autor", "id_estudiante"]
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 
 explicacion: |
@@ -882,7 +403,7 @@ metadata:
 
 enunciado: "Si intentamos eliminar un registro de una tabla 'Padre' que posee una clave primaria siendo referenciada por una clave foránea en una tabla 'Hija', y la restricción de integridad está activa, la operación será rechazada para evitar datos huérfanos."
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 explicacion: |
@@ -897,16 +418,15 @@ metadata:
   tags: ["sql", "conceptos"]
 
 variables:
-  contexto: uno_de([
-    ["Un sistema de ventas donde un Cliente realiza muchos Pedidos", "uno a muchos"],
-    ["Un sistema de gestión donde un Estudiante se inscribe en muchas Materias y una Materia tiene muchos Estudiantes", "muchos a muchos"],
-    ["Un sistema de países donde un Continente tiene muchos Países y un País pertenece a un solo Continente", "uno a muchos"]
-  ])
+  contexto: uno_de([["Un sistema de ventas donde un Cliente realiza muchos Pedidos", "uno a muchos"], ["Un sistema de gestión donde un Estudiante se inscribe en muchas Materias y una Materia tiene muchos Estudiantes", "muchos a muchos"], ["Un sistema de países donde un Continente tiene muchos Países y un País pertenece a un solo Continente", "uno a muchos"]])
 
 enunciado: "En el contexto de {contexto}, el tipo de relación predominante es ___."
 
-respuestas_validas: ["uno a muchos", "muchos a muchos", "uno a uno"]
-respuesta: contexto[1
+respuestas_validas:
+  - "uno a muchos"
+  - "muchos a muchos"
+  - "uno a uno"
+respuesta: contexto[1]
 tipo: completar
 
 explicacion: |
@@ -921,7 +441,7 @@ metadata:
   tags: ["diseño", "dbms"]
 
 opciones_explicitas: ["Identificar entidades", "Definir atributos", "Establecer relaciones y claves", "Normalizar tablas"]
-respuesta: ["Identificar entidades", "Definir atributos", "Establecer relaciones y claves", "Normalizar tablas"]
+respuesta_orden: ["Identificar entidades", "Definir atributos", "Establecer relaciones y claves", "Normalizar tablas"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para el diseño de un modelo relacional de base de datos:"
@@ -938,19 +458,484 @@ metadata:
   tags: ["lógica", "dbms"]
 
 variables:
-  caso: uno_de([
-    ["Una tabla 'Departamentos' y una tabla 'Empleados' (cada empleado pertenece a un departamento)", "1"],
-    ["Una tabla 'Libros' y una tabla 'Autores' (cada libro tiene un único autor)", "1"]
-  ])
+  caso: uno_de([["Una tabla 'Departamentos' y una tabla 'Empleados' (cada empleado pertenece a un departamento)", "1"], ["Una tabla 'Libros' y una tabla 'Autores' (cada libro tiene un único autor)", "1"]])
 
-enunciado: "Considerando el caso: {caso}. Si aplicamos una restricción de integridad donde cada registro de la tabla dependiente debe tener exactamente ___ registro relacionado en la tabla principal, estamos ante una relación 1:1 o 1:N dependiendo del sentido."
+enunciado: "Considerando el caso: {caso[0]}. Si aplicamos una restricción de integridad donde cada registro de la tabla dependiente debe tener exactamente ___ registro relacionado en la tabla principal, estamos ante una relación 1:1 o 1:N dependiendo del sentido."
 
-respuestas_validas: ["1"]
+respuestas_validas:
+  - "1"
 respuesta: "1"
 tipo: completar
 
 explicacion: |
   La clave foránea asegura que el valor en la tabla hija exista en la tabla padre, garantizando la existencia del registro relacionado.
+```
+
+## Sección: procesos-tecnicos-artesanales-e-industriales (22 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "basico"
+  tags: ["definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "un conjunto de pasos organizados para transformar materias primas en algo útil"
+tipo: mc
+opciones_explicitas: ["un conjunto de pasos organizados para transformar materias primas en algo útil", "sólo el resultado final de una fábrica", "un tipo de máquina específica"]
+
+enunciado: "Un proceso técnico es, en esencia..."
+
+explicacion: |
+  Tanto el proceso artesanal como el industrial son formas organizadas
+  de transformar materias primas en algo útil, aunque de maneras
+  distintas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "basico"
+  tags: ["proceso artesanal"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "la habilidad manual y el conocimiento del oficio"
+tipo: mc
+opciones_explicitas: ["la habilidad manual y el conocimiento del oficio", "la velocidad de una máquina automatizada", "la estandarización de protocolos"]
+
+enunciado: "En el proceso artesanal, el motor principal de la producción es..."
+
+explicacion: |
+  La intervención directa y constante del trabajador, con su habilidad
+  y conocimiento específico, es lo que define al proceso artesanal.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "intermedio"
+  tags: ["limite artesanal"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El proceso artesanal tiene como límite natural el tiempo humano, ya que cada pieza requiere trabajo manual delicado."
+
+explicacion: |
+  No es posible producir miles de unidades idénticas en un día si cada
+  una necesita horas de trabajo manual individual.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "basico"
+  tags: ["proceso industrial"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "eficiencia, estandarización y producción en masa"
+tipo: mc
+opciones_explicitas: ["eficiencia, estandarización y producción en masa", "personalización única de cada pieza", "dependencia exclusiva del trabajo manual"]
+
+enunciado: "El proceso industrial prioriza..."
+
+explicacion: |
+  Usa maquinaria y algoritmos para repetir operaciones con precisión y
+  velocidad, reduciendo el costo unitario a costa de la unicidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "intermedio"
+  tags: ["estandarizacion digital"]
+
+variables:
+  elemento: uno_de(["protocolos", "formatos de archivo", "lenguajes de programación universales"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el mundo digital, la estandarización se manifiesta en \"{elemento}\", permitiendo que un archivo creado en una ciudad se abra en otra sin problemas."
+
+explicacion: |
+  Así como antes las piezas mecánicas eran intercambiables, hoy los
+  protocolos y formatos digitales cumplen esa misma función de
+  compatibilidad universal.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "intermedio"
+  tags: ["ejemplo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "el correo electrónico"
+tipo: mc
+opciones_explicitas: ["redactar mil cartas a mano", "el correo electrónico", "ninguno de los dos métodos"]
+
+enunciado: "Para enviar un mensaje a mil personas de forma eficiente (lógica industrial), conviene usar..."
+
+explicacion: |
+  Redactar mil cartas a mano sería el enfoque artesanal, mucho menos
+  eficiente para esa escala; el correo electrónico es la solución
+  industrial/escalable.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "avanzado"
+  tags: ["desafios"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "la pérdida de la \"huella humana\" y la dependencia de sistemas rígidos"
+tipo: mc
+opciones_explicitas: ["la pérdida de la \"huella humana\" y la dependencia de sistemas rígidos", "el aumento del costo unitario de producción", "la imposibilidad de automatizar tareas"]
+
+enunciado: "La industrialización extrema de la informática (automatización con scripts y algoritmos) plantea como desafío..."
+
+explicacion: |
+  Democratiza el acceso a la información, pero también implica perder
+  unicidad y depender de sistemas que fallan si no se entienden sus
+  reglas internas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "basico"
+  tags: ["ejemplo argentino"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "artesanal"
+tipo: mc
+opciones_explicitas: ["artesanal", "industrial"]
+
+enunciado: "La panadería tradicional donde el panadero amasa cada pieza a mano, ajustando el agua según la humedad del día, es un ejemplo de proceso..."
+
+explicacion: |
+  Es flexible, depende del experto y tiene variaciones naturales en cada
+  producto: características típicas del proceso artesanal.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "basico"
+  tags: ["ejemplo argentino"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "industrial"
+tipo: mc
+opciones_explicitas: ["artesanal", "industrial"]
+
+enunciado: "La fábrica de galletitas donde robots y cintas transportadoras aseguran que cada galletita pese exactamente lo mismo es un ejemplo de proceso..."
+
+explicacion: |
+  La estandarización extrema (mismo peso y sabor en millones de
+  unidades) es característica del proceso industrial.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "intermedio"
+  tags: ["ejemplo informatico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "artesanal/prototipo"
+tipo: mc
+opciones_explicitas: ["artesanal/prototipo", "industrial", "ninguno de los dos"]
+
+enunciado: "Escribir código personalizado para resolver un problema específico de una empresa es, en la lógica de esta teoría, un proceso..."
+
+explicacion: |
+  Es único y adaptable a esa empresa en particular, a diferencia de un
+  sistema estandarizado y masivo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "intermedio"
+  tags: ["ejemplo informatico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "rígido, estandarizado y obligatorio para millones de usuarios"
+tipo: mc
+opciones_explicitas: ["rígido, estandarizado y obligatorio para millones de usuarios", "único y personalizable para cada empresa", "opcional y sin ninguna regla fija"]
+
+enunciado: "El sistema de facturación electrónica que exige la AFIP es, según la teoría, un ejemplo de software..."
+
+explicacion: |
+  Es un sistema de software masivo: rígido, estandarizado y obligatorio,
+  a diferencia de una solución artesanal/personalizada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "basico"
+  tags: ["medios tecnicos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Tanto el proceso artesanal como el industrial son considerados \"medios técnicos\" que extienden las capacidades humanas."
+
+explicacion: |
+  Ambos son formas de extender lo que el ser humano puede producir, sólo
+  que gestionan tiempo, calidad y escala de manera diferente.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "avanzado"
+  tags: ["diferencia clave"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "en cómo se gestiona el tiempo, la calidad y la escala de producción"
+tipo: mc
+opciones_explicitas: ["en el resultado final obtenido", "en cómo se gestiona el tiempo, la calidad y la escala de producción", "en el país donde se fabrica el producto"]
+
+enunciado: "Según la teoría, la diferencia clave entre proceso artesanal e industrial no está en el resultado final, sino..."
+
+explicacion: |
+  Ambos pueden llegar a un producto similar; lo que cambia es la forma
+  de gestionar tiempo, calidad y escala durante la producción.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "intermedio"
+  tags: ["personalizacion vs escala"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El proceso industrial permite el mismo grado de personalización pieza por pieza que el proceso artesanal."
+
+explicacion: |
+  El proceso industrial gana en escala y costo unitario, pero sacrifica
+  la unicidad y personalización propia de lo artesanal.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "basico"
+  tags: ["estandarizacion pre-digital"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "las piezas mecánicas eran intercambiables"
+tipo: mc
+opciones_explicitas: ["las piezas mecánicas eran intercambiables", "cada máquina tenía piezas únicas", "no existía ningún tipo de estándar"]
+
+enunciado: "En la era pre-digital, la estandarización industrial significaba principalmente que..."
+
+explicacion: |
+  La intercambiabilidad de piezas mecánicas fue la base de la
+  estandarización industrial antes de la era digital.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "intermedio"
+  tags: ["decision"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "equilibrar eficiencia con calidad y adaptabilidad"
+tipo: mc
+opciones_explicitas: ["equilibrar eficiencia con calidad y adaptabilidad", "elegir siempre el proceso industrial sin excepción", "elegir siempre el proceso artesanal sin excepción"]
+
+enunciado: "Comprender la dualidad artesanal/industrial ayuda, según la teoría, a..."
+
+explicacion: |
+  No se trata de que uno sea siempre mejor: la clave es decidir cuándo
+  personalizar y cuándo adoptar un estándar industrial, equilibrando
+  eficiencia, calidad y adaptabilidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "basico"
+  tags: ["costo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El proceso industrial reduce el costo unitario de producción respecto al proceso artesanal."
+
+explicacion: |
+  Al producir en masa con maquinaria y algoritmos, el costo por unidad
+  baja, aunque se pierda la unicidad de cada objeto.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "avanzado"
+  tags: ["automatizacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "scripts y algoritmos"
+tipo: completar
+
+enunciado: "En informática, lo que antes era un trabajo intelectual único hoy se automatiza mediante ___."
+
+respuestas_validas:
+  - "scripts y algoritmos"
+  - "algoritmos y scripts"
+
+explicacion: |
+  Esta automatización democratiza el acceso a la información, pero
+  también plantea el desafío de la pérdida de "huella humana" en la
+  creación de contenido.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "intermedio"
+  tags: ["software y hardware"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En informática, el software y el hardware siguen lógicas similares a la distinción entre proceso artesanal e industrial."
+
+explicacion: |
+  Un código personalizado (artesanal) y un sistema masivo estandarizado
+  (industrial) reflejan la misma dualidad vista en la producción física.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "basico"
+  tags: ["escalabilidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "su capacidad de escalar"
+tipo: mc
+opciones_explicitas: ["su capacidad de escalar", "su bajo nivel de estandarización", "su dependencia exclusiva del trabajo manual"]
+
+enunciado: "La principal ventaja del modelo industrial, según la teoría, es..."
+
+explicacion: |
+  Puede repetir operaciones con precisión y velocidad para producir a
+  gran escala, algo que el proceso artesanal no logra por su límite de
+  tiempo humano.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "avanzado"
+  tags: ["democratizacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La automatización informática democratiza el acceso a la información, pero también plantea desafíos sobre la pérdida de la \"huella humana\" en la creación de contenido."
+
+explicacion: |
+  Es una tensión real señalada en la teoría: más acceso y eficiencia,
+  pero menos marca personal en lo producido.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "procesos_tecnicos_artesanales_e_industriales"
+  nivel: "intermedio"
+  tags: ["conceptos clave"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "artesanal e industrial"
+tipo: mc
+opciones_explicitas: ["artesanal e industrial", "digital y analógico", "público y privado"]
+
+enunciado: "Las dos formas fundamentales de producir objetos o servicios que compara la teoría son el proceso..."
+
+explicacion: |
+  Artesanal e industrial son los dos "medios técnicos" cuya diferencia
+  central se explica en toda la teoría.
 ```
 
 ## Sección: requisitos-funcionales-no-funcionales (25 preguntas)
@@ -998,10 +983,11 @@ metadata:
   tags: ["clasificacion"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [[["Permitir el registro de nuevos usuarios", "La contraseña debe estar encriptada"], ["Generar un reporte de ventas", "El sistema debe estar disponible el 99% del tiempo"]]]
+  escenarios: [["Permitir el registro de nuevos usuarios", "La contraseña debe estar encriptada"], ["Generar un reporte de ventas", "El sistema debe estar disponible el 99% del tiempo"]]
+  idx: uno_de([0, 1])
+  escenario_actual: escenarios[idx]
 
-enunciado: "Dado el siguiente par de requisitos: {escenarios[escenario_idx][0]} y {escenarios[escenario_idx][1]}, el segundo requisito es de tipo:"
+enunciado: "Dado el siguiente par de requisitos: {escenario_actual[0]} y {escenario_actual[1]}, el segundo requisito es de tipo:"
 
 tipo: mc
 opciones_explicitas: ["Funcional", "No Funcional"]
@@ -1020,7 +1006,10 @@ metadata:
   tags: ["terminologia"]
 
 tipo: completar
-respuestas_validas: ["usabilidad", "seguridad", "rendimiento"]
+respuestas_validas:
+  - "usabilidad"
+  - "seguridad"
+  - "rendimiento"
 
 enunciado: "Si un cliente solicita que el sistema sea fácil de aprender para nuevos usuarios, está exigiendo un requisito de ___."
 
@@ -1042,7 +1031,7 @@ opciones_explicitas: ["Elicitación", "Análisis", "Especificación", "Validaci�
 
 enunciado: "Ordene las etapas del proceso de ingeniería de requisitos desde el inicio hasta el final:"
 
-respuesta: ["Elicitación", "Análisis", "Especificación", "Validación"]
+respuesta_orden: ["Elicitación", "Análisis", "Especificación", "Validación"]
 
 explicacion: |
   El proceso comienza con la obtención de información (Elicitación), luego se procesa (Análisis), se documenta (Especificación) y finalmente se revisa con el cliente (Validación).
@@ -1074,18 +1063,14 @@ metadata:
   tags: ["rendimiento", "no_funcionales"]
 
 variables:
-  escenario: uno_de([
-    ["El sistema debe procesar un pago en menos de 2 segundos.", "Rendimiento"],
-    ["La base de datos debe estar disponible el 99.9% del tiempo.", "Disponibilidad"],
-    ["Las contraseñas deben estar encriptadas con AES-256.", "Seguridad"]
-  ])
+  escenario: uno_de([["El sistema debe procesar un pago en menos de 2 segundos.", "Requisito No Funcional"], ["La base de datos debe estar disponible el 99.9% del tiempo.", "Requisito No Funcional"], ["Las contraseñas deben estar encriptadas con AES-256.", "Requisito No Funcional"]])
 
 tipo: mc
 opciones_explicitas: ["Requisito Funcional", "Requisito No Funcional"]
 
 enunciado: "Analizando el siguiente caso: '{escenario[0]}'. ¿A qué categoría pertenece?"
 
-respuesta: escenario[1
+respuesta: "Requisito No Funcional"
 
 explicacion: |
   El enunciado describe una restricción sobre la calidad o el rendimiento del servicio (cuánto tarda), lo cual es un requisito no funcional.
@@ -1099,7 +1084,10 @@ metadata:
   tags: ["definiciones"]
 
 tipo: completar
-respuestas_validas: ["usabilidad", "seguridad", "rendimiento"]
+respuestas_validas:
+  - "usabilidad"
+  - "seguridad"
+  - "rendimiento"
 
 enunciado: "Si un cliente solicita que la interfaz sea intuitiva y fácil de aprender para personas mayores, está definiendo un requisito de ___."
 
@@ -1136,7 +1124,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Elicitación (recolección)", "Análisis de requisitos", "Especificación", "Validación"]
 
-respuesta: ["Elicitación (recolección)", "Análisis de requisitos", "Especificación", "Validación"]
+respuesta_orden: ["Elicitación (recolección)", "Análisis de requisitos", "Especificación", "Validación"]
 
 enunciado: "Ordena las etapas lógicas del proceso de ingeniería de requisitos, desde que se habla con el cliente hasta que se confirma que lo documentado es correcto."
 
@@ -1153,7 +1141,8 @@ metadata:
 
 respuesta: "funcionales"
 tipo: completar
-respuestas_validas: ["funcionales"]
+respuestas_validas:
+  - "funcionales"
 
 enunciado: "Los requisitos que describen las tareas específicas, servicios o funciones que el sistema debe ejecutar para satisfacer las necesidades del usuario se denominan requisitos ___________."
 
@@ -1170,12 +1159,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["El sistema debe procesar un pago en menos de 2 segundos.", "no_funcional"],
-    ["El sistema debe permitir la recuperación de contraseña por email.", "funcional"]
-  ]
+  escenarios: [["El sistema debe procesar un pago en menos de 2 segundos.", "no_funcional"], ["El sistema debe permitir la recuperación de contraseña por email.", "funcional"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["funcional", "no_funcional"]
 
@@ -1225,7 +1211,7 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso_ingenieria"]
 
-respuesta: ["identificar necesidades", "definir requisitos funcionales", "establecer restricciones no funcionales", "validar sistema"]
+respuesta_orden: ["identificar necesidades", "definir requisitos funcionales", "establecer restricciones no funcionales", "validar sistema"]
 tipo: ordenar
 opciones_explicitas: ["identificar necesidades", "definir requisitos funcionales", "establecer restricciones no funcionales", "validar sistema"]
 
@@ -1244,6 +1230,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["El sistema debe procesar pagos con tarjeta", "El sistema debe responder en menos de 2 segundos", "El sistema debe tener una interfaz intuitiva", "El sistema debe estar disponible el 99.9% del tiempo"]
+respuesta: "El sistema debe procesar pagos con tarjeta"
 
 enunciado: "Un requisito funcional describe una acción específica que el sistema debe realizar. ¿Cuál de los siguientes es un ejemplo de requisito funcional?"
 
@@ -1276,11 +1263,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [["El sistema debe cifrar los datos con AES-256", "El sistema debe soportar 1000 usuarios concurrentes"], ["Seguridad", "Rendimiento"]]
+  escenarios: [["El sistema debe cifrar los datos con AES-256", "Seguridad"], ["El sistema debe soportar 1000 usuarios concurrentes", "Rendimiento"]]
 
 tipo: completar
-respuestas_validas: ["Seguridad", "Rendimiento"]
-respuesta: escenarios[escenario_idx][1
+respuestas_validas:
+  - "Seguridad"
+  - "Rendimiento"
+respuesta: escenarios[escenario_idx][1]
 
 enunciado: "Analiza el siguiente requisito: '{escenarios[escenario_idx][0]}'. Este es un ejemplo de un requisito de tipo: ___"
 
@@ -1302,6 +1291,7 @@ enunciado: "Ordena las etapas lógicas en el proceso de ingeniería de requisito
 
 explicacion: |
   Primero se entienden las necesidades, luego se definen las funciones (funcionales), luego las restricciones de calidad (no funcionales) y finalmente se validan.
+respuesta_orden: ["Identificación de necesidades del usuario", "Definición de requisitos funcionales", "Definición de requisitos no funcionales", "Validación del sistema"]
 ```
 
 ```
@@ -1329,18 +1319,14 @@ metadata:
   tags: ["ingenieria_software", "requisitos"]
 
 variables:
-  escenario: uno_de([
-    ["El sistema debe permitir al usuario resetear su contraseña mediante un email.", "funcional"],
-    ["El sistema debe responder a cualquier consulta en menos de 2 segundos.", "no_funcional"],
-    ["El sistema debe cifrar todos los datos sensibles con AES-256.", "no_funcional"],
-    ["El sistema debe generar un reporte PDF de las ventas mensuales.", "funcional"]
-  ])
-  idx: uno_de([0,1,2,3])
+  escenario: uno_de([["El sistema debe permitir al usuario resetear su contraseña mediante un email.", "funcional"], ["El sistema debe responder a cualquier consulta en menos de 2 segundos.", "no_funcional"], ["El sistema debe cifrar todos los datos sensibles con AES-256.", "no_funcional"], ["El sistema debe generar un reporte PDF de las ventas mensuales.", "funcional"]])
 
-enunciado: "En el siguiente escenario: '{escenario[idx][0]}', el tipo de requisito es: ___"
+enunciado: "En el siguiente escenario: '{escenario[0]}', el tipo de requisito es: ___"
 
-respuestas_validas: ["funcional", "no_funcional"]
-respuesta: escenario[idx][1
+respuestas_validas:
+  - "funcional"
+  - "no_funcional"
+respuesta: escenario[1]
 tipo: completar
 
 explicacion: |
@@ -1355,18 +1341,16 @@ metadata:
   tags: ["calidad_software", "rendimiento"]
 
 variables:
-  caso: uno_de([
-    ["Capacidad de carga de 1000 usuarios concurrentes", "Rendimiento"],
-    ["Disponibilidad del sistema del 99.9%", "Disponibilidad"],
-    ["Facilidad de navegación para usuarios con discapacidad", "Usabilidad"],
-    ["Protección contra ataques de inyección SQL", "Seguridad"]
-  ])
-  idx: uno_de([0,1,2,3])
+  caso: uno_de([["Capacidad de carga de 1000 usuarios concurrentes", "Rendimiento"], ["Disponibilidad del sistema del 99.9%", "Disponibilidad"], ["Facilidad de navegación para usuarios con discapacidad", "Usabilidad"], ["Protección contra ataques de inyección SQL", "Seguridad"]])
 
-enunciado: "El enunciado '{caso[idx][0]}' pertenece a la categoría de requisitos no funcionales de tipo: ___"
+enunciado: "El enunciado '{caso[0]}' pertenece a la categoría de requisitos no funcionales de tipo: ___"
 
-respuestas_validas: ["Rendimiento", "Disponibilidad", "Usabilidad", "Seguridad"]
-respuesta: caso[idx][1
+respuestas_validas:
+  - "Rendimiento"
+  - "Disponibilidad"
+  - "Usabilidad"
+  - "Seguridad"
+respuesta: caso[1]
 tipo: completar
 
 explicacion: |
@@ -1381,18 +1365,14 @@ metadata:
   tags: ["logica", "requisitos"]
 
 variables:
-  item: uno_de([
-    ["El sistema debe permitir eliminar una cuenta de usuario.", verdadero],
-    ["El sistema debe ser compatible con navegadores Chrome y Firefox.", falso],
-    ["El sistema debe emitir una alerta si el stock es bajo.", verdadero],
-    ["El sistema debe tener una interfaz de colores suaves.", falso]
-  ])
-  idx: uno_de([0,1,2,3])
+  textos: ["El sistema debe permitir eliminar una cuenta de usuario.", "El sistema debe ser compatible con navegadores Chrome y Firefox.", "El sistema debe emitir una alerta si el stock es bajo.", "El sistema debe tener una interfaz de colores suaves."]
+  valores: [verdadero, falso, verdadero, falso]
+  idx: uno_de([0, 1, 2, 3])
 
-enunciado: "Analiza el siguiente requerimiento: '{item[idx][0]}'. ¿Es un requisito funcional?"
+enunciado: "Analiza el siguiente requerimiento: '{textos[idx]}'. ¿Es un requisito funcional?"
 
-respuesta: item[idx][1
-tipo: completar
+respuesta: valores[idx]
+tipo: vf
 explicacion: |
   Si el requerimiento describe una funcionalidad o acción que el usuario puede realizar, es funcional. Si describe una restricción o una característica de calidad, es no funcional.
 ```
@@ -1405,18 +1385,12 @@ metadata:
   tags: ["requisitos", "clasificacion"]
 
 variables:
-  ejemplo: uno_de([
-    ["El sistema debe permitir buscar productos por nombre.", "Funcional"],
-    ["El sistema debe estar disponible las 24 horas del día.", "No Funcional"],
-    ["El sistema debe permitir subir archivos de hasta 5MB.", "Funcional"],
-    ["El sistema debe ser fácil de aprender para nuevos empleados.", "No Funcional"]
-  ])
-  idx: uno_de([0,1,2,3])
+  ejemplo: uno_de([["El sistema debe permitir buscar productos por nombre.", "Funcional"], ["El sistema debe estar disponible las 24 horas del día.", "No Funcional"], ["El sistema debe permitir subir archivos de hasta 5MB.", "Funcional"], ["El sistema debe ser fácil de aprender para nuevos empleados.", "No Funcional"]])
 
-enunciado: "Dado el requerimiento: '{ejemplo[idx][0]}', ¿cuál es su clasificación correcta?"
+enunciado: "Dado el requerimiento: '{ejemplo[0]}', ¿cuál es su clasificación correcta?"
 
 opciones_explicitas: ["Funcional", "No Funcional"]
-respuesta: ejemplo[idx][1
+respuesta: ejemplo[1]
 tipo: mc
 
 explicacion: |
@@ -1430,13 +1404,10 @@ metadata:
   nivel: "avanzado"
   tags: ["proceso", "ingenieria_software"]
 
-variables:
-  secuencia: ["Identificar necesidades del cliente", "Definir requisitos funcionales", "Definir requisitos no funcionales", "Validar especificaciones"]
-
 enunciado: "Ordena los pasos lógicos en el proceso de ingeniería de requisitos, desde la detección de la necesidad hasta la validación final:"
 
 opciones_explicitas: ["Identificar necesidades del cliente", "Definir requisitos funcionales", "Definir requisitos no funcionales", "Validar especificaciones"]
-respuesta: ["Identificar necesidades del cliente", "Definir requisitos funcionales", "Definir requisitos no funcionales", "Validar especificaciones"]
+respuesta_orden: ["Identificar necesidades del cliente", "Definir requisitos funcionales", "Definir requisitos no funcionales", "Validar especificaciones"]
 tipo: ordenar
 
 explicacion: |
@@ -1454,7 +1425,8 @@ metadata:
 
 respuesta: "ENIAC"
 tipo: completar
-respuestas_validas: ["ENIAC"]
+respuestas_validas:
+  - "ENIAC"
 
 enunciado: "La primera computadora electrónica de propósito general, utilizada para cálculos balísticos durante la Segunda Guerra Mundial, fue la ___."
 
@@ -1470,15 +1442,13 @@ metadata:
   tags: ["hardware", "transistores"]
 
 variables:
-  tecnologia_idx: uno_de([0,1])
-  tecnologias: [["tubos de vacío", "transistores"], ["transistores", "microprocesadores"]]
-  tecnologia_actual: ["microprocesadores", "circuitos integrados"]
+  tecnologia_actual: "transistores"
 
-respuesta: tecnologia_idx
+respuesta: "transistores"
 tipo: mc
 opciones_explicitas: ["tubos de vacío", "transistores", "microprocesadores"]
 
-enunciado: "La transición de la primera a la segunda generación de computadoras se caracterizó por el reemplazo de los {tecnologias[tecnologia_idx]} por una tecnología más pequeña y eficiente."
+enunciado: "La transición de la primera a la segunda generación de computadoras se caracterizó por el reemplazo de los tubos de vacío por una tecnología más pequeña y eficiente."
 
 explicacion: |
   La primera generación usaba tubos de vacío (grandes y calientes), mientras que la segunda generación introdujo el transistor, permitiendo miniaturización y mayor fiabilidad.
@@ -1508,7 +1478,7 @@ metadata:
   nivel: "intermedio"
   tags: ["cronologia", "hitos"]
 
-respuesta: ["Tubos de vacío", "Transistores", "Circuitos Integrados", "Microprocesadores"]
+respuesta_orden: ["Tubos de vacío", "Transistores", "Circuitos Integrados", "Microprocesadores"]
 tipo: ordenar
 opciones_explicitas: ["Tubos de vacío", "Transistores", "Circuitos Integrados", "Microprocesadores"]
 
@@ -1545,10 +1515,10 @@ metadata:
   nivel: "basico"
   tags: ["hardware", "historia"]
 
-respuesta: "v"
+respuesta: "válvulas"
 tipo: "mc"
 
-opciones_explicitas: ["v", "t", "i", "m"]
+opciones_explicitas: ["válvulas", "transistores", "circuitos integrados", "microprocesadores"]
 
 enunciado: "Las primeras computadoras de gran escala, como la ENIAC, utilizaban principalmente ________ de vacío para realizar sus operaciones lógicas."
 
@@ -1563,16 +1533,12 @@ metadata:
   nivel: "intermedio"
   tags: ["hardware", "historia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[0, "Transistor"], [1, "Circuito Integrado"]]
-
-respuesta: datos[escenario_idx][1
+respuesta: "Transistor"
 tipo: "mc"
 
 opciones_explicitas: ["Transistor", "Circuito Integrado", "Microprocesador", "CPU"]
 
-enunciado: "La invención del {datos[escenario_idx][0]} permitió reemplazar las válvulas de vacío, reduciendo drásticamente el tamaño y el calor de las máquinas."
+enunciado: "La invención del ___ permitió reemplazar las válvulas de vacío, reduciendo drásticamente el tamaño y el calor de las máquinas."
 
 explicacion: |
   El transistor permitió la segunda generación de computadoras, permitiendo que fueran más pequeñas y confiables que las de válvulas.
@@ -1588,7 +1554,9 @@ metadata:
 respuesta: "1971"
 tipo: "completar"
 
-respuestas_validas: ["1971", "1972"]
+respuestas_validas:
+  - "1971"
+  - "1972"
 
 enunciado: "El primer microprocesador comercial, el Intel 4004, fue lanzado en el año ___."
 
@@ -1603,10 +1571,11 @@ metadata:
   nivel: "intermedio"
   tags: ["historia", "ordenar"]
 
-respuesta: ["Válvula de vacío", "Transistor", "Circuito Integrado", "Microprocesador"]
-tipo: "ordenar"
+tipo: ordenar
 
 opciones_explicitas: ["Válvula de vacío", "Transistor", "Circuito Integrado", "Microprocesador"]
+
+respuesta_orden: ["Válvula de vacío", "Transistor", "Circuito Integrado", "Microprocesador"]
 
 enunciado: "Ordena cronológicamente los hitos tecnológicos que permitieron la evolución del hardware de computación:"
 
@@ -1621,8 +1590,8 @@ metadata:
   nivel: "basico"
   tags: ["usuario", "historia"]
 
-respuesta: "true"
-tipo: "vf"
+respuesta: verdadero
+tipo: vf
 
 enunciado: "¿La llegada de la computadora personal (PC) a los hogares en los años 70 y 80 fue posible gracias a la integración masiva de microprocesadores?"
 
@@ -1666,7 +1635,7 @@ tolerancia_abs: 0
 
 enunciado: "Si un chip tiene {base} transistores hoy, siguiendo la Ley de Moore, ¿cuántos transistores tendrá aproximadamente en el próximo ciclo de dos años?"
 
-respuesta: "doble"
+respuesta: doble
 
 pasos:
   - "Identificar la cantidad actual de transistores."
@@ -1688,7 +1657,7 @@ opciones_explicitas: ["Aumento de transistores", "Reducción del tamaño de los 
 
 enunciado: "Ordena los efectos causados por la aplicación de la Ley de Moore en la tecnología, desde la causa técnica hasta el efecto en el consumidor final:"
 
-respuesta: ["Aumento de transistores", "Reducción del tamaño de los componentes", "Aumento de la potencia de cómputo", "Reducción de costos por transistor"]
+respuesta_orden: ["Aumento de transistores", "Reducción del tamaño de los componentes", "Aumento de la potencia de cómputo", "Reducción de costos por transistor"]
 
 explicacion: |
   La Ley de Moore describe un ciclo: más transistores en menos espacio permiten chips más potentes y, con la escala de producción, más económicos.
@@ -1702,7 +1671,9 @@ metadata:
   tags: ["teoria", "hardware"]
 
 tipo: completar
-respuestas_validas: ["potencia", "capacidad"]
+respuestas_validas:
+  - "potencia"
+  - "capacidad"
 
 enunciado: "Debido al aumento exponencial de transistores, la ___ de procesamiento de los ordenadores ha crecido de forma similar a lo largo de las últimas décadas."
 
@@ -1739,6 +1710,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Descentralización de la información", "Aumento de la burocracia física", "Reducción de la velocidad de comunicación", "Eliminación del comercio electrónico"]
+respuesta: "Descentralización de la información"
 
 enunciado: "La combinación de la revolución informática y el internet ha permitido la ________ de la información, permitiendo el acceso global a datos en tiempo real."
 
@@ -1758,8 +1730,10 @@ variables:
   escenarios: [["comercio_electronico", "servicios_streaming"], ["ventas_retail_fisico", "suscripciones_digitales"]]
 
 tipo: completar
-respuestas_validas: ["comercio_electronico", "servicios_streaming"]
-respuesta: escenarios[escenario_idx][1
+respuestas_validas:
+  - "servicios_streaming"
+  - "suscripciones_digitales"
+respuesta: escenarios[escenario_idx][1]
 
 enunciado: "Un ejemplo clave de la transformación económica es el paso de modelos basados en el ________ hacia modelos basados en las ________."
 
@@ -1801,7 +1775,7 @@ opciones_explicitas: ["Mainframes gigantescos", "Computadoras personales (PC)", 
 
 enunciado: "Ordena cronológicamente los hitos tecnológicos que permitieron la integración de la informática en la vida cotidiana:"
 
-respuesta: ["Mainframes gigantescos", "Computadoras personales (PC)", "Dispositivos móviles y smartphones"]
+respuesta_orden: ["Mainframes gigantescos", "Computadoras personales (PC)", "Dispositivos móviles y smartphones"]
 
 explicacion: |
   La computación comenzó en grandes centros de datos corporativos, pasó a los escritorios de los hogares con la PC y finalmente se volvió ubicua con los smartphones.
@@ -1816,6 +1790,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Automatización de tareas repetitivas", "Desaparición total del trabajo humano", "Aumento de la necesidad de archivos físicos", "Reducción de la conectividad global"]
+respuesta: "Automatización de tareas repetitivas"
 
 enunciado: "Un efecto crítico de la revolución informática en la economía laboral es la ________, lo que obliga a la fuerza de trabajo a especializarse en tareas de mayor valor cognitivo."
 
@@ -1830,21 +1805,15 @@ metadata:
   nivel: "basico"
   tags: ["historia", "ordenar"]
 
-variables:
-  escenario: [[["ENIAC", "Transistor", "PC"], ["ENIAC", "Microprocesador", "Internet"], ["ENIAC", "Transistor", "Smartphone"]]]
-  idx: uno_de([0,1,2])
-
-respuesta: escenario[idx][0
 tipo: ordenar
-opciones_explicitas: ["ENIAC", "Transistor", "PC", "Microprocesador", "Internet", "Smartphone"]
+opciones_explicitas: ["ENIAC", "Transistor", "PC"]
+respuesta_orden: ["ENIAC", "Transistor", "PC"]
 
-enunciado: "Ordena cronológicamente los siguientes hitos tecnológicos según el escenario seleccionado: {escenario[idx][0][0]}, {escenario[idx][0][1]} y {escenario[idx][0][2]}."
+enunciado: "Ordena cronológicamente los siguientes hitos tecnológicos: ENIAC, Transistor y PC."
 
 explicacion: |
-  El orden cronológico correcto depende de la tecnología: 
+  El orden cronológico correcto es:
   1. ENIAC (1945) -> 2. Transistor (1947) -> 3. PC (años 70/80).
-  1. ENIAC (1945) -> 2. Microprocesador (1971) -> 3. Internet (TCP/IP 1983).
-  1. ENIAC (1945) -> 2. Transistor (1947) -> 3. Smartphone (años 90/2000).
 ```
 
 ```
@@ -1854,19 +1823,15 @@ metadata:
   nivel: "intermedio"
   tags: ["lenguajes", "historia"]
 
-variables:
-  datos: [["Ada Lovelace", "Grace Hopper", "John Backus"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][0
+respuesta: "Ada Lovelace"
 tipo: mc
 
 opciones_explicitas: ["Ada Lovelace", "Grace Hopper", "John Backus", "Alan Turing"]
 
-enunciado: "Identifica a la figura histórica asociada a los primeros algoritmos para la Máquina Analítica: {datos[idx][0]}."
+enunciado: "Identifica a la figura histórica reconocida por escribir los primeros algoritmos destinados a ser procesados por la Máquina Analítica de Charles Babbage."
 
 explicacion: |
-  {datos[idx][0]} es reconocida históricamente por haber escrito el primer algoritmo destinado a ser procesado por una máquina.
+  Ada Lovelace es reconocida históricamente por haber escrito el primer algoritmo destinado a ser procesado por una máquina.
 ```
 
 ```
@@ -1877,17 +1842,24 @@ metadata:
   tags: ["hardware", "almacenamiento"]
 
 variables:
-  casos: [["Disquete", "CD-ROM", "USB"], ["Disco Duro", "Cassette", "SSD"]]
+  casos: [["Disquete", "CD-ROM", "USB"], ["Cassette", "Disco Duro", "SSD"]]
   idx: uno_de([0,1])
+  respuesta_correcta: casos[idx][0]
 
-respuesta: casos[idx][0
 tipo: completar
-respuestas_validas: ["Disquete", "CD-ROM", "USB", "Disco Duro", "Cassette", "SSD"]
+respuesta: respuesta_correcta
+respuestas_validas:
+  - "Disquete"
+  - "CD-ROM"
+  - "USB"
+  - "Disco Duro"
+  - "Cassette"
+  - "SSD"
 
 enunciado: "En la evolución del almacenamiento magnético y óptico, el dispositivo que precede al siguiente es: ___."
 
 explicacion: |
-  El orden de evolución tecnológica en el escenario seleccionado es: {casos[idx][0][0]} -> {casos[idx][0][1]} -> {casos[idx][0][2]}.
+  El orden de evolución tecnológica en el escenario seleccionado es: {casos[idx][0]} -> {casos[idx][1]} -> {casos[idx][2]}.
 ```
 
 ```
@@ -1897,19 +1869,15 @@ metadata:
   nivel: "intermedio"
   tags: ["internet", "web"]
 
-variables:
-  hitos: [["Tim Berners-Lee", "Vint Cerf", "Marc Andreessen"]]
-  idx: uno_de([0,1,2])
-
-respuesta: hitos[idx][0
+respuesta: "Tim Berners-Lee"
 tipo: mc
 
 opciones_explicitas: ["Tim Berners-Lee", "Vint Cerf", "Marc Andreessen", "Steve Jobs"]
 
-enunciado: "¿Quién es el creador de la World Wide Web (WWW) según el contexto de la revolución digital? {hitos[idx][0]}."
+enunciado: "¿Quién es el creador de la World Wide Web (WWW) según el contexto de la revolución digital?"
 
 explicacion: |
-  {hitos[idx][0]} inventó la WWW en el CERN, permitiendo la democratización de la información en la red.
+  Tim Berners-Lee inventó la WWW en el CERN, permitiendo la democratización de la información en la red.
 ```
 
 ```
@@ -1923,7 +1891,7 @@ variables:
   tecnologias: [["Teléfono Fijo", "Teléfono Móvil", "Smartphone"], ["Radio", "Walkman", "iPod"]]
   idx: uno_de([0,1])
 
-respuesta: tecnologias[idx][2
+respuesta: tecnologias[idx][2]
 tipo: mc
 
 opciones_explicitas: ["Teléfono Fijo", "Teléfono Móvil", "Smartphone", "Radio", "Walkman", "iPod"]
@@ -1941,15 +1909,31 @@ metadata:
   materia: "informatica"
   tema: "segmentacion"
   nivel: "basico"
-  tags: ["analogia", "comprension"]
+  tags: ["definicion", "comparacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La segmentación divide la memoria de un programa en bloques de tamaño variable, a diferencia de la paginación, que usa bloques de tamaño fijo."
+
+explicacion: |
+  Verdadero. Esa es la diferencia clave: los segmentos corresponden a unidades lógicas del programa (código, datos, pila) y por eso varían de tamaño, mientras que las páginas son siempre del mismo tamaño fijo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "segmentacion"
+  nivel: "basico"
+  tags: ["segmentos", "tipos"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La segmentación es como enviar una caja enorme por correo en un solo paquete para ahorrar tiempo."
+enunciado: "Un programa en un sistema segmentado tiene un único segmento que contiene todo: código, datos y pila mezclados."
 
 explicacion: |
-  Falso. La analogía correcta es abrir la caja y enviar los objetos en sobres más chicos. Enviar una caja enorme puede saturar la conexión o causar pérdidas. La segmentación divide los datos para que viajen de manera eficiente y controlada.
+  Falso. Se dividen en segmentos separados según su función lógica: segmento de código, segmento de datos, segmento de pila, entre otros, cada uno con sus propios permisos.
 ```
 
 ```
@@ -1957,15 +1941,63 @@ metadata:
   materia: "informatica"
   tema: "segmentacion"
   nivel: "intermedio"
-  tags: ["mtu", "limite", "capacidad"]
+  tags: ["direccionamiento", "par"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si los datos a enviar superan el MTU (Maximum Transmission Unit), el protocolo TCP los divide en segmentos más pequeños."
+enunciado: "En un sistema con segmentación, una dirección de memoria se expresa como un par (segmento, desplazamiento)."
 
 explicacion: |
-  Verdadero. El MTU define el tamaño máximo de datos que puede transmitir una unidad de red. Si el dato es mayor, TCP lo segmenta para que cada segmento quepa dentro de ese límite sin perder información.
+  Verdadero. El segmento identifica la unidad lógica y el desplazamiento indica la posición exacta dentro de ese segmento.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "segmentacion"
+  nivel: "intermedio"
+  tags: ["tabla", "segmentos"]
+
+respuesta: "tabla de segmentos"
+tipo: completar
+
+enunciado: "El sistema operativo mantiene, por cada proceso, una ___ que registra dónde empieza cada segmento en memoria física y cuál es su tamaño."
+
+explicacion: |
+  La tabla de segmentos es el equivalente, para segmentación, de la tabla de páginas en paginación.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "segmentacion"
+  nivel: "intermedio"
+  tags: ["permisos", "seguridad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El segmento de código suele configurarse como de solo lectura y ejecución, mientras que el segmento de datos permite lectura y escritura pero no ejecución."
+
+explicacion: |
+  Verdadero. Asignar permisos distintos según el tipo de segmento es una ventaja de seguridad propia de la segmentación, que la paginación pura no ofrece de la misma manera.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "segmentacion"
+  nivel: "intermedio"
+  tags: ["mmu", "verificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La MMU verifica que el desplazamiento solicitado no supere el tamaño del segmento correspondiente antes de permitir el acceso."
+
+explicacion: |
+  Verdadero. Si el desplazamiento excede el tamaño del segmento, se genera una violación de segmento — el conocido 'segmentation fault'.
 ```
 
 ```
@@ -1973,15 +2005,15 @@ metadata:
   materia: "informatica"
   tema: "segmentacion"
   nivel: "basico"
-  tags: ["eficiencia", "red", "flujo"]
+  tags: ["segmentation_fault", "error"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "segmentation fault"
+tipo: completar
 
-enunciado: "La segmentación permite que diferentes tipos de información compartan el mismo cable sin interferirse mutuamente."
+enunciado: "Cuando un programa en C intenta escribir fuera de los límites de su segmento asignado, el sistema operativo termina el proceso con el error conocido como '___'."
 
 explicacion: |
-  Verdadero. Al dividir los datos en paquetes pequeños, se facilita el multiplexado y el flujo de información. Esto permite que tráfico de video, voz y texto coexistan en la misma infraestructura física de manera eficiente.
+  Es uno de los errores más famosos para quienes programan en C/C++, y ocurre justamente por una violación de los límites de un segmento de memoria.
 ```
 
 ```
@@ -1989,15 +2021,15 @@ metadata:
   materia: "informatica"
   tema: "segmentacion"
   nivel: "intermedio"
-  tags: ["reconstruccion", "integridad", "paquetes"]
+  tags: ["fragmentacion", "externa"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "externa"
+tipo: completar
 
-enunciado: "Los segmentos pueden llegar en desorden a la destino, pero el sistema receptor los reordena correctamente gracias al número de secuencia."
+enunciado: "Como los segmentos son de tamaño variable, la memoria libre se va fragmentando en huecos de distinto tamaño — un problema conocido como fragmentación ___."
 
 explicacion: |
-  Verdadero. La segmentación no garantiza que los paquetes lleguen en el mismo orden que fueron enviados. El receptor utiliza los números de secuencia para reordenar los segmentos y reconstruir el archivo original intacto.
+  La fragmentación externa es la principal desventaja de la segmentación pura frente a la paginación.
 ```
 
 ```
@@ -2005,31 +2037,31 @@ metadata:
   materia: "informatica"
   tema: "segmentacion"
   nivel: "intermedio"
-  tags: ["cabecera", "ip", "informacion"]
+  tags: ["paginacion", "ventaja"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cada segmento recibe una etiqueta que incluye la dirección IP de origen y destino, además del número de secuencia."
+enunciado: "La paginación no sufre fragmentación externa porque todos sus bloques (páginas y marcos) tienen el mismo tamaño fijo."
 
 explicacion: |
-  Verdadero. La cabecera del segmento (en TCP) o del paquete (en IP) contiene la información de direccionamiento (IPs) y el control de flujo/orden (número de secuencia), esencial para la entrega correcta.
+  Verdadero. Esa es justamente la ventaja de la paginación frente a la segmentación pura en cuanto al aprovechamiento de la memoria libre.
 ```
 
 ```
 metadata:
   materia: "informatica"
   tema: "segmentacion"
-  nivel: "intermedio"
-  tags: ["udp", "segmentacion", "protocolo"]
+  nivel: "avanzado"
+  tags: ["combinado", "moderno"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "segmentación paginada"
+tipo: completar
 
-enunciado: "El protocolo UDP también realiza segmentación de datos para adaptarse al MTU de la red."
+enunciado: "El esquema que combina segmentación lógica (código/datos/pila con permisos) con paginación dentro de cada segmento se llama ___."
 
 explicacion: |
-  Verdadero. Aunque UDP no ofrece la misma garantía de orden que TCP, la segmentación es una función necesaria en la capa de transporte para ambos protocolos si los datos exceden el tamaño máximo que puede encapsular el paquete IP subyacente.
+  Es el esquema que efectivamente usa la mayoría del hardware x86 moderno: segmentación para la organización lógica y permisos, paginación para evitar la fragmentación externa.
 ```
 
 ```
@@ -2037,15 +2069,15 @@ metadata:
   materia: "informatica"
   tema: "segmentacion"
   nivel: "basico"
-  tags: ["analogia", "rompecabezas", "orden"]
+  tags: ["pila", "crecimiento"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La reconstrucción de los datos en el receptor es similar a armar un rompecabezas donde cada pieza tiene un número que indica su posición."
+enunciado: "El segmento de pila (stack) crece de forma dinámica según las llamadas a función que estén activas en cada momento."
 
 explicacion: |
-  Verdadero. Esta es la analogía clave. Cada segmento tiene un número de secuencia que actúa como la 'posición' del rompecabezas, permitiendo al receptor ensamblar la información correcta aunque las piezas lleguen desordenadas.
+  Verdadero. A diferencia del segmento de código (que no cambia de tamaño en tiempo de ejecución), la pila crece y se reduce constantemente con cada llamada y retorno de función.
 ```
 
 ```
@@ -2053,95 +2085,15 @@ metadata:
   materia: "informatica"
   tema: "segmentacion"
   nivel: "intermedio"
-  tags: ["tamaño", "mtu", "optimizacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los segmentos son más pequeños que el archivo original para facilitar su transmisión por la red."
-
-explicacion: |
-  Verdadero. La segmentación reduce el tamaño de cada unidad de datos para que se ajuste a las capacidades de la red (MTU), haciendo la transmisión más rápida, robusta y capaz de recuperarse de errores.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "segmentacion"
-  nivel: "intermedio"
-  tags: ["orden", "integridad", "secuencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es fundamental que los segmentos lleguen en el orden correcto para que el archivo original se reconstruya sin errores."
-
-explicacion: |
-  Verdadero. Aunque la red puede entregar los paquetes desordenados, el protocolo de transporte (como TCP) debe garantizar que el receptor los reordene correctamente. Si el orden se pierde o los segmentos faltan, el archivo resultante estará corrupto.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "segmentacion"
-  nivel: "basico"
-  tags: ["aplicacion", "video", "streaming"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La segmentación permite la transmisión eficiente de archivos grandes como películas o documentos en internet."
-
-explicacion: |
-  Verdadero. Sin segmentación, transmitir video o archivos grandes sería inviable debido a los límites de tamaño de los paquetes de red y la inestabilidad de las conexiones. La segmentación hace posible el streaming y las descargas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "segmentacion"
-  nivel: "intermedio"
-  tags: ["ip", "direccionamiento", "origen", "destino"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La dirección IP de origen y destino es parte de la información vital que permite que los segmentos lleguen al lugar correcto."
-
-explicacion: |
-  Verdadero. Aunque la segmentación ocurre en la capa de transporte, la información de direccionamiento IP (capa de red) es esencial para que cada segmento sepa a dónde ir. La segmentación y el direccionamiento trabajan juntos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "segmentacion"
-  nivel: "intermedio"
-  tags: ["control", "flujo", "tcp"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La segmentación ayuda a controlar mejor el flujo de información entre emisor y receptor."
-
-explicacion: |
-  Verdadero. Al dividir los datos en segmentos, el protocolo puede gestionar el flujo, evitando que el emisor sature al receptor y permitiendo la retransmisión de segmentos perdidos, mejorando la eficiencia y confiabilidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "segmentacion"
-  nivel: "intermedio"
-  tags: ["capa", "red", "ip", "fragmentacion"]
+  tags: ["logico", "fisico"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La segmentación es un proceso exclusivo de la capa de red (IP)."
+enunciado: "Un segmento representa siempre un bloque arbitrario de memoria, sin relación con la estructura lógica del programa."
 
 explicacion: |
-  Falso. La segmentación ocurre en la capa de transporte (TCP/UDP). La capa de red realiza una función similar llamada 'fragmentación' si los paquetes IP son demasiado grandes para la ruta, pero la segmentación inicial del flujo de datos es tarea de la capa de transporte.
+  Falso. Es exactamente lo contrario: cada segmento corresponde a una unidad lógica real del programa (código, datos, pila) — esa es la diferencia central frente a la paginación, que sí usa bloques arbitrarios de tamaño fijo.
 ```
 
 ```
@@ -2149,31 +2101,15 @@ metadata:
   materia: "informatica"
   tema: "segmentacion"
   nivel: "intermedio"
-  tags: ["errores", "retransmision", "confiabilidad"]
+  tags: ["deteccion", "seguridad"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La segmentación facilita la recuperación de errores al permitir retransmitir solo los segmentos perdidos."
+enunciado: "La segmentación puede detectar un acceso indebido a memoria de una manera que la paginación pura no detecta tan naturalmente."
 
 explicacion: |
-  Verdadero. Si un segmento se pierde, no es necesario reenviar todo el archivo. Solo se retransmite el segmento específico que falta, lo que hace el proceso de recuperación de errores mucho más eficiente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "segmentacion"
-  nivel: "intermedio"
-  tags: ["secuencia", "identificador", "orden"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El número de secuencia es un identificador único dentro del flujo de datos que indica la posición del segmento."
-
-explicacion: |
-  Verdadero. El número de secuencia permite al receptor identificar qué segmento es cuál y en qué orden deben unirse. Es la clave para la reconstrucción correcta del mensaje original.
+  Verdadero. Como cada segmento 'sabe' su tamaño lógico real, un acceso que se pasa de ese límite se detecta como violación de segmento — la paginación, al tratar todo como bloques fijos sin significado, no tiene ese mismo tipo de chequeo lógico.
 ```
 
 ```
@@ -2181,15 +2117,15 @@ metadata:
   materia: "informatica"
   tema: "segmentacion"
   nivel: "basico"
-  tags: ["aplicacion", "pequeno", "grande"]
+  tags: ["puntero", "causa"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La segmentación se aplica independientemente del tamaño del archivo, siempre que el flujo de datos deba transmitirse por la red."
+enunciado: "Seguir un puntero nulo o mal inicializado es una causa común de segmentation fault."
 
 explicacion: |
-  Verdadero. Aunque es más crítica para archivos grandes, el proceso de segmentación (o encapsulación en paquetes) ocurre en la transmisión de datos. Para archivos pequeños, puede que no se requiera división adicional si caben en un solo paquete, pero el concepto de dividir el flujo sigue siendo la base.
+  Verdadero. Un puntero inválido suele apuntar fuera de los límites del segmento asignado al proceso, disparando la violación de segmento.
 ```
 
 ```
@@ -2197,31 +2133,15 @@ metadata:
   materia: "informatica"
   tema: "segmentacion"
   nivel: "intermedio"
-  tags: ["mtu", "limite", "capacidad"]
+  tags: ["proteccion", "otros_procesos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El MTU actúa como un límite máximo que los segmentos no deben superar para ser transmitidos correctamente."
+enunciado: "Cuando ocurre una violación de segmento, el sistema operativo termina el proceso para evitar que dañe la memoria de otros procesos."
 
 explicacion: |
-  Verdadero. El MTU (Maximum Transmission Unit) es el tamaño máximo de datos que una unidad de red puede transmitir en un solo paquete. Los segmentos deben respetar este límite para evitar la fragmentación en capas inferiores o la pérdida de paquetes.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "segmentacion"
-  nivel: "intermedio"
-  tags: ["multiplexado", "compartir", "red"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La segmentación permite que múltiples comunicaciones compartan el mismo medio físico de manera eficiente."
-
-explicacion: |
-  Verdadero. Al dividir los datos en paquetes pequeños, la red puede intercalar (multiplexar) paquetes de diferentes usuarios o aplicaciones en el mismo cable, optimizando el uso del ancho de banda.
+  Verdadero. Este mecanismo hace que un programa mal escrito falle de forma controlada y visible, en vez de corromper silenciosamente datos de otras aplicaciones.
 ```
 
 ```
@@ -2229,63 +2149,47 @@ metadata:
   materia: "informatica"
   tema: "segmentacion"
   nivel: "basico"
-  tags: ["emisor", "receptor", "proceso"]
+  tags: ["segmentos", "ejemplos"]
+
+respuesta: "codigo"
+tipo: completar
+
+enunciado: "El segmento de ___ contiene las instrucciones ejecutables del programa y suele ser de solo lectura y ejecución."
+
+explicacion: |
+  Proteger el segmento de código contra escritura evita que un programa (accidental o maliciosamente) modifique sus propias instrucciones en tiempo de ejecución.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "segmentacion"
+  nivel: "intermedio"
+  tags: ["mmu", "componente"]
+
+respuesta: "MMU"
+tipo: completar
+
+enunciado: "El componente de hardware que verifica los límites de cada segmento antes de permitir un acceso a memoria se llama ___ (Memory Management Unit)."
+
+explicacion: |
+  La MMU es el mismo componente de hardware involucrado tanto en segmentación como en paginación — traduce direcciones lógicas a físicas y aplica los controles de acceso.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "segmentacion"
+  nivel: "intermedio"
+  tags: ["fragmentacion", "interna"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La reconstrucción de los segmentos en el archivo original ocurre en el emisor."
+enunciado: "La segmentación pura sufre principalmente de fragmentación interna, igual que la paginación."
 
 explicacion: |
-  Falso. La reconstrucción ocurre en el **receptor**. El emisor es quien divide y envía los segmentos; el receptor los recibe, los reordena y los une para formar el archivo original.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "segmentacion"
-  nivel: "intermedio"
-  tags: ["latencia", "rendimiento", "eficiencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La segmentación puede reducir la latencia percibida al permitir que los primeros segmentos lleguen antes que el archivo completo."
-
-explicacion: |
-  Verdadero. Al enviar segmentos pequeños, el receptor puede comenzar a procesar o mostrar la información (como el inicio de un video) mientras llegan los segmentos restantes, mejorando la experiencia de usuario y la eficiencia de la red.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "segmentacion"
-  nivel: "intermedio"
-  tags: ["seguridad", "intercepcion", "privacidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La segmentación por sí sola no garantiza la seguridad de los datos, pero es un paso previo a la cifrado en muchas capas."
-
-explicacion: |
-  Verdadero. La segmentación divide los datos, pero no los protege. Para seguridad, se requiere cifrado (ej. TLS/SSL). Sin embargo, la segmentación es un paso fundamental en el proceso de encapsulación que permite aplicar medidas de seguridad a cada unidad de datos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "segmentacion"
-  nivel: "intermedio"
-  tags: ["tcp", "udp", "diferencias"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Tanto TCP como UDP pueden segmentar datos, pero TCP garantiza el orden y la entrega, mientras que UDP no."
-
-explicacion: |
-  Verdadero. Ambos protocolos realizan la división de datos (segmentación) en la capa de transporte. Sin embargo, TCP añade mecanismos de control de flujo y retransmisión para asegurar la integridad y el orden, mientras que UDP entrega los segmentos tal como llegan sin garantías.
+  Falso. La segmentación sufre principalmente fragmentación EXTERNA (huecos de tamaño variable entre segmentos). La fragmentación interna (espacio desperdiciado dentro de un bloque de tamaño fijo) es más propia de la paginación.
 ```
 
 ```
@@ -2293,13 +2197,78 @@ metadata:
   materia: "informatica"
   tema: "segmentacion"
   nivel: "basico"
-  tags: ["aplicacion", "grande", "necesidad"]
+  tags: ["reconstruccion", "logico"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La segmentación en sistemas operativos tiene como objetivo dividir archivos para enviarlos por una red."
+
+explicacion: |
+  Falso — eso seria segmentación/fragmentación de paquetes de red (un concepto de redes, distinto). La segmentación de memoria organiza cómo se divide y protege la memoria de UN programa dentro de la computadora, no cómo viajan los datos por una red.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "segmentacion"
+  nivel: "intermedio"
+  tags: ["x86", "hardware"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La segmentación es esencial para transmitir archivos de varios gigabytes a través de internet."
+enunciado: "La mayoría del hardware x86 moderno usa un esquema de segmentación paginada, no segmentación pura."
 
 explicacion: |
-  Verdadero. Los archivos grandes exceden ampliamente el MTU de la red. Sin segmentación, no sería posible transmitirlos, ya que los paquetes serían demasiado grandes para ser manejados por los routers y enlaces de la red.
+  Verdadero. Combina lo mejor de ambos mundos: organización lógica con permisos (segmentación) y aprovechamiento eficiente de la memoria física sin fragmentación externa (paginación).
 ```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "segmentacion"
+  nivel: "intermedio"
+  tags: ["datos", "segmento"]
+
+respuesta: "datos"
+tipo: completar
+
+enunciado: "Las variables globales y estáticas de un programa se almacenan típicamente en el segmento de ___."
+
+explicacion: |
+  El segmento de datos guarda las variables globales/estáticas, separado del segmento de código y del de pila (que guarda variables locales y direcciones de retorno).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "segmentacion"
+  nivel: "avanzado"
+  tags: ["comparacion", "tamaño"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de los marcos de página, que siempre tienen el mismo tamaño, los segmentos pueden tener tamaños distintos entre sí."
+
+explicacion: |
+  Verdadero. Ese es el rasgo definitorio de la segmentación: cada segmento tiene el tamaño que necesita su unidad lógica correspondiente (el código puede ser grande, la pila puede ser chica al inicio, etc.).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "segmentacion"
+  nivel: "basico"
+  tags: ["utilidad", "programador"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Entender la segmentación ayuda a comprender por qué ocurren errores como el segmentation fault al programar en lenguajes de bajo nivel como C."
+
+explicacion: |
+  Verdadero. Conocer cómo se organiza y protege la memoria por segmentos explica directamente por qué ciertos errores de programación (punteros inválidos, desbordes de array) terminan en ese tipo de falla."
+```
+

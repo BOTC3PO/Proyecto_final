@@ -1,796 +1,995 @@
-# Examen jefe — Maestro de SIG y Dinámicas Globales
+# Examen jefe — [PENDIENTE #803]
 
-> Logro #134. Completaste el examen integrando SIG, urbanización y turismo mundial. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **122 preguntas totales** en 5/5 secciones.
+> Logro #803. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: sig-imagenes-satelitales (20 preguntas)
+## Sección: recursos-hidricos-y-gestion (25 preguntas)
 
 ```
 metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
+  materia: "Geografía"
+  tema: "recursos_hidricos_y_gestion"
   nivel: "basico"
-  tags: ["teledeteccion", "vocabulario"]
+  tags: ["agua_dulce", "distribucion"]
 
-enunciado: "¿Qué es una imagen satelital?"
-tipo: mc
-opciones_explicitas:
-  - "Una medición de energía reflejada o emitida por la superficie terrestre, captada por un satélite en órbita"
-  - "Una foto tomada por un avión a baja altura"
-  - "Un mapa dibujado a mano por un cartógrafo"
-respuesta: "Una medición de energía reflejada o emitida por la superficie terrestre, captada por un satélite en órbita"
-
-explicacion: |
-  La disciplina que estudia esto se llama teledetección: percibir algo
-  a distancia, sin tocarlo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["teledeteccion"]
-
-enunciado: "¿Cómo se llama la disciplina que estudia cómo captar información de la superficie terrestre a distancia, sin contacto directo?"
-tipo: mc
-opciones_explicitas:
-  - "Teledetección"
-  - "Trilateración"
-  - "Geocodificación"
-respuesta: "Teledetección"
-
-explicacion: |
-  Es el nombre técnico de "percibir algo a distancia" — cubre tanto
-  imágenes satelitales como aéreas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["bandas_espectrales"]
-
-enunciado: "¿En qué se diferencia un sensor satelital de una cámara de fotos común?"
-tipo: mc
-opciones_explicitas:
-  - "El sensor satelital suele captar además bandas de luz invisibles al ojo humano, como el infrarrojo"
-  - "El sensor satelital sólo capta blanco y negro"
-  - "No hay ninguna diferencia real"
-respuesta: "El sensor satelital suele captar además bandas de luz invisibles al ojo humano, como el infrarrojo"
-
-explicacion: |
-  Una cámara común capta sólo luz visible (rojo, verde, azul); los
-  satélites suelen sumar infrarrojo, térmico y microondas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["bandas_espectrales", "agricultura"]
-
-enunciado: "¿Por qué la banda de infrarrojo cercano es clave para medir la salud de un cultivo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque la vegetación sana la refleja mucho más que la vegetación enferma o el suelo desnudo"
-  - "Porque el infrarrojo cercano muestra el color real de las plantas"
-  - "Porque sólo detecta agua, no plantas"
-respuesta: "Porque la vegetación sana la refleja mucho más que la vegetación enferma o el suelo desnudo"
-
-explicacion: |
-  Esa diferencia de reflectancia entre vegetación sana y enferma es la
-  base de los índices de vegetación usados en agricultura de precisión.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["bandas_espectrales"]
-
-enunciado: "¿Qué mide la banda de infrarrojo térmico de un satélite?"
-tipo: mc
-opciones_explicitas:
-  - "La temperatura de la superficie"
-  - "El color visible del terreno"
-  - "La altitud del satélite"
-respuesta: "La temperatura de la superficie"
-
-explicacion: |
-  Es útil para detectar incendios activos, islas de calor urbano o
-  temperatura del mar.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["bandas_espectrales"]
-
-enunciado: "¿Qué ventaja tiene la banda de microondas (radar) frente a la luz visible o el infrarrojo?"
-tipo: mc
-opciones_explicitas:
-  - "Puede atravesar nubes y funcionar de noche"
-  - "Muestra colores más realistas"
-  - "Sólo funciona sobre el océano"
-respuesta: "Puede atravesar nubes y funcionar de noche"
-
-explicacion: |
-  Es clave para monitorear zonas con clima muy nublado (como la selva
-  amazónica) o hacer seguimiento constante sin depender de luz solar.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["bandas_espectrales"]
-
-enunciado: "¿Qué es una imagen \"falso color\" en teledetección?"
-tipo: mc
-opciones_explicitas:
-  - "Combinar bandas invisibles al ojo humano en una imagen para resaltar lo que se quiere estudiar"
-  - "Una imagen tomada de noche sin luz"
-  - "Un error de calibración del sensor"
-respuesta: "Combinar bandas invisibles al ojo humano en una imagen para resaltar lo que se quiere estudiar"
-
-explicacion: |
-  Ej.: mostrar vegetación en rojo intenso combinando bandas de
-  infrarrojo, para verla mejor que en color natural.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "basico"
-  tags: ["usos"]
-
-enunciado: "¿Cómo se mide deforestación con imágenes satelitales?"
-tipo: mc
-opciones_explicitas:
-  - "Comparando imágenes del mismo lugar en dos fechas distintas"
-  - "Contando la cantidad de satélites que pasan por la zona"
-  - "Midiendo la temperatura del aire"
-respuesta: "Comparando imágenes del mismo lugar en dos fechas distintas"
-
-explicacion: |
-  La diferencia entre las dos imágenes muestra cuánto bosque
-  desapareció en ese período.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "basico"
-  tags: ["usos"]
-
-enunciado: "¿Qué información usan los satélites meteorológicos como base del pronóstico del tiempo?"
-tipo: mc
-opciones_explicitas:
-  - "Imágenes de nubes, ciclones y frentes"
-  - "Sólo la posición GPS de las ciudades"
-  - "El color del cielo visto desde el suelo"
-respuesta: "Imágenes de nubes, ciclones y frentes"
-
-explicacion: |
-  Buena parte del pronóstico del tiempo depende de imágenes satelitales
-  actualizadas constantemente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["usos"]
-
-enunciado: "¿Para qué se usan las imágenes satelitales después de una inundación?"
-tipo: mc
-opciones_explicitas:
-  - "Para medir el área afectada comparando imágenes de antes y después"
-  - "Para calcular la posición GPS de las víctimas"
-  - "Para predecir el próximo terremoto"
-respuesta: "Para medir el área afectada comparando imágenes de antes y después"
-
-explicacion: |
-  Es el mismo principio que la detección de deforestación: comparar
-  el mismo lugar en dos momentos distintos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["usos"]
-
-enunciado: "¿Cómo se mide el crecimiento de una ciudad a lo largo de los años con imágenes satelitales?"
-tipo: mc
-opciones_explicitas:
-  - "Observando el cambio en la superficie construida entre imágenes de distintos años"
-  - "Contando la cantidad de satélites en órbita"
-  - "Midiendo sólo la temperatura del asfalto"
-respuesta: "Observando el cambio en la superficie construida entre imágenes de distintos años"
-
-explicacion: |
-  Es otro caso del mismo método de comparación temporal de imágenes.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["resolucion"]
-
-enunciado: "¿Qué indica la \"resolución espacial\" de una imagen satelital?"
-tipo: mc
-opciones_explicitas:
-  - "El tamaño real del área que representa cada píxel de la imagen"
-  - "La cantidad de colores que puede mostrar"
-  - "La velocidad del satélite en su órbita"
-respuesta: "El tamaño real del área que representa cada píxel de la imagen"
-
-explicacion: |
-  Un satélite de 10 metros de resolución no distingue nada más chico
-  que un cuadrado de 10 m de lado.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["resolucion"]
-
-enunciado: "Con un satélite de 10 metros de resolución, ¿qué pasa con dos autos estacionados uno al lado del otro?"
-tipo: mc
-opciones_explicitas:
-  - "Se ven como un solo punto, sin poder distinguirlos"
-  - "Se ven perfectamente separados y con detalle"
-  - "El satélite no puede fotografiar autos en absoluto"
-respuesta: "Se ven como un solo punto, sin poder distinguirlos"
-
-explicacion: |
-  Cada píxel de esa imagen representa un área de 10x10 m; dos autos
-  chicos caen dentro del mismo píxel.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["resolucion"]
-
-enunciado: "¿Qué compromiso suele existir entre resolución y frecuencia de paso de un satélite?"
-tipo: mc
-opciones_explicitas:
-  - "Un satélite que fotografía todo el planeta a diario suele tener menor resolución que uno especializado que pasa cada varias semanas"
-  - "No existe ningún compromiso, ambas cosas son independientes"
-  - "A mayor frecuencia de paso, siempre mayor resolución"
-respuesta: "Un satélite que fotografía todo el planeta a diario suele tener menor resolución que uno especializado que pasa cada varias semanas"
-
-explicacion: |
-  Es un trade-off real de ingeniería: cobertura amplia y frecuente vs.
-  detalle fino en un punto específico.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["cruce"]
-
-enunciado: "¿En qué se diferencia una imagen satelital del GPS?"
-tipo: mc
-opciones_explicitas:
-  - "La imagen satelital muestra una zona entera; el GPS sólo da una posición puntual"
-  - "Son exactamente la misma tecnología"
-  - "El GPS necesita cámaras y la imagen satelital no"
-respuesta: "La imagen satelital muestra una zona entera; el GPS sólo da una posición puntual"
-
-explicacion: |
-  Son dos usos distintos de satélites: uno da un punto (posición), el
-  otro da una imagen completa de una superficie.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "intermedio"
-  tags: ["teledeteccion"]
-
-enunciado: "Para tomar una imagen satelital de una zona hace falta un receptor especial instalado en esa zona."
-tipo: vf
 respuesta: falso
-
-explicacion: |
-  A diferencia del GPS (que necesita un receptor calculando su
-  posición), la imagen satelital se capta desde el satélite sin
-  necesitar nada en tierra.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "basico"
-  tags: ["bandas_espectrales"]
-
-enunciado: "Un satélite de observación terrestre sólo puede captar luz visible, igual que el ojo humano."
 tipo: vf
-respuesta: falso
+
+enunciado: "Verdadero o Falso: Más del 50% del agua disponible en la Tierra es agua dulce accesible para el ser humano."
 
 explicacion: |
-  La mayoría de los satélites de observación captan además bandas
-  invisibles (infrarrojo, térmico, microondas), cada una útil para
-  medir algo distinto.
+  Falso. La inmensa mayoría del agua en la Tierra es salada (océanos). Solo alrededor del 2.5% es agua dulce, y de esa pequeña fracción, gran parte está inaccesible (congelada o muy profunda).
 ```
 
 ```
 metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
+  materia: "Geografía"
+  tema: "recursos_hidricos_y_gestion"
   nivel: "basico"
-  tags: ["cruce"]
+  tags: ["definicion", "vida"]
 
-enunciado: "En una app de mapas, ¿qué capa se construye directamente a partir de imágenes satelitales?"
-tipo: mc
-opciones_explicitas:
-  - "La vista \"satélite\""
-  - "La capa de tránsito en tiempo real"
-  - "La capa de límites políticos"
-respuesta: "La vista \"satélite\""
+respuesta: "agua"
+tipo: completar
+
+enunciado: "El ______ es el elemento fundamental que sostiene la vida en nuestro planeta, pero su distribución es desigual."
+
+respuestas_validas:
+  - "agua"
+  - "El agua"
 
 explicacion: |
-  Es la capa que muestra el terreno tal como se ve desde el espacio,
-  distinta de la capa vectorial de calles.
+  El agua es esencial para la vida y las actividades humanas. Aunque abundante en总量, su disponibilidad como recurso hídrico dulce es limitada y desigual.
 ```
 
 ```
 metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["bandas_espectrales"]
-
-enunciado: "Para monitorear deforestación en la selva amazónica, con nubosidad casi constante, ¿qué banda es especialmente útil?"
-tipo: mc
-opciones_explicitas:
-  - "Microondas (radar), que atraviesa las nubes"
-  - "Luz visible únicamente"
-  - "Sólo infrarrojo térmico"
-respuesta: "Microondas (radar), que atraviesa las nubes"
-
-explicacion: |
-  El radar permite captar imágenes útiles incluso con cobertura de
-  nubes casi permanente, donde la luz visible o el infrarrojo cercano
-  quedarían bloqueados.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_imagenes_satelitales"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "De las 3 tecnologías del Sistema de Información Geográfica (mapas digitales, GPS, imágenes satelitales), ¿cuál da una imagen completa de una zona en vez de un punto o una capa de datos vectoriales?"
-tipo: mc
-opciones_explicitas:
-  - "Imágenes satelitales"
-  - "GPS"
-  - "Mapas digitales"
-respuesta: "Imágenes satelitales"
-
-explicacion: |
-  El GPS da un punto; el mapa digital organiza datos en capas
-  vectoriales (calles, edificios); la imagen satelital capta una
-  fotografía/medición completa de la superficie.
-```
-
-## Sección: sig-mapas-digitales (20 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
+  materia: "Geografía"
+  tema: "recursos_hidricos_y_gestion"
   nivel: "basico"
-  tags: ["sig", "vocabulario"]
+  tags: ["conceptos_basicos", "finito"]
 
-enunciado: "¿Qué es un Sistema de Información Geográfica (SIG)?"
-tipo: mc
-opciones_explicitas:
-  - "Una base de datos donde cada elemento del mapa tiene coordenadas y datos asociados"
-  - "Una foto escaneada de un mapa de papel"
-  - "Un tipo de brújula digital"
-respuesta: "Una base de datos donde cada elemento del mapa tiene coordenadas y datos asociados"
-
-explicacion: |
-  Eso es lo que permite que el mapa responda preguntas (buscar,
-  calcular rutas) en vez de sólo mostrarse.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["sig"]
-
-enunciado: "¿Por qué un mapa digital moderno no es simplemente un mapa de papel escaneado?"
-tipo: mc
-opciones_explicitas:
-  - "Porque cada elemento tiene coordenadas y datos que se pueden consultar, no sólo una imagen fija"
-  - "Porque los mapas escaneados no tienen colores"
-  - "Porque un mapa digital no puede mostrar límites políticos"
-respuesta: "Porque cada elemento tiene coordenadas y datos que se pueden consultar, no sólo una imagen fija"
-
-explicacion: |
-  Una imagen escaneada es sólo píxeles; un SIG sabe qué es cada cosa y
-  dónde está en coordenadas reales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["capas"]
-
-enunciado: "En un SIG, ¿qué es una \"capa\"?"
-tipo: mc
-opciones_explicitas:
-  - "Un conjunto de información independiente (calles, edificios, tránsito) que se puede mostrar u ocultar por separado"
-  - "El color de fondo del mapa"
-  - "La escala numérica del mapa"
-respuesta: "Un conjunto de información independiente (calles, edificios, tránsito) que se puede mostrar u ocultar por separado"
-
-explicacion: |
-  Las capas permiten combinar sólo la información que se necesita en
-  cada momento.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["capas"]
-
-enunciado: "¿Cuál de estos es un ejemplo típico de capa en un mapa digital?"
-tipo: mc
-opciones_explicitas:
-  - "Tránsito en tiempo real"
-  - "El nombre de la empresa que hizo el mapa"
-  - "La fecha de instalación de la app"
-respuesta: "Tránsito en tiempo real"
-
-explicacion: |
-  Tránsito, imágenes satelitales, límites administrativos y calles son
-  capas típicas que se pueden combinar o separar.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "avanzado"
-  tags: ["capas"]
-
-enunciado: "¿En qué se parece el sistema de capas de un SIG a un mapa temático de papel?"
-tipo: mc
-opciones_explicitas:
-  - "Ambos eligen qué información mostrar y cuál descartar, para no saturar la lectura"
-  - "Ambos usan exactamente la misma escala numérica"
-  - "No se parecen en nada"
-respuesta: "Ambos eligen qué información mostrar y cuál descartar, para no saturar la lectura"
-
-explicacion: |
-  La diferencia es que el SIG permite cambiar esa selección al
-  instante prendiendo o apagando capas, en vez de dibujar un mapa nuevo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["geocodificacion"]
-
-enunciado: "¿Qué hace un SIG cuando convierte el texto \"Av. Corrientes 1000\" en un par de coordenadas de latitud y longitud?"
-tipo: mc
-opciones_explicitas:
-  - "Geocodificar la dirección"
-  - "Calcular una ruta"
-  - "Renderizar una capa satelital"
-respuesta: "Geocodificar la dirección"
-
-explicacion: |
-  Geocodificar es traducir una dirección en texto a las coordenadas
-  reales que la ubican en el mapa.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["ventajas"]
-
-enunciado: "¿Qué diferencia hay entre la escala de un mapa de papel y la de un mapa digital?"
-tipo: mc
-opciones_explicitas:
-  - "El de papel tiene escala fija; el digital permite zoom continuo, recalculando qué detalle mostrar en cada nivel"
-  - "El mapa digital siempre usa la misma escala que uno de papel"
-  - "El mapa de papel siempre tiene más detalle"
-respuesta: "El de papel tiene escala fija; el digital permite zoom continuo, recalculando qué detalle mostrar en cada nivel"
-
-explicacion: |
-  Al acercar el zoom en un mapa digital aparecen nombres de calles que
-  no entrarían en un mapa impreso a escala de país.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["ventajas"]
-
-enunciado: "¿Qué puede hacer un mapa digital que uno de papel no puede?"
-tipo: mc
-opciones_explicitas:
-  - "Calcular automáticamente el camino más corto o más rápido entre dos puntos"
-  - "Mostrar los límites entre países"
-  - "Usar una rosa de los vientos"
-respuesta: "Calcular automáticamente el camino más corto o más rápido entre dos puntos"
-
-explicacion: |
-  En papel, calcular una ruta óptima requeriría medir a mano; el
-  sistema lo hace automáticamente.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["ventajas"]
-
-enunciado: "¿Cuál de estas capas es imposible de tener en un mapa impreso?"
-tipo: mc
-opciones_explicitas:
-  - "Tránsito en tiempo real, que se actualiza constantemente"
-  - "Los límites de las provincias"
-  - "El nombre de las ciudades"
-respuesta: "Tránsito en tiempo real, que se actualiza constantemente"
-
-explicacion: |
-  Un mapa impreso queda fijo desde el momento en que se imprime; el
-  tránsito en vivo necesita actualizarse todo el tiempo.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["ventajas"]
-
-enunciado: "Buscar \"farmacias cerca\" en un mapa digital sin saber de antemano dónde están es un ejemplo de..."
-tipo: mc
-opciones_explicitas:
-  - "Búsqueda por categoría, posible gracias a que cada elemento tiene datos asociados"
-  - "Geocodificación de una dirección"
-  - "Una escala gráfica"
-respuesta: "Búsqueda por categoría, posible gracias a que cada elemento tiene datos asociados"
-
-explicacion: |
-  El SIG sabe qué tipo de lugar es cada punto (farmacia, banco,
-  restaurante) y puede filtrarlos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["sig"]
-
-enunciado: "Un SIG es simplemente una imagen que se muestra en pantalla, sin datos asociados a lo que dibuja."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  La característica que define a un SIG es justamente que cada
-  elemento tiene datos asociados (coordenadas, nombre, tipo).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["gps", "cruce"]
-
-enunciado: "¿De qué tecnología viene la posición del usuario en un mapa digital (el puntito azul)?"
-tipo: mc
-opciones_explicitas:
-  - "GPS"
-  - "Escala gráfica"
-  - "Rosa de los vientos"
-respuesta: "GPS"
-
-explicacion: |
-  El GPS calcula la posición y el mapa digital la muestra sobre sus
-  capas — ver `../sig-gps/`.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["imagenes_satelitales", "cruce"]
-
-enunciado: "La capa de vista \"satélite\" de un mapa digital viene de..."
-tipo: mc
-opciones_explicitas:
-  - "Imágenes satelitales"
-  - "El sistema de posicionamiento GPS"
-  - "Una brújula digital"
-respuesta: "Imágenes satelitales"
-
-explicacion: |
-  Es otra tecnología distinta que se combina con el mapa digital — ver
-  `../sig-imagenes-satelitales/`.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["capas"]
-
-enunciado: "Las capas de un SIG se pueden mostrar u ocultar de forma independiente unas de otras."
-tipo: vf
 respuesta: verdadero
-
-explicacion: |
-  Esa independencia es justamente lo que permite combinar sólo la
-  información necesaria en cada momento.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["coordenadas", "cruce"]
-
-enunciado: "¿Qué tiene asociado cada elemento (calle, edificio, comercio) dentro de un mapa digital, además de sus datos?"
-tipo: mc
-opciones_explicitas:
-  - "Coordenadas de latitud y longitud reales"
-  - "Un número de escala numérica propio"
-  - "Un huso horario propio distinto al del resto del mapa"
-respuesta: "Coordenadas de latitud y longitud reales"
-
-explicacion: |
-  Es el mismo sistema de coordenadas que ya explica
-  `../coordenadas-y-husos-horarios/` — el SIG cuelga sus datos sobre esa
-  base.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "avanzado"
-  tags: ["sig"]
-
-enunciado: "¿Cuál de estas frases resume mejor qué es, en esencia, un Sistema de Información Geográfica?"
-tipo: mc
-opciones_explicitas:
-  - "Coordenadas con una capa de datos encima"
-  - "Un mapa dibujado a mano con más colores"
-  - "Una brújula conectada a internet"
-respuesta: "Coordenadas con una capa de datos encima"
-
-explicacion: |
-  Es la síntesis que usa `troncos.md` para explicar por qué mapas
-  digitales, GPS e imágenes satelitales cuelgan del mismo nodo de
-  coordenadas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "intermedio"
-  tags: ["capas"]
-
-enunciado: "Para planificar un viaje en auto evitando el tránsito, ¿qué capas conviene combinar?"
-tipo: mc
-opciones_explicitas:
-  - "Calles y tránsito en tiempo real"
-  - "Sólo la capa de límites políticos"
-  - "Sólo la capa de imágenes satelitales"
-respuesta: "Calles y tránsito en tiempo real"
-
-explicacion: |
-  Un SIG permite elegir exactamente esas dos capas sin cargar las
-  demás.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "basico"
-  tags: ["ventajas"]
-
-enunciado: "Un mapa de papel puede actualizar el tránsito o el clima automáticamente sin volver a imprimirse."
 tipo: vf
-respuesta: falso
+
+enunciado: "Verdadero o Falso: El agua es un bien finito y esencial para múltiples actividades económicas y sociales."
 
 explicacion: |
-  Un mapa impreso queda fijo desde su impresión; sólo un SIG con datos
-  en vivo puede actualizarse solo.
+  Verdadero. Aunque el agua se recicla naturalmente, la cantidad total de agua dulce utilizable en una región dada es limitada (finita) y crítica para la agricultura, industria y vida humana.
 ```
 
 ```
 metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
-  nivel: "avanzado"
-  tags: ["geocodificacion"]
+  materia: "Geografía"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["agua_subterranea", "definicion"]
 
-enunciado: "Para calcular una ruta desde \"mi ubicación\" hasta \"Av. Corrientes 1000\", ¿qué paso previo tiene que hacer el sistema con la dirección de texto?"
-tipo: mc
-opciones_explicitas:
-  - "Geocodificarla, convirtiéndola en coordenadas"
-  - "Traducirla a otro idioma"
-  - "Calcular su escala numérica"
-respuesta: "Geocodificarla, convirtiéndola en coordenadas"
+respuesta: "acuíferos"
+tipo: completar
+
+enunciado: "Las reservas de agua dulce subterráneas que pueden ser captadas se denominan ______."
+
+respuestas_validas:
+  - "acuíferos"
+  - "acuífero"
 
 explicacion: |
-  Sin coordenadas no hay forma de ubicar el destino en el mapa ni de
-  calcular la distancia o el camino hacia él.
+  Los acuíferos son formaciones geológicas subterráneas que almacenan y transmiten agua dulce, constituyendo una reserva estratégica importante para el suministro humano.
 ```
 
 ```
 metadata:
-  materia: "geografia"
-  tema: "sig_mapas_digitales"
+  materia: "Geografía"
+  tema: "recursos_hidricos_y_gestion"
   nivel: "intermedio"
-  tags: ["sig", "cruce"]
+  tags: ["gestion", "mitos"]
 
-enunciado: "¿Mapas digitales, GPS e imágenes satelitales son la misma tecnología o tecnologías distintas que se combinan?"
-tipo: mc
-opciones_explicitas:
-  - "Son tres tecnologías distintas que se combinan en una app de mapas moderna"
-  - "Son exactamente la misma tecnología con distinto nombre"
-  - "El GPS es sólo un tipo de mapa digital"
-respuesta: "Son tres tecnologías distintas que se combinan en una app de mapas moderna"
+respuesta: falso
+tipo: vf
+
+enunciado: "Verdadero o Falso: Gestionar el agua ya es solo cuestión de construir represas para asegurar su sostenibilidad."
 
 explicacion: |
-  Por eso el MAPA las separó en 3 nodos hermanos (`G12a`/`G12b`/`G12c`)
-  en vez de tratarlas como una sola habilidad.
+  Falso. La gestión moderna del agua va más allá de la infraestructura física (represas) e incluye la protección de fuentes naturales, la conservación de ecosistemas y la regulación de usos para asegurar la sostenibilidad a largo plazo.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["definicion", "agua_dulce"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: Los recursos hídricos incluyen tanto aguas superficiales (ríos, lagos) como subterráneas (acuíferos)."
+
+explicacion: |
+  Verdadero. La definición de recursos hídricos abarca todas las reservas de agua dulce accesibles, independientemente de si están en la superficie o bajo tierra.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["contaminacion", "agroquímicos"]
+
+variables:
+  region: uno_de(["norte de Córdoba", "región pampeana"])
+
+respuesta: "degradación"
+tipo: mc
+
+enunciado: "En {region}, el uso excesivo de agroquímicos provoca la _____ de la calidad del agua."
+
+opciones_explicitas: ["mejora", "degradación", "purificación", "aumento"]
+
+explicacion: |
+  La intensa actividad agrícola en zonas como el norte de Córdoba o la región pampeana ha provocado la degradación de la calidad del agua por agroquímicos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["energia", "hidroelectricidad"]
+
+variables:
+  fuente: "agua"
+
+respuesta: "energía"
+tipo: completar
+
+enunciado: "El agua es la base para la generación de _____ hidroeléctrica."
+
+respuestas_validas:
+  - "energía"
+  - "electricidad"
+
+explicacion: |
+  El agua es fundamental para la generación de energía hidroeléctrica, una fuente importante de poder en muchos países.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["finito", "gestión"]
+
+variables:
+  bien: "agua"
+
+respuesta: "finito"
+tipo: completar
+
+enunciado: "El agua es un bien _____ y esencial para la vida."
+
+respuestas_validas:
+  - "finito"
+  - "limitado"
+
+explicacion: |
+  Aunque abundante en la Tierra, el agua dulce utilizable es un bien finito que requiere gestión cuidadosa.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["cuenca", "paraná"]
+
+variables:
+  rio: "Paraná"
+
+respuesta: "Paraná"
+tipo: completar
+
+enunciado: "El caso práctico de gestión incluye la cuenca del río _____ y el Río de la Plata."
+
+respuestas_validas:
+  - "Paraná"
+  - "paraná"
+
+explicacion: |
+  La cuenca del río Paraná es un ejemplo clave de aplicación práctica en la gestión de recursos hídricos en Argentina.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "avanzado"
+  tags: ["sostenibilidad", "futuro"]
+
+variables:
+  objetivo: "sostenibilidad"
+
+respuesta: "sostenibilidad"
+tipo: completar
+
+enunciado: "Gestionar el agua implica asegurar su _____ para las futuras generaciones."
+
+respuestas_validas:
+  - "sostenibilidad"
+  - "sostenible"
+
+explicacion: |
+  La gestión moderna del agua busca proteger las fuentes naturales para garantizar su sostenibilidad a largo plazo.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["sobreexplotación", "napas"]
+
+variables:
+  accion: "extracción intensiva"
+
+respuesta: "disminución"
+tipo: mc
+
+enunciado: "La {accion} de napas subterráneas provoca la _____ de sus niveles."
+
+opciones_explicitas: ["aumento", "disminución", "estabilización", "purificación"]
+
+explicacion: |
+  La extracción intensiva de napas subterráneas ha provocado la disminución de sus niveles en varias regiones agrícolas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["ecosistemas", "preservación"]
+
+variables:
+  funcion: "preservación"
+
+respuesta: "preservación"
+tipo: completar
+
+enunciado: "El agua es vital para la _____ de los ecosistemas."
+
+respuestas_validas:
+  - "preservación"
+  - "conservación"
+
+explicacion: |
+  Más allá del uso humano, el agua es esencial para mantener y preservar los ecosistemas naturales.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["uso_basico", "hidratación"]
+
+variables:
+  uso: "hidratación"
+
+respuesta: "hidratación"
+tipo: completar
+
+enunciado: "El agua es vital para la _____ y la higiene humana."
+
+respuestas_validas:
+  - "hidratación"
+
+explicacion: |
+  La hidratación y la higiene son usos básicos e insustituibles del agua para la supervivencia humana.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["ejemplo", "córdoba"]
+
+variables:
+  lugar: "norte de Córdoba"
+
+respuesta: "contaminación"
+tipo: mc
+
+enunciado: "En {lugar}, la intensa actividad agrícola genera problemas de _____ del agua."
+
+opciones_explicitas: ["limpieza", "contaminación", "abundancia", "claridad"]
+
+explicacion: |
+  El norte de Córdoba es un ejemplo de zona donde la actividad agrícola intensa provoca contaminación del agua por agroquímicos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "avanzado"
+  tags: ["patagonia", "glaciares"]
+
+variables:
+  region: "Patagonia"
+
+respuesta: "deshielo"
+tipo: completar
+
+enunciado: "En {region}, el deshielo de los glaciares altera los caudales."
+
+respuestas_validas:
+  - "deshielo"
+  - "descongelamiento"
+
+explicacion: |
+  La Patagonia enfrenta cambios en sus caudales debido al deshielo de sus glaciares, afectado por el cambio climático.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "avanzado"
+  tags: ["geopolítica", "desafío"]
+
+variables:
+  desafio: "geopolítico"
+
+respuesta: "geopolítico"
+tipo: completar
+
+enunciado: "La gestión del agua en Argentina es un desafío _____ y ambiental constante."
+
+respuestas_validas:
+  - "geopolítico"
+  - "geopolitico"
+
+explicacion: |
+  La desigual distribución del agua convierte su gestión en un desafío geopolítico constante debido a las disputas entre provincias.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["clima", "lluvia"]
+
+variables:
+  elemento: "patrones de lluvia"
+
+respuesta: "alterar"
+tipo: mc
+
+enunciado: "El cambio climático está tendiendo a _____ los patrones de lluvia."
+
+opciones_explicitas: ["estabilizar", "alterar", "eliminar", "aumentar uniformemente"]
+
+explicacion: |
+  El cambio climático altera los patrones de lluvia, haciendo más impredecible la disponibilidad de agua.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["agricultura", "consumo"]
+
+variables:
+  sector: "agricultura"
+
+respuesta: "mayor"
+tipo: mc
+
+enunciado: "La agricultura consume la _____ parte del agua dulce."
+
+opciones_explicitas: ["menor", "mayor", "igual", "ninguna"]
+
+explicacion: |
+  La agricultura es el sector que consume la mayor parte del agua dulce disponible para las sociedades humanas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["conflictos", "caudal"]
+
+variables:
+  aspecto: "derecho a usar el agua"
+
+respuesta: "disputas"
+tipo: completar
+
+enunciado: "Las cuencas que atraviesan múltiples provincias generan _____ sobre el derecho a usar el agua."
+
+respuestas_validas:
+  - "disputas"
+  - "conflictos"
+
+explicacion: |
+  La transfronteridad de las cuencas genera disputas entre provincias sobre quién tiene derecho a usar el agua.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["disponibilidad", "fracción"]
+
+variables:
+  cantidad: "minúscula"
+
+respuesta: "minúscula"
+tipo: mc
+
+enunciado: "Solo una fracción _____ de agua es dulce y accesible."
+
+opciones_explicitas: ["grande", "minúscula", "igual", "infinita"]
+
+explicacion: |
+  Aunque la Tierra está cubierta de agua, solo una minúscula fracción es agua dulce accesible.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["pampeana", "extracción"]
+
+variables:
+  region: "región pampeana"
+
+respuesta: "extracción"
+tipo: completar
+
+enunciado: "En {region}, la _____ intensiva de napas es un problema."
+
+respuestas_validas:
+  - "extracción"
+  - "extraccion"
+
+explicacion: |
+  La región pampeana enfrenta problemas de degradación del agua debido a la extracción intensiva de napas subterráneas.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "intermedio"
+  tags: ["gestión", "marco_legal"]
+
+variables:
+  elemento: "políticas"
+
+respuesta: "políticas"
+tipo: completar
+
+enunciado: "La gestión incluye {elemento}, leyes y acciones técnicas."
+
+respuestas_validas:
+  - "políticas"
+  - "politicas"
+
+explicacion: |
+  La gestión de los recursos hídricos se refiere al conjunto de políticas, leyes y acciones técnicas para su planificación.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["geografía_argentina", "selvas"]
+
+variables:
+  zona: "selvas subtropicales"
+
+respuesta: "abundante"
+tipo: mc
+
+enunciado: "En las {zona}, la disponibilidad de agua es generalmente abundante."
+
+opciones_explicitas: ["abundante", "escasa", "nula", "salada"]
+
+explicacion: |
+  Las selvas subtropicales en el norte de Argentina tienen una disponibilidad de agua generalmente abundante.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "recursos_hidricos_y_gestion"
+  nivel: "basico"
+  tags: ["geografía_argentina", "desiertos"]
+
+variables:
+  zona: "desiertos áridos"
+
+respuesta: "escasa"
+tipo: mc
+
+enunciado: "En los {zona}, la disponibilidad de agua es escasa."
+
+opciones_explicitas: ["abundante", "escasa", "neutral", "variable"]
+
+explicacion: |
+  Los desiertos áridos en Argentina presentan una disponibilidad de agua muy escasa, contrastando con otras regiones.
+```
+
+## Sección: riesgos-naturales-argentinos (24 preguntas)
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "basico"
+  tags: ["sequia", "clima"]
+
+variables:
+  region1: uno_de(["NOA", "Cuyo"])
+  region2: uno_de(["NOA", "Cuyo"])
+
+respuesta: "NOA y Cuyo"
+tipo: input
+
+enunciado: "Identifica las dos grandes regiones de Argentina donde la aridez es una característica estructural y la sequía afecta principalmente a la producción agropecuaria."
+
+explicacion: |
+  El NOA y Cuyo son regiones áridas por naturaleza, donde la sequía es un riesgo constante vinculado también a cambios climáticos globales.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "intermedio"
+  tags: ["granizo", "economia"]
+
+variables:
+  sector: uno_de(["agricultura", "ganadería"])
+
+respuesta: "agricultura"
+tipo: input
+
+enunciado: "El granizo, asociado a las tormentas severas del norte, causa daños significativos principalmente al sector de {sector}."
+
+explicacion: |
+  El texto indica que el granizo puede causar daños significativos en la agricultura, sector vital para la economía nacional.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "basico"
+  tags: ["ciclones", "patagonia"]
+
+variables:
+  zona: uno_de(["Patagonia", "costa atlántica"])
+
+respuesta: "Patagonia"
+tipo: input
+
+enunciado: "Los ciclones extratropicales generan lluvias torrenciales y vientos fuertes en el sur del país, especialmente en {zona} y la costa atlántica."
+
+explicacion: |
+  Los ciclones extratropicales influyen fuertemente en la Patagonia y la costa atlántica, afectando la navegación y la vida costera.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "basico"
+  tags: ["dinamica", "territorio"]
+
+variables:
+  estado: falso
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La geografía argentina es estática y no está sujeta a fuerzas tectónicas, atmosféricas o hidrológicas que interactúen con el espacio habitado."
+
+explicacion: |
+  Falso. La geografía argentina no es estática; está sujeta constantemente a fuerzas tectónicas, atmosféricas y hidrológicas.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "intermedio"
+  tags: ["planificacion", "gestion"]
+
+variables:
+  objetivo: uno_de(["reducir vulnerabilidad", "aumentar densidad"])
+
+respuesta: "reducir vulnerabilidad"
+tipo: input
+
+enunciado: "El estudio de los riesgos naturales permite tomar decisiones informadas para {objetivo} social y económica, transformando el conocimiento geográfico en protección civil."
+
+explicacion: |
+  Comprender los riesgos permite reducir la vulnerabilidad social y económica mediante la planificación del territorio.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "avanzado"
+  tags: ["sismos", "magnitud"]
+
+variables:
+  factor1: "profundidad del hipocentro"
+  factor2: "distancia al epicentro"
+
+respuesta: "profundidad del hipocentro"
+tipo: input
+
+enunciado: "La magnitud de los efectos de un sismo depende de la {factor1} y de la distancia al epicentro, exigiendo normas antisísmicas estrictas."
+
+explicacion: |
+  La magnitud y los efectos dependen de factores como la profundidad del hipocentro y la distancia al epicentro.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "basico"
+  tags: ["ciclones", "comparacion"]
+
+variables:
+  intensidad: "menos intensos"
+
+respuesta: "menos intensos"
+tipo: input
+
+enunciado: "Los ciclones extratropicales son {intensidad} que los huracanes tropicales, pero aún así generan lluvias torrenciales en el sur."
+
+explicacion: |
+  A diferencia de los huracanes, los ciclones extratropicales son menos intensos, pero peligrosos por sus lluvias y vientos en el sur.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "intermedio"
+  tags: ["vulnerabilidad", "gestion"]
+
+variables:
+  riesgo: uno_de(["tornados", "inundaciones"])
+
+respuesta: "inundaciones"
+tipo: input
+
+enunciado: "Conocer dónde ocurren fenómenos como los tornados o las {riesgo} es fundamental para reducir la vulnerabilidad social y económica."
+
+explicacion: |
+  El conocimiento de la ubicación y causa de riesgos como inundaciones y tornados es clave para la reducción de vulnerabilidad.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "intermedio"
+  tags: ["sequia", "cambio_climatico"]
+
+variables:
+  causa: "cambios en los patrones climáticos globales"
+
+respuesta: "cambios en los patrones climáticos globales"
+tipo: completar
+
+enunciado: "La intensificación de las sequías recientes se vincula a {causa}, poniendo en riesgo el acceso al agua."
+
+explicacion: |
+  La intensificación de la sequía no es solo natural, sino que está vinculada a cambios en los patrones climáticos globales.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "basico"
+  tags: ["tectonica", "placas"]
+
+variables:
+  placa: "Nazca"
+
+respuesta: "Nazca"
+tipo: input
+
+enunciado: "La actividad sísmica en el occidente argentino se debe a la subducción de la placa {placa} bajo la placa Sudamericana."
+
+explicacion: |
+  La placa de Nazca se subduce bajo la placa Sudamericana, generando la actividad sísmica en el oeste argentino.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "basico"
+  tags: ["sismos", "ubicacion"]
+
+variables:
+  zona: uno_de(["occidente", "este"])
+
+respuesta: "occidente"
+tipo: input
+
+enunciado: "La actividad sísmica es un riesgo permanente en el {zona} del país, debido a la dinámica de placas."
+
+explicacion: |
+  El occidente argentino es la zona de mayor riesgo sísmico debido a la subducción de la placa de Nazca.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "intermedio"
+  tags: ["tornados", "agricultura"]
+
+variables:
+  efecto: "daños significativos"
+
+respuesta: "daños significativos"
+tipo: input
+
+enunciado: "El granizo asociado a tormentas severas puede causar {efecto} en la agricultura, un sector vital para la economía nacional."
+
+explicacion: |
+  Las tormentas severas en el norte generan granizo que causa daños significativos a los cultivos agrícolas.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "intermedio"
+  tags: ["tormentas", "atmosferica"]
+
+variables:
+  condicion: "inestabilidad atmosférica violenta"
+
+respuesta: "inestabilidad atmosférica violenta"
+tipo: completar
+
+enunciado: "El choque de masas de aire genera una {condicion} que da lugar a tornados en el NEA."
+
+explicacion: |
+  El choque de masas de aire cálido y húmedo con frentes fríos crea inestabilidad atmosférica violenta.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "basico"
+  tags: ["inundaciones", "hidrologia"]
+
+variables:
+  riesgo: "inundaciones"
+
+respuesta: "inundaciones"
+tipo: input
+
+enunciado: "Además de los sismos, las {riesgo} son un riesgo hidrológico importante que debe ser gestionado mediante la planificación territorial."
+
+explicacion: |
+  Las inundaciones son un riesgo hidrológico clave, junto con los sismos, que requiere planificación para su gestión.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "avanzado"
+  tags: ["sismos", "propagacion"]
+
+variables:
+  caracteristica: "no respetan fronteras"
+
+respuesta: "no respetan fronteras"
+tipo: input
+
+enunciado: "Los sismos {caracteristica} provinciales, por lo que la gestión del riesgo debe ser interjurisdiccional."
+
+explicacion: |
+  Los sismos no respetan las fronteras provinciales, afectando áreas amplias independientemente de los límites administrativos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "basico"
+  tags: ["sequia", "regiones"]
+
+variables:
+  region: uno_de(["NOA", "Cuyo"])
+
+respuesta: "NOA"
+tipo: input
+
+enunciado: "La región del {region} presenta una aridez como característica estructural del clima, lo que la hace propensa a sequías."
+
+explicacion: |
+  El NOA y Cuyo son regiones con aridez estructural, lo que las hace vulnerables a la sequía.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "intermedio"
+  tags: ["gestion", "emergencias"]
+
+variables:
+  accion: "prepararse"
+
+respuesta: "prepararse"
+tipo: input
+
+enunciado: "Al conocer dónde y por qué ocurren los fenómenos naturales, podemos tomar decisiones para {accion} ante emergencias."
+
+explicacion: |
+  El conocimiento geográfico permite tomar decisiones informadas para prepararse ante emergencias y reducir riesgos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "basico"
+  tags: ["ciclones", "navegacion"]
+
+variables:
+  sector: "navegación"
+
+respuesta: "navegación"
+tipo: input
+
+enunciado: "Los ciclones extratropicales influyen en la {sector} y la vida costera del sur del país."
+
+explicacion: |
+  Los ciclones en el sur afectan la navegación y la vida costera debido a sus lluvias y vientos fuertes.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "avanzado"
+  tags: ["tectonica", "subduccion"]
+
+variables:
+  placa_superior: "Sudamericana"
+  placa_inferior: "Nazca"
+
+respuesta: "Nazca"
+tipo: input
+
+enunciado: "La placa {placa_inferior} se subduce bajo la placa {placa_superior}, generando la sismicidad en el occidente."
+
+explicacion: |
+  La placa de Nazca se subduce bajo la placa Sudamericana, causando la actividad sísmica en el oeste argentino.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "basico"
+  tags: ["dimensiones", "clima"]
+
+variables:
+  dimension: "continentales"
+
+respuesta: "continentales"
+tipo: input
+
+enunciado: "Argentina es un país de dimensiones {dimension} que atraviesa diversas zonas climáticas y geológicas."
+
+explicacion: |
+  Las dimensiones continentales de Argentina implican una gran variedad de zonas climáticas y geológicas expuestas a riesgos.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "intermedio"
+  tags: ["sostenibilidad", "planificacion"]
+
+variables:
+  objetivo: "desarrollo sostenible"
+
+respuesta: "desarrollo sostenible"
+tipo: input
+
+enunciado: "Transformar el conocimiento geográfico en protección civil es fundamental para el {objetivo}."
+
+explicacion: |
+  La gestión de riesgos contribuye al desarrollo sostenible al proteger la población y el territorio.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "intermedio"
+  tags: ["sismos", "provincias"]
+
+variables:
+  prov1: uno_de(["Mendoza", "San Juan", "Catamarca"])
+  prov2: uno_de(["Mendoza", "San Juan", "Catamarca"])
+
+respuesta: "Mendoza"
+tipo: input
+
+enunciado: "Entre las provincias del NOA y Cuyo, {prov1} se encuentra en una zona de alta sismicidad."
+
+explicacion: |
+  Mendoza, San Juan y Catamarca son provincias del occidente con alta sismicidad por la subducción de la placa de Nazca.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "basico"
+  tags: ["tormentas", "NEA"]
+
+variables:
+  region: "NEA"
+
+respuesta: "NEA"
+tipo: input
+
+enunciado: "En el {region}, los tornados y tormentas severas son frecuentes debido a la inestabilidad atmosférica."
+
+explicacion: |
+  El NEA y el norte de la Pampa son regiones con frecuente actividad de tornados y tormentas severas.
+```
+
+```
+metadata:
+  materia: "Geografía"
+  tema: "riesgos_naturales_argentinos"
+  nivel: "intermedio"
+  tags: ["sequia", "agua"]
+
+variables:
+  recurso: "acceso al agua"
+
+respuesta: "acceso al agua"
+tipo: input
+
+enunciado: "La intensificación de las sequías pone en riesgo el {recurso} y la producción agropecuaria en el NOA y Cuyo."
+
+explicacion: |
+  Las sequías intensificadas amenazan el acceso al agua y la producción agrícola en las regiones áridas del país.
 ```
 
 ## Sección: trabajo-y-desempleo-mundial (21 preguntas)
@@ -1222,6 +1421,467 @@ explicacion: |
   La dualidad del mercado laboral es un rasgo central de la geografía económica contemporánea.
 ```
 
+## Sección: riesgos-ambientales-mundiales (24 preguntas)
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["componentes", "amenaza", "vulnerabilidad"]
+
+variables:
+  amenaza: random(1, 10)
+  vulnerabilidad: random(1, 10)
+
+respuesta: amenaza + " + " + vulnerabilidad
+tipo: input
+
+enunciado: "Si modelamos el riesgo como una función de la amenaza y la vulnerabilidad, y asignamos valores arbitrarios de {amenaza} y {vulnerabilidad}, ¿cuál es la suma conceptual de sus componentes principales?"
+
+explicacion: |
+  Aunque la fórmula real es compleja, conceptualmente el riesgo surge de la presencia simultánea de una amenaza y una vulnerabilidad. Esta pregunta verifica la comprensión de que ambos elementos son necesarios.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "basico"
+  tags: ["ecosistemas", "humedales", "bosques"]
+
+variables:
+  ecosistema: uno_de(["humedales", "bosques"])
+
+respuesta: "clave"
+tipo: completar
+
+enunciado: "Los {ecosistema} son considerados ecosistemas clave por su rol en la regulación hídrica y la biodiversidad."
+
+explicacion: |
+  Estos ecosistemas tienen una desproporción alta en su contribución a la estabilidad ambiental relativa a su tamaño o área.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "basico"
+  tags: ["definicion", "riesgo"]
+
+variables:
+  a: random(10, 20)
+  b: random(10, 20)
+
+respuesta: "la combinacion de la amenaza y la vulnerabilidad"
+tipo: completar
+
+enunciado: "Segun la teoria, un riesgo ambiental no es solo el fenomeno en si, sino {a} + {b} (en palabras clave) entre la amenaza y la vulnerabilidad de la sociedad que lo recibe."
+
+explicacion: |
+  El concepto clave es que el riesgo surge de la interseccion entre un evento peligroso (amenaza) y la capacidad de la sociedad para enfrentarlo (vulnerabilidad).
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "basico"
+  tags: ["escala", "alcance"]
+
+variables:
+  x: random(1, 5)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los riesgos ambientales mundiales son fenomenos que se limitan a las fronteras nacionales y no trascienden otros paises."
+
+explicacion: |
+  Falso. Los riesgos ambientales mundiales, por definicion, trascienden las fronteras nacionales y afectan a la estabilidad de los ecosistemas a escala planetaria.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["antropoceno", "impacto_humano"]
+
+variables:
+  a: random(100, 900)
+  b: random(100, 900)
+
+respuesta: "antropoceno"
+tipo: completar
+
+enunciado: "En la era actual, conocida como el {a} + {b} (nombre del periodo geologico), la huella humana es tan profunda que los riesgos tienen una fuerte componente tecnologica y politica."
+
+explicacion: |
+  El termino "Antropoceno" se utiliza para describir el periodo actual donde la actividad humana es la influencia dominante en el clima y el medio ambiente.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["clima", "eventos_extremos"]
+
+variables:
+  freq: random(2, 5)
+
+respuesta: "mas frecuentes e intensos"
+tipo: completar
+
+enunciado: "El calentamiento global no solo implica mas calor, sino que los eventos climaticos extremos se vuelven {freq} veces mas frecuentes e intensos en su descripcion teorica."
+
+explicacion: |
+  La teoria establece que el cambio climático modifica los regímenes tradicionales, haciendo que los eventos extremos sean más frecuentes e intensos.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "avanzado"
+  tags: ["argentina", "impacto_local"]
+
+variables:
+  a: random(1, 3)
+
+respuesta: "sudestada"
+tipo: completar
+
+enunciado: "En Argentina, el cambio climático se vincula directamente con la mayor frecuencia de fenomenos como el {a} o las sequias en el centro del pais."
+
+explicacion: |
+  El fenomeno meteorologico citado en la teoria como ejemplo de impacto local del cambio global es la Sudestada.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["ecosistemas", "servicios"]
+
+variables:
+  n: random(1, 3)
+
+respuesta: "amortiguadores"
+tipo: completar
+
+enunciado: "Los ecosistemas como los humedales actuan como {n} + {n} + {n} (palabra clave) naturales que protegen contra inundaciones."
+
+explicacion: |
+  La teoria describe a los ecosistemas clave como "amortiguadores" naturales que proveen servicios como la regulacion del agua y la proteccion contra inundaciones.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "basico"
+  tags: ["biodiversidad", "suelos"]
+
+variables:
+  a: random(1, 2)
+
+respuesta: "pérdida de biodiversidad"
+tipo: completar
+
+enunciado: "Junto con el cambio climático, la {a} y la degradacion de los suelos son pilares de la crisis ambiental actual."
+
+explicacion: |
+  Los tres pilares mencionados son el cambio climático, la pérdida de biodiversidad y la contaminación transfronteriza.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "basico"
+  tags: ["contaminacion", "transfronterizo"]
+
+variables:
+  a: random(1, 3)
+
+respuesta: "contaminacion transfronteriza"
+tipo: completar
+
+enunciado: "Entre los riesgos urgentes a nivel mundial destaca la {a} + {a} + {a} (termino clave)."
+
+explicacion: |
+  La contaminacion transfronteriza es uno de los riesgos globales principales junto con el cambio climático y la pérdida de biodiversidad.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["gei", "causa"]
+
+variables:
+  a: random(1, 2)
+
+respuesta: "emision de gases de efecto invernadero"
+tipo: completar
+
+enunciado: "El calentamiento global esta impulsado principalmente por la {a} + {a} + {a} (causa principal)."
+
+explicacion: |
+  La causa principal del calentamiento global mencionada es la emision de gases de efecto invernadero.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "basico"
+  tags: ["servicios_ecosistemicos", "polinizacion"]
+
+variables:
+  a: random(1, 3)
+
+respuesta: "polinizacion"
+tipo: completar
+
+enunciado: "Al destruir bosques nativos, se pierden servicios como la regulacion del agua, la {a} + {a} + {a} y la proteccion contra inundaciones."
+
+explicacion: |
+  La polinizacion es uno de los servicios ecosistemicos vitales mencionados que se pierden con la degradacion ambiental.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["estrategias", "adaptacion"]
+
+variables:
+  a: random(1, 3)
+
+respuesta: "adaptacion y mitigacion"
+tipo: completar
+
+enunciado: "Comprender la red de causas y efectos de los riesgos ambientales es vital para desarrollar estrategias de {a} + {a} + {a} (dos conceptos clave)."
+
+explicacion: |
+  La teoria menciona que el entendimiento de estas interacciones es clave para estrategias de adaptacion y mitigacion.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["humedales", "proteccion"]
+
+variables:
+  a: random(1, 2)
+
+respuesta: "humedales"
+tipo: completar
+
+enunciado: "Cuando se destruyen ecosistemas clave, como los {a} + {a} + {a}, se pierden servicios de regulacion del agua."
+
+explicacion: |
+  Los humedales son citados como un ecosistema clave cuyo destruccion conlleva la perdida de regulacion hidrica.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "avanzado"
+  tags: ["enfoque", "geografia"]
+
+variables:
+  a: random(1, 3)
+
+respuesta: "relaciones entre la naturaleza y la organizacion humana"
+tipo: completar
+
+enunciado: "Esta perspectiva nos ayuda a ver que la geografia no estudia solo el terreno, sino las {a} + {a} + {a} (objetivo de estudio)."
+
+explicacion: |
+  La geografia, desde este enfoque, estudia las relaciones entre los sistemas naturales y la organizacion humana.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["sequias", "argentina"]
+
+variables:
+  a: random(1, 2)
+
+respuesta: "centro"
+tipo: completar
+
+enunciado: "En Argentina, el cambio climático se vincula con la mayor frecuencia de fenomenos como la sudestada o las sequias en el {a} del pais."
+
+explicacion: |
+  La teoria especifica que las sequias en el centro del pais son un ejemplo de impacto local del cambio global.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["regimenes", "clima"]
+
+variables:
+  a: random(1, 3)
+
+respuesta: "regimenes climaticos tradicionales"
+tipo: completar
+
+enunciado: "El calentamiento global esta modificando los {a} + {a} + {a} (objeto de modificacion)."
+
+explicacion: |
+  El calentamiento global altera los patrones y regimenes climaticos que existian previamente.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["impacto_social", "migracion"]
+
+variables:
+  a: random(1, 2)
+
+respuesta: "migraciones masivas"
+tipo: completar
+
+enunciado: "Cuando el calor provoca sequias prolongadas que destruyen cosechas, puede generar {a} + {a} + {a} (consecuencia social)."
+
+explicacion: |
+  La destruccion de cosechas por sequias es un factor que puede generar migraciones masivas de poblacion.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "basico"
+  tags: ["estabilidad", "ecosistemas"]
+
+variables:
+  a: random(1, 3)
+
+respuesta: "estabilidad de los ecosistemas"
+tipo: completar
+
+enunciado: "Los riesgos ambientales mundiales amenazan la {a} + {a} + {a} y el bienestar de la humanidad."
+
+explicacion: |
+  La definicion inicial menciona que amenazan la estabilidad de los ecosistemas y el bienestar humano.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "basico"
+  tags: ["suelos", "degradacion"]
+
+variables:
+  a: random(1, 2)
+
+respuesta: "degradacion de los suelos"
+tipo: completar
+
+enunciado: "La perdida de biodiversidad y la {a} + {a} + {a} son pilares de la crisis ambiental."
+
+explicacion: |
+  La degradacion de los suelos es mencionada junto a la perdida de biodiversidad como pilar de la crisis.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["comprension", "integral"]
+
+variables:
+  a: random(1, 3)
+
+respuesta: "comprension integral"
+tipo: completar
+
+enunciado: "Los riesgos ambientales requieren una {a} + {a} + {a} de como interactuan los sistemas terrestres."
+
+explicacion: |
+  Se requiere una comprension integral de las interacciones entre los diversos sistemas de la Tierra.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["inundaciones", "proteccion"]
+
+variables:
+  a: random(1, 3)
+
+respuesta: "proteccion contra inundaciones"
+tipo: completar
+
+enunciado: "Sin los amortiguadores naturales, la sociedad queda expuesta a riesgos mayores, perdiendo la {a} + {a} + {a} (servicio perdido)."
+
+explicacion: |
+  La proteccion contra inundaciones es un servicio especifico que dejan de proveer los ecosistemas degradados.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "avanzado"
+  tags: ["huella", "humana"]
+
+variables:
+  a: random(1, 2)
+
+respuesta: "profunda"
+tipo: completar
+
+enunciado: "En el Antropoceno, la huella humana es tan {a} que los riesgos tienen componente politico."
+
+explicacion: |
+  La teoria describe la huella humana como "profunda" en esta era.
+```
+
+```
+metadata:
+  materia: "geografia"
+  tema: "riesgos_ambientales_mundiales"
+  nivel: "intermedio"
+  tags: ["interaccion", "sistemas"]
+
+variables:
+  a: random(1, 3)
+
+respuesta: "sistemas terrestres"
+tipo: completar
+
+enunciado: "Es fundamental entender como interactuan los {a} + {a} + {a} para comprender los riesgos ambientales."
+
+explicacion: |
+  La comprension de la interaccion entre los sistemas terrestres es clave para abordar estos riesgos.
+```
+
 ## Sección: turismo-mundial (36 preguntas)
 
 ```
@@ -1253,7 +1913,7 @@ metadata:
 variables:
   agente: "turismo"
 
-respuesta: "{agente}"
+respuesta: agente
 tipo: input
 
 enunciado: "El __________ es una de las actividades más dinámicas que transforma paisajes, economías y culturas de regiones antes poco accesibles."
@@ -1272,7 +1932,7 @@ metadata:
 variables:
   concepto: "turismo"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "No se trata simplemente de 'vacaciones', sino de un fenómeno global complejo de movimiento transfronterizo: el __________."
@@ -1291,7 +1951,7 @@ metadata:
 variables:
   variable: "estabilidad"
 
-respuesta: "{variable}"
+respuesta: variable
 tipo: input
 
 enunciado: "La dinámica estacional del turismo afecta directamente la planificación de infraestructuras y la __________ del empleo en los destinos."
@@ -1310,7 +1970,7 @@ metadata:
 variables:
   concepto: "movimiento transfronterizo"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: completar
 respuestas_validas:
   - "movimiento transfronterizo"
@@ -1332,7 +1992,7 @@ metadata:
 variables:
   concepto: "consumo"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "El turismo no es solo viajar, sino el __________ de servicios en el destino."
@@ -1351,7 +2011,7 @@ metadata:
 variables:
   hemisferio: "Hemisferio Norte"
 
-respuesta: "{hemisferio}"
+respuesta: hemisferio
 tipo: input
 
 enunciado: "Generalmente, los grandes emisores de turistas se encuentran en el __________."
@@ -1370,7 +2030,7 @@ metadata:
 variables:
   region: "Asia Oriental"
 
-respuesta: "{region}"
+respuesta: region
 tipo: input
 
 enunciado: "¿Qué región asiática está emergiendo con fuerza como gran emisora de turistas?"
@@ -1389,7 +2049,7 @@ metadata:
 variables:
   zona: "Unión Europea"
 
-respuesta: "{zona}"
+respuesta: zona
 tipo: input
 
 enunciado: "¿En qué zona se mencionan flujos turísticos regionales muy intensos entre países vecinos?"
@@ -1408,7 +2068,7 @@ metadata:
 variables:
   zona: "América del Sur"
 
-respuesta: "{zona}"
+respuesta: zona
 tipo: input
 
 enunciado: "¿Qué otra región se menciona junto a Europa por tener flujos turísticos regionales fuertes entre vecinos?"
@@ -1427,7 +2087,7 @@ metadata:
 variables:
   zona: "zonas rurales"
 
-respuesta: "{zona}"
+respuesta: zona
 tipo: input
 
 enunciado: "El turismo está presente en casi todos los territorios, incluyendo las __________ más remotas."
@@ -1446,7 +2106,7 @@ metadata:
 variables:
   concepto: "poco accesibles"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "El turismo transforma regiones que antes eran __________ o desconocidas para el gran público."
@@ -1465,7 +2125,7 @@ metadata:
 variables:
   tiempo: 12
 
-respuesta: "{tiempo}"
+respuesta: tiempo
 tipo: input
 
 enunciado: "Para ser considerado turismo, el período consecutivo de estancia debe ser inferior a cuántos meses?"
@@ -1484,7 +2144,7 @@ metadata:
 variables:
   concepto: "distintos"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "El turismo ocurre en lugares __________ al entorno habitual de la persona."
@@ -1503,7 +2163,7 @@ metadata:
 variables:
   concepto: "conecta"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "El turismo ha dejado de ser un lujo para convertirse en una actividad masiva que __________ al mundo."
@@ -1522,7 +2182,7 @@ metadata:
 variables:
   concepto: "desigualdades"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "Comprender los flujos turísticos permite identificar las __________ entre países emisores y receptores."
@@ -1907,492 +2567,3 @@ explicacion: |
   Desde las grandes ciudades hasta las áreas rurales más aisladas, la actividad turística tiene una presencia geográfica muy amplia.
 ```
 
-## Sección: urbanizacion-migracion-ciudad (25 preguntas)
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["historia", "revolucion_industrial"]
-
-respuesta: "Revolución Industrial"
-tipo: completar
-respuestas_validas: ["Revolución Industrial"]
-
-enunciado: "El proceso de crecimiento acelerado de las ciudades, conocido como urbanización, se vio fuertemente impulsado por la ___."
-
-explicacion: |
-  La Revolución Industrial provocó un éxodo masivo del campo a la ciudad debido a la mecanización de la agricultura y la creación de fábricas en los núcleos urbanos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["migracion", "causas"]
-
-variables:
-  caso: uno_de([
-    ["falta de tierras y mecanización agrícola", "atracción por empleos industriales"],
-    ["escasez de servicios en el campo", "búsqueda de mejores oportunidades educativas"],
-    ["crisis de subsistencia rural", "promesa de salarios fijos en la ciudad"]
-  ])
-
-respuesta: caso[1
-tipo: mc
-opciones_explicitas: [caso[0], caso[1], "Crecimiento natural de la población urbana", "Políticas de vivienda"]
-
-enunciado: "En un contexto de urbanización acelerada, una causa principal de la migración desde el campo hacia la ciudad es: {caso[0]}."
-
-explicacion: |
-  La migración suele responder a un factor de "expulsión" (lo que sucede en el origen) y un factor de "atracción" (lo que ofrece el destino).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["demografia", "densidad"]
-
-respuesta: 85
-tipo: completar
-tolerancia_abs: 5
-
-enunciado: "Si una ciudad tiene una superficie de 100 km² y una población de 8500 habitantes, ¿cuál es su densidad de población (habitantes por km²)? (Redondea al entero más cercano)"
-
-pasos:
-  - "Identificar la población total: 8500"
-  - "Identificar la superficie: 100 km²"
-  - "Dividir población / superficie: 8500 / 100"
-
-explicacion: |
-  La densidad de población se calcula dividiendo el número total de habitantes por la superficie territorial: 8500 / 100 = 85 hab/km².
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "avanzado"
-  tags: ["procesos", "urbanismo"]
-
-respuesta: ["Expansión de la periferia", "Densificación del centro", "Crecimiento de la zona industrial", "Consolidación del núcleo urbano"]
-tipo: ordenar
-opciones_explicitas: ["Expansión de la periferia", "Densificación del centro", "Crecimiento de la zona industrial", "Consolidación del núcleo urbano"]
-
-enunciado: "Ordena cronológicamente las fases típicas de una ciudad que experimenta un crecimiento acelerado por la industrialización:"
-
-explicacion: |
-  El proceso suele comenzar con un núcleo consolidado, seguido por la creación de zonas industriales, la densificación del centro para albergar trabajadores y, finalmente, la expansión hacia la periferia.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["consecuencias", "social"]
-
-variables:
-  impacto: uno_de([
-    ["Problemas de infraestructura", "Desigualdad social"],
-    ["Contaminación ambiental", "Hacinamiento"],
-    ["Escasez de servicios", "Crecimiento de asentamientos informales"]
-  ])
-
-respuesta: impacto[1
-tipo: mc
-opciones_explicitas: ["Crecimiento demográfico natural", impacto[1], "Despoblación de las metrópolis", "Migración estacional"]
-
-enunciado: "Un efecto común de la urbanización rápida y descontrolada es: {impacto[0]}."
-
-explicacion: |
-  Cuando la población urbana crece más rápido que la capacidad de la ciudad para proveer servicios y vivienda, surgen problemas como el hacinamiento o la falta de infraestructura.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["migracion", "campo", "ciudad"]
-
-tipo: mc
-opciones_explicitas: ["Falta de servicios y empleo en el campo", "Exceso de recursos naturales en la ciudad", "Deseo de vivir en zonas con menos población"]
-
-enunciado: "Uno de los principales motores que impulsa el éxodo rural hacia las grandes urbes es la ___."
-
-explicacion: |
-  La migración rural-urbana suele ser motivada por factores de 'expulsión' en el campo (falta de trabajo, servicios o tierras) y factores de 'atracción' en la ciudad (ofertas laborales y mejores servicios).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["urbanizacion", "crecimiento"]
-
-variables:
-  datos: [["crecimiento_desordenado", "crecimiento_planificado"], ["asentamientos_informales", "barrios_planificados"], ["servicios_insuficientes", "infraestructura_moderna"]]
-  idx: uno_de([0, 1, 2])
-
-tipo: mc
-opciones_explicitas: ["crecimiento_planificado", "crecimiento_desordenado"]
-
-enunciado: "Cuando la migración hacia la ciudad es masiva y rápida, suele producirse un {datos[idx][0]} que genera problemas de vivienda."
-
-explicacion: |
-  El crecimiento desordenado ocurre cuando la infraestructura urbana no puede seguir el ritmo de la llegada de nuevos habitantes, derivando en asentamientos informales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["demografia", "poblacion"]
-
-tipo: completar
-respuestas_validas: ["industrialización", "agricultura"]
-
-enunciado: "Históricamente, el proceso de migración del campo a la ciudad ha estado estrechamente vinculado al proceso de ___."
-
-explicacion: |
-  La Revolución Industrial demandó mano de obra masiva en las ciudades para las fábricas, lo que aceleró el traslado de la población rural al ámbito urbano.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["proceso", "orden"]
-
-tipo: ordenar
-opciones_explicitas: ["Búsqueda de empleo en la ciudad", "Dificultades económicas en el sector rural", "Asentamiento en la periferia urbana"]
-
-enunciado: "Ordena cronológicamente las etapas típicas de un proceso de migración rural-urbana:"
-
-explicacion: |
-  Primero surge la necesidad o dificultad en el origen (campo), luego se realiza el traslado buscando oportunidades y finalmente se establece la residencia en la zona de destino (ciudad).
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "avanzado"
-  tags: ["economia", "servicios"]
-
-variables:
-  datos: [["alta_densidad", "baja_densidad"], ["escasez_servicios", "abundancia_servicios"], ["desempleo_estructural", "pleno_empleo"]]
-  idx: uno_de([0, 1, 2])
-
-tipo: mc
-opciones_explicitas: ["alta_densidad", "baja_densidad"]
-
-enunciado: "La llegada masiva de personas a las urbes provoca un aumento de la {datos[idx][0]} en los centros urbanos."
-
-explicacion: |
-  La concentración de población en áreas limitadas aumenta la densidad demográfica, lo que puede sobrecargar los servicios públicos y el mercado laboral.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["servicios", "urbanismo"]
-
-respuesta: "saturación"
-tipo: completar
-respuestas_validas: ["saturación", "colapso"]
-
-enunciado: "Cuando la migración hacia las ciudades es más rápida de lo que el Estado puede planificar, se produce una ___ de los servicios públicos como el agua potable y el transporte."
-
-explicacion: |
-  La urbanización acelerada genera una demanda de infraestructura que supera la capacidad de respuesta de la ciudad, provocando la saturación de los servicios básicos.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["consecuencias", "barrios_precarios"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["crecimiento de asentamientos informales", "falta de planificación urbana"],
-    ["aumento de la contaminación", "congestión vehicular"]
-  ]
-
-respuesta: uno_de(escenarios[escenario_idx])
-tipo: mc
-opciones_explicitas: ["crecimiento de asentamientos informales", "falta de planificación urbana", "aumento de la contaminación", "congestión vehicular"]
-
-enunciado: "La expansión descontrolada de la mancha urbana hacia las periferias suele derivar en {escenarios[escenario_idx][0]}."
-
-explicacion: |
-  La falta de regulación y el rápido crecimiento demográfico llevan a la formación de barrios precarios o asentamientos informales en zonas no planificadas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["oportunidades", "empleo"]
-
-respuesta: "empleo"
-tipo: mc
-opciones_explicitas: ["empleo", "aislamiento", "subsistencia", "degradación"]
-
-enunciado: "Uno de los principales motores de la migración campo-ciudad es la búsqueda de mejores oportunidades de _________ y acceso a servicios especializados."
-
-explicacion: |
-  Las ciudades concentran la mayor parte de la actividad económica, ofreciendo una mayor diversidad de empleo en comparación con las zonas rurales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["procesos", "secuencia"]
-
-respuesta: ["migración rural", "crecimiento demográfico", "expansión urbana", "asentamientos informales"]
-tipo: ordenar
-opciones_explicitas: ["migración rural", "crecimiento demográfico", "expansión urbana", "asentamientos informales"]
-
-enunciado: "Ordena cronológicamente los elementos que suelen caracterizar un proceso de urbanización acelerada no planificada:"
-
-pasos:
-  - "Movimiento de personas desde el campo a la ciudad."
-  - "Aumento de la población en el área metropolitana."
-  - "Ocupación de terrenos periféricos por la ciudad."
-  - "Formación de barrios con servicios deficientes."
-
-explicacion: |
-  El proceso suele iniciar con la migración, seguido por el aumento de población, la expansión física de la ciudad y, finalmente, la consolidación de barrios precarios por la falta de servicios.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "avanzado"
-  tags: ["dualidad", "urbanismo"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [
-    ["positiva", "acceso a educación"],
-    ["negativa", "hacinamiento"]
-  ]
-
-respuesta: uno_de(casos[caso_idx])
-tipo: mc
-opciones_explicitas: ["positiva", "acceso a educación", "negativa", "hacinamiento"]
-
-enunciado: "La urbanización es un proceso dual: puede tener una consecuencia {casos[caso_idx][0]} como el {casos[caso_idx][1]}."
-
-explicacion: |
-  La urbanización presenta una dualidad: por un lado, ofrece ventajas como el acceso a educación y salud; por otro, presenta desafíos como el hacinamiento y la falta de servicios.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["demografia", "urbanizacion"]
-
-respuesta: "urbana"
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Históricamente, la mayor parte de la población mundial vivía en entornos de carácter _____, pero en la actualidad la tendencia se ha invertido."
-
-explicacion: |
-  La transición de una sociedad mayoritariamente rural a una urbana es uno de los procesos demográficos más significativos de la historia moderna.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["poblacion", "ciudades"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[55, "más de la mitad"], [50, "exactamente la mitad"]]
-
-respuesta: datos[idx][1
-tipo: mc
-opciones_explicitas: ["menos de la mitad", "exactamente la mitad", "más de la mitad", "casi la totalidad"]
-
-enunciado: "En la actualidad, la población mundial es, aproximadamente, {datos[idx][1]} urbana."
-
-explicacion: |
-  Hoy en día, la tendencia global muestra que la población urbana ha superado el umbral del 50% de la población total del planeta.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["migracion", "causas"]
-
-respuesta: ["Migración rural", "Industrialización", "Crecimiento natural urbano"]
-tipo: ordenar
-
-opciones_explicitas: ["Migración rural", "Industrialización", "Crecimiento natural urbano"]
-
-enunciado: "Ordene cronológicamente los factores que impulsaron el crecimiento de las ciudades en la era moderna:"
-
-explicacion: |
-  El proceso comenzó con la migración del campo a la ciudad por la industrialización, seguido por el crecimiento demográfico dentro de las propias ciudades.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["densidad", "urbanismo"]
-
-respuesta: "densidad"
-tipo: completar
-respuestas_validas: ["densidad", "extensión", "clima"]
-
-enunciado: "El fenómeno de la urbanización implica una mayor ___ de población en áreas delimitadas en comparación con las zonas rurales."
-
-explicacion: |
-  La concentración de personas en núcleos urbanos genera un aumento en la densidad poblacional, lo que requiere infraestructuras más complejas.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "avanzado"
-  tags: ["proyecciones", "globalizacion"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenarios: [[true, "aumentará"], [false, "disminuirá"]]
-
-respuesta: escenarios[idx][0
-tipo: mc
-opciones_explicitas: ["aumentará", "disminuirá", "se mantendrá igual", "desaparecerá"]
-
-enunciado: "Según las proyecciones de la ONU, la proporción de la población mundial que vive en ciudades {escenarios[idx][0]} en las próximas décadas."
-
-explicacion: |
-  Se espera que el proceso de urbanización continúe, especialmente en países en vías de desarrollo, llevando la cifra urbana aún más arriba del 60% o 70%.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["migracion", "causas"]
-
-variables:
-  datos: [["La falta de infraestructura sanitaria y servicios de salud en el campo", "Mejorar la calidad de vida"], ["La mecanización de la agricultura que reduce la demanda de mano de obra", "Búsqueda de empleo"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Mejorar la calidad de vida", "Búsqueda de empleo", "Aumento de la densidad poblacional", "Contaminación acústica"]
-
-enunciado: "En el siguiente caso: {datos[idx][0]}, ¿cuál es la causa principal que impulsa la migración hacia la ciudad?"
-
-explicacion: |
-  La migración suele ser motivada por factores de "expulsión" en el origen (falta de servicios o empleo) y factores de "atracción" en el destino.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["consecuencias", "urbanismo"]
-
-variables:
-  datos: [["El crecimiento descontrolado de la periferia urbana", "Crecimiento de asentamientos informales"], ["La llegada masiva de personas en un corto periodo", "Saturación de los servicios públicos"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Crecimiento de asentamientos informales", "Saturación de los servicios públicos", "Reducción de la contaminación", "Descentralización económica"]
-
-enunciado: "Analice el siguiente fenómeno: {datos[idx][0]}. ¿Cuál es una consecuencia directa de este proceso?"
-
-explicacion: |
-  Cuando la urbanización supera la capacidad de planificación de la ciudad, se producen problemas de infraestructura y servicios.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "basico"
-  tags: ["factores_atracción"]
-
-respuesta: "oferta educativa"
-tipo: completar
-respuestas_validas: ["oferta educativa", "centros de salud", "empleo industrial"]
-
-enunciado: "Uno de los principales factores de atracción de las grandes urbes para la población joven es la mayor ___."
-
-explicacion: |
-  Las ciudades concentran instituciones de enseñanza superior y técnica que no están disponibles en zonas rurales.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "intermedio"
-  tags: ["procesos", "secuencia"]
-
-respuesta: ["Éxodo rural", "Crecimiento de la ciudad", "Expansión de la periferia"]
-tipo: ordenar
-opciones_explicitas: ["Éxodo rural", "Crecimiento de la ciudad", "Expansión de la periferia"]
-
-enunciado: "Ordene cronológicamente los procesos que caracterizan un proceso de urbanización acelerado:"
-
-explicacion: |
-  Primero ocurre el movimiento de población (éxodo), luego la ciudad se densifica y finalmente se expande hacia los bordes.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "urbanizacion_migracion_ciudad"
-  nivel: "avanzado"
-  tags: ["impacto_ambiental"]
-
-variables:
-  datos: [["La impermeabilización de suelos por el asfalto", "Aumento de la temperatura urbana"], ["La concentración de vehículos en el centro", "Creación de islas de calor"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Aumento de la temperatura urbana", "Creación de islas de calor", "Disminución de la huella de carbono", "Aumento de la biodiversidad"]
-
-enunciado: "Si observamos que {datos[idx][0]}, el fenómeno climático urbano resultante es el/la ___."
-
-explicacion: |
-  La sustitución de vegetación por materiales urbanos retiene el calor, generando el efecto de isla de calor.
-```

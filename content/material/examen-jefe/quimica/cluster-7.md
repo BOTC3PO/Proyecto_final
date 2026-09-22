@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de Celdas y Polímeros
+# Examen jefe — [PENDIENTE #847]
 
-> Logro #147. Completaste el examen integrando pilas galvánicas, polímeros y propiedades coligativas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **105 preguntas totales** en 5/5 secciones.
+> Logro #847. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **105 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -63,7 +63,10 @@ metadata:
 
 respuesta: "galvanica"
 tipo: completar
-respuestas_validas: ["galvanica", "galvánica", "voltaica"]
+respuestas_validas:
+  - "galvanica"
+  - "galvánica"
+  - "voltaica"
 
 enunciado: "Otro nombre para una pila es celda ___."
 
@@ -295,7 +298,7 @@ variables:
   moles_zn: uno_de([1, 2, 3])
 
 respuesta: moles_zn * electrones_por_reaccion
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si reaccionan {moles_zn} moles de Zn, ¿cuántos moles de electrones se liberan en total?"
@@ -366,7 +369,9 @@ metadata:
 
 respuesta: "polimerizacion"
 tipo: completar
-respuestas_validas: ["polimerizacion", "polimerización"]
+respuestas_validas:
+  - "polimerizacion"
+  - "polimerización"
 
 enunciado: "El proceso de unir monómeros para formar un polímero se llama ___."
 
@@ -603,7 +608,8 @@ metadata:
 
 respuesta: "estable"
 tipo: completar
-respuestas_validas: ["estable"]
+respuestas_validas:
+  - "estable"
 
 enunciado: "El mismo enlace ___ que hace prácticos a los polímeros sintéticos es el que los hace persistentes en el ambiente."
 
@@ -702,7 +708,8 @@ metadata:
 
 respuesta: "parcial"
 tipo: completar
-respuestas_validas: ["parcial"]
+respuestas_validas:
+  - "parcial"
 
 enunciado: "La presión que ejercería un gas si estuviera solo, ocupando todo el volumen, se llama presión ___."
 
@@ -723,7 +730,7 @@ variables:
   p3: uno_de([1, 2, 3])
 
 respuesta: p1 + p2 + p3
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Una mezcla de tres gases tiene presiones parciales P1 = {p1} atm, P2 = {p2} atm y P3 = {p3} atm. ¿Cuál es la presión total de la mezcla?"
@@ -760,7 +767,8 @@ metadata:
 
 respuesta: "totales"
 tipo: completar
-respuestas_validas: ["totales"]
+respuestas_validas:
+  - "totales"
 
 enunciado: "La fracción molar de un gas es sus moles dividido los moles ___."
 
@@ -796,7 +804,7 @@ variables:
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][0] / datos[idx][1]
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá la fracción molar de un componente con {datos[idx][0]} moles, en una mezcla de {datos[idx][1]} moles totales."
@@ -835,7 +843,7 @@ variables:
   p_total: 3
 
 respuesta: (n_n2 / (n_n2 + n_o2)) * p_total
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Una mezcla tiene 2 moles de N2 y 1 mol de O2, con presión total de 3 atm. ¿Cuál es la presión parcial del N2?"
@@ -862,7 +870,7 @@ variables:
   p_total: 3
 
 respuesta: (n_o2 / (n_n2 + n_o2)) * p_total
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Con la misma mezcla (2 mol de N2, 1 mol de O2, presión total 3 atm), ¿cuál es la presión parcial del O2?"
@@ -953,7 +961,7 @@ variables:
   p_total: uno_de([6, 9, 12])
 
 respuesta: (n_a / (n_a + n_b)) * p_total
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "Un recipiente tiene el gas A con {n_a} moles y el gas B con {n_b} moles. Si la presión total es {p_total} atm, ¿cuál es la presión parcial del gas A?"
@@ -976,7 +984,8 @@ metadata:
 
 respuesta: "X"
 tipo: completar
-respuestas_validas: ["X"]
+respuestas_validas:
+  - "X"
 
 enunciado: "El símbolo típico para representar la fracción molar de un componente es la letra ___ (en mayúscula)."
 
@@ -1092,7 +1101,8 @@ metadata:
 
 respuesta: "coligativa"
 tipo: completar
-respuestas_validas: ["coligativa"]
+respuestas_validas:
+  - "coligativa"
 
 enunciado: "La propiedad que depende únicamente de la CANTIDAD de partículas de soluto disueltas, y no de la identidad química del soluto, se llama propiedad ___."
 
@@ -1161,7 +1171,7 @@ variables:
   molalidad: uno_de([1, 2, 3, 4])
 
 respuesta: k_constante * molalidad
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá el descenso de la temperatura de congelación usando la constante crioscópica Kc = {k_constante} y molalidad m = {molalidad}."
@@ -1183,7 +1193,9 @@ metadata:
 
 respuesta: "molalidad"
 tipo: completar
-respuestas_validas: ["molalidad", "m"]
+respuestas_validas:
+  - "molalidad"
+  - "m"
 
 enunciado: "La fórmula del descenso crioscópico es ΔT = Kc × ___."
 
@@ -1219,7 +1231,7 @@ variables:
   m: uno_de([1, 2, 3, 4])
 
 respuesta: ke * m
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá el ascenso de la temperatura de ebullición usando ΔT = Ke × m, con Ke = {ke} y m = {m}."
@@ -1310,7 +1322,7 @@ variables:
   T: uno_de([273, 298, 300])
 
 respuesta: M * R * T
-tipo: input
+tipo: completar
 tolerancia_abs: 0.5
 
 enunciado: "Calculá la presión osmótica de una solución con molaridad {M} M a temperatura {T} K, usando R = {R} L·atm/(mol·K)."
@@ -1347,7 +1359,9 @@ metadata:
 
 respuesta: "T"
 tipo: completar
-respuestas_validas: ["T", "temperatura absoluta"]
+respuestas_validas:
+  - "T"
+  - "temperatura absoluta"
 
 enunciado: "La fórmula de la presión osmótica es π = M × R × ___."
 
@@ -1615,9 +1629,9 @@ tipo: completar
 enunciado: "En una titulación, el indicador se utiliza para visualizar el punto final mediante un ___ visible."
 
 respuestas_validas:
-    - "cambio de color"
-    - "viraje"
-    - "cambio de tono"
+  - "cambio de color"
+  - "viraje"
+  - "cambio de tono"
 
 explicacion: |
   Los indicadores son sustancias que cambian de color en un rango de pH específico, señalando visualmente cuándo ha ocurrido la reacción completa.
@@ -1737,9 +1751,9 @@ tipo: completar
 enunciado: "En una titulación, la solución que se encuentra en la bureta y cuya concentración es ___ se llama titulante."
 
 respuestas_validas:
-    - "conocida"
-    - "exacta"
-    - "estandarizada"
+  - "conocida"
+  - "exacta"
+  - "estandarizada"
 
 explicacion: |
   El titulante es la solución estándar (conocida) que se agrega para reaccionar con el analito (concentración desconocida).
@@ -1818,8 +1832,8 @@ tipo: completar
 enunciado: "La espectrometría de masas separa los iones basándose en su relación ___/carga."
 
 respuestas_validas:
-    - "masa"
-    - "masa molar"
+  - "masa"
+  - "masa molar"
 
 explicacion: |
   La relación m/z (masa por carga) es el parámetro fundamental medido en un espectrómetro de masas.
@@ -1904,8 +1918,8 @@ tipo: completar
 enunciado: "En la Cromatografía Líquida de Alta Resolución (HPLC), la fase móvil es un ___ a alta presión."
 
 respuestas_validas:
-    - "liquido"
-    - "solvente"
+  - "liquido"
+  - "solvente"
 
 explicacion: |
   HPLC significa High Performance Liquid Chromatography. La fase móvil es un líquido impulsado por bombas de alta presión.
@@ -1941,3 +1955,4 @@ explicacion: |
   3. Moles NaOH necesarios = Moles H+.
   4. V_NaOH = Moles_NaOH / M_NaOH.
 ```
+

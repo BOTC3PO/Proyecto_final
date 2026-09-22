@@ -1,6 +1,6 @@
-# Examen jefe — De procariotas a guerras mundiales
+# Examen jefe — [PENDIENTE #698]
 
-> Logro #116. Completaste el examen sobre la evolución biológica, el poblamiento americano y los conflictos globales que marcaron la historia. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **124 preguntas totales** en 5/5 secciones.
+> Logro #698. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,7 +15,8 @@ metadata:
 
 respuesta: "África"
 tipo: completar
-respuestas_validas: ["África"]
+respuestas_validas:
+  - "África"
 
 enunciado: "Según la teoría 'Out of Africa', el Homo sapiens se originó en el continente de ___."
 
@@ -33,7 +34,7 @@ metadata:
 variables:
   escenario: uno_de([["África", "Asia", "Europa", "América"], ["África", "Asia", "Europa", "Oceanía"]])
 
-respuesta: escenario[0
+respuesta: escenario[0]
 tipo: mc
 opciones_explicitas: ["África", "Asia", "Europa", "América"]
 
@@ -50,7 +51,7 @@ metadata:
   nivel: "avanzado"
   tags: ["secuencia", "migracion"]
 
-respuesta: ["África", "Asia", "Europa", "América"]
+respuesta_orden: ["África", "Asia", "Europa", "América"]
 tipo: ordenar
 opciones_explicitas: ["África", "Asia", "Europa", "América"]
 
@@ -70,9 +71,10 @@ metadata:
 variables:
   datos: [["Bering", "Asia"], ["Magallanes", "América"]]
 
-respuesta: datos[0][0
+respuesta: datos[0][0]
 tipo: completar
-respuestas_validas: ["Bering"]
+respuestas_validas:
+  - "Bering"
 
 enunciado: "La teoría más aceptada sugiere que el paso de los primeros humanos hacia América se realizó a través del estrecho de ___."
 
@@ -105,7 +107,8 @@ metadata:
 
 respuesta: "Asia"
 tipo: completar
-respuestas_validas: ["Asia"]
+respuestas_validas:
+  - "Asia"
 
 enunciado: "Se cree que los primeros grupos humanos llegaron al continente americano cruzando el puente terrestre de Beringia desde ________."
 
@@ -120,14 +123,11 @@ metadata:
   nivel: "basico"
   tags: ["geografia", "migracion"]
 
-variables:
-  escenario: uno_de([["puente terrestre", "Beringia"], ["paso marítimo", "Estrecho de Magallanes"], ["ruta costera", "Pacífico"]])
-
-respuesta: escenario[0
+respuesta: "puente terrestre"
 tipo: mc
 opciones_explicitas: ["puente terrestre", "paso marítimo", "ruta costera"]
 
-enunciado: "El corredor que permitió el paso de humanos y megafauna desde Asia hacia América se conoce como {escenario[1]}."
+enunciado: "El corredor que permitió el paso de humanos y megafauna desde Asia hacia América se conoce como Beringia. ¿Qué tipo de corredor era?"
 
 explicacion: |
   El puente de Beringia era una masa de tierra que conectaba los dos continentes durante los periodos de máximo glaciar.
@@ -161,7 +161,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "migracion"]
 
-respuesta: ["Asia", "Beringia", "América"]
+respuesta_orden: ["Asia", "Beringia", "América"]
 tipo: ordenar
 opciones_explicitas: ["Asia", "Beringia", "América"]
 
@@ -178,14 +178,11 @@ metadata:
   nivel: "avanzado"
   tags: ["clima", "fauna"]
 
-variables:
-  caso: uno_de([["glaciación", "descenso del nivel del mar"], ["desierto", "aumento de temperatura"], ["inundación", "descenso del nivel del mar"]])
-
-respuesta: caso[1
+respuesta: "descenso del nivel del mar"
 tipo: mc
 opciones_explicitas: ["descenso del nivel del mar", "aumento de temperatura", "cambio en la vegetación"]
 
-enunciado: "La formación del puente de Beringia fue posible gracias a la {caso[0]}, lo que provocó un {caso[1]}."
+enunciado: "La formación del puente de Beringia fue posible gracias a la glaciación, lo que provocó un ___."
 
 explicacion: |
   Durante las glaciaciones, el agua se acumulaba en los glaciares, haciendo que el nivel del mar bajara y expusiera el suelo marino.
@@ -200,7 +197,8 @@ metadata:
 
 respuesta: "América"
 tipo: completar
-respuestas_validas: ["América"]
+respuestas_validas:
+  - "América"
 
 enunciado: "Considerando la cronología del poblamiento humano global, ___ fue el último continente habitado por seres humanos (con excepción de la Antártida)."
 
@@ -236,7 +234,7 @@ metadata:
   nivel: "intermedio"
   tags: ["orden", "secuencia"]
 
-respuesta: ["África", "Asia", "Europa", "Oceanía", "América"]
+respuesta_orden: ["África", "Asia", "Europa", "Oceanía", "América"]
 tipo: ordenar
 opciones_explicitas: ["África", "Asia", "Europa", "Oceanía", "América"]
 
@@ -294,7 +292,8 @@ metadata:
 
 respuesta: "puntas de lanza"
 tipo: completar
-respuestas_validas: ["puntas de lanza", "hachas de piedra", "cerámica"]
+respuestas_validas:
+  - "puntas de lanza"
 
 enunciado: "La cultura Clovis se caracteriza por la fabricación de ___ de piedra con una hendidura característica en la base."
 
@@ -309,10 +308,7 @@ metadata:
   nivel: "intermedio"
   tags: ["teoria", "geografia", "bering"]
 
-variables:
-  escenario: uno_de([["Beringia", "puente terrestre"], ["Pacífico", "ruta marítima"], ["Atlántico", "ruta marítima"]])
-
-respuesta: escenario[0
+respuesta: "Beringia"
 tipo: mc
 opciones_explicitas: ["Beringia", "Pacífico", "Atlántico"]
 
@@ -346,7 +342,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "teorias", "migracion"]
 
-respuesta: ["Ruta de Bering", "Corredor libre de hielo", "Ruta costera"]
+respuesta_orden: ["Ruta de Bering", "Corredor libre de hielo", "Ruta costera"]
 tipo: ordenar
 opciones_explicitas: ["Ruta de Bering", "Corredor libre de hielo", "Ruta costera"]
 
@@ -380,11 +376,7 @@ metadata:
   nivel: "basico"
   tags: ["teorias", "migracion"]
 
-variables:
-  datos: [["Teoría de Beringia", "Teoría de la Ruta Costera"], ["Teoría de la Ruta Costera", "Teoría de Beringia"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "Teoría de la Ruta Costera"
 tipo: mc
 opciones_explicitas: ["Teoría de Beringia", "Teoría de la Ruta Costera"]
 
@@ -401,13 +393,9 @@ metadata:
   nivel: "intermedio"
   tags: ["cronologia", "continentes"]
 
-variables:
-  datos: [["Asia", "Oceanía", "Europa", "América"], ["Oceanía", "Asia", "Europa", "América"], ["América", "Europa", "Asia", "Oceanía"], ["Europa", "América", "Oceanía", "Asia"]]
-  idx: uno_de([0, 1, 2, 3])
-
-respuesta: datos[idx
 tipo: ordenar
 opciones_explicitas: ["Asia", "Oceanía", "Europa", "América"]
+respuesta_orden: ["Asia", "Oceanía", "Europa", "América"]
 
 enunciado: "Ordena los siguientes continentes desde el que fue poblado primero por el Homo sapiens hasta el último, basándote en las cronologías arqueológicas generales."
 
@@ -422,13 +410,10 @@ metadata:
   nivel: "basico"
   tags: ["geografia", "migracion"]
 
-variables:
-  datos: [["el estrecho de Bering", "el estrecho de Magallanes"], ["el estrecho de Magallanes", "el estrecho de Bering"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][0]
+respuesta: "el estrecho de Bering"
 tipo: completar
-respuestas_validas: ["el estrecho de Bering", "el estrecho de Magallanes"]
+respuestas_validas:
+  - "el estrecho de Bering"
 
 enunciado: "Para entrar al continente americano desde Asia durante la última glaciación, los grupos humanos debieron cruzar ___."
 
@@ -443,11 +428,7 @@ metadata:
   nivel: "intermedio"
   tags: ["teorias", "rutas"]
 
-variables:
-  datos: [["La ruta terrestre", "La ruta marítima"], ["La ruta marítima", "La ruta terrestre"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "La ruta marítima"
 tipo: mc
 opciones_explicitas: ["La ruta terrestre", "La ruta marítima"]
 
@@ -464,13 +445,9 @@ metadata:
   nivel: "avanzado"
   tags: ["secuencia", "poblamiento"]
 
-variables:
-  secuencia: [["África", "Asia", "Oceanía", "América"], ["América", "Oceanía", "Asia", "África"], ["Oceanía", "África", "América", "Asia"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: secuencia[idx
 tipo: ordenar
 opciones_explicitas: ["África", "Asia", "Oceanía", "América"]
+respuesta_orden: ["África", "Asia", "Oceanía", "América"]
 
 enunciado: "Establece el orden cronológico correcto de la expansión global del Homo sapiens, considerando el poblamiento de América como el evento más reciente de la lista."
 
@@ -478,102 +455,412 @@ explicacion: |
   La expansión comenzó en África, siguió por Asia y Oceanía, y finalmente llegó a América hace aproximadamente 15,000-20,000 años.
 ```
 
-## Sección: primera-guerra-mundial-y-revolucion-rusa (24 preguntas)
+## Sección: primera-guerra-mundial-y-revolucion-rusa (25 preguntas)
 
 ```
-### 2 — Tratado de Versalles
-```
-
-```
-### 3 — Revolución de Febrero (Rusia)
-```
-
-```
-### 4 — Bloqueo Naval
-```
-
-```
-### 5 — Tratado de Brest-Litovsk
-```
-
-```
-### 6 — Armisticio de 1918
-```
-
-```
-### 7 — Lenin y Octubre
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["casus-belli", "sarajevo"]
+enunciado: "El asesinato de {{ uno_de([personaje_1, personaje_2 ]) }} en Sarajevo el 28 de junio de 1914 fue el detonante directo que activó el sistema de alianzas y llevó al estallido de la Primera Guerra Mundial."
+variables:
+  personaje_1: "Archiduque Francisco Fernando"
+  personaje_2: "Francisco Fernando de Austria"
+tipo: completar
+respuesta: "Archiduque Francisco Fernando"
+respuestas_validas:
+  - "Archiduque Francisco Fernando"
+  - "Archiduque Francisco Fernando de Austria"
+  - "Francisco Fernando"
+  - "Archiduque Francisco Fernando"
 ```
 
 ```
-### 8 — Frente Oriental
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["paz", "versalles"]
+enunciado: "¿Cuál fue el tratado de paz principal que puso fin oficialmente a la Primera Guerra Mundial entre las Potencias Aliadas y Alemania?"
+opciones_explicitas:
+  - "Tratado de Trianón"
+  - "Tratado de Versalles"
+  - "Tratado de Saint-Germain"
+  - "Tratado de Neuilly"
+respuesta: "Tratado de Versalles"
 ```
 
 ```
-### 9 — Submarinos U-Boat
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["febrero", "abdicacion"]
+enunciado: "La Revolución de Febrero de 1917 en Rusia provocó la abdicación del último zar de la dinastía Romanov. ¿Quién fue este monarca?"
+opciones_explicitas:
+  - "Pedro I el Grande"
+  - "Alejandro II"
+  - "Nicolás II"
+  - "Alejandro III"
+respuesta: "Nicolás II"
 ```
 
 ```
-### 10 — Masacre de Armenia
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["mar", "bloqueo"]
+enunciado: "La estrategia naval británica consistió en un {{ uno_de([bloqueo_1, bloqueo_2 ]) }} de las costas alemanas para impedir la entrada de suministros y materias primas, debilitando gravemente la economía del Imperio Alemán."
+variables:
+  bloqueo_1: "bloqueo"
+  bloqueo_2: "cerco"
+tipo: completar
+respuesta: "bloqueo"
+respuestas_validas:
+  - "bloqueo"
+  - "cerco"
 ```
 
 ```
-### 11 — Batalla de Verdún
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["rusia", "paz", "bolchevique"]
+enunciado: "La nueva gobierno bolchevique firmó el {{ uno_de([tratado_1, tratado_2 ]) }} con las Potencias Centrales en marzo de 1918, saliendo oficialmente de la guerra a costa de enormes pérdidas territoriales."
+variables:
+  tratado_1: "Tratado de Brest-Litovsk"
+  tratado_2: "Paz de Brest-Litovsk"
+tipo: completar
+respuesta: "Tratado de Brest-Litovsk"
+respuestas_validas:
+  - "Tratado de Brest-Litovsk"
+  - "Paz de Brest-Litovsk"
 ```
 
 ```
-### 12 — Trotsky y el Ejército Rojo
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["armisticio", "compiene"]
+enunciado: "El armisticio que detuvo los combates en el frente occidental se firmó en un vagón de ferrocarril en el bosque de Compiègne. ¿En qué mes de 1918 ocurrió?"
+opciones_explicitas:
+  - "Noviembre"
+  - "Diciembre"
+  - "Octubre"
+  - "Septiembre"
+respuesta: "Noviembre"
 ```
 
 ```
-### 13 — Guerra de Trincheras
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["octubre", "lenin"]
+enunciado: "Fue el líder principal de la Revolución de Octubre de 1917 y el primer jefe de gobierno de la Rusia Soviética. ¿Quién fue?"
+opciones_explicitas:
+  - "León Trotsky"
+  - "Iósif Stalin"
+  - "Vladimir Lenin"
+  - "Grigori Zinóviev"
+respuesta: "Vladimir Lenin"
 ```
 
 ```
-### 14 — Revolución de Octubre (Fecha)
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["frente", "rusia"]
+enunciado: "A diferencia del frente occidental, caracterizado por la guerra de trincheras estática, el {{ uno_de([frente_1, frente_2 ]) }} fue más móvil y amplio, lo que facilitó la posterior ruptura del ejército ruso."
+variables:
+  frente_1: "frente oriental"
+  frente_2: "frente ruso"
+tipo: completar
+respuesta: "frente oriental"
+respuestas_validas:
+  - "frente oriental"
+  - "frente ruso"
 ```
 
 ```
-### 15 — Wilson y los Catorce Puntos
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["submarino", "guerra_no_limitada"]
+enunciado: "Alemania reanudó la guerra submarina sin restricciones en 1917, atacando barcos neutrales, lo que fue un factor clave para la entrada en la guerra de {{ uno_de([pais_1, pais_2 ]) }}."
+variables:
+  pais_1: "Estados Unidos"
+  pais_2: "USA"
+tipo: completar
+respuesta: "Estados Unidos"
+respuestas_validas:
+  - "Estados Unidos"
+  - "USA"
+  - "Estados Unidos de América"
 ```
 
 ```
-### 16 — Cañón Big Bertha
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["genocidio", "imperio_otomano"]
+enunciado: "Durante la Primera Guerra Mundial, el gobierno del Imperio Otomano llevó a cabo la deportación y masacre sistemática de su población {{ uno_de([grupo_1, grupo_2 ]) }}, considerada por muchos historiadores como el primer genocidio moderno."
+variables:
+  grupo_1: "armenia"
+  grupo_2: "armenios"
+tipo: completar
+respuesta: "armenia"
+respuestas_validas:
+  - "armenia"
+  - "armenios"
 ```
 
 ```
-### 17 — Tratado de Saint-Germain
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["verdun", "sangre"]
+enunciado: "La batalla de Verdún, librada entre alemanes y franceses en 1916, es conocida por su {{ uno_de([caract_1, caract_2 ]) }} extrema, con cientos de miles de muertos y heridos sin cambios significativos en el frente."
+variables:
+  caract_1: "carnicería"
+  caract_2: "sangría"
+tipo: completar
+respuesta: "carnicería"
+respuestas_validas:
+  - "carnicería"
+  - "sangría"
+  - "masacre"
 ```
 
 ```
-### 18 — Guerra Química
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["trotsky", "ejercito_rojo"]
+enunciado: "{{ uno_de([nombre_1, nombre_2 ]) }} fue el comisario de Guerra que organizó y dirigió el Ejército Rojo durante la guerra civil rusa posterior a la revolución."
+variables:
+  nombre_1: "León Trotsky"
+  nombre_2: "Leon Trotsky"
+tipo: completar
+respuesta: "León Trotsky"
+respuestas_validas:
+  - "León Trotsky"
+  - "Leon Trotsky"
+  - "Trotsky"
 ```
 
 ```
-### 19 — Kolchak y los Blancos
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["trincheras", "tactica"]
+enunciado: "La característica táctica definitoria del frente occidental fue la guerra de {{ uno_de([tipo_1, tipo_2 ]) }}, donde los soldados vivían en fosos excavados en la tierra protegidos por alambre de espino."
+variables:
+  tipo_1: "trincheras"
+  tipo_2: "trinchera"
+tipo: completar
+respuesta: "trincheras"
+respuestas_validas:
+  - "trincheras"
+  - "trinchera"
 ```
 
 ```
-### 20 — Armada de Alto Mar
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["octubre", "fecha"]
+enunciado: "La Revolución de Octubre en Rusia ocurrió según el calendario juliano en uso en Rusia en ese momento, pero corresponde al {{ uno_de([mes_1, mes_2 ]) }} de 1917 en el calendario gregoriano."
+variables:
+  mes_1: "noviembre"
+  mes_2: "Noviembre"
+tipo: completar
+respuesta: "noviembre"
+respuestas_validas:
+  - "noviembre"
+  - "Noviembre"
 ```
 
 ```
-### 21 — Constitución de Weimar
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["wilson", "paz"]
+enunciado: "El presidente de Estados Unidos {{ uno_de([nombre_1, nombre_2 ]) }} presentó los \"Catorce Puntos\" como un programa de paz y base para la posterior creación de la Sociedad de Naciones."
+variables:
+  nombre_1: "Woodrow Wilson"
+  nombre_2: "Woodrow"
+tipo: completar
+respuesta: "Woodrow Wilson"
+respuestas_validas:
+  - "Woodrow Wilson"
+  - "Woodrow"
 ```
 
 ```
-### 22 — Lev Trotski y la Internacional
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["artilleria", "armas"]
+enunciado: "Alemania utilizó artillería pesada de largo alcance, como los cañones {{ uno_de([modelo_1, modelo_2 ]) }}, para bombardear fortalezas belgas y francesas desde gran distancia."
+variables:
+  modelo_1: "Big Bertha"
+  modelo_2: "Big Bertha"
+tipo: completar
+respuesta: "Big Bertha"
+respuestas_validas:
+  - "Big Bertha"
 ```
 
 ```
-### 23 — Batalla del Mar de Jutlandia
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["austria", "desmembramiento"]
+enunciado: "El Tratado de Saint-Germain en 1919 disolvió el Imperio Austrohúngico y reconoció la independencia de {{ uno_de([pais_1, pais_2 ]) }}, entre otras nuevas naciones."
+variables:
+  pais_1: "Austria"
+  pais_2: "austria"
+tipo: completar
+respuesta: "Austria"
+respuestas_validas:
+  - "Austria"
 ```
 
 ```
-### 24 — Masacre de la Plaza del Palacio
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["gas", "ypr"]
+enunciado: "La primera gran utilización de gas venenoso en el campo de batalla por parte de Alemania ocurrió en la {{ uno_de([batalla_1, batalla_2 ]) }} de Ypres."
+variables:
+  batalla_1: "segunda batalla"
+  batalla_2: "Segunda batalla"
+tipo: completar
+respuesta: "segunda batalla"
+respuestas_validas:
+  - "segunda batalla"
+  - "Segunda batalla"
 ```
 
 ```
-### 25 — Tratado de Trianón
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["guerra_civil", "almirante"]
+enunciado: "Durante la guerra civil rusa, el almirante {{ uno_de([nombre_1, nombre_2 ]) }} lideró a las fuerzas blancas en Siberia contra los bolcheviques."
+variables:
+  nombre_1: "Kolchak"
+  nombre_2: "Alexander Kolchak"
+tipo: completar
+respuesta: "Kolchak"
+respuestas_validas:
+  - "Kolchak"
+  - "Alexander Kolchak"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["escaperoal", "naval"]
+enunciado: "La escuadra alemana del Alto Mar se autohundió en ___ en 1919 para evitar que la flota fuera repartida entre las potencias aliadas, un acto de desobediencia ordenado por sus propios oficiales."
+tipo: completar
+respuesta: "Scapa Flow"
+respuestas_validas:
+  - "Scapa Flow"
+  - "scapa flow"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["weimar", "república"]
+enunciado: "La República de Weimar, establecida tras la abdicación del káiser Guillermo II, fue la forma de gobierno de Alemania entre 1919 y 1933."
+respuesta: verdadero
+tipo: vf
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["internacional", "tercera"]
+enunciado: "Lenin y Trotsky impulsaron la creación de la {{ uno_de([int_1, int_2 ]) }}, también conocida como la Komintern, para promover la revolución mundial."
+variables:
+  int_1: "Tercera Internacional"
+  int_2: "Comintern"
+tipo: completar
+respuesta: "Tercera Internacional"
+respuestas_validas:
+  - "Tercera Internacional"
+  - "Comintern"
+  - "Komintern"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["jutlandia", "naval"]
+enunciado: "La única gran batalla naval entre las flotas británica y alemana durante la Primera Guerra Mundial ocurrió en el {{ uno_de([mar_1, mar_2 ]) }} del Norte."
+variables:
+  mar_1: "mar del Norte"
+  mar_2: "Mar del Norte"
+tipo: completar
+respuesta: "mar del Norte"
+respuestas_validas:
+  - "mar del Norte"
+  - "Mar del Norte"
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["domingo_sangriento", "1905"]
+enunciado: "El \"Domingo Sangriento\" de 1905, donde la guardia imperial disparó contra manifestantes pacíficos en San Petersburgo, fue un precursor clave de la revolución de 1917."
+respuesta: verdadero
+tipo: vf
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "primera-guerra-mundial-y-revolucion-rusa"
+  nivel: "avanzado"
+  tags: ["hungria", "desmembramiento"]
+enunciado: "El Tratado de Trianón en 1920 redujo drásticamente el territorio de {{ uno_de([pais_1, pais_2 ]) }}, creando el estado de Hungría moderna y cediendo territorios a Rumania, Checoslovaquia y Yugoslavia."
+variables:
+  pais_1: "Hungria"
+  pais_2: "Hungría"
+tipo: completar
+respuesta: "Hungria"
+respuestas_validas:
+  - "Hungria"
+  - "Hungría"
 ```
 
 ## Sección: procariotas (25 preguntas)
@@ -620,13 +907,10 @@ metadata:
   nivel: "intermedio"
   tags: ["clasificacion", "eucariotas"]
 
-variables:
-  datos: [["procariota", "sin núcleo"], ["eucariota", "con núcleo"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "procariota"
 tipo: completar
-respuestas_validas: ["sin núcleo", "con núcleo"]
+respuestas_validas:
+  - "procariota"
 
 enunciado: "Si observamos una célula que no posee un núcleo definido, estamos ante una célula de tipo ___."
 
@@ -643,7 +927,7 @@ metadata:
 
 opciones_explicitas: ["Procariotas", "Eucariotas", "Multicelulares"]
 
-respuesta: ["Procariotas", "Eucariotas", "Multicelulares"]
+respuesta_orden: ["Procariotas", "Eucariotas", "Multicelulares"]
 tipo: ordenar
 
 enunciado: "Ordena cronológicamente la aparición de las siguientes formas de vida, de la más antigua a la más reciente:"
@@ -679,6 +963,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Bacterias y Arqueas", "Bacterias y Eucariotas", "Arqueas y Eucariotas", "Procariotas y Eucariotas"]
+respuesta: "Bacterias y Arqueas"
 
 enunciado: "Aunque ambos son organismos procariotas, la vida se divide en tres dominios. Los dos dominios que agrupan a los procariotas son ___ y ___."
 
@@ -694,13 +979,12 @@ metadata:
   tags: ["membrana", "arqueas", "bacterias"]
 
 variables:
-  escenario: uno_de([
-    ["enlaces éter", "enlaces éster"],
-    ["enlaces éster", "enlaces éter"]
-  ])
+  escenario: uno_de([["enlaces éter", "enlaces éster"], ["enlaces éster", "enlaces éter"]])
 
 tipo: completar
-respuestas_validas: ["enlaces éter", "enlaces éster"]
+respuestas_validas:
+  - "enlaces éter"
+  - "enlaces éster"
 
 enunciado: "Una diferencia fundamental en la composición de la membrana plasmática es que las Arqueas poseen lípidos unidos por ___ , mientras que las Bacterias utilizan ___ ."
 
@@ -721,9 +1005,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Más similar a las Eucariotas", "Más similar a las Bacterias", "No tiene similitudes con ningún dominio"]
-
+respuesta: "Más similar a las Eucariotas"
 enunciado: "A pesar de su morfología procariota, el proceso de transcripción y replicación del ADN en las Arqueas es molecularmente ___ ."
-
 explicacion: |
   Aunque son procariotas, las Arqueas comparten maquinaria de replicación y transcripción mucho más cercana a la de las Eucariotas que a la de las Bacterias.
 ```
@@ -742,6 +1025,7 @@ enunciado: "Ordena los tres dominios de la vida de menor a mayor complejidad est
 
 explicacion: |
   El orden correcto es Bacteria y Archaea (ambos procariotas, sin núcleo) seguidos por Eukarya (eucariotas, con núcleo complejo).
+respuesta_orden: ["Dominio Bacteria", "Dominio Archaea", "Dominio Eukarya"]
 ```
 
 ```
@@ -752,17 +1036,16 @@ metadata:
   tags: ["arqueas", "extremofilos"]
 
 variables:
-  caso: uno_de([
-    ["un ambiente con pH extremo", "temperaturas de ebullición"],
-    ["temperaturas de ebullición", "un ambiente con pH extremo"]
-  ])
+  caso: uno_de([["un ambiente con pH extremo", "temperaturas de ebullición"], ["temperaturas de ebullición", "un ambiente con pH extremo"]])
 
 tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Si un organismo procariota es capaz de sobrevivir en {caso[0]}, es muy probable que pertenezca al dominio ___ ."
 
-respuestas_validas: ["Archaea", "Arqueas"]
+respuestas_validas:
+  - "Archaea"
+  - "Arqueas"
 
 explicacion: |
   Las Arqueas son famosas por ser extremófilas, capaces de habitar en condiciones de salinidad, temperatura o pH que serían letales para la mayoría de las Bacterias.
@@ -777,6 +1060,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Estructuras minerales formadas por la actividad de colonias de microorganismos", "Restos fósiles de animales marinos del periodo Cámbrico", "Células procariotas individuales preservadas en ámbar", "Depósitos de azufre volcánico de origen abiótico"]
+respuesta: "Estructuras minerales formadas por la actividad de colonias de microorganismos"
 
 enunciado: "Los estromatolitos se definen como ___."
 
@@ -791,14 +1075,11 @@ metadata:
   nivel: "intermedio"
   tags: ["evidencia", "fósiles", "precámbrico"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-
-respuesta: datos[escenario_idx][1
+respuesta: "Estructuras laminares de carbonato"
 tipo: mc
 opciones_explicitas: ["Estructuras laminares de carbonato", "Huellas de trilobites", "Fósiles de plantas vasculares", "Células con núcleo definido"]
 
-enunciado: "En el registro fósil, la presencia de {datos[escenario_idx][0]} es una de las principales evidencias de la existencia de vida procariota en la Tierra primitiva."
+enunciado: "En el registro fósil, ¿cuál es una de las principales evidencias de la existencia de vida procariota en la Tierra primitiva?"
 
 pasos:
   - "Identificar el tipo de estructura fósil mencionada."
@@ -806,9 +1087,6 @@ pasos:
 
 explicacion: |
   Las estructuras laminares de carbonato (estromatolitos) son la evidencia más antigua de actividad biológica, indicando la presencia de organismos fotosintéticos en el Precámbrico.
-
-variables:
-  datos: [["Estructuras laminares de carbonato", "Estructuras laminares de carbonato"], ["Microfósiles de algas", "Microfósiles de algas"]]
 ```
 
 ```
@@ -819,7 +1097,10 @@ metadata:
   tags: ["fotosíntesis", "oxígeno", "atmósfera"]
 
 tipo: completar
-respuestas_validas: ["oxígeno", "CO2", "nitrógeno"]
+respuestas_validas:
+  - "oxígeno"
+  - "CO2"
+  - "nitrógeno"
 
 enunciado: "La actividad fotosintética de las cianobacterias en los estromatolitos fue responsable de la acumulación de ___ en la atmósfera primitiva."
 
@@ -841,6 +1122,7 @@ enunciado: "Ordene cronológicamente los siguientes eventos en la historia de la
 
 explicacion: |
   La secuencia correcta comienza con la vida procariota simple, seguida de la formación de estromatolitos que permitieron la fotosíntesis masiva, lo que llevó a la Gran Oxidación, permitiendo finalmente la evolución de células más complejas.
+respuesta_orden: ["Aparición de vida procariota", "Formación de los primeros estromatolitos", "Gran Oxidación atmosférica", "Aparición de células eucariotas"]
 ```
 
 ```
@@ -870,7 +1152,9 @@ metadata:
 
 respuesta: "sin núcleo"
 tipo: completar
-respuestas_validas: ["sin núcleo", "sin nucleo"]
+respuestas_validas:
+  - "sin núcleo"
+  - "sin nucleo"
 
 enunciado: "La principal diferencia estructural es que una célula procariota se caracteriza por no poseer ___."
 
@@ -885,15 +1169,11 @@ metadata:
   nivel: "basico"
   tags: ["clasificacion", "eucariota", "procariota"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[0, "procariota", "bacteria"], [1, "eucariota", "animal"]]
-
-respuesta: escenario[idx][1
+respuesta: "eucariota"
 tipo: mc
 opciones_explicitas: ["procariota", "eucariota"]
 
-enunciado: "Si observamos una célula con un núcleo definido y organelos membranosos, estamos ante una célula de tipo {escenario[idx][2]}."
+enunciado: "Si observamos una célula con un núcleo definido y organelos membranosos, estamos ante una célula de tipo:"
 
 explicacion: |
   Las células eucariotas (como las animales o vegetales) poseen un núcleo que contiene el ADN, a diferencia de las procariotas.
@@ -923,7 +1203,7 @@ metadata:
   nivel: "intermedio"
   tags: ["evolucion", "orden", "estructuras"]
 
-respuesta: ["nucleoide", "citoplasma", "membrana"]
+respuesta_orden: ["nucleoide", "citoplasma", "membrana"]
 tipo: ordenar
 opciones_explicitas: ["nucleoide", "citoplasma", "membrana"]
 
@@ -941,14 +1221,13 @@ metadata:
   tags: ["diagnostico", "nucleo", "organelos"]
 
 variables:
-  idx: uno_de([0, 1])
-  caso: [[0, "tiene núcleo", "eucariota"], [1, "no tiene núcleo", "procariota"]]
+  caso: uno_de([["tiene núcleo", "eucariota"], ["no tiene núcleo", "procariota"]])
 
-respuesta: caso[idx][1
+respuesta: caso[1]
 tipo: mc
 opciones_explicitas: ["eucariota", "procariota"]
 
-enunciado: "Si al analizar una muestra celular se determina que la célula {caso[idx][0]}, su clasificación es:"
+enunciado: "Si al analizar una muestra celular se determina que la célula {caso[0]}, su clasificación es:"
 
 explicacion: |
   La presencia o ausencia de un núcleo definido es el criterio fundamental para distinguir entre procariotas y eucariotas.
@@ -962,7 +1241,7 @@ metadata:
   tags: ["procariotas", "eucariotas"]
 
 variables:
-  datos: [["Bacteria subtilis", "procariota"], ["Saccharomyces cerevisiae", "eucariota"], ["Escherichia coli", "procariota"]]
+  datos: [["Bacillus subtilis", "procariota"], ["Saccharomyces cerevisiae", "eucariota"], ["Escherichia coli", "procariota"]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "El organismo {datos[idx][0]} presenta una organización celular caracterizada por ser {datos[idx][1]}."
@@ -990,7 +1269,9 @@ enunciado: "Si observamos un organismo cuyo material genético es {datos[idx][0]
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["procariota", "eucariota"]
+respuestas_validas:
+  - "procariota"
+  - "eucariota"
 
 explicacion: |
   La presencia de un núcleo con ADN lineal es la característica distintiva de las células eucariotas.
@@ -1032,7 +1313,9 @@ enunciado: "Un organismo con un diámetro de {datos[idx][0]} suele ser un organi
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["procariota", "eucariota"]
+respuestas_validas:
+  - "procariota"
+  - "eucariota"
 
 explicacion: |
   Las células procariotas son generalmente mucho más pequeñas (1-5 µm) que las eucariotas (10-100 µm).
@@ -1045,13 +1328,9 @@ metadata:
   nivel: "avanzado"
   tags: ["evolucion", "linajes"]
 
-variables:
-  secuencia: [["Procariota", "Eucariota", "Multicelularidad"]]
-  idx: uno_de([0, 1, 2])
-
 enunciado: "Ordena los niveles de complejidad biológica desde el más simple al más complejo según la escala evolutiva:"
 
-respuesta: ["Procariota", "Eucariota", "Multicelularidad"]
+respuesta_orden: ["Procariota", "Eucariota", "Multicelularidad"]
 tipo: ordenar
 opciones_explicitas: ["Procariota", "Eucariota", "Multicelularidad"]
 
@@ -1070,7 +1349,8 @@ metadata:
 
 respuesta: "excedente"
 tipo: "completar"
-respuestas_validas: ["excedente"]
+respuestas_validas:
+  - "excedente"
 
 enunciado: "El paso de la vida nómada a la sedentaria permitió la acumulación de un ___ agrícola, lo cual fue el motor para el surgimiento de la propiedad privada sobre la tierra."
 
@@ -1085,14 +1365,11 @@ metadata:
   nivel: "intermedio"
   tags: ["revolucion_neolitica", "acumulacion"]
 
-variables:
-  escenario: uno_de([["comunidad_tribal", "propiedad colectiva"], ["asentamiento_fijo", "propiedad privada"]])
-
-respuesta: escenario[1
+respuesta: "propiedad privada"
 tipo: "mc"
 opciones_explicitas: ["propiedad colectiva", "propiedad privada"]
 
-enunciado: "En un sistema de asentamientos fijos con excedentes, la organización social tiende a transicionar de una {escenario[0]} hacia una {escenario[1]}."
+enunciado: "En un sistema de asentamientos fijos con excedentes, la organización social tiende a transicionar de una propiedad colectiva (típica de comunidades nómadas) hacia una ___."
 
 explicacion: |
   El control sobre el excedente y la tierra delimita territorios y derechos de uso, consolidando la propiedad privada frente al modelo de uso común de las tribus nómadas.
@@ -1107,7 +1384,8 @@ metadata:
 
 respuesta: "Estado"
 tipo: "completar"
-respuestas_validas: ["Estado"]
+respuestas_validas:
+  - "Estado"
 
 enunciado: "Para gestionar la propiedad de la tierra y asegurar la recaudación de tributos sobre el excedente, surge una estructura de poder centralizada denominada ___."
 
@@ -1122,7 +1400,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "desarrollo_social"]
 
-respuesta: ["Sedentarismo", "Excedente", "Propiedad Privada", "Estratificación"]
+respuesta_orden: ["Sedentarismo", "Excedente", "Propiedad Privada", "Estratificación"]
 tipo: "ordenar"
 opciones_explicitas: ["Sedentarismo", "Excedente", "Propiedad Privada", "Estratificación"]
 
@@ -1145,14 +1423,11 @@ metadata:
   nivel: "avanzado"
   tags: ["derecho", "propiedad"]
 
-variables:
-  caso: uno_de([["robo_tierra", "delito"], ["tributo_no_pagado", "delito"]])
-
 respuesta: "delito"
 tipo: "mc"
-opciones_explicitas: ["acto_social", "delito"]
+opciones_explicitas: ["acto social", "delito"]
 
-enunciado: "En una sociedad con propiedad privada consolidada, el acto de apropiarse de la tierra de otro sin permiso es considerado un {caso[0]} bajo el código del Estado."
+enunciado: "En una sociedad con propiedad privada consolidada, el acto de apropiarse de la tierra de otro sin permiso es considerado un ___ bajo el código del Estado."
 
 explicacion: |
   La creación de leyes penales es fundamental para proteger la propiedad privada, transformando la apropiación de bienes ajenos en un delito contra el orden establecido.
@@ -1167,7 +1442,8 @@ metadata:
 
 respuesta: "excedente"
 tipo: "completar"
-respuestas_validas: ["excedente"]
+respuestas_validas:
+  - "excedente"
 
 enunciado: "La transición de economías de subsistencia a sociedades complejas fue impulsada por la acumulación de ___ , lo que permitió que ciertos grupos controlaran recursos para sostener a otros."
 
@@ -1182,13 +1458,9 @@ metadata:
   nivel: "intermedio"
   tags: ["excedente", "poder", "clases_sociales"]
 
-variables:
-  escenario: uno_de([["el control de la tierra", "el control de la fuerza"], ["el control de la tierra", "el control de la religión"], ["el control de la tierra", "el control de la tecnología"]])
-  respuesta_correcta: ["el control de la tierra", "el control de la fuerza", "el control de la tierra", "el control de la religión", "el control de la tierra", "el control de la tecnología"]
-
 opciones_explicitas: ["el control de la tierra", "el control de la fuerza", "el control de la religión", "el control de la tecnología"]
 
-respuesta: escenario[1
+respuesta: "el control de la tierra"
 tipo: "mc"
 
 enunciado: "En las primeras sociedades con excedente agrícola, la jerarquía social se consolidó principalmente a través de ___."
@@ -1204,10 +1476,9 @@ metadata:
   nivel: "avanzado"
   tags: ["proceso", "estratificacion", "jerarquia"]
 
+tipo: ordenar
 opciones_explicitas: ["Producción de excedente", "Acumulación de propiedad", "Estratificación social", "Formación del Estado"]
-
-respuesta: ["Producción de excedente", "Acumulación de propiedad", "Estratificación social", "Formación del Estado"]
-tipo: "ordenar"
+respuesta_orden: ["Producción de excedente", "Acumulación de propiedad", "Estratificación social", "Formación del Estado"]
 
 enunciado: "Ordene cronológicamente los procesos que explican la aparición de las jerarquías estatales:"
 
@@ -1223,13 +1494,12 @@ metadata:
   tags: ["propiedad", "desigualdad"]
 
 variables:
-  caso: uno_de([["A", "B"], ["C", "D"]])
-  datos: [["Familia A posee tierras y herramientas", "Familia B posee solo su fuerza de trabajo"], ["Familia C posee excedentes almacenados", "Familia D posee tierras comunales"]]
-  respuestas: [["dominante", "subordinada"], ["dominante", "subordinada"]]
+  caso_idx: uno_de([0, 1])
+  datos: [["Familia A posee tierras y herramientas, mientras que Familia B posee sólo su fuerza de trabajo", "dominante"], ["Familia C posee excedentes almacenados, mientras que Familia D posee tierras comunales", "dominante"]]
 
-enunciado: "Considerando el caso de la {caso[0]}, la relación social resultante es de carácter ___."
+enunciado: "Considerando que {datos[caso_idx][0]}, la relación social resultante para la familia que posee más recursos es de carácter ___."
 
-respuesta: caso[1
+respuesta: datos[caso_idx][1]
 tipo: "mc"
 
 opciones_explicitas: ["dominante", "subordinada"]
@@ -1247,7 +1517,9 @@ metadata:
 
 respuesta: "protección"
 tipo: "completar"
-respuestas_validas: ["protección", "legitimación"]
+respuestas_validas:
+  - "protección"
+  - "legitimación"
 
 enunciado: "El Estado temprano surge para garantizar la ___ de la propiedad acumulada y la gestión del excedente mediante la institucionalización de la fuerza."
 
@@ -1264,7 +1536,8 @@ metadata:
 
 respuesta: "recaudar excedente"
 tipo: completar
-respuestas_validas: ["recaudar excedente"]
+respuestas_validas:
+  - "recaudar excedente"
 
 enunciado: "Uno de los propósitos fundamentales de la formación de las estructuras estatales fue la capacidad de ___ para financiar la administración y la burocracia."
 
@@ -1281,13 +1554,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1, 2])
-  escenarios: [
-    ["gestión de conflictos entre ciudadanos", "administrar justicia"],
-    ["protección de las fronteras ante invasores", "organizar defensa"],
-    ["construcción de canales y caminos", "obras públicas"]
-  ]
+  escenarios: [["gestión de conflictos entre ciudadanos", "administrar justicia"], ["protección de las fronteras ante invasores", "organizar defensa"], ["construcción de canales y caminos", "obras públicas"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["administrar justicia", "organizar defensa", "obras públicas", "todas las anteriores"]
 
@@ -1306,7 +1575,8 @@ metadata:
 
 respuesta: "complejas"
 tipo: completar
-respuestas_validas: ["complejas"]
+respuestas_validas:
+  - "complejas"
 
 enunciado: "El Estado surge como una respuesta institucional a la transición de sociedades tribales hacia sociedades más ___."
 
@@ -1321,7 +1591,7 @@ metadata:
   nivel: "avanzado"
   tags: ["jerarquia", "orden"]
 
-respuesta: ["imposición de normas", "recaudación de tributos", "mantenimiento del orden"]
+respuesta_orden: ["recaudación de tributos", "imposición de normas", "mantenimiento del orden"]
 tipo: ordenar
 opciones_explicitas: ["imposición de normas", "recaudación de tributos", "mantenimiento del orden"]
 
@@ -1357,7 +1627,8 @@ metadata:
 
 enunciado: "El paso fundamental que permitió la acumulación de riqueza y el fin del nomadismo fue la generación de un ___."
 
-respuestas_validas: ["excedente agrícola"]
+respuestas_validas:
+  - "excedente agrícola"
 tipo: completar
 
 explicacion: |
@@ -1371,13 +1642,7 @@ metadata:
   nivel: "intermedio"
   tags: ["propiedad_privada", "desigualdad"]
 
-variables:
-  escenario: uno_de([
-    ["La acumulación de excedentes permitió que la tierra y los bienes pasaran de ser de uso común a ser de uso individual.", "propiedad privada"],
-    ["La gestión de los graneros llevó a la creación de leyes para proteger el acaparamiento de recursos.", "propiedad privada"]
-  ])
-
-enunciado: "Según el proceso de transición histórica, la aparición de la {escenario[0]} es la consecuencia directa de la acumulación de excedentes."
+enunciado: "Según el proceso de transición histórica, la aparición de la propiedad privada es la consecuencia directa de la acumulación de excedentes, que permitió que la tierra y los bienes pasaran de ser de uso común a ser de uso individual."
 
 opciones_explicitas: ["propiedad común", "propiedad privada", "propiedad estatal"]
 respuesta: "propiedad privada"
@@ -1396,7 +1661,8 @@ metadata:
 
 enunciado: "Cuando la propiedad privada genera disparidades en la riqueza, surge una estructura de ___ para organizar a la población según su estatus y funciones."
 
-respuestas_validas: ["jerarquía social"]
+respuestas_validas:
+  - "jerarquía social"
 tipo: completar
 
 explicacion: |
@@ -1413,7 +1679,7 @@ metadata:
 enunciado: "Ordena la secuencia lógica de la transición hacia las sociedades complejas:"
 
 opciones_explicitas: ["Excedente agrícola", "Propiedad privada", "Jerarquía social", "Estado organizado"]
-respuesta: ["Excedente agrícola", "Propiedad privada", "Jerarquía social", "Estado organizado"]
+respuesta_orden: ["Excedente agrícola", "Propiedad privada", "Jerarquía social", "Estado organizado"]
 tipo: ordenar
 
 explicacion: |
@@ -1427,13 +1693,7 @@ metadata:
   nivel: "avanzado"
   tags: ["estado", "poder"]
 
-variables:
-  caso: uno_de([
-    ["El Estado surge para proteger la propiedad y administrar la fuerza.", "Estado organizado"],
-    ["El Estado aparece como un mecanismo de control de la jerarquía establecida.", "Estado organizado"]
-  ])
-
-enunciado: "En el proceso histórico estudiado, la fase final de la organización social compleja es la aparición del {caso[0]}."
+enunciado: "En el proceso histórico estudiado, la fase final de la organización social compleja es la aparición del Estado organizado, que surge para proteger la propiedad y administrar la fuerza."
 
 opciones_explicitas: ["comunidad tribal", "Estado organizado", "anarquía"]
 respuesta: "Estado organizado"
@@ -1456,7 +1716,7 @@ variables:
 
 enunciado: "En el proceso de transición hacia la sociedad de clases, {datos[escenario_idx][0]} fue el motor de {datos[escenario_idx][1]}."
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["la necesidad de un aparato estatal para protegerla", "la emergencia de la jerarquía de clases", "la desaparición de la división del trabajo", "el retorno al estado de naturaleza"]
 
@@ -1477,7 +1737,7 @@ variables:
 
 enunciado: "Históricamente, {datos[escenario_idx][0]} ha conducido directamente a {datos[escenario_idx][1]}."
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["la estratificación social", "la consolidación de la jerarquía", "la igualdad de derechos", "la disolución del poder central"]
 
@@ -1498,9 +1758,11 @@ variables:
 
 enunciado: "Según la teoría clásica, {datos[escenario_idx][0]} es la característica que define {datos[escenario_idx][1]}."
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["el control del territorio", "la soberanía territorial"]
+respuestas_validas:
+  - "el control del territorio"
+  - "la soberanía territorial"
 
 explicacion: |
   El Estado se define por su capacidad de ejercer autoridad sobre un territorio y una población mediante el uso de la fuerza institucionalizada.
@@ -1515,10 +1777,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["Comunidades igualitarias", "Propiedad privada", "Estado centralizado"],
-    ["Sociedades tribales", "Desigualdad de estatus", "Sistemas de castas"]
-  ]
+  datos: [["Comunidades igualitarias", "Propiedad privada", "Estado centralizado"], ["Sociedades tribales", "Desigualdad de estatus", "Sistemas de castas"]]
 
 enunciado: "Ordene la secuencia lógica de la evolución de la complejidad política y económica:"
 
@@ -1527,9 +1786,9 @@ pasos:
   - "Paso 2: Formación de jerarquías"
   - "Paso 3: Institucionalización del Estado"
 
-respuesta: ["Comunidades igualitarias", "Propiedad privada", "Estado centralizado"]
+respuesta_orden: ["Comunidades igualitarias", "Propiedad privada", "Estado centralizado"]
 tipo: ordenar
-opciones_explicitas: ["Comunidades igualitarias", "Propiedad privada", "Estado centralizado", "Sociedades tribales", "Desigualdad de estatus", "Sistemas de castas"]
+opciones_explicitas: ["Comunidades igualitarias", "Propiedad privada", "Estado centralizado"]
 
 explicacion: |
   La secuencia clásica sugiere que la propiedad genera excedentes, los excedentes generan jerarquías y las jerarquías requieren un Estado para su mantenimiento.
@@ -1544,16 +1803,14 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["La especialización del trabajo", "la división de funciones"],
-    ["La gestión de recursos excedentes", "la creación de burocracias"]
-  ]
+  datos: [["La especialización del trabajo", "la división de funciones"], ["La gestión de recursos excedentes", "la creación de burocracias"]]
 
 enunciado: "La aparición de la ___ fue una consecuencia directa de la gestión de recursos excedentes."
 
 respuesta: "la creación de burocracias"
 tipo: completar
-respuestas_validas: ["la creación de burocracias"]
+respuestas_validas:
+  - "la creación de burocracias"
 
 explicacion: |
   La necesidad de administrar el excedente y la propiedad requiere de un cuerpo administrativo (burocracia) que es la base del aparato estatal.
@@ -1603,17 +1860,15 @@ metadata:
   tags: ["guaraníes", "litoral", "agricultura"]
 
 variables:
-  escenario: uno_de([
-    ["Guaraníes", "agricultura de roza y quema", "selva/ríos"],
-    ["Mapuches", "pastoreo y agricultura", "zonas templadas"],
-    ["Selk'nam", "caza de focas", "Tierra del Fuego"]
-  ])
+  escenario: uno_de([["Guaraníes", "agricultura de roza y quema", "selva/ríos"], ["Mapuches", "caza y recolección con agricultura limitada", "zonas templadas"], ["Selk'nam", "caza terrestre de guanacos", "Tierra del Fuego"]])
 
 tipo: completar
-respuestas_validas: ["agricultura de roza y quema", "pastoreo y agricultura", "caza de focas"]
-respuesta: escenario[0][1
-
-enunciado: "Los pueblos {escenario[0][2]} se destacaban por su técnica de {escenario[0][1]}."
+respuestas_validas:
+  - "agricultura de roza y quema"
+  - "caza y recolección con agricultura limitada"
+  - "caza terrestre de guanacos"
+respuesta: escenario[1]
+enunciado: "Los pueblos {escenario[2]} se destacaban por su técnica de {escenario[1]}."
 
 explicacion: |
   Los guaraníes utilizaban la técnica de roza y quema para la agricultura en las zonas de selva y ríos del Litoral.
@@ -1628,7 +1883,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Diaguitas", "Guaraníes", "Mapuches", "Tehuelches"]
-respuesta: ["Diaguitas", "Guaraníes", "Mapuches", "Tehuelches"]
+respuesta_orden: ["Diaguitas", "Guaraníes", "Mapuches", "Tehuelches"]
 
 enunciado: "Ordene los siguientes pueblos de Norte a Sur (desde el Noroeste hacia la Patagonia):"
 
@@ -1647,11 +1902,7 @@ tipo: completar
 tolerancia_abs: 0
 
 variables:
-  datos: uno_de([
-    ["mapuches", "sur", "Pampa"],
-    ["diaguitas", "noroeste", "Noroeste"],
-    ["tehuelches", "patagonia", "Patagonia"]
-  ])
+  datos: uno_de([["mapuches", "sur", "Pampa"], ["diaguitas", "noroeste", "Noroeste"], ["tehuelches", "patagonia", "Patagonia"]])
 
 enunciado: "Los pueblos ______ habitaban principalmente en la zona ______ de Argentina."
 
@@ -1670,7 +1921,8 @@ metadata:
 
 respuesta: "sedentaria"
 tipo: completar
-respuestas_validas: ["sedentaria"]
+respuestas_validas:
+  - "sedentaria"
 
 enunciado: "A diferencia de los grupos nómadas, los pueblos como los diaguitas desarrollaron una organización social ___ basada en la agricultura y el control de terrazas de cultivo."
 
@@ -1723,7 +1975,7 @@ metadata:
   nivel: "avanzado"
   tags: ["organización", "social", "secuencia"]
 
-respuesta: ["Cazadores-recolectores", "Pastores seminómadas", "Sociedades agrícolas complejas"]
+respuesta_orden: ["Cazadores-recolectores", "Pastores seminómadas", "Sociedades agrícolas complejas"]
 tipo: ordenar
 opciones_explicitas: ["Cazadores-recolectores", "Pastores seminómadas", "Sociedades agrícolas complejas"]
 
@@ -1762,7 +2014,8 @@ metadata:
 
 respuesta: "Collasuyo"
 tipo: completar
-respuestas_validas: ["Collasuyo"]
+respuestas_validas:
+  - "Collasuyo"
 
 enunciado: "La región del noroeste argentino, que incluía partes de las actuales Salta y Jujuy, formaba parte de la división territorial del Imperio Inca conocida como ___."
 
@@ -1780,7 +2033,7 @@ metadata:
 variables:
   escenario: uno_de([["control_administrativo", "el control de los recursos mediante el sistema de mitas"], ["control_mita", "el control de los recursos mediante el sistema de mitas"]])
 
-respuesta: escenario[0
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["el control de los recursos mediante el sistema de mitas", "la construcción de grandes pirámides de piedra", "la navegación de los ríos de montaña", "el uso exclusivo del idioma quechua en todos los pueblos"]
 
@@ -1799,7 +2052,8 @@ metadata:
 
 respuesta: "Qhapaq Ñan"
 tipo: completar
-respuestas_validas: ["Qhapaq Ñan"]
+respuestas_validas:
+  - "Qhapaq Ñan"
 
 enunciado: "La red de caminos que conectaba los centros administrativos del imperio, permitiendo el tránsito de ejércitos y mensajeros por el noroeste argentino, se denominaba ___."
 
@@ -1831,7 +2085,7 @@ metadata:
   nivel: "avanzado"
   tags: ["expansion", "etapas", "incas"]
 
-respuesta: ["Diplomacia/Alianzas", "Conquista militar", "Asentamiento administrativo"]
+respuesta_orden: ["Diplomacia/Alianzas", "Conquista militar", "Asentamiento administrativo"]
 tipo: ordenar
 opciones_explicitas: ["Diplomacia/Alianzas", "Conquista militar", "Asentamiento administrativo"]
 
@@ -1872,7 +2126,8 @@ metadata:
   tags: ["guaraníes", "litoral"]
 
 tipo: completar
-respuestas_validas: ["Litoral/Noreste"]
+respuestas_validas:
+  - "Litoral/Noreste"
 
 enunciado: "Los pueblos Guaraníes se desarrollaron predominantemente en la región del ___."
 
@@ -1934,7 +2189,7 @@ opciones_explicitas: ["Sur/Cordillera", "Litoral/Noreste", "Noroeste", "Patagoni
 
 enunciado: "De acuerdo a la información histórica, el pueblo {datos[idx][0]} se asocia con la región de: ___"
 
-respuesta: {datos[idx][1]}
+respuesta: datos[idx][1]
 
 explicacion: |
   La respuesta correcta corresponde a la región geográfica donde se asentó el pueblo seleccionado.
@@ -1951,7 +2206,7 @@ variables:
   escenario: [[ "Los Selk'nam habitaban la región de la Tierra del Fuego", "Tierra del Fuego" ], [ "Los Guaraníes se asentaban principalmente en el noreste", "Noreste" ], [ "Los Mapuches ocupaban gran parte de la zona andina y central", "Zona Andina" ]]
   idx: uno_de([0, 1, 2])
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: mc
 opciones_explicitas: ["Tierra del Fuego", "Noreste", "Zona Andina", "Pampa"]
 
@@ -1969,17 +2224,17 @@ metadata:
   tags: ["estilos_de_vida", "antropologia"]
 
 variables:
-  caso: [[ "Los Tehuelches eran principalmente...", "nómadas" ], [ "Los Diaguitas eran principalmente...", "sedentarios" ]]
   idx: uno_de([0, 1])
+  pueblos: ["Tehuelches", "Diaguitas"]
+  modos: ["nómadas", "sedentarios"]
 
-respuesta: caso[idx][1
 tipo: completar
-respuestas_validas: ["nómadas", "sedentarios"]
+respuesta: modos[idx]
 
-enunciado: "Considerando el modo de vida de los {if(idx == 0, "Tehuelches", "Diaguitas")}, su organización social era de tipo ___."
+enunciado: "Considerando el modo de vida de los {pueblos[idx]}, su organización social era de tipo ___."
 
 explicacion: |
-  Los {if(idx == 0, "Tehuelches", "Diaguitas")} se definían por ser {caso[idx][1]}.
+  Los {pueblos[idx]} se definían por ser {modos[idx]}.
 ```
 
 ```
@@ -2006,7 +2261,7 @@ metadata:
   nivel: "avanzado"
   tags: ["cronologia", "territorio"]
 
-respuesta: ["Selk'nam", "Tehuelches", "Guaraníes"]
+respuesta_orden: ["Selk'nam", "Tehuelches", "Guaraníes"]
 tipo: ordenar
 opciones_explicitas: ["Selk'nam", "Tehuelches", "Guaraníes"]
 
@@ -2027,7 +2282,7 @@ variables:
   pueblo_datos: [[ "Qom", "Chaco" ], [ "Mapuche", "Patagonia/Andes" ], [ "Selk'nam", "Tierra del Fuego" ]]
   idx: uno_de([0, 1, 2])
 
-respuesta: pueblo_datos[idx][1
+respuesta: pueblo_datos[idx][1]
 tipo: completar
 tolerancia_abs: 0
 
@@ -2036,3 +2291,4 @@ enunciado: "Escribí el nombre de la región donde habita el pueblo {pueblo_dato
 explicacion: |
   El pueblo {pueblo_datos[idx][0]} se asocia con la región de {pueblo_datos[idx][1]}.
 ```
+

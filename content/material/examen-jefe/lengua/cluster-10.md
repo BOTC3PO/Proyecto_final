@@ -1,2344 +1,618 @@
-# Examen jefe — Domina el Realismo y Romantismo
+# Examen jefe — [PENDIENTE #660]
 
-> Logro #93. Completaste el parcial analizando recursos literarios, anáfora, catafora y signos de puntuación con maestría. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **120 preguntas totales** en 5/5 secciones.
+> Logro #660. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: realismo (20 preguntas)
+## Sección: sintagmas-nominal-adjetivo-preposicional-adverbial-verbal (21 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "realismo"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
   nivel: "basico"
-  tags: ["realismo", "contexto_historico"]
+  tags: ["verdad_falsa"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Realismo surge a mediados del siglo XIX."
-
-pasos:
-  - "Es posterior al Romanticismo, que dominó buena parte de la primera mitad del siglo."
-
-explicacion: |
-  Verdadero: el Realismo es el movimiento literario del s. XIX que
-  sigue cronológicamente al Romanticismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "intermedio"
-  tags: ["realismo", "romanticismo", "contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Realismo surge en gran parte como reacción a los excesos emocionales del Romanticismo, buscando objetividad en vez de subjetividad exaltada."
-
-pasos:
-  - "Ver `../romanticismo/`: la relación de oposición explica por qué el Realismo elige la objetividad como valor central."
-
-explicacion: |
-  Verdadero: es la relación histórica clave entre ambos movimientos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "basico"
-  tags: ["realismo", "caracteristicas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una característica central del Realismo es la objetividad: el autor busca observar y describir la realidad sin la exaltación emocional romántica."
-
-pasos:
-  - "Es la marca que más claramente distingue al Realismo del Romanticismo."
-
-explicacion: |
-  Verdadero: la objetividad es la característica definitoria del
-  Realismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "intermedio"
-  tags: ["realismo", "verosimilitud"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "verosimilitud"
-tipo: completar
-
-enunciado: "La cualidad de que personajes, situaciones y diálogos se parezcan a la vida real, sin idealizar, se llama..."
-
-pasos:
-  - "Es lo opuesto a la idealización romántica de personajes y escenarios."
-
-explicacion: |
-  La verosimilitud es central en el Realismo: los textos buscan
-  parecerse a la vida real.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "intermedio"
-  tags: ["realismo", "critica_social"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Realismo suele retratar problemas sociales concretos (pobreza, desigualdad, hipocresía de ciertas clases), muchas veces con intención de denuncia."
-
-pasos:
-  - "La observación objetiva de la realidad social se presta a la crítica implícita o explícita."
-
-explicacion: |
-  Verdadero: la crítica social es una función habitual de la
-  literatura realista.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "intermedio"
-  tags: ["realismo", "personajes"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Realismo suele retratar personajes comunes de clases medias o populares, en vez de héroes idealizados como los del Romanticismo."
-
-pasos:
-  - "Coherente con la búsqueda de verosimilitud: la mayoría de las personas no son héroes idealizados."
-
-explicacion: |
-  Verdadero: personajes cercanos a la realidad cotidiana son típicos
-  del Realismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "intermedio"
-  tags: ["realismo", "ambientacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Realismo suele situar sus historias en el presente del autor, a diferencia del Romanticismo, que a veces recurría a escenarios exóticos o pasados legendarios."
-
-pasos:
-  - "La observación objetiva de la realidad se aplica más naturalmente al contexto contemporáneo del autor."
-
-explicacion: |
-  Verdadero: la ambientación contemporánea refuerza la búsqueda de
-  verosimilitud.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "avanzado"
-  tags: ["naturalismo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Naturalismo lleva el Realismo un paso más allá, mostrando con una mirada casi \"científica\" cómo el ambiente y la herencia determinan el destino de los personajes."
-
-pasos:
-  - "Es una variante posterior del Realismo, con tono muchas veces más crudo o pesimista."
-
-explicacion: |
-  Verdadero: el Naturalismo profundiza el enfoque objetivo/científico
-  del Realismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "intermedio"
-  tags: ["realismo", "estilo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Realismo privilegia la descripción minuciosa de ambientes y personajes, por sobre los recursos emocionales exaltados que usaba el Romanticismo."
-
-pasos:
-  - "El detalle abundante apoya la verosimilitud buscada por el movimiento."
-
-explicacion: |
-  Verdadero: la descripción detallada es un recurso estilístico
-  central del Realismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "avanzado"
-  tags: ["realismo", "recursos_literarios"]
-
-variables:
-  n: uno_de([1, 1])
+  sustantivo: uno_de(["gato"])
+  adjetivo: uno_de(["negro"])
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El Realismo elimina por completo el uso de recursos literarios como la metáfora o la comparación."
-
-pasos:
-  - "No los elimina, los usa con mesura, al servicio de la verosimilitud, en vez de la exaltación emocional del Romanticismo."
+enunciado: "En el sintagma nominal 'el gato negro', la palabra 'negro' es el núcleo del sintagma."
 
 explicacion: |
-  Falso: el Realismo sigue usando recursos literarios, pero con
-  moderación y propósito distinto al del Romanticismo.
+  Falso. El núcleo del sintagma nominal es el sustantivo ('gato'). 'Negro' es un adjetivo que lo modifica.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "realismo"
-  nivel: "intermedio"
-  tags: ["realismo", "autores"]
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "basico"
+  tags: ["verdad_falsa"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: "Pérez Galdós"
-tipo: completar
-
-enunciado: "El autor español de \"Fortunata y Jacinta\", uno de los referentes del Realismo en español, se apellida..."
-
-pasos:
-  - "Benito Pérez Galdós es autor representativo del Realismo español."
-
-explicacion: |
-  Pérez Galdós es uno de los novelistas realistas más importantes en
-  español.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "avanzado"
-  tags: ["realismo", "autores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Madame Bovary"
-tipo: completar
-
-enunciado: "La novela de Gustave Flaubert, referencia central del Realismo europeo, se titula..."
-
-pasos:
-  - "Flaubert es un autor francés central para entender el Realismo europeo en general."
-
-explicacion: |
-  \"Madame Bovary\" es una de las obras fundacionales del Realismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "avanzado"
-  tags: ["naturalismo", "autores"]
-
-variables:
-  n: uno_de([1, 1])
+  adverbio1: uno_de(["casi"])
+  adverbio2: uno_de(["nunca"])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Emilia Pardo Bazán fue una impulsora importante del Naturalismo en español."
-
-pasos:
-  - "Es una autora de referencia para entender la llegada del Naturalismo a la literatura en español."
+enunciado: "En el sintagma adverbial 'casi nunca', la palabra 'nunca' es el núcleo."
 
 explicacion: |
-  Verdadero: Pardo Bazán es una autora clave del Naturalismo español.
+  Verdadero. El núcleo es el adverbio principal, mientras que el otro actúa como modificador de grado.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "realismo"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "basico"
+  tags: ["verdad_falsa"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un sintagma es un conjunto de palabras que funcionan como una unidad girando en torno a un núcleo."
+
+explicacion: |
+  Verdadero. Esta es la definición fundamental de un sintagma en gramática.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
   nivel: "intermedio"
-  tags: ["realismo", "romanticismo", "diferenciacion"]
+  tags: ["verdad_falsa"]
 
 variables:
-  rasgos: ["objetividad", "subjetividad exaltada"]
-  movimientos: ["Realismo", "Romanticismo"]
+  preposicion: uno_de(["sobre"])
+  sustantivo: uno_de(["la mesa"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En el sintagma preposicional 'sobre la mesa', la preposición 'sobre' es el núcleo del sintagma."
+
+explicacion: |
+  Falso. La preposición introduce el término, pero el núcleo del sintagma preposicional completo suele considerarse el sustantivo del término que sigue, o se analiza la relación. En el contexto de clasificación por núcleo, la preposición no es el núcleo nominal/adjetival/adverbial.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "basico"
+  tags: ["sintagma_adjetival", "clasificacion"]
+
+variables:
+  adverbio: uno_de(["muy", "extremadamente", "tan", "bastante"])
+  adjetivo: uno_de(["feliz", "triste", "rápido", "lento"])
+
+respuesta: "sintagma_adjetival"
+tipo: input
+
+enunciado: "Clasifica el siguiente sintagma: '{adverbio} {adjetivo}'. ¿Qué tipo de sintagma es?"
+
+explicacion: |
+  Cuando el núcleo es un adjetivo (modificado por un adverbio), se trata de un sintagma adjetival.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "basico"
+  tags: ["sintagma_adverbial", "definicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sintagma adverbial tiene como núcleo un adverbio y modifica al verbo, al adjetivo u otro adverbio."
+
+explicacion: |
+  Correcto. El núcleo es un adverbio (ej. 'ayer', 'aquí', 'muy') y su función es precisar circunstancias.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "basico"
+  tags: ["sintagma_verbal", "nucleo"]
+
+variables:
+  auxiliar: uno_de(["ha", "ha estado", "está"])
+  participio: uno_de(["comido", "dormido", "corrido", "leído"])
+
+respuesta: "verbo"
+tipo: completar
+
+enunciado: "En el sintagma '{auxiliar} {participio}', la palabra núcleo es un ___."
+respuestas_validas:
+  - "verbo"
+  - "nucleo"
+
+explicacion: |
+  El sintagma verbal tiene como núcleo un verbo conjugado (o forma verbal) que expresa la acción o estado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "intermedio"
+  tags: ["sintagma_adjetival", "sintagma_adverbial", "diferenciacion"]
+
+variables:
+  adverbio: uno_de(["muy", "extremadamente", "tan"])
+  adjetivo: uno_de(["feliz", "triste", "contento", "enojado"])
+
+respuesta: "sintagma_adjetival"
+tipo: input
+
+enunciado: "Clasifica el sintagma: '{adverbio} {adjetivo}'."
+
+explicacion: |
+  Aunque contiene un adverbio, el núcleo es el adjetivo '{adjetivo}', por lo que es un sintagma adjetival.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "intermedio"
+  tags: ["sintagma_preposicional", "estructura"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un sintagma preposicional, la preposición es siempre el núcleo gramatical."
+
+explicacion: |
+  Falso. La preposición es el nexo o cabeza funcional, pero el término que la sigue (sustantivo, pronombre, etc.) es el núcleo semántico del sintagma.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "basico"
+  tags: ["sintagma_preposicional", "estructura"]
+
+variables:
+  preposicion: uno_de(["de", "en", "con", "por"])
+  sustantivo: uno_de(["la casa", "el libro", "su amigo", "mi madre"])
+
+respuesta: "preposicion"
+tipo: completar
+
+enunciado: "El sintagma '{preposicion} {sustantivo}' comienza con una ___."
+respuestas_validas:
+  - "preposicion"
+  - "preposición"
+
+explicacion: |
+  Todo sintagma preposicional está encabezado obligatoriamente por una preposición.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "basico"
+  tags: ["sintagma_adverbial", "clasificacion"]
+
+variables:
+  adverbio: uno_de(["ayer", "hoy", "mañana", "nunca"])
+
+respuesta: "sintagma_adverbial"
+tipo: input
+
+enunciado: "Clasifica el sintagma: '{adverbio}'."
+
+explicacion: |
+  Es un sintagma adverbial porque su único elemento (y por tanto su núcleo) es un adverbio.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "intermedio"
+  tags: ["sintagma_verbal", "nucleo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El núcleo del sintagma verbal es un verbo conjugado."
+
+explicacion: |
+  Correcto. El verbo es el corazón del sintagma verbal y determina la estructura de la oración.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "basico"
+  tags: ["sintagma_nominal", "categoria_gramatical"]
+
+respuesta: "sustantivo"
+tipo: completar
+
+enunciado: "El núcleo del sintagma nominal es un ___ o un pronombre."
+respuestas_validas:
+  - "sustantivo"
+  - "sustantio"
+
+explicacion: |
+  El sintagma nominal se define por tener como núcleo un sustantivo o un pronombre.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "intermedio"
+  tags: ["sintagma_nominal", "sintagma_adverbial", "diferenciacion"]
+
+variables:
+  determinante: uno_de(["el", "la", "los", "las"])
+  sustantivo: uno_de(["perro", "gato", "casa", "árbol"])
+  adverbio: uno_de(["ayer", "hoy", "mañana", "nunca"])
+
+respuesta: "sintagma_nominal"
+tipo: input
+
+enunciado: "Clasifica el sintagma: '{determinante} {sustantivo}'."
+
+explicacion: |
+  Es un sintagma nominal porque su núcleo es un sustantivo.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "basico"
+  tags: ["sintagma_verbal", "definicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El sintagma verbal expresa una acción o un estado y su núcleo es un verbo."
+
+explicacion: |
+  Correcto. Es el corazón de la oración.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "basico"
+  tags: ["sintagma_adjetival", "nucleo"]
+
+respuesta: "adjetivo"
+tipo: completar
+
+enunciado: "El núcleo del sintagma adjetival es un ___."
+respuestas_validas:
+  - "adjetivo"
+  - "adjetivo"
+
+explicacion: |
+  El sintagma adjetival gira en torno a un adjetivo.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "basico"
+  tags: ["sintagma_preposicional", "clasificacion"]
+
+variables:
+  preposicion: uno_de(["en", "sobre", "bajo", "con"])
+  sustantivo: uno_de(["la mesa", "el suelo", "su cabeza", "su mente"])
+
+respuesta: "sintagma_preposicional"
+tipo: input
+
+enunciado: "Clasifica el sintagma: '{preposicion} {sustantivo}'."
+
+explicacion: |
+  Es un sintagma preposicional porque está encabezado por una preposición.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "intermedio"
+  tags: ["sintagma_adjetival", "nucleo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El núcleo del sintagma adjetival es un adjetivo."
+
+explicacion: |
+  Correcto. El adjetivo es la palabra más importante del grupo.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "basico"
+  tags: ["sintagma_adverbial", "estructura"]
+
+respuesta: "adverbio"
+tipo: completar
+
+enunciado: "El núcleo del sintagma adverbial es un ___."
+respuestas_validas:
+  - "adverbio"
+  - "adverbio"
+
+explicacion: |
+  El sintagma adverbial tiene como núcleo un adverbio.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "intermedio"
+  tags: ["sintagma_verbal", "nucleo"]
+
+variables:
+  auxiliar: uno_de(["ha", "está", "va"])
+  participio: uno_de(["comido", "durmiendo", "yendo", "saliendo"])
+
+respuesta: auxiliar + " " + participio
+tipo: input
+
+enunciado: "En el sintagma '{auxiliar} {participio}', ¿cuál es el núcleo (escribe el verbo completo)?"
+
+explicacion: |
+  El núcleo es la forma verbal completa '{auxiliar} {participio}'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "sintagmas_nominal_adjetivo_preposicional_adverbial_verbal"
+  nivel: "intermedio"
+  tags: ["sintagma_adverbial", "sintagma_preposicional", "diferenciacion"]
+
+variables:
+  adverbio: uno_de(["ayer", "hoy", "mañana", "nunca"])
+  preposicion: uno_de(["en", "sobre", "bajo", "con"])
+  sustantivo: uno_de(["la casa", "el libro", "su amigo", "mi madre"])
+
+respuesta: "sintagma_adverbial"
+tipo: input
+
+enunciado: "Clasifica el sintagma: '{adverbio}'."
+
+explicacion: |
+  Es un sintagma adverbial porque su núcleo es un adverbio.
+```
+
+## Sección: oracion-compuesta-coordinacion-y-subordinacion (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oracion_compuesta"
+  nivel: "basico"
+  tags: ["oracion_compuesta", "reconocimiento"]
+
+variables:
+  frases: ["Juan estudió", "Juan estudió y aprobó el examen", "María durmió", "Juan dijo que vendría"]
+  tipos: ["simple", "compuesta", "simple", "compuesta"]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["simple", "compuesta"]
+
+enunciado: "\"{frases[idx]}\" es una oración..."
+
+pasos:
+  - "Contar los verbos conjugados: uno solo = simple, dos o más = compuesta."
+
+explicacion: |
+  Una oración compuesta combina dos o más proposiciones (cada una con
+  su propio verbo conjugado).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oracion_compuesta"
+  nivel: "basico"
+  tags: ["coordinacion", "copulativa"]
+
+variables:
+  frases: ["Juan estudió y aprobó", "María cantó y bailó", "Ni estudió ni aprobó"]
+  nexos: ["y", "y", "ni...ni"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: nexos[idx]
+tipo: completar
+
+enunciado: "En \"{frases[idx]}\", ¿cuál es el nexo coordinante copulativo?"
+
+pasos:
+  - "Los nexos copulativos suman ideas: y, ni."
+
+explicacion: |
+  La coordinación copulativa suma dos proposiciones con "y" (o "ni"
+  para sumar en negativo).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oracion_compuesta"
+  nivel: "basico"
+  tags: ["coordinacion", "disyuntiva"]
+
+variables:
+  frases: ["Estudiás o repetís", "Vas al cine o te quedás en casa"]
   idx: uno_de([0, 1])
 
-respuesta: movimientos[idx]
-tipo: mc
-opciones_explicitas: ["Realismo", "Romanticismo"]
-
-enunciado: "El rasgo \"{rasgos[idx]}\" corresponde principalmente al movimiento..."
-
-pasos:
-  - "Objetividad = Realismo. Subjetividad exaltada = Romanticismo. Son rasgos opuestos entre sí."
-
-explicacion: |
-  Cada rasgo corresponde al movimiento que lo define de forma
-  característica, en oposición directa al otro.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "intermedio"
-  tags: ["realismo", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una novela que describe con mucho detalle la vida cotidiana de una familia de clase media, sin exagerar emociones y con intención de mostrar problemas sociales reales, es un ejemplo típico de literatura realista."
-
-pasos:
-  - "Combina descripción detallada, personajes comunes, objetividad y crítica social: marcas centrales del Realismo."
-
-explicacion: |
-  Verdadero: reúne varias de las características centrales del
-  Realismo estudiadas en este tema.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "avanzado"
-  tags: ["realismo", "narrador"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la novela realista, el narrador tiende a ser omnisciente pero \"neutral\" en su juicio, describiendo sin exaltación emocional."
-
-pasos:
-  - "Coherente con la búsqueda de objetividad, aunque acceda a todo (ver `../narrador/`)."
-
-explicacion: |
-  Verdadero: la neutralidad del juicio narrativo es parte del ideal
-  de objetividad realista.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "avanzado"
-  tags: ["naturalismo", "realismo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Naturalismo, en general, tiene un tono más crudo o pesimista que el Realismo del que surge, al mostrar cómo el ambiente y la herencia determinan el destino de los personajes."
-
-pasos:
-  - "Esa mirada casi determinista es lo que distingue al Naturalismo dentro del Realismo."
-
-explicacion: |
-  Verdadero: es la diferencia de matiz entre Realismo y su variante
-  Naturalista.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "intermedio"
-  tags: ["realismo", "metodo"]
-
-enunciado: "Ordená los pasos para reconocer si un texto pertenece al Realismo."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si predomina la objetividad sobre la exaltación emocional"
-  - "Buscar descripciones minuciosas de ambientes y personajes"
-  - "Identificar si los personajes son comunes, no héroes idealizados"
-  - "Confirmar si hay intención de crítica social"
-respuesta_orden:
-  - "Revisar si predomina la objetividad sobre la exaltación emocional"
-  - "Buscar descripciones minuciosas de ambientes y personajes"
-  - "Identificar si los personajes son comunes, no héroes idealizados"
-  - "Confirmar si hay intención de crítica social"
-
-explicacion: |
-  El análisis va de la característica más general (objetividad) a
-  las marcas más específicas (descripción, personajes, crítica).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "avanzado"
-  tags: ["realismo", "modernismo", "prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Modernismo, movimiento que sigue al Realismo, retoma parte de la búsqueda estética que el Realismo había dejado de lado por priorizar la objetividad social."
-
-pasos:
-  - "Ver `../modernismo/`: sin entender qué dejó de lado el Realismo, no se entiende bien qué retoma el Modernismo."
-
-explicacion: |
-  Verdadero: esta relación es el prerrequisito directo para el
-  siguiente movimiento de la cadena.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "realismo"
-  nivel: "avanzado"
-  tags: ["realismo", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el objetivo de un autor es denunciar una injusticia social concreta con credibilidad, conviene un estilo realista (objetivo, detallado) antes que uno romántico (subjetivo, exaltado)."
-
-pasos:
-  - "La verosimilitud y la observación objetiva del Realismo son más efectivas para una denuncia creíble que la exaltación emocional romántica."
-
-explicacion: |
-  Verdadero: la elección de estilo/movimiento depende del propósito
-  que el autor busca lograr en el lector.
-```
-
-## Sección: recursos-literarios (40 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["metafora"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "metáfora"
-tipo: mc
-opciones_explicitas: ["metáfora", "símil", "hipérbole"]
-
-enunciado: "\"Sus ojos son dos luceros\" es un ejemplo de..."
-
-pasos:
-  - "Identifica dos elementos sin usar nexo comparativo (\"como\"): ojos = luceros directamente."
-
-explicacion: |
-  La metáfora identifica dos elementos sin nexo comparativo explícito.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["simil"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "símil"
-tipo: mc
-opciones_explicitas: ["metáfora", "símil", "hipérbole"]
-
-enunciado: "\"Sus ojos brillan como luceros\" es un ejemplo de..."
-
-pasos:
-  - "Usa el nexo comparativo \"como\": es una comparación explícita."
-
-explicacion: |
-  El símil compara dos elementos usando un nexo comparativo explícito
-  (\"como\", \"cual\", \"parece\").
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["personificacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "personificación"
-tipo: mc
-opciones_explicitas: ["personificación", "metáfora", "símbolo"]
-
-enunciado: "\"El viento susurraba entre los árboles\" es un ejemplo de..."
-
-pasos:
-  - "Atribuye una acción humana (susurrar) a algo que no lo es (el viento)."
-
-explicacion: |
-  La personificación da cualidades o acciones humanas a elementos no
-  humanos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["hiperbole"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "hipérbole"
-tipo: mc
-opciones_explicitas: ["hipérbole", "metáfora", "ironía"]
-
-enunciado: "\"Te lo dije un millón de veces\" es un ejemplo de..."
-
-pasos:
-  - "Exagera deliberadamente una cantidad, de forma evidente y no literal."
-
-explicacion: |
-  La hipérbole exagera de forma deliberada, sin buscar que se
-  interprete literalmente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["antitesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "antítesis"
-tipo: mc
-opciones_explicitas: ["antítesis", "oxímoron", "paralelismo"]
-
-enunciado: "\"Vivo sin vivir en mí\" es un ejemplo de..."
-
-pasos:
-  - "Contrapone dos ideas opuestas (vivir / no vivir) en la misma frase."
-
-explicacion: |
-  La antítesis contrapone ideas opuestas dentro de la misma frase o
-  cláusula.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["oximoron"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "oxímoron"
-tipo: mc
-opciones_explicitas: ["antítesis", "oxímoron", "paralelismo"]
-
-enunciado: "\"Un silencio ensordecedor\" es un ejemplo de..."
-
-pasos:
-  - "Une dos términos contradictorios en una sola expresión compacta (silencio + ensordecedor)."
-
-explicacion: |
-  El oxímoron junta términos contradictorios en una expresión muy
-  compacta, más breve que la antítesis.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["ironia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "ironía"
-tipo: mc
-opciones_explicitas: ["ironía", "hipérbole", "antítesis"]
-
-enunciado: "Decirle \"¡qué puntual!\" a alguien que llegó una hora tarde es un ejemplo de..."
-
-pasos:
-  - "Dice lo contrario de lo que se piensa, con intención crítica o humorística."
-
-explicacion: |
-  La ironía comunica lo opuesto de lo literalmente dicho, a propósito.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["simbolo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "símbolo"
-tipo: mc
-opciones_explicitas: ["símbolo", "metáfora", "personificación"]
-
-enunciado: "Que la paloma represente la paz, de forma sostenida en distintos textos y culturas, es un ejemplo de..."
-
-pasos:
-  - "Un elemento concreto que representa una idea abstracta de forma estable, no sólo en un texto puntual."
-
-explicacion: |
-  El símbolo asocia un elemento concreto con una idea abstracta de
-  forma sostenida, más allá de un solo texto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["aliteracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "aliteración"
-tipo: mc
-opciones_explicitas: ["aliteración", "onomatopeya", "anáfora"]
-
-enunciado: "\"El susurro del viento se siente suave\" (repetición del sonido \"s\") es un ejemplo de..."
-
-pasos:
-  - "Repite un mismo sonido consonántico en varias palabras cercanas."
-
-explicacion: |
-  La aliteración repite un sonido para crear un efecto sonoro
-  deliberado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["onomatopeya"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "onomatopeya"
-tipo: mc
-opciones_explicitas: ["aliteración", "onomatopeya", "anáfora"]
-
-enunciado: "La palabra \"tic-tac\" para representar el sonido de un reloj es un ejemplo de..."
-
-pasos:
-  - "Es una palabra que imita un sonido real."
-
-explicacion: |
-  La onomatopeya reproduce con palabras un sonido del mundo real.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["anafora"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "anáfora"
-tipo: mc
-opciones_explicitas: ["anáfora", "paralelismo", "enumeración"]
-
-enunciado: "\"Nada me detiene. Nada me asusta. Nada me vence.\" es un ejemplo de..."
-
-pasos:
-  - "Repite la misma palabra (\"Nada\") al principio de cada oración."
-
-explicacion: |
-  La anáfora repite literalmente una o más palabras al inicio de
-  versos u oraciones sucesivas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["hiperbaton"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "hipérbaton"
-tipo: mc
-opciones_explicitas: ["hipérbaton", "enumeración", "paralelismo"]
-
-enunciado: "\"Del salón en el ángulo oscuro\" (en vez de \"en el ángulo oscuro del salón\") es un ejemplo de..."
-
-pasos:
-  - "Altera el orden habitual de las palabras en la oración."
-
-explicacion: |
-  El hipérbaton reordena las palabras respecto del orden sintáctico
-  habitual.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["enumeracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "enumeración"
-tipo: mc
-opciones_explicitas: ["enumeración", "anáfora", "hipérbaton"]
-
-enunciado: "\"Trajo pan, queso, fruta y vino\" es un ejemplo de..."
-
-pasos:
-  - "Lista varios elementos relacionados en secuencia."
-
-explicacion: |
-  La enumeración presenta una serie de elementos relacionados uno
-  tras otro.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["paralelismo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "paralelismo"
-tipo: mc
-opciones_explicitas: ["anáfora", "paralelismo", "antítesis"]
-
-enunciado: "\"Cuando ríes, el mundo brilla; cuando lloras, el mundo se apaga.\" es un ejemplo de..."
-
-pasos:
-  - "Repite la misma estructura sintáctica (\"cuando X, el mundo Y\") sin repetir exactamente las mismas palabras."
-
-explicacion: |
-  El paralelismo repite la estructura sintáctica, no necesariamente
-  las mismas palabras (a diferencia de la anáfora).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["metafora", "simil", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La diferencia entre metáfora y símil es que el símil usa un nexo comparativo explícito (\"como\", \"cual\"), y la metáfora no."
-
-pasos:
-  - "\"Es como el sol\" (símil, con \"como\") vs. \"es el sol\" (metáfora, sin nexo)."
-
-explicacion: |
-  Verdadero: la presencia o ausencia del nexo comparativo es el
-  criterio central para distinguirlos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "avanzado"
-  tags: ["antitesis", "oximoron", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La antítesis contrapone ideas opuestas en frases o cláusulas distintas; el oxímoron las junta en una sola expresión muy compacta (dos o tres palabras)."
-
-pasos:
-  - "\"Eres fuego y hielo\" (antítesis, más extendida) vs. \"fuego helado\" (oxímoron, compacto)."
-
-explicacion: |
-  Verdadero: la extensión y compacidad de la expresión distingue a
-  estos dos recursos parecidos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "avanzado"
-  tags: ["anafora", "paralelismo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La anáfora repite las mismas palabras al inicio de cada verso u oración; el paralelismo repite la misma estructura sintáctica, aunque cambien las palabras."
-
-pasos:
-  - "\"Nada me detiene, nada me asusta\" (anáfora, misma palabra) vs. \"cuando ríes... cuando lloras...\" (paralelismo, misma estructura, distintas palabras)."
-
-explicacion: |
-  Verdadero: repetición literal de palabras (anáfora) vs. repetición
-  de estructura (paralelismo) es la diferencia clave.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "avanzado"
-  tags: ["hiperbole", "metafora", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La hipérbole exagera una cantidad o intensidad; la metáfora identifica dos elementos distintos entre sí, sin necesariamente exagerar nada."
-
-pasos:
-  - "\"Un millón de veces\" (hipérbole, exageración) vs. \"sus ojos son luceros\" (metáfora, identificación, no exageración)."
-
-explicacion: |
-  Verdadero: exagerar una magnitud (hipérbole) es distinto de
-  identificar dos elementos entre sí (metáfora), aunque ambos se
-  aparten del lenguaje literal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["familia_semantica", "clasificacion"]
-
-variables:
-  recursos: ["metáfora", "hipérbole", "ironía"]
-  idx: uno_de([0, 1, 2])
-
-respuesta: "semántica (significado)"
-tipo: mc
-opciones_explicitas: ["semántica (significado)", "fónica (sonido)", "sintáctica (orden)"]
-
-enunciado: "El recurso \"{recursos[idx]}\" pertenece a la familia..."
-
-pasos:
-  - "Metáfora, hipérbole e ironía alteran el significado de lo dicho, no el sonido ni el orden."
-
-explicacion: |
-  Estos recursos juegan con el significado: dicen algo distinto (o
-  más intenso) de lo literal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["familia_fonica", "clasificacion"]
-
-variables:
-  recursos: ["aliteración", "onomatopeya", "anáfora"]
-  idx: uno_de([0, 1, 2])
-
-respuesta: "fónica (sonido)"
-tipo: mc
-opciones_explicitas: ["semántica (significado)", "fónica (sonido)", "sintáctica (orden)"]
-
-enunciado: "El recurso \"{recursos[idx]}\" pertenece a la familia..."
-
-pasos:
-  - "Aliteración, onomatopeya y anáfora se apoyan en la repetición o imitación de sonidos."
-
-explicacion: |
-  Estos recursos juegan con el nivel sonoro del lenguaje.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["familia_sintactica", "clasificacion"]
-
-variables:
-  recursos: ["hipérbaton", "enumeración", "paralelismo"]
-  idx: uno_de([0, 1, 2])
-
-respuesta: "sintáctica (orden)"
-tipo: mc
-opciones_explicitas: ["semántica (significado)", "fónica (sonido)", "sintáctica (orden)"]
-
-enunciado: "El recurso \"{recursos[idx]}\" pertenece a la familia..."
-
-pasos:
-  - "Hipérbaton, enumeración y paralelismo alteran o explotan el orden/estructura de las palabras."
-
-explicacion: |
-  Estos recursos juegan con el orden y la estructura sintáctica de la
-  oración.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["metafora"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "metáfora"
-tipo: mc
-opciones_explicitas: ["metáfora", "símil", "personificación"]
-
-enunciado: "\"El tiempo es oro\" es un ejemplo de..."
-
-pasos:
-  - "Identifica el tiempo con el oro sin usar nexo comparativo."
-
-explicacion: |
-  Otra metáfora clásica: identifica dos elementos (tiempo, oro)
-  directamente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["simil"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "símil"
-tipo: mc
-opciones_explicitas: ["metáfora", "símil", "hipérbole"]
-
-enunciado: "\"Corría como un rayo\" es un ejemplo de..."
-
-pasos:
-  - "Usa el nexo comparativo \"como\"."
-
-explicacion: |
-  El nexo \"como\" marca la comparación explícita del símil.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["personificacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "personificación"
-tipo: mc
-opciones_explicitas: ["personificación", "metáfora", "símbolo"]
-
-enunciado: "\"El río corría furioso hacia el mar\" es un ejemplo de..."
-
-pasos:
-  - "Atribuye una emoción humana (furia) a un elemento no humano (el río)."
-
-explicacion: |
-  La personificación da al río una emoción típicamente humana.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["hiperbole"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "hipérbole"
-tipo: mc
-opciones_explicitas: ["hipérbole", "símil", "ironía"]
-
-enunciado: "\"Me morí de la vergüenza\" es un ejemplo de..."
-
-pasos:
-  - "Exagera de forma evidente, no se espera que se lea literal."
-
-explicacion: |
-  Otra hipérbole común: exagerar una reacción emocional.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["ironia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "ironía"
-tipo: mc
-opciones_explicitas: ["ironía", "hipérbole", "antítesis"]
-
-enunciado: "Decir \"¡lindo día!\" durante una tormenta muy fuerte es un ejemplo de..."
-
-pasos:
-  - "Dice lo contrario de lo evidente, con intención (aquí, humorística)."
-
-explicacion: |
-  Otra ironía típica: afirmar lo opuesto de la situación real.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["aliteracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "aliteración"
-tipo: mc
-opciones_explicitas: ["aliteración", "onomatopeya", "paralelismo"]
-
-enunciado: "\"Con el ala aleve del leve abanico\" (repetición del sonido \"l\") es un ejemplo de..."
-
-pasos:
-  - "Repite el mismo sonido consonántico en palabras cercanas."
-
-explicacion: |
-  Ejemplo clásico de aliteración con el sonido \"l\".
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["onomatopeya"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "onomatopeya"
-tipo: mc
-opciones_explicitas: ["onomatopeya", "aliteración", "anáfora"]
-
-enunciado: "La palabra \"splash\" para representar el sonido de algo cayendo al agua es un ejemplo de..."
-
-pasos:
-  - "Imita con palabras un sonido real."
-
-explicacion: |
-  Otro ejemplo de palabra que reproduce un sonido del mundo real.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["anafora"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "anáfora"
-tipo: mc
-opciones_explicitas: ["anáfora", "paralelismo", "enumeración"]
-
-enunciado: "\"Te quiero en la mañana. Te quiero en la tarde. Te quiero en la noche.\" es un ejemplo de..."
-
-pasos:
-  - "Repite exactamente las mismas palabras (\"Te quiero\") al inicio de cada oración."
-
-explicacion: |
-  La repetición literal de las mismas palabras al inicio confirma que
-  es anáfora.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "avanzado"
-  tags: ["hiperbaton"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "hipérbaton"
-tipo: mc
-opciones_explicitas: ["hipérbaton", "enumeración", "anáfora"]
-
-enunciado: "\"Verde que te quiero verde\" (orden poético, no el habitual sujeto-verbo-objeto) es un ejemplo de..."
-
-pasos:
-  - "Rompe el orden sintáctico esperado para dar énfasis o musicalidad."
-
-explicacion: |
-  El orden alterado, deliberadamente distinto del habitual, marca el
-  hipérbaton.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["enumeracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "enumeración"
-tipo: mc
-opciones_explicitas: ["enumeración", "hipérbaton", "antítesis"]
-
-enunciado: "\"En la mochila llevaba cuadernos, lápices, una regla y una calculadora\" es un ejemplo de..."
-
-pasos:
-  - "Lista varios elementos relacionados uno tras otro."
-
-explicacion: |
-  Otra enumeración: lista de objetos relacionados en secuencia.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["paralelismo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "paralelismo"
-tipo: mc
-opciones_explicitas: ["anáfora", "paralelismo", "hipérbaton"]
-
-enunciado: "\"Si trabajás, ganás; si estudiás, aprendés.\" es un ejemplo de..."
-
-pasos:
-  - "Repite la estructura \"si X, Y\" con palabras distintas en cada mitad."
-
-explicacion: |
-  La misma estructura sintáctica se repite con contenido distinto:
-  paralelismo, no anáfora.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "avanzado"
-  tags: ["simbolo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "símbolo"
-tipo: mc
-opciones_explicitas: ["símbolo", "metáfora", "personificación"]
-
-enunciado: "Que la balanza represente la justicia, de forma reconocible en distintos contextos culturales, es un ejemplo de..."
-
-pasos:
-  - "Un objeto concreto asociado de forma estable a una idea abstracta, más allá de un solo texto puntual."
-
-explicacion: |
-  Otro símbolo cultural estable: la balanza y la justicia.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "avanzado"
-  tags: ["oximoron"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "oxímoron"
-tipo: mc
-opciones_explicitas: ["oxímoron", "antítesis", "paralelismo"]
-
-enunciado: "\"Una dulce amargura\" es un ejemplo de..."
-
-pasos:
-  - "Une dos términos contradictorios (dulce/amargura) en una expresión muy compacta."
-
-explicacion: |
-  La compacidad de la contradicción (dos-tres palabras) confirma que
-  es oxímoron y no antítesis.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "avanzado"
-  tags: ["antitesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "antítesis"
-tipo: mc
-opciones_explicitas: ["antítesis", "oxímoron", "paralelismo"]
-
-enunciado: "\"Cuando quiero llorar, no lloro; y a veces lloro sin querer\" es un ejemplo de..."
-
-pasos:
-  - "Contrapone dos ideas opuestas (querer llorar/no llorar) extendidas en cláusulas distintas."
-
-explicacion: |
-  La extensión en dos cláusulas distintas (no una expresión
-  compacta) confirma que es antítesis y no oxímoron.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["recursos_literarios", "generos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los recursos literarios se usan sobre todo en los géneros narrativo y lírico, aunque pueden aparecer en cualquier tipo de texto."
-
-pasos:
-  - "No están limitados a la literatura, pero es donde más se concentran deliberadamente."
-
-explicacion: |
-  Verdadero: son herramientas centrales de la literatura, aunque no
-  exclusivas de ella.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "basico"
-  tags: ["recursos_literarios", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un recurso literario es un uso especial del lenguaje que se aparta del uso habitual para lograr un efecto expresivo, estético o de énfasis."
-
-pasos:
-  - "Ese apartamiento del uso neutro es lo que distingue a un recurso literario del lenguaje cotidiano directo."
-
-explicacion: |
-  Verdadero: es la definición general que engloba a las tres
-  familias de recursos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "intermedio"
-  tags: ["recursos_literarios", "metodo"]
-
-enunciado: "Ordená los pasos para identificar qué recurso literario aparece en un fragmento."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar qué se aparta del uso neutro del lenguaje"
-  - "Determinar si afecta el significado, el sonido o el orden de las palabras"
-  - "Ubicar la familia correspondiente (semántica, fónica o sintáctica)"
-  - "Aplicar la prueba específica de esa familia para nombrar el recurso exacto"
-respuesta_orden:
-  - "Identificar qué se aparta del uso neutro del lenguaje"
-  - "Determinar si afecta el significado, el sonido o el orden de las palabras"
-  - "Ubicar la familia correspondiente (semántica, fónica o sintáctica)"
-  - "Aplicar la prueba específica de esa familia para nombrar el recurso exacto"
-
-explicacion: |
-  El método va de lo general (qué se aparta de lo neutro) a lo
-  específico (qué recurso exacto es, dentro de su familia).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "avanzado"
-  tags: ["recursos_literarios", "practica"]
-
-variables:
-  frases: ["Sus palabras eran espinas", "El silencio gritaba en la habitación vacía", "Compró manzanas, peras, uvas y duraznos"]
-  recursos: ["metáfora", "personificación", "enumeración"]
-  idx: uno_de([0, 1, 2])
-
-respuesta: recursos[idx]
-tipo: mc
-opciones_explicitas: ["metáfora", "personificación", "enumeración", "símil", "hipérbole"]
-
-enunciado: "\"{frases[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "Identificar el elemento que se aparta del uso neutro y aplicar la prueba de la familia correspondiente."
-
-explicacion: |
-  Cada fragmento fue construido para ejemplificar un recurso distinto
-  de distintas familias.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "recursos_literarios"
-  nivel: "avanzado"
-  tags: ["recursos_literarios", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el objetivo es dar musicalidad y ritmo a un poema a través de la repetición de sonidos, conviene usar aliteración antes que una simple enumeración de elementos."
-
-pasos:
-  - "La aliteración trabaja específicamente sobre el sonido; la enumeración organiza contenido, no necesariamente sonido repetido."
-
-explicacion: |
-  Verdadero: elegir el recurso adecuado depende de qué nivel del
-  lenguaje (significado, sonido u orden) se quiere explotar para
-  lograr el efecto buscado.
-```
-
-## Sección: referencia-anafora-y-catafora (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "basico"
-  tags: ["referencia", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La referencia es el mecanismo por el cual una palabra (casi siempre un pronombre) remite a otra ya mencionada o por mencionar en el texto, sin repetirla literalmente."
-
-pasos:
-  - "\"Juan llegó cansado. Él había caminado diez cuadras\": \"él\" remite a \"Juan\"."
-
-explicacion: |
-  Verdadero: la referencia evita la repetición literal manteniendo la
-  claridad de a qué o quién se refiere.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "basico"
-  tags: ["anafora"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "anáfora"
-tipo: mc
-opciones_explicitas: ["anáfora", "catáfora"]
-
-enunciado: "\"María compró un libro. Lo leyó esa misma noche.\" El pronombre \"lo\" remite hacia atrás, a \"un libro\": es un caso de..."
-
-pasos:
-  - "La referencia apunta a algo ya mencionado ANTES en el texto: es anáfora."
-
-explicacion: |
-  La anáfora (en este sentido de referencia textual, distinto del
-  recurso literario) remite hacia atrás.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "intermedio"
-  tags: ["catafora"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "catáfora"
-tipo: mc
-opciones_explicitas: ["anáfora", "catáfora"]
-
-enunciado: "\"Esto es lo que pasó: María llegó tarde y perdió el tren.\" El pronombre \"esto\" anticipa la explicación que viene DESPUÉS: es un caso de..."
-
-pasos:
-  - "La referencia apunta a algo que se va a mencionar DESPUÉS en el texto: es catáfora."
-
-explicacion: |
-  La catáfora remite hacia adelante, anticipando información que
-  todavía no se dijo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "avanzado"
-  tags: ["anafora", "recursos_literarios", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La \"anáfora\" como mecanismo de referencia textual (este tema) y la \"anáfora\" como recurso literario (ver `../recursos-literarios/`) significan exactamente lo mismo."
-
-pasos:
-  - "La anáfora literaria repite la MISMA palabra para dar énfasis; la anáfora de referencia usa una palabra DISTINTA (pronombre) para evitar repetir."
-
-explicacion: |
-  Falso: es el mismo término técnico con dos significados opuestos
-  según el área (retórica vs. gramática textual).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "intermedio"
-  tags: ["anafora", "catafora", "frecuencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La anáfora (referencia hacia atrás) es el caso más común de referencia textual; la catáfora es menos frecuente y suele generar un efecto de anticipación o suspenso."
-
-pasos:
-  - "La mayoría de los pronombres en un texto remiten a algo ya dicho antes, no a algo por venir."
-
-explicacion: |
-  Verdadero: la anáfora domina en frecuencia sobre la catáfora en el
-  uso habitual del idioma.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "basico"
-  tags: ["pronombres_personales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los pronombres personales (él, ella, lo, la, le) son el tipo de palabra más común usada como mecanismo de referencia."
-
-pasos:
-  - "\"Él\", \"lo\", \"le\" son ejemplos ya vistos en los ejemplos de anáfora y catáfora."
-
-explicacion: |
-  Verdadero: los pronombres personales son la herramienta de
-  referencia más frecuente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "intermedio"
-  tags: ["sinonimos", "hiperonimos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"Compré un perro. El animal es muy juguetón\" usa un hiperónimo (\"el animal\") como referencia, sin repetir \"perro\" ni usar un pronombre."
-
-pasos:
-  - "Un hiperónimo es una palabra más general que engloba a la mencionada antes (animal engloba a perro)."
-
-explicacion: |
-  Verdadero: además de pronombres, los sinónimos o hiperónimos también
-  funcionan como mecanismo de referencia.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "intermedio"
-  tags: ["elipsis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "elipsis"
+respuesta: "o"
 tipo: completar
 
-enunciado: "\"María fue al cine y compró pochoclo\" (sin repetir \"María\" antes de \"compró\") usa el mecanismo de referencia llamado..."
+enunciado: "En \"{frases[idx]}\", ¿cuál es el nexo coordinante que marca una opción entre dos alternativas?"
 
 pasos:
-  - "Se omite directamente la palabra porque ya se entiende por contexto quién compró el pochoclo."
+  - "El nexo disyuntivo presenta alternativas excluyentes: o."
 
 explicacion: |
-  La elipsis omite una palabra ya mencionada, en vez de reemplazarla
-  por un pronombre.
+  La coordinación disyuntiva presenta dos opciones con "o".
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "referencia_anafora_catafora"
+  tema: "oracion_compuesta"
   nivel: "basico"
-  tags: ["referencia", "repeticion"]
+  tags: ["coordinacion", "adversativa"]
 
 variables:
-  n: uno_de([1, 1])
+  frases: ["Estudió pero no aprobó", "No fue al cine sino que se quedó en casa"]
+  nexos: ["pero", "sino"]
+  idx: uno_de([0, 1])
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin mecanismos de referencia, un texto suena repetitivo y artificial (\"Juan fue a la casa de Juan. Juan saludó a la mamá de Juan.\")."
-
-pasos:
-  - "La referencia permite variar la redacción sin perder claridad sobre a qué o quién se refiere cada palabra."
-
-explicacion: |
-  Verdadero: es la razón principal por la que la referencia es una
-  herramienta central de cohesión.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "avanzado"
-  tags: ["referencia_ambigua"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En \"Juan le dio el libro a Pedro porque él lo necesitaba\", no queda claro si \"él\" se refiere a Juan o a Pedro: es un ejemplo de referencia ambigua."
-
-pasos:
-  - "Un pronombre puede tener más de un antecedente posible en la misma oración, generando confusión."
-
-explicacion: |
-  Verdadero: la ambigüedad de referencia es un riesgo real al usar
-  pronombres sin cuidado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "intermedio"
-  tags: ["referencia", "produccion_escrita_compleja"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Revisar que cada referencia (pronombre, sinónimo) tenga un único antecedente claro es parte de la etapa de revisión descrita en `../produccion-escrita-compleja/`."
-
-pasos:
-  - "La ambigüedad de referencia es uno de los errores de coherencia que se buscan al releer un texto propio."
-
-explicacion: |
-  Verdadero: la revisión de referencias ambiguas es una tarea
-  concreta de la etapa de revisión.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "intermedio"
-  tags: ["anafora", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "el libro"
+respuesta: nexos[idx]
 tipo: completar
 
-enunciado: "En \"Compré un libro en la feria. Lo terminé en dos días.\", ¿a qué se refiere el pronombre \"lo\"?"
+enunciado: "En \"{frases[idx]}\", ¿cuál es el nexo coordinante que marca contraste?"
 
 pasos:
-  - "Es una anáfora: hay que buscar el elemento ya mencionado antes al que remite el pronombre."
+  - "Los nexos adversativos contrastan ideas: pero, sino."
 
 explicacion: |
-  \"Lo\" remite hacia atrás, a \"un libro\", ya mencionado en la
-  oración anterior.
+  La coordinación adversativa contrasta dos ideas con "pero" o
+  "sino".
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "avanzado"
-  tags: ["catafora", "efecto"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Usar catáfora (\"Esto es lo que pasó: ...\") genera un efecto de anticipación, porque el lector sabe que viene una explicación pero todavía no la conoce."
-
-pasos:
-  - "Ese efecto de expectativa es una de las razones por las que se elige deliberadamente la catáfora en vez de la anáfora."
-
-explicacion: |
-  Verdadero: el efecto retórico de la catáfora es distinto del de la
-  anáfora, aunque ambas sean mecanismos de referencia.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
+  tema: "oracion_compuesta"
   nivel: "intermedio"
-  tags: ["anafora", "catafora", "practica"]
+  tags: ["coordinacion", "clasificacion"]
 
 variables:
-  frases: ["Ana terminó el proyecto. Ella estaba orgullosa del resultado", "Aquí está: la solución al problema era mucho más simple de lo que pensábamos"]
-  tipos: ["anáfora", "catáfora"]
+  frases: ["Juan estudió y aprobó", "Estudiás o repetís", "Estudió pero no aprobó"]
+  tipos: ["copulativa", "disyuntiva", "adversativa"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["copulativa", "disyuntiva", "adversativa"]
+
+enunciado: "La coordinación en \"{frases[idx]}\" es de tipo..."
+
+pasos:
+  - "y/ni = copulativa, o = disyuntiva, pero/sino = adversativa."
+
+explicacion: |
+  El nexo usado determina el tipo de coordinación: suma (copulativa),
+  opción (disyuntiva) o contraste (adversativa).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oracion_compuesta"
+  nivel: "intermedio"
+  tags: ["subordinacion", "reconocimiento"]
+
+variables:
+  frases: ["Juan dijo que vendría", "Juan estudió y aprobó"]
+  tipos: ["subordinada", "coordinada"]
   idx: uno_de([0, 1])
 
 respuesta: tipos[idx]
 tipo: mc
-opciones_explicitas: ["anáfora", "catáfora"]
+opciones_explicitas: ["subordinada", "coordinada"]
 
-enunciado: "\"{frases[idx]}\" es un ejemplo de..."
+enunciado: "\"{frases[idx]}\" combina sus proposiciones por..."
 
 pasos:
-  - "Si el pronombre remite a algo YA dicho, es anáfora. Si remite a algo que se dice DESPUÉS, es catáfora."
+  - "Si al separar las proposiciones una queda incompleta o sin sentido, es subordinación."
 
 explicacion: |
-  La dirección de la referencia (hacia atrás o hacia adelante) es lo
-  que distingue anáfora de catáfora.
+  En la subordinación, una proposición depende gramaticalmente de la
+  otra; en la coordinación, son independientes.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "referencia_anafora_catafora"
+  tema: "oracion_compuesta"
   nivel: "intermedio"
-  tags: ["pronombres_demostrativos"]
+  tags: ["subordinacion", "reconocimiento"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los pronombres demostrativos (esto, eso, aquello, este, ese) también pueden funcionar como mecanismo de referencia, tanto anafórica como catafórica."
-
-pasos:
-  - "\"Esto es lo que pasó\" (catáfora) y \"eso ya lo sabía\" (anáfora) usan el mismo tipo de pronombre en direcciones distintas."
-
-explicacion: |
-  Verdadero: los demostrativos son otro tipo de palabra que funciona
-  como referencia, además de los pronombres personales.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "avanzado"
-  tags: ["referencia_ambigua", "correccion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Juan le dio el libro a Pedro porque Pedro lo necesitaba"
-tipo: mc
-opciones_explicitas: ["Juan le dio el libro a Pedro porque Pedro lo necesitaba", "Juan le dio el libro a Pedro porque él lo necesitaba"]
-
-enunciado: "Para eliminar la ambigüedad de \"Juan le dio el libro a Pedro porque él lo necesitaba\" (¿quién necesitaba el libro?), ¿cuál versión es más clara?"
-
-pasos:
-  - "Reemplazar el pronombre ambiguo (\"él\") por el nombre propio (\"Pedro\") elimina la ambigüedad, aunque repita una palabra."
-
-explicacion: |
-  A veces conviene sacrificar algo de variedad léxica (repetir el
-  nombre) para evitar una ambigüedad real de referencia.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "avanzado"
-  tags: ["elipsis", "limitaciones"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La elipsis sólo funciona bien cuando el sujeto omitido se entiende sin ambigüedad por el contexto inmediato; si hay varios candidatos posibles, conviene usar un pronombre o repetir el nombre en vez de omitir."
-
-pasos:
-  - "Omitir un elemento sin dejar claro a quién se refiere puede generar la misma ambigüedad que un pronombre mal usado."
-
-explicacion: |
-  Verdadero: la elipsis tiene el mismo riesgo de ambigüedad que
-  cualquier otro mecanismo de referencia si el contexto no es claro.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "intermedio"
-  tags: ["referencia", "metodo"]
-
-enunciado: "Ordená los pasos para revisar las referencias (pronombres, sinónimos, elipsis) de un texto propio."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar cada pronombre, sinónimo o elipsis usado como referencia"
-  - "Buscar el antecedente (o consecuente, si es catáfora) al que remite cada uno"
-  - "Revisar si hay más de un candidato posible para ese antecedente"
-  - "Corregir (reemplazando por el nombre propio, por ejemplo) donde haya ambigüedad"
-respuesta_orden:
-  - "Identificar cada pronombre, sinónimo o elipsis usado como referencia"
-  - "Buscar el antecedente (o consecuente, si es catáfora) al que remite cada uno"
-  - "Revisar si hay más de un candidato posible para ese antecedente"
-  - "Corregir (reemplazando por el nombre propio, por ejemplo) donde haya ambigüedad"
-
-explicacion: |
-  El proceso va de identificar las referencias usadas a verificar que
-  cada una tenga un único antecedente claro.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "avanzado"
-  tags: ["referencia", "cohesion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La referencia (anáfora y catáfora) es una de las tres herramientas de cohesión estudiadas en esta subrama, junto con los conectores textuales y la progresión temática."
-
-pasos:
-  - "Ver `../conectores-textuales/` y `../progresion-tematica/`: los tres son nodos hermanos que dependen de `../produccion-escrita-compleja/`."
-
-explicacion: |
-  Verdadero: mientras los conectores marcan relaciones lógicas, la
-  referencia evita repetición manteniendo claridad sobre a qué se
-  refiere cada palabra.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "referencia_anafora_catafora"
-  nivel: "avanzado"
-  tags: ["referencia", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al escribir un texto propio, conviene combinar pronombres, sinónimos y elipsis para evitar repetir siempre la misma palabra, cuidando que cada referencia siga siendo clara para el lector."
-
-pasos:
-  - "El objetivo es variar la redacción sin sacrificar la claridad sobre a quién o qué se refiere cada mención."
-
-explicacion: |
-  Verdadero: es la aplicación práctica central de este tema al
-  momento de escribir.
-```
-
-## Sección: romanticismo (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "basico"
-  tags: ["romanticismo", "contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Romanticismo surge a fines del siglo XVIII y se extiende durante buena parte del siglo XIX."
-
-pasos:
-  - "Es posterior al Racionalismo Ilustrado del siglo XVIII."
-
-explicacion: |
-  Verdadero: es el período histórico central del movimiento en
-  Europa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "intermedio"
-  tags: ["romanticismo", "contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Romanticismo surge como reacción al Racionalismo Ilustrado, que privilegiaba la razón por sobre el sentimiento."
-
-pasos:
-  - "El Romanticismo invierte esa prioridad: pone el sentimiento por encima de la razón."
-
-explicacion: |
-  Verdadero: es la relación de oposición que explica el surgimiento
-  del movimiento.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "basico"
-  tags: ["romanticismo", "caracteristicas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una característica central del Romanticismo es la subjetividad exaltada: el sentimiento personal del autor se vuelve el centro de la obra."
-
-pasos:
-  - "El \"yo\" emocional del autor pasa a primer plano, por encima de la objetividad."
-
-explicacion: |
-  Verdadero: la exaltación del sentimiento personal es la marca más
-  distintiva del Romanticismo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "intermedio"
-  tags: ["romanticismo", "naturaleza"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el Romanticismo, la naturaleza (tormentas, ruinas, cementerios) suele representarse como espejo del estado emocional del autor, no como un paisaje neutro."
-
-pasos:
-  - "Un paisaje tormentoso puede reflejar la angustia interior del hablante o narrador."
-
-explicacion: |
-  Verdadero: la naturaleza idealizada y emocional es una marca típica
-  del movimiento.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "intermedio"
-  tags: ["romanticismo", "caracteristicas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Romanticismo rechaza las reglas fijas del arte clásico anterior, valorando el genio individual por encima de las normas."
-
-pasos:
-  - "Es parte de la libertad creativa que reclama el movimiento frente a la tradición clasicista."
-
-explicacion: |
-  Verdadero: la rebeldía frente a las normas fijas es coherente con
-  el foco en la subjetividad individual.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "intermedio"
-  tags: ["romanticismo", "hispanoamerica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En Hispanoamérica, el Romanticismo se mezcló con el contexto de las independencias nacionales, con interés por lo propio y las tradiciones locales."
-
-pasos:
-  - "El nacionalismo romántico coincide con la construcción de identidades nacionales tras la independencia."
-
-explicacion: |
-  Verdadero: el contexto histórico regional le dio al Romanticismo
-  hispanoamericano un matiz nacionalista propio.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "basico"
-  tags: ["romanticismo", "temas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El amor imposible o trágico, casi siempre con final desdichado, es un tema recurrente del Romanticismo."
-
-pasos:
-  - "Coherente con la exaltación emocional y el gusto por el sufrimiento sentimental."
-
-explicacion: |
-  Verdadero: es uno de los temas más característicos de la literatura
-  romántica.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "avanzado"
-  tags: ["romanticismo", "recursos_literarios"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La hipérbole (sentimientos al extremo) y la personificación de la naturaleza son recursos literarios típicos del Romanticismo, coherentes con su foco en la emoción exaltada."
-
-pasos:
-  - "Ver `../recursos-literarios/`: ambos recursos amplifican o humanizan el sentimiento."
-
-explicacion: |
-  Verdadero: la elección de recursos literarios en cada movimiento se
-  relaciona directamente con lo que ese movimiento valora.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "intermedio"
-  tags: ["romanticismo", "autores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Bécquer"
-tipo: completar
-
-enunciado: "El autor español de *Rimas y leyendas*, uno de los referentes centrales del Romanticismo en español, se apellida..."
-
-pasos:
-  - "Gustavo Adolfo Bécquer es uno de los autores románticos más estudiados en español."
-
-explicacion: |
-  Bécquer es autor representativo del Romanticismo español.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "avanzado"
-  tags: ["romanticismo", "autores", "argentina"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Esteban Echeverría, autor de \"El matadero\", es considerado el inicio del Romanticismo en Hispanoamérica."
-
-pasos:
-  - "Su obra combina la crítica política con las características emocionales del Romanticismo."
-
-explicacion: |
-  Verdadero: Echeverría es un autor de referencia para el
-  Romanticismo hispanoamericano, en particular argentino.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "avanzado"
-  tags: ["romanticismo", "autores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Isaacs"
-tipo: completar
-
-enunciado: "El autor colombiano de la novela romántica \"María\" se apellida..."
-
-pasos:
-  - "Jorge Isaacs es autor representativo del Romanticismo hispanoamericano."
-
-explicacion: |
-  \"María\" es una de las novelas románticas más conocidas de
-  Hispanoamérica.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "basico"
-  tags: ["romanticismo", "caracteristicas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El Romanticismo, igual que el movimiento que lo precedió, prioriza la razón por sobre el sentimiento."
-
-pasos:
-  - "Es exactamente lo contrario: el Romanticismo invierte esa jerarquía frente al Racionalismo Ilustrado."
-
-explicacion: |
-  Falso: el Romanticismo pone el sentimiento por encima de la razón,
-  en oposición directa al movimiento anterior.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "intermedio"
-  tags: ["romanticismo", "naturaleza"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El Romanticismo prefiere representar paisajes tranquilos y ordenados, evitando la naturaleza tormentosa."
-
-pasos:
-  - "Al contrario: privilegia paisajes tormentosos, ruinas y cementerios, en sintonía con la emoción exaltada."
-
-explicacion: |
-  Falso: la naturaleza romántica suele ser agitada o melancólica, no
-  tranquila.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "avanzado"
-  tags: ["romanticismo", "realismo", "cronologia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Realismo, movimiento que sigue al Romanticismo, surge en parte como reacción a sus excesos emocionales, buscando mayor objetividad."
-
-pasos:
-  - "Ver `../realismo/`: la relación de oposición es la clave para entender por qué surge el Realismo."
-
-explicacion: |
-  Verdadero: esta relación de reacción es el prerrequisito directo
-  para entender el siguiente movimiento de la cadena.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "intermedio"
-  tags: ["romanticismo", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un poema donde el hablante lírico llora ante una tormenta que refleja su desesperación amorosa, usando muchas hipérboles, es un ejemplo típico de literatura romántica."
-
-pasos:
-  - "Combina naturaleza como espejo emocional, amor sufrido e hipérbole: tres marcas centrales del Romanticismo."
-
-explicacion: |
-  Verdadero: reúne varias de las características centrales del
-  movimiento estudiadas en este tema.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "intermedio"
-  tags: ["romanticismo", "caracteristicas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Romanticismo valora la originalidad y el genio creativo individual del autor, por encima de seguir reglas artísticas fijas."
-
-pasos:
-  - "Es coherente con su rechazo a las normas del clasicismo anterior."
-
-explicacion: |
-  Verdadero: la libertad creativa individual es un valor central del
-  movimiento.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "avanzado"
-  tags: ["romanticismo", "hispanoamerica", "cronologia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Romanticismo llega a Hispanoamérica algo después que a Europa, mezclado con el contexto de las independencias nacionales."
-
-pasos:
-  - "El desfasaje temporal está ligado al proceso histórico propio de cada región."
-
-explicacion: |
-  Verdadero: la cronología del movimiento varía según la región,
-  aunque comparte las mismas características generales.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "romanticismo"
-  nivel: "avanzado"
-  tags: ["romanticismo", "autores"]
-
-variables:
-  autores: ["Bécquer", "Echeverría", "Isaacs"]
-  origenes: ["España", "Argentina", "Colombia"]
+  frases: ["Juan dijo que vendría", "El libro que compré es bueno", "Llegó cuando terminó la clase"]
+  subordinadas: ["que vendría", "que compré", "cuando terminó la clase"]
   idx: uno_de([0, 1, 2])
 
-respuesta: origenes[idx]
-tipo: mc
-opciones_explicitas: ["España", "Argentina", "Colombia"]
+respuesta: subordinadas[idx]
+tipo: completar
 
-enunciado: "El autor romántico {autores[idx]} es de..."
+enunciado: "En \"{frases[idx]}\", ¿cuál es la proposición subordinada?"
 
 pasos:
-  - "Cada autor representativo tiene un origen nacional distinto dentro del movimiento en español."
+  - "La subordinada es la que no tiene sentido completo por sí sola, separada de la principal."
 
 explicacion: |
-  El Romanticismo en español tuvo referentes tanto en España como en
-  distintos países de Hispanoamérica.
+  La proposición subordinada cumple una función dentro de la
+  principal (sujeto, OD, modificador o circunstancial).
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "romanticismo"
+  tema: "oracion_compuesta"
   nivel: "intermedio"
-  tags: ["romanticismo", "metodo"]
+  tags: ["subordinacion", "sustantiva"]
 
-enunciado: "Ordená los pasos para reconocer si un texto pertenece al Romanticismo."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si predomina la emoción/subjetividad del autor sobre la objetividad"
-  - "Buscar si la naturaleza aparece idealizada como espejo del estado emocional"
-  - "Identificar si hay temas de amor imposible o trágico"
-  - "Confirmar el uso de recursos como hipérbole y personificación"
-respuesta_orden:
-  - "Revisar si predomina la emoción/subjetividad del autor sobre la objetividad"
-  - "Buscar si la naturaleza aparece idealizada como espejo del estado emocional"
-  - "Identificar si hay temas de amor imposible o trágico"
-  - "Confirmar el uso de recursos como hipérbole y personificación"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En \"Creo que vendrá\", la proposición \"que vendrá\" funciona como objeto directo de \"creo\" (¿qué creo? → que vendrá)."
+
+pasos:
+  - "La subordinada sustantiva ocupa el lugar de un sustantivo/OD en la oración principal."
 
 explicacion: |
-  El análisis va de la característica más general (subjetividad) a
-  las marcas más específicas (temas y recursos).
+  Verdadero: es el ejemplo clásico de subordinada sustantiva con
+  función de OD.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "romanticismo"
+  tema: "oracion_compuesta"
   nivel: "avanzado"
-  tags: ["romanticismo", "prerrequisito"]
+  tags: ["subordinacion", "sustantiva"]
 
 variables:
   n: uno_de([1, 1])
@@ -2346,165 +620,96 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Es necesario entender el Romanticismo antes de estudiar el Realismo, porque el Realismo se define en gran parte en oposición directa a las características románticas."
+enunciado: "En \"Que llueva me preocupa\", la proposición \"que llueva\" funciona como sujeto de \"preocupa\"."
 
 pasos:
-  - "Sin conocer qué criticaba el Realismo (la subjetividad exaltada), no se entiende por qué eligió la objetividad como valor central."
+  - "¿Qué me preocupa? → que llueva. Cumple función de sujeto, no de OD."
 
 explicacion: |
-  Verdadero: por eso el Romanticismo es prerrequisito directo del
-  Realismo en la cadena de movimientos.
-```
-
-## Sección: signos-de-puntuacion (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "basico"
-  tags: ["puntuacion", "sentido"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"Vamos a comer, niños\" (invitación) y \"vamos a comer niños\" (sin coma) tienen sentidos completamente distintos por la sola presencia o ausencia de una coma."
-
-pasos:
-  - "La coma de vocativo separa a quién se dirige la oración del resto."
-
-explicacion: |
-  Verdadero: es el ejemplo clásico de cómo la puntuación cambia el
-  significado, no sólo el estilo.
+  Verdadero: una subordinada sustantiva también puede ocupar el lugar
+  del sujeto, no sólo del OD.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "basico"
-  tags: ["coma", "enumeracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En \"Compré pan, leche, huevos y manteca\", las comas separan los elementos de una enumeración, sin poner coma antes del \"y\" final."
-
-pasos:
-  - "La regla general del español no usa coma antes de \"y\" en una enumeración simple."
-
-explicacion: |
-  Verdadero: es el uso más común de la coma, para listar elementos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "oracion_compuesta"
   nivel: "intermedio"
-  tags: ["coma", "aclaracion"]
+  tags: ["subordinacion", "adjetiva"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: "coma de aclaración"
-tipo: mc
-opciones_explicitas: ["coma de aclaración", "coma de enumeración", "coma de vocativo"]
-
-enunciado: "En \"Mi hermano, que vive en Rosario, viene este fin de semana\", las comas que encierran \"que vive en Rosario\" son de tipo..."
-
-pasos:
-  - "Encierran información adicional no esencial para el sentido básico de la oración."
-
-explicacion: |
-  La coma de aclaración encierra información adicional, que se podría
-  quitar sin romper la oración.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["coma", "vocativo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "coma de vocativo"
-tipo: mc
-opciones_explicitas: ["coma de vocativo", "coma de enumeración", "coma de aclaración"]
-
-enunciado: "En \"Juan, vení un segundo\", la coma que separa \"Juan\" del resto es de tipo..."
-
-pasos:
-  - "Separa a quién se dirige la oración (el vocativo) del resto del enunciado."
-
-explicacion: |
-  La coma de vocativo separa el nombre de la persona a la que se le
-  habla directamente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["coma", "conectores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Se coloca coma antes de conectores adversativos como \"pero\", \"sino\" y \"aunque\": \"Estudió, pero no aprobó\"."
-
-pasos:
-  - "Ver `../oracion-compuesta-coordinacion-y-subordinacion/`: es la coma que antecede a la coordinación adversativa."
-
-explicacion: |
-  Verdadero: es una regla fija de puntuación para estos conectores.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "basico"
-  tags: ["punto"]
-
-variables:
-  usos: ["separar oraciones dentro del mismo párrafo", "separar párrafos, marcando cambio de idea principal"]
-  tipos: ["punto y seguido", "punto y aparte"]
+  frases: ["El libro que compré es bueno", "La casa donde vivo es grande"]
+  modificados: ["libro", "casa"]
   idx: uno_de([0, 1])
+
+respuesta: modificados[idx]
+tipo: completar
+
+enunciado: "En \"{frases[idx]}\", la subordinada adjetiva modifica al sustantivo..."
+
+pasos:
+  - "La subordinada adjetiva funciona como un adjetivo: modifica directamente a un sustantivo de la principal."
+
+explicacion: |
+  La subordinada adjetiva suele empezar con \"que\"/\"quien\"/\"donde\"
+  y modifica al sustantivo inmediatamente anterior.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oracion_compuesta"
+  nivel: "intermedio"
+  tags: ["subordinacion", "adverbial"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En \"Llegó cuando terminó la clase\", la proposición \"cuando terminó la clase\" funciona como circunstancial de tiempo de \"llegó\"."
+
+pasos:
+  - "¿Cuándo llegó? → cuando terminó la clase. Cumple función de CC de tiempo."
+
+explicacion: |
+  Verdadero: la subordinada adverbial cumple la misma función que un
+  circunstancial simple, pero con su propio verbo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oracion_compuesta"
+  nivel: "avanzado"
+  tags: ["subordinacion", "clasificacion"]
+
+variables:
+  frases: ["Creo que vendrá", "El libro que compré es bueno", "Llegó cuando terminó la clase"]
+  tipos: ["sustantiva", "adjetiva", "adverbial"]
+  idx: uno_de([0, 1, 2])
 
 respuesta: tipos[idx]
 tipo: mc
-opciones_explicitas: ["punto y seguido", "punto y aparte", "punto final"]
+opciones_explicitas: ["sustantiva", "adjetiva", "adverbial"]
 
-enunciado: "El uso de \"{usos[idx]}\" corresponde a..."
+enunciado: "La subordinada de \"{frases[idx]}\" es de tipo..."
 
 pasos:
-  - "Punto y seguido queda dentro del mismo párrafo; punto y aparte inicia uno nuevo."
+  - "Sustantiva = función de sustantivo (sujeto/OD). Adjetiva = modifica un sustantivo. Adverbial = función de circunstancial."
 
 explicacion: |
-  El tipo de punto usado depende de si se cambia de párrafo o se
-  sigue en el mismo.
+  El tipo de subordinada depende de qué función cumple dentro de la
+  oración principal.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "oracion_compuesta"
   nivel: "intermedio"
-  tags: ["punto", "idea_principal"]
+  tags: ["coordinacion", "subordinacion", "diferenciacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -2512,135 +717,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El punto y aparte suele marcar que la idea principal del texto cambia, iniciando un nuevo párrafo."
+enunciado: "Si al separar una oración compuesta en dos, ambas partes tienen sentido completo por sí solas, se trata de coordinación (no de subordinación)."
 
 pasos:
-  - "Ver `../comprension-idea-principal/`: cada párrafo suele desarrollar una idea principal distinta."
+  - "\"Juan estudió y aprobó\" → \"Juan estudió.\" + \"Aprobó.\" (ambas completas) = coordinación."
 
 explicacion: |
-  Verdadero: la división en párrafos (marcada por punto y aparte)
-  suele corresponder a un cambio de idea principal.
+  Verdadero: esa es exactamente la prueba práctica para distinguir
+  coordinación de subordinación.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "oracion_compuesta"
   nivel: "intermedio"
-  tags: ["punto_y_coma"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El punto y coma se usa para separar elementos de una enumeración que ya contienen comas internamente, o para unir dos oraciones muy relacionadas sin conector."
-
-pasos:
-  - "\"Juan estudia; María trabaja\" es un ejemplo de unión de dos oraciones relacionadas sin conector explícito."
-
-explicacion: |
-  Verdadero: son los dos usos principales del punto y coma en
-  español.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["dos_puntos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los dos puntos anuncian lo que sigue: una enumeración, una cita textual, o una explicación/consecuencia de lo anterior."
-
-pasos:
-  - "\"Faltaban tres cosas: pan, leche y manteca\" anuncia la enumeración que sigue."
-
-explicacion: |
-  Verdadero: es la función central de los dos puntos en español.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "basico"
-  tags: ["interrogacion", "exclamacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En español, los signos de interrogación y exclamación se abren y se cierran (¿...?, ¡...!), a diferencia del inglés, que sólo los cierra."
-
-pasos:
-  - "Ver `../oraciones-negativas-e-interrogativas/`: es una diferencia ortográfica propia del español."
-
-explicacion: |
-  Verdadero: el uso del signo de apertura es obligatorio en español,
-  a diferencia de otros idiomas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["comillas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las comillas se usan para citas textuales o para señalar que una palabra se usa en sentido especial o irónico."
-
-pasos:
-  - "Ambos usos marcan que ese fragmento no es \"habla directa\" del propio autor en su sentido literal habitual."
-
-explicacion: |
-  Verdadero: son los dos usos principales de las comillas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["raya", "genero_narrativo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La raya o guion largo se usa para introducir cada intervención de un diálogo en un texto narrativo."
-
-pasos:
-  - "Ver `../genero-narrativo/`: es distinto de las acotaciones entre paréntesis del género dramático."
-
-explicacion: |
-  Verdadero: la raya de diálogo es la marca típica de las
-  intervenciones de personajes dentro de la prosa narrativa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "avanzado"
-  tags: ["raya", "genero_dramatico", "diferenciacion"]
+  tags: ["subordinacion", "diferenciacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -2648,143 +740,139 @@ variables:
 respuesta: falso
 tipo: vf
 
-enunciado: "La raya de diálogo narrativo y las acotaciones entre paréntesis del género dramático cumplen exactamente la misma función."
+enunciado: "\"Que vendría\", separada de \"Juan dijo que vendría\", tiene sentido completo por sí sola."
 
 pasos:
-  - "Ver `../genero-dramatico/`: la raya introduce lo que dice un personaje en prosa; la acotación indica gestos/tono, no es diálogo."
+  - "\"Que vendría\" sola no dice quién dijo qué; necesita la principal para completarse."
 
 explicacion: |
-  Falso: son marcas distintas para funciones distintas, propias de
-  géneros distintos (narrativo vs. dramático).
+  Falso: la marca de la subordinación es justamente que la
+  subordinada NO se sostiene sola gramaticalmente.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "intermedio"
-  tags: ["coma", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "vamos a comer, abuela"
-tipo: mc
-opciones_explicitas: ["vamos a comer, abuela", "vamos a comer abuela"]
-
-enunciado: "¿Cuál de estas dos versiones usa correctamente la coma de vocativo para invitar a la abuela a comer (sin comérsela)?"
-
-pasos:
-  - "La coma de vocativo separa el nombre de la persona a la que se dirige la oración."
-
-explicacion: |
-  Sin la coma, \"abuela\" pasa a leerse como objeto directo del
-  verbo comer, cambiando radicalmente el sentido.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "oracion_compuesta"
   nivel: "avanzado"
-  tags: ["punto_y_coma", "coma", "diferenciacion"]
+  tags: ["subordinacion", "nexos"]
+
+variables:
+  frases: ["Juan dijo que vendría", "El libro que compré es bueno", "Llegó cuando terminó la clase", "Iré si tengo tiempo"]
+  nexos: ["que", "que", "cuando", "si"]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: nexos[idx]
+tipo: completar
+
+enunciado: "En \"{frases[idx]}\", ¿cuál es el nexo subordinante?"
+
+pasos:
+  - "Los nexos subordinantes típicos son: que, cuando, donde, como, si, porque, aunque."
+
+explicacion: |
+  El nexo subordinante introduce la proposición subordinada y marca
+  su dependencia de la principal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oracion_compuesta"
+  nivel: "intermedio"
+  tags: ["coordinacion", "estructura"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
-enunciado: "El punto y coma y la coma son intercambiables en cualquier contexto, sin diferencia real de uso."
+enunciado: "En la coordinación, ninguna de las dos proposiciones depende gramaticalmente de la otra: ambas están al mismo nivel."
 
 pasos:
-  - "El punto y coma marca una pausa mayor que la coma, y se usa en casos específicos (enumeraciones con comas internas, unión de oraciones relacionadas)."
+  - "\"Juan estudió y aprobó\": \"aprobó\" no cumple ninguna función DENTRO de \"Juan estudió\", están simplemente unidas."
 
 explicacion: |
-  Falso: cada signo tiene reglas de uso propias, no son
-  intercambiables libremente.
+  Verdadero: la coordinación une proposiciones independientes,
+  a diferencia de la subordinación donde una depende de la otra.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "oracion_compuesta"
   nivel: "intermedio"
-  tags: ["dos_puntos", "practica"]
+  tags: ["coordinacion", "nexos"]
 
 variables:
-  n: uno_de([1, 1])
+  nexos: ["y", "ni", "o", "pero", "sino"]
+  tipos: ["copulativa", "copulativa", "disyuntiva", "adversativa", "adversativa"]
+  idx: uno_de([0, 1, 2, 3, 4])
 
-respuesta: "Faltaban tres cosas: pan, leche y manteca"
+respuesta: tipos[idx]
 tipo: mc
-opciones_explicitas: ["Faltaban tres cosas: pan, leche y manteca", "Faltaban tres cosas, pan, leche y manteca"]
+opciones_explicitas: ["copulativa", "disyuntiva", "adversativa"]
 
-enunciado: "¿Cuál de estas dos versiones usa correctamente los dos puntos para anunciar la enumeración que sigue?"
+enunciado: "El nexo coordinante \"{nexos[idx]}\" es de tipo..."
 
 pasos:
-  - "Los dos puntos anuncian explícitamente que a continuación viene la enumeración prometida."
+  - "y/ni suman, o presenta alternativas, pero/sino contrastan."
 
 explicacion: |
-  Los dos puntos son el signo correcto para anunciar una enumeración,
-  no una coma.
+  Cada nexo coordinante corresponde a un tipo fijo de relación entre
+  las proposiciones.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "oracion_compuesta"
   nivel: "avanzado"
-  tags: ["puntuacion", "practica"]
+  tags: ["subordinacion", "funcion"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "Juan, mi mejor amigo, estudió mucho, pero no aprobó el examen."
-tipo: mc
-opciones_explicitas: ["Juan, mi mejor amigo, estudió mucho, pero no aprobó el examen.", "Juan mi mejor amigo estudió mucho pero no aprobó el examen."]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "¿Cuál versión puntúa correctamente combinando coma de aclaración (\"mi mejor amigo\") y coma antes de conector adversativo (\"pero\")?"
+enunciado: "Toda proposición subordinada cumple una función sintáctica concreta dentro de la oración principal (sujeto, objeto directo, modificador o circunstancial)."
 
 pasos:
-  - "Ambas comas cumplen funciones distintas: aclaración y antes de \"pero\"."
+  - "Es justamente lo que la distingue de una coordinada: ocupa el lugar de una función gramatical específica."
 
 explicacion: |
-  La combinación correcta de ambos usos de coma hace que la oración
-  larga se lea sin ambigüedad.
+  Verdadero: por eso se clasifican según esa función (sustantiva,
+  adjetiva, adverbial).
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "oracion_compuesta"
   nivel: "intermedio"
-  tags: ["puntuacion", "metodo"]
+  tags: ["oracion_compuesta", "metodo"]
 
-enunciado: "Ordená los pasos para revisar la puntuación de un párrafo propio."
+enunciado: "Ordená los pasos para clasificar una oración compuesta como coordinada o subordinada."
 tipo: ordenar
 opciones_explicitas:
-  - "Revisar si hay enumeraciones, aclaraciones o vocativos que necesiten coma"
-  - "Revisar si hay conectores adversativos que necesiten coma antes"
-  - "Decidir dónde termina cada oración (punto y seguido) y cada párrafo (punto y aparte)"
-  - "Revisar si hace falta punto y coma o dos puntos en algún tramo específico"
-respuesta_orden:
-  - "Revisar si hay enumeraciones, aclaraciones o vocativos que necesiten coma"
-  - "Revisar si hay conectores adversativos que necesiten coma antes"
-  - "Decidir dónde termina cada oración (punto y seguido) y cada párrafo (punto y aparte)"
-  - "Revisar si hace falta punto y coma o dos puntos en algún tramo específico"
-
+  - "Contar los verbos conjugados para confirmar que es compuesta"
+  - "Separar las proposiciones en dos oraciones independientes"
+  - "Revisar si ambas tienen sentido completo por sí solas"
+  - "Si ambas tienen sentido, es coordinación; si una queda incompleta, es subordinación"
+respuesta_orden: ["Contar los verbos conjugados para confirmar que es compuesta", "Separar las proposiciones en dos oraciones independientes", "Revisar si ambas tienen sentido completo por sí solas", "Si ambas tienen sentido, es coordinación; si una queda incompleta, es subordinación"]
 explicacion: |
-  El proceso va de los usos más frecuentes de la coma a la
-  organización general en oraciones y párrafos, y termina con los
-  signos más específicos.
+  El método sigue el mismo orden que la prueba práctica de la teoría:
+  contar verbos, separar, y evaluar si cada parte se sostiene sola.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
+  tema: "oracion_compuesta"
   nivel: "avanzado"
-  tags: ["puntuacion", "prerrequisito"]
+  tags: ["oracion_compuesta", "aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -2792,22 +880,48 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Sin dominar coma, punto, punto y coma y dos puntos, combinar oraciones largas y complejas en un texto se vuelve ilegible, aunque la gramática de cada oración individual sea correcta."
+enunciado: "Combinar oraciones simples en compuestas (por coordinación o subordinación) permite escribir textos más fluidos, en vez de encadenar sólo oraciones cortas sueltas."
 
 pasos:
-  - "Ver `../produccion-escrita-compleja/`: la puntuación es lo que hace legible un texto con oraciones compuestas y varias ideas encadenadas."
+  - "Un texto con sólo oraciones simples suena entrecortado; combinarlas con nexos mejora la cohesión."
 
 explicacion: |
-  Verdadero: por eso signos de puntuación es prerrequisito directo de
-  producción escrita compleja, el siguiente tema de la cadena.
+  Verdadero: dominar coordinación y subordinación es la base directa
+  para la producción escrita compleja, tema siguiente en esta rama.
+```
+
+## Sección: oraciones-negativas-e-interrogativas (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "basico"
+  tags: ["negacion"]
+
+variables:
+  afirmativas: ["Juan compró el pan", "María leyó el libro", "Los chicos jugaron al fútbol"]
+  negativas: ["Juan no compró el pan", "María no leyó el libro", "Los chicos no jugaron al fútbol"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: negativas[idx]
+tipo: completar
+
+enunciado: "Convertí en negativa la oración: \"{afirmativas[idx]}\""
+
+pasos:
+  - "Se agrega \"no\" inmediatamente antes del verbo."
+
+explicacion: |
+  La negación simple se forma con "no" antes del verbo conjugado.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "signos_de_puntuacion"
-  nivel: "avanzado"
-  tags: ["puntuacion", "aplicacion"]
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "intermedio"
+  tags: ["negacion", "doble_negacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -2815,12 +929,1478 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Al escribir un mensaje importante (un mail formal, una consigna de examen), revisar la puntuación es tan necesario como revisar la ortografía, porque ambas pueden generar ambigüedad si están mal."
+enunciado: "En español, \"Juan no compró nada\" tiene dos negaciones (\"no\" y \"nada\") que se refuerzan entre sí, no se cancelan como en otros idiomas."
 
 pasos:
-  - "Una coma mal puesta puede cambiar completamente lo que se está pidiendo o afirmando."
+  - "A diferencia del inglés (\"didn't buy anything\", sin doble negativo), el español permite y hasta exige la doble negación en muchos casos."
 
 explicacion: |
-  Verdadero: la puntuación es una herramienta práctica de precisión
-  comunicativa, no un detalle decorativo.
+  Verdadero: la doble negación en español es gramaticalmente correcta
+  y refuerza el sentido negativo, no lo anula.
 ```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "basico"
+  tags: ["interrogativa_total"]
+
+variables:
+  afirmativas: ["Juan compró el pan", "María leyó el libro"]
+  interrogativas: ["¿Juan compró el pan?", "¿María leyó el libro?"]
+  idx: uno_de([0, 1])
+
+respuesta: interrogativas[idx]
+tipo: completar
+
+enunciado: "Convertí en pregunta total (se responde sí/no): \"{afirmativas[idx]}\""
+
+pasos:
+  - "Se agregan los signos de interrogación, sin cambiar el orden de las palabras."
+
+explicacion: |
+  La interrogativa total no necesita palabra interrogativa, sólo
+  signos de pregunta (y entonación ascendente en el habla).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "basico"
+  tags: ["interrogativa_total", "interrogativa_parcial", "diferenciacion"]
+
+variables:
+  frases: ["¿Juan compró el pan?", "¿Qué compró Juan?", "¿Vino María?", "¿Cuándo vino María?"]
+  tipos: ["total", "parcial", "total", "parcial"]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["total", "parcial"]
+
+enunciado: "\"{frases[idx]}\" es una interrogativa..."
+
+pasos:
+  - "Si se responde con sí/no, es total. Si pregunta por una parte específica con palabra interrogativa, es parcial."
+
+explicacion: |
+  Total: se responde sí/no. Parcial: usa una palabra interrogativa
+  (qué, quién, cuándo...) y pide un dato específico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "intermedio"
+  tags: ["interrogativa_parcial", "objeto_directo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "qué"
+tipo: completar
+
+enunciado: "Para preguntar por el objeto directo de una oración (\"¿... compró Juan?\" → \"el pan\"), se usa la palabra interrogativa..."
+
+pasos:
+  - "\"Qué\" apunta al objeto directo cuando es una cosa."
+
+explicacion: |
+  "Qué" pregunta por el OD (cosa). Para el OD de persona se usa
+  "a quién".
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "intermedio"
+  tags: ["interrogativa_parcial", "sujeto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "quién"
+tipo: completar
+
+enunciado: "Para preguntar por el sujeto de \"Juan compró el pan\" (\"¿... compró el pan?\"), se usa la palabra interrogativa..."
+
+pasos:
+  - "\"Quién\" apunta al sujeto cuando es una persona."
+
+explicacion: |
+  "Quién(es)" pregunta por el sujeto (o por un complemento de
+  persona), según el contexto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "basico"
+  tags: ["interrogativa_parcial", "circunstancial"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "cuándo"
+tipo: completar
+
+enunciado: "Para preguntar por el circunstancial de tiempo, se usa la palabra interrogativa..."
+
+pasos:
+  - "\"Cuándo\" apunta al CC de tiempo, igual que en el análisis de complementos."
+
+explicacion: |
+  Cada palabra interrogativa corresponde a la pregunta que se usa
+  para reconocer ese complemento.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "basico"
+  tags: ["interrogativa_parcial", "circunstancial"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "dónde"
+tipo: completar
+
+enunciado: "Para preguntar por el circunstancial de lugar, se usa la palabra interrogativa..."
+
+pasos:
+  - "\"Dónde\" apunta al CC de lugar."
+
+explicacion: |
+  "Dónde" pregunta específicamente por el lugar de la acción.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "basico"
+  tags: ["interrogativa_parcial", "circunstancial"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "cómo"
+tipo: completar
+
+enunciado: "Para preguntar por el circunstancial de modo, se usa la palabra interrogativa..."
+
+pasos:
+  - "\"Cómo\" apunta al CC de modo."
+
+explicacion: |
+  "Cómo" pregunta específicamente por la manera en que ocurre la
+  acción.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "basico"
+  tags: ["interrogativa_parcial", "tildes"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las palabras interrogativas (qué, quién, cuándo, dónde, cómo, cuánto) siempre llevan tilde cuando forman parte de una pregunta."
+
+pasos:
+  - "\"¿Qué compró Juan?\" (con tilde) vs. \"Juan sabe que compró pan\" (\"que\" sin tilde, no es interrogativo)."
+
+explicacion: |
+  Verdadero: la tilde diacrítica distingue el uso interrogativo del
+  uso no interrogativo de esas mismas palabras.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "avanzado"
+  tags: ["negacion", "interrogativa", "combinacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una oración puede ser negativa e interrogativa a la vez, como \"¿Juan no compró el pan?\"."
+
+pasos:
+  - "Se combinan las dos transformaciones sobre la misma oración base."
+
+explicacion: |
+  Verdadero: negación e interrogación son transformaciones
+  independientes que pueden aplicarse juntas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "intermedio"
+  tags: ["negacion", "estructura"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Agregar \"no\" a una oración cambia su sentido pero no cambia cuál es el sujeto ni cuál es el predicado."
+
+pasos:
+  - "\"Juan compró el pan\" y \"Juan no compró el pan\" tienen el mismo sujeto (Juan) y el mismo OD (el pan)."
+
+explicacion: |
+  Verdadero: la negación es una transformación semántica (cambia el
+  sentido) pero no toca la estructura sintáctica de base.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "intermedio"
+  tags: ["negacion", "vocabulario"]
+
+variables:
+  frases: ["Nadie vino a la fiesta", "Juan nunca llega tarde", "No hay nada en la heladera"]
+  palabras: ["Nadie", "nunca", "nada"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: palabras[idx]
+tipo: completar
+
+enunciado: "En \"{frases[idx]}\", ¿cuál es la palabra que aporta el sentido negativo (además de o en vez de \"no\")?"
+
+pasos:
+  - "Nadie, nunca, nada, ninguno son palabras negativas que pueden reemplazar o acompañar a \"no\"."
+
+explicacion: |
+  Además de "no", el español tiene palabras negativas propias:
+  nadie, nunca, nada, ninguno/a, tampoco.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "intermedio"
+  tags: ["interrogativa_parcial", "eleccion"]
+
+variables:
+  preguntas: ["¿... compró Juan?", "¿... compró el pan?", "¿... compró Juan el pan?", "¿... está la panadería?"]
+  respuestas_esperadas: ["Qué", "Quién", "Cuándo", "Dónde"]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: respuestas_esperadas[idx]
+tipo: mc
+opciones_explicitas: ["Qué", "Quién", "Cuándo", "Dónde", "Cómo"]
+
+enunciado: "Completá con la palabra interrogativa correcta: \"{preguntas[idx]}\" (si la respuesta esperada apunta al {respuestas_esperadas[idx]})"
+
+pasos:
+  - "Identificar qué complemento se busca (OD, sujeto, tiempo, lugar) y elegir la palabra que le corresponde."
+
+explicacion: |
+  Cada palabra interrogativa apunta a un complemento específico de la
+  oración base.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "intermedio"
+  tags: ["interrogativa_total", "estructura"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Toda oración interrogativa necesita una palabra interrogativa (qué, quién, cuándo...) para formarse."
+
+pasos:
+  - "\"¿Vino María?\" es interrogativa (total) sin ninguna palabra interrogativa, sólo con los signos de pregunta."
+
+explicacion: |
+  Falso: las interrogativas totales no llevan palabra interrogativa,
+  sólo las parciales la necesitan.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "basico"
+  tags: ["interrogativa_total", "interrogativa_parcial", "respuestas"]
+
+variables:
+  frases: ["¿Vino María?", "¿Cuándo vino María?"]
+  tipos_respuesta: ["sí o no", "un dato específico (una fecha/momento)"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos_respuesta[idx]
+tipo: mc
+opciones_explicitas: ["sí o no", "un dato específico (una fecha/momento)"]
+
+enunciado: "La pregunta \"{frases[idx]}\" se responde con..."
+
+pasos:
+  - "Total → sí/no. Parcial → el dato puntual que pide la palabra interrogativa."
+
+explicacion: |
+  El tipo de interrogativa determina qué forma de respuesta se
+  espera.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "avanzado"
+  tags: ["negacion", "practica"]
+
+variables:
+  afirmativas: ["Juan le regaló un libro a María", "El profesor les explicó el tema a los alumnos"]
+  negativas: ["Juan no le regaló un libro a María", "El profesor no les explicó el tema a los alumnos"]
+  idx: uno_de([0, 1])
+
+respuesta: negativas[idx]
+tipo: completar
+
+enunciado: "Convertí en negativa: \"{afirmativas[idx]}\""
+
+pasos:
+  - "El \"no\" se ubica antes del verbo, sin alterar OD ni OI de la oración."
+
+explicacion: |
+  La negación se agrega en un único lugar (antes del verbo) sin
+  importar cuántos complementos tenga la oración.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "avanzado"
+  tags: ["interrogativa_parcial", "objeto_indirecto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "a quién"
+tipo: completar
+
+enunciado: "Para preguntar por el objeto indirecto de \"Juan le regaló un libro a María\" (\"¿... le regaló un libro Juan?\"), se usa..."
+
+pasos:
+  - "El OI es el destinatario, se pregunta con \"a quién\"."
+
+explicacion: |
+  "A quién" pregunta específicamente por el destinatario (OI), a
+  diferencia de "quién" que pregunta por el sujeto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "intermedio"
+  tags: ["interrogativa_parcial", "metodo"]
+
+enunciado: "Ordená los pasos para transformar una afirmativa en una pregunta parcial sobre su circunstancial de lugar."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar el circunstancial de lugar en la oración afirmativa"
+  - "Reemplazarlo por la palabra interrogativa \"dónde\""
+  - "Ubicar \"dónde\" al inicio de la oración"
+  - "Agregar los signos de interrogación"
+respuesta_orden: ["Identificar el circunstancial de lugar en la oración afirmativa", "Reemplazarlo por la palabra interrogativa \"dónde\"", "Ubicar \"dónde\" al inicio de la oración", "Agregar los signos de interrogación"]
+explicacion: |
+  Se identifica el complemento, se reemplaza por su palabra
+  interrogativa, se la antepone y se cierra con los signos de
+  pregunta.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "oraciones_negativas_e_interrogativas"
+  nivel: "avanzado"
+  tags: ["interrogativa_parcial", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Elegir bien la palabra interrogativa (qué/quién/cuándo/dónde/cómo/por qué/cuánto) permite pedir exactamente el dato que falta, sin tener que reformular toda la pregunta."
+
+pasos:
+  - "Cada palabra apunta a un complemento distinto: usar la incorrecta pide un dato distinto del que se busca."
+
+explicacion: |
+  Verdadero: elegir la palabra interrogativa correcta es lo que hace
+  que la pregunta pida exactamente el dato faltante.
+```
+
+## Sección: coordinadas-adversativas (22 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "basico"
+  tags: ["conectores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "oposición o contraste"
+tipo: mc
+opciones_explicitas: ["suma de información", "oposición o contraste", "una alternativa entre opciones"]
+
+enunciado: "Una oración coordinada adversativa expresa principalmente..."
+
+explicacion: |
+  Las adversativas presentan un contraste: "A, pero B", donde B limita o
+  contradice parcialmente lo dicho en A.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "basico"
+  tags: ["conectores"]
+
+variables:
+  conector: uno_de(["pero", "sin embargo", "no obstante"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El conector \"{conector}\" puede introducir una oración coordinada adversativa."
+
+explicacion: |
+  Los tres son nexos adversativos reales: "pero" es el más simple, "sin
+  embargo" y "no obstante" son locuciones adversativas más formales.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "basico"
+  tags: ["conectores"]
+
+variables:
+  conector: uno_de(["y", "o", "ni"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El conector \"{conector}\" es un nexo adversativo."
+
+explicacion: |
+  "Y"/"ni" son copulativos (suman) y "o" es disyuntivo (alternativa) — ninguno
+  expresa contraste, así que no son adversativos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "intermedio"
+  tags: ["nexos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "sino"
+tipo: completar
+
+enunciado: "En \"No fue por miedo, ___ por respeto\", el nexo que reemplaza una proposición negativa anterior por la alternativa verdadera es:"
+
+respuestas_validas:
+  - "sino"
+
+explicacion: |
+  "Sino" se usa específicamente para corregir/reemplazar una negación
+  previa por la afirmación correcta — distinto de "pero", que no niega
+  lo anterior sino que lo matiza.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "intermedio"
+  tags: ["independencia sintactica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una coordinada adversativa, las dos proposiciones son sintácticamente independientes entre sí (ninguna depende de la otra para tener sentido completo)."
+
+explicacion: |
+  A diferencia de la subordinación, en la coordinación ambas oraciones
+  tienen igual jerarquía gramatical — el nexo adversativo sólo agrega
+  un matiz semántico de contraste, no crea dependencia sintáctica.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "basico"
+  tags: ["clasificacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "adversativa"
+tipo: mc
+opciones_explicitas: ["copulativa", "disyuntiva", "adversativa"]
+
+enunciado: "\"Quería ir al cine, pero estaba lloviendo\" es una oración coordinada..."
+
+explicacion: |
+  "Pero" marca el contraste entre el deseo (ir al cine) y la circunstancia
+  que lo impide (la lluvia): es adversativa.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "intermedio"
+  tags: ["puntuacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "van entre comas"
+tipo: mc
+opciones_explicitas: ["nunca llevan coma", "van entre comas", "siempre van al final de la oración"]
+
+enunciado: "Locuciones adversativas como \"sin embargo\" o \"no obstante\" típicamente..."
+
+explicacion: |
+  Al ser conectores discursivos más marcados que "pero", suelen ir
+  encerrados entre comas, ya sea al inicio de la segunda proposición o
+  en medio de ella.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "avanzado"
+  tags: ["analisis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "el esfuerzo del equipo y la falta de goles"
+tipo: mc
+opciones_explicitas: ["el clima y el resultado", "el esfuerzo del equipo y la falta de goles", "el árbitro y los jugadores"]
+
+enunciado: "\"El equipo jugó con mucha entrega durante los primeros cuarenta minutos, sin embargo, no logró convertir goles\". ¿Qué dos ideas contrasta \"sin embargo\" acá?"
+
+explicacion: |
+  El conector marca la oposición entre el esfuerzo demostrado (entrega)
+  y el resultado negativo (no convertir goles).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "basico"
+  tags: ["conectores"]
+
+variables:
+  conector: uno_de(["pero", "mas"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{conector}\" es una conjunción adversativa (aunque \"mas\" sin tilde se usa sobre todo en registros literarios o formales)."
+
+explicacion: |
+  Ambas cumplen la misma función adversativa; "mas" es una variante más
+  formal/literaria de "pero".
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "intermedio"
+  tags: ["puntuacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Antes de \"pero\" suele colocarse una coma cuando la primera proposición es larga o se busca marcar una pausa enfática."
+
+explicacion: |
+  Con oraciones cortas, "pero" puede ir sin coma previa; con proposiciones
+  más extensas, la coma ayuda a marcar el corte antes del contraste.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "basico"
+  tags: ["clasificacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "copulativa"
+tipo: mc
+opciones_explicitas: ["copulativa", "disyuntiva", "adversativa"]
+
+enunciado: "\"Estudió mucho y aprobó el examen\" es una oración coordinada..."
+
+explicacion: |
+  "Y" suma información sin contraste (estudió Y además aprobó): es
+  copulativa, no adversativa.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "intermedio"
+  tags: ["funcion textual"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "anticipar giros o matices en el argumento del autor"
+tipo: mc
+opciones_explicitas: ["memorizar vocabulario nuevo", "anticipar giros o matices en el argumento del autor", "identificar el género textual"]
+
+enunciado: "Reconocer las coordinadas adversativas en un texto ayuda principalmente a..."
+
+explicacion: |
+  Los conectores adversativos señalan que el autor está por matizar,
+  limitar o contradecir parcialmente lo que acaba de afirmar — anticiparlos
+  mejora la comprensión lectora.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "basico"
+  tags: ["conectores"]
+
+variables:
+  conector: uno_de(["por el contrario", "sino"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{conector}\" puede funcionar como nexo adversativo."
+
+explicacion: |
+  Ambos son nexos/locuciones adversativas reconocidas: "por el contrario"
+  refuerza la oposición, "sino" reemplaza una negación previa.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "avanzado"
+  tags: ["analisis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "que la complejidad del proceso no niega que sus ideales inspiraran cambios"
+tipo: mc
+opciones_explicitas: ["que la Revolución de Mayo fue un fracaso total", "que la complejidad del proceso no niega que sus ideales inspiraran cambios", "que no hubo ningún ideal de libertad"]
+
+enunciado: "\"La Revolución de Mayo fue un proceso complejo, pero sus ideales de libertad inspiraron cambios profundos\". ¿Qué matiz introduce \"pero\" acá?"
+
+explicacion: |
+  El "pero" no niega la complejidad, sino que agrega una consecuencia
+  positiva que igual se dio a pesar de esa complejidad.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "intermedio"
+  tags: ["clasificacion"]
+
+variables:
+  conector: uno_de(["pero", "sin embargo", "no obstante", "sino"])
+
+respuesta: "adversativa"
+tipo: mc
+opciones_explicitas: ["copulativa", "disyuntiva", "adversativa"]
+
+enunciado: "Una oración unida con el nexo \"{conector}\" es de tipo coordinada..."
+
+explicacion: |
+  Los cuatro son nexos adversativos: expresan contraste u oposición
+  entre las dos proposiciones que unen.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "basico"
+  tags: ["posicion del nexo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La posición del nexo adversativo dentro de la oración es flexible, lo que permite variar el ritmo y el énfasis del discurso."
+
+explicacion: |
+  A diferencia de nexos con posición fija, adversativas como "sin embargo"
+  pueden ir al inicio de la segunda proposición o insertarse en medio de
+  ella.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "intermedio"
+  tags: ["clasificacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "disyuntiva"
+tipo: mc
+opciones_explicitas: ["copulativa", "disyuntiva", "adversativa"]
+
+enunciado: "\"¿Vamos al cine o nos quedamos en casa?\" es una oración coordinada..."
+
+explicacion: |
+  "O" plantea una alternativa entre dos opciones, no un contraste: es
+  disyuntiva, no adversativa.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "avanzado"
+  tags: ["nexos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "concesivo-adversativo"
+tipo: completar
+
+enunciado: "En ciertos contextos, \"aunque\" puede funcionar con un valor ___ cercano al de las adversativas, aunque formalmente introduce una subordinada."
+
+respuestas_validas:
+  - "concesivo-adversativo"
+  - "concesivo adversativo"
+
+explicacion: |
+  "Aunque" suele introducir subordinadas concesivas, pero semánticamente
+  su matiz de contraste lo acerca al valor de las adversativas en varios
+  usos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "basico"
+  tags: ["conectores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "sino"
+tipo: mc
+opciones_explicitas: ["pero", "sino", "y"]
+
+enunciado: "El nexo específico para corregir una negación previa (\"no X, ... Y\") es:"
+
+explicacion: |
+  "Sino" es el único de estos tres que exige que la primera proposición
+  sea negativa — reemplaza esa negación por la alternativa correcta.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "intermedio"
+  tags: ["escritura"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Usar conectores adversativos correctamente evita que un texto sea una simple lista de ideas desconectadas."
+
+explicacion: |
+  Al marcar relaciones de contraste explícitas, los conectores
+  adversativos ayudan a construir razonamientos más cohesivos y matizados
+  en vez de oraciones sueltas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "basico"
+  tags: ["clasificacion"]
+
+variables:
+  conector: uno_de(["ni", "o", "u"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El nexo \"{conector}\" expresa un contraste u oposición entre dos proposiciones."
+
+explicacion: |
+  "Ni" es copulativo negativo y "o"/"u" son disyuntivos — ninguno expresa
+  oposición, por eso no son adversativos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "coordinadas_adversativas"
+  nivel: "avanzado"
+  tags: ["examenes"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "analizar la función de los conectores en un fragmento dado"
+tipo: mc
+opciones_explicitas: ["memorizar la lista de conjunciones de memoria", "analizar la función de los conectores en un fragmento dado", "contar cuántas comas tiene el texto"]
+
+enunciado: "En pruebas de diagnóstico y exámenes finales, un pedido típico sobre este tema es..."
+
+explicacion: |
+  Se suele pedir identificar y explicar la función (adversativa,
+  copulativa, disyuntiva, etc.) de conectores dentro de un fragmento real.
+```
+
+## Sección: coordinadas-copulativas (28 preguntas)
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "basico"
+  tags: ["estructura", "independencia"]
+
+variables:
+  oracion: uno_de(["El sol sale y la luna se oculta", "Juan corre y María camina", "Pedro come y Ana duerme"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración '{oracion}', la segunda parte depende jerárquicamente de la primera para tener sentido completo."
+
+explicacion: |
+  Falso. En las coordenadas copulativas, ambas partes tienen independencia sintáctica. Ninguna es subordinada de la otra; simplemente se suman información.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "basico"
+  tags: ["funcion", "nexos"]
+
+variables:
+  op_a: "subordinar"
+  op_b: "unir aditivamente"
+  op_c: "contrastar"
+  op_d: "causar"
+
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "¿Cuál es la función principal de las conjunciones copulativas (como 'y', 'e', 'ni') en una oración?"
+
+explicacion: |
+  La función principal es unir elementos o proposiciones de manera aditiva (sumar información), sin crear dependencia jerárquica entre ellas.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["elision", "estructura"]
+
+variables:
+  ejemplo: "Pedro come pan y María [come] queso"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración '{ejemplo}', la omisión del verbo en la segunda parte se llama elisión y no cambia la naturaleza coordinada de la oración."
+
+explicacion: |
+  Verdadero. La elisión es una omisión de elementos repetidos para evitar redundancia, pero la estructura sigue siendo coordinada copulativa.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "avanzado"
+  tags: ["independencia", "permutaciones"]
+
+variables:
+  partes: 2
+  total: permutations(partes, partes)
+
+respuesta: total
+tipo: input
+
+enunciado: "Si tenemos dos coordenadas copulativas independientes (A y B), ¿cuántas permutaciones distintas de orden existen sin cambiar el significado esencial de la coordinación?"
+
+explicacion: |
+  Como son independientes, se pueden invertir. Para 2 elementos, hay 2! (2x1) = 2 permutaciones posibles (A y B; B y A).
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "avanzado"
+  tags: ["etimologia", "terminologia"]
+
+variables:
+  op_a: "copular"
+  op_b: "separar"
+  op_c: "subordinar"
+  op_d: "conjugar"
+
+respuesta: op_a
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "El término 'copulativa' proviene del verbo latino 'copular', que significa:"
+
+explicacion: |
+  'Copular' significa unir o ligar, reflejando la función de estas conjunciones de enlazar elementos.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "basico"
+  tags: ["dependencia", "jerarquia"]
+
+variables:
+  afirmacion: "una parte completa el sentido de la otra"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En las coordenadas copulativas, una parte completa el sentido de la otra, creando una jerarquía principal/secundaria."
+
+explicacion: |
+  Falso. Esa es la característica de las subordinadas. En las copulativas, ambas partes son independientes e iguales jerárquicamente.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["nexos", "frecuencia"]
+
+variables:
+  total_nexos: 3
+  nexo_comun: "y"
+
+respuesta: nexo_comun
+tipo: input
+
+enunciado: "De los nexos copulativos principales (y, e, ni), ¿cuál es el más común y representativo?"
+
+explicacion: |
+  La conjunción 'y' es la más común y representativa de las coordinadas copulativas.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["prueba", "independencia"]
+
+variables:
+  op_a: "cambiar el significado"
+  op_b: "mantener la relación aditiva"
+  op_c: "crear una subordinada"
+  op_d: "eliminar la elisión"
+
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "Una prueba clave para identificar coordenadas copulativas es invertir el orden de las partes. ¿Qué ocurre con la relación al invertir?"
+
+explicacion: |
+  La relación de adición se mantiene, demostrando la independencia sintáctica de las partes.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["fonetica", "cacofonia"]
+
+variables:
+  palabra: "isla"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ante la palabra '{palabra}', se debe usar 'e' en lugar de 'y' para evitar cacofonía."
+
+explicacion: |
+  Verdadero. 'Y isla' suena mal fonéticamente; 'e isla' es la forma correcta.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["comparacion", "subordinadas"]
+
+variables:
+  op_a: "dependencia jerárquica"
+  op_b: "independencia sintáctica"
+  op_c: "uso de 'que'"
+  op_d: "elisión obligatoria"
+
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "¿Qué característica distingue fundamentalmente a las coordenadas copulativas de las subordinadas?"
+
+explicacion: |
+  La independencia sintáctica. En las copulativas, ninguna parte depende de la otra.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["elision", "naturaleza"]
+
+variables:
+  afirmacion: "cambia la naturaleza coordinada"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La elisión de elementos repetidos cambia la naturaleza coordinada de la oración."
+
+explicacion: |
+  Falso. La elisión no cambia la naturaleza; solo hace la oración más fluida.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "basico"
+  tags: ["funcion", "nexos"]
+
+variables:
+  op_a: "separar"
+  op_b: "unir"
+  op_c: "subordinar"
+  op_d: "interrogar"
+
+respuesta: op_b
+tipo: mc
+opciones_explicitas: [op_a, op_b, op_c, op_d]
+
+enunciado: "La conjunción 'y' tiene la función de:"
+
+explicacion: |
+  Unir elementos o proposiciones de manera aditiva.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "avanzado"
+  tags: ["que", "independencia"]
+
+variables:
+  afirmacion: "siempre es subordinante"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El nexo 'que' siempre cumple una función subordinante y nunca aditiva."
+
+explicacion: |
+  Falso. En algunos contextos específicos, 'que' puede cumplir función aditiva, aunque su uso principal es subordinante.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "basico"
+  tags: ["identificacion", "contexto"]
+
+variables:
+  oracion: "Juan e María estudian"
+  nexo: "e"
+
+respuesta: nexo
+tipo: input
+
+enunciado: "En la oración '{oracion}', ¿cuál es el nexo copulativo?"
+
+explicacion: |
+  El nexo es 'e', utilizado antes de la vocal 'i' de 'María'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "avanzado"
+  tags: ["permutaciones", "logica"]
+
+variables:
+  elementos: 3
+  total: permutations(elementos, elementos)
+
+respuesta: total
+tipo: input
+
+enunciado: "Si tenemos tres coordenadas copulativas independientes (A, B, C), ¿cuántas permutaciones distintas de orden existen?"
+
+explicacion: |
+  Para 3 elementos independientes, hay 3! (3x2x1) = 6 permutaciones posibles.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "basico"
+  tags: ["independencia", "sintaxis"]
+
+variables:
+  caso: uno_de(["verdadero", "falso"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una oración coordinada copulativa, la segunda parte depende jerárquicamente de la primera."
+
+explicacion: |
+  Falso. En las coordinadas copulativas, ambas partes tienen independencia sintáctica y gramatical. Ninguna es subordinada de la otra.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "basico"
+  tags: ["fonetica", "uso_de_nexos"]
+
+variables:
+  palabra_siguiente: uno_de(["isla", "hambre", "yogur"])
+
+respuesta: e
+tipo: input
+
+enunciado: "Si la palabra siguiente comienza con 'i' o 'hi' (como '{palabra_siguiente}'), ¿qué forma de la conjunción 'y' se utiliza para evitar cacofonía?"
+
+explicacion: |
+  Se utiliza 'e' en lugar de 'y' cuando el término siguiente comienza por 'i' o 'hi' para evitar la repetición de sonidos vocálicos iguales (cacofonía).
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["independencia", "prueba_sintactica"]
+
+variables:
+  parte1: uno_de(["Juan corre", "María lee", "Pedro come"])
+  parte2: uno_de(["Ana duerme", "Luis trabaja", "Sofía estudia"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una coordinada copulativa, es posible invertir el orden de las partes ('{parte1} y {parte2}' por '{parte2} y {parte1}') sin alterar la relación sintáctica fundamental."
+
+explicacion: |
+  Verdadero. La independencia de las partes permite invertir el orden manteniendo la adición de información, a diferencia de las subordinadas donde el orden es más rígido.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "avanzado"
+  tags: ["comparacion", "subordinacion"]
+
+variables:
+  ejemplo_copulativa: "Estudio y trabajo"
+  ejemplo_subordinada: "Estudio porque necesito aprobar"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La diferencia principal entre 'Estudio y trabajo' (copulativa) y 'Estudio porque necesito aprobar' (subordinada causal) es que en la primera no hay dependencia jerárquica entre los verbos."
+
+explicacion: |
+  Verdadero. En la coordinada, ambas acciones son independientes. En la subordinada, una depende de la otra para completar su sentido.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["elision", "estructura"]
+
+variables:
+  verbo: uno_de(["come", "lee", "corre"])
+  sujeto1: uno_de(["Pedro", "María", "Juan"])
+  sujeto2: uno_de(["Ana", "Luis", "Sofía"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Pedro come pan y Ana queso', se ha producido una elisión del verbo en la segunda parte, pero sigue siendo una coordinada copulativa."
+
+explicacion: |
+  Verdadero. La elisión de elementos repetidos (como el verbo) es común en las coordinadas copulativas y no cambia su naturaleza sintáctica.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["identificacion", "distractores"]
+
+variables:
+  correcta: "y"
+  incorrecta: uno_de(["pero", "o", "sino"])
+  oracion: "Juan corre {incorrecta} María camina."
+
+respuesta: incorrecta
+tipo: input
+
+enunciado: "En la oración 'Juan corre {incorrecta} María camina', ¿qué nexo se usa que NO es copulativo?"
+
+explicacion: |
+  El nexo '{incorrecta}' es adversativo o disyuntivo, no copulativo. Las copulativas usan 'y', 'e' o 'ni'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "basico"
+  tags: ["estructura", "definicion"]
+
+variables:
+  minimo: 2
+
+respuesta: 2
+tipo: input
+
+enunciado: "¿Cuál es el número mínimo de partes (oraciones simples o sintagmas) que deben unirse para formar una coordinada copulativa?"
+
+explicacion: |
+  Se necesitan al menos dos partes. La coordinación implica la unión de dos o más elementos de igual jerarquía.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["ejemplos", "literatura"]
+
+variables:
+  autor: uno_de(["Borges", "Cortázar", "Bianchi", "Sábato"])
+  nexo: "y"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la literatura argentina, es común encontrar coordinadas copulativas con el nexo 'y' para crear ritmo o sumar imágenes, como en 'El sol brillaba {nexo} la brisa refrescaba'."
+
+explicacion: |
+  Verdadero. Autores argentinos utilizan frecuentemente estas estructuras para dar fluidez y adición de sensaciones en sus textos.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["sintaxis", "analisis"]
+
+variables:
+  sujeto1: uno_de(["Los pibes", "El equipo", "La gente"])
+  verbo1: uno_de(["jugó", "ganó", "perdió"])
+  nexo: "y"
+  sujeto2: uno_de(["nosotros", "ellos", "ustedes"])
+  verbo2: uno_de(["miramos", "observaron", "escucharon"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Los pibes jugaron y nosotros miramos', ambas partes son sintácticamente independientes."
+
+explicacion: |
+  Verdadero. Cada parte tiene su propio sujeto y verbo, y están unidas por un nexo copulativo, manteniendo su independencia.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "basico"
+  tags: ["identificacion", "lista"]
+
+variables:
+  nexo: uno_de(["y", "e"])
+  oracion: "Vi el mar {nexo} la montaña."
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La oración 'Vi el mar {nexo} la montaña' es una coordinada copulativa."
+
+explicacion: |
+  Verdadero. El nexo 'y' o 'e' une dos objetos directos (o proposiciones elípticas) de igual jerarquía.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["elision", "sujeto"]
+
+variables:
+  verbo: uno_de(["come", "duerme", "trabaja"])
+  sujeto: uno_de(["Pedro", "María", "Juan"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Pedro come y duerme', se ha elidido el sujeto en la segunda parte, pero sigue siendo una coordinada copulativa de verbos."
+
+explicacion: |
+  Verdadero. La elisión del sujeto es válida en coordinadas copulativas cuando el sujeto es el mismo para ambas acciones.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "avanzado"
+  tags: ["comparacion", "causalidad"]
+
+variables:
+  ejemplo_copulativa: "Estudio y trabajo"
+  ejemplo_subordinada: "Estudio porque trabajo"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En 'Estudio y trabajo', no hay causa-efecto entre las partes, a diferencia de 'Estudio porque trabajo'."
+
+explicacion: |
+  Verdadero. La coordinada copulativa suma acciones sin establecer relación causal. La subordinada causal establece una dependencia de razón.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "coordinadas_copulativas"
+  nivel: "intermedio"
+  tags: ["elision", "verbo"]
+
+variables:
+  verbo: uno_de(["come", "lee", "corre"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Es correcto omitir el verbo en la segunda parte de una coordinada copulativa si se sobreentiende, como en 'Pedro come y Ana [come] queso'."
+
+explicacion: |
+  Verdadero. La elisión del verbo es una práctica común para evitar repeticiones y hacer el habla más fluida, sin alterar la coordinación.
+```
+

@@ -1,1547 +1,8 @@
-# Examen jefe — Maestro de las Artes y Escenas
+# Examen jefe — [PENDIENTE #906]
 
-> Logro #216. Completaste el examen jefe abarcando diseño, música, arquitectura y teatro. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #906. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **119 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: principios-de-diseno (30 preguntas)
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["principios", "vocabulario"]
-
-enunciado: "¿Qué son los principios de diseño, a diferencia de los elementos del arte?"
-tipo: mc
-opciones_explicitas:
-  - "Las reglas de organización que indican CÓMO combinar los elementos del arte dentro de una obra"
-  - "Los materiales físicos con los que se hace una obra"
-  - "Otro nombre para los mismos 7 elementos del arte"
-respuesta: "Las reglas de organización que indican CÓMO combinar los elementos del arte dentro de una obra"
-
-explicacion: |
-  Los elementos (`../elementos-del-arte/`) son el vocabulario; los
-  principios son las reglas de uso de ese vocabulario.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["contraste", "vocabulario"]
-
-enunciado: "¿Qué es el contraste, como principio de diseño?"
-tipo: mc
-opciones_explicitas:
-  - "Una diferencia marcada entre elementos (color, tamaño, forma, textura) que genera interés visual"
-  - "El uso de un solo color en toda la obra"
-  - "La repetición exacta de un mismo elemento"
-respuesta: "Una diferencia marcada entre elementos (color, tamaño, forma, textura) que genera interés visual"
-
-explicacion: |
-  Puede ser de color, tamaño, forma o textura.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "intermedio"
-  tags: ["contraste"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin ningún contraste entre sus elementos, una obra tiende a verse plana o monótona."
-
-explicacion: |
-  El contraste es lo que genera puntos de interés dentro de la
-  composición.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["equilibrio", "vocabulario"]
-
-enunciado: "¿Qué es el equilibrio, como principio de diseño?"
-tipo: mc
-opciones_explicitas:
-  - "La distribución del 'peso visual' de los elementos dentro de la obra"
-  - "El uso de la misma cantidad de cada color"
-  - "Que la obra tenga exactamente el mismo tamaño que su marco"
-respuesta: "La distribución del 'peso visual' de los elementos dentro de la obra"
-
-explicacion: |
-  Puede lograrse de varias formas, no sólo con simetría exacta.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "intermedio"
-  tags: ["equilibrio", "vocabulario"]
-
-enunciado: "¿Cuáles son los tres tipos de equilibrio en una composición?"
-tipo: mc
-opciones_explicitas:
-  - "Simétrico, asimétrico y radial"
-  - "Cálido, frío y neutro"
-  - "Primario, secundario y terciario"
-respuesta: "Simétrico, asimétrico y radial"
-
-explicacion: |
-  Cada uno logra el balance visual de una forma distinta.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "intermedio"
-  tags: ["equilibrio", "vocabulario"]
-
-enunciado: "¿Cuál de estos es un ejemplo típico de equilibrio radial?"
-tipo: mc
-opciones_explicitas:
-  - "Un rosetón, organizado alrededor de un centro"
-  - "Un retrato con la cara exactamente en el medio, mirando de frente"
-  - "Una foto con un objeto grande a la izquierda y varios chicos a la derecha"
-respuesta: "Un rosetón, organizado alrededor de un centro"
-
-explicacion: |
-  El equilibrio radial se organiza alrededor de un punto central, como
-  en `../rosetones-y-simetria/`.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "intermedio"
-  tags: ["proporcion", "vocabulario"]
-
-enunciado: "¿Qué es la proporción, como principio de diseño?"
-tipo: mc
-opciones_explicitas:
-  - "La relación de tamaño entre las partes de la obra, ajustada para que se vea coherente"
-  - "La cantidad total de elementos usados"
-  - "El costo relativo de los materiales usados"
-respuesta: "La relación de tamaño entre las partes de la obra, ajustada para que se vea coherente"
-
-explicacion: |
-  Ya se presentó en `../composicion-y-proporcion/`; acá se retoma como
-  herramienta activa de diseño.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["ritmo", "vocabulario"]
-
-enunciado: "¿Qué es el ritmo, como principio de diseño visual?"
-tipo: mc
-opciones_explicitas:
-  - "La repetición de elementos de forma que crea una sensación de movimiento organizado"
-  - "La velocidad a la que se hizo la obra"
-  - "El uso exclusivo de líneas curvas"
-respuesta: "La repetición de elementos de forma que crea una sensación de movimiento organizado"
-
-explicacion: |
-  Es la misma idea del ritmo musical, trasladada al espacio visual.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "intermedio"
-  tags: ["ritmo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ritmo visual se logra repitiendo una línea, forma o color con cierta regularidad."
-
-explicacion: |
-  Sin repetición no hay ritmo, de la misma forma que no hay ritmo
-  musical sin patrón temporal.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["unidad", "vocabulario"]
-
-enunciado: "¿Qué es la unidad, como principio de diseño?"
-tipo: mc
-opciones_explicitas:
-  - "La sensación de que todos los elementos de la obra pertenecen juntos, formando un todo coherente"
-  - "El uso de un único elemento en toda la obra"
-  - "Que la obra mida exactamente 1 metro por lado"
-respuesta: "La sensación de que todos los elementos de la obra pertenecen juntos, formando un todo coherente"
-
-explicacion: |
-  Sin unidad, la obra se ve como piezas sueltas sin relación entre sí.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["enfasis", "vocabulario"]
-
-enunciado: "¿Qué es el énfasis, como principio de diseño?"
-tipo: mc
-opciones_explicitas:
-  - "Destacar una parte de la obra como la más importante"
-  - "Repetir el mismo elemento varias veces"
-  - "Usar sólo colores oscuros"
-respuesta: "Destacar una parte de la obra como la más importante"
-
-explicacion: |
-  Se logra con contraste, posición o tamaño.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "intermedio"
-  tags: ["enfasis"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El énfasis, como principio de diseño, está directamente relacionado con el concepto de punto focal."
-
-explicacion: |
-  Ambos apuntan a lo mismo: qué parte de la obra capta primero la
-  atención.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "intermedio"
-  tags: ["movimiento", "vocabulario"]
-
-enunciado: "¿Qué es el movimiento, como principio de diseño en una obra estática (como una pintura)?"
-tipo: mc
-opciones_explicitas:
-  - "La sensación de acción, o la forma en que la composición guía la mirada a través de la obra"
-  - "Un movimiento físico real de la obra"
-  - "El desplazamiento del artista mientras trabaja"
-respuesta: "La sensación de acción, o la forma en que la composición guía la mirada a través de la obra"
-
-explicacion: |
-  En una obra estática, el movimiento es sugerido, no real.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "intermedio"
-  tags: ["movimiento"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El movimiento, como principio de diseño, siempre implica que la obra tenga animación real (como un video)."
-
-explicacion: |
-  En una pintura o foto estática, el movimiento es sugerido por líneas,
-  disposición de elementos o dirección de las miradas.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["patron", "vocabulario"]
-
-enunciado: "¿Qué es un patrón, como principio de diseño?"
-tipo: mc
-opciones_explicitas:
-  - "La repetición regular de un elemento o motivo"
-  - "Un solo elemento único, sin repetir"
-  - "La mezcla de todos los colores primarios"
-respuesta: "La repetición regular de un elemento o motivo"
-
-explicacion: |
-  Como un empapelado, un mosaico o un estampado de tela.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "avanzado"
-  tags: ["patron"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un patrón visual es el mismo concepto que la traslación repetida (ver `../../matematica/transformaciones-geometricas/traslacion/`), aplicado como recurso de diseño."
-
-explicacion: |
-  El mismo motivo se repite deslizándose siempre el mismo vector.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["variedad", "vocabulario"]
-
-enunciado: "¿Qué es la variedad, como principio de diseño?"
-tipo: mc
-opciones_explicitas:
-  - "El uso de elementos diferentes entre sí, para evitar la monotonía"
-  - "La cantidad total de colores disponibles en una paleta"
-  - "Otro nombre para el contraste"
-respuesta: "El uso de elementos diferentes entre sí, para evitar la monotonía"
-
-explicacion: |
-  Funciona en tensión directa con la unidad.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "avanzado"
-  tags: ["unidad", "variedad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La unidad y la variedad están en tensión: un diseño efectivo tiene que balancear ambas, no maximizar una a costa de la otra."
-
-explicacion: |
-  Demasiada unidad sin variedad aburre; demasiada variedad sin unidad
-  se ve caótico.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["escala", "vocabulario"]
-
-enunciado: "¿Qué es la escala, como principio de diseño?"
-tipo: mc
-opciones_explicitas:
-  - "El tamaño de un elemento en relación con otros elementos o con el espectador"
-  - "La cantidad de veces que se repite un elemento"
-  - "El tamaño físico total de la obra, sin comparar con nada más"
-respuesta: "El tamaño de un elemento en relación con otros elementos o con el espectador"
-
-explicacion: |
-  Es siempre una comparación, no un tamaño absoluto.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "intermedio"
-  tags: ["escala", "vocabulario"]
-
-enunciado: "¿Cuál de estos es un ejemplo de usar la escala deliberadamente para llamar la atención?"
-tipo: mc
-opciones_explicitas:
-  - "Dibujar un objeto cotidiano (como una taza) mucho más grande de lo esperado"
-  - "Usar siempre el mismo tamaño para todos los elementos"
-  - "Elegir un formato de obra cuadrado"
-respuesta: "Dibujar un objeto cotidiano (como una taza) mucho más grande de lo esperado"
-
-explicacion: |
-  Romper la escala esperada de algo genera un efecto visual fuerte.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "avanzado"
-  tags: ["equilibrio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El equilibrio simétrico se basa en el mismo concepto de reflexión (eje de simetría) ya visto en geometría."
-
-explicacion: |
-  Los elementos de un lado del eje son, en esencia, el reflejo de los
-  del otro lado.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "avanzado"
-  tags: ["equilibrio", "ordenar"]
-
-enunciado: "Ordená los pasos para lograr un equilibrio asimétrico (sin usar simetría exacta) en una composición."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar que ningún lado 'pese' visualmente mucho más que el otro"
-  - "Ubicar un elemento grande o de mucho contraste de un lado de la composición"
-  - "Compensarlo con varios elementos más chicos, o con espacio negativo, del otro lado"
-respuesta_orden:
-  - "Ubicar un elemento grande o de mucho contraste de un lado de la composición"
-  - "Compensarlo con varios elementos más chicos, o con espacio negativo, del otro lado"
-  - "Revisar que ningún lado 'pese' visualmente mucho más que el otro"
-
-explicacion: |
-  El equilibrio no exige espejo exacto: exige que el peso visual total
-  quede balanceado.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "intermedio"
-  tags: ["unidad", "variedad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una obra con mucha unidad pero sin nada de variedad tiende a verse aburrida o monótona."
-
-explicacion: |
-  Es el extremo opuesto de una obra caótica por exceso de variedad sin
-  unidad.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "intermedio"
-  tags: ["unidad", "variedad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una obra con mucha variedad pero sin ninguna unidad tiende a verse caótica o desordenada."
-
-explicacion: |
-  El diseño efectivo busca el balance entre ambos extremos.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["patron", "completar"]
-
-tipo: completar
-enunciado: "Completá: la repetición regular de un elemento o motivo se llama ___."
-respuestas_validas:
-  - "patrón"
-  - "patron"
-
-explicacion: |
-  Es distinto del ritmo, que es la sensación de movimiento que genera
-  esa repetición.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "avanzado"
-  tags: ["ritmo", "patron", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia entre ritmo y patrón?"
-tipo: mc
-opciones_explicitas:
-  - "El patrón es la repetición en sí; el ritmo es la sensación de movimiento que esa repetición genera"
-  - "Son exactamente lo mismo, dos nombres para un solo concepto"
-  - "El ritmo sólo aplica a la música, nunca a las artes visuales"
-respuesta: "El patrón es la repetición en sí; el ritmo es la sensación de movimiento que esa repetición genera"
-
-explicacion: |
-  Están relacionados, pero no son lo mismo: uno es la estructura, el
-  otro es el efecto que produce.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "intermedio"
-  tags: ["enfasis", "contraste"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Uno de los recursos para lograr énfasis en una composición es usar contraste (de color, tamaño o forma) en la zona que se quiere destacar."
-
-explicacion: |
-  Contraste y énfasis suelen trabajar juntos.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["principios"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los 10 principios de diseño se pueden aplicar tanto a una pintura como a un afiche, una interfaz digital o un video."
-
-explicacion: |
-  Son principios generales de organización visual, no exclusivos de
-  ninguna técnica.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["principios"]
-
-respuesta: 10
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos principios de diseño distintos se presentan en este módulo?"
-
-explicacion: |
-  Contraste, equilibrio, proporción, ritmo, unidad, énfasis, movimiento,
-  patrón, variedad y escala.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "principios_de_diseno"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve conocer los principios de diseño?"
-tipo: mc
-opciones_explicitas:
-  - "Para tener herramientas concretas con las que describir, evaluar y aplicar la composición en cualquier obra visual"
-  - "Sólo sirven para criticar el trabajo de otros artistas"
-  - "Sólo aplican si la obra ya tiene los 7 elementos del arte presentes"
-respuesta: "Para tener herramientas concretas con las que describir, evaluar y aplicar la composición en cualquier obra visual"
-
-explicacion: |
-  Cualquier decisión de diseño se puede analizar en términos de estos
-  10 principios.
-```
-
-## Sección: produccion-multimedial (25 preguntas)
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "basico"
-  tags: ["multimedial", "vocabulario"]
-
-enunciado: "¿Qué es un proyecto multimedial?"
-tipo: mc
-opciones_explicitas:
-  - "Una pieza que combina varios tipos de recursos (texto, imagen, sonido, video) en una sola experiencia"
-  - "Cualquier proyecto que use más de una cámara"
-  - "Un proyecto hecho por más de un artista"
-respuesta: "Una pieza que combina varios tipos de recursos (texto, imagen, sonido, video) en una sola experiencia"
-
-explicacion: |
-  Por ejemplo, un video educativo, una presentación interactiva o un
-  sitio web.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["multimedial"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La habilidad central de la producción multimedial es elegir la técnica y el formato correctos para cada recurso, y lograr que funcionen juntos, no dominar cada uno de forma aislada."
-
-explicacion: |
-  Es la idea que unifica los cuatro tipos de integración (texto, imagen,
-  sonido, video).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "basico"
-  tags: ["texto", "vocabulario"]
-
-enunciado: "¿Qué es la legibilidad de un texto integrado en un proyecto multimedial?"
-tipo: mc
-opciones_explicitas:
-  - "Que el tamaño de tipografía y el contraste con el fondo permitan leerlo sin esfuerzo"
-  - "Que el texto use la mayor cantidad de colores posible"
-  - "Que el texto sea lo más corto posible, sin importar el contraste"
-respuesta: "Que el tamaño de tipografía y el contraste con el fondo permitan leerlo sin esfuerzo"
-
-explicacion: |
-  Es la misma idea de contraste ya vista en `../principios-de-diseno/`,
-  aplicada a la tipografía.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["texto", "vocabulario"]
-
-enunciado: "¿Qué es la jerarquía tipográfica?"
-tipo: mc
-opciones_explicitas:
-  - "Diferenciar visualmente títulos, subtítulos y cuerpo de texto, para guiar por dónde empezar a leer"
-  - "Usar una sola tipografía en todo el proyecto, sin excepciones"
-  - "Ordenar los textos alfabéticamente"
-respuesta: "Diferenciar visualmente títulos, subtítulos y cuerpo de texto, para guiar por dónde empezar a leer"
-
-explicacion: |
-  Se logra con diferencias de tamaño, peso o color entre los distintos
-  niveles de texto.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["texto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un subtítulo o cartel de texto sobre un video tiene que permanecer en pantalla el tiempo suficiente para que se alcance a leer completo."
-
-explicacion: |
-  No alcanza con que "quede bien" visualmente: tiene que ser
-  funcionalmente legible en el tiempo que dura.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["texto", "vocabulario"]
-
-enunciado: "¿Qué problema genera un texto que aparece y desaparece demasiado rápido en un video?"
-tipo: mc
-opciones_explicitas:
-  - "El espectador no llega a leerlo completo antes de que desaparezca"
-  - "El video pesa más en tamaño de archivo"
-  - "No genera ningún problema real"
-respuesta: "El espectador no llega a leerlo completo antes de que desaparezca"
-
-explicacion: |
-  Es uno de los errores más comunes al integrar texto en video.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "basico"
-  tags: ["imagen", "vocabulario"]
-
-enunciado: "¿Qué pasa si se amplía una imagen de baja resolución para ocupar más espacio del que puede sostener?"
-tipo: mc
-opciones_explicitas:
-  - "Se ve pixelada o borrosa"
-  - "Cambia de color automáticamente"
-  - "No pasa nada, la calidad se mantiene siempre"
-respuesta: "Se ve pixelada o borrosa"
-
-explicacion: |
-  Por eso hay que elegir imágenes con resolución suficiente para el
-  tamaño final en el que se van a mostrar.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["imagen", "vocabulario"]
-
-enunciado: "¿Qué pasa si se fuerza una imagen a encajar en un marco con una relación de aspecto muy distinta a la original?"
-tipo: mc
-opciones_explicitas:
-  - "La imagen se deforma: se estira o se aplasta"
-  - "La imagen mejora su resolución automáticamente"
-  - "No pasa nada, las imágenes se adaptan solas sin deformarse"
-respuesta: "La imagen se deforma: se estira o se aplasta"
-
-explicacion: |
-  Mejor recortarla manteniendo su proporción original, o adaptar el
-  espacio disponible a la imagen.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["imagen"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Distintos formatos de archivo de imagen (con o sin pérdida de calidad) convienen para distintos usos, no hay un único formato correcto para todo."
-
-explicacion: |
-  El criterio no es el mismo para una foto realista que para un logo
-  con colores planos.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "basico"
-  tags: ["sonido", "vocabulario"]
-
-enunciado: "Cuando hay música y diálogo al mismo tiempo en un proyecto multimedial, ¿cómo deben quedar los niveles de volumen entre ambos?"
-tipo: mc
-opciones_explicitas:
-  - "La música por debajo del diálogo, para no taparlo"
-  - "Ambos exactamente al mismo volumen"
-  - "El diálogo por debajo de la música, para darle protagonismo al sonido ambiente"
-respuesta: "La música por debajo del diálogo, para no taparlo"
-
-explicacion: |
-  El diálogo suele ser la información principal que el espectador
-  necesita entender.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "basico"
-  tags: ["sonido"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El volumen de la música de fondo debe quedar por debajo del volumen del diálogo o la narración, para no taparlo."
-
-explicacion: |
-  Es uno de los errores más comunes de mezcla de sonido en producciones
-  amateur.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["sonido", "vocabulario"]
-
-enunciado: "¿Qué es la sincronización (o lip-sync) entre sonido e imagen?"
-tipo: mc
-opciones_explicitas:
-  - "Que el audio de una voz coincida en el tiempo con el movimiento de los labios en el video"
-  - "Que la música tenga el mismo tempo en todo el proyecto"
-  - "Que el volumen del sonido sea siempre el mismo"
-respuesta: "Que el audio de una voz coincida en el tiempo con el movimiento de los labios en el video"
-
-explicacion: |
-  Un desfasaje notorio entre audio e imagen distrae fuertemente al
-  espectador.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["sonido"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un audio con ruido de fondo o mala calidad suele notarse mucho más que una imagen de calidad mediocre: el oído es especialmente exigente con los defectos del sonido."
-
-explicacion: |
-  Es una de las razones por las que la calidad del audio no debería
-  descuidarse frente a la de la imagen.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["video", "vocabulario"]
-
-enunciado: "¿Qué conviene mantener consistente entre distintos clips de video que se combinan en un mismo proyecto?"
-tipo: mc
-opciones_explicitas:
-  - "La resolución y la cantidad de cuadros por segundo (frame rate)"
-  - "El nombre del archivo"
-  - "La fecha en la que se filmó cada clip"
-respuesta: "La resolución y la cantidad de cuadros por segundo (frame rate)"
-
-explicacion: |
-  Si no son consistentes, se nota un salto de calidad o de fluidez
-  entre un clip y otro.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["video"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los gráficos, textos o subtítulos que se agregan sobre un video no deben tapar información visual importante de la imagen de fondo."
-
-explicacion: |
-  Tienen que integrarse con el encuadre y el montaje ya hechos, no
-  competir contra ellos.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "avanzado"
-  tags: ["multimedial", "vocabulario"]
-
-enunciado: "Según el principio general de integración multimedial, ¿qué dos preguntas conviene hacerse sin importar el recurso que se esté integrando?"
-tipo: mc
-opciones_explicitas:
-  - "¿Todos los elementos comparten un estilo coherente?, y ¿está claro cuál es el elemento protagonista en cada momento?"
-  - "¿Cuánto costó producir cada recurso?, y ¿cuánto tiempo llevó hacerlo?"
-  - "¿El archivo pesa poco?, y ¿es compatible con todos los dispositivos?"
-respuesta: "¿Todos los elementos comparten un estilo coherente?, y ¿está claro cuál es el elemento protagonista en cada momento?"
-
-explicacion: |
-  Son las dos preguntas de coherencia y jerarquía que se repiten para
-  texto, imagen, sonido y video por igual.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "avanzado"
-  tags: ["multimedial"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La tensión entre unidad y variedad, ya vista en los principios de diseño, también aplica a un proyecto multimedial con varios tipos de recursos combinados."
-
-explicacion: |
-  Demasiada uniformidad aburre; demasiada variedad sin coherencia se ve
-  desordenado — el mismo balance, ahora entre texto, imagen, sonido y
-  video.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "avanzado"
-  tags: ["multimedial", "ordenar"]
-
-enunciado: "Ordená los pasos generales para integrar un recurso nuevo (por ejemplo, una imagen) a un proyecto multimedial ya en marcha."
-tipo: ordenar
-opciones_explicitas:
-  - "Verificar que no compita por la atención con los demás elementos en pantalla al mismo tiempo"
-  - "Elegir el formato y la calidad adecuados para el recurso"
-  - "Ajustarlo al estilo general del proyecto (tipografía, paleta de color, tono)"
-respuesta_orden:
-  - "Elegir el formato y la calidad adecuados para el recurso"
-  - "Ajustarlo al estilo general del proyecto (tipografía, paleta de color, tono)"
-  - "Verificar que no compita por la atención con los demás elementos en pantalla al mismo tiempo"
-
-explicacion: |
-  Primero la calidad técnica, después la coherencia de estilo, y por
-  último la jerarquía de atención frente al resto de los elementos.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "avanzado"
-  tags: ["multimedial", "vocabulario"]
-
-enunciado: "¿Por qué no alcanza con que cada recurso individual (la foto, el audio, el video) sea de buena calidad por separado?"
-tipo: mc
-opciones_explicitas:
-  - "Porque también hace falta que funcionen juntos, con coherencia de estilo y sin competir por la atención"
-  - "En realidad sí alcanza, la integración nunca afecta el resultado final"
-  - "Porque la calidad de cada recurso individual no importa en absoluto"
-respuesta: "Porque también hace falta que funcionen juntos, con coherencia de estilo y sin competir por la atención"
-
-explicacion: |
-  Es la diferencia entre un proyecto que se siente profesional y uno
-  que se siente improvisado, con las mismas piezas.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["multimedial"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Texto, imagen, sonido y video comparten la misma necesidad de tener una jerarquía clara y un estilo coherente dentro del proyecto."
-
-explicacion: |
-  Es el hilo conductor que conecta las cuatro integraciones distintas.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["texto", "problema"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un video usa texto blanco sobre un fondo también claro, casi del mismo tono. ¿Esa integración de texto está bien resuelta?"
-
-explicacion: |
-  No: sin contraste suficiente entre el texto y el fondo, la
-  legibilidad se pierde, sin importar qué tan buena sea la tipografía
-  elegida.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "intermedio"
-  tags: ["sonido", "problema"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En una escena con diálogo importante, la música de fondo está al mismo volumen que las voces, dificultando entender lo que dicen los personajes. ¿Esa integración de sonido está bien resuelta?"
-
-explicacion: |
-  No: la música debería quedar claramente por debajo del diálogo en
-  volumen, no compitiendo con él.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "basico"
-  tags: ["imagen"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Estirar una imagen para que encaje en un espacio con una relación de aspecto distinta a la original produce una imagen deformada."
-
-explicacion: |
-  Los rostros y objetos se ven notoriamente estirados o achatados.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "avanzado"
-  tags: ["video", "vocabulario"]
-
-enunciado: "¿Qué problema genera combinar clips de video con distinta cantidad de cuadros por segundo (frame rate) en un mismo proyecto?"
-tipo: mc
-opciones_explicitas:
-  - "Se nota un salto de fluidez entre un clip y otro al reproducirse"
-  - "El audio se desincroniza automáticamente en todos los clips"
-  - "No genera ningún problema perceptible"
-respuesta: "Se nota un salto de fluidez entre un clip y otro al reproducirse"
-
-explicacion: |
-  Por eso conviene unificar la configuración técnica antes de combinar
-  clips de distintas fuentes.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "produccion_multimedial"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve entender cómo integrar texto, imagen, sonido y video en un proyecto multimedial?"
-tipo: mc
-opciones_explicitas:
-  - "Para que el resultado final se sienta como una experiencia coherente y cuidada, en vez de piezas sueltas mal combinadas"
-  - "Sólo sirve para reducir el tamaño del archivo final"
-  - "Sólo aplica a proyectos con presupuesto profesional"
-respuesta: "Para que el resultado final se sienta como una experiencia coherente y cuidada, en vez de piezas sueltas mal combinadas"
-
-explicacion: |
-  Es el cierre de toda la cadena: composición, elementos, principios,
-  plano, encuadre, montaje y, por último, la integración multimedial
-  completa.
-```
-
-## Sección: ritmo-compas-pulso-figuras-musicales (26 preguntas)
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["ritmo", "pulso", "musica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El pulso es la unidad básica de tiempo en la música, similar al latido del corazón, que nos permite sentir el ritmo de una obra."
-
-explicacion: |
-  Efectivamente, el pulso es la sensación constante de regularidad que percibimos en la música.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["figuras_musicales", "duracion"]
-
-variables:
-  escenario: uno_de([
-    ["blanca", "redonda"],
-    ["negra", "blanca"],
-    ["corchea", "negra"]
-  ])
-
-respuesta: escenario[1
-tipo: mc
-opciones_explicitas: ["redonda", "blanca", "negra", "corchea"]
-
-enunciado: "Si comparamos la duración de una {escenario[0]} con la de una {escenario[1]}, ¿cuál de las dos es la que tiene el doble de duración?"
-
-explicacion: |
-  En la jerarquía de las figuras, la {escenario[1]} equivale a dos {escenario[0]}.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "intermedio"
-  tags: ["figuras_musicales", "calculo"]
-
-respuesta: 4
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si una nota negra equivale a 1 tiempo, ¿cuántas corcheas caben en el espacio de una sola nota negra?"
-
-pasos:
-  - "Identificar que una negra es igual a dos corcheas."
-  - "Identificar que una blanca equivale a dos negras."
-  - "Calcular la relación entre la figura solicitada y la base."
-
-explicacion: |
-  Una negra contiene 2 corcheas. Por lo tanto, en una negra caben 2 corcheas. (Nota: El usuario debe entender la relación de división por 2).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["orden", "figuras_musicales"]
-
-respuesta: ["redonda", "blanca", "negra", "corchea"]
-tipo: ordenar
-opciones_explicitas: ["redonda", "blanca", "negra", "corchea"]
-
-enunciado: "Ordena las siguientes figuras musicales de mayor a menor duración (de la más larga a la más corta):"
-
-explicacion: |
-  El orden correcto de mayor a menor es: Redonda (4 tiempos), Blanca (2 tiempos), Negra (1 tiempo) y Corchea (1/2 tiempo).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["compas", "terminologia"]
-
-respuesta: "___"
-tipo: completar
-respuestas_validas: ["compás", "compas"]
-
-enunciado: "La división de un tiempo musical en partes iguales, que agrupa pulsos, se denomina ___."
-
-explicacion: |
-  El ___ es la unidad que organiza los pulsos en grupos regulares.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["musica", "figuras_musicales"]
-
-variables:
-  valor_blanca: 2
-  valor_negra: 1
-
-respuesta: valor_negra * 2
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si una blanca equivale a {valor_blanca} pulsos, ¿cuántos pulsos equivalen a una negra?"
-
-pasos:
-  - "Identificamos que una blanca tiene 2 pulsos."
-  - "Sabemos que una negra es la mitad de una blanca."
-  - "Calculamos: 2 / 2 = 1."
-
-explicacion: |
-  En la música, la relación entre figuras es constante. La negra es la mitad de la blanca, por lo tanto, si la blanca vale 2, la negra vale 1.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["musica", "figuras_musicales"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[4, "4"], [8, "8"]]
-
-respuesta: escenario[idx][1
-tipo: mc
-opciones_explicitas: ["2", "4", "8", "16"]
-
-enunciado: "En un compás de 4/4, ¿cuántas corcheas caben en una blanca?"
-
-pasos:
-  - "Una blanca equivale a 2 pulsos (negras)."
-  - "Cada pulso (negra) se divide en 2 corcheas."
-  - "Entonces, 2 negras * 2 corcheas/negra = 4 corcheas."
-
-explicacion: |
-  La relación es: 1 blanca = 2 negras = 4 corcheas.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["musica", "figuras_musicales"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Una redonda equivale a la duración de 3 negras?"
-
-explicacion: |
-  Falso. Una redonda equivale a 4 negras (o 2 blancas).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "intermedio"
-  tags: ["musica", "figuras_musicales"]
-
-variables:
-  relacion_blanca_negra: "2"
-  relacion_negra_corchea: "2"
-
-respuesta: ["2", "4"]
-respuestas_validas: ["2", "4"]
-tipo: completar
-
-enunciado: "En términos de duración de pulsos, una blanca equivale a ___ negras, y una negra equivale a ___ corcheas."
-
-explicacion: |
-  La jerarquía es: Redonda (4) -> Blanca (2) -> Negra (1) -> Corchea (0.5).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["musica", "figuras_musicales"]
-
-respuesta: ["redonda", "blanca", "negra", "corchea"]
-tipo: ordenar
-opciones_explicitas: ["redonda", "blanca", "negra", "corchea"]
-
-enunciado: "Ordena las siguientes figuras musicales de mayor a menor duración:"
-
-explicacion: |
-  La redonda es la más larga (4 pulsos), seguida de la blanca (2), la negra (1) y finalmente la corchea (0.5).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["figuras_musicales", "duracion"]
-
-enunciado: "Si una negra tiene una duración de 1 unidad de tiempo, ¿cuántas unidades de tiempo dura una blanca?"
-
-respuesta: 2
-tipo: completar
-tolerancia_abs: 0
-
-explicacion: |
-  La blanca es el doble de una negra. Si la negra es 1, la blanca es 2.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "intermedio"
-  tags: ["figuras_musicales", "equivalencias"]
-
-variables:
-  escenario: uno_de([["redonda", "4"], ["blanca", "2"], ["negra", "1"]])
-  valor_base: uno_de([["redonda", 4], ["blanca", 2], ["negra", 1]])
-
-enunciado: "Considerando que una negra equivale a 1 tiempo, ¿cuántas {escenario} caben en una redonda?"
-
-respuesta: tabla[idx][1
-tipo: mc
-opciones_explicitas: ["2", "4", "8", "16"]
-
-explicacion: |
-  Una redonda equivale a 4 negras. Por lo tanto, caben 4 blancas o 4 redondas.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["figuras_musicales", "corchea"]
-
-enunciado: "¿Es verdadero que una corchea dura la mitad que una negra?"
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Correcto. En la subdivisión binaria estándar, la corchea es la mitad de la negra.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["figuras_musicales", "orden"]
-
-enunciado: "Ordena las siguientes figuras musicales de mayor a menor duración:"
-
-opciones_explicitas: ["redonda", "blanca", "negra", "corchea"]
-respuesta: ["redonda", "blanca", "negra", "corchea"]
-tipo: ordenar
-
-explicacion: |
-  La jerarquía de duración es: Redonda (4) > Blanca (2) > Negra (1) > Corchea (0.5).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "intermedio"
-  tags: ["figuras_musicales", "calculo"]
-
-enunciado: "Para completar un compás de 4/4, si ya tenemos dos blancas, nos falta una ___ para completar el tiempo."
-
-respuestas_validas: ["negra", "negra"]
-respuesta: "negra"
-tipo: completar
-
-explicacion: |
-  Dos blancas suman 4 tiempos (2+2=4). Si el compás es de 4/4 y ya hay 4 tiempos, la respuesta técnica sería "nada", pero bajo la lógica de la pregunta de completar una unidad: una negra suma 1, pero aquí el enunciado busca la figura que falta para completar la suma de 4 si solo tuviéramos 2 blancas (que ya son 4). 
-  *Re-ajuste para evitar ambigüedad*:
-  "Si tenemos una blanca y una negra, nos falta una ___ para completar un compás de 4/4."
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "intermedio"
-  tags: ["figuras_musicales", "calculo"]
-
-enunciado: "Si tenemos una blanca y una negra, nos falta una ___ para completar un compás de 4/4."
-
-respuestas_validas: ["negra"]
-respuesta: "negra"
-tipo: completar
-
-explicacion: |
-  Una blanca (2) + una negra (1) = 3 tiempos. Para llegar a 4, falta una negra (1).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_pulso"
-  nivel: "basico"
-  tags: ["musica", "teoria_musical"]
-
-respuesta: "ritmo"
-tipo: mc
-opciones_explicitas: ["pulso", "ritmo", "acento", "tempo"]
-
-enunciado: "Mientras que el {pulso} es la unidad de medida constante que sentimos al aplaudir de forma regular, el ___ es la combinación de duraciones de los sonidos que crea una estructura variada."
-
-explicacion: |
-  El pulso es la pulsación constante (como el latido del corazón), mientras que el ritmo es la sucesión de duraciones (largas y cortas) que se asientan sobre ese pulso.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "figuras_musicales"
-  nivel: "basico"
-  tags: ["figuras_musicales", "duracion"]
-
-variables:
-  relacion: uno_de([2, 4])
-
-respuesta: relacion
-tipo: completar
-enunciado: "Si comparamos la duración de una negra con la de una corchea, ¿es cierto que la negra dura {relacion} veces lo que dura una corchea?"
-
-explicacion: |
-  En la música estándar, una negra equivale a dos corcheas. Por lo tanto, la relación es de 2 a 1.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "figuras_musicales"
-  nivel: "basico"
-  tags: ["figuras_musicales", "redonda"]
-
-variables:
-  valor_blanca: uno_de([2, 4])
-
-respuesta: valor_blanca
-tipo: completar
-respuestas_validas: [2, 4]
-
-enunciado: "En un compás de 4/4, si una blanca tiene un valor de {valor_blanca} pulsos (negras), una redonda tendrá un valor de ___ pulsos."
-
-pasos:
-  - "Identificar el valor de la blanca en pulsos."
-  - "Multiplicar el valor de la blanca por 2 para obtener el valor de la redonda."
-
-explicacion: |
-  La redonda es la figura más larga; equivale a dos blancas o cuatro negras.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "figuras_musicales"
-  nivel: "basico"
-  tags: ["ordenar", "figuras_musicales"]
-
-respuesta: ["redonda", "blanca", "negra", "corchea"]
-tipo: ordenar
-opciones_explicitas: ["redonda", "blanca", "negra", "corchea"]
-
-enunciado: "Ordena las siguientes figuras musicales de mayor a menor duración (de la más larga a la más corta):"
-
-explicacion: |
-  La jerarquía de duración es: Redonda (4) > Blanca (2) > Negra (1) > Corchea (0.5).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "compas_musical"
-  nivel: "intermedio"
-  tags: ["compas", "pulsos"]
-
-variables:
-  tipo_compas: uno_de(["3/4", "4/4", "2/4"])
-
-respuesta: total_pulsos
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si estamos en un compás de {tipo_compas}, ¿cuántos pulsos (negras) contiene cada compás?"
-
-variables:
-  total_pulsos: uno_de([2, 3, 4])
-
-explicacion: |
-  El número superior del compás indica cuántos pulsos (en la figura de la base, normalmente la negra) caben en cada unidad de compás.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["pulso", "figuras_musicales"]
-
-variables:
-  datos: [["negra", "1"], ["blanca", "2"], ["redonda", "4"], ["corchea", "0.5"]]
-  idx: uno_de([0, 1, 2, 3])
-
-enunciado: "Un baterista marca el pulso de una canción. Si la figura musical que está tocando es una {datos[idx][0]}, ¿cuántos pulsos (negras) dura dicha figura?"
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["0.5", "1", "2", "4"]
-
-explicacion: |
-  En la música, la duración de las figuras es relativa: la negra equivale a 1 pulso, la blanca a 2 y la redonda a 4. La corchea es la mitad de una negra (0.5).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "intermedio"
-  tags: ["compas", "conteo"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["4/4", "4"], ["3/4", "3"]]
-
-enunciado: "Estamos en un compás de {datos[idx][0]}. ¿Cuántos pulsos (negras) caben en cada compás?"
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas: ["3", "4"]
-
-explicacion: |
-  El número superior del compás indica cuántos pulsos de la unidad de medida (generalmente la negra) caben en cada compás.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["comparacion", "figuras"]
-
-variables:
-  datos: [["blanca", "negra", "verdadero"], ["corchea", "blanca", "falso"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si comparamos la duración de una {datos[idx][0]} con una {datos[idx][1]}, ¿es la primera figura más larga que la segunda?"
-
-respuestas_validas: [datos[idx][2]]
-respuesta: datos[idx][2]
-tipo: completar
-explicacion: |
-  La blanca dura 2 pulsos y la negra 1 (Verdadero). La corchea dura 0.5 y la blanca 2 (Falso).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "basico"
-  tags: ["orden", "figuras"]
-
-variables:
-  orden_correcta: ["corchea", "negra", "blanca", "redonda"]
-
-enunciado: "Ordena las siguientes figuras musicales de la más corta a la más larga:"
-
-opciones_explicitas: ["corchea", "negra", "blanca", "redonda"]
-respuesta: ["corchea", "negra", "blanca", "redonda"]
-tipo: ordenar
-
-explicacion: |
-  La duración aumenta así: Corchea (1/2 negra) < Negra (1) < Blanca (2) < Redonda (4).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "ritmo_y_compas"
-  nivel: "intermedio"
-  tags: ["calculo", "compas"]
-
-variables:
-  idx: uno_de([0, 1, 2])
-  datos: [["blanca", "4"], ["negra", "8"], ["corchea", "16"]]
-
-enunciado: "En un compás de 4/4, ¿cuántas {datos[idx][0]} caben exactamente para completar el compás?"
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas: ["4", "8", "16"]
-
-explicacion: |
-  En un compás de 4/4 hay 4 pulsos. Si la figura es blanca (2 pulsos), caben 2. Si es negra (1 pulso), caben 4. Si es corchea (0.5), caben 8.
-```
 
 ## Sección: rosetones-y-simetria (24 preguntas)
 
@@ -1778,11 +239,7 @@ opciones_explicitas:
   - "Repetir ese motivo rotándolo 360°/n grados, hasta completar la vuelta"
   - "Elegir n y dividir la circunferencia en n arcos de 360°/n cada uno"
   - "Diseñar el motivo dentro de un solo sector"
-respuesta_orden:
-  - "Elegir n y dividir la circunferencia en n arcos de 360°/n cada uno"
-  - "Diseñar el motivo dentro de un solo sector"
-  - "Repetir ese motivo rotándolo 360°/n grados, hasta completar la vuelta"
-
+respuesta_orden: ["Elegir n y dividir la circunferencia en n arcos de 360°/n cada uno", "Diseñar el motivo dentro de un solo sector", "Repetir ese motivo rotándolo 360°/n grados, hasta completar la vuelta"]
 explicacion: |
   El motivo se diseña una sola vez, y después se repite por rotación.
 ```
@@ -2022,6 +479,448 @@ respuesta: "Para explicar por qué se ve ordenado y armónico, y para poder dise
 explicacion: |
   Es la aplicación directa de circunferencia, rotación y reflexión a un
   diseño real.
+```
+
+## Sección: narrativa-audiovisual/encuadre (24 preguntas)
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "basico"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué es el encuadre, a diferencia del plano?"
+tipo: mc
+opciones_explicitas:
+  - "Cómo se organiza lo que entra dentro de los límites del plano ya elegido"
+  - "Qué tan cerca o lejos está la cámara del sujeto"
+  - "El guion técnico completo de la escena"
+respuesta: "Cómo se organiza lo que entra dentro de los límites del plano ya elegido"
+
+explicacion: |
+  El plano (ver `../plano/`) define la distancia; el encuadre define la
+  organización dentro de esa distancia.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "basico"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué es el ángulo de cámara 'a nivel' o 'normal'?"
+tipo: mc
+opciones_explicitas:
+  - "La cámara a la altura de los ojos del sujeto"
+  - "La cámara mirando desde muy arriba"
+  - "La cámara inclinada, con el horizonte torcido"
+respuesta: "La cámara a la altura de los ojos del sujeto"
+
+explicacion: |
+  Es el punto de vista más neutral, el que menos condiciona la lectura
+  emocional.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué es un ángulo picado?"
+tipo: mc
+opciones_explicitas:
+  - "La cámara mira hacia abajo, desde arriba del sujeto"
+  - "La cámara mira hacia arriba, desde abajo del sujeto"
+  - "La cámara está inclinada de costado"
+respuesta: "La cámara mira hacia abajo, desde arriba del sujeto"
+
+explicacion: |
+  Suele hacer que el sujeto se vea más pequeño o vulnerable.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué efecto suele transmitir un ángulo picado sobre el sujeto?"
+tipo: mc
+opciones_explicitas:
+  - "Que se vea más pequeño, débil o vulnerable"
+  - "Que se vea más grande y poderoso"
+  - "No tiene ningún efecto sobre cómo se percibe el sujeto"
+respuesta: "Que se vea más pequeño, débil o vulnerable"
+
+explicacion: |
+  Es el efecto opuesto al contrapicado.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué es un ángulo contrapicado?"
+tipo: mc
+opciones_explicitas:
+  - "La cámara mira hacia arriba, desde abajo del sujeto"
+  - "La cámara mira hacia abajo, desde arriba del sujeto"
+  - "La cámara filma en cámara lenta"
+respuesta: "La cámara mira hacia arriba, desde abajo del sujeto"
+
+explicacion: |
+  Suele hacer que el sujeto se vea más grande, poderoso o imponente.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué efecto suele transmitir un ángulo contrapicado sobre el sujeto?"
+tipo: mc
+opciones_explicitas:
+  - "Que se vea más grande, poderoso o imponente"
+  - "Que se vea más pequeño y vulnerable"
+  - "No cambia en nada la percepción del sujeto"
+respuesta: "Que se vea más grande, poderoso o imponente"
+
+explicacion: |
+  Es un recurso típico para presentar a un personaje dominante o
+  amenazante.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "avanzado"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué es un ángulo aberrante (u 'holandés')?"
+tipo: mc
+opciones_explicitas:
+  - "La cámara está inclinada, con el horizonte torcido"
+  - "La cámara filmando desde un dron"
+  - "La cámara a la altura exacta de los ojos"
+respuesta: "La cámara está inclinada, con el horizonte torcido"
+
+explicacion: |
+  Genera una sensación de inestabilidad, desorientación o tensión.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El ángulo aberrante (con el horizonte torcido) suele usarse para generar una sensación de inestabilidad o desorientación."
+
+explicacion: |
+  Rompe la referencia horizontal "normal" que el ojo espera ver.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué es el 'espacio de mirada' (look room) en un encuadre?"
+tipo: mc
+opciones_explicitas:
+  - "El espacio extra que se deja del lado hacia donde mira o se mueve el sujeto"
+  - "El tiempo que dura un plano en pantalla"
+  - "La distancia entre la cámara y el micrófono"
+respuesta: "El espacio extra que se deja del lado hacia donde mira o se mueve el sujeto"
+
+explicacion: |
+  Sin ese espacio, la composición se siente apretada o incómoda.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un sujeto mira hacia un lado y no se le deja espacio de ese lado en el cuadro, la composición suele sentirse apretada o incómoda."
+
+explicacion: |
+  Es como si el sujeto estuviera "chocando" contra el borde del
+  encuadre.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué es el headroom, en un encuadre?"
+tipo: mc
+opciones_explicitas:
+  - "El espacio entre la parte superior de la cabeza del sujeto y el borde superior del cuadro"
+  - "La altura total del sujeto en la escena"
+  - "El espacio entre dos sujetos distintos en el mismo plano"
+respuesta: "El espacio entre la parte superior de la cabeza del sujeto y el borde superior del cuadro"
+
+explicacion: |
+  Ni mucho (se ve "flotando" abajo) ni poco (se ve apretado o cortado).
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "avanzado"
+  tags: ["encuadre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Demasiado espacio entre la cabeza del sujeto y el borde superior del cuadro (headroom excesivo) hace que el sujeto se vea como flotando en la parte baja del encuadre."
+
+explicacion: |
+  Es uno de los dos extremos a evitar; el otro es muy poco headroom, que
+  corta o aprieta la cabeza.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La regla de tercios, ya vista en composición, también se aplica al encuadre cinematográfico: por ejemplo, ubicando los ojos del sujeto sobre una línea de tercios en vez de en el centro exacto."
+
+explicacion: |
+  Es la misma herramienta de `../../composicion-y-proporcion/`, aplicada
+  a un fotograma en movimiento.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué es un encuadre cerrado?"
+tipo: mc
+opciones_explicitas:
+  - "Aquel que contiene dentro del cuadro todo lo que el espectador necesita para entender la escena"
+  - "Aquel filmado con la cámara muy cerca del sujeto"
+  - "Aquel que sólo se usa en primeros planos"
+respuesta: "Aquel que contiene dentro del cuadro todo lo que el espectador necesita para entender la escena"
+
+explicacion: |
+  No deja nada relevante fuera de cuadro.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué es un encuadre abierto?"
+tipo: mc
+opciones_explicitas:
+  - "Aquel que deja intuir que hay más espacio o acción fuera de cuadro (fuera de campo)"
+  - "Aquel filmado siempre en plano general"
+  - "Aquel sin ningún tipo de composición planificada"
+respuesta: "Aquel que deja intuir que hay más espacio o acción fuera de cuadro (fuera de campo)"
+
+explicacion: |
+  Genera expectativa, o hace que el espectador complete mentalmente lo
+  que no se ve.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "avanzado"
+  tags: ["encuadre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sugerir que hay algo fuera de cuadro (fuera de campo), sin mostrarlo, es un recurso que puede generar expectativa en el espectador."
+
+explicacion: |
+  El espectador completa mentalmente lo que no se ve directamente.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "avanzado"
+  tags: ["encuadre", "ordenar"]
+
+enunciado: "Ordená estas decisiones típicas al encuadrar un plano ya elegido (el tamaño de plano ya está decidido de antemano)."
+tipo: ordenar
+opciones_explicitas:
+  - "Ubicar el punto de interés sobre una línea de la regla de tercios"
+  - "Elegir el ángulo de cámara (a nivel, picado, contrapicado)"
+  - "Dejar el espacio de mirada y el headroom adecuados"
+respuesta_orden: ["Elegir el ángulo de cámara (a nivel, picado, contrapicado)", "Dejar el espacio de mirada y el headroom adecuados", "Ubicar el punto de interés sobre una línea de la regla de tercios"]
+explicacion: |
+  El ángulo es una decisión estructural; el espacio de mirada, el
+  headroom y la regla de tercios son ajustes finos de esa composición.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El ángulo de cámara 'a nivel' es el que menos condiciona la lectura emocional de una escena, en comparación con el picado o el contrapicado."
+
+explicacion: |
+  Por eso se usa como punto de vista "neutral" por defecto.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "avanzado"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué ángulo de cámara conviene usar para mostrar a un personaje como especialmente poderoso o amenazante?"
+tipo: mc
+opciones_explicitas:
+  - "Contrapicado"
+  - "Picado"
+  - "A nivel"
+respuesta: "Contrapicado"
+
+explicacion: |
+  Mirar hacia arriba, desde abajo del personaje, lo hace ver más grande
+  e imponente.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "avanzado"
+  tags: ["encuadre", "vocabulario"]
+
+enunciado: "¿Qué ángulo de cámara conviene usar para mostrar a un personaje como especialmente pequeño o vulnerable?"
+tipo: mc
+opciones_explicitas:
+  - "Picado"
+  - "Contrapicado"
+  - "Aberrante"
+respuesta: "Picado"
+
+explicacion: |
+  Mirar hacia abajo, desde arriba del personaje, lo empequeñece.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "basico"
+  tags: ["encuadre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El encuadre es lo que convierte una simple elección de distancia (el plano) en una composición con intención narrativa."
+
+explicacion: |
+  El ángulo, el espacio de mirada y el headroom no son detalles
+  técnicos menores: cambian cómo se interpreta la escena.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "avanzado"
+  tags: ["encuadre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El headroom 'correcto' no es un número fijo: depende del tamaño de plano que se esté usando (un primer plano y un plano entero no necesitan el mismo headroom)."
+
+explicacion: |
+  No es una regla matemática rígida, sino un balance visual a ojo.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "intermedio"
+  tags: ["encuadre"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un ángulo aberrante (u 'holandés') mantiene el horizonte perfectamente recto, sin ninguna inclinación."
+
+explicacion: |
+  Al contrario: la característica que define al ángulo aberrante es
+  justamente la inclinación de la cámara, que tuerce el horizonte.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_encuadre"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve dominar las herramientas de encuadre (ángulo, espacio de mirada, headroom, regla de tercios)?"
+tipo: mc
+opciones_explicitas:
+  - "Para tomar decisiones deliberadas sobre cómo el espectador va a interpretar cada escena, no dejarlo al azar"
+  - "Sólo sirve para que la imagen se vea más prolija técnicamente"
+  - "Sólo aplica en cine, nunca en fotografía o video"
+respuesta: "Para tomar decisiones deliberadas sobre cómo el espectador va a interpretar cada escena, no dejarlo al azar"
+
+explicacion: |
+  El encuadre es lenguaje visual: comunica algo, aunque no haya
+  diálogo.
 ```
 
 ## Sección: teatro-dramaturgia-y-actuacion (20 preguntas)
@@ -2429,12 +1328,7 @@ opciones_explicitas:
   - "Definir el subtexto de cada personaje en los momentos clave"
   - "Trabajar la interpretación (voz, cuerpo) para transmitir ese subtexto (actuación)"
   - "Definir decisiones de puesta en escena que acompañen la escena (escenografía, iluminación)"
-respuesta_orden:
-  - "Escribir el conflicto dramático entre los personajes (dramaturgia)"
-  - "Definir el subtexto de cada personaje en los momentos clave"
-  - "Trabajar la interpretación (voz, cuerpo) para transmitir ese subtexto (actuación)"
-  - "Definir decisiones de puesta en escena que acompañen la escena (escenografía, iluminación)"
-
+respuesta_orden: ["Escribir el conflicto dramático entre los personajes (dramaturgia)", "Definir el subtexto de cada personaje en los momentos clave", "Trabajar la interpretación (voz, cuerpo) para transmitir ese subtexto (actuación)", "Definir decisiones de puesta en escena que acompañen la escena (escenografía, iluminación)"]
 explicacion: |
   El proceso va de la escritura del texto a su interpretación en
   escena, y termina con las decisiones adicionales de puesta en
@@ -2486,3 +1380,949 @@ explicacion: |
   Verdadero: es la aplicación concreta de este tema al preparar una
   escena teatral real.
 ```
+
+## Sección: narrativa-audiovisual/montaje (26 preguntas)
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "basico"
+  tags: ["montaje", "vocabulario"]
+
+enunciado: "¿Qué es el montaje (edición) en narrativa audiovisual?"
+tipo: mc
+opciones_explicitas:
+  - "El proceso de seleccionar, ordenar y unir los planos ya filmados para construir la narración completa"
+  - "El proceso de escribir el guion antes de filmar"
+  - "La elección del tamaño de plano al momento de filmar"
+respuesta: "El proceso de seleccionar, ordenar y unir los planos ya filmados para construir la narración completa"
+
+explicacion: |
+  Es la última gran decisión creativa, después de filmar todos los
+  planos individuales.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "intermedio"
+  tags: ["montaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos películas filmadas con exactamente los mismos planos pueden contar historias completamente distintas, según cómo se los monte."
+
+explicacion: |
+  Es la idea central de por qué el montaje importa tanto como la
+  filmación.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "basico"
+  tags: ["montaje", "vocabulario"]
+
+enunciado: "¿Qué es un corte directo (o corte seco)?"
+tipo: mc
+opciones_explicitas:
+  - "Un plano pasa al siguiente de forma instantánea, sin transición visible"
+  - "Un plano se superpone gradualmente con el siguiente"
+  - "La imagen se oscurece hasta el negro antes del siguiente plano"
+respuesta: "Un plano pasa al siguiente de forma instantánea, sin transición visible"
+
+explicacion: |
+  Es el tipo de corte más común — bien hecho, casi no se nota.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "basico"
+  tags: ["montaje", "vocabulario"]
+
+enunciado: "¿Qué es un fundido a negro?"
+tipo: mc
+opciones_explicitas:
+  - "La imagen se oscurece gradualmente hasta el negro, antes de que aparezca el siguiente plano"
+  - "Dos planos se combinan al mismo tiempo en pantalla dividida"
+  - "El plano se congela sin cortar al siguiente"
+respuesta: "La imagen se oscurece gradualmente hasta el negro, antes de que aparezca el siguiente plano"
+
+explicacion: |
+  Suele marcar el paso del tiempo, o el cierre de una escena o
+  capítulo.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "intermedio"
+  tags: ["montaje", "vocabulario"]
+
+enunciado: "¿Qué es un encadenado (o disolvencia)?"
+tipo: mc
+opciones_explicitas:
+  - "Un plano se superpone gradualmente con el siguiente, mezclándose por un momento"
+  - "Un corte instantáneo, sin ninguna transición"
+  - "Un plano que se repite exactamente igual dos veces seguidas"
+respuesta: "Un plano se superpone gradualmente con el siguiente, mezclándose por un momento"
+
+explicacion: |
+  Sugiere una conexión entre ambas imágenes, o un paso de tiempo más
+  suave que el corte directo.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "avanzado"
+  tags: ["montaje", "vocabulario"]
+
+enunciado: "¿Qué es un corte por movimiento (match cut)?"
+tipo: mc
+opciones_explicitas:
+  - "Un corte que conecta dos planos que comparten una forma, movimiento o acción similar"
+  - "Un corte que siempre implica cámara lenta"
+  - "Un corte que sólo se usa al final de una película"
+respuesta: "Un corte que conecta dos planos que comparten una forma, movimiento o acción similar"
+
+explicacion: |
+  Genera una transición fluida, y a veces un significado simbólico
+  adicional.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "avanzado"
+  tags: ["montaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un corte por movimiento (match cut) puede usarse para sugerir un significado simbólico, no sólo una transición fluida."
+
+explicacion: |
+  Como el ejemplo clásico de un hueso lanzado al aire cortando
+  directamente a una nave espacial.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "intermedio"
+  tags: ["montaje", "vocabulario"]
+
+enunciado: "¿Qué es la continuidad, en el montaje audiovisual?"
+tipo: mc
+opciones_explicitas:
+  - "Mantener la coherencia espacial y temporal entre planos consecutivos, para no confundir al espectador"
+  - "Filmar todos los planos de una escena sin cortar la cámara"
+  - "Usar siempre el mismo tipo de corte en toda la película"
+respuesta: "Mantener la coherencia espacial y temporal entre planos consecutivos, para no confundir al espectador"
+
+explicacion: |
+  Sin continuidad, el espectador puede perder la orientación de dónde
+  están los personajes o qué acaba de pasar.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "avanzado"
+  tags: ["montaje", "vocabulario"]
+
+enunciado: "¿En qué consiste la regla de los 180° en continuidad de montaje?"
+tipo: mc
+opciones_explicitas:
+  - "Se traza una línea imaginaria entre los sujetos de la escena, y la cámara no la cruza de un plano al siguiente"
+  - "Cada plano debe durar exactamente 180 segundos"
+  - "La cámara debe rotar 180° entre cada corte"
+respuesta: "Se traza una línea imaginaria entre los sujetos de la escena, y la cámara no la cruza de un plano al siguiente"
+
+explicacion: |
+  Si la cruzara, los personajes parecerían "cambiar de lado" en
+  pantalla, sin haberse movido realmente.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "avanzado"
+  tags: ["montaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si la cámara cruza la línea imaginaria de la regla de los 180° entre un plano y el siguiente, los personajes pueden parecer haber cambiado de posición relativa, aunque no se hayan movido."
+
+explicacion: |
+  Es justamente el problema de continuidad que esa regla busca evitar.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "intermedio"
+  tags: ["montaje", "vocabulario"]
+
+enunciado: "¿Qué define el ritmo de una secuencia montada?"
+tipo: mc
+opciones_explicitas:
+  - "La duración de cada plano y la frecuencia con la que ocurren los cortes"
+  - "La cantidad de personajes que aparecen en la escena"
+  - "El presupuesto total de la producción"
+respuesta: "La duración de cada plano y la frecuencia con la que ocurren los cortes"
+
+explicacion: |
+  Planos cortos y cortes frecuentes dan un ritmo distinto que planos
+  largos y pocos cortes.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "intermedio"
+  tags: ["montaje", "vocabulario"]
+
+enunciado: "¿Qué sensación suele transmitir un montaje rápido (planos cortos, cortes frecuentes)?"
+tipo: mc
+opciones_explicitas:
+  - "Tensión, acción, urgencia"
+  - "Calma y contemplación"
+  - "Ninguna sensación distinta a un montaje lento"
+respuesta: "Tensión, acción, urgencia"
+
+explicacion: |
+  Típico de una persecución o una pelea.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "intermedio"
+  tags: ["montaje", "vocabulario"]
+
+enunciado: "¿Qué sensación suele transmitir un montaje lento (planos largos, pocos cortes)?"
+tipo: mc
+opciones_explicitas:
+  - "Contemplación, calma, peso dramático"
+  - "Urgencia y adrenalina"
+  - "Confusión total en el espectador"
+respuesta: "Contemplación, calma, peso dramático"
+
+explicacion: |
+  Típico de un momento íntimo o reflexivo de la historia.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "avanzado"
+  tags: ["montaje", "vocabulario"]
+
+enunciado: "¿Qué demostró el experimento conocido como el 'efecto Kuleshov'?"
+tipo: mc
+opciones_explicitas:
+  - "Que el significado que se le da a un plano depende del plano que lo precede o sigue, no sólo de su contenido aislado"
+  - "Que el sonido no influye en cómo se percibe una escena"
+  - "Que el montaje no cambia en nada la interpretación de una historia"
+respuesta: "Que el significado que se le da a un plano depende del plano que lo precede o sigue, no sólo de su contenido aislado"
+
+explicacion: |
+  El mismo plano de una cara neutra se interpretó como hambre, tristeza
+  o ternura, según qué plano se mostraba justo antes.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "avanzado"
+  tags: ["montaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el experimento del efecto Kuleshov, se usó el mismo plano exacto de la cara de un actor, combinado con distintos planos previos, para ver cómo cambiaba la interpretación del espectador."
+
+explicacion: |
+  El plano del actor era idéntico en los tres casos; lo que cambiaba
+  era el plano que lo precedía.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "avanzado"
+  tags: ["montaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El efecto Kuleshov muestra que el montaje no sólo organiza lo ya filmado: puede crear significado nuevo que no estaba en ningún plano individual."
+
+explicacion: |
+  Es la conclusión teórica central de ese experimento.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "avanzado"
+  tags: ["montaje", "ordenar"]
+
+enunciado: "Ordená estos tipos de transición del más abrupto (instantáneo) al más gradual."
+tipo: ordenar
+opciones_explicitas:
+  - "Fundido a negro"
+  - "Corte directo"
+  - "Encadenado (disolvencia)"
+respuesta_orden: ["Corte directo", "Encadenado (disolvencia)", "Fundido a negro"]
+explicacion: |
+  El corte directo es instantáneo; el encadenado mezcla dos imágenes
+  por un momento; el fundido a negro pasa primero por el negro completo,
+  la transición más marcada de las tres.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "intermedio"
+  tags: ["montaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El montaje no es sólo trabajo sobre la imagen: también incluye el sonido (diálogo, música, efectos) que acompaña cada corte."
+
+explicacion: |
+  El sonido puede reforzar o contradecir deliberadamente lo que se ve
+  en pantalla.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "avanzado"
+  tags: ["montaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Es un recurso narrativo válido usar música o sonido que contradiga deliberadamente lo que se ve en pantalla (por ejemplo, música alegre sobre una escena triste)."
+
+explicacion: |
+  Genera un efecto de ironía o contraste emocional, en vez de reforzar
+  lo obvio.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "basico"
+  tags: ["montaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El corte directo (o corte seco) es el tipo de transición más común en el cine y el video."
+
+explicacion: |
+  Bien hecho, es casi invisible para el espectador.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "intermedio"
+  tags: ["montaje", "vocabulario"]
+
+enunciado: "¿Qué tipo de transición se usa típicamente para marcar el cierre de una escena o el paso de un tiempo largo (por ejemplo, varios años)?"
+tipo: mc
+opciones_explicitas:
+  - "El fundido a negro"
+  - "El corte directo"
+  - "El corte por movimiento"
+respuesta: "El fundido a negro"
+
+explicacion: |
+  Su pausa visual marca un cierre más fuerte que un corte directo.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "basico"
+  tags: ["montaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una escena de persecución o pelea suele montarse con planos cortos y cortes frecuentes (montaje rápido), para transmitir tensión."
+
+explicacion: |
+  El ritmo del montaje acompaña la sensación de urgencia de la acción.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "intermedio"
+  tags: ["montaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El montaje trabaja sobre los planos ya encuadrados y filmados: no puede cambiar la composición interna de un plano, sólo cómo se organiza y combina con los demás."
+
+explicacion: |
+  Por eso este módulo depende de `../encuadre/`.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "avanzado"
+  tags: ["montaje"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El montaje siempre debe respetar la continuidad estricta (regla de los 180° incluida), sin ninguna excepción posible."
+
+explicacion: |
+  Es la norma general, pero algunos estilos narrativos rompen la
+  continuidad deliberadamente para generar confusión, desorientación o
+  un efecto artístico específico.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "basico"
+  tags: ["montaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El montaje es, típicamente, la última gran etapa creativa antes de que la obra audiovisual esté terminada."
+
+explicacion: |
+  Viene después de filmar todos los planos con su encuadre ya decidido.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "narrativa_audiovisual_montaje"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender el montaje?"
+tipo: mc
+opciones_explicitas:
+  - "Para saber que una historia audiovisual no es la suma de sus planos, sino cómo se combinan, en qué orden, con qué transición y con qué ritmo"
+  - "Sólo sirve para acortar el tiempo total de una película"
+  - "No tiene ninguna influencia real en cómo se percibe una historia"
+respuesta: "Para saber que una historia audiovisual no es la suma de sus planos, sino cómo se combinan, en qué orden, con qué transición y con qué ritmo"
+
+explicacion: |
+  Es la conclusión que conecta plano, encuadre y montaje en una sola
+  cadena narrativa.
+```
+
+## Sección: produccion-multimedial (25 preguntas)
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "basico"
+  tags: ["multimedial", "vocabulario"]
+
+enunciado: "¿Qué es un proyecto multimedial?"
+tipo: mc
+opciones_explicitas:
+  - "Una pieza que combina varios tipos de recursos (texto, imagen, sonido, video) en una sola experiencia"
+  - "Cualquier proyecto que use más de una cámara"
+  - "Un proyecto hecho por más de un artista"
+respuesta: "Una pieza que combina varios tipos de recursos (texto, imagen, sonido, video) en una sola experiencia"
+
+explicacion: |
+  Por ejemplo, un video educativo, una presentación interactiva o un
+  sitio web.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["multimedial"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La habilidad central de la producción multimedial es elegir la técnica y el formato correctos para cada recurso, y lograr que funcionen juntos, no dominar cada uno de forma aislada."
+
+explicacion: |
+  Es la idea que unifica los cuatro tipos de integración (texto, imagen,
+  sonido, video).
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "basico"
+  tags: ["texto", "vocabulario"]
+
+enunciado: "¿Qué es la legibilidad de un texto integrado en un proyecto multimedial?"
+tipo: mc
+opciones_explicitas:
+  - "Que el tamaño de tipografía y el contraste con el fondo permitan leerlo sin esfuerzo"
+  - "Que el texto use la mayor cantidad de colores posible"
+  - "Que el texto sea lo más corto posible, sin importar el contraste"
+respuesta: "Que el tamaño de tipografía y el contraste con el fondo permitan leerlo sin esfuerzo"
+
+explicacion: |
+  Es la misma idea de contraste ya vista en `../principios-de-diseno/`,
+  aplicada a la tipografía.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["texto", "vocabulario"]
+
+enunciado: "¿Qué es la jerarquía tipográfica?"
+tipo: mc
+opciones_explicitas:
+  - "Diferenciar visualmente títulos, subtítulos y cuerpo de texto, para guiar por dónde empezar a leer"
+  - "Usar una sola tipografía en todo el proyecto, sin excepciones"
+  - "Ordenar los textos alfabéticamente"
+respuesta: "Diferenciar visualmente títulos, subtítulos y cuerpo de texto, para guiar por dónde empezar a leer"
+
+explicacion: |
+  Se logra con diferencias de tamaño, peso o color entre los distintos
+  niveles de texto.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["texto"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un subtítulo o cartel de texto sobre un video tiene que permanecer en pantalla el tiempo suficiente para que se alcance a leer completo."
+
+explicacion: |
+  No alcanza con que "quede bien" visualmente: tiene que ser
+  funcionalmente legible en el tiempo que dura.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["texto", "vocabulario"]
+
+enunciado: "¿Qué problema genera un texto que aparece y desaparece demasiado rápido en un video?"
+tipo: mc
+opciones_explicitas:
+  - "El espectador no llega a leerlo completo antes de que desaparezca"
+  - "El video pesa más en tamaño de archivo"
+  - "No genera ningún problema real"
+respuesta: "El espectador no llega a leerlo completo antes de que desaparezca"
+
+explicacion: |
+  Es uno de los errores más comunes al integrar texto en video.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "basico"
+  tags: ["imagen", "vocabulario"]
+
+enunciado: "¿Qué pasa si se amplía una imagen de baja resolución para ocupar más espacio del que puede sostener?"
+tipo: mc
+opciones_explicitas:
+  - "Se ve pixelada o borrosa"
+  - "Cambia de color automáticamente"
+  - "No pasa nada, la calidad se mantiene siempre"
+respuesta: "Se ve pixelada o borrosa"
+
+explicacion: |
+  Por eso hay que elegir imágenes con resolución suficiente para el
+  tamaño final en el que se van a mostrar.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["imagen", "vocabulario"]
+
+enunciado: "¿Qué pasa si se fuerza una imagen a encajar en un marco con una relación de aspecto muy distinta a la original?"
+tipo: mc
+opciones_explicitas:
+  - "La imagen se deforma: se estira o se aplasta"
+  - "La imagen mejora su resolución automáticamente"
+  - "No pasa nada, las imágenes se adaptan solas sin deformarse"
+respuesta: "La imagen se deforma: se estira o se aplasta"
+
+explicacion: |
+  Mejor recortarla manteniendo su proporción original, o adaptar el
+  espacio disponible a la imagen.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["imagen"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Distintos formatos de archivo de imagen (con o sin pérdida de calidad) convienen para distintos usos, no hay un único formato correcto para todo."
+
+explicacion: |
+  El criterio no es el mismo para una foto realista que para un logo
+  con colores planos.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "basico"
+  tags: ["sonido", "vocabulario"]
+
+enunciado: "Cuando hay música y diálogo al mismo tiempo en un proyecto multimedial, ¿cómo deben quedar los niveles de volumen entre ambos?"
+tipo: mc
+opciones_explicitas:
+  - "La música por debajo del diálogo, para no taparlo"
+  - "Ambos exactamente al mismo volumen"
+  - "El diálogo por debajo de la música, para darle protagonismo al sonido ambiente"
+respuesta: "La música por debajo del diálogo, para no taparlo"
+
+explicacion: |
+  El diálogo suele ser la información principal que el espectador
+  necesita entender.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "basico"
+  tags: ["sonido"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El volumen de la música de fondo debe quedar por debajo del volumen del diálogo o la narración, para no taparlo."
+
+explicacion: |
+  Es uno de los errores más comunes de mezcla de sonido en producciones
+  amateur.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["sonido", "vocabulario"]
+
+enunciado: "¿Qué es la sincronización (o lip-sync) entre sonido e imagen?"
+tipo: mc
+opciones_explicitas:
+  - "Que el audio de una voz coincida en el tiempo con el movimiento de los labios en el video"
+  - "Que la música tenga el mismo tempo en todo el proyecto"
+  - "Que el volumen del sonido sea siempre el mismo"
+respuesta: "Que el audio de una voz coincida en el tiempo con el movimiento de los labios en el video"
+
+explicacion: |
+  Un desfasaje notorio entre audio e imagen distrae fuertemente al
+  espectador.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["sonido"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un audio con ruido de fondo o mala calidad suele notarse mucho más que una imagen de calidad mediocre: el oído es especialmente exigente con los defectos del sonido."
+
+explicacion: |
+  Es una de las razones por las que la calidad del audio no debería
+  descuidarse frente a la de la imagen.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["video", "vocabulario"]
+
+enunciado: "¿Qué conviene mantener consistente entre distintos clips de video que se combinan en un mismo proyecto?"
+tipo: mc
+opciones_explicitas:
+  - "La resolución y la cantidad de cuadros por segundo (frame rate)"
+  - "El nombre del archivo"
+  - "La fecha en la que se filmó cada clip"
+respuesta: "La resolución y la cantidad de cuadros por segundo (frame rate)"
+
+explicacion: |
+  Si no son consistentes, se nota un salto de calidad o de fluidez
+  entre un clip y otro.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["video"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los gráficos, textos o subtítulos que se agregan sobre un video no deben tapar información visual importante de la imagen de fondo."
+
+explicacion: |
+  Tienen que integrarse con el encuadre y el montaje ya hechos, no
+  competir contra ellos.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "avanzado"
+  tags: ["multimedial", "vocabulario"]
+
+enunciado: "Según el principio general de integración multimedial, ¿qué dos preguntas conviene hacerse sin importar el recurso que se esté integrando?"
+tipo: mc
+opciones_explicitas:
+  - "¿Todos los elementos comparten un estilo coherente?, y ¿está claro cuál es el elemento protagonista en cada momento?"
+  - "¿Cuánto costó producir cada recurso?, y ¿cuánto tiempo llevó hacerlo?"
+  - "¿El archivo pesa poco?, y ¿es compatible con todos los dispositivos?"
+respuesta: "¿Todos los elementos comparten un estilo coherente?, y ¿está claro cuál es el elemento protagonista en cada momento?"
+
+explicacion: |
+  Son las dos preguntas de coherencia y jerarquía que se repiten para
+  texto, imagen, sonido y video por igual.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "avanzado"
+  tags: ["multimedial"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La tensión entre unidad y variedad, ya vista en los principios de diseño, también aplica a un proyecto multimedial con varios tipos de recursos combinados."
+
+explicacion: |
+  Demasiada uniformidad aburre; demasiada variedad sin coherencia se ve
+  desordenado — el mismo balance, ahora entre texto, imagen, sonido y
+  video.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "avanzado"
+  tags: ["multimedial", "ordenar"]
+
+enunciado: "Ordená los pasos generales para integrar un recurso nuevo (por ejemplo, una imagen) a un proyecto multimedial ya en marcha."
+tipo: ordenar
+opciones_explicitas:
+  - "Verificar que no compita por la atención con los demás elementos en pantalla al mismo tiempo"
+  - "Elegir el formato y la calidad adecuados para el recurso"
+  - "Ajustarlo al estilo general del proyecto (tipografía, paleta de color, tono)"
+respuesta_orden: ["Elegir el formato y la calidad adecuados para el recurso", "Ajustarlo al estilo general del proyecto (tipografía, paleta de color, tono)", "Verificar que no compita por la atención con los demás elementos en pantalla al mismo tiempo"]
+explicacion: |
+  Primero la calidad técnica, después la coherencia de estilo, y por
+  último la jerarquía de atención frente al resto de los elementos.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "avanzado"
+  tags: ["multimedial", "vocabulario"]
+
+enunciado: "¿Por qué no alcanza con que cada recurso individual (la foto, el audio, el video) sea de buena calidad por separado?"
+tipo: mc
+opciones_explicitas:
+  - "Porque también hace falta que funcionen juntos, con coherencia de estilo y sin competir por la atención"
+  - "En realidad sí alcanza, la integración nunca afecta el resultado final"
+  - "Porque la calidad de cada recurso individual no importa en absoluto"
+respuesta: "Porque también hace falta que funcionen juntos, con coherencia de estilo y sin competir por la atención"
+
+explicacion: |
+  Es la diferencia entre un proyecto que se siente profesional y uno
+  que se siente improvisado, con las mismas piezas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["multimedial"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Texto, imagen, sonido y video comparten la misma necesidad de tener una jerarquía clara y un estilo coherente dentro del proyecto."
+
+explicacion: |
+  Es el hilo conductor que conecta las cuatro integraciones distintas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["texto", "problema"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un video usa texto blanco sobre un fondo también claro, casi del mismo tono. ¿Esa integración de texto está bien resuelta?"
+
+explicacion: |
+  No: sin contraste suficiente entre el texto y el fondo, la
+  legibilidad se pierde, sin importar qué tan buena sea la tipografía
+  elegida.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "intermedio"
+  tags: ["sonido", "problema"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En una escena con diálogo importante, la música de fondo está al mismo volumen que las voces, dificultando entender lo que dicen los personajes. ¿Esa integración de sonido está bien resuelta?"
+
+explicacion: |
+  No: la música debería quedar claramente por debajo del diálogo en
+  volumen, no compitiendo con él.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "basico"
+  tags: ["imagen"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Estirar una imagen para que encaje en un espacio con una relación de aspecto distinta a la original produce una imagen deformada."
+
+explicacion: |
+  Los rostros y objetos se ven notoriamente estirados o achatados.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "avanzado"
+  tags: ["video", "vocabulario"]
+
+enunciado: "¿Qué problema genera combinar clips de video con distinta cantidad de cuadros por segundo (frame rate) en un mismo proyecto?"
+tipo: mc
+opciones_explicitas:
+  - "Se nota un salto de fluidez entre un clip y otro al reproducirse"
+  - "El audio se desincroniza automáticamente en todos los clips"
+  - "No genera ningún problema perceptible"
+respuesta: "Se nota un salto de fluidez entre un clip y otro al reproducirse"
+
+explicacion: |
+  Por eso conviene unificar la configuración técnica antes de combinar
+  clips de distintas fuentes.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "produccion_multimedial"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender cómo integrar texto, imagen, sonido y video en un proyecto multimedial?"
+tipo: mc
+opciones_explicitas:
+  - "Para que el resultado final se sienta como una experiencia coherente y cuidada, en vez de piezas sueltas mal combinadas"
+  - "Sólo sirve para reducir el tamaño del archivo final"
+  - "Sólo aplica a proyectos con presupuesto profesional"
+respuesta: "Para que el resultado final se sienta como una experiencia coherente y cuidada, en vez de piezas sueltas mal combinadas"
+
+explicacion: |
+  Es el cierre de toda la cadena: composición, elementos, principios,
+  plano, encuadre, montaje y, por último, la integración multimedial
+  completa.
+```
+

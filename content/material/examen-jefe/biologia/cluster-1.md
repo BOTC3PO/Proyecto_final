@@ -1,6 +1,6 @@
-# Examen jefe — Maestro del ADN y la Vida
+# Examen jefe — [PENDIENTE #861]
 
-> Logro #149. Completaste el examen jefe sobre ADN, biodiversidad, biotecnología y cadena trófica. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **113 preguntas totales** en 5/5 secciones.
+> Logro #861. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **113 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -100,7 +100,8 @@ metadata:
 
 respuesta: "genoma"
 tipo: completar
-respuestas_validas: ["genoma"]
+respuestas_validas:
+  - "genoma"
 
 enunciado: "El ADN completo de un organismo se llama ___."
 
@@ -149,7 +150,8 @@ metadata:
 
 respuesta: "transcripcion"
 tipo: completar
-respuestas_validas: ["transcripcion"]
+respuestas_validas:
+  - "transcripcion"
 
 enunciado: "El proceso de copiar un gen de ADN a ARN mensajero se llama ___."
 
@@ -166,7 +168,8 @@ metadata:
 
 respuesta: "traduccion"
 tipo: completar
-respuestas_validas: ["traduccion"]
+respuestas_validas:
+  - "traduccion"
 
 enunciado: "El proceso de leer el ARN mensajero y ensamblar aminoácidos se llama ___."
 
@@ -347,7 +350,9 @@ metadata:
 
 enunciado: "La biodiversidad se manifiesta en tres niveles principales: la diversidad de ecosistemas, la diversidad de especies y la diversidad ___."
 
-respuestas_validas: ["genetica", "genética"]
+respuestas_validas:
+  - "genetica"
+  - "genética"
 respuesta: "genetica"
 tipo: completar
 
@@ -364,7 +369,8 @@ metadata:
 
 enunciado: "Cuando contamos el número de especies distintas que habitan en un área determinada, estamos midiendo la diversidad de ___."
 
-respuestas_validas: ["especies"]
+respuestas_validas:
+  - "especies"
 respuesta: "especies"
 tipo: completar
 
@@ -381,7 +387,9 @@ metadata:
 
 enunciado: "El conteo del número total de especies distintas presentes en un ecosistema, sin importar cuántos individuos tiene cada una, se denomina ___."
 
-respuestas_validas: ["riqueza de especies", "riqueza"]
+respuestas_validas:
+  - "riqueza de especies"
+  - "riqueza"
 respuesta: "riqueza de especies"
 tipo: completar
 
@@ -398,7 +406,8 @@ metadata:
 
 enunciado: "La diversidad de especies no sólo depende de cuántas especies hay (riqueza), sino también de la ___ de cada una de ellas en el ecosistema."
 
-respuestas_validas: ["abundancia"]
+respuestas_validas:
+  - "abundancia"
 respuesta: "abundancia"
 tipo: completar
 
@@ -415,7 +424,9 @@ metadata:
 
 enunciado: "Si una población tiene una alta diversidad ___, los individuos tienen mayor probabilidad de sobrevivir a cambios ambientales bruscos."
 
-respuestas_validas: ["genetica", "genética"]
+respuestas_validas:
+  - "genetica"
+  - "genética"
 respuesta: "genetica"
 tipo: completar
 
@@ -466,10 +477,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["10 especies, todas con 10 individuos cada una", "Alta equitatividad"],
-    ["10 especies, una con 91 individuos y las otras 9 con 1 individuo cada una", "Baja equitatividad"]
-  ]
+  datos: [["10 especies, todas con 10 individuos cada una", "Alta equitatividad"], ["10 especies, una con 91 individuos y las otras 9 con 1 individuo cada una", "Baja equitatividad"]]
 
 tipo: mc
 opciones_explicitas: ["Alta equitatividad", "Baja equitatividad"]
@@ -489,7 +497,8 @@ metadata:
   tags: ["indices", "identificacion"]
 
 tipo: completar
-respuestas_validas: ["riqueza"]
+respuestas_validas:
+  - "riqueza"
 respuesta: "riqueza"
 
 enunciado: "Si en un estudio de campo se determina que un arrecife de coral tiene 50 especies de peces, pero la mayoría de los ejemplares observados pertenecen a una sola especie de pez cirujano, el valor de la ___ es alta, aunque la equitatividad sea baja."
@@ -524,7 +533,8 @@ metadata:
 
 enunciado: "Si un ecosistema A tiene 3 especies con 33% de abundancia cada una, y un ecosistema B tiene 3 especies pero una de ellas representa el 98% de la población, el ecosistema con mayor equitatividad es el ___."
 
-respuestas_validas: ["A"]
+respuestas_validas:
+  - "A"
 respuesta: "A"
 tipo: completar
 
@@ -544,7 +554,8 @@ variables:
 
 enunciado: "En el {escenario[0]}, donde una sola especie controla casi toda la biomasa, decimos que existe una ___ dominancia."
 
-respuestas_validas: ["alta"]
+respuestas_validas:
+  - "alta"
 respuesta: escenario[1]
 tipo: completar
 
@@ -561,7 +572,8 @@ metadata:
 
 enunciado: "Dos bosques tienen la misma riqueza de especies (10 especies cada uno). Sin embargo, el Bosque 1 tiene abundancias muy desiguales y el Bosque 2 tiene abundancias muy similares entre especies. El índice de diversidad de Simpson será mayor en el ___."
 
-respuestas_validas: ["Bosque 2"]
+respuestas_validas:
+  - "Bosque 2"
 respuesta: "Bosque 2"
 tipo: completar
 
@@ -582,7 +594,9 @@ variables:
 
 enunciado: "Considerando los datos de {datos[idx][0]}, la equitatividad es ___."
 
-respuestas_validas: ["alta", "baja"]
+respuestas_validas:
+  - "alta"
+  - "baja"
 respuesta: datos[idx][1]
 tipo: completar
 
@@ -599,7 +613,8 @@ metadata:
 
 enunciado: "La biodiversidad no se mide sólo por la riqueza (número de especies), sino por la combinación de la riqueza y la ___."
 
-respuestas_validas: ["equitatividad"]
+respuestas_validas:
+  - "equitatividad"
 respuesta: "equitatividad"
 tipo: completar
 
@@ -633,7 +648,9 @@ metadata:
   tags: ["perturbaciones", "comparacion_temporal"]
 
 tipo: completar
-respuestas_validas: ["disminuye", "baja"]
+respuestas_validas:
+  - "disminuye"
+  - "baja"
 respuesta: "disminuye"
 
 enunciado: "Considerando un ecosistema que sufre un incendio forestal, la biodiversidad medida por un índice de diversidad suele pasar de un estado de mayor diversidad a uno donde el índice ___ (comparando el antes y el después)."
@@ -668,7 +685,8 @@ metadata:
   tags: ["comparacion", "ecologia"]
 
 tipo: completar
-respuestas_validas: ["mayor"]
+respuestas_validas:
+  - "mayor"
 respuesta: "mayor"
 
 enunciado: "Si el índice de Shannon de un arrecife de coral es 4.5 y el de un estanque es 1.2, podemos afirmar que el arrecife tiene una biodiversidad ___ que el estanque."
@@ -732,7 +750,9 @@ pasos:
 
 respuesta: datos[idx][2]
 tipo: completar
-respuestas_validas: ["20", "10"]
+respuestas_validas:
+  - "20"
+  - "10"
 
 explicacion: |
   Para hallar la abundancia relativa: (individuos de la especie 1 / total de individuos) × 100. Con 10 y 40: 10/50×100 = 20%. Con 5 y 45: 5/50×100 = 10%.
@@ -747,7 +767,8 @@ metadata:
 
 enunciado: "Si un bosque tiene 10 especies de árboles y cada especie tiene exactamente 10 individuos, decimos que el ecosistema tiene una alta ___."
 
-respuestas_validas: ["equidad"]
+respuestas_validas:
+  - "equidad"
 respuesta: "equidad"
 tipo: completar
 
@@ -770,7 +791,9 @@ enunciado: "Se realizan muestreos en dos parcelas. En la parcela 1 se encuentran
 
 respuesta: conteo[idx][2]
 tipo: completar
-respuestas_validas: ["5", "4"]
+respuestas_validas:
+  - "5"
+  - "4"
 
 explicacion: |
   La riqueza de especies es simplemente el conteo total de especies distintas presentes en un área, independientemente de cuántos individuos haya de cada una.
@@ -872,7 +895,8 @@ metadata:
 
 respuesta: "polimerasa"
 tipo: completar
-respuestas_validas: ["polimerasa"]
+respuestas_validas:
+  - "polimerasa"
 
 enunciado: "La sigla PCR significa Reacción en Cadena de la ___."
 
@@ -912,7 +936,7 @@ variables:
   ciclos: uno_de([1, 2, 3, 4])
 
 respuesta: 2 ^ ciclos
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Partiendo de 1 copia de ADN, si la PCR duplica en cada ciclo, ¿cuántas copias hay después de {ciclos} ciclos?"
@@ -1045,7 +1069,8 @@ metadata:
 
 respuesta: "Cas9"
 tipo: completar
-respuestas_validas: ["Cas9"]
+respuestas_validas:
+  - "Cas9"
 
 enunciado: "La proteína que corta el ADN en el punto indicado por la guía de CRISPR se llama ___."
 
@@ -1331,7 +1356,8 @@ metadata:
 
 respuesta: "cadena"
 tipo: completar
-respuestas_validas: ["cadena"]
+respuestas_validas:
+  - "cadena"
 
 enunciado: "La secuencia pasto → conejo → zorro → águila es un ejemplo de ___ trófica."
 
@@ -1931,3 +1957,4 @@ enunciado: "¿Cuáles son las 3 estructuras que tiene la célula vegetal y que l
 explicacion: |
   Núcleo, mitocondria, membrana, citoplasma, ribosomas y retículo están en ambas — lo exclusivo de la vegetal es pared celular, cloroplastos y la vacuola grande central.
 ```
+

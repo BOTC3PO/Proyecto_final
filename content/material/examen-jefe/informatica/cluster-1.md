@@ -1,6 +1,6 @@
-# Examen jefe — Maestro del Algoritmo
+# Examen jefe — [PENDIENTE #816]
 
-> Logro #171. Completaste el parcial dominando lógica booleana, estructuras de datos y persistencia de información. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **120 preguntas totales** en 5/5 secciones.
+> Logro #816. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -435,12 +435,7 @@ opciones_explicitas:
   - "Decidir si TODAS las reglas deben cumplirse a la vez (AND) o si basta con UNA (OR)"
   - "Agregar NOT donde haga falta invertir una condición"
   - "Verificar el resultado con al menos una combinación de valores de prueba"
-respuesta_orden:
-  - "Identificar cada regla individual que debe cumplirse (o no)"
-  - "Decidir si TODAS las reglas deben cumplirse a la vez (AND) o si basta con UNA (OR)"
-  - "Agregar NOT donde haga falta invertir una condición"
-  - "Verificar el resultado con al menos una combinación de valores de prueba"
-
+respuesta_orden: ["Identificar cada regla individual que debe cumplirse (o no)", "Decidir si TODAS las reglas deben cumplirse a la vez (AND) o si basta con UNA (OR)", "Agregar NOT donde haga falta invertir una condición", "Verificar el resultado con al menos una combinación de valores de prueba"]
 explicacion: |
   El proceso va de identificar las reglas individuales a combinarlas
   correctamente con los operadores booleanos adecuados.
@@ -481,7 +476,10 @@ metadata:
 
 respuesta: "secuencia finita de pasos"
 tipo: completar
-respuestas_validas: ["secuencia finita de pasos", "pasos ordenados", "instrucciones"]
+respuestas_validas:
+  - "secuencia finita de pasos"
+  - "pasos ordenados"
+  - "instrucciones"
 
 enunciado: "Un algoritmo se define como una ___ para resolver un problema o realizar una tarea."
 
@@ -512,22 +510,11 @@ metadata:
   nivel: "basico"
   tags: ["orden", "secuencia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Lavar platos", "Secar platos", "Mojar platos"],
-    ["Encender motor", "Poner llave", "Soltar llave"]
-  ]
-  respuestas_correctas: [
-    ["Mojar platos", "Lavar platos", "Secar platos"],
-    ["Poner llave", "Encender motor", "Soltar llave"]
-  ]
-
-respuesta: escenarios[escenario_idx][0
 tipo: ordenar
-opciones_explicitas: ["Mojar platos", "Lavar platos", "Secar platos", "Poner llave", "Encender motor", "Soltar llave"]
+opciones_explicitas: ["Mojar platos", "Lavar platos", "Secar platos"]
+respuesta_orden: ["Mojar platos", "Lavar platos", "Secar platos"]
 
-enunciado: "Un algoritmo requiere que los pasos sigan un orden lógico. Si tenemos el siguiente problema: {escenarios[escenario_idx][0]}, ¿cuál es la secuencia correcta de pasos?"
+enunciado: "Un algoritmo requiere que los pasos sigan un orden lógico. Para lavar los platos correctamente, ¿cuál es la secuencia correcta de estos pasos?"
 
 pasos:
   - "Identificar los elementos necesarios."
@@ -617,8 +604,8 @@ variables:
 
 enunciado: "Considera el siguiente algoritmo para sumar dos números: 1. Leer primer número, 2. Leer segundo número, 3. Sumar ambos valores, 4. Mostrar resultado. Si los números ingresados son {datos[idx][0]} y {datos[idx][1]}, ¿cuál es el valor final que mostrará el paso 4?"
 
-respuesta: datos[idx][2
-tipo: "input"
+respuesta: datos[idx][2]
+tipo: completar
 tolerancia_abs: 0
 
 explicacion: |
@@ -632,15 +619,16 @@ metadata:
   nivel: "intermedio"
   tags: ["orden", "logica"]
 
-enunciado: "Para cambiar una bombilla (foco) quemada, se deben seguir estos pasos desordenados: 
-- Colocar la bombilla nueva en el casquillo.
-- Retirar la bombilla quemada.
-- Asegurarse de que el interruptor esté apagado.
-- Encender el interruptor para probar."
+enunciado: |
+  Para cambiar una bombilla (foco) quemada, se deben seguir estos pasos desordenados:
+  - Colocar la bombilla nueva en el casquillo.
+  - Retirar la bombilla quemada.
+  - Asegurarse de que el interruptor esté apagado.
+  - Encender el interruptor para probar.
 
 opciones_explicitas: ["Apagar, Retirar, Colocar, Encender", "Retirar, Apagar, Colocar, Encender", "Apagar, Colocar, Retirar, Encender", "Encender, Retirar, Colocar, Apagar"]
 respuesta: "Apagar, Retirar, Colocar, Encender"
-tipo: "mc"
+tipo: mc
 
 explicacion: |
   La seguridad es primordial en un algoritmo de la vida real. Primero se debe asegurar que no haya corriente (Apagar), luego proceder al cambio físico y finalmente verificar el resultado.
@@ -655,7 +643,10 @@ metadata:
 
 enunciado: "Un algoritmo de inicio de sesión sigue esta lógica: 1. Solicitar usuario y contraseña, 2. Comparar datos con la base de datos, 3. Si son correctos, permitir acceso; si no, mostrar error. En el paso 2, la acción principal es la ___."
 
-respuestas_validas: ["comparación", "validación", "verificación"]
+respuestas_validas:
+  - "comparación"
+  - "validación"
+  - "verificación"
 respuesta: "validación"
 tipo: "completar"
 
@@ -670,7 +661,7 @@ metadata:
   nivel: "basico"
   tags: ["definicion", "caracteristicas"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Un algoritmo se define como una secuencia de pasos que debe ser finita para poder resolver un problema."
@@ -686,19 +677,14 @@ metadata:
   nivel: "basico"
   tags: ["orden", "logica"]
 
-variables:
-  escenario: uno_de([
-    ["Poner agua en la olla", "Poner la olla al fuego", "Echar la pasta"],
-    ["Encender el motor", "Poner la llave en contacto", "Pisar el embrague"]
-  ])
-
-respuesta: escenario[2
 tipo: ordenar
 
 opciones_explicitas:
   - "Poner agua en la olla"
   - "Poner la olla al fuego"
   - "Echar la pasta"
+
+respuesta_orden: ["Poner agua en la olla", "Poner la olla al fuego", "Echar la pasta"]
 
 enunciado: "Para cocinar pasta, el orden lógico de los pasos es el siguiente:"
 
@@ -744,7 +730,6 @@ tipo: completar
 
 respuestas_validas:
   - "ambiguo"
-  - "preciso"
 
 enunciado: "Si una instrucción en un algoritmo dice 'añadir un poco de sal' sin especificar la cantidad, el paso es considerado ___________."
 
@@ -777,7 +762,8 @@ metadata:
 
 respuesta: "algoritmo"
 tipo: "completar"
-respuestas_validas: ["algoritmo"]
+respuestas_validas:
+  - "algoritmo"
 
 enunciado: "Mientras que un proceso puede ser una serie de acciones desordenadas o continuas, un ___ es una secuencia finita, definida y ordenada de pasos para resolver un problema específico."
 
@@ -808,18 +794,11 @@ metadata:
   nivel: "intermedio"
   tags: ["algoritmo_vs_codigo", "abstraccion"]
 
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1
-tipo: "mc"
+respuesta: "La lógica abstracta del procedimiento"
+tipo: mc
 opciones_explicitas: ["La implementación en un lenguaje de programación", "La lógica abstracta del procedimiento"]
 
 enunciado: "Si comparamos un algoritmo con su implementación en un lenguaje de programación (código), el algoritmo se distingue por ser: ___"
-
-datos:
-  - ["La implementación en un lenguaje de programación", "La lógica abstracta del procedimiento"]
-  - ["La lógica abstracta del procedimiento", "La implementación en un lenguaje de programación"]
 
 explicacion: |
   El algoritmo es el diseño lógico y abstracto (el "qué" hacer), mientras que el código es la implementación técnica en un lenguaje específico (el "cómo" hacerlo en una máquina).
@@ -832,7 +811,7 @@ metadata:
   nivel: "basico"
   tags: ["orden", "secuencia"]
 
-respuesta: ["Paso 1: Entrada", "Paso 2: Proceso", "Paso 3: Salida"]
+respuesta_orden: ["Paso 1: Entrada", "Paso 2: Proceso", "Paso 3: Salida"]
 tipo: "ordenar"
 opciones_explicitas: ["Paso 1: Entrada", "Paso 2: Proceso", "Paso 3: Salida"]
 
@@ -851,7 +830,8 @@ metadata:
 
 respuesta: "precisión"
 tipo: "completar"
-respuestas_validas: ["precisión"]
+respuestas_validas:
+  - "precisión"
 
 enunciado: "A diferencia de una instrucción ambigua, un algoritmo debe poseer ___; esto significa que, ante los mismos datos de entrada, siempre debe producir el mismo resultado tras seguir los mismos pasos."
 
@@ -867,15 +847,13 @@ metadata:
   tags: ["algoritmo", "secuencia"]
 
 variables:
-  escenario: uno_de([
-    ["Para hacer un café: 1. Calentar agua, 2. Poner café en filtro, 3. Verter agua", "Verdadero"],
-    ["Para encender una PC: 1. Presionar botón, 2. Conectar cable, 3. Esperar inicio", "Falso"]
-  ])
+  textos: ["Para hacer un café: 1. Calentar agua, 2. Poner café en filtro, 3. Verter agua", "Para encender una PC: 1. Presionar botón, 2. Conectar cable, 3. Esperar inicio"]
+  valores: [verdadero, falso]
   idx: uno_de([0, 1])
 
-respuesta: escenario[idx][1
-tipo: completar
-enunciado: "Analiza el siguiente escenario: {escenario[idx][0]}. ¿Es una secuencia lógica y ordenada para resolver el problema planteado?"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Analiza el siguiente escenario: {textos[idx]}. ¿Es una secuencia lógica y ordenada para resolver el problema planteado?"
 
 explicacion: |
   Un algoritmo debe ser una secuencia finita y ordenada de pasos. En el primer caso, los pasos siguen un orden lógico para obtener el resultado. En el segundo, el orden es incorrecto (primero se debe conectar el cable).
@@ -888,24 +866,12 @@ metadata:
   nivel: "basico"
   tags: ["algoritmo", "orden"]
 
-variables:
-  pasos: [
-    ["1. Leer primer número, 2. Leer segundo número, 3. Sumar ambos, 4. Mostrar resultado", "1. Leer primer número, 2. Leer segundo número, 3. Sumar ambos, 4. Mostrar resultado"],
-    ["1. Mostrar resultado, 2. Sumar ambos, 3. Leer segundo número, 4. Leer primer número", "1. Mostrar resultado, 2. Sumar ambos, 3. Leer segundo número, 4. Leer primer número"],
-    ["1. Sumar ambos, 2. Mostrar resultado, 3. Leer segundo número, 4. Leer primer número", "1. Sumar ambos, 2. Mostrar resultado, 3. Leer segundo número, 4. Leer primer número"]
-  ]
-  idx: uno_de([0, 1, 2])
-
-respuesta: pasos[idx][1
 tipo: ordenar
 
-enunciado: "Ordena los pasos necesarios para realizar el algoritmo de suma de dos números:"
+opciones_explicitas: ["Leer primer número", "Leer segundo número", "Sumar ambos", "Mostrar resultado"]
+respuesta_orden: ["Leer primer número", "Leer segundo número", "Sumar ambos", "Mostrar resultado"]
 
-pasos_list:
-  - "Leer primer número"
-  - "Leer segundo número"
-  - "Sumar ambos"
-  - "Mostrar resultado"
+enunciado: "Ordena los pasos necesarios para realizar el algoritmo de suma de dos números:"
 
 explicacion: |
   Un algoritmo requiere un orden lógico. Para sumar, primero debemos obtener los datos (entrada), luego procesarlos (suma) y finalmente entregar el resultado (salida).
@@ -919,15 +885,13 @@ metadata:
   tags: ["definicion", "caracteristicas"]
 
 variables:
-  caso: uno_de([
-    ["Un proceso que no termina nunca", "Falso"],
-    ["Un proceso con pasos finitos y definidos", "Verdadero"]
-  ])
+  textos: ["Un proceso que no termina nunca", "Un proceso con pasos finitos y definidos"]
+  valores: [falso, verdadero]
   idx: uno_de([0, 1])
 
-respuesta: caso[idx][1
-tipo: completar
-enunciado: "Un algoritmo debe ser necesariamente finito, es decir, debe tener un número determinado de pasos que se completan en un tiempo razonable. ¿Es esto correcto? {caso[idx][0]}"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Un algoritmo debe ser necesariamente finito, es decir, debe tener un número determinado de pasos que se completan en un tiempo razonable. ¿Es esto correcto para describir lo siguiente: {textos[idx]}?"
 
 explicacion: |
   La finitud es una característica esencial de todo algoritmo. Si un proceso no termina, no puede ser considerado un algoritmo funcional para resolver un problema.
@@ -942,7 +906,8 @@ metadata:
 
 respuesta: "encender"
 tipo: completar
-respuestas_validas: ["encender"]
+respuestas_validas:
+  - "encender"
 
 enunciado: "Para resolver el problema de iluminar una habitación oscura, el primer paso del algoritmo debe ser ___ la luz."
 
@@ -958,18 +923,14 @@ metadata:
   tags: ["logica", "errores"]
 
 variables:
-  escenario: uno_de([
-    ["1. Salir de casa, 2. Abrir la puerta, 3. Caminar hacia la calle", "Pasos desordenados"],
-    ["1. Abrir la puerta, 2. Salir de casa, 3. Caminar hacia la calle", "Pasos correctos"]
-  ])
-  idx: uno_de([0, 1])
+  escenario: uno_de([["1. Salir de casa, 2. Abrir la puerta, 3. Caminar hacia la calle", "Pasos desordenados"], ["1. Abrir la puerta, 2. Salir de casa, 3. Caminar hacia la calle", "Pasos correctos"]])
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: mc
 
 opciones_explicitas: ["Pasos desordenados", "Pasos correctos"]
 
-enunciado: "Analiza la secuencia: {escenario[idx][0]}. ¿Cuál es la clasificación de este algoritmo?"
+enunciado: "Analiza la secuencia: {escenario[0]}. ¿Cuál es la clasificación de este algoritmo?"
 
 explicacion: |
   Si el orden de los pasos impide alcanzar el objetivo de forma lógica (como intentar salir de casa antes de abrir la puerta), el algoritmo es incorrecto o está desordenado.
@@ -986,6 +947,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Compara elemento por elemento", "Divide la lista a la mitad", "Ordena de mayor a menor", "Busca solo en listas ordenadas"]
+respuesta: "Compara elemento por elemento"
 
 enunciado: "El algoritmo de búsqueda lineal funciona de la siguiente manera:"
 
@@ -1000,11 +962,11 @@ metadata:
   nivel: "basico"
   tags: ["busqueda", "binaria"]
 
-tipo: vf
+tipo: completar
 
 enunciado: "Para que un algoritmo de búsqueda binaria sea efectivo, la lista de datos debe estar previamente ___."
 
-respuestas_validas: ["ordenada"]
+respuesta: "ordenada"
 
 explicacion: |
   La búsqueda binaria utiliza la propiedad de orden para descartar la mitad de los elementos en cada paso. Sin orden, no se puede determinar qué mitad descartar.
@@ -1018,10 +980,11 @@ metadata:
   tags: ["complejidad", "busqueda"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
   datos: [["10, 20, 30, 40, 50", "50"], ["5, 15, 25, 35", "5"]]
+  escenario_idx: uno_de([0, 1])
 
 tipo: mc
+respuesta: "O(n)"
 opciones_explicitas: ["O(1)", "O(n)", "O(log n)", "O(n^2)"]
 
 enunciado: "En el escenario {datos[escenario_idx][0]}, ¿cuál es la complejidad en el peor de los casos para una búsqueda lineal?"
@@ -1044,6 +1007,7 @@ enunciado: "Ordena los pasos lógicos para completar una pasada del algoritmo de
 
 explicacion: |
   El algoritmo compara pares de elementos contiguos e intercambia sus posiciones si están en el orden incorrecto, repitiendo el proceso hasta que la lista esté lista.
+respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si están desordenados", "Repetir hasta que no haya cambios"]
 ```
 
 ```
@@ -1056,6 +1020,8 @@ metadata:
 tipo: vf
 
 enunciado: "El algoritmo de ordenamiento de burbuja tiene una complejidad temporal de O(n^2) en su peor caso."
+
+respuesta: verdadero
 
 explicacion: |
   Es correcto, ya que requiere dos bucles anidados (uno para las pasadas y otro para las comparaciones), resultando en n * n comparaciones en el peor escenario.
@@ -1092,7 +1058,8 @@ metadata:
 
 enunciado: "Para que un algoritmo de búsqueda binaria funcione correctamente sobre un conjunto de datos, es indispensable que los datos estén previamente ___."
 
-respuestas_validas: ["ordenados"]
+respuestas_validas:
+  - "ordenados"
 
 respuesta: "ordenados"
 tipo: completar
@@ -1110,13 +1077,14 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [[[5, 2, 8], [2, 5, 8]], [[3, 1, 4], [1, 3, 4]]]
+  arrays_iniciales: ["[5, 2, 8]", "[3, 1, 4]"]
+  resultados: ["[2, 5, 8]", "[1, 3, 4]"]
 
-enunciado: "Considera el array {escenario[idx][0]}. Tras completar la primera pasada completa del algoritmo de ordenamiento burbuja (comparando pares adyacentes de izquierda a derecha), ¿cuál es el estado del array?"
+enunciado: "Considera el array {arrays_iniciales[idx]}. Tras completar la primera pasada completa del algoritmo de ordenamiento burbuja (comparando pares adyacentes de izquierda a derecha), ¿cuál es el estado del array?"
 
-opciones_explicitas: ["{escenario[idx][1]}", "[5, 8, 2]", "[2, 5, 8]", "[8, 5, 2]"]
+opciones_explicitas: [resultados[idx], "[8, 5, 2]", "[4, 3, 1]", "[2, 8, 5]"]
 
-respuesta: "{escenario[idx][1]}"
+respuesta: resultados[idx]
 tipo: mc
 
 explicacion: |
@@ -1152,7 +1120,7 @@ enunciado: "Ordena los siguientes pasos que describe el funcionamiento del algor
 
 opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso hasta que no haya más intercambios"]
 
-respuesta: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso hasta que no haya más intercambios"]
+respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso hasta que no haya más intercambios"]
 tipo: ordenar
 
 explicacion: |
@@ -1188,7 +1156,8 @@ variables:
   n: 1000
 
 tipo: completar
-respuestas_validas: ["O(n)", "O(1)", "O(log n)", "O(n^2)"]
+respuestas_validas:
+  - "O(n)"
 
 enunciado: "En el peor de los casos, si tenemos un arreglo de tamaño {n}, la complejidad temporal de una búsqueda lineal es ___."
 
@@ -1227,7 +1196,7 @@ opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si el prime
 
 enunciado: "Ordena los pasos lógicos de una implementación estándar del algoritmo de ordenamiento burbuja (Bubble Sort):"
 
-respuesta: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso para todos los elementos", "Terminar cuando no haya más intercambios"]
+respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor que el segundo", "Repetir el proceso para todos los elementos", "Terminar cuando no haya más intercambios"]
 
 explicacion: |
   El método de burbuja funciona comparando pares de elementos contiguos y moviendo el más grande hacia el final en cada iteración.
@@ -1239,11 +1208,6 @@ metadata:
   tema: "algoritmos_busqueda"
   nivel: "avanzado"
   tags: ["eficiencia", "comparacion"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[100, 7], [100, 100]]
-  valor_buscado: uno_de(["log2(n)", "n"])
 
 tipo: mc
 opciones_explicitas: ["log2(n)", "n"]
@@ -1263,14 +1227,11 @@ metadata:
   nivel: "basico"
   tags: ["busqueda", "eficiencia"]
 
-variables:
-  es_ordenado: true
-
 respuesta: "binaria"
 tipo: mc
 opciones_explicitas: ["lineal", "binaria", "exponencial"]
 
-enunciado: "Para que un algoritmo de búsqueda sea más eficiente que la búsqueda lineal, aprovechando la estructura de los datos, el arreglo debe estar previamente {es_ordenado} y el algoritmo utilizado sería la búsqueda ___."
+enunciado: "Para que un algoritmo de búsqueda sea más eficiente que la búsqueda lineal, aprovechando la estructura de los datos, el arreglo debe estar previamente ordenado y el algoritmo utilizado sería la búsqueda ___."
 
 explicacion: |
   La búsqueda binaria requiere que el conjunto de datos esté ordenado para poder dividir el espacio de búsqueda a la mitad en cada paso, logrando una complejidad de O(log n), mientras que la lineal siempre recorre uno por uno.
@@ -1297,7 +1258,7 @@ pasos:
   - "Calcular el número de comparaciones como n^2."
 
 explicacion: |
-  El algoritmo de burbuja compara pares adyacentes. En el peor de los casos, realiza n*(n-1)/2 comparaciones, lo cual es asimptóticamente O(n^2). Para n=10, el valor aproximado es 100.
+  El algoritmo de burbuja compara pares adyacentes. En el peor de los casos realiza exactamente n*(n-1)/2 comparaciones (45 para n=10), pero esa cifra crece asintóticamente como n^2, por lo que decimos que su complejidad es O(n^2). Usando n^2 como aproximación, para n=10 el valor es 100.
 ```
 
 ```
@@ -1325,7 +1286,7 @@ metadata:
 
 opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor", "Repetir hasta que no haya intercambios"]
 
-respuesta: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor", "Repetir hasta que no haya intercambios"]
+respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si el primero es mayor", "Repetir hasta que no haya intercambios"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos fundamentales para la ejecución de una iteración estándar de un algoritmo de burbuja:"
@@ -1341,16 +1302,11 @@ metadata:
   nivel: "intermedio"
   tags: ["eficiencia", "comparacion"]
 
-variables:
-  idx_caso: uno_de([0, 1])
-  es_mejor_binaria: ["verdadero", "falso"][idx_caso]
-  tipo_busqueda: ["binaria", "lineal"][idx_caso]
-
 respuesta: "binaria"
 tipo: mc
 opciones_explicitas: ["lineal", "binaria"]
 
-enunciado: "Si comparamos la eficiencia de búsqueda en un arreglo de un millón de elementos, la búsqueda {tipo_busqueda} es preferible sobre la búsqueda lineal porque su complejidad es menor. El nombre de la búsqueda más eficiente es ___."
+enunciado: "Si comparamos la eficiencia de búsqueda en un arreglo de un millón de elementos, una de las dos es preferible sobre la otra porque su complejidad es menor. El nombre de la búsqueda más eficiente es ___."
 
 explicacion: |
   La búsqueda binaria tiene una complejidad logarítmica O(log n), lo que significa que para un millón de elementos solo requiere unos 20 pasos, mientras que la lineal podría requerir un millón.
@@ -1404,7 +1360,7 @@ metadata:
 
 opciones_explicitas: ["Comparar elementos adyacentes", "Intercambiar si el de la izquierda es mayor", "Repetir el proceso para todos los elementos"]
 
-respuesta: ["Comparar elementos adyacentes", "Intercambiar si el de la izquierda es mayor", "Repetir el proceso para todos los elementos"]
+respuesta_orden: ["Comparar elementos adyacentes", "Intercambiar si el de la izquierda es mayor", "Repetir el proceso para todos los elementos"]
 tipo: ordenar
 
 enunciado: "Indica el orden lógico de las operaciones básicas que realiza el algoritmo de ordenamiento de burbuja (Bubble Sort) para ordenar una lista de menor a mayor:"
@@ -1420,18 +1376,16 @@ metadata:
   nivel: "avanzado"
   tags: ["complejidad", "big_o"]
 
-variables:
-  caso: [[ "O(n)", "lineal" ], [ "O(log n)", "logarítmica" ]]
-  idx: uno_de([0, 1])
-
-respuesta: tabla[idx][1
+respuesta: "logarítmica"
 tipo: completar
-respuestas_validas: ["lineal", "logarítmica"]
+respuestas_validas:
+  - "logarítmica"
+  - "logaritmica"
 
-enunciado: "La complejidad temporal de la búsqueda binaria en el mejor de los casos de éxito (encontrar el elemento justo en el medio) se describe como ___."
+enunciado: "La complejidad temporal de la búsqueda binaria en el peor de los casos se describe como ___."
 
 explicacion: |
-  Aunque en el peor caso la búsqueda binaria es O(log n), si el elemento está justo en la posición central de la primera división, la complejidad es constante, pero el término general para su eficiencia comparada con la lineal es logarítmica.
+  La búsqueda binaria reduce el espacio de búsqueda a la mitad en cada paso, por lo que en el peor de los casos su complejidad es O(log n), es decir, logarítmica (nunca lineal, ni siquiera en escenarios favorables).
 ```
 
 ```
@@ -1443,14 +1397,15 @@ metadata:
 
 variables:
   datos: [[ 10, 5, 8, 2 ], [ 3, 1, 4, 2 ], [ 7, 9, 6, 5 ]]
+  intercambios_primer_par: [1, 1, 0]
   idx: uno_de([0, 1, 2])
   lista: datos[idx]
 
-respuesta: "burbuja"
-tipo: mc
-opciones_explicitas: ["burbuja", "quicksort", "merge"]
+respuesta: intercambios_primer_par[idx]
+tipo: completar
+tolerancia_abs: 0
 
-enunciado: "Si aplicamos el algoritmo de burbuja a la lista {lista}, ¿cuál es el número de intercambios realizados si comparamos solo el primer par de elementos en la primera pasada?"
+enunciado: "Si aplicamos el algoritmo de burbuja a la lista {lista}, ¿cuántos intercambios se realizan si comparamos solo el primer par de elementos (el primero con el segundo) en la primera pasada?"
 
 pasos:
   - "Comparar el primer elemento con el segundo."
@@ -1458,7 +1413,7 @@ pasos:
   - "Contar los intercambios realizados."
 
 explicacion: |
-  En el algoritmo de burbuja, se comparan elementos adyacentes. Si el elemento de la izquierda es mayor que el de la derecha, se realiza un intercambio para ir moviendo el valor más grande hacia el final de la lista.
+  En el algoritmo de burbuja, se comparan elementos adyacentes: si el de la izquierda es mayor que el de la derecha, se intercambian (1 intercambio); si no, no se realiza ninguno (0 intercambios). Para {lista}, comparando solo el primer par, el resultado depende de si ese par está o no en el orden correcto.
 ```
 
 ## Sección: almacenamiento-volatil-vs-no-volatil (25 preguntas)
@@ -1471,11 +1426,11 @@ metadata:
   tags: ["memoria", "hardware", "conceptos"]
 
 tipo: mc
-opciones_explicitas: ["Memoria volátil", "Memoria no volátil", "Procesador", "Bus de datos"]
+opciones_explicitas: ["energía eléctrica", "datos", "programas", "espacio en disco"]
 
 enunciado: "La característica que define a una memoria como 'volátil' es que su contenido se pierde cuando se corta el suministro de ___."
 
-respuesta: "Memoria volátil"
+respuesta: "energía eléctrica"
 
 explicacion: |
   La memoria volátil (como la RAM) requiere energía eléctrica constante para mantener almacenada la información. Sin energía, los datos se borran.
@@ -1489,16 +1444,17 @@ metadata:
   tags: ["ram", "disco_duro"]
 
 variables:
-  escenario: uno_de([["RAM", "SSD"], ["ROM", "HDD"], ["Cache", "Pendrive"]])
-  es_volatil: uno_de([true, false])
+  nombres: ["RAM", "ROM", "Caché", "Disco SSD", "Pendrive"]
+  valores: [verdadero, falso, verdadero, falso, falso]
+  idx: uno_de([0, 1, 2, 3, 4])
 
-tipo: completar
-enunciado: "Si el componente es {escenario[0]}, ¿se considera que es una memoria volátil? (Respuesta: verdadero o falso)"
+tipo: vf
+enunciado: "Si el componente es {nombres[idx]}, ¿se considera que es una memoria volátil?"
 
-respuesta: "true"
+respuesta: valores[idx]
 
 explicacion: |
-  En el caso de {escenario[0]}, la respuesta es verdadero porque la {escenario[0]} es volátil.
+  La RAM y la memoria caché son volátiles: pierden su contenido sin energía. La ROM, el disco SSD y el pendrive son no volátiles: conservan los datos aunque se corte la energía.
 ```
 
 ```
@@ -1509,7 +1465,7 @@ metadata:
   tags: ["clasificacion", "hardware"]
 
 tipo: mc
-opciones_explicitas: ["Disco Duro (HDD)", "Memoria RAM", "Memoria Caché", "Memoria ROM"]
+opciones_explicitas: ["Disco Duro (HDD)", "Memoria RAM", "Memoria Caché", "Registros del procesador"]
 
 enunciado: "¿Cuál de los siguientes dispositivos es un ejemplo de almacenamiento NO volátil?"
 
@@ -1528,7 +1484,8 @@ metadata:
 
 tipo: completar
 opciones_explicitas: ["persistente", "temporal", "aleatoria", "secuencial"]
-respuestas_validas: ["temporal"]
+respuestas_validas:
+  - "temporal"
 
 enunciado: "La función principal de la memoria RAM es servir como un espacio de almacenamiento ___ para que el procesador acceda rápidamente a los datos en ejecución."
 
@@ -1548,7 +1505,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Carga de datos de disco a RAM", "Ejecución de procesos en CPU", "Guardado de cambios en disco"]
 
-respuesta: ["Carga de datos de disco a RAM", "Ejecución de procesos en CPU", "Guardado de cambios en disco"]
+respuesta_orden: ["Carga de datos de disco a RAM", "Ejecución de procesos en CPU", "Guardado de cambios en disco"]
 
 enunciado: "Ordena el flujo lógico de la información cuando un usuario trabaja en un documento y decide guardarlo:"
 
@@ -1584,14 +1541,14 @@ variables:
   dispositivos: [["Memoria RAM", "Memoria Caché"], ["Disco Duro HDD", "Memoria Flash USB"]]
   tipo_memoria: [["volátil", "volátil"], ["no volátil", "no volátil"]]
 
-respuesta: tipo_memoria[escenario_idx
+respuesta: tipo_memoria[escenario_idx][0]
 tipo: mc
 opciones_explicitas: ["volátil", "no volátil"]
 
-enunciado: "Considerando el dispositivo {dispositivos[escenario_idx]}, ¿cuál es su característica principal respecto a la persistencia de datos?"
+enunciado: "Considerando el dispositivo {dispositivos[escenario_idx][0]}, ¿cuál es su característica principal respecto a la persistencia de datos?"
 
 explicacion: |
-  El dispositivo seleccionado pertenece a la categoría de memoria {tipo_memoria[escenario_idx]}.
+  El dispositivo seleccionado pertenece a la categoría de memoria {tipo_memoria[escenario_idx][0]}.
 ```
 
 ```
@@ -1603,7 +1560,9 @@ metadata:
 
 respuesta: "disco"
 tipo: completar
-respuestas_validas: ["disco", "memoria"]
+respuestas_validas:
+  - "disco"
+  - "memoria"
 
 enunciado: "Cuando estás escribiendo un documento en un procesador de texto, los cambios se mantienen temporalmente en la memoria RAM. Para que el archivo no se pierda al apagar la PC, debes realizar una acción de guardado que traslade la información desde la RAM hacia el ___."
 
@@ -1623,7 +1582,7 @@ metadata:
   nivel: "intermedio"
   tags: ["jerarquia", "orden"]
 
-respuesta: ["Caché L1", "Memoria RAM", "Disco SSD"]
+respuesta_orden: ["Caché L1", "Memoria RAM", "Disco SSD"]
 tipo: ordenar
 opciones_explicitas: ["Caché L1", "Memoria RAM", "Disco SSD"]
 
@@ -1642,13 +1601,10 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  situacion: [
-    ["Estás editando una foto y se corta la luz sin haber guardado.", "perder"],
-    ["Estás viendo una película descargada en un pendrive y se corta la luz.", "nada"]
-  ]
+  situacion: [["Estás editando una foto y se corta la luz sin haber guardado.", "perder"], ["Estás viendo una película descargada en un pendrive y se corta la luz.", "nada"]]
   resultado: ["perder", "nada"]
 
-respuesta: resultado[caso_idx
+respuesta: resultado[caso_idx]
 tipo: mc
 opciones_explicitas: ["perder", "nada"]
 
@@ -1667,7 +1623,9 @@ metadata:
 
 respuesta: "volátil"
 tipo: "completar"
-respuestas_validas: ["volátil", "volatil"]
+respuestas_validas:
+  - "volátil"
+  - "volatil"
 
 enunciado: "La memoria que requiere un suministro constante de energía para mantener la información almacenada se denomina memoria ___________."
 
@@ -1682,8 +1640,8 @@ metadata:
   nivel: "basico"
   tags: ["errores_comunes", "guardado"]
 
-respuesta: "falso"
-tipo: "vf"
+tipo: vf
+respuesta: falso
 
 enunciado: "Si estoy escribiendo un documento en un procesador de texto y se corta la luz antes de que yo haga clic en 'Guardar', la información se mantiene intacta en el disco duro porque el procesador estaba encendido."
 
@@ -1699,17 +1657,13 @@ metadata:
   tags: ["hardware", "clasificacion"]
 
 variables:
-  idx: uno_de([0, 1])
-  escenario: [[
-    ["Memoria RAM", "volátil"],
-    ["Disco Duro (HDD)", "no volátil"]
-  ]]
+  escenario: uno_de([["Memoria RAM", "volátil"], ["Disco Duro (HDD)", "no volátil"]])
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: "mc"
 opciones_explicitas: ["volátil", "no volátil"]
 
-enunciado: "Considerando el dispositivo {escenario[idx][0]}, su característica principal de almacenamiento es: ___________."
+enunciado: "Considerando el dispositivo {escenario[0]}, su característica principal de almacenamiento es: ___________."
 
 explicacion: |
   La RAM es volátil (pierde datos sin energía) y el HDD es no volátil (mantiene datos sin energía).
@@ -1722,7 +1676,7 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo_datos", "ciclo_de_vida"]
 
-respuesta: ["Cargar desde disco", "Procesar en RAM", "Guardar en disco"]
+respuesta_orden: ["Cargar desde disco", "Procesar en RAM", "Guardar en disco"]
 tipo: "ordenar"
 opciones_explicitas: ["Cargar desde disco", "Procesar en RAM", "Guardar en disco"]
 
@@ -1741,8 +1695,9 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-respuesta: 1
+enunciado: "¿Cuál de las siguientes afirmaciones describe correctamente la diferencia principal entre la memoria volátil y la no volátil?"
 tipo: "mc"
+respuesta: "Solo la memoria no volátil puede almacenar datos de forma permanente."
 opciones_explicitas: ["Solo la memoria no volátil puede almacenar datos de forma permanente.", "Tanto la RAM como el disco duro son memorias no volátiles.", "La memoria volátil es más lenta que la no volátil.", "El almacenamiento volátil es el que se usa para guardar archivos a largo plazo."]
 
 explicacion: |
@@ -1775,7 +1730,7 @@ metadata:
 variables:
   escenario: uno_de([["Disco Duro (HDD)", "No volátil"], ["Memoria RAM", "Volátil"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["No volátil", "Volátil"]
 
@@ -1792,7 +1747,7 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo_datos", "ram", "disco"]
 
-respuesta: ["Disco Duro", "Memoria RAM", "Procesador"]
+respuesta_orden: ["Disco Duro", "Memoria RAM", "Procesador"]
 tipo: ordenar
 
 opciones_explicitas: ["Disco Duro", "Memoria RAM", "Procesador"]
@@ -1817,12 +1772,14 @@ metadata:
 
 respuesta: "persistencia"
 tipo: completar
-respuestas_validas: ["persistencia", "permanencia"]
+respuestas_validas:
+  - "persistencia"
+  - "permanencia"
 
 enunciado: "La capacidad de un medio de almacenamiento para mantener la información sin necesidad de suministro eléctrico se denomina ___."
 
 explicacion: |
-  La ___ es la característica que define a los medios no volátiles como los SSD o los discos duros.
+  La persistencia es la característica que define a los medios no volátiles como los SSD o los discos duros.
 ```
 
 ```
@@ -1835,7 +1792,7 @@ metadata:
 variables:
   caso: uno_de([[0, "Memoria RAM", "Alta velocidad, poca capacidad"], [1, "Disco SSD", "Velocidad media, mayor capacidad"]])
 
-respuesta: caso[1
+respuesta: caso[2]
 tipo: mc
 opciones_explicitas: ["Alta velocidad, poca capacidad", "Velocidad media, mayor capacidad"]
 
@@ -1853,18 +1810,13 @@ metadata:
   tags: ["hardware", "memoria", "ram"]
 
 variables:
-  escenario: uno_de([
-    ["Estás editando un documento de texto en un procesador de palabras y aún no has guardado los cambios.", "RAM"],
-    ["Has guardado una fotografía en tu carpeta de imágenes en el disco duro.", "Disco"],
-    ["Estás jugando un videojuego y la acción se está procesando en tiempo real.", "RAM"]
-  ])
-  idx: uno_de([0, 1, 2])
+  escenario: uno_de([["Estás editando un documento de texto en un procesador de palabras y aún no has guardado los cambios.", "RAM"], ["Has guardado una fotografía en tu carpeta de imágenes en el disco duro.", "Disco"], ["Estás jugando un videojuego y la acción se está procesando en tiempo real.", "RAM"]])
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["RAM", "Disco", "ROM"]
 
-enunciado: "Considerando el escenario: '{escenario[idx][0]}', ¿qué tipo de memoria es la principal responsable de mantener la información mientras el dispositivo tiene energía, pero que se borraría al apagar la computadora?"
+enunciado: "Considerando el escenario: '{escenario[0]}', ¿qué tipo de memoria es la principal responsable de mantener la información mientras el dispositivo tiene energía, pero que se borraría al apagar la computadora?"
 
 explicacion: |
   La memoria RAM es volátil, lo que significa que requiere energía eléctrica para mantener los datos. Si el dispositivo se apaga sin guardar los cambios en un medio no volátil (como el disco), la información se pierde.
@@ -1894,19 +1846,11 @@ metadata:
   tags: ["clasificacion", "hardware"]
 
 variables:
-  item: uno_de([
-    ["Memoria RAM", "volatil"],
-    ["Disco Duro (HDD)", "no_volatil"],
-    ["Memoria Flash (USB)", "no_volatil"],
-    ["Memoria Caché", "volatil"]
-  ])
-  idx: uno_de([0, 1, 2, 3])
+  item: uno_de([["Memoria RAM", "volátil"], ["Disco Duro (HDD)", "no volátil"], ["Memoria Flash (USB)", "no volátil"], ["Memoria Caché", "volátil"]])
 
-respuesta: item[idx][1
 tipo: completar
-respuestas_validas: ["volatil", "no_volatil"]
-
-enunciado: "El dispositivo '{item[idx][0]}' se clasifica como memoria ___________."
+respuesta: item[1]
+enunciado: "El dispositivo '{item[0]}' se clasifica como memoria ___________."
 
 explicacion: |
   La memoria volátil es aquella que requiere energía para mantener los datos, mientras que la no volátil permite el almacenamiento a largo plazo.
@@ -1920,7 +1864,7 @@ metadata:
   tags: ["jerarquia", "ordenar"]
 
 opciones_explicitas: ["Memoria RAM", "Disco Duro", "Memoria ROM"]
-respuesta: ["Memoria RAM", "Disco Duro", "Memoria ROM"]
+respuesta_orden: ["Memoria RAM", "Disco Duro", "Memoria ROM"]
 tipo: ordenar
 
 enunciado: "Ordena los siguientes componentes de mayor a menor persistencia de datos (desde el que pierde la información más rápido al apagar el equipo hasta el que la mantiene de forma permanente):"
@@ -1942,20 +1886,16 @@ metadata:
   tags: ["flujo_datos"]
 
 variables:
-  accion: uno_de([
-    ["Guardar un archivo", "no volátil"],
-    ["Abrir un programa", "volátil"]
-  ])
-  idx: uno_de([0, 1])
+  accion: uno_de([["Guardar un archivo", "no volátil"], ["Abrir un programa", "volátil"]])
 
-respuesta: accion[idx][1
+respuesta: accion[1]
 tipo: mc
 opciones_explicitas: ["volátil", "no volátil"]
 
-enunciado: "Cuando realizas la acción de '{accion[idx][0]}', los datos se trasladan de un medio de almacenamiento ___________ a uno de trabajo ___________."
+enunciado: "Cuando realizas la acción de '{accion[0]}', el destino final donde quedan los datos es un medio ___________."
 
 explicacion: |
-  Al guardar, los datos pasan de la memoria no volátil (disco) a la volátil (RAM) para que el procesador pueda trabajar con ellos.
+  Al guardar un archivo, los datos pasan de la memoria volátil (RAM) al almacenamiento no volátil (disco), donde quedan grabados de forma permanente. Al abrir un programa, ocurre lo contrario: los datos se cargan desde el disco (no volátil) hacia la RAM (volátil) para que el procesador pueda trabajar con ellos.
 ```
 
 ## Sección: archivos-y-persistencia (25 preguntas)
@@ -1985,17 +1925,17 @@ metadata:
 
 variables:
   formato_idx: uno_de([0, 1])
-  formato_nombre: uno_de(["JSON", "XML"])
-  formato_descripcion: uno_de(["es un formato basado en etiquetas como <tag>", "es un formato basado en pares clave-valor"])
+  nombres: ["JSON", "XML"]
+  descripciones: ["es un formato basado en pares clave-valor", "es un formato basado en etiquetas como <tag>"]
 
 opciones_explicitas:
   - "JSON"
   - "XML"
 
-respuesta: formato_nombre[formato_idx
+respuesta: nombres[formato_idx]
 tipo: mc
 
-enunciado: "El formato {formato_nombre[formato_idx]} {formato_descripcion[formato_idx]} es ampliamente utilizado en la web moderna para el intercambio de datos."
+enunciado: "El formato {nombres[formato_idx]} {descripciones[formato_idx]} es ampliamente utilizado en la web moderna para el intercambio de datos."
 
 explicacion: |
   Si elegiste JSON, recuerda que usa llaves y corchetes. Si elegiste XML, recuerda que usa etiquetas jerárquicas.
@@ -2027,18 +1967,16 @@ metadata:
   tags: ["estructurado", "texto_plano"]
 
 variables:
-  tipo_idx: uno_de([0, 1])
-  tipo_nombre: uno_de(["Texto Plano", "Binario"])
-  tipo_carac: uno_de(["se puede leer directamente como texto", "contiene una secuencia de bytes que requiere un formato específico para ser interpretado"])
+  detalle: uno_de([["Texto Plano", "se puede leer directamente como texto"], ["Binario", "contiene una secuencia de bytes que requiere un formato específico para ser interpretado"]])
 
 opciones_explicitas:
   - "Texto Plano"
   - "Binario"
 
-respuesta: tipo_nombre[tipo_idx
+respuesta: detalle[0]
 tipo: mc
 
-enunciado: "Un archivo de tipo {tipo_nombre[tipo_idx]} es aquel que {tipo_carac[tipo_idx]}."
+enunciado: "Un archivo de tipo {detalle[0]} es aquel que {detalle[1]}."
 
 explicacion: |
   Los archivos de texto plano contienen caracteres legibles (ASCII/UTF-8), mientras que los binarios contienen datos codificados que no son legibles directamente sin un software específico.
@@ -2056,7 +1994,7 @@ opciones_explicitas:
   - "Leer o escribir datos"
   - "Cerrar el archivo"
 
-respuesta: ["Abrir el archivo", "Leer o escribir datos", "Cerrar el archivo"]
+respuesta_orden: ["Abrir el archivo", "Leer o escribir datos", "Cerrar el archivo"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos necesarios para manipular un archivo de forma segura en un programa:"
@@ -2073,20 +2011,16 @@ metadata:
   tags: ["json", "formato", "datos"]
 
 variables:
-  escenario: uno_de([
-    ["{\\"nombre\\": \\"Ana\\", \\"edad\\": 25}", "objeto"],
-    ["[1, 2, 3, 4]", "array"],
-    ["{\\"id\\": 101, \\"activo\\": true}", "objeto"]
-  ])
+  escenario: uno_de([["{\"nombre\": \"Ana\", \"edad\": 25}", "objeto"], ["[1, 2, 3, 4]", "array"], ["{\"id\": 101, \"activo\": true}", "objeto"]])
 
 enunciado: "Se tiene el siguiente fragmento de datos en un archivo: {escenario[0]}."
 
 opciones_explicitas: ["objeto", "array", "diccionario"]
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 
 explicacion: |
-  El formato JSON (JavaScript Object Notation) utiliza llaves `{}` para representar objetos (pares clave-valor) y corchetes `[]` para representar arrays (listas ordenadas).
+  El formato JSON (JavaScript Object Notation) utiliza llaves para representar objetos (pares clave-valor) y corchetes para representar arrays (listas ordenadas).
 ```
 
 ```
@@ -2132,7 +2066,9 @@ metadata:
 
 enunciado: "Para guardar un objeto de la memoria de un programa en un archivo de forma permanente, se debe realizar un proceso llamado ___."
 
-respuestas_validas: ["serialización", "serializacion"]
+respuestas_validas:
+  - "serialización"
+  - "serializacion"
 respuesta: "serialización"
 tipo: completar
 
@@ -2149,8 +2085,8 @@ metadata:
 
 enunciado: "Para asegurar que todos los datos almacenados en el búfer de escritura se escriban físicamente en el disco duro antes de cerrar un archivo, se debe seguir este orden lógico de operaciones:"
 
-opciones_explicitas: ["Abrir archivo -> Escribir datos -> Cerrar archivo", "Abrir archivo -> Cerrar archivo -> Escribir datos", "Escribir datos -> Abrir archivo -> Cerrar archivo"]
-respuesta: ["Abrir archivo -> Escribir datos -> Cerrar archivo"]
+opciones_explicitas: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
+respuesta_orden: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
 tipo: ordenar
 
 explicacion: |
@@ -2197,12 +2133,9 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo", "escritura", "orden"]
 
-variables:
-  pasos_correctos: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
-
-respuesta: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
+respuesta_orden: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
 tipo: ordenar
-opciones_explicitas: ["Abrir archivo", "Escribir datos", "Cerrar archivo", "Cerrar archivo", "Escribir datos", "Abrir archivo"]
+opciones_explicitas: ["Abrir archivo", "Escribir datos", "Cerrar archivo"]
 
 enunciado: "Para asegurar la integridad de la información y liberar los recursos del sistema operativo, ¿cuál es el orden lógico de operaciones para guardar un registro en un archivo de texto?"
 
@@ -2217,17 +2150,12 @@ metadata:
   nivel: "intermedio"
   tags: ["binario", "texto", "encoding"]
 
-variables:
-  escenario: uno_de([
-    ["Un archivo .txt con caracteres legibles", "texto"],
-    ["Un archivo .jpg con datos comprimidos", "binario"],
-    ["Un archivo .exe con instrucciones de CPU", "binario"]
-  ])
-
 respuesta: "texto"
 tipo: completar
 opciones_explicitas: ["texto", "binario"]
-respuestas_validas: ["texto", "binario"]
+respuestas_validas:
+  - "texto"
+  - "binario"
 
 enunciado: "Si un archivo es diseñado para ser leído directamente por un editor de notas sin necesidad de un software especializado para interpretar bytes complejos, se dice que el formato es de tipo ___."
 
@@ -2241,12 +2169,6 @@ metadata:
   tema: "archivos_y_persistencia"
   nivel: "avanzado"
   tags: ["sobrescritura", "append", "error"]
-
-variables:
-  caso: uno_de([
-    ["un archivo existente que se borra al abrirlo", "sobrescritura"],
-    ["un archivo nuevo que se crea al abrirlo", "creacion"]
-  ])
 
 respuesta: "sobrescritura"
 tipo: mc
@@ -2282,13 +2204,10 @@ metadata:
   nivel: "basico"
   tags: ["memoria", "persistencia", "volatilidad"]
 
-variables:
-  es_persistente: true
+respuesta: verdadero
+tipo: vf
 
-respuesta: es_persistente
-tipo: "vf"
-
-enunciado: "Si un programa guarda una variable en el disco duro (archivo), la información se mantiene aunque el proceso termine o se apague la computadora. Esto significa que la escritura en disco es una operación de ___ persistencia."
+enunciado: "Si un programa guarda una variable en el disco duro (archivo), la información se mantiene aunque el proceso termine o se apague la computadora. Esto significa que la escritura en disco es una operación persistente."
 
 explicacion: |
   La memoria RAM es volátil (se pierde al apagar el equipo), mientras que el almacenamiento secundario (archivos) permite la persistencia de los datos.
@@ -2303,7 +2222,9 @@ metadata:
 
 respuesta: "CSV"
 tipo: "completar"
-respuestas_validas: ["CSV", "txt", "bin"]
+respuestas_validas:
+  - "CSV"
+  - "csv"
 
 enunciado: "Mientras que un archivo de texto plano (.txt) no tiene una estructura interna definida, un archivo ___ utiliza un carácter delimitador (como una coma o punto y coma) para separar los campos de cada registro."
 
@@ -2319,13 +2240,13 @@ metadata:
   tags: ["serializacion", "objetos", "binario"]
 
 variables:
-  escenario: uno_de([[true, "binario"], [false, "texto"]])
+  escenario: uno_de([["binaria", "binario"], ["de texto", "texto"]])
 
-respuesta: escenario[1
-tipo: "mc"
+respuesta: escenario[1]
+tipo: mc
 opciones_explicitas: ["texto", "binario"]
 
-enunciado: "Si el escenario de serialización es {escenario[0]}, el archivo resultante será de tipo ___."
+enunciado: "Si la serialización utilizada es {escenario[0]}, el archivo resultante será de tipo ___."
 
 explicacion: |
   La serialización binaria es más eficiente en tamaño y velocidad de lectura/escritura, pero no es legible por humanos, a diferencia de la serialización en texto (como JSON).
@@ -2338,7 +2259,7 @@ metadata:
   nivel: "intermedio"
   tags: ["flujo", "archivos", "orden"]
 
-respuesta: ["Abrir", "Leer", "Cerrar"]
+respuesta_orden: ["Abrir", "Leer", "Cerrar"]
 tipo: "ordenar"
 opciones_explicitas: ["Cerrar", "Leer", "Abrir"]
 
@@ -2355,15 +2276,11 @@ metadata:
   nivel: "basico"
   tags: ["formato", "json", "datos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[ "nombre: 'Juan', edad: 30", "{\"nombre\": \"Juan\", \"edad\": 30}" ], [ "id: 101, activo: true", "{\"id\": 101, \"activo\": true}" ]]
-
-respuesta: datos[escenario_idx][1
 tipo: mc
 opciones_explicitas: ["{\"nombre\": \"Juan\", \"edad\": 30}", "nombre: 'Juan', edad: 30", "<user><name>Juan</name><age>30</age></user>", "nombre=Juan&edad=30"]
+respuesta: "{\"nombre\": \"Juan\", \"edad\": 30}"
 
-enunciado: "Un desarrollador necesita guardar un objeto de configuración en un formato estándar de intercambio de datos (JSON). ¿Cuál es la representación correcta del objeto según los datos: {datos[escenario_idx][0]}?"
+enunciado: "Un desarrollador necesita guardar un objeto de configuración en un formato estándar de intercambio de datos (JSON). Los datos son: nombre: 'Juan', edad: 30. ¿Cuál es la representación correcta del objeto en este formato?"
 
 explicacion: |
   El formato JSON utiliza llaves para objetos, corchetes para arrays y requiere que las claves y los strings estén encerrados en comillas dobles.
@@ -2378,7 +2295,8 @@ metadata:
 
 respuesta: ".csv"
 tipo: completar
-respuestas_validas: [".csv"]
+respuestas_validas:
+  - ".csv"
 
 enunciado: "Si quieres guardar una lista de productos con sus precios y stock de forma tabular para abrirla en una hoja de cálculo, la extensión más común es ___."
 
@@ -2393,13 +2311,9 @@ metadata:
   nivel: "intermedio"
   tags: ["xml", "estructura"]
 
-variables:
-  es_xml: uno_de([true, false])
-  dato_xml: [[ "Es un formato basado en etiquetas (tags) como <item>...</item>", "Es un formato de texto plano sin estructura definida", "Es un formato binario propietario", "Es un formato de solo lectura" ], [ "Es un formato basado en etiquetas (tags) como <item>...</item>", "Es un formato de texto plano sin estructura definida", "Es un formato binario propietario", "Es un formato de solo lectura" ]]
-
-respuesta: es_xml
-tipo: completar
-enunciado: "Considerando que el formato XML utiliza etiquetas para definir la jerarquía de los datos, ¿es este un formato estructurado? {es_xml}"
+respuesta: verdadero
+tipo: vf
+enunciado: "Considerando que el formato XML utiliza etiquetas para definir la jerarquía de los datos, ¿es este un formato estructurado?"
 
 explicacion: |
   XML (eXtensible Markup Language) es un lenguaje de marcado diseñado para almacenar y transportar datos de forma jerárquica mediante etiquetas.
@@ -2412,7 +2326,7 @@ metadata:
   nivel: "intermedio"
   tags: ["operaciones", "archivo"]
 
-respuesta: ["Abrir", "Escribir", "Cerrar"]
+respuesta_orden: ["Abrir", "Escribir", "Cerrar"]
 tipo: ordenar
 
 opciones_explicitas: ["Abrir", "Escribir", "Cerrar"]
@@ -2431,14 +2345,16 @@ metadata:
   tags: ["binario", "eficiencia"]
 
 variables:
-  es_binario: uno_de([true, false])
-  caso_binario: [[ "Un archivo .exe o .png", "Un archivo .txt o .log" ], [ "Un archivo .exe o .png", "Un archivo .txt o .log" ]]
+  extensiones: [".exe o .png", ".txt o .log"]
+  valores: [verdadero, falso]
+  idx: uno_de([0, 1])
 
-respuesta: es_binario
+respuesta: valores[idx]
 
-tipo: completar
-enunciado: "Si estamos trabajando con un archivo de tipo {caso_binario[es_binario][0]}, ¿estamos ante un formato de datos binarios que no es legible directamente como texto plano? {es_binario}"
+tipo: vf
+enunciado: "Si estamos trabajando con un archivo de tipo {extensiones[idx]}, ¿estamos ante un formato de datos binarios que no es legible directamente como texto plano?"
 
 explicacion: |
   Los archivos binarios contienen datos codificados que requieren un software específico para ser interpretados, a diferencia de los archivos de texto que representan caracteres legibles.
 ```
+

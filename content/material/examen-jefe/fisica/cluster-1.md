@@ -1,6 +1,6 @@
-# Examen jefe — Domina el calor y la electricidad
+# Examen jefe — [PENDIENTE #736]
 
-> Logro #156. Completaste el parcial de termodinámica y electromagnetismo, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **122 preguntas totales** en 5/5 secciones.
+> Logro #736. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,6 +15,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Transferencia de energía térmica", "Temperatura de un cuerpo", "Energía cinética de las partículas", "Capacidad de un cuerpo para calentarse"]
+respuesta: "Transferencia de energía térmica"
 
 enunciado: "El calor se define físicamente como la ________ que fluye entre dos cuerpos con diferente temperatura."
 
@@ -46,13 +47,16 @@ metadata:
   tags: ["formula", "analisis"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
   datos: [[100, "aumenta", "mayor"], [50, "disminuye", "menor"]]
+  escenario_idx: uno_de([0, 1])
+  accion: datos[escenario_idx][1]
+  resultado: datos[escenario_idx][2]
 
 tipo: mc
 opciones_explicitas: ["Proporcional", "Inversamente proporcional", "No tiene relación", "Exponencial"]
+respuesta: "Proporcional"
 
-enunciado: "Si mantenemos la masa y el calor específico constantes, la cantidad de calor (Q) es ________ a la variación de temperatura (ΔT). En nuestro caso, si la temperatura {datos[escenario_idx][1]}, el calor {datos[escenario_idx][2]}."
+enunciado: "Si mantenemos la masa y el calor específico constantes, la cantidad de calor (Q) es ________ a la variación de temperatura (ΔT). En nuestro caso, si la temperatura {accion}, el calor {resultado}."
 
 explicacion: |
   Según la fórmula Q = m·c·ΔT, la cantidad de calor es directamente proporcional a la variación de temperatura.
@@ -66,7 +70,9 @@ metadata:
   tags: ["unidades"]
 
 tipo: completar
-respuestas_validas: ["calorías", "Joules"]
+respuestas_validas:
+  - "calorías"
+  - "Joules"
 
 enunciado: "En el sistema internacional (SI), la unidad de energía térmica es el ________, mientras que en el sistema termoquímico se utiliza la ________."
 
@@ -88,6 +94,7 @@ enunciado: "Para resolver un problema práctico de transferencia de calor usando
 
 explicacion: |
   Primero se deben conocer los estados iniciales y finales para hallar ΔT, luego se aplican las constantes de la sustancia y la masa para obtener el resultado final.
+respuesta_orden: ["Medir temperaturas iniciales", "Calcular la diferencia de temperatura", "Multiplicar por masa y calor específico", "Determinar el calor transferido"]
 ```
 
 ```
@@ -99,7 +106,9 @@ metadata:
 
 enunciado: "El calor específico de una sustancia es una propiedad intensiva que indica la cantidad de calor necesaria para aumentar en 1 °C la temperatura de 1 kg de dicha sustancia. Si una sustancia tiene un calor específico muy alto, significa que requiere ___ energía para cambiar su temperatura."
 
-respuestas_validas: ["mayor", "menor"]
+respuestas_validas:
+  - "mayor"
+  - "menor"
 respuesta: "mayor"
 tipo: completar
 
@@ -120,11 +129,11 @@ variables:
   c: escenario[1]
   dt: escenario[2]
 
-enunciado: "Calcula la cantidad de calor ($Q$) necesaria para calentar una masa de {m} g de una sustancia con calor específico de {c} J/(g·°C) desde una temperatura inicial de 20 °C hasta una temperatura final de {dt + 20} °C."
+enunciado: "Calcula la cantidad de calor (Q) necesaria para calentar una masa de {m} g de una sustancia con calor específico de {c} J/(g·°C) desde una temperatura inicial de 20 °C hasta una temperatura final de {dt + 20} °C."
 
 pasos:
-  - "Identificar la masa ($m = {m}$ g), el calor específico ($c = {c}$ J/g°C) y la variación de temperatura ($\Delta T = {dt}$ °C)."
-  - "Aplicar la fórmula $Q = m \cdot c \cdot \Delta T$."
+  - "Identificar la masa (m = {m} g), el calor específico (c = {c} J/g°C) y la variación de temperatura (delta T = {dt} °C)."
+  - "Aplicar la fórmula Q = m * c * delta T."
   - "Multiplicar: {m} * {c} * {dt}."
 
 respuesta: m * c * dt
@@ -132,8 +141,8 @@ tipo: completar
 tolerancia_abs: 0.01
 
 explicacion: |
-  Usando la fórmula $Q = m \cdot c \cdot \Delta T$:
-  $Q = {m} \text{ g} \cdot {c} \text{ J/(g·°C)} \cdot {dt} \text{ °C} = {m * c * dt} \text{ J}$.
+  Usando la fórmula Q = m * c * delta T:
+  Q = {m} g * {c} J/(g·°C) * {dt} °C = {m * c * dt} J.
 ```
 
 ```
@@ -144,21 +153,23 @@ metadata:
   tags: ["calor", "algebrac"]
 
 variables:
-  datos: uno_de([[500, 2000, 10], [1000, 4186, 5], [200, 1000, 25]])
-  q: datos[0]
-  c: datos[1]
-  m: datos[2]
+  idx: uno_de([0, 1, 2])
+  datos: [[1000, 2, 100], [2000, 2, 100], [4000, 2, 100]]
+  q: datos[idx][0]
+  c: datos[idx][1]
+  m: datos[idx][2]
+  resultados_texto: ["5 °C", "10 °C", "20 °C"]
 
-enunciado: "Si se suministran {q} J de calor a una masa de {m} g de una sustancia con calor específico de {c} J/(g·°C), ¿cuál será la variación de temperatura ($\Delta T$) experimentada?"
+enunciado: "Si se suministran {q} J de calor a una masa de {m} g de una sustancia con calor específico de {c} J/(g·°C), ¿cuál será la variación de temperatura (ΔT) experimentada?"
 
 opciones_explicitas: ["5 °C", "10 °C", "20 °C", "25 °C"]
-respuesta: "10 °C"
+respuesta: resultados_texto[idx]
 tipo: mc
 
 explicacion: |
-  Despejamos $\Delta T$ de la fórmula $Q = m \cdot c \cdot \Delta T$:
-  $\Delta T = Q / (m \cdot c)$
-  $\Delta T = {q} / ({m} \cdot {c}) = {q / (m * c)} \text{ °C}$.
+  Despejamos ΔT de la fórmula Q = m · c · ΔT:
+  ΔT = Q / (m · c)
+  Para este caso: ΔT = {q} / ({m} · {c}) = {resultados_texto[idx]}.
 ```
 
 ```
@@ -168,7 +179,7 @@ metadata:
   nivel: "avanzado"
   tags: ["calor", "propiedades"]
 
-enunciado: "Considera dos bloques de la misma masa ($m$) y el mismo $\Delta T$. El bloque A tiene un calor específico $c_A$ y el bloque B tiene $c_B$. Si $c_A > c_B$, ¿es verdadero que el bloque A absorbe más calor que el bloque B?"
+enunciado: "Considera dos bloques de la misma masa ($m$) y el mismo $\\Delta T$. El bloque A tiene un calor específico $c_A$ y el bloque B tiene $c_B$. Si $c_A > c_B$, ¿es verdadero que el bloque A absorbe más calor que el bloque B?"
 
 opciones_explicitas: [verdadero, falso]
 respuesta: verdadero
@@ -187,8 +198,8 @@ metadata:
 
 enunciado: "Ordena los pasos lógicos para resolver un problema donde se pide hallar la temperatura final ($T_f$) de una sustancia tras recibir calor."
 
-opciones_explicitas: ["Calcular la variación de temperatura ($\Delta T$) usando $\Delta T = Q / (m \cdot c)$", "Identificar los datos de masa, calor específico y calor suministrado", "Sumar la variación obtenida a la temperatura inicial ($T_f = T_i + \Delta T$)"]
-respuesta: ["Identificar los datos de masa, calor específico y calor suministrado", "Calcular la variación de temperatura ($\Delta T$) usando $\Delta T = Q / (m \cdot c)$", "Sumar la variación obtenida a la temperatura inicial ($T_f = T_i + \Delta T$)"]
+opciones_explicitas: ["Calcular la variación de temperatura ($\\Delta T$) usando $\\Delta T = Q / (m \\cdot c)$", "Identificar los datos de masa, calor específico y calor suministrado", "Sumar la variación obtenida a la temperatura inicial ($T_f = T_i + \\Delta T$)"]
+respuesta_orden: ["Identificar los datos de masa, calor específico y calor suministrado", "Calcular la variación de temperatura ($\\Delta T$) usando $\\Delta T = Q / (m \\cdot c)$", "Sumar la variación obtenida a la temperatura inicial ($T_f = T_i + \\Delta T$)"]
 tipo: ordenar
 
 explicacion: |
@@ -204,7 +215,8 @@ metadata:
 
 respuesta: "calor"
 tipo: "completar"
-respuestas_validas: ["calor"]
+respuestas_validas:
+  - "calor"
 
 enunciado: "La energía transferida entre dos cuerpos debido a una diferencia de temperatura se denomina ___."
 
@@ -220,16 +232,13 @@ metadata:
   tags: ["relaciones_proporcionales"]
 
 variables:
-  escenario: uno_de([
-    ["un bloque de hierro de 1 kg", 1],
-    ["un bloque de hierro de 5 kg", 5]
-  ])
+  escenario: uno_de([["un bloque de hierro de 1 kg", 1], ["un bloque de hierro de 5 kg", 5]])
 
 respuesta: "mayor"
 tipo: "mc"
 opciones_explicitas: ["menor", "mayor", "igual"]
 
-enunciado: "Si comparamos dos bloques del mismo material, el que tiene una masa {escenario[0]} requerirá una cantidad de energía ___ para alcanzar la misma variación de temperatura $\Delta T$."
+enunciado: "Si comparamos dos bloques del mismo material, el que tiene una masa {escenario[0]} requerirá una cantidad de energía ___ para alcanzar la misma variación de temperatura $\\Delta T$."
 
 explicacion: |
   Como $Q = m \cdot c \cdot \Delta T$, la cantidad de calor es directamente proporcional a la masa. A mayor masa, mayor calor necesario.
@@ -242,13 +251,13 @@ metadata:
   nivel: "basico"
   tags: ["signo_delta_t"]
 
-respuesta: "falso"
-tipo: "vf"
+respuesta: falso
+tipo: vf
 
-enunciado: "Si un cuerpo absorbe calor de su entorno, la variación de temperatura $\Delta T$ (temperatura final menos temperatura inicial) debe ser un valor negativo."
+enunciado: "Si un cuerpo absorbe calor de su entorno, la variación de temperatura Delta T (temperatura final menos temperatura inicial) debe ser un valor negativo."
 
 explicacion: |
-  Si se absorbe calor, la temperatura aumenta, por lo tanto $\Delta T = T_f - T_i > 0$. Un $\Delta T$ negativo indica pérdida de calor.
+  Si se absorbe calor, la temperatura aumenta, por lo tanto Delta T = T_f - T_i > 0. Un Delta T negativo indica pérdida de calor.
 ```
 
 ```
@@ -259,13 +268,10 @@ metadata:
   tags: ["calor_especifico"]
 
 variables:
-  materiales: [
-    ["Agua", 4186, "mayor"],
-    ["Hierro", 450, "menor"]
-  ]
+  materiales: [["Agua", 4186, "mayor"], ["Hierro", 450, "menor"]]
   idx: uno_de([0, 1])
 
-respuesta: materiales[idx][2
+respuesta: materiales[idx][2]
 tipo: "mc"
 opciones_explicitas: ["mayor", "menor"]
 
@@ -282,18 +288,14 @@ metadata:
   nivel: "intermedio"
   tags: ["metodologia_calculo"]
 
-opciones_explicitas: [
-  "Determinar la masa del cuerpo",
-  "Calcular la diferencia de temperaturas $\Delta T$",
-  "Multiplicar los valores por el calor específico $c$"
-]
-respuesta: ["Determinar la masa del cuerpo", "Calcular la diferencia de temperaturas $\Delta T$", "Multiplicar los valores por el calor específico $c$"]
+opciones_explicitas: ["Determinar la masa del cuerpo", "Calcular la diferencia de temperaturas ΔT", "Multiplicar los valores por el calor específico c"]
+respuesta_orden: ["Determinar la masa del cuerpo", "Calcular la diferencia de temperaturas ΔT", "Multiplicar los valores por el calor específico c"]
 tipo: "ordenar"
 
-enunciado: "Ordena los pasos lógicos para calcular la cantidad de calor $Q$ necesaria para calentar un objeto:"
+enunciado: "Ordena los pasos lógicos para calcular la cantidad de calor Q necesaria para calentar un objeto:"
 
 explicacion: |
-  Para resolver $Q = m \cdot c \cdot \Delta T$ de forma correcta, primero se deben identificar los datos (masa y $\Delta T$) y finalmente realizar la multiplicación con la constante $c$.
+  Para resolver Q = m · c · ΔT de forma correcta, primero se deben identificar los datos (masa y ΔT) y finalmente realizar la multiplicación con la constante c.
 ```
 
 ```
@@ -305,7 +307,10 @@ metadata:
 
 respuesta: "energia"
 tipo: completar
-respuestas_validas: ["energia", "transferencia de energía", "energía"]
+respuestas_validas:
+  - "energia"
+  - "transferencia de energía"
+  - "energía"
 
 enunciado: "Mientras que la temperatura es una medida de la energía cinética promedio de las partículas de un cuerpo, el calor se define como la ___ transferida entre dos sistemas debido a una diferencia de temperatura."
 
@@ -322,14 +327,13 @@ metadata:
 
 variables:
   tipo_sustancia: uno_de(["agua", "hierro"])
-  valor_ce: uno_de([4186, 450])
 
 opciones_explicitas:
   - "Es una propiedad extensiva (depende de la masa)."
   - "Es una propiedad intensiva (no depende de la masa)."
   - "Es la cantidad de calor necesaria para elevar 1°C a todo el objeto."
 
-respuesta: opciones_explicitas[1
+respuesta: "Es una propiedad intensiva (no depende de la masa)."
 tipo: mc
 
 enunciado: "Si comparamos dos bloques de {tipo_sustancia} de diferentes masas pero del mismo material, el calor específico de ambos será igual. Esto se debe a que el calor específico es una propiedad ________."
@@ -395,7 +399,7 @@ opciones_explicitas:
   - "Transferencia de energía por contacto directo (Conducción)."
   - "Transferencia de energía por ondas electromagnéticas (Radiación)."
 
-respuesta: ["Aumento de la energía cinética molecular (Temperatura).", "Transferencia de energía por contacto directo (Conducción).", "Transferencia de energía por ondas electromagnéticas (Radiación)."]
+respuesta_orden: ["Aumento de la energía cinética molecular (Temperatura).", "Transferencia de energía por contacto directo (Conducción).", "Transferencia de energía por ondas electromagnéticas (Radiación)."]
 tipo: ordenar
 
 enunciado: "Ordena los siguientes conceptos desde el que describe un estado interno de la materia hasta los mecanismos de transferencia de energía hacia el exterior:"
@@ -418,7 +422,8 @@ variables:
   dT: datos[idx][1]
   c_agua: 4186
 
-respuestas_validas: [m * c_agua * dT / 1000]
+respuestas_validas:
+  - m * c_agua * dT / 1000
 respuesta: m * c_agua * dT / 1000
 
 tipo: completar
@@ -433,7 +438,7 @@ pasos:
 
 explicacion: |
   La fórmula utilizada es Q = m · c · ΔT. 
-  Para el caso seleccionado: Q = {m}/1000 * 4186 * {dT} = {respuesta} J.
+  Para el caso seleccionado: Q = {m}/1000 * 4186 * {dT} = {m * c_agua * dT / 1000} J.
 ```
 
 ```
@@ -444,18 +449,19 @@ metadata:
   tags: ["calorimetria", "comparacion"]
 
 variables:
-  materiales: [["hierro", 450], ["aluminio", 900]]
-  idx: uno_de([0,1])
-  nombre: materiales[idx][0]
-  ce: materiales[idx][1]
+  nombres: ["hierro", "aluminio"]
+  ces: [450, 900]
+  idx: uno_de([0, 1])
+  nombre: nombres[idx]
+  ce: ces[idx]
 
 respuesta: ce > 500
 
-tipo: completar
-enunciado: "Si tenemos una muestra de {nombre} con un calor específico de {ce} J/kg·K, ¿es su calor específico mayor a 500 J/kg·K?"
+tipo: vf
+enunciado: "El calor específico del {nombre} ({ce} J/kg·K) es mayor a 500 J/kg·K."
 
 explicacion: |
-  El calor específico del {nombre} es {ce} J/kg·K. Por lo tanto, la afirmación es {ce > 500}.
+  El calor específico del {nombre} es {ce} J/kg·K.
 ```
 
 ```
@@ -471,9 +477,10 @@ variables:
   ce_medido: datos[idx][1]
   nombre_real: datos[idx][0]
 
-respuesta: "___"
+respuesta: datos[idx][0]
 opciones_explicitas: ["oro", "cobre", "plomo"]
-respuestas_validas: [datos[idx][0]]
+respuestas_validas:
+  - datos[idx][0]
 tipo: completar
 
 enunciado: "En un experimento, se suministra calor a una muestra desconocida y se observa que su calor específico es de {ce_medido} J/kg·K. La sustancia es ___."
@@ -491,7 +498,8 @@ metadata:
 
 respuesta: "absorbe calor"
 opciones_explicitas: ["absorbe calor", "libera calor", "no cambia su temperatura"]
-respuestas_validas: ["absorbe calor"]
+respuestas_validas:
+  - "absorbe calor"
 tipo: mc
 
 enunciado: "Si una sustancia aumenta su temperatura de 20 °C a 50 °C, significa que la sustancia ___."
@@ -507,7 +515,7 @@ metadata:
   nivel: "basico"
   tags: ["metodologia", "procedimiento"]
 
-respuesta: ["Medir la masa", "Medir el cambio de temperatura", "Calcular la energía térmica"]
+respuesta_orden: ["Medir la masa", "Medir el cambio de temperatura", "Calcular la energía térmica"]
 opciones_explicitas: ["Medir la masa", "Medir el cambio de temperatura", "Calcular la energía térmica"]
 tipo: ordenar
 
@@ -555,7 +563,10 @@ metadata:
   tags: ["formula"]
 
 tipo: completar
-respuestas_validas: ["Q = m * L", "Q = m * c * ΔT", "Q = m * g * h"]
+respuestas_validas:
+  - "Q = m * L"
+  - "Q = m * c * ΔT"
+  - "Q = m * g * h"
 
 enunciado: "La expresión matemática para calcular el calor latente transferido es: ____"
 
@@ -643,7 +654,8 @@ variables:
   escenario: [[10, 5000], [20, 10000]]
 
 tipo: completar
-respuestas_validas: ["5000", "10000"]
+respuestas_validas:
+  - "500"
 
 enunciado: "Si para fundir {escenario[idx][0]} g de una sustancia se requieren {escenario[idx][1]} J, ¿cuánto calor se requiere para fundir 1 g?"
 
@@ -746,11 +758,12 @@ metadata:
   tags: ["estado"]
 
 tipo: completar
-respuestas_validas: ["Líquido", "Sólido", "Gaseoso"]
+respuestas_validas:
+  - "Gaseoso"
 
 enunciado: "Si una sustancia ha absorbido su calor latente de vaporización y se encuentra a la temperatura de ebullición, su estado es ____."
 
-respuesta: "Líquido"
+respuesta: "Gaseoso"
 ```
 
 ```
@@ -827,7 +840,7 @@ opciones_explicitas: ["Sólido", "Líquido", "Gas"]
 
 enunciado: "Ordena los estados de la materia de menor a mayor energía cinética (en un proceso de calentamiento):"
 
-respuesta: ["Sólido", "Líquido", "Gas"]
+respuesta_orden: ["Sólido", "Líquido", "Gas"]
 ```
 
 ```
@@ -839,14 +852,14 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [[100, 334], [50, 334]]
+  escenario: [[334, 334], [167, 334]]
 
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Si un sistema libera {escenario[idx][0]} kJ de calor durante la solidificación, ¿cuántos kJ de energía se liberaron? (Considera el valor absoluto)"
+enunciado: "Un sistema libera {escenario[idx][0]} kJ de calor al solidificarse cierta masa de agua (L_fusión = {escenario[idx][1]} kJ/kg). ¿Cuál es esa masa, en kg?"
 
-respuesta: escenario[idx][0
+respuesta: escenario[idx][0] / escenario[idx][1]
 ```
 
 ```
@@ -886,7 +899,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [[1000, 334000], [500, 334000]]
+  escenario: [[334000, 334000], [167000, 334000]]
 
 tipo: completar
 tolerancia_abs: 0.01
@@ -904,7 +917,10 @@ metadata:
   tags: ["resumen"]
 
 tipo: completar
-respuestas_validas: ["calor latente", "temperatura", "masa"]
+respuestas_validas:
+  - "calor latente"
+  - "temperatura"
+  - "masa"
 
 enunciado: "El ____ es la energía necesaria para el cambio de estado, la cual no se refleja en un cambio de ____, sino en un cambio de la energía potencial de las partículas."
 
@@ -922,7 +938,8 @@ metadata:
 
 respuesta: "campo"
 tipo: completar
-respuestas_validas: ["campo"]
+respuestas_validas:
+  - "campo"
 
 enunciado: "La región del espacio que rodea a una carga eléctrica y en la cual una carga de prueba experimenta una fuerza eléctrica se denomina ___ eléctrico."
 
@@ -973,10 +990,7 @@ metadata:
   nivel: "intermedio"
   tags: ["fuerza", "direccion"]
 
-variables:
-  caso: uno_de([0, 1])
-
-respuesta: tabla[caso][1
+respuesta: "opuesta"
 tipo: mc
 opciones_explicitas: ["misma", "opuesta", "perpendicular"]
 
@@ -988,9 +1002,6 @@ pasos:
 
 explicacion: |
   Para una carga negativa, el vector fuerza tiene la dirección opuesta al vector campo eléctrico. Para una carga positiva, tienen la misma dirección.
-
-variables_tabla:
-  tabla: [["misma", "opuesta"], ["opuesta", "misma"]]
 ```
 
 ```
@@ -1000,7 +1011,7 @@ metadata:
   nivel: "basico"
   tags: ["lineas_de_campo", "propiedades"]
 
-respuesta: ["no se cruzan", "salen de carga positiva", "entran en carga negativa"]
+respuesta_orden: ["no se cruzan", "salen de carga positiva", "entran en carga negativa"]
 tipo: ordenar
 opciones_explicitas: ["salen de carga positiva", "entran en carga negativa", "no se cruzan"]
 
@@ -1020,7 +1031,7 @@ metadata:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El campo eléctrico es una perturbación en el espacio que rodea a una carga eléctrica y que ejerce una fuerza sobre otras cargas colocadas en su vicinity."
+enunciado: "El campo eléctrico es una perturbación en el espacio que rodea a una carga eléctrica y que ejerce una fuerza sobre otras cargas colocadas en su vecindad."
 
 explicacion: |
   El campo eléctrico es una magnitud vectorial que describe la influencia que una carga ejerce sobre el espacio circundante.
@@ -1079,23 +1090,20 @@ metadata:
   tags: ["fuerza", "carga_de_prueba"]
 
 variables:
+  datos: [[1.5e-6, 3.0e-3], [2.0e-6, 4.0e-3]]
   idx: uno_de([0, 1])
-  datos: [["1.5e-6", "3.0e-3"], ["2.0e-6", "4.0e-3"]]
-  campo: uno_de(["1.5e-6", "2.0e-6"])
-  fuerza: uno_de(["3.0e-3", "4.0e-3"])
+  q: datos[idx][0]
+  E: datos[idx][1]
 
-respuesta: tabla[idx][1
+respuesta: q * E
 tipo: completar
-tablas:
-  - ["1.5e-6", "3.0e-3"]
-  - ["2.0e-6", "4.0e-3"]
+tolerancia_abs: 1e-10
 
-enunciado: "Si una carga de ___ C se coloca en un campo eléctrico de ___ N/C, la fuerza resultante sobre ella es de ___ N."
+enunciado: "Si una carga de {q} C se coloca en un campo eléctrico de {E} N/C, la fuerza resultante sobre ella es de ___ N."
 
 explicacion: |
-  La relación es F = q * E. 
-  Caso 1: 1.5e-6 * 3.0e-3 = 4.5e-9 (Nota: El ejemplo en el enunciado usa valores simplificados para el ejercicio).
-  Para el ejercicio planteado: F = q * E.
+  La relación es F = q * E.
+  Para el caso seleccionado: F = {q} * {E} = {q * E} N.
 ```
 
 ```
@@ -1106,7 +1114,7 @@ metadata:
   tags: ["metodologia"]
 
 opciones_explicitas: ["Calcular la distancia r", "Identificar la carga q y la constante k", "Aplicar la fórmula E = k*q/r²", "Calcular el valor de E"]
-respuesta: ["Identificar la carga q y la constante k", "Calcular la distancia r", "Aplicar la fórmula E = k*q/r²", "Calcular el valor de E"]
+respuesta_orden: ["Identificar la carga q y la constante k", "Calcular la distancia r", "Aplicar la fórmula E = k*q/r²", "Calcular el valor de E"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para calcular la intensidad del campo eléctrico producido por una carga puntual en un punto determinado."
@@ -1124,6 +1132,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Las líneas de campo pueden cruzarse si las cargas son muy grandes", "Las líneas de campo nunca se cruzan", "Las líneas de campo son trayectorias reales de las cargas", "Las líneas de campo son líneas físicas de flujo de aire"]
+respuesta: "Las líneas de campo nunca se cruzan"
 
 enunciado: "Al representar el campo eléctrico mediante líneas de fuerza, ¿cuál de las siguientes afirmaciones es correcta respecto a su intersección?"
 
@@ -1151,7 +1160,9 @@ pasos:
 
 respuesta: ["saliente", "entrante"][idx]
 tipo: completar
-respuestas_validas: ["saliente", "entrante"]
+respuestas_validas:
+  - "saliente"
+  - "entrante"
 
 explicacion: |
   Por convención, las líneas de campo eléctrico se dibujan saliendo de las cargas positivas y entrando en las negativas.
@@ -1168,6 +1179,8 @@ tipo: vf
 
 enunciado: "Si una carga eléctrica es colocada en un punto donde el campo eléctrico es nulo, la fuerza eléctrica que actúa sobre dicha carga será cero."
 
+respuesta: verdadero
+
 explicacion: |
   La relación está definida por la ecuación F = q * E. Si el vector campo eléctrico (E) es cero, el producto resultante (la fuerza F) también será cero, independientemente del valor de la carga q.
 ```
@@ -1179,19 +1192,16 @@ metadata:
   nivel: "intermedio"
   tags: ["ley_coulomb", "intensidad"]
 
-variables:
-  distancia_relativa: uno_de([0.5, 2.0])
-  factor_distancia: uno_de([4.0, 0.25])
-
 enunciado: "Si la distancia entre una carga puntual y un punto en el espacio se duplica (se multiplica por 2), la magnitud del campo eléctrico en ese punto cambiará por un factor de ___."
 
 pasos:
   - "Recordar que el campo eléctrico es inversamente proporcional al cuadrado de la distancia (E ∝ 1/r²)"
   - "Calcular (1 / 2²) para hallar el factor de cambio"
 
-respuesta: factor_distancia
+respuesta: "0.25"
 tipo: completar
-respuestas_validas: ["4.0", "0.25"]
+respuestas_validas:
+  - "0.25"
 
 explicacion: |
   Dado que el campo eléctrico de una carga puntual sigue la ley de la inversa del cuadrado de la distancia, si la distancia aumenta por un factor de 2, el campo disminuye por un factor de 1/2² = 1/4 (0.25). Si la distancia se reduce a la mitad, el campo aumenta por un factor de 4.
@@ -1206,6 +1216,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Es una fuerza física que actúa a distancia", "Es una propiedad del espacio que ejerce una carga sobre otras", "Es la velocidad de una carga en un campo", "Es la energía potencial de un sistema de cargas"]
+respuesta: "Es una propiedad del espacio que ejerce una carga sobre otras"
 
 enunciado: "¿Cuál es la definición más precisa de campo eléctrico en el contexto de la interacción entre cargas?"
 
@@ -1238,21 +1249,17 @@ metadata:
   nivel: "intermedio"
   tags: ["relacion", "fuerza"]
 
-variables:
-  escenario: uno_de([
-    ["carga_positiva", "hacia afuera"],
-    ["carga_negativa", "hacia adentro"]
-  ])
-
 tipo: completar
-respuestas_validas: ["hacia afuera", "hacia adentro"]
+respuestas_validas:
+  - "hacia afuera"
+  - "hacia adentro"
 
 enunciado: "Si colocamos una carga de prueba positiva en un punto del campo, la dirección de la fuerza sobre ella será ___ de la carga que genera el campo."
 
-respuesta: escenario[0][1
+respuesta: "hacia afuera"
 
 explicacion: |
-  La fuerza sobre una carga positiva tiene la misma dirección que el vector campo eléctrico en ese punto. Si la carga es negativa, la fuerza es opuesta. En este caso, la carga es positiva, por lo que la fuerza es {escenario[0][1]}.
+  La fuerza sobre una carga positiva tiene la misma dirección que el vector campo eléctrico en ese punto. Si la carga es negativa, la fuerza es opuesta. En este caso, la carga es positiva, por lo que la fuerza es hacia afuera.
 ```
 
 ```
@@ -1287,7 +1294,7 @@ respuesta: "A mayor densidad de líneas de campo, mayor es la intensidad del cam
 enunciado: "Si observamos un diagrama de líneas de campo, ¿qué nos indica una zona donde las líneas están muy juntas (alta densidad) comparada con una zona donde están muy separadas?"
 
 explicacion: |
-  La densidad de las líneas de campo es proporcional a la magnitud del vector campo eléctrico $\vec{E}$. Donde las líneas están más próximas, el campo es más intenso.
+  La densidad de las líneas de campo es proporcional a la magnitud del vector campo eléctrico E. Donde las líneas están más próximas, el campo es más intenso.
 ```
 
 ```
@@ -1300,12 +1307,12 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Identificar el signo de la carga de prueba.", "Determinar la dirección del campo eléctrico en el punto.", "Dibujar el vector fuerza resultante."]
 
-respuesta: ["Identificar el signo de la carga de prueba.", "Determinar la dirección del campo eléctrico en el punto.", "Dibujar el vector fuerza resultante."]
+respuesta_orden: ["Identificar el signo de la carga de prueba.", "Determinar la dirección del campo eléctrico en el punto.", "Dibujar el vector fuerza resultante."]
 
 enunciado: "Ordena los pasos lógicos para determinar la dirección de la fuerza eléctrica que actúa sobre una carga de prueba en un punto dado."
 
 explicacion: |
-  Para hallar la fuerza $\vec{F} = q \cdot \vec{E}$, primero debemos conocer el signo de $q$ (para saber si la fuerza sigue o se opone al campo) y la dirección de $\vec{E}$ en ese punto específico.
+  Para hallar la fuerza F = q · E, primero debemos conocer el signo de q (para saber si la fuerza sigue o se opone al campo) y la dirección de E en ese punto específico.
 ```
 
 ```
@@ -1336,11 +1343,13 @@ metadata:
   nivel: "basico"
   tags: ["lineas_de_campo"]
 
-enunciado: "Al observar las líneas de campo eléctrico de una carga puntual positiva, se puede afirmar que las líneas siempre comienzan en la carga y se dirigen hacia el ___."
+enunciado: "Al observar las líneas de campo eléctrico de una carga puntual positiva, se puede afirmar que las líneas siempre comienzan en la carga y se dirigen hacia ___."
 
-respuesta: infinito
+respuesta: "el infinito"
 tipo: completar
-respuestas_validas: ["infinito", "el infinito"]
+respuestas_validas:
+  - "el infinito"
+  - "infinito"
 
 explicacion: |
   Las líneas de campo eléctrico son representaciones conceptuales. Para una carga positiva, las líneas son radiales y salen de la carga hacia el infinito.
@@ -1354,7 +1363,7 @@ metadata:
   tags: ["fuerza_electrica", "calculo"]
 
 variables:
-  datos: [["1.5", "0.05"], ["2.0", "0.08"], ["0.5", "0.02"]]
+  datos: [[1.5, 1.5], [2.0, 2.0], [0.5, 0.5]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "En un proceso de filtrado de partículas cargadas, una partícula con carga de {datos[idx][0]} C se encuentra dentro de un campo eléctrico uniforme de 1 N/C. La magnitud de la fuerza eléctrica que actúa sobre la partícula es de ___ N."
@@ -1364,7 +1373,7 @@ pasos:
   - "Identificar la intensidad del campo (E)"
   - "Aplicar la fórmula F = q * E"
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0.001
 
@@ -1398,7 +1407,7 @@ metadata:
 enunciado: "Para determinar el vector campo eléctrico en un punto dado, un estudiante debe seguir este orden lógico de análisis:"
 
 opciones_explicitas: ["Determinar la carga de la fuente", "Calcular la dirección del vector campo", "Calcular la magnitud del campo", "Evaluar la fuerza sobre una carga de prueba"]
-respuesta: ["Determinar la carga de la fuente", "Calcular la magnitud del campo", "Calcular la dirección del vector campo", "Evaluar la fuerza sobre una carga de prueba"]
+respuesta_orden: ["Determinar la carga de la fuente", "Calcular la magnitud del campo", "Calcular la dirección del vector campo", "Evaluar la fuerza sobre una carga de prueba"]
 tipo: ordenar
 
 explicacion: |
@@ -1416,7 +1425,8 @@ metadata:
 
 respuesta: "polo"
 tipo: "completar"
-respuestas_validas: ["polo"]
+respuestas_validas:
+  - "polo"
 
 enunciado: "Las regiones de un imán donde la fuerza magnética es más intensa se denominan ___ magnéticos."
 
@@ -1447,17 +1457,11 @@ metadata:
   nivel: "intermedio"
   tags: ["electroimanes", "componentes"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-
-respuesta: tabla[escenario_idx][1
 tipo: "mc"
 opciones_explicitas: ["Núcleo ferromagnético", "Material aislante", "Resistencia eléctrica"]
+respuesta: "Núcleo ferromagnético"
 
-enunciado: "En un electroimán típico, para aumentar la intensidad del campo magnético se suele utilizar un {escenario_datos[escenario_idx][0]} que concentre las líneas de flujo."
-
-variables:
-  escenario_datos: [["núcleo de hierro", "Núcleo ferromagnético"], ["bobina de cobre", "Núcleo ferromagnético"]]
+enunciado: "En un electroimán típico, para aumentar la intensidad del campo magnético se suele utilizar un núcleo de hierro que concentre las líneas de flujo."
 
 explicacion: |
   El núcleo ferromagnético (como el hierro) aumenta significativamente la intensidad del campo magnético del electroimán al canalizar las líneas de campo.
@@ -1472,7 +1476,8 @@ metadata:
 
 respuesta: "el pulgar indica la dirección de la corriente y los dedos el campo"
 tipo: "completar"
-respuestas_validas: ["el pulgar indica la dirección de la corriente y los dedos el campo"]
+respuestas_validas:
+  - "el pulgar indica la dirección de la corriente y los dedos el campo"
 
 enunciado: "Al aplicar la regla de la mano derecha en un conductor recto, si el pulgar apunta en la dirección de la corriente, entonces los dedos curvos representan ___."
 
@@ -1487,9 +1492,9 @@ metadata:
   nivel: "basico"
   tags: ["ordenar", "componentes"]
 
-respuesta: ["Fuente de energía", "Conductor", "Bobina"]
-tipo: "ordenar"
+tipo: ordenar
 opciones_explicitas: ["Fuente de energía", "Conductor", "Bobina"]
+respuesta_orden: ["Fuente de energía", "Conductor", "Bobina"]
 
 enunciado: "Ordene los elementos necesarios para construir un electroimán simple, desde el suministro de energía hasta el elemento que genera el campo:"
 
@@ -1553,16 +1558,18 @@ variables:
   I: 10.0
   mu_0: 4 * pi * 1e-7
 
-respuesta: "0.000002"
+respuesta: "0.00002"
 tipo: completar
-respuestas_validas: ["0.000002", "2.0e-6"]
+respuestas_validas:
+  - "0.00002"
+  - "2.0e-5"
 
 enunciado: "Un cable largo y recto transporta una corriente de {I} A. El campo magnético a una distancia de {r} metros del cable es de ___ Teslas."
 
 pasos:
   - "Usar la fórmula para el campo magnético de un conductor infinito: B = (mu_0 * I) / (2 * pi * r)."
   - "Sustituir: B = (4 * pi * 1e-7 * 10) / (2 * pi * 0.1)."
-  - "Simplificar: B = (2 * 1e-7 * 10) / 0.1 = 2e-6 / 0.1 = 2e-5... no, corregimos: B = (2 * 10^-7 * 10) / 0.1 = 2e-6 / 0.1 = 0.00002. Re-calculando: B = (4*pi*1e-7 * 10) / (2*pi*0.1) = (2e-6) / 0.1 = 0.00002."
+  - "Simplificar: el pi se cancela: B = (4e-7 * 10) / (2 * 0.1) = 4e-6 / 0.2 = 2e-5 = 0.00002 T."
 
 explicacion: |
   El campo magnético alrededor de un conductor recto se determina mediante la Ley de Ampère. La fórmula es B = (mu_0 * I) / (2 * pi * r).
@@ -1593,7 +1600,7 @@ metadata:
   tags: ["ordenar", "experimento"]
 
 opciones_explicitas: ["Colocar el imán", "Conectar la fuente", "Introducir el cable", "Observar el movimiento"]
-respuesta: ["Colocar el imán", "Introducir el cable", "Conectar la fuente", "Observar el movimiento"]
+respuesta_orden: ["Colocar el imán", "Introducir el cable", "Conectar la fuente", "Observar el movimiento"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para realizar un experimento de observación de la fuerza de Lorentz en un laboratorio:"
@@ -1628,13 +1635,13 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   datos: [[10.0, "un imán de neodimio"], [15.0, "un electroimán de núcleo de hierro"]]
-  opciones: ["Un campo magnético constante", "Un campo magnético que depende de la corriente", "Un campo magnético que no existe"]
+  resultados_texto: ["Un campo magnético constante", "Un campo magnético que depende de la corriente"]
 
-respuesta: opciones[escenario_idx][1
+respuesta: resultados_texto[escenario_idx]
 tipo: mc
 opciones_explicitas: ["Un campo magnético constante", "Un campo magnético que depende de la corriente", "Un campo magnético que no existe"]
 
-enunciado: "Si observamos {datos[escenario_idx][0]}, el campo magnético producido es ___."
+enunciado: "Si observamos {datos[escenario_idx][1]}, el campo magnético producido es ___."
 
 explicacion: |
   En el caso del imán, el campo es permanente. En el caso del electroimán, la intensidad y dirección dependen directamente de la intensidad de la corriente eléctrica que circula por el conductor.
@@ -1649,7 +1656,9 @@ metadata:
 
 respuesta: "hacia arriba"
 tipo: completar
-respuestas_validas: ["hacia arriba", "hacia abajo"]
+respuestas_validas:
+  - "hacia arriba"
+  - "hacia abajo"
 
 enunciado: "Si aplicamos la regla de la mano derecha para un cable conductor vertical, donde el pulgar apunta hacia arriba (dirección de la corriente), los dedos se curvan indicando que las líneas de campo magnético circulan en un plano horizontal en dirección ___."
 
@@ -1680,7 +1689,7 @@ metadata:
   nivel: "intermedio"
   tags: ["electroimanes", "componentes"]
 
-respuesta: ["Alambre conductor", "Núcleo ferromagnético", "Fuente de corriente"]
+respuesta_orden: ["Alambre conductor", "Núcleo ferromagnético", "Fuente de corriente"]
 tipo: ordenar
 opciones_explicitas: ["Alambre conductor", "Núcleo ferromagnético", "Fuente de corriente"]
 
@@ -1704,7 +1713,9 @@ metadata:
 
 respuesta: "imanes"
 tipo: "completar"
-respuestas_validas: ["imanes", "imán"]
+respuestas_validas:
+  - "imanes"
+  - "imán"
 
 enunciado: "A diferencia de las corrientes eléctricas que generan campos magnéticos mediante el movimiento de cargas, los campos magnéticos estáticos pueden ser generados por ___."
 
@@ -1723,7 +1734,7 @@ variables:
   idx: uno_de([0, 1])
   escenario: [[10, "aumentar la corriente"], [5, "acercar el imán"]]
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: "mc"
 opciones_explicitas: ["aumentar la corriente", "acercar el imán", "cambiar el material del cable", "disminuir la tensión"]
 
@@ -1756,11 +1767,7 @@ metadata:
   nivel: "intermedio"
   tags: ["ley_ampere", "distancia"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [[0.5, "se reduce"], [2.0, "se mantiene"]]
-
-respuesta: datos[idx][1
+respuesta: "se reduce"
 tipo: "mc"
 opciones_explicitas: ["se reduce", "se mantiene", "se duplica", "se anula"]
 
@@ -1777,7 +1784,7 @@ metadata:
   nivel: "intermedio"
   tags: ["electroimanes", "componentes"]
 
-respuesta: ["Núcleo ferromagnético", "Bobina de conductor", "Fuente de corriente"]
+respuesta_orden: ["Núcleo ferromagnético", "Bobina de conductor", "Fuente de corriente"]
 tipo: "ordenar"
 opciones_explicitas: ["Núcleo ferromagnético", "Bobina de conductor", "Fuente de corriente"]
 
@@ -1794,17 +1801,12 @@ metadata:
   nivel: "intermedio"
   tags: ["electromagnetismo", "corrientes"]
 
-variables:
-  datos: [[10, "aumenta"], [20, "disminuye"], [5, "se mantiene"]]
-  idx: uno_de([0, 1, 2])
-  valor_corriente: datos[idx][0]
-  efecto: datos[idx][1]
-
 enunciado: "En una planta de reciclaje, una grúa utiliza un electroimán para levantar chatarra. Si se duplica la intensidad de la corriente eléctrica que circula por la bobina del electroimán, la fuerza del campo magnético generado ___."
 
-respuesta: efecto
+respuesta: "aumenta"
 tipo: completar
-respuestas_validas: ["aumenta", "disminuye", "se mantiene"]
+respuestas_validas:
+  - "aumenta"
 
 explicacion: |
   La intensidad del campo magnético ($B$) generado por una corriente eléctrica es directamente proporcional a la intensidad de dicha corriente ($I$). Al aumentar la corriente, aumenta la fuerza del campo magnético.
@@ -1817,15 +1819,11 @@ metadata:
   nivel: "basico"
   tags: ["magnetismo", "brujula"]
 
-variables:
-  datos: [[verdadero, "se desvía"], [falso, "no cambia"]]
-  idx: uno_de([0, 1])
-  resultado: datos[idx][1]
-
 enunciado: "Si acercas una brújula a un cable conductor por el cual circula una corriente eléctrica constante, la aguja de la brújula ___ de su posición de reposo."
 
-respuestas_validas: [resultado]
-respuesta: resultado
+respuestas_validas:
+  - "se desvía"
+respuesta: "se desvía"
 tipo: completar
 explicacion: |
   Una corriente eléctrica genera un campo magnético a su alrededor. Este campo interactúa con el imán de la brújula, provocando que la aguja se alinee con las líneas de campo magnético.
@@ -1860,8 +1858,9 @@ metadata:
   nivel: "basico"
   tags: ["motor", "componentes"]
 
-respuesta: "imán, cable, batería"
+respuesta_orden: ["imán", "cable", "batería"]
 tipo: ordenar
+opciones_explicitas: ["imán", "cable", "batería"]
 
 enunciado: "Para construir un modelo simple de motor eléctrico (motor de corriente continua), se requiere ensamblar los siguientes componentes en el orden correcto para completar el circuito y generar movimiento:"
 
@@ -1881,16 +1880,11 @@ metadata:
   nivel: "avanzado"
   tags: ["calculo", "campo_magnetico"]
 
-variables:
-  datos: [[0.5, "0.001"], [2.0, "0.005"]]
-  idx: uno_de([0, 1])
-  distancia: datos[idx][0]
-  resultado_teorico: datos[idx][1]
-
 enunciado: "Considerando un cable conductor muy largo, la intensidad del campo magnético $B$ es inversamente proporcional a la distancia $r$ del cable. Si la distancia se reduce a la mitad, el valor de $B$ será ___ veces el valor original."
 
-respuestas_validas: [resultado_teorico]
-respuesta: resultado_teorico
+respuestas_validas:
+  - "2"
+respuesta: "2"
 tipo: completar
 tolerancia_abs: 0.001
 
@@ -2305,3 +2299,4 @@ enunciado: "Un objeto se carga positivo o negativo según pierda o gane electron
 explicacion: |
   Es la idea central de todo el tema.
 ```
+

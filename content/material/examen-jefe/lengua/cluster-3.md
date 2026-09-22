@@ -1,17 +1,17 @@
-# Examen jefe — Maestro de las Coordinadas
+# Examen jefe — [PENDIENTE #653]
 
-> Logro #86. Dominaste los contraargumentos y los distintos tipos de oraciones coordinadas para argumentar con precisión. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **130 preguntas totales** en 5/5 secciones.
+> Logro #653. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **121 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: contraargumentos (20 preguntas)
+## Sección: genero-dramatico (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "contraargumentos"
+  tema: "genero_dramatico"
   nivel: "basico"
-  tags: ["contraargumentos", "definicion"]
+  tags: ["genero_dramatico", "definicion"]
 
 variables:
   n: uno_de([1, 1])
@@ -19,298 +19,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un contraargumento es un argumento que sostendría la postura contraria a la tesis: la razón más fuerte que alguien en desacuerdo podría dar."
+enunciado: "El género dramático agrupa textos escritos para ser representados en un escenario, organizados casi por completo a través de diálogos entre personajes."
 
 pasos:
-  - "Ver `../tesis/`: el contraargumento se define siempre en relación a la tesis que se está defendiendo."
+  - "A diferencia del narrativo, no tiene un narrador que cuente los hechos."
 
 explicacion: |
-  Verdadero: es la definición central del contraargumento.
+  Verdadero: la representación y el diálogo son las marcas centrales
+  del género dramático.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "contraargumentos"
+  tema: "genero_dramatico"
   nivel: "intermedio"
-  tags: ["contraargumentos", "efecto"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Incluir y responder el contraargumento más fuerte dentro del propio texto es una estrategia que fortalece la persuasión, no una debilidad."
-
-pasos:
-  - "Demuestra que la tesis resiste incluso frente a la mejor objeción posible."
-
-explicacion: |
-  Verdadero: anticipar objeciones y responderlas es más persuasivo
-  que ignorarlas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "basico"
-  tags: ["refutacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "refutación"
-tipo: completar
-
-enunciado: "La respuesta que muestra por qué un contraargumento no es suficiente para invalidar la tesis se llama..."
-
-pasos:
-  - "Es el paso que sigue después de presentar el contraargumento."
-
-explicacion: |
-  La refutación es la respuesta argumentada al contraargumento
-  presentado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "intermedio"
-  tags: ["refutacion", "estrategias"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una estrategia de refutación es mostrar que el contraargumento se basa en un dato incorrecto o desactualizado."
-
-pasos:
-  - "Si el dato en el que se apoya el contraargumento es falso, la objeción pierde fuerza."
-
-explicacion: |
-  Verdadero: es una de las estrategias típicas para refutar un
-  contraargumento.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "intermedio"
-  tags: ["refutacion", "estrategias"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Otra estrategia de refutación es mostrar que el contraargumento aplica sólo a un caso excepcional, no a la regla general que defiende la tesis."
-
-pasos:
-  - "Reconocer una excepción no invalida la regla general defendida por la tesis."
-
-explicacion: |
-  Verdadero: distinguir excepción de regla general es una forma
-  válida de refutar sin negar el contraargumento por completo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "intermedio"
-  tags: ["concesion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "concesión"
-tipo: completar
-
-enunciado: "Aceptar que el contraargumento tiene algo de razón, antes de explicar por qué de todas formas la tesis se sostiene, se llama..."
-
-pasos:
-  - "Se marca con conectores como \"si bien\", \"aunque\", \"es cierto que... pero\"."
-
-explicacion: |
-  La concesión reconoce parcialmente la validez del contraargumento
-  sin abandonar la tesis.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "intermedio"
-  tags: ["concesion", "conectores"]
-
-variables:
-  conectores: ["si bien", "aunque", "es cierto que... pero"]
-  idx: uno_de([0, 1, 2])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{conectores[idx]}\" es un conector típico usado para introducir una concesión antes de la refutación."
-
-pasos:
-  - "Estos conectores son adversativos, coherentes con la coordinación adversativa vista en `../oracion-compuesta-coordinacion-y-subordinacion/`."
-
-explicacion: |
-  Verdadero: son los conectores más habituales para marcar la
-  concesión en un texto argumentativo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "intermedio"
-  tags: ["concesion", "refutacion", "estructura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"Es cierto que [contraargumento], pero [refutación]\" es el patrón más común para incorporar un contraargumento sin debilitar la propia postura."
-
-pasos:
-  - "Primero se concede algo de razón, después se explica por qué la tesis igual se sostiene."
-
-explicacion: |
-  Verdadero: es la estructura típica que combina concesión y
-  refutación.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "avanzado"
-  tags: ["concesion", "credibilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Conceder que el contraargumento tiene algo de razón muestra que el autor analizó objetivamente ambos lados, en vez de ignorar la oposición."
-
-pasos:
-  - "Esa honestidad intelectual suele hacer que el texto resulte más convincente, no menos."
-
-explicacion: |
-  Verdadero: la concesión bien usada aumenta, no disminuye, la
-  credibilidad del texto argumentativo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "avanzado"
-  tags: ["contraargumentos", "honestidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para que la refutación sea convincente, el contraargumento elegido debe ser el más fuerte y honesto que la postura contraria realmente podría dar, no una versión débil o distorsionada fácil de tirar abajo."
-
-pasos:
-  - "Refutar una versión débil (un \"espantapájaros\") no demuestra nada sobre la fortaleza real de la tesis."
-
-explicacion: |
-  Verdadero: elegir un contraargumento débil a propósito es una
-  falacia argumentativa que debilita la credibilidad del texto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "intermedio"
-  tags: ["concesion", "refutacion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "es cierto que reduce la libertad individual"
-tipo: completar
-
-enunciado: "En \"Es cierto que prohibir los celulares en el aula reduce la libertad individual de los alumnos, pero mejora significativamente su concentración durante las clases\", ¿cuál es la parte de concesión?"
-
-pasos:
-  - "La concesión es la parte que reconoce algo de razón al contraargumento, antes del \"pero\"."
-
-explicacion: |
-  La concesión aparece antes del conector adversativo \"pero\", que
-  introduce después la refutación.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "intermedio"
-  tags: ["refutacion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "mejora significativamente su concentración durante las clases"
-tipo: completar
-
-enunciado: "En \"Es cierto que prohibir los celulares en el aula reduce la libertad individual de los alumnos, pero mejora significativamente su concentración durante las clases\", ¿cuál es la parte de refutación?"
-
-pasos:
-  - "La refutación es la parte después del \"pero\", que explica por qué la tesis igual se sostiene."
-
-explicacion: |
-  La refutación viene después del conector adversativo y sostiene la
-  tesis pese a la objeción concedida.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "intermedio"
-  tags: ["contraargumentos", "efecto"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ignorar por completo la postura contraria en un texto argumentativo puede hacer que el texto parezca no haber considerado otros puntos de vista."
-
-pasos:
-  - "Un texto que nunca menciona objeciones puede parecer parcial o poco riguroso."
-
-explicacion: |
-  Verdadero: ignorar el contraargumento es una debilidad
-  argumentativa, no una fortaleza.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "avanzado"
-  tags: ["refutacion", "distincion"]
+  tags: ["genero_dramatico", "genero_narrativo", "diferenciacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -318,117 +42,395 @@ variables:
 respuesta: falso
 tipo: vf
 
-enunciado: "Refutar un contraargumento consiste simplemente en decir \"eso no es verdad\", sin dar ninguna razón adicional."
+enunciado: "El género dramático, igual que el narrativo, tiene siempre un narrador que cuenta lo que va sucediendo."
 
 pasos:
-  - "Una refutación válida necesita mostrar POR QUÉ el contraargumento no alcanza a invalidar la tesis (dato incorrecto, excepción, peso insuficiente), no basta con negarlo sin más."
+  - "En el texto dramático, la historia se conoce a través de lo que dicen los personajes, no de una voz narradora."
 
 explicacion: |
-  Falso: la simple negación sin razones no es una refutación sólida,
-  necesita fundamento propio.
+  Falso: la ausencia de narrador es justamente lo que distingue al
+  dramático del narrativo.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "avanzado"
-  tags: ["contraargumentos", "complejidad"]
+  tema: "genero_dramatico"
+  nivel: "basico"
+  tags: ["dialogo"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "diálogo"
+tipo: completar
 
-enunciado: "Elegir el contraargumento más sólido de la postura contraria demuestra que el tema es más complejo de lo que parecía a simple vista, y que la tesis lo sostiene de todas formas."
+enunciado: "La forma central del texto dramático, donde los personajes hablan entre sí, se llama..."
 
 pasos:
-  - "Un tema con una sola postura obvia y sin objeciones fuertes casi no necesitaría un texto argumentativo."
+  - "A través de esas intervenciones se conoce la historia, sin narrador."
 
 explicacion: |
-  Verdadero: reconocer complejidad y sostener la tesis igual es la
-  demostración de fuerza argumentativa buscada.
+  El diálogo es el elemento estructural principal del texto
+  dramático.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "avanzado"
-  tags: ["tesis", "argumentos", "contraargumentos", "sintesis"]
+  tema: "genero_dramatico"
+  nivel: "basico"
+  tags: ["acotaciones"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "acotaciones"
+tipo: completar
 
-enunciado: "Un texto argumentativo sólido integra las tres piezas de esta cadena: una tesis clara, argumentos que la sostienen, y al menos un contraargumento anticipado y refutado."
+enunciado: "Las indicaciones entre paréntesis o en cursiva que describen gestos, movimientos o tono de voz (y no forman parte del diálogo) se llaman..."
 
 pasos:
-  - "Ver `../tesis/` y `../argumentos/`: es la estructura completa que cierra esta subrama."
+  - "Son la única \"voz\" del autor visible en el texto dramático."
 
 explicacion: |
-  Verdadero: esa integración es el objetivo final de la cadena
-  tesis→argumentos→contraargumentos.
+  Las acotaciones guían la puesta en escena sin ser parte de lo que
+  dicen los personajes.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "contraargumentos"
-  nivel: "avanzado"
-  tags: ["refutacion", "concesion", "distincion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "No siempre es necesario conceder algo de razón antes de refutar; a veces la refutación es directa (por ejemplo, si el contraargumento se basa en un dato falso)."
-
-pasos:
-  - "La concesión se usa cuando el contraargumento tiene algo de validez parcial; si es completamente incorrecto, no hace falta conceder nada."
-
-explicacion: |
-  Verdadero: la concesión es una estrategia útil pero no obligatoria
-  en toda refutación.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "contraargumentos"
+  tema: "genero_dramatico"
   nivel: "intermedio"
-  tags: ["contraargumentos", "metodo"]
+  tags: ["acotaciones", "funcion"]
 
-enunciado: "Ordená los pasos para incorporar bien un contraargumento en un texto argumentativo propio."
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En \"JUAN: (nervioso) ¿Vas a venir?\", la palabra \"nervioso\" es una acotación que indica cómo debería actuarse esa línea."
+
+pasos:
+  - "Está entre paréntesis, fuera del texto que Juan efectivamente dice."
+
+explicacion: |
+  Verdadero: las acotaciones indican gestos/tono, no son parte del
+  parlamento del personaje.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "intermedio"
+  tags: ["estructura", "acto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "acto"
+tipo: mc
+opciones_explicitas: ["acto", "escena", "acotación"]
+
+enunciado: "Cada una de las grandes partes en que se divide una obra de teatro (equivalente a un capítulo) se llama..."
+
+pasos:
+  - "El acto es la unidad mayor de división de la obra."
+
+explicacion: |
+  El acto agrupa varias escenas y marca las grandes divisiones de la
+  obra.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "intermedio"
+  tags: ["estructura", "escena"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "escena"
+tipo: mc
+opciones_explicitas: ["acto", "escena", "acotación"]
+
+enunciado: "La subdivisión de un acto, marcada por la entrada o salida de un personaje o un cambio de escenario, se llama..."
+
+pasos:
+  - "La escena es una unidad más chica que el acto."
+
+explicacion: |
+  Un acto se compone de varias escenas, delimitadas por cambios en
+  los personajes presentes o en el escenario.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "intermedio"
+  tags: ["subgeneros", "tragedia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "tragedia"
+tipo: mc
+opciones_explicitas: ["tragedia", "comedia", "drama"]
+
+enunciado: "El subgénero dramático con conflicto grave, personajes de gran dignidad y final desdichado se llama..."
+
+pasos:
+  - "El desenlace desgraciado y la gravedad del conflicto son las marcas de la tragedia."
+
+explicacion: |
+  La tragedia clásica se caracteriza por su gravedad y su final
+  infeliz.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "intermedio"
+  tags: ["subgeneros", "comedia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "comedia"
+tipo: mc
+opciones_explicitas: ["tragedia", "comedia", "drama"]
+
+enunciado: "El subgénero dramático con conflicto liviano, tono humorístico y final feliz se llama..."
+
+pasos:
+  - "El humor y el final feliz son las marcas de la comedia."
+
+explicacion: |
+  La comedia se distingue de la tragedia por su tono y su desenlace.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "avanzado"
+  tags: ["subgeneros", "drama"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El drama, como subgénero, mezcla tono serio y liviano, sin la rigidez de la tragedia clásica, y es el subgénero más común en el teatro moderno."
+
+pasos:
+  - "No exige ni el final necesariamente desdichado de la tragedia ni el tono siempre cómico de la comedia."
+
+explicacion: |
+  Verdadero: el drama moderno flexibiliza las reglas estrictas de
+  tragedia y comedia clásicas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "avanzado"
+  tags: ["subgeneros", "vocabulario"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "\"Drama\" y \"género dramático\" son exactamente lo mismo: toda obra de género dramático se llama \"drama\"."
+
+pasos:
+  - "\"Género dramático\" es la categoría general (con tragedia, comedia y drama como subgéneros); \"drama\" es sólo uno de esos tres subgéneros."
+
+explicacion: |
+  Falso: el drama es un subgénero particular dentro del género
+  dramático, no un sinónimo de la categoría completa.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "basico"
+  tags: ["dialogo", "acotaciones", "diferenciacion"]
+
+variables:
+  partes: ["¿Vas a venir a la fiesta?", "(nervioso)"]
+  tipos: ["diálogo", "acotación"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["diálogo", "acotación"]
+
+enunciado: "En \"JUAN: (nervioso) ¿Vas a venir a la fiesta?\", la parte \"{partes[idx]}\" es..."
+
+pasos:
+  - "Lo que está entre paréntesis es acotación; lo que dice el personaje directamente es diálogo."
+
+explicacion: |
+  El diálogo es lo que el personaje efectivamente dice; la acotación
+  es la indicación escénica entre paréntesis.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "intermedio"
+  tags: ["genero_dramatico", "representacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El texto dramático está pensado principalmente para ser actuado en un escenario, aunque también se pueda leer como cualquier otro texto."
+
+pasos:
+  - "Su estructura en diálogos y acotaciones está orientada a la puesta en escena."
+
+explicacion: |
+  Verdadero: la representación es el destino principal del texto
+  dramático, la lectura es una forma alternativa de acceder a él.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "intermedio"
+  tags: ["estructura", "acto", "escena"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un acto puede estar formado por varias escenas."
+
+pasos:
+  - "La escena es una subdivisión del acto, no al revés."
+
+explicacion: |
+  Verdadero: el acto es la unidad mayor, compuesta de una o más
+  escenas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "intermedio"
+  tags: ["genero_dramatico", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "dramático"
+tipo: mc
+opciones_explicitas: ["narrativo", "lírico", "dramático"]
+
+enunciado: "Un texto compuesto por líneas como \"ANA: No puedo creerlo. (se sienta, sorprendida) ¿Cuándo pasó esto?\" es de género..."
+
+pasos:
+  - "Diálogo identificado por nombre del personaje + acotación entre paréntesis = marcas del género dramático."
+
+explicacion: |
+  La estructura de diálogo con acotaciones es exclusiva del género
+  dramático.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "avanzado"
+  tags: ["genero_dramatico", "genero_lirico", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El género dramático, igual que el lírico, se organiza principalmente alrededor de un único hablante que expresa sus emociones."
+
+pasos:
+  - "El dramático se organiza en diálogos entre VARIOS personajes, no en la voz de un único hablante."
+
+explicacion: |
+  Falso: la lírica gira en torno a un hablante; el dramático, en
+  torno al intercambio de varios personajes.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "intermedio"
+  tags: ["acotaciones"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las acotaciones no son pronunciadas por ningún personaje: son indicaciones del autor para quien monta o interpreta la obra."
+
+pasos:
+  - "Se distinguen tipográficamente (paréntesis/cursiva) precisamente porque no forman parte de lo hablado."
+
+explicacion: |
+  Verdadero: las acotaciones son la voz del autor guiando la puesta
+  en escena, no un parlamento de los personajes.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_dramatico"
+  nivel: "intermedio"
+  tags: ["genero_dramatico", "metodo"]
+
+enunciado: "Ordená los pasos para analizar la estructura de una obra dramática."
 tipo: ordenar
 opciones_explicitas:
-  - "Identificar el argumento más fuerte que alguien en desacuerdo podría dar"
-  - "Presentarlo de forma honesta, sin distorsionarlo (evitar el espantapájaros)"
-  - "Conceder, si corresponde, que tiene algo de razón"
-  - "Refutarlo explicando por qué la tesis se sostiene de todas formas"
-respuesta_orden:
-  - "Identificar el argumento más fuerte que alguien en desacuerdo podría dar"
-  - "Presentarlo de forma honesta, sin distorsionarlo (evitar el espantapájaros)"
-  - "Conceder, si corresponde, que tiene algo de razón"
-  - "Refutarlo explicando por qué la tesis se sostiene de todas formas"
-
+  - "Separar el texto en actos"
+  - "Dentro de cada acto, identificar las escenas"
+  - "Distinguir el diálogo de las acotaciones"
+  - "Determinar si el tono general corresponde a tragedia, comedia o drama"
+respuesta_orden: ["Separar el texto en actos", "Dentro de cada acto, identificar las escenas", "Distinguir el diálogo de las acotaciones", "Determinar si el tono general corresponde a tragedia, comedia o drama"]
 explicacion: |
-  El proceso va de identificar la objeción más fuerte a presentarla
-  honestamente, y termina con la concesión (si aplica) y la
-  refutación.
+  El análisis va de la estructura mayor (actos) a la menor (escenas),
+  después distingue diálogo de acotación, y termina clasificando el
+  subgénero.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "contraargumentos"
+  tema: "genero_dramatico"
   nivel: "avanzado"
-  tags: ["contraargumentos", "sintesis"]
+  tags: ["genero_dramatico", "acotaciones"]
 
 variables:
   n: uno_de([1, 1])
@@ -436,22 +438,23 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El análisis completo de un texto argumentativo combina tres preguntas: qué se defiende (tesis), por qué (argumentos) y qué dirían en contra, y por qué la tesis igual se sostiene (contraargumentos)."
+enunciado: "El texto dramático puede describir el escenario o ambiente a través de acotaciones, sin necesitar párrafos descriptivos en prosa como en la narrativa."
 
 pasos:
-  - "Cada tema de la cadena respondió una de esas tres preguntas, en ese orden."
+  - "Las acotaciones cumplen la función que en la narrativa cumpliría un párrafo descriptivo."
 
 explicacion: |
-  Verdadero: contraargumentos cierra la cadena que empezó con tesis y
-  siguió con argumentos.
+  Verdadero: las acotaciones son el recurso propio del dramático para
+  describir escenario, gestos y tono, reemplazando la descripción en
+  prosa.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "contraargumentos"
+  tema: "genero_dramatico"
   nivel: "avanzado"
-  tags: ["contraargumentos", "aplicacion"]
+  tags: ["genero_dramatico", "aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -459,427 +462,162 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En un debate, anticipar y refutar de antemano el contraargumento más fuerte del rival deja al orador mejor preparado que esperar a que el rival lo mencione primero."
+enunciado: "Si el propósito es que una historia se represente en vivo ante un público, con personajes que interactúan directamente entre sí, conviene escribirla como texto dramático antes que como cuento."
 
 pasos:
-  - "Adelantarse a la objeción más fuerte reduce su impacto cuando (o si) el rival la presenta."
+  - "El cuento tiene narrador y se lee; el texto dramático se organiza para la actuación en escena."
 
 explicacion: |
-  Verdadero: esta estrategia argumentativa tiene aplicación directa
-  más allá de la escritura, también en la oratoria y el debate.
+  Verdadero: la elección del género depende del propósito
+  (representación en vivo vs. lectura narrada).
 ```
 
-## Sección: coordinadas-adversativas (22 preguntas)
+## Sección: genero-lirico (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "coordinadas_adversativas"
+  tema: "genero_lirico"
   nivel: "basico"
-  tags: ["conectores"]
+  tags: ["genero_lirico", "definicion"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "oposición o contraste"
-tipo: mc
-opciones_explicitas: ["suma de información", "oposición o contraste", "una alternativa entre opciones"]
-
-enunciado: "Una oración coordinada adversativa expresa principalmente..."
-
-explicacion: |
-  Las adversativas presentan un contraste: "A, pero B", donde B limita o
-  contradice parcialmente lo dicho en A.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "basico"
-  tags: ["conectores"]
-
-variables:
-  conector: uno_de(["pero", "sin embargo", "no obstante"])
-
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El conector \"{conector}\" puede introducir una oración coordinada adversativa."
+enunciado: "El género lírico expresa sentimientos, emociones o reflexiones subjetivas, generalmente en verso, sin necesitar una historia con personajes y trama."
+
+pasos:
+  - "A diferencia del narrativo, su eje no es contar hechos sino expresar una experiencia interior."
 
 explicacion: |
-  Los tres son nexos adversativos reales: "pero" es el más simple, "sin
-  embargo" y "no obstante" son locuciones adversativas más formales.
+  Verdadero: la expresión subjetiva, no el relato de hechos, define
+  al género lírico.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "basico"
-  tags: ["conectores"]
+  tema: "genero_lirico"
+  nivel: "intermedio"
+  tags: ["hablante_lirico"]
 
 variables:
-  conector: uno_de(["y", "o", "ni"])
+  n: uno_de([1, 1])
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El conector \"{conector}\" es un nexo adversativo."
+enunciado: "El hablante lírico de un poema es siempre exactamente el poeta que lo escribió."
+
+pasos:
+  - "Igual que el narrador en la narrativa, el hablante lírico es una voz construida dentro del texto, no la persona real del autor."
 
 explicacion: |
-  "Y"/"ni" son copulativos (suman) y "o" es disyuntivo (alternativa) — ninguno
-  expresa contraste, así que no son adversativos.
+  Falso: el hablante lírico (o \"yo lírico\") puede coincidir con el
+  autor real o ser una construcción distinta.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "intermedio"
-  tags: ["nexos"]
+  tema: "genero_lirico"
+  nivel: "basico"
+  tags: ["verso"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "sino"
+respuesta: "verso"
 tipo: completar
 
-enunciado: "En \"No fue por miedo, ___ por respeto\", el nexo que reemplaza una proposición negativa anterior por la alternativa verdadera es:"
+enunciado: "Cada línea de un poema se llama..."
 
-respuestas_validas:
-  - "sino"
+pasos:
+  - "Es la unidad básica de organización del poema."
 
 explicacion: |
-  "Sino" se usa específicamente para corregir/reemplazar una negación
-  previa por la afirmación correcta — distinto de "pero", que no niega
-  lo anterior sino que lo matiza.
+  El verso es la línea individual dentro de un poema.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "intermedio"
-  tags: ["independencia sintactica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una coordinada adversativa, las dos proposiciones son sintácticamente independientes entre sí (ninguna depende de la otra para tener sentido completo)."
-
-explicacion: |
-  A diferencia de la subordinación, en la coordinación ambas oraciones
-  tienen igual jerarquía gramatical — el nexo adversativo sólo agrega
-  un matiz semántico de contraste, no crea dependencia sintáctica.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
+  tema: "genero_lirico"
   nivel: "basico"
-  tags: ["clasificacion"]
+  tags: ["estrofa"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "adversativa"
-tipo: mc
-opciones_explicitas: ["copulativa", "disyuntiva", "adversativa"]
-
-enunciado: "\"Quería ir al cine, pero estaba lloviendo\" es una oración coordinada..."
-
-explicacion: |
-  "Pero" marca el contraste entre el deseo (ir al cine) y la circunstancia
-  que lo impide (la lluvia): es adversativa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "intermedio"
-  tags: ["puntuacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "van entre comas"
-tipo: mc
-opciones_explicitas: ["nunca llevan coma", "van entre comas", "siempre van al final de la oración"]
-
-enunciado: "Locuciones adversativas como \"sin embargo\" o \"no obstante\" típicamente..."
-
-explicacion: |
-  Al ser conectores discursivos más marcados que "pero", suelen ir
-  encerrados entre comas, ya sea al inicio de la segunda proposición o
-  en medio de ella.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "avanzado"
-  tags: ["analisis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "el esfuerzo del equipo y la falta de goles"
-tipo: mc
-opciones_explicitas: ["el clima y el resultado", "el esfuerzo del equipo y la falta de goles", "el árbitro y los jugadores"]
-
-enunciado: "\"El equipo jugó con mucha entrega durante los primeros cuarenta minutos, sin embargo, no logró convertir goles\". ¿Qué dos ideas contrasta \"sin embargo\" acá?"
-
-explicacion: |
-  El conector marca la oposición entre el esfuerzo demostrado (entrega)
-  y el resultado negativo (no convertir goles).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "basico"
-  tags: ["conectores"]
-
-variables:
-  conector: uno_de(["pero", "mas"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{conector}\" es una conjunción adversativa (aunque \"mas\" sin tilde se usa sobre todo en registros literarios o formales)."
-
-explicacion: |
-  Ambas cumplen la misma función adversativa; "mas" es una variante más
-  formal/literaria de "pero".
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "intermedio"
-  tags: ["puntuacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Antes de \"pero\" suele colocarse una coma cuando la primera proposición es larga o se busca marcar una pausa enfática."
-
-explicacion: |
-  Con oraciones cortas, "pero" puede ir sin coma previa; con proposiciones
-  más extensas, la coma ayuda a marcar el corte antes del contraste.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "basico"
-  tags: ["clasificacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "copulativa"
-tipo: mc
-opciones_explicitas: ["copulativa", "disyuntiva", "adversativa"]
-
-enunciado: "\"Estudió mucho y aprobó el examen\" es una oración coordinada..."
-
-explicacion: |
-  "Y" suma información sin contraste (estudió Y además aprobó): es
-  copulativa, no adversativa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "intermedio"
-  tags: ["funcion textual"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "anticipar giros o matices en el argumento del autor"
-tipo: mc
-opciones_explicitas: ["memorizar vocabulario nuevo", "anticipar giros o matices en el argumento del autor", "identificar el género textual"]
-
-enunciado: "Reconocer las coordinadas adversativas en un texto ayuda principalmente a..."
-
-explicacion: |
-  Los conectores adversativos señalan que el autor está por matizar,
-  limitar o contradecir parcialmente lo que acaba de afirmar — anticiparlos
-  mejora la comprensión lectora.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "basico"
-  tags: ["conectores"]
-
-variables:
-  conector: uno_de(["por el contrario", "sino"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{conector}\" puede funcionar como nexo adversativo."
-
-explicacion: |
-  Ambos son nexos/locuciones adversativas reconocidas: "por el contrario"
-  refuerza la oposición, "sino" reemplaza una negación previa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "avanzado"
-  tags: ["analisis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "que la complejidad del proceso no niega que sus ideales inspiraran cambios"
-tipo: mc
-opciones_explicitas: ["que la Revolución de Mayo fue un fracaso total", "que la complejidad del proceso no niega que sus ideales inspiraran cambios", "que no hubo ningún ideal de libertad"]
-
-enunciado: "\"La Revolución de Mayo fue un proceso complejo, pero sus ideales de libertad inspiraron cambios profundos\". ¿Qué matiz introduce \"pero\" acá?"
-
-explicacion: |
-  El "pero" no niega la complejidad, sino que agrega una consecuencia
-  positiva que igual se dio a pesar de esa complejidad.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "intermedio"
-  tags: ["clasificacion"]
-
-variables:
-  conector: uno_de(["pero", "sin embargo", "no obstante", "sino"])
-
-respuesta: "adversativa"
-tipo: mc
-opciones_explicitas: ["copulativa", "disyuntiva", "adversativa"]
-
-enunciado: "Una oración unida con el nexo \"{conector}\" es de tipo coordinada..."
-
-explicacion: |
-  Los cuatro son nexos adversativos: expresan contraste u oposición
-  entre las dos proposiciones que unen.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "basico"
-  tags: ["posicion del nexo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La posición del nexo adversativo dentro de la oración es flexible, lo que permite variar el ritmo y el énfasis del discurso."
-
-explicacion: |
-  A diferencia de nexos con posición fija, adversativas como "sin embargo"
-  pueden ir al inicio de la segunda proposición o insertarse en medio de
-  ella.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "intermedio"
-  tags: ["clasificacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "disyuntiva"
-tipo: mc
-opciones_explicitas: ["copulativa", "disyuntiva", "adversativa"]
-
-enunciado: "\"¿Vamos al cine o nos quedamos en casa?\" es una oración coordinada..."
-
-explicacion: |
-  "O" plantea una alternativa entre dos opciones, no un contraste: es
-  disyuntiva, no adversativa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "avanzado"
-  tags: ["nexos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "concesivo-adversativo"
+respuesta: "estrofa"
 tipo: completar
 
-enunciado: "En ciertos contextos, \"aunque\" puede funcionar con un valor ___ cercano al de las adversativas, aunque formalmente introduce una subordinada."
+enunciado: "Un grupo de versos separado de otros grupos por un espacio en blanco se llama..."
 
-respuestas_validas:
-  - "concesivo-adversativo"
-  - "concesivo adversativo"
+pasos:
+  - "Es el equivalente al párrafo, pero en poesía."
 
 explicacion: |
-  "Aunque" suele introducir subordinadas concesivas, pero semánticamente
-  su matiz de contraste lo acerca al valor de las adversativas en varios
-  usos.
+  La estrofa agrupa varios versos, igual que el párrafo agrupa
+  oraciones en prosa.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "basico"
-  tags: ["conectores"]
+  tema: "genero_lirico"
+  nivel: "intermedio"
+  tags: ["rima", "consonante"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "sino"
+respuesta: "consonante"
 tipo: mc
-opciones_explicitas: ["pero", "sino", "y"]
+opciones_explicitas: ["consonante", "asonante", "libre"]
 
-enunciado: "El nexo específico para corregir una negación previa (\"no X, ... Y\") es:"
+enunciado: "En los versos que terminan en \"cantar\" y \"lugar\", donde coinciden TODOS los sonidos desde la última vocal acentuada, la rima es..."
+
+pasos:
+  - "Consonante: coinciden vocales Y consonantes desde la última vocal acentuada."
 
 explicacion: |
-  "Sino" es el único de estos tres que exige que la primera proposición
-  sea negativa — reemplaza esa negación por la alternativa correcta.
+  La rima consonante exige coincidencia total de sonidos, no sólo de
+  vocales.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "coordinadas_adversativas"
+  tema: "genero_lirico"
   nivel: "intermedio"
-  tags: ["escritura"]
+  tags: ["rima", "asonante"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "asonante"
+tipo: mc
+opciones_explicitas: ["consonante", "asonante", "libre"]
+
+enunciado: "En los versos que terminan en \"cantar\" y \"amanecer\", donde sólo coinciden las vocales (a-a) desde la última acentuada, la rima es..."
+
+pasos:
+  - "Asonante: sólo coinciden las vocales, no las consonantes."
+
+explicacion: |
+  La rima asonante es más laxa: sólo exige coincidencia de vocales.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_lirico"
+  nivel: "intermedio"
+  tags: ["verso_libre"]
 
 variables:
   n: uno_de([1, 1])
@@ -887,1834 +625,2032 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Usar conectores adversativos correctamente evita que un texto sea una simple lista de ideas desconectadas."
+enunciado: "El verso libre no tiene rima ni métrica fija, y es muy común en la poesía moderna."
+
+pasos:
+  - "A diferencia de la poesía clásica, el verso libre prescinde de las reglas de rima y medida."
 
 explicacion: |
-  Al marcar relaciones de contraste explícitas, los conectores
-  adversativos ayudan a construir razonamientos más cohesivos y matizados
-  en vez de oraciones sueltas.
+  Verdadero: el verso libre es una forma sin las restricciones
+  formales de rima/métrica regular.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "basico"
-  tags: ["clasificacion"]
+  tema: "genero_lirico"
+  nivel: "intermedio"
+  tags: ["metrica"]
 
 variables:
-  conector: uno_de(["ni", "o", "u"])
+  n: uno_de([1, 1])
+
+respuesta: "las sílabas de cada verso"
+tipo: mc
+opciones_explicitas: ["las sílabas de cada verso", "la cantidad de versos del poema", "la cantidad de estrofas"]
+
+enunciado: "La métrica de un poema cuenta..."
+
+pasos:
+  - "La métrica se ocupa de la medida silábica de cada verso, no de cuántos versos o estrofas tiene el poema."
+
+explicacion: |
+  La métrica mide la cantidad de sílabas por verso (con reglas
+  adicionales de sinalefa y acentuación final).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_lirico"
+  nivel: "intermedio"
+  tags: ["metrica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un poema tiene métrica regular cuando todos sus versos tienen la misma cantidad de sílabas."
+
+pasos:
+  - "Métrica irregular es cuando los versos varían de longitud silábica."
+
+explicacion: |
+  Verdadero: la regularidad se refiere a la igualdad en la medida
+  silábica entre los versos del poema.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_lirico"
+  nivel: "avanzado"
+  tags: ["recursos_literarios", "prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El género lírico, junto con el narrativo, es donde más se concentran los recursos literarios como la metáfora o la comparación."
+
+pasos:
+  - "La expresión subjetiva del género lírico se apoya fuertemente en un lenguaje figurado."
+
+explicacion: |
+  Verdadero: el estudio de recursos literarios se apoya
+  especialmente en ejemplos del género lírico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_lirico"
+  nivel: "intermedio"
+  tags: ["genero_lirico", "genero_narrativo", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El nexo \"{conector}\" expresa un contraste u oposición entre dos proposiciones."
+enunciado: "El género lírico, igual que el narrativo, necesita siempre personajes y una trama con conflicto."
+
+pasos:
+  - "El género lírico puede expresar una emoción sin contar ninguna historia con personajes."
 
 explicacion: |
-  "Ni" es copulativo negativo y "o"/"u" son disyuntivos — ninguno expresa
-  oposición, por eso no son adversativos.
+  Falso: la lírica se centra en la expresión subjetiva, no en el
+  relato de hechos con personajes.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "coordinadas_adversativas"
-  nivel: "avanzado"
-  tags: ["examenes"]
+  tema: "genero_lirico"
+  nivel: "basico"
+  tags: ["verso", "estrofa", "diferenciacion"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "analizar la función de los conectores en un fragmento dado"
-tipo: mc
-opciones_explicitas: ["memorizar la lista de conjunciones de memoria", "analizar la función de los conectores en un fragmento dado", "contar cuántas comas tiene el texto"]
+respuesta: falso
+tipo: vf
 
-enunciado: "En pruebas de diagnóstico y exámenes finales, un pedido típico sobre este tema es..."
+enunciado: "Verso y estrofa son sinónimos: ambos designan una sola línea del poema."
+
+pasos:
+  - "El verso es una línea; la estrofa es un grupo de varios versos."
 
 explicacion: |
-  Se suele pedir identificar y explicar la función (adversativa,
-  copulativa, disyuntiva, etc.) de conectores dentro de un fragmento real.
+  Falso: la estrofa agrupa varios versos, no es equivalente a uno
+  solo.
 ```
-
-## Sección: coordinadas-copulativas (28 preguntas)
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
+  materia: "lengua"
+  tema: "genero_lirico"
   nivel: "basico"
-  tags: ["estructura", "independencia"]
+  tags: ["genero_lirico", "formas"]
 
 variables:
-  oracion: uno_de(["El sol sale y la luna se oculta", "Juan corre y María camina", "Pedro come y Ana duerme"])
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la oración '{oracion}', la segunda parte depende jerárquicamente de la primera para tener sentido completo."
+enunciado: "El poema es la forma más representativa del género lírico."
+
+pasos:
+  - "La organización en versos y estrofas es característica de la poesía."
 
 explicacion: |
-  Falso. En las coordenadas copulativas, ambas partes tienen independencia sintáctica. Ninguna es subordinada de la otra; simplemente se suman información.
+  Verdadero: aunque hay prosa poética, el poema (organizado en verso)
+  es la forma más típica del género lírico.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "basico"
-  tags: ["funcion", "nexos"]
+  materia: "lengua"
+  tema: "genero_lirico"
+  nivel: "avanzado"
+  tags: ["rima", "comparacion"]
 
 variables:
-  op_a: "subordinar"
-  op_b: "unir aditivamente"
-  op_c: "contrastar"
-  op_d: "causar"
+  n: uno_de([1, 1])
 
-respuesta: op_b
-tipo: mc
-opciones_explicitas: [op_a, op_b, op_c, op_d]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "¿Cuál es la función principal de las conjunciones copulativas (como 'y', 'e', 'ni') en una oración?"
+enunciado: "La rima consonante es más exigente que la asonante, porque requiere coincidencia de todos los sonidos (vocales y consonantes), no sólo de las vocales."
+
+pasos:
+  - "Consonante: coincide todo. Asonante: coinciden sólo vocales."
 
 explicacion: |
-  La función principal es unir elementos o proposiciones de manera aditiva (sumar información), sin crear dependencia jerárquica entre ellas.
+  Verdadero: por eso la rima consonante es más difícil de lograr que
+  la asonante.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
+  materia: "lengua"
+  tema: "genero_lirico"
   nivel: "intermedio"
-  tags: ["elision", "estructura"]
+  tags: ["rima", "practica"]
 
 variables:
-  ejemplo: "Pedro come pan y María [come] queso"
+  pares: ["flor / dolor", "cielo / sereno"]
+  tipos: ["consonante", "asonante"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["consonante", "asonante", "libre"]
+
+enunciado: "El par de versos que terminan en \"{pares[idx]}\" tiene rima..."
+
+pasos:
+  - "Comparar todos los sonidos finales (consonante) o sólo las vocales (asonante) desde la última vocal acentuada."
+
+explicacion: |
+  \"flor/dolor\" coincide en todo el sonido final → consonante.
+  \"cielo/sereno\" sólo coincide en las vocales e-o → asonante.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_lirico"
+  nivel: "avanzado"
+  tags: ["hablante_lirico"]
+
+variables:
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la oración '{ejemplo}', la omisión del verbo en la segunda parte se llama elisión y no cambia la naturaleza coordinada de la oración."
+enunciado: "Un poeta puede escribir un poema con un hablante lírico que exprese una emoción o punto de vista distinto al suyo propio."
+
+pasos:
+  - "El hablante lírico, igual que un narrador en una novela, es una construcción del texto, no una autobiografía obligatoria."
 
 explicacion: |
-  Verdadero. La elisión es una omisión de elementos repetidos para evitar redundancia, pero la estructura sigue siendo coordinada copulativa.
+  Verdadero: separar hablante lírico de autor real evita leer todo
+  poema como confesión literal del poeta.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
+  materia: "lengua"
+  tema: "genero_lirico"
   nivel: "avanzado"
-  tags: ["independencia", "permutaciones"]
+  tags: ["verso_libre"]
 
 variables:
-  partes: 2
-  total: permutations(partes, partes)
+  n: uno_de([1, 1])
 
-respuesta: total
-tipo: input
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Si tenemos dos coordenadas copulativas independientes (A y B), ¿cuántas permutaciones distintas de orden existen sin cambiar el significado esencial de la coordinación?"
+enunciado: "Un poema en verso libre puede seguir organizado en versos y estrofas, aunque no tenga rima ni métrica regular."
+
+pasos:
+  - "Prescindir de rima/métrica no elimina la organización básica en líneas (versos) y grupos (estrofas)."
 
 explicacion: |
-  Como son independientes, se pueden invertir. Para 2 elementos, hay 2! (2x1) = 2 permutaciones posibles (A y B; B y A).
+  Verdadero: verso libre se refiere a la ausencia de rima/métrica
+  fija, no a la ausencia total de forma.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
+  materia: "lengua"
+  tema: "genero_lirico"
+  nivel: "intermedio"
+  tags: ["genero_lirico", "metodo"]
+
+enunciado: "Ordená los pasos para analizar la forma de un poema."
+tipo: ordenar
+opciones_explicitas:
+  - "Contar cuántos versos tiene y cómo se agrupan en estrofas"
+  - "Revisar si hay rima entre los versos, y de qué tipo (consonante/asonante)"
+  - "Contar las sílabas de cada verso para ver si la métrica es regular"
+  - "Identificar quién es el hablante lírico del poema"
+respuesta_orden: ["Contar cuántos versos tiene y cómo se agrupan en estrofas", "Revisar si hay rima entre los versos, y de qué tipo (consonante/asonante)", "Contar las sílabas de cada verso para ver si la métrica es regular", "Identificar quién es el hablante lírico del poema"]
+explicacion: |
+  El análisis va de la estructura visible (versos/estrofas) a la
+  sonora (rima), a la silábica (métrica) y termina en la voz que
+  habla en el poema.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_lirico"
   nivel: "avanzado"
-  tags: ["etimologia", "terminologia"]
+  tags: ["genero_lirico", "genero_dramatico", "diferenciacion"]
 
 variables:
-  op_a: "copular"
-  op_b: "separar"
-  op_c: "subordinar"
-  op_d: "conjugar"
-
-respuesta: op_a
-tipo: mc
-opciones_explicitas: [op_a, op_b, op_c, op_d]
-
-enunciado: "El término 'copulativa' proviene del verbo latino 'copular', que significa:"
-
-explicacion: |
-  'Copular' significa unir o ligar, reflejando la función de estas conjunciones de enlazar elementos.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "basico"
-  tags: ["dependencia", "jerarquia"]
-
-variables:
-  afirmacion: "una parte completa el sentido de la otra"
+  n: uno_de([1, 1])
 
 respuesta: falso
 tipo: vf
 
-enunciado: "En las coordenadas copulativas, una parte completa el sentido de la otra, creando una jerarquía principal/secundaria."
+enunciado: "El género lírico, igual que el dramático, está escrito principalmente para ser representado con diálogos entre personajes en un escenario."
+
+pasos:
+  - "El lírico expresa una voz subjetiva (el hablante lírico), no está organizado como diálogo escénico."
 
 explicacion: |
-  Falso. Esa es la característica de las subordinadas. En las copulativas, ambas partes son independientes e iguales jerárquicamente.
+  Falso: el género dramático se organiza en diálogos para
+  representación teatral; el lírico expresa la voz de un hablante,
+  sin esa estructura de diálogo escénico.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
+  materia: "lengua"
+  tema: "genero_lirico"
   nivel: "intermedio"
-  tags: ["nexos", "frecuencia"]
+  tags: ["genero_lirico", "aplicacion"]
 
 variables:
-  total_nexos: 3
-  nexo_comun: "y"
+  n: uno_de([1, 1])
 
-respuesta: nexo_comun
-tipo: input
-
-enunciado: "De los nexos copulativos principales (y, e, ni), ¿cuál es el más común y representativo?"
-
-explicacion: |
-  La conjunción 'y' es la más común y representativa de las coordinadas copulativas.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "intermedio"
-  tags: ["prueba", "independencia"]
-
-variables:
-  op_a: "cambiar el significado"
-  op_b: "mantener la relación aditiva"
-  op_c: "crear una subordinada"
-  op_d: "eliminar la elisión"
-
-respuesta: op_b
+respuesta: "lírico"
 tipo: mc
-opciones_explicitas: [op_a, op_b, op_c, op_d]
+opciones_explicitas: ["lírico", "narrativo", "dramático"]
 
-enunciado: "Una prueba clave para identificar coordenadas copulativas es invertir el orden de las partes. ¿Qué ocurre con la relación al invertir?"
+enunciado: "Un texto breve, organizado en versos y estrofas, que expresa la tristeza de un hablante sin contar una historia con personajes ni presentar diálogos escénicos, es de género..."
+
+pasos:
+  - "Verso + estrofa + expresión subjetiva sin trama ni diálogo escénico = lírico."
 
 explicacion: |
-  La relación de adición se mantiene, demostrando la independencia sintáctica de las partes.
+  Todas las marcas descriptas (verso, estrofa, expresión subjetiva)
+  corresponden al género lírico.
 ```
+
+## Sección: genero-narrativo (20 preguntas)
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "intermedio"
-  tags: ["fonetica", "cacofonia"]
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "basico"
+  tags: ["genero_narrativo", "definicion"]
 
 variables:
-  palabra: "isla"
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Ante la palabra '{palabra}', se debe usar 'e' en lugar de 'y' para evitar cacofonía."
+enunciado: "El género narrativo agrupa los textos literarios que cuentan una historia: hechos que le ocurren a personajes a lo largo del tiempo."
+
+pasos:
+  - "Es la especialización literaria del tipo textual narrativo."
 
 explicacion: |
-  Verdadero. 'Y isla' suena mal fonéticamente; 'e isla' es la forma correcta.
+  Verdadero: contar una historia con personajes y acciones en el
+  tiempo es la definición central del género narrativo.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "intermedio"
-  tags: ["comparacion", "subordinadas"]
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "basico"
+  tags: ["cuento", "formas"]
 
 variables:
-  op_a: "dependencia jerárquica"
-  op_b: "independencia sintáctica"
-  op_c: "uso de 'que'"
-  op_d: "elisión obligatoria"
+  n: uno_de([1, 1])
 
-respuesta: op_b
+respuesta: "cuento"
 tipo: mc
-opciones_explicitas: [op_a, op_b, op_c, op_d]
+opciones_explicitas: ["cuento", "novela", "fábula", "mito"]
 
-enunciado: "¿Qué característica distingue fundamentalmente a las coordenadas copulativas de las subordinadas?"
+enunciado: "Una narración breve, con pocos personajes y un solo conflicto central, es un/una..."
+
+pasos:
+  - "La brevedad y el conflicto único son las marcas del cuento frente a la novela."
 
 explicacion: |
-  La independencia sintáctica. En las copulativas, ninguna parte depende de la otra.
+  El cuento se distingue de la novela por su extensión breve y su
+  foco en un solo conflicto.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "intermedio"
-  tags: ["elision", "naturaleza"]
-
-variables:
-  afirmacion: "cambia la naturaleza coordinada"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La elisión de elementos repetidos cambia la naturaleza coordinada de la oración."
-
-explicacion: |
-  Falso. La elisión no cambia la naturaleza; solo hace la oración más fluida.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
+  materia: "lengua"
+  tema: "genero_narrativo"
   nivel: "basico"
-  tags: ["funcion", "nexos"]
+  tags: ["novela", "formas"]
 
 variables:
-  op_a: "separar"
-  op_b: "unir"
-  op_c: "subordinar"
-  op_d: "interrogar"
+  n: uno_de([1, 1])
 
-respuesta: op_b
+respuesta: "novela"
 tipo: mc
-opciones_explicitas: [op_a, op_b, op_c, op_d]
+opciones_explicitas: ["cuento", "novela", "leyenda", "mito"]
 
-enunciado: "La conjunción 'y' tiene la función de:"
+enunciado: "Una narración extensa, con varios personajes y tramas que se desarrollan en profundidad, es un/una..."
 
-explicacion: |
-  Unir elementos o proposiciones de manera aditiva.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "avanzado"
-  tags: ["que", "independencia"]
-
-variables:
-  afirmacion: "siempre es subordinante"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El nexo 'que' siempre cumple una función subordinante y nunca aditiva."
+pasos:
+  - "La extensión y la multiplicidad de tramas distinguen a la novela del cuento."
 
 explicacion: |
-  Falso. En algunos contextos específicos, 'que' puede cumplir función aditiva, aunque su uso principal es subordinante.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "basico"
-  tags: ["identificacion", "contexto"]
-
-variables:
-  oracion: "Juan e María estudian"
-  nexo: "e"
-
-respuesta: nexo
-tipo: input
-
-enunciado: "En la oración '{oracion}', ¿cuál es el nexo copulativo?"
-
-explicacion: |
-  El nexo es 'e', utilizado antes de la vocal 'i' de 'María'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "avanzado"
-  tags: ["permutaciones", "logica"]
-
-variables:
-  elementos: 3
-  total: permutations(elementos, elementos)
-
-respuesta: total
-tipo: input
-
-enunciado: "Si tenemos tres coordenadas copulativas independientes (A, B, C), ¿cuántas permutaciones distintas de orden existen?"
-
-explicacion: |
-  Para 3 elementos independientes, hay 3! (3x2x1) = 6 permutaciones posibles.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "basico"
-  tags: ["independencia", "sintaxis"]
-
-variables:
-  caso: uno_de(["verdadero", "falso"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una oración coordinada copulativa, la segunda parte depende jerárquicamente de la primera."
-
-explicacion: |
-  Falso. En las coordinadas copulativas, ambas partes tienen independencia sintáctica y gramatical. Ninguna es subordinada de la otra.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "basico"
-  tags: ["fonetica", "uso_de_nexos"]
-
-variables:
-  palabra_siguiente: uno_de(["isla", "hambre", "yogur"])
-
-respuesta: e
-tipo: input
-
-enunciado: "Si la palabra siguiente comienza con 'i' o 'hi' (como '{palabra_siguiente}'), ¿qué forma de la conjunción 'y' se utiliza para evitar cacofonía?"
-
-explicacion: |
-  Se utiliza 'e' en lugar de 'y' cuando el término siguiente comienza por 'i' o 'hi' para evitar la repetición de sonidos vocálicos iguales (cacofonía).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "intermedio"
-  tags: ["independencia", "prueba_sintactica"]
-
-variables:
-  parte1: uno_de(["Juan corre", "María lee", "Pedro come"])
-  parte2: uno_de(["Ana duerme", "Luis trabaja", "Sofía estudia"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una coordinada copulativa, es posible invertir el orden de las partes ('{parte1} y {parte2}' por '{parte2} y {parte1}') sin alterar la relación sintáctica fundamental."
-
-explicacion: |
-  Verdadero. La independencia de las partes permite invertir el orden manteniendo la adición de información, a diferencia de las subordinadas donde el orden es más rígido.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "avanzado"
-  tags: ["comparacion", "subordinacion"]
-
-variables:
-  ejemplo_copulativa: "Estudio y trabajo"
-  ejemplo_subordinada: "Estudio porque necesito aprobar"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La diferencia principal entre 'Estudio y trabajo' (copulativa) y 'Estudio porque necesito aprobar' (subordinada causal) es que en la primera no hay dependencia jerárquica entre los verbos."
-
-explicacion: |
-  Verdadero. En la coordinada, ambas acciones son independientes. En la subordinada, una depende de la otra para completar su sentido.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "intermedio"
-  tags: ["elision", "estructura"]
-
-variables:
-  verbo: uno_de(["come", "lee", "corre"])
-  sujeto1: uno_de(["Pedro", "María", "Juan"])
-  sujeto2: uno_de(["Ana", "Luis", "Sofía"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En 'Pedro come pan y Ana queso', se ha producido una elisión del verbo en la segunda parte, pero sigue siendo una coordinada copulativa."
-
-explicacion: |
-  Verdadero. La elisión de elementos repetidos (como el verbo) es común en las coordinadas copulativas y no cambia su naturaleza sintáctica.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "intermedio"
-  tags: ["identificacion", "distractores"]
-
-variables:
-  correcta: "y"
-  incorrecta: uno_de(["pero", "o", "sino"])
-  oracion: "Juan corre {incorrecta} María camina."
-
-respuesta: incorrecta
-tipo: input
-
-enunciado: "En la oración 'Juan corre {incorrecta} María camina', ¿qué nexo se usa que NO es copulativo?"
-
-explicacion: |
-  El nexo '{incorrecta}' es adversativo o disyuntivo, no copulativo. Las copulativas usan 'y', 'e' o 'ni'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "basico"
-  tags: ["estructura", "definicion"]
-
-variables:
-  minimo: 2
-
-respuesta: 2
-tipo: input
-
-enunciado: "¿Cuál es el número mínimo de partes (oraciones simples o sintagmas) que deben unirse para formar una coordinada copulativa?"
-
-explicacion: |
-  Se necesitan al menos dos partes. La coordinación implica la unión de dos o más elementos de igual jerarquía.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "intermedio"
-  tags: ["ejemplos", "literatura"]
-
-variables:
-  autor: uno_de(["Borges", "Cortázar", "Bianchi", "Sábato"])
-  nexo: "y"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la literatura argentina, es común encontrar coordinadas copulativas con el nexo 'y' para crear ritmo o sumar imágenes, como en 'El sol brillaba {nexo} la brisa refrescaba'."
-
-explicacion: |
-  Verdadero. Autores argentinos utilizan frecuentemente estas estructuras para dar fluidez y adición de sensaciones en sus textos.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "intermedio"
-  tags: ["sintaxis", "analisis"]
-
-variables:
-  sujeto1: uno_de(["Los pibes", "El equipo", "La gente"])
-  verbo1: uno_de(["jugó", "ganó", "perdió"])
-  nexo: "y"
-  sujeto2: uno_de(["nosotros", "ellos", "ustedes"])
-  verbo2: uno_de(["miramos", "observaron", "escucharon"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En 'Los pibes jugaron y nosotros miramos', ambas partes son sintácticamente independientes."
-
-explicacion: |
-  Verdadero. Cada parte tiene su propio sujeto y verbo, y están unidas por un nexo copulativo, manteniendo su independencia.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "basico"
-  tags: ["identificacion", "lista"]
-
-variables:
-  nexo: uno_de(["y", "e"])
-  oracion: "Vi el mar {nexo} la montaña."
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oración 'Vi el mar {nexo} la montaña' es una coordinada copulativa."
-
-explicacion: |
-  Verdadero. El nexo 'y' o 'e' une dos objetos directos (o proposiciones elípticas) de igual jerarquía.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "intermedio"
-  tags: ["elision", "sujeto"]
-
-variables:
-  verbo: uno_de(["come", "duerme", "trabaja"])
-  sujeto: uno_de(["Pedro", "María", "Juan"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En 'Pedro come y duerme', se ha elidido el sujeto en la segunda parte, pero sigue siendo una coordinada copulativa de verbos."
-
-explicacion: |
-  Verdadero. La elisión del sujeto es válida en coordinadas copulativas cuando el sujeto es el mismo para ambas acciones.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "avanzado"
-  tags: ["comparacion", "causalidad"]
-
-variables:
-  ejemplo_copulativa: "Estudio y trabajo"
-  ejemplo_subordinada: "Estudio porque trabajo"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En 'Estudio y trabajo', no hay causa-efecto entre las partes, a diferencia de 'Estudio porque trabajo'."
-
-explicacion: |
-  Verdadero. La coordinada copulativa suma acciones sin establecer relación causal. La subordinada causal establece una dependencia de razón.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_copulativas"
-  nivel: "intermedio"
-  tags: ["elision", "verbo"]
-
-variables:
-  verbo: uno_de(["come", "lee", "corre"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es correcto omitir el verbo en la segunda parte de una coordinada copulativa si se sobreentiende, como en 'Pedro come y Ana [come] queso'."
-
-explicacion: |
-  Verdadero. La elisión del verbo es una práctica común para evitar repeticiones y hacer el habla más fluida, sin alterar la coordinación.
-```
-
-## Sección: coordinadas-distributivas (32 preguntas)
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["conteo", "aplicacion"]
-
-variables:
-  n1: random(1, 5)
-  n2: random(1, 5)
-  total: n1 + n2
-
-respuesta: total
-tipo: input
-
-enunciado: "En la oración 'Hay {n1} docentes y {n2} estudiantes que se saludaron', ¿cuántos individuos participan de la acción distributiva de saludarse mutuamente?"
-
-explicacion: |
-  La respuesta es la suma de los sujetos coordinados: {n1} + {n2} = {total}. Al usar el verbo recíproco 'saludarse', todos los sujetos mencionados (docentes y estudiantes) participan activamente de la acción distribuida entre ellos."
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["sintaxis", "sujeto"]
-
-variables:
-  n: random(2, 4)
-
-respuesta: "plural"
-tipo: input
-
-enunciado: "En la oración 'Los alumnos {n} y las alumnas {n} se abrazaron', ¿qué número tiene el sujeto compuesto? (Escribe 'singular' o 'plural')"
-
-explicacion: |
-  La respuesta es 'plural'. Aunque la coordinación distributiva enfatiza la acción individual, gramaticalmente los dos elementos unidos por 'y' forman un sujeto compuesto plural. El verbo se conjuga en plural ('se abrazaron')."
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["conteo", "logica"]
-
-variables:
-  a: random(1, 3)
-  b: random(1, 3)
-  total: a + b
-
-respuesta: total
-tipo: input
-
-enunciado: "En 'Hay {a} perros y {b} gatos que se persiguieron', ¿cuántos animales participan de la persecución mutua?"
-
-explicacion: |
-  La respuesta es {total}. El verbo 'persiguieron' (recíproco) implica que cada animal persigue a los demás. Todos los sujetos coordinados están incluidos en la acción distribuida."
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["sintaxis", "concordancia"]
-
-variables:
-  n: random(2, 5)
-
-respuesta: "plural"
-tipo: input
-
-enunciado: "En 'Los docentes {n} y los estudiantes {n} se felicitaron', ¿qué género y número debe tener el participio 'felicitar' si se usara en voz pasiva refleja? (Escribe 'felicitaron')"
-
-explicacion: |
-  La respuesta es 'felicitaron'. Al ser sujeto compuesto plural, el verbo concuerda en plural. La coordinación distributiva no cambia la concordancia gramatical, solo la interpretación semántica de la acción."
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["conteo", "logica"]
-
-variables:
-  n1: random(1, 4)
-  n2: random(1, 4)
-  total: n1 + n2
-
-respuesta: total
-tipo: input
-
-enunciado: "En 'Hay {n1} manzanas y {n2} naranjas que se repartieron', ¿cuántas frutas participan del reparto?"
-
-explicacion: |
-  La respuesta es {total}. El verbo 'repartirse' (o la acción de ser repartidas) implica que todas las frutas son objeto de la distribución entre los sujetos. Todos los elementos coordinados están incluidos."
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["sintaxis", "sujeto"]
-
-variables:
-  n: random(2, 5)
-
-respuesta: "plural"
-tipo: input
-
-enunciado: "En 'Los profesores {n} y los directivos {n} se saludaron', ¿qué número tiene el verbo 'saludar' en esta oración? (Escribe 'singular' o 'plural')"
-
-explicacion: |
-  La respuesta es 'plural'. Los sujetos coordinados forman un grupo plural, por lo que el verbo concuerda en plural."
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["sintaxis", "coordinacion", "distributiva"]
-
-variables:
-  sujeto1: uno_de(["Juan", "María", "Pedro", "Ana"])
-  sujeto2: uno_de(["Carlos", "Laura", "Luis", "Sofía"])
-  verbo: uno_de(["se pelearon", "se miraron", "se saludaron", "se conocieron"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración '{sujeto1} {verbo} {sujeto2}', la coordinación es distributiva porque la acción se aplica recíprocamente a cada individuo."
-
-explicacion: |
-  Los verbos como 'pelearse', 'mirarse' o 'saludarse' son recíprocos. Esto implica que la acción se distribuye entre los sujetos: A hace la acción con B y B hace la acción con A. Por lo tanto, es una coordinación distributiva (o recíproca).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["sintaxis", "diferencias", "coordinacion"]
-
-variables:
-  elem1: uno_de(["el libro", "la casa", "el coche"])
-  elem2: uno_de(["el cuaderno", "el departamento", "la moto"])
-  accion: uno_de(["es grande", "es vieja", "es nueva"])
-
-respuesta: |
-  La coordinación es copulativa.
-tipo: completar
-
-enunciado: "Analiza la oración: '{elem1} y {elem2} {accion}'. ¿Es esta coordinación distributiva o copulativa? Responde con una de las opciones."
-
-explicacion: |
-  En 'el libro y el cuaderno es grande', la propiedad se atribuye al grupo como un todo o se aplica de forma acumulativa/no distributiva en el sentido recíproco. No hay una acción que se reparta entre ellos de manera individualizada o recíproca. Es una coordinación copulativa simple.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["verbos", "reciprocidad", "sintaxis"]
-
-variables:
-  grupo: uno_de(["Los hermanos", "Los vecinos", "Los compañeros"])
-  accion: uno_de(["se ayudaron", "se querían", "se respetaron", "se conocieron"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración '{grupo} {accion}', la conjunción 'y' introduce una coordinación distributiva porque la acción se realiza mutuamente."
-
-explicacion: |
-  Correcto. Los verbos pronominales recíprocos (como ayudarse, quererse, respetarse) implican que el sujeto A actúa sobre B y B sobre A. La acción se distribuye en ambas direcciones.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["semántica", "distribución", "medios"]
-
-variables:
-  grupo1: uno_de(["Los alumnos", "Los trabajadores", "Los clientes"])
-  grupo2: uno_de(["las alumnas", "los empleados", "los usuarios"])
-  medio1: uno_de(["por la puerta principal", "por el ascensor", "por la ventana"])
-  medio2: uno_de(["por la puerta lateral", "por la escalera", "por la puerta de servicio"])
-
-respuesta: |
-  Distributiva
-tipo: completar
-
-enunciado: "En la frase '{grupo1} y {grupo2} entrarán {medio1} y {medio2} respectivamente', la coordinación de los medios es de tipo:"
-
-explicacion: |
-  La conjunción 'y' distribuye los medios de acceso entre los dos colectivos: un grupo usa uno y el otro grupo usa el otro. No es una acción compartida simultáneamente por todos, sino una repartición de recursos o acciones.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["sintaxis", "sujeto", "agrupación"]
-
-variables:
-  nombre1: uno_de(["Luis", "Ana", "Pedro", "María"])
-  nombre2: uno_de(["Carlos", "Laura", "Juan", "Sofía"])
-  verbo: uno_de(["comió", "durmió", "estudió", "trabajó"])
-
-respuesta: |
-  Copulativa
-tipo: completar
-
-enunciado: "En la oración '{nombre1} y {nombre2} {verbo} temprano', la coordinación de los sujetos se considera:"
-
-explicacion: |
-  La acción de comer, dormir, estudiar o trabajar se atribuye al conjunto 'Luis y Carlos' como un sujeto plural. No implica que Luis comió con Carlos de manera recíproca, sino que ambos realizaron la acción. Es una coordinación copulativa.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "avanzado"
-  tags: ["definicion", "concepto", "teoria"]
-
-variables:
-  clave: uno_de(["la reciprocidad", "la alternancia", "la separación", "la independencia"])
-
-respuesta: |
-  La reciprocidad o la separación de la acción
-tipo: completar
-
-enunciado: "La característica fundamental que distingue a una coordinación distributiva es que la conjunción indica que la acción o cualidad se aplica por separado o mutuamente a cada elemento, a menudo marcada por:"
-
-explicacion: |
-  A diferencia de la copulativa que suma elementos, la distributiva indica que lo que se dice de uno se aplica al otro individualmente, ya sea por reciprocidad (acción mutua) o por alternancia (reparto de elementos).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["ejemplos", "alternancia"]
-
-variables:
-  sujeto: uno_de(["Ellos", "Nosotros", "Ellos"])
-  accion: uno_de(["subirán", "bajarán", "saldrán"])
-  via1: uno_de(["por la escalera", "por el ascensor", "por la puerta"])
-  via2: uno_de(["por el ascensor", "por la escalera", "por la puerta"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración '{sujeto} {accion} {via1} y {via2}', si se entiende que un sube por una vía y el otro por la otra, se trata de una coordinación distributiva."
-
-explicacion: |
-  Correcto. La conjunción distribuye los medios (vías) entre los sujetos. No todos usan ambas vías juntos, sino que se reparten el uso de los medios disponibles.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "avanzado"
-  tags: ["conectivos", "distribucion", "estructura"]
-
-variables:
-  elem1: uno_de(["unos", "algunos", "otros"])
-  elem2: uno_de(["otros", "unos", "algunos"])
-  accion: uno_de(["vienen", "van", "llegan"])
-
-respuesta: |
-  Distributiva
-tipo: completar
-
-enunciado: "En la frase '{elem1} y {elem2} {accion} mañana', la estructura 'y... y...' suele indicar una coordinación:"
-
-explicacion: |
-  La repetición de la conjunción 'y' a menudo enfatiza la distribución individual de la acción o la cualidad sobre cada elemento del grupo, separándolos en la ejecución del predicado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["verbos", "no-distributivo", "copulativo"]
-
-variables:
-  sujeto1: uno_de(["El perro", "El gato", "El niño"])
-  sujeto2: uno_de(["el perro", "el gato", "el niño"])
-  adjetivo: uno_de(["es grande", "es pequeño", "es rápido"])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la oración '{sujeto1} y {sujeto2} {adjetivo}', la coordinación es siempre distributiva porque hay dos sujetos."
-
-explicacion: |
-  Falso. La presencia de dos sujetos unidos por 'y' no garantiza que sea distributiva. Si la cualidad se aplica al grupo como un todo (ej. 'Juan y Pedro es alto' - incorrecto gramaticalmente pero conceptualmente copulativo de atributo), o si no hay reciprocidad, es copulativa. La distribución requiere que la acción/cualidad se aplique individualmente de forma separada o recíproca.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["sintaxis", "sujeto", "pluralidad"]
-
-variables:
-  nombre1: uno_de(["María", "Juan", "Ana"])
-  nombre2: uno_de(["Carlos", "Luis", "Pedro"])
-  verbo: uno_de(["se ayudaron", "se miraron", "se conocieron"])
-
-respuesta: |
-  Sujeto plural coordinado
-tipo: completar
-
-enunciado: "En la oración '{nombre1} y {nombre2} {verbo}', el sujeto sintáctico es:"
-
-explicacion: |
-  El sujeto es el conjunto '{nombre1} y {nombre2}'. Aunque la acción es distributiva (recíproca), gramaticalmente funciona como un sujeto plural compuesto por dos coordenadas.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "avanzado"
-  tags: ["ambigüedad", "contexto", "interpretación"]
-
-variables:
-  elem1: uno_de(["El padre", "El maestro", "El director"])
-  elem2: uno_de(["el hijo", "el alumno", "el estudiante"])
-  accion: uno_de(["se pelearon", "se abrazaron", "se saludaron"])
-
-respuesta: |
-  Puede ser copulativa o distributiva según el contexto
-tipo: completar
-
-enunciado: "En la frase '{elem1} y {elem2} {accion}', sin más contexto, la coordinación puede interpretarse como:"
-
-explicacion: |
-  Dependiendo del verbo y el contexto, puede ser copulativa (ambos realizan la acción individualmente pero no necesariamente uno con el otro, ej. 'se saludaron' a terceros) o distributiva/recíproca (uno con el otro, ej. 'se pelearon'). El verbo recíproco fuerza la interpretación distributiva.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["conjunciones", "negación", "distributiva"]
-
-variables:
-  elem1: uno_de(["Ninguno", "Nadie", "Nada"])
-  elem2: uno_de(["de ellos", "de nosotros", "de ustedes"])
-  accion: uno_de(["vinieron", "llegaron", "estuvieron"])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la oración 'Ni {elem1} {elem2} {accion}', la coordinación 'ni... ni...' es siempre distributiva."
-
-explicacion: |
-  Falso. La coordinación disyuntiva negativa 'ni... ni...' niega la acción a ambos elementos por igual, pero no implica necesariamente una acción recíproca o una repartición de medios entre ellos. Es una negación acumulativa a los sujetos, no una distribución de acción entre ellos.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "avanzado"
-  tags: ["reciprocidad", "sintaxis", "semántica"]
-
-variables:
-  sujeto: uno_de(["Ellos", "Nosotros", "Ellos"])
-  verbo: uno_de(["se vieron", "se encontraron", "se llamaron"])
-
-respuesta: |
-  La acción se realiza mutuamente por cada uno de los sujetos
-tipo: completar
-
-enunciado: "En la oración '{sujeto} {verbo} ayer', el significado de la coordinación distributiva recíproca es que:"
-
-explicacion: |
-  La reciprocidad implica que cada sujeto realiza la acción sobre el otro. Si son A y B, A hace la acción con B y B hace la acción con A.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["objeto", "distribución", "complemento"]
-
-variables:
-  sujeto: uno_de(["Ellos", "Nosotros", "Ellos"])
-  verbo: uno_de(["comieron", "leían", "escucharon"])
-  obj1: uno_de(["la manzana", "el libro", "la canción"])
-  obj2: uno_de(["la pera", "el diario", "la radio"])
-
-respuesta: |
-  Distributiva
-tipo: completar
-
-enunciado: "En la oración '{sujeto} {verbo} {obj1} y {obj2}', si se entiende que uno comió la manzana y el otro la pera, la coordinación de los objetos es:"
-
-explicacion: |
-  La conjunción 'y' distribuye los objetos entre los sujetos. Cada sujeto recibe un objeto diferente. Es una coordinación distributiva del complemento directo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["comparación", "copulativa", "distributiva"]
-
-variables:
-  elem1: uno_de(["Juan", "María", "Pedro"])
-  elem2: uno_de(["Carlos", "Laura", "Luis"])
-  accion: uno_de(["es alto", "es bajo", "es rubio"])
-
-respuesta: |
-  La copulativa agrupa los elementos como un conjunto único para la acción, mientras que la distributiva aplica la acción individualmente o recíprocamente.
-tipo: completar
-
-enunciado: "La diferencia principal entre la coordinación copulativa en '{elem1} y {elem2} {accion}' y la distributiva es:"
-
-explicacion: |
-  En la copulativa, la cualidad o acción se atribuye al grupo como un todo. En la distributiva, la acción se reparte o se realiza mutuamente entre los individuos.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "avanzado"
-  tags: ["adjetivos", "distribución", "cualidades"]
-
-variables:
-  elem1: uno_de(["El primer", "El segundo", "El último"])
-  elem2: uno_de(["el segundo", "el tercero", "el último"])
-  sust: uno_de(["piso", "nivel", "grupo"])
-  adj1: uno_de(["alto", "grande", "amplio"])
-  adj2: uno_de(["bajo", "pequeño", "estrecho"])
-
-respuesta: |
-  Distributiva
-tipo: completar
-
-enunciado: "En la frase '{elem1} {sust} es {adj1} y {elem2} {sust} es {adj2}', la coordinación de las cualidades es:"
-
-explicacion: |
-  Cada elemento tiene una cualidad diferente. La conjunción distribuye las propiedades: una para el primero, otra para el segundo. Es distributiva.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["verbos", "no-recíproco", "sintaxis"]
-
-variables:
-  sujeto1: uno_de(["Los niños", "Los alumnos", "Los jugadores"])
-  sujeto2: uno_de(["las niñas", "las alumnas", "las jugadoras"])
-  accion: uno_de(["jugaron", "estudiaron", "trabajaron"])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la oración '{sujeto1} y {sujeto2} {accion} en el parque', la coordinación es distributiva porque hay dos grupos de sujetos."
-
-explicacion: |
-  Falso. La acción de jugar, estudiar o trabajar se realiza por cada grupo o por todos juntos, pero no implica reciprocidad ni repartición de medios entre los grupos. Es una coordinación copulativa.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["sintaxis", "sujeto", "análisis"]
-
-variables:
-  nombre1: uno_de(["Ana", "Luis", "María"])
-  nombre2: uno_de(["Carlos", "Pedro", "Juan"])
-  verbo: uno_de(["se ayudaron", "se miraron", "se conocieron"])
-
-respuesta: |
-  Ana y Carlos
-tipo: completar
-
-enunciado: "En la oración '{nombre1} y {nombre2} {verbo}', el sujeto sintáctico es:"
-
-explicacion: |
-  El sujeto es el conjunto coordinado '{nombre1} y {nombre2}'. Aunque la acción sea distributiva, gramaticalmente forman un único sujeto plural.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["conjunciones", "disyuntiva", "distribución"]
-
-variables:
-  elem1: uno_de(["Uno", "Algunos", "Otros"])
-  elem2: uno_de(["de ellos", "de nosotros", "de ustedes"])
-  accion: uno_de(["viene", "va", "llega"])
-
-respuesta: |
-  Distributiva (por alternancia)
-tipo: completar
-
-enunciado: "En la frase '{elem1} {elem2} {accion} por la mañana y {elem1} {elem2} {accion} por la tarde', la coordinación es:"
-
-explicacion: |
-  La conjunción 'o' (implícita en la alternancia) distribuye la acción en el tiempo. Un grupo realiza la acción en un momento y el otro en otro. Es una coordinación distributiva por alternancia.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "avanzado"
-  tags: ["conectivos", "combinación", "distribución"]
-
-variables:
-  elem1: uno_de(["El libro", "El cuaderno", "La carpeta"])
-  elem2: uno_de(["el lápiz", "el borrador", "la regla"])
-  accion: uno_de(["es necesario", "es útil", "es importante"])
-
-respuesta: |
-  Puede ser distributiva si se aplica a cada uno individualmente
-tipo: completar
-
-enunciado: "En la frase '{elem1} y {elem2} {accion}', si se entiende que cada uno es necesario por separado, la coordinación es:"
-
-explicacion: |
-  Si la cualidad se aplica a cada elemento de forma individual (el libro es necesario y el lápiz es necesario), se trata de una coordinación distributiva de la cualidad.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["verbos", "recíproco", "sujeto"]
-
-variables:
-  sujeto: uno_de(["Ellos", "Nosotros", "Ellos"])
-  verbo: uno_de(["se abrazaron", "se besaron", "se saludaron"])
-
-respuesta: |
-  La acción se realiza mutuamente
-tipo: completar
-
-enunciado: "En la oración '{sujeto} {verbo} ayer', el significado de la coordinación distributiva es que:"
-
-explicacion: |
-  Los verbos recíprocos indican que cada sujeto realiza la acción sobre el otro. A abraza a B y B abraza a A.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["objeto", "distribución", "complemento"]
-
-variables:
-  sujeto: uno_de(["Ellos", "Nosotros", "Ellos"])
-  verbo: uno_de(["dieron", "enviaron", "mandaron"])
-  obj1: uno_de(["el regalo", "la carta", "el paquete"])
-  obj2: uno_de(["el premio", "el mensaje", "la nota"])
-
-respuesta: |
-  Distributiva
-tipo: completar
-
-enunciado: "En la oración '{sujeto} {verbo} {obj1} y {obj2} a sus amigos', si se entiende que uno dio el regalo y el otro el premio, la coordinación de los objetos directos es:"
-
-explicacion: |
-  La conjunción 'y' distribuye los objetos entre los sujetos. Cada sujeto entrega un objeto diferente. Es una coordinación distributiva del complemento directo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "avanzado"
-  tags: ["comparación", "disyuntiva", "distributiva"]
-
-variables:
-  elem1: uno_de(["Juan", "María", "Pedro"])
-  elem2: uno_de(["Carlos", "Laura", "Luis"])
-  accion: uno_de(["viene", "va", "llega"])
-
-respuesta: |
-  La distributiva aplica la acción a ambos, la disyuntiva excluye una opción
-tipo: completar
-
-enunciado: "La diferencia entre la coordinación distributiva en '{elem1} y {elem2} {accion}' y la disyuntiva en '{elem1} o {elem2} {accion}' es:"
-
-explicacion: |
-  La distributiva indica que la acción se realiza por ambos (individualmente o recíprocamente). La disyuntiva indica que solo uno de los dos realizará la acción, excluyendo al otro.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["verbos", "distribución", "acción"]
-
-variables:
-  elem1: uno_de(["El primero", "El segundo", "El último"])
-  elem2: uno_de(["el segundo", "el tercero", "el último"])
-  accion1: uno_de(["habló", "cantó", "dibujó"])
-  accion2: uno_de(["escuchó", "bailó", "pintó"])
-
-respuesta: |
-  Distributiva
-tipo: completar
-
-enunciado: "En la frase '{elem1} {accion1} y {elem2} {accion2}', la coordinación de las acciones es:"
-
-explicacion: |
-  Cada elemento realiza una acción diferente. La conjunción distribuye las acciones entre los sujetos. Es una coordinación distributiva.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "basico"
-  tags: ["conjunciones", "negación", "no-distributivo"]
-
-variables:
-  elem1: uno_de(["Ninguno", "Nadie", "Nada"])
-  elem2: uno_de(["de ellos", "de nosotros", "de ustedes"])
-  accion: uno_de(["vinieron", "llegaron", "estuvieron"])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En la oración 'Ni {elem1} {elem2} {accion}', la coordinación 'ni... ni...' es distributiva porque niega la acción a cada uno por separado."
-
-explicacion: |
-  Falso. Aunque niega a cada uno, no implica una acción recíproca ni una repartición de medios. Es una negación acumulativa a los sujetos. No es una coordinación distributiva en el sentido sintáctico de aplicación de acción mutua o alternante.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_distributivas"
-  nivel: "intermedio"
-  tags: ["sintaxis", "sujeto", "análisis"]
-
-variables:
-  nombre1: uno_de(["Ana", "Luis", "María"])
-  nombre2: uno_de(["Carlos", "Pedro", "Juan"])
-  verbo: uno_de(["se ayudaron", "se miraron", "se conocieron"])
-
-respuesta: |
-  Ana y Carlos
-tipo: completar
-
-enunciado: "En la oración '{nombre1} y {nombre2} {verbo}', el sujeto sintáctico es:"
-
-explicacion: |
-  El sujeto es el conjunto coordinado '{nombre1} y {nombre2}'. Aunque la acción sea distributiva, gramaticalmente forman un único sujeto plural.
-```
-
-## Sección: coordinadas-disyuntivas (28 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "avanzado"
-  tags: ["estilo", "estructura"]
-
-variables:
-  estructura: "ya... ya"
-  ejemplo: "ya"
-
-respuesta: "ya... ya"
-tipo: input
-
-enunciado: "En la expresión '______ llueve, ______ hace sol', ¿qué par de conjunciones disyuntivas se utiliza para enfatizar la alternancia de dos situaciones posibles?"
-
-explicacion: |
-  Las estructuras 'ya... ya', 'bien... bien' o 'ora... ora' son conjunciones disyuntivas compuestas que enfatizan la alternancia o la posibilidad de que ocurra una u otra de las acciones, a menudo con un matiz más literario o enfático que el simple 'o'.
+  La novela permite mayor desarrollo de personajes y subtramas que el
+  cuento.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "coordinadas_disyuntivas"
+  tema: "genero_narrativo"
   nivel: "basico"
-  tags: ["analisis", "identificacion"]
+  tags: ["fabula", "formas"]
 
 variables:
-  texto: "Vamos al cine o nos quedamos en casa."
-  conjuncion: "o"
+  n: uno_de([1, 1])
 
-respuesta: "o"
-tipo: input
-
-enunciado: "Lee la siguiente oración: '{texto}'. ¿Cuál es la conjunción disyuntiva que une las dos proposiciones?"
-
-explicacion: |
-  La oración está formada por dos proposiciones independientes ('Vamos al cine' y 'nos quedamos en casa') unidas por la conjunción disyuntiva 'o', que presenta una alternativa entre ambas opciones.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "intermedio"
-  tags: ["sintaxis", "estructura"]
-
-variables:
-  proposicion1: "Juan estudia"
-  proposicion2: "María juega"
-  conjuncion: "o"
-
-respuesta: "coordinada disyuntiva"
-tipo: input
-
-enunciado: "En la oración '{proposicion1} {conjuncion} {proposicion2}', ¿qué tipo de coordinación se establece entre las dos proposiciones independientes?"
-
-explicacion: |
-  Se trata de una coordinación disyuntiva porque las dos proposiciones independientes están unidas por una conjunción disyuntiva ('o'), estableciendo una relación de alternativa o opción entre ellas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "basico"
-  tags: ["diferenciacion", "copulativa"]
-
-variables:
-  tipo_correcto: "disyuntiva"
-  ejemplo: "y"
-  ejemplo_disy: "o"
-
-respuesta: "disyuntiva"
-tipo: input
-
-enunciado: "Si la conjunción 'y' une proposiciones en una coordinación copulativa, ¿qué tipo de coordinación establece la conjunción 'o'?"
-
-explicacion: |
-  La conjunción 'o' establece una coordinación disyuntiva, a diferencia de 'y', 'e', 'ni' que son copulativas (suman información).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "intermedio"
-  tags: ["estilo", "alternativas"]
-
-variables:
-  estructura: "bien... bien"
-  contexto: "formal"
-
-respuesta: "bien... bien"
-tipo: input
-
-enunciado: "Completa la frase: '______ aceptamos tu propuesta, ______ la rechazamos.' ¿Qué par de conjunciones disyuntivas se usa aquí para presentar dos extremos?"
-
-explicacion: |
-  'Bien... bien' es una conjunción disyuntiva compuesta que se utiliza para presentar dos alternativas claramente definidas, a menudo con un tono más formal o enfático.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "basico"
-  tags: ["identificacion", "lista"]
-
-variables:
-  lista: ["y", "ni", "o", "pero"]
-  disyuntiva: "o"
-
-respuesta: "o"
-tipo: input
-
-enunciado: "De la siguiente lista de conjunciones: 'y, ni, o, pero', ¿cuál es la única conjunción disyuntiva?"
-
-explicacion: |
-  'Y' es copulativa, 'ni' es copulativa negativa, 'pero' es adversativa. 'O' es la conjunción disyuntiva.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "avanzado"
-  tags: ["ambigüedad", "contexto"]
-
-variables:
-  frase: "Te voy a llamar o te escribo"
-  resolucion: "contexto"
-
-respuesta: "contexto"
-tipo: input
-
-enunciado: "En la frase 'Te voy a llamar o te escribo', la disyunción puede ser inclusiva o exclusiva. ¿Qué elemento ayuda a resolver esta ambigüedad?"
-
-explicacion: |
-  El contexto situacional y la intención del hablante son los que determinan si la opción es abierta (puedo hacer ambas) o cerrada (haré una de las dos). La gramática por sí sola no siempre lo define.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "avanzado"
-  tags: ["literario", "estructura"]
-
-variables:
-  estructura: "ora... ora"
-  ejemplo: "ora"
-
-respuesta: "ora... ora"
-tipo: input
-
-enunciado: "En textos literarios o formales, ¿qué par de conjunciones disyuntivas se usa para indicar alternancia en el tiempo: '______ caminaba, ______ descansaba'?"
-
-explicacion: |
-  'Ora... ora' es una conjunción disyuntiva compuesta de uso literario que indica alternancia de acciones o estados en el tiempo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "intermedio"
-  tags: ["sintaxis", "proposiciones"]
-
-variables:
-  oracion: "Estudio o me divierto."
-  num_proposiciones: 2
-
-respuesta: "2"
-tipo: input
-
-enunciado: "En la oración 'Estudio o me divierto', ¿cuántas proposiciones independientes están coordinadas?"
-
-explicacion: |
-  Hay dos proposiciones independientes: 'Estudio' y 'me divierto', unidas por la conjunción disyuntiva 'o'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "intermedio"
-  tags: ["estilo", "alternativas"]
-
-variables:
-  estructura: "bien... bien"
-  ejemplo: "bien"
-
-respuesta: "bien... bien"
-tipo: input
-
-enunciado: "Completa: '______ vienes con nosotros, ______ te quedás aquí.' ¿Qué conjunción disyuntiva compuesta falta?"
-
-explicacion: |
-  'Bien... bien' es una conjunción disyuntiva compuesta que presenta dos alternativas claras y a menudo excluyentes.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "intermedio"
-  tags: ["analisis", "compleja"]
-
-variables:
-  oracion: "No solo estudia, o también trabaja."
-  conjuncion: "o"
-
-respuesta: "o"
-tipo: input
-
-enunciado: "En la oración 'No solo estudia, o también trabaja', ¿cuál es la conjunción disyuntiva?"
-
-explicacion: |
-  La conjunción disyuntiva es 'o', que une las dos proposiciones 'estudia' y 'trabaja' presentando una alternativa o adición de acciones.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "basico"
-  tags: ["funcion", "preguntas"]
-
-variables:
-  funcion: "presentar alternativas"
-  ejemplo: "o"
-
-respuesta: "presentar alternativas"
-tipo: input
-
-enunciado: "¿Cuál es la función principal de la conjunción disyuntiva 'o' en una pregunta como '¿Quieres té o café'?"
-
-explicacion: |
-  Su función es presentar alternativas entre las cuales el interlocutor debe elegir una.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "avanzado"
-  tags: ["identificacion", "estilo"]
-
-variables:
-  texto: "Ya llueve, ya hace sol."
-  conjuncion: "ya... ya"
-
-respuesta: "ya... ya"
-tipo: input
-
-enunciado: "En la frase 'Ya llueve, ya hace sol', ¿qué par de conjunciones disyuntivas se utiliza?"
-
-explicacion: |
-  'Ya... ya' es una conjunción disyuntiva compuesta que enfatiza la alternancia de dos situaciones.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "basico"
-  tags: ["identificacion", "conjunciones"]
-
-variables:
-  opcion_a: uno_de(["café", "té", "leche"])
-  opcion_b: uno_de(["té", "leche", "agua"])
-  conjuncion: uno_de(["o", "u"])
-
-respuesta: "o"
-tipo: input
-
-enunciado: "En la frase 'Prefiero {opcion_a} {conjuncion} {opcion_b}', ¿cuál es la conjunción disyuntiva que conecta ambas opciones?"
-
-explicacion: |
-  La conjunción disyuntiva principal en español es "o". Se usa para presentar alternativas entre las que se debe elegir una.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "intermedio"
-  tags: ["ortografia", "cacofonia"]
-
-variables:
-  palabra1: uno_de(["hombre", "olivo"])
-  palabra2: uno_de(["mujer", "árbol"])
-
-respuesta: "u"
-tipo: input
-
-enunciado: "Si queremos unir 'hombre' y 'mujer' con una disyuntiva, pero la siguiente palabra comienza con 'o' o 'ho', ¿qué forma se utiliza para evitar la cacofonía? Ejemplo: 'hombre {palabra1} {palabra2}' (ajustar según la palabra que empiece con o/ho)."
-
-explicacion: |
-  Cuando la palabra siguiente a "o" comienza por 'o' o 'ho', se cambia la conjunción por "u" para evitar que suenen dos 'o' juntas (cacofonía).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "basico"
-  tags: ["clasificacion", "tipos"]
-
-respuesta: "disyuntiva"
-tipo: input
-
-enunciado: "En la oración 'Estudio o no estudio', ¿qué tipo de coordinación se presenta?"
-
-explicacion: |
-  Se presenta una coordinación disyuntiva porque se ofrecen dos alternativas entre las cuales se debe elegir una.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "basico"
-  tags: ["contexto", "ejemplos"]
-
-respuesta: "o"
-tipo: input
-
-enunciado: "En la frase 'Vamos al cine o quedamos en casa', ¿cuál es la palabra que indica la disyunción?"
-
-explicacion: |
-  La palabra "o" establece la alternativa entre ir al cine o quedarse en casa.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "intermedio"
-  tags: ["ortografia", "uso"]
-
-variables:
-  palabra: uno_de(["olivo", "hombre"])
-
-respuesta: "u"
-tipo: input
-
-enunciado: "Completa la frase correcta: 'Busco un olivo {palabra} un limonero' (si la palabra siguiente empieza con o/ho, usa la forma correcta)."
-
-explicacion: |
-  Si la palabra siguiente comienza con 'o' o 'ho', se debe usar "u" en lugar de "o" para evitar la cacofonía.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "basico"
-  tags: ["identificacion", "multiple"]
-
-opciones_explicitas: ["y", "o", "pero", "sino"]
-respuesta: "o"
+respuesta: "fábula"
 tipo: mc
+opciones_explicitas: ["cuento", "fábula", "leyenda", "mito"]
 
-enunciado: "De las siguientes conjunciones, ¿cuál es disyuntiva?"
+enunciado: "Un relato breve protagonizado por animales, que termina con una moraleja explícita, es un/una..."
+
+pasos:
+  - "Animales como protagonistas + moraleja al final = fábula."
 
 explicacion: |
-  "Y" es copulativa, "pero" y "sino" son adversativas. "O" es la única disyuntiva de la lista.
+  La fábula se distingue por sus protagonistas animales y su cierre
+  con una enseñanza moral explícita.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
+  materia: "lengua"
+  tema: "genero_narrativo"
   nivel: "intermedio"
-  tags: ["logica", "exclusividad"]
-
-respuesta: "exclusiva"
-tipo: input
-
-enunciado: "En la frase 'O te vas o te quedás', se entiende que no puedes hacer ambas cosas. ¿Qué tipo de disyunción se interpreta comúnmente aquí?"
-
-explicacion: |
-  Se interpreta como una disyunción exclusiva, donde las opciones son mutuamente excluyentes en el contexto dado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "intermedio"
-  tags: ["semantica", "funcion"]
-
-respuesta: "alternativa"
-tipo: input
-
-enunciado: "¿Qué relación lógica establece principalmente la conjunción 'o' entre dos proposiciones?"
-
-explicacion: |
-  Establece una relación de alternativa u opción entre las proposiciones conectadas.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "avanzado"
-  tags: ["uso_arcaico", "numeros"]
-
-respuesta: "ó"
-tipo: input
-
-enunciado: "Antiguamente, ¿qué forma se usaba para la conjunción disyuntiva entre números para evitar confusión con la letra 'o'?"
-
-explicacion: |
-  Se usaba "ó" (con tilde diacrítica) en contextos numéricos, aunque hoy ya no se recomienda su uso salvo en contadas ocasiones.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "avanzado"
-  tags: ["ambiguedad", "contexto"]
-
-respuesta: "contexto"
-tipo: input
-
-enunciado: "Cuando una disyunción es inclusiva pero se interpreta como exclusiva, ¿qué elemento suele resolver la ambigüedad?"
-
-explicacion: |
-  El contexto es el principal elemento que resuelve si la disyunción se entiende como inclusiva o exclusiva.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "intermedio"
-  tags: ["identificacion", "estructuras"]
-
-opciones_explicitas: ["ya... ya...", "porque", "aunque", "cuando"]
-respuesta: "ya... ya..."
-tipo: mc
-
-enunciado: "¿Cuál de estas estructuras es una coordinación disyuntiva?"
-
-explicacion: |
-  "Ya... ya..." es una estructura disyuntiva. "Porque" es causal, "aunque" es concesiva y "cuando" es temporal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
-  nivel: "intermedio"
-  tags: ["ortografia", "aplicacion"]
+  tags: ["leyenda", "formas"]
 
 variables:
-  palabra1: "hombre"
-  palabra2: "mujer"
+  n: uno_de([1, 1])
 
-respuesta: "u"
-tipo: input
+respuesta: "leyenda"
+tipo: mc
+opciones_explicitas: ["fábula", "leyenda", "mito", "novela"]
 
-enunciado: "En la frase 'Un {palabra1} {palabra2}', si quisiéramos usar una disyunción y la palabra siguiente a la conjunción empezara con 'o' (ejemplo hipotético: 'hombre o ...'), ¿cuál sería la forma correcta si la siguiente palabra fuera 'olivo'?"
+enunciado: "Un relato tradicional que mezcla un hecho real con elementos fantásticos para explicar el origen de algo local, es un/una..."
+
+pasos:
+  - "Mezcla de real+fantástico y explicación de origen local son las marcas de la leyenda."
 
 explicacion: |
-  Si la palabra siguiente a la conjunción comienza con 'o' o 'ho', se debe usar "u". En 'hombre u olivo', se usa "u".
+  La leyenda se diferencia del mito en que suele anclarse a un lugar
+  o hecho real concreto.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
+  materia: "lengua"
+  tema: "genero_narrativo"
   nivel: "intermedio"
-  tags: ["clasificacion", "variantes"]
+  tags: ["mito", "formas"]
 
-respuesta: "disyuntiva"
-tipo: input
+variables:
+  n: uno_de([1, 1])
 
-enunciado: "La coordinación 'Bien vengas, bien no vengas' es de tipo..."
+respuesta: "mito"
+tipo: mc
+opciones_explicitas: ["fábula", "leyenda", "mito", "cuento"]
+
+enunciado: "Un relato tradicional que explica fenómenos del mundo (como el día y la noche) a través de dioses o seres sobrenaturales, es un/una..."
+
+pasos:
+  - "Dioses/seres sobrenaturales + explicación de fenómenos del mundo son las marcas del mito."
 
 explicacion: |
-  Es una coordinación disyuntiva, ya que presenta dos alternativas entre las que se debe elegir.
+  El mito recurre a lo sobrenatural para explicar el origen de
+  fenómenos naturales o del mundo.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "basico"
+  tags: ["elementos", "personajes"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "personajes"
+tipo: completar
+
+enunciado: "El elemento narrativo que responde a \"¿quiénes participan en la historia?\" se llama..."
+
+pasos:
+  - "Protagonista, antagonista y secundarios son tipos de este elemento."
+
+explicacion: |
+  Los personajes son quienes llevan adelante (o sufren) la acción de
+  la historia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "basico"
+  tags: ["elementos", "trama"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "acción"
+tipo: completar
+
+enunciado: "El elemento narrativo que responde a \"¿qué sucede?\" (la serie de hechos encadenados) se llama..."
+
+pasos:
+  - "También se le llama \"trama\": la secuencia de sucesos de la historia."
+
+explicacion: |
+  La acción/trama es la serie de hechos que forman la historia
+  contada.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "basico"
+  tags: ["elementos", "tiempo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "tiempo"
+tipo: completar
+
+enunciado: "El elemento narrativo que responde a \"¿cuándo ocurre la historia?\" se llama..."
+
+pasos:
+  - "Incluye época, duración y orden en que se cuenta."
+
+explicacion: |
+  El tiempo narrativo define cuándo transcurren los hechos contados.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "basico"
+  tags: ["elementos", "espacio"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "espacio"
+tipo: completar
+
+enunciado: "El elemento narrativo que responde a \"¿dónde ocurre la historia?\" se llama..."
+
+pasos:
+  - "El lugar (real o imaginario) donde suceden los hechos."
+
+explicacion: |
+  El espacio narrativo es el escenario donde ocurre la acción.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_narrativo"
   nivel: "intermedio"
-  tags: ["clasificacion", "adversativa"]
+  tags: ["conflicto"]
 
-respuesta: "adversativa"
-tipo: input
+variables:
+  n: uno_de([1, 1])
 
-enunciado: "La conjunción 'sino' es de tipo..."
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin conflicto (un problema u obstáculo que enfrenta el protagonista), no hay historia que contar, sólo una descripción de hechos sin tensión."
+
+pasos:
+  - "El conflicto es lo que genera interés y avance en la trama."
 
 explicacion: |
-  "Sino" es una conjunción adversativa, utilizada para introducir una corrección o contraste.
+  Verdadero: el conflicto es el motor central de cualquier narración.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "coordinadas_disyuntivas"
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "basico"
+  tags: ["personajes", "diferenciacion"]
+
+variables:
+  tipos: ["protagonista", "antagonista"]
+  descripciones: ["el personaje principal, quien impulsa la acción", "el personaje que se opone al protagonista"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["protagonista", "antagonista", "secundario"]
+
+enunciado: "El personaje que es \"{descripciones[idx]}\" se llama..."
+
+pasos:
+  - "El protagonista impulsa la historia; el antagonista se le opone."
+
+explicacion: |
+  Protagonista y antagonista son los dos roles centrales del
+  conflicto narrativo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_narrativo"
   nivel: "avanzado"
-  tags: ["logica", "diferencia"]
+  tags: ["fabula", "mito", "diferenciacion"]
 
-respuesta: "posibilidad de ambas"
-tipo: input
+variables:
+  n: uno_de([1, 1])
 
-enunciado: "¿Qué característica distingue a la disyunción inclusiva de la exclusiva?"
+respuesta: falso
+tipo: vf
+
+enunciado: "La fábula y el mito son exactamente lo mismo, sólo cambia el nombre según la región."
+
+pasos:
+  - "La fábula usa animales para dejar una moraleja explícita; el mito usa dioses/seres sobrenaturales para explicar fenómenos del mundo."
 
 explicacion: |
-  La disyunción inclusiva permite que ambas proposiciones sean verdaderas simultáneamente, mientras que la exclusiva no.
+  Falso: se distinguen por sus protagonistas (animales vs. dioses) y
+  su propósito (enseñanza moral vs. explicación de fenómenos).
 ```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "intermedio"
+  tags: ["leyenda"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una característica típica de la leyenda es combinar un hecho o lugar real con elementos fantásticos."
+
+pasos:
+  - "A diferencia del mito (totalmente sobrenatural), la leyenda suele anclarse a algo real."
+
+explicacion: |
+  Verdadero: esa mezcla de real y fantástico es lo que distingue a la
+  leyenda de otras formas narrativas tradicionales.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "intermedio"
+  tags: ["cuento", "conflicto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de la novela, el cuento suele desarrollar un solo conflicto central, sin subtramas extensas."
+
+pasos:
+  - "La brevedad del cuento no permite el mismo desarrollo de múltiples tramas que la novela."
+
+explicacion: |
+  Verdadero: la concentración en un solo conflicto es típica del
+  cuento por su extensión breve.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "intermedio"
+  tags: ["formas", "clasificacion"]
+
+variables:
+  descripciones: ["un zorro y una cigüeña se invitan a cenar mutuamente y aprenden una lección", "una joven se convierte en río para escapar de un dios enamorado, y así se explica el origen del río"]
+  formas: ["fábula", "mito"]
+  idx: uno_de([0, 1])
+
+respuesta: formas[idx]
+tipo: mc
+opciones_explicitas: ["cuento", "fábula", "leyenda", "mito"]
+
+enunciado: "Un relato donde \"{descripciones[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "Animales + moraleja = fábula. Dioses/seres sobrenaturales + explicación de fenómeno = mito."
+
+explicacion: |
+  Cada forma narrativa breve tiene protagonistas y propósitos
+  característicos que permiten identificarla.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "avanzado"
+  tags: ["conflicto", "descripcion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "\"La casa era grande, con paredes blancas y techo rojo\" es un ejemplo de narración con un conflicto claro."
+
+pasos:
+  - "Esa oración sólo describe características, no cuenta hechos ni presenta un problema: es descriptiva, no narrativa."
+
+explicacion: |
+  Falso: sin acción ni conflicto, el texto es descriptivo, no
+  narrativo — coherente con la distinción vista en tipos textuales.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "intermedio"
+  tags: ["elementos", "metodo"]
+
+enunciado: "Ordená (de más general a más específico) el proceso para analizar los elementos de una narración."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar los personajes (protagonista, antagonista, secundarios)"
+  - "Determinar el tiempo y el espacio donde ocurre"
+  - "Reconocer la acción/trama: la secuencia de hechos"
+  - "Identificar el conflicto central que motoriza la historia"
+respuesta_orden: ["Identificar los personajes (protagonista, antagonista, secundarios)", "Determinar el tiempo y el espacio donde ocurre", "Reconocer la acción/trama: la secuencia de hechos", "Identificar el conflicto central que motoriza la historia"]
+explicacion: |
+  Se parte de quiénes participan, luego cuándo/dónde, después qué
+  pasa, y se llega al conflicto que explica por qué la historia
+  avanza.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "avanzado"
+  tags: ["genero_narrativo", "prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Entender los elementos básicos del género narrativo (personajes, trama, tiempo, espacio, conflicto) es el prerrequisito para estudiar quién narra la historia (narrador) y desde qué perspectiva (punto de vista)."
+
+pasos:
+  - "No se puede analizar CÓMO se cuenta una historia sin primero identificar QUÉ se está contando."
+
+explicacion: |
+  Verdadero: por eso este tema es el primer nodo de la subrama que
+  sigue con narrador, punto de vista y estructura narrativa.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "genero_narrativo"
+  nivel: "avanzado"
+  tags: ["formas", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el propósito es dejar una enseñanza moral clara usando animales como protagonistas, conviene escribir una fábula antes que una novela."
+
+pasos:
+  - "La fábula está diseñada específicamente para ese propósito: brevedad + moraleja explícita."
+
+explicacion: |
+  Verdadero: cada forma narrativa está adaptada a un propósito y
+  extensión distintos.
+```
+
+## Sección: generos-discursivos (41 preguntas)
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["generos_primarios", "identificacion"]
+
+variables:
+  genero: uno_de(["conversacion telefonica", "chiste entre amigos", "orden simple"])
+
+respuesta: genero
+tipo: input
+
+enunciado: "¿Cuál de los siguientes es un ejemplo de género discursivo PRIMARIO, surgido espontáneamente en la interacción cotidiana?"
+
+explicacion: |
+  Los géneros primarios son intercambios básicos de la vida diaria, como conversaciones telefónicas, chistes entre amigos o órdenes simples, que surgen de manera espontánea y no están mediadas por instituciones complejas.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["generos_secundarios", "caracteristicas"]
+
+variables:
+  caracteristica: uno_de(["estructura flexible", "interacción inmediata", "sistematización compleja"])
+
+respuesta: caracteristica
+tipo: input
+
+enunciado: "Los géneros discursivos secundarios se caracterizan por ser más complejos y desarrollarse en ámbitos organizados. ¿Cuál es una característica clave de estos géneros?"
+
+explicacion: |
+  A diferencia de los primarios, los géneros secundarios se construyen sobre bases primarias pero las transforman y sistematizan, requiriendo normas estrictas y planificación cuidadosa (ej. informes, ensayos).
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["funcion_social", "comunicacion"]
+
+variables:
+  funcion: uno_de(["guia social", "categoria rigida", "modelo literario"])
+
+respuesta: funcion
+tipo: input
+
+enunciado: "Los géneros discursivos actúan como '{funcion}' que nos ayudan a navegar situaciones de la vida cotidiana y profesional."
+
+explicacion: |
+  Los géneros discursivos no son categorías rígidas, sino modelos compartidos que funcionan como guías sociales para asegurar que el texto sea comprendido y tenga el impacto deseado en cada contexto.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["registro", "aplicacion"]
+
+variables:
+  situacion: uno_de(["trabajo academico", "anecdota con amigos"])
+  registro: "formal"
+  registro_inverso: "coloquial"
+
+respuesta: registro
+tipo: input
+
+enunciado: "Si intentamos escribir un '{situacion}' utilizando el lenguaje coloquial de un mensaje de WhatsApp, el mensaje puede perderse. ¿Qué tipo de registro sería más adecuado para un trabajo académico?"
+
+explicacion: |
+  Para un trabajo académico, se requiere un registro formal. Usar un registro coloquial (como en WhatsApp) en contextos formales puede llevar a malentendidos o falta de seriedad percibida.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["generos_secundarios", "ejemplos"]
+
+variables:
+  genero: uno_de(["noticia de prensa", "conversacion telefonica", "discusion familiar"])
+
+respuesta: genero
+tipo: input
+
+enunciado: "¿Cuál de los siguientes es un ejemplo claro de género discursivo SECUNDARIO, desarrollado en ámbitos organizados?"
+
+explicacion: |
+  La noticia de prensa es un género secundario porque toma elementos de la interacción primaria pero los organiza bajo normas estrictas de objetividad y estructura, a diferencia de la conversación telefónica o la discusión familiar que son primarios.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["generos_primarios", "estructura"]
+
+variables:
+  tipo_estructura: uno_de(["flexible", "estricta", "piramidal"])
+
+respuesta: tipo_estructura
+tipo: input
+
+enunciado: "La estructura de los géneros discursivos primarios suele ser '{tipo_estructura}' y su propósito es la interacción inmediata."
+
+explicacion: |
+  Los géneros primarios, al surgir de la interacción cotidiana espontánea, tienen una estructura flexible, a diferencia de los secundarios que suelen tener estructuras más definidas y rígidas.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["relacion_generos", "construccion"]
+
+variables:
+  relacion: uno_de(["se construyen sobre la base de los primarios", "son independientes de los primarios", "reemplazan totalmente a los primarios"])
+
+respuesta: relacion
+tipo: input
+
+enunciado: "Los géneros secundarios '{relacion}', pero los transforman y sistematizan."
+
+explicacion: |
+  Los géneros secundarios no surgen de la nada; se desarrollan sobre la base de los géneros primarios (interacciones básicas) pero les añaden complejidad, normas y sistematización.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["estructura", "tono"]
+
+variables:
+  elemento: uno_de(["vocabulario", "tono", "estructura"])
+
+respuesta: elemento
+tipo: input
+
+enunciado: "Cada género discursivo tiene una estructura, un '{elemento}' y un tono propios que nos indican cómo debemos comunicarnos en cada situación."
+
+explicacion: |
+  Cada género define no solo la estructura, sino también el vocabulario específico y el tono adecuado (formal, informal, técnico, etc.) para su uso correcto.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["generos_primarios", "proposito"]
+
+variables:
+  proposito: uno_de(["interaccion inmediata", "sistematizacion", "verificacion de datos"])
+
+respuesta: proposito
+tipo: input
+
+enunciado: "El propósito principal de los géneros discursivos primarios es la '{proposito}'."
+
+explicacion: |
+  Los géneros primarios están diseñados para la interacción directa y cotidiana, sin la necesidad de una planificación extensa o normas estrictas.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["generos_secundarios", "proposito"]
+
+variables:
+  proposito: uno_de(["comunicacion informal", "planificacion cuidadosa", "interaccion espontanea"])
+
+respuesta: proposito
+tipo: input
+
+enunciado: "Los géneros secundarios requieren un '{proposito}' que va más allá del intercambio espontáneo."
+
+explicacion: |
+  Los géneros secundarios, al ser más complejos y estar ligados a ámbitos institucionales, requieren una planificación cuidadosa y un conocimiento especializado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["definicion", "completar"]
+
+variables:
+  palabra1: "tipos"
+  palabra2: "textos"
+  palabra3: "funcion"
+  palabra4: "social"
+
+respuesta: palabra1
+tipo: completar
+
+enunciado: "Los géneros discursivos son los {palabra1} de textos que utilizamos habitualmente para cumplir con una {palabra4} específica."
+
+explicacion: |
+  Los géneros discursivos son los *tipos* de textos que usamos para cumplir funciones sociales. No son categorías literarias rígidas, sino modelos de uso común.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["ejemplo", "transformacion"]
+
+variables:
+  genero1: "conversacion"
+  genero2: "noticia"
+
+respuesta: genero2
+tipo: completar
+
+enunciado: "Una '{genero2}' de prensa toma elementos de una '{genero1}' o un reporte informal, pero los organiza bajo normas de objetividad."
+
+explicacion: |
+  La *noticia* de prensa es un género secundario que transforma elementos de la *conversación* o reporte informal primario mediante la aplicación de normas estrictas.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["registro", "completar"]
+
+variables:
+  palabra1: "perderse"
+  palabra2: "malinterpretado"
+
+respuesta: palabra1
+tipo: completar
+
+enunciado: "Si usamos lenguaje coloquial en un contexto formal, el mensaje puede {palabra1} o ser {palabra2}."
+
+explicacion: |
+  El uso inadecuado del registro puede hacer que el mensaje se *pierda* o sea *malinterpretado*, ya que no se ajusta a las expectativas del género discursivo esperado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["comparacion", "primario_secundario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los géneros primarios y secundarios tienen la misma estructura rígida y formal."
+
+explicacion: |
+  Falso. Los géneros primarios suelen tener una estructura flexible y surgen de la interacción espontánea, mientras que los secundarios son más complejos y sistematizados.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["vocabulario", "especializado"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Todos los géneros discursivos utilizan el mismo vocabulario estándar sin variaciones."
+
+explicacion: |
+  Falso. Cada género tiene un vocabulario propio que depende del contexto y la comunidad, como el lenguaje técnico en informes o el coloquial en chats.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "avanzado"
+  tags: ["naturaleza", "dinamica"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los géneros discursivos son categorías rígidas e inmutables que no cambian con el tiempo."
+
+explicacion: |
+  Falso. Los géneros son modelos que se construyen y comparten a lo largo del tiempo, adaptándose a las necesidades de la comunidad.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["efectividad", "comunicacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Usar el género discursivo adecuado aumenta la efectividad y precisión del mensaje."
+
+explicacion: |
+  Verdadero. Entender y usar el género correcto asegura que el texto sea comprendido y tenga el impacto deseado en la situación dada.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["tono", "situacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El tono de un género discursivo es siempre el mismo, independientemente de la situación."
+
+explicacion: |
+  Falso. El tono varía según la situación y el género; lo que es apropiado en una conversación familiar puede ser inapropiado en un informe legal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["adaptacion", "registro"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Debemos adaptar nuestro lenguaje al género discursivo adecuado para evitar malentendidos."
+
+explicacion: |
+  Verdadero. Usar el género incorrecto (ej. coloquial en un trabajo académico) puede llevar a que el mensaje se pierda o sea malinterpretado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["generos_primarios", "identificacion"]
+
+variables:
+  genero: uno_de(["conversacion_familiar", "orden_de_trabajo", "chiste_entre_amigos"])
+
+respuesta: genero
+tipo: input
+
+enunciado: "¿Cuál de los siguientes es un ejemplo clásico de género discursivo PRIMARIO?"
+
+explicacion: |
+  Los géneros primarios surgen espontáneamente en la interacción cotidiana directa. La conversación familiar, la orden de trabajo o el chiste entre amigos cumplen con esta definición, a diferencia de textos más complejos como noticias o ensayos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["definicion", "flexibilidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los géneros discursivos son categorías rígidas e inmutables que no cambian con el tiempo ni con la comunidad."
+
+explicacion: |
+  Falso. Los géneros discursivos son modelos que se construyen y comparten dentro de una comunidad a lo largo del tiempo, adaptándose a las necesidades comunicativas de cada contexto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["primarios", "secundarios", "comparacion"]
+
+variables:
+  correcta: uno_de(["interaccion_cotidiana", "sistematizacion_institucional"])
+  distractor1: "rigidez_formal"
+  distractor2: "ausencia_de_estructura"
+
+respuesta: correcta
+tipo: mc
+opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+
+enunciado: "La diferencia fundamental entre géneros primarios y secundarios radica en:"
+
+explicacion: |
+  Los primarios se basan en la interacción cotidiana y espontánea, mientras que los secundarios están sistematizados por instituciones complejas como la escuela, la ciencia o la administración.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["secundarios", "ejemplos"]
+
+variables:
+  correcta: uno_de(["noticia", "ensayo_cientifico", "informe_legal"])
+  distractor1: "conversacion_telefonica"
+  distractor2: "chiste"
+
+respuesta: correcta
+tipo: mc
+opciones_explicitas: [distractor1, distractor2, correcta, distractor2]
+
+enunciado: "¿Cuál de los siguientes es un ejemplo de género discursivo SECUNDARIO?"
+
+explicacion: |
+  La noticia, el ensayo científico y el informe legal son géneros secundarios porque se desarrollan en ámbitos organizados y requieren normas estrictas. La conversación y el chiste son primarios.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["registro", "efectividad"]
+
+variables:
+  genero_formal: uno_de(["informe_escolar", "carta_de_presentacion"])
+  genero_informal: uno_de(["mensaje_whatsapp", "chiste"])
+  contexto: uno_de(["academico", "profesional"])
+  registro: uno_de(["formal", "coloquial"])
+
+respuesta: registro
+tipo: input
+
+enunciado: "Si debes escribir un {genero_formal} en un contexto {contexto}, ¿qué registro debes evitar?"
+
+explicacion: |
+  Debes evitar el registro coloquial o informal, ya que el género formal requiere precisión y adecuación al contexto institucional o académico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["estructura", "primarios"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los géneros discursivos primarios suelen tener una estructura flexible y un propósito de interacción inmediata."
+
+explicacion: |
+  Verdadero. Al ser espontáneos y cotidianos, no están sujetos a las normas rígidas de los géneros secundarios, permitiendo mayor flexibilidad estructural.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["construccion", "relacion"]
+
+variables:
+  correcta: "generos_primarios"
+  distractor1: "normas_lingüisticas"
+  distractor2: "diccionarios"
+
+respuesta: correcta
+tipo: mc
+opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+
+enunciado: "Los géneros secundarios se construyen sobre la base de:"
+
+explicacion: |
+  Los géneros secundarios toman elementos de los géneros primarios (como la conversación o el reporte informal) y los transforman mediante la sistematización institucional.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["identificacion", "secundarios"]
+
+variables:
+  genero: uno_de(["noticia_prensa", "novela", "ensayo"])
+  caracteristica: uno_de(["objetividad", "ficción_narrativa", "argumentacion"])
+
+respuesta: genero
+tipo: input
+
+enunciado: "Si un texto se caracteriza por la {caracteristica} y la verificación de datos en un ámbito organizado, ¿qué género secundario es más probable?"
+
+explicacion: |
+  La noticia de prensa se caracteriza por la objetividad y la verificación de datos. La novela implica ficción y el ensayo argumentación, pero la descripción encaja mejor con la noticia en este contexto de "verificación".
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["errores", "registro"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Es aceptable escribir un trabajo académico utilizando el lenguaje coloquial de un mensaje de WhatsApp para ser más cercano al lector."
+
+explicacion: |
+  Falso. El trabajo académico requiere un registro formal y preciso. Usar lenguaje coloquial puede hacer que el mensaje se pierda o sea malinterpretado por no cumplir con las expectativas del género.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["primarios", "ejemplos"]
+
+variables:
+  correcta: uno_de(["discusion_familiar", "conversacion_telefonica"])
+  distractor1: "informe_legal"
+  distractor2: "receta_cocina"
+
+respuesta: correcta
+tipo: mc
+opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+
+enunciado: "¿Cuál de los siguientes es un ejemplo de género discursivo PRIMARIO?"
+
+explicacion: |
+  La discusión familiar y la conversación telefónica son interacciones cotidianas directas. La receta y el informe son géneros secundarios o estructurados institucionalmente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["instituciones", "secundarios"]
+
+variables:
+  institucion: uno_de(["escuela", "ciencia", "politica"])
+  genero: uno_de(["informe_escolar", "articulo_cientifico", "discurso_politico"])
+
+respuesta: genero
+tipo: input
+
+enunciado: "En el ámbito de la {institucion}, ¿qué tipo de género discursivo se desarrollaría típicamente?"
+
+explicacion: |
+  Cada institución desarrolla sus propios géneros secundarios. La escuela genera informes, la ciencia artículos, y la política discursos, todos sistematizados.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["secundarios", "complejidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los géneros secundarios como la literatura o el ensayo científico requieren un conocimiento especializado y una planificación cuidadosa."
+
+explicacion: |
+  Verdadero. A diferencia de los géneros primarios, los secundarios exigen una planificación previa y dominio de normas específicas del campo disciplinar o institucional.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["metforas", "explicacion"]
+
+variables:
+  correcta: uno_de(["recetas", "mapas"])
+  distractor1: "leyes"
+  distractor2: "reglas_de_juego"
+
+respuesta: correcta
+tipo: mc
+opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+
+enunciado: "En la teoría, los géneros discursivos se comparan a menudo con:"
+
+explicacion: |
+  Se usan las metáforas de "guías" o "recetas" sociales para explicar cómo nos indican los pasos a seguir en la comunicación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["contexto", "identificacion"]
+
+variables:
+  contexto: uno_de(["trabajo", "amigos", "familia"])
+  genero: uno_de(["orden_de_trabajo", "chiste", "conversacion_familiar"])
+
+respuesta: genero
+tipo: input
+
+enunciado: "En un contexto de {contexto}, ¿cuál sería un género discursivo primario típico?"
+
+explicacion: |
+  Dependiendo del contexto, la orden de trabajo, el chiste o la conversación familiar son ejemplos de interacciones primarias espontáneas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["primarios", "propósito"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El propósito principal de los géneros discursivos primarios es la interacción inmediata."
+
+explicacion: |
+  Verdadero. Estos géneros surgen para resolver necesidades comunicativas urgentes y cotidianas en el momento de la interacción.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["transformacion", "secundarios"]
+
+variables:
+  correcta: "sistematizan"
+  distractor1: "eliminan"
+  distractor2: "ignoran"
+
+respuesta: correcta
+tipo: mc
+opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+
+enunciado: "Los géneros secundarios toman elementos de los primarios y los:"
+
+explicacion: |
+  Los géneros secundarios transforman y sistematizan los elementos de los primarios, organizándolos bajo normas estrictas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["primarios", "definicion"]
+
+variables:
+  genero: uno_de(["conversacion_telefonica", "orden_simple", "chiste"])
+
+respuesta: genero
+tipo: input
+
+enunciado: "¿Cuál de estos es un género discursivo primario que no está mediado por instituciones complejas?"
+
+explicacion: |
+  La conversación telefónica, la orden simple o el chiste son interacciones directas y cotidianas, sin mediación institucional compleja.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["estructura", "primarios"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los géneros discursivos primarios tienen una estructura rígida y estricta que no permite variaciones."
+
+explicacion: |
+  Falso. Los géneros primarios suelen tener una estructura flexible, adaptándose a la espontaneidad de la interacción diaria.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["secundarios", "complejidad"]
+
+variables:
+  correcta: uno_de(["informe_legal", "novela", "ensayo"])
+  distractor1: "conversacion"
+  distractor2: "chiste"
+
+respuesta: correcta
+tipo: mc
+opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+
+enunciado: "¿Cuál de los siguientes es un ejemplo de género discursivo secundario complejo?"
+
+explicacion: |
+  El informe legal, la novela y el ensayo son géneros secundarios que requieren planificación y conocimiento especializado, a diferencia de los primarios.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["primarios", "interaccion"]
+
+variables:
+  interaccion: uno_de(["telefonica", "familiar", "laboral"])
+  genero: uno_de(["conversacion", "discusion", "orden"])
+
+respuesta: genero
+tipo: input
+
+enunciado: "En una interacción {interaccion}, ¿qué género primario sería más probable?"
+
+explicacion: |
+  La conversación, la discusión o la orden son géneros primarios típicos de interacciones cotidianas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "basico"
+  tags: ["instinto", "adquisicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sabemos casi instintivamente cómo escribir o hablar dependiendo de la situación gracias a los géneros discursivos."
+
+explicacion: |
+  Verdadero. La internalización de los géneros nos permite navegar la comunicación social de manera fluida y casi automática.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "generos_discursivos"
+  nivel: "intermedio"
+  tags: ["guia", "funcion"]
+
+variables:
+  correcta: "generos_discursivos"
+  distractor1: "gramatica"
+  distractor2: "ortografia"
+
+respuesta: correcta
+tipo: mc
+opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+
+enunciado: "¿Qué actúa como 'guía' o 'receta' social para navegar situaciones de la vida cotidiana?"
+
+explicacion: |
+  Los géneros discursivos son las guías que nos indican el comportamiento textual adecuado, más allá de las reglas gramaticales o ortográficas aisladas.
+```
+
+## Sección: narrador (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "basico"
+  tags: ["narrador", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El narrador de una historia es siempre exactamente la misma persona que el autor real del texto."
+
+pasos:
+  - "El narrador es una construcción del texto, elegida por el autor según el efecto que quiere lograr."
+
+explicacion: |
+  Falso: igual que el hablante lírico, el narrador es una voz
+  construida, no necesariamente el autor real.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "basico"
+  tags: ["narrador_protagonista"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "narrador protagonista"
+tipo: mc
+opciones_explicitas: ["narrador protagonista", "narrador testigo", "narrador omnisciente", "narrador observador"]
+
+enunciado: "\"Yo caminé hasta la plaza y me senté a esperar a mi amigo.\" ¿Qué tipo de narrador es?"
+
+pasos:
+  - "Cuenta en 1ª persona su propia historia, siendo el personaje central: es protagonista."
+
+explicacion: |
+  El narrador protagonista narra su propia historia en 1ª persona.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "basico"
+  tags: ["narrador_testigo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "narrador testigo"
+tipo: mc
+opciones_explicitas: ["narrador protagonista", "narrador testigo", "narrador omnisciente", "narrador observador"]
+
+enunciado: "\"Yo vi cómo Juan caminaba hasta la plaza y se sentaba a esperar.\" ¿Qué tipo de narrador es?"
+
+pasos:
+  - "Cuenta en 1ª persona, pero lo que le pasa a OTRO personaje (Juan), no a sí mismo: es testigo."
+
+explicacion: |
+  El narrador testigo está presente en la historia (1ª persona) pero
+  no es el protagonista de lo que cuenta.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "intermedio"
+  tags: ["narrador_omnisciente"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "narrador omnisciente"
+tipo: mc
+opciones_explicitas: ["narrador protagonista", "narrador testigo", "narrador omnisciente", "narrador observador"]
+
+enunciado: "\"Juan caminó hasta la plaza, pensando en lo que le diría a María.\" ¿Qué tipo de narrador es?"
+
+pasos:
+  - "Narra en 3ª persona (no es personaje) y accede a los PENSAMIENTOS de Juan: es omnisciente."
+
+explicacion: |
+  El narrador omnisciente sabe todo, incluso lo que piensan y sienten
+  los personajes, desde afuera de la historia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "intermedio"
+  tags: ["narrador_observador"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "narrador observador"
+tipo: mc
+opciones_explicitas: ["narrador protagonista", "narrador testigo", "narrador omnisciente", "narrador observador"]
+
+enunciado: "\"Juan caminó hasta la plaza y se sentó en un banco, mirando el reloj.\" (sin acceder a lo que piensa) ¿Qué tipo de narrador es?"
+
+pasos:
+  - "Narra en 3ª persona, sin ser personaje, y sólo cuenta lo observable (acciones), sin pensamientos internos: es observador."
+
+explicacion: |
+  El narrador observador cuenta desde afuera, limitado a lo que se ve
+  y se oye, sin acceso a la mente de los personajes.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "basico"
+  tags: ["persona_gramatical"]
+
+variables:
+  tipos: ["narrador protagonista", "narrador testigo"]
+  idx: uno_de([0, 1])
+
+respuesta: "primera"
+tipo: mc
+opciones_explicitas: ["primera", "segunda", "tercera"]
+
+enunciado: "El {tipos[idx]} narra en persona gramatical..."
+
+pasos:
+  - "Ambos usan \"yo\" para narrar, sea contando su propia historia o la de otro."
+
+explicacion: |
+  Protagonista y testigo son los dos tipos de narrador en 1ª persona.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "basico"
+  tags: ["persona_gramatical"]
+
+variables:
+  tipos: ["narrador omnisciente", "narrador observador"]
+  idx: uno_de([0, 1])
+
+respuesta: "tercera"
+tipo: mc
+opciones_explicitas: ["primera", "segunda", "tercera"]
+
+enunciado: "El {tipos[idx]} narra en persona gramatical..."
+
+pasos:
+  - "Ambos cuentan desde afuera de la historia, sin ser personajes ni usar \"yo\"."
+
+explicacion: |
+  Omnisciente y observador son los dos tipos de narrador en 3ª
+  persona.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "intermedio"
+  tags: ["narrador_omnisciente", "narrador_observador", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La diferencia entre narrador omnisciente y observador es que el omnisciente accede a los pensamientos y sentimientos internos de los personajes, y el observador sólo cuenta lo que se puede ver u oír."
+
+pasos:
+  - "Ambos narran en 3ª persona, pero difieren en cuánto saben del interior de los personajes."
+
+explicacion: |
+  Verdadero: es exactamente el criterio que distingue a los dos
+  narradores en 3ª persona.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "intermedio"
+  tags: ["narrador_protagonista", "narrador_testigo", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La diferencia entre narrador protagonista y testigo es que el protagonista cuenta su propia historia como personaje central, y el testigo cuenta lo que le pasa a otros."
+
+pasos:
+  - "Ambos narran en 1ª persona, pero difieren en si la historia les pasa a ellos o a otro personaje."
+
+explicacion: |
+  Verdadero: es el criterio que distingue a los dos narradores en 1ª
+  persona.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "avanzado"
+  tags: ["narrador_protagonista", "limitacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un narrador protagonista sólo puede contar lo que él mismo vive, sabe o piensa — no puede acceder a los pensamientos de otros personajes."
+
+pasos:
+  - "A diferencia del omnisciente, el protagonista está limitado a su propia experiencia y conocimiento."
+
+explicacion: |
+  Verdadero: esa limitación es una de las razones por las que el
+  autor elige un tipo de narrador u otro, según el efecto buscado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "intermedio"
+  tags: ["narrador_omnisciente", "conocimiento"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El narrador omnisciente puede saber cosas que ningún personaje individual conoce por completo, como los pensamientos secretos de varios personajes a la vez."
+
+pasos:
+  - "Su conocimiento no está limitado a la perspectiva de un solo personaje."
+
+explicacion: |
+  Verdadero: la amplitud de conocimiento es la característica
+  distintiva del narrador omnisciente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "avanzado"
+  tags: ["narrador", "clasificacion"]
+
+variables:
+  fragmentos: ["María sentía que el corazón se le aceleraba, aunque nadie más en la sala lo notaba", "María entró a la sala y se sentó en la primera fila, en silencio"]
+  tipos: ["narrador omnisciente", "narrador observador"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["narrador omnisciente", "narrador observador"]
+
+enunciado: "\"{fragmentos[idx]}\" (narrado en 3ª persona) corresponde a un..."
+
+pasos:
+  - "Si accede a lo que siente María por dentro, es omnisciente. Si sólo describe acciones visibles, es observador."
+
+explicacion: |
+  El acceso (o no) al interior del personaje es el criterio que
+  distingue estos dos tipos de narrador en 3ª persona.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "avanzado"
+  tags: ["narrador_protagonista", "efecto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Usar un narrador protagonista genera un efecto de inmediatez y subjetividad, porque el lector accede directamente a la experiencia del personaje central."
+
+pasos:
+  - "El costo de esa cercanía es la limitación: sólo se sabe lo que el protagonista sabe."
+
+explicacion: |
+  Verdadero: cada tipo de narrador tiene un efecto propio en cómo el
+  lector experimenta la historia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "avanzado"
+  tags: ["narrador_observador", "efecto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Usar un narrador observador genera un efecto de distancia y misterio, porque el lector debe interpretar a los personajes sin ayuda de sus pensamientos internos."
+
+pasos:
+  - "Al no acceder al interior de los personajes, el lector se apoya sólo en gestos y acciones, como si viera la escena."
+
+explicacion: |
+  Verdadero: la falta de acceso interno genera ambigüedad
+  interpretativa, un efecto buscado deliberadamente en muchos textos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "avanzado"
+  tags: ["narrador", "consistencia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Generalmente, un cuento o novela mantiene el mismo tipo de narrador (persona y nivel de conocimiento) a lo largo de todo el texto, salvo que el autor cambie deliberadamente de narrador entre capítulos."
+
+pasos:
+  - "Cambiar de narrador sin aviso puede confundir al lector; los cambios deliberados suelen marcarse claramente (por capítulo, por ejemplo)."
+
+explicacion: |
+  Verdadero: la consistencia del narrador es la norma, salvo decisión
+  explícita del autor de alternar.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "avanzado"
+  tags: ["narrador", "genero_dramatico", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En una obra de teatro (género dramático), los personajes que hablan en los diálogos cumplen la misma función que un narrador en un cuento."
+
+pasos:
+  - "El género dramático no tiene narrador; los personajes hablan directamente entre sí (ver `../genero-dramatico/`)."
+
+explicacion: |
+  Falso: el género dramático justamente no tiene narrador — la
+  historia se conoce sólo a través del diálogo entre personajes.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "intermedio"
+  tags: ["narrador_testigo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El narrador testigo suele ser un personaje secundario de la historia, que observa y cuenta lo que le pasa al protagonista."
+
+pasos:
+  - "A diferencia del narrador protagonista, el testigo no es el centro de la trama, sólo participa como observador cercano."
+
+explicacion: |
+  Verdadero: el testigo típico es un personaje cercano al
+  protagonista, pero no el centro de los hechos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "intermedio"
+  tags: ["narrador", "metodo"]
+
+enunciado: "Ordená los pasos para identificar el tipo de narrador de un texto."
+tipo: ordenar
+opciones_explicitas:
+  - "Revisar si el narrador dice \"yo\" y participa como personaje (1ª persona) o cuenta desde afuera (3ª persona)"
+  - "Si es 1ª persona, determinar si la historia le pasa a él (protagonista) o a otro (testigo)"
+  - "Si es 3ª persona, determinar si accede a pensamientos internos (omnisciente) o sólo a lo observable (observador)"
+  - "Confirmar que esa elección se mantiene a lo largo del texto"
+respuesta_orden: ["Revisar si el narrador dice \"yo\" y participa como personaje (1ª persona) o cuenta desde afuera (3ª persona)", "Si es 1ª persona, determinar si la historia le pasa a él (protagonista) o a otro (testigo)", "Si es 3ª persona, determinar si accede a pensamientos internos (omnisciente) o sólo a lo observable (observador)", "Confirmar que esa elección se mantiene a lo largo del texto"]
+explicacion: |
+  El método sigue el mismo árbol de decisión de la teoría: primero
+  persona gramatical, después el criterio específico de cada rama.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "avanzado"
+  tags: ["narrador", "punto_de_vista", "prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El tipo de narrador elegido determina desde dónde y con cuánta información se cuenta la historia — eso es justamente lo que se profundiza en el tema \"punto de vista\"."
+
+pasos:
+  - "Quién narra (protagonista/testigo/omnisciente/observador) fija los límites de lo que se puede contar."
+
+explicacion: |
+  Verdadero: por eso narrador es prerrequisito directo de punto de
+  vista, el siguiente tema de esta subrama.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "narrador"
+  nivel: "avanzado"
+  tags: ["narrador", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un autor quiere que el lector descubra la verdad al mismo tiempo que el protagonista, sin saber más que él, conviene usar un narrador protagonista antes que uno omnisciente."
+
+pasos:
+  - "El narrador omnisciente le daría al lector información que el protagonista todavía no tiene, rompiendo esa sorpresa compartida."
+
+explicacion: |
+  Verdadero: elegir el tipo de narrador es una decisión que controla
+  cuánta información recibe el lector y cuándo.
+```
+

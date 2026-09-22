@@ -1,2953 +1,2333 @@
-# Examen jefe — Maestro de Oraciones Subordinadas
+# Examen jefe — [PENDIENTE #662]
 
-> Logro #95. Completaste el parcial dominando las subordinadas adverbiales de tiempo, causal, concesiva, final, condicional y consecutiva. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **148 preguntas totales** en 5/5 secciones.
+> Logro #662. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: subordinada-adverbial-de-tiempo (34 preguntas)
+## Sección: conectores-textuales (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["subjuntivo", "anterioridad"]
+  tema: "conectores_textuales"
+  nivel: "basico"
+  tags: ["conectores_textuales", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Es verdadero que la expresión 'antes de que' casi siempre exige el uso del modo subjuntivo en la subordinada."
+enunciado: "Un conector textual une oraciones o párrafos distintos, dándole cohesión al texto — sin conectores, un texto es una sucesión de oraciones sueltas."
+
+pasos:
+  - "Ver `../oracion-compuesta-coordinacion-y-subordinacion/`: es distinto de un nexo, que une proposiciones DENTRO de la misma oración."
 
 explicacion: |
-  "Antes de que" es una de las pocas expresiones temporales que siempre rige el subjuntivo, ya que la acción es futura o incierta respecto al momento de habla.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "avanzado"
-  tags: ["sintaxis", "funcion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una subordinada adverbial de tiempo funciona sintácticamente como un adverbio dentro de la oración principal."
-
-explicacion: |
-  Correcto. Aunque es una oración completa con verbo, su función en la estructura mayor es la de un complemento circunstancial de tiempo (adverbial).
+  Verdadero: el conector opera entre oraciones/párrafos, no dentro de
+  una sola oración.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["estructura", "definicion"]
+  tema: "conectores_textuales"
+  nivel: "basico"
+  tags: ["aditivos"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  n: uno_de([1, 1])
 
-enunciado: "Las subordinadas adverbiales de tiempo contienen su propio verbo conjugado, a diferencia de los adverbios simples."
+respuesta: "aditivo"
+tipo: mc
+opciones_explicitas: ["aditivo", "adversativo", "causal"]
+
+enunciado: "\"El libro es interesante. Además, está muy bien escrito.\" El conector \"además\" es de tipo..."
+
+pasos:
+  - "Suma información adicional en la misma dirección de la idea anterior."
 
 explicacion: |
-  Sí. Un adverbio simple es una palabra (ayer), mientras que la subordinada es una oración (cuando ayer llovió).
+  Los conectores aditivos suman información en el mismo sentido.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "avanzado"
-  tags: ["subjuntivo", "indicativo"]
+  tema: "conectores_textuales"
+  nivel: "basico"
+  tags: ["adversativos"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  n: uno_de([1, 1])
 
-enunciado: "Es verdadero que con 'cuando' referido a hechos habituales o pasados, solemos usar el indicativo."
+respuesta: "adversativo"
+tipo: mc
+opciones_explicitas: ["aditivo", "adversativo", "consecutivo"]
+
+enunciado: "\"Estudió mucho. Sin embargo, no aprobó.\" El conector \"sin embargo\" es de tipo..."
+
+pasos:
+  - "Opone la segunda idea a lo que se esperaría de la primera."
 
 explicacion: |
-  Correcto. Ej: "Cuando iba al colegio, me compraba alfajores" (indicativo). Si fuera futuro incierto, sería subjuntivo ("Cuando vaya...").
+  Los conectores adversativos marcan contraste u oposición entre
+  ideas.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "subordinada_adverbial_de_tiempo"
+  tema: "conectores_textuales"
   nivel: "basico"
-  tags: ["lexico", "identificacion"]
-
-respuesta: "mientras"
-tipo: input
-
-enunciado: "En la frase 'Mientras leía, mi hermano jugaba', ¿cuál es la palabra que funciona como nexo temporal?"
-
-explicacion: |
-  "Mientras" es el nexo que introduce la subordinada de tiempo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "avanzado"
-  tags: ["coherencia", "discurso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El uso correcto de subordinadas de tiempo ayuda a organizar la secuencia lógica de eventos en un relato."
-
-explicacion: |
-  Sí. Permiten situar la acción en un contexto temporal rico y evitar que el discurso sea fragmentado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["estructura", "principal"]
-
-respuesta: "nosotros armábamos la carpa"
-tipo: input
-
-enunciado: "En 'Mientras el sol se ponía, nosotros armábamos la carpa', escribe la oración principal."
-
-explicacion: |
-  La principal es "nosotros armábamos la carpa". La subordinada es "Mientras el sol se ponía".
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["comparacion", "matiz"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Es falso que 'mientras' y 'cuando' (en sentido de simultaneidad) tengan la misma función temporal."
-
-explicacion: |
-  La afirmación es falsa porque SÍ tienen la misma función temporal (simultaneidad). Ambas indican que dos acciones ocurren al mismo tiempo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "avanzado"
-  tags: ["gramatica", "estructura"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es verdadero que la subordinada adverbial de tiempo tiene sujeto y verbo propios, aunque funcione como adverbio."
-
-explicacion: |
-  Sí. Es una oración subordinada, por lo tanto, es una frase oracional con su propia estructura interna.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["posterioridad", "identificacion"]
-
-respuesta: "después de que"
-tipo: input
-
-enunciado: "Si quiero decir que la acción principal ocurre después de la subordinada, ¿qué nexo uso?"
-
-explicacion: |
-  "Después de que" es el nexo estándar para posterioridad.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["sintaxis", "funcion", "intermedio"]
+  tags: ["causales"]
 
 variables:
-  tiempo: uno_de(["ayer", "mañana", "cuando termine", "mientras llovía", "antes de salir"])
-  accion: uno_de(["salí", "comí", "trabajé", "leí", "viajé"])
-
-respuesta: "sintagma adverbial de tiempo"
-tipo: completar
-
-enunciado: "En la frase 'Salí {tiempo}', la parte subrayada funciona sintácticamente como un/a: "
-
-explicacion: |
-  Las subordinadas adverbiales de tiempo cumplen la función de complemento circunstancial de tiempo, modificando al verbo de la oración principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["simultaneidad", "conectores", "intermedio"]
-
-variables:
-  accion1: uno_de(["cocinaba", "leía", "escuchaba música", "plancheaba", "cantaba"])
-  accion2: uno_de(["llegaste", "sonó el teléfono", "terminó la película", "abrió la puerta", "llovió"])
-  conector: "mientras"
-
-respuesta: "{conector}"
-tipo: completar
-
-enunciado: "Completa la oración para expresar simultaneidad: '{accion1} {conector} {accion2}'."
-
-explicacion: |
-  El conector 'mientras' indica que dos acciones ocurren al mismo tiempo, estableciendo una relación de simultaneidad entre las subordinadas.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "avanzado"
-  tags: ["subjuntivo", "anterioridad", "avanzado"]
-
-variables:
-  accion_principal: uno_de(["avísame", "llámame", "esperame", "prepárame", "avísame"])
-  accion_subordinada: uno_de(["llegues", "termines", "salgas", "vengas", "hables"])
-  conector: "antes de que"
-
-respuesta: "subjuntivo"
-tipo: completar
-
-enunciado: "En la construcción '{accion_principal} {conector} {accion_subordinada}', el verbo de la subordinada debe estar en modo: "
-
-explicacion: |
-  El conector 'antes de que' exige siempre el uso del subjuntivo en la subordinada, ya que expresa anterioridad respecto a una acción principal que puede ser futura o incierta.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["estructura", "analisis", "intermedio"]
-
-variables:
-  subordinada: uno_de(["Cuando llegues", "Mientras estudiabas", "Después de que comiste"])
-  principal: uno_de(["llámame", "te avisé", "vamos al cine"])
-
-respuesta: "{principal}"
-tipo: completar
-
-enunciado: "En la oración compuesta '{subordinada}, {principal}', ¿cuál es la oración principal (la que contiene la información central independiente)?"
-
-explicacion: |
-  La oración principal es aquella que puede existir gramaticalmente de forma independiente y cuyo verbo es el núcleo de la estructura.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "basico"
-  tags: ["posterioridad", "conectores", "basico"]
-
-variables:
-  accion1: uno_de(["terminamos", "salimos", "aprobamos", "llegamos", "comenzamos"])
-  accion2: uno_de(["comimos", "descansamos", "viajamos", "estudiemos", "descansamos"])
-  conector: "después de que"
-
-respuesta: "{conector}"
-tipo: completar
-
-enunciado: "Si la acción '{accion1}' ocurre primero y '{accion2}' luego, el conector adecuado para unir ambas es: "
-
-explicacion: |
-  'Después de que' indica que la acción de la subordinada sucede cronológicamente antes que la de la principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["limite", "conectores", "intermedio"]
-
-variables:
-  accion_continua: uno_de(["esperé", "trabajé", "estuve", "busqué", "corrí"])
-  accion_final: uno_de(["llegó", "terminó", "apareció", "sonó", "llovió"])
-  conector: "hasta que"
-
-respuesta: "{conector}"
-tipo: completar
-
-enunciado: "Completa: '{accion_continua} {conector} {accion_final}' para indicar el límite temporal de una acción."
-
-explicacion: |
-  'Hasta que' marca el punto final en el tiempo donde cesa la acción de la oración principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "avanzado"
-  tags: ["matiz", "conectores", "avanzado"]
-
-variables:
-  accion: uno_de(["te veo", "te llamo", "salgo", "vuelvo", "apareces"])
-  conector_inmediato: "en cuanto"
-  conector_general: "cuando"
-
-respuesta: "{conector_inmediato}"
-tipo: completar
-
-enunciado: "Para expresar inmediatez absoluta ('tan pronto como'), entre '{conector_general}' y '{conector_inmediato}', ¿cuál es más preciso?"
-
-explicacion: |
-  'En cuanto' implica una secuencia inmediata, sin demora, mientras que 'cuando' puede referirse a cualquier momento, habitual o específico.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "avanzado"
-  tags: ["indicativo", "tiempo", "avanzado"]
-
-variables:
-  accion_pasada: uno_de(["iba", "estudiaba", "jugaba", "cocinaba", "leía"])
-  accion_futura: uno_de(["vayas", "llegues", "termines", "salgas", "hables"])
-  conector: "cuando"
-
-respuesta: "indicativo"
-tipo: completar
-
-enunciado: "En la oración 'Siempre {accion_pasada} {conector} iba al parque', el verbo de la subordinada está en modo: "
-
-explicacion: |
-  Cuando 'cuando' se refiere a hechos habituales en el pasado o presentes, se utiliza el indicativo, no el subjuntivo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["sinonimia", "conectores", "intermedio"]
-
-variables:
-  accion1: uno_de(["recibí", "terminé", "llegué", "abrí", "vi"])
-  accion2: uno_de(["te avisé", "lo llamé", "salí", "corrí", "grité"])
-  conector: "tan pronto como"
-
-respuesta: "{conector}"
-tipo: completar
-
-enunciado: "Sustituye 'en cuanto' por su sinónimo temporal más común en: '{accion1} {conector} {accion2}'."
-
-explicacion: |
-  'Tan pronto como' es sinónimo de 'en cuanto' y ambos expresan inmediatez temporal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["inicio", "conectores", "intermedio"]
-
-variables:
-  accion_inicial: uno_de(["conocí", "empecé", "llegué", "aprendí", "viajé"])
-  accion_continua: uno_de(["estudio", "trabajo", "vivo", "escribo", "viajo"])
-  conector: "desde que"
-
-respuesta: "{conector}"
-tipo: completar
-
-enunciado: "Para indicar el punto de inicio de una acción que continúa hasta el presente o un momento pasado: '{accion_inicial} {conector} {accion_continua}'."
-
-explicacion: |
-  'Desde que' marca el origen temporal de una situación, estableciendo un intervalo que comienza en ese momento.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["sujeto", "analisis", "intermedio"]
-
-variables:
-  sujeto_sub: uno_de(["el sol", "mi hermano", "la lluvia", "el profesor", "nosotros"])
-  verbo_sub: uno_de(["se ponía", "llegaba", "llovía", "enseñaba", "estaba"])
-  sujeto_princ: uno_de(["armamos", "salimos", "corrimos", "cantamos", "viajamos"])
-
-respuesta: "{sujeto_sub}"
-tipo: completar
-
-enunciado: "En la oración '{verbo_sub} {sujeto_sub}, {sujeto_princ} la carpa', ¿quién es el sujeto de la subordinada adverbial de tiempo?"
-
-explicacion: |
-  La subordinada es '{verbo_sub} {sujeto_sub}'. El sujeto de esta cláusula es '{sujeto_sub}', diferente del sujeto de la principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "avanzado"
-  tags: ["condicion", "conectores", "avanzado"]
-
-variables:
-  accion: uno_de(["salgas", "vengas", "termines", "llegues", "hables"])
-  conector: "en cuanto"
-  resultado: uno_de(["te avisaré", "te llamaré", "saldré", "volveré", "gritaré"])
-
-respuesta: "{conector}"
-tipo: completar
-
-enunciado: "Completa la frase condicional-temporal: '{conector} {accion}, {resultado}'."
-
-explicacion: |
-  'En cuanto' introduce una condición temporal inmediata: la acción principal se desencadena instantáneamente al cumplirse la subordinada.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "avanzado"
-  tags: ["errores", "subjuntivo", "avanzado"]
-
-variables:
-  conector_erroneo: "después de"
-  conector_correcto: "después de que"
-  accion: uno_de(["llegues", "termines", "salgas", "vengas", "hables"])
-
-respuesta: "{conector_correcto}"
-tipo: completar
-
-enunciado: "En la frase 'Te avisaré {conector_erroneo} {accion}', ¿cuál es la forma correcta del conector?"
-
-explicacion: |
-  'Después de' es una preposición que requiere un sustantivo o gerundio. Para introducir una oración con verbo conjugado, se debe usar la locución conjuntiva 'después de que'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["anterioridad", "indicativo", "intermedio"]
-
-variables:
-  accion_pasada: uno_de(["comiste", "llegaste", "terminaste", "saliste", "hablaste"])
-  accion_pasada_anterior: uno_de(["había comido", "había llegado", "había terminado", "había salido", "había hablado"])
-  conector: "después de que"
-
-respuesta: "{conector}"
-tipo: completar
-
-enunciado: "Para expresar anterioridad en el pasado con indicativo: '{accion_pasada} {conector} {accion_pasada_anterior}'."
-
-explicacion: |
-  Cuando la anterioridad es un hecho consumado en el pasado, 'después de que' se usa con indicativo (o pluscuamperfecto), a diferencia del subjuntivo en contextos futuros/inciertos.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "basico"
-  tags: ["funcion", "pregunta", "basico"]
-
-variables:
-  accion: uno_de(["fue", "llegó", "terminó", "salió", "comenzó"])
-  tiempo: uno_de(["ayer", "a las tres", "cuando llovía", "mañana", "siempre"])
-
-respuesta: "¿cuándo?"
-tipo: completar
-
-enunciado: "La subordinada adverbial de tiempo responde principalmente a la pregunta: "
-
-explicacion: |
-  Estas oraciones indican el momento, duración o frecuencia de la acción principal, respondiendo a '¿cuándo?', '¿hasta cuándo?' o '¿desde cuándo?'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["comparacion", "gerundio", "intermedio"]
-
-variables:
-  accion1: uno_de(["cocinaba", "leía", "escuchaba", "trabajaba", "estudiaba"])
-  accion2: uno_de(["llegaste", "sonó el teléfono", "terminó la película", "abrió la puerta", "llovió"])
-  forma_subordinada: "mientras + verbo conjugado"
-  forma_gerundio: "mientras + gerundio"
-
-respuesta: "{forma_subordinada}"
-tipo: completar
-
-enunciado: "Para formar una subordinada adverbial de tiempo explícita (con sujeto propio) en lugar de una perífrasis con gerundio, usamos: "
-
-explicacion: |
-  'Mientras + gerundio' es una construcción perifrástica. La subordinada requiere 'mientras' seguido de un verbo conjugado con sujeto explícito o implícito.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "basico"
-  tags: ["lista", "conectores", "basico"]
-
-variables:
-  conector: uno_de(["cuando", "mientras", "antes de que", "después de que"])
-  accion: uno_de(["llegues", "termines", "salgas", "vengas"])
-
-respuesta: "{conector}"
-tipo: completar
-
-enunciado: "¿Cuál de estos conectores NO es temporal? (Opción A: 'cuando', Opción B: 'mientras', Opción C: 'porque', Opción D: 'antes de que')"
-
-explicacion: |
-  'Porque' es un conector causal, no temporal. Los demás indican tiempo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["estructura", "analisis", "intermedio"]
-
-variables:
-  subordinada: uno_de(["Cuando llueva", "Mientras duermas", "Antes de que salgas"])
-  verbo_principal: uno_de(["llevaré", "avisaré", "saldré", "volveré", "gritaré"])
-  objeto: uno_de(["el paraguas", "la noticia", "temprano", "tarde", "allí"])
-
-respuesta: "{subordinada}"
-tipo: completar
-
-enunciado: "Completa la oración compuesta: '{subordinada}, {verbo_principal} {objeto}'."
-
-explicacion: |
-  La estructura es: Subordinada de Tiempo + (coma opcional) + Oración Principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["analisis", "principal", "intermedio"]
-
-variables:
-  subordinada: uno_de(["Mientras el sol se ponía", "Cuando llegaste", "Antes de que comieras"])
-  accion_principal: uno_de(["armamos", "salimos", "corrimos", "cantamos", "viajamos"])
-  objeto: uno_de(["la carpa", "temprano", "tarde", "allí", "el parque"])
-
-respuesta: "{accion_principal}"
-tipo: completar
-
-enunciado: "En la oración '{subordinada}, {accion_principal} {objeto}', ¿cuál es el verbo de la oración principal?"
-
-explicacion: |
-  El verbo principal es el núcleo de la oración independiente que contiene la información central.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "avanzado"
-  tags: ["futuro", "inmediatez", "avanzado"]
-
-variables:
-  accion_sub: uno_de(["llegues", "termines", "salgas", "vengas", "hables"])
-  conector: "tan pronto como"
-  accion_princ: uno_de(["te avisaré", "te llamaré", "saldré", "volveré", "gritaré"])
-
-respuesta: "{conector}"
-tipo: completar
-
-enunciado: "Completa la frase de inmediatez futura: '{conector} {accion_sub}, {accion_princ}'."
-
-explicacion: |
-  'Tan pronto como' conecta una condición temporal futura con un resultado inmediato en el futuro.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["concordancia", "error", "intermedio"]
-
-variables:
-  sujeto: uno_de(["el equipo", "mi abuela", "los estudiantes", "el tren", "nosotros"])
-  verbo_erroneo: uno_de(["llegaron", "llego", "llegamos", "llegué", "llegan"])
-  verbo_correcto: uno_de(["llegó", "llegó", "llegaron", "llegó", "llegamos"])
-  conector: "cuando"
-
-respuesta: "{verbo_correcto}"
-tipo: completar
-
-enunciado: "En la oración '{sujeto} {conector} {verbo_erroneo}, hay un error de concordancia. ¿Cuál es la forma correcta del verbo?"
-
-explicacion: |
-  El verbo debe concordar en número y persona con el sujeto '{sujeto}'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "basico"
-  tags: ["limite", "conectores", "basico"]
-
-variables:
-  accion: uno_de(["esperé", "trabajé", "estuve", "busqué", "corrí"])
-  accion_final: uno_de(["llegó", "terminó", "apareció", "sonó", "llovió"])
-  conector: "hasta que"
-
-respuesta: "{conector}"
-tipo: completar
-
-enunciado: "Completa la oración que indica el fin de una acción: '{accion} {conector} {accion_final}'."
-
-explicacion: |
-  'Hasta que' marca el punto final temporal de la acción principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["identificacion", "clausula", "intermedio"]
-
-variables:
-  subordinada: uno_de(["Cuando llueva", "Mientras duermas", "Antes de que salgas"])
-  accion_principal: uno_de(["llevaré", "avisaré", "saldré", "volveré", "gritaré"])
-  objeto: uno_de(["el paraguas", "la noticia", "temprano", "tarde", "allí"])
-
-respuesta: "{subordinada}"
-tipo: completar
-
-enunciado: "En la oración '{subordinada}, {accion_principal} {objeto}', ¿cuál es la cláusula subordinada adverbial de tiempo?"
-
-explicacion: |
-  La cláusula subordinada es la que introduce el conector temporal y depende de la principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_adverbial_de_tiempo"
-  nivel: "intermedio"
-  tags: ["inicio", "pasado", "intermedio"]
-
-variables:
-  accion_inicial: uno_de(["conocí", "empecé", "llegué", "aprendí", "viajé"])
-  conector: "desde que"
-  accion_continua_pasada: uno_de(["estudié", "trabajé", "viví", "escribí", "viajé"])
-
-respuesta: "{conector}"
-tipo: completar
-
-enunciado: "Completa la oración que indica el inicio en el pasado: '{accion_inicial} {conector} {accion_continua_pasada}'."
-
-explicacion: |
-  'Desde que' marca el origen temporal, incluso si la acción continúa en el pasado (y no en el presente).
-```
-
-## Sección: subordinada-causal (27 preguntas)
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "basico"
-  tags: ["definicion", "concepto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una oración subordinada causal expresa el motivo o la razón por la que ocurre lo que se dice en la oración principal."
-
-explicacion: |
-  Correcto. La función principal de la subordinada causal es responder a la pregunta '¿por qué?'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["estructura", "sintaxis"]
-
-respuesta: "porque"
-tipo: completar
-respuestas_validas:
-  - "porque"
-  - "ya que"
-  - "puesto que"
-
-enunciado: "Completa la oración con un nexo causal adecuado: 'Llegué tarde al trabajo _______ hubo un accidente en la ruta.'"
-
-explicacion: |
-  Cualquier nexo causal estándar ('porque', 'ya que', 'puesto que') es válido para unir la causa con la consecuencia.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["nexos", "uso_avanzado"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La palabra 'Como' puede funcionar como nexo causal cuando se ubica al inicio de la oración subordinada."
-
-explicacion: |
-  Correcto. Ejemplo: 'Como llovió, no fuimos al parque'. Aquí 'Como' equivale a 'Porque'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "basico"
-  tags: ["logica", "coherencia"]
-
-respuesta: "por eso"
-tipo: completar
-respuestas_validas:
-  - "por eso"
-  - "por lo tanto"
-  - "entonces"
-
-enunciado: "Completa la secuencia causal: 'No comí nada. _______ tengo mucha hambre.'"
-
-explicacion: |
-  'Por eso' o 'por lo tanto' indican la consecuencia derivada de la causa anterior.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "avanzado"
-  tags: ["ambiguedad", "uso_correcto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oración 'No fui a la fiesta porque estaba cansado' puede ser ambigua si no se aclara si 'porque estaba cansado' es la causa de no ir o la causa de no ir a la fiesta (es decir, si la causa es el cansancio o si la fiesta fue la causa del cansancio)."
-
-explicacion: |
-  Aunque comúnmente se interpreta como causa, la estructura puede generar dudas sobre la jerarquía causal si el contexto no es claro.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["estructura", "flexibilidad"]
-
-respuesta: "porque"
-tipo: completar
-respuestas_validas:
-  - "porque"
-  - "ya que"
-  - "puesto que"
-
-enunciado: "Reescribe la oración poniendo la causa primero: 'No salió a pasear. _______ estaba lloviendo a cántaros.'"
-
-explicacion: |
-  Al invertir el orden, la causa se convierte en la primera proposición, introducida por un nexo causal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "basico"
-  tags: ["confusion_comun"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La expresión 'para que' siempre introduce una oración subordinada causal."
-
-explicacion: |
-  Falso. 'Para que' introduce una subordinada final (de propósito), no causal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["nexos"]
-
-respuesta: "por"
-tipo: completar
-respuestas_validas:
-  - "por"
-  - "a causa de"
-  - "debido a"
-
-enunciado: "Completa: 'El vuelo fue cancelado _______ la tormenta.'"
-
-explicacion: |
-  'Por', 'a causa de' o 'debido a' son nexos preposicionales causales.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "avanzado"
-  tags: ["implicatura", "gramatica"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una subordinada causal siempre debe tener un nexo explícito (como 'porque') para ser gramaticalmente correcta."
-
-explicacion: |
-  Aunque es lo común, la causalidad puede estar implícita o sugerida por el contexto, pero en el análisis formal de la subordinada, se busca el nexo o la estructura que la marque. Sin embargo, la afirmación es demasiado absoluta; existen construcciones participiales o absolutas que expresan causalidad sin nexos tradicionales. Pero en el contexto de enseñanza básica/intermedia, se enfatiza el nexo. Vamos a matizar: la pregunta evalúa si *siempre* es necesario. En español, la causalidad puede ser implícita. Por lo tanto, Falso es la respuesta más precisa lingüísticamente.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "basico"
-  tags: ["causalidad"]
-
-respuesta: "porque"
-tipo: completar
-respuestas_validas:
-  - "porque"
-  - "ya que"
-
-enunciado: "Completa: 'El vidrio se rompió _______ cayó una piedra.'"
-
-explicacion: |
-  Se requiere un nexo causal para unir el efecto con su origen directo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["locuciones"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La locución 'por la causa de que' es un nexo causal válido y correcto en español."
-
-explicacion: |
-  Es una forma correcta, aunque menos frecuente y más pesada que 'porque'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["estructura"]
-
-respuesta: "tanto... como"
-tipo: completar
-respuestas_validas:
-  - "tanto... como"
-  - "así como"
-
-enunciado: "Completa: 'Falló _______ no estudiara _______ se distrajo.'"
-
-explicacion: |
-  Se usan correlativos para enumerar múltiples causas de un mismo efecto.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "avanzado"
-  tags: ["comunicacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es posible establecer una relación causal sin usar nexos explícitos, mediante la yuxtaposición o el contexto."
-
-explicacion: |
-  Correcto. Ejemplo: 'Llovía. No salí.' La causalidad se infiere.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["diferenciacion"]
-
-variables:
-  contexto: uno_de(["estudio", "trabajo", "ahorro"])
-  objetivo: uno_de(["aprobar", "ganar dinero", "viajar"])
-
-respuesta: "para"
-tipo: input
-
-enunciado: "Si quiero expresar propósito en 'Trabajo {objetivo}', ¿qué nexo uso? (Ej: Trabajo PARA ganar dinero)."
-
-explicacion: |
-  'Para' introduce la finalidad, no la causa. La causa sería 'porque necesito dinero'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "basico"
-  tags: ["nexos", "identificacion"]
-
-variables:
-  nexo: uno_de(["porque", "ya que", "puesto que", "dado que"])
-  causa: uno_de(["lluvia intensa", "un accidente", "el cierre de calles", "una huelga"])
-  efecto: uno_de(["llegué tarde", "se canceló el evento", "hubo congestión", "perdí el tren"])
-
-respuesta: "porque"
-tipo: input
-
-enunciado: "En la oración 'Llegué tarde {nexo} {causa}', ¿cuál es el nexo causal más común y directo que une ambas partes?"
-
-explicacion: |
-  El nexo 'porque' es el más frecuente para introducir una oración subordinada causal directa que explica la razón de un hecho.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["causal", "final", "diferenciacion"]
-
-variables:
-  accion: uno_de(["estudio", "trabajo", "ahorro", "viajo"])
-  motivo_causal: uno_de(["por el examen", "por el sueldo", "por las vacaciones", "por el trabajo"])
-  nexo_final: "para"
+  n: uno_de([1, 1])
 
 respuesta: "causal"
-tipo: input
-
-enunciado: "En la frase 'Estudio {motivo_causal}', ¿qué tipo de subordinada se presenta: causal o final?"
-
-explicacion: |
-  Es causal porque responde a la pregunta '¿por qué?'. Si fuera 'para aprobar', sería final (propósito).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "basico"
-  tags: ["consecuencia", "identificacion"]
-
-variables:
-  causa: uno_de(["llovió mucho", "hubo un terremoto", "se cortó la luz", "falló el motor"])
-  nexo: "por eso"
-
-respuesta: "consecuencia"
-tipo: input
-
-enunciado: "En la frase '{causa}, {nexo} me quedé en casa', ¿qué rol cumple la primera parte?"
-
-explicacion: |
-  La primera parte es la causa. El nexo 'por eso' introduce la consecuencia resultante de esa causa.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["nexos", "como"]
-
-variables:
-  motivo: uno_de(["tenía prisa", "sabía la respuesta", "quería ayudar", "no tenía dinero"])
-  accion: uno_de(["corrió", "respondió", "intervino", "pidió prestado"])
-
-respuesta: "Como"
-tipo: input
-
-enunciado: "Reescribí la oración 'Estaba {motivo}, así que {accion}' comenzando con el nexo causal 'Como'."
-
-explicacion: |
-  'Como' puede funcionar como nexo causal cuando va al inicio de la oración, equivalente a 'porque'. Ej: 'Como tenía prisa, corrió'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["transformacion", "sintesis"]
-
-variables:
-  causa: uno_de(["el frío", "la lluvia", "el viento", "la nieve"])
-  efecto: uno_de(["cerraron las calles", "cancelaron el vuelo", "suspendieron el partido", "clausuraron el parque"])
-  nexo: "ya que"
-
-respuesta: "Cerraron las calles ya que {causa}."
-tipo: completar
-
-enunciado: "Transformá la relación causal: '{efecto}. La razón fue {causa}.' Usando el nexo '{nexo}'."
-
-explicacion: |
-  Se unen las oraciones usando el nexo causal para integrar la causa como subordinada. Ej: 'Cerraron las calles ya que el frío.'
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "basico"
-  tags: ["estructura", "principal"]
-
-variables:
-  causa: uno_de(["estaba cansado", "había mucho ruido", "no tenía ganas", "estaba lloviendo"])
-  nexo: "porque"
-  accion: uno_de(["me fui", "me callé", "me quedé", "salí"])
-
-respuesta: "me {accion}"
-tipo: input
-
-enunciado: "En la oración 'Me {accion} {nexo} {causa}', ¿cuál es la oración principal?"
-
-explicacion: |
-  La oración principal es 'Me fui/me callé/etc.', ya que es la que contiene el núcleo de la información y la subordinada depende de ella.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["inferencia", "comprension"]
-
-variables:
-  efecto: uno_de(["está sonriendo", "se abrigó", "cerró la ventana", "apagó la luz"])
-  causa: uno_de(["vio una buena noticia", "hace frío", "está lloviendo", "hay mucho ruido"])
-
-respuesta: "porque {causa}"
-tipo: input
-
-enunciado: "Si '{efecto}', ¿cuál es la causa más probable que se podría expresar con 'porque'?"
-
-explicacion: |
-  Se busca la relación lógica más directa. Ej: 'Está cerrando la ventana porque está lloviendo'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "basico"
-  tags: ["estructura", "orden"]
-
-variables:
-  causa: uno_de(["el retraso", "el error", "la falta", "el olvido"])
-  nexo: "por"
-  consecuencia: uno_de(["se perdió el tren", "fue reprendido", "perdió la llave", "llegó tarde"])
-
-respuesta: "consecuencia"
-tipo: input
-
-enunciado: "En 'Por {causa}, {consecuencia}', ¿qué parte es la consecuencia?"
-
-explicacion: |
-  La consecuencia es la parte que sigue al nexo causal cuando este va al inicio. Aquí, '{consecuencia}' es el resultado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["final", "diferenciacion"]
-
-variables:
-  accion: uno_de(["estudia", "trabaja", "ahorra", "corre"])
-  nexo_final: "para"
-
-respuesta: "final"
-tipo: input
-
-enunciado: "En 'Estudia {nexo_final} aprobar', ¿qué tipo de subordinada es 'para aprobar'?"
-
-explicacion: |
-  Es una subordinada final, ya que expresa el propósito o meta de la acción principal, no la causa pasada.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["correccion", "nexos"]
-
-variables:
-  causa: uno_de(["la tormenta", "el accidente", "la huelga", "la falta"])
-  efecto: uno_de(["se canceló", "hubo demora", "cambió el plan", "se perdió tiempo"])
-  nexo_erroneo: "si"
-
-respuesta: "porque"
-tipo: input
-
-enunciado: "Corregí el nexo en: '{efecto} {nexo_erroneo} {causa}.' (Usar nexo causal estándar)."
-
-explicacion: |
-  'Si' es condicional. El nexo causal correcto es 'porque' (o 'ya que', 'puesto que'). Ej: 'Se canceló porque la tormenta'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "basico"
-  tags: ["identificacion", "causa"]
-
-variables:
-  nexo: "porque"
-  efecto: uno_de(["estoy cansado", "tengo hambre", "estoy frío", "estoy feliz"])
-  causa: uno_de(["trabajé todo el día", "no comí", "hace mucho frío", "recibí una noticia"])
-
-respuesta: "trabajé todo el día"
-tipo: input
-
-enunciado: "En 'Estoy cansado {nexo} {causa}', ¿cuál es la causa?"
-
-explicacion: |
-  La causa es la razón que produce el efecto. En este caso, 'trabajé todo el día' es la causa del cansancio.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["logica", "diferenciacion"]
-
-variables:
-  causa: uno_de(["llueve", "hay sol", "hace frío", "hay viento"])
-  nexo: "por eso"
-  consecuencia: uno_de(["llevo paraguas", "uso gafas de sol", "me abrigue", "salgo a pasear"])
-
-respuesta: "causa"
-tipo: input
-
-enunciado: "En 'Porque {causa}, {consecuencia}', ¿qué es '{causa}'?"
-
-explicacion: |
-  '{causa}' es la causa. La estructura 'Porque X, Y' indica que X es la razón de Y.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_causal"
-  nivel: "intermedio"
-  tags: ["transformacion", "nexos"]
-
-variables:
-  causa: uno_de(["la falta de recursos", "el cambio de normas", "la urgencia", "la disponibilidad"])
-  efecto: uno_de(["se pospuso", "se adaptó", "se aceleró", "se canceló"])
-
-respuesta: "Puesto que {causa}, {efecto}."
-tipo: completar
-
-enunciado: "Reescribí: '{efecto}. La razón es {causa}.' Usando 'Puesto que'."
-
-explicacion: |
-  Se integra la causa como subordinada al inicio. Ej: 'Puesto que la falta de recursos, se pospuso.'
-```
-
-## Sección: subordinada-concesiva-y-final (20 preguntas)
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "basico"
-  tags: ["concesiva", "identificacion"]
-
-variables:
-  conjuncion: uno_de(["Aunque", "Si bien", "Pese a que"])
-  sujeto: uno_de(["los alumnos", "el equipo", "mi abuelo"])
-  verbo_principal: uno_de(["estudiaron", "jugó", "trabajó"])
-  complemento: uno_de(["el examen", "el torneo", "la mudanza"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "{conjuncion} {sujeto} {verbo_principal} {complemento}. Esta oración contiene una subordinada concesiva."
-
-explicacion: |
-  La conjunción "Aunque", "Si bien" o "Pese a que" introduce una circunstancia adversa que no impide la acción principal, definiendo una oración subordinada concesiva.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "basico"
-  tags: ["final", "proposito"]
-
-variables:
-  accion: uno_de(["Estudio", "Trabajo", "Viajo"])
-  motivo: uno_de(["para aprobar", "para ganar dinero", "para descansar"])
-
-respuesta: "para aprobar"
-tipo: completar
-
-enunciado: "Completa la oración con el propósito correcto: '{accion} mucho {motivo}.' (Escribe solo la parte que indica el fin)."
-
-explicacion: |
-  La estructura 'para + infinitivo' o 'para que' indica el fin o propósito de la acción principal. En este caso, 'para aprobar' es el objetivo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "basico"
-  tags: ["final", "conjunciones"]
-
-variables:
-  sujeto: uno_de(["Ella", "Nosotros", "Ellos"])
-  accion: uno_de(["estudia", "trabaja", "corre"])
-  fin: uno_de(["para que pase", "a fin de que llegue", "porque llega"])
-
-respuesta: "para que pase"
-tipo: completar
-
-enunciado: "Selecciona la opción que completa correctamente la idea final: '{sujeto} {accion} {fin}.' (Escribe la conjunción y el verbo conjugado)."
-
-explicacion: |
-  Las oraciones finales se introducen por "para que" o "a fin de que" seguidas de un verbo en subjuntivo. "Porque" introduce causalidad.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "intermedio"
-  tags: ["concesiva", "obstaculo"]
-
-variables:
-  obstaculo: uno_de(["El cansancio", "El frío", "La falta de tiempo"])
-  accion: uno_de(["terminó", "siguió", "completó"])
-  tarea: uno_de(["el informe", "la carrera", "la tarea"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la frase '{obstaculo} {accion} {tarea}', la primera parte funciona como una concesiva."
-
-explicacion: |
-  Para que sea concesiva, debe haber una conjunción como "A pesar de" o "Aunque". La frase tal cual está dada es ambigua o incompleta sintácticamente si no tiene la conjunción, pero en el contexto de análisis, asumimos que falta la conjunción explícita en el enunciado corto. Sin embargo, para ser estricto: La frase "{obstaculo}, {accion} {tarea}" NO es concesiva sin la conjunción. Cambiamos la respuesta a falso para ser precisos.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "intermedio"
-  tags: ["concesiva", "identificacion"]
-
-variables:
-  frase: uno_de(["Aunque llovió, fuimos"])
-  tipo_erroneo: "final"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La oración '{frase}' es una subordinada final."
-
-explicacion: |
-  "Aunque" es una conjunción concesiva, no final. Por lo tanto, la oración es concesiva, no final.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "basico"
-  tags: ["final", "identificacion"]
-
-variables:
-  accion: uno_de(["Guardé", "Ahorre", "Trabajé"])
-  objeto: uno_de(["el dinero", "el libro", "las llaves"])
-  fin: uno_de(["para el viaje", "para leer", "para abrir"])
-
-respuesta: "para el viaje"
-tipo: completar
-
-enunciado: "¿Cuál es el propósito en: '{accion} {objeto} {fin}?' (Escribe la parte del fin)."
-
-explicacion: |
-  "Para el viaje" indica el objetivo o fin de la acción principal. Es una estructura preposicional de fin.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "avanzado"
-  tags: ["final", "registro"]
-
-variables:
-  sujeto1: uno_de(["El gobierno", "La empresa", "Los vecinos"])
-  medida: uno_de(["implementó", "creó", "organizó"])
-  objetivo: uno_de(["la nueva ley", "el programa", "la reunión"])
-  fin_formal: "a fin de que"
-
-respuesta: "a fin de que"
-tipo: completar
-
-enunciado: "Completa con la locución conjuntiva formal: '{sujeto1} {medida} {objetivo} {fin_formal} se reduzcan los índices.'"
-
-explicacion: |
-  "A fin de que" es una locución conjuntiva final formal, seguida de subjuntivo, utilizada para expresar un propósito de manera más culta o administrativa.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "intermedio"
-  tags: ["concesiva", "sinonimia"]
-
-variables:
-  hecho: uno_de(["el proyecto falló", "la noticia era mala", "el camino era largo"])
-  resultado: uno_de(["se logró el éxito", "mantuvieron la esperanza", "continuaron marchando"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "'Si bien {hecho}, {resultado}.' contiene una oración subordinada concesiva."
-
-explicacion: |
-  "Si bien" funciona como sinónimo de "aunque" o "a pesar de que", introduciendo una circunstancia adversa que no impide el resultado principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "basico"
-  tags: ["final", "pregunta_clave"]
-
-variables:
-  accion: uno_de(["Voy", "Estudio", "Corro"])
-  lugar: uno_de(["al cine", "a la biblioteca", "al parque"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración '{accion} {lugar}', podemos preguntar '¿Para qué vas?' para identificar una idea final."
-
-explicacion: |
-  Aunque la frase simple no tiene una subordinada explícita con "para que", la preposición "a" aquí indica dirección. Sin embargo, si interpretamos "Voy al cine" como "Voy para ver una película", sí hay fin. Pero estrictamente sintáctico, no hay subordinada. Cambiamos a falso para ser rigurosos con la existencia de la subordinada.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "basico"
-  tags: ["final", "identificacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La oración 'Voy al cine' contiene una subordinada final explícita."
-
-explicacion: |
-  "Voy al cine" es una oración simple con complemento de régimen o destino. No contiene una oración subordinada explícita introducida por "para que" o similar.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "intermedio"
-  tags: ["concesiva", "identificacion"]
-
-variables:
-  conjuncion: uno_de(["Por más que", "Aun cuando", "A pesar de"])
-  dificultad: uno_de(["el ruido", "la oscuridad", "la fatiga"])
-  accion: uno_de(["pudo dormir", "llegó a tiempo", "terminó"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "'{conjuncion} {dificultad}, {accion}.' es una estructura de subordinada concesiva."
-
-explicacion: |
-  Las conjunciones "Por más que", "Aun cuando" y "A pesar de" introducen concesivas, indicando que la dificultad no impidió la acción.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "avanzado"
-  tags: ["final", "que"]
-
-variables:
-  verbo_voluntad: uno_de(["Pido", "Quiero", "Mando"])
-  sujeto2: uno_de(["que vengas", "que lo hagas", "que lo sepas"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En '{verbo_voluntad} {sujeto2}', el 'que' introduce una oración subordinada final."
-
-explicacion: |
-  Cuando el verbo de la principal expresa voluntad, deseo o mandato, el "que" puede introducir una subordinada final (ej: "Te pido que vengas [para que vengas]"). Es un uso elíptico o directo de la final.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "basico"
-  tags: ["final", "identificacion"]
-
-variables:
-  accion: uno_de(["Estudio", "Trabajo", "Ahorro"])
-  fin: uno_de(["para el futuro", "para mañana", "para siempre"])
-
-respuesta: "para el futuro"
-tipo: completar
-
-enunciado: "En '{accion} {fin}', ¿cuál es la parte que indica el fin?"
-
-explicacion: |
-  "Para el futuro" indica el propósito o meta de la acción.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "basico"
-  tags: ["concesiva", "ejemplo"]
-
-variables:
-  condicion: uno_de(["tenga frío", "sea tarde", "cueste dinero"])
-  accion: uno_de(["iré", "lo haré", "lo compraré"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "'Aunque {condicion}, {accion}.' es una oración subordinada concesiva."
-
-explicacion: |
-  "Aunque" es la conjunción concesiva por excelencia. Introduce una circunstancia que no impide la acción principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "intermedio"
-  tags: ["final", "proposito"]
-
-variables:
-  sujeto: uno_de(["El estudiante", "El trabajador", "El artista"])
-  accion: uno_de(["estudia", "trabaja", "dibuja"])
-  fin: uno_de(["para aprender", "para ganar", "para expresar"])
-
-respuesta: "para aprender"
-tipo: completar
-
-enunciado: "Completa con el fin lógico: '{sujeto} {accion} {fin}.'"
-
-explicacion: |
-  Depende del contexto, pero "para aprender" es un fin común para "estudia". La pregunta pide completar con una opción válida de fin.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "avanzado"
-  tags: ["final", "subjuntivo"]
-
-variables:
-  verbo_principal: uno_de(["Quiero", "Necesito", "Exijo"])
-  sujeto2: uno_de(["que vengas", "que lo hagas", "que lo digas"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En '{verbo_principal} {sujeto2}', el verbo 'sujeto2' debe estar en subjuntivo porque es una subordinada final."
-
-explicacion: |
-  Las oraciones finales introducidas por "para que" o "a fin de que" (o el "que" elíptico tras verbos de voluntad) requieren el modo subjuntivo en la subordinada.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "avanzado"
-  tags: ["final", "registro"]
-
-variables:
-  accion: uno_de(["Se estableció", "Se creó", "Se diseñó"])
-  fin_formal: "a fin de que"
-  objetivo: uno_de(["se garantice la seguridad", "se reduzca el riesgo", "se cumpla la norma"])
-
-respuesta: "a fin de que"
-tipo: completar
-
-enunciado: "Completa con la locución final formal: '{accion} medidas {fin_formal} {objetivo}.'"
-
-explicacion: |
-  "A fin de que" es la locución conjuntiva final formal adecuada para contextos administrativos o legales.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "intermedio"
-  tags: ["concesiva", "sinonimia"]
-
-variables:
-  esfuerzo: uno_de(["insistas", "trates", "pidas"])
-  resultado: uno_de(["no lo lograrás", "no lo conseguirás", "no lo obtendrás"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "'Por más que {esfuerzo}, {resultado}.' es una estructura de subordinada concesiva."
-
-explicacion: |
-  "Por más que" introduce una concesiva, indicando que el esfuerzo no garantiza el resultado o que el resultado ocurre a pesar del esfuerzo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "basico"
-  tags: ["final", "pregunta_clave"]
-
-variables:
-  accion: uno_de(["Voy", "Estudio", "Trabajo"])
-  fin: uno_de(["al cine", "para aprender", "por dinero"])
-
-respuesta: "para aprender"
-tipo: completar
-
-enunciado: "¿Cuál de estas opciones responde a '¿Para qué?' en el contexto de una subordinada final?"
-
-explicacion: |
-  "Para aprender" responde directamente a la pregunta de propósito. "Al cine" responde a "¿A dónde?". "Por dinero" responde a "¿Por qué?" (causa/motivo).
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_concesiva_y_final"
-  nivel: "avanzado"
-  tags: ["final", "que"]
-
-variables:
-  verbo_voluntad: uno_de(["Pido", "Quiero", "Mando"])
-  sujeto2: uno_de(["que vengas", "que lo hagas", "que lo sepas"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En '{verbo_voluntad} {sujeto2}', el 'que' introduce una oración subordinada final."
-
-explicacion: |
-  Cuando el verbo de la principal expresa voluntad, deseo o mandato, el "que" puede introducir una subordinada final (ej: "Te pido que vengas [para que vengas]"). Es un uso elíptico o directo de la final.
-```
-
-## Sección: subordinada-condicional (22 preguntas)
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_condicional"
-  nivel: "basico"
-  tags: ["identificacion", "oracion_compuesta"]
-
-variables:
-  condicion: uno_de(["llueve", "hace calor", "estudian"])
-  consecuencia: uno_de(["no salimos", "tomamos agua", "van al cine"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración 'Si {condicion}, {consecuencia}', la subordinada es condicional y expresa una posibilidad real."
-
-explicacion: |
-  La estructura "Si + presente de indicativo, futuro/_presente" es típica de las condicionales reales o probables.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_condicional"
-  nivel: "basico"
-  tags: ["gramatica", "indicativo"]
-
-variables:
-  frase: "Si llueve, me quedo en casa."
-  es_correcta: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oración '{frase}' es una condicional real correcta porque usa el presente de indicativo en la subordinada."
-
-explicacion: |
-  Para expresar condiciones probables o reales, se usa el presente de indicativo en la subordinada ('llueve') y presente o futuro en la principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_condicional"
-  nivel: "avanzado"
-  tags: ["irrealidad", "pasado"]
-
-variables:
-  frase: "Si hubiera sabido, habría venido."
-  es_condicional: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oración '{frase}' es una oración compuesta con subordinada condicional irreal referida al pasado."
-
-explicacion: |
-  Usa el pluscuamperfecto de subjuntivo ('hubiera sabido') en la subordinada y el condicional compuesto ('habría venido') en la principal, típico de situaciones irreales en el pasado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_condicional"
-  nivel: "intermedio"
-  tags: ["conjuncciones", "subjuntivo"]
-
-variables:
-  frase: "No saldré a menos que termines."
-  es_correcta: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oración '{frase}' es gramaticalmente correcta porque 'a menos que' exige el modo subjuntivo."
-
-explicacion: |
-  Las conjunciones condicionales negativas como "a menos que", "salvo que" o "excepto que" siempre rigen el subjuntivo.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_condicional"
-  nivel: "basico"
-  tags: ["tiempos_verbales", "futuro"]
-
-variables:
-  frase: "Si iré a la playa, hará sol."
-  es_correcta: falso
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La oración '{frase}' es correcta."
-
-explicacion: |
-  Es incorrecta. La subordinada condicional no puede ir en futuro ("Si iré"). Debe ser "Si irá" (imposible) o mejor "Si hará" (incorrecto por sujeto) -> "Si hace sol, iré a la playa". "Si" no se followed by futuro en la subordinada.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_condicional"
-  nivel: "basico"
-  tags: ["sintaxis", "orden"]
-
-variables:
-  frase: "No iremos si no llueve."
-  es_condicional: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración '{frase}', la subordinada condicional puede ir al final de la oración principal."
-
-explicacion: |
-  Las oraciones subordinadas condicionales pueden ir antes o después de la principal sin cambiar el significado lógico.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_condicional"
-  nivel: "intermedio"
-  tags: ["conjuncciones", "subjuntivo"]
-
-variables:
-  frase: "Iremos al cine salvo que tengas otra cosa que hacer."
-  es_correcta: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oración '{frase}' es correcta porque 'salvo que' rige el subjuntivo."
-
-explicacion: |
-  "Salvo que" es una conjunción condicional negativa que exige el modo subjuntivo en la subordinada.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_condicional"
-  nivel: "intermedio"
-  tags: ["conjuncciones", "registro_formal"]
-
-variables:
-  frase: "En caso de que llueva, llevamos paraguas."
-  es_correcta: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oración '{frase}' es correcta en registro formal."
-
-explicacion: |
-  "En caso de que" es una conjunción condicional formal que rige el subjuntivo ("llueva"). Es correcta.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_condicional"
-  nivel: "intermedio"
-  tags: ["conjuncciones", "subjuntivo"]
-
-variables:
-  frase: "No vendré a no ser que me inviten."
-  es_correcta: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oración '{frase}' es correcta porque 'a no ser que' rige el subjuntivo."
-
-explicacion: |
-  "A no ser que" es una conjunción condicional negativa que exige el modo subjuntivo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "basico"
-  tags: ["identificacion", "si"]
-
-variables:
-  sujeto: uno_de(["Juan", "María", "El equipo", "Nosotros"])
-  verbo1: uno_de(["llueva", "haga", "tenga", "venga"])
-  verbo2: uno_de(["iremos", "comeremos", "saliremos", "caminaremos"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración 'Si {verbo1}, {sujeto} {verbo2}', la cláusula 'Si {verbo1}' es una subordinada condicional."
-
-explicacion: |
-  La cláusula introducida por "si" establece una condición para la acción principal, por lo que funciona como subordinada condicional.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "intermedio"
-  tags: ["concordancia", "indicativo"]
-
-variables:
-  a: random(1, 5)
-  b: random(6, 10)
-  condicion: "real"
-
-respuesta: "Si llueve, no saldremos"
-tipo: input
-
-enunciado: "Completa la oración con la forma verbal correcta para expresar una condición probable: 'Si ______ (lluvia), no saldremos al parque'."
-
-explicacion: |
-  Para situaciones reales o probables, se usa el presente de indicativo en la subordinada ("llueva") y el futuro en la principal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "avanzado"
-  tags: ["sintaxis", "complemento"]
-
-variables:
-  verbo_principal: uno_de(["ir", "venir", "comer", "dormir"])
-
-respuesta: "complemento circunstancial de condición"
-tipo: input
-
-enunciado: "En la oración 'No iré si no llamas', la subordinada 'si no llamas' funciona sintácticamente como un/a..."
-
-explicacion: |
-  La subordinada condicional actúa como complemento circunstancial de condición del verbo de la oración principal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "intermedio"
-  tags: ["hipotesis", "subjuntivo"]
-
-variables:
-  sujeto: uno_de(["Yo", "Él", "Tú", "Ella"])
-  verbo_irreal: "tuviera"
-
-respuesta: "hipotética"
-tipo: input
-
-enunciado: "Clasifica la realidad de la oración: 'Si {sujeto} {verbo_irreal} tiempo, estudiaría más'. ¿Es real, probable o hipotética/irreal?"
-
-explicacion: |
-  El uso del imperfecto de subjuntivo en la condicional y condicional simple en la principal indica una situación hipotética o irreal en el presente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "basico"
-  tags: ["estructura", "puntuacion"]
-
-variables:
-  cond: "Si estudias mucho"
-  conse: "aprobarás el examen"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En español, es correcto invertir el orden: 'Aprobarás el examen si estudias mucho' sin cambiar el significado ni la gramática."
-
-explicacion: |
-  La subordinada condicional puede ir antes o después de la principal. Si va al principio, lleva coma; si va al final, no la lleva.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "intermedio"
-  tags: ["tiempos", "indicativo"]
-
-variables:
-  a: random(1, 10)
-  b: random(11, 20)
-  tiempo_sub: "presente"
-  tiempo_main: "futuro"
-
-respuesta: "presente"
-tipo: input
-
-enunciado: "Para expresar una condición probable en el futuro, ¿qué tiempo verbal se usa en la subordinada con 'si'? 'Si ______ (verbo), iré'."
-
-explicacion: |
-  En condiciones probables, la subordinada usa el presente de indicativo, aunque se refiera al futuro.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "avanzado"
-  tags: ["matiz", "exclusion"]
-
-variables:
-  contexto: "negativo"
-
-respuesta: "exclusión"
-tipo: input
-
-enunciado: "La conjunción 'a menos que' introduce una subordinada condicional con matiz de..."
-
-explicacion: |
-  "A menos que" implica una excepción o condición negativa: la acción principal no ocurrirá salvo que se cumpla la condición.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "intermedio"
-  tags: ["error", "subjuntivo"]
-
-variables:
-  verbo_erroneo: "tendré"
-  verbo_correcto: "tenga"
-
-respuesta: "tenga"
-tipo: input
-
-enunciado: "Corrige el verbo en la oración irreal: 'Si yo ______ (tener) suerte, ganaría la lotería'."
-
-explicacion: |
-  Para situaciones irreales, la subordinada requiere pretérito imperfecto de subjuntivo ('tuviera' o 'tuviese'), no futuro ni presente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "intermedio"
-  tags: ["condicion", "requisito"]
-
-variables:
-  requisito: "vengas"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "'Con tal de que' introduce una condición necesaria o requisito indispensable. 'Iré con tal de que vengas' es correcta."
-
-explicacion: |
-  "Con tal de que" exige el cumplimiento de la condición para que se realice la acción principal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "intermedio"
-  tags: ["sinonimia", "paráfrasis"]
-
-variables:
-  original: "Si no comes, tendrás hambre"
-  equivalente: "A menos que comas, tendrás hambre"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oración 'A menos que comas, tendrás hambre' tiene el mismo significado lógico que 'Si no comes, tendrás hambre'."
-
-explicacion: |
-  Ambas expresan la misma condición negativa. "A menos que" equivale a "si no".
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "avanzado"
-  tags: ["pasado", "irreal"]
-
-variables:
-  verbo_sub: "hubiera tenido"
-  verbo_main: "habría viajado"
-
-respuesta: "irreal del pasado"
-tipo: input
-
-enunciado: "Clasifica: 'Si hubiera tenido tiempo, habría viajado'. ¿Qué tipo de realidad expresa?"
-
-explicacion: |
-  Expresa una condición irreal en el pasado (no se cumplió) y su consecuencia hipotética también en el pasado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "intermedio"
-  tags: ["comparacion", "indicativo_vs_subjuntivo"]
-
-variables:
-  indicativo: "Si llueve, me mojo"
-  subjuntivo: "Si lloviera, me mojaría"
-
-respuesta: "probable"
-tipo: input
-
-enunciado: "¿Qué tipo de realidad expresa 'Si llueve, me mojo' en comparación con 'Si lloviera...'?"
-
-explicacion: |
-  'Si llueve' (indicativo) expresa probabilidad. 'Si lloviera' (subjuntivo) expresa hipótesis o irrealidad.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "subordinada_condicional"
-  nivel: "avanzado"
-  tags: ["variantes", "subjuntivo"]
-
-variables:
-  forma1: "hubiera"
-  forma2: "hubiese"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la oración 'Si hubiese llovido, no habríamos salido', el uso de 'hubiese' es correcto y equivalente a 'hubiera'."
-
-explicacion: |
-  Ambas formas del pretérito pluscuamperfecto de subjuntivo son válidas en español.
-```
-
-## Sección: subordinada-consecutiva (45 preguntas)
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["subordinada", "consecutiva", "correlato"]
-
-variables:
-  adjetivo: uno_de(["cansado", "contento", "enfadado", "sorprendido"])
-  consecuencia: uno_de(["no pudo dormir", "lloró de alegría", "gritó", "se quedó mudo"])
-
-respuesta: "tan"
-tipo: completar
-
-enunciado: "Ella estaba {adjetivo} ___ que {consecuencia}."
-
-explicacion: |
-  La estructura "tan + adjetivo + que" introduce una subordinada consecutiva que expresa el resultado de un grado intenso de la cualidad.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["subordinada", "consecutiva", "cantidad"]
-
-variables:
-  base: random(10, 50)
-  incremento: random(5, 20)
-  total: base + incremento
-
-respuesta: "{total}"
-tipo: input
-
-enunciado: "Si tengo {base} manzanas y compro {incremento} más, tengo tanto fruta como para hacer {total} pasteles. ¿Cuántas manzanas tengo en total?"
-
-explicacion: |
-  Aunque el contexto usa "tanto... como" en sentido comparativo de cantidad, el ejercicio pide calcular la suma total que justifica la consecuencia. En una estructura consecutiva estricta sería "tanto [sustantivo] que", aquí se evalúa la lógica de la cantidad resultante.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["subordinada", "consecutiva", "conjuncion"]
-
-variables:
-  causa: uno_de(["El ruido era ensordecedor", "Llovió sin parar", "El examen fue muy largo"])
-  efecto: uno_de(["salimos al patio", "nos quedamos adentro", "todos se cansaron"])
-
-respuesta: "que"
-tipo: completar
-
-enunciado: "{causa}, ___ {efecto}."
-
-explicacion: |
-  La conjunción "que" es el nexo principal que introduce la subordinada consecutiva en este tipo de estructuras correlativas.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["subordinada", "consecutiva", "logica"]
-
-variables:
-  grado: random(1, 5)
-  sustantivo: uno_de(["paciencia", "dinero", "tiempo", "paciencia"])
-  
-  # Lógica simple para generar la respuesta basada en el grado
-  # Si grado es 1->3: consecuencia leve, 4-5: consecuencia fuerte
-  # Para simplificar el DSL, usamos una variable predefinida de consecuencia
-  consecuencia_leve: "poco a poco"
-  consecuencia_fuerte: "rápidamente"
-
-respuesta: "que"
-tipo: completar
-
-enunciado: "Tiene {sustantivo} ___ {consecuencia_leve} (si grado <= 3) o ___ {consecuencia_fuerte} (si grado > 3)."
-
-explicacion: |
-  Independientemente de la consecuencia, el nexo que introduce la subordinada consecutiva es "que".
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["subordinada", "consecutiva", "estructura"]
-
-variables:
-  correlato: uno_de(["tan", "tanto", "tal"])
-  sustantivo: uno_de(["casa", "coche", "libro", "mesa"])
-
-respuesta: "tal"
 tipo: mc
-opciones_explicitas: ["tan", "tanto", "tal", "cuanto"]
+opciones_explicitas: ["causal", "consecutivo", "temporal"]
 
-enunciado: "Si queremos enfatizar la naturaleza del sustantivo '{sustantivo}' en una consecutiva, usamos '___ + {sustantivo} + que'. ¿Cuál es el correlato?"
+enunciado: "\"Llegó tarde porque perdió el colectivo.\" El conector \"porque\" es de tipo..."
+
+pasos:
+  - "Explica la razón del hecho mencionado antes."
 
 explicacion: |
-  "Tal" se usa ante sustantivos para enfatizar la cualidad o naturaleza del mismo, seguido de "que".
+  Los conectores causales explican el motivo o razón de algo.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["subordinada", "consecutiva", "analisis"]
-
-variables:
-  principal: uno_de(["El frío era intenso", "La noticia fue terrible", "El trabajo era pesado"])
-  subordinada: uno_de(["que temblaba", "que lloró", "que se rindió"])
-
-respuesta: "{principal}"
-tipo: completar
-
-enunciado: "En la oración '{principal} ___ {subordinada}', ¿cuál es la oración principal?"
-
-explicacion: |
-  La oración principal contiene el correlato gradativo (el grado intenso) y es la causa de la consecuencia. Aquí, "El frío era intenso" es la principal.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "avanzado"
-  tags: ["subordinada", "consecutiva", "cantidad"]
-
-variables:
-  x: random(2, 10)
-  resultado: x * 2
-
-respuesta: "{resultado}"
-tipo: input
-
-enunciado: "Si 'tanto' equivale a {x} y la consecuencia es el doble, ¿cuánto es el resultado? (Escribe solo el número)."
-
-explicacion: |
-  Ejercicio que vincula la lógica matemática con la estructura "tanto... que" para verificar la comprensión de la relación de proporcionalidad en la consecuencia.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "avanzado"
-  tags: ["subordinada", "consecutiva", "sintaxis"]
-
-variables:
-  funcion: uno_de(["Complemento Directo", "Complemento Circunstancial de Consecuencia", "Atributo", "Sujeto"])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: La subordinada consecutiva funciona sintácticamente como un '{funcion}' de la oración principal."
-
-explicacion: |
-  La subordinada consecutiva funciona como un Complemento Circunstancial de Consecuencia (o Atributo en casos específicos con 'ser', pero generalmente CC). Si la opción es CD, Atributo o Sujeto, es falso.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
+  materia: "lengua"
+  tema: "conectores_textuales"
   nivel: "basico"
-  tags: ["subordinada", "consecutiva", "vocabulario"]
+  tags: ["consecutivos"]
 
 variables:
-  adj: uno_de(["difícil", "fácil", "largo", "corto"])
-  sust: uno_de(["alumnos", "libros", "tiempo", "paciencia"])
+  n: uno_de([1, 1])
 
-respuesta: "tan"
+respuesta: "consecutivo"
 tipo: mc
-opciones_explicitas: ["tan", "tanto", "tal", "mucho"]
+opciones_explicitas: ["causal", "consecutivo", "aditivo"]
 
-enunciado: "El examen fue ___ {adj} que {sust} abandonaron. ¿Qué palabra falta?"
+enunciado: "\"Estudió mucho. Por lo tanto, aprobó.\" El conector \"por lo tanto\" es de tipo..."
+
+pasos:
+  - "Marca el resultado o consecuencia de lo dicho antes."
 
 explicacion: |
-  "Tan" se usa con adjetivos o adverbios. Como "{adj}" es un adjetivo, la forma correcta es "tan".
+  Los conectores consecutivos marcan el resultado que se sigue de la
+  idea anterior.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["subordinada", "consecutiva", "identificacion"]
-
-variables:
-  principal: uno_de(["Estaba tan cansado", "Tenía tanto sueño", "Fue tal el ruido"])
-  subordinada: uno_de(["que no pude estudiar", "que me dormí", "que salí corriendo"])
-
-respuesta: "{subordinada}"
-tipo: completar
-
-enunciado: "En la oración '{principal} ___ {subordinada}', ¿cuál es la subordinada consecutiva?"
-
-explicacion: |
-  La subordinada consecutiva es la parte que expresa la consecuencia, introducida por "que".
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["subordinada", "consecutiva", "grado"]
-
-variables:
-  base: random(100, 200)
-  porcentaje: random(10, 50)
-  resultado: floor(base * porcentaje / 100)
-
-respuesta: "{resultado}"
-tipo: input
-
-enunciado: "Si el grado es {base} y la consecuencia es el {porcentaje}% de ese grado, ¿cuánto es el resultado? (Redondea al entero más cercano)."
-
-explicacion: |
-  Ejercicio que refuerza la idea de que la consecutiva implica una medida o resultado derivado del grado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
+  materia: "lengua"
+  tema: "conectores_textuales"
   nivel: "basico"
-  tags: ["subordinada", "consecutiva", "nexo"]
+  tags: ["temporales"]
 
 variables:
-  estructura: uno_de(["tan... que", "tanto... que", "tal... que"])
+  conectores: ["primero", "luego", "finalmente"]
+  idx: uno_de([0, 1, 2])
 
-respuesta: "que"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{conectores[idx]}\" es un conector temporal, que ordena los hechos en el tiempo."
+
+pasos:
+  - "Este tipo de conector es especialmente frecuente en textos narrativos (ver `../tipos-textuales/`)."
+
+explicacion: |
+  Verdadero: los conectores temporales ordenan la secuencia de hechos
+  o pasos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conectores_textuales"
+  nivel: "intermedio"
+  tags: ["de_orden"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "de orden/organización"
 tipo: mc
-opciones_explicitas: ["porque", "que", "si", "cuando"]
+opciones_explicitas: ["de orden/organización", "temporal", "causal"]
 
-enunciado: "En la estructura '{estructura}', ¿cuál es la conjunción que introduce la consecutiva?"
+enunciado: "\"En primer lugar\" y \"por último\", usados para organizar las PARTES de un texto (no el contenido narrado), son conectores de tipo..."
+
+pasos:
+  - "Organizan la estructura del texto en sí, no una secuencia de hechos narrados."
 
 explicacion: |
-  La conjunción es "que".
+  Los conectores de orden organizan las partes del propio texto,
+  distinto de ordenar hechos en el tiempo.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
+  materia: "lengua"
+  tema: "conectores_textuales"
   nivel: "intermedio"
-  tags: ["subordinada", "consecutiva", "tal"]
+  tags: ["ejemplificadores"]
 
 variables:
-  sust: uno_de(["sorpresa", "alegría", "tristeza", "ira"])
-  accion: uno_de(["se le cayó el celular", "no podía hablar", "corrió hacia la salida", "se abrazaron"])
+  conectores: ["por ejemplo", "es decir", "a saber"]
+  idx: uno_de([0, 1, 2])
 
-respuesta: "tal"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Fue {sust} ___ que {accion}."
+enunciado: "\"{conectores[idx]}\" es un conector ejemplificador, que introduce un ejemplo o aclaración de lo dicho antes."
+
+pasos:
+  - "Frecuente en textos expositivos, para hacer más concreta una afirmación general."
 
 explicacion: |
-  "Tal" se usa con sustantivos para enfatizar la naturaleza del hecho, seguido de "que".
+  Verdadero: los ejemplificadores introducen casos concretos que
+  ilustran lo afirmado.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
+  materia: "lengua"
+  tema: "conectores_textuales"
+  nivel: "intermedio"
+  tags: ["conectores_textuales", "tipos_textuales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El tipo textual narrativo se apoya mucho en conectores temporales (\"luego\", \"después\", \"finalmente\")."
+
+pasos:
+  - "Ver `../tipos-textuales/`: coincide con la marca de conectores temporales ya vista ahí para el narrativo."
+
+explicacion: |
+  Verdadero: cada tipo textual privilegia ciertas familias de
+  conectores según su propósito.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conectores_textuales"
+  nivel: "intermedio"
+  tags: ["conectores_textuales", "tesis", "argumentos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El texto argumentativo se apoya mucho en conectores causales y consecutivos, coherente con la lógica de \"porque\"/\"por lo tanto\" usada al construir argumentos."
+
+pasos:
+  - "Ver `../argumentos/`: esos mismos conectores ya se mencionaron como típicos de la introducción de argumentos."
+
+explicacion: |
+  Verdadero: los conectores causales/consecutivos son centrales para
+  el texto argumentativo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conectores_textuales"
   nivel: "avanzado"
-  tags: ["subordinada", "consecutiva", "cantidad"]
+  tags: ["conectores_textuales", "errores"]
 
 variables:
-  x: random(5, 15)
-  resultado: x + 10
+  n: uno_de([1, 1])
 
-respuesta: "{resultado}"
-tipo: input
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Si 'tanto' equivale a {x} y la consecuencia es {x} + 10, ¿cuánto es el resultado? (Escribe solo el número)."
+enunciado: "\"Estudió mucho. Por lo tanto, no aprobó\" suena raro porque \"por lo tanto\" anuncia una consecuencia esperada, y la segunda idea contradice esa expectativa."
+
+pasos:
+  - "En ese caso correspondería un conector adversativo (\"sin embargo\"), no uno consecutivo."
 
 explicacion: |
-  Ejercicio que vincula la lógica matemática con la estructura "tanto... que" para verificar la comprensión de la relación de proporcionalidad en la consecuencia.
+  Verdadero: elegir mal la familia de conector genera una relación
+  lógica incoherente entre las ideas, más allá de que suene raro.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["subordinada", "consecutiva", "vocabulario"]
+  materia: "lengua"
+  tema: "conectores_textuales"
+  nivel: "intermedio"
+  tags: ["conectores_textuales", "practica"]
 
 variables:
-  adj: uno_de(["difícil", "fácil", "largo", "corto"])
-  sust: uno_de(["alumnos", "libros", "tiempo", "paciencia"])
+  relaciones: ["sumar una idea nueva en la misma dirección", "marcar que la segunda idea contradice la expectativa de la primera", "explicar la razón de un hecho", "marcar el resultado de lo dicho antes"]
+  familias: ["aditivo", "adversativo", "causal", "consecutivo"]
+  idx: uno_de([0, 1, 2, 3])
 
-respuesta: "tan"
+respuesta: familias[idx]
 tipo: mc
-opciones_explicitas: ["tan", "tanto", "tal", "mucho"]
+opciones_explicitas: ["aditivo", "adversativo", "causal", "consecutivo"]
 
-enunciado: "El examen fue ___ {adj} que {sust} abandonaron. ¿Qué palabra falta?"
+enunciado: "Para \"{relaciones[idx]}\", conviene usar un conector..."
+
+pasos:
+  - "Cada familia de conector corresponde a un tipo específico de relación lógica entre ideas."
 
 explicacion: |
-  "Tan" se usa con adjetivos o adverbios. Como "{adj}" es un adjetivo, la forma correcta es "tan".
+  Elegir la familia correcta de conector depende de qué relación
+  lógica real existe entre las dos ideas que se unen.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["subordinada", "consecutiva", "identificacion"]
+  materia: "lengua"
+  tema: "conectores_textuales"
+  nivel: "avanzado"
+  tags: ["conectores_textuales", "oracion_compuesta", "diferenciacion"]
 
 variables:
-  principal: uno_de(["Estaba tan cansado", "Tenía tanto sueño", "Fue tal el ruido"])
-  subordinada: uno_de(["que no pude estudiar", "que me dormí", "que salí corriendo"])
+  n: uno_de([1, 1])
 
-respuesta: "{subordinada}"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"Y\" (en \"Juan estudió y aprobó\") es un nexo dentro de una misma oración; \"además\" (en \"Juan estudió. Además, aprobó.\") es un conector textual entre dos oraciones distintas."
+
+pasos:
+  - "Ver `../oracion-compuesta-coordinacion-y-subordinacion/`: la diferencia clave es si unen proposiciones dentro de una oración o entre oraciones/párrafos distintos."
+
+explicacion: |
+  Verdadero: nexo y conector textual cumplen funciones similares en
+  escalas distintas (oración vs. texto).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conectores_textuales"
+  nivel: "avanzado"
+  tags: ["conectores_textuales", "significado"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los conectores no cambian los hechos que se están contando, sólo señalan qué relación lógica existe entre esos hechos (suma, contraste, causa, consecuencia)."
+
+pasos:
+  - "El mismo par de oraciones puede leerse con relaciones distintas según qué conector se elija."
+
+explicacion: |
+  Verdadero: el conector es una señal de relación lógica, no un
+  cambio del contenido informativo en sí.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conectores_textuales"
+  nivel: "intermedio"
+  tags: ["conectores_textuales", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "sin embargo"
 tipo: completar
 
-enunciado: "En la oración '{principal} ___ {subordinada}', ¿cuál es la subordinada consecutiva?"
+enunciado: "En \"El plan parecía perfecto. Sin embargo, algo salió mal en el último momento.\", ¿cuál es el conector textual usado?"
+
+pasos:
+  - "Marca el contraste entre la expectativa (\"parecía perfecto\") y lo que realmente pasó."
 
 explicacion: |
-  La subordinada consecutiva es la parte que expresa la consecuencia, introducida por "que".
+  \"Sin embargo\" es un conector adversativo que marca la oposición
+  entre las dos ideas.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
+  materia: "lengua"
+  tema: "conectores_textuales"
   nivel: "intermedio"
-  tags: ["subordinada", "consecutiva", "grado"]
+  tags: ["conectores_textuales", "practica"]
 
 variables:
-  base: random(100, 200)
-  porcentaje: random(10, 50)
-  resultado: floor(base * porcentaje / 100)
+  n: uno_de([1, 1])
 
-respuesta: "{resultado}"
-tipo: input
-
-enunciado: "Si el grado es {base} y la consecuencia es el {porcentaje}% de ese grado, ¿cuánto es el resultado? (Redondea al entero más cercano)."
-
-explicacion: |
-  Ejercicio que refuerza la idea de que la consecutiva implica una medida o resultado derivado del grado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["subordinada", "consecutiva", "nexo"]
-
-variables:
-  estructura: uno_de(["tan... que", "tanto... que", "tal... que"])
-
-respuesta: "que"
+respuesta: "por lo tanto"
 tipo: mc
-opciones_explicitas: ["porque", "que", "si", "cuando"]
+opciones_explicitas: ["por lo tanto", "sin embargo", "por ejemplo"]
 
-enunciado: "En la estructura '{estructura}', ¿cuál es la conjunción que introduce la consecutiva?"
+enunciado: "\"Llovió toda la noche. ..., el partido se suspendió.\" ¿Qué conector completa mejor la relación de consecuencia entre ambas ideas?"
+
+pasos:
+  - "La lluvia (causa) llevó a la suspensión (consecuencia): corresponde un conector consecutivo."
 
 explicacion: |
-  La conjunción es "que".
+  \"Por lo tanto\" marca correctamente que la segunda oración es
+  consecuencia de la primera.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["identificacion", "tan_que"]
+  materia: "lengua"
+  tema: "conectores_textuales"
+  nivel: "avanzado"
+  tags: ["conectores_textuales", "variedad"]
 
 variables:
-  adjetivo: uno_de(["rápido", "lento", "fuerte", "débil"])
-  consecuencia: uno_de(["se cansó", "llegó tarde", "ganó la carrera", "perdió el tren"])
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la oración 'Corrió tan {adjetivo} que {consecuencia}', la parte subrayada es una subordinada consecutiva."
+enunciado: "\"Sin embargo\", \"no obstante\" y \"en cambio\" son conectores distintos que pueden expresar el mismo tipo de relación adversativa."
+
+pasos:
+  - "Elegir entre ellos suele ser una decisión de estilo, no cambia la relación lógica señalada."
 
 explicacion: |
-  La estructura 'tan + adjetivo/adverbio + que' introduce una consecuencia directa del grado expresado en la principal. Por lo tanto, la afirmación es correcta.
+  Verdadero: dentro de una misma familia hay varias opciones de
+  conector con matices de estilo, no de lógica.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["correlato", "tanto_que"]
+  materia: "lengua"
+  tema: "conectores_textuales"
+  nivel: "intermedio"
+  tags: ["conectores_textuales", "metodo"]
+
+enunciado: "Ordená los pasos para revisar si los conectores de un texto propio están bien elegidos."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar cada conector usado entre oraciones o párrafos"
+  - "Determinar qué relación lógica real existe entre las ideas que conecta (suma, contraste, causa, consecuencia)"
+  - "Comparar esa relación con la familia del conector elegido"
+  - "Corregir si el conector elegido no corresponde a la relación lógica real"
+respuesta_orden: ["Identificar cada conector usado entre oraciones o párrafos", "Determinar qué relación lógica real existe entre las ideas que conecta (suma, contraste, causa, consecuencia)", "Comparar esa relación con la familia del conector elegido", "Corregir si el conector elegido no corresponde a la relación lógica real"]
+explicacion: |
+  El proceso va de identificar los conectores usados a verificar si
+  corresponden realmente a la relación lógica entre las ideas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conectores_textuales"
+  nivel: "avanzado"
+  tags: ["conectores_textuales", "cohesion"]
 
 variables:
-  sustantivo: uno_de(["miedo", "ganas", "tiempo", "dinero"])
-  cantidad: random(5, 20)
+  n: uno_de([1, 1])
 
-respuesta: "tanto"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los conectores textuales son una de las tres herramientas de cohesión estudiadas en esta subrama, junto con la referencia (anáfora/catáfora) y la progresión temática."
+
+pasos:
+  - "Ver `../referencia-anafora-y-catafora/` y `../progresion-tematica/`: los tres son nodos hermanos que dependen de `../produccion-escrita-compleja/`."
+
+explicacion: |
+  Verdadero: los tres temas abordan distintos mecanismos de cohesión
+  textual, complementarios entre sí.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conectores_textuales"
+  nivel: "avanzado"
+  tags: ["conectores_textuales", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al revisar un texto propio (etapa de revisión de `../produccion-escrita-compleja/`), conviene chequear específicamente si los conectores usados reflejan la relación lógica real entre las ideas, no sólo si \"suenan bien\"."
+
+pasos:
+  - "Un conector que suena natural pero indica una relación lógica equivocada puede confundir al lector sobre la argumentación real del texto."
+
+explicacion: |
+  Verdadero: la aplicación práctica de este tema es específicamente
+  auditar la lógica de los conectores durante la revisión de un
+  texto propio.
+```
+
+## Sección: correo-formal (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "basico"
+  tags: ["correo_formal", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un correo formal es la comunicación escrita estándar en contextos laborales, académicos o institucionales, con un registro profesional."
+
+pasos:
+  - "Se usa incluso cuando existe cierta confianza, si el contexto espera profesionalismo."
+
+explicacion: |
+  Verdadero: es la definición central de correo formal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "basico"
+  tags: ["estructura", "asunto"]
+
+variables:
+  asuntos: ["Consulta sobre entrega de proyecto", "Hola"]
+  tipos: ["asunto claro", "asunto vago"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["asunto claro", "asunto vago"]
+
+enunciado: "El asunto \"{asuntos[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "Un buen asunto resume en pocas palabras el motivo del correo."
+
+explicacion: |
+  El asunto debe permitir entender de qué trata el correo antes de
+  abrirlo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "basico"
+  tags: ["estructura", "saludo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Estimado/a"
 tipo: completar
 
-enunciado: "Tenía ___ {cantidad} {sustantivo} que no podía dormir. ¿Qué palabra falta para formar la consecutiva?"
+enunciado: "El saludo formal más recomendado para abrir un correo formal, seguido del nombre o apellido, es..."
+
+pasos:
+  - "Es el saludo estándar recomendado en la teoría."
 
 explicacion: |
-  La estructura correcta es 'tanto + sustantivo + que'. 'Tanto' concuerda en género y número con el sustantivo 'miedo' (masculino singular) o se usa invariablemente como adverbio de cantidad antes del sustantivo en esta construcción específica de grado.
+  \"Estimado/a\" es el saludo formal más habitual para este tipo de
+  correo.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
+  materia: "lengua"
+  tema: "correo_formal"
   nivel: "intermedio"
-  tags: ["diferenciacion", "comparativa_vs_consecutiva"]
+  tags: ["estructura", "cuerpo"]
 
 variables:
-  a: random_float(1.0, 9.9)
-  b: random_float(1.0, 9.9)
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El cuerpo de un correo formal va directo al motivo del correo desde el principio, organizado en párrafos cortos, sin rodeos innecesarios."
+
+pasos:
+  - "Es la estructura recomendada para el cuerpo del correo."
+
+explicacion: |
+  Verdadero: la claridad y concisión son centrales en el cuerpo del
+  correo formal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "intermedio"
+  tags: ["estructura", "cierre"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El cierre de un correo formal incluye una frase de cierre cortés, una despedida formal (\"Saludos cordiales\", \"Atentamente\") y una firma con nombre completo."
+
+pasos:
+  - "Es la estructura de cierre descrita en la teoría."
+
+explicacion: |
+  Verdadero: es la estructura estándar de cierre para un correo
+  formal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "intermedio"
+  tags: ["tono"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El registro formal no significa ser vago o dar muchas vueltas antes de decir lo que se necesita, sino usar un vocabulario respetuoso yendo al punto de forma clara y concisa."
+
+pasos:
+  - "Es el principio de tono central del correo formal."
+
+explicacion: |
+  Verdadero: formalidad y claridad directa no son incompatibles.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "basico"
+  tags: ["tono", "abreviaturas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un correo formal se evitan las abreviaturas de chat (\"xq\", \"tmb\") y los emojis."
+
+pasos:
+  - "Son marcas de registro informal que no corresponden al contexto formal."
+
+explicacion: |
+  Verdadero: es una regla básica de tono para este tipo de
+  comunicación.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "intermedio"
+  tags: ["claridad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un correo formal pide algo, conviene que quede explícito y fácil de identificar qué se está pidiendo (una fecha, una confirmación, un documento)."
+
+pasos:
+  - "Un correo ambiguo obliga a la otra persona a adivinar o preguntar de vuelta, perdiendo tiempo de ambos lados."
+
+explicacion: |
+  Verdadero: la claridad del pedido es central para que el correo
+  cumpla su función eficazmente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "asunto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dejar el asunto vacío o vago dificulta que el destinatario entienda de qué se trata el correo antes de abrirlo."
+
+pasos:
+  - "Es uno de los errores comunes descritos en la teoría."
+
+explicacion: |
+  Verdadero: el asunto vacío o vago es un error frecuente que
+  dificulta la comunicación efectiva.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "tono"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Usar un tono demasiado informal para el contexto (abreviaturas, emojis, tuteo inapropiado según la relación) es un error común en correos formales."
+
+pasos:
+  - "Es otro de los errores comunes descritos en la teoría."
+
+explicacion: |
+  Verdadero: el desajuste de registro es un error frecuente en este
+  tipo de correo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "ortografia_y_tildacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los errores de ortografía y puntuación son igual de relevantes en un correo formal que en un CV, con impacto directo en la impresión profesional que se genera."
+
+pasos:
+  - "Ver `../ortografia-y-tildacion/` y `../signos-de-puntuacion/`: aplican del mismo modo acá que en `../cv/`."
+
+explicacion: |
+  Verdadero: la corrección formal tiene el mismo peso en este género
+  que en el CV.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "extension"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un correo demasiado largo, sin ir al punto, obliga al lector a buscar la información clave en medio de párrafos innecesarios."
+
+pasos:
+  - "Es otro de los errores comunes descritos en la teoría."
+
+explicacion: |
+  Verdadero: la extensión excesiva sin ir al punto dificulta que el
+  destinatario entienda rápido el mensaje central.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "intermedio"
+  tags: ["saludo", "practica"]
+
+variables:
+  saludos: ["Estimado Sr. González", "Qué tal!"]
+  tipos: ["formal", "informal"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["formal", "informal"]
+
+enunciado: "El saludo \"{saludos[idx]}\" es de registro..."
+
+pasos:
+  - "\"Estimado\" es la fórmula formal estándar; \"qué tal\" es demasiado informal para este contexto."
+
+explicacion: |
+  El registro del saludo debe ajustarse al contexto formal esperado
+  en este tipo de correo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El correo formal reutiliza las herramientas de producción escrita compleja (estructura, claridad, corrección formal) aplicadas a este género concreto y de alta frecuencia de uso."
+
+pasos:
+  - "Ver `../produccion-escrita-compleja/`: es el prerrequisito directo de este tema."
+
+explicacion: |
+  Verdadero: es la conexión central entre este tema y su
+  prerrequisito.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "avanzado"
+  tags: ["contexto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un correo formal se puede necesitar incluso cuando existe cierta confianza personal con el destinatario, si el contexto (una consulta laboral oficial, por ejemplo) espera un registro profesional."
+
+pasos:
+  - "El registro formal depende del contexto, no sólo del nivel de confianza personal."
+
+explicacion: |
+  Verdadero: es un matiz importante sobre cuándo corresponde usar
+  registro formal más allá de la relación personal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "intermedio"
+  tags: ["asunto", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Consulta sobre fecha límite de entrega del informe"
+tipo: mc
+opciones_explicitas: ["Consulta sobre fecha límite de entrega del informe", "Pregunta", "Hola, necesito algo"]
+
+enunciado: "¿Cuál de estos asuntos comunica mejor el motivo de un correo sobre la fecha de entrega de un informe?"
+
+pasos:
+  - "El asunto debe resumir en pocas palabras claras el motivo específico del correo."
+
+explicacion: |
+  Un asunto claro y específico permite al destinatario entender el
+  motivo antes de abrir el correo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "avanzado"
+  tags: ["claridad", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "¿Podría confirmarme si la entrega es el viernes 15 o el lunes 18?"
+tipo: mc
+opciones_explicitas: ["¿Podría confirmarme si la entrega es el viernes 15 o el lunes 18?", "Necesito saber lo de la entrega, cuando pueda"]
+
+enunciado: "¿Cuál de estas dos formas de pedir información en un correo formal es más clara y fácil de responder?"
+
+pasos:
+  - "Especificar exactamente qué se necesita saber (las dos fechas posibles) facilita una respuesta rápida y precisa."
+
+explicacion: |
+  Un pedido específico y explícito es más fácil de responder que uno
+  vago, ahorrando tiempo a ambas partes.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "intermedio"
+  tags: ["correo_formal", "metodo"]
+
+enunciado: "Ordená los pasos para redactar un correo formal."
+tipo: ordenar
+opciones_explicitas:
+  - "Escribir un asunto claro que resuma el motivo del correo"
+  - "Abrir con un saludo formal apropiado al destinatario"
+  - "Desarrollar el cuerpo yendo directo al motivo, con el pedido o información explícita"
+  - "Cerrar con una frase cortés, despedida formal y firma completa"
+respuesta_orden: ["Escribir un asunto claro que resuma el motivo del correo", "Abrir con un saludo formal apropiado al destinatario", "Desarrollar el cuerpo yendo directo al motivo, con el pedido o información explícita", "Cerrar con una frase cortés, despedida formal y firma completa"]
+explicacion: |
+  El proceso sigue la estructura de cuatro partes descrita en la
+  teoría: asunto, saludo, cuerpo y cierre.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "avanzado"
+  tags: ["correo_formal", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El correo formal es el segundo de los tres géneros de escritura profesional de esta subrama, junto a CV e informe técnico."
+
+pasos:
+  - "Ver `../cv/` y `../informe-tecnico/`: los tres nodos hermanos dependen de `../produccion-escrita-compleja/`."
+
+explicacion: |
+  Verdadero: es la relación entre este tema y los otros dos de la
+  subrama de escritura profesional.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "correo_formal"
+  nivel: "avanzado"
+  tags: ["correo_formal", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Antes de enviar un correo formal importante, conviene revisar que el asunto sea claro, el pedido esté explícito, y no haya errores de ortografía ni de tono."
+
+pasos:
+  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema en la vida
+  laboral o académica cotidiana.
+```
+
+## Sección: cv (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "basico"
+  tags: ["cv", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un CV es un documento breve que resume la formación, experiencia y habilidades de una persona, pensado para que un empleador decida rápidamente si convocarla a una entrevista."
+
+pasos:
+  - "No es una autobiografía completa, es una selección estratégica de información."
+
+explicacion: |
+  Verdadero: es la definición central de CV.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "intermedio"
+  tags: ["cv", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un CV no debe contar todo lo que la persona hizo en su vida, sino seleccionar lo que es relevante para el puesto específico al que se aplica."
+
+pasos:
+  - "Es el principio central de brevedad y relevancia descrito en la teoría."
+
+explicacion: |
+  Verdadero: la selección estratégica es lo que distingue a un buen
+  CV de un relato exhaustivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "basico"
+  tags: ["secciones"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "datos de contacto"
+tipo: mc
+opciones_explicitas: ["datos de contacto", "formación académica", "experiencia laboral"]
+
+enunciado: "La sección de un CV que incluye nombre, teléfono, email y ciudad se llama..."
+
+pasos:
+  - "Sin exceso de información personal irrelevante."
+
+explicacion: |
+  Los datos de contacto son la primera sección típica de un CV.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "intermedio"
+  tags: ["formacion_academica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La sección de formación académica se ordena cronológicamente de forma inversa: lo más reciente primero."
+
+pasos:
+  - "Es el orden recomendado para que lo más relevante actualmente aparezca primero."
+
+explicacion: |
+  Verdadero: el orden cronológico inverso es la convención estándar
+  para esta sección.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "intermedio"
+  tags: ["experiencia_laboral"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La sección de experiencia laboral también se ordena cronológicamente de forma inversa, igual que la formación académica."
+
+pasos:
+  - "Es el mismo criterio de orden aplicado a esta sección."
+
+explicacion: |
+  Verdadero: el orden cronológico inverso se aplica de forma
+  consistente en ambas secciones.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "intermedio"
+  tags: ["habilidades"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un CV suele incluir tanto habilidades técnicas (idiomas, software) como habilidades blandas (trabajo en equipo, comunicación), relevantes al puesto."
+
+pasos:
+  - "Es una de las secciones típicas descritas en la teoría."
+
+explicacion: |
+  Verdadero: incluir ambos tipos de habilidades es una práctica
+  común y recomendada.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "intermedio"
+  tags: ["objetivo_profesional"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El objetivo profesional, si se incluye, debería ser breve (2-3 líneas), resumiendo qué se busca y qué se aporta."
+
+pasos:
+  - "Es una sección opcional descrita en la teoría."
+
+explicacion: |
+  Verdadero: la brevedad aplica también a esta sección opcional del
+  CV.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "intermedio"
+  tags: ["verbos_de_accion"]
+
+variables:
+  frases: ["coordiné el equipo de ventas", "estuve a cargo de tareas varias relacionadas con ventas"]
+  tipos: ["verbo de acción concreto", "descripción vaga y pasiva"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["verbo de acción concreto", "descripción vaga y pasiva"]
+
+enunciado: "\"{frases[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "Los verbos de acción concretos comunican más claramente qué se hizo realmente que las descripciones vagas."
+
+explicacion: |
+  Los verbos de acción concretos son preferibles a las descripciones
+  vagas y pasivas al redactar un CV.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "intermedio"
+  tags: ["verbos_de_accion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Usar verbos de acción concretos (\"coordiné\", \"desarrollé\", \"lideré\") comunica más claramente qué se hizo realmente que descripciones vagas y pasivas."
+
+pasos:
+  - "Es el principio de redacción central para describir experiencia laboral en un CV."
+
+explicacion: |
+  Verdadero: es el principio de redacción recomendado descrito en la
+  teoría.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "ortografia_y_tildacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un CV con errores de ortografía y puntuación genera una mala primera impresión sobre el cuidado y la atención al detalle de quien lo escribió."
+
+pasos:
+  - "Ver `../ortografia-y-tildacion/` y `../signos-de-puntuacion/`: aplican directamente acá, con consecuencias prácticas reales."
+
+explicacion: |
+  Verdadero: la corrección formal tiene un peso concreto en la
+  evaluación de un CV.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "formato"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un formato inconsistente (tamaños de letra, espaciados o alineaciones distintas entre secciones) da una impresión de descuido en un CV."
+
+pasos:
+  - "Es uno de los errores comunes descritos en la teoría."
+
+explicacion: |
+  Verdadero: la consistencia formal es parte de la calidad percibida
+  de un CV.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "intermedio"
+  tags: ["extension"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para la mayoría de los puestos de entrada, un CV de una sola página suele ser suficiente y más efectivo que uno largo."
+
+pasos:
+  - "Es coherente con el principio central de brevedad y relevancia."
+
+explicacion: |
+  Verdadero: la brevedad recomendada tiene un límite práctico
+  concreto para puestos de entrada.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "avanzado"
+  tags: ["relevancia", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La misma persona puede (y debería) tener versiones distintas de su CV según a qué puesto aplique, resaltando la experiencia más pertinente en cada caso."
+
+pasos:
+  - "Es la aplicación práctica del principio de relevancia: seleccionar lo pertinente para cada puesto específico."
+
+explicacion: |
+  Verdadero: adaptar el CV según el puesto es una práctica
+  recomendada, no un CV único para todo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "intermedio"
+  tags: ["datos_de_contacto", "relevancia"]
+
+variables:
+  n: uno_de([1, 1])
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Si en una oración se usa 'más... que' para igualar dos términos, estamos ante una subordinada consecutiva."
+enunciado: "Un buen CV debería incluir toda la información personal posible (estado civil, religión, gustos personales) para que el empleador conozca completamente a la persona."
+
+pasos:
+  - "Los datos de contacto deberían limitarse a lo relevante (nombre, teléfono, email, ciudad), sin exceso de información personal irrelevante al puesto."
 
 explicacion: |
-  'Más... que' suele introducir una comparativa de igualdad o superioridad. La consecutiva requiere un correlato de grado (tan, tanto, tal) seguido de 'que' que indica RESULTADO, no comparación directa entre dos términos equivalentes.
+  Falso: el exceso de información personal irrelevante no ayuda y
+  puede distraer del contenido relevante para el puesto.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["identificacion", "tal_que"]
-
-variables:
-  sustantivo: uno_de(["sorpresa", "alegría", "tristeza", "ira"])
-  efecto: uno_de(["se cayó", "lloró", "sonrió", "gritó"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En 'Fue tal su {sustantivo} que se {efecto}', la cláusula final es consecutiva."
-
-explicacion: |
-  La estructura 'tal + sustantivo + que' indica que la intensidad de la causa provocó un efecto inevitable. Es una subordinada consecutiva clásica.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["produccion", "tan_que"]
-
-variables:
-  sujeto: uno_de(["El niño", "La profesora", "El perro", "El coche"])
-  adjetivo: uno_de(["frío", "caliente", "ruido", "silencio"])
-  resultado: uno_de(["tembló", "sudó", "huyó", "paró"])
-
-respuesta: "tan"
-tipo: completar
-
-enunciado: "El ruido fue ___ {adjetivo} que el perro se {resultado}. ¿Qué correlato falta?"
-
-explicacion: |
-  Para expresar un grado intenso de un adjetivo o sustantivo que provoca una consecuencia, se usa 'tan' (si es adjetivo/adverbio) o 'tanto' (si es sustantivo). Aquí 'ruido' es sustantivo, pero en el ejemplo dado 'ruido fue tan intenso' es común, sin embargo, si 'ruido' es el sustantivo principal, la estructura correcta sería 'tanto ruido como...'. Pero si 'ruido' actúa como adjetivo cualificando la intensidad, o si la oración es 'El ruido fue tan fuerte...', usamos 'tan'. Dado que el blank precede a un adjetivo implícito o la estructura 'tan + adj', la respuesta estándar para grado de cualidad es 'tan'. *Nota: Si 'ruido' es el sustantivo, debería ser 'tanto ruido'. Asumiendo la estructura 'tan + adj' para el blank.*
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["analisis", "tanto_que"]
-
-variables:
-  sustantivo: uno_de(["trabajo", "esfuerzo", "paciencia", "paciencia"])
-  resultado: uno_de(["se rindió", "lo logró", "lo abandonó", "lo disfrutó"])
-
-respuesta: "tanto"
-tipo: completar
-
-enunciado: "Hizo ___ {sustantivo} que al final lo {resultado}. ¿Qué palabra completa la consecutiva?"
-
-explicacion: |
-  Cuando el correlato va seguido de un sustantivo que indica cantidad, se utiliza 'tanto'. 'Tanto trabajo' implica una cantidad tal que provoca el resultado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
+  materia: "lengua"
+  tema: "cv"
   nivel: "avanzado"
-  tags: ["logica", "inferencia"]
+  tags: ["prerrequisito"]
 
 variables:
-  causa: uno_de(["llovió mucho", "hizo mucho frío", "comió rápido", "durmió poco"])
-  efecto: uno_de(["se inundó la calle", "hubo hielo", "le dio indigestión", "estaba cansado"])
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si 'Llovió tanto que se inundó la calle' es consecutiva, entonces 'Llovió mucho y se inundó la calle' es una coordinación copulativa."
+enunciado: "El CV reutiliza las herramientas de producción escrita compleja (estructura, claridad, corrección formal) aplicadas a este género concreto y práctico."
+
+pasos:
+  - "Ver `../produccion-escrita-compleja/`: es el prerrequisito directo de este tema."
 
 explicacion: |
-  La primera oración tiene una relación de causa-efecto interna (consecutiva). La segunda une dos hechos con 'y', siendo una coordinación copulativa que no implica necesariamente la misma intensidad causal, aunque los hechos sean similares. La afirmación sobre la clasificación gramatical es correcta.
+  Verdadero: es la conexión central entre este tema y su
+  prerrequisito.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["diferenciacion", "tal_vs_tanto"]
-
-variables:
-  sust: uno_de(["miedo", "temor"])
-  corr_tanto: "tanto"
-  corr_tal: "tal"
-
-respuesta: "tal"
-tipo: completar
-
-enunciado: "Fue ___ su {sust} que se paralizó. ¿Es más adecuado 'tanto' o 'tal' para enfatizar la naturaleza del sentimiento?"
-
-explicacion: |
-  'Tal' se usa a menudo con sustantivos abstractos para enfatizar la intensidad o la naturaleza del estado (sorpresa, miedo, admiración), aunque 'tanto' también es posible. En contextos literarios o enfáticos, 'tal' es muy común para 'sorpresa' o 'miedo'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["nexo", "que"]
-
-variables:
-  nexo: "que"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una subordinada consecutiva, la conjunción 'que' es obligatoria para introducir la consecuencia."
-
-explicacion: |
-  Sí, la estructura básica de la consecutiva requiere un correlato (tan, tanto, tal) seguido de la conjunción 'que' que introduce la cláusula de resultado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["produccion", "tanto_que"]
-
-variables:
-  sust: uno_de(["fuerza", "energía", "paciencia", "paciencia"])
-  resultado: uno_de(["llegó al final", "se agotó", "ganó", "perdió"])
-
-respuesta: "tanto"
-tipo: completar
-
-enunciado: "Tuvo ___ {sust} para {resultado}. ¿Qué correlato falta?"
-
-explicacion: |
-  'Tanto' es el correlato adecuado cuando va seguido de un sustantivo que indica cantidad o grado de una cualidad medible.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["identificacion", "analisis_sintactico"]
-
-variables:
-  oracion: uno_de(["Está tan cansado que duerme", "Es tan alto como su padre", "Corrió más rápido que tú"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oración 'Está tan cansado que duerme' contiene una subordinada consecutiva."
-
-explicacion: |
-  La estructura 'tan + adjetivo + que' introduce una consecuencia. 'Que duerme' es la subordinada consecutiva.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["analisis", "grado"]
-
-variables:
-  adj: uno_de(["rápido", "lento", "fuerte", "débil"])
-  corr: "tan"
-
-respuesta: "tan"
-tipo: completar
-
-enunciado: "El coche es ___ {adj} que llega primero. ¿Qué palabra falta?"
-
-explicacion: |
-  'Tan' se usa con adjetivos y adverbios para expresar un grado intenso que provoca un resultado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["identificacion", "tal_que"]
-
-variables:
-  sust: uno_de(["alegría", "tristeza", "ira", "paz"])
-  resultado: uno_de(["sonrió", "lloró", "gritó", "calló"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En 'Fue tal su {sust} que {resultado}', la oración es consecutiva."
-
-explicacion: |
-  La estructura 'tal + sustantivo + que' es una forma clásica de subordinada consecutiva, indicando que la intensidad del sentimiento provocó la acción.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
+  materia: "lengua"
+  tema: "cv"
   nivel: "avanzado"
-  tags: ["diferenciacion", "causal_vs_consecutiva"]
+  tags: ["verbos_de_accion", "practica"]
 
 variables:
-  causa: "lluvia"
-  efecto: "inundación"
+  n: uno_de([1, 1])
+
+respuesta: "Desarrollé el sistema de inventario para reducir errores de stock en un 30%"
+tipo: mc
+opciones_explicitas: ["Desarrollé el sistema de inventario para reducir errores de stock en un 30%", "Estuve encargado de cosas relacionadas con el inventario"]
+
+enunciado: "¿Cuál de estas dos descripciones de experiencia laboral sigue mejor los principios de redacción de un CV?"
+
+pasos:
+  - "Un verbo de acción concreto con un resultado medible comunica mucho más que una descripción vaga."
+
+explicacion: |
+  La versión con verbo de acción y resultado concreto es más
+  efectiva que la descripción vaga y pasiva.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "avanzado"
+  tags: ["cv", "importancia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El CV suele ser el primer contacto escrito con un potencial empleador, por lo que la brevedad, la selección estratégica y la corrección formal tienen consecuencias prácticas directas."
+
+pasos:
+  - "Es la conclusión central sobre la importancia práctica de este tema."
+
+explicacion: |
+  Verdadero: es la síntesis de por qué dominar la redacción de un CV
+  es una habilidad de alta demanda práctica.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "intermedio"
+  tags: ["cv", "metodo"]
+
+enunciado: "Ordená los pasos para redactar un CV adaptado a un puesto específico."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar qué experiencia y habilidades son relevantes para ese puesto específico"
+  - "Organizar las secciones (contacto, formación, experiencia, habilidades) en orden cronológico inverso donde corresponda"
+  - "Redactar cada descripción con verbos de acción concretos"
+  - "Revisar ortografía, puntuación y consistencia de formato antes de enviarlo"
+respuesta_orden: ["Identificar qué experiencia y habilidades son relevantes para ese puesto específico", "Organizar las secciones (contacto, formación, experiencia, habilidades) en orden cronológico inverso donde corresponda", "Redactar cada descripción con verbos de acción concretos", "Revisar ortografía, puntuación y consistencia de formato antes de enviarlo"]
+explicacion: |
+  El proceso va de seleccionar la información relevante a redactarla
+  con buenas prácticas y revisarla antes de enviarla.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "avanzado"
+  tags: ["cv", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El CV es el primero de los tres géneros de escritura profesional de esta subrama, junto a correo formal e informe técnico."
+
+pasos:
+  - "Ver `../correo-formal/` y `../informe-tecnico/`: los tres nodos hermanos dependen de `../produccion-escrita-compleja/`."
+
+explicacion: |
+  Verdadero: es la relación entre este tema y los otros dos de la
+  subrama de escritura profesional.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "cv"
+  nivel: "avanzado"
+  tags: ["cv", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al preparar un CV para una postulación real, conviene seleccionar sólo la experiencia relevante para ese puesto, usar verbos de acción concretos, y revisar cuidadosamente ortografía y formato antes de enviarlo."
+
+pasos:
+  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema en una
+  postulación laboral real.
+```
+
+## Sección: informe-tecnico (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "basico"
+  tags: ["informe_tecnico", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un informe técnico comunica de forma estructurada los resultados de un trabajo, investigación o proceso, para que un lector sin haber participado entienda qué se hizo, qué se encontró y qué se recomienda."
+
+pasos:
+  - "Es la definición central de este tipo de documento."
+
+explicacion: |
+  Verdadero: es la definición central de informe técnico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "basico"
+  tags: ["secciones", "resumen_ejecutivo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "resumen ejecutivo"
+tipo: mc
+opciones_explicitas: ["resumen ejecutivo", "metodología", "conclusiones"]
+
+enunciado: "La sección de un informe técnico que resume en uno o pocos párrafos qué se hizo, qué se encontró y qué se recomienda se llama..."
+
+pasos:
+  - "Pensada para alguien que sólo tiene tiempo de leer eso."
+
+explicacion: |
+  El resumen ejecutivo condensa lo esencial de todo el informe.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "basico"
+  tags: ["secciones", "introduccion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "introducción/contexto"
+tipo: mc
+opciones_explicitas: ["introducción/contexto", "resultados", "resumen ejecutivo"]
+
+enunciado: "La sección que explica por qué se hizo el trabajo y qué problema o pregunta lo originó se llama..."
+
+pasos:
+  - "Da el contexto necesario antes de entrar en cómo se hizo el trabajo."
+
+explicacion: |
+  La introducción/contexto explica el origen y propósito del trabajo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "intermedio"
+  tags: ["secciones", "metodologia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "metodología"
+tipo: mc
+opciones_explicitas: ["metodología", "resultados", "resumen ejecutivo"]
+
+enunciado: "La sección que describe cómo se hizo el trabajo (qué proceso, herramientas o datos se usaron) se llama..."
+
+pasos:
+  - "Permite que otra persona pueda evaluar la validez del resultado o repetir el proceso."
+
+explicacion: |
+  La metodología detalla el proceso seguido para llegar a los
+  resultados.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "basico"
+  tags: ["secciones", "resultados"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "resultados"
+tipo: mc
+opciones_explicitas: ["resultados", "metodología", "introducción/contexto"]
+
+enunciado: "La sección que presenta qué se encontró, con datos concretos (tablas, gráficos si corresponde), se llama..."
+
+pasos:
+  - "Es la sección central donde se muestran los hallazgos del trabajo."
+
+explicacion: |
+  Los resultados presentan los hallazgos concretos del trabajo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "intermedio"
+  tags: ["secciones", "conclusiones"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "conclusiones y recomendaciones"
+tipo: mc
+opciones_explicitas: ["conclusiones y recomendaciones", "metodología", "resumen ejecutivo"]
+
+enunciado: "La sección que explica qué implican los resultados y qué acción concreta se sugiere a partir de ellos se llama..."
+
+pasos:
+  - "Es la sección de cierre que traduce los resultados en implicaciones prácticas."
+
+explicacion: |
+  Las conclusiones y recomendaciones cierran el informe con
+  implicaciones y sugerencias concretas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "avanzado"
+  tags: ["resumen_ejecutivo", "orden"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Es habitual escribir el resumen ejecutivo al final del proceso de redacción, pero se ubica al principio del documento, porque es lo primero que va a leer la mayoría de los destinatarios."
+
+pasos:
+  - "Se escribe al final porque recién ahí se sabe con precisión qué decir de forma resumida."
+
+explicacion: |
+  Verdadero: es una particularidad importante sobre el orden de
+  escritura vs. el orden de lectura del resumen ejecutivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "intermedio"
+  tags: ["objetividad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de un correo o un CV, el informe técnico prioriza la objetividad: describir lo hecho y encontrado con datos verificables, evitando opiniones sin sustento."
+
+pasos:
+  - "Es un principio central de redacción en este tipo de documento."
+
+explicacion: |
+  Verdadero: la objetividad es un principio distintivo del informe
+  técnico frente a otros géneros de escritura profesional.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "intermedio"
+  tags: ["objetividad", "practica"]
+
+variables:
+  frases: ["los resultados fueron muy buenos", "los resultados mejoraron un 23% respecto del período anterior"]
+  tipos: ["adjetivo vago sin sustento", "dato concreto verificable"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["adjetivo vago sin sustento", "dato concreto verificable"]
+
+enunciado: "\"{frases[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "Los datos concretos verificables son preferibles a los adjetivos vagos sin sustento en un informe técnico."
+
+explicacion: |
+  El informe técnico privilegia datos concretos y verificables por
+  sobre adjetivos vagos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "intermedio"
+  tags: ["estructura", "numeracion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un informe técnico largo se beneficia de títulos de sección numerados y, si corresponde, un índice, para que el lector pueda navegar directo a la parte que le interesa."
+
+pasos:
+  - "Permite no tener que leer todo el documento de corrida para encontrar una sección específica."
+
+explicacion: |
+  Verdadero: la organización con títulos numerados facilita la
+  navegación en documentos extensos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "avanzado"
+  tags: ["metodologia", "validez"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Describir la metodología con detalle permite que otra persona pueda evaluar si el proceso usado fue adecuado, o incluso intentar repetirlo."
+
+pasos:
+  - "Es la razón central por la que la metodología es una sección obligatoria en un informe técnico riguroso."
+
+explicacion: |
+  Verdadero: la transparencia metodológica es central para la
+  credibilidad de un informe técnico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "avanzado"
+  tags: ["informe_tecnico", "produccion_escrita_compleja"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Producción escrita compleja enseña a organizar un texto largo en general; el informe técnico agrega una estructura fija y específica (resumen, contexto, metodología, resultados, conclusiones) propia de este género."
+
+pasos:
+  - "Ver `../produccion-escrita-compleja/`: es el prerrequisito general que este tema especializa."
+
+explicacion: |
+  Verdadero: es la diferencia entre las herramientas generales de
+  escritura larga y la estructura específica de este género.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "intermedio"
+  tags: ["secciones", "orden"]
+
+enunciado: "Ordená las secciones típicas de un informe técnico según aparecen en el documento final."
+tipo: ordenar
+opciones_explicitas:
+  - "Resumen ejecutivo"
+  - "Introducción/contexto"
+  - "Metodología"
+  - "Resultados"
+  - "Conclusiones y recomendaciones"
+respuesta_orden: ["Resumen ejecutivo", "Introducción/contexto", "Metodología", "Resultados", "Conclusiones y recomendaciones"]
+explicacion: |
+  El orden sigue la estructura estándar de un informe técnico
+  completo, aunque el resumen ejecutivo se escriba último en el
+  proceso de redacción.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "avanzado"
+  tags: ["informe_tecnico", "audiencia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un informe técnico debería poder entenderse sin necesitar explicaciones adicionales del autor, aunque el lector no haya participado del trabajo original."
+
+pasos:
+  - "Es un requisito central de claridad y autosuficiencia del documento."
+
+explicacion: |
+  Verdadero: la autosuficiencia del documento (no depender de
+  explicaciones orales adicionales) es un objetivo central del
+  informe técnico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "intermedio"
+  tags: ["resumen_ejecutivo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El resumen ejecutivo debería permitir que alguien que sólo lo lea a él entienda lo esencial de todo el informe, sin necesitar leer las demás secciones."
+
+pasos:
+  - "Es el propósito central de esta sección, distinta de una simple introducción."
+
+explicacion: |
+  Verdadero: el resumen ejecutivo debe funcionar como una versión
+  autosuficiente y condensada del informe completo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "intermedio"
+  tags: ["resultados", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La sección de resultados de un informe técnico debería incluir datos concretos (tablas, gráficos si corresponde), no sólo una descripción general sin cifras."
+
+pasos:
+  - "Es coherente con el principio general de objetividad y datos verificables del informe técnico."
+
+explicacion: |
+  Verdadero: los resultados con datos concretos son más útiles y
+  verificables que una descripción vaga.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "avanzado"
+  tags: ["conclusiones", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Se recomienda aumentar la frecuencia de mantenimiento a cada 3 meses, dado el incremento del 15% en fallas detectadas"
+tipo: mc
+opciones_explicitas: ["Se recomienda aumentar la frecuencia de mantenimiento a cada 3 meses, dado el incremento del 15% en fallas detectadas", "Habría que hacer algo con el mantenimiento en algún momento"]
+
+enunciado: "¿Cuál de estas dos recomendaciones sigue mejor los principios de un informe técnico?"
+
+pasos:
+  - "Una recomendación concreta, con acción específica y respaldo en datos, es más útil que una vaga sin sustento."
+
+explicacion: |
+  Las recomendaciones deberían ser concretas y estar respaldadas por
+  los datos presentados en el informe.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "intermedio"
+  tags: ["informe_tecnico", "metodo"]
+
+enunciado: "Ordená los pasos para redactar un informe técnico completo."
+tipo: ordenar
+opciones_explicitas:
+  - "Redactar contexto, metodología y resultados con datos concretos"
+  - "Redactar conclusiones y recomendaciones basadas en esos resultados"
+  - "Escribir el resumen ejecutivo al final, condensando lo esencial de todo el informe"
+  - "Ubicar el resumen ejecutivo al principio del documento, y revisar la numeración de secciones"
+respuesta_orden: ["Redactar contexto, metodología y resultados con datos concretos", "Redactar conclusiones y recomendaciones basadas en esos resultados", "Escribir el resumen ejecutivo al final, condensando lo esencial de todo el informe", "Ubicar el resumen ejecutivo al principio del documento, y revisar la numeración de secciones"]
+explicacion: |
+  El proceso de escritura no sigue el mismo orden que el de lectura:
+  el resumen ejecutivo se redacta último pero se ubica primero.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "avanzado"
+  tags: ["informe_tecnico", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El informe técnico es el tercero y último de los géneros de escritura profesional de esta subrama, junto a CV y correo formal."
+
+pasos:
+  - "Ver `../cv/` y `../correo-formal/`: los tres nodos hermanos dependen de `../produccion-escrita-compleja/`."
+
+explicacion: |
+  Verdadero: cierra la subrama completa de escritura profesional de
+  alta demanda práctica.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "informe_tecnico"
+  nivel: "avanzado"
+  tags: ["informe_tecnico", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al redactar un informe técnico real, conviene incluir un resumen ejecutivo claro, describir la metodología con suficiente detalle para que sea evaluable, y basar las conclusiones en datos concretos presentados en los resultados."
+
+pasos:
+  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema en un contexto
+  laboral o académico real.
+```
+
+## Sección: progresion-tematica (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "basico"
+  tags: ["tema", "rema"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En cada oración, el tema es de qué habla (generalmente lo ya conocido) y el rema es la información nueva que se dice sobre ese tema."
+
+pasos:
+  - "\"El río nace en la montaña\": \"el río\" es el tema, \"nace en la montaña\" es el rema."
+
+explicacion: |
+  Verdadero: tema y rema son las dos partes básicas del análisis de
+  progresión temática.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "basico"
+  tags: ["progresion_tematica", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La progresión temática es el patrón según el cual el tema de cada oración se relaciona con la información de las oraciones anteriores."
+
+pasos:
+  - "Es lo que hace que un texto avance de forma ordenada y no salte de un lado a otro sin conexión."
+
+explicacion: |
+  Verdadero: es la definición central de este tema.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "intermedio"
+  tags: ["tema_constante"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "tema constante"
+tipo: mc
+opciones_explicitas: ["tema constante", "progresión lineal", "temas derivados"]
+
+enunciado: "\"El río nace en la montaña. Él atraviesa tres provincias. Él desemboca en el mar.\" ¿Qué tipo de progresión temática usa este texto?"
+
+pasos:
+  - "El mismo tema (\"el río\"/\"él\") se mantiene a lo largo de las tres oraciones, agregando remas distintos."
+
+explicacion: |
+  La progresión de tema constante mantiene el mismo tema y va
+  agregando información nueva sobre él.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "intermedio"
+  tags: ["progresion_lineal"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "progresión lineal"
+tipo: mc
+opciones_explicitas: ["tema constante", "progresión lineal", "temas derivados"]
+
+enunciado: "\"El río nace en la montaña. La montaña tiene nieves eternas. Las nieves se derriten en verano.\" ¿Qué tipo de progresión temática usa este texto?"
+
+pasos:
+  - "El rema de cada oración (\"la montaña\", \"las nieves\") se convierte en el tema de la siguiente."
+
+explicacion: |
+  La progresión lineal encadena el rema de una oración como tema de
+  la siguiente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "intermedio"
+  tags: ["temas_derivados"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "temas derivados"
+tipo: mc
+opciones_explicitas: ["tema constante", "progresión lineal", "temas derivados"]
+
+enunciado: "\"La ciudad tiene un clima variado. Sus calles son angostas. Su gente es muy hospitalaria.\" ¿Qué tipo de progresión temática usa este texto?"
+
+pasos:
+  - "\"Clima\", \"calles\" y \"gente\" son distintos aspectos derivados de un hipertema común: \"la ciudad\"."
+
+explicacion: |
+  La progresión con temas derivados desarrolla varios aspectos
+  distintos de un mismo hipertema general.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "intermedio"
+  tags: ["tema_constante", "referencia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la progresión de tema constante, el tema que se repite suele expresarse con pronombres u otros mecanismos de referencia en vez de repetir siempre la misma palabra."
+
+pasos:
+  - "Ver `../referencia-anafora-y-catafora/`: \"él\" en vez de repetir \"el río\" en cada oración."
+
+explicacion: |
+  Verdadero: la progresión temática se apoya directamente en los
+  mecanismos de referencia ya vistos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "intermedio"
+  tags: ["progresion_tematica", "claridad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un texto sin progresión temática ordenada resulta confuso, aunque cada oración esté bien escrita por separado."
+
+pasos:
+  - "El lector pierde el hilo de qué se está desarrollando si el texto salta de tema en tema sin patrón."
+
+explicacion: |
+  Verdadero: la falta de progresión temática es un problema de
+  coherencia global, no de corrección oración por oración.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "avanzado"
+  tags: ["progresion_tematica", "conectores_textuales", "referencia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Se puede conectar bien las oraciones y usar bien la referencia, y aun así el texto puede saltar de tema en tema sin ningún patrón reconocible."
+
+pasos:
+  - "Ver `../conectores-textuales/` y `../referencia-anafora-y-catafora/`: cada herramienta cubre un aspecto distinto de la cohesión, ninguna sola es suficiente."
+
+explicacion: |
+  Verdadero: es la razón por la que hace falta un tercer tema
+  (progresión temática) además de conectores y referencia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "avanzado"
+  tags: ["progresion_tematica", "practica"]
+
+variables:
+  fragmentos: ["El auto se averió en la ruta. El auto tenía diez años. El auto nunca había recibido mantenimiento", "El auto se averió en la ruta. La ruta estaba desierta a esa hora. Esa hora era la peor para pedir ayuda"]
+  tipos: ["tema constante", "progresión lineal"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["tema constante", "progresión lineal", "temas derivados"]
+
+enunciado: "\"{fragmentos[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "Si el mismo tema se repite en las tres oraciones, es tema constante. Si el rema de una pasa a ser tema de la siguiente, es lineal."
+
+explicacion: |
+  Cada fragmento fue construido para ejemplificar un tipo distinto de
+  progresión temática.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "avanzado"
+  tags: ["temas_derivados", "hipertema"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "hipertema"
+tipo: completar
+
+enunciado: "En la progresión con temas derivados, el tema general del que se desprenden los distintos aspectos particulares se llama..."
+
+pasos:
+  - "\"La ciudad\" es el hipertema del que \"clima\", \"calles\" y \"gente\" son aspectos derivados."
+
+explicacion: |
+  El hipertema es el tema general que engloba a los temas derivados
+  particulares de cada oración.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "avanzado"
+  tags: ["progresion_tematica", "combinacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un texto largo puede combinar los tres tipos de progresión temática en distintos tramos, no tiene que usar sólo uno de principio a fin."
+
+pasos:
+  - "Un párrafo puede usar tema constante y el siguiente pasar a progresión lineal, según convenga a lo que se está desarrollando."
+
+explicacion: |
+  Verdadero: los tres tipos son herramientas complementarias, no
+  opciones excluyentes para todo un texto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "avanzado"
+  tags: ["progresion_tematica", "errores"]
+
+variables:
+  n: uno_de([1, 1])
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La oración 'Como llovió mucho, se inundó la calle' es una subordinada consecutiva."
+enunciado: "\"El río nace en la montaña. Mi comida favorita es la pizza. El auto de mi tío es rojo.\" es un buen ejemplo de progresión temática bien construida."
+
+pasos:
+  - "No hay ninguna relación entre los temas de las tres oraciones: cada una salta a algo completamente distinto sin conexión."
 
 explicacion: |
-  'Como' introduce una subordinada causal (explica la causa). La consecutiva expresa el RESULTADO de la principal, no la causa. La oración dada es una oración compuesta con subordinada causal.
+  Falso: es exactamente el tipo de texto sin progresión temática que
+  resulta confuso para el lector, aunque cada oración esté bien
+  escrita.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
+  materia: "lengua"
+  tema: "progresion_tematica"
   nivel: "intermedio"
-  tags: ["produccion", "adverbio"]
+  tags: ["progresion_lineal"]
 
 variables:
-  adv: uno_de(["rápidamente", "lentamente", "bien", "mal"])
-  resultado: uno_de(["terminó primero", "se equivocó", "ganó", "perdió"])
-
-respuesta: "tan"
-tipo: completar
-
-enunciado: "Corrió ___ {adv} que {resultado}. ¿Qué palabra falta?"
-
-explicacion: |
-  'Tan' se usa con adverbios (como 'rápidamente') para indicar un grado que provoca una consecuencia.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["identificacion", "tanto_que"]
-
-variables:
-  sust: uno_de(["trabajo", "esfuerzo", "paciencia", "paciencia"])
-  corr: "tanto"
-
-respuesta: "tanto"
-tipo: completar
-
-enunciado: "Hizo ___ {sust} que lo logró. ¿Qué palabra falta?"
-
-explicacion: |
-  'Tanto' es el correlato correcto antes de un sustantivo que indica cantidad o grado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["logica", "relacion"]
-
-variables:
-  causa: "temor"
-  efecto: "parálisis"
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En una subordinada consecutiva, la oración principal expresa la causa o el grado, y la subordinada expresa la consecuencia."
+enunciado: "En la progresión lineal, el texto avanza como una cadena: lo nuevo de una oración se convierte en el punto de partida de la siguiente."
+
+pasos:
+  - "Cada rema pasa a ser tema en la oración siguiente, formando una secuencia encadenada."
 
 explicacion: |
-  Correcto. La consecutiva depende de un correlato de grado en la principal para expresar un resultado inevitable.
+  Verdadero: es la imagen central para entender la progresión
+  lineal, distinta del tema constante.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["identificacion", "tal_que"]
-
-variables:
-  sust: uno_de(["sorpresa", "admiración", "miedo", "ira"])
-  resultado: uno_de(["se quedó mudo", "aplaudieron", "huyó", "gritó"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oración 'Fue tal su {sust} que {resultado}' es consecutiva."
-
-explicacion: |
-  Sí, 'tal' funciona como correlato de grado para sustantivos, introduciendo una consecuencia.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["produccion", "adjetivo"]
-
-variables:
-  adj: uno_de(["alto", "bajo", "ancho", "estrecho"])
-  resultado: uno_de(["lo veía", "no lo veía", "lo tocaba", "lo perdía"])
-
-respuesta: "tan"
-tipo: completar
-
-enunciado: "El muro es ___ {adj} que {resultado}. ¿Qué palabra falta?"
-
-explicacion: |
-  'Tan' se usa con adjetivos para expresar un grado que provoca una consecuencia.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
+  materia: "lengua"
+  tema: "progresion_tematica"
   nivel: "avanzado"
-  tags: ["diferenciacion", "final_vs_consecutiva"]
+  tags: ["tema_constante", "temas_derivados", "diferenciacion"]
 
 variables:
-  fin: "para"
-  consecutiva: "que"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La oración 'Estudié tanto que aprobé' es una subordinada final."
-
-explicacion: |
-  'Aprobé' es el RESULTADO (consecutiva), no el propósito (final). Las finales suelen usar 'para que' o 'a fin de que'.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["identificacion", "tanto_que"]
-
-variables:
-  sust: uno_de(["tiempo", "dinero", "paciencia", "paciencia"])
-  corr: "tanto"
-
-respuesta: "tanto"
-tipo: completar
-
-enunciado: "Tenía ___ {sust} que lo gasté todo. ¿Qué palabra falta?"
-
-explicacion: |
-  'Tanto' es el correlato adecuado antes de sustantivos que indican cantidad.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["estructura", "tan_que"]
-
-variables:
-  adj: uno_de(["difícil", "fácil", "largo", "corto"])
-  resultado: uno_de(["no lo entendió", "lo resolvió", "lo leyó", "lo escribió"])
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En 'El examen fue tan {adj} que {resultado}', la subordinada es consecutiva."
+enunciado: "La diferencia entre tema constante y temas derivados es que en el primero se repite literalmente el mismo tema, y en el segundo cada oración toca un aspecto distinto de un hipertema común."
+
+pasos:
+  - "\"El río... él... él...\" (mismo tema) vs. \"la ciudad → su clima, sus calles, su gente\" (aspectos distintos de un hipertema)."
 
 explicacion: |
-  Sí, la estructura 'tan + adj + que' introduce una consecuencia directa.
+  Verdadero: la repetición del mismo tema vs. la derivación de
+  distintos aspectos es lo que distingue estos dos tipos de
+  progresión.
 ```
 
 ```
 metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["produccion", "tal_que"]
-
-variables:
-  sust: uno_de(["alegría", "tristeza", "ira", "paz"])
-  resultado: uno_de(["sonrió", "lloró", "gritó", "calló"])
-
-respuesta: "tal"
-tipo: completar
-
-enunciado: "Fue ___ su {sust} que {resultado}. ¿Qué palabra falta?"
-
-explicacion: |
-  'Tal' es el correlato adecuado para sustantivos abstractos que enfatizan la intensidad del estado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["identificacion", "adverbio"]
-
-variables:
-  adv: uno_de(["rápidamente", "lentamente", "bien", "mal"])
-  resultado: uno_de(["terminó primero", "se equivocó", "ganó", "perdió"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La oración 'Corrió tan {adv} que {resultado}' es consecutiva."
-
-explicacion: |
-  Sí, 'tan' con adverbios introduce una consecutiva.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
+  materia: "lengua"
+  tema: "progresion_tematica"
   nivel: "avanzado"
-  tags: ["diferenciacion", "comparativa_vs_consecutiva"]
+  tags: ["progresion_tematica", "parrafos"]
 
 variables:
-  comparativa: "más... que"
-  consecutiva: "tan... que"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La oración 'Es tan alto como su padre' es una subordinada consecutiva."
-
-explicacion: |
-  'Tan... como' es una comparativa de igualdad. La consecutiva usa 'tan... que' para indicar resultado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["identificacion", "tanto_que"]
-
-variables:
-  sust: uno_de(["trabajo", "esfuerzo", "paciencia", "paciencia"])
-  corr: "tanto"
-
-respuesta: "tanto"
-tipo: completar
-
-enunciado: "Hizo ___ {sust} que lo logró. ¿Qué palabra falta?"
-
-explicacion: |
-  'Tanto' es el correlato correcto antes de sustantivos que indican cantidad o grado.
-```
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["logica", "relacion"]
-
-variables:
-  causa: "temor"
-  efecto: "parálisis"
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En una subordinada consecutiva, la oración principal expresa la causa o el grado, y la subordinada expresa la consecuencia."
+enunciado: "La progresión temática aplica tanto dentro de un párrafo (entre sus oraciones) como entre distintos párrafos de un mismo texto."
+
+pasos:
+  - "Ver `../produccion-escrita-compleja/`: cada párrafo desarrolla una idea, y esas ideas también deberían progresar de forma ordenada entre sí."
 
 explicacion: |
-  Correcto. La consecutiva depende de un correlato de grado en la principal para expresar un resultado inevitable.
+  Verdadero: el mismo patrón de progresión se puede analizar en
+  distintas escalas del texto.
 ```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "avanzado"
+  tags: ["progresion_tematica", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para describir varios aspectos distintos de un mismo lugar (clima, arquitectura, gente), conviene usar progresión con temas derivados antes que progresión lineal."
+
+pasos:
+  - "Los temas derivados son ideales cuando se quiere presentar distintas facetas de un mismo hipertema, no una cadena de causa-efecto."
+
+explicacion: |
+  Verdadero: elegir el tipo de progresión adecuado depende de qué
+  relación existe realmente entre las ideas a desarrollar.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "intermedio"
+  tags: ["rema", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "atraviesa tres provincias"
+tipo: completar
+
+enunciado: "En la oración \"El río atraviesa tres provincias\", ¿cuál es el rema (la información nueva sobre el tema)?"
+
+pasos:
+  - "El tema es \"el río\" (ya mencionado); el rema es lo nuevo que se dice sobre él."
+
+explicacion: |
+  El rema es el aporte informativo nuevo de la oración, distinto del
+  tema ya conocido.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "intermedio"
+  tags: ["progresion_tematica", "metodo"]
+
+enunciado: "Ordená los pasos para analizar la progresión temática de un párrafo."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar el tema y el rema de cada oración"
+  - "Revisar si el tema se repite igual en varias oraciones seguidas (tema constante)"
+  - "Revisar si el rema de una oración pasa a ser el tema de la siguiente (progresión lineal)"
+  - "Si ninguna de las dos aplica, revisar si hay un hipertema común del que se derivan los distintos temas (temas derivados)"
+respuesta_orden: ["Identificar el tema y el rema de cada oración", "Revisar si el tema se repite igual en varias oraciones seguidas (tema constante)", "Revisar si el rema de una oración pasa a ser el tema de la siguiente (progresión lineal)", "Si ninguna de las dos aplica, revisar si hay un hipertema común del que se derivan los distintos temas (temas derivados)"]
+explicacion: |
+  El análisis va de identificar tema/rema en cada oración a
+  clasificar qué patrón de progresión conecta a las oraciones entre
+  sí.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "avanzado"
+  tags: ["progresion_tematica", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La progresión temática cierra la subrama de cohesión y coherencia: conectores marcan relaciones lógicas, la referencia evita repetición, y la progresión temática asegura que el texto avance de forma reconocible."
+
+pasos:
+  - "Ver `../conectores-textuales/` y `../referencia-anafora-y-catafora/`: los tres temas hermanos cubren aspectos complementarios de la cohesión textual."
+
+explicacion: |
+  Verdadero: es la síntesis de los tres temas hermanos de esta
+  subrama, cada uno con su función específica.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "progresion_tematica"
+  nivel: "avanzado"
+  tags: ["progresion_tematica", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al revisar un texto propio, conviene chequear si cada oración se conecta temáticamente con la anterior (constante, lineal o derivada), y reordenar si se detectan saltos de tema sin conexión."
+
+pasos:
+  - "Ese chequeo específico de progresión temática complementa la revisión de conectores y referencias ya vista en los temas hermanos."
+
+explicacion: |
+  Verdadero: es la aplicación práctica central de este tema durante
+  la etapa de revisión de un texto propio.
+```
+

@@ -1,61 +1,82 @@
-# Clusters reales del examen-jefe (regenerado 2026-08-14) — generado automáticamente
+# Clusters reales del examen-jefe (regenerado 2026-09-22) — generado automáticamente
 
-Regenerado contra el `material/` actual (la versión 2026-08-11 quedó vieja: +148 temas nuevos entre las materias del alcance original desde entonces). Mismo criterio que el original: cortes secuenciales sobre orden alfabético de carpetas, 5-15 temas por cluster — ajustar a cortes naturales del tronco al diseñar el pool de preguntas de cada uno, esto es sólo el agrupamiento base.
+**Rediseño en curso (2026-09-22)**: el corte alfabético original (documentado
+como transitorio desde 2026-08-14, nunca ajustado) se está reemplazando por
+partición topológica sobre los `dependencias.md` reales de cada materia —
+diseño y prueba en `examen-jefe-REDISEÑO-PLANIFICACION.md`, algoritmo en
+`_qa_tools/gen_examen_jefe_prereq_clusters.py`. **14 de 22 materias ya están
+migradas** (ordenadas por conocimientos previos, 5-15 temas por cluster,
+absorbiendo el resto en el último tramo): Matemática, Lengua, Historia
+profunda, Historia, Geografía, Cívica, Química, Biología, Física,
+Informática, Economía, Derecho, Arte, Investigación. **8 quedan con el corte
+alfabético original** porque no tienen `dependencias.md` (nunca se escribió
+— no es parte de este rediseño, es documentación de prerrequisitos que falta
+de entrada): Ingeniería, Dibujo Técnico, Psicología, Comunicación,
+Electrónica, Ciencia de Materiales, Automatización, UX/Diseño — casi todas
+de 1 solo cluster, así que el orden interno pesa poco hasta que tengan más
+contenido.
+
+De paso, migrar contra el filesystem real (en vez de contra este mismo
+documento, que podía haber quedado desactualizado) corrigió drift ya
+detectado antes: Economía tenía `corrientes-pensamiento-economico` como un
+solo nodo fantasma cuando en realidad ya son 9 temas reales (atomizados en
+otra sesión) — pasó de 15 a 17 clusters. Historia profunda sumó 26 preguntas
+que sus 109 temas ya tenían pero el agregado viejo no había recogido.
 
 ## Matemática (161 temas, 32 clusters)
 
-- **Cluster 1** (5): algoritmos-de-recorrido-bfs-dfs, analisis-dimensional, angulos, arboles-grafo-sin-ciclos, area-poligonos-regulares-y-compuestas
-- **Cluster 2** (5): asintotas, caminos-y-ciclos, cifras-significativas-y-error, circunferencia-y-circulo, combinaciones
-- **Cluster 3** (5): concavidad-y-puntos-de-inflexion, congruencia-de-triangulos, conjuntos-pertenencia-e-inclusion, construir-un-grafico, conteo
-- **Cluster 4** (5): continuidad, coordenadas-de-un-punto, correlacion-no-es-causalidad, cual-miente-y-cuando, cuerpos-redondos-y-poliedros/cilindros
-- **Cluster 5** (5): cuerpos-redondos-y-poliedros/conos, cuerpos-redondos-y-poliedros/desarrollo-plano, cuerpos-redondos-y-poliedros/esferas, cuerpos-redondos-y-poliedros/piramides, cuerpos-redondos-y-poliedros/prismas
-- **Cluster 6** (5): decimales, demostracion-contraejemplo, demostracion-deduccion, demostracion-induccion, demostracion-reduccion-al-absurdo
-- **Cluster 7** (5): derivada, despejar-formula, determinante, diagramas-de-venn, dinero
-- **Cluster 8** (5): dispersion-rango-y-desvio, distancia-entre-dos-puntos, distribucion-binomial, distribucion-de-poisson, distribucion-exponencial
-- **Cluster 9** (5): distribucion-normal, divisibilidad/divisores, divisibilidad/multiplos, divisibilidad/regla-del-10, divisibilidad/regla-del-2
-- **Cluster 10** (5): divisibilidad/regla-del-3, divisibilidad/regla-del-4, divisibilidad/regla-del-5, divisibilidad/regla-del-6, divisibilidad/regla-del-7-opcional
-- **Cluster 11** (5): divisibilidad/regla-del-8, divisibilidad/regla-del-9, division, division-polinomios-ruffini, ecuacion-cuadratica
-- **Cluster 12** (5): ecuacion-de-la-recta, ecuacion-primer-grado, ecuaciones-diferenciales, ecuaciones-exponenciales-logaritmicas, error-sistematico-vs-aleatorio
-- **Cluster 13** (5): esperanza-matematica-valor-esperado, expresiones-equivalentes, familias-exponencial-logaritmica, forma-polar-complejos, fracciones
-- **Cluster 14** (5): funcion-cuadratica-parabola, funcion-dominio, funcion-imagen, funcion-inversa-composicion, funcion-lineal-pendiente
-- **Cluster 15** (5): funciones-trigonometricas-seno-coseno, grafico-eje-truncado, grafos-dirigidos-no-dirigidos-y-ponderados, grafos-vertices-y-aristas, hora-y-reloj
-- **Cluster 16** (5): identidades-y-ecuaciones-trigonometricas, independencia-de-eventos-y-diagrama-de-arbol, inecuaciones, integral, integral-definida-y-area-bajo-la-curva
-- **Cluster 17** (5): intervalo-de-confianza, irracionales-y-reales, jerarquia-operaciones, leer-grafico/barras, leer-grafico/lineas
-- **Cluster 18** (5): leer-grafico/torta, leer-una-tabla, lenguaje-algebraico, limite, logaritmos
-- **Cluster 19** (5): magnitud-unidad-instrumento, matrices/operaciones, matrices/sistemas-nxn, matriz-inversa, mcd
-- **Cluster 20** (5): mcm, media-mediana-y-moda, muestreo-y-sesgo, multiplicacion, notacion-cientifica
-- **Cluster 21** (5): numeros-complejos, numeros-enteros, numeros-primos, operaciones-enteros, operaciones-fracciones
-- **Cluster 22** (5): optimizacion, perimetro-y-area, permutaciones, plano-cartesiano, poligonos
-- **Cluster 23** (5): polinomios-factoreo, porcentaje, potencias, principio-multiplicativo-de-conteo, probabilidad-compuesta
-- **Cluster 24** (5): probabilidad-condicional, probabilidad-simple, producto-escalar, proporcion, proporcionalidad-funcion
-- **Cluster 25** (5): punto-medio-de-un-segmento, raices, razon, razones-trigonometricas, rectas-paralelas-y-perpendiculares
-- **Cluster 26** (5): redondeo, regla-de-lhopital, regla-de-tres-directa, regla-de-tres-inversa, regresion-lineal
-- **Cluster 27** (5): resta, riesgo-relativo-vs-absoluto, secciones-conicas-circunferencia, semejanza-y-teorema-de-thales, series-geometricas
-- **Cluster 28** (5): sistema-metrico-y-conversiones, sistemas-dos-ecuaciones, sucesiones-aritmeticas, sucesiones-y-series, suma
-- **Cluster 29** (5): suma-de-vectores-y-descomposicion, tablas-de-frecuencia-cuartiles-percentiles-y-varianza, tecnicas-de-integracion, teorema-central-del-limite, teorema-de-bayes
-- **Cluster 30** (5): teorema-de-bolzano, teorema-de-pitagoras, teorema-del-binomio, teorema-del-seno-y-del-coseno, test-de-hipotesis
-- **Cluster 31** (5): transformaciones-geometricas/homotecia, transformaciones-geometricas/reflexion, transformaciones-geometricas/rotacion, transformaciones-geometricas/traslacion, triangulos
-- **Cluster 32** (6): union-interseccion-y-diferencia, valor-posicional, variable-aleatoria-discreta-continua, variaciones, vectores-modulo-y-direccion, volumen-y-capacidad
+- **Cluster 1** (5): asintotas, concavidad-y-puntos-de-inflexion, conjuntos-pertenencia-e-inclusion, conteo, divisibilidad/regla-del-7-opcional
+- **Cluster 2** (5): grafos-vertices-y-aristas, integral-definida-y-area-bajo-la-curva, arboles-grafo-sin-ciclos, grafos-dirigidos-no-dirigidos-y-ponderados, leer-una-tabla
+- **Cluster 3** (5): caminos-y-ciclos, leer-grafico/barras, algoritmos-de-recorrido-bfs-dfs, leer-grafico/lineas, leer-grafico/torta
+- **Cluster 4** (5): magnitud-unidad-instrumento, construir-un-grafico, grafico-eje-truncado, media-mediana-y-moda, razones-trigonometricas
+- **Cluster 5** (5): cual-miente-y-cuando, funciones-trigonometricas-seno-coseno, regla-de-lhopital, identidades-y-ecuaciones-trigonometricas, regresion-lineal
+- **Cluster 6** (5): sistema-metrico-y-conversiones, correlacion-no-es-causalidad, analisis-dimensional, angulos, cifras-significativas-y-error
+- **Cluster 7** (5): circunferencia-y-circulo, error-sistematico-vs-aleatorio, perimetro-y-area, poligonos, tablas-de-frecuencia-cuartiles-percentiles-y-varianza
+- **Cluster 8** (5): area-poligonos-regulares-y-compuestas, dispersion-rango-y-desvio, teorema-de-bolzano, distribucion-normal, teorema-del-seno-y-del-coseno
+- **Cluster 9** (5): muestreo-y-sesgo, triangulos, teorema-central-del-limite, congruencia-de-triangulos, intervalo-de-confianza
+- **Cluster 10** (5): semejanza-y-teorema-de-thales, teorema-de-pitagoras, test-de-hipotesis, transformaciones-geometricas/homotecia, transformaciones-geometricas/reflexion
+- **Cluster 11** (5): transformaciones-geometricas/rotacion, transformaciones-geometricas/traslacion, union-interseccion-y-diferencia, valor-posicional, diagramas-de-venn
+- **Cluster 12** (5): suma, principio-multiplicativo-de-conteo, multiplicacion, combinaciones, permutaciones
+- **Cluster 13** (5): independencia-de-eventos-y-diagrama-de-arbol, potencias, probabilidad-simple, logaritmos, probabilidad-compuesta
+- **Cluster 14** (5): raices, distribucion-binomial, esperanza-matematica-valor-esperado, irracionales-y-reales, probabilidad-condicional
+- **Cluster 15** (5): resta, sucesiones-aritmeticas, dinero, division, hora-y-reloj
+- **Cluster 16** (5): jerarquia-operaciones, numeros-enteros, divisibilidad/multiplos, lenguaje-algebraico, divisibilidad/divisores
+- **Cluster 17** (5): expresiones-equivalentes, divisibilidad/regla-del-2, divisibilidad/regla-del-3, divisibilidad/regla-del-4, divisibilidad/regla-del-5
+- **Cluster 18** (5): divisibilidad/regla-del-6, divisibilidad/regla-del-10, divisibilidad/regla-del-8, divisibilidad/regla-del-9, ecuacion-primer-grado
+- **Cluster 19** (5): numeros-primos, demostracion-contraejemplo, demostracion-deduccion, demostracion-induccion, demostracion-reduccion-al-absurdo
+- **Cluster 20** (5): despejar-formula, funcion-dominio, funcion-imagen, inecuaciones, funcion-inversa-composicion
+- **Cluster 21** (5): funcion-lineal-pendiente, mcd, operaciones-enteros, fracciones, mcm
+- **Cluster 22** (5): plano-cartesiano, operaciones-fracciones, coordenadas-de-un-punto, decimales, distancia-entre-dos-puntos
+- **Cluster 23** (5): notacion-cientifica, ecuacion-de-la-recta, polinomios-factoreo, proporcionalidad-funcion, division-polinomios-ruffini
+- **Cluster 24** (5): ecuacion-cuadratica, punto-medio-de-un-segmento, funcion-cuadratica-parabola, numeros-complejos, familias-exponencial-logaritmica
+- **Cluster 25** (5): forma-polar-complejos, ecuaciones-exponenciales-logaritmicas, limite, razon, continuidad
+- **Cluster 26** (5): proporcion, derivada, rectas-paralelas-y-perpendiculares, integral, optimizacion
+- **Cluster 27** (5): ecuaciones-diferenciales, redondeo, regla-de-tres-directa, secciones-conicas-circunferencia, porcentaje
+- **Cluster 28** (5): regla-de-tres-inversa, sistemas-dos-ecuaciones, sucesiones-y-series, matrices/operaciones, series-geometricas
+- **Cluster 29** (5): matrices/sistemas-nxn, tecnicas-de-integracion, determinante, teorema-de-bayes, matriz-inversa
+- **Cluster 30** (5): riesgo-relativo-vs-absoluto, teorema-del-binomio, variable-aleatoria-discreta-continua, variaciones, distribucion-de-poisson
+- **Cluster 31** (5): distribucion-exponencial, vectores-modulo-y-direccion, volumen-y-capacidad, suma-de-vectores-y-descomposicion, cuerpos-redondos-y-poliedros/cilindros
+- **Cluster 32** (6): cuerpos-redondos-y-poliedros/conos, cuerpos-redondos-y-poliedros/esferas, cuerpos-redondos-y-poliedros/piramides, cuerpos-redondos-y-poliedros/prismas, producto-escalar, cuerpos-redondos-y-poliedros/desarrollo-plano
 
 ## Lengua (75 temas, 15 clusters)
 
-- **Cluster 1** (5): argumentos, boom-latinoamericano, circuito-de-la-comunicacion, clases-de-palabras, comprension-idea-principal
-- **Cluster 2** (5): conciencia-fonologica, concordancia-nominal-y-verbal, conectores-textuales, conjugacion-verbal-indicativo, conjugacion-verbal-subjuntivo
-- **Cluster 3** (5): contraargumentos, coordinadas-adversativas, coordinadas-copulativas, coordinadas-distributivas, coordinadas-disyuntivas
-- **Cluster 4** (5): correo-formal, cv, debate-refutar-en-vivo, decodificacion-y-fluidez, detectar-falacias
-- **Cluster 5** (5): discurso-referido, escritura-como-tecnologia, estructura-narrativa, exposicion-oral, generacion-del-98
-- **Cluster 6** (5): genero-dramatico, genero-lirico, genero-narrativo, generos-discursivos, generos-periodisticos
-- **Cluster 7** (5): informe-tecnico, modernismo, narrador, negociacion, nucleos-y-modificadores
-- **Cluster 8** (5): objetos-y-circunstanciales, oracion-compuesta-coordinacion-y-subordinacion, oraciones-negativas-e-interrogativas, ortografia-y-tildacion, paratextos
-- **Cluster 9** (5): persuasion-etica-vs-manipulacion, presentacion-con-apoyo-visual, produccion-escrita-compleja, progresion-tematica, punto-de-vista
-- **Cluster 10** (5): realismo, recursos-literarios, referencia-anafora-y-catafora, romanticismo, signos-de-puntuacion
-- **Cluster 11** (5): sintagmas-nominal-adjetivo-preposicional-adverbial-verbal, subjetivemas-y-modalizadores, subordinada-adjetiva-o-de-relativo, subordinada-adverbial-de-lugar, subordinada-adverbial-de-modo
-- **Cluster 12** (5): subordinada-adverbial-de-tiempo, subordinada-causal, subordinada-concesiva-y-final, subordinada-condicional, subordinada-consecutiva
-- **Cluster 13** (5): subordinada-sustantiva-de-complemento-circunstancial, subordinada-sustantiva-de-complemento-de-regimen, subordinada-sustantiva-de-complemento-de-un-adjetivo, subordinada-sustantiva-de-complemento-del-nombre, subordinada-sustantiva-de-complemento-directo
-- **Cluster 14** (5): subordinada-sustantiva-de-sujeto, sujeto-y-predicado, tecnicas-de-estudio-resumen-y-organizadores-graficos, tesis, texto-teatral
-- **Cluster 15** (5): tipos-de-sujeto, tipos-textuales, variedades-de-la-lengua, vocabulario-y-familia-de-palabras, voz-activa-y-pasiva
+- **Cluster 1** (5): conciencia-fonologica, escritura-como-tecnologia, decodificacion-y-fluidez, ortografia-y-tildacion, circuito-de-la-comunicacion
+- **Cluster 2** (5): comprension-idea-principal, signos-de-puntuacion, tecnicas-de-estudio-resumen-y-organizadores-graficos, tipos-textuales, variedades-de-la-lengua
+- **Cluster 3** (5): genero-dramatico, genero-lirico, genero-narrativo, generos-discursivos, narrador
+- **Cluster 4** (5): generos-periodisticos, paratextos, punto-de-vista, recursos-literarios, estructura-narrativa
+- **Cluster 5** (5): romanticismo, tesis, realismo, argumentos, modernismo
+- **Cluster 6** (5): contraargumentos, generacion-del-98, detectar-falacias, boom-latinoamericano, debate-refutar-en-vivo
+- **Cluster 7** (5): exposicion-oral, negociacion, persuasion-etica-vs-manipulacion, presentacion-con-apoyo-visual, subjetivemas-y-modalizadores
+- **Cluster 8** (5): texto-teatral, vocabulario-y-familia-de-palabras, clases-de-palabras, concordancia-nominal-y-verbal, conjugacion-verbal-indicativo
+- **Cluster 9** (5): sujeto-y-predicado, conjugacion-verbal-subjuntivo, nucleos-y-modificadores, tipos-de-sujeto, objetos-y-circunstanciales
+- **Cluster 10** (5): sintagmas-nominal-adjetivo-preposicional-adverbial-verbal, oracion-compuesta-coordinacion-y-subordinacion, oraciones-negativas-e-interrogativas, coordinadas-adversativas, coordinadas-copulativas
+- **Cluster 11** (5): coordinadas-distributivas, coordinadas-disyuntivas, discurso-referido, produccion-escrita-compleja, subordinada-adjetiva-o-de-relativo
+- **Cluster 12** (5): conectores-textuales, correo-formal, cv, informe-tecnico, progresion-tematica
+- **Cluster 13** (5): referencia-anafora-y-catafora, subordinada-adverbial-de-lugar, subordinada-adverbial-de-modo, subordinada-adverbial-de-tiempo, subordinada-causal
+- **Cluster 14** (5): subordinada-concesiva-y-final, subordinada-condicional, subordinada-consecutiva, subordinada-sustantiva-de-complemento-circunstancial, subordinada-sustantiva-de-complemento-de-regimen
+- **Cluster 15** (5): subordinada-sustantiva-de-complemento-de-un-adjetivo, subordinada-sustantiva-de-complemento-del-nombre, subordinada-sustantiva-de-complemento-directo, subordinada-sustantiva-de-sujeto, voz-activa-y-pasiva
 
-## Historia profunda (109 temas, 22 clusters)
+## Historia profunda (109 temas, 21 clusters)
 
 - **Cluster 1** (5): absolutismo-europeo, agujeros-negros, ampliacion-democratica-ley-saenz-pena, antigua-grecia, antigua-roma
 - **Cluster 2** (5): antiguo-egipto, atmosfera-primitiva, baja-edad-media-y-crisis, caida-de-roma-y-alta-edad-media, cambio-climatico-linea-base-historica
@@ -77,37 +98,35 @@ Regenerado contra el `material/` actual (la versión 2026-08-11 quedó vieja: +1
 - **Cluster 18** (5): poblamiento-planeta-america, primera-guerra-mundial-y-revolucion-rusa, procariotas, propiedad-jerarquia-estado, pueblos-originarios-territorio-argentino
 - **Cluster 19** (5): radiacion-mamiferos, recuperacion-democratica-memoria, relieve-sismos-volcanes, renacimiento-y-reforma, revolucion-de-mayo
 - **Cluster 20** (5): revolucion-industrial, revolucion-neolitica, revoluciones-burguesas-liberalismo, rocas-igneas-sedimentarias-metamorficas, sedentarizacion-excedente
-- **Cluster 21** (5): segunda-guerra-mundial, seleccion-natural-evidencias-nivel2, sociedad-de-masas-y-democracia-liberal, tabla-periodica-nivel2-cosmologico, tectonica-placas-deriva-continental
-- **Cluster 22** (4): terrorismo-de-estado-argentina, tiempo-geologico-eones-eras-periodos, tierra-primitiva-diferenciacion, virreinato-y-comercio
+- **Cluster 21** (9): segunda-guerra-mundial, seleccion-natural-evidencias-nivel2, sociedad-de-masas-y-democracia-liberal, tabla-periodica-nivel2-cosmologico, tectonica-placas-deriva-continental, terrorismo-de-estado-argentina, tiempo-geologico-eones-eras-periodos, tierra-primitiva-diferenciacion, virreinato-y-comercio
 
-## Historia (28 temas, 6 clusters)
+## Historia (28 temas, 5 clusters)
 
-- **Cluster 1** (5): antes-y-despues-de-cristo, cambio-y-continuidad, causa-y-consecuencia, conquista-del-desierto-y-campana-al-chaco, crisis-de-2001
-- **Cluster 2** (5): decada-siglo-milenio, dimension-etica, economias-regionales-tempranas, escuela-de-los-annales, evidencia
-- **Cluster 3** (5): guerra-civil-espanola-1936-1939, guerra-del-paraguay-y-triple-alianza, guerras, historia-cultural, independencias
-- **Cluster 4** (5): industrializacion-por-sustitucion-de-importaciones-isi, interpretar-una-fuente-historica, linea-de-tiempo-y-antes-despues, materialismo-historico, multicausalidad
-- **Cluster 5** (5): periodizacion-historica, positivismo, reforma-universitaria-1918, revolucion-mexicana-1910-1920, revoluciones
-- **Cluster 6** (3): rosas-y-la-confederacion, semana-tragica-1919, significancia-historica
+- **Cluster 1** (5): conquista-del-desierto-y-campana-al-chaco, crisis-de-2001, guerra-civil-espanola-1936-1939, guerra-del-paraguay-y-triple-alianza, interpretar-una-fuente-historica
+- **Cluster 2** (5): linea-de-tiempo-y-antes-despues, reforma-universitaria-1918, decada-siglo-milenio, revolucion-mexicana-1910-1920, antes-y-despues-de-cristo
+- **Cluster 3** (5): rosas-y-la-confederacion, periodizacion-historica, economias-regionales-tempranas, causa-y-consecuencia, semana-tragica-1919
+- **Cluster 4** (5): cambio-y-continuidad, evidencia, dimension-etica, industrializacion-por-sustitucion-de-importaciones-isi, multicausalidad
+- **Cluster 5** (8): significancia-historica, escuela-de-los-annales, historia-cultural, materialismo-historico, positivismo, revoluciones, independencias, guerras
 
 ## Geografía (40 temas, 8 clusters)
 
-- **Cluster 1** (5): ambientalismo-liberal, ambiente-y-recursos, america-anglosajona, america-latina-formacion-poblacion, america-latina-industria-y-energia
-- **Cluster 2** (5): conservacionismo, coordenadas-geograficas, coordenadas-y-husos-horarios, decrecimiento, densidad-poblacion
-- **Cluster 3** (5): division-politica, ecologismo-politico, escala-de-mapa, estados-y-globalizacion, geografia-economica-agricola-argentina
-- **Cluster 4** (5): geografia-industrial-mundial, huella-de-carbono-agua-virtual, indicadores-sociales-de-argentina, indice-de-desarrollo-humano, mapa-plano-escala
-- **Cluster 5** (5): migraciones-internacionales, migraciones-internas-en-argentina, mineria-e-hidrocarburos-en-argentina, orientacion-puntos-cardinales, paises-de-america-latina
-- **Cluster 6** (5): poblacion-piramides-migraciones, produccion-agraria-mundial-y-biotecnologia, recursos-actividades-economicas, recursos-hidricos-y-gestion, region
-- **Cluster 7** (5): regiones-naturales-de-argentina, relieve-clima-biomas, riesgos-ambientales-mundiales, riesgos-naturales-argentinos, sig-gps
-- **Cluster 8** (5): sig-imagenes-satelitales, sig-mapas-digitales, trabajo-y-desempleo-mundial, turismo-mundial, urbanizacion-migracion-ciudad
+- **Cluster 1** (5): america-anglosajona, coordenadas-y-husos-horarios, densidad-poblacion, escala-de-mapa, huella-de-carbono-agua-virtual
+- **Cluster 2** (5): orientacion-puntos-cardinales, urbanizacion-migracion-ciudad, mapa-plano-escala, coordenadas-geograficas, division-politica
+- **Cluster 3** (5): sig-mapas-digitales, estados-y-globalizacion, region, sig-gps, relieve-clima-biomas
+- **Cluster 4** (5): sig-imagenes-satelitales, recursos-actividades-economicas, regiones-naturales-de-argentina, geografia-economica-agricola-argentina, geografia-industrial-mundial
+- **Cluster 5** (5): mineria-e-hidrocarburos-en-argentina, america-latina-industria-y-energia, poblacion-piramides-migraciones, produccion-agraria-mundial-y-biotecnologia, ambiente-y-recursos
+- **Cluster 6** (5): america-latina-formacion-poblacion, ambientalismo-liberal, conservacionismo, decrecimiento, ecologismo-politico
+- **Cluster 7** (5): indicadores-sociales-de-argentina, migraciones-internacionales, indice-de-desarrollo-humano, migraciones-internas-en-argentina, paises-de-america-latina
+- **Cluster 8** (5): recursos-hidricos-y-gestion, riesgos-naturales-argentinos, trabajo-y-desempleo-mundial, riesgos-ambientales-mundiales, turismo-mundial
 
 ## Cívica (31 temas, 6 clusters)
 
-- **Cluster 1** (5): alcoholemia-y-conduccion, como-se-hace-una-ley, constitucion-nacional-jerarquia-normativa, constitucion-preambulo, derechos-genero
-- **Cluster 2** (5): derechos-indigenas, derechos-nino, derechos-y-garantias, discriminacion-y-organismos-de-proteccion, division-de-poderes
-- **Cluster 3** (5): documentos-y-tramites, encuesta-electoral, estado-de-derecho-por-que-importa, impuestos, marchas-patrioticas
-- **Cluster 4** (5): organismos-internacionales, organizacion-del-estado, origen-estado-derecho, partidos-politicos, prioridades-de-paso
-- **Cluster 5** (5): proyecto-ciudadano-participativo, senalizacion-vial, simbolos-patrios, sistema-de-salud, sistema-electoral-dhondt
-- **Cluster 6** (6): sistemas-politicos-comparados, sueldo-promedio-pais, sufragio-restringido-universal, teoria-del-poder, tipos-de-estado, tratados-internacionales
+- **Cluster 1** (5): constitucion-nacional-jerarquia-normativa, derechos-nino, discriminacion-y-organismos-de-proteccion, derechos-indigenas, encuesta-electoral
+- **Cluster 2** (5): derechos-genero, estado-de-derecho-por-que-importa, marchas-patrioticas, organizacion-del-estado, origen-estado-derecho
+- **Cluster 3** (5): constitucion-preambulo, division-de-poderes, derechos-y-garantias, como-se-hace-una-ley, documentos-y-tramites
+- **Cluster 4** (5): impuestos, alcoholemia-y-conduccion, prioridades-de-paso, proyecto-ciudadano-participativo, senalizacion-vial
+- **Cluster 5** (5): simbolos-patrios, sistema-de-salud, sistema-electoral-dhondt, sistemas-politicos-comparados, sueldo-promedio-pais
+- **Cluster 6** (6): partidos-politicos, sufragio-restringido-universal, organismos-internacionales, teoria-del-poder, tratados-internacionales, tipos-de-estado
 
 ## Química (42 temas, 8 clusters)
 
@@ -137,31 +156,30 @@ Regenerado contra el `material/` actual (la versión 2026-08-11 quedó vieja: +1
 - **Cluster 3** (5): conservacion-energia-mecanica, corriente-electrica, decaimiento-radiactivo-alfa-beta-gamma, decibeles-richter, dilatacion-termica-lineal
 - **Cluster 4** (5): dinamica-fuerzas-concurrentes, dualidad-onda-particula, energia-cinetica, energia-potencial-gravitatoria, entropia-segunda-ley-termodinamica
 - **Cluster 5** (5): escalas-de-temperatura-c-f-k, estatica/centro-de-gravedad, estatica/equilibrio-de-cuerpo-rigido, estatica/momento-de-una-fuerza, estructura-del-nucleo-atomico
-- **Cluster 6** (5): fisica-medica, fision-y-fusion-nuclear, formacion-de-imagenes-optica, formacion-de-nubes, formulas-con-literales
-- **Cluster 7** (5): frecuencia, generador-motor-transformador, gravitacion-universal, iman-polos-atraccion-repulsion, impulso-cambio-momento
-- **Cluster 8** (5): induccion-electromagnetica-faraday-lenz, lentes-convergentes-divergentes, ley-de-coulomb, ley-de-ohm, leyes-de-newton/primera-inercia
-- **Cluster 9** (5): leyes-de-newton/segunda-fma, leyes-de-newton/tercera-accion-reaccion, longitud-onda-velocidad-propagacion, luz-onda-espectro-electromagnetico, maquina-termica-termodinamica-nivel2
-- **Cluster 10** (5): maquinas-simples, masas-de-aire-y-frentes, momento-lineal, movimiento-circular-y-fuerza-centripeta, mru
-- **Cluster 11** (5): mruv, ojo-humano-instrumento-optico, oscilacion-periodo, plano-inclinado-y-rozamiento, potencia-electrica
-- **Cluster 12** (5): potencia-mecanica, precipitacion, presion-atmosferica, presion-f-sobre-a, presion-hidrostatica
-- **Cluster 13** (5): principio-de-arquimedes-empuje-flotacion, principio-de-pascal-prensa-hidraulica, reflexion-espejos-planos-curvos, refraccion-indice-ley-snell, relatividad-especial-conceptual
+- **Cluster 6** (5): fisica-medica, fision-y-fusion-nuclear, formacion-de-imagenes-optica, formulas-con-literales, frecuencia
+- **Cluster 7** (5): generador-motor-transformador, gravitacion-universal, iman-polos-atraccion-repulsion, impulso-cambio-momento, induccion-electromagnetica-faraday-lenz
+- **Cluster 8** (5): lentes-convergentes-divergentes, ley-de-coulomb, ley-de-ohm, leyes-de-newton/primera-inercia, leyes-de-newton/segunda-fma
+- **Cluster 9** (5): leyes-de-newton/tercera-accion-reaccion, longitud-onda-velocidad-propagacion, luz-onda-espectro-electromagnetico, maquina-termica-termodinamica-nivel2, maquinas-simples
+- **Cluster 10** (5): momento-lineal, movimiento-circular-y-fuerza-centripeta, mru, ojo-humano-instrumento-optico, mruv
+- **Cluster 11** (5): oscilacion-periodo, plano-inclinado-y-rozamiento, potencia-electrica, potencia-mecanica, presion-atmosferica
+- **Cluster 12** (5): presion-f-sobre-a, masas-de-aire-y-frentes, presion-hidrostatica, formacion-de-nubes, principio-de-arquimedes-empuje-flotacion
+- **Cluster 13** (5): precipitacion, principio-de-pascal-prensa-hidraulica, reflexion-espejos-planos-curvos, refraccion-indice-ley-snell, relatividad-especial-conceptual
 - **Cluster 14** (5): resistencia-electrica, resonancia-frecuencia-natural, semivida-desintegracion-exponencial, sonido-timbre-altura-intensidad, temperatura-equilibrio-termico
 - **Cluster 15** (7): tension-diferencia-potencial, tiro-oblicuo, tiro-vertical, tormentas-y-fenomenos-severos, trabajo-de-una-fuerza, transmision-calor-conduccion-conveccion-radiacion, velocidad-aceleracion-instantaneas
 
-## Informática (59 temas, 12 clusters)
+## Informática (59 temas, 11 clusters)
 
 - **Cluster 1** (5): algebra-booleana, algoritmo-secuencia-de-pasos, algoritmos-busqueda-ordenamiento, almacenamiento-volatil-vs-no-volatil, archivos-y-persistencia
-- **Cluster 2** (5): arranque-de-la-computadora-boot, buses-y-entrada-salida, ciclo-de-instruccion-fetch-decode-execute, complejidad-asintotica, comunicacion-entre-procesos
-- **Cluster 3** (5): control-de-versiones, cpu-unidad-de-control-y-alu, criptografia-clave-simetrica-asimetrica-hash, direccionamiento-ip-dns, diseno-y-arquitectura-de-software
-- **Cluster 4** (5): estructuras-de-control-bucles, estructuras-de-control-condicionales, estructuras-de-datos-listas-pilas-colas, etica-de-la-ia-sesgo-privacidad, funciones-y-modularidad
-- **Cluster 5** (5): historia-y-evolucion-de-los-sistemas-operativos, inteligencia-artificial-reglas-a-aprendizaje, interrupciones, mantenimiento-y-deuda-tecnica, medios-tecnicos-extension-capacidades-humanas
-- **Cluster 6** (5): memoria-asignacion-memoria-virtual, memoria-ram-cache-jerarquia, modelo-relacional-tabla-registro-clave-primaria, normalizacion-bases-datos, ofimatica-planilla-de-calculo
-- **Cluster 7** (5): paginacion, patrones-y-buenas-practicas, permisos-y-usuarios, planificacion-de-procesos, poo-clases-y-objetos
-- **Cluster 8** (5): proceso-programa-en-ejecucion, procesos-tecnicos-artesanales-e-industriales, protocolo-http-peticion-respuesta, pruebas-unitarias-integracion, que-es-la-tecnica-y-la-tecnologia
-- **Cluster 9** (5): recursividad, relaciones-y-claves-foraneas, requisitos-funcionales-no-funcionales, revolucion-informatica, segmentacion
-- **Cluster 10** (5): seguridad-de-red-firewall-vpn-cifrado, seguridad-informatica, sistema-de-archivos, sistema-de-archivos-por-bitacora, sistemas-numeracion
-- **Cluster 11** (5): sql-consultas-joins-agregaciones, subsistema-de-entrada-y-salida, tcp-ip-capas-enrutamiento, tipos-de-licencias-de-software, tipos-de-so-por-dispositivo
-- **Cluster 12** (4): transacciones-acid, unidades-almacenamiento, variables-y-tipos-de-dato, virtualizacion-maquina-virtual-contenedor
+- **Cluster 2** (5): buses-y-entrada-salida, ciclo-de-instruccion-fetch-decode-execute, complejidad-asintotica, control-de-versiones, cpu-unidad-de-control-y-alu
+- **Cluster 3** (5): criptografia-clave-simetrica-asimetrica-hash, direccionamiento-ip-dns, diseno-y-arquitectura-de-software, estructuras-de-control-bucles, estructuras-de-control-condicionales
+- **Cluster 4** (5): estructuras-de-datos-listas-pilas-colas, etica-de-la-ia-sesgo-privacidad, funciones-y-modularidad, historia-y-evolucion-de-los-sistemas-operativos, inteligencia-artificial-reglas-a-aprendizaje
+- **Cluster 5** (5): arranque-de-la-computadora-boot, mantenimiento-y-deuda-tecnica, memoria-asignacion-memoria-virtual, memoria-ram-cache-jerarquia, modelo-relacional-tabla-registro-clave-primaria
+- **Cluster 6** (5): normalizacion-bases-datos, ofimatica-planilla-de-calculo, paginacion, patrones-y-buenas-practicas, permisos-y-usuarios
+- **Cluster 7** (5): planificacion-de-procesos, poo-clases-y-objetos, interrupciones, proceso-programa-en-ejecucion, protocolo-http-peticion-respuesta
+- **Cluster 8** (5): comunicacion-entre-procesos, pruebas-unitarias-integracion, que-es-la-tecnica-y-la-tecnologia, recursividad, medios-tecnicos-extension-capacidades-humanas
+- **Cluster 9** (5): relaciones-y-claves-foraneas, procesos-tecnicos-artesanales-e-industriales, requisitos-funcionales-no-funcionales, revolucion-informatica, segmentacion
+- **Cluster 10** (5): seguridad-de-red-firewall-vpn-cifrado, seguridad-informatica, sistema-de-archivos, sistemas-numeracion, sistema-de-archivos-por-bitacora
+- **Cluster 11** (9): sql-consultas-joins-agregaciones, subsistema-de-entrada-y-salida, tcp-ip-capas-enrutamiento, tipos-de-licencias-de-software, tipos-de-so-por-dispositivo, transacciones-acid, unidades-almacenamiento, variables-y-tipos-de-dato, virtualizacion-maquina-virtual-contenedor
 
 ## Ingeniería (11 temas, 2 clusters)
 
@@ -171,25 +189,27 @@ Regenerado contra el `material/` actual (la versión 2026-08-11 quedó vieja: +1
 ## Investigación (12 temas, 2 clusters)
 
 - **Cluster 1** (5): analisis-estadistico-de-resultados, argumentar-desde-evidencia, conclusion-y-comunicacion-de-resultados, construir-y-usar-un-modelo-cientifico, corrientes-filosofia-de-la-ciencia
-- **Cluster 2** (7): diseno-experimental-variables-y-control, hipotesis-buena-o-mala, metodologia-cualitativa-vs-cuantitativa, observacion-y-pregunta-investigable, recoleccion-de-datos, tecnicas-de-investigacion-social, trabajo-de-campo-enfoque-socioantropologico
+- **Cluster 2** (7): diseno-experimental-variables-y-control, hipotesis-buena-o-mala, observacion-y-pregunta-investigable, recoleccion-de-datos, metodologia-cualitativa-vs-cuantitativa, trabajo-de-campo-enfoque-socioantropologico, tecnicas-de-investigacion-social
 
-## Economía (77 temas, 15 clusters)
+## Economía (85 temas, 17 clusters)
 
-- **Cluster 1** (5): ambiente-interno-y-externo-organizacion, balanza-comercial, blockchain-claves-wallet, business-model-canvas, capitalismo-industrial-trabajo-asalariado
-- **Cluster 2** (5): cft-vs-tasa-nominal, comercio-internacional-ventaja-comparativa, contabilidad-ambiental, contabilidad-como-sistema-de-informacion, contratos-inteligentes
-- **Cluster 3** (5): control-de-gestion-e-indicadores, cooperativismo-y-mutualismo, coordinar-personas-y-recursos, corrientes-pensamiento-economico, costo-de-oportunidad
-- **Cluster 4** (5): costo-marginal, cultura-organizacional, cuota-credito-frances, debe-haber-balance, default-deuda
-- **Cluster 5** (5): descuentos-obligatorios/jubilacion, descuentos-obligatorios/obra-social, detectar-una-oportunidad-de-negocio, deuda-publica-externa, deuda-publica-interna
-- **Cluster 6** (5): devaluacion, dex-swap, division-formal-microeconomia-macroeconomia, economia-positiva-y-normativa, ecuacion-contable-fundamental
-- **Cluster 7** (5): elasticidad, elementos-de-las-organizaciones, estado-de-resultados, estados-contables, estructura-del-patrimonio
-- **Cluster 8** (5): estructura-organizacional, estructura-productiva-dependencia, estudio-de-contexto-para-un-proyecto, fondo-emergencia-diversificacion, indices-financieros
-- **Cluster 9** (5): interes-compuesto, interes-compuesto-funcion, interes-simple, iva, jubilacion-sistema-previsional
-- **Cluster 10** (5): libro-diario-mayor, margenes-bruto-y-neto, mejora-continua, monotributo, mvp-producto-minimo-viable
-- **Cluster 11** (5): objetivos-y-metas, oferta-y-demanda, origen-excedente-moneda-mercado, partida-doble, pbi-e-inflacion
-- **Cluster 12** (5): pitch-a-inversores, planificacion-administrativa, plazo-fijo-vs-inflacion, pools-liquidez-amm, precio-final
-- **Cluster 13** (5): presupuesto-administrativo, productividad-produccion-insumos, punto-de-equilibrio, recibo-de-sueldo/argentina, recibo-de-sueldo/general
-- **Cluster 14** (5): reservas-banco-central, sectores-economicos, seguros, sueldo-promedio-pais, tipo-cambio-fijo
-- **Cluster 15** (7): tipo-cambio-flotante, tipos-de-organizaciones, tipos-de-proyecto, tipos-de-sociedades, validar-con-clientes-construir-medir-aprender, valor-esperado-riesgo, vision-y-mision-organizacional
+- **Cluster 1** (5): balanza-comercial, blockchain-claves-wallet, business-model-canvas, capitalismo-industrial-trabajo-asalariado, comercio-internacional-ventaja-comparativa
+- **Cluster 2** (5): contratos-inteligentes, control-de-gestion-e-indicadores, cooperativismo-y-mutualismo, coordinar-personas-y-recursos, costo-de-oportunidad
+- **Cluster 3** (5): costo-marginal, debe-haber-balance, detectar-una-oportunidad-de-negocio, dex-swap, division-formal-microeconomia-macroeconomia
+- **Cluster 4** (5): elasticidad, economia-positiva-y-normativa, estado-de-resultados, estructura-del-patrimonio, estructura-productiva-dependencia
+- **Cluster 5** (5): ecuacion-contable-fundamental, interes-simple, iva, interes-compuesto, margenes-bruto-y-neto
+- **Cluster 6** (5): cft-vs-tasa-nominal, cuota-credito-frances, interes-compuesto-funcion, mejora-continua, mvp-producto-minimo-viable
+- **Cluster 7** (5): objetivos-y-metas, origen-excedente-moneda-mercado, partida-doble, pitch-a-inversores, libro-diario-mayor
+- **Cluster 8** (5): planificacion-administrativa, estados-contables, plazo-fijo-vs-inflacion, contabilidad-ambiental, contabilidad-como-sistema-de-informacion
+- **Cluster 9** (5): indices-financieros, pools-liquidez-amm, precio-final, presupuesto-administrativo, oferta-y-demanda
+- **Cluster 10** (5): productividad-produccion-insumos, fisiocracia, mercantilismo, pbi-e-inflacion, liberalismo-clasico-y-escuela-austriaca
+- **Cluster 11** (5): punto-de-equilibrio, recibo-de-sueldo/general, sectores-economicos, recibo-de-sueldo/argentina, socialismo-utopico
+- **Cluster 12** (5): descuentos-obligatorios/jubilacion, descuentos-obligatorios/obra-social, jubilacion-sistema-previsional, marxismo, monotributo
+- **Cluster 13** (5): economia-feminista-y-del-cuidado, keynesianismo, sueldo-promedio-pais, neoliberalismo, ordoliberalismo
+- **Cluster 14** (5): tipo-cambio-fijo, tipo-cambio-flotante, tipos-de-organizaciones, devaluacion, elementos-de-las-organizaciones
+- **Cluster 15** (5): reservas-banco-central, ambiente-interno-y-externo-organizacion, cultura-organizacional, deuda-publica-externa, deuda-publica-interna
+- **Cluster 16** (5): estructura-organizacional, default-deuda, tipos-de-proyecto, tipos-de-sociedades, validar-con-clientes-construir-medir-aprender
+- **Cluster 17** (5): valor-esperado-riesgo, vision-y-mision-organizacional, fondo-emergencia-diversificacion, estudio-de-contexto-para-un-proyecto, seguros
 
 ## Derecho (21 temas, 4 clusters)
 
@@ -230,8 +250,8 @@ Regenerado contra el `material/` actual (la versión 2026-08-11 quedó vieja: +1
 ## Arte (15 temas, 3 clusters)
 
 - **Cluster 1** (5): acustica-instrumento-musical, armonia-basica-acordes-tonalidad, composicion-y-proporcion, danza-ritmo-tiempo-expresion-corporal, elementos-del-arte
-- **Cluster 2** (5): lenguaje-musical-pentagrama-escalas-intervalos, narrativa-audiovisual/encuadre, narrativa-audiovisual/montaje, narrativa-audiovisual/plano, origen-del-arte
-- **Cluster 3** (5): principios-de-diseno, produccion-multimedial, ritmo-compas-pulso-figuras-musicales, rosetones-y-simetria, teatro-dramaturgia-y-actuacion
+- **Cluster 2** (5): lenguaje-musical-pentagrama-escalas-intervalos, origen-del-arte, principios-de-diseno, ritmo-compas-pulso-figuras-musicales, narrativa-audiovisual/plano
+- **Cluster 3** (5): rosetones-y-simetria, narrativa-audiovisual/encuadre, teatro-dramaturgia-y-actuacion, narrativa-audiovisual/montaje, produccion-multimedial
 
 ## Resumen
 
@@ -239,17 +259,17 @@ Regenerado contra el `material/` actual (la versión 2026-08-11 quedó vieja: +1
 |---|---:|---:|
 | Matemática | 161 | 32 |
 | Lengua | 75 | 15 |
-| Historia profunda | 109 | 22 |
-| Historia | 28 | 6 |
+| Historia profunda | 109 | 21 |
+| Historia | 28 | 5 |
 | Geografía | 40 | 8 |
 | Cívica | 31 | 6 |
 | Química | 42 | 8 |
 | Biología | 37 | 7 |
 | Física | 77 | 15 |
-| Informática | 59 | 12 |
+| Informática | 59 | 11 |
 | Ingeniería | 11 | 2 |
 | Investigación | 12 | 2 |
-| Economía | 77 | 15 |
+| Economía | 85 | 17 |
 | Derecho | 21 | 4 |
 | Dibujo Técnico | 5 | 1 |
 | Psicología | 10 | 2 |
@@ -259,7 +279,7 @@ Regenerado contra el `material/` actual (la versión 2026-08-11 quedó vieja: +1
 | Automatización | 5 | 1 |
 | UX/Diseño | 5 | 1 |
 | Arte | 15 | 3 |
-| **Total** | **836** | **165** |
+| **Total** | **844** | **164** |
 
 ## Fuera del alcance original (2026-08-09) — pendiente decisión de Javier
 

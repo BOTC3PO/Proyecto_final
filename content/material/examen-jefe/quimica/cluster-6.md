@@ -1,6 +1,6 @@
-# Examen jefe — Domina la nomenclatura y el pH
+# Examen jefe — [PENDIENTE #846]
 
-> Logro #146. Completaste el parcial integrando conceptos de nomenclatura, redox, petróleo y equilibrio ácido-base. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **123 preguntas totales** en 5/5 secciones.
+> Logro #846. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -118,7 +118,8 @@ metadata:
 
 respuesta: "metal"
 tipo: completar
-respuestas_validas: ["metal"]
+respuestas_validas:
+  - "metal"
 
 enunciado: "El nombre general de un compuesto binario metal + no metal sigue el patrón \"[no metal]uro de ___\"."
 
@@ -230,7 +231,8 @@ metadata:
 
 respuesta: "elemento"
 tipo: completar
-respuestas_validas: ["elemento"]
+respuestas_validas:
+  - "elemento"
 
 enunciado: "Un compuesto binario formado por un ___ (metal o no metal) combinado con oxígeno se llama, en general, óxido."
 
@@ -318,7 +320,8 @@ metadata:
 
 respuesta: "ferr"
 tipo: completar
-respuestas_validas: ["ferr"]
+respuestas_validas:
+  - "ferr"
 
 enunciado: "En la nomenclatura tradicional, la raíz latina usada para el hierro es ___ (como en ferroso/férrico)."
 
@@ -335,7 +338,8 @@ metadata:
 
 respuesta: "cupr"
 tipo: completar
-respuestas_validas: ["cupr"]
+respuestas_validas:
+  - "cupr"
 
 enunciado: "En la nomenclatura tradicional, la raíz latina usada para el cobre es ___ (como en cuproso/cúprico)."
 
@@ -402,7 +406,8 @@ metadata:
 
 respuesta: "neutrones"
 tipo: completar
-respuestas_validas: ["neutrones"]
+respuestas_validas:
+  - "neutrones"
 
 enunciado: "El número másico es igual a la suma de protones más ___."
 
@@ -457,7 +462,7 @@ variables:
   masico: protones + neutrones
 
 respuesta: neutrones
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Un átomo tiene un número atómico (Z) de {protones} y un número másico (A) de {masico}. ¿Cuántos neutrones tiene?"
@@ -479,7 +484,7 @@ variables:
   masico: protones + neutrones
 
 respuesta: masico
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Un átomo tiene {protones} protones y {neutrones} neutrones. ¿Cuál es su número másico (A)?"
@@ -501,7 +506,7 @@ variables:
   masico: protones + neutrones
 
 respuesta: protones
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Un átomo tiene un número másico (A) de {masico} y contiene {neutrones} neutrones. ¿Cuál es su número atómico (Z)?"
@@ -535,7 +540,9 @@ metadata:
 
 respuesta: "Z"
 tipo: completar
-respuestas_validas: ["Z", "el numero atomico"]
+respuestas_validas:
+  - "Z"
+  - "el numero atomico"
 
 enunciado: "La fórmula para calcular el número de neutrones (N) es N = A - ___."
 
@@ -572,7 +579,7 @@ variables:
   N: random(0, 20)
 
 respuesta: Z + N
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Un átomo tiene {Z} protones y {N} neutrones. ¿Cuál es su número másico (A)?"
@@ -622,7 +629,9 @@ metadata:
 
 respuesta: "masico"
 tipo: completar
-respuestas_validas: ["masico", "másico"]
+respuestas_validas:
+  - "masico"
+  - "másico"
 
 enunciado: "En la notación abreviada, una expresión como 'Carbono-14' indica el nombre del elemento seguido de su número ___."
 
@@ -641,7 +650,7 @@ variables:
   protones: random(1, 30)
 
 respuesta: protones
-tipo: input
+tipo: completar
 tolerancia_abs: 0
 
 enunciado: "Dado un átomo neutro con {protones} protones, ¿cuántos electrones tiene?"
@@ -696,7 +705,8 @@ variables:
 
 respuesta: a - z
 tipo: completar
-respuestas_validas: [18]
+respuestas_validas:
+  - 18
 
 enunciado: "Si Z = {z} y A = {a}, el átomo tiene ___ neutrones."
 
@@ -814,7 +824,8 @@ metadata:
 
 respuesta: "Gain"
 tipo: completar
-respuestas_validas: ["Gain"]
+respuestas_validas:
+  - "Gain"
 
 enunciado: "OIL RIG: Oxidation Is Loss, Reduction Is ___."
 
@@ -964,7 +975,7 @@ variables:
   carga_final: uno_de([2, 3])
 
 respuesta: carga_final - carga_inicial
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si un átomo pasa de una carga de {carga_inicial} a {carga_final}, ¿cuántos electrones perdió?"
@@ -2248,3 +2259,4 @@ enunciado: "El pH mide la acidez con una escala logarítmica de 0 a 14, el pOH h
 explicacion: |
   Es la idea central de todo el tema.
 ```
+

@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de Fenómenos Físicos
+# Examen jefe — [PENDIENTE #749]
 
-> Logro #169. Completaste el examen integrando conceptos de electricidad, ondas y termodinámica. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **126 preguntas totales** en 5/5 secciones.
+> Logro #749. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,7 +15,9 @@ metadata:
 
 respuesta: "oposicion"
 tipo: completar
-respuestas_validas: ["oposicion", "oposición"]
+respuestas_validas:
+  - "oposicion"
+  - "oposición"
 
 enunciado: "La resistencia eléctrica se define como la ___ al flujo de carga eléctrica a través de un conductor."
 
@@ -81,8 +83,8 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si la resistencia de un circuito aumenta (manteniendo el voltaje constante), la intensidad de la corriente disminuirá."
 
 explicacion: |
@@ -96,11 +98,7 @@ metadata:
   nivel: "intermedio"
   tags: ["formula", "geometria"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["el doble", "2"], ["el triple", "3"]]
-
-respuesta: "datos[idx][1]"
+respuesta: "el doble"
 tipo: mc
 opciones_explicitas: ["el doble", "el triple", "la mitad", "la cuarta parte"]
 
@@ -117,18 +115,14 @@ metadata:
   nivel: "intermedio"
   tags: ["formula", "geometria"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["la mitad", "0.5"], ["la cuarta parte", "0.25"]]
-
-respuesta: "datos[idx][1]"
+respuesta: "el doble"
 tipo: mc
 opciones_explicitas: ["la mitad", "la cuarta parte", "el doble", "el cuádruple"]
 
 enunciado: "Si el área de la sección transversal de un cable se reduce a la mitad, su resistencia será ___."
 
 explicacion: |
-  La resistencia es inversamente proporcional al área de la sección (R ∝ 1/A).
+  La resistencia es inversamente proporcional al área de la sección (R ∝ 1/A). Si el área se reduce a la mitad, la resistencia se duplica.
 ```
 
 ```
@@ -136,13 +130,9 @@ metadata:
   materia: "fisica"
   tema: "resistencia_electrica"
   nivel: "intermedio"
-  tags: ["calculo"]]
+  tags: ["calculo"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [[10.0, 5.0], [20.0, 4.0]]
-
-respuesta: "datos[idx][1]"
+respuesta: 4.0
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -165,7 +155,9 @@ metadata:
 
 respuesta: "material"
 tipo: completar
-respuestas_validas: ["material", "naturaleza"]
+respuestas_validas:
+  - "material"
+  - "naturaleza"
 
 enunciado: "La resistividad es una propiedad intrínseca que depende del ___ del conductor."
 
@@ -180,8 +172,8 @@ metadata:
   nivel: "intermedio"
   tags: ["temperatura"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En la mayoría de los metales, la resistencia eléctrica aumenta cuando aumenta la temperatura."
 
 explicacion: |
@@ -195,8 +187,8 @@ metadata:
   nivel: "avanzado"
   tags: ["error_comun"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si el radio de un cable se duplica, su resistencia se reduce a la cuarta parte."
 
 explicacion: |
@@ -244,8 +236,8 @@ metadata:
   nivel: "basico"
   tags: ["unidades"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "La unidad de la resistencia eléctrica es el Amperio."
 
 explicacion: |
@@ -277,7 +269,7 @@ metadata:
   tags: ["ordenar"]
 
 opciones_explicitas: ["Mayor longitud", "Menor sección", "Mayor resistividad"]
-respuesta: ["Mayor longitud", "Menor sección", "Mayor resistividad"]
+respuesta_orden: ["Mayor longitud", "Menor sección", "Mayor resistividad"]
 tipo: ordenar
 
 enunciado: "Ordena estas condiciones de mayor a menor resistencia eléctrica:"
@@ -293,15 +285,11 @@ metadata:
   nivel: "avanzado"
   tags: ["aplicacion"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["100", "10"], ["50", "20"]]
-
-respuesta: "datos[idx][1]"
+respuesta: 50
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Un cable tiene una resistencia de 100 $\Omega$. Si se corta a la mitad de su longitud, su nueva resistencia será ___ $\Omega$."
+enunciado: "Un cable tiene una resistencia de 100 $\\Omega$. Si se corta a la mitad de su longitud, su nueva resistencia será ___ $\\Omega$."
 
 explicacion: |
   Al reducir la longitud a la mitad, la resistencia también se reduce a la mitad.
@@ -314,8 +302,8 @@ metadata:
   nivel: "basico"
   tags: ["conceptos"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La resistencia eléctrica es una propiedad que depende de la forma del objeto."
 
 explicacion: |
@@ -329,8 +317,8 @@ metadata:
   nivel: "intermedio"
   tags: ["geometria"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Un cable más grueso (mayor sección) presenta menos resistencia que uno más delgado."
 
 explicacion: |
@@ -344,8 +332,8 @@ metadata:
   nivel: "intermedio"
   tags: ["resumen"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La resistencia eléctrica depende de la longitud, el área de sección y la resistividad del material."
 
 explicacion: |
@@ -359,22 +347,18 @@ metadata:
   nivel: "avanzado"
   tags: ["calculo"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["1.5", "2.0"], ["0.5", "4.0"]]
-
-respuesta: "datos[idx][1]"
+respuesta: 1.0
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "Si un cable de 2m de longitud y 1 $m^2$ de sección tiene una resistividad de 0.5 $\Omega \cdot m$, su resistencia es ___ $\Omega$."
+enunciado: "Si un cable de 2m de longitud y 1 $m^2$ de sección tiene una resistividad de 0.5 $\\Omega \\cdot m$, su resistencia es ___ $\\Omega$."
 
 pasos:
-  - "Identificar $\rho = 0.5$, $L = 2$, $A = 1$."
-  - "Calcular $R = 0.5 \cdot 2 / 1$."
+  - "Identificar $\\rho = 0.5$, $L = 2$, $A = 1$."
+  - "Calcular $R = 0.5 \\cdot 2 / 1$."
 
 explicacion: |
-  R = 1.0 $\Omega$. (Nota: El ejemplo usa valores simplificados para cálculo rápido).
+  R = 0.5 * 2 / 1 = 1.0 $\Omega$.
 ```
 
 ```
@@ -386,7 +370,9 @@ metadata:
 
 respuesta: "voltaje"
 tipo: completar
-respuestas_validas: ["voltaje", "tensión"]
+respuestas_validas:
+  - "voltaje"
+  - "tensión"
 
 enunciado: "Si la corriente es constante, la resistencia es proporcional al ___."
 
@@ -418,12 +404,12 @@ metadata:
   nivel: "avanzado"
   tags: ["conceptos"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Si aumentamos el área de la sección transversal, la densidad de corriente aumenta si el voltaje es constante."
 
 explicacion: |
-  Falso. Al aumentar el área, la resistencia baja y la corriente aumenta, pero la densidad de corriente ($J = I/A$) depende de otros factores. (Corrección: La pregunta es para evaluar razonamiento de la relación inversa).
+  Falso. Al aumentar el área (A), la resistencia baja (R = ρL/A) y la corriente sube proporcionalmente (I = V/R ∝ A), por lo que la densidad de corriente J = I/A se mantiene CONSTANTE, no aumenta.
 ```
 
 ```
@@ -433,8 +419,8 @@ metadata:
   nivel: "intermedio"
   tags: ["aplicacion"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Para reducir la resistencia de un cable sin cambiar el material, se puede aumentar su sección transversal."
 
 explicacion: |
@@ -452,7 +438,8 @@ metadata:
 
 respuesta: "frecuencia natural"
 tipo: completar
-respuestas_validas: ["frecuencia natural"]
+respuestas_validas:
+  - "frecuencia natural"
 
 enunciado: "La ___ es la frecuencia a la cual un sistema tiende a oscilar cuando se le aplica un impulso inicial."
 
@@ -503,7 +490,8 @@ metadata:
 
 respuesta: "masa"
 tipo: completar
-respuestas_validas: ["masa"]
+respuestas_validas:
+  - "masa"
 
 enunciado: "Si aumentamos la ___ de un sistema oscilante, su frecuencia natural disminuirá."
 
@@ -537,20 +525,22 @@ metadata:
 
 variables:
   idx: uno_de([0,1])
-  datos: [[1.0, 2.0], [4.0, 5.0]]
+  masas: [1.0, 4.0]
+  m: masas[idx]
+  k: 100
 
-respuesta: "datos[idx][1]"
+respuesta: (1 / (2 * 3.14159)) * sqrt(k / m)
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un sistema tiene una constante de rigidez de 100 N/m y una masa de {datos[idx][0]} kg. Calcule su frecuencia natural en Hz (f = 1/(2*pi)*sqrt(k/m))."
+enunciado: "Un sistema tiene una constante de rigidez de 100 N/m y una masa de {m} kg. Calcule su frecuencia natural en Hz (f = 1/(2*pi)*sqrt(k/m))."
 
 pasos:
   - "Calcular la raíz cuadrada de k/m"
   - "Dividir por 2*pi"
 
 explicacion: |
-  La fórmula es f = (1 / 2π) * sqrt(k/m).
+  La fórmula es f = (1 / 2π) * sqrt(k/m) = (1 / 2π) * sqrt(100/{m}) = {(1 / (2 * 3.14159)) * sqrt(k / m)} Hz.
 ```
 
 ```
@@ -579,7 +569,8 @@ metadata:
 
 respuesta: "fuerza de fricción"
 tipo: completar
-respuestas_validas: ["fuerza de fricción", "fuerza de gravedad", "fuerza centrípeta"]
+respuestas_validas:
+  - "fuerza de fricción"
 
 enunciado: "La amplitud en la resonancia no es infinita en la realidad debido a la presencia de la ___."
 
@@ -613,7 +604,8 @@ metadata:
 
 respuesta: "1/f"
 tipo: completar
-respuestas_validas: ["1/f"]
+respuestas_validas:
+  - "1/f"
 
 enunciado: "El periodo de oscilación en resonancia es el inverso de la ___."
 
@@ -628,8 +620,8 @@ metadata:
   nivel: "intermedio"
   tags: ["error_comun"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "En un sistema real con amortiguamiento, la amplitud en la resonancia es infinita."
 
 explicacion: |
@@ -643,8 +635,8 @@ metadata:
   nivel: "intermedio"
   tags: ["error_comun"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Si un objeto es más pesado, su frecuencia natural es mayor."
 
 explicacion: |
@@ -658,8 +650,8 @@ metadata:
   nivel: "basico"
   tags: ["error_comun"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "La resonancia solo ocurre en objetos sólidos, nunca en ondas sonoras."
 
 explicacion: |
@@ -673,8 +665,8 @@ metadata:
   nivel: "basico"
   tags: ["error_comun"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Un sistema con un periodo muy corto tiene una frecuencia natural muy baja."
 
 explicacion: |
@@ -688,8 +680,8 @@ metadata:
   nivel: "intermedio"
   tags: ["error_comun"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Añadir masa a un columpio lo hace oscilar más rápido."
 
 explicacion: |
@@ -720,7 +712,7 @@ metadata:
   nivel: "avanzado"
   tags: ["contraste"]
 
-respuesta: "mayor"
+respuesta: "menor"
 tipo: mc
 opciones_explicitas: ["mayor", "menor", "igual"]
 
@@ -739,7 +731,8 @@ metadata:
 
 respuesta: "inversamente"
 tipo: completar
-respuestas_validas: ["inversamente"]
+respuestas_validas:
+  - "inversamente"
 
 enunciado: "La frecuencia natural y el periodo de oscilación son ___ proporcionales."
 
@@ -773,7 +766,8 @@ metadata:
 
 respuesta: "cuerda"
 tipo: completar
-respuestas_validas: ["cuerda"]
+respuestas_validas:
+  - "cuerda"
 
 enunciado: "En una guitarra, la nota que escuchamos depende de la frecuencia natural de la ___."
 
@@ -790,7 +784,8 @@ metadata:
 
 respuesta: "longitud"
 tipo: completar
-respuestas_validas: ["longitud"]
+respuestas_validas:
+  - "longitud"
 
 enunciado: "Para cambiar la frecuencia natural de un péndulo simple, debemos variar su ___."
 
@@ -824,7 +819,8 @@ metadata:
 
 respuesta: "sintonizar"
 tipo: completar
-respuestas_validas: ["sintonizar"]
+respuestas_validas:
+  - "sintonizar"
 
 enunciado: "Al girar el dial de un radio antiguo, estamos intentando ___ la frecuencia del circuito con la de la emisora."
 
@@ -841,7 +837,8 @@ metadata:
 
 respuesta: "frecuencia"
 tipo: completar
-respuestas_validas: ["frecuencia"]
+respuestas_validas:
+  - "frecuencia"
 
 enunciado: "Un cantante puede romper una copa de cristal si emite una nota cuya ___ coincida con la del cristal."
 
@@ -877,7 +874,9 @@ metadata:
 
 respuesta: "semivida"
 tipo: completar
-respuestas_validas: ["semivida", "vida media"]
+respuestas_validas:
+  - "semivida"
+  - "vida media"
 
 enunciado: "El tiempo necesario para que la actividad de una muestra radiactiva se reduzca a la mitad de su valor inicial se denomina ___."
 
@@ -894,20 +893,20 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [["10", "0.0693"], ["20", "0.0347"]]
+  datos: [[10, 0.0693], [20, 0.0347]]
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0.001
 
-enunciado: "Si la semivida de un isótopo es de {datos[idx][0]} años, ¿cuál es su constante de desintegración ($\lambda$) aproximada?"
+enunciado: "Si la semivida de un isótopo es de {datos[idx][0]} años, ¿cuál es su constante de desintegración (λ) aproximada?"
 
 pasos:
-  - "Calcular $\lambda = \ln(2) / T_{1/2}$"
-  - "Usar $\ln(2) \approx 0.693$"
+  - "Calcular λ = ln(2) / T½"
+  - "Usar ln(2) ≈ 0.693"
 
 explicacion: |
-  La relación entre la semivida ($T_{1/2}$) y la constante de desintegración ($\lambda$) está dada por la fórmula: $\lambda = \frac{\ln(2)}{T_{1/2}}$.
+  La relación entre la semivida (T½) y la constante de desintegración (λ) está dada por la fórmula: λ = ln(2) / T½.
 ```
 
 ```
@@ -950,9 +949,9 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "fracciones"]
 
-respuesta: ["100%", "50%", "25%", "12.5%"]
+respuesta_orden: ["100%", "50%", "25%", "12.5%"]
 tipo: ordenar
-opciones_explicitas: ["100%", "50%", "25%", "12.5%", "0%"]
+opciones_explicitas: ["100%", "50%", "25%", "12.5%"]
 
 enunciado: "Ordene de mayor a menor la cantidad de muestra radiactiva restante tras transcurrir 0, 1, 2 y 3 semividas respectivamente."
 
@@ -971,10 +970,13 @@ metadata:
   nivel: "basico"
   tags: ["radiactividad", "conceptos"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "La semivida (o vida media) es el tiempo necesario para que la cantidad de núcleos radiactivos de una muestra se reduzca a la mitad de su valor inicial."
+
+explicacion: |
+  Esta es exactamente la definición de semivida: el tiempo que tarda una muestra radiactiva en reducirse a la mitad de su cantidad inicial de núcleos.
 ```
 
 ```
@@ -984,18 +986,14 @@ metadata:
   nivel: "intermedio"
   tags: ["formula", "constante_desintegracion"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [[0.693, "ln(2)"], [1.0, "1"]]
-
-respuesta: datos[idx][1
+respuesta: "ln(2)"
 tipo: mc
 opciones_explicitas: ["ln(2)", "1", "e", "0"]
 
-enunciado: "La relación entre la constante de desintegración $\lambda$ y la semivida $T_{1/2}$ está dada por la expresión $\lambda = \frac{{___}}$."
+enunciado: "La relación entre la constante de desintegración λ y la semivida T½ está dada por la expresión λ = ___ / T½."
 
 explicacion: |
-  La relación matemática es $\lambda = \frac{\ln(2)}{T_{1/2}}$. Por lo tanto, $T_{1/2} = \frac{\ln(2)}{\lambda}$.
+  La relación matemática es λ = ln(2) / T½. Por lo tanto, T½ = ln(2) / λ.
 ```
 
 ```
@@ -1006,13 +1004,9 @@ metadata:
   tags: ["calculo", "masa"]
 
 variables:
-  escenario: uno_de([
-    [100, 2, 20], 
-    [80, 3, 10], 
-    [50, 1, 25]
-  ])
+  escenario: uno_de([[100, 2], [80, 3], [50, 1]])
 
-respuesta: escenario[2
+respuesta: escenario[0] / 4
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -1020,12 +1014,12 @@ enunciado: "Una muestra de un isótopo radiactivo tiene una masa inicial de {esc
 
 pasos:
   - "Calcular el número de periodos de semivida transcurridos: $n = t / T_{1/2}$"
-  - "Aplicar la fórmula de desintegración: $N = N_0 \cdot (1/2)^n$"
+  - "Aplicar la fórmula de desintegración: $N = N_0 \\cdot (1/2)^n$"
 
 explicacion: |
   1. El tiempo transcurrido es 2 veces la semivida ($n = 2$).
   2. La masa remanente es $N_0 \cdot (1/2)^2 = N_0 \cdot 1/4$.
-  3. Si $N_0 = {escenario[0]}$, el resultado es {escenario[2]} g.
+  3. Si $N_0 = {escenario[0]}$, el resultado es {escenario[0] / 4} g.
 ```
 
 ```
@@ -1036,15 +1030,14 @@ metadata:
   tags: ["logaritmos", "tiempo"]
 
 variables:
-  caso: uno_de([
-    [100, 25, 50],
-    [200, 10, 50],
-    [120, 20, 60]
-  ])
+  caso: uno_de([[100, 25, 50], [200, 10, 100], [120, 20, 60]])
 
-respuesta: caso[2
+respuesta: caso[1]
 tipo: completar
-respuestas_validas: ["50", "40", "60"]
+respuestas_validas:
+  - "25"
+  - "10"
+  - "20"
 
 enunciado: "Una muestra de sustancia radiactiva tiene una masa inicial de {caso[0]} g y una semivida de {caso[1]} años. Si actualmente la muestra tiene una masa de {caso[2]} g, ¿cuántos años han transcurrido?"
 
@@ -1061,9 +1054,9 @@ metadata:
   nivel: "basico"
   tags: ["ordenar", "proceso"]
 
-respuesta: ["Muestra inicial", "50% de la muestra", "25% de la muestra", "12.5% de la muestra"]
+respuesta_orden: ["Muestra inicial", "50% de la muestra", "25% de la muestra", "12.5% de la muestra"]
 tipo: ordenar
-opciones_explicitas: ["Muestra inicial", "50% de la muestra", "25% de la muestra", "12.5% de la muestra", "100% de la muestra", "0% de la muestra"]
+opciones_explicitas: ["Muestra inicial", "50% de la muestra", "25% de la muestra", "12.5% de la muestra"]
 
 enunciado: "Ordene los eventos según la cantidad de masa remanente de una muestra radiactiva a medida que transcurren periodos sucesivos de semivida (de mayor a menor masa)."
 
@@ -1084,17 +1077,17 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [[0.5, 0.693], [0.3, 2.31]]
+  datos: [[0.5, 1.386], [0.3, 2.31]]
 
-enunciado: "La semivida ($T_{1/2}$) y la constante de desintegración ($\lambda$) están relacionadas mediante una fórmula logarítmica. Si la semivida de una muestra es de {datos[idx][0]} unidades de tiempo, el valor de la constante $\lambda$ es aproximadamente {datos[idx][1]}."
+enunciado: "La semivida ($T_{1/2}$) y la constante de desintegración ($\\lambda$) están relacionadas mediante una fórmula logarítmica. Si la semivida de una muestra es de {datos[idx][0]} unidades de tiempo, el valor de la constante $\\lambda$ es aproximadamente ___."
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0.01
 
 explicacion: |
-  La relación es $\lambda = \ln(2) / T_{1/2}$. 
-  Para el caso de $T_{1/2} = 0.5$, $\lambda = 0.693/0.5 = 1.386$ (Nota: El ejemplo en el enunciado usa valores precalculados para evitar errores de redondeo en la validación).
+  La relación es $\lambda = \ln(2) / T_{1/2}$.
+  Para el caso de $T_{1/2} = {datos[idx][0]}$, $\lambda = 0.693/{datos[idx][0]} = {datos[idx][1]}$.
   La confusión común es intentar multiplicar en lugar de dividir o usar $\log_{10}$ en lugar de $\ln$.
 ```
 
@@ -1129,7 +1122,7 @@ tipo: vf
 enunciado: "En un modelo de desintegración exponencial, la cantidad de núcleos radiactivos llega exactamente a cero después de un número finito de semividas."
 
 explicacion: |
-  Matemáticamente, la función exponencial $N(t) = N_0 e^{-\lambda t}$ es una función asintótica al eje $t$, lo que significa que nunca llega a cero, aunque físicamente la muestra se agote cuando queda un solo átomo.
+  Matemáticamente, la función exponencial N(t) = N0 e^(-lambda t) es una función asintótica al eje t, lo que significa que nunca llega a cero, aunque físicamente la muestra se agote cuando queda un solo átomo.
 ```
 
 ```
@@ -1141,21 +1134,21 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [[100, 2, 25], [80, 3, 10]]
+  escenario: [[100, 2, 50], [80, 3, 40]]
 
-enunciado: "Se tiene una muestra de {escenario[idx][0]} gramos de un isótopo con una semivida de {escenario[idx][1]} años. ¿Cuántos gramos de la muestra original quedan después de {escenario[idx][2]} años?"
+enunciado: "Se tiene una muestra de {escenario[idx][0]} gramos de un isótopo con una semivida de {escenario[idx][1]} años. ¿Cuántos gramos de la muestra original quedan después de {escenario[idx][1]} años (exactamente una semivida)?"
 
 pasos:
-  - "Calcular cuántas semividas han transcurrido: $n = t / T_{1/2}$"
-  - "Aplicar la fórmula de reducción: $M_{final} = M_{inicial} \cdot (1/2)^n$"
+  - "Calcular cuántas semividas han transcurrido: n = t / T½ = 1"
+  - "Aplicar la fórmula de reducción: M_final = M_inicial · (1/2)^n"
 
-respuesta: escenario[idx][2
+respuesta: escenario[idx][2]
 tipo: completar
 tolerancia_abs: 0.1
 
 explicacion: |
-  En el primer caso: $100 \cdot (1/2)^{2/2} = 100 \cdot 0.5 = 50$ (error común: pensar que se divide por 2 cada año).
-  En el segundo caso: $80 \cdot (1/2)^{3/3} = 80 \cdot 0.5 = 40$ (error común: no notar que el tiempo transcurrido es igual a la semivida).
+  En el primer caso: 100 · (1/2)^1 = 50.
+  En el segundo caso: 80 · (1/2)^1 = 40.
 ```
 
 ```
@@ -1165,11 +1158,11 @@ metadata:
   nivel: "intermedio"
   tags: ["comparacion", "estabilidad"]
 
-opciones_explicitas: ["Semivida larga $\rightarrow$ Menor actividad $\rightarrow$ Mayor estabilidad", "Semivida corta $\rightarrow$ Mayor actividad $\rightarrow$ Menor estabilidad"]
+opciones_explicitas: ["Semivida larga $\\rightarrow$ Menor actividad $\\rightarrow$ Mayor estabilidad", "Semivida corta $\\rightarrow$ Mayor actividad $\\rightarrow$ Menor estabilidad"]
 
 enunciado: "Para comparar la estabilidad de dos isótopos basándonos en su semivida y su actividad, ordena la siguiente relación lógica de menor a mayor estabilidad:"
 
-respuesta: ["Semivida corta $\rightarrow$ Mayor actividad $\rightarrow$ Menor estabilidad", "Semivida larga $\rightarrow$ Menor actividad $\rightarrow$ Mayor estabilidad"]
+respuesta_orden: ["Semivida corta $\\rightarrow$ Mayor actividad $\\rightarrow$ Menor estabilidad", "Semivida larga $\\rightarrow$ Menor actividad $\\rightarrow$ Mayor estabilidad"]
 tipo: ordenar
 
 explicacion: |
@@ -1185,7 +1178,9 @@ metadata:
 
 respuesta: "lambda"
 tipo: completar
-respuestas_validas: ["lambda", "lambda_constante"]
+respuestas_validas:
+  - "lambda"
+  - "lambda_constante"
 
 enunciado: "En el modelo de desintegración radiactiva, mientras que la semivida ($T_{1/2}$) es el tiempo necesario para que la actividad se reduzca a la mitad, la ___ representa la probabilidad de desintegración por unidad de tiempo."
 
@@ -1204,7 +1199,7 @@ variables:
   idx: uno_de([0, 1])
   datos: [["100", "50", "25"], ["80", "40", "20"]]
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["100", "50", "25", "80", "40", "20"]
 
@@ -1237,7 +1232,7 @@ metadata:
   nivel: "intermedio"
   tags: ["comparacion", "orden"]
 
-respuesta: ["vida_media_larga", "vida_media_corta"]
+respuesta_orden: ["vida_media_larga", "vida_media_corta"]
 tipo: ordenar
 opciones_explicitas: ["vida_media_larga", "vida_media_corta"]
 
@@ -1256,11 +1251,11 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [["10", "2"], ["20", "3"]]
+  escenario: [[20, 2, 5], [80, 3, 10]]
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][2]
 tipo: mc
-opciones_explicitas: ["10", "5", "2.5", "20", "10", "5"]
+opciones_explicitas: [5, 10, 20, 2.5]
 
 enunciado: "Considerando un escenario donde una muestra de {escenario[idx][0]} átomos tiene una semivida de 5 años, ¿cuántos átomos quedarán después de transcurrir {escenario[idx][1]} semividas?"
 
@@ -1270,7 +1265,7 @@ pasos:
   - "Multiplicar la cantidad inicial por dicho factor."
 
 explicacion: |
-  Tras $n$ semividas, la cantidad de núcleos es $N = N_0 \cdot (1/2)^n$. En este caso, $\{escenario[idx][0]\} \cdot (0.5)^{{escenario[idx][1]}}$.
+  Tras n semividas, la cantidad de núcleos es N = N0 · (1/2)^n. En este caso: {escenario[idx][0]} · (0.5)^{escenario[idx][1]} = {escenario[idx][2]}.
 ```
 
 ```
@@ -1281,21 +1276,21 @@ metadata:
   tags: ["radiactividad", "carbono-14", "datacion"]
 
 variables:
-  escenario: uno_de([[5730, "5730"], [8000, "8000"], [1200, "1200"]])
-  t_medio: escenario[0]
-  t_transcurrido: 5730
+  t_medio: uno_de([5730, 8000, 1200])
   masa_inicial: 100
   masa_final: 25
+  n_periodos: 2
 
-respuesta: 2
+respuesta: n_periodos
 tipo: mc
-opciones_explicitas: ["1", "2", "3", "4"]
+opciones_explicitas: [1, 2, 3, 4]
 
 enunciado: "Una muestra de Carbono-14 tiene una semivida de {t_medio} años. Si inicialmente tenemos una masa de {masa_inicial} g, ¿cuántos periodos de semivida han transcurrido si la masa final es de {masa_final} g?"
 
 explicacion: |
   La masa se reduce a la mitad en cada periodo de semivida. 
   100g -> 50g (1 periodo) -> 25g (2 periodos).
+  El número de periodos es log2(masa_inicial / masa_final).
 ```
 
 ```
@@ -1306,15 +1301,15 @@ metadata:
   tags: ["medicina_nuclear", "isótopos"]
 
 variables:
-  datos: [[300, "150"], [100, "50"], [400, "100"]]
+  datos: [[300, 150], [100, 50], [400, 200]]
   idx: uno_de([0, 1, 2])
   m_inicial: datos[idx][0]
   m_final: datos[idx][1]
   t_medio: 6
 
-respuesta: "150"
+respuesta: m_final
 tipo: completar
-respuestas_validas: ["150"]
+tolerancia_abs: 0.1
 
 enunciado: "Un radiofármaco con una semivida de {t_medio} horas se inyecta en un paciente con una actividad de {m_inicial} MBq. Tras transcurrir un tiempo equivalente a una semivida, la actividad medida es de ___ MBq."
 
@@ -1349,7 +1344,7 @@ variables:
   t_medio: 10
   m_0: 80
 
-respuesta: ["80", "40", "20", "10", "5"]
+respuesta_orden: ["80", "40", "20", "10", "5"]
 tipo: ordenar
 opciones_explicitas: ["80", "40", "20", "10", "5"]
 
@@ -1372,8 +1367,9 @@ variables:
   m_f: escenario[1]
   t_medio: 10
   t_total: 20
+  respuesta_correcta: m_i / 4
 
-respuesta: 20.0
+respuesta: respuesta_correcta
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -1382,7 +1378,7 @@ enunciado: "Una muestra de {m_i} g de un isótopo tiene una semivida de {t_medio
 explicacion: |
   Usamos la fórmula N(t) = N0 * (1/2)^(t/t_medio).
   N(20) = {m_i} * (1/2)^(20/10) = {m_i} * (1/2)^2 = {m_i} / 4.
-  En el caso seleccionado: {m_i} / 4 = {escenario[0][0]} / 4 = 20.0.
+  En el caso seleccionado: {m_i} / 4 = {respuesta_correcta}.
 ```
 
 ## Sección: sonido-timbre-altura-intensidad (26 preguntas)
@@ -1396,7 +1392,8 @@ metadata:
 
 respuesta: "frecuencia"
 tipo: completar
-respuestas_validas: ["frecuencia"]
+respuestas_validas:
+  - "frecuencia"
 
 enunciado: "La propiedad del sonido que nos permite distinguir si un tono es agudo o grave se denomina ___."
 
@@ -1412,10 +1409,10 @@ metadata:
   tags: ["acustica", "amplitud"]
 
 variables:
-  es_grande: uno_de([true, false])
+  es_grande: uno_de([verdadero, falso])
 
-respuesta: es_grande
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si la amplitud de una onda sonora aumenta, la intensidad (volumen) del sonido es mayor. ¿Es esto verdadero?"
 
 explicacion: |
@@ -1448,20 +1445,22 @@ metadata:
 
 variables:
   caso: uno_de([0, 1])
-  frecuencias: [440, 880]
+  datos: [[440, "grave"], [880, "agudo"]]
+  frecuencia: datos[caso][0]
+  altura: datos[caso][1]
 
-respuesta: caso_datos[caso][1
+respuesta: altura
 tipo: mc
 opciones_explicitas: ["agudo", "grave"]
 
-enunciado: "Si un sonido tiene una frecuencia de {caso_datos[caso][0]} Hz, su altura es ___."
+enunciado: "Si un sonido tiene una frecuencia de {frecuencia} Hz, su altura es ___."
 
 pasos:
   - "Identificar la frecuencia dada."
   - "Comparar con el concepto de altura (frecuencia alta = agudo, frecuencia baja = grave)."
 
 explicacion: |
-  En este caso, la frecuencia de {caso_datos[caso][0]} Hz se clasifica como {caso_datos[caso][1]} según la escala de altura.
+  En este caso, la frecuencia de {frecuencia} Hz se clasifica como {altura} según la escala de altura.
 ```
 
 ```
@@ -1475,7 +1474,7 @@ variables:
   idx: uno_de([0, 1])
   datos: [["440", "grave"], ["880", "agudo"]]
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["agudo", "grave"]
 
@@ -1492,7 +1491,7 @@ metadata:
   nivel: "basico"
   tags: ["acustica", "orden"]
 
-respuesta: ["tono", "timbre", "intensidad"]
+respuesta_orden: ["tono", "timbre", "intensidad"]
 tipo: ordenar
 opciones_explicitas: ["tono", "timbre", "intensidad"]
 
@@ -1516,7 +1515,8 @@ variables:
 
 respuesta: f_ejemplo
 tipo: completar
-respuestas_validas: [440]
+respuestas_validas:
+  - 440
 
 enunciado: "La altura de un sonido depende de su frecuencia. Si una nota musical tiene una frecuencia de {f_ejemplo} Hz, la altura de dicho sonido es de ___ Hz."
 
@@ -1532,16 +1532,16 @@ metadata:
   tags: ["intensidad", "amplitud"]
 
 variables:
-  datos: [[0.5, "Mayor"], [0.8, "Menor"]]
+  amplitudes: [[0.5, 0.8], [0.3, 0.9]]
   idx: uno_de([0, 1])
-  amplitud_a: datos[idx][0]
-  amplitud_b: datos[idx][1]
+  amplitud_a: amplitudes[idx][0]
+  amplitud_b: amplitudes[idx][1]
 
-respuesta: datos[idx][1]
+respuesta: "Mayor"
 tipo: mc
 opciones_explicitas: ["Mayor", "Menor"]
 
-enunciado: "Si comparamos dos ondas sonoras, una con amplitud {amplitud_a} y otra con amplitud {amplitud_b}, la que tiene mayor amplitud tendrá una intensidad sonora ___."
+enunciado: "Si comparamos dos ondas sonoras, una con amplitud {amplitud_a} y otra con amplitud {amplitud_b} (mayor que la primera), la onda con mayor amplitud tendrá una intensidad sonora ___."
 
 explicacion: |
   La intensidad sonora depende del cuadrado de la amplitud de la onda. A mayor amplitud, mayor intensidad (volumen).
@@ -1595,9 +1595,9 @@ metadata:
   nivel: "basico"
   tags: ["proceso_sonido"]
 
-respuesta: ["Vibración de la fuente", "Propagación por el medio", "Recepción en el oído"]
+respuesta_orden: ["Vibración de la fuente", "Propagación por el medio", "Recepción en el oído"]
 tipo: ordenar
-opciones_explicitas: ["Vibración de la fuente", "Propagación por el medio", "Recepción en el oído", "Reflexión en pared"]
+opciones_explicitas: ["Vibración de la fuente", "Propagación por el medio", "Recepción en el oído"]
 
 enunciado: "Ordena cronológicamente los pasos necesarios para que un sonido sea percibido por un ser humano:"
 
@@ -1715,7 +1715,8 @@ metadata:
 
 respuesta: "frecuencia"
 tipo: "completar"
-respuestas_validas: ["frecuencia"]
+respuestas_validas:
+  - "frecuencia"
 
 enunciado: "La altura de un sonido depende de la ___ del onda sonora, mientras que la intensidad depende de su amplitud."
 
@@ -1769,8 +1770,8 @@ metadata:
   tags: ["orden", "conceptos"]
 
 opciones_explicitas: ["Frecuencia", "Amplitud", "Forma de onda"]
-respuesta: ["Frecuencia", "Amplitud", "Forma de onda"]
-tipo: "ordenar"
+respuesta_orden: ["Frecuencia", "Amplitud", "Forma de onda"]
+tipo: ordenar
 
 enunciado: "Ordena las propiedades del sonido de acuerdo a la característica física que las determina: 1. Altura, 2. Intensidad, 3. Timbre."
 
@@ -1789,7 +1790,7 @@ variables:
   idx: uno_de([0, 1])
   escenario: [[440, "La nota es más aguda"], [100, "La nota es más grave"]]
 
-respuesta: "La nota es más aguda"
+respuesta: escenario[idx][1]
 tipo: "mc"
 opciones_explicitas: ["La nota es más aguda", "La nota es más grave"]
 
@@ -1810,10 +1811,12 @@ variables:
   escenarios: [["La nota La central (A4) tiene una frecuencia de 440 Hz.", 440], ["La nota La una octava arriba tiene una frecuencia de 880 Hz.", 880], ["La nota La una octava abajo tiene una frecuencia de 220 Hz.", 220]]
   idx: uno_de([0, 1, 2])
   frecuencia_actual: escenarios[idx][1]
+  respuesta_correcta: escenarios[idx][1]
 
 tipo: completar
 tolerancia_abs: 0.1
 enunciado: "Si escuchamos una nota musical cuya frecuencia es de {frecuencia_actual} Hz, ¿cuál es su valor numérico en Hz?"
+respuesta: respuesta_correcta
 
 explicacion: |
   La altura o tono de un sonido depende directamente de su frecuencia (medida en Hz). A mayor frecuencia, mayor es el tono percibido.
@@ -1822,7 +1825,7 @@ explicacion: |
 ```
 metadata:
   materia: "fisica"
-  tema: "sonido_propiedades"
+  tema: "sonido_propuestas"
   nivel: "intermedio"
   tags: ["intensidad", "amplitud", "volumen"]
 
@@ -1834,6 +1837,7 @@ variables:
 
 tipo: mc
 opciones_explicitas: ["baja", "alta", "nula", "infinita"]
+respuesta: amplitud_relativa
 enunciado: "Si escuchamos {tipo_sonido}, la amplitud de la onda sonora es de carácter ________."
 
 explicacion: |
@@ -1864,17 +1868,13 @@ metadata:
   tags: ["frecuencia", "amplitud", "intensidad"]
 
 variables:
-  relaciones: [
-    ["frecuencia", "tono"],
-    ["amplitud", "intensidad"],
-    ["forma_onda", "timbre"]
-  ]
+  relaciones: [["frecuencia", "tono"], ["amplitud", "intensidad"], ["forma_onda", "timbre"]]
   idx: uno_de([0, 1, 2])
   propiedad: relaciones[idx][0]
   caracteristica: relaciones[idx][1]
 
 tipo: completar
-respuestas_validas: ["tono", "intensidad", "timbre"]
+respuesta: caracteristica
 enunciado: "Si modificamos la {propiedad}, estamos alterando la característica auditiva conocida como ________."
 
 explicacion: |
@@ -1890,7 +1890,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Frecuencia", "Amplitud", "Forma de la onda"]
-respuesta: ["Frecuencia", "Amplitud", "Forma de la onda"]
+respuesta_orden: ["Frecuencia", "Amplitud", "Forma de la onda"]
 enunciado: "Ordene las propiedades físicas de una onda sonora según su correspondencia con la percepción humana (Tono, Intensidad, Timbre):"
 
 explicacion: |
@@ -1910,7 +1910,8 @@ metadata:
 
 respuesta: "energia_cinetica_media"
 tipo: completar
-respuestas_validas: ["energia_cinetica_media"]
+respuestas_validas:
+  - "energia_cinetica_media"
 
 enunciado: "La temperatura es una magnitud física que mide la ___ de las partículas de un cuerpo."
 
@@ -1925,8 +1926,8 @@ metadata:
   nivel: "basico"
   tags: ["conceptos", "flujo_calorico"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Cuando dos cuerpos en contacto alcanzan el equilibrio térmico, sus temperaturas son iguales."
 
 explicacion: |
@@ -1959,7 +1960,8 @@ metadata:
 
 respuesta: "calor"
 tipo: completar
-respuestas_validas: ["calor"]
+respuestas_validas:
+  - "calor"
 
 enunciado: "Mientras que la temperatura mide el estado térmico, el ___ es la energía en tránsito entre cuerpos."
 
@@ -1976,7 +1978,8 @@ metadata:
 
 respuesta: "mayor_a_menor"
 tipo: completar
-respuestas_validas: ["mayor_a_menor"]
+respuestas_validas:
+  - "mayor_a_menor"
 
 enunciado: "El calor fluye espontáneamente de un cuerpo con temperatura ___ a uno con temperatura ___."
 
@@ -1995,7 +1998,7 @@ variables:
   idx: uno_de([0,1])
   datos: [[20, 293.15], [100, 373.15]]
 
-respuesta: "datos[idx][1]"
+respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -2044,7 +2047,8 @@ metadata:
 
 respuesta: "sistema_abierto"
 tipo: completar
-respuestas_validas: ["sistema_abierto"]
+respuestas_validas:
+  - "sistema_abierto"
 
 enunciado: "Un sistema que intercambia energía y materia con su entorno se denomina ___."
 
@@ -2078,7 +2082,8 @@ metadata:
 
 respuesta: "capacidad_para_cambiar_temperatura"
 tipo: completar
-respuestas_validas: ["capacidad_para_cambiar_temperatura"]
+respuestas_validas:
+  - "capacidad_para_cambiar_temperatura"
 
 enunciado: "El calor específico es la propiedad que mide la ___ de una sustancia."
 
@@ -2110,7 +2115,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento"]
 
-respuesta: ["medir_temp_inicial", "suministrar_calor", "medir_temp_final"]
+respuesta_orden: ["medir_temp_inicial", "suministrar_calor", "medir_temp_final"]
 tipo: ordenar
 opciones_explicitas: ["medir_temp_inicial", "suministrar_calor", "medir_temp_final"]
 
@@ -2129,7 +2134,8 @@ metadata:
 
 respuesta: "conduccion"
 tipo: completar
-respuestas_validas: ["conduccion"]
+respuestas_validas:
+  - "conduccion"
 
 enunciado: "La transferencia de calor a través del contacto directo entre sólidos se llama ___."
 
@@ -2166,7 +2172,7 @@ variables:
   datos: [[100, 50], [20, 80]] 
   # datos[idx][0] es T_inicial, datos[idx][1] es T_final
 
-respuesta: "datos[idx][1]"
+respuesta: (datos[idx][0] + datos[idx][1]) / 2
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -2200,8 +2206,8 @@ metadata:
   nivel: "intermedio"
   tags: ["cambio_fase"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Durante un cambio de fase (como la fusión del hielo), la temperatura del sistema aumenta aunque se siga suministrando calor."
 
 explicacion: |
@@ -2217,7 +2223,8 @@ metadata:
 
 respuesta: "sistema_cerrado"
 tipo: completar
-respuestas_validas: ["sistema_cerrado"]
+respuestas_validas:
+  - "sistema_cerrado"
 
 enunciado: "Un sistema que intercambia energía pero no materia con su entorno se llama ___."
 
@@ -2251,7 +2258,8 @@ metadata:
 
 respuesta: "proporcional"
 tipo: completar
-respuestas_validas: ["proporcional"]
+respuestas_validas:
+  - "proporcional"
 
 enunciado: "La cantidad de calor necesaria para elevar la temperatura de un cuerpo es ___ a su masa."
 
@@ -2266,8 +2274,8 @@ metadata:
   nivel: "avanzado"
   tags: ["flujo_calorico"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si un objeto caliente se coloca en un ambiente frío, el calor fluirá del objeto al ambiente hasta que sus temperaturas se igualen."
 
 explicacion: |
@@ -2283,7 +2291,8 @@ metadata:
 
 respuesta: "termómetro"
 tipo: completar
-respuestas_validas: ["termómetro"]
+respuestas_validas:
+  - "termómetro"
 
 enunciado: "La Ley Cero de la Termodinámica permite el uso de un tercer cuerpo (como un ___) para medir la temperatura de otros dos."
 
@@ -2300,7 +2309,8 @@ metadata:
 
 respuesta: "mayor"
 tipo: completar
-respuestas_validas: ["mayor"]
+respuestas_validas:
+  - "mayor"
 
 enunciado: "A una temperatura más alta, las partículas de un gas tienen una energía cinética ___."
 
@@ -2324,3 +2334,4 @@ enunciado: "Cuando dos cuerpos están en equilibrio térmico, el flujo neto de c
 explicacion: |
   En equilibrio, la energía que sale de uno es igual a la que entra al otro, por lo que el flujo neto es cero.
 ```
+

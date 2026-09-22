@@ -1,8 +1,1389 @@
-# Examen jefe — Experto en ISI y Análisis Histórico
+# Examen jefe — [PENDIENTE #724]
 
-> Logro #124. Completaste el examen dominando la industrialización por sustitución de importaciones, el materialismo histórico y la interpretación de fuentes con multicausalidad. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **102 preguntas totales** en 5/5 secciones.
+> Logro #724. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
 
 ---
+
+## Sección: cambio-y-continuidad (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "basico"
+  tags: ["cambio_y_continuidad", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al comparar dos momentos históricos, siempre hay elementos que cambiaron y elementos que se mantuvieron igual (continuidad)."
+
+pasos:
+  - "Ningún proceso histórico es 100% cambio radical ni 100% continuidad absoluta."
+
+explicacion: |
+  Verdadero: es la definición central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "intermedio"
+  tags: ["cambio_y_continuidad", "metodo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El trabajo del análisis histórico es identificar específicamente qué cambió y qué no, en vez de asumir que todo cambió o que nada cambió."
+
+pasos:
+  - "Es el objetivo central de este tema."
+
+explicacion: |
+  Verdadero: es el objetivo metodológico central del análisis de
+  cambio y continuidad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "intermedio"
+  tags: ["ejemplo_revolucion_de_mayo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Después de la Revolución de Mayo (1810), se reemplazó la autoridad virreinal por un gobierno local (la Primera Junta): es un ejemplo de cambio."
+
+pasos:
+  - "Es uno de los cambios concretos mencionados en el ejemplo de la teoría."
+
+explicacion: |
+  Verdadero: es un cambio político concreto y verificable ocurrido
+  tras la Revolución de Mayo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "intermedio"
+  tags: ["ejemplo_revolucion_de_mayo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Después de la Revolución de Mayo, la estructura social (esclavitud, roles de género, jerarquías) no cambió de inmediato: es un ejemplo de continuidad."
+
+pasos:
+  - "Es una de las continuidades concretas mencionadas en el ejemplo de la teoría."
+
+explicacion: |
+  Verdadero: muestra que un evento político dramático no cambia
+  automáticamente todos los aspectos de una sociedad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "intermedio"
+  tags: ["error_exagerar_cambio"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Es un error común, sobre todo al estudiar \"revoluciones\" o \"hitos\", asumir que todo cambió radicalmente de un día para el otro."
+
+pasos:
+  - "En la práctica, la mayoría de los procesos sociales, económicos y culturales cambian gradualmente."
+
+explicacion: |
+  Verdadero: es uno de los dos errores centrales que este tema busca
+  evitar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "intermedio"
+  tags: ["error_exagerar_continuidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El error opuesto es minimizar los cambios reales que sí ocurrieron, asumiendo que \"en el fondo todo sigue igual\"."
+
+pasos:
+  - "Es el otro de los dos errores centrales que este tema busca evitar."
+
+explicacion: |
+  Verdadero: es el segundo error central, opuesto al de exagerar el
+  cambio.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "avanzado"
+  tags: ["error_exagerar_cambio", "error_exagerar_continuidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Tanto exagerar el cambio como exagerar la continuidad distorsionan el análisis histórico; la habilidad central es encontrar el balance específico entre ambos, caso por caso."
+
+pasos:
+  - "Ninguno de los dos extremos es correcto por defecto; hace falta analizar cada caso en particular."
+
+explicacion: |
+  Verdadero: es la conclusión central sobre cómo evitar ambos
+  errores.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "intermedio"
+  tags: ["ritmos_de_cambio"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El cambio político (una nueva ley, un nuevo gobierno) puede ser rápido; el cambio social o cultural (formas de pensar, costumbres) suele ser mucho más lento."
+
+pasos:
+  - "Es la razón por la que distintos aspectos de una sociedad cambian a ritmos distintos."
+
+explicacion: |
+  Verdadero: es el concepto central de \"ritmos distintos de cambio\"
+  descrito en la teoría.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "intermedio"
+  tags: ["ritmos_de_cambio"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Comparar dos momentos históricos requiere prestar atención a que distintos aspectos de una sociedad (político, económico, cultural, social) no cambian todos al mismo ritmo."
+
+pasos:
+  - "Es la conclusión central sobre los ritmos distintos de cambio."
+
+explicacion: |
+  Verdadero: es una consideración central para un análisis riguroso
+  de cambio y continuidad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "avanzado"
+  tags: ["causa_y_consecuencia", "prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para saber si algo \"cambió\", hace falta identificar qué causó ese cambio (o su ausencia); comparar dos momentos sin analizar las causas es una comparación incompleta."
+
+pasos:
+  - "Ver `../causa-y-consecuencia/`: es el prerrequisito directo de este tema."
+
+explicacion: |
+  Verdadero: es la conexión central entre este tema y su
+  prerrequisito.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "intermedio"
+  tags: ["cambio_y_continuidad", "practica"]
+
+variables:
+  ejemplos: ["tras una revolución, se sancionó una nueva constitución", "tras una revolución, las mismas familias mantuvieron el control de las tierras y el poder económico durante décadas"]
+  tipos: ["cambio", "continuidad"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["cambio", "continuidad"]
+
+enunciado: "\"{ejemplos[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "Una nueva institución es un cambio; el mantenimiento de una estructura de poder previa es una continuidad."
+
+explicacion: |
+  Distinguir cambio de continuidad en un caso concreto es la
+  aplicación central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "avanzado"
+  tags: ["cambio_y_continuidad", "matiz"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un proceso histórico puede describirse correctamente como 100% cambio radical o 100% continuidad absoluta, sin ningún matiz intermedio."
+
+pasos:
+  - "Siempre hay elementos que cambian y elementos que se mantienen, la realidad histórica no cae en un extremo absoluto."
+
+explicacion: |
+  Falso: la afirmación de la teoría es exactamente lo contrario,
+  ningún proceso histórico es un extremo absoluto.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "avanzado"
+  tags: ["ritmos_de_cambio", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al analizar un mismo evento histórico, se puede encontrar cambio en el ámbito político y continuidad en el ámbito social, ambos a la vez."
+
+pasos:
+  - "Es la aplicación práctica de que distintos aspectos de una sociedad cambian a ritmos distintos."
+
+explicacion: |
+  Verdadero: es una consecuencia directa de analizar los distintos
+  ámbitos de una sociedad por separado.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "avanzado"
+  tags: ["ejemplo_revolucion_de_mayo", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El hecho de que un país se independizara políticamente no garantiza que sus estructuras económicas o sociales cambiaran al mismo ritmo o en la misma medida."
+
+pasos:
+  - "Coherente con el ejemplo de la Revolución de Mayo mencionado en la teoría."
+
+explicacion: |
+  Verdadero: es una aplicación general del principio de ritmos
+  distintos de cambio a procesos de independencia política.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "avanzado"
+  tags: ["big_six"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cambio y continuidad es otro de los 6 conceptos del marco \"Big Six\" de pensamiento histórico, junto con causa y consecuencia."
+
+pasos:
+  - "Ver `../causa-y-consecuencia/`: ambos temas forman parte del mismo marco teórico de referencia."
+
+explicacion: |
+  Verdadero: es el mismo contexto académico ya mencionado en el tema
+  anterior de la cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "avanzado"
+  tags: ["error_exagerar_cambio", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un relato histórico que afirma \"tras la revolución, absolutamente todo cambió de un día para el otro en todos los aspectos de la sociedad\" es un análisis riguroso y equilibrado según los criterios de este tema."
+
+pasos:
+  - "Es un ejemplo del error de exagerar el cambio, ignorando las continuidades reales que también existieron."
+
+explicacion: |
+  Falso: ese relato exagera el cambio, exactamente el error central
+  que este tema busca evitar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "avanzado"
+  tags: ["error_exagerar_continuidad", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un relato histórico que afirma \"la revolución no cambió absolutamente nada, todo siguió exactamente igual\" es un análisis riguroso y equilibrado según los criterios de este tema."
+
+pasos:
+  - "Es un ejemplo del error de exagerar la continuidad, ignorando los cambios reales que sí ocurrieron."
+
+explicacion: |
+  Falso: ese relato exagera la continuidad, el otro error central que
+  este tema busca evitar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "intermedio"
+  tags: ["cambio_y_continuidad", "metodo"]
+
+enunciado: "Ordená los pasos para analizar cambio y continuidad entre dos momentos históricos."
+tipo: ordenar
+opciones_explicitas:
+  - "Comparar los dos momentos en distintos ámbitos (político, social, económico, cultural)"
+  - "Identificar específicamente qué cambió en cada ámbito"
+  - "Identificar específicamente qué se mantuvo igual en cada ámbito"
+  - "Analizar las causas de esos cambios (o de su ausencia) en cada caso"
+respuesta_orden: ["Comparar los dos momentos en distintos ámbitos (político, social, económico, cultural)", "Identificar específicamente qué cambió en cada ámbito", "Identificar específicamente qué se mantuvo igual en cada ámbito", "Analizar las causas de esos cambios (o de su ausencia) en cada caso"]
+explicacion: |
+  El proceso va de comparar por ámbitos a identificar cambios y
+  continuidades específicos, cerrando con el análisis causal de cada
+  uno.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cambio y continuidad es prerrequisito directo de multicausalidad, que extiende el análisis de causa-consecuencia a que un hecho tenga varias causas a la vez."
+
+pasos:
+  - "Ver `../multicausalidad/`: es el tema siguiente y último de la cadena de pensamiento histórico cubierta en esta sesión."
+
+explicacion: |
+  Verdadero: por eso este tema es prerrequisito directo del
+  siguiente en la cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "cambio_y_continuidad"
+  nivel: "avanzado"
+  tags: ["cambio_y_continuidad", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al estudiar cualquier proceso histórico (una revolución, una reforma, una transición), conviene identificar tanto lo que cambió como lo que se mantuvo, evitando simplificar el relato hacia uno solo de los dos extremos."
+
+pasos:
+  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema al análisis
+  equilibrado de cualquier proceso histórico.
+```
+
+## Sección: evidencia (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "basico"
+  tags: ["evidencia", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Toda afirmación histórica debe apoyarse en evidencia (fuentes que la respalden); sin evidencia, es sólo una opinión o especulación."
+
+pasos:
+  - "No importa qué tan razonable suene una afirmación, sin evidencia no es un aporte histórico riguroso."
+
+explicacion: |
+  Verdadero: es el punto de partida central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "intermedio"
+  tags: ["alcance"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Este tema no repite qué es fuente primaria vs. secundaria, ya visto en interpretar una fuente histórica; profundiza específicamente en criterios de confiabilidad."
+
+pasos:
+  - "Ver `../interpretar-una-fuente-historica/`: es la aclaración de alcance central de este tema."
+
+explicacion: |
+  Verdadero: es la delimitación de alcance explícita entre estos dos
+  temas relacionados.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "intermedio"
+  tags: ["criterios_de_confiabilidad", "cercania_a_hechos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En general, una fuente primaria contemporánea a los hechos es más confiable para reconstruir detalles concretos que una fuente muy posterior basada en memoria o tradición oral distante."
+
+pasos:
+  - "Es uno de los criterios de confiabilidad mencionados en la teoría, aunque no es una regla absoluta."
+
+explicacion: |
+  Verdadero: es el criterio de cercanía a los hechos, con el matiz de
+  que \"en general\" no es una regla sin excepciones.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "intermedio"
+  tags: ["criterios_de_confiabilidad", "independencia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si varias fuentes independientes entre sí (que no se copiaron unas a otras) coinciden en un dato, ese dato es más confiable que si viene de una sola fuente aislada."
+
+pasos:
+  - "Es otro de los criterios de confiabilidad mencionados en la teoría."
+
+explicacion: |
+  Verdadero: la coincidencia entre fuentes independientes es un
+  criterio central de confiabilidad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "intermedio"
+  tags: ["criterios_de_confiabilidad", "consistencia_interna"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una fuente que se contradice a sí misma es menos confiable que una internamente coherente."
+
+pasos:
+  - "Es otro de los criterios de confiabilidad mencionados en la teoría."
+
+explicacion: |
+  Verdadero: la consistencia interna es un criterio básico para
+  evaluar la confiabilidad de una fuente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "intermedio"
+  tags: ["criterios_de_confiabilidad", "conflicto_de_interes"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una fuente producida por alguien con un interés directo en cómo se cuentan los hechos (un gobierno hablando de su propio desempeño) necesita contrastarse con más cuidado que una fuente sin ese interés directo."
+
+pasos:
+  - "Es otro de los criterios de confiabilidad mencionados en la teoría."
+
+explicacion: |
+  Verdadero: el conflicto de interés es un factor central a
+  considerar al evaluar la confiabilidad de una fuente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "intermedio"
+  tags: ["criterios_de_confiabilidad", "corroboracion_material"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La evidencia material (restos arqueológicos, registros no narrativos como censos o recibos), cuando existe, puede confirmar o contradecir lo que dicen las fuentes narrativas."
+
+pasos:
+  - "Es otro de los criterios de confiabilidad mencionados en la teoría."
+
+explicacion: |
+  Verdadero: la corroboración con evidencia material es un criterio
+  adicional de confiabilidad, distinto de las fuentes narrativas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "avanzado"
+  tags: ["confiabilidad_gradual"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La confiabilidad de una fuente no es binaria (confiable/no confiable), sino una cuestión de grado que varía según para qué se usa la fuente."
+
+pasos:
+  - "Una fuente muy sesgada puede seguir siendo confiable para reconstruir hechos puntuales verificables, aunque no para reconstruir motivaciones."
+
+explicacion: |
+  Verdadero: es un matiz central sobre la naturaleza gradual de la
+  confiabilidad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "avanzado"
+  tags: ["confiabilidad_gradual", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una carta muy sesgada políticamente puede seguir siendo confiable para confirmar una fecha o un nombre concreto, aunque no lo sea para reconstruir las motivaciones políticas de quien la escribió."
+
+pasos:
+  - "Es la aplicación práctica de que la confiabilidad varía según para qué se usa la fuente."
+
+explicacion: |
+  Verdadero: es un ejemplo concreto de por qué la confiabilidad no es
+  un juicio único sobre toda la fuente en bloque.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "intermedio"
+  tags: ["triangulacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La triangulación consiste en cruzar información de varias fuentes de tipo distinto (documentos, testimonios, evidencia material) para ver si coinciden."
+
+pasos:
+  - "Es la estrategia central para evaluar evidencia descrita en la teoría."
+
+explicacion: |
+  Verdadero: es la definición central de triangulación en este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "intermedio"
+  tags: ["triangulacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuantas más fuentes independientes coincidan en un dato, más confiable es esa reconstrucción del pasado."
+
+pasos:
+  - "Es la conclusión central de por qué la triangulación es la estrategia más sólida."
+
+explicacion: |
+  Verdadero: es el principio central de la triangulación como
+  estrategia de evaluación de evidencia.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "intermedio"
+  tags: ["criterios_de_confiabilidad", "practica"]
+
+variables:
+  situaciones: ["tres cronistas de distintos países, sin contacto entre sí, describen la misma batalla con detalles coincidentes", "una carta que primero dice que el rey estaba en la capital y más adelante dice que estaba de viaje ese mismo día"]
+  criterios: ["independencia de la fuente", "consistencia interna (ausente)"]
+  idx: uno_de([0, 1])
+
+respuesta: criterios[idx]
+tipo: mc
+opciones_explicitas: ["independencia de la fuente", "consistencia interna (ausente)", "conflicto de interés", "corroboración material"]
+
+enunciado: "\"{situaciones[idx]}\" es un ejemplo relacionado con el criterio de..."
+
+pasos:
+  - "Fuentes distintas que coinciden sin contacto entre sí: independencia. Una fuente que se contradice: falta de consistencia interna."
+
+explicacion: |
+  Reconocer qué criterio de confiabilidad aplica a un caso concreto
+  es la práctica central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Evaluar la confiabilidad de una fuente reusa el mismo tipo de escrutinio que exige establecer una relación causal con evidencia real, no sólo cercanía temporal."
+
+pasos:
+  - "Ver `../causa-y-consecuencia/`: es el prerrequisito directo de este tema."
+
+explicacion: |
+  Verdadero: es la conexión central entre este tema y su
+  prerrequisito.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "avanzado"
+  tags: ["big_six"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Evidencia es uno de los 6 conceptos del marco \"Big Six\" de pensamiento histórico, junto a causa/consecuencia y significancia histórica."
+
+pasos:
+  - "Ver `../causa-y-consecuencia/` y `../significancia-historica/`: son otros conceptos de ese mismo marco."
+
+explicacion: |
+  Verdadero: es el mismo marco teórico ya mencionado en varios temas
+  de esta cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "avanzado"
+  tags: ["confiabilidad_gradual"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Incluso una fuente muy sesgada o parcial suele aportar algún tipo de información confiable, aunque haya que contrastarla con cuidado."
+
+pasos:
+  - "Es coherente con la idea de que la confiabilidad es una cuestión de grado, no un juicio absoluto."
+
+explicacion: |
+  Verdadero: es la aplicación práctica de que ninguna fuente es
+  completamente confiable ni completamente inútil.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "avanzado"
+  tags: ["cercania_a_hechos", "matiz"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Una fuente contemporánea a los hechos es SIEMPRE más confiable que una fuente posterior, sin ninguna excepción."
+
+pasos:
+  - "La teoría marca explícitamente \"en general, no siempre\": una fuente contemporánea puede estar igualmente sesgada o incluso más comprometida con los hechos que una posterior con perspectiva."
+
+explicacion: |
+  Falso: es una tendencia general, no una regla absoluta sin
+  excepciones.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "avanzado"
+  tags: ["corroboracion_material", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una crónica narrativa afirma que una ciudad tenía cierta cantidad de habitantes, y los restos arqueológicos disponibles contradicen esa cifra, la evidencia material puede llevar a reconsiderar la confiabilidad de la crónica en ese punto."
+
+pasos:
+  - "Es la aplicación práctica de por qué la corroboración material es un criterio útil de confiabilidad."
+
+explicacion: |
+  Verdadero: es un ejemplo concreto de cómo la evidencia material
+  puede confirmar o contradecir fuentes narrativas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "intermedio"
+  tags: ["evidencia", "metodo"]
+
+enunciado: "Ordená los pasos para evaluar la confiabilidad de una fuente histórica, después de ya clasificarla como primaria o secundaria."
+tipo: ordenar
+opciones_explicitas:
+  - "Revisar si la fuente es internamente consistente, sin contradecirse"
+  - "Revisar si hay un conflicto de interés evidente en quien la produjo"
+  - "Buscar otras fuentes independientes que confirmen o contradigan el mismo dato"
+  - "Contrastar, si existe, con evidencia material disponible"
+respuesta_orden: ["Revisar si la fuente es internamente consistente, sin contradecirse", "Revisar si hay un conflicto de interés evidente en quien la produjo", "Buscar otras fuentes independientes que confirmen o contradigan el mismo dato", "Contrastar, si existe, con evidencia material disponible"]
+explicacion: |
+  El proceso aplica sucesivamente los criterios de confiabilidad
+  descritos en la teoría, terminando con la triangulación completa.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "avanzado"
+  tags: ["evidencia", "significancia_historica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Evidencia (qué tan confiable es una fuente) y significancia histórica (qué del pasado vale la pena estudiar) son dos conceptos hermanos del marco Big Six, complementarios pero distintos entre sí."
+
+pasos:
+  - "Ver `../significancia-historica/`: ambos cuelgan de puntos distintos de la misma cadena de pensamiento histórico."
+
+explicacion: |
+  Verdadero: son dos preguntas distintas (qué estudiar vs. cómo saber
+  si es confiable lo que se encuentra) que se complementan en la
+  investigación histórica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "evidencia"
+  nivel: "avanzado"
+  tags: ["evidencia", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al leer una fuente histórica sobre un tema controvertido, conviene aplicar la triangulación: buscar otras fuentes independientes que confirmen o contradigan la información, en vez de aceptar una sola fuente como suficiente."
+
+pasos:
+  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema al analizar
+  cualquier fuente histórica real, especialmente sobre temas
+  controvertidos.
+```
+
+## Sección: dimension-etica (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "basico"
+  tags: ["dimension_etica", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La dimensión ética pregunta qué le debemos, hoy, a la memoria de lo ocurrido, no sólo qué pasó en el pasado."
+
+pasos:
+  - "Es una pregunta sobre la responsabilidad del presente, no sobre el pasado en sí."
+
+explicacion: |
+  Verdadero: es la definición central de dimensión ética en historia.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "intermedio"
+  tags: ["dimension_etica", "big_six", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de causa/consecuencia, cambio/continuidad y multicausalidad, que responden preguntas de hecho (qué pasó, por qué), la dimensión ética responde una pregunta distinta: qué debemos hoy frente a eso."
+
+pasos:
+  - "Ver `../causa-y-consecuencia/`, `../cambio-y-continuidad/`, `../multicausalidad/`: son los conceptos de hecho ya estudiados."
+
+explicacion: |
+  Verdadero: es la distinción central entre este tema y los
+  conceptos anteriores de la cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "intermedio"
+  tags: ["proposito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin esta habilidad enseñada explícitamente, un tema histórico grave puede quedar reducido a una fecha para memorizar, en vez de ser una herramienta de juicio que ayuda a evitar repetir el error."
+
+pasos:
+  - "Es la razón central por la que este concepto se incluyó explícitamente en el mapa."
+
+explicacion: |
+  Verdadero: es el propósito central de este tema, mencionado en la
+  teoría.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "intermedio"
+  tags: ["preguntas_centrales", "quien_cuenta"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las víctimas, los perpetradores, el Estado y los historiadores académicos pueden tener versiones legítimas pero parciales de un mismo hecho, y ninguna reemplaza del todo a las demás."
+
+pasos:
+  - "Es una de las preguntas centrales de la dimensión ética mencionadas en la teoría."
+
+explicacion: |
+  Verdadero: es una de las preguntas centrales de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "intermedio"
+  tags: ["preguntas_centrales", "victimas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Distintas sociedades han respondido de formas distintas qué le deben a las víctimas de un hecho histórico grave: reconocimiento, verdad, justicia, reparación."
+
+pasos:
+  - "Juicios penales, comisiones de la verdad, monumentos y educación obligatoria son ejemplos de respuestas concretas mencionadas en la teoría."
+
+explicacion: |
+  Verdadero: es otra de las preguntas centrales de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "intermedio"
+  tags: ["preguntas_centrales", "practica"]
+
+variables:
+  herramientas: ["juicios penales", "comisiones de la verdad", "monumentos"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{herramientas[idx]}\" es un ejemplo mencionado en la teoría de cómo una sociedad puede responder a la pregunta de qué le debe a las víctimas de un hecho histórico grave."
+
+pasos:
+  - "Son ejemplos concretos de las distintas formas en que las sociedades intentan responder esa pregunta."
+
+explicacion: |
+  Verdadero: son ejemplos de mecanismos reales que distintas
+  sociedades han usado para responder esta pregunta ética.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "intermedio"
+  tags: ["preguntas_centrales", "prevencion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Entender las condiciones que hicieron posible un hecho grave es parte de la responsabilidad de estudiarlo, no sólo narrar los hechos en sí."
+
+pasos:
+  - "Es otra de las preguntas centrales de la dimensión ética mencionadas en la teoría."
+
+explicacion: |
+  Verdadero: es otra de las preguntas centrales de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "intermedio"
+  tags: ["preguntas_centrales", "memoria_selectiva"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Qué monumentos se erigen, qué fechas se conmemoran y qué se enseña en la escuela son decisiones que reflejan valores del presente, no sólo hechos del pasado."
+
+pasos:
+  - "Es otra de las preguntas centrales de la dimensión ética mencionadas en la teoría, sobre la memoria selectiva."
+
+explicacion: |
+  Verdadero: es otra de las preguntas centrales de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "intermedio"
+  tags: ["memoria_selectiva"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La memoria histórica es selectiva: no todo lo ocurrido se conmemora o enseña de la misma manera, y esas decisiones son parte de lo que estudia la dimensión ética."
+
+pasos:
+  - "Es la conclusión central sobre el carácter selectivo de la memoria colectiva."
+
+explicacion: |
+  Verdadero: es un concepto central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "avanzado"
+  tags: ["juicio_historico", "juicio_etico", "diferenciacion"]
+
+variables:
+  afirmaciones: ["el hecho X ocurrió por razones económicas y políticas combinadas", "el hecho X fue incorrecto y genera una responsabilidad hoy"]
+  tipos: ["juicio histórico", "juicio ético"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["juicio histórico", "juicio ético"]
+
+enunciado: "\"{afirmaciones[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "Analizar por qué ocurrió algo es un juicio histórico; evaluar si fue correcto/incorrecto y qué responsabilidad genera es un juicio ético."
+
+explicacion: |
+  Distinguir juicio histórico de juicio ético es la aplicación
+  central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "avanzado"
+  tags: ["juicio_historico", "juicio_etico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El juicio histórico (por qué ocurrió algo) y el juicio ético (si fue correcto y qué responsabilidad genera hoy) son ambos necesarios para entender un hecho grave del pasado, pero son preguntas distintas."
+
+pasos:
+  - "Ver `../../filosofia/etica-como-rama-propia/`: es la misma distinción entre descripción y evaluación, aplicada ahora al pasado histórico."
+
+explicacion: |
+  Verdadero: es la distinción central de este tema entre analizar y
+  evaluar un hecho histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "avanzado"
+  tags: ["consenso_variable"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Algunos juicios éticos sobre el pasado tienen amplio consenso; otros (como la forma exacta de reparar un daño histórico) son objeto de debate legítimo."
+
+pasos:
+  - "Reconocer esa diferencia es parte de manejar esta dimensión con rigor, no con simplificación."
+
+explicacion: |
+  Verdadero: es un matiz importante sobre la variedad de consenso
+  posible en juicios éticos históricos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "avanzado"
+  tags: ["consenso_variable", "anacronismo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Hasta qué punto juzgar a personas del pasado con estándares éticos actuales es uno de los temas de debate legítimo mencionados en la teoría, sin una respuesta única y cerrada."
+
+pasos:
+  - "Es un ejemplo concreto de la variedad de consenso posible dentro de la dimensión ética."
+
+explicacion: |
+  Verdadero: es un ejemplo específico mencionado del tipo de debate
+  legítimo dentro de esta dimensión.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Juzgar qué le debemos a la memoria de lo ocurrido presupone ya poder distinguir qué de ese pasado cambió y qué sigue vigente hoy (deudas no saldadas, patrones que persisten)."
+
+pasos:
+  - "Ver `../cambio-y-continuidad/`: es el prerrequisito directo de este tema."
+
+explicacion: |
+  Verdadero: es la conexión central entre este tema y su
+  prerrequisito.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "avanzado"
+  tags: ["big_six", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dimensión ética es el sexto y último concepto del marco Big Six de pensamiento histórico, cerrando el conjunto completo de esta cadena."
+
+pasos:
+  - "Ver `../causa-y-consecuencia/`, `../cambio-y-continuidad/`, `../significancia-historica/`, `../evidencia/`: son los otros 5 conceptos del marco ya cubiertos."
+
+explicacion: |
+  Verdadero: es el sexto concepto del marco Big Six, completando el
+  conjunto de herramientas de pensamiento histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "avanzado"
+  tags: ["memoria_selectiva", "presente"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Que un país decida hoy erigir (o retirar) un monumento a una figura histórica es una decisión que dice tanto sobre los valores actuales de esa sociedad como sobre el hecho histórico en sí."
+
+pasos:
+  - "Es la aplicación práctica de que la memoria histórica refleja valores del presente."
+
+explicacion: |
+  Verdadero: es un ejemplo concreto de cómo las decisiones de memoria
+  colectiva combinan pasado y presente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "avanzado"
+  tags: ["dimension_etica", "rigor"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La dimensión ética permite reemplazar el análisis histórico riguroso (causas, evidencia) por un juicio moral directo sobre los hechos, sin necesitar evidencia ni análisis causal."
+
+pasos:
+  - "Ambos tipos de juicio (histórico y ético) son necesarios; uno no sustituye al otro."
+
+explicacion: |
+  Falso: el juicio ético se construye SOBRE el análisis histórico
+  riguroso, no lo reemplaza.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "intermedio"
+  tags: ["dimension_etica", "metodo"]
+
+enunciado: "Ordená los pasos para abordar la dimensión ética de un hecho histórico grave, después de ya analizarlo históricamente (causas, evidencia)."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar quiénes tienen versiones legítimas pero parciales del hecho (víctimas, perpetradores, historiadores)"
+  - "Preguntarse qué le debe la sociedad actual a las víctimas del hecho"
+  - "Analizar las condiciones que hicieron posible el hecho, para pensar cómo evitar repetirlo"
+  - "Revisar qué se recuerda y qué se olvida hoy sobre ese hecho, y por qué"
+respuesta_orden: ["Identificar quiénes tienen versiones legítimas pero parciales del hecho (víctimas, perpetradores, historiadores)", "Preguntarse qué le debe la sociedad actual a las víctimas del hecho", "Analizar las condiciones que hicieron posible el hecho, para pensar cómo evitar repetirlo", "Revisar qué se recuerda y qué se olvida hoy sobre ese hecho, y por qué"]
+explicacion: |
+  El proceso recorre las cuatro preguntas centrales de la dimensión
+  ética descritas en la teoría, en un orden lógico de análisis.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "avanzado"
+  tags: ["dimension_etica", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La dimensión ética es lo que conecta el estudio del pasado con la responsabilidad del presente, la razón última por la que estudiar historia importa más allá de acumular información."
+
+pasos:
+  - "Es la síntesis central de por qué este tema cierra el marco Big Six de esta manera."
+
+explicacion: |
+  Verdadero: es la conclusión central sobre el propósito de este
+  tema dentro de toda la cadena de pensamiento histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "dimension_etica"
+  nivel: "avanzado"
+  tags: ["dimension_etica", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al estudiar un hecho histórico grave (una dictadura, un genocidio, una injusticia masiva), conviene complementar el análisis de causas y evidencia con las preguntas de la dimensión ética: qué le debemos a las víctimas y cómo se evita repetir el error."
+
+pasos:
+  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
+
+explicacion: |
+  Verdadero: es la aplicación concreta de este tema al estudio
+  responsable de hechos históricos graves.
+```
 
 ## Sección: industrializacion-por-sustitucion-de-importaciones-isi (22 preguntas)
 
@@ -308,17 +1689,19 @@ metadata:
 variables:
   n: uno_de([1, 1])
 
-respuesta: "Siderar"
+respuesta: "SOMISA"
 tipo: completar
 
-enunciado: "La empresa que ejemplifica el desarrollo de la industria siderúrgica argentina durante este período es ___."
+enunciado: "La empresa estatal que ejemplifica el desarrollo de la industria siderúrgica argentina durante este período es ___."
 
 respuestas_validas:
-  - "Siderar"
+  - "SOMISA"
 
 explicacion: |
-  Siderar es el hito mencionado como ejemplo del desarrollo de la
-  industria del acero nacional en esa etapa.
+  SOMISA (Sociedad Mixta Siderúrgica Argentina, fundada en 1947) es el
+  hito mencionado como ejemplo del desarrollo de la industria del acero
+  nacional en esa etapa (Siderar, en cambio, nace recién en 1993 de la
+  privatización de SOMISA — es posterior a la era ISI, no un ejemplo de ella).
 ```
 
 ```
@@ -469,1406 +1852,6 @@ explicacion: |
   Cuando caían los precios de las exportaciones primarias, escaseaban
   los dólares para importar insumos, lo que derivaba en inflación y
   desabastecimiento.
-```
-
-## Sección: interpretar-una-fuente-historica (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "basico"
-  tags: ["fuente_historica", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una fuente histórica es cualquier resto del pasado que permite reconstruir o conocer lo que ocurrió: un documento, una carta, una fotografía, un objeto, un testimonio."
-
-pasos:
-  - "La historia accede al pasado a través de las fuentes que sobrevivieron."
-
-explicacion: |
-  Verdadero: es la definición central de fuente histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "basico"
-  tags: ["fuente_primaria"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "fuente primaria"
-tipo: mc
-opciones_explicitas: ["fuente primaria", "fuente secundaria"]
-
-enunciado: "Una carta escrita por un soldado durante una guerra, mientras la vivía, es un ejemplo de..."
-
-pasos:
-  - "Producida en el momento de los hechos, por quien los vivió."
-
-explicacion: |
-  La fuente primaria se produce en el momento de los hechos por
-  quienes los vivieron o presenciaron.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "basico"
-  tags: ["fuente_secundaria"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "fuente secundaria"
-tipo: mc
-opciones_explicitas: ["fuente primaria", "fuente secundaria"]
-
-enunciado: "Un libro de historia escrito décadas después, que analiza cartas de soldados de esa guerra, es un ejemplo de..."
-
-pasos:
-  - "Producida después, analizando o interpretando fuentes primarias."
-
-explicacion: |
-  La fuente secundaria interpreta o analiza fuentes primarias, no fue
-  producida en el momento de los hechos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "intermedio"
-  tags: ["fuente_primaria", "fuente_secundaria", "matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un mismo texto puede ser fuente primaria para un tema y fuente secundaria para otro, según qué se esté investigando."
-
-pasos:
-  - "Un libro de historia de 1950 es secundario sobre los hechos que narra, pero es primario si se investiga cómo se pensaba la historia en 1950."
-
-explicacion: |
-  Verdadero: la clasificación primaria/secundaria depende del objeto
-  de investigación, no es una propiedad fija del documento.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "intermedio"
-  tags: ["punto_de_vista"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ninguna fuente histórica es completamente neutral u objetiva: quien la produjo tenía una posición, un interés, un contexto que influye en qué cuenta y cómo lo cuenta."
-
-pasos:
-  - "Esto no significa que la fuente sea inútil o mentirosa, sólo que hay que leerla sabiendo desde dónde habla."
-
-explicacion: |
-  Verdadero: es el punto de partida central del análisis crítico de
-  fuentes.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "intermedio"
-  tags: ["sesgo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un documento puede ser sincero y fiel a lo que su autor percibió, y aun así estar sesgado por su posición social, época o creencias."
-
-pasos:
-  - "El trabajo del historiador no es descartar fuentes sesgadas (todas lo están en algún grado), sino entender el sesgo."
-
-explicacion: |
-  Verdadero: es una distinción central para no confundir parcialidad
-  con deshonestidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "basico"
-  tags: ["analisis_critico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una de las primeras preguntas del análisis crítico de una fuente es: ¿quién la produjo (autor, institución, y su posición respecto de los hechos)?"
-
-pasos:
-  - "Conocer al autor ayuda a entender desde qué perspectiva se cuenta lo narrado."
-
-explicacion: |
-  Verdadero: es una de las preguntas centrales del método de análisis
-  crítico de fuentes.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "basico"
-  tags: ["analisis_critico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Otra pregunta central del análisis crítico es: ¿cuándo y dónde se produjo la fuente (contemporánea a los hechos, o posterior; en qué lugar)?"
-
-pasos:
-  - "Determina si la fuente es primaria o secundaria, y qué distancia temporal/geográfica tiene con los hechos."
-
-explicacion: |
-  Verdadero: es otra pregunta central del método de análisis crítico
-  de fuentes.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "intermedio"
-  tags: ["analisis_critico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Otra pregunta central es: ¿para quién y con qué propósito se produjo la fuente? Una carta privada, un discurso público y un documento oficial tienen propósitos y audiencias distintas."
-
-pasos:
-  - "El propósito y la audiencia influyen directamente en qué se dice y cómo."
-
-explicacion: |
-  Verdadero: es otra pregunta central del método de análisis crítico
-  de fuentes.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["analisis_critico", "omisiones"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Lo que una fuente omite también es información: por ejemplo, un censo que no cuenta a cierto grupo social revela algo sobre cómo se los consideraba en esa época."
-
-pasos:
-  - "Analizar las omisiones es parte del análisis crítico, no sólo lo que la fuente dice explícitamente."
-
-explicacion: |
-  Verdadero: las omisiones pueden ser tan reveladoras como lo
-  explícitamente dicho.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "intermedio"
-  tags: ["analisis_critico", "contraste"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Otra pregunta central es si la fuente se puede contrastar con otras fuentes independientes — la misma lógica ya vista al verificar noticias actuales, aplicada acá a documentos del pasado."
-
-pasos:
-  - "Ver `../../ciudadania-digital/verificacion-de-una-noticia/`: es el mismo principio de contraste de fuentes."
-
-explicacion: |
-  Verdadero: es la conexión directa entre este tema y el método de
-  verificación ya estudiado en otro contexto.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "intermedio"
-  tags: ["fuente_primaria", "fuente_secundaria", "practica"]
-
-variables:
-  ejemplos: ["un decreto oficial firmado en el momento de los hechos", "un documental producido 50 años después analizando ese decreto"]
-  tipos: ["fuente primaria", "fuente secundaria"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["fuente primaria", "fuente secundaria"]
-
-enunciado: "\"{ejemplos[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "Contemporáneo a los hechos = primaria. Posterior, analizando fuentes primarias = secundaria."
-
-explicacion: |
-  La clasificación depende de cuándo se produjo la fuente respecto de
-  los hechos que documenta.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["sesgo", "distincion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si el autor de una fuente tenía un interés personal en los hechos que narra, esa fuente debe descartarse por completo como fuente histórica válida."
-
-pasos:
-  - "El trabajo del historiador es entender ese interés/sesgo para leer la fuente con precisión, no descartarla automáticamente."
-
-explicacion: |
-  Falso: casi toda fuente tiene algún interés o posición detrás; el
-  método consiste en contextualizarla, no en descartarla.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["contraargumentos", "prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Interpretar una fuente histórica reusa directamente las herramientas de análisis crítico ya vistas en `../../lengua/contraargumentos/`: sopesar una postura sabiendo su origen e interés."
-
-pasos:
-  - "Es el mismo tipo de análisis crítico, aplicado ahora a documentos del pasado en vez de a un texto argumentativo actual."
-
-explicacion: |
-  Verdadero: es la conexión directa entre este tema y su
-  prerrequisito de Lengua.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "intermedio"
-  tags: ["fuente_historica", "tipos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una fuente histórica no tiene que ser necesariamente un texto escrito: un edificio, un objeto arqueológico o una fotografía también son fuentes válidas."
-
-pasos:
-  - "Cualquier resto del pasado que permita conocer lo ocurrido cuenta como fuente."
-
-explicacion: |
-  Verdadero: las fuentes históricas abarcan una gran variedad de
-  tipos de material, no sólo documentos escritos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["analisis_critico", "testimonio_oral"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un testimonio oral recogido décadas después de un hecho se analiza con las mismas preguntas críticas (quién, cuándo, para quién, qué omite) que cualquier otra fuente, considerando además el efecto del paso del tiempo sobre la memoria."
-
-pasos:
-  - "El método de análisis crítico se aplica de forma consistente a distintos tipos de fuente, con matices propios de cada una."
-
-explicacion: |
-  Verdadero: el marco general de preguntas se adapta, pero se aplica
-  a cualquier tipo de fuente, incluidos los testimonios orales.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["contraste", "matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Contrastar una fuente con otras independientes aumenta la confianza en la interpretación, pero no garantiza una certeza absoluta sobre lo que realmente ocurrió."
-
-pasos:
-  - "El trabajo histórico maneja grados de confianza y evidencia, no certezas matemáticas."
-
-explicacion: |
-  Verdadero: es un matiz importante sobre los límites del método
-  histórico, coherente con el manejo de incertidumbre en cualquier
-  investigación seria.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "intermedio"
-  tags: ["analisis_critico", "metodo"]
-
-enunciado: "Ordená los pasos del análisis crítico de una fuente histórica."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar quién produjo la fuente y su posición respecto de los hechos"
-  - "Determinar cuándo y dónde se produjo (primaria o secundaria)"
-  - "Analizar para quién y con qué propósito se produjo"
-  - "Contrastar su contenido con otras fuentes independientes"
-respuesta_orden:
-  - "Identificar quién produjo la fuente y su posición respecto de los hechos"
-  - "Determinar cuándo y dónde se produjo (primaria o secundaria)"
-  - "Analizar para quién y con qué propósito se produjo"
-  - "Contrastar su contenido con otras fuentes independientes"
-
-explicacion: |
-  El orden sigue la secuencia lógica de las preguntas del análisis
-  crítico descritas en la teoría.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["interpretar_una_fuente_historica", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aplicar este método crítico es la base de cualquier trabajo serio de investigación histórica, no sólo memorizar fechas y hechos ya interpretados por otros."
-
-pasos:
-  - "Es la conclusión central de por qué este tema es importante más allá de la mera acumulación de datos."
-
-explicacion: |
-  Verdadero: es la síntesis del propósito educativo central de este
-  tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["interpretar_una_fuente_historica", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer un documento histórico, conviene preguntarse quién lo escribió, para quién, con qué propósito, y contrastarlo con otras fuentes, en vez de aceptarlo como un relato neutral y completo de lo ocurrido."
-
-pasos:
-  - "Es la aplicación práctica directa del método de análisis crítico estudiado en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema al leer cualquier
-  fuente histórica real.
-```
-
-## Sección: linea-de-tiempo-y-antes-despues (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["linea_de_tiempo", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una línea de tiempo es una representación gráfica donde los hechos se ordenan según el momento en que ocurrieron."
-
-pasos:
-  - "El eje representa el paso del tiempo, y cada hecho se ubica en el punto que le corresponde."
-
-explicacion: |
-  Verdadero: es la definición central de línea de tiempo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["antes_despues"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Se puede afirmar que \"la Revolución de Mayo fue antes que la Declaración de la Independencia\" sin necesitar saber el año exacto de ninguno de los dos hechos."
-
-pasos:
-  - "El orden temporal (antes/después) es una habilidad más básica que fechar con precisión."
-
-explicacion: |
-  Verdadero: es la habilidad más elemental del pensamiento histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["antes_despues", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "la Revolución de Mayo"
-tipo: mc
-opciones_explicitas: ["la Revolución de Mayo", "la Declaración de la Independencia"]
-
-enunciado: "Entre \"la Revolución de Mayo\" (1810) y \"la Declaración de la Independencia\" (1816), ¿cuál ocurrió antes?"
-
-pasos:
-  - "Comparar los años para determinar el orden temporal."
-
-explicacion: |
-  1810 es anterior a 1816, por lo tanto la Revolución de Mayo ocurrió
-  antes.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["simultaneidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos hechos pueden ser simultáneos (ocurrir en el mismo período), incluso en lugares muy distintos del mundo."
-
-pasos:
-  - "Reconocer la simultaneidad ayuda a entender que la historia no es una sola línea de sucesos."
-
-explicacion: |
-  Verdadero: es la definición central de simultaneidad en historia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["simultaneidad", "multiples_procesos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Reconocer la simultaneidad ayuda a entender que la historia es muchos procesos ocurriendo en paralelo en distintas regiones, no una sola línea de sucesos."
-
-pasos:
-  - "Es la conclusión central de por qué la simultaneidad es un concepto importante."
-
-explicacion: |
-  Verdadero: es la razón por la que la simultaneidad enriquece la
-  comprensión histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["duracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Además de indicar qué pasó antes y después, una línea de tiempo permite ver cuánto tiempo (la duración) separa a dos hechos."
-
-pasos:
-  - "Un intervalo corto se ve distinto en la línea que uno largo, aunque ambos sean técnicamente \"antes y después\"."
-
-explicacion: |
-  Verdadero: la duración es otra dimensión que aporta una línea de
-  tiempo, además del orden.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["duracion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos hechos separados por 5 años se representan más cerca entre sí en una línea de tiempo que dos hechos separados por 300 años."
-
-pasos:
-  - "La distancia visual en la línea refleja la duración real del intervalo temporal."
-
-explicacion: |
-  Verdadero: es la aplicación práctica de cómo se representa la
-  duración en una línea de tiempo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["linea_de_tiempo", "utilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ordenar hechos visualmente en una línea de tiempo hace evidentes relaciones que un listado de fechas sueltas no muestra, como qué hechos son cercanos entre sí."
-
-pasos:
-  - "Es la razón central de por qué la línea de tiempo es una herramienta útil, más allá de memorizar fechas."
-
-explicacion: |
-  Verdadero: es la conclusión central sobre la utilidad de este
-  recurso visual.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["linea_de_tiempo", "vacios"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una línea de tiempo puede mostrar dónde hay \"vacíos\" en el registro histórico disponible, es decir, períodos sin hechos documentados."
-
-pasos:
-  - "Es otra utilidad de la representación visual sobre un simple listado de fechas."
-
-explicacion: |
-  Verdadero: los vacíos temporales son otra información que revela
-  la línea de tiempo, más allá del orden y la duración.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["linea_de_tiempo", "estructura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una línea de tiempo, el eje horizontal (o vertical) representa el paso del tiempo, no otra magnitud."
-
-pasos:
-  - "Cada hecho se ubica en el punto del eje que corresponde a su momento de ocurrencia."
-
-explicacion: |
-  Verdadero: es la estructura básica de cualquier línea de tiempo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["antes_despues", "practica"]
-
-enunciado: "Ordená estos tres hechos de más antiguo a más reciente: Independencia Argentina (1816), llegada de Colón a América (1492), Segunda Guerra Mundial (1939-1945)."
-tipo: ordenar
-opciones_explicitas:
-  - "Llegada de Colón a América (1492)"
-  - "Independencia Argentina (1816)"
-  - "Segunda Guerra Mundial (1939-1945)"
-respuesta_orden:
-  - "Llegada de Colón a América (1492)"
-  - "Independencia Argentina (1816)"
-  - "Segunda Guerra Mundial (1939-1945)"
-
-explicacion: |
-  El orden sigue estrictamente la cronología de los años en que
-  ocurrió cada hecho.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["simultaneidad", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Mientras en América ocurrían las guerras de independencia a principios del siglo XIX, en Europa se desarrollaban procesos históricos propios de esa misma época: son hechos simultáneos en regiones distintas."
-
-pasos:
-  - "Es un ejemplo concreto de simultaneidad entre procesos históricos en distintas regiones del mundo."
-
-explicacion: |
-  Verdadero: es la aplicación práctica del concepto de simultaneidad
-  a un caso histórico real.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["antes_despues"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para poder decir que un hecho ocurrió \"antes\" que otro, es imprescindible conocer el año exacto de ambos hechos."
-
-pasos:
-  - "Se puede establecer el orden relativo (antes/después) con información parcial, sin necesitar fechas exactas."
-
-explicacion: |
-  Falso: el orden relativo antes/después es una habilidad más básica
-  que no siempre requiere fechas precisas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["duracion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "el intervalo entre 1810 y 1816"
-tipo: mc
-opciones_explicitas: ["el intervalo entre 1810 y 1816", "el intervalo entre 1500 y 1800"]
-
-enunciado: "¿Cuál de estos dos intervalos de tiempo es más corto?"
-
-pasos:
-  - "1810 a 1816 son 6 años; 1500 a 1800 son 300 años."
-
-explicacion: |
-  Comparar la duración de distintos intervalos es una aplicación
-  directa de este concepto.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin poder ordenar hechos en el tiempo, no se puede avanzar hacia unidades más precisas como década, siglo o milenio."
-
-pasos:
-  - "Ver `../decada-siglo-milenio/`: es el tema siguiente de la cadena de pensamiento histórico."
-
-explicacion: |
-  Verdadero: por eso este tema es el prerrequisito directo del
-  siguiente en la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["causa_y_consecuencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Saber qué pasó antes y qué pasó después es una condición necesaria (aunque no suficiente) para poder analizar relaciones de causa y consecuencia entre hechos históricos."
-
-pasos:
-  - "Una causa siempre tiene que ocurrir antes que su consecuencia en el tiempo."
-
-explicacion: |
-  Verdadero: el orden temporal es la base sobre la que se construyen
-  herramientas de análisis histórico más complejas, más adelante en
-  la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["antes_despues", "distincion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si un hecho A ocurrió antes que un hecho B, eso significa automáticamente que A causó B."
-
-pasos:
-  - "El orden temporal (antes/después) es necesario pero no suficiente para afirmar una relación de causa: dos hechos pueden ser antes/después sin que uno cause al otro."
-
-explicacion: |
-  Falso: el orden temporal es la base, pero establecer causalidad
-  requiere un análisis adicional, que es el tema de más adelante en
-  la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["linea_de_tiempo", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una línea de tiempo horizontal, un hecho ubicado más a la derecha ocurrió después que un hecho ubicado más a la izquierda (siguiendo la convención habitual de izquierda=pasado, derecha=presente)."
-
-pasos:
-  - "Es la convención estándar de lectura de una línea de tiempo horizontal."
-
-explicacion: |
-  Verdadero: es la convención de lectura habitual de una línea de
-  tiempo horizontal.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["linea_de_tiempo", "metodo"]
-
-enunciado: "Ordená los pasos para construir una línea de tiempo con varios hechos históricos."
-tipo: ordenar
-opciones_explicitas:
-  - "Reunir los hechos que se quieren representar"
-  - "Determinar el orden relativo (antes/después) entre todos ellos"
-  - "Ubicar cada hecho en el eje según su momento, respetando la duración de los intervalos"
-  - "Revisar si hay hechos simultáneos que deban marcarse en el mismo punto del eje"
-respuesta_orden:
-  - "Reunir los hechos que se quieren representar"
-  - "Determinar el orden relativo (antes/después) entre todos ellos"
-  - "Ubicar cada hecho en el eje según su momento, respetando la duración de los intervalos"
-  - "Revisar si hay hechos simultáneos que deban marcarse en el mismo punto del eje"
-
-explicacion: |
-  El proceso va de reunir los hechos a ordenarlos y ubicarlos
-  correctamente en el eje temporal.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["linea_de_tiempo", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Antes de estudiar un período histórico complejo, puede ayudar armar primero una línea de tiempo simple con los hechos principales, para tener claro el orden y la duración antes de profundizar en las causas."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema como estrategia de estudio."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema como herramienta
-  de estudio de cualquier período histórico.
-```
-
-## Sección: materialismo-historico (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "basico"
-  tags: ["materialismo_historico", "criterio_central"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico sostiene que lo que mueve la historia son las condiciones materiales de producción, no las ideas o decisiones de grandes individuos."
-
-pasos:
-  - "Ver `../positivismo/`: es un criterio opuesto al de esa corriente, que sí prioriza grandes figuras."
-
-explicacion: |
-  Verdadero: es el criterio central del materialismo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["marx"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Marx"
-tipo: completar
-
-enunciado: "El pensador que desarrolló el materialismo histórico como método para explicar la historia se apellida..."
-
-pasos:
-  - "Karl Marx es el autor central asociado a esta corriente."
-
-explicacion: |
-  Marx es el autor central del materialismo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["condiciones_materiales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las condiciones materiales de producción son cómo una sociedad produce lo que necesita para vivir, y cómo se organiza el trabajo y la propiedad alrededor de esa producción."
-
-pasos:
-  - "Es la definición central de este concepto en el materialismo histórico."
-
-explicacion: |
-  Verdadero: es la definición central de condiciones materiales de
-  producción.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["lucha_de_clases"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según el materialismo histórico, la historia avanza a través del conflicto entre clases sociales con intereses económicos opuestos."
-
-pasos:
-  - "Es el mecanismo central del cambio histórico según esta corriente."
-
-explicacion: |
-  Verdadero: la lucha de clases es el motor central del cambio
-  histórico según esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["lucha_de_clases", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Señores feudales vs. siervos, y burguesía vs. proletariado, son ejemplos de conflictos entre clases sociales mencionados en la teoría."
-
-pasos:
-  - "Son los ejemplos concretos de conflictos de clase mencionados en la teoría."
-
-explicacion: |
-  Verdadero: son ejemplos de conflictos de clase citados en la
-  teoría de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["lucha_de_clases", "politica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según el materialismo histórico, los cambios políticos e ideológicos son, en gran medida, reflejo de los conflictos materiales de fondo, no su causa."
-
-pasos:
-  - "Es una diferencia central con corrientes que priorizan la política o las ideas como causa principal."
-
-explicacion: |
-  Verdadero: es la relación causal central que propone esta
-  corriente entre lo material y lo político/ideológico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["materialismo_historico", "positivismo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Donde el positivismo mira grandes figuras y hechos políticos puntuales, el materialismo histórico mira estructuras económicas y grupos sociales."
-
-pasos:
-  - "Ver `../positivismo/`: es la diferencia de foco central entre ambas corrientes."
-
-explicacion: |
-  Verdadero: es la diferencia de foco entre estas dos corrientes
-  historiográficas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["materialismo_historico", "positivismo", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Analizar un tratado firmado por un rey preguntando \"qué relaciones de producción sostenían el poder de ese rey y de la clase que representaba\" es un ejemplo del enfoque del materialismo histórico, en vez de simplemente narrar las cláusulas del tratado (enfoque positivista)."
-
-pasos:
-  - "Es la aplicación práctica del contraste de foco descrito en la teoría."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de cómo cambia el análisis según
-  la corriente historiográfica aplicada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["metodo_vs_programa_politico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico como método historiográfico (una forma de explicar el pasado) es distinto del marxismo como corriente político-económica (una postura sobre cómo debería organizarse la sociedad hoy)."
-
-pasos:
-  - "Ver `../../filosofia/historia-de-la-filosofia-y-corrientes/`: el marxismo aparece ahí como corriente político-económica, con un foco distinto."
-
-explicacion: |
-  Verdadero: es la aclaración central de este tema para no confundir
-  dos usos distintos del mismo pensamiento.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["metodo_vs_programa_politico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un historiador puede usar el método del materialismo histórico (analizar condiciones económicas de fondo) sin necesariamente compartir el programa político marxista, y viceversa."
-
-pasos:
-  - "Es la aclaración central de que método historiográfico y postura política son cosas distintas."
-
-explicacion: |
-  Verdadero: es un matiz importante para separar el uso metodológico
-  del compromiso ideológico personal.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["aporte_metodologico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Independientemente de su origen en el pensamiento de Marx, el materialismo histórico introdujo un aporte que muchos historiadores de corrientes distintas siguen usando: prestar atención a las condiciones económicas y sociales de fondo."
-
-pasos:
-  - "Es la conclusión sobre la influencia metodológica de esta corriente más allá de su origen ideológico."
-
-explicacion: |
-  Verdadero: es la síntesis del aporte metodológico duradero de esta
-  corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["influencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La atención del materialismo histórico a las condiciones económicas y sociales de fondo se nota, por ejemplo, en la Escuela de los Annales, otra corriente de esta subrama."
-
-pasos:
-  - "Ver `../escuela-de-los-annales/`: es la conexión mencionada en la teoría entre estas dos corrientes."
-
-explicacion: |
-  Verdadero: es la influencia metodológica del materialismo histórico
-  sobre otra corriente posterior de esta subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["neutralidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico es una de varias corrientes historiográficas legítimas, no la única forma correcta de hacer historia."
-
-pasos:
-  - "Es coherente con el principio de neutralidad aplicado a las cuatro corrientes de esta subrama."
-
-explicacion: |
-  Verdadero: cada corriente es una lente distinta, ninguna se
-  presenta como la única correcta.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["materialismo_historico", "practica"]
-
-variables:
-  analisis: ["estudiar cómo se organizaba la producción agrícola y quién controlaba la tierra en una sociedad feudal", "estudiar la biografía y las decisiones diplomáticas de un rey medieval"]
-  corrientes: ["materialismo histórico", "positivismo"]
-  idx: uno_de([0, 1])
-
-respuesta: corrientes[idx]
-tipo: mc
-opciones_explicitas: ["materialismo histórico", "positivismo"]
-
-enunciado: "\"{analisis[idx]}\" corresponde principalmente al enfoque de..."
-
-pasos:
-  - "Foco en producción/propiedad = materialismo histórico. Foco en biografía/decisiones de una figura = positivismo."
-
-explicacion: |
-  Reconocer el foco temático (estructuras materiales vs. grandes
-  figuras) permite identificar la corriente historiográfica aplicada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la misma conexión conceptual ya vista en
-  `../positivismo/`.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["lucha_de_clases"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según el materialismo histórico, distintas clases sociales tienen intereses económicos opuestos entre sí, lo que genera tensión y conflicto."
-
-pasos:
-  - "Es la base del concepto de lucha de clases como motor del cambio histórico."
-
-explicacion: |
-  Verdadero: la oposición de intereses económicos entre clases es la
-  base del conflicto que esta corriente identifica como motor
-  histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico no ignora por completo la política, sino que la analiza como reflejo de conflictos materiales de fondo, no como causa autónoma independiente de esas condiciones."
-
-pasos:
-  - "Es un matiz importante: no se trata de ignorar la política, sino de explicarla a partir de otra causa de fondo."
-
-explicacion: |
-  Verdadero: es un matiz importante sobre cómo esta corriente
-  incorpora (no ignora) el análisis político.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["materialismo_historico", "metodo"]
-
-enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque del materialismo histórico."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si el foco está en condiciones económicas y de producción, no en biografías individuales"
-  - "Identificar si se analizan clases sociales con intereses opuestos"
-  - "Revisar si los cambios políticos se explican como reflejo de esos conflictos materiales"
-  - "Concluir si el texto corresponde al enfoque del materialismo histórico"
-respuesta_orden:
-  - "Revisar si el foco está en condiciones económicas y de producción, no en biografías individuales"
-  - "Identificar si se analizan clases sociales con intereses opuestos"
-  - "Revisar si los cambios políticos se explican como reflejo de esos conflictos materiales"
-  - "Concluir si el texto corresponde al enfoque del materialismo histórico"
-
-explicacion: |
-  El análisis va del foco temático a la relación causal propuesta
-  entre lo material y lo político, para concluir si corresponde a
-  esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico es la segunda de las cuatro corrientes historiográficas de esta subrama, hermana de positivismo, Escuela de los Annales e historia cultural."
-
-pasos:
-  - "Ver `../positivismo/`, `../escuela-de-los-annales/` y `../historia-cultural/`: los cuatro nodos hermanos dependen de `../multicausalidad/`."
-
-explicacion: |
-  Verdadero: es la relación entre este tema y los otros tres de la
-  subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["materialismo_historico", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer un libro de historia centrado en las condiciones de trabajo, la propiedad de la tierra y los conflictos entre grupos sociales de una época, conviene reconocer que está aplicando un enfoque cercano al materialismo histórico."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema para reconocer el
-  enfoque historiográfico de un texto real.
 ```
 
 ## Sección: multicausalidad (20 preguntas)
@@ -2284,12 +2267,7 @@ opciones_explicitas:
   - "Clasificar cada causa según su dimensión (económica, política, social, cultural, ambiental)"
   - "Evaluar el peso relativo de cada causa, sin asumir que todas pesan igual"
   - "Concluir cómo se combinaron esas causas para producir el hecho analizado"
-respuesta_orden:
-  - "Identificar todas las causas posibles del hecho, sin limitarse a una sola"
-  - "Clasificar cada causa según su dimensión (económica, política, social, cultural, ambiental)"
-  - "Evaluar el peso relativo de cada causa, sin asumir que todas pesan igual"
-  - "Concluir cómo se combinaron esas causas para producir el hecho analizado"
-
+respuesta_orden: ["Identificar todas las causas posibles del hecho, sin limitarse a una sola", "Clasificar cada causa según su dimensión (económica, política, social, cultural, ambiental)", "Evaluar el peso relativo de cada causa, sin asumir que todas pesan igual", "Concluir cómo se combinaron esas causas para producir el hecho analizado"]
 explicacion: |
   El proceso va de identificar todas las causas posibles a
   clasificarlas y evaluar su peso relativo antes de concluir.
@@ -2340,3 +2318,4 @@ explicacion: |
   Verdadero: es la aplicación concreta de este tema al análisis
   riguroso de cualquier hecho complejo, histórico o actual.
 ```
+

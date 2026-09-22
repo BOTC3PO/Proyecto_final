@@ -1,105 +1,386 @@
-# Examen jefe — Viaje temporal histórico
+# Examen jefe — [PENDIENTE #682]
 
-> Logro #100. Completaste el examen jefe sobre la historia profunda. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **123 preguntas totales** en 5/5 secciones.
+> Logro #682. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: antiguo-egipto (24 preguntas)
+## Sección: antiguo-egipto (25 preguntas)
 
 ```
-### 2 — Capital del Imperio Nuevo
-```
-
-```
-### 3 — El Edicto de la Tolerancia
-```
-
-```
-### 4 — La Piedra de Rosetta
-```
-
-```
-### 5 — Batalla de Kadesh
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["geografia", "nilo", "civilizacion"]
+tipo: vf
+enunciado: "La inundación anual del río Nilo depositaba un limo fértil que era fundamental para la agricultura y la supervivencia del Antiguo Egipto."
+respuesta: verdadero
+explicacion: "El ciclo de inundación (Akhet), crecimiento (Peret) y cosecha (Shemu) era la base económica y social de Egipto, permitiendo excedentes de grano que sostuvieron la población y el estado."
 ```
 
 ```
-### 6 — Material para papiros
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["capital", "imperio-nuevo", "tebas"]
+tipo: mc
+enunciado: "¿Cuál fue la capital religiosa y política de Egipto durante el Imperio Nuevo?"
+opciones_explicitas:
+  - "Menfis"
+  - "Tebas"
+  - "Alejandría"
+  - "Abidos"
+respuesta: "Tebas"
+explicacion: "Durante el Imperio Nuevo (c. 1550-1070 a.C.), Tebas (la moderna Luxor) se convirtió en la capital religiosa y política, sede del poder de los faraones como Hatshepsut y Ramsés II."
 ```
 
 ```
-### 7 — La Gran Esfinge
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["amarna", "aten", "religion"]
+tipo: completar
+enunciado: "El faraón ________ intentó imponer el monoteísmo del disco solar Atén, suprimiendo el culto a Amón."
+respuestas_validas:
+  - "amenhotep iv"
+  - "amenhotep iv"
+  - "amenofi"
+  - "amenofi iv"
+  - "akhenaton"
+  - "akhenaton"
+explicacion: "Ajenatón (originalmente Amenhotep IV) trasladó la capital a Amarna y promovió el culto exclusivo a Atén, un cambio religioso radical que fue revertido tras su muerte."
 ```
 
 ```
-### 8 — El periodo de los Hicsos
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["epigrafia", "descifrado", "champollion"]
+tipo: vf
+enunciado: "La Piedra de Rosetta permitió el desciframiento de los jeroglíficos gracias a su inscripción en tres scripts: jeroglífico, demótico y griego antiguo."
+respuesta: verdadero
+explicacion: "Encontrada en 1799, la piedra contenía el mismo decreto en tres escritura, permitiendo a Champollion y otros usar el griego conocido para descifrar el sistema jeroglífico egipcio."
 ```
 
 ```
-### 9 — Dios de la muerte
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["guerra", "kadesh", "ramses"]
+tipo: mc
+enunciado: "¿Contra quién libró Ramsés II la Batalla de Kadesh, una de las batallas más grandes de la Antigüedad?"
+opciones_explicitas:
+  - "Contra los hititas bajo Muwatalli II"
+  - "Contra los asirios bajo Tiglath-Pileser I"
+  - "Contra los libios bajo Meshwesh"
+  - "Contra los nubios bajo Kashta"
+respuesta: "Contra los hititas bajo Muwatalli II"
+explicacion: "La Batalla de Kadesh (c. 1274 a.C.) fue librada por Ramsés II contra el Imperio Hitita. Terminó en un empate táctico pero llevó al primer tratado de paz conocido de la historia."
 ```
 
 ```
-### 10 — Expulsión de los Hicsos
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["escritura", "papiro", "soporte"]
+tipo: completar
+enunciado: "El principal material de escritura en Egipto, hecho de la planta Cyperus papyrus, se llamaba ________."
+respuestas_validas:
+  - "papiro"
+  - "papiro"
+  - "papir"
+explicacion: "El papiro se producía en las marismas del delta del Nilo y era exportado por todo el Mediterráneo. Era flexible y duradero, ideal para rollos de texto."
 ```
 
 ```
-### 11 — La Reina Hatshepsut
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["monumento", "keops", "guiza"]
+tipo: mc
+enunciado: "¿Cuál es el nombre del monumento con cuerpo de león y cabeza humana ubicado junto a las pirámides de Guiza?"
+opciones_explicitas:
+  - "La Gran Esfinge de Guiza"
+  - "La Esfinge de Luxor"
+  - "La Esfinge de Karnak"
+  - "La Esfinge de Menfis"
+respuesta: "La Gran Esfinge de Guiza"
+explicacion: "La Gran Esfinge, con cuerpo de león y cabeza humana (posiblemente de Kefrén), está ubicada junto a las pirámides de Guiza y es uno de los monumentos más emblemáticos de Egipto."
 ```
 
 ```
-### 12 — Tinta para escritura
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["segundo-periodo-intermedio", "hicsos", "invasion"]
+tipo: vf
+enunciado: "Los Hicsos, un pueblo de origen semita, establecieron el Decimocuarto Dinastía en el delta del Nilo durante el Segundo Periodo Intermedio."
+respuesta: verdadero
+explicacion: "Los Hicsos controlaron el Bajo Egipto desde Avaris, introduciendo el caballo y el carro de guerra, hasta que Ahmose I los expulsó, iniciando el Imperio Nuevo."
 ```
 
 ```
-### 13 — El Templo de Abu Simbel
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["religion", "osiris", "muerte"]
+tipo: completar
+enunciado: "El dios ________ preside el tribunal de los muertos y representa la resurrección y la vida eterna."
+respuestas_validas:
+  - "osiris"
+  - "osiris"
+  - "oscar"
+  - "oscar"
+explicacion: "Osiris, asesinado por su hermano Set, se convirtió en el señor del inframundo (Duat) y en el modelo de resurrección para los faraones y los creyentes."
 ```
 
 ```
-### 14 — El Libro de los Muertos
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["18-dinastia", "ahmose", "unificacion"]
+tipo: mc
+enunciado: "¿Qué faraón completó la expulsión de los Hicsos de Egipto, fundando la XVIII Dinastía?"
+opciones_explicitas:
+  - "Ahmose I"
+  - "Tutmosis I"
+  - "Kamose"
+  - "Seqenenre Tao"
+respuesta: "Ahmose I"
+explicacion: "Ahmose I, fundador de la XVIII Dinastía, completó la expulsión de los Hicsos de la fortaleza de Sharuhen, unificando Egipto y comenzando la era del Imperio Nuevo."
 ```
 
 ```
-### 15 — La Dinastía Ptolemaica
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["reina", "hatshepsut", "comercio"]
+tipo: vf
+enunciado: "Hatshepsut fue una faraona mujer que ordenó una famosa expedición comercial al país de Punt."
+respuesta: verdadero
+explicacion: "Durante su reinado, Hatshepsut envió una flota a Punt (posiblemente en la costa de Somalia/Eritrea) para obtener incienso, mirra y animales exóticos, consolidando su legitimidad."
 ```
 
 ```
-### 16 — El juicio de Osiris
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["escritura", "tinta", "materiales"]
+tipo: completar
+enunciado: "Los escribas egipcios utilizaban una tinta negra hecha de hollín mezclada con goma arábiga y una tinta roja para títulos y encabezados llamada tinta ________."
+respuestas_validas:
+  - "roja"
+  - "roja"
+  - "rojo"
+  - "rojo"
+explicacion: "La tinta roja se usaba a menudo para marcar errores o para iniciar secciones importantes, mientras que la negra era el estándar para el cuerpo del texto."
 ```
 
 ```
-### 17 — La Tumba de Tutankamón
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["arquitectura", "ramses", "abusembel"]
+tipo: mc
+enunciado: "¿Qué se sabe sobre el origen del Templo de Abu Simbel?"
+opciones_explicitas:
+  - "Fue construido por Ramsés II en la Nubia conquistada"
+  - "Fue erigido por Tutankamón en Tebas"
+  - "Fue diseñado por Imhotep en Saqqara"
+  - "Fue mandado construir por Cleopatra en Alejandría"
+respuesta: "Fue construido por Ramsés II en la Nubia conquistada"
+explicacion: "Los templos de Abu Simbel, tallados en la roca, fueron dedicados a Ramsés II y al dios Ra. Su alineación solar es un logro astronómico y arquitectónico notable."
 ```
 
 ```
-### 18 — El dios Ra
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["religion", "libro-muertos", "ritual"]
+tipo: vf
+enunciado: "El Libro de los Muertos era una colección de hechizos y fórmulas destinados a guiar al difunto por el inframundo y asegurar su paso a la vida eterna."
+respuesta: verdadero
+explicacion: "No era un libro único, sino una selección personalizada de capítulos (hechizos) colocados en la tumba para ayudar al alma en su juicio y viaje por el Duat."
 ```
 
 ```
-### 19 — La Batalla del Mar
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["ptolemaica", "alexandria", "helenistico"]
+tipo: completar
+enunciado: "Tras la muerte de Alejandro Magno, ________ estableció una dinastía griega en Egipto con capital en Alejandría."
+respuestas_validas:
+  - "ptolemeo"
+  - "ptolemeo i"
+  - "ptolemy"
+  - "ptolemy i"
+explicacion: "Ptolomeo I Sóter, uno de los generales de Alejandro, se autoproclamó faraón, iniciando un período de sincretismo cultural entre Grecia y Egipto."
 ```
 
 ```
-### 20 — La escritura Demótica
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["religion", "juicio", "corazon"]
+tipo: mc
+enunciado: "Según la mitología egipcia, ¿en qué consistía el juicio del alma en el más allá?"
+opciones_explicitas:
+  - "El corazón del difano era pesado contra la pluma de Maat"
+  - "El alma era juzgada por Anubis con una balanza de agua"
+  - "El cuerpo era quemado para purificar el ka"
+  - "Los dioses lanzaban rayos contra el malvado"
+respuesta: "El corazón del difano era pesado contra la pluma de Maat"
+explicacion: "En el juicio, el corazón (ij) se pesaba contra la pluma de avestruz de Maat (verdad/justicia). Si el corazón era más pesado por los pecados, era devorado por Ammit."
 ```
 
 ```
-### 21 — El Valle de los Reyes
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["tutankamon", "carter", "descubrimiento"]
+tipo: vf
+enunciado: "Howard Carter descubrió la tumba casi intacta de Tutankamón en el Valle de los Reyes en 1922."
+respuesta: verdadero
+explicacion: "El descubrimiento de Carter reveló un tesoro sin precedentes de objetos funerarios, proporcionando una visión única de la riqueza y el arte del Imperio Nuevo."
 ```
 
 ```
-### 22 — Imhotep
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["religion", "ra", "sol"]
+tipo: completar
+enunciado: "________ era el dios sol supremo, cuyo barco solar (Mandet) cruzaba el cielo de día y el inframundo de noche."
+respuestas_validas:
+  - "ra"
+  - "ra"
+  - "re"
+  - "re"
+explicacion: "Ra era central en la cosmología egipcia. Se fusionó con otros dioses como Amón (Amón-Ra) y Horus (Jepri-Ra-Atum) en diferentes periodos teológicos."
 ```
 
 ```
-### 23 — El cierre de los templos
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["guerra", "naves", "pueblos-mar"]
+tipo: mc
+enunciado: "¿Contra quién luchó Egipto en la gran batalla documentada en Medinet Habu, a finales de la Edad del Bronce?"
+opciones_explicitas:
+  - "Contra los Pueblos del Mar bajo Ramsés III"
+  - "Contra los filisteos bajo Seti I"
+  - "Contra los fenicios bajo Tutmosis III"
+  - "Contra los persas bajo Cambises II"
+respuesta: "Contra los Pueblos del Mar bajo Ramsés III"
+explicacion: "Ramsés III documentó en Medinet Habu su victoria contra una gran coalición de \"Pueblos del Mar\" que amenazaban el Levante y Egipto a finales del Bronce Final."
 ```
 
 ```
-### 24 — La estatua de Nefertiti
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["escritura", "demotico", "evolucion"]
+tipo: vf
+enunciado: "El script demótico surgió como una forma cursiva simplificada del jeroglífico para uso administrativo y cotidiano, no como un idioma diferente."
+respuesta: verdadero
+explicacion: "El demótico (literalmente \"escritura popular\") se desarrolló durante el periodo tardío y se usó junto con el griego en la época ptolomaica y romana."
 ```
 
 ```
-### 25 — La invasión persa
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["tumbas", "valle-reyes", "imperio-nuevo"]
+tipo: completar
+enunciado: "Durante el Imperio Nuevo, los faraones comenzaron a ser enterrados en el Valle de los Reyes, un valle oculto en las cercanías de ________."
+respuestas_validas:
+  - "tebas"
+  - "tebas"
+  - "luxor"
+  - "luxor"
+explicacion: "El Valle de los Reyes (Wady el-Muluk) cerca de Tebas fue la necrópolis real del Imperio Nuevo, elegido por su aislamiento y protección natural contra saqueadores."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["arquitectura", "imhotep", "saqqara"]
+tipo: mc
+enunciado: "¿Quién fue Imhotep, visir del faraón Djoser?"
+opciones_explicitas:
+  - "Arquitecto de la Pirámide Escalonada de Saqqara"
+  - "Constructor de la Gran Pirámide de Guiza"
+  - "Diseñador del Templo de Karnak"
+  - "Inventor de la escritura jeroglífica"
+respuesta: "Arquitecto de la Pirámide Escalonada de Saqqara"
+explicacion: "Imhotep, visir de Djoser, diseñó la Pirámide Escalonada, la primera gran estructura de piedra de la historia, innovando la arquitectura monumental."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["religion", "cristianismo", "declive"]
+tipo: vf
+enunciado: "El cierre de los templos egipcios y la prohibición de los rituales tradicionales ocurrió principalmente bajo el emperador romano Teodosio I."
+respuesta: verdadero
+explicacion: "En el año 391 d.C., Teodosio I emitió edictos que prohibían el paganismo y cerraron los templos, marcando el fin oficial de la religión egipcia antigua."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["arte", "nefertiti", "amarna"]
+tipo: completar
+enunciado: "La famosa busto de ________ se encuentra en el Museo de Berlín y es un ícono del arte del periodo de Amarna."
+respuestas_validas:
+  - "nefertiti"
+  - "nefertiti"
+  - "nefer-titi"
+explicacion: "El busto de Nefertiti, esposa de Ajenatón, es conocido por su belleza y estilo realista del periodo amarniano, encontrado por Ludwig Borchardt en 1912."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "antiguo-egipto"
+  nivel: "intermedio"
+  tags: ["imperio-persa", "cambises", "dominio"]
+tipo: mc
+enunciado: "¿Qué ocurrió durante la invasión persa de Egipto en el siglo VI a.C.?"
+opciones_explicitas:
+  - "Cambises II conquistó Egipto en el 525 a.C."
+  - "Darío I invadió Egipto en el 332 a.C."
+  - "Jerjes I destruyó las pirámides"
+  - "Ciro el Grande unió Egipto con Babilonia"
+respuesta: "Cambises II conquistó Egipto en el 525 a.C."
+explicacion: "Cambises II, hijo de Ciro, derrotó al faraón Psamético III en la Batalla de Pelusio, incorporando Egipto como satrapía del Imperio Aqueménida."
 ```
 
 ## Sección: atmosfera-primitiva (25 preguntas)
@@ -113,6 +394,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Oxígeno, Nitrógeno y Metano", "Vapor de agua, Dióxido de carbono y Metano", "Dióxido de azufre, Helio y Oxígeno", "Nitrógeno, Argón y Oxígeno"]
+respuesta: "Vapor de agua, Dióxido de carbono y Metano"
 
 enunciado: "Durante los inicios de la Tierra, la atmósfera primitiva estaba compuesta principalmente por una mezcla de gases de origen volcánico. ¿Cuál de las siguientes opciones describe mejor su composición?"
 
@@ -128,13 +410,13 @@ metadata:
   tags: ["ciclo_del_agua", "geologia"]
 
 variables:
-  idx: uno_de([0, 1])
-  escenario: [[["El vapor de agua se condensó para formar océanos", "La atmósfera era extremadamente seca"], ["El vapor de agua permitió la formación de los mares", "El vapor de agua era inexistente"]]]
+  escenario: [["El vapor de agua se condensó para formar océanos", "La atmósfera era extremadamente seca"], ["El vapor de agua permitió la formación de los mares", "El vapor de agua era inexistente"]]
 
 tipo: mc
 opciones_explicitas: ["Escenario A", "Escenario B"]
+respuesta: "Escenario A"
 
-enunciado: "Considerando la presencia masiva de vapor de agua en la atmósfera primitiva, {escenario[idx][0]}."
+enunciado: "Considerando la presencia masiva de vapor de agua en la atmósfera primitiva, {escenario[0][0]}."
 
 explicacion: |
   La condensación del vapor de agua a medida que la Tierra se enfriaba fue el proceso fundamental que dio origen a los océanos primordiales.
@@ -148,7 +430,8 @@ metadata:
   tags: ["quimica_antigua"]
 
 tipo: completar
-respuestas_validas: ["anóxica"]
+respuestas_validas:
+  - "anóxica"
 
 enunciado: "Debido a la ausencia de vida fotosintética en sus inicios, la atmósfera primitiva era una atmósfera ___________."
 
@@ -170,6 +453,7 @@ enunciado: "Ordena cronológicamente los eventos que llevaron a la configuració
 
 explicacion: |
   La formación de la Tierra permitió la diferenciación de capas, seguida de un vulcanismo intenso que liberó los gases necesarios para crear la atmósfera original.
+respuesta_orden: ["Formación de la Tierra", "Actividad volcánica intensa", "Emisión de gases volcánicos", "Formación de la atmósfera primitiva"]
 ```
 
 ```
@@ -183,9 +467,11 @@ variables:
   datos: [[100, 50, 50], [80, 10, 10]]
   idx: uno_de([0, 1])
   cantidad_co2: datos[idx][0]
+  respuesta_correcta: cantidad_co2 * 0.4
 
 tipo: completar
 tolerancia_abs: 0.1
+respuesta: respuesta_correcta
 
 enunciado: "Si en un modelo de atmósfera primitiva de {cantidad_co2} unidades de gas, el 40% es Dióxido de carbono (CO2), ¿cuántas unidades de CO2 hay?"
 
@@ -206,7 +492,9 @@ metadata:
 
 respuesta: "anaeróbica"
 tipo: completar
-respuestas_validas: ["anaeróbica", "anaerobia"]
+respuestas_validas:
+  - "anaeróbica"
+  - "anaerobia"
 
 enunciado: "Debido a la ausencia de oxígeno libre en la atmósfera primitiva, la vida temprana era de tipo ___."
 
@@ -224,7 +512,7 @@ metadata:
 variables:
   escenario: uno_de([["presencia de O2", "aeróbica"], ["ausencia de O2", "anaeróbica"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["aeróbica", "anaeróbica"]
 
@@ -245,7 +533,7 @@ metadata:
   nivel: "avanzado"
   tags: ["evolucion", "oxigeno"]
 
-respuesta: ["Anaerobiosis", "Fotosíntesis oxigénica", "Acumulación de O2", "Respiración aeróbica"]
+respuesta_orden: ["Anaerobiosis", "Fotosíntesis oxigénica", "Acumulación de O2", "Respiración aeróbica"]
 tipo: ordenar
 opciones_explicitas: ["Anaerobiosis", "Fotosíntesis oxigénica", "Acumulación de O2", "Respiración aeróbica"]
 
@@ -302,6 +590,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Reductora (sin O2)", "Oxidante (rica en O2)", "Nitrogenada pura", "Ácida y gaseosa"]
+respuesta: "Reductora (sin O2)"
 
 enunciado: "La atmósfera de la Tierra en sus inicios era de naturaleza ___________, debido a la ausencia de oxígeno libre."
 
@@ -316,16 +605,11 @@ metadata:
   nivel: "intermedio"
   tags: ["fotosintesis", "oxigeno", "biologia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-
-enunciado: "En el escenario {escenario_datos[escenario_idx][0]}, el factor principal que transformó la atmósfera fue {escenario_datos[escenario_idx][1]}."
-
-variables:
-  escenario_datos: [["la atmósfera primitiva", "la aparición de la fotosíntesis"], ["la atmósfera actual", "la acumulación de gases volcánicos"]]
+enunciado: "El factor principal que transformó la atmósfera primitiva hacia una atmósfera con oxígeno fue ___."
 
 tipo: completar
-respuestas_validas: ["la aparición de la fotosíntesis", "la acumulación de gases volcánicos"]
+respuestas_validas:
+  - "la aparición de la fotosíntesis"
 
 explicacion: |
   La fotosíntesis realizada por organismos antiguos (cianobacterias) liberó oxígeno como subproducto, cambiando la química global del planeta.
@@ -365,7 +649,7 @@ opciones_explicitas: ["Atmósfera primitiva reductora", "Aparición de fotosínt
 
 enunciado: "Ordena cronológicamente los procesos que definieron la evolución de la atmósfera terrestre:"
 
-respuesta: ["Atmósfera primitiva reductora", "Aparición de fotosíntesis", "Acumulación de O2", "Atmósfera oxidante actual"]
+respuesta_orden: ["Atmósfera primitiva reductora", "Aparición de fotosíntesis", "Acumulación de O2", "Atmósfera oxidante actual"]
 
 explicacion: |
   Primero existió una atmósfera sin O2, luego la vida fotosintética comenzó a producirlo, el O2 se acumuló y finalmente estableció la atmósfera oxidante que conocemos.
@@ -378,16 +662,12 @@ metadata:
   nivel: "intermedio"
   tags: ["quimica", "oxigeno"]
 
-variables:
-  datos: [["oxidante", "reductora"], ["reductora", "oxidante"]]
-  idx: uno_de([0, 1])
-
-enunciado: "Si la atmósfera es la actual, su estado es {datos[idx][0]}. Si es la primitiva, su estado es {datos[idx][1]}."
+enunciado: "Si la atmósfera es la actual, su estado es ___. Si es la primitiva, su estado es reductora."
 
 tipo: mc
 opciones_explicitas: ["oxidante", "reductora"]
 
-respuesta: datos[idx][0]
+respuesta: "oxidante"
 
 explicacion: |
   La atmósfera actual es oxidante debido a la presencia masiva de O2, mientras que la primitiva era reductora por la falta de este gas.
@@ -402,7 +682,9 @@ metadata:
 
 respuesta: "condensación"
 tipo: completar
-respuestas_validas: ["condensación", "condensacion"]
+respuestas_validas:
+  - "condensación"
+  - "condensacion"
 
 enunciado: "A medida que la Tierra se enfriaba, el vapor de agua presente en la atmósfera primitiva sufrió un proceso de ___ que dio lugar a las primeras lluvias y la formación de los océanos."
 
@@ -438,7 +720,8 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "enfriamiento"]
 
-respuesta: ["Enfriamiento de la corteza", "Condensación del vapor", "Lluvias torrenciales", "Formación de océanos"]
+enunciado: "Ordená cronológicamente los eventos que llevaron a la formación de los océanos primitivos:"
+respuesta_orden: ["Enfriamiento de la corteza", "Condensación del vapor", "Lluvias torrenciales", "Formación de océanos"]
 tipo: ordenar
 opciones_explicitas: ["Enfriamiento de la corteza", "Condensación del vapor", "Lluvias torrenciales", "Formación de océanos"]
 
@@ -495,13 +778,9 @@ metadata:
   nivel: "basico"
   tags: ["geologia", "atmosfera"]
 
-variables:
-  escenario: [[["Metano (CH4)", "Dióxido de carbono (CO2)"], ["Nitrógeno (N2)", "Dióxido de carbono (CO2)"], ["Vapor de agua (H2O)", "Metano (CH4)"]], ["Nitrógeno (N2)", "Metano (CH4)"], ["Dióxido de carbono (CO2)", "Oxígeno (O2)"], ["Nitrógeno (N2)", "Oxígeno (O2)"]]]
-  idx: uno_de([0,1,2,3])
+enunciado: "En la atmósfera primitiva, un componente dominante era el dióxido de carbono (CO2), mientras que en la atmósfera actual el componente predominante es el ___."
 
-enunciado: "En la atmósfera primitiva, un componente dominante era el {escenario[idx][0]}, mientras que en la atmósfera actual el componente predominante es el {escenario[idx][1]}."
-
-respuesta: escenario[idx][1
+respuesta: "Nitrógeno (N2)"
 tipo: mc
 opciones_explicitas: ["Dióxido de carbono (CO2)", "Metano (CH4)", "Oxígeno (O2)", "Nitrógeno (N2)"]
 
@@ -517,14 +796,20 @@ metadata:
   tags: ["evolucion", "oxigeno"]
 
 variables:
-  evento: [["Oxígeno (O2)", "Dióxido de carbono (CO2)"], ["Oxígeno (O2)", "Metano (CH4)"], ["Nitrógeno (N2)", "Dióxido de carbono (CO2)"]]
-  idx: uno_de([0,1,2])
+  evento: [["Oxígeno (O2)", "Dióxido de carbono (CO2)"], ["Oxígeno (O2)", "Metano (CH4)"]]
+  idx: uno_de([0,1])
+  gas_liberado: evento[idx][0]
+  gas_abundante: evento[idx][1]
 
-enunciado: "La aparición de organismos fotosintéticos transformó la atmósfera al liberar ___ en grandes cantidades, reemplazando la abundancia de ___."
+enunciado: "La aparición de organismos fotosintéticos transformó la atmósfera al liberar {gas_liberado} en grandes cantidades, reemplazando la abundancia de {gas_abundante}."
 
-respuesta: tabla[idx][1
+respuesta: gas_liberado
 tipo: completar
-respuestas_validas: ["Oxígeno (O2)", "Dióxido de carbono (CO2)", "Metano (CH4)", "Nitrógeno (N2)"]
+respuestas_validas:
+  - "Oxígeno (O2)"
+  - "Dióxido de carbono (CO2)"
+  - "Metano (CH4)"
+  - "Nitrógeno (N2)"
 
 pasos:
   - "Identificar el gas producido por la fotosíntesis."
@@ -547,7 +832,7 @@ variables:
 
 enunciado: "Si comparamos la concentración de gases, un gas que era muy abundante en la atmósfera primitiva pero es hoy un gas traza es el {comparativa[idx][0]}, mientras que el {comparativa[idx][1]} es mayormente estable en la actualidad."
 
-respuesta: comparativa[idx][0
+respuesta: comparativa[idx][0]
 tipo: mc
 opciones_explicitas: ["Metano (CH4)", "Dióxido de carbono (CO2)", "Vapor de agua (H2O)", "Oxígeno (O2)"]
 
@@ -565,7 +850,7 @@ metadata:
 enunciado: "Ordena la evolución de la composición atmosférica desde la Tierra primitiva hasta la actualidad:"
 
 opciones_explicitas: ["Atmósfera reductora (CH4, NH3, H2O)", "Atmósfera con presencia de O2 (Gran Oxidación)", "Atmósfera moderna (N2, O2, Ar)"]
-respuesta: ["Atmósfera reductora (CH4, NH3, H2O)", "Atmósfera con presencia de O2 (Gran Oxidación)", "Atmósfera moderna (N2, O2, Ar)"]
+respuesta_orden: ["Atmósfera reductora (CH4, NH3, H2O)", "Atmósfera con presencia de O2 (Gran Oxidación)", "Atmósfera moderna (N2, O2, Ar)"]
 tipo: ordenar
 
 explicacion: |
@@ -579,13 +864,9 @@ metadata:
   nivel: "basico"
   tags: ["biologia", "oxigeno"]
 
-variables:
-  caso: [[0.21, "21%"], [0.0004, "0.04%"], [0.0001, "0.0001%"]]
-  idx: uno_de([0,1,2])
+enunciado: "En la atmósfera actual, el porcentaje de oxígeno es aproximadamente del 0.21 (valor decimal), lo que equivale al ___ de la mezcla total."
 
-enunciado: "En la atmósfera actual, el porcentaje de oxígeno es aproximadamente del {caso[idx][0]} (valor decimal), lo que equivale al {caso[idx][1]} de la mezcla total."
-
-respuesta: caso[idx][1
+respuesta: "21%"
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -593,102 +874,415 @@ explicacion: |
   El oxígeno es el segundo gas más abundante hoy en día, con una concentración cercana al 21%.
 ```
 
-## Sección: baja-edad-media-y-crisis (24 preguntas)
+## Sección: baja-edad-media-y-crisis (25 preguntas)
 
 ```
-### 2 — Tratado de Brétigny
-```
-
-```
-### 3 — Revuelta de los Pastores
-```
-
-```
-### 4 — Reforma de Wycliffe
-```
-
-```
-### 5 — Peste de Justiniano
-```
-
-```
-### 6 — Batalla de Crécy
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["peste-negra", "sanidad", "demografia"]
+tipo: mc
+enunciado: "¿Cuál fue la principal vía de transmisión biológica reconocida por la historiografía moderna para la propagación de la Peste Negra en Europa durante el siglo XIV?"
+opciones_explicitas:
+  - "A través del aire por la tos de los infectados"
+  - "Por picaduras de pulgas de las ratas negras (Xenopsylla cheopis)"
+  - "Por consumo de agua contaminada con cadáveres"
+  - "Por contacto directo con la piel de los enfermos"
+respuesta: "Por picaduras de pulgas de las ratas negras (Xenopsylla cheopis)"
+explicacion: "La evidencia científica y histórica actual descarta el contagio aéreo directo como causa primaria, confirmando que el vector principal fue la pulga de las ratas, que saltaba a los humanos cuando las poblaciones de roedores morían."
 ```
 
 ```
-### 7 — Guerra de las Camisetas
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["guerra-cien-anos", "francia", "inglaterra"]
+tipo: completar
+enunciado: "El Tratado de _______ (1360) fue un momento de tregua en la Guerra de los Cien Años, donde el rey de Francia, Juan II, cedió gran parte del suroeste de Francia a Eduardo III de Inglaterra a cambio de su libertad."
+respuesta: "Bretigny"
+respuestas_validas:
+  - "bretigny"
+  - "Bretigny"
+  - "Bretigney"
+explicacion: "El tratado estableció la soberanía inglesa sobre Aquitania, Calais y Ponthieu, marcando el punto álgido del poderio inglés temporal en el continente antes de la recuperación francesa."
 ```
 
 ```
-### 8 — Edicto de Nantes
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["revueltas", "francia", "juan-ii"]
+tipo: vf
+enunciado: "La Revuelta de los Pastores (1358) fue un movimiento organizado y liderado por la nobleza francesa para oponerse a los impuestos reales de Juan II."
+respuesta: falso
+explicacion: "Fue una revuelta popular espontánea de campesinos y burgueses pobres en la Isla de Francia, motivada por la crisis económica y la captura del rey en Poitiers, no por la nobleza."
 ```
 
 ```
-### 9 — Sacudida de 1315-1317
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["religion", "iglesia", "lollardos"]
+tipo: mc
+enunciado: "John Wycliffe, precursor de la Reforma Protestante, es conocido principalmente por su crítica a la autoridad papal y por:"
+opciones_explicitas:
+  - "Fundar la orden de los Franciscanos"
+  - "Traducir la Biblia al inglés medio"
+  - "Presidir el Concilio de Constanza"
+  - "Escribir la 'Summa Theologica'"
+respuesta: "Traducir la Biblia al inglés medio"
+explicacion: "Wycliffe argumentaba que la autoridad final debía ser la Escritura, no el Papa, y promovió la traducción de la Biblia al vernáculo para que los laicos pudieran leerla."
 ```
 
 ```
-### 10 — Juan de Gerson
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["bizancio", "justiniano", "peste-antigua"]
+tipo: completar
+enunciado: "La primera gran pandemia de peste bubónica, que diezmó el Imperio Bizantino y debilitó la capacidad de reconquista de _______ I, ocurrió entre 541 y 549 d.C."
+respuesta: "Justiniano"
+respuestas_validas:
+  - "justiniano"
+  - "Justiniano"
+  - "justiniano i"
+  - "Justiniano I"
+explicacion: "Esta epidemia redujo la población del imperio en un tercio, afectando gravemente la recaudación fiscal y la capacidad militar de Justiniano para restaurar el Mediterráneo romano."
 ```
 
 ```
-### 11 — Batalla de Aljubarrota
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["guerra-cien-anos", "armas", "tactica"]
+tipo: mc
+enunciado: "En la Batalla de Crécy (1346), la victoria inglesa decisiva se debió principalmente al uso efectivo de:"
+opciones_explicitas:
+  - "La caballería pesada feudal"
+  - "Los ballesteros genoveses"
+  - "Los arqueros de arco largo (longbowmen)"
+  - "La artillería de pólvora temprana"
+respuesta: "Los arqueros de arco largo (longbowmen)"
+explicacion: "Los arqueros ingleses lograron detener las cargas de caballería francesa con una lluvia de flechas, demostrando el declive de la caballería pesada como arma invencible."
 ```
 
 ```
-### 12 — Peste de 1348
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["italia", "condottieri", "milan"]
+tipo: completar
+enunciado: "La Guerra de las Camisetas (1385) fue un breve conflicto en Lombardía entre la familia Visconti de Milán y los mercenarios de la _______ Blanca, liderados por John Hawkwood."
+respuesta: "Compañía"
+respuestas_validas:
+  - "compañia"
+  - "compagnia"
+  - "compania"
+  - "Compania"
+  - "Compañia"
+explicacion: "El nombre proviene de que los mercenarios se negaron a pelear sin pagar sus salarios atrasados, vistiendo solo camisetas mientras protestaban."
 ```
 
 ```
-### 13 — Jacquerie
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["francia", "religion", "guerras-religion"]
+tipo: vf
+enunciado: "El Edicto de Nantes fue promulgado en 1598 por Enrique IV de Francia para poner fin a las Guerras de Religión y otorgar derechos a los hugonotes."
+respuesta: verdadero
+explicacion: "Este edicto estableció la coexistencia religiosa entre católicos y protestantes en Francia, marcando el fin de un siglo de conflictos civiles devastadores. (Nota: Aunque es finales del siglo XVI, se incluye en la transición hacia la crisis final de la Edad Media y el inicio de la Edad Moderna)."
 ```
 
 ```
-### 14 — Concilio de Constanza
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["hambruna", "clima", "agricultura"]
+tipo: mc
+enunciado: "Antes de la Peste Negra, Europa sufrió una grave hambruna generalizada iniciada en 1315. ¿Qué factor climático fue la causa principal?"
+opciones_explicitas:
+  - "Una sequía prolongada de diez años"
+  - "Lluvias excesivas y frío constante por la Pequeña Edad de Hielo"
+  - "Erupciones volcánicas masivas en los Andes"
+  - "Un cambio en la corriente del Golfo"
+respuesta: "Lluvias excesivas y frío constante por la Pequeña Edad de Hielo"
+explicacion: "Las lluvias interminables impidieron la cosecha y la siega, mientras que el frío temprano mató a los animales de granja, llevando a la inanición masiva."
 ```
 
 ```
-### 15 — Tratado de Tordesillas
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["iglesia", "conciliarismo", "gran-cisma"]
+tipo: completar
+enunciado: "Juan de Gerson, canciller de la Universidad de París, fue un líder clave en el movimiento conciliarista durante el Gran Cisma de Occidente, argumentando que la autoridad residía en un _______ general y no solo en el Papa."
+respuesta: "Concilio"
+respuestas_validas:
+  - "concilio"
+  - "Concilio"
+  - "consejo"
+  - "Consejo"
+explicacion: "El conciliarismo sostenía que un concilio general tenía autoridad superior al Papa para resolver la división de la Iglesia."
 ```
 
 ```
-### 16 — Guerra de los Cien Años (Fases)
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["portugal", "independencia", "guerra-cien-anos"]
+tipo: mc
+enunciado: "La Batalla de Aljubarrota (1385) fue crucial para Portugal porque:"
+opciones_explicitas:
+  - "Permitió la conquista de Marruecos"
+  - "Consolidó la independencia portuguesa frente a Castilla"
+  - "Abrió la ruta marítima a la India"
+  - "Derrotó a los musulmanes en la Península Ibérica"
+respuesta: "Consolidó la independencia portuguesa frente a Castilla"
+explicacion: "La victoria portuguesa, con ayuda inglesa, aseguró la dinastía de Avis y la soberanía de Portugal, evitando su anexión por la Corona de Castilla."
 ```
 
 ```
-### 17 — Caída de Constantinopla
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["peste-negra", "muerte", "demografia"]
+tipo: completar
+enunciado: "Se estima que la Peste Negra de 1348-1350 mató aproximadamente a _______ de la población europea, una de las mayores catástrofes demográficas de la historia."
+respuesta: "un tercio"
+respuestas_validas:
+  - "un tercio"
+  - "unthird"
+  - "33%"
+  - "33 por ciento"
+  - "30%"
+  - "30 por ciento"
+explicacion: "Las cifras varían, pero el consenso histórico sitúa la mortalidad entre un 30% y un 50%, siendo \"un tercio\" la estimación clásica más citada."
 ```
 
 ```
-### 18 — Lollardos
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["francia", "revueltas", "campesinas"]
+tipo: mc
+enunciado: "La Jacquerie (1358) fue una revuelta campesina en Francia que recibió su nombre por la despectiva referencia a los campesinos como:"
+opciones_explicitas:
+  - "Jacobos"
+  - "Jacques Bonhomme"
+  - "Hombres del campo"
+  - "Siervos del rey"
+respuesta: "Jacques Bonhomme"
+explicacion: "\"Jacques Bonhomme\" era un término genérico y despectivo para un campesino francés, similar a \"Juan Llaneras\" en España."
 ```
 
 ```
-### 19 — Peste de 1361
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["iglesia", "heresia", "jan-hus"]
+tipo: completar
+enunciado: "El Concilio de Constanza (1414-1418) logró poner fin al Gran Cisma de Occidente y condenó a la hoguera a _______ de Bohemia por herejía."
+respuesta: "Jan Hus"
+respuestas_validas:
+  - "jan hus"
+  - "Jan Hus"
+  - "huss"
+  - "Huss"
+explicacion: "La ejecución de Hus provocó las Guerras Husitas en Bohemia y mostró la tensión entre la autoridad imperial y la reforma religiosa."
 ```
 
 ```
-### 20 — Juan de Medina del Campo
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["exploracion", "colonizacion", "portugal", "castilla"]
+tipo: vf
+enunciado: "El Tratado de Tordesillas (1494) dividió el mundo extraeuropeo entre España y Portugal a lo largo de un meridiano 370 leguas al oeste de las islas de Cabo Verde."
+respuesta: verdadero
+explicacion: "Este tratado estableció la esfera de influencia portuguesa hacia la India y Brasil, y la española hacia el resto de América, marcando el inicio de la globalización colonial."
 ```
 
 ```
-### 21 — Batalla de Nicópolis
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["guerra-cien-anos", "cronologia"]
+tipo: mc
+enunciado: "La fase inicial de la Guerra de los Cien Años, caracterizada por grandes victorias inglesas como Crécy y Poitiers, se conoce como:"
+opciones_explicitas:
+  - "Guerra de la Rosa"
+  - "Guerra Eduardiana"
+  - "Guerra Carlosiana"
+  - "Guerra de los Mil Días"
+respuesta: "Guerra Eduardiana"
+explicacion: "Lleva el nombre del rey Eduardo III de Inglaterra, quien inició las demandas territoriales y logró sus mayores triunfos militares en esta etapa."
 ```
 
 ```
-### 22 — Estatuto de los Trabajadores (1351)
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["bizancio", "otomano", "fin-edad-media"]
+tipo: completar
+enunciado: "La caída de Constantinopla en 1453 a manos de los otomanos bajo _______ II marcó tradicionalmente el fin de la Edad Media y el Imperio Romano de Oriente."
+respuesta: "Mehmed"
+respuestas_validas:
+  - "mehmed"
+  - "Mehmed"
+  - "mehmet"
+  - "Mehmet"
+  - "mahometo"
+  - "Mahometo"
+explicacion: "Mehmed II, de apenas 21 años, conquistó la capital bizantina, consolidando el poder otomano y provocando la huida de eruditos griegos hacia Italia, impulsando el Renacimiento."
 ```
 
 ```
-### 23 — Carlos VI de Francia
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["inglaterra", "religion", "pre-reforma"]
+tipo: mc
+enunciado: "El movimiento lollardo en Inglaterra fue una secta religiosa que influenció posteriormente a los husitas, caracterizada por:"
+opciones_explicitas:
+  - "La adoración de la Virgen María"
+  - "La oposición a la transubstanciación y los sacramentos clericales"
+  - "La defensa del poder temporal del Papa"
+  - "El uso exclusivo del latín en la liturgia"
+respuesta: "La oposición a la transubstanciación y los sacramentos clericales"
+explicacion: "Los lollardos, seguidores de Wycliffe, criticaban la riqueza de la Iglesia y la doctrina de la transubstanciación, promoviendo una fe más simple y textual."
 ```
 
 ```
-### 24 — Peste de 1400
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["peste-negra", "recurrencia", "demografia"]
+tipo: completar
+enunciado: "La segunda gran oleada de la peste bubónica, conocida como la Peste de 1361 (o Peste de los Niños), afectó especialmente a las generaciones nacidas después de la primera epidemia porque:"
+opciones_explicitas:
+  - "Tenían peor nutrición"
+  - "No habían desarrollado inmunidad previa"
+  - "Vivían en ciudades más grandes"
+  - "Eran más propensos a las pulgas"
+respuesta: "No habían desarrollado inmunidad previa"
+explicacion: "Al ser una nueva generación sin exposición previa al patógeno, la mortalidad fue extremadamente alta entre los jóvenes y niños de esta cohorte."
 ```
 
 ```
-### 25 — Juan de Gerson y la Mística
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["economia", "mercado", "castilla"]
+tipo: vf
+enunciado: "Las ferias de Medina del Campo en Castilla fueron un centro financiero crucial en la Baja Edad Media, donde se desarrollaron instrumentos crediticios avanzados similares a los de Italia."
+respuesta: verdadero
+explicacion: "Estas ferias permitieron la conexión entre las rutas textiles flamencas y los mercados ibéricos, fomentando el uso de letras de cambio y la banca temprana."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["cruzada", "otomano", "europa"]
+tipo: mc
+enunciado: "La Batalla de Nicópolis (1396) resultó en una decisiva derrota para:"
+opciones_explicitas:
+  - "El Imperio Otomano"
+  - "La Cruzada europea liderada por Segismundo de Hungría"
+  - "El Imperio Bizantino"
+  - "Los mongoles"
+respuesta: "La Cruzada europea liderada por Segismundo de Hungría"
+explicacion: "Fue la última gran cruzada medieval de éxito limitado, y su fracaso consolidó la expansión otomana en los Balcanes, dejando a Europa central vulnerable."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["economia", "leyes", "inglaterra", "peste"]
+tipo: completar
+enunciado: "El Estatuto de los Trabajadores de 1351 en Inglaterra fue una respuesta real a la escasez de mano de obra tras la Peste Negra, intentando congelar los salarios en los niveles de:"
+opciones_explicitas:
+  - "1348"
+  - "1300"
+  - "1350"
+  - "1360"
+respuesta: "1348"
+explicacion: "El gobierno intentó evitar la inflación salarial impidiendo que los trabajadores cobraran más debido a su escasez, lo que generó gran resentimiento social."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["francia", "locura", "guerra-cien-anos"]
+tipo: mc
+enunciado: "El reinado de Carlos VI de Francia se caracterizó por su progresiva locura, lo que llevó a:"
+opciones_explicitas:
+  - "La unificación de Francia"
+  - "La guerra civil entre Armagnac y Borgoña"
+  - "La conquista de Inglaterra"
+  - "La abolición de la monarquía"
+respuesta: "La guerra civil entre Armagnac y Borgoña"
+explicacion: "El vacío de poder debido a la enfermedad del rey permitió a los duques de Borgoña y los condes de Armagnac luchar por el control de la corte y la influencia real."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["peste-negra", "recurrencia", "europa"]
+tipo: completar
+enunciado: "La epidemia de peste de 1400-1401 fue particularmente virulenta en _______ y causó una nueva ola de mortalidad que impidió la recuperación demográfica completa."
+respuesta: "Italia"
+respuestas_validas:
+  - "italia"
+  - "Italia"
+  - "la peninsula italiana"
+  - "peninsula italiana"
+explicacion: "Italia, siendo un nodo comercial clave, fue especialmente susceptible a las recurrencias de la peste debido a la continua llegada de barcos infectados."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "baja-edad-media-y-crisis"
+  nivel: "intermedio"
+  tags: ["religion", "mistica", "teologia"]
+tipo: mc
+enunciado: "Además de su rol político, Juan de Gerson fue un importante teólogo místico que enfatizó la importancia de:"
+opciones_explicitas:
+  - "La riqueza de la Iglesia"
+  - "La experiencia personal y directa con Dios"
+  - "El poder del Papa sobre los reyes"
+  - "La guerra santa"
+respuesta: "La experiencia personal y directa con Dios"
+explicacion: "Su obra \"De Mystica Theologia\" influyó en la devoción moderna, promoviendo una espiritualidad interior que precedió a algunas ideas de la Reforma."
 ```
 
 ## Sección: caida-de-roma-y-alta-edad-media (25 preguntas)
@@ -700,9 +1294,9 @@ metadata:
   nivel: "intermedio"
   tags: ["imperio-romano", "caida", "fecha-clave"]
 tipo: vf
-enunciado: El año 476 d.C. marca tradicionalmente el fin del Imperio Romano de Occidente con la deposición del último emperador.
+enunciado: "El año 476 d.C. marca tradicionalmente el fin del Imperio Romano de Occidente con la deposición del último emperador."
 respuesta: verdadero
-explicacion: En el 476 d.C., el general germánico Odoacro depuso a Rómulo Augústulo, el último emperador romano de Occidente, poniendo fin de facto al imperio en esa mitad.
+explicacion: "En el 476 d.C., el general germánico Odoacro depuso a Rómulo Augústulo, el último emperador romano de Occidente, poniendo fin de facto al imperio en esa mitad."
 ```
 
 ```
@@ -712,14 +1306,14 @@ metadata:
   nivel: "intermedio"
   tags: ["odocaro", "germanos", "roma"]
 tipo: completar
-enunciado: El líder de los hérulos que depuso a Rómulo Augústulo en 476 fue ______.
-respuesta: Odoacro
+enunciado: "El líder de los hérulos que depuso a Rómulo Augústulo en 476 fue ______."
+respuesta: "Odoacro"
 respuestas_validas:
-  - Odoacro
-  - Odoacri
-  - Odovacri
-  - Odacri
-explicacion: Odoacro (o Odovacri) fue el caudillo herulo que tomó el control de Italia tras la caída de Roma, gobernando como rey sin reconocer la autoridad imperial de Oriente.
+  - "Odoacro"
+  - "Odoacri"
+  - "Odovacri"
+  - "Odacri"
+explicacion: "Odoacro (o Odovacri) fue el caudillo herulo que tomó el control de Italia tras la caída de Roma, gobernando como rey sin reconocer la autoridad imperial de Oriente."
 ```
 
 ```
@@ -729,14 +1323,14 @@ metadata:
   nivel: "intermedio"
   tags: ["economia", "inflacion", "romana"]
 tipo: mc
-enunciado: ¿Cuál fue una grave consecuencia de la devaluación de la moneda romana en los siglos III y IV?
+enunciado: "¿Cuál fue una grave consecuencia de la devaluación de la moneda romana en los siglos III y IV?"
 opciones_explicitas:
-  - Aumento del comercio transcontinental
-  - Desaceleración de la actividad económica y el comercio
-  - Fortalecimiento de la clase media urbana
-  - Estabilidad en los precios de los granos
-respuesta: B
-explicacion: La devaluación de la moneda (reducción del contenido de plata) generó inflación, desconfianza en el dinero y una desaceleración general del comercio y la economía monetaria.
+  - "Aumento del comercio transcontinental"
+  - "Desaceleración de la actividad económica y el comercio"
+  - "Fortalecimiento de la clase media urbana"
+  - "Estabilidad en los precios de los granos"
+respuesta: "Desaceleración de la actividad económica y el comercio"
+explicacion: "La devaluación de la moneda (reducción del contenido de plata) generó inflación, desconfianza en el dinero y una desaceleración general del comercio y la economía monetaria."
 ```
 
 ```
@@ -746,14 +1340,14 @@ metadata:
   nivel: "intermedio"
   tags: ["carolingios", "verdun", "particion"]
 tipo: completar
-enunciado: El Tratado de Verdún de 843 dividió el Imperio Carolingio en tres reinos, uno de los cuales fue ______.
-respuesta: Francia
+enunciado: "El Tratado de Verdún de 843 dividió el Imperio Carolingio en tres reinos, uno de los cuales fue ______."
+respuesta: "Francia"
 respuestas_validas:
-  - Francia
-  - francia
-  - Francia Occidental
-  - francia occidental
-explicacion: El tratado dividió el imperio entre los nietos de Carlomagno: Luis el Germánico (Este), Lotario I (Centro) y Carlos el Calvo (Occidente, futura Francia).
+  - "Francia"
+  - "francia"
+  - "Francia Occidental"
+  - "francia occidental"
+explicacion: "El tratado dividió el imperio entre los nietos de Carlomagno: Luis el Germánico (Este), Lotario I (Centro) y Carlos el Calvo (Occidente, futura Francia)."
 ```
 
 ```
@@ -763,14 +1357,14 @@ metadata:
   nivel: "intermedio"
   tags: ["visigodos", "alarico", "saqueo"]
 tipo: mc
-enunciado: ¿Qué pueblo germánico saqueó Roma en el año 410 d.C.?
+enunciado: "¿Qué pueblo germánico saqueó Roma en el año 410 d.C.?"
 opciones_explicitas:
-  - Vándalos
-  - Ostrogodos
-  - Visigodos
-  - Francos
-respuesta: C
-explicacion: Bajo el mando de Alarico I, los visigodos saquearon Roma en el 410, un evento shock para la mentalidad romana que simbolizó la vulnerabilidad del imperio.
+  - "Vándalos"
+  - "Ostrogodos"
+  - "Visigodos"
+  - "Francos"
+respuesta: "Visigodos"
+explicacion: "Bajo el mando de Alarico I, los visigodos saquearon Roma en el 410, un evento shock para la mentalidad romana que simbolizó la vulnerabilidad del imperio."
 ```
 
 ```
@@ -780,14 +1374,14 @@ metadata:
   nivel: "intermedio"
   tags: ["feudalismo", "vasallaje", "estructura-social"]
 tipo: completar
-enunciado: En el sistema feudal, el lazo jurídico y militar entre un señor y un noble se llamaba ______.
-respuesta: vasallaje
+enunciado: "En el sistema feudal, el lazo jurídico y militar entre un señor y un noble se llamaba ______."
+respuesta: "vasallaje"
 respuestas_validas:
-  - vasallaje
-  - vasallage
-  - lazo de vasallaje
-  - vinculo de vasallaje
-explicacion: El vasallaje era el contrato personal donde el vasallo juraba fidelidad y servicio militar a cambio de protección y un feudo (tierras).
+  - "vasallaje"
+  - "vasallage"
+  - "lazo de vasallaje"
+  - "vinculo de vasallaje"
+explicacion: "El vasallaje era el contrato personal donde el vasallo juraba fidelidad y servicio militar a cambio de protección y un feudo (tierras)."
 ```
 
 ```
@@ -797,14 +1391,14 @@ metadata:
   nivel: "intermedio"
   tags: ["carlomagno", "papa", "coronacion"]
 tipo: mc
-enunciado: ¿Qué Papa coronó a Carlomagno como Emperador en Navidad del año 800?
+enunciado: "¿Qué Papa coronó a Carlomagno como Emperador en Navidad del año 800?"
 opciones_explicitas:
-  - Papa Gregorio I
-  - Papa León III
-  - Papa Urbano II
-  - Papa Adriano I
-respuesta: B
-explicacion: El Papa León III coronó a Carlomagno en el año 800, restableciendo el título imperial en Occidente y estrechando los lazos entre la corona franca y la Iglesia.
+  - "Papa Gregorio I"
+  - "Papa León III"
+  - "Papa Urbano II"
+  - "Papa Adriano I"
+respuesta: "Papa León III"
+explicacion: "El Papa León III coronó a Carlomagno en el año 800, restableciendo el título imperial en Occidente y estrechando los lazos entre la corona franca y la Iglesia."
 ```
 
 ```
@@ -814,9 +1408,9 @@ metadata:
   nivel: "intermedio"
   tags: ["vikingos", "invasiones", "navegacion"]
 tipo: vf
-enunciado: Los vikingos se distinguían por atacar principalmente por tierra, evitando los ríos.
+enunciado: "Los vikingos se distinguían por atacar principalmente por tierra, evitando los ríos."
 respuesta: falso
-explicacion: Los vikingos eran expertos navegantes que utilizaban sus barcos de fondo plano para remontar ríos y atacar monasterios y ciudades del interior, evitando el combate terrestre directo cuando era posible.
+explicacion: "Los vikingos eran expertos navegantes que utilizaban sus barcos de fondo plano para remontar ríos y atacar monasterios y ciudades del interior, evitando el combate terrestre directo cuando era posible."
 ```
 
 ```
@@ -826,16 +1420,16 @@ metadata:
   nivel: "intermedio"
   tags: ["cisma", "iglesia", "roma", "constantinopla"]
 tipo: completar
-enunciado: El Cisma de 1054 provocó la ruptura definitiva entre la Iglesia de Roma y la Iglesia de ______.
-respuesta: Constantinopla
+enunciado: "El Cisma de 1054 provocó la ruptura definitiva entre la Iglesia de Roma y la Iglesia de ______."
+respuesta: "Constantinopla"
 respuestas_validas:
-  - Constantinopla
-  - constantinopla
-  - Bizancio
-  - bizancio
-  - iglesia ortodoxa
-  - Iglesia Ortodoxa
-explicacion: El cisma separó el cristianismo en dos ramas: la católica romana (Occidente) y la ortodoxa oriental (con sede en Constantinopla).
+  - "Constantinopla"
+  - "constantinopla"
+  - "Bizancio"
+  - "bizancio"
+  - "iglesia ortodoxa"
+  - "Iglesia Ortodoxa"
+explicacion: "El cisma separó el cristianismo en dos ramas: la católica romana (Occidente) y la ortodoxa oriental (con sede en Constantinopla)."
 ```
 
 ```
@@ -845,14 +1439,14 @@ metadata:
   nivel: "intermedio"
   tags: ["bizancio", "turcos", "otomanos", "final"]
 tipo: mc
-enunciado: ¿Qué poder conquistó Constantinopla en 1453, poniendo fin al Imperio Romano de Oriente?
+enunciado: "¿Qué poder conquistó Constantinopla en 1453, poniendo fin al Imperio Romano de Oriente?"
 opciones_explicitas:
-  - Los Francos
-  - Los Otomanos
-  - Los Mongoles
-  - Los Venedicos
-respuesta: B
-explicacion: El sultán Mehmed II conquistó Constantinopla en 1453, marcando el fin oficial del Imperio Bizantino y el fin simbólico de la Edad Media.
+  - "Los Francos"
+  - "Los Otomanos"
+  - "Los Mongoles"
+  - "Los Venedicos"
+respuesta: "Los Otomanos"
+explicacion: "El sultán Mehmed II conquistó Constantinopla en 1453, marcando el fin oficial del Imperio Bizantino y el fin simbólico de la Edad Media."
 ```
 
 ```
@@ -862,14 +1456,14 @@ metadata:
   nivel: "intermedio"
   tags: ["agricultura", "tecnologia", "arado"]
 tipo: completar
-enunciado: La invención del ______ de vertedera permitió arar los suelos pesados y húmedos del norte de Europa.
-respuesta: arado
+enunciado: "La invención del ______ de vertedera permitió arar los suelos pesados y húmedos del norte de Europa."
+respuesta: "arado"
 respuestas_validas:
-  - arado
-  - arado de vertedera
-  - arado pesado
-  - arado de ruedas
-explicacion: El arado de vertedera (con ruedas y cuchilla de hierro) revoluciona la agricultura medieval, permitiendo cultivar tierras fértiles pero pesadas del norte.
+  - "arado"
+  - "arado de vertedera"
+  - "arado pesado"
+  - "arado de ruedas"
+explicacion: "El arado de vertedera (con ruedas y cuchilla de hierro) revoluciona la agricultura medieval, permitiendo cultivar tierras fértiles pero pesadas del norte."
 ```
 
 ```
@@ -879,9 +1473,9 @@ metadata:
   nivel: "intermedio"
   tags: ["iglesia", "cultura", "manuscritos"]
 tipo: vf
-enunciado: Durante los primeros siglos de la Alta Edad Media, los monasterios fueron los principales centros de copia y conservación de textos clásicos.
+enunciado: "Durante los primeros siglos de la Alta Edad Media, los monasterios fueron los principales centros de copia y conservación de textos clásicos."
 respuesta: verdadero
-explicacion: Con el colapso de las estructuras civiles, los monasterios se convirtieron en refugios de saber, donde los monjes copiaban manuscritos latinos y cristianos.
+explicacion: "Con el colapso de las estructuras civiles, los monasterios se convirtieron en refugios de saber, donde los monjes copiaban manuscritos latinos y cristianos."
 ```
 
 ```
@@ -891,14 +1485,14 @@ metadata:
   nivel: "intermedio"
   tags: ["francos", "musulmanes", "poitiers", "cartujo"]
 tipo: mc
-enunciado: ¿Quién lideró a los francos en la victoria contra los musulmanes en la Batalla de Poitiers en 732?
+enunciado: "¿Quién lideró a los francos en la victoria contra los musulmanes en la Batalla de Poitiers en 732?"
 opciones_explicitas:
-  - Carlomagno
-  - Carlos Martel
-  - Pipino el Breve
-  - Clodoveo
-respuesta: B
-explicacion: Carlos Martel detuvo la expansión musulmana hacia el norte de Europa en Poitiers, consolidando el poder de los Carolingios y su alianza con la Iglesia.
+  - "Carlomagno"
+  - "Carlos Martel"
+  - "Pipino el Breve"
+  - "Clodoveo"
+respuesta: "Carlos Martel"
+explicacion: "Carlos Martel detuvo la expansión musulmana hacia el norte de Europa en Poitiers, consolidando el poder de los Carolingios y su alianza con la Iglesia."
 ```
 
 ```
@@ -908,14 +1502,14 @@ metadata:
   nivel: "intermedio"
   tags: ["feudalismo", "poder", "fragmentacion"]
 tipo: completar
-enunciado: La debilidad de los reyes carolingios llevó a una fragmentación del poder político en favor de la nobleza local, fenómeno conocido como ______.
-respuesta: feudalismo
+enunciado: "La debilidad de los reyes carolingios llevó a una fragmentación del poder político en favor de la nobleza local, fenómeno conocido como ______."
+respuesta: "feudalismo"
 respuestas_validas:
-  - feudalismo
-  - sistema feudal
-  - regimen feudal
-  - orden feudal
-explicacion: La incapacidad de los reyes para mantener el orden público generó que los señores locales asumieran funciones judiciales y militares, consolidando el feudalismo.
+  - "feudalismo"
+  - "sistema feudal"
+  - "regimen feudal"
+  - "orden feudal"
+explicacion: "La incapacidad de los reyes para mantener el orden público generó que los señores locales asumieran funciones judiciales y militares, consolidando el feudalismo."
 ```
 
 ```
@@ -925,9 +1519,9 @@ metadata:
   nivel: "intermedio"
   tags: ["reconquista", "covadonga", "asturias"]
 tipo: vf
-enunciado: La batalla de Covadonga, tradicionalmente datada en 722, marca el inicio simbólico de la Reconquista en la península ibérica.
+enunciado: "La batalla de Covadonga, tradicionalmente datada en 722, marca el inicio simbólico de la Reconquista en la península ibérica."
 respuesta: verdadero
-explicacion: Pelayo lideró a los astures contra los omeyas en Covadonga, estableciendo el Reino de Asturias y marcando el comienzo de la lenta expansión cristiana hacia el sur.
+explicacion: "Pelayo lideró a los astures contra los omeyas en Covadonga, estableciendo el Reino de Asturias y marcando el comienzo de la lenta expansión cristiana hacia el sur."
 ```
 
 ```
@@ -937,14 +1531,14 @@ metadata:
   nivel: "intermedio"
   tags: ["cruzadas", "jerusalen", "urbe"]
 tipo: mc
-enunciado: ¿Qué Papa convocó la Primera Cruzada en 1095 en el Concilio de Clermont?
+enunciado: "¿Qué Papa convocó la Primera Cruzada en 1095 en el Concilio de Clermont?"
 opciones_explicitas:
-  - Papa Urbano II
-  - Papa Inocencio III
-  - Papa Gregorio VII
-  - Papa León X
-respuesta: A
-explicacion: Urbano II llamó a la cruzada para liberar Tierra Santa del control seléucida y ayudar al Imperio Bizantino, movilizando a la nobleza europea.
+  - "Papa Urbano II"
+  - "Papa Inocencio III"
+  - "Papa Gregorio VII"
+  - "Papa León X"
+respuesta: "Papa Urbano II"
+explicacion: "Urbano II llamó a la cruzada para liberar Tierra Santa del control seléucida y ayudar al Imperio Bizantino, movilizando a la nobleza europea."
 ```
 
 ```
@@ -954,14 +1548,14 @@ metadata:
   nivel: "intermedio"
   tags: ["peste", "bubonica", "muerte"]
 tipo: completar
-enunciado: La Peste Negra del siglo XIV fue causada por la bacteria ______, transmitida principalmente por pulgas de ratas.
-respuesta: Yersinia pestis
+enunciado: "La Peste Negra del siglo XIV fue causada por la bacteria ______, transmitida principalmente por pulgas de ratas."
+respuesta: "Yersinia pestis"
 respuestas_validas:
-  - Yersinia pestis
-  - yersinia pestis
-  - Yersinia
-  - pestis
-explicacion: La bacteria Yersinia pestis fue el agente causal de la peste bubónica, que diezmó la población europea entre 1347 y 1351.
+  - "Yersinia pestis"
+  - "yersinia pestis"
+  - "Yersinia"
+  - "pestis"
+explicacion: "La bacteria Yersinia pestis fue el agente causal de la peste bubónica, que diezmó la población europea entre 1347 y 1351."
 ```
 
 ```
@@ -971,14 +1565,14 @@ metadata:
   nivel: "intermedio"
   tags: ["francia", "capetos", "centralizacion"]
 tipo: mc
-enunciado: ¿Qué dinastía comenzó a consolidar el poder real en Francia a partir del siglo X, reduciendo el poder de los señores feudales?
+enunciado: "¿Qué dinastía comenzó a consolidar el poder real en Francia a partir del siglo X, reduciendo el poder de los señores feudales?"
 opciones_explicitas:
-  - Carolingios
-  - Capetos
-  - Valois
-  - Plantagenets
-respuesta: B
-explicacion: Los Capetos, empezando con Hugo Capet, lograron una lenta pero constante centralización del poder en Francia, sentando las bases del Estado nacional.
+  - "Carolingios"
+  - "Capetos"
+  - "Valois"
+  - "Plantagenets"
+respuesta: "Capetos"
+explicacion: "Los Capetos, empezando con Hugo Capet, lograron una lenta pero constante centralización del poder en Francia, sentando las bases del Estado nacional."
 ```
 
 ```
@@ -988,15 +1582,15 @@ metadata:
   nivel: "intermedio"
   tags: ["siervos", "trabajo", "diferencia"]
 tipo: completar
-enunciado: A diferencia de los esclavos romanos, los siervos medievales tenían derecho a ______ y a poseer herramientas propias.
-respuesta: matrimonio
+enunciado: "A diferencia de los esclavos romanos, los siervos medievales tenían derecho a ______ y a poseer herramientas propias."
+respuesta: "matrimonio"
 respuestas_validas:
-  - matrimonio
-  - casamiento
-  - familia
-  - herencia
-  - tierra
-explicacion: Los siervos estaban ligados a la tierra pero no eran propiedad del señor; podían tener familia, heredar bienes y usar sus propias herramientas, aunque debían trabajo al señor.
+  - "matrimonio"
+  - "casamiento"
+  - "familia"
+  - "herencia"
+  - "tierra"
+explicacion: "Los siervos estaban ligados a la tierra pero no eran propiedad del señor; podían tener familia, heredar bienes y usar sus propias herramientas, aunque debían trabajo al señor."
 ```
 
 ```
@@ -1006,14 +1600,14 @@ metadata:
   nivel: "intermedio"
   tags: ["sacro-império", "germania", "otón"]
 tipo: mc
-enunciado: ¿Qué rey alemán fue coronado emperador en 962, fundando el Sacro Imperio Romano Germánico?
+enunciado: "¿Qué rey alemán fue coronado emperador en 962, fundando el Sacro Imperio Romano Germánico?"
 opciones_explicitas:
-  - Federico I Barbarroja
-  - Otón I
-  - Enrique IV
-  - Carlomagno
-respuesta: B
-explicacion: Otón I fue coronado emperador en 962, reviviendo el título imperial en Germania y estableciendo el Sacro Imperio Romano Germánico.
+  - "Federico I Barbarroja"
+  - "Otón I"
+  - "Enrique IV"
+  - "Carlomagno"
+respuesta: "Otón I"
+explicacion: "Otón I fue coronado emperador en 962, reviviendo el título imperial en Germania y estableciendo el Sacro Imperio Romano Germánico."
 ```
 
 ```
@@ -1023,9 +1617,9 @@ metadata:
   nivel: "intermedio"
   tags: ["cisma", "avignon", "papado"]
 tipo: vf
-enunciado: Durante el Gran Cisma de Occidente (1378-1417), hubo dos papas rivales, uno en Roma y otro en Aviñón.
+enunciado: "Durante el Gran Cisma de Occidente (1378-1417), hubo dos papas rivales, uno en Roma y otro en Aviñón."
 respuesta: verdadero
-explicacion: Este cisma dividió la cristiandad occidental con dos papas simultáneos, debilitando la autoridad moral y política del papado hasta su resolución en el Concilio de Constanza.
+explicacion: "Este cisma dividió la cristiandad occidental con dos papas simultáneos, debilitando la autoridad moral y política del papado hasta su resolución en el Concilio de Constanza."
 ```
 
 ```
@@ -1035,14 +1629,14 @@ metadata:
   nivel: "intermedio"
   tags: ["mongoles", "genghis", "invasión"]
 tipo: completar
-enunciado: El líder que unificó a las tribus mongolas y comenzó la mayor expansión terrestre de la historia fue ______.
-respuesta: Genghis Khan
+enunciado: "El líder que unificó a las tribus mongolas y comenzó la mayor expansión terrestre de la historia fue ______."
+respuesta: "Genghis Khan"
 respuestas_validas:
-  - Genghis Khan
-  - Gengis Khan
-  - Chingis Khan
-  - Temujin
-explicacion: Temujin, conocido como Genghis Khan, unificó a los mongoles en 1206 y lanzó campañas que extendieron el imperio desde Asia Central hasta Europa del Este.
+  - "Genghis Khan"
+  - "Gengis Khan"
+  - "Chingis Khan"
+  - "Temujin"
+explicacion: "Temujin, conocido como Genghis Khan, unificó a los mongoles en 1206 y lanzó campañas que extendieron el imperio desde Asia Central hasta Europa del Este."
 ```
 
 ```
@@ -1052,14 +1646,14 @@ metadata:
   nivel: "intermedio"
   tags: ["japon", "shogun", "samurai"]
 tipo: mc
-enunciado: En el feudalismo japonés, ¿quién era el líder militar que ejercía el poder real mientras el emperador era una figura ceremonial?
+enunciado: "En el feudalismo japonés, ¿quién era el líder militar que ejercía el poder real mientras el emperador era una figura ceremonial?"
 opciones_explicitas:
-  - Daimyo
-  - Shogun
-  - Samurai
-  - Kami
-respuesta: B
-explicacion: El Shogun era el dictador militar, mientras el emperador permanecía en Kyoto como símbolo sagrado pero sin poder político efectivo durante gran parte del periodo feudal japonés.
+  - "Daimyo"
+  - "Shogun"
+  - "Samurai"
+  - "Kami"
+respuesta: "Shogun"
+explicacion: "El Shogun era el dictador militar, mientras el emperador permanecía en Kyoto como símbolo sagrado pero sin poder político efectivo durante gran parte del periodo feudal japonés."
 ```
 
 ```
@@ -1069,14 +1663,14 @@ metadata:
   nivel: "intermedio"
   tags: ["cultura", "carlomagno", "educación"]
 tipo: completar
-enunciado: El intento de Carlomagno de revivir la cultura y el aprendizaje clásico se conoce como el ______.
-respuesta: Renacimiento Carolingio
+enunciado: "El intento de Carlomagno de revivir la cultura y el aprendizaje clásico se conoce como el ______."
+respuesta: "Renacimiento Carolingio"
 respuestas_validas:
-  - Renacimiento Carolingio
-  - renacimiento carolingio
-  - Renacimiento de Carlomagno
-  - renacimiento de carlomagno
-explicacion: Fue un período de renovación cultural y educativa en la corte de Carlomagno, promoviendo el uso correcto del latín y la copia de textos antiguos.
+  - "Renacimiento Carolingio"
+  - "renacimiento carolingio"
+  - "Renacimiento de Carlomagno"
+  - "renacimiento de carlomagno"
+explicacion: "Fue un período de renovación cultural y educativa en la corte de Carlomagno, promoviendo el uso correcto del latín y la copia de textos antiguos."
 ```
 
 ```
@@ -1086,14 +1680,14 @@ metadata:
   nivel: "intermedio"
   tags: ["tordesillas", "colonización", "mundo-nuevo"]
 tipo: mc
-enunciado: ¿Qué potencia europea perdió la disputa de zonas de influencia en el Tratado de Tordesillas frente a Portugal?
+enunciado: "¿Qué potencia europea perdió la disputa de zonas de influencia en el Tratado de Tordesillas frente a Portugal?"
 opciones_explicitas:
-  - Francia
-  - España
-  - Inglaterra
-  - Italia
-respuesta: B
-explicacion: España y Portugal firmaron el tratado para dividir el mundo no europeo por un meridiano, otorgando a Portugal las rutas hacia la India y África, y a España las Américas (aunque inicialmente hubo disputas sobre la longitud exacta).
+  - "Francia"
+  - "España"
+  - "Inglaterra"
+  - "Italia"
+respuesta: "España"
+explicacion: "España y Portugal firmaron el tratado para dividir el mundo no europeo por un meridiano, otorgando a Portugal las rutas hacia la India y África, y a España las Américas (aunque inicialmente hubo disputas sobre la longitud exacta)."
 ```
 
 ## Sección: cambio-climatico-linea-base-historica (25 preguntas)
@@ -1128,11 +1722,13 @@ variables:
   escenario: [["excentricidad", "cambios en la forma de la órbita terrestre"], ["oblicuidad", "cambios en la inclinación del eje terrestre"]]
 
 tipo: completar
-respuestas_validas: ["excentricidad", "oblicuidad"]
+respuestas_validas:
+  - "excentricidad"
+  - "oblicuidad"
 
 enunciado: "Los ciclos de Milankovitch explican las glaciaciones a través de variaciones en la órbita. El primer factor es la {escenario[idx][0]}, que se refiere a los {escenario[idx][1]}."
 
-respuesta: escenario[idx][0
+respuesta: escenario[idx][0]
 
 explicacion: |
   Los ciclos de Milankovitch incluyen la excentricidad (órbita), la oblicuidad (inclinación) y la precesión (balanceo). Estos procesos naturales operan en escalas de decenas de miles de años.
@@ -1150,7 +1746,7 @@ opciones_explicitas: ["Ciclos de Milankovitch (escala de milenios)", "Variacione
 
 enunciado: "Ordena los procesos de abajo hacia arriba según la escala temporal en la que influyen en el sistema climático (de mayor duración a menor duración):"
 
-respuesta: ["Ciclos de Milankovitch (escala de milenios)", "Variaciones volcánicas menores (escala de años/décadas)", "Emisiones de gases de efecto invernadero actuales (escala de décadas)"]
+respuesta_orden: ["Ciclos de Milankovitch (escala de milenios)", "Variaciones volcánicas menores (escala de años/décadas)", "Emisiones de gases de efecto invernadero actuales (escala de décadas)"]
 
 explicacion: |
   La diferencia fundamental entre el cambio climático natural histórico y el actual no es solo la dirección del cambio, sino la velocidad (ritmo) a la que ocurre el forzamiento radiativo.
@@ -1163,16 +1759,12 @@ metadata:
   nivel: "intermedio"
   tags: ["paleoclimatologia", "hielo"]
 
-variables:
-  datos: [["isótopos de oxígeno", "concentración de CO2"], ["isótopos de carbono", "presión atmosférica"]]
-  idx: uno_de([0, 1])
-
 tipo: mc
 opciones_explicitas: ["isótopos de oxígeno", "isótopos de carbono", "niveles de salinidad", "densidad del aire"]
 
-enunciado: "Para reconstruir la temperatura de hace miles de años, los científicos analizan los {datos[idx][0]} atrapados en las burbujas de aire de los núcleos de hielo."
+enunciado: "Para reconstruir la temperatura de hace miles de años, los científicos analizan los ___ atrapados en el hielo de los núcleos glaciares."
 
-respuesta: datos[idx][0
+respuesta: "isótopos de oxígeno"
 
 explicacion: |
   Los isótopos de oxígeno (especialmente la relación entre 18O y 16O) en el hielo actúan como un termómetro paleoclimático muy preciso.
@@ -1205,9 +1797,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["El ritmo de cambio es similar en ambos casos", "El cambio actual es mucho más rápido que los naturales", "El cambio actual es más lento debido a la tecnología", "No hay diferencia medible en la velocidad"]
-
+respuesta: "El cambio actual es mucho más rápido que los naturales"
 enunciado: "Al comparar el cambio climático actual con los ciclos naturales del pasado, la diferencia fundamental radica en la ____."
-
 explicacion: |
   Mientras que los cambios climáticos naturales (como las glaciaciones) suelen ocurrir a lo largo de miles de años, el cambio climático antropogénico actual está ocurriendo en cuestión de décadas, una velocidad sin precedentes en la historia geológica.
 ```
@@ -1224,7 +1815,9 @@ variables:
   idx: uno_de([0, 1])
 
 tipo: completar
-respuestas_validas: ["milenios", "décadas"]
+respuestas_validas:
+  - "milenios"
+  - "décadas"
 respuesta: datos[idx][1]
 
 enunciado: "Si un cambio climático natural suele manifestarse en un periodo de {datos[idx][0]}, el cambio climático actual se manifiesta en un periodo de ___."
@@ -1242,7 +1835,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Ciclos climáticos naturales (lentos)", "Cambio climático antropogénico (rápido)"]
-respuesta: ["Ciclos climáticos naturales (lentos)", "Cambio climático antropogénico (rápido)"]
+respuesta_orden: ["Ciclos climáticos naturales (lentos)", "Cambio climático antropogénico (rápido)"]
 
 enunciado: "Ordena los procesos de menor a mayor velocidad de cambio climático:"
 
@@ -1263,7 +1856,7 @@ variables:
 
 tipo: completar
 tolerancia_abs: 0
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 
 enunciado: "En un escenario donde un cambio natural tarda {datos[idx][0]} años, el cambio actual se estima que ocurre en aproximadamente ___ años."
 
@@ -1299,10 +1892,7 @@ metadata:
   nivel: "intermedio"
   tags: ["paleoclimatologia", "nucleos_de_hielo"]
 
-variables:
-  gas_atrapado: uno_de(["CO2", "O2", "N2"])
-
-respuesta: gas_atrapado
+respuesta: "CO2"
 tipo: mc
 opciones_explicitas: ["CO2", "O2", "N2"]
 
@@ -1321,7 +1911,10 @@ metadata:
 
 respuesta: "ancho del anillo"
 tipo: completar
-respuestas_validas: ["ancho del anillo", "color del anillo", "textura de la corteza"]
+respuestas_validas:
+  - "ancho del anillo"
+  - "color del anillo"
+  - "textura de la corteza"
 
 enunciado: "En la dendrocronología, la variabilidad climática (como la temperatura o la precipitación) se refleja principalmente en el ___ de cada anillo anual."
 
@@ -1339,7 +1932,7 @@ metadata:
 variables:
   isocapa: uno_de([0, 1])
 
-respuesta: isocapa
+respuesta_orden: ["Sedimentación de materia orgánica", "Acumulación de conchas de foraminíferos", "Deposición de partículas terrígenas"]
 tipo: ordenar
 opciones_explicitas: ["Sedimentación de materia orgánica", "Acumulación de conchas de foraminíferos", "Deposición de partículas terrígenas"]
 
@@ -1375,7 +1968,10 @@ metadata:
 
 respuesta: "proxy"
 tipo: completar
-respuestas_validas: ["proxy", "sensor", "registro"]
+respuestas_validas:
+  - "proxy"
+  - "sensor"
+  - "registro"
 
 enunciado: "Dado que no existían termómetros en el pasado remoto, los científicos utilizan indicadores indirectos como los anillos de los árboles o los núcleos de hielo, denominados técnicamente como ___."
 
@@ -1392,7 +1988,8 @@ metadata:
 
 respuesta: "800000"
 tipo: completar
-respuestas_validas: ["800000"]
+respuestas_validas:
+  - "800000"
 
 enunciado: "Los registros obtenidos de núcleos de hielo indican que los niveles actuales de CO2 atmosférico son más altos que en cualquier momento de los últimos ___ años."
 
@@ -1407,15 +2004,11 @@ metadata:
   nivel: "intermedio"
   tags: ["co2", "comparacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[420, "Superior"], [280, "Inferior"]]
-
-respuesta: datos[escenario_idx][1
+respuesta: "Superior"
 tipo: mc
 opciones_explicitas: ["Superior", "Inferior"]
 
-enunciado: "Considerando que los niveles de CO2 actuales son de aproximadamente {datos[escenario_idx][0]} ppm y que los niveles históricos preindustriales eran de ~280 ppm, la situación actual es ________ respecto al pasado geológico reciente."
+enunciado: "Considerando que los niveles de CO2 actuales son de aproximadamente 420 ppm y que los niveles históricos preindustriales eran de ~280 ppm, la situación actual es ________ respecto al pasado geológico reciente."
 
 explicacion: |
   La concentración actual de CO2 es significativamente más alta que los niveles estables de los últimos milenios, rompiendo el ciclo natural de los últimos 800.000 años.
@@ -1430,7 +2023,8 @@ metadata:
 
 respuesta: "núcleos de hielo"
 tipo: completar
-respuestas_validas: ["núcleos de hielo"]
+respuestas_validas:
+  - "núcleos de hielo"
 
 enunciado: "Para determinar la concentración de gases atmosféricos en el pasado remoto, los científicos analizan las burbujas de aire atrapadas en los ___."
 
@@ -1445,7 +2039,7 @@ metadata:
   nivel: "avanzado"
   tags: ["secuencia", "co2"]
 
-respuesta: ["Preindustrial", "Máximo glacial", "Actualidad"]
+respuesta_orden: ["Preindustrial", "Máximo glacial", "Actualidad"]
 tipo: ordenar
 opciones_explicitas: ["Preindustrial", "Máximo glacial", "Actualidad"]
 
@@ -1480,12 +2074,7 @@ metadata:
   tags: ["paleoclimatologia", "velocidad"]
 
 variables:
-  escenario: uno_de([
-    ["un aumento de 2°C en 10,000 años", "0.0002"],
-    ["un aumento de 2°C en 5,000 años", "0.0004"],
-    ["un aumento de 2°C en 2,000 años", "0.001"]
-  ])
-  idx: uno_de([0, 1, 2])
+  escenario: uno_de([["un aumento de 2°C en 10,000 años", "0.0002"], ["un aumento de 2°C en 5,000 años", "0.0004"], ["un aumento de 2°C en 2,000 años", "0.001"]])
 
 enunciado: "Considerando el escenario de un aumento de temperatura de {escenario[0]}, ¿cuál es la tasa de cambio anual aproximada en grados Celsius por año (expresada como decimal)?"
 
@@ -1493,7 +2082,7 @@ pasos:
   - "Identificar el cambio total de temperatura (2°C)."
   - "Dividir el cambio total por la cantidad de años para obtener la tasa anual."
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: completar
 tolerancia_abs: 0.00001
 
@@ -1509,18 +2098,16 @@ metadata:
   tags: ["magnitud", "comparacion"]
 
 variables:
-  datos: [
-    ["Ciclos de Milankovitch", "natural"],
-    ["Erupciones volcánicas masivas", "natural"],
-    ["Actividad antropogénica actual", "antropogénico"]
-  ]
+  datos: [["Ciclos de Milankovitch", "natural"], ["Erupciones volcánicas masivas", "natural"], ["Actividad antropogénica actual", "antropogénico"]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "El fenómeno de {datos[idx][0]} se clasifica históricamente como un cambio de tipo ___________."
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["natural", "antropogénico"]
+respuestas_validas:
+  - "natural"
+  - "antropogénico"
 
 explicacion: |
   Los ciclos orbitales (Milankovitch) y el vulcanismo son procesos naturales que han moldeado el clima por millones de años, a diferencia del forzamiento actual.
@@ -1534,16 +2121,11 @@ metadata:
   tags: ["co2", "geologia"]
 
 variables:
-  caso: uno_de([
-    ["Paleoceno-Eoceno (PETM)", "máximo"],
-    ["Glaciaciones del Pleistoceno", "mínimo"],
-    ["Periodo Cretácico", "moderado"]
-  ])
-  idx: uno_de([0, 1, 2])
+  caso: uno_de([["Paleoceno-Eoceno (PETM)", "máximo"], ["Glaciaciones del Pleistoceno", "mínimo"], ["Periodo Cretácico", "moderado"]])
 
 enunciado: "En el contexto del {caso[0]}, el aumento de CO2 provocó un cambio de magnitud ___________ en comparación con la variabilidad climática estándar del Holoceno."
 
-respuesta: caso[idx][1
+respuesta: caso[1]
 tipo: mc
 opciones_explicitas: ["máximo", "mínimo", "moderado"]
 
@@ -1566,7 +2148,7 @@ pasos:
   - "Identificar el factor de cambio instantáneo/decadal (antropogénico)."
 
 opciones_explicitas: ["Ciclos de Milankovitch", "Actividad Volcánica", "Emisiones de GEI"]
-respuesta: ["Ciclos de Milankovitch", "Actividad Volcánica", "Emisiones de GEI"]
+respuesta_orden: ["Ciclos de Milankovitch", "Actividad Volcánica", "Emisiones de GEI"]
 tipo: ordenar
 
 explicacion: |
@@ -1581,19 +2163,15 @@ metadata:
   tags: ["co2", "concentracion"]
 
 variables:
-  escenario_co2: uno_de([
-    ["420 ppm", "280"],
-    ["300 ppm", "280"],
-    ["280 ppm", "280"]
-  ])
-  idx: uno_de([0, 1, 2])
+  escenario_co2: uno_de([["420 ppm", "280"], ["300 ppm", "280"], ["280 ppm", "280"]])
 
-enunciado: "Si la concentración actual de CO2 es de {escenario_co2[0]} ppm, ¿cuál era la concentración promedio aproximada durante el periodo preindustrial (base de comparación histórica)?"
+enunciado: "Si la concentración actual de CO2 es de {escenario_co2[0]}, ¿cuál era la concentración promedio aproximada durante el periodo preindustrial (base de comparación histórica)?"
 
-respuesta: escenario_co2[idx][1
+respuesta: "280 ppm"
 tipo: mc
 opciones_explicitas: ["280 ppm", "350 ppm", "400 ppm"]
 
 explicacion: |
   El nivel de 280 ppm es el estándar utilizado para representar el estado de equilibrio preindustrial antes de la era de la industrialización masiva.
 ```
+

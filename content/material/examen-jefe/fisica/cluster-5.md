@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de Equilibrio y Temperatura
+# Examen jefe — [PENDIENTE #740]
 
-> Logro #160. Completaste el parcial dominando escalas térmicas, momentos de fuerza y estructura nuclear. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **118 preguntas totales** en 5/5 secciones.
+> Logro #740. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,7 +15,8 @@ metadata:
 
 respuesta: "cero absoluto"
 tipo: completar
-respuestas_validas: ["cero absoluto"]
+respuestas_validas:
+  - "cero absoluto"
 
 enunciado: "La escala Kelvin se caracteriza por tener su punto de partida en el ___."
 
@@ -30,8 +31,8 @@ metadata:
   nivel: "basico"
   tags: ["celsius", "fahrenheit", "kelvin"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La escala Celsius y la escala Kelvin tienen el mismo tamaño de grado; es decir, un aumento de 1 °C equivale a un aumento de 1 K."
 
 explicacion: |
@@ -47,18 +48,16 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
+  datos: [["congelación", "0 °C", "32 °F"], ["ebullición", "100 °C", "212 °F"]]
 
-respuesta: datos[idx][1
+respuesta: datos[idx][2]
 tipo: mc
-opciones_explicitas: ["0 °C", "32 °F", "273.15 K", "373.15 K"]
+opciones_explicitas: ["32 °F", "212 °F", "0 °F", "100 °F"]
 
-enunciado: "Considerando el punto de congelación del agua a presión atmosférica normal, ¿cuál es su valor en la escala Fahrenheit según el escenario seleccionado?"
-
-variables_datos:
-  datos: [["0 °C", "32 °F"], ["100 °C", "212 °F"]]
+enunciado: "El punto de {datos[idx][0]} del agua a presión atmosférica normal es de {datos[idx][1]}. ¿Cuál es su valor equivalente en la escala Fahrenheit?"
 
 explicacion: |
-  El punto de congelación del agua es 0 °C, que equivale a 32 °F o 273.15 K.
+  El punto de congelación del agua es 0 °C = 32 °F, y el punto de ebullición es 100 °C = 212 °F.
 ```
 
 ```
@@ -68,7 +67,7 @@ metadata:
   nivel: "intermedio"
   tags: ["ordenar", "escalas"]
 
-respuesta: ["0 °C", "32 °F", "273.15 K"]
+respuesta_orden: ["0 °C", "32 °F", "273.15 K"]
 tipo: ordenar
 opciones_explicitas: ["0 °C", "32 °F", "273.15 K"]
 
@@ -151,7 +150,7 @@ variables:
 
 respuesta: t_f
 tipo: mc
-opciones_explicitas: ["68.0", "98.6", "212.0", "32.0"]
+opciones_explicitas: [68.0, 98.6, 212.0, 32.0]
 
 enunciado: "Si la temperatura ambiente es de {t_c} °C, ¿cuál es su valor equivalente en grados Fahrenheit (°F)?"
 
@@ -173,7 +172,9 @@ metadata:
 
 respuesta: "9/5"
 tipo: completar
-respuestas_validas: ["9/5", "1.8"]
+respuestas_validas:
+  - "9/5"
+  - "1.8"
 
 enunciado: "Para convertir de grados Celsius a Fahrenheit, se utiliza la fórmula: °F = (°C * ___) + 32"
 
@@ -189,12 +190,12 @@ metadata:
   tags: ["ordenar", "comparacion"]
 
 variables:
-  escenario: uno_de([[0.0, 273.15, 32.0], [-50.0, 223.15, -58.0], [10.0, 283.15, 50.0]])
+  escenario: uno_de([[0.0, 273.15, 32.0], [-10.0, 263.15, 14.0], [10.0, 283.15, 50.0]])
   t_c: escenario[0]
   t_k: escenario[1]
   t_f: escenario[2]
 
-respuesta: [t_c, t_f, t_k]
+respuesta_orden: [t_c, t_f, t_k]
 tipo: ordenar
 opciones_explicitas: [t_c, t_f, t_k]
 
@@ -212,12 +213,9 @@ metadata:
   nivel: "basico"
   tags: ["kelvin", "cero_absoluto"]
 
-respuesta: 0
-tipo: mc
-opciones_explicitas: ["0", "273.15", "-273.15", "-459.67"]
-
+tipo: completar
 enunciado: "El cero absoluto es la temperatura más baja posible en la escala Kelvin. En esta escala, dicho valor es de ___ K."
-
+respuesta: "0"
 explicacion: |
   La escala Kelvin es una escala absoluta. El cero absoluto (0 K) es el punto donde el movimiento molecular es mínimo y equivale a -273.15 °C.
 ```
@@ -233,7 +231,7 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [[25, 298.15], [100, 373.15]]
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -272,7 +270,7 @@ metadata:
   nivel: "basico"
   tags: ["puntos_criticos"]
 
-respuesta: ["0", "100", "32", "212"]
+respuesta_orden: ["0", "100", "32", "212"]
 tipo: ordenar
 
 opciones_explicitas: ["0", "100", "32", "212"]
@@ -291,23 +289,18 @@ metadata:
   tags: ["conceptos", "termodinamica"]
 
 variables:
-  val_c: uno_de([10, 20, 30])
-  val_f: uno_de([50, 68, 86])
-  # Nota: Para asegurar que el usuario vea valores distintos pero coherentes, 
-  # en un entorno real usaríamos un array de pares como en la pregunta 2.
-  # Para este ejemplo simplificado, usaremos un valor fijo para evitar desincronización.
   temp_c: 20
-  temp_f: 68
 
 respuesta: "293.15"
 tipo: completar
 
-respuestas_validas: ["293.15"]
+respuestas_validas:
+  - "293.15"
 
 enunciado: "Un estudiante afirma que si la temperatura sube 1 grado Celsius, también sube 1 grado Kelvin. Si la temperatura actual es de {temp_c} °C, ¿cuál es su valor en Kelvin?"
 
 explicacion: |
-  Es correcto: el tamaño de un grado Celsius es igual al tamaño de un grado Kelvin. La diferencia es solo el punto de origen. 20 + 273.15 = 293.15 K.
+  Es correcto: el tamaño de un grado Celsius es igual al tamaño de un grado Kelvin. La diferencia es solo el punto de origen. {temp_c} + 273.15 = 293.15 K.
 ```
 
 ```
@@ -334,21 +327,21 @@ metadata:
   tags: ["conversión", "fahrenheit", "celsius"]
 
 variables:
-  escenario: uno_de([[32, 212], [32, 32], [32, 50]])
+  idx: uno_de([0, 1, 2])
+  datos: [[32, "0"], [212, "100"], [122, "50"]]
 
-respuesta: escenario[2
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["0", "100", "50"]
 
-enunciado: "Si un termómetro marca {escenario[0]} °F en el punto de congelación del agua y {escenario[1]} °F en el punto de ebullición, ¿cuál es el valor equivalente en grados Celsius para la temperatura de {escenario[2]} °F?"
+enunciado: "Sabiendo que el agua se congela a 32 °F (0 °C) y hierve a 212 °F (100 °C), ¿cuál es el valor equivalente en grados Celsius para una temperatura de {datos[idx][0]} °F?"
 
 pasos:
-  - "Identificar los valores de referencia en Fahrenheit: 32 y 212."
-  - "Usar la fórmula de conversión: C = (F - 32) * 5/9."
-  - "Sustituir el valor deseado: (50 - 32) * 5/9 = 18 * 5/9 = 10."
+  - "Identificar la fórmula de conversión: C = (F - 32) * 5/9."
+  - "Sustituir el valor: C = ({datos[idx][0]} - 32) * 5/9 = {datos[idx][1]}."
 
 explicacion: |
-  La fórmula para convertir de Fahrenheit a Celsius es C = (F - 32) * 5/9. Para 50 °F: (50 - 32) * 5/9 = 18 * 5/9 = 10 °C.
+  La fórmula para convertir de Fahrenheit a Celsius es C = (F - 32) * 5/9.
 ```
 
 ```
@@ -360,7 +353,8 @@ metadata:
 
 respuesta: "-273.15"
 tipo: completar
-respuestas_validas: ["-273.15"]
+respuestas_validas:
+  - "-273.15"
 
 enunciado: "Mientras que la escala Celsius define el punto de congelación del agua a 0 °C, la escala Kelvin define el cero absoluto en los ___ °C."
 
@@ -392,15 +386,14 @@ metadata:
   nivel: "basico"
   tags: ["orden", "escalas"]
 
-respuesta: ["Celsius", "Kelvin", "Fahrenheit"]
+respuesta_orden: ["Celsius", "Fahrenheit", "Kelvin"]
 tipo: ordenar
 opciones_explicitas: ["Celsius", "Kelvin", "Fahrenheit"]
 
 enunciado: "Ordena las siguientes escalas de temperatura de menor a mayor valor numérico, considerando que el punto de congelación del agua es 0 en la primera, 273 en la segunda y 32 en la tercera."
 
 explicacion: |
-  Para el punto de congelación del agua: Celsius (0), Kelvin (273.15) y Fahrenheit (32). Sin embargo, el enunciado pide ordenar las escalas según sus valores en ese punto específico: 0 < 32 < 273.15.
-  *Nota: El usuario debe ordenar las etiquetas según los valores 0 (C), 32 (F), 273 (K) -> El orden correcto basado en el valor numérico es Celsius, Fahrenheit, Kelvin. Reajustando para que la respuesta coincida con la lógica del DSL.*
+  Para el punto de congelación del agua: Celsius (0), Kelvin (273.15) y Fahrenheit (32). Ordenando por valor numérico ascendente: 0 < 32 < 273.15, es decir, Celsius, Fahrenheit, Kelvin.
 ```
 
 ```
@@ -410,7 +403,7 @@ metadata:
   nivel: "basico"
   tags: ["orden", "escalas"]
 
-respuesta: ["Celsius", "Fahrenheit", "Kelvin"]
+respuesta_orden: ["Celsius", "Fahrenheit", "Kelvin"]
 tipo: ordenar
 opciones_explicitas: ["Celsius", "Fahrenheit", "Kelvin"]
 
@@ -454,7 +447,8 @@ variables:
   cero_c: 0
 
 tipo: completar
-respuestas_validas: ["273.15"]
+respuestas_validas:
+  - "273.15"
 respuesta: "273.15"
 
 enunciado: "El cero absoluto es la temperatura más baja teórica. Si el agua se congela a 0 °C, la temperatura en la escala Kelvin es de ___ K."
@@ -496,7 +490,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Celsius", "Fahrenheit", "Kelvin"]
-respuesta: ["Celsius", "Fahrenheit", "Kelvin"]
+respuesta_orden: ["Celsius", "Fahrenheit", "Kelvin"]
 
 enunciado: "Ordena estas escalas de temperatura de menor a mayor valor numérico considerando el punto de congelación del agua (0, 32, 273.15):"
 
@@ -774,11 +768,7 @@ opciones_explicitas:
   - "El centro de gravedad está donde se cruzan las dos verticales trazadas"
   - "Suspender el objeto libremente desde un primer punto de su borde y trazar la vertical hacia abajo"
   - "Suspender el objeto desde un segundo punto distinto y trazar otra vertical"
-respuesta_orden:
-  - "Suspender el objeto libremente desde un primer punto de su borde y trazar la vertical hacia abajo"
-  - "Suspender el objeto desde un segundo punto distinto y trazar otra vertical"
-  - "El centro de gravedad está donde se cruzan las dos verticales trazadas"
-
+respuesta_orden: ["Suspender el objeto libremente desde un primer punto de su borde y trazar la vertical hacia abajo", "Suspender el objeto desde un segundo punto distinto y trazar otra vertical", "El centro de gravedad está donde se cruzan las dos verticales trazadas"]
 explicacion: |
   Cada vertical (la que marca una plomada) siempre pasa por el centro
   de gravedad, sin importar desde qué punto se cuelgue el objeto.
@@ -1264,11 +1254,7 @@ opciones_explicitas:
   - "Plantear ΣF=0 para despejar la incógnita que falte"
   - "Identificar todas las fuerzas que actúan (pesos, reacciones de apoyo, tensiones) y sus puntos de aplicación"
   - "Elegir un punto de referencia (conviene uno donde actúe una incógnita) y plantear ΣM=0 para despejar otra incógnita"
-respuesta_orden:
-  - "Identificar todas las fuerzas que actúan (pesos, reacciones de apoyo, tensiones) y sus puntos de aplicación"
-  - "Elegir un punto de referencia (conviene uno donde actúe una incógnita) y plantear ΣM=0 para despejar otra incógnita"
-  - "Plantear ΣF=0 para despejar la incógnita que falte"
-
+respuesta_orden: ["Identificar todas las fuerzas que actúan (pesos, reacciones de apoyo, tensiones) y sus puntos de aplicación", "Elegir un punto de referencia (conviene uno donde actúe una incógnita) y plantear ΣM=0 para despejar otra incógnita", "Plantear ΣF=0 para despejar la incógnita que falte"]
 explicacion: |
   Primero se agota lo que da la ecuación de momentos (eligiendo bien el
   pivote), y con lo que quede sin resolver se usa la ecuación de
@@ -1765,11 +1751,7 @@ opciones_explicitas:
   - "Multiplicar la fuerza por ese brazo (y por sen(θ) si la fuerza no es perpendicular)"
   - "Identificar el eje (o punto) de giro que se va a usar como referencia"
   - "Medir el brazo de palanca: la distancia perpendicular desde el eje hasta la línea de acción de la fuerza"
-respuesta_orden:
-  - "Identificar el eje (o punto) de giro que se va a usar como referencia"
-  - "Medir el brazo de palanca: la distancia perpendicular desde el eje hasta la línea de acción de la fuerza"
-  - "Multiplicar la fuerza por ese brazo (y por sen(θ) si la fuerza no es perpendicular)"
-
+respuesta_orden: ["Identificar el eje (o punto) de giro que se va a usar como referencia", "Medir el brazo de palanca: la distancia perpendicular desde el eje hasta la línea de acción de la fuerza", "Multiplicar la fuerza por ese brazo (y por sen(θ) si la fuerza no es perpendicular)"]
 explicacion: |
   Sin fijar primero el eje de referencia, no hay brazo de palanca que
   medir.
@@ -1911,8 +1893,8 @@ metadata:
   nivel: "basico"
   tags: ["nucleones", "definicion"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "A las partículas que forman el núcleo (protones y neutrones) se las denomina colectivamente como nucleones."
 
 explicacion: |
@@ -1928,7 +1910,8 @@ metadata:
 
 respuesta: "fuerza_fuerte"
 tipo: completar
-respuestas_validas: ["fuerza_fuerte"]
+respuestas_validas:
+  - "fuerza_fuerte"
 
 enunciado: "La interacción que mantiene unidos a los protones y neutrones en el núcleo, venciendo la repulsión electromagnética entre protones, es la ___."
 
@@ -1943,8 +1926,8 @@ metadata:
   nivel: "basico"
   tags: ["carga", "electromagnetismo"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Debido a que los protones tienen carga positiva, la fuerza electromagnética entre ellos es de atracción, lo que ayuda a mantener unido el núcleo."
 
 explicacion: |
@@ -1958,9 +1941,9 @@ metadata:
   nivel: "basico"
   tags: ["particulas", "orden"]
 
-respuesta: ["protones", "neutrones"]
+respuesta_orden: ["protones", "neutrones"]
 tipo: ordenar
-opciones_explicitas: ["protones", "neutrones", "electrones"]
+opciones_explicitas: ["protones", "neutrones"]
 
 enunciado: "Ordena las siguientes partículas según su presencia en el núcleo atómico, de mayor a menor relevancia en la determinación de la identidad del elemento (número atómico):"
 
@@ -1998,12 +1981,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["Litio-7", 3, 4],
-    ["Carbono-14", 6, 8]
-  ]
+  datos: [["Litio-7", 3, 4], ["Carbono-14", 6, 8]]
 
-respuesta: datos[escenario_idx][0
+respuesta: datos[escenario_idx][0]
 tipo: mc
 opciones_explicitas: ["Litio-7", "Carbono-14", "Helio-4", "Oxigeno-16"]
 
@@ -2044,14 +2024,11 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["12", 6],
-    ["23", 11]
-  ]
+  datos: [[12, 6], [23, 11]]
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][0] - datos[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["4", "12"]
+tolerancia_abs: 0
 
 enunciado: "Un átomo tiene un número de masa (A) de {datos[escenario_idx][0]} y un número atómico (Z) de {datos[escenario_idx][1]}. El número de neutrones es ___."
 
@@ -2061,7 +2038,7 @@ pasos:
 
 explicacion: |
   Para hallar los neutrones, restamos el número de protones (Z) de la masa total (A).
-  Cálculo: {datos[escenario_idx][0]} - {datos[escenario_idx][1]} = {datos[escenario_idx][1]}.
+  Cálculo: {datos[escenario_idx][0]} - {datos[escenario_idx][1]} = {datos[escenario_idx][0] - datos[escenario_idx][1]}.
 ```
 
 ```
@@ -2071,7 +2048,7 @@ metadata:
   nivel: "avanzado"
   tags: ["ordenar", "nucleones"]
 
-respuesta: ["Protones", "Neutrones", "Fuerza Nuclear Fuerte"]
+respuesta_orden: ["Protones", "Neutrones", "Fuerza Nuclear Fuerte"]
 tipo: ordenar
 opciones_explicitas: ["Protones", "Neutrones", "Fuerza Nuclear Fuerte"]
 
@@ -2092,7 +2069,8 @@ metadata:
 
 respuesta: "protones"
 tipo: completar
-respuestas_validas: ["protones"]
+respuestas_validas:
+  - "protones"
 
 enunciado: "Un átomo es identificado químicamente por su número atómico, el cual corresponde a la cantidad de ___ en su núcleo."
 
@@ -2107,11 +2085,8 @@ metadata:
   nivel: "intermedio"
   tags: ["fuerza_nuclear", "alcance", "interacciones"]
 
-variables:
-  es_larga_distancia: falso
-
-respuesta: es_larga_distancia
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "¿Es la fuerza nuclear fuerte una interacción de largo alcance, similar a la fuerza electromagnética o la gravedad?"
 
 explicacion: |
@@ -2125,11 +2100,7 @@ metadata:
   nivel: "basico"
   tags: ["isótopos", "neutrones"]
 
-variables:
-  datos: [[6, 6], [6, 7], [6, 8], [6, 9]]
-  idx: uno_de([0,1,2,3])
-
-respuesta: datos[idx][1
+respuesta: "7"
 tipo: mc
 opciones_explicitas: ["6", "7", "8", "9"]
 
@@ -2148,7 +2119,8 @@ metadata:
 
 respuesta: "fuerza_nuclear_fuerte"
 tipo: completar
-respuestas_validas: ["fuerza_nuclear_fuerte"]
+respuestas_validas:
+  - "fuerza_nuclear_fuerte"
 
 enunciado: "En un núcleo con muchos protones, existe una tensión constante entre la repulsión electromagnética de los protones y la ___ que mantiene unido al núcleo."
 
@@ -2163,10 +2135,12 @@ metadata:
   nivel: "basico"
   tags: ["nucleones", "particulas"]
 
-respuesta: ["protones", "neutrones"]
-tipo: ordenar
+respuesta: "electrones"
+tipo: mc
 
 opciones_explicitas: ["protones", "neutrones", "electrones"]
+
+enunciado: "¿Cuál de las siguientes partículas NO es un nucleón (no forma parte del núcleo atómico)?"
 
 explicacion: |
   Los nucleones son las partículas que componen el núcleo (protones y neutrones). Los electrones orbitan alrededor del núcleo en la corteza atómica.
@@ -2196,11 +2170,11 @@ metadata:
   nivel: "intermedio"
   tags: ["fuerza_nuclear_fuerte", "alcance"]
 
-variables:
-  es_corta: verdadero
-
-respuesta: es_corta
+respuesta: "corto"
 tipo: completar
+respuestas_validas:
+  - "corto"
+
 enunciado: "La fuerza nuclear fuerte es una interacción de ___ alcance, lo que la distingue de la fuerza electromagnética que actúa a distancias mayores."
 
 explicacion: |
@@ -2215,25 +2189,24 @@ metadata:
   tags: ["isótopos", "nucleones"]
 
 variables:
-  escenario: uno_de([
-    ["6 protones", "6 neutrones", "12"],
-    ["17 protones", "8 neutrones", "25"],
-    ["8 protones", "8 neutrones", "16"]
-  ])
+  escenario: uno_de([["6 protones", "6 neutrones", "12"], ["17 protones", "8 neutrones", "25"], ["8 protones", "8 neutrones", "16"]])
 
-respuesta: escenario[idx][2
 tipo: completar
-respuestas_validas: ["12", "25", "16"]
+respuesta: escenario[2]
+respuestas_validas:
+  - "12"
+  - "25"
+  - "16"
 
-enunciado: "Un átomo de Carbono-12 tiene 6 protones. Si comparamos su masa con un átomo de Oxígeno-16 (que tiene 8 protones y 8 neutrones), el número de nucleones totales del Carbono-12 es ___."
+enunciado: "Un átomo tiene {escenario[0]} y {escenario[1]}. El número de nucleones totales es ___."
 
 pasos:
-  - "Identificar el número de protones (6)."
-  - "Identificar el número de neutrones (6)."
+  - "Identificar el número de protones."
+  - "Identificar el número de neutrones."
   - "Sumar protones + neutrones para obtener el número de masa (A)."
 
 explicacion: |
-  El número de nucleones (número de masa A) es la suma de protones (Z) y neutrones (N). Para el Carbono-12: 6 + 6 = 12.
+  El número de nucleones (número de masa A) es la suma de protones (Z) y neutrones (N).
 ```
 
 ```
@@ -2260,9 +2233,9 @@ metadata:
   nivel: "basico"
   tags: ["nucleones", "orden"]
 
-respuesta: ["protones", "neutrones"]
+respuesta_orden: ["protones", "neutrones"]
 tipo: ordenar
-opciones_explicitas: ["protones", "neutrones", "electrones"]
+opciones_explicitas: ["protones", "neutrones"]
 
 enunciado: "Ordena los siguientes componentes según su ubicación: primero los que definen la identidad del elemento y luego los que aportan masa pero no carga (en un núcleo de hidrógeno pesado o deuterio)."
 
@@ -2284,7 +2257,8 @@ variables:
 
 enunciado: "Un científico analiza una muestra de {dato[0]}. Sabiendo que este isótopo tiene {dato[1]} protones, ¿cuántos neutrones posee en su núcleo?"
 
-respuestas_validas: [dato[2]]
+respuestas_validas:
+  - dato[2]
 respuesta: dato[2]
 tipo: completar
 tolerancia_abs: 0
@@ -2302,11 +2276,11 @@ metadata:
   tags: ["carga", "electrones", "protones"]
 
 variables:
-  datos: [["un átomo neutro de Helio", 2, 2], ["un ion de Litio con 3 protones y 2 electrones", 3, 2], ["un ion de Magnesio con 12 protones y 10 electrones", 12, 10]]
+  datos: [["un átomo neutro de Helio", 2, 2, "neutro"], ["un ion de Litio con 3 protones y 2 electrones", 3, 2, "positivo"], ["un ion de Magnesio con 12 protones y 10 electrones", 12, 10, "positivo"]]
   idx: uno_de([0, 1, 2])
   dato: datos[idx]
 
-respuesta: "positivo"
+respuesta: dato[3]
 tipo: mc
 opciones_explicitas: ["positivo", "negativo", "neutro"]
 
@@ -2314,7 +2288,7 @@ enunciado: "Considerando {dato[0]}, si el núcleo tiene {dato[1]} protones y {da
 
 explicacion: |
   La carga total depende de la diferencia entre protones (positivos) y electrones (negativos). 
-  En el caso de {dato[0]}, la carga es ___ debido a la diferencia de cargas.
+  En el caso de {dato[0]}, la carga es {dato[3]} debido a la diferencia de cargas.
 ```
 
 ```
@@ -2347,7 +2321,10 @@ variables:
 
 respuesta: dato[1]
 tipo: completar
-respuestas_validas: ["Sodio-23", "Hidrógeno-1", "Deuterio"]
+respuestas_validas:
+  - "Sodio-23"
+  - "Hidrógeno-1"
+  - "Deuterio"
 
 enunciado: "Un detector de partículas identifica un núcleo con {dato[0]}. El nombre de este isótopo es ___."
 
@@ -2363,7 +2340,7 @@ metadata:
   tags: ["particulas", "masa", "ordenar"]
 
 opciones_explicitas: ["Protones", "Neutrones", "Electrones"]
-respuesta: ["Protones", "Neutrones", "Electrones"]
+respuesta_orden: ["Protones", "Neutrones", "Electrones"]
 tipo: ordenar
 
 enunciado: "Ordena las siguientes partículas según su masa aproximada, de mayor a menor (considerando que protones y neutrones tienen masas similares y el electrón es mucho más ligero):"
@@ -2371,3 +2348,4 @@ enunciado: "Ordena las siguientes partículas según su masa aproximada, de mayo
 explicacion: |
   Los protones y neutrones tienen masas de aproximadamente 1 u, mientras que los electrones tienen una masa de aproximadamente 1/1836 u.
 ```
+

@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de la Química
+# Examen jefe — [PENDIENTE #848]
 
-> Logro #148. Completaste el examen integrando conceptos atmosféricos, termodinámicos y de laboratorio. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas. **149 preguntas totales** en 7/7 secciones.
+> Logro #848. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **149 preguntas totales** en 7/7 secciones.
 
 ---
 
@@ -17,7 +17,7 @@ variables:
   funcion: uno_de(["absorbe", "filtra"])
   tipo_radiacion: "ultravioleta"
 
-respuesta: "{funcion} la radiación {tipo_radiacion}"
+respuesta: funcion + " la radiación " + tipo_radiacion
 tipo: completar
 
 enunciado: "En la estratosfera, la capa de ozono tiene la función principal de {funcion} la radiación {tipo_radiacion} del sol."
@@ -37,7 +37,7 @@ variables:
   gas: "SO2"
   nombre: "dióxido de azufre"
 
-respuesta: "{nombre}"
+respuesta: nombre
 tipo: completar
 
 enunciado: "Uno de los principales precursores de la lluvia ácida, emitido por la quema de combustibles fósiles que contienen impurezas de azufre, es el {nombre} ({gas})."
@@ -56,7 +56,7 @@ metadata:
 variables:
   formula: "H2SO4"
 
-respuesta: "{formula}"
+respuesta: formula
 tipo: input
 
 enunciado: "Escribe la fórmula química del ácido fuerte formado cuando el dióxido de azufre reacciona con el vapor de agua y el oxígeno en la atmósfera."
@@ -75,7 +75,7 @@ metadata:
 variables:
   energia: "radiación ultravioleta"
 
-respuesta: "{energia}"
+respuesta: energia
 tipo: completar
 
 enunciado: "El esmog fotoquímico se forma cuando los óxidos de nitrógeno y los compuestos orgánicos volátiles (COV) reaccionan en presencia de {energia}."
@@ -97,7 +97,7 @@ variables:
   nombre1: "óxidos de nitrógeno"
   nombre2: "compuestos orgánicos volátiles"
 
-respuesta: "{nombre1} y {nombre2}"
+respuesta: nombre1 + " y " + nombre2
 tipo: completar
 
 enunciado: "Los dos grupos principales de contaminantes que interactúan para formar el esmog fotoquímico son los {nombre1} y los {nombre2}."
@@ -116,7 +116,7 @@ metadata:
 variables:
   metal: "aluminio"
 
-respuesta: "{metal}"
+respuesta: metal
 tipo: input
 
 enunciado: "La acidificación de los suelos causada por la lluvia ácida puede liberar metales pesados. ¿Qué metal, comúnmente presente en arcillas, se vuelve soluble y tóxico para las plantas?"
@@ -136,7 +136,7 @@ variables:
   capa_buena: "estratosfera"
   capa_mala: "troposfera"
 
-respuesta: "{capa_buena} y {capa_mala}"
+respuesta: capa_buena + " y " + capa_mala
 tipo: completar
 
 enunciado: "El ozono es beneficioso en la {capa_buena}, pero actúa como contaminante en la {capa_mala}."
@@ -155,7 +155,7 @@ metadata:
 variables:
   formula: "HNO3"
 
-respuesta: "{formula}"
+respuesta: formula
 tipo: input
 
 enunciado: "Además del ácido sulfúrico, la lluvia ácida contiene ácido nítrico. Escribe su fórmula química."
@@ -174,7 +174,7 @@ metadata:
 variables:
   lugar: "áreas urbanas"
 
-respuesta: "{lugar}"
+respuesta: lugar
 tipo: input
 
 enunciado: "El esmog fotoquímico es particularmente relevante y frecuente en {lugar} debido a la alta densidad vehicular y emisiones industriales."
@@ -193,7 +193,7 @@ metadata:
 variables:
   nombre: "alótropos"
 
-respuesta: "{nombre}"
+respuesta: nombre
 tipo: input
 
 enunciado: "El oxígeno molecular ($O_2$) y el ozono ($O_3$) son {nombre} del elemento oxígeno."
@@ -212,7 +212,7 @@ metadata:
 variables:
   efecto: "acidificar"
 
-respuesta: "{efecto}"
+respuesta: efecto
 tipo: input
 
 enunciado: "Al precipitar, los ácidos formados en la lluvia ácida tienen la capacidad de {efecto} los cuerpos de agua, poniendo en riesgo la vida acuática."
@@ -231,7 +231,7 @@ metadata:
 variables:
   producto: "ozono troposférico"
 
-respuesta: "{producto}"
+respuesta: producto
 tipo: input
 
 enunciado: "Una de las principales consecuencias de la reacción fotoquímica entre $NO_x$ y COV es la generación de {producto}."
@@ -250,7 +250,7 @@ metadata:
 variables:
   fuente: "vehículos"
 
-respuesta: "{fuente}"
+respuesta: fuente
 tipo: input
 
 enunciado: "Los óxidos de nitrógeno ($NO_x$) se generan principalmente por la combustión a alta temperatura en {fuente} e industrias."
@@ -269,7 +269,7 @@ metadata:
 variables:
   propiedad: "inestable"
 
-respuesta: "{propiedad}"
+respuesta: propiedad
 tipo: input
 
 enunciado: "A diferencia del $O_2$, el ozono ($O_3$) es un gas químicamente {propiedad} y altamente reactivo."
@@ -288,7 +288,7 @@ metadata:
 variables:
   categoria: "metales pesados"
 
-respuesta: "{categoria}"
+respuesta: categoria
 tipo: input
 
 enunciado: "La lluvia ácida libera de los suelos y sedimentos {categoria} que son tóxicos para la vida terrestre y acuática."
@@ -307,7 +307,7 @@ metadata:
 variables:
   proteccion: "escudo natural"
 
-respuesta: "{proteccion}"
+respuesta: proteccion
 tipo: input
 
 enunciado: "La capa de ozono actúa como un {proteccion} natural contra la radiación ultravioleta solar."
@@ -326,7 +326,7 @@ metadata:
 variables:
   forma: "ácidos fuertes"
 
-respuesta: "{forma}"
+respuesta: forma
 tipo: input
 
 enunciado: "Los óxidos de nitrógeno y azufre reaccionan con el vapor de agua para formar {forma} que luego precipitan."
@@ -346,7 +346,7 @@ variables:
   siglas: "COV"
   nombre: "compuestos orgánicos volátiles"
 
-respuesta: "{nombre}"
+respuesta: nombre
 tipo: input
 
 enunciado: "Las siglas COV se refieren a los {nombre}, precursoes clave del esmog."
@@ -365,7 +365,7 @@ metadata:
 variables:
   formula: "O3"
 
-respuesta: "{formula}"
+respuesta: formula
 tipo: input
 
 enunciado: "Escribe la fórmula molecular del ozono."
@@ -384,7 +384,7 @@ metadata:
 variables:
   alcance: "distantes"
 
-respuesta: "{alcance}"
+respuesta: alcance
 tipo: input
 
 enunciado: "La lluvia ácida puede tener consecuencias devastadoras en ecosistemas {alcance} a la fuente de emisión de contaminantes."
@@ -403,7 +403,7 @@ metadata:
 variables:
   organo: "pulmones"
 
-respuesta: "{organo}"
+respuesta: organo
 tipo: input
 
 enunciado: "El ozono troposférico presente en el esmog irrita principalmente los {organo} de las personas."
@@ -422,7 +422,7 @@ metadata:
 variables:
   concepto: "reactor químico"
 
-respuesta: "{concepto}"
+respuesta: concepto
 tipo: input
 
 enunciado: "La atmósfera puede ser conceptualizada como un gigante {concepto} donde ocurren reacciones constantes."
@@ -441,7 +441,7 @@ metadata:
 variables:
   nombre: "óxidos de nitrógeno"
 
-respuesta: "{nombre}"
+respuesta: nombre
 tipo: input
 
 enunciado: "Los {nombre} ($NO_x$) son emitidos por la combustión y contribuyen a la formación de lluvia ácida."
@@ -460,7 +460,7 @@ metadata:
 variables:
   rol: "catalizador"
 
-respuesta: "{rol}"
+respuesta: rol
 tipo: input
 
 enunciado: "En la formación del esmog fotoquímico, la luz solar actúa como {rol} de las transformaciones químicas."
@@ -479,7 +479,7 @@ metadata:
 variables:
   capa: "estratosfera"
 
-respuesta: "{capa}"
+respuesta: capa
 tipo: input
 
 enunciado: "La capa de ozono protectora se encuentra ubicada en la {capa}."
@@ -532,7 +532,8 @@ metadata:
 
 respuesta: "exceso"
 tipo: completar
-respuestas_validas: ["exceso"]
+respuestas_validas:
+  - "exceso"
 
 enunciado: "El reactivo que sobra al final de la reacción se llama reactivo en ___."
 
@@ -567,7 +568,7 @@ variables:
   moles_h2: uno_de([4, 6, 8, 10])
 
 respuesta: moles_h2 / 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En la reacción 2 H2 + O2 → 2 H2O, si hay {moles_h2} moles de H2, ¿cuál es el cociente moles/coeficiente del H2?"
@@ -591,7 +592,7 @@ variables:
   moles_o2: uno_de([1, 2, 3])
 
 respuesta: moles_o2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En la reacción 2 H2 + O2 → 2 H2O, si hay {moles_o2} moles de O2, ¿cuál es el cociente moles/coeficiente del O2?"
@@ -629,7 +630,9 @@ metadata:
 
 respuesta: "coeficiente"
 tipo: completar
-respuestas_validas: ["coeficiente", "coeficientes"]
+respuestas_validas:
+  - "coeficiente"
+  - "coeficientes"
 
 enunciado: "Para encontrar el reactivo limitante hay que dividir los moles de cada reactivo por su ___ en la ecuación balanceada."
 
@@ -672,7 +675,7 @@ variables:
   rendimiento_real: rendimiento_teorico * porcentaje / 100
 
 respuesta: porcentaje
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "El rendimiento teórico de una reacción es de {rendimiento_teorico} g y el rendimiento real obtenido en el laboratorio es de {rendimiento_real} g. ¿Cuál es el porcentaje de rendimiento?"
@@ -693,7 +696,8 @@ metadata:
 
 respuesta: "teorico"
 tipo: completar
-respuestas_validas: ["teorico"]
+respuestas_validas:
+  - "teorico"
 
 enunciado: "La fórmula del rendimiento porcentual es (rendimiento real dividido rendimiento ___) por 100."
 
@@ -795,7 +799,7 @@ variables:
   idx: uno_de([0, 1, 2, 3])
 
 respuesta: datos[idx][1] / datos[idx][0] * 100
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "El rendimiento teórico de una reacción es de {datos[idx][0]} gramos y el rendimiento real obtenido es de {datos[idx][1]} gramos. ¿Cuál es el porcentaje de rendimiento?"
@@ -1067,7 +1071,8 @@ metadata:
 
 respuesta: "seguridad"
 tipo: completar
-respuestas_validas: ["seguridad"]
+respuestas_validas:
+  - "seguridad"
 
 enunciado: "Antes de manipular una sustancia química nueva, hay que leer siempre la hoja de ___ (MSDS/FDS)."
 
@@ -1649,7 +1654,8 @@ metadata:
 
 respuesta: "periodos"
 tipo: completar
-respuestas_validas: ["periodos"]
+respuestas_validas:
+  - "periodos"
 
 enunciado: "Las filas horizontales de la tabla periódica se llaman ___."
 
@@ -1666,7 +1672,8 @@ metadata:
 
 respuesta: "grupos"
 tipo: completar
-respuestas_validas: ["grupos"]
+respuestas_validas:
+  - "grupos"
 
 enunciado: "Las columnas verticales de la tabla periódica se llaman ___."
 
@@ -1719,7 +1726,8 @@ metadata:
 
 respuesta: "nobles"
 tipo: completar
-respuestas_validas: ["nobles"]
+respuestas_validas:
+  - "nobles"
 
 enunciado: "El grupo 18 de la tabla periódica son los gases ___."
 
@@ -1870,7 +1878,8 @@ metadata:
 
 respuesta: "nuevo"
 tipo: completar
-respuestas_validas: ["nuevo"]
+respuestas_validas:
+  - "nuevo"
 
 enunciado: "Al bajar en un grupo de la tabla periódica se agrega un nivel de energía ___, lo que hace que el radio atómico aumente."
 
@@ -2025,7 +2034,8 @@ metadata:
 
 respuesta: "reactivos"
 tipo: completar
-respuestas_validas: ["reactivos"]
+respuestas_validas:
+  - "reactivos"
 
 enunciado: "La fórmula de la entalpía de reacción es ΔH_reacción = ΔH_productos - ΔH ___."
 
@@ -2061,7 +2071,7 @@ variables:
   dh_reactivos: uno_de([-80, -30, 20, 40])
 
 respuesta: dh_productos - dh_reactivos
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Calculá la entalpía de reacción si la entalpía de los productos es {dh_productos} kJ/mol y la de los reactivos es {dh_reactivos} kJ/mol."
@@ -2117,7 +2127,7 @@ variables:
   idx: uno_de([0, 1, 2])
 
 respuesta: datos[idx][0] + datos[idx][1]
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Una reacción A→C se puede escribir como A→B (ΔH1 = {datos[idx][0]} kJ) y B→C (ΔH2 = {datos[idx][1]} kJ). ¿Cuál es el ΔH total de A→C?"
@@ -2154,7 +2164,8 @@ metadata:
 
 respuesta: "estado"
 tipo: completar
-respuestas_validas: ["estado"]
+respuestas_validas:
+  - "estado"
 
 enunciado: "La propiedad que hace que ΔH dependa sólo de los estados inicial y final, y no del camino, se llama función de ___."
 
@@ -2319,7 +2330,8 @@ metadata:
 
 respuesta: "combinan"
 tipo: completar
-respuestas_validas: ["combinan"]
+respuestas_validas:
+  - "combinan"
 
 enunciado: "En una reacción de síntesis, dos o más sustancias se ___ para formar una sola más compleja."
 
@@ -2466,7 +2478,8 @@ metadata:
 
 respuesta: "solo"
 tipo: completar
-respuestas_validas: ["solo"]
+respuestas_validas:
+  - "solo"
 
 enunciado: "En una reacción de desplazamiento aparece un elemento ___ (sin combinar) tanto en reactivos como en productos, pero con distinto compañero."
 
@@ -2611,3 +2624,4 @@ enunciado: "La reacción N2 + 3H2 → 2NH3 (síntesis del amoníaco) es una reac
 explicacion: |
   Verdadero. Nitrógeno e hidrógeno (2 reactivos) se combinan para formar amoníaco (1 producto): patrón típico de síntesis.
 ```
+

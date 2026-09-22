@@ -1,2988 +1,3406 @@
-# Examen jefe — Domina la recta y errores
+# Examen jefe — [PENDIENTE #612]
 
-> Logro #63. Completaste el parcial resolviendo ecuaciones de primer grado, diferenciales, exponenciales y logarítmicas, distinguiendo bien el error sistemático del aleatorio. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **138 preguntas totales** en 5/5 secciones.
+> Logro #612. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **154 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: ecuacion-de-la-recta (26 preguntas)
+## Sección: suma (40 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "suma"
   nivel: "basico"
-  tags: ["ecuacion_recta", "vocabulario"]
-
-enunciado: "¿Qué es la ordenada al origen de una recta?"
-tipo: mc
-opciones_explicitas:
-  - "El punto donde la recta cruza el eje y"
-  - "El punto donde la recta cruza el eje x"
-  - "La pendiente de la recta"
-respuesta: "El punto donde la recta cruza el eje y"
-
-explicacion: |
-  Es el punto (0, b): se obtiene evaluando la ecuación en x = 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
-  nivel: "intermedio"
-  tags: ["ecuacion_recta", "vocabulario"]
-
-enunciado: "¿Qué es la abscisa al origen (o raíz) de una recta?"
-tipo: mc
-opciones_explicitas:
-  - "El punto donde la recta cruza el eje x"
-  - "El punto donde la recta cruza el eje y"
-  - "El punto más alejado del origen"
-respuesta: "El punto donde la recta cruza el eje x"
-
-explicacion: |
-  Se obtiene poniendo y = 0 en la ecuación y despejando x.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
-  nivel: "basico"
-  tags: ["ecuacion_recta", "problema"]
+  tags: ["suma", "sin_llevar"]
 
 variables:
-  m: uno_de([2, 3, 4, 5, -2, -3])
-  b: uno_de([1, 2, 5, -3, -4, 6])
+  a: random(0, 9)
+  b: random(0, 9)
 
-respuesta: b
+restricciones:
+  - (a + b) <= 9
+
+respuesta: a + b
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Una recta tiene ecuación y = {m}x + {b}. ¿Cuál es su ordenada al origen?"
-
-pasos:
-  - "En x = 0: y = {m} × 0 + {b} = {b}"
+enunciado: "¿Cuánto es {a} + {b}?"
 
 explicacion: |
-  La ordenada al origen es directamente el término independiente b.
+  Sumar sin llevar es contar hacia adelante desde el primer sumando tantas
+  veces como indica el segundo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
-  nivel: "intermedio"
-  tags: ["ecuacion_recta", "problema"]
-
-variables:
-  m: uno_de([2, 4, 5])
-  k: random(-6, 6)
-  b: 0 - (m * k)
-
-respuesta: k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una recta tiene ecuación y = {m}x + {b}. ¿Cuál es su abscisa al origen (dónde cruza el eje x)?"
-
-pasos:
-  - "0 = {m}x + {b}"
-  - "x = -{b} ÷ {m} = {k}"
-
-explicacion: |
-  Se pone y = 0 y se despeja x.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "suma"
   nivel: "basico"
-  tags: ["ecuacion_recta", "problema"]
+  tags: ["suma", "sin_llevar", "problema"]
 
 variables:
-  m: uno_de([2, 3, 4, -2])
-  b: uno_de([1, 3, 5, -2])
-  x: random(1, 8)
+  a: random(1, 9)
+  b: random(1, 9)
 
-respuesta: (m * x) + b
+restricciones:
+  - (a + b) <= 9
+
+respuesta: a + b
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Una recta tiene ecuación y = {m}x + {b}. ¿Cuál es el valor de y cuando x = {x}?"
+enunciado: "Tenés {a} caramelos y te regalan {b} más. ¿Cuántos caramelos tenés ahora?"
+
+explicacion: |
+  "Tener y que te den más" es sumar: el total junta lo que ya tenías con lo
+  que se agregó.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "sin_llevar"]
+
+variables:
+  da: random(1, 8)
+  au: random(0, 9)
+  db: random(1, 8)
+  bu: random(0, 9)
+  a: da * 10 + au
+  b: db * 10 + bu
+
+restricciones:
+  - (au + bu) <= 9
+  - (da + db) <= 9
+
+respuesta: a + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} + {b}?"
 
 pasos:
-  - "y = {m} × {x} + {b} = {(m * x) + b}"
+  - "Unidades: {au} + {bu} = {au + bu}. Decenas: {da} + {db} = {da + db}."
 
 explicacion: |
-  Se reemplaza x por el valor dado y se calcula y.
+  Sin llevar, cada columna (unidades, decenas) se suma por separado y no
+  hay que ajustar nada entre ellas.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "calculo_mental"]
+
+variables:
+  da: random(1, 8)
+  db: random(1, 8)
+  a: da * 10
+  b: db * 10
+
+respuesta: a + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} + {b}?"
+
+pasos:
+  - "Sumar decenas completas es sumar las decenas y agregar el cero: {da} + {db} = {da + db}, entonces {a} + {b} = {a + b}"
+
+explicacion: |
+  Cuando ambos números son "redondos" (terminan en cero), alcanza con sumar
+  las cifras significativas y agregar los ceros al final.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
   nivel: "intermedio"
-  tags: ["ecuacion_recta"]
+  tags: ["suma", "con_llevada"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  da: random(1, 8)
+  au: random(1, 9)
+  db: random(1, 8)
+  bu: random(1, 9)
+  a: da * 10 + au
+  b: db * 10 + bu
 
-enunciado: "Si la ordenada al origen de una recta es b = 0, la recta pasa exactamente por el origen (0, 0)."
+restricciones:
+  - (au + bu) >= 10
+
+respuesta: a + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} + {b}?"
+
+pasos:
+  - "Unidades: {au} + {bu} = {au + bu} → se escribe {(au + bu) - 10} y se lleva 1 a las decenas"
 
 explicacion: |
-  La ecuación queda y = mx, que en x = 0 da y = 0.
+  Cuando la suma de una columna da 10 o más, se escribe sólo la cifra de
+  las unidades de ese resultado y se lleva 1 a la columna siguiente.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "suma"
   nivel: "intermedio"
-  tags: ["ecuacion_recta"]
+  tags: ["suma", "con_llevada"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  da: random(5, 9)
+  au: random(0, 4)
+  db: random(5, 9)
+  bu: random(0, 4)
+  a: da * 10 + au
+  b: db * 10 + bu
 
-enunciado: "Si la pendiente de una recta es m = 0, la recta es horizontal: y = b para cualquier valor de x."
+respuesta: a + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} + {b}?"
+
+pasos:
+  - "Decenas: {da} + {db} = {da + db} → el resultado pasa a tener 3 cifras"
 
 explicacion: |
-  Sin inclinación, la recta no sube ni baja.
+  La llevada no es sólo cosa de las unidades: si la columna de las decenas
+  también suma 10 o más, se lleva 1 a las centenas.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
-  nivel: "avanzado"
-  tags: ["ecuacion_recta"]
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "con_llevada", "problema"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  au: random(5, 9)
+  da: random(1, 8)
+  bu: random(5, 9)
+  db: random(1, 8)
+  a: da * 10 + au
+  b: db * 10 + bu
 
-enunciado: "Una recta horizontal y = b, con b distinto de 0, nunca cruza el eje x."
+restricciones:
+  - (au + bu) >= 10
+
+respuesta: a + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En un colectivo suben {a} pasajeros en una parada y {b} en la siguiente. ¿Cuántos pasajeros subieron en total?"
 
 explicacion: |
-  Como y vale siempre b (nunca 0), no hay ningún punto de esa recta
-  sobre el eje x.
+  El planteo es el mismo que una suma numérica; el contexto sólo dice qué
+  representa cada sumando.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
-  nivel: "avanzado"
-  tags: ["ecuacion_recta"]
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "con_llevada"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  ca: random(1, 8)
+  da: random(0, 9)
+  au: random(1, 9)
+  cb: random(1, 8)
+  db: random(0, 9)
+  bu: random(1, 9)
+  a: ca * 100 + da * 10 + au
+  b: cb * 100 + db * 10 + bu
 
-enunciado: "Una recta vertical (x = k, para cualquier k) no se puede escribir en la forma y = mx + b."
+restricciones:
+  - (au + bu) >= 10
+
+respuesta: a + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} + {b}?"
 
 explicacion: |
-  Su pendiente es indefinida: a un mismo x le corresponderían infinitos
-  valores de y.
+  Con 3 cifras el procedimiento es el mismo, columna por columna, sólo que
+  la llevada puede seguir de las unidades a las decenas y de ahí a las
+  centenas.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "suma"
   nivel: "avanzado"
-  tags: ["ecuacion_recta", "vocabulario"]
+  tags: ["suma", "con_llevada"]
 
-enunciado: "¿Por qué una recta vertical no tiene una pendiente definida?"
+variables:
+  ca: random(1, 8)
+  da: random(5, 9)
+  au: random(5, 9)
+  cb: random(1, 8)
+  db: random(5, 9)
+  bu: random(5, 9)
+  a: ca * 100 + da * 10 + au
+  b: cb * 100 + db * 10 + bu
+
+restricciones:
+  - (au + bu) >= 10
+  - (da + db) >= 9
+
+respuesta: a + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} + {b}?"
+
+explicacion: |
+  Acá la llevada de las unidades empuja también a las decenas a llevarse:
+  hay que arrastrar el 1 de una columna a la otra sin perderlo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "con_llevada", "problema"]
+
+variables:
+  a: random(150, 899)
+  b: random(150, 899)
+
+respuesta: a + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Gastaste ${a} en el supermercado y ${b} en la farmacia. ¿Cuánto gastaste en total?"
+
+explicacion: |
+  Sumar montos de dinero es sumar los números igual que siempre; el signo
+  $ no cambia el procedimiento.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "varios_sumandos"]
+
+variables:
+  a: random(1, 90)
+  b: random(1, 90)
+  c: random(1, 90)
+
+respuesta: a + b + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} + {b} + {c}?"
+
+pasos:
+  - "Se puede sumar de a dos, en cualquier orden: ({a} + {b}) + {c} = {a + b + c}"
+
+explicacion: |
+  Sumar tres o más números es sumar de a dos, empezando por cualquier par
+  (propiedad asociativa).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "varios_sumandos", "calculo_mental"]
+
+variables:
+  a: random(1, 8) * 10
+  b: random(1, 8)
+  c: random(1, 8) * 10
+
+respuesta: a + b + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} + {b} + {c}?"
+
+pasos:
+  - "Conviene sumar primero las dos decenas redondas: {a} + {c} = {a + c}, y después sumar {b}: {a + c} + {b} = {a + b + c}"
+
+explicacion: |
+  La propiedad asociativa permite elegir qué par sumar primero: agrupar los
+  números "más fáciles" ahorra trabajo mental.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "avanzado"
+  tags: ["suma", "varios_sumandos"]
+
+variables:
+  a: random(100, 400)
+  b: random(100, 400)
+  c: random(100, 400)
+
+respuesta: a + b + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} + {b} + {c}?"
+
+explicacion: |
+  Con más cifras el procedimiento no cambia: se suma de a dos hasta usar
+  todos los sumandos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "propiedades"]
+
+variables:
+  a: random(1, 90)
+  b: random(1, 90)
+
+restricciones:
+  - a != b
+
+respuesta: a + b
 tipo: mc
 opciones_explicitas:
-  - "Porque todos sus puntos comparten el mismo x, y la fórmula de pendiente dividiría por (x₂ − x₁) = 0"
-  - "Porque las rectas verticales no existen en geometría"
-  - "Porque su pendiente siempre vale exactamente 0"
-respuesta: "Porque todos sus puntos comparten el mismo x, y la fórmula de pendiente dividiría por (x₂ − x₁) = 0"
+  - b + a
+  - a + b + 1
+  - a + b - 1
+
+enunciado: "¿Cuál de estas opciones da el mismo resultado que {a} + {b}?"
 
 explicacion: |
-  Dividir por 0 no está definido — por eso la pendiente de una recta
-  vertical no existe como número.
+  Cambiar el orden de los sumandos no cambia el resultado (propiedad
+  conmutativa): {a} + {b} es exactamente lo mismo que {b} + {a}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
-  nivel: "intermedio"
-  tags: ["ecuacion_recta", "problema"]
-
-variables:
-  m: uno_de([2, 3, -2])
-  b: uno_de([1, 4, -3])
-  x: random(1, 6)
-  y: (m * x) + b
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "propiedades"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una recta tiene ecuación y = {m}x + {b}. ¿El punto ({x}, {y}) está sobre esa recta?"
+enunciado: "Cambiar el orden de los sumandos no cambia el resultado de una suma."
 
 explicacion: |
-  Reemplazando x = {x}: y = {m} × {x} + {b} = {y}, que coincide con la
-  ordenada del punto.
+  Es la propiedad conmutativa: a + b siempre da lo mismo que b + a.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "suma"
   nivel: "intermedio"
-  tags: ["ecuacion_recta", "problema"]
+  tags: ["suma", "propiedades"]
 
 variables:
-  m: uno_de([2, 3, -2])
-  b: uno_de([1, 4, -3])
-  x: random(1, 6)
-  y_real: (m * x) + b
-  y_falso: y_real + random(1, 4)
+  a: random(1, 30)
+  b: random(1, 30)
+  c: random(1, 30)
+
+respuesta: ((a + b) + c == a + (b + c))
+tipo: vf
+
+enunciado: "¿Es cierto que ({a} + {b}) + {c} da lo mismo que {a} + ({b} + {c})?"
+
+explicacion: |
+  Es la propiedad asociativa: no importa qué par de sumandos se sume
+  primero, el resultado final es siempre el mismo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "propiedades"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Una recta tiene ecuación y = {m}x + {b}. ¿El punto ({x}, {y_falso}) está sobre esa recta?"
+enunciado: "Agrupar los sumandos de otra manera (por ejemplo, sumar primero el segundo y el tercero en vez del primero y el segundo) cambia el resultado final de la suma."
 
 explicacion: |
-  Reemplazando x = {x}, la recta da y = {y_real}, que NO coincide con
-  {y_falso}: el punto no está sobre la recta.
+  Justamente al revés: agrupar distinto no cambia nada (propiedad
+  asociativa); el resultado final es siempre el mismo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
-  nivel: "intermedio"
-  tags: ["ecuacion_recta", "ordenar"]
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "propiedades"]
 
-enunciado: "Ordená los pasos para graficar la recta y = mx + b sin tabular muchos puntos."
+variables:
+  a: random(1, 999)
+
+respuesta: a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} + 0?"
+
+explicacion: |
+  Sumar 0 no agrega ni quita nada: el resultado es siempre el mismo número
+  con el que se empezó.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "propiedades"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sumarle 0 a cualquier número da como resultado ese mismo número, sin cambiarlo."
+
+explicacion: |
+  El 0 es el elemento neutro de la suma: no aporta ni resta nada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "vocabulario"]
+
+enunciado: "En la suma 8 + 5 = 13, ¿cómo se llama el 13?"
+tipo: mc
+opciones_explicitas:
+  - "Total"
+  - "Sumando"
+  - "Resto"
+respuesta: "Total"
+
+explicacion: |
+  El resultado de una suma se llama total (o suma); los números que se
+  suman son los sumandos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "vocabulario"]
+
+enunciado: "En la suma 8 + 5 = 13, ¿cómo se llaman el 8 y el 5?"
+tipo: mc
+opciones_explicitas:
+  - "Sumandos"
+  - "Totales"
+  - "Restos"
+respuesta: "Sumandos"
+
+explicacion: |
+  Los números que se suman se llaman sumandos; el resultado es el total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "estimacion"]
+
+variables:
+  a: random(11, 988)
+  b: random(11, 988)
+  ra: redondear(a / 10, 0) * 10
+  rb: redondear(b / 10, 0) * 10
+
+respuesta: ra + rb
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Redondeá {a} y {b} a la decena más cercana, y sumá esos redondeos. ¿Cuánto da la estimación?"
+
+pasos:
+  - "{a} redondea a {ra}. {b} redondea a {rb}. {ra} + {rb} = {ra + rb}"
+
+explicacion: |
+  Estimar una suma es redondear cada sumando por separado antes de sumar,
+  para tener una idea rápida del resultado sin hacer la cuenta exacta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "estimacion"]
+
+variables:
+  a: random(101, 9888)
+  b: random(101, 9888)
+  ra: redondear(a / 100, 0) * 100
+  rb: redondear(b / 100, 0) * 100
+
+respuesta: ra + rb
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Redondeá {a} y {b} a la centena más cercana, y sumá esos redondeos. ¿Cuánto da la estimación?"
+
+pasos:
+  - "{a} redondea a {ra}. {b} redondea a {rb}. {ra} + {rb} = {ra + rb}"
+
+explicacion: |
+  Con números más grandes conviene redondear a la centena (en vez de la
+  decena) para que la estimación sea más rápida de calcular.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "estimacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Una estimación siempre tiene que dar exactamente el mismo número que la cuenta exacta."
+
+explicacion: |
+  Una estimación es sólo un valor aproximado, útil para controlar que la
+  cuenta exacta no tenga un error grosero — no tiene por qué coincidir al
+  dígito con el resultado real.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "sumando_faltante"]
+
+variables:
+  a: random(1, 90)
+  x: random(1, 90)
+  total: a + x
+
+respuesta: x
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Qué número hay que sumarle a {a} para obtener {total}?"
+
+pasos:
+  - "{total} - {a} = {total - a}"
+
+explicacion: |
+  Buscar el sumando que falta es, en realidad, hacer la resta entre el
+  total y el sumando conocido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "sumando_faltante"]
+
+variables:
+  a: random(100, 800)
+  x: random(50, 199)
+  total: a + x
+
+respuesta: x
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Qué número hay que sumarle a {a} para obtener {total}?"
+
+explicacion: |
+  El procedimiento es el mismo con números más grandes: restar el sumando
+  conocido al total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "sumando_faltante"]
+
+variables:
+  a: random(1, 90)
+  x: random(1, 90)
+  total: a + x
+
+tipo: completar
+enunciado: "Completá: ___ + {a} = {total}."
+respuestas_validas:
+  - x
+
+explicacion: |
+  El número que falta es el que, sumado a {a}, completa exactamente
+  {total}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "verificacion"]
+
+variables:
+  a: random(1, 9)
+  b: random(1, 9)
+  correcto: a + b
+  error: uno_de([0, 0, 0, 1, -1])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
+tipo: vf
+
+enunciado: "¿Está bien resuelta esta suma? {a} + {b} = {mostrado}"
+
+explicacion: |
+  Para verificar una suma hay que volver a calcularla y comparar el
+  resultado, no alcanza con que el número "parezca" razonable.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "verificacion"]
+
+variables:
+  a: random(10, 90)
+  b: random(10, 90)
+  correcto: a + b
+  error: uno_de([0, 0, 0, 1, -1, 10])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
+tipo: vf
+
+enunciado: "¿Está bien resuelta esta suma? {a} + {b} = {mostrado}"
+
+explicacion: |
+  Un error típico al sumar en columna es olvidarse de la llevada: por eso
+  conviene siempre volver a revisar columna por columna.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "avanzado"
+  tags: ["suma", "verificacion"]
+
+variables:
+  a: random(100, 800)
+  b: random(100, 800)
+  correcto: a + b
+  error: uno_de([0, 0, 0, 1, -1, 100])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
+tipo: vf
+
+enunciado: "¿Está bien resuelta esta suma? {a} + {b} = {mostrado}"
+
+explicacion: |
+  Con más cifras hay más columnas donde puede haber un error: conviene
+  verificar de derecha a izquierda, igual que al resolver.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "problema"]
+
+variables:
+  a: random(5, 40)
+  b: random(5, 40)
+
+respuesta: a + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En un salón hay {a} varones y {b} mujeres. ¿Cuántas personas hay en total?"
+
+explicacion: |
+  Juntar dos grupos distintos en un solo total es sumar sus cantidades.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "problema"]
+
+variables:
+  a: random(100, 500)
+  b: random(50, 300)
+
+respuesta: a + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un colectivo recorrió {a} metros hasta la primera parada y {b} metros más hasta la segunda. ¿Cuántos metros recorrió en total?"
+
+explicacion: |
+  Sumar dos tramos de un recorrido da la distancia total recorrida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "calculo_mental"]
+
+variables:
+  a: random(1, 988)
+  cifra_unidades: a - floor(a / 10) * 10
+  falta: 10 - cifra_unidades
+
+restricciones:
+  - cifra_unidades != 0
+
+respuesta: falta
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto le falta a {a} para llegar al próximo múltiplo de 10?"
+
+pasos:
+  - "La cifra de las unidades de {a} es {cifra_unidades}; falta {falta} para completar la decena"
+
+explicacion: |
+  Encontrar cuánto falta para "redondear hacia arriba" es una suma
+  disfrazada de resta: se busca el número que, sumado, completa el
+  múltiplo de 10 más cercano.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "calculo_mental"]
+
+variables:
+  a: random(1, 9888)
+  resto: a - floor(a / 100) * 100
+  falta: 100 - resto
+
+restricciones:
+  - resto != 0
+
+respuesta: falta
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto le falta a {a} para llegar al próximo múltiplo de 100?"
+
+explicacion: |
+  Mismo razonamiento que con los múltiplos de 10, mirando ahora las dos
+  últimas cifras del número.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "intermedio"
+  tags: ["suma", "problema"]
+
+variables:
+  a: random(100, 900)
+  meta: a + random(50, 400)
+
+respuesta: meta - a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Tenés ahorrados ${a} y tu meta es juntar ${meta}. ¿Cuánto te falta ahorrar?"
+
+explicacion: |
+  Lo ahorrado más lo que falta tiene que dar exactamente la meta: por eso
+  lo que falta es la meta menos lo ya ahorrado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estas sumas de menor a mayor resultado (sin calcularlas todas de una)."
+opciones_explicitas:
+  - "6 + 7"
+  - "3 + 2"
+  - "9 + 9"
+  - "5 + 4"
+respuesta_orden: ["3 + 2", "5 + 4", "6 + 7", "9 + 9"]
+
+explicacion: |
+  3+2=5, 5+4=9, 6+7=13, 9+9=18: hay que resolver cada suma antes de poder
+  ordenarlas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "algoritmo_columna"]
+
+variables:
+  da: random(1, 8)
+  au: random(1, 8)
+  db: random(1, 8)
+  bu: random(0, 9 - au)
+  a: da * 10 + au
+  b: db * 10 + bu
+  suma: a + b
+
+tipo: completar
+enunciado: "Completá el resultado: {a} + {b} = ___."
+respuestas_validas:
+  - suma
+
+explicacion: |
+  Se resuelve la suma en columna, de derecha a izquierda, y se completa
+  con el resultado final.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "sumando_faltante", "problema"]
+
+variables:
+  a: random(10, 80)
+  total: random(90, 150)
+
+restricciones:
+  - total > a
+
+respuesta: total - a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Llevás {a} puntos y necesitás llegar a {total} para ganar. ¿Cuántos puntos más tenés que sumar?"
+
+explicacion: |
+  Lo que ya tenés más lo que falta tiene que dar el total buscado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "calculo_mental", "varios_sumandos"]
+
+variables:
+  a: random(1, 9) * 100
+  b: random(1, 9) * 100
+  c: random(1, 9) * 100
+
+respuesta: a + b + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} + {b} + {c}?"
+
+pasos:
+  - "Al ser todos números redondos, alcanza con sumar las centenas: {a / 100} + {b / 100} + {c / 100} = {a / 100 + b / 100 + c / 100}, y agregar los ceros"
+
+explicacion: |
+  Sumar números redondos (que terminan en cero) es más rápido: se suman
+  las cifras significativas y se agregan los ceros al final.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma"
+  nivel: "basico"
+  tags: ["suma", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sumar es juntar dos o más cantidades en una sola."
+
+explicacion: |
+  Es la idea central de la suma: combinar cantidades separadas en un único
+  total.
+```
+
+## Sección: principio-multiplicativo-de-conteo (25 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "basico"
+  tags: ["conteo", "vocabulario"]
+
+enunciado: "¿Qué establece el principio multiplicativo de conteo?"
+tipo: mc
+opciones_explicitas:
+  - "Si una elección se compone de varios pasos independientes, el total de combinaciones es el producto de las opciones de cada paso"
+  - "Para contar combinaciones siempre hay que enumerarlas una por una"
+  - "El total de combinaciones es la suma de las opciones de cada paso"
+respuesta: "Si una elección se compone de varios pasos independientes, el total de combinaciones es el producto de las opciones de cada paso"
+
+explicacion: |
+  Es la herramienta que permite contar sin enumerar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "basico"
+  tags: ["conteo", "completar"]
+
+tipo: completar
+enunciado: "Completá: si hay n₁ opciones para el primer paso, n₂ para el segundo y n₃ para el tercero, el total de combinaciones es n₁ × n₂ × ___."
+respuestas_validas:
+  - "n₃"
+
+explicacion: |
+  Se multiplican las opciones de TODOS los pasos, sin importar cuántos
+  sean.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "intermedio"
+  tags: ["conteo", "problema"]
+
+variables:
+  entradas: random(2, 5)
+  platos: random(3, 6)
+  postres: random(2, 4)
+
+respuesta: entradas * platos * postres
+tipo: input
+
+enunciado: "Un restaurante ofrece {entradas} entradas, {platos} platos principales y {postres} postres. ¿Cuántos menús distintos (una entrada, un plato y un postre) se pueden armar?"
+
+pasos:
+  - "Total = {entradas} × {platos} × {postres} = {entradas * platos * postres}"
+
+explicacion: |
+  Cada elección es independiente de las otras dos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "avanzado"
+  tags: ["conteo", "problema"]
+
+variables:
+  digitos: uno_de([3, 4, 5])
+
+respuesta: 10 ^ digitos
+tipo: input
+
+enunciado: "Una clave numérica tiene {digitos} dígitos, cada uno del 0 al 9, y se pueden repetir dígitos. ¿Cuántas claves distintas son posibles?"
+
+pasos:
+  - "Cada dígito tiene 10 opciones posibles, independientes entre sí: 10^{digitos} = {10 ^ digitos}"
+
+explicacion: |
+  Es el mismo dígito repetido {digitos} veces en la multiplicación,
+  porque cada posición tiene las mismas 10 opciones.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "intermedio"
+  tags: ["conteo", "problema"]
+
+variables:
+  camisas: random(3, 8)
+  pantalones: random(2, 6)
+  zapatos: random(2, 5)
+
+respuesta: camisas * pantalones * zapatos
+tipo: input
+
+enunciado: "Alguien tiene {camisas} camisas, {pantalones} pantalones y {zapatos} pares de zapatos. ¿Cuántos outfits distintos (una camisa, un pantalón, un par de zapatos) puede armar?"
+
+pasos:
+  - "Total = {camisas} × {pantalones} × {zapatos} = {camisas * pantalones * zapatos}"
+
+explicacion: |
+  Cada prenda se elige de forma independiente de las otras.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "avanzado"
+  tags: ["conteo", "problema"]
+
+variables:
+  letras: uno_de([2, 3])
+  numeros: uno_de([3, 4])
+
+respuesta: 26 ^ letras * 10 ^ numeros
+tipo: input
+
+enunciado: "Una patente tiene {letras} letras (de un alfabeto de 26, con repetición permitida) seguidas de {numeros} números (0-9, con repetición permitida). ¿Cuántas patentes distintas son posibles?"
+
+pasos:
+  - "Letras: 26^{letras} = {26 ^ letras}"
+  - "Números: 10^{numeros} = {10 ^ numeros}"
+  - "Total = {26 ^ letras} × {10 ^ numeros} = {26 ^ letras * 10 ^ numeros}"
+
+explicacion: |
+  Se multiplican las combinaciones de las letras por las de los
+  números, porque son dos bloques independientes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "intermedio"
+  tags: ["conteo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El principio multiplicativo, en su forma simple (multiplicar directo), funciona cuando cada paso es independiente: la cantidad de opciones de un paso no depende de lo que se elija en los otros."
+
+explicacion: |
+  Si un paso cambiara según la elección anterior de forma más
+  compleja que simplemente 'un elemento menos disponible', haría
+  falta un análisis más cuidadoso.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "avanzado"
+  tags: ["conteo"]
+
+enunciado: "Si la cantidad de opciones de un paso cambiara de forma impredecible según lo elegido en un paso anterior, ¿qué pasaría con la multiplicación directa?"
+tipo: mc
+opciones_explicitas:
+  - "Ya no alcanzaría con multiplicar directo — habría que analizar los casos por separado"
+  - "No cambiaría nada, la multiplicación siempre funciona igual"
+  - "El resultado sería siempre cero"
+respuesta: "Ya no alcanzaría con multiplicar directo — habría que analizar los casos por separado"
+
+explicacion: |
+  La forma simple del principio presupone independencia entre los
+  pasos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "intermedio"
+  tags: ["conteo", "problema"]
+
+variables:
+  lanzamientos: uno_de([3, 4, 5, 6])
+
+respuesta: 2 ^ lanzamientos
+tipo: input
+
+enunciado: "Se lanza una moneda {lanzamientos} veces seguidas (cara o ceca cada vez). ¿Cuántas secuencias distintas de resultados son posibles?"
+
+pasos:
+  - "Cada lanzamiento tiene 2 resultados posibles, independientes: 2^{lanzamientos} = {2 ^ lanzamientos}"
+
+explicacion: |
+  Cada lanzamiento no depende de los anteriores.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "intermedio"
+  tags: ["conteo", "problema"]
+
+variables:
+  lanzamientos: uno_de([2, 3, 4])
+
+respuesta: 6 ^ lanzamientos
+tipo: input
+
+enunciado: "Se lanza un dado de 6 caras {lanzamientos} veces seguidas. ¿Cuántas secuencias distintas de resultados son posibles?"
+
+pasos:
+  - "Cada lanzamiento tiene 6 resultados posibles: 6^{lanzamientos} = {6 ^ lanzamientos}"
+
+explicacion: |
+  Igual que con la moneda, pero con 6 opciones en vez de 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "avanzado"
+  tags: ["conteo", "ordenar"]
+
+enunciado: "Ordená los pasos para aplicar el principio multiplicativo a un problema de conteo."
 tipo: ordenar
 opciones_explicitas:
-  - "Trazar la recta que pasa por esos dos puntos"
-  - "Marcar el punto (0, b), la ordenada al origen"
-  - "Desde ese punto, usar la pendiente m para subir/bajar y avanzar, marcando un segundo punto"
-respuesta_orden:
-  - "Marcar el punto (0, b), la ordenada al origen"
-  - "Desde ese punto, usar la pendiente m para subir/bajar y avanzar, marcando un segundo punto"
-  - "Trazar la recta que pasa por esos dos puntos"
-
+  - "Multiplicar todas esas cantidades entre sí"
+  - "Identificar en cuántos pasos independientes se divide la elección completa"
+  - "Contar cuántas opciones hay disponibles en cada paso, por separado"
+respuesta_orden: ["Identificar en cuántos pasos independientes se divide la elección completa", "Contar cuántas opciones hay disponibles en cada paso, por separado", "Multiplicar todas esas cantidades entre sí"]
 explicacion: |
-  Con sólo dos puntos alcanza para trazar toda la recta.
+  Sin identificar primero los pasos, no hay qué contar ni qué
+  multiplicar.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
-  nivel: "intermedio"
-  tags: ["ecuacion_recta", "vocabulario"]
-
-enunciado: "Si una recta tiene pendiente m = 3/4, ¿cómo se usa ese valor para marcar un segundo punto desde la ordenada al origen?"
-tipo: mc
-opciones_explicitas:
-  - "Subir 3 unidades y avanzar 4 unidades hacia la derecha"
-  - "Avanzar 3 unidades y subir 4 unidades"
-  - "Subir 4 unidades y avanzar 3 hacia la izquierda"
-respuesta: "Subir 3 unidades y avanzar 4 unidades hacia la derecha"
-
-explicacion: |
-  La pendiente es "cuánto sube, dividido cuánto avanza": el numerador es
-  la subida, el denominador el avance horizontal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "principio_multiplicativo_de_conteo"
   nivel: "avanzado"
-  tags: ["ecuacion_recta", "problema"]
+  tags: ["conteo", "problema"]
 
 variables:
-  b: uno_de([1, 2, 3])
-  avance: uno_de([2, 3, 4])
-  subida: uno_de([1, 2, 3])
+  a: random(2, 4)
+  b: random(2, 4)
+  c: random(2, 4)
+  d: random(2, 4)
 
-respuesta: b + subida
+respuesta: a * b * c * d
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "Una recta pasa por (0, {b}) y tiene pendiente {subida}/{avance}. Si desde ese punto se avanza {avance} hacia la derecha, ¿en qué valor de y queda el nuevo punto?"
+enunciado: "Para armar un producto hay {a} opciones de color, {b} de tamaño, {c} de material y {d} de acabado. ¿Cuántas combinaciones distintas de producto son posibles?"
 
 pasos:
-  - "{b} + {subida} = {b + subida}"
+  - "Total = {a} × {b} × {c} × {d} = {a * b * c * d}"
 
 explicacion: |
-  Avanzar exactamente el denominador de la pendiente hace subir (o
-  bajar) exactamente el numerador.
+  El principio se extiende a cualquier cantidad de pasos, no sólo dos
+  o tres.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "principio_multiplicativo_de_conteo"
   nivel: "basico"
-  tags: ["ecuacion_recta"]
+  tags: ["conteo"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La ordenada al origen de una recta se obtiene evaluando su ecuación en x = 0."
+enunciado: "Multiplicar las opciones de cada paso da exactamente el mismo resultado que enumerar todas las combinaciones una por una — sólo que mucho más rápido, sobre todo con números grandes."
 
 explicacion: |
-  y = m×0 + b = b.
+  Para pocas opciones se puede verificar enumerando; para miles o
+  millones, multiplicar es la única forma práctica.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "principio_multiplicativo_de_conteo"
   nivel: "basico"
-  tags: ["ecuacion_recta"]
+  tags: ["conteo", "aplicacion"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La abscisa al origen de una recta se obtiene poniendo y = 0 en su ecuación y despejando x."
-
-explicacion: |
-  0 = mx + b, así que x = −b/m.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
-  nivel: "avanzado"
-  tags: ["ecuacion_recta", "problema"]
-
-variables:
-  m: uno_de([-2, -3, -5])
-  k: random(1, 8)
-  b: 0 - (m * k)
-
-respuesta: k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una recta tiene ecuación y = {m}x + {b}. ¿Cuál es su abscisa al origen?"
-
-pasos:
-  - "0 = {m}x + {b}"
-  - "x = -{b} ÷ ({m}) = {k}"
-
-explicacion: |
-  Con pendiente negativa, el cálculo funciona exactamente igual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
-  nivel: "intermedio"
-  tags: ["ecuacion_recta", "vocabulario"]
-
-enunciado: "En geometría analítica, ¿qué es la 'raíz' de una recta?"
+enunciado: "¿Por qué una clave numérica de 6 dígitos (con repetición) es más difícil de adivinar al azar que una de 4 dígitos?"
 tipo: mc
 opciones_explicitas:
-  - "Otro nombre para la abscisa al origen"
-  - "Otro nombre para la ordenada al origen"
-  - "Otro nombre para la pendiente"
-respuesta: "Otro nombre para la abscisa al origen"
+  - "Porque tiene 10⁶ = 1.000.000 de combinaciones posibles, muchas más que las 10⁴ = 10.000 de la de 4 dígitos"
+  - "Porque los números de 6 cifras son, en general, más grandes"
+  - "No hay ninguna diferencia real en la dificultad"
+respuesta: "Porque tiene 10⁶ = 1.000.000 de combinaciones posibles, muchas más que las 10⁴ = 10.000 de la de 4 dígitos"
 
 explicacion: |
-  Es el valor de x donde la recta "vale cero" (cruza el eje x).
+  Cada dígito extra multiplica por 10 la cantidad de combinaciones
+  posibles.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "principio_multiplicativo_de_conteo"
   nivel: "intermedio"
-  tags: ["ecuacion_recta", "problema"]
+  tags: ["conteo", "problema"]
 
 variables:
-  m: random(2, 8)
-  x: random(1, 10)
+  lista1: random(4, 10)
+  lista2: random(4, 10)
 
-respuesta: m * x
+respuesta: lista1 * lista2
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "Una recta pasa por el origen y tiene pendiente {m} (es decir, y = {m}x). ¿Cuánto vale y cuando x = {x}?"
+enunciado: "Hay {lista1} colores de pintura y {lista2} tipos de acabado (mate, satinado, etc.). ¿Cuántas combinaciones distintas de color y acabado se pueden elegir?"
 
 pasos:
-  - "{m} × {x} = {m * x}"
+  - "Total = {lista1} × {lista2} = {lista1 * lista2}"
 
 explicacion: |
-  Sin ordenada al origen (b = 0), la ecuación se reduce a y = mx.
+  Dos pasos independientes, dos factores en la multiplicación.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "principio_multiplicativo_de_conteo"
   nivel: "avanzado"
-  tags: ["ecuacion_recta"]
+  tags: ["conteo"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Toda recta que no sea vertical cruza el eje y en algún punto, así que tiene una ordenada al origen definida."
+enunciado: "Si en cada paso se permite repetir elementos ya usados en pasos anteriores (por ejemplo, el mismo dígito varias veces en una clave), la fórmula sigue siendo un producto simple de las opciones de cada paso."
 
 explicacion: |
-  Sólo las rectas verticales (x = k) pueden no cruzar el eje y en ningún
-  punto (salvo la propia recta x = 0).
+  La independencia entre pasos no se rompe por permitir repetición —
+  al contrario, permitir repetición es lo que MANTIENE la cantidad de
+  opciones igual en cada paso.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "principio_multiplicativo_de_conteo"
   nivel: "intermedio"
-  tags: ["ecuacion_recta", "vocabulario"]
+  tags: ["conteo", "completar"]
 
-enunciado: "¿Cuál es la diferencia entre la ecuación de una recta horizontal y una vertical?"
+tipo: completar
+enunciado: "Completá: permutaciones, variaciones y combinaciones son, en el fondo, aplicaciones del principio ___ con distintas restricciones sobre el orden y la repetición."
+respuestas_validas:
+  - "multiplicativo"
+
+explicacion: |
+  Cada uno de esos tres módulos agrega una restricción distinta sobre
+  el mismo principio de base.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "avanzado"
+  tags: ["conteo"]
+
+enunciado: "¿En qué se diferencia el principio multiplicativo general de una permutación (ordenar TODOS los elementos de un conjunto)?"
 tipo: mc
 opciones_explicitas:
-  - "La horizontal es y = b (pendiente 0); la vertical es x = k (pendiente indefinida)"
-  - "Son la misma ecuación, escrita de dos formas distintas"
-  - "La horizontal es x = k; la vertical es y = b"
-respuesta: "La horizontal es y = b (pendiente 0); la vertical es x = k (pendiente indefinida)"
+  - "El principio multiplicativo es la herramienta general; la permutación es un caso particular donde, en cada paso, hay una opción menos disponible porque no se puede repetir ningún elemento"
+  - "No hay ninguna diferencia entre ambos conceptos"
+  - "La permutación no usa ninguna multiplicación"
+respuesta: "El principio multiplicativo es la herramienta general; la permutación es un caso particular donde, en cada paso, hay una opción menos disponible porque no se puede repetir ningún elemento"
 
 explicacion: |
-  Sólo la horizontal se puede escribir en la forma y = mx + b (con
-  m = 0); la vertical no.
+  Es el puente directo hacia `../permutaciones/`.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "principio_multiplicativo_de_conteo"
   nivel: "avanzado"
-  tags: ["ecuacion_recta", "problema"]
+  tags: ["conteo", "problema"]
 
-variables:
-  b: uno_de([2, 4, 6])
-  m: uno_de([2, 3])
-  x2: random(1, 5)
-
-respuesta: b
+respuesta: 10 * 9 * 8
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "En un gráfico, una recta pasa por el punto (0, {b}) y por el punto ({x2}, {(m * x2) + b}). ¿Cuál es su ordenada al origen?"
+enunciado: "Una clave tiene 3 dígitos (0 al 9), y NINGÚN dígito se puede repetir. ¿Cuántas claves distintas son posibles?"
 
 pasos:
-  - "El punto (0, {b}) ya está sobre el eje y: la ordenada al origen es {b}"
+  - "Primer dígito: 10 opciones"
+  - "Segundo dígito: 9 opciones (ya se usó una)"
+  - "Tercer dígito: 8 opciones (ya se usaron dos)"
+  - "Total = 10 × 9 × 8 = {10 * 9 * 8}"
 
 explicacion: |
-  Cuando uno de los puntos marcados ya tiene x = 0, la ordenada al
-  origen se lee directamente, sin ningún cálculo extra.
+  Cada paso sigue siendo independiente en el sentido de que la
+  CANTIDAD de opciones disponibles es predecible, aunque vaya
+  bajando — es el mismo principio, con una opción menos en cada paso.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "principio_multiplicativo_de_conteo"
   nivel: "intermedio"
-  tags: ["ecuacion_recta"]
+  tags: ["conteo", "problema"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  a: random(2, 3)
+  b: random(2, 3)
+  c: random(2, 3)
+  d: random(2, 3)
+  e: random(2, 3)
 
-enunciado: "Si b es distinto de 0 en y = mx + b, la recta no pasa por el origen (0, 0)."
+respuesta: a * b * c * d * e
+tipo: input
+
+enunciado: "Un sistema de contraseñas usa 5 categorías de símbolos con {a}, {b}, {c}, {d} y {e} opciones respectivamente, una de cada categoría. ¿Cuántas contraseñas distintas son posibles?"
+
+pasos:
+  - "Total = {a} × {b} × {c} × {d} × {e} = {a * b * c * d * e}"
 
 explicacion: |
-  En x = 0, y valdría b (no 0), así que el origen no está sobre esa
-  recta.
+  El principio no tiene límite en la cantidad de pasos que puede
+  combinar.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
-  nivel: "avanzado"
-  tags: ["ecuacion_recta"]
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "basico"
+  tags: ["conteo", "aplicacion"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La ecuación y = mx + b es el mismo objeto que la función lineal de Álgebra, ahora leída como el dibujo de una recta sobre el plano cartesiano."
+enunciado: "Si hay 4 materias posibles para la primera hora y 5 para la segunda hora (sin repetir materia), ¿cómo se calcula la cantidad de combinaciones posibles para esas dos horas?"
+tipo: mc
+opciones_explicitas:
+  - "Multiplicando 4 × 5"
+  - "Sumando 4 + 5"
+  - "Dividiendo 5 ÷ 4"
+respuesta: "Multiplicando 4 × 5"
 
 explicacion: |
-  Es la idea central de este módulo: la pendiente que se despeja
-  algebraicamente es la misma que se ve como inclinación en el gráfico.
+  Dos decisiones independientes (una por cada hora) se multiplican,
+  no se suman.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_de_la_recta"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "intermedio"
+  tags: ["conteo", "aplicacion"]
+
+enunciado: "En una final a 3 partidos independientes (cada uno con 2 resultados posibles: gana el equipo A o gana el equipo B), ¿cuántas secuencias distintas de resultados de los 3 partidos son posibles?"
+tipo: mc
+opciones_explicitas:
+  - "2³ = 8"
+  - "2 × 3 = 6"
+  - "3² = 9"
+respuesta: "2³ = 8"
+
+explicacion: |
+  Cada partido tiene 2 resultados posibles, y hay 3 partidos
+  independientes: 2×2×2 = 8.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "basico"
+  tags: ["conteo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el principio multiplicativo, no importa en qué orden se multipliquen las cantidades de cada paso — el resultado final es el mismo."
+
+explicacion: |
+  La multiplicación es conmutativa: 3×4×2 da lo mismo que 2×3×4.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
+  nivel: "intermedio"
+  tags: ["conteo", "problema"]
+
+variables:
+  tapas: random(2, 4)
+  rellenos: random(3, 6)
+  coberturas: random(2, 5)
+
+respuesta: tapas * rellenos * coberturas
+tipo: input
+
+enunciado: "Una pastelería ofrece {tapas} tipos de masa, {rellenos} tipos de relleno y {coberturas} tipos de cobertura. ¿Cuántas tortas distintas (una masa, un relleno, una cobertura) se pueden armar?"
+
+pasos:
+  - "Total = {tapas} × {rellenos} × {coberturas} = {tapas * rellenos * coberturas}"
+
+explicacion: |
+  Es el mismo patrón del menú de la pregunta 3, con otro contexto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "principio_multiplicativo_de_conteo"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirve poder pasar de la ecuación de una recta a su dibujo, y viceversa?"
+enunciado: "¿Para qué sirve el principio multiplicativo de conteo?"
 tipo: mc
 opciones_explicitas:
-  - "Para resolver problemas geométricos reales: hallar cruces con los ejes, verificar puntos, y comparar rectas entre sí"
-  - "Sólo sirve para memorizar más fórmulas"
-  - "Sólo aplica a rectas que pasan por el origen"
-respuesta: "Para resolver problemas geométricos reales: hallar cruces con los ejes, verificar puntos, y comparar rectas entre sí"
+  - "Para calcular cuántas combinaciones posibles hay en una elección de varios pasos, sin tener que enumerarlas una por una"
+  - "Sólo sirve para contar objetos físicos, uno por uno"
+  - "Sólo aplica cuando hay exactamente dos pasos"
+respuesta: "Para calcular cuántas combinaciones posibles hay en una elección de varios pasos, sin tener que enumerarlas una por una"
 
 explicacion: |
-  Es la base para el módulo siguiente,
-  `../rectas-paralelas-y-perpendiculares/`.
+  Es la base directa de permutaciones, variaciones y combinaciones —
+  los tres módulos que siguen.
 ```
 
-## Sección: ecuacion-primer-grado (32 preguntas)
+## Sección: multiplicacion (40 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_primer_grado"
+  tema: "multiplicacion"
   nivel: "basico"
-  tags: ["deshacer_suma"]
+  tags: ["multiplicacion", "tablas"]
 
 variables:
-  a: random(1, 30)
-  c: random(31, 80)
+  n: random(1, 10)
 
-respuesta: c - a
+respuesta: 2 * n
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Resolvé: x + {a} = {c}. ¿Cuánto vale x?"
+enunciado: "¿Cuánto es 2 × {n}?"
+
+explicacion: |
+  La tabla del 2 es sumar 2 tantas veces como indique el otro factor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "tablas"]
+
+variables:
+  n: random(1, 10)
+
+respuesta: 5 * n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es 5 × {n}?"
+
+explicacion: |
+  La tabla del 5 siempre termina en 0 o en 5: sirve para verificar el
+  resultado a simple vista.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "tablas"]
+
+variables:
+  n: random(1, 10)
+
+respuesta: 9 * n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es 9 × {n}?"
+
+explicacion: |
+  La tabla del 9 tiene un patrón: la cifra de las decenas del resultado es
+  siempre uno menos que el otro factor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "tablas"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 9)
+
+respuesta: a * b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} × {b}?"
+
+explicacion: |
+  Es la tabla de multiplicar de {a} (o de {b}), en el lugar que le
+  corresponde a {b} (o a {a}).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "sin_llevar"]
+
+variables:
+  d: random(1, 4)
+  u: random(0, 4)
+  m: 2
+  a: d * 10 + u
+
+respuesta: a * m
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} × {m}?"
 
 pasos:
-  - "Restar {a} a los dos lados: x = {c} − {a} = {c - a}"
+  - "Unidades: {u} × {m} = {u * m}. Decenas: {d} × {m} = {d * m}."
 
 explicacion: |
-  Para deshacer una suma, se resta el mismo valor a los dos lados de la
-  ecuación.
+  Sin llevar, se multiplica cada cifra del número por el factor y se
+  colocan los resultados en su columna, sin ajustar nada entre ellas.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_primer_grado"
+  tema: "multiplicacion"
   nivel: "basico"
-  tags: ["deshacer_suma"]
+  tags: ["multiplicacion", "sin_llevar"]
 
 variables:
-  a: random(1, 15)
-  c: random(1, 50)
+  d: random(1, 3)
+  u: random(0, 3)
+  m: 3
+  a: d * 10 + u
 
-respuesta: c - a
+respuesta: a * m
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Resolvé: x + {a} = {c}. ¿Cuánto vale x?"
+enunciado: "¿Cuánto es {a} × {m}?"
 
 explicacion: |
-  x = {c} − {a}.
+  Mismo procedimiento con otro factor: cada cifra se multiplica por
+  separado, sin llevar.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "basico"
-  tags: ["deshacer_resta"]
-
-variables:
-  a: random(1, 30)
-  c: random(1, 50)
-
-respuesta: c + a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: x − {a} = {c}. ¿Cuánto vale x?"
-
-pasos:
-  - "Sumar {a} a los dos lados: x = {c} + {a} = {c + a}"
-
-explicacion: |
-  Para deshacer una resta, se suma el mismo valor a los dos lados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
+  tema: "multiplicacion"
   nivel: "intermedio"
-  tags: ["deshacer_resta", "orden"]
+  tags: ["multiplicacion", "con_llevada"]
 
 variables:
-  a: random(31, 80)
-  c: random(1, 30)
+  d: random(1, 9)
+  u: random(4, 9)
+  m: random(4, 9)
+  a: d * 10 + u
 
-respuesta: a - c
+respuesta: a * m
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Resolvé: {a} − x = {c}. ¿Cuánto vale x?"
+enunciado: "¿Cuánto es {a} × {m}?"
 
 pasos:
-  - "x es el que resta acá: {a} − {c} = {a - c}"
+  - "Unidades: {u} × {m} = {u * m} → se escribe {(u * m) - (floor((u * m) / 10) * 10)} y se lleva {floor((u * m) / 10)} a las decenas"
 
 explicacion: |
-  Cuando la x resta (en vez de ser restada), x = {a} − {c} — no
-  {c} − {a}, que sería el orden opuesto.
+  Cuando un producto parcial da 10 o más, se escribe sólo la cifra de las
+  unidades de ese resultado y se lleva el resto a la columna siguiente,
+  donde se suma al próximo producto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "basico"
-  tags: ["deshacer_multiplicacion"]
+  tema: "multiplicacion"
+  nivel: "intermedio"
+  tags: ["multiplicacion", "con_llevada", "problema"]
 
 variables:
-  a: random(2, 12)
-  sol: random(1, 20)
-  c: a * sol
+  d: random(1, 9)
+  u: random(4, 9)
+  m: random(4, 9)
+  a: d * 10 + u
 
-respuesta: c / a
+respuesta: a * m
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Resolvé: {a}x = {c}. ¿Cuánto vale x?"
+enunciado: "Cada caja tiene {a} lápices. ¿Cuántos lápices hay en {m} cajas?"
+
+explicacion: |
+  El planteo es el mismo que una multiplicación numérica; el contexto sólo
+  dice qué representa cada factor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "avanzado"
+  tags: ["multiplicacion", "con_llevada"]
+
+variables:
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(4, 9)
+  m: random(4, 9)
+  a: c * 100 + d * 10 + u
+
+respuesta: a * m
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} × {m}?"
+
+explicacion: |
+  Con más cifras el procedimiento es el mismo: se multiplica cada cifra por
+  el factor, llevando el sobrante de cada columna a la siguiente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "avanzado"
+  tags: ["multiplicacion", "columna_completa"]
+
+variables:
+  a: random(11, 49)
+  b: random(11, 49)
+
+respuesta: a * b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} × {b}?"
 
 pasos:
-  - "Dividir los dos lados por {a}: x = {c} / {a} = {c / a}"
+  - "Se multiplica {a} por las unidades de {b}, después por las decenas de {b} (corriendo un lugar), y se suman los dos productos parciales"
 
 explicacion: |
-  Para deshacer una multiplicación, se divide por el mismo valor a los
-  dos lados.
+  Multiplicar por un número de 2 cifras es repetir el algoritmo una vez por
+  cada cifra del segundo factor, y sumar los productos parciales al final.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "basico"
-  tags: ["deshacer_multiplicacion"]
+  tema: "multiplicacion"
+  nivel: "avanzado"
+  tags: ["multiplicacion", "columna_completa"]
 
 variables:
-  a: random(2, 20)
-  sol: random(1, 15)
-  c: a * sol
+  a: random(50, 99)
+  b: random(11, 30)
 
-respuesta: c / a
+respuesta: a * b
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Resolvé: {a}x = {c}. ¿Cuánto vale x?"
+enunciado: "¿Cuánto es {a} × {b}?"
 
 explicacion: |
-  x = {c} / {a}.
+  El procedimiento no cambia con números más grandes: productos parciales,
+  uno por cada cifra del segundo factor, sumados al final.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_primer_grado"
+  tema: "multiplicacion"
   nivel: "basico"
-  tags: ["deshacer_division"]
+  tags: ["multiplicacion", "potencias_de_10"]
 
 variables:
-  a: random(2, 15)
+  a: random(1, 999)
+  potencia: uno_de([10, 100, 1000])
+
+respuesta: a * potencia
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} × {potencia}?"
+
+explicacion: |
+  Multiplicar por una potencia de 10 es agregar al final tantos ceros como
+  tenga esa potencia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "potencias_de_10"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Multiplicar un número entero por 100 es agregarle dos ceros al final."
+
+explicacion: |
+  Cada cero de la potencia de 10 corre las cifras un lugar más hacia la
+  izquierda en el valor posicional.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "propiedades"]
+
+variables:
+  a: random(2, 90)
+  b: random(2, 90)
+
+restricciones:
+  - a != b
+
+respuesta: a * b
+tipo: mc
+opciones_explicitas:
+  - b * a
+  - a * b + 1
+  - a * b - 1
+
+enunciado: "¿Cuál de estas opciones da el mismo resultado que {a} × {b}?"
+
+explicacion: |
+  Cambiar el orden de los factores no cambia el resultado (propiedad
+  conmutativa): {a} × {b} es exactamente lo mismo que {b} × {a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "propiedades"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cambiar el orden de los factores no cambia el resultado de una multiplicación."
+
+explicacion: |
+  Es la propiedad conmutativa: a × b siempre da lo mismo que b × a.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "intermedio"
+  tags: ["multiplicacion", "propiedades"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 9)
+  c: random(2, 9)
+
+respuesta: ((a * b) * c == a * (b * c))
+tipo: vf
+
+enunciado: "¿Es cierto que ({a} × {b}) × {c} da lo mismo que {a} × ({b} × {c})?"
+
+explicacion: |
+  Es la propiedad asociativa: no importa qué par de factores se
+  multiplique primero, el resultado final es siempre el mismo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "intermedio"
+  tags: ["multiplicacion", "propiedades", "calculo_mental"]
+
+variables:
+  a: random(2, 9)
+  b: 5
+  c: random(2, 9)
+
+respuesta: a * b * c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} × {b} × {c}?"
+
+pasos:
+  - "Conviene multiplicar primero por el 5, que da un número redondo con un par: {b} × {c} = {b * c}, y después × {a}: {a} × {b * c} = {a * b * c}"
+
+explicacion: |
+  La propiedad asociativa permite elegir qué par multiplicar primero:
+  agrupar los números "más fáciles" ahorra trabajo mental.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "propiedades"]
+
+variables:
+  a: random(1, 999)
+
+respuesta: a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} × 1?"
+
+explicacion: |
+  Multiplicar por 1 no cambia nada: el resultado es siempre el mismo
+  número con el que se empezó.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "propiedades"]
+
+variables:
+  a: random(1, 999)
+
+respuesta: 0
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto es {a} × 0?"
+
+explicacion: |
+  Multiplicar por 0 siempre da 0, sin importar qué tan grande sea el otro
+  factor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "propiedades"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Multiplicar por 0 da como resultado el mismo número, igual que multiplicar por 1."
+
+explicacion: |
+  Son propiedades distintas: multiplicar por 1 no cambia el número
+  (elemento neutro), pero multiplicar por 0 siempre da 0 (elemento
+  absorbente).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "intermedio"
+  tags: ["multiplicacion", "propiedades"]
+
+variables:
+  a: random(2, 9)
+  b: random(1, 40)
+  c: random(1, 40)
+
+respuesta: (a * (b + c) == a * b + a * c)
+tipo: vf
+
+enunciado: "¿Es cierto que {a} × ({b} + {c}) da lo mismo que {a} × {b} + {a} × {c}?"
+
+explicacion: |
+  Es la propiedad distributiva: repartir un factor entre una suma da lo
+  mismo que multiplicar cada término por separado y sumar después.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "intermedio"
+  tags: ["multiplicacion", "propiedades", "calculo_mental"]
+
+variables:
+  a: random(2, 9)
+  b: random(1, 8) * 10
+  c: random(1, 9)
+
+respuesta: a * (b + c)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Usá la propiedad distributiva para calcular {a} × ({b} + {c})."
+
+pasos:
+  - "{a} × {b} + {a} × {c} = {a * b} + {a * c} = {a * b + a * c}"
+
+explicacion: |
+  Separar en una parte "redonda" ({b}) y una chica ({c}) hace que la
+  cuenta se pueda resolver mentalmente por partes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "intermedio"
+  tags: ["multiplicacion", "propiedades"]
+
+variables:
+  a: random(2, 9)
+  b: random(1, 20)
   c: random(1, 20)
 
-respuesta: a * c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: x / {a} = {c}. ¿Cuánto vale x?"
-
-pasos:
-  - "Multiplicar los dos lados por {a}: x = {c} × {a} = {a * c}"
-
-explicacion: |
-  Para deshacer una división, se multiplica por el mismo valor a los dos
-  lados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "intermedio"
-  tags: ["deshacer_multiplicacion", "signos"]
-
-variables:
-  a: random(2, 12)
-  sol: random(1, 15)
-  c: (-a) * sol
-
-respuesta: c / (-a)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: −{a}x = {c}. ¿Cuánto vale x?"
-
-pasos:
-  - "Dividir los dos lados por −{a}: x = {c} / (−{a}) = {c / (-a)}"
-
-explicacion: |
-  Dividir por un número negativo también funciona, pero hay que arrastrar
-  el signo con cuidado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "intermedio"
-  tags: ["dos_pasos"]
-
-variables:
-  a: random(2, 10)
-  b: random(1, 20)
-  sol: random(1, 20)
-  c: a * sol + b
-
-respuesta: (c - b) / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}x + {b} = {c}. ¿Cuánto vale x?"
-
-pasos:
-  - "Restar {b}: {a}x = {c} − {b} = {c - b}"
-  - "Dividir por {a}: x = {c - b} / {a} = {(c - b) / a}"
-
-explicacion: |
-  Primero se deshace la suma, después la multiplicación — orden inverso
-  a como está armada la ecuación.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "intermedio"
-  tags: ["dos_pasos"]
-
-variables:
-  a: random(2, 15)
-  b: random(1, 30)
-  sol: random(1, 25)
-  c: a * sol + b
-
-respuesta: (c - b) / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}x + {b} = {c}. ¿Cuánto vale x?"
-
-explicacion: |
-  x = ({c} − {b}) / {a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "intermedio"
-  tags: ["dos_pasos", "signos"]
-
-variables:
-  a: random(2, 10)
-  b: random(1, 20)
-  sol: random(5, 25)
-  c: a * sol - b
-
-respuesta: (c + b) / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}x − {b} = {c}. ¿Cuánto vale x?"
-
-pasos:
-  - "Sumar {b}: {a}x = {c} + {b} = {c + b}"
-  - "Dividir por {a}: x = {c + b} / {a} = {(c + b) / a}"
-
-explicacion: |
-  Primero se deshace la resta (sumando), después la multiplicación.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "intermedio"
-  tags: ["dos_pasos", "orden"]
-
-variables:
-  a: random(2, 10)
-  b: random(1, 20)
-  sol: random(1, 20)
-  c: b + a * sol
-
-respuesta: (c - b) / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {b} + {a}x = {c}. ¿Cuánto vale x?"
-
-explicacion: |
-  Da lo mismo el orden en que están escritos los términos: se resta {b} y
-  después se divide por {a}, igual que si el término con x estuviera
-  primero.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "avanzado"
-  tags: ["dos_pasos", "signos"]
-
-variables:
-  a: random(2, 8)
-  b: random(1, 15)
-  sol: random(-15, -1)
-  c: a * sol + b
-
-respuesta: (c - b) / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}x + {b} = {c}. ¿Cuánto vale x?"
-
-explicacion: |
-  La misma fórmula funciona aunque la solución sea negativa:
-  x = ({c} − {b}) / {a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "avanzado"
-  tags: ["dos_pasos", "signos"]
-
-variables:
-  a: random(2, 10)
-  b: random(1, 20)
-  sol: random(-20, -1)
-  c: a * sol + b
-
-respuesta: (c - b) / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}x + {b} = {c}. ¿Cuánto vale x?"
-
-explicacion: |
-  x = ({c} − {b}) / {a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "intermedio"
-  tags: ["dos_pasos", "problema"]
-
-variables:
-  precio_km: random(2, 10)
-  bajada_bandera: random(5, 20)
-  sol: random(1, 30)
-  total: precio_km * sol + bajada_bandera
-
-respuesta: (total - bajada_bandera) / precio_km
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un remís cobra {bajada_bandera} de bajada de bandera más {precio_km} por cada km. Si el viaje costó {total} en total, ¿cuántos km recorrió?"
-
-pasos:
-  - "Plantear: {precio_km} × km + {bajada_bandera} = {total}"
-  - "Despejar: km = ({total} − {bajada_bandera}) / {precio_km} = {(total - bajada_bandera) / precio_km}"
-
-explicacion: |
-  El planteo es exactamente {precio_km}x + {bajada_bandera} = {total}, la
-  misma estructura que las ecuaciones anteriores, con nombres distintos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "avanzado"
-  tags: ["distributiva"]
-
-variables:
-  a: random(2, 10)
-  b: random(1, 15)
-  sol: random(1, 20)
-  c: a * (sol + b)
-
-respuesta: c / a - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}(x + {b}) = {c}. ¿Cuánto vale x?"
-
-pasos:
-  - "Distribuir: {a}x + {a}×{b} = {c} → {a}x + {a * b} = {c}"
-  - "Despejar: x = {c}/{a} − {b} = {c / a - b}"
-
-explicacion: |
-  Hay que distribuir el {a} antes de poder despejar x.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "avanzado"
-  tags: ["distributiva", "signos"]
-
-variables:
-  a: random(2, 10)
-  b: random(1, 15)
-  sol: random(10, 30)
-  c: a * (sol - b)
-
-respuesta: c / a + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}(x − {b}) = {c}. ¿Cuánto vale x?"
-
-pasos:
-  - "Distribuir: {a}x − {a * b} = {c}"
-  - "Despejar: x = {c}/{a} + {b} = {c / a + b}"
-
-explicacion: |
-  Al distribuir, el signo de adentro del paréntesis se conserva: −{a}×{b}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "avanzado"
-  tags: ["distributiva", "signos", "orden"]
-
-variables:
-  a: random(2, 8)
-  b: random(20, 40)
-  sol: random(1, 15)
-  c: a * (b - sol)
-
-respuesta: b - c / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}({b} − x) = {c}. ¿Cuánto vale x?"
-
-pasos:
-  - "Distribuir: {a}×{b} − {a}x = {c} → {a * b} − {a}x = {c}"
-  - "Despejar: {a}x = {a * b} − {c}, x = ({a * b} − {c}) / {a} = {b - c / a}"
-
-explicacion: |
-  Acá la x queda restando adentro del paréntesis, así que al distribuir
-  el signo negativo cae sobre el término con x, no sobre {b}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "intermedio"
-  tags: ["dos_lados"]
-
-variables:
-  a: random(4, 10)
-  d: random(1, 3)
-  b: random(1, 20)
-  sol: random(1, 20)
-  e: (a - d) * sol + b
-
-respuesta: (e - b) / (a - d)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}x + {b} = {d}x + {e}. ¿Cuánto vale x?"
-
-pasos:
-  - "Juntar las x de un lado: {a}x − {d}x = {e} − {b} → {a - d}x = {e - b}"
-  - "Despejar: x = {e - b} / {a - d} = {(e - b) / (a - d)}"
-
-explicacion: |
-  Se resta {d}x a los dos lados para juntar todos los términos con x en
-  el mismo lado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "intermedio"
-  tags: ["dos_lados"]
-
-variables:
-  a: random(6, 12)
-  d: random(1, 5)
-  b: random(1, 15)
-  sol: random(1, 15)
-  e: (a - d) * sol + b
-
-respuesta: (e - b) / (a - d)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}x + {b} = {d}x + {e}. ¿Cuánto vale x?"
-
-explicacion: |
-  x = ({e} − {b}) / ({a} − {d}).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "avanzado"
-  tags: ["dos_lados", "signos"]
-
-variables:
-  a: random(6, 12)
-  d: random(1, 4)
-  b: random(1, 15)
-  sol: random(5, 20)
-  e: (a - d) * sol - b
-
-respuesta: (e + b) / (a - d)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}x − {b} = {d}x + {e}. ¿Cuánto vale x?"
-
-pasos:
-  - "Juntar las x: {a - d}x = {e} + {b} = {e + b}"
-  - "Despejar: x = {e + b} / {a - d} = {(e + b) / (a - d)}"
-
-explicacion: |
-  Al mover −{b} al otro lado, cruza como +{b}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "avanzado"
-  tags: ["dos_lados", "signos"]
-
-variables:
-  a: random(1, 4)
-  d: random(6, 10)
-  sol: random(1, 10)
-  b: random(100, 150)
-  e: (a - d) * sol + b
-
-respuesta: (e - b) / (a - d)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}x + {b} = {d}x + {e}. ¿Cuánto vale x?"
-
-explicacion: |
-  Acá {d} es mayor que {a}, así que ({a}−{d}) da negativo — la fórmula
-  funciona igual, sólo hay que llevar el signo con cuidado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "avanzado"
-  tags: ["dos_lados", "problema"]
-
-variables:
-  fijo_a: random(1, 20)
-  precio_a: random(3, 10)
-  precio_b: random(1, 2)
-  sol: random(1, 20)
-  fijo_b: (precio_a - precio_b) * sol + fijo_a
-
-respuesta: (fijo_b - fijo_a) / (precio_a - precio_b)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El Plan A cuesta {fijo_a} fijos más {precio_a} por unidad. El Plan B cuesta {fijo_b} fijos más {precio_b} por unidad. ¿A partir de cuántas unidades cuestan lo mismo?"
-
-pasos:
-  - "Igualar: {precio_a}x + {fijo_a} = {precio_b}x + {fijo_b}"
-  - "Despejar: x = ({fijo_b} − {fijo_a}) / ({precio_a} − {precio_b})"
-
-explicacion: |
-  Es la misma ecuación con variable en los dos lados, aplicada a un
-  problema real: igualar costo total de dos planes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "intermedio"
-  tags: ["dos_pasos"]
-
-variables:
-  a: random(3, 9)
-  b: random(1, 25)
-  sol: random(1, 30)
-  c: a * sol + b
-
-respuesta: (c - b) / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}x + {b} = {c}. ¿Cuánto vale x?"
-
-explicacion: |
-  x = ({c} − {b}) / {a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "basico"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  a: random(2, 10)
-  b: random(1, 20)
-  sol: random(1, 20)
-  c: a * sol + b
-
-respuesta: (a * sol + b) == c
-tipo: vf
-
-enunciado: "¿x = {sol} es solución de {a}x + {b} = {c}?"
-
-explicacion: |
-  Se reemplaza x por {sol} en la ecuación original y se verifica si los
-  dos lados dan el mismo número.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  a: random(2, 10)
-  b: random(1, 20)
-  sol: random(1, 20)
-  c: a * sol + b
-  error: uno_de([0, 0, 1, -1, 2])
-  propuesto: sol + error
-
-respuesta: (a * propuesto + b) == c
-tipo: vf
-
-enunciado: "¿x = {propuesto} es solución de {a}x + {b} = {c}?"
-
-explicacion: |
-  Reemplazando x por {propuesto}: {a}×{propuesto}+{b} = {a * propuesto + b}, y el otro lado vale {c}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "intermedio"
-  tags: ["verificacion", "dos_lados", "verdadero_falso"]
-
-variables:
-  a: random(4, 10)
-  d: random(1, 3)
-  b: random(1, 15)
-  sol: random(1, 15)
-  e: (a - d) * sol + b
-  error: uno_de([0, 0, 1, -1])
-  propuesto: sol + error
-
-respuesta: (a * propuesto + b) == (d * propuesto + e)
-tipo: vf
-
-enunciado: "¿x = {propuesto} es solución de {a}x + {b} = {d}x + {e}?"
-
-explicacion: |
-  Se reemplaza x por {propuesto} en los dos lados y se comparan.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "avanzado"
-  tags: ["verificacion", "distributiva", "verdadero_falso"]
-
-variables:
-  a: random(2, 10)
-  b: random(1, 15)
-  sol: random(1, 20)
-  c: a * (sol + b)
-  error: uno_de([0, 0, 1, -1])
-  propuesto: sol + error
-
-respuesta: (a * (propuesto + b)) == c
-tipo: vf
-
-enunciado: "¿x = {propuesto} es solución de {a}(x + {b}) = {c}?"
-
-explicacion: |
-  Se reemplaza x por {propuesto} adentro del paréntesis antes de
-  distribuir y comparar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "basico"
-  tags: ["procedimiento", "opcion_multiple"]
-
-variables:
-  a: random(2, 10)
-  b: random(1, 20)
-  c: random(21, 60)
-
-respuesta: c - b
+respuesta: a * b + a * c
 tipo: mc
 opciones_explicitas:
-  - c - b
-  - c + b
-  - c * b
+  - a * (b + c)
+  - a * b + c
+  - a + b * c
 
-enunciado: "Para resolver {a}x + {b} = {c}, el primer paso es restar {b} a los dos lados. ¿A qué queda igual {a}x?"
+enunciado: "¿Cuál de estas expresiones es igual a {a} × {b} + {a} × {c}?"
 
 explicacion: |
-  {a}x + {b} − {b} = {c} − {b}, así que {a}x = {c} − {b}.
+  Es la propiedad distributiva mirada al revés: la suma de dos productos
+  con el mismo factor se puede escribir como ese factor por la suma de los
+  otros dos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "ecuacion_primer_grado"
+  tema: "multiplicacion"
   nivel: "basico"
-  tags: ["dos_pasos"]
+  tags: ["multiplicacion", "vocabulario"]
 
-variables:
-  b: random(1, 30)
-  sol: random(1, 40)
-  c: sol + b
-
-respuesta: c - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: x + {b} = {c}. ¿Cuánto vale x?"
-
-explicacion: |
-  Cuando no hay número escrito multiplicando a x, el coeficiente es 1 —
-  se resuelve igual que los casos con coeficiente explícito.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "intermedio"
-  tags: ["problema"]
-
-variables:
-  ya_tiene: random(100, 500)
-  ahorro_mensual: random(20, 100)
-  sol: random(1, 24)
-  meta: ahorro_mensual * sol + ya_tiene
-
-respuesta: (meta - ya_tiene) / ahorro_mensual
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Alguien ya tiene ahorrados {ya_tiene} y ahorra {ahorro_mensual} por mes. ¿En cuántos meses llega a {meta}?"
-
-pasos:
-  - "Plantear: {ahorro_mensual} × meses + {ya_tiene} = {meta}"
-  - "Despejar: meses = ({meta} − {ya_tiene}) / {ahorro_mensual}"
-
-explicacion: |
-  Mismo planteo que a·x + b = c, con "meses" en el lugar de x.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuacion_primer_grado"
-  nivel: "avanzado"
-  tags: ["dos_pasos", "signos"]
-
-variables:
-  a: random(2, 8)
-  b: random(20, 40)
-  sol: random(10, 30)
-  c: a * sol - b
-
-respuesta: (c + b) / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}x − {b} = {c}. ¿Cuánto vale x?"
-
-explicacion: |
-  x = ({c} + {b}) / {a} — el signo de {c} puede dar negativo sin que eso
-  afecte el procedimiento.
-```
-
-## Sección: ecuaciones-diferenciales (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "basico"
-  tags: ["crecimiento"]
-
-variables:
-  y0: random(10, 200)
-  a: random(2, 4)
-  t: random(1, 5)
-
-respuesta: y0 * a ^ t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "y(t) = {y0}×{a}^t (modelo de crecimiento, solución de dy/dt=ky). ¿Cuánto vale y({t})?"
-
-explicacion: |
-  {y0}×{a}^{t} = {y0 * a ^ t}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "basico"
-  tags: ["crecimiento"]
-
-variables:
-  y0: random(50, 500)
-  a: 2
-  t: random(1, 6)
-
-respuesta: y0 * a ^ t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una población se duplica cada período: y(t) = {y0}×2^t. ¿Cuántos hay después de {t} períodos?"
-
-explicacion: |
-  {y0}×2^{t} = {y0 * a ^ t}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "intermedio"
-  tags: ["decaimiento"]
-
-variables:
-  base_inv: uno_de([2, 5])
-  y0: random(10, 20) * (base_inv ^ 3)
-  t: random(1, 3)
-
-respuesta: y0 / (base_inv ^ t)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "y(t) = {y0}×(1/{base_inv})^t (modelo de decaimiento). ¿Cuánto vale y({t})?"
-
-pasos:
-  - "{y0}×(1/{base_inv})^{t} = {y0}/{base_inv ^ t} = {y0 / (base_inv ^ t)}"
-
-explicacion: |
-  Con base entre 0 y 1, la cantidad decrece con el tiempo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "intermedio"
-  tags: ["decaimiento", "problema"]
-
-variables:
-  cantidad_inicial: random(4, 20) * 16
-  periodos: random(1, 4)
-
-respuesta: cantidad_inicial / (2 ^ periodos)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una muestra radiactiva de {cantidad_inicial}g se reduce a la mitad cada período (vida media). ¿Cuánto queda después de {periodos} períodos?"
-
-explicacion: |
-  Cada período multiplica por 1/2 — después de {periodos} períodos,
-  queda dividido por 2^{periodos}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "intermedio"
-  tags: ["verdadero_falso"]
-
-variables:
-  y0: random(10, 100)
-  a: random(2, 5)
-  t: random(0, 5)
-
-respuesta: (((y0 * a ^ (t + 1)) / (y0 * a ^ t)) == a)
-tipo: vf
-
-enunciado: "y(t) = {y0}×{a}^t. ¿Es siempre igual a {a} la razón y(t+1)/y(t), sin importar el valor de t={t}?"
-
-explicacion: |
-  Es justo la propiedad que hace que este modelo sea solución de
-  dy/dt=ky: la razón entre valores consecutivos es constante.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "avanzado"
-  tags: ["verdadero_falso"]
-
-variables:
-  y0: random(10, 100)
-  a: random(2, 5)
-  t: random(0, 5)
-  b_propuesto: uno_de([a, a + 1, a - 1])
-
-respuesta: (((y0 * a ^ (t + 1)) / (y0 * a ^ t)) == b_propuesto)
-tipo: vf
-
-enunciado: "y(t) = {y0}×{a}^t. ¿Es y(t+1)/y(t) igual a {b_propuesto}?"
-
-explicacion: |
-  La razón real siempre es {a}, la base del modelo — cualquier otro
-  número no coincide.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "intermedio"
-  tags: ["vida_media"]
-
-variables:
-  n: random(1, 5)
-  y0: random(10, 30) * (2 ^ n)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una muestra de {y0}g tiene vida media de 1 día (se reduce a la mitad cada día). ¿Cuántos días tardan en quedar {y0 / (2 ^ n)}g?"
-
-pasos:
-  - "{y0}/2^t = {y0 / (2 ^ n)} → 2^t = {2 ^ n} → t = {n}"
-
-explicacion: |
-  Se reconoce {y0 / (2 ^ n)} como {y0} dividido por una potencia exacta
-  de 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "intermedio"
-  tags: ["duplicacion"]
-
-variables:
-  n: random(1, 5)
-  y0: random(10, 30)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una población de {y0} se duplica cada período. ¿Cuántos períodos tardan en llegar a {y0 * (2 ^ n)}?"
-
-pasos:
-  - "{y0}×2^t = {y0 * (2 ^ n)} → 2^t = {2 ^ n} → t = {n}"
-
-explicacion: |
-  Se reconoce {y0 * (2 ^ n)} como {y0} multiplicado por una potencia
-  exacta de 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "avanzado"
-  tags: ["duplicacion"]
-
-variables:
-  n: random(1, 5)
-  y0: random(5, 50)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "y(t) = {y0}×10^t. ¿Para qué valor de t es y(t) = {y0 * (10 ^ n)}?"
-
-pasos:
-  - "10^t = {10 ^ n} → t = log₁₀({10 ^ n}) = {n}"
-
-explicacion: |
-  Se despeja t aplicando logaritmo, igual que en
-  `../ecuaciones-exponenciales-logaritmicas/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una ecuación diferencial relaciona una función con su derivada, en vez de dar directamente el valor de la función."
-
-explicacion: |
-  Es la diferencia clave con una ecuación algebraica común.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La solución de dy/dt = k·y siempre tiene la forma y(t) = y₀·aᵗ, una función exponencial."
-
-explicacion: |
-  Es el resultado central de este modelo — cualquier fenómeno con esa
-  estructura de crecimiento se describe con una exponencial.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Si la tasa de cambio de y es proporcional a y, entonces y crece de forma lineal (sumando siempre lo mismo)."
-
-explicacion: |
-  Crece de forma EXPONENCIAL (multiplicando), no lineal — confundir
-  estos dos modelos es el error central del tema.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En dy/dt=ky, si k es positivo, y crece con el tiempo."
-
-explicacion: |
-  k>0 corresponde a una base a>1 en la solución y=y₀aᵗ.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En dy/dt=ky, si k es negativo, y decrece con el tiempo (acercándose a 0)."
-
-explicacion: |
-  k<0 corresponde a una base 0<a<1 en la solución.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un modelo de decaimiento exponencial, y se acerca a 0 pero nunca llega a valer exactamente 0 (ni se vuelve negativa)."
-
-explicacion: |
-  Es la misma asíntota horizontal en y=0 ya vista en
-  `../familias-exponencial-logaritmica/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un decaimiento exponencial, la vida media (tiempo para reducirse a la mitad) es siempre la misma, sin importar desde qué cantidad se empiece a contar."
-
-explicacion: |
-  Es una propiedad característica del decaimiento exponencial: tarda lo
-  mismo en pasar de 100 a 50 que de 50 a 25.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  capital: random(1000, 5000)
-  tasa: 2
-  anios: random(1, 5)
-
-respuesta: capital * tasa ^ anios
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un capital de {capital} se duplica cada año (modelo dC/dt=kC). ¿Cuánto hay después de {anios} años?"
-
-explicacion: |
-  El interés compuesto es, exactamente, un modelo de crecimiento
-  proporcional a lo que ya se tiene.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  y0: random(10, 100)
-  a: random(2, 4)
-  t: random(1, 4)
-  real: y0 * a ^ t
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "y(t) = {y0}×{a}^t. ¿Es correcto que y({t}) sea {propuesto}?"
-
-explicacion: |
-  El valor correcto es {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "basico"
-  tags: ["concepto"]
-
-variables:
-  y0: random(10, 500)
-  a: random(2, 5)
-
-respuesta: y0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "y(t) = {y0}×{a}^t. ¿Cuál es la cantidad inicial y₀ (en t=0)?"
-
-explicacion: |
-  y(0) = {y0}×{a}^0 = {y0}×1 = {y0} — el coeficiente que multiplica a
-  la potencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "basico"
-  tags: ["concepto"]
-
-variables:
-  y0: random(10, 500)
-  a: random(2, 5)
-
-respuesta: a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "y(t) = {y0}×{a}^t. ¿Cuál es la base a del modelo?"
-
-explicacion: |
-  Es el factor por el que se multiplica y en cada período.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  diferencia_inicial: random(20, 30) * 4
-  periodos: random(1, 2)
-
-respuesta: diferencia_inicial / (2 ^ periodos)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La diferencia de temperatura entre un objeto y el ambiente empieza en {diferencia_inicial}°C y se reduce a la mitad cada hora (ley de enfriamiento de Newton, otro modelo dy/dt=ky). ¿Cuál es la diferencia después de {periodos} horas?"
-
-explicacion: |
-  Mismo modelo matemático que el decaimiento radiactivo, aplicado a
-  temperatura en vez de masa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Crecimiento poblacional, interés compuesto y decaimiento radiactivo son fenómenos distintos, pero todos se modelan con la misma ecuación diferencial dy/dt=ky."
-
-explicacion: |
-  Es el valor central de estudiar el modelo en abstracto: una vez
-  entendida la estructura, se aplica a cualquier fenómeno con esa misma
-  forma de cambio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Resolver una ecuación diferencial (encontrar la función y) usa integración, mientras que verificar que una función propuesta es solución usa derivación."
-
-explicacion: |
-  Cierra el círculo de Análisis: se necesitan las dos operaciones,
-  `../derivada/` e `../integral/`, para trabajar con estos modelos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  y0: random(5, 20)
-  n: random(1, 6)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una población de {y0} se duplica cada período: y(t) = {y0}×2^t. ¿Después de cuántos períodos completos llega exactamente a {y0 * (2 ^ n)}?"
-
-explicacion: |
-  Se reconoce el factor 2^{n}, contando cuántas duplicaciones hicieron
-  falta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "avanzado"
-  tags: ["verdadero_falso"]
-
-variables:
-  y0: random(50, 200)
-  a1: 2
-  a2: 3
-  t: random(2, 5)
-
-respuesta: ((y0 * a2 ^ t) > (y0 * a1 ^ t))
-tipo: vf
-
-enunciado: "Dos poblaciones iguales parten de {y0}: una con tasa 2 (se duplica) y otra con tasa 3 (se triplica) cada período. ¿Es mayor la de tasa 3 después de {t} períodos?"
-
-explicacion: |
-  Una tasa de crecimiento mayor siempre termina superando a una menor,
-  a igualdad de punto de partida.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_diferenciales"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El modelo básico y=y₀aᵗ (con a>1) predice un crecimiento sin límite, aunque en la realidad casi todo crecimiento poblacional termina frenándose por recursos limitados."
-
-explicacion: |
-  Es una limitación conocida del modelo simple — modelos más avanzados
-  (fuera de este módulo) agregan un límite de capacidad.
-```
-
-## Sección: ecuaciones-exponenciales-logaritmicas (28 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "basico"
-  tags: ["exponencial"]
-
-variables:
-  a: random(2, 8)
-  x_sol: random(1, 8)
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}^x = {a}^{x_sol}. ¿Cuánto vale x?"
-
-explicacion: |
-  Con la misma base a los dos lados, los exponentes tienen que coincidir.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["exponencial"]
-
-variables:
-  a: random(2, 6)
-  x_sol: random(1, 6)
-  resultado: a ^ x_sol
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}^x = {resultado}. ¿Cuánto vale x?"
-
-pasos:
-  - "{resultado} = {a}^{x_sol}, así que x = {x_sol}"
-
-explicacion: |
-  Hay que reconocer {resultado} como una potencia de {a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["exponencial"]
-
-variables:
-  n: random(1, 6)
-  resultado: 10 ^ n
-
-respuesta: log10(resultado)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: 10^x = {resultado}. ¿Cuánto vale x?"
-
-pasos:
-  - "x = log₁₀({resultado}) = {log10(resultado)}"
-
-explicacion: |
-  Aplicar log₁₀ a los dos lados deshace la exponencial de base 10.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "avanzado"
-  tags: ["exponencial", "signos"]
-
-variables:
-  a: random(2, 6)
-  n: random(1, 4)
-  resultado: 1 / (a ^ n)
-
-respuesta: -n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: {a}^x = 1/{a ^ n}. ¿Cuánto vale x?"
-
-explicacion: |
-  1/{a}^{n} = {a}^(−{n}), así que x = −{n}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "basico"
-  tags: ["logaritmica"]
-
-variables:
-  k: random(1, 6)
-
-respuesta: 10 ^ k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: log₁₀(x) = {k}. ¿Cuánto vale x?"
-
-pasos:
-  - "x = 10^{k} = {10 ^ k}"
-
-explicacion: |
-  Aplicar la exponencial de base 10 a los dos lados deshace el
-  logaritmo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["logaritmica"]
-
-variables:
-  k: random(1, 5)
-  desplazamiento: random(1, 20)
-
-respuesta: 10 ^ k - desplazamiento
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: log₁₀(x + {desplazamiento}) = {k}. ¿Cuánto vale x?"
-
-pasos:
-  - "x + {desplazamiento} = 10^{k} = {10 ^ k}"
-  - "x = {10 ^ k} − {desplazamiento} = {10 ^ k - desplazamiento}"
-
-explicacion: |
-  Primero se deshace el logaritmo, después se despeja x igual que en
-  `../ecuacion-primer-grado/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "avanzado"
-  tags: ["logaritmica"]
-
-variables:
-  k: random(1, 4)
-  p: random(2, 5)
-
-respuesta: (10 ^ k) / p
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: log₁₀({p}x) = {k}. ¿Cuánto vale x?"
-
-pasos:
-  - "{p}x = 10^{k} = {10 ^ k}"
-  - "x = {10 ^ k} / {p} = {(10 ^ k) / p}"
-
-explicacion: |
-  Primero se deshace el logaritmo, y después se despeja x dividiendo por
-  {p}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["dominio", "verdadero_falso"]
-
-variables:
-  desplazamiento: random(1, 20)
-  k: random(1, 5)
-  x_sol: 10 ^ k - desplazamiento
-
-respuesta: ((x_sol + desplazamiento) > 0)
-tipo: vf
-
-enunciado: "log₁₀(x + {desplazamiento}) = {k} da x = {x_sol}. ¿Es válida esta solución (el argumento del logaritmo queda positivo)?"
-
-explicacion: |
-  Se verifica reemplazando: x+{desplazamiento} = {x_sol + desplazamiento},
-  que tiene que ser mayor que 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "avanzado"
-  tags: ["dominio", "verdadero_falso"]
-
-variables:
-  r1: -random(1, 10)
-  r2: random(1, 10)
-
-respuesta: (r1 > 0)
-tipo: vf
-
-enunciado: "Al resolver log₁₀(x) + log₁₀(x+{r2 - r1}) = log₁₀(algo) se obtiene x={r1} como una de las soluciones algebraicas. ¿Es una solución válida (el argumento del primer logaritmo, x, queda positivo)?"
-
-explicacion: |
-  x={r1} es negativo — log₁₀ de un negativo no está definido, así que
-  esta solución algebraica se descarta (es una solución extraña).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["propiedades", "verdadero_falso"]
-
-variables:
-  n: random(1, 4)
-  m: random(1, 4)
-  a: 10 ^ n
-  b: 10 ^ m
-
-respuesta: ((log10(a * b)) == (log10(a) + log10(b)))
-tipo: vf
-
-enunciado: "¿log₁₀({a}×{b}) es igual a log₁₀({a}) + log₁₀({b})?"
-
-explicacion: |
-  log(a×b) = log(a) + log(b) — la propiedad del producto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["propiedades", "verdadero_falso"]
-
-variables:
-  n: random(2, 6)
-  m: random(1, 4)
-  a: 10 ^ n
-  b: 10 ^ m
-
-respuesta: ((log10(a / b)) == (log10(a) - log10(b)))
-tipo: vf
-
-enunciado: "¿log₁₀({a}/{b}) es igual a log₁₀({a}) − log₁₀({b})?"
-
-explicacion: |
-  log(a/b) = log(a) − log(b) — la propiedad del cociente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["propiedades", "verdadero_falso"]
-
-variables:
-  n: random(1, 3)
-  k: random(1, 4)
-  a: 10 ^ n
-
-respuesta: ((log10(a ^ k)) == (k * log10(a)))
-tipo: vf
-
-enunciado: "¿log₁₀({a}^{k}) es igual a {k}×log₁₀({a})?"
-
-explicacion: |
-  log(aⁿ) = n×log(a) — la propiedad de la potencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "avanzado"
-  tags: ["propiedades"]
-
-variables:
-  x_sol: random(2, 15)
-  p: random(2, 8)
-  resultado: log10(p * x_sol)
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: log₁₀({p}) + log₁₀(x) = {resultado}. ¿Cuánto vale x?"
-
-pasos:
-  - "log₁₀({p}·x) = {resultado} → {p}·x = 10^{resultado}"
-  - "x = 10^{resultado} / {p} = {x_sol}"
-
-explicacion: |
-  Se combinan los dos logaritmos en uno solo (propiedad del producto)
-  antes de despejar x.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para resolver una ecuación exponencial, se puede aplicar logaritmo a los dos lados de la igualdad, sin cambiar el resultado."
-
-explicacion: |
-  Aplicar la misma operación a los dos lados mantiene la igualdad, igual
-  que sumar/restar/multiplicar en `../ecuacion-primer-grado/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Se puede aplicar logaritmo sólo al lado izquierdo de la ecuación, y dejar el lado derecho como está, sin que eso rompa la igualdad."
-
-explicacion: |
-  Rompe la igualdad — la misma operación tiene que aplicarse a los DOS
-  lados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al resolver una ecuación logarítmica, siempre hay que comprobar que las soluciones encontradas dejen positivos los argumentos de los logaritmos originales."
-
-explicacion: |
-  El álgebra puede dar una solución que, al reemplazarla, deja un
-  logaritmo de un número negativo o cero — no válida.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si aˣ = aʸ (misma base a), entonces necesariamente x = y."
-
-explicacion: |
-  La función exponencial nunca repite un valor de salida — por eso se
-  puede "cancelar" la base cuando coincide en los dos lados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-variables:
-  n: random(1, 3)
-  m: random(1, 3)
-  a: 10 ^ n
-  b: 10 ^ m
-
-respuesta: ((log10(a * b)) == (log10(a) * log10(b)))
-tipo: vf
-
-enunciado: "¿log₁₀({a}×{b}) es igual a log₁₀({a}) × log₁₀({b}) (multiplicando los logaritmos, no sumándolos)?"
-
-explicacion: |
-  Error común: log(a×b) es la SUMA de los logaritmos, no el producto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  a: random(2, 8)
-  x_sol: random(1, 8)
-  error: uno_de([0, 0, 1, -1])
-  propuesto: x_sol + error
-
-respuesta: (propuesto == x_sol)
-tipo: vf
-
-enunciado: "{a}^x = {a}^{x_sol}. ¿Es correcto que x = {propuesto}?"
-
-explicacion: |
-  Con la misma base, x tiene que coincidir exactamente con {x_sol}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  k: random(1, 5)
-  real: 10 ^ k
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "log₁₀(x) = {k}. ¿Es correcto que x = {propuesto}?"
-
-explicacion: |
-  El valor correcto es x = 10^{k} = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "avanzado"
-  tags: ["exponencial", "problema"]
-
-variables:
-  n: random(1, 5)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una inversión crece según C(t) = C₀×2^t. ¿Después de cuántos períodos t el capital queda multiplicado exactamente por {2 ^ n}?"
-
-pasos:
-  - "2^t = {2 ^ n} → t = log₂({2 ^ n}) = {n}"
-
-explicacion: |
-  Es una ecuación exponencial simple, reconociendo {2 ^ n} como potencia
-  de 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "avanzado"
-  tags: ["logaritmica", "problema"]
-
-variables:
-  k: random(1, 6)
-
-respuesta: 10 ^ k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una escala logarítmica, la magnitud registrada es log₁₀(I) = {k} (I es la intensidad, en una unidad de referencia). ¿Cuánto vale I?"
-
-explicacion: |
-  Se despeja igual que cualquier ecuación logarítmica: I = 10^{k}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una ecuación exponencial simple como aˣ = aᵏ tiene una única solución."
-
-explicacion: |
-  A diferencia de una ecuación cuadrática, acá no hay dos soluciones
-  posibles — la exponencial es inyectiva.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al resolver una ecuación logarítmica que involucra un producto o cociente de logaritmos, es posible obtener una solución algebraica que no sea válida en el dominio original."
-
-explicacion: |
-  Es justo el caso del ejemplo de `teoria.md`: la ecuación cuadrática
-  intermedia puede dar una raíz negativa que no sirve como argumento de
-  un logaritmo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "avanzado"
-  tags: ["exponencial"]
-
-variables:
-  a: random(2, 10)
-  n: 2
-
-respuesta: a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: x² = {a ^ 2} (con x positivo). ¿Cuánto vale x?"
-
-explicacion: |
-  Acá la incógnita es la base, no el exponente — se resuelve con raíz
-  cuadrada, no con logaritmo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["logaritmica"]
-
-variables:
-  x_sol: random(2, 30)
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: log₁₀(x) = log₁₀({x_sol}). ¿Cuánto vale x?"
-
-explicacion: |
-  Con el mismo logaritmo a los dos lados, los argumentos tienen que
-  coincidir (el logaritmo también es inyectivo).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si log₁₀(x) = log₁₀(y), entonces necesariamente x = y."
-
-explicacion: |
-  El logaritmo nunca repite un valor de salida para dos argumentos
-  distintos — es inyectivo, igual que la exponencial.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "ecuaciones_exponenciales_logaritmicas"
-  nivel: "avanzado"
-  tags: ["propiedades"]
-
-variables:
-  x_sol: random(2, 20)
-  n: 2
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé: 2·log₁₀(x) = log₁₀({x_sol ^ 2}). ¿Cuánto vale x (positivo)?"
-
-pasos:
-  - "2·log₁₀(x) = log₁₀(x²) (propiedad de la potencia)"
-  - "log₁₀(x²) = log₁₀({x_sol ^ 2}) → x² = {x_sol ^ 2} → x = {x_sol}"
-
-explicacion: |
-  Convertir 2·log(x) en log(x²) permite igualar directamente los
-  argumentos.
-```
-
-## Sección: error-sistematico-vs-aleatorio (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "basico"
-  tags: ["error_sistematico", "vocabulario"]
-
-enunciado: "¿Qué es un error sistemático?"
+enunciado: "En la multiplicación 4 × 5 = 20, ¿cómo se llama el 20?"
 tipo: mc
 opciones_explicitas:
-  - "Un error que se repite siempre en la misma dirección, por una causa identificable"
-  - "Un error que varía de forma impredecible en cada medición"
-  - "Un error que sólo ocurre una vez"
-respuesta: "Un error que se repite siempre en la misma dirección, por una causa identificable"
+  - "Producto"
+  - "Factor"
+  - "Cociente"
+respuesta: "Producto"
 
 explicacion: |
-  Por ejemplo, un instrumento mal calibrado que siempre mide de más (o de
-  menos) por la misma cantidad.
+  El resultado de una multiplicación se llama producto; los números que se
+  multiplican son los factores.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
+  tema: "multiplicacion"
   nivel: "basico"
-  tags: ["error_aleatorio", "vocabulario"]
+  tags: ["multiplicacion", "vocabulario"]
 
-enunciado: "¿Qué es un error aleatorio?"
+enunciado: "En la multiplicación 4 × 5 = 20, ¿cómo se llaman el 4 y el 5?"
 tipo: mc
 opciones_explicitas:
-  - "Un error que varía de forma impredecible en cada medición, sin un patrón fijo"
-  - "Un error que siempre suma la misma cantidad"
-  - "Un error causado únicamente por un instrumento mal calibrado"
-respuesta: "Un error que varía de forma impredecible en cada medición, sin un patrón fijo"
+  - "Factores"
+  - "Productos"
+  - "Divisores"
+respuesta: "Factores"
 
 explicacion: |
-  A veces da de más, a veces de menos, por factores que no se pueden
-  controlar del todo.
+  Los números que se multiplican se llaman factores; el resultado es el
+  producto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "basico"
-  tags: ["error_sistematico", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El error sistemático se repite siempre en la misma dirección (siempre de más, o siempre de menos)."
-
-explicacion: |
-  Es justo lo que lo distingue del error aleatorio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "basico"
-  tags: ["error_aleatorio", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El error aleatorio no tiene una dirección fija: en distintas mediciones puede dar de más o de menos."
-
-explicacion: |
-  Por eso se puede reducir promediando varias mediciones.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
+  tema: "multiplicacion"
   nivel: "intermedio"
-  tags: ["error_sistematico", "correccion"]
-
-enunciado: "¿Cómo se corrige un error sistemático?"
-tipo: mc
-opciones_explicitas:
-  - "Identificando la causa y recalibrando el instrumento o el método"
-  - "Repitiendo la medición muchas veces y promediando"
-  - "No se puede corregir de ninguna forma"
-respuesta: "Identificando la causa y recalibrando el instrumento o el método"
-
-explicacion: |
-  A diferencia del error aleatorio, promediar NO ayuda contra el error
-  sistemático.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "intermedio"
-  tags: ["error_aleatorio", "correccion"]
-
-enunciado: "¿Cómo se reduce el efecto de un error aleatorio?"
-tipo: mc
-opciones_explicitas:
-  - "Repitiendo la medición varias veces y promediando los resultados"
-  - "Usando un instrumento distinto una sola vez"
-  - "Sumando siempre la misma corrección"
-respuesta: "Repitiendo la medición varias veces y promediando los resultados"
-
-explicacion: |
-  Al promediar, los errores que dan de más tienden a cancelarse con los
-  que dan de menos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "avanzado"
-  tags: ["error_sistematico", "correccion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una balanza mal calibrada siempre pesa 2 g de más, promediar muchas mediciones hechas con ESA balanza NO va a corregir el error."
-
-explicacion: |
-  Todas las mediciones están corridas en la misma dirección, así que el
-  promedio también queda corrido esos mismos 2 g.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "intermedio"
-  tags: ["error_sistematico", "problema"]
-
-enunciado: "Una balanza está mal calibrada y siempre pesa 2 gramos de más, sin importar qué se pese. ¿Qué tipo de error es ese?"
-tipo: mc
-opciones_explicitas:
-  - "Error sistemático"
-  - "Error aleatorio"
-respuesta: "Error sistemático"
-
-explicacion: |
-  Se repite siempre en la misma dirección y magnitud: es la firma del
-  error sistemático.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "intermedio"
-  tags: ["error_aleatorio", "problema"]
-
-enunciado: "Al cronometrar una carrera a mano, cada persona que toma el tiempo aprieta el botón con una fracción de segundo de diferencia, a veces antes y a veces después del momento exacto. ¿Qué tipo de error es ese?"
-tipo: mc
-opciones_explicitas:
-  - "Error aleatorio"
-  - "Error sistemático"
-respuesta: "Error aleatorio"
-
-explicacion: |
-  No tiene una dirección fija: varía impredeciblemente de una persona (y
-  de una vez) a otra.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "intermedio"
-  tags: ["exactitud", "vocabulario"]
-
-enunciado: "¿Qué es la exactitud de una medición?"
-tipo: mc
-opciones_explicitas:
-  - "Qué tan cerca está del valor real"
-  - "Qué tan cerca están varias mediciones entre sí"
-  - "Cuántas cifras decimales tiene"
-respuesta: "Qué tan cerca está del valor real"
-
-explicacion: |
-  Depende sobre todo del error sistemático.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "intermedio"
-  tags: ["precision", "vocabulario"]
-
-enunciado: "¿Qué es la precisión de un conjunto de mediciones?"
-tipo: mc
-opciones_explicitas:
-  - "Qué tan cerca están las mediciones entre sí, aunque no necesariamente del valor real"
-  - "Qué tan cerca está del valor real"
-  - "La cantidad de mediciones que se hicieron"
-respuesta: "Qué tan cerca están las mediciones entre sí, aunque no necesariamente del valor real"
-
-explicacion: |
-  Depende sobre todo del error aleatorio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "avanzado"
-  tags: ["exactitud", "precision", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es posible que varias mediciones estén muy cerca entre sí (precisas) pero todas alejadas del valor real (poco exactas), si hay un error sistemático."
-
-explicacion: |
-  Como tiros al blanco muy agrupados, pero lejos del centro: precisos,
-  no exactos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "avanzado"
-  tags: ["exactitud", "precision", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es posible que varias mediciones estén muy dispersas entre sí (poco precisas), pero que su promedio dé cerca del valor real (exacto)."
-
-explicacion: |
-  Como tiros dispersos por todo el blanco, pero centrados en promedio:
-  exactos en promedio, no precisos individualmente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "intermedio"
-  tags: ["error_aleatorio", "problema"]
+  tags: ["multiplicacion", "estimacion"]
 
 variables:
-  base: random(20, 100)
-  m1: base + random(-2, 2)
-  m2: base + random(-2, 2)
-  m3: base + random(-2, 2)
-  m4: base + random(-2, 2)
-  m5: base + random(-2, 2)
+  a: random(11, 88)
+  b: random(2, 9)
+  ra: redondear(a / 10, 0) * 10
 
-respuesta: redondear(promedio([m1, m2, m3, m4, m5]), 2)
+respuesta: ra * b
 tipo: input
-tolerancia_abs: 0.02
+tolerancia_abs: 0
 
-enunciado: "Se midió el mismo objeto 5 veces, con pequeñas variaciones aleatorias: {m1} cm, {m2} cm, {m3} cm, {m4} cm y {m5} cm. ¿Cuál es el promedio de esas mediciones? Redondeá a 2 decimales."
+enunciado: "Redondeá {a} a la decena más cercana y multiplicalo por {b}. ¿Cuánto da la estimación?"
 
 pasos:
-  - "({m1} + {m2} + {m3} + {m4} + {m5}) ÷ 5 = {redondear(promedio([m1, m2, m3, m4, m5]), 2)} cm"
+  - "{a} redondea a {ra}. {ra} × {b} = {ra * b}"
 
 explicacion: |
-  Promediar mediciones repetidas es la forma estándar de reducir el
-  efecto del error aleatorio.
+  Estimar una multiplicación es redondear uno de los factores antes de
+  multiplicar, para tener una idea rápida del resultado.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "intermedio"
-  tags: ["error_sistematico", "problema"]
+  tema: "multiplicacion"
+  nivel: "avanzado"
+  tags: ["multiplicacion", "estimacion"]
 
 variables:
-  offset: random(1, 5)
-  medido: random(50, 200)
+  a: random(11, 88)
+  b: random(11, 88)
+  ra: redondear(a / 10, 0) * 10
+  rb: redondear(b / 10, 0) * 10
 
-respuesta: medido - offset
+respuesta: ra * rb
 tipo: input
-tolerancia_abs: 0.01
+tolerancia_abs: 0
 
-enunciado: "Una balanza está descalibrada y siempre pesa {offset} g de más. Si pesa un objeto y marca {medido} g, ¿cuál es el peso corregido (el peso real estimado)?"
+enunciado: "Redondeá {a} y {b} a la decena más cercana y multiplicá esos redondeos. ¿Cuánto da la estimación?"
+
+explicacion: |
+  Redondear los dos factores antes de multiplicar da una idea rápida de la
+  magnitud del resultado, sin hacer la cuenta exacta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "verificacion"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 9)
+  correcto: a * b
+  error: uno_de([0, 0, 0, 1, -1])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
+tipo: vf
+
+enunciado: "¿Está bien resuelta esta multiplicación? {a} × {b} = {mostrado}"
+
+explicacion: |
+  Para verificar una multiplicación hay que volver a calcularla, no
+  alcanza con que el número parezca razonable.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "intermedio"
+  tags: ["multiplicacion", "verificacion"]
+
+variables:
+  d: random(1, 9)
+  u: random(0, 9)
+  m: random(2, 9)
+  a: d * 10 + u
+  correcto: a * m
+  error: uno_de([0, 0, 0, 1, -1, 10])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
+tipo: vf
+
+enunciado: "¿Está bien resuelta esta multiplicación? {a} × {m} = {mostrado}"
+
+explicacion: |
+  Un error típico es olvidarse de sumar la llevada de un producto parcial
+  al siguiente: conviene revisar columna por columna.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "avanzado"
+  tags: ["multiplicacion", "verificacion"]
+
+variables:
+  a: random(11, 60)
+  b: random(11, 30)
+  correcto: a * b
+  error: uno_de([0, 0, 0, 1, -1, 100])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
+tipo: vf
+
+enunciado: "¿Está bien resuelta esta multiplicación? {a} × {b} = {mostrado}"
+
+explicacion: |
+  Con dos cifras en cada factor hay más productos parciales donde puede
+  haber un error de cálculo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "problema"]
+
+variables:
+  filas: random(3, 12)
+  columnas: random(3, 12)
+
+respuesta: filas * columnas
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un salón tiene {filas} filas de sillas, con {columnas} sillas cada fila. ¿Cuántas sillas hay en total?"
+
+explicacion: |
+  Contar un arreglo en filas y columnas es multiplicar la cantidad de filas
+  por la cantidad de columnas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "problema"]
+
+variables:
+  grupos: random(2, 10)
+  n: random(3, 15)
+
+respuesta: grupos * n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Hay {grupos} grupos de {n} alumnos cada uno. ¿Cuántos alumnos hay en total?"
+
+explicacion: |
+  Varios grupos con la misma cantidad de elementos es el caso típico de
+  multiplicación: grupos × elementos por grupo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "intermedio"
+  tags: ["multiplicacion", "problema"]
+
+variables:
+  precio: random(50, 500)
+  cantidad: random(2, 9)
+
+respuesta: precio * cantidad
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Cada entrada cuesta ${precio}. ¿Cuánto cuestan {cantidad} entradas?"
+
+explicacion: |
+  El costo total de varias unidades iguales es el precio de una, repetido
+  tantas veces como unidades se compren.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "intermedio"
+  tags: ["multiplicacion", "problema"]
+
+variables:
+  n: random(2, 10)
+  dias: random(3, 20)
+
+respuesta: n * dias
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Si tomás {n} vasos de agua por día, ¿cuántos vasos tomás en {dias} días?"
+
+explicacion: |
+  Repetir la misma cantidad todos los días es multiplicar esa cantidad por
+  la cantidad de días.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "multiplicacion"
+  nivel: "intermedio"
+  tags: ["multiplicacion", "termino_faltante"]
+
+variables:
+  a: random(2, 9)
+  x: random(2, 20)
+  total: a * x
+
+respuesta: x
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Por qué número hay que multiplicar {a} para obtener {total}?"
 
 pasos:
-  - "{medido} − {offset} = {medido - offset} g"
+  - "{total} ÷ {a} = {total / a}"
 
 explicacion: |
-  Conociendo la magnitud del error sistemático, se le resta a cada
-  medición para corregirla.
+  Buscar el factor que falta es, en realidad, hacer la división entre el
+  producto y el factor conocido.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "avanzado"
-  tags: ["error_sistematico", "exactitud"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El error sistemático afecta principalmente a la exactitud (qué tan cerca del valor real), no tanto a la precisión (qué tan agrupadas están las mediciones entre sí)."
-
-explicacion: |
-  Un instrumento con error sistemático puede dar mediciones MUY parecidas
-  entre sí (precisas) pero todas corridas del valor real (no exactas).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "avanzado"
-  tags: ["error_aleatorio", "precision"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El error aleatorio afecta principalmente a la precisión (qué tan agrupadas están las mediciones), no tanto a la exactitud del promedio."
-
-explicacion: |
-  Aunque las mediciones individuales estén dispersas, su promedio puede
-  seguir siendo exacto (cercano al valor real).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
+  tema: "multiplicacion"
   nivel: "intermedio"
-  tags: ["error_sistematico", "problema"]
+  tags: ["multiplicacion", "termino_faltante"]
 
-enunciado: "Un termómetro está mal calibrado y siempre marca 1,5 °C más de lo real, en cualquier temperatura que mida. ¿Qué tipo de error es ese?"
-tipo: mc
-opciones_explicitas:
-  - "Error sistemático"
-  - "Error aleatorio"
-respuesta: "Error sistemático"
+variables:
+  a: random(3, 12)
+  x: random(3, 15)
+  total: a * x
+
+respuesta: x
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Por qué número hay que multiplicar {a} para obtener {total}?"
 
 explicacion: |
-  Dirección y magnitud constantes: sistemático.
+  El procedimiento es el mismo con números más grandes: dividir el
+  producto por el factor que ya se conoce.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
+  tema: "multiplicacion"
   nivel: "intermedio"
-  tags: ["error_aleatorio", "problema"]
+  tags: ["multiplicacion", "termino_faltante"]
 
-enunciado: "Al leer una regla, distintas personas ubican el ojo en un ángulo levemente distinto cada vez, y a veces leen un poquito de más y a veces de menos. ¿Qué tipo de error es ese?"
-tipo: mc
-opciones_explicitas:
-  - "Error aleatorio"
-  - "Error sistemático"
-respuesta: "Error aleatorio"
-
-explicacion: |
-  No tiene una dirección fija: varía impredeciblemente entre lecturas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "avanzado"
-  tags: ["error_sistematico", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Hacer muchísimas mediciones (miles) con un instrumento mal calibrado eventualmente hace que el promedio se acerque al valor real."
-
-explicacion: |
-  Por más mediciones que se hagan, si TODAS están sesgadas en la misma
-  dirección, el promedio queda igual de sesgado — la cantidad de
-  mediciones no cambia eso.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "basico"
-  tags: ["error_aleatorio", "completar"]
+variables:
+  a: random(2, 9)
+  x: random(2, 12)
+  total: a * x
 
 tipo: completar
-enunciado: "Completá: repetir una medición varias veces y ___ los resultados reduce el efecto del error aleatorio."
+enunciado: "Completá: {a} × ___ = {total}."
 respuestas_validas:
-  - "promediar"
+  - x
 
 explicacion: |
-  Los errores que dan de más y de menos tienden a cancelarse al
-  promediar.
+  El número que falta es el que, multiplicado por {a}, da exactamente
+  {total}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
+  tema: "multiplicacion"
   nivel: "basico"
-  tags: ["error_sistematico", "completar"]
+  tags: ["multiplicacion", "algoritmo_columna"]
+
+variables:
+  d: random(1, 9)
+  u: random(0, 9)
+  m: random(2, 9)
+  a: d * 10 + u
+  producto: a * m
 
 tipo: completar
-enunciado: "Completá: para corregir un error sistemático, hay que identificar su causa y ___ el instrumento o el método."
+enunciado: "Completá el resultado: {a} × {m} = ___."
 respuestas_validas:
-  - "recalibrar"
+  - producto
 
 explicacion: |
-  No alcanza con promediar; hay que arreglar la causa del sesgo.
+  Se resuelve la multiplicación en columna, cifra por cifra, y se completa
+  con el resultado final.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "avanzado"
-  tags: ["error_sistematico", "orden"]
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "orden"]
 
 tipo: ordenar
-enunciado: "Ordená los pasos para detectar y corregir un error sistemático."
+enunciado: "Ordená estos productos de menor a mayor resultado (sin calcularlos todos de una)."
 opciones_explicitas:
-  - "Recalibrar el instrumento o corregir el método"
-  - "Comparar los resultados con un valor de referencia confiable"
-  - "Notar que las mediciones se desvían siempre en la misma dirección"
-  - "Verificar que las mediciones posteriores ya no tengan ese sesgo"
-respuesta_orden:
-  - "Notar que las mediciones se desvían siempre en la misma dirección"
-  - "Comparar los resultados con un valor de referencia confiable"
-  - "Recalibrar el instrumento o corregir el método"
-  - "Verificar que las mediciones posteriores ya no tengan ese sesgo"
+  - "3 × 4"
+  - "2 × 5"
+  - "6 × 6"
+  - "4 × 4"
+respuesta_orden: ["2 × 5", "3 × 4", "4 × 4", "6 × 6"]
 
 explicacion: |
-  Primero se detecta el patrón, después se confirma contra una
-  referencia, se corrige la causa, y se verifica que la corrección haya
-  funcionado.
+  2×5=10, 3×4=12, 4×4=16, 6×6=36: hay que resolver cada producto antes de
+  poder ordenarlos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "intermedio"
-  tags: ["error_sistematico", "error_aleatorio", "vocabulario"]
+  tema: "multiplicacion"
+  nivel: "basico"
+  tags: ["multiplicacion", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un mismo experimento puede tener error sistemático Y error aleatorio a la vez, y hace falta tratar cada uno con su propia estrategia."
+enunciado: "Multiplicar es sumar el mismo número varias veces."
 
 explicacion: |
-  Por ejemplo: un instrumento mal calibrado (sistemático) leído por
-  varias personas distintas (aleatorio en la lectura).
+  Es la idea central de la multiplicación: 4 × 3 es lo mismo que
+  4 + 4 + 4.
 ```
+
+## Sección: combinaciones (25 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "intermedio"
-  tags: ["error_sistematico", "error_aleatorio", "problema"]
+  tema: "combinaciones"
+  nivel: "basico"
+  tags: ["combinaciones", "vocabulario"]
 
-enunciado: "Si sospechás que hay un error ALEATORIO (no sistemático) en tus mediciones, ¿qué conviene hacer?"
+enunciado: "¿Qué es una combinación de k elementos elegidos de un conjunto de n elementos (k ≤ n)?"
 tipo: mc
 opciones_explicitas:
-  - "Repetir la medición varias veces y promediar"
-  - "Buscar qué parte del instrumento está mal calibrada"
-  - "Descartar todas las mediciones sin analizarlas"
-respuesta: "Repetir la medición varias veces y promediar"
+  - "Cada forma distinta de elegir k elementos, sin repetir ninguno, donde el ORDEN NO importa"
+  - "Cada forma distinta de elegir Y ordenar k elementos"
+  - "Cada forma de ordenar TODOS los n elementos"
+respuesta: "Cada forma distinta de elegir k elementos, sin repetir ninguno, donde el ORDEN NO importa"
 
 explicacion: |
-  Es la estrategia correcta específicamente contra el error aleatorio.
+  Elegir A y B es lo mismo que elegir B y A — es la misma combinación.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "error_sistematico_vs_aleatorio"
-  nivel: "basico"
-  tags: ["error_sistematico", "error_aleatorio", "vocabulario"]
+  tema: "combinaciones"
+  nivel: "intermedio"
+  tags: ["combinaciones", "completar"]
+
+tipo: completar
+enunciado: "Completá: C(n, k) = n! / (___ × (n−k)!)."
+respuestas_validas:
+  - "k!"
+
+explicacion: |
+  Se divide por k! para no contar cada combinación una vez por cada
+  orden posible de sus elementos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones", "problema"]
+
+variables:
+  n: uno_de([6, 7, 8, 9, 10])
+  k: uno_de([2, 3])
+
+respuesta: combinations(n, k)
+tipo: input
+
+enunciado: "¿Cuántas combinaciones de {k} elementos se pueden formar a partir de un conjunto de {n} elementos?"
+
+pasos:
+  - "C({n}, {k}) = {n}! / ({k}! × ({n}−{k})!) = {combinations(n, k)}"
+
+explicacion: |
+  Se divide la variación correspondiente por las formas de ordenar los
+  {k} elementos elegidos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "intermedio"
+  tags: ["combinaciones"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Identificar si un error es sistemático o aleatorio es clave, porque cada uno se soluciona con una estrategia distinta: recalibrar en un caso, promediar en el otro."
+enunciado: "En una combinación, elegir A y luego B es exactamente lo mismo que elegir B y luego A — cuentan como UNA sola combinación."
 
 explicacion: |
-  Es la idea central del módulo: no hay una única receta contra el
-  error, hay que diagnosticar primero de qué tipo es.
+  Es la diferencia clave con las variaciones, donde sí se
+  distinguen.
 ```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "intermedio"
+  tags: ["combinaciones"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En una combinación (en el sentido clásico de este módulo), se permite elegir el mismo elemento más de una vez."
+
+explicacion: |
+  Es falso: cada elemento se elige como máximo una vez, igual que en
+  variaciones y permutaciones.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones", "problema"]
+
+variables:
+  candidatos: uno_de([8, 9, 10, 12])
+  comite: uno_de([2, 3])
+
+respuesta: combinations(candidatos, comite)
+tipo: input
+
+enunciado: "Entre {candidatos} candidatos, se va a formar un comité de {comite} personas, sin roles distintos (no importa el orden en que se elijan). ¿Cuántos comités distintos son posibles?"
+
+pasos:
+  - "C({candidatos}, {comite}) = {combinations(candidatos, comite)}"
+
+explicacion: |
+  A diferencia de elegir presidente y vicepresidente (variación), acá
+  ningún miembro del comité tiene un rol distinto de los demás.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones", "problema"]
+
+variables:
+  mazo: uno_de([10, 12, 15])
+  mano: uno_de([2, 3])
+
+respuesta: combinations(mazo, mano)
+tipo: input
+
+enunciado: "De un mazo de {mazo} cartas distintas, ¿de cuántas formas se pueden elegir {mano} cartas (sin importar el orden en que se las reciba)?"
+
+pasos:
+  - "C({mazo}, {mano}) = {combinations(mazo, mano)}"
+
+explicacion: |
+  Una mano de cartas es el ejemplo clásico de combinación: no importa
+  en qué orden llegaron a la mano.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "C(n, k) es siempre igual a C(n, n−k) — elegir k para incluir es lo mismo que elegir n−k para dejar afuera."
+
+explicacion: |
+  Son la misma partición del conjunto en dos partes, mirada desde
+  cualquiera de los dos lados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones", "problema"]
+
+variables:
+  n: uno_de([8, 9, 10])
+  k: uno_de([2, 3])
+
+respuesta: combinations(n, n - k)
+tipo: input
+
+enunciado: "Si C({n}, {k}) = {combinations(n, k)}, ¿cuánto es C({n}, {n}−{k})?"
+
+pasos:
+  - "Por la propiedad simétrica, C({n}, {n}−{k}) = C({n}, {k}) = {combinations(n, n - k)}"
+
+explicacion: |
+  Elegir {k} para incluir de un total de {n} es lo mismo que elegir
+  {n}−{k} para dejar afuera.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular C(n, k) a partir de la variación correspondiente."
+tipo: ordenar
+opciones_explicitas:
+  - "Dividir esa variación por k! (las formas de ordenar los k elementos elegidos)"
+  - "Calcular la variación V(n, k) = n! / (n−k)!"
+  - "El resultado de esa división es C(n, k)"
+respuesta_orden: ["Calcular la variación V(n, k) = n! / (n−k)!", "Dividir esa variación por k! (las formas de ordenar los k elementos elegidos)", "El resultado de esa división es C(n, k)"]
+explicacion: |
+  La combinación se obtiene corrigiendo la variación por el
+  sobre-conteo de los distintos órdenes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones", "variaciones", "problema"]
+
+variables:
+  n: uno_de([7, 8, 9])
+  k: uno_de([2, 3])
+
+respuesta: combinations(n, k) * factorial(k)
+tipo: input
+
+enunciado: "Si C({n}, {k}) = {combinations(n, k)}, ¿cuánto vale la variación V({n}, {k}) (multiplicando la combinación por las formas de ordenar los {k} elementos)?"
+
+pasos:
+  - "V({n}, {k}) = C({n}, {k}) × {k}! = {combinations(n, k)} × {factorial(k)} = {combinations(n, k) * factorial(k)}"
+
+explicacion: |
+  Es la relación inversa a la fórmula de combinaciones: V = C × k!.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones"]
+
+enunciado: "¿Por qué la fórmula de combinaciones divide la variación por k!?"
+tipo: mc
+opciones_explicitas:
+  - "Porque cada combinación de k elementos corresponde a k! variaciones distintas (todos los órdenes posibles de esos mismos elementos), y hay que corregir ese sobre-conteo"
+  - "Porque k! siempre es un número muy grande y hay que reducir el resultado"
+  - "No hay ninguna razón matemática, es sólo una convención arbitraria"
+respuesta: "Porque cada combinación de k elementos corresponde a k! variaciones distintas (todos los órdenes posibles de esos mismos elementos), y hay que corregir ese sobre-conteo"
+
+explicacion: |
+  Sin dividir, se estaría contando la misma combinación una vez por
+  cada orden posible de sus elementos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "intermedio"
+  tags: ["combinaciones", "problema"]
+
+variables:
+  n: random(5, 20)
+
+respuesta: n
+tipo: input
+
+enunciado: "¿Cuántas combinaciones de 1 solo elemento hay en un conjunto de {n} elementos?"
+
+pasos:
+  - "C({n}, 1) = {n} (elegir uno solo, sin nada más que decidir)"
+
+explicacion: |
+  Con k=1 no hay orden ni repetición que considerar: el resultado es
+  simplemente n.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "intermedio"
+  tags: ["combinaciones", "problema"]
+
+variables:
+  n: random(5, 20)
+
+respuesta: 1
+tipo: input
+
+enunciado: "¿Cuántas combinaciones de {n} elementos hay en un conjunto de {n} elementos (elegirlos todos)?"
+
+explicacion: |
+  Sólo hay una forma de 'elegir a todos' — no hay ninguna decisión
+  real que tomar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "intermedio"
+  tags: ["combinaciones", "problema"]
+
+variables:
+  n: random(5, 20)
+
+respuesta: 1
+tipo: input
+
+enunciado: "Por convención, ¿cuántas combinaciones de 0 elementos hay en un conjunto de {n} elementos?"
+
+explicacion: |
+  C(n, 0) = 1 — hay exactamente una forma de 'no elegir nada' (el
+  conjunto vacío).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones", "variaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para los mismos n y k, C(n,k) siempre es menor o igual que V(n,k)."
+
+explicacion: |
+  La combinación es la variación dividida por k! (que es 1 o mayor),
+  así que nunca puede ser mayor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "basico"
+  tags: ["combinaciones", "aplicacion"]
+
+enunciado: "En una lotería donde se elige un grupo de números sin importar el orden en que salen, ¿qué hay que calcular para saber cuántos resultados distintos son posibles?"
+tipo: mc
+opciones_explicitas:
+  - "Una combinación: no importa el orden en que salen los números, sólo cuáles salen"
+  - "Una variación, porque el orden de salida sí importa"
+  - "Una simple multiplicación de la cantidad de números por sí misma"
+respuesta: "Una combinación: no importa el orden en que salen los números, sólo cuáles salen"
+
+explicacion: |
+  Ganar con los números 5-12-23 es lo mismo que ganar con 23-5-12: el
+  orden de salida no cambia el resultado del sorteo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones", "problema"]
+
+variables:
+  total_numeros: uno_de([20, 25, 30])
+  elegidos: uno_de([3, 4])
+
+respuesta: combinations(total_numeros, elegidos)
+tipo: input
+
+enunciado: "Una lotería sortea {elegidos} números distintos de un total de {total_numeros} números posibles (sin importar el orden). ¿Cuántos resultados de sorteo distintos son posibles?"
+
+pasos:
+  - "C({total_numeros}, {elegidos}) = {combinations(total_numeros, elegidos)}"
+
+explicacion: |
+  Es exactamente el mismo cálculo que un comité o una mano de cartas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "basico"
+  tags: ["combinaciones", "aplicacion"]
+
+enunciado: "¿Para qué se usan las combinaciones en problemas de probabilidad compuesta (por ejemplo, probabilidades genéticas en Biología)?"
+tipo: mc
+opciones_explicitas:
+  - "Para contar cuántos casos favorables y cuántos casos totales hay, sin necesidad de enumerarlos todos, y así calcular la probabilidad como un cociente"
+  - "Sólo sirven para calcular promedios de datos"
+  - "No tienen ninguna aplicación en probabilidad"
+respuesta: "Para contar cuántos casos favorables y cuántos casos totales hay, sin necesidad de enumerarlos todos, y así calcular la probabilidad como un cociente"
+
+explicacion: |
+  Es el puente directo hacia Probabilidad compuesta (Tronco 4.b).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones", "problema"]
+
+variables:
+  puntos: uno_de([6, 7, 8, 9])
+
+respuesta: combinations(puntos, 3)
+tipo: input
+
+enunciado: "Hay {puntos} puntos marcados en una hoja, ninguno alineado con otros dos. ¿Cuántos triángulos distintos se pueden formar uniendo 3 de esos puntos?"
+
+pasos:
+  - "Cada triángulo es un grupo de 3 puntos, sin importar el orden en que se los nombre: C({puntos}, 3) = {combinations(puntos, 3)}"
+
+explicacion: |
+  Un triángulo con vértices A, B, C es el mismo triángulo sin importar
+  en qué orden se mencionen los vértices — por eso es combinación, no
+  variación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones", "variaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para k=1, la combinación C(n,1) y la variación V(n,1) dan exactamente el mismo resultado (ambas son n)."
+
+explicacion: |
+  Con un solo elemento elegido no hay ningún orden que definir, así
+  que dividir por 1! (=1) no cambia nada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones", "problema"]
+
+variables:
+  n: uno_de([9, 10, 11])
+  k: uno_de([3, 4])
+
+respuesta: combinations(n - 1, k - 1)
+tipo: input
+
+enunciado: "De un grupo de {n} personas, se va a elegir un comité de {k}, con la condición de que una persona específica (el director) SIEMPRE tiene que estar incluida. ¿Cuántos comités distintos son posibles?"
+
+pasos:
+  - "El director ya está incluido: sólo hay que elegir los {k}−1 restantes entre las otras {n}−1 personas"
+  - "C({n}−1, {k}−1) = {combinations(n - 1, k - 1)}"
+
+explicacion: |
+  Fijar un elemento reduce el problema a elegir el resto entre los que
+  quedan disponibles.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin la fórmula de combinaciones, calcular la probabilidad de sucesos compuestos (como extraer varias cartas de un mismo color) quedaría condenado a enumerar caso por caso."
+
+explicacion: |
+  Para conjuntos grandes, enumerar deja de ser viable — combinaciones
+  resuelve el conteo sin listar nada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "avanzado"
+  tags: ["combinaciones", "problema"]
+
+variables:
+  n: uno_de([10, 12, 14])
+
+respuesta: combinations(n, 2) + combinations(n, 3)
+tipo: input
+
+enunciado: "De un grupo de {n} personas, se quiere saber cuántos comités posibles hay en total, contando tanto los comités de 2 personas como los de 3 personas (cada tamaño por separado, sumados al final). ¿Cuál es ese total?"
+
+pasos:
+  - "Comités de 2: C({n}, 2) = {combinations(n, 2)}"
+  - "Comités de 3: C({n}, 3) = {combinations(n, 3)}"
+  - "Total = {combinations(n, 2)} + {combinations(n, 3)} = {combinations(n, 2) + combinations(n, 3)}"
+
+explicacion: |
+  Como son comités de tamaños distintos (no se solapan entre sí), se
+  suman directo las dos cantidades.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "combinaciones"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve calcular combinaciones?"
+tipo: mc
+opciones_explicitas:
+  - "Para contar cuántas formas hay de elegir una parte de un conjunto SIN importar el orden, sin repetir elementos"
+  - "Sólo sirve cuando el orden de la elección es importante"
+  - "Sólo aplica a conjuntos de cartas de juego"
+respuesta: "Para contar cuántas formas hay de elegir una parte de un conjunto SIN importar el orden, sin repetir elementos"
+
+explicacion: |
+  Cierra el tronco de Conjuntos y combinatoria (4.a), y es la puerta
+  directa hacia Probabilidad compuesta (Tronco 4.b).
+```
+
+## Sección: permutaciones (24 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "basico"
+  tags: ["permutaciones", "vocabulario"]
+
+enunciado: "¿Qué es una permutación de un conjunto de n elementos?"
+tipo: mc
+opciones_explicitas:
+  - "Cada una de las formas distintas de ordenar TODOS los elementos, sin dejar ninguno afuera y sin repetir ninguno"
+  - "Cada una de las formas de elegir sólo una parte de los elementos"
+  - "Cada una de las formas de elegir elementos sin importar el orden"
+respuesta: "Cada una de las formas distintas de ordenar TODOS los elementos, sin dejar ninguno afuera y sin repetir ninguno"
+
+explicacion: |
+  Usa el conjunto completo — a diferencia de variaciones y
+  combinaciones, que usan sólo una parte.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "intermedio"
+  tags: ["permutaciones", "completar"]
+
+tipo: completar
+enunciado: "Completá: n! = n × (n−1) × (n−2) × ... × 2 × ___."
+respuestas_validas:
+  - "1"
+
+explicacion: |
+  El producto termina siempre en 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "intermedio"
+  tags: ["permutaciones", "problema"]
+
+variables:
+  n: uno_de([3, 4, 5, 6])
+
+respuesta: factorial(n)
+tipo: input
+
+enunciado: "¿Cuántas permutaciones distintas tiene un conjunto de {n} elementos?"
+
+pasos:
+  - "{n}! = {factorial(n)}"
+
+explicacion: |
+  Se multiplican todos los números enteros desde {n} hasta 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "intermedio"
+  tags: ["permutaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Por convención, 0! = 1 (hay exactamente una forma de 'ordenar' un conjunto vacío: no hacer nada)."
+
+explicacion: |
+  Es una convención necesaria para que las fórmulas de variaciones y
+  combinaciones sigan funcionando en los casos extremos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "basico"
+  tags: ["permutaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "1! = 1 (con un solo elemento, hay una única forma de 'ordenarlo')."
+
+explicacion: |
+  No hay nada que reordenar con un solo elemento.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "intermedio"
+  tags: ["permutaciones", "problema"]
+
+variables:
+  personas: uno_de([4, 5, 6, 7])
+
+respuesta: factorial(personas)
+tipo: input
+
+enunciado: "¿De cuántas formas distintas se pueden ordenar {personas} personas en una fila?"
+
+pasos:
+  - "{personas}! = {factorial(personas)}"
+
+explicacion: |
+  Cada orden distinto de la fila es una permutación diferente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "avanzado"
+  tags: ["permutaciones", "problema"]
+
+variables:
+  corredores: uno_de([4, 5, 6])
+
+respuesta: factorial(corredores)
+tipo: input
+
+enunciado: "En una carrera con {corredores} corredores, ¿de cuántas formas distintas puede quedar el orden de llegada completo (1° a {corredores}°), sin empates?"
+
+pasos:
+  - "{corredores}! = {factorial(corredores)}"
+
+explicacion: |
+  Es una permutación de los {corredores} corredores en las
+  {corredores} posiciones de llegada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "intermedio"
+  tags: ["permutaciones", "problema"]
+
+variables:
+  canciones: uno_de([5, 6, 7, 8])
+
+respuesta: factorial(canciones)
+tipo: input
+
+enunciado: "Un álbum tiene {canciones} canciones. ¿De cuántos órdenes distintos se puede armar una lista de reproducción que use TODAS las canciones del álbum?"
+
+pasos:
+  - "{canciones}! = {factorial(canciones)}"
+
+explicacion: |
+  Usa todas las canciones (no una parte), así que es una permutación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "avanzado"
+  tags: ["permutaciones"]
+
+enunciado: "¿Por qué el factorial crece mucho más rápido que una multiplicación por un número fijo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque cada término nuevo multiplica por un número que también crece (n, n−1, n−2...), no por un factor constante"
+  - "En realidad el factorial crece a la misma velocidad que cualquier multiplicación"
+  - "Porque siempre se multiplica por 10"
+respuesta: "Porque cada término nuevo multiplica por un número que también crece (n, n−1, n−2...), no por un factor constante"
+
+explicacion: |
+  Por eso 10! (3.628.800) es enormemente más grande que 10×9=90.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "avanzado"
+  tags: ["permutaciones", "problema"]
+
+variables:
+  n: uno_de([4, 5, 6, 7])
+
+respuesta: n + 1
+tipo: input
+
+enunciado: "¿Cuántas veces más grande es ({n}+1)! comparado con {n}!?"
+
+pasos:
+  - "({n}+1)! = ({n}+1) × {n}! — así que la razón es exactamente {n}+1 = {n + 1}"
+
+explicacion: |
+  Pasar de n! a (n+1)! agrega un factor más: multiplicar por (n+1).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "avanzado"
+  tags: ["permutaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para cualquier n ≥ 2, n! es siempre un número par."
+
+explicacion: |
+  El producto n × (n−1) × ... × 2 × 1 incluye siempre el factor 2, así
+  que el resultado es múltiplo de 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "avanzado"
+  tags: ["permutaciones", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular de cuántas formas se pueden ordenar n elementos, usando el principio multiplicativo."
+tipo: ordenar
+opciones_explicitas:
+  - "Para el último elemento por ubicar queda 1 sola opción"
+  - "Para el primer lugar hay n opciones disponibles"
+  - "Para el segundo lugar hay n−1 opciones (ya se usó una), y así sucesivamente"
+respuesta_orden: ["Para el primer lugar hay n opciones disponibles", "Para el segundo lugar hay n−1 opciones (ya se usó una), y así sucesivamente", "Para el último elemento por ubicar queda 1 sola opción"]
+explicacion: |
+  Multiplicar esa secuencia completa (n, n−1, ..., 1) es exactamente
+  n!.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "avanzado"
+  tags: ["permutaciones", "problema"]
+
+variables:
+  letras: uno_de([4, 5, 6])
+
+respuesta: factorial(letras)
+tipo: input
+
+enunciado: "Una palabra tiene {letras} letras, TODAS distintas entre sí. ¿Cuántos anagramas distintos (reordenamientos de esas letras) se pueden formar, tengan sentido o no?"
+
+pasos:
+  - "{letras}! = {factorial(letras)}"
+
+explicacion: |
+  Cada anagrama es una permutación distinta de las {letras} letras.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "intermedio"
+  tags: ["permutaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una permutación siempre usa TODOS los elementos del conjunto — ninguno queda afuera."
+
+explicacion: |
+  Es la diferencia clave con variaciones y combinaciones, que usan
+  sólo una parte.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "basico"
+  tags: ["permutaciones", "aplicacion"]
+
+enunciado: "Si una contraseña tiene que usar EXACTAMENTE las letras A, B, C, D (todas, sin repetir, en algún orden), ¿qué se necesita calcular para saber cuántas contraseñas distintas son posibles?"
+tipo: mc
+opciones_explicitas:
+  - "Una permutación de las 4 letras: 4!"
+  - "Una suma de las 4 letras"
+  - "El cuadrado de 4"
+respuesta: "Una permutación de las 4 letras: 4!"
+
+explicacion: |
+  Se usan todas las letras disponibles, sin dejar ninguna afuera.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "avanzado"
+  tags: ["permutaciones", "problema"]
+
+variables:
+  n: uno_de([7, 8, 9])
+
+respuesta: factorial(n)
+tipo: input
+
+enunciado: "¿Cuánto es {n}!?"
+
+pasos:
+  - "{n}! = {n} × {n-1} × ... × 1 = {factorial(n)}"
+
+explicacion: |
+  A partir de 7-8 elementos, la cantidad de permutaciones ya es enorme.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "avanzado"
+  tags: ["permutaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El factorial de un número negativo no tiene sentido en el contexto de contar permutaciones (no se puede ordenar una cantidad negativa de elementos)."
+
+explicacion: |
+  n siempre representa una cantidad de elementos, así que tiene que
+  ser 0 o un entero positivo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "basico"
+  tags: ["permutaciones", "completar"]
+
+tipo: completar
+enunciado: "Completá: la cantidad de permutaciones de n elementos se escribe con el símbolo n ___ (factorial)."
+respuestas_validas:
+  - "!"
+
+explicacion: |
+  Se lee "n factorial".
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "intermedio"
+  tags: ["permutaciones", "problema"]
+
+variables:
+  amigos: uno_de([4, 5, 6])
+
+respuesta: factorial(amigos)
+tipo: input
+
+enunciado: "{amigos} amigos van al cine y hay exactamente {amigos} asientos en fila. ¿De cuántas formas distintas se pueden sentar?"
+
+pasos:
+  - "{amigos}! = {factorial(amigos)}"
+
+explicacion: |
+  Cada asiento distinto para cada persona es una permutación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "avanzado"
+  tags: ["permutaciones"]
+
+enunciado: "¿Cómo se relaciona una permutación con el principio multiplicativo de conteo?"
+tipo: mc
+opciones_explicitas:
+  - "Es el caso particular donde en cada paso hay una opción menos disponible, porque se usan todos los elementos sin repetir"
+  - "No tiene ninguna relación con el principio multiplicativo"
+  - "Es el principio multiplicativo, pero sumando en vez de multiplicando"
+respuesta: "Es el caso particular donde en cada paso hay una opción menos disponible, porque se usan todos los elementos sin repetir"
+
+explicacion: |
+  n × (n−1) × (n−2) × ... es exactamente la forma del principio
+  multiplicativo con una opción menos en cada paso.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "basico"
+  tags: ["permutaciones"]
+
+respuesta: 24
+tipo: input
+
+enunciado: "¿Cuánto es 4! (4 factorial)?"
+
+pasos:
+  - "4! = 4 × 3 × 2 × 1 = 24"
+
+explicacion: |
+  Es un valor que conviene recordar de memoria, por lo seguido que
+  aparece.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "avanzado"
+  tags: ["permutaciones", "problema"]
+
+variables:
+  n: uno_de([4, 5, 6])
+
+respuesta: factorial(n + 1) - factorial(n)
+tipo: input
+
+enunciado: "¿Cuál es la diferencia entre ({n}+1)! y {n}!?"
+
+pasos:
+  - "({n}+1)! = {factorial(n + 1)}"
+  - "{n}! = {factorial(n)}"
+  - "Diferencia = {factorial(n + 1)} − {factorial(n)} = {factorial(n + 1) - factorial(n)}"
+
+explicacion: |
+  No es una resta trivial — el factorial crece tan rápido que la
+  diferencia entre dos consecutivos también es grande.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "basico"
+  tags: ["permutaciones"]
+
+respuesta: 1
+tipo: input
+
+enunciado: "¿De cuántas formas distintas se puede 'ordenar' un conjunto de un solo elemento?"
+
+explicacion: |
+  Con un solo elemento no hay nada que reordenar: sólo hay 1 forma.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "permutaciones"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve calcular permutaciones?"
+tipo: mc
+opciones_explicitas:
+  - "Para saber de cuántas formas distintas se puede ordenar UN CONJUNTO COMPLETO de elementos"
+  - "Sólo sirve para calcular probabilidades de lotería"
+  - "Sólo aplica a conjuntos de números, nunca a personas u objetos"
+respuesta: "Para saber de cuántas formas distintas se puede ordenar UN CONJUNTO COMPLETO de elementos"
+
+explicacion: |
+  Es también la pieza (el factorial) que hace falta para calcular
+  variaciones y combinaciones, los dos módulos hermanos que siguen.
+```
+

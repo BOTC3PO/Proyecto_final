@@ -1,232 +1,228 @@
-# Examen jefe — Domina costos y balances
+# Examen jefe — [PENDIENTE #769]
 
-> Logro #190. Aprobaste el parcial integrando conceptos de costo marginal, cultura organizacional y análisis de deuda. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **114 preguntas totales** en 5/5 secciones.
+> Logro #769. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: costo-marginal (26 preguntas)
+## Sección: elasticidad (24 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
+  tema: "elasticidad"
   nivel: "intermedio"
-  tags: ["evaluar"]
+  tags: ["calculo"]
 
 variables:
-  a: random(1, 6)
-  b: random(5, 30)
-  costo_fijo: random(100, 1000)
-  q: random(1, 30)
+  pct_precio: random(5, 15)
+  k: random(2, 4)
+  pct_cantidad: pct_precio * k
 
-respuesta: 2 * a * q + b
+respuesta: k
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "C(q) = {a}q² + {b}q + {costo_fijo}. ¿Cuál es el costo marginal en q={q}?"
+enunciado: "El precio sube {pct_precio}% y la cantidad demandada baja {pct_cantidad}%. ¿Cuál es el valor absoluto de la elasticidad?"
 
 pasos:
-  - "Cmg(q) = C'(q) = {2 * a}q + {b}"
-  - "Cmg({q}) = {2 * a}×{q} + {b} = {2 * a * q + b}"
+  - "|E| = {pct_cantidad}%/{pct_precio}% = {k}"
 
 explicacion: |
-  El costo fijo ({costo_fijo}) desaparece al derivar — el costo marginal
-  sólo refleja la parte variable.
+  |E| = (%ΔQ)/(%ΔP), tomando los valores absolutos de cada variación.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
+  tema: "elasticidad"
   nivel: "intermedio"
-  tags: ["evaluar"]
+  tags: ["calculo"]
 
 variables:
-  a: random(1, 5)
-  b: random(5, 20)
-  costo_fijo: random(200, 800)
-  q: random(1, 20)
+  pct_cantidad: random(2, 8)
+  k: random(2, 5)
+  pct_precio: pct_cantidad * k
 
-respuesta: 2 * a * q + b
+respuesta: pct_cantidad
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "C(q) = {a}q² + {b}q + {costo_fijo}. ¿Cuál es el costo marginal en q={q}?"
+enunciado: "El precio sube {pct_precio}% y la cantidad demandada baja {pct_cantidad}%. Sin dividir todavía, ¿cuál es el numerador (%ΔQ, en valor absoluto) del cociente de elasticidad?"
 
 explicacion: |
-  Cmg(q) = {2 * a}q + {b}, evaluado en q={q}.
+  El numerador de |E| es directamente %ΔQ = {pct_cantidad}%.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
+  tema: "elasticidad"
+  nivel: "intermedio"
+  tags: ["clasificar", "opcion_multiple"]
 
 variables:
-  costo_fijo_1: random(100, 500)
-  costo_fijo_2: random(501, 1000)
-  a: random(1, 5)
-  b: random(5, 20)
-  q: random(1, 20)
+  pct_precio: random(5, 15)
+  k: random(2, 4)
+  pct_cantidad: pct_precio * k
+
+respuesta: "Elástica"
+tipo: mc
+opciones_explicitas:
+  - "Elástica"
+  - "Inelástica"
+  - "Unitaria"
+
+enunciado: "El precio sube {pct_precio}% y la cantidad baja {pct_cantidad}% (|E|={k}). ¿Es elástica, inelástica o unitaria la demanda?"
+
+explicacion: |
+  |E|={k} > 1 → elástica.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "elasticidad"
+  nivel: "intermedio"
+  tags: ["clasificar", "opcion_multiple"]
+
+variables:
+  pct_cantidad: random(2, 8)
+  k: random(2, 5)
+  pct_precio: pct_cantidad * k
+
+respuesta: "Inelástica"
+tipo: mc
+opciones_explicitas:
+  - "Inelástica"
+  - "Elástica"
+  - "Unitaria"
+
+enunciado: "El precio sube {pct_precio}% y la cantidad baja {pct_cantidad}%. ¿Es elástica, inelástica o unitaria la demanda?"
+
+explicacion: |
+  |E| = {pct_cantidad}/{pct_precio} < 1 → inelástica.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "elasticidad"
+  nivel: "intermedio"
+  tags: ["clasificar", "verdadero_falso"]
+
+variables:
+  pct: random(5, 30)
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Dos empresas tienen la misma parte variable de costo ({a}q² + {b}q), pero costos fijos distintos ({costo_fijo_1} y {costo_fijo_2}). ¿Tienen el mismo costo marginal en q={q}?"
+enunciado: "El precio sube {pct}% y la cantidad baja exactamente {pct}%. ¿Es unitaria la elasticidad?"
 
 explicacion: |
-  El costo fijo se anula al derivar — sólo importa la parte variable
-  para el costo marginal.
+  |E| = {pct}/{pct} = 1 → elasticidad unitaria.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
+  tema: "elasticidad"
   nivel: "basico"
-  tags: ["evaluar"]
+  tags: ["variacion_porcentual"]
 
 variables:
-  b: random(10, 50)
-  costo_fijo: random(100, 500)
+  k: random(1, 10)
+  cantidad_inicial: k * 100
+  pct: random(5, 40)
+  cantidad_final: cantidad_inicial - k * pct
 
-respuesta: b
+respuesta: pct
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "C(q) = {b}q + {costo_fijo} (costo variable lineal). ¿Cuál es el costo marginal, para cualquier q?"
+enunciado: "La cantidad demandada baja de {cantidad_inicial} a {cantidad_final} unidades. ¿Cuál es la variación porcentual (en valor absoluto)?"
+
+pasos:
+  - "%Δ = ({cantidad_inicial}−{cantidad_final})/{cantidad_inicial} × 100 = {pct}%"
 
 explicacion: |
-  Cmg(q) = {b}, constante — no depende de q cuando el costo variable es
-  lineal.
+  Se compara el cambio con el valor INICIAL, no el final.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
+  tema: "elasticidad"
+  nivel: "basico"
+  tags: ["variacion_porcentual"]
 
 variables:
-  a: random(1, 8)
-  b: random(5, 20)
-  costo_fijo: random(100, 500)
+  k: random(1, 10)
+  precio_inicial: k * 100
+  pct: random(5, 40)
+  precio_final: precio_inicial + k * pct
 
-respuesta: verdadero
-tipo: vf
+respuesta: pct
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "C(q) = {a}q² + {b}q + {costo_fijo} (con a>0). ¿Es creciente el costo marginal a medida que aumenta q?"
+enunciado: "El precio sube de {precio_inicial} a {precio_final}. ¿Cuál es la variación porcentual?"
 
 explicacion: |
-  Cmg(q)={2 * a}q+{b} es una función lineal creciente en q, porque el
-  coeficiente {2 * a} es positivo.
+  %Δ = ({precio_final}−{precio_inicial})/{precio_inicial} × 100 =
+  {pct}%.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
+  tema: "elasticidad"
   nivel: "avanzado"
-  tags: ["verdadero_falso"]
+  tags: ["calculo"]
 
 variables:
-  a: random(1, 6)
-  b: random(5, 20)
-  q1: random(1, 10)
-  q2: random(11, 30)
+  k: random(1, 5)
+  precio_inicial: k * 100
+  pct_precio: random(5, 20)
+  precio_final: precio_inicial + k * pct_precio
+  cantidad_inicial: k * 100
+  m: random(2, 4)
+  pct_cantidad: pct_precio * m
+  cantidad_final: cantidad_inicial - k * pct_cantidad
 
-respuesta: ((2 * a * q2 + b) > (2 * a * q1 + b))
-tipo: vf
-
-enunciado: "C(q) = {a}q² + {b}q + costo fijo. ¿Es mayor el costo marginal en q={q2} que en q={q1}?"
-
-explicacion: |
-  Con a positivo, el costo marginal crece con q — producir más caro cada
-  vez la unidad siguiente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "costo_marginal"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El costo marginal es, aproximadamente, cuánto cuesta producir una unidad adicional."
-
-explicacion: |
-  Es la definición central del tema.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "costo_marginal"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cmg(q) = C'(q), la derivada de la función de costo total."
-
-explicacion: |
-  Es la definición formal, ya usada en las cuentas anteriores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "costo_marginal"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "El costo marginal (Cmg=C') y el costo promedio (Cme=C/q) son exactamente el mismo cálculo."
-
-explicacion: |
-  Son cálculos distintos: el marginal mira la próxima unidad; el
-  promedio reparte el costo total entre todas las unidades.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "costo_marginal"
-  nivel: "intermedio"
-  tags: ["costo_promedio"]
-
-variables:
-  q: random(2, 10)
-  m: random(5, 20)
-  k: random(1, 20)
-  costo_fijo: m * q
-  costo_variable_total: k * q
-
-respuesta: m + k
+respuesta: m
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Producir {q} unidades cuesta un total de {costo_fijo + costo_variable_total} (fijo {costo_fijo} + variable {costo_variable_total}). ¿Cuál es el costo PROMEDIO por unidad?"
+enunciado: "El precio pasa de {precio_inicial} a {precio_final}, y la cantidad de {cantidad_inicial} a {cantidad_final}. ¿Cuál es |E|?"
+
+pasos:
+  - "%ΔP = {pct_precio}%, %ΔQ = {pct_cantidad}% → |E| = {pct_cantidad}/{pct_precio} = {m}"
 
 explicacion: |
-  Cme = C(q)/q — reparte el costo total entre todas las unidades, algo
-  distinto del costo marginal.
+  Primero se calcula cada variación porcentual, y después se dividen.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
+  tema: "elasticidad"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La elasticidad mide cuánto responde (en términos porcentuales) la cantidad demandada ante un cambio porcentual en el precio."
+
+explicacion: |
+  Es la definición central: un cociente de variaciones RELATIVAS, no
+  absolutas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "elasticidad"
   nivel: "intermedio"
   tags: ["concepto", "error_comun", "verdadero_falso"]
 
@@ -234,2072 +230,2130 @@ respuesta: falso
 
 tipo: vf
 
-enunciado: "El costo marginal incluye una parte proporcional de los costos fijos de la empresa."
+enunciado: "La elasticidad de la demanda es exactamente lo mismo que la pendiente de la curva de demanda."
 
 explicacion: |
-  No — el costo marginal sólo refleja el costo variable, porque la
-  derivada de una constante (el costo fijo) es 0.
+  La pendiente usa variaciones absolutas (ΔP/ΔQ); la elasticidad usa
+  variaciones porcentuales — son cálculos relacionados pero distintos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
+  tema: "elasticidad"
   nivel: "avanzado"
   tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cmg(q)=C'(q) es una aproximación de C(q+1)−C(q) (el costo real y exacto de producir una unidad más) — para funciones suaves, se parecen mucho, pero no son matemáticamente idénticos."
+enunciado: "Como la elasticidad usa porcentajes (no unidades), permite comparar la sensibilidad al precio de productos completamente distintos entre sí (por ejemplo, pan vs. autos)."
 
 explicacion: |
-  La derivada es un límite; C(q+1)−C(q) es una diferencia discreta —
-  ideas relacionadas, no la misma cuenta exacta.
+  La pendiente sola no permitiría esa comparación, porque depende de las
+  unidades de cada producto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
+  tema: "elasticidad"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los bienes esenciales, sin sustitutos cercanos (como medicamentos), suelen tener demanda inelástica."
+
+explicacion: |
+  La gente sigue comprándolos casi igual aunque suba el precio, porque
+  no tiene alternativa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "elasticidad"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los bienes con sustitutos cercanos (por ejemplo, una marca de gaseosa cuando hay otras parecidas) suelen tener demanda elástica."
+
+explicacion: |
+  Si sube el precio, es fácil cambiar a otra opción — la cantidad
+  demandada responde fuerte.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "elasticidad"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Por la ley de demanda (precio sube, cantidad baja), la elasticidad suele dar un número negativo, aunque se clasifique según su valor absoluto."
+
+explicacion: |
+  El signo refleja la dirección opuesta entre precio y cantidad; la
+  magnitud (valor absoluto) es lo que importa para clasificar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "elasticidad"
   nivel: "avanzado"
-  tags: ["aplicacion"]
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una elasticidad de −3 representa una demanda MÁS elástica que una de −2, aunque −3 sea 'más negativo' — lo que importa es el valor absoluto (3 > 2)."
+
+explicacion: |
+  Es el error de comparación más común: hay que comparar magnitudes, no
+  el signo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "elasticidad"
+  nivel: "avanzado"
+  tags: ["elasticidad_puntual"]
 
 variables:
-  a: random(1, 5)
-  b: random(5, 15)
-  q: random(5, 20)
+  pendiente_demanda: -random(1, 5)
+  precio: random(10, 50)
+  cantidad: random(10, 50)
 
-respuesta: a * (2 * q + 1) + b
+respuesta: (pendiente_demanda * precio) / cantidad
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.01
 
-enunciado: "C(q) = {a}q² + {b}q (sin costo fijo). ¿Cuánto vale C({q}+1) − C({q}) (el costo exacto de la unidad {q}+1)?"
-
-pasos:
-  - "C(q+1)−C(q) = {a}(2q+1) + {b}, evaluado en q={q}"
+enunciado: "La función de demanda tiene dQ/dP = {pendiente_demanda} en el punto (P={precio}, Q={cantidad}). ¿Cuál es la elasticidad puntual E = (dQ/dP)×(P/Q)?"
 
 explicacion: |
-  Esta es la diferencia EXACTA, distinta (aunque parecida) al costo
-  marginal Cmg({q}) = {2 * a * q + b}.
+  Es la versión con derivada de la misma fórmula — la elasticidad
+  exacta en un punto específico, no un promedio entre dos puntos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
+  tema: "elasticidad"
   nivel: "avanzado"
   tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si el costo marginal decrece con la cantidad producida, significa que cada unidad adicional cuesta menos que la anterior (economías de escala)."
+enunciado: "La elasticidad puntual, calculada con la derivada dQ/dP, es la versión 'instantánea' de la elasticidad, igual que la derivada es la versión instantánea de una pendiente promedio."
 
 explicacion: |
-  Es lo opuesto a los rendimientos decrecientes — producir más se vuelve
-  más eficiente por unidad.
+  Misma relación ya vista entre velocidad media e instantánea, o entre
+  costo promedio y marginal.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
+  tema: "elasticidad"
   nivel: "intermedio"
   tags: ["verificacion", "verdadero_falso"]
 
 variables:
-  a: random(1, 6)
-  b: random(5, 30)
-  costo_fijo: random(100, 1000)
-  q: random(1, 30)
-  real: 2 * a * q + b
+  pct_precio: random(5, 15)
+  k: random(2, 4)
+  pct_cantidad: pct_precio * k
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El precio sube {pct_precio}% y la cantidad baja {pct_cantidad}%. ¿Es correcto clasificar esta demanda como elástica?"
+
+explicacion: |
+  |E| = {k} > 1 → elástica, correcto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "elasticidad"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  pct_precio: random(5, 15)
+  k: random(2, 4)
+  pct_cantidad: pct_precio * k
   error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
+  propuesto: k + error
 
-respuesta: (propuesto == real)
+respuesta: (propuesto == k)
 tipo: vf
 
-enunciado: "C(q) = {a}q² + {b}q + {costo_fijo}. ¿Es correcto que el costo marginal en q={q} sea {propuesto}?"
+enunciado: "El precio sube {pct_precio}% y la cantidad baja {pct_cantidad}%. ¿Es correcto que |E| sea {propuesto}?"
 
 explicacion: |
-  El valor correcto es Cmg({q}) = {real}.
+  El valor correcto es {pct_cantidad}/{pct_precio} = {k}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
-  nivel: "avanzado"
-  tags: ["aplicacion", "verdadero_falso"]
-
-variables:
-  a: random(1, 5)
-  b: random(10, 30)
-  q: random(1, 20)
-  precio_venta: random(50, 200)
-
-respuesta: ((2 * a * q + b) < precio_venta)
-tipo: vf
-
-enunciado: "C(q) = {a}q² + {b}q + costo fijo. El precio de venta de cada unidad es {precio_venta}. En q={q}, ¿conviene producir una unidad más (el costo marginal es menor que el precio de venta)?"
-
-explicacion: |
-  Mientras el costo marginal sea menor que el precio de venta, producir
-  una unidad más aumenta la ganancia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "costo_marginal"
+  tema: "elasticidad"
   nivel: "avanzado"
   tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si el costo marginal supera al precio de venta, producir una unidad más reduce la ganancia total de la empresa, en vez de aumentarla."
+enunciado: "Una empresa que vende un producto con demanda inelástica puede subir el precio sin perder demasiadas ventas — a diferencia de un producto con demanda elástica."
 
 explicacion: |
-  Esa unidad cuesta más de lo que se puede vender — es un cálculo que
-  conecta con `../../matematica/optimizacion/`: el punto óptimo de
-  producción es donde Cmg se iguala al precio (o al ingreso marginal).
+  Es una de las aplicaciones prácticas de conocer la elasticidad de lo
+  que se vende.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
+  tema: "elasticidad"
   nivel: "intermedio"
-  tags: ["evaluar"]
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Todos los productos tienen la misma elasticidad, así que una vez calculada para uno, sirve para cualquier otro."
+
+explicacion: |
+  Cada producto tiene su propia elasticidad, según tenga o no
+  sustitutos, sea esencial o no, etc.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "elasticidad"
+  nivel: "intermedio"
+  tags: ["clasificar"]
 
 variables:
-  b: random(10, 50)
-  costo_fijo: random(100, 500)
+  pct_precio: random(5, 30)
 
-respuesta: b
+respuesta: pct_precio
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "C(q) = 3q² + {b}q + {costo_fijo}. ¿Cuál es el costo marginal en q=0?"
+enunciado: "El precio sube {pct_precio}%. ¿Qué variación porcentual de la cantidad daría elasticidad unitaria (|E|=1)?"
 
 explicacion: |
-  Cmg(0) = 6×0+{b} = {b}.
+  Para |E|=1, %ΔQ tiene que ser exactamente igual a %ΔP.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "costo_marginal"
+  tema: "elasticidad"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Elasticidad y costo marginal son la misma familia de idea (una razón de cambio) aplicada a dos preguntas distintas: una a cuánto cuesta producir más, la otra a cuánto responde la demanda al precio."
+
+explicacion: |
+  Es el resumen de por qué `../costo-marginal/` es el prerrequisito de
+  este módulo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "elasticidad"
   nivel: "intermedio"
   tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El costo marginal se mide en unidades de moneda por unidad producida (por ejemplo, pesos por unidad), no en pesos totales."
+enunciado: "La idea central de la elasticidad es usar variaciones RELATIVAS (porcentuales) en vez de ABSOLUTAS, lo que permite comparar sensibilidades entre magnitudes de escalas muy distintas."
 
 explicacion: |
-  Es una TASA de cambio del costo respecto a la cantidad, no un costo
-  total.
+  Es el resumen del módulo: el mismo principio de 'porcentaje' ya
+  trabajado en Tronco 1, aplicado ahora a comparar dos tasas de cambio
+  entre sí.
 ```
+
+## Sección: economia-positiva-y-normativa (22 preguntas)
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "costo_marginal"
-  nivel: "avanzado"
-  tags: ["evaluar"]
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
+  nivel: "basico"
+  tags: ["clasificacion", "definicion"]
 
 variables:
-  a: random(1, 3)
-  b: random(1, 5)
-  c: random(5, 20)
-  q: random(1, 10)
+  frase: uno_de(["El aumento del salario mínimo provoca un aumento en el desempleo juvenil.", "El gobierno debería aumentar el salario mínimo para ayudar a los pobres.", "La inflación es un fenómeno monetario.", "Es justo que se controle la inflación.", "La devaluación del peso reduce la competitividad de las exportaciones.", "Es necesario controlar la inflación para proteger el ahorro."])
+  es_positiva: es_primo(random(1, 10)) == 1
 
-respuesta: 3 * a * q ^ 2 + 2 * b * q + c
+respuesta: "positiva"
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "C(q) = {a}q³ + {b}q² + {c}q (costo con rendimientos que cambian). ¿Cuál es el costo marginal en q={q}?"
-
-pasos:
-  - "Cmg(q) = {3 * a}q² + {2 * b}q + {c}"
+enunciado: "Clasifica la siguiente afirmación como 'positiva' o 'normativa': \"{frase}\""
 
 explicacion: |
-  Con un término cúbico en el costo, el costo marginal mismo ya no es
-  lineal — cambia de forma más compleja con q.
+  La economía positiva se basa en hechos verificables y relaciones causales objetivas. Si la afirmación describe "qué es" o "qué pasa" y puede ser contrastada con datos, es positiva. Si expresa un "debería ser" o un juicio de valor, es normativa.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "costo_marginal"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la mayoría de los modelos económicos razonables, el costo marginal es positivo — producir más siempre agrega algo de costo (aunque sea poco)."
-
-explicacion: |
-  Sería inusual (aunque matemáticamente posible en un modelo mal
-  planteado) que producir más redujera el costo total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "costo_marginal"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Así como el costo marginal es la derivada del costo total, el 'ingreso marginal' (no cubierto en este módulo) sería la derivada del ingreso total — la misma idea aplicada al otro lado de la cuenta de una empresa."
-
-explicacion: |
-  Es el mismo patrón de "razón de cambio" aplicado a otra magnitud
-  económica — la comparación de Cmg con el precio de venta ya adelantó
-  esta idea.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "costo_marginal"
-  nivel: "avanzado"
-  tags: ["problema"]
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
+  nivel: "basico"
+  tags: ["clasificacion", "definicion"]
 
 variables:
-  a: random(2, 6)
-  b: random(10, 30)
-  q: random(50, 100)
+  frase: uno_de(["El subsidio a la nafta genera un déficit fiscal.", "El gobierno debería subsidiar la nafta para ayudar a las familias.", "La inflación reduce el poder adquisitivo.", "Es justo subsidiar los alimentos básicos.", "Un aumento en la oferta de dinero causa inflación.", "Es necesario reducir el gasto público."])
+  es_normativa: es_primo(random(1, 10)) == 1
 
-respuesta: 2 * a * q + b
+respuesta: "normativa"
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "Una fábrica cerca de su capacidad máxima tiene C(q) = {a}q² + {b}q + costo fijo (el término cuadrático refleja que cuesta cada vez más producir cerca del límite). ¿Cuál es el costo marginal al producir la unidad {q}?"
+enunciado: "Clasifica la siguiente afirmación como 'positiva' o 'normativa': \"{frase}\""
 
 explicacion: |
-  Es un ejemplo real de por qué el costo marginal creciente es común
-  cerca de la capacidad instalada de una planta.
+  La economía normativa se refiere a cómo *debería* ser la economía. Incluye valores, juicios de valor y opiniones sobre qué acciones deberían tomarse. No puede probarse solo con datos, sino que depende de las prioridades éticas o políticas.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "costo_marginal"
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
   nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El costo marginal en un punto es, geométricamente, la pendiente de la recta tangente al gráfico de C(q) en ese punto."
-
-explicacion: |
-  Es la misma interpretación geométrica de la derivada ya vista en
-  `../../matematica/derivada/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "costo_marginal"
-  nivel: "basico"
-  tags: ["verificacion", "verdadero_falso"]
+  tags: ["conceptos", "verificacion"]
 
 variables:
-  b: random(10, 50)
-  costo_fijo: random(100, 500)
-  propuesto: uno_de([0, 1]) * costo_fijo + b
+  pregunta: uno_de(["¿Qué característica define a la economía positiva?", "¿Qué característica define a la economía normativa?"])
+  respuesta_correcta: uno_de(["Puede ser verificada empíricamente", "Depende de juicios de valor"])
+  es_positiva: es_primo(random(1, 10)) == 1
 
-respuesta: (propuesto == b)
-tipo: vf
+respuesta: respuesta_correcta
+tipo: input
 
-enunciado: "C(q) = {b}q + {costo_fijo}. ¿Es correcto que el costo marginal sea {propuesto}?"
+enunciado: "{pregunta} (Escribe la característica principal)"
 
 explicacion: |
-  El costo marginal correcto es {b} — si el número propuesto incluye el
-  costo fijo, está mal.
+  La economía positiva se distingue por ser objetiva y verificable mediante la observación empírica (datos, hechos). La economía normativa se distingue por incluir juicios de valor y opiniones sobre lo que "debería ser".
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "costo_marginal"
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
   nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El costo marginal es un ejemplo de cómo la derivada, entendida como 'razón de cambio', se aplica directamente a decisiones económicas reales de producción."
-
-explicacion: |
-  Es el mismo concepto matemático de `../../matematica/derivada/`,
-  ahora con significado económico.
-```
-
-## Sección: cultura-organizacional (22 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "basico"
-  tags: ["definicion"]
+  tags: ["politica", "juicio"]
 
 variables:
-  n: uno_de([1, 1])
+  politica: uno_de(["subsidios a la educación", "reducciones impositivas", "control de precios"])
+  enunciado_texto: "El gobierno debería implementar {politica} para mejorar el bienestar social."
+  es_normativa: verdadero
 
-respuesta: "valores, creencias, normas y hábitos compartidos"
-tipo: mc
-opciones_explicitas: ["valores, creencias, normas y hábitos compartidos", "sólo el organigrama de la empresa", "el edificio y el equipamiento físico"]
+respuesta: "normativa"
+tipo: input
 
-enunciado: "La cultura organizacional se define como el conjunto de..."
+enunciado: "Clasifica la afirmación: \"{enunciado_texto}\""
 
 explicacion: |
-  Es la "personalidad" invisible de la organización, distinta de lo
-  tangible como edificios o equipamiento.
+  La frase contiene "debería" y un objetivo de valor ("mejorar el bienestar social"). Esto implica una preferencia ética sobre lo que se considera deseable, lo cual es propio de la economía normativa.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "intermedio"
-  tags: ["control informal"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La cultura organizacional actúa como un mecanismo de control informal que reduce la necesidad de supervisión constante."
-
-explicacion: |
-  Cuando todos comparten los mismos códigos, la coordinación del
-  trabajo se vuelve más fluida sin necesidad de vigilar cada paso.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "intermedio"
-  tags: ["cultura vs estructura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "los cargos y las jerarquías"
-tipo: mc
-opciones_explicitas: ["los cargos y las jerarquías", "el clima laboral y las expectativas de comportamiento", "los valores personales de cada empleado"]
-
-enunciado: "A diferencia de la cultura, la estructura formal de una organización define principalmente..."
-
-explicacion: |
-  La estructura define quién reporta a quién; la cultura define cómo se
-  hacen las cosas realmente, el clima y las expectativas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "intermedio"
-  tags: ["cultura vs estructura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una organización puede tener un organigrama perfecto en papel, pero si su cultura fomenta la desconfianza o la burocracia, su desempeño económico se ve afectado negativamente."
-
-explicacion: |
-  La estructura formal no garantiza buen desempeño si la cultura real
-  no acompaña con confianza y eficiencia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
   nivel: "avanzado"
-  tags: ["recurso intangible"]
+  tags: ["errores", "comprension"]
 
 variables:
-  n: uno_de([1, 1])
+  afirmacion: uno_de(["La inflación actual es del 100%.", "Es urgente controlar la inflación.", "El desempleo ha aumentado un 5%.", "Deberíamos reducir el desempleo."])
+  tipo_real: uno_de(["positiva", "normativa"])
+  es_positiva: es_primo(random(1, 10)) == 1
 
-respuesta: "un recurso intangible que puede ser una ventaja competitiva sostenible"
-tipo: mc
-opciones_explicitas: ["un recurso intangible que puede ser una ventaja competitiva sostenible", "un gasto fijo que no aporta valor económico", "un recurso material como la maquinaria"]
+respuesta: tipo_real
+tipo: input
 
-enunciado: "Según la teoría, la cultura organizacional funciona como..."
+enunciado: "¿De qué tipo es la siguiente afirmación? \"{afirmacion}\""
 
 explicacion: |
-  Al igual que el conocimiento técnico o la experiencia del personal,
-  la cultura es un recurso intangible que puede diferenciar a una
-  empresa de sus competidores.
+  Si la afirmación describe un hecho observable (datos de inflación, desempleo), es positiva. Si expresa un deseo o recomendación (urgencia, deberíamos), es normativa.
+```
+
+```
+metadata:
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
+  nivel: "basico"
+  tags: ["ejemplos", "hechos"]
+
+variables:
+  hecho: uno_de(["El dólar blue cotiza a $1000.", "Es injusto que el dólar sea tan alto.", "El gobierno debería controlar el dólar.", "Es necesario devaluar la moneda."])
+  es_hecho: es_primo(random(1, 10)) == 1
+
+respuesta: hecho
+tipo: input
+
+enunciado: "Selecciona la afirmación que corresponde a la economía positiva:"
+
+explicacion: |
+  Solo la afirmación que describe un dato observable y verificable (el precio del dólar) es positiva. Las demás contienen juicios de valor o recomendaciones.
+```
+
+```
+metadata:
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
+  nivel: "basico"
+  tags: ["ejemplos", "juicios"]
+
+variables:
+  juicio: uno_de(["La inflación reduce el poder adquisitivo.", "Es terrible que haya inflación.", "El desempleo es del 8%.", "El PIB creció un 2%."])
+  es_juicio: es_primo(random(1, 10)) == 1
+
+respuesta: juicio
+tipo: input
+
+enunciado: "Selecciona la afirmación que corresponde a la economía normativa:"
+
+explicacion: |
+  La frase "Es terrible que haya inflación" expresa una reacción emocional y un juicio de valor sobre un fenómeno, lo cual es propio de la economía normativa. Las otras son descripciones de hechos.
+```
+
+```
+metadata:
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
+  nivel: "intermedio"
+  tags: ["hipotesis", "verificacion"]
+
+variables:
+  hipotesis: uno_de(["La inflación es un fenómeno monetario.", "Es justo controlar la inflación.", "El gobierno debe imprimir dinero.", "Es malo tener inflación."])
+  es_hipotesis: es_primo(random(1, 10)) == 1
+
+respuesta: hipotesis
+tipo: input
+
+enunciado: "Selecciona la afirmación que es una hipótesis positiva:"
+
+explicacion: |
+  Una hipótesis positiva plantea una relación causal que puede ser contrastada con la realidad. "La inflación es un fenómeno monetario" es una afirmación que puede ser verificada o refutada con datos históricos.
+```
+
+```
+metadata:
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
+  nivel: "intermedio"
+  tags: ["recomendacion", "politica"]
+
+variables:
+  recomendacion: uno_de(["El gobierno debería subsidiar la nafta.", "El subsidio genera déficit.", "La nafta sube de precio.", "Es necesario controlar precios."])
+  es_recomendacion: es_primo(random(1, 10)) == 1
+
+respuesta: recomendacion
+tipo: input
+
+enunciado: "Selecciona la afirmación que es una recomendación normativa:"
+
+explicacion: |
+  La recomendación normativa expresa un deseo o acción que "debería" tomarse. "El gobierno debería subsidiar la nafta" implica un juicio de valor sobre la ayuda social frente a otros objetivos.
+```
+
+```
+metadata:
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
+  nivel: "basico"
+  tags: ["datos", "empirico"]
+
+variables:
+  dato: uno_de(["El PIB creció un 3% en 2023.", "Es bueno que el PIB haya crecido.", "Deberíamos crecer más.", "La economía está mal."])
+  es_dato: es_primo(random(1, 10)) == 1
+
+respuesta: dato
+tipo: input
+
+enunciado: "Selecciona la afirmación que presenta un dato empírico verificable:"
+
+explicacion: |
+  Solo la afirmación que indica un número concreto y observable (crecimiento del PIB) es un dato empírico. Las demás son opiniones o juicios de valor.
+```
+
+```
+metadata:
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
+  nivel: "basico"
+  tags: ["opinion", "juicio"]
+
+variables:
+  opinion: uno_de(["La inflación es alta.", "Es terrible que haya inflación.", "El dólar subió.", "Es necesario controlar la inflación."])
+  es_opinion: es_primo(random(1, 10)) == 1
+
+respuesta: opinion
+tipo: input
+
+enunciado: "Selecciona la afirmación que expresa una opinión normativa:"
+
+explicacion: |
+  "Es terrible que haya inflación" es una reacción emocional y un juicio de valor. No describe un hecho, sino cómo se siente ante ese hecho.
+```
+
+```
+metadata:
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
+  nivel: "basico"
+  tags: ["objetividad", "definicion"]
+
+variables:
+  afirmacion: uno_de(["La inflación es del 50%.", "Es justo que la inflación sea baja.", "Deberíamos controlar la inflación.", "La inflación es mala."])
+  es_objetiva: es_primo(random(1, 10)) == 1
+
+respuesta: afirmacion
+tipo: input
+
+enunciado: "Selecciona la afirmación objetiva (positiva):"
+
+explicacion: |
+  La afirmación objetiva es aquella que describe un hecho verificable sin emitir juicios de valor. "La inflación es del 50%" es un dato que puede ser comprobado.
+```
+
+```
+metadata:
+  materia: "economía"
+  tema: "economia_positiva_y_normativa"
+  nivel: "basico"
+  tags: ["subjetividad", "definicion"]
+
+variables:
+  afirmacion: uno_de(["El desempleo es del 8%.", "Es terrible el desempleo.", "El desempleo ha aumentado.", "Debemos reducir el desempleo."])
+  es_subjetiva: es_primo(random(1, 10)) == 1
+
+respuesta: afirmacion
+tipo: input
+
+enunciado: "Selecciona la afirmación subjetiva (normativa):"
+
+explicacion: |
+  La afirmación subjetiva incluye juicios de valor o deseos. "Es terrible el desempleo" expresa una reacción emocional y un juicio ético, no un hecho verificable.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cultura_organizacional"
+  tema: "economia_positiva_y_normativa"
   nivel: "intermedio"
-  tags: ["talento"]
+  tags: ["veracidad", "hipotesis"]
 
 variables:
-  n: uno_de([1, 1])
+  afirmacion: "La inflación alta reduce el valor real de la deuda pública"
+  es_positiva: verdadero
+  es_falsa: falso # No importa si es falsa, si es positiva es verificable
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una cultura fuerte y alineada con los objetivos estratégicos atrae y retiene talento."
+enunciado: "Afirmación: '{afirmacion}'.\n\nEsta afirmación es positiva porque puede ser verificada o refutada con datos, independientemente de si es verdadera o falsa."
 
 explicacion: |
-  Los empleados buscan entornos donde sus valores personales coincidan
-  con los institucionales, lo que ayuda a retener talento.
+  Una afirmación positiva puede ser falsa, pero sigue siendo positiva si es verificable. La normativa no es verificable de la misma manera.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cultura_organizacional"
+  tema: "economia_positiva_y_normativa"
   nivel: "intermedio"
-  tags: ["costos"]
+  tags: ["verificacion", "limites"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: "reduce la rotación de personal y los costos de reclutamiento"
-tipo: mc
-opciones_explicitas: ["reduce la rotación de personal y los costos de reclutamiento", "aumenta siempre los costos operativos", "no tiene ningún efecto económico medible"]
-
-enunciado: "Una cultura orientada a la seguridad y el respeto mutuo, según la teoría..."
-
-explicacion: |
-  Al reducir la rotación de personal, también bajan los costos
-  asociados al reclutamiento y entrenamiento de nuevos empleados.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "basico"
-  tags: ["aprendizaje"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una cultura que valora el aprendizaje continuo fomenta la capacitación de sus trabajadores, mejorando la calidad del producto o servicio."
-
-explicacion: |
-  La cultura influye directamente en la gestión de recursos humanos,
-  incluida la capacitación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "intermedio"
-  tags: ["toma de decisiones"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "se centralizan en la alta dirección, lo que puede ralentizar la respuesta"
-tipo: mc
-opciones_explicitas: ["se centralizan en la alta dirección, lo que puede ralentizar la respuesta", "se distribuyen siempre entre todos los empleados por igual", "se toman al azar sin ningún criterio"]
-
-enunciado: "En culturas jerárquicas y rígidas, las decisiones suelen..."
-
-explicacion: |
-  La centralización en la alta dirección puede hacer más lenta la
-  respuesta de la organización ante cambios del mercado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "intermedio"
-  tags: ["toma de decisiones"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "empoderan a los equipos para resolver problemas en tiempo real"
-tipo: mc
-opciones_explicitas: ["empoderan a los equipos para resolver problemas en tiempo real", "eliminan por completo la necesidad de líderes", "sólo funcionan en empresas muy grandes"]
-
-enunciado: "En culturas más horizontales o participativas, las organizaciones..."
-
-explicacion: |
-  Esto es crucial en industrias dinámicas como la tecnología o el
-  comercio electrónico, donde la respuesta rápida es clave.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "intermedio"
-  tags: ["sostenibilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una organización con cultura de responsabilidad social y ambiental tiende a implementar prácticas de sostenibilidad, optimizando insumos y minimizando residuos."
-
-explicacion: |
-  La cultura también media la relación de la organización con los
-  recursos naturales y materiales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "basico"
-  tags: ["ejemplo argentino"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "solidaridad y toma de decisiones colectiva"
-tipo: mc
-opciones_explicitas: ["solidaridad y toma de decisiones colectiva", "jerarquía extrema y decisiones individuales", "ausencia total de valores compartidos"]
-
-enunciado: "Según la teoría, muchas cooperativas del sector agroindustrial argentino desarrollaron una cultura basada en..."
-
-explicacion: |
-  Esto les permite resistir mejor las crisis de precios internacionales,
-  priorizando la estabilidad de los socios sobre la ganancia inmediata.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "basico"
-  tags: ["ejemplo argentino"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "culturas ágiles, planes flexibles y énfasis en la innovación"
-tipo: mc
-opciones_explicitas: ["culturas ágiles, planes flexibles y énfasis en la innovación", "culturas rígidas y jerárquicas tradicionales", "ausencia total de cultura organizacional"]
-
-enunciado: "Las startups del sector tecnológico de Buenos Aires suelen tener, según la teoría..."
-
-explicacion: |
-  Esa cultura ágil les permite competir en el mercado global de
-  servicios digitales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "avanzado"
-  tags: ["privatizacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "cambiar la cultura interna hacia la eficiencia y la orientación al cliente"
-tipo: mc
-opciones_explicitas: ["cambiar la cultura interna hacia la eficiencia y la orientación al cliente", "sólo actualizar la tecnología utilizada", "mantener exactamente la misma cultura de antes"]
-
-enunciado: "En procesos de privatización de empresas estatales argentinas con culturas burocráticas, el principal desafío según la teoría fue..."
-
-explicacion: |
-  No bastaba con cambiar la tecnología: había que modificar la cultura
-  interna para volverla más eficiente y orientada al cliente.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "avanzado"
-  tags: ["cultura como elemento dinamico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La cultura organizacional es un elemento dinámico que puede ser gestionado estratégicamente para mejorar el desempeño económico."
-
-explicacion: |
-  El ejemplo de las privatizaciones argentinas muestra que la cultura
-  no es fija: puede transformarse deliberadamente.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "basico"
-  tags: ["naturaleza intangible"]
-
-variables:
-  n: uno_de([1, 1])
+  afirmacion: "La desigualdad es el mayor problema de la sociedad actual"
+  es_verdadero: falso # No es verificable empíricamente como "verdadera" en sentido positivo
 
 respuesta: falso
 tipo: vf
 
-enunciado: "La cultura organizacional es algo tangible, como los edificios o el equipamiento de una empresa."
+enunciado: "Afirmación: '{afirmacion}'.\n\nEsta afirmación es positiva porque podemos medir la desigualdad con datos."
 
 explicacion: |
-  Es una "personalidad" invisible, un recurso intangible, a diferencia
-  de los bienes materiales de la organización.
+  Aunque la desigualdad se mide, decir que es 'el mayor problema' es un juicio de valor (normativo). No es una afirmación positiva pura.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cultura_organizacional"
+  tema: "economia_positiva_y_normativa"
   nivel: "intermedio"
-  tags: ["productividad"]
+  tags: ["objetividad", "ideologia"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: "mayor productividad y adaptación al mercado"
-tipo: mc
-opciones_explicitas: ["mayor productividad y adaptación al mercado", "menor productividad siempre", "ninguna relación con el desempeño económico"]
-
-enunciado: "Culturas que promueven la innovación y la confianza suelen generar..."
-
-explicacion: |
-  Estas culturas contrastan con las que fomentan desconfianza o
-  burocracia excesiva, que afectan negativamente el desempeño.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "basico"
-  tags: ["campo de estudio"]
-
-variables:
-  n: uno_de([1, 1])
+  afirmacion: "Un aumento en la oferta monetaria genera inflación"
+  es_positiva: verdadero
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Entender la cultura organizacional es relevante en el contexto de la economía y la administración."
+enunciado: "Afirmación: '{afirmacion}'.\n\nEsta afirmación es positiva y su validez no depende de la ideología del economista que la emite."
 
 explicacion: |
-  La cultura afecta directamente costos operativos, rentabilidad y
-  eficiencia, por eso es tema de economía además de sociología.
+  La economía positiva busca verdades objetivas que son independientes de las preferencias personales o políticas.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cultura_organizacional"
+  tema: "economia_positiva_y_normativa"
   nivel: "intermedio"
-  tags: ["factor economico"]
+  tags: ["verificacion", "diferenciacion"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: "un factor económico que impacta en costos operativos y rentabilidad a largo plazo"
-tipo: mc
-opciones_explicitas: ["un factor económico que impacta en costos operativos y rentabilidad a largo plazo", "un tema exclusivamente social sin efecto en las finanzas", "algo irrelevante para la gestión empresarial"]
-
-enunciado: "Según la teoría, la cultura organizacional es, además de un tema social..."
-
-explicacion: |
-  La rotación de personal, la capacitación y la eficiencia interna, todas
-  influidas por la cultura, tienen impacto económico directo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "avanzado"
-  tags: ["regulaciones"]
-
-variables:
-  n: uno_de([1, 1])
+  valor1: random(10, 50)
+  valor2: random(60, 100)
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Las prácticas de sostenibilidad de una organización responden cada vez más tanto a las demandas del consumidor como a regulaciones ambientales."
+enunciado: "Verdadero o Falso: Una afirmación positiva como 'un aumento del {valor1}% en el precio del dólar eleva los precios de importados en un {valor2}%' puede ser probada o refutada con datos empíricos."
 
 explicacion: |
-  La cultura de responsabilidad ambiental se convierte en un elemento
-  central de la estrategia económica moderna por esas dos presiones.
+  Las afirmaciones positivas son objetivas y se basan en hechos verificables. Su validez depende de la evidencia disponible, no de la opinión personal.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cultura_organizacional"
-  nivel: "basico"
-  tags: ["clima laboral"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "cómo se hacen las cosas realmente"
-tipo: mc
-opciones_explicitas: ["cómo se hacen las cosas realmente", "quién ocupa cada cargo formal", "el organigrama oficial de la empresa"]
-
-enunciado: "La cultura organizacional define el clima laboral, es decir..."
-
-explicacion: |
-  A diferencia del organigrama (estructura formal), la cultura describe
-  la dinámica real de comportamiento dentro de la organización.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cultura_organizacional"
+  tema: "economia_positiva_y_normativa"
   nivel: "intermedio"
-  tags: ["cooperativas"]
+  tags: ["verificacion", "diferenciacion"]
 
 variables:
-  n: uno_de([1, 1])
+  valor1: random(10, 50)
+  valor2: random(60, 100)
 
-respuesta: "la estabilidad de los socios sobre la maximización inmediata de ganancias"
-tipo: mc
-opciones_explicitas: ["la estabilidad de los socios sobre la maximización inmediata de ganancias", "las ganancias inmediatas por encima de todo", "la eliminación total de la toma de decisiones colectiva"]
+respuesta: falso
+tipo: vf
 
-enunciado: "Las cooperativas agroindustriales argentinas mencionadas en la teoría priorizan..."
-
-explicacion: |
-  Esa cultura solidaria les permite resistir mejor las crisis de precios
-  internacionales, sacrificando ganancia inmediata por estabilidad.
-```
-
-## Sección: cuota-credito-frances (23 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "basico"
-  tags: ["cuota_credito", "vocabulario"]
-
-enunciado: "¿Qué caracteriza al sistema francés de amortización de un crédito?"
-tipo: mc
-opciones_explicitas:
-  - "La cuota es siempre la misma en pesos durante todo el préstamo"
-  - "El capital se devuelve entero recién en la última cuota"
-  - "La cantidad de cuotas cambia según cuánto se pague cada mes"
-respuesta: "La cuota es siempre la misma en pesos durante todo el préstamo"
+enunciado: "Verdadero o Falso: La afirmación 'el gobierno debería reducir el impuesto a las ganancias en un {valor1}% para ayudar a las pymes, aunque esto reduzca la recaudación en un {valor2}%' es una afirmación positiva."
 
 explicacion: |
-  Es el sistema más usado en Argentina para préstamos personales y
-  créditos hipotecarios, justamente por esa cuota fija y predecible.
+  Esta es una afirmación normativa porque contiene un juicio de valor ('debería') y una recomendación de política. No es verificable como verdadera o falsa solo con datos, sino que depende de los objetivos sociales.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "basico"
-  tags: ["cuota_credito", "vocabulario"]
+  tema: "economia_positiva_y_normativa"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "comprension"]
+
+variables:
+  afirmacion: uno_de(["positiva", "normativa"])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Verdadero o Falso: Las afirmaciones {afirmacion} pueden ser probadas definitivamente como verdaderas o falsas utilizando únicamente datos empíricos."
+
+explicacion: |
+  Solo las afirmaciones positivas pueden ser verificadas empíricamente. Las normativas dependen de valores y no pueden probarse con datos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "economia_positiva_y_normativa"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "comprension"]
+
+variables:
+  afirmacion: uno_de(["positiva", "normativa"])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En el sistema francés, el monto de la cuota es el mismo en cada uno de los pagos, asumiendo tasa fija."
+enunciado: "Verdadero o Falso: Las afirmaciones {afirmacion} expresan deseos o recomendaciones sobre qué acciones deberían tomarse."
 
 explicacion: |
-  Ese es el rasgo que define al sistema francés frente a otros sistemas
-  de amortización.
+  Las afirmaciones normativas expresan deseos o recomendaciones ('debería'), mientras que las positivas describen hechos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
+  tema: "economia_positiva_y_normativa"
   nivel: "intermedio"
-  tags: ["cuota_credito", "vocabulario"]
+  tags: ["objetividad", "ideologia"]
+
+variables:
+  afirmacion: uno_de(["positiva", "normativa"])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Aunque la cuota total no cambia, la proporción de interés y de amortización de capital dentro de cada cuota sí cambia mes a mes."
+enunciado: "Verdadero o Falso: Las herramientas de la economía {afirmacion} funcionan independientemente de nuestra ideología política."
 
 explicacion: |
-  El interés se calcula sobre el saldo adeudado, que va bajando; la
-  amortización es lo que queda de la cuota después de pagar ese interés.
+  La economía positiva busca entender los mecanismos del mercado de manera objetiva, funcionando independientemente de la ideología.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
+  tema: "economia_positiva_y_normativa"
   nivel: "intermedio"
-  tags: ["cuota_credito", "vocabulario"]
-
-enunciado: "En las primeras cuotas de un préstamo con sistema francés, ¿qué componente de la cuota es mayor?"
-tipo: mc
-opciones_explicitas:
-  - "El interés"
-  - "La amortización de capital"
-  - "Los dos son siempre iguales"
-respuesta: "El interés"
-
-explicacion: |
-  Al principio el saldo adeudado es alto, así que el interés calculado
-  sobre ese saldo también lo es.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "intermedio"
-  tags: ["cuota_credito", "vocabulario"]
-
-enunciado: "En las últimas cuotas de un préstamo con sistema francés, ¿qué componente de la cuota es mayor?"
-tipo: mc
-opciones_explicitas:
-  - "La amortización de capital"
-  - "El interés"
-  - "Los dos son siempre iguales"
-respuesta: "La amortización de capital"
-
-explicacion: |
-  Con el saldo adeudado ya bajo, el interés de esa cuota es chico, y casi
-  toda la cuota amortiza capital.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "intermedio"
-  tags: ["cuota_credito", "calculo"]
+  tags: ["objetividad", "ideologia"]
 
 variables:
-  capital: random(100, 2000) * 1000
-  tasa: random(2, 8)
-  n: random(6, 36)
+  afirmacion: uno_de(["positiva", "normativa"])
 
-respuesta: capital * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)
-tipo: input
-tolerancia_abs: 2
+respuesta: falso
+tipo: vf
 
-enunciado: "Un préstamo de ${capital}, a una tasa mensual del {tasa}%, se paga en {n} cuotas con sistema francés. ¿Cuál es el monto de cada cuota?"
+enunciado: "Verdadero o Falso: Las afirmaciones {afirmacion} son independientes de la ideología porque dependen de valores personales."
+
+explicacion: |
+  Las afirmaciones normativas están intrínsecamente ligadas a valores y perspectivas personales o políticas, por lo que no son independientes de la ideología.
+```
+
+## Sección: estado-de-resultados (25 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["conceptos", "ingresos"]
+
+respuesta: "ingresos"
+tipo: completar
+respuestas_validas:
+  - "ingresos"
+  - "ventas"
+
+enunciado: "El conjunto de incrementos en los beneficios económicos durante el período, que resultan en aumentos del patrimonio neto, se denominan _______."
+
+explicacion: |
+  Los ingresos representan las entradas de recursos o incrementos en el valor de los activos que surgen de las actividades principales de la organización.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["estructura", "resultado"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [[1000, 800, 200], [500, 700, -200]]
+
+respuesta: escenario[idx][2]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "En un escenario donde los ingresos son de ${escenario[idx][0]} y los costos/gastos totales son de ${escenario[idx][1]}, el resultado del período es _______."
 
 pasos:
-  - "Cuota = C × i × (1+i)^n / ((1+i)^n - 1), con C = {capital}, i = {tasa/100}, n = {n}"
+  - "Identificar el total de ingresos: ${escenario[idx][0]}"
+  - "Identificar el total de costos y gastos: ${escenario[idx][1]}"
+  - "Restar: Ingresos - Costos = Resultado"
 
 explicacion: |
-  Se aplica la fórmula del sistema francés con la tasa mensual en forma
-  decimal.
+  El resultado se obtiene restando los costos y gastos de los ingresos totales. Si el resultado es positivo es ganancia, si es negativo es pérdida.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "intermedio"
-  tags: ["cuota_credito", "calculo"]
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["terminologia"]
 
-variables:
-  capital: random(100, 2000) * 1000
-  tasa: random(2, 8)
-  n: random(6, 36)
-  cuota: capital * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)
-
-respuesta: cuota * n
-tipo: input
-tolerancia_abs: 2
-
-enunciado: "Un préstamo con sistema francés tiene una cuota fija de ${redondear(cuota, 2)}, a pagar en {n} cuotas. ¿Cuánto se paga en total al final del préstamo?"
+respuesta: verdadero
+tipo: vf
+enunciado: "Si el total de ingresos es menor que el total de costos y gastos en un período determinado, la organización presenta una pérdida."
 
 explicacion: |
-  El total pagado es la cuota multiplicada por la cantidad de cuotas.
+  Exacto. La pérdida ocurre cuando los egresos superan a los ingresos en el estado de resultados.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "avanzado"
-  tags: ["cuota_credito", "calculo"]
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["estructura"]
+
+respuesta_orden: ["Ingresos", "Costos", "Resultado"]
+tipo: ordenar
+
+opciones_explicitas: ["Ingresos", "Costos", "Resultado"]
+
+enunciado: "Ordene los elementos según la estructura lógica de cálculo del estado de resultados (desde el origen del recurso hasta el resultado final):"
+
+explicacion: |
+  La secuencia lógica es: primero se registran los ingresos, luego se restan los costos/gastos y finalmente se obtiene el resultado (utilidad o pérdida).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["conceptos"]
 
 variables:
-  capital: random(100, 2000) * 1000
-  tasa: random(2, 8)
-  n: random(6, 36)
-  cuota: capital * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)
+  idx: uno_de([0, 1])
+  resultado_tipo: [["Ganancia", "positivo"], ["Pérdida", "negativo"]]
 
-respuesta: cuota * n - capital
-tipo: input
-tolerancia_abs: 2
+respuesta: resultado_tipo[idx][1]
+tipo: mc
 
-enunciado: "Un préstamo de ${capital} con sistema francés tiene una cuota fija de ${redondear(cuota, 2)}, en {n} cuotas. ¿Cuánto interés total se termina pagando (sin contar el capital)?"
+opciones_explicitas: ["positivo", "negativo"]
+
+enunciado: "Si el resultado del período es una '_______', el valor numérico final es ${resultado_tipo[idx][0]}."
+
+explicacion: |
+  Una ganancia implica un valor positivo (ingresos > costos), mientras que una pérdida implica un valor negativo (ingresos < costos).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["contabilidad", "ingresos", "costos"]
+
+variables:
+  datos: [[150000, 90000], [250000, 180000], [80000, 50000]]
+  idx: uno_de([0,1,2])
+  ventas: datos[idx][0]
+  costo_ventas: datos[idx][1]
+
+respuesta: ventas - costo_ventas
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Una empresa presenta las siguientes cifras en su estado de resultados: Ventas Totales de ${ventas} y Costo de Mercaderías Vendidas de ${costo_ventas}. ¿Cuál es el Resultado Bruto?"
 
 pasos:
-  - "Total pagado: {redondear(cuota, 2)} × {n} = {redondear(cuota * n, 2)}"
-  - "Interés total: {redondear(cuota * n, 2)} - {capital}"
+  - "Identificar las Ventas Netas: ${ventas}"
+  - "Identificar el Costo de Ventas: ${costo_ventas}"
+  - "Restar el Costo de las Ventas a las Ventas Netas: ${ventas} - ${costo_ventas}"
 
 explicacion: |
-  El interés total es la diferencia entre todo lo pagado y el capital
-  originalmente prestado.
+  El Resultado Bruto se obtiene restando el costo de lo vendido a los ingresos por ventas. En este caso: ${ventas} - ${costo_ventas} = ${ventas - costo_ventas}.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["clasificacion", "conceptos"]
+
+respuesta: "Ingreso"
+tipo: mc
+opciones_explicitas: ["Ingreso", "Costo", "Gasto", "Activo"]
+
+enunciado: "Si una empresa realiza una venta de servicios por un valor de $50.000, este concepto se clasifica contablemente en el Estado de Resultados como un:"
+
+explicacion: |
+  Las entradas de recursos que incrementan el patrimonio neto de la entidad, provenientes de la actividad principal, se denominan Ingresos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
   nivel: "intermedio"
-  tags: ["cuota_credito", "comparacion"]
+  tags: ["utilidad", "impuestos", "gastos"]
 
 variables:
-  capital: random(100, 2000) * 1000
-  n: random(6, 36)
-  tasa_a: random(2, 5)
-  tasa_b: random(6, 10)
+  escenario: [[10000, 4000, 2000], [25000, 12000, 5000], [5000, 6000, 1000]]
+  idx: uno_de([0,1,2])
+  res_bruto: escenario[idx][0]
+  gastos_op: escenario[idx][1]
+  impuestos: escenario[idx][2]
 
-respuesta: ((capital * (tasa_b / 100) * (1 + tasa_b / 100) ^ n / ((1 + tasa_b / 100) ^ n - 1)) > (capital * (tasa_a / 100) * (1 + tasa_a / 100) ^ n / ((1 + tasa_a / 100) ^ n - 1)))
-tipo: vf
+respuesta: res_bruto - gastos_op - impuestos
+tipo: completar
+tolerancia_abs: 0
 
-enunciado: "Con el mismo capital de ${capital} y la misma cantidad de {n} cuotas, ¿una tasa mensual del {tasa_b}% da una cuota más alta que una del {tasa_a}%?"
+enunciado: "Se dispone de un Resultado Bruto de ${res_bruto}, Gastos Operativos de ${gastos_op} e Impuestos de ${impuestos}. Calcule la Utilidad Neta (Resultado del Ejercicio)."
+
+pasos:
+  - "Partir del Resultado Bruto: ${res_bruto}"
+  - "Restar los Gastos Operativos: ${res_bruto} - ${gastos_op}"
+  - "Restar los Impuestos para obtener el resultado final: ${res_bruto} - ${gastos_op} - ${impuestos}"
 
 explicacion: |
-  A mayor tasa, mayor cuota, con capital y cantidad de cuotas fijos.
+  La Utilidad Neta es el resultado final después de deducir todos los costos, gastos y obligaciones impositivas.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["teoria", "conceptos"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Si el total de ingresos de una organización es menor al total de sus costos y gastos en un período determinado, el resultado se denomina 'Ganancia'."
+
+explicacion: |
+  Falso. Cuando los gastos superan a los ingresos, el resultado es una 'Pérdida'. La 'Ganancia' ocurre cuando los ingresos son mayores.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
   nivel: "intermedio"
-  tags: ["cuota_credito", "comparacion"]
+  tags: ["estructura", "proceso"]
 
-variables:
-  tasa: random(2, 8)
-  n: random(6, 36)
-  capital_a: random(100, 500) * 1000
-  capital_b: random(501, 1000) * 1000
+opciones_explicitas: ["Ventas", "Resultado Bruto", "Resultado Operativo", "Resultado Neto"]
+respuesta_orden: ["Ventas", "Resultado Bruto", "Resultado Operativo", "Resultado Neto"]
+tipo: ordenar
 
-respuesta: ((capital_b * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)) > (capital_a * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)))
+enunciado: "Ordene los siguientes conceptos según la estructura lógica de cascada de un Estado de Resultados, desde el ingreso principal hasta el resultado final:"
+
+explicacion: |
+  La estructura sigue un orden de deducción sucesiva: se parte de las Ventas, se restan los costos para obtener el Bruto, luego se restan gastos operativos para el Operativo, y finalmente impuestos y otros para el Neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["ingresos", "devengado", "flujo_de_caja"]
+
+respuesta: falso
 tipo: vf
 
-enunciado: "A la misma tasa mensual del {tasa}% y las mismas {n} cuotas, ¿un préstamo de ${capital_b} tiene una cuota mayor que uno de ${capital_a}?"
+enunciado: "Un ingreso registrado en el Estado de Resultados implica necesariamente que el dinero ya ingresó a la cuenta bancaria de la organización."
 
 explicacion: |
-  A mayor capital prestado, mayor cuota, con tasa y cantidad de cuotas
-  fijas.
+  El Estado de Resultados se rige por el principio de lo devengado. Esto significa que los ingresos se registran cuando se produce la venta o la prestación del servicio, independientemente de si el cliente pagó en efectivo o si la transacción fue a crédito.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "avanzado"
-  tags: ["cuota_credito", "comparacion"]
-
-variables:
-  capital: random(100, 2000) * 1000
-  tasa: random(2, 8)
-  n_a: random(6, 12)
-  n_b: random(24, 36)
-
-respuesta: ((capital * (tasa / 100) * (1 + tasa / 100) ^ n_b / ((1 + tasa / 100) ^ n_b - 1)) < (capital * (tasa / 100) * (1 + tasa / 100) ^ n_a / ((1 + tasa / 100) ^ n_a - 1)))
-tipo: vf
-
-enunciado: "Con el mismo capital de ${capital} y la misma tasa mensual del {tasa}%, ¿pagar en {n_b} cuotas da una cuota mensual más baja que pagar en {n_a} cuotas?"
-
-explicacion: |
-  A más cuotas, el mismo capital se reparte en más pagos, así que cada
-  cuota individual es más baja.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "avanzado"
-  tags: ["cuota_credito", "comparacion"]
-
-variables:
-  capital: random(100, 2000) * 1000
-  tasa: random(2, 8)
-  n_a: random(6, 12)
-  n_b: random(24, 36)
-
-respuesta: (((capital * (tasa / 100) * (1 + tasa / 100) ^ n_b / ((1 + tasa / 100) ^ n_b - 1)) * n_b - capital) > ((capital * (tasa / 100) * (1 + tasa / 100) ^ n_a / ((1 + tasa / 100) ^ n_a - 1)) * n_a - capital))
-tipo: vf
-
-enunciado: "Con el mismo capital de ${capital} y la misma tasa mensual del {tasa}%, ¿pagar en {n_b} cuotas termina generando más interés total que pagar en {n_a} cuotas?"
-
-explicacion: |
-  Aunque la cuota mensual sea más baja con más cuotas, se paga durante
-  más tiempo, y cada mes extra suma interés sobre el saldo que todavía
-  no se amortizó — el interés total termina siendo mayor.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "avanzado"
-  tags: ["cuota_credito", "calculo"]
-
-variables:
-  tasa: random(2, 8)
-  n: random(6, 36)
-  capital: random(100, 2000) * 1000
-  cuota: capital * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)
-
-respuesta: capital
-tipo: input
-tolerancia_abs: 5
-
-enunciado: "Un préstamo con sistema francés, a una tasa mensual del {tasa}% en {n} cuotas, tiene una cuota fija de ${redondear(cuota, 2)}. ¿Cuál fue el capital prestado?"
-
-explicacion: |
-  Se despeja C de la fórmula de la cuota, con la tasa y la cantidad de
-  cuotas ya conocidas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cuota_credito_frances"
+  tema: "estado_de_resultados"
   nivel: "intermedio"
-  tags: ["cuota_credito"]
+  tags: ["resultado", "ganancia", "perdida"]
 
 variables:
-  capital: random(100, 2000) * 1000
-  tasa: random(2, 8)
-  n: random(6, 36)
-  cuota: capital * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)
-  total_pagado: cuota * n
-  interes_total: total_pagado - capital
+  idx: uno_de([0, 1, 2])
+  ingresos: [1000, 500, 1200]
+  costos: [800, 600, 1200]
+  resultados_texto: ["200", "-100", "0"]
+
+respuesta: resultados_texto[idx]
+tipo: mc
+opciones_explicitas: ["200", "-100", "0", "No se puede determinar"]
+
+enunciado: "Si una organización presenta un total de ingresos de {ingresos[idx]} y un total de costos de {costos[idx]}, su resultado del período es:"
+
+explicacion: |
+  El resultado (ganancia o pérdida) se obtiene restando los costos y gastos de los ingresos totales. El resultado es positivo (ganancia) o negativo (pérdida) según cuál de los dos totales sea mayor.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["orden", "estructura"]
+
+respuesta_orden: ["Ventas", "Costo de Ventas", "Resultado Bruto", "Gastos Operativos", "Resultado Operativo"]
+tipo: ordenar
+
+opciones_explicitas: ["Ventas", "Costo de Ventas", "Resultado Bruto", "Gastos Operativos", "Resultado Operativo"]
+
+enunciado: "Ordene los conceptos según el orden lógico de presentación en un Estado de Resultados estándar para determinar la utilidad operativa."
+
+explicacion: |
+  El orden lógico comienza con los ingresos por ventas, se restan los costos directos para obtener el margen bruto, luego se restan los gastos operativos para llegar al resultado operativo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "intermedio"
+  tags: ["costo", "gasto", "clasificacion"]
+
+respuesta: "gasto"
+tipo: completar
+respuestas_validas:
+  - "gasto"
+
+enunciado: "Mientras que el costo está directamente vinculado a la producción de un bien o servicio, el pago de la factura de luz de la oficina administrativa se clasifica contablemente como un ___."
+
+explicacion: |
+  Los costos son inversiones que se recuperan al vender el producto (están en el inventario hasta la venta), mientras que los gastos son consumos que se utilizan para mantener la estructura operativa de la empresa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "avanzado"
+  tags: ["impuestos", "resultado_neto"]
+
+variables:
+  escenario: [["Resultado antes de impuestos: 100, Tasa: 0.3", "70"], ["Resultado antes de impuestos: -50, Tasa: 0.3", "-50"]]
+  idx: uno_de([0, 1])
+
+respuesta: escenario[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Calcule el Resultado Neto (utilidad o pérdida después de impuestos) considerando el siguiente escenario: {escenario[idx][0]}."
+
+explicacion: |
+  El resultado neto es el resultado final después de restar los impuestos al resultado antes de impuestos. Si hay pérdida, generalmente no se calcula impuesto sobre la renta (dependiendo de la legislación local, pero en ejercicios académicos se asume que no se resta impuesto a una pérdida).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["conceptos", "contabilidad"]
+
+respuesta: "flujo"
+tipo: completar
+respuestas_validas:
+  - "flujo"
+  - "flujo de fondos"
+  - "flujo de caja"
+
+enunciado: "A diferencia del Balance General, que muestra la situación patrimonial en un momento dado, el Estado de Resultados muestra el ___ de ingresos y gastos durante un período determinado."
+
+explicacion: |
+  El Balance General es una "foto" estática, mientras que el Estado de Resultados es un "video" que registra el flujo de transacciones en un tiempo determinado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "intermedio"
+  tags: ["rentabilidad", "liquidez"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si una empresa reporta una utilidad neta positiva pero tiene problemas para pagar sus deudas corrientes, ¿es correcto afirmar que la utilidad neta indica la liquidez inmediata de la empresa?"
+
+explicacion: |
+  El principio del devengado implica que los ingresos y gastos se registran cuando ocurren, independientemente de si hubo movimiento de efectivo o no.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["estructura", "conceptos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es correcto afirmar que el Resultado del Ejercicio se obtiene simplemente restando el Activo del Pasivo?"
+
+explicacion: |
+  Falso. La diferencia entre Activo y Pasivo es el Patrimonio Neto. El Resultado del Ejercicio se obtiene de la diferencia entre Ingresos y Gastos en el Estado de Resultados.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "intermedio"
+  tags: ["estructura", "jerarquia"]
+
+respuesta_orden: ["Ventas Netas", "Costo de Mercaderías Vendidas", "Utilidad Bruta", "Gastos Operativos", "Utilidad Operativa"]
+tipo: ordenar
+opciones_explicitas: ["Ventas Netas", "Costo de Mercaderías Vendidas", "Utilidad Bruta", "Gastos Operativos", "Utilidad Operativa"]
+
+enunciado: "Ordene los conceptos según la estructura lógica de un Estado de Resultados para determinar la utilidad operativa:"
+
+explicacion: |
+  La estructura sigue un orden descendente: primero se determinan las ventas, se restan los costos directos para obtener la utilidad bruta, y luego se restan los gastos de administración y ventas para llegar a la utilidad operativa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "avanzado"
+  tags: ["costos", "clasificacion"]
+
+respuesta: "Costo"
+tipo: mc
+opciones_explicitas: ["Costo", "Gasto"]
+
+enunciado: "En el Estado de Resultados, el concepto que se relaciona directamente con el ingreso por ventas para determinar la utilidad bruta se denomina ___."
+
+explicacion: |
+  El 'Costo' (como el CMV) está directamente vinculado a la producción o adquisición de lo vendido, mientras que el 'Gasto' suele referirse a consumos para la estructura operativa (administración/ventas).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["contabilidad", "utilidad_bruta"]
+
+variables:
+  escenario: [[150000, 85000, 45000], [200000, 120000, 30000], [180000, 90000, 55000]]
+  idx: uno_de([0, 1, 2])
+  ventas: escenario[idx][0]
+  costo_ventas: escenario[idx][1]
+
+respuesta: ventas - costo_ventas
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Una empresa reporta en su estado de resultados un total de ventas de ${ventas} y un costo de ventas de ${costo_ventas}. ¿Cuál es el monto de la utilidad bruta?"
+
+explicacion: |
+  La utilidad bruta se calcula restando el costo de ventas de los ingresos totales por ventas:
+  Utilidad Bruta = Ventas - Costo de Ventas
+  En este caso: ${ventas} - ${costo_ventas} = ${ventas - costo_ventas}.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "basico"
+  tags: ["clasificacion", "gastos"]
+
+respuesta: "Gastos Operativos"
+tipo: mc
+opciones_explicitas: ["Costo de Ventas", "Gastos Operativos", "Ingresos No Operativos"]
+
+enunciado: "Si una empresa tiene un listado de pagos por sueldos administrativos, alquiler de oficinas y servicios de luz para la administración, ¿en qué categoría del estado de resultados se clasifican principalmente?"
+
+explicacion: |
+  Los gastos de administración, ventas y financieros se agrupan como Gastos Operativos, a diferencia del Costo de Ventas que está directamente ligado a la producción o adquisición de bienes vendidos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "intermedio"
+  tags: ["resultado_neto", "perdida"]
+
+variables:
+  datos: [[5000, 8000], [12000, 10000], [4500, 4500]]
+  idx: uno_de([0, 1, 2])
+  ingresos: datos[idx][0]
+  gastos: datos[idx][1]
+
+respuesta: ingresos > gastos
+tipo: vf
+enunciado: "Considerando que los ingresos totales son ${ingresos} y los gastos totales son ${gastos}, ¿el resultado del ejercicio es una utilidad (ganancia)?"
+
+explicacion: |
+  Para que haya utilidad, los ingresos deben ser mayores que los gastos. 
+  En este escenario: ${ingresos} > ${gastos} es ${ingresos > gastos}.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "intermedio"
+  tags: ["orden", "estructura"]
+
+respuesta_orden: ["Ventas", "Costo de Ventas", "Utilidad Bruta", "Gastos Operativos", "Utilidad Operativa"]
+tipo: ordenar
+
+opciones_explicitas: ["Ventas", "Costo de Ventas", "Utilidad Bruta", "Gastos Operativos", "Utilidad Operativa"]
+
+enunciado: "Ordene los siguientes conceptos según la secuencia lógica de presentación en un Estado de Resultados convencional (de mayor a menor margen):"
+
+explicacion: |
+  La estructura lógica comienza con el ingreso principal (Ventas), se le resta el costo directo para obtener la Utilidad Bruta, luego se restan los gastos operativos para llegar a la Utilidad Operativa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estado_de_resultados"
+  nivel: "avanzado"
+  tags: ["utilidad_neta", "impuestos"]
+
+variables:
+  escenario: [[10000, 2000], [15000, 3000], [8000, 1500]]
+  idx: uno_de([0, 1, 2])
+  utilidad_antes_imp: escenario[idx][0]
+  impuesto_tasa: 0.30
+
+respuesta: utilidad_antes_imp * (1 - impuesto_tasa)
 
 tipo: completar
-enunciado: "Un préstamo de ${capital} terminó pagando ${redondear(total_pagado, 2)} en total. Completá: ___ (interés total) = {redondear(total_pagado, 2)} (total pagado) - {capital} (capital)."
+tolerancia_abs: 0
+
+enunciado: "Si una empresa obtiene una utilidad antes de impuestos de ${utilidad_antes_imp} y debe afrontar una tasa impositiva del 30%, el valor de la utilidad neta es ___"
+
+explicacion: |
+  La utilidad neta se obtiene aplicando la tasa impositiva sobre la utilidad antes de impuestos:
+  Utilidad Neta = Utilidad Antes de Impuestos * (1 - Tasa)
+  En este caso: ${utilidad_antes_imp} * (1 - 0.30) = ${utilidad_antes_imp * 0.7}.
+```
+
+## Sección: estructura-del-patrimonio (20 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "basico"
+  tags: ["ecuacion_patrimonial"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El patrimonio neto es igual a los activos menos los pasivos."
+
+explicacion: |
+  Esta es la ecuación patrimonial fundamental: Pat = Activo - Pasivo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "intermedio"
+  tags: ["calculo", "pasivo"]
+
+variables:
+  activo: random(100000, 500000)
+  patrimonio: random(20000, 100000)
+  pasivo: activo - patrimonio
+
+respuesta: pasivo
+tipo: input
+
+enunciado: "Una empresa tiene un activo total de ${activo} y un patrimonio neto de ${patrimonio}. ¿Cuál es el total de sus pasivos?"
+
+explicacion: |
+  Si Activo - Pasivo = Patrimonio, entonces Pasivo = Activo - Patrimonio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "avanzado"
+  tags: ["interpretacion", "insolvencia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si el patrimonio neto es negativo, la empresa tiene más bienes que deudas."
+
+explicacion: |
+  Patrimonio negativo significa que los pasivos superan a los activos (Activo < Pasivo).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "intermedio"
+  tags: ["calculo", "activo"]
+
+variables:
+  pasivo: random(50000, 200000)
+  patrimonio: random(10000, 50000)
+  activo: pasivo + patrimonio
+
+respuesta: activo
+tipo: input
+
+enunciado: "Si el pasivo total es ${pasivo} y el patrimonio neto es ${patrimonio}, ¿cuál es el activo total?"
+
+explicacion: |
+  Activo = Pasivo + Patrimonio Neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "intermedio"
+  tags: ["variacion", "ganancia"]
+
+variables:
+  activo_inicial: random(100000, 200000)
+  pasivo_inicial: random(50000, 100000)
+  ganancia: random(10000, 50000)
+  activo_final: activo_inicial + ganancia
+  pasivo_final: pasivo_inicial
+  pat_inicial: activo_inicial - pasivo_inicial
+  pat_final: activo_final - pasivo_final
+  variacion: pat_final - pat_inicial
+
+respuesta: variacion
+tipo: input
+
+enunciado: "Si una empresa tiene Activo {activo_inicial} y Pasivo {pasivo_inicial}, y luego obtiene una ganancia de {ganancia} que aumenta su activo, ¿cuánto aumentó su patrimonio neto?"
+
+explicacion: |
+  Al aumentar el activo sin cambiar el pasivo, el patrimonio neto aumenta exactamente por el monto de la ganancia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "intermedio"
+  tags: ["estructura", "financiamiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El financiamiento de una empresa proviene de sus acreedores (pasivo) y de sus dueños (patrimonio)."
+
+explicacion: |
+  Correcto. Los activos se financian con deuda externa e interna.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "avanzado"
+  tags: ["calculo", "agregacion"]
+
+variables:
+  activo_caja: random(5000, 20000)
+  activo_banco: random(10000, 50000)
+  activo_inventario: random(20000, 100000)
+  activo_maquinaria: random(50000, 200000)
+  pasivo_proveedores: random(5000, 20000)
+  pasivo_prestamo: random(10000, 50000)
+  
+  activo_total: activo_caja + activo_banco + activo_inventario + activo_maquinaria
+  pasivo_total: pasivo_proveedores + pasivo_prestamo
+  patrimonio: activo_total - pasivo_total
+
+respuesta: patrimonio
+tipo: input
+
+enunciado: "Activo Caja: {activo_caja}, Activo Banco: {activo_banco}, Activo Inventario: {activo_inventario}, Activo Maquinaria: {activo_maquinaria}. Pasivo Proveedores: {pasivo_proveedores}, Pasivo Préstamo: {pasivo_prestamo}. Calcula el Patrimonio Neto."
+
+explicacion: |
+  Sumar todos los activos, restar todos los pasivos. El resultado es el patrimonio neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "intermedio"
+  tags: ["transaccion", "balance"]
+
+variables:
+  monto: random(10000, 50000)
+  activo_inicial: random(100000, 200000)
+  pasivo_inicial: random(50000, 100000)
+  pat_inicial: activo_inicial - pasivo_inicial
+  activo_final: activo_inicial + monto
+  pasivo_final: pasivo_inicial + monto
+  pat_final: activo_final - pasivo_final
+  cambio_patrimonio: pat_final - pat_inicial
+
+respuesta: cambio_patrimonio
+tipo: input
+
+enunciado: "Si la empresa compra un activo de ${monto} a crédito, ¿cuánto cambia su patrimonio neto?"
+
+explicacion: |
+  Al aumentar activo y pasivo en la misma cantidad, la diferencia (patrimonio) no cambia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "avanzado"
+  tags: ["solvencia", "riesgo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un patrimonio neto negativo puede indicar que la empresa es insolvente técnicamente."
+
+explicacion: |
+  Si Pasivo > Activo, la empresa no tiene suficiente para cubrir sus deudas con sus propios bienes, lo que es un riesgo de insolvencia técnica.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "intermedio"
+  tags: ["calculo", "activo_circulante"]
+
+variables:
+  activo_total: random(200000, 500000)
+  activo_no_circulante: random(50000, 200000)
+  activo_circulante: activo_total - activo_no_circulante
+
+respuesta: activo_circulante
+tipo: input
+
+enunciado: "El activo total es ${activo_total} y el no circulante es ${activo_no_circulante}. ¿Cuánto es el activo circulante?"
+
+explicacion: |
+  Activo Circulante = Activo Total - Activo No Circulante.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "basico"
+  tags: ["principio", "doble entrada"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Todo activo está financiado por pasivos o patrimonio."
+
+explicacion: |
+  Es la base de la partida doble: no hay activo sin una fuente de financiamiento (deuda o capital propio).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "intermedio"
+  tags: ["calculo", "pasivo_circulante"]
+
+variables:
+  pasivo_total: random(100000, 300000)
+  pasivo_no_circulante: random(20000, 100000)
+  pasivo_circulante: pasivo_total - pasivo_no_circulante
+
+respuesta: pasivo_circulante
+tipo: input
+
+enunciado: "Si el pasivo total es ${pasivo_total} y el no circulante es ${pasivo_no_circulante}, ¿cuánto es el pasivo circulante?"
+
+explicacion: |
+  Pasivo Circulante = Pasivo Total - Pasivo No Circulante.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "intermedio"
+  tags: ["transaccion", "liquidez"]
+
+variables:
+  monto: random(5000, 20000)
+  activo_inicial: random(100000, 200000)
+  pasivo_inicial: random(50000, 100000)
+  pat_inicial: activo_inicial - pasivo_inicial
+  activo_final: activo_inicial - monto
+  pasivo_final: pasivo_inicial - monto
+  pat_final: activo_final - pasivo_final
+  cambio_patrimonio: pat_final - pat_inicial
+
+respuesta: cambio_patrimonio
+tipo: input
+
+enunciado: "Si la empresa paga ${monto} de su deuda, ¿cuánto cambia su patrimonio neto?"
+
+explicacion: |
+  Al bajar activo y pasivo en la misma cantidad, el patrimonio neto permanece igual.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "basico"
+  tags: ["activo", "efectivo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El efectivo en caja es un activo circulante."
+
+explicacion: |
+  El efectivo es el activo más líquido y se usa inmediatamente, por lo que es circulante.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "avanzado"
+  tags: ["capital", "variacion"]
+
+variables:
+  activo: random(200000, 500000)
+  pasivo: random(50000, 150000)
+  capital_inicial: random(50000, 100000)
+  nueva_inversion: random(10000, 50000)
+  activo_final: activo + nueva_inversion
+  pasivo_final: pasivo
+  capital_final: activo_final - pasivo_final
+  incremento_patrimonio: capital_final - (activo - pasivo)
+
+respuesta: nueva_inversion
+tipo: input
+
+enunciado: "Si se realiza una nueva inversión de ${nueva_inversion} en efectivo que aumenta el activo, ¿cuánto aumenta el patrimonio neto?"
+
+explicacion: |
+  La inversión de los dueños aumenta el activo y el patrimonio neto en la misma cuantía.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "intermedio"
+  tags: ["estructura", "propiedad"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El pasivo representa la propiedad de los accionistas sobre los activos."
+
+explicacion: |
+  El patrimonio neto representa la propiedad de los accionistas. El pasivo representa la deuda con terceros.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "intermedio"
+  tags: ["calculo", "balance"]
+
+variables:
+  activo_circulante: random(50000, 150000)
+  activo_no_circulante: random(100000, 300000)
+  pasivo_circulante: random(20000, 80000)
+  pasivo_no_circulante: random(30000, 100000)
+  
+  activo_total: activo_circulante + activo_no_circulante
+  pasivo_total: pasivo_circulante + pasivo_no_circulante
+  patrimonio: activo_total - pasivo_total
+
+respuesta: patrimonio
+tipo: input
+
+enunciado: "Activo Circulante: {activo_circulante}, Activo No Circulante: {activo_no_circulante}, Pasivo Circulante: {pasivo_circulante}, Pasivo No Circulante: {pasivo_no_circulante}. Calcula el Patrimonio Neto."
+
+explicacion: |
+  Sumar activos totales, restar pasivos totales. El resultado es el patrimonio neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_del_patrimonio"
+  nivel: "basico"
+  tags: ["ecuacion", "contabilidad", "completar"]
+
+respuesta: "Pasivo"
+tipo: completar
+
+enunciado: "Completa la ecuación fundamental: Activo = Patrimonio Neto + _______."
+
 respuestas_validas:
-  - interes_total
+  - "Pasivo"
+  - "pasivo"
+  - "pasivos"
 
 explicacion: |
-  El interés total es lo que se pagó de más, por encima del capital
-  prestado.
+  La ecuación patrimonial básica establece que lo que tiene la empresa (Activo) se financia con
+  recursos propios (Patrimonio) y recursos de terceros (Pasivo).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
+  tema: "estructura_del_patrimonio"
   nivel: "basico"
-  tags: ["cuota_credito", "vocabulario"]
+  tags: ["pasivo", "clasificacion", "completar"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "Circulante"
+tipo: completar
 
-enunciado: "Además del sistema francés, existen otros sistemas de amortización de créditos, como el alemán y el americano."
+enunciado: "Los pasivos que vencen en menos de un año se clasifican como Pasivo _______."
+
+respuestas_validas:
+  - "Circulante"
+  - "circulante"
+  - "corriente"
+  - "corriente"
 
 explicacion: |
-  El francés es el más común en Argentina, pero no el único que usan los
-  bancos en el mundo.
+  Los pasivos de corto plazo se denominan Pasivo Circulante (o Corriente).
+  Los de largo plazo son Pasivo No Circulante (o Largo Plazo).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "intermedio"
-  tags: ["cuota_credito", "vocabulario"]
-
-enunciado: "En el sistema alemán de amortización, ¿qué es lo que se mantiene constante en cada cuota?"
-tipo: mc
-opciones_explicitas:
-  - "La amortización de capital (no la cuota total)"
-  - "La cuota total (no la amortización de capital)"
-  - "El interés (no la amortización de capital)"
-respuesta: "La amortización de capital (no la cuota total)"
-
-explicacion: |
-  Es al revés que en el sistema francés: ahí lo fijo es la cuota; en el
-  alemán, lo fijo es cuánto capital se amortiza cada vez.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "intermedio"
-  tags: ["cuota_credito", "vocabulario"]
-
-enunciado: "Como en el sistema alemán la amortización de capital es siempre la misma, y el interés se calcula sobre un saldo que baja siempre igual, ¿cómo resulta la cuota total a lo largo del préstamo?"
-tipo: mc
-opciones_explicitas:
-  - "Decreciente: arranca más alta y termina más baja"
-  - "Constante: igual en todas las cuotas"
-  - "Creciente: arranca más baja y termina más alta"
-respuesta: "Decreciente: arranca más alta y termina más baja"
-
-explicacion: |
-  El interés de cada cuota decrece mes a mes (porque el saldo baja
-  siempre lo mismo), así que la cuota total también decrece.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "intermedio"
-  tags: ["cuota_credito", "vocabulario"]
-
-enunciado: "En el sistema americano de amortización, ¿qué se paga durante el préstamo y qué pasa con el capital?"
-tipo: mc
-opciones_explicitas:
-  - "Sólo se pagan intereses en cada cuota; el capital completo se devuelve de una vez al final"
-  - "Se paga capital e interés en partes iguales cada cuota, como en el francés"
-  - "El capital se devuelve en la primera cuota y después sólo quedan intereses"
-respuesta: "Sólo se pagan intereses en cada cuota; el capital completo se devuelve de una vez al final"
-
-explicacion: |
-  Es el sistema donde el capital no se va amortizando de a poco: queda
-  entero hasta el vencimiento.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cuota_credito_frances"
+  tema: "estructura_del_patrimonio"
   nivel: "basico"
-  tags: ["cuota_credito", "vocabulario"]
+  tags: ["patrimonio", "componentes", "completar"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "Utilidades"
+tipo: completar
 
-enunciado: "De los tres sistemas de amortización (francés, alemán, americano), el americano es el menos común en préstamos personales que ofrecen los bancos."
+enunciado: "Además del capital social, las _______ acumuladas forman parte del patrimonio neto."
+
+respuestas_validas:
+  - "Utilidades"
+  - "utilidades"
+  - "ganancias"
+  - "ganancias"
 
 explicacion: |
-  Se usa en algunos bonos e instrumentos financieros puntuales, pero rara
-  vez un banco se lo ofrece a una persona para un préstamo personal.
+  El patrimonio neto incluye el capital aportado y las utilidades (o pérdidas) acumuladas de la empresa.
 ```
+
+## Sección: estructura-productiva-dependencia (25 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
+  tema: "estructura_productiva_dependencia"
   nivel: "basico"
-  tags: ["cuota_credito", "vocabulario"]
+  tags: ["historia_economica", "agroexportador"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "primarias"
+tipo: completar
+respuestas_validas:
+  - "primarias"
 
-enunciado: "En Argentina, el sistema francés es el más común para préstamos personales y créditos hipotecarios."
+enunciado: "La estructura productiva argentina, consolidada durante el modelo agroexportador, se caracterizó por una fuerte especialización en la exportación de productos de naturaleza ___."
 
 explicacion: |
-  Por eso es el que corresponde estudiar en detalle, aunque no sea el
-  único que existe.
+  El modelo agroexportador (1880-1930) posicionó a Argentina como el "granero del mundo", basando su economía en la exportación de materias primas (cereales, carnes) hacia Europa, lo que generó una dependencia estructural de los sectores primarios.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
+  tema: "estructura_productiva_dependencia"
   nivel: "intermedio"
-  tags: ["cuota_credito", "orden"]
+  tags: ["commodities", "volatilidad"]
 
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["soja", "caída"], ["trigo", "subida"]]
+  efecto: ["menor ingreso de divisas", "mayor ingreso de divisas"]
+
+respuesta: efecto[escenario_idx]
+tipo: mc
+opciones_explicitas: ["menor ingreso de divisas", "mayor ingreso de divisas", "sin cambios"]
+
+enunciado: "Si el precio internacional de la {datos[escenario_idx][0]} sufre una {datos[escenario_idx][1]}, el efecto inmediato en la balanza comercial argentina es un ___."
+
+pasos:
+  - "Identificar el commodity y la tendencia del precio."
+  - "Relacionar el precio del producto de exportación con el ingreso de divisas."
+
+explicacion: |
+  Dado que Argentina es un exportador neto de commodities, la volatilidad de los precios internacionales impacta directamente en la recaudación fiscal y la disponibilidad de dólares (divisas).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "basico"
+  tags: ["exportaciones", "commodities"]
+
+respuesta: "Dependencia de los precios de los commodities"
+tipo: mc
+opciones_explicitas: ["Diversificación industrial avanzada", "Dependencia de los precios de los commodities", "Autosuficiencia tecnológica"]
+
+enunciado: "¿Cuál es la principal vulnerabilidad de una estructura productiva basada en la exportación de materias primas?"
+
+explicacion: |
+  La falta de valor agregado en las exportaciones hace que la economía sea altamente sensible a los ciclos de precios internacionales, fenómeno conocido como la "vulnerabilidad externa".
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "intermedio"
+  tags: ["ciclos_economicos", "exportación"]
+
+opciones_explicitas: ["Aumento de demanda externa", "Suba de precios internacionales", "Ingreso de divisas", "Crecimiento del PBI local"]
+respuesta_orden: ["Aumento de demanda externa", "Suba de precios internacionales", "Ingreso de divisas", "Crecimiento del PBI local"]
 tipo: ordenar
-enunciado: "En un préstamo con sistema francés, ordená estos momentos del préstamo de menor a mayor proporción de amortización de capital dentro de la cuota."
-opciones_explicitas:
-  - "Última cuota"
-  - "Cuota 1"
-  - "Cuota del medio del préstamo"
-respuesta_orden: ["Cuota 1", "Cuota del medio del préstamo", "Última cuota"]
+
+enunciado: "Ordene cronológicamente la cadena de efectos que genera un ciclo alcista en la economía argentina basado en el modelo agroexportador:"
 
 explicacion: |
-  La amortización de capital empieza baja (predomina el interés) y crece
-  cuota a cuota, hasta ser casi toda la cuota al final del préstamo.
+  Un aumento en la demanda mundial de productos agrícolas eleva los precios de los commodities, lo que permite un mayor ingreso de divisas al país, impulsando finalmente el crecimiento económico interno.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "intermedio"
-  tags: ["cuota_credito", "verificacion"]
-
-variables:
-  capital: random(100, 2000) * 1000
-  tasa: random(2, 8)
-  n: random(6, 36)
-  correcto: capital * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)
-  error: uno_de([0, 0, 0, 5000, -5000])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 10)
-tipo: vf
-
-enunciado: "¿Está bien calculada esta cuota? Préstamo de ${capital}, tasa mensual {tasa}%, {n} cuotas, cuota mostrada: ${redondear(mostrado, 2)}."
-
-explicacion: |
-  Se vuelve a calcular con la fórmula del sistema francés y se compara
-  con el valor mostrado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cuota_credito_frances"
-  nivel: "basico"
-  tags: ["cuota_credito", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el sistema francés la cuota es fija, pero dentro de cada cuota la proporción de interés baja y la de amortización de capital sube a medida que avanza el préstamo — y no es el único sistema de amortización que existe."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```
-
-## Sección: debe-haber-balance (22 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Qué es el activo de una empresa?"
-tipo: mc
-opciones_explicitas:
-  - "Todo lo que la empresa posee: bienes y derechos"
-  - "Todo lo que la empresa debe a terceros"
-  - "La ganancia del último mes"
-respuesta: "Todo lo que la empresa posee: bienes y derechos"
-
-explicacion: |
-  Incluye dinero en caja, mercadería, inmuebles, y créditos a favor.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Qué es el pasivo de una empresa?"
-tipo: mc
-opciones_explicitas:
-  - "Todo lo que la empresa debe a terceros: obligaciones y deudas"
-  - "Todo lo que la empresa posee"
-  - "El total de ventas del período"
-respuesta: "Todo lo que la empresa debe a terceros: obligaciones y deudas"
-
-explicacion: |
-  Incluye préstamos, deudas con proveedores, sueldos por pagar.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Qué es el patrimonio neto de una empresa?"
-tipo: mc
-opciones_explicitas:
-  - "Lo que le queda al dueño después de descontar todas las deudas (Activo - Pasivo)"
-  - "El total de dinero en efectivo en caja"
-  - "El total de mercadería en stock"
-respuesta: "Lo que le queda al dueño después de descontar todas las deudas (Activo - Pasivo)"
-
-explicacion: |
-  Es la parte del activo que efectivamente le pertenece al dueño, libre
-  de deudas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La ecuación contable fundamental es: Activo = Pasivo + Patrimonio Neto."
-
-explicacion: |
-  Siempre tiene que estar en equilibrio, sin importar cuántos
-  movimientos haya.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "intermedio"
-  tags: ["contabilidad", "calculo"]
-
-variables:
-  activo: random(500, 5000) * 1000
-  pasivo: random(100, 2000) * 1000
-
-respuesta: activo - pasivo
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una empresa tiene un activo de ${activo} y un pasivo de ${pasivo}. ¿Cuál es su patrimonio neto?"
-
-explicacion: |
-  Patrimonio Neto = Activo - Pasivo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "intermedio"
-  tags: ["contabilidad", "calculo"]
-
-variables:
-  pasivo: random(100, 2000) * 1000
-  patrimonio_neto: random(500, 3000) * 1000
-
-respuesta: pasivo + patrimonio_neto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una empresa tiene un pasivo de ${pasivo} y un patrimonio neto de ${patrimonio_neto}. ¿Cuál es su activo?"
-
-explicacion: |
-  Se despeja de la ecuación contable: Activo = Pasivo + Patrimonio Neto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "intermedio"
-  tags: ["contabilidad", "calculo"]
-
-variables:
-  activo: random(500, 5000) * 1000
-  patrimonio_neto: random(300, 3000) * 1000
-
-respuesta: activo - patrimonio_neto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una empresa tiene un activo de ${activo} y un patrimonio neto de ${patrimonio_neto}. ¿Cuál es su pasivo?"
-
-explicacion: |
-  Se despeja: Pasivo = Activo - Patrimonio Neto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "En una cuenta contable, ¿qué es el \"Debe\"?"
-tipo: mc
-opciones_explicitas:
-  - "La columna de la izquierda"
-  - "La columna de la derecha"
-  - "El resultado final de la cuenta"
-respuesta: "La columna de la izquierda"
-
-explicacion: |
-  Es una convención de nomenclatura, no significa literalmente \"lo que
-  se debe\".
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "En una cuenta contable, ¿qué es el \"Haber\"?"
-tipo: mc
-opciones_explicitas:
-  - "La columna de la derecha"
-  - "La columna de la izquierda"
-  - "El total de gastos del mes"
-respuesta: "La columna de la derecha"
-
-explicacion: |
-  Es la columna opuesta al Debe.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"Debe\" y \"Haber\" son nombres técnicos de dos columnas contables, no significan literalmente \"lo que se debe\" y \"lo que se tiene\"."
-
-explicacion: |
-  Es una convención histórica del lenguaje contable.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las cuentas de Activo aumentan cuando se anota un importe en su Debe."
-
-explicacion: |
-  Es la convención básica para las cuentas de Activo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las cuentas de Activo disminuyen cuando se anota un importe en su Haber."
-
-explicacion: |
-  Es la contraparte de que el Activo aumente por el Debe.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las cuentas de Pasivo aumentan cuando se anota un importe en su Haber — al revés que el Activo."
-
-explicacion: |
-  Es esta regla \"opuesta\" entre Activo y Pasivo la que mantiene la
-  ecuación contable equilibrada.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las cuentas de Patrimonio Neto aumentan cuando se anota un importe en su Haber, igual que las de Pasivo."
-
-explicacion: |
-  Pasivo y Patrimonio Neto siguen la misma convención, opuesta a la del
-  Activo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
+  tema: "estructura_productiva_dependencia"
   nivel: "avanzado"
-  tags: ["contabilidad", "calculo"]
+  tags: ["valor_agregado", "industria"]
 
-variables:
-  total_debe: random(500, 3000) * 1000
-  total_haber: random(100, 2000) * 1000
+respuesta: "bajo"
+tipo: completar
+respuestas_validas:
+  - "bajo"
+  - "nulo"
 
-respuesta: total_debe - total_haber
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La cuenta \"Caja\" (de Activo) tiene un total de ${total_debe} en el Debe y ${total_haber} en el Haber. ¿Cuál es su saldo?"
+enunciado: "La estructura productiva heredada presenta un perfil de exportación con un ___ grado de valor agregado, lo que se traduce en una mayor dependencia de la demanda externa de materias primas."
 
 explicacion: |
-  En una cuenta de Activo, el saldo es Debe menos Haber.
+  A diferencia de las economías industrializadas, la estructura argentina exporta mayoritariamente bienes con poco procesamiento industrial, lo que limita la capacidad de captura de valor en la cadena global.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "avanzado"
-  tags: ["contabilidad", "calculo"]
-
-variables:
-  total_haber: random(500, 3000) * 1000
-  total_debe: random(100, 2000) * 1000
-
-respuesta: total_haber - total_debe
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La cuenta \"Préstamos a pagar\" (de Pasivo) tiene un total de ${total_haber} en el Haber y ${total_debe} en el Debe. ¿Cuál es su saldo?"
-
-explicacion: |
-  En una cuenta de Pasivo, el saldo es Haber menos Debe — al revés que
-  en una cuenta de Activo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "avanzado"
-  tags: ["contabilidad", "comparacion"]
-
-variables:
-  activo_a: random(1000, 3000) * 1000
-  pasivo_a: random(500, 900) * 1000
-  activo_b: random(1000, 3000) * 1000
-  pasivo_b: random(1500, 2900) * 1000
-
-respuesta: ((activo_a - pasivo_a) > (activo_b - pasivo_b))
-tipo: vf
-
-enunciado: "Empresa A: activo ${activo_a}, pasivo ${pasivo_a}. Empresa B: activo ${activo_b}, pasivo ${pasivo_b}. ¿La empresa A tiene mayor patrimonio neto que la B?"
-
-explicacion: |
-  Hay que calcular el patrimonio neto de cada una (activo menos pasivo)
-  antes de comparar — el activo solo no alcanza.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La ecuación Activo = Pasivo + Patrimonio Neto tiene que estar en equilibrio siempre, después de cada movimiento contable."
-
-explicacion: |
-  Si no se cumple, hay un error en el registro contable.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
+  tema: "estructura_productiva_dependencia"
   nivel: "basico"
-  tags: ["contabilidad", "orden"]
+  tags: ["teoria_economica", "desarrollo"]
 
-tipo: ordenar
-enunciado: "Ordená estas empresas de menor a mayor patrimonio neto."
-opciones_explicitas:
-  - "Activo $2.000.000, Pasivo $1.800.000"
-  - "Activo $2.000.000, Pasivo $500.000"
-  - "Activo $2.000.000, Pasivo $1.200.000"
-respuesta_orden: ["Activo $2.000.000, Pasivo $1.800.000", "Activo $2.000.000, Pasivo $1.200.000", "Activo $2.000.000, Pasivo $500.000"]
+tipo: mc
+opciones_explicitas: ["La subordinación de la economía local a las decisiones y precios de mercados externos.", "Un sistema donde el país exporta tecnología de punta y productos manufacturados.", "Un modelo de autosuficiencia total donde no se requiere comercio exterior.", "La capacidad de un país para fijar sus propios precios internacionales sin influencia externa."]
+
+enunciado: "Se define como dependencia económica cuando la estructura productiva de un país se encuentra ___________ por los ciclos económicos y las decisiones de precios de las economías centrales."
+
+respuesta: "La subordinación de la economía local a las decisiones y precios de mercados externos."
 
 explicacion: |
-  A igual activo, menor pasivo significa mayor patrimonio neto.
+  La dependencia económica ocurre cuando un país carece de autonomía para determinar sus ciclos internos, ya que su producción y consumo dependen de la demanda y los precios fijados en mercados externos o países desarrollados.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "debe_haber_balance"
+  tema: "estructura_productiva_dependencia"
   nivel: "intermedio"
-  tags: ["contabilidad", "verificacion"]
+  tags: ["comercio_exterior", "primarización"]
 
 variables:
-  activo: random(500, 5000) * 1000
-  pasivo: random(100, 2000) * 1000
-  correcto: activo - pasivo
-  error: uno_de([0, 0, 0, 100000, -100000])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 1000)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? Activo ${activo}, pasivo ${pasivo}, patrimonio neto informado: ${mostrado}."
-
-explicacion: |
-  Se vuelve a restar el pasivo del activo y se compara con el valor
-  informado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "intermedio"
-  tags: ["contabilidad"]
-
-variables:
-  activo: random(500, 5000) * 1000
-  patrimonio_neto: random(300, 3000) * 1000
-  pasivo: activo - patrimonio_neto
+  escenario: uno_de([["exportación de materias primas", "vulnerabilidad a precios internacionales"], ["importación de tecnología", "dependencia de patentes extranjeras"], ["deuda externa", "dependencia de capitales volátiles"]])
 
 tipo: completar
-enunciado: "Una empresa tiene un activo de ${activo} y un patrimonio neto de ${patrimonio_neto}. Completá: ___ (pasivo) = {activo} - {patrimonio_neto}."
 respuestas_validas:
-  - pasivo
+  - escenario[1]
+
+enunciado: "Un país que basa su matriz productiva principalmente en la {escenario[0]} suele enfrentar una alta ___."
+
+respuesta: escenario[1]
 
 explicacion: |
-  Se despeja el pasivo de la ecuación contable fundamental.
+  La especialización en productos primarios (commodities) expone a las economías a la volatilidad de los precios internacionales, lo que caracteriza a los modelos de dependencia.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "debe_haber_balance"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Activo = Pasivo + Patrimonio Neto es la ecuación que siempre debe cumplirse; Debe y Haber son las dos columnas técnicas de una cuenta, con reglas de aumento opuestas entre Activo y Pasivo/Patrimonio Neto."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```
-
-## Sección: default-deuda (21 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "basico"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Qué es un default de deuda pública?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando un Estado no cumple con los pagos comprometidos de su deuda (interés, capital, o ambos)"
-  - "Cuando un Estado paga toda su deuda antes de lo previsto"
-  - "Cuando un Estado sube los impuestos para financiar su deuda"
-respuesta: "Cuando un Estado no cumple con los pagos comprometidos de su deuda (interés, capital, o ambos)"
-
-explicacion: |
-  Es la definición central del tema.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
+  tema: "estructura_productiva_dependencia"
   nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
+  tags: ["tecnologia", "desarrollo"]
 
-enunciado: "¿Por qué puede ocurrir un default?"
 tipo: mc
-opciones_explicitas:
-  - "Porque el Estado no consigue el dinero o la moneda extranjera necesaria, o porque decide no pagar"
-  - "Sólo puede ocurrir por un error administrativo, nunca por decisión ni por falta de fondos"
-  - "Los Estados nunca entran en default: sólo les pasa a las empresas privadas"
-respuesta: "Porque el Estado no consigue el dinero o la moneda extranjera necesaria, o porque decide no pagar"
+opciones_explicitas: ["Importación de bienes de capital y tecnología de punta.", "Exportación de servicios de alta complejidad.", "Sustitución de importaciones tecnológicas por producción local.", "Desarrollo de investigación y desarrollo (I+D) propio."]
+
+enunciado: "La dependencia tecnológica se manifiesta principalmente a través de la ___________."
+
+respuesta: "Importación de bienes de capital y tecnología de punta."
 
 explicacion: |
-  Son las dos razones centrales mencionadas en la teoría.
+  Cuando un país no desarrolla tecnología propia, debe importar maquinaria y conocimiento, quedando sujeto a los costos y condiciones impuestas por los países que sí poseen dicha tecnología.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "default_deuda"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un default no siempre afecta a toda la deuda de un país por igual: puede ser sólo de deuda externa, sólo de deuda interna, o de ambas."
-
-explicacion: |
-  Es la razón por la que este tema depende de entender los dos tipos
-  de deuda por separado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "problema"]
-
-enunciado: "Un país deja de pagarle a sus acreedores extranjeros, pero sigue pagando con normalidad a los acreedores locales de deuda en moneda propia. ¿Qué tipo de default es este?"
-tipo: mc
-opciones_explicitas:
-  - "Default de deuda externa exclusivamente"
-  - "Default de deuda interna exclusivamente"
-  - "No es un default: es una reestructuración automática"
-respuesta: "Default de deuda externa exclusivamente"
-
-explicacion: |
-  Sólo se dejó de pagar a los acreedores de afuera: es un default
-  parcial, sólo de la deuda externa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Qué suele pasar con el acceso de un país al crédito internacional después de un default?"
-tipo: mc
-opciones_explicitas:
-  - "Se vuelve mucho más difícil y más caro volver a pedir prestado"
-  - "Mejora automáticamente, porque el país ya no debe nada"
-  - "No tiene ningún efecto sobre el crédito futuro"
-respuesta: "Se vuelve mucho más difícil y más caro volver a pedir prestado"
-
-explicacion: |
-  Los prestamistas exigen una tasa más alta para compensar el riesgo
-  mayor que perciben tras un default.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Qué es una \"reestructuración\" de deuda, después de un default?"
-tipo: mc
-opciones_explicitas:
-  - "Una negociación con los acreedores para pagar menos del monto original (quita), extender los plazos, o ambas cosas"
-  - "El pago inmediato y completo de toda la deuda original"
-  - "La cancelación automática de la deuda sin ninguna negociación"
-respuesta: "Una negociación con los acreedores para pagar menos del monto original (quita), extender los plazos, o ambas cosas"
-
-explicacion: |
-  Es el mecanismo habitual para salir de un default y volver a tener
-  una relación de pago con los acreedores.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "basico"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Qué es una \"quita\", en el contexto de una reestructuración de deuda?"
-tipo: mc
-opciones_explicitas:
-  - "Que los acreedores acepten cobrar menos del monto originalmente pactado"
-  - "Que el Estado pague el 100% de lo que debía, sin ningún descuento"
-  - "Un impuesto nuevo que se cobra a los acreedores"
-respuesta: "Que los acreedores acepten cobrar menos del monto originalmente pactado"
-
-explicacion: |
-  Es uno de los dos componentes centrales de una reestructuración,
-  junto con la extensión de plazos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
+  tema: "estructura_productiva_dependencia"
   nivel: "avanzado"
-  tags: ["deuda_publica", "calculo"]
-
-variables:
-  monto_original: random(1, 20) * 100
-  quita_pct: uno_de([20, 25, 30, 50])
-
-respuesta: monto_original * (1 - quita_pct / 100)
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Un país reestructura un bono de U$S {monto_original} millones con una quita del {quita_pct}%. ¿Cuántos millones de dólares terminan cobrando los acreedores?"
-
-explicacion: |
-  Con una quita del X%, los acreedores cobran el (100 - X)% del monto
-  original.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "En un default de deuda externa, ¿qué puede pasar con los acreedores que NO aceptan la reestructuración?"
-tipo: mc
-opciones_explicitas:
-  - "Pueden llevar el reclamo a tribunales extranjeros, buscando cobrar el monto original por esa vía legal"
-  - "Automáticamente pierden todo derecho a reclamar cualquier cosa"
-  - "El Estado está obligado por ley internacional a pagarles el doble"
-respuesta: "Pueden llevar el reclamo a tribunales extranjeros, buscando cobrar el monto original por esa vía legal"
-
-explicacion: |
-  Es un riesgo real y específico de la deuda externa, que no aplica de
-  la misma forma a la deuda interna.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿En qué año declaró Argentina un default de su deuda externa, en medio de una crisis económica más amplia?"
-tipo: mc
-opciones_explicitas:
-  - "2001"
-  - "1991"
-  - "2015"
-respuesta: "2001"
-
-explicacion: |
-  Es el ejemplo histórico real citado en la teoría.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Después del default de 2001, Argentina negoció una reestructuración con la mayoría de sus acreedores (con una quita importante), mientras que un grupo que no aceptó llevó el reclamo a tribunales de Estados Unidos."
-
-explicacion: |
-  Es el desenlace real de ese caso histórico, presentado con
-  neutralidad: negociación con la mayoría, litigio con la minoría que
-  no aceptó.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Este tema explica la mecánica de qué pasa en un default (consecuencias, reestructuración, litigios), sin evaluar si la decisión puntual de algún país de entrar en default fue correcta o no."
-
-explicacion: |
-  Es el mismo criterio de neutralidad ya aplicado a otros temas
-  sensibles de esta materia (ver `corrientes-pensamiento-economico/`).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "Cuando se informa que \"las calificadoras de riesgo bajaron la nota de un país\", ¿qué suelen estar reflejando?"
-tipo: mc
-opciones_explicitas:
-  - "Un default reciente o una mayor probabilidad de que ocurra uno"
-  - "Que el país acaba de tener superávit comercial"
-  - "Que el país bajó su tasa de interés de referencia"
-respuesta: "Un default reciente o una mayor probabilidad de que ocurra uno"
-
-explicacion: |
-  Es la lectura habitual de un cambio en la calificación crediticia de
-  un país.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un país que vuelve a pedir prestado después de un default suele pagar una tasa de interés más alta que antes, como consecuencia directa de la pérdida de confianza que generó ese default."
-
-explicacion: |
-  Es el costo futuro de haber entrado en default: no es gratis salir
-  de un incumplimiento.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aunque es menos común que el default de deuda externa, un default (o canje forzoso) de deuda interna también puede ocurrir."
-
-explicacion: |
-  Es la aclaración explícita de la teoría: el default no es exclusivo
-  de la deuda externa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "orden"]
+  tags: ["procesos", "industrializacion"]
 
 tipo: ordenar
-enunciado: "Ordená esta secuencia de un default y su resolución."
-opciones_explicitas:
-  - "El país recupera acceso al crédito, generalmente a una tasa más alta que antes"
-  - "El Estado negocia una reestructuración (quita y/o extensión de plazos) con sus acreedores"
-  - "El Estado no puede cumplir un pago comprometido de su deuda"
-  - "Se declara el default (cese de pagos)"
-respuesta_orden: ["El Estado no puede cumplir un pago comprometido de su deuda", "Se declara el default (cese de pagos)", "El Estado negocia una reestructuración (quita y/o extensión de plazos) con sus acreedores", "El país recupera acceso al crédito, generalmente a una tasa más alta que antes"]
+opciones_explicitas: ["Especialización en recursos naturales", "Importación de manufacturas", "Dependencia de la demanda externa", "Vulnerabilidad ante crisis externas"]
+
+enunciado: "Ordene cronológicamente los elementos que suelen conformar un ciclo de dependencia económica estructural:"
+
+respuesta_orden: ["Especialización en recursos naturales", "Importación de manufacturas", "Dependencia de la demanda externa", "Vulnerabilidad ante crisis externas"]
 
 explicacion: |
-  Es el ciclo típico completo: incumplimiento, default, negociación, y
-  el costo futuro de haber pasado por eso.
+  El ciclo comienza con la especialización productiva, lo que genera la necesidad de importar bienes procesados, creando una dependencia de la demanda externa y resultando en vulnerabilidad ante choques externos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "default_deuda"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
+  tema: "estructura_productiva_dependencia"
+  nivel: "intermedio"
+  tags: ["finanzas", "capitales"]
 
-enunciado: "¿Por qué este tema depende de entender tanto la deuda interna como la externa?"
-tipo: mc
-opciones_explicitas:
-  - "Porque un default puede afectar a una, a la otra, o a ambas, con consecuencias y acreedores distintos en cada caso"
-  - "Porque un default siempre afecta a las dos deudas exactamente igual"
-  - "Porque la deuda interna y la externa son, en realidad, la misma cosa"
-respuesta: "Porque un default puede afectar a una, a la otra, o a ambas, con consecuencias y acreedores distintos en cada caso"
-
-explicacion: |
-  Es la razón de la dependencia explicada al principio de la teoría.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El riesgo de litigios en tribunales extranjeros por parte de acreedores que no aceptan una reestructuración es un riesgo específico de la deuda externa."
-
-explicacion: |
-  La deuda interna, al estar bajo jurisdicción del propio país, no
-  tiene ese mismo riesgo de litigio en tribunales de otro país.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "default_deuda"
-  nivel: "basico"
-  tags: ["deuda_publica"]
+variables:
+  caso: uno_de([["flujos de inversión extranjera directa", "crecimiento sostenido"], ["salidas bruscas de capitales especulativos", "crisis de balanza de pagos"]])
 
 tipo: completar
-enunciado: "Completá: una reestructuración de deuda combina una ___ (pagar menos del monto original) con, muchas veces, una extensión de los plazos de pago."
-respuestas_validas:
-  - "quita"
+tolerancia_abs: 0
+
+enunciado: "En una economía dependiente, las {caso[0]} pueden ser positivas, pero las {caso[1]} suelen provocar una ___________."
+
+respuesta: "crisis de balanza de pagos"
 
 explicacion: |
-  Es el término central de una reestructuración.
+  La volatilidad de los capitales es un rasgo de la dependencia financiera; cuando los capitales salen del país repentinamente, se generan crisis en la cuenta de pagos y devaluaciones.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "default_deuda"
+  tema: "estructura_productiva_dependencia"
   nivel: "basico"
-  tags: ["deuda_publica", "vocabulario"]
+  tags: ["vulnerabilidad", "primarización"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  escenario: uno_de([["soja", "400"], ["trigo", "250"], ["minería de cobre", "8000"]])
 
-enunciado: "Un default es el cese de pagos de una deuda, que puede afectar a la deuda interna, la externa, o ambas, y que suele resolverse con una reestructuración negociada con los acreedores."
+enunciado: "Una economía que basa su ingreso en la exportación de {escenario[0]} enfrenta una alta volatilidad cuando el precio internacional cae a ${escenario[1]} por unidad. Este fenómeno se conoce como vulnerabilidad externa."
+
+respuesta: "vulnerabilidad externa"
+tipo: mc
+opciones_explicitas: ["vulnerabilidad externa", "estabilidad macroeconómica", "diversificación productiva", "proteccionismo"]
 
 explicacion: |
-  Es la idea central de todo el tema.
+  La dependencia de un solo producto primario expone a la economía a las fluctuaciones de los precios internacionales (commodities), lo que genera inestabilidad en la balanza de pagos y el tipo de cambio.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "default_deuda"
+  tema: "estructura_productiva_dependencia"
   nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
+  tags: ["balanza_de_pagos", "términos_de_intercambio"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  caso: uno_de([["caída del precio de la soja", "déficit"], ["aumento de demanda de materias primas", "superávit"]])
 
-enunciado: "Desde la balanza comercial hasta el default de deuda, toda esta sub-rama sigue el mismo hilo: cómo un país se relaciona económicamente con el resto del mundo, y qué puede salir bien o mal en esa relación."
+enunciado: "Si ocurre una {caso[0]}, la cuenta corriente de la balanza de pagos tiende a presentar un ___."
+
+pasos:
+  - "Identificar el efecto del precio en el ingreso por exportaciones."
+  - "Relacionar el ingreso con el saldo de la cuenta corriente."
+
+respuestas_validas:
+  - "déficit"
+  - "superávit"
+respuesta: caso[1]
+tipo: completar
 
 explicacion: |
-  Es el cierre conceptual de toda la sub-rama de Economía
-  Internacional (`E33`-`E37`).
+  Una caída en los precios de exportación reduce la entrada de divisas, lo que puede derivar en un déficit en la cuenta corriente si no se compensa con deuda o remesas.
 ```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "avanzado"
+  tags: ["términos_de_intercambio", "deterioro"]
+
+enunciado: "Cuando los precios de los productos manufacturados crecen más rápido que los de los productos primarios, se produce un ___ en los términos de intercambio, lo que significa que los precios relativos de los bienes que exporta la economía caen."
+
+respuestas_validas:
+  - "deterioro"
+respuesta: "deterioro"
+tipo: completar
+
+explicacion: |
+  El deterioro de los términos de intercambio implica que se necesita exportar cada vez más volumen de materias primas para comprar la misma cantidad de bienes tecnológicos o manufacturados.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "intermedio"
+  tags: ["enfermedad_holandesa", "cambio_real"]
+
+variables:
+  efecto: uno_de([["apreciación", "sube"], ["depreciación", "baja"]])
+
+enunciado: "Un boom de precios en un recurso natural (como el petróleo) genera una entrada masiva de divisas que provoca la ___ del tipo de cambio real. Esto suele afectar la competitividad de la industria local."
+
+respuestas_validas:
+  - "apreciación"
+  - "depreciación"
+respuesta: efecto[0]
+tipo: completar
+
+explicacion: |
+  La 'Enfermedad Holandesa' ocurre cuando la abundancia de un recurso natural aprecia la moneda local, haciendo que el resto de los sectores (industria, servicios) pierdan competitividad frente al exterior.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "intermedio"
+  tags: ["ciclo_economico", "shock_externo"]
+
+enunciado: "Ordene la secuencia lógica de un shock externo negativo para una economía primario-exportadora:"
+
+opciones_explicitas: ["Caída de precios internacionales", "Menor ingreso de divisas", "Crisis de balanza de pagos", "Restricción externa"]
+respuesta_orden: ["Caída de precios internacionales", "Menor ingreso de divisas", "Crisis de balanza de pagos", "Restricción externa"]
+tipo: ordenar
+
+explicacion: |
+  La cadena comienza con el shock de precios, que reduce el flujo de dólares, afectando la capacidad de pago del país y limitando la importación de insumos (restricción externa).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "basico"
+  tags: ["historia_economica", "agroexportacion"]
+
+respuesta: "modelo agroexportador"
+tipo: completar
+respuestas_validas:
+  - "modelo agroexportador"
+
+enunciado: "Antes de la industrialización por sustitución de importaciones, la economía argentina se basaba en el ___."
+
+explicacion: |
+  El modelo agroexportador consistía en la exportación de materias primas (carnes y cereales) e importación de manufacturas, consolidando una estructura de dependencia hacia los mercados centrales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "intermedio"
+  tags: ["isi", "industrializacion"]
+
+variables:
+  escenario: uno_de([["Sustitución de importaciones", "Proteccionismo"], ["Sustitución de importaciones", "Libre cambio"]])
+
+respuesta: escenario[0]
+tipo: mc
+opciones_explicitas: ["Sustitución de importaciones", "Libre cambio"]
+
+enunciado: "El proceso de Industrialización por Sustitución de Importaciones (ISI) buscaba principalmente la {escenario[0]} mediante políticas de protección de la industria nacional."
+
+explicacion: |
+  La ISI buscaba que el país dejara de depender de la compra de productos manufacturados en el exterior, fomentando la producción local mediante aranceles y subsidios.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "intermedio"
+  tags: ["migraciones", "urbanizacion"]
+
+respuesta: "urbanización"
+tipo: completar
+respuestas_validas:
+  - "urbanización"
+
+enunciado: "El crecimiento de la industria durante mediados del siglo XX impulsó un proceso de rápida ___ en la población argentina."
+
+explicacion: |
+  La demanda de mano de obra en las fábricas de los centros urbanos (especialmente en Buenos Aires, Rosario y Córdoba) fomentó grandes migraciones internas y la expansión de las ciudades.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "avanzado"
+  tags: ["ciclos_economicos", "transicion"]
+
+respuesta_orden: ["Modelo Agroexportador", "Crisis de la demanda externa", "Industrialización por Sustitución de Importaciones"]
+tipo: ordenar
+opciones_explicitas: ["Modelo Agroexportador", "Crisis de la demanda externa", "Industrialización por Sustitución de Importaciones"]
+
+enunciado: "Ordene cronológicamente los procesos económicos que marcaron la transición de la estructura productiva argentina en el siglo XX:"
+
+explicacion: |
+  La crisis de la demanda externa (causada por las Guerras Mundiales y la Gran Depresión) hizo inviable seguir importando productos, lo que forzó el salto hacia la ISI.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "intermedio"
+  tags: ["estado", "politica_industrial"]
+
+respuesta: "intervencionista"
+tipo: mc
+opciones_explicitas: ["intervencionista", "liberal", "ausente"]
+
+enunciado: "Para sostener el modelo ISI, el Estado argentino adoptó un rol principalmente _________."
+
+explicacion: |
+  El Estado asumió un rol activo mediante la regulación de aranceles, la creación de empresas públicas y el fomento del mercado interno para asegurar el crecimiento industrial.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "basico"
+  tags: ["exportaciones", "primarización", "riesgo"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["país exportador de granos", "volatilidad de precios internacionales"], ["país exportador de litio", "dependencia de la demanda tecnológica externa"]]
+
+enunciado: "Un {datos[escenario_idx][0]} enfrenta un escenario donde su principal motor de ingresos es un commodity. El principal riesgo económico para este país es la {datos[escenario_idx][1]}."
+
+respuesta: datos[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["volatilidad de precios internacionales", "dependencia de la demanda tecnológica externa", "estabilidad cambiaria", "diversificación industrial"]
+
+explicacion: |
+  La dependencia de un solo producto primario expone a la economía a las fluctuaciones de los precios internacionales, lo que genera inestabilidad en la balanza comercial y en la recaudación fiscal.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "intermedio"
+  tags: ["industria", "valor_agregado", "empleo"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  casos: [["un país con baja capacidad manufacturera", "pérdida de valor agregado"], ["un país con alta dependencia de bienes de capital", "vulnerabilidad ante choques externos"]]
+
+enunciado: "En el caso de {casos[caso_idx][0]}, el riesgo estructural más significativo es la {casos[caso_idx][1]}."
+
+respuesta: casos[caso_idx][1]
+tipo: mc
+opciones_explicitas: ["pérdida de valor agregado", "vulnerabilidad ante choques externos", "exceso de ahorro interno", "estabilidad de precios"]
+
+explicacion: |
+  La falta de una base industrial sólida impide que el país capture mayor valor en la cadena de producción, limitando el crecimiento del empleo calificado y la diversificación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "avanzado"
+  tags: ["enfermedad_holandesa", "tipo_de_cambio", "recursos_naturales"]
+
+enunciado: "Cuando un país descubre un gran yacimiento de petróleo y aumenta sus exportaciones, se produce una apreciación de la moneda local. Este fenómeno, conocido como Enfermedad Holandesa, suele provocar la falta de competitividad de la ___."
+
+respuesta: "industria manufacturera"
+tipo: completar
+respuestas_validas:
+  - "industria manufacturera"
+
+explicacion: |
+  La entrada masiva de divisas aprecia el tipo de cambio real, lo que encarece las exportaciones de bienes no tradicionales y desincentiva la actividad industrial local.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "intermedio"
+  tags: ["secuencia", "riesgo", "estructura"]
+
+variables:
+  secuencia_idx: uno_de([0, 1])
+  secuencias: [["Concentración de exportaciones", "Caída de demanda externa", "Crisis de balanza de pagos"], ["Dependencia tecnológica", "Aumento de importaciones", "Déficit de cuenta corriente"]]
+
+enunciado: "Ordene la secuencia lógica de un choque externo en una economía dependiente:"
+
+pasos:
+  - "Identificar el origen del choque"
+  - "Observar el efecto en la cuenta externa"
+  - "Evaluar el impacto en la estabilidad macroeconómica"
+
+respuesta_orden: secuencias[secuencia_idx]
+tipo: ordenar
+opciones_explicitas: secuencias[secuencia_idx]
+
+explicacion: |
+  La estructura productiva determina la velocidad y la profundidad con la que un shock externo (como una caída de demanda) se traslada a la economía doméstica.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "estructura_productiva_dependencia"
+  nivel: "basico"
+  tags: ["indicador", "exportaciones", "concentracion"]
+
+variables:
+  escenario_val: uno_de([0, 1])
+  escenarios: [[80, "alta"], [15, "baja"]]
+
+enunciado: "Si el porcentaje de exportaciones concentrado en solo dos productos es del {escenarios[escenario_val][0]}%, se considera que la economía tiene una dependencia ___."
+
+respuesta: escenarios[escenario_val][1]
+tipo: mc
+opciones_explicitas: ["alta", "baja", "nula", "moderada"]
+
+explicacion: |
+  A mayor concentración de la canasta exportadora en pocos productos, mayor es la vulnerabilidad de la economía ante cambios en los precios o volúmenes de esos bienes específicos.
+```
+

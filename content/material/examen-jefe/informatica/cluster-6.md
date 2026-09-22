@@ -1,1533 +1,8 @@
-# Examen jefe — Maestro de Memorias y Bases
+# Examen jefe — [PENDIENTE #821]
 
-> Logro #176. Aprobaste el parcial dominando jerarquías de memoria, bases relacionales y planillas de cálculo. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #821. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **121 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: memoria-asignacion-memoria-virtual (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["conceptos", "gestion_de_memoria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La memoria virtual es una técnica que permite a un proceso utilizar una cantidad de memoria que excede la capacidad de la memoria física (RAM) disponible, utilizando parte del almacenamiento secundario como extensión."
-
-explicacion: |
-  Correcto. La memoria virtual permite que el sistema operativo gestione la memoria de forma abstracta, permitiendo ejecutar programas más grandes que la RAM física mediante el uso de paginación o segmentación en el disco.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["hardware", "direccionamiento"]
-
-variables:
-  escenario: uno_de([["dirección lógica", "dirección física"], ["dirección física", "dirección lógica"]])
-
-respuesta: escenario[0
-tipo: mc
-
-opciones_explicitas: ["dirección lógica", "dirección física", "dirección de disco", "dirección de caché"]
-
-enunciado: "En un sistema con memoria virtual, la unidad de gestión de memoria (MMU) es el componente de hardware encargado de traducir la {escenario[0]} en una {escenario[1]}."
-
-explicacion: |
-  La MMU (Memory Management Unit) es el componente encargado de la traducción de direcciones lógicas (generadas por la CPU) a direcciones físicas (ubicadas en la RAM).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["terminologia", "paginacion"]
-
-respuesta: ["Paginación", "Segmentación", "Direccionamiento"]
-tipo: ordenar
-
-opciones_explicitas: ["Paginación", "Segmentación", "Direccionamiento"]
-
-enunciado: "Ordena los conceptos de mayor a menor nivel de abstracción en la gestión de memoria (desde la división de memoria en bloques de tamaño fijo hasta la traducción de direcciones):"
-
-explicacion: |
-  La paginación divide la memoria en trozos fijos, la segmentación divide la memoria en unidades lógicas de tamaño variable, y el direccionamiento es el proceso final de localización.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["paginacion", "errores"]
-
-respuesta: "page fault"
-tipo: completar
-
-respuestas_validas: ["page fault", "error de paginación", "fallo de página"]
-
-enunciado: "Cuando un proceso intenta acceder a una página que no se encuentra actualmente en la memoria física, se produce un evento conocido como ___."
-
-explicacion: |
-  Un 'page fault' (fallo de página) es una interrupción generada por el hardware que indica que la página requerida debe ser cargada desde el disco a la RAM.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["comparacion"]
-
-variables:
-  datos: uno_de([[16, 128], [32, 256], [64, 512]])
-
-respuesta: datos[1
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si un sistema tiene una memoria RAM física de {datos[0]} GB y se implementa memoria virtual, la capacidad de direccionamiento lógico total para un proceso puede llegar a ser de hasta {datos[1]} GB."
-
-pasos:
-  - "Identificar la capacidad de la RAM física."
-  - "Asociar la capacidad de direccionamiento virtual como un valor superior a la física."
-
-explicacion: |
-  La memoria virtual permite que el espacio de direcciones lógicas sea significativamente mayor que la memoria física instalada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["conceptos", "gestion_de_memoria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La memoria virtual permite que un proceso utilice una cantidad de memoria que excede la capacidad física de la memoria RAM disponible, utilizando el almacenamiento secundario como extensión."
-
-explicacion: |
-  La memoria virtual es una técnica de gestión de memoria que utiliza el espacio en el disco duro para simular memoria RAM adicional, permitiendo ejecutar procesos más grandes que la RAM física.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "asignacion_de_memoria"
-  nivel: "intermedio"
-  tags: ["calculo", "paginacion"]
-
-variables:
-  escenario: uno_de([
-    ["4096", "4096"],
-    ["8192", "8192"],
-    ["1024", "1024"]
-  ])
-
-respuesta: escenario[1
-tipo: mc
-opciones_explicitas: ["1024", "2048", "4096", "8192"]
-
-enunciado: "Un proceso requiere un bloque de memoria de {escenario[0]} bytes. Si el sistema utiliza páginas de tamaño fijo de {escenario[2]} bytes, ¿cuántas páginas se deben asignar para cubrir el requerimiento total del proceso?"
-
-pasos:
-  - "Dividir el tamaño total del proceso por el tamaño de la página: {escenario[0]} / {escenario[2]}"
-  - "Si el resultado no es entero, redondear hacia arriba (ceil) para asegurar que el proceso quepa."
-
-explicacion: |
-  Para calcular el número de páginas: 
-  {escenario[0]} / {escenario[2]} = {escenario[1]}. 
-  Se requiere asignar exactamente esa cantidad de páginas.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "fragmentacion"
-  nivel: "intermedio"
-  tags: ["paginacion", "fragmentacion_interna"]
-
-variables:
-  datos: uno_de([
-    ["15000", "4096", "14048"],
-    ["18000", "4096", "17856"],
-    ["10000", "4096", "9408"]
-  ])
-
-respuesta: datos[2
-tipo: completar
-respuestas_validas: ["14048", "17856", "9408"]
-
-enunciado: "En un sistema con paginación de {datos[1]} bytes, se asigna un proceso de {datos[0]} bytes. La fragmentación interna (espacio desperdiciado en la última página) es de ___ bytes."
-
-explicacion: |
-  1. Calculamos cuántas páginas completas se necesitan: ceil({datos[0]} / {datos[1]}) = 4 páginas.
-  2. Espacio total asignado: 4 * {datos[1]} = 16384 (en el primer caso).
-  3. Fragmentación: 16384 - {datos[0]} = {datos[2]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "avanzado"
-  tags: ["swapping", "gestion_procesos"]
-
-respuesta: ["Petición de memoria", "Fallo de página (Page Fault)", "Intercambio (Swap-in/out)", "Actualización de tabla de páginas"]
-tipo: ordenar
-
-enunciado: "Ordene los pasos que ocurren cuando un proceso intenta acceder a una página que no se encuentra actualmente en la memoria RAM (Page Fault):"
-
-opciones_explicitas: ["Petición de memoria", "Fallo de página (Page Fault)", "Intercambio (Swap-in/out)", "Actualización de tabla de páginas"]
-
-explicacion: |
-  El flujo lógico es:
-  1. El proceso solicita una dirección de memoria.
-  2. La MMU detecta que la página no está en RAM (Page Fault).
-  3. El SO busca la página en el disco y la carga en RAM (Swap-in).
-  4. Se actualiza la tabla de páginas para marcar la página como presente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "direccionamiento_virtual"
-  nivel: "avanzado"
-  tags: ["direccionamiento", "paginacion"]
-
-variables:
-  direccion: uno_de([
-    ["0x0045", "0x0005"],
-    ["0x01A2", "0x01A2"],
-    ["0x03FF", "0x03FF"]
-  ])
-
-respuesta: direccion[1
-tipo: mc
-opciones_explicitas: ["0x0000", "0x0005", "0x01A2", "0x03FF"]
-
-enunciado: "Si el tamaño de página es de 16 bytes (0x10 en hex) y una dirección virtual es {direccion[0]}, ¿cuál es el desplazamiento (offset) dentro de la página?"
-
-pasos:
-  - "El desplazamiento se obtiene calculando el residuo de la dirección dividido por el tamaño de la página."
-  - "En hexadecimal: {direccion[0]} MOD 0x10 = {direccion[1]}."
-
-explicacion: |
-  El desplazamiento (offset) identifica la posición exacta dentro de una página. Se calcula mediante la operación módulo: {direccion[0]} % 16 = {direccion[1]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["memoria_virtual", "conceptos_base"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La memoria virtual permite que un proceso acceda a una cantidad de memoria que excede la capacidad de la memoria RAM física instalada en el sistema."
-
-explicacion: |
-  Verdadero. La memoria virtual utiliza espacio en el disco (archivo de paginación/swap) para simular memoria adicional, permitiendo que el sistema operativo gestione procesos que requieren más espacio del que la RAM física puede ofrecer de forma inmediata.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "asignacion_de_memoria"
-  nivel: "intermedio"
-  tags: ["fragmentacion", "gestion_memoria"]
-
-variables:
-  escenario: uno_de([["fragmentacion_externa", "la memoria tiene huecos libres pero no contiguos"], ["fragmentacion_interna", "la memoria tiene espacio sobrante dentro de un bloque asignado"]])
-
-respuesta: escenario[0
-tipo: mc
-opciones_explicitas: ["la memoria tiene huecos libres pero no contiguos", "la memoria tiene espacio sobrante dentro de un bloque asignado", "el procesador no puede acceder a la RAM"]
-
-enunciado: "Un sistema operativo utiliza particiones fijas para la asignación de memoria. Si un proceso requiere 15KB y se le asigna un bloque de 20KB, el espacio sobrante de 5KB dentro de ese bloque se conoce como: {escenario[1]}"
-
-explicacion: |
-  La fragmentación interna ocurre cuando se asigna un bloque de memoria a un proceso que es mayor que el tamaño requerido por este, dejando un residuo inutilizable dentro de la partición asignada.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["paginacion", "direccionamiento"]
-
-respuesta: ["Dirección lógica", "MMU", "Dirección física"]
-tipo: ordenar
-
-opciones_explicitas: ["Dirección lógica", "MMU", "Dirección física"]
-
-enunciado: "Ordena el flujo de resolución de una dirección de memoria cuando un proceso intenta acceder a un dato en un sistema con paginación:"
-
-explicacion: |
-  El proceso comienza con la dirección lógica generada por la CPU, la cual es interceptada por la Unidad de Gestión de Memoria (MMU) para ser traducida mediante tablas de páginas, resultando finalmente en una dirección física en la RAM.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "avanzado"
-  tags: ["page_fault", "rendimiento"]
-
-respuesta: "page_fault"
-tipo: completar
-respuestas_validas: ["page_fault", "error_de_segmentacion"]
-
-enunciado: "Cuando un proceso intenta acceder a una página de memoria que no se encuentra actualmente cargada en la memoria RAM, se produce una excepción llamada ___."
-
-explicacion: |
-  El 'page fault' (falta de página) no es un error fatal del programa, sino una interrupción que le indica al sistema operativo que debe buscar la página necesaria en el disco para cargarla en la RAM.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "direccionamiento"
-  nivel: "intermedio"
-  tags: ["bus_direcciones", "arquitectura"]
-
-variables:
-  bits: uno_de([32, 64])
-
-respuesta: bits == 32 ? 4294967296 : 18446744073709551616
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si un procesador tiene un bus de direcciones de {bits} bits, el número total de direcciones de memoria únicas que puede direccionar es:"
-
-explicacion: |
-  El número de direcciones posibles es igual a 2 elevado a la potencia del número de bits del bus de direcciones. Para 32 bits es 2^32, y para 64 bits es 2^64.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["memoria", "sistema_operativo", "abstraccion"]
-
-respuesta: "abstraccion"
-tipo: mc
-opciones_explicitas: ["abstraccion", "hardware", "almacenamiento", "registro"]
-
-enunciado: "A diferencia de la memoria RAM (memoria física), la memoria virtual actúa como una ___ que permite a los procesos manejar un espacio de direcciones mayor al tamaño de la memoria física disponible."
-
-explicacion: |
-  La memoria virtual es una técnica de gestión de memoria que proporciona una abstracción de la memoria física, permitiendo que cada proceso crea que tiene un espacio de direccionamiento continuo y extenso.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "gestion_de_memoria"
-  nivel: "avanzado"
-  tags: ["paginacion", "segmentacion", "fragmentacion"]
-
-variables:
-  tipo_fragmentacion: uno_de(["interna", "externa"])
-
-respuesta: tipo_fragmentacion
-tipo: mc
-opciones_explicitas: ["interna", "externa"]
-
-enunciado: "La paginación divide la memoria en bloques de tamaño fijo, lo que puede causar fragmentación {tipo_fragmentacion}. Por el contrario, la segmentación, al usar tamaños variables, suele provocar fragmentación ___."
-
-explicacion: |
-  La paginación causa fragmentación interna (espacio sobrante dentro de una página), mientras que la segmentación causa fragmentación externa (huecos entre segmentos que no son lo suficientemente grandes para nuevos procesos).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["conceptos_clave", "hardware"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La memoria virtual es una extensión física de la memoria RAM mediante la adición de módulos de memoria adicionales."
-
-explicacion: |
-  Falso. La memoria virtual es una técnica de gestión lógica/de software que utiliza espacio en el disco (almacenamiento secundario) para simular memoria adicional, no es un componente físico extra.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["paginacion", "swap", "paged_fault"]
-
-respuesta: ["Page Fault", "Swap In", "Update Page Table", "Resume Execution"]
-tipo: ordenar
-
-opciones_explicitas: ["Page Fault", "Swap In", "Update Page Table", "Resume Execution"]
-
-enunciado: "Cuando un proceso intenta acceder a una página que no está en la RAM, ocurre un 'Page Fault'. Ordena los pasos lógicos que el Sistema Operativo debe seguir para resolver esta interrupción:"
-
-explicacion: |
-  1. Se detecta el Page Fault (interrupción).
-  2. Se busca la página en el disco y se carga en RAM (Swap In).
-  3. Se actualiza la tabla de páginas para marcarla como presente.
-  4. Se reanuda la ejecución de la instrucción original.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["direcciones", "logico", "fisico"]
-
-respuesta: "lógico"
-tipo: completar
-respuestas_validas: ["lógico", "virtual"]
-
-enunciado: "Mientras que la memoria física se refiere a las direcciones reales en los chips de RAM, el espacio de direcciones que ve un proceso es un espacio ___."
-
-explicacion: |
-  El espacio de direcciones lógico (o virtual) es la vista que el procesador y el software tienen de la memoria, la cual es mapeada a direcciones físicas mediante la MMU (Memory Management Unit).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "asignacion_memoria_procesos"
-  nivel: "intermedio"
-  tags: ["memoria", "segmentacion", "procesos"]
-
-variables:
-  datos: [["segmento_codigo", "0x0040"], ["segmento_datos", "0x0080"], ["segmento_stack", "0x0120"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "Un sistema operativo utiliza segmentación para gestionar la memoria de un proceso. Si el proceso requiere cargar el {datos[idx][0]} en una dirección base específica, la dirección física final será el resultado de sumar la base más el offset. Si la base es 0x1000 y el offset es {datos[idx][1]}, ¿cuál es la dirección física resultante en hexadecimal (sin el prefijo 0x)?"
-
-pasos:
-  - "Convertir el offset hexadecimal a decimal."
-  - "Sumar el valor de la base (4096) al offset."
-  - "Convertir el resultado de nuevo a hexadecimal."
-
-respuestas_validas: ["1120"]
-respuesta: "1120"
-tipo: completar
-tolerancia_abs: 0
-
-explicacion: |
-  La dirección física se calcula sumando la dirección base del segmento al offset relativo. 
-  Para el caso de {datos[idx][0]}, la suma es 0x1000 + {datos[idx][1]} = 0x1120.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "basico"
-  tags: ["memoria_virtual", "conceptos"]
-
-enunciado: "La memoria virtual permite que un proceso utilice una cantidad de memoria que es mayor a la capacidad de la memoria RAM física disponible, utilizando el almacenamiento secundario (disco) como extensión. ¿Es esta afirmación verdadera o falsa?"
-
-respuesta: verdadero
-tipo: vf
-
-explicacion: |
-  Correcto. La memoria virtual abstrae la memoria física, permitiendo que los programas se ejecuten incluso si la RAM es insuficiente, mediante el uso de paginación o segmentación y el intercambio (swapping) con el disco.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "intermedio"
-  tags: ["mmu", "direccionamiento"]
-
-enunciado: "Cuando un proceso intenta acceder a una dirección de memoria virtual, un componente de hardware especializado debe traducir esa dirección a una dirección física real. ¿Cómo se llama este componente?"
-
-opciones_explicitas: ["MMU (Memory Management Unit)", "CPU (Central Processing Unit)", "ALU (Arithmetic Logic Unit)", "Controlador de Interrupciones"]
-respuesta: "MMU (Memory Management Unit)"
-tipo: mc
-
-explicacion: |
-  La MMU es la unidad de hardware encargada de la traducción de direcciones virtuales a físicas en tiempo real durante la ejecución de las instrucciones.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_virtual"
-  nivel: "avanzado"
-  tags: ["paginacion", "paginas", "frames"]
-
-variables:
-  datos: [["pagina_virtual_2", "frame_fisico_5"], ["pagina_virtual_3", "frame_fisico_8"], ["pagina_virtual_5", "frame_fisico_12"]]
-  idx: uno_de([0, 1, 2])
-
-enunciado: "En un sistema de paginación, la tabla de páginas mapea la {datos[idx][0]} hacia el {datos[idx][1]}. Si el tamaño de página es de 4KB, ¿en qué dirección física comienza el {datos[idx][1]}?"
-
-pasos:
-  - "Identificar el número de frame físico: {datos[idx][1]}."
-  - "Multiplicar el número de frame por el tamaño de página (4096)."
-  - "El resultado es la dirección base del frame."
-
-respuestas_validas: ["{redondear(datos[idx][1].replace('frame_fisico_', ''), 0) * 4096}"]
-respuesta: "{redondear(datos[idx][1].replace('frame_fisico_', ''), 0) * 4096}"
-tipo: completar
-tolerancia_abs: 0
-
-explicacion: |
-  Si el frame físico es el {datos[idx][1]} (índice 5, 8 o 12), la dirección base se calcula como:
-  Frame * 4096. Por ejemplo, si es el frame 5: 5 * 4096 = 20480.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "asignacion_memoria_procesos"
-  nivel: "intermedio"
-  tags: ["gestion", "orden"]
-
-enunciado: "Ordena los pasos que sigue el Sistema Operativo desde que un proceso solicita memoria hasta que esta es liberada:"
-
-opciones_explicitas: ["El SO asigna un bloque de memoria (física o virtual)", "El proceso solicita memoria mediante una llamada al sistema", "El proceso finaliza y el SO libera la memoria", "El proceso utiliza la memoria para sus datos"]
-respuesta: ["El proceso solicita memoria mediante una llamada al sistema", "El SO asigna un bloque de memoria (física o virtual)", "El proceso utiliza la memoria para sus datos", "El proceso finaliza y el SO libera la memoria"]
-tipo: ordenar
-
-explicacion: |
-  El flujo lógico es: 1. Solicitud (System Call), 2. Asignación (Gestión de memoria), 3. Uso (Ejecución), 4. Liberación (Cleanup).
-```
-
-## Sección: memoria-ram-cache-jerarquia (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "basico"
-  tags: ["arquitectura", "memoria"]
-
-tipo: mc
-opciones_explicitas: ["Mayor velocidad, menor capacidad", "Menor velocidad, mayor capacidad", "Igual velocidad, mayor costo", "Mayor velocidad, mayor costo"]
-
-enunciado: "En una jerarquía de memoria típica, a medida que nos movemos desde la CPU hacia el almacenamiento secundario (disco), la memoria se vuelve..."
-
-respuesta: "Menor velocidad, mayor capacidad"
-
-explicacion: |
-  La jerarquía busca equilibrar costo y rendimiento. Los niveles superiores (Caché) son muy rápidos pero caros y pequeños; los niveles inferiores (Disco) son lentos pero económicos y masivos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "ram_caracteristicas"
-  nivel: "basico"
-  tags: ["ram", "volatilidad"]
-
-tipo: vf
-
-enunciado: "La memoria RAM es considerada una memoria volátil porque pierde su contenido al interrumpirse el suministro eléctrico."
-
-respuesta: falso
-
-explicacion: |
-  La RAM es volátil por definición. Si no hay energía, los datos almacenados en sus capacitores se pierden.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "cache_funcionamiento"
-  nivel: "intermedio"
-  tags: ["cache", "latencia"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["L1", "L2", "L3"], ["L1", "L3", "L2"]]
-
-tipo: completar
-respuestas_validas: ["L1", "L2", "L3"]
-
-enunciado: "En una arquitectura con múltiples niveles de caché, la caché que se encuentra físicamente más cerca del núcleo del procesador es la caché ___."
-
-pasos:
-  - "Identificar la posición de la caché en la jerarquía respecto al procesador."
-  - "Determinar cuál tiene la menor latencia de acceso."
-
-respuesta: "L1"
-
-explicacion: |
-  La caché L1 (Level 1) es la más rápida y cercana al núcleo, seguida de la L2 y finalmente la L3.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "basico"
-  tags: ["orden", "jerarquia"]
-
-tipo: ordenar
-opciones_explicitas: ["Registros", "Caché", "Memoria RAM", "Disco Duro"]
-
-enunciado: "Ordena los siguientes elementos de memoria de mayor a menor velocidad de acceso (del más rápido al más lento):"
-
-respuesta: ["Registros", "Caché", "Memoria RAM", "Disco Duro"]
-
-explicacion: |
-  Los registros están dentro de la CPU y son instantáneos. La caché es la siguiente, luego la RAM (memoria principal) y finalmente el almacenamiento masivo (disco).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "cache_principio_localidad"
-  nivel: "avanzado"
-  tags: ["localidad", "cache"]
-
-tipo: mc
-opciones_explicitas: ["Localidad Espacial", "Localidad Temporal", "Localidad de Datos", "Localidad de Instrucciones"]
-
-enunciado: "Cuando un sistema carga un bloque de memoria porque se ha accedido a una dirección específica, asumiendo que las direcciones contiguas serán accedidas pronto, está aprovechando la ___."
-
-respuesta: "Localidad Espacial"
-
-explicacion: |
-  La localidad espacial se refiere al uso de datos cercanos en direcciones de memoria. La localidad temporal se refiere al reuso de un mismo dato en un corto periodo de tiempo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "basico"
-  tags: ["hardware", "memoria", "cache"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["rápida", "pequeña"], ["lenta", "grande"]]
-
-enunciado: "En una jerarquía de memoria típica, si comparamos la memoria caché L1 con la memoria RAM, la caché L1 es más ___ que la RAM, pero tiene una capacidad ___."
-
-opciones_explicitas: ["rápida", "lenta", "pequeña", "grande"]
-
-respuesta: datos[idx][0]
-
-tipo: mc
-
-explicacion: |
-  La jerarquía de memoria busca equilibrar costo, capacidad y velocidad. La caché (L1, L2, L3) es mucho más rápida que la RAM porque está más cerca del procesador y usa tecnología más costosa, lo que obliga a que su capacidad sea mucho menor.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "intermedio"
-  tags: ["cache", "localidad", "performance"]
-
-enunciado: "Un procesador accede a una lista de elementos en orden consecutivo (0, 1, 2, 3...). Este tipo de comportamiento favorece la eficiencia de la caché debido a la localidad de referencia, la cual es de tipo ___."
-
-opciones_explicitas: ["espacial", "temporal", "aleatoria"]
-
-respuesta: "espacial"
-
-tipo: mc
-
-explicacion: |
-  La localidad espacial ocurre cuando se accede a una posición de memoria y se accede rápidamente a posiciones cercanas. Esto permite que la caché cargue bloques enteros (cache lines) prediciendo que los datos contiguos serán necesarios pronto.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "intermedio"
-  tags: ["cache", "hit", "miss"]
-
-variables:
-  caso: uno_de([0, 1])
-  resultado: [["hit", "encontrado"], ["miss", "no encontrado"]]
-
-enunciado: "El procesador solicita el dato en la dirección 0x4F. La unidad de control busca en la caché L1 y el dato no se encuentra allí. A este evento se le denomina ___ y el sistema deberá buscar el dato en la siguiente capa de la jerarquía."
-
-respuestas_validas: ["miss", "hit"]
-
-respuesta: resultado[caso][0
-
-tipo: completar
-
-explicacion: |
-  Un 'Cache Miss' ocurre cuando el dato requerido no está en la caché, obligando al sistema a buscar en un nivel más lento (como la RAM), lo que aumenta la latencia de la operación.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "basico"
-  tags: ["jerarquia", "orden"]
-
-opciones_explicitas: ["Registros", "Caché L1", "Memoria RAM", "Disco Rígido"]
-
-respuesta: ["Registros", "Caché L1", "Memoria RAM", "Disco Rígido"]
-
-tipo: ordenar
-
-enunciado: "Ordena los siguientes elementos de memoria de mayor a menor velocidad (del más rápido al más lento):"
-
-explicacion: |
-  La jerarquía se organiza por velocidad: los Registros son parte del CPU y son instantáneos; la Caché es muy rápida; la RAM es el almacenamiento principal de trabajo; y el Disco Rígido (almacenamiento masivo) es el más lento de la cadena.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "basico"
-  tags: ["costo", "capacidad"]
-
-variables:
-  afirmacion: uno_de([0, 1])
-  es_cierto: [[verdadero, "La memoria RAM es más cara por GB que el disco duro"], [falso, "La memoria RAM es más barata por GB que el disco duro"]]
-
-enunciado: "La memoria RAM tiene un costo por gigabyte significativamente mayor que un disco duro (HDD/SSD)."
-
-respuesta: es_cierto[afirmacion][0
-
-tipo: completar
-explicacion: |
-  Es verdadero. Debido a que la RAM utiliza tecnología semiconductoras mucho más rápida y compleja para mantener los datos, su costo por unidad de capacidad es mucho más elevado que el de los medios de almacenamiento masivo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "basico"
-  tags: ["memoria", "costo", "velocidad"]
-
-enunciado: "En una arquitectura de memoria jerárquica, si comparamos la memoria caché, la memoria RAM y el disco duro, ¿cuál de ellas tiene el mayor costo por byte?"
-
-opciones_explicitas: ["Disco duro", "Memoria RAM", "Memoria caché"]
-respuesta: "Memoria caché"
-tipo: mc
-
-explicacion: |
-  La jerarquía de memoria busca un equilibrio entre costo y rendimiento. Las memorias más rápidas (como la caché) utilizan tecnología más cara (SRAM) y tienen menos capacidad, mientras que las más lentas (como el disco duro) son mucho más económicas por cada GB almacenado.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_ram"
-  nivel: "intermedio"
-  tags: ["latencia", "velocidad", "confucion"]
-
-variables:
-  es_falso: falso
-
-enunciado: "Un error común es pensar que tener más capacidad de RAM (ej. 64GB vs 16GB) aumenta automáticamente la velocidad de procesamiento de una tarea que ya cabe en 16GB. ¿Es esto verdadero o falso?"
-
-respuesta: es_falso
-tipo: completar
-explicacion: |
-  La capacidad de la RAM determina cuánta información puede estar disponible para la CPU. Si el software ya cabe en la memoria disponible, aumentar la capacidad no acelera la ejecución; lo que acelera la ejecución es la velocidad de acceso (frecuencia) y la latencia, no el tamaño total.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "cache_procesador"
-  nivel: "intermedio"
-  tags: ["cache", "cpu", "acceso"]
-
-variables:
-  datos: [["L1", "muy rápida"], ["L2", "rápida"], ["L3", "moderada"]]
-  idx: uno_de([0,1,2])
-
-enunciado: "Considerando la jerarquía de la caché del procesador, la caché de nivel {datos[idx][0]} es la que ofrece la latencia de acceso más baja, siendo la {datos[idx][1]} de todas las memorias principales."
-
-respuesta: datos[idx][0
-tipo: completar
-respuestas_validas: ["L1", "L2", "L3"]
-
-explicacion: |
-  La caché L1 es la más cercana al núcleo del procesador, integrada directamente en él, lo que la hace extremadamente rápida pero de muy pequeña capacidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "principio_localidad"
-  nivel: "avanzado"
-  tags: ["localidad_temporal", "localidad_espacial"]
-
-enunciado: "La eficiencia de la memoria caché se basa en dos principios: la localidad temporal (reutilizar datos usados recientemente) y la localidad {___} (usar datos que están en direcciones de memoria cercanas)."
-
-pasos:
-  - "Identificar el tipo de localidad que complementa a la temporal."
-
-respuesta: "espacial"
-tipo: completar
-respuestas_validas: ["espacial", "secuencial", "distante"]
-
-explicacion: |
-  La localidad espacial implica que si se accede a una posición de memoria, es muy probable que pronto se acceda a las posiciones adyacentes. La caché aprovecha esto cargando bloques enteros (cache lines) en lugar de bytes individuales.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "basico"
-  tags: ["orden", "velocidad", "jerarquia"]
-
-enunciado: "Ordena los siguientes componentes de memoria de mayor a menor velocidad de acceso (el más rápido primero):"
-
-opciones_explicitas: ["Caché L1", "Memoria RAM", "Disco SSD", "Disco HDD"]
-respuesta: ["Caché L1", "Memoria RAM", "Disco SSD", "Disco HDD"]
-tipo: ordenar
-
-explicacion: |
-  La jerarquía sigue un orden lógico: a medida que nos alejamos del núcleo de la CPU, la velocidad de acceso disminuye drásticamente, pero la capacidad y la economía mejoran.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "basico"
-  tags: ["memoria", "ram", "cache"]
-
-respuesta: "cache"
-tipo: completar
-respuestas_validas: ["cache", "caché"]
-
-enunciado: "En la jerarquía de memoria, la ___ es un tipo de memoria de acceso muy rápido situada entre el procesador y la memoria RAM para reducir el tiempo de espera."
-
-explicacion: |
-  La memoria caché es mucho más rápida que la RAM pero tiene mucha menos capacidad. Su función es almacenar copias de los datos que el procesador utiliza con más frecuencia para evitar tener que ir a la RAM (que es más lenta).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "intermedio"
-  tags: ["costo", "capacidad", "jerarquia"]
-
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1
-tipo: mc
-opciones_explicitas: ["Mayor capacidad y menor costo por bit", "Menor capacidad y mayor costo por bit"]
-
-enunciado: "Si comparamos la memoria RAM con la memoria Caché, la RAM se caracteriza por tener una ___."
-
-datos:
-  - ["Menor capacidad y mayor costo por bit", "Mayor capacidad y menor costo por bit"]
-  - ["Mayor capacidad y menor costo por bit", "Menor capacidad y mayor costo por bit"]
-
-explicacion: |
-  En la jerarquía de memoria, cuanto más cerca está la memoria del núcleo del procesador (como la caché L1), más cara es y menos capacidad tiene. La RAM es más barata y permite almacenar mucha más información, pero es más lenta.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "propiedades_memoria"
-  nivel: "basico"
-  tags: ["volatilidad", "ram", "almacenamiento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La memoria RAM es una memoria volátil, lo que significa que pierde toda la información almacenada cuando se corta el suministro eléctrico."
-
-explicacion: |
-  Correcto. A diferencia del disco duro (almacenamiento secundario), la RAM necesita energía para mantener los datos. Si apagas la computadora, los datos en la RAM se borran.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "intermedio"
-  tags: ["orden", "velocidad", "jerarquia"]
-
-respuesta: ["Registros", "Caché L1", "RAM", "Disco Duro"]
-tipo: ordenar
-opciones_explicitas: ["Registros", "Caché L1", "RAM", "Disco Duro"]
-
-enunciado: "Ordena los siguientes elementos de mayor a menor velocidad de acceso (del más rápido al más lento):"
-
-explicacion: |
-  La jerarquía se organiza por velocidad: los Registros están dentro de la CPU (ultra rápidos), seguidos por la Caché (L1, L2, L3), luego la RAM y finalmente el almacenamiento masivo como el Disco Duro (HDD/SSD), que es mucho más lento pero permite guardar datos permanentemente.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_de_memoria"
-  nivel: "avanzado"
-  tags: ["eficiencia", "costo", "arquitectura"]
-
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1
-tipo: mc
-opciones_explicitas: ["Maximizar la velocidad de acceso a los datos con un costo equilibrado", "Aumentar la capacidad total de almacenamiento del sistema"]
-
-datos:
-  - ["Maximizar la velocidad de acceso a los datos con un costo equilibrado", "Aumentar la capacidad total de almacenamiento del sistema"]
-  - ["Aumentar la capacidad total de almacenamiento del sistema", "Maximizar la velocidad de acceso a los datos con un costo equilibrado"]
-
-enunciado: "El objetivo principal de implementar una jerarquía de memoria con distintos niveles es ___."
-
-explicacion: |
-  No es posible tener toda la memoria del sistema a la velocidad de la CPU porque sería extremadamente cara. La jerarquía permite que el sistema se comporte como si tuviera una memoria muy grande y muy rápida, equilibrando rendimiento y costo.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "basico"
-  tags: ["arquitectura", "hardware"]
-
-variables:
-  escenario_idx: uno_de([0,1,2])
-  datos: [
-    ["La memoria con mayor velocidad pero menor capacidad es la ___.", "Caché"],
-    ["La memoria que es más lenta que la caché pero más rápida que el disco es la ___.", "RAM"],
-    ["La memoria de mayor capacidad y menor costo por bit es el ___.", "Disco"]
-  ]
-
-respuesta: datos[escenario_idx][1
-tipo: completar
-respuestas_validas: ["Caché", "RAM", "Disco"]
-
-enunciado: "Analizando la jerarquía de memoria, se observa que: {datos[escenario_idx][0]}"
-
-explicacion: |
-  En una jerarquía de memoria, cuanto más cerca está del procesador, más rápida y cara es (Caché), y cuanto más lejos, más lenta y económica es (Disco).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "memoria_ram"
-  nivel: "basico"
-  tags: ["volatilidad", "hardware"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La memoria RAM es una memoria de tipo no volátil, lo que significa que la información se mantiene grabada incluso si se apaga el ordenador."
-
-explicacion: |
-  Falso. La RAM es memoria volátil; requiere energía para mantener los datos almacenados. Al apagar el equipo, los datos se pierden.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "intermedio"
-  tags: ["latencia", "rendimiento"]
-
-variables:
-  opcion_idx: uno_de([0,1])
-  comparativa: [
-    ["La caché L1 tiene una latencia ___ que la memoria RAM.", "menor"],
-    ["La memoria RAM tiene una latencia ___ que la memoria caché L1.", "mayor"]
-  ]
-
-respuesta: comparativa[opcion_idx][1
-tipo: mc
-opciones_explicitas: ["menor", "mayor"]
-
-enunciado: "Considerando el acceso a datos en un sistema computacional: {comparativa[opcion_idx][0]}"
-
-explicacion: |
-  La latencia es el tiempo de espera. La caché, al estar integrada en el procesador, responde mucho más rápido (menor latencia) que la RAM.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "intermedio"
-  tags: ["orden", "arquitectura"]
-
-respuesta: ["Registros", "Caché L1", "Memoria RAM", "Disco Duro"]
-tipo: ordenar
-opciones_explicitas: ["Registros", "Caché L1", "Memoria RAM", "Disco Duro"]
-
-enunciado: "Ordena los siguientes elementos de memoria de mayor a menor velocidad (del más rápido al más lento):"
-
-explicacion: |
-  La jerarquía correcta de velocidad es: Registros del CPU > Caché (L1, L2, L3) > Memoria RAM > Almacenamiento secundario (Disco).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_memoria"
-  nivel: "avanzado"
-  tags: ["costo", "capacidad"]
-
-variables:
-  item_idx: uno_de([0,1])
-  comparacion: [
-    ["Si comparamos la Caché con la RAM, la caché tiene un costo por GB ___ que la RAM.", "mayor"],
-    ["Si comparamos la RAM con el Disco Duro, la RAM tiene un costo por GB ___ que el disco.", "mayor"]
-  ]
-
-respuesta: comparacion[item_idx][1
-tipo: mc
-opciones_explicitas: ["mayor", "menor"]
-
-enunciado: "En términos de arquitectura de computadores: {comparacion[item_idx][0]}"
-
-explicacion: |
-  Existe una relación inversa: a mayor velocidad de acceso, mayor es el costo por unidad de capacidad (GB/TB). Por eso las memorias rápidas son pequeñas y las lentas son masivas.
-```
-
-## Sección: modelo-relacional-tabla-registro-clave-primaria (25 preguntas)
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_conceptos_basicos"
-  nivel: "basico"
-  tags: ["base_de_datos", "modelo_relacional"]
-
-tipo: mc
-opciones_explicitas: ["Registro", "Atributo", "Relación", "Tupla"]
-
-enunciado: "En el modelo relacional, una fila de una tabla que contiene un conjunto de datos relacionados se denomina:"
-
-respuesta: "Registro"
-
-explicacion: |
-  En el modelo relacional, una tabla se compone de filas (registros o tuplas) y columnas (atributos).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "clave_primaria"
-  nivel: "basico"
-  tags: ["clave_primaria", "identificador"]
-
-tipo: vf
-
-enunciado: "Una clave primaria (Primary Key) tiene la propiedad de permitir valores nulos (NULL) para asegurar la unicidad de los registros."
-
-respuesta: falso
-
-explicacion: |
-  Una clave primaria debe ser única y, por definición, no puede contener valores nulos, ya que su función es identificar de forma inequívoca cada registro.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructura_tabla"
-  nivel: "basico"
-  tags: ["tabla", "columna"]
-
-tipo: completar
-respuestas_validas: ["columna", "atributo"]
-
-enunciado: "En una base de datos relacional, el conjunto de datos que define la estructura de una tabla (como el nombre y el tipo de dato) se conoce como ___."
-
-respuesta: "columna"
-
-explicacion: |
-  Cada ___ representa una propiedad o característica de la entidad que estamos almacenando.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_relacional"
-  nivel: "basico"
-  tags: ["orden", "estructura"]
-
-tipo: ordenar
-opciones_explicitas: ["Base de datos", "Tabla", "Registro", "Campo"]
-
-respuesta: ["Base de datos", "Tabla", "Registro", "Campo"]
-
-enunciado: "Ordene los siguientes elementos de mayor a menor nivel de jerarquía de datos:"
-
-explicacion: |
-  La jerarquía parte desde el contenedor global (Base de datos), contiene conjuntos de datos (Tablas), que contienen filas (Registros), las cuales se dividen en unidades mínimas de información (Campos).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "clave_primaria_propiedades"
-  nivel: "intermedio"
-  tags: ["clave_primaria", "unicidad"]
-
-variables:
-  escenario: uno_de([[1, "ID_Usuario"], [2, "DNI"], [3, "Codigo_Producto"]])
-  campo_id: escenario[escenario[0]][1]
-
-tipo: mc
-opciones_explicitas: ["Puede repetirse en diferentes filas", "Debe ser única en toda la tabla", "Puede ser nula", "No tiene importancia para la integridad"]
-
-enunciado: "Si definimos {escenario[0][1]} como la clave primaria de una tabla, esta debe cumplir con la propiedad de ser:"
-
-respuesta: "Debe ser única en toda la tabla"
-
-explicacion: |
-  La función principal de la clave primaria es garantizar que no existan dos filas idénticas, permitiendo la identificación única de cada registro mediante el valor de {campo_id}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tablas"
-  nivel: "basico"
-  tags: ["base_de_datos", "conceptos"]
-
-respuesta: "registro"
-tipo: "completar"
-respuestas_validas: ["registro", "fila"]
-
-enunciado: "En el modelo relacional, una estructura que contiene una colección de datos organizados en columnas y filas se denomina tabla, mientras que cada una de las filas individuales que representan una entidad única se denomina ___."
-
-explicacion: |
-  Una tabla es la estructura completa, mientras que el registro (o fila) es la unidad mínima de información que representa un objeto o entidad específica dentro de esa tabla.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_clave_primaria"
-  nivel: "basico"
-  tags: ["base_de_datos", "clave_primaria"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [
-    ["DNI", "Nombre", "Apellido"],
-    ["ID_Producto", "Nombre_Prod", "Precio"]
-  ]
-  respuestas: [
-    "DNI",
-    "ID_Producto"
-  ]
-
-respuesta: datos[escenario_idx][0
-tipo: "mc"
-opciones_explicitas: ["DNI", "Nombre", "Apellido", "ID_Producto", "Precio", "Nombre_Prod"]
-
-enunciado: "Considerando la tabla con el esquema {datos[escenario_idx]}, ¿cuál de los siguientes campos es el candidato ideal para actuar como clave primaria para asegurar que cada registro sea único?"
-
-explicacion: |
-  La clave primaria debe ser un atributo que no se repita entre los registros. En el escenario {datos[escenario_idx][0]}, ese campo es {datos[escenario_idx][0]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_clave_primaria"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "reglas"]
-
-respuesta: falso
-tipo: "vf"
-
-enunciado: "En un modelo relacional, una clave primaria puede contener valores nulos (NULL) para permitir que ciertos registros no tengan un identificador único asignado."
-
-explicacion: |
-  Falso. Una de las reglas de integridad de la clave primaria es la 'Integridad de Entidad', que prohíbe estrictamente que los campos que forman la clave primaria sean nulos.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tablas"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "ordenar"]
-
-respuesta: ["Identificar la entidad", "Definir los atributos", "Asignar la clave primaria"]
-tipo: "ordenar"
-opciones_explicitas: ["Definir los atributos", "Identificar la entidad", "Asignar la clave primaria"]
-
-enunciado: "Para diseñar correctamente una tabla en un modelo relacional, se debe seguir un orden lógico de diseño. Ordena los siguientes pasos:"
-
-pasos:
-  - "Determinar qué objeto o concepto se quiere representar."
-  - "Decidir qué propiedades tendrá ese objeto."
-  - "Elegir el campo único que evitará duplicados."
-
-explicacion: |
-  Primero se identifica la entidad (ej. Usuario), luego sus atributos (ej. Nombre, Email) y finalmente se establece la clave primaria (ej. ID_Usuario).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_clave_primaria"
-  nivel: "avanzado"
-  tags: ["base_de_datos", "logica"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  valores_max: [100, 50]
-  respuestas: [100, 50]
-
-respuesta: valores_max[escenario_idx
-tipo: "input"
-tolerancia_abs: 0
-
-enunciado: "Si una tabla de 'Clientes' tiene una clave primaria que solo permite valores numéricos del 1 al {valores_max[escenario_idx]}, ¿cuántos registros distintos se pueden almacenar como máximo sin violar la restricción de clave primaria?"
-
-explicacion: |
-  La clave primaria debe ser única. Si el rango de valores disponibles es de 1 a {valores_max[escenario_idx]}, el número máximo de registros es {valores_max[escenario_idx]}.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_conceptos_basicos"
-  nivel: "basico"
-  tags: ["base_de_datos", "modelo_relacional"]
-
-respuesta: "fila"
-tipo: completar
-respuestas_validas: ["fila", "registro"]
-
-enunciado: "En el modelo relacional, una estructura de datos bidimensional se compone de columnas (atributos) y ___ (tuplas)."
-
-explicacion: |
-  En el modelo relacional, una tabla se compone de filas (también llamadas tuplas o registros) y columnas (atributos).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "clave_primaria_caracteristicas"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "clave_primaria"]
-
-variables:
-  es_valido: uno_de([true, false])
-
-respuesta: es_valido
-tipo: completar
-enunciado: "Si una tabla tiene una columna llamada 'Edad', ¿puede esta ser designada como la clave primaria de la tabla si existen múltiples personas con la misma edad?"
-
-explicacion: |
-  La clave primaria debe ser única para cada registro. Si dos filas tienen el mismo valor en la columna clave, el sistema no podría distinguirlas, violando el principio de integridad de entidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "estructura_tabla"
-  nivel: "basico"
-  tags: ["base_de_datos", "modelo_relacional"]
-
-respuesta: "columnas"
-tipo: mc
-opciones_explicitas: ["filas", "columnas", "celdas", "bases"]
-
-enunciado: "Si un registro representa una entidad completa (como un usuario), las ___ representan las propiedades o características de esa entidad."
-
-explicacion: |
-  Las columnas definen la estructura y el tipo de datos de los atributos, mientras que las filas contienen los datos específicos de cada instancia.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "integridad_entidad"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "clave_primaria"]
-
-respuesta: "ID_Estudiante"
-tipo: completar
-respuestas_validas: ["ID_Estudiante", "codigo_estudiante", "estudiante_id"]
-
-enunciado: "Dada la siguiente tabla de 'Estudiantes':
-| Nombre | Apellido | DNI |
-|--------|----------|-----|
-| Juan   | Perez    | 123 |
-| Ana    | Lopez    | 456 |
-
-Si queremos garantizar que no haya duplicados, la mejor opción para una clave primaria sería ___."
-
-explicacion: |
-  Aunque el DNI suele ser único, en el diseño de bases de datos se prefiere usar una clave artificial (como un ID) que sea inmutable y garantice la unicidad técnica sin depender de datos externos que podrían cambiar o repetirse por error.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "jerarquia_relacional"
-  nivel: "basico"
-  tags: ["base_de_datos", "modelo_relacional"]
-
-respuesta: ["Base de Datos", "Tabla", "Registro", "Atributo"]
-tipo: ordenar
-opciones_explicitas: ["Base de Datos", "Tabla", "Registro", "Atributo"]
-
-enunciado: "Ordena los elementos de mayor a menor jerarquía en un modelo relacional (desde el contenedor global hasta el dato mínimo):"
-
-explicacion: |
-  La jerarquía lógica es: La Base de Datos contiene múltiples Tablas; cada Tabla contiene múltiples Registros; y cada Registro está compuesto por Atributos (valores).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tabla_registro"
-  nivel: "basico"
-  tags: ["base_de_datos", "conceptos_basicos"]
-
-tipo: mc
-opciones_explicitas: ["La tabla es una unidad de datos y el registro es un conjunto de tablas", "La tabla es la estructura que contiene datos y el registro es una fila de dicha estructura", "La tabla es un dato individual y el registro es la base de datos completa", "No hay diferencia, son sinónimos"]
-
-respuesta: "La tabla es la estructura que contiene datos y el registro es una fila de dicha estructura"
-
-enunciado: "En el modelo relacional, ¿qué distingue fundamentalmente a una tabla de un registro?"
-
-explicacion: |
-  Una tabla (o relación) es la entidad completa que define la estructura y el conjunto de datos, mientras que un registro (o tupla) es una única entrada o fila que representa un elemento específico dentro de esa tabla.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_clave_primaria"
-  nivel: "basico"
-  tags: ["base_de_datos", "clave_primaria"]
-
-tipo: completar
-respuestas_validas: ["identificar", "diferenciar", "única"]
-
-respuesta: "única"
-
-enunciado: "A diferencia de un campo común, la clave primaria debe garantizar que cada registro sea ___."
-
-explicacion: |
-  La clave primaria (Primary Key) tiene la propiedad de unicidad, lo que significa que no puede haber dos filas con el mismo valor en ese campo, permitiendo identificar de forma inequívoca cada registro.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tabla_registro"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "atributos"]
-
-tipo: vf
-
-respuesta: falso
-
-enunciado: "¿Es correcto afirmar que un registro es la colección de todos los atributos (columnas) de una tabla?"
-
-explicacion: |
-  Falso. Un registro es una instancia de datos (una fila). La colección de todos los registros es la tabla. Los atributos son las columnas que definen la estructura de la tabla.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_estructura"
-  nivel: "basico"
-  tags: ["base_de_datos", "jerarquia"]
-
-tipo: ordenar
-opciones_explicitas: ["Base de datos", "Tabla", "Registro", "Campo"]
-
-respuesta: ["Base de datos", "Tabla", "Registro", "Campo"]
-
-enunciado: "Ordena los siguientes elementos de mayor a menor jerarquía de abstracción en un modelo relacional:"
-
-explicacion: |
-  La jerarquía lógica va desde el contenedor global (Base de datos), que contiene estructuras (Tablas), que contienen instancias de datos (Registros), que a su vez se componen de unidades mínimas de información (Campos/Atributos).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_clave_primaria"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "integridad"]
-
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: tabla[idx][1
-
-tipo: mc
-opciones_explicitas: ["Puede contener valores nulos", "Debe ser única y no nula"]
-
-enunciado: "Considerando la integridad de entidad, ¿cuál es la distinción principal de una clave primaria respecto a un campo de texto normal?"
-
-pasos:
-  - "Identificar la propiedad de unicidad"
-  - "Verificar la restricción de nulidad"
-
-explicacion: |
-  La clave primaria tiene dos restricciones críticas que un campo normal no tiene: debe ser única en toda la tabla y no puede contener valores nulos (NOT NULL).
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tablas"
-  nivel: "basico"
-  tags: ["base_de_datos", "clave_primaria"]
-
-variables:
-  escenario: uno_de([
-    ["ID_Usuario, Nombre, Email", "ID_Usuario"],
-    ["DNI, Apellido, Dirección", "DNI"],
-    ["Codigo_Producto, Descripcion, Precio", "Codigo_Producto"],
-    ["Matricula, Estudiante, Curso", "Matricula"]
-  ])
-  idx: uno_de([0,1,2,3])
-
-enunciado: "En una base de datos de una tienda, se tiene la siguiente estructura de tabla: {escenario[idx][0]}. El campo que actúa como clave primaria es ___."
-
-respuestas_validas: ["{escenario[idx][1]}"]
-
-tipo: completar
-
-explicacion: |
-  La clave primaria es el campo que identifica de forma única e irrepetible a cada registro en una tabla.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tablas"
-  nivel: "basico"
-  tags: ["base_de_datos", "registro"]
-
-variables:
-  datos: [
-    ["Una fila de una tabla que representa un objeto único", "verdadero"],
-    ["Un conjunto de todas las filas de una tabla", "falso"],
-    ["El nombre de una columna en la tabla", "falso"]
-  ]
-  idx: uno_de([0,1,2])
-
-enunciado: "¿Un registro en una base de datos relacional es equivalente a una fila que contiene datos de un objeto o entidad específica? {datos[idx][1]}"
-
-tipo: completar
-respuesta: datos[idx][1
-
-explicacion: |
-  En el modelo relacional, un registro (o tupla) es la colección de atributos que describen una única instancia de la entidad.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tablas"
-  nivel: "basico"
-  tags: ["base_de_datos", "columnas"]
-
-variables:
-  caso: uno_de([
-    ["Nombre, Edad, Ciudad", "Nombre"],
-    ["Producto, Stock, Precio", "Producto"],
-    ["ID, Fecha, Monto", "ID"]
-  ])
-  idx: uno_de([0,1,2])
-
-enunciado: "Si tenemos la tabla con las columnas {caso[idx][0]}, ¿cuál de ellas es la más adecuada para ser la clave primaria?"
-
-opciones_explicitas: ["{caso[idx][0]}", "Otra columna no listada"]
-
-tipo: mc
-
-respuesta: caso[idx][0
-
-explicacion: |
-  La clave primaria debe ser un atributo que no se repita entre distintos registros.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tablas"
-  nivel: "intermedio"
-  tags: ["base_de_datos", "integridad"]
-
-variables:
-  propiedad: uno_de([
-    ["Un valor de clave primaria puede ser nulo (NULL)", "falso"],
-    ["Dos registros pueden tener la misma clave primaria", "falso"],
-    ["La clave primaria puede ser un número repetido", "falso"]
-  ])
-  idx: uno_de([0,1,2])
-
-enunciado: "Analizando las reglas de integridad de entidad: {propiedad[idx][0]}"
-
-tipo: completar
-respuesta: propiedad[idx][1
-
-explicacion: |
-  La integridad de entidad establece que ninguna parte de una clave primaria puede ser nula y que debe ser única.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "modelo_relacional_tablas"
-  nivel: "basico"
-  tags: ["base_de_datos", "estructura"]
-
-variables:
-  orden_estructural: [
-    "Nombre de la tabla",
-    "Definición de columnas (esquema)",
-    "Inserción de registros (datos)"
-  ]
-
-enunciado: "Ordena los pasos lógicos para la creación y uso de una tabla en una base de datos:"
-
-opciones_explicitas: ["Nombre de la tabla", "Definición de columnas (esquema)", "Inserción de registros (datos)"]
-
-tipo: ordenar
-
-respuesta: ["Nombre de la tabla", "Definición de columnas (esquema)", "Inserción de registros (datos)"]
-
-explicacion: |
-  Primero se define la identidad (nombre), luego la estructura (columnas/esquema) y finalmente se puebla con información (registros).
-```
 
 ## Sección: normalizacion-bases-datos (25 preguntas)
 
@@ -1540,7 +15,10 @@ metadata:
 
 respuesta: "redundancia"
 tipo: completar
-respuestas_validas: ["redundancia", "duplicación", "repetir"]
+respuestas_validas:
+  - "redundancia"
+  - "duplicación"
+  - "repetir"
 
 enunciado: "Cuando la misma información se almacena en múltiples lugares de una base de datos, se produce un fenómeno llamado ___."
 
@@ -1556,7 +34,7 @@ metadata:
   tags: ["anomalia", "integridad"]
 
 opciones_explicitas: ["Anomalía de inserción", "Anomalía de borrado", "Anomalía de actualización", "Todas las anteriores"]
-respuesta: "Todas las anteriores"
+respuesta: "Anomalía de actualización"
 tipo: mc
 
 enunciado: "Si un dato está duplicado y se cambia en un registro pero no en el otro, estamos ante una anomalía de tipo:"
@@ -1589,13 +67,13 @@ metadata:
   tags: ["pasos", "proceso"]
 
 opciones_explicitas: ["Identificar dependencias funcionales", "Definir la clave primaria", "Crear tablas relacionadas", "Aplicar reglas de formas normales"]
-respuesta: ["Definir la clave primaria", "Identificar dependencias funcionales", "Aplicar reglas de formas normales", "Crear tablas relacionadas"]
+respuesta_orden: ["Identificar dependencias funcionales", "Definir la clave primaria", "Aplicar reglas de formas normales", "Crear tablas relacionadas"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para diseñar una base de datos normalizada:"
 
 explicacion: |
-  Primero se debe definir la estructura básica (claves), luego entender cómo se relacionan los datos (dependencias) para finalmente aplicar las reglas de las Formas Normales.
+  Primero se deben entender cómo se relacionan los datos (dependencias funcionales), luego definir la estructura básica (clave primaria) y finalmente aplicar las reglas de las Formas Normales para crear las tablas relacionadas.
 ```
 
 ```
@@ -1606,12 +84,9 @@ metadata:
   tags: ["integridad", "consecuencia"]
 
 variables:
-  escenario: uno_de([
-    ["Alta redundancia", "baja"],
-    ["Normalización óptima", "alta"]
-  ])
+  escenario: uno_de([["Alta redundancia", "baja"], ["Normalización óptima", "alta"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["baja", "alta"]
 
@@ -1646,14 +121,7 @@ metadata:
   nivel: "intermedio"
   tags: ["dependencia_funcional", "normalizacion"]
 
-variables:
-  escenario: uno_de([
-    ["ID_Estudiante", "Nombre", "Email", "Curso", "Aula"],
-    ["ID_Libro", "Titulo", "ISBN", "Autor", "Editorial"],
-    ["ID_Producto", "Nombre", "Precio", "Categoria", "Proveedor"]
-  ])
-
-enunciado: "Considerando el escenario {escenario}, si queremos eliminar la redundancia de la información del 'Curso' y su 'Aula' asociada, ¿cuál debería ser la clave primaria para una tabla separada que gestione la ubicación de los cursos?"
+enunciado: "Considerando una tabla de estudiantes con los campos ID_Estudiante, Nombre, Email, Curso y Aula, si queremos eliminar la redundancia de la información del 'Curso' y su 'Aula' asociada, ¿cuál debería ser la clave primaria para una tabla separada que gestione la ubicación de los cursos?"
 
 opciones_explicitas: ["ID_Estudiante", "Nombre", "Email", "Curso"]
 
@@ -1673,7 +141,9 @@ metadata:
 
 enunciado: "El proceso de organizar los datos en una base de datos relacional para minimizar la redundancia y evitar anomalías se denomina ___."
 
-respuestas_validas: ["normalización", "normalizacion"]
+respuestas_validas:
+  - "normalización"
+  - "normalizacion"
 
 respuesta: "normalización"
 tipo: "completar"
@@ -1705,20 +175,12 @@ metadata:
   nivel: "avanzado"
   tags: ["proceso", "pasos"]
 
-variables:
-  pasos_ordenados: [
-    "Identificar dependencias funcionales",
-    "Eliminar dependencias parciales (1FN)",
-    "Eliminar dependencias transitivas (2FN/3FN)",
-    "Verificar integridad referencial"
-  ]
-
 enunciado: "Ordena los pasos lógicos para llevar una tabla desnormalizada hacia un modelo normalizado eficiente:"
 
 opciones_explicitas: ["Identificar dependencias funcionales", "Eliminar dependencias parciales (1FN)", "Eliminar dependencias transitivas (2FN/3FN)", "Verificar integridad referencial"]
 
-respuesta: ["Identificar dependencias funcionales", "Eliminar dependencias parciales (1FN)", "Eliminar dependencias transitivas (2FN/3FN)", "Verificar integridad referencial"]
-tipo: "ordenar"
+respuesta_orden: ["Identificar dependencias funcionales", "Eliminar dependencias parciales (1FN)", "Eliminar dependencias transitivas (2FN/3FN)", "Verificar integridad referencial"]
+tipo: ordenar
 
 explicacion: |
   El proceso comienza analizando cómo se relacionan los datos (dependencias), luego se separan los datos que no dependen de la clave completa (1FN/2FN) y finalmente se eliminan las dependencias indirectas (3FN).
@@ -1731,16 +193,9 @@ metadata:
   nivel: "intermedio"
   tags: ["redundancia", "anomalias"]
 
-variables:
-  escenario: uno_de([
-    ["Nombre: Juan, Tel: 123, Ciudad: BsAs", "Anomalía de actualización"],
-    ["Nombre: Ana, Tel: 456, Ciudad: Córdoba", "Anomalía de inserción"],
-    ["Nombre: Luis, Tel: 789, Ciudad: Salta", "Anomalía de borrado"]
-  ])
+enunciado: "Si al cambiar el número de teléfono de un cliente debemos buscar todas sus filas repetidas para actualizar cada una de ellas, estamos ante una anomalía de tipo ___ causada por la redundancia."
 
-enunciado: "Si al cambiar el número de teléfono de un cliente debemos buscar todas sus filas repetidas para actualizar cada una de ellas, estamos ante una {escenario[1]} causada por la redundancia."
-
-respuesta: escenario[1
+respuesta: "Anomalía de actualización"
 tipo: mc
 opciones_explicitas: ["Anomalía de actualización", "Anomalía de inserción", "Anomalía de borrado"]
 
@@ -1757,8 +212,9 @@ metadata:
 
 enunciado: "La normalización de bases de datos tiene como objetivo principal minimizar la redundancia de datos para evitar las anomalías de inserción, actualización y ___."
 
-respuesta: ["borrado"]
-respuestas_validas: ["borrado"]
+respuesta: "borrado"
+respuestas_validas:
+  - "borrado"
 tipo: completar
 
 explicacion: |
@@ -1789,23 +245,13 @@ metadata:
   tags: ["metodologia"]
 
 variables:
-  pasos_correctos: [
-    "Identificar dependencias funcionales",
-    "Aplicar Primera Forma Normal",
-    "Aplicar Segunda Forma Normal",
-    "Aplicar Tercera Forma Normal"
-  ]
+  pasos_correctos: ["Identificar dependencias funcionales", "Aplicar Primera Forma Normal", "Aplicar Segunda Forma Normal", "Aplicar Tercera Forma Normal"]
 
 enunciado: "Para asegurar una base de datos bien estructurada, se debe seguir un proceso lógico de normalización. Ordena los pasos:"
 
-respuesta: ["Identificar dependencias funcionales", "Aplicar Primera Forma Normal", "Aplicar Segunda Forma Normal", "Aplicar Tercera Forma Normal"]
+respuesta_orden: ["Identificar dependencias funcionales", "Aplicar Primera Forma Normal", "Aplicar Segunda Forma Normal", "Aplicar Tercera Forma Normal"]
 tipo: ordenar
-opciones_explicitas: [
-  "Aplicar Tercera Forma Normal",
-  "Identificar dependencias funcionales",
-  "Aplicar Segunda Forma Normal",
-  "Aplicar Primera Forma Normal"
-]
+opciones_explicitas: ["Aplicar Tercera Forma Normal", "Identificar dependencias funcionales", "Aplicar Segunda Forma Normal", "Aplicar Primera Forma Normal"]
 
 explicacion: |
   La normalización es un proceso iterativo y progresivo. No se puede aplicar la 2FN sin haber cumplido la 1FN, y para la 2FN es indispensable haber identificado las dependencias funcionales.
@@ -1820,8 +266,9 @@ metadata:
 
 enunciado: "En la Segunda Forma Normal (2FN), es fundamental que todos los atributos que no forman parte de la clave primaria dependan de la clave completa y no solo de una parte de ella. A esto se le llama evitar la dependencia ___."
 
-respuesta: ["parcial"]
-respuestas_validas: ["parcial"]
+respuesta: "parcial"
+respuestas_validas:
+  - "parcial"
 tipo: completar
 
 explicacion: |
@@ -1837,7 +284,9 @@ metadata:
 
 respuesta: "anomalias"
 tipo: "completar"
-respuestas_validas: ["anomalias", "anomalia"]
+respuestas_validas:
+  - "anomalias"
+  - "anomalia"
 
 enunciado: "La redundancia de datos en una base de datos no normalizada puede provocar errores de consistencia conocidos como ___ de actualización o de borrado."
 
@@ -1852,14 +301,11 @@ metadata:
   nivel: "intermedio"
   tags: ["desnormalizacion", "rendimiento"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-
-respuesta: uno_de(["La normalización prioriza la integridad mediante la reducción de redundancia.", "La desnormalización prioriza la integridad mediante la reducción de redundancia."])[escenario_idx]
+respuesta: "La normalización prioriza la integridad mediante la reducción de redundancia."
 tipo: "mc"
 opciones_explicitas: ["La normalización prioriza la integridad mediante la reducción de redundancia.", "La desnormalización prioriza la integridad mediante la reducción de redundancia.", "Ambas buscan lo mismo pero con diferentes nombres.", "Ninguna de las anteriores."]
 
-enunciado: "Considerando el objetivo principal de cada proceso, ¿cuál de las siguientes afirmaciones es correcta según el escenario seleccionado?"
+enunciado: "Considerando el objetivo principal de cada proceso, ¿cuál de las siguientes afirmaciones es correcta?"
 
 pasos:
   - "Analizar si el objetivo es evitar duplicados (normalizar) o acelerar lecturas (desnormalizar)."
@@ -1891,9 +337,9 @@ metadata:
   nivel: "basico"
   tags: ["proceso", "orden"]
 
-respuesta: ["1NF", "2NF", "3NF"]
-tipo: "ordenar"
-opciones_explicitas: ["3NF", "1NF", "2NF"]
+tipo: ordenar
+opciones_explicitas: ["1NF", "2NF", "3NF"]
+respuesta_orden: ["1NF", "2NF", "3NF"]
 
 enunciado: "Ordene los pasos lógicos de las formas normales para asegurar una base de datos sin redundancias excesivas:"
 
@@ -1908,11 +354,8 @@ metadata:
   nivel: "intermedio"
   tags: ["redundancia", "duplicacion"]
 
-variables:
-  es_redundante: uno_de([true, false])
-
-respuesta: es_redundante
-tipo: "vf"
+respuesta: falso
+tipo: vf
 
 enunciado: "Si un dato se repite en una tabla simplemente porque es necesario para realizar un JOIN eficiente en un modelo OLAP (Data Warehouse), ¿se considera una redundancia problemática que debe evitarse estrictamente como en el modelo OLTP?"
 
@@ -1927,17 +370,11 @@ metadata:
   nivel: "basico"
   tags: ["redundancia", "integridad"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["Nombre del Cliente", "Dirección del Cliente"], ["Nombre del Producto", "Precio del Producto"]]
-  error_tipo: uno_de([0, 1])
-  errores: [["Inconsistencia", "Anomalía de actualización"], ["Inconsistencia", "Anomalía de inserción"]]
-
-respuesta: escenarios[escenario_idx][error_tipo
+respuesta: "Anomalía de actualización"
 tipo: mc
 opciones_explicitas: ["Inconsistencia", "Anomalía de actualización", "Anomalía de inserción", "Pérdida de integridad"]
 
-enunciado: "Si en una tabla de ventas repetimos el {escenario_idx} para cada producto vendido, y el cliente cambia de domicilio pero solo actualizamos una fila, generamos una anomalía de tipo: ___"
+enunciado: "Si en una tabla de ventas repetimos el Nombre y la Dirección del Cliente para cada producto vendido, y el cliente cambia de domicilio pero solo actualizamos una fila, generamos una anomalía de tipo: ___"
 
 explicacion: |
   La redundancia de datos provoca que la información se repita innecesariamente, lo que deriva en anomalías de actualización cuando los datos no se mantienen sincronizados en todos los registros.
@@ -1966,13 +403,10 @@ metadata:
   nivel: "intermedio"
   tags: ["anomalia", "insercion"]
 
-variables:
-  caso_idx: uno_de([0])
-  casos: [["No podemos registrar un nuevo curso si no hay alumnos inscritos", "No podemos registrar un proveedor si no tiene productos"]]
-
-respuesta: casos[caso_idx][0
+respuesta: "No podemos registrar un nuevo curso si no hay alumnos inscritos"
 tipo: completar
-respuestas_validas: ["No podemos registrar un nuevo curso si no hay alumnos inscritos", "No podemos registrar un nuevo proveedor si no tiene productos"]
+respuestas_validas:
+  - "No podemos registrar un nuevo curso si no hay alumnos inscritos"
 
 enunciado: "En una tabla desnormalizada que combina 'Estudiantes' y 'Cursos', si intentamos agregar un curso que aún no tiene alumnos inscritos y la clave primaria depende de ambos, nos enfrentamos a una: ___"
 
@@ -1987,7 +421,7 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso", "orden"]
 
-respuesta: ["1FN", "2FN", "3FN"]
+respuesta_orden: ["1FN", "2FN", "3FN"]
 tipo: ordenar
 opciones_explicitas: ["3FN", "1FN", "2FN"]
 
@@ -2008,7 +442,7 @@ variables:
   ejemplo_idx: uno_de([0, 1])
   ejemplos: [["ID_Empleado -> Nombre_Empleado", "ID_Producto -> Fecha_Venta"], ["ID_Cliente -> Dirección_Cliente", "ID_Pedido -> ID_Cliente"]]
 
-respuesta: ejemplos[ejemplo_idx][0
+respuesta: ejemplos[ejemplo_idx][0]
 tipo: mc
 opciones_explicitas: ["ID_Empleado -> Nombre_Empleado", "ID_Producto -> Fecha_Venta", "ID_Cliente -> Dirección_Cliente", "ID_Pedido -> ID_Cliente"]
 
@@ -2063,7 +497,8 @@ metadata:
   tags: ["formulas", "sintaxis"]
 
 tipo: completar
-respuestas_validas: ["="]
+respuestas_validas:
+  - "="
 
 respuesta: "="
 
@@ -2102,7 +537,7 @@ tipo: ordenar
 
 opciones_explicitas: ["Paréntesis", "Potencias", "Multiplicación y División", "Suma y Resta"]
 
-respuesta: ["Paréntesis", "Potencias", "Multiplicación y División", "Suma y Resta"]
+respuesta_orden: ["Paréntesis", "Potencias", "Multiplicación y División", "Suma y Resta"]
 
 enunciado: "Ordena los siguientes elementos según la jerarquía de prioridad de operaciones en una fórmula de planilla de cálculo, de mayor a menor importancia:"
 
@@ -2117,13 +552,10 @@ metadata:
   nivel: "basico"
   tags: ["celdas", "referencias"]
 
-variables:
-  tipo_referencia: uno_de(["absoluta", "relativa"])
-  valor_celda: 100
-
-respuesta: "A1"
+respuesta: "absoluta"
 tipo: completar
-respuestas_validas: ["A1", "B2", "$A$1"]
+respuestas_validas:
+  - "absoluta"
 
 enunciado: "Si queremos fijar la celda A1 para que no cambie al arrastrar una fórmula hacia abajo, debemos usar una referencia tipo ___."
 
@@ -2206,7 +638,7 @@ metadata:
 variables:
   f_orden: ["Paréntesis", "Potencia", "Multiplicación/División", "Suma/Resta"]
 
-respuesta: ["Paréntesis", "Potencia", "Multiplicación/División", "Suma/Resta"]
+respuesta_orden: ["Paréntesis", "Potencia", "Multiplicación/División", "Suma/Resta"]
 tipo: ordenar
 opciones_explicitas: ["Paréntesis", "Potencia", "Multiplicación/División", "Suma/Resta"]
 
@@ -2224,10 +656,12 @@ metadata:
   tags: ["celdas", "referencias", "formulas"]
 
 variables:
-  idx: uno_de([0, 1])
   datos: [["A1", "A2"], ["B5", "B6"]]
+  idx: uno_de([0, 1])
+  ref_origen: datos[idx][0]
+  ref_destino: datos[idx][1]
 
-enunciado: "Si arrastras la fórmula {$datos[idx][0]} hacia abajo una fila, la referencia cambiará a {$datos[idx][1]} si la referencia es relativa."
+enunciado: "Si arrastras la fórmula {ref_origen} hacia abajo una fila, la referencia cambiará a {ref_destino} si la referencia es relativa."
 
 respuesta: verdadero
 tipo: vf
@@ -2242,6 +676,9 @@ metadata:
   tema: "ofimatica_planilla_de_calculo"
   nivel: "basico"
   tags: ["errores", "sintaxis"]
+
+enunciado: |
+  ¿Cuál es la forma correcta de escribir la función SUMA para sumar el rango A1:A5 en una planilla de cálculo?
 
 opciones_explicitas: ["=SUMA(A1:A5)", "SUMA(A1:A5)", "SUMA(A1;A5)", "SUMA(A1,A5)"]
 
@@ -2283,7 +720,9 @@ metadata:
 
 enunciado: "Si en la celda A1 escribes la fórmula =A1+10, el programa detectará un error de tipo ___."
 
-respuestas_validas: ["circular", "referencia"]
+respuestas_validas:
+  - "circular"
+  - "referencia"
 
 respuesta: "circular"
 tipo: completar
@@ -2301,7 +740,8 @@ metadata:
 
 enunciado: "Para fijar la columna A pero permitir que la fila cambie al arrastrar hacia abajo, la referencia correcta es ___."
 
-respuestas_validas: ["$A1", "A$1", "$A$1", "A1"]
+respuestas_validas:
+  - "$A1"
 
 respuesta: "$A1"
 tipo: completar
@@ -2317,12 +757,9 @@ metadata:
   nivel: "basico"
   tags: ["celdas", "referencias"]
 
-variables:
-  tipo_ref: uno_de(["relativa", "absoluta"])
-
-respuesta: tipo_ref == "absoluta"
-tipo: completar
-enunciado: "En una planilla de cálculo, la principal distinción de una referencia {tipo_ref} es que mantiene la posición de la celda fija aunque se copie la fórmula a otra ubicación, utilizando el signo $."
+respuesta: verdadero
+tipo: vf
+enunciado: "En una planilla de cálculo, la principal distinción de una referencia absoluta es que mantiene la posición de la celda fija aunque se copie la fórmula a otra ubicación, utilizando el signo $."
 
 pasos:
   - "Identificar si la referencia cambia al arrastrar la fórmula."
@@ -2341,7 +778,10 @@ metadata:
 
 respuesta: "A1:B2"
 tipo: completar
-respuestas_validas: ["A1:B2", "A1-B2", "A1...B2"]
+respuestas_validas:
+  - "A1:B2"
+  - "A1-B2"
+  - "A1...B2"
 
 enunciado: "Si queremos referirnos a un conjunto de celdas que abarca desde la celda A1 hasta la celda B2, la notación correcta para representar este rango es ___."
 
@@ -2392,7 +832,7 @@ metadata:
 
 opciones_explicitas: ["Paréntesis", "Multiplicación y División", "Suma y Resta"]
 
-respuesta: ["Paréntesis", "Multiplicación y División", "Suma y Resta"]
+respuesta_orden: ["Paréntesis", "Multiplicación y División", "Suma y Resta"]
 tipo: ordenar
 
 enunciado: "Ordene los siguientes elementos según el orden de prioridad (precedencia) en el que la planilla de cálculo resuelve las operaciones en una fórmula:"
@@ -2423,7 +863,7 @@ respuestas_validas:
   - "C6*C6"
   - "F11*F11"
 
-respuesta: "{datos[idx][2]}"
+respuesta: datos[idx][2]
 tipo: completar
 tolerancia_abs: 0
 
@@ -2441,15 +881,20 @@ metadata:
 variables:
   valores: [[10, 5, 2], [20, 4, 3], [50, 2, 10]]
   idx: uno_de([0, 1, 2])
+  a: valores[idx][0]
+  b: valores[idx][1]
+  c: valores[idx][2]
+  resultado: a + b * c
 
-enunciado: "En una planilla, la celda A1 tiene el valor {valores[idx][0]}, la A2 tiene {valores[idx][1]} y la A3 tiene {valores[idx][2]}. Si en A4 escribimos la fórmula ={valores[idx][0]} + {valores[idx][1]} * {valores[idx][2]}, ¿cuál es el resultado?"
+enunciado: "En una planilla, la celda A1 tiene el valor {a}, la A2 tiene {b} y la A3 tiene {c}. Si en A4 escribimos la fórmula ={a} + {b} * {c}, ¿cuál es el resultado?"
 
 tipo: completar
+respuesta: resultado
 tolerancia_abs: 0
 
 explicacion: |
   Por la jerarquía de operaciones, la multiplicación se realiza antes que la suma. 
-  En el caso actual: {valores[idx][0]} + ({valores[idx][1]} * {valores[idx][2]}).
+  En el caso actual: {a} + ({b} * {c}).
 ```
 
 ```
@@ -2460,18 +905,14 @@ metadata:
   tags: ["funciones", "suma"]
 
 variables:
-  datos: [[10, 20, 30], [5, 5, 5], [100, 200, 300]]
+  datos: [[10, 20, 30], [10, 10, 10], [100, 200, 300]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "Si tenemos los valores {datos[idx][0]}, {datos[idx][1]} y {datos[idx][2]} en las celdas A1, A2 y A3 respectivamente, ¿cuál es el resultado de aplicar la función =SUMA(A1:A3)?"
 
-opciones_explicitas:
-  - "30"
-  - "60"
-  - "65"
-  - "90"
-  - "600"
+opciones_explicitas: [30, 60, 65, 90, 600]
 
+respuesta: datos[idx][0] + datos[idx][1] + datos[idx][2]
 tipo: mc
 
 explicacion: |
@@ -2485,7 +926,7 @@ metadata:
   nivel: "basico"
   tags: ["formato", "texto"]
 
-enunciado: "En una planilla de cálculo, si queremos que una celda muestre el texto 'Hola Mundo' como parte de una fórmula, debemos escribirlo entre comillas, por ejemplo: =CONCATENAR(""Hola"", "" "", ""Mundo"")."
+enunciado: "En una planilla de cálculo, si queremos que una celda muestre el texto 'Hola Mundo' como parte de una fórmula, debemos escribirlo entre comillas, por ejemplo: =CONCATENAR(\"Hola\", \" \", \"Mundo\")."
 
 tipo: vf
 
@@ -2505,14 +946,1306 @@ metadata:
 enunciado: "Para resolver una fórmula compleja que combina sumas, multiplicaciones y paréntesis, ¿cuál es el orden correcto de ejecución que sigue el motor de la planilla?"
 
 opciones_explicitas:
-  - "1. Paréntesis, 2. Potencias, 3. Multiplicación/División, 4. Suma/Resta"
-  - "1. Suma/Resta, 2. Multiplicación/División, 3. Paréntesis"
-  - "1. Multiplicación, 2. Paréntesis, 3. Suma"
+  - "Paréntesis"
+  - "Potencias"
+  - "Multiplicación/División"
+  - "Suma/Resta"
 
-tipo: ordenar
-
-respuesta: ["1. Paréntesis, 2. Potencias, 3. Multiplicación/División, 4. Suma/Resta"]
+respuesta_orden: ["Paréntesis", "Potencias", "Multiplicación/División", "Suma/Resta"]
 
 explicacion: |
   Las hojas de cálculo siguen la jerarquía matemática estándar (PEMDAS/BODMAS): primero se resuelven los paréntesis, luego potencias, después multiplicaciones y divisiones, y finalmente sumas y restas.
 ```
+
+## Sección: paginacion (21 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "basico"
+  tags: ["conceptos", "memoria-virtual"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La paginación es un mecanismo que permite a un programa utilizar más espacio de memoria del que físicamente está disponible en la RAM."
+
+explicacion: |
+  Correcto. La paginación gestiona la memoria virtual, dividiendo la memoria lógica en páginas y la física en marcos, permitiendo usar el disco duro como extensión de la RAM.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "intermedio"
+  tags: ["fallos", "procesos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un 'fallo de página' ocurre cuando un programa intenta acceder a una página que no se encuentra actualmente en la RAM."
+
+explicacion: |
+  Verdadero. El sistema operativo debe entonces detener el proceso, buscar un marco libre (o liberar uno), cargar la página desde el disco y actualizar la tabla de páginas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "intermedio"
+  tags: ["estructura", "traduccion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La tabla de páginas es una estructura de datos utilizada por el sistema operativo para mapear las páginas virtuales a los marcos de página físicos."
+
+explicacion: |
+  Verdadero. Esta tabla es esencial para que la MMU sepa dónde está cada página en la memoria física.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "intermedio"
+  tags: ["rendimiento", "discos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El intercambio constante de datos entre la RAM y el disco duro debido a fallos de página puede degradar significativamente el rendimiento del sistema."
+
+explicacion: |
+  Verdadero. El disco duro es mucho más lento que la RAM. Si hay muchos fallos de página (thrashing), el sistema pasa más tiempo moviendo datos que ejecutando instrucciones.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "basico"
+  tags: ["conceptos", "ilusion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La paginación crea la ilusión de tener una memoria infinita, aunque la RAM física sea limitada."
+
+explicacion: |
+  Correcto. Esta ilusión se llama memoria virtual y permite ejecutar programas que son más grandes que la memoria física disponible.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "avanzado"
+  tags: ["eficiencia", "tipos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La paginación introduce fragmentación externa porque los bloques de memoria asignados pueden ser de tamaños variables."
+
+explicacion: |
+  Falso. La paginación elimina la fragmentación externa porque las páginas y marcos tienen tamaños fijos. Sin embargo, puede haber fragmentación interna (espacio desperdiciado dentro de un marco).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "avanzado"
+  tags: ["problemas", "rendimiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El 'thrashing' o agotamiento de memoria ocurre cuando el sistema pasa más tiempo gestionando fallos de página que ejecutando procesos útiles."
+
+explicacion: |
+  Verdadero. Es una condición crítica donde la actividad de paginación impide el progreso real de los programas.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "intermedio"
+  tags: ["procesos", "mmu"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La traducción de direcciones virtuales a físicas se realiza completamente por software, sin intervención del hardware."
+
+explicacion: |
+  Falso. La MMU (hardware) realiza la traducción en tiempo real. El sistema operativo (software) gestiona las tablas, pero la traducción es hardware.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "avanzado"
+  tags: ["eficiencia", "desperdicio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La paginación puede causar fragmentación interna, que es el espacio desperdiciado dentro del último marco de página de un proceso si este no llena el marco completamente."
+
+explicacion: |
+  Verdadero. Como el tamaño de la última página lógica puede ser menor que el tamaño del marco físico, el espacio restante en ese marco se pierde.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "intermedio"
+  tags: ["comparacion", "segmentacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una ventaja clave de la paginación sobre la segmentación es que no requiere que el espacio de direcciones del programa sea contiguo en la memoria física."
+
+explicacion: |
+  Correcto. Las páginas pueden estar dispersas en la RAM, mientras que los segmentos suelen requerir bloques contiguos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "avanzado"
+  tags: ["optimizacion", "estructuras"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una tabla de páginas invertida indexa por marcos de página físicos en lugar de por direcciones virtuales, lo que puede ahorrar memoria en sistemas con mucho espacio de direcciones."
+
+explicacion: |
+  Verdadero. En lugar de una entrada por página virtual, hay una entrada por marco físico, reduciendo el tamaño de la tabla en sistemas con grandes espacios virtuales.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "avanzado"
+  tags: ["algoritmos", "reemplazo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El algoritmo LRU (Least Recently Used) selecciona para reemplazo la página que no se ha utilizado durante el periodo de tiempo más largo."
+
+explicacion: |
+  Verdadero. Se basa en la premisa de que las páginas usadas recientemente probablemente se usarán de nuevo pronto, y las no usadas en mucho tiempo, menos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "avanzado"
+  tags: ["hardware", "caché"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La TLB es una caché de hardware que almacena las traducciones más recientes de direcciones virtuales a físicas para acelerar el acceso."
+
+explicacion: |
+  Verdadero. Sin la TLB, cada acceso a memoria requeriría dos accesos a la RAM (uno para la tabla de páginas y otro para el dato), lo cual es muy lento.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "intermedio"
+  tags: ["procesos", "io"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando ocurre un fallo de página, el sistema operativo debe realizar una operación de entrada/salida (I/O) desde el disco para cargar la página."
+
+explicacion: |
+  Verdadero. La página debe ser leída desde el archivo de paginación o swap en el disco hasta un marco libre en la RAM.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "basico"
+  tags: ["conceptos", "disco"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El área del disco duro utilizada para guardar páginas que no están en la RAM se denomina comúnmente 'swap' o archivo de paginación."
+
+explicacion: |
+  Verdadero. Es el espacio de memoria virtual en el disco que actúa como extensión de la RAM.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "intermedio"
+  tags: ["algoritmos", "reemplazo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El algoritmo FIFO (First-In, First-Out) reemplaza la página que ha estado en la memoria física por el mayor tiempo, independientemente de su frecuencia de uso."
+
+explicacion: |
+  Verdadero. Es simple pero puede tener un comportamiento subóptimo comparado con LRU, ya que no considera el patrón de acceso.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "avanzado"
+  tags: ["eficiencia", "recursos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un inconveniente de la paginación es el consumo de memoria RAM para almacenar las tablas de páginas de cada proceso."
+
+explicacion: |
+  Verdadero. Cada proceso necesita su propia tabla de páginas, lo que consume memoria física, especialmente si el espacio de direcciones es muy grande.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "avanzado"
+  tags: ["estructuras", "comparacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La paginación directa usa tablas indexadas por dirección virtual, mientras que la paginación inversa usa tablas indexadas por dirección física."
+
+explicacion: |
+  Verdadero. Esto cambia la forma en que se busca la traducción y el tamaño de la estructura de datos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "basico"
+  tags: ["seguridad", "aislamiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La paginación ayuda al aislamiento de procesos porque cada proceso tiene su propio espacio de direcciones virtuales."
+
+explicacion: |
+  Verdadero. Un proceso no puede acceder directamente a la memoria de otro, ya que sus direcciones virtuales se traducen a marcos físicos diferentes o no mapeados.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "avanzado"
+  tags: ["algoritmos", "teoria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El algoritmo de reemplazo óptimo (OPT) reemplaza la página que no se usará durante el periodo de tiempo más largo en el futuro. Es ideal pero no implementable en la práctica."
+
+explicacion: |
+  Verdadero. OPT requiere conocer la secuencia futura de accesos a memoria, lo cual es imposible de predecir con certeza en un sistema en ejecución.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "paginacion"
+  nivel: "avanzado"
+  tags: ["consistencia", "hardware"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando el sistema operativo modifica la tabla de páginas, puede ser necesario invalidar las entradas correspondientes en la TLB para evitar que se usen direcciones obsoletas."
+
+explicacion: |
+  Verdadero. La TLB puede tener caché de traducciones antiguas. Si la tabla de páginas cambia, esas entradas en la TLB deben ser descartadas o actualizadas.
+```
+
+## Sección: patrones-y-buenas-practicas (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_y_buenas_practicas"
+  nivel: "basico"
+  tags: ["conceptos", "patrones"]
+
+respuesta: "solucion"
+tipo: "completar"
+respuestas_validas:
+  - "solucion"
+  - "soluciones"
+
+enunciado: "Un patrón de diseño es una ________ reutilizable que sirve para resolver un problema común dentro de un contexto de diseño de software."
+
+explicacion: |
+  Los patrones de diseño no son fragmentos de código, sino descripciones de soluciones a problemas recurrentes en el desarrollo de software.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_y_buenas_practicas"
+  nivel: "basico"
+  tags: ["clasificacion", "categorias"]
+
+respuesta: "Creacionales"
+tipo: "completar"
+
+enunciado: "Si un programador utiliza el patrón 'Singleton' para asegurar que una clase tenga una única instancia, está utilizando un patrón de tipo: ___."
+
+explicacion: |
+  Los patrones se dividen en tres categorías principales según su propósito: Creacionales, Estructurales y de Comportamiento.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_y_buenas_practicas"
+  nivel: "intermedio"
+  tags: ["solid", "buenas_practicas"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "El principio de Responsabilidad Única (SRP) establece que una clase debe tener una, y solo una, razón para cambiar."
+
+explicacion: |
+  Correcto. El SRP busca que cada módulo o clase sea responsable de una única parte de la funcionalidad, facilitando el mantenimiento y la testabilidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_y_buenas_practicas"
+  nivel: "basico"
+  tags: ["proceso", "desarrollo"]
+
+respuesta_orden: ["Identificar el problema", "Analizar la solución existente", "Implementar el patrón", "Refactorizar el código"]
+tipo: "ordenar"
+opciones_explicitas: ["Identificar el problema", "Analizar la solución existente", "Implementar el patrón", "Refactorizar el código"]
+
+enunciado: "Ordena los pasos lógicos para la aplicación correcta de un patrón de diseño en un sistema existente:"
+
+explicacion: |
+  Primero se debe entender el problema, luego evaluar si un patrón conocido aplica, se implementa y finalmente se refactoriza para asegurar la calidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_y_buenas_practices"
+  nivel: "basico"
+  tags: ["reutilizacion", "eficiencia"]
+
+respuesta: "reutilizar"
+tipo: "mc"
+opciones_explicitas: ["reutilizar", "copiar"]
+
+enunciado: "El objetivo principal de aplicar buenas prácticas y patrones es poder ________ la lógica de solución en diferentes partes del sistema sin duplicar código innecesariamente."
+
+explicacion: |
+  La reutilización es un pilar de la ingeniería de software que permite aumentar la productividad y reducir la probabilidad de errores.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["creacionales", "singleton"]
+
+variables:
+  escenario: uno_de([["Gestión de conexión a base de datos", "DatabaseConnection"], ["Gestión de configuración global", "ConfigManager"], ["Gestión de sistema de logs", "LoggerInstance"]])
+
+enunciado: "Se requiere implementar un patrón que garantice que una clase tenga una única instancia y proporcione un punto de acceso global a ella. En el caso de un {escenario[0]}, la clase sería {escenario[1]}."
+
+opciones_explicitas: ["Singleton", "Factory", "Observer", "Strategy"]
+respuesta: "Singleton"
+tipo: "mc"
+
+explicacion: |
+  El patrón Singleton asegura que una clase tenga una única instancia durante toda la ejecución del programa, lo cual es ideal para recursos compartidos como conexiones a bases de datos o configuraciones.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["comportamiento", "observer"]
+
+enunciado: "En el patrón Observer, un objeto llamado 'Subject' mantiene una lista de sus dependientes. Cuando el estado del Subject cambia, este debe notificar a sus ___ para que actualicen su estado."
+
+respuestas_validas:
+  - "observadores"
+  - "observers"
+  - "subscriptores"
+respuesta: "observadores"
+tipo: "completar"
+
+explicacion: |
+  El patrón Observer define una relación de uno a muchos, donde cuando un objeto cambia su estado, todos sus dependientes (observadores) son notificados automáticamente.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "basico"
+  tags: ["clean_code", "refactoring"]
+
+variables:
+  caso: uno_de([["un método que calcula el IVA, aplica un descuento y luego imprime el total", "calcular_total_con_impuestos"], ["un método que valida datos, conecta a la red y procesa un archivo", "procesar_archivo_seguro"]])
+
+enunciado: "Tienes un método llamado '{caso[0]}' que es demasiado largo y realiza múltiples tareas distintas. Para aplicar la técnica de 'Extract Method', deberías dividirlo en métodos más pequeños y específicos. ¿Cuál es el objetivo principal de esta práctica?"
+
+opciones_explicitas: ["Aumentar la complejidad del código", "Mejorar la legibilidad y reutilización", "Hacer que el código sea más lento", "Eliminar la necesidad de comentarios"]
+respuesta: "Mejorar la legibilidad y reutilización"
+tipo: "mc"
+
+explicacion: |
+  La extracción de métodos permite que cada función tenga una única responsabilidad (Single Responsibility Principle), facilitando la lectura y permitiendo reutilizar fragmentos de lógica en otros lugares.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "intermedio"
+  tags: ["solid", "srp"]
+
+variables:
+  clase_mala: uno_de([["Clase Usuario que guarda datos en BD y también envía emails", "Usuario"], ["Clase Factura que calcula totales y también genera un PDF", "Factura"]])
+
+enunciado: "Si tenemos una clase llamada {clase_mala[0]} que realiza la lógica de negocio y además se encarga de la persistencia en base de datos y el envío de notificaciones, ¿está cumpliendo con el Principio de Responsabilidad Única (SRP)?"
+
+opciones_explicitas: [verdadero, falso]
+respuesta: falso
+tipo: "vf"
+
+explicacion: |
+  El SRP dicta que una clase debe tener una, y solo una, razón para cambiar. Si una clase maneja lógica de negocio y también detalles de infraestructura (como BD o envío de emails), viola este principio.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "avanzado"
+  tags: ["comportamiento", "command"]
+
+enunciado: "Para implementar correctamente el patrón Command, se deben seguir estos pasos en orden para transformar una acción en un objeto ejecutable:"
+
+opciones_explicitas: ["Definir el Command con el método execute()", "Crear el Receiver que contiene la lógica real", "El Invoker solicita la ejecución al Command", "El Cliente instancia el Command y lo vincula al Receiver"]
+
+respuesta_orden: ["Crear el Receiver que contiene la lógica real", "Definir el Command con el método execute()", "El Cliente instancia el Command y lo vincula al Receiver", "El Invoker solicita la ejecución al Command"]
+
+tipo: "ordenar"
+
+explicacion: |
+  El patrón Command encapsula una solicitud como un objeto, permitiendo parametrizar clientes, colar solicitudes o soportar operaciones que se pueden deshacer (undo).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["creacionales", "singleton"]
+
+enunciado: "El patrón Singleton se utiliza para asegurar que una clase tenga una única instancia y proporciona un punto de acceso global a ella. Sin embargo, una crítica común es que su uso excesivo puede ___."
+
+opciones_explicitas: ["mejorar la modularidad", "crear un estado global difícil de testear", "aumentar la velocidad de ejecución", "eliminar la necesidad de clases"]
+
+respuesta: "crear un estado global difícil de testear"
+tipo: mc
+
+explicacion: |
+  El patrón Singleton es criticado frecuentemente porque introduce un estado global en la aplicación, lo que dificulta el aislamiento de componentes durante las pruebas unitarias (testing), ya que el estado de la instancia persiste entre diferentes tests.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "basico"
+  tags: ["solid", "srp"]
+
+variables:
+  clase_nombre: uno_de(["GestorBaseDeDatos", "CalculadoraMatematica"])
+
+enunciado: "De acuerdo al Principio de Responsabilidad Única (SRP), una clase como {clase_nombre} debe tener una única razón para cambiar. Si esta clase además de procesar datos también se encarga de la interfaz de usuario, se está violando este principio."
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  El SRP establece que una clase debe tener una sola responsabilidad. Si una clase maneja lógica de negocio y también la presentación (UI), se vuelve rígida y difícil de mantener, violando el principio.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "avanzado"
+  tags: ["inversion_de_control", "di"]
+
+enunciado: "En el patrón de Inyección de Dependencias (DI), el comportamiento correcto es que ___"
+
+opciones_explicitas: ["el objeto crea sus propias dependencias internamente", "el objeto recibe sus dependencias desde el exterior"]
+
+respuesta: "el objeto recibe sus dependencias desde el exterior"
+tipo: mc
+
+explicacion: |
+  La Inyección de Dependencias es una forma de Inversión de Control (IoC) donde las dependencias de un objeto se le pasan (inyectan) desde el exterior (por constructor, setter o interfaz), en lugar de que el objeto las instancie por sí mismo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["creacionales", "factory"]
+
+enunciado: "Para implementar correctamente un patrón Factory Method y asegurar la extensibilidad, se deben seguir estos pasos en orden:"
+
+opciones_explicitas: ["Definir la interfaz del producto", "Crear las implementaciones concretas del producto", "Implementar la clase creadora con el método factory"]
+
+respuesta_orden: ["Definir la interfaz del producto", "Crear las implementaciones concretas del producto", "Implementar la clase creadora con el método factory"]
+tipo: ordenar
+
+explicacion: |
+  Primero se define qué es lo que se va a crear (la interfaz del producto), luego se crean las versiones específicas (productos concretos) y finalmente se crea la lógica que decide qué producto instanciar (el método factory en la clase creadora).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "basico"
+  tags: ["calidad_codigo", "acoplamiento"]
+
+enunciado: "En un diseño de software de alta calidad, buscamos que el acoplamiento entre módulos sea ___ y que la cohesión dentro de un módulo sea ___."
+
+opciones_explicitas: ["alto y baja", "bajo y alta"]
+
+respuesta: "bajo y alta"
+tipo: mc
+
+explicacion: |
+  El acoplamiento bajo significa que los módulos son independientes y cambian poco entre sí. La cohesión alta significa que los elementos de un módulo están estrechamente relacionados y trabajan para un único objetivo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_y_buenas_practicas"
+  nivel: "intermedio"
+  tags: ["patrones_de_diseno", "conceptos_basicos"]
+
+respuesta: "algoritmo"
+tipo: completar
+respuestas_validas:
+  - "algoritmo"
+
+enunciado: "Mientras que un patrón de diseño es una solución general a un problema recurrente de diseño de software, un ___ es una secuencia de pasos finitos y precisos para resolver un problema computacional específico."
+
+explicacion: |
+  Un patrón de diseño es una plantilla de alto nivel para resolver problemas de estructura, mientras que un algoritmo es una receta paso a paso para realizar un cálculo o tarea.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["creacionales", "singleton", "factory"]
+
+respuesta: "Singleton"
+tipo: mc
+opciones_explicitas: ["Singleton", "Factory"]
+
+enunciado: "Si el objetivo principal es garantizar que una clase tenga una única instancia en toda la aplicación, estamos ante un patrón ___."
+
+explicacion: |
+  El patrón Singleton asegura una instancia única, mientras que el patrón Factory se encarga de delegar la responsabilidad de la creación de objetos a una clase especializada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "avanzado"
+  tags: ["limpieza_de_codigo", "principios"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En el diseño de software orientado a objetos, una buena práctica consiste en buscar un diseño con alto acoplamiento y baja cohesión."
+
+explicacion: |
+  Es exactamente lo contrario: se busca un **bajo acoplamiento** (que los módulos sean independientes) y una **alta cohesión** (que cada módulo haga una sola cosa y la haga bien).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["procesos", "desarrollo"]
+
+respuesta_orden: ["Identificar el problema", "Elegir el patrón adecuado", "Implementar la solución", "Refactorizar si es necesario"]
+tipo: ordenar
+opciones_explicitas: ["Identificar el problema", "Elegir el patrón adecuado", "Implementar la solución", "Refactorizar si es necesario"]
+
+enunciado: "Ordene los pasos lógicos para aplicar correctamente un patrón de diseño en un proyecto de software:"
+
+explicacion: |
+  El proceso comienza con la comprensión del problema, seguido de la selección del patrón, la codificación y finalmente la revisión/refactorización para asegurar la calidad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "avanzado"
+  tags: ["oop", "herencia", "interfaces"]
+
+respuesta: "interfaz"
+tipo: mc
+opciones_explicitas: ["interfaz", "clase_abstracta"]
+
+enunciado: "Si necesitamos definir un contrato que solo especifique comportamientos (métodos sin implementación) sin poseer estado o lógica compartida, lo más adecuado es usar una ___."
+
+explicacion: |
+  Las interfaces definen "qué" puede hacer un objeto (contrato puro), mientras que las clases abstractas pueden definir "cómo" se hace algo (compartiendo código y estado) pero impidiendo la instanciación directa.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "intermedio"
+  tags: ["diseño", "creacionales"]
+
+variables:
+  escenario: uno_de([["Se requiere que una clase de conexión a base de datos solo tenga una instancia única en toda la aplicación.", "Singleton"], ["Se requiere que un objeto pueda tener múltiples representaciones (como un checkbox o un botón) según el contexto.", "Flyweight"], ["Se requiere que un objeto delegue la creación de otros objetos a una subclase.", "Factory Method"]])
+
+tipo: mc
+opciones_explicitas: ["Singleton", "Flyweight", "Factory Method", "Observer"]
+
+enunciado: "Un desarrollador debe resolver el siguiente escenario: {escenario[0]} ¿Qué patrón de diseño debe aplicar?"
+
+respuesta: escenario[1]
+
+explicacion: |
+  El patrón Singleton garantiza que una clase tenga una única instancia y proporciona un punto de acceso global a ella.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "basico"
+  tags: ["clean_code", "refactorizacion"]
+
+variables:
+  caso: uno_de([["Una función tiene 150 líneas de código y realiza tres tareas distintas.", "Dividir la función en funciones más pequeñas."], ["Una variable se llama 'x' y su valor cambia constantemente sin contexto claro.", "Renombrar la variable con un nombre descriptivo."], ["Un bloque de código se repite exactamente igual en tres archivos diferentes.", "Extraer el código repetido a una función o clase común."]])
+
+tipo: completar
+respuestas_validas:
+  - "Dividir la función en funciones más pequeñas."
+  - "Renombrar la variable con un nombre descriptivo."
+  - "Extraer el código repetido a una función o clase común."
+
+enunciado: "Para mejorar la mantenibilidad del software, se detecta que: {caso[0]} La acción recomendada es: ___"
+
+respuesta: caso[1]
+
+explicacion: |
+  La legibilidad y la reutilización son pilares de las buenas prácticas. Cada caso presentado requiere una acción de refactorización específica para cumplir con principios como SOLID o Clean Code.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "patrones_de_diseno"
+  nivel: "avanzado"
+  tags: ["comportamiento", "eventos"]
+
+variables:
+  escenario: uno_de([["Un sistema de clima donde varios sensores notifican cambios a una pantalla y a una base de datos simultáneamente.", "Observer"], ["Un sistema donde un objeto complejo se construye paso a paso mediante varios métodos.", "Builder"], ["Un sistema donde se envían mensajes de un emisor a múltiples receptores sin que estos se conozcan.", "PubSub"]])
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "En el escenario: {escenario[0]}, el patrón de diseño que permite que un objeto (sujeto) notifique automáticamente a otros objetos (observadores) sobre cambios en su estado es el patrón {escenario[1]}."
+
+explicacion: |
+  El patrón Observer define una relación de uno a muchos, de modo que cuando el objeto cambia de estado, todos sus dependientes son notificados.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "intermedio"
+  tags: ["solid", "arquitectura"]
+
+tipo: mc
+opciones_explicitas: ["Responsabilidad Única", "Acoplamiento Fuerte", "Cohesión Baja", "Incapacidad de Testeo"]
+
+enunciado: "Analizando el siguiente caso: Una clase 'Usuario' que gestiona los datos del perfil Y también se encarga de guardar el archivo en el disco. La clase está violando el principio de: ___"
+
+respuesta: "Responsabilidad Única"
+
+explicacion: |
+  El Principio de Responsabilidad Única (SRP) establece que una clase debe tener una única razón para cambiar. Si una clase gestiona datos y además la persistencia, tiene dos responsabilidades.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "buenas_practicas"
+  nivel: "basico"
+  tags: ["calidad", "procesos"]
+
+tipo: ordenar
+opciones_explicitas: ["Reportar error", "Asignar a desarrollador", "Corregir error", "Verificar solución", "Cerrar ticket"]
+respuesta_orden: ["Reportar error", "Asignar a desarrollador", "Corregir error", "Verificar solución", "Cerrar ticket"]
+
+enunciado: "Para asegurar la calidad de software, el proceso estándar de gestión de un defecto (bug) debe seguir este orden lógico: ___"
+
+explicacion: |
+  Un flujo de trabajo ordenado permite la trazabilidad del error desde su detección hasta su validación final por parte de QA.
+```
+
+## Sección: permisos-y-usuarios (25 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["seguridad", "conceptos"]
+
+respuesta: "permisos"
+tipo: completar
+respuestas_validas:
+  - "permisos"
+
+enunciado: "Las reglas que determinan qué acciones puede realizar un usuario sobre un recurso se conocen como ___."
+
+explicacion: |
+  Los permisos definen la capacidad de lectura, escritura o ejecución sobre un objeto del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["unix", "linux"]
+
+variables:
+  opciones_validas: ["lectura", "escritura", "ejecución"]
+
+respuesta: "ejecución"
+tipo: completar
+
+enunciado: "En un sistema de archivos estándar, además de leer y escribir, un archivo puede tener permiso de ___."
+
+explicacion: |
+  El permiso de ejecución permite que un archivo sea tratado como un programa o script.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["usuarios", "seguridad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un sistema operativo, el usuario 'root' (o superusuario) tiene la capacidad de ignorar la mayoría de las restricciones de permisos del sistema."
+
+explicacion: |
+  El superusuario tiene privilegios totales sobre el núcleo y los archivos del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["seguridad", "jerarquia"]
+
+tipo: ordenar
+
+opciones_explicitas: ["Usuario común", "Grupo", "Propietario"]
+respuesta_orden: ["Usuario común", "Grupo", "Propietario"]
+
+enunciado: "Ordena los niveles de acceso de menor a mayor jerarquía de privilegios sobre un archivo específico:"
+
+explicacion: |
+  El orden jerárquico estándar es: el usuario (dueño), el grupo al que pertenece y, finalmente, los otros usuarios.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "avanzado"
+  tags: ["acl", "seguridad"]
+
+respuesta: "permisos estándar"
+tipo: mc
+opciones_explicitas: ["permisos estándar", "permisos de red", "permisos de hardware", "permisos de memoria"]
+
+enunciado: "Las ACL (Access Control Lists) se utilizan para definir ___ más granulares que los permisos tradicionales de un archivo."
+
+explicacion: |
+  Las ACL permiten asignar permisos específicos a múltiples usuarios y grupos sin depender solo del modelo propietario/grupo/otros.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["linux", "permisos", "chmod"]
+
+enunciado: "Un administrador desea que un archivo llamado 'datos.txt' sea legible por el dueño, pero que nadie más pueda leerlo, escribirlo ni ejecutarlo. ¿Cuál es la representación numérica de los permisos para este archivo?"
+
+opciones_explicitas: ["644", "400", "755", "666"]
+respuesta: "400"
+tipo: "mc"
+
+explicacion: |
+  En sistemas Unix/Linux, los permisos se calculan sumando valores: Lectura (4), Escritura (2) y Ejecución (1).
+  Para el dueño (Read): 4 + 0 + 0 = 4.
+  Para el grupo (None): 0.
+  Para otros (None): 0.
+  Resultado: 400.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["usuarios", "ownership"]
+
+enunciado: "Si un usuario intenta modificar un archivo que pertenece al 'root' y el usuario actual no tiene permisos de escritura, la operación será denegada."
+
+respuesta: verdadero
+tipo: "vf"
+
+explicacion: |
+  El sistema operativo verifica primero si el usuario es el dueño del archivo. Si no lo es, comprueba los permisos del grupo y, finalmente, los permisos para 'otros'. Si el permiso de escritura no está concedido en la categoría correspondiente, el acceso se deniega.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["chmod", "simbolico"]
+
+variables:
+  comandos: [["chmod u+x", "u+x"], ["chmod g-w", "g-w"], ["chmod o+r", "o+r"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si aplicamos el comando 'chmod {comandos[idx][1]}' a un archivo, estamos modificando los permisos de forma simbólica. El código de modificación aplicado es ___."
+
+pasos:
+  - "Identificar el usuario (u=user, g=group, o=others)"
+  - "Identificar la acción (+ para añadir, - para quitar)"
+  - "Identificar el permiso (r, w, x)"
+
+respuesta: comandos[idx][1]
+tipo: "completar"
+respuestas_validas:
+  - "u+x"
+  - "g-w"
+  - "o+r"
+
+explicacion: |
+  El modo simbólico permite modificar permisos específicos sin redefinir todos los valores.
+  En el caso de {comandos[idx][0]}, estamos operando directamente sobre la categoría seleccionada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["secuencia", "ejecucion"]
+
+enunciado: "Para que un script de Bash sea ejecutable por un usuario después de haberlo creado, se deben seguir estos pasos en orden:"
+
+opciones_explicitas: ["Crear el archivo con un editor", "Asignar permisos de ejecución con chmod", "Ejecutar el script con ./script.sh"]
+respuesta_orden: ["Crear el archivo con un editor", "Asignar permisos de ejecución con chmod", "Ejecutar el script con ./script.sh"]
+tipo: ordenar
+
+explicacion: |
+  Primero el archivo debe existir (creación), luego el sistema operativo debe permitir su ejecución (permisos) y finalmente se puede lanzar el proceso (ejecución).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "avanzado"
+  tags: ["binario", "permisos"]
+
+enunciado: "Un archivo tiene permisos de lectura y escritura para el dueño, pero ningún permiso para el grupo ni para otros. ¿Cuál es su valor decimal?"
+
+respuesta: "6"
+tipo: "completar"
+respuestas_validas:
+  - "6"
+
+explicacion: |
+  Lectura (4) + Escritura (2) + Ejecución (0) = 6.
+  En binario: 110.
+  Si el valor fuera 7, sería 111 (rwx).
+  Si el valor fuera 5, sería 101 (r-x).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["linux", "permisos", "directorios"]
+
+tipo: mc
+opciones_explicitas: ["Permitir leer el contenido de los archivos dentro del directorio", "Permitir listar los nombres de archivos dentro del directorio", "Permitir entrar/acceder al directorio (hacer cd)", "Permitir ejecutar archivos binarios dentro del directorio"]
+
+enunciado: "En sistemas tipo Unix, si un usuario tiene permisos de lectura (r) pero NO tiene permisos de ejecución (x) en un directorio, ¿qué acción NO podrá realizar?"
+
+respuesta: "Permitir entrar/acceder al directorio (hacer cd)"
+
+explicacion: |
+  El permiso de ejecución (x) en un directorio es el que permite al usuario 'entrar' en él (hacer `cd`) y acceder a los metadatos de los archivos que contiene. Sin `x`, no puedes acceder a los archivos aunque sepas sus nombres.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["linux", "usuarios", "grupos"]
+
+variables:
+  escenario: uno_de([["archivo_A", "usuario_1", "grupo_admin"], ["archivo_B", "usuario_2", "grupo_staff"], ["archivo_C", "usuario_3", "grupo_dev"]])
+
+tipo: vf
+respuesta: falso
+
+enunciado: "Si el archivo {escenario[0]} tiene como dueño a {escenario[1]} y pertenece al grupo {escenario[2]}, cualquier usuario que pertenezca al grupo {escenario[2]} tiene automáticamente todos los permisos de lectura, escritura y ejecución sobre el archivo, independientemente de los permisos asignados al grupo."
+
+explicacion: |
+  Falso. El hecho de pertenecer al grupo otorga los permisos definidos para el 'grupo' en la máscara de permisos (rwx), pero estos pueden estar limitados (por ejemplo, solo lectura).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "avanzado"
+  tags: ["seguridad", "linux", "lógica"]
+
+tipo: mc
+opciones_explicitas: ["Usuario -> Grupo -> Otros", "Otros -> Grupo -> Usuario", "Usuario -> Otros -> Grupo", "El que tenga el permiso más restrictivo gana"]
+
+enunciado: "Cuando un proceso intenta acceder a un archivo, ¿en qué orden evalúa el sistema operativo los permisos de un usuario?"
+
+respuesta: "Usuario -> Grupo -> Otros"
+
+explicacion: |
+  El sistema operativo busca la coincidencia más específica primero. Si el usuario es el dueño, se aplican sus permisos y se deja de evaluar. Si no, se mira si pertenece al grupo del archivo, y si no, se aplican los permisos de 'otros'.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["seguridad", "root", "sudo"]
+
+tipo: completar
+respuestas_validas:
+  - "root"
+  - "superuser"
+  - "administrador"
+
+enunciado: "En sistemas operativos basados en Linux, el usuario que posee todos los privilegios del sistema y puede saltarse cualquier restricción de permisos es conocido como ___."
+
+respuesta: "root"
+
+explicacion: |
+  El usuario 'root' es la cuenta de superusuario por excelencia. Aunque en contextos generales se le llame administrador, el nombre técnico del usuario con UID 0 es root.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["comandos", "chmod", "linux"]
+
+tipo: ordenar
+opciones_explicitas: ["identificar el archivo y sus permisos actuales", "aplicar el comando chmod con los nuevos permisos", "verificar que los cambios se aplicaron correctamente"]
+
+enunciado: "Ordena los pasos lógicos para cambiar de forma segura los permisos de un archivo crítico en un servidor de producción:"
+
+respuesta_orden: ["identificar el archivo y sus permisos actuales", "aplicar el comando chmod con los nuevos permisos", "verificar que los cambios se aplicaron correctamente"]
+
+explicacion: |
+  Antes de modificar permisos en entornos críticos, es vital saber qué estamos cambiando (usando `ls -l`) para evitar bloquear el acceso a servicios esenciales o dejar brechas de seguridad.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["permisos", "usuarios", "sistemas_operativos"]
+
+respuesta: "grupo"
+tipo: completar
+respuestas_validas:
+  - "grupo"
+
+enunciado: "Mientras que un usuario es una entidad individual con sus propios permisos, un ___ es una colección de usuarios que comparten los mismos privilegios de acceso a los recursos."
+
+explicacion: |
+  Los grupos permiten administrar permisos de manera colectiva. En lugar de asignar permisos a cada usuario uno por uno, se asignan al grupo y los usuarios se añaden a él.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["privilegios", "root", "seguridad"]
+
+variables:
+  escenario_idx: uno_de([0,1])
+  escenarios: [["Un usuario estándar intenta modificar archivos del sistema.", "denegado"], ["El superusuario (root) intenta modificar archivos del sistema.", "permitido"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["denegado", "permitido", "error de sintaxis", "requiere contraseña"]
+
+enunciado: "En un sistema basado en Unix, ante el escenario: {escenarios[escenario_idx][0]}, el acceso es ___."
+
+explicacion: |
+  El usuario 'root' tiene privilegios totales sobre el sistema, mientras que un usuario estándar está restringido a su propio directorio personal y archivos para los que tenga permisos explícitos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["permisos", "chmod", "linux"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un sistema de archivos Linux, el permiso de 'ejecución' (x) en un directorio permite al usuario entrar en él (hacer cd), lo cual es distinto al permiso de ejecución en un archivo, que permite correr un programa."
+
+explicacion: |
+  Es una distinción fundamental: en archivos, 'x' es ejecución; en directorios, 'x' es la capacidad de acceder al contenido del directorio (traverse).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "avanzado"
+  tags: ["seguridad", "principios"]
+
+respuesta_orden: ["Identificar el usuario", "Asignar permisos mínimos", "Auditar el acceso"]
+tipo: ordenar
+opciones_explicitas: ["Identificar el usuario", "Asignar permisos mínimos", "Auditar el acceso"]
+
+enunciado: "Para implementar correctamente el principio de menor privilegio en la gestión de recursos, se deben seguir estos pasos en orden lógico:"
+
+explicacion: |
+  Primero se define quién es el sujeto (usuario), luego se le da solo lo que necesita para su tarea (mínimo privilegio) y finalmente se supervisa que no se desvíe de su función.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "avanzado"
+  tags: ["acl", "permisos", "seguridad"]
+
+variables:
+  es_acl: uno_de([0,1])
+  comparacion: [["permisos_tradicionales", "solo permiten definir dueño, grupo y otros"], ["ACL", "permiten definir permisos específicos para múltiples usuarios"]]
+
+respuesta: comparacion[es_acl][1]
+tipo: mc
+opciones_explicitas: ["solo permiten definir dueño, grupo y otros", "permiten definir permisos específicos para múltiples usuarios", "son solo para archivos comprimidos", "no se pueden usar en Linux"]
+
+enunciado: "A diferencia de los {comparacion[es_acl][0]}, las listas de control de acceso (___) ofrecen una granularidad mucho mayor."
+
+explicacion: |
+  Los permisos tradicionales (rwx para owner, group, others) son limitados. Las ACL (Access Control Lists) permiten asignar permisos a un usuario específico que no es el dueño, sin necesidad de crear un grupo nuevo.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["linux", "permisos"]
+
+variables:
+  archivos: ["archivo_secreto.txt", "config.sys", "script.sh"]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Se desea que el archivo {archivos[idx]} tenga permisos donde el dueño tenga lectura y escritura, pero nadie más tenga acceso. El modo octal correspondiente es ___."
+
+respuestas_validas:
+  - "600"
+
+respuesta: "600"
+tipo: completar
+
+explicacion: |
+  En sistemas tipo Unix, el primer dígito (6) representa al dueño (lectura=4 + escritura=2), el segundo (0) al grupo y el tercero (0) a otros.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "basico"
+  tags: ["usuarios", "root"]
+
+enunciado: "¿Es el usuario 'root' el superusuario que tiene control total sobre el sistema operativo, pudiendo ignorar la mayoría de las restricciones de permisos?"
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  El usuario root es el superusuario en sistemas basados en Unix/Linux y tiene privilegios máximos sobre todos los recursos del sistema.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["permisos", "octal"]
+
+variables:
+  datos: [["rwx r-- ---", "740"], ["rw- r-- r--", "644"], ["rwx rwx ---", "770"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si un comando 'ls -l' muestra que un archivo tiene los permisos {datos[idx][0]}, ¿cuál es su representación en formato octal?"
+
+opciones_explicitas:
+  - "740"
+  - "644"
+  - "770"
+
+respuesta: datos[idx][1]
+tipo: mc
+
+explicacion: |
+  Cada bloque de tres caracteres (dueño, grupo, otros) se suma: r=4, w=2, x=1.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "intermedio"
+  tags: ["proceso", "seguridad"]
+
+enunciado: "Ordena los pasos lógicos para asegurar un archivo recién creado en un servidor compartido para que solo el usuario actual pueda leerlo y editarlo, sin que otros puedan verlo."
+
+opciones_explicitas:
+  - "Crear el archivo con el contenido necesario"
+  - "Cambiar el propietario con 'chown' si es necesario"
+  - "Restringir permisos con 'chmod 600'"
+  - "Verificar la configuración de la umask del sistema"
+
+respuesta_orden: ["Crear el archivo con el contenido necesario", "Cambiar el propietario con 'chown' si es necesario", "Restringir permisos con 'chmod 600'", "Verificar la configuración de la umask del sistema"]
+tipo: ordenar
+
+explicacion: |
+  Para asegurar un recurso, primero se crea, se asegura la propiedad del dueño, se aplican los permisos restrictivos y se valida que la umask no haya aplicado permisos por defecto más abiertos.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "permisos_y_usuarios"
+  nivel: "avanzado"
+  tags: ["umask", "permisos"]
+
+variables:
+  datos: [["022", "755"], ["027", "750"], ["077", "700"]]
+  idx: uno_de([0, 1, 2])
+
+enunciado: "Si la umask del sistema está configurada como {datos[idx][0]}, un nuevo archivo creado por un usuario tendrá como permiso máximo (en modo octal) el valor ___."
+
+respuestas_validas:
+  - "755"
+  - "750"
+  - "700"
+
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  La umask (User Mask) se resta de los permisos base (normalmente 777 para directorios o 666 para archivos) para determinar los permisos finales.
+```
+

@@ -1,6 +1,6 @@
-# Examen jefe — Cosmos, Células y Constitución
+# Examen jefe — [PENDIENTE #696]
 
-> Logro #114. Demostraste dominio desde la nucleosíntesis hasta la organización nacional de 1853. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **124 preguntas totales** en 5/5 secciones.
+> Logro #696. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -14,7 +14,9 @@ metadata:
   tags: ["astronomia", "conceptos_basicos"]
 
 tipo: completar
-respuestas_validas: ["rotación", "rotacion"]
+respuestas_validas:
+  - "rotación"
+  - "rotacion"
 respuesta: "rotación"
 
 enunciado: "El movimiento que realiza la Tierra sobre su propio eje se denomina ___."
@@ -31,7 +33,8 @@ metadata:
   tags: ["tiempo", "ciclo_dia"]
 
 tipo: completar
-respuestas_validas: ["24 horas"]
+respuestas_validas:
+  - "24 horas"
 respuesta: "24 horas"
 
 enunciado: "Un giro completo de la Tierra sobre su propio eje tarda aproximadamente ___."
@@ -48,7 +51,9 @@ metadata:
   tags: ["fenomenos_naturales"]
 
 tipo: completar
-respuestas_validas: ["día y la noche", "dia y la noche"]
+respuestas_validas:
+  - "día y la noche"
+  - "dia y la noche"
 respuesta: "día y la noche"
 
 enunciado: "La rotación terrestre es el fenómeno responsable de la alternancia entre el ___."
@@ -65,7 +70,8 @@ metadata:
   tags: ["errores_comunes", "perspectiva"]
 
 tipo: completar
-respuestas_validas: ["Sol"]
+respuestas_validas:
+  - "Sol"
 
 respuesta: "Sol"
 
@@ -83,7 +89,8 @@ metadata:
   tags: ["eje_terrestre"]
 
 tipo: completar
-respuestas_validas: ["eje"]
+respuestas_validas:
+  - "eje"
 respuesta: "eje"
 
 enunciado: "La Tierra gira sobre una línea imaginaria que atraviesa los polos, llamada ___."
@@ -118,7 +125,8 @@ metadata:
   tags: ["geometria", "orbita"]
 
 tipo: completar
-respuestas_validas: ["elipse"]
+respuestas_validas:
+  - "elipse"
 
 respuesta: "elipse"
 
@@ -172,7 +180,9 @@ metadata:
   tags: ["estaciones", "traslacion"]
 
 tipo: completar
-respuestas_validas: ["traslación", "traslacion"]
+respuestas_validas:
+  - "traslación"
+  - "traslacion"
 
 respuesta: "traslación"
 
@@ -191,7 +201,9 @@ metadata:
 
 respuesta: "23.5"
 tipo: completar
-respuestas_validas: ["23.5", "23,5"]
+respuestas_validas:
+  - "23.5"
+  - "23,5"
 
 enunciado: "La inclinación del eje de la Tierra respecto al plano de su órbita es de aproximadamente ___ grados."
 
@@ -208,7 +220,8 @@ metadata:
 
 respuesta: "se mantiene constante"
 tipo: completar
-respuestas_validas: ["se mantiene constante"]
+respuestas_validas:
+  - "se mantiene constante"
 
 enunciado: "Durante el proceso de traslación alrededor del Sol, la inclinación del eje de la Tierra ___."
 
@@ -223,7 +236,9 @@ metadata:
   nivel: "intermedio"
   tags: ["estaciones", "inclinacion"]
 
-respuestas_validas: ["la inclinación del eje", "la inclinacion del eje"]
+respuestas_validas:
+  - "la inclinación del eje"
+  - "la inclinacion del eje"
 respuesta: "la inclinación del eje"
 tipo: completar
 
@@ -242,7 +257,9 @@ metadata:
 
 respuesta: "plano orbital"
 tipo: completar
-respuestas_validas: ["plano orbital", "plano de la eclíptica"]
+respuestas_validas:
+  - "plano orbital"
+  - "plano de la eclíptica"
 
 enunciado: "El eje de rotación de la Tierra forma un ángulo de 23,5 grados con respecto al ___."
 
@@ -257,7 +274,8 @@ metadata:
   nivel: "avanzado"
   tags: ["hemisferios", "solsticio"]
 
-respuestas_validas: ["verano"]
+respuestas_validas:
+  - "verano"
 respuesta: "verano"
 tipo: completar
 
@@ -293,7 +311,9 @@ metadata:
   tags: ["traslacion", "estaciones"]
 
 tipo: completar
-respuestas_validas: ["traslación", "traslacion"]
+respuestas_validas:
+  - "traslación"
+  - "traslacion"
 respuesta: "traslación"
 
 enunciado: "El movimiento de ___ es el responsable de que el año tenga estaciones y de que la Tierra complete su órbita alrededor del Sol."
@@ -346,7 +366,9 @@ metadata:
   tags: ["movimientos", "simultaneidad"]
 
 tipo: completar
-respuestas_validas: ["simultáneos", "simultaneos"]
+respuestas_validas:
+  - "simultáneos"
+  - "simultaneos"
 respuesta: "simultáneos"
 
 enunciado: "Los movimientos de rotación y traslación ocurren de forma ___; es decir, suceden al mismo tiempo sin que uno detenga al otro."
@@ -391,7 +413,9 @@ enunciado: "El fenómeno de {escenario[idx][0]} se explica principalmente por la
 
 respuesta: escenario[idx][1]
 tipo: completar
-respuestas_validas: ["traslación", "traslacion"]
+respuestas_validas:
+  - "traslación"
+  - "traslacion"
 
 explicacion: |
   La traslación, junto con la inclinación del eje terrestre, determina la duración de las estaciones del año.
@@ -423,7 +447,9 @@ metadata:
 
 respuesta: "rotación"
 tipo: completar
-respuestas_validas: ["rotación", "rotacion"]
+respuestas_validas:
+  - "rotación"
+  - "rotacion"
 
 enunciado: "El cambio de posición de la sombra de un reloj de sol a lo largo del día se debe a la ___ de la Tierra."
 
@@ -459,7 +485,8 @@ metadata:
 
 respuesta: "cooperan y se especializan en funciones distintas"
 tipo: completar
-respuestas_validas: ["cooperan y se especializan en funciones distintas"]
+respuestas_validas:
+  - "cooperan y se especializan en funciones distintas"
 
 enunciado: "La multicelularidad se define como la organización de organismos formados por múltiples células que ___ en vez de vivir cada una de forma independiente."
 
@@ -492,9 +519,9 @@ metadata:
   nivel: "intermedio"
   tags: ["jerarquia", "organos"]
 
-opciones_explicitas: ["Célula -> Tejido -> Órgano -> Sistema", "Célula -> Órgano -> Tejido -> Sistema", "Organismo -> Célula -> Tejido", "Tejido -> Célula -> Órgano"]
+opciones_explicitas: ["Célula -> Tejido -> Órgano -> Sistema"]
 
-respuesta: ["Célula -> Tejido -> Órgano -> Sistema"]
+respuesta_orden: ["Célula -> Tejido -> Órgano -> Sistema"]
 tipo: ordenar
 
 enunciado: "Ordena correctamente los niveles de organización biológica que surgen gracias a la especialización en organismos multicelulares complejos:"
@@ -512,12 +539,9 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [
-    ["un grupo de 100 células que solo se dividen", "reproducción"],
-    ["un grupo de 100 células con formas distintas", "especialización"]
-  ]
+  escenario: [["un grupo de 100 células que solo se dividen", "reproducción"], ["un grupo de 100 células con formas distintas", "especialización"]]
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: mc
 opciones_explicitas: ["reproducción", "especialización"]
 
@@ -552,7 +576,8 @@ metadata:
 
 respuesta: "independiente"
 tipo: completar
-respuestas_validas: ["independiente"]
+respuestas_validas:
+  - "independiente"
 
 enunciado: "La evidencia filogenética sugiere que la multicelularidad evolucionó de forma ___ en distintos linajes de la vida."
 
@@ -568,13 +593,9 @@ metadata:
   tags: ["linajes", "taxonomia"]
 
 variables:
-  escenario: uno_de([
-    ["Animales", "Metazoa", "con células especializadas"],
-    ["Plantas", "Viridiplantae", "con paredes de celulosa"],
-    ["Hongos", "Fungi", "con paredes de quitina"]
-  ])
+  escenario: uno_de([["Animales", "Metazoa", "con células especializadas"], ["Plantas", "Viridiplantae", "con paredes de celulosa"], ["Hongos", "Fungi", "con paredes de quitina"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["Metazoa", "Viridiplantae", "Fungi", "Protista"]
 
@@ -607,7 +628,7 @@ metadata:
   nivel: "intermedio"
   tags: ["algas", "organismos"]
 
-respuesta: ["Animales", "Plantas", "Hongos", "Algas"]
+respuesta_orden: ["Animales", "Plantas", "Hongos", "Algas"]
 tipo: ordenar
 
 opciones_explicitas: ["Animales", "Plantas", "Hongos", "Algas"]
@@ -630,16 +651,13 @@ metadata:
   tags: ["algas", "evolucion"]
 
 variables:
-  caso: uno_de([
-    ["rojas", "Rhodophyta"],
-    ["verdes", "Chlorophyta"]
-  ])
+  caso: uno_de([["rojas", "Rhodophyta"], ["verdes", "Chlorophyta"]])
 
-respuesta: caso[1
+respuesta: caso[1]
 tipo: mc
 opciones_explicitas: ["Rhodophyta", "Chlorophyta", "Oomycota"]
 
-enunciado: "En el caso de las algas {caso[0]}, la aparición de estructuras multicelulares es un evento independiente al de las algas {caso[1]}."
+enunciado: "El nombre científico (taxón) del linaje de las algas {caso[0]} es:"
 
 explicacion: |
   Incluso dentro de los grupos que parecen similares, como las algas, la multicelularidad ha surgido en múltiples linajes distintos (algas rojas, verdes, pardas, etc.).
@@ -654,6 +672,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Mayor tamaño corporal", "Menor consumo de energía", "Aumento de la superficie de contacto con el medio", "Simplificación de procesos metabólicos"]
+respuesta: "Mayor tamaño corporal"
 
 enunciado: "Una de las principales ventajas evolutivas de la multicelularidad es que permite a los organismos alcanzar un ___."
 
@@ -669,15 +688,14 @@ metadata:
   tags: ["biologia", "evolucion"]
 
 variables:
-  escenario: uno_de([
-    ["digestión", "digestiva"],
-    ["movimiento", "motora"],
-    ["sensorial", "sensorial"]
-  ])
+  escenario: uno_de([["digestión", "digestiva"], ["movimiento", "motora"], ["sensorial", "sensorial"]])
 
 tipo: completar
-respuestas_validas: ["digestiva", "motora", "sensorial"]
-respuesta: escenario[1
+respuestas_validas:
+  - "digestiva"
+  - "motora"
+  - "sensorial"
+respuesta: escenario[1]
 
 enunciado: "La división del trabajo permite que existan células con funciones específicas. Si un grupo de células se especializa en el movimiento, se dice que tiene una función ___."
 
@@ -694,6 +712,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Ser más visibles para los depredadores", "Ser más difíciles de ingerir para los depredadores", "Reducir la necesidad de alimento", "Aumentar la tasa de evaporación"]
+respuesta: "Ser más difíciles de ingerir para los depredadores"
 
 enunciado: "El incremento en el tamaño corporal derivado de la multicelularidad ofrece una ventaja de supervivencia relacionada con:"
 
@@ -711,7 +730,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Célula unicelular", "Agregación de células", "Colonia de células", "Organismo multicelular especializado"]
 
-respuesta: ["Célula unicelular", "Agregación de células", "Colonia de células", "Organismo multicelular especializado"]
+respuesta_orden: ["Célula unicelular", "Agregación de células", "Colonia de células", "Organismo multicelular especializado"]
 
 enunciado: "Ordena los niveles de organización biológica desde la forma más simple hasta la más compleja en el proceso evolutivo de la multicelularidad:"
 
@@ -746,6 +765,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["proteínas de adhesión", "paredes celulares rígidas", "flagelos de locomoción", "vacuolas contráctiles"]
+respuesta: "proteínas de adhesión"
 
 enunciado: "Para que un grupo de células pase de ser una colonia a un organismo multicelular, es indispensable el desarrollo de mecanismos de ___ que permitan mantener la cohesión entre ellas."
 
@@ -760,21 +780,11 @@ metadata:
   nivel: "intermedio"
   tags: ["comunicacion", "señalización"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["difusión simple", "el movimiento de moléculas es limitado"],
-    ["señalización paracrina", "las células coordinan funciones mediante señales químicas"]
-  ]
-
 tipo: mc
 opciones_explicitas: ["comunicación química", "reproducción asexual", "fotosíntesis", "quimiotaxis"]
+respuesta: "comunicación química"
 
 enunciado: "En un organismo multicelular, para que exista una división del trabajo, las células deben coordinar sus procesos. Esto se logra mediante la ___."
-
-pasos:
-  - "Identificar la necesidad de coordinación en tejidos especializados."
-  - "Relacionar la coordinación con el intercambio de señales."
 
 explicacion: |
   A diferencia de los unicelulares que responden a estímulos externos, los multicelulares necesitan comunicarse entre sí (comunicación química/señalización) para actuar como una unidad funcional.
@@ -789,7 +799,9 @@ metadata:
 
 tipo: completar
 opciones_explicitas: ["adhesión", "comunicación", "metabolismo", "respiración"]
-respuestas_validas: ["adhesión", "comunicación"]
+respuestas_validas:
+  - "adhesión"
+  - "comunicación"
 
 enunciado: "Mientras que un organismo unicelular es una unidad autónoma, la multicelularidad requiere mecanismos de ___ y de ___ para funcionar como un todo integrado."
 
@@ -811,6 +823,7 @@ enunciado: "Ordena los procesos evolutivos que permiten pasar de una colonia de 
 
 explicacion: |
   Primero las células deben estar juntas (agrupamiento), luego adquieren funciones distintas (especialización/diferenciación) y finalmente se organizan en estructuras mayores (tejidos/órganos).
+respuesta_orden: ["Agrupamiento de células", "Especialización celular", "Diferenciación de tejidos", "Organización de órganos"]
 ```
 
 ```
@@ -821,19 +834,18 @@ metadata:
   tags: ["proteinas", "adhesion"]
 
 variables:
-  proteina_tipo: uno_de(["cadherina", "integrina"])
-  datos: [
-    ["cadherina", "unión célula-célula"],
-    ["integrina", "unión célula-matriz"]
-  ]
+  datos: [["cadherina", "unión célula-célula"], ["integrina", "unión célula-matriz"]]
+  idx: uno_de([0, 1])
 
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si una célula utiliza una {datos[escenario_idx][0]} para unirse a otra célula vecina, está ejerciendo una función de {datos[escenario_idx][1]}."
+enunciado: "Si una célula utiliza una {datos[idx][0]} para adherirse a su entorno, está ejerciendo una función de ___."
 
 explicacion: |
-  Las cadherinas son proteínas clave para la adhesión célula-célula, esenciales para la integridad de los tejidos en organismos multicelulares.
+  Las cadherinas median la unión célula-célula, mientras que las integrinas median la unión célula-matriz extracelular; ambas son clave para la cohesión de los tejidos en organismos multicelulares.
+
+respuesta: datos[idx][1]
 ```
 
 ```
@@ -872,7 +884,9 @@ enunciado: "Considerando el ejemplo de {datos[idx][0]}, podemos clasificar a est
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["unicelulares", "multicelulares"]
+respuestas_validas:
+  - "unicelulares"
+  - "multicelulares"
 
 explicacion: |
   La multicelularidad implica la especialización celular y la división de funciones, algo que no ocurre en los organismos unicelulares.
@@ -913,7 +927,7 @@ pasos:
   - "Colonia de células"
   - "Organismo multicelular con tejidos"
 
-respuesta: ["Organismo unicelular", "Colonia de células", "Organismo multicelular con tejidos"]
+respuesta_orden: ["Organismo unicelular", "Colonia de células", "Organismo multicelular con tejidos"]
 tipo: ordenar
 opciones_explicitas: ["Organismo unicelular", "Colonia de células", "Organismo multicelular con tejidos"]
 
@@ -936,108 +950,383 @@ enunciado: "Al analizar {datos[idx][0]} bajo el microscopio, determinamos que es
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["unicelular", "multicelular"]
+respuestas_validas:
+  - "unicelular"
+  - "multicelular"
 
 explicacion: |
   La observación microscópica permite identificar si la unidad funcional es una célula individual o un conjunto de ellas organizadas.
 ```
 
-## Sección: navegacion (24 preguntas)
+## Sección: navegacion (25 preguntas)
 
 ```
-### 2 — Tratado de Tordesillas
-```
-
-```
-### 3 — Carabelas de Colón
-```
-
-```
-### 4 — Ruta del Cabo de Buena Esperanza
-```
-
-```
-### 5 — El Pacífico
-```
-
-```
-### 6 — Navegación Celeste
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["era_de_descubrimientos", "circunnavegacion"]
+variables:
+  lider: uno_de(["Fernando de Magallanes", "Juan Sebastián Elcano"])
+tipo: vf
+enunciado: "La expedición liderada por {lider} fue la primera en completar exitosamente una circunnavegación del globo terráqueo, demostrando la esféricidad del planeta y la unidad de los océanos."
+respuesta: verdadero
+explicacion: "Aunque Magallanes murió en Filipinas, la expedición continuó bajo Elcano y completó el viaje, regresando a España en 1522."
 ```
 
 ```
-### 7 — La Carabela
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["colonizacion", "diplomacia"]
+tipo: completar
+enunciado: "El Tratado de Tordesillas (1494) estableció una línea de demarcación a ___ al oeste de las islas de Cabo Verde, dividiendo las zonas de influencia entre Castilla y Portugal."
+respuesta: "370 leguas"
+respuestas_validas:
+  - "370 leguas"
+  - "370 leguas al oeste"
+  - "370 leguas hacia el oeste"
+  - "370 leguas oeste"
+explicacion: "Esta línea otorgó a Portugal las rutas hacia Asia y África, y a Castilla las tierras al oeste, incluyendo América."
 ```
 
 ```
-### 8 — El Arquipélago de Cabo Verde
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["colon", "tecnologia_naval"]
+tipo: mc
+enunciado: "¿Cuáles fueron las tres naves que Cristóbal Colón utilizó en su primer viaje de 1492?"
+opciones_explicitas:
+  - "Santa Maria, Pinta y Niña"
+  - "Victoria, Trinidad y Concepción"
+  - "San Felipe y Santiago"
+  - "Endeavour y Resolution"
+respuesta: "Santa Maria, Pinta y Niña"
+explicacion: "Estas fueron las tres naves utilizadas en el primer viaje de Cristóbal Colón en 1492. La Santa María era la nao capitana, y la Pinta y la Niña eran carabelas."
 ```
 
 ```
-### 9 — La Liga de las Especias
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["portugal", "asia"]
+tipo: completar
+enunciado: "El navegante ___ logró abrir la ruta marítima directa hacia la India en 1498, rodeando el Cabo de Buena Esperanza y evitando el control árabe y veneciano del comercio de especias."
+respuesta: "Vasco da Gama"
+respuestas_validas:
+  - "Vasco da Gama"
+  - "vasco da gama"
+explicacion: "Este logro rompió el monopolio comercial de las rutas terrestres y otorgó a Portugal una ventaja económica crucial."
 ```
 
 ```
-### 10 — La Bussola
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["magallanes", "oceano_pacifico"]
+tipo: completar
+enunciado: "___ fue quien bautizó como \"Pacífico\" al vasto océano que cruzó en 1521, debido a la calma de sus aguas en comparación con el Atlántico tormentoso."
+respuesta: "Magallanes"
+respuestas_validas:
+  - "Fernando de Magallanes"
+  - "Fernando de Magalhães"
+  - "Magallanes"
+  - "el capitán Magallanes"
+explicacion: "El nombre es irónico, ya que la travesía posterior fue extremadamente dura por la falta de provisiones."
 ```
 
 ```
-### 11 — Bartolomeu Dias
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["instrumentos", "astronomia"]
+tipo: mc
+enunciado: "¿Qué combinación de instrumentos era típica de la navegación de altura en los siglos XV y XVI, para mantener el rumbo y estimar la latitud a partir de la altura de los astros?"
+opciones_explicitas:
+  - "Astrolabio y sextante"
+  - "Brújula y cuadrante"
+  - "Cronómetro y teodolito"
+  - "Ballestilla y astrolabio"
+respuesta: "Brújula y cuadrante"
+explicacion: "La brújula permitía mantener la dirección cardinal y el cuadrante (o astrolabio marino) medía la altura de los astros para estimar la latitud. El sextante y cronómetro son posteriores."
 ```
 
 ```
-### 12 — La Nao Santa María
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia_naval", "portugal"]
+tipo: vf
+enunciado: "La carabela fue un diseño naval desarrollado principalmente por los portugueses, caracterizado por su velocidad, maniobrabilidad y capacidad para navegar a la contra del viento (bolina), ideal para la exploración costera."
+respuesta: verdadero
+explicacion: "Su estructura ligera y velamen latino/cuadrado la hacía superior a las naos para la exploración en aguas poco profundas y vientos cambiantes."
 ```
 
 ```
-### 13 — El Paso del Sur
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["portugal", "rutas_africanas"]
+tipo: vf
+enunciado: "El descubrimiento del archipiélago de Cabo Verde por Diogo Gomes en 1456 fue crucial para establecer una escala estratégica en la ruta de circunnavegación de África hacia la India."
+respuesta: verdadero
+explicacion: "Estas islas sirvieron como punto de referencia y abastecimiento vital para las expediciones portuguesas que descendían por la costa africana."
 ```
 
 ```
-### 14 — La Carabela Redonda
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["comercio", "portugal"]
+tipo: mc
+enunciado: "¿Quién fue el navegante portugués cuyo primer objetivo comercial en Calicut (1498) era establecer contacto directo con los mercaderes de especias locales, rompiendo la cadena de intermediarios otomanos y venecianos?"
+opciones_explicitas:
+  - "Vasco da Gama"
+  - "Pedro Álvares Cabral"
+  - "Alfonso de Albuquerque"
+  - "Bartolomeu Dias"
+respuesta: "Vasco da Gama"
+explicacion: "Aunque el encuentro inicial fue hostil, el viaje sentó las bases del Estado da Índia portugués."
 ```
 
 ```
-### 15 — El Tratado de Zaragoza
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia", "china"]
+tipo: completar
+enunciado: "La brújula magnética, fundamental para la navegación de altura, fue introducida en Europa desde ___ durante la Edad Media, revolucionando la capacidad de los navegantes para orientarse en mar abierto."
+respuesta: "China"
+respuestas_validas:
+  - "China"
+  - "china"
+explicacion: "Aunque los chinos la usaban para adivinación y geomancia, fue la adaptación náutica europea lo que permitió la expansión marítima."
 ```
 
 ```
-### 16 — La Ruta de las Indias
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["portugal", "cabo_buena_esperanza"]
+tipo: completar
+enunciado: "___ fue el primer europeo en doblar el Cabo de Buena Esperanza en 1488, demostrando que el Océano Atlántico y el Índico estaban conectados."
+respuesta: "Bartolomeu Dias"
+respuestas_validas:
+  - "Bartolomeu Dias"
+  - "Bartolomeu Diaz"
+  - "Bartolomeu"
+explicacion: "Inicialmente lo llamó \"Cabo das Tormentas\", pero el rey Juan II de Portugal lo renombró \"Cabo da Boa Esperança\"."
 ```
 
 ```
-### 17 — Pedro Álvares Cabral
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["colon", "naufragio"]
+tipo: vf
+enunciado: "La nao capitana de Cristóbal Colón, la Santa María, se encalló y naufragó en la costa de Haití en 1502, obligando a los supervivientes a construir el Fuerte Navidad con sus restos."
+respuesta: verdadero
+explicacion: "Este evento marcó el primer asentamiento europeo permanente en las Américas, aunque efímero."
 ```
 
 ```
-### 18 — La Navegación de Cabotaje
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["magallanes", "estrecho"]
+tipo: completar
+enunciado: "La expedición de Magallanes encontró la ruta hacia el Pacífico a través de un laberinto de canales y montañas en el extremo sur de Sudamérica, conocido como el ___."
+respuesta: "estrecho de Magallanes"
+respuestas_validas:
+  - "estrecho de Magallanes"
+  - "Estrecho de Magallanes"
+  - "Estrecho de Magalhães"
+  - "estrecho de Magalhães"
+explicacion: "Este paso natural permitió a la flota pasar del Atlántico al Pacífico sin tener que rodear completamente el continente."
 ```
 
 ```
-### 19 — El Cronómetro Marino
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia_naval", "castilla"]
+tipo: vf
+enunciado: "Las naos, a diferencia de las carabelas, eran barcos más pequeños, rápidos y maniobrables, diseñados específicamente para la exploración costera y la navegación a la contra del viento."
+respuesta: falso
+explicacion: "Las naos eran más grandes, lentas y de mayor capacidad de carga, utilizadas para el transporte de mercancías y tropas, no tanto para la exploración ágil."
 ```
 
 ```
-### 20 — La Liga Hanseática
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["colonizacion", "asia"]
+tipo: completar
+enunciado: "El Tratado de Zaragoza, firmado en ___, estableció la línea de demarcación opuesta a la de Tordesillas para resolver los conflictos en las Molucas y el Pacífico entre España y Portugal."
+respuesta: "1529"
+respuestas_validas:
+  - "1529"
+  - "mil quinientos veintinueve"
+explicacion: "Este tratado dividió el mundo en dos hemisferios de influencia, aunque su aplicación práctica fue limitada."
 ```
 
 ```
-### 21 — El Estrecho de Magallanes
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["espana", "comercio"]
+tipo: completar
+enunciado: "El sistema de flotas español para el transporte de plata y mercancías entre América y Europa tenía como principales puertos de salida en el Nuevo Mundo a ___ y Portobelo (Panamá)."
+respuesta: "Veracruz y Cartagena"
+respuestas_validas:
+  - "Veracruz y Cartagena"
+  - "Veracruz y Portobelo"
+  - "Veracruz y Cartagena de Indias"
+  - "Veracruz y Santa Marta"
+explicacion: "Veracruz era el puerto principal de la Nueva España y Cartagena de Indias el de la Nueva Granada, conectados por caminos terrestres a los puertos del Caribe."
 ```
 
 ```
-### 22 — La Carabela de Redonda
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["brasil", "portugal"]
+tipo: completar
+enunciado: "En 1500, Pedro Álvares Cabral, mientras buscaba la ruta a la India, llegó a la costa de ___, afirmando la posesión de este territorio para Portugal."
+respuesta: "Brasil"
+respuestas_validas:
+  - "Brasil"
+  - "brasil"
+explicacion: "El descubrimiento fue probablemente accidental debido a la desviación hacia el oeste en el Atlántico Sur."
 ```
 
 ```
-### 23 — El Descubrimiento de Japón
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia", "estrategia"]
+tipo: vf
+enunciado: "Durante los primeros siglos de la era de los descubrimientos, la navegación de cabotaje (siguiendo la costa) era la técnica predominante porque permitía el avituallamiento constante y la orientación segura."
+respuesta: verdadero
+explicacion: "La navegación de altura, que se alejaba de la costa, se desarrolló posteriormente gracias a mejores instrumentos y conocimiento de los vientos y corrientes."
 ```
 
 ```
-### 24 — La Navegación a Vela
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia", "longitud"]
+tipo: mc
+enunciado: "¿Quién inventó el cronómetro marino (el H4) que resolvió el problema de determinar la longitud en el mar durante el siglo XVIII?"
+opciones_explicitas:
+  - "John Harrison"
+  - "Isaac Newton"
+  - "Galileo Galilei"
+  - "Tycho Brahe"
+respuesta: "John Harrison"
+explicacion: "Harrison inventó el cronómetro marino H4, resolviendo el problema de la determinación de la longitud en el mar, un avance crucial para la navegación segura en el siglo XVIII."
 ```
 
 ```
-### 25 — El Tratado de Tordesillas y Brasil
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["europa_norte", "comercio"]
+tipo: vf
+enunciado: "Antes de la era de los descubrimientos oceánicos, la Liga Hanseática dominó el comercio y la navegación en el Mar Báltico y el Mar del Norte, estableciendo una red comercial que precedió a las potencias atlánticas."
+respuesta: verdadero
+explicacion: "Esta liga de ciudades comerciales controlaba las rutas de la madera, el grano y las especias en el norte de Europa."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["geografia", "explotacion"]
+tipo: completar
+enunciado: "El primer paso registrado por el estrecho que lleva su nombre fue realizado por la expedición de ___ en 1520, tras una difícil navegación por canales y tormentas."
+respuesta: "Magallanes"
+respuestas_validas:
+  - "Fernando de Magallanes"
+  - "Magallanes"
+  - "Elcano"
+  - "Juan Sebastián Elcano"
+explicacion: "Aunque Magallanes lideraba la expedición, fue Elcano quien completó la circunnavegación, pero el estrecho fue descubierto y cruzado por la flota magallánica."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia_naval", "castilla"]
+tipo: vf
+enunciado: "Las carabelas de redonda eran naves más grandes y pesadas que las carabelas de vela latina, diseñadas para la guerra y el transporte de carga pesada en lugar de la exploración rápida."
+respuesta: falso
+explicacion: "El término \"carabela de redonda\" es confuso; generalmente se distinguían entre carabelas (ligeras) y naos (grandes). Las carabelas no eran \"redondas\"."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["expansion", "asia"]
+tipo: completar
+enunciado: "Aunque el primer contacto europeo con Japón en 1543 se debió a comerciantes portugueses varados en Tanegashima, la primera misión jesuita sostenida en Japón, a partir de 1549, fue liderada por ___."
+respuesta: "Francisco Xavier"
+respuestas_validas:
+  - "Francisco Xavier"
+  - "Francisco Javier"
+explicacion: "El primer contacto en 1543 en Tanegashima fue accidental, protagonizado por mercaderes portugueses. Fue Francisco Javier quien, a partir de 1549, estableció la primera misión jesuita sostenida en Japón, iniciando la evangelización del país."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["tecnologia", "vela"]
+tipo: completar
+enunciado: "Las naos utilizaban principalmente velas ___ en el trinquete y la mayor, lo que las hacía eficientes con el viento de popa pero difíciles de manejar contra el viento."
+respuesta: "cuadradas"
+respuestas_validas:
+  - "cuadradas"
+  - "cuadrada"
+explicacion: "La combinación de velas cuadradas (para velocidad con viento de popa) y latinas (para maniobrabilidad) fue común en las naos posteriores."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "navegacion"
+  nivel: "intermedio"
+  tags: ["colonizacion", "brasil"]
+tipo: vf
+enunciado: "El Tratado de Tordesillas de 1494 asignó inmediatamente la totalidad del territorio que hoy es Brasil a España, ya que la línea de demarcación pasaba al este de la costa americana."
+respuesta: falso
+explicacion: "La línea pasaba a 370 leguas de Cabo Verde, lo que dejaba la proyección oriental de Sudamérica (Brasil) en la zona portuguesa, aunque esto no fue claro hasta el descubrimiento de Cabral en 1500."
 ```
 
 ## Sección: nucleosintesis (25 preguntas)
@@ -1051,7 +1340,9 @@ metadata:
 
 enunciado: "Durante la nucleosíntesis primordial, el elemento más abundante tras el Big Bang fue el ___."
 
-respuestas_validas: ["hidrógeno", "hidrogeno"]
+respuestas_validas:
+  - "hidrógeno"
+  - "hidrogeno"
 respuesta: "hidrógeno"
 tipo: completar
 
@@ -1068,7 +1359,8 @@ metadata:
 
 enunciado: "La abundancia de helio-4 resultante de los primeros minutos del universo es de aproximadamente un ___ %."
 
-respuestas_validas: ["25"]
+respuestas_validas:
+  - "25"
 respuesta: "25"
 tipo: completar
 
@@ -1085,7 +1377,8 @@ metadata:
 
 enunciado: "Además de hidrógeno y helio, la nucleosíntesis primordial dejó trazas de un tercer elemento liviano llamado ___."
 
-respuestas_validas: ["litio"]
+respuestas_validas:
+  - "litio"
 respuesta: "litio"
 tipo: completar
 
@@ -1102,7 +1395,8 @@ metadata:
 
 enunciado: "La nucleosíntesis primordial ocurrió durante los primeros ___ minutos después del Big Bang."
 
-respuestas_validas: ["20"]
+respuestas_validas:
+  - "20"
 respuesta: "20"
 tipo: completar
 
@@ -1119,7 +1413,8 @@ metadata:
 
 enunciado: "Si el hidrógeno representa el 75% de la masa, el helio representa el ___%."
 
-respuestas_validas: ["25"]
+respuestas_validas:
+  - "25"
 respuesta: "25"
 tipo: completar
 
@@ -1138,7 +1433,7 @@ tipo: mc
 opciones_explicitas: ["Fusión de helio", "Fusión de hidrógeno", "Fisión de uranio", "Fusión de carbono"]
 respuesta: "Fusión de hidrógeno"
 
-enunciado: "En la secuencia principal de las estrellas, el proceso de nucleosíntesis que sostiene la estrella durante la mayor parte de su vida es la fusión de hidrógeno en helio. ¿Cuál es ese proceso?"
+enunciado: "¿Cuál es el proceso de nucleosíntesis que sostiene a una estrella en la secuencia principal durante la mayor parte de su vida?"
 
 explicacion: |
   La fusión de hidrógeno en helio es el proceso fundamental que libera la energía que permite a una estrella brillar.
@@ -1169,7 +1464,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Hidrógeno", "Helio", "Carbono", "Hierro"]
-respuesta: ["Hidrógeno", "Helio", "Carbono", "Hierro"]
+respuesta_orden: ["Hidrógeno", "Helio", "Carbono", "Hierro"]
 
 enunciado: "Ordená cronológicamente los elementos que se forman mediante la fusión en el interior de una estrella masiva, desde su fase de secuencia principal hasta el final de su vida estelar:"
 
@@ -1219,7 +1514,8 @@ metadata:
 
 enunciado: "En el ciclo de vida de una estrella masiva, la fusión nuclear es un proceso que libera energía hasta que se llega a un elemento que no puede fusionarse para liberar más energía. Este elemento es el ___."
 
-respuestas_validas: ["hierro"]
+respuestas_validas:
+  - "hierro"
 respuesta: "hierro"
 tipo: completar
 
@@ -1236,7 +1532,8 @@ metadata:
 
 enunciado: "Los elementos más pesados que el hierro, como el oro, no se forman en la fusión estelar cotidiana, sino en eventos catastróficos. Uno de estos eventos es la explosión de una ___."
 
-respuestas_validas: ["supernova"]
+respuestas_validas:
+  - "supernova"
 respuesta: "supernova"
 tipo: completar
 
@@ -1253,7 +1550,9 @@ metadata:
 
 enunciado: "La síntesis de elementos extremadamente pesados como el uranio ocurre principalmente durante la ___."
 
-respuestas_validas: ["colisión de estrellas de neutrones", "colision de estrellas de neutrones"]
+respuestas_validas:
+  - "colisión de estrellas de neutrones"
+  - "colision de estrellas de neutrones"
 respuesta: "colisión de estrellas de neutrones"
 tipo: completar
 
@@ -1270,7 +1569,8 @@ metadata:
 
 enunciado: "Para que un núcleo atómico crezca y se convierta en un elemento pesado como el uranio, debe capturar rápidamente una gran cantidad de ___."
 
-respuestas_validas: ["neutrones"]
+respuestas_validas:
+  - "neutrones"
 respuesta: "neutrones"
 tipo: completar
 
@@ -1287,7 +1587,8 @@ metadata:
 
 enunciado: "Si un elemento tiene un número atómico mayor al del hierro, su origen probable es un evento de nucleosíntesis ___."
 
-respuestas_validas: ["explosiva"]
+respuestas_validas:
+  - "explosiva"
 respuesta: "explosiva"
 tipo: completar
 
@@ -1307,7 +1608,7 @@ opciones_explicitas: ["Fusión de hidrógeno", "Fusión de helio", "Fusión de e
 
 respuesta: "Fusión de elementos pesados en núcleos estelares"
 
-enunciado: "El hierro presente en nuestra sangre (hemoglobina) no se creó en el Sistema Solar, sino que fue el resultado de la fusión de elementos pesados en el núcleo de estrellas masivas antes de que estas explotaran. ¿Cuál es el proceso principal?"
+enunciado: "El hierro presente en nuestra sangre (hemoglobina) no se creó en el Sistema Solar, sino en estrellas masivas mucho antes de que existiera el Sol. ¿Cuál es el proceso principal responsable de su formación?"
 
 explicacion: |
   Los elementos más pesados que el hierro se forman en explosiones de supernovas, mientras que el hierro se produce en las etapas finales de la vida de estrellas masivas mediante la fusión nuclear.
@@ -1441,7 +1742,9 @@ metadata:
 
 enunciado: "En una estrella de la secuencia principal, el paso del hidrógeno al helio ocurre mediante el proceso de ___."
 
-respuestas_validas: ["fusión nuclear", "fusion nuclear"]
+respuestas_validas:
+  - "fusión nuclear"
+  - "fusion nuclear"
 respuesta: "fusión nuclear"
 tipo: completar
 
@@ -1458,7 +1761,9 @@ metadata:
 
 enunciado: "En el ciclo de vida de una estrella masiva, la formación de hierro marca el límite de la ___ antes de la explosión."
 
-respuestas_validas: ["fusión estelar", "fusion estelar"]
+respuestas_validas:
+  - "fusión estelar"
+  - "fusion estelar"
 respuesta: "fusión estelar"
 tipo: completar
 
@@ -1476,7 +1781,7 @@ metadata:
   tags: ["constitucion", "argentina", "federalismo"]
 
 respuesta: "1853"
-tipo: "vf"
+tipo: completar
 
 enunciado: "La Constitución Nacional Argentina fue sancionada en el año ___."
 
@@ -1512,7 +1817,7 @@ metadata:
 variables:
   orden_correcta: ["Ejecutivo", "Legislativo", "Judicial"]
 
-respuesta: ["Ejecutivo", "Legislativo", "Judicial"]
+respuesta_orden: ["Ejecutivo", "Legislativo", "Judicial"]
 tipo: "ordenar"
 
 opciones_explicitas: ["Ejecutivo", "Legislativo", "Judicial"]
@@ -1531,15 +1836,13 @@ metadata:
   tags: ["provincias", "autonomia"]
 
 variables:
-  escenario: uno_de([
-    ["autónomas", "tienen sus propias autoridades y leyes"],
-    ["dependientes", "están subordinadas totalmente al gobierno central"]
-  ])
+  escenario: uno_de([["autónomas", "tienen sus propias autoridades y leyes"], ["dependientes", "están subordinadas totalmente al gobierno central"]])
 
 respuesta: "autónomas"
 tipo: "completar"
 
-respuestas_validas: ["autónomas"]
+respuestas_validas:
+  - "autónomas"
 
 enunciado: "Según el sistema federal adoptado, las provincias argentinas son ___ porque ___."
 
@@ -1556,10 +1859,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [
-    ["Sanctioned", "Sancionada"],
-    ["Promulgated", "Promulgada"]
-  ]
+  datos: [["Sanctioned", "Sancionada"], ["Promulgated", "Promulgada"]]
 
 respuesta: "Sancionada"
 tipo: "mc"
@@ -1580,7 +1880,7 @@ metadata:
   tags: ["buenos_aires", "confederacion", "constitucion"]
 
 respuesta: "separada"
-tipo: "vf"
+tipo: completar
 
 enunciado: "Tras la sanción de la Constitución Nacional en 1853, la provincia de Buenos Aires se mantuvo ___ de la Confederación Argentina."
 
@@ -1618,7 +1918,7 @@ metadata:
   tags: ["ordenar", "cronologia"]
 
 opciones_explicitas: ["Sanción de la Constitución Nacional", "Separación de Buenos Aires", "Batalla de Pavón", "Reincorporación de Buenos Aires"]
-respuesta: ["Sanción de la Constitución Nacional", "Separación de Buenos Aires", "Batalla de Pavón", "Reincorporación de Buenos Aires"]
+respuesta_orden: ["Sanción de la Constitución Nacional", "Separación de Buenos Aires", "Batalla de Pavón", "Reincorporación de Buenos Aires"]
 tipo: "ordenar"
 
 enunciado: "Ordena cronológicamente los siguientes hechos históricos de la organización nacional:"
@@ -1636,7 +1936,9 @@ metadata:
 
 respuesta: "reincorporación"
 tipo: "completar"
-respuestas_validas: ["reincorporación", "unificación"]
+respuestas_validas:
+  - "reincorporación"
+  - "unificación"
 
 enunciado: "El desenlace de la Batalla de Pavón facilitó la ___ de la provincia de Buenos Aires a la unidad nacional."
 
@@ -1693,7 +1995,10 @@ variables:
 
 respuesta: respuesta_en_idx
 tipo: "completar"
-respuestas_validas: [datos[0][1], datos[1][1], datos[2][1]]
+respuestas_validas:
+  - datos[0][1]
+  - datos[1][1]
+  - datos[2][1]
 
 enunciado: "En el sistema de división de poderes, la función de {poder_en_idx} es ___."
 
@@ -1727,7 +2032,8 @@ metadata:
 
 respuesta: "representativa"
 tipo: "completar"
-respuestas_validas: ["representativa"]
+respuestas_validas:
+  - "representativa"
 
 enunciado: "La Constitución de 1853 establece que el gobierno es ___ porque el pueblo ejerce su soberanía a través de sus representantes."
 
@@ -1742,7 +2048,7 @@ metadata:
   nivel: "intermedio"
   tags: ["jerarquia", "poderes"]
 
-respuesta: ["Legislativo", "Ejecutivo", "Judicial"]
+respuesta_orden: ["Legislativo", "Ejecutivo", "Judicial"]
 tipo: "ordenar"
 opciones_explicitas: ["Ejecutivo", "Legislativo", "Judicial"]
 
@@ -1761,7 +2067,8 @@ metadata:
 
 respuesta: "Constitución Nacional"
 tipo: completar
-respuestas_validas: ["Constitución Nacional"]
+respuestas_validas:
+  - "Constitución Nacional"
 
 enunciado: "La norma suprema que rige el sistema de gobierno de la República Argentina es la ___."
 
@@ -1812,7 +2119,8 @@ metadata:
 
 respuesta: "Corte Suprema de Justicia de la Nación"
 tipo: completar
-respuestas_validas: ["Corte Suprema de Justicia de la Nación"]
+respuestas_validas:
+  - "Corte Suprema de Justicia de la Nación"
 
 enunciado: "El órgano máximo del Poder Judicial de la Nación es la ___."
 
@@ -1831,7 +2139,7 @@ variables:
   idx: uno_de([0, 1, 2])
   jerarquia: [["Constitución y Tratados de DDHH", "Tratados Internacionales", "Leyes Nacionales"]]
 
-respuesta: ["Constitución y Tratados de DDHH", "Tratados Internacionales", "Leyes Nacionales"]
+respuesta_orden: ["Constitución y Tratados de DDHH", "Tratados Internacionales", "Leyes Nacionales"]
 tipo: ordenar
 opciones_explicitas: ["Constitución y Tratados de DDHH", "Tratados Internacionales", "Leyes Nacionales"]
 
@@ -1859,9 +2167,11 @@ variables:
 
 enunciado: "En el contexto de la organización nacional, si se observa que {datos[escenario_idx][0]}, el principio constitucional que se está aplicando es la {datos[escenario_idx][1]}."
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["división de poderes", "federalismo"]
+respuestas_validas:
+  - "división de poderes"
+  - "federalismo"
 
 explicacion: |
   La Constitución de 1853 establece la división de poderes como base del sistema republicano para garantizar la libertad y evitar la tiranía.
@@ -1880,7 +2190,7 @@ variables:
 
 enunciado: "Si el Poder Ejecutivo actúa en el marco de la facultad de concertar tratados con otras potencias, está ejerciendo la competencia de {casos[caso_idx][1]}."
 
-respuesta: casos[caso_idx][1
+respuesta: casos[caso_idx][1]
 tipo: mc
 opciones_explicitas: ["relaciones_exteriores", "jurisdiccion_federal", "legislacion_provincial"]
 
@@ -1903,7 +2213,8 @@ enunciado: "La Constitución de 1853 garantiza que ___ de culto es un derecho fu
 
 respuesta: "libertad_religiosa"
 tipo: completar
-respuestas_validas: ["libertad_religiosa", "libertad_transito"]
+respuestas_validas:
+  - "libertad_religiosa"
 
 explicacion: |
   El Art. 20 establece que la religión de culto de la nación es la católica, pero garantiza la libertad de culto a los habitantes.
@@ -1944,10 +2255,11 @@ pasos:
   - "Identificar la norma que emana del Congreso."
   - "Identificar la norma de aplicación local."
 
-respuesta: ["Constitución Nacional", "Leyes Nacionales", "Constituciones Provinciales"]
+respuesta_orden: ["Constitución Nacional", "Leyes Nacionales", "Constituciones Provinciales"]
 tipo: ordenar
 opciones_explicitas: ["Constitución Nacional", "Leyes Nacionales", "Constituciones Provinciales"]
 
 explicacion: |
   La Constitución es la ley suprema; de ella emanan las leyes nacionales y, en el sistema federal, las constituciones provinciales deben adecuarse a la nacional.
 ```
+

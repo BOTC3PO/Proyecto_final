@@ -1,6 +1,6 @@
-# Examen jefe — Maestro del Lenguaje Artístico
+# Examen jefe — [PENDIENTE #905]
 
-> Logro #215. Completaste el examen jefe dominando desde el pentagrama hasta el montaje audiovisual. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **124 preguntas totales** en 5/5 secciones.
+> Logro #905. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **129 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -17,7 +17,7 @@ respuesta: 5
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "El pentagrama está compuesto por ___ líneas horizontales y ___ espacios."
+enunciado: "El pentagrama está compuesto por ___ líneas horizontales (y 4 espacios entre ellas)."
 
 explicacion: |
   El pentagrama es el conjunto de 5 líneas y 4 espacios donde se escribe la música.
@@ -49,7 +49,8 @@ metadata:
 
 respuesta: "Sol"
 tipo: completar
-respuestas_validas: ["Sol"]
+respuestas_validas:
+  - "Sol"
 
 enunciado: "La clave que se utiliza para indicar que la nota situada en la segunda línea del pentagrama es la nota ___."
 
@@ -97,11 +98,12 @@ metadata:
   nivel: "intermedio"
   tags: ["escala_mayor", "tonos", "semitonos"]
 
-respuesta: [1, 1, 0.5, 1, 1, 1, 0.5]
+respuesta: "Semitono"
 tipo: completar
-respuestas_validas: [[1, 1, 0.5, 1, 1, 1, 0.5]]
+respuestas_validas:
+  - "Semitono"
 
-enunciado: "La estructura de intervalos de una escala mayor es: Tono, Tono, ____, Tono, Tono, Tono, ____."
+enunciado: "La estructura de intervalos de una escala mayor sigue el patrón Tono, Tono, Semitono, Tono, Tono, Tono, ____. ¿Cuál es el último intervalo?"
 
 explicacion: |
   La escala mayor sigue el patrón: T-T-S-T-T-T-S (donde T=Tono y S=Semitono).
@@ -114,18 +116,14 @@ metadata:
   nivel: "intermedio"
   tags: ["escala_mayor"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["Do mayor", "Do"], ["Sol mayor", "Fa#"]]
-
-respuesta: datos[idx][1
+respuesta: "Sol mayor"
 tipo: mc
-opciones_explicitas: ["Do", "Fa#"]
+opciones_explicitas: ["Sol mayor", "Do mayor"]
 
-enunciado: "Si una escala tiene un sostenido en la séptima nota, la escala es de ___."
+enunciado: "Si una escala mayor tiene exactamente un sostenido, ubicado en su séptima nota (Fa#), esa escala es ___."
 
 explicacion: |
-  La escala de Sol mayor tiene un Fa# para cumplir el patrón de la escala mayor.
+  La escala de Sol mayor tiene un Fa# para cumplir el patrón de la escala mayor; Do mayor no tiene ningún sostenido.
 ```
 
 ```
@@ -152,7 +150,7 @@ metadata:
   nivel: "avanzado"
   tags: ["armadura", "sostenidos"]
 
-opciones_explicitas: ["Fa, Do, Sol, Re, La, Mi, Si"]
+opciones_explicitas: ["Fa, Do, Sol, Re, La, Mi, Si", "Si, Mi, La, Re, Sol, Do, Fa", "Do, Re, Mi, Fa, Sol, La, Si"]
 respuesta: "Fa, Do, Sol, Re, La, Mi, Si"
 tipo: mc
 
@@ -188,7 +186,8 @@ metadata:
 
 respuesta: "Igual"
 tipo: completar
-respuestas_validas: ["Igual"]
+respuestas_validas:
+  - "Igual"
 
 enunciado: "Un intervalo de unísono ocurre cuando dos notas son ___."
 
@@ -258,7 +257,7 @@ opciones_explicitas: ["Mayor", "Menor"]
 respuesta: "Mayor"
 tipo: mc
 
-enunciado: "Un intervalo de Do a Mi es una tercera ___, mientras que de Do a Mi bemol es una tercera ___."
+enunciado: "Un intervalo de Do a Mi es una tercera ___, mientras que de Do a Mi bemol es una tercera menor."
 
 explicacion: |
   La tercera mayor tiene 4 semitonos y la menor tiene 3.
@@ -271,8 +270,8 @@ metadata:
   nivel: "basico"
   tags: ["error_comun"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "¿Es cierto que entre cualquier par de notas consecutivas en un piano siempre hay un semitono?"
 
 explicacion: |
@@ -358,7 +357,7 @@ variables:
   idx: uno_de([0, 1])
   datos: [["Do mayor", "Do"], ["Sol mayor", "Sol"]]
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["Do", "Sol"]
 
@@ -411,7 +410,8 @@ metadata:
 
 respuesta: "La"
 tipo: completar
-respuestas_validas: ["La"]
+respuestas_validas:
+  - "La"
 
 enunciado: "En la escala de Do mayor, la nota que está a una sexta mayor es ___."
 
@@ -426,940 +426,1507 @@ metadata:
   nivel: "intermedio"
   tags: ["escala_mayor"]
 
-opciones_explicitas: ["Falso", "Verdadero"]
-respuesta: "Falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "En una escala mayor, el intervalo entre el IV y el V grado es siempre un semitono."
 
 explicacion: |
   Falso, el intervalo entre el IV y el V grado es un tono.
 ```
 
-## Sección: narrativa-audiovisual/encuadre (24 preguntas)
+## Sección: origen-del-arte (25 preguntas)
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
+  tema: "origen_del_arte"
   nivel: "basico"
-  tags: ["encuadre", "vocabulario"]
+  tags: ["prehistoria", "paleolitico", "simbolismo"]
 
-enunciado: "¿Qué es el encuadre, a diferencia del plano?"
-tipo: mc
-opciones_explicitas:
-  - "Cómo se organiza lo que entra dentro de los límites del plano ya elegido"
-  - "Qué tan cerca o lejos está la cámara del sujeto"
-  - "El guion técnico completo de la escena"
-respuesta: "Cómo se organiza lo que entra dentro de los límites del plano ya elegido"
+respuesta: "Paleolítico"
+tipo: completar
+respuestas_validas:
+  - "Paleolítico"
+
+enunciado: "El arte rupestre se asocia con la aparición del pensamiento simbólico durante el periodo ___."
 
 explicacion: |
-  El plano (ver `../plano/`) define la distancia; el encuadre define la
-  organización dentro de esa distancia.
+  El paso del pensamiento concreto al simbólico permitió al Homo sapiens representar su realidad en las paredes de las cuevas durante el Paleolítico.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
+  tema: "origen_del_arte"
   nivel: "basico"
-  tags: ["encuadre", "vocabulario"]
+  tags: ["arte_rupestre", "pintura_cavernica"]
 
-enunciado: "¿Qué es el ángulo de cámara 'a nivel' o 'normal'?"
+enunciado: "En las pinturas rupestres del Paleolítico, ¿cuál es uno de los motivos más frecuentes que se representa?"
+
+respuesta: "animales"
 tipo: mc
-opciones_explicitas:
-  - "La cámara a la altura de los ojos del sujeto"
-  - "La cámara mirando desde muy arriba"
-  - "La cámara inclinada, con el horizonte torcido"
-respuesta: "La cámara a la altura de los ojos del sujeto"
+opciones_explicitas: ["animales", "paisajes urbanos", "deidades griegas", "geometría abstracta"]
 
 explicacion: |
-  Es el punto de vista más neutral, el que menos condiciona la lectura
-  emocional.
+  Aunque existen otros elementos, la fauna (bisontes, caballos, ciervos) y las manos (en negativo o positivo) son los motivos predominantes.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
+  tema: "origen_del_arte"
   nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
+  tags: ["cronologia", "prehistoria"]
 
-enunciado: "¿Qué es un ángulo picado?"
-tipo: mc
-opciones_explicitas:
-  - "La cámara mira hacia abajo, desde arriba del sujeto"
-  - "La cámara mira hacia arriba, desde abajo del sujeto"
-  - "La cámara está inclinada de costado"
-respuesta: "La cámara mira hacia abajo, desde arriba del sujeto"
+variables:
+  orden_correcta: ["Paleolítico", "Mesolítico", "Neolítico"]
 
-explicacion: |
-  Suele hacer que el sujeto se vea más pequeño o vulnerable.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué efecto suele transmitir un ángulo picado sobre el sujeto?"
-tipo: mc
-opciones_explicitas:
-  - "Que se vea más pequeño, débil o vulnerable"
-  - "Que se vea más grande y poderoso"
-  - "No tiene ningún efecto sobre cómo se percibe el sujeto"
-respuesta: "Que se vea más pequeño, débil o vulnerable"
-
-explicacion: |
-  Es el efecto opuesto al contrapicado.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es un ángulo contrapicado?"
-tipo: mc
-opciones_explicitas:
-  - "La cámara mira hacia arriba, desde abajo del sujeto"
-  - "La cámara mira hacia abajo, desde arriba del sujeto"
-  - "La cámara filma en cámara lenta"
-respuesta: "La cámara mira hacia arriba, desde abajo del sujeto"
-
-explicacion: |
-  Suele hacer que el sujeto se vea más grande, poderoso o imponente.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué efecto suele transmitir un ángulo contrapicado sobre el sujeto?"
-tipo: mc
-opciones_explicitas:
-  - "Que se vea más grande, poderoso o imponente"
-  - "Que se vea más pequeño y vulnerable"
-  - "No cambia en nada la percepción del sujeto"
-respuesta: "Que se vea más grande, poderoso o imponente"
-
-explicacion: |
-  Es un recurso típico para presentar a un personaje dominante o
-  amenazante.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es un ángulo aberrante (u 'holandés')?"
-tipo: mc
-opciones_explicitas:
-  - "La cámara está inclinada, con el horizonte torcido"
-  - "La cámara filmando desde un dron"
-  - "La cámara a la altura exacta de los ojos"
-respuesta: "La cámara está inclinada, con el horizonte torcido"
-
-explicacion: |
-  Genera una sensación de inestabilidad, desorientación o tensión.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ángulo aberrante (con el horizonte torcido) suele usarse para generar una sensación de inestabilidad o desorientación."
-
-explicacion: |
-  Rompe la referencia horizontal "normal" que el ojo espera ver.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es el 'espacio de mirada' (look room) en un encuadre?"
-tipo: mc
-opciones_explicitas:
-  - "El espacio extra que se deja del lado hacia donde mira o se mueve el sujeto"
-  - "El tiempo que dura un plano en pantalla"
-  - "La distancia entre la cámara y el micrófono"
-respuesta: "El espacio extra que se deja del lado hacia donde mira o se mueve el sujeto"
-
-explicacion: |
-  Sin ese espacio, la composición se siente apretada o incómoda.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un sujeto mira hacia un lado y no se le deja espacio de ese lado en el cuadro, la composición suele sentirse apretada o incómoda."
-
-explicacion: |
-  Es como si el sujeto estuviera "chocando" contra el borde del
-  encuadre.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es el headroom, en un encuadre?"
-tipo: mc
-opciones_explicitas:
-  - "El espacio entre la parte superior de la cabeza del sujeto y el borde superior del cuadro"
-  - "La altura total del sujeto en la escena"
-  - "El espacio entre dos sujetos distintos en el mismo plano"
-respuesta: "El espacio entre la parte superior de la cabeza del sujeto y el borde superior del cuadro"
-
-explicacion: |
-  Ni mucho (se ve "flotando" abajo) ni poco (se ve apretado o cortado).
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Demasiado espacio entre la cabeza del sujeto y el borde superior del cuadro (headroom excesivo) hace que el sujeto se vea como flotando en la parte baja del encuadre."
-
-explicacion: |
-  Es uno de los dos extremos a evitar; el otro es muy poco headroom, que
-  corta o aprieta la cabeza.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La regla de tercios, ya vista en composición, también se aplica al encuadre cinematográfico: por ejemplo, ubicando los ojos del sujeto sobre una línea de tercios en vez de en el centro exacto."
-
-explicacion: |
-  Es la misma herramienta de `../../composicion-y-proporcion/`, aplicada
-  a un fotograma en movimiento.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es un encuadre cerrado?"
-tipo: mc
-opciones_explicitas:
-  - "Aquel que contiene dentro del cuadro todo lo que el espectador necesita para entender la escena"
-  - "Aquel filmado con la cámara muy cerca del sujeto"
-  - "Aquel que sólo se usa en primeros planos"
-respuesta: "Aquel que contiene dentro del cuadro todo lo que el espectador necesita para entender la escena"
-
-explicacion: |
-  No deja nada relevante fuera de cuadro.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué es un encuadre abierto?"
-tipo: mc
-opciones_explicitas:
-  - "Aquel que deja intuir que hay más espacio o acción fuera de cuadro (fuera de campo)"
-  - "Aquel filmado siempre en plano general"
-  - "Aquel sin ningún tipo de composición planificada"
-respuesta: "Aquel que deja intuir que hay más espacio o acción fuera de cuadro (fuera de campo)"
-
-explicacion: |
-  Genera expectativa, o hace que el espectador complete mentalmente lo
-  que no se ve.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sugerir que hay algo fuera de cuadro (fuera de campo), sin mostrarlo, es un recurso que puede generar expectativa en el espectador."
-
-explicacion: |
-  El espectador completa mentalmente lo que no se ve directamente.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre", "ordenar"]
-
-enunciado: "Ordená estas decisiones típicas al encuadrar un plano ya elegido (el tamaño de plano ya está decidido de antemano)."
+respuesta_orden: ["Paleolítico", "Mesolítico", "Neolítico"]
 tipo: ordenar
-opciones_explicitas:
-  - "Ubicar el punto de interés sobre una línea de la regla de tercios"
-  - "Elegir el ángulo de cámara (a nivel, picado, contrapicado)"
-  - "Dejar el espacio de mirada y el headroom adecuados"
-respuesta_orden:
-  - "Elegir el ángulo de cámara (a nivel, picado, contrapicado)"
-  - "Dejar el espacio de mirada y el headroom adecuados"
-  - "Ubicar el punto de interés sobre una línea de la regla de tercios"
+opciones_explicitas: ["Paleolítico", "Mesolítico", "Neolítico"]
+
+enunciado: "Ordena cronológicamente los periodos de la prehistoria, desde el surgimiento del arte rupestre más temprano hasta el desarrollo de la agricultura:"
 
 explicacion: |
-  El ángulo es una decisión estructural; el espacio de mirada, el
-  headroom y la regla de tercios son ajustes finos de esa composición.
+  El arte rupestre surge en el Paleolítico, se mantiene en el Mesolítico y adquiere nuevas formas en el Neolítico con el sedentarismo.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "intermedio"
-  tags: ["encuadre"]
+  tema: "origen_del_arte"
+  nivel: "avanzado"
+  tags: ["simbolismo", "antropologia"]
 
 respuesta: verdadero
 tipo: vf
-
-enunciado: "El ángulo de cámara 'a nivel' es el que menos condiciona la lectura emocional de una escena, en comparación con el picado o el contrapicado."
+enunciado: "¿Es cierto que la capacidad de crear arte rupestre implica que el ser humano ya posee la capacidad de abstracción y pensamiento simbólico?"
 
 explicacion: |
-  Por eso se usa como punto de vista "neutral" por defecto.
+  El arte no es solo una copia de la realidad, sino una representación que requiere que el individuo pueda pensar en algo que no está presente físicamente.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre", "vocabulario"]
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["tecnologia_prehistorica", "pigmentos"]
 
-enunciado: "¿Qué ángulo de cámara conviene usar para mostrar a un personaje como especialmente poderoso o amenazante?"
+enunciado: "Para realizar sus pinturas, los artistas del Paleolítico utilizaban pigmentos naturales como el óxido de hierro (ocre)."
+
+respuesta: "óxido de hierro"
 tipo: mc
-opciones_explicitas:
-  - "Contrapicado"
-  - "Picado"
-  - "A nivel"
-respuesta: "Contrapicado"
+opciones_explicitas: ["óxido de hierro", "azul de ultramar", "tinta china", "acrílico"]
 
 explicacion: |
-  Mirar hacia arriba, desde abajo del personaje, lo hace ver más grande
-  e imponente.
+  El uso de minerales como el ocre (óxido de hierro) y el carbón permitió la fijación de colores rojos, negros y amarillos en las paredes de las cuevas.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre", "vocabulario"]
-
-enunciado: "¿Qué ángulo de cámara conviene usar para mostrar a un personaje como especialmente pequeño o vulnerable?"
-tipo: mc
-opciones_explicitas:
-  - "Picado"
-  - "Contrapicado"
-  - "Aberrante"
-respuesta: "Picado"
-
-explicacion: |
-  Mirar hacia abajo, desde arriba del personaje, lo empequeñece.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
+  tema: "origen_del_arte"
   nivel: "basico"
-  tags: ["encuadre"]
+  tags: ["prehistoria", "ritual"]
 
-respuesta: verdadero
-tipo: vf
+tipo: mc
+opciones_explicitas: ["Decoración estética", "Magia de caza", "Registro de eventos históricos", "Expresión de identidad"]
 
-enunciado: "El encuadre es lo que convierte una simple elección de distancia (el plano) en una composición con intención narrativa."
+enunciado: "Se cree que muchas pinturas rupestres de animales no tenían un fin decorativo, sino que formaban parte de un ritual para asegurar el éxito en la obtención de alimento. ¿Qué función describe mejor esta creencia?"
+
+respuesta: "Magia de caza"
 
 explicacion: |
-  El ángulo, el espacio de mirada y el headroom no son detalles
-  técnicos menores: cambian cómo se interpreta la escena.
+  La teoría de la 'magia simpática' sugiere que pintar al animal era un acto ritual para controlarlo y facilitar la caza real.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
-  nivel: "avanzado"
-  tags: ["encuadre"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El headroom 'correcto' no es un número fijo: depende del tamaño de plano que se esté usando (un primer plano y un plano entero no necesitan el mismo headroom)."
-
-explicacion: |
-  No es una regla matemática rígida, sino un balance visual a ojo.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
+  tema: "origen_del_arte"
   nivel: "intermedio"
-  tags: ["encuadre"]
+  tags: ["registro", "comunicación"]
+
+tipo: completar
+respuestas_validas:
+  - "registrar eventos sociales"
+
+enunciado: "Si un grupo de homínidos utilizaba el arte para dejar constancia de lo ocurrido en su comunidad, el arte estaría cumpliendo la función de ___."
+
+respuesta: "registrar eventos sociales"
+
+explicacion: |
+  El arte también funcionó como un sistema de registro para preservar la memoria de eventos o la identidad de quienes habitaban un lugar.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["identidad", "social"]
+
+tipo: mc
+opciones_explicitas: ["Identidad grupal", "Uso utilitario", "Ritual de fertilidad", "Decoración de refugio"]
+
+enunciado: "El uso de símbolos o marcas específicas en las cuevas que permitían a diferentes bandas reconocer el territorio de otros sugiere una función de:"
+
+respuesta: "Identidad grupal"
+
+explicacion: |
+  Los símbolos compartidos ayudan a fortalecer la cohesión del grupo y a diferenciar la identidad de una comunidad frente a otra.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "avanzado"
+  tags: ["teoria", "evolucion"]
+
+tipo: ordenar
+opciones_explicitas: ["Ritual/Magia", "Registro de eventos", "Expresión de identidad", "Estética pura"]
+
+respuesta_orden: ["Ritual/Magia", "Registro de eventos", "Expresión de identidad", "Estética pura"]
+
+enunciado: "Ordena las siguientes teorías sobre la evolución de la función del arte, desde la más ligada a la supervivencia inmediata hasta la más abstracta/contemplativa:"
+
+explicacion: |
+  Históricamente, se debate si el arte comenzó con propósitos mágicos-supervivencia, pasó a ser un registro social y finalmente se convirtió en un objeto de contemplación estética.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["magia", "supervivencia"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si el arte rupestre se utilizaba para realizar un ritual de fertilidad de la fauna, su función principal era asegurar la ___."
+
+respuesta: "supervivencia"
+
+explicacion: |
+  Al intentar influir en la naturaleza mediante el arte, el ser humano primitivo buscaba asegurar la continuidad de su propia subsistencia.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["escultura", "prehistoria"]
+
+respuesta: "Venus de Willendorf"
+tipo: completar
+respuestas_validas:
+  - "Venus de Willendorf"
+
+enunciado: "Una de las esculturas más famosas del Paleolítico Superior, que destaca por enfatizar la fertilidad, es la ___."
+
+explicacion: |
+  Las Venus paleolíticas son pequeñas estatuillas femeninas que suelen presentar rasgos sexuales muy exagerados, lo que sugiere un simbolismo relacionado con la fertilidad o la maternidad.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["musica", "prehistoria"]
+
+variables:
+  escenario: uno_de([["una flauta de hueso de ave", "hueso"], ["un ritmo de percusión con piedras", "piedra"], ["un silbato de concha marina", "concha"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["hueso", "piedra", "concha", "madera"]
+
+enunciado: "En el registro arqueológico, se han encontrado restos que sugieren el uso de {escenario[0]} como primer instrumento musical."
+
+explicacion: |
+  Se han hallado flautas hechas de hueso de animales (como buitres o ciervos) en yacimientos como la cueva de Hohle Fels, lo que demuestra que la música es una expresión artística muy temprana.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["ornamento", "joyeria"]
+
+respuesta: "collares"
+tipo: mc
+opciones_explicitas: ["collares", "cuadros", "estatuas", "murales"]
+
+enunciado: "El uso de conchas, dientes de animales o piedras perforadas para crear ___ es una de las formas más antiguas de expresión estética personal."
+
+explicacion: |
+  La ornamentación personal indica no solo una función estética, sino también la construcción de identidad y estatus dentro de los grupos humanos primitivos.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "avanzado"
+  tags: ["secuencia", "prehistoria"]
+
+respuesta_orden: ["pintura rupestre", "escultura pequeña", "instrumentos musicales"]
+tipo: ordenar
+opciones_explicitas: ["pintura rupestre", "escultura pequeña", "instrumentos musicales"]
+
+enunciado: "Ordena las siguientes manifestaciones artísticas según su aparición o prevalencia en el registro arqueológico temprano (de la más antigua/difusa a la más compleja):"
+
+pasos:
+  - "Identifica la manifestación más primitiva"
+  - "Ubica la escultura de pequeña escala"
+  - "Considera la especialización de instrumentos"
+
+explicacion: |
+  Aunque el arte es un proceso complejo, la arqueología muestra una transición desde la expresión simbólica en paredes (pintura), pasando por objetos portátiles (escultura/Venus), hasta la especialización de herramientas sonoras.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["escultura", "materiales"]
+
+respuesta: 12.5
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Si una pequeña estatuilla de piedra pesa 12.5 gramos y se encuentra en un yacimiento donde el 50% de los objetos son de este material, ¿cuántos gramos de piedra representan el total de la muestra analizada de 25 gramos?"
+
+pasos:
+  - "Identificar el peso del objeto (12.5g)"
+  - "Calcular el peso total de la muestra (25g)"
+  - "Determinar la parte proporcional de la piedra"
+
+explicacion: |
+  El estudio del peso y la densidad de los materiales es crucial para que los arqueólogos determinen el origen de las piezas escultóricas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["evolucion", "cognicion", "simbolismo"]
+
+respuesta: "simbólico"
+tipo: completar
+respuestas_validas:
+  - "simbólico"
+
+enunciado: "El arte requiere la capacidad de realizar un salto ___ para representar algo que no está presente físicamente en el entorno inmediato."
+
+explicacion: |
+  Representar un objeto ausente (como un animal en una cueva) requiere que el cerebro humano procese conceptos abstractos y símbolos, marcando un hito en la evolución cognitiva.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["cognicion", "evolucion"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "La aparición de representaciones pictóricas en el registro arqueológico es evidencia de una capacidad cognitiva avanzada. ¿Es esto cierto?"
+
+explicacion: |
+  La capacidad de proyectar una imagen mental sobre una superficie física demuestra que el Homo sapiens ya poseía pensamiento simbólico.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["abstraccion", "evolucion"]
+
+variables:
+  escenario: uno_de(["un bisonte", "un paisaje", "una herramienta de piedra"])
+
+respuesta: "ausente"
+tipo: mc
+opciones_explicitas: ["ausente", "presente", "en movimiento"]
+
+enunciado: "Si un artista prehistórico pinta {escenario}, está demostrando la capacidad de representar algo que está ___ en el momento de crear la obra."
+
+explicacion: |
+  El arte no es solo imitación, es la capacidad de traer a la mente un objeto ausente para darle un significado nuevo.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "avanzado"
+  tags: ["procesos_mentales", "abstraccion"]
+
+respuesta_orden: ["Percepción del objeto real", "Procesamiento mental/abstracción", "Representación simbólica en soporte"]
+tipo: ordenar
+opciones_explicitas: ["Percepción del objeto real", "Procesamiento mental/abstracción", "Representación simbólica en soporte"]
+
+enunciado: "Ordena cronológicamente los procesos cognitivos necesarios para que un humano primitivo cree una pintura rupestre:"
+
+explicacion: |
+  Primero se percibe el mundo, luego el cerebro abstrae la esencia del objeto y finalmente se ejecuta la acción de representar ese concepto.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["simbolismo", "evolucion"]
+
+respuesta: "representar ideas o entidades ausentes"
+tipo: completar
+respuestas_validas:
+  - "representar ideas o entidades ausentes"
+
+enunciado: "El objetivo principal del arte como fenómeno cognitivo es ___."
+
+explicacion: |
+  El arte permite que la mente humana trascienda el "aquí y ahora", permitiendo la comunicación de ideas, mitos y conceptos abstractos a través del tiempo.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["prehistoria", "pintura"]
+
+respuesta: "pintura rupestre"
+tipo: mc
+opciones_explicitas: ["pintura rupestre", "escultura megalitica", "grabado"]
+
+enunciado: "Se han encontrado restos de pigmentos rojos y negros aplicados sobre las paredes de una cueva profunda. ¿A qué forma de arte corresponde esta descripción?"
+
+explicacion: |
+  La descripción corresponde a la pintura rupestre: pigmentos aplicados directamente sobre la roca de una cueva.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["escultura", "paleolitico"]
+
+respuesta: "Venus"
+tipo: mc
+opciones_explicitas: ["Venus", "Zoomorfos", "Manos"]
+
+enunciado: "Se descubre una pequeña estatuilla de piedra que enfatiza la fertilidad mediante formas redondeadas. Se trata de una ___."
+
+explicacion: |
+  Las pequeñas figuras femeninas con rasgos sexuales muy acentuados se denominan Venus paleolíticas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "avanzado"
+  tags: ["cronologia", "periodos"]
+
+variables:
+  orden_correcto: ["Paleolítico", "Mesolítico", "Neolítico"]
+
+respuesta_orden: ["Paleolítico", "Mesolítico", "Neolítico"]
+tipo: ordenar
+opciones_explicitas: ["Paleolítico", "Mesolítico", "Neolítico"]
+
+enunciado: "Ordena cronológicamente los periodos de la prehistoria, desde el más antiguo al más reciente:"
+
+explicacion: |
+  El orden correcto es: {orden_correcto[0]}, luego {orden_correcto[1]} y finalmente {orden_correcto[2]}.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "basico"
+  tags: ["tecnica", "materiales"]
+
+respuesta: "grabado"
+tipo: completar
+respuestas_validas:
+  - "grabado"
+
+enunciado: "En arqueología, cuando la decoración consiste en incidir líneas o diseños sobre un soporte duro (piedra, hueso o madera), la técnica se denomina genéricamente ___."
+
+explicacion: |
+  El término genérico es "grabado", sin importar si el soporte es piedra, hueso o madera.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "origen_del_arte"
+  nivel: "intermedio"
+  tags: ["teoria", "prehistoria"]
+
+variables:
+  datos: [["magia", "ritual"], ["comunicación", "lenguaje"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["ritual", "estética", "lenguaje"]
+
+enunciado: "Muchos arqueólogos sostienen que el arte en el Paleolítico no era decorativo, sino que tenía una función de ___."
+
+explicacion: |
+  Se cree que su función principal era el {datos[idx][1]}.
+```
+
+## Sección: principios-de-diseno (30 preguntas)
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["principios", "vocabulario"]
+
+enunciado: "¿Qué son los principios de diseño, a diferencia de los elementos del arte?"
+tipo: mc
+opciones_explicitas:
+  - "Las reglas de organización que indican CÓMO combinar los elementos del arte dentro de una obra"
+  - "Los materiales físicos con los que se hace una obra"
+  - "Otro nombre para los mismos 7 elementos del arte"
+respuesta: "Las reglas de organización que indican CÓMO combinar los elementos del arte dentro de una obra"
+
+explicacion: |
+  Los elementos (`../elementos-del-arte/`) son el vocabulario; los
+  principios son las reglas de uso de ese vocabulario.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["contraste", "vocabulario"]
+
+enunciado: "¿Qué es el contraste, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "Una diferencia marcada entre elementos (color, tamaño, forma, textura) que genera interés visual"
+  - "El uso de un solo color en toda la obra"
+  - "La repetición exacta de un mismo elemento"
+respuesta: "Una diferencia marcada entre elementos (color, tamaño, forma, textura) que genera interés visual"
+
+explicacion: |
+  Puede ser de color, tamaño, forma o textura.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["contraste"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin ningún contraste entre sus elementos, una obra tiende a verse plana o monótona."
+
+explicacion: |
+  El contraste es lo que genera puntos de interés dentro de la
+  composición.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["equilibrio", "vocabulario"]
+
+enunciado: "¿Qué es el equilibrio, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "La distribución del 'peso visual' de los elementos dentro de la obra"
+  - "El uso de la misma cantidad de cada color"
+  - "Que la obra tenga exactamente el mismo tamaño que su marco"
+respuesta: "La distribución del 'peso visual' de los elementos dentro de la obra"
+
+explicacion: |
+  Puede lograrse de varias formas, no sólo con simetría exacta.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["equilibrio", "vocabulario"]
+
+enunciado: "¿Cuáles son los tres tipos de equilibrio en una composición?"
+tipo: mc
+opciones_explicitas:
+  - "Simétrico, asimétrico y radial"
+  - "Cálido, frío y neutro"
+  - "Primario, secundario y terciario"
+respuesta: "Simétrico, asimétrico y radial"
+
+explicacion: |
+  Cada uno logra el balance visual de una forma distinta.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["equilibrio", "vocabulario"]
+
+enunciado: "¿Cuál de estos es un ejemplo típico de equilibrio radial?"
+tipo: mc
+opciones_explicitas:
+  - "Un rosetón, organizado alrededor de un centro"
+  - "Un retrato con la cara exactamente en el medio, mirando de frente"
+  - "Una foto con un objeto grande a la izquierda y varios chicos a la derecha"
+respuesta: "Un rosetón, organizado alrededor de un centro"
+
+explicacion: |
+  El equilibrio radial se organiza alrededor de un punto central, como
+  en `../rosetones-y-simetria/`.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["proporcion", "vocabulario"]
+
+enunciado: "¿Qué es la proporción, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "La relación de tamaño entre las partes de la obra, ajustada para que se vea coherente"
+  - "La cantidad total de elementos usados"
+  - "El costo relativo de los materiales usados"
+respuesta: "La relación de tamaño entre las partes de la obra, ajustada para que se vea coherente"
+
+explicacion: |
+  Ya se presentó en `../composicion-y-proporcion/`; acá se retoma como
+  herramienta activa de diseño.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["ritmo", "vocabulario"]
+
+enunciado: "¿Qué es el ritmo, como principio de diseño visual?"
+tipo: mc
+opciones_explicitas:
+  - "La repetición de elementos de forma que crea una sensación de movimiento organizado"
+  - "La velocidad a la que se hizo la obra"
+  - "El uso exclusivo de líneas curvas"
+respuesta: "La repetición de elementos de forma que crea una sensación de movimiento organizado"
+
+explicacion: |
+  Es la misma idea del ritmo musical, trasladada al espacio visual.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["ritmo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El ritmo visual se logra repitiendo una línea, forma o color con cierta regularidad."
+
+explicacion: |
+  Sin repetición no hay ritmo, de la misma forma que no hay ritmo
+  musical sin patrón temporal.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["unidad", "vocabulario"]
+
+enunciado: "¿Qué es la unidad, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "La sensación de que todos los elementos de la obra pertenecen juntos, formando un todo coherente"
+  - "El uso de un único elemento en toda la obra"
+  - "Que la obra mida exactamente 1 metro por lado"
+respuesta: "La sensación de que todos los elementos de la obra pertenecen juntos, formando un todo coherente"
+
+explicacion: |
+  Sin unidad, la obra se ve como piezas sueltas sin relación entre sí.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["enfasis", "vocabulario"]
+
+enunciado: "¿Qué es el énfasis, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "Destacar una parte de la obra como la más importante"
+  - "Repetir el mismo elemento varias veces"
+  - "Usar sólo colores oscuros"
+respuesta: "Destacar una parte de la obra como la más importante"
+
+explicacion: |
+  Se logra con contraste, posición o tamaño.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["enfasis"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El énfasis, como principio de diseño, está directamente relacionado con el concepto de punto focal."
+
+explicacion: |
+  Ambos apuntan a lo mismo: qué parte de la obra capta primero la
+  atención.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["movimiento", "vocabulario"]
+
+enunciado: "¿Qué es el movimiento, como principio de diseño en una obra estática (como una pintura)?"
+tipo: mc
+opciones_explicitas:
+  - "La sensación de acción, o la forma en que la composición guía la mirada a través de la obra"
+  - "Un movimiento físico real de la obra"
+  - "El desplazamiento del artista mientras trabaja"
+respuesta: "La sensación de acción, o la forma en que la composición guía la mirada a través de la obra"
+
+explicacion: |
+  En una obra estática, el movimiento es sugerido, no real.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["movimiento"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Un ángulo aberrante (u 'holandés') mantiene el horizonte perfectamente recto, sin ninguna inclinación."
+enunciado: "El movimiento, como principio de diseño, siempre implica que la obra tenga animación real (como un video)."
 
 explicacion: |
-  Al contrario: la característica que define al ángulo aberrante es
-  justamente la inclinación de la cámara, que tuerce el horizonte.
+  En una pintura o foto estática, el movimiento es sugerido por líneas,
+  disposición de elementos o dirección de las miradas.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_encuadre"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["patron", "vocabulario"]
+
+enunciado: "¿Qué es un patrón, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "La repetición regular de un elemento o motivo"
+  - "Un solo elemento único, sin repetir"
+  - "La mezcla de todos los colores primarios"
+respuesta: "La repetición regular de un elemento o motivo"
+
+explicacion: |
+  Como un empapelado, un mosaico o un estampado de tela.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "avanzado"
+  tags: ["patron"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un patrón visual es el mismo concepto que la traslación repetida (ver `../../matematica/transformaciones-geometricas/traslacion/`), aplicado como recurso de diseño."
+
+explicacion: |
+  El mismo motivo se repite deslizándose siempre el mismo vector.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["variedad", "vocabulario"]
+
+enunciado: "¿Qué es la variedad, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "El uso de elementos diferentes entre sí, para evitar la monotonía"
+  - "La cantidad total de colores disponibles en una paleta"
+  - "Otro nombre para el contraste"
+respuesta: "El uso de elementos diferentes entre sí, para evitar la monotonía"
+
+explicacion: |
+  Funciona en tensión directa con la unidad.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "avanzado"
+  tags: ["unidad", "variedad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La unidad y la variedad están en tensión: un diseño efectivo tiene que balancear ambas, no maximizar una a costa de la otra."
+
+explicacion: |
+  Demasiada unidad sin variedad aburre; demasiada variedad sin unidad
+  se ve caótico.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["escala", "vocabulario"]
+
+enunciado: "¿Qué es la escala, como principio de diseño?"
+tipo: mc
+opciones_explicitas:
+  - "El tamaño de un elemento en relación con otros elementos o con el espectador"
+  - "La cantidad de veces que se repite un elemento"
+  - "El tamaño físico total de la obra, sin comparar con nada más"
+respuesta: "El tamaño de un elemento en relación con otros elementos o con el espectador"
+
+explicacion: |
+  Es siempre una comparación, no un tamaño absoluto.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["escala", "vocabulario"]
+
+enunciado: "¿Cuál de estos es un ejemplo de usar la escala deliberadamente para llamar la atención?"
+tipo: mc
+opciones_explicitas:
+  - "Dibujar un objeto cotidiano (como una taza) mucho más grande de lo esperado"
+  - "Usar siempre el mismo tamaño para todos los elementos"
+  - "Elegir un formato de obra cuadrado"
+respuesta: "Dibujar un objeto cotidiano (como una taza) mucho más grande de lo esperado"
+
+explicacion: |
+  Romper la escala esperada de algo genera un efecto visual fuerte.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "avanzado"
+  tags: ["equilibrio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El equilibrio simétrico se basa en el mismo concepto de reflexión (eje de simetría) ya visto en geometría."
+
+explicacion: |
+  Los elementos de un lado del eje son, en esencia, el reflejo de los
+  del otro lado.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "avanzado"
+  tags: ["equilibrio", "ordenar"]
+
+enunciado: "Ordená los pasos para lograr un equilibrio asimétrico (sin usar simetría exacta) en una composición."
+tipo: ordenar
+opciones_explicitas:
+  - "Revisar que ningún lado 'pese' visualmente mucho más que el otro"
+  - "Ubicar un elemento grande o de mucho contraste de un lado de la composición"
+  - "Compensarlo con varios elementos más chicos, o con espacio negativo, del otro lado"
+respuesta_orden: ["Ubicar un elemento grande o de mucho contraste de un lado de la composición", "Compensarlo con varios elementos más chicos, o con espacio negativo, del otro lado", "Revisar que ningún lado 'pese' visualmente mucho más que el otro"]
+explicacion: |
+  El equilibrio no exige espejo exacto: exige que el peso visual total
+  quede balanceado.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["unidad", "variedad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una obra con mucha unidad pero sin nada de variedad tiende a verse aburrida o monótona."
+
+explicacion: |
+  Es el extremo opuesto de una obra caótica por exceso de variedad sin
+  unidad.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["unidad", "variedad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una obra con mucha variedad pero sin ninguna unidad tiende a verse caótica o desordenada."
+
+explicacion: |
+  El diseño efectivo busca el balance entre ambos extremos.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["patron", "completar"]
+
+tipo: completar
+enunciado: "Completá: la repetición regular de un elemento o motivo se llama ___."
+respuestas_validas:
+  - "patrón"
+  - "patron"
+
+explicacion: |
+  Es distinto del ritmo, que es la sensación de movimiento que genera
+  esa repetición.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "avanzado"
+  tags: ["ritmo", "patron", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia entre ritmo y patrón?"
+tipo: mc
+opciones_explicitas:
+  - "El patrón es la repetición en sí; el ritmo es la sensación de movimiento que esa repetición genera"
+  - "Son exactamente lo mismo, dos nombres para un solo concepto"
+  - "El ritmo sólo aplica a la música, nunca a las artes visuales"
+respuesta: "El patrón es la repetición en sí; el ritmo es la sensación de movimiento que esa repetición genera"
+
+explicacion: |
+  Están relacionados, pero no son lo mismo: uno es la estructura, el
+  otro es el efecto que produce.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "intermedio"
+  tags: ["enfasis", "contraste"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Uno de los recursos para lograr énfasis en una composición es usar contraste (de color, tamaño o forma) en la zona que se quiere destacar."
+
+explicacion: |
+  Contraste y énfasis suelen trabajar juntos.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["principios"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los 10 principios de diseño se pueden aplicar tanto a una pintura como a un afiche, una interfaz digital o un video."
+
+explicacion: |
+  Son principios generales de organización visual, no exclusivos de
+  ninguna técnica.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
+  nivel: "basico"
+  tags: ["principios"]
+
+respuesta: 10
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos principios de diseño distintos se presentan en este módulo?"
+
+explicacion: |
+  Contraste, equilibrio, proporción, ritmo, unidad, énfasis, movimiento,
+  patrón, variedad y escala.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "principios_de_diseno"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirve dominar las herramientas de encuadre (ángulo, espacio de mirada, headroom, regla de tercios)?"
+enunciado: "¿Para qué sirve conocer los principios de diseño?"
 tipo: mc
 opciones_explicitas:
-  - "Para tomar decisiones deliberadas sobre cómo el espectador va a interpretar cada escena, no dejarlo al azar"
-  - "Sólo sirve para que la imagen se vea más prolija técnicamente"
-  - "Sólo aplica en cine, nunca en fotografía o video"
-respuesta: "Para tomar decisiones deliberadas sobre cómo el espectador va a interpretar cada escena, no dejarlo al azar"
+  - "Para tener herramientas concretas con las que describir, evaluar y aplicar la composición en cualquier obra visual"
+  - "Sólo sirven para criticar el trabajo de otros artistas"
+  - "Sólo aplican si la obra ya tiene los 7 elementos del arte presentes"
+respuesta: "Para tener herramientas concretas con las que describir, evaluar y aplicar la composición en cualquier obra visual"
 
 explicacion: |
-  El encuadre es lenguaje visual: comunica algo, aunque no haya
-  diálogo.
+  Cualquier decisión de diseño se puede analizar en términos de estos
+  10 principios.
 ```
 
-## Sección: narrativa-audiovisual/montaje (26 preguntas)
+## Sección: ritmo-compas-pulso-figuras-musicales (25 preguntas)
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
+  tema: "ritmo_y_compas"
   nivel: "basico"
-  tags: ["montaje", "vocabulario"]
-
-enunciado: "¿Qué es el montaje (edición) en narrativa audiovisual?"
-tipo: mc
-opciones_explicitas:
-  - "El proceso de seleccionar, ordenar y unir los planos ya filmados para construir la narración completa"
-  - "El proceso de escribir el guion antes de filmar"
-  - "La elección del tamaño de plano al momento de filmar"
-respuesta: "El proceso de seleccionar, ordenar y unir los planos ya filmados para construir la narración completa"
-
-explicacion: |
-  Es la última gran decisión creativa, después de filmar todos los
-  planos individuales.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "intermedio"
-  tags: ["montaje"]
+  tags: ["ritmo", "pulso", "musica"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Dos películas filmadas con exactamente los mismos planos pueden contar historias completamente distintas, según cómo se los monte."
+enunciado: "El pulso es la unidad básica de tiempo en la música, similar al latido del corazón, que nos permite sentir el ritmo de una obra."
 
 explicacion: |
-  Es la idea central de por qué el montaje importa tanto como la
-  filmación.
+  Efectivamente, el pulso es la sensación constante de regularidad que percibimos en la música.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
+  tema: "ritmo_y_compas"
   nivel: "basico"
-  tags: ["montaje", "vocabulario"]
+  tags: ["figuras_musicales", "duracion"]
 
-enunciado: "¿Qué es un corte directo (o corte seco)?"
+variables:
+  escenario: uno_de([["blanca", "redonda"], ["negra", "blanca"], ["corchea", "negra"]])
+
+respuesta: escenario[1]
 tipo: mc
-opciones_explicitas:
-  - "Un plano pasa al siguiente de forma instantánea, sin transición visible"
-  - "Un plano se superpone gradualmente con el siguiente"
-  - "La imagen se oscurece hasta el negro antes del siguiente plano"
-respuesta: "Un plano pasa al siguiente de forma instantánea, sin transición visible"
+opciones_explicitas: ["redonda", "blanca", "negra", "corchea"]
+
+enunciado: "Si comparamos la duración de una {escenario[0]} con la de una {escenario[1]}, ¿cuál de las dos es la que tiene el doble de duración?"
 
 explicacion: |
-  Es el tipo de corte más común — bien hecho, casi no se nota.
+  En la jerarquía de las figuras, la {escenario[1]} equivale a dos {escenario[0]}.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
+  tema: "ritmo_y_compas"
+  nivel: "intermedio"
+  tags: ["figuras_musicales", "calculo"]
+
+respuesta: 2
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si una nota negra equivale a 1 tiempo, ¿cuántas corcheas caben en el espacio de una sola nota negra?"
+
+pasos:
+  - "Identificar que una negra es igual a dos corcheas."
+
+explicacion: |
+  Una negra contiene 2 corcheas. Por lo tanto, en una negra caben 2 corcheas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_compas"
   nivel: "basico"
-  tags: ["montaje", "vocabulario"]
+  tags: ["orden", "figuras_musicales"]
 
-enunciado: "¿Qué es un fundido a negro?"
-tipo: mc
-opciones_explicitas:
-  - "La imagen se oscurece gradualmente hasta el negro, antes de que aparezca el siguiente plano"
-  - "Dos planos se combinan al mismo tiempo en pantalla dividida"
-  - "El plano se congela sin cortar al siguiente"
-respuesta: "La imagen se oscurece gradualmente hasta el negro, antes de que aparezca el siguiente plano"
-
-explicacion: |
-  Suele marcar el paso del tiempo, o el cierre de una escena o
-  capítulo.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "intermedio"
-  tags: ["montaje", "vocabulario"]
-
-enunciado: "¿Qué es un encadenado (o disolvencia)?"
-tipo: mc
-opciones_explicitas:
-  - "Un plano se superpone gradualmente con el siguiente, mezclándose por un momento"
-  - "Un corte instantáneo, sin ninguna transición"
-  - "Un plano que se repite exactamente igual dos veces seguidas"
-respuesta: "Un plano se superpone gradualmente con el siguiente, mezclándose por un momento"
-
-explicacion: |
-  Sugiere una conexión entre ambas imágenes, o un paso de tiempo más
-  suave que el corte directo.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "avanzado"
-  tags: ["montaje", "vocabulario"]
-
-enunciado: "¿Qué es un corte por movimiento (match cut)?"
-tipo: mc
-opciones_explicitas:
-  - "Un corte que conecta dos planos que comparten una forma, movimiento o acción similar"
-  - "Un corte que siempre implica cámara lenta"
-  - "Un corte que sólo se usa al final de una película"
-respuesta: "Un corte que conecta dos planos que comparten una forma, movimiento o acción similar"
-
-explicacion: |
-  Genera una transición fluida, y a veces un significado simbólico
-  adicional.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "avanzado"
-  tags: ["montaje"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un corte por movimiento (match cut) puede usarse para sugerir un significado simbólico, no sólo una transición fluida."
-
-explicacion: |
-  Como el ejemplo clásico de un hueso lanzado al aire cortando
-  directamente a una nave espacial.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "intermedio"
-  tags: ["montaje", "vocabulario"]
-
-enunciado: "¿Qué es la continuidad, en el montaje audiovisual?"
-tipo: mc
-opciones_explicitas:
-  - "Mantener la coherencia espacial y temporal entre planos consecutivos, para no confundir al espectador"
-  - "Filmar todos los planos de una escena sin cortar la cámara"
-  - "Usar siempre el mismo tipo de corte en toda la película"
-respuesta: "Mantener la coherencia espacial y temporal entre planos consecutivos, para no confundir al espectador"
-
-explicacion: |
-  Sin continuidad, el espectador puede perder la orientación de dónde
-  están los personajes o qué acaba de pasar.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "avanzado"
-  tags: ["montaje", "vocabulario"]
-
-enunciado: "¿En qué consiste la regla de los 180° en continuidad de montaje?"
-tipo: mc
-opciones_explicitas:
-  - "Se traza una línea imaginaria entre los sujetos de la escena, y la cámara no la cruza de un plano al siguiente"
-  - "Cada plano debe durar exactamente 180 segundos"
-  - "La cámara debe rotar 180° entre cada corte"
-respuesta: "Se traza una línea imaginaria entre los sujetos de la escena, y la cámara no la cruza de un plano al siguiente"
-
-explicacion: |
-  Si la cruzara, los personajes parecerían "cambiar de lado" en
-  pantalla, sin haberse movido realmente.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "avanzado"
-  tags: ["montaje"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si la cámara cruza la línea imaginaria de la regla de los 180° entre un plano y el siguiente, los personajes pueden parecer haber cambiado de posición relativa, aunque no se hayan movido."
-
-explicacion: |
-  Es justamente el problema de continuidad que esa regla busca evitar.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "intermedio"
-  tags: ["montaje", "vocabulario"]
-
-enunciado: "¿Qué define el ritmo de una secuencia montada?"
-tipo: mc
-opciones_explicitas:
-  - "La duración de cada plano y la frecuencia con la que ocurren los cortes"
-  - "La cantidad de personajes que aparecen en la escena"
-  - "El presupuesto total de la producción"
-respuesta: "La duración de cada plano y la frecuencia con la que ocurren los cortes"
-
-explicacion: |
-  Planos cortos y cortes frecuentes dan un ritmo distinto que planos
-  largos y pocos cortes.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "intermedio"
-  tags: ["montaje", "vocabulario"]
-
-enunciado: "¿Qué sensación suele transmitir un montaje rápido (planos cortos, cortes frecuentes)?"
-tipo: mc
-opciones_explicitas:
-  - "Tensión, acción, urgencia"
-  - "Calma y contemplación"
-  - "Ninguna sensación distinta a un montaje lento"
-respuesta: "Tensión, acción, urgencia"
-
-explicacion: |
-  Típico de una persecución o una pelea.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "intermedio"
-  tags: ["montaje", "vocabulario"]
-
-enunciado: "¿Qué sensación suele transmitir un montaje lento (planos largos, pocos cortes)?"
-tipo: mc
-opciones_explicitas:
-  - "Contemplación, calma, peso dramático"
-  - "Urgencia y adrenalina"
-  - "Confusión total en el espectador"
-respuesta: "Contemplación, calma, peso dramático"
-
-explicacion: |
-  Típico de un momento íntimo o reflexivo de la historia.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "avanzado"
-  tags: ["montaje", "vocabulario"]
-
-enunciado: "¿Qué demostró el experimento conocido como el 'efecto Kuleshov'?"
-tipo: mc
-opciones_explicitas:
-  - "Que el significado que se le da a un plano depende del plano que lo precede o sigue, no sólo de su contenido aislado"
-  - "Que el sonido no influye en cómo se percibe una escena"
-  - "Que el montaje no cambia en nada la interpretación de una historia"
-respuesta: "Que el significado que se le da a un plano depende del plano que lo precede o sigue, no sólo de su contenido aislado"
-
-explicacion: |
-  El mismo plano de una cara neutra se interpretó como hambre, tristeza
-  o ternura, según qué plano se mostraba justo antes.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "avanzado"
-  tags: ["montaje"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el experimento del efecto Kuleshov, se usó el mismo plano exacto de la cara de un actor, combinado con distintos planos previos, para ver cómo cambiaba la interpretación del espectador."
-
-explicacion: |
-  El plano del actor era idéntico en los tres casos; lo que cambiaba
-  era el plano que lo precedía.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "avanzado"
-  tags: ["montaje"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El efecto Kuleshov muestra que el montaje no sólo organiza lo ya filmado: puede crear significado nuevo que no estaba en ningún plano individual."
-
-explicacion: |
-  Es la conclusión teórica central de ese experimento.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "avanzado"
-  tags: ["montaje", "ordenar"]
-
-enunciado: "Ordená estos tipos de transición del más abrupto (instantáneo) al más gradual."
+respuesta_orden: ["redonda", "blanca", "negra", "corchea"]
 tipo: ordenar
-opciones_explicitas:
-  - "Fundido a negro"
-  - "Corte directo"
-  - "Encadenado (disolvencia)"
-respuesta_orden:
-  - "Corte directo"
-  - "Encadenado (disolvencia)"
-  - "Fundido a negro"
+opciones_explicitas: ["redonda", "blanca", "negra", "corchea"]
+
+enunciado: "Ordena las siguientes figuras musicales de mayor a menor duración (de la más larga a la más corta):"
 
 explicacion: |
-  El corte directo es instantáneo; el encadenado mezcla dos imágenes
-  por un momento; el fundido a negro pasa primero por el negro completo,
-  la transición más marcada de las tres.
+  El orden correcto de mayor a menor es: Redonda (4 tiempos), Blanca (2 tiempos), Negra (1 tiempo) y Corchea (1/2 tiempo).
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "intermedio"
-  tags: ["montaje"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El montaje no es sólo trabajo sobre la imagen: también incluye el sonido (diálogo, música, efectos) que acompaña cada corte."
-
-explicacion: |
-  El sonido puede reforzar o contradecir deliberadamente lo que se ve
-  en pantalla.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "avanzado"
-  tags: ["montaje"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es un recurso narrativo válido usar música o sonido que contradiga deliberadamente lo que se ve en pantalla (por ejemplo, música alegre sobre una escena triste)."
-
-explicacion: |
-  Genera un efecto de ironía o contraste emocional, en vez de reforzar
-  lo obvio.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
+  tema: "ritmo_y_compas"
   nivel: "basico"
-  tags: ["montaje"]
+  tags: ["compas", "terminologia"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "compás"
+tipo: completar
+respuestas_validas:
+  - "compás"
+  - "compas"
 
-enunciado: "El corte directo (o corte seco) es el tipo de transición más común en el cine y el video."
+enunciado: "La división de un tiempo musical en partes iguales, que agrupa pulsos, se denomina ___."
 
 explicacion: |
-  Bien hecho, es casi invisible para el espectador.
+  El compás es la unidad que organiza los pulsos en grupos regulares.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "intermedio"
-  tags: ["montaje", "vocabulario"]
+  tema: "ritmo_y_compas"
+  nivel: "basico"
+  tags: ["musica", "figuras_musicales"]
 
-enunciado: "¿Qué tipo de transición se usa típicamente para marcar el cierre de una escena o el paso de un tiempo largo (por ejemplo, varios años)?"
+variables:
+  valor_blanca: 2
+  valor_negra: 1
+
+respuesta: valor_negra * 2
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si una blanca equivale a {valor_blanca} pulsos, ¿cuántos pulsos equivalen a una negra?"
+
+pasos:
+  - "Identificamos que una blanca tiene 2 pulsos."
+  - "Sabemos que una negra es la mitad de una blanca."
+  - "Calculamos: 2 / 2 = 1."
+
+explicacion: |
+  En la música, la relación entre figuras es constante. La negra es la mitad de la blanca, por lo tanto, si la blanca vale 2, la negra vale 1.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_compas"
+  nivel: "basico"
+  tags: ["musica", "figuras_musicales"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [[4, "4"], [8, "8"]]
+
+respuesta: escenario[idx][1]
 tipo: mc
-opciones_explicitas:
-  - "El fundido a negro"
-  - "El corte directo"
-  - "El corte por movimiento"
-respuesta: "El fundido a negro"
+opciones_explicitas: ["2", "4", "8", "16"]
+
+enunciado: "En un compás de 4/4, ¿cuántas corcheas caben en una blanca?"
+
+pasos:
+  - "Una blanca equivale a 2 pulsos (negras)."
+  - "Cada pulso (negra) se divide en 2 corcheas."
+  - "Entonces, 2 negras * 2 corcheas/negra = 4 corcheas."
 
 explicacion: |
-  Su pausa visual marca un cierre más fuerte que un corte directo.
+  La relación es: 1 blanca = 2 negras = 4 corcheas.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
+  tema: "ritmo_y_compas"
   nivel: "basico"
-  tags: ["montaje"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una escena de persecución o pelea suele montarse con planos cortos y cortes frecuentes (montaje rápido), para transmitir tensión."
-
-explicacion: |
-  El ritmo del montaje acompaña la sensación de urgencia de la acción.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "intermedio"
-  tags: ["montaje"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El montaje trabaja sobre los planos ya encuadrados y filmados: no puede cambiar la composición interna de un plano, sólo cómo se organiza y combina con los demás."
-
-explicacion: |
-  Por eso este módulo depende de `../encuadre/`.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
-  nivel: "avanzado"
-  tags: ["montaje"]
+  tags: ["musica", "figuras_musicales"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El montaje siempre debe respetar la continuidad estricta (regla de los 180° incluida), sin ninguna excepción posible."
+enunciado: "¿Una redonda equivale a la duración de 3 negras?"
 
 explicacion: |
-  Es la norma general, pero algunos estilos narrativos rompen la
-  continuidad deliberadamente para generar confusión, desorientación o
-  un efecto artístico específico.
+  Falso. Una redonda equivale a 4 negras (o 2 blancas).
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
+  tema: "ritmo_y_compas"
+  nivel: "intermedio"
+  tags: ["musica", "figuras_musicales"]
+
+respuesta: "2"
+respuestas_validas:
+  - "2"
+tipo: completar
+
+enunciado: "En términos de duración de pulsos, una blanca equivale a ___ negras (y una negra equivale a 2 corcheas)."
+
+explicacion: |
+  La jerarquía es: Redonda (4) -> Blanca (2) -> Negra (1) -> Corchea (0.5).
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_compas"
   nivel: "basico"
-  tags: ["montaje"]
+  tags: ["musica", "figuras_musicales"]
+
+respuesta_orden: ["redonda", "blanca", "negra", "corchea"]
+tipo: ordenar
+opciones_explicitas: ["redonda", "blanca", "negra", "corchea"]
+
+enunciado: "Ordena las siguientes figuras musicales de mayor a menor duración:"
+
+explicacion: |
+  La redonda es la más larga (4 pulsos), seguida de la blanca (2), la negra (1) y finalmente la corchea (0.5).
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_compas"
+  nivel: "basico"
+  tags: ["figuras_musicales", "duracion"]
+
+enunciado: "Si una negra tiene una duración de 1 unidad de tiempo, ¿cuántas unidades de tiempo dura una blanca?"
+
+respuesta: 2
+tipo: completar
+tolerancia_abs: 0
+
+explicacion: |
+  La blanca es el doble de una negra. Si la negra es 1, la blanca es 2.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_compas"
+  nivel: "intermedio"
+  tags: ["figuras_musicales", "equivalencias"]
+
+variables:
+  escenario: uno_de([["blanca", "2"], ["negra", "4"]])
+
+enunciado: "Considerando que una negra equivale a 1 tiempo, ¿cuántas {escenario[0]}s caben en una redonda?"
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["2", "4", "8", "16"]
+
+explicacion: |
+  Una redonda equivale a 4 negras y a 2 blancas.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_compas"
+  nivel: "basico"
+  tags: ["figuras_musicales", "corchea"]
+
+enunciado: "¿Es verdadero que una corchea dura la mitad que una negra?"
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El montaje es, típicamente, la última gran etapa creativa antes de que la obra audiovisual esté terminada."
-
 explicacion: |
-  Viene después de filmar todos los planos con su encuadre ya decidido.
+  Correcto. En la subdivisión binaria estándar, la corchea es la mitad de la negra.
 ```
 
 ```
 metadata:
   materia: "arte"
-  tema: "narrativa_audiovisual_montaje"
+  tema: "ritmo_y_compas"
   nivel: "basico"
-  tags: ["cierre"]
+  tags: ["figuras_musicales", "orden"]
 
-enunciado: "¿Para qué sirve entender el montaje?"
-tipo: mc
-opciones_explicitas:
-  - "Para saber que una historia audiovisual no es la suma de sus planos, sino cómo se combinan, en qué orden, con qué transición y con qué ritmo"
-  - "Sólo sirve para acortar el tiempo total de una película"
-  - "No tiene ninguna influencia real en cómo se percibe una historia"
-respuesta: "Para saber que una historia audiovisual no es la suma de sus planos, sino cómo se combinan, en qué orden, con qué transición y con qué ritmo"
+enunciado: "Ordena las siguientes figuras musicales de mayor a menor duración:"
+
+opciones_explicitas: ["redonda", "blanca", "negra", "corchea"]
+respuesta_orden: ["redonda", "blanca", "negra", "corchea"]
+tipo: ordenar
 
 explicacion: |
-  Es la conclusión que conecta plano, encuadre y montaje en una sola
-  cadena narrativa.
+  La jerarquía de duración es: Redonda (4) > Blanca (2) > Negra (1) > Corchea (0.5).
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_compas"
+  nivel: "intermedio"
+  tags: ["figuras_musicales", "calculo"]
+
+enunciado: "Si tenemos una blanca y una negra, nos falta una ___ para completar un compás de 4/4."
+
+respuestas_validas:
+  - "negra"
+respuesta: "negra"
+tipo: completar
+
+explicacion: |
+  Una blanca (2) + una negra (1) = 3 tiempos. Para llegar a 4, falta una negra (1).
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_pulso"
+  nivel: "basico"
+  tags: ["musica", "teoria_musical"]
+
+respuesta: "ritmo"
+tipo: mc
+opciones_explicitas: ["pulso", "ritmo", "acento", "tempo"]
+
+enunciado: "Mientras que el pulso es la unidad de medida constante que sentimos al aplaudir de forma regular, el ___ es la combinación de duraciones de los sonidos que crea una estructura variada."
+
+explicacion: |
+  El pulso es la pulsación constante (como el latido del corazón), mientras que el ritmo es la sucesión de duraciones (largas y cortas) que se asientan sobre ese pulso.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "figuras_musicales"
+  nivel: "basico"
+  tags: ["figuras_musicales", "duracion"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "Si comparamos la duración de una negra con la de una corchea, ¿es cierto que la negra dura el doble de tiempo que una corchea?"
+
+explicacion: |
+  En la música estándar, una negra equivale a dos corcheas. Por lo tanto, la relación es de 2 a 1.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "figuras_musicales"
+  nivel: "basico"
+  tags: ["figuras_musicales", "redonda"]
+
+respuesta: "4"
+tipo: completar
+respuestas_validas:
+  - "4"
+
+enunciado: "En un compás de 4/4, si una blanca tiene un valor de 2 pulsos (negras), una redonda tendrá un valor de ___ pulsos."
+
+pasos:
+  - "Identificar el valor de la blanca en pulsos."
+  - "Multiplicar el valor de la blanca por 2 para obtener el valor de la redonda."
+
+explicacion: |
+  La redonda es la figura más larga; equivale a dos blancas o cuatro negras.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "figuras_musicales"
+  nivel: "basico"
+  tags: ["ordenar", "figuras_musicales"]
+
+respuesta_orden: ["redonda", "blanca", "negra", "corchea"]
+tipo: ordenar
+opciones_explicitas: ["redonda", "blanca", "negra", "corchea"]
+
+enunciado: "Ordena las siguientes figuras musicales de mayor a menor duración (de la más larga a la más corta):"
+
+explicacion: |
+  La jerarquía de duración es: Redonda (4) > Blanca (2) > Negra (1) > Corchea (0.5).
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "compas_musical"
+  nivel: "intermedio"
+  tags: ["compas", "pulsos"]
+
+variables:
+  compas_idx: uno_de([0, 1, 2])
+  tipo_compas: ["3/4", "4/4", "2/4"][compas_idx]
+  total_pulsos: [3, 4, 2][compas_idx]
+
+respuesta: total_pulsos
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si estamos en un compás de {tipo_compas}, ¿cuántos pulsos (negras) contiene cada compás?"
+
+explicacion: |
+  El número superior del compás indica cuántos pulsos (en la figura de la base, normalmente la negra) caben en cada unidad de compás.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_compas"
+  nivel: "basico"
+  tags: ["pulso", "figuras_musicales"]
+
+variables:
+  datos: [["negra", "1"], ["blanca", "2"], ["redonda", "4"], ["corchea", "0.5"]]
+  idx: uno_de([0, 1, 2, 3])
+
+enunciado: "Un baterista marca el pulso de una canción. Si la figura musical que está tocando es una {datos[idx][0]}, ¿cuántos pulsos (negras) dura dicha figura?"
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["0.5", "1", "2", "4"]
+
+explicacion: |
+  En la música, la duración de las figuras es relativa: la negra equivale a 1 pulso, la blanca a 2 y la redonda a 4. La corchea es la mitad de una negra (0.5).
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_compas"
+  nivel: "intermedio"
+  tags: ["compas", "conteo"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["4/4", "4"], ["3/4", "3"]]
+
+enunciado: "Estamos en un compás de {datos[idx][0]}. ¿Cuántos pulsos (negras) caben en cada compás?"
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - datos[idx][1]
+
+explicacion: |
+  El número superior del compás indica cuántos pulsos de la unidad de medida (generalmente la negra) caben en cada compás.
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_compas"
+  nivel: "basico"
+  tags: ["comparacion", "figuras"]
+
+variables:
+  datos: [["blanca", "negra", "verdadero"], ["corchea", "blanca", "falso"]]
+  idx: uno_de([0, 1])
+
+enunciado: "Si comparamos la duración de una {datos[idx][0]} con una {datos[idx][1]}, ¿es la primera figura más larga que la segunda?"
+
+respuestas_validas:
+  - datos[idx][2]
+respuesta: datos[idx][2]
+tipo: completar
+explicacion: |
+  La blanca dura 2 pulsos y la negra 1 (Verdadero). La corchea dura 0.5 y la blanca 2 (Falso).
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_compas"
+  nivel: "basico"
+  tags: ["orden", "figuras"]
+
+variables:
+  orden_correcta: ["corchea", "negra", "blanca", "redonda"]
+
+enunciado: "Ordena las siguientes figuras musicales de la más corta a la más larga:"
+
+opciones_explicitas: ["corchea", "negra", "blanca", "redonda"]
+respuesta_orden: ["corchea", "negra", "blanca", "redonda"]
+tipo: ordenar
+
+explicacion: |
+  La duración aumenta así: Corchea (1/2 negra) < Negra (1) < Blanca (2) < Redonda (4).
+```
+
+```
+metadata:
+  materia: "arte"
+  tema: "ritmo_y_compas"
+  nivel: "intermedio"
+  tags: ["calculo", "compas"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  datos: [["blanca", "2"], ["negra", "4"], ["corchea", "8"]]
+
+enunciado: "En un compás de 4/4, ¿cuántas {datos[idx][0]} caben exactamente para completar el compás?"
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - datos[idx][1]
+
+explicacion: |
+  En un compás de 4/4 hay 4 pulsos. Si la figura es blanca (2 pulsos), caben 2. Si es negra (1 pulso), caben 4. Si es corchea (0.5), caben 8.
 ```
 
 ## Sección: narrativa-audiovisual/plano (24 preguntas)
@@ -1605,12 +2172,7 @@ opciones_explicitas:
   - "Primer plano"
   - "Plano general"
   - "Plano entero"
-respuesta_orden:
-  - "Plano general"
-  - "Plano entero"
-  - "Plano medio"
-  - "Primer plano"
-
+respuesta_orden: ["Plano general", "Plano entero", "Plano medio", "Primer plano"]
 explicacion: |
   Son cuatro paradas de la escala completa (que además incluye, entre
   medio, el plano americano, y como cierre más cerrado el primerísimo
@@ -1813,492 +2375,3 @@ explicacion: |
   decidir qué tan cerca o lejos va a estar la cámara.
 ```
 
-## Sección: origen-del-arte (25 preguntas)
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "basico"
-  tags: ["prehistoria", "paleolitico", "simbolismo"]
-
-respuesta: "Paleolítico"
-tipo: completar
-respuestas_validas: ["Paleolítico"]
-
-enunciado: "El arte rupestre se asocia con la aparición del pensamiento simbólico durante el periodo ___."
-
-explicacion: |
-  El paso del pensamiento concreto al simbólico permitió al Homo sapiens representar su realidad en las paredes de las cuevas durante el Paleolítico.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "basico"
-  tags: ["arte_rupestre", "pintura_cavernica"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["animales", "manos"], ["figuras humanas", "herramientas"]]
-  respuestas: [["animales", "manos"], ["figuras humanas", "herramientas"]]
-
-enunciado: "En las pinturas rupestres más comunes del Paleolítico, es frecuente encontrar representaciones de {escenarios[escenario_idx][0]} y {escenarios[escenario_idx][1]}."
-
-respuesta: "animales"
-tipo: mc
-opciones_explicitas: ["animales", "paisajes urbanos", "deidades griegas", "geometría abstracta"]
-
-explicacion: |
-  Aunque existen otros elementos, la fauna (bisontes, caballos, ciervos) y las manos (en negativo o positivo) son los motivos predominantes.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "intermedio"
-  tags: ["cronologia", "prehistoria"]
-
-variables:
-  orden_correcta: ["Paleolítico", "Mesolítico", "Neolítico"]
-
-respuesta: ["Paleolítico", "Mesolítico", "Neolítico"]
-tipo: ordenar
-opciones_explicitas: ["Paleolítico", "Mesolítico", "Neolítico"]
-
-enunciado: "Ordena cronológicamente los periodos de la prehistoria, desde el surgimiento del arte rupestre más temprano hasta el desarrollo de la agricultura:"
-
-explicacion: |
-  El arte rupestre surge en el Paleolítico, se mantiene en el Mesolítico y adquiere nuevas formas en el Neolítico con el sedentarismo.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "avanzado"
-  tags: ["simbolismo", "antropologia"]
-
-respuesta: "verdadero"
-tipo: completar
-enunciado: "La capacidad de crear arte rupestre implica que el ser humano ya posee la capacidad de abstracción y pensamiento simbólico."
-
-explicacion: |
-  El arte no es solo una copia de la realidad, sino una representación que requiere que el individuo pueda pensar en algo que no está presente físicamente.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "intermedio"
-  tags: ["tecnologia_prehistorica", "pigmentos"]
-
-variables:
-  pigmento_idx: uno_de([0, 1])
-  pigmentos: [["óxido de hierro", "azul de ultramar"], ["carbón vegetal", "tinta china"]]
-  respuestas: [["óxido de hierro", "azul de ultramar"], ["carbón vegetal", "tinta china"]]
-
-enunciado: "Para realizar sus pinturas, los artistas del Paleolítico utilizaban pigmentos naturales como el {pigmentos[pigmento_idx][0]}."
-
-respuesta: "óxido de hierro"
-tipo: mc
-opciones_explicitas: ["óxido de hierro", "azul de ultramar", "tinta china", "acrílico"]
-
-explicacion: |
-  El uso de minerales como el ocre (óxido de hierro) y el carbón permitió la fijación de colores rojos, negros y amarillos en las paredes de las cuevas.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "basico"
-  tags: ["prehistoria", "ritual"]
-
-tipo: mc
-opciones_explicitas: ["Decoración estética", "Magia de caza", "Registro de eventos históricos", "Expresión de identidad"]
-
-enunciado: "Se cree que muchas pinturas rupestres de animales no tenían un fin decorativo, sino que formaban parte de un ritual para asegurar el éxito en la obtención de alimento. ¿Qué función describe mejor esta creencia?"
-
-respuesta: "Magia de caza"
-
-explicacion: |
-  La teoría de la 'magia simpática' sugiere que pintar al animal era un acto ritual para controlarlo y facilitar la caza real.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "intermedio"
-  tags: ["registro", "comunicación"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario_datos: [["pinturas de escenas de danza", "registrar eventos sociales"], ["grabados de manos", "marcar la presencia de individuos"]]
-
-tipo: completar
-respuestas_validas: ["registrar eventos sociales", "marcar la presencia de individuos"]
-
-enunciado: "Si un grupo de homínidos utilizaba el arte para dejar constancia de lo ocurrido en su comunidad, el arte estaría cumpliendo la función de ___."
-
-respuesta: escenario_datos[escenario_idx][1
-
-explicacion: |
-  El arte también funcionó como un sistema de registro para preservar la memoria de eventos o la identidad de quienes habitaban un lugar.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "basico"
-  tags: ["identidad", "social"]
-
-tipo: mc
-opciones_explicitas: ["Identidad grupal", "Uso utilitario", "Ritual de fertilidad", "Decoración de refugio"]
-
-enunciado: "El uso de símbolos o marcas específicas en las cuevas que permitían a diferentes bandas reconocer el territorio de otros sugiere una función de:"
-
-respuesta: "Identidad grupal"
-
-explicacion: |
-  Los símbolos compartidos ayudan a fortalecer la cohesión del grupo y a diferenciar la identidad de una comunidad frente a otra.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "avanzado"
-  tags: ["teoria", "evolucion"]
-
-tipo: ordenar
-opciones_explicitas: ["Ritual/Magia", "Registro de eventos", "Expresión de identidad", "Estética pura"]
-
-respuesta: ["Ritual/Magia", "Registro de eventos", "Expresión de identidad", "Estética pura"]
-
-enunciado: "Ordena las siguientes teorías sobre la evolución de la función del arte, desde la más ligada a la supervivencia inmediata hasta la más abstracta/contemplativa:"
-
-explicacion: |
-  Históricamente, se debate si el arte comenzó con propósitos mágicos-supervivencia, pasó a ser un registro social y finalmente se convirtió en un objeto de contemplación estética.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "intermedio"
-  tags: ["magia", "supervivencia"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Si el arte rupestre se utilizaba para realizar un ritual de fertilidad de la fauna, su función principal era asegurar la ___."
-
-respuesta: "supervivencia"
-
-explicacion: |
-  Al intentar influir en la naturaleza mediante el arte, el ser humano primitivo buscaba asegurar la continuidad de su propia subsistencia.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "basico"
-  tags: ["escultura", "prehistoria"]
-
-respuesta: "Venus de Willendorf"
-tipo: completar
-respuestas_validas: ["Venus de Willendorf", "Venus de Willendorf"]
-
-enunciado: "Una de las esculturas más famosas del Paleolítico Superior, que destaca por enfatizar la fertilidad, es la ___."
-
-explicacion: |
-  Las Venus paleolíticas son pequeñas estatuillas femeninas que suelen presentar rasgos sexuales muy exagerados, lo que sugiere un simbolismo relacionado con la fertilidad o la maternidad.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "intermedio"
-  tags: ["musica", "prehistoria"]
-
-variables:
-  escenario: uno_de([
-    ["una flauta de hueso de ave", "hueso"],
-    ["un ritmo de percusión con piedras", "piedra"],
-    ["un silbato de concha marina", "concha"]
-  ])
-
-respuesta: escenario[1
-tipo: mc
-opciones_explicitas: ["hueso", "piedra", "concha", "madera"]
-
-enunciado: "En el registro arqueológico, se han encontrado restos que sugieren el uso de {escenario[0]} como primer instrumento musical."
-
-explicacion: |
-  Se han hallado flautas hechas de hueso de animales (como buitres o ciervos) en yacimientos como la cueva de Hohle Fels, lo que demuestra que la música es una expresión artística muy temprana.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "basico"
-  tags: ["ornamento", "joyeria"]
-
-respuesta: "collares"
-tipo: mc
-opciones_explicitas: ["collares", "cuadros", "estatuas", "murales"]
-
-enunciado: "El uso de conchas, dientes de animales o piedras perforadas para crear ___ es una de las formas más antiguas de expresión estética personal."
-
-explicacion: |
-  La ornamentación personal indica no solo una función estética, sino también la construcción de identidad y estatus dentro de los grupos humanos primitivos.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "avanzado"
-  tags: ["secuencia", "prehistoria"]
-
-respuesta: ["pintura rupestre", "escultura pequeña", "instrumentos musicales"]
-tipo: ordenar
-opciones_explicitas: ["pintura rupestre", "escultura pequeña", "instrumentos musicales"]
-
-enunciado: "Ordena las siguientes manifestaciones artísticas según su aparición o prevalencia en el registro arqueológico temprano (de la más antigua/difusa a la más compleja):"
-
-pasos:
-  - "Identifica la manifestación más primitiva"
-  - "Ubica la escultura de pequeña escala"
-  - "Considera la especialización de instrumentos"
-
-explicacion: |
-  Aunque el arte es un proceso complejo, la arqueología muestra una transición desde la expresión simbólica en paredes (pintura), pasando por objetos portátiles (escultura/Venus), hasta la especialización de herramientas sonoras.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "intermedio"
-  tags: ["escultura", "materiales"]
-
-respuesta: 12.5
-tipo: completar
-tolerancia_abs: 0.1
-
-enunciado: "Si una pequeña estatuilla de piedra pesa 12.5 gramos y se encuentra en un yacimiento donde el 50% de los objetos son de este material, ¿cuántos gramos de piedra representan el total de la muestra analizada de 25 gramos?"
-
-pasos:
-  - "Identificar el peso del objeto (12.5g)"
-  - "Calcular el peso total de la muestra (25g)"
-  - "Determinar la parte proporcional de la piedra"
-
-explicacion: |
-  El estudio del peso y la densidad de los materiales es crucial para que los arqueólogos determinen el origen de las piezas escultóricas.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "intermedio"
-  tags: ["evolucion", "cognicion", "simbolismo"]
-
-respuesta: "simbólico"
-tipo: completar
-respuestas_validas: ["simbólico"]
-
-enunciado: "El arte requiere la capacidad de realizar un salto ___ para representar algo que no está presente físicamente en el entorno inmediato."
-
-explicacion: |
-  Representar un objeto ausente (como un animal en una cueva) requiere que el cerebro humano procese conceptos abstractos y símbolos, marcando un hito en la evolución cognitiva.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "basico"
-  tags: ["cognicion", "evolucion"]
-
-variables:
-  es_evidencia: verdadero
-
-respuesta: es_evidencia
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "La aparición de representaciones pictóricas en el registro arqueológico es evidencia de una capacidad cognitiva avanzada. ¿Es esto cierto?"
-
-explicacion: |
-  La capacidad de proyectar una imagen mental sobre una superficie física demuestra que el Homo sapiens ya poseía pensamiento simbólico.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "intermedio"
-  tags: ["abstraccion", "evolucion"]
-
-variables:
-  escenario: uno_de([[0, "un bisonte en una cueva"], [1, "un paisaje estático"], [2, "una herramienta de piedra"]])
-  respuesta_texto: uno_de(["un bisonte en una cueva", "un paisaje estático", "una herramienta de piedra"])
-
-respuesta: respuesta_texto
-tipo: mc
-opciones_explicitas: ["un bisonte en una cueva", "un paisaje estático", "una herramienta de piedra"]
-
-enunciado: "Si un artista prehistórico pinta {escenario[0]}, está demostrando la capacidad de representar lo que está ___."
-
-explicacion: |
-  El arte no es solo imitación, es la capacidad de traer a la mente un objeto ausente para darle un significado nuevo.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "avanzado"
-  tags: ["procesos_mentales", "abstraccion"]
-
-respuesta: 2
-tipo: ordenar
-opciones_explicitas: ["Percepción del objeto real", "Procesamiento mental/abstracción", "Representación simbólica en soporte"]
-
-enunciado: "Ordena cronológicamente los procesos cognitivos necesarios para que un humano primitivo cree una pintura rupestre:"
-
-explicacion: |
-  Primero se percibe el mundo, luego el cerebro abstrae la esencia del objeto y finalmente se ejecuta la acción de representar ese concepto.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "basico"
-  tags: ["simbolismo", "evolucion"]
-
-respuesta: "representar ideas o entidades ausentes"
-tipo: completar
-respuestas_validas: ["representar ideas o entidades ausentes"]
-
-enunciado: "El objetivo principal del arte como fenómeno cognitivo es ___."
-
-explicacion: |
-  El arte permite que la mente humana trascienda el "aquí y ahora", permitiendo la comunicación de ideas, mitos y conceptos abstractos a través del tiempo.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "basico"
-  tags: ["prehistoria", "pintura"]
-
-variables:
-  datos: [["pinturas sobre paredes de cuevas usando pigmentos naturales", "pintura rupestre"], ["esculturas de piedra en el exterior", "escultura megalitica"], ["grabados sobre hueso o madera", "grabado"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["pintura rupestre", "escultura megalitica", "grabado"]
-
-enunciado: "Se han encontrado restos de pigmentos rojos y negros aplicados sobre las paredes de una cueva profunda. ¿A qué forma de arte corresponde esta descripción? ___"
-
-explicacion: |
-  La descripción corresponde a la {datos[idx][0]}.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "intermedio"
-  tags: ["escultura", "paleolitico"]
-
-variables:
-  datos: [["pequeñas figuras femeninas con rasgos sexuales muy acentuados", "Venus"], ["figuras de animales realistas", "Zoomorfos"], ["manos grabadas en piedra", "Manos"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Venus", "Zoomorfos", "Manos"]
-
-enunciado: "Se descubre una pequeña estatuilla de piedra que enfatiza la fertilidad mediante formas redondeadas. Se trata de una ___."
-
-explicacion: |
-  Las figuras con estas características se denominan {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "avanzado"
-  tags: ["cronologia", "periodos"]
-
-variables:
-  orden_correcto: ["Paleolítico", "Mesolítico", "Neolítico"]
-
-respuesta: ["Paleolítico", "Mesolítico", "Neolítico"]
-tipo: ordenar
-opciones_explicitas: ["Paleolítico", "Mesolítico", "Neolítico"]
-
-enunciado: "Ordena cronológicamente los periodos de la prehistoria, desde el más antiguo al más reciente:"
-
-explicacion: |
-  El orden correcto es: {orden_correcto[0]}, luego {orden_correcto[1]} y finalmente {orden_correcto[2]}.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "basico"
-  tags: ["tecnica", "materiales"]
-
-variables:
-  datos: [["piedra", "litografía"], ["hueso", "osteografía"], ["madera", "xilografía"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas: ["litografía", "osteografía", "xilografía"]
-
-enunciado: "Si el soporte utilizado para realizar un grabado es un ___, la técnica se denomina ___."
-
-explicacion: |
-  Al usar {datos[idx][0]}, la técnica es la {datos[idx][1]}.
-```
-
-```
-metadata:
-  materia: "arte"
-  tema: "origen_del_arte"
-  nivel: "intermedio"
-  tags: ["teoria", "prehistoria"]
-
-variables:
-  datos: [["magia", "ritual"], ["decoración", "estética"], ["comunicación", "lenguaje"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["ritual", "estética", "lenguaje"]
-
-enunciado: "Muchos arqueólogos sostienen que el arte en el Paleolítico no era decorativo, sino que tenía una función de ___."
-
-explicacion: |
-  Se cree que su función principal era el {datos[idx][1]}.
-```

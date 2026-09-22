@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de la Biología
+# Examen jefe — [PENDIENTE #865]
 
-> Logro #153. Completaste el examen jefe abarcando desde las adaptaciones en los hábitats hasta los procesos celulares y las enfermedades como el mal de Chagas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **105 preguntas totales** en 5/5 secciones.
+> Logro #865. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **105 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -180,7 +180,8 @@ metadata:
 
 respuesta: "estructurales"
 tipo: completar
-respuestas_validas: ["estructurales"]
+respuestas_validas:
+  - "estructurales"
 
 enunciado: "Las adaptaciones físicas se llaman adaptaciones ___."
 
@@ -743,17 +744,10 @@ metadata:
   nivel: "intermedio"
   tags: ["ciclo_vida", "vector"]
 
-variables:
-  etapa1: "huevo"
-  etapa2: "ninfa"
-  etapa3: "adulto"
-  lista_etapas: [etapa1, etapa2, etapa3]
-  respuesta_correcta: "huevo, ninfa y adulto"
-
 respuesta: "huevo, ninfa y adulto"
 tipo: completar
 
-enunciado: "El ciclo de vida de la vinchuca incluye las etapas: {respuesta_correcta}."
+enunciado: "El ciclo de vida de la vinchuca incluye las etapas: ___."
 
 explicacion: |
   La vinchuca pasa por tres etapas principales: huevo, ninfa (que muda de piel varias veces) y adulto.
@@ -766,13 +760,10 @@ metadata:
   nivel: "basico"
   tags: ["agente_etiologico", "parasito"]
 
-variables:
-  respuesta_correcta: "Trypanosoma cruzi"
-
 respuesta: "Trypanosoma cruzi"
 tipo: completar
 
-enunciado: "El agente etiológico principal de la enfermedad de Chagas es un parásito microscópico llamado {respuesta_correcta}."
+enunciado: "El agente etiológico principal de la enfermedad de Chagas es un parásito microscópico llamado ___."
 
 explicacion: |
   La enfermedad de Chagas, o tripanosomiasis americana, es causada específicamente por el protozoo flagelado Trypanosoma cruzi.
@@ -785,13 +776,10 @@ metadata:
   nivel: "basico"
   tags: ["vector", "vinchuca"]
 
-variables:
-  vector_comun: "vinchuca"
-
 respuesta: "vinchuca"
 tipo: completar
 
-enunciado: "El insecto vector más común en Argentina para la transmisión del Chagas es la {vector_comun}, también conocida como chinche del sur."
+enunciado: "El insecto vector más común en Argentina para la transmisión del Chagas es la ___, también conocida como chinche del sur."
 
 explicacion: |
   La vinchuca (familia Reduviidae) es el principal vector mecánico y biológico de Trypanosoma cruzi en la región.
@@ -804,13 +792,14 @@ metadata:
   nivel: "intermedio"
   tags: ["transmision", "defecacion"]
 
-variables:
-  evento_clave: "defecacion"
-
-respuesta: "defecacion"
+respuesta: "defeca"
 tipo: completar
+respuestas_validas:
+  - "defeca"
+  - "defecacion"
+  - "defecación"
 
-enunciado: "El riesgo de infección aumenta cuando la vinchuca pica y {evento_clave} cerca de la herida, permitiendo que los parásitos ingresen al organismo."
+enunciado: "El riesgo de infección aumenta cuando la vinchuca pica y ___ cerca de la herida, permitiendo que los parásitos ingresen al organismo."
 
 explicacion: |
   La transmisión ocurre cuando las heces infectadas con parásitos se frotan en la picadura, los ojos o la boca.
@@ -823,13 +812,10 @@ metadata:
   nivel: "intermedio"
   tags: ["ciclo_vida", "insecto"]
 
-variables:
-  etapas: "huevo, ninfa y adulto"
-
 respuesta: "huevo, ninfa y adulto"
 tipo: completar
 
-enunciado: "El ciclo de vida de la vinchuca incluye tres etapas principales: {etapas}."
+enunciado: "El ciclo de vida de la vinchuca incluye tres etapas principales: ___."
 
 explicacion: |
   La metamorfosis incompleta de la vinchuca pasa por huevo, ninfa (que muda varias veces) y adulto.
@@ -842,13 +828,10 @@ metadata:
   nivel: "basico"
   tags: ["habitat", "grietas"]
 
-variables:
-  refugio: "grietas"
-
 respuesta: "grietas"
 tipo: completar
 
-enunciado: "Durante el día, la vinchuca suele esconderse en {refugio} de paredes de adobe, techos de paja o montones de leña."
+enunciado: "Durante el día, la vinchuca suele esconderse en ___ de paredes de adobe, techos de paja o montones de leña."
 
 explicacion: |
   Estas grietas y hendiduras ofrecen protección y proximidad a los hospedadores mamíferos para su alimentación nocturna.
@@ -861,13 +844,10 @@ metadata:
   nivel: "avanzado"
   tags: ["taxonomia", "reduviidae"]
 
-variables:
-  familia: "Reduviidae"
-
 respuesta: "Reduviidae"
 tipo: completar
 
-enunciado: "La vinchuca pertenece a la familia de insectos hemípteros conocida como {familia}."
+enunciado: "La vinchuca pertenece a la familia de insectos hemípteros conocida como ___."
 
 explicacion: |
   Los Reduviidae son conocidos como chinches asesinas, caracterizados por su probóscide larga y potente para chupar sangre.
@@ -880,13 +860,10 @@ metadata:
   nivel: "intermedio"
   tags: ["transmision", "rasgado"]
 
-variables:
-  accion: "rascarse"
-
 respuesta: "rascarse"
 tipo: completar
 
-enunciado: "La picadura en sí no transmite el parásito; es común que la persona {accion} la zona, frotando las heces infectadas en la herida."
+enunciado: "La picadura en sí no transmite el parásito; es común que la persona ___ la zona, frotando las heces infectadas en la herida."
 
 explicacion: |
   El rascamiento es el mecanismo involuntario que facilita la entrada de los tripomastigotas presentes en las heces de la vinchuca.
@@ -899,13 +876,10 @@ metadata:
   nivel: "basico"
   tags: ["epidemiologia", "zonas_rurales"]
 
-variables:
-  zona: "rurales"
-
 respuesta: "rurales"
 tipo: completar
 
-enunciado: "Aunque ha disminuido, la enfermedad sigue siendo un desafío en zonas {zona} y periurbanas del norte argentino."
+enunciado: "Aunque ha disminuido, la enfermedad sigue siendo un desafío en zonas ___ y periurbanas del norte argentino."
 
 explicacion: |
   Las condiciones de vivienda precaria en áreas rurales facilitan la convivencia con el vector.
@@ -918,13 +892,10 @@ metadata:
   nivel: "avanzado"
   tags: ["nomenclatura", "vector"]
 
-variables:
-  nombre_cientifico: "Triatoma infestans"
-
 respuesta: "Triatoma infestans"
 tipo: completar
 
-enunciado: "Una de las especies de vinchuca más importante y extendida en el Cono Sur, incluida Argentina, es {nombre_cientifico}."
+enunciado: "Una de las especies de vinchuca más importante y extendida en el Cono Sur, incluida Argentina, es ___."
 
 explicacion: |
   Triatoma infestans es la principal especie vectora en la región del Gran Chaco y zonas aledañas.
@@ -937,13 +908,10 @@ metadata:
   nivel: "basico"
   tags: ["alimentacion", "sangre"]
 
-variables:
-  alimento: "sangre"
-
 respuesta: "sangre"
 tipo: completar
 
-enunciado: "Tanto las ninfas como los adultos de la vinchuca deben alimentarse de {alimento} para crecer y reproducirse."
+enunciado: "Tanto las ninfas como los adultos de la vinchuca deben alimentarse de ___ para crecer y reproducirse."
 
 explicacion: |
   La alimentación hematófaga es esencial para el desarrollo del insecto y el ciclo de vida del parásito en su interior.
@@ -956,13 +924,10 @@ metadata:
   nivel: "intermedio"
   tags: ["sintomas", "chagoma"]
 
-variables:
-  sintoma: "chagoma"
-
 respuesta: "chagoma"
 tipo: completar
 
-enunciado: "En la fase aguda, puede aparecer una inflamación local en el sitio de inoculación llamada {sintoma}."
+enunciado: "En la fase aguda, puede aparecer una inflamación local en el sitio de inoculación llamada ___."
 
 explicacion: |
   El chagoma es una lesión cutánea indurada que se forma en el lugar donde los parásitos ingresaron al organismo.
@@ -975,13 +940,10 @@ metadata:
   nivel: "intermedio"
   tags: ["ciclo_vida", "longevidad"]
 
-variables:
-  duracion: "varios meses"
-
 respuesta: "varios meses"
 tipo: completar
 
-enunciado: "Los insectos adultos de la vinchuca pueden vivir {duracion}, lo que aumenta el riesgo de exposición prolongada."
+enunciado: "Los insectos adultos de la vinchuca pueden vivir ___, lo que aumenta el riesgo de exposición prolongada."
 
 explicacion: |
   Su longevidad relativa permite múltiples oportunidades de picadura y transmisión a lo largo del tiempo.
@@ -994,13 +956,10 @@ metadata:
   nivel: "avanzado"
   tags: ["parasitologia", "intestino"]
 
-variables:
-  organo: "intestino"
-
 respuesta: "intestino"
 tipo: completar
 
-enunciado: "El parásito Trypanosoma cruzi se desarrolla y multiplica dentro del {organo} del insecto vector."
+enunciado: "El parásito Trypanosoma cruzi se desarrolla y multiplica dentro del ___ del insecto vector."
 
 explicacion: |
   El ciclo del parásito dentro de la vinchuca ocurre en el tracto digestivo, donde se transforma en metacíclico.
@@ -1013,13 +972,10 @@ metadata:
   nivel: "intermedio"
   tags: ["salud_publica", "diagnostico"]
 
-variables:
-  objetivo: "evitar complicaciones"
-
 respuesta: "evitar complicaciones"
 tipo: completar
 
-enunciado: "El diagnóstico temprano es clave para {objetivo} graves a largo plazo, como la cardiopatía chagásica crónica."
+enunciado: "El diagnóstico temprano es clave para ___ graves a largo plazo, como la cardiopatía chagásica crónica."
 
 explicacion: |
   Tratar la fase aguda previene la progresión a la fase crónica, que puede ser devastadora para el corazón y el sistema digestivo.
@@ -1032,13 +988,10 @@ metadata:
   nivel: "basico"
   tags: ["nomenclatura", "tripanosomiasis"]
 
-variables:
-  nombre_alt: "tripanosomiasis americana"
-
 respuesta: "tripanosomiasis americana"
 tipo: completar
 
-enunciado: "La enfermedad de Chagas también es conocida como {nombre_alt}."
+enunciado: "La enfermedad de Chagas también es conocida como ___."
 
 explicacion: |
   Este nombre refleja la naturaleza del parásito (tripanosoma) y su distribución geográfica original (América).
@@ -1051,13 +1004,10 @@ metadata:
   nivel: "basico"
   tags: ["morfologia", "proboscide"]
 
-variables:
-  parte: "probóscide"
-
 respuesta: "probóscide"
 tipo: completar
 
-enunciado: "La vinchuca se caracteriza por tener un cuerpo aplanado y una larga {parte} con la que se alimenta de sangre."
+enunciado: "La vinchuca se caracteriza por tener un cuerpo aplanado y una larga ___ con la que se alimenta de sangre."
 
 explicacion: |
   La probóscide es un órgano bucal piercing-sucking adaptado para penetrar la piel de los hospedadores.
@@ -1070,13 +1020,10 @@ metadata:
   nivel: "intermedio"
   tags: ["prevencion", "control"]
 
-variables:
-  estrategia: "control vectorial"
-
 respuesta: "control vectorial"
 tipo: completar
 
-enunciado: "En las últimas décadas, los avances en {estrategia} han logrado reducir significativamente la transmisión de la enfermedad."
+enunciado: "En las últimas décadas, los avances en ___ han logrado reducir significativamente la transmisión de la enfermedad."
 
 explicacion: |
   El fumigación de viviendas y la mejora de la infraestructura habitacional son pilares del control en Argentina.
@@ -1089,13 +1036,10 @@ metadata:
   nivel: "basico"
   tags: ["geografia", "america_latina"]
 
-variables:
-  region: "América Latina"
-
 respuesta: "América Latina"
 tipo: completar
 
-enunciado: "La enfermedad de Chagas es endémica en gran parte de {region}, especialmente en zonas tropicales y subtropicales."
+enunciado: "La enfermedad de Chagas es endémica en gran parte de ___, especialmente en zonas tropicales y subtropicales."
 
 explicacion: |
   Desde el sur de México hasta el centro de Argentina y Chile, la enfermedad tiene presencia histórica.
@@ -1108,13 +1052,10 @@ metadata:
   nivel: "avanzado"
   tags: ["clinica", "cronica"]
 
-variables:
-  fase: "crónica"
-
 respuesta: "crónica"
 tipo: completar
 
-enunciado: "Después de la fase aguda, la enfermedad entra en una fase {fase} que puede durar décadas y ser asintomática o causar daño orgánico."
+enunciado: "Después de la fase aguda, la enfermedad entra en una fase ___ que puede durar décadas y ser asintomática o causar daño orgánico."
 
 explicacion: |
   La fase crónica se divide en indeterminada (asintomática) e indeterminada (con manifestaciones cardíacas o digestivas).
@@ -1127,13 +1068,10 @@ metadata:
   nivel: "basico"
   tags: ["nomenclatura_regional", "vinchuca"]
 
-variables:
-  nombre_norte: "vinchuca"
-
 respuesta: "vinchuca"
 tipo: completar
 
-enunciado: "En el norte argentino, al insecto vector se lo llama comúnmente {nombre_norte}."
+enunciado: "En el norte argentino, al insecto vector se lo llama comúnmente ___."
 
 explicacion: |
   En otras regiones de Sudamérica se le conoce como chinche del sur, chupador o barbeiro.
@@ -1146,13 +1084,10 @@ metadata:
   nivel: "intermedio"
   tags: ["transmision", "contaminacion"]
 
-variables:
-  sustancia: "excretas"
-
 respuesta: "excretas"
 tipo: completar
 
-enunciado: "La transmisión requiere la contaminación de la herida con las {sustancia} de la vinchuca, no con su saliva."
+enunciado: "La transmisión requiere la contaminación de la herida con las ___ de la vinchuca, no con su saliva."
 
 explicacion: |
   Los parásitos están en las heces, no en la saliva. La picadura inocula saliva anticoagulante, pero la infección viene de las heces.
@@ -1165,13 +1100,10 @@ metadata:
   nivel: "basico"
   tags: ["salud_publica", "impacto"]
 
-variables:
-  impacto: "salud pública"
-
 respuesta: "salud pública"
 tipo: completar
 
-enunciado: "El impacto histórico y actual del Chagas en Argentina lo convierte en un problema prioritario de {impacto}."
+enunciado: "El impacto histórico y actual del Chagas en Argentina lo convierte en un problema prioritario de ___."
 
 explicacion: |
   Debido a su prevalencia y gravedad, requiere programas nacionales e internacionales de vigilancia y control.
@@ -1184,13 +1116,10 @@ metadata:
   nivel: "intermedio"
   tags: ["desarrollo", "muda"]
 
-variables:
-  proceso: "mudar"
-
 respuesta: "mudar"
 tipo: completar
 
-enunciado: "Las ninfas de la vinchuca deben alimentarse de sangre para crecer y {proceso} su piel hasta alcanzar la etapa adulta."
+enunciado: "Las ninfas de la vinchuca deben alimentarse de sangre para crecer y ___ su piel hasta alcanzar la etapa adulta."
 
 explicacion: |
   La muda es necesaria para el desarrollo morfológico del insecto durante su crecimiento.
@@ -1203,13 +1132,10 @@ metadata:
   nivel: "basico"
   tags: ["prevencion", "higiene"]
 
-variables:
-  accion: "no rascarse"
-
 respuesta: "no rascarse"
 tipo: completar
 
-enunciado: "Una medida preventiva simple es {accion} la picadura inmediatamente para evitar frotar las heces infectadas en los ojos o la boca."
+enunciado: "Una medida preventiva simple es ___ la picadura inmediatamente para evitar frotar las heces infectadas en los ojos o la boca."
 
 explicacion: |
   Evitar el rascamiento reduce el riesgo de inoculación accidental de los parásitos presentes en las heces del vector.
@@ -1338,7 +1264,8 @@ metadata:
 
 respuesta: "capside"
 tipo: completar
-respuestas_validas: ["capside"]
+respuestas_validas:
+  - "capside"
 
 enunciado: "La cápsula de proteína que envuelve el material genético del virus se llama ___."
 
@@ -1354,17 +1281,17 @@ metadata:
   tags: ["virus", "ciclo_viral"]
 
 variables:
-  pasos: [["adhesion", "el virus se pega a la celula huesped"], ["inyeccion", "el virus inyecta el material genetico dentro de la celula"], ["secuestro", "el virus usa la maquinaria de la celula para fabricar copias"], ["lisis", "la celula se rompe liberando los virus nuevos"]]
+  etapas: [["adhesion", "el virus se pega a la celula huesped"], ["inyeccion", "el virus inyecta el material genetico dentro de la celula"], ["secuestro", "el virus usa la maquinaria de la celula para fabricar copias"], ["lisis", "la celula se rompe liberando los virus nuevos"]]
   idx: uno_de([0, 1, 2, 3])
 
-respuesta: pasos[idx][1]
+respuesta: etapas[idx][1]
 tipo: mc
 opciones_explicitas: ["el virus se pega a la celula huesped", "el virus inyecta el material genetico dentro de la celula", "el virus usa la maquinaria de la celula para fabricar copias", "la celula se rompe liberando los virus nuevos"]
 
-enunciado: "¿Qué ocurre en la etapa de {pasos[idx][0]}?"
+enunciado: "¿Qué ocurre en la etapa de {etapas[idx][0]}?"
 
 explicacion: |
-  En {pasos[idx][0]}: {pasos[idx][1]}.
+  En {etapas[idx][0]}: {etapas[idx][1]}.
 ```
 
 ```
@@ -1607,7 +1534,7 @@ variables:
   cromosomas_originales: uno_de([2, 4, 6, 8])
 
 respuesta: cromosomas_originales
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si una célula original tiene {cromosomas_originales} cromosomas, ¿cuántos tendrá cada célula hija tras la mitosis?"
@@ -1678,7 +1605,7 @@ variables:
   cromosomas_originales: uno_de([4, 8, 12, 16])
 
 respuesta: cromosomas_originales / 2
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Si una célula somática tiene {cromosomas_originales} cromosomas, ¿cuántos tendrá cada célula hija tras la meiosis?"
@@ -1886,3 +1813,4 @@ enunciado: "Un error durante la mitosis que hace que las células hijas se divid
 explicacion: |
   Correcto. El cáncer es, en esencia, una división celular descontrolada — un fallo en los mecanismos que regulan la mitosis.
 ```
+

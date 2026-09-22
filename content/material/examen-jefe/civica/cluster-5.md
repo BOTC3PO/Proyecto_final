@@ -1,850 +1,8 @@
-# Examen jefe — Experto en Ciudadanía y Normas
+# Examen jefe — [PENDIENTE #883]
 
-> Logro #139. Diste el parcial de Cívica y te salió re bien, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **109 preguntas totales** en 5/5 secciones.
+> Logro #883. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **108 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: proyecto-ciudadano-participativo (22 preguntas)
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "basico"
-  tags: ["definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "identificar, analizar y resolver un problema de la comunidad"
-tipo: mc
-opciones_explicitas: ["esperar a que las autoridades actúen solas", "identificar, analizar y resolver un problema de la comunidad", "votar únicamente en elecciones"]
-
-enunciado: "Un proyecto ciudadano participativo busca principalmente..."
-
-explicacion: |
-  Es una iniciativa organizada que propone soluciones concretas y trabaja
-  colectivamente, no sólo espera o se queja.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "basico"
-  tags: ["ciudadania activa"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los proyectos ciudadanos participativos transforman a la ciudadanía de un estado pasivo a uno activo."
-
-explicacion: |
-  La democracia no funciona sólo con el voto periódico: requiere
-  vigilancia, propuesta y colaboración constante de la sociedad civil.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "intermedio"
-  tags: ["etapas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "identificación y diagnóstico del problema"
-tipo: mc
-opciones_explicitas: ["identificación y diagnóstico del problema", "ejecución y evaluación", "formulación del objetivo"]
-
-enunciado: "El primer paso de un proyecto ciudadano participativo exitoso es la..."
-
-explicacion: |
-  No basta con notar que algo anda mal: hay que investigar causas,
-  afectados y situación actual antes de actuar.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "intermedio"
-  tags: ["etapas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "claro, alcanzable y medible"
-tipo: mc
-opciones_explicitas: ["vago y ambicioso", "claro, alcanzable y medible", "secreto hasta el final del proyecto"]
-
-enunciado: "En la etapa de formulación del objetivo, éste debe ser..."
-
-explicacion: |
-  Un objetivo como "recuperar el área verde del parque mediante limpieza
-  y plantación en tres meses" es preciso, a diferencia de algo vago como
-  "mejorar el parque".
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "avanzado"
-  tags: ["etapas"]
-
-variables:
-  etapa: uno_de(["identificación y diagnóstico del problema", "formulación del objetivo", "estrategia de acción", "ejecución y evaluación"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{etapa}\" es una de las etapas clave de un proyecto ciudadano participativo."
-
-explicacion: |
-  Las cuatro etapas (diagnóstico, objetivo, estrategia, ejecución/
-  evaluación) forman el proceso estructurado que va de un problema a una
-  solución concreta.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "intermedio"
-  tags: ["estrategia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "actividades, recursos necesarios y plazos"
-tipo: mc
-opciones_explicitas: ["actividades, recursos necesarios y plazos", "sólo un presupuesto sin actividades", "una lista de quejas"]
-
-enunciado: "La estrategia de acción de un proyecto ciudadano incluye principalmente..."
-
-explicacion: |
-  Reuniones, campañas o trabajos manuales (actividades), voluntarios,
-  herramientas y permisos (recursos), y tiempos definidos (plazos).
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "basico"
-  tags: ["etapas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La etapa de evaluación permite aprender de los errores y celebrar los aciertos, cerrando el ciclo de participación democrática."
-
-explicacion: |
-  Evaluar lo hecho, no sólo ejecutar el plan, es lo que prepara el
-  terreno para futuros proyectos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "intermedio"
-  tags: ["ejemplos argentinos"]
-
-variables:
-  ciudad: uno_de(["Buenos Aires", "Rosario", "Córdoba"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{ciudad}\" es una ciudad argentina donde existen instancias de Presupuesto Participativo."
-
-explicacion: |
-  En las tres ciudades hay experiencias donde los vecinos deciden en qué
-  se invierten parte de los fondos públicos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "basico"
-  tags: ["presupuesto participativo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "priorizan necesidades como veredas, iluminación o centros culturales"
-tipo: mc
-opciones_explicitas: ["priorizan necesidades como veredas, iluminación o centros culturales", "eligen al intendente de la ciudad", "administran impuestos nacionales"]
-
-enunciado: "En un Presupuesto Participativo, los vecinos..."
-
-explicacion: |
-  El Presupuesto Participativo permite decidir en qué se invierte parte
-  del dinero público, priorizando necesidades concretas del barrio.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "intermedio"
-  tags: ["organizaciones"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Asociaciones de Vecinos"
-tipo: completar
-
-enunciado: "Las organizaciones legales que agrupan a residentes de una zona para gestionar problemas locales como seguridad o espacios públicos se llaman ___."
-
-respuestas_validas:
-  - "Asociaciones de Vecinos"
-  - "asociaciones de vecinos"
-
-explicacion: |
-  Estas asociaciones muchas veces trabajan junto a municipalidades o el
-  gobierno nacional para lograr mejoras que individualmente serían
-  imposibles.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "basico"
-  tags: ["ejemplos"]
-
-variables:
-  ejemplo: uno_de(["huertas comunitarias en escuelas", "campañas de recolección de residuos electrónicos"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{ejemplo}\" es un ejemplo de iniciativa ciudadana impulsada por jóvenes u ONGs mencionado en la teoría."
-
-explicacion: |
-  Estas acciones resuelven problemas inmediatos y educan en valores de
-  sostenibilidad y solidaridad.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "avanzado"
-  tags: ["derechos y obligaciones"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para exigir servicios públicos de calidad, es necesario comprender cómo funcionan las instituciones y participar en su mejora."
-
-explicacion: |
-  Los derechos y las obligaciones están interconectados: exigir calidad
-  requiere entender y participar en el funcionamiento institucional.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "intermedio"
-  tags: ["participacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "no es exclusiva de los políticos, es un derecho y un deber de todos"
-tipo: mc
-opciones_explicitas: ["es exclusiva de funcionarios electos", "no es exclusiva de los políticos, es un derecho y un deber de todos", "sólo corresponde a mayores de 40 años"]
-
-enunciado: "Según la teoría, la participación ciudadana..."
-
-explicacion: |
-  Participar activamente ayuda a combatir la apatía política y muestra
-  que involucrarse es un derecho y un deber de toda la ciudadanía, no
-  sólo de los políticos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "basico"
-  tags: ["diagnostico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Basta con decir \"el barrio está sucio\" para tener un diagnóstico completo del problema."
-
-explicacion: |
-  Un diagnóstico preciso requiere investigar las causas reales
-  (recolección, educación ambiental, infraestructura), no quedarse en
-  una afirmación general.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "intermedio"
-  tags: ["habilidades"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "dialogar, negociar y asumir responsabilidades comunes"
-tipo: mc
-opciones_explicitas: ["dialogar, negociar y asumir responsabilidades comunes", "trabajar siempre en soledad", "evitar el contacto con vecinos"]
-
-enunciado: "Al participar en un proyecto ciudadano, estudiantes y ciudadanos aprenden principalmente a..."
-
-explicacion: |
-  Pasar de identificar un problema a ejecutar un proyecto exige aprender
-  a dialogar, negociar y compartir responsabilidades con otros.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "basico"
-  tags: ["tejido social"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los proyectos ciudadanos participativos fortalecen el tejido social y la capacidad de incidencia política."
-
-explicacion: |
-  Al organizarse colectivamente, la comunidad gana cohesión y más
-  capacidad real de influir en decisiones que la afectan.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "intermedio"
-  tags: ["comisiones de barrio"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Comisiones de Barrio"
-tipo: completar
-
-enunciado: "Un ejemplo clásico de instancia formal de participación vecinal en Argentina son las ___."
-
-respuestas_validas:
-  - "Comisiones de Barrio"
-  - "comisiones de barrio"
-
-explicacion: |
-  Junto con el Presupuesto Participativo, las Comisiones de Barrio son
-  ejemplos de espacios formales de participación ciudadana.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "avanzado"
-  tags: ["valores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "sostenibilidad y solidaridad"
-tipo: mc
-opciones_explicitas: ["sostenibilidad y solidaridad", "competencia individual", "indiferencia frente al entorno"]
-
-enunciado: "Las iniciativas como las huertas comunitarias en escuelas educan, además de resolver un problema inmediato, en valores de..."
-
-explicacion: |
-  Estas acciones muestran que la participación ciudadana también cumple
-  una función educativa, formando valores colectivos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "intermedio"
-  tags: ["asociaciones de vecinos"]
-
-variables:
-  problema: uno_de(["la seguridad", "el mantenimiento de espacios públicos", "la defensa del patrimonio histórico"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"{problema}\" es un tipo de problema local que las Asociaciones de Vecinos suelen gestionar."
-
-explicacion: |
-  Las Asociaciones de Vecinos agrupan residentes para atender justamente
-  este tipo de problemas de su zona.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "basico"
-  tags: ["apatia politica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Participar en proyectos ciudadanos ayuda a combatir la apatía política."
-
-explicacion: |
-  Al mostrar que la participación produce cambios reales, se contrarresta
-  la sensación de que "no vale la pena" involucrarse.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "avanzado"
-  tags: ["democracia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "vigilancia, propuesta y colaboración constante"
-tipo: mc
-opciones_explicitas: ["únicamente el voto cada cierto tiempo", "vigilancia, propuesta y colaboración constante", "delegar todo en los representantes electos"]
-
-enunciado: "Según la teoría, la democracia requiere, además del voto periódico..."
-
-explicacion: |
-  La democracia no se agota en votar: necesita vigilancia ciudadana,
-  propuestas concretas y colaboración sostenida en el tiempo.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "proyecto_ciudadano_participativo"
-  nivel: "intermedio"
-  tags: ["formulacion de objetivos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "\"Mejorar el parque\" es un ejemplo de objetivo bien formulado (claro, alcanzable y medible) para un proyecto ciudadano."
-
-explicacion: |
-  Es demasiado vago; un objetivo bien formulado sería algo como
-  "recuperar el área verde del parque mediante limpieza y plantación de
-  especies nativas en tres meses".
-```
-
-## Sección: senalizacion-vial (20 preguntas)
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "basico"
-  tags: ["reglamentacion"]
-
-enunciado: "¿Qué forma tienen típicamente las señales de reglamentación (obligan o prohíben)?"
-tipo: mc
-opciones_explicitas:
-  - "Circular"
-  - "Rombo"
-  - "Rectangular"
-respuesta: "Circular"
-
-explicacion: |
-  Fondo blanco con borde rojo, salvo el octógono de "Pare".
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "basico"
-  tags: ["reglamentacion"]
-
-enunciado: "¿Qué tipo de mensaje transmiten las señales de reglamentación?"
-tipo: mc
-opciones_explicitas:
-  - "Una obligación o prohibición concreta"
-  - "Sólo advertencias de peligro"
-  - "Sólo información de distancias"
-respuesta: "Una obligación o prohibición concreta"
-
-explicacion: |
-  Velocidad máxima, sentido único, prohibido girar, entre otras.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "intermedio"
-  tags: ["reglamentacion"]
-
-enunciado: "¿Qué forma tiene la señal de 'PARE', a diferencia del resto de las señales de reglamentación?"
-tipo: mc
-opciones_explicitas:
-  - "Octógono"
-  - "Rombo"
-  - "Círculo, igual que el resto"
-respuesta: "Octógono"
-
-explicacion: |
-  Se eligió una forma única y reconocible incluso desde atrás, distinta
-  del resto de las señales circulares.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "avanzado"
-  tags: ["reglamentacion"]
-
-enunciado: "¿Por qué la señal de PARE usa una forma distinta (octógono) al resto de las señales de reglamentación?"
-tipo: mc
-opciones_explicitas:
-  - "Para que sea reconocible incluso desde atrás, donde el reverso de un octógono se distingue del de un círculo"
-  - "Porque es la única señal que no tiene ningún significado real"
-  - "Por un error histórico en el diseño original"
-respuesta: "Para que sea reconocible incluso desde atrás, donde el reverso de un octógono se distingue del de un círculo"
-
-explicacion: |
-  Una forma única permite identificar la señal aun sin ver el frente.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "basico"
-  tags: ["prevencion"]
-
-enunciado: "¿Qué forma tienen las señales de prevención (advierten un peligro)?"
-tipo: mc
-opciones_explicitas:
-  - "Rombo (cuadrado apoyado sobre un vértice)"
-  - "Círculo"
-  - "Rectángulo"
-respuesta: "Rombo (cuadrado apoyado sobre un vértice)"
-
-explicacion: |
-  Fondo amarillo con borde negro.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "basico"
-  tags: ["prevencion"]
-
-enunciado: "¿De qué color es el fondo de las señales de prevención?"
-tipo: mc
-opciones_explicitas:
-  - "Amarillo, con borde negro"
-  - "Rojo, con borde blanco"
-  - "Verde, con borde azul"
-respuesta: "Amarillo, con borde negro"
-
-explicacion: |
-  El amarillo se usa universalmente para advertir peligro, sin obligar
-  ni prohibir nada.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "intermedio"
-  tags: ["prevencion"]
-
-enunciado: "¿Qué tipo de situación anticipan las señales de prevención?"
-tipo: mc
-opciones_explicitas:
-  - "Un peligro adelante (curva, cruce de peatones, escuela cercana)"
-  - "Una obligación legal que hay que cumplir de inmediato"
-  - "La distancia exacta a la próxima ciudad"
-respuesta: "Un peligro adelante (curva, cruce de peatones, escuela cercana)"
-
-explicacion: |
-  A diferencia de las de reglamentación, no obligan ni prohíben, sólo
-  advierten.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "basico"
-  tags: ["prevencion"]
-
-enunciado: "¿Cuál de estas es un ejemplo típico de señal de prevención?"
-tipo: mc
-opciones_explicitas:
-  - "Cruce de vías del ferrocarril"
-  - "Prohibido estacionar"
-  - "Ubicación de un hospital"
-respuesta: "Cruce de vías del ferrocarril"
-
-explicacion: |
-  Advierte un peligro adelante, no una prohibición ni información de
-  servicio.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "basico"
-  tags: ["informativa"]
-
-enunciado: "¿Qué forma tienen las señales informativas (orientan)?"
-tipo: mc
-opciones_explicitas:
-  - "Rectangular, generalmente horizontal"
-  - "Rombo"
-  - "Octógono"
-respuesta: "Rectangular, generalmente horizontal"
-
-explicacion: |
-  Fondo verde o azul, según el tipo de información.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "intermedio"
-  tags: ["informativa"]
-
-enunciado: "¿Qué tipo de información suele indicar una señal informativa con fondo verde?"
-tipo: mc
-opciones_explicitas:
-  - "Rutas y autopistas"
-  - "Ubicación de servicios como hospitales"
-  - "Prohibiciones de tránsito"
-respuesta: "Rutas y autopistas"
-
-explicacion: |
-  El fondo azul, en cambio, se reserva para información de servicios.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "intermedio"
-  tags: ["informativa"]
-
-enunciado: "¿Qué tipo de información suele indicar una señal informativa con fondo azul?"
-tipo: mc
-opciones_explicitas:
-  - "Ubicación de servicios (hospital, estación de servicio, área de descanso)"
-  - "Rutas y autopistas"
-  - "Prohibiciones de velocidad"
-respuesta: "Ubicación de servicios (hospital, estación de servicio, área de descanso)"
-
-explicacion: |
-  El fondo verde, en cambio, se reserva típicamente para rutas.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "avanzado"
-  tags: ["fundamento"]
-
-enunciado: "¿Por qué las señales viales se organizan por forma y color, en vez de solamente por texto?"
-tipo: mc
-opciones_explicitas:
-  - "Para reconocer el tipo de señal aunque no se lea el texto, útil de noche o a alta velocidad"
-  - "Porque es una convención sin ningún propósito práctico"
-  - "Porque el texto en las señales está prohibido por ley"
-respuesta: "Para reconocer el tipo de señal aunque no se lea el texto, útil de noche o a alta velocidad"
-
-explicacion: |
-  El código visual (forma + color) permite una lectura rápida, más allá
-  del contenido textual.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "avanzado"
-  tags: ["marco_normativo"]
-
-enunciado: "¿Qué cambió el Decreto 436/2025 respecto de la Educación Vial en las escuelas argentinas?"
-tipo: mc
-opciones_explicitas:
-  - "Derogó los artículos de la Ley 27.214 que la hacían obligatoria a nivel nacional; hoy es decisión de cada provincia"
-  - "La hizo obligatoria por primera vez en todo el país"
-  - "Prohibió enseñar Educación Vial en las escuelas"
-respuesta: "Derogó los artículos de la Ley 27.214 que la hacían obligatoria a nivel nacional; hoy es decisión de cada provincia"
-
-explicacion: |
-  El contenido sigue siendo currícula real donde se dicta, pero sin
-  respaldo de obligatoriedad nacional.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "intermedio"
-  tags: ["fundamento"]
-
-enunciado: "¿Por qué este módulo depende de `../documentos-y-tramites/`?"
-tipo: mc
-opciones_explicitas:
-  - "Porque presupone el marco de identificación legal del conductor (DNI, licencia) antes de entrar en el contenido de las señales"
-  - "Porque no tiene relación real con ese módulo"
-  - "Porque el DNI reemplaza a la licencia de conducir"
-respuesta: "Porque presupone el marco de identificación legal del conductor (DNI, licencia) antes de entrar en el contenido de las señales"
-
-explicacion: |
-  El MAPA cuelga los 3 nodos de educación vial de los 4 documentos ya
-  vistos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "intermedio"
-  tags: ["reglamentacion"]
-
-enunciado: "Todas las señales de reglamentación, sin excepción, tienen forma circular."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  El octógono de "Pare" es la excepción del grupo.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "basico"
-  tags: ["prevencion"]
-
-enunciado: "Las señales de prevención prohíben una acción concreta, igual que las de reglamentación."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  No obligan ni prohíben, sólo advierten un peligro para que se conduzca
-  con prudencia.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "avanzado"
-  tags: ["marco_normativo"]
-
-enunciado: "Hoy, la Educación Vial en las escuelas es obligatoria a nivel nacional en toda Argentina."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Desde el Decreto 436/2025, es decisión de cada provincia.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "basico"
-  tags: ["reglamentacion"]
-
-enunciado: "La señal de PARE tiene fondo de color ______ sólido."
-tipo: completar
-respuestas_validas:
-  - "rojo"
-
-explicacion: |
-  A diferencia del resto de las señales de reglamentación, que suelen
-  tener fondo blanco con borde rojo.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "basico"
-  tags: ["prevencion"]
-
-enunciado: "Las señales de prevención tienen fondo ______ con borde negro."
-tipo: completar
-respuestas_validas:
-  - "amarillo"
-
-explicacion: |
-  Color universal para advertir peligro.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-enunciado: "Ordená estas 3 categorías de señales según el nivel de urgencia/obligatoriedad de su mensaje, de mayor a menor."
-tipo: ordenar
-opciones_explicitas:
-  - "Reglamentación (obliga o prohíbe)"
-  - "Prevención (advierte)"
-  - "Informativa (orienta)"
-respuesta:
-  - "Reglamentación (obliga o prohíbe)"
-  - "Prevención (advierte)"
-  - "Informativa (orienta)"
-
-explicacion: |
-  La reglamentación es la de mayor peso legal (obligación), seguida por
-  la advertencia de la prevención, y por último la información neutra.
-```
 
 ## Sección: simbolos-patrios (24 preguntas)
 
@@ -1300,11 +458,7 @@ opciones_explicitas:
   - "Adopción de la escarapela (1812)"
   - "Adopción del escudo (1813)"
   - "Decreto que recorta la letra cantada del himno (1900)"
-respuesta:
-  - "Adopción de la escarapela (1812)"
-  - "Adopción del escudo (1813)"
-  - "Decreto que recorta la letra cantada del himno (1900)"
-
+respuesta_orden: ["Adopción de la escarapela (1812)", "Adopción del escudo (1813)", "Decreto que recorta la letra cantada del himno (1900)"]
 explicacion: |
   Los símbolos se crean todos entre 1812 y 1813; el recorte del himno
   cantado es una decisión posterior, de 1900.
@@ -1388,7 +542,7 @@ respuesta: "La escuela austriaca"
 
 explicacion: |
   Misma corriente ya nombrada en
-  `../../economia/corrientes-pensamiento-economico/`.
+  `../../economia/liberalismo-clasico-y-escuela-austriaca/`.
 ```
 
 ```
@@ -1606,8 +760,8 @@ opciones_explicitas:
 respuesta: "Describe cada modelo y su argumento, sin tomar postura sobre cuál es mejor"
 
 explicacion: |
-  Mismo criterio de neutralidad usado en
-  `../../economia/corrientes-pensamiento-economico/`.
+  Mismo criterio de neutralidad usado en el bloque de corrientes de
+  pensamiento económico (`../../economia/`).
 ```
 
 ```
@@ -1703,11 +857,7 @@ opciones_explicitas:
   - "Público universal"
   - "Mixto"
   - "Privado de mercado"
-respuesta:
-  - "Público universal"
-  - "Mixto"
-  - "Privado de mercado"
-
+respuesta_orden: ["Público universal", "Mixto", "Privado de mercado"]
 explicacion: |
   El público universal es el de menor peso de mercado; el mixto combina
   ambas lógicas; el privado de mercado es el de mayor peso de mercado.
@@ -2094,3 +1244,806 @@ respuesta: "Porque entender cómo se reparten bancas presupone ya saber qué es 
 explicacion: |
   Sin ese marco, "banca" es una palabra sin contexto institucional.
 ```
+
+## Sección: sistemas-politicos-comparados (21 preguntas)
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "basico"
+  tags: ["presidencialismo"]
+
+enunciado: "¿Qué caracteriza al sistema presidencialista?"
+tipo: mc
+opciones_explicitas:
+  - "El Jefe de Estado y el Jefe de Gobierno son la misma persona, elegida por voto popular"
+  - "El Jefe de Gobierno es elegido por el Parlamento"
+  - "No existe un Jefe de Estado"
+respuesta: "El Jefe de Estado y el Jefe de Gobierno son la misma persona, elegida por voto popular"
+
+explicacion: |
+  El Presidente concentra ambos roles, con mandato de duración fija.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "basico"
+  tags: ["presidencialismo"]
+
+enunciado: "¿Cuál de estos países es un ejemplo clásico de sistema presidencialista?"
+tipo: mc
+opciones_explicitas:
+  - "Argentina"
+  - "Reino Unido"
+  - "España"
+respuesta: "Argentina"
+
+explicacion: |
+  Junto con Estados Unidos y la mayoría de los países de América
+  Latina.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "intermedio"
+  tags: ["presidencialismo"]
+
+enunciado: "¿Cómo puede caer, antes de tiempo, un Poder Ejecutivo presidencialista?"
+tipo: mc
+opciones_explicitas:
+  - "Sólo por juicio político (impeachment), en casos extremos"
+  - "Por una moción de censura del Parlamento, en cualquier momento"
+  - "No puede caer nunca antes de terminar su mandato"
+respuesta: "Sólo por juicio político (impeachment), en casos extremos"
+
+explicacion: |
+  A diferencia del parlamentarismo, el Ejecutivo no depende de la
+  confianza permanente del Legislativo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "basico"
+  tags: ["parlamentarismo"]
+
+enunciado: "¿Quién es el verdadero jefe de gobierno en un sistema parlamentarista?"
+tipo: mc
+opciones_explicitas:
+  - "El Primer Ministro, elegido por el Parlamento"
+  - "El rey o presidente, elegido por voto popular directo"
+  - "No hay jefe de gobierno en el parlamentarismo"
+respuesta: "El Primer Ministro, elegido por el Parlamento"
+
+explicacion: |
+  Elegido de entre los legisladores del partido o coalición con
+  mayoría, no directamente por voto popular.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "intermedio"
+  tags: ["parlamentarismo"]
+
+enunciado: "¿Qué rol tiene el Jefe de Estado (rey o presidente) en un sistema parlamentarista?"
+tipo: mc
+opciones_explicitas:
+  - "Es una figura mayormente protocolar/de representación"
+  - "Concentra todo el poder ejecutivo real"
+  - "Es elegido directamente por el pueblo para gobernar"
+respuesta: "Es una figura mayormente protocolar/de representación"
+
+explicacion: |
+  El poder ejecutivo real recae en el Primer Ministro, no en el Jefe de
+  Estado.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "intermedio"
+  tags: ["parlamentarismo"]
+
+enunciado: "¿Qué hace caer a un gobierno parlamentarista antes de tiempo?"
+tipo: mc
+opciones_explicitas:
+  - "Una moción de censura del Parlamento"
+  - "Un juicio político exclusivamente"
+  - "Nada, siempre completa su mandato fijo"
+respuesta: "Una moción de censura del Parlamento"
+
+explicacion: |
+  Si pierde la confianza del Parlamento, cae y se llama a nuevas
+  elecciones o se forma otro gobierno.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "basico"
+  tags: ["parlamentarismo"]
+
+enunciado: "¿Cuál de estos países es un ejemplo de sistema parlamentarista?"
+tipo: mc
+opciones_explicitas:
+  - "Reino Unido"
+  - "Argentina"
+  - "Estados Unidos"
+respuesta: "Reino Unido"
+
+explicacion: |
+  Junto con España y Alemania, entre otros ejemplos de
+  parlamentarismo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "avanzado"
+  tags: ["semipresidencialismo"]
+
+enunciado: "¿Qué caracteriza al sistema semipresidencialista?"
+tipo: mc
+opciones_explicitas:
+  - "Coexisten un Presidente electo con poderes reales y un Primer Ministro que responde al Parlamento"
+  - "No tiene ni Presidente ni Primer Ministro"
+  - "El Presidente es sólo una figura protocolar sin poder real"
+respuesta: "Coexisten un Presidente electo con poderes reales y un Primer Ministro que responde al Parlamento"
+
+explicacion: |
+  Un modelo híbrido entre presidencialismo y parlamentarismo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "intermedio"
+  tags: ["semipresidencialismo"]
+
+enunciado: "¿Cuál de estos países es el ejemplo clásico de semipresidencialismo?"
+tipo: mc
+opciones_explicitas:
+  - "Francia"
+  - "Argentina"
+  - "Reino Unido"
+respuesta: "Francia"
+
+explicacion: |
+  Presidente electo con poderes reales conviviendo con un Primer
+  Ministro que responde al Parlamento.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "basico"
+  tags: ["monarquia_republica"]
+
+enunciado: "¿Cuál es la diferencia entre monarquía y república, como eje de comparación?"
+tipo: mc
+opciones_explicitas:
+  - "En la monarquía el Jefe de Estado es hereditario, en la república es electo"
+  - "En la monarquía no hay ningún Jefe de Estado"
+  - "Son exactamente lo mismo, cambia sólo el nombre"
+respuesta: "En la monarquía el Jefe de Estado es hereditario, en la república es electo"
+
+explicacion: |
+  Este eje es independiente de si el sistema es presidencialista o
+  parlamentarista.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "avanzado"
+  tags: ["monarquia_republica"]
+
+enunciado: "¿Cómo se describe el Reino Unido combinando los 2 ejes de comparación (forma de gobierno y jefatura de Estado)?"
+tipo: mc
+opciones_explicitas:
+  - "Monarquía parlamentaria: Jefe de Estado hereditario (rey) + Jefe de Gobierno elegido por el Parlamento (Primer Ministro)"
+  - "República presidencialista: Jefe de Estado electo con todo el poder ejecutivo"
+  - "Monarquía presidencialista: rey elegido por voto popular"
+respuesta: "Monarquía parlamentaria: Jefe de Estado hereditario (rey) + Jefe de Gobierno elegido por el Parlamento (Primer Ministro)"
+
+explicacion: |
+  Combina jefatura de Estado hereditaria con jefatura de gobierno
+  parlamentaria.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "intermedio"
+  tags: ["monarquia_republica"]
+
+enunciado: "¿Cuál de estos países es una república, con Jefe de Estado electo (no hereditario)?"
+tipo: mc
+opciones_explicitas:
+  - "Argentina"
+  - "Reino Unido"
+  - "Japón"
+respuesta: "Argentina"
+
+explicacion: |
+  Argentina, Francia y Alemania son repúblicas; Reino Unido, España y
+  Japón son monarquías.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "intermedio"
+  tags: ["fundamento"]
+
+enunciado: "¿Cuál es la pregunta clave para comparar cualquier sistema político sin tomar postura?"
+tipo: mc
+opciones_explicitas:
+  - "De dónde saca su legitimidad el Jefe de Gobierno, y qué puede hacer caer a su gobierno antes de tiempo"
+  - "Cuál sistema tiene más ministros"
+  - "Cuál país tiene la bandera más antigua"
+respuesta: "De dónde saca su legitimidad el Jefe de Gobierno, y qué puede hacer caer a su gobierno antes de tiempo"
+
+explicacion: |
+  Esa pregunta permite comparar presidencialismo y parlamentarismo sin
+  tomar postura sobre cuál es mejor.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "avanzado"
+  tags: ["fundamento"]
+
+enunciado: "¿Por qué este módulo depende de `../division-de-poderes/`?"
+tipo: mc
+opciones_explicitas:
+  - "Porque comparar sistemas entre países presupone entender antes la división de poderes de un solo Estado"
+  - "Porque no tiene relación real, es sólo una dependencia formal"
+  - "Porque división de poderes explica exclusivamente el sistema de otros países"
+respuesta: "Porque comparar sistemas entre países presupone entender antes la división de poderes de un solo Estado"
+
+explicacion: |
+  Se compara la variante entre países de algo que ya se entendió en un
+  solo caso concreto (Argentina).
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "avanzado"
+  tags: ["fundamento"]
+
+enunciado: "¿Por qué Ciencia Política se ubica dentro de la materia Cívica, en vez de abrir una materia propia?"
+tipo: mc
+opciones_explicitas:
+  - "Porque completa materias ya existentes (Cívica, Historia) sin abrir una fila nueva en el listado de materias"
+  - "Porque no es una orientación educativa real en Argentina"
+  - "Porque no tiene ningún contenido propio distinto de Cívica"
+respuesta: "Porque completa materias ya existentes (Cívica, Historia) sin abrir una fila nueva en el listado de materias"
+
+explicacion: |
+  Nota v2.8 de `troncos.md`: es una orientación NES real que completa
+  materias existentes, no un tronco nuevo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "intermedio"
+  tags: ["presidencialismo"]
+
+enunciado: "En el presidencialismo, el mandato del Ejecutivo tiene una duración fija que no depende de la confianza del Congreso."
+tipo: vf
+respuesta: verdadero
+
+explicacion: |
+  Sólo cae por juicio político en casos extremos, no por perder
+  confianza legislativa.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "intermedio"
+  tags: ["parlamentarismo"]
+
+enunciado: "En el parlamentarismo, el Primer Ministro es elegido directamente por voto popular."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Es elegido por el Parlamento, de entre los legisladores del partido
+  o coalición con mayoría.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "avanzado"
+  tags: ["semipresidencialismo"]
+
+enunciado: "Francia es un ejemplo de parlamentarismo puro, sin Presidente con poder real."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Francia es semipresidencialista: Presidente electo con poderes reales
+  conviviendo con un Primer Ministro parlamentario.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "basico"
+  tags: ["parlamentarismo"]
+
+enunciado: "En el parlamentarismo, el Primer Ministro es elegido por el ______."
+tipo: completar
+respuestas_validas:
+  - "Parlamento"
+
+explicacion: |
+  De entre los legisladores del partido o coalición con mayoría.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "intermedio"
+  tags: ["parlamentarismo"]
+
+enunciado: "Un gobierno parlamentarista cae antes de tiempo si pierde una moción de ______."
+tipo: completar
+respuestas_validas:
+  - "censura"
+
+explicacion: |
+  La moción de censura del Parlamento retira la confianza al gobierno.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sistemas_politicos_comparados"
+  nivel: "avanzado"
+  tags: ["sintesis"]
+
+enunciado: "Ordená estos 3 sistemas según el grado creciente en que el jefe de gobierno depende de la confianza del Parlamento."
+tipo: ordenar
+opciones_explicitas:
+  - "Presidencialismo"
+  - "Semipresidencialismo"
+  - "Parlamentarismo"
+respuesta_orden: ["Presidencialismo", "Semipresidencialismo", "Parlamentarismo"]
+explicacion: |
+  El presidencialismo depende menos del Parlamento; el parlamentarismo,
+  totalmente; el semipresidencialismo queda en el medio.
+```
+
+## Sección: sueldo-promedio-pais (20 preguntas)
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "basico"
+  tags: ["uso_politico", "vocabulario"]
+
+enunciado: "Frente a la misma base de datos de ingresos, un discurso dice 'el salario promedio subió', y otro dice 'el salario típico casi no se movió'. ¿Qué es lo más probable?"
+tipo: mc
+opciones_explicitas:
+  - "Que ambas afirmaciones sean técnicamente verdaderas, cada una citando una medida distinta (media vs. mediana) de la misma distribución de ingresos"
+  - "Que una de las dos afirmaciones necesariamente sea falsa o esté inventada"
+  - "Que sea imposible que dos afirmaciones distintas sobre el mismo tema sean ambas correctas"
+respuesta: "Que ambas afirmaciones sean técnicamente verdaderas, cada una citando una medida distinta (media vs. mediana) de la misma distribución de ingresos"
+
+explicacion: |
+  El problema no es que alguna mienta con los números, sino que cada
+  una elige la medida que más conviene a lo que quiere mostrar.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "intermedio"
+  tags: ["uso_politico", "aplicacion"]
+
+enunciado: "¿Por qué un sector crítico de una gestión podría preferir citar la mediana de ingresos en vez del promedio?"
+tipo: mc
+opciones_explicitas:
+  - "Porque la mediana describe mejor lo que le pasa a 'la persona típica', sin la distorsión que meten los ingresos muy altos de una minoría en el promedio"
+  - "Porque la mediana siempre da un número más favorable para cualquier crítica, sin ninguna razón estadística real"
+  - "Porque la mediana es más fácil de calcular que el promedio"
+respuesta: "Porque la mediana describe mejor lo que le pasa a 'la persona típica', sin la distorsión que meten los ingresos muy altos de una minoría en el promedio"
+
+explicacion: |
+  Es la misma razón estadística de `../../economia/sueldo-promedio-pais/`,
+  ahora usada como argumento en un debate.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "intermedio"
+  tags: ["uso_politico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "'El promedio subió' y 'la mediana casi no se movió' pueden ser dos afirmaciones matemáticamente correctas al mismo tiempo, sobre la misma base de datos."
+
+explicacion: |
+  Media y mediana miden cosas distintas — ninguna de las dos es 'la
+  mentira' por definición.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "intermedio"
+  tags: ["cherry_picking", "vocabulario"]
+
+enunciado: "¿Qué es el 'cherry-picking' estadístico?"
+tipo: mc
+opciones_explicitas:
+  - "Elegir selectivamente la medida, el período o la fuente de datos que más respalda el argumento que se quiere hacer, ignorando el resto de la información disponible"
+  - "Inventar datos falsos que no salen de ninguna fuente real"
+  - "Usar siempre el promedio en vez de la mediana, sin excepción"
+respuesta: "Elegir selectivamente la medida, el período o la fuente de datos que más respalda el argumento que se quiere hacer, ignorando el resto de la información disponible"
+
+explicacion: |
+  A diferencia de inventar datos, el cherry-picking usa datos reales
+  — pero elegidos con la conclusión ya decidida de antemano.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["cherry_picking", "neutralidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El cherry-picking estadístico en el debate público no es un recurso exclusivo de ningún partido, gobierno u oposición en particular — el mismo patrón (elegir la medida o el período que más conviene) aparece en cualquier posición política."
+
+explicacion: |
+  Es una tentación general de cualquier argumento que necesite
+  respaldo numérico, sin importar la postura ideológica de quien lo
+  usa.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "intermedio"
+  tags: ["terminos_reales", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia entre un aumento de sueldo 'en términos nominales' y 'en términos reales'?"
+tipo: mc
+opciones_explicitas:
+  - "Nominal es el número tal cual, sin ajustar; real está ajustado por inflación, y muestra si de verdad se puede comprar más o menos con ese sueldo"
+  - "Son exactamente lo mismo, sólo cambia el nombre"
+  - "Real es el aumento antes de impuestos; nominal es después de impuestos"
+respuesta: "Nominal es el número tal cual, sin ajustar; real está ajustado por inflación, y muestra si de verdad se puede comprar más o menos con ese sueldo"
+
+explicacion: |
+  Un aumento nominal puede convivir con una pérdida real de poder
+  adquisitivo, si la inflación fue mayor.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["terminos_reales", "problema"]
+
+variables:
+  aumento_nominal: uno_de([25, 30, 40])
+  inflacion: uno_de([20, 35, 45])
+
+respuesta: aumento_nominal - inflacion
+tipo: input
+unidad: "%"
+
+enunciado: "Un sueldo tuvo un aumento nominal del {aumento_nominal}% en un período donde la inflación fue del {inflacion}%. ¿Cuál es el aumento REAL aproximado (en puntos porcentuales)?"
+
+pasos:
+  - "Aumento real aproximado = {aumento_nominal}% − {inflacion}% = {aumento_nominal - inflacion} puntos"
+
+explicacion: |
+  Si el resultado es negativo, el poder adquisitivo BAJÓ aunque el
+  número nominal del sueldo haya subido.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["terminos_reales"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Es posible que un sueldo tenga un aumento nominal (el número en pesos sube) y, al mismo tiempo, represente una PÉRDIDA de poder adquisitivo, si la inflación del período fue mayor que ese aumento."
+
+explicacion: |
+  Es la situación descrita en el problema anterior cuando el aumento
+  real aproximado da negativo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["terminos_reales", "problema"]
+
+variables:
+  aumento_nominal: 30
+  inflacion_a: 25
+  inflacion_b: 38
+
+respuesta: (aumento_nominal - inflacion_a) > (aumento_nominal - inflacion_b)
+tipo: vf
+
+enunciado: "Con el mismo aumento nominal del {aumento_nominal}%, en el Período A la inflación fue {inflacion_a}% y en el Período B fue {inflacion_b}%. ¿El aumento REAL del Período A fue MAYOR que el del Período B?"
+
+explicacion: |
+  Con la misma suba nominal, una inflación más baja siempre deja un
+  resultado real más favorable.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "Al escuchar en un discurso 'el sueldo promedio subió X%', ¿qué preguntas conviene hacerse antes de sacar una conclusión?"
+tipo: mc
+opciones_explicitas:
+  - "¿Es promedio o mediana? ¿Está en términos reales o nominales? ¿Qué período cubre? ¿Cuál es la fuente primaria de ese dato?"
+  - "Ninguna: cualquier cifra citada en un discurso oficial se puede aceptar directamente sin revisar nada más"
+  - "Sólo importa quién lo dijo, no qué datos usó"
+respuesta: "¿Es promedio o mediana? ¿Está en términos reales o nominales? ¿Qué período cubre? ¿Cuál es la fuente primaria de ese dato?"
+
+explicacion: |
+  Son las cuatro preguntas básicas para leer con cuidado cualquier
+  estadística económica citada en público.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué comparar una serie histórica completa (varios años) suele ser más confiable que mirar un solo dato puntual?"
+tipo: mc
+opciones_explicitas:
+  - "Porque un solo dato puede ser el mejor (o el peor) momento de una tendencia más larga, y no representar el panorama completo"
+  - "Porque los datos históricos son siempre más precisos que los datos recientes"
+  - "No hay ninguna ventaja real en mirar series históricas"
+respuesta: "Porque un solo dato puede ser el mejor (o el peor) momento de una tendencia más larga, y no representar el panorama completo"
+
+explicacion: |
+  Es el mismo argumento que justifica desconfiar de un gráfico que
+  sólo muestra el rango de tiempo más favorable.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["uso_politico", "eje_truncado"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Citar sólo el mejor mes o trimestre de una serie de datos, ignorando la tendencia completa, es un tipo de manipulación de la lectura de datos parecido en espíritu a truncar el eje de un gráfico: los datos no se inventan, pero se elige qué parte mostrar."
+
+explicacion: |
+  Es la conexión directa con `../../matematica/grafico-eje-truncado/`
+  — ahí se elegía un rango de eje, acá un rango de tiempo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["aplicacion", "problema"]
+
+variables:
+  mejor_mes: uno_de([8, 10])
+  promedio_anual: uno_de([3, 4])
+
+respuesta: mejor_mes > promedio_anual
+tipo: vf
+
+enunciado: "El mejor mes del año tuvo un aumento real del {mejor_mes}%, mientras que el promedio de los 12 meses del año fue de {promedio_anual}%. Si un discurso sólo menciona el dato del mejor mes, ¿da una impresión más favorable que el panorama completo del año?"
+
+explicacion: |
+  Mostrar sólo el mejor mes, sin aclarar que no es representativo del
+  resto del año, es una forma de selección sesgada de los datos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "intermedio"
+  tags: ["eje_truncado", "aplicacion"]
+
+enunciado: "¿Qué tienen en común elegir un 'período favorable' para citar una cifra económica y truncar el eje de un gráfico?"
+tipo: mc
+opciones_explicitas:
+  - "En ambos casos los datos reales no se alteran, pero se elige selectivamente qué mostrar (o cómo mostrarlo) para dar una impresión más favorable de lo que el panorama completo sugeriría"
+  - "No tienen absolutamente nada en común"
+  - "Ambos casos implican inventar datos falsos"
+respuesta: "En ambos casos los datos reales no se alteran, pero se elige selectivamente qué mostrar (o cómo mostrarlo) para dar una impresión más favorable de lo que el panorama completo sugeriría"
+
+explicacion: |
+  Es el mismo tipo de escepticismo estadístico aplicado a dos
+  contextos distintos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "Un discurso cita 'el sueldo promedio subió', sin decir de dónde sale el dato. ¿Qué es lo más razonable pedir para poder evaluar esa afirmación?"
+tipo: mc
+opciones_explicitas:
+  - "La fuente primaria del dato (un organismo oficial de estadísticas), el período exacto que cubre, y si está en términos reales o nominales"
+  - "Nada: si lo dice un discurso público, no hace falta ninguna fuente adicional"
+  - "Sólo importa que la persona que lo dijo tenga un cargo importante"
+respuesta: "La fuente primaria del dato (un organismo oficial de estadísticas), el período exacto que cubre, y si está en términos reales o nominales"
+
+explicacion: |
+  Sin esos tres datos, la cifra citada no se puede evaluar ni
+  contrastar con nada.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["uso_politico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Que una cifra sea técnicamente correcta (calculada bien, con datos reales) no garantiza que la conclusión que alguien saca de ella sea honesta — depende de qué se eligió mostrar y qué se dejó afuera."
+
+explicacion: |
+  Es la idea central de todo el módulo: la honestidad no está sólo en
+  el cálculo, sino también en qué se elige comunicar.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["terminos_reales", "problema"]
+
+variables:
+  aumento_nominal: uno_de([15, 20])
+  inflacion: uno_de([10, 12])
+
+respuesta: aumento_nominal - inflacion
+tipo: input
+unidad: "%"
+
+enunciado: "Con un aumento nominal del {aumento_nominal}% y una inflación del {inflacion}% en el mismo período, ¿cuál es el aumento real aproximado?"
+
+pasos:
+  - "Aumento real aproximado = {aumento_nominal}% − {inflacion}% = {aumento_nominal - inflacion} puntos"
+
+explicacion: |
+  Acá el resultado da positivo: el aumento nominal superó a la
+  inflación, así que hubo una mejora real del poder adquisitivo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "basico"
+  tags: ["uso_politico", "aplicacion"]
+
+enunciado: "Dos dirigentes de posturas opuestas citan la misma fuente oficial de estadísticas de ingresos: uno dice 'mejoramos el poder adquisitivo', el otro dice 'el poder adquisitivo cayó'. ¿Cómo es posible que ambos citen la misma fuente y digan cosas opuestas?"
+tipo: mc
+opciones_explicitas:
+  - "Puede deberse a que eligieron distintos períodos, distintas medidas (media/mediana), o si el ajuste es en términos reales o nominales — la misma fuente permite varias lecturas según qué recorte se elija"
+  - "Es matemáticamente imposible, uno de los dos necesariamente está mintiendo sobre la fuente"
+  - "Sólo es posible si uno de los dos usa datos de otro país"
+respuesta: "Puede deberse a que eligieron distintos períodos, distintas medidas (media/mediana), o si el ajuste es en términos reales o nominales — la misma fuente permite varias lecturas según qué recorte se elija"
+
+explicacion: |
+  Es el resumen de todo el módulo: misma fuente, distintos recortes,
+  distintas conclusiones — todas potencialmente 'correctas' en su
+  propio recorte.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "avanzado"
+  tags: ["neutralidad", "aplicacion"]
+
+enunciado: "¿Cuál es la lectura más precisa de este fenómeno: 'todos los discursos políticos sobre economía mienten' o 'existe un patrón real de selección de datos que conviene poder identificar'?"
+tipo: mc
+opciones_explicitas:
+  - "La segunda: no se trata de que toda cifra política sea falsa, sino de reconocer el patrón de qué medida, período o ajuste se eligió mostrar, para poder evaluar la afirmación con criterio propio"
+  - "La primera: cualquier cifra que use un dirigente político es necesariamente falsa"
+  - "Ninguna de las dos: no hay forma de que un ciudadano evalúe este tipo de afirmaciones"
+respuesta: "La segunda: no se trata de que toda cifra política sea falsa, sino de reconocer el patrón de qué medida, período o ajuste se eligió mostrar, para poder evaluar la afirmación con criterio propio"
+
+explicacion: |
+  El objetivo de este módulo es dar herramientas de lectura crítica,
+  no fomentar un cinismo generalizado sin criterio.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "sueldo_promedio_pais"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender cómo se usa la cifra del 'sueldo promedio' en el debate público?"
+tipo: mc
+opciones_explicitas:
+  - "Para poder evaluar con criterio propio las afirmaciones económicas de cualquier discurso político, identificando qué medida, período y ajuste se eligió citar"
+  - "Para descartar automáticamente cualquier cifra que mencione un dirigente político"
+  - "Sólo sirve para leer noticias de un país en particular"
+respuesta: "Para poder evaluar con criterio propio las afirmaciones económicas de cualquier discurso político, identificando qué medida, período y ajuste se eligió citar"
+
+explicacion: |
+  Cierra la cadena completa: `../../matematica/cual-miente-y-cuando/`
+  → `../../economia/sueldo-promedio-pais/` (la mecánica) → este módulo
+  (el uso público de esa mecánica).
+```
+

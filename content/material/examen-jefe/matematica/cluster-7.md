@@ -1,3022 +1,3009 @@
-# Examen jefe — Maestro del Despeje y Derivadas
+# Examen jefe — [PENDIENTE #607]
 
-> Logro #58. Resolviste el parcial dominando derivadas, determinantes, diagramas de Venn y despeje de fórmulas con dinero. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **135 preguntas totales** en 5/5 secciones.
+> Logro #607. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **147 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: derivada (30 preguntas)
+## Sección: circunferencia-y-circulo (26 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "derivada"
+  tema: "circunferencia_y_circulo"
   nivel: "basico"
-  tags: ["regla_potencia"]
+  tags: ["circunferencia", "circulo", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia entre circunferencia y círculo?"
+tipo: mc
+opciones_explicitas:
+  - "La circunferencia es la línea curva del borde; el círculo es la superficie plana que encierra"
+  - "Son dos nombres distintos para exactamente lo mismo"
+  - "La circunferencia es más grande que el círculo"
+respuesta: "La circunferencia es la línea curva del borde; el círculo es la superficie plana que encierra"
+
+explicacion: |
+  La circunferencia es el borde (una línea), el círculo es el borde más
+  el relleno (una superficie).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "basico"
+  tags: ["circunferencia", "vocabulario"]
+
+enunciado: "¿Qué es el radio de una circunferencia?"
+tipo: mc
+opciones_explicitas:
+  - "El segmento que une el centro con cualquier punto de la circunferencia"
+  - "El segmento que une dos puntos cualesquiera de la circunferencia"
+  - "La línea curva completa"
+respuesta: "El segmento que une el centro con cualquier punto de la circunferencia"
+
+explicacion: |
+  Todos los radios de una misma circunferencia miden lo mismo: es la
+  distancia constante al centro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "basico"
+  tags: ["circunferencia", "diametro", "problema"]
 
 variables:
-  n: random(2, 6)
+  r: random(2, 40)
+
+respuesta: 2 * r
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una circunferencia tiene un radio de {r} cm. ¿Cuánto mide su diámetro?"
+
+pasos:
+  - "2 × {r} = {2 * r} cm"
+
+explicacion: |
+  El diámetro mide siempre el doble que el radio: d = 2r.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "basico"
+  tags: ["circunferencia", "diametro", "problema"]
+
+variables:
+  d: uno_de([10, 12, 14, 16, 18, 20, 24, 30, 40, 50])
+
+respuesta: d / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una circunferencia tiene un diámetro de {d} cm. ¿Cuánto mide su radio?"
+
+pasos:
+  - "{d} ÷ 2 = {d / 2} cm"
+
+explicacion: |
+  El radio es la mitad del diámetro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "basico"
+  tags: ["circunferencia", "vocabulario"]
+
+enunciado: "¿Qué es una cuerda de una circunferencia?"
+tipo: mc
+opciones_explicitas:
+  - "Un segmento que une dos puntos cualesquiera de la circunferencia"
+  - "Un segmento que une el centro con la circunferencia"
+  - "Una recta que toca la circunferencia en un solo punto"
+respuesta: "Un segmento que une dos puntos cualesquiera de la circunferencia"
+
+explicacion: |
+  A diferencia del radio, una cuerda no tiene por qué pasar por el
+  centro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "intermedio"
+  tags: ["circunferencia", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El diámetro es la cuerda más larga que se puede trazar en una circunferencia."
+
+explicacion: |
+  Cualquier otra cuerda que no pase por el centro es más corta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "basico"
+  tags: ["circunferencia", "vocabulario"]
+
+enunciado: "¿Qué es un arco de una circunferencia?"
+tipo: mc
+opciones_explicitas:
+  - "Cada una de las partes en que una cuerda divide a la circunferencia"
+  - "El segmento entre el centro y un punto de la circunferencia"
+  - "La superficie plana encerrada por la circunferencia"
+respuesta: "Cada una de las partes en que una cuerda divide a la circunferencia"
+
+explicacion: |
+  Toda cuerda (menos ninguna) divide a la circunferencia en dos arcos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "basico"
+  tags: ["circulo", "vocabulario"]
+
+enunciado: "¿Qué es un sector circular?"
+tipo: mc
+opciones_explicitas:
+  - "La porción de círculo entre dos radios y el arco que encierran, como una porción de pizza"
+  - "La porción de círculo entre una cuerda y el arco que corta"
+  - "Otro nombre para el diámetro"
+respuesta: "La porción de círculo entre dos radios y el arco que encierran, como una porción de pizza"
+
+explicacion: |
+  Está delimitado por dos radios y el arco entre ellos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "intermedio"
+  tags: ["circunferencia", "vocabulario"]
+
+enunciado: "¿Qué es una recta tangente a una circunferencia?"
+tipo: mc
+opciones_explicitas:
+  - "Una recta que toca a la circunferencia en un único punto, sin cruzarla"
+  - "Una recta que cruza a la circunferencia en dos puntos"
+  - "Una recta que pasa por el centro"
+respuesta: "Una recta que toca a la circunferencia en un único punto, sin cruzarla"
+
+explicacion: |
+  Roza la circunferencia en un solo punto de contacto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "intermedio"
+  tags: ["circunferencia", "tangente"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el punto de contacto, una recta tangente a una circunferencia es siempre perpendicular al radio."
+
+explicacion: |
+  Es una propiedad constante de toda tangente: forma 90° con el radio
+  trazado hasta el punto de contacto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "basico"
+  tags: ["circunferencia", "vocabulario"]
+
+enunciado: "¿Qué es una recta secante a una circunferencia?"
+tipo: mc
+opciones_explicitas:
+  - "Una recta que cruza a la circunferencia en dos puntos"
+  - "Una recta que toca a la circunferencia en un único punto"
+  - "Un segmento que une el centro con un punto de la circunferencia"
+respuesta: "Una recta que cruza a la circunferencia en dos puntos"
+
+explicacion: |
+  A diferencia de la tangente (un solo punto de contacto), la secante
+  atraviesa la circunferencia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "intermedio"
+  tags: ["circunferencia", "perimetro", "problema"]
+
+variables:
+  r: random(2, 25)
+
+respuesta: redondear(2 * pi * r, 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "¿Cuál es la longitud (el perímetro) de una circunferencia de radio {r} cm? Redondeá a 2 decimales."
+
+pasos:
+  - "2 × π × {r} = {redondear(2 * pi * r, 2)} cm"
+
+explicacion: |
+  La longitud de una circunferencia es 2 × π × radio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "intermedio"
+  tags: ["circulo", "area", "problema"]
+
+variables:
+  r: random(2, 25)
+
+respuesta: redondear(pi * r * r, 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "¿Cuál es el área de un círculo de radio {r} cm? Redondeá a 2 decimales."
+
+pasos:
+  - "π × {r}² = {redondear(pi * r * r, 2)} cm²"
+
+explicacion: |
+  El área del círculo es π por el radio al cuadrado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "intermedio"
+  tags: ["circunferencia", "perimetro", "problema"]
+
+variables:
+  d: random(4, 50)
+
+respuesta: redondear(pi * d, 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "¿Cuál es la longitud de una circunferencia de diámetro {d} cm? Redondeá a 2 decimales."
+
+pasos:
+  - "π × {d} = {redondear(pi * d, 2)} cm"
+
+explicacion: |
+  Como el diámetro es el doble del radio, 2×π×r se puede escribir
+  directo como π × diámetro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "basico"
+  tags: ["circunferencia", "pi"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "π (pi) vale siempre lo mismo, sin importar el tamaño del círculo."
+
+explicacion: |
+  π es la razón entre el perímetro y el diámetro de cualquier círculo:
+  ese cociente da siempre ≈ 3,14159..., sea el círculo chico o grande.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "intermedio"
+  tags: ["angulos", "vocabulario"]
+
+enunciado: "¿Qué es un ángulo central en una circunferencia?"
+tipo: mc
+opciones_explicitas:
+  - "El que tiene su vértice en el centro y sus lados son dos radios"
+  - "El que tiene su vértice sobre la circunferencia y sus lados son dos cuerdas"
+  - "El que forma una recta tangente con un radio"
+respuesta: "El que tiene su vértice en el centro y sus lados son dos radios"
+
+explicacion: |
+  Su vértice está en el centro, no sobre la curva.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "intermedio"
+  tags: ["angulos", "problema"]
+
+variables:
+  arco: random(10, 300)
+
+respuesta: arco
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un ángulo central abarca un arco de {arco}°. ¿Cuánto mide ese ángulo central?"
+
+pasos:
+  - "El ángulo central mide igual que el arco que abarca: {arco}°"
+
+explicacion: |
+  Es la propiedad que define al ángulo central: su medida coincide con
+  la del arco comprendido entre sus lados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "basico"
+  tags: ["angulos", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El ángulo central que abarca toda la circunferencia (una vuelta completa) mide 360°."
+
+explicacion: |
+  Toda la circunferencia es un solo arco de 360°.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "intermedio"
+  tags: ["angulos", "vocabulario"]
+
+enunciado: "¿Qué es un ángulo inscripto en una circunferencia?"
+tipo: mc
+opciones_explicitas:
+  - "El que tiene su vértice sobre la circunferencia y sus lados son dos cuerdas"
+  - "El que tiene su vértice en el centro y sus lados son dos radios"
+  - "El que se forma entre dos tangentes"
+respuesta: "El que tiene su vértice sobre la circunferencia y sus lados son dos cuerdas"
+
+explicacion: |
+  A diferencia del ángulo central, su vértice está sobre la curva, no en
+  el centro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "avanzado"
+  tags: ["angulos", "problema"]
+
+variables:
+  mitad: random(10, 170)
+  central: mitad * 2
+
+respuesta: mitad
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un ángulo central mide {central}°. ¿Cuánto mide un ángulo inscripto que abarca el mismo arco?"
+
+pasos:
+  - "{central}° ÷ 2 = {mitad}°"
+
+explicacion: |
+  Todo ángulo inscripto mide la mitad del ángulo central que abarca el
+  mismo arco.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "avanzado"
+  tags: ["angulos", "problema"]
+
+variables:
+  inscripto: random(5, 170)
+
+respuesta: inscripto * 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un ángulo inscripto mide {inscripto}°. ¿Cuánto mide el ángulo central que abarca el mismo arco?"
+
+pasos:
+  - "{inscripto}° × 2 = {inscripto * 2}°"
+
+explicacion: |
+  El ángulo central es el doble del ángulo inscripto correspondiente al
+  mismo arco.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "avanzado"
+  tags: ["angulos", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un ángulo inscripto abarca una semicircunferencia (sus lados terminan en los dos extremos de un diámetro), ese ángulo mide siempre 90°."
+
+explicacion: |
+  La semicircunferencia es un arco de 180° (mitad de la vuelta
+  completa), y el ángulo inscripto siempre mide la mitad de eso: 90°.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "avanzado"
+  tags: ["angulos"]
+
+enunciado: "Si se traza un triángulo con un lado sobre un diámetro y el tercer vértice en cualquier otro punto de la circunferencia, ¿qué tipo de triángulo se forma siempre?"
+tipo: mc
+opciones_explicitas:
+  - "Un triángulo rectángulo, sin importar dónde esté el tercer vértice"
+  - "Un triángulo equilátero"
+  - "Depende de dónde esté el tercer vértice: puede no ser rectángulo"
+respuesta: "Un triángulo rectángulo, sin importar dónde esté el tercer vértice"
+
+explicacion: |
+  El ángulo inscripto que abarca el diámetro (una semicircunferencia)
+  mide siempre 90°, así que ese vértice siempre da un ángulo recto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "intermedio"
+  tags: ["circunferencia", "completar"]
+
+tipo: completar
+enunciado: "Completá la fórmula del perímetro de una circunferencia de radio r: Perímetro = 2 × ___ × r."
+respuestas_validas:
+  - "π"
+  - "pi"
+
+explicacion: |
+  π es la razón constante entre el perímetro y el diámetro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "avanzado"
+  tags: ["angulos", "ordenar"]
+
+enunciado: "Ordená los pasos para hallar un ángulo inscripto, conociendo sólo el arco que abarca."
+tipo: ordenar
+opciones_explicitas:
+  - "Se divide la medida del arco por 2 para obtener el ángulo inscripto"
+  - "El ángulo central que abarca ese arco mide igual que el arco"
+  - "El ángulo inscripto mide la mitad del ángulo central"
+respuesta_orden: ["El ángulo central que abarca ese arco mide igual que el arco", "El ángulo inscripto mide la mitad del ángulo central", "Se divide la medida del arco por 2 para obtener el ángulo inscripto"]
+explicacion: |
+  Como el central es igual al arco, dividir el arco por 2 da directo el
+  ángulo inscripto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "circunferencia_y_circulo"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve conocer los elementos y ángulos de la circunferencia?"
+tipo: mc
+opciones_explicitas:
+  - "Es la base para calcular medidas circulares reales y para construir diseños simétricos como los rosetones"
+  - "Sólo tiene uso decorativo, sin aplicación práctica"
+  - "Sólo sirve para clasificar triángulos"
+respuesta: "Es la base para calcular medidas circulares reales y para construir diseños simétricos como los rosetones"
+
+explicacion: |
+  Desde calcular el material de una rueda o un caño hasta diseñar
+  patrones circulares con simetría, todo parte de estos elementos.
+```
+
+## Sección: error-sistematico-vs-aleatorio (26 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "basico"
+  tags: ["error_sistematico", "vocabulario"]
+
+enunciado: "¿Qué es un error sistemático?"
+tipo: mc
+opciones_explicitas:
+  - "Un error que se repite siempre en la misma dirección, por una causa identificable"
+  - "Un error que varía de forma impredecible en cada medición"
+  - "Un error que sólo ocurre una vez"
+respuesta: "Un error que se repite siempre en la misma dirección, por una causa identificable"
+
+explicacion: |
+  Por ejemplo, un instrumento mal calibrado que siempre mide de más (o de
+  menos) por la misma cantidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "basico"
+  tags: ["error_aleatorio", "vocabulario"]
+
+enunciado: "¿Qué es un error aleatorio?"
+tipo: mc
+opciones_explicitas:
+  - "Un error que varía de forma impredecible en cada medición, sin un patrón fijo"
+  - "Un error que siempre suma la misma cantidad"
+  - "Un error causado únicamente por un instrumento mal calibrado"
+respuesta: "Un error que varía de forma impredecible en cada medición, sin un patrón fijo"
+
+explicacion: |
+  A veces da de más, a veces de menos, por factores que no se pueden
+  controlar del todo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "basico"
+  tags: ["error_sistematico", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El error sistemático se repite siempre en la misma dirección (siempre de más, o siempre de menos)."
+
+explicacion: |
+  Es justo lo que lo distingue del error aleatorio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "basico"
+  tags: ["error_aleatorio", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El error aleatorio no tiene una dirección fija: en distintas mediciones puede dar de más o de menos."
+
+explicacion: |
+  Por eso se puede reducir promediando varias mediciones.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "intermedio"
+  tags: ["error_sistematico", "correccion"]
+
+enunciado: "¿Cómo se corrige un error sistemático?"
+tipo: mc
+opciones_explicitas:
+  - "Identificando la causa y recalibrando el instrumento o el método"
+  - "Repitiendo la medición muchas veces y promediando"
+  - "No se puede corregir de ninguna forma"
+respuesta: "Identificando la causa y recalibrando el instrumento o el método"
+
+explicacion: |
+  A diferencia del error aleatorio, promediar NO ayuda contra el error
+  sistemático.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "intermedio"
+  tags: ["error_aleatorio", "correccion"]
+
+enunciado: "¿Cómo se reduce el efecto de un error aleatorio?"
+tipo: mc
+opciones_explicitas:
+  - "Repitiendo la medición varias veces y promediando los resultados"
+  - "Usando un instrumento distinto una sola vez"
+  - "Sumando siempre la misma corrección"
+respuesta: "Repitiendo la medición varias veces y promediando los resultados"
+
+explicacion: |
+  Al promediar, los errores que dan de más tienden a cancelarse con los
+  que dan de menos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "avanzado"
+  tags: ["error_sistematico", "correccion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una balanza mal calibrada siempre pesa 2 g de más, promediar muchas mediciones hechas con ESA balanza NO va a corregir el error."
+
+explicacion: |
+  Todas las mediciones están corridas en la misma dirección, así que el
+  promedio también queda corrido esos mismos 2 g.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "intermedio"
+  tags: ["error_sistematico", "problema"]
+
+enunciado: "Una balanza está mal calibrada y siempre pesa 2 gramos de más, sin importar qué se pese. ¿Qué tipo de error es ese?"
+tipo: mc
+opciones_explicitas:
+  - "Error sistemático"
+  - "Error aleatorio"
+respuesta: "Error sistemático"
+
+explicacion: |
+  Se repite siempre en la misma dirección y magnitud: es la firma del
+  error sistemático.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "intermedio"
+  tags: ["error_aleatorio", "problema"]
+
+enunciado: "Al cronometrar una carrera a mano, cada persona que toma el tiempo aprieta el botón con una fracción de segundo de diferencia, a veces antes y a veces después del momento exacto. ¿Qué tipo de error es ese?"
+tipo: mc
+opciones_explicitas:
+  - "Error aleatorio"
+  - "Error sistemático"
+respuesta: "Error aleatorio"
+
+explicacion: |
+  No tiene una dirección fija: varía impredeciblemente de una persona (y
+  de una vez) a otra.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "intermedio"
+  tags: ["exactitud", "vocabulario"]
+
+enunciado: "¿Qué es la exactitud de una medición?"
+tipo: mc
+opciones_explicitas:
+  - "Qué tan cerca está del valor real"
+  - "Qué tan cerca están varias mediciones entre sí"
+  - "Cuántas cifras decimales tiene"
+respuesta: "Qué tan cerca está del valor real"
+
+explicacion: |
+  Depende sobre todo del error sistemático.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "intermedio"
+  tags: ["precision", "vocabulario"]
+
+enunciado: "¿Qué es la precisión de un conjunto de mediciones?"
+tipo: mc
+opciones_explicitas:
+  - "Qué tan cerca están las mediciones entre sí, aunque no necesariamente del valor real"
+  - "Qué tan cerca está del valor real"
+  - "La cantidad de mediciones que se hicieron"
+respuesta: "Qué tan cerca están las mediciones entre sí, aunque no necesariamente del valor real"
+
+explicacion: |
+  Depende sobre todo del error aleatorio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "avanzado"
+  tags: ["exactitud", "precision", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Es posible que varias mediciones estén muy cerca entre sí (precisas) pero todas alejadas del valor real (poco exactas), si hay un error sistemático."
+
+explicacion: |
+  Como tiros al blanco muy agrupados, pero lejos del centro: precisos,
+  no exactos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "avanzado"
+  tags: ["exactitud", "precision", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Es posible que varias mediciones estén muy dispersas entre sí (poco precisas), pero que su promedio dé cerca del valor real (exacto)."
+
+explicacion: |
+  Como tiros dispersos por todo el blanco, pero centrados en promedio:
+  exactos en promedio, no precisos individualmente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "intermedio"
+  tags: ["error_aleatorio", "problema"]
+
+variables:
+  base: random(20, 100)
+  m1: base + random(-2, 2)
+  m2: base + random(-2, 2)
+  m3: base + random(-2, 2)
+  m4: base + random(-2, 2)
+  m5: base + random(-2, 2)
+
+respuesta: redondear(promedio([m1, m2, m3, m4, m5]), 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "Se midió el mismo objeto 5 veces, con pequeñas variaciones aleatorias: {m1} cm, {m2} cm, {m3} cm, {m4} cm y {m5} cm. ¿Cuál es el promedio de esas mediciones? Redondeá a 2 decimales."
+
+pasos:
+  - "({m1} + {m2} + {m3} + {m4} + {m5}) ÷ 5 = {redondear(promedio([m1, m2, m3, m4, m5]), 2)} cm"
+
+explicacion: |
+  Promediar mediciones repetidas es la forma estándar de reducir el
+  efecto del error aleatorio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "intermedio"
+  tags: ["error_sistematico", "problema"]
+
+variables:
+  offset: random(1, 5)
+  medido: random(50, 200)
+
+respuesta: medido - offset
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una balanza está descalibrada y siempre pesa {offset} g de más. Si pesa un objeto y marca {medido} g, ¿cuál es el peso corregido (el peso real estimado)?"
+
+pasos:
+  - "{medido} − {offset} = {medido - offset} g"
+
+explicacion: |
+  Conociendo la magnitud del error sistemático, se le resta a cada
+  medición para corregirla.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "avanzado"
+  tags: ["error_sistematico", "exactitud"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El error sistemático afecta principalmente a la exactitud (qué tan cerca del valor real), no tanto a la precisión (qué tan agrupadas están las mediciones entre sí)."
+
+explicacion: |
+  Un instrumento con error sistemático puede dar mediciones MUY parecidas
+  entre sí (precisas) pero todas corridas del valor real (no exactas).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "avanzado"
+  tags: ["error_aleatorio", "precision"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El error aleatorio afecta principalmente a la precisión (qué tan agrupadas están las mediciones), no tanto a la exactitud del promedio."
+
+explicacion: |
+  Aunque las mediciones individuales estén dispersas, su promedio puede
+  seguir siendo exacto (cercano al valor real).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "intermedio"
+  tags: ["error_sistematico", "problema"]
+
+enunciado: "Un termómetro está mal calibrado y siempre marca 1,5 °C más de lo real, en cualquier temperatura que mida. ¿Qué tipo de error es ese?"
+tipo: mc
+opciones_explicitas:
+  - "Error sistemático"
+  - "Error aleatorio"
+respuesta: "Error sistemático"
+
+explicacion: |
+  Dirección y magnitud constantes: sistemático.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "intermedio"
+  tags: ["error_aleatorio", "problema"]
+
+enunciado: "Al leer una regla, distintas personas ubican el ojo en un ángulo levemente distinto cada vez, y a veces leen un poquito de más y a veces de menos. ¿Qué tipo de error es ese?"
+tipo: mc
+opciones_explicitas:
+  - "Error aleatorio"
+  - "Error sistemático"
+respuesta: "Error aleatorio"
+
+explicacion: |
+  No tiene una dirección fija: varía impredeciblemente entre lecturas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "avanzado"
+  tags: ["error_sistematico", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Hacer muchísimas mediciones (miles) con un instrumento mal calibrado eventualmente hace que el promedio se acerque al valor real."
+
+explicacion: |
+  Por más mediciones que se hagan, si TODAS están sesgadas en la misma
+  dirección, el promedio queda igual de sesgado — la cantidad de
+  mediciones no cambia eso.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "basico"
+  tags: ["error_aleatorio", "completar"]
+
+tipo: completar
+enunciado: "Completá: repetir una medición varias veces y ___ los resultados reduce el efecto del error aleatorio."
+respuestas_validas:
+  - "promediar"
+
+explicacion: |
+  Los errores que dan de más y de menos tienden a cancelarse al
+  promediar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "basico"
+  tags: ["error_sistematico", "completar"]
+
+tipo: completar
+enunciado: "Completá: para corregir un error sistemático, hay que identificar su causa y ___ el instrumento o el método."
+respuestas_validas:
+  - "recalibrar"
+
+explicacion: |
+  No alcanza con promediar; hay que arreglar la causa del sesgo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "avanzado"
+  tags: ["error_sistematico", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená los pasos para detectar y corregir un error sistemático."
+opciones_explicitas:
+  - "Recalibrar el instrumento o corregir el método"
+  - "Comparar los resultados con un valor de referencia confiable"
+  - "Notar que las mediciones se desvían siempre en la misma dirección"
+  - "Verificar que las mediciones posteriores ya no tengan ese sesgo"
+respuesta_orden: ["Notar que las mediciones se desvían siempre en la misma dirección", "Comparar los resultados con un valor de referencia confiable", "Recalibrar el instrumento o corregir el método", "Verificar que las mediciones posteriores ya no tengan ese sesgo"]
+explicacion: |
+  Primero se detecta el patrón, después se confirma contra una
+  referencia, se corrige la causa, y se verifica que la corrección haya
+  funcionado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "intermedio"
+  tags: ["error_sistematico", "error_aleatorio", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un mismo experimento puede tener error sistemático Y error aleatorio a la vez, y hace falta tratar cada uno con su propia estrategia."
+
+explicacion: |
+  Por ejemplo: un instrumento mal calibrado (sistemático) leído por
+  varias personas distintas (aleatorio en la lectura).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "intermedio"
+  tags: ["error_sistematico", "error_aleatorio", "problema"]
+
+enunciado: "Si sospechás que hay un error ALEATORIO (no sistemático) en tus mediciones, ¿qué conviene hacer?"
+tipo: mc
+opciones_explicitas:
+  - "Repetir la medición varias veces y promediar"
+  - "Buscar qué parte del instrumento está mal calibrada"
+  - "Descartar todas las mediciones sin analizarlas"
+respuesta: "Repetir la medición varias veces y promediar"
+
+explicacion: |
+  Es la estrategia correcta específicamente contra el error aleatorio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "error_sistematico_vs_aleatorio"
+  nivel: "basico"
+  tags: ["error_sistematico", "error_aleatorio", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Identificar si un error es sistemático o aleatorio es clave, porque cada uno se soluciona con una estrategia distinta: recalibrar en un caso, promediar en el otro."
+
+explicacion: |
+  Es la idea central del módulo: no hay una única receta contra el
+  error, hay que diagnosticar primero de qué tipo es.
+```
+
+## Sección: perimetro-y-area (38 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["perimetro", "vocabulario"]
+
+enunciado: "¿Qué es el perímetro de una figura?"
+tipo: mc
+opciones_explicitas:
+  - "La longitud total de su contorno"
+  - "La superficie que ocupa"
+  - "La cantidad de lados que tiene"
+respuesta: "La longitud total de su contorno"
+
+explicacion: |
+  Es la suma de todos los lados (o la vuelta completa, en el círculo).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["area", "vocabulario"]
+
+enunciado: "¿Qué es el área de una figura?"
+tipo: mc
+opciones_explicitas:
+  - "La medida de la superficie que ocupa"
+  - "La longitud de su contorno"
+  - "La cantidad de vértices que tiene"
+respuesta: "La medida de la superficie que ocupa"
+
+explicacion: |
+  Se mide en unidades cuadradas: cm², m².
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["cuadrado", "perimetro"]
+
+variables:
+  l: random(2, 40)
+
+respuesta: 4 * l
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el perímetro de un cuadrado de lado {l} cm?"
+
+pasos:
+  - "4 × {l} = {4 * l} cm"
+
+explicacion: |
+  El perímetro del cuadrado es 4 veces el lado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["cuadrado", "area"]
+
+variables:
+  l: random(2, 40)
+
+respuesta: l * l
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el área de un cuadrado de lado {l} cm?"
+
+pasos:
+  - "{l} × {l} = {l * l} cm²"
+
+explicacion: |
+  El área del cuadrado es el lado al cuadrado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["cuadrado", "area"]
+
+variables:
+  l: random(2, 20)
+  area: l * l
+
+respuesta: l
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un cuadrado tiene {area} cm² de área. ¿Cuánto mide su lado?"
+
+pasos:
+  - "sqrt({area}) = {sqrt(area)}"
+
+explicacion: |
+  El lado es la raíz cuadrada del área (la operación inversa de
+  elevarlo al cuadrado).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["rectangulo", "perimetro"]
+
+variables:
+  b: random(3, 40)
+  h: random(2, 30)
+
+restricciones:
+  - b != h
+
+respuesta: 2 * (b + h)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el perímetro de un rectángulo de base {b} cm y altura {h} cm?"
+
+pasos:
+  - "2 × ({b} + {h}) = {2 * (b + h)} cm"
+
+explicacion: |
+  El perímetro suma los cuatro lados: dos bases y dos alturas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["rectangulo", "area"]
+
+variables:
+  b: random(3, 40)
+  h: random(2, 30)
+
+respuesta: b * h
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el área de un rectángulo de base {b} cm y altura {h} cm?"
+
+pasos:
+  - "{b} × {h} = {b * h} cm²"
+
+explicacion: |
+  El área del rectángulo es base por altura.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["rectangulo", "area"]
+
+variables:
+  b: random(2, 15)
+  h: random(2, 15)
+  area: b * h
+
+respuesta: h
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un rectángulo tiene {area} cm² de área y {b} cm de base. ¿Cuánto mide su altura?"
+
+pasos:
+  - "{area} ÷ {b} = {area / b} cm"
+
+explicacion: |
+  La altura se despeja dividiendo el área por la base.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["triangulo", "perimetro"]
+
+variables:
+  a: random(3, 20)
+  b: random(3, 20)
+  c: random(3, 20)
+
+respuesta: a + b + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un triángulo tiene lados de {a} cm, {b} cm y {c} cm. ¿Cuál es su perímetro?"
+
+explicacion: |
+  El perímetro de cualquier polígono es la suma de todos sus lados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["triangulo", "area"]
+
+variables:
+  b: random(4, 40)
+  h: random(2, 30)
+
+respuesta: (b * h) / 2
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "¿Cuál es el área de un triángulo de base {b} cm y altura {h} cm?"
+
+pasos:
+  - "({b} × {h}) ÷ 2 = {(b * h) / 2} cm²"
+
+explicacion: |
+  El área del triángulo es base por altura, dividido 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["triangulo", "area"]
+
+variables:
+  b: random(2, 20)
+  h: random(2, 20)
+  area: (b * h) / 2
+
+respuesta: b
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un triángulo tiene {area} cm² de área y {h} cm de altura. ¿Cuánto mide su base?"
+
+pasos:
+  - "({area} × 2) ÷ {h} = {(area * 2) / h} cm"
+
+explicacion: |
+  Se despeja la base: (área × 2) ÷ altura.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["paralelogramo", "area"]
+
+variables:
+  b: random(4, 40)
+  h: random(2, 30)
+
+respuesta: b * h
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el área de un paralelogramo de base {b} cm y altura {h} cm?"
+
+explicacion: |
+  Igual que el rectángulo: base por altura (la altura es perpendicular a
+  la base, no un lado inclinado).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["paralelogramo", "perimetro"]
+
+variables:
+  b: random(4, 30)
+  l: random(2, 20)
+
+respuesta: 2 * (b + l)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un paralelogramo tiene lados de {b} cm y {l} cm. ¿Cuál es su perímetro?"
+
+explicacion: |
+  Un paralelogramo tiene dos pares de lados iguales: el perímetro es
+  2 × (lado1 + lado2).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["trapecio", "area"]
+
+variables:
+  B: random(10, 40)
+  b: random(3, 9)
+  h: random(2, 20)
+
+respuesta: ((B + b) * h) / 2
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un trapecio tiene base mayor {B} cm, base menor {b} cm y altura {h} cm. ¿Cuál es su área?"
+
+pasos:
+  - "(({B} + {b}) × {h}) ÷ 2 = {((B + b) * h) / 2} cm²"
+
+explicacion: |
+  El área del trapecio es la semisuma de las bases, por la altura.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["rombo", "area"]
+
+variables:
+  D: random(10, 40)
+  d: random(4, 9)
+
+respuesta: (D * d) / 2
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un rombo tiene diagonales de {D} cm y {d} cm. ¿Cuál es su área?"
+
+pasos:
+  - "({D} × {d}) ÷ 2 = {(D * d) / 2} cm²"
+
+explicacion: |
+  El área del rombo es el producto de las diagonales, dividido 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["rombo", "perimetro"]
+
+variables:
+  l: random(3, 30)
+
+respuesta: 4 * l
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el perímetro de un rombo de lado {l} cm?"
+
+explicacion: |
+  Los 4 lados del rombo miden lo mismo: perímetro = 4 × lado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["circulo", "circunferencia"]
+
+variables:
+  r: random(2, 20)
+
+respuesta: redondear(2 * pi * r, 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "¿Cuál es la circunferencia (el perímetro) de un círculo de radio {r} cm? Redondeá a 2 decimales."
+
+pasos:
+  - "2 × π × {r} = {redondear(2 * pi * r, 2)} cm"
+
+explicacion: |
+  La circunferencia es 2 × π × radio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["circulo", "area"]
+
+variables:
+  r: random(2, 20)
+
+respuesta: redondear(pi * r * r, 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "¿Cuál es el área de un círculo de radio {r} cm? Redondeá a 2 decimales."
+
+pasos:
+  - "π × {r}² = {redondear(pi * r * r, 2)} cm²"
+
+explicacion: |
+  El área del círculo es π por el radio al cuadrado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["circulo", "circunferencia"]
+
+variables:
+  d: random(4, 40)
+
+respuesta: redondear(pi * d, 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "¿Cuál es la circunferencia de un círculo de diámetro {d} cm? Redondeá a 2 decimales."
+
+pasos:
+  - "π × {d} = {redondear(pi * d, 2)} cm"
+
+explicacion: |
+  Como el diámetro es el doble del radio, la fórmula 2×π×r se puede
+  escribir directamente como π × diámetro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["circulo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un círculo, el diámetro es siempre el doble del radio."
+
+explicacion: |
+  d = 2r: el diámetro cruza todo el círculo pasando por el centro, el
+  radio es sólo la mitad de ese trayecto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["circulo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "π (pi) es siempre el mismo número, sin importar el tamaño del círculo."
+
+explicacion: |
+  π es la razón entre la circunferencia y el diámetro de cualquier
+  círculo: ese cociente da siempre el mismo valor (≈ 3,14159...).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El perímetro y el área de una figura son magnitudes independientes: no se puede calcular una a partir de la otra sin conocer la forma completa."
+
+explicacion: |
+  Dos figuras pueden compartir perímetro y tener áreas muy distintas (o
+  viceversa).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "avanzado"
+  tags: ["rectangulo", "comparacion"]
+
+variables:
+  b1: random(2, 5)
+  h1: random(15, 20)
+  suma: b1 + h1
+  b2: suma - random(1, 3)
+  h2: suma - b2
+
+restricciones:
+  - b2 != h2
+  - b2 > 0
+  - h2 > 0
+
+respuesta: (b1 * h1) != (b2 * h2)
+tipo: vf
+
+enunciado: "Un rectángulo mide {b1} cm × {h1} cm, y otro mide {b2} cm × {h2} cm. Ambos tienen el mismo perímetro. ¿Es cierto que sus áreas son distintas?"
+
+pasos:
+  - "Área 1: {b1} × {h1} = {b1 * h1} cm². Área 2: {b2} × {h2} = {b2 * h2} cm²."
+
+explicacion: |
+  Compartir perímetro no implica compartir área: la forma del rectángulo
+  (más alargado o más parecido a un cuadrado) cambia cuánta superficie
+  encierra.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "avanzado"
+  tags: ["rectangulo", "comparacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "De todos los rectángulos con un perímetro dado, el cuadrado es el que tiene mayor área."
+
+explicacion: |
+  A medida que un rectángulo se "alarga" (manteniendo el mismo
+  perímetro), su área se achica; la forma más "compacta" — el cuadrado —
+  es la que más superficie encierra.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["triangulo", "vocabulario"]
+
+enunciado: "¿Cuál es la fórmula correcta del área de un triángulo?"
+tipo: mc
+opciones_explicitas:
+  - "(base × altura) ÷ 2"
+  - "base × altura"
+  - "base + altura"
+respuesta: "(base × altura) ÷ 2"
+
+explicacion: |
+  El triángulo es "medio rectángulo": su área es la mitad de base ×
+  altura.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["trapecio", "vocabulario"]
+
+enunciado: "¿Cuál es la fórmula correcta del área de un trapecio (bases B y b, altura h)?"
+tipo: mc
+opciones_explicitas:
+  - "((B + b) × h) ÷ 2"
+  - "B × b × h"
+  - "(B + b) × 2"
+respuesta: "((B + b) × h) ÷ 2"
+
+explicacion: |
+  Es la semisuma de las bases, multiplicada por la altura.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["rombo", "vocabulario"]
+
+enunciado: "¿Cuál es la fórmula correcta del área de un rombo (diagonales D y d)?"
+tipo: mc
+opciones_explicitas:
+  - "(D × d) ÷ 2"
+  - "D × d"
+  - "D + d"
+respuesta: "(D × d) ÷ 2"
+
+explicacion: |
+  El producto de las diagonales, dividido 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["rectangulo", "problema"]
+
+variables:
+  b: random(10, 60)
+  h: random(5, 40)
+
+respuesta: 2 * (b + h)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un terreno rectangular mide {b} m de largo y {h} m de ancho. ¿Cuántos metros de alambre hacen falta para cercarlo por completo?"
+
+explicacion: |
+  Cercar el contorno es calcular el perímetro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["rectangulo", "problema"]
+
+variables:
+  b: random(3, 8)
+  h: random(2, 4)
+
+respuesta: b * h
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una pared mide {b} m de ancho y {h} m de alto. ¿Cuántos m² hay que pintar?"
+
+explicacion: |
+  La superficie a pintar es el área de la pared.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "avanzado"
+  tags: ["circulo", "problema"]
+
+variables:
+  r: random(3, 15)
+
+respuesta: redondear(pi * r * r, 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "Un jardín circular tiene {r} m de radio. ¿Cuántos m² de césped hacen falta para cubrirlo? Redondeá a 2 decimales."
+
+explicacion: |
+  Es el área del círculo: π × r².
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["rectangulo", "verificacion"]
+
+variables:
+  b: random(3, 20)
+  h: random(2, 15)
+  correcto: b * h
+  error: uno_de([0, 0, 0, 1, -1])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? El área de un rectángulo de {b} cm × {h} cm es {mostrado} cm²."
+
+explicacion: |
+  Se vuelve a calcular base × altura y se compara con el valor mostrado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["cuadrado", "completar"]
+
+variables:
+  l: random(3, 30)
+
+tipo: completar
+enunciado: "Completá: el perímetro de un cuadrado de lado {l} cm es ___ cm."
+respuestas_validas:
+  - 4 * l
+
+explicacion: |
+  Perímetro = 4 × lado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["triangulo", "completar"]
+
+variables:
+  b: random(4, 20)
+  h: random(2, 20)
+
+tipo: completar
+enunciado: "Completá: el área de un triángulo de base {b} cm y altura {h} cm es ___ cm²."
+respuestas_validas:
+  - (b * h) / 2
+
+explicacion: |
+  Área = (base × altura) ÷ 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "avanzado"
+  tags: ["orden"]
+
+tipo: ordenar
+enunciado: "Ordená estas figuras de menor a mayor área: cuadrado de lado 5 cm, rectángulo de 3×10 cm, triángulo de base 8 y altura 6 cm, círculo de radio 3 cm (usá π ≈ 3,14)."
+opciones_explicitas:
+  - "Círculo de radio 3 cm"
+  - "Cuadrado de lado 5 cm"
+  - "Triángulo de base 8 y altura 6 cm"
+  - "Rectángulo de 3×10 cm"
+respuesta_orden: ["Triángulo de base 8 y altura 6 cm", "Círculo de radio 3 cm", "Cuadrado de lado 5 cm", "Rectángulo de 3×10 cm"]
+pasos:
+  - "Triángulo: (8×6)÷2 = 24 cm². Círculo: 3,14×3² = 28,26 cm². Cuadrado: 5×5 = 25 cm². Rectángulo: 3×10 = 30 cm²."
+
+explicacion: |
+  Hay que calcular cada área con su propia fórmula antes de poder
+  compararlas: 24 (triángulo) < 25 (cuadrado) < 28,26 (círculo) < 30
+  (rectángulo).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["comparacion"]
+
+variables:
+  l_cuadrado: random(8, 15)
+  b_rect: random(3, 6)
+  h_rect: l_cuadrado * 2 - b_rect
+
+respuesta: "Rectángulo"
+tipo: mc
+opciones_explicitas:
+  - "Rectángulo"
+  - "Cuadrado"
+
+enunciado: "¿Cuál tiene mayor perímetro: un cuadrado de lado {l_cuadrado} cm, o un rectángulo de {b_rect} cm × {h_rect} cm?"
+
+pasos:
+  - "Perímetro cuadrado: 4 × {l_cuadrado} = {4 * l_cuadrado} cm. Perímetro rectángulo: 2 × ({b_rect} + {h_rect}) = {2 * (b_rect + h_rect)} cm."
+
+explicacion: |
+  Se calcula el perímetro de cada uno y se compara.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "intermedio"
+  tags: ["circulo", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La fórmula del área del círculo es π por el diámetro al cuadrado."
+
+explicacion: |
+  Es π por el RADIO al cuadrado (A = π × r²), no el diámetro — un error
+  común es confundir los dos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "avanzado"
+  tags: ["rectangulo", "problema"]
+
+variables:
+  b: random(4, 10)
+  h: random(3, 8)
+  lado_baldosa: 1
+
+respuesta: b * h
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un piso rectangular mide {b} m × {h} m, y se va a cubrir con baldosas cuadradas de {lado_baldosa} m de lado. ¿Cuántas baldosas hacen falta?"
+
+pasos:
+  - "Área del piso: {b} × {h} = {b * h} m². Cada baldosa cubre 1 m², así que hacen falta {b * h} baldosas."
+
+explicacion: |
+  Como cada baldosa cubre exactamente 1 m², la cantidad de baldosas
+  coincide con el área del piso en m².
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "perimetro_y_area"
+  nivel: "basico"
+  tags: ["vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El perímetro se mide en unidades lineales (m, cm), y el área se mide en unidades cuadradas (m², cm²)."
+
+explicacion: |
+  Es una consecuencia directa de lo que representa cada uno: una
+  longitud (el contorno) y una superficie (lo que encierra ese
+  contorno).
+```
+
+## Sección: poligonos (28 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "basico"
+  tags: ["poligonos", "vocabulario"]
+
+enunciado: "¿Qué es un polígono?"
+tipo: mc
+opciones_explicitas:
+  - "Una figura plana cerrada formada por segmentos de recta que no se cruzan entre sí"
+  - "Cualquier figura con curvas"
+  - "Una figura formada únicamente por ángulos rectos"
+respuesta: "Una figura plana cerrada formada por segmentos de recta que no se cruzan entre sí"
+
+explicacion: |
+  Los lados son segmentos, se cierran sobre sí mismos y no se cruzan.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "basico"
+  tags: ["poligonos", "completar"]
+
+tipo: completar
+enunciado: "Completá: un polígono de 5 lados se llama ___."
+respuestas_validas:
+  - "pentágono"
+
+explicacion: |
+  Penta- significa cinco.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "basico"
+  tags: ["poligonos", "completar"]
+
+tipo: completar
+enunciado: "Completá: un polígono de 6 lados se llama ___."
+respuestas_validas:
+  - "hexágono"
+
+explicacion: |
+  Hexa- significa seis.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "basico"
+  tags: ["poligonos", "completar"]
+
+tipo: completar
+enunciado: "Completá: un polígono de 8 lados se llama ___."
+respuestas_validas:
+  - "octógono"
+
+explicacion: |
+  Octo- significa ocho.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "basico"
+  tags: ["poligonos", "vocabulario"]
+
+enunciado: "¿Qué es un polígono convexo?"
+tipo: mc
+opciones_explicitas:
+  - "Uno en el que todos los ángulos internos miden menos de 180°"
+  - "Uno en el que todos los lados miden lo mismo"
+  - "Uno con al menos un ángulo interno mayor a 180°"
+respuesta: "Uno en el que todos los ángulos internos miden menos de 180°"
+
+explicacion: |
+  Ningún vértice se "hunde" hacia adentro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "basico"
+  tags: ["poligonos", "vocabulario"]
+
+enunciado: "¿Qué es un polígono cóncavo?"
+tipo: mc
+opciones_explicitas:
+  - "Uno con al menos un ángulo interno mayor a 180°"
+  - "Uno con todos los lados de distinta longitud"
+  - "Uno con más de 6 lados"
+respuesta: "Uno con al menos un ángulo interno mayor a 180°"
+
+explicacion: |
+  Ese vértice "hundido" da la forma característica de flecha o estrella.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "basico"
+  tags: ["poligonos", "vocabulario"]
+
+enunciado: "¿Qué se necesita para que un polígono sea regular?"
+tipo: mc
+opciones_explicitas:
+  - "Que todos sus lados midan lo mismo Y todos sus ángulos internos midan lo mismo"
+  - "Que todos sus lados midan lo mismo, sin importar los ángulos"
+  - "Que sea convexo, sin importar lados ni ángulos"
+respuesta: "Que todos sus lados midan lo mismo Y todos sus ángulos internos midan lo mismo"
+
+explicacion: |
+  Hacen falta las dos condiciones a la vez: lados iguales Y ángulos
+  iguales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "intermedio"
+  tags: ["poligonos", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un rombo (los 4 lados iguales, pero dos ángulos agudos y dos obtusos) es un polígono regular."
+
+explicacion: |
+  Tiene los lados iguales, pero no los ángulos: le falta una de las dos
+  condiciones para ser regular.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "basico"
+  tags: ["poligonos", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un cuadrado es un polígono regular."
+
+explicacion: |
+  Sus 4 lados miden lo mismo y sus 4 ángulos miden 90° cada uno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "intermedio"
+  tags: ["poligonos", "diagonales", "problema"]
+
+variables:
+  n: random(5, 12)
+
+respuesta: n - 3
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántas diagonales salen de un solo vértice en un polígono de {n} lados?"
+
+pasos:
+  - "{n} − 3 = {n - 3}"
+
+explicacion: |
+  Se restan el propio vértice y sus dos vecinos (unidos por lados, no por
+  diagonales).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "basico"
+  tags: ["poligonos", "diagonales"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un triángulo tiene 0 diagonales."
+
+explicacion: |
+  Todos sus vértices son consecutivos entre sí (no hay ningún par de
+  vértices "no vecinos").
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "avanzado"
+  tags: ["poligonos", "diagonales", "problema"]
+
+variables:
+  n: random(5, 15)
+
+respuesta: n * (n - 3) / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántas diagonales tiene en total un polígono de {n} lados?"
+
+pasos:
+  - "{n} × ({n} − 3) ÷ 2 = {n} × {n - 3} ÷ 2 = {n * (n - 3) / 2}"
+
+explicacion: |
+  Cada vértice aporta (n − 3) diagonales, pero cada diagonal se cuenta dos
+  veces (una desde cada extremo): por eso se divide por 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "avanzado"
+  tags: ["poligonos", "diagonales"]
+
+enunciado: "En la fórmula de diagonales D = n(n − 3) / 2, ¿por qué se divide por 2?"
+tipo: mc
+opciones_explicitas:
+  - "Porque cada diagonal se cuenta dos veces, una desde cada uno de sus dos extremos"
+  - "Porque todo polígono tiene el doble de lados que de diagonales"
+  - "Es una convención sin motivo geométrico"
+respuesta: "Porque cada diagonal se cuenta dos veces, una desde cada uno de sus dos extremos"
+
+explicacion: |
+  n(n − 3) cuenta cada diagonal por partida doble (desde cada vértice que
+  la forma).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "intermedio"
+  tags: ["poligonos", "angulos_internos", "problema"]
+
+variables:
+  n: random(5, 14)
+
+respuesta: (n - 2) * 180
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto suman los ángulos internos de un polígono de {n} lados?"
+
+pasos:
+  - "({n} − 2) × 180° = {n - 2} × 180° = {(n - 2) * 180}°"
+
+explicacion: |
+  Se puede dividir el polígono en (n − 2) triángulos trazando diagonales
+  desde un mismo vértice, y cada triángulo suma 180°.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "avanzado"
+  tags: ["poligonos", "angulos_internos"]
+
+enunciado: "¿Por qué la suma de ángulos internos de un polígono de n lados es (n − 2) × 180°?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el polígono se puede dividir en (n − 2) triángulos desde un mismo vértice, y cada uno suma 180°"
+  - "Porque cada lado del polígono aporta 180° a la suma total"
+  - "Es una fórmula empírica, sin relación con los triángulos"
+respuesta: "Porque el polígono se puede dividir en (n − 2) triángulos desde un mismo vértice, y cada uno suma 180°"
+
+explicacion: |
+  Es la misma suma de 180° por triángulo, vista en `../triangulos/`,
+  aplicada (n − 2) veces.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "basico"
+  tags: ["poligonos", "angulos_internos", "problema"]
+
+variables:
+  a: random(60, 100)
+  b: random(60, 100)
+  c: random(60, 100)
+
+restricciones:
+  - (a + b + c) < 350
+
+respuesta: 360 - a - b - c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un cuadrilátero tiene tres de sus ángulos internos de {a}°, {b}° y {c}°. ¿Cuánto mide el cuarto ángulo?"
+
+pasos:
+  - "360° − {a}° − {b}° − {c}° = {360 - a - b - c}°"
+
+explicacion: |
+  Un cuadrilátero (n = 4) suma siempre 360° entre sus 4 ángulos internos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "avanzado"
+  tags: ["poligonos", "angulos_internos", "problema"]
+
+variables:
+  n: random(5, 12)
+
+restricciones:
+  - ((n - 2) * 180) - floor(((n - 2) * 180) / n) * n == 0
+
+respuesta: (n - 2) * 180 / n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto mide cada ángulo interior de un polígono REGULAR de {n} lados?"
+
+pasos:
+  - "(({n} − 2) × 180°) ÷ {n} = {(n - 2) * 180}° ÷ {n} = {(n - 2) * 180 / n}°"
+
+explicacion: |
+  Al ser regular, los {n} ángulos son todos iguales: se reparte la suma
+  total entre los {n} vértices.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "avanzado"
+  tags: ["poligonos", "angulos_internos", "problema"]
+
+variables:
+  n: random(5, 14)
 
 respuesta: n
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "f(x) = x^{n}. ¿Cuál es el coeficiente de f'(x)?"
-
-explicacion: |
-  La derivada de xⁿ es n·x^(n−1) — el coeficiente es directamente n.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "basico"
-  tags: ["regla_potencia"]
-
-variables:
-  n: random(2, 8)
-
-respuesta: n - 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = x^{n}. ¿Cuál es el exponente de f'(x)?"
-
-explicacion: |
-  Se le resta 1 al exponente original.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "intermedio"
-  tags: ["regla_potencia"]
-
-variables:
-  k: random(2, 10)
-  n: random(2, 6)
-
-respuesta: k * n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {k}x^{n}. ¿Cuál es el coeficiente de f'(x)?"
-
-explicacion: |
-  El coeficiente {k} se multiplica por el exponente {n}: {k}×{n} = {k * n}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "basico"
-  tags: ["constante"]
-
-variables:
-  c: random(-30, 30)
-
-respuesta: 0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {c} (una función constante). ¿Cuánto vale f'(x)?"
-
-explicacion: |
-  Una constante no cambia, así que su derivada es siempre 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "basico"
-  tags: ["regla_potencia"]
-
-variables:
-  m: random(1, 20)
-
-respuesta: m
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {m}x. ¿Cuánto vale f'(x)?"
-
-explicacion: |
-  La derivada de mx es simplemente m (la pendiente ya es constante).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "intermedio"
-  tags: ["polinomio"]
-
-variables:
-  a: random(1, 8)
-  b: random(1, 10)
-  c: random(-15, 15)
-  punto: random(-8, 8)
-
-respuesta: 2 * a * punto + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {a}x² + {b}x + {c}. ¿Cuánto vale f'({punto})?"
+enunciado: "La suma de los ángulos internos de un polígono da {(n - 2) * 180}°. ¿Cuántos lados tiene?"
 
 pasos:
-  - "f'(x) = {2 * a}x + {b}"
-  - "f'({punto}) = {2 * a}×{punto} + {b} = {2 * a * punto + b}"
+  - "{(n - 2) * 180}° ÷ 180° = {n - 2}, entonces n = {n - 2} + 2 = {n}"
 
 explicacion: |
-  Se deriva término a término y después se evalúa en {punto}.
+  Se despeja n de la fórmula (n − 2) × 180°: primero se divide por 180°, y
+  después se le suma 2.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "derivada"
+  tema: "poligonos"
+  nivel: "intermedio"
+  tags: ["poligonos", "angulos_externos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La suma de los ángulos exteriores de cualquier polígono convexo es siempre 360°, sin importar cuántos lados tenga."
+
+explicacion: |
+  A diferencia de los ángulos internos (que dependen de n), los exteriores
+  siempre suman una vuelta completa: 360°.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "intermedio"
+  tags: ["poligonos", "angulos_externos", "problema"]
+
+variables:
+  n: uno_de([4, 5, 6, 8, 9, 10, 12, 15, 18, 20])
+
+respuesta: 360 / n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto mide cada ángulo exterior de un polígono REGULAR de {n} lados?"
+
+pasos:
+  - "360° ÷ {n} = {360 / n}°"
+
+explicacion: |
+  La vuelta completa (360°) se reparte por igual entre los {n} vértices.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
+  nivel: "intermedio"
+  tags: ["poligonos", "angulos_externos", "problema"]
+
+variables:
+  interior: random(60, 170)
+
+respuesta: 180 - interior
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un ángulo interior de un polígono mide {interior}°. ¿Cuánto mide el ángulo exterior en ese mismo vértice?"
+
+pasos:
+  - "180° − {interior}° = {180 - interior}°"
+
+explicacion: |
+  Interior y exterior son suplementarios: suman siempre 180° (ver
+  `../angulos/`).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "poligonos"
   nivel: "avanzado"
-  tags: ["polinomio"]
+  tags: ["poligonos", "angulos_externos", "problema"]
 
 variables:
-  a: random(1, 5)
-  b: random(1, 8)
-  c: random(-10, 10)
-  d: random(-10, 10)
-  punto: random(-5, 5)
+  n: uno_de([4, 5, 6, 8, 9, 10, 12, 15, 18, 20])
 
-respuesta: 3 * a * punto ^ 2 + 2 * b * punto + c
+respuesta: n
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "f(x) = {a}x³ + {b}x² + {c}x + {d}. ¿Cuánto vale f'({punto})?"
+enunciado: "Un polígono regular tiene cada ángulo exterior de {360 / n}°. ¿Cuántos lados tiene?"
 
 pasos:
-  - "f'(x) = {3 * a}x² + {2 * b}x + {c}"
+  - "360° ÷ {360 / n}° = {n}"
 
 explicacion: |
-  Cada término se deriva con la regla de la potencia, por separado.
+  Se despeja n de 360° ÷ n = ángulo exterior, dividiendo 360° por el
+  ángulo dado.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "derivada"
-  nivel: "basico"
-  tags: ["suma", "verdadero_falso"]
+  tema: "poligonos"
+  nivel: "avanzado"
+  tags: ["poligonos", "angulos_internos"]
 
-variables:
-  a: random(1, 10)
-  b: random(1, 10)
-  c: random(-20, 20)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "f(x) = {a}x² + {b}x + {c}. ¿La derivada de f NO tiene término independiente (constante)?"
-
-explicacion: |
-  El término {c} desaparece al derivar (su derivada es 0), así que
-  f'(x) no tiene término constante propio, salvo que quede como
-  resultado de derivar el término lineal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "intermedio"
-  tags: ["interpretacion_geometrica"]
-
-variables:
-  a: random(1, 6)
-  punto: random(-6, 6)
-
-respuesta: 2 * a * punto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {a}x². ¿Cuál es la pendiente de la recta tangente al gráfico de f en x={punto}?"
-
-explicacion: |
-  La pendiente de la tangente en un punto es, exactamente, la derivada
-  evaluada ahí: f'({punto}) = {2 * a}×{punto} = {2 * a * punto}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "intermedio"
-  tags: ["aplicacion", "fisica"]
-
-variables:
-  a: random(1, 10)
-  t: random(1, 10)
-
-respuesta: 2 * a * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La posición de un objeto es s(t) = {a}t² (metros). ¿Cuál es su velocidad instantánea en t={t} segundos?"
-
-pasos:
-  - "s'(t) = {2 * a}t → s'({t}) = {2 * a}×{t} = {2 * a * t}"
-
-explicacion: |
-  La velocidad instantánea es la derivada de la posición respecto del
-  tiempo — el cruce clásico entre Análisis y Física.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La derivada de f en un punto mide la tasa de cambio instantánea de f ahí."
-
-explicacion: |
-  Es la definición central de la derivada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "f'(a) es exactamente la pendiente de la recta tangente al gráfico de f en el punto (a, f(a))."
-
-explicacion: |
-  Es la interpretación geométrica de la derivada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "f(a) y f'(a) son siempre el mismo número, para cualquier función f."
-
-explicacion: |
-  Son cosas distintas: f(a) es el VALOR de la función en a; f'(a) es la
-  PENDIENTE (tasa de cambio) en a — en general, números distintos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La derivada de cualquier función constante es 0."
-
-explicacion: |
-  Una constante nunca cambia, así que su tasa de cambio es siempre 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "intermedio"
-  tags: ["error_comun", "opcion_multiple"]
-
-variables:
-  n: random(3, 8)
-
-respuesta: n - 1
+enunciado: "A medida que un polígono regular tiene más lados, ¿qué pasa con cada ángulo interior?"
 tipo: mc
 opciones_explicitas:
-  - n - 1
-  - n
-  - n + 1
-
-enunciado: "f(x) = x^{n}. ¿Cuál es el exponente correcto de f'(x)?"
+  - "Se hace cada vez más grande, acercándose a 180° (pero sin llegar)"
+  - "Se hace cada vez más chico, acercándose a 0°"
+  - "Se mantiene siempre igual, sin importar n"
+respuesta: "Se hace cada vez más grande, acercándose a 180° (pero sin llegar)"
 
 explicacion: |
-  Es n−1, no n (dejar el mismo exponente) ni n+1 — hay que restar 1,
-  siempre.
+  Con más lados, el polígono regular se parece cada vez más a un círculo:
+  cada ángulo interior se acerca a 180° (un lado casi recto).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "derivada"
+  tema: "poligonos"
   nivel: "intermedio"
-  tags: ["polinomio", "signos"]
-
-variables:
-  a: random(2, 8)
-  b: random(2, 8)
-  punto: random(-8, 8)
-
-respuesta: 2 * a * punto - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {a}x² − {b}x. ¿Cuánto vale f'({punto})?"
-
-pasos:
-  - "f'(x) = {2 * a}x − {b}"
-
-explicacion: |
-  El signo del término se mantiene al derivar cada uno por separado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-variables:
-  a: random(1, 8)
-  xv: random(-10, 10)
-  b: -2 * a * xv
-
-respuesta: xv
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {a}x² + {b}x. ¿En qué valor de x se anula f'(x) (o sea, dónde está el vértice de la parábola)?"
-
-pasos:
-  - "f'(x) = {2 * a}x + {b}"
-  - "{2 * a}x + {b} = 0 → x = −{b}/{2 * a} = {xv}"
-
-explicacion: |
-  Es la misma fórmula del vértice de `../funcion-cuadratica-parabola/`,
-  vista ahora como consecuencia de que la derivada se anula ahí — la
-  base de `../optimizacion/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  a: random(1, 8)
-  b: random(1, 10)
-  punto: random(-8, 8)
-  real: 2 * a * punto + b
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "f(x) = {a}x² + {b}x. ¿Es correcto que f'({punto}) sea {propuesto}?"
-
-explicacion: |
-  El valor correcto es f'({punto}) = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La derivada de una función lineal f(x)=mx+b es siempre la misma constante m, sin importar en qué punto se evalúe."
-
-explicacion: |
-  Tiene sentido: la pendiente de una recta es la misma en todos sus
-  puntos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "avanzado"
-  tags: ["interpretacion_geometrica", "verdadero_falso"]
-
-variables:
-  a: random(1, 8)
-  xv: random(-10, 10)
-  b: -2 * a * xv
-
-respuesta: ((2 * a * xv + b) == 0)
-tipo: vf
-
-enunciado: "f(x) = {a}x² + {b}x. ¿Es 0 la pendiente de la recta tangente en x={xv} (el vértice)?"
-
-explicacion: |
-  En el vértice de una parábola, la recta tangente es horizontal —
-  pendiente 0, exactamente donde f' se anula.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "avanzado"
-  tags: ["polinomio"]
-
-variables:
-  a: random(1, 4)
-  b: random(1, 6)
-  c: random(1, 8)
-  d: random(-10, 10)
-  punto: random(1, 5)
-
-respuesta: 3 * a * punto ^ 2 + 2 * b * punto + c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {a}x³ + {b}x² + {c}x + {d}. ¿Cuánto vale f'({punto})?"
-
-explicacion: |
-  f'(x) = {3 * a}x² + {2 * b}x + {c}, evaluado en x={punto}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Se puede derivar la derivada de una función, obteniendo la 'derivada segunda' — por ejemplo, la derivada de la velocidad es la aceleración."
-
-explicacion: |
-  Derivar dos veces mide "cómo cambia la tasa de cambio" — en física, la
-  aceleración es la derivada segunda de la posición.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-variables:
-  a: random(1, 10)
-
-respuesta: 2 * a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "s(t) = {a}t² (posición). La velocidad es s'(t) = {2 * a}t. ¿Cuál es la aceleración (la derivada de la velocidad)?"
-
-explicacion: |
-  Derivar {2 * a}t (una función lineal en t) da la constante {2 * a} —
-  la aceleración es constante en este movimiento.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "basico"
-  tags: ["concepto"]
-
-respuesta: 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = x. ¿Cuánto vale f'(x)?"
-
-explicacion: |
-  x es x¹: derivando, 1×x⁰ = 1×1 = 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-variables:
-  a: random(1, 5)
-  b: random(10, 50)
-  cantidad: random(1, 20)
-
-respuesta: 2 * a * cantidad + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El costo de producir q unidades es C(q) = {a}q² + {b}q. ¿Cuál es el costo marginal (la derivada de C) en q={cantidad}?"
-
-explicacion: |
-  El costo marginal es, literalmente, la derivada del costo total —
-  cuánto cuesta producir "una unidad más" en ese punto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "intermedio"
-  tags: ["polinomio", "signos"]
-
-variables:
-  a: random(2, 8)
-  punto: random(-6, 6)
-
-respuesta: -2 * a * punto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = −{a}x². ¿Cuánto vale f'({punto})?"
-
-pasos:
-  - "f'(x) = −{2 * a}x"
-
-explicacion: |
-  El signo negativo se conserva al derivar, igual que cualquier otro
-  coeficiente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si f'(a) es positiva, la función es creciente cerca de x=a; si f'(a) es negativa, es decreciente ahí."
-
-explicacion: |
-  El signo de la derivada indica la dirección del cambio, y su valor
-  absoluto, qué tan rápido cambia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  k: random(2, 10)
-  n: random(2, 6)
-  real: k * n
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "f(x) = {k}x^{n}. ¿Es correcto que el coeficiente de f'(x) sea {propuesto}?"
-
-explicacion: |
-  El coeficiente correcto es {k}×{n} = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La derivada de un producto de dos funciones es simplemente el producto de sus derivadas."
-
-explicacion: |
-  No es tan simple — la regla del producto real es más elaborada
-  (f·g)' = f'g + fg'. Sólo la SUMA se deriva término a término de forma
-  directa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "derivada"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-variables:
-  a: random(1, 6)
-  x_sol: random(1, 10)
-  pendiente_deseada: 2 * a * x_sol
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {a}x². ¿En qué valor positivo de x la pendiente de la tangente es {pendiente_deseada}?"
-
-pasos:
-  - "f'(x) = {2 * a}x = {pendiente_deseada} → x = {pendiente_deseada}/{2 * a}"
-
-explicacion: |
-  Se plantea f'(x) = valor deseado, y se despeja x — la misma ecuación
-  de primer grado de siempre.
-```
-
-## Sección: despejar-formula (28 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "basico"
-  tags: ["perimetro", "rectangulo"]
-
-variables:
-  h: random(1, 30)
-  b_sol: random(1, 30)
-  P: 2 * (b_sol + h)
-
-respuesta: P / 2 - h
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El perímetro de un rectángulo es P = 2(b + h). Si P = {P} y h = {h}, ¿cuánto vale b?"
-
-pasos:
-  - "Dividir por 2: P/2 = b + h → {P}/2 = {P / 2}"
-  - "Restar h: b = {P / 2} − {h} = {P / 2 - h}"
-
-explicacion: |
-  Se deshacen las operaciones en orden inverso: primero la división por
-  2, después la resta de h.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "basico"
-  tags: ["perimetro", "rectangulo"]
-
-variables:
-  b: random(1, 30)
-  h_sol: random(1, 30)
-  P: 2 * (b + h_sol)
-
-respuesta: P / 2 - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El perímetro de un rectángulo es P = 2(b + h). Si P = {P} y b = {b}, ¿cuánto vale h?"
-
-explicacion: |
-  h = P/2 − b, el mismo procedimiento con los roles de b y h invertidos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "basico"
-  tags: ["area", "rectangulo"]
-
-variables:
-  h: random(2, 20)
-  b_sol: random(1, 20)
-  A: b_sol * h
-
-respuesta: A / h
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El área de un rectángulo es A = b · h. Si A = {A} y h = {h}, ¿cuánto vale b?"
-
-explicacion: |
-  Como h multiplica a b, se deshace dividiendo: b = A/h.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "basico"
-  tags: ["area", "rectangulo"]
-
-variables:
-  b: random(2, 20)
-  h_sol: random(1, 20)
-  A: b * h_sol
-
-respuesta: A / b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El área de un rectángulo es A = b · h. Si A = {A} y b = {b}, ¿cuánto vale h?"
-
-explicacion: |
-  h = A/b.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["area", "triangulo"]
-
-variables:
-  h: random(1, 10) * 2
-  b_sol: random(1, 20)
-  A: (b_sol * h) / 2
-
-respuesta: 2 * A / h
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El área de un triángulo es A = (b · h) / 2. Si A = {A} y h = {h}, ¿cuánto vale b?"
-
-pasos:
-  - "Multiplicar por 2: 2A = b · h → {2 * A}"
-  - "Dividir por h: b = {2 * A} / {h} = {2 * A / h}"
-
-explicacion: |
-  El 2 del denominador se despeja multiplicando primero.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["area", "triangulo"]
-
-variables:
-  b: random(1, 10) * 2
-  h_sol: random(1, 20)
-  A: (b * h_sol) / 2
-
-respuesta: 2 * A / b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El área de un triángulo es A = (b · h) / 2. Si A = {A} y b = {b}, ¿cuánto vale h?"
-
-explicacion: |
-  h = 2A / b.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "basico"
-  tags: ["velocidad", "fisica"]
-
-variables:
-  v: random(2, 20)
-  t: random(2, 10)
-
-respuesta: v * t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v = d / t. Si v = {v} y t = {t}, ¿cuánto vale d?"
-
-explicacion: |
-  d ya está multiplicando implícitamente: d = v · t.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["velocidad", "fisica", "denominador"]
-
-variables:
-  v: random(2, 20)
-  t_sol: random(1, 15)
-  d: v * t_sol
-
-respuesta: d / v
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v = d / t. Si v = {v} y d = {d}, ¿cuánto vale t?"
-
-pasos:
-  - "Pasar t multiplicando: v · t = d"
-  - "Dividir por v: t = {d} / {v} = {d / v}"
-
-explicacion: |
-  Cuando la letra a despejar divide, primero se la pasa multiplicando y
-  recién después se despeja — no se invierte la fracción directamente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "basico"
-  tags: ["velocidad", "fisica"]
-
-variables:
-  t: random(2, 10)
-  v_sol: random(2, 20)
-  d: v_sol * t
-
-respuesta: d / t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "v = d / t. Si d = {d} y t = {t}, ¿cuánto vale v?"
-
-explicacion: |
-  v ya está despejada en la fórmula original: v = d/t.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "basico"
-  tags: ["densidad", "fisica"]
-
-variables:
-  dens: random(2, 10)
-  V: random(2, 15)
-
-respuesta: dens * V
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "d = m / V. Si d = {dens} y V = {V}, ¿cuánto vale m?"
-
-explicacion: |
-  m = d · V.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["densidad", "fisica", "denominador"]
-
-variables:
-  dens: random(2, 10)
-  V_sol: random(2, 15)
-  m: dens * V_sol
-
-respuesta: m / dens
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "d = m / V. Si d = {dens} y m = {m}, ¿cuánto vale V?"
-
-pasos:
-  - "Pasar V multiplicando: d · V = m"
-  - "Dividir por d: V = {m} / {dens} = {m / dens}"
-
-explicacion: |
-  Mismo caso que despejar t en v = d/t: la letra divide, así que primero
-  pasa multiplicando.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["interes", "tres_letras"]
-
-variables:
-  i: random(2, 10)
-  t: random(2, 8)
-  C_sol: random(1, 20)
-  I: C_sol * i * t
-
-respuesta: I / (i * t)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "I = C · i · t. Si I = {I}, i = {i} y t = {t}, ¿cuánto vale C?"
-
-pasos:
-  - "Dividir por i y por t (las dos letras que multiplican): C = {I} / ({i}×{t}) = {I / (i * t)}"
-
-explicacion: |
-  Cuando hay dos letras multiplicando además de la que se despeja, hay
-  que dividir por las dos — no sólo por una de ellas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["interes", "tres_letras"]
-
-variables:
-  C: random(2, 20)
-  t: random(2, 8)
-  i_sol: random(1, 10)
-  I: C * i_sol * t
-
-respuesta: I / (C * t)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "I = C · i · t. Si I = {I}, C = {C} y t = {t}, ¿cuánto vale i?"
-
-explicacion: |
-  i = I / (C · t).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["interes", "tres_letras"]
-
-variables:
-  C: random(2, 20)
-  i: random(2, 10)
-  t_sol: random(1, 8)
-  I: C * i * t_sol
-
-respuesta: I / (C * i)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "I = C · i · t. Si I = {I}, C = {C} e i = {i}, ¿cuánto vale t?"
-
-explicacion: |
-  t = I / (C · i).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["problema", "dos_pasos"]
-
-variables:
-  precio: random(2, 15)
-  envio: random(1, 20)
-  cant_sol: random(1, 20)
-  T: precio * cant_sol + envio
-
-respuesta: (T - envio) / precio
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El costo total es T = c·p + e (c: cantidad, p: precio unitario, e: envío). Si T = {T}, p = {precio}, e = {envio}, ¿cuánto vale c?"
-
-explicacion: |
-  Mismo procedimiento que a·x + b = c: restar el envío, dividir por el
-  precio unitario.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "basico"
-  tags: ["problema", "dos_pasos"]
-
-variables:
-  precio: random(2, 15)
-  cant: random(1, 20)
-  envio_sol: random(1, 20)
-  T: precio * cant + envio_sol
-
-respuesta: T - precio * cant
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "T = c·p + e. Si T = {T}, c = {cant} y p = {precio}, ¿cuánto vale e?"
-
-explicacion: |
-  e = T − c·p.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["problema", "dos_pasos"]
-
-variables:
-  cant: random(1, 20)
-  envio: random(1, 20)
-  precio_sol: random(2, 15)
-  T: cant * precio_sol + envio
-
-respuesta: (T - envio) / cant
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "T = c·p + e. Si T = {T}, c = {cant} y e = {envio}, ¿cuánto vale p?"
-
-explicacion: |
-  p = (T − e) / c.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "basico"
-  tags: ["perimetro", "una_letra"]
-
-variables:
-  l_sol: random(1, 30)
-  P: 3 * l_sol
-
-respuesta: P / 3
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El perímetro de un triángulo equilátero es P = 3l. Si P = {P}, ¿cuánto vale l?"
-
-explicacion: |
-  l = P/3.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "avanzado"
-  tags: ["area", "trapecio", "parentesis"]
-
-variables:
-  b: random(1, 15)
-  h: random(1, 10) * 2
-  B_sol: random(1, 20)
-  A: ((B_sol + b) * h) / 2
-
-respuesta: 2 * A / h - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El área de un trapecio es A = ((B + b)·h) / 2. Si A = {A}, b = {b} y h = {h}, ¿cuánto vale B (la base mayor)?"
-
-pasos:
-  - "Multiplicar por 2 y dividir por h: B + b = 2A/h = {2 * A / h}"
-  - "Restar b: B = {2 * A / h} − {b} = {2 * A / h - b}"
-
-explicacion: |
-  B queda sola restando b del resultado — no dividiendo por (h − b), que
-  sería un error de paréntesis.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "avanzado"
-  tags: ["area", "trapecio", "parentesis"]
-
-variables:
-  B: random(10, 25)
-  b: random(1, 9)
-  h_sol: random(1, 10) * 2
-  A: ((B + b) * h_sol) / 2
-
-respuesta: 2 * A / (B + b)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = ((B + b)·h) / 2. Si A = {A}, B = {B} y b = {b}, ¿cuánto vale h?"
-
-pasos:
-  - "Multiplicar por 2: 2A = (B + b)·h"
-  - "Dividir por (B + b): h = {2 * A} / {B + b} = {2 * A / (B + b)}"
-
-explicacion: |
-  (B + b) se trata como un solo bloque al dividir, sin separarlo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "basico"
-  tags: ["verificacion", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al despejar h de A = b · h, se obtiene h = A / b."
-
-explicacion: |
-  h multiplica a b para dar A, así que se despeja dividiendo: h = A/b.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["verificacion", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Al despejar b de P = 2(b + h), se obtiene b = P/2 + h."
-
-explicacion: |
-  La forma correcta es b = P/2 − h (se resta h, no se suma) — error
-  típico de cambiar el signo al mover un término.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["verificacion", "error_comun", "denominador", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Al despejar t de v = d/t, se obtiene t = v/d."
-
-explicacion: |
-  La forma correcta es t = d/v. Invertir directamente sin pasar t
-  multiplicando primero da vuelta el resultado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "basico"
-  tags: ["verificacion", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al despejar m de d = m/V, se obtiene m = d · V."
-
-explicacion: |
-  m es la que divide por V para dar d, así que se despeja multiplicando:
-  m = d·V.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "avanzado"
-  tags: ["verificacion", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Al despejar C de I = C · i · t, se obtiene C = I · i · t."
-
-explicacion: |
-  La forma correcta es C = I / (i·t): hay que dividir por las dos letras
-  que multiplican, no multiplicarlas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["verificacion", "numerico", "verdadero_falso"]
-
-variables:
-  b: random(2, 20)
-  h: random(2, 20)
-  A: b * h
-  propuesta: uno_de([A / b, A * b])
-
-respuesta: (propuesta == h)
-tipo: vf
-
-enunciado: "El área de un rectángulo es A = {A} y su base es b = {b}. ¿Es correcto que la altura sea h = {propuesta}?"
-
-explicacion: |
-  La altura correcta es A/b — si la opción mostrada usa A·b en cambio,
-  es el error de multiplicar en vez de dividir.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "intermedio"
-  tags: ["verificacion", "numerico", "verdadero_falso"]
-
-variables:
-  b: random(1, 30)
-  h: random(1, 30)
-  P: 2 * (b + h)
-  propuesta: uno_de([P / 2 - h, P / 2 + h])
-
-respuesta: (propuesta == b)
-tipo: vf
-
-enunciado: "El perímetro de un rectángulo es P = {P} y su altura es h = {h}. ¿Es correcto que la base sea b = {propuesta}?"
-
-explicacion: |
-  La base correcta es P/2 − h — sumar h en vez de restarlo es el error
-  típico de este despeje.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "despejar_formula"
-  nivel: "avanzado"
-  tags: ["verificacion", "numerico", "denominador", "verdadero_falso"]
-
-variables:
-  v: random(2, 20)
-  t: random(2, 10)
-  d: v * t
-  propuesta: uno_de([d / v, d * v])
-
-respuesta: (propuesta == t)
-tipo: vf
-
-enunciado: "v = d/t. Si v = {v} y d = {d}, ¿es correcto que t = {propuesta}?"
-
-explicacion: |
-  El tiempo correcto es d/v — multiplicar en vez de dividir es el error
-  típico cuando la letra despejada estaba en el denominador.
-```
-
-## Sección: determinante (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "basico"
-  tags: ["2x2"]
-
-variables:
-  a: random(1, 15)
-  b: random(1, 15)
-  c: random(1, 15)
-  d: random(1, 15)
-
-respuesta: a * d - b * c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
-
-pasos:
-  - "det(A) = {a}×{d} − {b}×{c} = {a * d} − {b * c} = {a * d - b * c}"
-
-explicacion: |
-  Producto de la diagonal principal menos producto de la diagonal
-  secundaria.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "basico"
-  tags: ["2x2", "signos"]
-
-variables:
-  a: random(1, 5)
-  b: random(10, 20)
-  c: random(1, 5)
-  d: random(1, 5)
-
-respuesta: a * d - b * c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
-
-explicacion: |
-  El determinante puede dar negativo — no hay que "corregir" el signo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "basico"
-  tags: ["2x2"]
-
-variables:
-  a: random(2, 20)
-  b: random(1, 10)
-  c: random(1, 10)
-  d: random(2, 20)
-
-respuesta: a * d - b * c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
-
-explicacion: |
-  det(A) = ad − bc.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "basico"
-  tags: ["2x2"]
-
-variables:
-  a: random(1, 15)
-  d: random(1, 15)
-  b: random(1, 10)
-  c: random(1, 10)
-
-respuesta: a * d - b * c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
-
-explicacion: |
-  det(A) = {a}×{d} − {b}×{c}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "intermedio"
-  tags: ["2x2"]
-
-variables:
-  a: random(10, 30)
-  b: random(5, 20)
-  c: random(5, 20)
-  d: random(10, 30)
-
-respuesta: a * d - b * c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
-
-explicacion: |
-  det(A) = {a}×{d} − {b}×{c} = {a * d - b * c}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "intermedio"
-  tags: ["2x2", "singular"]
-
-variables:
-  a: random(1, 10)
-  b: random(1, 10)
-  k: random(2, 5)
-  c: a * k
-  d: b * k
-
-respuesta: a * d - b * c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
-
-explicacion: |
-  Acá la segunda fila es exactamente {k} veces la primera, así que el
-  determinante da 0: filas proporcionales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "avanzado"
-  tags: ["3x3", "sarrus"]
-
-variables:
-  a: random(1, 6)
-  b: random(1, 6)
-  c: random(1, 6)
-  d: random(1, 6)
-  e: random(1, 6)
-  f: random(1, 6)
-  g: random(1, 6)
-  h: random(1, 6)
-  i: random(1, 6)
-
-respuesta: a * e * i + b * f * g + c * d * h - c * e * g - a * f * h - b * d * i
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}, {c}], [{d}, {e}, {f}], [{g}, {h}, {i}]]. ¿Cuál es el determinante de A?"
-
-pasos:
-  - "Diagonales +: {a}×{e}×{i} + {b}×{f}×{g} + {c}×{d}×{h}"
-  - "Diagonales −: {c}×{e}×{g} + {a}×{f}×{h} + {b}×{d}×{i}"
-
-explicacion: |
-  Regla de Sarrus: suma de las tres diagonales principales, menos la
-  suma de las tres diagonales secundarias.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "avanzado"
-  tags: ["3x3", "sarrus"]
-
-variables:
-  a: random(1, 5)
-  b: random(1, 5)
-  c: random(1, 5)
-  d: random(1, 5)
-  e: random(1, 5)
-  f: random(1, 5)
-  g: random(1, 5)
-  h: random(1, 5)
-  i: random(1, 5)
-
-respuesta: a * e * i + b * f * g + c * d * h - c * e * g - a * f * h - b * d * i
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}, {c}], [{d}, {e}, {f}], [{g}, {h}, {i}]]. ¿Cuál es el determinante de A?"
-
-explicacion: |
-  Mismo procedimiento de Sarrus con otros números.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "avanzado"
-  tags: ["3x3", "sarrus"]
-
-variables:
-  a: random(1, 6)
-  b: random(1, 6)
-  c: random(1, 6)
-  e: random(1, 6)
-  f: random(1, 6)
-  h: random(1, 6)
-  i: random(1, 6)
-
-respuesta: a * e * i + b * f * 0 + c * 0 * h - c * e * 0 - a * f * h - b * 0 * i
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}, {c}], [0, {e}, {f}], [0, {h}, {i}]]. ¿Cuál es el determinante de A?"
-
-pasos:
-  - "Con ceros en la primera columna de las filas 2 y 3, varios productos de Sarrus se anulan directamente"
-
-explicacion: |
-  Los productos que incluyen alguno de los ceros se anulan, así que sólo
-  quedan los términos que no los usan.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "intermedio"
-  tags: ["3x3", "diagonal"]
-
-variables:
-  a: random(2, 10)
-  e: random(2, 10)
-  i: random(2, 10)
-
-respuesta: a * e * i
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, 0, 0], [0, {e}, 0], [0, 0, {i}]]. ¿Cuál es el determinante de A?"
-
-explicacion: |
-  En una matriz diagonal, todos los productos de Sarrus que no usan sólo
-  la diagonal principal se anulan — el determinante queda el producto de
-  la diagonal: {a}×{e}×{i}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "avanzado"
-  tags: ["3x3", "sarrus"]
-
-variables:
-  a: random(1, 4)
-  b: random(1, 4)
-  c: random(1, 4)
-  d: random(1, 4)
-  e: random(1, 4)
-  f: random(1, 4)
-  g: random(1, 4)
-  h: random(1, 4)
-  i: random(1, 4)
-
-respuesta: a * e * i + b * f * g + c * d * h - c * e * g - a * f * h - b * d * i
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}, {c}], [{d}, {e}, {f}], [{g}, {h}, {i}]]. ¿Cuál es el determinante de A?"
-
-explicacion: |
-  Sarrus: suma de diagonales principales menos suma de diagonales
-  secundarias.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "avanzado"
-  tags: ["3x3", "singular"]
-
-variables:
-  a: random(1, 5)
-  b: random(1, 5)
-  c: random(1, 5)
-  d: random(1, 5)
-  e: random(1, 5)
-  f: random(1, 5)
-  k: random(2, 3)
-  g: a * k
-  h: b * k
-  i: c * k
-
-respuesta: a * e * i + b * f * g + c * d * h - c * e * g - a * f * h - b * d * i
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}, {c}], [{d}, {e}, {f}], [{g}, {h}, {i}]]. ¿Cuál es el determinante de A?"
-
-explicacion: |
-  La tercera fila es {k} veces la primera — filas proporcionales dan
-  determinante 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  a: random(1, 15)
-  b: random(1, 15)
-  c: random(1, 15)
-  d: random(1, 15)
-  real: a * d - b * c
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Es correcto que det(A) = {propuesto}?"
-
-explicacion: |
-  El valor correcto es ad − bc = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "intermedio"
-  tags: ["error_comun", "verdadero_falso"]
-
-variables:
-  a: random(1, 10)
-  b: random(11, 20)
-  c: random(1, 10)
-  d: random(1, 10)
-
-respuesta: (b * c - a * d) == (a * d - b * c)
-tipo: vf
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Es lo mismo calcular bc − ad que ad − bc para el determinante?"
-
-explicacion: |
-  No — el determinante es ad − bc, en ese orden. Invertirlo cambia el
-  signo del resultado (y en general el número también).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Si det(A) = 0, la matriz A es invertible."
-
-explicacion: |
-  Es al revés: det(A) = 0 significa que A NO es invertible.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si det(A) ≠ 0, el sistema de ecuaciones asociado a A tiene una única solución."
-
-explicacion: |
-  Es la propiedad central que hace útil al determinante para sistemas de
-  ecuaciones.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una fila de una matriz cuadrada es un múltiplo exacto de otra fila, el determinante da 0."
-
-explicacion: |
-  Las filas "no aportan información independiente" — es la misma
-  situación que un sistema con infinitas soluciones o ninguna.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La regla de Sarrus se puede usar para calcular el determinante de una matriz de cualquier tamaño."
-
-explicacion: |
-  Sarrus sólo funciona para matrices 3×3 — para tamaños mayores hace
-  falta otro método (cofactores), fuera de este módulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "El determinante sólo puede dar 0 si la matriz tiene algún elemento igual a 0."
-
-explicacion: |
-  Una matriz sin ningún cero puede tener determinante 0 igual, si sus
-  filas (o columnas) son proporcionales entre sí.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "basico"
-  tags: ["opcion_multiple"]
-
-variables:
-  a: random(2, 15)
-  b: random(1, 10)
-  c: random(1, 10)
-  d: random(2, 15)
-
-respuesta: a * d - b * c
-tipo: mc
-opciones_explicitas:
-  - a * d - b * c
-  - a * b - c * d
-  - a * d + b * c
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
-
-explicacion: |
-  det(A) = ad − bc: diagonal principal menos diagonal secundaria.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "basico"
-  tags: ["opcion_multiple"]
-
-variables:
-  a: random(2, 10)
-  d: random(2, 10)
-
-respuesta: a * d
-tipo: mc
-opciones_explicitas:
-  - a * d
-  - a + d
-  - a * d * 2
-
-enunciado: "A = [[{a}, 0], [0, {d}]]. ¿Cuál es el determinante de A?"
-
-explicacion: |
-  Con ceros fuera de la diagonal, det(A) = ad − 0×0 = ad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "basico"
-  tags: ["identidad"]
-
-respuesta: 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el determinante de la matriz identidad 2×2?"
-
-explicacion: |
-  det(I) = (1×1) − (0×0) = 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "intermedio"
-  tags: ["signos", "verdadero_falso"]
-
-variables:
-  a: random(1, 5)
-  b: random(10, 20)
-  c: random(1, 5)
-  d: random(1, 5)
-  real: a * d - b * c
-
-respuesta: (real < 0)
-tipo: vf
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Es negativo el determinante de A?"
-
-explicacion: |
-  det(A) = {a}×{d} − {b}×{c} = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-variables:
-  a: random(1, 10)
-  b: random(1, 10)
-  c: random(1, 10)
-  d: random(1, 10)
-  det_val: a * d - b * c
-
-respuesta: (det_val != 0)
-tipo: vf
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Es invertible A?"
-
-explicacion: |
-  A es invertible si y sólo si su determinante es distinto de 0. Acá
-  det(A) = {det_val}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-variables:
-  a: random(1, 5)
-  b: random(1, 5)
-  c: random(1, 5)
-  d: random(1, 5)
-  e: random(1, 5)
-  f: random(1, 5)
-  g: random(1, 5)
-  h: random(1, 5)
-  i: random(1, 5)
-  det_val: a * e * i + b * f * g + c * d * h - c * e * g - a * f * h - b * d * i
-
-respuesta: (det_val != 0)
-tipo: vf
-
-enunciado: "A = [[{a}, {b}, {c}], [{d}, {e}, {f}], [{g}, {h}, {i}]]. ¿Es invertible A?"
-
-explicacion: |
-  Se calcula el determinante con Sarrus y se comprueba si es distinto de
-  0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "determinante"
-  nivel: "intermedio"
-  tags: ["2x2", "signos"]
-
-variables:
-  a: random(1, 10)
-  b: random(-10, -1)
-  c: random(1, 10)
-  d: random(1, 10)
-
-respuesta: a * d - b * c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
-
-explicacion: |
-  Con un elemento negativo, el procedimiento no cambia: det(A) = ad − bc,
-  llevando el signo con cuidado.
-```
-
-## Sección: diagramas-de-venn (25 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "basico"
-  tags: ["venn", "vocabulario"]
-
-enunciado: "¿Qué es un diagrama de Venn?"
-tipo: mc
-opciones_explicitas:
-  - "La representación visual de conjuntos (como círculos) y sus operaciones (superposición = intersección)"
-  - "Una tabla de números ordenados de menor a mayor"
-  - "Un gráfico de barras para comparar cantidades"
-respuesta: "La representación visual de conjuntos (como círculos) y sus operaciones (superposición = intersección)"
-
-explicacion: |
-  Es la forma visual de las operaciones ya definidas entre conjuntos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "basico"
-  tags: ["venn", "vocabulario"]
-
-enunciado: "¿Qué representa el rectángulo que envuelve a todos los círculos en un diagrama de Venn?"
-tipo: mc
-opciones_explicitas:
-  - "El conjunto universal U"
-  - "El conjunto vacío"
-  - "La intersección de todos los conjuntos"
-respuesta: "El conjunto universal U"
-
-explicacion: |
-  Contiene a todos los elementos posibles en el contexto del problema.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "basico"
-  tags: ["venn", "vocabulario"]
-
-enunciado: "En un diagrama de Venn con dos círculos A y B, ¿qué representa la zona donde se superponen?"
-tipo: mc
-opciones_explicitas:
-  - "La intersección, A ∩ B"
-  - "La unión, A ∪ B"
-  - "El conjunto universal"
-respuesta: "La intersección, A ∩ B"
-
-explicacion: |
-  Es la zona que pertenece a ambos círculos a la vez.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "intermedio"
-  tags: ["venn", "completar"]
+  tags: ["poligonos", "diagonales", "completar"]
 
 tipo: completar
-enunciado: "Completá: la parte del círculo A que NO se superpone con B representa el conjunto ___."
+enunciado: "Completá la fórmula del número de diagonales de un polígono de n lados: D = n(n − ___) / 2."
 respuestas_validas:
-  - "A - B"
-  - "A−B"
+  - "3"
 
 explicacion: |
-  Son los elementos de A que no comparte con B.
+  Cada vértice no se conecta consigo mismo ni con sus 2 vecinos: por eso
+  el "n − 3".
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "diagramas_de_venn"
+  tema: "poligonos"
   nivel: "intermedio"
-  tags: ["venn"]
+  tags: ["poligonos", "angulos_internos", "completar"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un diagrama de Venn, A ∪ B es toda la zona cubierta por cualquiera de los dos círculos (las tres regiones: sólo A, sólo B, y la intersección)."
+tipo: completar
+enunciado: "Completá la fórmula de la suma de ángulos internos de un polígono de n lados: (n − ___) × 180°."
+respuestas_validas:
+  - "2"
 
 explicacion: |
-  Es la superficie total ocupada por al menos uno de los dos conjuntos.
+  Un polígono de n lados se divide en (n − 2) triángulos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "intermedio"
-  tags: ["venn"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La zona fuera de ambos círculos, pero dentro del rectángulo U, representa elementos que pertenecen a A o a B."
-
-explicacion: |
-  Es exactamente lo opuesto: son los elementos que NO pertenecen ni a
-  A ni a B.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
+  tema: "poligonos"
   nivel: "avanzado"
-  tags: ["venn", "problema"]
+  tags: ["poligonos", "angulos_internos", "ordenar"]
 
-variables:
-  a: random(20, 35)
-  b: random(20, 35)
-  interseccion: random(1, min(a, b))
-  extra: random(5, 20)
-  total: a + b - interseccion + extra
-
-respuesta: extra
-tipo: input
-
-enunciado: "En una encuesta a {total} personas, {a} tienen perro, {b} tienen gato, y {interseccion} tienen ambos. ¿Cuántas personas no tienen ni perro ni gato?"
-
-pasos:
-  - "Tienen perro o gato (unión) = {a} + {b} − {interseccion} = {a + b - interseccion}"
-  - "Ninguno = total − unión = {total} − {a + b - interseccion} = {extra}"
-
-explicacion: |
-  Primero se calcula cuántos tienen al menos una de las dos cosas, y
-  se resta ese número del total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "intermedio"
-  tags: ["venn", "problema"]
-
-variables:
-  a: random(20, 50)
-  interseccion: random(1, 15)
-
-respuesta: a - interseccion
-tipo: input
-
-enunciado: "En un diagrama de Venn, el conjunto A tiene {a} elementos en total, y {interseccion} de ellos están también en B. ¿Cuántos elementos hay en la región 'sólo A' (dentro del círculo A, pero fuera de la superposición)?"
-
-pasos:
-  - "Sólo A = |A| − |A∩B| = {a} − {interseccion} = {a - interseccion}"
-
-explicacion: |
-  La región 'sólo A' es lo que queda del círculo A después de sacarle
-  la parte compartida con B.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "intermedio"
-  tags: ["venn", "problema"]
-
-variables:
-  b: random(20, 50)
-  interseccion: random(1, 15)
-
-respuesta: b - interseccion
-tipo: input
-
-enunciado: "En un diagrama de Venn, el conjunto B tiene {b} elementos en total, y {interseccion} de ellos están también en A. ¿Cuántos elementos hay en la región 'sólo B'?"
-
-pasos:
-  - "Sólo B = |B| − |A∩B| = {b} − {interseccion} = {b - interseccion}"
-
-explicacion: |
-  El mismo razonamiento que 'sólo A', ahora para el círculo B.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "avanzado"
-  tags: ["venn", "ordenar"]
-
-enunciado: "Ordená los pasos para completar un diagrama de Venn de dos conjuntos, a partir de los datos de una encuesta."
+enunciado: "Ordená los pasos para calcular el ángulo interior de un polígono regular de n lados."
 tipo: ordenar
 opciones_explicitas:
-  - "Calcular las regiones 'sólo A' y 'sólo B', restando la intersección a cada total"
-  - "Anotar primero la cantidad de la intersección (el centro del diagrama)"
-  - "Calcular la región 'ninguno', restando el total de la unión al total de encuestados"
-respuesta_orden:
-  - "Anotar primero la cantidad de la intersección (el centro del diagrama)"
-  - "Calcular las regiones 'sólo A' y 'sólo B', restando la intersección a cada total"
-  - "Calcular la región 'ninguno', restando el total de la unión al total de encuestados"
-
+  - "El resultado es la medida de cada ángulo interior"
+  - "Calcular la suma total de ángulos internos: (n − 2) × 180°"
+  - "Dividir esa suma por n (cantidad de vértices, todos con el mismo ángulo por ser regular)"
+respuesta_orden: ["Calcular la suma total de ángulos internos: (n − 2) × 180°", "Dividir esa suma por n (cantidad de vértices, todos con el mismo ángulo por ser regular)", "El resultado es la medida de cada ángulo interior"]
 explicacion: |
-  Empezar por el centro es clave: las otras regiones se calculan
-  restando esa cantidad de los totales dados.
+  Primero se calcula la suma total, después se reparte por igual entre
+  los n vértices (porque es regular).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "diagramas_de_venn"
+  tema: "poligonos"
   nivel: "avanzado"
-  tags: ["venn", "problema"]
+  tags: ["poligonos", "angulos_internos", "problema"]
 
 variables:
-  a: random(20, 35)
-  b: random(20, 35)
-  interseccion_real: random(1, min(a, b))
-  ninguno: random(5, 20)
-  total: a + b - interseccion_real + ninguno
+  n: random(5, 8)
+  conocidos: n - 1
+  suma_conocidos: conocidos * random(60, 100)
 
-respuesta: interseccion_real
+respuesta: ((n - 2) * 180) - suma_conocidos
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "En una encuesta a {total} personas, {a} usan transporte público, {b} usan bicicleta, y {ninguno} no usan ninguno de los dos. ¿Cuántas personas usan AMBOS medios?"
+enunciado: "Un polígono de {n} lados tiene {conocidos} de sus ángulos internos sumando {suma_conocidos}° en total. ¿Cuánto mide el ángulo que falta?"
 
 pasos:
-  - "Usan al menos uno = total − ninguno = {total} − {ninguno} = {total - ninguno}"
-  - "|A∩B| = |A| + |B| − (usan al menos uno) = {a} + {b} − {total - ninguno} = {interseccion_real}"
+  - "Suma total: ({n} − 2) × 180° = {(n - 2) * 180}°"
+  - "{(n - 2) * 180}° − {suma_conocidos}° = {((n - 2) * 180) - suma_conocidos}°"
 
 explicacion: |
-  Se calcula primero la unión (todos menos los que no usan ninguno), y
-  de ahí se despeja la intersección.
+  Se calcula la suma total esperada para {n} lados y se le resta lo que ya
+  suman los ángulos conocidos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "intermedio"
-  tags: ["venn"]
-
-enunciado: "¿Por qué conviene completar primero la intersección al resolver un diagrama de Venn de dos conjuntos?"
-tipo: mc
-opciones_explicitas:
-  - "Porque las demás regiones (sólo A, sólo B) se calculan restando la intersección de los totales dados"
-  - "Porque la intersección siempre es la región más grande"
-  - "No hay ninguna razón particular, es sólo costumbre"
-respuesta: "Porque las demás regiones (sólo A, sólo B) se calculan restando la intersección de los totales dados"
-
-explicacion: |
-  Sin la intersección, no se puede calcular ninguna de las otras
-  regiones a partir de los totales de A y B.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "intermedio"
-  tags: ["venn"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin conocer las operaciones de unión, intersección y diferencia, un diagrama de Venn es sólo un dibujo de círculos superpuestos, sin significado matemático."
-
-explicacion: |
-  El diagrama es la forma visual de esas operaciones — no las
-  reemplaza.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "intermedio"
-  tags: ["venn", "problema"]
-
-variables:
-  solo_a: random(10, 30)
-  solo_b: random(10, 30)
-  ambos: random(5, 20)
-
-respuesta: solo_a + solo_b + ambos
-tipo: input
-
-enunciado: "En un diagrama de Venn: la región 'sólo A' tiene {solo_a} elementos, 'sólo B' tiene {solo_b}, y la intersección tiene {ambos}. ¿Cuántos elementos tiene A ∪ B en total?"
-
-pasos:
-  - "|A∪B| = sólo A + sólo B + ambos = {solo_a} + {solo_b} + {ambos} = {solo_a + solo_b + ambos}"
-
-explicacion: |
-  La unión son las tres regiones sumadas: lo exclusivo de cada
-  conjunto más lo compartido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "intermedio"
-  tags: ["venn"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La cantidad de elementos en la región 'sólo A' es igual a |A| menos |A∩B|."
-
-explicacion: |
-  Es el total de A menos la parte que comparte con B.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "intermedio"
-  tags: ["venn"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La cantidad de elementos en la región 'sólo B' es igual a |B| menos |A∩B|."
-
-explicacion: |
-  El mismo razonamiento que 'sólo A', para el otro conjunto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "avanzado"
-  tags: ["venn", "problema"]
-
-variables:
-  a: random(25, 40)
-  b: random(25, 40)
-  interseccion: random(5, 15)
-  extra: random(10, 25)
-  total: a + b - interseccion + extra
-
-respuesta: total - extra
-tipo: input
-
-enunciado: "De {total} estudiantes, {a} hablan inglés, {b} hablan portugués, y {interseccion} hablan ambos idiomas. ¿Cuántos estudiantes hablan AL MENOS uno de los dos idiomas?"
-
-pasos:
-  - "Al menos uno = |A∪B| = {a} + {b} − {interseccion} = {a + b - interseccion}"
-
-explicacion: |
-  'Al menos uno' es exactamente la definición de unión.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "avanzado"
-  tags: ["venn", "problema"]
-
-variables:
-  a: random(25, 40)
-  b: random(25, 40)
-  interseccion: random(5, 15)
-  extra: random(10, 25)
-  total: a + b - interseccion + extra
-
-respuesta: extra
-tipo: input
-
-enunciado: "De {total} estudiantes, {a} hablan inglés, {b} hablan portugués, y {interseccion} hablan ambos idiomas. ¿Cuántos estudiantes NO hablan ninguno de los dos?"
-
-pasos:
-  - "Al menos uno = {a} + {b} − {interseccion} = {a + b - interseccion}"
-  - "Ninguno = {total} − {a + b - interseccion} = {extra}"
-
-explicacion: |
-  Es el mismo problema que el anterior, completando la última región
-  del diagrama.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
+  tema: "poligonos"
   nivel: "basico"
-  tags: ["venn", "aplicacion"]
+  tags: ["poligonos", "cierre"]
 
-enunciado: "¿Para qué se usan los diagramas de Venn en Biología, por ejemplo al comparar especies?"
+enunciado: "¿Para qué sirven las fórmulas de diagonales y ángulos internos de un polígono?"
 tipo: mc
 opciones_explicitas:
-  - "Para mostrar visualmente qué características comparten dos o más grupos, y cuáles son exclusivas de cada uno"
-  - "Sólo para medir el tamaño de los animales"
-  - "No tienen ninguna aplicación en Biología"
-respuesta: "Para mostrar visualmente qué características comparten dos o más grupos, y cuáles son exclusivas de cada uno"
+  - "Para calcular ángulos y diagonales de cualquier polígono sin medirlos uno por uno"
+  - "Sólo sirven para triángulos"
+  - "Sólo sirven para polígonos irregulares"
+respuesta: "Para calcular ángulos y diagonales de cualquier polígono sin medirlos uno por uno"
 
 explicacion: |
-  Es la misma lógica de conjuntos, aplicada a categorías biológicas en
-  vez de números.
+  Con sólo saber el número de lados, se puede calcular todo lo demás.
 ```
+
+## Sección: tablas-de-frecuencia-cuartiles-percentiles-y-varianza (29 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "diagramas_de_venn"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
   nivel: "basico"
-  tags: ["venn", "aplicacion"]
+  tags: ["frecuencia", "vocabulario"]
 
-enunciado: "¿Para qué sirve un diagrama de Venn al estudiar probabilidad simple?"
+enunciado: "¿Qué es la frecuencia absoluta de un valor?"
 tipo: mc
 opciones_explicitas:
-  - "Para clasificar visualmente el espacio muestral en casos que cumplen una condición, otra, ambas, o ninguna"
-  - "Para calcular directamente el promedio de un conjunto de datos"
-  - "No se usa en probabilidad, sólo en geometría"
-respuesta: "Para clasificar visualmente el espacio muestral en casos que cumplen una condición, otra, ambas, o ninguna"
+  - "La cantidad de veces que ese valor aparece en el conjunto de datos"
+  - "El porcentaje que representa ese valor sobre el total"
+  - "La suma de las frecuencias de todos los valores anteriores"
+respuesta: "La cantidad de veces que ese valor aparece en el conjunto de datos"
 
 explicacion: |
-  Es la base visual sobre la que se construye la probabilidad de
-  sucesos combinados.
+  Es un conteo directo, en cantidad concreta.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "diagramas_de_venn"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "basico"
+  tags: ["frecuencia", "vocabulario"]
+
+enunciado: "¿Qué es la frecuencia relativa de un valor?"
+tipo: mc
+opciones_explicitas:
+  - "La proporción (o porcentaje) que esa frecuencia absoluta representa sobre el total de datos"
+  - "La cantidad de veces que aparece ese valor, en número entero"
+  - "El valor más repetido de todo el conjunto"
+respuesta: "La proporción (o porcentaje) que esa frecuencia absoluta representa sobre el total de datos"
+
+explicacion: |
+  Frecuencia relativa = frecuencia absoluta / total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
   nivel: "intermedio"
-  tags: ["venn"]
+  tags: ["frecuencia", "vocabulario"]
+
+enunciado: "¿Qué responde la frecuencia acumulada de un valor?"
+tipo: mc
+opciones_explicitas:
+  - "Cuántos casos hay hasta ese valor, inclusive, sumando las frecuencias de ese valor y de todos los anteriores"
+  - "Cuántas veces aparece únicamente ese valor, sin sumar nada más"
+  - "El porcentaje de datos que quedan por ENCIMA de ese valor"
+respuesta: "Cuántos casos hay hasta ese valor, inclusive, sumando las frecuencias de ese valor y de todos los anteriores"
+
+explicacion: |
+  Se va acumulando fila por fila, según el orden de los valores.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "intermedio"
+  tags: ["frecuencia", "problema"]
+
+variables:
+  tabla: [{nota: 5, frecuencia: 3}, {nota: 6, frecuencia: 5}, {nota: 7, frecuencia: 8}, {nota: 8, frecuencia: 4}]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: tabla[idx].frecuencia
+tipo: input
+
+enunciado: "Tabla de frecuencias de notas de un curso: nota 5 → 3 alumnos; nota 6 → 5 alumnos; nota 7 → 8 alumnos; nota 8 → 4 alumnos. ¿Cuántos alumnos sacaron la nota {tabla[idx].nota}?"
+
+explicacion: |
+  Se lee directamente la frecuencia absoluta de esa fila.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["frecuencia", "problema"]
+
+variables:
+  tabla: [{nota: 5, frecuencia: 3}, {nota: 6, frecuencia: 5}, {nota: 7, frecuencia: 8}, {nota: 8, frecuencia: 4}]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: redondear(tabla[idx].frecuencia / 20 * 100, 1)
+tipo: input
+tolerancia_abs: 0.1
+unidad: "%"
+
+enunciado: "Con la misma tabla de notas (3+5+8+4 = 20 alumnos en total), ¿qué porcentaje del curso sacó la nota {tabla[idx].nota}?"
+
+pasos:
+  - "Frecuencia relativa = {tabla[idx].frecuencia}/20 × 100 = {redondear(tabla[idx].frecuencia / 20 * 100, 1)}%"
+
+explicacion: |
+  Se divide la frecuencia absoluta de esa fila por el total de datos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["frecuencia", "problema"]
+
+respuesta: 16
+tipo: input
+
+enunciado: "Con la tabla de notas — 5→3 alumnos, 6→5 alumnos, 7→8 alumnos, 8→4 alumnos —, ¿cuántos alumnos sacaron nota 7 O MENOS (frecuencia acumulada hasta la nota 7)?"
+
+pasos:
+  - "Acumulada hasta 7 = 3 + 5 + 8 = 16"
+
+explicacion: |
+  Se suman las frecuencias absolutas de esa fila y de todas las
+  anteriores (según el orden de los valores).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "intermedio"
+  tags: ["frecuencia"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si en un diagrama de Venn dos círculos se dibujan sin tocarse (sin superposición), representan dos conjuntos disjuntos."
+enunciado: "La suma de las frecuencias relativas de todos los valores de una tabla siempre da exactamente 100% (o 1, si se expresa como proporción)."
 
 explicacion: |
-  Sin superposición no hay intersección — es exactamente lo que
-  significa ser disjuntos.
+  Es la misma idea de que las probabilidades de todo el espacio
+  muestral suman 1.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "diagramas_de_venn"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
   nivel: "intermedio"
-  tags: ["venn", "problema"]
+  tags: ["frecuencia"]
 
-variables:
-  a: random(15, 30)
-  b: random(15, 30)
-  ninguno: random(5, 20)
-
-respuesta: a + b
-tipo: input
-
-enunciado: "En un diagrama de Venn, los círculos A ({a} elementos) y B ({b} elementos) NO se superponen (son disjuntos). ¿Cuántos elementos tiene A ∪ B?"
-
-pasos:
-  - "Sin intersección que restar: |A∪B| = |A| + |B| = {a} + {b} = {a + b}"
-
-explicacion: |
-  Al no compartir nada, la unión es simplemente la suma de los dos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "intermedio"
-  tags: ["venn"]
-
-enunciado: "¿Cuáles son las tres regiones en las que un diagrama de Venn de dos conjuntos divide a la unión A ∪ B?"
-tipo: mc
-opciones_explicitas:
-  - "Sólo A, sólo B, y la intersección (A∩B)"
-  - "El conjunto universal completo"
-  - "Sólo la intersección, dividida en dos mitades"
-respuesta: "Sólo A, sólo B, y la intersección (A∩B)"
-
-explicacion: |
-  Esas tres regiones sumadas son exactamente A ∪ B.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "diagramas_de_venn"
-  nivel: "avanzado"
-  tags: ["venn"]
-
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Dibujar un diagrama de Venn alcanza por sí solo para resolver un problema de conteo, sin necesidad de aplicar ninguna fórmula."
+enunciado: "La frecuencia acumulada del último valor de la tabla (el más grande) siempre coincide con el total de datos."
 
 explicacion: |
-  El diagrama ayuda a organizar visualmente los datos, pero las
-  cantidades de cada región siempre se calculan con las fórmulas de
-  unión/intersección/diferencia.
+  Al llegar al último valor, ya se sumaron las frecuencias de todos
+  los valores posibles.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "diagramas_de_venn"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["frecuencia", "ordenar"]
+
+enunciado: "Ordená los pasos para construir una tabla de frecuencia a partir de una lista de datos sin organizar."
+tipo: ordenar
+opciones_explicitas:
+  - "Calcular la frecuencia relativa y la acumulada de cada valor"
+  - "Listar los valores distintos que aparecen en los datos"
+  - "Contar cuántas veces aparece cada valor (frecuencia absoluta)"
+respuesta_orden: ["Listar los valores distintos que aparecen en los datos", "Contar cuántas veces aparece cada valor (frecuencia absoluta)", "Calcular la frecuencia relativa y la acumulada de cada valor"]
+explicacion: |
+  Sin la frecuencia absoluta primero, no hay nada de donde calcular la
+  relativa ni la acumulada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "intermedio"
+  tags: ["cuartiles", "vocabulario"]
+
+enunciado: "¿Qué representa el primer cuartil, Q1?"
+tipo: mc
+opciones_explicitas:
+  - "El valor que deja el 25% de los datos por debajo"
+  - "El valor que deja el 75% de los datos por debajo"
+  - "El valor más chico de todo el conjunto"
+respuesta: "El valor que deja el 25% de los datos por debajo"
+
+explicacion: |
+  Divide, junto con Q2 y Q3, los datos ordenados en 4 partes iguales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "intermedio"
+  tags: ["cuartiles", "vocabulario"]
+
+enunciado: "¿Qué representa el tercer cuartil, Q3?"
+tipo: mc
+opciones_explicitas:
+  - "El valor que deja el 75% de los datos por debajo"
+  - "El valor que deja el 25% de los datos por debajo"
+  - "El valor más grande de todo el conjunto"
+respuesta: "El valor que deja el 75% de los datos por debajo"
+
+explicacion: |
+  Es el cuartil 'alto' de los tres.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "basico"
+  tags: ["cuartiles"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El segundo cuartil, Q2, es exactamente la mediana del conjunto de datos (el 50%)."
+
+explicacion: |
+  Son el mismo concepto, con dos nombres distintos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "intermedio"
+  tags: ["cuartiles", "completar"]
+
+tipo: completar
+enunciado: "Completá: Q1 es equivalente al percentil ___."
+respuestas_validas:
+  - "25"
+  - "P25"
+
+explicacion: |
+  Ambos dejan el 25% de los datos por debajo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "intermedio"
+  tags: ["cuartiles", "completar"]
+
+tipo: completar
+enunciado: "Completá: Q3 es equivalente al percentil ___."
+respuestas_validas:
+  - "75"
+  - "P75"
+
+explicacion: |
+  Ambos dejan el 75% de los datos por debajo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["cuartiles", "problema"]
+
+variables:
+  datos: [10, 12, 15, 18, 20, 22, 25, 30]
+
+respuesta: mediana(datos)
+tipo: input
+
+enunciado: "Con los 8 valores ya ordenados 10, 12, 15, 18, 20, 22, 25, 30, ¿cuál es Q2 (la mediana)?"
+
+pasos:
+  - "Con 8 valores (par), Q2 = promedio de los dos centrales (18 y 20) = {mediana(datos)}"
+
+explicacion: |
+  Es el mismo procedimiento de mediana ya conocido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["cuartiles", "problema"]
+
+respuesta: 13.5
+tipo: input
+
+enunciado: "Con los mismos 8 valores 10, 12, 15, 18, 20, 22, 25, 30, ¿cuál es Q1?"
+
+pasos:
+  - "Mitad inferior (los primeros 4): 10, 12, 15, 18"
+  - "Q1 = mediana de esa mitad = (12+15)/2 = 13,5"
+
+explicacion: |
+  Q1 es la mediana de la mitad inferior de los datos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["cuartiles", "problema"]
+
+respuesta: 23.5
+tipo: input
+
+enunciado: "Con los mismos 8 valores 10, 12, 15, 18, 20, 22, 25, 30, ¿cuál es Q3?"
+
+pasos:
+  - "Mitad superior (los últimos 4): 20, 22, 25, 30"
+  - "Q3 = mediana de esa mitad = (22+25)/2 = 23,5"
+
+explicacion: |
+  Q3 es la mediana de la mitad superior de los datos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["cuartiles", "problema"]
+
+respuesta: 10
+tipo: input
+
+enunciado: "Con Q1 = 13,5 y Q3 = 23,5 (del mismo conjunto de 8 valores), ¿cuál es el rango intercuartílico (IQR)?"
+
+pasos:
+  - "IQR = Q3 − Q1 = 23,5 − 13,5 = 10"
+
+explicacion: |
+  El IQR mide cuánto ocupa el 50% central de los datos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["cuartiles"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El rango intercuartílico (IQR) es menos sensible a valores atípicos que el rango completo (máximo menos mínimo), porque ignora el 25% más bajo y el 25% más alto de los datos."
+
+explicacion: |
+  Un valor atípico extremo cambiaría mucho el rango completo, pero
+  puede no afectar en nada a Q1 ni a Q3.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "basico"
+  tags: ["cuartiles", "aplicacion"]
+
+enunciado: "Si un examen estandarizado dice que un puntaje está en el percentil 90 (P90), ¿qué significa eso?"
+tipo: mc
+opciones_explicitas:
+  - "Que ese puntaje es mayor o igual que el 90% de todos los puntajes de referencia"
+  - "Que ese puntaje representa el 90% del puntaje máximo posible"
+  - "Que el examen tiene 90 preguntas en total"
+respuesta: "Que ese puntaje es mayor o igual que el 90% de todos los puntajes de referencia"
+
+explicacion: |
+  Un percentil describe la posición RELATIVA respecto de otros
+  puntajes, no una proporción del puntaje máximo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "intermedio"
+  tags: ["varianza", "vocabulario"]
+
+enunciado: "¿Qué mide la varianza de un conjunto de datos?"
+tipo: mc
+opciones_explicitas:
+  - "En promedio, qué tan lejos está cada dato de la media (usando distancias al cuadrado)"
+  - "El valor más frecuente del conjunto"
+  - "La suma total de todos los valores"
+respuesta: "En promedio, qué tan lejos está cada dato de la media (usando distancias al cuadrado)"
+
+explicacion: |
+  Es una medida de dispersión, no de tendencia central.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["varianza", "completar"]
+
+tipo: completar
+enunciado: "Completá: varianza = suma de (cada valor − media) al cuadrado, dividida por la ___."
+respuestas_validas:
+  - "cantidad de valores"
+  - "cantidad"
+
+explicacion: |
+  Es un promedio de distancias al cuadrado respecto de la media.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["varianza"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Se elevan al cuadrado las distancias a la media para que las distancias positivas (valores por encima) y negativas (por debajo) no se cancelen entre sí al promediarlas."
+
+explicacion: |
+  Sin el cuadrado, el promedio de las distancias siempre daría 0, sin
+  importar la dispersión real.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["varianza", "problema"]
+
+variables:
+  a: random(1, 10)
+  b: random(1, 10)
+  c: random(1, 10)
+  datos: [a, b, c]
+  media: promedio(datos)
+
+respuesta: redondear(((a - media) ^ 2 + (b - media) ^ 2 + (c - media) ^ 2) / 3, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Calculá la varianza de estos 3 valores: {a}, {b}, {c}."
+
+pasos:
+  - "Media = ({a}+{b}+{c})/3 = {redondear(media, 2)}"
+  - "Distancias al cuadrado: ({a}−{redondear(media, 2)})², ({b}−{redondear(media, 2)})², ({c}−{redondear(media, 2)})²"
+  - "Varianza = suma de esos cuadrados / 3 = {redondear(((a - media) ^ 2 + (b - media) ^ 2 + (c - media) ^ 2) / 3, 3)}"
+
+explicacion: |
+  Se calcula la media primero, y después el promedio de las
+  distancias al cuadrado respecto de ella.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["varianza", "problema"]
+
+variables:
+  a: random(5, 15)
+  b: random(5, 15)
+  c: random(5, 15)
+  d: random(5, 15)
+  datos: [a, b, c, d]
+  media: promedio(datos)
+
+respuesta: redondear(((a - media) ^ 2 + (b - media) ^ 2 + (c - media) ^ 2 + (d - media) ^ 2) / 4, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Calculá la varianza de estos 4 valores: {a}, {b}, {c}, {d}."
+
+pasos:
+  - "Media = ({a}+{b}+{c}+{d})/4 = {redondear(media, 2)}"
+  - "Varianza = suma de (cada valor − media)² / 4 = {redondear(((a - media) ^ 2 + (b - media) ^ 2 + (c - media) ^ 2 + (d - media) ^ 2) / 4, 3)}"
+
+explicacion: |
+  Mismo procedimiento que con 3 valores, ahora con 4.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "intermedio"
+  tags: ["varianza"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuanto mayor es la varianza, más dispersos (alejados entre sí) están los datos; cuanto menor, más parecidos son entre sí."
+
+explicacion: |
+  Es la lectura práctica de la varianza como medida de dispersión.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["varianza", "problema"]
+
+variables:
+  valor: random(1, 100)
+  datos: [valor, valor, valor, valor]
+  media: promedio(datos)
+
+respuesta: ((valor - media) ^ 2 + (valor - media) ^ 2 + (valor - media) ^ 2 + (valor - media) ^ 2) / 4
+tipo: input
+
+enunciado: "Calculá la varianza de estos 4 valores, todos iguales: {valor}, {valor}, {valor}, {valor}."
+
+pasos:
+  - "Media = {valor} (todos son iguales)"
+  - "Todas las distancias a la media son 0, así que la varianza es 0"
+
+explicacion: |
+  Sin ninguna diferencia entre los valores, no hay ninguna dispersión
+  que medir.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  nivel: "avanzado"
+  tags: ["varianza", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular la varianza de un conjunto de datos."
+tipo: ordenar
+opciones_explicitas:
+  - "Promediar todos esos valores al cuadrado"
+  - "Calcular la media del conjunto de datos"
+  - "Calcular la distancia de cada valor a la media, y elevarla al cuadrado"
+respuesta_orden: ["Calcular la media del conjunto de datos", "Calcular la distancia de cada valor a la media, y elevarla al cuadrado", "Promediar todos esos valores al cuadrado"]
+explicacion: |
+  Sin la media primero, no hay 'distancia a la media' que calcular.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirve el diagrama de Venn?"
+enunciado: "¿Para qué sirven las tablas de frecuencia, los cuartiles/percentiles y la varianza, juntos?"
 tipo: mc
 opciones_explicitas:
-  - "Para representar visualmente conjuntos y sus operaciones, y organizar el cálculo de cuántos elementos hay en cada región"
-  - "Sólo sirve para dibujar figuras geométricas"
-  - "Sólo aplica a conjuntos de menos de 3 elementos"
-respuesta: "Para representar visualmente conjuntos y sus operaciones, y organizar el cálculo de cuántos elementos hay en cada región"
+  - "Para organizar datos repetidos, ubicar posiciones relativas dentro de un conjunto, y medir cuán dispersos están entre sí — un resumen mucho más completo que un solo promedio"
+  - "Sólo sirven para calcular notas de exámenes"
+  - "Las tres ideas son exactamente lo mismo, con nombres distintos"
+respuesta: "Para organizar datos repetidos, ubicar posiciones relativas dentro de un conjunto, y medir cuán dispersos están entre sí — un resumen mucho más completo que un solo promedio"
 
 explicacion: |
-  Es el puente visual entre las operaciones de conjuntos y el próximo
-  módulo: contar sin enumerar (principio multiplicativo de conteo).
+  Es el puente directo hacia `Dispersión: rango y desvío` (el próximo
+  módulo del MAPA), que retoma la varianza para llegar al desvío
+  estándar.
 ```
 
-## Sección: dinero (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "basico"
-  tags: ["dinero", "suma"]
-
-variables:
-  a: random(50, 900)
-  b: random(50, 900)
-
-respuesta: a + b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Compraste algo de ${a} y otra cosa de ${b}. ¿Cuánto gastaste en total?"
-
-explicacion: |
-  Sumar dinero es sumar números, igual que siempre.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "basico"
-  tags: ["dinero", "vuelto"]
-
-variables:
-  precio: random(50, 900)
-  billete: uno_de([1000, 2000])
-
-restricciones:
-  - billete > precio
-
-respuesta: billete - precio
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Algo cuesta ${precio} y pagás con un billete de ${billete}. ¿Cuánto te dan de vuelto?"
-
-explicacion: |
-  El vuelto es lo entregado menos el precio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "basico"
-  tags: ["dinero", "vuelto"]
-
-variables:
-  precio: random(10, 90)
-  billete: uno_de([100, 200, 500])
-
-restricciones:
-  - billete > precio
-
-respuesta: billete - precio
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Algo cuesta ${precio} y pagás con un billete de ${billete}. ¿Cuánto te dan de vuelto?"
-
-explicacion: |
-  Mismo procedimiento con otra denominación de billete.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "billetes"]
-
-variables:
-  denominacion: uno_de([10, 20, 50, 100])
-  cantidad: random(2, 15)
-  monto: denominacion * cantidad
-
-respuesta: cantidad
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos billetes de ${denominacion} hacen falta para juntar exactamente ${monto}?"
-
-explicacion: |
-  Se divide el monto total por el valor de cada billete.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "billetes"]
-
-variables:
-  denominacion: uno_de([50, 100, 200])
-  cantidad: random(2, 10)
-  resto: random(1, denominacion - 1)
-  monto: denominacion * cantidad + resto
-
-respuesta: cantidad
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos billetes COMPLETOS de ${denominacion} entran en ${monto} (sin pasarse)?"
-
-pasos:
-  - "{monto} ÷ {denominacion} da {cantidad} billetes completos, y sobran {resto}"
-
-explicacion: |
-  Se toma la parte entera de dividir el monto por el valor del billete.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "billetes"]
-
-variables:
-  denominacion: uno_de([50, 100, 200])
-  cantidad: random(2, 10)
-  resto: random(1, denominacion - 1)
-  monto: denominacion * cantidad + resto
-
-respuesta: resto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Después de sacar todos los billetes completos de ${denominacion} posibles de ${monto}, ¿cuánto queda sin poder formar otro billete de esa denominación?"
-
-explicacion: |
-  Es el resto de dividir el monto por el valor del billete.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "verificacion"]
-
-variables:
-  precio: random(50, 900)
-  billete: uno_de([1000, 2000])
-  correcto: billete - precio
-  error: uno_de([0, 0, 0, 10, -10])
-  mostrado: correcto + error
-
-restricciones:
-  - billete > precio
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien dado este vuelto? Precio ${precio}, pagaste con ${billete}, te dieron ${mostrado} de vuelto."
-
-explicacion: |
-  Se verifica sumando el vuelto al precio: tiene que dar exactamente lo
-  que se pagó.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "billetes"]
-
-variables:
-  n1000: random(0, 3)
-  n500: random(0, 3)
-  n100: random(1, 4)
-
-respuesta: n1000 * 1000 + n500 * 500 + n100 * 100
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Tenés {n1000} billete(s) de $1.000, {n500} de $500 y {n100} de $100. ¿Cuánto dinero tenés en total?"
-
-explicacion: |
-  Se multiplica cada denominación por su cantidad, y se suman los
-  resultados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "billetes"]
-
-variables:
-  billete_grande: 1000
-  usados_grandes: random(1, 3)
-  falta: random(50, 900)
-  monto: billete_grande * usados_grandes + falta
-
-respuesta: falta
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Para juntar ${monto} usaste {usados_grandes} billete(s) de ${billete_grande}. ¿Cuánto más te falta juntar?"
-
-explicacion: |
-  Se resta lo ya juntado (billete grande × cantidad) al monto total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "basico"
-  tags: ["dinero", "comparacion"]
-
-variables:
-  a: random(100, 2000)
-  b: random(100, 2000)
-
-restricciones:
-  - a != b
-
-respuesta: (a < b)
-tipo: vf
-
-enunciado: "¿Es ${a} más barato que ${b}?"
-
-explicacion: |
-  Más barato es el precio menor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "problema"]
-
-variables:
-  precio_unitario: random(20, 200)
-  cantidad: random(2, 6)
-  billete: uno_de([1000, 2000])
-
-restricciones:
-  - billete > (precio_unitario * cantidad)
-
-respuesta: billete - (precio_unitario * cantidad)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Comprás {cantidad} caramelos a ${precio_unitario} cada uno, y pagás con un billete de ${billete}. ¿Cuánto te dan de vuelto?"
-
-pasos:
-  - "Costo total: {precio_unitario} × {cantidad} = {precio_unitario * cantidad}. Vuelto: {billete} - {precio_unitario * cantidad} = {billete - (precio_unitario * cantidad)}"
-
-explicacion: |
-  Primero se calcula el costo total, y recién después el vuelto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "problema"]
-
-variables:
-  moneda: uno_de([10, 20, 50])
-  meta: moneda * random(5, 30)
-
-respuesta: meta / moneda
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Querés juntar ${meta} ahorrando monedas de ${moneda}. ¿Cuántas monedas necesitás?"
-
-explicacion: |
-  Se divide la meta por el valor de cada moneda.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "basico"
-  tags: ["dinero", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El vuelto de una compra es lo que se entrega para pagar, menos el precio real."
-
-explicacion: |
-  vuelto = entregado − precio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "basico"
-  tags: ["dinero", "vocabulario"]
-
-variables:
-  precio: random(500, 2000)
-  billete: random(10, 499)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Alcanza un billete de ${billete} para pagar algo que cuesta ${precio}?"
-
-explicacion: |
-  El billete entregado tiene que ser mayor o igual al precio; si no, no
-  alcanza.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "vuelto"]
-
-variables:
-  precio: random(50, 900)
-  billete: uno_de([1000, 2000])
-  correcto: billete - precio
-
-restricciones:
-  - billete > precio
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - billete + precio
-  - precio - billete
-
-enunciado: "Algo cuesta ${precio} y pagás con ${billete}. ¿Cuál es el vuelto correcto?"
-
-explicacion: |
-  Las otras opciones suman en vez de restar, o restan al revés (dando un
-  número negativo sin sentido acá).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "vuelto"]
-
-variables:
-  billete: uno_de([1000, 2000])
-  vuelto: random(50, 500)
-
-tipo: completar
-enunciado: "Pagaste con ${billete} y te dieron ${vuelto} de vuelto. Completá cuánto costaba lo que compraste."
-respuestas_validas:
-  - billete - vuelto
-
-explicacion: |
-  precio = entregado − vuelto (la prueba de la resta, aplicada al revés).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "basico"
-  tags: ["dinero", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos precios de menor a mayor."
-opciones_explicitas:
-  - "$850"
-  - "$120"
-  - "$430"
-  - "$99"
-respuesta_orden: ["$99", "$120", "$430", "$850"]
-
-explicacion: |
-  Se ordenan como cualquier lista de números.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "problema"]
-
-variables:
-  pan: random(50, 300)
-  leche: random(50, 300)
-  fruta: random(50, 300)
-
-respuesta: pan + leche + fruta
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Comprás pan a ${pan}, leche a ${leche} y fruta a ${fruta}. ¿Cuánto es el total?"
-
-explicacion: |
-  Se suman los precios de todo lo comprado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "problema"]
-
-variables:
-  ya_ahorrado: random(500, 3000)
-  meta: ya_ahorrado + random(200, 2000)
-
-respuesta: meta - ya_ahorrado
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Ya ahorraste ${ya_ahorrado} y tu meta es ${meta}. ¿Cuánto te falta ahorrar?"
-
-explicacion: |
-  Lo que falta es la meta menos lo ya ahorrado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "billetes"]
-
-variables:
-  monto: uno_de([100, 200, 500]) * random(2, 6)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para juntar ${monto}, ¿conviene usar la menor cantidad posible de billetes/monedas, empezando por las denominaciones más grandes que entren?"
-
-explicacion: |
-  Es la estrategia práctica más común para armar un monto con el menor
-  número de piezas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "verificacion"]
-
-variables:
-  precio: random(50, 900)
-  billete: uno_de([1000, 2000])
-  vuelto: billete - precio
-
-restricciones:
-  - billete > precio
-
-respuesta: (vuelto + precio == billete)
-tipo: vf
-
-enunciado: "Si pagaste ${billete} por algo de ${precio} y te dieron ${vuelto} de vuelto, ¿es cierto que ${vuelto} + ${precio} tiene que dar ${billete}?"
-
-explicacion: |
-  Es la prueba de la resta aplicada al vuelto: sumar el vuelto y el
-  precio reconstruye lo entregado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "avanzado"
-  tags: ["dinero", "problema"]
-
-variables:
-  precio: random(50, 500)
-  billete: 1000
-  vuelto: billete - precio
-
-restricciones:
-  - billete > precio
-  - (vuelto - floor(vuelto / 2) * 2) == 0
-
-respuesta: vuelto / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Dos amigos pagan juntos ${precio} con un billete de ${billete}, y se reparten el vuelto en partes iguales. ¿Cuánto le toca a cada uno?"
-
-explicacion: |
-  Se divide el vuelto total por la cantidad de personas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "avanzado"
-  tags: ["dinero", "billetes"]
-
-variables:
-  cant_grandes: random(1, 3)
-
-respuesta: cant_grandes
-tipo: mc
-opciones_explicitas:
-  - cant_grandes
-  - cant_grandes * 10
-
-enunciado: "Para juntar ${cant_grandes * 100}, ¿con cuántos billetes se arma más rápido: con {cant_grandes} billete(s) de $100, o con {cant_grandes * 10} billetes de $10?"
-
-explicacion: |
-  Con la misma cantidad de dinero, usar billetes más grandes siempre
-  necesita menos piezas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "problema"]
-
-variables:
-  cantidad: random(2, 9)
-  precio_unitario: random(20, 200)
-  total: cantidad * precio_unitario
-
-respuesta: precio_unitario
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Pagaste ${total} por {cantidad} unidades iguales. ¿Cuánto cuesta cada una?"
-
-explicacion: |
-  Se divide el total pagado por la cantidad de unidades.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "intermedio"
-  tags: ["dinero", "vuelto"]
-
-variables:
-  precio: random(200, 1900)
-  billete: 2000
-
-restricciones:
-  - billete > precio
-
-respuesta: billete - precio
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Algo cuesta ${precio} y pagás con un billete de $2.000. ¿Cuánto te dan de vuelto?"
-
-explicacion: |
-  vuelto = entregado − precio, con montos más grandes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "dinero"
-  nivel: "basico"
-  tags: ["dinero", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sumar, restar, multiplicar y dividir montos de dinero funciona exactamente igual que con cualquier otro número: el signo $ no cambia el procedimiento."
-
-explicacion: |
-  Es la idea central de todo el tema: el dinero es una aplicación
-  práctica de la aritmética ya aprendida, no una cuenta nueva.
-```

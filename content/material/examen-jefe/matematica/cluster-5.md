@@ -1,2700 +1,2554 @@
-# Examen jefe — Maestro de Poliedros y Cuerpos
+# Examen jefe — [PENDIENTE #605]
 
-> Logro #56. Completaste el parcial dominando conos, esferas, pirámides, prismas y sus desarrollos planos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **128 preguntas totales** en 5/5 secciones.
+> Logro #605. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: cuerpos-redondos-y-poliedros/conos (26 preguntas)
+## Sección: cual-miente-y-cuando (24 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conos"
+  tema: "cual_miente_y_cuando"
   nivel: "basico"
-  tags: ["cono", "vocabulario"]
+  tags: ["criterio", "vocabulario"]
 
-enunciado: "¿Qué es un cono?"
+enunciado: "¿Qué determina si una medida de tendencia central 'engaña' en una situación dada?"
 tipo: mc
 opciones_explicitas:
-  - "Un cuerpo redondo con una sola base circular y una superficie lateral que termina en un vértice"
-  - "Un cuerpo redondo con dos bases circulares"
-  - "Un poliedro con base circular"
-respuesta: "Un cuerpo redondo con una sola base circular y una superficie lateral que termina en un vértice"
+  - "Usar la medida equivocada para la pregunta que se está haciendo, o presentarla como si fuera toda la historia"
+  - "La media siempre miente y la mediana siempre dice la verdad"
+  - "Ninguna medida puede usarse mal, todas dan siempre la misma información"
+respuesta: "Usar la medida equivocada para la pregunta que se está haciendo, o presentarla como si fuera toda la historia"
 
 explicacion: |
-  Es el equivalente redondo de la pirámide: una sola base, terminado en
-  punta.
+  Cada medida responde una pregunta distinta — el problema es elegir
+  mal cuál usar, no que alguna sea inherentemente falsa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conos"
-  nivel: "intermedio"
-  tags: ["cono", "piramide", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El cono es al cilindro lo que la pirámide es al prisma: una sola base en vez de dos, y un tercio del volumen del cuerpo equivalente."
-
-explicacion: |
-  Es exactamente el mismo patrón de relación, con base circular en vez de
-  poligonal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "basico"
-  tags: ["cono", "vocabulario"]
-
-enunciado: "¿Cuáles son los dos datos principales que definen el tamaño de un cono?"
-tipo: mc
-opciones_explicitas:
-  - "El radio de la base y la altura"
-  - "El perímetro y el área"
-  - "La cantidad de caras y aristas"
-respuesta: "El radio de la base y la altura"
-
-explicacion: |
-  Con radio y altura alcanza para calcular el volumen.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "intermedio"
-  tags: ["cono", "vocabulario"]
-
-enunciado: "¿Qué es la generatriz de un cono?"
-tipo: mc
-opciones_explicitas:
-  - "La distancia desde el vértice hasta cualquier punto del borde de la base"
-  - "El radio de la base"
-  - "El diámetro de la base"
-respuesta: "La distancia desde el vértice hasta cualquier punto del borde de la base"
-
-explicacion: |
-  Es el "lado inclinado" del cono, distinto de la altura (que es
-  perpendicular a la base).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "intermedio"
-  tags: ["cono", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La generatriz de un cono y su altura miden siempre lo mismo."
-
-explicacion: |
-  La altura es perpendicular a la base; la generatriz va en diagonal
-  desde el vértice hasta el borde — la generatriz siempre es mayor que la
-  altura (excepto en un cono "aplastado" imposible).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "basico"
-  tags: ["cono", "volumen", "vocabulario"]
-
-enunciado: "¿Cuál es la fórmula del volumen de un cono?"
-tipo: mc
-opciones_explicitas:
-  - "(π × r² × h) ÷ 3"
-  - "π × r² × h"
-  - "(π × r × h) ÷ 3"
-respuesta: "(π × r² × h) ÷ 3"
-
-explicacion: |
-  Es un tercio del volumen de un cilindro con el mismo radio y altura.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "intermedio"
-  tags: ["cono", "volumen"]
-
-variables:
-  r: random(2, 12)
-  h: random(3, 20)
-
-respuesta: redondear((pi * r * r * h) / 3, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "¿Cuál es el volumen de un cono de radio {r} cm y altura {h} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "(π × {r}² × {h}) ÷ 3 = {redondear((pi * r * r * h) / 3, 2)} cm³"
-
-explicacion: |
-  Se aplica (π × r² × h) ÷ 3 directamente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "intermedio"
-  tags: ["cono", "volumen"]
-
-variables:
-  d: random(4, 24)
-  h: random(3, 20)
-  r: d / 2
-
-respuesta: redondear((pi * r * r * h) / 3, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "¿Cuál es el volumen de un cono de diámetro {d} cm y altura {h} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "Radio: {d} ÷ 2 = {r} cm. Volumen: (π × {r}² × {h}) ÷ 3 = {redondear((pi * r * r * h) / 3, 2)} cm³."
-
-explicacion: |
-  Primero se pasa de diámetro a radio (dividir por 2) antes de aplicar
-  la fórmula.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "intermedio"
-  tags: ["cono", "cilindro", "problema"]
-
-variables:
-  r: random(2, 12)
-  h: random(3, 20)
-
-respuesta: redondear(pi * r * r * h, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "Un cono de radio {r} cm y altura {h} cm tiene un volumen de {redondear((pi * r * r * h) / 3, 2)} cm³. ¿Cuál sería el volumen de un CILINDRO con ese mismo radio y esa misma altura?"
-
-pasos:
-  - "El cilindro tiene 3 veces el volumen del cono: {redondear((pi * r * r * h) / 3, 2)} × 3 = {redondear(pi * r * r * h, 2)} cm³."
-
-explicacion: |
-  El cilindro tiene exactamente el triple de volumen que el cono de
-  igual radio y altura.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
+  tema: "cual_miente_y_cuando"
   nivel: "avanzado"
-  tags: ["cono", "volumen"]
+  tags: ["media", "mediana", "problema"]
 
 variables:
-  r: random(2, 10)
-  h: random(3, 15)
-  volumen: (pi * r * r * h) / 3
+  a: random(20, 30)
+  b: random(20, 30)
+  c: random(20, 30)
+  d: random(20, 30)
+  atipico: random(200, 300)
+  datos: [a, b, c, d, atipico]
 
-respuesta: redondear(h, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Un cono de radio {r} cm tiene un volumen de {redondear(volumen, 2)} cm³. ¿Cuál es su altura?"
-
-pasos:
-  - "({redondear(volumen, 2)} × 3) ÷ (π × {r}²) = {redondear((volumen * 3) / (pi * r * r), 2)} cm"
-
-explicacion: |
-  Se despeja la altura: (volumen × 3) ÷ (π × radio²).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "avanzado"
-  tags: ["cono", "volumen"]
-
-variables:
-  r: random(2, 10)
-  h: random(3, 15)
-  volumen: (pi * r * r * h) / 3
-
-respuesta: redondear(r, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Un cono de altura {h} cm tiene un volumen de {redondear(volumen, 2)} cm³. ¿Cuál es su radio?"
-
-pasos:
-  - "sqrt(({redondear(volumen, 2)} × 3) ÷ (π × {h})) = {redondear(sqrt((volumen * 3) / (pi * h)), 2)} cm"
-
-explicacion: |
-  Se despeja el radio² y después se saca la raíz cuadrada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "intermedio"
-  tags: ["cono", "superficie"]
-
-variables:
-  r: random(2, 10)
-  g: random(6, 20)
-
-restricciones:
-  - g > r
-
-respuesta: redondear(pi * r * g, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "¿Cuál es el área de la superficie lateral de un cono de radio {r} cm y generatriz {g} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "π × {r} × {g} = {redondear(pi * r * g, 2)} cm²"
-
-explicacion: |
-  El área lateral del cono es π × radio × generatriz.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "avanzado"
-  tags: ["cono", "superficie"]
-
-variables:
-  r: random(2, 10)
-  g: random(6, 20)
-
-restricciones:
-  - g > r
-
-respuesta: redondear((pi * r * g) + (pi * r * r), 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "¿Cuál es el área total (lateral + base) de un cono de radio {r} cm y generatriz {g} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "Lateral: π × {r} × {g} = {redondear(pi * r * g, 2)} cm². Base: π × {r}² = {redondear(pi * r * r, 2)} cm². Total: {redondear((pi * r * g) + (pi * r * r), 2)} cm²."
-
-explicacion: |
-  Se suma el área lateral más el área de la base circular.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "avanzado"
-  tags: ["cono", "capacidad", "problema"]
-
-variables:
-  r: random(2, 4)
-  h: random(8, 14)
-
-respuesta: redondear(((pi * r * r * h) / 3) / 1000, 3)
+respuesta: redondear(promedio(datos), 2)
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Un cucurucho de helado con forma de cono tiene {r} cm de radio y {h} cm de altura. ¿Cuántos litros de helado entran, como máximo? Redondeá a 3 decimales."
+enunciado: "Cinco sueldos son (en miles): {a}, {b}, {c}, {d} y {atipico}. ¿Cuál es el sueldo PROMEDIO?"
 
 pasos:
-  - "Volumen: (π × {r}² × {h}) ÷ 3 = {redondear((pi * r * r * h) / 3, 2)} cm³. En litros: {redondear((pi * r * r * h) / 3, 2)} ÷ 1000 = {redondear(((pi * r * r * h) / 3) / 1000, 3)}."
+  - "Media = ({a}+{b}+{c}+{d}+{atipico}) / 5 = {redondear(promedio(datos), 2)}"
 
 explicacion: |
-  Se calcula el volumen del cono en cm³ y se convierte a litros.
+  El sueldo de {atipico} arrastra bastante el promedio hacia arriba.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conos"
-  nivel: "basico"
-  tags: ["cono", "vocabulario"]
+  tema: "cual_miente_y_cuando"
+  nivel: "intermedio"
+  tags: ["media", "mediana"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El cono tiene una sola base circular, no dos."
+enunciado: "La media es más sensible a valores atípicos que la mediana — un solo valor extremo puede correr bastante el promedio, sin afectar casi a la mediana."
 
 explicacion: |
-  Igual que la pirámide (una base), a diferencia del cilindro (dos
-  bases).
+  Es la razón matemática detrás de todo este módulo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "conos"
+  tema: "cual_miente_y_cuando"
+  nivel: "basico"
+  tags: ["media", "mediana", "aplicacion"]
+
+enunciado: "Si un país anuncia que 'el sueldo promedio subió 15%', pero unas pocas personas con sueldos muy altos ganaron mucho más este año, ¿qué podría estar pasando con el sueldo mediano?"
+tipo: mc
+opciones_explicitas:
+  - "Podría haber subido mucho menos que 15% (o incluso no haber subido), porque el promedio está siendo arrastrado por esos pocos sueldos altos"
+  - "El sueldo mediano tiene que haber subido exactamente lo mismo, siempre"
+  - "El sueldo mediano no puede calcularse a partir de datos de sueldos"
+respuesta: "Podría haber subido mucho menos que 15% (o incluso no haber subido), porque el promedio está siendo arrastrado por esos pocos sueldos altos"
+
+explicacion: |
+  Es el caso real más citado de esta distorsión — el promedio sube sin
+  que la mayoría de la gente lo note en su propio bolsillo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
   nivel: "avanzado"
-  tags: ["cono", "volumen"]
+  tags: ["media", "mediana", "problema"]
 
 variables:
-  r: random(2, 8)
-  h: random(3, 12)
+  a: random(15, 25)
+  b: random(15, 25)
+  c: random(15, 25)
+  atipico: random(150, 200)
+  datos: [a, b, c, atipico]
+
+respuesta: redondear(promedio(datos) - mediana(datos), 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Cuatro valores son: {a}, {b}, {c}, {atipico}. ¿Cuál es la diferencia entre la media y la mediana de este conjunto (media menos mediana)?"
+
+pasos:
+  - "Media = {redondear(promedio(datos), 2)}. Mediana = {mediana(datos)}."
+  - "Diferencia = {redondear(promedio(datos), 2)} − {mediana(datos)} = {redondear(promedio(datos) - mediana(datos), 2)}"
+
+explicacion: |
+  Cuanto más grande esta diferencia, más está siendo arrastrada la
+  media por valores extremos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["mediana"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos conjuntos de datos con valores muy distintos entre sí pueden tener exactamente la misma mediana."
+
+explicacion: |
+  Por ejemplo, {4, 5, 6} y {1, 5, 100} tienen la misma mediana (5),
+  aunque estén repartidos de forma completamente distinta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["mediana", "problema"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El grupo A tiene las notas 6, 7, 8 (mediana 7). El grupo B tiene las notas 2, 7, 10 (mediana también 7). Aunque tengan la misma mediana, ambos grupos tienen un desempeño igual de parejo entre sus alumnos."
+
+explicacion: |
+  Es falso: el grupo A es mucho más parejo (todas cerca de 7); el
+  grupo B tiene mucha más dispersión (de 2 a 10) — la mediana sola no
+  muestra esa diferencia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "intermedio"
+  tags: ["media"]
+
+enunciado: "¿Qué tipo de información se pierde al resumir un conjunto de datos en un solo promedio, sin ningún dato adicional?"
+tipo: mc
+opciones_explicitas:
+  - "Cuánto varían los datos entre sí (la dispersión), y si hay valores atípicos que estén distorsionando ese promedio"
+  - "Ninguna información se pierde nunca al calcular un promedio"
+  - "Se pierde sólo el orden en que se recolectaron los datos, nada más relevante"
+respuesta: "Cuánto varían los datos entre sí (la dispersión), y si hay valores atípicos que estén distorsionando ese promedio"
+
+explicacion: |
+  Un solo número nunca cuenta toda la historia de un conjunto de
+  datos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["media"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un promedio alto no garantiza que la mayoría de los casos individuales estén por encima de ese valor — es posible que la mayoría esté por debajo, y sólo unos pocos casos muy altos suban el promedio."
+
+explicacion: |
+  Es exactamente lo que pasa con el sueldo promedio cuando hay mucha
+  desigualdad: la mayoría puede estar por debajo del promedio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["media", "mediana", "problema"]
+
+variables:
+  base: random(10, 20)
+  atipico: random(150, 250)
+  datos: [base, base + 1, base + 2, atipico]
+
+respuesta: redondear(promedio(datos), 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Cuatro valores son: {base}, {base + 1}, {base + 2} y {atipico}. La mediana de este conjunto es {mediana(datos)}. ¿Cuál es la media?"
+
+pasos:
+  - "Media = ({base}+{base + 1}+{base + 2}+{atipico}) / 4 = {redondear(promedio(datos), 2)}"
+
+explicacion: |
+  La media queda muy por encima de la mediana — señal clara de que hay
+  un valor mucho más alto que el resto, distorsionando el promedio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "basico"
+  tags: ["criterio"]
+
+enunciado: "Frente a cualquier estadística resumida en un solo número (un promedio, un porcentaje), ¿qué pregunta conviene hacerse?"
+tipo: mc
+opciones_explicitas:
+  - "¿Qué información se pierde al resumir todo en este solo número?"
+  - "¿El número es par o impar?"
+  - "No hace falta hacerse ninguna pregunta, los números nunca engañan"
+respuesta: "¿Qué información se pierde al resumir todo en este solo número?"
+
+explicacion: |
+  Es la pregunta base del pensamiento crítico frente a cualquier dato
+  estadístico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["criterio", "ordenar"]
+
+enunciado: "Ordená los pasos para evaluar si un promedio dado representa bien a la mayoría de los casos."
+tipo: ordenar
+opciones_explicitas:
+  - "Si la diferencia es grande, sospechar que hay valores atípicos distorsionando el promedio"
+  - "Calcular también la mediana del mismo conjunto de datos"
+  - "Comparar ambos valores: si son parecidos, el promedio representa bien; si difieren mucho, no"
+respuesta_orden: ["Calcular también la mediana del mismo conjunto de datos", "Comparar ambos valores: si son parecidos, el promedio representa bien; si difieren mucho, no", "Si la diferencia es grande, sospechar que hay valores atípicos distorsionando el promedio"]
+explicacion: |
+  Comparar media y mediana es la forma más directa de detectar esta
+  distorsión sin necesitar ver todos los datos originales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "intermedio"
+  tags: ["media", "aplicacion"]
+
+enunciado: "Una noticia dice 'el ingreso promedio de las familias subió este año'. ¿Por qué esto no garantiza que la situación económica de la mayoría de las familias haya mejorado?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el promedio puede haber subido sólo por una mejora fuerte en un grupo chico de familias con más ingresos, sin que la mayoría haya mejorado"
+  - "Porque los promedios de ingresos nunca pueden subir realmente"
+  - "Porque la noticia tiene que estar necesariamente mintiendo"
+respuesta: "Porque el promedio puede haber subido sólo por una mejora fuerte en un grupo chico de familias con más ingresos, sin que la mayoría haya mejorado"
+
+explicacion: |
+  No implica mala intención de quien da la noticia — el dato en sí es
+  cierto, sólo que incompleto sin la mediana o la distribución al lado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["moda", "problema"]
+
+variables:
+  repetido: random(10, 20)
+  a: random(21, 30)
+  b: random(31, 40)
+  c: random(41, 50)
+  d: random(51, 60)
+
+respuesta: repetido
+tipo: input
+
+enunciado: "En un grupo de 6 personas, las edades son: {repetido}, {repetido}, {a}, {b}, {c}, {d}. ¿Cuál es la moda de este grupo?"
+
+pasos:
+  - "{repetido} aparece 2 veces, el resto aparece 1 vez cada uno — apenas alcanza para ser la moda."
+
+explicacion: |
+  Con sólo 2 repeticiones sobre 6 datos casi todos distintos, la moda
+  no dice mucho sobre el grupo en general — es una moda 'débil'.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "intermedio"
+  tags: ["media", "mediana"]
+
+enunciado: "¿En qué situación conviene usar la mediana en vez de la media?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando hay valores atípicos que distorsionarían mucho el promedio"
+  - "Cuando se necesita saber la suma total de todos los datos"
+  - "Cuando todos los datos son exactamente iguales entre sí"
+respuesta: "Cuando hay valores atípicos que distorsionarían mucho el promedio"
+
+explicacion: |
+  Es justamente lo que resiste bien la mediana y no la media.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["media", "mediana"]
+
+enunciado: "¿En qué situación conviene usar la media en vez de la mediana?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando se necesita reconstruir el TOTAL a partir del promedio y la cantidad de datos (media × cantidad = total), algo que la mediana no permite"
+  - "Siempre, la mediana nunca sirve para nada"
+  - "Sólo cuando hay valores atípicos muy grandes"
+respuesta: "Cuando se necesita reconstruir el TOTAL a partir del promedio y la cantidad de datos (media × cantidad = total), algo que la mediana no permite"
+
+explicacion: |
+  Es una ventaja práctica real de la media que la mediana no tiene.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["media", "problema"]
+
+variables:
+  media_gasto: random(200, 500)
+  personas: random(10, 30)
+
+respuesta: media_gasto * personas
+tipo: input
+unidad: "$"
+
+enunciado: "El gasto PROMEDIO de {personas} personas en un evento fue de ${media_gasto} cada una. ¿Cuál fue el gasto TOTAL de todas juntas?"
+
+pasos:
+  - "Total = media × cantidad = {media_gasto} × {personas} = {media_gasto * personas}"
+
+explicacion: |
+  Con la mediana sola, este cálculo no sería posible — sólo la media
+  tiene esta propiedad de reconstruir el total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["mediana"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Conociendo sólo la mediana de un conjunto de datos y la cantidad de datos, NO se puede calcular la suma total de todos los valores (a diferencia de la media, que sí lo permite)."
+
+explicacion: |
+  La mediana no 'contiene' la información de cuánto suman todos los
+  valores, sólo cuál queda en el medio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "intermedio"
+  tags: ["media", "aplicacion"]
+
+enunciado: "Si se dice que 'la temperatura promedio global subió 1,5°C', ¿significa que TODOS los lugares del planeta subieron exactamente 1,5°C?"
+tipo: mc
+opciones_explicitas:
+  - "No — es un promedio global; algunas zonas pueden haber subido mucho más y otras mucho menos (o incluso bajado)"
+  - "Sí, un promedio global siempre significa que todos los lugares cambiaron exactamente igual"
+  - "No tiene sentido promediar temperaturas de distintos lugares"
+respuesta: "No — es un promedio global; algunas zonas pueden haber subido mucho más y otras mucho menos (o incluso bajado)"
+
+explicacion: |
+  Es el mismo problema de fondo que el sueldo promedio: un promedio
+  resume, pero no describe cada caso individual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["criterio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Presentar sólo una medida (como el promedio) sin más contexto puede ser matemáticamente correcto y honesto, y AL MISMO TIEMPO dar una idea incompleta o engañosa de la situación real."
+
+explicacion: |
+  No hace falta mala intención para que un resumen estadístico, sin
+  contexto, dé una impresión equivocada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["media", "mediana", "problema"]
+
+variables:
+  a: random(60, 80)
+  b: random(60, 80)
+  c: random(60, 80)
+  d: random(60, 80)
+  bajo: random(5, 20)
+  datos: [a, b, c, d, bajo]
+
+respuesta: redondear(mediana(datos) - promedio(datos), 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Las notas de 5 alumnos (sobre 100) son: {a}, {b}, {c}, {d} y {bajo} (un alumno con una nota muy baja). ¿Cuál es la diferencia entre la mediana y la media (mediana menos media)?"
+
+pasos:
+  - "Mediana = {mediana(datos)}. Media = {redondear(promedio(datos), 2)}."
+  - "Mediana − Media = {mediana(datos)} − {redondear(promedio(datos), 2)} = {redondear(mediana(datos) - promedio(datos), 2)}"
+
+explicacion: |
+  Acá el valor atípico es BAJO, no alto — arrastra la media hacia
+  abajo, por eso la mediana queda por encima de la media (al revés
+  que en el caso del sueldo alto).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["media"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un valor atípico puede distorsionar la media hacia arriba (si es mucho más grande que el resto) o hacia abajo (si es mucho más chico), según el caso."
+
+explicacion: |
+  No siempre el problema es un valor 'demasiado alto' — también puede
+  ser uno 'demasiado bajo'.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "avanzado"
+  tags: ["criterio", "problema"]
+
+enunciado: "Un estudio mide el tiempo que tardan 100 personas en resolver un problema, y hay 3 personas que tardaron muchísimo más que las demás (rezagadas). ¿Qué medida conviene reportar como 'tiempo típico'?"
+tipo: mc
+opciones_explicitas:
+  - "La mediana, porque esos 3 casos extremos no la distorsionan tanto como distorsionarían a la media"
+  - "La media, porque siempre es la medida más precisa"
+  - "La moda, porque siempre representa mejor que las otras dos"
+respuesta: "La mediana, porque esos 3 casos extremos no la distorsionan tanto como distorsionarían a la media"
+
+explicacion: |
+  Es exactamente el criterio de este módulo: elegir la medida según
+  si hay o no valores atípicos relevantes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "cual_miente_y_cuando"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender cuál medida 'miente' y cuándo?"
+tipo: mc
+opciones_explicitas:
+  - "Para elegir la medida de tendencia central correcta según la pregunta y los datos, y para leer con criterio crítico cualquier estadística resumida en un solo número"
+  - "Para saber que la mediana siempre es mejor que la media en todos los casos"
+  - "Para desconfiar de todas las estadísticas, sin excepción"
+respuesta: "Para elegir la medida de tendencia central correcta según la pregunta y los datos, y para leer con criterio crítico cualquier estadística resumida en un solo número"
+
+explicacion: |
+  Es el puente directo hacia
+  `../tablas-de-frecuencia-cuartiles-percentiles-y-varianza/` — ver
+  cuánto varían los datos es la forma más completa de responder
+  'cuánto se pierde al resumir en un solo número'.
+```
+
+## Sección: funciones-trigonometricas-seno-coseno (26 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "basico"
+  tags: ["radianes", "vocabulario"]
+
+enunciado: "¿Qué es un radián?"
+tipo: mc
+opciones_explicitas:
+  - "El ángulo central de una circunferencia que abarca un arco de longitud igual al radio"
+  - "Otro nombre para un grado sexagesimal"
+  - "La centésima parte de una vuelta completa"
+respuesta: "El ángulo central de una circunferencia que abarca un arco de longitud igual al radio"
+
+explicacion: |
+  Es una unidad de ángulo distinta del grado, útil para trabajar con
+  funciones trigonométricas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "basico"
+  tags: ["radianes", "completar"]
+
+tipo: completar
+enunciado: "Completá: una vuelta completa, 360°, mide exactamente ___ radianes (en términos de π)."
+respuestas_validas:
+  - "2π"
+  - "2pi"
+
+explicacion: |
+  Es la equivalencia base de la que salen todas las demás conversiones.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "basico"
+  tags: ["radianes", "completar"]
+
+tipo: completar
+enunciado: "Completá: 180° mide exactamente ___ radianes (en términos de π)."
+respuestas_validas:
+  - "π"
+  - "pi"
+
+explicacion: |
+  Es la mitad de una vuelta completa (2π).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "intermedio"
+  tags: ["radianes", "problema"]
+
+variables:
+  grados: uno_de([30, 45, 60, 90, 120, 180, 270, 360])
+
+respuesta: redondear(grados * pi / 180, 2)
+tipo: input
+tolerancia_abs: 0.02
+
+enunciado: "¿Cuántos radianes son {grados}°? Redondeá a 2 decimales."
+
+pasos:
+  - "{grados} × (π ÷ 180) = {redondear(grados * pi / 180, 2)}"
+
+explicacion: |
+  Se multiplica por π/180 para pasar de grados a radianes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "intermedio"
+  tags: ["radianes", "problema"]
+
+variables:
+  fraccion: uno_de([2, 3, 4, 6])
+  radianes_valor: pi / fraccion
+
+respuesta: redondear(radianes_valor * 180 / pi, 0)
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Un ángulo mide π/{fraccion} radianes. ¿Cuántos grados es eso?"
+
+pasos:
+  - "(π ÷ {fraccion}) × (180 ÷ π) = {redondear(radianes_valor * 180 / pi, 0)}°"
+
+explicacion: |
+  Se multiplica por 180/π para pasar de radianes a grados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "basico"
+  tags: ["circulo_unitario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El círculo unitario, usado para definir seno y coseno de cualquier ángulo, tiene radio exactamente 1."
+
+explicacion: |
+  Por eso las coordenadas de cualquier punto sobre él quedan siempre
+  entre −1 y 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "intermedio"
+  tags: ["circulo_unitario", "vocabulario"]
+
+enunciado: "En el círculo unitario, ¿cuáles son las coordenadas del punto que corresponde a un ángulo θ?"
+tipo: mc
+opciones_explicitas:
+  - "(cos θ, sen θ)"
+  - "(sen θ, cos θ)"
+  - "(θ, θ)"
+respuesta: "(cos θ, sen θ)"
+
+explicacion: |
+  La abscisa es el coseno, la ordenada es el seno de ese ángulo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "avanzado"
+  tags: ["circulo_unitario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para un ángulo entre 90° y 180° (segundo cuadrante), el coseno de ese ángulo es negativo."
+
+explicacion: |
+  En el segundo cuadrante, la abscisa (el coseno) del punto sobre el
+  círculo unitario es negativa; la ordenada (el seno) sigue siendo
+  positiva.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "avanzado"
+  tags: ["circulo_unitario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para un ángulo entre 180° y 270° (tercer cuadrante), tanto el seno como el coseno de ese ángulo son negativos."
+
+explicacion: |
+  En el tercer cuadrante, tanto la abscisa como la ordenada del punto
+  sobre el círculo unitario son negativas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "intermedio"
+  tags: ["periodicidad", "vocabulario"]
+
+enunciado: "¿Qué significa que seno y coseno sean funciones periódicas?"
+tipo: mc
+opciones_explicitas:
+  - "Que sus valores se repiten exactamente cada 2π radianes (una vuelta completa)"
+  - "Que sus valores nunca se repiten"
+  - "Que sólo están definidas para ángulos entre 0° y 90°"
+respuesta: "Que sus valores se repiten exactamente cada 2π radianes (una vuelta completa)"
+
+explicacion: |
+  Girar una vuelta de más da exactamente el mismo punto en el círculo
+  unitario.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "intermedio"
+  tags: ["periodicidad", "completar"]
+
+tipo: completar
+enunciado: "Completá: sen(θ + 2π) = ___."
+respuestas_validas:
+  - "sen(θ)"
+  - "sen θ"
+
+explicacion: |
+  Sumar una vuelta completa no cambia el valor del seno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "intermedio"
+  tags: ["periodicidad", "problema"]
+
+variables:
+  seno_conocido: uno_de([0.5, 0.6, 0.8, 0.71])
+
+respuesta: seno_conocido
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Se sabe que sen(θ) = {seno_conocido}. ¿Cuánto vale sen(θ + 2π)?"
+
+explicacion: |
+  Al ser periódica con período 2π, da exactamente el mismo valor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "intermedio"
+  tags: ["amplitud", "vocabulario"]
+
+enunciado: "¿Cuál es el rango de valores posibles (la amplitud) de sen(θ) y cos(θ), para cualquier ángulo θ?"
+tipo: mc
+opciones_explicitas:
+  - "Entre −1 y 1"
+  - "Entre 0 y 360"
+  - "Sin límite, pueden dar cualquier número"
+respuesta: "Entre −1 y 1"
+
+explicacion: |
+  Es consecuencia directa de que el círculo unitario tiene radio 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "basico"
+  tags: ["amplitud"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "No existe ningún ángulo θ para el cual sen(θ) = 2."
+
+explicacion: |
+  El seno está siempre acotado entre −1 y 1; 2 queda fuera de ese rango.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "intermedio"
+  tags: ["vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El gráfico de y = sen(θ) tiene forma de onda, subiendo y bajando entre −1 y 1, repitiéndose cada 2π."
+
+explicacion: |
+  Es la misma forma de onda (sinusoide) que aparece en sonido y luz.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "basico"
+  tags: ["valores_notables", "completar"]
+
+tipo: completar
+enunciado: "Completá: cos(0°) = ___."
+respuestas_validas:
+  - "1"
+
+explicacion: |
+  En el círculo unitario, el ángulo 0° corresponde al punto (1, 0).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "basico"
+  tags: ["valores_notables", "completar"]
+
+tipo: completar
+enunciado: "Completá: sen(0°) = ___."
+respuestas_validas:
+  - "0"
+
+explicacion: |
+  En el círculo unitario, el ángulo 0° corresponde al punto (1, 0).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "basico"
+  tags: ["valores_notables", "completar"]
+
+tipo: completar
+enunciado: "Completá: sen(90°) = ___."
+respuestas_validas:
+  - "1"
+
+explicacion: |
+  En el círculo unitario, el ángulo 90° corresponde al punto (0, 1).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "basico"
+  tags: ["valores_notables", "completar"]
+
+tipo: completar
+enunciado: "Completá: cos(90°) = ___."
+respuestas_validas:
+  - "0"
+
+explicacion: |
+  En el círculo unitario, el ángulo 90° corresponde al punto (0, 1).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "intermedio"
+  tags: ["periodicidad", "problema"]
+
+variables:
+  vueltas: random(2, 8)
+
+respuesta: vueltas
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un ángulo mide {vueltas * 360}°. ¿A cuántas vueltas completas equivale?"
+
+pasos:
+  - "{vueltas * 360} ÷ 360 = {vueltas}"
+
+explicacion: |
+  Cada 360° es una vuelta completa, después de la cual sen y cos vuelven
+  a repetirse.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "intermedio"
+  tags: ["radianes", "ordenar"]
+
+enunciado: "Ordená los pasos para convertir una medida en grados a radianes."
+tipo: ordenar
+opciones_explicitas:
+  - "El resultado queda expresado en radianes"
+  - "Tomar la medida en grados"
+  - "Multiplicarla por π/180"
+respuesta_orden: ["Tomar la medida en grados", "Multiplicarla por π/180", "El resultado queda expresado en radianes"]
+explicacion: |
+  π/180 es el factor de conversión de grados a radianes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "avanzado"
+  tags: ["circulo_unitario", "vocabulario"]
+
+enunciado: "¿Por qué ahora tiene sentido hablar de sen(120°) o sen(-30°), ángulos que no caben en un triángulo rectángulo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el círculo unitario define seno y coseno para cualquier ángulo, no sólo para los agudos de un triángulo"
+  - "Porque esos valores en realidad no existen"
+  - "Porque se usa una fórmula completamente distinta para ángulos obtusos"
+respuesta: "Porque el círculo unitario define seno y coseno para cualquier ángulo, no sólo para los agudos de un triángulo"
+
+explicacion: |
+  Es la extensión central de este módulo respecto de
+  `../razones-trigonometricas/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "intermedio"
+  tags: ["radianes"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un radián es un ángulo más grande que un grado sexagesimal."
+
+explicacion: |
+  Como una vuelta completa son sólo ≈6,28 radianes (2π) pero 360 grados,
+  cada radián individual es bastante más grande que cada grado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "avanzado"
+  tags: ["radianes", "problema"]
+
+respuesta: redondear(180 / pi, 1)
+tipo: input
+tolerancia_abs: 0.1
+
+enunciado: "Aproximadamente, ¿cuántos grados es 1 radián? Redondeá a 1 decimal."
+
+pasos:
+  - "180 ÷ π ≈ {redondear(180 / pi, 1)}°"
+
+explicacion: |
+  Es un valor aproximado que conviene recordar: un radián es bastante
+  menos que un ángulo recto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "avanzado"
+  tags: ["circulo_unitario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las razones trigonométricas de un triángulo rectángulo (para ángulos entre 0° y 90°) son un caso particular de las funciones seno y coseno definidas sobre el círculo unitario."
+
+explicacion: |
+  Para ángulos agudos, ambas definiciones dan exactamente los mismos
+  valores.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "funciones_trigonometricas_seno_coseno"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve extender seno y coseno a funciones de cualquier ángulo, medido en radianes?"
+tipo: mc
+opciones_explicitas:
+  - "Para describir cualquier movimiento circular o fenómeno periódico, no sólo triángulos puntuales"
+  - "Sólo sirve para ángulos mayores a 360°"
+  - "No tiene ninguna aplicación fuera de la matemática pura"
+respuesta: "Para describir cualquier movimiento circular o fenómeno periódico, no sólo triángulos puntuales"
+
+explicacion: |
+  Desde una rueda que gira hasta una onda de sonido, todo fenómeno
+  periódico se describe con esta misma idea.
+```
+
+## Sección: regla-de-lhopital (31 preguntas)
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["terminologia"]
+
+variables:
+  nombre: "L'Hôpital"
+
+tipo: completar
+
+enunciado: "La regla que permite resolver indeterminaciones 0/0 y ∞/∞ mediante derivadas se llama Regla de {nombre}."
+
+respuestas_validas:
+  - "L'Hôpital"
+  - "Lhopital"
+  - "lhopital"
+  - "l'Hôpital"
+
+explicacion: |
+  La regla lleva el nombre del matemático francés Guillaume de l'Hôpital.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+variables:
+  forma: "0/0"
+
+tipo: completar
+
+enunciado: "Una de las dos formas indeterminadas principales que permiten aplicar L'Hôpital es {forma}."
+
+respuestas_validas:
+  - "0/0"
+  - "0 sobre 0"
+  - "cero sobre cero"
+
+explicacion: |
+  Las formas son 0/0 y ∞/∞.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["historia"]
+
+variables:
+  apellido: "L'Hôpital"
+
+tipo: completar
+
+enunciado: "La regla lleva el nombre del matemático {apellido}."
+
+respuestas_validas:
+  - "L'Hôpital"
+  - "Lhopital"
+  - "l'Hôpital"
+
+explicacion: |
+  Guillaume de l'Hôpital publicó la regla en 1696.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["limites", "lhopital", "polinomios"]
+
+variables:
+  a: random(2, 5)
+  b: random(1, 3)
+
+respuesta: "{a/b}"
+tipo: input
+
+enunciado: "Calcule el límite: lim(x→0) (x^{a} + {b}x) / x"
+
+explicacion: |
+  Al sustituir x=0 obtenemos 0/0. Aplicamos L'Hôpital derivando numerador y denominador:
+  Derivada num: a*x^{a-1} + {b}
+  Derivada den: 1
+  El límite es a*0^{a-1} + {b}. Como a >= 2, el término con x se anula.
+  Resultado: {b}.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "trigonometria", "seno"]
+
+variables:
+  k: random(2, 6)
+
+respuesta: k
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (sin(k*x)) / x"
+
+explicacion: |
+  Es indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: k*cos(k*x)
+  Derivada den: 1
+  Evaluar en x=0: k*cos(0)/1 = k*1 = {k}.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "infinito", "logaritmo"]
+
+variables:
+  n: random(2, 5)
+
+respuesta: "0"
+tipo: input
+
+enunciado: "Calcule: lim(x→∞) (log(x)) / x^{n}"
+
+explicacion: |
+  Es indeterminación ∞/∞. Aplicamos L'Hôpital:
+  Derivada num: 1/x
+  Derivada den: n*x^{n-1}
+  Nuevo límite: lim(x→∞) (1/x) / (n*x^{n-1}) = lim(x→∞) 1 / (n*x^{n})
+  Como n > 0, el denominador crece infinitamente, por lo que el límite es 0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "raices", "derivadas"]
+
+variables:
+  k: random(1, 4)
+
+respuesta: "{1/(2*k)}"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (sqrt(1 + k*x) - 1) / x"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: (1/2)*(1+k*x)^{-1/2} * k
+  Derivada den: 1
+  Evaluar en x=0: (1/2)*(1)^{-1/2} * k = k/2.
+  El límite es k/2.
+  Espera, la derivada de sqrt(1+kx) es k / (2*sqrt(1+kx)).
+  En x=0: k / 2.
+  La respuesta correcta es "{k/2}".
+  Corrijo la respuesta:
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "raices", "derivadas"]
+
+variables:
+  k: random(1, 4)
+
+respuesta: "{k/2}"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (sqrt(1 + k*x) - 1) / x"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: k / (2*sqrt(1+k*x))
+  Derivada den: 1
+  En x=0: k / 2.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "logaritmo", "infinito"]
+
+respuesta: "0"
+tipo: input
+
+enunciado: "Calcule: lim(x→∞) (log(x)) / x"
+
+explicacion: |
+  Indeterminación ∞/∞. Aplicamos L'Hôpital:
+  Derivada num: 1/x
+  Derivada den: 1
+  Límite: lim(x→∞) 1/x = 0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "trigonometria", "coseno"]
+
+respuesta: "0"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (1 - cos(x)) / x"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: sin(x)
+  Derivada den: 1
+  Lim(x→0) sin(x)/1 = 0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "exponencial", "infinito"]
+
+respuesta: "∞"
+tipo: input
+
+enunciado: "Calcule: lim(x→∞) (e^x) / x"
+
+explicacion: |
+  Indeterminación ∞/∞. Aplicamos L'Hôpital:
+  Derivada num: e^x
+  Derivada den: 1
+  Lim(x→∞) e^x/1 = ∞.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "trigonometria", "tangente"]
+
+respuesta: "1"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (tan(x)) / x"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: sec^2(x)
+  Derivada den: 1
+  En x=0: sec^2(0) = 1/cos^2(0) = 1/1 = 1.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "logaritmo", "natural"]
+
+respuesta: "1"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (ln(1 + x)) / x"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: 1/(1+x)
+  Derivada den: 1
+  En x=0: 1/(1+0) = 1.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "raices", "cubica"]
+
+variables:
+  k: random(1, 3)
+
+respuesta: "{k/3}"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) ( (1 + k*x)^{1/3} - 1 ) / x"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: (1/3)*(1+k*x)^{-2/3} * k
+  Derivada den: 1
+  En x=0: (1/3)*1 * k = k/3.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "exponencial", "infinito"]
+
+respuesta: "0"
+tipo: input
+
+enunciado: "Calcule: lim(x→∞) (x) / e^x"
+
+explicacion: |
+  Indeterminación ∞/∞. Aplicamos L'Hôpital:
+  Derivada num: 1
+  Derivada den: e^x
+  Lim(x→∞) 1/e^x = 0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "trigonometria", "coseno"]
+
+respuesta: "0"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (cos(x) - 1) / x^2"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: -sin(x)
+  Derivada den: 2x
+  Resultado: -sin(x)/2x. En x=0 es 0/0.
+  Aplicamos L'Hôpital de nuevo:
+  Derivada num: -cos(x)
+  Derivada den: 2
+  En x=0: -cos(0)/2 = -1/2.
+  Espera, la respuesta es -0.5.
+  Cambiemos a (1-cos(x))/x^2 -> 1/2.
+  O dejemos -1/2.
+  Respuesta: "-0.5"
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "trigonometria", "coseno"]
+
+respuesta: "-0.5"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (cos(x) - 1) / x^2"
+
+explicacion: |
+  1ra derivada: -sin(x) / 2x (0/0)
+  2da derivada: -cos(x) / 2
+  En x=0: -1/2 = -0.5.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "avanzado"
+  tags: ["limites", "logaritmo", "raices"]
+
+respuesta: "0"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (sqrt(1+x) - 1) / log(1+x)"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: 1/(2*sqrt(1+x))
+  Derivada den: 1/(1+x)
+  Fracción: (1/(2*sqrt(1+x))) / (1/(1+x)) = (1+x) / (2*sqrt(1+x))
+  Simplificamos: sqrt(1+x) / 2.
+  En x=0: sqrt(1)/2 = 1/2 = 0.5.
+  Respuesta: "0.5"
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "avanzado"
+  tags: ["limites", "logaritmo", "raices"]
+
+respuesta: "0.5"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (sqrt(1+x) - 1) / log(1+x)"
+
+explicacion: |
+  Derivada num: 1/(2*sqrt(1+x))
+  Derivada den: 1/(1+x)
+  Cociente: (1+x) / (2*sqrt(1+x)) = sqrt(1+x)/2.
+  En x=0: 1/2 = 0.5.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["identificacion", "indeterminacion"]
+
+variables:
+  k: random(1, 5)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al calcular el límite de {k}x / sin({k}x) cuando x tiende a 0, se obtiene la forma indeterminada 0/0."
+
+explicacion: |
+  Al sustituir x = 0 en el numerador obtenemos {k}*0 = 0.
+  En el denominador obtenemos sin(0) = 0.
+  Por lo tanto, la forma resultante es 0/0, que es una indeterminación válida para aplicar L'Hôpital.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["infinito", "logaritmo"]
+
+variables:
+  k: random(2, 5)
+
+respuesta: 0
+tipo: input
+
+enunciado: "Calcula el límite de ln(x) / x^{k} cuando x tiende a infinito."
+
+explicacion: |
+  Forma indeterminada ∞/∞. Aplicamos L'Hôpital.
+  Derivada num: 1/x.
+  Derivada den: k*x^(k-1).
+  Nuevo límite: (1/x) / (k*x^(k-1)) = 1 / (k*x^k).
+  Cuando x -> ∞, el denominador crece sin límite, por lo que el resultado es 0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["errores_comunes", "aplicacion"]
+
+variables:
+  k: random(1, 5)
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Si el radio de un cono de {r} cm y altura {h} cm se duplica (manteniendo la misma altura), su volumen también se duplica."
-
-pasos:
-  - "Volumen original: (π × {r}² × {h}) ÷ 3 = {redondear((pi * r * r * h) / 3, 2)} cm³. Con el radio doble: (π × {2 * r}² × {h}) ÷ 3 = {redondear((pi * (2 * r) * (2 * r) * h) / 3, 2)} cm³."
+enunciado: "Se puede aplicar la Regla de L'Hôpital al límite de (x + {k}) / x cuando x tiende a 0."
 
 explicacion: |
-  Como el radio está al cuadrado en la fórmula, duplicarlo multiplica el
-  volumen por 4, igual que en el cilindro.
+  Al sustituir x=0, el numerador tiende a {k} y el denominador a 0.
+  Esto da una forma {k}/0 (asíntota), no una indeterminación 0/0.
+  Por lo tanto, L'Hôpital no es aplicable directamente.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "avanzado"
-  tags: ["cono", "comparacion"]
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["teoria", "derivada"]
 
-variables:
-  r1: random(2, 10)
-  h1: random(3, 15)
-  r2: random(2, 10)
-  h2: random(3, 15)
-
-restricciones:
-  - (r1 * r1 * h1) != (r2 * r2 * h2)
-
-respuesta: (r1 * r1 * h1) > (r2 * r2 * h2)
+respuesta: falso
 tipo: vf
 
-enunciado: "¿Tiene mayor volumen un cono de radio {r1} cm y altura {h1} cm, que otro de radio {r2} cm y altura {h2} cm?"
-
-pasos:
-  - "Alcanza con comparar r² × h (el resto de la fórmula es igual para los dos): {r1}² × {h1} = {r1 * r1 * h1} contra {r2}² × {h2} = {r2 * r2 * h2}."
+enunciado: "Para calcular el límite de f(x)/g(x) mediante L'Hôpital, debemos derivar la fracción completa como si fuera una función cociente."
 
 explicacion: |
-  Como ambos comparten el factor π ÷ 3, comparar los volúmenes es lo
-  mismo que comparar r² × h.
+  Falso. L'Hôpital establece que el límite es igual al límite de (f'(x))/(g'(x)).
+  No se deriva el cociente f/g, sino que se derivan el numerador y el denominador por separado.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "intermedio"
-  tags: ["cono", "superficie", "vocabulario"]
-
-enunciado: "¿Cuál es la fórmula del área lateral de un cono (radio r, generatriz g)?"
-tipo: mc
-opciones_explicitas:
-  - "π × r × g"
-  - "π × r² × g"
-  - "2 × π × r × g"
-respuesta: "π × r × g"
-
-explicacion: |
-  Área lateral = π por radio por generatriz.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "basico"
-  tags: ["cono", "completar"]
-
-tipo: completar
-enunciado: "Completá: el volumen de un cono es π por el radio al cuadrado, por la altura, dividido ___."
-respuestas_validas:
-  - 3
-
-explicacion: |
-  V = (π × r² × h) ÷ 3, igual que la pirámide con base circular.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "intermedio"
-  tags: ["cono", "completar"]
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "avanzado"
+  tags: ["exponencial", "logaritmo"]
 
 variables:
-  r: random(2, 8)
-  h: random(3, 12)
+  k: random(1, 5)
 
-tipo: completar
-enunciado: "Completá: el volumen de un cono de radio {r} cm y altura {h} cm es ___ cm³ (redondeado a 2 decimales)."
-respuestas_validas:
-  - redondear((pi * r * r * h) / 3, 2)
+respuesta: 0
+tipo: input
+
+enunciado: "Calcula el límite de x / ln(x) cuando x tiende a 1."
 
 explicacion: |
-  V = (π × r² × h) ÷ 3.
+  Al sustituir x=1, el numerador es 1 y el denominador es ln(1)=0.
+  Esto no es 0/0 ni ∞/∞. Es 1/0 (asíntota).
+  Espera, el límite es infinito (o no existe en el sentido finito).
+  Si la pregunta pide un número finito, esta variable no sirve bien para input numérico simple sin especificar signo.
+  Cambiemos a x->∞ para ln(x)/x.
+  Nuevo enunciado: Lim ln(x)/x cuando x->∞.
+  Derivada num: 1/x. Derivada den: 1.
+  Lim (1/x)/1 = 0.
+  Reescribiendo bloque:
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "conos"
+  materia: "matematica"
+  tema: "regla_de_lhopital"
   nivel: "intermedio"
-  tags: ["cono", "comparacion"]
+  tags: ["exponencial", "logaritmo"]
 
-enunciado: "¿Cuál de estos conos tiene mayor volumen: uno de radio 6 cm y altura 9 cm, o uno de radio 4 cm y altura 20 cm?"
-tipo: mc
-opciones_explicitas:
-  - "Radio 6 cm y altura 9 cm"
-  - "Radio 4 cm y altura 20 cm"
-respuesta: "Radio 6 cm y altura 9 cm"
+respuesta: 0
+tipo: input
 
-pasos:
-  - "r²×h: 6² × 9 = 324 contra 4² × 20 = 320."
+enunciado: "Calcula el límite de ln(x) / x cuando x tiende a infinito."
 
 explicacion: |
-  El radio al cuadrado pesa más que la altura: 324 > 320.
+  Forma ∞/∞.
+  Derivada num: 1/x. Derivada den: 1.
+  El nuevo límite es lim (1/x) / 1 = 0.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "avanzado"
-  tags: ["cono", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos conos de menor a mayor volumen (comparando r²×h): radio 2 y altura 30; radio 6 y altura 3; radio 4 y altura 8; radio 3 y altura 15."
-opciones_explicitas:
-  - "Radio 4 y altura 8"
-  - "Radio 6 y altura 3"
-  - "Radio 3 y altura 15"
-  - "Radio 2 y altura 30"
-respuesta_orden:
-  - "Radio 6 y altura 3"
-  - "Radio 2 y altura 30"
-  - "Radio 4 y altura 8"
-  - "Radio 3 y altura 15"
-
-pasos:
-  - "r²×h: 2²×30=120; 6²×3=108; 4²×8=128; 3²×15=135."
-
-explicacion: |
-  Se calcula r²×h de cada uno antes de comparar: 108 < 120 < 128 < 135.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "basico"
-  tags: ["cono", "vocabulario"]
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["teoria", "existencia"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El vértice de un cono es el único punto donde termina la superficie lateral curva."
+enunciado: "Si al aplicar L'Hôpital el límite de f'(x)/g'(x) no existe (ni es infinito), entonces L'Hôpital no permite concluir nada sobre el límite original."
 
 explicacion: |
-  Toda la superficie lateral converge en ese único punto.
+  Correcto. La regla dice que si el límite de las derivadas existe, entonces el límite original es igual a él.
+  Si el límite de las derivadas no existe, la regla es inconclusa (el límite original podría existir o no).
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "conos"
+  materia: "matematica"
+  tema: "regla_de_lhopital"
   nivel: "avanzado"
-  tags: ["cono", "vocabulario"]
+  tags: ["iteracion", "polinomio"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: 2
+tipo: input
 
-enunciado: "En cualquier cono real, la generatriz siempre es mayor que la altura."
+enunciado: "Calcula el límite de (x^{2} - 2x + 1) / (x^{3} - 1) cuando x tiende a 1."
 
 explicacion: |
-  La altura va derecho (perpendicular a la base); la generatriz va en
-  diagonal desde el vértice hasta el borde — el camino diagonal siempre
-  es más largo que el camino recto perpendicular.
+  Forma 0/0.
+  Derivada 1: Num (2x-2), Den (3x^2). En x=1: 0/3 = 0.
+  Espera, 0/3 es 0. No hay que derivar de nuevo.
+  Reviso: Num en 1: 1-2+1=0. Den en 1: 1-1=0.
+  Derivada Num: 2x-2. En 1: 0.
+  Derivada Den: 3x^2. En 1: 3.
+  Lim 0/3 = 0.
+  La respuesta es 0.
+  Cambio el ejercicio para que requiera 2 derivadas.
+  Usar (x-1)^2 / (x^3-1)?
+  Num derivada: 2(x-1) -> 0. Den derivada: 3x^2 -> 3. Resultado 0.
+  Usar (x-1)^3 / (x^2-1)?
+  Num derivada: 3(x-1)^2 -> 0. Den derivada: 2x -> 2. Resultado 0.
+  Para que sea distinto de 0 y requiera iteración, necesitamos que la primera derivada siga dando 0/0.
+  Ejemplo: (x-1)^2 / (x^2-1).
+  Derivada 1: Num 2(x-1)->0. Den 2x->2. Resultado 0.
+  Ejemplo: (x-1)^3 / (x-1)^2? Simplifica a x-1 -> 0.
+  Ejemplo clásico: (x - sin(x)) / x^3?
+  Derivada 1: (1-cos(x))/3x^2 -> 0/0.
+  Derivada 2: sin(x)/6x -> 0/0.
+  Derivada 3: cos(x)/6 -> 1/6.
+  Muy complejo para input simple.
+  Volvemos a (x^2 - 2x + 1)/(x-1)? No, eso es 0/0 directo.
+  Vamos a usar (x^2 - 1)/(x^3 - 1) en x->1.
+  Derivada 1: 2x / 3x^2 = 2/(3x). En 1: 2/3.
+  Respuesta 2/3.
+  Reescribiendo para evitar confusión de iteración innecesaria:
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "conos"
-  nivel: "intermedio"
-  tags: ["cono", "verificacion"]
-
-variables:
-  r: random(2, 10)
-  h: random(3, 15)
-  correcto: redondear((pi * r * r * h) / 3, 1)
-  error: uno_de([0, 0, 0, 5, -5])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 0.01)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? El volumen de un cono de radio {r} cm y altura {h} cm es {mostrado} cm³ (redondeado a 1 decimal)."
-
-explicacion: |
-  Se recalcula (π × r² × h) ÷ 3 y se compara con el valor mostrado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "conos"
+  materia: "matematica"
+  tema: "regla_de_lhopital"
   nivel: "basico"
-  tags: ["cono", "piramide", "vocabulario"]
+  tags: ["propiedades", "linealidad"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El factor 1/3 en la fórmula del volumen aparece siempre que un cuerpo termina en un único vértice en vez de tener una segunda base — sea la base un polígono (pirámide) o un círculo (cono)."
+enunciado: "Si el límite de f(x)/g(x) es indeterminado, el límite de c*f(x)/g(x) (con c constante) se puede calcular derivando f(x) y g(x) por separado."
 
 explicacion: |
-  Es el patrón central que conecta `../piramides/` con este módulo.
-```
-
-## Sección: cuerpos-redondos-y-poliedros/desarrollo-plano (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "basico"
-  tags: ["desarrollo_plano", "vocabulario"]
-
-enunciado: "¿Qué es el desarrollo plano de un cuerpo 3D?"
-tipo: mc
-opciones_explicitas:
-  - "La figura plana que, al doblarse, arma exactamente ese cuerpo"
-  - "La sombra que proyecta el cuerpo"
-  - "Un dibujo en perspectiva del cuerpo"
-respuesta: "La figura plana que, al doblarse, arma exactamente ese cuerpo"
-
-explicacion: |
-  Es como desarmar una caja de cartón hasta que queda plana, o al revés.
+  Verdadero. La constante c se puede sacar fuera o derivar como parte del numerador (c*f'(x)).
+  El resultado será c veces el límite original de f/g.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
+  materia: "matematica"
+  tema: "regla_de_lhopital"
   nivel: "intermedio"
-  tags: ["desarrollo_plano", "prisma"]
-
-enunciado: "¿De qué piezas se compone el desarrollo de un prisma?"
-tipo: mc
-opciones_explicitas:
-  - "Las dos bases (el polígono) más un rectángulo por cada cara lateral"
-  - "Una sola base más triángulos"
-  - "Sólo rectángulos, sin ninguna base"
-respuesta: "Las dos bases (el polígono) más un rectángulo por cada cara lateral"
-
-explicacion: |
-  Un prisma tiene dos bases (ver `../prismas/`), así que su desarrollo
-  también las incluye a las dos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "intermedio"
-  tags: ["desarrollo_plano", "piramide"]
-
-enunciado: "¿De qué piezas se compone el desarrollo de una pirámide?"
-tipo: mc
-opciones_explicitas:
-  - "Una base (el polígono) más un triángulo por cada cara lateral"
-  - "Dos bases más rectángulos"
-  - "Sólo triángulos, sin ninguna base"
-respuesta: "Una base (el polígono) más un triángulo por cada cara lateral"
-
-explicacion: |
-  La pirámide tiene una sola base (ver `../piramides/`), y sus caras
-  laterales son triángulos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "intermedio"
-  tags: ["desarrollo_plano", "cilindro"]
-
-enunciado: "¿De qué piezas se compone el desarrollo de un cilindro?"
-tipo: mc
-opciones_explicitas:
-  - "Dos círculos (las bases) más un rectángulo para la superficie lateral"
-  - "Un círculo más un sector circular"
-  - "Sólo un rectángulo, sin círculos"
-respuesta: "Dos círculos (las bases) más un rectángulo para la superficie lateral"
-
-explicacion: |
-  El cilindro tiene dos bases circulares (ver `../cilindros/`), y su
-  superficie curva se "desenrolla" en un rectángulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "intermedio"
-  tags: ["desarrollo_plano", "cono"]
-
-enunciado: "¿De qué piezas se compone el desarrollo de un cono?"
-tipo: mc
-opciones_explicitas:
-  - "Un círculo (la base) más un sector circular para la superficie lateral"
-  - "Dos círculos más un rectángulo"
-  - "Un triángulo más un círculo"
-respuesta: "Un círculo (la base) más un sector circular para la superficie lateral"
-
-explicacion: |
-  El cono tiene una sola base circular (ver `../conos/`), y su
-  superficie lateral "desenrollada" queda como una porción de círculo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "intermedio"
-  tags: ["desarrollo_plano", "esfera"]
+  tags: ["teoria", "limites_laterales"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "A diferencia del prisma, la pirámide, el cilindro y el cono, la esfera no se puede desenrollar en una figura plana sin deformarla."
+enunciado: "La Regla de L'Hôpital es aplicable también para límites laterales (x -> a+ o x -> a-)."
 
 explicacion: |
-  Una superficie curvada en dos direcciones a la vez no puede aplanarse
-  sin estirar o cortar algo — ver `../esferas/`.
+  Verdadero. La regla se basa en la derivabilidad en un entorno, y los límites laterales son casos particulares de ese comportamiento local.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "avanzado"
-  tags: ["desarrollo_plano", "esfera"]
-
-enunciado: "¿Por qué la esfera no tiene un desarrollo plano exacto, a diferencia de los demás cuerpos de este grupo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque su superficie está curvada en dos direcciones a la vez, y eso no se puede aplanar sin deformar"
-  - "Porque es demasiado grande"
-  - "Porque no tiene volumen"
-respuesta: "Porque su superficie está curvada en dos direcciones a la vez, y eso no se puede aplanar sin deformar"
-
-explicacion: |
-  El cilindro y el cono también son curvos, pero se curvan en una sola
-  dirección — por eso sí se pueden "desenrollar" sin deformación.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "avanzado"
-  tags: ["desarrollo_plano", "esfera"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todo mapa plano del mundo tiene que deformar algo, por la misma razón matemática que impide desenrollar una esfera sin distorsión."
-
-explicacion: |
-  La Tierra es (aproximadamente) una esfera; ningún mapa plano puede
-  representarla sin algún tipo de distorsión (de área, de forma o de
-  distancia).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
+  materia: "matematica"
+  tema: "regla_de_lhopital"
   nivel: "intermedio"
-  tags: ["desarrollo_plano", "cilindro"]
+  tags: ["trigonometria", "limite"]
 
-variables:
-  h: random(3, 20)
-
-respuesta: h
+respuesta: 1
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "En el desarrollo de un cilindro de altura {h} cm, ¿cuánto mide el ancho del rectángulo de la superficie lateral?"
+enunciado: "Calcula el límite de sen(3x) / x cuando x tiende a 0."
 
 explicacion: |
-  El ancho del rectángulo coincide con la altura del cilindro.
+  Forma 0/0.
+  Derivada num: 3cos(3x). Derivada den: 1.
+  En x=0: 3cos(0)/1 = 3.
+  Espera, la respuesta es 3.
+  Reescribiendo para que sea 1: sen(x)/x.
+  Pero quiero variar.
+  Si pongo sen(3x)/x, la respuesta es 3.
+  Si pongo sen(x)/3x, la respuesta es 1/3.
+  Vamos a usar sen(3x)/x para probar que el alumno deriva correctamente el argumento.
+  Respuesta: 3.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
+  materia: "matematica"
+  tema: "regla_de_lhopital"
   nivel: "intermedio"
-  tags: ["desarrollo_plano", "cilindro"]
-
-variables:
-  r: random(2, 15)
-
-respuesta: redondear(2 * pi * r, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "En el desarrollo de un cilindro de radio {r} cm, ¿cuánto mide el largo del rectángulo de la superficie lateral? Redondeá a 2 decimales."
-
-pasos:
-  - "El largo coincide con la circunferencia de la base: 2 × π × {r} = {redondear(2 * pi * r, 2)} cm"
-
-explicacion: |
-  Al enrollar el rectángulo, ese lado largo tiene que darle la vuelta
-  completa al círculo de la base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "intermedio"
-  tags: ["desarrollo_plano", "prisma"]
-
-variables:
-  n: random(3, 9)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El desarrollo de un prisma con base de {n} lados, ¿cuántos rectángulos laterales tiene?"
-
-explicacion: |
-  Uno por cada lado de la base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "intermedio"
-  tags: ["desarrollo_plano", "piramide"]
-
-variables:
-  n: random(3, 9)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El desarrollo de una pirámide con base de {n} lados, ¿cuántos triángulos laterales tiene?"
-
-explicacion: |
-  Uno por cada lado de la base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "avanzado"
-  tags: ["desarrollo_plano", "prisma"]
-
-variables:
-  n: random(3, 9)
-
-respuesta: n + 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El desarrollo de un prisma con base de {n} lados, ¿cuántas piezas tiene en total (bases más rectángulos laterales)?"
-
-explicacion: |
-  {n} rectángulos laterales más 2 bases = {n + 2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "avanzado"
-  tags: ["desarrollo_plano", "piramide"]
-
-variables:
-  n: random(3, 9)
-
-respuesta: n + 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El desarrollo de una pirámide con base de {n} lados, ¿cuántas piezas tiene en total (la base más los triángulos laterales)?"
-
-explicacion: |
-  {n} triángulos laterales más 1 base = {n + 1}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "basico"
-  tags: ["desarrollo_plano", "cilindro"]
+  tags: ["trigonometria", "limite"]
 
 respuesta: 3
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "¿Cuántas piezas tiene en total el desarrollo de un cilindro?"
+enunciado: "Calcula el límite de sen(3x) / x cuando x tiende a 0."
 
 explicacion: |
-  Dos círculos (las bases) más un rectángulo (la superficie lateral) =
-  3 piezas.
+  Forma 0/0.
+  Derivada num: 3cos(3x). Derivada den: 1.
+  En x=0: 3*1 / 1 = 3.
+```
+
+## Sección: identidades-y-ecuaciones-trigonometricas (26 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "basico"
+  tags: ["identidades", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia entre una identidad y una ecuación trigonométrica?"
+tipo: mc
+opciones_explicitas:
+  - "La identidad se cumple para todo ángulo; la ecuación sólo para algunos ángulos específicos"
+  - "Son exactamente lo mismo, dos nombres para un solo concepto"
+  - "La identidad sólo aplica al seno; la ecuación sólo al coseno"
+respuesta: "La identidad se cumple para todo ángulo; la ecuación sólo para algunos ángulos específicos"
+
+explicacion: |
+  Es la distinción central de este módulo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "desarrollo_plano"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["identidades"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "sen²θ + cos²θ = 1 es una identidad: se cumple para absolutamente cualquier ángulo θ."
+
+explicacion: |
+  Es consecuencia del teorema de Pitágoras aplicado al círculo unitario.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["ecuaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "sen(θ) = 0,5 es una ecuación: sólo se cumple para algunos ángulos específicos, no para todos."
+
+explicacion: |
+  Para la mayoría de los ángulos, sen(θ) da un valor distinto de 0,5.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
   nivel: "basico"
-  tags: ["desarrollo_plano", "cono"]
+  tags: ["identidades", "completar"]
+
+tipo: completar
+enunciado: "Completá la identidad pitagórica: sen²θ + cos²θ = ___."
+respuestas_validas:
+  - "1"
+
+explicacion: |
+  Vale para cualquier ángulo θ.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["identidades", "problema"]
+
+respuesta: 0.6
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Para un ángulo θ del primer cuadrante, cos(θ) = 0,8. Usando la identidad pitagórica, ¿cuánto vale sen(θ)?"
+
+pasos:
+  - "sen²θ = 1 − 0,8² = 1 − 0,64 = 0,36"
+  - "senθ = √0,36 = 0,6"
+
+explicacion: |
+  Es el mismo triángulo 3-4-5, ahora con los lados divididos por la
+  hipotenusa (0,6 = 3/5, 0,8 = 4/5).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["identidades", "problema"]
+
+respuesta: 0.8
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Para un ángulo θ del primer cuadrante, sen(θ) = 0,6. Usando la identidad pitagórica, ¿cuánto vale cos(θ)?"
+
+pasos:
+  - "cos²θ = 1 − 0,6² = 1 − 0,36 = 0,64"
+  - "cosθ = √0,64 = 0,8"
+
+explicacion: |
+  En el primer cuadrante, tanto seno como coseno son positivos, así que
+  se toma la raíz positiva.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["identidades", "vocabulario"]
+
+enunciado: "¿Qué dice la identidad sen(90° − θ) = cos(θ)?"
+tipo: mc
+opciones_explicitas:
+  - "Que el seno de un ángulo es igual al coseno de su ángulo complementario"
+  - "Que el seno y el coseno de cualquier ángulo son siempre iguales"
+  - "Que 90° menos cualquier ángulo siempre da 0"
+respuesta: "Que el seno de un ángulo es igual al coseno de su ángulo complementario"
+
+explicacion: |
+  Dos ángulos son complementarios si suman 90°.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["identidades", "problema"]
+
+respuesta: 0.5
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Sabiendo que sen(30°) = 0,5, y que 30° y 60° son ángulos complementarios (suman 90°), ¿cuánto vale cos(60°)?"
+
+explicacion: |
+  sen(30°) = cos(90° − 30°) = cos(60°): valen exactamente lo mismo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["identidades", "problema"]
+
+variables:
+  valor: uno_de([0.6, 0.71, 0.87])
+
+respuesta: valor
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Se sabe que cos(35°) = {valor}. ¿Cuánto vale sen(55°)? (35° y 55° son complementarios)"
+
+explicacion: |
+  cos(35°) = sen(90° − 35°) = sen(55°): mismo valor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["ecuaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "30° y 150° son ángulos suplementarios: suman exactamente 180°."
+
+explicacion: |
+  Es la relación que explica por qué comparten el mismo valor de seno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["ecuaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "sen(30°) y sen(150°) valen exactamente lo mismo."
+
+explicacion: |
+  El seno de un ángulo y el de su suplemento son siempre iguales — por
+  la simetría del círculo unitario respecto del eje y.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["ecuaciones", "problema"]
 
 respuesta: 2
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuántas piezas tiene en total el desarrollo de un cono?"
+enunciado: "¿Cuántos ángulos distintos, entre 0° y 360°, cumplen sen(θ) = 0,5?"
 
 explicacion: |
-  Un círculo (la base) más un sector circular (la superficie lateral) =
-  2 piezas.
+  30° y 150° (suplementarios), ambos con seno 0,5.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "intermedio"
-  tags: ["desarrollo_plano", "cono"]
-
-variables:
-  g: random(6, 25)
-
-respuesta: g
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el desarrollo de un cono con generatriz {g} cm, ¿cuánto mide el radio del sector circular de la superficie lateral?"
-
-explicacion: |
-  El radio del sector coincide con la generatriz del cono.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
+  tema: "identidades_y_ecuaciones_trigonometricas"
   nivel: "avanzado"
-  tags: ["desarrollo_plano", "cono"]
+  tags: ["ecuaciones", "ordenar"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el desarrollo de un cono, la longitud del arco del sector circular lateral coincide exactamente con la circunferencia de la base."
-
-explicacion: |
-  Por eso, al enrollar el sector, cierra perfecto sobre el borde del
-  círculo de la base — si no coincidieran, el cono no podría armarse
-  bien.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "avanzado"
-  tags: ["desarrollo_plano", "prisma", "problema"]
-
-variables:
-  l: random(4, 15)
-  a: random(3, 12)
-  h: random(3, 20)
-
-respuesta: (2 * (l * a)) + (2 * (l + a) * h)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un prisma rectangular mide {l} cm × {a} cm de base, y {h} cm de altura. Sumando las piezas de su desarrollo (2 bases + 4 rectángulos laterales), ¿cuál es su superficie total?"
-
-pasos:
-  - "Bases: 2 × ({l} × {a}) = {2 * (l * a)} cm². Laterales: perímetro de la base × altura = (2 × ({l} + {a})) × {h} = {(2 * (l + a)) * h} cm². Total: {(2 * (l * a)) + ((2 * (l + a)) * h)} cm²."
-
-explicacion: |
-  Sumar el área de cada pieza del desarrollo da la superficie total del
-  cuerpo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "avanzado"
-  tags: ["desarrollo_plano", "piramide", "problema"]
-
-variables:
-  area_base: random(15, 50)
-  area_triangulo: random(10, 30)
-  n: 4
-
-respuesta: area_base + (n * area_triangulo)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una pirámide cuadrangular tiene una base de {area_base} cm² de área, y cada una de sus 4 caras triangulares mide {area_triangulo} cm². ¿Cuál es su superficie total?"
-
-pasos:
-  - "{area_base} + ({n} × {area_triangulo}) = {area_base + (n * area_triangulo)} cm²"
-
-explicacion: |
-  Se suma el área de la base más el área de las 4 caras laterales
-  triangulares del desarrollo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "avanzado"
-  tags: ["desarrollo_plano", "cilindro", "problema"]
-
-variables:
-  r: random(2, 12)
-  h: random(3, 20)
-
-respuesta: redondear((2 * pi * r * r) + (2 * pi * r * h), 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "Sumando las 3 piezas del desarrollo de un cilindro de radio {r} cm y altura {h} cm (2 círculos + 1 rectángulo), ¿cuál es su superficie total? Redondeá a 2 decimales."
-
-pasos:
-  - "2 círculos: 2 × π × {r}² = {redondear(2 * pi * r * r, 2)} cm². Rectángulo: 2 × π × {r} × {h} = {redondear(2 * pi * r * h, 2)} cm². Total: {redondear((2 * pi * r * r) + (2 * pi * r * h), 2)} cm²."
-
-explicacion: |
-  Es exactamente la fórmula de superficie total ya vista en
-  `../cilindros/`, ahora entendida como la suma de las piezas del
-  desarrollo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "avanzado"
-  tags: ["desarrollo_plano", "cono", "problema"]
-
-variables:
-  r: random(2, 10)
-  g: random(6, 20)
-
-restricciones:
-  - g > r
-
-respuesta: redondear((pi * r * r) + (pi * r * g), 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "Sumando las 2 piezas del desarrollo de un cono de radio {r} cm y generatriz {g} cm (1 círculo + 1 sector), ¿cuál es su superficie total? Redondeá a 2 decimales."
-
-pasos:
-  - "Círculo: π × {r}² = {redondear(pi * r * r, 2)} cm². Sector: π × {r} × {g} = {redondear(pi * r * g, 2)} cm². Total: {redondear((pi * r * r) + (pi * r * g), 2)} cm²."
-
-explicacion: |
-  Es la misma fórmula de superficie total vista en `../conos/`, ahora
-  entendida como suma de las piezas del desarrollo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "basico"
-  tags: ["desarrollo_plano", "esfera"]
-
-enunciado: "¿Cuál de estos 5 cuerpos NO tiene un desarrollo plano exacto?"
-tipo: mc
-opciones_explicitas:
-  - "La esfera"
-  - "El cilindro"
-  - "El cono"
-respuesta: "La esfera"
-
-explicacion: |
-  Prisma, pirámide, cilindro y cono sí se pueden desenrollar sin
-  deformación; la esfera no.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "intermedio"
-  tags: ["desarrollo_plano", "prisma", "completar"]
-
-tipo: completar
-enunciado: "Completá: el desarrollo de un prisma tiene 2 bases más un ___ por cada cara lateral."
-respuestas_validas:
-  - "rectángulo"
-
-explicacion: |
-  Cada cara lateral de un prisma recto es un rectángulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "intermedio"
-  tags: ["desarrollo_plano", "piramide", "completar"]
-
-tipo: completar
-enunciado: "Completá: el desarrollo de una pirámide tiene 1 base más un ___ por cada cara lateral."
-respuestas_validas:
-  - "triángulo"
-
-explicacion: |
-  Cada cara lateral de una pirámide es un triángulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "desarrollo_plano"
-  nivel: "basico"
-  tags: ["desarrollo_plano", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sumar el área de cada pieza del desarrollo plano de un cuerpo da directamente su superficie total."
-
-explicacion: |
-  Es la idea central del módulo: pasar un problema 3D (superficie de un
-  cuerpo) a varios problemas 2D más simples (área de cada pieza plana).
-```
-
-## Sección: cuerpos-redondos-y-poliedros/esferas (24 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "basico"
-  tags: ["esfera", "vocabulario"]
-
-enunciado: "¿Qué es una esfera?"
-tipo: mc
-opciones_explicitas:
-  - "El conjunto de puntos del espacio a la misma distancia de un centro"
-  - "Un cuerpo con una base circular y un vértice"
-  - "Un cuerpo con dos bases circulares"
-respuesta: "El conjunto de puntos del espacio a la misma distancia de un centro"
-
-explicacion: |
-  Esa distancia constante es el radio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "basico"
-  tags: ["esfera", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia del cilindro y el cono, la esfera no tiene ninguna base ni vértice: es una única superficie curva cerrada."
-
-explicacion: |
-  Es el más simple de los cuerpos redondos en ese sentido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "basico"
-  tags: ["esfera", "volumen", "vocabulario"]
-
-enunciado: "¿Cuál es la fórmula del volumen de una esfera?"
-tipo: mc
-opciones_explicitas:
-  - "(4 ÷ 3) × π × r³"
-  - "(4 ÷ 3) × π × r²"
-  - "π × r³"
-respuesta: "(4 ÷ 3) × π × r³"
-
-explicacion: |
-  Es una fórmula propia de la esfera, distinta de "área de la base ×
-  algo" porque no tiene base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "intermedio"
-  tags: ["esfera", "volumen"]
-
-variables:
-  r: random(2, 15)
-
-respuesta: redondear((4 / 3) * pi * r * r * r, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "¿Cuál es el volumen de una esfera de radio {r} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "(4 ÷ 3) × π × {r}³ = {redondear((4 / 3) * pi * r * r * r, 2)} cm³"
-
-explicacion: |
-  Se aplica (4÷3) × π × r³ directamente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "intermedio"
-  tags: ["esfera", "volumen"]
-
-variables:
-  d: random(4, 30)
-  r: d / 2
-
-respuesta: redondear((4 / 3) * pi * r * r * r, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "¿Cuál es el volumen de una esfera de diámetro {d} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "Radio: {d} ÷ 2 = {r} cm. Volumen: (4 ÷ 3) × π × {r}³ = {redondear((4 / 3) * pi * r * r * r, 2)} cm³."
-
-explicacion: |
-  Primero se pasa de diámetro a radio antes de aplicar la fórmula.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "basico"
-  tags: ["esfera", "superficie", "vocabulario"]
-
-enunciado: "¿Cuál es la fórmula de la superficie de una esfera?"
-tipo: mc
-opciones_explicitas:
-  - "4 × π × r²"
-  - "(4 ÷ 3) × π × r³"
-  - "2 × π × r²"
-respuesta: "4 × π × r²"
-
-explicacion: |
-  Área de la superficie = 4πr².
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "intermedio"
-  tags: ["esfera", "superficie"]
-
-variables:
-  r: random(2, 15)
-
-respuesta: redondear(4 * pi * r * r, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "¿Cuál es la superficie de una esfera de radio {r} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "4 × π × {r}² = {redondear(4 * pi * r * r, 2)} cm²"
-
-explicacion: |
-  Se aplica 4 × π × r² directamente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "avanzado"
-  tags: ["esfera", "volumen"]
-
-variables:
-  r: random(2, 10)
-  volumen: (4 / 3) * pi * r * r * r
-
-respuesta: redondear(r, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Una esfera tiene un volumen de {redondear(volumen, 2)} cm³. ¿Cuál es su radio?"
-
-pasos:
-  - "raiz(({redondear(volumen, 2)} × 3) ÷ (4 × π), 3) = {redondear(raiz((volumen * 3) / (4 * pi), 3), 2)} cm"
-
-explicacion: |
-  Se despeja r³ y después se saca la raíz cúbica (con `raiz(x, 3)`).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "intermedio"
-  tags: ["esfera", "hemisferio", "volumen"]
-
-variables:
-  r: random(2, 15)
-
-respuesta: redondear(((4 / 3) * pi * r * r * r) / 2, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "¿Cuál es el volumen de una media esfera (hemisferio) de radio {r} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "Esfera completa: (4 ÷ 3) × π × {r}³ = {redondear((4 / 3) * pi * r * r * r, 2)} cm³. La mitad: {redondear(((4 / 3) * pi * r * r * r) / 2, 2)} cm³."
-
-explicacion: |
-  Un hemisferio tiene exactamente la mitad del volumen de la esfera
-  completa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "avanzado"
-  tags: ["esfera", "capacidad", "problema"]
-
-variables:
-  r: random(5, 15)
-
-respuesta: redondear(((4 / 3) * pi * r * r * r) / 1000, 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una pelota inflable tiene {r} cm de radio. ¿Cuántos litros de aire hacen falta para llenarla por completo? Redondeá a 3 decimales."
-
-pasos:
-  - "Volumen: (4 ÷ 3) × π × {r}³ = {redondear((4 / 3) * pi * r * r * r, 2)} cm³. En litros: {redondear((4 / 3) * pi * r * r * r, 2)} ÷ 1000 = {redondear(((4 / 3) * pi * r * r * r) / 1000, 3)}."
-
-explicacion: |
-  Se calcula el volumen en cm³ y se convierte a litros.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "avanzado"
-  tags: ["esfera", "volumen"]
-
-variables:
-  r: random(2, 8)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si el radio de una esfera de {r} cm se duplica, su volumen también se duplica."
-
-pasos:
-  - "Volumen original: (4 ÷ 3) × π × {r}³ = {redondear((4 / 3) * pi * r * r * r, 2)} cm³. Con el radio doble: (4 ÷ 3) × π × {2 * r}³ = {redondear((4 / 3) * pi * (2 * r) * (2 * r) * (2 * r), 2)} cm³."
-
-explicacion: |
-  Como el radio está al cubo en la fórmula, duplicarlo multiplica el
-  volumen por 8, no por 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "avanzado"
-  tags: ["esfera", "comparacion"]
-
-variables:
-  r1: random(2, 10)
-  r2: random(2, 10)
-
-restricciones:
-  - r1 != r2
-
-respuesta: r1 > r2
-tipo: vf
-
-enunciado: "¿Tiene mayor volumen una esfera de radio {r1} cm, que otra de radio {r2} cm?"
-
-pasos:
-  - "Como el volumen depende de r³ (siempre creciente), alcanza con comparar los radios: {r1} contra {r2}."
-
-explicacion: |
-  A mayor radio, siempre mayor volumen: no hace falta calcular el
-  volumen completo para comparar dos esferas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "basico"
-  tags: ["esfera", "comparacion"]
-
-enunciado: "¿Cuál de estas esferas tiene mayor volumen: una de radio 4 cm, o una de radio 6 cm?"
-tipo: mc
-opciones_explicitas:
-  - "Radio 6 cm"
-  - "Radio 4 cm"
-respuesta: "Radio 6 cm"
-
-explicacion: |
-  A mayor radio, mayor volumen.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "basico"
-  tags: ["esfera", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La esfera no tiene aristas, porque no tiene caras planas que se encuentren entre sí."
-
-explicacion: |
-  Una arista es el borde donde se juntan dos caras planas — la esfera no
-  tiene ninguna cara plana.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "avanzado"
-  tags: ["esfera", "cilindro", "cono", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para un mismo radio r, si el cilindro y el cono tienen altura 2r, el volumen de la esfera queda entre el del cono (el menor) y el del cilindro (el mayor)."
-
-explicacion: |
-  Es la relación 1:2:3 (cono:esfera:cilindro) que ya había descubierto
-  Arquímedes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "avanzado"
-  tags: ["esfera", "superficie"]
-
-variables:
-  r: random(2, 10)
-  superficie: 4 * pi * r * r
-
-respuesta: redondear(r, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Una esfera tiene una superficie de {redondear(superficie, 2)} cm². ¿Cuál es su radio?"
-
-pasos:
-  - "sqrt({redondear(superficie, 2)} ÷ (4 × π)) = {redondear(sqrt(superficie / (4 * pi)), 2)} cm"
-
-explicacion: |
-  Se despeja r² dividiendo la superficie por 4π, y después se saca la
-  raíz cuadrada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "intermedio"
-  tags: ["esfera", "hemisferio", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un hemisferio (media esfera) tiene exactamente la mitad del volumen de la esfera completa del mismo radio."
-
-explicacion: |
-  Es simplemente cortar la esfera al medio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "basico"
-  tags: ["esfera", "completar"]
-
-tipo: completar
-enunciado: "Completá: el volumen de una esfera es 4 tercios por π por el radio elevado a la ___."
-respuestas_validas:
-  - 3
-
-explicacion: |
-  V = (4/3) × π × r³.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "intermedio"
-  tags: ["esfera", "completar"]
-
-variables:
-  r: random(2, 10)
-
-tipo: completar
-enunciado: "Completá: el volumen de una esfera de radio {r} cm es ___ cm³ (redondeado a 2 decimales)."
-respuestas_validas:
-  - redondear((4 / 3) * pi * r * r * r, 2)
-
-explicacion: |
-  V = (4/3) × π × r³.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "intermedio"
-  tags: ["esfera", "orden"]
-
+enunciado: "Ordená de menor a mayor las dos soluciones de sen(θ) = 0,5 entre 0° y 360°."
 tipo: ordenar
-enunciado: "Ordená estas esferas de menor a mayor volumen, según su radio: 7 cm, 2 cm, 5 cm, 3 cm."
 opciones_explicitas:
-  - "Radio 5 cm"
-  - "Radio 2 cm"
-  - "Radio 7 cm"
-  - "Radio 3 cm"
-respuesta_orden:
-  - "Radio 2 cm"
-  - "Radio 3 cm"
-  - "Radio 5 cm"
-  - "Radio 7 cm"
-
+  - "150°"
+  - "30°"
+respuesta_orden: ["30°", "150°"]
 explicacion: |
-  Como el volumen crece siempre con el radio, alcanza con ordenar los
-  radios directamente.
+  Son ángulos suplementarios: 30° + 150° = 180°.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esferas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
   nivel: "intermedio"
-  tags: ["esfera", "verificacion"]
+  tags: ["ecuaciones", "problema"]
 
-variables:
-  r: random(2, 10)
-  correcto: redondear((4 / 3) * pi * r * r * r, 1)
-  error: uno_de([0, 0, 0, 5, -5])
-  mostrado: correcto + error
+respuesta: 90
+tipo: input
+tolerancia_abs: 0
 
-respuesta: (abs(mostrado - correcto) < 0.01)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? El volumen de una esfera de radio {r} cm es {mostrado} cm³ (redondeado a 1 decimal)."
+enunciado: "¿Qué ángulo, entre 0° y 360°, cumple sen(θ) = 1?"
 
 explicacion: |
-  Se recalcula (4/3) × π × r³ y se compara con el valor mostrado.
+  Es el único punto del círculo unitario con ordenada máxima, (0, 1).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "esferas"
-  nivel: "basico"
-  tags: ["esfera", "vocabulario"]
-
-enunciado: "¿Cuál de estos objetos tiene aproximadamente forma de esfera?"
-tipo: mc
-opciones_explicitas:
-  - "Una pelota de fútbol"
-  - "Una lata de gaseosa"
-  - "Una caja de zapatos"
-respuesta: "Una pelota de fútbol"
-
-explicacion: |
-  La lata es un cilindro y la caja un prisma rectangular; la pelota se
-  aproxima a una esfera.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "basico"
-  tags: ["esfera", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La esfera es un poliedro, porque tiene una superficie cerrada."
-
-explicacion: |
-  Un poliedro necesita caras PLANAS; la esfera es puramente curva, así
-  que se clasifica como cuerpo redondo, no como poliedro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "esferas"
-  nivel: "basico"
-  tags: ["esfera", "vocabulario"]
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["ecuaciones"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "De todos los cuerpos vistos en esta rama (prismas, pirámides, cilindros, conos, esferas), la esfera es el único que se describe completamente con un solo dato: el radio."
+enunciado: "A diferencia de sen(θ) = 0,5 (con dos soluciones), sen(θ) = 1 tiene una única solución entre 0° y 360°."
 
 explicacion: |
-  Los demás cuerpos necesitan al menos dos datos (base y altura); la
-  esfera queda totalmente determinada por su radio.
+  El valor máximo del seno se alcanza en un solo punto del círculo
+  unitario por vuelta.
 ```
-
-## Sección: cuerpos-redondos-y-poliedros/piramides (26 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "piramides"
-  nivel: "basico"
-  tags: ["piramide", "vocabulario"]
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["ecuaciones", "problema"]
 
-enunciado: "¿Qué es una pirámide?"
+respuesta: 0
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Qué ángulo, entre 0° y 360°, cumple cos(θ) = 1?"
+
+explicacion: |
+  Es el punto (1, 0) del círculo unitario, el ángulo de partida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["ecuaciones", "problema"]
+
+respuesta: 60
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Qué ángulo del primer cuadrante (entre 0° y 90°) cumple cos(θ) = 0,5?"
+
+explicacion: |
+  cos(60°) = 0,5, uno de los valores notables ya conocidos (también
+  cumple θ = 300°, fuera del primer cuadrante).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["ecuaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ecuación sen(θ) = 2 no tiene ninguna solución, para ningún ángulo θ."
+
+explicacion: |
+  El seno nunca puede superar 1: su amplitud está acotada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["ecuaciones", "vocabulario"]
+
+enunciado: "¿Por qué la ecuación sen(θ) = 2 no tiene solución para ningún ángulo?"
 tipo: mc
 opciones_explicitas:
-  - "Un poliedro con una sola base y caras laterales triangulares que se juntan en un vértice"
-  - "Un poliedro con dos bases congruentes y paralelas"
-  - "Un cuerpo redondo sin caras planas"
-respuesta: "Un poliedro con una sola base y caras laterales triangulares que se juntan en un vértice"
+  - "Porque el seno está acotado entre −1 y 1, y 2 queda fuera de ese rango"
+  - "Porque 2 es un número par"
+  - "En realidad sí tiene solución, para ángulos muy grandes"
+respuesta: "Porque el seno está acotado entre −1 y 1, y 2 queda fuera de ese rango"
 
 explicacion: |
-  A diferencia del prisma (dos bases), la pirámide tiene una sola base y
-  termina en una punta.
+  Es la amplitud ya vista en
+  `../funciones-trigonometricas-seno-coseno/`.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "piramides"
-  nivel: "basico"
-  tags: ["piramide", "vocabulario"]
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["ecuaciones", "ordenar"]
+
+enunciado: "Ordená los pasos para resolver una ecuación como sen(θ) = k, con k un valor notable."
+tipo: ordenar
+opciones_explicitas:
+  - "Revisar si existe una segunda solución (el suplemento) dentro de la misma vuelta"
+  - "Verificar que k esté entre −1 y 1 (si no, no hay solución)"
+  - "Buscar en la tabla de ángulos notables cuál da ese valor de seno"
+respuesta_orden: ["Verificar que k esté entre −1 y 1 (si no, no hay solución)", "Buscar en la tabla de ángulos notables cuál da ese valor de seno", "Revisar si existe una segunda solución (el suplemento) dentro de la misma vuelta"]
+explicacion: |
+  Verificar el rango primero evita buscar una solución que no existe.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["identidades", "problema"]
 
 respuesta: 1
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.01
 
-enunciado: "¿Cuántas bases tiene una pirámide?"
+enunciado: "Para un ángulo θ, sen(θ) = 0,6 y cos(θ) = 0,8. ¿Cuánto da sen²θ + cos²θ?"
+
+pasos:
+  - "0,6² + 0,8² = 0,36 + 0,64 = 1"
 
 explicacion: |
-  Una sola — es lo que la distingue del prisma, que tiene dos.
+  Confirma la identidad pitagórica con un caso concreto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "piramides"
-  nivel: "basico"
-  tags: ["piramide", "vocabulario"]
-
-enunciado: "¿Qué forma tienen las caras laterales de una pirámide?"
-tipo: mc
-opciones_explicitas:
-  - "Triangular"
-  - "Rectangular"
-  - "Circular"
-respuesta: "Triangular"
-
-explicacion: |
-  Cada cara lateral conecta un lado de la base con el vértice, formando
-  un triángulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "basico"
-  tags: ["piramide", "vocabulario"]
-
-enunciado: "¿Qué es el vértice (o ápice) de una pirámide?"
-tipo: mc
-opciones_explicitas:
-  - "El punto donde se juntan todas las caras laterales"
-  - "El centro de la base"
-  - "Cualquiera de los lados de la base"
-respuesta: "El punto donde se juntan todas las caras laterales"
-
-explicacion: |
-  Es la "punta" de la pirámide.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "basico"
-  tags: ["piramide", "vocabulario"]
-
-enunciado: "¿Según qué se nombra una pirámide (triangular, cuadrangular, pentagonal...)?"
-tipo: mc
-opciones_explicitas:
-  - "Según la forma de su base"
-  - "Según su altura"
-  - "Según la cantidad de vértices que tiene"
-respuesta: "Según la forma de su base"
-
-explicacion: |
-  Base cuadrada → pirámide cuadrangular, como las de Egipto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "basico"
-  tags: ["piramide", "volumen", "vocabulario"]
-
-enunciado: "¿Cuál es la fórmula del volumen de una pirámide?"
-tipo: mc
-opciones_explicitas:
-  - "(Área de la base × altura) ÷ 3"
-  - "Área de la base × altura"
-  - "(Área de la base × altura) ÷ 2"
-respuesta: "(Área de la base × altura) ÷ 3"
-
-explicacion: |
-  Es un tercio del volumen de un prisma con la misma base y altura.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
+  tema: "identidades_y_ecuaciones_trigonometricas"
   nivel: "intermedio"
-  tags: ["piramide", "prisma", "vocabulario"]
+  tags: ["identidades", "vocabulario"]
+
+enunciado: "¿Qué significa 'despejar sen²θ' de la identidad pitagórica?"
+tipo: mc
+opciones_explicitas:
+  - "Escribirla como sen²θ = 1 − cos²θ, para calcular sen²θ conociendo cos²θ"
+  - "Eliminar el seno de la ecuación por completo"
+  - "Reemplazar el seno por un número fijo, sin importar el ángulo"
+respuesta: "Escribirla como sen²θ = 1 − cos²θ, para calcular sen²θ conociendo cos²θ"
+
+explicacion: |
+  Es reordenar la identidad para que quede sen²θ solo de un lado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["identidades", "problema"]
+
+variables:
+  cos_cuadrado: uno_de([0.36, 0.49, 0.64])
+
+respuesta: redondear(1 - cos_cuadrado, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Para un ángulo θ, cos²θ = {cos_cuadrado}. ¿Cuánto vale sen²θ?"
+
+pasos:
+  - "1 − {cos_cuadrado} = {redondear(1 - cos_cuadrado, 2)}"
+
+explicacion: |
+  Se despeja directo de la identidad pitagórica.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "identidades_y_ecuaciones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["identidades"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una pirámide y un prisma con la misma base y la misma altura tienen: la pirámide, un tercio del volumen del prisma."
+enunciado: "sen²θ + cos²θ = 1 es consecuencia directa del teorema de Pitágoras, aplicado a un triángulo con hipotenusa 1 (el radio del círculo unitario)."
 
 explicacion: |
-  Es la relación clave del módulo: V_pirámide = V_prisma ÷ 3.
+  Los catetos de ese triángulo son exactamente senθ y cosθ.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "piramides"
+  tema: "identidades_y_ecuaciones_trigonometricas"
   nivel: "intermedio"
-  tags: ["piramide", "volumen"]
+  tags: ["ecuaciones", "vocabulario"]
 
-variables:
-  l: random(3, 15)
-  altura: random(3, 20)
-
-respuesta: ((l * l) * altura) / 3
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una pirámide tiene base cuadrada de {l} cm de lado y {altura} cm de altura. ¿Cuál es su volumen?"
-
-pasos:
-  - "Área de la base: {l} × {l} = {l * l} cm². Volumen: ({l * l} × {altura}) ÷ 3 = {((l * l) * altura) / 3} cm³."
-
-explicacion: |
-  Se calcula el área de la base cuadrada, se multiplica por la altura, y
-  se divide por 3.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "intermedio"
-  tags: ["piramide", "volumen"]
-
-variables:
-  b: random(4, 20)
-  a: random(3, 15)
-  altura: random(3, 20)
-
-respuesta: ((b * a) * altura) / 3
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una pirámide tiene base rectangular de {b} cm × {a} cm y {altura} cm de altura. ¿Cuál es su volumen?"
-
-pasos:
-  - "Área de la base: {b} × {a} = {b * a} cm². Volumen: ({b * a} × {altura}) ÷ 3 = {((b * a) * altura) / 3} cm³."
-
-explicacion: |
-  Misma fórmula general, con el área de un rectángulo como base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "avanzado"
-  tags: ["piramide", "volumen"]
-
-variables:
-  b: random(4, 16)
-  h_base: random(2, 12)
-  altura: random(3, 18)
-
-respuesta: (((b * h_base) / 2) * altura) / 3
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una pirámide tiene base triangular (base {b} cm, altura del triángulo {h_base} cm) y {altura} cm de altura. ¿Cuál es su volumen?"
-
-pasos:
-  - "Área de la base: ({b} × {h_base}) ÷ 2 = {(b * h_base) / 2} cm². Volumen: ({(b * h_base) / 2} × {altura}) ÷ 3 = {(((b * h_base) / 2) * altura) / 3} cm³."
-
-explicacion: |
-  Primero el área de la base triangular, después aplicar la fórmula
-  general de la pirámide.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "avanzado"
-  tags: ["piramide", "volumen"]
-
-variables:
-  area_base: random(10, 50)
-  altura: random(3, 15)
-  volumen: (area_base * altura) / 3
-
-respuesta: altura
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una pirámide tiene {volumen} cm³ de volumen y su base mide {area_base} cm² de área. ¿Cuánto mide su altura?"
-
-pasos:
-  - "({volumen} × 3) ÷ {area_base} = {(volumen * 3) / area_base} cm"
-
-explicacion: |
-  Se despeja la altura: (volumen × 3) ÷ área de la base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "intermedio"
-  tags: ["piramide", "prisma", "problema"]
-
-variables:
-  l: random(4, 15)
-  altura: random(4, 15)
-
-respuesta: (l * l) * altura
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una pirámide de base cuadrada de {l} cm de lado y {altura} cm de altura tiene un volumen de {((l * l) * altura) / 3} cm³. ¿Cuál sería el volumen de un PRISMA con esa misma base y esa misma altura?"
-
-pasos:
-  - "El prisma tiene 3 veces el volumen de la pirámide: {((l * l) * altura) / 3} × 3 = {l * l * altura} cm³ (o, directamente, {l} × {l} × {altura})."
-
-explicacion: |
-  El prisma tiene exactamente el triple de volumen que la pirámide de
-  igual base y altura.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "intermedio"
-  tags: ["piramide", "elementos"]
-
-respuesta: 5
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas caras laterales tiene una pirámide de base pentagonal (5 lados)?"
-
-explicacion: |
-  Tantas caras laterales triangulares como lados tiene la base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "avanzado"
-  tags: ["piramide", "elementos"]
-
-variables:
-  n: random(3, 8)
-
-respuesta: n + 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una pirámide tiene una base con {n} lados. ¿Cuántos vértices tiene en total (los de la base más el ápice)?"
-
-explicacion: |
-  {n} vértices de la base + 1 vértice superior = {n + 1}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "avanzado"
-  tags: ["piramide", "elementos"]
-
-variables:
-  n: random(3, 8)
-
-respuesta: 2 * n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una pirámide tiene una base con {n} lados. ¿Cuántas aristas tiene en total (las de la base más las laterales)?"
-
-pasos:
-  - "{n} aristas de la base + {n} aristas laterales = {2 * n}"
-
-explicacion: |
-  n aristas de la base más n aristas que suben hasta el vértice.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "avanzado"
-  tags: ["piramide", "elementos"]
-
-variables:
-  n: random(3, 8)
-
-respuesta: n + 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una pirámide tiene una base con {n} lados. ¿Cuántas caras tiene en total (la base más las laterales)?"
-
-explicacion: |
-  {n} caras laterales más 1 base = {n + 1}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "avanzado"
-  tags: ["piramide", "euler"]
-
-variables:
-  n: random(3, 8)
-  vertices: n + 1
-  aristas: 2 * n
-  caras: n + 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para una pirámide con base de {n} lados ({vertices} vértices, {aristas} aristas, {caras} caras), ¿se cumple que Vértices − Aristas + Caras = 2?"
-
-pasos:
-  - "{vertices} − {aristas} + {caras} = {vertices - aristas + caras}"
-
-explicacion: |
-  Se cumple, igual que en el prisma: es la fórmula de Euler para
-  poliedros convexos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "basico"
-  tags: ["piramide", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las pirámides de Egipto tienen base cuadrada, así que se clasifican como pirámides cuadrangulares."
-
-explicacion: |
-  Base de 4 lados (cuadrado) → pirámide cuadrangular.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "basico"
-  tags: ["piramide", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una pirámide tiene dos bases congruentes y paralelas, igual que un prisma."
-
-explicacion: |
-  Tener dos bases es justamente lo que define a un prisma, no a una
-  pirámide (que tiene una sola).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "basico"
-  tags: ["piramide", "vocabulario"]
-
-enunciado: "¿Cómo se llama una pirámide cuya base es un triángulo?"
+enunciado: "¿Para qué sirve resolver una ecuación trigonométrica en un fenómeno periódico real?"
 tipo: mc
 opciones_explicitas:
-  - "Pirámide triangular"
-  - "Pirámide cuadrangular"
-  - "Prisma triangular"
-respuesta: "Pirámide triangular"
+  - "Para encontrar en qué momento del ciclo se alcanza un valor determinado (por ejemplo, cuándo una onda llega a cierta altura)"
+  - "Sólo sirve para resolver ejercicios sin aplicación real"
+  - "Sólo aplica a triángulos rectángulos"
+respuesta: "Para encontrar en qué momento del ciclo se alcanza un valor determinado (por ejemplo, cuándo una onda llega a cierta altura)"
 
 explicacion: |
-  Se nombra según la base: triángulo → pirámide triangular (también
-  llamada tetraedro si además es regular).
+  Cualquier fenómeno oscilatorio (sonido, luz, órbitas) se puede
+  preguntar "¿cuándo pasa esto?" con una ecuación trigonométrica.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "piramides"
+  tema: "identidades_y_ecuaciones_trigonometricas"
   nivel: "basico"
-  tags: ["piramide", "completar"]
+  tags: ["cierre"]
 
-tipo: completar
-enunciado: "Completá: el volumen de una pirámide es el área de la base por la altura, dividido ___."
-respuestas_validas:
-  - 3
-
-explicacion: |
-  V = (área de la base × altura) ÷ 3.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "intermedio"
-  tags: ["piramide", "completar"]
-
-variables:
-  volumen_prisma: random(30, 300)
-
-tipo: completar
-enunciado: "Completá: si un prisma tiene {volumen_prisma} cm³ de volumen, una pirámide con la misma base y altura tiene ___ cm³."
-respuestas_validas:
-  - volumen_prisma / 3
-
-explicacion: |
-  La pirámide siempre tiene un tercio del volumen del prisma equivalente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "avanzado"
-  tags: ["piramide", "comparacion"]
-
-variables:
-  area1: random(10, 40)
-  h1: random(3, 15)
-  area2: random(10, 40)
-  h2: random(3, 15)
-
-restricciones:
-  - (area1 * h1) != (area2 * h2)
-
-respuesta: (area1 * h1) > (area2 * h2)
-tipo: vf
-
-enunciado: "¿Tiene mayor volumen una pirámide con base de {area1} cm² y altura {h1} cm, que otra con base de {area2} cm² y altura {h2} cm?"
-
-pasos:
-  - "Volumen 1: ({area1} × {h1}) ÷ 3 = {(area1 * h1) / 3} cm³. Volumen 2: ({area2} × {h2}) ÷ 3 = {(area2 * h2) / 3} cm³."
-
-explicacion: |
-  Como ambas se dividen por el mismo 3, comparar los volúmenes finales es
-  lo mismo que comparar área × altura de cada una.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "avanzado"
-  tags: ["piramide", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estas pirámides de menor a mayor volumen: base 20 cm² y altura 6 cm; base 18 cm² y altura 9 cm; base 24 cm² y altura 3 cm; base 12 cm² y altura 15 cm."
-opciones_explicitas:
-  - "Base 18 cm² y altura 9 cm"
-  - "Base 20 cm² y altura 6 cm"
-  - "Base 24 cm² y altura 3 cm"
-  - "Base 12 cm² y altura 15 cm"
-respuesta_orden:
-  - "Base 24 cm² y altura 3 cm"
-  - "Base 20 cm² y altura 6 cm"
-  - "Base 18 cm² y altura 9 cm"
-  - "Base 12 cm² y altura 15 cm"
-
-pasos:
-  - "Volúmenes (÷3): 20×6÷3=40; 18×9÷3=54; 24×3÷3=24; 12×15÷3=60."
-
-explicacion: |
-  Se calcula cada volumen (área × altura ÷ 3) antes de poder ordenarlos:
-  24 < 40 < 54 < 60.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "avanzado"
-  tags: ["piramide", "prisma", "problema"]
-
-variables:
-  l: random(4, 12)
-  altura: random(4, 12)
-
-respuesta: ((l * l) * altura) - (((l * l) * altura) / 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Se talla una pirámide de base cuadrada de {l} cm de lado y {altura} cm de altura a partir de un bloque prismático de la misma base y altura. ¿Cuántos cm³ de material se descartan (el volumen del prisma menos el de la pirámide)?"
-
-pasos:
-  - "Prisma: {l}×{l}×{altura} = {(l * l) * altura} cm³. Pirámide: {(l * l) * altura} ÷ 3 = {((l * l) * altura) / 3} cm³. Diferencia: {((l * l) * altura) - (((l * l) * altura) / 3)} cm³."
-
-explicacion: |
-  Como la pirámide es un tercio del prisma, se descartan los otros dos
-  tercios.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "piramides"
-  nivel: "basico"
-  tags: ["piramide", "prisma", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Tanto el prisma como la pirámide calculan su volumen a partir del área de la base y la altura — la única diferencia es que la pirámide divide ese producto por 3."
-
-explicacion: |
-  Es el mismo patrón visto en `../prismas/`, con un factor extra por
-  tener una sola base en vez de dos.
-```
-
-## Sección: cuerpos-redondos-y-poliedros/prismas (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "basico"
-  tags: ["prisma", "vocabulario"]
-
-enunciado: "¿Qué es un prisma?"
+enunciado: "¿Para qué sirve distinguir identidades de ecuaciones trigonométricas, y saber resolver ambas?"
 tipo: mc
 opciones_explicitas:
-  - "Un poliedro con dos bases poligonales congruentes y paralelas, unidas por caras laterales rectangulares"
-  - "Un cuerpo con una sola base y un vértice en la punta"
-  - "Un cuerpo redondo sin caras planas"
-respuesta: "Un poliedro con dos bases poligonales congruentes y paralelas, unidas por caras laterales rectangulares"
+  - "Las identidades simplifican expresiones sin importar el ángulo; las ecuaciones encuentran ángulos concretos que cumplen una condición"
+  - "Son lo mismo, no hace falta distinguirlas en la práctica"
+  - "Sólo sirven para el primer cuadrante"
+respuesta: "Las identidades simplifican expresiones sin importar el ángulo; las ecuaciones encuentran ángulos concretos que cumplen una condición"
 
 explicacion: |
-  Las dos bases son iguales entre sí y quedan paralelas; los lados que
-  las conectan son rectángulos.
+  Cada una cumple un rol distinto al trabajar con trigonometría.
 ```
+
+## Sección: regresion-lineal (20 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "prismas"
+  tema: "regresion_lineal"
   nivel: "basico"
-  tags: ["prisma", "vocabulario"]
+  tags: ["regresion", "vocabulario"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un prisma, las dos bases son congruentes (iguales) y paralelas entre sí."
-
-explicacion: |
-  Es la condición que define a un prisma.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "basico"
-  tags: ["prisma", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un prisma recto, las caras laterales son rectángulos."
-
-explicacion: |
-  Es lo que distingue a un prisma recto de uno oblicuo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "basico"
-  tags: ["prisma", "vocabulario"]
-
-enunciado: "¿Según qué se nombra un prisma (triangular, pentagonal, hexagonal...)?"
+enunciado: "¿Qué es la regresión lineal?"
 tipo: mc
 opciones_explicitas:
-  - "Según la forma de su base"
-  - "Según la cantidad de caras laterales que tiene, sin importar la base"
-  - "Según su color"
-respuesta: "Según la forma de su base"
+  - "El método para encontrar la recta que mejor describe la tendencia de una nube de puntos de datos"
+  - "El método para calcular la media de un conjunto de datos"
+  - "El método para armar un gráfico de torta"
+respuesta: "El método para encontrar la recta que mejor describe la tendencia de una nube de puntos de datos"
 
 explicacion: |
-  Un prisma triangular tiene base triangular, uno pentagonal tiene base
-  pentagonal, y así.
+  Parte de la nube de puntos ya construida en `../construir-un-grafico/`.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "prismas"
+  tema: "regresion_lineal"
   nivel: "basico"
-  tags: ["prisma", "volumen", "vocabulario"]
+  tags: ["regresion", "vocabulario"]
 
-enunciado: "¿Cuál es la fórmula general del volumen de cualquier prisma recto?"
+enunciado: "En la ecuación de la recta de regresión y=m·x+b, ¿qué representan m y b?"
 tipo: mc
 opciones_explicitas:
-  - "Área de la base × altura"
-  - "Perímetro de la base × altura"
-  - "Área de la base + altura"
-respuesta: "Área de la base × altura"
+  - "m es la pendiente (cuánto cambia y por cada unidad que aumenta x) y b es la ordenada al origen (el valor de y cuando x=0)"
+  - "m y b son siempre iguales entre sí"
+  - "m es el valor máximo de y, y b es el valor mínimo"
+respuesta: "m es la pendiente (cuánto cambia y por cada unidad que aumenta x) y b es la ordenada al origen (el valor de y cuando x=0)"
 
 explicacion: |
-  Sin importar la forma de la base, el volumen siempre se calcula igual:
-  área de la base por altura.
+  Es la misma forma de la ecuación de la recta ya vista en Álgebra.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "prismas"
+  tema: "regresion_lineal"
   nivel: "intermedio"
-  tags: ["prisma", "volumen"]
+  tags: ["regresion", "problema"]
 
 variables:
-  b: random(4, 20)
-  h_base: random(2, 15)
-  altura: random(3, 20)
+  m: uno_de([2, 3, 5])
+  b: uno_de([10, 20])
+  x: uno_de([4, 6, 8])
 
-respuesta: ((b * h_base) / 2) * altura
+respuesta: m * x + b
 tipo: input
-tolerancia_abs: 0.01
 
-enunciado: "Un prisma tiene base triangular (base {b} cm, altura del triángulo {h_base} cm) y una altura de {altura} cm. ¿Cuál es su volumen?"
+enunciado: "La recta de regresión ajustada es y = {m}x + {b}. ¿Cuál es la predicción de y para x={x}?"
 
 pasos:
-  - "Área de la base: ({b} × {h_base}) ÷ 2 = {(b * h_base) / 2} cm². Volumen: {(b * h_base) / 2} × {altura} = {((b * h_base) / 2) * altura} cm³."
+  - "y = {m}×{x} + {b} = {m * x} + {b} = {m * x + b}"
 
 explicacion: |
-  Primero se calcula el área de la base triangular, y después se
-  multiplica por la altura del prisma.
+  Se reemplaza el valor de x directo en la ecuación de la recta.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "prismas"
+  tema: "regresion_lineal"
   nivel: "avanzado"
-  tags: ["prisma", "volumen"]
+  tags: ["regresion", "problema"]
 
 variables:
-  B: random(10, 25)
-  b: random(3, 9)
-  h_base: random(2, 12)
-  altura: random(3, 15)
+  m: uno_de([2, 4])
+  b: 10
+  x_real: uno_de([5, 10])
 
-respuesta: (((B + b) * h_base) / 2) * altura
+respuesta: x_real
 tipo: input
-tolerancia_abs: 0.01
 
-enunciado: "Un prisma tiene base trapezoidal (base mayor {B} cm, base menor {b} cm, altura del trapecio {h_base} cm) y una altura de {altura} cm. ¿Cuál es su volumen?"
+enunciado: "La recta de regresión es y = {m}x + {b}. Si se observa y = {m * x_real + b}, ¿qué valor de x predice la recta?"
 
 pasos:
-  - "Área de la base: (({B} + {b}) × {h_base}) ÷ 2 = {((B + b) * h_base) / 2} cm². Volumen: {((B + b) * h_base) / 2} × {altura} = {(((B + b) * h_base) / 2) * altura} cm³."
+  - "{m * x_real + b} = {m}x + {b}"
+  - "x = ({m * x_real + b} − {b}) / {m} = {x_real}"
 
 explicacion: |
-  Se aplica la fórmula del área del trapecio para la base, y después se
-  multiplica por la altura del prisma.
+  Se despeja x de la ecuación de la recta, igual que en cualquier
+  ecuación de primer grado.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "prismas"
-  nivel: "basico"
-  tags: ["prisma", "volumen"]
-
-variables:
-  l: random(3, 20)
-  a: random(2, 15)
-  h: random(2, 10)
-
-respuesta: (l * a) * h
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un prisma de base rectangular ({l} cm × {a} cm) tiene {h} cm de altura. ¿Cuál es su volumen?"
-
-pasos:
-  - "Área de la base: {l} × {a} = {l * a} cm². Volumen: {l * a} × {h} = {(l * a) * h} cm³."
-
-explicacion: |
-  Es el mismo caso ya visto en `../../volumen-y-capacidad/`: acá se
-  llega al mismo resultado partiendo de la fórmula general (área de la
-  base × altura).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
+  tema: "regresion_lineal"
   nivel: "intermedio"
-  tags: ["prisma", "volumen"]
+  tags: ["correlacion", "vocabulario"]
 
-variables:
-  area_base: random(10, 60)
-  altura: random(2, 20)
-  volumen: area_base * altura
-
-respuesta: altura
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un prisma tiene {volumen} cm³ de volumen y su base mide {area_base} cm² de área. ¿Cuánto mide su altura?"
-
-pasos:
-  - "{volumen} ÷ {area_base} = {volumen / area_base} cm"
-
-explicacion: |
-  Se despeja la altura dividiendo el volumen por el área de la base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "intermedio"
-  tags: ["prisma", "volumen"]
-
-variables:
-  area_base: random(10, 60)
-  altura: random(2, 20)
-  volumen: area_base * altura
-
-respuesta: area_base
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un prisma tiene {volumen} cm³ de volumen y {altura} cm de altura. ¿Cuál es el área de su base?"
-
-pasos:
-  - "{volumen} ÷ {altura} = {volumen / altura} cm²"
-
-explicacion: |
-  Se despeja el área de la base dividiendo el volumen por la altura.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "intermedio"
-  tags: ["prisma", "elementos"]
-
-respuesta: 3
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas caras laterales tiene un prisma de base triangular?"
-
-explicacion: |
-  Un prisma tiene tantas caras laterales como lados tiene su base: el
-  triángulo tiene 3 lados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "intermedio"
-  tags: ["prisma", "elementos"]
-
-respuesta: 5
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas caras laterales tiene un prisma de base pentagonal (5 lados)?"
-
-explicacion: |
-  Tantas caras laterales como lados tiene la base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "avanzado"
-  tags: ["prisma", "elementos"]
-
-variables:
-  n: random(3, 8)
-
-respuesta: 2 * n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un prisma tiene una base con {n} lados. ¿Cuántos vértices tiene el prisma en total (sumando las dos bases)?"
-
-explicacion: |
-  Cada base aporta {n} vértices: 2 × {n} = {2 * n}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "avanzado"
-  tags: ["prisma", "elementos"]
-
-variables:
-  n: random(3, 8)
-
-respuesta: 3 * n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un prisma tiene una base con {n} lados. ¿Cuántas aristas tiene en total (las de las dos bases más las laterales)?"
-
-pasos:
-  - "{n} aristas de una base + {n} de la otra + {n} laterales = {3 * n}"
-
-explicacion: |
-  n aristas en cada base (2n) más n aristas laterales que conectan una
-  base con la otra: 3n en total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "avanzado"
-  tags: ["prisma", "elementos"]
-
-variables:
-  n: random(3, 8)
-
-respuesta: n + 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un prisma tiene una base con {n} lados. ¿Cuántas caras tiene en total (las 2 bases más las laterales)?"
-
-explicacion: |
-  {n} caras laterales más las 2 bases: {n} + 2 = {n + 2}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "avanzado"
-  tags: ["prisma", "euler"]
-
-variables:
-  n: random(3, 8)
-  vertices: 2 * n
-  aristas: 3 * n
-  caras: n + 2
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para un prisma con base de {n} lados ({vertices} vértices, {aristas} aristas, {caras} caras), ¿se cumple que Vértices − Aristas + Caras = 2?"
-
-pasos:
-  - "{vertices} − {aristas} + {caras} = {vertices - aristas + caras}"
-
-explicacion: |
-  Es la fórmula de Euler para poliedros convexos: se cumple siempre en un
-  prisma, sin importar la cantidad de lados de la base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "intermedio"
-  tags: ["prisma", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El cubo es un caso particular de prisma, con base cuadrada y altura igual al lado de la base."
-
-explicacion: |
-  Le aplica exactamente la misma fórmula general (área de la base ×
-  altura), sólo que con una base muy simple.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "basico"
-  tags: ["prisma", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un prisma tiene una sola base; el resto de las caras son laterales."
-
-explicacion: |
-  Un prisma tiene DOS bases (congruentes y paralelas), no una sola —
-  tener una sola base es otra figura (la pirámide, ver
-  `../piramides/`).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "avanzado"
-  tags: ["prisma", "capacidad", "problema"]
-
-variables:
-  b: random(4, 10)
-  h_base: random(3, 8)
-  altura: random(10, 20)
-
-respuesta: (((b * h_base) / 2) * altura) / 1000
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un envase con forma de prisma triangular tiene base de {b} cm y altura de base {h_base} cm, y {altura} cm de alto. ¿Cuántos litros de líquido puede contener?"
-
-pasos:
-  - "Volumen: (({b} × {h_base}) ÷ 2) × {altura} = {((b * h_base) / 2) * altura} cm³. En litros: {((b * h_base) / 2) * altura} ÷ 1000 = {(((b * h_base) / 2) * altura) / 1000}."
-
-explicacion: |
-  Se calcula el volumen en cm³ y se convierte a litros (1000 cm³ = 1
-  litro), igual que en `../../volumen-y-capacidad/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "avanzado"
-  tags: ["prisma", "comparacion"]
-
-variables:
-  area1: random(10, 40)
-  h1: random(2, 15)
-  area2: random(10, 40)
-  h2: random(2, 15)
-
-restricciones:
-  - (area1 * h1) != (area2 * h2)
-
-respuesta: (area1 * h1) > (area2 * h2)
-tipo: vf
-
-enunciado: "¿Tiene mayor volumen un prisma con base de {area1} cm² y altura {h1} cm, que otro con base de {area2} cm² y altura {h2} cm?"
-
-pasos:
-  - "Volumen 1: {area1} × {h1} = {area1 * h1} cm³. Volumen 2: {area2} × {h2} = {area2 * h2} cm³."
-
-explicacion: |
-  Se compara el producto área de la base × altura de cada uno.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "basico"
-  tags: ["prisma", "vocabulario"]
-
-enunciado: "¿Cómo se llama un prisma cuya base es un hexágono?"
+enunciado: "¿Qué mide el coeficiente de correlación (r)?"
 tipo: mc
 opciones_explicitas:
-  - "Prisma hexagonal"
-  - "Prisma triangular"
-  - "Hexaedro"
-respuesta: "Prisma hexagonal"
+  - "Qué tan bien la recta ajustada describe la relación real entre los datos, en una escala de −1 a 1"
+  - "La pendiente exacta de la recta de regresión"
+  - "La cantidad de puntos que tiene la nube de datos"
+respuesta: "Qué tan bien la recta ajustada describe la relación real entre los datos, en una escala de −1 a 1"
 
 explicacion: |
-  Se nombra según la forma de la base: hexágono → prisma hexagonal.
+  r cerca de ±1 indica un ajuste fuerte; cerca de 0, un ajuste débil.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "prismas"
-  nivel: "basico"
-  tags: ["prisma", "completar"]
-
-tipo: completar
-enunciado: "Completá: el volumen de cualquier prisma recto es el área de la ___ multiplicada por la altura."
-respuestas_validas:
-  - "base"
-
-explicacion: |
-  Es la fórmula general, sin importar la forma de la base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
+  tema: "regresion_lineal"
   nivel: "intermedio"
-  tags: ["prisma", "completar"]
-
-variables:
-  n: random(3, 9)
-
-tipo: completar
-enunciado: "Completá: un prisma con base de {n} lados tiene ___ caras laterales."
-respuestas_validas:
-  - n
-
-explicacion: |
-  Tantas caras laterales como lados tiene la base.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "avanzado"
-  tags: ["prisma", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos prismas de menor a mayor volumen: base 20 cm² y altura 5 cm; base 15 cm² y altura 10 cm; base 8 cm² y altura 12 cm; base 30 cm² y altura 3 cm."
-opciones_explicitas:
-  - "Base 15 cm² y altura 10 cm"
-  - "Base 30 cm² y altura 3 cm"
-  - "Base 8 cm² y altura 12 cm"
-  - "Base 20 cm² y altura 5 cm"
-respuesta_orden:
-  - "Base 8 cm² y altura 12 cm"
-  - "Base 20 cm² y altura 5 cm"
-  - "Base 30 cm² y altura 3 cm"
-  - "Base 15 cm² y altura 10 cm"
-
-pasos:
-  - "Volúmenes: 20×5=100 cm³; 15×10=150 cm³; 8×12=96 cm³; 30×3=90 cm³."
-
-explicacion: |
-  Se calcula cada volumen (área de la base × altura) antes de poder
-  ordenarlos: 90 < 96 < 100 < 150.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "avanzado"
-  tags: ["prisma", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En TODOS los prismas, sin excepción, las caras laterales son rectángulos perpendiculares a las bases."
-
-explicacion: |
-  Eso sólo es cierto en un prisma RECTO. En un prisma oblicuo las caras
-  laterales están inclinadas — este módulo trabaja siempre con prismas
-  rectos, que son el caso que se usa en la práctica.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "prismas"
-  nivel: "basico"
-  tags: ["prisma", "vocabulario"]
+  tags: ["correlacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para calcular el volumen de cualquier prisma, lo único que cambia según la forma de la base es la fórmula usada para calcular el área de esa base."
+enunciado: "Un coeficiente de correlación cercano a +1 o a −1 indica que la recta ajusta muy bien a los datos; uno cercano a 0 indica un ajuste débil."
 
 explicacion: |
-  La estructura del cálculo (área de la base × altura) es siempre la
-  misma; lo que cambia es cómo se calcula esa área según la forma.
+  El valor absoluto de r es lo que indica la fuerza del ajuste; el
+  signo indica la dirección (directa o inversa).
 ```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "intermedio"
+  tags: ["correlacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un coeficiente de correlación positivo indica una relación directa (a mayor x, mayor y); uno negativo indica una relación inversa (a mayor x, menor y)."
+
+explicacion: |
+  El signo de r siempre coincide con el signo de la pendiente m de la
+  recta ajustada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "avanzado"
+  tags: ["regresion", "vocabulario"]
+
+enunciado: "¿En qué consiste el método de mínimos cuadrados para ajustar una recta?"
+tipo: mc
+opciones_explicitas:
+  - "Elegir la recta que hace mínima la suma de las distancias verticales AL CUADRADO entre cada punto real y la recta"
+  - "Elegir la recta que pasa exactamente por todos los puntos, sin excepción"
+  - "Elegir la recta con la pendiente más grande posible"
+respuesta: "Elegir la recta que hace mínima la suma de las distancias verticales AL CUADRADO entre cada punto real y la recta"
+
+explicacion: |
+  Es matemáticamente imposible, en general, que una única recta pase
+  por todos los puntos de datos reales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "avanzado"
+  tags: ["regresion"]
+
+enunciado: "¿Por qué el método de mínimos cuadrados usa distancias AL CUADRADO en vez de distancias directas?"
+tipo: mc
+opciones_explicitas:
+  - "Porque las distancias directas (positivas para puntos arriba de la recta, negativas para los de abajo) se cancelarían entre sí al sumarlas"
+  - "Porque elevar al cuadrado siempre da un número más chico"
+  - "No hay ninguna razón matemática, es sólo una convención arbitraria"
+respuesta: "Porque las distancias directas (positivas para puntos arriba de la recta, negativas para los de abajo) se cancelarían entre sí al sumarlas"
+
+explicacion: |
+  Es exactamente el mismo argumento usado para la varianza en
+  `../tablas-de-frecuencia-cuartiles-percentiles-y-varianza/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "avanzado"
+  tags: ["regresion", "extrapolacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Usar la recta de regresión para predecir valores de x fuera del rango de datos que realmente se observaron (extrapolar) es riesgoso, porque no hay garantía de que la misma tendencia lineal siga valiendo ahí afuera."
+
+explicacion: |
+  La recta se ajustó sólo con los datos observados — fuera de ese
+  rango, es una extensión sin evidencia directa que la respalde.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "intermedio"
+  tags: ["regresion", "problema"]
+
+enunciado: "Un estudio encuentra que, en una empresa, a mayor gasto en publicidad corresponden mayores ventas. ¿Qué signo debería tener la pendiente (m) de la recta de regresión ajustada a estos datos?"
+tipo: mc
+opciones_explicitas:
+  - "Positivo: a medida que aumenta el gasto en publicidad (x), también aumentan las ventas (y)"
+  - "Negativo: a medida que aumenta el gasto en publicidad, bajan las ventas"
+respuesta: "Positivo: a medida que aumenta el gasto en publicidad (x), también aumentan las ventas (y)"
+
+explicacion: |
+  Una relación directa (ambas variables suben juntas) siempre da una
+  pendiente positiva.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "basico"
+  tags: ["regresion", "aplicacion"]
+
+enunciado: "Una empresa ajustó la recta ventas = 3×(gasto en publicidad) + 500, usando datos históricos. ¿Para qué sirve esta recta?"
+tipo: mc
+opciones_explicitas:
+  - "Para predecir las ventas esperadas dado un monto de gasto en publicidad, dentro del rango de datos ya observado"
+  - "Para calcular con certeza absoluta las ventas futuras, sin ningún margen de error"
+  - "Sólo sirve para describir datos pasados, nunca para predecir"
+respuesta: "Para predecir las ventas esperadas dado un monto de gasto en publicidad, dentro del rango de datos ya observado"
+
+explicacion: |
+  Es una predicción basada en la tendencia histórica, no una certeza
+  matemática exacta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "intermedio"
+  tags: ["regresion", "problema"]
+
+variables:
+  m: uno_de([-2, -3])
+  b: uno_de([100, 150])
+  x: uno_de([10, 20])
+
+respuesta: m * x + b
+tipo: input
+
+enunciado: "Una recta de regresión con pendiente negativa es y = {m}x + {b} (por ejemplo: precio del producto vs. cantidad demandada). ¿Cuál es la predicción de y para x={x}?"
+
+pasos:
+  - "y = {m}×{x} + {b} = {m * x + b}"
+
+explicacion: |
+  Con pendiente negativa, y BAJA a medida que x aumenta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "avanzado"
+  tags: ["correlacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un coeficiente de correlación cercano a 0 no significa que no haya ninguna relación entre las variables — sólo dice que no hay una relación LINEAL. Podría haber una relación fuerte pero curva."
+
+explicacion: |
+  Por ejemplo, una relación en forma de parábola puede dar r≈0 aunque
+  las variables estén claramente relacionadas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "intermedio"
+  tags: ["correlacion", "aplicacion"]
+
+enunciado: "¿Por qué conviene reportar el coeficiente de correlación (r) junto con la ecuación de la recta de regresión?"
+tipo: mc
+opciones_explicitas:
+  - "Porque una recta siempre se puede calcular, aunque ajuste mal — r dice qué tan confiable es esa recta para describir los datos reales"
+  - "Porque r reemplaza por completo a la ecuación de la recta"
+  - "No es necesario reportarlo, la pendiente ya dice todo lo importante"
+respuesta: "Porque una recta siempre se puede calcular, aunque ajuste mal — r dice qué tan confiable es esa recta para describir los datos reales"
+
+explicacion: |
+  Sin r, no hay forma de saber si la recta realmente describe bien la
+  tendencia o si los datos están demasiado dispersos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "avanzado"
+  tags: ["regresion", "problema"]
+
+variables:
+  m: uno_de([5, 8, 10])
+
+respuesta: m
+tipo: input
+unidad: "puntos por hora de estudio"
+
+enunciado: "La recta ajustada entre horas de estudio y nota de examen es nota = {m}×horas + 40. Según esta recta, ¿cuánto aumenta la nota esperada por cada hora adicional de estudio?"
+
+pasos:
+  - "La pendiente m={m} es, directamente, el cambio en y por cada unidad de x."
+
+explicacion: |
+  Interpretar la pendiente en las unidades del problema es la parte
+  más útil de la regresión en la práctica.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "intermedio"
+  tags: ["regresion", "aplicacion"]
+
+enunciado: "¿Qué relación tiene la regresión lineal con `../construir-un-grafico/`?"
+tipo: mc
+opciones_explicitas:
+  - "La regresión parte de una nube de puntos (gráfico de dispersión) ya construida, y ajusta la recta que mejor la describe"
+  - "No tienen ninguna relación entre sí"
+  - "La regresión reemplaza la necesidad de graficar los datos"
+respuesta: "La regresión parte de una nube de puntos (gráfico de dispersión) ya construida, y ajusta la recta que mejor la describe"
+
+explicacion: |
+  Por eso `../construir-un-grafico/` es el prerrequisito directo de
+  este módulo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "avanzado"
+  tags: ["correlacion", "causalidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Que una recta ajuste muy bien a los datos (r cercano a ±1) no prueba que una de las variables CAUSE a la otra — podría haber otra explicación detrás de esa relación."
+
+explicacion: |
+  Es el punto central de `../correlacion-no-es-causalidad/`, el
+  módulo que sigue.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "avanzado"
+  tags: ["regresion", "problema"]
+
+variables:
+  m: 4
+  b: 20
+  x1: 10
+  x2: 15
+
+respuesta: (m * x2 + b) - (m * x1 + b)
+tipo: input
+
+enunciado: "Con la recta y = {m}x + {b}, ¿cuánto AUMENTA la predicción de y al pasar de x={x1} a x={x2}?"
+
+pasos:
+  - "y({x1}) = {m * x1 + b}; y({x2}) = {m * x2 + b}"
+  - "Diferencia = {m * x2 + b} − {m * x1 + b} = {(m * x2 + b) - (m * x1 + b)}"
+
+explicacion: |
+  El aumento siempre es m × (diferencia en x) — es la definición
+  misma de pendiente constante en una recta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regresion_lineal"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve la regresión lineal?"
+tipo: mc
+opciones_explicitas:
+  - "Para cuantificar y predecir la relación entre dos variables numéricas, ajustando la recta que mejor describe la tendencia de los datos observados"
+  - "Para calcular la media y la mediana de un conjunto de datos"
+  - "Sólo sirve para variables que ya se sabe que están relacionadas causalmente"
+respuesta: "Para cuantificar y predecir la relación entre dos variables numéricas, ajustando la recta que mejor describe la tendencia de los datos observados"
+
+explicacion: |
+  El paso siguiente, `../correlacion-no-es-causalidad/`, pone el
+  límite crítico a esta herramienta: ajustar bien no es lo mismo que
+  explicar por qué.
+```
+

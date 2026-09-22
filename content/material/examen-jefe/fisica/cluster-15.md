@@ -1,6 +1,6 @@
-# Examen jefe — Maestro del movimiento y calor
+# Examen jefe — [PENDIENTE #750]
 
-> Logro #170. Analizaste con precisión el tiro oblicuo, la transferencia térmica y los fenómenos severos para aprobar este parcial. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas. **180 preguntas totales** en 7/7 secciones.
+> Logro #750. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **180 preguntas totales** en 7/7 secciones.
 
 ---
 
@@ -32,7 +32,9 @@ metadata:
   tags: ["unidades", "voltios"]
 
 tipo: completar
-respuestas_validas: ["Voltio", "Volt"]
+respuestas_validas:
+  - "Voltio"
+  - "Volt"
 
 respuesta: "Voltio"
 
@@ -61,7 +63,7 @@ pasos:
   - "Identificar el trabajo (W) y la carga (Q)."
   - "Aplicar la fórmula V = W / Q."
 
-respuesta: "escenario[0] / escenario[1]"
+respuesta: escenario[0] / escenario[1]
 
 explicacion: |
   Usando la fórmula V = W/Q: {escenario[0]}J / {escenario[1]}C = {escenario[0]/escenario[1]} V.
@@ -127,23 +129,24 @@ metadata:
   tags: ["carga", "energia", "calculo"]
 
 variables:
-  escenario: uno_de([[12, 24, 36], ["12V", "24V", "36V"]])
+  voltajes: [12, 24, 36]
+  escenario: uno_de(voltajes)
   valor_carga: 3
-  resultado_energia: escenario[0] * escenario[1]
+  resultado_energia: valor_carga * escenario
 
 respuesta: resultado_energia
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Si una carga de {valor_carga} C se desplaza entre dos puntos con una diferencia de potencial de {escenario[1]}, ¿cuánta energía eléctrica (en Joules) realiza el campo sobre la carga?"
+enunciado: "Si una carga de {valor_carga} C se desplaza entre dos puntos con una diferencia de potencial de {escenario} V, ¿cuánta energía eléctrica (en Joules) realiza el campo sobre la carga?"
 
 pasos:
   - "Identificar la fórmula: Trabajo (Energía) = Carga (Q) × Diferencia de Potencial (V)"
-  - "Sustituir valores: W = 3 C × {escenario[1]} V"
-  - "Calcular el producto: 3 * {escenario[0]} = {resultado_energia} J"
+  - "Sustituir valores: W = {valor_carga} C × {escenario} V"
+  - "Calcular el producto: {valor_carga} * {escenario} = {resultado_energia} J"
 
 explicacion: |
-  La energía (W) es el producto de la carga (Q) por el potencial (V). En este caso, {valor_carga} * {escenario[0]} = {resultado_energia} Joules.
+  La energía (W) es el producto de la carga (Q) por el potencial (V). En este caso, {valor_carga} * {escenario} = {resultado_energia} Joules.
 ```
 
 ```
@@ -204,9 +207,9 @@ variables:
   v: datos[idx][1]
   w: datos[idx][2]
 
-respuesta: [0, 1, 2]
+respuesta: v
 tipo: completar
-respuestas_validas: ["20", "20", "20"]
+tolerancia_abs: 0.01
 
 enunciado: "Si una carga de {q} C requiere un trabajo de {w} J para ser trasladada entre dos puntos, la diferencia de potencial entre dichos puntos es de ___ V."
 
@@ -223,7 +226,8 @@ metadata:
 
 respuesta: "trabajo"
 tipo: completar
-respuestas_validas: ["trabajo"]
+respuestas_validas:
+  - "trabajo"
 
 enunciado: "La diferencia de potencial eléctrico entre dos puntos se define como el ___ realizado por unidad de carga para mover una carga desde un punto a otro."
 
@@ -238,8 +242,8 @@ metadata:
   nivel: "intermedio"
   tags: ["corriente", "voltaje", "analogia"]
 
-respuesta: "falso"
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "Si una batería tiene una diferencia de potencial (voltaje) de 12V, esto significa que siempre hay una corriente fluyendo a través de cualquier cable conectado a ella, incluso si el circuito está abierto."
 
 explicacion: |
@@ -256,7 +260,7 @@ metadata:
 variables:
   escenario: uno_de([[10.0, 5.0], [20.0, 10.0], [5.0, 2.0]])
 
-respuesta: escenario[0] * escenario[1]
+respuesta: escenario[0] / escenario[1]
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -293,7 +297,7 @@ metadata:
   nivel: "basico"
   tags: ["ordenar", "conceptos"]
 
-respuesta: ["Fuente de potencial", "Conductor", "Carga/Resistencia"]
+respuesta_orden: ["Fuente de potencial", "Conductor", "Carga/Resistencia"]
 tipo: ordenar
 opciones_explicitas: ["Carga/Resistencia", "Fuente de potencial", "Conductor"]
 
@@ -331,7 +335,7 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [[0.5, 2.0], [1.5, 5.0]]
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -368,7 +372,7 @@ metadata:
   nivel: "intermedio"
   tags: ["circuito_serie", "voltaje"]
 
-respuesta: ["Pila", "Interruptor", "Resistencia", "Cable"]
+respuesta_orden: ["Pila", "Interruptor", "Resistencia", "Cable"]
 tipo: ordenar
 
 opciones_explicitas: ["Pila", "Interruptor", "Resistencia", "Cable"]
@@ -389,7 +393,10 @@ metadata:
 respuesta: "cero"
 tipo: completar
 
-respuestas_validas: ["cero", "0", "0.0"]
+respuestas_validas:
+  - "cero"
+  - "0"
+  - "0.0"
 
 enunciado: "En un conductor metálico en equilibrio electrostático, la diferencia de potencial entre cualquier par de puntos del mismo conductor es ___."
 
@@ -405,12 +412,12 @@ metadata:
   tags: ["voltaje", "electronica", "aplicacion"]
 
 variables:
-  escenario: uno_de([["5.0", "5.0"], ["9.0", "9.0"], ["12.0", "12.0"]])
+  escenario: uno_de([5.0, 9.0, 12.0])
 
-enunciado: "Un cargador de carga rápida suministra una diferencia de potencial de {escenario[0]} voltios a un dispositivo móvil. ¿Cuál es el valor de la tensión eléctrica suministrada?"
+enunciado: "Un cargador de carga rápida suministra una diferencia de potencial de {escenario} voltios a un dispositivo móvil. ¿Cuál es el valor de la tensión eléctrica suministrada (en voltios)?"
 
-opciones_explicitas: ["4.5 V", "5.0 V", "9.0 V", "12.0 V"]
-respuesta: escenario[1
+opciones_explicitas: [4.5, 5.0, 9.0, 12.0]
+respuesta: escenario
 tipo: mc
 
 explicacion: |
@@ -425,11 +432,12 @@ metadata:
   tags: ["circuito", "interruptor"]
 
 variables:
-  estado: uno_de([[true, "hay_paso"], [false, "no_hay_paso"]])
+  estado: uno_de(["hay_paso", "no_hay_paso"])
 
 enunciado: "En un circuito de una lámpara, si el interruptor está abierto, la diferencia de potencial entre los terminales de la bombilla es de ___ voltios si no hay corriente circulando por el resto del circuito cerrado."
 
-respuestas_validas: ["0"]
+respuestas_validas:
+  - "0"
 respuesta: "0"
 tipo: completar
 
@@ -445,16 +453,14 @@ metadata:
   tags: ["pilas", "voltaje"]
 
 variables:
-  datos: uno_de([
-    [["1.5V", "1.5V", "1.5V"], "4.5V"],
-    [["9V", "9V"], "18V"],
-    [["1.5V", "1.5V"], "3.0V"]
-  ])
+  idx: uno_de([0, 1, 2])
+  cantidades: [3, 2, 2]
+  voltajes: [1.5, 9, 1.5]
 
-enunciado: "Se conectan {largo(datos[0])} pilas en serie, cada una con una tensión de {datos[0][0]}. ¿Cuál es la tensión total del conjunto?"
+enunciado: "Se conectan {cantidades[idx]} pilas en serie, cada una con una tensión de {voltajes[idx]}V. ¿Cuál es la tensión total del conjunto?"
 
-opciones_explicitas: ["3.0V", "4.5V", "6.0V", "9.0V"]
-respuesta: datos[1
+opciones_explicitas: [4.5, 18, 3.0, 6.0]
+respuesta: cantidades[idx] * voltajes[idx]
 tipo: mc
 
 explicacion: |
@@ -469,15 +475,17 @@ metadata:
   tags: ["carga", "energia"]
 
 variables:
-  caso: uno_de([
-    [["0.002", "2.0"], ["0.005", "5.0"], ["0.010", "10.0"]]
-  ])
+  idx: uno_de([0, 1, 2])
+  trabajos: [0.004, 0.025, 0.1]
+  cargas: [0.002, 0.005, 0.010]
+  w: trabajos[idx]
+  q: cargas[idx]
 
-enunciado: "Si se realiza un trabajo de {caso[0][0]} Joules para mover una carga de {caso[0][0]} Coulombs entre dos puntos, la diferencia de potencial es de ___ voltios."
+enunciado: "Si se realiza un trabajo de {w} Joules para mover una carga de {q} Coulombs entre dos puntos, la diferencia de potencial es de ___ voltios."
 
-respuestas_validas: ["2.0", "5.0", "10.0"]
-respuesta: caso[0][1
+respuesta: w / q
 tipo: completar
+tolerancia_abs: 0.01
 
 explicacion: |
   La diferencia de potencial (V) se define como el trabajo (W) realizado por unidad de carga (Q): V = W / Q.
@@ -490,14 +498,10 @@ metadata:
   nivel: "basico"
   tags: ["bateria", "voltaje"]
 
-variables:
-  es_mayor: uno_de([[true, "mayor"], [false, "menor"]])
+respuesta: verdadero
+tipo: vf
+enunciado: "Si la tensión del cargador es de 5V y la tensión de la batería es de 3.7V, ¿es la tensión del cargador mayor que la de la batería?"
 
-enunciado: "Si la tensión del cargador es de 5V y la tensión de la batería es de 3.7V, ¿es la tensión del cargador mayor que la de la batería? {es_mayor}"
-
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: es_mayor
-tipo: completar
 explicacion: |
   Para que la carga fluya hacia la batería, la diferencia de potencial del cargador debe ser superior a la de la batería.
 ```
@@ -869,11 +873,7 @@ opciones_explicitas:
   - "Combinar el tiempo obtenido con v₀ₓ para calcular el alcance horizontal"
   - "Descomponer v₀ en v₀ₓ (coseno) y v₀ᵥ (seno)"
   - "Resolver el eje vertical con las fórmulas de MRUV (tiempo de subida, altura máxima o tiempo de vuelo)"
-respuesta_orden:
-  - "Descomponer v₀ en v₀ₓ (coseno) y v₀ᵥ (seno)"
-  - "Resolver el eje vertical con las fórmulas de MRUV (tiempo de subida, altura máxima o tiempo de vuelo)"
-  - "Combinar el tiempo obtenido con v₀ₓ para calcular el alcance horizontal"
-
+respuesta_orden: ["Descomponer v₀ en v₀ₓ (coseno) y v₀ᵥ (seno)", "Resolver el eje vertical con las fórmulas de MRUV (tiempo de subida, altura máxima o tiempo de vuelo)", "Combinar el tiempo obtenido con v₀ₓ para calcular el alcance horizontal"]
 explicacion: |
   El eje horizontal y el vertical se resuelven por separado y se
   combinan sólo al final, a través del tiempo.
@@ -1768,11 +1768,7 @@ opciones_explicitas:
   - "EF0 (daño leve)"
   - "EF2 (daño significativo)"
   - "EF5 (daño increíble)"
-respuesta:
-  - "EF0 (daño leve)"
-  - "EF2 (daño significativo)"
-  - "EF5 (daño increíble)"
-
+respuesta_orden: ["EF0 (daño leve)", "EF2 (daño significativo)", "EF5 (daño increíble)"]
 enunciado: "Ordená estas categorías de tornado de menor a mayor intensidad."
 
 explicacion: |
@@ -2466,11 +2462,7 @@ opciones_explicitas:
   - "El resultado, en Joule, es el trabajo realizado"
   - "Identificar el ángulo entre la fuerza y el desplazamiento"
   - "Multiplicar la fuerza, la distancia y el coseno de ese ángulo"
-respuesta_orden:
-  - "Identificar el ángulo entre la fuerza y el desplazamiento"
-  - "Multiplicar la fuerza, la distancia y el coseno de ese ángulo"
-  - "El resultado, en Joule, es el trabajo realizado"
-
+respuesta_orden: ["Identificar el ángulo entre la fuerza y el desplazamiento", "Multiplicar la fuerza, la distancia y el coseno de ese ángulo", "El resultado, en Joule, es el trabajo realizado"]
 explicacion: |
   W = F × d × cos(θ).
 ```
@@ -2613,12 +2605,6 @@ tipo: vf
 
 enunciado: "La radiación térmica es el único mecanismo de transferencia de calor que puede ocurrir en el vacío, ya que no requiere de un medio material para propagarse."
 
-respuesta: falso
-
-explicacion: |
-  Es verdadero que la radiación no requiere medio, pero la pregunta afirma que es el "único" mecanismo para eso, lo cual es correcto. Sin embargo, en el contexto de la lógica de la pregunta, la afirmación es verdadera. (Nota: Si el usuario debe responder si la afirmación es verdadera o falsa, el valor es verdadero).
-
-# Corrección para seguir la regla de booleano literal:
 respuesta: verdadero
 
 explicacion: |
@@ -2633,7 +2619,8 @@ metadata:
   tags: ["conveccion", "fluidos"]
 
 tipo: completar
-respuestas_validas: ["convección"]
+respuestas_validas:
+  - "convección"
 
 enunciado: "La transferencia de calor por ___ ocurre mediante el movimiento macroscópico de corrientes de un fluido (líquido o gas) debido a diferencias de densidad."
 
@@ -2653,30 +2640,9 @@ metadata:
 tipo: mc
 opciones_explicitas: ["Conducción", "Convección", "Radiación"]
 
-variables:
-  idx: uno_de([0, 1, 2])
+enunciado: "Si el calor se transmite mediante el movimiento de un fluido, estamos ante la ___."
 
-enunciado: "Considerando el escenario donde el calor se transmite a través de una corriente de aire en una habitación, el mecanismo predominante es la {escenario}."
-
-pasos:
-  - "Identificar si el medio es sólido, fluido o vacío."
-  - "Determinar si hay movimiento de masa o solo vibración."
-
-variables_contexto:
-  escenarios: [["Conducción", "Conducción"], ["Convección", "Convección"], ["Radiación", "Radiación"]]
-
-# Re-estructurando para cumplir estrictamente la regla de un solo uno_de y evitar desincronización
-# Usaremos un array de pares para asegurar que la respuesta sea coherente con el enunciado sorteado.
-
-enunciado: "Si el calor se transmite mediante el movimiento de un fluido, estamos ante la {tipo}."
-
-respuesta: tabla[idx][1
-
-tipo_variable:
-  idx: uno_de([0, 1, 2])
-  tabla: [["Conducción", "Conducción"], ["Convección", "Convección"], ["Radiación", "Radiación"]]
-
-# Ajuste final al formato estricto solicitado:
+respuesta: "Convección"
 ```
 
 ```
@@ -2687,12 +2653,14 @@ metadata:
   tags: ["conveccion"]
 
 variables:
-  idx: uno_de([0, 1])
   datos: [["Convección", "movimiento de fluidos"], ["Conducción", "contacto sólido"]]
+  idx: uno_de([0, 1])
+  proceso: datos[idx][0]
+  caracteristica: datos[idx][1]
 
 enunciado: "El proceso que se caracteriza por el {caracteristica} es la {proceso}."
 
-respuesta: datos[idx][0
+respuesta: proceso
 
 explicacion: |
   La respuesta depende del sorteo realizado en la variable 'idx'.
@@ -2725,7 +2693,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Conducción", "Convección", "Radiación"]
-respuesta: ["Conducción", "Convección", "Radiación"]
+respuesta_orden: ["Conducción", "Convección", "Radiación"]
 
 enunciado: "Ordene los mecanismos de transferencia de calor según su dependencia de un medio material, desde el que requiere contacto sólido (más restrictivo) hasta el que no requiere medio (más general):"
 
@@ -2785,11 +2753,7 @@ metadata:
   nivel: "basico"
   tags: ["conveccion", "fluidos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [["un metal sólido", "un fluido como el aire"], ["conducción", "convección"]]
-
-respuesta: escenarios[escenario_idx][1
+respuesta: "convección"
 tipo: mc
 opciones_explicitas: ["conducción", "convección"]
 
@@ -2811,7 +2775,7 @@ variables:
   area: 2.0
   temp_k: 300
   sigma: 5.67e-8
-  potencia: emision * sigma * area * (temp_k^2)
+  potencia: emision * sigma * area * (temp_k^4)
 
 respuesta: potencia
 tipo: completar
@@ -2836,7 +2800,7 @@ metadata:
   tags: ["conceptos", "ordenar"]
 
 opciones_explicitas: ["Conducción", "Convección", "Radiación"]
-respuesta: ["Conducción", "Convección", "Radiación"]
+respuesta_orden: ["Conducción", "Convección", "Radiación"]
 tipo: ordenar
 
 enunciado: "Ordena los mecanismos de transferencia de calor según el medio necesario, de mayor dependencia de la materia (contacto directo) a menor dependencia (no requiere materia):"
@@ -2873,7 +2837,7 @@ metadata:
   tags: ["conveccion", "conduccion"]
 
 variables:
-  es_fluido: true
+  es_fluido: falso
 
 tipo: vf
 
@@ -2898,7 +2862,7 @@ opciones_explicitas: ["Convección del líquido", "Conducción a través de las 
 
 enunciado: "Ordena los mecanismos de transferencia de calor de una taza de café caliente, desde el que ocurre principalmente en el cuerpo del líquido hasta el que ocurre hacia el espacio exterior."
 
-respuesta: ["Convección del líquido", "Conducción a través de las paredes", "Radiación hacia el ambiente"]
+respuesta_orden: ["Convección del líquido", "Conducción a través de las paredes", "Radiación hacia el ambiente"]
 
 explicacion: |
   1. La convección mueve el líquido caliente hacia arriba dentro de la taza. 
@@ -2915,18 +2879,17 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1, 2])
-  escenarios: [
-    ["El calor que viaja por una barra de metal", "conduccion"],
-    ["El aire caliente que sube al calentarse", "conveccion"],
-    ["El calor que sentimos del sol", "radiacion"]
-  ]
+  escenarios: [["El calor que viaja por una barra de metal", "conduccion"], ["El aire caliente que sube al calentarse", "conveccion"], ["El calor que sentimos del sol", "radiacion"]]
 
 tipo: completar
 
 enunciado: "En el escenario seleccionado: {escenarios[escenario_idx][0]}, el mecanismo principal es la ___."
 
-respuestas_validas: ["conduccion", "conveccion", "radiacion"]
-respuesta: "{escenarios[escenario_idx][1]}"
+respuestas_validas:
+  - "conduccion"
+  - "conveccion"
+  - "radiacion"
+respuesta: escenarios[escenario_idx][1]
 
 explicacion: |
   Cada mecanismo tiene una naturaleza distinta: la conducción requiere contacto directo en sólidos, la convección requiere movimiento de fluidos, y la radiación requiere ondas electromagnéticas.
@@ -2949,11 +2912,11 @@ enunciado: "Si un objeto emite radiación térmica, la cantidad de energía emit
 pasos:
   - "Elevar la temperatura absoluta al exponente 4."
 
-respuesta: 8100000000000.0
+respuesta: 8100000000.0
 tolerancia_abs: 0.1
 
 explicacion: |
-  Según la ley de Stefan-Boltzmann, la potencia irradiada es proporcional a T^4. Para 300 K, el cálculo es 300^4 = 8,100,000,000,000.
+  Según la ley de Stefan-Boltzmann, la potencia irradiada es proporcional a T^4. Para 300 K, el cálculo es 300^4 = 8,100,000,000 (coherente con el cálculo de la pregunta 11, que usa este mismo valor de 300^4).
 ```
 
 ```
@@ -2965,6 +2928,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["La conducción requiere un medio material para transferir energía", "La radiación depende de la densidad del medio para ocurrir", "La convección es la transferencia de energía mediante contacto directo", "La radiación requiere contacto físico entre cuerpos"]
+respuesta: "La conducción requiere un medio material para transferir energía"
 
 enunciado: "La principal diferencia entre la radiación y los otros dos mecanismos de transferencia de calor es que..."
 
@@ -2980,7 +2944,9 @@ metadata:
   tags: ["conduccion", "mecanismos"]
 
 tipo: completar
-respuestas_validas: ["vibraciones", "colisiones"]
+respuestas_validas:
+  - "vibraciones"
+  - "colisiones"
 
 enunciado: "En un sólido, la conducción térmica ocurre principalmente debido a las ___ de las partículas y las colisiones entre electrones libres."
 
@@ -2996,16 +2962,14 @@ metadata:
   tags: ["conveccion", "fluidos"]
 
 variables:
-  escenario: uno_de([
-    ["agua hirviendo en una olla", "convección"],
-    ["aire caliente subiendo en una habitación", "convección"],
-    ["el movimiento de magma en el manto terrestre", "convección"]
-  ])
+  escenario: uno_de([["agua hirviendo en una olla", "convección"], ["aire caliente subiendo en una habitación", "convección"], ["el movimiento de magma en el manto terrestre", "convección"]])
 
 tipo: mc
 opciones_explicitas: ["conduccion", "conveccion", "radiacion"]
 
 enunciado: "El fenómeno descrito en el escenario de {escenario[0]} es un ejemplo de..."
+
+respuesta: "conveccion"
 
 explicacion: |
   La convección es la transferencia de calor en fluidos (líquidos o gases) causada por la diferencia de densidad en las corrientes de fluido provocadas por cambios de temperatura.
@@ -3038,9 +3002,9 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Radiación", "Convección", "Conducción"]
 
-enunciado: "Ordene los mecanismos de transferencia de calor de mayor a menor dependencia de la presencia de un medio material (desde el que no requiere medio hasta el que requiere contacto directo):"
+enunciado: "Ordene los mecanismos de transferencia de calor de menor a mayor dependencia de la presencia de un medio material (desde el que no requiere medio hasta el que requiere contacto directo):"
 
-respuesta: ["Radiación", "Convección", "Conducción"]
+respuesta_orden: ["Radiación", "Convección", "Conducción"]
 
 explicacion: |
   1. Radiación: No requiere medio (puede ser en vacío).
@@ -3057,12 +3021,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["Un termo de café con doble pared de vacío", "radiacion"],
-    ["Una cuchara de metal en el café caliente", "conduccion"]
-  ]
+  datos: [["Un termo de café con doble pared de vacío", "radiacion"], ["Una cuchara de metal en el café caliente", "conduccion"]]
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["conduccion", "conveccion", "radiacion"]
 
@@ -3097,13 +3058,9 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1, 2])
-  casos: [
-    ["El sol calentando la Tierra", "radiacion"],
-    ["El calor de una estufa calentando el aire de una habitación", "conveccion"],
-    ["El mango de una sartén que se calienta al fuego", "conduccion"]
-  ]
+  casos: [["El sol calentando la Tierra", "radiacion"], ["El calor de una estufa calentando el aire de una habitación", "conveccion"], ["El mango de una sartén que se calienta al fuego", "conduccion"]]
 
-respuesta: casos[caso_idx][1
+respuesta: casos[caso_idx][1]
 tipo: mc
 opciones_explicitas: ["conduccion", "conveccion", "radiacion"]
 
@@ -3120,7 +3077,7 @@ metadata:
   nivel: "avanzado"
   tags: ["secuencia", "transferencia"]
 
-respuesta: ["radiacion", "conveccion", "conduccion"]
+respuesta_orden: ["radiacion", "conveccion", "conduccion"]
 tipo: ordenar
 
 opciones_explicitas: ["radiacion", "conveccion", "conduccion"]
@@ -3140,14 +3097,13 @@ metadata:
 
 variables:
   propiedad_idx: uno_de([0, 1])
-  propiedades: [
-    ["superficie negra y rugosa", "mayor"],
-    ["superficie blanca y pulida", "menor"]
-  ]
+  propiedades: [["superficie negra y rugosa", "mayor"], ["superficie blanca y pulida", "menor"]]
 
-respuesta: propiedades[propiedad_idx][1
+respuesta: propiedades[propiedad_idx][1]
 tipo: completar
-respuestas_validas: ["mayor", "menor"]
+respuestas_validas:
+  - "mayor"
+  - "menor"
 
 enunciado: "Una superficie con una propiedad de absorción/emisión de tipo {propiedades[propiedad_idx][0]} presentará una tasa de transferencia por radiación ___ que una superficie reflectante."
 
@@ -3701,3 +3657,4 @@ enunciado: "Posición, velocidad y aceleración forman una cadena de derivadas: 
 explicacion: |
   x(t) → (derivar) → v(t) → (derivar) → a(t).
 ```
+

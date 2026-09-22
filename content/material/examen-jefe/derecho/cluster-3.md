@@ -1,6 +1,6 @@
-# Examen jefe — Maestro del Derecho Penal
+# Examen jefe — [PENDIENTE #896]
 
-> Logro #204. Completaste el examen sobre fuentes, hechos y ejecución de la sentencia jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **128 preguntas totales** en 5/5 secciones.
+> Logro #896. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **128 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -30,12 +30,9 @@ metadata:
   tags: ["terminologia", "delito"]
 
 variables:
-  escenario: uno_de([
-    ["cometer un acto prohibido por la ley con intención de causar daño", "doloso"],
-    ["cometer un acto prohibido por la ley sin intención pero con negligencia", "culposo"]
-  ])
+  escenario: uno_de([["cometer un acto prohibido por la ley con intención de causar daño", "doloso"], ["cometer un acto prohibido por la ley sin intención pero con negligencia", "culposo"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["doloso", "culposo", "imprudente", "accidental"]
 
@@ -58,7 +55,8 @@ metadata:
 
 respuesta: "prevención y retribución"
 tipo: completar
-respuestas_validas: ["prevención y retribución", "castigo puro", "rehabilitación social", "represión"]
+respuestas_validas:
+  - "prevención y retribución"
 
 enunciado: "Tradicionalmente, la pena tiene como fines principales la ___."
 
@@ -89,7 +87,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "etapas"]
 
-respuesta: ["Investigación", "Juicio", "Sentencia", "Ejecución"]
+respuesta_orden: ["Investigación", "Juicio", "Sentencia", "Ejecución"]
 tipo: ordenar
 opciones_explicitas: ["Investigación", "Juicio", "Sentencia", "Ejecución"]
 
@@ -123,12 +121,9 @@ metadata:
   tags: ["conducta", "tipicidad"]
 
 variables:
-  escenario: uno_de([
-    ["Juan decide robar un banco pero es detenido antes de tocar el dinero", "tentativa"],
-    ["María entra a una tienda y toma un objeto sin pagar", "consumado"]
-  ])
+  escenario: uno_de([["Juan decide robar un banco pero es detenido antes de tocar el dinero", "tentativa"], ["María entra a una tienda y toma un objeto sin pagar", "consumado"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["tentativa", "consumado", "imputable", "exento"]
 
@@ -151,14 +146,13 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  datos: [
-    ["Un sujeto actúa bajo un error de prohibición invencible", "no_culpable"],
-    ["Un sujeto actúa con dolo directo para causar daño", "culpable"]
-  ]
+  datos: [["Un sujeto actúa bajo un error de prohibición invencible", "no_culpable"], ["Un sujeto actúa con dolo directo para causar daño", "culpable"]]
 
-respuesta: datos[caso_idx][1
+respuesta: datos[caso_idx][1]
 tipo: completar
-respuestas_validas: ["no_culpable", "culpable"]
+respuestas_validas:
+  - "no_culpable"
+  - "culpable"
 
 enunciado: "Considerando el escenario: {datos[caso_idx][0]}. El resultado de la imputación penal para este sujeto es: ___"
 
@@ -173,7 +167,7 @@ metadata:
   nivel: "avanzado"
   tags: ["proceso", "pena"]
 
-respuesta: ["Tipicidad", "Antijuridicidad", "Culpabilidad", "Punibilidad"]
+respuesta_orden: ["Tipicidad", "Antijuridicidad", "Culpabilidad", "Punibilidad"]
 tipo: ordenar
 opciones_explicitas: ["Tipicidad", "Antijuridicidad", "Culpabilidad", "Punibilidad"]
 
@@ -197,12 +191,9 @@ metadata:
   tags: ["bien_juridico"]
 
 variables:
-  delito_tipo: uno_de([
-    ["Homicidio", "la vida"],
-    ["Hurto", "la propiedad"]
-  ])
+  delito_tipo: uno_de([["Homicidio", "la vida"], ["Hurto", "la propiedad"]])
 
-respuesta: delito_tipo[1
+respuesta: delito_tipo[1]
 tipo: mc
 opciones_explicitas: ["la vida", "la propiedad", "la libertad", "la integridad física"]
 
@@ -221,7 +212,10 @@ metadata:
 
 respuesta: "reparar el daño"
 tipo: "completar"
-respuestas_validas: ["reparar el daño", "reparación del daño", "reparación"]
+respuestas_validas:
+  - "reparar el daño"
+  - "reparación del daño"
+  - "reparación"
 
 enunciado: "Mientras que el Derecho Civil busca principalmente ___ causado por un incumplimiento contractual o un ilícito civil, el Derecho Penal busca sancionar una conducta que atenta contra la sociedad."
 
@@ -242,7 +236,7 @@ variables:
 respuesta: verdadero
 tipo: "vf"
 
-enunciado: "En el marco del Derecho Penal, cuando se comete un {escenario[1]}, es el Estado quien ejerce el 'ius puniendi' para imponer la sanción, independientemente de la voluntad de la víctima."
+enunciado: "En el marco del Derecho Penal, cuando se comete un {escenario[0]}, es el Estado quien ejerce el 'ius puniendi' para imponer la sanción, independientemente de la voluntad de la víctima."
 
 explicacion: |
   El Estado tiene el monopolio del ejercicio de la fuerza y la potestad de sancionar (ius puniendi) para mantener el orden social.
@@ -272,9 +266,9 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso_penal", "orden"]
 
-respuesta: ["investigación", "imputación", "juicio", "sentencia"]
 tipo: "ordenar"
 opciones_explicitas: ["investigación", "imputación", "juicio", "sentencia"]
+respuesta_orden: ["investigación", "imputación", "juicio", "sentencia"]
 
 enunciado: "Ordene cronológicamente las etapas fundamentales de un proceso penal típico:"
 
@@ -311,7 +305,9 @@ metadata:
 
 respuesta: "sanción"
 tipo: completar
-respuestas_validas: ["sanción", "pena"]
+respuestas_validas:
+  - "sanción"
+  - "pena"
 
 enunciado: "Mientras que el Derecho Civil busca la reparación del daño mediante la indemnización, el Derecho Penal busca la imposición de una ___ al infractor."
 
@@ -326,11 +322,8 @@ metadata:
   nivel: "basico"
   tags: ["naturaleza", "derecho_civil"]
 
-variables:
-  es_penal: falso
-
-respuesta: es_penal
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "A diferencia del Derecho Civil, donde el incumplimiento de una obligación suele derivar en una indemnización, en el Derecho Penal el incumplimiento de una norma puede derivar en la privación de la libertad."
 
 explicacion: |
@@ -344,18 +337,12 @@ metadata:
   nivel: "intermedio"
   tags: ["comparacion", "derecho_administrativo"]
 
-variables:
-  escenario: uno_de([0, 1])
-
-respuesta: datos[escenario][1
 tipo: mc
 opciones_explicitas: ["Sanción administrativa", "Pena privativa de la libertad", "Indemnización de daños y perjuicios", "Sanción disciplinaria interna"]
 
-enunciado: "Si un conductor excede los límites de velocidad, recibe una multa (Derecho Administrativo). Si un conductor causa un accidente por conducir en estado de ebriedad, puede recibir una ___ (Derecho Penal)."
+respuesta: "Pena privativa de la libertad"
 
-datos:
-  - ["Sanción administrativa", "Sanción administrativa"]
-  - ["Pena privativa de la libertad", "Pena privativa de la libertad"]
+enunciado: "Si un conductor excede los límites de velocidad, recibe una multa (Derecho Administrativo). Si un conductor causa un accidente por conducir en estado de ebriedad, puede recibir una ___ (Derecho Penal)."
 
 explicacion: |
   El Derecho Penal regula conductas que afectan bienes jurídicos fundamentales y aplica penas, a diferencia del administrativo que aplica sanciones de carácter reglamentario.
@@ -368,7 +355,7 @@ metadata:
   nivel: "intermedio"
   tags: ["principios", "legalidad"]
 
-respuesta: ["Principio de legalidad", "Principio de culpabilidad", "Principio de lesividad"]
+respuesta_orden: ["Principio de legalidad", "Principio de culpabilidad", "Principio de lesividad"]
 tipo: ordenar
 
 opciones_explicitas: ["Principio de legalidad", "Principio de culpabilidad", "Principio de lesividad"]
@@ -391,16 +378,10 @@ metadata:
   nivel: "avanzado"
   tags: ["sujeto", "estado"]
 
-variables:
-  caso: uno_de([0, 1])
-
-respuesta: datos[caso][1
 tipo: mc
 opciones_explicitas: ["Un particular contra otro particular", "El Estado contra un particular", "Un Estado contra otro Estado", "Un particular contra una empresa"]
 
-datos:
-  - ["Conflicto Civil", "Un particular contra otro particular"]
-  - ["Conflicto Penal", "El Estado contra un particular"]
+respuesta: "El Estado contra un particular"
 
 enunciado: "En el Derecho Civil, el conflicto es típicamente entre particulares. En el Derecho Penal, el conflicto se caracteriza porque el sujeto activo es ___."
 
@@ -416,13 +397,13 @@ metadata:
   tags: ["principios", "legalidad"]
 
 variables:
-  datos: [["Juan comete una acción que no está tipificada en el código penal", "falso"], ["Juan comete una acción que está tipificada en el código penal", "verdadero"]]
+  textos: ["Juan comete una acción que no está tipificada en el código penal", "Juan comete una acción que está tipificada en el código penal"]
+  valores: [falso, verdadero]
   idx: uno_de([0, 1])
 
-respuestas_validas: [datos[idx][1]]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "De acuerdo al principio de legalidad, si {datos[idx][0]}, ¿es posible que el Estado imponga una pena a Juan?"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "De acuerdo al principio de legalidad, si {textos[idx]}, ¿es posible que el Estado imponga una pena a Juan?"
 
 explicacion: |
   El principio de legalidad establece que no hay delito ni pena sin ley previa (*nullum crimen, nulla poena sine lege*). Si la conducta no está tipificada, no puede haber sanción.
@@ -464,7 +445,9 @@ variables:
 respuesta: datos[idx][1]
 tipo: completar
 
-respuestas_validas: ["corporal", "pecuniaria"]
+respuestas_validas:
+  - "corporal"
+  - "pecuniaria"
 
 enunciado: "Las penas se clasifican según su naturaleza. Si se impone una {datos[idx][0]}, la naturaleza de la sanción es ___________."
 
@@ -479,8 +462,9 @@ metadata:
   nivel: "avanzado"
   tags: ["iter_criminis", "ordenar"]
 
-respuesta: ["ideación", "preparación", "ejecución", "consumación"]
 tipo: ordenar
+opciones_explicitas: ["ideación", "preparación", "ejecución", "consumación"]
+respuesta_orden: ["ideación", "preparación", "ejecución", "consumación"]
 
 enunciado: "Ordene cronológicamente las etapas del 'iter criminis' (camino del delito) desde la concepción de la idea hasta la culminación del acto."
 
@@ -496,13 +480,13 @@ metadata:
   tags: ["imputabilidad", "responsabilidad"]
 
 variables:
-  datos: [["Un menor de edad con plena capacidad de comprensión", "no es imputable"], ["Un adulto con plena capacidad de comprensión", "es imputable"]]
+  textos: ["Un menor de edad con plena capacidad de comprensión", "Un adulto con plena capacidad de comprensión"]
+  valores: [falso, verdadero]
   idx: uno_de([0, 1])
 
-respuestas_validas: [datos[idx][1]]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "Considerando el caso de {datos[idx][0]}, ¿se le puede atribuir responsabilidad penal bajo el concepto de imputabilidad?"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Considerando el caso de {textos[idx]}, ¿se le puede atribuir responsabilidad penal bajo el concepto de imputabilidad?"
 
 explicacion: |
   La imputabilidad es la capacidad de comprender la ilicitud del hecho. Si el sujeto carece de ella (como en menores según la legislación), no hay responsabilidad penal en el sentido estricto.
@@ -533,12 +517,10 @@ metadata:
   nivel: "basico"
   tags: ["ejecucion", "mandamiento"]
 
-variables:
-  escenario: uno_de([["el demandado no paga", "el mandamiento de ejecución"], ["el demandado no entrega la cosa", "el mandamiento de entrega"]])
-
-respuesta: escenario[0][1
 tipo: mc
 opciones_explicitas: ["el mandamiento de ejecución", "la notificación de la sentencia", "el recurso de apelación", "la demanda inicial"]
+
+respuesta: "el mandamiento de ejecución"
 
 enunciado: "Si la sentencia ordena el pago de una suma de dinero y el demandado no lo hace, el actor debe solicitar el ___ para iniciar la vía de apremio."
 
@@ -555,7 +537,8 @@ metadata:
 
 respuesta: "título ejecutivo"
 tipo: completar
-respuestas_validas: ["título ejecutivo", "sentencia firme", "mandamiento"]
+respuestas_validas:
+  - "título ejecutivo"
 
 enunciado: "Para iniciar la fase de ejecución, es requisito indispensable contar con un ___ que sea exigible y que esté debidamente firme."
 
@@ -570,7 +553,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "etapas"]
 
-respuesta: ["notificación", "mandamiento", "embargo", "remate"]
+respuesta_orden: ["notificación", "mandamiento", "embargo", "remate"]
 tipo: ordenar
 
 opciones_explicitas: ["notificación", "mandamiento", "embargo", "remate"]
@@ -606,15 +589,11 @@ metadata:
   tags: ["procedimiento", "firmeza"]
 
 variables:
-  caso_idx: uno_de([0, 1])
-  escenario: uno_de([
-    ["La sentencia de alimentos fue dictada pero el demandado apeló y la cámara confirmó la resolución.", "firme"],
-    ["El juez dictó sentencia, pero el plazo para interponer recursos venció sin que ninguna parte se presentara.", "firme"]
-  ])
+  escenario: uno_de([["La sentencia de alimentos fue dictada pero el demandado apeló y la cámara confirmó la resolución.", "firme"], ["El juez dictó sentencia, pero el plazo para interponer recursos venció sin que ninguna parte se presentara.", "firme"]])
 
 enunciado: "En el escenario descrito, la sentencia se considera {escenario[1]}."
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: completar
 explicacion: |
   Una sentencia queda firme cuando ya no es susceptible de ser impugnada, ya sea porque se agotaron las instancias o porque los plazos para recurrir han vencido.
@@ -628,10 +607,7 @@ metadata:
   tags: ["mandamiento", "oficial"]
 
 variables:
-  accion_tipo: uno_de([
-    ["el embargo de bienes", "embargo"],
-    ["el desalojo del inmueble", "lanzamiento"]
-  ])
+  accion_tipo: uno_de([["el embargo de bienes", "embargo"], ["el desalojo del inmueble", "lanzamiento"]])
 
 enunciado: "Para hacer cumplir la sentencia que ordena {accion_tipo[0]}, el juez debe librar un mandamiento de {accion_tipo[1]}."
 
@@ -640,9 +616,11 @@ pasos:
   - "El juez libra el mandamiento (orden judicial)."
   - "El oficial de justicia diligencia el mandamiento para cumplir la orden."
 
-respuesta: "embargo"
+respuesta: accion_tipo[1]
 tipo: completar
-respuestas_validas: ["embargo", "lanzamiento"]
+respuestas_validas:
+  - "embargo"
+  - "lanzamiento"
 
 explicacion: |
   El mandamiento es el instrumento que ordena la ejecución forzada. Si es sobre bienes, es de embargo; si es sobre la posesión de un bien, es de lanzamiento o desalojo.
@@ -673,20 +651,11 @@ metadata:
   nivel: "intermedio"
   tags: ["pasos", "procedimiento"]
 
-opciones_explicitas: [
-    "Librar mandamiento de ejecución",
-    "Traba de embargo sobre bienes",
-    "Subasta pública de los bienes",
-    "Entrega del dinero al acreedor"
-]
-
-respuesta: [
-    "Librar mandamiento de ejecución",
-    "Traba de embargo sobre bienes",
-    "Subasta pública de los bienes",
-    "Entrega del dinero al acreedor"
-]
+opciones_explicitas: ["Librar mandamiento de ejecución", "Traba de embargo sobre bienes", "Subasta pública de los bienes", "Entrega del dinero al acreedor"]
+respuesta_orden: ["Librar mandamiento de ejecución", "Traba de embargo sobre bienes", "Subasta pública de los bienes", "Entrega del dinero al acreedor"]
 tipo: ordenar
+
+enunciado: "Ordene cronológicamente los pasos del proceso de ejecución de una sentencia que condena al pago de una suma de dinero:"
 
 explicacion: |
   El proceso de ejecución sigue una lógica de: Orden judicial -> Aseguramiento de bienes -> Venta de bienes -> Pago al acreedor.
@@ -700,16 +669,15 @@ metadata:
   tags: ["defensas", "excepciones"]
 
 variables:
-  defensa: uno_de([
-    ["El deudor alega que ya pagó la deuda antes de la sentencia.", "pago"],
-    ["El deudor alega que la sentencia es nula por falta de notificación.", "nulidad"]
-  ])
+  defensa: uno_de([["El deudor alega que ya pagó la deuda antes de la sentencia.", "pago"], ["El deudor alega que la sentencia es nula por falta de notificación.", "nulidad"]])
 
 enunciado: "Si el deudor presenta una defensa basada en que {defensa[0]}, se está oponiendo mediante una excepción de {defensa[1]}."
 
-respuesta: "pago"
+respuesta: defensa[1]
 tipo: completar
-respuestas_validas: ["pago", "nulidad"]
+respuestas_validas:
+  - "pago"
+  - "nulidad"
 
 explicacion: |
   En la etapa de ejecución, el deudor puede oponer excepciones (defensas) limitadas, como el pago total o parcial, la prescripción o la nulidad del título/procedimiento.
@@ -722,7 +690,7 @@ metadata:
   nivel: "basico"
   tags: ["procedimiento", "cosa_juzgada"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Una sentencia que aún puede ser apelada (es decir, que no ha quedado firme) puede ser objeto de ejecución forzada para el cumplimiento de la obligación principal?"
@@ -741,7 +709,7 @@ metadata:
 variables:
   escenario: uno_de([["El actor debe solicitar la ejecución", "El juez debe actuar de oficio"], ["El demandado debe pedir el cumplimiento", "El secretario debe iniciar el embargo"]])
 
-respuesta: escenario[0
+respuesta: escenario[0]
 tipo: mc
 opciones_explicitas: ["El actor debe solicitar la ejecución", "El juez debe actuar de oficio", "El demandado debe pedir el cumplimiento", "El secretario debe iniciar el embargo"]
 
@@ -760,7 +728,10 @@ metadata:
 
 respuesta: "Título Ejecutivo"
 tipo: completar
-respuestas_validas: ["Título Ejecutivo", "Sentencia Firme", "Mandamiento"]
+respuestas_validas:
+  - "Título Ejecutivo"
+  - "Sentencia Firme"
+  - "Mandamiento"
 
 enunciado: "Para que el oficial de justicia pueda proceder al embargo de bienes del deudor, el acreedor debe presentar ante el juzgado el ___."
 
@@ -775,7 +746,7 @@ metadata:
   nivel: "avanzado"
   tags: ["procedimiento", "secuencia"]
 
-respuesta: ["Sentencia firme", "Mandamiento de ejecución", "Embargo de bienes", "Subasta judicial"]
+respuesta_orden: ["Sentencia firme", "Mandamiento de ejecución", "Embargo de bienes", "Subasta judicial"]
 tipo: ordenar
 opciones_explicitas: ["Sentencia firme", "Mandamiento de ejecución", "Embargo de bienes", "Subasta judicial"]
 
@@ -792,14 +763,11 @@ metadata:
   nivel: "basico"
   tags: ["cumplimiento", "plazos"]
 
-variables:
-  caso: uno_de([["el plazo para el cumplimiento voluntario ha vencido", "el demandado ha apelado la sentencia"]])
-
-respuesta: caso[0
+respuesta: "el plazo para el cumplimiento voluntario ha vencido"
 tipo: mc
 opciones_explicitas: ["el plazo para el cumplimiento voluntario ha vencido", "el demandado ha apelado la sentencia", "la sentencia es nula", "el juez ha dictado una medida cautelar"]
 
-enunciado: "Para que el acreedor pueda instar la ejecución forzada ante el incumplimiento, ¿qué condición debe cumplirse respecto al plazo de cumplimiento voluntario en {caso}?"
+enunciado: "Para que el acreedor pueda instar la ejecución forzada ante el incumplimiento, ¿qué condición debe cumplirse respecto al plazo de cumplimiento voluntario?"
 
 explicacion: |
   La ejecución forzada es la vía subsidiaria que se activa precisamente cuando el plazo otorgado para el cumplimiento espontáneo ha expirado sin que el deudor haya satisfecho la prestación.
@@ -830,12 +798,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["El deudor paga la deuda por su cuenta antes de que se pida el embargo.", "cumplimiento_voluntario"],
-    ["El acreedor debe pedir al juez que intervenga para obligar al pago mediante embargo.", "ejecucion_forzada"]
-  ]
+  escenarios: [["El deudor paga la deuda por su cuenta antes de que se pida el embargo.", "cumplimiento_voluntario"], ["El acreedor debe pedir al juez que intervenga para obligar al pago mediante embargo.", "ejecucion_forzada"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["cumplimiento_voluntario", "ejecucion_forzada"]
 
@@ -854,7 +819,8 @@ metadata:
 
 respuesta: "el juez"
 tipo: completar
-respuestas_validas: ["el juez", "el abogado", "el secretario", "el fiscal"]
+respuestas_validas:
+  - "el juez"
 
 enunciado: "A diferencia de la etapa de conocimiento donde el juez decide el derecho, en la etapa de ejecución, ___ es quien debe dirigir las medidas para asegurar el cumplimiento de lo ordenado."
 
@@ -869,7 +835,7 @@ metadata:
   nivel: "avanzado"
   tags: ["requisitos", "sentencia"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Es necesario que la sentencia sea líquida (que el monto sea determinado) para poder proceder a un embargo preventivo o ejecutivo de inmediato?"
@@ -885,7 +851,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "etapas"]
 
-respuesta: ["Sentencia firme", "Mandamiento de ejecución", "Embargo", "Remate"]
+respuesta_orden: ["Sentencia firme", "Mandamiento de ejecución", "Embargo", "Remate"]
 tipo: ordenar
 opciones_explicitas: ["Sentencia firme", "Mandamiento de ejecución", "Embargo", "Remate"]
 
@@ -924,13 +890,13 @@ metadata:
   tags: ["requisitos", "firmeza"]
 
 variables:
-  datos: [["firme", verdadero], ["apelada", falso]]
+  estados: ["firme", "apelada"]
+  valores: [verdadero, falso]
   idx: uno_de([0,1])
 
-respuestas_validas: [datos[idx][1]]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "Para que una sentencia pueda ser ejecutada forzadamente, debe haber quedado firme, es decir, que no existan recursos pendientes de resolución. Si la sentencia se encuentra {datos[idx][0]}, ¿es posible iniciar la ejecución? ___"
+respuesta: valores[idx]
+tipo: vf
+enunciado: "Para que una sentencia pueda ser ejecutada forzadamente, debe haber quedado firme, es decir, que no existan recursos pendientes de resolución. Si la sentencia se encuentra {estados[idx]}, ¿es posible iniciar la ejecución?"
 
 explicacion: |
   La ejecución de una sentencia requiere la certeza del derecho, la cual se obtiene cuando la sentencia queda firme (cosa juzgada), impidiendo que la parte vencida pueda modificar la decisión mediante recursos ordinarios.
@@ -947,10 +913,10 @@ variables:
   datos: [["Deuda de dinero", "embargo"], ["Restitución de un bien mueble", "secuestro"], ["Obligación de hacer", "apercibimiento"]]
   idx: uno_de([0,1,2])
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
-opciones_validas: ["embargo", "secuestro", "apercibimiento"]
 
 enunciado: "En el proceso de ejecución, si el objeto de la sentencia es el cumplimiento de una obligación de dar sumas de dinero y el deudor no paga voluntariamente, el acreedor puede solicitar un: ___."
 
@@ -965,8 +931,9 @@ metadata:
   nivel: "avanzado"
   tags: ["secuencia", "procedimiento"]
 
-respuesta: ["Sentencia firme", "Mandamiento/Citación de ejecución", "Embargo", "Remate/Subasta"]
 tipo: ordenar
+opciones_explicitas: ["Sentencia firme", "Mandamiento/Citación de ejecución", "Embargo", "Remate/Subasta"]
+respuesta_orden: ["Sentencia firme", "Mandamiento/Citación de ejecución", "Embargo", "Remate/Subasta"]
 
 enunciado: "Ordene cronológicamente las etapas necesarias para el cumplimiento forzado de una obligación de dar dinero:"
 
@@ -981,14 +948,9 @@ metadata:
   nivel: "basico"
   tags: ["autoridad_judicial"]
 
-variables:
-  datos: [["El acreedor actúa por su cuenta", "falso"], ["El juez ordena el cumplimiento", "verdadero"]]
-  idx: uno_de([0,1])
-
-respuestas_validas: [datos[idx][1]]
-respuesta: datos[idx][1]
-tipo: completar
-enunciado: "En la etapa de ejecución, el cumplimiento de la sentencia no es una facultad discrecional del acreedor, sino que requiere la intervención del órgano jurisdiccional para el uso de la fuerza pública si fuera necesario. ¿Es esto correcto? ___"
+respuesta: verdadero
+tipo: vf
+enunciado: "En la etapa de ejecución, el cumplimiento de la sentencia no es una facultad discrecional del acreedor, sino que requiere la intervención del órgano jurisdiccional para el uso de la fuerza pública si fuera necesario. ¿Es esto correcto?"
 
 explicacion: |
   La ejecución es una actividad de imperio. Si el obligado no cumple voluntariamente, el Estado, a través del juez, debe intervenir para asegurar el cumplimiento de la decisión judicial.
@@ -1549,7 +1511,8 @@ metadata:
 
 respuesta: "hecho jurídicamente relevante"
 tipo: completar
-respuestas_validas: ["hecho jurídicamente relevante"]
+respuestas_validas:
+  - "hecho jurídicamente relevante"
 
 enunciado: "Aquel suceso de la naturaleza o del mundo material que, al producirse, tiene la capacidad de producir consecuencias jurídicas se denomina ___."
 
@@ -1564,15 +1527,12 @@ metadata:
   nivel: "basico"
   tags: ["clasificacion", "hechos_juridicos"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  escenarios: [[["un rayo que incendia un bosque", "un accidente de tránsito"], ["un nacimiento", "una muerte"]]]
-
-respuesta: uno_de(["hecho puro", "acto jurídico"])
 tipo: mc
 opciones_explicitas: ["hecho puro", "acto jurídico"]
 
-enunciado: "Analice el siguiente caso: {escenarios[caso_idx][0][0]}. Si este suceso ocurre sin la intervención de la voluntad humana con el fin de producir efectos legales, estamos ante un ___."
+respuesta: "hecho puro"
+
+enunciado: "Analice el siguiente caso: un rayo que incendia un bosque. Si este suceso ocurre sin la intervención de la voluntad humana con el fin de producir efectos legales, estamos ante un ___."
 
 explicacion: |
   El hecho puro es aquel suceso de la naturaleza que no es producto de la voluntad humana, pero que aun así tiene relevancia para el derecho (ej: un desastre natural).
@@ -1601,7 +1561,7 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso", "logica_juridica"]
 
-respuesta: ["suceso fáctico", "subsunción", "consecuencia jurídica"]
+respuesta_orden: ["suceso fáctico", "subsunción", "consecuencia jurídica"]
 tipo: ordenar
 opciones_explicitas: ["suceso fáctico", "subsunción", "consecuencia jurídica"]
 
@@ -1618,13 +1578,10 @@ metadata:
   nivel: "basico"
   tags: ["clasificacion", "voluntad"]
 
-variables:
-  es_voluntario: uno_de([true, falso])
-  tipo_hecho: uno_de(["hecho voluntario", "hecho involuntario"])
-
-respuesta: tipo_hecho[es_voluntario == true ? 0 : 1]
 tipo: mc
 opciones_explicitas: ["hecho voluntario", "hecho involuntario"]
+
+respuesta: "hecho voluntario"
 
 enunciado: "Si un hecho es producido por la voluntad del sujeto, pero este no busca las consecuencias jurídicas, se clasifica como un ___."
 
@@ -1641,7 +1598,8 @@ metadata:
 
 respuesta: "hecho_juridicamente_relevante"
 tipo: completar
-respuestas_validas: ["hecho_juridicamente_relevante"]
+respuestas_validas:
+  - "hecho_juridicamente_relevante"
 
 enunciado: "Un evento de la naturaleza o de la conducta humana que produce efectos en el ordenamiento jurídico se denomina ___."
 
@@ -1658,13 +1616,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [[["un rayo que destruye una casa asegurada", "hecho de la naturaleza"], ["un contrato de compraventa firmado", "acto jurídico"]]]
+  escenarios: [["un rayo que destruye una casa asegurada", "hecho de la naturaleza"], ["un contrato de compraventa firmado", "acto jurídico"]]
 
-respuesta: escenarios[escenario_idx][0
+respuesta: escenarios[escenario_idx][0]
 tipo: mc
 opciones_explicitas: ["un rayo que destruye una casa asegurada", "un contrato de compraventa firmado"]
 
-enunciado: "Identifique el ejemplo que corresponde al escenario: {escenarios[escenario_idx][0]}."
+enunciado: "Identifique el ejemplo que corresponde a la categoría de: {escenarios[escenario_idx][1]}."
 
 explicacion: |
   En el primer caso, el evento es un hecho de la naturaleza (caso fortuito) que activa una cláusula de seguro. En el segundo, es un acto jurídico porque hay voluntad dirigida a crear efectos legales.
@@ -1693,7 +1651,7 @@ metadata:
   nivel: "avanzado"
   tags: ["metodologia", "subsuncion"]
 
-respuesta: ["1. Observación del hecho", "2. Calificación jurídica", "3. Aplicación de la consecuencia"]
+respuesta_orden: ["1. Observación del hecho", "2. Calificación jurídica", "3. Aplicación de la consecuencia"]
 tipo: ordenar
 opciones_explicitas: ["1. Observación del hecho", "2. Calificación jurídica", "3. Aplicación de la consecuencia"]
 
@@ -1712,16 +1670,14 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [
-    [0, "Juan camina por la calle y ve una nube negra (No relevante)", "Juan choca su auto contra un muro por negligencia (Relevante)"],
-    [1, "Juan camina por la calle y ve una nube negra (No relevante)", "Juan firma un testamento (Relevante)"]
-  ]
+  irrelevante: "Juan camina por la calle y ve una nube negra"
+  relevantes: ["Juan choca su auto contra un muro por negligencia", "Juan firma un testamento"]
 
-respuesta: casos[caso_idx][1
+respuesta: relevantes[caso_idx]
 tipo: mc
-opciones_explicitas: ["Juan camina por la calle y ve una nube negra (No relevante)", "Juan choca su auto contra un muro por negligencia (Relevante)"]
+opciones_explicitas: [irrelevante, relevantes[caso_idx]]
 
-enunciado: "Analice el caso seleccionado: {casos[caso_idx][1]}. ¿Cuál de los dos eventos descritos en la variable de contexto es el que posee relevancia jurídica?"
+enunciado: "Analice los dos eventos: (1) {irrelevante}. (2) {relevantes[caso_idx]}. ¿Cuál de los dos posee relevancia jurídica?"
 
 explicacion: |
   El primer evento es un hecho simple/natural sin consecuencias legales inmediatas. El segundo es un hecho/acto que genera responsabilidad civil (consecuencia jurídica).
@@ -1736,6 +1692,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Un accidente de tránsito sin culpa", "El nacimiento de una persona", "El paso de una nube por el cielo", "El deseo de comprar un auto"]
+
+respuesta: "El nacimiento de una persona"
 
 enunciado: "Un hecho es jurídicamente relevante cuando su ocurrencia produce una transformación en el ordenamiento jurídico (crea, modifica o extingue derechos). ¿Cuál de los siguientes es un ejemplo de hecho jurídico relevante?"
 
@@ -1768,14 +1726,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-
-datos:
-  - ["La muerte de una persona", "La extinción de la personalidad jurídica y de los derechos patrimoniales"]
-  - ["El cumplimiento de la mayoría de edad", "El adquiremiento de la capacidad de ejercicio"]
+  datos: [["La muerte de una persona", "La extinción de la personalidad jurídica y de los derechos patrimoniales"], ["El cumplimiento de la mayoría de edad", "El adquiremiento de la capacidad de ejercicio"]]
 
 tipo: completar
-respuestas_validas: [datos[escenario_idx][1]]
-respuesta: datos[escenario_idx][1
+respuestas_validas:
+  - "La extinción de la personalidad jurídica y de los derechos patrimoniales"
+  - "El adquiremiento de la capacidad de ejercicio"
+respuesta: datos[escenario_idx][1]
 
 enunciado: "Si ocurre {datos[escenario_idx][0]}, la consecuencia jurídica es ___."
 
@@ -1797,6 +1754,8 @@ metadata:
 tipo: mc
 opciones_explicitas: ["El hecho es involuntario, el acto es una manifestación de voluntad destinada a producir efectos", "El hecho es siempre legal, el acto es siempre ilegal", "No hay diferencia, son sinónimos en derecho", "El acto es un hecho de la naturaleza y el hecho es un contrato"]
 
+respuesta: "El hecho es involuntario, el acto es una manifestación de voluntad destinada a producir efectos"
+
 enunciado: "¿Cuál es la distinción fundamental entre un hecho jurídico y un acto jurídico?"
 
 explicacion: |
@@ -1812,7 +1771,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Ocurrencia de un suceso (hecho)", "Previsión de la norma (hipótesis)", "Producción de consecuencias jurídicas"]
-respuesta: ["Ocurrencia de un suceso (hecho)", "Previsión de la norma (hipótesis)", "Producción de consecuencias jurídicas"]
+respuesta_orden: ["Ocurrencia de un suceso (hecho)", "Previsión de la norma (hipótesis)", "Producción de consecuencias jurídicas"]
 
 enunciado: "Ordene cronológicamente los elementos necesarios para que un suceso se transforme en un hecho con relevancia jurídica:"
 
@@ -1829,7 +1788,8 @@ metadata:
 
 respuesta: "acto jurídico"
 tipo: completar
-respuestas_validas: ["acto jurídico"]
+respuestas_validas:
+  - "acto jurídico"
 
 enunciado: "Mientras que un hecho jurídico es un evento que produce consecuencias legales sin que medie la voluntad de las partes para producir dichas consecuencias, el ___ es aquel donde la voluntad está dirigida específicamente a crear, modificar o extinguir derechos."
 
@@ -1852,7 +1812,7 @@ respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["es", "no es"]
 
-enunciado: "Analice el siguiente escenario: {datos[idx][0]} ¿Este evento es un hecho jurídicamente relevante? ___"
+enunciado: "Analice el siguiente escenario: {datos[idx][0]} ¿Este evento es un hecho jurídicamente relevante?"
 
 explicacion: |
   En el primer caso, el rayo (hecho natural) activa una consecuencia legal (el contrato de seguro). En el segundo, el atardecer es un hecho de la naturaleza pero no altera ninguna relación jurídica ni crea derechos u obligaciones.
@@ -1865,7 +1825,7 @@ metadata:
   nivel: "intermedio"
   tags: ["clasificacion", "hechos_naturales"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Es correcto afirmar que todos los hechos de la naturaleza (como un terremoto) son hechos jurídicamente relevantes por el solo hecho de ocurrir?"
@@ -1881,7 +1841,7 @@ metadata:
   nivel: "intermedio"
   tags: ["elementos", "causalidad"]
 
-respuesta: ["Presencia de un hecho", "Norma jurídica", "Consecuencia legal"]
+respuesta_orden: ["Presencia de un hecho", "Norma jurídica", "Consecuencia legal"]
 tipo: ordenar
 
 opciones_explicitas: ["Presencia de un hecho", "Norma jurídica", "Consecuencia legal"]
@@ -1920,7 +1880,7 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [["El nacimiento de un niño", "persona"], ["El nacimiento de un feto no viable", "no persona"]]
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["persona", "no persona", "objeto", "sujeto pasivo"]
 
@@ -1941,9 +1901,10 @@ variables:
   caso_idx: uno_de([0, 1])
   casos: [["Juan choca su auto por descuido y rompe un muro", "responsabilidad"], ["Juan camina por la vereda y ve una nube", "no relevante"]]
 
-respuesta: casos[caso_idx][1
-tipo: completar
-enunciado: "Analice el siguiente caso: {casos[caso_idx][0]}. ¿Es este un hecho jurídicamente relevante para el derecho de daños? (Responda verdadero o falso)"
+respuesta: casos[caso_idx][1]
+tipo: mc
+opciones_explicitas: ["responsabilidad", "no relevante"]
+enunciado: "Analice el siguiente caso: {casos[caso_idx][0]}. ¿Cuál es la calificación jurídica de este evento para el derecho de daños?"
 
 explicacion: |
   El segundo caso es un hecho natural sin consecuencias legales, mientras que el primero es un hecho humano que activa la responsabilidad civil.
@@ -1958,7 +1919,10 @@ metadata:
 
 respuesta: "norma"
 tipo: completar
-respuestas_validas: ["norma", "ley", "sentencia", "decreto"]
+respuestas_validas:
+  - "norma"
+  - "ley"
+  - "decreto"
 
 enunciado: "Para que un hecho sea jurídicamente relevante, debe existir una ___ que le asigne una consecuencia jurídica específica."
 
@@ -1974,12 +1938,11 @@ metadata:
   tags: ["contrato", "hecho_juridico"]
 
 variables:
-  orden_idx: 0
   pasos_correctos: ["Acuerdo de voluntades", "Nacimiento de la obligación", "Cumplimiento o incumplimiento"]
 
-respuesta: pasos_correctos
+respuesta_orden: pasos_correctos
 tipo: ordenar
-opciones_explicitas: ["Acuerdo de voluntades", "Nacimiento de la obligación", "Cumplimiento o incumplimiento", "Firma de un papel"]
+opciones_explicitas: ["Acuerdo de voluntades", "Nacimiento de la obligación", "Cumplimiento o incumplimiento"]
 
 enunciado: "Ordene cronológicamente los hechos que convierten un simple acuerdo de voluntades en una relación jurídica contractual:"
 
@@ -1998,7 +1961,7 @@ variables:
   ejemplo_idx: uno_de([0, 1])
   ejemplos: [["Un rayo que destruye una casa", "hecho natural"], ["Un testamento", "acto jurídico"]]
 
-respuesta: ejemplos[ejemplo_idx][1
+respuesta: ejemplos[ejemplo_idx][1]
 tipo: mc
 opciones_explicitas: ["hecho natural", "acto jurídico", "acto administrativo", "hecho social"]
 
@@ -2019,7 +1982,9 @@ metadata:
 
 respuesta: "desentrañar el sentido y el alcance de la norma"
 tipo: completar
-respuestas_validas: ["desentrañar el sentido y el alcance de la norma", "determinar el sentido y el alcance de la norma"]
+respuestas_validas:
+  - "desentrañar el sentido y el alcance de la norma"
+  - "determinar el sentido y el alcance de la norma"
 
 enunciado: "La interpretación normativa es la actividad intelectual consistente en ___ para aplicarla a un caso concreto."
 
@@ -2034,14 +1999,11 @@ metadata:
   nivel: "basico"
   tags: ["elementos", "metodologia"]
 
-variables:
-  tipo_interpretacion: uno_de(["gramatical", "teleologica", "sistemática"])
-
-respuesta: tipo_interpretacion
+respuesta: "gramatical"
 tipo: mc
 opciones_explicitas: ["gramatical", "teleologica", "sistemática"]
 
-enunciado: "Cuando un juez busca el sentido de la norma basándose exclusivamente en el significado de las palabras utilizadas en el texto, está realizando una interpretación de tipo {tipo_interpretacion}."
+enunciado: "Cuando un juez busca el sentido de la norma basándose exclusivamente en el significado de las palabras utilizadas en el texto, ¿qué tipo de interpretación está realizando?"
 
 explicacion: |
   La interpretación gramatical o literal se centra en el tenor semántico de las palabras del texto normativo.
@@ -2071,7 +2033,7 @@ metadata:
   tags: ["metodos", "orden"]
 
 opciones_explicitas: ["Análisis del texto", "Identificación del problema", "Aplicación al caso concreto"]
-respuesta: ["Análisis del texto", "Identificación del problema", "Aplicación al caso concreto"]
+respuesta_orden: ["Análisis del texto", "Identificación del problema", "Aplicación al caso concreto"]
 tipo: ordenar
 
 enunciado: "Ordene lógicamente los pasos que sigue un aplicador del derecho al realizar un proceso de interpretación y aplicación normativa:"
@@ -2087,14 +2049,11 @@ metadata:
   nivel: "avanzado"
   tags: ["teleologica", "finalidad"]
 
-variables:
-  escenario: uno_de(["finalidad_legislador", "finalidad_social"])
-
-respuesta: escenario
+respuesta: "teleológica"
 tipo: mc
-opciones_explicitas: ["finalidad_legislador", "finalidad_social"]
+opciones_explicitas: ["gramatical", "teleológica", "sistemática", "histórica"]
 
-enunciado: "Si un intérprete busca el sentido de la norma atendiendo a los fines o propósitos para los cuales fue creada (el 'espíritu' de la ley), está realizando una interpretación de {escenario}."
+enunciado: "Si un intérprete busca el sentido de la norma atendiendo a los fines o propósitos para los cuales fue creada (el 'espíritu' de la ley), ¿qué tipo de interpretación está realizando?"
 
 explicacion: |
   La interpretación teleológica se centra en la finalidad (telos) de la norma, ya sea la intención original del legislador o la finalidad social/actual de la norma en la comunidad.
@@ -2109,7 +2068,10 @@ metadata:
 
 respuesta: "gramatical"
 tipo: completar
-respuestas_validas: ["gramatical", "teleologica", "sistemática"]
+respuestas_validas:
+  - "gramatical"
+  - "teleologica"
+  - "sistemática"
 
 enunciado: "Cuando un juez se limita a analizar el significado literal de las palabras utilizadas en un precepto legal para determinar su alcance, está aplicando un método de interpretación de tipo ___."
 
@@ -2124,13 +2086,14 @@ metadata:
   nivel: "intermedio"
   tags: ["finalidad", "ratio_legis"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  escenarios: [[["El fin de la norma es proteger la vida", "falso"], ["El fin de la norma es la sanción", "falso"]], [["La norma busca la equidad", "verdadero"], ["La norma busca el castigo"], ["La norma busca la paz", "verdadero"]]]
-
-respuesta: escenarios[caso_idx][0][1
+respuesta: "finalidad"
 tipo: completar
-enunciado: "En el escenario seleccionado, la interpretación teleológica busca determinar el significado de la norma basándose en su ___."
+respuestas_validas:
+  - "finalidad"
+  - "fin"
+  - "propósito"
+
+enunciado: "La interpretación teleológica busca determinar el significado de la norma basándose en su ___ (el 'espíritu' de la ley)."
 
 explicacion: |
   La interpretación teleológica (o finalista) busca el 'espíritu' de la ley, es decir, el fin o la finalidad (ratio legis) para la cual fue creada la norma.
@@ -2160,7 +2123,7 @@ metadata:
   nivel: "avanzado"
   tags: ["procedimiento", "subsunción"]
 
-respuesta: ["Subsunción", "Interpretación", "Fijación del hecho"]
+respuesta_orden: ["Subsunción", "Interpretación", "Fijación del hecho"]
 tipo: ordenar
 opciones_explicitas: ["Subsunción", "Interpretación", "Fijación del hecho"]
 
@@ -2228,14 +2191,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["existe una laguna legal", "analogía"],
-    ["la norma es ambigua", "interpretación sistemática"]
-  ]
+  datos: [["existe una laguna legal", "analogía"], ["la norma es ambigua", "interpretación sistemática"]]
 
-respuesta: "datos[escenario_idx][1]"
+respuesta: datos[escenario_idx][1]
 tipo: "completar"
-respuestas_validas: ["analogía", "interpretación sistemática"]
+respuestas_validas:
+  - "analogía"
+  - "interpretación sistemática"
 
 enunciado: "Si al aplicar una norma a un caso concreto se detecta que no hay una disposición aplicable para ese supuesto (laguna), el juez debe recurrir a la _________ para resolver."
 
@@ -2250,7 +2212,7 @@ metadata:
   nivel: "intermedio"
   tags: ["metodologia"]
 
-respuesta: ["gramatical", "lógica", "sistemática", "histórica"]
+respuesta_orden: ["gramatical", "lógica", "sistemática", "histórica"]
 tipo: "ordenar"
 opciones_explicitas: ["gramatical", "lógica", "sistemática", "histórica"]
 
@@ -2267,7 +2229,7 @@ metadata:
   nivel: "intermedio"
   tags: ["coherencia", "sistema_juridico"]
 
-respuesta: "falso"
+respuesta: falso
 tipo: "vf"
 
 enunciado: "¿La interpretación sistemática sostiene que una norma debe entenderse de forma aislada, sin considerar su relación con otras normas del mismo ordenamiento?"
@@ -2285,7 +2247,9 @@ metadata:
 
 respuesta: "integración"
 tipo: completar
-respuestas_validas: ["integración", "integracion"]
+respuestas_validas:
+  - "integración"
+  - "integracion"
 
 enunciado: "Mientras que la interpretación normativa busca determinar el sentido y alcance de una norma existente, la ___ se utiliza cuando existen lagunas legales para llenar los vacíos del ordenamiento."
 
@@ -2300,15 +2264,12 @@ metadata:
   nivel: "basico"
   tags: ["metodos", "hermeneutica"]
 
-variables:
-  caso_idx: uno_de([0,1])
-  escenarios: [["gramatical", "literal"], ["teleologica", "finalidad"]]
-
-respuesta: uno_de(escenarios[caso_idx])
 tipo: mc
 opciones_explicitas: ["gramatical", "teleologica", "sistemática", "histórica"]
 
-enunciado: "Si un juez decide interpretar una norma centrándose exclusivamente en el significado de las palabras utilizadas en el texto legal, está aplicando un método de tipo {escenarios[caso_idx]}."
+respuesta: "gramatical"
+
+enunciado: "Si un juez decide interpretar una norma centrándose exclusivamente en el significado de las palabras utilizadas en el texto legal, está aplicando un método de tipo ___."
 
 explicacion: |
   El método gramatical o literal se limita al análisis semántico de las palabras del texto.
@@ -2340,7 +2301,9 @@ metadata:
 
 respuesta: "sistemática"
 tipo: completar
-respuestas_validas: ["sistemática", "sistematica"]
+respuestas_validas:
+  - "sistemática"
+  - "sistematica"
 
 enunciado: "Cuando la interpretación no se limita a la norma aislada, sino que busca su sentido analizando su relación con el resto del ordenamiento jurídico, se está utilizando una interpretación ___."
 
@@ -2355,7 +2318,7 @@ metadata:
   nivel: "avanzado"
   tags: ["jerarquia", "criterios"]
 
-respuesta: ["Constitución", "Ley", "Reglamento", "Sentencia"]
+respuesta_orden: ["Constitución", "Ley", "Reglamento", "Sentencia"]
 tipo: ordenar
 
 opciones_explicitas: ["Constitución", "Ley", "Reglamento", "Sentencia"]
@@ -2383,7 +2346,7 @@ respuesta: tipo_norma
 tipo: mc
 opciones_explicitas: ["prohibición", "regulación", "exención", "derogación"]
 
-enunciado: "Ante el escenario de {escenario}, el intérprete debe determinar si el alcance de la norma es de {tipo_norma}."
+enunciado: "Ante el escenario de {escenario}, ¿de qué tipo es el alcance de la norma que el intérprete debe determinar?"
 
 explicacion: |
   La interpretación normativa busca determinar el sentido de la norma (su contenido) y su alcance (su aplicación) frente a un hecho concreto.
@@ -2413,14 +2376,10 @@ metadata:
   nivel: "avanzado"
   tags: ["teleologica", "finalidad"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["la norma busca proteger la vida", "finalidad"], ["la norma busca proteger el patrimonio", "finalidad"]]
-  objetivo: casos[caso_idx][0]
-
 respuesta: "finalidad"
 tipo: completar
-respuestas_validas: ["finalidad"]
+respuestas_validas:
+  - "finalidad"
 
 enunciado: "Si el intérprete se enfoca en el ___ de la norma (el 'porqué' o el espíritu de la ley) para resolver una laguna, está realizando una interpretación teleológica."
 
@@ -2451,7 +2410,7 @@ metadata:
   nivel: "intermedio"
   tags: ["metodologia", "proceso"]
 
-respuesta: ["Subsunción del hecho", "Interpretación de la norma", "Determinación del sentido", "Resolución del caso"]
+respuesta_orden: ["Subsunción del hecho", "Interpretación de la norma", "Determinación del sentido", "Resolución del caso"]
 tipo: ordenar
 opciones_explicitas: ["Subsunción del hecho", "Interpretación de la norma", "Determinación del sentido", "Resolución del caso"]
 
@@ -2460,3 +2419,4 @@ enunciado: "Ordene los pasos lógicos que sigue un aplicador del derecho para re
 explicacion: |
   El proceso requiere primero entender el significado de la norma (interpretación), luego determinar su alcance, aplicar ese sentido al hecho (subsunción) y finalmente dictar la resolución.
 ```
+

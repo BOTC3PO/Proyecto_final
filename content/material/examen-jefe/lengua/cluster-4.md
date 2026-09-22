@@ -1,765 +1,690 @@
-# Examen jefe — Maestro del Debate y la Escritura
+# Examen jefe — [PENDIENTE #654]
 
-> Logro #87. Completaste el examen jefe de correos formales, CVs, debate y detección de falacias. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **100 preguntas totales** en 5/5 secciones.
+> Logro #654. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: correo-formal (20 preguntas)
+## Sección: generos-periodisticos (28 preguntas)
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "correo_formal"
+  materia: "Lengua"
+  tema: "generos_periodisticos"
   nivel: "basico"
-  tags: ["correo_formal", "definicion"]
+  tags: ["definicion", "concepto_basico"]
 
 variables:
-  n: uno_de([1, 1])
+  definicion_correcta: "convenciones sociales que organizan la comunicación en medios"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un correo formal es la comunicación escrita estándar en contextos laborales, académicos o institucionales, con un registro profesional."
-
-pasos:
-  - "Se usa incluso cuando existe cierta confianza, si el contexto espera profesionalismo."
-
-explicacion: |
-  Verdadero: es la definición central de correo formal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "correo_formal"
-  nivel: "basico"
-  tags: ["estructura", "asunto"]
-
-variables:
-  asuntos: ["Consulta sobre entrega de proyecto", "Hola"]
-  tipos: ["asunto claro", "asunto vago"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["asunto claro", "asunto vago"]
-
-enunciado: "El asunto \"{asuntos[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "Un buen asunto resume en pocas palabras el motivo del correo."
-
-explicacion: |
-  El asunto debe permitir entender de qué trata el correo antes de
-  abrirlo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "correo_formal"
-  nivel: "basico"
-  tags: ["estructura", "saludo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Estimado/a"
+respuesta: "convenciones sociales que organizan la comunicación en medios"
 tipo: completar
 
-enunciado: "El saludo formal más recomendado para abrir un correo formal, seguido del nombre o apellido, es..."
-
-pasos:
-  - "Es el saludo estándar recomendado en la teoría."
+enunciado: "Los géneros periodísticos se definen como {definicion_correcta} que permiten distinguir entre informar un hecho o interpretarlo."
 
 explicacion: |
-  \"Estimado/a\" es el saludo formal más habitual para este tipo de
-  correo.
+  Los géneros periodísticos son convenciones sociales que estructuran la comunicación en los medios, diferenciando la objetividad de la subjetividad.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "correo_formal"
-  nivel: "intermedio"
-  tags: ["estructura", "cuerpo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El cuerpo de un correo formal va directo al motivo del correo desde el principio, organizado en párrafos cortos, sin rodeos innecesarios."
-
-pasos:
-  - "Es la estructura recomendada para el cuerpo del correo."
-
-explicacion: |
-  Verdadero: la claridad y concisión son centrales en el cuerpo del
-  correo formal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "correo_formal"
-  nivel: "intermedio"
-  tags: ["estructura", "cierre"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El cierre de un correo formal incluye una frase de cierre cortés, una despedida formal (\"Saludos cordiales\", \"Atentamente\") y una firma con nombre completo."
-
-pasos:
-  - "Es la estructura de cierre descrita en la teoría."
-
-explicacion: |
-  Verdadero: es la estructura estándar de cierre para un correo
-  formal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "correo_formal"
-  nivel: "intermedio"
-  tags: ["tono"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El registro formal no significa ser vago o dar muchas vueltas antes de decir lo que se necesita, sino usar un vocabulario respetuoso yendo al punto de forma clara y concisa."
-
-pasos:
-  - "Es el principio de tono central del correo formal."
-
-explicacion: |
-  Verdadero: formalidad y claridad directa no son incompatibles.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "correo_formal"
+  materia: "Lengua"
+  tema: "generos_periodisticos"
   nivel: "basico"
-  tags: ["tono", "abreviaturas"]
+  tags: ["noticia", "objetivo"]
 
 variables:
-  n: uno_de([1, 1])
+  objetivo: "informar un hecho de interés público con inmediatez"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "informar un hecho de interés público con inmediatez"
+tipo: completar
 
-enunciado: "En un correo formal se evitan las abreviaturas de chat (\"xq\", \"tmb\") y los emojis."
-
-pasos:
-  - "Son marcas de registro informal que no corresponden al contexto formal."
+enunciado: "El objetivo principal de la noticia es {objetivo}."
 
 explicacion: |
-  Verdadero: es una regla básica de tono para este tipo de
-  comunicación.
+  La noticia busca dar a conocer hechos de interés público de manera rápida y objetiva, priorizando la inmediatez.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "correo_formal"
+  materia: "Lengua"
+  tema: "generos_periodisticos"
   nivel: "intermedio"
-  tags: ["claridad"]
+  tags: ["estructura", "noticia"]
 
 variables:
-  n: uno_de([1, 1])
+  estructura: "la información más importante aparece al principio"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "la información más importante aparece al principio"
+tipo: completar
 
-enunciado: "Si un correo formal pide algo, conviene que quede explícito y fácil de identificar qué se está pidiendo (una fecha, una confirmación, un documento)."
-
-pasos:
-  - "Un correo ambiguo obliga a la otra persona a adivinar o preguntar de vuelta, perdiendo tiempo de ambos lados."
+enunciado: "En la estructura de pirámide invertida, {estructura}."
 
 explicacion: |
-  Verdadero: la claridad del pedido es central para que el correo
-  cumpla su función eficazmente.
+  La pirámide invertida coloca los datos esenciales (qué, quién, cuándo, dónde, cómo, por qué) al inicio, disminuyendo la relevancia hacia el final.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "correo_formal"
+  materia: "Lengua"
+  tema: "generos_periodisticos"
   nivel: "intermedio"
-  tags: ["errores_comunes", "asunto"]
+  tags: ["tono", "objetividad"]
 
 variables:
-  n: uno_de([1, 1])
+  tono: "formal, preciso y neutral"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "formal, preciso y neutral"
+tipo: completar
 
-enunciado: "Dejar el asunto vacío o vago dificulta que el destinatario entienda de qué se trata el correo antes de abrirlo."
-
-pasos:
-  - "Es uno de los errores comunes descritos en la teoría."
+enunciado: "El lenguaje de la noticia busca un tono {tono} para mantener la objetividad."
 
 explicacion: |
-  Verdadero: el asunto vacío o vago es un error frecuente que
-  dificulta la comunicación efectiva.
+  La objetividad en la noticia se logra mediante un lenguaje formal, preciso y neutral, evitando la subjetividad del periodista.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "correo_formal"
+  materia: "Lengua"
+  tema: "generos_periodisticos"
   nivel: "intermedio"
-  tags: ["errores_comunes", "tono"]
+  tags: ["veracidad", "valor"]
 
 variables:
-  n: uno_de([1, 1])
+  valor: "la veracidad es el valor supremo"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "la veracidad es el valor supremo"
+tipo: completar
 
-enunciado: "Usar un tono demasiado informal para el contexto (abreviaturas, emojis, tuteo inapropiado según la relación) es un error común en correos formales."
-
-pasos:
-  - "Es otro de los errores comunes descritos en la teoría."
+enunciado: "En el periodismo informativo, {valor}."
 
 explicacion: |
-  Verdadero: el desajuste de registro es un error frecuente en este
-  tipo de correo.
+  La veracidad es fundamental en la noticia; cada dato debe ser verificable para garantizar la confianza del lector.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "correo_formal"
+  materia: "Lengua"
+  tema: "generos_periodisticos"
   nivel: "intermedio"
-  tags: ["errores_comunes", "ortografia_y_tildacion"]
+  tags: ["cronica", "interpretacion"]
 
 variables:
-  n: uno_de([1, 1])
+  naturaleza: "narrar un hecho con profundidad e interpretación"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "narrar un hecho con profundidad e interpretación"
+tipo: completar
 
-enunciado: "Los errores de ortografía y puntuación son igual de relevantes en un correo formal que en un CV, con impacto directo en la impresión profesional que se genera."
-
-pasos:
-  - "Ver `../ortografia-y-tildacion/` y `../signos-de-puntuacion/`: aplican del mismo modo acá que en `../cv/`."
+enunciado: "La crónica se caracteriza por {naturaleza}."
 
 explicacion: |
-  Verdadero: la corrección formal tiene el mismo peso en este género
-  que en el CV.
+  A diferencia de la noticia, la crónica se toma el tiempo para narrar, describir y analizar un hecho, permitiendo la interpretación.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "correo_formal"
-  nivel: "intermedio"
-  tags: ["errores_comunes", "extension"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un correo demasiado largo, sin ir al punto, obliga al lector a buscar la información clave en medio de párrafos innecesarios."
-
-pasos:
-  - "Es otro de los errores comunes descritos en la teoría."
-
-explicacion: |
-  Verdadero: la extensión excesiva sin ir al punto dificulta que el
-  destinatario entienda rápido el mensaje central.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "correo_formal"
-  nivel: "intermedio"
-  tags: ["saludo", "practica"]
-
-variables:
-  saludos: ["Estimado Sr. González", "Qué tal!"]
-  tipos: ["formal", "informal"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["formal", "informal"]
-
-enunciado: "El saludo \"{saludos[idx]}\" es de registro..."
-
-pasos:
-  - "\"Estimado\" es la fórmula formal estándar; \"qué tal\" es demasiado informal para este contexto."
-
-explicacion: |
-  El registro del saludo debe ajustarse al contexto formal esperado
-  en este tipo de correo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "correo_formal"
+  materia: "Lengua"
+  tema: "generos_periodisticos"
   nivel: "avanzado"
-  tags: ["prerrequisito"]
+  tags: ["recursos", "cronica"]
 
 variables:
-  n: uno_de([1, 1])
+  recursos: "metáforas, diálogos directos y descripciones detalladas"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "metáforas, diálogos directos y descripciones detalladas"
+tipo: completar
 
-enunciado: "El correo formal reutiliza las herramientas de producción escrita compleja (estructura, claridad, corrección formal) aplicadas a este género concreto y de alta frecuencia de uso."
-
-pasos:
-  - "Ver `../produccion-escrita-compleja/`: es el prerrequisito directo de este tema."
+enunciado: "La crónica utiliza recursos como {recursos} para hacer 'vivir' el evento al lector."
 
 explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito.
+  La crónica emplea recursos literarios para crear una experiencia sensorial y emocional, acercando al lector al hecho narrado.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "correo_formal"
+  materia: "Lengua"
+  tema: "generos_periodisticos"
   nivel: "avanzado"
-  tags: ["contexto"]
+  tags: ["clasificacion", "linguistica"]
 
 variables:
-  n: uno_de([1, 1])
+  clasificacion: "secundarios"
 
-respuesta: verdadero
-tipo: vf
+respuesta: "secundarios"
+tipo: completar
 
-enunciado: "Un correo formal se puede necesitar incluso cuando existe cierta confianza personal con el destinatario, si el contexto (una consulta laboral oficial, por ejemplo) espera un registro profesional."
-
-pasos:
-  - "El registro formal depende del contexto, no sólo del nivel de confianza personal."
+enunciado: "Desde la lingüística, los géneros periodísticos se consideran géneros {clasificacion}."
 
 explicacion: |
-  Verdadero: es un matiz importante sobre cuándo corresponde usar
-  registro formal más allá de la relación personal.
+  Son géneros secundarios porque surgen en contextos sociales complejos y requieren un aprendizaje formal, a diferencia de la conversación cotidiana (primaria).
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "correo_formal"
+  materia: "Lengua"
+  tema: "generos_periodisticos"
   nivel: "intermedio"
-  tags: ["asunto", "practica"]
+  tags: ["comparacion", "enfoque"]
 
 variables:
-  n: uno_de([1, 1])
+  enfoque_noticia: "el hecho en sí mismo"
+  enfoque_cronica: "la experiencia del hecho"
 
-respuesta: "Consulta sobre fecha límite de entrega del informe"
-tipo: mc
-opciones_explicitas: ["Consulta sobre fecha límite de entrega del informe", "Pregunta", "Hola, necesito algo"]
+respuesta: "el hecho en sí mismo"
+tipo: completar
 
-enunciado: "¿Cuál de estos asuntos comunica mejor el motivo de un correo sobre la fecha de entrega de un informe?"
-
-pasos:
-  - "El asunto debe resumir en pocas palabras claras el motivo específico del correo."
+enunciado: "Mientras la crónica se centra en la experiencia, la noticia se centra en {enfoque_noticia}."
 
 explicacion: |
-  Un asunto claro y específico permite al destinatario entender el
-  motivo antes de abrir el correo.
+  La noticia prioriza la transmisión del hecho objetivo, mientras la crónica prioriza la vivencia y la interpretación subjetiva.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "correo_formal"
-  nivel: "avanzado"
-  tags: ["claridad", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "¿Podría confirmarme si la entrega es el viernes 15 o el lunes 18?"
-tipo: mc
-opciones_explicitas: ["¿Podría confirmarme si la entrega es el viernes 15 o el lunes 18?", "Necesito saber lo de la entrega, cuando pueda"]
-
-enunciado: "¿Cuál de estas dos formas de pedir información en un correo formal es más clara y fácil de responder?"
-
-pasos:
-  - "Especificar exactamente qué se necesita saber (las dos fechas posibles) facilita una respuesta rápida y precisa."
-
-explicacion: |
-  Un pedido específico y explícito es más fácil de responder que uno
-  vago, ahorrando tiempo a ambas partes.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "correo_formal"
-  nivel: "intermedio"
-  tags: ["correo_formal", "metodo"]
-
-enunciado: "Ordená los pasos para redactar un correo formal."
-tipo: ordenar
-opciones_explicitas:
-  - "Escribir un asunto claro que resuma el motivo del correo"
-  - "Abrir con un saludo formal apropiado al destinatario"
-  - "Desarrollar el cuerpo yendo directo al motivo, con el pedido o información explícita"
-  - "Cerrar con una frase cortés, despedida formal y firma completa"
-respuesta_orden:
-  - "Escribir un asunto claro que resuma el motivo del correo"
-  - "Abrir con un saludo formal apropiado al destinatario"
-  - "Desarrollar el cuerpo yendo directo al motivo, con el pedido o información explícita"
-  - "Cerrar con una frase cortés, despedida formal y firma completa"
-
-explicacion: |
-  El proceso sigue la estructura de cuatro partes descrita en la
-  teoría: asunto, saludo, cuerpo y cierre.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "correo_formal"
-  nivel: "avanzado"
-  tags: ["correo_formal", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El correo formal es el segundo de los tres géneros de escritura profesional de esta subrama, junto a CV e informe técnico."
-
-pasos:
-  - "Ver `../cv/` y `../informe-tecnico/`: los tres nodos hermanos dependen de `../produccion-escrita-compleja/`."
-
-explicacion: |
-  Verdadero: es la relación entre este tema y los otros dos de la
-  subrama de escritura profesional.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "correo_formal"
-  nivel: "avanzado"
-  tags: ["correo_formal", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Antes de enviar un correo formal importante, conviene revisar que el asunto sea claro, el pedido esté explícito, y no haya errores de ortografía ni de tono."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema en la vida
-  laboral o académica cotidiana.
-```
-
-## Sección: cv (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
+  materia: "Lengua"
+  tema: "generos_periodisticos"
   nivel: "basico"
-  tags: ["cv", "definicion"]
+  tags: ["estructura", "verdadero_falso"]
 
 variables:
-  n: uno_de([1, 1])
+  afirmacion: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la pirámide invertida, los detalles menos importantes aparecen al principio."
+
+explicacion: |
+  Falso. En la pirámide invertida, la información más importante va al principio y los detalles menos relevantes al final.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "intermedio"
+  tags: ["cronica", "verdadero_falso"]
+
+variables:
+  afirmacion: "verdadero"
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un CV es un documento breve que resume la formación, experiencia y habilidades de una persona, pensado para que un empleador decida rápidamente si convocarla a una entrevista."
-
-pasos:
-  - "No es una autobiografía completa, es una selección estratégica de información."
+enunciado: "La crónica permite al lector interpretar lo sucedido a través de la descripción y el análisis."
 
 explicacion: |
-  Verdadero: es la definición central de CV.
+  Verdadero. La crónica no solo informa, sino que describe y analiza, invitando a la interpretación.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "intermedio"
-  tags: ["cv", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un CV no debe contar todo lo que la persona hizo en su vida, sino seleccionar lo que es relevante para el puesto específico al que se aplica."
-
-pasos:
-  - "Es el principio central de brevedad y relevancia descrito en la teoría."
-
-explicacion: |
-  Verdadero: la selección estratégica es lo que distingue a un buen
-  CV de un relato exhaustivo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "basico"
-  tags: ["secciones"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "datos de contacto"
-tipo: mc
-opciones_explicitas: ["datos de contacto", "formación académica", "experiencia laboral"]
-
-enunciado: "La sección de un CV que incluye nombre, teléfono, email y ciudad se llama..."
-
-pasos:
-  - "Sin exceso de información personal irrelevante."
-
-explicacion: |
-  Los datos de contacto son la primera sección típica de un CV.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "intermedio"
-  tags: ["formacion_academica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La sección de formación académica se ordena cronológicamente de forma inversa: lo más reciente primero."
-
-pasos:
-  - "Es el orden recomendado para que lo más relevante actualmente aparezca primero."
-
-explicacion: |
-  Verdadero: el orden cronológico inverso es la convención estándar
-  para esta sección.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "intermedio"
-  tags: ["experiencia_laboral"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La sección de experiencia laboral también se ordena cronológicamente de forma inversa, igual que la formación académica."
-
-pasos:
-  - "Es el mismo criterio de orden aplicado a esta sección."
-
-explicacion: |
-  Verdadero: el orden cronológico inverso se aplica de forma
-  consistente en ambas secciones.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "intermedio"
-  tags: ["habilidades"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un CV suele incluir tanto habilidades técnicas (idiomas, software) como habilidades blandas (trabajo en equipo, comunicación), relevantes al puesto."
-
-pasos:
-  - "Es una de las secciones típicas descritas en la teoría."
-
-explicacion: |
-  Verdadero: incluir ambos tipos de habilidades es una práctica
-  común y recomendada.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "intermedio"
-  tags: ["objetivo_profesional"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El objetivo profesional, si se incluye, debería ser breve (2-3 líneas), resumiendo qué se busca y qué se aporta."
-
-pasos:
-  - "Es una sección opcional descrita en la teoría."
-
-explicacion: |
-  Verdadero: la brevedad aplica también a esta sección opcional del
-  CV.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "intermedio"
-  tags: ["verbos_de_accion"]
-
-variables:
-  frases: ["coordiné el equipo de ventas", "estuve a cargo de tareas varias relacionadas con ventas"]
-  tipos: ["verbo de acción concreto", "descripción vaga y pasiva"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["verbo de acción concreto", "descripción vaga y pasiva"]
-
-enunciado: "\"{frases[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "Los verbos de acción concretos comunican más claramente qué se hizo realmente que las descripciones vagas."
-
-explicacion: |
-  Los verbos de acción concretos son preferibles a las descripciones
-  vagas y pasivas al redactar un CV.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "intermedio"
-  tags: ["verbos_de_accion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Usar verbos de acción concretos (\"coordiné\", \"desarrollé\", \"lideré\") comunica más claramente qué se hizo realmente que descripciones vagas y pasivas."
-
-pasos:
-  - "Es el principio de redacción central para describir experiencia laboral en un CV."
-
-explicacion: |
-  Verdadero: es el principio de redacción recomendado descrito en la
-  teoría.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "intermedio"
-  tags: ["errores_comunes", "ortografia_y_tildacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un CV con errores de ortografía y puntuación genera una mala primera impresión sobre el cuidado y la atención al detalle de quien lo escribió."
-
-pasos:
-  - "Ver `../ortografia-y-tildacion/` y `../signos-de-puntuacion/`: aplican directamente acá, con consecuencias prácticas reales."
-
-explicacion: |
-  Verdadero: la corrección formal tiene un peso concreto en la
-  evaluación de un CV.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "intermedio"
-  tags: ["errores_comunes", "formato"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un formato inconsistente (tamaños de letra, espaciados o alineaciones distintas entre secciones) da una impresión de descuido en un CV."
-
-pasos:
-  - "Es uno de los errores comunes descritos en la teoría."
-
-explicacion: |
-  Verdadero: la consistencia formal es parte de la calidad percibida
-  de un CV.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "intermedio"
-  tags: ["extension"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para la mayoría de los puestos de entrada, un CV de una sola página suele ser suficiente y más efectivo que uno largo."
-
-pasos:
-  - "Es coherente con el principio central de brevedad y relevancia."
-
-explicacion: |
-  Verdadero: la brevedad recomendada tiene un límite práctico
-  concreto para puestos de entrada.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
+  materia: "Lengua"
+  tema: "generos_periodisticos"
   nivel: "avanzado"
-  tags: ["relevancia", "practica"]
+  tags: ["objetividad", "verdadero_falso"]
+
+variables:
+  afirmacion: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Es posible lograr una neutralidad absoluta en la noticia, eliminando por completo cualquier sesgo."
+
+explicacion: |
+  Falso. Si bien la noticia aspira a la objetividad, es imposible una neutralidad absoluta; se busca presentar hechos contrastables para que el lector forme su opinión.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "intermedio"
+  tags: ["identificacion", "noticia"]
+
+variables:
+  genero: "noticia"
+
+respuesta: "noticia"
+tipo: completar
+
+enunciado: "Un texto que presenta hechos recientes, usa pirámide invertida y busca objetividad es una {genero}."
+
+explicacion: |
+  Las características descritas (hechos recientes, pirámide invertida, objetividad) definen a la noticia.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "intermedio"
+  tags: ["identificacion", "cronica"]
+
+variables:
+  genero: "crónica"
+
+respuesta: "crónica"
+tipo: completar
+
+enunciado: "Un texto que narra un evento con detalle sensorial, diálogos y análisis personal es una {genero}."
+
+explicacion: |
+  El uso de recursos literarios, descripciones y análisis personal caracteriza a la crónica.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "basico"
+  tags: ["estructura", "opcion_multiple"]
+
+variables:
+  correcta: "pirámide invertida"
+
+respuesta: "pirámide invertida"
+tipo: mc
+opciones: 3
+
+enunciado: "¿Cuál es la estructura típica de una noticia?"
+opciones_explicitas: ["pirámide invertida", "estructura circular", "introducción-desarrollo-conclusión"]
+
+explicacion: |
+  La noticia utiliza la pirámide invertida para priorizar la información más importante desde el inicio.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "intermedio"
+  tags: ["lenguaje", "opcion_multiple"]
+
+variables:
+  correcta: "más subjetivo y literario"
+
+respuesta: "más subjetivo y literario"
+tipo: mc
+opciones: 3
+
+enunciado: "En comparación con la noticia, el lenguaje de la crónica es:"
+opciones_explicitas: ["más subjetivo y literario", "puramente objetivo y técnico", "exclusivamente oral"]
+
+explicacion: |
+  La crónica permite la interpretación y usa recursos literarios, haciéndola más subjetiva que la noticia.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "intermedio"
+  tags: ["valores", "opcion_multiple"]
+
+variables:
+  correcta: "la veracidad"
+
+respuesta: "la veracidad"
+tipo: mc
+opciones: 3
+
+enunciado: "¿Cuál es el valor supremo en la construcción de una noticia?"
+opciones_explicitas: ["la veracidad", "la velocidad", "la originalidad"]
+
+explicacion: |
+  La veracidad es fundamental; los datos deben ser contrastables y verificables.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "avanzado"
+  tags: ["clasificacion", "opcion_multiple"]
+
+variables:
+  correcta: "la conversación cotidiana"
+
+respuesta: "la conversación cotidiana"
+tipo: mc
+opciones: 3
+
+enunciado: "Según la lingüística, ¿cuál es un ejemplo de género primario?"
+opciones_explicitas: ["la conversación cotidiana", "la noticia", "la crónica"]
+
+explicacion: |
+  La conversación cotidiana es un género primario, espontáneo, a diferencia de los géneros periodísticos que son secundarios.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "intermedio"
+  tags: ["estructura", "completar"]
+
+variables:
+  elementos: "qué, quién, cuándo, dónde, cómo y por qué"
+
+respuesta: "qué, quién, cuándo, dónde, cómo y por qué"
+tipo: completar
+
+enunciado: "La pirámide invertida responde a los elementos: {elementos}."
+
+explicacion: |
+  Estos seis elementos constituyen la información esencial que debe aparecer al inicio de la noticia.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "intermedio"
+  tags: ["funcion", "completar"]
+
+variables:
+  funcion: "interpretar"
+
+respuesta: "interpretar"
+tipo: completar
+
+enunciado: "La crónica no solo informa, sino que también describe, analiza y {funcion} lo sucedido."
+
+explicacion: |
+  La interpretación es una función clave de la crónica, diferenciándola de la mera transmisión de datos.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "intermedio"
+  tags: ["verdad", "completar"]
+
+variables:
+  relacion: "datos contrastables"
+
+respuesta: "datos contrastables"
+tipo: completar
+
+enunciado: "La noticia aspira a presentar los hechos para que el lector forme su opinión basándose en {relacion}, no en impresiones."
+
+explicacion: |
+  La base de la objetividad periodística son los datos que pueden ser verificados o contrastados.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "intermedio"
+  tags: ["tiempo", "completar"]
+
+variables:
+  tiempo: "el tiempo necesario"
+
+respuesta: "el tiempo necesario"
+tipo: completar
+
+enunciado: "A diferencia de la prisa de la noticia, la crónica se toma {tiempo} para narrar con profundidad."
+
+explicacion: |
+  La crónica no está sujeta a la inmediatez extrema, permitiendo un análisis más pausado y detallado.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "avanzado"
+  tags: ["recursos", "completar"]
+
+variables:
+  recursos: "recursos literarios"
+
+respuesta: "recursos literarios"
+tipo: completar
+
+enunciado: "La crónica utiliza {recursos} como metáforas y descripciones detalladas."
+
+explicacion: |
+  El uso de recursos literarios es una característica distintiva que enriquece la narrativa de la crónica.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "basico"
+  tags: ["objetivo", "completar"]
+
+variables:
+  objetivo: "dar a conocer un hecho"
+
+respuesta: "dar a conocer un hecho"
+tipo: completar
+
+enunciado: "El objetivo de la noticia es {objetivo} de interés público."
+
+explicacion: |
+  La noticia busca informar sobre hechos relevantes de manera rápida y clara.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "intermedio"
+  tags: ["subjetividad", "completar"]
+
+variables:
+  contraste: "la subjetividad de la opinión"
+
+respuesta: "la subjetividad de la opinión"
+tipo: completar
+
+enunciado: "Entender los géneros ayuda a no confundir la objetividad de los datos con {contraste}."
+
+explicacion: |
+  La distinción entre datos objetivos y opiniones subjetivas es clave para el pensamiento crítico.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "avanzado"
+  tags: ["aprendizaje", "completar"]
+
+variables:
+  aprendizaje: "un aprendizaje formal"
+
+respuesta: "un aprendizaje formal"
+tipo: completar
+
+enunciado: "Los géneros periodísticos requieren {aprendizaje} y una intención comunicativa clara."
+
+explicacion: |
+  Al ser géneros secundarios, su dominio requiere estudio y práctica formal, a diferencia del habla cotidiana.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "intermedio"
+  tags: ["rol_periodista", "completar"]
+
+variables:
+  rol: "desaparecer detrás de los hechos"
+
+respuesta: "desaparecer detrás de los hechos"
+tipo: completar
+
+enunciado: "En la noticia, el periodista intenta {rol} para mantener la objetividad."
+
+explicacion: |
+  La objetividad implica que el periodista no imponga su voz personal, sino que deje hablar a los hechos.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "generos_periodisticos"
+  nivel: "intermedio"
+  tags: ["lectura_critica", "completar"]
+
+variables:
+  autonomia: "mayor autonomía"
+
+respuesta: "mayor autonomía"
+tipo: completar
+
+enunciado: "Entender esta clasificación nos ayuda a leer los medios con {autonomia}."
+
+explicacion: |
+  El conocimiento de los géneros periodísticos fomenta una lectura crítica y autónoma de los medios.
+```
+
+## Sección: paratextos (22 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "basico"
+  tags: ["definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "guiar la interpretación y facilitar la comprensión"
+tipo: mc
+opciones_explicitas: ["reemplazar el contenido principal del texto", "guiar la interpretación y facilitar la comprensión", "traducir el texto a otro idioma"]
+
+enunciado: "Los paratextos son elementos que rodean al texto principal y cumplen la función de..."
+
+explicacion: |
+  No forman parte del cuerpo central, pero guían la interpretación,
+  anticipan el tono y facilitan la comprensión del lector.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "basico"
+  tags: ["autor del concepto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Gérard Genette"
+tipo: completar
+
+enunciado: "El término \"paratexto\" fue popularizado por el teórico ___."
+
+respuestas_validas:
+  - "Gérard Genette"
+  - "Gerard Genette"
+
+explicacion: |
+  Genette usó la idea de "umbral" para describir ese espacio que el
+  lector cruza antes de entrar en la obra.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "intermedio"
+  tags: ["clasificacion"]
+
+variables:
+  elemento: uno_de(["el título", "la portada", "las notas al pie", "el índice"])
+
+respuesta: "peritexto"
+tipo: mc
+opciones_explicitas: ["peritexto", "epitexto"]
+
+enunciado: "\"{elemento}\" es un ejemplo de..."
+
+explicacion: |
+  Todos estos elementos están físicamente unidos al objeto libro o
+  documento, por eso son peritexto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "intermedio"
+  tags: ["clasificacion"]
+
+variables:
+  elemento: uno_de(["una entrevista con el autor", "una reseña de un crítico", "una conversación en redes sociales sobre el libro"])
+
+respuesta: "epitexto"
+tipo: mc
+opciones_explicitas: ["peritexto", "epitexto"]
+
+enunciado: "\"{elemento}\" es un ejemplo de..."
+
+explicacion: |
+  Estos elementos rodean al texto pero no están físicamente en él, por
+  eso son epitexto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "basico"
+  tags: ["definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "elementos físicamente unidos al objeto libro"
+tipo: mc
+opciones_explicitas: ["elementos físicamente unidos al objeto libro", "elementos externos como entrevistas o reseñas", "sólo las imágenes de la tapa"]
+
+enunciado: "El peritexto incluye..."
+
+explicacion: |
+  Título, subtítulo, autor, editorial, colección, notas al pie, índices,
+  portada y contratapa son parte del peritexto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "basico"
+  tags: ["definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "elementos externos que rodean al texto sin estar físicamente en él"
+tipo: mc
+opciones_explicitas: ["elementos externos que rodean al texto sin estar físicamente en él", "el índice del libro", "las notas al pie de página"]
+
+enunciado: "El epitexto se refiere a..."
+
+explicacion: |
+  Entrevistas, reseñas, artículos periodísticos y discursos de
+  presentación son ejemplos de epitexto: no están en el libro físico
+  pero influyen en su recepción.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "intermedio"
+  tags: ["funcion"]
 
 variables:
   n: uno_de([1, 1])
@@ -767,22 +692,189 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La misma persona puede (y debería) tener versiones distintas de su CV según a qué puesto aplique, resaltando la experiencia más pertinente en cada caso."
-
-pasos:
-  - "Es la aplicación práctica del principio de relevancia: seleccionar lo pertinente para cada puesto específico."
+enunciado: "Ignorar los paratextos puede hacer que el lector malinterprete la intención del autor o pierda matices importantes de la obra."
 
 explicacion: |
-  Verdadero: adaptar el CV según el puesto es una práctica
-  recomendada, no un CV único para todo.
+  Los paratextos son señales que el autor (o el editor) usan para guiar
+  la lectura; ignorarlos deja al lector sin ese contexto.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "cv"
+  tema: "paratextos"
+  nivel: "basico"
+  tags: ["ejemplo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "sinopsis"
+tipo: completar
+
+enunciado: "El texto breve en la contraportada que cuenta de qué trata la historia sin revelar el final se llama ___."
+
+respuestas_validas:
+  - "sinopsis"
+
+explicacion: |
+  La sinopsis es un paratexto explicativo que ayuda a decidir si interesa
+  leer la obra.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
   nivel: "intermedio"
-  tags: ["datos_de_contacto", "relevancia"]
+  tags: ["epitexto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El epitexto influye en la recepción de la obra creando un contexto cultural y social, aunque no lo tengamos en la mano al abrir el libro."
+
+explicacion: |
+  Reseñas, entrevistas o discusiones sociales sobre un libro moldean
+  cómo se lo interpreta, incluso sin formar parte físicamente del texto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "basico"
+  tags: ["primer contacto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "la portada"
+tipo: mc
+opciones_explicitas: ["la portada", "el índice", "el prólogo"]
+
+enunciado: "Al abrir un libro por primera vez, el primer paratexto que suele verse es..."
+
+explicacion: |
+  La imagen y el color de la portada son lo primero que el lector percibe,
+  y sugieren un tono antes de leer una sola palabra.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "intermedio"
+  tags: ["ejemplo aplicado"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "claves históricas o literarias no evidentes en la novela"
+tipo: mc
+opciones_explicitas: ["claves históricas o literarias no evidentes en la novela", "el precio de venta del libro", "la cantidad de páginas exactas"]
+
+enunciado: "Un prólogo escrito por un crítico sobre una novela suele aportar principalmente..."
+
+explicacion: |
+  Si el prólogo menciona, por ejemplo, el contexto político de la época,
+  da herramientas para entender metáforas y conflictos del libro que no
+  son obvios sólo con leer la historia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "basico"
+  tags: ["lectura critica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aprender a identificar y analizar los paratextos ayuda a desarrollar una lectura crítica y consciente."
+
+explicacion: |
+  Entender que la comunicación escrita va más allá de las letras
+  impresas es parte de leer de forma activa, no pasiva.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "intermedio"
+  tags: ["mediacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "mediadores entre el autor y el lector"
+tipo: mc
+opciones_explicitas: ["mediadores entre el autor y el lector", "sustitutos del texto principal", "adornos sin ninguna función"]
+
+enunciado: "Los paratextos actúan como..."
+
+explicacion: |
+  Ningún texto llega al público en un vacío: siempre viene acompañado de
+  señales que orientan cómo leerlo, cumpliendo una función mediadora.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "basico"
+  tags: ["peritexto"]
+
+variables:
+  elemento: uno_de(["el subtítulo", "el nombre de la editorial", "la colección a la que pertenece la obra"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{elemento}\" forma parte del peritexto de una obra."
+
+explicacion: |
+  Todos estos elementos están físicamente unidos al libro, por lo que
+  se clasifican como peritexto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "avanzado"
+  tags: ["metafora"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "umbral"
+tipo: completar
+
+enunciado: "Genette describió al paratexto como un ___ que el lector cruza antes de entrar en la obra."
+
+respuestas_validas:
+  - "umbral"
+
+explicacion: |
+  La metáfora del "umbral" explica cómo los paratextos preparan al
+  lector antes del contacto directo con el texto principal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "intermedio"
+  tags: ["ejemplo"]
 
 variables:
   n: uno_de([1, 1])
@@ -790,165 +882,60 @@ variables:
 respuesta: falso
 tipo: vf
 
-enunciado: "Un buen CV debería incluir toda la información personal posible (estado civil, religión, gustos personales) para que el empleador conozca completamente a la persona."
-
-pasos:
-  - "Los datos de contacto deberían limitarse a lo relevante (nombre, teléfono, email, ciudad), sin exceso de información personal irrelevante al puesto."
+enunciado: "Una entrevista con el autor de un libro se considera parte del peritexto porque habla directamente sobre la obra."
 
 explicacion: |
-  Falso: el exceso de información personal irrelevante no ayuda y
-  puede distraer del contenido relevante para el puesto.
+  Aunque hable sobre el libro, la entrevista es externa al objeto físico:
+  es epitexto, no peritexto.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "cv"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El CV reutiliza las herramientas de producción escrita compleja (estructura, claridad, corrección formal) aplicadas a este género concreto y práctico."
-
-pasos:
-  - "Ver `../produccion-escrita-compleja/`: es el prerrequisito directo de este tema."
-
-explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "avanzado"
-  tags: ["verbos_de_accion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Desarrollé el sistema de inventario para reducir errores de stock en un 30%"
-tipo: mc
-opciones_explicitas: ["Desarrollé el sistema de inventario para reducir errores de stock en un 30%", "Estuve encargado de cosas relacionadas con el inventario"]
-
-enunciado: "¿Cuál de estas dos descripciones de experiencia laboral sigue mejor los principios de redacción de un CV?"
-
-pasos:
-  - "Un verbo de acción concreto con un resultado medible comunica mucho más que una descripción vaga."
-
-explicacion: |
-  La versión con verbo de acción y resultado concreto es más
-  efectiva que la descripción vaga y pasiva.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "avanzado"
-  tags: ["cv", "importancia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El CV suele ser el primer contacto escrito con un potencial empleador, por lo que la brevedad, la selección estratégica y la corrección formal tienen consecuencias prácticas directas."
-
-pasos:
-  - "Es la conclusión central sobre la importancia práctica de este tema."
-
-explicacion: |
-  Verdadero: es la síntesis de por qué dominar la redacción de un CV
-  es una habilidad de alta demanda práctica.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "intermedio"
-  tags: ["cv", "metodo"]
-
-enunciado: "Ordená los pasos para redactar un CV adaptado a un puesto específico."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar qué experiencia y habilidades son relevantes para ese puesto específico"
-  - "Organizar las secciones (contacto, formación, experiencia, habilidades) en orden cronológico inverso donde corresponda"
-  - "Redactar cada descripción con verbos de acción concretos"
-  - "Revisar ortografía, puntuación y consistencia de formato antes de enviarlo"
-respuesta_orden:
-  - "Identificar qué experiencia y habilidades son relevantes para ese puesto específico"
-  - "Organizar las secciones (contacto, formación, experiencia, habilidades) en orden cronológico inverso donde corresponda"
-  - "Redactar cada descripción con verbos de acción concretos"
-  - "Revisar ortografía, puntuación y consistencia de formato antes de enviarlo"
-
-explicacion: |
-  El proceso va de seleccionar la información relevante a redactarla
-  con buenas prácticas y revisarla antes de enviarla.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "avanzado"
-  tags: ["cv", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El CV es el primero de los tres géneros de escritura profesional de esta subrama, junto a correo formal e informe técnico."
-
-pasos:
-  - "Ver `../correo-formal/` y `../informe-tecnico/`: los tres nodos hermanos dependen de `../produccion-escrita-compleja/`."
-
-explicacion: |
-  Verdadero: es la relación entre este tema y los otros dos de la
-  subrama de escritura profesional.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "cv"
-  nivel: "avanzado"
-  tags: ["cv", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al preparar un CV para una postulación real, conviene seleccionar sólo la experiencia relevante para ese puesto, usar verbos de acción concretos, y revisar cuidadosamente ortografía y formato antes de enviarlo."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema en una
-  postulación laboral real.
-```
-
-## Sección: debate-refutar-en-vivo (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
+  tema: "paratextos"
   nivel: "basico"
-  tags: ["debate", "prerrequisito"]
+  tags: ["funcion del titulo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "una primera pista sobre el tema"
+tipo: mc
+opciones_explicitas: ["una primera pista sobre el tema", "el resumen completo del argumento", "la biografía completa del autor"]
+
+enunciado: "Según la teoría, el título de una obra nos da..."
+
+explicacion: |
+  El título orienta las expectativas del lector desde el primer contacto,
+  aunque no explica el argumento completo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "intermedio"
+  tags: ["clasificacion"]
+
+variables:
+  elemento: uno_de(["un discurso de presentación del libro", "un artículo periodístico sobre la obra"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{elemento}\" es un ejemplo de epitexto según la teoría."
+
+explicacion: |
+  Ambos son elementos externos al objeto libro que igual influyen en
+  cómo se recibe la obra.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "basico"
+  tags: ["ejemplo argentino"]
 
 variables:
   n: uno_de([1, 1])
@@ -956,301 +943,85 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Refutar en vivo exige reconocer errores de razonamiento, igual que en detectar-falacias, pero sin tiempo para revisar y corregir como en un texto escrito."
-
-pasos:
-  - "Ver `../detectar-falacias/`: es el prerrequisito directo de este tema."
+enunciado: "\"La casa de los espíritus\" de Isabel Allende se usa como ejemplo en la teoría para analizar paratextos como portada, sinopsis, notas al pie y prólogo."
 
 explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito de Lengua.
+  Es la obra elegida como caso práctico para mostrar cómo se aplican
+  los distintos tipos de paratexto en la lectura escolar.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "basico"
-  tags: ["estructura_del_debate", "apertura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "apertura"
-tipo: mc
-opciones_explicitas: ["apertura", "refutación", "réplica", "cierre"]
-
-enunciado: "La etapa del debate en la que cada parte presenta su tesis y sus argumentos principales se llama..."
-
-pasos:
-  - "Es la primera etapa de la estructura básica de un debate formal."
-
-explicacion: |
-  La apertura presenta la postura inicial de cada parte.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "basico"
-  tags: ["estructura_del_debate", "refutacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "refutación"
-tipo: mc
-opciones_explicitas: ["apertura", "refutación", "réplica", "cierre"]
-
-enunciado: "La etapa del debate en la que cada parte responde a los argumentos de la otra, señalando falacias o premisas débiles, se llama..."
-
-pasos:
-  - "Es la etapa central del debate, donde se aplica directamente el vocabulario de falacias."
-
-explicacion: |
-  La refutación es el momento de responder críticamente a los
-  argumentos del rival.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "intermedio"
-  tags: ["estructura_del_debate", "replica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "réplica"
-tipo: mc
-opciones_explicitas: ["apertura", "refutación", "réplica", "cierre"]
-
-enunciado: "La etapa del debate en la que se responde a la refutación recibida se llama..."
-
-pasos:
-  - "Sigue a la refutación, cerrando el intercambio directo de argumentos."
-
-explicacion: |
-  La réplica responde a la refutación que se recibió previamente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "basico"
-  tags: ["estructura_del_debate", "cierre"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "cierre"
-tipo: mc
-opciones_explicitas: ["apertura", "refutación", "réplica", "cierre"]
-
-enunciado: "La etapa del debate en la que cada parte resume su postura y por qué resiste la refutación del rival se llama..."
-
-pasos:
-  - "Es la última etapa de la estructura básica del debate."
-
-explicacion: |
-  El cierre resume la postura final de cada parte del debate.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "intermedio"
-  tags: ["estructura_del_debate", "orden"]
-
-enunciado: "Ordená las cuatro etapas básicas de un debate formal."
-tipo: ordenar
-opciones_explicitas:
-  - "Apertura"
-  - "Refutación"
-  - "Réplica"
-  - "Cierre"
-respuesta_orden:
-  - "Apertura"
-  - "Refutación"
-  - "Réplica"
-  - "Cierre"
-
-explicacion: |
-  El orden sigue la secuencia lógica del debate: presentar, refutar,
-  replicar y cerrar.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "intermedio"
-  tags: ["tecnicas_de_refutacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Nombrar con precisión la falacia del rival (\"eso es un ataque a la persona, no una respuesta a mi argumento\") es más contundente que decir vagamente \"eso no tiene sentido\"."
-
-pasos:
-  - "Ver `../detectar-falacias/`: nombrar el error con precisión demuestra dominio del vocabulario técnico."
-
-explicacion: |
-  Verdadero: es una de las técnicas de refutación en vivo más
-  efectivas descritas en la teoría.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "intermedio"
-  tags: ["tecnicas_de_refutacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el rival da una cifra o un dato sin fuente, pedirla en el momento pone en evidencia la debilidad del argumento."
-
-pasos:
-  - "Es la misma lógica de cifras sin sustento ya vista en `../detectar-falacias/`, aplicada en vivo."
-
-explicacion: |
-  Verdadero: es otra de las técnicas de refutación descritas en la
-  teoría.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
+  tema: "paratextos"
   nivel: "avanzado"
-  tags: ["tecnicas_de_refutacion"]
+  tags: ["lectura activa"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "de pasiva a activa y crítica"
+tipo: mc
+opciones_explicitas: ["de pasiva a activa y crítica", "de crítica a indiferente", "no cambia en nada la experiencia"]
 
-enunciado: "Señalar específicamente cuál parte de un argumento es floja (en vez de descartar todo el argumento en bloque) es más preciso y más difícil de rebatir para el rival."
-
-pasos:
-  - "Un argumento del rival puede tener una parte razonable y otra débil al mismo tiempo."
+enunciado: "Analizar los paratextos de una obra transforma la experiencia de lectura..."
 
 explicacion: |
-  Verdadero: es la técnica más sofisticada de refutación descrita en
-  la teoría.
+  Al comprender cómo se construye el significado alrededor del texto, el
+  lector deja de ser receptor pasivo y pasa a leer de forma activa y
+  crítica.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "intermedio"
-  tags: ["escucha_activa"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un error común en un debate es preparar la respuesta propia mientras el rival todavía está hablando, sin escuchar realmente lo que dice."
-
-pasos:
-  - "Eso lleva a responder a un argumento distinto del que realmente se hizo."
-
-explicacion: |
-  Verdadero: es el error central que describe la falta de escucha
-  activa en un debate.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "avanzado"
-  tags: ["escucha_activa", "espantapajaros"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "No escuchar activamente al rival y responder a una versión imaginada de su argumento es, en la práctica, una forma involuntaria de la falacia del espantapájaros."
-
-pasos:
-  - "Ver `../detectar-falacias/`: es la misma falacia, ahora aplicada de forma no intencional por falta de atención."
-
-explicacion: |
-  Verdadero: es la conexión directa entre la falta de escucha activa
-  y una falacia ya conocida.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "intermedio"
-  tags: ["escucha_activa"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Escuchar activamente es lo que permite refutar el argumento real del rival, no una versión distorsionada o imaginada de él."
-
-pasos:
-  - "Es la razón concreta por la que la escucha activa es central en un debate en vivo."
-
-explicacion: |
-  Verdadero: es la conclusión práctica de por qué la escucha activa
-  importa tanto en este contexto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "intermedio"
-  tags: ["manejo_de_presion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Perder la calma o subir el tono durante un debate no fortalece un argumento, y puede hacer que la audiencia perciba menos credibilidad en quien lo pierde."
-
-pasos:
-  - "El manejo emocional bajo presión es parte de la habilidad de debatir en vivo, más allá del contenido argumentativo."
-
-explicacion: |
-  Verdadero: es la razón por la que el manejo de la calma es una
-  habilidad central del debate en vivo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
+  tema: "paratextos"
   nivel: "basico"
-  tags: ["debate", "presion_de_tiempo"]
+  tags: ["division general"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "peritexto y epitexto"
+tipo: mc
+opciones_explicitas: ["peritexto y epitexto", "prólogo y epílogo", "portada y contraportada solamente"]
+
+enunciado: "Los paratextos se dividen generalmente en dos grandes grupos según su ubicación y función:"
+
+explicacion: |
+  Peritexto (físicamente unido al texto) y epitexto (externo al texto)
+  son las dos categorías generales.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "paratextos"
+  nivel: "intermedio"
+  tags: ["notas al pie"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "peritexto"
+tipo: mc
+opciones_explicitas: ["peritexto", "epitexto"]
+
+enunciado: "Las notas al pie de página que aparecen dentro del mismo libro son un ejemplo de..."
+
+explicacion: |
+  Al estar impresas dentro del propio objeto libro, las notas al pie son
+  parte del peritexto.
+```
+
+## Sección: punto-de-vista (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "punto_de_vista"
+  nivel: "intermedio"
+  tags: ["punto_de_vista", "narrador", "diferenciacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -1258,48 +1029,189 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un debate en vivo genera presión de tiempo, a diferencia de un texto escrito que se puede revisar y corregir con calma antes de presentarlo."
+enunciado: "El narrador responde \"¿quién cuenta la historia?\", mientras que el punto de vista responde \"¿desde dónde/con qué perspectiva se cuenta?\" — son dos preguntas distintas sobre el mismo texto."
 
 pasos:
-  - "Es la diferencia central entre refutar en un texto y refutar en vivo."
+  - "Dos narradores del mismo tipo pueden tener puntos de vista distintos."
 
 explicacion: |
-  Verdadero: es la diferencia de contexto que define este tema frente
-  a `../detectar-falacias/`.
+  Verdadero: narrador y punto de vista analizan aspectos diferentes
+  de cómo se cuenta una historia.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "debate_refutar_en_vivo"
+  tema: "punto_de_vista"
   nivel: "intermedio"
-  tags: ["tecnicas_de_refutacion", "practica"]
+  tags: ["focalizacion_cero"]
 
 variables:
-  situaciones: ["decir \"eso es una apelación a la popularidad, no una razón real\"", "pedir la fuente exacta de un dato citado sin referencia"]
-  tecnicas: ["señalar la falacia por su nombre", "pedir evidencia concreta"]
+  n: uno_de([1, 1])
+
+respuesta: "focalización cero"
+tipo: mc
+opciones_explicitas: ["focalización cero", "focalización interna", "focalización externa"]
+
+enunciado: "Cuando el narrador accede a todo sin ninguna restricción, sin filtrar la información a través de un personaje en particular, la focalización es..."
+
+pasos:
+  - "Sin filtro = el punto de vista más amplio posible = focalización cero."
+
+explicacion: |
+  La focalización cero es característica del narrador omnisciente
+  clásico, sin restricciones de conocimiento.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "punto_de_vista"
+  nivel: "intermedio"
+  tags: ["focalizacion_interna"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "focalización interna"
+tipo: mc
+opciones_explicitas: ["focalización cero", "focalización interna", "focalización externa"]
+
+enunciado: "Cuando la información pasa por la conciencia de UN solo personaje, y el lector sólo sabe lo que ese personaje sabe o percibe, la focalización es..."
+
+pasos:
+  - "Filtro por un solo personaje = focalización interna."
+
+explicacion: |
+  La focalización interna limita la información a la perspectiva de
+  un personaje específico.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "punto_de_vista"
+  nivel: "intermedio"
+  tags: ["focalizacion_externa"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "focalización externa"
+tipo: mc
+opciones_explicitas: ["focalización cero", "focalización interna", "focalización externa"]
+
+enunciado: "Cuando el punto de vista queda fuera de cualquier conciencia y sólo se cuenta lo observable, la focalización es..."
+
+pasos:
+  - "Sin acceso a ninguna mente, sólo lo visible/audible = focalización externa."
+
+explicacion: |
+  La focalización externa coincide con lo que narra un narrador
+  observador.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "punto_de_vista"
+  nivel: "intermedio"
+  tags: ["focalizacion_cero", "narrador_omnisciente"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un narrador omnisciente normalmente tiene focalización cero: no hay ningún filtro que limite lo que puede contar."
+
+pasos:
+  - "Ambos conceptos (narrador omnisciente y focalización cero) describen el mismo acceso ilimitado a la información."
+
+explicacion: |
+  Verdadero: es la relación típica (aunque no la única posible) entre
+  tipo de narrador y focalización.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "punto_de_vista"
+  nivel: "intermedio"
+  tags: ["focalizacion_externa", "narrador_observador"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un narrador observador coincide con la focalización externa: en ambos casos sólo se cuenta lo observable, sin acceso a pensamientos."
+
+pasos:
+  - "Los dos conceptos describen la misma limitación a lo visible/audible."
+
+explicacion: |
+  Verdadero: narrador observador y focalización externa se
+  corresponden directamente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "punto_de_vista"
+  nivel: "avanzado"
+  tags: ["focalizacion_interna", "3a_persona"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un narrador en 3ª persona (que no dice \"yo\") puede igual tener focalización interna, si el relato se limita a lo que percibe un solo personaje."
+
+pasos:
+  - "Persona gramatical y focalización no siempre coinciden de forma obvia: es el caso más avanzado del tema."
+
+explicacion: |
+  Verdadero: aunque el narrador no use \"yo\", puede filtrar toda la
+  información a través de la conciencia de un único personaje.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "punto_de_vista"
+  nivel: "avanzado"
+  tags: ["focalizacion", "practica"]
+
+variables:
+  fragmentos: ["Juan sabía que algo andaba mal, aunque no podía explicar por qué. Miró a María, que reía sin sospechar nada", "Juan miró a María, que reía sin que él dijera nada"]
+  tipos: ["focalización interna (en Juan)", "focalización externa"]
   idx: uno_de([0, 1])
 
-respuesta: tecnicas[idx]
+respuesta: tipos[idx]
 tipo: mc
-opciones_explicitas: ["señalar la falacia por su nombre", "pedir evidencia concreta", "distinguir la parte válida de la débil"]
+opciones_explicitas: ["focalización cero", "focalización interna (en Juan)", "focalización externa"]
 
-enunciado: "La acción de \"{situaciones[idx]}\" corresponde a la técnica de refutación de..."
+enunciado: "\"{fragmentos[idx]}\" tiene..."
 
 pasos:
-  - "Cada acción concreta corresponde a una de las técnicas de refutación descritas en la teoría."
+  - "Si se accede a lo que Juan sabe/siente pero no a lo que piensa María (\"sin sospechar nada\" es evaluación externa), es focalización interna en Juan. Si sólo se describen acciones observables, es externa."
 
 explicacion: |
-  Reconocer qué técnica se está usando ayuda a aplicarlas de forma
-  deliberada durante un debate.
+  El primer fragmento filtra la información a través de la
+  conciencia de Juan; el segundo se limita a lo observable.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "avanzado"
-  tags: ["debate", "negociacion"]
+  tema: "punto_de_vista"
+  nivel: "intermedio"
+  tags: ["focalizacion_cero", "informacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -1307,21 +1219,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Debatir y refutar en vivo es la base directa de la negociación, que agrega el objetivo de llegar a un acuerdo, no sólo \"ganar\" el intercambio."
+enunciado: "De las tres focalizaciones, la cero es la que le da al lector la mayor cantidad de información posible, sin restricciones."
 
 pasos:
-  - "Ver `../negociacion/`: es el prerrequisito directo del siguiente tema de la subrama."
+  - "Sin filtro alguno, el narrador puede contar todo lo que sabe de cualquier personaje o situación."
 
 explicacion: |
-  Verdadero: es la relación de prerrequisito con el tema siguiente.
+  Verdadero: focalización cero significa ausencia total de filtro
+  informativo.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "debate_refutar_en_vivo"
+  tema: "punto_de_vista"
   nivel: "avanzado"
-  tags: ["debate", "persuasion_etica"]
+  tags: ["focalizacion_interna", "efecto"]
 
 variables:
   n: uno_de([1, 1])
@@ -1329,47 +1242,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Este tema también es prerrequisito de persuasión ética vs. manipulación, que distingue técnicas legítimas de manipulación en este mismo contexto de debate en vivo."
+enunciado: "Usar focalización interna en un personaje que no sabe todo lo que está pasando puede generar suspenso, porque el lector descubre la información al mismo tiempo que ese personaje."
 
 pasos:
-  - "Ver `../persuasion-etica-vs-manipulacion/`: comparte este tema como uno de sus dos prerrequisitos."
+  - "El lector queda limitado al mismo conocimiento que tiene el personaje focal."
 
 explicacion: |
-  Verdadero: es otra de las relaciones de prerrequisito de este tema
-  dentro de la subrama.
+  Verdadero: es un recurso deliberado en géneros como el misterio o
+  el suspenso.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "debate_refutar_en_vivo"
-  nivel: "intermedio"
-  tags: ["debate", "metodo"]
-
-enunciado: "Ordená los pasos para refutar un argumento en vivo durante un debate."
-tipo: ordenar
-opciones_explicitas:
-  - "Escuchar activamente el argumento completo del rival, sin preparar la respuesta antes de tiempo"
-  - "Identificar si hay una falacia o una premisa débil en ese argumento"
-  - "Nombrar con precisión el error encontrado"
-  - "Responder de forma clara y calmada, sin perder el foco por la presión del momento"
-respuesta_orden:
-  - "Escuchar activamente el argumento completo del rival, sin preparar la respuesta antes de tiempo"
-  - "Identificar si hay una falacia o una premisa débil en ese argumento"
-  - "Nombrar con precisión el error encontrado"
-  - "Responder de forma clara y calmada, sin perder el foco por la presión del momento"
-
-explicacion: |
-  El proceso va de escuchar activamente a identificar el error y
-  responder con calma y precisión.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "debate_refutar_en_vivo"
+  tema: "punto_de_vista"
   nivel: "avanzado"
-  tags: ["debate", "etica"]
+  tags: ["focalizacion", "misterio"]
 
 variables:
   n: uno_de([1, 1])
@@ -1377,22 +1265,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Refutar bien en un debate no significa usar cualquier técnica para \"ganar\" a toda costa, incluidas las falacias — significa señalar con precisión errores reales de razonamiento."
+enunciado: "En una novela de misterio, elegir focalización interna en el detective (en vez de focalización cero) evita que el lector sepa la solución antes de tiempo."
 
 pasos:
-  - "Es un anticipo del tema siguiente sobre persuasión ética vs. manipulación."
+  - "Con focalización cero, el narrador podría revelar información que el detective todavía no descubrió, arruinando el misterio."
 
 explicacion: |
-  Verdadero: refutar honestamente, no manipular, es el estándar
-  esperado en un debate bien conducido.
+  Verdadero: la elección de focalización controla deliberadamente
+  cuánta información recibe el lector.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "debate_refutar_en_vivo"
+  tema: "punto_de_vista"
   nivel: "avanzado"
-  tags: ["debate", "aplicacion"]
+  tags: ["punto_de_vista", "narrador_omnisciente"]
 
 variables:
   n: uno_de([1, 1])
@@ -1400,443 +1288,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Al participar en un debate escolar, conviene escuchar activamente al rival, identificar falacias con precisión y responder con calma, en vez de interrumpir o subir el tono para tratar de \"ganar\"."
+enunciado: "Dos textos con narrador omnisciente pueden tener puntos de vista distintos si uno se centra más en la perspectiva de un personaje en particular que el otro."
 
 pasos:
-  - "Es la aplicación práctica directa de las técnicas estudiadas en este tema."
+  - "El tipo de narrador (persona + conocimiento general) no agota la pregunta de \"desde dónde\" se enfoca la narración."
 
 explicacion: |
-  Verdadero: es la aplicación concreta de este tema en un contexto
-  escolar real de debate.
-```
-
-## Sección: decodificacion-y-fluidez (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "basico"
-  tags: ["decodificacion", "vocabulario"]
-
-enunciado: "¿Qué es la decodificación, en el proceso de aprender a leer?"
-tipo: mc
-opciones_explicitas:
-  - "El proceso de convertir letras en sonidos para reconstruir la palabra hablada"
-  - "El proceso de entender el significado de un texto completo"
-  - "El proceso de memorizar palabras completas sin analizar sus letras"
-respuesta: "El proceso de convertir letras en sonidos para reconstruir la palabra hablada"
-
-explicacion: |
-  Aplica directo la conciencia fonológica al código escrito.
+  Verdadero: por eso el punto de vista es un análisis complementario,
+  no redundante, al de narrador.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "basico"
-  tags: ["fluidez", "vocabulario"]
-
-enunciado: "¿Qué es la fluidez lectora?"
-tipo: mc
-opciones_explicitas:
-  - "Leer con precisión, velocidad y prosodia adecuadas, de forma automática"
-  - "Leer lo más rápido posible, sin importar la precisión"
-  - "Conocer el significado de todas las palabras de un texto"
-respuesta: "Leer con precisión, velocidad y prosodia adecuadas, de forma automática"
-
-explicacion: |
-  Velocidad sola, sin precisión ni entonación, no es fluidez real.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["ppm", "problema"]
-
-variables:
-  palabras: uno_de([80, 100, 120])
-  segundos: 60
-
-respuesta: redondear(palabras / segundos * 60, 0)
-tipo: input
-unidad: "palabras por minuto"
-
-enunciado: "Un alumno lee {palabras} palabras correctamente en {segundos} segundos. ¿Cuál es su fluidez en palabras por minuto (PPM)?"
-
-pasos:
-  - "PPM = ({palabras}/{segundos}) × 60 = {redondear(palabras / segundos * 60, 0)}"
-
-explicacion: |
-  Como el tiempo ya es exactamente 1 minuto (60 segundos), el PPM
-  coincide directamente con la cantidad de palabras leídas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
+  tema: "punto_de_vista"
   nivel: "avanzado"
-  tags: ["ppm", "problema"]
-
-variables:
-  palabras: uno_de([60, 90])
-  segundos: 45
-
-respuesta: redondear(palabras / segundos * 60, 0)
-tipo: input
-unidad: "palabras por minuto"
-
-enunciado: "Un alumno lee {palabras} palabras correctamente en sólo {segundos} segundos (menos de un minuto). ¿Cuál es su fluidez en palabras por minuto?"
-
-pasos:
-  - "PPM = ({palabras}/{segundos}) × 60 = {redondear(palabras / segundos * 60, 0)}"
-
-explicacion: |
-  Se escala el resultado a 'por minuto', igual que cualquier tasa
-  (como la velocidad = distancia/tiempo).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["decodificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La correspondencia entre letras y sonidos en español es, en general, más regular y predecible que en inglés, donde una misma letra puede sonar de formas muy distintas según la palabra."
-
-explicacion: |
-  Por eso decodificar en español suele ser más rápido de aprender una
-  vez conocidas las reglas básicas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué la fluidez lectora es un puente hacia la comprensión de un texto?"
-tipo: mc
-opciones_explicitas:
-  - "Porque cuando decodificar se vuelve automático, la atención que antes se gastaba en 'sonar' cada palabra queda libre para entender el significado"
-  - "Porque leer rápido garantiza automáticamente entender el texto, sin ninguna excepción"
-  - "No existe ninguna relación real entre fluidez y comprensión"
-respuesta: "Porque cuando decodificar se vuelve automático, la atención que antes se gastaba en 'sonar' cada palabra queda libre para entender el significado"
-
-explicacion: |
-  La capacidad de atención es limitada — automatizar un paso libera
-  recursos para el siguiente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["fluidez"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Leer muy rápido pero con errores o sin ninguna entonación (sin prosodia) no cuenta como verdadera fluidez lectora — hacen falta las tres cosas juntas: precisión, velocidad y prosodia."
-
-explicacion: |
-  Un lector 'fluido' pero impreciso no está realmente decodificando
-  bien.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["ppm", "problema"]
-
-variables:
-  palabras_a: 100
-  segundos_a: 50
-  palabras_b: 90
-  segundos_b: 60
-
-respuesta: (palabras_a / segundos_a * 60) > (palabras_b / segundos_b * 60)
-tipo: vf
-
-enunciado: "Lectura A: {palabras_a} palabras en {segundos_a} segundos. Lectura B: {palabras_b} palabras en {segundos_b} segundos. ¿La fluidez en PPM de la Lectura A es MAYOR que la de la Lectura B?"
-
-explicacion: |
-  PPM(A) = {redondear(palabras_a / segundos_a * 60, 0)}; PPM(B) =
-  {redondear(palabras_b / segundos_b * 60, 0)} — hay que calcular la
-  tasa, no comparar sólo la cantidad de palabras.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué conviene medir la fluidez de un alumno en varios textos y días distintos, en vez de con una sola lectura?"
-tipo: mc
-opciones_explicitas:
-  - "Porque una sola lectura puede estar afectada por factores puntuales (texto más difícil, cansancio, nervios) — promediar varias da una estimación más confiable"
-  - "Porque la fluidez de una persona cambia por completo de un día a otro sin ningún patrón"
-  - "No hay ninguna ventaja real en medir más de una vez"
-respuesta: "Porque una sola lectura puede estar afectada por factores puntuales (texto más difícil, cansancio, nervios) — promediar varias da una estimación más confiable"
-
-explicacion: |
-  Es la misma razón por la que `../../matematica/muestreo-y-sesgo/`
-  prefiere una muestra a un único dato suelto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["ppm", "problema"]
-
-variables:
-  ppm1: uno_de([95, 100])
-  ppm2: uno_de([105, 110])
-  ppm3: uno_de([90, 115])
-
-respuesta: redondear(promedio([ppm1, ppm2, ppm3]), 1)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "palabras por minuto"
-
-enunciado: "Un alumno leyó a {ppm1}, {ppm2} y {ppm3} palabras por minuto en tres textos distintos. ¿Cuál es su fluidez promedio?"
-
-pasos:
-  - "Promedio = ({ppm1}+{ppm2}+{ppm3}) / 3 = {redondear(promedio([ppm1, ppm2, ppm3]), 1)}"
-
-explicacion: |
-  El promedio da una estimación más representativa que cualquiera de
-  las tres lecturas por separado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["prosodia", "vocabulario"]
-
-enunciado: "¿Qué es la prosodia, como parte de la fluidez lectora?"
-tipo: mc
-opciones_explicitas:
-  - "La entonación y el ritmo naturales con que se lee, respetando pausas, signos de puntuación y énfasis"
-  - "La cantidad de palabras leídas por minuto"
-  - "La cantidad de errores cometidos al leer"
-respuesta: "La entonación y el ritmo naturales con que se lee, respetando pausas, signos de puntuación y énfasis"
-
-explicacion: |
-  Leer 'como se habla', no en un tono monótono palabra por palabra.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["decodificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El objetivo final de aprender a decodificar es que el proceso se vuelva automático, sin necesitar esfuerzo consciente para convertir cada letra en su sonido."
-
-explicacion: |
-  Cuando eso pasa, decodificar deja de competir por atención con
-  comprender el texto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["ppm", "problema"]
-
-variables:
-  ppm: uno_de([80, 100])
-  palabras_texto: uno_de([40, 50])
-
-respuesta: redondear(palabras_texto / ppm * 60, 0)
-tipo: input
-unidad: "segundos"
-
-enunciado: "Un alumno lee a {ppm} palabras por minuto. Si un texto tiene {palabras_texto} palabras, ¿cuánto tiempo (en segundos) debería tardar en leerlo completo?"
-
-pasos:
-  - "Tiempo = ({palabras_texto}/{ppm}) × 60 = {redondear(palabras_texto / ppm * 60, 0)} segundos"
-
-explicacion: |
-  Es la fórmula de PPM despejada para el tiempo en vez de para la
-  velocidad.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "Muchas escuelas usan 'registros de lectura oral' (running records), donde un docente escucha leer a un alumno en voz alta y anota errores, tiempo y entonación. ¿Para qué sirve esta evaluación?"
-tipo: mc
-opciones_explicitas:
-  - "Para medir el progreso real de la fluidez lectora de un alumno a lo largo del tiempo, con datos concretos (precisión, PPM, prosodia)"
-  - "Sólo sirve para calificar la letra del alumno"
-  - "No tiene ninguna utilidad pedagógica real"
-respuesta: "Para medir el progreso real de la fluidez lectora de un alumno a lo largo del tiempo, con datos concretos (precisión, PPM, prosodia)"
-
-explicacion: |
-  Es la aplicación práctica de todo lo visto en este módulo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["ppm", "problema"]
-
-variables:
-  palabras_a: 70
-  segundos_a: 60
-  palabras_b: 70
-  segundos_b: 90
-
-respuesta: (palabras_a / segundos_a * 60) > (palabras_b / segundos_b * 60)
-tipo: vf
-
-enunciado: "Dos alumnos leen el mismo texto de {palabras_a} palabras: el Alumno A tarda {segundos_a} segundos, el Alumno B tarda {segundos_b} segundos. ¿El Alumno A tiene mayor fluidez en PPM?"
-
-explicacion: |
-  Con la misma cantidad de palabras, tardar MENOS tiempo da un PPM
-  MAYOR.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-enunciado: "¿Qué relación tiene la decodificación con `../conciencia-fonologica/`?"
-tipo: mc
-opciones_explicitas:
-  - "La decodificación aplica al código escrito la distinción de sonidos que ya construyó la conciencia fonológica — sin distinguir sonidos, no se puede saber qué sonido corresponde a cada letra"
-  - "No tienen ninguna relación real entre sí"
-  - "La decodificación reemplaza por completo la necesidad de conciencia fonológica"
-respuesta: "La decodificación aplica al código escrito la distinción de sonidos que ya construyó la conciencia fonológica — sin distinguir sonidos, no se puede saber qué sonido corresponde a cada letra"
-
-explicacion: |
-  Es el prerrequisito formal de este módulo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["ppm", "problema"]
-
-variables:
-  palabras: uno_de([150, 200])
-  segundos: 120
-
-respuesta: redondear(palabras / segundos * 60, 0)
-tipo: input
-unidad: "palabras por minuto"
-
-enunciado: "Un alumno lee un texto largo: {palabras} palabras en {segundos} segundos (2 minutos). ¿Cuál es su fluidez en PPM?"
-
-pasos:
-  - "PPM = ({palabras}/{segundos}) × 60 = {redondear(palabras / segundos * 60, 0)}"
-
-explicacion: |
-  La fórmula funciona igual sin importar si el tiempo es más o menos
-  de un minuto — siempre se escala a 'por minuto'.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["fluidez"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La fluidez lectora de una misma persona puede variar según qué tan difícil o familiar sea el texto que está leyendo, no es un número fijo e invariable."
-
-explicacion: |
-  Es otra razón por la que conviene promediar mediciones de varios
-  textos distintos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-enunciado: "Un alumno decodifica correctamente cada palabra de un texto, pero al preguntarle de qué trataba, no puede responder. ¿Qué explica esto, en términos de fluidez?"
-tipo: mc
-opciones_explicitas:
-  - "Es posible que la decodificación todavía no sea automática para ese alumno, así que gasta toda su atención 'sonando' las palabras y no le queda capacidad para comprender el significado"
-  - "Es imposible que esto pase: decodificar bien siempre implica comprender el texto"
-  - "El alumno tiene un problema de vocabulario, sin ninguna relación con la fluidez"
-respuesta: "Es posible que la decodificación todavía no sea automática para ese alumno, así que gasta toda su atención 'sonando' las palabras y no le queda capacidad para comprender el significado"
-
-explicacion: |
-  Es exactamente el fenómeno que explica por qué la fluidez es un
-  puente necesario hacia la comprensión.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "decodificacion_y_fluidez"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirven la decodificación y la fluidez lectora?"
-tipo: mc
-opciones_explicitas:
-  - "Para convertir letras en sonidos de forma cada vez más automática, liberando la atención necesaria para poder comprender lo que se lee"
-  - "Sólo sirven para leer más rápido, sin ninguna relación con la comprensión"
-  - "Sólo se aplican en los primeros meses de la alfabetización, después dejan de ser relevantes"
-respuesta: "Para convertir letras en sonidos de forma cada vez más automática, liberando la atención necesaria para poder comprender lo que se lee"
-
-explicacion: |
-  Es el puente entre `../conciencia-fonologica/` y
-  `../vocabulario-y-familia-de-palabras/`, el módulo que sigue.
-```
-
-## Sección: detectar-falacias (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "basico"
-  tags: ["falacias", "definicion"]
+  tags: ["focalizacion_externa", "efecto"]
 
 variables:
   n: uno_de([1, 1])
@@ -1844,214 +1311,45 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una falacia es un razonamiento que parece válido pero no lo es: la conclusión no se sigue realmente de las premisas, aunque suene convincente."
+enunciado: "La focalización externa genera cierto misterio sobre lo que sienten o piensan los personajes, porque el lector debe inferirlo sólo a partir de sus acciones."
 
 pasos:
-  - "Ver `../argumentos/`: no alcanza con que un argumento suene bien, hay que evaluar si realmente sostiene la conclusión."
+  - "Sin acceso a la mente de nadie, el lector interpreta como si viera la escena desde afuera, sin ayuda del narrador."
 
 explicacion: |
-  Verdadero: la apariencia de validez sin sustento real es la
-  definición central de falacia.
+  Verdadero: la ausencia de acceso interno es lo que genera esa
+  distancia interpretativa.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "basico"
-  tags: ["ad_hominem"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "ad hominem"
-tipo: mc
-opciones_explicitas: ["ad hominem", "falsa dicotomía", "pendiente resbaladiza"]
-
-enunciado: "\"No le hagas caso a su argumento económico, es un desastre con el dinero\" es un ejemplo de..."
-
-pasos:
-  - "Ataca a la persona (\"es un desastre con el dinero\") en vez de responder al argumento que dio."
-
-explicacion: |
-  El ad hominem ataca a la persona que argumenta en vez de su
-  argumento.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "basico"
-  tags: ["falsa_dicotomia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "falsa dicotomía"
-tipo: mc
-opciones_explicitas: ["ad hominem", "falsa dicotomía", "generalización apresurada"]
-
-enunciado: "\"O estás con nosotros o estás en contra\" es un ejemplo de..."
-
-pasos:
-  - "Presenta sólo dos opciones cuando en realidad hay posturas intermedias posibles."
-
-explicacion: |
-  La falsa dicotomía reduce las opciones a dos extremos, ignorando
-  posturas intermedias.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "intermedio"
-  tags: ["pendiente_resbaladiza"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "pendiente resbaladiza"
-tipo: mc
-opciones_explicitas: ["pendiente resbaladiza", "ad populum", "petición de principio"]
-
-enunciado: "\"Si dejamos que falten a esta clase, van a terminar abandonando la escuela\" es un ejemplo de..."
-
-pasos:
-  - "Afirma que un paso pequeño llevará inevitablemente a una consecuencia extrema, sin justificar esa cadena."
-
-explicacion: |
-  La pendiente resbaladiza encadena consecuencias extremas sin
-  justificación real de que cada paso lleve al siguiente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "intermedio"
-  tags: ["apelacion_autoridad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "apelación a la autoridad no pertinente"
-tipo: mc
-opciones_explicitas: ["apelación a la autoridad no pertinente", "ad hominem", "falsa dicotomía"]
-
-enunciado: "\"Este actor famoso recomienda esta dieta, así que debe funcionar\" es un ejemplo de..."
-
-pasos:
-  - "Cita a alguien famoso, pero sin relación de experticia real con el tema (nutrición)."
-
-explicacion: |
-  La apelación a la autoridad no pertinente cita a alguien admirado
-  pero sin conocimiento experto en el tema tratado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "intermedio"
-  tags: ["ad_populum"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "apelación a la popularidad"
-tipo: mc
-opciones_explicitas: ["apelación a la popularidad", "generalización apresurada", "pendiente resbaladiza"]
-
-enunciado: "\"Todo el mundo lo hace, así que no puede estar mal\" es un ejemplo de..."
-
-pasos:
-  - "Sostiene que algo es correcto sólo porque mucha gente lo cree o lo hace."
-
-explicacion: |
-  La apelación a la popularidad confunde \"muy común\" con
-  \"correcto\", sin dar otra razón.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "intermedio"
-  tags: ["generalizacion_apresurada"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "generalización apresurada"
-tipo: mc
-opciones_explicitas: ["generalización apresurada", "ad hominem", "petición de principio"]
-
-enunciado: "\"Conocí a dos personas de esa ciudad y las dos eran maleducadas, así que toda la gente de ahí es así\" es un ejemplo de..."
-
-pasos:
-  - "Saca una conclusión general (\"toda la gente\") a partir de muy pocos casos (dos personas)."
-
-explicacion: |
-  La generalización apresurada extiende una conclusión a partir de
-  una muestra demasiado chica para sostenerla.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "intermedio"
-  tags: ["espantapajaros"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "espantapájaros"
-tipo: mc
-opciones_explicitas: ["espantapájaros", "ad populum", "falsa dicotomía"]
-
-enunciado: "Responder \"así que vos querés que no haya ninguna regla en la escuela\" a alguien que sólo propuso flexibilizar un horario puntual es un ejemplo de..."
-
-pasos:
-  - "Distorsiona el argumento original (una propuesta puntual) hacia una versión extrema y fácil de rebatir."
-
-explicacion: |
-  La falacia del espantapájaros simplifica o exagera el argumento
-  ajeno para que sea más fácil de derribar (ver `../contraargumentos/`).
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "detectar_falacias"
+  tema: "punto_de_vista"
   nivel: "avanzado"
-  tags: ["peticion_de_principio"]
+  tags: ["focalizacion", "distincion"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "petición de principio"
-tipo: mc
-opciones_explicitas: ["petición de principio", "pendiente resbaladiza", "generalización apresurada"]
+respuesta: falso
+tipo: vf
 
-enunciado: "\"Este libro dice la verdad porque lo dice el libro, que siempre dice la verdad\" es un ejemplo de..."
+enunciado: "La focalización clasifica al narrador según si es protagonista, testigo, omnisciente u observador."
 
 pasos:
-  - "La conclusión (\"dice la verdad\") ya está asumida dentro de la premisa (\"siempre dice la verdad\"): es circular."
+  - "Esa clasificación (protagonista/testigo/omnisciente/observador) es la del tema \"narrador\"; la focalización usa otras tres categorías (cero/interna/externa)."
 
 explicacion: |
-  La petición de principio (razonamiento circular) asume como premisa
-  lo mismo que quiere demostrar como conclusión.
+  Falso: son dos sistemas de clasificación relacionados pero
+  distintos, cada uno con su propio vocabulario técnico.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "detectar_falacias"
+  tema: "punto_de_vista"
   nivel: "avanzado"
-  tags: ["falacias", "distincion"]
+  tags: ["focalizacion_interna", "cambios"]
 
 variables:
   n: uno_de([1, 1])
@@ -2059,22 +1357,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Señalar que un argumento es falaz no significa que su conclusión sea necesariamente falsa: significa que ESA razón en particular no la sostiene bien."
+enunciado: "Un texto con focalización interna puede cambiar de personaje focal entre capítulos, mostrando primero la perspectiva de uno y después la de otro."
 
 pasos:
-  - "Puede haber una conclusión correcta defendida con un argumento falaz."
+  - "Mientras el cambio sea deliberado y claro (por ejemplo, un capítulo por personaje), es una técnica narrativa válida."
 
 explicacion: |
-  Verdadero: evaluar la falacia de un argumento es distinto de
-  evaluar si la conclusión en sí es verdadera.
+  Verdadero: alternar el personaje focal es un recurso narrativo
+  común en novelas con varios protagonistas.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "detectar_falacias"
+  tema: "punto_de_vista"
   nivel: "intermedio"
-  tags: ["ad_hominem", "estructura"]
+  tags: ["punto_de_vista", "vocabulario"]
 
 variables:
   n: uno_de([1, 1])
@@ -2082,71 +1380,1036 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El ad hominem se reconoce porque la respuesta se dirige a la persona (su carácter, su historia) y no al contenido del argumento que esa persona presentó."
+enunciado: "En el análisis literario, \"punto de vista\" es un término técnico que se estudia principalmente a través del concepto de focalización, no sólo como sinónimo cotidiano de \"opinión\"."
 
 pasos:
-  - "Aunque la crítica a la persona sea cierta, no dice nada sobre si el argumento en sí es correcto."
+  - "El uso cotidiano (\"mi punto de vista sobre algo\") es distinto del uso técnico literario (por dónde pasa la información narrativa)."
 
 explicacion: |
-  Verdadero: esa desviación del contenido hacia la persona es la
-  marca central del ad hominem.
+  Verdadero: distinguir el uso técnico evita confundir este análisis
+  con dar una opinión sobre el texto.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "detectar_falacias"
+  tema: "punto_de_vista"
   nivel: "avanzado"
-  tags: ["generalizacion_apresurada", "argumento_de_datos", "diferenciacion"]
+  tags: ["focalizacion", "practica"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un argumento de datos basado en un estudio con miles de casos es distinto de una generalización apresurada basada en dos o tres casos anecdóticos, aunque ambos generalicen a partir de ejemplos."
-
-pasos:
-  - "Ver `../argumentos/`: el tamaño y representatividad de la muestra es lo que distingue un argumento de datos sólido de una generalización apresurada."
-
-explicacion: |
-  Verdadero: la cantidad y calidad de la evidencia es lo que separa
-  un argumento válido de una falacia con estructura similar.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "avanzado"
-  tags: ["falacias", "practica"]
-
-variables:
-  frases: ["No hay que escucharlo, ni siquiera terminó la secundaria", "O bajamos los impuestos a cero o el país se hunde", "Si permitimos esto, mañana va a estar todo permitido"]
-  tipos: ["ad hominem", "falsa dicotomía", "pendiente resbaladiza"]
+  fragmentos: ["Todos en el pueblo sabían la verdad, menos Juan, que seguía confiando ciegamente", "Juan sospechaba de todos, aunque no tenía pruebas de nada", "Juan caminó por la calle principal y se detuvo frente a la panadería"]
+  tipos: ["focalización cero", "focalización interna (en Juan)", "focalización externa"]
   idx: uno_de([0, 1, 2])
 
 respuesta: tipos[idx]
 tipo: mc
-opciones_explicitas: ["ad hominem", "falsa dicotomía", "pendiente resbaladiza", "ad populum"]
+opciones_explicitas: ["focalización cero", "focalización interna (en Juan)", "focalización externa"]
+
+enunciado: "\"{fragmentos[idx]}\" tiene..."
+
+pasos:
+  - "Si sabe más que cualquier personaje (incluido lo que \"todos sabían\"), es cero. Si se limita a lo que Juan piensa/sospecha, es interna. Si sólo describe acciones, es externa."
+
+explicacion: |
+  Cada fragmento fue construido para ejemplificar una focalización
+  distinta según cuánta y de quién es la información que se cuenta.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "punto_de_vista"
+  nivel: "intermedio"
+  tags: ["punto_de_vista", "metodo"]
+
+enunciado: "Ordená los pasos para analizar el punto de vista de un fragmento narrativo, después de ya haber identificado el tipo de narrador."
+tipo: ordenar
+opciones_explicitas:
+  - "Revisar si el narrador accede a pensamientos internos de algún personaje"
+  - "Si accede, determinar si es de UN personaje (interna) o de TODOS sin restricción (cero)"
+  - "Si no accede a ningún pensamiento interno, clasificar como focalización externa"
+  - "Confirmar que la focalización identificada es consistente con el tipo de narrador ya reconocido"
+respuesta_orden: ["Revisar si el narrador accede a pensamientos internos de algún personaje", "Si accede, determinar si es de UN personaje (interna) o de TODOS sin restricción (cero)", "Si no accede a ningún pensamiento interno, clasificar como focalización externa", "Confirmar que la focalización identificada es consistente con el tipo de narrador ya reconocido"]
+explicacion: |
+  El análisis parte del acceso (o no) a lo interno, y termina
+  contrastando esa conclusión con el tipo de narrador ya establecido.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "punto_de_vista"
+  nivel: "avanzado"
+  tags: ["punto_de_vista", "prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una vez establecido desde qué perspectiva se cuenta una historia (punto de vista), el siguiente paso lógico es analizar en qué orden se cuentan los hechos (estructura narrativa)."
+
+pasos:
+  - "Primero se resuelve QUIÉN cuenta y DESDE DÓNDE; después, EN QUÉ ORDEN lo cuenta."
+
+explicacion: |
+  Verdadero: por eso punto de vista es prerrequisito directo de
+  estructura narrativa, el siguiente tema de la subrama.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "punto_de_vista"
+  nivel: "avanzado"
+  tags: ["focalizacion", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un autor quiere que el lector sienta la misma confusión que un personaje perdido en un lugar desconocido, conviene usar focalización interna en ese personaje antes que focalización cero."
+
+pasos:
+  - "La focalización cero le daría al lector información (como el mapa completo del lugar) que el personaje no tiene, rompiendo el efecto de confusión buscado."
+
+explicacion: |
+  Verdadero: elegir la focalización adecuada es una herramienta
+  directa para controlar la experiencia del lector.
+```
+
+## Sección: recursos-literarios (40 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["metafora"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "metáfora"
+tipo: mc
+opciones_explicitas: ["metáfora", "símil", "hipérbole"]
+
+enunciado: "\"Sus ojos son dos luceros\" es un ejemplo de..."
+
+pasos:
+  - "Identifica dos elementos sin usar nexo comparativo (\"como\"): ojos = luceros directamente."
+
+explicacion: |
+  La metáfora identifica dos elementos sin nexo comparativo explícito.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["simil"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "símil"
+tipo: mc
+opciones_explicitas: ["metáfora", "símil", "hipérbole"]
+
+enunciado: "\"Sus ojos brillan como luceros\" es un ejemplo de..."
+
+pasos:
+  - "Usa el nexo comparativo \"como\": es una comparación explícita."
+
+explicacion: |
+  El símil compara dos elementos usando un nexo comparativo explícito
+  (\"como\", \"cual\", \"parece\").
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["personificacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "personificación"
+tipo: mc
+opciones_explicitas: ["personificación", "metáfora", "símbolo"]
+
+enunciado: "\"El viento susurraba entre los árboles\" es un ejemplo de..."
+
+pasos:
+  - "Atribuye una acción humana (susurrar) a algo que no lo es (el viento)."
+
+explicacion: |
+  La personificación da cualidades o acciones humanas a elementos no
+  humanos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["hiperbole"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "hipérbole"
+tipo: mc
+opciones_explicitas: ["hipérbole", "metáfora", "ironía"]
+
+enunciado: "\"Te lo dije un millón de veces\" es un ejemplo de..."
+
+pasos:
+  - "Exagera deliberadamente una cantidad, de forma evidente y no literal."
+
+explicacion: |
+  La hipérbole exagera de forma deliberada, sin buscar que se
+  interprete literalmente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["antitesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "antítesis"
+tipo: mc
+opciones_explicitas: ["antítesis", "oxímoron", "paralelismo"]
+
+enunciado: "\"Vivo sin vivir en mí\" es un ejemplo de..."
+
+pasos:
+  - "Contrapone dos ideas opuestas (vivir / no vivir) en la misma frase."
+
+explicacion: |
+  La antítesis contrapone ideas opuestas dentro de la misma frase o
+  cláusula.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["oximoron"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "oxímoron"
+tipo: mc
+opciones_explicitas: ["antítesis", "oxímoron", "paralelismo"]
+
+enunciado: "\"Un silencio ensordecedor\" es un ejemplo de..."
+
+pasos:
+  - "Une dos términos contradictorios en una sola expresión compacta (silencio + ensordecedor)."
+
+explicacion: |
+  El oxímoron junta términos contradictorios en una expresión muy
+  compacta, más breve que la antítesis.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["ironia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "ironía"
+tipo: mc
+opciones_explicitas: ["ironía", "hipérbole", "antítesis"]
+
+enunciado: "Decirle \"¡qué puntual!\" a alguien que llegó una hora tarde es un ejemplo de..."
+
+pasos:
+  - "Dice lo contrario de lo que se piensa, con intención crítica o humorística."
+
+explicacion: |
+  La ironía comunica lo opuesto de lo literalmente dicho, a propósito.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["simbolo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "símbolo"
+tipo: mc
+opciones_explicitas: ["símbolo", "metáfora", "personificación"]
+
+enunciado: "Que la paloma represente la paz, de forma sostenida en distintos textos y culturas, es un ejemplo de..."
+
+pasos:
+  - "Un elemento concreto que representa una idea abstracta de forma estable, no sólo en un texto puntual."
+
+explicacion: |
+  El símbolo asocia un elemento concreto con una idea abstracta de
+  forma sostenida, más allá de un solo texto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["aliteracion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "aliteración"
+tipo: mc
+opciones_explicitas: ["aliteración", "onomatopeya", "anáfora"]
+
+enunciado: "\"El susurro del viento se siente suave\" (repetición del sonido \"s\") es un ejemplo de..."
+
+pasos:
+  - "Repite un mismo sonido consonántico en varias palabras cercanas."
+
+explicacion: |
+  La aliteración repite un sonido para crear un efecto sonoro
+  deliberado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["onomatopeya"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "onomatopeya"
+tipo: mc
+opciones_explicitas: ["aliteración", "onomatopeya", "anáfora"]
+
+enunciado: "La palabra \"tic-tac\" para representar el sonido de un reloj es un ejemplo de..."
+
+pasos:
+  - "Es una palabra que imita un sonido real."
+
+explicacion: |
+  La onomatopeya reproduce con palabras un sonido del mundo real.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["anafora"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "anáfora"
+tipo: mc
+opciones_explicitas: ["anáfora", "paralelismo", "enumeración"]
+
+enunciado: "\"Nada me detiene. Nada me asusta. Nada me vence.\" es un ejemplo de..."
+
+pasos:
+  - "Repite la misma palabra (\"Nada\") al principio de cada oración."
+
+explicacion: |
+  La anáfora repite literalmente una o más palabras al inicio de
+  versos u oraciones sucesivas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["hiperbaton"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "hipérbaton"
+tipo: mc
+opciones_explicitas: ["hipérbaton", "enumeración", "paralelismo"]
+
+enunciado: "\"Del salón en el ángulo oscuro\" (en vez de \"en el ángulo oscuro del salón\") es un ejemplo de..."
+
+pasos:
+  - "Altera el orden habitual de las palabras en la oración."
+
+explicacion: |
+  El hipérbaton reordena las palabras respecto del orden sintáctico
+  habitual.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["enumeracion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "enumeración"
+tipo: mc
+opciones_explicitas: ["enumeración", "anáfora", "hipérbaton"]
+
+enunciado: "\"Trajo pan, queso, fruta y vino\" es un ejemplo de..."
+
+pasos:
+  - "Lista varios elementos relacionados en secuencia."
+
+explicacion: |
+  La enumeración presenta una serie de elementos relacionados uno
+  tras otro.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["paralelismo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "paralelismo"
+tipo: mc
+opciones_explicitas: ["anáfora", "paralelismo", "antítesis"]
+
+enunciado: "\"Cuando ríes, el mundo brilla; cuando lloras, el mundo se apaga.\" es un ejemplo de..."
+
+pasos:
+  - "Repite la misma estructura sintáctica (\"cuando X, el mundo Y\") sin repetir exactamente las mismas palabras."
+
+explicacion: |
+  El paralelismo repite la estructura sintáctica, no necesariamente
+  las mismas palabras (a diferencia de la anáfora).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["metafora", "simil", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La diferencia entre metáfora y símil es que el símil usa un nexo comparativo explícito (\"como\", \"cual\"), y la metáfora no."
+
+pasos:
+  - "\"Es como el sol\" (símil, con \"como\") vs. \"es el sol\" (metáfora, sin nexo)."
+
+explicacion: |
+  Verdadero: la presencia o ausencia del nexo comparativo es el
+  criterio central para distinguirlos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "avanzado"
+  tags: ["antitesis", "oximoron", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La antítesis contrapone ideas opuestas en frases o cláusulas distintas; el oxímoron las junta en una sola expresión muy compacta (dos o tres palabras)."
+
+pasos:
+  - "\"Eres fuego y hielo\" (antítesis, más extendida) vs. \"fuego helado\" (oxímoron, compacto)."
+
+explicacion: |
+  Verdadero: la extensión y compacidad de la expresión distingue a
+  estos dos recursos parecidos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "avanzado"
+  tags: ["anafora", "paralelismo", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La anáfora repite las mismas palabras al inicio de cada verso u oración; el paralelismo repite la misma estructura sintáctica, aunque cambien las palabras."
+
+pasos:
+  - "\"Nada me detiene, nada me asusta\" (anáfora, misma palabra) vs. \"cuando ríes... cuando lloras...\" (paralelismo, misma estructura, distintas palabras)."
+
+explicacion: |
+  Verdadero: repetición literal de palabras (anáfora) vs. repetición
+  de estructura (paralelismo) es la diferencia clave.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "avanzado"
+  tags: ["hiperbole", "metafora", "diferenciacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La hipérbole exagera una cantidad o intensidad; la metáfora identifica dos elementos distintos entre sí, sin necesariamente exagerar nada."
+
+pasos:
+  - "\"Un millón de veces\" (hipérbole, exageración) vs. \"sus ojos son luceros\" (metáfora, identificación, no exageración)."
+
+explicacion: |
+  Verdadero: exagerar una magnitud (hipérbole) es distinto de
+  identificar dos elementos entre sí (metáfora), aunque ambos se
+  aparten del lenguaje literal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["familia_semantica", "clasificacion"]
+
+variables:
+  recursos: ["metáfora", "hipérbole", "ironía"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: "semántica (significado)"
+tipo: mc
+opciones_explicitas: ["semántica (significado)", "fónica (sonido)", "sintáctica (orden)"]
+
+enunciado: "El recurso \"{recursos[idx]}\" pertenece a la familia..."
+
+pasos:
+  - "Metáfora, hipérbole e ironía alteran el significado de lo dicho, no el sonido ni el orden."
+
+explicacion: |
+  Estos recursos juegan con el significado: dicen algo distinto (o
+  más intenso) de lo literal.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["familia_fonica", "clasificacion"]
+
+variables:
+  recursos: ["aliteración", "onomatopeya", "anáfora"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: "fónica (sonido)"
+tipo: mc
+opciones_explicitas: ["semántica (significado)", "fónica (sonido)", "sintáctica (orden)"]
+
+enunciado: "El recurso \"{recursos[idx]}\" pertenece a la familia..."
+
+pasos:
+  - "Aliteración, onomatopeya y anáfora se apoyan en la repetición o imitación de sonidos."
+
+explicacion: |
+  Estos recursos juegan con el nivel sonoro del lenguaje.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["familia_sintactica", "clasificacion"]
+
+variables:
+  recursos: ["hipérbaton", "enumeración", "paralelismo"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: "sintáctica (orden)"
+tipo: mc
+opciones_explicitas: ["semántica (significado)", "fónica (sonido)", "sintáctica (orden)"]
+
+enunciado: "El recurso \"{recursos[idx]}\" pertenece a la familia..."
+
+pasos:
+  - "Hipérbaton, enumeración y paralelismo alteran o explotan el orden/estructura de las palabras."
+
+explicacion: |
+  Estos recursos juegan con el orden y la estructura sintáctica de la
+  oración.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["metafora"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "metáfora"
+tipo: mc
+opciones_explicitas: ["metáfora", "símil", "personificación"]
+
+enunciado: "\"El tiempo es oro\" es un ejemplo de..."
+
+pasos:
+  - "Identifica el tiempo con el oro sin usar nexo comparativo."
+
+explicacion: |
+  Otra metáfora clásica: identifica dos elementos (tiempo, oro)
+  directamente.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["simil"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "símil"
+tipo: mc
+opciones_explicitas: ["metáfora", "símil", "hipérbole"]
+
+enunciado: "\"Corría como un rayo\" es un ejemplo de..."
+
+pasos:
+  - "Usa el nexo comparativo \"como\"."
+
+explicacion: |
+  El nexo \"como\" marca la comparación explícita del símil.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["personificacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "personificación"
+tipo: mc
+opciones_explicitas: ["personificación", "metáfora", "símbolo"]
+
+enunciado: "\"El río corría furioso hacia el mar\" es un ejemplo de..."
+
+pasos:
+  - "Atribuye una emoción humana (furia) a un elemento no humano (el río)."
+
+explicacion: |
+  La personificación da al río una emoción típicamente humana.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["hiperbole"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "hipérbole"
+tipo: mc
+opciones_explicitas: ["hipérbole", "símil", "ironía"]
+
+enunciado: "\"Me morí de la vergüenza\" es un ejemplo de..."
+
+pasos:
+  - "Exagera de forma evidente, no se espera que se lea literal."
+
+explicacion: |
+  Otra hipérbole común: exagerar una reacción emocional.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["ironia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "ironía"
+tipo: mc
+opciones_explicitas: ["ironía", "hipérbole", "antítesis"]
+
+enunciado: "Decir \"¡lindo día!\" durante una tormenta muy fuerte es un ejemplo de..."
+
+pasos:
+  - "Dice lo contrario de lo evidente, con intención (aquí, humorística)."
+
+explicacion: |
+  Otra ironía típica: afirmar lo opuesto de la situación real.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["aliteracion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "aliteración"
+tipo: mc
+opciones_explicitas: ["aliteración", "onomatopeya", "paralelismo"]
+
+enunciado: "\"Con el ala aleve del leve abanico\" (repetición del sonido \"l\") es un ejemplo de..."
+
+pasos:
+  - "Repite el mismo sonido consonántico en palabras cercanas."
+
+explicacion: |
+  Ejemplo clásico de aliteración con el sonido \"l\".
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["onomatopeya"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "onomatopeya"
+tipo: mc
+opciones_explicitas: ["onomatopeya", "aliteración", "anáfora"]
+
+enunciado: "La palabra \"splash\" para representar el sonido de algo cayendo al agua es un ejemplo de..."
+
+pasos:
+  - "Imita con palabras un sonido real."
+
+explicacion: |
+  Otro ejemplo de palabra que reproduce un sonido del mundo real.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["anafora"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "anáfora"
+tipo: mc
+opciones_explicitas: ["anáfora", "paralelismo", "enumeración"]
+
+enunciado: "\"Te quiero en la mañana. Te quiero en la tarde. Te quiero en la noche.\" es un ejemplo de..."
+
+pasos:
+  - "Repite exactamente las mismas palabras (\"Te quiero\") al inicio de cada oración."
+
+explicacion: |
+  La repetición literal de las mismas palabras al inicio confirma que
+  es anáfora.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "avanzado"
+  tags: ["hiperbaton"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "hipérbaton"
+tipo: mc
+opciones_explicitas: ["hipérbaton", "enumeración", "anáfora"]
+
+enunciado: "\"Verde que te quiero verde\" (orden poético, no el habitual sujeto-verbo-objeto) es un ejemplo de..."
+
+pasos:
+  - "Rompe el orden sintáctico esperado para dar énfasis o musicalidad."
+
+explicacion: |
+  El orden alterado, deliberadamente distinto del habitual, marca el
+  hipérbaton.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["enumeracion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "enumeración"
+tipo: mc
+opciones_explicitas: ["enumeración", "hipérbaton", "antítesis"]
+
+enunciado: "\"En la mochila llevaba cuadernos, lápices, una regla y una calculadora\" es un ejemplo de..."
+
+pasos:
+  - "Lista varios elementos relacionados uno tras otro."
+
+explicacion: |
+  Otra enumeración: lista de objetos relacionados en secuencia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["paralelismo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "paralelismo"
+tipo: mc
+opciones_explicitas: ["anáfora", "paralelismo", "hipérbaton"]
+
+enunciado: "\"Si trabajás, ganás; si estudiás, aprendés.\" es un ejemplo de..."
+
+pasos:
+  - "Repite la estructura \"si X, Y\" con palabras distintas en cada mitad."
+
+explicacion: |
+  La misma estructura sintáctica se repite con contenido distinto:
+  paralelismo, no anáfora.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "avanzado"
+  tags: ["simbolo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "símbolo"
+tipo: mc
+opciones_explicitas: ["símbolo", "metáfora", "personificación"]
+
+enunciado: "Que la balanza represente la justicia, de forma reconocible en distintos contextos culturales, es un ejemplo de..."
+
+pasos:
+  - "Un objeto concreto asociado de forma estable a una idea abstracta, más allá de un solo texto puntual."
+
+explicacion: |
+  Otro símbolo cultural estable: la balanza y la justicia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "avanzado"
+  tags: ["oximoron"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "oxímoron"
+tipo: mc
+opciones_explicitas: ["oxímoron", "antítesis", "paralelismo"]
+
+enunciado: "\"Una dulce amargura\" es un ejemplo de..."
+
+pasos:
+  - "Une dos términos contradictorios (dulce/amargura) en una expresión muy compacta."
+
+explicacion: |
+  La compacidad de la contradicción (dos-tres palabras) confirma que
+  es oxímoron y no antítesis.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "avanzado"
+  tags: ["antitesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "antítesis"
+tipo: mc
+opciones_explicitas: ["antítesis", "oxímoron", "paralelismo"]
+
+enunciado: "\"Cuando quiero llorar, no lloro; y a veces lloro sin querer\" es un ejemplo de..."
+
+pasos:
+  - "Contrapone dos ideas opuestas (querer llorar/no llorar) extendidas en cláusulas distintas."
+
+explicacion: |
+  La extensión en dos cláusulas distintas (no una expresión
+  compacta) confirma que es antítesis y no oxímoron.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["recursos_literarios", "generos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los recursos literarios se usan sobre todo en los géneros narrativo y lírico, aunque pueden aparecer en cualquier tipo de texto."
+
+pasos:
+  - "No están limitados a la literatura, pero es donde más se concentran deliberadamente."
+
+explicacion: |
+  Verdadero: son herramientas centrales de la literatura, aunque no
+  exclusivas de ella.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "basico"
+  tags: ["recursos_literarios", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un recurso literario es un uso especial del lenguaje que se aparta del uso habitual para lograr un efecto expresivo, estético o de énfasis."
+
+pasos:
+  - "Ese apartamiento del uso neutro es lo que distingue a un recurso literario del lenguaje cotidiano directo."
+
+explicacion: |
+  Verdadero: es la definición general que engloba a las tres
+  familias de recursos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "intermedio"
+  tags: ["recursos_literarios", "metodo"]
+
+enunciado: "Ordená los pasos para identificar qué recurso literario aparece en un fragmento."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar qué se aparta del uso neutro del lenguaje"
+  - "Determinar si afecta el significado, el sonido o el orden de las palabras"
+  - "Ubicar la familia correspondiente (semántica, fónica o sintáctica)"
+  - "Aplicar la prueba específica de esa familia para nombrar el recurso exacto"
+respuesta_orden: ["Identificar qué se aparta del uso neutro del lenguaje", "Determinar si afecta el significado, el sonido o el orden de las palabras", "Ubicar la familia correspondiente (semántica, fónica o sintáctica)", "Aplicar la prueba específica de esa familia para nombrar el recurso exacto"]
+explicacion: |
+  El método va de lo general (qué se aparta de lo neutro) a lo
+  específico (qué recurso exacto es, dentro de su familia).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "recursos_literarios"
+  nivel: "avanzado"
+  tags: ["recursos_literarios", "practica"]
+
+variables:
+  frases: ["Sus palabras eran espinas", "El silencio gritaba en la habitación vacía", "Compró manzanas, peras, uvas y duraznos"]
+  recursos: ["metáfora", "personificación", "enumeración"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: recursos[idx]
+tipo: mc
+opciones_explicitas: ["metáfora", "personificación", "enumeración", "símil", "hipérbole"]
 
 enunciado: "\"{frases[idx]}\" es un ejemplo de..."
 
 pasos:
-  - "Identificar si ataca a la persona, reduce a dos opciones extremas, o encadena consecuencias sin justificar."
+  - "Identificar el elemento que se aparta del uso neutro y aplicar la prueba de la familia correspondiente."
 
 explicacion: |
-  Cada fragmento fue construido para representar un tipo distinto de
-  falacia común.
+  Cada fragmento fue construido para ejemplificar un recurso distinto
+  de distintas familias.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "detectar_falacias"
+  tema: "recursos_literarios"
   nivel: "avanzado"
-  tags: ["falacias", "validez"]
+  tags: ["recursos_literarios", "aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -2154,117 +2417,139 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un razonamiento puede ser lógicamente válido en su estructura y aun así llegar a una conclusión falsa, si alguna de sus premisas es falsa — eso es un problema distinto al de la falacia."
+enunciado: "Si el objetivo es dar musicalidad y ritmo a un poema a través de la repetición de sonidos, conviene usar aliteración antes que una simple enumeración de elementos."
 
 pasos:
-  - "Ese análisis de \"validez\" formal es justamente el tema que sigue en la cadena, `Validez de un razonamiento` (Filosofía)."
+  - "La aliteración trabaja específicamente sobre el sonido; la enumeración organiza contenido, no necesariamente sonido repetido."
 
 explicacion: |
-  Verdadero: falacia (error en la estructura del razonamiento) y
-  premisa falsa (error en el contenido) son problemas distintos.
+  Verdadero: elegir el recurso adecuado depende de qué nivel del
+  lenguaje (significado, sonido u orden) se quiere explotar para
+  lograr el efecto buscado.
+```
+
+## Sección: estructura-narrativa (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "basico"
+  tags: ["estructura_narrativa", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La estructura narrativa es el orden en que se organizan y presentan los hechos de una historia, y no siempre coincide con el orden en que esos hechos ocurrieron dentro de la ficción."
+
+pasos:
+  - "Esa posible diferencia entre orden de los hechos y orden del relato es la base de flashback/flashforward."
+
+explicacion: |
+  Verdadero: la estructura narrativa puede reordenar los hechos, no
+  sólo presentarlos en secuencia.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "intermedio"
-  tags: ["falacias", "publicidad"]
+  tema: "estructura_narrativa"
+  nivel: "basico"
+  tags: ["introduccion"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "apelación a la autoridad no pertinente"
+respuesta: "introducción"
 tipo: mc
-opciones_explicitas: ["apelación a la autoridad no pertinente", "petición de principio", "falsa dicotomía"]
+opciones_explicitas: ["introducción", "nudo", "desenlace"]
 
-enunciado: "Un anuncio de crema para la piel que usa a un futbolista famoso como testimonio de que \"funciona\", sin ninguna evidencia dermatológica, apela a..."
+enunciado: "La parte de la estructura clásica que presenta a los personajes, el espacio y la situación inicial, antes del conflicto, se llama..."
 
 pasos:
-  - "El futbolista no es experto en dermatología: es una autoridad no pertinente para el tema."
+  - "También llamada \"planteamiento\": establece el punto de partida de la historia."
 
 explicacion: |
-  Es un caso muy común de apelación a la autoridad no pertinente en
-  publicidad.
+  La introducción presenta el contexto antes de que aparezca el
+  conflicto.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "intermedio"
-  tags: ["falacias", "metodo"]
+  tema: "estructura_narrativa"
+  nivel: "basico"
+  tags: ["nudo"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "nudo"
+tipo: mc
+opciones_explicitas: ["introducción", "nudo", "desenlace"]
 
-enunciado: "El primer paso para detectar una falacia es separar la conclusión de las razones dadas, y preguntar si esas razones realmente apoyan la conclusión o sólo distraen con algo relacionado."
+enunciado: "La parte de la estructura clásica donde el conflicto se desarrolla y crece la tensión se llama..."
 
 pasos:
-  - "Esa separación permite ver con claridad si hay un salto lógico injustificado."
+  - "También llamado \"desarrollo\": es el cuerpo central de la historia."
 
 explicacion: |
-  Verdadero: es el método básico descrito en la teoría para
-  identificar una falacia.
+  El nudo es donde el conflicto avanza y los personajes intentan
+  resolverlo.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "intermedio"
-  tags: ["falsa_dicotomia"]
+  tema: "estructura_narrativa"
+  nivel: "basico"
+  tags: ["desenlace"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "desenlace"
+tipo: mc
+opciones_explicitas: ["introducción", "nudo", "desenlace"]
 
-enunciado: "La falsa dicotomía funciona presentando sólo dos opciones extremas, cuando en realidad existen posturas intermedias que el argumento no menciona."
+enunciado: "La parte de la estructura clásica donde el conflicto se resuelve y se cierra la historia se llama..."
 
 pasos:
-  - "Esa reducción artificial a dos opciones es lo que la hace falaz, no que las dos opciones mencionadas sean falsas en sí."
+  - "Puede resolverse bien, mal, o quedar abierto."
 
 explicacion: |
-  Verdadero: ocultar las alternativas intermedias es el mecanismo
-  central de esta falacia.
+  El desenlace cierra la historia, resolviendo (o dejando planteado)
+  el conflicto del nudo.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "intermedio"
-  tags: ["falacias", "metodo"]
+  tema: "estructura_narrativa"
+  nivel: "basico"
+  tags: ["estructura_clasica", "orden"]
 
-enunciado: "Ordená los pasos para evaluar si un argumento contiene una falacia."
+enunciado: "Ordená las tres partes de la estructura narrativa clásica."
 tipo: ordenar
 opciones_explicitas:
-  - "Separar la conclusión de las razones dadas"
-  - "Revisar si las razones responden directamente al contenido del argumento o se desvían (persona, popularidad, miedo)"
-  - "Comparar el patrón encontrado con las falacias comunes conocidas"
-  - "Nombrar la falacia específica si corresponde"
-respuesta_orden:
-  - "Separar la conclusión de las razones dadas"
-  - "Revisar si las razones responden directamente al contenido del argumento o se desvían (persona, popularidad, miedo)"
-  - "Comparar el patrón encontrado con las falacias comunes conocidas"
-  - "Nombrar la falacia específica si corresponde"
-
+  - "Introducción"
+  - "Nudo"
+  - "Desenlace"
+respuesta_orden: ["Introducción", "Nudo", "Desenlace"]
 explicacion: |
-  El proceso va de la separación básica al reconocimiento del patrón
-  específico de falacia.
+  La estructura clásica sigue el orden cronológico: presentación,
+  desarrollo del conflicto y resolución.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "detectar_falacias"
-  nivel: "avanzado"
-  tags: ["falacias", "prerrequisito"]
+  tema: "estructura_narrativa"
+  nivel: "intermedio"
+  tags: ["orden_lineal"]
 
 variables:
   n: uno_de([1, 1])
@@ -2272,22 +2557,114 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Detectar falacias en lenguaje cotidiano es el puente directo hacia la lógica proposicional (Filosofía), que da herramientas más precisas y sistemáticas para analizar la validez de un razonamiento."
+enunciado: "Cuando el orden en que se cuenta la historia coincide con el orden en que ocurrieron los hechos, se llama orden lineal o cronológico."
 
 pasos:
-  - "Ver `../../filosofia/logica-proposicional/`: es el mismo problema (razonamientos que fallan) visto con más formalismo."
+  - "Es el caso más simple: contar todo en el mismo orden en que sucedió."
 
 explicacion: |
-  Verdadero: por eso detectar falacias es prerrequisito directo del
-  siguiente tema en la cadena, ya en otra materia.
+  Verdadero: el orden lineal es la forma más directa de narrar,
+  siguiendo la cronología real de los hechos.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "detectar_falacias"
+  tema: "estructura_narrativa"
+  nivel: "intermedio"
+  tags: ["flashback"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "flashback"
+tipo: mc
+opciones_explicitas: ["flashback", "flashforward", "orden lineal"]
+
+enunciado: "\"Juan miró la foto y recordó aquel verano en la playa, años atrás.\" ¿Qué recurso usa este fragmento?"
+
+pasos:
+  - "Interrumpe el relato para contar algo que ocurrió ANTES: es un flashback (analepsis)."
+
+explicacion: |
+  El flashback retrocede en el tiempo respecto del presente
+  narrativo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "intermedio"
+  tags: ["flashforward"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "flashforward"
+tipo: mc
+opciones_explicitas: ["flashback", "flashforward", "orden lineal"]
+
+enunciado: "\"Años más tarde, Juan entendería que ese día lo había cambiado todo.\" ¿Qué recurso usa este fragmento?"
+
+pasos:
+  - "Interrumpe el relato para anticipar algo que va a ocurrir DESPUÉS: es un flashforward (prolepsis)."
+
+explicacion: |
+  El flashforward adelanta información sobre el futuro de la
+  historia.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
   nivel: "avanzado"
-  tags: ["falacias", "aplicacion"]
+  tags: ["flashback", "vocabulario"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "analepsis"
+tipo: completar
+
+enunciado: "El nombre técnico del flashback (volver al pasado dentro del relato) es..."
+
+pasos:
+  - "Es el término usado en narratología además de \"flashback\"."
+
+explicacion: |
+  Analepsis es el nombre técnico equivalente a flashback.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "avanzado"
+  tags: ["flashforward", "vocabulario"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "prolepsis"
+tipo: completar
+
+enunciado: "El nombre técnico del flashforward (adelantar el futuro dentro del relato) es..."
+
+pasos:
+  - "Es el término usado en narratología además de \"flashforward\"."
+
+explicacion: |
+  Prolepsis es el nombre técnico equivalente a flashforward.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "avanzado"
+  tags: ["flashback", "marcas"]
 
 variables:
   n: uno_de([1, 1])
@@ -2295,12 +2672,219 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Reconocer falacias comunes (ad hominem, falsa dicotomía, apelación a la popularidad) es una herramienta directa para leer noticias, publicidad y debates con más ojo crítico."
+enunciado: "El pluscuamperfecto (\"había ocurrido\") suele marcar que el relato está volviendo a un momento anterior (flashback)."
 
 pasos:
-  - "Muchos argumentos persuasivos del día a día se apoyan, precisamente, en estas falacias en vez de en razones sólidas."
+  - "El pluscuamperfecto indica una acción anterior a otra ya pasada, típico de retrocesos temporales."
 
 explicacion: |
-  Verdadero: la aplicación práctica más directa de este tema es la
-  lectura crítica de textos persuasivos cotidianos.
+  Verdadero: es una de las marcas verbales típicas para reconocer un
+  flashback.
 ```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "avanzado"
+  tags: ["flashforward", "marcas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Frases como \"años más tarde\" o \"con el tiempo\" suelen marcar un salto hacia el futuro del relato (flashforward)."
+
+pasos:
+  - "Esas expresiones temporales anuncian un adelanto respecto del presente narrativo."
+
+explicacion: |
+  Verdadero: son marcas típicas para reconocer un flashforward.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "intermedio"
+  tags: ["estructura_narrativa", "orden"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Usar flashback o flashforward cambia el orden en que el lector se entera de los hechos, pero no cambia qué hechos ocurrieron en la historia."
+
+pasos:
+  - "Es una decisión sobre CÓMO contar, no sobre QUÉ contar."
+
+explicacion: |
+  Verdadero: el reordenamiento afecta la experiencia de lectura, no
+  la cronología real de la ficción.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "avanzado"
+  tags: ["flashback", "efecto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un autor puede usar un flashback para explicar por qué un personaje actúa de cierta manera en el presente de la historia."
+
+pasos:
+  - "Mostrar un hecho pasado puede dar contexto o motivación a una acción actual."
+
+explicacion: |
+  Verdadero: el flashback suele usarse para dar contexto explicativo
+  sobre el presente narrativo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "avanzado"
+  tags: ["flashforward", "efecto"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un autor puede usar un flashforward para generar expectativa en el lector, anticipando que algo importante va a pasar más adelante."
+
+pasos:
+  - "Adelantar información crea tensión: el lector sabe que algo viene, pero no sabe cómo se llega a eso."
+
+explicacion: |
+  Verdadero: el flashforward suele usarse para generar suspenso sobre
+  cómo se llega a un futuro ya anticipado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "intermedio"
+  tags: ["estructura_narrativa", "practica"]
+
+variables:
+  fragmentos: ["Juan se despertó, desayunó y salió a trabajar como cualquier día", "De pronto recordó aquella tarde de invierno, hacía diez años, cuando todo había empezado", "Nadie sabía todavía que, dos años después, esa decisión sería la más importante de sus vidas"]
+  tipos: ["orden lineal", "flashback", "flashforward"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["orden lineal", "flashback", "flashforward"]
+
+enunciado: "\"{fragmentos[idx]}\" corresponde a..."
+
+pasos:
+  - "Sin salto temporal = lineal. Salto al pasado = flashback. Salto al futuro = flashforward."
+
+explicacion: |
+  Cada fragmento fue construido para marcar un tipo distinto de
+  relación entre el orden del relato y el orden de los hechos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "avanzado"
+  tags: ["estructura_narrativa", "flexibilidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "No todo texto narrativo sigue estrictamente la estructura de introducción-nudo-desenlace en ese orden; muchos relatos empiezan por el nudo o incluso por el desenlace."
+
+pasos:
+  - "Empezar in medias res (\"en medio de la acción\") es una técnica narrativa común que rompe el orden clásico."
+
+explicacion: |
+  Verdadero: la estructura clásica es la más común y la más fácil de
+  reconocer, pero no la única posible.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "intermedio"
+  tags: ["estructura_narrativa", "metodo"]
+
+enunciado: "Ordená los pasos para analizar la estructura narrativa de un texto."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar introducción, nudo y desenlace dentro del relato"
+  - "Revisar si hay saltos temporales (marcas verbales o frases de tiempo) respecto del presente narrativo"
+  - "Clasificar cada salto como flashback o flashforward según hacia dónde vaya"
+  - "Determinar si, en conjunto, el relato es de orden lineal o tiene una estructura más compleja"
+respuesta_orden: ["Identificar introducción, nudo y desenlace dentro del relato", "Revisar si hay saltos temporales (marcas verbales o frases de tiempo) respecto del presente narrativo", "Clasificar cada salto como flashback o flashforward según hacia dónde vaya", "Determinar si, en conjunto, el relato es de orden lineal o tiene una estructura más compleja"]
+explicacion: |
+  El análisis va de la estructura clásica de base a la detección y
+  clasificación de saltos temporales.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "avanzado"
+  tags: ["estructura_narrativa", "sintesis"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El análisis narrativo completo combina tres preguntas: quién cuenta (narrador), desde dónde (punto de vista) y en qué orden (estructura narrativa)."
+
+pasos:
+  - "Cada tema de la subrama respondió una de esas tres preguntas, en ese orden."
+
+explicacion: |
+  Verdadero: estructura narrativa cierra la subrama que empezó con
+  narrador y siguió con punto de vista.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "estructura_narrativa"
+  nivel: "avanzado"
+  tags: ["estructura_narrativa", "aplicacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un autor quiere generar intriga sobre cómo un personaje llegó a una situación extrema, puede empezar el relato por el desenlace y usar flashbacks para explicar el camino hasta ahí."
+
+pasos:
+  - "Mostrar el final primero y explicar el \"cómo\" después es una estructura narrativa deliberadamente no lineal."
+
+explicacion: |
+  Verdadero: romper la estructura clásica es una herramienta más
+  para controlar el efecto narrativo sobre el lector.
+```
+

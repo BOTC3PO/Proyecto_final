@@ -1,0 +1,75 @@
+[
+ {
+  "id": 879,
+  "cluster": 1,
+  "temas": [
+   "constitucion-nacional-jerarquia-normativa",
+   "derechos-nino",
+   "discriminacion-y-organismos-de-proteccion",
+   "derechos-indigenas",
+   "encuesta-electoral"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 880,
+  "cluster": 2,
+  "temas": [
+   "derechos-genero",
+   "estado-de-derecho-por-que-importa",
+   "marchas-patrioticas",
+   "organizacion-del-estado",
+   "origen-estado-derecho"
+  ],
+  "preguntas": 110
+ },
+ {
+  "id": 881,
+  "cluster": 3,
+  "temas": [
+   "constitucion-preambulo",
+   "division-de-poderes",
+   "derechos-y-garantias",
+   "como-se-hace-una-ley",
+   "documentos-y-tramites"
+  ],
+  "preguntas": 102
+ },
+ {
+  "id": 882,
+  "cluster": 4,
+  "temas": [
+   "impuestos",
+   "alcoholemia-y-conduccion",
+   "prioridades-de-paso",
+   "proyecto-ciudadano-participativo",
+   "senalizacion-vial"
+  ],
+  "preguntas": 104
+ },
+ {
+  "id": 883,
+  "cluster": 5,
+  "temas": [
+   "simbolos-patrios",
+   "sistema-de-salud",
+   "sistema-electoral-dhondt",
+   "sistemas-politicos-comparados",
+   "sueldo-promedio-pais"
+  ],
+  "preguntas": 108
+ },
+ {
+  "id": 884,
+  "cluster": 6,
+  "temas": [
+   "partidos-politicos",
+   "sufragio-restringido-universal",
+   "organismos-internacionales",
+   "teoria-del-poder",
+   "tratados-internacionales",
+   "tipos-de-estado"
+  ],
+  "preguntas": 151
+ }
+]

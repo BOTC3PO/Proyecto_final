@@ -1,1071 +1,1714 @@
-# Examen jefe — Dominio de Geometría Analítica
+# Examen jefe — [PENDIENTE #625]
 
-> Logro #76. Completaste el parcial integrando punto medio, rectas y razones trigonométricas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #625. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: punto-medio-de-un-segmento (24 preguntas)
+## Sección: forma-polar-complejos (26 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
+  tema: "forma_polar_complejos"
   nivel: "basico"
-  tags: ["punto_medio", "vocabulario"]
-
-enunciado: "¿Qué es el punto medio de un segmento?"
-tipo: mc
-opciones_explicitas:
-  - "El punto sobre el segmento que está a la misma distancia de sus dos extremos"
-  - "El extremo más cercano al origen"
-  - "El punto más alejado de ambos extremos"
-respuesta: "El punto sobre el segmento que está a la misma distancia de sus dos extremos"
-
-explicacion: |
-  Divide al segmento en dos mitades exactamente iguales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "intermedio"
-  tags: ["punto_medio", "completar"]
-
-tipo: completar
-enunciado: "Completá: la coordenada x del punto medio es el ___ de las dos abscisas de los extremos."
-respuestas_validas:
-  - "promedio"
-
-explicacion: |
-  Lo mismo aplica para la coordenada y, con las dos ordenadas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "intermedio"
-  tags: ["punto_medio", "problema"]
+  tags: ["modulo"]
 
 variables:
-  x1: uno_de([2, 4, 6, 8, 10])
-  x2: uno_de([2, 4, 6, 8, 10])
+  k: random(1, 15)
+  a: 3 * k
+  b: 4 * k
 
-respuesta: (x1 + x2) / 2
+respuesta: sqrt(a ^ 2 + b ^ 2)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Un segmento va de x = {x1} a x = {x2} (ambos puntos con la misma altura). ¿Cuál es la abscisa de su punto medio?"
+enunciado: "¿Cuál es el módulo de {a} + {b}i?"
 
 pasos:
-  - "({x1} + {x2}) ÷ 2 = {(x1 + x2) / 2}"
+  - "|z| = √({a}² + {b}²) = √({a ^ 2} + {b ^ 2}) = √{a ^ 2 + b ^ 2} = {sqrt(a ^ 2 + b ^ 2)}"
 
 explicacion: |
-  Se promedian las dos abscisas.
+  El módulo es la distancia al origen, calculada con Pitágoras.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "intermedio"
-  tags: ["punto_medio", "problema"]
-
-variables:
-  x1: uno_de([0, 2, 4, 6])
-  y1: uno_de([0, 2, 4, 6])
-  x2: uno_de([8, 10, 12])
-  y2: uno_de([8, 10, 12])
-
-respuesta: (x1 + x2) / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un segmento va del punto ({x1}, {y1}) al punto ({x2}, {y2}). ¿Cuál es la abscisa (coordenada x) de su punto medio?"
-
-pasos:
-  - "({x1} + {x2}) ÷ 2 = {(x1 + x2) / 2}"
-
-explicacion: |
-  Se promedian sólo las abscisas de ambos extremos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "intermedio"
-  tags: ["punto_medio", "problema"]
-
-variables:
-  x1: uno_de([0, 2, 4, 6])
-  y1: uno_de([0, 2, 4, 6])
-  x2: uno_de([8, 10, 12])
-  y2: uno_de([8, 10, 12])
-
-respuesta: (y1 + y2) / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un segmento va del punto ({x1}, {y1}) al punto ({x2}, {y2}). ¿Cuál es la ordenada (coordenada y) de su punto medio?"
-
-pasos:
-  - "({y1} + {y2}) ÷ 2 = {(y1 + y2) / 2}"
-
-explicacion: |
-  Se promedian sólo las ordenadas de ambos extremos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "avanzado"
-  tags: ["punto_medio", "problema"]
-
-variables:
-  x1: random(-10, -1)
-  x2: random(1, 10)
-
-respuesta: redondear((x1 + x2) / 2, 1)
-tipo: input
-tolerancia_abs: 0.1
-
-enunciado: "Un segmento va de x = {x1} a x = {x2}. ¿Cuál es la abscisa de su punto medio?"
-
-pasos:
-  - "({x1} + {x2}) ÷ 2 = {redondear((x1 + x2) / 2, 1)}"
-
-explicacion: |
-  El promedio funciona igual con números negativos: se suman con su
-  signo, y se divide por 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "intermedio"
-  tags: ["punto_medio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El punto medio de un segmento está exactamente a la misma distancia de cada uno de los dos extremos."
-
-explicacion: |
-  Es la propiedad que lo define.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "avanzado"
-  tags: ["punto_medio", "problema"]
-
-variables:
-  largo_total: uno_de([10, 20, 30, 40, 50])
-
-respuesta: largo_total / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un segmento mide {largo_total} unidades de largo en total. ¿A qué distancia está su punto medio de cada uno de los dos extremos?"
-
-pasos:
-  - "{largo_total} ÷ 2 = {largo_total / 2}"
-
-explicacion: |
-  El punto medio siempre está a la mitad de la distancia total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "intermedio"
-  tags: ["punto_medio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Calcular el punto medio de un segmento no requiere sacar ninguna raíz cuadrada, a diferencia de calcular la distancia entre sus extremos."
-
-explicacion: |
-  Es una operación directa de promedio, sin pasar por Pitágoras.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "avanzado"
-  tags: ["punto_medio", "problema"]
-
-variables:
-  x1: random(1, 10)
-  m: random(11, 20)
-
-respuesta: (2 * m) - x1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un segmento tiene un extremo en x = {x1} y su punto medio está en x = {m}. ¿En qué posición x está el otro extremo?"
-
-pasos:
-  - "El punto medio es el promedio: {m} = ({x1} + x₂) ÷ 2"
-  - "x₂ = (2 × {m}) − {x1} = {(2 * m) - x1}"
-
-explicacion: |
-  Se despeja el extremo faltante invirtiendo la fórmula del promedio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "intermedio"
-  tags: ["punto_medio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El punto medio de un segmento siempre está ubicado sobre el propio segmento, nunca fuera de él."
-
-explicacion: |
-  Es un promedio de los dos extremos: nunca puede quedar más allá de
-  ninguno de los dos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "avanzado"
-  tags: ["punto_medio", "vocabulario"]
-
-enunciado: "¿Qué es la mediatriz de un segmento?"
-tipo: mc
-opciones_explicitas:
-  - "La recta perpendicular al segmento que pasa exactamente por su punto medio"
-  - "Otro nombre para el propio punto medio"
-  - "La recta que contiene al segmento"
-respuesta: "La recta perpendicular al segmento que pasa exactamente por su punto medio"
-
-explicacion: |
-  Necesita conocer primero el punto medio para poder trazarse.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "intermedio"
-  tags: ["punto_medio", "ordenar"]
-
-enunciado: "Ordená los pasos para hallar el punto medio de un segmento entre (x₁, y₁) y (x₂, y₂)."
-tipo: ordenar
-opciones_explicitas:
-  - "Combinar ambos resultados en un nuevo par ordenado"
-  - "Sumar las dos abscisas y dividir por 2"
-  - "Sumar las dos ordenadas y dividir por 2"
-respuesta_orden:
-  - "Sumar las dos abscisas y dividir por 2"
-  - "Sumar las dos ordenadas y dividir por 2"
-  - "Combinar ambos resultados en un nuevo par ordenado"
-
-explicacion: |
-  Cada coordenada del punto medio se calcula de forma independiente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
+  tema: "forma_polar_complejos"
   nivel: "basico"
-  tags: ["punto_medio", "problema"]
+  tags: ["modulo"]
 
 variables:
-  x: random(-5, 5)
-  y1: uno_de([0, 2, 4])
-  y2: uno_de([10, 12, 14])
+  k: random(1, 10)
+  a: 5 * k
+  b: 12 * k
 
-respuesta: (y1 + y2) / 2
+respuesta: sqrt(a ^ 2 + b ^ 2)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Un segmento vertical va del punto ({x}, {y1}) al punto ({x}, {y2}). ¿Cuál es la ordenada de su punto medio?"
-
-pasos:
-  - "({y1} + {y2}) ÷ 2 = {(y1 + y2) / 2}"
+enunciado: "¿Cuál es el módulo de {a} + {b}i?"
 
 explicacion: |
-  Como el segmento es vertical, la abscisa del punto medio es la misma
-  {x} de ambos extremos.
+  √({a}² + {b}²) = {sqrt(a ^ 2 + b ^ 2)}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "avanzado"
-  tags: ["punto_medio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si los dos extremos de un segmento son en realidad el mismo punto, su punto medio es ese mismo punto."
-
-explicacion: |
-  Promediar un número consigo mismo da ese mismo número.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
+  tema: "forma_polar_complejos"
   nivel: "intermedio"
-  tags: ["punto_medio", "problema"]
+  tags: ["modulo"]
 
 variables:
-  x1: uno_de([0, 4, 8])
-  x2: x1 + 12
-  y1: uno_de([0, 4, 8])
-  y2: y1 + 6
+  k: random(1, 8)
+  a: 8 * k
+  b: 15 * k
 
-respuesta: (x1 + x2) / 2
+respuesta: sqrt(a ^ 2 + b ^ 2)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Una mesa rectangular tiene sus esquinas opuestas en ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es la abscisa del centro exacto de la mesa?"
-
-pasos:
-  - "El centro de un rectángulo es el punto medio de una diagonal: ({x1} + {x2}) ÷ 2 = {(x1 + x2) / 2}"
+enunciado: "¿Cuál es el módulo de {a} + {b}i?"
 
 explicacion: |
-  El centro de cualquier rectángulo coincide con el punto medio de
-  cualquiera de sus dos diagonales.
+  √({a}² + {b}²) = {sqrt(a ^ 2 + b ^ 2)}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
+  tema: "forma_polar_complejos"
   nivel: "intermedio"
-  tags: ["punto_medio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Promediar dos números siempre da el valor que está exactamente a mitad de camino entre ambos, en la recta numérica."
-
-explicacion: |
-  Es la razón por la que la fórmula del punto medio es simplemente un
-  promedio, aplicado dos veces (una por cada coordenada).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "avanzado"
-  tags: ["punto_medio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Calcular el punto medio de un segmento no depende de la fórmula de distancia entre dos puntos, aunque ambos temas usen las mismas coordenadas de partida."
-
-explicacion: |
-  Son dos cálculos independientes: uno promedia coordenadas, el otro usa
-  Pitágoras.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "intermedio"
-  tags: ["punto_medio", "problema"]
+  tags: ["modulo"]
 
 variables:
-  a: random(1, 15)
+  k: random(1, 8)
+  a: 7 * k
+  b: 24 * k
+
+respuesta: sqrt(a ^ 2 + b ^ 2)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el módulo de {a} + {b}i?"
+
+explicacion: |
+  √({a}² + {b}²) = {sqrt(a ^ 2 + b ^ 2)}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "forma_polar_complejos"
+  nivel: "avanzado"
+  tags: ["modulo"]
+
+variables:
+  k: random(1, 6)
+  a: 20 * k
+  b: 21 * k
+
+respuesta: sqrt(a ^ 2 + b ^ 2)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el módulo de {a} + {b}i?"
+
+explicacion: |
+  √({a}² + {b}²) = {sqrt(a ^ 2 + b ^ 2)}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "forma_polar_complejos"
+  nivel: "intermedio"
+  tags: ["modulo", "signos"]
+
+variables:
+  k: random(1, 15)
+  signo_a: uno_de([1, -1])
+  signo_b: uno_de([1, -1])
+  a: 3 * k * signo_a
+  b: 4 * k * signo_b
+
+respuesta: sqrt(a ^ 2 + b ^ 2)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el módulo de {a} + {b}i?"
+
+explicacion: |
+  El signo no afecta al módulo: se eleva al cuadrado antes de sumar, así
+  que siempre da positivo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "forma_polar_complejos"
+  nivel: "basico"
+  tags: ["argumento"]
+
+variables:
+  a: random(1, 30)
 
 respuesta: 0
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Un segmento va del punto (-{a}, 0) al punto ({a}, 0). ¿Cuál es la abscisa de su punto medio?"
-
-pasos:
-  - "(-{a} + {a}) ÷ 2 = 0"
+enunciado: "¿Cuál es el argumento (en grados) de {a} (un real positivo puro)?"
 
 explicacion: |
-  Dos valores opuestos siempre promedian 0: el punto medio cae en el
-  origen.
+  Está sobre el eje real positivo: argumento 0°.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "avanzado"
-  tags: ["punto_medio", "problema"]
+  tema: "forma_polar_complejos"
+  nivel: "basico"
+  tags: ["argumento"]
 
 variables:
-  x1: uno_de([2, 4, 6])
-  x2: uno_de([10, 12, 14])
-  y1: uno_de([0, 2])
-  y2: uno_de([8, 10])
+  b: random(1, 30)
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un segmento va de ({x1}, {y1}) a ({x2}, {y2}). ¿Es el punto (({x1 + x2}) / 2, ({y1 + y2}) / 2) el punto medio de ese segmento?"
-
-explicacion: |
-  Por definición, ese es exactamente el punto medio: el promedio de cada
-  coordenada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "basico"
-  tags: ["punto_medio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un segmento tiene un único punto medio, no varios."
-
-explicacion: |
-  El promedio de dos números da siempre un único resultado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "basico"
-  tags: ["punto_medio", "vocabulario"]
-
-enunciado: "¿Qué son los 'extremos' de un segmento?"
-tipo: mc
-opciones_explicitas:
-  - "Los dos puntos que delimitan el segmento en cada punta"
-  - "El punto medio del segmento"
-  - "Cualquier punto que esté sobre el segmento"
-respuesta: "Los dos puntos que delimitan el segmento en cada punta"
-
-explicacion: |
-  El punto medio se calcula a partir de esos dos extremos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
-  nivel: "intermedio"
-  tags: ["punto_medio", "problema"]
-
-variables:
-  lado: uno_de([4, 6, 8, 10])
-
-respuesta: lado / 2
+respuesta: 90
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Un cuadrado tiene un vértice en (0, 0) y el vértice contiguo en ({lado}, 0). ¿Cuál es la abscisa del punto medio de ese lado?"
-
-pasos:
-  - "(0 + {lado}) ÷ 2 = {lado / 2}"
+enunciado: "¿Cuál es el argumento (en grados) de {b}i (un imaginario positivo puro)?"
 
 explicacion: |
-  Es el promedio de las dos abscisas de ese lado del cuadrado.
+  Está sobre el eje imaginario positivo: argumento 90°.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "punto_medio_de_un_segmento"
+  tema: "forma_polar_complejos"
   nivel: "basico"
-  tags: ["cierre"]
+  tags: ["argumento"]
 
-enunciado: "¿Para qué sirve calcular el punto medio de un segmento?"
-tipo: mc
-opciones_explicitas:
-  - "Para encontrar el centro exacto de un objeto, espacio o figura, a partir de coordenadas"
-  - "Sólo sirve para segmentos verticales"
-  - "Sólo tiene aplicación en trigonometría"
-respuesta: "Para encontrar el centro exacto de un objeto, espacio o figura, a partir de coordenadas"
+variables:
+  a: random(1, 30)
+
+respuesta: 180
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el argumento (en grados) de −{a} (un real negativo puro)?"
 
 explicacion: |
-  Desde el centro de una mesa hasta la mediatriz de un segmento, todo
-  parte de este mismo promedio de coordenadas.
+  Está sobre el eje real negativo: argumento 180°.
 ```
-
-## Sección: raices (26 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "raices"
+  tema: "forma_polar_complejos"
   nivel: "basico"
-  tags: ["raices", "vocabulario"]
+  tags: ["argumento"]
 
-enunciado: "¿Qué es la raíz cuadrada de un número a?"
-tipo: mc
-opciones_explicitas:
-  - "El número b tal que b² = a"
-  - "El número a dividido 2"
-  - "El número a multiplicado por sí mismo"
-respuesta: "El número b tal que b² = a"
+variables:
+  b: random(1, 30)
+
+respuesta: 270
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el argumento (en grados) de −{b}i (un imaginario negativo puro)?"
 
 explicacion: |
-  La raíz cuadrada es la operación inversa de elevar al cuadrado.
+  Está sobre el eje imaginario negativo: argumento 270°.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "raices"
+  tema: "forma_polar_complejos"
   nivel: "basico"
-  tags: ["raices"]
+  tags: ["modulo"]
 
 variables:
-  k: random(2, 15)
-  n: k ^ 2
+  a: random(1, 40)
 
-respuesta: sqrt(n)
+respuesta: a
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es la raíz cuadrada de {n}?"
-
-pasos:
-  - "{n} es {k}², así que su raíz cuadrada es {k}"
+enunciado: "¿Cuál es el módulo de −{a}?"
 
 explicacion: |
-  Cuando el radicando es un cuadrado perfecto, la raíz da exacta.
+  El módulo es siempre positivo: |−{a}| = {a}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "raices"
-  nivel: "intermedio"
-  tags: ["raices"]
-
-variables:
-  k: random(10, 30)
-  n: k ^ 2
-
-respuesta: sqrt(n)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es la raíz cuadrada de {n}?"
-
-explicacion: |
-  El procedimiento es el mismo con números más grandes: buscar qué número
-  elevado al cuadrado da {n}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
-  nivel: "intermedio"
-  tags: ["raices"]
-
-variables:
-  k: random(2, 10)
-  n: k ^ 3
-
-respuesta: raiz(n, 3)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es la raíz cúbica de {n}?"
-
-pasos:
-  - "{n} es {k}³, así que su raíz cúbica es {k}"
-
-explicacion: |
-  La raíz cúbica busca qué número, elevado al cubo, da el radicando.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
-  nivel: "intermedio"
-  tags: ["raices", "vocabulario"]
-
-variables:
-  b: random(2, 20)
-  a: b ^ 2
-
-respuesta: (sqrt(a) == b)
-tipo: vf
-
-enunciado: "Sabiendo que {b}² = {a}, ¿es cierto que √{a} = {b}?"
-
-explicacion: |
-  La raíz cuadrada deshace lo que hizo elevar al cuadrado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
-  nivel: "avanzado"
-  tags: ["raices"]
-
-variables:
-  k: random(2, 6)
-  n: k ^ 4
-
-respuesta: raiz(n, 4)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es la raíz cuarta de {n}?"
-
-explicacion: |
-  Con índice 4, se busca qué número elevado a la 4 da el radicando.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
-  nivel: "avanzado"
-  tags: ["raices"]
-
-variables:
-  n: random(2, 99)
-
-respuesta: sqrt(n)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "¿Cuánto es (aproximadamente) √{n}?"
-
-explicacion: |
-  No todos los números tienen raíz cuadrada exacta: cuando no la tiene,
-  el resultado es un decimal con infinitas cifras, y se acepta una
-  aproximación.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
-  nivel: "intermedio"
-  tags: ["raices", "propiedades"]
-
-variables:
-  a: random(2, 20) ^ 2
-  b: random(2, 20) ^ 2
-
-respuesta: (sqrt(a * b) == sqrt(a) * sqrt(b))
-tipo: vf
-
-enunciado: "¿Es cierto que √({a} × {b}) da lo mismo que √{a} × √{b}?"
-
-explicacion: |
-  Es la propiedad de la raíz de un producto: se puede separar en la raíz
-  de cada factor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
-  nivel: "intermedio"
-  tags: ["raices", "propiedades"]
-
-variables:
-  b: random(2, 15) ^ 2
-  k: random(2, 10) ^ 2
-  a: b * k
-
-respuesta: (sqrt(a / b) == sqrt(a) / sqrt(b))
-tipo: vf
-
-enunciado: "¿Es cierto que √({a} ÷ {b}) da lo mismo que √{a} ÷ √{b}?"
-
-explicacion: |
-  Es la propiedad de la raíz de un cociente: se puede separar en la raíz
-  del numerador dividida por la raíz del denominador.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
-  nivel: "avanzado"
-  tags: ["raices", "propiedades"]
-
-variables:
-  a: random(2, 15) ^ 2
-  b: random(2, 15) ^ 2
-
-respuesta: sqrt(a) * sqrt(b)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Usando la propiedad de la raíz de un producto, ¿cuánto es √({a} × {b})?"
-
-pasos:
-  - "√{a} × √{b} = {sqrt(a)} × {sqrt(b)} = {sqrt(a) * sqrt(b)}"
-
-explicacion: |
-  Separar el producto en dos raíces cuadradas perfectas hace la cuenta
-  más fácil.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
+  tema: "forma_polar_complejos"
   nivel: "basico"
-  tags: ["raices", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dentro de los números reales, la raíz cuadrada de un número negativo no tiene solución."
-
-explicacion: |
-  Ningún número real, elevado al cuadrado, puede dar un resultado
-  negativo: el cuadrado de cualquier número real es siempre positivo o
-  cero.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
-  nivel: "intermedio"
-  tags: ["raices"]
+  tags: ["modulo"]
 
 variables:
-  k: random(2, 10)
-  n: -(k ^ 3)
+  b: random(1, 40)
 
-respuesta: -k
+respuesta: b
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es la raíz cúbica de {n}?"
-
-pasos:
-  - "(-{k})³ = {n}, así que la raíz cúbica de {n} es -{k}"
+enunciado: "¿Cuál es el módulo de −{b}i?"
 
 explicacion: |
-  A diferencia de la raíz cuadrada, la raíz cúbica de un negativo sí tiene
-  solución (negativa): un número negativo elevado a un exponente impar
-  sigue dando negativo.
+  |−{b}i| = {b}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "raices"
-  nivel: "basico"
-  tags: ["raices", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La raíz cuadrada es la operación inversa de elevar al cuadrado, igual que la resta es inversa de la suma."
-
-explicacion: |
-  Aplicar una y después la otra vuelve al número original.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
+  tema: "forma_polar_complejos"
   nivel: "intermedio"
-  tags: ["raices"]
+  tags: ["multiplicacion_polar"]
 
 variables:
-  k: random(2, 20)
-  n: k ^ 2
+  r1: random(2, 15)
+  r2: random(2, 15)
+  t1: uno_de([0, 90, 180, 270])
+  t2: uno_de([0, 90, 180, 270])
 
-respuesta: k
-tipo: mc
-opciones_explicitas:
-  - k
-  - n / 2
-  - k + 1
+respuesta: r1 * r2
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "¿Cuál es la raíz cuadrada de {n}?"
+enunciado: "z₁ tiene módulo {r1} y argumento {t1}°. z₂ tiene módulo {r2} y argumento {t2}°. ¿Cuál es el módulo de z₁×z₂?"
 
 explicacion: |
-  Las otras opciones confunden la raíz con dividir por 2, o se equivocan
-  por poco.
+  Los módulos se multiplican: {r1}×{r2} = {r1 * r2}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "raices"
+  tema: "forma_polar_complejos"
   nivel: "intermedio"
-  tags: ["raices", "verificacion"]
+  tags: ["multiplicacion_polar"]
 
 variables:
-  k: random(2, 20)
-  n: k ^ 2
-  error: uno_de([0, 0, 0, 1, -1])
-  mostrado: k + error
+  r1: random(2, 15)
+  r2: random(2, 15)
+  t1: uno_de([0, 90, 180, 270])
+  t2: uno_de([0, 90, 180, 270])
 
-respuesta: (mostrado * mostrado == n)
-tipo: vf
+respuesta: t1 + t2
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "¿Está bien calculado esto? √{n} = {mostrado}"
+enunciado: "z₁ tiene módulo {r1} y argumento {t1}°. z₂ tiene módulo {r2} y argumento {t2}°. ¿Cuál es el argumento de z₁×z₂ (sin normalizar a menos de 360°)?"
 
 explicacion: |
-  Se verifica elevando {mostrado} al cuadrado y comparando con {n}.
+  Los argumentos se suman: {t1}° + {t2}° = {t1 + t2}°.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "raices"
-  nivel: "avanzado"
-  tags: ["raices"]
+  tema: "forma_polar_complejos"
+  nivel: "intermedio"
+  tags: ["division_polar"]
 
 variables:
+  r2: random(2, 10)
   k: random(2, 8)
-  indice: uno_de([2, 3, 4])
-  n: k ^ indice
+  r1: r2 * k
+  t1: uno_de([0, 90, 180, 270])
+  t2: uno_de([0, 90, 180, 270])
 
-tipo: completar
-enunciado: "___√{n} = {k}. Completá el índice de la raíz (2, 3 o 4)."
-respuestas_validas:
-  - indice
-
-explicacion: |
-  Hay que encontrar a qué índice hay que elevar {k} para llegar a {n}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
-  nivel: "intermedio"
-  tags: ["raices"]
-
-variables:
-  k: random(2, 20)
-
-tipo: completar
-enunciado: "Completá: √___ = {k}."
-respuestas_validas:
-  - k ^ 2
-
-explicacion: |
-  El radicando que falta es {k} elevado al cuadrado (para deshacer la
-  raíz).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
-  nivel: "intermedio"
-  tags: ["raices", "problema"]
-
-variables:
-  lado: random(2, 30)
-  area: lado ^ 2
-
-respuesta: lado
+respuesta: r1 / r2
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Un cuadrado tiene un área de {area} cm². ¿Cuánto mide su lado?"
-
-pasos:
-  - "El lado es la raíz cuadrada del área: √{area} = {lado}"
+enunciado: "z₁ tiene módulo {r1} y argumento {t1}°. z₂ tiene módulo {r2} y argumento {t2}°. ¿Cuál es el módulo de z₁/z₂?"
 
 explicacion: |
-  Como el área de un cuadrado es lado², el lado se encuentra con la raíz
-  cuadrada del área.
+  Los módulos se dividen: {r1}/{r2} = {r1 / r2}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "raices"
+  tema: "forma_polar_complejos"
   nivel: "intermedio"
-  tags: ["raices", "problema"]
+  tags: ["division_polar"]
 
 variables:
-  arista: random(2, 15)
-  volumen: arista ^ 3
+  r1: random(2, 15)
+  r2: random(2, 15)
+  t1: uno_de([180, 270])
+  t2: uno_de([0, 90])
 
-respuesta: arista
+respuesta: t1 - t2
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Un cubo tiene un volumen de {volumen} cm³. ¿Cuánto mide su arista?"
-
-pasos:
-  - "La arista es la raíz cúbica del volumen: ∛{volumen} = {arista}"
+enunciado: "z₁ tiene módulo {r1} y argumento {t1}°. z₂ tiene módulo {r2} y argumento {t2}°. ¿Cuál es el argumento de z₁/z₂?"
 
 explicacion: |
-  Como el volumen de un cubo es arista³, la arista se encuentra con la
-  raíz cúbica del volumen.
+  Los argumentos se restan: {t1}° − {t2}° = {t1 - t2}°.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "raices"
-  nivel: "intermedio"
-  tags: ["raices", "orden"]
-
-tipo: ordenar
-enunciado: "Calculá estas raíces y ordená los resultados de menor a mayor."
-opciones_explicitas:
-  - "√81"
-  - "√16"
-  - "√49"
-  - "√4"
-respuesta_orden: ["√4", "√16", "√49", "√81"]
-
-explicacion: |
-  √4=2, √16=4, √49=7, √81=9: hay que calcular cada una antes de poder
-  ordenarlas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
-  nivel: "intermedio"
-  tags: ["raices", "comparacion"]
-
-variables:
-  a: random(2, 99)
-  b: random(2, 99)
-
-restricciones:
-  - a != b
-
-respuesta: (sqrt(a) > sqrt(b))
-tipo: vf
-
-enunciado: "¿Es √{a} mayor que √{b}?"
-
-explicacion: |
-  A mayor radicando, mayor la raíz cuadrada: no hace falta calcular las
-  dos raíces exactas para saber cuál es mayor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
-  nivel: "intermedio"
-  tags: ["raices"]
-
-variables:
-  n: random(2, 99)
-  k: floor(sqrt(n))
-
-respuesta: (k * k == n)
-tipo: vf
-
-enunciado: "¿Es exacta la raíz cuadrada de {n} (da como resultado un número entero)?"
-
-explicacion: |
-  Es exacta sólo cuando el radicando es un cuadrado perfecto (1, 4, 9, 16,
-  25...).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "raices"
+  tema: "forma_polar_complejos"
   nivel: "basico"
-  tags: ["raices", "casos_especiales"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La raíz cuadrada de 0 es 0, y la raíz cuadrada de 1 es 1."
+enunciado: "El módulo de un número complejo es la distancia desde el origen hasta el punto (a, b) en el plano complejo."
 
 explicacion: |
-  0² = 0 y 1² = 1: los dos son casos especiales donde el número y su raíz
+  Se calcula con el teorema de Pitágoras: √(a²+b²).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "forma_polar_complejos"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El módulo de un número complejo nunca puede dar negativo."
+
+explicacion: |
+  Es una distancia, y las distancias no son negativas — además, sale de
+  una raíz cuadrada de una suma de cuadrados, siempre ≥ 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "forma_polar_complejos"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Multiplicar dos números complejos en forma polar es más simple que en forma binómica: sólo hace falta multiplicar módulos y sumar argumentos."
+
+explicacion: |
+  En forma binómica hay que distribuir y usar i²=−1; en forma polar es
+  sólo una multiplicación y una suma.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "forma_polar_complejos"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Al multiplicar dos complejos en forma polar, los argumentos se multiplican entre sí, igual que los módulos."
+
+explicacion: |
+  Los módulos se multiplican, pero los argumentos se SUMAN — son reglas
+  distintas para cada parte.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "forma_polar_complejos"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La forma polar z = r(cos θ + i sen θ) usa el módulo r y el argumento θ para describir el mismo número que a + bi."
+
+explicacion: |
+  Son dos formas distintas de nombrar el mismo punto del plano complejo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "forma_polar_complejos"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Calcular el argumento sólo con arctan(b/a), sin fijarse en qué cuadrante cae el punto, puede dar un ángulo equivocado."
+
+explicacion: |
+  arctan por sí solo no distingue todos los cuadrantes — hay que ajustar
+  el resultado según los signos de a y b.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "forma_polar_complejos"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  k: random(1, 15)
+  a: 3 * k
+  b: 4 * k
+  real: sqrt(a ^ 2 + b ^ 2)
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "¿Es correcto que el módulo de {a} + {b}i sea {propuesto}?"
+
+explicacion: |
+  El módulo correcto es √({a}²+{b}²) = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "forma_polar_complejos"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El módulo de un número real puro (b=0) es simplemente su valor absoluto."
+
+explicacion: |
+  √(a²+0²) = √(a²) = |a|.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "forma_polar_complejos"
+  nivel: "avanzado"
+  tags: ["multiplicacion_polar"]
+
+variables:
+  r: random(2, 8)
+  t: uno_de([0, 90, 180, 270])
+
+respuesta: r * r * r
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "z tiene módulo {r} y argumento {t}°. ¿Cuál es el módulo de z³ (z×z×z)?"
+
+explicacion: |
+  Cada multiplicación multiplica los módulos: {r}×{r}×{r} = {r * r * r}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "forma_polar_complejos"
+  nivel: "avanzado"
+  tags: ["multiplicacion_polar"]
+
+variables:
+  r: random(2, 8)
+  t: uno_de([30, 45, 60, 90])
+
+respuesta: t * 3
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "z tiene módulo {r} y argumento {t}°. ¿Cuál es el argumento de z³ (sin normalizar), sumando el argumento tres veces?"
+
+explicacion: |
+  Cada multiplicación suma el argumento: {t}°×3 = {t * 3}°.
+```
+
+## Sección: ecuaciones-exponenciales-logaritmicas (28 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "basico"
+  tags: ["exponencial"]
+
+variables:
+  a: random(2, 8)
+  x_sol: random(1, 8)
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: {a}^x = {a}^{x_sol}. ¿Cuánto vale x?"
+
+explicacion: |
+  Con la misma base a los dos lados, los exponentes tienen que coincidir.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["exponencial"]
+
+variables:
+  a: random(2, 6)
+  x_sol: random(1, 6)
+  resultado: a ^ x_sol
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: {a}^x = {resultado}. ¿Cuánto vale x?"
+
+pasos:
+  - "{resultado} = {a}^{x_sol}, así que x = {x_sol}"
+
+explicacion: |
+  Hay que reconocer {resultado} como una potencia de {a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["exponencial"]
+
+variables:
+  n: random(1, 6)
+  resultado: 10 ^ n
+
+respuesta: log10(resultado)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: 10^x = {resultado}. ¿Cuánto vale x?"
+
+pasos:
+  - "x = log₁₀({resultado}) = {log10(resultado)}"
+
+explicacion: |
+  Aplicar log₁₀ a los dos lados deshace la exponencial de base 10.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "avanzado"
+  tags: ["exponencial", "signos"]
+
+variables:
+  a: random(2, 6)
+  n: random(1, 4)
+  resultado: 1 / (a ^ n)
+
+respuesta: -n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: {a}^x = 1/{a ^ n}. ¿Cuánto vale x?"
+
+explicacion: |
+  1/{a}^{n} = {a}^(−{n}), así que x = −{n}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "basico"
+  tags: ["logaritmica"]
+
+variables:
+  k: random(1, 6)
+
+respuesta: 10 ^ k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: log₁₀(x) = {k}. ¿Cuánto vale x?"
+
+pasos:
+  - "x = 10^{k} = {10 ^ k}"
+
+explicacion: |
+  Aplicar la exponencial de base 10 a los dos lados deshace el
+  logaritmo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["logaritmica"]
+
+variables:
+  k: random(1, 5)
+  desplazamiento: random(1, 20)
+
+respuesta: 10 ^ k - desplazamiento
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: log₁₀(x + {desplazamiento}) = {k}. ¿Cuánto vale x?"
+
+pasos:
+  - "x + {desplazamiento} = 10^{k} = {10 ^ k}"
+  - "x = {10 ^ k} − {desplazamiento} = {10 ^ k - desplazamiento}"
+
+explicacion: |
+  Primero se deshace el logaritmo, después se despeja x igual que en
+  `../ecuacion-primer-grado/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "avanzado"
+  tags: ["logaritmica"]
+
+variables:
+  k: random(1, 4)
+  p: random(2, 5)
+
+respuesta: (10 ^ k) / p
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: log₁₀({p}x) = {k}. ¿Cuánto vale x?"
+
+pasos:
+  - "{p}x = 10^{k} = {10 ^ k}"
+  - "x = {10 ^ k} / {p} = {(10 ^ k) / p}"
+
+explicacion: |
+  Primero se deshace el logaritmo, y después se despeja x dividiendo por
+  {p}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["dominio", "verdadero_falso"]
+
+variables:
+  desplazamiento: random(1, 20)
+  k: random(1, 5)
+  x_sol: 10 ^ k - desplazamiento
+
+respuesta: ((x_sol + desplazamiento) > 0)
+tipo: vf
+
+enunciado: "log₁₀(x + {desplazamiento}) = {k} da x = {x_sol}. ¿Es válida esta solución (el argumento del logaritmo queda positivo)?"
+
+explicacion: |
+  Se verifica reemplazando: x+{desplazamiento} = {x_sol + desplazamiento},
+  que tiene que ser mayor que 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "avanzado"
+  tags: ["dominio", "verdadero_falso"]
+
+variables:
+  r1: -random(1, 10)
+  r2: random(1, 10)
+
+respuesta: (r1 > 0)
+tipo: vf
+
+enunciado: "Al resolver log₁₀(x) + log₁₀(x+{r2 - r1}) = log₁₀(algo) se obtiene x={r1} como una de las soluciones algebraicas. ¿Es una solución válida (el argumento del primer logaritmo, x, queda positivo)?"
+
+explicacion: |
+  x={r1} es negativo — log₁₀ de un negativo no está definido, así que
+  esta solución algebraica se descarta (es una solución extraña).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["propiedades", "verdadero_falso"]
+
+variables:
+  n: random(1, 4)
+  m: random(1, 4)
+  a: 10 ^ n
+  b: 10 ^ m
+
+respuesta: ((log10(a * b)) == (log10(a) + log10(b)))
+tipo: vf
+
+enunciado: "¿log₁₀({a}×{b}) es igual a log₁₀({a}) + log₁₀({b})?"
+
+explicacion: |
+  log(a×b) = log(a) + log(b) — la propiedad del producto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["propiedades", "verdadero_falso"]
+
+variables:
+  n: random(2, 6)
+  m: random(1, 4)
+  a: 10 ^ n
+  b: 10 ^ m
+
+respuesta: ((log10(a / b)) == (log10(a) - log10(b)))
+tipo: vf
+
+enunciado: "¿log₁₀({a}/{b}) es igual a log₁₀({a}) − log₁₀({b})?"
+
+explicacion: |
+  log(a/b) = log(a) − log(b) — la propiedad del cociente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["propiedades", "verdadero_falso"]
+
+variables:
+  n: random(1, 3)
+  k: random(1, 4)
+  a: 10 ^ n
+
+respuesta: ((log10(a ^ k)) == (k * log10(a)))
+tipo: vf
+
+enunciado: "¿log₁₀({a}^{k}) es igual a {k}×log₁₀({a})?"
+
+explicacion: |
+  log(aⁿ) = n×log(a) — la propiedad de la potencia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "avanzado"
+  tags: ["propiedades"]
+
+variables:
+  x_sol: random(2, 15)
+  p: random(2, 8)
+  resultado: log10(p * x_sol)
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: log₁₀({p}) + log₁₀(x) = {resultado}. ¿Cuánto vale x?"
+
+pasos:
+  - "log₁₀({p}·x) = {resultado} → {p}·x = 10^{resultado}"
+  - "x = 10^{resultado} / {p} = {x_sol}"
+
+explicacion: |
+  Se combinan los dos logaritmos en uno solo (propiedad del producto)
+  antes de despejar x.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para resolver una ecuación exponencial, se puede aplicar logaritmo a los dos lados de la igualdad, sin cambiar el resultado."
+
+explicacion: |
+  Aplicar la misma operación a los dos lados mantiene la igualdad, igual
+  que sumar/restar/multiplicar en `../ecuacion-primer-grado/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Se puede aplicar logaritmo sólo al lado izquierdo de la ecuación, y dejar el lado derecho como está, sin que eso rompa la igualdad."
+
+explicacion: |
+  Rompe la igualdad — la misma operación tiene que aplicarse a los DOS
+  lados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al resolver una ecuación logarítmica, siempre hay que comprobar que las soluciones encontradas dejen positivos los argumentos de los logaritmos originales."
+
+explicacion: |
+  El álgebra puede dar una solución que, al reemplazarla, deja un
+  logaritmo de un número negativo o cero — no válida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si aˣ = aʸ (misma base a), entonces necesariamente x = y."
+
+explicacion: |
+  La función exponencial nunca repite un valor de salida — por eso se
+  puede "cancelar" la base cuando coincide en los dos lados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+variables:
+  n: random(1, 3)
+  m: random(1, 3)
+  a: 10 ^ n
+  b: 10 ^ m
+
+respuesta: ((log10(a * b)) == (log10(a) * log10(b)))
+tipo: vf
+
+enunciado: "¿log₁₀({a}×{b}) es igual a log₁₀({a}) × log₁₀({b}) (multiplicando los logaritmos, no sumándolos)?"
+
+explicacion: |
+  Error común: log(a×b) es la SUMA de los logaritmos, no el producto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(2, 8)
+  x_sol: random(1, 8)
+  error: uno_de([0, 0, 1, -1])
+  propuesto: x_sol + error
+
+respuesta: (propuesto == x_sol)
+tipo: vf
+
+enunciado: "{a}^x = {a}^{x_sol}. ¿Es correcto que x = {propuesto}?"
+
+explicacion: |
+  Con la misma base, x tiene que coincidir exactamente con {x_sol}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  k: random(1, 5)
+  real: 10 ^ k
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "log₁₀(x) = {k}. ¿Es correcto que x = {propuesto}?"
+
+explicacion: |
+  El valor correcto es x = 10^{k} = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "avanzado"
+  tags: ["exponencial", "problema"]
+
+variables:
+  n: random(1, 5)
+
+respuesta: n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una inversión crece según C(t) = C₀×2^t. ¿Después de cuántos períodos t el capital queda multiplicado exactamente por {2 ^ n}?"
+
+pasos:
+  - "2^t = {2 ^ n} → t = log₂({2 ^ n}) = {n}"
+
+explicacion: |
+  Es una ecuación exponencial simple, reconociendo {2 ^ n} como potencia
+  de 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "avanzado"
+  tags: ["logaritmica", "problema"]
+
+variables:
+  k: random(1, 6)
+
+respuesta: 10 ^ k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En una escala logarítmica, la magnitud registrada es log₁₀(I) = {k} (I es la intensidad, en una unidad de referencia). ¿Cuánto vale I?"
+
+explicacion: |
+  Se despeja igual que cualquier ecuación logarítmica: I = 10^{k}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una ecuación exponencial simple como aˣ = aᵏ tiene una única solución."
+
+explicacion: |
+  A diferencia de una ecuación cuadrática, acá no hay dos soluciones
+  posibles — la exponencial es inyectiva.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al resolver una ecuación logarítmica que involucra un producto o cociente de logaritmos, es posible obtener una solución algebraica que no sea válida en el dominio original."
+
+explicacion: |
+  Es justo el caso del ejemplo de `teoria.md`: la ecuación cuadrática
+  intermedia puede dar una raíz negativa que no sirve como argumento de
+  un logaritmo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "avanzado"
+  tags: ["exponencial"]
+
+variables:
+  a: random(2, 10)
+  n: 2
+
+respuesta: a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: x² = {a ^ 2} (con x positivo). ¿Cuánto vale x?"
+
+explicacion: |
+  Acá la incógnita es la base, no el exponente — se resuelve con raíz
+  cuadrada, no con logaritmo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["logaritmica"]
+
+variables:
+  x_sol: random(2, 30)
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: log₁₀(x) = log₁₀({x_sol}). ¿Cuánto vale x?"
+
+explicacion: |
+  Con el mismo logaritmo a los dos lados, los argumentos tienen que
+  coincidir (el logaritmo también es inyectivo).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si log₁₀(x) = log₁₀(y), entonces necesariamente x = y."
+
+explicacion: |
+  El logaritmo nunca repite un valor de salida para dos argumentos
+  distintos — es inyectivo, igual que la exponencial.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_exponenciales_logaritmicas"
+  nivel: "avanzado"
+  tags: ["propiedades"]
+
+variables:
+  x_sol: random(2, 20)
+  n: 2
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé: 2·log₁₀(x) = log₁₀({x_sol ^ 2}). ¿Cuánto vale x (positivo)?"
+
+pasos:
+  - "2·log₁₀(x) = log₁₀(x²) (propiedad de la potencia)"
+  - "log₁₀(x²) = log₁₀({x_sol ^ 2}) → x² = {x_sol ^ 2} → x = {x_sol}"
+
+explicacion: |
+  Convertir 2·log(x) en log(x²) permite igualar directamente los
+  argumentos.
+```
+
+## Sección: limite (26 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "basico"
+  tags: ["continua"]
+
+variables:
+  a: random(1, 6)
+  b: random(1, 10)
+  c: random(-10, 10)
+  punto: random(-8, 8)
+
+respuesta: a * punto ^ 2 + b * punto + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "lim(x→{punto}) [{a}x² + {b}x + {c}]. ¿Cuánto vale?"
+
+explicacion: |
+  Para un polinomio, el límite es simplemente evaluar la función en ese
+  punto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "basico"
+  tags: ["continua"]
+
+variables:
+  m: random(1, 10)
+  b: random(-15, 15)
+  punto: random(-10, 10)
+
+respuesta: m * punto + b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "lim(x→{punto}) [{m}x + {b}]. ¿Cuánto vale?"
+
+explicacion: |
+  Una función lineal es continua en todos lados: el límite es f({punto}).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "intermedio"
+  tags: ["continua"]
+
+variables:
+  a: random(2, 10)
+  punto: random(1, 10)
+  desplazamiento: random(1, 10)
+
+respuesta: a / (punto + desplazamiento)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "lim(x→{punto}) [{a} / (x + {desplazamiento})]. ¿Cuánto vale?"
+
+explicacion: |
+  El denominador no se anula en x={punto} (da {punto + desplazamiento}),
+  así que se puede evaluar directo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "intermedio"
+  tags: ["indeterminacion"]
+
+variables:
+  a: random(1, 20)
+
+respuesta: 2 * a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "lim(x→{a}) [(x² − {a ^ 2}) / (x − {a})]. ¿Cuánto vale?"
+
+pasos:
+  - "Reemplazar directo da 0/0 — hay que factorear"
+  - "(x²−{a ^ 2})/(x−{a}) = (x+{a})(x−{a})/(x−{a}) = x+{a} (para x≠{a})"
+  - "lim(x→{a}) (x+{a}) = {a}+{a} = {2 * a}"
+
+explicacion: |
+  Factorear como diferencia de cuadrados cancela el factor problemático.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "intermedio"
+  tags: ["indeterminacion"]
+
+variables:
+  a: random(1, 15)
+
+respuesta: 2 * a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "lim(x→−{a}) [(x² − {a ^ 2}) / (x + {a})]. ¿Cuánto vale?"
+
+pasos:
+  - "(x²−{a ^ 2})/(x+{a}) = (x+{a})(x−{a})/(x+{a}) = x−{a} (para x≠−{a})"
+  - "lim(x→−{a}) (x−{a}) = −{a}−{a} = −{2 * a}"
+
+explicacion: |
+  Acá el factor que se cancela es (x+{a}), porque el límite es en
+  x=−{a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "avanzado"
+  tags: ["indeterminacion"]
+
+variables:
+  k: random(2, 10)
+  a: random(1, 15)
+
+respuesta: k * a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "lim(x→0) [({k}x² + {k * a}x) / x]. ¿Cuánto vale?"
+
+pasos:
+  - "({k}x²+{k * a}x)/x = x({k}x+{k * a})/x = {k}x+{k * a} (para x≠0)"
+  - "lim(x→0) ({k}x+{k * a}) = {k * a}"
+
+explicacion: |
+  Sacando x como factor común en el numerador, se cancela con el
+  denominador.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "intermedio"
+  tags: ["laterales", "verdadero_falso"]
+
+variables:
+  m: random(1, 10)
+  b: random(-10, 10)
+  punto: random(-10, 10)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "f(x) = {m}x + {b}. ¿Coinciden el límite por la izquierda y por la derecha de f en x={punto} (o sea, existe el límite)?"
+
+explicacion: |
+  Para una función lineal (sin quiebres), los límites laterales siempre
   coinciden.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "raices"
+  tema: "limite"
   nivel: "avanzado"
-  tags: ["raices"]
+  tags: ["laterales", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Si el límite por la izquierda de f en x=a da 3, y el límite por la derecha da 7, el límite de f en x=a existe (y vale algún promedio de los dos)."
+
+explicacion: |
+  Si los límites laterales no coinciden, el límite completo NO existe —
+  no se promedia ni se elige uno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "basico"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Cuando reemplazar directo en un límite da 0/0, eso significa que el límite vale 0."
+
+explicacion: |
+  0/0 es una indeterminación, no un valor — hay que factorear y
+  simplificar antes de poder evaluar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una función puede no estar definida en x=a y aun así tener un límite bien definido cuando x se acerca a a."
+
+explicacion: |
+  Es exactamente el caso de (x²−a²)/(x−a): no está definida en x=a
+  (denominador 0), pero el límite ahí sí existe y vale 2a.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para un polinomio, el límite en cualquier punto coincide exactamente con evaluar la función en ese punto."
+
+explicacion: |
+  Los polinomios son continuos en todos los reales — no hay "saltos" ni
+  denominadores que se anulen.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
 
 variables:
-  base: random(2, 20)
+  a: random(2, 10)
+  b: random(-10, 10)
+  c: random(-10, 10)
+  punto: random(-5, 5)
+  real: a * punto ^ 2 + b * punto + c
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
 
-respuesta: base
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "lim(x→{punto}) [{a}x² + {b}x + {c}]. ¿Es correcto que el resultado sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es {real}, evaluando el polinomio en {punto}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "avanzado"
+  tags: ["indeterminacion"]
+
+variables:
+  a: random(1, 12)
+
+respuesta: 3 * a ^ 2
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto es √({base}²)?"
+enunciado: "lim(x→{a}) [(x³ − {a ^ 3}) / (x − {a})]. Usando que x³−a³ = (x−a)(x²+ax+a²), ¿cuánto vale el límite?"
 
 pasos:
-  - "La raíz cuadrada deshace el cuadrado: √({base}²) = {base}"
+  - "(x³−{a ^ 3})/(x−{a}) = x²+{a}x+{a ^ 2} (para x≠{a})"
+  - "lim(x→{a}) (x²+{a}x+{a ^ 2}) = {a ^ 2}+{a ^ 2}+{a ^ 2} = {3 * a ^ 2}"
 
 explicacion: |
-  Elevar al cuadrado y después sacar raíz cuadrada son operaciones
-  inversas: se cancelan entre sí.
+  Factorear una diferencia de cubos deja un trinomio que sí se puede
+  evaluar directo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "raices"
+  tema: "limite"
+  nivel: "avanzado"
+  tags: ["infinito"]
+
+variables:
+  a: random(2, 10)
+  b: random(2, 10)
+
+respuesta: a / b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "lim(x→∞) [({a}x + 5) / ({b}x − 3)]. ¿Cuánto vale?"
+
+pasos:
+  - "Con x muy grande, los términos sin x se vuelven insignificantes frente a los que sí tienen x"
+  - "El límite es el cociente de los coeficientes principales: {a}/{b}"
+
+explicacion: |
+  Cuando el grado del numerador y del denominador coincide, el límite en
+  el infinito es el cociente de los coeficientes principales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "avanzado"
+  tags: ["infinito", "opcion_multiple"]
+
+variables:
+  a: random(1, 10)
+
+respuesta: "Infinito (crece sin límite)"
+tipo: mc
+opciones_explicitas:
+  - "Infinito (crece sin límite)"
+  - "0"
+  - a
+
+enunciado: "lim(x→∞) [{a}x² + 3x − 7]. ¿Qué pasa con este límite?"
+
+explicacion: |
+  Un polinomio de grado 2 o más crece sin límite cuando x se va a
+  infinito (con coeficiente principal positivo).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  a: random(1, 10)
+  punto: random(1, 10)
+
+respuesta: 2 * a * punto
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Para f(x) = {a}x², el límite lim(h→0) [(f({punto}+h) − f({punto})) / h] da {2 * a}×{punto}. ¿Cuánto es ese valor?"
+
+explicacion: |
+  Este límite en particular es, exactamente, la definición de derivada
+  — adelanto de `../derivada/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
   nivel: "intermedio"
-  tags: ["raices", "vocabulario"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Aunque √2 no tenga una cantidad finita de cifras decimales, sigue siendo un número real, ubicable en la recta numérica."
+enunciado: "El límite de una suma de funciones es la suma de los límites de cada una (siempre que cada límite individual exista)."
 
 explicacion: |
-  No tener un valor "exacto y corto" no significa que no sea un número
-  real de verdad — es el adelanto del próximo tema, irracionales.
+  Es una de las propiedades básicas de los límites: se pueden calcular
+  "por partes".
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "raices"
-  nivel: "basico"
-  tags: ["raices", "vocabulario"]
+  tema: "limite"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Sacar raíz es la operación inversa de elevar a una potencia: buscar qué número, elevado al índice de la raíz, da el radicando."
+enunciado: "El límite de un producto de funciones es el producto de los límites de cada una (siempre que cada límite individual exista)."
 
 explicacion: |
-  Es la idea central de todo el tema.
+  Misma idea que la suma, aplicada al producto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "intermedio"
+  tags: ["opcion_multiple"]
+
+respuesta: "Factorear el numerador y cancelar el factor común con el denominador"
+tipo: mc
+opciones_explicitas:
+  - "Factorear el numerador y cancelar el factor común con el denominador"
+  - "Reemplazar x=a directamente y dejar el resultado como 0/0"
+  - "Ignorar el denominador y evaluar sólo el numerador"
+
+enunciado: "Al calcular un límite que da 0/0 al reemplazar directo, ¿cuál es el paso correcto?"
+
+explicacion: |
+  0/0 avisa que hace falta simplificar algebraicamente antes de evaluar
+  — no es la respuesta final.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "avanzado"
+  tags: ["indeterminacion"]
+
+variables:
+  r1: random(1, 15)
+  r2: random(1, 15)
+
+respuesta: r1 - r2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "lim(x→{r1}) [(x² − {r1 + r2}x + {r1 * r2}) / (x − {r1})]. ¿Cuánto vale?"
+
+pasos:
+  - "El numerador se factorea como (x−{r1})(x−{r2})"
+  - "(x−{r1})(x−{r2})/(x−{r1}) = x−{r2} (para x≠{r1})"
+  - "lim(x→{r1}) (x−{r2}) = {r1}−{r2} = {r1 - r2}"
+
+explicacion: |
+  El trinomio del numerador se factorea usando el mismo método de
+  `../polinomios-factoreo/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "basico"
+  tags: ["concepto"]
+
+variables:
+  c: random(-20, 20)
+
+respuesta: c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "lim(x→5) [{c}] (una función constante). ¿Cuánto vale?"
+
+explicacion: |
+  El límite de una constante es esa misma constante, sin importar hacia
+  dónde se acerque x.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "basico"
+  tags: ["concepto"]
+
+variables:
+  punto: random(1, 8)
+  n: random(2, 4)
+
+respuesta: punto ^ n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "lim(x→{punto}) [xⁿ], con n={n}. ¿Cuánto vale?"
+
+explicacion: |
+  {punto}^{n} = {punto ^ n} — otra vez, evaluar directo alcanza.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "El límite de f(x) cuando x tiende a a es siempre exactamente igual a f(a), sin excepción."
+
+explicacion: |
+  No siempre: si f no está definida en a (por ejemplo, con un
+  denominador que se anula), el límite puede existir de todas formas —
+  son preguntas relacionadas, pero no idénticas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(1, 15)
+  real: 2 * a
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "lim(x→{a}) [(x² − {a ^ 2}) / (x − {a})]. ¿Es correcto que el resultado sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es 2×{a} = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "avanzado"
+  tags: ["infinito", "opcion_multiple"]
+
+respuesta: "Infinito"
+tipo: mc
+opciones_explicitas:
+  - "Infinito"
+  - "0"
+  - "1"
+
+enunciado: "lim(x→∞) [(x² + 3) / (x + 1)]. El grado del numerador (2) es mayor que el del denominador (1). ¿Qué pasa con este límite?"
+
+explicacion: |
+  Cuando el numerador crece más rápido que el denominador, el cociente
+  crece sin límite.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "limite"
+  nivel: "avanzado"
+  tags: ["infinito", "opcion_multiple"]
+
+respuesta: "0"
+tipo: mc
+opciones_explicitas:
+  - "0"
+  - "Infinito"
+  - "1"
+
+enunciado: "lim(x→∞) [(x + 3) / (x² + 1)]. El grado del denominador (2) es mayor que el del numerador (1). ¿Qué pasa con este límite?"
+
+explicacion: |
+  Cuando el denominador crece más rápido, el cociente se achica hacia 0.
 ```
 
 ## Sección: razon (22 preguntas)
@@ -1564,1086 +2207,483 @@ explicacion: |
   tiempo, dos magnitudes distintas.
 ```
 
-## Sección: razones-trigonometricas (28 preguntas)
+## Sección: continuidad (24 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "continuidad"
   nivel: "basico"
-  tags: ["trigonometria", "vocabulario"]
+  tags: ["verdadero_falso"]
 
-enunciado: "En un triángulo rectángulo, respecto de un ángulo agudo elegido, ¿qué es el cateto opuesto?"
-tipo: mc
-opciones_explicitas:
-  - "El cateto que no toca a ese ángulo, el que está 'enfrente'"
-  - "El cateto que sí toca a ese ángulo"
-  - "La hipotenusa"
-respuesta: "El cateto que no toca a ese ángulo, el que está 'enfrente'"
+variables:
+  a: random(1, 10)
+  b: random(-10, 10)
+  punto: random(-10, 10)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "f(x) = {a}x² + {b}x. ¿Es continua f en x={punto}?"
 
 explicacion: |
-  El cateto adyacente es el que sí toca al ángulo elegido.
+  Todos los polinomios son continuos en todos los reales.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "continuidad"
   nivel: "basico"
-  tags: ["trigonometria", "vocabulario"]
-
-enunciado: "En un triángulo rectángulo, respecto de un ángulo agudo elegido, ¿qué es el cateto adyacente?"
-tipo: mc
-opciones_explicitas:
-  - "El cateto que sí toca a ese ángulo (además de la hipotenusa)"
-  - "El cateto que no toca a ese ángulo"
-  - "La hipotenusa"
-respuesta: "El cateto que sí toca a ese ángulo (además de la hipotenusa)"
-
-explicacion: |
-  El cateto opuesto es el que no lo toca.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El cateto opuesto de un ángulo agudo es, al mismo tiempo, el cateto adyacente del otro ángulo agudo del mismo triángulo."
-
-explicacion: |
-  Los nombres "opuesto" y "adyacente" dependen de qué ángulo se elija
-  como referencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "basico"
-  tags: ["trigonometria", "vocabulario"]
-
-enunciado: "¿Qué representa la regla mnemotécnica SOH-CAH-TOA?"
-tipo: mc
-opciones_explicitas:
-  - "Seno=Opuesto/Hipotenusa, Coseno=Adyacente/Hipotenusa, Tangente=Opuesto/Adyacente"
-  - "Los nombres de los tres ángulos de cualquier triángulo"
-  - "El orden en que se miden los lados de un triángulo"
-respuesta: "Seno=Opuesto/Hipotenusa, Coseno=Adyacente/Hipotenusa, Tangente=Opuesto/Adyacente"
-
-explicacion: |
-  Es una forma de memorizar las tres razones sin confundir cuál lado va
-  en el numerador y cuál en el denominador.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "basico"
-  tags: ["trigonometria", "completar"]
-
-tipo: completar
-enunciado: "Completá: seno = cateto opuesto / ___."
-respuestas_validas:
-  - "hipotenusa"
-
-explicacion: |
-  El coseno también divide por la hipotenusa, pero usa el cateto
-  adyacente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "basico"
-  tags: ["trigonometria", "completar"]
-
-tipo: completar
-enunciado: "Completá: coseno = cateto ___ / hipotenusa."
-respuestas_validas:
-  - "adyacente"
-
-explicacion: |
-  El seno usa el cateto opuesto en el numerador.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "basico"
-  tags: ["trigonometria", "completar"]
-
-tipo: completar
-enunciado: "Completá: tangente = cateto opuesto / cateto ___."
-respuestas_validas:
-  - "adyacente"
-
-explicacion: |
-  A diferencia de seno y coseno, la tangente no usa la hipotenusa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria", "problema"]
+  tags: ["aplicacion"]
 
 variables:
-  k: random(1, 8)
-  opuesto: 3 * k
-  adyacente: 4 * k
-  hipotenusa: 5 * k
-
-respuesta: redondear(opuesto / hipotenusa, 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo α, cateto opuesto {opuesto}, cateto adyacente {adyacente} e hipotenusa {hipotenusa}. ¿Cuánto vale sen(α)?"
-
-pasos:
-  - "{opuesto} ÷ {hipotenusa} = {redondear(opuesto / hipotenusa, 2)}"
-
-explicacion: |
-  Seno es opuesto sobre hipotenusa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria", "problema"]
-
-variables:
-  k: random(1, 8)
-  opuesto: 3 * k
-  adyacente: 4 * k
-  hipotenusa: 5 * k
-
-respuesta: redondear(adyacente / hipotenusa, 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo α, cateto opuesto {opuesto}, cateto adyacente {adyacente} e hipotenusa {hipotenusa}. ¿Cuánto vale cos(α)?"
-
-pasos:
-  - "{adyacente} ÷ {hipotenusa} = {redondear(adyacente / hipotenusa, 2)}"
-
-explicacion: |
-  Coseno es adyacente sobre hipotenusa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria", "problema"]
-
-variables:
-  k: random(1, 8)
-  opuesto: 3 * k
-  adyacente: 4 * k
-
-respuesta: redondear(opuesto / adyacente, 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo α, cateto opuesto {opuesto} y cateto adyacente {adyacente}. ¿Cuánto vale tan(α)?"
-
-pasos:
-  - "{opuesto} ÷ {adyacente} = {redondear(opuesto / adyacente, 2)}"
-
-explicacion: |
-  Tangente es opuesto sobre adyacente, sin usar la hipotenusa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
-
-variables:
-  k: random(1, 6)
-  opuesto: 5 * k
-  adyacente: 12 * k
-  hipotenusa: 13 * k
-
-respuesta: redondear(opuesto / hipotenusa, 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo β, cateto opuesto {opuesto}, cateto adyacente {adyacente} e hipotenusa {hipotenusa}. ¿Cuánto vale sen(β)? Redondeá a 3 decimales."
-
-pasos:
-  - "{opuesto} ÷ {hipotenusa} = {redondear(opuesto / hipotenusa, 3)}"
-
-explicacion: |
-  Esta vez la razón no da un número tan "redondo" como 3/5, pero se
-  calcula exactamente igual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si se agranda un triángulo rectángulo manteniendo el mismo ángulo agudo, el valor del seno de ese ángulo NO cambia."
-
-explicacion: |
-  Los triángulos son semejantes, así que la razón entre lados se
-  mantiene igual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
-
-variables:
-  k1: random(1, 5)
-  k2: k1 + random(1, 5)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un triángulo con catetos {3 * k1} y {4 * k1} (hipotenusa {5 * k1}) tiene el mismo ángulo agudo que otro con catetos {3 * k2} y {4 * k2} (hipotenusa {5 * k2}). ¿El seno de ese ángulo da el mismo valor (0,6) en ambos triángulos?"
-
-explicacion: |
-  {3 * k1}/{5 * k1} y {3 * k2}/{5 * k2} son ambos iguales a 3/5 = 0,6:
-  son triángulos semejantes, misma razón.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "vocabulario"]
-
-enunciado: "¿Por qué una razón trigonométrica da siempre el mismo valor para un ángulo dado, sin importar el tamaño del triángulo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque dos triángulos rectángulos con el mismo ángulo agudo son semejantes (criterio AA), y sus lados son proporcionales"
-  - "Porque todos los triángulos rectángulos son congruentes entre sí"
-  - "Es una coincidencia, sin explicación geométrica"
-respuesta: "Porque dos triángulos rectángulos con el mismo ángulo agudo son semejantes (criterio AA), y sus lados son proporcionales"
-
-explicacion: |
-  Es la razón por la que este módulo depende de
-  `../semejanza-y-teorema-de-thales/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La tangente de un ángulo es igual al seno de ese ángulo dividido su coseno (tan = sen / cos)."
-
-explicacion: |
-  Al dividir (opuesto/hipotenusa) por (adyacente/hipotenusa), la
-  hipotenusa se simplifica y queda opuesto/adyacente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
-
-variables:
-  k: random(1, 8)
-
-respuesta: redondear(0.6 / 0.8, 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Para un ángulo α, sen(α) = 0,6 y cos(α) = 0,8. ¿Cuánto vale tan(α)?"
-
-pasos:
-  - "0,6 ÷ 0,8 = {redondear(0.6 / 0.8, 2)}"
-
-explicacion: |
-  Coincide con calcular directamente opuesto/adyacente = 3/4 = 0,75 en
-  el triángulo 3-4-5.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "vocabulario"]
-
-enunciado: "¿Qué dice la identidad sen² + cos² = 1, para cualquier ángulo?"
-tipo: mc
-opciones_explicitas:
-  - "Que el cuadrado del seno más el cuadrado del coseno de un mismo ángulo siempre suma 1"
-  - "Que el seno y el coseno de cualquier ángulo son siempre iguales"
-  - "Que la suma de seno y coseno siempre da 1, sin elevar al cuadrado"
-respuesta: "Que el cuadrado del seno más el cuadrado del coseno de un mismo ángulo siempre suma 1"
-
-explicacion: |
-  Es consecuencia directa del teorema de Pitágoras aplicado a los
-  catetos y la hipotenusa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
-
-respuesta: 1
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Para el ángulo del triángulo 3-4-5, sen(α) = 0,6 y cos(α) = 0,8. ¿Cuánto da sen(α)² + cos(α)²?"
-
-pasos:
-  - "0,6² + 0,8² = 0,36 + 0,64 = 1"
-
-explicacion: |
-  Se cumple exactamente, porque 3² + 4² = 5² (el propio teorema de
-  Pitágoras, dividido por 5² de los dos lados).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria", "completar"]
-
-tipo: completar
-enunciado: "Completá: sen(30°) = ___ (como número decimal)."
-respuestas_validas:
-  - "0.5"
-  - "0,5"
-
-explicacion: |
-  Es uno de los valores notables que conviene memorizar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "sen(30°) y cos(60°) valen exactamente lo mismo."
-
-explicacion: |
-  Los ángulos que suman 90° "intercambian" seno y coseno.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "sen(45°) y cos(45°) valen exactamente lo mismo."
-
-explicacion: |
-  Tiene sentido: 45° + 45° = 90°, así que se intercambian entre sí — y
-  como son iguales, coinciden.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "tan(45°) vale exactamente 1."
-
-explicacion: |
-  Como sen(45°) = cos(45°), su cociente (la tangente) da 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
-
-variables:
-  seno_30: 0.5
-  hipotenusa: uno_de([10, 20, 30, 40])
-
-respuesta: hipotenusa * seno_30
+  a: random(1, 8)
+  b: random(-10, 10)
+  punto: random(-8, 8)
+
+respuesta: a * punto ^ 2 + b * punto
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Un triángulo rectángulo tiene un ángulo de 30° y una hipotenusa de {hipotenusa}. ¿Cuánto mide el cateto opuesto a ese ángulo? (usá sen(30°) = 0,5)"
-
-pasos:
-  - "{hipotenusa} × 0,5 = {hipotenusa * seno_30}"
+enunciado: "f(x) = {a}x² + {b}x, continua en todos lados. ¿Cuánto vale f({punto}) (que también es el límite ahí)?"
 
 explicacion: |
-  Cateto opuesto = hipotenusa × sen(ángulo).
+  Al ser continua, f({punto}) y el límite en {punto} son el mismo
+  número.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["evitable", "verdadero_falso"]
 
 variables:
-  coseno_60: 0.5
-  hipotenusa: uno_de([10, 20, 30, 40])
-
-respuesta: hipotenusa * coseno_60
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un triángulo rectángulo tiene un ángulo de 60° y una hipotenusa de {hipotenusa}. ¿Cuánto mide el cateto adyacente a ese ángulo? (usá cos(60°) = 0,5)"
-
-pasos:
-  - "{hipotenusa} × 0,5 = {hipotenusa * coseno_60}"
-
-explicacion: |
-  Cateto adyacente = hipotenusa × cos(ángulo).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
-
-variables:
-  adyacente: uno_de([5, 8, 10, 15])
-
-respuesta: adyacente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un triángulo rectángulo tiene un ángulo de 45° y un cateto adyacente de {adyacente}. ¿Cuánto mide el cateto opuesto a ese ángulo? (usá tan(45°) = 1)"
-
-pasos:
-  - "{adyacente} × 1 = {adyacente}"
-
-explicacion: |
-  En un triángulo con un ángulo de 45°, los dos catetos miden siempre
-  lo mismo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria", "ordenar"]
-
-enunciado: "Ordená los pasos para hallar un lado desconocido de un triángulo rectángulo, conociendo un ángulo agudo y otro lado."
-tipo: ordenar
-opciones_explicitas:
-  - "Despejar el lado desconocido y calcular"
-  - "Identificar qué lados están involucrados (opuesto, adyacente o hipotenusa) respecto del ángulo conocido"
-  - "Elegir la razón trigonométrica correcta (seno, coseno o tangente) según esos dos lados"
-respuesta_orden:
-  - "Identificar qué lados están involucrados (opuesto, adyacente o hipotenusa) respecto del ángulo conocido"
-  - "Elegir la razón trigonométrica correcta (seno, coseno o tangente) según esos dos lados"
-  - "Despejar el lado desconocido y calcular"
-
-explicacion: |
-  Elegir mal la razón (usar coseno cuando corresponde seno, por
-  ejemplo) es el error más común.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria", "vocabulario"]
-
-enunciado: "¿Cómo se puede calcular la altura de un edificio sin medirla directamente, usando trigonometría?"
-tipo: mc
-opciones_explicitas:
-  - "Midiendo el ángulo de elevación desde una distancia conocida, y usando la tangente de ese ángulo"
-  - "Contando la cantidad de pisos y multiplicando por 3 metros siempre"
-  - "No es posible calcular una altura sin medirla directamente"
-respuesta: "Midiendo el ángulo de elevación desde una distancia conocida, y usando la tangente de ese ángulo"
-
-explicacion: |
-  La distancia horizontal es el cateto adyacente, la altura es el
-  cateto opuesto: tan(ángulo) = altura / distancia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirven las razones trigonométricas?"
-tipo: mc
-opciones_explicitas:
-  - "Para calcular lados o ángulos de un triángulo rectángulo sin medirlos directamente, a partir de datos conocidos"
-  - "Sólo sirven para triángulos equiláteros"
-  - "Sólo tienen aplicación teórica, sin uso práctico"
-respuesta: "Para calcular lados o ángulos de un triángulo rectángulo sin medirlos directamente, a partir de datos conocidos"
-
-explicacion: |
-  Desde la altura de un edificio hasta el diseño de una rampa, siempre
-  que hay un ángulo y un triángulo rectángulo, aparecen estas razones.
-```
-
-## Sección: rectas-paralelas-y-perpendiculares (25 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "basico"
-  tags: ["paralelas", "vocabulario"]
-
-enunciado: "¿Cuándo dos rectas son paralelas?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando tienen exactamente la misma pendiente"
-  - "Cuando sus pendientes multiplicadas dan -1"
-  - "Cuando tienen la misma ordenada al origen"
-respuesta: "Cuando tienen exactamente la misma pendiente"
-
-explicacion: |
-  m₁ = m₂ es el criterio ya visto en `../funcion-lineal-pendiente/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "basico"
-  tags: ["perpendiculares", "vocabulario"]
-
-enunciado: "¿Cuándo dos rectas son perpendiculares?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando el producto de sus pendientes es -1"
-  - "Cuando tienen exactamente la misma pendiente"
-  - "Cuando ambas pasan por el origen"
-respuesta: "Cuando el producto de sus pendientes es -1"
-
-explicacion: |
-  m₁ × m₂ = −1: cada pendiente es la recíproca y opuesta de la otra.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "intermedio"
-  tags: ["perpendiculares", "problema"]
-
-variables:
-  m: uno_de([2, 3, 4, 5])
-
-respuesta: -1 / m
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una recta tiene pendiente {m}. ¿Cuál es la pendiente de cualquier recta perpendicular a ella?"
-
-pasos:
-  - "-1 ÷ {m} = {-1 / m}"
-
-explicacion: |
-  Se invierte la pendiente y se cambia el signo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "avanzado"
-  tags: ["perpendiculares", "problema"]
-
-variables:
-  a: uno_de([2, 3, 4])
-  b: uno_de([5, 7])
-
-respuesta: 0 - (b / a)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una recta tiene pendiente {a}/{b}. ¿Cuál es la pendiente de cualquier recta perpendicular a ella?"
-
-pasos:
-  - "Se invierte la fracción y se cambia el signo: -{b}/{a} = {0 - (b / a)}"
-
-explicacion: |
-  ({a}/{b}) × (-{b}/{a}) = -1, verificando el criterio de
-  perpendicularidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "avanzado"
-  tags: ["paralelas", "problema"]
-
-variables:
-  m: uno_de([2, 3, -2])
-  x0: random(1, 5)
-  y0: random(1, 20)
-
-respuesta: y0 - (m * x0)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se busca la recta paralela a y = {m}x + 7, que además pasa por el punto ({x0}, {y0}). ¿Cuál es la ordenada al origen de esa nueva recta?"
-
-pasos:
-  - "Misma pendiente: {m}"
-  - "{y0} = {m} × {x0} + b, entonces b = {y0} − {m}×{x0} = {y0 - (m * x0)}"
-
-explicacion: |
-  Se usa la misma pendiente de la recta original, y se despeja b con el
-  punto dado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "avanzado"
-  tags: ["perpendiculares", "problema"]
-
-variables:
-  m: uno_de([2, 4, 5])
-  m_perp: -1 / m
-  x0: uno_de([2, 4, 6, 8])
-  y0: random(1, 10)
-
-respuesta: redondear(y0 - (m_perp * x0), 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Se busca la recta perpendicular a y = {m}x + 3, que además pasa por el punto ({x0}, {y0}). Su pendiente es {m_perp}. ¿Cuál es la ordenada al origen de esa nueva recta?"
-
-pasos:
-  - "{y0} = {m_perp} × {x0} + b, entonces b = {y0} − ({m_perp}×{x0}) = {redondear(y0 - (m_perp * x0), 2)}"
-
-explicacion: |
-  Se usa la pendiente perpendicular ya calculada, y se despeja b con el
-  punto dado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "intermedio"
-  tags: ["paralelas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos rectas con la misma pendiente Y la misma ordenada al origen son, en realidad, la misma recta (coincidentes), no dos rectas paralelas distintas."
-
-explicacion: |
-  Ser paralelas exige además que b₁ sea distinto de b₂.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "intermedio"
-  tags: ["paralelas", "vocabulario"]
-
-enunciado: "¿Qué condición hace que dos rectas con la misma pendiente sean coincidentes (la misma recta) en vez de paralelas distintas?"
-tipo: mc
-opciones_explicitas:
-  - "Que además tengan la misma ordenada al origen"
-  - "Que además tengan pendientes recíprocas"
-  - "No existe tal condición: siempre son paralelas distintas"
-respuesta: "Que además tengan la misma ordenada al origen"
-
-explicacion: |
-  Mismo m y mismo b: es literalmente la misma ecuación escrita dos
-  veces.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "intermedio"
-  tags: ["paralelas", "problema"]
-
-variables:
-  m: uno_de([2, 3, 4, 5])
-  b1: uno_de([1, 2, 3])
-  b2: b1 + random(1, 5)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Son paralelas las rectas y = {m}x + {b1} e y = {m}x + {b2}?"
-
-explicacion: |
-  Tienen la misma pendiente ({m}) y distinta ordenada al origen: son
-  paralelas, sin llegar a tocarse nunca.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "intermedio"
-  tags: ["perpendiculares", "problema"]
-
-variables:
-  m1: uno_de([2, 3, 4])
-  m2: 0 - (1 / m1)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Son perpendiculares las rectas con pendiente {m1} y con pendiente {m2}?"
-
-explicacion: |
-  {m1} × ({m2}) = -1: cumplen el criterio de perpendicularidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "avanzado"
-  tags: ["paralelas", "perpendiculares", "vocabulario"]
-
-enunciado: "¿Qué hay que verificar, usando pendientes, para confirmar que un cuadrilátero dado por sus 4 vértices es un rectángulo?"
-tipo: mc
-opciones_explicitas:
-  - "Que los lados opuestos sean paralelos entre sí, y los lados consecutivos sean perpendiculares"
-  - "Que las cuatro pendientes sean exactamente iguales"
-  - "Que ningún lado tenga pendiente 0"
-respuesta: "Que los lados opuestos sean paralelos entre sí, y los lados consecutivos sean perpendiculares"
-
-explicacion: |
-  Sin medir ningún ángulo con transportador: sólo comparando pendientes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "avanzado"
-  tags: ["paralelas", "problema"]
-
-variables:
-  m: uno_de([2, 3, -2])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un cuadrilátero tiene un lado con pendiente {m}, y el lado opuesto también tiene pendiente {m}. ¿Es compatible eso con que el cuadrilátero sea un rectángulo (en lo que respecta a ese par de lados)?"
-
-explicacion: |
-  Los lados opuestos de un rectángulo tienen que ser paralelos: misma
-  pendiente cumple esa condición.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "intermedio"
-  tags: ["perpendiculares"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una recta tangente a una circunferencia es siempre perpendicular al radio, en el punto de contacto."
-
-explicacion: |
-  Ya se había mencionado en `../circunferencia-y-circulo/`; ahora se
-  puede verificar numéricamente con pendientes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "avanzado"
-  tags: ["perpendiculares", "problema"]
-
-variables:
-  m_radio: uno_de([2, 3, 4, 5])
-
-respuesta: -1 / m_radio
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "El radio de una circunferencia, en el punto de contacto con una tangente, tiene pendiente {m_radio}. ¿Cuál es la pendiente de la recta tangente en ese punto?"
-
-pasos:
-  - "-1 ÷ {m_radio} = {-1 / m_radio}"
-
-explicacion: |
-  La tangente es siempre perpendicular al radio en ese punto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "intermedio"
-  tags: ["paralelas", "ordenar"]
-
-enunciado: "Ordená los pasos para hallar la ecuación de la recta paralela a otra, que además pasa por un punto dado."
-tipo: ordenar
-opciones_explicitas:
-  - "Despejar la nueva ordenada al origen"
-  - "Usar la misma pendiente que la recta original"
-  - "Reemplazar las coordenadas del punto dado en y = mx + b"
-respuesta_orden:
-  - "Usar la misma pendiente que la recta original"
-  - "Reemplazar las coordenadas del punto dado en y = mx + b"
-  - "Despejar la nueva ordenada al origen"
-
-explicacion: |
-  La pendiente no cambia; sólo se recalcula b para que la recta pase por
-  el punto pedido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "intermedio"
-  tags: ["perpendiculares", "ordenar"]
-
-enunciado: "Ordená los pasos para hallar la ecuación de la recta perpendicular a otra, que además pasa por un punto dado."
-tipo: ordenar
-opciones_explicitas:
-  - "Despejar la nueva ordenada al origen"
-  - "Calcular la pendiente recíproca y opuesta de la recta original"
-  - "Reemplazar las coordenadas del punto dado en y = mx + b, con esa nueva pendiente"
-respuesta_orden:
-  - "Calcular la pendiente recíproca y opuesta de la recta original"
-  - "Reemplazar las coordenadas del punto dado en y = mx + b, con esa nueva pendiente"
-  - "Despejar la nueva ordenada al origen"
-
-explicacion: |
-  Primero cambia la pendiente (recíproca y opuesta); recién después se
-  ajusta b.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "avanzado"
-  tags: ["paralelas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos rectas verticales distintas (x = k₁ y x = k₂, con k₁ ≠ k₂) son siempre paralelas entre sí."
-
-explicacion: |
-  Aunque no tengan pendiente definida en la fórmula y=mx+b, nunca se
-  cruzan: son paralelas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "intermedio"
-  tags: ["perpendiculares"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una recta horizontal (y = b) y una recta vertical (x = k) son siempre perpendiculares entre sí."
-
-explicacion: |
-  Se cruzan formando exactamente 90°, aunque el criterio m₁×m₂=-1 no se
-  pueda aplicar literalmente (la vertical no tiene pendiente definida).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "intermedio"
-  tags: ["paralelas", "problema"]
-
-variables:
-  m: uno_de([2, 3, 4])
-  x0: uno_de([1, 2, 3])
-  producto: m * x0
-  b: random(1, 10)
-
-respuesta: b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La recta paralela a y = {m}x + 5 que pasa por ({x0}, {producto + b}) tiene ordenada al origen b. ¿Cuánto vale b?"
-
-pasos:
-  - "{producto + b} = {m} × {x0} + b, entonces b = {producto + b} − {producto} = {b}"
-
-explicacion: |
-  Se despeja b restando m×x₀ al valor de y del punto dado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "basico"
-  tags: ["perpendiculares"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el producto de las pendientes de dos rectas da exactamente -1, esas rectas son perpendiculares."
-
-explicacion: |
-  Es el criterio algebraico completo de perpendicularidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "basico"
-  tags: ["perpendiculares"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La pendiente recíproca y opuesta de m = 2 es -1/2."
-
-explicacion: |
-  2 × (-1/2) = -1, cumple el criterio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "avanzado"
-  tags: ["perpendiculares"]
+  a: random(1, 15)
 
 respuesta: falso
+
 tipo: vf
 
-enunciado: "Dos rectas con pendientes 2 y -2 (mismo valor, signo opuesto) son perpendiculares entre sí."
+enunciado: "f(x) = (x² − {a ^ 2}) / (x − {a}). ¿Es f continua en x={a}?"
 
 explicacion: |
-  2 × (-2) = -4, no -1: no cumplen el criterio. Tener signos opuestos no
-  alcanza, hace falta además que sean recíprocas.
+  f no está definida en x={a} (denominador 0) — no es continua ahí,
+  aunque el límite exista.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "avanzado"
-  tags: ["perpendiculares", "problema"]
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["evitable"]
 
 variables:
-  m: uno_de([2, 4, 5])
+  a: random(1, 20)
 
-respuesta: -1 / m
+respuesta: 2 * a
 tipo: input
-tolerancia_abs: 0.01
+tolerancia_abs: 0
 
-enunciado: "Un lado de un cuadrilátero tiene pendiente {m}. Para que el cuadrilátero sea un rectángulo, ¿qué pendiente tiene que tener el lado consecutivo (adyacente)?"
+enunciado: "f(x) = (x² − {a ^ 2}) / (x − {a}) tiene una discontinuidad evitable en x={a}. ¿Qué valor habría que asignarle a f({a}) para que quedara continua ahí?"
 
 pasos:
-  - "-1 ÷ {m} = {-1 / m}"
+  - "El límite en x={a} es 2×{a} = {2 * a} — ese es el valor que 'tapa el agujero'"
 
 explicacion: |
-  Los lados consecutivos de un rectángulo son perpendiculares entre sí.
+  Redefinir f({a}) como el valor del límite convierte la discontinuidad
+  evitable en una función continua.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
+  tema: "continuidad"
   nivel: "intermedio"
-  tags: ["paralelas", "perpendiculares"]
+  tags: ["evitable"]
+
+variables:
+  r1: random(1, 15)
+  r2: random(1, 15)
+
+respuesta: r1 - r2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = (x² − {r1 + r2}x + {r1 * r2}) / (x − {r1}) tiene una discontinuidad evitable en x={r1}. ¿Qué valor habría que asignarle a f({r1}) para arreglarla?"
+
+pasos:
+  - "El límite en x={r1} es {r1}−{r2} = {r1 - r2}"
+
+explicacion: |
+  Se factorea el numerador, se cancela el factor común, y se evalúa el
+  resultado en x={r1}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["verdadero_falso"]
+
+variables:
+  a: random(1, 15)
+  otro_punto: a + random(1, 10)
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Verificar paralelismo o perpendicularidad con pendientes permite confirmar propiedades geométricas sin necesidad de medir ángulos con transportador."
+enunciado: "f(x) = (x² − {a ^ 2}) / (x − {a}). ¿Es f continua en x={otro_punto} (un punto distinto de {a})?"
 
 explicacion: |
-  Es la ventaja de trabajar con coordenadas y ecuaciones en vez de con
-  el dibujo físico.
+  El denominador sólo se anula en x={a} — en cualquier otro punto, f es
+  una función racional bien definida y continua.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "rectas_paralelas_y_perpendiculares"
-  nivel: "basico"
-  tags: ["cierre"]
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["opcion_multiple"]
 
-enunciado: "¿Para qué sirve aplicar el criterio de paralelismo y perpendicularidad a problemas geométricos?"
+respuesta: "Evitable (el límite existe, pero no coincide con f(a) o f(a) no está definida)"
 tipo: mc
 opciones_explicitas:
-  - "Para confirmar propiedades de figuras dadas por coordenadas: si un cuadrilátero es rectángulo, si dos calles son paralelas, si una estructura es realmente perpendicular"
-  - "Sólo sirve para practicar el cálculo de pendientes en abstracto"
-  - "Sólo aplica a rectas que pasan por el origen"
-respuesta: "Para confirmar propiedades de figuras dadas por coordenadas: si un cuadrilátero es rectángulo, si dos calles son paralelas, si una estructura es realmente perpendicular"
+  - "Evitable (el límite existe, pero no coincide con f(a) o f(a) no está definida)"
+  - "No evitable (el límite no existe)"
+
+enunciado: "f(x) = (x²−9)/(x−3). En x=3, el límite existe (vale 6) pero f(3) no está definida. ¿Qué tipo de discontinuidad es?"
 
 explicacion: |
-  Es la aplicación geométrica del criterio algebraico ya conocido.
+  Se podría "arreglar" definiendo f(3)=6 — por eso es evitable.
 ```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "avanzado"
+  tags: ["opcion_multiple"]
+
+respuesta: "No evitable (el límite no existe)"
+tipo: mc
+opciones_explicitas:
+  - "No evitable (el límite no existe)"
+  - "Evitable (el límite existe, pero no coincide con f(a))"
+
+enunciado: "En x=2, el límite por la izquierda de f da 5, y el límite por la derecha da 9. ¿Qué tipo de discontinuidad es?"
+
+explicacion: |
+  Como los límites laterales no coinciden, el límite completo no
+  existe — no hay ningún valor que "tape el agujero".
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para que f sea continua en x=a, hacen falta tres cosas a la vez: que f(a) esté definida, que el límite exista, y que ese límite coincida con f(a)."
+
+explicacion: |
+  Si falta cualquiera de las tres, f es discontinua en a.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Si el límite de f en x=a existe, entonces f ya es continua en a, sin necesidad de chequear nada más."
+
+explicacion: |
+  Falta comparar ese límite con f(a) — y f(a) tiene que estar definida
+  primero. Las dos condiciones adicionales son necesarias.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Cualquier función que tenga una fracción (con x en el denominador) es discontinua en todos los puntos de su dominio."
+
+explicacion: |
+  Sólo es discontinua donde el denominador se anula (fuera del
+  dominio) — en el resto de los puntos puede ser perfectamente continua.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una discontinuidad evitable se puede 'arreglar' redefiniendo el valor de la función en ese único punto, igualándolo al límite."
+
+explicacion: |
+  Es justamente por eso que se llama "evitable" — a diferencia de la no
+  evitable, donde no hay ningún valor que sirva.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "basico"
+  tags: ["verdadero_falso"]
+
+variables:
+  m: random(1, 10)
+  b: random(-15, 15)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "f(x) = {m}x + {b}. ¿Es f continua en TODOS los números reales?"
+
+explicacion: |
+  Cualquier función lineal es continua en todo su dominio, sin ninguna
+  excepción.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["verdadero_falso"]
+
+variables:
+  k: random(1, 20)
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "f(x) = {k}/x. ¿Es f continua en TODOS los números reales (incluido x=0)?"
+
+explicacion: |
+  En x=0, f ni siquiera está definida (denominador 0) — no puede ser
+  continua ahí. Es discontinua (no evitable: el límite tampoco existe,
+  la función se dispara al infinito).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(1, 15)
+  valor_asignado: uno_de([2, 0, -1]) + 2 * a
+
+respuesta: (valor_asignado == (2 * a))
+tipo: vf
+
+enunciado: "Se define f(x) = (x²−{a ^ 2})/(x−{a}) para x≠{a}, y f({a}) = {valor_asignado} (a mano). ¿Queda f continua en x={a} con esa definición?"
+
+explicacion: |
+  Queda continua sólo si el valor asignado coincide exactamente con el
+  límite, que es 2×{a} = {2 * a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "avanzado"
+  tags: ["verdadero_falso"]
+
+variables:
+  a: random(1, 10)
+  b: random(11, 20)
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "f(x) = {a} para x < 2, y f(x) = {b} para x ≥ 2. ¿Es f continua en x=2?"
+
+explicacion: |
+  El límite por la izquierda ({a}) y por la derecha ({b}) no coinciden
+  — el límite en x=2 no existe, así que f no es continua ahí.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Que una función sea 'continua en un intervalo' significa que es continua en cada uno de los puntos de ese intervalo, sin excepción."
+
+explicacion: |
+  Basta con que falle en un solo punto del intervalo para que ya no sea
+  continua "en todo el intervalo".
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+variables:
+  a: random(2, 20)
+
+respuesta: a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "f(x) = 5 / (x − {a}). ¿En qué valor de x es discontinua f?"
+
+explicacion: |
+  El único punto problemático es donde el denominador se anula: x={a}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando una función se dispara hacia el infinito cerca de un punto (como y=k/x en x=0), la discontinuidad en ese punto es no evitable."
+
+explicacion: |
+  No hay ningún valor finito que se le pueda asignar a la función ahí
+  para "tapar" ese comportamiento.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(1, 20)
+  real: 2 * a
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "f(x) = (x²−{a ^ 2})/(x−{a}) tiene discontinuidad evitable en x={a}. ¿Es correcto que el valor que la arregla sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es el límite, 2×{a} = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El producto de dos funciones continuas en un punto también es continuo en ese punto."
+
+explicacion: |
+  Se deriva directo de la propiedad del límite de un producto (ver
+  `../limite/`).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["verdadero_falso"]
+
+variables:
+  a: random(2, 10)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "f(x) = {a}^x. ¿Es f continua en todos los números reales?"
+
+explicacion: |
+  Las funciones exponenciales (ver `../familias-exponencial-logaritmica/`)
+  son continuas en todo su dominio, que ya es todos los reales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "intermedio"
+  tags: ["verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "g(x) = log₁₀(x). ¿Es g continua en TODOS los números reales (incluidos los negativos y el 0)?"
+
+explicacion: |
+  g ni siquiera está DEFINIDA para x≤0 — no puede ser continua ahí. Es
+  continua sólo en su dominio, x>0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "continuidad"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una forma intuitiva de pensar la continuidad es: se puede dibujar el gráfico de la función sin levantar el lápiz del papel."
+
+explicacion: |
+  No es una definición matemática rigurosa, pero ayuda a visualizar
+  dónde aparecen las discontinuidades (los puntos donde sí hay que
+  levantar el lápiz).
+```
+

@@ -1,0 +1,182 @@
+[
+ {
+  "id": 651,
+  "cluster": 1,
+  "temas": [
+   "conciencia-fonologica",
+   "escritura-como-tecnologia",
+   "decodificacion-y-fluidez",
+   "ortografia-y-tildacion",
+   "circuito-de-la-comunicacion"
+  ],
+  "preguntas": 109
+ },
+ {
+  "id": 652,
+  "cluster": 2,
+  "temas": [
+   "comprension-idea-principal",
+   "signos-de-puntuacion",
+   "tecnicas-de-estudio-resumen-y-organizadores-graficos",
+   "tipos-textuales",
+   "variedades-de-la-lengua"
+  ],
+  "preguntas": 106
+ },
+ {
+  "id": 653,
+  "cluster": 3,
+  "temas": [
+   "genero-dramatico",
+   "genero-lirico",
+   "genero-narrativo",
+   "generos-discursivos",
+   "narrador"
+  ],
+  "preguntas": 121
+ },
+ {
+  "id": 654,
+  "cluster": 4,
+  "temas": [
+   "generos-periodisticos",
+   "paratextos",
+   "punto-de-vista",
+   "recursos-literarios",
+   "estructura-narrativa"
+  ],
+  "preguntas": 130
+ },
+ {
+  "id": 655,
+  "cluster": 5,
+  "temas": [
+   "romanticismo",
+   "tesis",
+   "realismo",
+   "argumentos",
+   "modernismo"
+  ],
+  "preguntas": 100
+ },
+ {
+  "id": 656,
+  "cluster": 6,
+  "temas": [
+   "contraargumentos",
+   "generacion-del-98",
+   "detectar-falacias",
+   "boom-latinoamericano",
+   "debate-refutar-en-vivo"
+  ],
+  "preguntas": 100
+ },
+ {
+  "id": 657,
+  "cluster": 7,
+  "temas": [
+   "exposicion-oral",
+   "negociacion",
+   "persuasion-etica-vs-manipulacion",
+   "presentacion-con-apoyo-visual",
+   "subjetivemas-y-modalizadores"
+  ],
+  "preguntas": 102
+ },
+ {
+  "id": 658,
+  "cluster": 8,
+  "temas": [
+   "texto-teatral",
+   "vocabulario-y-familia-de-palabras",
+   "clases-de-palabras",
+   "concordancia-nominal-y-verbal",
+   "conjugacion-verbal-indicativo"
+  ],
+  "preguntas": 102
+ },
+ {
+  "id": 659,
+  "cluster": 9,
+  "temas": [
+   "sujeto-y-predicado",
+   "conjugacion-verbal-subjuntivo",
+   "nucleos-y-modificadores",
+   "tipos-de-sujeto",
+   "objetos-y-circunstanciales"
+  ],
+  "preguntas": 102
+ },
+ {
+  "id": 660,
+  "cluster": 10,
+  "temas": [
+   "sintagmas-nominal-adjetivo-preposicional-adverbial-verbal",
+   "oracion-compuesta-coordinacion-y-subordinacion",
+   "oraciones-negativas-e-interrogativas",
+   "coordinadas-adversativas",
+   "coordinadas-copulativas"
+  ],
+  "preguntas": 111
+ },
+ {
+  "id": 661,
+  "cluster": 11,
+  "temas": [
+   "coordinadas-distributivas",
+   "coordinadas-disyuntivas",
+   "discurso-referido",
+   "produccion-escrita-compleja",
+   "subordinada-adjetiva-o-de-relativo"
+  ],
+  "preguntas": 122
+ },
+ {
+  "id": 662,
+  "cluster": 12,
+  "temas": [
+   "conectores-textuales",
+   "correo-formal",
+   "cv",
+   "informe-tecnico",
+   "progresion-tematica"
+  ],
+  "preguntas": 100
+ },
+ {
+  "id": 663,
+  "cluster": 13,
+  "temas": [
+   "referencia-anafora-y-catafora",
+   "subordinada-adverbial-de-lugar",
+   "subordinada-adverbial-de-modo",
+   "subordinada-adverbial-de-tiempo",
+   "subordinada-causal"
+  ],
+  "preguntas": 133
+ },
+ {
+  "id": 664,
+  "cluster": 14,
+  "temas": [
+   "subordinada-concesiva-y-final",
+   "subordinada-condicional",
+   "subordinada-consecutiva",
+   "subordinada-sustantiva-de-complemento-circunstancial",
+   "subordinada-sustantiva-de-complemento-de-regimen"
+  ],
+  "preguntas": 131
+ },
+ {
+  "id": 665,
+  "cluster": 15,
+  "temas": [
+   "subordinada-sustantiva-de-complemento-de-un-adjetivo",
+   "subordinada-sustantiva-de-complemento-del-nombre",
+   "subordinada-sustantiva-de-complemento-directo",
+   "subordinada-sustantiva-de-sujeto",
+   "voz-activa-y-pasiva"
+  ],
+  "preguntas": 126
+ }
+]

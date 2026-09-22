@@ -1,2389 +1,2129 @@
-# Examen jefe — Domina asintotas y combinaciones
+# Examen jefe — [PENDIENTE #602]
 
-> Logro #53. Examen parcial completado con éxito, integrando análisis de funciones geométricas y conteo combinatorio. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **119 preguntas totales** en 5/5 secciones.
+> Logro #602. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **107 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: asintotas (22 preguntas)
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["clasificacion", "teoria"]
-
-respuesta: "horizontal"
-tipo: completar
-respuestas_validas:
-  - "horizontal"
-  - "asintota horizontal"
-
-enunciado: "Si el grado del numerador es menor que el grado del denominador en una función racional, la asíntota es ___."
-
-explicacion: |
-  Cuando el denominador crece más rápido que el numerador, la función tiende a 0, definiendo una asíntota horizontal en $y=0$.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "intermedio"
-  tags: ["comparacion", "teoria"]
-
-variables:
-  # Caso: grado num = grado den + 1
-  tiene_ao: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el grado del numerador es exactamente uno mayor que el grado del denominador, la función tiene una asíntota oblicua."
-
-explicacion: |
-  Esta es la condición necesaria y suficiente para la existencia de una asíntota oblicua en funciones racionales.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["caso_especifico", "rh"]
-
-respuesta: "0"
-tipo: completar
-respuestas_validas:
-  - "0"
-  - "y = 0"
-  - "eje x"
-
-enunciado: "Si el grado del numerador es menor que el del denominador, la asíntota horizontal es la recta ___."
-
-explicacion: |
-  El límite de la función cuando $x \to \infty$ es 0, por lo que la asíntota es el eje horizontal $y=0$.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["teoria", "limite"]
-
-respuesta: "infinito"
-tipo: completar
-respuestas_validas:
-  - "infinito"
-  - "infinita"
-  - "infinito positivo"
-  - "infinito negativo"
-
-enunciado: "Una asíntota vertical se define cuando el límite de la función al acercarse a un punto es ___."
-
-explicacion: |
-  La definición formal implica que el valor de la función crece sin cota (positiva o negativamente) al acercarse a $x=a$.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["identificacion", "raices"]
-
-respuesta: "raices"
-tipo: completar
-respuestas_validas:
-  - "raices"
-  - "raíces"
-  - "ceros"
-  - "cero"
-
-enunciado: "Las asíntotas verticales de una función racional suelen ubicarse en las ___ reales del denominador."
-
-explicacion: |
-  Son los puntos donde el denominador se hace cero (si no se cancelan con el numerador).
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "intermedio"
-  tags: ["funciones_transcendentes", "exp"]
-
-respuesta: "ninguna"
-tipo: completar
-respuestas_validas:
-  - "ninguna"
-  - "no tiene"
-  - "no hay"
-
-enunciado: "La función $f(x) = e^x$ tiene ___ asíntotas verticales."
-
-explicacion: |
-  $e^x$ está definida para todo $x \in \mathbb{R}$ y es continua. No tiene asíntotas verticales. (Tiene una horizontal en $y=0$ para $x \to -\infty$).
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["asintota_horizontal", "limite"]
-
-variables:
-  num: random(1, 5)
-  den: random(6, 10)
-
-respuesta: 0
-tipo: input
-
-enunciado: "¿Cuál es la asíntota horizontal de f(x) = {num} / (x^{den} + 1) cuando x tiende a infinito?"
-
-explicacion: |
-  Cuando el grado del denominador es mayor que el del numerador,
-  el límite cuando x -> infinito es 0. Por lo tanto, la asíntota es y = 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "intermedio"
-  tags: ["propiedad", "polinomio"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: La función f(x) = x^2 + 3x tiene una asíntota horizontal."
-
-explicacion: |
-  Falso. Las funciones polinómicas no tienen asíntotas horizontales ni verticales.
-  Su dominio es todo R y crece sin límite.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["definicion", "terminologia"]
-
-respuesta: "vertical"
-tipo: completar
-respuestas_validas:
-  - "vertical"
-  - "verticales"
-
-enunciado: "Una ___ es una recta x = a tal que el límite de la función cuando x se acerca a a es infinito."
-
-explicacion: |
-  Se llama asíntota vertical a la recta donde la función no está definida
-  y tiende a infinito por uno o ambos lados.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["dominio", "relacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: Si una función tiene una asíntota vertical en x = a, entonces x = a no pertenece al dominio de la función."
-
-explicacion: |
-  Verdadero. Por definición, en una asíntota vertical la función tiende a infinito,
-  por lo que no está definida en ese punto (división por cero).
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["definicion", "horizontal"]
-
-respuesta: "horizontal"
-tipo: completar
-respuestas_validas:
-  - "horizontal"
-  - "horizontales"
-
-enunciado: "Si el límite de f(x) cuando x tiende a infinito es un número constante L, la recta y = L se llama asíntota ___."
-
-explicacion: |
-  Se denomina asíntota horizontal a la recta paralela al eje X a la que se acerca la gráfica.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "avanzado"
-  tags: ["asintota_oblicua", "division"]
-
-variables:
-  a: random(2, 4)
-  b: random(1, 5)
-  c: random(1, 3)
-  d: random(2, 5)
-
-respuesta: "{a / d}x + ({b - a * c / d})"
-tipo: input
-
-enunciado: "Determiná la ecuación de la asíntota oblicua de f(x) = ({a}x^2 + {b}x) / (x + {c}) para x -> infinito. Escribí en formato 'mx+n' (ej: 2x+3)."
-
-explicacion: |
-  Dividiendo el numerador por el denominador:
-  m = a/d
-  n = b - m*c = b - (a/d)*c.
-  La ecuación es y = mx + n.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "intermedio"
-  tags: ["propiedad", "corte"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: Una función puede cortar su asíntota horizontal."
-
-explicacion: |
-  Verdadero. La asíntota describe el comportamiento en el infinito,
-  pero la función puede intersectarla en puntos finitos del dominio.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["metodo", "calculo"]
-
-respuesta: "denominador"
-tipo: completar
-respuestas_validas:
-  - "denominador"
-  - "denominadores"
-
-enunciado: "Para encontrar las asíntotas verticales de una función racional, igualamos a cero el ___."
-
-explicacion: |
-  Las asíntotas vertuales ocurren donde el denominador se anula (y el numerador no).
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "intermedio"
-  tags: ["raices", "multiples"]
-
-variables:
-  a: random(1, 5)
-  b: random(6, 10)
-
-respuesta: "{a},{b}"
-tipo: input
-
-enunciado: "Encontrá las asíntotas verticales de f(x) = 1 / ((x - {a})(x - {b})). Escribí los valores separados por coma."
-
-explicacion: |
-  El denominador se anula en x = {a} y x = {b}.
-  Ambas son asíntotas verticales.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "avanzado"
-  tags: ["raiz_cuadrada", "asintota_oblicua"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: La función f(x) = sqrt(x) tiene una asíntota oblicua."
-
-explicacion: |
-  Falso. sqrt(x) crece más lento que cualquier recta (x^1).
-  No tiene asíntota oblicua ni horizontal.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["caso_particular", "eje_x"]
-
-respuesta: "eje X"
-tipo: completar
-respuestas_validas:
-  - "eje X"
-  - "eje x"
-  - "y=0"
-
-enunciado: "Si la asíntota horizontal es y = 0, esta coincide con el ___."
-
-explicacion: |
-  La recta y=0 es el eje de abscisas o eje X.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "avanzado"
-  tags: ["paridad", "oblicua"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: Una función par puede tener una asíntota oblicua."
-
-explicacion: |
-  Falso. Si f(x) es par, f(x) = f(-x).
-  Si tuviera una asíntota oblicua y = mx + n para x->inf,
-  para x->-inf debería tender a y = -mx + n (por simetría).
-  Pero una función racional con grado num = grado den + 1 tiene la misma oblicua en ambos extremos (mismo m).
-  Para que m = -m, m debe ser 0, lo que implica una asíntota horizontal, no oblicua.
-  Por lo tanto, una función par NO puede tener una asíntota oblicua (con m != 0).
-  La afirmación dice "puede tener". La respuesta es Falso.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "intermedio"
-  tags: ["limite", "lateral"]
-
-respuesta: "infinito"
-tipo: completar
-respuestas_validas:
-  - "infinito"
-  - "infinitos"
-  - "+infinito"
-  - "-infinito"
-
-enunciado: "Para que exista una asíntota vertical en x=a, el límite lateral de la función cuando x tiende a a debe ser ___ (positivo o negativo)."
-
-explicacion: |
-  La definición de asíntota vertical requiere que el límite sea infinito.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "avanzado"
-  tags: ["exponencial", "limite"]
-
-respuesta: 0
-tipo: input
-
-enunciado: "¿Cuál es la asíntota horizontal de f(x) = e^(-x) cuando x tiende a +infinito?"
-
-explicacion: |
-  lim(x->inf) e^(-x) = lim(1/e^x) = 0.
-  La asíntota horizontal es y = 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["continuidad", "discontinuidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: La presencia de una asíntota vertical implica una discontinuidad infinita en esa función."
-
-explicacion: |
-  Verdadero. La función no está definida en el punto y tiende a infinito,
-  lo que constituye una discontinuidad infinita.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["definicion", "geometria"]
-
-respuesta: "recta"
-tipo: completar
-respuestas_validas:
-  - "recta"
-  - "rectas"
-
-enunciado: "Una asíntota es una ___ a la cual la curva se acerca indefinidamente."
-
-explicacion: |
-  Por definición geométrica, las asíntotas son rectas.
-```
-
-## Sección: caminos-y-ciclos (20 preguntas)
+## Sección: grafos-vertices-y-aristas (20 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "caminos_y_ciclos"
+  tema: "grafos_vertices_y_aristas"
   nivel: "basico"
-  tags: ["camino", "vocabulario"]
+  tags: ["grafos", "vocabulario"]
 
-enunciado: "¿Qué es un camino en un grafo?"
+enunciado: "¿Qué es un grafo?"
 tipo: mc
 opciones_explicitas:
-  - "Una secuencia de vértices donde cada par consecutivo está conectado por una arista, sin repetir ningún vértice"
-  - "La cantidad total de vértices de un grafo"
-  - "Un vértice que no tiene ninguna conexión"
-respuesta: "Una secuencia de vértices donde cada par consecutivo está conectado por una arista, sin repetir ningún vértice"
+  - "Una estructura formada por un conjunto de vértices (puntos) y un conjunto de aristas (conexiones entre pares de vértices)"
+  - "Una tabla de valores numéricos ordenados en filas y columnas"
+  - "Otro nombre para un gráfico de barras o de líneas"
+respuesta: "Una estructura formada por un conjunto de vértices (puntos) y un conjunto de aristas (conexiones entre pares de vértices)"
 
 explicacion: |
-  Es la forma matemática de describir 'ir de un vértice a otro'.
+  No confundir con 'gráfico' en el sentido de `../leer-grafico/barras/`
+  — acá 'grafo' es una estructura de vértices y conexiones.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "intermedio"
-  tags: ["camino", "vocabulario"]
+  tema: "grafos_vertices_y_aristas"
+  nivel: "basico"
+  tags: ["vocabulario"]
 
-enunciado: "¿Qué mide la 'longitud' de un camino?"
+enunciado: "¿Qué es un vértice en un grafo?"
 tipo: mc
 opciones_explicitas:
-  - "La cantidad de ARISTAS que recorre el camino"
-  - "La cantidad de VÉRTICES que recorre el camino"
-  - "La suma de los grados de todos los vértices del camino"
-respuesta: "La cantidad de ARISTAS que recorre el camino"
+  - "Cada uno de los 'puntos' o nodos del grafo"
+  - "Cada una de las conexiones entre dos puntos"
+  - "La cantidad total de conexiones del grafo"
+respuesta: "Cada uno de los 'puntos' o nodos del grafo"
 
 explicacion: |
-  Un camino con 4 vértices tiene longitud 3 — una arista menos que la
-  cantidad de vértices.
+  También se le llama 'nodo'.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "intermedio"
-  tags: ["camino", "problema"]
+  tema: "grafos_vertices_y_aristas"
+  nivel: "basico"
+  tags: ["vocabulario"]
 
-respuesta: 4
+enunciado: "¿Qué es una arista en un grafo?"
+tipo: mc
+opciones_explicitas:
+  - "Una conexión entre dos vértices"
+  - "Otro nombre para un vértice aislado"
+  - "La cantidad total de vértices del grafo"
+respuesta: "Una conexión entre dos vértices"
+
+explicacion: |
+  También se le llama 'borde' o 'arco'.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_vertices_y_aristas"
+  nivel: "intermedio"
+  tags: ["grado", "vocabulario"]
+
+enunciado: "¿Qué es el 'grado' de un vértice?"
+tipo: mc
+opciones_explicitas:
+  - "La cantidad de aristas que tocan a ese vértice"
+  - "La cantidad total de vértices del grafo completo"
+  - "La distancia más corta hasta otro vértice"
+respuesta: "La cantidad de aristas que tocan a ese vértice"
+
+explicacion: |
+  Un vértice con grado 3 tiene exactamente 3 aristas conectadas a él.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_vertices_y_aristas"
+  nivel: "intermedio"
+  tags: ["vocabulario"]
+
+enunciado: "¿Cuándo se dice que dos vértices son 'adyacentes'?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando hay una arista directa que los conecta"
+  - "Cuando tienen exactamente el mismo grado"
+  - "Cuando están dibujados uno al lado del otro en el papel"
+respuesta: "Cuando hay una arista directa que los conecta"
+
+explicacion: |
+  También se dice que son 'vecinos'. La posición en el dibujo no
+  importa, sólo la conexión real.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_vertices_y_aristas"
+  nivel: "avanzado"
+  tags: ["grado", "problema"]
+
+variables:
+  grafos: [{vertices: 4, grados: [2, 2, 2, 2]}, {vertices: 5, grados: [1, 3, 2, 1, 1]}, {vertices: 4, grados: [1, 3, 1, 1]}]
+  idx: uno_de([0, 1, 2])
+
+respuesta: sumar(grafos[idx].grados) / 2
 tipo: input
 
-enunciado: "El camino A, B, C, D, E conecta 5 vértices, uno a continuación del otro. ¿Cuál es su longitud (cantidad de aristas)?"
+enunciado: "Un grafo con {grafos[idx].vertices} vértices tiene los siguientes grados: {grafos[idx].grados}. ¿Cuántas aristas tiene el grafo?"
 
 pasos:
-  - "Con 5 vértices en secuencia, hay 4 aristas: A-B, B-C, C-D, D-E"
+  - "Suma de los grados = {sumar(grafos[idx].grados)}"
+  - "Aristas = suma de grados / 2 = {sumar(grafos[idx].grados) / 2}"
 
 explicacion: |
-  La longitud siempre es 'cantidad de vértices del camino menos 1'.
+  Cada arista se cuenta dos veces al sumar los grados (una vez por
+  cada extremo) — por eso se divide por 2.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "basico"
-  tags: ["ciclo", "vocabulario"]
-
-enunciado: "¿Qué es un ciclo en un grafo?"
-tipo: mc
-opciones_explicitas:
-  - "Un camino que empieza y termina en el mismo vértice, sin repetir ningún otro vértice en el medio"
-  - "Cualquier grafo que tenga más de 3 vértices"
-  - "Un vértice con grado mayor a 2"
-respuesta: "Un camino que empieza y termina en el mismo vértice, sin repetir ningún otro vértice en el medio"
-
-explicacion: |
-  Un ciclo es, literalmente, un caso particular de camino.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "intermedio"
-  tags: ["ciclo", "camino"]
+  tema: "grafos_vertices_y_aristas"
+  nivel: "avanzado"
+  tags: ["grado"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un ciclo es un caso particular de camino: uno que empieza y termina exactamente en el mismo vértice."
+enunciado: "La suma de los grados de TODOS los vértices de un grafo siempre da un número par, sin excepción."
 
 explicacion: |
-  Es la relación central que da nombre a este módulo.
+  Es el 'lema del apretón de manos': cada arista aporta exactamente 2
+  al total (1 por cada extremo).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "avanzado"
-  tags: ["ciclo", "problema"]
-
-enunciado: "La secuencia A, B, C, D, A (volviendo al punto de partida, sin repetir A, B, C ni D en el medio) recorre las aristas A-B, B-C, C-D, D-A. ¿Es esto un ciclo?"
-tipo: mc
-opciones_explicitas:
-  - "Sí: empieza y termina en el mismo vértice (A), sin repetir ningún otro vértice en el camino"
-  - "No, porque tiene 4 vértices distintos"
-respuesta: "Sí: empieza y termina en el mismo vértice (A), sin repetir ningún otro vértice en el camino"
-
-explicacion: |
-  Cumple exactamente la definición de ciclo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
+  tema: "grafos_vertices_y_aristas"
   nivel: "intermedio"
-  tags: ["acíclico", "vocabulario"]
+  tags: ["grado", "completar"]
 
-enunciado: "¿Qué es un grafo acíclico?"
-tipo: mc
-opciones_explicitas:
-  - "Un grafo que no contiene ningún ciclo — no se puede volver al punto de partida sin repetir una arista"
-  - "Un grafo que no tiene ninguna arista"
-  - "Un grafo con exactamente un solo vértice"
-respuesta: "Un grafo que no contiene ningún ciclo — no se puede volver al punto de partida sin repetir una arista"
+tipo: completar
+enunciado: "Completá: la suma de los grados de todos los vértices de un grafo es igual a ___ veces la cantidad de aristas."
+respuestas_validas:
+  - "2"
+  - "dos"
 
 explicacion: |
-  Es el prerrequisito directo de `../arboles-grafo-sin-ciclos/`.
+  suma de grados = 2 × cantidad de aristas.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "intermedio"
-  tags: ["conexo", "vocabulario"]
-
-enunciado: "¿Qué significa que un grafo sea 'conexo'?"
-tipo: mc
-opciones_explicitas:
-  - "Que existe al menos un camino entre cualquier par de vértices — ningún vértice queda completamente aislado del resto"
-  - "Que todos los vértices tienen exactamente el mismo grado"
-  - "Que el grafo no tiene ningún ciclo"
-respuesta: "Que existe al menos un camino entre cualquier par de vértices — ningún vértice queda completamente aislado del resto"
-
-explicacion: |
-  'Conexo' y 'acíclico' son dos propiedades distintas e
-  independientes entre sí.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
+  tema: "grafos_vertices_y_aristas"
   nivel: "avanzado"
-  tags: ["camino_mas_corto", "problema"]
-
-respuesta: 2
-tipo: input
-
-enunciado: "En un grafo con aristas A-B, B-C, A-D, D-C, ¿cuál es la longitud del camino MÁS CORTO entre A y C?"
-
-pasos:
-  - "Camino A-B-C: longitud 2. Camino A-D-C: longitud 2. Ambos son igual de cortos."
-
-explicacion: |
-  Hay dos caminos distintos, ambos de longitud 2 — el camino más
-  corto no siempre es único.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "avanzado"
-  tags: ["camino_mas_corto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Entre dos vértices puede haber más de un camino con la misma longitud mínima — el camino más corto no siempre es único."
-
-explicacion: |
-  Es lo que muestra el problema anterior: dos caminos distintos, la
-  misma longitud mínima.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "basico"
-  tags: ["ciclo", "aplicacion"]
-
-enunciado: "El módulo A de un programa necesita al módulo B, que necesita al C, que a su vez necesita al A. ¿Qué problema representa esta situación, en términos de teoría de grafos?"
-tipo: mc
-opciones_explicitas:
-  - "Un ciclo en el grafo de dependencias — impide determinar un orden válido para cargar o compilar los módulos"
-  - "Un camino simple, sin ningún problema real"
-  - "Un grafo desconectado"
-respuesta: "Un ciclo en el grafo de dependencias — impide determinar un orden válido para cargar o compilar los módulos"
-
-explicacion: |
-  Es la razón por la que muchos sistemas de compilación detectan y
-  rechazan dependencias circulares.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "avanzado"
-  tags: ["ciclo", "ponderado", "problema"]
+  tags: ["grado", "problema"]
 
 variables:
-  peso1: uno_de([4, 5])
-  peso2: uno_de([3, 6])
-  peso3: uno_de([2, 4])
-  peso4: uno_de([5, 3])
+  grafos: [{vertices: 4, grados: [2, 2, 2, 2]}, {vertices: 5, grados: [1, 3, 2, 1, 1]}, {vertices: 4, grados: [1, 3, 1, 1]}]
+  idx: uno_de([0, 1, 2])
 
-respuesta: peso1 + peso2 + peso3 + peso4
-tipo: input
-
-enunciado: "Un ciclo A-B-C-D-A en un grafo ponderado tiene aristas con pesos {peso1}, {peso2}, {peso3} y {peso4}. ¿Cuál es el peso total del ciclo?"
-
-pasos:
-  - "Peso total = {peso1} + {peso2} + {peso3} + {peso4} = {peso1 + peso2 + peso3 + peso4}"
-
-explicacion: |
-  Se suman los pesos de todas las aristas recorridas, igual que en
-  cualquier camino.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "intermedio"
-  tags: ["camino"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un camino simple, ningún vértice se repite (excepto en un ciclo, donde el primero y el último vértice sí son el mismo, por definición)."
-
-explicacion: |
-  Es la condición que distingue un camino válido de simplemente
-  'moverse por el grafo sin ningún orden'.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "basico"
-  tags: ["ciclo", "aplicacion"]
-
-enunciado: "¿Por qué un circuito eléctrico necesita formar un ciclo (un camino cerrado) para que fluya la corriente?"
-tipo: mc
-opciones_explicitas:
-  - "Porque la corriente necesita volver a la fuente de energía para completar el recorrido — sin un camino cerrado, el circuito queda 'abierto' y no circula corriente"
-  - "Los circuitos eléctricos nunca forman ciclos, siempre son caminos simples"
-  - "El concepto de ciclo no tiene ninguna aplicación en electricidad"
-respuesta: "Porque la corriente necesita volver a la fuente de energía para completar el recorrido — sin un camino cerrado, el circuito queda 'abierto' y no circula corriente"
-
-explicacion: |
-  Es la razón por la que se llama 'circuito' (del mismo origen que
-  'circular', volver al punto de partida).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "avanzado"
-  tags: ["acíclico", "problema"]
-
-enunciado: "Un grafo tiene 4 vértices (A, B, C, D) y sólo 3 aristas: A-B, B-C, C-D (sin ninguna arista que vuelva a cerrar el circuito). ¿Es este grafo acíclico?"
-tipo: mc
-opciones_explicitas:
-  - "Sí: no hay ninguna forma de volver al punto de partida sin repetir una arista ya usada"
-  - "No, cualquier grafo con 4 vértices tiene al menos un ciclo"
-respuesta: "Sí: no hay ninguna forma de volver al punto de partida sin repetir una arista ya usada"
-
-explicacion: |
-  De hecho, este grafo en particular también es un árbol — se retoma
-  en `../arboles-grafo-sin-ciclos/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "avanzado"
-  tags: ["conexo", "acíclico"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "'Conexo' y 'acíclico' son dos propiedades independientes de un grafo — un grafo puede ser conexo y tener ciclos, o puede ser acíclico y no ser conexo (estar partido en varios pedazos sin conexión entre ellos)."
-
-explicacion: |
-  Sólo cuando un grafo es AMBAS cosas a la vez (conexo Y acíclico) se
-  llama árbol — el tema del módulo que sigue.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "avanzado"
-  tags: ["conexo", "problema"]
-
-enunciado: "Un grafo tiene 6 vértices: A, B, C están conectados entre sí (A-B, B-C), y D, E, F están conectados entre sí por separado (D-E, E-F), pero no hay ninguna arista entre los dos grupos. ¿Es este grafo conexo?"
-tipo: mc
-opciones_explicitas:
-  - "No: no existe ningún camino entre, por ejemplo, A y D — son dos componentes separadas"
-  - "Sí, porque todos los vértices tienen al menos una arista"
-respuesta: "No: no existe ningún camino entre, por ejemplo, A y D — son dos componentes separadas"
-
-explicacion: |
-  Ser conexo exige un camino entre CUALQUIER par de vértices, no sólo
-  dentro de cada grupo por separado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "avanzado"
-  tags: ["camino", "problema"]
-
-variables:
-  vertices_camino_a: 5
-  vertices_camino_b: 8
-
-respuesta: (vertices_camino_a - 1) < (vertices_camino_b - 1)
-tipo: vf
-
-enunciado: "El Camino A pasa por {vertices_camino_a} vértices; el Camino B pasa por {vertices_camino_b} vértices, ambos entre el mismo par de puntos. ¿La longitud (cantidad de aristas) del Camino A es MENOR que la del Camino B?"
-
-explicacion: |
-  A menos vértices en el camino, menos aristas — longitud menor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "basico"
-  tags: ["ciclo", "aplicacion"]
-
-enunciado: "¿Por qué una red de tuberías de agua con un ciclo (una ruta alternativa que vuelve a conectar) es más robusta que una sin ningún ciclo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque si una parte de la tubería se rompe, el agua todavía puede llegar a destino por el camino alternativo del ciclo, en vez de quedar completamente cortada"
-  - "Un ciclo en una red de tuberías siempre es un error de diseño, sin ninguna ventaja"
-  - "Los ciclos no tienen ninguna aplicación práctica en redes de tuberías"
-respuesta: "Porque si una parte de la tubería se rompe, el agua todavía puede llegar a destino por el camino alternativo del ciclo, en vez de quedar completamente cortada"
-
-explicacion: |
-  Es la misma razón por la que las redes eléctricas y de internet
-  reales suelen tener rutas redundantes (ciclos) a propósito.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "caminos_y_ciclos"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve identificar caminos y ciclos en un grafo?"
-tipo: mc
-opciones_explicitas:
-  - "Para encontrar rutas entre vértices (el más corto o el de menor costo) y para detectar problemas como dependencias circulares, además de entender la robustez de una red"
-  - "Sólo sirve para dibujar el grafo de forma más prolija"
-  - "Sólo se aplica a grafos con menos de 5 vértices"
-respuesta: "Para encontrar rutas entre vértices (el más corto o el de menor costo) y para detectar problemas como dependencias circulares, además de entender la robustez de una red"
-
-explicacion: |
-  Es la base de `../arboles-grafo-sin-ciclos/` (grafos sin ciclos) y
-  `../algoritmos-de-recorrido-bfs-dfs/` (cómo encontrar caminos de
-  forma sistemática).
-```
-
-## Sección: cifras-significativas-y-error (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "basico"
-  tags: ["cifras_significativas", "vocabulario"]
-
-enunciado: "¿Qué son las cifras significativas de un número medido?"
-tipo: mc
-opciones_explicitas:
-  - "Los dígitos que aportan información real sobre la precisión de la medición"
-  - "Todos los dígitos, incluidos los que sólo ubican la coma"
-  - "Sólo el primer dígito del número"
-respuesta: "Los dígitos que aportan información real sobre la precisión de la medición"
-
-explicacion: |
-  No incluyen los ceros que sólo sirven para ubicar la coma decimal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "basico"
-  tags: ["cifras_significativas", "vocabulario"]
-
-enunciado: "¿Para qué sirve expresar un resultado con la cantidad correcta de cifras significativas?"
-tipo: mc
-opciones_explicitas:
-  - "Para no inventar precisión que el instrumento no tiene, ni desperdiciar la que sí se logró"
-  - "Para que el número se vea más largo"
-  - "Para redondear siempre a números enteros"
-respuesta: "Para no inventar precisión que el instrumento no tiene, ni desperdiciar la que sí se logró"
-
-explicacion: |
-  Es la forma de ser honesto sobre cuánto se sabe realmente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "intermedio"
-  tags: ["cifras_significativas", "reglas"]
-
-respuesta: 3
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas cifras significativas tiene el número 305?"
-
-explicacion: |
-  Los tres dígitos son significativos: el 0 está ENTRE dos dígitos
-  distintos de cero.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "intermedio"
-  tags: ["cifras_significativas", "reglas"]
-
-respuesta: 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas cifras significativas tiene el número 0,0042?"
-
-explicacion: |
-  Los ceros a la izquierda del 4 no cuentan (sólo ubican la coma): las
-  cifras significativas son 4 y 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "intermedio"
-  tags: ["cifras_significativas", "reglas"]
-
-respuesta: 3
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas cifras significativas tiene el número 3,40?"
-
-explicacion: |
-  El cero final después de la coma SÍ es significativo: indica que se
-  midió hasta el centésimo. Cifras: 3, 4 y 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "avanzado"
-  tags: ["cifras_significativas", "reglas"]
-
-respuesta: 3
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas cifras significativas tiene el número 0,00500?"
-
-explicacion: |
-  Los ceros a la izquierda del 5 no cuentan; los dos ceros a la derecha
-  del 5 sí (después de la coma). Cifras: 5, 0 y 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "avanzado"
-  tags: ["cifras_significativas", "reglas"]
-
-respuesta: 4
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas cifras significativas tiene el número 100,0?"
-
-explicacion: |
-  Con la coma decimal presente, todos los ceros cuentan: 1, 0, 0 y 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "avanzado"
-  tags: ["cifras_significativas", "reglas"]
-
-respuesta: 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas cifras significativas tiene el número 1200 (entero, sin coma decimal, sin ninguna aclaración extra)?"
-
-explicacion: |
-  Por convención escolar, los ceros finales de un entero sin coma se
-  toman como no significativos (ambiguos): cuentan sólo el 1 y el 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "basico"
-  tags: ["cifras_significativas", "reglas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los ceros a la izquierda del primer dígito distinto de cero nunca son cifras significativas."
-
-explicacion: |
-  Sólo sirven para ubicar la coma decimal, como en 0,0042.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "basico"
-  tags: ["cifras_significativas", "reglas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los ceros ubicados entre dos dígitos distintos de cero siempre son cifras significativas."
-
-explicacion: |
-  Como el 0 en 305 o en 1004.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "intermedio"
-  tags: ["cifras_significativas", "reglas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los ceros al final de un número, después de la coma decimal, sí son cifras significativas."
-
-explicacion: |
-  Indican que se logró medir con esa precisión (por ejemplo, el 0 en
-  3,40).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "basico"
-  tags: ["error", "vocabulario"]
-
-enunciado: "¿Cómo se calcula el error absoluto de una medición?"
-tipo: mc
-opciones_explicitas:
-  - "El valor absoluto de la diferencia entre el valor medido y el valor real"
-  - "El valor medido dividido el valor real"
-  - "La suma del valor medido y el valor real"
-respuesta: "El valor absoluto de la diferencia entre el valor medido y el valor real"
-
-explicacion: |
-  Error absoluto = |medido − real|.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "intermedio"
-  tags: ["error", "calculo"]
-
-variables:
-  real: random(50, 200)
-  diferencia: random(1, 10)
-  medido: real + diferencia
-
-respuesta: abs(medido - real)
+respuesta: redondear(promedio(grafos[idx].grados), 2)
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Se mide un objeto y da {medido} cm. El valor real es {real} cm. ¿Cuál es el error absoluto?"
+enunciado: "Con los grados {grafos[idx].grados} de un grafo de {grafos[idx].vertices} vértices, ¿cuál es el grado promedio de sus vértices?"
 
 pasos:
-  - "|{medido} − {real}| = {abs(medido - real)} cm"
+  - "Grado promedio = promedio({grafos[idx].grados}) = {redondear(promedio(grafos[idx].grados), 2)}"
 
 explicacion: |
-  Se resta y se toma el valor absoluto (el error no es negativo).
+  Es el mismo cálculo de `../media-mediana-y-moda/`, aplicado a la
+  lista de grados.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cifras_significativas_y_error"
+  tema: "grafos_vertices_y_aristas"
   nivel: "intermedio"
-  tags: ["error", "vocabulario"]
+  tags: ["problema"]
 
-enunciado: "¿Cómo se calcula el error relativo de una medición?"
+respuesta: 5
+tipo: input
+
+enunciado: "Un grafo tiene vértices A, B, C, D y las siguientes aristas: A-B, B-C, C-D, D-A, A-C. ¿Cuántas aristas tiene en total?"
+
+explicacion: |
+  Se cuentan directo las conexiones listadas: 5 aristas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_vertices_y_aristas"
+  nivel: "intermedio"
+  tags: ["grado", "problema"]
+
+respuesta: 3
+tipo: input
+
+enunciado: "En el grafo con aristas A-B, B-C, C-D, D-A, A-C, ¿cuál es el grado del vértice A?"
+
+pasos:
+  - "Las aristas que tocan a A son: A-B, D-A, A-C — 3 aristas"
+
+explicacion: |
+  Se cuentan sólo las aristas que tienen a A en alguno de sus dos
+  extremos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_vertices_y_aristas"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "En una red social modelada como grafo, ¿qué representan los vértices y qué representan las aristas?"
 tipo: mc
 opciones_explicitas:
-  - "Error absoluto dividido el valor real"
-  - "Error absoluto multiplicado por el valor real"
-  - "Valor real dividido el error absoluto"
-respuesta: "Error absoluto dividido el valor real"
+  - "Los vértices son las personas (perfiles); las aristas son las relaciones de amistad o de seguimiento entre ellas"
+  - "Los vértices son las publicaciones; las aristas son los 'me gusta'"
+  - "No se puede modelar una red social como un grafo"
+respuesta: "Los vértices son las personas (perfiles); las aristas son las relaciones de amistad o de seguimiento entre ellas"
 
 explicacion: |
-  Error relativo = error absoluto ÷ valor real. Es un número sin unidad.
+  Es el ejemplo más citado de aplicación real de teoría de grafos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cifras_significativas_y_error"
+  tema: "grafos_vertices_y_aristas"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "En un mapa de rutas modelado como grafo, ¿qué representan los vértices y qué representan las aristas?"
+tipo: mc
+opciones_explicitas:
+  - "Los vértices son las ciudades; las aristas son los caminos directos entre pares de ciudades"
+  - "Los vértices son los caminos; las aristas son las ciudades"
+  - "Un mapa de rutas no se puede representar como un grafo"
+respuesta: "Los vértices son las ciudades; las aristas son los caminos directos entre pares de ciudades"
+
+explicacion: |
+  Es la base de cualquier GPS o app de rutas: encontrar el mejor
+  camino en un grafo de ciudades conectadas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_vertices_y_aristas"
   nivel: "intermedio"
-  tags: ["error", "calculo"]
+  tags: ["conjuntos", "aplicacion"]
 
-variables:
-  real: random(50, 200)
-  diferencia: random(1, 10)
-  medido: real + diferencia
-
-respuesta: redondear(abs(medido - real) / real, 4)
-tipo: input
-tolerancia_abs: 0.001
-
-enunciado: "Se mide un objeto y da {medido} cm. El valor real es {real} cm. ¿Cuál es el error relativo? Redondeá a 4 decimales."
-
-pasos:
-  - "Error absoluto: {abs(medido - real)} cm. Error relativo: {abs(medido - real)} ÷ {real} = {redondear(abs(medido - real) / real, 4)}"
+enunciado: "¿Qué relación tiene un grafo con `../conjuntos-pertenencia-e-inclusion/`?"
+tipo: mc
+opciones_explicitas:
+  - "Un grafo es un conjunto de vértices, junto con una relación (las aristas) entre pares de ellos — la misma idea de conjuntos aplicada a modelar conexiones"
+  - "No tiene ninguna relación real con los conjuntos"
+  - "Un grafo reemplaza por completo la necesidad de conjuntos"
+respuesta: "Un grafo es un conjunto de vértices, junto con una relación (las aristas) entre pares de ellos — la misma idea de conjuntos aplicada a modelar conexiones"
 
 explicacion: |
-  Se divide el error absoluto por el valor real.
+  Es el prerrequisito formal de este módulo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cifras_significativas_y_error"
+  tema: "grafos_vertices_y_aristas"
+  nivel: "intermedio"
+  tags: ["representacion", "vocabulario"]
+
+enunciado: "¿Cuáles son formas válidas de representar un grafo?"
+tipo: mc
+opciones_explicitas:
+  - "Un dibujo de puntos y líneas, una lista de aristas, o una matriz de adyacencia"
+  - "Sólo se puede representar con un dibujo, no hay otra forma"
+  - "Sólo se puede representar con una fórmula algebraica"
+respuesta: "Un dibujo de puntos y líneas, una lista de aristas, o una matriz de adyacencia"
+
+explicacion: |
+  La matriz de adyacencia es la forma que más se usa para procesar
+  grafos por computadora.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_vertices_y_aristas"
+  nivel: "intermedio"
+  tags: ["grado", "problema"]
+
+respuesta: 0
+tipo: input
+
+enunciado: "Un grafo tiene 5 vértices y ninguna arista (todos están aislados entre sí). ¿Cuál es el grado de cualquiera de sus vértices?"
+
+explicacion: |
+  Sin ninguna arista que lo toque, el grado de cada vértice es 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_vertices_y_aristas"
   nivel: "avanzado"
-  tags: ["error", "calculo"]
+  tags: ["grado", "problema"]
 
 variables:
-  real: random(50, 200)
-  diferencia: random(1, 10)
-  medido: real + diferencia
+  vertices: uno_de([4, 5, 6])
 
-respuesta: redondear((abs(medido - real) / real) * 100, 2)
+respuesta: vertices - 1
 tipo: input
-tolerancia_abs: 0.02
 
-enunciado: "Se mide un objeto y da {medido} cm. El valor real es {real} cm. ¿Cuál es el error porcentual? Redondeá a 2 decimales."
+enunciado: "En un grafo de {vertices} vértices, sin conexiones repetidas ni un vértice conectado consigo mismo, ¿cuál es el grado MÁXIMO posible que puede tener un vértice?"
 
 pasos:
-  - "Error relativo: {redondear(abs(medido - real) / real, 4)}. Error porcentual: {redondear(abs(medido - real) / real, 4)} × 100 = {redondear((abs(medido - real) / real) * 100, 2)}%"
+  - "Como mucho, se conecta con todos los demás vértices: {vertices} − 1 = {vertices - 1}"
 
 explicacion: |
-  El error porcentual es el error relativo expresado como porcentaje.
+  Un vértice no puede conectarse consigo mismo ni tener dos aristas
+  distintas hacia el mismo vecino, así que el máximo es 'todos los
+  demás vértices'.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cifras_significativas_y_error"
+  tema: "grafos_vertices_y_aristas"
   nivel: "intermedio"
-  tags: ["error", "vocabulario"]
+  tags: ["grado"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El error relativo es un número sin unidad (una proporción), a diferencia del error absoluto."
+enunciado: "Un vértice puede tener grado 0 (estar completamente aislado, sin ninguna arista que lo conecte a otro vértice)."
 
 explicacion: |
-  Por eso permite comparar la calidad de mediciones de magnitudes
-  distintas (por ejemplo, un error en una longitud contra un error en una
-  masa).
+  Un grafo no tiene por qué tener todos sus vértices conectados entre
+  sí — eso se retoma en `../caminos-y-ciclos/` y
+  `../arboles-grafo-sin-ciclos/`.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "avanzado"
-  tags: ["error", "comparacion"]
+  tema: "grafos_vertices_y_aristas"
+  nivel: "basico"
+  tags: ["aplicacion"]
 
-variables:
-  real1: random(50, 200)
-  error1: random(1, 5)
-  real2: random(500, 2000)
-  error2: random(5, 20)
-
-restricciones:
-  - (error1 / real1) != (error2 / real2)
-
-respuesta: (error1 / real1) < (error2 / real2)
-tipo: vf
-
-enunciado: "Una medición de {real1} cm tuvo un error absoluto de {error1} cm; otra de {real2} cm tuvo un error absoluto de {error2} cm. ¿Es la primera medición más precisa (menor error relativo) que la segunda?"
-
-pasos:
-  - "Error relativo 1: {error1} ÷ {real1} = {redondear(error1 / real1, 4)}. Error relativo 2: {error2} ÷ {real2} = {redondear(error2 / real2, 4)}."
-
-explicacion: |
-  Aunque el error absoluto de la segunda sea mayor en números, hay que
-  comparar el error RELATIVO (proporcional al tamaño de lo medido) para
-  saber cuál midió con más precisión.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "avanzado"
-  tags: ["error", "instrumento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El error absoluto de una medición nunca puede ser menor que la mitad de la división más chica del instrumento usado."
-
-explicacion: |
-  Es el límite físico de lo que el instrumento puede distinguir, ya
-  adelantado en `../magnitud-unidad-instrumento/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "avanzado"
-  tags: ["cifras_significativas", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si se cuentan 24 alumnos en un aula (un conteo exacto, no una medición con instrumento), ese número no tiene incertidumbre: la idea de \"cifras significativas\" no le aplica de la misma forma que a una medida."
-
-explicacion: |
-  Las cifras significativas son un concepto de MEDICIÓN (con margen de
-  error); un conteo exacto de unidades discretas no tiene ese margen.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "intermedio"
-  tags: ["cifras_significativas", "comparacion"]
-
-enunciado: "¿Cuál de estos números tiene MÁS cifras significativas?"
+enunciado: "En una red de computadoras modelada como grafo, si un dispositivo tiene grado 5, ¿qué significa?"
 tipo: mc
 opciones_explicitas:
-  - "20,50"
-  - "0,02"
-  - "2000"
-respuesta: "20,50"
+  - "Que ese dispositivo tiene 5 conexiones directas (cables o inalámbricas) hacia otros dispositivos de la red"
+  - "Que ese dispositivo procesa 5 veces más rápido que los demás"
+  - "Que la red tiene en total 5 dispositivos"
+respuesta: "Que ese dispositivo tiene 5 conexiones directas (cables o inalámbricas) hacia otros dispositivos de la red"
 
 explicacion: |
-  20,50 tiene 4 cifras significativas (2, 0, 5, 0 — con coma, los ceros
-  cuentan); 0,02 tiene 1; 2000 se toma como 1 (ambiguo, sin coma).
+  Es la aplicación directa del concepto de grado a una red real.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "basico"
-  tags: ["cifras_significativas", "completar"]
-
-tipo: completar
-enunciado: "Completá: los ceros a la ___ del primer dígito distinto de cero NO son cifras significativas."
-respuestas_validas:
-  - "izquierda"
-
-explicacion: |
-  Sólo ubican la coma decimal, no aportan precisión.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "intermedio"
-  tags: ["error", "completar"]
-
-tipo: completar
-enunciado: "Completá: el error porcentual es el error relativo multiplicado por ___."
-respuestas_validas:
-  - 100
-
-explicacion: |
-  Es la misma idea que pasar de decimal a porcentaje (ver
-  `../porcentaje/`).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "avanzado"
-  tags: ["cifras_significativas", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos números de MENOS a MÁS cifras significativas: 3,40; 0,002; 0,042; 100,0."
-opciones_explicitas:
-  - "0,042"
-  - "100,0"
-  - "0,002"
-  - "3,40"
-respuesta_orden:
-  - "0,002"
-  - "0,042"
-  - "3,40"
-  - "100,0"
-
-pasos:
-  - "0,002 tiene 1; 0,042 tiene 2; 3,40 tiene 3; 100,0 tiene 4."
-
-explicacion: |
-  Se cuentan las cifras significativas de cada uno aplicando las reglas
-  antes de poder ordenarlos: 1 < 2 < 3 < 4.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "intermedio"
-  tags: ["error", "verificacion"]
-
-variables:
-  real: random(50, 200)
-  diferencia: random(2, 10)
-  medido: real + diferencia
-  correcto: abs(medido - real)
-  error_mostrado: uno_de([0, 0, 0, 1, -1])
-  mostrado: correcto + error_mostrado
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? Se midió {medido} cm, el valor real es {real} cm, y se dice que el error absoluto es {mostrado} cm."
-
-explicacion: |
-  Se recalcula |medido − real| y se compara con el valor mostrado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cifras_significativas_y_error"
-  nivel: "basico"
-  tags: ["cifras_significativas", "error", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las cifras significativas y el error de una medición son dos formas de expresar la misma idea: ningún instrumento mide con precisión infinita."
-
-explicacion: |
-  Es el hilo conductor de todo el módulo, que se retoma en
-  `../error-sistematico-vs-aleatorio/`.
-```
-
-## Sección: circunferencia-y-circulo (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "basico"
-  tags: ["circunferencia", "circulo", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia entre circunferencia y círculo?"
-tipo: mc
-opciones_explicitas:
-  - "La circunferencia es la línea curva del borde; el círculo es la superficie plana que encierra"
-  - "Son dos nombres distintos para exactamente lo mismo"
-  - "La circunferencia es más grande que el círculo"
-respuesta: "La circunferencia es la línea curva del borde; el círculo es la superficie plana que encierra"
-
-explicacion: |
-  La circunferencia es el borde (una línea), el círculo es el borde más
-  el relleno (una superficie).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "basico"
-  tags: ["circunferencia", "vocabulario"]
-
-enunciado: "¿Qué es el radio de una circunferencia?"
-tipo: mc
-opciones_explicitas:
-  - "El segmento que une el centro con cualquier punto de la circunferencia"
-  - "El segmento que une dos puntos cualesquiera de la circunferencia"
-  - "La línea curva completa"
-respuesta: "El segmento que une el centro con cualquier punto de la circunferencia"
-
-explicacion: |
-  Todos los radios de una misma circunferencia miden lo mismo: es la
-  distancia constante al centro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "basico"
-  tags: ["circunferencia", "diametro", "problema"]
-
-variables:
-  r: random(2, 40)
-
-respuesta: 2 * r
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una circunferencia tiene un radio de {r} cm. ¿Cuánto mide su diámetro?"
-
-pasos:
-  - "2 × {r} = {2 * r} cm"
-
-explicacion: |
-  El diámetro mide siempre el doble que el radio: d = 2r.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "basico"
-  tags: ["circunferencia", "diametro", "problema"]
-
-variables:
-  d: uno_de([10, 12, 14, 16, 18, 20, 24, 30, 40, 50])
-
-respuesta: d / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una circunferencia tiene un diámetro de {d} cm. ¿Cuánto mide su radio?"
-
-pasos:
-  - "{d} ÷ 2 = {d / 2} cm"
-
-explicacion: |
-  El radio es la mitad del diámetro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "basico"
-  tags: ["circunferencia", "vocabulario"]
-
-enunciado: "¿Qué es una cuerda de una circunferencia?"
-tipo: mc
-opciones_explicitas:
-  - "Un segmento que une dos puntos cualesquiera de la circunferencia"
-  - "Un segmento que une el centro con la circunferencia"
-  - "Una recta que toca la circunferencia en un solo punto"
-respuesta: "Un segmento que une dos puntos cualesquiera de la circunferencia"
-
-explicacion: |
-  A diferencia del radio, una cuerda no tiene por qué pasar por el
-  centro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "intermedio"
-  tags: ["circunferencia", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El diámetro es la cuerda más larga que se puede trazar en una circunferencia."
-
-explicacion: |
-  Cualquier otra cuerda que no pase por el centro es más corta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "basico"
-  tags: ["circunferencia", "vocabulario"]
-
-enunciado: "¿Qué es un arco de una circunferencia?"
-tipo: mc
-opciones_explicitas:
-  - "Cada una de las partes en que una cuerda divide a la circunferencia"
-  - "El segmento entre el centro y un punto de la circunferencia"
-  - "La superficie plana encerrada por la circunferencia"
-respuesta: "Cada una de las partes en que una cuerda divide a la circunferencia"
-
-explicacion: |
-  Toda cuerda (menos ninguna) divide a la circunferencia en dos arcos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "basico"
-  tags: ["circulo", "vocabulario"]
-
-enunciado: "¿Qué es un sector circular?"
-tipo: mc
-opciones_explicitas:
-  - "La porción de círculo entre dos radios y el arco que encierran, como una porción de pizza"
-  - "La porción de círculo entre una cuerda y el arco que corta"
-  - "Otro nombre para el diámetro"
-respuesta: "La porción de círculo entre dos radios y el arco que encierran, como una porción de pizza"
-
-explicacion: |
-  Está delimitado por dos radios y el arco entre ellos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "intermedio"
-  tags: ["circunferencia", "vocabulario"]
-
-enunciado: "¿Qué es una recta tangente a una circunferencia?"
-tipo: mc
-opciones_explicitas:
-  - "Una recta que toca a la circunferencia en un único punto, sin cruzarla"
-  - "Una recta que cruza a la circunferencia en dos puntos"
-  - "Una recta que pasa por el centro"
-respuesta: "Una recta que toca a la circunferencia en un único punto, sin cruzarla"
-
-explicacion: |
-  Roza la circunferencia en un solo punto de contacto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "intermedio"
-  tags: ["circunferencia", "tangente"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el punto de contacto, una recta tangente a una circunferencia es siempre perpendicular al radio."
-
-explicacion: |
-  Es una propiedad constante de toda tangente: forma 90° con el radio
-  trazado hasta el punto de contacto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "basico"
-  tags: ["circunferencia", "vocabulario"]
-
-enunciado: "¿Qué es una recta secante a una circunferencia?"
-tipo: mc
-opciones_explicitas:
-  - "Una recta que cruza a la circunferencia en dos puntos"
-  - "Una recta que toca a la circunferencia en un único punto"
-  - "Un segmento que une el centro con un punto de la circunferencia"
-respuesta: "Una recta que cruza a la circunferencia en dos puntos"
-
-explicacion: |
-  A diferencia de la tangente (un solo punto de contacto), la secante
-  atraviesa la circunferencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "intermedio"
-  tags: ["circunferencia", "perimetro", "problema"]
-
-variables:
-  r: random(2, 25)
-
-respuesta: redondear(2 * pi * r, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "¿Cuál es la longitud (el perímetro) de una circunferencia de radio {r} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "2 × π × {r} = {redondear(2 * pi * r, 2)} cm"
-
-explicacion: |
-  La longitud de una circunferencia es 2 × π × radio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "intermedio"
-  tags: ["circulo", "area", "problema"]
-
-variables:
-  r: random(2, 25)
-
-respuesta: redondear(pi * r * r, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "¿Cuál es el área de un círculo de radio {r} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "π × {r}² = {redondear(pi * r * r, 2)} cm²"
-
-explicacion: |
-  El área del círculo es π por el radio al cuadrado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "intermedio"
-  tags: ["circunferencia", "perimetro", "problema"]
-
-variables:
-  d: random(4, 50)
-
-respuesta: redondear(pi * d, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "¿Cuál es la longitud de una circunferencia de diámetro {d} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "π × {d} = {redondear(pi * d, 2)} cm"
-
-explicacion: |
-  Como el diámetro es el doble del radio, 2×π×r se puede escribir
-  directo como π × diámetro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "basico"
-  tags: ["circunferencia", "pi"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "π (pi) vale siempre lo mismo, sin importar el tamaño del círculo."
-
-explicacion: |
-  π es la razón entre el perímetro y el diámetro de cualquier círculo:
-  ese cociente da siempre ≈ 3,14159..., sea el círculo chico o grande.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "intermedio"
-  tags: ["angulos", "vocabulario"]
-
-enunciado: "¿Qué es un ángulo central en una circunferencia?"
-tipo: mc
-opciones_explicitas:
-  - "El que tiene su vértice en el centro y sus lados son dos radios"
-  - "El que tiene su vértice sobre la circunferencia y sus lados son dos cuerdas"
-  - "El que forma una recta tangente con un radio"
-respuesta: "El que tiene su vértice en el centro y sus lados son dos radios"
-
-explicacion: |
-  Su vértice está en el centro, no sobre la curva.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "intermedio"
-  tags: ["angulos", "problema"]
-
-variables:
-  arco: random(10, 300)
-
-respuesta: arco
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un ángulo central abarca un arco de {arco}°. ¿Cuánto mide ese ángulo central?"
-
-pasos:
-  - "El ángulo central mide igual que el arco que abarca: {arco}°"
-
-explicacion: |
-  Es la propiedad que define al ángulo central: su medida coincide con
-  la del arco comprendido entre sus lados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "basico"
-  tags: ["angulos", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ángulo central que abarca toda la circunferencia (una vuelta completa) mide 360°."
-
-explicacion: |
-  Toda la circunferencia es un solo arco de 360°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "intermedio"
-  tags: ["angulos", "vocabulario"]
-
-enunciado: "¿Qué es un ángulo inscripto en una circunferencia?"
-tipo: mc
-opciones_explicitas:
-  - "El que tiene su vértice sobre la circunferencia y sus lados son dos cuerdas"
-  - "El que tiene su vértice en el centro y sus lados son dos radios"
-  - "El que se forma entre dos tangentes"
-respuesta: "El que tiene su vértice sobre la circunferencia y sus lados son dos cuerdas"
-
-explicacion: |
-  A diferencia del ángulo central, su vértice está sobre la curva, no en
-  el centro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "avanzado"
-  tags: ["angulos", "problema"]
-
-variables:
-  mitad: random(10, 170)
-  central: mitad * 2
-
-respuesta: mitad
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un ángulo central mide {central}°. ¿Cuánto mide un ángulo inscripto que abarca el mismo arco?"
-
-pasos:
-  - "{central}° ÷ 2 = {mitad}°"
-
-explicacion: |
-  Todo ángulo inscripto mide la mitad del ángulo central que abarca el
-  mismo arco.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "avanzado"
-  tags: ["angulos", "problema"]
-
-variables:
-  inscripto: random(5, 170)
-
-respuesta: inscripto * 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un ángulo inscripto mide {inscripto}°. ¿Cuánto mide el ángulo central que abarca el mismo arco?"
-
-pasos:
-  - "{inscripto}° × 2 = {inscripto * 2}°"
-
-explicacion: |
-  El ángulo central es el doble del ángulo inscripto correspondiente al
-  mismo arco.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "avanzado"
-  tags: ["angulos", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un ángulo inscripto abarca una semicircunferencia (sus lados terminan en los dos extremos de un diámetro), ese ángulo mide siempre 90°."
-
-explicacion: |
-  La semicircunferencia es un arco de 180° (mitad de la vuelta
-  completa), y el ángulo inscripto siempre mide la mitad de eso: 90°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "avanzado"
-  tags: ["angulos"]
-
-enunciado: "Si se traza un triángulo con un lado sobre un diámetro y el tercer vértice en cualquier otro punto de la circunferencia, ¿qué tipo de triángulo se forma siempre?"
-tipo: mc
-opciones_explicitas:
-  - "Un triángulo rectángulo, sin importar dónde esté el tercer vértice"
-  - "Un triángulo equilátero"
-  - "Depende de dónde esté el tercer vértice: puede no ser rectángulo"
-respuesta: "Un triángulo rectángulo, sin importar dónde esté el tercer vértice"
-
-explicacion: |
-  El ángulo inscripto que abarca el diámetro (una semicircunferencia)
-  mide siempre 90°, así que ese vértice siempre da un ángulo recto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "intermedio"
-  tags: ["circunferencia", "completar"]
-
-tipo: completar
-enunciado: "Completá la fórmula del perímetro de una circunferencia de radio r: Perímetro = 2 × ___ × r."
-respuestas_validas:
-  - "π"
-  - "pi"
-
-explicacion: |
-  π es la razón constante entre el perímetro y el diámetro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
-  nivel: "avanzado"
-  tags: ["angulos", "ordenar"]
-
-enunciado: "Ordená los pasos para hallar un ángulo inscripto, conociendo sólo el arco que abarca."
-tipo: ordenar
-opciones_explicitas:
-  - "Se divide la medida del arco por 2 para obtener el ángulo inscripto"
-  - "El ángulo central que abarca ese arco mide igual que el arco"
-  - "El ángulo inscripto mide la mitad del ángulo central"
-respuesta_orden:
-  - "El ángulo central que abarca ese arco mide igual que el arco"
-  - "El ángulo inscripto mide la mitad del ángulo central"
-  - "Se divide la medida del arco por 2 para obtener el ángulo inscripto"
-
-explicacion: |
-  Como el central es igual al arco, dividir el arco por 2 da directo el
-  ángulo inscripto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "circunferencia_y_circulo"
+  tema: "grafos_vertices_y_aristas"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirve conocer los elementos y ángulos de la circunferencia?"
+enunciado: "¿Para qué sirve modelar una situación como un grafo (vértices y aristas)?"
 tipo: mc
 opciones_explicitas:
-  - "Es la base para calcular medidas circulares reales y para construir diseños simétricos como los rosetones"
-  - "Sólo tiene uso decorativo, sin aplicación práctica"
-  - "Sólo sirve para clasificar triángulos"
-respuesta: "Es la base para calcular medidas circulares reales y para construir diseños simétricos como los rosetones"
+  - "Para representar y analizar matemáticamente cualquier sistema de 'cosas conectadas entre sí': redes sociales, mapas de rutas, redes de computadoras, y muchos otros sistemas"
+  - "Sólo sirve para dibujar diagramas, sin ninguna utilidad de cálculo"
+  - "Sólo se aplica a problemas de geometría"
+respuesta: "Para representar y analizar matemáticamente cualquier sistema de 'cosas conectadas entre sí': redes sociales, mapas de rutas, redes de computadoras, y muchos otros sistemas"
 
 explicacion: |
-  Desde calcular el material de una rueda o un caño hasta diseñar
-  patrones circulares con simetría, todo parte de estos elementos.
+  Es el vocabulario base para `../grafos-dirigidos-no-dirigidos-y-ponderados/`,
+  `../caminos-y-ciclos/`, `../arboles-grafo-sin-ciclos/` y
+  `../algoritmos-de-recorrido-bfs-dfs/`.
 ```
 
-## Sección: combinaciones (25 preguntas)
+## Sección: integral-definida-y-area-bajo-la-curva (22 preguntas)
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
   nivel: "basico"
-  tags: ["combinaciones", "vocabulario"]
-
-enunciado: "¿Qué es una combinación de k elementos elegidos de un conjunto de n elementos (k ≤ n)?"
-tipo: mc
-opciones_explicitas:
-  - "Cada forma distinta de elegir k elementos, sin repetir ninguno, donde el ORDEN NO importa"
-  - "Cada forma distinta de elegir Y ordenar k elementos"
-  - "Cada forma de ordenar TODOS los n elementos"
-respuesta: "Cada forma distinta de elegir k elementos, sin repetir ninguno, donde el ORDEN NO importa"
-
-explicacion: |
-  Elegir A y B es lo mismo que elegir B y A — es la misma combinación.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "intermedio"
-  tags: ["combinaciones", "completar"]
-
-tipo: completar
-enunciado: "Completá: C(n, k) = n! / (___ × (n−k)!)."
-respuestas_validas:
-  - "k!"
-
-explicacion: |
-  Se divide por k! para no contar cada combinación una vez por cada
-  orden posible de sus elementos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "avanzado"
-  tags: ["combinaciones", "problema"]
+  tags: ["definicion"]
 
 variables:
-  n: uno_de([6, 7, 8, 9, 10])
-  k: uno_de([2, 3])
+  n: uno_de([1, 1])
 
-respuesta: combinations(n, k)
-tipo: input
+respuesta: "el área entre la curva y el eje horizontal en un intervalo [a, b]"
+tipo: mc
+opciones_explicitas: ["el área entre la curva y el eje horizontal en un intervalo [a, b]", "la pendiente de la recta tangente en un punto", "el valor máximo que alcanza la función"]
 
-enunciado: "¿Cuántas combinaciones de {k} elementos se pueden formar a partir de un conjunto de {n} elementos?"
-
-pasos:
-  - "C({n}, {k}) = {n}! / ({k}! × ({n}−{k})!) = {combinations(n, k)}"
+enunciado: "La integral definida de f(x) entre a y b representa..."
 
 explicacion: |
-  Se divide la variación correspondiente por las formas de ordenar los
-  {k} elementos elegidos.
+  Es la cantidad de espacio entre la curva de f(x) y el eje horizontal,
+  dentro de ese intervalo específico.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
   nivel: "intermedio"
-  tags: ["combinaciones"]
+  tags: ["area neta"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "negativa"
+tipo: mc
+opciones_explicitas: ["positiva", "negativa", "siempre cero"]
+
+enunciado: "Si la curva de f(x) está por debajo del eje x en el intervalo considerado, el área correspondiente se considera..."
+
+explicacion: |
+  La integral definida calcula el área neta, no el área total absoluta:
+  por eso puede dar valores negativos.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "basico"
+  tags: ["teorema fundamental"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Teorema Fundamental del Cálculo"
+tipo: completar
+
+enunciado: "El teorema que permite calcular una integral definida usando una primitiva F(x), en vez de sumar rectángulos infinitos, se llama ___."
+
+respuestas_validas:
+  - "Teorema Fundamental del Cálculo"
+
+explicacion: |
+  Establece una relación directa entre la derivada y la integral,
+  simplificando enormemente el cálculo del área.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["formula tfc"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "F(b) - F(a)"
+tipo: mc
+opciones_explicitas: ["F(b) - F(a)", "F(b) + F(a)", "F(a) - F(b)"]
+
+enunciado: "Según el Teorema Fundamental del Cálculo, ∫ f(x) dx entre a y b es igual a:"
+
+explicacion: |
+  Se evalúa la primitiva en el límite superior y se le resta el valor
+  evaluado en el límite inferior.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "avanzado"
+  tags: ["primitiva"]
+
+variables:
+  n: random(2, 8)
+
+respuesta: n / 2
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "La primitiva de f(x) = {n}·x es F(x) = k·x². ¿Cuánto vale k?"
+
+explicacion: |
+  La primitiva de k'·x es (k'/2)·x², así que si f(x)={n}·x, el
+  coeficiente de x² en la primitiva es {n}/2.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["calculo directo"]
+
+variables:
+  b: random(2, 8)
+
+respuesta: b * b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Calculá el área bajo la curva de f(x) = 2x entre x=0 y x={b}, usando F(x) = x². (F({b}) - F(0))"
+
+explicacion: |
+  F(x) = x² es la primitiva de 2x. El área es F(b) - F(0) = b² - 0 = b².
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["calculo directo"]
+
+variables:
+  k: random(1, 5)
+  b: random(2, 6)
+
+respuesta: k * b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Calculá el área bajo la curva de f(x) = {k} (función constante) entre x=0 y x={b}, usando F(x) = {k}·x."
+
+explicacion: |
+  Para una función constante, el área bajo la curva es un rectángulo:
+  base × altura = {b} × {k}.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "basico"
+  tags: ["simbolo integral"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "una S alargada que recuerda a suma"
+tipo: mc
+opciones_explicitas: ["una S alargada que recuerda a suma", "una letra griega sin significado especial", "el símbolo de infinito"]
+
+enunciado: "El símbolo ∫ de la integral es..."
+
+explicacion: |
+  Representa la idea de "sumar" infinitas cantidades infinitesimales, de
+  ahí la forma de S alargada.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "avanzado"
+  tags: ["existencia"]
+
+variables:
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En una combinación, elegir A y luego B es exactamente lo mismo que elegir B y luego A — cuentan como UNA sola combinación."
+enunciado: "Si f(x) es continua en el intervalo [a, b], la integral definida siempre existe y es única."
 
 explicacion: |
-  Es la diferencia clave con las variaciones, donde sí se
-  distinguen.
+  La continuidad de la función en el intervalo garantiza que el área
+  bajo la curva esté bien definida.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
   nivel: "intermedio"
-  tags: ["combinaciones"]
+  tags: ["aplicaciones"]
+
+variables:
+  campo: uno_de(["física", "economía", "ingeniería"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La integral definida tiene aplicaciones reales en {campo}, según la teoría."
+
+explicacion: |
+  Se usa para calcular distancia recorrida (física), excedente del
+  consumidor (economía) o volúmenes de objetos (ingeniería).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "basico"
+  tags: ["discreto vs continuo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "de lo discreto a lo continuo"
+tipo: mc
+opciones_explicitas: ["de lo discreto a lo continuo", "de lo continuo a lo discreto", "no hay ninguna diferencia entre ambos"]
+
+enunciado: "La importancia de la integral definida radica en su capacidad de pasar..."
+
+explicacion: |
+  Mientras la suma simple junta cantidades finitas, la integral suma
+  infinitas cantidades infinitesimales.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["pasos del calculo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "encontrar la primitiva, evaluarla en b, evaluarla en a y restar"
+tipo: mc
+opciones_explicitas: ["encontrar la primitiva, evaluarla en b, evaluarla en a y restar", "derivar la función dos veces", "graficar la función sin ningún cálculo"]
+
+enunciado: "Según el Teorema Fundamental del Cálculo, el proceso para calcular una integral definida consiste en..."
+
+explicacion: |
+  Son los tres pasos que transforman un problema geométrico complejo en
+  álgebra simple.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "avanzado"
+  tags: ["verificacion geometrica"]
+
+variables:
+  b: random(3, 9)
+
+respuesta: b * b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Verificá con geometría básica: el área bajo f(x)=2x entre 0 y {b} es un triángulo de base {b} y altura {2*b}... espera, calculalo directo: (base × altura) / 2 = ({b} × 2·{b}) / 2. ¿Cuánto da?"
+
+explicacion: |
+  (b × 2b) / 2 = b², el mismo resultado que da la integral, confirmando
+  que ambos métodos coinciden.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "basico"
+  tags: ["dx"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "un segmento horizontal de ancho infinitesimal"
+tipo: mc
+opciones_explicitas: ["un segmento horizontal de ancho infinitesimal", "el valor máximo de la función", "la derivada de la función"]
+
+enunciado: "En la notación ∫f(x) dx, el símbolo dx indica que se está sumando..."
+
+explicacion: |
+  Cada dx representa un segmento horizontal muy chico que, sumado a
+  infinitos otros, da el área total.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["primitiva de potencia"]
+
+variables:
+  n: random(1, 6)
+
+respuesta: n + 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La primitiva de x^{n} tiene exponente (antes de dividir por el nuevo exponente):"
+
+explicacion: |
+  Al integrar x^n, el exponente sube en 1 (regla inversa a la
+  derivación).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "basico"
+  tags: ["relacion con derivada"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "una función cuya derivada es f(x)"
+tipo: mc
+opciones_explicitas: ["una función cuya derivada es f(x)", "una función cuyo valor máximo es f(x)", "la inversa de f(x)"]
+
+enunciado: "Una función primitiva F(x) de f(x) es..."
+
+explicacion: |
+  Por eso el Teorema Fundamental del Cálculo conecta directamente
+  derivación e integración: son procesos inversos.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "avanzado"
+  tags: ["areas irregulares"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La integral definida permite medir áreas irregulares que la geometría básica (cuadrados, triángulos) no puede resolver por sí sola."
+
+explicacion: |
+  Es justamente su utilidad principal: calcular áreas bajo curvas
+  complejas, no sólo figuras geométricas simples.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["calculo directo"]
+
+variables:
+  b: random(1, 7)
+
+respuesta: b * b * b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Si F(x) = x³ es la primitiva de f(x) = 3x², calculá F({b}) - F(0), el área bajo f(x) entre 0 y {b}."
+
+explicacion: |
+  F(b) - F(0) = b³ - 0 = b³, aplicando directamente el Teorema
+  Fundamental del Cálculo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "basico"
+  tags: ["limites de integracion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "los valores inicial y final del intervalo"
+tipo: mc
+opciones_explicitas: ["los valores inicial y final del intervalo", "el valor máximo y mínimo de la función", "las raíces de la función"]
+
+enunciado: "En ∫_a^b f(x) dx, los valores a y b representan..."
+
+explicacion: |
+  Son los límites del intervalo dentro del cual se calcula el área bajo
+  la curva.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "avanzado"
+  tags: ["metodo alternativo"]
+
+variables:
+  n: uno_de([1, 1])
 
 respuesta: falso
 tipo: vf
 
-enunciado: "En una combinación (en el sentido clásico de este módulo), se permite elegir el mismo elemento más de una vez."
+enunciado: "Calcular el área sumando rectángulos infinitos es el método práctico habitual para resolver integrales definidas en un examen."
 
 explicacion: |
-  Es falso: cada elemento se elige como máximo una vez, igual que en
-  variaciones y permutaciones.
+  Sería imposible en la práctica; por eso se usa el Teorema Fundamental
+  del Cálculo, que evita esa suma infinita directa.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "avanzado"
-  tags: ["combinaciones", "problema"]
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["aplicacion fisica"]
 
 variables:
-  candidatos: uno_de([8, 9, 10, 12])
-  comite: uno_de([2, 3])
+  n: uno_de([1, 1])
 
-respuesta: combinations(candidatos, comite)
-tipo: input
-
-enunciado: "Entre {candidatos} candidatos, se va a formar un comité de {comite} personas, sin roles distintos (no importa el orden en que se elijan). ¿Cuántos comités distintos son posibles?"
-
-pasos:
-  - "C({candidatos}, {comite}) = {combinations(candidatos, comite)}"
-
-explicacion: |
-  A diferencia de elegir presidente y vicepresidente (variación), acá
-  ningún miembro del comité tiene un rol distinto de los demás.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "avanzado"
-  tags: ["combinaciones", "problema"]
-
-variables:
-  mazo: uno_de([10, 12, 15])
-  mano: uno_de([2, 3])
-
-respuesta: combinations(mazo, mano)
-tipo: input
-
-enunciado: "De un mazo de {mazo} cartas distintas, ¿de cuántas formas se pueden elegir {mano} cartas (sin importar el orden en que se las reciba)?"
-
-pasos:
-  - "C({mazo}, {mano}) = {combinations(mazo, mano)}"
-
-explicacion: |
-  Una mano de cartas es el ejemplo clásico de combinación: no importa
-  en qué orden llegaron a la mano.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "avanzado"
-  tags: ["combinaciones"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "C(n, k) es siempre igual a C(n, n−k) — elegir k para incluir es lo mismo que elegir n−k para dejar afuera."
-
-explicacion: |
-  Son la misma partición del conjunto en dos partes, mirada desde
-  cualquiera de los dos lados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "avanzado"
-  tags: ["combinaciones", "problema"]
-
-variables:
-  n: uno_de([8, 9, 10])
-  k: uno_de([2, 3])
-
-respuesta: combinations(n, n - k)
-tipo: input
-
-enunciado: "Si C({n}, {k}) = {combinations(n, k)}, ¿cuánto es C({n}, {n}−{k})?"
-
-pasos:
-  - "Por la propiedad simétrica, C({n}, {n}−{k}) = C({n}, {k}) = {combinations(n, n - k)}"
-
-explicacion: |
-  Elegir {k} para incluir de un total de {n} es lo mismo que elegir
-  {n}−{k} para dejar afuera.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "avanzado"
-  tags: ["combinaciones", "ordenar"]
-
-enunciado: "Ordená los pasos para calcular C(n, k) a partir de la variación correspondiente."
-tipo: ordenar
-opciones_explicitas:
-  - "Dividir esa variación por k! (las formas de ordenar los k elementos elegidos)"
-  - "Calcular la variación V(n, k) = n! / (n−k)!"
-  - "El resultado de esa división es C(n, k)"
-respuesta_orden:
-  - "Calcular la variación V(n, k) = n! / (n−k)!"
-  - "Dividir esa variación por k! (las formas de ordenar los k elementos elegidos)"
-  - "El resultado de esa división es C(n, k)"
-
-explicacion: |
-  La combinación se obtiene corrigiendo la variación por el
-  sobre-conteo de los distintos órdenes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "avanzado"
-  tags: ["combinaciones", "variaciones", "problema"]
-
-variables:
-  n: uno_de([7, 8, 9])
-  k: uno_de([2, 3])
-
-respuesta: combinations(n, k) * factorial(k)
-tipo: input
-
-enunciado: "Si C({n}, {k}) = {combinations(n, k)}, ¿cuánto vale la variación V({n}, {k}) (multiplicando la combinación por las formas de ordenar los {k} elementos)?"
-
-pasos:
-  - "V({n}, {k}) = C({n}, {k}) × {k}! = {combinations(n, k)} × {factorial(k)} = {combinations(n, k) * factorial(k)}"
-
-explicacion: |
-  Es la relación inversa a la fórmula de combinaciones: V = C × k!.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "avanzado"
-  tags: ["combinaciones"]
-
-enunciado: "¿Por qué la fórmula de combinaciones divide la variación por k!?"
+respuesta: "distancias recorridas cuando la velocidad cambia"
 tipo: mc
-opciones_explicitas:
-  - "Porque cada combinación de k elementos corresponde a k! variaciones distintas (todos los órdenes posibles de esos mismos elementos), y hay que corregir ese sobre-conteo"
-  - "Porque k! siempre es un número muy grande y hay que reducir el resultado"
-  - "No hay ninguna razón matemática, es sólo una convención arbitraria"
-respuesta: "Porque cada combinación de k elementos corresponde a k! variaciones distintas (todos los órdenes posibles de esos mismos elementos), y hay que corregir ese sobre-conteo"
+opciones_explicitas: ["distancias recorridas cuando la velocidad cambia", "la masa de un objeto en reposo", "el color de la luz emitida"]
+
+enunciado: "En física, la integral definida se usa para calcular, entre otras cosas..."
 
 explicacion: |
-  Sin dividir, se estaría contando la misma combinación una vez por
-  cada orden posible de sus elementos.
+  Si la velocidad varía con el tiempo, integrarla da la distancia total
+  recorrida.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
   nivel: "intermedio"
-  tags: ["combinaciones", "problema"]
+  tags: ["calculo directo"]
 
 variables:
-  n: random(5, 20)
+  a: random(1, 4)
+  b: random(5, 9)
 
-respuesta: n
+respuesta: b*b - a*a
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "¿Cuántas combinaciones de 1 solo elemento hay en un conjunto de {n} elementos?"
-
-pasos:
-  - "C({n}, 1) = {n} (elegir uno solo, sin nada más que decidir)"
+enunciado: "Calculá el área bajo f(x) = 2x entre x={a} y x={b}, usando F(x) = x² (F({b}) - F({a}))."
 
 explicacion: |
-  Con k=1 no hay orden ni repetición que considerar: el resultado es
-  simplemente n.
+  F(b) - F(a) = b² - a², aplicando el Teorema Fundamental del Cálculo
+  con límites distintos de cero.
 ```
+
+## Sección: arboles-grafo-sin-ciclos (20 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "intermedio"
-  tags: ["combinaciones", "problema"]
-
-variables:
-  n: random(5, 20)
-
-respuesta: 1
-tipo: input
-
-enunciado: "¿Cuántas combinaciones de {n} elementos hay en un conjunto de {n} elementos (elegirlos todos)?"
-
-explicacion: |
-  Sólo hay una forma de 'elegir a todos' — no hay ninguna decisión
-  real que tomar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "intermedio"
-  tags: ["combinaciones", "problema"]
-
-variables:
-  n: random(5, 20)
-
-respuesta: 1
-tipo: input
-
-enunciado: "Por convención, ¿cuántas combinaciones de 0 elementos hay en un conjunto de {n} elementos?"
-
-explicacion: |
-  C(n, 0) = 1 — hay exactamente una forma de 'no elegir nada' (el
-  conjunto vacío).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "avanzado"
-  tags: ["combinaciones", "variaciones"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para los mismos n y k, C(n,k) siempre es menor o igual que V(n,k)."
-
-explicacion: |
-  La combinación es la variación dividida por k! (que es 1 o mayor),
-  así que nunca puede ser mayor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
+  tema: "arboles_grafo_sin_ciclos"
   nivel: "basico"
-  tags: ["combinaciones", "aplicacion"]
+  tags: ["arbol", "vocabulario"]
 
-enunciado: "En una lotería donde se elige un grupo de números sin importar el orden en que salen, ¿qué hay que calcular para saber cuántos resultados distintos son posibles?"
+enunciado: "¿Qué es un árbol, en teoría de grafos?"
 tipo: mc
 opciones_explicitas:
-  - "Una combinación: no importa el orden en que salen los números, sólo cuáles salen"
-  - "Una variación, porque el orden de salida sí importa"
-  - "Una simple multiplicación de la cantidad de números por sí misma"
-respuesta: "Una combinación: no importa el orden en que salen los números, sólo cuáles salen"
+  - "Un grafo que es conexo (hay camino entre cualquier par de vértices) Y acíclico (no tiene ningún ciclo), las dos propiedades a la vez"
+  - "Cualquier grafo con más de 10 vértices"
+  - "Un grafo dirigido con al menos un ciclo"
+respuesta: "Un grafo que es conexo (hay camino entre cualquier par de vértices) Y acíclico (no tiene ningún ciclo), las dos propiedades a la vez"
 
 explicacion: |
-  Ganar con los números 5-12-23 es lo mismo que ganar con 23-5-12: el
-  orden de salida no cambia el resultado del sorteo.
+  Ninguna de las dos propiedades sola alcanza — hace falta que se
+  cumplan ambas.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "avanzado"
-  tags: ["combinaciones", "problema"]
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "intermedio"
+  tags: ["arbol"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un árbol es, exactamente, un grafo que combina las dos propiedades de `../caminos-y-ciclos/`: ser conexo y ser acíclico, a la vez."
+
+explicacion: |
+  Un grafo conexo con ciclos no es árbol; un grafo acíclico pero
+  desconectado tampoco.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "intermedio"
+  tags: ["arbol", "problema"]
 
 variables:
-  total_numeros: uno_de([20, 25, 30])
-  elegidos: uno_de([3, 4])
+  vertices: uno_de([5, 7, 10, 12])
 
-respuesta: combinations(total_numeros, elegidos)
+respuesta: vertices - 1
 tipo: input
 
-enunciado: "Una lotería sortea {elegidos} números distintos de un total de {total_numeros} números posibles (sin importar el orden). ¿Cuántos resultados de sorteo distintos son posibles?"
+enunciado: "Un árbol tiene {vertices} vértices. ¿Cuántas aristas tiene exactamente?"
 
 pasos:
-  - "C({total_numeros}, {elegidos}) = {combinations(total_numeros, elegidos)}"
+  - "Aristas = vértices − 1 = {vertices} − 1 = {vertices - 1}"
 
 explicacion: |
-  Es exactamente el mismo cálculo que un comité o una mano de cartas.
+  Un árbol siempre tiene exactamente n−1 aristas para n vértices, ni
+  una más ni una menos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "combinaciones"
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "avanzado"
+  tags: ["arbol", "problema"]
+
+variables:
+  vertices: 6
+  aristas: uno_de([5, 6, 7])
+
+respuesta: aristas == vertices - 1
+tipo: vf
+
+enunciado: "Un grafo tiene {vertices} vértices y {aristas} aristas. Sin ver el dibujo, ¿PODRÍA ser un árbol (cumple la cantidad correcta de aristas)?"
+
+explicacion: |
+  Sólo con vértices−1 = {vertices - 1} aristas exactas puede llegar a
+  ser un árbol — de más o de menos, se descarta sin necesitar mirar el
+  dibujo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "avanzado"
+  tags: ["arbol", "ciclo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un grafo conexo con n vértices tiene MÁS de n−1 aristas, necesariamente contiene al menos un ciclo."
+
+explicacion: |
+  La arista 'de más', sumada a un grafo ya conexo, cierra
+  necesariamente algún ciclo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "arboles_grafo_sin_ciclos"
   nivel: "basico"
-  tags: ["combinaciones", "aplicacion"]
+  tags: ["vocabulario"]
 
-enunciado: "¿Para qué se usan las combinaciones en problemas de probabilidad compuesta (por ejemplo, probabilidades genéticas en Biología)?"
+enunciado: "¿Qué es la raíz de un árbol?"
 tipo: mc
 opciones_explicitas:
-  - "Para contar cuántos casos favorables y cuántos casos totales hay, sin necesidad de enumerarlos todos, y así calcular la probabilidad como un cociente"
-  - "Sólo sirven para calcular promedios de datos"
-  - "No tienen ninguna aplicación en probabilidad"
-respuesta: "Para contar cuántos casos favorables y cuántos casos totales hay, sin necesidad de enumerarlos todos, y así calcular la probabilidad como un cociente"
+  - "El vértice elegido como punto de partida de la jerarquía (por convención, se dibuja arriba)"
+  - "El vértice con el grado más bajo del árbol"
+  - "Cualquier hoja del árbol"
+respuesta: "El vértice elegido como punto de partida de la jerarquía (por convención, se dibuja arriba)"
 
 explicacion: |
-  Es el puente directo hacia Probabilidad compuesta (Tronco 4.b).
+  Un mismo árbol puede 'enraizarse' en distintos vértices, dando
+  jerarquías distintas.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "combinaciones"
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "basico"
+  tags: ["vocabulario"]
+
+enunciado: "¿Qué es un nodo 'hoja' en un árbol?"
+tipo: mc
+opciones_explicitas:
+  - "Un vértice sin ningún hijo — el final de una rama"
+  - "El vértice raíz del árbol"
+  - "Un vértice con exactamente 2 hijos"
+respuesta: "Un vértice sin ningún hijo — el final de una rama"
+
+explicacion: |
+  Es la contraparte de la raíz: mientras la raíz es el punto de
+  partida, las hojas son los puntos finales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "basico"
+  tags: ["vocabulario"]
+
+enunciado: "En un árbol con raíz elegida, ¿qué relación describe 'padre' e 'hijo'?"
+tipo: mc
+opciones_explicitas:
+  - "Si dos vértices están conectados por una arista y uno está más cerca de la raíz, ese es el padre del otro (su hijo)"
+  - "El padre siempre es una hoja del árbol"
+  - "Todos los vértices son padres entre sí, sin ninguna jerarquía"
+respuesta: "Si dos vértices están conectados por una arista y uno está más cerca de la raíz, ese es el padre del otro (su hijo)"
+
+explicacion: |
+  La dirección 'padre → hijo' depende de qué vértice se eligió como
+  raíz.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "arboles_grafo_sin_ciclos"
   nivel: "avanzado"
-  tags: ["combinaciones", "problema"]
+  tags: ["problema"]
 
-variables:
-  puntos: uno_de([6, 7, 8, 9])
-
-respuesta: combinations(puntos, 3)
+respuesta: 3
 tipo: input
 
-enunciado: "Hay {puntos} puntos marcados en una hoja, ninguno alineado con otros dos. ¿Cuántos triángulos distintos se pueden formar uniendo 3 de esos puntos?"
+enunciado: "Un árbol tiene raíz A, con hijos B y C. B tiene hijos D y E (sin más descendientes). C no tiene ningún hijo. ¿Cuántas hojas tiene este árbol?"
 
 pasos:
-  - "Cada triángulo es un grupo de 3 puntos, sin importar el orden en que se los nombre: C({puntos}, 3) = {combinations(puntos, 3)}"
+  - "D, E y C no tienen ningún hijo — son las 3 hojas. A y B sí tienen hijos, no son hojas."
 
 explicacion: |
-  Un triángulo con vértices A, B, C es el mismo triángulo sin importar
-  en qué orden se mencionen los vértices — por eso es combinación, no
-  variación.
+  Se cuentan sólo los vértices sin ningún hijo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "combinaciones"
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "intermedio"
+  tags: ["arbol_binario", "vocabulario"]
+
+enunciado: "¿Qué es un árbol binario?"
+tipo: mc
+opciones_explicitas:
+  - "Un árbol donde cada vértice tiene como máximo 2 hijos"
+  - "Un árbol con exactamente 2 vértices"
+  - "Un árbol donde todos los vértices son hojas"
+respuesta: "Un árbol donde cada vértice tiene como máximo 2 hijos"
+
+explicacion: |
+  Es la estructura central detrás de muchos algoritmos de búsqueda
+  eficientes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué un sistema de archivos (carpetas y subcarpetas) es, en esencia, un árbol?"
+tipo: mc
+opciones_explicitas:
+  - "Porque cada carpeta puede contener subcarpetas (hijos), partiendo de una carpeta raíz única, sin que ninguna subcarpeta termine 'conectada en círculo' de vuelta a una carpeta ancestro"
+  - "Porque las carpetas siempre se dibujan con forma triangular"
+  - "Un sistema de archivos no tiene ninguna relación con la teoría de grafos"
+respuesta: "Porque cada carpeta puede contener subcarpetas (hijos), partiendo de una carpeta raíz única, sin que ninguna subcarpeta termine 'conectada en círculo' de vuelta a una carpeta ancestro"
+
+explicacion: |
+  Es exactamente la estructura de raíz, padres, hijos y hojas de este
+  módulo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "En un árbol genealógico (descendencia de una persona), ¿qué representan los vértices y qué representa la relación padre-hijo?"
+tipo: mc
+opciones_explicitas:
+  - "Los vértices son las personas; la relación padre-hijo del árbol coincide con la relación familiar real de padre/madre e hijo"
+  - "Los vértices son los años de nacimiento; no hay ninguna relación de parentesco representada"
+respuesta: "Los vértices son las personas; la relación padre-hijo del árbol coincide con la relación familiar real de padre/madre e hijo"
+
+explicacion: |
+  Es uno de los usos más antiguos e intuitivos de la estructura de
+  árbol.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "En un árbol de decisión, ¿qué representan los nodos internos y qué representan las hojas?"
+tipo: mc
+opciones_explicitas:
+  - "Los nodos internos son preguntas o decisiones a tomar; las hojas son los resultados finales posibles"
+  - "Los nodos internos son los resultados finales; las hojas son las preguntas"
+  - "Un árbol de decisión no tiene hojas, sólo nodos internos"
+respuesta: "Los nodos internos son preguntas o decisiones a tomar; las hojas son los resultados finales posibles"
+
+explicacion: |
+  Cada rama representa una respuesta posible a la pregunta de ese
+  nodo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "intermedio"
+  tags: ["arbol", "problema"]
+
+respuesta: 0
+tipo: input
+
+enunciado: "Un árbol tiene un único vértice (sin ninguna arista). Según la fórmula n−1, ¿cuántas aristas debería tener?"
+
+pasos:
+  - "n − 1 = 1 − 1 = 0"
+
+explicacion: |
+  Es el caso trivial: un solo vértice ya es, por definición, un árbol
+  (conexo consigo mismo, sin ningún ciclo posible).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "arboles_grafo_sin_ciclos"
   nivel: "avanzado"
-  tags: ["combinaciones", "variaciones"]
+  tags: ["arbol"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para k=1, la combinación C(n,1) y la variación V(n,1) dan exactamente el mismo resultado (ambas son n)."
+enunciado: "Un grafo con un único vértice y ninguna arista cumple la definición de árbol: es conexo (trivialmente, no hay otro vértice al que no se pueda 'llegar') y acíclico (no tiene ninguna arista para formar un ciclo)."
 
 explicacion: |
-  Con un solo elemento elegido no hay ningún orden que definir, así
-  que dividir por 1! (=1) no cambia nada.
+  Es el caso base más chico posible de un árbol.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "combinaciones"
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "Un árbol filogenético (Biología) agrupa especies según su ancestro común. ¿Por qué es, matemáticamente, un árbol?"
+tipo: mc
+opciones_explicitas:
+  - "Porque tiene una raíz (el ancestro común más antiguo representado) y se ramifica sin volver a juntarse en ningún ciclo, con las especies actuales como hojas"
+  - "Porque siempre tiene exactamente 2 especies"
+  - "No tiene ninguna relación real con la estructura de árbol de este módulo"
+respuesta: "Porque tiene una raíz (el ancestro común más antiguo representado) y se ramifica sin volver a juntarse en ningún ciclo, con las especies actuales como hojas"
+
+explicacion: |
+  Es el mismo caso mencionado en `troncos.md` como aplicación de
+  teoría de grafos sin nombrarla así en Biología.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "arboles_grafo_sin_ciclos"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+enunciado: "¿Qué relación tiene una lista enlazada (una estructura de datos donde cada elemento apunta al siguiente) con un árbol?"
+tipo: mc
+opciones_explicitas:
+  - "Es un árbol 'degenerado': cada nodo tiene como mucho un solo hijo, así que el árbol completo es una única cadena lineal, sin ninguna ramificación"
+  - "No tiene ninguna relación con la estructura de árbol"
+  - "Una lista enlazada siempre tiene ciclos, a diferencia de un árbol"
+respuesta: "Es un árbol 'degenerado': cada nodo tiene como mucho un solo hijo, así que el árbol completo es una única cadena lineal, sin ninguna ramificación"
+
+explicacion: |
+  Sigue cumpliendo la definición de árbol (conexo, acíclico), sólo
+  que sin ninguna rama.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "arboles_grafo_sin_ciclos"
   nivel: "avanzado"
-  tags: ["combinaciones", "problema"]
+  tags: ["problema"]
 
-variables:
-  n: uno_de([9, 10, 11])
-  k: uno_de([3, 4])
-
-respuesta: combinations(n - 1, k - 1)
+respuesta: 2
 tipo: input
 
-enunciado: "De un grupo de {n} personas, se va a elegir un comité de {k}, con la condición de que una persona específica (el director) SIEMPRE tiene que estar incluida. ¿Cuántos comités distintos son posibles?"
+enunciado: "En un árbol con raíz A (nivel 0), A tiene hijo B (nivel 1), y B tiene hijo C. ¿En qué nivel está C?"
 
 pasos:
-  - "El director ya está incluido: sólo hay que elegir los {k}−1 restantes entre las otras {n}−1 personas"
-  - "C({n}−1, {k}−1) = {combinations(n - 1, k - 1)}"
+  - "Cada paso hacia abajo desde la raíz suma 1 al nivel: A=0, B=1, C=2"
 
 explicacion: |
-  Fijar un elemento reduce el problema a elegir el resto entre los que
-  quedan disponibles.
+  El nivel de un nodo es la longitud del camino desde la raíz hasta
+  ese nodo, en cantidad de aristas.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "combinaciones"
+  tema: "arboles_grafo_sin_ciclos"
   nivel: "avanzado"
-  tags: ["combinaciones"]
+  tags: ["vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Sin la fórmula de combinaciones, calcular la probabilidad de sucesos compuestos (como extraer varias cartas de un mismo color) quedaría condenado a enumerar caso por caso."
+enunciado: "Cualquier vértice de un árbol, junto con todos sus descendientes, forma en sí mismo un árbol más chico (un subárbol) — cumple la misma definición de conexo y acíclico."
 
 explicacion: |
-  Para conjuntos grandes, enumerar deja de ser viable — combinaciones
-  resuelve el conteo sin listar nada.
+  Es una propiedad que se aprovecha mucho en algoritmos recursivos
+  sobre árboles.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "combinaciones"
-  nivel: "avanzado"
-  tags: ["combinaciones", "problema"]
-
-variables:
-  n: uno_de([10, 12, 14])
-
-respuesta: combinations(n, 2) + combinations(n, 3)
-tipo: input
-
-enunciado: "De un grupo de {n} personas, se quiere saber cuántos comités posibles hay en total, contando tanto los comités de 2 personas como los de 3 personas (cada tamaño por separado, sumados al final). ¿Cuál es ese total?"
-
-pasos:
-  - "Comités de 2: C({n}, 2) = {combinations(n, 2)}"
-  - "Comités de 3: C({n}, 3) = {combinations(n, 3)}"
-  - "Total = {combinations(n, 2)} + {combinations(n, 3)} = {combinations(n, 2) + combinations(n, 3)}"
-
-explicacion: |
-  Como son comités de tamaños distintos (no se solapan entre sí), se
-  suman directo las dos cantidades.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "combinaciones"
+  tema: "arboles_grafo_sin_ciclos"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirve calcular combinaciones?"
+enunciado: "¿Para qué sirve reconocer una estructura como 'árbol' (grafo conexo sin ciclos)?"
 tipo: mc
 opciones_explicitas:
-  - "Para contar cuántas formas hay de elegir una parte de un conjunto SIN importar el orden, sin repetir elementos"
-  - "Sólo sirve cuando el orden de la elección es importante"
-  - "Sólo aplica a conjuntos de cartas de juego"
-respuesta: "Para contar cuántas formas hay de elegir una parte de un conjunto SIN importar el orden, sin repetir elementos"
+  - "Para poder aplicar el mismo vocabulario y las mismas herramientas (raíz, hojas, recorridos) a sistemas muy distintos que comparten esa misma estructura: archivos, genealogías, decisiones, evolución de especies"
+  - "Sólo sirve para dibujar diagramas jerárquicos, sin ninguna utilidad de cálculo"
+  - "Sólo se aplica a estructuras de datos de programación, sin otros usos"
+respuesta: "Para poder aplicar el mismo vocabulario y las mismas herramientas (raíz, hojas, recorridos) a sistemas muy distintos que comparten esa misma estructura: archivos, genealogías, decisiones, evolución de especies"
 
 explicacion: |
-  Cierra el tronco de Conjuntos y combinatoria (4.a), y es la puerta
-  directa hacia Probabilidad compuesta (Tronco 4.b).
+  Es la base directa de `../algoritmos-de-recorrido-bfs-dfs/`, que
+  aplica exactamente igual a árboles que a grafos generales.
 ```
+
+## Sección: grafos-dirigidos-no-dirigidos-y-ponderados (20 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "basico"
+  tags: ["dirigido", "vocabulario"]
+
+enunciado: "¿Cuál es la diferencia entre un grafo dirigido y uno no dirigido?"
+tipo: mc
+opciones_explicitas:
+  - "En el dirigido, cada arista tiene un sentido (A→B no implica B→A); en el no dirigido, la conexión es simétrica en ambos sentidos"
+  - "El grafo dirigido tiene más vértices que el no dirigido"
+  - "El grafo no dirigido no puede tener aristas"
+respuesta: "En el dirigido, cada arista tiene un sentido (A→B no implica B→A); en el no dirigido, la conexión es simétrica en ambos sentidos"
+
+explicacion: |
+  El sentido de la arista es lo único que cambia entre ambos tipos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Cuál de estos ejemplos se modela mejor con un grafo NO dirigido?"
+tipo: mc
+opciones_explicitas:
+  - "Una amistad mutua en una red social (si A es amigo de B, B también es amigo de A)"
+  - "Que un usuario 'siga' a otro en una red social donde el seguimiento no tiene por qué ser mutuo"
+respuesta: "Una amistad mutua en una red social (si A es amigo de B, B también es amigo de A)"
+
+explicacion: |
+  La amistad mutua es simétrica por definición — no dirigido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Cuál de estos ejemplos se modela mejor con un grafo DIRIGIDO?"
+tipo: mc
+opciones_explicitas:
+  - "Un enlace de una página web hacia otra (que A enlace a B no implica que B enlace a A)"
+  - "Un cable de red que conecta dos computadoras entre sí"
+respuesta: "Un enlace de una página web hacia otra (que A enlace a B no implica que B enlace a A)"
+
+explicacion: |
+  Los enlaces web son el ejemplo clásico de conexión asimétrica.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "basico"
+  tags: ["ponderado", "vocabulario"]
+
+enunciado: "¿Qué es un grafo ponderado?"
+tipo: mc
+opciones_explicitas:
+  - "Uno donde cada arista tiene un número (peso) asociado, como una distancia, un costo o un tiempo"
+  - "Uno donde cada vértice tiene un tamaño distinto en el dibujo"
+  - "Uno que tiene más aristas que vértices"
+respuesta: "Uno donde cada arista tiene un número (peso) asociado, como una distancia, un costo o un tiempo"
+
+explicacion: |
+  El peso es información adicional a la simple conexión.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "intermedio"
+  tags: ["ponderado", "problema"]
+
+variables:
+  peso1: uno_de([5, 8])
+  peso2: uno_de([3, 6])
+  peso3: uno_de([4, 7])
+
+respuesta: peso1 + peso2 + peso3
+tipo: input
+unidad: "km"
+
+enunciado: "Un camino en un mapa de rutas pasa por 3 tramos, con distancias {peso1} km, {peso2} km y {peso3} km. ¿Cuál es la distancia total del camino?"
+
+pasos:
+  - "Distancia total = {peso1} + {peso2} + {peso3} = {peso1 + peso2 + peso3} km"
+
+explicacion: |
+  El costo de un camino en un grafo ponderado es la suma de los pesos
+  de todas las aristas que lo forman.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "intermedio"
+  tags: ["dirigido", "ponderado"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "'Dirigido/no dirigido' y 'ponderado/no ponderado' son dos clasificaciones independientes — un grafo puede ser dirigido Y ponderado a la vez, como un mapa de rutas con calles de un sentido y distancias distintas."
+
+explicacion: |
+  Son dos preguntas distintas sobre la misma arista, no mutuamente
+  excluyentes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "intermedio"
+  tags: ["grado", "vocabulario"]
+
+enunciado: "En un grafo dirigido, ¿cuál es la diferencia entre grado de entrada (in-degree) y grado de salida (out-degree) de un vértice?"
+tipo: mc
+opciones_explicitas:
+  - "El grado de entrada cuenta cuántas aristas LLEGAN a ese vértice; el grado de salida cuenta cuántas aristas SALEN de él"
+  - "Son exactamente el mismo número, sólo cambia el nombre"
+  - "El grado de entrada sólo existe en grafos no dirigidos"
+respuesta: "El grado de entrada cuenta cuántas aristas LLEGAN a ese vértice; el grado de salida cuenta cuántas aristas SALEN de él"
+
+explicacion: |
+  En un grafo no dirigido, ambos coinciden en un único 'grado' — la
+  distinción sólo aparece cuando las aristas tienen sentido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "avanzado"
+  tags: ["grado", "problema"]
+
+respuesta: 3
+tipo: input
+
+enunciado: "En una red social (grafo dirigido de 'sigue a'), el usuario V es seguido por los usuarios P, Q y R (P→V, Q→V, R→V). ¿Cuál es el grado de ENTRADA de V?"
+
+explicacion: |
+  El grado de entrada cuenta las aristas que apuntan HACIA V: 3.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "avanzado"
+  tags: ["grado", "problema"]
+
+respuesta: 2
+tipo: input
+
+enunciado: "El mismo usuario V sigue a los usuarios X e Y (V→X, V→Y), y a nadie más. ¿Cuál es el grado de SALIDA de V?"
+
+explicacion: |
+  El grado de salida cuenta las aristas que salen DESDE V: 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "basico"
+  tags: ["dirigido"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un grafo dirigido, que exista la arista A→B no implica que también exista la arista B→A."
+
+explicacion: |
+  Es la propiedad que distingue a los grafos dirigidos de los no
+  dirigidos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "Un buscador web modela internet como un grafo dirigido, donde cada página es un vértice y cada enlace es una arista dirigida. Si la página A tiene un grado de entrada muy alto, ¿qué sugiere eso?"
+tipo: mc
+opciones_explicitas:
+  - "Que muchas otras páginas enlazan hacia A — una señal de que A podría ser una página relevante o popular"
+  - "Que la página A enlaza a muchas otras páginas"
+  - "Que la página A tiene muy poco contenido"
+respuesta: "Que muchas otras páginas enlazan hacia A — una señal de que A podría ser una página relevante o popular"
+
+explicacion: |
+  Es, de hecho, la intuición base de algoritmos de ranking de páginas
+  web como PageRank.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "intermedio"
+  tags: ["ponderado", "problema"]
+
+variables:
+  peso1: uno_de([10, 15])
+  peso2: uno_de([20, 25])
+
+respuesta: peso1 + peso2
+tipo: input
+unidad: "minutos"
+
+enunciado: "Un viaje en colectivo tiene dos tramos: el primero tarda {peso1} minutos, el segundo {peso2} minutos. ¿Cuál es el tiempo total del viaje (peso total del camino en el grafo)?"
+
+pasos:
+  - "Tiempo total = {peso1} + {peso2} = {peso1 + peso2} minutos"
+
+explicacion: |
+  El peso puede representar cualquier magnitud acumulable: distancia,
+  tiempo, costo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "intermedio"
+  tags: ["clasificar"]
+
+enunciado: "¿Cuántas combinaciones distintas existen entre 'dirigido/no dirigido' y 'ponderado/no ponderado'?"
+tipo: mc
+opciones_explicitas:
+  - "4: no dirigido no ponderado, no dirigido ponderado, dirigido no ponderado, dirigido ponderado"
+  - "2: sólo dirigido o no dirigido, el peso no se combina con eso"
+  - "8, porque hay que contar también el tamaño del grafo"
+respuesta: "4: no dirigido no ponderado, no dirigido ponderado, dirigido no ponderado, dirigido ponderado"
+
+explicacion: |
+  Son dos clasificaciones binarias independientes: 2 × 2 = 4
+  combinaciones.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "intermedio"
+  tags: ["aplicacion", "clasificar"]
+
+enunciado: "Un mapa de una ciudad con calles de un solo sentido, donde cada tramo tiene una distancia distinta, ¿qué tipo de grafo necesita?"
+tipo: mc
+opciones_explicitas:
+  - "Dirigido (por las calles de un sentido) Y ponderado (por las distancias)"
+  - "No dirigido y no ponderado, alcanza con el tipo más simple"
+  - "Sólo ponderado, el sentido de las calles no importa para un mapa"
+respuesta: "Dirigido (por las calles de un sentido) Y ponderado (por las distancias)"
+
+explicacion: |
+  Ignorar el sentido de las calles daría rutas que en la realidad no
+  se pueden recorrer.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "avanzado"
+  tags: ["grado", "problema"]
+
+variables:
+  seguidores: uno_de([500, 800])
+  seguidos: uno_de([50, 90])
+
+respuesta: seguidores > seguidos
+tipo: vf
+
+enunciado: "Un perfil tiene {seguidores} seguidores (grado de entrada) y sigue a {seguidos} cuentas (grado de salida). ¿El grado de entrada es MAYOR que el grado de salida?"
+
+explicacion: |
+  Es un perfil con más gente que lo sigue de la que él sigue —
+  grado de entrada mayor al de salida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "avanzado"
+  tags: ["grado"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un grafo NO dirigido, la distinción entre grado de entrada y grado de salida no aplica — cada arista 'cuenta' igual en ambos sentidos, así que sólo hace falta un único número de grado por vértice."
+
+explicacion: |
+  Es porque en un grafo no dirigido cada arista ya es simétrica de
+  entrada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué es importante elegir bien el tipo de grafo (dirigido/no dirigido, ponderado/no ponderado) antes de resolver un problema real con él?"
+tipo: mc
+opciones_explicitas:
+  - "Porque un algoritmo que ignore el sentido de las conexiones o los pesos puede dar resultados incorrectos para el problema real que se está modelando"
+  - "El tipo de grafo elegido nunca afecta el resultado final"
+  - "Sólo importa la cantidad de vértices, el tipo de grafo es un detalle decorativo"
+respuesta: "Porque un algoritmo que ignore el sentido de las conexiones o los pesos puede dar resultados incorrectos para el problema real que se está modelando"
+
+explicacion: |
+  Como el ejemplo de las calles de un sentido: ignorar la dirección
+  daría rutas irrealizables.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "avanzado"
+  tags: ["ponderado", "problema"]
+
+variables:
+  camino_a: uno_de([12, 15])
+  camino_b: uno_de([18, 20])
+
+respuesta: camino_a < camino_b
+tipo: vf
+
+enunciado: "Entre dos ciudades hay dos caminos posibles en el mapa: el Camino A pesa {camino_a} km en total, el Camino B pesa {camino_b} km. ¿El Camino A es más corto?"
+
+explicacion: |
+  En un grafo ponderado, comparar caminos significa comparar la suma
+  total de sus pesos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "avanzado"
+  tags: ["ponderado"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aunque en la mayoría de las aplicaciones reales (distancias, tiempos) los pesos son positivos, matemáticamente un grafo ponderado puede tener pesos negativos, dependiendo de qué represente ese peso."
+
+explicacion: |
+  Por ejemplo, en un grafo financiero un peso podría representar una
+  ganancia o pérdida en una transacción entre dos cuentas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafos_dirigidos_no_dirigidos_y_ponderados"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve clasificar un grafo como dirigido/no dirigido y ponderado/no ponderado?"
+tipo: mc
+opciones_explicitas:
+  - "Para elegir el modelo matemático correcto según las características reales de lo que se quiere representar (¿las conexiones tienen sentido? ¿tienen un costo asociado?)"
+  - "Es sólo una diferencia de vocabulario sin ninguna consecuencia práctica"
+  - "Sólo se aplica a mapas de rutas, no a otros tipos de grafos"
+respuesta: "Para elegir el modelo matemático correcto según las características reales de lo que se quiere representar (¿las conexiones tienen sentido? ¿tienen un costo asociado?)"
+
+explicacion: |
+  Es el vocabulario que se retoma en `../caminos-y-ciclos/` y
+  `../algoritmos-de-recorrido-bfs-dfs/`.
+```
+
+## Sección: leer-una-tabla (25 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "basico"
+  tags: ["tabla", "vocabulario"]
+
+enunciado: "En una tabla, ¿qué es una fila?"
+tipo: mc
+opciones_explicitas:
+  - "Una línea horizontal de la tabla, que agrupa los datos de un mismo registro"
+  - "Una línea vertical de la tabla"
+  - "El título general de toda la tabla"
+respuesta: "Una línea horizontal de la tabla, que agrupa los datos de un mismo registro"
+
+explicacion: |
+  Por ejemplo, todos los datos de un mismo producto suelen ir en la
+  misma fila.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "basico"
+  tags: ["tabla", "vocabulario"]
+
+enunciado: "En una tabla, ¿qué es una columna?"
+tipo: mc
+opciones_explicitas:
+  - "Una línea vertical de la tabla, que agrupa el mismo tipo de dato para todos los registros"
+  - "Una línea horizontal de la tabla"
+  - "Un dato suelto, sin relación con el resto"
+respuesta: "Una línea vertical de la tabla, que agrupa el mismo tipo de dato para todos los registros"
+
+explicacion: |
+  Por ejemplo, la columna "Precio" tiene el precio de cada producto,
+  uno por fila.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "basico"
+  tags: ["tabla", "vocabulario"]
+
+enunciado: "¿Qué es una celda en una tabla?"
+tipo: mc
+opciones_explicitas:
+  - "La intersección de una fila y una columna, con un solo dato puntual adentro"
+  - "El título de una columna"
+  - "El total de una fila"
+respuesta: "La intersección de una fila y una columna, con un solo dato puntual adentro"
+
+explicacion: |
+  Cada celda contiene un único valor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "basico"
+  tags: ["tabla", "vocabulario"]
+
+enunciado: "¿Qué es el encabezado de una tabla?"
+tipo: mc
+opciones_explicitas:
+  - "La primera fila, que nombra qué dato contiene cada columna"
+  - "La última fila, con los totales"
+  - "La primera columna, con los nombres de cada fila"
+respuesta: "La primera fila, que nombra qué dato contiene cada columna"
+
+explicacion: |
+  Sin encabezado, no se sabría qué representa cada columna de números.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "intermedio"
+  tags: ["tabla", "problema"]
+
+variables:
+  tabla: [{producto: "Manzana", precio: 120, stock: 30}, {producto: "Banana", precio: 80, stock: 45}, {producto: "Naranja", precio: 100, stock: 20}, {producto: "Pera", precio: 150, stock: 15}]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: tabla[idx].precio
+tipo: input
+unidad: "$"
+
+enunciado: "Según esta tabla — Manzana: $120 (30 en stock); Banana: $80 (45 en stock); Naranja: $100 (20 en stock); Pera: $150 (15 en stock) — ¿cuál es el precio de {tabla[idx].producto}?"
+
+explicacion: |
+  Se busca la fila del producto pedido, y se lee el valor de la
+  columna "Precio" en esa fila.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "intermedio"
+  tags: ["tabla", "problema"]
+
+variables:
+  tabla: [{producto: "Manzana", precio: 120, stock: 30}, {producto: "Banana", precio: 80, stock: 45}, {producto: "Naranja", precio: 100, stock: 20}, {producto: "Pera", precio: 150, stock: 15}]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: tabla[idx].stock
+tipo: input
+
+enunciado: "Con la misma tabla — Manzana: $120 (30 en stock); Banana: $80 (45 en stock); Naranja: $100 (20 en stock); Pera: $150 (15 en stock) — ¿cuántas unidades hay en stock de {tabla[idx].producto}?"
+
+explicacion: |
+  Ahora se lee la columna "Stock" en vez de "Precio", en la misma fila.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "intermedio"
+  tags: ["tabla", "problema"]
+
+enunciado: "Según la tabla — Manzana: $120; Banana: $80; Naranja: $100; Pera: $150 — ¿cuál de estos dos productos es más caro, Banana o Pera?"
+tipo: mc
+opciones_explicitas:
+  - "Pera"
+  - "Banana"
+respuesta: "Pera"
+
+explicacion: |
+  Pera cuesta $150 y Banana $80 — se comparan los valores de la misma
+  columna en filas distintas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "avanzado"
+  tags: ["tabla", "problema"]
+
+respuesta: 110
+tipo: input
+
+enunciado: "Según la tabla de stock — Manzana: 30; Banana: 45; Naranja: 20; Pera: 15 — ¿cuál es el stock TOTAL sumando las 4 filas?"
+
+pasos:
+  - "30 + 45 + 20 + 15 = 110"
+
+explicacion: |
+  Cuando la tabla no trae ya un total, hay que sumar manualmente los
+  valores de la columna.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "avanzado"
+  tags: ["tabla", "problema"]
+
+respuesta: 70
+tipo: input
+
+enunciado: "Según la tabla de precios — Manzana: $120; Banana: $80; Naranja: $100; Pera: $150 — ¿cuál es la diferencia entre el producto más caro y el más barato?"
+
+pasos:
+  - "Más caro: Pera ($150). Más barato: Banana ($80)."
+  - "Diferencia = 150 − 80 = 70"
+
+explicacion: |
+  Primero hay que identificar cuál fila tiene el mayor y cuál el menor
+  valor, y después restar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "intermedio"
+  tags: ["tabla"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una tabla sin encabezado sigue siendo una tabla (filas y columnas de datos), pero es mucho más difícil de interpretar porque no queda claro qué representa cada columna."
+
+explicacion: |
+  El encabezado es lo que le da significado a los números de cada
+  columna.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "intermedio"
+  tags: ["tabla", "ordenar"]
+
+enunciado: "Ordená los pasos para encontrar un dato puntual en una tabla (por ejemplo, el precio de un producto específico)."
+tipo: ordenar
+opciones_explicitas:
+  - "Ubicar la columna correspondiente al dato que se busca"
+  - "Ubicar la fila correspondiente al registro que interesa"
+  - "Leer el valor de la celda donde se cruzan esa fila y esa columna"
+respuesta_orden: ["Ubicar la fila correspondiente al registro que interesa", "Ubicar la columna correspondiente al dato que se busca", "Leer el valor de la celda donde se cruzan esa fila y esa columna"]
+explicacion: |
+  Sin fijar primero la fila (o la columna), no hay una sola celda que
+  leer.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "basico"
+  tags: ["tabla", "aplicacion"]
+
+enunciado: "Una boleta de supermercado lista productos, cantidades y precios en filas. ¿Qué habilidad hace falta para entender cuánto costó cada producto?"
+tipo: mc
+opciones_explicitas:
+  - "Leer una tabla: identificar la fila del producto y la columna del precio"
+  - "Ninguna habilidad matemática, sólo hay que mirar el total final"
+  - "Sólo sirve saber sumar, sin necesidad de leer filas ni columnas"
+respuesta: "Leer una tabla: identificar la fila del producto y la columna del precio"
+
+explicacion: |
+  Es la misma habilidad de este módulo, aplicada a un documento real
+  y cotidiano.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "intermedio"
+  tags: ["tabla", "problema"]
+
+variables:
+  equipos: [{nombre: "Águilas", puntos: 24, partidos: 10}, {nombre: "Tigres", puntos: 18, partidos: 10}, {nombre: "Leones", puntos: 30, partidos: 10}]
+  idx: uno_de([0, 1, 2])
+
+respuesta: equipos[idx].puntos
+tipo: input
+
+enunciado: "Tabla de un torneo — Águilas: 24 puntos (10 partidos); Tigres: 18 puntos (10 partidos); Leones: 30 puntos (10 partidos). ¿Cuántos puntos tiene {equipos[idx].nombre}?"
+
+explicacion: |
+  Misma habilidad que con la tabla de productos, en otro contexto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "intermedio"
+  tags: ["tabla", "problema"]
+
+enunciado: "Con la tabla del torneo — Águilas: 24 puntos; Tigres: 18 puntos; Leones: 30 puntos — ¿qué equipo está primero en la tabla de posiciones?"
+tipo: mc
+opciones_explicitas:
+  - "Leones"
+  - "Águilas"
+  - "Tigres"
+respuesta: "Leones"
+
+explicacion: |
+  Tiene la mayor cantidad de puntos de los tres equipos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "intermedio"
+  tags: ["tabla", "vocabulario"]
+
+enunciado: "¿Cómo se le llama, en general, al conjunto de datos de una misma fila (por ejemplo, todos los datos de un mismo producto)?"
+tipo: mc
+opciones_explicitas:
+  - "Un registro"
+  - "Un encabezado"
+  - "Una celda"
+respuesta: "Un registro"
+
+explicacion: |
+  Cada fila (fuera del encabezado) suele representar un registro
+  completo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "avanzado"
+  tags: ["tabla", "problema"]
+
+respuesta: 24
+tipo: input
+
+enunciado: "Con la tabla de puntos — Águilas: 24; Tigres: 18; Leones: 30 — ¿cuál es el promedio de puntos de los 3 equipos?"
+
+pasos:
+  - "(24 + 18 + 30) ÷ 3 = 72 ÷ 3 = 24"
+
+explicacion: |
+  Sumar la columna completa y dividir por la cantidad de filas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "intermedio"
+  tags: ["tabla"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una tabla puede tener columnas con texto (como nombres o categorías), no sólo columnas numéricas."
+
+explicacion: |
+  La columna "Producto" o "Equipo", por ejemplo, es texto — sólo
+  algunas columnas necesitan ser números.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "avanzado"
+  tags: ["tabla", "problema"]
+
+respuesta: 2
+tipo: input
+
+enunciado: "De la tabla de precios — Manzana: $120; Banana: $80; Naranja: $100; Pera: $150 — ¿cuántos productos cuestan MÁS de $100?"
+
+pasos:
+  - "Manzana ($120) y Pera ($150) superan los $100 — Naranja ($100) no supera, está justo en el límite."
+  - "Total: 2 productos"
+
+explicacion: |
+  Hay que revisar cada fila una por una y contar cuántas cumplen la
+  condición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "intermedio"
+  tags: ["tabla"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si se reordenan las filas de una tabla (por ejemplo, de mayor a menor precio), los datos de cada registro no cambian — sólo cambia el orden en que se presentan."
+
+explicacion: |
+  Reordenar no agrega ni quita información, sólo la presenta distinto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "basico"
+  tags: ["tabla", "vocabulario"]
+
+enunciado: "Antes de confiar en los datos de una tabla, ¿qué conviene revisar además de los números en sí?"
+tipo: mc
+opciones_explicitas:
+  - "De dónde vienen esos datos (la fuente) y si están actualizados"
+  - "Sólo el color de fondo de la tabla"
+  - "No hace falta revisar nada más, los números siempre son confiables"
+respuesta: "De dónde vienen esos datos (la fuente) y si están actualizados"
+
+explicacion: |
+  Una tabla puede estar bien construida y aun así tener datos viejos o
+  poco confiables si la fuente no es buena.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "intermedio"
+  tags: ["tabla", "problema"]
+
+enunciado: "De la tabla de stock — Manzana: 30; Banana: 45; Naranja: 20; Pera: 15 — ¿qué producto tiene MÁS unidades en stock?"
+tipo: mc
+opciones_explicitas:
+  - "Banana"
+  - "Manzana"
+  - "Naranja"
+respuesta: "Banana"
+
+explicacion: |
+  Banana tiene 45, el valor más alto de esa columna.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "intermedio"
+  tags: ["tabla", "problema"]
+
+enunciado: "De la misma tabla de stock — Manzana: 30; Banana: 45; Naranja: 20; Pera: 15 — ¿qué producto tiene MENOS unidades en stock?"
+tipo: mc
+opciones_explicitas:
+  - "Pera"
+  - "Naranja"
+  - "Manzana"
+respuesta: "Pera"
+
+explicacion: |
+  Pera tiene 15, el valor más bajo de esa columna.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "avanzado"
+  tags: ["tabla"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una celda vacía en una tabla no siempre significa 'cero' — puede significar 'dato no disponible' o 'no aplica', y confundir ambos casos puede llevar a un error de interpretación."
+
+explicacion: |
+  Es un error común: tratar un dato faltante como si fuera 0 cuando en
+  realidad nunca se midió ese valor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "basico"
+  tags: ["tabla", "aplicacion"]
+
+enunciado: "Un horario escolar tiene los días de la semana en las columnas y las horas del día en las filas. ¿Cómo se encuentra qué materia hay el miércoles a las 10 hs?"
+tipo: mc
+opciones_explicitas:
+  - "Se busca la fila de las 10 hs y la columna del miércoles, y se lee la celda donde se cruzan"
+  - "Se suman todas las materias de la semana"
+  - "No se puede saber sin ver el horario completo del año"
+respuesta: "Se busca la fila de las 10 hs y la columna del miércoles, y se lee la celda donde se cruzan"
+
+explicacion: |
+  Es exactamente el mismo procedimiento de cruzar fila y columna.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "leer_una_tabla"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve saber leer una tabla?"
+tipo: mc
+opciones_explicitas:
+  - "Para encontrar, comparar y sumar datos organizados en filas y columnas, sin necesidad de que estén dibujados como gráfico"
+  - "Sólo sirve para tablas de multiplicar"
+  - "Sólo aplica a tablas con menos de 3 filas"
+respuesta: "Para encontrar, comparar y sumar datos organizados en filas y columnas, sin necesidad de que estén dibujados como gráfico"
+
+explicacion: |
+  Es el prerrequisito directo de los tres módulos de gráficos que
+  siguen — un gráfico es, en el fondo, una tabla dibujada.
+```
+

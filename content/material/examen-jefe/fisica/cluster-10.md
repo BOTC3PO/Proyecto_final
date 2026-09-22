@@ -1,954 +1,8 @@
-# Examen jefe — Maquinas y Movimientos
+# Examen jefe — [PENDIENTE #745]
 
-> Logro #165. Completaste el parcial de máquinas simples, movimiento circular y momento lineal. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #745. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: maquinas-simples (26 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "basico"
-  tags: ["maquinas_simples", "vocabulario"]
-
-enunciado: "¿Qué mide la ventaja mecánica de una máquina simple?"
-tipo: mc
-opciones_explicitas:
-  - "La relación entre la carga que hay que mover y el esfuerzo (fuerza aplicada) necesario para moverla"
-  - "La velocidad máxima que puede alcanzar la máquina"
-  - "La cantidad de energía que la máquina crea"
-respuesta: "La relación entre la carga que hay que mover y el esfuerzo (fuerza aplicada) necesario para moverla"
-
-explicacion: |
-  VM = carga / esfuerzo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples", "completar"]
-
-tipo: completar
-enunciado: "Completá: VM = carga / ___."
-respuestas_validas:
-  - "esfuerzo"
-
-explicacion: |
-  El esfuerzo es la fuerza que aplica la persona (o el motor); la
-  carga es la fuerza que hay que vencer.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si la ventaja mecánica de una máquina es mayor a 1, se necesita menos esfuerzo que la carga que se está moviendo."
-
-explicacion: |
-  VM = carga/esfuerzo > 1 implica carga > esfuerzo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Una máquina simple ideal (sin rozamiento) puede reducir el esfuerzo necesario SIN que aumente la distancia recorrida al aplicar ese esfuerzo."
-
-explicacion: |
-  Es falso: por conservación del trabajo, si baja la fuerza necesaria,
-  sube proporcionalmente la distancia — el trabajo total no cambia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples", "problema"]
-
-variables:
-  carga: random(100, 500)
-  esfuerzo: random(20, 80)
-
-respuesta: redondear(carga / esfuerzo, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Una máquina simple permite mover una carga de {carga} N aplicando un esfuerzo de sólo {esfuerzo} N. ¿Cuál es su ventaja mecánica?"
-
-pasos:
-  - "VM = carga / esfuerzo = {carga} / {esfuerzo} = {redondear(carga / esfuerzo, 2)}"
-
-explicacion: |
-  Sin unidad propia — es un cociente entre dos fuerzas, un número puro.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples", "palanca"]
-
-enunciado: "¿Qué caracteriza a una palanca de PRIMERA clase (como una balanza o unas tijeras)?"
-tipo: mc
-opciones_explicitas:
-  - "El punto de apoyo (pivote) está entre el esfuerzo y la carga"
-  - "La carga está entre el pivote y el esfuerzo"
-  - "El esfuerzo está entre el pivote y la carga"
-respuesta: "El punto de apoyo (pivote) está entre el esfuerzo y la carga"
-
-explicacion: |
-  Su VM puede ser mayor o menor a 1, según qué brazo sea más largo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples", "palanca"]
-
-enunciado: "¿Qué caracteriza a una palanca de SEGUNDA clase (como una carretilla)?"
-tipo: mc
-opciones_explicitas:
-  - "La carga está entre el pivote y el esfuerzo, y siempre tiene VM > 1"
-  - "El pivote está entre el esfuerzo y la carga"
-  - "El esfuerzo está entre el pivote y la carga, y siempre tiene VM < 1"
-respuesta: "La carga está entre el pivote y el esfuerzo, y siempre tiene VM > 1"
-
-explicacion: |
-  El brazo del esfuerzo siempre es más largo que el de la carga en
-  este arreglo, así que la VM siempre es mayor a 1.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples", "palanca"]
-
-enunciado: "¿Qué caracteriza a una palanca de TERCERA clase (como unas pinzas o una caña de pescar)?"
-tipo: mc
-opciones_explicitas:
-  - "El esfuerzo está entre el pivote y la carga, y siempre tiene VM < 1"
-  - "El pivote está entre el esfuerzo y la carga"
-  - "La carga está entre el pivote y el esfuerzo, y siempre tiene VM > 1"
-respuesta: "El esfuerzo está entre el pivote y la carga, y siempre tiene VM < 1"
-
-explicacion: |
-  Se sacrifica fuerza a cambio de más velocidad o distancia en el
-  extremo donde está la carga.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "avanzado"
-  tags: ["maquinas_simples", "palanca", "problema"]
-
-variables:
-  d_esfuerzo: random_float(1, 3, 2)
-  d_carga: random_float(0.2, 0.9, 2)
-
-respuesta: redondear(d_esfuerzo / d_carga, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "En una palanca, el brazo del esfuerzo mide {d_esfuerzo} m y el brazo de la carga mide {d_carga} m. ¿Cuál es su ventaja mecánica?"
-
-pasos:
-  - "VM = d_esfuerzo / d_carga = {d_esfuerzo} / {d_carga} = {redondear(d_esfuerzo / d_carga, 2)}"
-
-explicacion: |
-  Sale directo de la condición de equilibrio de momentos, sin
-  necesidad de conocer las fuerzas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "avanzado"
-  tags: ["maquinas_simples", "palanca", "problema"]
-
-variables:
-  d_esfuerzo: random_float(1, 3, 2)
-  d_carga: random_float(0.2, 0.9, 2)
-  carga: random(50, 300)
-
-respuesta: redondear(carga * d_carga / d_esfuerzo, 2)
-tipo: input
-tolerancia_abs: 1
-unidad: "N"
-
-enunciado: "En una palanca con brazo de esfuerzo {d_esfuerzo} m y brazo de carga {d_carga} m, se quiere mover una carga de {carga} N. ¿Qué esfuerzo hace falta aplicar?"
-
-pasos:
-  - "F_esfuerzo × d_esfuerzo = F_carga × d_carga"
-  - "F_esfuerzo = {carga} × {d_carga} / {d_esfuerzo} = {redondear(carga * d_carga / d_esfuerzo, 2)} N"
-
-explicacion: |
-  Es la misma condición de equilibrio de `../estatica/equilibrio-de-cuerpo-rigido/`,
-  despejando el esfuerzo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "avanzado"
-  tags: ["maquinas_simples", "estatica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La ecuación de equilibrio de una palanca, F_esfuerzo×d_esfuerzo = F_carga×d_carga, es exactamente la condición ΣM=0 ya vista en equilibrio de cuerpo rígido, tomando el pivote como punto de referencia."
-
-explicacion: |
-  Los dos momentos (esfuerzo y carga, respecto del pivote) tienen que
-  cancelarse para que la palanca esté en equilibrio.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples", "polea"]
-
-enunciado: "¿Cuál es la ventaja mecánica de una polea FIJA (la que sólo cambia la dirección de la cuerda, sin moverse junto con la carga)?"
-tipo: mc
-opciones_explicitas:
-  - "VM = 1 (no reduce el esfuerzo, sólo cambia la dirección de la fuerza)"
-  - "VM = 2"
-  - "VM = 0"
-respuesta: "VM = 1 (no reduce el esfuerzo, sólo cambia la dirección de la fuerza)"
-
-explicacion: |
-  Es útil (por ejemplo, para tirar hacia abajo en vez de levantar hacia
-  arriba), pero no reduce la fuerza necesaria.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples", "polea"]
-
-enunciado: "¿Cuál es la ventaja mecánica de una polea MÓVIL (la que se mueve junto con la carga)?"
-tipo: mc
-opciones_explicitas:
-  - "VM = 2"
-  - "VM = 1"
-  - "VM = 0,5"
-respuesta: "VM = 2"
-
-explicacion: |
-  Dos tramos de cuerda sostienen la carga, así que el esfuerzo
-  necesario se reduce a la mitad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "avanzado"
-  tags: ["maquinas_simples", "polea", "problema"]
-
-variables:
-  tramos: uno_de([2, 3, 4, 5])
-  carga: random(100, 400)
-
-respuesta: redondear(carga / tramos, 2)
-tipo: input
-tolerancia_abs: 1
-unidad: "N"
-
-enunciado: "Un sistema de poleas sostiene una carga de {carga} N con {tramos} tramos de cuerda que la sujetan directamente. ¿Qué esfuerzo hace falta aplicar (ideal, sin rozamiento)?"
-
-pasos:
-  - "VM ideal = {tramos} (un tramo de cuerda por cada esfuerzo que se reparte la carga)"
-  - "esfuerzo = carga / VM = {carga} / {tramos} = {redondear(carga / tramos, 2)} N"
-
-explicacion: |
-  La VM ideal de un sistema de poleas es igual a la cantidad de tramos
-  de cuerda que sostienen la carga.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples", "plano_inclinado"]
-
-enunciado: "¿Cómo se calcula la ventaja mecánica ideal de un plano inclinado?"
-tipo: mc
-opciones_explicitas:
-  - "VM = longitud del plano / altura que se sube"
-  - "VM = altura / longitud del plano"
-  - "VM = ángulo de inclinación en grados"
-respuesta: "VM = longitud del plano / altura que se sube"
-
-explicacion: |
-  Un plano más largo (para la misma altura) reduce la fuerza necesaria
-  para subir la carga.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "avanzado"
-  tags: ["maquinas_simples", "plano_inclinado", "problema"]
-
-variables:
-  altura: random(1, 3)
-  longitud: random(4, 10)
-
-respuesta: redondear(longitud / altura, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Una rampa de {longitud} m de longitud se usa para subir una carga a {altura} m de altura. ¿Cuál es su ventaja mecánica ideal?"
-
-pasos:
-  - "VM = longitud / altura = {longitud} / {altura} = {redondear(longitud / altura, 2)}"
-
-explicacion: |
-  A mayor longitud para la misma altura, menor la pendiente y menor la
-  fuerza necesaria (aunque haya que recorrer más distancia).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples", "plano_inclinado"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para subir una carga a la misma altura, una rampa más larga necesita menos fuerza que una rampa más corta."
-
-explicacion: |
-  Mayor longitud (para la misma altura) implica mayor VM, y por lo
-  tanto menos esfuerzo necesario.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples"]
-
-enunciado: "¿Cómo se calcula la ventaja mecánica ideal de una rueda y eje (por ejemplo, un volante de dirección)?"
-tipo: mc
-opciones_explicitas:
-  - "VM = radio de la rueda / radio del eje"
-  - "VM = radio del eje / radio de la rueda"
-  - "VM = radio de la rueda + radio del eje"
-respuesta: "VM = radio de la rueda / radio del eje"
-
-explicacion: |
-  Cuanto más grande la rueda respecto del eje, menos fuerza hace falta
-  aplicar en el borde de la rueda.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "avanzado"
-  tags: ["maquinas_simples", "problema"]
-
-variables:
-  R: random(10, 30)
-  r: random(1, 5)
-
-respuesta: redondear(R / r, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Un volante de dirección tiene un radio de {R} cm, y el eje que gira tiene un radio de {r} cm. ¿Cuál es la ventaja mecánica ideal de este sistema?"
-
-pasos:
-  - "VM = R / r = {R} / {r} = {redondear(R / r, 2)}"
-
-explicacion: |
-  Es la misma idea que la palanca, con el pivote en el centro del eje.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "intermedio"
-  tags: ["maquinas_simples"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las máquinas simples permiten hacer el mismo trabajo con menos fuerza, pero a costa de recorrer más distancia aplicando esa fuerza."
-
-explicacion: |
-  Es la consecuencia de que el trabajo (F×d) se conserva en el caso
-  ideal sin rozamiento.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "avanzado"
-  tags: ["maquinas_simples"]
-
-enunciado: "¿Por qué se dice que las máquinas simples no 'ahorran' trabajo, sólo lo redistribuyen entre fuerza y distancia?"
-tipo: mc
-opciones_explicitas:
-  - "Porque W=F×d se mantiene igual (en el caso ideal): si F baja, d sube en la misma proporción"
-  - "Porque en realidad sí ahorran trabajo, generan energía extra"
-  - "Porque el trabajo no depende de la fuerza aplicada"
-respuesta: "Porque W=F×d se mantiene igual (en el caso ideal): si F baja, d sube en la misma proporción"
-
-explicacion: |
-  Es la misma conservación de trabajo ya vista en
-  `../trabajo-de-una-fuerza/`.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "avanzado"
-  tags: ["maquinas_simples", "ordenar"]
-
-enunciado: "Ordená los pasos para identificar y calcular la ventaja mecánica de una palanca dada."
-tipo: ordenar
-opciones_explicitas:
-  - "Calcular VM = d_esfuerzo / d_carga"
-  - "Identificar dónde está el pivote, dónde se aplica el esfuerzo y dónde actúa la carga"
-  - "Medir (o calcular) el brazo de palanca del esfuerzo y el brazo de palanca de la carga"
-respuesta_orden:
-  - "Identificar dónde está el pivote, dónde se aplica el esfuerzo y dónde actúa la carga"
-  - "Medir (o calcular) el brazo de palanca del esfuerzo y el brazo de palanca de la carga"
-  - "Calcular VM = d_esfuerzo / d_carga"
-
-explicacion: |
-  Sin identificar primero los tres elementos (pivote, esfuerzo, carga)
-  no hay brazos que medir.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "basico"
-  tags: ["maquinas_simples", "aplicacion"]
-
-enunciado: "¿Por qué un destornillador con mango más ancho permite aflojar un tornillo con menos esfuerzo?"
-tipo: mc
-opciones_explicitas:
-  - "Funciona como una rueda y eje: un mango más ancho (mayor radio) aumenta la ventaja mecánica"
-  - "Porque los mangos anchos pesan menos"
-  - "No hay relación real, es sólo cómodo para la mano"
-respuesta: "Funciona como una rueda y eje: un mango más ancho (mayor radio) aumenta la ventaja mecánica"
-
-explicacion: |
-  Un carpintero o mecánico usa esta ventaja mecánica todos los días,
-  sin necesariamente nombrarla así.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "basico"
-  tags: ["maquinas_simples", "completar"]
-
-tipo: completar
-enunciado: "Completá: en una máquina simple, la fuerza que aplica la persona (o el motor) se llama ___; la fuerza que hay que superar se llama carga (o resistencia)."
-respuestas_validas:
-  - "esfuerzo"
-
-explicacion: |
-  Esfuerzo y carga son los dos términos que compara la ventaja
-  mecánica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "avanzado"
-  tags: ["maquinas_simples"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La ventaja mecánica real de una máquina simple (medida en la práctica) siempre es exactamente igual a la ventaja mecánica ideal (calculada sólo con la geometría), sin importar el rozamiento."
-
-explicacion: |
-  El rozamiento (`../plano-inclinado-y-rozamiento/`) siempre consume
-  parte del esfuerzo, así que la VM real queda por debajo de la ideal.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "maquinas_simples"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve entender las máquinas simples y la ventaja mecánica?"
-tipo: mc
-opciones_explicitas:
-  - "Para entender cómo palancas, poleas, planos inclinados y ruedas permiten mover cargas grandes con menos esfuerzo, a cambio de más distancia recorrida"
-  - "Sólo sirve para máquinas eléctricas"
-  - "Sólo aplica a objetos sin peso"
-respuesta: "Para entender cómo palancas, poleas, planos inclinados y ruedas permiten mover cargas grandes con menos esfuerzo, a cambio de más distancia recorrida"
-
-explicacion: |
-  Es el puente real entre toda la Física de fuerzas y momentos ya
-  vista, y las herramientas que un carpintero o mecánico usa todos los
-  días.
-```
-
-## Sección: masas-de-aire-y-frentes (22 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "basico"
-  tags: ["masas_de_aire", "vocabulario"]
-
-enunciado: "¿Qué es una masa de aire?"
-tipo: mc
-opciones_explicitas:
-  - "Un volumen grande de atmósfera con temperatura y humedad relativamente uniformes"
-  - "Una nube muy grande y oscura"
-  - "El viento que sopla en una tormenta"
-respuesta: "Un volumen grande de atmósfera con temperatura y humedad relativamente uniformes"
-
-explicacion: |
-  Se forma al permanecer estacionada varios días sobre una misma región.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "basico"
-  tags: ["masas_de_aire", "clasificacion"]
-
-enunciado: "¿Qué característica tiene una masa de aire polar (P)?"
-tipo: mc
-opciones_explicitas:
-  - "Es fría, porque se formó en latitudes altas"
-  - "Es cálida, porque se formó en latitudes bajas"
-  - "Siempre es húmeda"
-respuesta: "Es fría, porque se formó en latitudes altas"
-
-explicacion: |
-  "Polar" indica latitud de origen alta, no humedad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "basico"
-  tags: ["masas_de_aire", "clasificacion"]
-
-enunciado: "¿Qué característica tiene una masa de aire tropical (T)?"
-tipo: mc
-opciones_explicitas:
-  - "Es cálida, porque se formó en latitudes bajas"
-  - "Es fría, porque se formó en latitudes altas"
-  - "Siempre es seca"
-respuesta: "Es cálida, porque se formó en latitudes bajas"
-
-explicacion: |
-  "Tropical" indica latitud de origen baja, no humedad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "basico"
-  tags: ["masas_de_aire", "clasificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una masa de aire marítima (m) se forma sobre el océano y es húmeda."
-
-explicacion: |
-  El criterio de humedad depende de la superficie de origen (océano o
-  tierra firme), independiente del criterio de temperatura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "basico"
-  tags: ["masas_de_aire", "clasificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una masa de aire continental (c) se forma sobre tierra firme y es seca."
-
-explicacion: |
-  Igual que "marítima", es el criterio de humedad, independiente del de
-  temperatura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "intermedio"
-  tags: ["masas_de_aire", "clasificacion"]
-
-enunciado: "¿Cómo se describe una masa de aire polar marítima (mP)?"
-tipo: mc
-opciones_explicitas:
-  - "Fría y húmeda"
-  - "Cálida y húmeda"
-  - "Fría y seca"
-respuesta: "Fría y húmeda"
-
-explicacion: |
-  Polar (fría) + marítima (húmeda).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "intermedio"
-  tags: ["masas_de_aire", "clasificacion"]
-
-enunciado: "¿Cómo se describe una masa de aire tropical continental (cT)?"
-tipo: mc
-opciones_explicitas:
-  - "Cálida y seca"
-  - "Fría y húmeda"
-  - "Cálida y húmeda"
-respuesta: "Cálida y seca"
-
-explicacion: |
-  Tropical (cálida) + continental (seca).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "basico"
-  tags: ["frentes", "vocabulario"]
-
-enunciado: "¿Qué es un frente meteorológico?"
-tipo: mc
-opciones_explicitas:
-  - "La zona de contacto entre dos masas de aire de características distintas"
-  - "Una masa de aire polar"
-  - "Otro nombre para la presión atmosférica"
-respuesta: "La zona de contacto entre dos masas de aire de características distintas"
-
-explicacion: |
-  Ahí es donde se producen los cambios de clima más marcados.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "intermedio"
-  tags: ["frentes", "densidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En un frente, la masa de aire más fría y densa se desliza por debajo de la más cálida y liviana."
-
-explicacion: |
-  Es la misma idea de densidad que explica por qué el aire cálido sube y
-  el frío baja.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "intermedio"
-  tags: ["frentes", "frio"]
-
-enunciado: "En un frente frío, ¿qué ocurre con el aire cálido que estaba antes en la zona?"
-tipo: mc
-opciones_explicitas:
-  - "Es empujado hacia arriba bruscamente por el aire frío que avanza por debajo"
-  - "Se desliza suavemente por encima del aire frío"
-  - "Se queda estancado sin moverse"
-respuesta: "Es empujado hacia arriba bruscamente por el aire frío que avanza por debajo"
-
-explicacion: |
-  El aire frío, más denso, avanza y se mete por debajo del cálido.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "intermedio"
-  tags: ["frentes", "frio"]
-
-enunciado: "¿Qué tipo de clima suele traer el paso de un frente frío?"
-tipo: mc
-opciones_explicitas:
-  - "Tormentas eléctricas intensas pero de corta duración"
-  - "Llovizna suave y prolongada durante días"
-  - "Ningún cambio de clima"
-respuesta: "Tormentas eléctricas intensas pero de corta duración"
-
-explicacion: |
-  El ascenso brusco del aire cálido genera nubes de desarrollo vertical.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "intermedio"
-  tags: ["frentes", "calido"]
-
-enunciado: "En un frente cálido, ¿cómo avanza el aire cálido respecto del aire frío que se retira?"
-tipo: mc
-opciones_explicitas:
-  - "Se desliza suavemente por encima del aire frío"
-  - "Se mete bruscamente por debajo del aire frío"
-  - "No avanza, queda estacionario"
-respuesta: "Se desliza suavemente por encima del aire frío"
-
-explicacion: |
-  El aire cálido es menos denso, así que sube por encima del frío que se
-  retira más lentamente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "intermedio"
-  tags: ["frentes", "calido"]
-
-enunciado: "¿Qué tipo de precipitación suele traer un frente cálido?"
-tipo: mc
-opciones_explicitas:
-  - "Llovizna suave y prolongada, con nubes en capas por delante del frente"
-  - "Tormentas eléctricas breves e intensas"
-  - "Granizo severo únicamente"
-respuesta: "Llovizna suave y prolongada, con nubes en capas por delante del frente"
-
-explicacion: |
-  El ascenso del aire es gradual, no brusco.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "avanzado"
-  tags: ["frentes", "ocluido"]
-
-enunciado: "¿Cómo se forma un frente ocluido?"
-tipo: mc
-opciones_explicitas:
-  - "Un frente frío, que avanza más rápido, alcanza y atrapa a un frente cálido que iba adelante"
-  - "Dos masas de aire se encuentran y ninguna logra desplazar a la otra"
-  - "Una sola masa de aire se enfría de golpe"
-respuesta: "Un frente frío, que avanza más rápido, alcanza y atrapa a un frente cálido que iba adelante"
-
-explicacion: |
-  El aire cálido queda completamente levantado del suelo, atrapado entre
-  las dos masas de aire frío.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "avanzado"
-  tags: ["frentes", "estacionario"]
-
-enunciado: "¿Qué caracteriza a un frente estacionario?"
-tipo: mc
-opciones_explicitas:
-  - "Ninguna de las dos masas de aire logra desplazar a la otra, y el límite queda casi inmóvil varios días"
-  - "El aire frío avanza rápidamente y desplaza al cálido"
-  - "El aire cálido atrapa completamente al aire frío"
-respuesta: "Ninguna de las dos masas de aire logra desplazar a la otra, y el límite queda casi inmóvil varios días"
-
-explicacion: |
-  Suele traer nubosidad y lluvia persistente mientras dura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "intermedio"
-  tags: ["frentes", "comparacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El paso de un frente frío suele ser más rápido y abrupto que el de un frente cálido, que es más lento y gradual."
-
-explicacion: |
-  El aire frío avanza empujando bruscamente por debajo; el aire cálido
-  se desliza suavemente por arriba.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "avanzado"
-  tags: ["frentes", "ocluido"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un frente ocluido combina características de un frente frío y un frente cálido, con nubosidad variada y precipitación irregular."
-
-explicacion: |
-  Es el resultado de la fusión de ambos tipos de frente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "intermedio"
-  tags: ["masas_de_aire", "clasificacion"]
-
-tipo: ordenar
-opciones_explicitas:
-  - "polar"
-  - "templada"
-  - "tropical"
-respuesta:
-  - "polar"
-  - "templada"
-  - "tropical"
-
-enunciado: "Ordená estas regiones de origen de menor a mayor temperatura típica de la masa de aire que generan."
-
-explicacion: |
-  De latitudes altas (frío, polar) a bajas (cálido, tropical), pasando
-  por las templadas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "basico"
-  tags: ["frentes", "vocabulario"]
-
-tipo: completar
-respuestas_validas:
-  - "ocluido"
-
-enunciado: "El frente que se forma cuando un frente frío alcanza y atrapa a uno cálido se llama frente ____."
-
-explicacion: |
-  Frente ocluido: el aire cálido queda levantado del suelo entre las dos
-  masas de aire frío.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "avanzado"
-  tags: ["frentes", "sintesis"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los frentes son la zona donde se producen los ascensos de aire que generan condensación y, por lo tanto, la formación de nubes."
-
-explicacion: |
-  Es la conexión directa con el módulo de Formación de nubes.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "intermedio"
-  tags: ["masas_de_aire", "comparacion"]
-
-enunciado: "¿Cuál de estas dos masas de aire es más húmeda: una marítima polar (mP), o una continental tropical (cT)?"
-tipo: mc
-opciones_explicitas:
-  - "La marítima polar (mP)"
-  - "La continental tropical (cT)"
-  - "Las dos tienen la misma humedad"
-respuesta: "La marítima polar (mP)"
-
-explicacion: |
-  "Marítima" (formada sobre el océano) es el criterio de humedad, no de
-  temperatura.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "masas_de_aire_y_frentes"
-  nivel: "avanzado"
-  tags: ["masas_de_aire", "frentes", "sintesis"]
-
-enunciado: "¿Cuál resume mejor la relación entre masas de aire y frentes?"
-tipo: mc
-opciones_explicitas:
-  - "Las masas de aire son volúmenes con temperatura/humedad uniformes, y los frentes son el límite de contacto entre masas distintas, donde ocurren los cambios de clima más marcados"
-  - "Las masas de aire y los frentes son el mismo fenómeno con nombres distintos"
-  - "Los frentes existen dentro de una sola masa de aire, sin que haya otra masa involucrada"
-respuesta: "Las masas de aire son volúmenes con temperatura/humedad uniformes, y los frentes son el límite de contacto entre masas distintas, donde ocurren los cambios de clima más marcados"
-
-explicacion: |
-  Son dos conceptos relacionados pero distintos: la masa de aire es el
-  volumen, el frente es el límite de contacto entre dos volúmenes.
-```
 
 ## Sección: momento-lineal (26 preguntas)
 
@@ -961,7 +15,10 @@ metadata:
 
 respuesta: "p = m * v"
 tipo: completar
-respuestas_validas: ["p = m * v", "p = m*v", "p = m·v"]
+respuestas_validas:
+  - "p = m * v"
+  - "p = m*v"
+  - "p = m·v"
 
 enunciado: "La expresión matemática que define la cantidad de movimiento (o momento lineal) de un objeto en función de su masa (m) y su velocidad (v) es ___."
 
@@ -977,17 +34,14 @@ metadata:
   tags: ["relacion", "proporcionalidad"]
 
 variables:
+  datos: [["se duplica", "aumenta"], ["se mantiene igual", "se mantiene igual"]]
   idx: uno_de([0, 1])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["disminuye", "aumenta", "se mantiene igual"]
 
 enunciado: "Si un objeto mantiene su velocidad constante pero su masa se duplica, su momento lineal ___."
-
-datos:
-  - ["se duplica", "aumenta"]
-  - ["se mantiene igual", "se mantiene igual"]
 
 explicacion: |
   Dado que $p = m \cdot v$, si la velocidad es constante, el momento es directamente proporcional a la masa. Al duplicar la masa, el momento también se duplica.
@@ -1018,12 +72,15 @@ metadata:
 
 respuesta: "kg·m/s"
 tipo: completar
-respuestas_validas: ["kg·m/s", "kg m/s", "kg*m/s"]
+respuestas_validas:
+  - "kg·m/s"
+  - "kg m/s"
+  - "kg*m/s"
 
 enunciado: "En el Sistema Internacional de Unidades (SI), la unidad de medida del momento lineal es ___."
 
 explicacion: |
-  La unidad se deriva directamente de la fórmula: $[m] \cdot [v] = \text{kg} \cdot (\text{m/s}) = \text{kg}\cdot\text{m/s}$.
+  La unidad se deriva directamente de la fórmula: masa (kg) multiplicada por velocidad (m/s), resultando en kg·m/s.
 ```
 
 ```
@@ -1033,14 +90,15 @@ metadata:
   nivel: "basico"
   tags: ["componentes"]
 
-respuesta: "m * v"
+respuesta: "10"
 tipo: completar
-respuestas_validas: ["m * v", "m*v"]
+respuestas_validas:
+  - "10"
 
 enunciado: "Si un objeto tiene una masa de 5 kg y una velocidad de 2 m/s, su momento lineal es ___ kg·m/s."
 
 explicacion: |
-  Calculamos el producto: $5\text{ kg} \cdot 2\text{ m/s} = 10\text{ kg}\cdot\text{m/s}$.
+  Calculamos el producto: 5 kg * 2 m/s = 10 kg·m/s.
 ```
 
 ```
@@ -1052,7 +110,10 @@ metadata:
 
 respuesta: "m·v"
 tipo: completar
-respuestas_validas: ["m*v", "m*v", "p=m*v"]
+respuestas_validas:
+  - "m·v"
+  - "m*v"
+  - "p=m*v"
 
 enunciado: "La cantidad de movimiento o momento lineal de un objeto se define matemáticamente como el producto de su masa por su ___."
 
@@ -1092,8 +153,8 @@ metadata:
   nivel: "intermedio"
   tags: ["proporcionalidad"]
 
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si un objeto duplica su velocidad pero mantiene su masa constante, su momento lineal también se duplica."
 
 explicacion: |
@@ -1108,21 +169,21 @@ metadata:
   tags: ["comparacion"]
 
 variables:
-  datos: [[0, "A"], [1, "B"]]
   idx: uno_de([0, 1])
+  b_vel: [2, 8]
+  ganador: ["A", "B"]
 
-respuesta: datos[idx][1]
+respuesta: ganador[idx]
 tipo: mc
 opciones_explicitas: ["A", "B"]
 
-enunciado: "Considera dos objetos: el Objeto A tiene 2 kg a 10 m/s. El Objeto B tiene 5 kg a 4 m/s. ¿Cuál de ellos posee un mayor momento lineal?"
+enunciado: "Considera dos objetos: el Objeto A tiene 2 kg a 10 m/s. El Objeto B tiene 5 kg a {b_vel[idx]} m/s. ¿Cuál de ellos posee un mayor momento lineal?"
 
 explicacion: |
   Calculamos ambos:
   p_A = 2 kg * 10 m/s = 20 kg·m/s.
-  p_B = 5 kg * 4 m/s = 20 kg·m/s.
-  En este caso, ambos tienen el mismo momento lineal. 
-  (Nota: Error en lógica de ejemplo, corregido para igualdad)."
+  p_B = 5 kg * {b_vel[idx]} m/s = {5 * b_vel[idx]} kg·m/s.
+  Por lo tanto, el objeto con mayor momento lineal es el {ganador[idx]}.
 ```
 
 ```
@@ -1153,7 +214,10 @@ metadata:
 
 respuesta: "kg·m/s"
 tipo: completar
-respuestas_validas: ["kg*m/s", "kg m/s", "kg·m/s"]
+respuestas_validas:
+  - "kg*m/s"
+  - "kg m/s"
+  - "kg·m/s"
 
 enunciado: "En el Sistema Internacional (SI), la unidad de medida del momento lineal es ___."
 
@@ -1170,17 +234,13 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [
-    [2.0, 5.0],
-    [10.0, 2.0]
-  ]
+  datos: [[2.0, 5.0], [10.0, 2.0]]
 
 enunciado: "Si un objeto tiene una masa de {datos[idx][0]} kg y una velocidad de {datos[idx][1]} m/s, su momento lineal es de ___ kg·m/s."
 
-respuestas_validas:
-  - "{datos[idx][0] * datos[idx][1]}"
-
+respuesta: datos[idx][0] * datos[idx][1]
 tipo: completar
+tolerancia_abs: 0.01
 
 explicacion: |
   El momento lineal (p) se define como el producto de la masa por la velocidad (p = m · v). En este caso, el cálculo es {datos[idx][0]} * {datos[idx][1]} = {datos[idx][0] * datos[idx][1]}.
@@ -1294,24 +354,23 @@ metadata:
   tags: ["comparacion"]
 
 variables:
-  escenario: uno_de([
-    [10, 2, "un objeto A de 10 kg a 2 m/s"],
-    [5, 4, "un objeto B de 5 kg a 4 m/s"]
-  ])
   idx: uno_de([0, 1])
+  masas: [10, 5]
+  velocidades: [2, 4]
+  descripciones: ["un objeto A de 10 kg a 2 m/s", "un objeto B de 5 kg a 4 m/s"]
 
-respuesta: escenario[idx][0] * escenario[idx][1]
+respuesta: masas[idx] * velocidades[idx]
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Calcula el módulo del momento lineal para {escenario[idx][2]}."
+enunciado: "Calcula el módulo del momento lineal para {descripciones[idx]}."
 
 pasos:
   - "Identificar la masa (m) y la velocidad (v) del objeto."
-  - "Multiplicar la masa por la velocidad ($p = m \cdot v$)."
+  - "Multiplicar la masa por la velocidad (p = m · v)."
 
 explicacion: |
-  El momento lineal es una magnitud vectorial que depende tanto de la masa como de la velocidad. En el caso seleccionado, el resultado es {escenario[idx][0] * escenario[idx][1]} kg·m/s.
+  El momento lineal es una magnitud vectorial que depende tanto de la masa como de la velocidad. En el caso seleccionado, el resultado es {masas[idx] * velocidades[idx]} kg·m/s.
 ```
 
 ```
@@ -1323,7 +382,9 @@ metadata:
 
 respuesta: "cantidad de movimiento"
 tipo: completar
-respuestas_validas: ["cantidad de movimiento", "cantidad de movimiento"]
+respuestas_validas:
+  - "cantidad de movimiento"
+  - "cantidad de movimiento"
 
 enunciado: "En muchos contextos académicos, el concepto de momento lineal es sinónimo de ___."
 
@@ -1356,20 +417,17 @@ metadata:
   tags: ["teorema", "impulso"]
 
 variables:
-  caso: uno_de([
-    ["un choque de alta velocidad", "un objeto con gran masa en reposo"],
-    ["un objeto con gran masa en reposo", "un choque de alta velocidad"]
-  ])
-  idx: uno_de([0, 1])
+  caso: uno_de([["un choque de alta velocidad", "un objeto con gran masa en reposo"], ["un objeto con gran masa en reposo", "un choque de alta velocidad"]])
 
 respuesta: "impulso"
 tipo: completar
-respuestas_validas: ["impulso", "impulso"]
+respuestas_validas:
+  - "impulso"
 
 enunciado: "El cambio en el momento lineal de un objeto es igual al ___ aplicado sobre dicho objeto."
 
 explicacion: |
-  Según el teorema del impulso, el cambio en la cantidad de movimiento ($\Delta p$) es igual al impulso ($J = F \cdot \Delta t$). En el caso de {caso[idx][0]}, se observa este principio.
+  Según el teorema del impulso, el cambio en la cantidad de movimiento ($\Delta p$) es igual al impulso ($J = F \cdot \Delta t$). En el caso de {caso[0]}, se observa este principio.
 ```
 
 ```
@@ -1381,15 +439,12 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    [1500, 20, 30000],
-    [1200, 10, 12000]
-  ]
+  datos: [[1500, 20, 30000], [1200, 10, 12000]]
 
-enunciado: "Un vehículo de masa de {datos[escenario_idx][0]} kg se desplaza con una velocidad de {datos[escenario_idx][1]} m/s. ¿Cuál es su cantidad de movimiento (p)?"
+enunciado: "Un vehículo de masa de {datos[escenario_idx][0]} kg se desplaza con una velocidad de {datos[escenario_idx][1]} m/s. ¿Cuál es su cantidad de movimiento (p, en kg·m/s)?"
 
-opciones_explicitas: ["25000 kg·m/s", "30000 kg·m/s", "15000 kg·m/s", "45000 kg·m/s"]
-respuesta: datos[escenario_idx][2
+opciones_explicitas: [30000, 12000, 25000, 45000]
+respuesta: datos[escenario_idx][2]
 tipo: mc
 
 explicacion: |
@@ -1406,15 +461,12 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenario: [
-    [10, 5, 50],
-    [5, 10, 50]
-  ]
+  escenario: [[10, 5, 50], [5, 10, 50]]
 
-enunciado: "Si un objeto A tiene masa {escenario[escenario_idx][0]} kg y velocidad {escenario[escenario_idx][1]} m/s, y un objeto B tiene la misma cantidad de movimiento que A, ¿cuál es su valor?"
+enunciado: "Si un objeto A tiene masa {escenario[escenario_idx][0]} kg y velocidad {escenario[escenario_idx][1]} m/s, y un objeto B tiene la misma cantidad de movimiento que A, ¿cuál es su valor (en kg·m/s)?"
 
-opciones_explicitas: ["50 kg·m/s", "10 kg·m/s", "100 kg·m/s", "25 kg·m/s"]
-respuesta: escenario[escenario_idx][2
+opciones_explicitas: [50, 10, 100, 25]
+respuesta: escenario[escenario_idx][2]
 tipo: mc
 
 explicacion: |
@@ -1431,7 +483,8 @@ metadata:
 
 enunciado: "Si un objeto con masa constante aumenta su velocidad, su cantidad de movimiento ___."
 
-respuestas_validas: ["aumenta", "disminuye", "se mantiene"]
+respuestas_validas:
+  - "aumenta"
 respuesta: "aumenta"
 tipo: completar
 
@@ -1448,10 +501,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    [0.05, 400, 20],
-    [0.02, 600, 12]
-  ]
+  datos: [[0.05, 400], [0.02, 600]]
 
 enunciado: "Una bala de masa {datos[escenario_idx][0]} kg viaja a una velocidad de {datos[escenario_idx][1]} m/s. Al impactar un bloque, su velocidad se reduce a 5 m/s. ¿Cuál es la magnitud del cambio en su momento lineal (Δp)?"
 
@@ -1460,13 +510,13 @@ pasos:
   - "Calcular el momento final: p_final = m * v_final"
   - "Calcular la diferencia: Δp = p_inicial - p_final"
 
-respuesta: datos[escenario_idx][2
+respuesta: datos[escenario_idx][0] * (datos[escenario_idx][1] - 5)
 tipo: completar
 tolerancia_abs: 0.01
 
 explicacion: |
   Δp = m(v_i - v_f).
-  Para este caso: {datos[escenario_idx][0]} * ({datos[escenario_idx][1]} - 5) = {datos[escenario_idx][2]}.
+  Para este caso: {datos[escenario_idx][0]} * ({datos[escenario_idx][1]} - 5) = {datos[escenario_idx][0] * (datos[escenario_idx][1] - 5)}.
 ```
 
 ```
@@ -1881,11 +931,7 @@ opciones_explicitas:
   - "Multiplicar por la masa para obtener la fuerza: F_c = m × a_c"
   - "Calcular la velocidad tangencial: v = 2π×r / T"
   - "Calcular la aceleración centrípeta: a_c = v² / r"
-respuesta_orden:
-  - "Calcular la velocidad tangencial: v = 2π×r / T"
-  - "Calcular la aceleración centrípeta: a_c = v² / r"
-  - "Multiplicar por la masa para obtener la fuerza: F_c = m × a_c"
-
+respuesta_orden: ["Calcular la velocidad tangencial: v = 2π×r / T", "Calcular la aceleración centrípeta: a_c = v² / r", "Multiplicar por la masa para obtener la fuerza: F_c = m × a_c"]
 explicacion: |
   Cada paso usa el resultado del anterior.
 ```
@@ -2564,3 +1610,982 @@ explicacion: |
   Cada tramo es un MRU independiente — se suman las distancias
   parciales.
 ```
+
+## Sección: ojo-humano-instrumento-optico (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "basico"
+  tags: ["anatomia", "optica"]
+
+respuesta: "lente convergente"
+tipo: completar
+respuestas_validas:
+  - "lente convergente"
+
+enunciado: "El cristalino es una estructura del ojo que actúa como una ___ para enfocar la luz en la retina."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "basico"
+  tags: ["anatomia", "imagen"]
+
+respuesta: "real e invertida"
+tipo: completar
+respuestas_validas:
+  - "real e invertida"
+
+enunciado: "La imagen que se forma sobre la ___ es de naturaleza ___."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "basico"
+  tags: ["fisiologia"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "¿El cristalino cambia su distancia focal para permitir la acomodación visual?"
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "basico"
+  tags: ["secuencia"]
+
+respuesta_orden: ["entrada de luz", "refracción en el cristalino", "proyección en la retina"]
+tipo: ordenar
+opciones_explicitas: ["entrada de luz", "refracción en el cristalino", "proyección en la retina"]
+
+enunciado: "Ordene el camino de la luz desde el exterior hasta la detección visual:"
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "basico"
+  tags: ["anatomia"]
+
+respuesta: "controlar la cantidad de luz"
+tipo: completar
+respuestas_validas:
+  - "controlar la cantidad de luz"
+
+enunciado: "La función principal del iris es ___."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "intermedio"
+  tags: ["defectos", "miopia"]
+
+respuesta: "divergente"
+tipo: completar
+respuestas_validas:
+  - "divergente"
+
+enunciado: "En un ojo con miopía, la imagen se forma antes de la retina, por lo que se requiere una lente ___ para corregirlo."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "intermedio"
+  tags: ["defectos", "hipermetropia"]
+
+respuesta: "convergente"
+tipo: completar
+respuestas_validas:
+  - "convergente"
+
+enunciado: "Para corregir la hipermetropía, donde el punto focal está detrás de la retina, se utiliza una lente ___."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "intermedio"
+  tags: ["defectos"]
+
+respuesta: "delante"
+tipo: completar
+respuestas_validas:
+  - "delante"
+
+enunciado: "En un ojo miope, el punto focal de los rayos paralelos se encuentra ___ de la retina."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "intermedio"
+  tags: ["defectos"]
+
+respuesta: "cilíndrica"
+tipo: completar
+respuestas_validas:
+  - "cilíndrica"
+
+enunciado: "El astigmatismo se debe a una curvatura irregular de la córnea o el cristalino y se corrige con lentes ___."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "intermedio"
+  tags: ["comparacion"]
+
+respuesta: "miopía"
+tipo: mc
+opciones_explicitas: ["miopía", "hipermetropía", "astigmatismo", "presbicia"]
+
+enunciado: "¿Qué defecto impide ver con claridad los objetos lejanos?"
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "avanzado"
+  tags: ["calculo"]
+
+variables:
+  f: 25.0
+  d: 100.0
+
+respuesta: 0.3333
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Si un objeto se coloca a {d} cm de una lente con una distancia focal de {f} cm, ¿cuál es la distancia de la imagen en metros? (Use la fórmula 1/f = 1/d + 1/d')"
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "avanzado"
+  tags: ["calculo"]
+
+variables:
+  f_m: 0.5
+
+respuesta: 2.0
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Calcule la potencia (en dioptrías) de una lente cuya distancia focal es {f_m} metros."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "avanzado"
+  tags: ["calculo"]
+
+variables:
+  f_ojo: 0.02
+  d_obj: 0.5
+
+respuesta: 0.02083
+tipo: completar
+tolerancia_abs: 0.001
+
+enunciado: "Un ojo tiene una distancia focal de {f_ojo} m. Si un objeto está a {d_obj} m, ¿a qué distancia de la lente se forma la imagen? (Calcule en metros)"
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "avanzado"
+  tags: ["calculo"]
+
+variables:
+  h_obj: 2.0
+  h_img: 10.0
+
+respuesta: 5.0
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Si el tamaño de un objeto es {h_obj} cm y el tamaño de su imagen es {h_img} cm, ¿cuál es el aumento lateral?"
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "avanzado"
+  tags: ["calculo"]
+
+variables:
+  p_correcta: 2.0
+  p_incorrecta: -2.0
+
+respuesta: "convergente"
+tipo: mc
+opciones_explicitas: ["convergente", "divergente"]
+
+enunciado: "Si una lente tiene una potencia de +2.0 dioptrías, ¿es una lente ___?"
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "basico"
+  tags: ["teoria"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "¿La luz debe refractarse al pasar del aire al córnea?"
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "basico"
+  tags: ["teoria"]
+
+respuesta: falso
+tipo: vf
+enunciado: "¿La retina es la parte del ojo encargada de enfocar la luz mediante la refracción?"
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "intermedio"
+  tags: ["fisiologia"]
+
+respuesta: "pupila más pequeña"
+tipo: completar
+respuestas_validas:
+  - "pupila más pequeña"
+
+enunciado: "En condiciones de mucha luz, la pupila experimenta miosis, lo que significa que la pupila es ___."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "intermedio"
+  tags: ["fisiologia"]
+
+respuesta: "pupila más grande"
+tipo: completar
+respuestas_validas:
+  - "pupila más grande"
+
+enunciado: "La midriasis es la dilatación de la pupila, es decir, la ___."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "intermedio"
+  tags: ["teoria"]
+
+respuesta: "distancia máxima"
+tipo: completar
+respuestas_validas:
+  - "distancia máxima"
+
+enunciado: "El punto remoto se define como la ___ a la que un objeto puede estar para ser visto con nitidez por un ojo con un defecto."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  idx: uno_de([0,1])
+  tipo_lente: uno_de(["divergente", "convergente"])
+  lente_texto: uno_de(["divergente", "convergente"])
+
+respuesta: "divergente"
+tipo: mc
+opciones_explicitas: ["divergente", "convergente"]
+
+enunciado: "Un paciente tiene miopía. El médico le receta una lente ___ para corregir su visión."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+respuesta: "convergente"
+tipo: mc
+opciones_explicitas: ["convergente", "divergente"]
+
+enunciado: "Para un paciente con hipermetropía, el tipo de lente necesario es ___."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+respuesta: "se desvía"
+tipo: completar
+respuestas_validas:
+  - "se desvía"
+
+enunciado: "Cuando la luz pasa del aire al cristalino, su velocidad cambia y, por lo tanto, el rayo ___."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+respuesta: "real"
+tipo: completar
+respuestas_validas:
+  - "real"
+
+enunciado: "Si la imagen se puede proyectar sobre una pantalla, decimos que la imagen es ___."
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "ojo_humano_instrumento_optico"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+respuesta: "presbicia"
+tipo: completar
+respuestas_validas:
+  - "presbicia"
+  - "miopía"
+  - "astigmatismo"
+
+enunciado: "La pérdida de la capacidad de acomodación del cristalino debido a la edad se conoce como ___."
+```
+
+## Sección: mruv (28 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "basico"
+  tags: ["velocidad"]
+
+variables:
+  v0: random(0, 20)
+  a: random(1, 10)
+  t: random(1, 10)
+
+respuesta: v0 + a * t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v(t) = {v0} + {a}t (m/s). ¿Cuánto vale v({t})?"
+
+explicacion: |
+  v({t}) = {v0} + {a}×{t} = {v0 + a * t}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["velocidad", "signos"]
+
+variables:
+  v0: random(30, 60)
+  a: random(1, 5)
+  t: random(1, 8)
+
+respuesta: v0 - a * t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v(t) = {v0} − {a}t (m/s, frenando). ¿Cuánto vale v({t})?"
+
+explicacion: |
+  v({t}) = {v0} − {a}×{t} = {v0 - a * t}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["posicion"]
+
+variables:
+  x0: random(0, 20)
+  v0: random(0, 15)
+  a: random(2, 6) * 2
+  t: random(1, 6)
+
+respuesta: x0 + v0 * t + (a * t ^ 2) / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "x(t) = {x0} + {v0}t + ½×{a}t² (m). ¿Cuánto vale x({t})?"
+
+pasos:
+  - "x({t}) = {x0} + {v0}×{t} + ({a}×{t}²)/2 = {x0 + v0 * t + (a * t ^ 2) / 2}"
+
+explicacion: |
+  Se evalúan los tres términos y se suman.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "basico"
+  tags: ["posicion"]
+
+variables:
+  a: random(2, 8) * 2
+  t: random(1, 8)
+
+respuesta: (a * t ^ 2) / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto parte del reposo (v₀=0, x₀=0) con aceleración {a} m/s². ¿Cuánto recorrió en t={t} s?"
+
+explicacion: |
+  x(t) = ½at² = {a}×{t}²/2 = {(a * t ^ 2) / 2}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["sin_tiempo"]
+
+variables:
+  v0: random(0, 10)
+  a: random(1, 5)
+  k: random(1, 5)
+  v_final: v0 + 2 * a * k
+  dx: k * (v_final + v0)
+
+respuesta: v_final
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v₀={v0} m/s, a={a} m/s². Después de recorrer {dx} m, ¿cuál es la velocidad final? (usando v²=v₀²+2aΔx)"
+
+pasos:
+  - "v² = {v0}² + 2×{a}×{dx} = {v0 ^ 2 + 2 * a * dx}"
+  - "v = √{v0 ^ 2 + 2 * a * dx} = {v_final}"
+
+explicacion: |
+  Se usa la fórmula sin tiempo cuando no hace falta (o no se conoce) t.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["sin_tiempo"]
+
+variables:
+  v0: random(0, 10)
+  a: random(1, 6)
+  dx_sol: random(5, 20)
+
+respuesta: dx_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v₀={v0} m/s, a={a} m/s². La velocidad final da un número que no hace falta calcular a mano — sabiendo que v²−v₀² = {2 * a * dx_sol}, ¿cuánto vale Δx?"
+
+pasos:
+  - "Δx = (v²−v₀²)/(2a) = {2 * a * dx_sol}/{2 * a} = {dx_sol}"
+
+explicacion: |
+  Se despeja Δx de la ecuación sin tiempo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["aceleracion"]
+
+variables:
+  v0: random(0, 20)
+  a_sol: random(1, 10)
+  t: random(1, 8)
+  v: v0 + a_sol * t
+
+respuesta: (v - v0) / t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto pasa de v₀={v0} m/s a v={v} m/s en t={t} s. ¿Cuál es su aceleración?"
+
+explicacion: |
+  a = (v−v₀)/t = ({v}−{v0})/{t} = {(v - v0) / t}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["tiempo"]
+
+variables:
+  v0: random(0, 20)
+  a: random(1, 10)
+  t_sol: random(1, 10)
+  v: v0 + a * t_sol
+
+respuesta: t_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "v₀={v0} m/s, a={a} m/s². ¿Cuánto tiempo tarda en llegar a v={v} m/s?"
+
+explicacion: |
+  t = (v−v₀)/a = {t_sol}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El gráfico v-t de un MRUV es una recta (no horizontal, salvo que a=0)."
+
+explicacion: |
+  v(t)=v₀+at es una función lineal de t, con pendiente a.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El gráfico x-t de un MRUV es una parábola."
+
+explicacion: |
+  x(t)=x₀+v₀t+½at² es una función cuadrática de t.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el gráfico v-t, la pendiente de la recta es exactamente la aceleración."
+
+explicacion: |
+  Mismo principio que en x-t con MRU: la pendiente es la tasa de
+  cambio — acá, de la velocidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["error_comun", "opcion_multiple"]
+
+variables:
+  a: random(2, 10)
+  t: random(1, 8)
+
+respuesta: (a * t ^ 2) / 2
+tipo: mc
+opciones_explicitas:
+  - (a * t ^ 2) / 2
+  - a * t ^ 2
+  - (a * t) / 2
+
+enunciado: "Un objeto parte del reposo con aceleración {a} m/s². ¿Cuánto recorrió en t={t} s?"
+
+explicacion: |
+  x=½at² — olvidar el ½ (o el cuadrado) es el error más común de la
+  fórmula.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "En un MRUV, la fórmula v=d/t (de MRU) sigue dando la velocidad en cualquier instante."
+
+explicacion: |
+  v=d/t asume velocidad CONSTANTE — en MRUV la velocidad cambia, así que
+  hacen falta las fórmulas específicas de MRUV.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  v0: random(0, 20)
+  a: random(1, 10)
+  t: random(1, 10)
+  real: v0 + a * t
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "v(t) = {v0} + {a}t. ¿Es correcto que v({t}) sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  a: random(2, 6)
+  t: random(10, 30)
+
+respuesta: (a * t ^ 2) / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un avión acelera desde el reposo a {a} m/s² durante {t} s antes de despegar. ¿Qué distancia recorrió en la pista?"
+
+explicacion: |
+  x=½at², partiendo del reposo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "v₀ (velocidad inicial) y v(t) (velocidad en un instante t cualquiera) son siempre el mismo número."
+
+explicacion: |
+  Sólo coinciden en t=0 — en cualquier otro instante, difieren según la
+  aceleración acumulada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una aceleración negativa no significa automáticamente que el objeto está frenando — depende del signo de la velocidad."
+
+explicacion: |
+  Si v es negativa y a también, el objeto en realidad acelera (cada vez
+  más rápido) en sentido negativo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  v0: random(0, 15)
+  a: random(1, 8)
+  t: random(1, 8)
+  v: v0 + a * t
+  dx: v0 * t + (a * t ^ 2) / 2
+
+respuesta: ((v ^ 2) == (v0 ^ 2 + 2 * a * dx))
+tipo: vf
+
+enunciado: "v₀={v0}, a={a}, t={t}. Con v={v} y Δx={dx} (calculados con las otras dos fórmulas), ¿se cumple v²=v₀²+2aΔx?"
+
+explicacion: |
+  Las tres fórmulas de MRUV son consistentes entre sí — cualquier par
+  de ellas tiene que dar el mismo resultado que la tercera.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  t: random(1, 8)
+
+respuesta: 10 * t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto se suelta desde el reposo con aceleración g=10 m/s² (caída libre). ¿Cuál es su velocidad después de {t} s?"
+
+explicacion: |
+  v=at, con v₀=0 — el caso más simple de caída libre, antes de ver
+  `../tiro-vertical/` con velocidad inicial.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La unidad de la aceleración en el sistema SI es m/s² (metros por segundo, por segundo)."
+
+explicacion: |
+  Es "cuánto cambia la velocidad (m/s) por cada segundo que pasa" — de
+  ahí la unidad al cuadrado en el denominador.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["velocidad"]
+
+variables:
+  v0_sol: random(0, 20)
+  a: random(1, 10)
+  t: random(1, 8)
+  v: v0_sol + a * t
+
+respuesta: v0_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto con aceleración {a} m/s² llega a v={v} m/s después de {t} s. ¿Cuál era su velocidad inicial?"
+
+explicacion: |
+  v₀ = v−at = {v}−{a}×{t} = {v0_sol}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si en las fórmulas de MRUV se pone a=0, se recuperan exactamente las fórmulas de MRU."
+
+explicacion: |
+  v(t)=v₀+0·t=v₀ (constante), x(t)=x₀+v₀t+0=x₀+v₀t — el MRU es el caso
+  particular de MRUV sin aceleración.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  a: random(2, 6)
+  n: random(1, 5)
+  v0: 2 * a * n
+  dx: 2 * a * n ^ 2
+
+respuesta: dx
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un auto frena desde v₀={v0} m/s con desaceleración {a} m/s² hasta detenerse (v=0). ¿Qué distancia recorre hasta parar?"
+
+pasos:
+  - "0 = v₀² − 2aΔx → Δx = v₀²/(2a)"
+
+explicacion: |
+  Es la misma cuenta que se profundiza en
+  `../../vida-cotidiana/distancia-frenado/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el instante en que v=0 dentro de un MRUV, la aceleración puede seguir siendo distinta de 0 (por ejemplo, en el punto más alto de un tiro vertical)."
+
+explicacion: |
+  v=0 es sólo un instante; a sigue actuando (la gravedad no se apaga en
+  el punto más alto) — adelanto de `../tiro-vertical/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  x0: random(0, 20)
+  v0: random(0, 15)
+  a: random(2, 6) * 2
+  t: random(1, 6)
+  real: x0 + v0 * t + (a * t ^ 2) / 2
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "x(t) = {x0} + {v0}t + ½×{a}t². ¿Es correcto que x({t}) sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["concepto", "opcion_multiple"]
+
+respuesta: "v² = v₀² + 2aΔx"
+tipo: mc
+opciones_explicitas:
+  - "v² = v₀² + 2aΔx"
+  - "v = v₀ + at"
+  - "x = x₀ + v₀t + ½at²"
+
+enunciado: "Un problema da v₀, a y Δx, y pide la velocidad final — sin dar el tiempo. ¿Qué fórmula conviene usar?"
+
+explicacion: |
+  Es la única de las tres que no necesita el tiempo como dato.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "intermedio"
+  tags: ["problema"]
+
+variables:
+  v0: random(20, 60)
+  a: random(2, 10)
+
+respuesta: v0 / a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto con v₀={v0} m/s frena con desaceleración {a} m/s². ¿Cuánto tarda en detenerse (v=0)?"
+
+explicacion: |
+  0 = v₀ − at → t = v₀/a.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "mruv"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para encontrar en qué instante un objeto en MRUV pasa por una posición dada, hay que resolver una ecuación cuadrática en t."
+
+explicacion: |
+  x(t)=x₀+v₀t+½at² es cuadrática en t — despejar t de una posición dada
+  usa la fórmula resolvente de `../../matematica/ecuacion-cuadratica/`.
+```
+

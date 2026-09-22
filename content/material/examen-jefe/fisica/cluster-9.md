@@ -1,538 +1,8 @@
-# Examen jefe — Maestro de las Leyes y Ondas
+# Examen jefe — [PENDIENTE #744]
 
-> Logro #164. Completaste el examen jefe dominando Newton, la luz y la termodinámica. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **127 preguntas totales** en 5/5 secciones.
+> Logro #744. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: leyes-de-newton/segunda-fma (26 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "basico"
-  tags: ["segunda_ley", "vocabulario"]
-
-enunciado: "¿Qué dice la segunda ley de Newton?"
-tipo: mc
-opciones_explicitas:
-  - "La aceleración de un objeto es directamente proporcional a la fuerza neta, e inversamente proporcional a su masa"
-  - "Todo objeto acelera siempre a la misma velocidad, sin importar la fuerza"
-  - "La masa de un objeto cambia según la fuerza que se le aplica"
-respuesta: "La aceleración de un objeto es directamente proporcional a la fuerza neta, e inversamente proporcional a su masa"
-
-explicacion: |
-  Es la relación F = m × a.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  m: uno_de([2, 4, 5, 10])
-  a_real: uno_de([2, 3, 4, 5])
-
-respuesta: a_real
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una fuerza neta de {m * a_real} N actúa sobre un objeto de {m} kg. ¿Cuál es su aceleración?"
-
-pasos:
-  - "{m * a_real} ÷ {m} = {a_real} m/s²"
-
-explicacion: |
-  a = F / m.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  m: uno_de([3, 6, 8, 12])
-  a: uno_de([2, 3, 4])
-
-respuesta: m * a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Qué fuerza neta hace falta para darle una aceleración de {a} m/s² a un objeto de {m} kg?"
-
-pasos:
-  - "{m} × {a} = {m * a} N"
-
-explicacion: |
-  F = m × a.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["segunda_ley"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A igual masa, aplicar más fuerza neta produce más aceleración."
-
-explicacion: |
-  Es la relación directamente proporcional entre fuerza y aceleración.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["segunda_ley"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A igual fuerza neta aplicada, un objeto con más masa acelera menos que uno con menos masa."
-
-explicacion: |
-  Es la relación inversamente proporcional entre masa y aceleración.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  fuerza: uno_de([20, 40, 60])
-  masa1: uno_de([2, 4])
-  masa2: masa1 * 2
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La misma fuerza de {fuerza} N se aplica a dos objetos: uno de {masa1} kg y otro de {masa2} kg. ¿Acelera más el de {masa1} kg?"
-
-explicacion: |
-  Con menos masa, la misma fuerza produce más aceleración: {fuerza}/{masa1}
-  es mayor que {fuerza}/{masa2}.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["newton_unidad", "completar"]
-
-tipo: completar
-enunciado: "Completá: 1 Newton es la fuerza necesaria para darle una aceleración de 1 m/s² a una masa de 1 ___."
-respuestas_validas:
-  - "kg"
-  - "kilogramo"
-
-explicacion: |
-  1 N = 1 kg × 1 m/s².
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "basico"
-  tags: ["newton_unidad", "vocabulario"]
-
-enunciado: "¿Cuál es la unidad de fuerza en el sistema internacional?"
-tipo: mc
-opciones_explicitas:
-  - "El Newton (N)"
-  - "El kilogramo (kg)"
-  - "El Joule (J)"
-respuesta: "El Newton (N)"
-
-explicacion: |
-  Se define directamente a partir de la segunda ley de Newton.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["peso", "vocabulario"]
-
-enunciado: "¿Qué es el peso de un objeto, en términos de la segunda ley de Newton?"
-tipo: mc
-opciones_explicitas:
-  - "Un caso particular de F = m·a, donde la aceleración es la de la gravedad (g)"
-  - "Lo mismo que la masa, sólo que en otra unidad"
-  - "Una fuerza que no tiene relación con la segunda ley"
-respuesta: "Un caso particular de F = m·a, donde la aceleración es la de la gravedad (g)"
-
-explicacion: |
-  Peso = m × g.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["peso", "problema"]
-
-variables:
-  m: uno_de([3, 5, 7, 8, 10, 12])
-
-respuesta: m * 10
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el peso de un objeto de {m} kg en la superficie terrestre? (usá g = 10 m/s²)"
-
-pasos:
-  - "{m} × 10 = {m * 10} N"
-
-explicacion: |
-  Peso = masa × g.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["peso", "problema"]
-
-variables:
-  m_real: uno_de([4, 6, 9, 15])
-
-respuesta: m_real
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un objeto pesa {m_real * 10} N en la Tierra (g = 10 m/s²). ¿Cuál es su masa?"
-
-pasos:
-  - "{m_real * 10} ÷ 10 = {m_real} kg"
-
-explicacion: |
-  Se despeja la masa: masa = peso / g.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["segunda_ley"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según F = m·a, si la fuerza neta sobre un objeto es cero, su aceleración también es cero."
-
-explicacion: |
-  Es la conexión directa con la primera ley: sin fuerza neta, no hay
-  cambio de velocidad.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La primera ley de Newton (inercia) es, en el fondo, el caso particular de la segunda ley cuando la fuerza neta es exactamente cero."
-
-explicacion: |
-  Con F_neta = 0, la fórmula F=ma da a=0: velocidad constante, la propia
-  definición de inercia.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["peso", "vocabulario"]
-
-enunciado: "La gravedad en la Luna es aproximadamente 1/6 de la gravedad terrestre. Un objeto de 60 kg, ¿qué le pasa a su PESO en la Luna, comparado con la Tierra?"
-tipo: mc
-opciones_explicitas:
-  - "Se reduce a aproximadamente 1/6 de su peso en la Tierra"
-  - "Se mantiene exactamente igual"
-  - "Su masa también se reduce a 1/6"
-respuesta: "Se reduce a aproximadamente 1/6 de su peso en la Tierra"
-
-explicacion: |
-  Peso = m × g: con g mucho menor, el peso baja proporcionalmente. La
-  masa (60 kg) no cambia en ningún lugar.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  m: uno_de([800, 1000, 1200])
-  a: uno_de([2, 3, 4])
-
-respuesta: m * a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un auto de {m} kg frena con una desaceleración de {a} m/s². ¿Cuál es la magnitud de la fuerza neta (de frenado) que actúa sobre él?"
-
-pasos:
-  - "{m} × {a} = {m * a} N"
-
-explicacion: |
-  El cálculo es el mismo, aunque la aceleración esté frenando el auto
-  en vez de acelerarlo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "F = m·a describe DOS proporcionalidades a la vez: directa entre fuerza y aceleración, e inversa entre masa y aceleración."
-
-explicacion: |
-  Es la forma más completa de leer la segunda ley.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  m: uno_de([4, 5, 10])
-  a: uno_de([2, 3])
-
-respuesta: a * 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una fuerza de {m * a} N le da a un objeto de {m} kg una aceleración de {a} m/s². Si se DUPLICA la fuerza (manteniendo la misma masa), ¿cuál es la nueva aceleración?"
-
-pasos:
-  - "{m * a * 2} ÷ {m} = {a * 2} m/s²"
-
-explicacion: |
-  Al duplicar la fuerza con la misma masa, la aceleración también se
-  duplica (proporcionalidad directa).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  m: uno_de([4, 6, 10])
-  a: uno_de([2, 4, 6])
-
-respuesta: a / 2
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una fuerza de {m * a} N le da a un objeto de {m} kg una aceleración de {a} m/s². Si se DUPLICA la masa (manteniendo la misma fuerza), ¿cuál es la nueva aceleración?"
-
-pasos:
-  - "{m * a} ÷ {m * 2} = {a / 2} m/s²"
-
-explicacion: |
-  Al duplicar la masa con la misma fuerza, la aceleración se reduce a
-  la mitad (proporcionalidad inversa).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["segunda_ley", "ordenar"]
-
-enunciado: "Ordená los pasos para calcular la aceleración de un objeto, conociendo la fuerza neta y la masa."
-tipo: ordenar
-opciones_explicitas:
-  - "Dividir la fuerza neta por la masa"
-  - "Identificar la fuerza neta que actúa sobre el objeto"
-  - "Identificar la masa del objeto"
-respuesta_orden:
-  - "Identificar la fuerza neta que actúa sobre el objeto"
-  - "Identificar la masa del objeto"
-  - "Dividir la fuerza neta por la masa"
-
-explicacion: |
-  a = F_neta / m.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En F = m·a, la masa m es la masa total del objeto que está siendo acelerado."
-
-explicacion: |
-  Es un dato fijo del objeto, no algo que varíe según la fuerza
-  aplicada.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "basico"
-  tags: ["peso", "problema"]
-
-respuesta: 5
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el peso de un objeto de 0,5 kg en la Tierra? (usá g = 10 m/s²)"
-
-pasos:
-  - "0,5 × 10 = 5 N"
-
-explicacion: |
-  Mismo cálculo, con una masa menor a 1 kg.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley", "vocabulario"]
-
-enunciado: "¿Para qué sirve, en la práctica, poder calcular la aceleración con F = m·a?"
-tipo: mc
-opciones_explicitas:
-  - "Para predecir cómo se va a mover un objeto, conociendo sólo la fuerza neta y su masa"
-  - "Sólo sirve para calcular la masa de objetos ya conocidos"
-  - "No tiene ninguna aplicación práctica real"
-respuesta: "Para predecir cómo se va a mover un objeto, conociendo sólo la fuerza neta y su masa"
-
-explicacion: |
-  Es la fórmula central de la dinámica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["peso", "problema"]
-
-variables:
-  m: uno_de([20, 40, 60])
-  g_marte: 4
-
-respuesta: m * g_marte
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La gravedad en Marte es aproximadamente 4 m/s². ¿Cuál sería el peso de un objeto de {m} kg en Marte?"
-
-pasos:
-  - "{m} × 4 = {m * g_marte} N"
-
-explicacion: |
-  Mismo cálculo que en la Tierra, sólo que con la gravedad de Marte en
-  vez de 10 m/s².
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "intermedio"
-  tags: ["segunda_ley"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La segunda ley de Newton, F = m·a, sólo tiene sentido para objetos que tienen masa."
-
-explicacion: |
-  Es un principio de la mecánica clásica, pensado para objetos con
-  masa.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "avanzado"
-  tags: ["segunda_ley", "problema"]
-
-variables:
-  m: uno_de([5, 10])
-  f1: uno_de([20, 30])
-  f2: f1 * 2
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sobre un objeto de {m} kg actúan, en dos situaciones distintas, fuerzas de {f1} N y de {f2} N. ¿Es la aceleración en la segunda situación el doble que en la primera?"
-
-explicacion: |
-  Con la misma masa, duplicar la fuerza duplica la aceleración.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "segunda_ley_newton_fma"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve la segunda ley de Newton?"
-tipo: mc
-opciones_explicitas:
-  - "Para calcular cuánto acelera un objeto dado la fuerza neta y su masa, incluyendo el caso particular del peso"
-  - "Sólo sirve para calcular masas en el laboratorio"
-  - "Sólo aplica a objetos en reposo"
-respuesta: "Para calcular cuánto acelera un objeto dado la fuerza neta y su masa, incluyendo el caso particular del peso"
-
-explicacion: |
-  Es la fórmula que cuantifica lo que la primera ley sólo describía en
-  palabras.
-```
 
 ## Sección: leyes-de-newton/tercera-accion-reaccion (26 preguntas)
 
@@ -920,11 +390,7 @@ opciones_explicitas:
   - "Confirmar que ambas fuerzas actúan sobre objetos distintos, no sobre el mismo"
   - "Elegir una fuerza (la 'acción') y ver sobre qué objeto actúa"
   - "Buscar la fuerza de igual magnitud y sentido opuesto que actúa sobre el OTRO objeto involucrado"
-respuesta_orden:
-  - "Elegir una fuerza (la 'acción') y ver sobre qué objeto actúa"
-  - "Buscar la fuerza de igual magnitud y sentido opuesto que actúa sobre el OTRO objeto involucrado"
-  - "Confirmar que ambas fuerzas actúan sobre objetos distintos, no sobre el mismo"
-
+respuesta_orden: ["Elegir una fuerza (la 'acción') y ver sobre qué objeto actúa", "Buscar la fuerza de igual magnitud y sentido opuesto que actúa sobre el OTRO objeto involucrado", "Confirmar que ambas fuerzas actúan sobre objetos distintos, no sobre el mismo"]
 explicacion: |
   El último paso es el que evita el error común del libro y la mesa.
 ```
@@ -1053,7 +519,7 @@ tipo: vf
 
 enunciado: "Si la frecuencia de una onda se duplica y la velocidad de propagación se mantiene constante, la longitud de onda debe reducirse a la mitad."
 
-respuesta: falso
+respuesta: verdadero
 
 explicacion: |
   De la fórmula v = λ · f, despejamos λ = v / f. Si la frecuencia aumenta, la longitud de onda disminuye inversamente.
@@ -1079,11 +545,11 @@ pasos:
   - "Identificar la frecuencia (f): {escenario[1]} Hz"
   - "Aplicar la fórmula v = λ * f"
 
-respuesta: escenario[1
+respuesta: escenario[0] * escenario[1]
 
 explicacion: |
   Usando la fórmula v = λ * f:
-  v = {escenario[0]} m * {escenario[1]} Hz = {escenario[1]} m/s.
+  v = {escenario[0]} m * {escenario[1]} Hz = {escenario[0] * escenario[1]} m/s.
 ```
 
 ```
@@ -1094,7 +560,8 @@ metadata:
   tags: ["unidades", "dimensiones"]
 
 tipo: completar
-respuestas_validas: ["m/s", "m/s²", "Hz", "m"]
+respuestas_validas:
+  - "m/s"
 
 respuesta: "m/s"
 
@@ -1114,7 +581,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Cresta", "Punto de equilibrio", "Valle", "Cresta"]
 
-respuesta: ["Cresta", "Punto de equilibrio", "Valle", "Cresta"]
+respuesta_orden: ["Cresta", "Punto de equilibrio", "Valle", "Cresta"]
 
 enunciado: "Ordena las partes de una onda de forma descendente, desde el punto más alto hasta el punto más bajo, y vuelve a subir:"
 
@@ -1131,9 +598,12 @@ metadata:
 
 respuesta: "v = lambda * f"
 tipo: completar
-respuestas_validas: ["v = lambda * f", "v = λ * f", "v = lambda * f"]
+respuestas_validas:
+  - "v = lambda * f"
+  - "v = λ * f"
+  - "v = lambda * f"
 
-enunciado: "La velocidad de propagación de una onda ($v$) se define como el producto de la longitud de onda ($\lambda$) por la ___."
+enunciado: "La velocidad de propagación de una onda ($v$) se define como el producto de la longitud de onda ($\\lambda$) por la ___."
 
 explicacion: |
   La relación fundamental para ondas es $v = \lambda \cdot f$, donde $v$ es la velocidad, $\lambda$ la longitud de onda y $f$ la frecuencia.
@@ -1147,18 +617,18 @@ metadata:
   tags: ["calculo"]
 
 variables:
-  escenario: uno_de([[0.5, 10, 20], [0.2, 50, 10], [0.8, 5, 40]])
+  escenario: uno_de([[5, 20], [10, 25], [8, 50]])
 
-respuesta: datos[escenario][2
+respuesta: escenario[0] * escenario[1]
 tipo: mc
-opciones_explicitas: ["100 m/s", "250 m/s", "400 m/s", "500 m/s"]
+opciones_explicitas: [100, 250, 400, 500]
 
-enunciado: "Una onda tiene una longitud de onda de {datos[escenario][0]} m y una frecuencia de {datos[escenario][1]} Hz. ¿Cuál es su velocidad de propagación?"
+enunciado: "Una onda tiene una longitud de onda de {escenario[0]} m y una frecuencia de {escenario[1]} Hz. ¿Cuál es su velocidad de propagación (en m/s)?"
 
 pasos:
-  - "Identificar los datos: $\lambda = {datos[escenario][0]}$ m y $f = {datos[escenario][1]}$ Hz."
-  - "Aplicar la fórmula: $v = \lambda \cdot f$."
-  - "Calcular: $v = {datos[escenario][0]} \cdot {datos[escenario][1]} = {datos[escenario][2]}$ m/s."
+  - "Identificar los datos: λ = {escenario[0]} m y f = {escenario[1]} Hz."
+  - "Aplicar la fórmula: v = λ · f."
+  - "Calcular: v = {escenario[0]} · {escenario[1]} = {escenario[0] * escenario[1]} m/s."
 
 explicacion: |
   Usando la fórmula $v = \lambda \cdot f$, multiplicamos la longitud de onda por la frecuencia para obtener la velocidad.
@@ -1178,9 +648,9 @@ tolerancia_abs: 0.01
 enunciado: "Si una onda sonora viaja a una velocidad de $340$ m/s y su frecuencia es de $170$ Hz, ¿cuál es su longitud de onda en metros?"
 
 pasos:
-  - "Despejar la fórmula original: $\lambda = v / f$."
-  - "Sustituir valores: $\lambda = 340 / 170$."
-  - "Resultado: $\lambda = 2$ m."
+  - "Despejar la fórmula original: $\\lambda = v / f$."
+  - "Sustituir valores: $\\lambda = 340 / 170$."
+  - "Resultado: $\\lambda = 2$ m."
 
 explicacion: |
   Al despejar la longitud de onda, la frecuencia pasa dividiendo al otro lado de la igualdad.
@@ -1210,9 +680,9 @@ metadata:
   nivel: "basico"
   tags: ["metodologia"]
 
-respuesta: ["identificar_datos", "seleccionar_formula", "sustituir_valores", "calcular_resultado"]
+respuesta_orden: ["identificar_datos", "seleccionar_formula", "sustituir_valores", "calcular_resultado"]
 tipo: ordenar
-opciones_explicitas: ["identificar_datos", "seleccionar_formula", "sustituir_valores", "calcular_resultado", "graficar_onda"]
+opciones_explicitas: ["identificar_datos", "seleccionar_formula", "sustituir_valores", "calcular_resultado"]
 
 enunciado: "Ordena los pasos lógicos para resolver un problema de cálculo de velocidad de onda."
 
@@ -1227,19 +697,16 @@ metadata:
   nivel: "basico"
   tags: ["unidades", "conceptos_basicos"]
 
-variables:
-  frecuencia: 50.0
-  longitud: 2.0
-
-respuesta: "100.0"
+respuesta: "m/s"
 tipo: completar
-tolerancia_abs: 0.01
+respuestas_validas:
+  - "m/s"
 
-enunciado: "Para calcular la velocidad de una onda usando la fórmula $v = \lambda \cdot f$, si la longitud de onda $\lambda$ está en metros (m) y la frecuencia $f$ está en Hertz (Hz), la unidad resultante para la velocidad será ___."
+enunciado: "Para calcular la velocidad de una onda usando la fórmula $v = \\lambda \\cdot f$, si la longitud de onda $\\lambda$ está en metros (m) y la frecuencia $f$ está en Hertz (Hz), la unidad resultante para la velocidad será ___."
 
 pasos:
-  - "Identificar las unidades de los componentes: $\lambda$ [m] y $f$ [1/s]."
-  - "Multiplicar las unidades: $m \cdot (1/s) = m/s$."
+  - "Identificar las unidades de los componentes: $\\lambda$ [m] y $f$ [1/s]."
+  - "Multiplicar las unidades: $m \\cdot (1/s) = m/s$."
 
 explicacion: |
   El error común es confundir la unidad de velocidad con la de frecuencia o longitud. La velocidad es la distancia recorrida por la fase de la onda por unidad de tiempo, por lo tanto, se mide en metros por segundo (m/s).
@@ -1252,12 +719,8 @@ metadata:
   nivel: "intermedio"
   tags: ["relacion_inversa", "ondas"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[440.0, 0.75], [220.0, 1.5]]
-
-respuesta: "verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En un medio donde la velocidad de propagación es constante, si la frecuencia de una onda se duplica, su longitud de onda se reduce a la mitad. ¿Es esto correcto?"
 
 explicacion: |
@@ -1275,15 +738,15 @@ variables:
   v_onda: 340.0
   f_onda: 170.0
 
-respuesta: "1.75"
+respuesta: "340"
 tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Un estudiante afirma que si una onda tiene una frecuencia de {f_onda} Hz y una longitud de onda de 2 metros, su velocidad es de 340 m/s. ¿Cuál es el valor real de la velocidad en m/s?"
 
 pasos:
-  - "Aplicar la fórmula $v = \lambda \cdot f$."
-  - "Calcular $2 \cdot 170 = 340$."
+  - "Aplicar la fórmula $v = \\lambda \\cdot f$."
+  - "Calcular $2 \\cdot 170 = 340$."
 
 explicacion: |
   En este caso, el estudiante tenía razón. El error común es olvidar que la velocidad depende de la frecuencia y la longitud de onda simultáneamente; si cambias una sin ajustar la otra, la velocidad cambia.
@@ -1301,7 +764,7 @@ tipo: mc
 
 opciones_explicitas: ["frecuencia", "longitud de onda", "amplitud", "periodo"]
 
-enunciado: "En la ecuación de la velocidad de propagación de una onda, el símbolo $\lambda$ representa la ___."
+enunciado: "En la ecuación de la velocidad de propagación de una onda, el símbolo $\\lambda$ representa la ___."
 
 explicacion: |
   Es fundamental distinguir entre $\lambda$ (longitud de onda, distancia entre crestas consecutivas) y $A$ (amplitud, que es la altura de la cresta).
@@ -1314,7 +777,7 @@ metadata:
   nivel: "basico"
   tags: ["despeje", "algebra"]
 
-respuesta: ["v = lambda * f", "f = v / lambda", "lambda = v / f"]
+respuesta_orden: ["v = lambda * f", "f = v / lambda", "lambda = v / f"]
 tipo: ordenar
 
 opciones_explicitas: ["v = lambda * f", "f = v / lambda", "lambda = v / f"]
@@ -1322,9 +785,9 @@ opciones_explicitas: ["v = lambda * f", "f = v / lambda", "lambda = v / f"]
 enunciado: "Ordena las fórmulas para despejar cada variable de la ecuación fundamental de la onda, partiendo de la velocidad."
 
 pasos:
-  - "La fórmula original es $v = \lambda \cdot f$."
-  - "Para despejar $f$, pasamos $\lambda$ dividiendo: $f = v / \lambda$."
-  - "Para despejar $\lambda$, pasamos $f$ dividiendo: $\lambda = v / f$."
+  - "La fórmula original es $v = \\lambda \\cdot f$."
+  - "Para despejar $f$, pasamos $\\lambda$ dividiendo: $f = v / \\lambda$."
+  - "Para despejar $\\lambda$, pasamos $f$ dividiendo: $\\lambda = v / f$."
 
 explicacion: |
   El error común es intentar despejar de forma incorrecta (por ejemplo, intentar pasar una frecuencia restando). Recuerda que en la fórmula original, la frecuencia y la longitud de onda se están multiplicando.
@@ -1339,7 +802,9 @@ metadata:
 
 respuesta: "inversamente"
 tipo: completar
-respuestas_validas: ["inversamente", "inversa"]
+respuestas_validas:
+  - "inversamente"
+  - "inversa"
 
 enunciado: "En una onda de velocidad constante, si la frecuencia aumenta, la longitud de onda debe variar de forma ___ a la frecuencia."
 
@@ -1358,16 +823,16 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [[300, 10, 3000], [340, 500, 170000]]
 
-respuesta: uno_de(datos[escenario_idx][2])
+respuesta: datos[escenario_idx][2]
 tipo: mc
-opciones_explicitas: ["300", "3000", "340", "170000"]
+opciones_explicitas: [3000, 170000, 300, 340]
 
-enunciado: "Considera el siguiente caso: una onda tiene una longitud de onda de {datos[escenario_idx][0]} metros y una frecuencia de {datos[scenario_idx][1]} Hz. ¿Cuál es su velocidad de propagación?"
+enunciado: "Considera el siguiente caso: una onda tiene una longitud de onda de {datos[escenario_idx][0]} metros y una frecuencia de {datos[escenario_idx][1]} Hz. ¿Cuál es su velocidad de propagación?"
 
 pasos:
-  - "Identificar la longitud de onda ($\lambda$): {datos[escenario_idx][0]} m"
-  - "Identificar la frecuencia ($f$): {datos[escenario_idx][1]} Hz"
-  - "Aplicar la fórmula $v = \lambda \cdot f$"
+  - "Identificar la longitud de onda (λ): {datos[escenario_idx][0]} m"
+  - "Identificar la frecuencia (f): {datos[escenario_idx][1]} Hz"
+  - "Aplicar la fórmula v = λ · f"
 
 explicacion: |
   Utilizando la fórmula $v = \lambda \cdot f$:
@@ -1400,9 +865,10 @@ metadata:
 
 respuesta: "frecuencia"
 tipo: completar
-respuestas_validas: ["frecuencia"]
+respuestas_validas:
+  - "frecuencia"
 
-enunciado: "En la ecuación de la velocidad de propagación $v = \lambda \cdot f$, el término $f$ representa la ___."
+enunciado: "En la ecuación de la velocidad de propagación $v = \\lambda \\cdot f$, el término $f$ representa la ___."
 
 explicacion: |
   La letra $f$ representa la frecuencia, que es el número de ciclos por unidad de tiempo.
@@ -1415,7 +881,7 @@ metadata:
   nivel: "intermedio"
   tags: ["orden", "conceptos"]
 
-respuesta: ["frecuencia", "velocidad", "longitud_onda"]
+respuesta_orden: ["longitud_onda", "velocidad", "frecuencia"]
 tipo: ordenar
 opciones_explicitas: ["frecuencia", "velocidad", "longitud_onda"]
 
@@ -1424,7 +890,7 @@ enunciado: "Ordena las siguientes magnitudes de menor a mayor, considerando una 
 pasos:
   - "Estimar la frecuencia ($f$): 440 Hz"
   - "Estimar la velocidad ($v$): ~340 m/s"
-  - "Estimar la longitud de onda ($\lambda = v/f$): ~0.77 m"
+  - "Estimar la longitud de onda ($\\lambda = v/f$): ~0.77 m"
 
 explicacion: |
   Para una onda de sonido estándar:
@@ -1445,20 +911,20 @@ variables:
   escenario: uno_de([[130, 0.5, 260], [440, 1.0, 440], [256, 2.0, 128]])
   v_sonido: 340
 
-respuesta: escenario[idx][0] / (escenario[idx][1] * escenario[idx][2])
+respuesta: v_sonido / escenario[0]
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un músico toca una nota cuya frecuencia es de {escenario[idx][1]} Hz. Si la velocidad del sonido en el aire es de {v_sonido} m/s, ¿cuál es la longitud de onda λ en metros?"
+enunciado: "Un músico toca una nota cuya frecuencia es de {escenario[0]} Hz. Si la velocidad del sonido en el aire es de {v_sonido} m/s, ¿cuál es la longitud de onda λ en metros?"
 
 pasos:
   - "Identificar la fórmula de velocidad: v = λ · f"
   - "Despejar la longitud de onda: λ = v / f"
-  - "Sustituir los valores: λ = {v_sonido} / {escenario[idx][1]}"
+  - "Sustituir los valores: λ = {v_sonido} / {escenario[0]}"
 
 explicacion: |
   La longitud de onda se calcula dividiendo la velocidad de propagación por la frecuencia: λ = v / f.
-  Para este caso: {v_sonido} / {escenario[idx][1]} = {redondear(v_sonido / escenario[idx][1], 2)} m.
+  Para este caso: {v_sonido} / {escenario[0]} = {redondear(v_sonido / escenario[0], 2)} m.
 ```
 
 ```
@@ -1477,9 +943,9 @@ variables:
 
 respuesta: lambda_correcta
 tipo: mc
-opciones_explicitas: ["0.3 m", "3.0 m", "30.0 m", "300.0 m"]
+opciones_explicitas: [0.3, 3.0, 6.0, 300.0]
 
-enunciado: "Una antena de radio emite una señal con una frecuencia de {frecuencia} Hz. Si la señal viaja a la velocidad de la luz ({velocidad} m/s), ¿cuál es la longitud de onda de la radiación?"
+enunciado: "Una antena de radio emite una señal con una frecuencia de {frecuencia} Hz. Si la señal viaja a la velocidad de la luz ({velocidad} m/s), ¿cuál es la longitud de onda de la radiación (en metros)?"
 
 explicacion: |
   Usando λ = v / f:
@@ -1510,14 +976,17 @@ metadata:
   tags: ["oceanografia", "calculo"]
 
 variables:
-  caso: uno_de([[0.5, 12, 6], [2.0, 10, 5], [0.2, 15, 75]])
-  v_onda: caso[idx][1]
-  f_onda: caso[idx][0]
-  l_onda: caso[idx][2]
+  caso: uno_de([[0.5, 12, 24], [2.0, 10, 5], [0.2, 15, 75]])
+  f_onda: caso[0]
+  v_onda: caso[1]
+  l_onda: caso[2]
 
 respuesta: l_onda
 tipo: completar
-respuestas_validas: [6.0, 5.0, 75.0]
+respuestas_validas:
+  - 24.0
+  - 5.0
+  - 75.0
 
 enunciado: "En un estudio oceanográfico se observa una onda con una frecuencia de {f_onda} Hz que se desplaza a una velocidad de {v_onda} m/s. La longitud de onda medida es de ___ m."
 
@@ -1587,18 +1056,15 @@ metadata:
   nivel: "basico"
   tags: ["color", "espectro"]
 
-variables:
-  colores: ["rojo", "naranja", "amarillo", "verde", "azul", "añil", "violeta"]
-  idx: uno_de([0,1,2,3,4,5,6])
-
 tipo: completar
-respuestas_validas: ["rojo", "naranja", "amarillo", "verde", "azul", "añil", "violeta"]
-respuesta: colores[idx
+respuestas_validas:
+  - "rojo"
+respuesta: "rojo"
 
 enunciado: "En el espectro de la luz visible, el color que se encuentra en el extremo de las longitudes de onda más largas es el color ___."
 
 explicacion: |
-  El color {colores[idx]} tiene la longitud de onda más larga en el espectro visible, situándose en el extremo rojo.
+  El color rojo tiene la longitud de onda más larga en el espectro visible.
 ```
 
 ```
@@ -1611,7 +1077,7 @@ metadata:
 tipo: mc
 opciones_explicitas: ["Directamente proporcional", "Inversamente proporcional", "No existe relación", "Depende del medio"]
 
-enunciado: "En una onda electromagnética, la relación entre la frecuencia ($f$) y la longitud de onda ($\lambda$) es:"
+enunciado: "En una onda electromagnética, la relación entre la frecuencia ($f$) y la longitud de onda ($\\lambda$) es:"
 
 respuesta: "Inversamente proporcional"
 
@@ -1628,7 +1094,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Infrarrojo", "Luz visible", "Ultravioleta", "Rayos X"]
-respuesta: ["Infrarrojo", "Luz visible", "Ultravioleta", "Rayos X"]
+respuesta_orden: ["Infrarrojo", "Luz visible", "Ultravioleta", "Rayos X"]
 
 enunciado: "Ordene las siguientes radiaciones de menor frecuencia a mayor frecuencia:"
 
@@ -1674,7 +1140,7 @@ variables:
   idx: uno_de([0, 1, 2])
   datos: [["Rayos X", "frecuencias muy altas y alta energía", "longitudes de onda muy cortas"], ["Ondas de radio", "frecuencias muy bajas y baja energía", "longitudes de onda muy largas"], ["Luz visible", "frecuencias intermedias", "longitudes de onda intermedias"]]
 
-respuesta: datos[idx][0
+respuesta: datos[idx][0]
 tipo: mc
 opciones_explicitas: ["Rayos X", "Ondas de radio", "Luz visible"]
 
@@ -1692,7 +1158,7 @@ metadata:
   nivel: "basico"
   tags: ["ordenar", "espectro"]
 
-respuesta: ["Ondas de radio", "Luz visible", "Rayos gamma"]
+respuesta_orden: ["Ondas de radio", "Luz visible", "Rayos gamma"]
 tipo: ordenar
 opciones_explicitas: ["Rayos gamma", "Luz visible", "Ondas de radio"]
 
@@ -1710,15 +1176,13 @@ metadata:
   nivel: "basico"
   tags: ["teoria", "velocidad"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "¿Es verdadero o falso que todas las ondas del espectro electromagnético (desde radio hasta gamma) viajan a la misma velocidad en el vacío?"
 
 explicacion: |
-  Es falso. Todas las ondas electromagnéticas viajan a la misma velocidad (c) en el VACÍO. 
-  Sin embargo, la pregunta se refiere a la naturaleza de la constante c en el vacío, que es universal para todo el espectro.
-  *Nota: En el vacío la velocidad es constante, pero la pregunta busca evaluar la comprensión de la constante universal.*
+  Es verdadero. Todas las ondas electromagnéticas, sin importar su frecuencia, viajan a la misma velocidad (c ≈ 3×10⁸ m/s) en el vacío; esa es precisamente la constante universal que las une.
 ```
 
 ```
@@ -1771,14 +1235,9 @@ metadata:
   nivel: "basico"
   tags: ["orden", "espectro", "longitud_de_onda"]
 
-variables:
-  orden_idx: uno_de([0, 1])
+opciones_explicitas: ["Ondas de radio", "Microondas", "Luz visible", "Rayos X"]
 
-opciones_explicitas:
-  - ["Ondas de radio", "Microondas", "Luz visible", "Rayos X"]
-  - ["Rayos X", "Luz visible", "Microondas", "Ondas de radio"]
-
-respuesta: ["Ondas de radio", "Microondas", "Luz visible", "Rayos X"]
+respuesta_orden: ["Ondas de radio", "Microondas", "Luz visible", "Rayos X"]
 tipo: ordenar
 
 enunciado: "Ordena las siguientes radiaciones de la que tiene mayor longitud de onda a la que tiene menor longitud de onda:"
@@ -1846,17 +1305,13 @@ metadata:
   nivel: "avanzado"
   tags: ["frecuencia", "energía", "rayos_gamma"]
 
-variables:
-  datos: [["alta", "alta"], ["baja", "baja"]]
-  idx: uno_de([0, 1])
-
 enunciado: "Los rayos gamma tienen una frecuencia extremadamente ___ que la luz visible, lo que les permite ser altamente ionizantes."
 
 opciones_explicitas:
   - "alta"
   - "baja"
 
-respuesta: datos[idx][0]
+respuesta: "alta"
 tipo: mc
 
 explicacion: |
@@ -1872,7 +1327,8 @@ metadata:
 
 respuesta: "rayos_gamma"
 tipo: completar
-respuestas_validas: ["rayos_gamma"]
+respuestas_validas:
+  - "rayos_gamma"
 
 enunciado: "En el espectro electromagnético, mientras que las ondas de radio tienen longitudes de onda muy largas, los ___ poseen las longitudes de onda más cortas y la mayor energía."
 
@@ -1888,14 +1344,10 @@ metadata:
   tags: ["luz_visible", "color", "frecuencia"]
 
 variables:
-  idx: uno_de([0, 1, 2])
-  datos: [
-    ["rojo", "frecuencia baja"],
-    ["azul", "frecuencia alta"],
-    ["verde", "frecuencia media"]
-  ]
+  idx: uno_de([0, 1])
+  datos: [["rojo", "frecuencia baja"], ["verde", "frecuencia media"]]
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["frecuencia baja", "frecuencia alta", "frecuencia media"]
 
@@ -1928,7 +1380,7 @@ metadata:
   nivel: "intermedio"
   tags: ["orden", "espectro"]
 
-respuesta: ["ondas_radio", "microondas", "infrarrojo", "luz_visible", "ultravioleta", "rayos_x", "rayos_gamma"]
+respuesta_orden: ["ondas_radio", "microondas", "infrarrojo", "luz_visible", "ultravioleta", "rayos_x", "rayos_gamma"]
 tipo: ordenar
 opciones_explicitas: ["ondas_radio", "microondas", "infrarrojo", "luz_visible", "ultravioleta", "rayos_x", "rayos_gamma"]
 
@@ -1945,18 +1397,11 @@ metadata:
   nivel: "basico"
   tags: ["luz_visible", "espectro"]
 
-variables:
-  idx: uno_de([0, 1])
-  limites: [
-    ["infrarrojo", "longitud de onda mayor"],
-    ["ultravioleta", "longitud de onda menor"]
-  ]
-
-respuesta: limites[idx][1
+respuesta: "longitud de onda menor"
 tipo: mc
 opciones_explicitas: ["longitud de onda mayor", "longitud de onda menor"]
 
-enunciado: "La luz visible es el rango que el ojo humano puede detectar. El límite que se encuentra por encima del violeta (hacia el ___ ) se define por tener una {limites[idx][1]}."
+enunciado: "La luz visible es el rango que el ojo humano puede detectar. El límite que se encuentra por encima del violeta (hacia el ultravioleta) se define por tener una ___."
 
 explicacion: |
   El ultravioleta tiene frecuencias más altas y longitudes de onda más cortas que el límite superior del espectro visible.
@@ -1969,16 +1414,11 @@ metadata:
   nivel: "basico"
   tags: ["luz_visible", "infrarrojo", "tecnologia"]
 
-variables:
-  escenario_idx: uno_de([0,1])
-  datos: [["infrarrojo", "luz visible"], ["ultravioleta", "luz visible"]]
-  frecuencia_hz: [3e12, 5e14]
-
-respuesta: datos[escenario_idx][1
+respuesta: "infrarrojo"
 tipo: mc
 opciones_explicitas: ["infrarrojo", "luz visible", "ultravioleta", "rayos x"]
 
-enunciado: "Un control remoto de televisión emite una radiación que no es perceptible para el ojo humano, situándose por debajo de la frecuencia de la {datos[escenario_idx][0]}. ¿Qué tipo de radiación es?"
+enunciado: "Un control remoto de televisión emite una radiación que no es perceptible para el ojo humano, situándose por debajo de la frecuencia de la luz visible. ¿Qué tipo de radiación es?"
 
 explicacion: |
   El control remoto utiliza luz infrarroja, la cual tiene una longitud de onda mayor y una frecuencia menor que la luz visible.
@@ -2011,9 +1451,11 @@ variables:
   caso_idx: uno_de([0,1])
   casos: [["rayos gamma", "1e22"], ["rayos x", "1e18"]]
 
-respuesta: casos[caso_idx][1
+respuesta: casos[caso_idx][1]
 tipo: completar
-respuestas_validas: ["1e22", "1e18"]
+respuestas_validas:
+  - "1e22"
+  - "1e18"
 
 enunciado: "En un experimento de física nuclear, se detecta una radiación con una frecuencia extremadamente alta de ___ Hz, lo cual corresponde a la categoría de {casos[caso_idx][0]}."
 
@@ -2028,7 +1470,7 @@ metadata:
   nivel: "basico"
   tags: ["orden", "espectro", "frecuencia"]
 
-respuesta: ["radio", "microondas", "infrarrojo", "luz visible", "ultravioleta", "rayos gamma"]
+respuesta_orden: ["radio", "microondas", "infrarrojo", "luz visible", "ultravioleta", "rayos gamma"]
 tipo: ordenar
 opciones_explicitas: ["radio", "microondas", "infrarrojo", "luz visible", "ultravioleta", "rayos gamma"]
 
@@ -2049,7 +1491,7 @@ variables:
   color_idx: uno_de([0,1])
   colores: [["rojo", "baja"], ["azul", "alta"]]
 
-respuesta: colores[color_idx][1
+respuesta: colores[color_idx][1]
 tipo: mc
 opciones_explicitas: ["baja", "alta", "media", "nula"]
 
@@ -2072,7 +1514,7 @@ variables:
   temp_caliente: uno_de([600, 800, 1000])
   temp_fria: 300
 
-respuesta: (temp_caliente / (temp_caliente + temp_fria)) * 100
+respuesta: (1 - (temp_fria / temp_caliente)) * 100
 
 tipo: completar
 tolerancia_abs: 0.1
@@ -2137,7 +1579,7 @@ metadata:
 
 opciones_explicitas: ["Caldera", "Condensador", "Cilindro", "Pistón"]
 
-respuesta: ["Caldera", "Cilindro", "Pistón", "Condensador"]
+respuesta_orden: ["Caldera", "Cilindro", "Pistón", "Condensador"]
 
 tipo: ordenar
 
@@ -2174,11 +1616,7 @@ metadata:
   tags: ["termodinamica", "eficiencia"]
 
 variables:
-  escenario: uno_de([
-    [1000, 300],
-    [800, 200],
-    [500, 150]
-  ])
+  escenario: uno_de([[1000, 300], [800, 200], [500, 150]])
 
 enunciado: "Una máquina térmica opera entre una fuente caliente a {escenario[0]} K y una fuente fría a {escenario[1]} K. Calcula la eficiencia máxima teórica (eficiencia de Carnot) de esta máquina."
 
@@ -2220,11 +1658,7 @@ metadata:
   tags: ["termodinamica", "primer_ley"]
 
 variables:
-  datos: uno_de([
-    [500, 150],
-    [1000, 400],
-    [250, 50]
-  ])
+  datos: uno_de([[500, 150], [1000, 400], [250, 50]])
 
 enunciado: "Una máquina térmica absorbe {datos[0]} J de calor de una fuente caliente y realiza un trabajo de {datos[1]} J. ¿Cuánta energía se libera como calor a la fuente fría?"
 
@@ -2265,7 +1699,7 @@ opciones_explicitas: ["Absorción de calor", "Expansión (Trabajo)", "Expulsión
 
 enunciado: "Ordena las etapas típicas de un ciclo de una máquina térmica desde que recibe energía hasta que completa su ciclo:"
 
-respuesta: ["Absorción de calor", "Expansión (Trabajo)", "Expulsión de calor"]
+respuesta_orden: ["Absorción de calor", "Expansión (Trabajo)", "Expulsión de calor"]
 tipo: ordenar
 
 explicacion: |
@@ -2280,20 +1714,16 @@ metadata:
   tags: ["segunda_ley", "eficiencia", "calor"]
 
 variables:
-  idx: uno_de([0, 1])
-  escenario: uno_de([
-    ["Una máquina térmica absorbe 1000 J de calor y realiza 400 J de trabajo.", "400"],
-    ["Un motor absorbe 500 J de calor y entrega 200 J de trabajo.", "200"]
-  ])
+  escenario: uno_de([["Una máquina térmica absorbe 1000 J de calor y realiza 400 J de trabajo.", 400], ["Un motor absorbe 500 J de calor y entrega 200 J de trabajo.", 200]])
 
-enunciado: "Según la segunda ley de la termodinámica, la eficiencia de una máquina térmica se define como el trabajo útil dividido por el calor absorbido. En el caso de {escenario[idx][0]}, ¿cuánto trabajo se realizó?"
+enunciado: "Según la segunda ley de la termodinámica, la eficiencia de una máquina térmica se define como el trabajo útil dividido por el calor absorbido. En el caso de {escenario[0]}, ¿cuánto trabajo se realizó?"
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: completar
 tolerancia_abs: 0.1
 
 explicacion: |
-  La eficiencia es $\eta = W / Q_{in}$. En el primer caso: $400/1000 = 0.4$ (40%). En el segundo: $200/500 = 0.4$ (40%). Siempre hay una parte del calor que no se convierte en trabajo.
+  La eficiencia es η = W / Q_in. En el primer caso: 400/1000 = 0.4 (40%). En el segundo: 200/500 = 0.4 (40%). Siempre hay una parte del calor que no se convierte en trabajo.
 ```
 
 ```
@@ -2329,14 +1759,14 @@ enunciado: "Considerando una máquina de Carnot operando entre una fuente calien
 
 pasos:
   - "Calcular la temperatura absoluta en Kelvin."
-  - "Aplicar la fórmula de eficiencia de Carnot: $\eta = 1 - (T_{frio} / T_{caliente})$."
+  - "Aplicar la fórmula de eficiencia de Carnot: eta = 1 - (T_frio / T_caliente)."
 
 respuesta: 0.5
 tipo: completar
 tolerancia_abs: 0.01
 
 explicacion: |
-  La eficiencia de Carnot es $\eta = 1 - (300/600) = 1 - 0.5 = 0.5$ (50%). Incluso en el caso ideal de Carnot, la eficiencia es menor a 1 (100%) si $T_{frio} > 0$.
+  La eficiencia de Carnot es eta = 1 - (300/600) = 1 - 0.5 = 0.5 (50%). Incluso en el caso ideal de Carnot, la eficiencia es menor a 1 (100%) si T_frio > 0.
 ```
 
 ```
@@ -2364,7 +1794,9 @@ metadata:
   nivel: "intermedio"
   tags: ["segunda_ley", "imposibilidad"]
 
-respuestas_validas: ["imposible", "falso"]
+respuestas_validas:
+  - "imposible"
+  - "falso"
 
 enunciado: "Es físicamente ___ construir una máquina térmica que tenga una eficiencia del 100%."
 
@@ -2383,16 +1815,13 @@ metadata:
   tags: ["termodinamica", "historia_ciencia", "watt"]
 
 variables:
-  escenario: uno_de([
-    ["Máquina de Newcomen", "calentaba y enfriaba el cilindro en cada ciclo", "causaba una pérdida masiva de energía térmica al enfriar el cilindro"],
-    ["Máquina de Watt", "mantenía el cilindro caliente y usaba un condensador separado", "permitía que el cilindro permaneciera a la temperatura del vapor"]
-  ])
+  escenario: ["Máquina de Newcomen", "calentaba y enfriaba el cilindro en cada ciclo", "causaba una pérdida masiva de energía térmica al enfriar el cilindro"]
 
-enunciado: "En la máquina de Newcomen, el principal problema de eficiencia era que el {escenario[0]}."
+enunciado: "En la {escenario[0]}, el principal problema de eficiencia era que el {escenario[1]}."
 
-respuesta: escenario[2
+respuesta: escenario[2]
 tipo: mc
-opciones_explicitas: ["calentaba y enfriaba el cilindro en cada ciclo", "mantenía el cilindro caliente y usaba un condensador separado", "causaba una pérdida masiva de energía térmica al enfriar el cilindro"]
+opciones_explicitas: ["causaba una pérdida masiva de energía térmica al enfriar el cilindro", "permitía que el cilindro permaneciera a la temperatura del vapor"]
 
 explicacion: |
   James Watt introdujo el condensador separado para evitar que el cilindro principal se enfriara en cada ciclo, lo que ahorraba una cantidad enorme de energía y permitía un uso industrial continuo.
@@ -2406,19 +1835,16 @@ metadata:
   tags: ["eficiencia", "termodinamica", "calor"]
 
 variables:
-  valor_eficiencia: uno_de([
-    [0.05, "5%"],
-    [0.12, "12%"],
-    [0.25, "25%"]
-  ])
+  valor_eficiencia: uno_de([[0.05, "5%"], [0.12, "12%"], [0.25, "25%"]])
 
 enunciado: "Si una máquina térmica industrial de la era de Watt tiene una eficiencia térmica de {valor_eficiencia[1]}, esto significa que solo una parte del calor absorbido se convierte en trabajo. El valor decimal es ___."
 
-respuestas_validas: ["0.12"]
+respuesta: valor_eficiencia[0]
 tipo: completar
+tolerancia_abs: 0.01
 
 explicacion: |
-  La eficiencia térmica es la relación entre el trabajo útil obtenido y el calor suministrado. Un valor de 0.12 representa un 12% de eficiencia.
+  La eficiencia térmica es la relación entre el trabajo útil obtenido y el calor suministrado. Por ejemplo, un valor de 0.12 representa un 12% de eficiencia.
 ```
 
 ```
@@ -2433,11 +1859,11 @@ enunciado: "Ordena los componentes de una máquina de vapor de Watt según el fl
 pasos:
   - "Generación de vapor por combustión"
   - "Expansión del vapor en el cilindro"
-  - "Condensación en el condensador separado"
   - "Movimiento del pistón/émbolo"
+  - "Condensación en el condensador separado"
 
 opciones_explicitas: ["Generación de vapor por combustión", "Expansión del vapor en el cilindro", "Condensación en el condensador separado", "Movimiento del pistón/émbolo"]
-respuesta: ["Generación de vapor por combustión", "Expansión del vapor en el cilindro", "Condensación en el condensador separado", "Movimiento del pistón/émbolo"]
+respuesta_orden: ["Generación de vapor por combustión", "Expansión del vapor en el cilindro", "Movimiento del pistón/émbolo", "Condensación en el condensador separado"]
 tipo: ordenar
 
 explicacion: |
@@ -2452,15 +1878,12 @@ metadata:
   tags: ["termodinamica", "watt", "eficiencia"]
 
 variables:
-  efecto: uno_de([
-    ["aumentar", "aumentar"],
-    ["disminuir", "disminuir"],
-    ["mantener", "mantener"]
-  ])
+  efecto: uno_de([["aumentar", "aumentar"], ["disminuir", "disminuir"], ["mantener", "mantener"]])
 
 enunciado: "La introducción del condensador separado por parte de Watt tuvo como objetivo principal ___ la temperatura del cilindro durante el ciclo de expansión."
 
-respuestas_validas: ["mantener"]
+respuestas_validas:
+  - "mantener"
 tipo: completar
 
 explicacion: |
@@ -2475,25 +1898,21 @@ metadata:
   tags: ["leyes_termodinamica", "trabajo", "calor"]
 
 variables:
-  caso: uno_de([
-    [100, "100"],
-    [250, "250"],
-    [500, "500"]
-  ])
+  caso: uno_de([100, 250, 500])
 
-enunciado: "Una máquina de vapor de Watt recibe {caso[0]} Joules de calor ($Q_{in}$) y realiza un trabajo de {caso[0] * 0.2} Joules ($W$). ¿Cuál es su eficiencia térmica ($\eta = W/Q_{in}$) expresada en decimal?"
+enunciado: "Una máquina de vapor de Watt recibe {caso} Joules de calor (Qin) y realiza un trabajo de {caso * 0.2} Joules (W). ¿Cuál es su eficiencia térmica (eta = W/Qin) expresada en decimal?"
 
 pasos:
-  - "Identificar el trabajo realizado ($W$)"
-  - "Identificar el calor absorbido ($Q_{in}$)"
-  - "Dividir $W$ entre $Q_{in}$"
+  - "Identificar el trabajo realizado (W)"
+  - "Identificar el calor absorbido (Qin)"
+  - "Dividir W entre Qin"
 
 respuesta: 0.2
 tipo: completar
 tolerancia_abs: 0.001
 
 explicacion: |
-  La eficiencia se calcula como $\eta = W / Q_{in}$. En este caso: $20 / 100 = 0.2$ (o $50 / 250 = 0.2$).
+  La eficiencia se calcula como η = W / Q_in. En este caso: 20 / 100 = 0.2 (o 50 / 250 = 0.2).
 ```
 
 ```
@@ -2504,19 +1923,19 @@ metadata:
   tags: ["termodinamica", "eficiencia"]
 
 variables:
-  escenario: [[150, "0.30"], [200, "0.40"], [250, "0.50"]]
+  escenario: [[150, 0.30], [200, 0.40], [250, 0.50]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "Una máquina térmica absorbe un calor de {escenario[idx][0]} J del foco caliente y realiza un trabajo útil de {escenario[idx][0] * escenario[idx][1]} J. ¿Cuál es la eficiencia térmica de la máquina?"
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: mc
-opciones_explicitas: ["0.20", "0.30", "0.40", "0.50", "0.60"]
+opciones_explicitas: [0.20, 0.30, 0.40, 0.50, 0.60]
 
 explicacion: |
-  La eficiencia térmica ($\eta$) se define como el cociente entre el trabajo útil realizado ($W$) y el calor absorbido ($Q_H$):
-  $\eta = W / Q_H$.
-  En este caso: $\eta = {escenario[idx][0] * escenario[idx][1]} / {escenario[idx][0]} = {escenario[idx][1]}$.
+  La eficiencia térmica (η) se define como el cociente entre el trabajo útil realizado (W) y el calor absorbido (Q_H):
+  η = W / Q_H.
+  En este caso: η = {escenario[idx][0] * escenario[idx][1]} / {escenario[idx][0]} = {escenario[idx][1]}.
 ```
 
 ```
@@ -2527,7 +1946,7 @@ metadata:
   tags: ["termodinamica", "eficiencia"]
 
 variables:
-  datos: [[450, "0.25"], [600, "0.33"], [800, "0.45"]]
+  datos: [[450, 0.25], [600, 0.33], [800, 0.45]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "Si una máquina térmica absorbe {datos[idx][0]} J de calor y su eficiencia es de {datos[idx][1]} (expresada en decimal), ¿cuánto trabajo útil realiza?"
@@ -2537,8 +1956,8 @@ tipo: completar
 tolerancia_abs: 0.01
 
 explicacion: |
-  Usamos la fórmula de eficiencia: $\eta = W / Q_H \implies W = \eta \times Q_H$.
-  Sustituyendo: $W = {datos[idx][1]} \times {datos[idx][0]} = {datos[idx][0] * datos[idx][1]} \text{ J}$.
+  Usamos la fórmula de eficiencia: W = η × Q_H.
+  Sustituyendo: W = {datos[idx][1]} × {datos[idx][0]} = {datos[idx][0] * datos[idx][1]} J.
 ```
 
 ```
@@ -2549,7 +1968,7 @@ metadata:
   tags: ["termodinamica", "eficiencia"]
 
 variables:
-  caso: [[120, "0.2"], [150, "0.3"], [200, "0.5"]]
+  caso: [[120, 0.2], [150, 0.3], [200, 0.5]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "Dada una máquina térmica con una eficiencia de {caso[idx][1]}, si el trabajo realizado es de {caso[idx][0]} J, ¿cuál es el calor absorbido del foco caliente?"
@@ -2559,8 +1978,8 @@ tipo: completar
 tolerancia_abs: 0.01
 
 explicacion: |
-  Partiendo de $\eta = W / Q_H$, despejamos el calor absorbido: $Q_H = W / \eta$.
-  Calculamos: ${caso[idx][0]} / {caso[idx][1]} = {caso[idx][0] / caso[idx][1]} \text{ J}$.
+  Partiendo de η = W / Q_H, despejamos el calor absorbido: Q_H = W / η.
+  Calculamos: {caso[idx][0]} / {caso[idx][1]} = {caso[idx][0] / caso[idx][1]} J.
 ```
 
 ```
@@ -2570,11 +1989,13 @@ metadata:
   nivel: "basico"
   tags: ["termodinamica"]
 
-enunciado: "En una máquina térmica, la eficiencia térmica ($\eta$) se define como la relación entre el ___ realizado y el ___ absorbido del foco caliente."
+enunciado: "En una máquina térmica, la eficiencia térmica ($\\eta$) se define como la relación entre el ___ realizado y el ___ absorbido del foco caliente."
 
 respuesta: ["trabajo", "calor"]
 tipo: completar
-respuestas_validas: ["trabajo", "calor"]
+respuestas_validas:
+  - "trabajo"
+  - "calor"
 
 explicacion: |
   La eficiencia ($\eta$) representa qué fracción de la energía térmica absorbida se convierte en trabajo útil.
@@ -2589,16 +2010,545 @@ metadata:
   tags: ["termodinamica"]
 
 variables:
-  valores: [[500, "0.25"], [1000, "0.50"], [2000, "0.75"]]
+  valores: [[500, 0.25], [1000, 0.50], [2000, 0.75]]
   idx: uno_de([0, 1, 2])
 
 enunciado: "Si una máquina térmica tiene una eficiencia de {valores[idx][1]} y absorbe {valores[idx][0]} J de calor, el trabajo realizado es de ___ J."
 
 respuesta: valores[idx][0] * valores[idx][1]
 tipo: completar
-respuestas_validas: ["125", "500", "250", "750", "1500", "1000", "500", "1500", "1000", "500", "1500", "1500"]
+tolerancia_abs: 0.01
 
 explicacion: |
-  El cálculo es $W = Q_H \times \eta$.
-  Para el escenario seleccionado: ${valores[idx][0]} \times {valores[idx][1]} = {valores[idx][0] * valores[idx][1]} \text{ J}$.
+  El cálculo es W = Q_H × η.
+  Para el escenario seleccionado: {valores[idx][0]} × {valores[idx][1]} = {valores[idx][0] * valores[idx][1]} J.
 ```
+
+## Sección: maquinas-simples (26 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "basico"
+  tags: ["maquinas_simples", "vocabulario"]
+
+enunciado: "¿Qué mide la ventaja mecánica de una máquina simple?"
+tipo: mc
+opciones_explicitas:
+  - "La relación entre la carga que hay que mover y el esfuerzo (fuerza aplicada) necesario para moverla"
+  - "La velocidad máxima que puede alcanzar la máquina"
+  - "La cantidad de energía que la máquina crea"
+respuesta: "La relación entre la carga que hay que mover y el esfuerzo (fuerza aplicada) necesario para moverla"
+
+explicacion: |
+  VM = carga / esfuerzo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples", "completar"]
+
+tipo: completar
+enunciado: "Completá: VM = carga / ___."
+respuestas_validas:
+  - "esfuerzo"
+
+explicacion: |
+  El esfuerzo es la fuerza que aplica la persona (o el motor); la
+  carga es la fuerza que hay que vencer.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si la ventaja mecánica de una máquina es mayor a 1, se necesita menos esfuerzo que la carga que se está moviendo."
+
+explicacion: |
+  VM = carga/esfuerzo > 1 implica carga > esfuerzo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Una máquina simple ideal (sin rozamiento) puede reducir el esfuerzo necesario SIN que aumente la distancia recorrida al aplicar ese esfuerzo."
+
+explicacion: |
+  Es falso: por conservación del trabajo, si baja la fuerza necesaria,
+  sube proporcionalmente la distancia — el trabajo total no cambia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples", "problema"]
+
+variables:
+  carga: random(100, 500)
+  esfuerzo: random(20, 80)
+
+respuesta: redondear(carga / esfuerzo, 2)
+tipo: input
+tolerancia_abs: 0.05
+
+enunciado: "Una máquina simple permite mover una carga de {carga} N aplicando un esfuerzo de sólo {esfuerzo} N. ¿Cuál es su ventaja mecánica?"
+
+pasos:
+  - "VM = carga / esfuerzo = {carga} / {esfuerzo} = {redondear(carga / esfuerzo, 2)}"
+
+explicacion: |
+  Sin unidad propia — es un cociente entre dos fuerzas, un número puro.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples", "palanca"]
+
+enunciado: "¿Qué caracteriza a una palanca de PRIMERA clase (como una balanza o unas tijeras)?"
+tipo: mc
+opciones_explicitas:
+  - "El punto de apoyo (pivote) está entre el esfuerzo y la carga"
+  - "La carga está entre el pivote y el esfuerzo"
+  - "El esfuerzo está entre el pivote y la carga"
+respuesta: "El punto de apoyo (pivote) está entre el esfuerzo y la carga"
+
+explicacion: |
+  Su VM puede ser mayor o menor a 1, según qué brazo sea más largo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples", "palanca"]
+
+enunciado: "¿Qué caracteriza a una palanca de SEGUNDA clase (como una carretilla)?"
+tipo: mc
+opciones_explicitas:
+  - "La carga está entre el pivote y el esfuerzo, y siempre tiene VM > 1"
+  - "El pivote está entre el esfuerzo y la carga"
+  - "El esfuerzo está entre el pivote y la carga, y siempre tiene VM < 1"
+respuesta: "La carga está entre el pivote y el esfuerzo, y siempre tiene VM > 1"
+
+explicacion: |
+  El brazo del esfuerzo siempre es más largo que el de la carga en
+  este arreglo, así que la VM siempre es mayor a 1.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples", "palanca"]
+
+enunciado: "¿Qué caracteriza a una palanca de TERCERA clase (como unas pinzas o una caña de pescar)?"
+tipo: mc
+opciones_explicitas:
+  - "El esfuerzo está entre el pivote y la carga, y siempre tiene VM < 1"
+  - "El pivote está entre el esfuerzo y la carga"
+  - "La carga está entre el pivote y el esfuerzo, y siempre tiene VM > 1"
+respuesta: "El esfuerzo está entre el pivote y la carga, y siempre tiene VM < 1"
+
+explicacion: |
+  Se sacrifica fuerza a cambio de más velocidad o distancia en el
+  extremo donde está la carga.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "avanzado"
+  tags: ["maquinas_simples", "palanca", "problema"]
+
+variables:
+  d_esfuerzo: random_float(1, 3, 2)
+  d_carga: random_float(0.2, 0.9, 2)
+
+respuesta: redondear(d_esfuerzo / d_carga, 2)
+tipo: input
+tolerancia_abs: 0.05
+
+enunciado: "En una palanca, el brazo del esfuerzo mide {d_esfuerzo} m y el brazo de la carga mide {d_carga} m. ¿Cuál es su ventaja mecánica?"
+
+pasos:
+  - "VM = d_esfuerzo / d_carga = {d_esfuerzo} / {d_carga} = {redondear(d_esfuerzo / d_carga, 2)}"
+
+explicacion: |
+  Sale directo de la condición de equilibrio de momentos, sin
+  necesidad de conocer las fuerzas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "avanzado"
+  tags: ["maquinas_simples", "palanca", "problema"]
+
+variables:
+  d_esfuerzo: random_float(1, 3, 2)
+  d_carga: random_float(0.2, 0.9, 2)
+  carga: random(50, 300)
+
+respuesta: redondear(carga * d_carga / d_esfuerzo, 2)
+tipo: input
+tolerancia_abs: 1
+unidad: "N"
+
+enunciado: "En una palanca con brazo de esfuerzo {d_esfuerzo} m y brazo de carga {d_carga} m, se quiere mover una carga de {carga} N. ¿Qué esfuerzo hace falta aplicar?"
+
+pasos:
+  - "F_esfuerzo × d_esfuerzo = F_carga × d_carga"
+  - "F_esfuerzo = {carga} × {d_carga} / {d_esfuerzo} = {redondear(carga * d_carga / d_esfuerzo, 2)} N"
+
+explicacion: |
+  Es la misma condición de equilibrio de `../estatica/equilibrio-de-cuerpo-rigido/`,
+  despejando el esfuerzo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "avanzado"
+  tags: ["maquinas_simples", "estatica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ecuación de equilibrio de una palanca, F_esfuerzo×d_esfuerzo = F_carga×d_carga, es exactamente la condición ΣM=0 ya vista en equilibrio de cuerpo rígido, tomando el pivote como punto de referencia."
+
+explicacion: |
+  Los dos momentos (esfuerzo y carga, respecto del pivote) tienen que
+  cancelarse para que la palanca esté en equilibrio.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples", "polea"]
+
+enunciado: "¿Cuál es la ventaja mecánica de una polea FIJA (la que sólo cambia la dirección de la cuerda, sin moverse junto con la carga)?"
+tipo: mc
+opciones_explicitas:
+  - "VM = 1 (no reduce el esfuerzo, sólo cambia la dirección de la fuerza)"
+  - "VM = 2"
+  - "VM = 0"
+respuesta: "VM = 1 (no reduce el esfuerzo, sólo cambia la dirección de la fuerza)"
+
+explicacion: |
+  Es útil (por ejemplo, para tirar hacia abajo en vez de levantar hacia
+  arriba), pero no reduce la fuerza necesaria.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples", "polea"]
+
+enunciado: "¿Cuál es la ventaja mecánica de una polea MÓVIL (la que se mueve junto con la carga)?"
+tipo: mc
+opciones_explicitas:
+  - "VM = 2"
+  - "VM = 1"
+  - "VM = 0,5"
+respuesta: "VM = 2"
+
+explicacion: |
+  Dos tramos de cuerda sostienen la carga, así que el esfuerzo
+  necesario se reduce a la mitad.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "avanzado"
+  tags: ["maquinas_simples", "polea", "problema"]
+
+variables:
+  tramos: uno_de([2, 3, 4, 5])
+  carga: random(100, 400)
+
+respuesta: redondear(carga / tramos, 2)
+tipo: input
+tolerancia_abs: 1
+unidad: "N"
+
+enunciado: "Un sistema de poleas sostiene una carga de {carga} N con {tramos} tramos de cuerda que la sujetan directamente. ¿Qué esfuerzo hace falta aplicar (ideal, sin rozamiento)?"
+
+pasos:
+  - "VM ideal = {tramos} (un tramo de cuerda por cada esfuerzo que se reparte la carga)"
+  - "esfuerzo = carga / VM = {carga} / {tramos} = {redondear(carga / tramos, 2)} N"
+
+explicacion: |
+  La VM ideal de un sistema de poleas es igual a la cantidad de tramos
+  de cuerda que sostienen la carga.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples", "plano_inclinado"]
+
+enunciado: "¿Cómo se calcula la ventaja mecánica ideal de un plano inclinado?"
+tipo: mc
+opciones_explicitas:
+  - "VM = longitud del plano / altura que se sube"
+  - "VM = altura / longitud del plano"
+  - "VM = ángulo de inclinación en grados"
+respuesta: "VM = longitud del plano / altura que se sube"
+
+explicacion: |
+  Un plano más largo (para la misma altura) reduce la fuerza necesaria
+  para subir la carga.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "avanzado"
+  tags: ["maquinas_simples", "plano_inclinado", "problema"]
+
+variables:
+  altura: random(1, 3)
+  longitud: random(4, 10)
+
+respuesta: redondear(longitud / altura, 2)
+tipo: input
+tolerancia_abs: 0.05
+
+enunciado: "Una rampa de {longitud} m de longitud se usa para subir una carga a {altura} m de altura. ¿Cuál es su ventaja mecánica ideal?"
+
+pasos:
+  - "VM = longitud / altura = {longitud} / {altura} = {redondear(longitud / altura, 2)}"
+
+explicacion: |
+  A mayor longitud para la misma altura, menor la pendiente y menor la
+  fuerza necesaria (aunque haya que recorrer más distancia).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples", "plano_inclinado"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para subir una carga a la misma altura, una rampa más larga necesita menos fuerza que una rampa más corta."
+
+explicacion: |
+  Mayor longitud (para la misma altura) implica mayor VM, y por lo
+  tanto menos esfuerzo necesario.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples"]
+
+enunciado: "¿Cómo se calcula la ventaja mecánica ideal de una rueda y eje (por ejemplo, un volante de dirección)?"
+tipo: mc
+opciones_explicitas:
+  - "VM = radio de la rueda / radio del eje"
+  - "VM = radio del eje / radio de la rueda"
+  - "VM = radio de la rueda + radio del eje"
+respuesta: "VM = radio de la rueda / radio del eje"
+
+explicacion: |
+  Cuanto más grande la rueda respecto del eje, menos fuerza hace falta
+  aplicar en el borde de la rueda.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "avanzado"
+  tags: ["maquinas_simples", "problema"]
+
+variables:
+  R: random(10, 30)
+  r: random(1, 5)
+
+respuesta: redondear(R / r, 2)
+tipo: input
+tolerancia_abs: 0.05
+
+enunciado: "Un volante de dirección tiene un radio de {R} cm, y el eje que gira tiene un radio de {r} cm. ¿Cuál es la ventaja mecánica ideal de este sistema?"
+
+pasos:
+  - "VM = R / r = {R} / {r} = {redondear(R / r, 2)}"
+
+explicacion: |
+  Es la misma idea que la palanca, con el pivote en el centro del eje.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "intermedio"
+  tags: ["maquinas_simples"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las máquinas simples permiten hacer el mismo trabajo con menos fuerza, pero a costa de recorrer más distancia aplicando esa fuerza."
+
+explicacion: |
+  Es la consecuencia de que el trabajo (F×d) se conserva en el caso
+  ideal sin rozamiento.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "avanzado"
+  tags: ["maquinas_simples"]
+
+enunciado: "¿Por qué se dice que las máquinas simples no 'ahorran' trabajo, sólo lo redistribuyen entre fuerza y distancia?"
+tipo: mc
+opciones_explicitas:
+  - "Porque W=F×d se mantiene igual (en el caso ideal): si F baja, d sube en la misma proporción"
+  - "Porque en realidad sí ahorran trabajo, generan energía extra"
+  - "Porque el trabajo no depende de la fuerza aplicada"
+respuesta: "Porque W=F×d se mantiene igual (en el caso ideal): si F baja, d sube en la misma proporción"
+
+explicacion: |
+  Es la misma conservación de trabajo ya vista en
+  `../trabajo-de-una-fuerza/`.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "avanzado"
+  tags: ["maquinas_simples", "ordenar"]
+
+enunciado: "Ordená los pasos para identificar y calcular la ventaja mecánica de una palanca dada."
+tipo: ordenar
+opciones_explicitas:
+  - "Calcular VM = d_esfuerzo / d_carga"
+  - "Identificar dónde está el pivote, dónde se aplica el esfuerzo y dónde actúa la carga"
+  - "Medir (o calcular) el brazo de palanca del esfuerzo y el brazo de palanca de la carga"
+respuesta_orden: ["Identificar dónde está el pivote, dónde se aplica el esfuerzo y dónde actúa la carga", "Medir (o calcular) el brazo de palanca del esfuerzo y el brazo de palanca de la carga", "Calcular VM = d_esfuerzo / d_carga"]
+explicacion: |
+  Sin identificar primero los tres elementos (pivote, esfuerzo, carga)
+  no hay brazos que medir.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "basico"
+  tags: ["maquinas_simples", "aplicacion"]
+
+enunciado: "¿Por qué un destornillador con mango más ancho permite aflojar un tornillo con menos esfuerzo?"
+tipo: mc
+opciones_explicitas:
+  - "Funciona como una rueda y eje: un mango más ancho (mayor radio) aumenta la ventaja mecánica"
+  - "Porque los mangos anchos pesan menos"
+  - "No hay relación real, es sólo cómodo para la mano"
+respuesta: "Funciona como una rueda y eje: un mango más ancho (mayor radio) aumenta la ventaja mecánica"
+
+explicacion: |
+  Un carpintero o mecánico usa esta ventaja mecánica todos los días,
+  sin necesariamente nombrarla así.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "basico"
+  tags: ["maquinas_simples", "completar"]
+
+tipo: completar
+enunciado: "Completá: en una máquina simple, la fuerza que aplica la persona (o el motor) se llama ___; la fuerza que hay que superar se llama carga (o resistencia)."
+respuestas_validas:
+  - "esfuerzo"
+
+explicacion: |
+  Esfuerzo y carga son los dos términos que compara la ventaja
+  mecánica.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "avanzado"
+  tags: ["maquinas_simples"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La ventaja mecánica real de una máquina simple (medida en la práctica) siempre es exactamente igual a la ventaja mecánica ideal (calculada sólo con la geometría), sin importar el rozamiento."
+
+explicacion: |
+  El rozamiento (`../plano-inclinado-y-rozamiento/`) siempre consume
+  parte del esfuerzo, así que la VM real queda por debajo de la ideal.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "maquinas_simples"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve entender las máquinas simples y la ventaja mecánica?"
+tipo: mc
+opciones_explicitas:
+  - "Para entender cómo palancas, poleas, planos inclinados y ruedas permiten mover cargas grandes con menos esfuerzo, a cambio de más distancia recorrida"
+  - "Sólo sirve para máquinas eléctricas"
+  - "Sólo aplica a objetos sin peso"
+respuesta: "Para entender cómo palancas, poleas, planos inclinados y ruedas permiten mover cargas grandes con menos esfuerzo, a cambio de más distancia recorrida"
+
+explicacion: |
+  Es el puente real entre toda la Física de fuerzas y momentos ya
+  vista, y las herramientas que un carpintero o mecánico usa todos los
+  días.
+```
+

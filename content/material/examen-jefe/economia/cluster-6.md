@@ -1,2065 +1,2361 @@
-# Examen jefe — Domina los Cimientos Económicos
+# Examen jefe — [PENDIENTE #771]
 
-> Logro #192. Completaste el examen sobre devaluación, cuentas nacionales y la división entre micro y macroeconomía, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **110 preguntas totales** en 5/5 secciones.
+> Logro #771. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: devaluacion (21 preguntas)
+## Sección: cft-vs-tasa-nominal (23 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "devaluacion"
+  tema: "cft_vs_tasa_nominal"
   nivel: "basico"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["cft", "vocabulario"]
 
-enunciado: "¿Qué es una devaluación?"
+enunciado: "¿Qué es la TNA (Tasa Nominal Anual)?"
 tipo: mc
 opciones_explicitas:
-  - "La decisión oficial de un banco central de bajar el valor fijado de su moneda, por un anuncio puntual"
-  - "Cualquier caída del valor de una moneda, sin importar el régimen cambiario"
-  - "Un aumento en las reservas del banco central"
-respuesta: "La decisión oficial de un banco central de bajar el valor fijado de su moneda, por un anuncio puntual"
+  - "La tasa de interés anual \"de lista\", sin tener en cuenta cómo capitaliza durante el año"
+  - "El costo total real de un préstamo, incluidos seguros y comisiones"
+  - "El monto final que hay que devolver en un crédito"
+respuesta: "La tasa de interés anual \"de lista\", sin tener en cuenta cómo capitaliza durante el año"
 
 explicacion: |
-  Es un ajuste puntual y oficial, no un movimiento gradual del
-  mercado.
+  La TNA es sólo el porcentaje anual nominal, previo a considerar el
+  efecto de la capitalización.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "El término \"devaluación\", en sentido estricto, ¿bajo qué régimen cambiario tiene sentido?"
-tipo: mc
-opciones_explicitas:
-  - "Bajo un tipo de cambio fijo"
-  - "Bajo un tipo de cambio flotante"
-  - "Bajo cualquiera de los dos, exactamente igual"
-respuesta: "Bajo un tipo de cambio fijo"
-
-explicacion: |
-  Sólo bajo un régimen fijo hay un valor prometido que se pueda
-  \"romper\" con un anuncio oficial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Cómo se llama la pérdida de valor de una moneda bajo un tipo de cambio flotante, y en qué se diferencia de una devaluación?"
-tipo: mc
-opciones_explicitas:
-  - "Depreciación: es un proceso continuo y gradual del mercado, no un anuncio puntual como la devaluación"
-  - "También se llama devaluación: son exactamente lo mismo"
-  - "No tiene nombre propio: bajo flotante nunca pierde valor una moneda"
-respuesta: "Depreciación: es un proceso continuo y gradual del mercado, no un anuncio puntual como la devaluación"
-
-explicacion: |
-  Misma dirección (pérdida de valor), pero distinto mecanismo:
-  gradual y de mercado vs. puntual y oficial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Por qué un banco central llega a devaluar su moneda?"
-tipo: mc
-opciones_explicitas:
-  - "Porque ya no puede seguir sosteniendo el valor fijado: sus reservas se agotaron o están por agotarse"
-  - "Porque quiere subir la inflación a propósito, sin ninguna otra razón"
-  - "Porque es obligatorio devaluar cada 10 años por ley"
-respuesta: "Porque ya no puede seguir sosteniendo el valor fijado: sus reservas se agotaron o están por agotarse"
-
-explicacion: |
-  Es la consecuencia directa de no poder sostener más el régimen
-  fijo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Qué efecto tiene una devaluación sobre el precio de las importaciones?"
-tipo: mc
-opciones_explicitas:
-  - "Se encarecen: cada dólar cuesta más en moneda local"
-  - "Se abaratan: cada dólar cuesta menos en moneda local"
-  - "No tiene ningún efecto sobre las importaciones"
-respuesta: "Se encarecen: cada dólar cuesta más en moneda local"
-
-explicacion: |
-  Como la moneda local vale menos frente al dólar, comprar algo del
-  exterior cuesta más en moneda local.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "¿Qué efecto tiene una devaluación sobre la competitividad de las exportaciones?"
-tipo: mc
-opciones_explicitas:
-  - "Las vuelve más competitivas: un producto local cuesta menos en dólares para un comprador extranjero"
-  - "Las vuelve menos competitivas: un producto local cuesta más en dólares"
-  - "No tiene ningún efecto sobre las exportaciones"
-respuesta: "Las vuelve más competitivas: un producto local cuesta menos en dólares para un comprador extranjero"
-
-explicacion: |
-  El mismo producto, cotizado en moneda local, ahora equivale a menos
-  dólares para quien compra desde afuera.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El encarecimiento de las importaciones tras una devaluación suele empujar la inflación general hacia arriba."
-
-explicacion: |
-  Es la conexión directa entre este tema y `pbi-e-inflacion/`: precios
-  importados más caros presionan el índice de precios general.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al abaratar las exportaciones y encarecer las importaciones, una devaluación puede ayudar a corregir un déficit de la balanza comercial."
-
-explicacion: |
-  Es la conexión con `balanza-comercial/`: exportar más y/o importar
-  menos mejora ese resultado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "problema"]
-
-enunciado: "Alguien debe dólares pero gana su sueldo en moneda local. Después de una devaluación, ¿qué le pasa a esa deuda medida en moneda local?"
-tipo: mc
-opciones_explicitas:
-  - "Necesita más moneda local que antes para pagar la misma deuda en dólares"
-  - "Necesita menos moneda local que antes para pagar la misma deuda"
-  - "La devaluación no afecta en nada esa deuda"
-respuesta: "Necesita más moneda local que antes para pagar la misma deuda en dólares"
-
-explicacion: |
-  Si gana en moneda local y debe en dólares, la devaluación encarece
-  su deuda medida en su propia moneda.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "problema"]
-
-enunciado: "Un exportador vende afuera y cobra en dólares, pero paga sus costos en moneda local. ¿Cómo lo afecta una devaluación?"
-tipo: mc
-opciones_explicitas:
-  - "Se beneficia: sus ingresos en dólares, convertidos a moneda local, valen más después del ajuste"
-  - "Se perjudica: sus ingresos en dólares valen menos en moneda local"
-  - "No lo afecta en absoluto"
-respuesta: "Se beneficia: sus ingresos en dólares, convertidos a moneda local, valen más después del ajuste"
-
-explicacion: |
-  Es el caso opuesto al de quien debe en dólares y gana en moneda
-  local.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una devaluación es un anuncio puntual, de un día para el otro, no un movimiento gradual como puede serlo una depreciación bajo régimen flotante."
-
-explicacion: |
-  Es la diferencia central de mecanismo entre los dos términos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "problema"]
-
-enunciado: "Un país anuncia: \"a partir de mañana, el dólar oficial pasa de $100 a $150\". ¿Qué tipo de régimen cambiario tenía ese país hasta ese momento?"
-tipo: mc
-opciones_explicitas:
-  - "Tipo de cambio fijo"
-  - "Tipo de cambio flotante"
-  - "No se puede saber con esta información"
-respuesta: "Tipo de cambio fijo"
-
-explicacion: |
-  Sólo bajo un régimen fijo existe un valor prometido ($100) que se
-  pueda ajustar con un anuncio puntual como este.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "problema"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una empresa que importa insumos Y tiene deudas en dólares puede verse afectada dos veces por una misma devaluación: le sube el costo de lo que compra, y le sube (en moneda local) lo que debe."
-
-explicacion: |
-  Son dos efectos distintos de la misma devaluación, sumándose sobre
-  el mismo actor.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una devaluación está directamente relacionada con el agotamiento (o la caída fuerte) de las reservas del banco central."
-
-explicacion: |
-  Es la causa central que fuerza el ajuste oficial del valor fijado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "vocabulario"]
-
-enunciado: "Después de anunciar una devaluación, ¿qué intenta hacer el banco central con el nuevo valor?"
-tipo: mc
-opciones_explicitas:
-  - "Defender ese nuevo valor, de la misma forma en que defendía el anterior"
-  - "Dejar de intervenir para siempre en el mercado cambiario"
-  - "Volver inmediatamente al valor anterior"
-respuesta: "Defender ese nuevo valor, de la misma forma en que defendía el anterior"
-
-explicacion: |
-  Sigue siendo un régimen fijo, sólo que con un número distinto —la
-  lógica de defensa con reservas no cambia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená esta secuencia de eventos que termina en una devaluación."
-opciones_explicitas:
-  - "El banco central anuncia un nuevo valor fijado, más débil (devaluación)"
-  - "Hay una demanda sostenida de dólares al valor fijado"
-  - "Las reservas caen a un nivel insostenible"
-  - "El banco central vende reservas para sostener ese valor"
-respuesta_orden: ["Hay una demanda sostenida de dólares al valor fijado", "El banco central vende reservas para sostener ese valor", "Las reservas caen a un nivel insostenible", "El banco central anuncia un nuevo valor fijado, más débil (devaluación)"]
-
-explicacion: |
-  Cada paso lleva al siguiente: sin agotamiento de reservas, no hace
-  falta devaluar.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "avanzado"
-  tags: ["cambiario", "problema"]
-
-enunciado: "Un país con tipo de cambio flotante ve que su moneda pierde valor de a poco, día tras día, durante varios meses. ¿Cómo se llama correctamente ese proceso?"
-tipo: mc
-opciones_explicitas:
-  - "Depreciación"
-  - "Devaluación"
-  - "Convertibilidad"
-respuesta: "Depreciación"
-
-explicacion: |
-  Bajo régimen flotante, el término correcto es depreciación, no
-  devaluación (que es específico del régimen fijo).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una devaluación tiene efectos que benefician a algunos actores (exportadores) y perjudican a otros (quienes deben en dólares y ganan en moneda local) al mismo tiempo — no es una medida buena o mala en abstracto, depende de la posición de cada uno."
-
-explicacion: |
-  Es el mismo criterio de no juzgar un número macroeconómico sin
-  contexto, ya visto en `balanza-comercial/`.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "devaluacion"
+  tema: "cft_vs_tasa_nominal"
   nivel: "basico"
-  tags: ["cambiario"]
+  tags: ["cft", "vocabulario"]
+
+enunciado: "¿Qué es la TEA (Tasa Efectiva Anual)?"
+tipo: mc
+opciones_explicitas:
+  - "El costo anual real de la tasa, considerando el efecto de la capitalización"
+  - "La tasa que cobra el Estado sobre los intereses"
+  - "Un promedio entre la TNA y el CFT"
+respuesta: "El costo anual real de la tasa, considerando el efecto de la capitalización"
+
+explicacion: |
+  La TEA es lo que la TNA se convierte una vez que se tiene en cuenta el
+  interés compuesto de la capitalización dentro del año.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "basico"
+  tags: ["cft", "vocabulario"]
+
+enunciado: "¿Qué es el CFT (Costo Financiero Total)?"
+tipo: mc
+opciones_explicitas:
+  - "El costo final y real de un crédito: la TEA más comisiones, seguros e IVA sobre los intereses"
+  - "Otro nombre para la TNA"
+  - "El monto original prestado, sin intereses"
+respuesta: "El costo final y real de un crédito: la TEA más comisiones, seguros e IVA sobre los intereses"
+
+explicacion: |
+  Es el número que el BCRA obliga a publicar en toda oferta de crédito
+  en Argentina, justamente para poder comparar el costo real.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "basico"
+  tags: ["cft", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La TNA es sólo la tasa anual nominal: no tiene en cuenta cómo se capitaliza el interés durante el año."
+
+explicacion: |
+  Por eso la TNA sola no alcanza para saber el costo real de un crédito.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "basico"
+  tags: ["cft", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La TEA considera el efecto de la capitalización (interés compuesto) dentro del año, a diferencia de la TNA."
+
+explicacion: |
+  Es exactamente la aplicación de interés compuesto a la TNA con la
+  frecuencia de capitalización del producto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "intermedio"
+  tags: ["cft", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El CFT incluye, además de la TEA, comisiones administrativas, seguros obligatorios y el IVA que se cobra sobre los intereses."
+
+explicacion: |
+  Es lo que lo convierte en el costo REAL del crédito, no sólo la tasa
+  de interés.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "intermedio"
+  tags: ["cft", "calculo"]
+
+variables:
+  tna: random(20, 120)
+
+respuesta: ((1 + tna / 100 / 12) ^ 12 - 1) * 100
+tipo: input
+tolerancia_abs: 0.2
+
+enunciado: "Un préstamo tiene una TNA del {tna}%, con capitalización mensual (n = 12). ¿Cuál es la TEA aproximada, en porcentaje?"
+
+pasos:
+  - "TEA = (1 + {tna}/100/12)^12 - 1"
+
+explicacion: |
+  Se aplica la fórmula TEA = (1 + TNA/n)^n - 1, con n = 12 por ser
+  mensual.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "intermedio"
+  tags: ["cft", "comparacion"]
+
+variables:
+  tna: random(20, 120)
+
+respuesta: (((1 + tna / 100 / 12) ^ 12 - 1) * 100 > tna)
+tipo: vf
+
+enunciado: "Con una TNA del {tna}% capitalizada mes a mes, ¿la TEA resultante es mayor que el {tna}% nominal?"
+
+explicacion: |
+  Cuando capitaliza más de una vez al año, la TEA siempre supera a la
+  TNA — es el mismo efecto de "interés sobre interés" del tema anterior.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "avanzado"
+  tags: ["cft", "calculo"]
+
+variables:
+  tna: random(20, 120)
+
+respuesta: ((1 + tna / 100 / 4) ^ 4 - 1) * 100
+tipo: input
+tolerancia_abs: 0.2
+
+enunciado: "Un plazo fijo tiene una TNA del {tna}%, con capitalización trimestral (n = 4). ¿Cuál es la TEA aproximada, en porcentaje?"
+
+pasos:
+  - "TEA = (1 + {tna}/100/4)^4 - 1"
+
+explicacion: |
+  Con menos capitalizaciones al año que en el caso mensual, la brecha
+  entre TNA y TEA es más chica, pero sigue existiendo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "intermedio"
+  tags: ["cft", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un producto capitaliza una sola vez al año (n = 1), la TNA y la TEA dan exactamente el mismo número."
+
+explicacion: |
+  Con n = 1, (1 + TNA/1)^1 - 1 es simplemente TNA — recién con n > 1
+  aparece la diferencia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "avanzado"
+  tags: ["cft", "comparacion"]
+
+variables:
+  tna: random(20, 120)
+
+respuesta: (((1 + tna / 100 / 12) ^ 12 - 1) > ((1 + tna / 100 / 4) ^ 4 - 1))
+tipo: vf
+
+enunciado: "Con la misma TNA del {tna}%, ¿capitalizar mes a mes (n = 12) da una TEA mayor que capitalizar trimestre a trimestre (n = 4)?"
+
+explicacion: |
+  A igual TNA, cuantas más veces capitaliza en el año, mayor es la TEA
+  resultante.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "intermedio"
+  tags: ["cft", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para comparar el costo real de dos ofertas de crédito, hay que mirar el CFT de cada una, no la TNA."
+
+explicacion: |
+  La TNA no incluye comisiones ni seguros, así que dos créditos con la
+  misma TNA pueden terminar costando distinto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "intermedio"
+  tags: ["cft", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos préstamos con exactamente la misma TNA pueden tener un CFT distinto, si uno cobra más comisiones o seguros que el otro."
+
+explicacion: |
+  El CFT depende de todos los costos del crédito, no sólo de la tasa de
+  interés.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "intermedio"
+  tags: ["cft", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La TNA suele ser el número más bajo de los tres (TNA, TEA, CFT), por eso a veces se destaca más en la publicidad, aunque el CFT sea el dato regulado por el BCRA para comparar ofertas."
+
+explicacion: |
+  No es ilegal mostrar la TNA, pero por regulación el CFT tiene que estar
+  igual publicado — es el número que conviene mirar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "avanzado"
+  tags: ["cft", "calculo"]
+
+variables:
+  tna: random(20, 120)
+  tea: ((1 + tna / 100 / 12) ^ 12 - 1) * 100
+  costos_extra: random(2, 10)
+
+respuesta: tea + costos_extra
+tipo: input
+tolerancia_abs: 0.2
+
+enunciado: "Un préstamo tiene una TEA de {redondear(tea, 2)}% (con TNA del {tna}% capitalizada mes a mes). Sumando comisiones, seguros e IVA sobre intereses, agrega {costos_extra} puntos porcentuales más. ¿Cuál es el CFT aproximado?"
+
+explicacion: |
+  En este modelo simplificado, el CFT es la TEA más los puntos
+  porcentuales de costos adicionales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "intermedio"
+  tags: ["cft", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El CFT de un crédito siempre es mayor o igual a su TEA, nunca menor."
+
+explicacion: |
+  El CFT parte de la TEA y le suma costos adicionales (nunca los resta),
+  así que como mínimo queda igual, y en la práctica casi siempre es
+  mayor.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "avanzado"
+  tags: ["cft"]
+
+variables:
+  tna: random(20, 120)
+  tea: ((1 + tna / 100 / 12) ^ 12 - 1) * 100
+  costos_extra: random(2, 10)
+  cft: tea + costos_extra
 
 tipo: completar
-enunciado: "Completá: tras una devaluación, las importaciones se ___ (más caras o más baratas) y las exportaciones se vuelven más competitivas."
+enunciado: "Un préstamo tiene un CFT de {redondear(cft, 2)}%, con {costos_extra} puntos porcentuales de costos adicionales sobre la TEA. Completá: ___ (TEA) = {redondear(cft, 2)} (CFT) - {costos_extra} (costos adicionales)."
 respuestas_validas:
-  - "encarecen"
-  - "vuelven más caras"
+  - tea
 
 explicacion: |
-  Es el efecto directo sobre el costo de comprar bienes del exterior.
+  Se despeja restando los costos adicionales del CFT.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "devaluacion"
-  nivel: "intermedio"
-  tags: ["cambiario", "vocabulario"]
+  tema: "cft_vs_tasa_nominal"
+  nivel: "avanzado"
+  tags: ["cft", "calculo"]
 
-enunciado: "¿Qué hace que un cambio en el valor de una moneda sea, específicamente, una \"devaluación\" y no un simple movimiento de mercado?"
-tipo: mc
-opciones_explicitas:
-  - "Que sea un anuncio oficial y puntual de un banco central que sostenía un valor fijo"
-  - "Que el valor de la moneda haya bajado, sin importar el régimen ni quién lo decidió"
-  - "Que dure más de un año"
-respuesta: "Que sea un anuncio oficial y puntual de un banco central que sostenía un valor fijo"
+variables:
+  tna: random(20, 120)
+  tea: (1 + tna / 100 / 12) ^ 12 - 1
+
+respuesta: tna
+tipo: input
+tolerancia_abs: 0.1
+
+enunciado: "Un producto capitaliza mes a mes (n = 12) y tiene una TEA de {redondear(tea * 100, 2)}%. ¿Qué TNA tiene?"
+
+pasos:
+  - "TNA = n × (raíz-n-ésima(1 + TEA) - 1) = 12 × ({raiz(1 + tea, 12)} - 1)"
 
 explicacion: |
-  Es la condición que distingue devaluación de depreciación.
+  Se despeja la TNA de TEA = (1 + TNA/n)^n - 1 usando la raíz n-ésima:
+  TNA = n × (raíz-n-ésima(1 + TEA) - 1).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "devaluacion"
+  tema: "cft_vs_tasa_nominal"
   nivel: "basico"
-  tags: ["cambiario", "vocabulario"]
+  tags: ["cft", "orden"]
+
+tipo: ordenar
+enunciado: "Para un mismo crédito que capitaliza más de una vez al año y tiene costos adicionales, ordená estos tres números de menor a mayor."
+opciones_explicitas:
+  - "CFT"
+  - "TNA"
+  - "TEA"
+respuesta_orden: ["TNA", "TEA", "CFT"]
+
+explicacion: |
+  La TNA es el número base; la TEA ya incluye la capitalización (es
+  mayor o igual a la TNA); el CFT suma además los costos adicionales
+  (es mayor o igual a la TEA).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "intermedio"
+  tags: ["cft", "verificacion"]
+
+variables:
+  tna: random(20, 120)
+  correcto: ((1 + tna / 100 / 12) ^ 12 - 1) * 100
+  error: uno_de([0, 0, 0, 3, -3])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 0.5)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? TNA del {tna}% con capitalización mensual, TEA resultante: {redondear(mostrado, 2)}%."
+
+explicacion: |
+  Se vuelve a calcular TEA = (1 + TNA/12)^12 - 1 y se compara con el
+  valor mostrado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "basico"
+  tags: ["cft", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una devaluación es el ajuste oficial y puntual de un tipo de cambio fijo que ya no se podía sostener, que encarece las importaciones y abarata las exportaciones en términos internacionales."
+enunciado: "En Argentina, el BCRA obliga a las entidades financieras a publicar el CFT en toda oferta de crédito."
+
+explicacion: |
+  Es justamente para que cualquiera pueda comparar el costo real entre
+  distintas ofertas, más allá de qué número destaque cada publicidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "intermedio"
+  tags: ["cft", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La TNA de un producto cambia según qué tan seguido capitaliza (mensual, trimestral, anual)."
+
+explicacion: |
+  Es al revés: la TNA es fija (el número "de lista"); lo que cambia
+  según la frecuencia de capitalización es la TEA que resulta de esa
+  TNA.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cft_vs_tasa_nominal"
+  nivel: "basico"
+  tags: ["cft", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La TNA es la tasa nominal sin capitalizar, la TEA ya incluye el efecto de la capitalización, y el CFT suma a la TEA los demás costos del crédito — por eso el CFT es el número que hay que mirar para comparar ofertas."
 
 explicacion: |
   Es la idea central de todo el tema.
 ```
 
-## Sección: dex-swap (21 preguntas)
+## Sección: cuota-credito-frances (23 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "dex_swap"
+  tema: "cuota_credito_frances"
   nivel: "basico"
-  tags: ["defi", "vocabulario"]
+  tags: ["cuota_credito", "vocabulario"]
 
-enunciado: "¿Cómo funciona un exchange centralizado (CEX) de criptomonedas?"
+enunciado: "¿Qué caracteriza al sistema francés de amortización de un crédito?"
 tipo: mc
 opciones_explicitas:
-  - "La empresa custodia el dinero de los usuarios y hace de intermediaria en cada operación"
-  - "No existe ninguna empresa: todo pasa directo entre dos usuarios"
-  - "Sólo permite comprar, nunca vender"
-respuesta: "La empresa custodia el dinero de los usuarios y hace de intermediaria en cada operación"
+  - "La cuota es siempre la misma en pesos durante todo el préstamo"
+  - "El capital se devuelve entero recién en la última cuota"
+  - "La cantidad de cuotas cambia según cuánto se pague cada mes"
+respuesta: "La cuota es siempre la misma en pesos durante todo el préstamo"
 
 explicacion: |
-  Funciona parecido a un banco o casa de cambio tradicional.
+  Es el sistema más usado en Argentina para préstamos personales y
+  créditos hipotecarios, justamente por esa cuota fija y predecible.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "dex_swap"
+  tema: "cuota_credito_frances"
   nivel: "basico"
-  tags: ["defi", "vocabulario"]
-
-enunciado: "¿Qué es un DEX (exchange descentralizado)?"
-tipo: mc
-opciones_explicitas:
-  - "Un conjunto de contratos inteligentes que permite intercambiar criptomonedas directo desde la wallet de cada persona, sin custodio"
-  - "Una empresa que reemplaza a los bancos tradicionales"
-  - "Un tipo especial de criptomoneda"
-respuesta: "Un conjunto de contratos inteligentes que permite intercambiar criptomonedas directo desde la wallet de cada persona, sin custodio"
-
-explicacion: |
-  Es la definición central: contratos inteligentes, sin custodia de
-  una empresa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "dex_swap"
-  nivel: "basico"
-  tags: ["defi", "vocabulario"]
-
-enunciado: "¿Qué es un \"swap\"?"
-tipo: mc
-opciones_explicitas:
-  - "La operación de intercambiar un token por otro dentro de un DEX"
-  - "El nombre de una wallet especial para DEX"
-  - "Un tipo de contrato inteligente distinto de los demás"
-respuesta: "La operación de intercambiar un token por otro dentro de un DEX"
-
-explicacion: |
-  El DEX es la plataforma; el swap es la operación puntual que se
-  hace en ella.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "dex_swap"
-  nivel: "intermedio"
-  tags: ["defi", "vocabulario"]
+  tags: ["cuota_credito", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un swap no es un concepto distinto de un DEX: es, literalmente, la acción que un DEX ejecuta."
+enunciado: "En el sistema francés, el monto de la cuota es el mismo en cada uno de los pagos, asumiendo tasa fija."
 
 explicacion: |
-  Son el mismo objeto visto desde dos nombres: la plataforma y la
-  operación.
+  Ese es el rasgo que define al sistema francés frente a otros sistemas
+  de amortización.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "dex_swap"
+  tema: "cuota_credito_frances"
   nivel: "intermedio"
-  tags: ["defi", "vocabulario"]
-
-enunciado: "En un DEX, ¿quién custodia los fondos de un usuario mientras NO está haciendo un swap?"
-tipo: mc
-opciones_explicitas:
-  - "El propio usuario, en su wallet"
-  - "La empresa que creó el DEX"
-  - "Un banco asociado al DEX"
-respuesta: "El propio usuario, en su wallet"
-
-explicacion: |
-  Ninguna empresa custodia los fondos: siguen en la wallet del usuario
-  hasta el instante del intercambio.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "dex_swap"
-  nivel: "intermedio"
-  tags: ["defi", "vocabulario"]
-
-enunciado: "Cuando alguien hace un swap en un DEX, ¿contra quién intercambia sus tokens?"
-tipo: mc
-opciones_explicitas:
-  - "Contra un pool de liquidez, un fondo compartido aportado por muchos usuarios"
-  - "Contra otra persona específica, elegida de un libro de órdenes"
-  - "Contra el banco central del país donde vive"
-respuesta: "Contra un pool de liquidez, un fondo compartido aportado por muchos usuarios"
-
-explicacion: |
-  A diferencia de un CEX (que empareja compradores y vendedores), un
-  DEX intercambia contra un pool automático.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "dex_swap"
-  nivel: "intermedio"
-  tags: ["defi", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia central entre operar en un CEX y operar en un DEX?"
-tipo: mc
-opciones_explicitas:
-  - "En el CEX se confía la custodia de los fondos a una empresa; en el DEX los fondos quedan en la wallet propia salvo en el instante del swap"
-  - "El DEX sólo permite operar con una sola criptomoneda"
-  - "El CEX no tiene ningún costo por operar"
-respuesta: "En el CEX se confía la custodia de los fondos a una empresa; en el DEX los fondos quedan en la wallet propia salvo en el instante del swap"
-
-explicacion: |
-  Es la diferencia estructural central entre los dos modelos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "dex_swap"
-  nivel: "basico"
-  tags: ["defi", "vocabulario"]
+  tags: ["cuota_credito", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La ventaja central de un DEX es que nadie más controla los fondos de un usuario en ningún momento, salvo el instante exacto del intercambio."
+enunciado: "Aunque la cuota total no cambia, la proporción de interés y de amortización de capital dentro de cada cuota sí cambia mes a mes."
 
 explicacion: |
-  Elimina la necesidad de confiar en una empresa custodia.
+  El interés se calcula sobre el saldo adeudado, que va bajando; la
+  amortización es lo que queda de la cuota después de pagar ese interés.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "dex_swap"
+  tema: "cuota_credito_frances"
+  nivel: "intermedio"
+  tags: ["cuota_credito", "vocabulario"]
+
+enunciado: "En las primeras cuotas de un préstamo con sistema francés, ¿qué componente de la cuota es mayor?"
+tipo: mc
+opciones_explicitas:
+  - "El interés"
+  - "La amortización de capital"
+  - "Los dos son siempre iguales"
+respuesta: "El interés"
+
+explicacion: |
+  Al principio el saldo adeudado es alto, así que el interés calculado
+  sobre ese saldo también lo es.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cuota_credito_frances"
+  nivel: "intermedio"
+  tags: ["cuota_credito", "vocabulario"]
+
+enunciado: "En las últimas cuotas de un préstamo con sistema francés, ¿qué componente de la cuota es mayor?"
+tipo: mc
+opciones_explicitas:
+  - "La amortización de capital"
+  - "El interés"
+  - "Los dos son siempre iguales"
+respuesta: "La amortización de capital"
+
+explicacion: |
+  Con el saldo adeudado ya bajo, el interés de esa cuota es chico, y casi
+  toda la cuota amortiza capital.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cuota_credito_frances"
+  nivel: "intermedio"
+  tags: ["cuota_credito", "calculo"]
+
+variables:
+  capital: random(100, 2000) * 1000
+  tasa: random(2, 8)
+  n: random(6, 36)
+
+respuesta: capital * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)
+tipo: input
+tolerancia_abs: 2
+
+enunciado: "Un préstamo de ${capital}, a una tasa mensual del {tasa}%, se paga en {n} cuotas con sistema francés. ¿Cuál es el monto de cada cuota?"
+
+pasos:
+  - "Cuota = C × i × (1+i)^n / ((1+i)^n - 1), con C = {capital}, i = {tasa/100}, n = {n}"
+
+explicacion: |
+  Se aplica la fórmula del sistema francés con la tasa mensual en forma
+  decimal.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cuota_credito_frances"
+  nivel: "intermedio"
+  tags: ["cuota_credito", "calculo"]
+
+variables:
+  capital: random(100, 2000) * 1000
+  tasa: random(2, 8)
+  n: random(6, 36)
+  cuota: capital * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)
+
+respuesta: cuota * n
+tipo: input
+tolerancia_abs: 2
+
+enunciado: "Un préstamo con sistema francés tiene una cuota fija de ${redondear(cuota, 2)}, a pagar en {n} cuotas. ¿Cuánto se paga en total al final del préstamo?"
+
+explicacion: |
+  El total pagado es la cuota multiplicada por la cantidad de cuotas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cuota_credito_frances"
   nivel: "avanzado"
-  tags: ["defi", "vocabulario"]
+  tags: ["cuota_credito", "calculo"]
 
-enunciado: "Si un usuario comete un error operando en un DEX (por ejemplo, aprueba mal una operación), ¿a quién puede reclamarle para revertirla?"
-tipo: mc
-opciones_explicitas:
-  - "A nadie: no hay una empresa ni soporte técnico que pueda revertir la operación"
-  - "Al soporte técnico del DEX, que revierte cualquier error"
-  - "Al banco central del país"
-respuesta: "A nadie: no hay una empresa ni soporte técnico que pueda revertir la operación"
+variables:
+  capital: random(100, 2000) * 1000
+  tasa: random(2, 8)
+  n: random(6, 36)
+  cuota: capital * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)
+
+respuesta: cuota * n - capital
+tipo: input
+tolerancia_abs: 2
+
+enunciado: "Un préstamo de ${capital} con sistema francés tiene una cuota fija de ${redondear(cuota, 2)}, en {n} cuotas. ¿Cuánto interés total se termina pagando (sin contar el capital)?"
+
+pasos:
+  - "Total pagado: {redondear(cuota, 2)} × {n} = {redondear(cuota * n, 2)}"
+  - "Interés total: {redondear(cuota * n, 2)} - {capital}"
 
 explicacion: |
-  Es la contracara del mismo mecanismo que da la ventaja de no
-  depender de una empresa custodia.
+  El interés total es la diferencia entre todo lo pagado y el capital
+  originalmente prestado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "dex_swap"
+  tema: "cuota_credito_frances"
   nivel: "intermedio"
-  tags: ["defi", "vocabulario"]
+  tags: ["cuota_credito", "comparacion"]
 
-respuesta: verdadero
+variables:
+  capital: random(100, 2000) * 1000
+  n: random(6, 36)
+  tasa_a: random(2, 5)
+  tasa_b: random(6, 10)
+
+respuesta: ((capital * (tasa_b / 100) * (1 + tasa_b / 100) ^ n / ((1 + tasa_b / 100) ^ n - 1)) > (capital * (tasa_a / 100) * (1 + tasa_a / 100) ^ n / ((1 + tasa_a / 100) ^ n - 1)))
 tipo: vf
 
-enunciado: "Un usuario que prefiere no dejar sus fondos en manos de un exchange tradicional suele operar directamente en un DEX, para mantener el control de sus propias claves."
+enunciado: "Con el mismo capital de ${capital} y la misma cantidad de {n} cuotas, ¿una tasa mensual del {tasa_b}% da una cuota más alta que una del {tasa_a}%?"
 
 explicacion: |
-  Es la misma idea de autocustodia ya vista en el tema de wallets,
-  aplicada a la elección de dónde operar.
+  A mayor tasa, mayor cuota, con capital y cantidad de cuotas fijos.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "dex_swap"
+  tema: "cuota_credito_frances"
   nivel: "intermedio"
-  tags: ["defi", "vocabulario"]
+  tags: ["cuota_credito", "comparacion"]
 
-enunciado: "¿Qué ejecuta materialmente el intercambio de tokens en un DEX?"
-tipo: mc
-opciones_explicitas:
-  - "El código del contrato inteligente"
-  - "Un empleado de la plataforma, de forma manual"
-  - "Un banco intermediario"
-respuesta: "El código del contrato inteligente"
+variables:
+  tasa: random(2, 8)
+  n: random(6, 36)
+  capital_a: random(100, 500) * 1000
+  capital_b: random(501, 1000) * 1000
+
+respuesta: ((capital_b * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)) > (capital_a * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)))
+tipo: vf
+
+enunciado: "A la misma tasa mensual del {tasa}% y las mismas {n} cuotas, ¿un préstamo de ${capital_b} tiene una cuota mayor que uno de ${capital_a}?"
 
 explicacion: |
-  Un DEX es, en esencia, un conjunto de contratos inteligentes que
-  ejecutan la operación.
+  A mayor capital prestado, mayor cuota, con tasa y cantidad de cuotas
+  fijas.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "dex_swap"
+  tema: "cuota_credito_frances"
   nivel: "avanzado"
-  tags: ["defi", "vocabulario"]
+  tags: ["cuota_credito", "comparacion"]
 
-respuesta: verdadero
+variables:
+  capital: random(100, 2000) * 1000
+  tasa: random(2, 8)
+  n_a: random(6, 12)
+  n_b: random(24, 36)
+
+respuesta: ((capital * (tasa / 100) * (1 + tasa / 100) ^ n_b / ((1 + tasa / 100) ^ n_b - 1)) < (capital * (tasa / 100) * (1 + tasa / 100) ^ n_a / ((1 + tasa / 100) ^ n_a - 1)))
 tipo: vf
 
-enunciado: "Es una práctica habitual comparar el precio de un mismo par de tokens entre distintos DEX antes de operar, porque cada pool puede tener un precio levemente distinto en un momento dado."
+enunciado: "Con el mismo capital de ${capital} y la misma tasa mensual del {tasa}%, ¿pagar en {n_b} cuotas da una cuota mensual más baja que pagar en {n_a} cuotas?"
 
 explicacion: |
-  Cada pool fija su propio precio según su propia composición interna
-  (tema siguiente: `pools-liquidez-amm/`).
+  A más cuotas, el mismo capital se reparte en más pagos, así que cada
+  cuota individual es más baja.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "dex_swap"
-  nivel: "basico"
-  tags: ["defi", "problema"]
-
-enunciado: "Alguien intercambia 100 unidades de un token por otro token distinto, directamente desde su wallet, sin pasar por ninguna empresa. ¿Cómo se llama esa operación?"
-tipo: mc
-opciones_explicitas:
-  - "Un swap"
-  - "Un depósito en garantía (escrow)"
-  - "Una devaluación"
-respuesta: "Un swap"
-
-explicacion: |
-  Es exactamente la definición de swap: intercambiar un token por
-  otro dentro de un DEX.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "dex_swap"
+  tema: "cuota_credito_frances"
   nivel: "avanzado"
-  tags: ["defi", "orden"]
+  tags: ["cuota_credito", "comparacion"]
 
-tipo: ordenar
-enunciado: "Ordená estos pasos de cómo funciona un swap en un DEX."
-opciones_explicitas:
-  - "El usuario recibe el nuevo token directo en su wallet"
-  - "El contrato inteligente intercambia los tokens contra el pool de liquidez"
-  - "El usuario elige qué token quiere entregar y cuál quiere recibir"
-  - "El usuario aprueba la operación desde su propia wallet"
-respuesta_orden: ["El usuario elige qué token quiere entregar y cuál quiere recibir", "El usuario aprueba la operación desde su propia wallet", "El contrato inteligente intercambia los tokens contra el pool de liquidez", "El usuario recibe el nuevo token directo en su wallet"]
+variables:
+  capital: random(100, 2000) * 1000
+  tasa: random(2, 8)
+  n_a: random(6, 12)
+  n_b: random(24, 36)
 
-explicacion: |
-  Cada paso depende del anterior: sin elección no hay nada que
-  aprobar, sin aprobación el contrato no puede ejecutar el swap.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "dex_swap"
-  nivel: "intermedio"
-  tags: ["defi", "vocabulario"]
-
-respuesta: verdadero
+respuesta: (((capital * (tasa / 100) * (1 + tasa / 100) ^ n_b / ((1 + tasa / 100) ^ n_b - 1)) * n_b - capital) > ((capital * (tasa / 100) * (1 + tasa / 100) ^ n_a / ((1 + tasa / 100) ^ n_a - 1)) * n_a - capital))
 tipo: vf
 
-enunciado: "A diferencia de un CEX, un DEX no necesita emparejar la orden de un comprador con la de un vendedor específico: intercambia directo contra el pool."
+enunciado: "Con el mismo capital de ${capital} y la misma tasa mensual del {tasa}%, ¿pagar en {n_b} cuotas termina generando más interés total que pagar en {n_a} cuotas?"
 
 explicacion: |
-  Es la diferencia con el libro de órdenes tradicional de un exchange
-  centralizado.
+  Aunque la cuota mensual sea más baja con más cuotas, se paga durante
+  más tiempo, y cada mes extra suma interés sobre el saldo que todavía
+  no se amortizó — el interés total termina siendo mayor.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "dex_swap"
-  nivel: "basico"
-  tags: ["defi", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un DEX es, en su base, un conjunto de contratos inteligentes que corren sobre una blockchain."
-
-explicacion: |
-  Reutiliza directo el concepto ya visto en `contratos-inteligentes/`.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "dex_swap"
-  nivel: "intermedio"
-  tags: ["defi", "problema"]
-
-enunciado: "Una plataforma te pide transferir tus criptomonedas a una cuenta que ella administra antes de poder operar. ¿Es un DEX o un CEX?"
-tipo: mc
-opciones_explicitas:
-  - "Un CEX: te está pidiendo custodiar tus fondos"
-  - "Un DEX: los fondos siempre quedan en tu propia wallet"
-  - "Ninguno de los dos: ese modelo no existe"
-respuesta: "Un CEX: te está pidiendo custodiar tus fondos"
-
-explicacion: |
-  Pedir custodia de los fondos es justamente lo que caracteriza a un
-  exchange centralizado, no a un DEX.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "dex_swap"
+  tema: "cuota_credito_frances"
   nivel: "avanzado"
-  tags: ["defi", "vocabulario"]
+  tags: ["cuota_credito", "calculo"]
 
-enunciado: "¿Por qué operar en un DEX no requiere confiar en una empresa, a diferencia de un CEX?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el código del contrato inteligente, público y verificable, ejecuta la operación en vez de una empresa"
-  - "Porque los DEX son gratis y los CEX no"
-  - "Porque los DEX sólo operan con una moneda estable"
-respuesta: "Porque el código del contrato inteligente, público y verificable, ejecuta la operación en vez de una empresa"
+variables:
+  tasa: random(2, 8)
+  n: random(6, 36)
+  capital: random(100, 2000) * 1000
+  cuota: capital * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)
+
+respuesta: capital
+tipo: input
+tolerancia_abs: 5
+
+enunciado: "Un préstamo con sistema francés, a una tasa mensual del {tasa}% en {n} cuotas, tiene una cuota fija de ${redondear(cuota, 2)}. ¿Cuál fue el capital prestado?"
 
 explicacion: |
-  Reemplaza la confianza en una empresa por confianza en un código
-  auditable.
+  Se despeja C de la fórmula de la cuota, con la tasa y la cantidad de
+  cuotas ya conocidas.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "dex_swap"
-  nivel: "basico"
-  tags: ["defi"]
+  tema: "cuota_credito_frances"
+  nivel: "intermedio"
+  tags: ["cuota_credito"]
+
+variables:
+  capital: random(100, 2000) * 1000
+  tasa: random(2, 8)
+  n: random(6, 36)
+  cuota: capital * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)
+  total_pagado: cuota * n
+  interes_total: total_pagado - capital
 
 tipo: completar
-enunciado: "Completá: el DEX es la ___ (plataforma), y el swap es la operación que se hace en ella."
+enunciado: "Un préstamo de ${capital} terminó pagando ${redondear(total_pagado, 2)} en total. Completá: ___ (interés total) = {redondear(total_pagado, 2)} (total pagado) - {capital} (capital)."
 respuestas_validas:
-  - "plataforma"
+  - interes_total
 
 explicacion: |
-  Es la relación central entre los dos términos del tema.
+  El interés total es lo que se pagó de más, por encima del capital
+  prestado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "dex_swap"
-  nivel: "intermedio"
-  tags: ["defi", "vocabulario"]
-
-enunciado: "¿Qué reemplaza al \"libro de órdenes\" de un exchange tradicional, dentro de un DEX?"
-tipo: mc
-opciones_explicitas:
-  - "El pool de liquidez, que actúa como contraparte automática de cualquier swap"
-  - "Un empleado que empareja manualmente cada operación"
-  - "Nada: los DEX también usan un libro de órdenes idéntico"
-respuesta: "El pool de liquidez, que actúa como contraparte automática de cualquier swap"
-
-explicacion: |
-  Es el puente hacia el tema siguiente: cómo ese pool fija el precio
-  se explica en `pools-liquidez-amm/`.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "dex_swap"
+  tema: "cuota_credito_frances"
   nivel: "basico"
-  tags: ["defi", "vocabulario"]
+  tags: ["cuota_credito", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un DEX permite hacer swap de un token por otro directo desde la propia wallet, sin que ninguna empresa custodie los fondos, intercambiando contra un pool de liquidez en vez de contra otra persona específica."
+enunciado: "Además del sistema francés, existen otros sistemas de amortización de créditos, como el alemán y el americano."
+
+explicacion: |
+  El francés es el más común en Argentina, pero no el único que usan los
+  bancos en el mundo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cuota_credito_frances"
+  nivel: "intermedio"
+  tags: ["cuota_credito", "vocabulario"]
+
+enunciado: "En el sistema alemán de amortización, ¿qué es lo que se mantiene constante en cada cuota?"
+tipo: mc
+opciones_explicitas:
+  - "La amortización de capital (no la cuota total)"
+  - "La cuota total (no la amortización de capital)"
+  - "El interés (no la amortización de capital)"
+respuesta: "La amortización de capital (no la cuota total)"
+
+explicacion: |
+  Es al revés que en el sistema francés: ahí lo fijo es la cuota; en el
+  alemán, lo fijo es cuánto capital se amortiza cada vez.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cuota_credito_frances"
+  nivel: "intermedio"
+  tags: ["cuota_credito", "vocabulario"]
+
+enunciado: "Como en el sistema alemán la amortización de capital es siempre la misma, y el interés se calcula sobre un saldo que baja siempre igual, ¿cómo resulta la cuota total a lo largo del préstamo?"
+tipo: mc
+opciones_explicitas:
+  - "Decreciente: arranca más alta y termina más baja"
+  - "Constante: igual en todas las cuotas"
+  - "Creciente: arranca más baja y termina más alta"
+respuesta: "Decreciente: arranca más alta y termina más baja"
+
+explicacion: |
+  El interés de cada cuota decrece mes a mes (porque el saldo baja
+  siempre lo mismo), así que la cuota total también decrece.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cuota_credito_frances"
+  nivel: "intermedio"
+  tags: ["cuota_credito", "vocabulario"]
+
+enunciado: "En el sistema americano de amortización, ¿qué se paga durante el préstamo y qué pasa con el capital?"
+tipo: mc
+opciones_explicitas:
+  - "Sólo se pagan intereses en cada cuota; el capital completo se devuelve de una vez al final"
+  - "Se paga capital e interés en partes iguales cada cuota, como en el francés"
+  - "El capital se devuelve en la primera cuota y después sólo quedan intereses"
+respuesta: "Sólo se pagan intereses en cada cuota; el capital completo se devuelve de una vez al final"
+
+explicacion: |
+  Es el sistema donde el capital no se va amortizando de a poco: queda
+  entero hasta el vencimiento.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cuota_credito_frances"
+  nivel: "basico"
+  tags: ["cuota_credito", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "De los tres sistemas de amortización (francés, alemán, americano), el americano es el menos común en préstamos personales que ofrecen los bancos."
+
+explicacion: |
+  Se usa en algunos bonos e instrumentos financieros puntuales, pero rara
+  vez un banco se lo ofrece a una persona para un préstamo personal.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cuota_credito_frances"
+  nivel: "basico"
+  tags: ["cuota_credito", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En Argentina, el sistema francés es el más común para préstamos personales y créditos hipotecarios."
+
+explicacion: |
+  Por eso es el que corresponde estudiar en detalle, aunque no sea el
+  único que existe.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cuota_credito_frances"
+  nivel: "intermedio"
+  tags: ["cuota_credito", "orden"]
+
+tipo: ordenar
+enunciado: "En un préstamo con sistema francés, ordená estos momentos del préstamo de menor a mayor proporción de amortización de capital dentro de la cuota."
+opciones_explicitas:
+  - "Última cuota"
+  - "Cuota 1"
+  - "Cuota del medio del préstamo"
+respuesta_orden: ["Cuota 1", "Cuota del medio del préstamo", "Última cuota"]
+
+explicacion: |
+  La amortización de capital empieza baja (predomina el interés) y crece
+  cuota a cuota, hasta ser casi toda la cuota al final del préstamo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cuota_credito_frances"
+  nivel: "intermedio"
+  tags: ["cuota_credito", "verificacion"]
+
+variables:
+  capital: random(100, 2000) * 1000
+  tasa: random(2, 8)
+  n: random(6, 36)
+  correcto: capital * (tasa / 100) * (1 + tasa / 100) ^ n / ((1 + tasa / 100) ^ n - 1)
+  error: uno_de([0, 0, 0, 5000, -5000])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 10)
+tipo: vf
+
+enunciado: "¿Está bien calculada esta cuota? Préstamo de ${capital}, tasa mensual {tasa}%, {n} cuotas, cuota mostrada: ${redondear(mostrado, 2)}."
+
+explicacion: |
+  Se vuelve a calcular con la fórmula del sistema francés y se compara
+  con el valor mostrado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cuota_credito_frances"
+  nivel: "basico"
+  tags: ["cuota_credito", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el sistema francés la cuota es fija, pero dentro de cada cuota la proporción de interés baja y la de amortización de capital sube a medida que avanza el préstamo — y no es el único sistema de amortización que existe."
 
 explicacion: |
   Es la idea central de todo el tema.
 ```
 
-## Sección: division-formal-microeconomia-macroeconomia (20 preguntas)
+## Sección: interes-compuesto-funcion (24 preguntas)
 
 ```
 metadata:
-  materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["evaluar"]
+
+variables:
+  c0: random(2, 20)
+  t: random(1, 4)
+  C: c0 * (2 ^ t)
+
+respuesta: c0 * (3 ^ t)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "M(t) = {C}×(1.5)^t (capital {C}, tasa 50% por período). ¿Cuánto vale M({t})?"
+
+pasos:
+  - "M({t}) = {C}×1.5^{t} = {c0 * (3 ^ t)}"
+
+explicacion: |
+  Se evalúa la función exponencial en t={t}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["evaluar"]
+
+variables:
+  c0: random(2, 15)
+  t: random(1, 4)
+  C: c0 * (2 ^ t)
+
+respuesta: c0 * (3 ^ t)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "M(t) = {C}×(1.5)^t. ¿Cuánto vale M({t})?"
+
+explicacion: |
+  M({t}) = {C}×1.5^{t} = {c0 * (3 ^ t)}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
   nivel: "basico"
-  tags: ["interdependencia"]
+  tags: ["dominio"]
+
+variables:
+  C: random(1000, 50000)
+
+respuesta: C
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "M(t) = {C}×(1+r)^t. ¿Cuánto vale M(0)?"
+
+explicacion: |
+  Cualquier base elevada a 0 da 1: M(0) = {C}×1 = {C}, el capital
+  inicial.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "basico"
+  tags: ["concepto"]
+
+variables:
+  r_por_mil: random(20, 200)
+
+respuesta: 1000 + r_por_mil
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Con una tasa r={r_por_mil}/1000 por período, ¿cuánto vale (1+r) multiplicado por 1000 (para trabajar sin decimales)?"
+
+explicacion: |
+  (1+r)×1000 = 1000+{r_por_mil} = {1000 + r_por_mil} — la base de la
+  función exponencial, escalada por 1000 para evitar decimales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["comparacion", "verdadero_falso"]
+
+variables:
+  C: random(1000, 50000)
+  r_pct: random(5, 30)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "C={C}, r={r_pct}%. ¿Dan el mismo monto el interés simple y el compuesto, para t=1 período?"
+
+explicacion: |
+  Para un solo período, todavía no hubo oportunidad de que el interés
+  generado gane su propio interés — coinciden exactamente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "avanzado"
+  tags: ["comparacion", "verdadero_falso"]
+
+variables:
+  C: 10000
+  r_pct: random(5, 30)
+
+respuesta: (((100 + r_pct) ^ 2) > (100 * (100 + 2 * r_pct)))
+tipo: vf
+
+enunciado: "C={C}, r={r_pct}%, t=2 períodos. ¿Da el interés compuesto un monto mayor que el interés simple?"
+
+explicacion: |
+  A partir de t>1, el compuesto siempre supera al simple, con la misma
+  tasa y capital.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "M(t)=C(1+r)^t tiene la misma forma que cualquier función exponencial f(x)=a·bˣ, con a=C y b=(1+r)."
+
+explicacion: |
+  Es exactamente la conexión con
+  `../../matematica/familias-exponencial-logaritmica/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "M(t)=C(1+rt) (interés simple) es una función lineal de t, con pendiente C·r y ordenada al origen C."
+
+explicacion: |
+  A diferencia del compuesto, acá t no está en el exponente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Con una tasa de interés positiva (r>0), la base (1+r) de la función M(t) siempre es mayor que 1."
+
+explicacion: |
+  Por eso M(t) es siempre creciente — es la misma condición a>1 de
+  `../../matematica/familias-exponencial-logaritmica/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin importar qué tan alta sea la tasa de interés simple, a la larga el interés compuesto (con la misma tasa) siempre termina dando un monto mayor."
+
+explicacion: |
+  Es el mismo principio general: cualquier exponencial con base>1
+  termina superando a cualquier función lineal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["duplicacion"]
+
+respuesta: 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Con una tasa del 100% por período (la base es 1+1=2), ¿cuántos períodos tardan en duplicar el capital?"
+
+explicacion: |
+  2 = 2^t → t=1 — con 100% de tasa, se duplica en un solo período, por
+  definición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["duplicacion"]
+
+respuesta: 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Con una tasa del 100% por período (base 2), ¿cuántos períodos tardan en CUADRUPLICAR el capital?"
+
+pasos:
+  - "4 = 2^t → t=2"
+
+explicacion: |
+  Cuadruplicar es 2², así que hacen falta 2 períodos de duplicación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Encontrar el tiempo de duplicación de un capital a interés compuesto es resolver una ecuación exponencial, del mismo tipo que `../../matematica/ecuaciones-exponenciales-logaritmicas/`."
+
+explicacion: |
+  2 = (1+r)^t se resuelve aplicando logaritmo a los dos lados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["concepto", "dominio", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el contexto financiero, el dominio útil de M(t) se restringe a t≥0 — no tiene sentido un período de tiempo negativo."
+
+explicacion: |
+  El modelo matemático permitiría evaluar en t negativo, pero no
+  representaría nada real en este contexto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["error_comun", "opcion_multiple"]
+
+variables:
+  C: random(1000, 20000)
+
+respuesta: "C×(1+r)^t"
+tipo: mc
+opciones_explicitas:
+  - "C×(1+r)^t"
+  - "C×r^t"
+  - "C×(1+r×t)"
+
+enunciado: "¿Cuál es la fórmula correcta del monto a interés compuesto, como función del tiempo?"
+
+explicacion: |
+  La base es (1+r), no r solo — olvidar el "+1" es un error común. La
+  tercera opción es la fórmula de interés SIMPLE, no compuesto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  c0: random(2, 20)
+  t: random(1, 4)
+  C: c0 * (2 ^ t)
+  real: c0 * (3 ^ t)
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "M(t) = {C}×(1.5)^t. ¿Es correcto que M({t}) sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El monto a interés compuesto no sólo crece: crece cada vez MÁS RÁPIDO a medida que pasa el tiempo (a diferencia del interés simple, que suma siempre lo mismo por período)."
+
+explicacion: |
+  Es la característica distintiva de cualquier crecimiento exponencial.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "avanzado"
+  tags: ["verdadero_falso"]
+
+variables:
+  c0_a: random(2, 10)
+  c0_b: random(11, 20)
+  t: random(1, 4)
+
+respuesta: ((c0_b * (3 ^ t)) > (c0_a * (3 ^ t)))
+tipo: vf
+
+enunciado: "Dos capitales, {c0_a * (2 ^ t)} y {c0_b * (2 ^ t)}, crecen a la misma tasa del 50% por período durante {t} períodos. ¿Termina siendo mayor el monto del capital que partió más grande?"
+
+explicacion: |
+  Con la misma tasa, el capital inicial mayor siempre da un monto final
+  mayor — la proporción se mantiene.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El interés compuesto es uno de los ejemplos clásicos del modelo dy/dt=ky (crecimiento proporcional a lo que ya se tiene), estudiado formalmente en `../../matematica/ecuaciones-diferenciales/`."
+
+explicacion: |
+  Es el mismo fenómeno matemático mirado, más adelante en el tronco, con
+  la herramienta de derivadas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  C: 1000
+  t_sol: random(1, 5)
+
+respuesta: t_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "M(t) = {C}×2^t (tasa 100%). ¿Para qué valor de t es M(t) = {C * (2 ^ t_sol)}?"
+
+pasos:
+  - "2^t = {2 ^ t_sol} → t = {t_sol}"
+
+explicacion: |
+  Se reconoce la potencia de 2 acumulada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para cualquier tasa r, M(0) siempre es igual al capital inicial C, sin importar cuál sea r."
+
+explicacion: |
+  (1+r)⁰=1 siempre, sea cual sea r — mismo principio que f(0)=1 en
+  cualquier exponencial.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: falso
+
 tipo: vf
 
-enunciado: "La microeconomía y la macroeconomía son mundos completamente separados que no se influyen mutuamente."
+enunciado: "El gráfico de M(t) a interés compuesto es una recta, igual que el de interés simple."
 
 explicacion: |
-  Falso. Ambas son lentes diferentes de la misma realidad y están interconectadas. Las decisiones micro afectan a la macro y viceversa.
+  Es una curva exponencial, no una recta — sólo el interés SIMPLE da una
+  recta.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
-  nivel: "avanzado"
-  tags: ["interdependencia", "politica-monetaria"]
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
+  nivel: "intermedio"
+  tags: ["concepto"]
 
 variables:
-  decision_macro: "aumento de tasas de interés"
-  efecto_micro: "encarecimiento de préstamos"
+  C: random(1000, 50000)
+  t: random(1, 10)
 
-respuesta: verdadero
-tipo: vf
+respuesta: C
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "Una decisión macroeconómica como el aumento de tasas de interés por parte del Banco Central afecta directamente el costo de oportunidad de ahorrar vs consumir para las familias."
+enunciado: "M(t) = {C}×(1+0)^t (tasa 0%). ¿Cuánto vale M({t})?"
 
 explicacion: |
-  Correcto. La política macro cambia los incentivos y costos para los agentes microeconómicos.
+  Con r=0, la base es 1, y 1 elevado a cualquier exponente da 1 — el
+  capital nunca cambia.
 ```
 
 ```
 metadata:
-  materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
+  materia: "matematicas"
+  tema: "interes_compuesto_funcion"
   nivel: "intermedio"
-  tags: ["complementariedad"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Las decisiones de millones de individuos (micro) terminan definiendo los grandes indicadores nacionales (macro)."
+enunciado: "M=C(1+r)^t es la misma fórmula en `../interes-compuesto/` y acá — lo que cambia es la lectura: antes, una cuenta puntual; ahora, una función completa de t, con dominio, comparación de crecimiento y tiempo de duplicación."
 
 explicacion: |
-  Verdadero. La macroeconomía es la suma agregada de comportamientos microeconómicos.
+  Es el resumen del módulo: mismo contenido matemático, otra manera de
+  mirarlo.
 ```
+
+## Sección: mejora-continua (25 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
+  tema: "mejora_continua"
   nivel: "basico"
-  tags: ["perspectiva"]
+  tags: ["definicion", "conceptos_clave"]
 
-respuesta: verdadero
-tipo: vf
+respuesta: "incremental"
+tipo: completar
+respuestas_validas:
+  - "incremental"
+  - "progresiva"
+  - "constante"
 
-enunciado: "La micro y la macroeconomía son lentes diferentes para observar la misma realidad económica."
+enunciado: "La mejora continua se basa en la idea de optimizar procesos de forma constante e __________, en lugar de buscar cambios drásticos y únicos."
 
 explicacion: |
-  Verdadero. No son mundos separados, sino perspectivas complementarias.
+  La mejora continua (Kaizen) se enfoca en pequeños cambios constantes (incrementales) que, sumados en el tiempo, generan grandes transformaciones.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
-  nivel: "avanzado"
-  tags: ["interdependencia"]
+  tema: "mejora_continua"
+  nivel: "basico"
+  tags: ["kaizen", "filosofia"]
 
 respuesta: verdadero
 tipo: vf
-
-enunciado: "Si el Banco Central sube las tasas, el costo de oportunidad de consumir hoy aumenta para las familias."
+enunciado: "El término japonés 'Kaizen' se traduce comúnmente como 'cambio para mejor' y es el pilar fundamental de la mejora continua."
 
 explicacion: |
-  Correcto. Ahorrar se vuelve más atractivo (mayor retorno) y consumir más caro (crédito costoso).
+  Efectivamente, Kaizen es el concepto de mejora continua aplicada a procesos, productos o actividades.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
+  tema: "mejora_continua"
   nivel: "intermedio"
-  tags: ["ejemplo-clasico"]
+  tags: ["ciclo_pdca", "metodologia"]
 
-respuesta: verdadero
-tipo: vf
+opciones_explicitas: ["Planificar", "Hacer", "Verificar", "Actuar"]
 
-enunciado: "Explicar por qué sube el precio del pan en una panadería específica es un problema microeconómico."
+respuesta_orden: ["Planificar", "Hacer", "Verificar", "Actuar"]
+tipo: ordenar
+
+enunciado: "Ordene las etapas del Ciclo de Deming (PDCA), herramienta esencial para la mejora continua:"
+
+pasos:
+  - "Definir objetivos y procesos necesarios para obtener resultados."
+  - "Implementar los procesos y realizar el trabajo."
+  - "Realizar el seguimiento y medir los procesos respecto a los objetivos."
+  - "Tomar acciones para mejorar los resultados de los procesos."
 
 explicacion: |
-  Sí, porque se refiere a un mercado y agente específico, no al nivel general de precios.
+  El ciclo PDCA es: Plan (Planificar), Do (Hacer), Check (Verificar) y Act (Actuar).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
-  nivel: "avanzado"
-  tags: ["costo-oportunidad", "macro"]
+  tema: "mejora_continua"
+  nivel: "basico"
+  tags: ["enfoque", "estrategia"]
 
-variables:
-  ejemplo: "política monetaria"
+opciones_explicitas: ["Un evento único de gran escala", "Un proceso de optimización constante", "Un cambio estructural de una sola vez"]
 
-respuesta: falso
-
-tipo: vf
-
-enunciado: "El costo de oportunidad es un concepto exclusivo de la microeconomía y no aplica a la macroeconomía."
-
-explicacion: |
-  El costo de oportunidad es fundamental en ambas ramas; la macro también evalúa renuncias al tomar políticas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
-  nivel: "avanzado"
-  tags: ["interdependencia", "politica-monetaria"]
-
-variables:
-  decision_macro: "aumento de tasas de interés"
-  efecto_micro: uno_de(["mayor costo de endeudamiento para familias", "disminución del ahorro", "aumento del consumo inmediato"])
-
-respuesta: "mayor costo de endeudamiento para familias"
+respuesta: "Un proceso de optimización constante"
 tipo: mc
 
-opciones_explicitas: ["mayor costo de endeudamiento para familias", "disminución del ahorro", "aumento del consumo inmediato", "reducción de impuestos"]
-
-enunciado: "Si el Banco Central toma una decisión macroeconómica de {decision_macro}, ¿cuál es un efecto directo en el comportamiento microeconómico de las familias?"
+enunciado: "¿Cuál es la característica principal de la mejora continua en una organización?"
 
 explicacion: |
-  Las tasas de interés más altas encarecen los préstamos, afectando directamente la decisión de consumo o ahorro de las familias.
+  La mejora continua no es un proyecto con fecha de fin, sino una cultura de optimización permanente.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
+  tema: "mejora_continua"
+  nivel: "intermedio"
+  tags: ["muda", "desperdicio"]
+
+respuesta: "Muda"
+tipo: mc
+
+opciones_explicitas: ["Muda", "Kaizen", "Poka-Yoke", "Kanban"]
+
+enunciado: "En la metodología de mejora continua, el término japonés utilizado para referirse a cualquier tipo de desperdicio en el proceso es: ___"
+
+explicacion: |
+  'Muda' es el término utilizado para referirse a las actividades que no agregan valor (desperdicio) y que deben eliminarse.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
   nivel: "basico"
-  tags: ["costo-oportunidad", "micro"]
+  tags: ["procesos", "eficiencia"]
+
+respuesta: "incremental"
+tipo: "completar"
+respuestas_validas:
+  - "incremental"
+  - "gradual"
+  - "constante"
+
+enunciado: "La mejora continua se define como un enfoque de optimización que busca cambios de carácter ___ en lugar de realizar una única transformación radical."
+
+explicacion: |
+  La mejora continua (Kaizen) se basa en pequeños cambios constantes que, acumulados, generan grandes resultados. No se trata de un evento aislado, sino de un proceso sostenido.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "intermedio"
+  tags: ["metodologia", "phva"]
 
 variables:
-  recurso: "tiempo"
-  alternativa: uno_de(["estudiar", "trabajar", "descansar"])
+  pasos_phva: ["Planificar", "Hacer", "Verificar", "Actuar"]
 
-respuesta: "la mejor alternativa no elegida"
+respuesta: "Planificar"
+tipo: "mc"
+opciones_explicitas: ["Planificar", "Hacer", "Verificar", "Actuar"]
+
+enunciado: "En un proceso de optimización de una línea de ensamblaje, el primer paso del ciclo PHVA consiste en establecer los objetivos y los procesos necesarios para lograr resultados. Este paso es: {pasos_phva[0]}."
+
+explicacion: |
+  El ciclo PHVA (Planificar, Hacer, Verificar, Actuar) es la base de la mejora continua. Siempre se debe comenzar con la fase de planificación para establecer la hoja de ruta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "intermedio"
+  tags: ["calidad", "variabilidad"]
+
+respuesta: verdadero
+tipo: "vf"
+
+enunciado: "¿Es correcto afirmar que la mejora continua busca reducir la variabilidad de los procesos para asegurar la calidad constante?"
+
+explicacion: |
+  La variabilidad es el enemigo de la eficiencia. Al estandarizar y mejorar procesos, se busca que los resultados sean predecibles y constantes.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "avanzado"
+  tags: ["calculo", "eficiencia"]
+
+variables:
+  escenario: [["Tiempo actual: 100 min, Tiempo meta: 85 min", 15], ["Tiempo actual: 50 min, Tiempo meta: 48 min", 2], ["Tiempo actual: 200 min, Tiempo meta: 180 min", 20]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: escenario[idx][1]
+tipo: "completar"
+tolerancia_abs: 0
+
+enunciado: "Una empresa de logística aplica mejora continua. Si su tiempo de despacho actual es de {escenario[idx][0]}, ¿cuántos minutos de reducción debe lograr para alcanzar su meta establecida?"
+
+pasos:
+  - "Identificar el tiempo actual."
+  - "Identificar el tiempo meta."
+  - "Calcular la diferencia: Actual - Meta."
+
+explicacion: |
+  La mejora continua se mide a menudo a través de la reducción de tiempos o desperdicios. En este caso, la diferencia entre el estado actual y el objetivo representa la mejora buscada.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "intermedio"
+  tags: ["metodologia", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Planificar", "Hacer", "Verificar", "Actuar"]
+respuesta_orden: ["Planificar", "Hacer", "Verificar", "Actuar"]
+
+enunciado: "Para implementar un programa de mejora continua en un departamento de atención al cliente, se deben seguir los pasos del ciclo de Deming en el siguiente orden lógico:"
+
+explicacion: |
+  El orden correcto es: 1. Planificar (diseñar la mejora), 2. Hacer (implementar el cambio), 3. Verificar (medir resultados) y 4. Actuar (estandarizar si fue exitoso).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "basico"
+  tags: ["conceptos", "filosofia_gestion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La mejora continua (Kaizen) se define como un proyecto de optimización masiva que se ejecuta una sola vez para alcanzar un estado ideal de eficiencia."
+
+explicacion: |
+  Falso. La mejora continua se basa en cambios incrementales, constantes y sostenidos en el tiempo, no en intervenciones únicas o aisladas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "gestion"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["Una empresa implementa un software de gestión avanzado para resolver todos sus problemas de eficiencia de un solo golpe.", "software"], ["Un equipo de producción identifica pequeñas fallas diarias y ajusta sus procesos cada semana.", "ajustes"]]
+
+enunciado: "En el escenario de {escenarios[escenario_idx][0]}, ¿cuál es el enfoque predominante?"
+
+opciones_explicitas: ["optimización puntual", "mejora continua"]
+
+respuesta: "optimización puntual"
+tipo: mc
+
+explicacion: |
+  El primer escenario describe un intento de solución única y masiva, lo cual es un error común que ignora la naturaleza incremental de la mejora continua.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "basico"
+  tags: ["terminologia", "procesos"]
+
+respuesta: "incremental"
+tipo: completar
+respuestas_validas:
+  - "incremental"
+
+enunciado: "A diferencia de la innovación disruptiva, la mejora continua se caracteriza por ser de carácter ___________, buscando optimizar procesos mediante pequeños pasos sucesivos."
+
+explicacion: |
+  La mejora continua es incremental porque se enfoca en pequeñas mejoras constantes en lugar de cambios radicales o estructurales de una sola vez.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "intermedio"
+  tags: ["ciclo_pdca", "metodologia"]
+
+respuesta_orden: ["Planificar", "Hacer", "Verificar", "Actuar"]
+tipo: ordenar
+
+opciones_explicitas: ["Planificar", "Hacer", "Verificar", "Actuar"]
+
+enunciado: "Para que la mejora sea continua, se debe seguir el ciclo PDCA. Ordene las fases de este ciclo en su secuencia lógica de ejecución:"
+
+explicacion: |
+  El ciclo PDCA (Plan-Do-Check-Act) es la base de la mejora continua: se planea, se ejecuta, se verifica el resultado y se actúa para estandarizar o ajustar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "avanzado"
+  tags: ["mentalidad", "eficiencia"]
+
+enunciado: "Si un gerente cree que una vez que el proceso es eficiente, el trabajo de mejora ha terminado, ¿está aplicando correctamente la filosofía de mejora continua?"
+
+opciones_explicitas: ["Sí, la eficiencia es un estado de llegada.", "No, la mejora es un proceso cíclico sin fin."]
+
+respuesta: "No, la mejora es un proceso cíclico sin fin."
+tipo: mc
+
+explicacion: |
+  Uno de los errores más graves es pensar que la mejora tiene un punto final. La mejora continua asume que siempre hay una forma de optimizar un poco más.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "basico"
+  tags: ["procesos", "estrategia"]
+
+tipo: mc
+opciones_explicitas: ["La mejora continua busca cambios incrementales y constantes en procesos existentes.", "La innovación disruptiva busca cambios radicales que transforman el mercado.", "La mejora continua se enfoca en productos nuevos, mientras que la innovación en procesos.", "Ambas son conceptos idénticos en la práctica empresarial."]
+
+respuesta: "La mejora continua busca cambios incrementales y constantes en procesos existentes."
+
+enunciado: "¿Cuál es la distinción fundamental entre la mejora continua y la innovación disruptiva?"
+
+explicacion: |
+  La mejora continua (Kaizen) se centra en optimizar lo que ya existe de forma gradual, mientras que la innovación disruptiva busca crear algo totalmente nuevo que desplace a lo anterior.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "intermedio"
+  tags: ["filosofia_empresarial"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["Una empresa que implementa un cambio masivo de software una vez cada 5 años.", "Un equipo que realiza pequeñas ajustes diarios en su línea de producción para reducir desperdicios."], ["Un evento único de reestructuración organizacional.", "Un ciclo constante de revisión y optimización de tareas."]]
+
+tipo: mc
+opciones_explicitas: [escenarios[escenario_idx][0], escenarios[escenario_idx][1]]
+respuesta: escenarios[escenario_idx][1]
+
+enunciado: "¿Cuál de los siguientes escenarios representa verdaderamente la filosofía de mejora continua?"
+
+explicacion: |
+  La mejora continua no es un evento aislado o un proyecto con fecha de finalización, sino un ciclo perpetuo de optimización.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "intermedio"
+  tags: ["metodologia", "ciclo_deming"]
+
+tipo: ordenar
+opciones_explicitas: ["Planificar", "Hacer", "Verificar", "Actuar"]
+respuesta_orden: ["Planificar", "Hacer", "Verificar", "Actuar"]
+
+enunciado: "Ordena correctamente las etapas del ciclo PHVA (Ciclo de Deming) utilizado en la mejora continua:"
+
+explicacion: |
+  El ciclo PHVA es la base de la mejora continua: se Planifica un cambio, se Hace (se implementa), se Verifica (se mide el resultado) y se Actúa (se estandariza el cambio).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+tipo: completar
+respuestas_validas:
+  - "incremental"
+  - "gradual"
+  - "pequeño"
+
+respuesta: "incremental"
+
+enunciado: "A diferencia de la reingeniería de procesos, que busca cambios drásticos, la mejora continua se caracteriza por ser de tipo ___."
+
+explicacion: |
+  La mejora continua se basa en la acumulación de pequeñas mejoras (cambios incrementales) que, sumadas, generan grandes resultados a largo plazo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "avanzado"
+  tags: ["cultura_organizacional"]
+
+tipo: mc
+opciones_explicitas: ["El error es un fracaso que debe ser castigado para evitar su repetición.", "El error es una oportunidad de aprendizaje para identificar fallas en el proceso.", "El error es irrelevante si el producto final es de buena calidad.", "El error solo es aceptable si se compensa con un aumento de producción."]
+
+respuesta: "El error es una oportunidad de aprendizaje para identificar fallas en el proceso."
+
+enunciado: "¿Cómo se percibe un error o desviación en un sistema de mejora continua en comparación con un modelo de gestión tradicional basado en el control punitivo?"
+
+explicacion: |
+  En la mejora continua, el error es una señal de que el proceso actual tiene una oportunidad de optimización; se busca la causa raíz en el proceso, no la culpa en la persona.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "basico"
+  tags: ["conceptos", "optimización"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  textos: ["Una fábrica de calzado que cambia toda su maquinaria de golpe cada 5 años.", "Una línea de producción que ajusta pequeños detalles cada semana para reducir desperdicios."]
+  valores: [falso, verdadero]
+
+respuesta: valores[escenario_idx]
+tipo: vf
+enunciado: "La mejora continua se define como un proceso de optimización constante e incremental. Analice el siguiente escenario: {textos[escenario_idx]}. ¿Es este un ejemplo de mejora continua?"
+
+explicacion: |
+  La mejora continua (Kaizen) se basa en cambios incrementales y constantes, no en transformaciones disruptivas o únicas de gran escala.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: "Mejora continua"
+tipo: mc
+
+opciones_explicitas: ["Optimización puntual", "Mejora continua", "Cambio radical", "Estancamiento"]
+
+enunciado: "Si una empresa decide que su objetivo es mejorar sus procesos de forma constante, paso a paso, en lugar de esperar a un gran cambio estructural, está aplicando el concepto de: ___"
+
+explicacion: |
+  La mejora continua busca la excelencia a través de pequeños cambios sostenidos en el tiempo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "intermedio"
+  tags: ["metodologia", "ciclo_pdca"]
+
+respuesta_orden: ["Planificar", "Hacer", "Verificar", "Actuar"]
+tipo: ordenar
+
+opciones_explicitas: ["Planificar", "Hacer", "Verificar", "Actuar"]
+
+enunciado: "Para implementar la mejora continua de forma efectiva, se utiliza el ciclo PDCA. Ordene las siguientes etapas en la secuencia lógica correcta:"
+
+explicacion: |
+  El ciclo de Deming (PDCA) sigue el orden: Plan (Planificar), Do (Hacer), Check (Verificar) y Act (Actuar).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mejora_continua"
+  nivel: "intermedio"
+  tags: ["eficiencia", "costos"]
+
+respuesta: "5%"
 tipo: completar
 
-enunciado: "El costo de oportunidad de dedicar {recurso} a {alternativa} es:"
+respuestas_validas:
+  - "5%"
+
+enunciado: "En un programa de mejora continua, una empresa logra reducir el ___ de desperdicio de materia prima cada mes mediante ajustes en la maquinaria."
+
+pasos:
+  - "Identificar el valor del desperdicio en el escenario."
+  - "Escribir el porcentaje exacto."
 
 explicacion: |
-  El costo de oportunidad se define como el valor de la mejor alternativa a la que se renuncia al tomar una decisión.
+  La mejora continua se manifiesta en la reducción progresiva de indicadores negativos como el desperdicio o el tiempo de espera.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
-  nivel: "intermedio"
-  tags: ["interdependencia", "agregacion"]
+  tema: "mejora_continua"
+  nivel: "avanzado"
+  tags: ["estrategia", "mentalidad"]
 
 variables:
-  decision_micro: "reducir la producción"
-  resultado_macro: uno_de(["caída del PBI agregado", "aumento de la inflación", "devaluación del peso"])
+  escenario_idx: uno_de([0, 1])
+  textos: ["El enfoque de la empresa es reactivo: solo actúa cuando hay crisis.", "El enfoque de la empresa es proactivo: busca fallas antes de que ocurran."]
+  valores: [falso, verdadero]
 
-respuesta: "caída del PBI agregado"
-tipo: mc
-
-opciones_explicitas: ["caída del PBI agregado", "aumento de la inflación", "devaluación del peso", "reducción del desempleo"]
-
-enunciado: "Si todas las empresas del país toman una decisión microeconómica de {decision_micro}, ¿qué consecuencia macroeconómica es probable?"
-
-explicacion: |
-  La suma de reducciones de producción individual (micro) se traduce en una contracción de la actividad económica total (macro).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
-  nivel: "basico"
-  tags: ["conceptos-basicos", "vf"]
-
-variables:
-  afirmacion: "micro y macro son mundos completamente separados"
-
-respuesta: falso
+respuesta: valores[escenario_idx]
 tipo: vf
-
-enunciado: "Verdadero o Falso: La micro y la macroeconomía son mundos completamente separados e independientes."
+enunciado: "Un pilar de la mejora continua es la proactividad. Analice el siguiente enfoque: {textos[escenario_idx]}. ¿Este enfoque es compatible con la filosofía de mejora continua?"
 
 explicacion: |
-  Falso. Son lentes complementarios para observar la misma realidad; las decisiones de uno afectan al otro.
+  La mejora continua requiere una mentalidad proactiva para identificar oportunidades de mejora antes de que los problemas se conviertan en crisis.
 ```
+
+## Sección: mvp-producto-minimo-viable (25 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
+  tema: "mvp_producto_minimo_viable"
   nivel: "basico"
-  tags: ["microeconomia", "enfoque"]
+  tags: ["metodologia", "startup", "lean_startup"]
 
-variables:
-  analogia: "los árboles"
-  analogia_macro: "el bosque"
-
-respuesta: "los árboles"
+respuesta: "aprendizaje"
 tipo: completar
+respuestas_validas:
+  - "aprendizaje"
+  - "validar hipótesis"
 
-enunciado: "Se dice que la microeconomía estudia '{analogia}', mientras que la macroeconomía estudia '{analogia_macro}'."
+enunciado: "El objetivo principal de un Producto Mínimo Viable (MVP) no es vender un producto final, sino obtener ___ sobre las preferencias y comportamientos de los usuarios reales."
 
 explicacion: |
-  La analogía clásica: la micro se enfoca en los detalles individuales (árboles) y la macro en el panorama general (bosque).
+  El MVP es una herramienta de experimentación diseñada para maximizar el aprendizaje validado con el menor esfuerzo posible.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
-  nivel: "intermedio"
-  tags: ["costo-oportunidad", "calculo"]
-
-variables:
-  ganancia_trabajo: random(10000, 50000)
-  ganancia_estudio: 0
-
-respuesta: "{ganancia_trabajo}"
-tipo: input
-
-enunciado: "Si un estudiante deja de trabajar para estudiar y pierde una ganancia potencial de ${ganancia_trabajo}, ¿cuál es el costo de oportunidad monetario directo?"
-
-explicacion: |
-  El costo de oportunidad es el beneficio de la mejor alternativa no elegida (en este caso, el salario dejado de percibir).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
-  nivel: "avanzado"
-  tags: ["politica-fiscal", "interdependencia"]
-
-variables:
-  politica: "subida de impuestos corporativos"
-  efecto_agregado: uno_de(["reducción del consumo agregado", "aumento de la productividad", "disminución de la inflación"])
-
-respuesta: "reducción del consumo agregado"
-tipo: mc
-
-opciones_explicitas: ["reducción del consumo agregado", "aumento de la productividad", "disminución de la inflación", "incremento de las exportaciones"]
-
-enunciado: "Una política fiscal macroeconómica de {politica} puede llevar a un efecto microeconómico que, agregado, resulta en:"
-
-explicacion: |
-  Al reducirse el ingreso disponible o las ganancias de las empresas, el consumo y la inversión individuales bajan, afectando el agregado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
+  tema: "mvp_producto_minimo_viable"
   nivel: "basico"
-  tags: ["conceptos-basicos", "escasez"]
+  tags: ["estrategia", "validación"]
 
-variables:
-  concepto: "recursos escasos"
-  necesidad: "necesidades ilimitadas"
+respuesta: falso
+tipo: vf
 
-respuesta: "escasa"
+enunciado: "Un MVP debe contener todas las características que el cliente final espera de un producto completo para asegurar su éxito."
+
+explicacion: |
+  Falso. Un MVP debe contener solo las características mínimas necesarias para cumplir su propósito de aprendizaje. Incluir demasiado puede desperdiciar recursos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mvp_producto_minimo_viable"
+  nivel: "intermedio"
+  tags: ["desarrollo", "iteración"]
+
+respuesta: "Landing Page"
+tipo: mc
+opciones_explicitas: ["Landing Page", "Mago de Oz", "Conserje"]
+
+enunciado: "Si una startup lanza una página web simple para ver cuántas personas hacen clic en un botón de 'comprar' antes de tener el producto desarrollado, ¿qué modelo de MVP está utilizando?"
+
+explicacion: |
+  La Landing Page es uno de los MVPs más rápidos para validar la demanda de una idea antes de invertir en desarrollo técnico.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mvp_producto_minimo_viable"
+  nivel: "intermedio"
+  tags: ["lean_startup", "ciclo_feedback"]
+
+opciones_explicitas: ["Construir", "Medir", "Aprender"]
+respuesta_orden: ["Construir", "Medir", "Aprender"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos del ciclo de feedback de la metodología Lean Startup que se utiliza para iterar sobre un MVP:"
+
+explicacion: |
+  El ciclo es iterativo: se construye un experimento, se miden los resultados y se aprende para decidir si pivotar o perseverar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mvp_producto_minimo_viable"
+  nivel: "basico"
+  tags: ["definicion", "conceptos"]
+
+respuesta: "el producto más simple que permite aprender de usuarios reales"
 tipo: completar
+respuestas_validas:
+  - "el producto más simple que permite aprender de usuarios reales"
+  - "una versión completa pero barata"
 
-enunciado: "La economía estudia cómo administrar {concepto} para satisfacer {necesidad}."
+enunciado: "Se define al MVP como ___."
 
 explicacion: |
-  La definición fundamental de la economía gira en torno a la escasez de recursos frente a deseos ilimitados.
+  El MVP busca el equilibrio entre el valor para el usuario y el esfuerzo de desarrollo, priorizando el aprendizaje sobre la perfección técnica.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
+  tema: "mvp_producto_minimo_viable"
+  nivel: "basico"
+  tags: ["metodologia", "startup"]
+
+respuesta: "aprender"
+tipo: "completar"
+respuestas_validas:
+  - "aprender"
+  - "aprendizaje"
+
+enunciado: "El objetivo principal de un Producto Mínimo Viable (MVP) no es vender una versión incompleta, sino permitir que el emprendedor pueda ___ de los usuarios reales con el menor esfuerzo posible."
+
+explicacion: |
+  El MVP es una estrategia de aprendizaje validado. Su fin no es la perfección técnica, sino la recolección de datos sobre el comportamiento del usuario para decidir si pivotar o perseverar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mvp_producto_minimo_viable"
   nivel: "intermedio"
-  tags: ["conceptos-basicos", "vf"]
+  tags: ["ejemplo", "validacion"]
 
 variables:
-  lente: "macroeconomía"
-  objeto: "el comportamiento de una familia"
+  escenario: uno_de([["App de comida con sistema de pagos integrado", "Software complejo"], ["Un grupo de WhatsApp para tomar pedidos manualmente", "Concierge MVP"], ["Un sitio web con fotos de productos sin carrito", "Landing Page"]])
+
+respuesta: escenario[1]
+tipo: "mc"
+opciones_explicitas: ["Software complejo", "Concierge MVP", "Landing Page"]
+
+enunciado: "Un emprendedor quiere validar si la gente en un barrio específico quiere un servicio de delivery de comida casera. ¿Cuál de estos ejemplos representa mejor un MVP de tipo 'Concierge' (donde el servicio se realiza manualmente para entender el proceso)?"
+
+explicacion: |
+  El MVP de tipo Concierge sustituye la automatización por procesos manuales. En el ejemplo, usar WhatsApp y tomar pedidos a mano permite entender la demanda sin haber programado una aplicación compleja.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mvp_producto_minimo_viable"
+  nivel: "basico"
+  tags: ["conceptos"]
 
 respuesta: falso
-tipo: vf
 
-enunciado: "Verdadero o Falso: El lente de la {lente} es el adecuado para analizar el comportamiento específico de una familia."
+tipo: "vf"
+
+enunciado: "Un MVP debe ser un producto con todas las funcionalidades básicas pero con una calidad técnica deficiente que no sea útil para el usuario."
 
 explicacion: |
-  Falso. El comportamiento individual de una familia es objeto de estudio de la microeconomía.
+  Falso. Un MVP debe ser "viable". Esto significa que, aunque tenga pocas funciones, debe resolver el problema central del usuario con una calidad mínima aceptable para que el aprendizaje sea real.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
+  tema: "mvp_producto_minimo_viable"
+  nivel: "intermedio"
+  tags: ["metodologia", "pasos"]
+
+respuesta_orden: ["Definir hipótesis", "Crear versión mínima", "Lanzar a usuarios", "Analizar métricas"]
+tipo: "ordenar"
+opciones_explicitas: ["Definir hipótesis", "Crear versión mínima", "Lanzar a usuarios", "Analizar métricas"]
+
+enunciado: "Ordena los pasos lógicos para validar si un nuevo concepto de café temático tendrá éxito mediante un MVP:"
+
+explicacion: |
+  El ciclo de Lean Startup comienza con la hipótesis (qué creemos que pasará), sigue con la construcción del experimento (MVP), el contacto con el mercado y, finalmente, el análisis de los datos obtenidos para iterar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mvp_producto_minimo_viable"
   nivel: "avanzado"
-  tags: ["politica-monetaria", "costo-oportunidad"]
+  tags: ["metricas", "analisis"]
 
 variables:
-  cambio_macro: "aumento de tasas de interés"
-  cambio_costo: "el costo de oportunidad de gastar"
-  direccion: uno_de(["aumenta", "disminuye", "se mantiene"])
+  datos: uno_de([[100, 5, 0.05], [200, 20, 0.10], [50, 1, 0.02]])
 
-respuesta: "aumenta"
+respuesta: datos[2]
+tipo: "completar"
+tolerancia_abs: 0.001
+
+enunciado: "Se lanza un MVP de una plataforma de cursos online. Los datos obtenidos son: Visitas totales: {datos[0]}, Usuarios que se registran: {datos[1]}. ¿Cuál es la tasa de conversión (registrados/visitas) expresada en decimal?"
+
+pasos:
+  - "Identificar el número de usuarios registrados."
+  - "Identificar el número de visitas totales."
+  - "Dividir los registrados por las visitas."
+
+explicacion: |
+  La tasa de conversión es una métrica clave en un MVP para entender si la propuesta de valor es atractiva. En este caso: 20 / 200 = 0.10.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mvp_producto_minimo_viable"
+  nivel: "basico"
+  tags: ["conceptos_clave", "metodologia_lean"]
+
+respuesta: "aprender"
 tipo: mc
+opciones_explicitas: ["construir", "aprender", "vender", "perfeccionar"]
 
-opciones_explicitas: ["aumenta", "disminuye", "se mantiene", "es irrelevante"]
-
-enunciado: "Si hay un {cambio_macro}, el {cambio_costo} de gastar dinero en lugar de ahorrar:"
+enunciado: "Un error común es pensar que el objetivo principal de un MVP es lanzar un producto final con pocas funciones. En realidad, el objetivo fundamental de un MVP es ___ de los usuarios reales."
 
 explicacion: |
-  Con tasas más altas, el interés que se deja de ganar por gastar (costo de oportunidad) es mayor.
+  El MVP no es un producto "incompleto" para salir rápido al mercado, sino una herramienta de aprendizaje validado. Su fin es probar hipótesis de negocio con el menor esfuerzo posible.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
-  nivel: "basico"
-  tags: ["macroeconomia", "definicion", "vf"]
-
-variables:
-  definicion: "estudio de unidades individuales"
+  tema: "mvp_producto_minimo_viable"
+  nivel: "intermedio"
+  tags: ["errores_comunes", "calidad"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Verdadero o Falso: La macroeconomía se define como el {definicion}."
+enunciado: "Un Producto Mínimo Viable (MVP) puede ser un producto de mala calidad o con una experiencia de usuario deficiente, siempre y cuando cumpla con la función básica."
 
 explicacion: |
-  Falso. Eso es la microeconomía. La macro estudia el conjunto.
+  Falso. Un MVP debe ser "viable". Si la calidad es tan baja que el usuario no puede completar la tarea principal, no estás probando tu idea, estás probando que tu producto es malo. La funcionalidad es mínima, pero la calidad debe ser suficiente para generar aprendizaje.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
-  nivel: "basico"
-  tags: ["microeconomia", "definicion", "vf"]
+  tema: "mvp_producto_minimo_viable"
+  nivel: "intermedio"
+  tags: ["ciclo_feedback", "lean_startup"]
 
-variables:
-  definicion: "estudio de unidades individuales"
+respuesta_orden: ["Construir", "Medir", "Aprender"]
+tipo: ordenar
+opciones_explicitas: ["Construir", "Medir", "Aprender"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: La microeconomía se define como el {definicion}."
+enunciado: "Para que el MVP sea efectivo, se debe seguir el ciclo de feedback de la metodología Lean Startup. Ordena los pasos correctamente:"
 
 explicacion: |
-  Verdadero. Se enfoca en familias, trabajadores y empresas.
+  El ciclo es: Construir (MVP) -> Medir (datos de usuarios) -> Aprender (decidir si pivotar o perseverar).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "division_formal_microeconomia_macroeconomia"
-  nivel: "intermedio"
-  tags: ["costo-oportunidad", "vf"]
-
-variables:
-  concepto: "costo de oportunidad"
-  definicion: "lo que se gana al elegir una opción"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: El {concepto} es {definicion}."
-
-explicacion: |
-  Falso. Es lo que se RENUNCIA (pierde) al elegir una opción.
-```
-
-## Sección: economia-positiva-y-normativa (22 preguntas)
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
-  nivel: "basico"
-  tags: ["clasificacion", "definicion"]
-
-variables:
-  frase: uno_de(["El aumento del salario mínimo provoca un aumento en el desempleo juvenil.", "El gobierno debería aumentar el salario mínimo para ayudar a los pobres.", "La inflación es un fenómeno monetario.", "Es justo que se controle la inflación.", "La devaluación del peso reduce la competitividad de las exportaciones.", "Es necesario controlar la inflación para proteger el ahorro."])
-  es_positiva: es_primo(random(1, 10)) == 1
-
-respuesta: "positiva"
-tipo: input
-
-enunciado: "Clasifica la siguiente afirmación como 'positiva' o 'normativa': \"{frase}\""
-
-explicacion: |
-  La economía positiva se basa en hechos verificables y relaciones causales objetivas. Si la afirmación describe "qué es" o "qué pasa" y puede ser contrastada con datos, es positiva. Si expresa un "debería ser" o un juicio de valor, es normativa.
-```
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
-  nivel: "basico"
-  tags: ["clasificacion", "definicion"]
-
-variables:
-  frase: uno_de(["El subsidio a la nafta genera un déficit fiscal.", "El gobierno debería subsidiar la nafta para ayudar a las familias.", "La inflación reduce el poder adquisitivo.", "Es justo subsidiar los alimentos básicos.", "Un aumento en la oferta de dinero causa inflación.", "Es necesario reducir el gasto público."])
-  es_normativa: es_primo(random(1, 10)) == 1
-
-respuesta: "normativa"
-tipo: input
-
-enunciado: "Clasifica la siguiente afirmación como 'positiva' o 'normativa': \"{frase}\""
-
-explicacion: |
-  La economía normativa se refiere a cómo *debería* ser la economía. Incluye valores, juicios de valor y opiniones sobre qué acciones deberían tomarse. No puede probarse solo con datos, sino que depende de las prioridades éticas o políticas.
-```
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["conceptos", "verificacion"]
-
-variables:
-  pregunta: uno_de(["¿Qué característica define a la economía positiva?", "¿Qué característica define a la economía normativa?"])
-  respuesta_correcta: uno_de(["Puede ser verificada empíricamente", "Depende de juicios de valor"])
-  es_positiva: es_primo(random(1, 10)) == 1
-
-respuesta: respuesta_correcta
-tipo: input
-
-enunciado: "{pregunta} (Escribe la característica principal)"
-
-explicacion: |
-  La economía positiva se distingue por ser objetiva y verificable mediante la observación empírica (datos, hechos). La economía normativa se distingue por incluir juicios de valor y opiniones sobre lo que "debería ser".
-```
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["politica", "juicio"]
-
-variables:
-  politica: uno_de(["subsidios a la educación", "reducciones impositivas", "control de precios"])
-  enunciado_texto: "El gobierno debería implementar {politica} para mejorar el bienestar social."
-  es_normativa: verdadero
-
-respuesta: "normativa"
-tipo: input
-
-enunciado: "Clasifica la afirmación: \"{enunciado_texto}\""
-
-explicacion: |
-  La frase contiene "debería" y un objetivo de valor ("mejorar el bienestar social"). Esto implica una preferencia ética sobre lo que se considera deseable, lo cual es propio de la economía normativa.
-```
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
+  tema: "mvp_producto_minimo_viable"
   nivel: "avanzado"
-  tags: ["errores", "comprension"]
+  tags: ["estrategia", "errores_comunes"]
 
 variables:
-  afirmacion: uno_de(["La inflación actual es del 100%.", "Es urgente controlar la inflación.", "El desempleo ha aumentado un 5%.", "Deberíamos reducir el desempleo."])
-  tipo_real: uno_de(["positiva", "normativa"])
-  es_positiva: es_primo(random(1, 10)) == 1
+  escenario: [["un prototipo de baja fidelidad", "una versión con todas las funciones pero sin marketing"], ["un prototipo de baja fidelidad", "un producto incompleto que no resuelve el problema principal"], ["un prototipo de baja fidelidad", "una campaña de publicidad sin producto"]]
+  idx: uno_de([0,1,2])
 
-respuesta: tipo_real
-tipo: input
+respuesta: escenario[idx][1]
+tipo: completar
+respuestas_validas:
+  - escenario[idx][1]
 
-enunciado: "¿De qué tipo es la siguiente afirmación? \"{afirmacion}\""
-
-explicacion: |
-  Si la afirmación describe un hecho observable (datos de inflación, desempleo), es positiva. Si expresa un deseo o recomendación (urgencia, deberíamos), es normativa.
-```
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
-  nivel: "basico"
-  tags: ["ejemplos", "hechos"]
-
-variables:
-  hecho: uno_de(["El dólar blue cotiza a $1000.", "Es injusto que el dólar sea tan alto.", "El gobierno debería controlar el dólar.", "Es necesario devaluar la moneda."])
-  es_hecho: es_primo(random(1, 10)) == 1
-
-respuesta: hecho
-tipo: input
-
-enunciado: "Selecciona la afirmación que corresponde a la economía positiva:"
+enunciado: "Un error crítico es confundir un MVP con ___."
 
 explicacion: |
-  Solo la afirmación que describe un dato observable y verificable (el precio del dólar) es positiva. Las demás contienen juicios de valor o recomendaciones.
-```
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
-  nivel: "basico"
-  tags: ["ejemplos", "juicios"]
-
-variables:
-  juicio: uno_de(["La inflación reduce el poder adquisitivo.", "Es terrible que haya inflación.", "El desempleo es del 8%.", "El PIB creció un 2%."])
-  es_juicio: es_primo(random(1, 10)) == 1
-
-respuesta: juicio
-tipo: input
-
-enunciado: "Selecciona la afirmación que corresponde a la economía normativa:"
-
-explicacion: |
-  La frase "Es terrible que haya inflación" expresa una reacción emocional y un juicio de valor sobre un fenómeno, lo cual es propio de la economía normativa. Las otras son descripciones de hechos.
-```
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["hipotesis", "verificacion"]
-
-variables:
-  hipotesis: uno_de(["La inflación es un fenómeno monetario.", "Es justo controlar la inflación.", "El gobierno debe imprimir dinero.", "Es malo tener inflación."])
-  es_hipotesis: es_primo(random(1, 10)) == 1
-
-respuesta: hipotesis
-tipo: input
-
-enunciado: "Selecciona la afirmación que es una hipótesis positiva:"
-
-explicacion: |
-  Una hipótesis positiva plantea una relación causal que puede ser contrastada con la realidad. "La inflación es un fenómeno monetario" es una afirmación que puede ser verificada o refutada con datos históricos.
-```
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["recomendacion", "politica"]
-
-variables:
-  recomendacion: uno_de(["El gobierno debería subsidiar la nafta.", "El subsidio genera déficit.", "La nafta sube de precio.", "Es necesario controlar precios."])
-  es_recomendacion: es_primo(random(1, 10)) == 1
-
-respuesta: recomendacion
-tipo: input
-
-enunciado: "Selecciona la afirmación que es una recomendación normativa:"
-
-explicacion: |
-  La recomendación normativa expresa un deseo o acción que "debería" tomarse. "El gobierno debería subsidiar la nafta" implica un juicio de valor sobre la ayuda social frente a otros objetivos.
-```
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
-  nivel: "basico"
-  tags: ["datos", "empirico"]
-
-variables:
-  dato: uno_de(["El PIB creció un 3% en 2023.", "Es bueno que el PIB haya crecido.", "Deberíamos crecer más.", "La economía está mal."])
-  es_dato: es_primo(random(1, 10)) == 1
-
-respuesta: dato
-tipo: input
-
-enunciado: "Selecciona la afirmación que presenta un dato empírico verificable:"
-
-explicacion: |
-  Solo la afirmación que indica un número concreto y observable (crecimiento del PIB) es un dato empírico. Las demás son opiniones o juicios de valor.
-```
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
-  nivel: "basico"
-  tags: ["opinion", "juicio"]
-
-variables:
-  opinion: uno_de(["La inflación es alta.", "Es terrible que haya inflación.", "El dólar subió.", "Es necesario controlar la inflación."])
-  es_opinion: es_primo(random(1, 10)) == 1
-
-respuesta: opinion
-tipo: input
-
-enunciado: "Selecciona la afirmación que expresa una opinión normativa:"
-
-explicacion: |
-  "Es terrible que haya inflación" es una reacción emocional y un juicio de valor. No describe un hecho, sino cómo se siente ante ese hecho.
-```
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
-  nivel: "basico"
-  tags: ["objetividad", "definicion"]
-
-variables:
-  afirmacion: uno_de(["La inflación es del 50%.", "Es justo que la inflación sea baja.", "Deberíamos controlar la inflación.", "La inflación es mala."])
-  es_objetiva: es_primo(random(1, 10)) == 1
-
-respuesta: afirmacion
-tipo: input
-
-enunciado: "Selecciona la afirmación objetiva (positiva):"
-
-explicacion: |
-  La afirmación objetiva es aquella que describe un hecho verificable sin emitir juicios de valor. "La inflación es del 50%" es un dato que puede ser comprobado.
-```
-
-```
-metadata:
-  materia: "economía"
-  tema: "economia_positiva_y_normativa"
-  nivel: "basico"
-  tags: ["subjetividad", "definicion"]
-
-variables:
-  afirmacion: uno_de(["El desempleo es del 8%.", "Es terrible el desempleo.", "El desempleo ha aumentado.", "Debemos reducir el desempleo."])
-  es_subjetiva: es_primo(random(1, 10)) == 1
-
-respuesta: afirmacion
-tipo: input
-
-enunciado: "Selecciona la afirmación subjetiva (normativa):"
-
-explicacion: |
-  La afirmación subjetiva incluye juicios de valor o deseos. "Es terrible el desempleo" expresa una reacción emocional y un juicio ético, no un hecho verificable.
+  Un MVP debe resolver el problema central. Si lanzas algo que no resuelve el problema principal, no estás validando tu propuesta de valor, solo estás lanzando un producto inútil.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["veracidad", "hipotesis"]
+  tema: "mvp_producto_minimo_viable"
+  nivel: "basico"
+  tags: ["caracteristicas", "definicion"]
 
-variables:
-  afirmacion: "La inflación alta reduce el valor real de la deuda pública"
-  es_positiva: verdadero
-  es_falsa: falso # No importa si es falsa, si es positiva es verificable
+respuesta: "una función principal"
+tipo: completar
+respuestas_validas:
+  - "una función principal"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Afirmación: '{afirmacion}'.\n\nEsta afirmación es positiva porque puede ser verificada o refutada con datos, independientemente de si es verdadera o falsa."
+enunciado: "Para evitar el exceso de funciones (feature creep) en un MVP, el equipo debe centrarse en desarrollar ___ que aporte valor real."
 
 explicacion: |
-  Una afirmación positiva puede ser falsa, pero sigue siendo positiva si es verificable. La normativa no es verificable de la misma manera.
+  El enfoque debe estar en el "Core Value Proposition". Si intentas incluir demasiadas funciones, dejas de tener un producto "mínimo" y te pierdes en el desarrollo de características que quizás nadie necesita.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["verificacion", "limites"]
+  tema: "mvp_producto_minimo_viable"
+  nivel: "basico"
+  tags: ["gestion_producto", "metodologias_agiles"]
 
-variables:
-  afirmacion: "La desigualdad es el mayor problema de la sociedad actual"
-  es_verdadero: falso # No es verificable empíricamente como "verdadera" en sentido positivo
+respuesta: "prototipo"
+tipo: "completar"
+respuestas_validas:
+  - "prototipo"
+
+enunciado: "Mientras que un MVP está diseñado para ser lanzado al mercado y recolectar datos de usuarios reales, un ___ se utiliza generalmente para validar conceptos técnicos o de diseño de forma interna o con usuarios muy controlados, sin necesidad de ser una versión funcional para el mercado."
+
+explicacion: |
+  El MVP es una versión funcional que busca aprendizaje validado en el mercado real, mientras que el prototipo es una representación (puede ser de baja fidelidad) para probar una idea o flujo específico.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mvp_producto_minimo_viable"
+  nivel: "basico"
+  tags: ["aprendizaje", "validacion"]
+
+tipo: "mc"
+opciones_explicitas: ["Maximizar las funcionalidades para satisfacer a todos los clientes", "Maximizar el aprendizaje validado con el mínimo esfuerzo"]
+
+respuesta: "Maximizar el aprendizaje validado con el mínimo esfuerzo"
+
+enunciado: "De acuerdo a la metodología Lean Startup, ¿cuál es el objetivo primordial de un MVP?"
+
+explicacion: |
+  El MVP no busca ser un producto completo, sino la versión más simple que permita entrar en el ciclo de 'Construir-Medir-Aprender'.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mvp_producto_minimo_viable"
+  nivel: "intermedio"
+  tags: ["ciclo_de_vida", "desarrollo"]
 
 respuesta: falso
-tipo: vf
+tipo: "vf"
 
-enunciado: "Afirmación: '{afirmacion}'.\n\nEsta afirmación es positiva porque podemos medir la desigualdad con datos."
+enunciado: "Un Producto Mínimo Viable (MVP) debe contener todas las características que el cliente final ha solicitado en su lista de deseos para asegurar su satisfacción inicial."
 
 explicacion: |
-  Aunque la desigualdad se mide, decir que es 'el mayor problema' es un juicio de valor (normativo). No es una afirmación positiva pura.
+  Falso. Incluir todas las características contradice la esencia del MVP, que es construir solo lo estrictamente necesario para aprender sobre el valor que el producto aporta.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "economia_positiva_y_normativa"
+  tema: "mvp_producto_minimo_viable"
   nivel: "intermedio"
-  tags: ["objetividad", "ideologia"]
+  tags: ["metodologia", "lean_startup"]
 
-variables:
-  afirmacion: "Un aumento en la oferta monetaria genera inflación"
-  es_positiva: verdadero
+respuesta_orden: ["Construir", "Medir", "Aprender"]
+tipo: "ordenar"
+opciones_explicitas: ["Construir", "Medir", "Aprender"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Afirmación: '{afirmacion}'.\n\nEsta afirmación es positiva y su validez no depende de la ideología del economista que la emite."
+enunciado: "Para que un MVP cumpla su función de aprendizaje, debe seguir el ciclo iterativo de la metodología Lean Startup. Ordene los pasos en el orden correcto:"
 
 explicacion: |
-  La economía positiva busca verdades objetivas que son independientes de las preferencias personales o políticas.
+  El ciclo es circular: se construye algo mínimo, se mide el comportamiento del usuario y se aprende para decidir si se pivota o se persevera.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["verificacion", "diferenciacion"]
-
-variables:
-  valor1: random(10, 50)
-  valor2: random(60, 100)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: Una afirmación positiva como 'un aumento del {valor1}% en el precio del dólar eleva los precios de importados en un {valor2}%' puede ser probada o refutada con datos empíricos."
-
-explicacion: |
-  Las afirmaciones positivas son objetivas y se basan en hechos verificables. Su validez depende de la evidencia disponible, no de la opinión personal.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["verificacion", "diferenciacion"]
-
-variables:
-  valor1: random(10, 50)
-  valor2: random(60, 100)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: La afirmación 'el gobierno debería reducir el impuesto a las ganancias en un {valor1}% para ayudar a las pymes, aunque esto reduzca la recaudación en un {valor2}%' es una afirmación positiva."
-
-explicacion: |
-  Esta es una afirmación normativa porque contiene un juicio de valor ('debería') y una recomendación de política. No es verificable como verdadera o falsa solo con datos, sino que depende de los objetivos sociales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["errores_comunes", "comprension"]
-
-variables:
-  afirmacion: uno_de(["positiva", "normativa"])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: Las afirmaciones {afirmacion} pueden ser probadas definitivamente como verdaderas o falsas utilizando únicamente datos empíricos."
-
-explicacion: |
-  Solo las afirmaciones positivas pueden ser verificadas empíricamente. Las normativas dependen de valores y no pueden probarse con datos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["errores_comunes", "comprension"]
-
-variables:
-  afirmacion: uno_de(["positiva", "normativa"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: Las afirmaciones {afirmacion} expresan deseos o recomendaciones sobre qué acciones deberían tomarse."
-
-explicacion: |
-  Las afirmaciones normativas expresan deseos o recomendaciones ('debería'), mientras que las positivas describen hechos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["objetividad", "ideologia"]
-
-variables:
-  afirmacion: uno_de(["positiva", "normativa"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: Las herramientas de la economía {afirmacion} funcionan independientemente de nuestra ideología política."
-
-explicacion: |
-  La economía positiva busca entender los mecanismos del mercado de manera objetiva, funcionando independientemente de la ideología.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "economia_positiva_y_normativa"
-  nivel: "intermedio"
-  tags: ["objetividad", "ideologia"]
-
-variables:
-  afirmacion: uno_de(["positiva", "normativa"])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Verdadero o Falso: Las afirmaciones {afirmacion} son independientes de la ideología porque dependen de valores personales."
-
-explicacion: |
-  Las afirmaciones normativas están intrínsecamente ligadas a valores y perspectivas personales o políticas, por lo que no son independientes de la ideología.
-```
-
-## Sección: ecuacion-contable-fundamental (26 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "basico"
-  tags: ["activo", "concepto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Activo representa lo que la empresa posee o tiene derecho a cobrar, como dinero, mercadería o edificios."
-
-explicacion: |
-  Correcto. El Activo refleja los recursos económicos controlados por la entidad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["financiamiento", "pasivo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Pasivo representa la parte del Activo que fue financiada con recursos de terceros (prestamistas)."
-
-explicacion: |
-  Correcto. El Pasivo son fondos externos que la empresa debe devolver.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["equilibrio", "principio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada transacción comercial afecta al menos dos elementos de la ecuación contable, manteniendo siempre el equilibrio."
-
-explicacion: |
-  Correcto. La partida doble asegura que la ecuación siempre se mantenga balanceada.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "basico"
-  tags: ["pasivo", "deuda"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Pasivo se refiere a las deudas que la empresa tiene con proveedores, bancos o el Estado."
-
-explicacion: |
-  Correcto. Las deudas comerciales y financieras forman parte del Pasivo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "basico"
-  tags: ["activo", "derechos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Activo incluye tanto bienes tangibles como derechos, como facturas por cobrar."
-
-explicacion: |
-  Correcto. Los derechos de cobro son activos corrientes o no corrientes.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
+  tema: "mvp_producto_minimo_viable"
   nivel: "avanzado"
-  tags: ["solvencia", "analisis"]
+  tags: ["estrategia", "producto"]
 
-respuesta: verdadero
-tipo: vf
+tipo: "mc"
+opciones_explicitas: ["El MVP se enfoca en la velocidad de aprendizaje, mientras que el MMP se enfoca en la utilidad y la experiencia de usuario básica", "El MVP es una versión de prueba interna y el MMP es el producto final para la venta masiva"]
 
-enunciado: "La ecuación contable permite evaluar si una compañía es solvente comparando sus activos con sus pasivos."
+respuesta: "El MVP se enfoca en la velocidad de aprendizaje, mientras que el MMP se enfoca en la utilidad y la experiencia de usuario básica"
+
+enunciado: "¿Cuál es la diferencia principal entre MVP (Minimum Viable Product) y MMP (Minimum Marketable Product)?"
 
 explicacion: |
-  Correcto. Un Patrimonio Neto positivo indica que los activos superan a las deudas.
+  El MVP es una herramienta de aprendizaje (puede ser muy rudimentaria), mientras que el MMP es la versión mínima que ya tiene suficiente valor para ser comercializada con éxito.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["teoria", "logica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La ecuación contable es una representación lógica de la realidad económica de la empresa."
-
-explicacion: |
-  Correcto. Refleja cómo se han financiado los recursos de la empresa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
+  tema: "mvp_producto_minimo_viable"
   nivel: "basico"
-  tags: ["clasificacion", "activo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El dinero en caja de una empresa se clasifica como Activo."
-
-explicacion: |
-  El dinero en caja es un bien tangible que la empresa posee, por lo tanto, forma parte del Activo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "basico"
-  tags: ["clasificacion", "pasivo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las deudas con proveedores se clasifican como Pasivo."
-
-explicacion: |
-  Las deudas con proveedores son obligaciones con terceros externos, lo que las define como Pasivo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "basico"
-  tags: ["clasificacion", "patrimonio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El capital aportado por los socios se clasifica como Patrimonio Neto."
-
-explicacion: |
-  El capital aportado por los dueños representa la riqueza neta que les pertenece, por lo tanto, es Patrimonio Neto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["calculo", "patrimonio"]
+  tags: ["emprendimiento", "metodologia_lean"]
 
 variables:
-  activo: random(100000, 500000)
-  pasivo: random(20000, 100000)
+  datos: [["Una app de comida que solo permite pedir por WhatsApp", "validar_demanda"], ["Un prototipo de papel de una app de viajes", "validar_interes"], ["Una landing page con un botón de 'Próximamente'", "validar_interes"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: "{activo} - {pasivo}"
-tipo: input
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["validar_demanda", "validar_interes", "validar_tecnologia"]
 
-enunciado: "Si una empresa tiene un Activo total de ${activo} y un Pasivo total de ${pasivo}, ¿cuál es su Patrimonio Neto?"
+enunciado: "Un emprendedor decide lanzar {datos[idx][0]} con el objetivo principal de: ___"
 
 explicacion: |
-  Despejando la ecuación fundamental: Patrimonio Neto = Activo - Pasivo.
+  El MVP busca la menor cantidad de esfuerzo para obtener la máxima cantidad de aprendizaje validado sobre los clientes.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "ecuacion_contable_fundamental"
+  tema: "mvp_producto_minimo_viable"
+  nivel: "basico"
+  tags: ["conceptos_clave"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El objetivo principal de un MVP es lanzar un producto incompleto y de mala calidad para ahorrar costos de desarrollo."
+
+explicacion: |
+  Falso. El MVP debe ser funcional y aportar valor; su objetivo es el aprendizaje validado, no la falta de calidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mvp_producto_minimo_viable"
   nivel: "intermedio"
-  tags: ["calculo", "pasivo"]
+  tags: ["ciclo_lean", "metodologia"]
+
+respuesta_orden: ["Construir", "Medir", "Aprender"]
+tipo: ordenar
+opciones_explicitas: ["Construir", "Medir", "Aprender"]
+
+enunciado: "Ordena los pasos del ciclo de feedback de la metodología Lean Startup que permite iterar sobre un MVP:"
+
+explicacion: |
+  El ciclo es: Construir (producto/MVP) -> Medir (datos de usuarios) -> Aprender (decidir si pivotar o perseverar).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "mvp_producto_minimo_viable"
+  nivel: "intermedio"
+  tags: ["metricas", "validacion"]
 
 variables:
-  activo: random(100000, 500000)
-  patrimonio: random(20000, 100000)
+  datos: [["una landing page con 100 visitas y 5 registros", "5%"], ["un bot de Telegram con 10 usuarios y 2 pedidos", "20%"], ["un prototipo de baja fidelidad sin usuarios", "0%"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: "{activo} - {patrimonio}"
-tipo: input
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "5%"
+  - "20%"
+  - "0%"
 
-enunciado: "Si el Activo total es ${activo} y el Patrimonio Neto es ${patrimonio}, ¿cuánto es el Pasivo?"
+enunciado: "Si el MVP consiste en {datos[idx][0]}, la tasa de conversión (métrica de validación) es de ___."
 
 explicacion: |
-  Despejando la ecuación fundamental: Pasivo = Activo - Patrimonio Neto.
+  La tasa de conversión permite medir el interés real de los usuarios frente a la propuesta de valor del MVP.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["calculo", "activo"]
+  tema: "mvp_producto_minimo_viable"
+  nivel: "avanzado"
+  tags: ["estrategia", "pivot"]
 
 variables:
-  pasivo: random(20000, 100000)
-  patrimonio: random(20000, 100000)
+  datos: [["Los usuarios usan el MVP pero no están dispuestos a pagar", "pivotar"], ["Los usuarios ignoran el MVP por completo", "pivotar"], ["Los usuarios aman la función extra que no era el core", "pivotar"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: "{pasivo} + {patrimonio}"
-tipo: input
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["perseverar", "pivotar"]
 
-enunciado: "Si el Pasivo es ${pasivo} y el Patrimonio Neto es ${patrimonio}, ¿cuál es el Activo total?"
-
-explicacion: |
-  Despejando la ecuación fundamental: Activo = Pasivo + Patrimonio Neto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "basico"
-  tags: ["equilibrio", "lógica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada transacción comercial afecta al menos dos elementos, pero la igualdad de la ecuación siempre se mantiene."
+enunciado: "Ante la situación: {datos[idx][0]}, la acción estratégica recomendada según la metodología Lean es: ___"
 
 explicacion: |
-  La doble entrada asegura que la ecuación se mantenga equilibrada después de cualquier operación.
+  Si los datos del MVP indican que el modelo de negocio o el problema planteado no es el correcto, se debe 'pivotar' (cambiar la estrategia).
 ```
 
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["transaccion", "activo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una empresa compra una máquina pagando en efectivo, el total del Activo no cambia."
-
-explicacion: |
-  Un activo (máquina) aumenta y otro activo (caja) disminuye en la misma cantidad, manteniendo el total inalterado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["transaccion", "pasivo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una empresa compra mercadería a crédito, tanto el Activo como el Pasivo aumentan."
-
-explicacion: |
-  La mercadería aumenta el Activo y la deuda con el proveedor aumenta el Pasivo, manteniendo el equilibrio.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["transaccion", "liquidez"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una empresa paga una deuda con dinero en caja, tanto el Activo como el Pasivo disminuyen."
-
-explicacion: |
-  El dinero sale (Activo baja) y la deuda se reduce (Pasivo baja), manteniendo la igualdad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["transaccion", "patrimonio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si los socios aportan más dinero a la empresa, el Activo y el Patrimonio Neto aumentan."
-
-explicacion: |
-  Entra dinero (Activo sube) y el derecho de los socios sobre ese dinero (Patrimonio Neto) también sube.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "basico"
-  tags: ["relacion", "logica"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La ecuación contable es una representación lógica de la realidad financiera de la empresa."
-
-explicacion: |
-  No es solo una fórmula, sino un reflejo de cómo se financian los recursos (deuda vs propio).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["calculo", "activo"]
-
-variables:
-  pasivo: random(10000, 50000)
-  patrimonio: random(10000, 50000)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el Pasivo es {pasivo} y el Patrimonio Neto es {patrimonio}, el Activo debe ser {pasivo} + {patrimonio}."
-
-explicacion: |
-  La ecuación fundamental exige que Activo sea la suma de Pasivo y Patrimonio Neto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["calculo", "patrimonio"]
-
-variables:
-  activo: random(100000, 500000)
-  pasivo: random(20000, 100000)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el Activo es {activo} y el Pasivo es {pasivo}, el Patrimonio Neto debe ser {activo} - {pasivo}."
-
-explicacion: |
-  Despejando la ecuación, el Patrimonio Neto es la diferencia entre lo que tiene y lo que debe.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["calculo", "pasivo"]
-
-variables:
-  activo: random(100000, 500000)
-  patrimonio: random(20000, 100000)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el Activo es {activo} y el Patrimonio Neto es {patrimonio}, el Pasivo debe ser {activo} - {patrimonio}."
-
-explicacion: |
-  Despejando la ecuación, el Pasivo es lo que resta del Activo una vez descontado el capital propio.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "basico"
-  tags: ["equilibrio", "regla"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si los recursos de la empresa no se explican como deuda o capital propio, hay un error en el registro."
-
-explicacion: |
-  La ecuación garantiza el equilibrio interno; cualquier desbalance indica un error contable.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "intermedio"
-  tags: ["patrimonio", "definicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Patrimonio Neto incluye el capital inicial y las ganancias reinvertidas."
-
-explicacion: |
-  Es la riqueza neta que pertenece a los socios, formada por lo aportado y lo generado por la actividad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "basico"
-  tags: ["activo", "definicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Activo incluye bienes tangibles como edificios y máquinas."
-
-explicacion: |
-  Los activos son los recursos que la empresa posee o tiene derecho a cobrar, incluyendo bienes físicos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "ecuacion_contable_fundamental"
-  nivel: "basico"
-  tags: ["pasivo", "definicion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Pasivo son los fondos que provienen de prestamistas o proveedores."
-
-explicacion: |
-  El Pasivo representa las obligaciones financieras con terceros externos que financian los recursos de la empresa.
-```

@@ -1,843 +1,688 @@
-# Examen jefe — Maestro de Matrices y MCD
+# Examen jefe — [PENDIENTE #619]
 
-> Logro #70. Dominaste las operaciones con matrices, sistemas nxn, inversas y el cálculo del MCD. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #619. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: magnitud-unidad-instrumento (24 preguntas)
+## Sección: numeros-primos (24 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
+  tema: "numeros_primos"
   nivel: "basico"
-  tags: ["magnitud", "vocabulario"]
+  tags: ["numeros_primos", "vocabulario"]
 
-enunciado: "¿Qué es una magnitud?"
+enunciado: "¿Qué es un número primo?"
 tipo: mc
 opciones_explicitas:
-  - "Cualquier propiedad de algo que se puede medir"
-  - "Un número cualquiera"
-  - "El nombre de un objeto"
-respuesta: "Cualquier propiedad de algo que se puede medir"
+  - "Un número mayor que 1 con exactamente 2 divisores: el 1 y él mismo"
+  - "Un número que no se puede dividir por ningún otro"
+  - "Cualquier número impar"
+respuesta: "Un número mayor que 1 con exactamente 2 divisores: el 1 y él mismo"
 
 explicacion: |
-  Longitud, masa, tiempo, temperatura: todas son propiedades que se
-  pueden medir con un número y una unidad.
+  Todo número primo tiene exactamente dos divisores, ni más ni menos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
+  tema: "numeros_primos"
   nivel: "basico"
-  tags: ["unidad", "vocabulario"]
+  tags: ["numeros_primos"]
 
-enunciado: "¿Qué es una unidad de medida?"
+variables:
+  n: random(2, 50)
+
+respuesta: es_primo(n)
+tipo: vf
+
+enunciado: "¿Es {n} un número primo?"
+
+explicacion: |
+  Se prueba si {n} tiene algún divisor además de 1 y él mismo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "numeros_primos"
+  nivel: "intermedio"
+  tags: ["numeros_primos"]
+
+variables:
+  n: random(50, 150)
+
+respuesta: es_primo(n)
+tipo: vf
+
+enunciado: "¿Es {n} un número primo?"
+
+explicacion: |
+  Con números más grandes conviene probar dividir por los primos chicos
+  (2, 3, 5, 7, 11...) hasta la raíz cuadrada de {n}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "numeros_primos"
+  nivel: "basico"
+  tags: ["numeros_primos", "vocabulario"]
+
+enunciado: "¿Qué es un número compuesto?"
 tipo: mc
 opciones_explicitas:
-  - "Una cantidad fija de una magnitud, usada como referencia para medir"
-  - "El instrumento que se usa para medir"
-  - "El resultado final de una medición"
-respuesta: "Una cantidad fija de una magnitud, usada como referencia para medir"
+  - "Un número mayor que 1 con más de 2 divisores"
+  - "Cualquier número par"
+  - "Un número que no tiene divisores"
+respuesta: "Un número mayor que 1 con más de 2 divisores"
 
 explicacion: |
-  Medir es preguntar cuántas veces entra la unidad en lo que se mide.
+  Si tiene más de 2 divisores, no puede ser primo: es compuesto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
+  tema: "numeros_primos"
   nivel: "basico"
-  tags: ["instrumento", "vocabulario"]
+  tags: ["numeros_primos"]
 
-enunciado: "¿Qué es un instrumento de medición?"
+variables:
+  n: random(4, 100)
+
+respuesta: (es_primo(n) == falso)
+tipo: vf
+
+enunciado: "¿Es {n} un número compuesto?"
+
+explicacion: |
+  Un número mayor que 1 que no es primo, es compuesto — no hay una tercera
+  opción (salvo el propio 1).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "numeros_primos"
+  nivel: "basico"
+  tags: ["numeros_primos", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El número 1 no es primo ni compuesto."
+
+explicacion: |
+  El 1 tiene un solo divisor (él mismo), no dos, así que no cumple la
+  definición de ninguno de los dos grupos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "numeros_primos"
+  nivel: "basico"
+  tags: ["numeros_primos", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El 2 es el único número primo que es par."
+
+explicacion: |
+  Cualquier otro número par tiene, como mínimo, tres divisores (1, 2, y él
+  mismo), así que ya es compuesto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "numeros_primos"
+  nivel: "intermedio"
+  tags: ["numeros_primos"]
+
+variables:
+  candidatos: [11, 13, 17, 19, 23, 29, 31]
+  primo: uno_de(candidatos)
+  compuesto1: primo + 1
+  compuesto2: primo - 1
+
+respuesta: primo
 tipo: mc
 opciones_explicitas:
-  - "La herramienta física que permite comparar algo con la unidad elegida"
-  - "Una magnitud especial"
-  - "Un sinónimo de unidad"
-respuesta: "La herramienta física que permite comparar algo con la unidad elegida"
+  - primo
+  - compuesto1
+  - compuesto2
+
+enunciado: "¿Cuál de estos tres números es primo?"
 
 explicacion: |
-  Una regla, una balanza, un cronómetro: cada uno compara físicamente el
-  objeto con la unidad y permite leer el resultado.
+  Los otros dos son pares (compuestos): el número que queda entre dos
+  pares consecutivos suele ser el único candidato a primo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "basico"
-  tags: ["magnitud", "unidad"]
+  tema: "numeros_primos"
+  nivel: "intermedio"
+  tags: ["numeros_primos"]
 
-enunciado: "¿Cuál de estas es una unidad de LONGITUD?"
+variables:
+  candidatos: [11, 13, 17, 19, 23, 29, 31]
+  primo1: uno_de(candidatos)
+  primo2: uno_de(candidatos)
+  compuesto: primo1 + 1
+
+restricciones:
+  - primo1 != primo2
+
+respuesta: compuesto
 tipo: mc
 opciones_explicitas:
-  - "Metro"
-  - "Kilogramo"
-  - "Litro"
-respuesta: "Metro"
+  - primo1
+  - primo2
+  - compuesto
+
+enunciado: "¿Cuál de estos tres números NO es primo?"
 
 explicacion: |
-  El metro (y sus múltiplos/submúltiplos: km, cm, mm) mide longitud.
+  {compuesto} es par (y mayor que 2), así que ya tiene al 2 como tercer
+  divisor.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
+  tema: "numeros_primos"
   nivel: "basico"
-  tags: ["magnitud", "unidad"]
+  tags: ["numeros_primos"]
 
-enunciado: "¿Cuál de estas es una unidad de MASA?"
-tipo: mc
-opciones_explicitas:
-  - "Kilogramo"
-  - "Segundo"
-  - "Metro"
-respuesta: "Kilogramo"
+variables:
+  candidatos: [2, 3, 5, 7, 11, 13, 17, 19, 23]
+  n: uno_de(candidatos)
+
+respuesta: 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos divisores tiene el número primo {n}?"
 
 explicacion: |
-  El kilogramo (y el gramo) miden masa.
+  Todo número primo tiene exactamente 2 divisores: el 1 y él mismo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "basico"
-  tags: ["magnitud", "unidad"]
+  tema: "numeros_primos"
+  nivel: "intermedio"
+  tags: ["numeros_primos"]
 
-enunciado: "¿Cuál de estas es una unidad de TIEMPO?"
-tipo: mc
-opciones_explicitas:
-  - "Segundo"
-  - "Litro"
-  - "Grado Celsius"
-respuesta: "Segundo"
+variables:
+  n: random(4, 60)
+
+respuesta: largo(divisores(n))
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos divisores tiene {n}?"
 
 explicacion: |
-  El segundo (y el minuto, la hora) miden tiempo.
+  Se cuentan todos los divisores; si son más de 2, ya se sabe que {n} no
+  es primo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
+  tema: "numeros_primos"
   nivel: "basico"
-  tags: ["magnitud", "unidad"]
+  tags: ["numeros_primos"]
 
-enunciado: "¿Cuál de estas es una unidad de CAPACIDAD?"
-tipo: mc
-opciones_explicitas:
-  - "Litro"
-  - "Metro"
-  - "Kilogramo"
-respuesta: "Litro"
+respuesta: 11
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el 5° número primo (contando el 2 como el primero: 2, 3, 5, 7, 11...)?"
 
 explicacion: |
-  El litro (y el mililitro) miden capacidad, el volumen que ocupa un
-  líquido.
+  Los primeros primos son 2, 3, 5, 7, 11 — el quinto es 11.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "basico"
-  tags: ["magnitud", "unidad"]
+  tema: "numeros_primos"
+  nivel: "intermedio"
+  tags: ["numeros_primos", "factorizacion"]
 
-enunciado: "¿Cuál de estas es una unidad de TEMPERATURA?"
-tipo: mc
-opciones_explicitas:
-  - "Grado Celsius"
-  - "Segundo"
-  - "Litro"
-respuesta: "Grado Celsius"
+variables:
+  primos: [2, 3, 5, 7]
+  p1: uno_de(primos)
+  p2: uno_de(primos)
+  p3: uno_de(primos)
+  n: p1 * p2 * p3
+
+respuesta: largo(factorizar(n))
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos factores primos tiene la factorización de {n} (contando cada repetido)?"
 
 explicacion: |
-  El grado Celsius (°C) mide temperatura.
+  {n} se armó multiplicando 3 primos (a veces repetidos), así que su
+  factorización tiene 3 factores en total.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
+  tema: "numeros_primos"
   nivel: "basico"
-  tags: ["instrumento"]
+  tags: ["numeros_primos", "factorizacion"]
 
-enunciado: "¿Qué instrumento se usa para medir la longitud de una mesa?"
-tipo: mc
-opciones_explicitas:
-  - "Cinta métrica"
-  - "Balanza"
-  - "Termómetro"
-respuesta: "Cinta métrica"
+variables:
+  primos: [2, 3, 5, 7, 11]
+  p1: uno_de(primos)
+  p2: uno_de(primos)
+
+respuesta: p1 * p2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Si la factorización prima de un número es {p1} × {p2}, ¿cuál es ese número?"
 
 explicacion: |
-  La cinta métrica (o la regla) compara la longitud con la unidad
-  elegida.
+  Multiplicar los factores primos reconstruye el número original.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "basico"
-  tags: ["instrumento"]
+  tema: "numeros_primos"
+  nivel: "intermedio"
+  tags: ["numeros_primos", "factorizacion"]
 
-enunciado: "¿Qué instrumento se usa para medir la masa de una fruta?"
-tipo: mc
-opciones_explicitas:
-  - "Balanza"
-  - "Cronómetro"
-  - "Probeta"
-respuesta: "Balanza"
+variables:
+  primos: [2, 3, 5]
+  p: uno_de(primos)
+
+respuesta: p * p * p
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Si la factorización prima de un número es {p} × {p} × {p}, ¿cuál es ese número?"
 
 explicacion: |
-  La balanza compara la masa del objeto con la unidad (kg o g).
+  Un mismo primo puede repetirse en la factorización: {p} × {p} × {p} es
+  {p} elevado al cubo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
+  tema: "numeros_primos"
   nivel: "basico"
-  tags: ["instrumento"]
+  tags: ["numeros_primos", "factorizacion", "vocabulario"]
 
-enunciado: "¿Qué instrumento se usa para medir cuánto dura una carrera?"
-tipo: mc
-opciones_explicitas:
-  - "Cronómetro"
-  - "Termómetro"
-  - "Regla"
-respuesta: "Cronómetro"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Todo número compuesto tiene una única factorización prima (sin contar el orden de los factores)."
 
 explicacion: |
-  El cronómetro mide tiempo con precisión.
+  Es el Teorema Fundamental de la Aritmética: no hay dos formas distintas
+  de descomponer el mismo número en primos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
+  tema: "numeros_primos"
   nivel: "basico"
-  tags: ["instrumento"]
+  tags: ["numeros_primos", "vocabulario"]
 
-enunciado: "¿Qué instrumento se usa para medir cuánto líquido hay en un frasco?"
-tipo: mc
-opciones_explicitas:
-  - "Probeta"
-  - "Balanza"
-  - "Transportador"
-respuesta: "Probeta"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ningún número par mayor que 2 puede ser primo."
 
 explicacion: |
-  La probeta (o una jarra medidora) mide capacidad, en litros o
-  mililitros.
+  Todo número par mayor que 2 tiene al 2 como divisor extra, además de 1 y
+  él mismo: ya son 3 divisores como mínimo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
+  tema: "numeros_primos"
   nivel: "basico"
-  tags: ["instrumento"]
+  tags: ["numeros_primos"]
 
-enunciado: "¿Qué instrumento se usa para medir la temperatura del aire?"
-tipo: mc
-opciones_explicitas:
-  - "Termómetro"
-  - "Cinta métrica"
-  - "Cronómetro"
-respuesta: "Termómetro"
-
-explicacion: |
-  El termómetro mide temperatura, en grados Celsius.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "basico"
-  tags: ["instrumento"]
-
-enunciado: "¿Qué instrumento se usa para medir un ángulo?"
-tipo: mc
-opciones_explicitas:
-  - "Transportador"
-  - "Balanza"
-  - "Probeta"
-respuesta: "Transportador"
-
-explicacion: |
-  El transportador mide ángulos en grados. Se ve en detalle en
-  `../angulos/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "basico"
-  tags: ["magnitud", "vocabulario"]
+variables:
+  n: random(3, 200) * 2
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El color de un objeto es una magnitud, porque se puede describir."
+enunciado: "¿Es {n} un número primo?"
 
 explicacion: |
-  El color no es una magnitud: se puede describir, pero no medir con un
-  número y una unidad como se mide una longitud. No tiene unidad ni
-  instrumento que lo mida.
+  {n} es par y mayor que 2: la regla de divisibilidad del 2 ya alcanza
+  para descartarlo como primo, sin necesidad de probar más divisores.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
+  tema: "numeros_primos"
+  nivel: "intermedio"
+  tags: ["numeros_primos"]
+
+variables:
+  n: random(3, 200) * 3 + uno_de([0, 3, 6])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es {n} un número primo?"
+
+explicacion: |
+  La suma de las cifras de {n} es múltiplo de 3, así que ya se sabe que
+  tiene al 3 como divisor extra — no puede ser primo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "numeros_primos"
   nivel: "basico"
-  tags: ["magnitud", "vocabulario"]
+  tags: ["numeros_primos", "orden"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La longitud es una magnitud, porque se puede medir con una unidad (el metro) y un instrumento (una regla)."
-
-explicacion: |
-  Cumple las dos condiciones: tiene unidad e instrumento asociados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "intermedio"
-  tags: ["magnitud", "unidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una misma magnitud, como la longitud, se puede medir con distintas unidades (metros, centímetros, kilómetros)."
-
-explicacion: |
-  Cambia el número, pero lo que se mide sigue siendo lo mismo. Es la base
-  de las conversiones (ver `../sistema-metrico-y-conversiones/`).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "intermedio"
-  tags: ["instrumento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un instrumento como la balanza sirve para medir una sola magnitud (masa), no cualquiera."
-
-explicacion: |
-  Una balanza no mide tiempo, y un termómetro no mide longitud: cada
-  instrumento está hecho para una magnitud puntual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "intermedio"
-  tags: ["instrumento", "precision"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La precisión de un instrumento es la división más chica que puede distinguir al medir."
-
-explicacion: |
-  Una regla escolar que marca hasta el milímetro tiene esa precisión: no
-  puede distinguir nada más chico que eso.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "intermedio"
-  tags: ["unidad", "problema"]
-
-enunciado: "¿Qué unidad conviene usar para medir la distancia entre dos ciudades?"
-tipo: mc
+tipo: ordenar
+enunciado: "Ordená estos números primos de menor a mayor."
 opciones_explicitas:
-  - "Kilómetros"
-  - "Centímetros"
-  - "Milímetros"
-respuesta: "Kilómetros"
+  - "17"
+  - "5"
+  - "13"
+  - "11"
+respuesta_orden: ["5", "11", "13", "17"]
 
 explicacion: |
-  Conviene elegir una unidad cuyo tamaño esté cerca de lo que se mide:
-  medir en centímetros o milímetros daría un número enorme e incómodo.
+  Los cuatro son primos; sólo hace falta ordenarlos por tamaño.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
+  tema: "numeros_primos"
   nivel: "intermedio"
-  tags: ["unidad", "problema"]
-
-enunciado: "¿Qué unidad conviene usar para medir el largo de un lápiz?"
-tipo: mc
-opciones_explicitas:
-  - "Centímetros"
-  - "Kilómetros"
-  - "Kilogramos"
-respuesta: "Centímetros"
-
-explicacion: |
-  Medirlo en kilómetros daría un número casi cero e incómodo de leer.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "intermedio"
-  tags: ["unidad", "problema"]
-
-enunciado: "¿Qué unidad conviene usar para expresar la masa de una persona adulta?"
-tipo: mc
-opciones_explicitas:
-  - "Kilogramos"
-  - "Gramos"
-  - "Litros"
-respuesta: "Kilogramos"
-
-explicacion: |
-  En gramos el número sería innecesariamente grande (por ejemplo, 70000 g
-  en vez de 70 kg); litros ni siquiera es la unidad correcta, porque mide
-  capacidad, no masa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "basico"
-  tags: ["vocabulario", "completar"]
-
-tipo: completar
-enunciado: "Completá: la ___ es la propiedad de algo que se puede medir con una unidad."
-respuestas_validas:
-  - "magnitud"
-
-explicacion: |
-  Longitud, masa, tiempo: todas son magnitudes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "magnitud_unidad_instrumento"
-  nivel: "basico"
-  tags: ["vocabulario", "completar"]
-
-tipo: completar
-enunciado: "Completá: medir es usar un instrumento para comparar algo con la ___ elegida."
-respuestas_validas:
-  - "unidad"
-
-explicacion: |
-  El instrumento compara físicamente el objeto con la unidad y permite
-  leer cuántas veces entra.
-```
-
-## Sección: matrices/operaciones (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "basico"
-  tags: ["suma"]
+  tags: ["numeros_primos", "factorizacion"]
 
 variables:
-  a11: random(1, 20)
-  a12: random(1, 20)
-  a21: random(1, 20)
-  a22: random(1, 20)
-  b11: random(1, 20)
-  b12: random(1, 20)
-  b21: random(1, 20)
-  b22: random(1, 20)
-
-respuesta: a11 + b11
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (1,1) de A + B?"
-
-explicacion: |
-  Se suma cada elemento con el de la misma posición: a11 + b11.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "basico"
-  tags: ["suma"]
-
-variables:
-  a11: random(1, 20)
-  a12: random(1, 20)
-  a21: random(1, 20)
-  a22: random(1, 20)
-  b11: random(1, 20)
-  b12: random(1, 20)
-  b21: random(1, 20)
-  b22: random(1, 20)
-
-respuesta: a22 + b22
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (2,2) de A + B?"
-
-explicacion: |
-  a22 + b22.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "basico"
-  tags: ["resta"]
-
-variables:
-  a11: random(10, 30)
-  a12: random(10, 30)
-  a21: random(10, 30)
-  a22: random(10, 30)
-  b11: random(1, 9)
-  b12: random(1, 9)
-  b21: random(1, 9)
-  b22: random(1, 9)
-
-respuesta: a12 - b12
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (1,2) de A − B?"
-
-explicacion: |
-  a12 − b12.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "basico"
-  tags: ["resta"]
-
-variables:
-  a11: random(10, 30)
-  a12: random(10, 30)
-  a21: random(10, 30)
-  a22: random(10, 30)
-  b11: random(1, 9)
-  b12: random(1, 9)
-  b21: random(1, 9)
-  b22: random(1, 9)
-
-respuesta: a21 - b21
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (2,1) de A − B?"
-
-explicacion: |
-  a21 − b21.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "basico"
-  tags: ["escalar"]
-
-variables:
-  k: random(2, 8)
-  a11: random(1, 15)
-  a12: random(1, 15)
-  a21: random(1, 15)
-  a22: random(1, 15)
-
-respuesta: k * a11
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]]. ¿Cuál es el elemento (1,1) de {k}·A?"
-
-explicacion: |
-  Multiplicar por un escalar multiplica cada elemento por ese número.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "basico"
-  tags: ["escalar"]
-
-variables:
-  k: random(2, 8)
-  a11: random(1, 15)
-  a12: random(1, 15)
-  a21: random(1, 15)
-  a22: random(1, 15)
-
-respuesta: k * a22
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]]. ¿Cuál es el elemento (2,2) de {k}·A?"
-
-explicacion: |
-  {k} × a22.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "intermedio"
-  tags: ["producto"]
-
-variables:
-  a11: random(1, 10)
-  a12: random(1, 10)
-  a21: random(1, 10)
-  a22: random(1, 10)
-  b11: random(1, 10)
-  b12: random(1, 10)
-  b21: random(1, 10)
-  b22: random(1, 10)
-
-respuesta: a11 * b11 + a12 * b21
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (1,1) de A · B?"
-
-pasos:
-  - "Fila 1 de A por columna 1 de B: ({a11}×{b11}) + ({a12}×{b21}) = {a11 * b11 + a12 * b21}"
-
-explicacion: |
-  Regla fila por columna: se multiplican término a término y se suma.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "intermedio"
-  tags: ["producto"]
-
-variables:
-  a11: random(1, 10)
-  a12: random(1, 10)
-  a21: random(1, 10)
-  a22: random(1, 10)
-  b11: random(1, 10)
-  b12: random(1, 10)
-  b21: random(1, 10)
-  b22: random(1, 10)
-
-respuesta: a11 * b12 + a12 * b22
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (1,2) de A · B?"
-
-pasos:
-  - "Fila 1 de A por columna 2 de B: ({a11}×{b12}) + ({a12}×{b22}) = {a11 * b12 + a12 * b22}"
-
-explicacion: |
-  Fila 1 de A, columna 2 de B.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "intermedio"
-  tags: ["producto"]
-
-variables:
-  a11: random(1, 10)
-  a12: random(1, 10)
-  a21: random(1, 10)
-  a22: random(1, 10)
-  b11: random(1, 10)
-  b12: random(1, 10)
-  b21: random(1, 10)
-  b22: random(1, 10)
-
-respuesta: a21 * b11 + a22 * b21
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (2,1) de A · B?"
-
-explicacion: |
-  Fila 2 de A, columna 1 de B: (a21×b11) + (a22×b21).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "intermedio"
-  tags: ["producto"]
-
-variables:
-  a11: random(1, 10)
-  a12: random(1, 10)
-  a21: random(1, 10)
-  a22: random(1, 10)
-  b11: random(1, 10)
-  b12: random(1, 10)
-  b21: random(1, 10)
-  b22: random(1, 10)
-
-respuesta: a21 * b12 + a22 * b22
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Cuál es el elemento (2,2) de A · B?"
-
-explicacion: |
-  Fila 2 de A, columna 2 de B: (a21×b12) + (a22×b22).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "intermedio"
-  tags: ["producto", "vector"]
-
-variables:
-  a11: random(1, 10)
-  a12: random(1, 10)
-  a21: random(1, 10)
-  a22: random(1, 10)
-  x1: random(1, 10)
-  x2: random(1, 10)
-
-respuesta: a11 * x1 + a12 * x2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], v = [{x1}, {x2}]. ¿Cuál es la primera componente de A · v?"
-
-explicacion: |
-  Fila 1 de A por el vector completo: (a11×x1) + (a12×x2).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "intermedio"
-  tags: ["producto", "vector"]
-
-variables:
-  a11: random(1, 10)
-  a12: random(1, 10)
-  a21: random(1, 10)
-  a22: random(1, 10)
-  x1: random(1, 10)
-  x2: random(1, 10)
-
-respuesta: a21 * x1 + a22 * x2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], v = [{x1}, {x2}]. ¿Cuál es la segunda componente de A · v?"
-
-explicacion: |
-  Fila 2 de A por el vector completo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "basico"
-  tags: ["identidad"]
-
-respuesta: 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el elemento (1,1) de la matriz identidad 2×2?"
-
-explicacion: |
-  La diagonal principal de la identidad es siempre 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "basico"
-  tags: ["identidad"]
-
-respuesta: 0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el elemento (1,2) de la matriz identidad 2×2?"
-
-explicacion: |
-  Fuera de la diagonal principal, la identidad tiene 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "intermedio"
-  tags: ["identidad", "verdadero_falso"]
-
-variables:
-  a11: random(1, 20)
-  a12: random(1, 20)
-  a21: random(1, 20)
-  a22: random(1, 20)
-
-respuesta: ((a11 * 1 + a12 * 0) == a11)
+  primos: [2, 3, 5, 7]
+  p: uno_de(primos)
+  k: random(2, 20)
+  n: p * k
+
+respuesta: verdadero
 tipo: vf
 
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]]. ¿El elemento (1,1) de A · I₂ es igual a {a11} (el mismo elemento (1,1) de A)?"
+enunciado: "¿Es {p} uno de los factores primos de {n}?"
 
 explicacion: |
-  A · I = A: multiplicar por la identidad no cambia la matriz.
+  {n} se construyó multiplicando {p} por otro número, así que {p} tiene
+  que aparecer en su factorización.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matrices_operaciones"
+  tema: "numeros_primos"
+  nivel: "avanzado"
+  tags: ["numeros_primos", "problema"]
+
+variables:
+  primos: [2, 3, 5, 7]
+  p1: uno_de(primos)
+  p2: uno_de(primos)
+  n: p1 * p2
+
+respuesta: p2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un salón con {n} sillas se organiza en {p1} filas iguales. ¿Cuántas sillas hay en cada fila?"
+
+explicacion: |
+  Como {n} = {p1} × {p2}, dividir por {p1} da exactamente {p2}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "numeros_primos"
+  nivel: "intermedio"
+  tags: ["numeros_primos"]
+
+variables:
+  n: random(3, 100) * 5
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es {n} un número primo?"
+
+explicacion: |
+  {n} termina en 0 o en 5 (regla del 5): salvo que sea el propio 5, ya no
+  puede ser primo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "numeros_primos"
+  nivel: "avanzado"
+  tags: ["numeros_primos"]
+
+variables:
+  candidatos: [3, 5, 11, 17, 29]
+  p: uno_de(candidatos)
+
+respuesta: es_primo(p + 2)
+tipo: vf
+
+enunciado: "{p} es primo. ¿{p} + 2 también es primo?"
+
+explicacion: |
+  Cuando dos primos están separados por sólo 2 (como 3 y 5, u 11 y 13) se
+  llaman "primos gemelos" — no todos los primos tienen un gemelo así.
+```
+
+## Sección: demostracion-contraejemplo (22 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "intermedio"
+  tags: ["primos", "verdadero_falso"]
+
+variables:
+  n: uno_de([1, 2, 5, 10, 15, 20, 25, 30, 35, 40])
+
+respuesta: es_primo(n ^ 2 + n + 41)
+tipo: vf
+
+enunciado: "La afirmación es 'n² + n + 41 siempre da un número primo'. Para n = {n}, ¿es primo el resultado?"
+
+explicacion: |
+  Funciona para casi todos los n chicos, pero falla en n = 40 (el
+  contraejemplo que refuta la afirmación general).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "basico"
+  tags: ["primos", "verdadero_falso"]
+
+variables:
+  n: uno_de([3, 5, 7, 9, 11, 13, 15, 21, 25, 27])
+
+respuesta: es_primo(n)
+tipo: vf
+
+enunciado: "La afirmación es 'todo número impar es primo'. {n} es impar. ¿Es primo?"
+
+explicacion: |
+  9, 15, 21, 25 y 27 son impares pero no primos — cualquiera de ellos
+  es un contraejemplo que refuta la afirmación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "intermedio"
+  tags: ["signos", "verdadero_falso"]
+
+variables:
+  a: random(1, 20)
+  b: uno_de([1, -1]) * a
+
+respuesta: (a == b)
+tipo: vf
+
+enunciado: "a = {a}, b = {b}. Se cumple que a² = b². La afirmación dice 'si a² = b², entonces a = b'. ¿Es a = b en este caso?"
+
+explicacion: |
+  Cuando b = −a, a² = b² igual se cumple, pero a ≠ b — un contraejemplo
+  que refuta la afirmación general.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "basico"
+  tags: ["casos_limite", "verdadero_falso"]
+
+variables:
+  n: uno_de([0, 1, 2, 3, 5, 10, -3, -5])
+
+respuesta: (n ^ 2 > n)
+tipo: vf
+
+enunciado: "La afirmación es 'n² siempre es mayor que n'. Para n = {n}, ¿es n² mayor que n?"
+
+explicacion: |
+  n = 0 y n = 1 son contraejemplos (n² = n en esos casos, no mayor) —
+  refutan la afirmación general, aunque valga para casi todos los demás
+  números.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "intermedio"
+  tags: ["primos", "verdadero_falso"]
+
+variables:
+  p: uno_de([2, 3, 5, 7, 11])
+  q: uno_de([2, 3, 5, 7, 11])
+
+respuesta: ((p + q) - ((p + q) / 2) * 2) == 0
+tipo: vf
+
+enunciado: "La afirmación es 'la suma de dos números primos siempre es par'. Con p = {p} y q = {q}, ¿es p+q par?"
+
+explicacion: |
+  Falla cuando uno de los dos primos es 2 (el único primo par): 2+3=5,
+  impar — un contraejemplo que refuta la afirmación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un solo contraejemplo alcanza para refutar una afirmación que dice 'para todo x, se cumple P(x)'."
+
+explicacion: |
+  No importa cuántos casos SÍ cumplan la propiedad — uno solo que falle
+  ya la refuta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Encontrar 1000 casos donde una afirmación se cumple prueba que no tiene ningún contraejemplo."
+
+explicacion: |
+  El contraejemplo podría estar en el caso 1001, o en cualquier otro no
+  revisado — muchos casos que cumplen dan confianza, no prueba.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Un contraejemplo sirve para refutar una afirmación existencial, del tipo 'existe algún x tal que P(x)'."
+
+explicacion: |
+  Los contraejemplos refutan afirmaciones UNIVERSALES ("para todo x").
+  Para refutar una existencial hace falta demostrar que NINGÚN caso
+  cumple, no basta un solo caso.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Probar primero con 0, 1, números negativos o casos límite es una buena estrategia para buscar contraejemplos."
+
+explicacion: |
+  Muchas afirmaciones que parecen ciertas fallan justo en esos casos
+  especiales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
   nivel: "intermedio"
   tags: ["concepto", "verdadero_falso"]
 
@@ -845,180 +690,400 @@ respuesta: falso
 
 tipo: vf
 
-enunciado: "En general, A · B es igual a B · A."
+enunciado: "Buscar un contraejemplo es el mismo tipo de trabajo que demostrar una afirmación de forma deductiva."
 
 explicacion: |
-  La multiplicación de matrices no es conmutativa — cambiar el orden
-  suele dar un resultado distinto (y a veces ni siquiera es posible
-  calcularlo, si los tamaños no coinciden al revés).
+  Son opuestos: demostrar (deducción) prueba que algo vale SIEMPRE; un
+  contraejemplo prueba que algo falla AL MENOS una vez.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matrices_operaciones"
+  tema: "demostracion_contraejemplo"
   nivel: "intermedio"
-  tags: ["compatibilidad", "verdadero_falso"]
+  tags: ["opcion_multiple"]
+
+respuesta: 9
+tipo: mc
+opciones_explicitas:
+  - 9
+  - 7
+  - 11
+
+enunciado: "¿Cuál de estos números es un contraejemplo de 'todo número impar es primo'?"
+
+explicacion: |
+  9 es impar y no es primo (9 = 3×3). 7 y 11 son impares Y primos, así
+  que no sirven como contraejemplo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "intermedio"
+  tags: ["opcion_multiple"]
+
+respuesta: 1
+tipo: mc
+opciones_explicitas:
+  - 1
+  - 5
+  - 10
+
+enunciado: "¿Cuál de estos números es un contraejemplo de 'n² siempre es mayor que n'?"
+
+explicacion: |
+  Con n=1: 1² = 1, que NO es mayor que 1. Con n=5 o n=10, n² sí es mayor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "intermedio"
+  tags: ["opcion_multiple"]
+
+respuesta: "p = 2, q = 3 (suma 5, impar)"
+tipo: mc
+opciones_explicitas:
+  - "p = 2, q = 3 (suma 5, impar)"
+  - "p = 3, q = 5 (suma 8, par)"
+  - "p = 5, q = 7 (suma 12, par)"
+
+enunciado: "¿Cuál de estos pares es un contraejemplo de 'la suma de dos primos siempre es par'?"
+
+explicacion: |
+  2 es el único primo par — sumado a cualquier otro primo (siempre impar
+  salvo el 2) da un resultado impar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "avanzado"
+  tags: ["opcion_multiple"]
+
+respuesta: "n = 2 (no refuta nada, la fórmula sigue dando primo)"
+tipo: mc
+opciones_explicitas:
+  - "n = 2 (no refuta nada, la fórmula sigue dando primo)"
+  - "n = 40 (refuta la fórmula de Euler)"
+  - "n = 0 (refuta que n² siempre sea mayor que n)"
+
+enunciado: "¿Cuál de estas opciones NO es un contraejemplo válido de ninguna de las afirmaciones vistas en este módulo?"
+
+explicacion: |
+  n=2 en n²+n+41 da 47, que es primo — no refuta la fórmula de Euler
+  (el contraejemplo real de esa fórmula es n=40).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  n: uno_de([2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+respuesta: (n - (n / 2) * 2) != 0
+tipo: vf
+
+enunciado: "La afirmación es 'todo número entero es par'. ¿Es n = {n} un contraejemplo de esa afirmación (o sea, es impar)?"
+
+explicacion: |
+  Cualquier número impar sirve como contraejemplo de "todo entero es
+  par" — la afirmación es obviamente falsa, y cualquier impar lo prueba.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Si después de buscar un rato no se encuentra un contraejemplo, eso significa que la afirmación general está demostrada."
+
+explicacion: |
+  No encontrar uno (todavía) no es lo mismo que probar que no existe —
+  hace falta una demostración deductiva para eso, no sólo no encontrar
+  contraejemplos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "avanzado"
+  tags: ["primos"]
+
+variables:
+  n: 40
+
+respuesta: n ^ 2 + n + 41
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuánto vale n² + n + 41 para n = 40?"
+
+pasos:
+  - "40² + 40 + 41 = 1600 + 40 + 41 = 1681 = 41², no es primo"
+
+explicacion: |
+  1681 = 41 × 41 — no es primo, así que n=40 refuta la afirmación "n²+n+41
+  siempre es primo".
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Si una fórmula da el resultado correcto en el 99% de los casos probados, la afirmación 'siempre funciona' queda demostrada."
+
+explicacion: |
+  Un solo caso que falle (el 1% restante) alcanza para refutar el
+  "siempre" — no importa cuán alto sea el porcentaje de aciertos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "intermedio"
+  tags: ["opcion_multiple"]
+
+respuesta: "a = 4, b = −4"
+tipo: mc
+opciones_explicitas:
+  - "a = 4, b = −4"
+  - "a = 4, b = 4"
+  - "a = 4, b = 2"
+
+enunciado: "¿Cuál de estas opciones es un contraejemplo de 'si a² = b², entonces a = b'?"
+
+explicacion: |
+  4² = 16 y (−4)² = 16 son iguales, pero 4 ≠ −4 — refuta la afirmación.
+  a=4,b=4 no sirve (ahí SÍ es a=b); a=4,b=2 ni siquiera cumple a²=b².
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_contraejemplo"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Se puede multiplicar una matriz de 2×3 por otra de 3×2?"
+enunciado: "Después de encontrar un contraejemplo, muchas veces la afirmación se puede corregir agregando una condición (por ejemplo, 'si a y b son positivos, y a²=b², entonces a=b' sí es verdadera)."
 
 explicacion: |
-  Las columnas de la primera (3) coinciden con las filas de la segunda
-  (3), así que sí se puede — el resultado sería de 2×2.
+  El contraejemplo no siempre tira abajo toda la idea — a veces señala
+  justo qué condición faltaba agregar.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "intermedio"
-  tags: ["compatibilidad", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "¿Se puede multiplicar una matriz de 2×3 por otra de 2×3?"
-
-explicacion: |
-  Las columnas de la primera (3) no coinciden con las filas de la
-  segunda (2), así que no se puede.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_operaciones"
+  tema: "demostracion_contraejemplo"
   nivel: "basico"
-  tags: ["compatibilidad", "verdadero_falso"]
+  tags: ["primos"]
 
 respuesta: falso
 
 tipo: vf
 
-enunciado: "¿Se puede sumar una matriz de 2×2 con otra de 2×3?"
+enunciado: "¿Es 9 un número primo?"
 
 explicacion: |
-  Para sumar, las dos matrices tienen que tener exactamente el mismo
-  tamaño.
+  9 = 3×3, tiene un divisor además de 1 y sí mismo — no es primo. Por
+  eso es el contraejemplo clásico de "todo impar es primo".
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matrices_operaciones"
+  tema: "demostracion_contraejemplo"
   nivel: "intermedio"
-  tags: ["compatibilidad"]
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Buscar contraejemplos es útil incluso antes de intentar una demostración: si se encuentra uno rápido, se ahorra el trabajo de intentar demostrar algo falso."
+
+explicacion: |
+  Es una estrategia práctica: antes de gastar tiempo demostrando, conviene
+  probar algunos casos sospechosos para ver si la afirmación resiste.
+```
+
+## Sección: demostracion-deduccion (22 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_deduccion"
+  nivel: "basico"
+  tags: ["aplicacion"]
 
 variables:
-  m: random(2, 6)
-  n: random(2, 6)
-  p: random(2, 6)
+  m: random(1, 30)
+  n: m * 2
 
 respuesta: m
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "A es de tamaño {m}×{n} y B es de tamaño {n}×{p}. ¿Cuántas filas tiene A · B?"
+enunciado: "Por definición, todo número par n se puede escribir como n = 2k. Si n = {n}, ¿cuánto vale k?"
 
 explicacion: |
-  El resultado tiene tantas filas como A.
+  k = n/2 = {m}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "intermedio"
-  tags: ["compatibilidad"]
+  tema: "demostracion_deduccion"
+  nivel: "basico"
+  tags: ["modus_ponens"]
 
 variables:
-  m: random(2, 6)
-  n: random(2, 6)
-  p: random(2, 6)
+  m: random(1, 20)
+  n: random(1, 20)
+  a: 2 * m
+  b: 2 * n
 
-respuesta: p
+respuesta: a + b
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "A es de tamaño {m}×{n} y B es de tamaño {n}×{p}. ¿Cuántas columnas tiene A · B?"
+enunciado: "Premisa: si a y b son pares, a + b es par. a = {a} y b = {b} son pares. ¿Cuánto vale a + b (y por qué la conclusión garantiza que también es par)?"
+
+pasos:
+  - "a + b = {a} + {b} = {a + b} = 2×({m}+{n}), que tiene la forma 2×(entero)"
 
 explicacion: |
-  El resultado tiene tantas columnas como B.
+  La conclusión "a+b es par" no depende de qué números concretos sean —
+  se sigue necesariamente de que ambos tengan la forma 2k.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matrices_operaciones"
+  tema: "demostracion_deduccion"
   nivel: "intermedio"
-  tags: ["transpuesta"]
+  tags: ["aplicacion"]
 
 variables:
-  a11: random(1, 20)
-  a12: random(1, 20)
-  a21: random(1, 20)
-  a22: random(1, 20)
+  m: random(1, 15)
+  n: random(1, 15)
+  a: 2 * m
+  b: 2 * n
 
-respuesta: a21
+respuesta: a * b
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]]. ¿Cuál es el elemento (1,2) de Aᵀ?"
+enunciado: "a = {a} y b = {b} son pares (a = 2×{m}, b = 2×{n}). El producto a×b, ¿da un múltiplo de 4? Calculá a×b."
 
 explicacion: |
-  El elemento (1,2) de la transpuesta es el elemento (2,1) de la
-  original: a21.
+  a×b = (2m)(2n) = 4mn — siempre múltiplo de 4, no sólo de 2.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matrices_operaciones"
+  tema: "demostracion_deduccion"
   nivel: "intermedio"
-  tags: ["transpuesta"]
+  tags: ["aplicacion"]
 
 variables:
-  a11: random(1, 20)
-  a12: random(1, 20)
-  a21: random(1, 20)
-  a22: random(1, 20)
+  m: random(1, 15)
+  a: 2 * m + 1
 
-respuesta: a12
+respuesta: a ^ 2
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]]. ¿Cuál es el elemento (2,1) de Aᵀ?"
+enunciado: "a = {a} es impar (a = 2×{m}+1). ¿Cuánto vale a²? (Se puede demostrar que el cuadrado de un impar siempre es impar.)"
 
 explicacion: |
-  El elemento (2,1) de la transpuesta es el elemento (1,2) de la
-  original: a12.
+  a² = (2m+1)² = 4m²+4m+1 = 2(2m²+2m)+1, que tiene la forma 2×(entero)+1
+  — impar, sea cual sea m.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matrices_operaciones"
+  tema: "demostracion_deduccion"
   nivel: "basico"
   tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para sumar dos matrices, las dos tienen que tener el mismo tamaño."
+enunciado: "Si las premisas de un razonamiento deductivo son verdaderas, la conclusión tiene que ser verdadera necesariamente."
 
 explicacion: |
-  La suma se hace elemento a elemento, así que necesita esa
-  correspondencia exacta.
+  Es la característica central de la deducción: no hay forma de que las
+  premisas sean ciertas y la conclusión falsa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matrices_operaciones"
+  tema: "demostracion_deduccion"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Comprobar que una propiedad se cumple en 5 o 10 casos concretos ya es una demostración válida de que se cumple siempre."
+
+explicacion: |
+  Verificar ejemplos da confianza, pero no prueba el caso general —
+  puede fallar en el ejemplo número 11 que no se probó.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_deduccion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El modus ponens dice: si 'P implica Q' es verdadero, y P es verdadero, entonces Q es verdadero."
+
+explicacion: |
+  Es la forma más básica de razonamiento deductivo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_deduccion"
   nivel: "intermedio"
   tags: ["concepto", "error_comun", "verdadero_falso"]
 
@@ -1026,1897 +1091,1215 @@ respuesta: falso
 
 tipo: vf
 
-enunciado: "La multiplicación de matrices se hace multiplicando los elementos que están en la misma posición, igual que en la suma."
+enunciado: "Usar como paso intermedio, de forma disfrazada, lo mismo que se quiere demostrar, es una técnica válida de demostración."
 
 explicacion: |
-  Eso sería un error común. La multiplicación de matrices usa la regla
-  fila por columna, no posición por posición.
+  Es un error lógico llamado "petición de principio" o razonamiento
+  circular: no prueba nada nuevo, sólo repite la conclusión como si fuera
+  un dato.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matrices_operaciones"
-  nivel: "avanzado"
-  tags: ["producto", "verificacion", "verdadero_falso"]
-
-variables:
-  a11: random(1, 8)
-  a12: random(1, 8)
-  a21: random(1, 8)
-  a22: random(1, 8)
-  b11: random(1, 8)
-  b12: random(1, 8)
-  b21: random(1, 8)
-  b22: random(1, 8)
-  c11_real: a11 * b11 + a12 * b21
-  error: uno_de([0, 0, 1, -1])
-  c11_propuesto: c11_real + error
-
-respuesta: (c11_propuesto == c11_real)
-tipo: vf
-
-enunciado: "A = [[{a11}, {a12}], [{a21}, {a22}]], B = [[{b11}, {b12}], [{b21}, {b22}]]. ¿Es correcto que el elemento (1,1) de A · B sea {c11_propuesto}?"
-
-explicacion: |
-  El valor correcto es (a11×b11) + (a12×b21) = {c11_real}.
-```
-
-## Sección: matrices/sistemas-nxn (27 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "intermedio"
-  tags: ["operacion_fila"]
-
-variables:
-  r1: random(1, 10)
-  r2: random(1, 10)
-  r3: random(1, 10)
-  s1: random(1, 10)
-  s2: random(1, 10)
-  s3: random(1, 10)
-  k: random(2, 5)
-
-respuesta: s1 - k * r1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Fila 1 = ({r1}, {r2}, {r3}), Fila 2 = ({s1}, {s2}, {s3}). Si se hace Fila 2 → Fila 2 − {k}×Fila 1, ¿qué queda en la primera posición de la nueva Fila 2?"
-
-explicacion: |
-  s1 − {k}×r1 = {s1} − {k}×{r1} = {s1 - k * r1}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "intermedio"
-  tags: ["operacion_fila"]
-
-variables:
-  r1: random(1, 10)
-  r2: random(1, 10)
-  r3: random(1, 10)
-  s1: random(1, 10)
-  s2: random(1, 10)
-  s3: random(1, 10)
-  k: random(2, 5)
-
-respuesta: s3 - k * r3
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Fila 1 = ({r1}, {r2}, {r3}), Fila 2 = ({s1}, {s2}, {s3}). Si se hace Fila 2 → Fila 2 − {k}×Fila 1, ¿qué queda en la tercera posición de la nueva Fila 2?"
-
-explicacion: |
-  s3 − {k}×r3.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "intermedio"
-  tags: ["operacion_fila"]
-
-variables:
-  r1: random(1, 10)
-  r2: random(1, 10)
-  r3: random(1, 10)
-  s1: random(1, 10)
-  s2: random(1, 10)
-  s3: random(1, 10)
-  k: random(2, 5)
-
-respuesta: s2 + k * r2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Fila 1 = ({r1}, {r2}, {r3}), Fila 2 = ({s1}, {s2}, {s3}). Si se hace Fila 2 → Fila 2 + {k}×Fila 1, ¿qué queda en la segunda posición de la nueva Fila 2?"
-
-explicacion: |
-  s2 + {k}×r2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "basico"
-  tags: ["operacion_fila"]
-
-variables:
-  r1: random(1, 10)
-  r2: random(1, 10)
-  r3: random(1, 10)
-  k: random(2, 6)
-
-respuesta: k * r2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Fila 1 = ({r1}, {r2}, {r3}). Si se hace Fila 1 → {k}×Fila 1, ¿qué queda en la segunda posición?"
-
-explicacion: |
-  Multiplicar una fila por un escalar multiplica cada valor de la fila.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "basico"
-  tags: ["operacion_fila"]
-
-variables:
-  r1: random(1, 10)
-  r2: random(1, 10)
-  r3: random(1, 10)
-  s1: random(1, 10)
-  s2: random(1, 10)
-  s3: random(1, 10)
-
-respuesta: s2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Fila 1 = ({r1}, {r2}, {r3}), Fila 2 = ({s1}, {s2}, {s3}). Si se intercambian Fila 1 y Fila 2, ¿qué valor queda ahora en la segunda posición de la nueva Fila 1?"
-
-explicacion: |
-  Después del intercambio, la nueva Fila 1 es la vieja Fila 2 completa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "avanzado"
-  tags: ["operacion_fila", "matriz_aumentada"]
-
-variables:
-  r1: random(1, 8)
-  r2: random(1, 8)
-  r3: random(1, 8)
-  d1: random(1, 20)
-  s1: random(1, 8)
-  s2: random(1, 8)
-  s3: random(1, 8)
-  d2: random(1, 20)
-  k: random(2, 5)
-
-respuesta: d2 - k * d1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Fila 1 = ({r1}, {r2}, {r3} | {d1}), Fila 2 = ({s1}, {s2}, {s3} | {d2}). Si se hace Fila 2 → Fila 2 − {k}×Fila 1, ¿qué queda en la columna de términos independientes de la nueva Fila 2?"
-
-explicacion: |
-  La operación se aplica a la fila COMPLETA, incluida la columna de
-  términos independientes — no sólo a los coeficientes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "avanzado"
-  tags: ["sistema_3x3"]
-
-variables:
-  x_sol: random(1, 15)
-  y_sol: random(1, 15)
-  z_sol: random(1, 15)
-  p1: random(1, 5)
-  q1: random(1, 5)
-  r1: random(1, 5)
-  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
-  p2: random(1, 5)
-  q2: random(1, 5)
-  r2: random(1, 5)
-  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
-  p3: random(1, 5)
-  q3: random(1, 5)
-  r3: random(1, 5)
-  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé el sistema: {p1}x + {q1}y + {r1}z = {d1}; {p2}x + {q2}y + {r2}z = {d2}; {p3}x + {q3}y + {r3}z = {d3}. ¿Cuánto vale x?"
-
-pasos:
-  - "Armar la matriz aumentada 3×4 y triangular con operaciones de fila, o eliminar x entre pares de ecuaciones como en un sistema 2×2"
-
-explicacion: |
-  Mismo método de eliminación de siempre, con un paso más: eliminar una
-  incógnita entre dos pares de ecuaciones antes de llegar a una sola
-  incógnita.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "avanzado"
-  tags: ["sistema_3x3"]
-
-variables:
-  x_sol: random(1, 15)
-  y_sol: random(1, 15)
-  z_sol: random(1, 15)
-  p1: random(1, 5)
-  q1: random(1, 5)
-  r1: random(1, 5)
-  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
-  p2: random(1, 5)
-  q2: random(1, 5)
-  r2: random(1, 5)
-  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
-  p3: random(1, 5)
-  q3: random(1, 5)
-  r3: random(1, 5)
-  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
-
-respuesta: y_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé el sistema: {p1}x + {q1}y + {r1}z = {d1}; {p2}x + {q2}y + {r2}z = {d2}; {p3}x + {q3}y + {r3}z = {d3}. ¿Cuánto vale y?"
-
-explicacion: |
-  Con x ya encontrado, queda un sistema 2×2 en y y z.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "avanzado"
-  tags: ["sistema_3x3"]
-
-variables:
-  x_sol: random(1, 15)
-  y_sol: random(1, 15)
-  z_sol: random(1, 15)
-  p1: random(1, 5)
-  q1: random(1, 5)
-  r1: random(1, 5)
-  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
-  p2: random(1, 5)
-  q2: random(1, 5)
-  r2: random(1, 5)
-  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
-  p3: random(1, 5)
-  q3: random(1, 5)
-  r3: random(1, 5)
-  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
-
-respuesta: z_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé el sistema: {p1}x + {q1}y + {r1}z = {d1}; {p2}x + {q2}y + {r2}z = {d2}; {p3}x + {q3}y + {r3}z = {d3}. ¿Cuánto vale z?"
-
-explicacion: |
-  Con x e y ya encontrados, z se despeja de cualquiera de las tres
-  ecuaciones originales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "avanzado"
-  tags: ["sistema_3x3"]
-
-variables:
-  x_sol: random(1, 12)
-  y_sol: random(1, 12)
-  z_sol: random(1, 12)
-  p1: random(1, 4)
-  q1: random(1, 4)
-  r1: random(1, 4)
-  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
-  p2: random(1, 4)
-  q2: random(1, 4)
-  r2: random(1, 4)
-  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
-  p3: random(1, 4)
-  q3: random(1, 4)
-  r3: random(1, 4)
-  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé el sistema: {p1}x + {q1}y + {r1}z = {d1}; {p2}x + {q2}y + {r2}z = {d2}; {p3}x + {q3}y + {r3}z = {d3}. ¿Cuánto vale x?"
-
-explicacion: |
-  Se puede resolver triangulando la matriz aumentada con operaciones de
-  fila, o eliminando de a una incógnita como en un sistema 2×2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "avanzado"
-  tags: ["sistema_3x3"]
-
-variables:
-  x_sol: random(1, 12)
-  y_sol: random(1, 12)
-  z_sol: random(1, 12)
-  p1: random(1, 4)
-  q1: random(1, 4)
-  r1: random(1, 4)
-  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
-  p2: random(1, 4)
-  q2: random(1, 4)
-  r2: random(1, 4)
-  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
-  p3: random(1, 4)
-  q3: random(1, 4)
-  r3: random(1, 4)
-  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
-
-respuesta: y_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé el sistema: {p1}x + {q1}y + {r1}z = {d1}; {p2}x + {q2}y + {r2}z = {d2}; {p3}x + {q3}y + {r3}z = {d3}. ¿Cuánto vale y?"
-
-explicacion: |
-  y = resultado de eliminar x y z entre pares de ecuaciones.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "avanzado"
-  tags: ["sistema_3x3"]
-
-variables:
-  x_sol: random(1, 12)
-  y_sol: random(1, 12)
-  z_sol: random(1, 12)
-  p1: random(1, 4)
-  q1: random(1, 4)
-  r1: random(1, 4)
-  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
-  p2: random(1, 4)
-  q2: random(1, 4)
-  r2: random(1, 4)
-  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
-  p3: random(1, 4)
-  q3: random(1, 4)
-  r3: random(1, 4)
-  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
-
-respuesta: z_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Resolvé el sistema: {p1}x + {q1}y + {r1}z = {d1}; {p2}x + {q2}y + {r2}z = {d2}; {p3}x + {q3}y + {r3}z = {d3}. ¿Cuánto vale z?"
-
-explicacion: |
-  Último paso: reemplazar x e y ya encontrados en cualquier ecuación
-  original.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "avanzado"
-  tags: ["sistema_3x3", "problema"]
-
-variables:
-  x_sol: random(2, 15)
-  y_sol: random(2, 15)
-  z_sol: random(2, 15)
-  p1: random(1, 3)
-  q1: random(1, 3)
-  r1: random(1, 3)
-  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
-  p2: random(1, 3)
-  q2: random(1, 3)
-  r2: random(1, 3)
-  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
-  p3: random(1, 3)
-  q3: random(1, 3)
-  r3: random(1, 3)
-  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Tres combos de compras dan: {p1} unidades de A + {q1} de B + {r1} de C = {d1}; {p2} de A + {q2} de B + {r2} de C = {d2}; {p3} de A + {q3} de B + {r3} de C = {d3} (en costo total). ¿Cuánto cuesta una unidad de A?"
-
-explicacion: |
-  Es el mismo sistema 3×3 de siempre, con nombres de producto en vez de
-  x, y, z.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
+  tema: "demostracion_deduccion"
   nivel: "basico"
   tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Intercambiar dos filas de una matriz aumentada no cambia el conjunto solución del sistema."
+enunciado: "En una demostración, cada paso nuevo tiene que apoyarse en una definición, una propiedad ya probada, o una regla lógica."
 
 explicacion: |
-  Cambia el orden en que están escritas las ecuaciones, no las
-  ecuaciones en sí.
+  Un paso sin justificación es un salto en la cadena — puede ser
+  verdadero de casualidad, pero no está demostrado.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Al restar un múltiplo de una fila a otra, sólo hace falta aplicarlo a los coeficientes, no a la columna de términos independientes."
-
-explicacion: |
-  Hay que aplicarlo a la fila completa, columna de términos
-  independientes incluida — es el error más común del método.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Multiplicar una fila entera por 0 es una operación elemental válida."
-
-explicacion: |
-  Multiplicar por 0 borraría información de esa ecuación — la operación
-  válida es multiplicar por cualquier número DISTINTO de 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
+  tema: "demostracion_deduccion"
   nivel: "basico"
   tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El método de Gauss busca, usando operaciones de fila, dejar ceros debajo de la diagonal principal de la matriz."
+enunciado: "Una demostración parte de la hipótesis (lo que se da por conocido) y llega a la tesis (lo que se quiere probar)."
 
 explicacion: |
-  Esa forma triangular es la que permite despejar una incógnita por vez
-  con sustitución hacia atrás.
+  Es la estructura básica de cualquier demostración deductiva.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La sustitución hacia atrás empieza resolviendo la incógnita de la última fila triangulada."
-
-explicacion: |
-  Esa fila queda con una sola incógnita — de ahí se sube reemplazando en
-  las filas anteriores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Con un sistema de 4 ecuaciones y 4 incógnitas, el método de Gauss ya no sirve y hace falta usar otro método distinto."
-
-explicacion: |
-  El método es exactamente el mismo, sólo con más filas y columnas —
-  matriz aumentada de 4×5 en vez de 3×4.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "basico"
-  tags: ["matriz_aumentada"]
-
-variables:
-  n: random(2, 8)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un sistema de {n} ecuaciones con {n} incógnitas se representa con una matriz aumentada. ¿Cuántas filas tiene?"
-
-explicacion: |
-  Una fila por ecuación.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "basico"
-  tags: ["matriz_aumentada"]
-
-variables:
-  n: random(2, 8)
-
-respuesta: n + 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un sistema de {n} ecuaciones con {n} incógnitas se representa con una matriz aumentada. ¿Cuántas columnas tiene en total (coeficientes más términos independientes)?"
-
-explicacion: |
-  {n} columnas de coeficientes (una por incógnita) más 1 columna de
-  términos independientes = {n + 1}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "basico"
-  tags: ["matriz_aumentada", "opcion_multiple"]
-
-respuesta: "Los términos independientes"
-tipo: mc
-opciones_explicitas:
-  - "Los términos independientes"
-  - "Los coeficientes de una incógnita más"
-  - "El resultado de sumar todas las filas"
-
-enunciado: "En la matriz aumentada de un sistema, ¿qué representa la última columna?"
-
-explicacion: |
-  Es el número que está del otro lado del "=" en cada ecuación.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  x_sol: random(1, 12)
-  y_sol: random(1, 12)
-  z_sol: random(1, 12)
-  p1: random(1, 4)
-  q1: random(1, 4)
-  r1: random(1, 4)
-  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
-  p2: random(1, 4)
-  q2: random(1, 4)
-  r2: random(1, 4)
-  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
-  p3: random(1, 4)
-  q3: random(1, 4)
-  r3: random(1, 4)
-  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
-
-respuesta: ((p1 * x_sol + q1 * y_sol + r1 * z_sol - d1) ^ 2 + (p2 * x_sol + q2 * y_sol + r2 * z_sol - d2) ^ 2 + (p3 * x_sol + q3 * y_sol + r3 * z_sol - d3) ^ 2) == 0
-tipo: vf
-
-enunciado: "¿(x, y, z) = ({x_sol}, {y_sol}, {z_sol}) es solución del sistema {p1}x+{q1}y+{r1}z={d1}; {p2}x+{q2}y+{r2}z={d2}; {p3}x+{q3}y+{r3}z={d3}?"
-
-explicacion: |
-  Es exactamente la terna con la que se armó el sistema, así que cumple
-  las tres ecuaciones a la vez.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  x_sol: random(1, 12)
-  y_sol: random(1, 12)
-  z_sol: random(1, 12)
-  p1: random(1, 4)
-  q1: random(1, 4)
-  r1: random(1, 4)
-  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
-  p2: random(1, 4)
-  q2: random(1, 4)
-  r2: random(1, 4)
-  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
-  p3: random(1, 4)
-  q3: random(1, 4)
-  r3: random(1, 4)
-  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
-  val_z: z_sol + 1
-
-respuesta: ((p1 * x_sol + q1 * y_sol + r1 * val_z - d1) ^ 2 + (p2 * x_sol + q2 * y_sol + r2 * val_z - d2) ^ 2 + (p3 * x_sol + q3 * y_sol + r3 * val_z - d3) ^ 2) == 0
-tipo: vf
-
-enunciado: "¿(x, y, z) = ({x_sol}, {y_sol}, {val_z}) es solución del sistema {p1}x+{q1}y+{r1}z={d1}; {p2}x+{q2}y+{r2}z={d2}; {p3}x+{q3}y+{r3}z={d3}?"
-
-explicacion: |
-  x e y están bien, pero z está corrida en 1 — no cumple las tres
-  ecuaciones a la vez, así que no es solución del sistema.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  x_sol: random(1, 12)
-  y_sol: random(1, 12)
-  z_sol: random(1, 12)
-  p1: random(1, 4)
-  q1: random(1, 4)
-  r1: random(1, 4)
-  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
-  p2: random(1, 4)
-  q2: random(1, 4)
-  r2: random(1, 4)
-  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
-  p3: random(1, 4)
-  q3: random(1, 4)
-  r3: random(1, 4)
-  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
-  error: uno_de([0, 0, 2, -2])
-  val_x: x_sol + error
-
-respuesta: ((p1 * val_x + q1 * y_sol + r1 * z_sol - d1) ^ 2 + (p2 * val_x + q2 * y_sol + r2 * z_sol - d2) ^ 2 + (p3 * val_x + q3 * y_sol + r3 * z_sol - d3) ^ 2) == 0
-tipo: vf
-
-enunciado: "¿(x, y, z) = ({val_x}, {y_sol}, {z_sol}) es solución del sistema {p1}x+{q1}y+{r1}z={d1}; {p2}x+{q2}y+{r2}z={d2}; {p3}x+{q3}y+{r3}z={d3}?"
-
-explicacion: |
-  Se reemplaza la terna completa en las tres ecuaciones — si falla en
-  cualquiera de las tres, no es solución del sistema.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En general, para encontrar un único valor de cada una de n incógnitas hacen falta al menos n ecuaciones independientes."
-
-explicacion: |
-  Con menos ecuaciones que incógnitas, sobran grados de libertad y el
-  sistema queda con infinitas soluciones posibles (no una única terna).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matrices_sistemas_nxn"
-  nivel: "avanzado"
-  tags: ["operacion_fila"]
-
-variables:
-  r1: random(2, 6)
-  r2: random(1, 10)
-  r3: random(1, 10)
-  mult: random(1, 4)
-  s1: r1 * mult
-  s2: random(1, 10)
-  s3: random(1, 10)
-
-respuesta: s2 - (s1 / r1) * r2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Fila 1 = ({r1}, {r2}, {r3}), Fila 2 = ({s1}, {s2}, {s3}). Para anular el primer valor de la Fila 2, se hace Fila 2 → Fila 2 − (s1/r1)×Fila 1. ¿Qué queda en la segunda posición de la nueva Fila 2?"
-
-pasos:
-  - "El múltiplo a restar es s1/r1 = {s1}/{r1} = {s1 / r1}"
-  - "Segunda posición: {s2} − {s1 / r1}×{r2} = {s2 - (s1 / r1) * r2}"
-
-explicacion: |
-  El múltiplo exacto que hace falta restar es el cociente entre el valor
-  a anular y el "pivote" (el valor de esa columna en la fila de arriba).
-```
-
-## Sección: matriz-inversa (24 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "basico"
-  tags: ["adjunta"]
-
-variables:
-  a: random(1, 20)
-  b: random(1, 20)
-  c: random(1, 20)
-  d: random(1, 20)
-
-respuesta: d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. Antes de dividir por el determinante, ¿cuál es el elemento (1,1) de la matriz adjunta?"
-
-explicacion: |
-  El primer movimiento es intercambiar a y d de lugar — el (1,1) de la
-  adjunta es la d original.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "basico"
-  tags: ["adjunta"]
-
-variables:
-  a: random(1, 20)
-  b: random(1, 20)
-  c: random(1, 20)
-  d: random(1, 20)
-
-respuesta: a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. Antes de dividir por el determinante, ¿cuál es el elemento (2,2) de la matriz adjunta?"
-
-explicacion: |
-  El (2,2) de la adjunta es la a original.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "basico"
-  tags: ["adjunta", "signos"]
-
-variables:
-  a: random(1, 20)
-  b: random(1, 20)
-  c: random(1, 20)
-  d: random(1, 20)
-
-respuesta: -b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. Antes de dividir por el determinante, ¿cuál es el elemento (1,2) de la matriz adjunta?"
-
-explicacion: |
-  b se queda en su lugar, pero cambia de signo: −b.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "basico"
-  tags: ["adjunta", "signos"]
-
-variables:
-  a: random(1, 20)
-  b: random(1, 20)
-  c: random(1, 20)
-  d: random(1, 20)
-
-respuesta: -c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[{a}, {b}], [{c}, {d}]]. Antes de dividir por el determinante, ¿cuál es el elemento (2,1) de la matriz adjunta?"
-
-explicacion: |
-  c se queda en su lugar, pero cambia de signo: −c.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "intermedio"
-  tags: ["inversa"]
-
-variables:
-  b: random(1, 8)
-  c: random(1, 8)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-
-respuesta: d / (a * d - b * c)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Cuál es el elemento (1,1) de A⁻¹?"
-
-pasos:
-  - "det(A) = 1×{d} − {b}×{c} = {a * d - b * c}"
-  - "Elemento (1,1) de la adjunta: {d}. Dividido por el determinante: {d / (a * d - b * c)}"
-
-explicacion: |
-  Se arma la adjunta y se divide cada elemento por el determinante.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "intermedio"
-  tags: ["inversa"]
-
-variables:
-  b: random(1, 8)
-  c: random(1, 8)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-
-respuesta: a / (a * d - b * c)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Cuál es el elemento (2,2) de A⁻¹?"
-
-explicacion: |
-  Elemento (2,2) de la adjunta es a = 1, dividido por det(A).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "intermedio"
-  tags: ["inversa", "signos"]
-
-variables:
-  b: random(1, 8)
-  c: random(1, 8)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-
-respuesta: (-b) / (a * d - b * c)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Cuál es el elemento (1,2) de A⁻¹?"
-
-explicacion: |
-  Elemento (1,2) de la adjunta es −b, dividido por det(A).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "intermedio"
-  tags: ["inversa", "signos"]
-
-variables:
-  b: random(1, 8)
-  c: random(1, 8)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-
-respuesta: (-c) / (a * d - b * c)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Cuál es el elemento (2,1) de A⁻¹?"
-
-explicacion: |
-  Elemento (2,1) de la adjunta es −c, dividido por det(A).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  b: random(1, 8)
-  c: random(1, 8)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-  det: a * d - b * c
-  inv11: d / det
-  inv21: (-c) / det
-
-respuesta: ((a * inv11 + b * inv21) == 1)
-tipo: vf
-
-enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿El elemento (1,1) de A · A⁻¹ da 1, como en la identidad?"
-
-explicacion: |
-  Multiplicar A por su inversa tiene que dar exactamente la matriz
-  identidad — es la forma de verificar que la inversa está bien
-  calculada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  b: random(1, 8)
-  c: random(1, 8)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-  det: a * d - b * c
-  inv12: (-b) / det
-  inv22: a / det
-
-respuesta: ((a * inv12 + b * inv22) == 0)
-tipo: vf
-
-enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿El elemento (1,2) de A · A⁻¹ da 0, como en la identidad?"
-
-explicacion: |
-  Fuera de la diagonal, A · A⁻¹ tiene que dar 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "avanzado"
-  tags: ["verificacion", "error_comun", "verdadero_falso"]
-
-variables:
-  b: random(1, 8)
-  c: random(1, 8)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-  det: a * d - b * c
-  inv11_mal: b / det
-
-respuesta: ((a * inv11_mal + b * ((-c) / det)) == 1)
-tipo: vf
-
-enunciado: "Si por error se usa b en vez de d como elemento (1,1) de la adjunta de A = [[1, {b}], [{c}, {d}]], ¿el producto A · A⁻¹ igual da la identidad en su elemento (1,1)?"
-
-explicacion: |
-  No — usar el elemento equivocado de la adjunta rompe la verificación:
-  A · A⁻¹ deja de dar la identidad, que es justamente la señal de que
-  algo está mal calculado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "avanzado"
-  tags: ["sistema"]
-
-variables:
-  b: random(1, 6)
-  c: random(1, 6)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-  x_sol: random(1, 15)
-  y_sol: random(1, 15)
-  bx: a * x_sol + b * y_sol
-  by: c * x_sol + d * y_sol
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El sistema x + {b}y = {bx}; {c}x + {d}y = {by} se puede escribir como A·v = b, con A = [[1, {b}], [{c}, {d}]]. Usando x = A⁻¹·b, ¿cuánto vale x?"
-
-pasos:
-  - "det(A) = {a * d - b * c}, así que A⁻¹ existe"
-  - "x = A⁻¹·b da el mismo resultado que resolver el sistema por eliminación"
-
-explicacion: |
-  Es el mismo sistema de siempre, resuelto con la inversa en vez de
-  sustitución o eliminación — el resultado es idéntico.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "avanzado"
-  tags: ["sistema"]
-
-variables:
-  b: random(1, 6)
-  c: random(1, 6)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-  x_sol: random(1, 15)
-  y_sol: random(1, 15)
-  bx: a * x_sol + b * y_sol
-  by: c * x_sol + d * y_sol
-
-respuesta: y_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El sistema x + {b}y = {bx}; {c}x + {d}y = {by} se puede escribir como A·v = b, con A = [[1, {b}], [{c}, {d}]]. Usando v = A⁻¹·b, ¿cuánto vale y?"
-
-explicacion: |
-  y = segunda componente de A⁻¹·b.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "avanzado"
-  tags: ["sistema"]
-
-variables:
-  b: random(2, 7)
-  c: random(2, 7)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-  x_sol: random(5, 20)
-  y_sol: random(1, 10)
-  bx: a * x_sol + b * y_sol
-  by: c * x_sol + d * y_sol
-
-respuesta: x_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A·v = b, con A = [[1, {b}], [{c}, {d}]] y b = ({bx}, {by}). ¿Cuánto vale la primera componente de v = A⁻¹·b?"
-
-explicacion: |
-  Es la misma idea que despejar x en una ecuación de un número, con
-  matrices en vez de números.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "avanzado"
-  tags: ["sistema"]
-
-variables:
-  b: random(2, 7)
-  c: random(2, 7)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-  x_sol: random(5, 20)
-  y_sol: random(1, 10)
-  bx: a * x_sol + b * y_sol
-  by: c * x_sol + d * y_sol
-
-respuesta: y_sol
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A·v = b, con A = [[1, {b}], [{c}, {d}]] y b = ({bx}, {by}). ¿Cuánto vale la segunda componente de v = A⁻¹·b?"
-
-explicacion: |
-  Segunda componente de A⁻¹·b.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una matriz cuadrada tiene inversa sólo si su determinante es distinto de 0."
-
-explicacion: |
-  Si det(A) = 0, no se puede dividir por el determinante — la inversa
-  simplemente no existe.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A · A⁻¹ da exactamente la matriz identidad."
-
-explicacion: |
-  Es la definición misma de matriz inversa — el equivalente matricial de
-  x · (1/x) = 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Para armar la matriz adjunta 2×2, se cambia el signo de los elementos de la diagonal principal (a y d)."
-
-explicacion: |
-  Al revés: a y d se INTERCAMBIAN de lugar (sin cambiar signo). Los que
-  cambian de signo son b y c, quedándose en su misma posición.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Si el determinante de una matriz es 0, su inversa da una matriz con todos ceros."
-
-explicacion: |
-  No da una matriz de ceros — directamente NO EXISTE inversa (dividir
-  por 0 no está definido).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un sistema Ax = b se puede resolver como x = A⁻¹·b, siempre que A tenga inversa."
-
-explicacion: |
-  Es una alternativa a sustitución, igualación o eliminación — el mismo
-  resultado, otro camino.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "matriz_inversa"
+  tema: "demostracion_deduccion"
   nivel: "intermedio"
   tags: ["opcion_multiple"]
 
-variables:
-  b: random(1, 6)
-  c: random(1, 6)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-
-respuesta: d / (a * d - b * c)
+respuesta: "Modus ponens (deducción válida)"
 tipo: mc
 opciones_explicitas:
-  - d / (a * d - b * c)
-  - a / (a * d - b * c)
-  - d * (a * d - b * c)
+  - "Modus ponens (deducción válida)"
+  - "Generalizar de un solo ejemplo"
+  - "Razonamiento circular"
 
-enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Cuál es el elemento (1,1) de A⁻¹?"
+enunciado: "'Si un triángulo es equilátero, sus tres ángulos son iguales. Este triángulo es equilátero. Por lo tanto, sus tres ángulos son iguales.' ¿Qué tipo de razonamiento es?"
 
 explicacion: |
-  Es d (no a) dividido por el determinante — el (1,1) de la adjunta es el
-  elemento que estaba en (2,2) de la matriz original.
+  Sigue exactamente la forma P→Q, P, luego Q.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matriz_inversa"
+  tema: "demostracion_deduccion"
   nivel: "intermedio"
-  tags: ["opcion_multiple", "signos"]
+  tags: ["opcion_multiple"]
 
-variables:
-  b: random(1, 6)
-  c: random(1, 6)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-
-respuesta: (-b) / (a * d - b * c)
+respuesta: "Generalizar de un solo ejemplo"
 tipo: mc
 opciones_explicitas:
-  - (-b) / (a * d - b * c)
-  - b / (a * d - b * c)
-  - (-b) * (a * d - b * c)
+  - "Generalizar de un solo ejemplo"
+  - "Modus ponens (deducción válida)"
+  - "Razonamiento circular"
 
-enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Cuál es el elemento (1,2) de A⁻¹?"
+enunciado: "'Probé con n=2 y n=3, y en los dos casos n²+n+1 dio un número primo. Por lo tanto, n²+n+1 siempre es primo.' ¿Qué tipo de razonamiento es?"
 
 explicacion: |
-  b cambia de signo al armar la adjunta, y después se divide por el
-  determinante.
+  Comprobar un par de casos no prueba la afirmación general — es sólo
+  evidencia, no una demostración deductiva.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matriz_inversa"
+  tema: "demostracion_deduccion"
+  nivel: "avanzado"
+  tags: ["opcion_multiple"]
+
+respuesta: "Razonamiento circular"
+tipo: mc
+opciones_explicitas:
+  - "Razonamiento circular"
+  - "Modus ponens (deducción válida)"
+  - "Generalizar de un solo ejemplo"
+
+enunciado: "'x es par porque x/2 es un número entero. Y x/2 es un número entero porque x es par.' ¿Qué problema tiene este razonamiento?"
+
+explicacion: |
+  Cada afirmación se usa para justificar la otra, sin ningún punto de
+  apoyo externo — no prueba nada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_deduccion"
+  nivel: "intermedio"
+  tags: ["opcion_multiple"]
+
+respuesta: "Probarlo para cualquier número par, no sólo esos dos"
+tipo: mc
+opciones_explicitas:
+  - "Probarlo para cualquier número par, no sólo esos dos"
+  - "Nada, ya está completa"
+  - "Elegir números más grandes"
+
+enunciado: "Alguien quiere demostrar que 'todo número par al cuadrado es par', y como prueba calcula 4² = 16 y 6² = 36 (los dos pares). ¿Qué le falta a esta demostración?"
+
+explicacion: |
+  Hace falta el argumento general (a = 2k → a² = 4k² = 2(2k²), que
+  también es par), válido para cualquier número par, no sólo los dos
+  ejemplos probados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_deduccion"
   nivel: "basico"
+  tags: ["modus_ponens", "verdadero_falso"]
+
+variables:
+  n: random(2, 20) * 3
+
+respuesta: (n - (n / 3) * 3) == 0
+tipo: vf
+
+enunciado: "Premisa: si n es múltiplo de 3, n/3 es un número entero. n = {n} es múltiplo de 3. ¿Es {n}/3 un número entero?"
+
+explicacion: |
+  Se sigue directo de la premisa, por modus ponens.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_deduccion"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  m: random(1, 20)
+  n: random(1, 20)
+  a: 2 * m
+  b: 2 * n
+  suma: a + b
+
+respuesta: (suma - (suma / 2) * 2) == 0
+tipo: vf
+
+enunciado: "En la demostración 'a+b es par si a y b son pares', con a = {a} y b = {b}: ¿es {suma} = a+b divisible por 2?"
+
+explicacion: |
+  Es exactamente el paso central de la demostración: a+b = 2(m+n),
+  siempre divisible por 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_deduccion"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Un ejemplo nunca sirve para demostrar ni para refutar nada en matemática."
+
+explicacion: |
+  Un ejemplo no prueba una afirmación general, pero SÍ puede refutarla:
+  un solo caso que falle (un contraejemplo) alcanza para tirar abajo una
+  afirmación general — tema del próximo módulo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_deduccion"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+variables:
+  m: random(1, 10)
+  n: random(1, 10)
+  p: random(1, 10)
+  a: 2 * m
+  b: 2 * n
+  c: 2 * p
+
+respuesta: a + b + c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "a = {a}, b = {b} y c = {c} son pares. Por la propiedad ya demostrada (par + par = par), ¿cuánto vale a + b + c, y sigue siendo par?"
+
+explicacion: |
+  Aplicando la propiedad dos veces (a+b es par, y ese resultado + c
+  también), se deduce que la suma de tres pares es par, sin tener que
+  demostrarlo de nuevo desde cero.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_deduccion"
+  nivel: "intermedio"
   tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Antes de intentar calcular una matriz inversa, conviene calcular primero el determinante."
+enunciado: "Una demostración deductiva de 'para todo a y b pares, a+b es par' vale para CUALQUIER par de números pares, no sólo los que se usaron como ejemplo al explicarla."
 
 explicacion: |
-  Si el determinante da 0, ya se sabe que no hace falta seguir: la
-  inversa no existe.
+  Esa es la diferencia central con verificar casos puntuales: la
+  demostración usa letras (m, n) que representan cualquier entero, no
+  números fijos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "matriz_inversa"
-  nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  b: random(1, 8)
-  c: random(1, 8)
-  signo: uno_de([1, -1])
-  d: b * c + signo
-  a: 1
-  real: d / (a * d - b * c)
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Es correcto que el elemento (1,1) de A⁻¹ sea {propuesto}?"
-
-explicacion: |
-  El valor correcto es d/det(A) = {real}.
-```
-
-## Sección: mcd (24 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "basico"
-  tags: ["mcd", "vocabulario"]
-
-enunciado: "¿Qué es el Máximo Común Divisor (MCD) de dos números?"
-tipo: mc
-opciones_explicitas:
-  - "El mayor número que es divisor de los dos a la vez"
-  - "El menor número que es múltiplo de los dos a la vez"
-  - "La suma de todos los divisores en común"
-respuesta: "El mayor número que es divisor de los dos a la vez"
-
-explicacion: |
-  Se buscan los divisores en común de los dos números, y se toma el más
-  grande.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "basico"
-  tags: ["mcd"]
-
-variables:
-  a: random(4, 40)
-  b: random(4, 40)
-
-respuesta: mcd(a, b)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el MCD de {a} y {b}?"
-
-explicacion: |
-  Se buscan los divisores en común de {a} y {b}, y se toma el mayor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
+  tema: "demostracion_deduccion"
   nivel: "intermedio"
-  tags: ["mcd"]
-
-variables:
-  a: random(40, 200)
-  b: random(40, 200)
-
-respuesta: mcd(a, b)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el MCD de {a} y {b}?"
-
-explicacion: |
-  Con números más grandes conviene usar la factorización prima en vez de
-  listar todos los divisores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "intermedio"
-  tags: ["mcd", "factorizacion"]
-
-variables:
-  primo_comun: uno_de([2, 3, 5])
-  k1: random(2, 9)
-  k2: random(2, 9)
-  a: primo_comun * k1
-  b: primo_comun * k2
-
-restricciones:
-  - k1 != k2
-
-respuesta: mcd(a, b)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el MCD de {a} y {b}?"
-
-pasos:
-  - "{a} = {primo_comun} × {k1}. {b} = {primo_comun} × {k2}. Comparten el factor {primo_comun}."
-
-explicacion: |
-  Al menos comparten el factor primo {primo_comun}; el MCD real puede ser
-  más grande si {k1} y {k2} también comparten factores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "basico"
-  tags: ["mcd", "divisores"]
-
-variables:
-  d: random(2, 9)
-  a: d * random(2, 10)
-  b: d * random(2, 10)
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es {d} un divisor común de {a} y {b}?"
+enunciado: "Una vez demostrada una propiedad, se puede usar como paso justificado en demostraciones futuras, sin tener que volver a probarla cada vez."
 
 explicacion: |
-  {d} divide a los dos, aunque no sea necesariamente el MCD (podría haber
-  un divisor común más grande).
+  Es cómo se construyen las matemáticas: cada demostración nueva se
+  apoya en las que ya están probadas.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcd"
+  tema: "demostracion_deduccion"
   nivel: "intermedio"
-  tags: ["mcd"]
+  tags: ["aplicacion"]
 
 variables:
-  n: random(2, 200)
+  m: random(1, 15)
+  n: random(1, 15)
+  a: 2 * m + 1
+  b: 2 * n + 1
 
-respuesta: mcd(n, n + 1)
+respuesta: a + b
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es el MCD de {n} y {n + 1} (dos números consecutivos)?"
-
-explicacion: |
-  Dos números consecutivos nunca comparten ningún factor (salvo el 1): su
-  MCD siempre es 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "basico"
-  tags: ["mcd"]
-
-variables:
-  n: random(2, 999)
-
-respuesta: n
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el MCD de {n} y {n}?"
-
-explicacion: |
-  El mayor divisor en común de un número consigo mismo es el propio
-  número.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "basico"
-  tags: ["mcd", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El MCD de dos números nunca puede ser mayor que el más chico de los dos."
-
-explicacion: |
-  Un divisor de un número nunca puede ser mayor que ese número; como el
-  MCD divide a los dos, no puede superar al más chico.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "intermedio"
-  tags: ["mcd"]
-
-variables:
-  a: random(10, 60)
-  b: random(10, 60)
-  correcto: mcd(a, b)
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - correcto + 1
-  - a
-
-enunciado: "¿Cuál es el MCD de {a} y {b}?"
-
-explicacion: |
-  Las otras opciones no son divisores en común de los dos números (o no
-  son el mayor de ellos).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "intermedio"
-  tags: ["mcd", "problema"]
-
-variables:
-  d: random(2, 9)
-  num: d * random(2, 9)
-  den: d * random(2, 9)
-  divisor_comun: mcd(num, den)
-
-restricciones:
-  - num != den
-
-respuesta: num / divisor_comun
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Para simplificar la fracción {num}/{den} al máximo, hay que dividir numerador y denominador por su MCD. ¿Cuál queda el numerador?"
+enunciado: "a = {a} y b = {b} son impares (a=2×{m}+1, b=2×{n}+1). ¿Cuánto vale a+b? (Se puede demostrar que impar+impar siempre da par.)"
 
 pasos:
-  - "El MCD de {num} y {den} es {divisor_comun}. {num} ÷ {divisor_comun} = {num / divisor_comun}"
+  - "a+b = (2m+1)+(2n+1) = 2m+2n+2 = 2(m+n+1), que tiene forma 2×(entero)"
 
 explicacion: |
-  Dividir numerador y denominador por su MCD da la fracción equivalente
-  más simple posible.
+  Impar + impar = par, siempre — otra propiedad deducible de la
+  definición de número impar.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcd"
-  nivel: "intermedio"
-  tags: ["mcd", "problema"]
+  tema: "demostracion_deduccion"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
-variables:
-  a: random(10, 60)
-  b: random(10, 60)
+respuesta: falso
 
-respuesta: mcd(a, b)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Tenés {a} caramelos y {b} chocolates, y querés armar la mayor cantidad posible de bolsitas iguales usando todos, sin mezclar tipos ni que sobre nada. ¿Cuántas bolsitas podés armar?"
-
-explicacion: |
-  La cantidad máxima de grupos iguales, sin que sobre nada de ninguno de
-  los dos, es el MCD de las dos cantidades.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "intermedio"
-  tags: ["mcd", "problema"]
-
-variables:
-  a: random(20, 200)
-  b: random(20, 200)
-
-respuesta: mcd(a, b)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Tenés dos varillas de {a} cm y {b} cm, y querés cortarlas en pedazos iguales, del mayor tamaño posible, sin que sobre nada de ninguna. ¿De cuántos cm tiene que ser cada pedazo?"
-
-explicacion: |
-  El pedazo más grande posible que entra exacto en las dos varillas es el
-  MCD de sus longitudes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "avanzado"
-  tags: ["mcd"]
-
-variables:
-  a: random(10, 80)
-  b: random(10, 80)
-  c: random(10, 80)
-
-respuesta: mcd(mcd(a, b), c)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el MCD de {a}, {b} y {c}?"
-
-pasos:
-  - "Se calcula de a dos: MCD({a}, {b}) = {mcd(a, b)}, y después MCD({mcd(a, b)}, {c}) = {mcd(mcd(a, b), c)}"
-
-explicacion: |
-  El MCD de tres números se calcula de a pares: primero entre dos, y
-  después ese resultado con el tercero.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "intermedio"
-  tags: ["mcd", "verificacion"]
-
-variables:
-  a: random(10, 80)
-  b: random(10, 80)
-  correcto: mcd(a, b)
-  error: uno_de([0, 0, 0, 1, -1])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
 tipo: vf
 
-enunciado: "¿Es correcto decir que el MCD de {a} y {b} es {mostrado}?"
+enunciado: "Para estar seguro de que una propiedad matemática es cierta, hace falta revisar todos los números posibles, uno por uno."
 
 explicacion: |
-  Hay que verificar dos cosas: que {mostrado} sea divisor de los dos
-  números, y que no haya ningún divisor común más grande.
+  Justamente para eso sirve la deducción: probar con letras que
+  representan cualquier número, en vez de tener que revisar infinitos
+  casos uno por uno.
 ```
+
+## Sección: demostracion-induccion (24 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcd"
-  nivel: "intermedio"
-  tags: ["mcd"]
-
-variables:
-  primos: [2, 3, 5, 7, 11, 13]
-  p1: uno_de(primos)
-  p2: uno_de(primos)
-
-restricciones:
-  - p1 != p2
+  tema: "demostracion_induccion"
+  nivel: "basico"
+  tags: ["caso_base"]
 
 respuesta: 1
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es el MCD de {p1} y {p2} (dos números primos distintos)?"
+enunciado: "Para la fórmula 1+2+...+n = n(n+1)/2, ¿cuánto da la suma en el caso base (n=1)?"
 
 explicacion: |
-  Dos primos distintos no comparten ningún factor además del 1: su MCD
-  siempre es 1.
+  La suma de un solo término (el 1) es 1, y 1×2/2 = 1 — coinciden.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcd"
+  tema: "demostracion_induccion"
   nivel: "basico"
-  tags: ["mcd", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El MCD de dos números siempre es divisor de los dos, además de ser el mayor de los divisores en común."
-
-explicacion: |
-  Es la propia definición: el MCD tiene que dividir a ambos números para
-  contar como divisor común.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "intermedio"
-  tags: ["mcd", "divisores"]
+  tags: ["aplicacion"]
 
 variables:
-  d: random(2, 9)
-  a: d * random(2, 9)
-  b: d * random(2, 9)
+  n: random(1, 100)
 
-tipo: completar
-enunciado: "Nombrá un divisor común de {a} y {b} (no hace falta que sea el MCD, alcanza con que sea común a los dos)."
-respuestas_validas:
-  - d
-  - 1
-
-explicacion: |
-  Cualquier divisor que aparezca en las dos listas de divisores sirve; el
-  1 siempre es válido porque divide a todos los números.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "intermedio"
-  tags: ["mcd"]
-
-variables:
-  a: random(2, 30)
-  k: random(2, 9)
-  b: a * k
-
-respuesta: a
+respuesta: n * (n + 1) / 2
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es el MCD de {a} y {b}, sabiendo que {b} es múltiplo de {a}?"
+enunciado: "Usando la fórmula 1+2+...+n = n(n+1)/2, ¿cuánto vale la suma de los primeros {n} números naturales?"
 
 explicacion: |
-  Cuando un número es múltiplo del otro, el más chico de los dos ya es el
-  MCD: no hace falta calcular nada más.
+  n(n+1)/2 = {n}×{n + 1}/2.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcd"
+  tema: "demostracion_induccion"
   nivel: "intermedio"
-  tags: ["mcd", "divisores"]
+  tags: ["paso_inductivo"]
 
 variables:
-  d: random(2, 9)
-  a: d * random(2, 9)
-  b: d * random(2, 9)
-  no_comun: a + 1
+  k: random(1, 50)
+  suma_k: k * (k + 1) / 2
 
-respuesta: no_comun
-tipo: mc
-opciones_explicitas:
-  - d
-  - 1
-  - no_comun
-
-enunciado: "¿Cuál de estos tres números NO es divisor común de {a} y {b}?"
-
-explicacion: |
-  {no_comun} es mayor que {a}, así que ni siquiera puede ser divisor de
-  {a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "basico"
-  tags: ["mcd", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El MCD de dos números consecutivos (como 8 y 9) siempre es 1."
-
-explicacion: |
-  Dos números consecutivos nunca comparten factores, salvo el 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "avanzado"
-  tags: ["mcd", "problema"]
-
-variables:
-  d: random(2, 9)
-  a: d * random(2, 9)
-  b: d * random(2, 9)
-  divisor_comun: mcd(a, b)
-
-restricciones:
-  - a != b
-
-respuesta: b / divisor_comun
+respuesta: suma_k + (k + 1)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "En un salón hay {a} varones y {b} mujeres. Para escribir esa razón de la forma más simple posible, hay que dividir los dos números por su MCD. ¿Cuál queda el número de mujeres?"
+enunciado: "Hipótesis inductiva: la suma hasta k = {k} es {suma_k}. ¿Cuánto vale la suma hasta k+1 = {k + 1}?"
 
 pasos:
-  - "MCD({a}, {b}) = {divisor_comun}. {b} ÷ {divisor_comun} = {b / divisor_comun}"
+  - "Suma hasta k+1 = (suma hasta k) + (k+1) = {suma_k} + {k + 1} = {suma_k + (k + 1)}"
 
 explicacion: |
-  Simplificar una razón es la misma idea que simplificar una fracción:
-  dividir ambos números por su MCD.
+  Se usa la hipótesis inductiva (la suma hasta k, ya conocida) para
+  construir la suma hasta k+1, sumándole el término nuevo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcd"
+  tema: "demostracion_induccion"
   nivel: "avanzado"
-  tags: ["mcd", "factorizacion"]
+  tags: ["paso_inductivo", "verificacion", "verdadero_falso"]
 
 variables:
-  a: uno_de([12, 18, 24, 36])
-  b: uno_de([12, 18, 24, 36])
-  correcto: mcd(a, b)
+  k: random(1, 50)
+  suma_k: k * (k + 1) / 2
+  suma_k_mas_1: suma_k + (k + 1)
+  formula_directa: (k + 1) * (k + 2) / 2
 
-restricciones:
-  - a != b
-
-respuesta: correcto
-tipo: mc
-opciones_explicitas:
-  - correcto
-  - a * b
-  - correcto + 6
-
-enunciado: "¿Cuál es el MCD de {a} y {b}?"
-
-explicacion: |
-  Conviene factorizar los dos números en primos y quedarse con los
-  factores en común, usando el menor exponente de cada uno.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "mcd"
-  nivel: "intermedio"
-  tags: ["mcd", "propiedades"]
-
-variables:
-  a: random(10, 90)
-  b: random(10, 90)
-
-respuesta: (mcd(a, b) == mcd(b, a))
+respuesta: (suma_k_mas_1 == formula_directa)
 tipo: vf
 
-enunciado: "¿Es cierto que el MCD de {a} y {b} da lo mismo que el MCD de {b} y {a}?"
+enunciado: "Para k = {k}: sumando el término nuevo a la hipótesis inductiva da {suma_k_mas_1}. Aplicando la fórmula n(n+1)/2 directamente en n=k+1={k + 1} da {formula_directa}. ¿Coinciden?"
 
 explicacion: |
-  El orden en que se comparan los dos números no cambia el resultado: el
-  MCD es conmutativo.
+  Tienen que coincidir siempre — es justo lo que prueba que el paso
+  inductivo funciona para cualquier k.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "mcd"
+  tema: "demostracion_induccion"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+variables:
+  n: random(1, 30)
+
+respuesta: n ^ 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La suma de los primeros n números impares es n². ¿Cuánto vale la suma de los primeros {n} impares?"
+
+explicacion: |
+  1+3+5+...+(2n−1) = n², otra propiedad que se demuestra por inducción.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
   nivel: "basico"
-  tags: ["mcd", "vocabulario"]
+  tags: ["caso_base"]
+
+respuesta: 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Para 'la suma de los primeros n impares es n²', ¿cuánto da el caso base (n=1, el primer impar, que es 1)?"
+
+explicacion: |
+  El primer impar es 1, y 1² = 1 — coincide.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "avanzado"
+  tags: ["paso_inductivo"]
+
+variables:
+  k: random(1, 30)
+  suma_k: k ^ 2
+  siguiente_impar: 2 * (k + 1) - 1
+
+respuesta: suma_k + siguiente_impar
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Hipótesis inductiva: la suma de los primeros {k} impares es {suma_k}. El siguiente impar es {siguiente_impar}. ¿Cuánto vale la suma de los primeros {k + 1} impares?"
+
+pasos:
+  - "{suma_k} + {siguiente_impar} = {suma_k + siguiente_impar}, que tiene que coincidir con ({k + 1})²"
+
+explicacion: |
+  Sumar el siguiente número impar a k² siempre da (k+1)² — esa es la
+  identidad que prueba el paso inductivo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El MCD sirve para saber, entre otras cosas, cuál es el tamaño de grupo más grande que se puede repetir exacto en dos cantidades distintas, sin que sobre nada."
+enunciado: "Una demostración por inducción necesita dos pasos: probar el caso base, y probar que P(k) implica P(k+1)."
 
 explicacion: |
-  Es la aplicación práctica más común del MCD: repartir o cortar en la
-  mayor cantidad posible de partes iguales.
+  Con esos dos pasos alcanza para garantizar que la propiedad vale para
+  todos los n a partir del caso base.
 ```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Si se prueba el paso inductivo (P(k) implica P(k+1)) pero no el caso base, la demostración por inducción queda completa igual."
+
+explicacion: |
+  Sin el caso base, no hay "primera ficha" que caiga — el paso inductivo
+  solo no garantiza que la propiedad valga para ningún n en particular.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La inducción matemática se puede pensar como una fila de fichas de dominó: el caso base es empujar la primera, y el paso inductivo garantiza que cada ficha tira la siguiente."
+
+explicacion: |
+  Es la analogía clásica para entender por qué esos dos pasos alcanzan
+  para cubrir todos los casos, sin probarlos uno por uno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La hipótesis inductiva es la suposición 'P(k) es verdadero', que se usa como herramienta para demostrar P(k+1)."
+
+explicacion: |
+  No es circular: se usa P(k) (ya asumido válido) para construir el
+  argumento de P(k+1), un paso lógico legítimo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La inducción matemática es lo mismo que comprobar la fórmula para varios valores de n y generalizar."
+
+explicacion: |
+  A pesar del nombre parecido, son técnicas distintas: la inducción
+  matemática es deductiva y rigurosa (dos pasos); generalizar de
+  ejemplos no prueba nada, como ya se vio en
+  `../demostracion-deduccion/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "intermedio"
+  tags: ["opcion_multiple"]
+
+respuesta: "El caso base"
+tipo: mc
+opciones_explicitas:
+  - "El caso base"
+  - "El paso inductivo"
+  - "Nada, está completa"
+
+enunciado: "Alguien demuestra que 'si P(k) es verdadero, entonces P(k+1) también', pero nunca comprueba P(1). ¿Qué le falta a la demostración?"
+
+explicacion: |
+  Sin el caso base, no se sabe si la cadena de implicaciones arranca de
+  algún punto verdadero.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "avanzado"
+  tags: ["opcion_multiple", "error_comun"]
+
+respuesta: "Asumió P(k+1) directamente, en vez de deducirlo de P(k)"
+tipo: mc
+opciones_explicitas:
+  - "Asumió P(k+1) directamente, en vez de deducirlo de P(k)"
+  - "No probó el caso base"
+  - "Usó un número negativo"
+
+enunciado: "En el 'paso inductivo', alguien escribe directamente la fórmula para k+1 sin partir de la hipótesis inductiva P(k). ¿Cuál es el error?"
+
+explicacion: |
+  El paso inductivo tiene que DEDUCIR P(k+1) a partir de P(k) — asumir
+  P(k+1) directamente es un razonamiento circular, no prueba nada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "basico"
+  tags: ["aplicacion", "verdadero_falso"]
+
+variables:
+  n: random(2, 10)
+
+respuesta: ((n * (n + 1) / 2) == (n * (n + 1) / 2))
+tipo: vf
+
+enunciado: "¿La fórmula n(n+1)/2 da el mismo resultado que sumar 1+2+...+{n} paso a paso, para n = {n}?"
+
+explicacion: |
+  Comprobar un caso puntual da confianza, pero sólo la inducción
+  completa (caso base + paso inductivo) demuestra que vale para TODO n.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El caso base de una inducción no siempre tiene que ser n=1 — puede empezar en n=0, o en cualquier otro número, según qué se quiera demostrar."
+
+explicacion: |
+  Lo que importa es que el caso base sea el primer valor para el que se
+  afirma que la propiedad vale.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+variables:
+  n: random(1, 15)
+
+respuesta: 2 ^ (n + 1) - 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La fórmula 1 + 2 + 4 + ... + 2ⁿ = 2^(n+1) − 1 se demuestra por inducción. ¿Cuánto da para n = {n}?"
+
+explicacion: |
+  2^({n}+1) − 1 = {2 ^ (n + 1) - 1}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "avanzado"
+  tags: ["paso_inductivo"]
+
+variables:
+  k: random(1, 15)
+  suma_k: 2 ^ (k + 1) - 1
+  siguiente_potencia: 2 ^ (k + 1)
+
+respuesta: suma_k + siguiente_potencia
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Hipótesis inductiva: 1+2+...+2^{k} = {suma_k}. El siguiente término es 2^{k + 1} = {siguiente_potencia}. ¿Cuánto vale la suma hasta 2^(k+1)?"
+
+pasos:
+  - "{suma_k} + {siguiente_potencia} = {suma_k + siguiente_potencia}, que tiene que coincidir con 2^({k + 1}+1) − 1"
+
+explicacion: |
+  Se suma el nuevo término a la hipótesis inductiva, igual que en los
+  ejemplos anteriores.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A pesar de llamarse 'inducción', la inducción matemática es una técnica deductiva: si los dos pasos están bien hechos, la conclusión es necesariamente verdadera."
+
+explicacion: |
+  El nombre es un poco engañoso — no tiene la debilidad de la
+  "inducción" en el sentido cotidiano (generalizar de casos), es tan
+  rigurosa como cualquier otra demostración deductiva.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  n: random(2, 10)
+  formula_valor: n * (n + 1) / 2
+  suma_real: n * (n + 1) / 2
+
+respuesta: (formula_valor == suma_real)
+tipo: vf
+
+enunciado: "¿La fórmula n(n+1)/2 coincide con la suma real de 1 hasta {n}?"
+
+explicacion: |
+  En este caso la fórmula ya está bien planteada, así que coincide — un
+  caso base mal calculado sería el punto donde debería fallar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La inducción matemática también sirve para demostrar desigualdades que valen para todo n (no sólo igualdades como sumas)."
+
+explicacion: |
+  El esquema es el mismo (caso base + paso inductivo), aplicado a una
+  propiedad que es una desigualdad en vez de una igualdad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+variables:
+  k: random(2, 40)
+
+respuesta: (k + 1) * (k + 2) / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Si la suma hasta k = {k} es {k}×({k}+1)/2, ¿cuál sería la suma hasta k+1 según la fórmula, evaluada directamente en n = {k + 1}?"
+
+explicacion: |
+  (k+1)(k+2)/2 — el mismo resultado al que se llega sumando el término
+  nuevo a la hipótesis inductiva.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Una demostración por inducción matemática, sobre los números naturales, también prueba automáticamente la propiedad para números con decimales."
+
+explicacion: |
+  La inducción cubre los naturales (o enteros) a partir del caso base,
+  avanzando de a uno — no dice nada sobre valores no enteros, que no
+  forman parte de esa cadena de "fichas de dominó".
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_induccion"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una vez demostrada una fórmula por inducción, se puede usar directamente (sin repetir la demostración) en problemas futuros, igual que cualquier otra propiedad ya probada."
+
+explicacion: |
+  Mismo principio que en `../demostracion-deduccion/`: lo ya demostrado
+  se puede reusar como paso justificado.
+```
+
+## Sección: demostracion-reduccion-al-absurdo (22 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+variables:
+  k: random(1, 20)
+  a: 2 * k
+
+respuesta: k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En la demostración de que √2 es irracional, si a² es par entonces a es par: a = 2k. Si a = {a}, ¿cuánto vale k?"
+
+explicacion: |
+  k = a/2 = {k} — el mismo paso que se repite con b más adelante en la
+  demostración.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  k: random(1, 15)
+  a: 2 * k
+  b: 2 * (k + 1)
+
+respuesta: (a - (a / 2) * 2) == 0
+tipo: vf
+
+enunciado: "En el paso final de la demostración, a = {a} y b = {b} resultan ser ambos pares. ¿Es a par?"
+
+explicacion: |
+  Que a y b sean ambos pares contradice la suposición de que a/b ya
+  estaba simplificada al máximo (sin factores comunes) — esa es la
+  contradicción que cierra la demostración.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para demostrar una afirmación P por reducción al absurdo, el primer paso es suponer que P es FALSA."
+
+explicacion: |
+  Se supone lo contrario de lo que se quiere probar, y se busca una
+  contradicción a partir de esa suposición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si suponer '¬P' (que P es falsa) lleva a una contradicción lógica, entonces P tiene que ser verdadera."
+
+explicacion: |
+  Es la lógica central de la técnica: una suposición que lleva a algo
+  imposible no puede ser cierta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Llegar a un resultado sorprendente o poco intuitivo ya cuenta como la contradicción que necesita una reducción al absurdo."
+
+explicacion: |
+  Hace falta una contradicción LÓGICA real (dos afirmaciones que no
+  pueden ser ciertas al mismo tiempo) — algo simplemente inesperado no
+  alcanza.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "avanzado"
+  tags: ["opcion_multiple"]
+
+respuesta: "Existe al menos un x que no cumple A"
+tipo: mc
+opciones_explicitas:
+  - "Existe al menos un x que no cumple A"
+  - "Ningún x cumple A"
+  - "Todos los x no cumplen A"
+
+enunciado: "¿Cuál es la negación correcta de 'todo x cumple la propiedad A'?"
+
+explicacion: |
+  Negar un "para todo" da un "existe uno que no" — no un "ninguno
+  cumple" (eso sería una afirmación mucho más fuerte que la negación
+  real).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La reducción al absurdo y el uso de un contraejemplo son la misma técnica con otro nombre."
+
+explicacion: |
+  Son distintas: un contraejemplo REFUTA una afirmación con un caso
+  concreto; la reducción al absurdo PRUEBA una afirmación con un
+  argumento lógico general.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+variables:
+  n: random(1, 1000)
+
+respuesta: n + 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Para demostrar que no existe el mayor entero, se supone que N = {n} es el mayor. ¿Qué número entero es mayor que N y contradice la suposición?"
+
+explicacion: |
+  N+1 siempre es un entero mayor que N, sin importar qué tan grande sea
+  N — esa es la contradicción.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "basico"
+  tags: ["verdadero_falso"]
+
+variables:
+  n: random(1, 10000)
+
+respuesta: ((n + 1) > n)
+tipo: vf
+
+enunciado: "N = {n}. ¿Es N+1 mayor que N?"
+
+explicacion: |
+  Siempre, para cualquier entero — es la base de la demostración de que
+  no existe un entero máximo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "intermedio"
+  tags: ["opcion_multiple"]
+
+respuesta: "Suponer ¬P, deducir una contradicción, concluir que P es verdadera"
+tipo: mc
+opciones_explicitas:
+  - "Suponer ¬P, deducir una contradicción, concluir que P es verdadera"
+  - "Suponer P, deducir una contradicción, concluir que P es falsa"
+  - "Buscar un ejemplo que cumpla P"
+
+enunciado: "¿Cuál es el orden correcto de los pasos de una reducción al absurdo para demostrar P?"
+
+explicacion: |
+  Se supone lo CONTRARIO de lo que se quiere probar, no P misma.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "avanzado"
+  tags: ["aplicacion", "verdadero_falso"]
+
+variables:
+  b: random(1, 15)
+  a2: 2 * (b ^ 2)
+
+respuesta: (a2 - (a2 / 2) * 2) == 0
+tipo: vf
+
+enunciado: "Si a² = 2×{b}² = {a2}, ¿es a² un número par?"
+
+explicacion: |
+  a² = 2×(algo), así que siempre es par por construcción — el primer
+  paso del argumento en la demostración de que √2 es irracional.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Conviene usar reducción al absurdo para demostrar CUALQUIER afirmación, incluso cuando hay un argumento directo corto y simple."
+
+explicacion: |
+  Si hay un camino directo (deducción simple) corto, no hace falta
+  complicar con una suposición contraria — la reducción al absurdo es
+  más útil cuando el camino directo no es claro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "avanzado"
+  tags: ["concepto", "opcion_multiple"]
+
+respuesta: "Que la fracción a/b ya estaba simplificada (sin factores comunes)"
+tipo: mc
+opciones_explicitas:
+  - "Que la fracción a/b ya estaba simplificada (sin factores comunes)"
+  - "Que a y b son números enteros"
+  - "Que 2 es un número primo"
+
+enunciado: "En la demostración de que √2 es irracional, ¿qué es exactamente lo que se contradice al final?"
+
+explicacion: |
+  Se había supuesto a/b simplificada al máximo; encontrar que a y b son
+  ambos pares (comparten el factor 2) contradice justo esa suposición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La contradicción de una reducción al absurdo puede ser contra un hecho matemático ya demostrado antes, no sólo contra la propia suposición inicial."
+
+explicacion: |
+  Cualquier contradicción lógica sirve: contra la suposición misma,
+  contra una definición, o contra un teorema ya probado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+variables:
+  k: random(1, 15)
+  b2: 2 * (k ^ 2)
+
+respuesta: b2 / 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Siguiendo la demostración, si b² = 2k² = {b2}, ¿cuánto vale k²?"
+
+explicacion: |
+  k² = b²/2 = {b2 / 2} — el paso simétrico al que ya se hizo con a.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los pasos intermedios de una reducción al absurdo (desde ¬P hasta la contradicción) tienen que ser deducciones válidas, igual que en cualquier demostración directa."
+
+explicacion: |
+  Sólo cambia el punto de partida (se parte de ¬P en vez de la
+  hipótesis directa) — el resto de la cadena lógica funciona igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Si al intentar una reducción al absurdo no se logra llegar a ninguna contradicción, eso ya demuestra que P es falsa."
+
+explicacion: |
+  No llegar a una contradicción no prueba nada — puede ser que la
+  contradicción exista y todavía no se haya encontrado, o que haya que
+  intentar otro camino.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "intermedio"
+  tags: ["opcion_multiple"]
+
+respuesta: "a es impar"
+tipo: mc
+opciones_explicitas:
+  - "a es impar"
+  - "a es par"
+  - "a es cero"
+
+enunciado: "Para demostrar por el absurdo que 'si a² es par, entonces a es par', el primer paso es suponer lo contrario. ¿Qué se supone?"
+
+explicacion: |
+  Se supone la negación de la tesis: que a NO es par, o sea, que a es
+  impar — y de ahí se busca contradecir que a² sea par.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  m: random(1, 20)
+  a: 2 * m + 1
+
+respuesta: ((a ^ 2) - ((a ^ 2) / 2) * 2) != 0
+tipo: vf
+
+enunciado: "Suponiendo a = {a} (impar), ¿a² también da impar?"
+
+explicacion: |
+  a² = (2m+1)² = 4m²+4m+1, que tiene la forma 2×(entero)+1 — siempre
+  impar. Esto contradice que a² fuera par, cerrando la reducción al
+  absurdo de 'a² par implica a par'.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El objetivo final de una reducción al absurdo es PROBAR que la afirmación original P es verdadera, no refutarla."
+
+explicacion: |
+  Aunque el camino pasa por suponer lo contrario, el resultado final es
+  una prueba de P, no una refutación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "'Existen infinitos números primos' es otra afirmación clásica que se demuestra por reducción al absurdo (suponiendo que hay finitos, y construyendo uno nuevo que no estaba en la lista)."
+
+explicacion: |
+  Es el argumento de Euclides: suponer una lista finita y completa de
+  primos, multiplicarlos todos y sumar 1 — ese número nuevo no es
+  divisible por ninguno de la lista, contradiciendo que fuera completa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "demostracion_reduccion_absurdo"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  k: random(1, 15)
+  j: random(1, 15)
+  a: 2 * k
+  b: 2 * j
+
+respuesta: (((a - (a / 2) * 2) == 0) == ((b - (b / 2) * 2) == 0))
+tipo: vf
+
+enunciado: "a = {a} y b = {b}. ¿Es cierto que a y b son 'igual de pares' (los dos pares, o los dos no pares)?"
+
+explicacion: |
+  En la demostración, llegar a que a Y b son ambos pares es justo la
+  contradicción que cierra el argumento: contradice que a/b estuviera
+  simplificada al máximo.
+```
+

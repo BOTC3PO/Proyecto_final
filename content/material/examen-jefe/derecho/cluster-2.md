@@ -1,6 +1,6 @@
-# Examen jefe — Jurista Multidisciplinario
+# Examen jefe — [PENDIENTE #895]
 
-> Logro #203. Completaste el examen integrador de las principales ramas del derecho. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #895. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -32,11 +32,12 @@ metadata:
   tags: ["sujetos", "personas"]
 
 tipo: completar
-respuestas_validas: ["persona física", "persona jurídica"]
+respuestas_validas:
+  - "persona jurídica"
 
 respuesta: "persona jurídica"
 
-enunciado: "En el derecho civil, además de la ___ (ser humano), existen las ___ (entidades como sociedades o fundaciones) que tienen capacidad para ser sujetos de derechos y obligaciones."
+enunciado: "En el derecho civil, además de la persona física (ser humano), existen las ___ (entidades como sociedades o fundaciones) que tienen capacidad para ser sujetos de derechos y obligaciones."
 
 explicacion: |
   Existen dos tipos de sujetos de derecho: la persona física (el ser humano) y la persona jurídica (entes colectivos o instituciones con personalidad propia).
@@ -68,10 +69,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["El contrato de compraventa de un automóvil", "La herencia de un inmueble"],
-    ["La celebración de un matrimonio", "La transferencia de propiedad de un bien"]
-  ]
+  escenarios: [["El contrato de compraventa de un automóvil", "La herencia de un inmueble"], ["La celebración de un matrimonio", "La transferencia de propiedad de un bien"]]
 
 tipo: mc
 opciones_explicitas: ["Relaciones de Derecho Público", "Relaciones de Derecho Privado"]
@@ -94,7 +92,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Nacimiento de la persona", "Adquisición de la capacidad de goce", "Ejercicio de la capacidad de ejercicio"]
 
-respuesta: ["Nacimiento de la persona", "Adquisición de la capacidad de goce", "Ejercicio de la capacidad de ejercicio"]
+respuesta_orden: ["Nacimiento de la persona", "Adquisición de la capacidad de goce", "Ejercicio de la capacidad de ejercicio"]
 
 enunciado: "Ordene cronológicamente los hitos que permiten el desarrollo de la personalidad jurídica y su capacidad en un individuo:"
 
@@ -115,8 +113,7 @@ variables:
 
 enunciado: "Juan celebra un contrato de compraventa con Pedro donde se acuerda la transferencia de {objeto} por un valor de ${precio}. En este acto, se perfecciona el consentimiento entre las partes sobre el objeto y el precio."
 
-opciones_explicitas: ["Verdadero", "Falso"]
-respuesta: "Verdadero"
+respuesta: verdadero
 tipo: "vf"
 
 explicacion: |
@@ -131,14 +128,13 @@ metadata:
   tags: ["capacidad", "personas"]
 
 variables:
-  datos: [[16, "Verdadero"], [25, "Verdadero"], [30, "Verdadero"]]
+  edades: [16, 25, 30]
   idx: uno_de([0, 1, 2])
-  edad: datos[idx][0]
+  edad: edades[idx]
 
 enunciado: "Un individuo de {edad} años desea realizar un contrato de arrendamiento de forma autónoma. Según la normativa civil general, si la persona es mayor de edad, posee capacidad de ejercicio."
 
-opciones_explicitas: ["Verdadero", "Falso"]
-respuesta: datos[idx][1]
+respuesta: verdadero
 tipo: "vf"
 
 explicacion: |
@@ -153,12 +149,15 @@ metadata:
   tags: ["sucesiones", "herencia"]
 
 variables:
-  causa: uno_de(["testamento", "falta de testamento"])
+  idx: uno_de([0, 1])
+  causas: ["testamento", "falta de testamento"]
+  tipos: ["testamentaria", "legítima"]
 
-enunciado: "Ante el fallecimiento de una persona, si la causa de la transmisión de sus bienes es {causa}, nos encontramos ante una sucesión testamentaria o una sucesión legítima (ab intestato) respectivamente."
+enunciado: "Ante el fallecimiento de una persona, si la causa de la transmisión de sus bienes es {causas[idx]}, nos encontramos ante una sucesión ___ (o legítima/ab intestato, según corresponda)."
 
-respuestas_validas: ["testamentaria", "legítima"]
-respuesta: "testamentaria"
+respuestas_validas:
+  - tipos[idx]
+respuesta: tipos[idx]
 tipo: "completar"
 
 explicacion: |
@@ -172,12 +171,10 @@ metadata:
   nivel: "avanzado"
   tags: ["acton_juridico", "vicios"]
 
-variables:
-  vicio: uno_de(["error", "dolo", "violencia"])
-
 enunciado: "Para que un acto jurídico sea válido, su voluntad debe ser libre. Si una persona es obligada mediante amenazas físicas para firmar un contrato, el vicio que afecta la validez es el ___."
 
-respuestas_validas: ["vicio de violencia"]
+respuestas_validas:
+  - "vicio de violencia"
 respuesta: "vicio de violencia"
 tipo: "completar"
 
@@ -192,13 +189,10 @@ metadata:
   nivel: "intermedio"
   tags: ["propiedad", "derechos_reales"]
 
-variables:
-  bien: uno_de(["inmueble", "mueble"])
-
-enunciado: "Para que la transferencia de un {bien} sea oponible a terceros y perfeccione el derecho real de propiedad, se deben seguir ciertos pasos legales. Ordene el proceso típico de una compraventa de este tipo:"
+enunciado: "Para que la transferencia de un inmueble sea oponible a terceros y perfeccione el derecho real de propiedad, se deben seguir ciertos pasos legales. Ordene el proceso típico de una compraventa de este tipo:"
 
 opciones_explicitas: ["Escritura pública", "Pago del precio", "Inscripción registral"]
-respuesta: ["Escritura pública", "Pago del precio", "Inscripción registral"]
+respuesta_orden: ["Escritura pública", "Pago del precio", "Inscripción registral"]
 tipo: "ordenar"
 
 explicacion: |
@@ -214,7 +208,9 @@ metadata:
 
 respuesta: "privadas"
 tipo: completar
-respuestas_validas: ["privadas", "privada"]
+respuestas_validas:
+  - "privadas"
+  - "privada"
 
 enunciado: "A diferencia del derecho público, el derecho civil regula las relaciones entre personas de carácter ___."
 
@@ -246,13 +242,9 @@ metadata:
   tags: ["sujetos_derecho"]
 
 variables:
-  escenario: uno_de([
-    ["Un contrato de compraventa entre dos vecinos", "civil"],
-    ["Una multa por exceso de velocidad", "administrativo"],
-    ["Un juicio por un delito de robo", "penal"]
-  ])
+  escenario: uno_de([["Un contrato de compraventa entre dos vecinos", "civil"], ["Una multa por exceso de velocidad", "administrativo"], ["Un juicio por un delito de robo", "penal"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["civil", "administrativo", "penal"]
 
@@ -269,7 +261,7 @@ metadata:
   nivel: "intermedio"
   tags: ["sucesiones", "orden_legal"]
 
-respuesta: ["1. Testamento", "2. Sucesión Intestada", "3. Sucesión Abintestato"]
+respuesta_orden: ["1. Testamento", "2. Sucesión Intestada", "3. Sucesión Abintestato"]
 tipo: ordenar
 opciones_explicitas: ["1. Testamento", "2. Sucesión Intestada", "3. Sucesión Abintestato"]
 
@@ -305,7 +297,8 @@ metadata:
 
 respuesta: "derecho_privado"
 tipo: completar
-respuestas_validas: ["derecho_privado"]
+respuestas_validas:
+  - "derecho_privado"
 
 enunciado: "Mientras que el derecho público regula la organización del Estado y sus relaciones con los particulares, el derecho civil pertenece al ámbito del ________."
 
@@ -354,7 +347,7 @@ metadata:
   tags: ["contratos", "ordenar"]
 
 opciones_explicitas: ["Normas de orden público", "Autonomía de la voluntad (acuerdo de partes)", "Cumplimiento de la prestación"]
-respuesta: ["Normas de orden público", "Autonomía de la voluntad (acuerdo de partes)", "Cumplimiento de la prestación"]
+respuesta_orden: ["Normas de orden público", "Autonomía de la voluntad (acuerdo de partes)", "Cumplimiento de la prestación"]
 tipo: ordenar
 
 enunciado: "En la validez de un contrato civil, ordene cronológicamente la jerarquía de aplicación: primero las normas que no pueden ser alteradas por las partes, luego la voluntad de los contratantes y finalmente la ejecución del acto."
@@ -370,15 +363,12 @@ metadata:
   nivel: "intermedio"
   tags: ["contratos", "derecho_administrativo"]
 
-variables:
-  datos: [[true, "se rige por el derecho privado"], [false, "se rige por el derecho público"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["se rige por el derecho privado", "se rige por derecho público"]
+opciones_explicitas: ["se rige por el derecho privado", "se rige por el derecho público"]
 
-enunciado: "Si un particular celebra un contrato de compraventa con otro particular, la naturaleza de la relación es que {datos[idx][0]}."
+respuesta: "se rige por el derecho privado"
+
+enunciado: "Si un particular celebra un contrato de compraventa con otro particular, la naturaleza de la relación es que ___."
 
 explicacion: |
   En un contrato entre particulares, la relación es de derecho privado. Si una de las partes fuera el Estado actuando con prerrogativas de poder público, entraríamos en el ámbito del derecho administrativo.
@@ -418,7 +408,10 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["consentimiento", "objeto", "vicio"]
+respuestas_validas:
+  - "consentimiento"
+  - "objeto"
+  - "vicio"
 
 enunciado: "En el siguiente supuesto: {datos[idx][0]}. El elemento esencial del contrato que se está describiendo o afectando es el ___."
 
@@ -433,14 +426,11 @@ metadata:
   nivel: "intermedio"
   tags: ["derechos_reales", "propiedad"]
 
-variables:
-  datos: [[true, "Es propietario"], [false, "Es poseedor"]]
-  idx: uno_de([0, 1])
-
-respuestas_validas: [datos[idx][1]]
-respuesta: datos[idx][1]
+respuestas_validas:
+  - "poseedor"
+respuesta: "poseedor"
 tipo: completar
-enunciado: "Si una persona tiene el control de un bien pero no tiene el título de propiedad que la acredite legalmente, la afirmación de que 'tiene el dominio pleno sobre el bien' es ___."
+enunciado: "Si una persona tiene el control de un bien pero no tiene el título de propiedad que la acredite legalmente (no 'tiene el dominio pleno sobre el bien'), su situación jurídica correcta es la de ___."
 
 explicacion: |
   La posesión es el poder de hecho sobre una cosa, mientras que el dominio es el derecho real de propiedad. No son sinónimos.
@@ -456,13 +446,14 @@ metadata:
 variables:
   orden: ["Descendientes", "Ascendientes", "Cónyuge", "Colaterales"]
 
-respuesta: orden
+respuesta_orden: orden
 tipo: ordenar
 
 enunciado: "Ordene los siguientes órdenes hereditarios según la prelación legal típica en el derecho civil (de mayor a menor prioridad):"
 
 explicacion: |
   La ley establece un orden de vocación hereditaria para asegurar la transmisión de bienes, priorizando generalmente a los descendientes y luego a los ascendientes y cónyuge.
+opciones_explicitas: orden
 ```
 
 ```
@@ -534,8 +525,10 @@ variables:
   datos: [["capital", "el aporte económico"], ["fuerza de trabajo", "el esfuerzo humano"]]
 
 tipo: completar
-respuestas_validas: ["capital", "fuerza de trabajo"]
-respuesta: datos[idx][0
+respuestas_validas:
+  - "capital"
+  - "fuerza de trabajo"
+respuesta: datos[idx][0]
 
 enunciado: "En el ámbito del derecho comercial, un elemento esencial para la organización de la empresa es el ___."
 
@@ -574,7 +567,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Estado de insolvencia", "Concurso preventivo", "Quiebra"]
-respuesta: ["Estado de insolvencia", "Concurso preventivo", "Quiebra"]
+respuesta_orden: ["Estado de insolvencia", "Concurso preventivo", "Quiebra"]
 
 enunciado: "Ordene cronológicamente los estadios típicos de un proceso de crisis económica de un comerciante, desde la situación inicial hasta la liquidación forzosa."
 
@@ -610,7 +603,7 @@ metadata:
   nivel: "basico"
   tags: ["comerciante", "acto_de_comercio"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "Una persona que realiza actos de comercio de forma habitual y profesional es considerada comerciante por la ley."
@@ -626,12 +619,9 @@ metadata:
   nivel: "intermedio"
   tags: ["sociedades", "pasos_legales"]
 
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: ["redacción del contrato", "inscripción en el registro", "publicación de edictos", "obtención de CUIT"]
 tipo: "ordenar"
-opciones_explicitas: ["redacción del contrato", "inscripción en el registro", "publicación de edictos", "obtención de CUIT"]
+opciones_explicitas: ["redacción del contrato", "publicación de edictos", "inscripción en el registro", "obtención de CUIT"]
+respuesta_orden: ["redacción del contrato", "publicación de edictos", "inscripción en el registro", "obtención de CUIT"]
 
 enunciado: "Ordene cronológicamente los pasos para la formalización de una sociedad comercial (Considere el orden estándar de constitución)."
 
@@ -646,14 +636,11 @@ metadata:
   nivel: "avanzado"
   tags: ["quiebras", "concurso_preventivo"]
 
-variables:
-  caso: uno_de([[1000, "reorganización"], [2000, "liquidación"]])
-
 respuesta: "reorganización"
 tipo: "mc"
 opciones_explicitas: ["reorganización", "liquidación", "extinción inmediata", "suspensión de pagos"]
 
-enunciado: "Un comerciante con dificultades financieras solicita un concurso preventivo para evitar la quiebra. El objetivo principal de este proceso es la {caso[1]} de sus deudas."
+enunciado: "Un comerciante con dificultades financieras solicita un concurso preventivo para evitar la quiebra. El objetivo principal de este proceso es la ___ de sus deudas."
 
 explicacion: |
   El concurso preventivo busca la reorganización de la empresa mediante un acuerdo con los acreedores para evitar la quiebra.
@@ -668,7 +655,8 @@ metadata:
 
 respuesta: "precio"
 tipo: "completar"
-respuestas_validas: ["precio"]
+respuestas_validas:
+  - "precio"
 
 enunciado: "En un contrato de compraventa mercantil, el intercambio se centra en la entrega de una cosa a cambio de un ___ determinado."
 
@@ -701,9 +689,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [[["Compraventa de un bien mueble para reventa", "Comercial"], ["Préstamo de dinero entre amigos sin interés", "Civil"]]]
+  escenarios: [["Compraventa de un bien mueble para reventa", "Comercial"], ["Préstamo de dinero entre amigos sin interés", "Civil"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["Comercial", "Civil"]
 
@@ -720,7 +708,7 @@ metadata:
   nivel: "intermedio"
   tags: ["sociedades", "elementos"]
 
-respuesta: ["Aportes", "Affectio Societatis", "Fin de lucro"]
+respuesta_orden: ["Aportes", "Affectio Societatis", "Fin de lucro"]
 tipo: ordenar
 
 opciones_explicitas: ["Affectio Societatis", "Aportes", "Fin de lucro"]
@@ -739,13 +727,14 @@ metadata:
   tags: ["concursos_y_quiebras", "insolvencia"]
 
 variables:
-  es_insolvente: uno_de([verdadero, falso])
-  caso_texto: uno_de(["El sujeto mantiene su patrimonio pero no puede pagar sus deudas vencidas.", "El sujeto tiene activos que superan sus deudas pero tiene problemas de liquidez."])
+  idx: uno_de([0, 1])
+  casos: ["El sujeto mantiene su patrimonio pero no puede pagar sus deudas vencidas.", "El sujeto tiene activos que superan sus deudas pero tiene problemas de liquidez."]
+  valores: [verdadero, falso]
 
-respuesta: es_insolvente
+respuesta: valores[idx]
 
-tipo: completar
-enunciado: "En el marco del derecho comercial, la quiebra se dicta cuando el sujeto presenta un estado de {caso_texto} que constituye insolvencia."
+tipo: vf
+enunciado: "En el marco del derecho comercial, ¿el siguiente estado constituye insolvencia (cesación de pagos) para que se dicte la quiebra? '{casos[idx]}'"
 
 explicacion: |
   La quiebra es un proceso de ejecución colectiva que requiere la existencia de un estado de cesación de pagos (insolvencia), no solo una dificultad temporal de caja.
@@ -760,7 +749,8 @@ metadata:
 
 respuesta: "comerciante"
 tipo: completar
-respuestas_validas: ["comerciante"]
+respuestas_validas:
+  - "comerciante"
 
 enunciado: "La persona que se encuentra legalmente inscrita en el registro correspondiente y realiza actos de comercio de forma habitual es denominada _________."
 
@@ -777,7 +767,9 @@ metadata:
 
 respuesta: "especial"
 tipo: "completar"
-respuestas_validas: ["especial", "especialidad"]
+respuestas_validas:
+  - "especial"
+  - "especialidad"
 
 enunciado: "A diferencia del Derecho Civil, que es de carácter general, el Derecho Comercial se caracteriza por su naturaleza ___."
 
@@ -810,21 +802,14 @@ metadata:
   tags: ["aplicacion", "contratos"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["compraventa de un auto entre particulares", "compraventa de mercadería para reventa"],
-    ["alquiler de una vivienda para uso familiar", "contrato de leasing de maquinaria industrial"]
-  ]
-  tipo_acto: ["civil", "comercial"]
-  respuestas: [
-    ["civil", "civil"],
-    ["comercial", "comercial"]
-  ]
+  idx: uno_de([0, 1, 2, 3])
+  casos: ["una compraventa de un auto entre particulares", "una compraventa de mercadería para reventa", "un alquiler de una vivienda para uso familiar", "un contrato de leasing de maquinaria industrial"]
+  valores: [falso, verdadero, falso, verdadero]
 
-respuesta: respuestas[escenario_idx][1
+respuesta: valores[idx]
 tipo: "vf"
 
-enunciado: "Analice el siguiente caso: '{escenarios[escenario_idx][0]}'. ¿El acto jurídico resultante es de naturaleza {tipo_acto[0]}?"
+enunciado: "Analice el siguiente caso: '{casos[idx]}'. ¿El acto jurídico resultante es de naturaleza comercial?"
 
 explicacion: |
   Si el acto tiene como fin el lucro o la intermediación en el mercado, se rige por el Derecho Comercial; de lo contrario, pertenece al Derecho Civil.
@@ -839,7 +824,9 @@ metadata:
 
 respuesta: "quiebra"
 tipo: "completar"
-respuestas_validas: ["quiebra", "concurso preventivo"]
+respuestas_validas:
+  - "quiebra"
+  - "concurso preventivo"
 
 enunciado: "Mientras que en el Derecho Civil la insolvencia se resuelve mediante procesos de ejecución patrimonial, en el Derecho Comercial la insolvencía del comerciante se regula principalmente a través del proceso de ___."
 
@@ -877,7 +864,9 @@ variables:
 
 enunciado: "En el caso de que {datos[idx][0]}, la entidad constituida se denomina una ___."
 
-respuestas_validas: ["sociedad", "persona_fisica"]
+respuestas_validas:
+  - "sociedad"
+  - "persona_fisica"
 respuesta: datos[idx][1]
 tipo: completar
 
@@ -914,7 +903,7 @@ metadata:
   tags: ["quiebra", "concurso"]
 
 variables:
-  datos: [["El comerciante tiene insolvencia pero busca un acuerdo con acreedores", "concurso"], ["El comerciante es insolvente y no tiene posibilidad de acuerdo", "quiebra"]]
+  datos: [["El comerciante tiene insolvencia pero busca un acuerdo con acreedores", "concurso preventivo"], ["El comerciante es insolvente y no tiene posibilidad de acuerdo", "quiebra directa"]]
   idx: uno_de([0, 1])
 
 enunciado: "Si la situación es {datos[idx][0]}, el proceso legal correspondiente es un ___."
@@ -951,13 +940,10 @@ metadata:
   nivel: "intermedio"
   tags: ["concurso", "pasos"]
 
-variables:
-  orden_correcta: ["Presentación del pedido de concurso", "Verificación de créditos", "Acuerdo preventivo", "Homologación judicial"]
-
 enunciado: "Ordene cronológicamente las etapas típicas de un proceso de concurso preventivo exitoso:"
 
 opciones_explicitas: ["Presentación del pedido de concurso", "Verificación de créditos", "Acuerdo preventivo", "Homologación judicial"]
-respuesta: ["Presentación del pedido de concurso", "Verificación de créditos", "Acuerdo preventivo", "Homologación judicial"]
+respuesta_orden: ["Presentación del pedido de concurso", "Verificación de créditos", "Acuerdo preventivo", "Homologación judicial"]
 tipo: ordenar
 
 explicacion: |
@@ -975,7 +961,8 @@ metadata:
 
 respuesta: "estudia la Constitución, la organización del Estado y los derechos fundamentales"
 tipo: completar
-respuestas_validas: ["estudia la Constitución, la organización del Estado y los derechos fundamentales"]
+respuestas_validas:
+  - "estudia la Constitución, la organización del Estado y los derechos fundamentales"
 
 enunciado: "El Derecho Constitucional es la rama del derecho público que ___."
 
@@ -990,14 +977,11 @@ metadata:
   nivel: "basico"
   tags: ["objeto_estudio"]
 
-variables:
-  escenario: uno_de([[ "Constitución", "leyes comunes" ], [ "Constitución", "normas de tránsito" ], [ "Constitución", "contratos privados" ]])
-
-respuesta: escenario[1
+respuesta: "Constitución"
 tipo: mc
 opciones_explicitas: ["Constitución", "leyes comunes", "normas de tránsito", "contratos privados"]
 
-enunciado: "El objeto principal de estudio del Derecho Constitucional es la {escenario[0]}."
+enunciado: "El objeto principal de estudio del Derecho Constitucional es la ___."
 
 explicacion: |
   La Constitución es la norma suprema que rige la organización de un Estado.
@@ -1026,7 +1010,7 @@ metadata:
   nivel: "basico"
   tags: ["partes_constitucion"]
 
-respuesta: ["Parte Dogmática", "Parte Orgánica", "Cláusulas de Reforma"]
+respuesta_orden: ["Parte Dogmática", "Parte Orgánica", "Cláusulas de Reforma"]
 tipo: ordenar
 opciones_explicitas: ["Parte Dogmática", "Parte Orgánica", "Cláusulas de Reforma"]
 
@@ -1064,13 +1048,10 @@ metadata:
   nivel: "basico"
   tags: ["constitucion", "control_constitucional"]
 
-variables:
-  datos: [["constitucional", "inconstitucional", "nulo", "inaplicable"], ["inconstitucional"]]
-  idx: uno_de([0])
-
-respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: datos[idx][0]
+opciones_explicitas: ["constitucional", "inconstitucional", "nulo", "inaplicable"]
+
+respuesta: "inconstitucional"
 
 enunciado: "Si una ley sancionada por el Congreso contradice un principio fundamental establecido en la Constitución Nacional, un juez debe declarar que dicha ley es ___."
 
@@ -1086,15 +1067,16 @@ metadata:
   tags: ["poderes", "estado"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [[0, "Poder Ejecutivo"], [1, "Poder Legislativo"]]
+  idx: uno_de([0, 1])
+  poderes: ["Poder Ejecutivo", "Poder Legislativo"]
+  valores: [falso, verdadero]
 
-respuesta: "falso"
-tipo: completar
-enunciado: "En un sistema republicano, el {escenario[escenario_idx]} tiene la función principal de dictar leyes que rigen a toda la sociedad."
+respuesta: valores[idx]
+tipo: vf
+enunciado: "En un sistema republicano, el {poderes[idx]} tiene la función principal de dictar leyes que rigen a toda la sociedad."
 
 explicacion: |
-  La función de dictar leyes corresponde al Poder Legislativo. El Poder Ejecutivo (escenario[0]) tiene la función de administrar y ejecutar las leyes.
+  La función de dictar leyes corresponde al Poder Legislativo. El Poder Ejecutivo tiene la función de administrar y ejecutar las leyes.
 ```
 
 ```
@@ -1104,11 +1086,12 @@ metadata:
   nivel: "intermedio"
   tags: ["derechos_fundamentales", "libertad_expresion"]
 
-respuesta: ["libertad de expresión", "derecho a la intimidad"]
+respuesta: "libertad de expresión"
 tipo: completar
-respuestas_validas: ["libertad de expresión", "derecho a la intimidad"]
+respuestas_validas:
+  - "libertad de expresión"
 
-enunciado: "Un periodista publica información veraz sobre un funcionario público para denunciar corrupción. En este conflicto de derechos, la jurisprudencia suele priorizar la ___ sobre el ___."
+enunciado: "Un periodista publica información veraz sobre un funcionario público para denunciar corrupción. En este conflicto de derechos, la jurisprudencia suele priorizar la ___ (el derecho a informar) sobre el derecho a la intimidad del funcionario."
 
 pasos:
   - "Identificar el derecho en juego: informar sobre asuntos de interés público."
@@ -1126,7 +1109,7 @@ metadata:
   nivel: "intermedio"
   tags: ["jerarquia", "kelsen"]
 
-respuesta: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos"]
+respuesta_orden: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos"]
 tipo: ordenar
 
 opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos"]
@@ -1201,7 +1184,8 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: "completar"
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 
 enunciado: "Mientras que el Derecho Constitucional estudia {datos[idx][0]}, el Derecho Administrativo se ocupa de {datos[idx][1]}."
 
@@ -1218,7 +1202,7 @@ metadata:
 
 opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos del Poder Ejecutivo"]
 
-respuesta: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos del Poder Ejecutivo"]
+respuesta_orden: ["Constitución Nacional", "Tratados Internacionales de Derechos Humanos", "Leyes Nacionales", "Decretos del Poder Ejecutivo"]
 tipo: "ordenar"
 
 enunciado: "Ordene las siguientes normas de mayor a menor jerarquía según la supremacía constitucional (considerando el bloque de constitucionalidad):"
@@ -1252,7 +1236,8 @@ metadata:
 
 respuesta: "derecho_público"
 tipo: completar
-respuestas_validas: ["derecho_público"]
+respuestas_validas:
+  - "derecho_público"
 
 enunciado: "A diferencia del derecho privado, que regula las relaciones entre particulares, el derecho constitucional pertenece al ámbito del ___________."
 
@@ -1269,14 +1254,13 @@ metadata:
 
 variables:
   escenario: uno_de([["Constitución", "Tratado Internacional", "Ley Común"], ["Constitución", "Decreto", "Resolución"]])
-  nivel_norma: uno_de([0, 1])
 
 opciones_explicitas: ["Constitución", "Tratado Internacional", "Ley Común", "Decreto", "Resolución"]
 
-respuesta: escenario[nivel_norma
+respuesta: escenario[0]
 tipo: mc
 
-enunciado: "En la pirámide de Kelsen, ¿cuál de los siguientes elementos tiene mayor jerarquía que una {escenario[nivel_norma == 0 ? 1 : 2]}?"
+enunciado: "En la pirámide de Kelsen, ¿cuál de los siguientes elementos tiene mayor jerarquía que una {escenario[1]}?"
 
 pasos:
   - "Identificar la posición de la norma mencionada en la jerarquía normativa."
@@ -1309,12 +1293,9 @@ metadata:
   nivel: "avanzado"
   tags: ["control", "jurisdiccion"]
 
-variables:
-  caso: uno_de([["anular", "validar"], ["invalidar", "confirmar"]])
-
 opciones_explicitas: ["anular", "validar", "modificar", "derogar"]
 
-respuesta: caso[0
+respuesta: "anular"
 tipo: mc
 
 enunciado: "Cuando un tribunal ejerce el control de constitucionalidad sobre una ley que contradice la Carta Magna, su función es ___________ dicha norma."
@@ -1332,7 +1313,7 @@ metadata:
 
 opciones_explicitas: ["Reconocimiento de derechos fundamentales", "Promulgación de la Constitución", "Aplicación de la norma por el juez", "Creación de leyes orgánicas"]
 
-respuesta: ["Promulgación de la Constitución", "Reconocimiento de derechos fundamentales", "Creación de leyes orgánicas", "Aplicación de la norma por el juez"]
+respuesta_orden: ["Promulgación de la Constitución", "Reconocimiento de derechos fundamentales", "Creación de leyes orgánicas", "Aplicación de la norma por el juez"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente el proceso lógico de la vigencia de un derecho constitucional: desde la existencia del texto hasta su aplicación efectiva."
@@ -1388,7 +1369,7 @@ metadata:
 variables:
   orden_jerarquico: [["Constitución Nacional y Tratados de DDHH", "Ley Nacional", "Decreto Reglamentario", "Resolución Ministerial"]]
 
-respuesta: orden_jerarquico
+respuesta_orden: orden_jerarquico[0]
 
 tipo: ordenar
 opciones_explicitas: ["Constitución Nacional y Tratados de DDHH", "Ley Nacional", "Decreto Reglamentario", "Resolución Ministerial"]
@@ -1407,14 +1388,14 @@ metadata:
   tags: ["derechos_fundamentales", "libertades"]
 
 variables:
-  datos: [["El Estado prohíbe toda manifestación pública sin permiso previo.", "es_falso"], ["Se garantiza la libertad de expresión, pero con responsabilidad."], "es_verdadero"]
+  textos: ["El Estado prohíbe toda manifestación pública sin permiso previo.", "Se garantiza la libertad de expresión, pero con responsabilidad."]
+  valores: [falso, verdadero]
   idx: uno_de([0, 1])
 
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas: ["es_falso", "es_verdadero"]
+respuesta: valores[idx]
+tipo: vf
 
-enunciado: "En un Estado de Derecho, la afirmación: '{datos[idx][0]}' ___."
+enunciado: "En un Estado de Derecho, ¿es correcta la siguiente afirmación? '{textos[idx]}'"
 
 explicacion: |
   Los derechos fundamentales son inherentes a la persona y el Estado debe garantizarlos, permitiendo solo restricciones legales y proporcionales.
@@ -1427,11 +1408,7 @@ metadata:
   nivel: "avanzado"
   tags: ["poder_judicial", "control_represivo"]
 
-variables:
-  datos: [["El Poder Judicial debe realizar un control ___ sobre la constitucionalidad de las leyes.", "represivo"], ["El Poder Judicial realiza un control ___ sobre la constitucionalidad de las leyes.", "preventivo"]]
-  idx: uno_de([0, 1])
-
-respuesta: datos[idx][1]
+respuesta: "represivo"
 tipo: mc
 opciones_explicitas: ["represivo", "preventivo", "legislativo"]
 
@@ -1452,7 +1429,8 @@ metadata:
 
 respuesta: "Derecho Internacional Público"
 tipo: completar
-respuestas_validas: ["Derecho Internacional Público"]
+respuestas_validas:
+  - "Derecho Internacional Público"
 
 enunciado: "El conjunto de normas que regulan las relaciones entre los Estados y otros sujetos de la comunidad internacional se denomina ___."
 
@@ -1467,22 +1445,18 @@ metadata:
   nivel: "basico"
   tags: ["sujetos", "estados"]
 
-variables:
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["Los Estados", "Las personas físicas únicamente", "Las empresas privadas únicamente", "Ninguna de las anteriores"]
 
-enunciado: "De acuerdo con el escenario seleccionado, ¿cuál es el sujeto principal y soberano del Derecho Internacional?"
+respuesta: "Los Estados"
+
+enunciado: "¿Cuál es el sujeto principal y soberano del Derecho Internacional?"
 
 pasos:
   - "Identificar la naturaleza jurídica del sujeto mencionado."
 
 explicacion: |
   Los Estados son los sujetos primarios y originarios del Derecho Internacional Público por poseer soberanía.
-  
-  datos: [["Los Estados", "Los Estados"], ["Las personas físicas", "Las personas físicas"]]
 ```
 
 ```
@@ -1508,7 +1482,7 @@ metadata:
   nivel: "intermedio"
   tags: ["orden", "normas"]
 
-respuesta: ["Tratado Internacional", "Reglamento Administrativo Nacional", "Decreto Presidencial"]
+respuesta_orden: ["Tratado Internacional", "Reglamento Administrativo Nacional", "Decreto Presidencial"]
 tipo: ordenar
 opciones_explicitas: ["Tratado Internacional", "Reglamento Administrativo Nacional", "Decreto Presidencial"]
 
@@ -1525,11 +1499,8 @@ metadata:
   nivel: "basico"
   tags: ["soberania", "estado"]
 
-variables:
-  es_soberano: true
-
-respuesta: true
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La soberanía es la facultad que tiene el Estado para ejercer su autoridad suprema dentro de su territorio y sin subordinación a otros Estados."
 
 explicacion: |
@@ -1545,12 +1516,11 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  datos: [[["Estado A", "Estado B", "Tratado de Límites"], ["Estado C", "Estado D", "Acuerdo de Fronteras"]]]
+  datos: [["Estado A", "Estado B", "Tratado de Límites"], ["Estado C", "Estado D", "Acuerdo de Fronteras"]]
 
-enunciado: "El {datos[caso_idx][0]} es un instrumento jurídico mediante el cual el {datos[caso_idx][1]} y el {datos[caso_idx][2]} establecen normas de conducta mutua. ¿Es este un ejemplo de Derecho Internacional Público?"
+enunciado: "El {datos[caso_idx][2]} es un instrumento jurídico mediante el cual el {datos[caso_idx][0]} y el {datos[caso_idx][1]} establecen normas de conducta mutua. ¿Es este un ejemplo de Derecho Internacional Público?"
 
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "verdadero"
+respuesta: verdadero
 tipo: "vf"
 
 explicacion: |
@@ -1564,10 +1534,7 @@ metadata:
   nivel: "intermedio"
   tags: ["organismos_internacionales", "onu"]
 
-variables:
-  organismo: uno_de(["ONU", "Corte Penal Internacional"])
-
-enunciado: "Si un Estado firma un tratado para combatir el cambio climático, este compromiso se rige por el Derecho Internacional. Si la entidad encargada de velar por la paz y seguridad internacional es la {organismo}, ¿cuál es su función principal?"
+enunciado: "Si un Estado firma un tratado para combatir el cambio climático, este compromiso se rige por el Derecho Internacional. La ONU es la entidad encargada de velar por la paz y seguridad internacional. ¿Cuál es su función principal?"
 
 opciones_explicitas: ["Mantener la paz y seguridad internacional", "Regular el comercio entre empresas privadas", "Dictar leyes internas de los países"]
 respuesta: "Mantener la paz y seguridad internacional"
@@ -1587,7 +1554,7 @@ metadata:
 enunciado: "Para que un tratado internacional sea plenamente vinculante para un Estado, se debe seguir un orden lógico de pasos. Ordene el proceso de formación de un tratado:"
 
 opciones_explicitas: ["Negociación", "Firma", "Ratificación"]
-respuesta: ["Negociación", "Firma", "Ratificación"]
+respuesta_orden: ["Negociación", "Firma", "Ratificación"]
 tipo: "ordenar"
 
 explicacion: |
@@ -1603,7 +1570,8 @@ metadata:
 
 enunciado: "En el marco del Derecho Internacional Público, los sujetos que poseen capacidad jurídica para adquirir derechos y contraer obligaciones internacionales son los Estados y los ___."
 
-respuestas_validas: ["Organismos Internacionales"]
+respuestas_validas:
+  - "Organismos Internacionales"
 respuesta: "Organismos Internacionales"
 tipo: "completar"
 
@@ -1618,13 +1586,9 @@ metadata:
   nivel: "intermedio"
   tags: ["pacta_sunt_servanda"]
 
-variables:
-  norma: uno_de(["Pacta sunt servanda", "Lex posterior"])
+enunciado: "El principio de que 'lo pactado obliga' se conoce como Pacta sunt servanda. Si un Estado firma un tratado, ¿está obligado a cumplirlo de buena fe?"
 
-enunciado: "El principio de que 'lo pactado obliga' se conoce como {norma}. Si un Estado firma un tratado, ¿está obligado a cumplirlo de buena fe?"
-
-opciones_explicitas: ["verdadero", "falso"]
-respuesta: "verdadero"
+respuesta: verdadero
 tipo: "vf"
 
 explicacion: |
@@ -1640,7 +1604,9 @@ metadata:
 
 respuesta: "Estados"
 tipo: completar
-respuestas_validas: ["Estados", "Estado"]
+respuestas_validas:
+  - "Estados"
+  - "Estado"
 
 enunciado: "En el Derecho Internacional Público, los principales sujetos con capacidad para contraer obligaciones y ejercer derechos son los ___."
 
@@ -1655,11 +1621,8 @@ metadata:
   nivel: "intermedio"
   tags: ["distincion", "derecho_privado"]
 
-variables:
-  es_privado: falso
-
-respuesta: es_privado
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "El Derecho Internacional Privado se encarga de regular las relaciones entre particulares (individuos o empresas) cuando existe un elemento extranjero en la relación jurídica."
 
 explicacion: |
@@ -1673,18 +1636,12 @@ metadata:
   nivel: "intermedio"
   tags: ["fuentes", "tratados"]
 
-variables:
-  escenario: uno_de([0, 1])
-  datos: [
-    ["Tratado", "Acuerdo escrito entre sujetos de derecho internacional"],
-    ["Costumbre", "Práctica generalizada y aceptada como obligatoria"]
-  ]
-
-respuesta: datos[escenario][1
 tipo: mc
 opciones_explicitas: ["Tratado", "Costumbre", "Ley Nacional", "Sentencia Judicial"]
 
-enunciado: "Si nos referimos a una práctica generalizada que los Estados consideran como obligatoria por el derecho (opinio iuris), estamos ante una: {datos[escenario][0]}."
+respuesta: "Costumbre"
+
+enunciado: "Si nos referimos a una práctica generalizada que los Estados consideran como obligatoria por el derecho (opinio iuris), estamos ante una: ___."
 
 explicacion: |
   La costumbre internacional es una de las fuentes principales del Derecho Internacional, junto con los tratados.
@@ -1699,7 +1656,9 @@ metadata:
 
 respuesta: "Jus Cogens"
 tipo: completar
-respuestas_validas: ["Jus Cogens", "Norma Imperativa"]
+respuestas_validas:
+  - "Jus Cogens"
+  - "Norma Imperativa"
 
 enunciado: "Las normas de carácter imperativo de derecho internacional general, que no admiten acuerdo en contrario y que protegen valores fundamentales de la comunidad internacional, se denominan ___."
 
@@ -1714,9 +1673,9 @@ metadata:
   nivel: "intermedio"
   tags: ["orden", "tratados"]
 
-respuesta: ["Negociación", "Firma", "Ratificación"]
+respuesta_orden: ["Negociación", "Firma", "Ratificación"]
 tipo: ordenar
-opciones_explicitas: ["Firma", "Negociación", "Ratificación", "Publicación"]
+opciones_explicitas: ["Firma", "Negociación", "Ratificación"]
 
 enunciado: "Ordene cronológicamente las etapas típicas de la formación de un tratado internacional, desde el contacto inicial hasta la obligatoriedad definitiva del Estado:"
 
@@ -1731,17 +1690,12 @@ metadata:
   nivel: "basico"
   tags: ["sujetos", "soberania"]
 
-variables:
-  escenario: uno_de([
-    ["Estado", "Derecho Internacional"],
-    ["Individuo", "Derecho Interno"]
-  ])
-
-respuesta: escenario[1
 tipo: mc
 opciones_explicitas: ["Estado", "Individuo", "Empresa", "Organismo Internacional"]
 
-enunciado: "A diferencia del derecho interno, donde el sujeto principal es la persona física o jurídica, el sujeto principal del {escenario[0]} es el {escenario[1]}."
+respuesta: "Estado"
+
+enunciado: "A diferencia del derecho interno, donde el sujeto principal es la persona física o jurídica, el sujeto principal del Derecho Internacional es el ___."
 
 explicacion: |
   El derecho internacional público regula las relaciones entre sujetos con capacidad de derecho internacional, siendo el Estado el actor principal y soberano.
@@ -1770,15 +1724,10 @@ metadata:
   nivel: "avanzado"
   tags: ["jerarquia", "normas"]
 
-variables:
-  caso: uno_de([
-    ["Tratado", "Norma Imperativa (Jus Cogens)"],
-    ["Tratado", "Tratado Bilateral"]
-  ])
-
-respuesta: caso[1
+respuesta: "Norma Imperativa (Jus Cogens)"
 tipo: completar
-respuestas_validas: ["Norma Imperativa (Jus Cogens)", "Tratado Bilateral"]
+respuestas_validas:
+  - "Norma Imperativa (Jus Cogens)"
 
 enunciado: "Mientras que la mayoría de las normas internacionales derivan del consentimiento, existen normas de carácter superior denominadas ___ que no admiten acuerdo en contrario."
 
@@ -1810,9 +1759,9 @@ metadata:
   nivel: "intermedio"
   tags: ["fuentes", "estatuto_cij"]
 
-respuesta: ["Tratados", "Costumbre Internacional", "Principios Generales del Derecho"]
+respuesta_orden: ["Tratados", "Costumbre Internacional", "Principios Generales del Derecho"]
 tipo: ordenar
-opciones_explicitas: ["Tratados", "Costumbre Internacional", "Principios Generales del Derecho", "Opinio Juris"]
+opciones_explicitas: ["Tratados", "Costumbre Internacional", "Principios Generales del Derecho"]
 
 enunciado: "De acuerdo con el Artículo 38 del Estatuto de la Corte Internacional de Justicia, ordene las fuentes principales del derecho internacional de mayor a menor evidencia de voluntad expresa:"
 
@@ -1854,7 +1803,9 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["Tratado", "Costumbre"]
+respuestas_validas:
+  - "Tratado"
+  - "Costumbre"
 
 enunciado: "Analice el caso: {datos[idx][0]}. Según la Convención de Viena, esta fuente del derecho se denomina: ___"
 
@@ -1904,11 +1855,11 @@ metadata:
   materia: "derecho"
   tema: "derecho_internacional"
   nivel: "intermedio"
-  tags: ["tratados", "procedimiento"]]
+  tags: ["tratados", "procedimiento"]
 
-respuesta: ["Negociación", "Firma", "Ratificación"]
 tipo: ordenar
-opciones_explicitas: ["Negociación", "Firma", "Ratificación", "Publicación"]
+opciones_explicitas: ["Negociación", "Firma", "Ratificación"]
+respuesta_orden: ["Negociación", "Firma", "Ratificación"]
 
 enunciado: "Ordene cronológicamente las etapas típicas para que un Estado se obligue formalmente mediante un tratado internacional:"
 
@@ -1927,7 +1878,8 @@ metadata:
 
 respuesta: "regula la relación entre empleador y trabajador"
 tipo: completar
-respuestas_validas: ["regula la relación entre empleador y trabajador", "regula la relación entre empleador y trabajador"]
+respuestas_validas:
+  - "regula la relación entre empleador y trabajador"
 
 enunciado: "El Derecho Laboral es la rama del derecho que ___."
 
@@ -1999,7 +1951,7 @@ metadata:
 
 opciones_explicitas: ["Constitución Nacional", "Ley de Contrato de Trabajo", "Convenio Colectivo de Trabajo", "Reglamento Interno"]
 
-respuesta: ["Constitución Nacional", "Ley de Contrato de Trabajo", "Convenio Colectivo de Trabajo", "Reglamento Interno"]
+respuesta_orden: ["Constitución Nacional", "Ley de Contrato de Trabajo", "Convenio Colectivo de Trabajo", "Reglamento Interno"]
 tipo: ordenar
 
 enunciado: "Ordene las siguientes normas de mayor a menor jerarquía en el ámbito laboral:"
@@ -2017,7 +1969,9 @@ metadata:
 
 respuesta: "subordinación"
 tipo: completar
-respuestas_validas: ["subordinación", "subordinacion"]
+respuestas_validas:
+  - "subordinación"
+  - "subordinacion"
 
 enunciado: "Para que exista un contrato de trabajo, debe existir una prestación de servicios personales por parte del trabajador, una remuneración y un elemento esencial llamado ___."
 
@@ -2032,7 +1986,7 @@ metadata:
   nivel: "intermedio"
   tags: ["elementos_esenciales", "verificacion"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "Si una persona presta servicios de forma autónoma, con sus propios medios, sin cumplir un horario impuesto y sin recibir órdenes directas, ¿se configura un contrato de trabajo?"
@@ -2050,12 +2004,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["despido_sin_causa", "indemnización_total"],
-    ["renuncia_voluntaria", "sin_indemnización"]
-  ]
+  escenarios: [["despido_sin_causa", "indemnización_total"], ["renuncia_voluntaria", "sin_indemnización"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["indemnización_total", "sin_indemnización", "pago_de_salarios_pendientes", "solo_vacaciones"]
 
@@ -2077,7 +2028,7 @@ metadata:
   nivel: "avanzado"
   tags: ["procedimiento", "disciplina"]
 
-respuesta: ["Notificación de falta", "Derecho a defensa", "Aplicación de sanción"]
+respuesta_orden: ["Notificación de falta", "Derecho a defensa", "Aplicación de sanción"]
 tipo: ordenar
 opciones_explicitas: ["Notificación de falta", "Derecho a defensa", "Aplicación de sanción"]
 
@@ -2096,13 +2047,10 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [
-    ["$500", "es_ilegal"],
-    ["$1200", "es_legal"]
-  ]
+  casos: [["$500", "es_ilegal"], ["$1200", "es_legal"]]
   ley_minima: 1000
 
-respuesta: "es_ilegal"
+respuesta: casos[caso_idx][1]
 tipo: mc
 opciones_explicitas: ["es_ilegal", "es_legal"]
 
@@ -2121,7 +2069,9 @@ metadata:
 
 respuesta: "subordinación"
 tipo: completar
-respuestas_validas: ["subordinación", "subordinacion"]
+respuestas_validas:
+  - "subordinación"
+  - "subordinacion"
 
 enunciado: "A diferencia del derecho civil, donde prima la autonomía de la voluntad, el derecho laboral se caracteriza por la existencia de un vínculo de ___ entre el trabajador y el empleador."
 
@@ -2152,20 +2102,14 @@ metadata:
   nivel: "intermedio"
   tags: ["distinciones", "contratos"]
 
-variables:
-  escenario: uno_de([
-    ["Contrato de Locación de Servicios (Civil)", "Civil"],
-    ["Contrato de Trabajo (Laboral)", "Laboral"]
-  ])
-
-respuesta: escenario[1
+respuesta: "Civil"
 tipo: mc
 opciones_explicitas: ["Civil", "Laboral"]
 
 enunciado: "Si una persona es contratada para realizar una tarea específica, pero no está sujeta a horarios, no recibe órdenes directas y utiliza sus propios medios, ¿bajo qué rama del derecho se encuadra principalmente esta relación?"
 
 explicacion: |
-  En el escenario seleccionado ({escenario[0]}), la ausencia de subordinación y la autonomía técnica desplazan la relación al ámbito del Derecho Civil.
+  La ausencia de subordinación y la autonomía técnica desplazan la relación al ámbito del Derecho Civil (contrato de locación de servicios), no al Derecho Laboral.
 ```
 
 ```
@@ -2177,7 +2121,9 @@ metadata:
 
 respuesta: "Principio Protector"
 tipo: completar
-respuestas_validas: ["Principio Protector", "Principio de Protección"]
+respuestas_validas:
+  - "Principio Protector"
+  - "Principio de Protección"
 
 enunciado: "El principio que busca compensar la desigualdad económica y de poder entre el trabajador y el empleador se denomina ___."
 
@@ -2195,7 +2141,7 @@ metadata:
 variables:
   orden_correcta: ["Prestación personal", "Subordinación", "Remuneración"]
 
-respuesta: orden_correcta
+respuesta_orden: orden_correcta
 tipo: ordenar
 opciones_explicitas: ["Prestación personal", "Subordinación", "Remuneración"]
 
@@ -2228,17 +2174,11 @@ metadata:
   nivel: "intermedio"
   tags: ["contratos", "derecho_civil"]
 
-variables:
-  escenario: uno_de([
-    ["Contrato de locación de servicios (Civil)", "Civil"],
-    ["Contrato de trabajo (Laboral)", "Laboral"]
-  ])
-
-respuesta: escenario[1
+respuesta: "Civil"
 tipo: mc
 opciones_explicitas: ["Civil", "Laboral"]
 
-enunciado: "Si una persona presta un servicio de manera autónoma, sin dependencia ni subordinación, bajo un contrato de locación de servicios, la relación se rige principalmente por el Derecho {escenario[1]}."
+enunciado: "Si una persona presta un servicio de manera autónoma, sin dependencia ni subordinación, bajo un contrato de locación de servicios, la relación se rige principalmente por el Derecho ___."
 
 explicacion: |
   La subordinación técnica, jurídica y económica es el elemento distintivo que traslada la relación del ámbito Civil al ámbito Laboral.
@@ -2251,7 +2191,9 @@ metadata:
   nivel: "basico"
   tags: ["elementos", "subordinacion"]
 
-respuestas_validas: ["subordinación", "dependencia"]
+respuestas_validas:
+  - "subordinación"
+  - "dependencia"
 respuesta: "subordinación"
 tipo: completar
 
@@ -2285,7 +2227,7 @@ metadata:
   nivel: "intermedio"
   tags: ["normativa", "jerarquia"]
 
-respuesta: ["Constitución Nacional", "Tratados Internacionales", "Ley de Contrato de Trabajo", "Convenio Colectivo de Trabajo", "Contrato Individual"]
+respuesta_orden: ["Constitución Nacional", "Tratados Internacionales", "Ley de Contrato de Trabajo", "Convenio Colectivo de Trabajo", "Contrato Individual"]
 tipo: ordenar
 opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales", "Ley de Contrato de Trabajo", "Convenio Colectivo de Trabajo", "Contrato Individual"]
 
@@ -2331,13 +2273,13 @@ metadata:
   tags: ["jornada", "horas_extra"]
 
 variables:
-  datos: [["8 horas", "8"], ["9 horas", "9"]]
   idx: uno_de([0, 1])
+  horas_trabajadas: [8, 10]
+  hay_extra: [falso, verdadero]
 
-respuestas_validas: [2]
-respuesta: 2
-tipo: completar
-enunciado: "Si la jornada legal es de {datos[idx][0]} horas diarias y el trabajador realiza {datos[idx][0]} horas, ¿se han devengado horas extraordinarias?"
+respuesta: hay_extra[idx]
+tipo: vf
+enunciado: "Si la jornada legal es de 8 horas diarias y el trabajador realizó {horas_trabajadas[idx]} horas, ¿se han devengado horas extraordinarias?"
 
 explicacion: |
   Si la jornada trabajada excede el límite legal establecido, el excedente debe pagarse como hora extraordinaria según la legislación vigente.
@@ -2352,7 +2294,8 @@ metadata:
 
 respuesta: "remuneración"
 tipo: completar
-respuestas_validas: ["remuneración"]
+respuestas_validas:
+  - "remuneración"
 
 enunciado: "En un contrato de trabajo, la contraprestación económica que recibe el trabajador por sus servicios se denomina ___."
 
@@ -2384,7 +2327,7 @@ metadata:
   nivel: "intermedio"
   tags: ["despido", "procedimiento"]
 
-respuesta: ["Notificación de la causa", "Entrega de preaviso", "Liquidación final"]
+respuesta_orden: ["Notificación de la causa", "Entrega de preaviso", "Liquidación final"]
 tipo: ordenar
 opciones_explicitas: ["Notificación de la causa", "Entrega de preaviso", "Liquidación final"]
 
@@ -2393,3 +2336,4 @@ enunciado: "Ordene cronológicamente los pasos habituales en un proceso de despi
 explicacion: |
   Primero se debe comunicar la causa, luego se debe respetar el preaviso (si corresponde) y finalmente se procede al pago de la liquidación final.
 ```
+

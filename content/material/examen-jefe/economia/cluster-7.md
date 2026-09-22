@@ -1,2413 +1,2250 @@
-# Examen jefe — Dueño de la Elasticidad y Estados
+# Examen jefe — [PENDIENTE #772]
 
-> Logro #193. Desarmaste la estructura del patrimonio y dominaste los estados contables para cerrar el parcial con todo. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **119 preguntas totales** en 5/5 secciones.
+> Logro #772. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **117 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: elasticidad (24 preguntas)
+## Sección: objetivos-y-metas (25 preguntas)
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["calculo"]
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "basico"
+  tags: ["administracion", "conceptos"]
 
-variables:
-  pct_precio: random(5, 15)
-  k: random(2, 4)
-  pct_cantidad: pct_precio * k
-
-respuesta: k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El precio sube {pct_precio}% y la cantidad demandada baja {pct_cantidad}%. ¿Cuál es el valor absoluto de la elasticidad?"
-
-pasos:
-  - "|E| = {pct_cantidad}%/{pct_precio}% = {k}"
-
-explicacion: |
-  |E| = (%ΔQ)/(%ΔP), tomando los valores absolutos de cada variación.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["calculo"]
-
-variables:
-  pct_cantidad: random(2, 8)
-  k: random(2, 5)
-  pct_precio: pct_cantidad * k
-
-respuesta: pct_cantidad
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El precio sube {pct_precio}% y la cantidad demandada baja {pct_cantidad}%. Sin dividir todavía, ¿cuál es el numerador (%ΔQ, en valor absoluto) del cociente de elasticidad?"
-
-explicacion: |
-  El numerador de |E| es directamente %ΔQ = {pct_cantidad}%.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["clasificar", "opcion_multiple"]
-
-variables:
-  pct_precio: random(5, 15)
-  k: random(2, 4)
-  pct_cantidad: pct_precio * k
-
-respuesta: "Elástica"
 tipo: mc
-opciones_explicitas:
-  - "Elástica"
-  - "Inelástica"
-  - "Unitaria"
+opciones_explicitas: ["Un objetivo es un resultado específico y cuantificable, mientras que una meta es una aspiración amplia.", "Un objetivo es una aspiración amplia y cualitativa, mientras que una meta es un resultado específico y cuantificable.", "Ambos términos son sinónimos y se usan indistintamente en la administración.", "El objetivo es el camino y la meta es el destino final."]
 
-enunciado: "El precio sube {pct_precio}% y la cantidad baja {pct_cantidad}% (|E|={k}). ¿Es elástica, inelástica o unitaria la demanda?"
+enunciado: "En el ámbito de la administración, ¿cuál es la diferencia fundamental entre un objetivo y una meta?"
+
+respuesta: "Un objetivo es una aspiración amplia y cualitativa, mientras que una meta es un resultado específico y cuantificable."
 
 explicacion: |
-  |E|={k} > 1 → elástica.
+  Los objetivos suelen ser declaraciones amplias de lo que se desea lograr (ej. 'Ser líderes en el mercado'), mientras que las metas son pasos específicos, medibles y con un tiempo determinado para alcanzar esos objetivos (ej. 'Aumentar las ventas un 10% en el primer trimestre').
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["clasificar", "opcion_multiple"]
-
-variables:
-  pct_cantidad: random(2, 8)
-  k: random(2, 5)
-  pct_precio: pct_cantidad * k
-
-respuesta: "Inelástica"
-tipo: mc
-opciones_explicitas:
-  - "Inelástica"
-  - "Elástica"
-  - "Unitaria"
-
-enunciado: "El precio sube {pct_precio}% y la cantidad baja {pct_cantidad}%. ¿Es elástica, inelástica o unitaria la demanda?"
-
-explicacion: |
-  |E| = {pct_cantidad}/{pct_precio} < 1 → inelástica.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["clasificar", "verdadero_falso"]
-
-variables:
-  pct: random(5, 30)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El precio sube {pct}% y la cantidad baja exactamente {pct}%. ¿Es unitaria la elasticidad?"
-
-explicacion: |
-  |E| = {pct}/{pct} = 1 → elasticidad unitaria.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
+  materia: "economia"
+  tema: "objetivos_y_metas"
   nivel: "basico"
-  tags: ["variacion_porcentual"]
-
-variables:
-  k: random(1, 10)
-  cantidad_inicial: k * 100
-  pct: random(5, 40)
-  cantidad_final: cantidad_inicial - k * pct
-
-respuesta: pct
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La cantidad demandada baja de {cantidad_inicial} a {cantidad_final} unidades. ¿Cuál es la variación porcentual (en valor absoluto)?"
-
-pasos:
-  - "%Δ = ({cantidad_inicial}−{cantidad_final})/{cantidad_inicial} × 100 = {pct}%"
-
-explicacion: |
-  Se compara el cambio con el valor INICIAL, no el final.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "basico"
-  tags: ["variacion_porcentual"]
-
-variables:
-  k: random(1, 10)
-  precio_inicial: k * 100
-  pct: random(5, 40)
-  precio_final: precio_inicial + k * pct
-
-respuesta: pct
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El precio sube de {precio_inicial} a {precio_final}. ¿Cuál es la variación porcentual?"
-
-explicacion: |
-  %Δ = ({precio_final}−{precio_inicial})/{precio_inicial} × 100 =
-  {pct}%.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "avanzado"
-  tags: ["calculo"]
-
-variables:
-  k: random(1, 5)
-  precio_inicial: k * 100
-  pct_precio: random(5, 20)
-  precio_final: precio_inicial + k * pct_precio
-  cantidad_inicial: k * 100
-  m: random(2, 4)
-  pct_cantidad: pct_precio * m
-  cantidad_final: cantidad_inicial - k * pct_cantidad
-
-respuesta: m
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El precio pasa de {precio_inicial} a {precio_final}, y la cantidad de {cantidad_inicial} a {cantidad_final}. ¿Cuál es |E|?"
-
-pasos:
-  - "%ΔP = {pct_precio}%, %ΔQ = {pct_cantidad}% → |E| = {pct_cantidad}/{pct_precio} = {m}"
-
-explicacion: |
-  Primero se calcula cada variación porcentual, y después se dividen.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La elasticidad mide cuánto responde (en términos porcentuales) la cantidad demandada ante un cambio porcentual en el precio."
-
-explicacion: |
-  Es la definición central: un cociente de variaciones RELATIVAS, no
-  absolutas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La elasticidad de la demanda es exactamente lo mismo que la pendiente de la curva de demanda."
-
-explicacion: |
-  La pendiente usa variaciones absolutas (ΔP/ΔQ); la elasticidad usa
-  variaciones porcentuales — son cálculos relacionados pero distintos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Como la elasticidad usa porcentajes (no unidades), permite comparar la sensibilidad al precio de productos completamente distintos entre sí (por ejemplo, pan vs. autos)."
-
-explicacion: |
-  La pendiente sola no permitiría esa comparación, porque depende de las
-  unidades de cada producto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los bienes esenciales, sin sustitutos cercanos (como medicamentos), suelen tener demanda inelástica."
-
-explicacion: |
-  La gente sigue comprándolos casi igual aunque suba el precio, porque
-  no tiene alternativa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los bienes con sustitutos cercanos (por ejemplo, una marca de gaseosa cuando hay otras parecidas) suelen tener demanda elástica."
-
-explicacion: |
-  Si sube el precio, es fácil cambiar a otra opción — la cantidad
-  demandada responde fuerte.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Por la ley de demanda (precio sube, cantidad baja), la elasticidad suele dar un número negativo, aunque se clasifique según su valor absoluto."
-
-explicacion: |
-  El signo refleja la dirección opuesta entre precio y cantidad; la
-  magnitud (valor absoluto) es lo que importa para clasificar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una elasticidad de −3 representa una demanda MÁS elástica que una de −2, aunque −3 sea 'más negativo' — lo que importa es el valor absoluto (3 > 2)."
-
-explicacion: |
-  Es el error de comparación más común: hay que comparar magnitudes, no
-  el signo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "avanzado"
-  tags: ["elasticidad_puntual"]
-
-variables:
-  pendiente_demanda: -random(1, 5)
-  precio: random(10, 50)
-  cantidad: random(10, 50)
-
-respuesta: (pendiente_demanda * precio) / cantidad
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "La función de demanda tiene dQ/dP = {pendiente_demanda} en el punto (P={precio}, Q={cantidad}). ¿Cuál es la elasticidad puntual E = (dQ/dP)×(P/Q)?"
-
-explicacion: |
-  Es la versión con derivada de la misma fórmula — la elasticidad
-  exacta en un punto específico, no un promedio entre dos puntos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La elasticidad puntual, calculada con la derivada dQ/dP, es la versión 'instantánea' de la elasticidad, igual que la derivada es la versión instantánea de una pendiente promedio."
-
-explicacion: |
-  Misma relación ya vista entre velocidad media e instantánea, o entre
-  costo promedio y marginal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  pct_precio: random(5, 15)
-  k: random(2, 4)
-  pct_cantidad: pct_precio * k
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El precio sube {pct_precio}% y la cantidad baja {pct_cantidad}%. ¿Es correcto clasificar esta demanda como elástica?"
-
-explicacion: |
-  |E| = {k} > 1 → elástica, correcto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  pct_precio: random(5, 15)
-  k: random(2, 4)
-  pct_cantidad: pct_precio * k
-  error: uno_de([0, 0, 1, -1])
-  propuesto: k + error
-
-respuesta: (propuesto == k)
-tipo: vf
-
-enunciado: "El precio sube {pct_precio}% y la cantidad baja {pct_cantidad}%. ¿Es correcto que |E| sea {propuesto}?"
-
-explicacion: |
-  El valor correcto es {pct_cantidad}/{pct_precio} = {k}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una empresa que vende un producto con demanda inelástica puede subir el precio sin perder demasiadas ventas — a diferencia de un producto con demanda elástica."
-
-explicacion: |
-  Es una de las aplicaciones prácticas de conocer la elasticidad de lo
-  que se vende.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Todos los productos tienen la misma elasticidad, así que una vez calculada para uno, sirve para cualquier otro."
-
-explicacion: |
-  Cada producto tiene su propia elasticidad, según tenga o no
-  sustitutos, sea esencial o no, etc.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["clasificar"]
-
-variables:
-  pct_precio: random(5, 30)
-
-respuesta: pct_precio
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El precio sube {pct_precio}%. ¿Qué variación porcentual de la cantidad daría elasticidad unitaria (|E|=1)?"
-
-explicacion: |
-  Para |E|=1, %ΔQ tiene que ser exactamente igual a %ΔP.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Elasticidad y costo marginal son la misma familia de idea (una razón de cambio) aplicada a dos preguntas distintas: una a cuánto cuesta producir más, la otra a cuánto responde la demanda al precio."
-
-explicacion: |
-  Es el resumen de por qué `../costo-marginal/` es el prerrequisito de
-  este módulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "elasticidad"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La idea central de la elasticidad es usar variaciones RELATIVAS (porcentuales) en vez de ABSOLUTAS, lo que permite comparar sensibilidades entre magnitudes de escalas muy distintas."
-
-explicacion: |
-  Es el resumen del módulo: el mismo principio de 'porcentaje' ya
-  trabajado en Tronco 1, aplicado ahora a comparar dos tasas de cambio
-  entre sí.
-```
-
-## Sección: elementos-de-las-organizaciones (28 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "basico"
-  tags: ["factores", "naturales", "clasificacion"]
-
-variables:
-  recurso: uno_de(["tierra", "agua", "minerales", "energía solar"])
-
-respuesta: recurso
-tipo: completar
-
-enunciado: "La {recurso} es un ejemplo clásico de recurso natural porque la naturaleza la provee sin intervención humana directa."
-
-explicacion: |
-  Los recursos naturales incluyen la tierra, el agua, los minerales y la energía renovable. Se distinguen de los materiales porque no son fabricados por el hombre.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "basico"
-  tags: ["capital", "físico", "recursos"]
-
-variables:
-  bien: uno_de(["máquinas industriales", "edificios", "herramientas", "inventario"])
-
-respuesta: "capital físico"
-tipo: completar
-
-enunciado: "Las {bien} se clasifican como recursos materiales o capital físico, ya que son bienes creados por el hombre para producir otros bienes."
-
-explicacion: |
-  El capital físico (o recursos materiales) incluye máquinas, edificios e inventario. A diferencia de los recursos naturales, estos pueden ser acumulados y mejorados mediante inversión.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "basico"
-  tags: ["capital humano", "talento"]
-
-variables:
-  concepto: "capital humano"
-
-respuesta: concepto
-tipo: completar
-
-enunciado: "El {concepto} se refiere a las habilidades, conocimientos, salud y experiencia de las personas, no solo a la cantidad de empleados."
-
-explicacion: |
-  El capital humano valora la calidad de la fuerza laboral. Es crucial para adaptar tecnologías y mejorar procesos, diferenciándose de la simple cantidad de trabajadores.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["ingresos", "salarios", "distribución"]
-
-variables:
-  factor: "mano de obra"
-
-respuesta: "salarios"
-tipo: completar
-
-enunciado: "El ingreso que recibe el factor de producción asociado a la {factor} por su trabajo se denomina salarios."
-
-explicacion: |
-  Cada factor de producción recibe un ingreso específico: salarios para el trabajo, rentas para la tierra, intereses para el capital y ganancias para el emprendimiento.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["ingresos", "rentas", "tierra"]
-
-variables:
-  factor: "recursos naturales"
-
-respuesta: "rentas"
-tipo: completar
-
-enunciado: "El ingreso que corresponde al factor {factor} por su disponibilidad y uso se llama rentas."
-
-explicacion: |
-  Las rentas son la compensación económica por el uso de la tierra y otros recursos naturales. Su valor depende de la escasez y la productividad del recurso.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["ingresos", "intereses", "capital"]
-
-variables:
-  factor: "capital físico"
-
-respuesta: "intereses"
-tipo: completar
-
-enunciado: "El ingreso que obtiene el propietario del {factor} por cederlo temporalmente a una empresa se denomina intereses."
-
-explicacion: |
-  Los intereses son el retorno por el capital financiero o físico prestado. Reflejan el costo de oportunidad de usar ese capital en producción en lugar de en otros usos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["ingresos", "ganancias", "emprendimiento"]
-
-variables:
-  factor: "emprendimiento"
-
-respuesta: "ganancias"
-tipo: completar
-
-enunciado: "El ingreso residual que recibe el factor {factor} por asumir los riesgos de la actividad económica se llama ganancias."
-
-explicacion: |
-  Las ganancias son el beneficio que queda después de pagar todos los demás factores (salarios, rentas, intereses). Compensan la incertidumbre y la innovación del emprendedor.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "basico"
-  tags: ["definición", "factores", "insumos"]
-
-variables:
-  termino: "factores de producción"
-
-respuesta: termino
-tipo: completar
-
-enunciado: "Los {termino} son los insumos necesarios para crear valor y generar bienes y servicios."
-
-explicacion: |
-  Los factores de producción son los recursos (naturales, materiales, humanos) combinados para producir bienes y servicios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "basico"
-  tags: ["factores", "naturales", "clasificacion"]
-
-variables:
-  recurso: uno_de(["tierra", "agua", "minerales", "viento", "sol"])
-  recurso_clase: "recurso natural"
-
-respuesta: "recurso natural"
-tipo: completar
-
-enunciado: "La {recurso} es un ejemplo de {recurso_clase} porque proviene directamente de la naturaleza sin intervención humana directa."
-
-explicacion: |
-  Los recursos naturales son aquellos proveídos por la naturaleza sin intervención humana directa, como la tierra, el agua o los minerales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "basico"
-  tags: ["capital", "diferenciacion"]
-
-variables:
-  bien: uno_de(["maquina", "edificio", "herramienta", "inventario"])
-  clasificacion: "capital fisico"
-
-respuesta: "capital fisico"
-tipo: completar
-
-enunciado: "Las {bien} son bienes creados por el hombre para producir otros bienes, por lo tanto se clasifican como {clasificacion}."
-
-explicacion: |
-  Los recursos materiales o capital físico son bienes creados por el hombre (máquinas, edificios) que se utilizan para producir otros bienes.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["capital humano", "definicion"]
-
-variables:
-  concepto: "capital humano"
-  definicion: "habilidades, conocimientos, salud y experiencia"
-
-respuesta: "capital humano"
-tipo: completar
-
-enunciado: "Las {definicion} de las personas que trabajan en una organización se denominan {concepto}."
-
-explicacion: |
-  El capital humano se refiere a las habilidades, conocimientos, salud y experiencia de los trabajadores, no solo a su cantidad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["costos", "valor", "calculos"]
-
-variables:
-  tierra: random(10, 50)
-  trabajo: random(20, 100)
-  capital: random(30, 150)
-  total: redondear(tierra + trabajo + capital, 0)
-
-respuesta: "{total}"
-tipo: input
-
-enunciado: "Si una organización utiliza recursos naturales valorados en {tierra}, capital humano en {trabajo} y capital físico en {capital}, ¿cuál es el valor total de los elementos combinados?"
-
-explicacion: |
-  Se suman los valores de los diferentes factores de producción para obtener el costo total de los insumos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["argentina", "agricultura", "ventaja comparativa"]
-
-variables:
-  region: "pampa humeda"
-  factor: "recurso natural"
-
-respuesta: "recurso natural"
-tipo: completar
-
-enunciado: "La {region} es un {factor} clave para la producción agrícola argentina debido a su fertilidad natural."
-
-explicacion: |
-  La pampa húmeda es un recurso natural fundamental que otorga ventaja comparativa a la agricultura argentina.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["conocimiento", "tecnologia", "adaptacion"]
-
-variables:
-  ventaja: "adaptar tecnologias"
-
-respuesta: "adaptar tecnologias"
-tipo: completar
-
-enunciado: "El capital humano permite a las organizaciones {ventaja} y mejorar los procesos productivos."
-
-explicacion: |
-  El capital humano es crucial porque permite adaptar las tecnologías y mejorar la eficiencia de los procesos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["litio", "recursos naturales", "argentina"]
-
-variables:
-  recurso: "litio"
-  region: "noroeste"
-  uso: "industria tecnologica"
-
-respuesta: "litio"
-tipo: completar
-
-enunciado: "Los yacimientos de {recurso} en el {region} son vitales para la {uso} mundial."
-
-explicacion: |
-  El litio es un recurso natural estratégico extraído en el noroeste argentino, esencial para la tecnología.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "avanzado"
-  tags: ["escasez", "precios", "dinamica de mercado"]
-
-variables:
-  condicion: "escasez"
-  efecto: "afecta los precios"
-
-respuesta: "afecta los precios"
-tipo: completar
-
-enunciado: "La {condicion} de ciertos recursos {efecto} en el mercado."
-
-explicacion: |
-  La escasez de recursos influye directamente en los costos y, por ende, en los precios finales de los bienes y servicios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "basico"
-  tags: ["insumos", "definicion"]
-
-variables:
-  termino: "factores de produccion"
-  definicion: "insumos necesarios para crear valor"
-
-respuesta: "factores de produccion"
-tipo: completar
-
-enunciado: "Los {termino} son los {definicion} para crear bienes y servicios."
-
-explicacion: |
-  Los factores de producción son los insumos necesarios para generar valor económico.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["ventaja comparativa", "geografia"]
-
-variables:
-  factor: "disponibilidad geografica"
-  efecto: "influencia directamente"
-
-respuesta: "influencia directamente"
-tipo: completar
-
-enunciado: "La {factor} de los recursos naturales {efecto} en la ventaja comparativa de cada región."
-
-explicacion: |
-  La ubicación y disponibilidad de recursos naturales definen las ventajas comparativas de las regiones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["costos", "estructura"]
-
-variables:
-  concepto: "estructura de costos"
-  utilidad: "entender la dinamica del mercado"
-
-respuesta: "entender la dinamica del mercado"
-tipo: completar
-
-enunciado: "Identificar los elementos de producción permite entender la {concepto} y {utilidad}."
-
-explicacion: |
-  Separar la producción en categorías claras ayuda a analizar costos y la dinámica del mercado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["capital humano", "calidad"]
-
-variables:
-  aspecto: "calidad"
-  contraste: "cantidad"
-
-respuesta: "calidad"
-tipo: completar
-
-enunciado: "El capital humano se refiere a la {aspecto} de la formación, no solo a la {contraste} de empleados."
-
-explicacion: |
-  El capital humano valora la calidad (habilidades, salud) más que la simple cantidad de trabajadores.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["inventario", "capital fisico"]
-
-variables:
-  elemento: "inventario"
-  clasificacion: "capital fisico"
-
-respuesta: "capital fisico"
-tipo: completar
-
-enunciado: "El {elemento} de productos terminados se considera parte del {clasificacion}."
-
-explicacion: |
-  El inventario, junto con máquinas y edificios, forma parte del capital físico o recursos materiales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "avanzado"
-  tags: ["competitividad", "globalizacion"]
-
-variables:
-  factor: "comprender esta division"
-  resultado: "analizar la eficiencia economica"
-
-respuesta: "analizar la eficiencia economica"
-tipo: completar
-
-enunciado: "{factor} es fundamental para {resultado} y la competitividad en un mundo globalizado."
-
-explicacion: |
-  Entender la división de factores es clave para analizar la eficiencia y competitividad en la economía global.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "avanzado"
-  tags: ["emprendimiento", "ganancia"]
-
-variables:
-  factor: "emprendimiento"
-  ingreso: "ganancia"
-
-respuesta: "ganancia"
-tipo: completar
-
-enunciado: "El factor de producción 'emprendimiento' recibe como ingreso la {ingreso}."
-
-explicacion: |
-  El emprendimiento o capacidad empresarial se remuneda con ganancias.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["diferenciacion", "tierra", "maquina"]
-
-variables:
-  recurso1: "tierra"
-  recurso2: "maquina"
-  diferencia: "intervencion humana"
-
-respuesta: "intervencion humana"
-tipo: completar
-
-enunciado: "La principal diferencia entre {recurso1} y {recurso2} es el grado de {diferencia} requerida para su obtención."
-
-explicacion: |
-  La tierra es un recurso natural (poca intervención), mientras que la máquina es capital físico (alta intervención).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["capital humano", "salud"]
-
-variables:
-  elemento: "salud"
-  categoria: "capital humano"
-
-respuesta: "capital humano"
-tipo: completar
-
-enunciado: "La salud de los trabajadores es un componente del {categoria}."
-
-explicacion: |
-  El capital humano incluye la salud, conocimientos y habilidades de las personas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "avanzado"
-  tags: ["escasez", "valor"]
-
-variables:
-  concepto: "escasez"
-  efecto: "determina el valor"
-
-respuesta: "determina el valor"
-tipo: completar
-
-enunciado: "La {concepto} de los recursos {efecto} en el mercado."
-
-explicacion: |
-  La escasez es un principio económico fundamental que determina el valor y precio de los recursos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "intermedio"
-  tags: ["conocimiento", "acumulacion"]
-
-variables:
-  recurso: "conocimiento"
-  capacidad: "puede ser acumulado"
-
-respuesta: "puede ser acumulado"
-tipo: completar
-
-enunciado: "El {recurso} es un activo intangible que {capacidad} con el tiempo y la educación."
-
-explicacion: |
-  El conocimiento y el capital humano pueden acumularse y mejorarse mediante la educación y la experiencia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "elementos_de_las_organizaciones"
-  nivel: "avanzado"
-  tags: ["sintesis", "organizacion"]
-
-variables:
-  numero_factores: 4
-  factores: "naturales, materiales, humanos y conocimiento"
-
-respuesta: "naturales, materiales, humanos y conocimiento"
-tipo: completar
-
-enunciado: "Los principales elementos de las organizaciones se dividen en factores {factores}."
-
-explicacion: |
-  Los factores de producción se clasifican generalmente en recursos naturales, materiales (capital físico), humanos y conocimiento.
-```
-
-## Sección: estado-de-resultados (25 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "basico"
-  tags: ["conceptos", "ingresos"]
-
-respuesta: "ingresos"
-tipo: completar
-respuestas_validas: ["ingresos", "ventas"]
-
-enunciado: "El conjunto de incrementos en los beneficios económicos durante el período, que resultan en aumentos del patrimonio neto, se denominan _______."
-
-explicacion: |
-  Los ingresos representan las entradas de recursos o incrementos en el valor de los activos que surgen de las actividades principales de la organización.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "basico"
-  tags: ["estructura", "resultado"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[1000, 800, 200], [500, 700, -200]]
-
-respuesta: escenario[idx][2
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "En un escenario donde los ingresos son de ${escenario[idx][0]} y los costos/gastos totales son de ${escenario[idx][1]}, el resultado del período es _______."
-
-pasos:
-  - "Identificar el total de ingresos: ${escenario[idx][0]}"
-  - "Identificar el total de costos y gastos: ${escenario[idx][1]}"
-  - "Restar: Ingresos - Costos = Resultado"
-
-explicacion: |
-  El resultado se obtiene restando los costos y gastos de los ingresos totales. Si el resultado es positivo es ganancia, si es negativo es pérdida.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "basico"
-  tags: ["terminologia"]
-
-respuesta: "verdadero"
-tipo: completar
-enunciado: "Si el total de ingresos es menor que el total de costos y gastos en un período determinado, la organización presenta una pérdida."
-
-explicacion: |
-  Exacto. La pérdida ocurre cuando los egresos superan a los ingresos en el estado de resultados.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "basico"
-  tags: ["estructura"]
-
-respuesta: ["Ingresos", "Costos", "Resultado"]
-tipo: ordenar
-
-opciones_explicitas: ["Ingresos", "Costos", "Resultado"]
-
-enunciado: "Ordene los elementos según la estructura lógica de cálculo del estado de resultados (desde el origen del recurso hasta el resultado final):"
-
-explicacion: |
-  La secuencia lógica es: primero se registran los ingresos, luego se restan los costos/gastos y finalmente se obtiene el resultado (utilidad o pérdida).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "basico"
-  tags: ["conceptos"]
-
-variables:
-  idx: uno_de([0, 1])
-  resultado_tipo: [["Ganancia", "positivo"], ["Pérdida", "negativo"]]
-
-respuesta: resultado_tipo[idx][1
-tipo: mc
-
-opciones_explicitas: ["positivo", "negativo"]
-
-enunciado: "Si el resultado del período es una '_______', el valor numérico final es ${resultado_tipo[idx][0]}."
-
-explicacion: |
-  Una ganancia implica un valor positivo (ingresos > costos), mientras que una pérdida implica un valor negativo (ingresos < costos).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "basico"
-  tags: ["contabilidad", "ingresos", "costos"]
-
-variables:
-  datos: [[150000, 90000], [250000, 180000], [80000, 50000]]
-  idx: uno_de([0,1,2])
-  ventas: datos[idx][0]
-  costo_ventas: datos[idx][1]
-
-respuesta: ventas - costo_ventas
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Una empresa presenta las siguientes cifras en su estado de resultados: Ventas Totales de ${ventas} y Costo de Mercaderías Vendidas de ${costo_ventas}. ¿Cuál es el Resultado Bruto?"
-
-pasos:
-  - "Identificar las Ventas Netas: ${ventas}"
-  - "Identificar el Costo de Ventas: ${costo_ventas}"
-  - "Restar el Costo de las Ventas a las Ventas Netas: ${ventas} - ${costo_ventas}"
-
-explicacion: |
-  El Resultado Bruto se obtiene restando el costo de lo vendido a los ingresos por ventas. En este caso: ${ventas} - ${costo_ventas} = ${ventas - costo_ventas}.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "basico"
-  tags: ["clasificacion", "conceptos"]
-
-respuesta: "Ingreso"
-tipo: mc
-opciones_explicitas: ["Ingreso", "Costo", "Gasto", "Activo"]
-
-enunciado: "Si una empresa realiza una venta de servicios por un valor de $50.000, este concepto se clasifica contablemente en el Estado de Resultados como un:"
-
-explicacion: |
-  Las entradas de recursos que incrementan el patrimonio neto de la entidad, provenientes de la actividad principal, se denominan Ingresos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "intermedio"
-  tags: ["utilidad", "impuestos", "gastos"]
-
-variables:
-  escenario: [[10000, 4000, 2000], [25000, 12000, 5000], [5000, 6000, 1000]]
-  idx: uno_de([0,1,2])
-  res_bruto: escenario[idx][0]
-  gastos_op: escenario[idx][1]
-  impuestos: escenario[idx][2]
-
-respuesta: res_bruto - gastos_op - impuestos
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Se dispone de un Resultado Bruto de ${res_bruto}, Gastos Operativos de ${gastos_op} e Impuestos de ${impuestos}. Calcule la Utilidad Neta (Resultado del Ejercicio)."
-
-pasos:
-  - "Partir del Resultado Bruto: ${res_bruto}"
-  - "Restar los Gastos Operativos: ${res_bruto} - ${gastos_op}"
-  - "Restar los Impuestos para obtener el resultado final: ${res_bruto} - ${gastos_op} - ${impuestos}"
-
-explicacion: |
-  La Utilidad Neta es el resultado final después de deducir todos los costos, gastos y obligaciones impositivas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "basico"
-  tags: ["teoria", "conceptos"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Si el total de ingresos de una organización es menor al total de sus costos y gastos en un período determinado, el resultado se denomina 'Ganancia'."
-
-explicacion: |
-  Falso. Cuando los gastos superan a los ingresos, el resultado es una 'Pérdida'. La 'Ganancia' ocurre cuando los ingresos son mayores.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "intermedio"
-  tags: ["estructura", "proceso"]
-
-opciones_explicitas: ["Ventas", "Resultado Bruto", "Resultado Operativo", "Resultado Neto"]
-respuesta: ["Ventas", "Resultado Bruto", "Resultado Operativo", "Resultado Neto"]
-tipo: ordenar
-
-enunciado: "Ordene los siguientes conceptos según la estructura lógica de cascada de un Estado de Resultados, desde el ingreso principal hasta el resultado final:"
-
-explicacion: |
-  La estructura sigue un orden de deducción sucesiva: se parte de las Ventas, se restan los costos para obtener el Bruto, luego se restan gastos operativos para el Operativo, y finalmente impuestos y otros para el Neto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "basico"
-  tags: ["ingresos", "devengado", "flujo_de_caja"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un ingreso registrado en el Estado de Resultados implica necesariamente que el dinero ya ingresó a la cuenta bancaria de la organización."
-
-explicacion: |
-  El Estado de Resultados se rige por el principio de lo devengado. Esto significa que los ingresos se registran cuando se produce la venta o la prestación del servicio, independientemente de si el cliente pagó en efectivo o si la transacción fue a crédito.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "intermedio"
-  tags: ["resultado", "ganancia", "perdida"]
-
-variables:
-  datos: [["Ingresos: 1000, Costos: 800", "200"], ["Ingresos: 500, Costos: 600", "-100"], ["Ingresos: 1200, Costos: 1200", "0"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1
-tipo: mc
-opciones_explicitas: ["200", "-100", "0", "No se puede determinar"]
-
-enunciado: "Si una organización presenta un total de ingresos de {datos[idx][0].split(':')[1].split(',')[0].strip()} y un total de costos de {datos[idx][0].split(':')[2].strip()}, su resultado del período es:"
-
-explicacion: |
-  El resultado (ganancia o pérdida) se obtiene restando los costos y gastos de los ingresos totales. En el caso {datos[idx][1]}, el resultado es positivo (ganancia) o negativo (pérdida).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "basico"
-  tags: ["orden", "estructura"]
-
-respuesta: ["Ventas", "Costo de Ventas", "Resultado Bruto", "Gastos Operativos", "Resultado Operativo"]
-tipo: ordenar
-
-opciones_explicitas: ["Ventas", "Costo de Ventas", "Resultado Bruto", "Gastos Operativos", "Resultado Operativo"]
-
-enunciado: "Ordene los conceptos según el orden lógico de presentación en un Estado de Resultados estándar para determinar la utilidad operativa."
-
-explicacion: |
-  El orden lógico comienza con los ingresos por ventas, se restan los costos directos para obtener el margen bruto, luego se restan los gastos operativos para llegar al resultado operativo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "intermedio"
-  tags: ["costo", "gasto", "clasificacion"]
-
-respuesta: "gasto"
-tipo: completar
-respuestas_validas: ["gasto"]
-
-enunciado: "Mientras que el costo está directamente vinculado a la producción de un bien o servicio, el pago de la factura de luz de la oficina administrativa se clasifica contablemente como un ___."
-
-explicacion: |
-  Los costos son inversiones que se recuperan al vender el producto (están en el inventario hasta la venta), mientras que los gastos son consumos que se utilizan para mantener la estructura operativa de la empresa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "avanzado"
-  tags: ["impuestos", "resultado_neto"]
-
-variables:
-  escenario: [["Resultado antes de impuestos: 100, Tasa: 0.3", "70"], ["Resultado antes de impuestos: -50, Tasa: 0.3", "-50"]]
-  idx: uno_de([0, 1])
-
-respuesta: escenario[idx][1
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "Calcule el Resultado Neto (utilidad o pérdida después de impuestos) considerando el siguiente escenario: {escenario[idx][0]}."
-
-explicacion: |
-  El resultado neto es el resultado final después de restar los impuestos al resultado antes de impuestos. Si hay pérdida, generalmente no se calcula impuesto sobre la renta (dependiendo de la legislación local, pero en ejercicios académicos se asume que no se resta impuesto a una pérdida).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "basico"
-  tags: ["conceptos", "contabilidad"]
-
-respuesta: "flujo"
-tipo: completar
-respuestas_validas: ["flujo", "flujo de fondos", "flujo de caja"]
-
-enunciado: "A diferencia del Balance General, que muestra la situación patrimonial en un momento dado, el Estado de Resultados muestra el ___ de ingresos y gastos durante un período determinado."
-
-explicacion: |
-  El Balance General es una "foto" estática, mientras que el Estado de Resultados es un "video" que registra el flujo de transacciones en un tiempo determinado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "intermedio"
-  tags: ["rentabilidad", "liquidez"]
+  tags: ["metas", "smart"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [[true, false], [false, true]]
+  escenarios: [["Incrementar la satisfacción del cliente en un 15% para diciembre de 2024.", "Mejorar la calidad del servicio."], ["Reducir los costos operativos en un 5% durante el próximo semestre.", "Gastar menos dinero."]]
 
-respuesta: "escenarios[escenario_idx][0]"
-tipo: mc
-opciones_explicitas: ["La utilidad neta indica la liquidez inmediata de la empresa", "La utilidad neta indica la rentabilidad del período, no necesariamente el efectivo disponible"]
+tipo: vf
+respuesta: verdadero
 
-enunciado: "Si una empresa reporta una utilidad neta positiva pero tiene problemas para pagar sus deudas corrientes, ¿qué concepto se está diferenciando correctamente?"
+enunciado: "Analice el siguiente enunciado: '{escenarios[escenario_idx][0]}' es un ejemplo de una meta concreta y medible."
 
 explicacion: |
-  El principio del devengado implica que los ingresos y gastos se registran cuando ocurren, independientemente de si hubo movimiento de efectivo o no.
+  Para que una meta sea efectiva, debe ser específica, medible, alcanzable, relevante y con un tiempo definido (SMART). El enunciado cumple con tener un indicador (15% o 5%) y un plazo determinado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estado_de_resultados"
+  tema: "objetivos_y_metas"
   nivel: "basico"
-  tags: ["estructura", "conceptos"]
+  tags: ["terminologia"]
+
+respuesta: "cuantificable"
+tipo: completar
+respuestas_validas:
+  - "cuantificable"
+
+enunciado: "Para que una meta sea considerada efectiva, debe ser __________, es decir, debe poder medirse a través de indicadores numéricos."
+
+explicacion: |
+  La cuantificación es lo que permite saber si se ha alcanzado la meta o qué tan cerca se está de lograrla. Sin medición, no hay control administrativo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "intermedio"
+  tags: ["planificacion", "jerarquia"]
+
+tipo: ordenar
+opciones_explicitas: ["Misión de la empresa", "Objetivo estratégico", "Meta operativa", "Acción diaria"]
+
+enunciado: "Ordene los siguientes elementos desde el nivel más macro (estratégico/filosófico) hasta el nivel más micro (ejecución):"
+
+explicacion: |
+  La planificación sigue una cascada: la Misión define la razón de ser, los Objetivos estratégicos marcan el rumbo a largo plazo, las Metas operativas desglosan esos objetivos en términos medibles, y las Acciones son las tareas concretas del día a día.
+respuesta_orden: ["Misión de la empresa", "Objetivo estratégico", "Meta operativa", "Acción diaria"]
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "intermedio"
+  tags: ["coherencia", "logica"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  casos: [["Objetivo: 'Ser la empresa más rentable del sector'. Meta: 'Aumentar el margen de utilidad neta del 5% al 8% en un año'.", "Verdadero"], ["Objetivo: 'Mejorar el clima laboral'. Meta: 'Reducir la rotación de personal en un 20% para fin de año'.", "Verdadero"]]
+
+tipo: mc
+opciones_explicitas: ["Verdadero", "Falso"]
+respuesta: casos[caso_idx][1]
+
+enunciado: "Determine si la relación entre el objetivo y la meta presentados en el caso es coherente: '{casos[caso_idx][0]}'"
+
+explicacion: |
+  En el caso 0, la meta de aumentar el margen de utilidad neta es coherente y directamente medible respecto al objetivo de rentabilidad. En el caso 1, la meta de reducir la rotación es un indicador directo y medible para alcanzar la mejora del clima laboral.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "basico"
+  tags: ["administracion", "conceptos"]
+
+respuesta: "meta"
+tipo: "mc"
+opciones_explicitas: ["objetivo", "meta", "estrategia", "plan"]
+
+enunciado: "Un enunciado que describe un propósito amplio y aspiracional, como 'Ser la empresa líder en el sector de calzado en el país', se define como un ___."
+
+explicacion: |
+  El objetivo general es el fin último y amplio (la visión), mientras que la meta es el paso específico, medible y con un tiempo determinado para alcanzar dicho objetivo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "intermedio"
+  tags: ["metas_SMART", "medicion"]
+
+variables:
+  escenario: uno_de([["Aumentar las ventas totales", "Aumentar las ventas en un 15% durante el segundo semestre de 2024"], ["Mejorar la satisfacción del cliente", "Lograr un puntaje de 9/10 en las encuestas de satisfacción para diciembre"], ["Reducir costos operativos", "Disminuir los gastos de logística en un 5% mensual durante el próximo trimestre"]])
+
+respuesta: escenario[1]
+tipo: "mc"
+opciones_explicitas: [escenario[0], escenario[1], "Reducir la rotación de personal"]
+
+enunciado: "Dada la siguiente lista de declaraciones, selecciona aquella que represente una META concreta y medible (SMART) en lugar de un objetivo general: {escenario[0]}"
+
+explicacion: |
+  Una meta debe ser cuantificable y tener un plazo. Mientras que '{escenario[0]}' es una intención general, '{escenario[1]}' proporciona un número (15%) y un tiempo (segundo semestre), permitiendo su medición real.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "basico"
+  tags: ["logica", "metas"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "Un objetivo general puede ser evaluado de forma inmediata y precisa mediante un indicador numérico sin necesidad de desglosarlo en metas."
+
+explicacion: |
+  Falso. Los objetivos generales suelen ser cualitativos o demasiado amplios. Para poder medirlos, es indispensable transformarlos en metas específicas, medibles y con un plazo determinado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "intermedio"
+  tags: ["pasos", "planificacion"]
+
+respuesta_orden: ["Definir el objetivo general", "Establecer metas específicas", "Asignar recursos y tiempos", "Ejecutar y monitorear"]
+tipo: "ordenar"
+opciones_explicitas: ["Definir el objetivo general", "Establecer metas específicas", "Asignar recursos y tiempos", "Ejecutar y monitorear"]
+
+enunciado: "Ordena lógicamente los pasos para pasar de una visión empresarial a la ejecución de una estrategia de gestión:"
+
+explicacion: |
+  La planificación estratégica siempre comienza con la visión macro (objetivo), se desglosa en pasos accionables y medibles (metas), se asignan los medios para lograrlas y finalmente se controla el proceso.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "avanzado"
+  tags: ["calculo", "indicadores"]
+
+variables:
+  datos: [["Ventas actuales: 100.000 USD", "120.000 USD", "20%"], ["Clientes actuales: 500", "600", "20%"], ["Producción actual: 1000 unidades", "1100", "10%"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][2]
+tipo: "completar"
+respuestas_validas:
+  - datos[idx][2]
+
+enunciado: "Si el objetivo general es 'Incrementar la facturación anual', y actualmente se facturan {datos[idx][0]}, una meta concreta para este año sería alcanzar los {datos[idx][1]} USD, lo que representa un incremento del ___."
+
+explicacion: |
+  Para convertir un objetivo en meta, debemos calcular la diferencia porcentual o absoluta. En este caso, el incremento respecto al valor base definido en el escenario sorteado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "basico"
+  tags: ["administracion", "conceptos_clave"]
+
+tipo: mc
+opciones_explicitas: ["El objetivo es el fin último y la meta es el paso cuantificable", "El objetivo es el paso cuantificable y la meta es el fin último", "Son sinónimos en la práctica administrativa", "La meta es cualitativa y el objetivo es cuantitativo"]
+respuesta: "El objetivo es el fin último y la meta es el paso cuantificable"
+
+enunciado: "En el proceso de planificación estratégica, ¿cuál es la distinción principal entre un objetivo general y una meta?"
+
+explicacion: |
+  Un objetivo general describe un estado deseado a largo plazo (el "qué"), mientras que una meta es un punto de referencia específico, medible y con un tiempo determinado que ayuda a alcanzar ese objetivo (el "cuánto" y "cuándo").
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "intermedio"
+  tags: ["planificacion", "errores_comunes"]
+
+tipo: vf
+enunciado: "Si una empresa establece como objetivo 'Aumentar la satisfacción del cliente', esto se considera una meta SMART porque es específica y medible."
+
+respuesta: falso
+
+explicacion: |
+  Falso. 'Aumentar la satisfacción del cliente' es un objetivo general. Para ser una meta, debería ser algo como: 'Aumentar el índice de satisfacción de 75% a 85% en los próximos 6 meses'.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "basico"
+  tags: ["estructura", "jerarquia"]
+
+variables:
+  ejemplo_idx: uno_de([0, 1])
+  escenarios: [["Ser el líder del mercado regional", "Incrementar la cuota de mercado del 15% al 25% en un año"], ["Reducir la huella de carbono", "Disminuir las emisiones de CO2 en un 10% para diciembre de 2025"]]
+
+tipo: completar
+respuestas_validas:
+  - escenarios[ejemplo_idx][1]
+respuesta: escenarios[ejemplo_idx][1]
+
+enunciado: "Dado el siguiente objetivo general: '{escenarios[ejemplo_idx][0]}', la meta concreta correspondiente es: ___"
+
+explicacion: |
+  La meta debe transformar la intención cualitativa en un dato cuantitativo y temporal. En el primer caso es la cuota de mercado; en el segundo, la reducción de emisiones con fecha límite.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "intermedio"
+  tags: ["metas_smart", "errores"]
+
+tipo: mc
+opciones_explicitas: ["Falta de temporalidad", "Falta de cuantificación", "Falta de relevancia", "Todas las anteriores son errores comunes"]
+respuesta: "Todas las anteriores son errores comunes"
+
+enunciado: "Un error crítico al transformar un objetivo en meta es presentar una declaración que no permite saber si se ha logrado o no. Esto sucede principalmente por:"
+
+explicacion: |
+  Para que una meta sea efectiva, debe ser medible (cuantificación) y tener un plazo (temporalidad). Sin estos elementos, la meta es ambigua y no permite el control administrativo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "basico"
+  tags: ["proceso", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Definir la visión y misión de la empresa", "Establecer los objetivos generales estratégicos", "Determinar las metas tácticas y medibles", "Diseñar el plan de acción para ejecutar las metas"]
+
+enunciado: "Ordene correctamente los pasos del proceso de planificación, desde la visión macro hasta la ejecución operativa:"
+
+respuesta_orden: ["Definir la visión y misión de la empresa", "Establecer los objetivos generales estratégicos", "Determinar las metas tácticas y medibles", "Diseñar el plan de acción para ejecutar las metas"]
+
+explicacion: |
+  La planificación sigue un flujo descendente: primero se define la identidad (visión/misión), luego el rumbo (objetivos), después los hitos concretos (metas) y finalmente el cómo (plan de acción).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "basico"
+  tags: ["administracion", "planificacion"]
+
+respuesta: "meta"
+tipo: "mc"
+opciones_explicitas: ["objetivo", "meta", "estrategia", "plan"]
+
+enunciado: "Mientras que un objetivo es una declaración amplia de lo que se desea lograr a largo plazo, una ___ es un paso específico, cuantificable y con un tiempo determinado para alcanzarlo."
+
+explicacion: |
+  Los objetivos son la dirección general (ej. "Ser líderes en el mercado"), mientras que las metas son los hitos medibles (ej. "Aumentar las ventas un 10% en el primer trimestre").
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "basico"
+  tags: ["metodologia", "medicion"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "Un objetivo general se distingue de una meta concreta principalmente porque el objetivo debe ser necesariamente cuantificable y tener una fecha de vencimiento estricta."
+
+explicacion: |
+  Falso. Es la meta la que debe ser cuantificable y tener un plazo. El objetivo es la aspiración cualitativa o el fin último.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "intermedio"
+  tags: ["jerarquia", "procesos"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["Incrementar la rentabilidad", "Aumentar el margen de beneficio neto en un 5% anual"], ["Expandir la presencia de marca", "Abrir 3 nuevas sucursales en la región norte antes de diciembre"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: "completar"
+respuestas_validas:
+  - datos[escenario_idx][1]
+
+enunciado: "Considere el siguiente objetivo general: '{datos[escenario_idx][0]}'. Una meta concreta que represente este objetivo sería: ___"
+
+pasos:
+  - "Identificar el fin último (objetivo)."
+  - "Transformar el fin en una acción medible con tiempo y cantidad (meta)."
+
+explicacion: |
+  La meta debe desglosar el objetivo en términos de 'cuánto', 'cuándo' y 'cómo' de forma que se pueda verificar su cumplimiento.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "intermedio"
+  tags: ["caracteristicas"]
+
+respuesta: "específica, medible, alcanzable, relevante y con tiempo"
+tipo: "completar"
+respuestas_validas:
+  - "específica, medible, alcanzable, relevante y con tiempo"
+
+enunciado: "Para que una meta sea efectiva y se diferencie de un deseo vago, se recomienda que cumpla con el criterio SMART, lo que significa que debe ser ___."
+
+explicacion: |
+  El acrónimo SMART (Specific, Measurable, Achievable, Relevant, Time-bound) es el estándar para transformar objetivos en metas operativas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "avanzado"
+  tags: ["secuencia", "logica"]
+
+respuesta_orden: ["Definir misión", "Establecer objetivos", "Determinar metas", "Diseñar tácticas"]
+tipo: "ordenar"
+opciones_explicitas: ["Definir misión", "Establecer objetivos", "Determinar metas", "Diseñar tácticas"]
+
+enunciado: "Ordene los siguientes elementos según la jerarquía lógica de la planificación estratégica, desde lo más abstracto a lo más concreto:"
+
+explicacion: |
+  La planificación comienza con la identidad (misión), sigue con la dirección (objetivos), se desglosa en hitos (metas) y finalmente en la ejecución táctica.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "basico"
+  tags: ["administracion", "conceptos"]
+
+variables:
+  escenario_idx: uno_de([0,1])
+  escenarios: [["Aumentar la presencia en el mercado nacional", "Incrementar las ventas en un 15% durante el primer semestre de 2024"], ["Mejorar la satisfacción del cliente", "Reducir el tiempo de espera en atención al cliente a menos de 2 minutos para diciembre"]]
+
+enunciado: "En el escenario '{escenarios[escenario_idx][0]}', la expresión '{escenarios[escenario_idx][1]}' representa una: ___"
+
+respuesta: "meta"
+respuestas_validas:
+  - "meta"
+tipo: completar
+
+explicacion: |
+  El primer elemento es un objetivo general (aspiracional y amplio), mientras que el segundo es una meta (específica, medible y con un plazo determinado).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "basico"
+  tags: ["administracion", "metas"]
+
+variables:
+  caso_idx: uno_de([0,1,2])
+  casos: [["Reducir costos operativos", "Reducir costos operativos", "Reducir costos operativos"], ["Incrementar la rentabilidad", "Incrementar la rentabilidad", "Incrementar la rentabilidad"], ["Expandir la marca", "Expandir la marca", "Expandir la marca"]]
+  metas: ["Reducir costos operativos en un 5% mensual", "Incrementar la rentabilidad en un 10% anual", "Expandir la marca abriendo 3 sucursales en junio"]
+
+enunciado: "Si el objetivo es '{casos[caso_idx]}', ¿cuál de las siguientes opciones constituye una meta válida y medible?"
+
+opciones_explicitas: ["Reducir costos operativos en un 5% mensual", "Incrementar la rentabilidad en un 10% anual", "Expandir la marca abriendo 3 sucursales en junio"]
+tipo: mc
+respuesta: metas[caso_idx]
+
+explicacion: |
+  Una meta debe ser cuantificable y tener un tiempo definido para poder ser medida frente al objetivo general.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "objetivos_y_metas"
+  nivel: "basico"
+  tags: ["conceptos", "logica"]
+
+enunciado: "Un objetivo general es una meta concreta y medible que define un resultado específico en un tiempo determinado. ¿Es esto verdadero o falso?"
 
 respuesta: falso
 tipo: vf
 
-enunciado: "¿Es correcto afirmar que el Resultado del Ejercicio se obtiene simplemente restando el Activo del Pasivo?"
-
 explicacion: |
-  Falso. La diferencia entre Activo y Pasivo es el Patrimonio Neto. El Resultado del Ejercicio se obtiene de la diferencia entre Ingresos y Gastos en el Estado de Resultados.
+  Es falso. La definición dada corresponde a una 'meta'. El 'objetivo general' es el propósito amplio y cualitativo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estado_de_resultados"
+  tema: "objetivos_y_metas"
   nivel: "intermedio"
-  tags: ["estructura", "jerarquia"]
+  tags: ["proceso", "planificacion"]
 
-respuesta: ["Ventas Netas", "Costo de Mercaderías Vendidas", "Utilidad Bruta", "Gastos Operativos", "Utilidad Operativa"]
+enunciado: "Ordene los pasos lógicos para la planificación estratégica de una empresa:"
+
+opciones_explicitas: ["Definir la visión y misión", "Establecer objetivos generales", "Diseñar metas específicas y medibles", "Ejecutar y monitorear resultados"]
 tipo: ordenar
-opciones_explicitas: ["Ventas Netas", "Costo de Mercaderías Vendidas", "Utilidad Bruta", "Gastos Operativos", "Utilidad Operativa"]
 
-enunciado: "Ordene los conceptos según la estructura lógica de un Estado de Resultados para determinar la utilidad operativa:"
+respuesta_orden: ["Definir la visión y misión", "Establecer objetivos generales", "Diseñar metas específicas y medibles", "Ejecutar y monitorear resultados"]
 
 explicacion: |
-  La estructura sigue un orden descendente: primero se determinan las ventas, se restan los costos directos para obtener la utilidad bruta, y luego se restan los gastos de administración y ventas para llegar a la utilidad operativa.
+  La planificación comienza con la filosofía organizacional (visión/misión), sigue con los propósitos amplios (objetivos), luego se desglosan en acciones cuantificables (metas) y finalmente se ejecutan.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estado_de_resultados"
+  tema: "objetivos_y_metas"
   nivel: "avanzado"
-  tags: ["costos", "clasificacion"]
+  tags: ["analisis", "metas"]
 
 variables:
-  tipo_item_idx: uno_de([0, 1])
-  items: [[0, 1], [1, 0]]
+  dato_idx: uno_de([0,1])
+  datos: [["Objetivo: Ser líderes en calidad. Meta: Lograr 95/100 en encuestas de satisfacción en diciembre.", 95], ["Objetivo: Crecimiento sostenido. Meta: Alcanzar 1.000 nuevos usuarios activos en 3 meses.", 1000]]
 
-respuesta: "items[tipo_item_idx][0]"
-tipo: mc
-opciones_explicitas: ["Costo", "Gasto"]
+enunciado: "Para el escenario '{datos[dato_idx][0]}', el valor numérico que permite medir el cumplimiento de la meta es: ___"
 
-enunciado: "En el Estado de Resultados, el concepto que se relaciona directamente con el ingreso por ventas para determinar la utilidad bruta se denomina ___."
-
-explicacion: |
-  El 'Costo' (como el CMV) está directamente vinculado a la producción o adquisición de lo vendido, mientras que el 'Gasto' suele referirse a consumos para la estructura operativa (administración/ventas).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "basico"
-  tags: ["contabilidad", "utilidad_bruta"]
-
-variables:
-  escenario: [[150000, 85000, 45000], [200000, 120000, 30000], [180000, 90000, 55000]]
-  idx: uno_de([0, 1, 2])
-  ventas: escenario[idx][0]
-  costo_ventas: escenario[idx][1]
-
-respuesta: ventas - costo_ventas
+respuesta: datos[dato_idx][1]
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Una empresa reporta en su estado de resultados un total de ventas de ${ventas} y un costo de ventas de ${costo_ventas}. ¿Cuál es el monto de la utilidad bruta?"
-
 explicacion: |
-  La utilidad bruta se calcula restando el costo de ventas de los ingresos totales por ventas:
-  Utilidad Bruta = Ventas - Costo de Ventas
-  En este caso: ${ventas} - ${costo_ventas} = ${ventas - costo_ventas}.
+  Las metas proporcionan el indicador numérico (KPI) necesario para evaluar si el objetivo general se está cumpliendo.
 ```
+
+## Sección: origen-excedente-moneda-mercado (25 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "estado_de_resultados"
+  tema: "origen_excedente_moneda_mercado"
   nivel: "basico"
-  tags: ["clasificacion", "gastos"]
+  tags: ["excedente", "intercambio"]
 
-respuesta: "Gastos Operativos"
-tipo: mc
-opciones_explicitas: ["Costo de Ventas", "Gastos Operativos", "Ingresos No Operativos"]
+respuesta: "trueque"
+tipo: "completar"
+respuestas_validas:
+  - "trueque"
 
-enunciado: "Si una empresa tiene un listado de pagos por sueldos administrativos, alquiler de oficinas y servicios de luz para la administración, ¿en qué categoría del estado de resultados se clasifican principalmente?"
+enunciado: "Cuando una sociedad agrícola comienza a producir más de lo que consume, el excedente genera la necesidad de realizar un proceso de intercambio llamado ___."
 
 explicacion: |
-  Los gastos de administración, ventas y financieros se agrupan como Gastos Operativos, a diferencia del Costo de Ventas que está directamente ligado a la producción o adquisición de bienes vendidos.
+  El excedente agrícola permitió que las personas no solo sobrevivieran, sino que pudieran intercambiar sus sobras por otros bienes necesarios, dando inicio al comercio.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estado_de_resultados"
+  tema: "origen_excedente_moneda_mercado"
   nivel: "intermedio"
-  tags: ["resultado_neto", "perdida"]
+  tags: ["trueque", "limitaciones"]
 
 variables:
-  datos: [[5000, 8000], [12000, 10000], [4500, 4500]]
-  idx: uno_de([0, 1, 2])
-  ingresos: datos[idx][0]
-  gastos: datos[idx][1]
+  escenario: uno_de([["trigo", "herramientas de piedra"], ["lana", "cerámica"], ["fruta", "pieles"]])
 
-respuesta: ingresos > gastos
-tipo: completar
-enunciado: "Considerando que los ingresos totales son ${ingresos} y los gastos totales son ${gastos}, ¿el resultado del ejercicio es una utilidad (ganancia)?"
+respuesta: "doble coincidencia de necesidades"
+tipo: "mc"
+opciones_explicitas: ["doble coincidencia de necesidades", "especialización del trabajo", "inflación de bienes", "escasez de recursos"]
+
+enunciado: "Un agricultor tiene un excedente de {escenario[0]} y desea obtener {escenario[1]}, pero para lograrlo necesita encontrar a alguien que tenga {escenario[1]} y que, además, necesite exactamente {escenario[0]}. A este problema se le conoce como:"
 
 explicacion: |
-  Para que haya utilidad, los ingresos deben ser mayores que los gastos. 
-  En este escenario: ${ingresos} > ${gastos} es ${ingresos > gastos}.
+  La 'doble coincidencia de necesidades' es la principal dificultad del trueque, ya que requiere que ambas partes coincidan en el tiempo y en el objeto de intercambio.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "intermedio"
-  tags: ["orden", "estructura"]
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "basico"
+  tags: ["moneda", "trueque"]
 
-respuesta: ["Ventas", "Costo de Ventas", "Utilidad Bruta", "Gastos Operativos", "Utilidad Operativa"]
+tipo: vf
+respuesta: verdadero
+
+enunciado: "¿El paso del trueque a la moneda fue impulsado por la dificultad de encontrar una doble coincidencia de necesidades?"
+
+explicacion: |
+  Correcto. La moneda surge como una solución para evitar la dificultad de encontrar a alguien que quiera exactamente lo que nosotros ofrecemos y que tenga lo que nosotros buscamos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "intermedio"
+  tags: ["comercio", "excedente"]
+
+tipo: "ordenar"
+opciones_explicitas: ["Producción de excedentes", "Dificultad del trueque", "Aparición de la moneda"]
+respuesta_orden: ["Producción de excedentes", "Dificultad del trueque", "Aparición de la moneda"]
+
+enunciado: "Ordena cronológicamente los hitos que permitieron la evolución del sistema de intercambio:"
+
+explicacion: |
+  Primero aparece el excedente, luego se detecta que el trueque es ineficiente por la doble coincidencia de necesidades, y finalmente se crea la moneda para facilitar el intercambio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "avanzado"
+  tags: ["valor", "intercambio"]
+
+variables:
+  caso: uno_de([["5 sacos de grano", "2 hachas de cobre"], ["3 cabras", "1 manta de lana"], ["10 cestas de fruta", "2 vasijas de barro"]])
+
+respuesta: "valor_relativo"
+tipo: "mc"
+opciones_explicitas: ["valor_relativo", "valor_absoluto", "costo_de_produccion", "precio_fijo"]
+
+enunciado: "En un sistema de trueque, si un agricultor intercambia {caso[0]} por {caso[1]}, el valor de los bienes se determina de forma ___ (es decir, depende de la relación entre las necesidades de ambos)."
+
+explicacion: |
+  En el trueque, el valor no es absoluto, sino relativo a la utilidad que cada parte le asigne al bien en ese momento específico de intercambio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "basico"
+  tags: ["trueque", "intercambio"]
+
+respuesta: "doble coincidencia de deseos"
+tipo: completar
+respuestas_validas:
+  - "doble coincidencia de deseos"
+
+enunciado: "Para que el trueque sea efectivo, es necesaria la ___ de deseos, lo que significa que ambas partes deben querer intercambiar exactamente lo que el otro ofrece."
+
+explicacion: |
+  El trueque requiere que cada persona encuentre a otra que tenga lo que necesita y que, además, necesite lo que ella ofrece, un proceso ineficiente llamado doble coincidencia de deseos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "intermedio"
+  tags: ["funciones_moneda", "teoria_monetaria"]
+
+respuesta: "medio de cambio"
+tipo: mc
+opciones_explicitas: ["unidad de cuenta", "medio de cambio", "reserva de valor"]
+
+enunciado: "Si un comerciante utiliza una moneda para facilitar la transacción inmediata de un bien, está utilizando la moneda como: ___"
+
+explicacion: |
+  La función de medio de cambio permite que la moneda actúe como un intermediario en el intercambio, eliminando la necesidad de buscar una coincidencia exacta de bienes.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "basico"
+  tags: ["evolucion_moneda", "historia_economica"]
+
+respuesta_orden: ["Trueque", "Dinero Mercancía", "Dinero Papel", "Dinero Fiduciario"]
 tipo: ordenar
 
-opciones_explicitas: ["Ventas", "Costo de Ventas", "Utilidad Bruta", "Gastos Operativos", "Utilidad Operativa"]
+opciones_explicitas: ["Trueque", "Dinero Mercancía", "Dinero Papel", "Dinero Fiduciario"]
 
-enunciado: "Ordene los siguientes conceptos según la secuencia lógica de presentación en un Estado de Resultados convencional (de mayor a menor margen):"
+enunciado: "Ordena cronológicamente la evolución de los medios de intercambio en una economía de mercado:"
 
 explicacion: |
-  La estructura lógica comienza con el ingreso principal (Ventas), se le resta el costo directo para obtener la Utilidad Bruta, luego se restan los gastos operativos para llegar a la Utilidad Operativa.
+  La economía evolucionó desde el intercambio directo de bienes (trueque) hacia mercancías con valor intrínseco (sal, oro), luego hacia representaciones físicas (papel moneda) y finalmente hacia sistemas basados en la confianza (fiduciario).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estado_de_resultados"
-  nivel: "avanzado"
-  tags: ["utilidad_neta", "impuestos"]
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "intermedio"
+  tags: ["valor", "moneda"]
+
+respuesta: 13
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Si una unidad de medida de valor (unidad de cuenta) establece que un saco de trigo vale 5 monedas y un saco de cebada vale 8 monedas, ¿cuántas monedas se requieren para intercambiar ambos sacos de forma equivalente?"
+
+pasos:
+  - "Identificar el valor de cada bien en la unidad de cuenta."
+  - "Sumar los valores de ambos bienes."
+
+explicacion: |
+  La función de unidad de cuenta permite expresar los valores de distintos bienes en términos comunes, facilitando la suma y comparación de precios.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "basico"
+  tags: ["reserva_valor", "ahorro"]
+
+respuesta: "reserva de valor"
+tipo: mc
+opciones_explicitas: ["medio de cambio", "unidad de cuenta", "reserva de valor"]
+
+enunciado: "Cuando una persona decide guardar parte de sus ingresos en moneda para realizar una compra importante en el futuro, está utilizando la moneda como:"
+
+explicacion: |
+  La función de reserva de valor permite transferir poder adquisitivo del presente al futuro, permitiendo el ahorro.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "basico"
+  tags: ["moneda_mercado", "dinero_mercado", "historia_economica"]
 
 variables:
-  escenario: [[10000, 2000], [15000, 3000], [8000, 1500]]
-  idx: uno_de([0, 1, 2])
-  utilidad_antes_imp: escenario[idx][0]
-  impuesto_tasa: 0.30
+  escenario: uno_de([["conchas cauri", "conchas"], ["sal", "sal"]])
 
-respuesta: utilidad_antes_imp * (1 - impuesto_tasa)
+enunciado: "En diversas culturas antiguas, antes de la existencia de monedas acuñadas, se utilizaban objetos con valor intrínseco como medio de cambio. Un ejemplo común es el uso de {escenario[0]}."
 
-tipo: completar
-respuestas_validas: [7000, 10500, 5600]
-
-enunciado: "Si una empresa obtiene una utilidad antes de impuestos de ${utilidad_antes_imp} y debe afrontar una tasa impositiva del 30%, el valor de la utilidad neta es ___"
+opciones_explicitas: ["conchas", "sal", "piedras", "madera"]
+respuesta: escenario[1]
+tipo: mc
 
 explicacion: |
-  La utilidad neta se obtiene aplicando la tasa impositiva sobre la utilidad antes de impuestos:
-  Utilidad Neta = Utilidad Antes de Impuestos * (1 - Tasa)
-  En este caso: ${utilidad_antes_imp} * (1 - 0.30) = ${utilidad_antes_imp * 0.7}.
+  Antes de la moneda metálica, se utilizaban bienes de consumo o decorativos que tenían valor por su escasez o utilidad, como las conchas cauri o la sal.
 ```
-
-## Sección: estados-contables (22 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "estados_contables"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "basico"
+  tags: ["dinero_mercado", "propiedades_dinero"]
+
+respuestas_validas:
+  - "durabilidad"
+  - "divisibilidad"
+  - "escasez"
+respuesta: "durabilidad"
+tipo: completar
+
+enunciado: "Para que un objeto funcione eficazmente como dinero mercancía, debe poseer ciertas propiedades. La capacidad de resistir el paso del tiempo y el uso sin degradarse se denomina ___."
+
+explicacion: |
+  La durabilidad es esencial para que el valor se preserve a través de las transacciones y el tiempo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "intermedio"
+  tags: ["trueque", "moneda_mercado"]
+
+variables:
+  orden_pasos: [["Trueque directo", "Uso de dinero mercancía", "Moneda acuñada"], ["Trueque directo", "Uso de metales preciosos", "Moneda acuñada"], ["Trueque directo", "Uso de sal", "Moneda acuñada"]]
+
+enunciado: "Ordene cronológicamente la evolución de los medios de intercambio en una economía en desarrollo."
+
+opciones_explicitas: ["Trueque directo", "Uso de dinero mercancía", "Moneda acuñada"]
+respuesta_orden: ["Trueque directo", "Uso de dinero mercancía", "Moneda acuñada"]
+tipo: ordenar
+
+explicacion: |
+  La economía evoluciona desde el intercambio directo de bienes (trueque), pasando por objetos con valor intrínseco (dinero mercancía), hasta la estandarización con monedas metálicas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "intermedio"
+  tags: ["metales_preciosos", "valor_intrínseco"]
+
+variables:
+  metal_idx: uno_de([0, 1])
+  metal_datos: [["oro", "oro"], ["plata", "plata"]]
+
+enunciado: "El uso de {metal_datos[metal_idx][0]} como medio de cambio se debió a su valor intrínseco y su facilidad de transporte."
+
+respuesta: metal_datos[metal_idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+explicacion: |
+  Los metales preciosos fueron fundamentales para la transición hacia la moneda debido a su escasez y homogeneidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "avanzado"
+  tags: ["trueque", "costos_transaccion"]
+
+variables:
+  problema_idx: uno_de([0, 1])
+  problema_datos: [["doble coincidencia de deseos", "falta de divisibilidad"], ["doble coincidencia de deseos", "falta de durabilidad"]]
+
+enunciado: "Uno de los principales obstáculos del trueque que impulsó la creación del dinero fue la ___."
+
+opciones_explicitas: ["doble coincidencia de deseos", "falta de divisibilidad", "exceso de oferta"]
+respuesta: problema_datos[problema_idx][0]
+tipo: mc
+
+explicacion: |
+  El trueque requiere que dos personas quieran exactamente lo que el otro ofrece en el mismo momento, lo cual es ineficiente y da origen a la necesidad de un medio de cambio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "basico"
+  tags: ["intercambio", "excedente", "neolítico"]
+
+respuesta: "excedente"
+tipo: "completar"
+respuestas_validas:
+  - "excedente"
+  - "excedente_productivo"
+
+enunciado: "Cuando una sociedad logra producir más de lo que necesita para su subsistencia inmediata, se genera un ___ que permite el inicio del intercambio."
+
+explicacion: |
+  El excedente es la base del comercio: al sobrar productos, las comunidades pueden intercambiar lo que les sobra por lo que les falta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "intermedio"
+  tags: ["especializacion", "division_del_trabajo"]
+
+variables:
+  escenario: uno_de([["agricultor", "trigo"], ["pastor", "lana"], ["alfarero", "cerámica"]])
+
+respuesta: "mercado"
+tipo: "completar"
+respuestas_validas:
+  - "mercado"
+
+enunciado: "En una economía con división del trabajo, un {escenario[0]} produce un excedente de {escenario[1]}. Si este desea obtener un bien diferente, debe acudir al ___ para realizar un intercambio."
+
+explicacion: |
+  La especialización permite que cada individuo se concentre en una actividad, generando excedentes específicos que se intercambian en el mercado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "basico"
+  tags: ["barter", "trueque", "moneda"]
+
+tipo: ordenar
+opciones_explicitas: ["trueque", "moneda", "dinero_fiduciario"]
+respuesta_orden: ["trueque", "moneda", "dinero_fiduciario"]
+
+enunciado: "Ordena cronológicamente las formas de intercambio según la complejidad del medio de cambio:"
+
+explicacion: |
+  El proceso evolutivo comenzó con el trueque directo, pasó por el uso de mercancías como dinero (moneda mercancía) y llegó al dinero fiduciario actual.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "intermedio"
+  tags: ["moneda", "liquidez", "intercambio"]
+
+variables:
+  caso: uno_de(["sal", "conchas", "metales"])
+
+respuesta: "unidad de cuenta"
+tipo: "mc"
+opciones_explicitas: ["unidad de cuenta", "medio de cambio", "reserva de valor"]
+
+enunciado: "Para facilitar el comercio de excedentes, se utilizan objetos como medio de cambio. Si usamos {caso} para expresar y comparar el valor de otros bienes, estamos usando esa mercancía como:"
+
+explicacion: |
+  La moneda actúa como un estándar de valor que resuelve la dificultad de coincidencia de necesidades del trueque.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "avanzado"
+  tags: ["mercado", "abstracto", "social"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "El mercado es estrictamente un lugar físico (como una plaza o feria) y no puede existir de forma abstracta o virtual."
+
+explicacion: |
+  El mercado es un concepto institucional y social que define las reglas de intercambio; puede ser físico (un mercado de abastos) o abstracto (el mercado de divisas).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "basico"
+  tags: ["trueque", "moneda", "intercambio"]
+
+variables:
+  datos: [["Un agricultor tiene manzanas y busca zapatos, pero el zapatero solo quiere trigo", "falta de coincidencia de necesidades"], ["Un pescador tiene peces y quiere madera, pero el carpintero solo quiere lana", "falta de coincidencia de necesidades"], ["Un artesano tiene vasijas y quiere carne, pero el carnicero solo quiere herramientas", "falta de coincidencia de necesidades"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["falta de liquidez", "falta de coincidencia de necesidades", "exceso de oferta", "escasez de valor"]
+
+enunciado: "En el siguiente escenario: {datos[idx][0]}, ¿cuál es la principal limitación del sistema de trueque que impide el intercambio?"
+
+explicacion: |
+  El trueque requiere que ambas partes deseen exactamente lo que el otro ofrece en el mismo momento, lo que se conoce como la "doble coincidencia de deseos" o "falta de coincidencia de necesidades". La moneda resuelve esto actuando como un medio de cambio universal.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "basico"
+  tags: ["divisibilidad", "moneda", "valor"]
+
+variables:
+  datos: [["Comprar una manzana con una vaca", "divisibilidad"], ["Comprar un pan con un caballo", "divisibilidad"], ["Comprar un clavo con una oveja", "divisibilidad"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "divisibilidad"
+
+enunciado: "Si un comerciante desea comprar un objeto de bajo valor utilizando un bien de alto valor (como un animal), se enfrenta al problema de la ___."
+
+explicacion: |
+  Muchos bienes son indivisibles (no puedes partir un animal a la mitad sin destruir su valor). La moneda permite fraccionar el valor de forma exacta para transacciones de cualquier escala.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "intermedio"
+  tags: ["costos_transaccion", "eficiencia"]
+
+variables:
+  datos: [["Buscar un intercambio específico requiere mucho tiempo", "costos de transacción"], ["Perder horas buscando quién quiera el producto", "costos de transacción"]]
+  idx: uno_de([0,1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["costos de transacción", "inflación", "escasez", "desequilibrio"]
+
+enunciado: "El tiempo y esfuerzo invertidos en encontrar a alguien que quiera intercambiar sus bienes por los nuestros se denomina: {datos[idx][0]}."
+
+explicacion: |
+  El trueque aumenta los costos de transacción debido a la dificultad de encontrar la pareja de intercambio ideal. La moneda reduce estos costos al estandarizar el medio de intercambio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "basico"
+  tags: ["evolucion", "historia_moneda"]
+
+respuesta_orden: ["Trueque", "Dinero Mercancía", "Dinero Fiat"]
+tipo: ordenar
+opciones_explicitas: ["Dinero Fiat", "Trueque", "Dinero Mercancía"]
+
+enunciado: "Ordena cronológicamente las etapas de la evolución de los medios de intercambio, desde el sistema más primitivo al más moderno:"
+
+explicacion: |
+  Primero existió el trueque directo, luego se usaron mercancías con valor intrínseco (sal, oro) y finalmente el dinero fiat (basado en la confianza y ley).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "origen_excedente_moneda_mercado"
+  nivel: "intermedio"
+  tags: ["unidad_cuenta", "precio"]
+
+variables:
+  datos: [["Comparar el precio de 10 productos distintos en trueque", "complejidad de precios"], ["Determinar el valor relativo de bienes diversos", "complejidad de precios"]]
+  idx: uno_de([0,1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["complejidad de precios", "estabilidad de valor", "liquidez inmediata", "escasez"]
+
+enunciado: "Sin una moneda, establecer un precio estándar para todos los bienes es extremadamente difícil debido a la {datos[idx][0]}."
+
+explicacion: |
+  En un sistema de trueque, el número de precios relativos crece exponencialmente con la cantidad de bienes. La moneda actúa como una "unidad de cuenta" que simplifica la medición del valor.
+```
+
+## Sección: partida-doble (21 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
   nivel: "basico"
   tags: ["contabilidad", "vocabulario"]
 
-enunciado: "¿Qué es el ciclo contable?"
+enunciado: "¿Qué establece el principio de partida doble?"
 tipo: mc
 opciones_explicitas:
-  - "La secuencia completa de pasos desde que ocurre un movimiento económico hasta que aparece en los estados contables finales"
-  - "El período de un año calendario, sin más"
-  - "El nombre de un software de contabilidad"
-respuesta: "La secuencia completa de pasos desde que ocurre un movimiento económico hasta que aparece en los estados contables finales"
+  - "Que todo movimiento económico afecta a dos o más cuentas al mismo tiempo, nunca a una sola"
+  - "Que todo movimiento se registra dos veces, en dos libros distintos"
+  - "Que las empresas tienen que llevar doble contabilidad, una oficial y otra interna"
+respuesta: "Que todo movimiento económico afecta a dos o más cuentas al mismo tiempo, nunca a una sola"
 
 explicacion: |
-  Conecta todos los pasos ya vistos por separado (asiento, Diario,
-  Mayor) con los estados contables finales.
+  Es la regla base de toda la contabilidad moderna.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estados_contables"
+  tema: "partida_doble"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ningún movimiento económico de una empresa se registra en una sola cuenta: siempre afecta a dos o más."
+
+explicacion: |
+  Es la regla de oro de la partida doble.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En cualquier asiento contable, la suma de los importes del Debe tiene que ser exactamente igual a la suma de los importes del Haber."
+
+explicacion: |
+  Es lo que mantiene equilibrada la ecuación contable después de cada
+  movimiento.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué es un asiento contable?"
+tipo: mc
+opciones_explicitas:
+  - "El registro de un movimiento: qué cuentas se debitan, qué cuentas se acreditan, y con qué importe"
+  - "El balance final de toda la empresa"
+  - "Un documento legal que reemplaza a una factura"
+respuesta: "El registro de un movimiento: qué cuentas se debitan, qué cuentas se acreditan, y con qué importe"
+
+explicacion: |
+  Es la unidad básica de registro en contabilidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
   nivel: "intermedio"
+  tags: ["contabilidad", "problema"]
+
+variables:
+  importe: random(50, 500) * 1000
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un asiento registra ${importe} en el Debe de \"Mercadería\" y ${importe} en el Haber de \"Caja\". ¿Está balanceado (Debe = Haber)?"
+
+explicacion: |
+  Los dos importes son exactamente iguales, así que el asiento respeta
+  la partida doble.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "intermedio"
+  tags: ["contabilidad", "problema"]
+
+variables:
+  debe: random(100, 500) * 1000
+  haber: random(100, 500) * 1000
+
+respuesta: (debe == haber)
+tipo: vf
+
+enunciado: "Un asiento registra ${debe} en el Debe y ${haber} en el Haber. ¿Está balanceado?"
+
+explicacion: |
+  Hay que comparar directamente ambos totales — si no coinciden, el
+  asiento tiene un error.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "avanzado"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  debe_1: random(50, 300) * 1000
+  debe_2: random(50, 300) * 1000
+  haber_conocido: random(50, 300) * 1000
+
+respuesta: debe_1 + debe_2 - haber_conocido
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un asiento tiene dos líneas en el Debe: ${debe_1} y ${debe_2}. En el Haber ya hay una línea de ${haber_conocido}. ¿Cuál debe ser el importe de la segunda línea del Haber, para que el asiento quede balanceado?"
+
+pasos:
+  - "Total del Debe: {debe_1} + {debe_2} = {debe_1 + debe_2}"
+  - "Falta en el Haber: {debe_1 + debe_2} - {haber_conocido}"
+
+explicacion: |
+  El total del Haber tiene que igualar al total del Debe.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al comprar mercadería pagando en efectivo, tanto \"Mercadería\" como \"Caja\" son cuentas de Activo."
+
+explicacion: |
+  El activo total no cambia: sólo cambia de forma, de efectivo a
+  mercadería.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "avanzado"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando se compra mercadería pagando en efectivo, el activo total de la empresa no cambia: \"Mercadería\" sube en la misma cantidad que baja \"Caja\"."
+
+explicacion: |
+  Es un movimiento dentro del mismo grupo (Activo), no una ganancia ni
+  una pérdida.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el Debe y el Haber de un asiento no coinciden, hay un error en el registro contable."
+
+explicacion: |
+  Es la primera revisión que hace cualquier contador ante un balance
+  que \"no cierra\".
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La partida doble registra, en el mismo asiento, de dónde sale un recurso y a dónde va — nunca sólo una de las dos partes."
+
+explicacion: |
+  Es la razón del nombre \"doble\": las dos caras de cada movimiento se
+  anotan juntas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "avanzado"
+  tags: ["contabilidad", "comparacion"]
+
+variables:
+  debe_a: random(100, 400) * 1000
+  haber_a: random(100, 400) * 1000
+  debe_b: random(100, 400) * 1000
+
+respuesta: (debe_a == haber_a)
+tipo: vf
+
+enunciado: "Asiento A: Debe ${debe_a}, Haber ${haber_a}. ¿El asiento A está balanceado?"
+
+explicacion: |
+  Se comparan directamente los dos totales del mismo asiento.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es correcto registrar un pago en efectivo anotando sólo la salida de dinero de \"Caja\", sin registrar a qué cuenta fue ese dinero?"
+
+explicacion: |
+  Violaría la partida doble: todo movimiento necesita su contrapartida
+  registrada en otra cuenta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "avanzado"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un asiento contable puede tener más de dos líneas (por ejemplo, dos cuentas en el Debe y una en el Haber), siempre que el total del Debe siga igualando al total del Haber."
+
+explicacion: |
+  \"Doble\" significa \"al menos dos\", no exactamente dos líneas
+  siempre.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "avanzado"
+  tags: ["contabilidad", "problema"]
+
+variables:
+  debe_1: random(50, 200) * 1000
+  debe_2: random(50, 200) * 1000
+  haber_1: random(50, 200) * 1000
+  haber_2: random(50, 200) * 1000
+
+respuesta: ((debe_1 + debe_2) == (haber_1 + haber_2))
+tipo: vf
+
+enunciado: "Un asiento tiene dos líneas en el Debe (${debe_1} y ${debe_2}) y dos líneas en el Haber (${haber_1} y ${haber_2}). ¿Está balanceado?"
+
+explicacion: |
+  Hay que sumar todas las líneas de cada lado antes de comparar.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "partida_doble"
+  nivel: "basico"
   tags: ["contabilidad", "orden"]
 
 tipo: ordenar
-enunciado: "Ordená estos pasos del ciclo contable, del primero al último."
+enunciado: "Ordená estos pasos en el orden lógico para registrar un asiento contable."
 opciones_explicitas:
-  - "Se arman los estados contables"
-  - "Ocurre el hecho económico"
-  - "Se pasa la información al Libro Mayor"
-  - "Se registra el asiento en el Libro Diario"
-respuesta_orden: ["Ocurre el hecho económico", "Se registra el asiento en el Libro Diario", "Se pasa la información al Libro Mayor", "Se arman los estados contables"]
+  - "Verificar que el total del Debe sea igual al total del Haber"
+  - "Identificar qué cuentas se ven afectadas por el movimiento"
+  - "Anotar el importe correspondiente en el Debe o el Haber de cada cuenta"
+respuesta_orden: ["Identificar qué cuentas se ven afectadas por el movimiento", "Anotar el importe correspondiente en el Debe o el Haber de cada cuenta", "Verificar que el total del Debe sea igual al total del Haber"]
 
 explicacion: |
-  Cada paso depende del anterior: sin el hecho económico no hay
-  asiento, sin asiento no hay mayor, sin mayor no hay estados
-  contables.
+  Primero se identifican las cuentas, después se anotan los importes, y
+  al final se verifica el balance.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estados_contables"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Qué muestra el Estado de Situación Patrimonial?"
-tipo: mc
-opciones_explicitas:
-  - "Una foto de un instante puntual: qué tiene y qué debe la empresa en esa fecha"
-  - "Todo lo que ganó y gastó la empresa durante un período completo"
-  - "Sólo las cuentas de Caja y Bancos"
-respuesta: "Una foto de un instante puntual: qué tiene y qué debe la empresa en esa fecha"
-
-explicacion: |
-  Es una fotografía, no una película: describe un momento, no un
-  período.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Qué muestra el Estado de Resultados?"
-tipo: mc
-opciones_explicitas:
-  - "Todo lo que ganó y gastó la empresa durante un período completo"
-  - "Una foto de un instante puntual de la empresa"
-  - "Sólo los préstamos pendientes de pago"
-respuesta: "Todo lo que ganó y gastó la empresa durante un período completo"
-
-explicacion: |
-  Es una película de un período (un mes, un año), no una foto de un
-  instante.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El Estado de Situación Patrimonial se arma con la misma ecuación ya vista en Debe y Haber: Activo = Pasivo + Patrimonio Neto."
-
-explicacion: |
-  Es la misma ecuación contable fundamental, aplicada acá como
-  producto final del ciclo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
+  tema: "partida_doble"
   nivel: "intermedio"
-  tags: ["contabilidad", "calculo"]
+  tags: ["contabilidad", "verificacion"]
 
 variables:
-  activo: random(500, 900) * 1000
-  pasivo: random(100, 400) * 1000
+  importe: random(50, 500) * 1000
+  error: uno_de([0, 0, 0, 10000, -10000])
+  haber_mostrado: importe + error
 
-respuesta: activo - pasivo
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una empresa tiene un Activo de ${activo} y un Pasivo de ${pasivo}. ¿Cuál es su Patrimonio Neto?"
-
-explicacion: |
-  Patrimonio Neto = Activo - Pasivo, despejando la ecuación contable.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "calculo"]
-
-variables:
-  pasivo: random(100, 400) * 1000
-  patrimonio_neto: random(200, 600) * 1000
-
-respuesta: pasivo + patrimonio_neto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una empresa tiene un Pasivo de ${pasivo} y un Patrimonio Neto de ${patrimonio_neto}. ¿Cuál es su Activo total?"
-
-explicacion: |
-  Activo = Pasivo + Patrimonio Neto, aplicando la ecuación directo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Cuándo una empresa tiene ganancia en el Estado de Resultados?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando los Ingresos son mayores que los Gastos"
-  - "Cuando el Activo es mayor que el Pasivo"
-  - "Cuando el Pasivo es igual a cero"
-respuesta: "Cuando los Ingresos son mayores que los Gastos"
-
-explicacion: |
-  Resultado = Ingresos - Gastos; si da positivo, es ganancia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "calculo"]
-
-variables:
-  ingresos: random(300, 700) * 1000
-  gastos: random(100, 250) * 1000
-
-respuesta: ingresos - gastos
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Durante el mes, una empresa tuvo Ingresos por ${ingresos} y Gastos por ${gastos}. ¿Cuál es su resultado del período?"
-
-explicacion: |
-  Resultado = Ingresos - Gastos. Un número positivo es ganancia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "calculo"]
-
-variables:
-  ingresos: random(100, 400) * 1000
-  gastos: random(300, 700) * 1000
-  resultado: ingresos - gastos
-
-respuesta: (resultado < 0)
+respuesta: (importe == haber_mostrado)
 tipo: vf
 
-enunciado: "Una empresa tuvo Ingresos de ${ingresos} y Gastos de ${gastos} en el período. ¿Es correcto decir que tuvo una pérdida?"
+enunciado: "¿Está bien registrado este asiento? Debe: ${importe}. Haber: ${haber_mostrado}."
 
 explicacion: |
-  Se compara Ingresos contra Gastos: si Gastos es mayor, el resultado
-  es negativo, o sea pérdida.
+  Se comparan directamente los dos importes: si no coinciden, el
+  asiento no respeta la partida doble.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estados_contables"
+  tema: "partida_doble"
   nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Para qué sirve el balance de comprobación, dentro del ciclo contable?"
-tipo: mc
-opciones_explicitas:
-  - "Para verificar que la suma de todos los saldos deudores coincida con la suma de todos los saldos acreedores del Mayor"
-  - "Para calcular el impuesto a las ganancias del período"
-  - "Para registrar un nuevo asiento contable"
-respuesta: "Para verificar que la suma de todos los saldos deudores coincida con la suma de todos los saldos acreedores del Mayor"
-
-explicacion: |
-  Es un control: si no coinciden, hay un error de carga en algún
-  asiento del período.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Qué son los ajustes de cierre, en el ciclo contable?"
-tipo: mc
-opciones_explicitas:
-  - "Correcciones que reconocen algo que ya pasó pero no se había registrado todavía (por ejemplo, la depreciación de una máquina)"
-  - "Los primeros asientos que se cargan al empezar un ejercicio"
-  - "Un tipo de impuesto que paga la empresa"
-respuesta: "Correcciones que reconocen algo que ya pasó pero no se había registrado todavía (por ejemplo, la depreciación de una máquina)"
-
-explicacion: |
-  No vienen de un movimiento nuevo, sino de reconocer contablemente
-  algo que ya venía ocurriendo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "avanzado"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al cerrar el ejercicio, el resultado del período (ganancia o pérdida) pasa a formar parte del Patrimonio Neto."
-
-explicacion: |
-  Es el punto donde se conectan los dos estados contables: lo que
-  ganó o perdió la empresa modifica lo que le queda a los dueños.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una empresa tiene ganancia en un período, su Patrimonio Neto aumenta al cerrar el ejercicio."
-
-explicacion: |
-  La ganancia se suma al Patrimonio Neto en el cierre.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una empresa tiene pérdida en un período, su Patrimonio Neto se reduce al cerrar el ejercicio."
-
-explicacion: |
-  La pérdida se resta del Patrimonio Neto en el cierre.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "avanzado"
-  tags: ["contabilidad", "calculo"]
-
-variables:
-  patrimonio_inicial: random(500, 900) * 1000
-  ingresos: random(200, 500) * 1000
-  gastos: random(50, 180) * 1000
-
-respuesta: patrimonio_inicial + (ingresos - gastos)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una empresa arrancó el período con un Patrimonio Neto de ${patrimonio_inicial}. Durante el período tuvo Ingresos de ${ingresos} y Gastos de ${gastos}. ¿Cuál es su Patrimonio Neto al cierre?"
-
-pasos:
-  - "Resultado del período: {ingresos} - {gastos} = {ingresos - gastos}"
-  - "Patrimonio final: {patrimonio_inicial} + {ingresos - gastos}"
-
-explicacion: |
-  El Patrimonio Neto final es el inicial más el resultado del
-  período (que puede ser positivo o negativo).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "basico"
-  tags: ["contabilidad", "vocabulario"]
-
-enunciado: "¿Cuál de estas comparaciones describe mejor la diferencia entre el Estado de Situación Patrimonial y el Estado de Resultados?"
-tipo: mc
-opciones_explicitas:
-  - "El Patrimonial es una foto de un instante; el de Resultados es una película de un período"
-  - "El Patrimonial es mensual y el de Resultados es siempre anual"
-  - "No hay ninguna diferencia real entre los dos"
-respuesta: "El Patrimonial es una foto de un instante; el de Resultados es una película de un período"
-
-explicacion: |
-  Es la metáfora central del tema: uno describe un momento, el otro
-  describe un tramo de tiempo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "problema"]
-
-enunciado: "Un banco quiere saber qué tiene y qué debe una empresa HOY antes de decidir si le da un crédito. ¿Qué estado contable conviene consultar?"
-tipo: mc
-opciones_explicitas:
-  - "El Estado de Situación Patrimonial"
-  - "El Estado de Resultados"
-  - "El balance de comprobación únicamente"
-respuesta: "El Estado de Situación Patrimonial"
-
-explicacion: |
-  Es la foto del instante presente: exactamente lo que necesita el
-  banco para esa decisión.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "intermedio"
-  tags: ["contabilidad", "problema"]
-
-enunciado: "Un inversor quiere saber si una empresa gana o pierde plata de forma sostenida en los últimos años. ¿Qué estado contable conviene consultar?"
-tipo: mc
-opciones_explicitas:
-  - "El Estado de Resultados de varios períodos"
-  - "El Estado de Situación Patrimonial de un solo día"
-  - "El Libro Diario del último mes"
-respuesta: "El Estado de Resultados de varios períodos"
-
-explicacion: |
-  Muestra la evolución de ganancias y pérdidas período a período, que
-  es justo lo que necesita evaluar.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
-  nivel: "basico"
   tags: ["contabilidad"]
 
 variables:
-  ingresos: random(200, 600) * 1000
-  gastos: random(50, 150) * 1000
-  resultado: ingresos - gastos
+  importe: random(50, 500) * 1000
 
 tipo: completar
-enunciado: "Completá: Resultado = {ingresos} - {gastos} = ___ (resultado)."
+enunciado: "Un asiento tiene ${importe} en el Debe de \"Mercadería\". Para que el asiento quede balanceado, el Haber de \"Caja\" tiene que ser: ___ = {importe}."
 respuestas_validas:
-  - resultado
+  - importe
 
 explicacion: |
-  Es la aplicación directa de la fórmula del Estado de Resultados.
+  El Haber tiene que igualar exactamente al Debe.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estados_contables"
-  nivel: "avanzado"
-  tags: ["contabilidad", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El ciclo contable completo es el PROCESO, y los estados contables (patrimonio y resultados) son el PRODUCTO de ese proceso: por eso se enseñan como un solo tema."
-
-explicacion: |
-  Es la idea central que conecta las dos partes del título de este
-  tema.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estados_contables"
+  tema: "partida_doble"
   nivel: "intermedio"
   tags: ["contabilidad", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El ciclo contable completo va desde que ocurre un movimiento económico (asiento, Diario, Mayor) hasta que se arman los estados contables finales de la empresa."
+enunciado: "La partida doble no es sólo un trámite formal: es lo que permite detectar errores, porque si el Debe y el Haber no coinciden en algún punto, algo está mal registrado."
 
 explicacion: |
-  Es el resumen de todo el recorrido de esta sub-rama de Contabilidad.
+  Es una herramienta de control, no sólo una regla administrativa.
 ```
-
-## Sección: estructura-del-patrimonio (20 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_del_patrimonio"
+  tema: "partida_doble"
   nivel: "basico"
-  tags: ["ecuacion_patrimonial"]
+  tags: ["contabilidad", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El patrimonio neto es igual a los activos menos los pasivos."
+enunciado: "Los asientos armados con partida doble son la base de lo que después se organiza en el libro diario y el libro mayor."
 
 explicacion: |
-  Esta es la ecuación patrimonial fundamental: Pat = Activo - Pasivo.
+  Es la conexión directa con el próximo tema.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "intermedio"
-  tags: ["calculo", "pasivo"]
+  tema: "partida_doble"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Todo asiento contable afecta al menos dos cuentas, y la suma del Debe siempre tiene que ser igual a la suma del Haber — es la regla de oro de la partida doble."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: pitch-a-inversores (25 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "basico"
+  tags: ["vocabulario", "fundamentos"]
+
+respuesta: "elevator_pitch"
+tipo: completar
+respuestas_validas:
+  - "elevator_pitch"
+  - "elevator pitch"
+
+enunciado: "La técnica de presentar una idea de negocio de forma extremadamente breve, como si se tuviera solo el tiempo que dura un viaje en ascensor, se denomina ___."
+
+explicacion: |
+  El 'elevator pitch' es una herramienta de comunicación diseñada para transmitir la esencia de un proyecto en menos de 60 segundos, captando el interés de un potencial inversor.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "basico"
+  tags: ["objetivo", "inversion"]
 
 variables:
-  activo: random(100000, 500000)
-  patrimonio: random(20000, 100000)
-  pasivo: activo - patrimonio
+  escenario_idx: uno_de([0, 1])
+  escenarios: ["conseguir una reunión", "generar interés"]
 
-respuesta: pasivo
-tipo: input
+respuesta: escenarios[escenario_idx]
+tipo: mc
+opciones_explicitas: ["conseguir una reunión", "vender el producto directamente", "generar interés", "obtener la firma del contrato en el momento"]
 
-enunciado: "Una empresa tiene un activo total de ${activo} y un patrimonio neto de ${patrimonio}. ¿Cuál es el total de sus pasivos?"
+enunciado: "En un pitch inicial ante un inversor de capital de riesgo, ¿cuál suele ser el objetivo principal?"
 
 explicacion: |
-  Si Activo - Pasivo = Patrimonio, entonces Pasivo = Activo - Patrimonio.
+  Un pitch no busca cerrar la inversión en ese instante, sino despertar curiosidad suficiente para obtener una segunda reunión de análisis profundo (due diligence).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_del_patrimonio"
+  tema: "pitch_a_inversores"
+  nivel: "intermedio"
+  tags: ["estructura", "propuesta_de_valor"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es fundamental que un pitch identifique claramente un 'pain point' (punto de dolor) o problema real en el mercado para que la solución propuesta tenga sentido?"
+
+explicacion: |
+  Sin un problema validado, la solución es solo una idea sin demanda. El inversor busca negocios que resuelvan necesidades reales y cuantificables.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "intermedio"
+  tags: ["estructura", "orden"]
+
+respuesta_orden: ["Problema", "Solución", "Modelo de Negocio", "Tracción"]
+tipo: ordenar
+opciones_explicitas: ["Problema", "Solución", "Modelo de Negocio", "Tracción"]
+
+enunciado: "Ordena los siguientes elementos de un Pitch Deck según una estructura lógica de narrativa de negocios (storytelling):"
+
+pasos:
+  - "Identificar la necesidad"
+  - "Presentar la propuesta"
+  - "Explicar cómo se gana dinero"
+  - "Mostrar resultados actuales"
+
+explicacion: |
+  Una narrativa efectiva comienza con el problema, presenta la solución, explica la monetización y finalmente demuestra que el modelo ya está funcionando (tracción).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
   nivel: "avanzado"
-  tags: ["interpretacion", "insolvencia"]
+  tags: ["terminologia", "escalabilidad"]
+
+respuesta: "escalabilidad"
+tipo: completar
+respuestas_validas:
+  - "escalabilidad"
+  - "scalability"
+
+enunciado: "La capacidad de un modelo de negocio para aumentar sus ingresos de forma exponencial mientras sus costes crecen de forma lineal se conoce como ___."
+
+explicacion: |
+  La escalabilidad es el factor crítico para los inversores de Venture Capital, ya que permite retornos masivos sobre la inversión inicial.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "basico"
+  tags: ["pitch", "comunicacion", "emprendimiento"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  problemas: ["La gente pierde tiempo buscando estacionamiento.", "El desperdicio de comida en restaurantes.", "La dificultad de encontrar tutores de idiomas."]
+  propuestas: ["App de parking inteligente", "App de rescate gastronómico", "Plataforma de micro-learning"]
+
+respuesta: propuestas[idx]
+tipo: mc
+opciones_explicitas: ["App de parking inteligente", "App de rescate gastronómico", "Plataforma de micro-learning", "Solución de logística rápida"]
+
+enunciado: "Un pitch aborda el siguiente problema: {problemas[idx]} ¿Cuál de estas opciones representa mejor la propuesta de valor para ese problema?"
+
+explicacion: |
+  Un pitch efectivo debe comunicar la solución de forma directa y concisa, permitiendo que el inversor entienda el núcleo del negocio en pocos segundos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "intermedio"
+  tags: ["pitch_deck", "estructura", "inversion"]
+
+variables:
+  orden_logico: ["Problema", "Solución", "Modelo de Negocio", "Tracción", "Equipo", "The Ask"]
+
+respuesta_orden: orden_logico
+tipo: ordenar
+
+enunciado: "Un inversor busca una narrativa coherente. Ordena los siguientes elementos de un Pitch Deck en el orden lógico recomendado para construir una historia convincente:"
+
+pasos:
+  - "Identificar el dolor del mercado."
+  - "Presentar cómo tu producto resuelve ese dolor."
+  - "Explicar cómo vas a ganar dinero."
+  - "Mostrar métricas actuales que validen el interés."
+  - "Presentar a las personas que ejecutan la idea."
+  - "Indicar cuánto capital necesitas y para qué."
+
+explicacion: |
+  La estructura narrativa (Storytelling) debe llevar al inversor desde el problema (dolor) hasta la oportunidad de negocio (tracción) y finalmente la necesidad de capital (The Ask).
+opciones_explicitas: orden_logico
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "avanzado"
+  tags: ["mercado", "tam", "som", "metricas"]
+
+variables:
+  datos: [[1000000, 500000, 50000], [5000000, 2000000, 100000], [2500000, 1000000, 250000]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: datos[idx][2]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "En el análisis de mercado para un pitch, si el mercado total (TAM) es de ${datos[idx][0]}, el mercado que puedes alcanzar con tu modelo de servicio (SAM) es de ${datos[idx][1]}, ¿cuál es el tamaño de tu mercado objetivo real (SOM) que puedes capturar a corto plazo?"
+
+explicacion: |
+  El SOM (Serviceable Obtainable Market) es la parte del SAM que tu empresa puede capturar de manera realista con sus recursos actuales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "intermedio"
+  tags: ["traction", "validacion", "metricas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si un emprendedor presenta en su pitch que tiene un crecimiento mensual del 20% en usuarios activos (MoM) y una tasa de retención constante, está demostrando 'Traction' (Tracción), lo cual reduce el riesgo percibido por el inversor."
+
+explicacion: |
+  La tracción es la evidencia de que el mercado está respondiendo positivamente a tu producto, lo cual es uno de los puntos más críticos en un pitch.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "avanzado"
+  tags: ["ask", "financiamiento", "equity"]
+
+variables:
+  escenario_financiero: [["$500,000", "15%", "Desarrollo de producto y marketing"], ["$1,000,000", "10%", "Expansión internacional y ventas"], ["$250,000", "5%", "Contratación de equipo técnico"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: escenario_financiero[idx][2]
+tipo: completar
+respuestas_validas:
+  - escenario_financiero[idx][2]
+
+enunciado: "En la última diapositiva, el emprendedor debe ser claro con el 'Ask'. Si el emprendedor busca una inversión de ${escenario_financiero[idx][0]} a cambio de un ${escenario_financiero[idx][1]} de participación, el objetivo principal de ese capital según su plan es: ___."
+
+pasos:
+  - "Identificar el monto solicitado."
+  - "Identificar el porcentaje de equity ofrecido."
+  - "Identificar el uso de fondos (Use of Funds)."
+
+explicacion: |
+  El 'Ask' no solo debe decir cuánto dinero necesitas, sino también cuánto de la empresa estás dispuesto a ceder y, crucialmente, en qué se va a gastar ese dinero para generar retorno.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "intermedio"
+  tags: ["pitch", "errores", "inversores"]
+
+enunciado: "Un error común en un pitch es centrarse excesivamente en las características de la solución (el producto) en lugar de enfocarse en el ___ (el problema que se resuelve)."
+
+respuestas_validas:
+  - "problema"
+respuesta: "problema"
+tipo: completar
+
+explicacion: |
+  Los inversores buscan resolver problemas reales y dolorosos para un mercado grande. Si tu pitch solo habla de funciones de una app sin explicar el problema que ataca, pierdes el interés del inversor.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "basico"
+  tags: ["competencia", "pitch"]
+
+enunciado: "Si un emprendedor afirma durante su pitch que 'no tiene competencia en el mercado', ¿es esto una señal positiva o un error?"
+
+opciones_explicitas: ["Es una señal positiva", "Es un error"]
+respuesta: "Es un error"
+tipo: mc
+
+explicacion: |
+  Decir que no hay competencia suele interpretarse como que el emprendedor no ha investigado lo suficiente o que no hay mercado. Siempre hay competencia, ya sea directa o indirecta (sustitutos).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "intermedio"
+  tags: ["metricas", "pitch"]
+
+enunciado: "En un pitch para inversores, ¿es verdadero o falso que la 'tracción' (evidencia de que el producto funciona y hay clientes) es más convincente que una simple idea brillante?"
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  La tracción (ventas, usuarios activos, cartas de intención) reduce el riesgo percibido por el inversor. Una idea sin tracción es solo una hipótesis; una idea con tracción es un negocio en marcha.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "avanzado"
+  tags: ["estructura", "pitch"]
+
+opciones_explicitas: ["Problema", "Solución", "Modelo de Negocio", "Equipo", "Call to Action"]
+respuesta_orden: ["Problema", "Solución", "Modelo de Negocio", "Equipo", "Call to Action"]
+tipo: ordenar
+
+enunciado: "Ordena los elementos de un pitch deck efectivo para que la narrativa sea convincente y lógica:"
+
+explicacion: |
+  Un pitch debe seguir un arco narrativo: primero estableces el dolor (Problema), presentas la cura (Solución), explicas cómo ganas dinero (Modelo), demuestras que puedes ejecutarlo (Equipo) y pides lo que necesitas (Call to Action).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "avanzado"
+  tags: ["valoracion", "finanzas", "pitch"]
+
+variables:
+  escenario: uno_de([["La startup tiene 0 ventas y pide 10 millones de dólares", "exagerada"], ["La startup tiene 100 clientes recurrentes y pide 500k dólares", "razonable"]])
+
+enunciado: "Analiza el caso: {escenario[0]}. La valoración o el pedido de capital es ___."
+
+respuestas_validas:
+  - "exagerada"
+  - "razonable"
+respuesta: escenario[1]
+tipo: completar
+
+explicacion: |
+  Pedir montos desproporcionados a la etapa de tracción actual genera desconfianza. El emprendedor debe demostrar que el capital solicitado es necesario para alcanzar los hitos que justifican la valoración.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "basico"
+  tags: ["pitch", "business_plan", "inversion"]
+
+respuesta: "Pitch"
+tipo: completar
+respuestas_validas:
+  - "Pitch"
+
+enunciado: "Mientras que el Business Plan es un documento detallado y extenso que describe la estrategia a largo plazo, el ___ es una presentación breve diseñada para captar la atención inmediata del inversor."
+
+explicacion: |
+  El Pitch es una herramienta de comunicación rápida y persuasiva, mientras que el Business Plan es un documento operativo y estratégico exhaustivo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "basico"
+  tags: ["objetivo", "pitch", "inversion"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Si el patrimonio neto es negativo, la empresa tiene más bienes que deudas."
+enunciado: "¿El objetivo principal de un Pitch es presentar todos los detalles técnicos y financieros de la empresa para cerrar la inversión en ese mismo instante?"
 
 explicacion: |
-  Patrimonio negativo significa que los pasivos superan a los activos (Activo < Pasivo).
+  Falso. El objetivo de un Pitch no es cerrar la inversión, sino conseguir la siguiente reunión o mostrar suficiente interés para avanzar en el proceso de Due Diligence.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_del_patrimonio"
+  tema: "pitch_a_inversores"
   nivel: "intermedio"
-  tags: ["calculo", "activo"]
+  tags: ["pitch_deck", "estructura"]
 
 variables:
-  pasivo: random(50000, 200000)
-  patrimonio: random(10000, 50000)
-  activo: pasivo + patrimonio
+  idx: uno_de([0, 1, 2])
+  escenario: [["Problema", "Solución", "Modelo de Negocio", "Equipo", "Mercado"], ["Problema", "Propuesta de Valor", "Modelo de Negocio", "Tracción", "Equipo"], ["Problema", "Solución", "Modelo de Negocio", "Competencia", "Equipo"]]
 
-respuesta: activo
-tipo: input
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["Solución", "Propuesta de Valor", "Competencia", "Equipo"]
 
-enunciado: "Si el pasivo total es ${pasivo} y el patrimonio neto es ${patrimonio}, ¿cuál es el activo total?"
+enunciado: "En un Pitch Deck efectivo, después de presentar el {escenario[idx][0]}, el siguiente elemento clave debe ser la {escenario[idx][1]}."
 
 explicacion: |
-  Activo = Pasivo + Patrimonio Neto.
+  La secuencia lógica de un pitch busca validar que el problema identificado tiene una solución clara y viable antes de pasar a cómo se gana dinero.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_del_patrimonio"
+  tema: "pitch_a_inversores"
   nivel: "intermedio"
-  tags: ["variacion", "ganancia"]
+  tags: ["elevator_pitch", "pitch_deck"]
 
-variables:
-  activo_inicial: random(100000, 200000)
-  pasivo_inicial: random(50000, 100000)
-  ganancia: random(10000, 50000)
-  activo_final: activo_inicial + ganancia
-  pasivo_final: pasivo_inicial
-  pat_inicial: activo_inicial - pasivo_inicial
-  pat_final: activo_final - pasivo_final
-  variacion: pat_final - pat_inicial
-
-respuesta: variacion
-tipo: input
-
-enunciado: "Si una empresa tiene Activo {activo_inicial} y Pasivo {pasivo_inicial}, y luego obtiene una ganancia de {ganancia} que aumenta su activo, ¿cuánto aumentó su patrimonio neto?"
-
-explicacion: |
-  Al aumentar el activo sin cambiar el pasivo, el patrimonio neto aumenta exactamente por el monto de la ganancia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "intermedio"
-  tags: ["estructura", "financiamiento"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El financiamiento de una empresa proviene de sus acreedores (pasivo) y de sus dueños (patrimonio)."
-
-explicacion: |
-  Correcto. Los activos se financian con deuda externa e interna.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "avanzado"
-  tags: ["calculo", "agregacion"]
-
-variables:
-  activo_caja: random(5000, 20000)
-  activo_banco: random(10000, 50000)
-  activo_inventario: random(20000, 100000)
-  activo_maquinaria: random(50000, 200000)
-  pasivo_proveedores: random(5000, 20000)
-  pasivo_prestamo: random(10000, 50000)
-  
-  activo_total: activo_caja + activo_banco + activo_inventario + activo_maquinaria
-  pasivo_total: pasivo_proveedores + pasivo_prestamo
-  patrimonio: activo_total - pasivo_total
-
-respuesta: patrimonio
-tipo: input
-
-enunciado: "Activo Caja: {activo_caja}, Activo Banco: {activo_banco}, Activo Inventario: {activo_inventario}, Activo Maquinaria: {activo_maquinaria}. Pasivo Proveedores: {pasivo_proveedores}, Pasivo Préstamo: {pasivo_prestamo}. Calcula el Patrimonio Neto."
-
-explicacion: |
-  Sumar todos los activos, restar todos los pasivos. El resultado es el patrimonio neto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "intermedio"
-  tags: ["transaccion", "balance"]
-
-variables:
-  monto: random(10000, 50000)
-  activo_inicial: random(100000, 200000)
-  pasivo_inicial: random(50000, 100000)
-  pat_inicial: activo_inicial - pasivo_inicial
-  activo_final: activo_inicial + monto
-  pasivo_final: pasivo_inicial + monto
-  pat_final: activo_final - pasivo_final
-  cambio_patrimonio: pat_final - pat_inicial
-
-respuesta: cambio_patrimonio
-tipo: input
-
-enunciado: "Si la empresa compra un activo de ${monto} a crédito, ¿cuánto cambia su patrimonio neto?"
-
-explicacion: |
-  Al aumentar activo y pasivo en la misma cantidad, la diferencia (patrimonio) no cambia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "avanzado"
-  tags: ["solvencia", "riesgo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un patrimonio neto negativo puede indicar que la empresa es insolvente técnicamente."
-
-explicacion: |
-  Si Pasivo > Activo, la empresa no tiene suficiente para cubrir sus deudas con sus propios bienes, lo que es un riesgo de insolvencia técnica.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "intermedio"
-  tags: ["calculo", "activo_circulante"]
-
-variables:
-  activo_total: random(200000, 500000)
-  activo_no_circulante: random(50000, 200000)
-  activo_circulante: activo_total - activo_no_circulante
-
-respuesta: activo_circulante
-tipo: input
-
-enunciado: "El activo total es ${activo_total} y el no circulante es ${activo_no_circulante}. ¿Cuánto es el activo circulante?"
-
-explicacion: |
-  Activo Circulante = Activo Total - Activo No Circulante.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "basico"
-  tags: ["principio", "doble entrada"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todo activo está financiado por pasivos o patrimonio."
-
-explicacion: |
-  Es la base de la partida doble: no hay activo sin una fuente de financiamiento (deuda o capital propio).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "intermedio"
-  tags: ["calculo", "pasivo_circulante"]
-
-variables:
-  pasivo_total: random(100000, 300000)
-  pasivo_no_circulante: random(20000, 100000)
-  pasivo_circulante: pasivo_total - pasivo_no_circulante
-
-respuesta: pasivo_circulante
-tipo: input
-
-enunciado: "Si el pasivo total es ${pasivo_total} y el no circulante es ${pasivo_no_circulante}, ¿cuánto es el pasivo circulante?"
-
-explicacion: |
-  Pasivo Circulante = Pasivo Total - Pasivo No Circulante.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "intermedio"
-  tags: ["transaccion", "liquidez"]
-
-variables:
-  monto: random(5000, 20000)
-  activo_inicial: random(100000, 200000)
-  pasivo_inicial: random(50000, 100000)
-  pat_inicial: activo_inicial - pasivo_inicial
-  activo_final: activo_inicial - monto
-  pasivo_final: pasivo_inicial - monto
-  pat_final: activo_final - pasivo_final
-  cambio_patrimonio: pat_final - pat_inicial
-
-respuesta: cambio_patrimonio
-tipo: input
-
-enunciado: "Si la empresa paga ${monto} de su deuda, ¿cuánto cambia su patrimonio neto?"
-
-explicacion: |
-  Al bajar activo y pasivo en la misma cantidad, el patrimonio neto permanece igual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "basico"
-  tags: ["activo", "efectivo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El efectivo en caja es un activo circulante."
-
-explicacion: |
-  El efectivo es el activo más líquido y se usa inmediatamente, por lo que es circulante.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "avanzado"
-  tags: ["capital", "variacion"]
-
-variables:
-  activo: random(200000, 500000)
-  pasivo: random(50000, 150000)
-  capital_inicial: random(50000, 100000)
-  nueva_inversion: random(10000, 50000)
-  activo_final: activo + nueva_inversion
-  pasivo_final: pasivo
-  capital_final: activo_final - pasivo_final
-  incremento_patrimonio: capital_final - (activo - pasivo)
-
-respuesta: nueva_inversion
-tipo: input
-
-enunciado: "Si se realiza una nueva inversión de ${nueva_inversion} en efectivo que aumenta el activo, ¿cuánto aumenta el patrimonio neto?"
-
-explicacion: |
-  La inversión de los dueños aumenta el activo y el patrimonio neto en la misma cuantía.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "intermedio"
-  tags: ["estructura", "propiedad"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El pasivo representa la propiedad de los accionistas sobre los activos."
-
-explicacion: |
-  El patrimonio neto representa la propiedad de los accionistas. El pasivo representa la deuda con terceros.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "intermedio"
-  tags: ["calculo", "balance"]
-
-variables:
-  activo_circulante: random(50000, 150000)
-  activo_no_circulante: random(100000, 300000)
-  pasivo_circulante: random(20000, 80000)
-  pasivo_no_circulante: random(30000, 100000)
-  
-  activo_total: activo_circulante + activo_no_circulante
-  pasivo_total: pasivo_circulante + pasivo_no_circulante
-  patrimonio: activo_total - pasivo_total
-
-respuesta: patrimonio
-tipo: input
-
-enunciado: "Activo Circulante: {activo_circulante}, Activo No Circulante: {activo_no_circulante}, Pasivo Circulante: {pasivo_circulante}, Pasivo No Circulante: {pasivo_no_circulante}. Calcula el Patrimonio Neto."
-
-explicacion: |
-  Sumar activos totales, restar pasivos totales. El resultado es el patrimonio neto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "basico"
-  tags: ["ecuacion", "contabilidad", "completar"]
-
-respuesta: "Pasivo"
+respuesta: "Elevator Pitch"
 tipo: completar
-
-enunciado: "Completa la ecuación fundamental: Activo = Patrimonio Neto + _______."
-
 respuestas_validas:
-  - "Pasivo"
-  - "pasivo"
-  - "pasivos"
+  - "Elevator Pitch"
+
+enunciado: "La principal diferencia es la duración y el soporte: mientras que un Pitch Deck es una presentación visual apoyada en diapositivas, el ___ es un discurso verbal de pocos segundos, similar a lo que se diría en un ascensor."
 
 explicacion: |
-  La ecuación patrimonial básica establece que lo que tiene la empresa (Activo) se financia con
-  recursos propios (Patrimonio) y recursos de terceros (Pasivo).
+  El Elevator Pitch es una versión ultra-resumida y verbal, centrada en despertar curiosidad, mientras que el Pitch Deck es una narrativa estructurada con soporte visual.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_del_patrimonio"
-  nivel: "basico"
-  tags: ["pasivo", "clasificacion", "completar"]
+  tema: "pitch_a_inversores"
+  nivel: "avanzado"
+  tags: ["estructura", "storytelling"]
 
-respuesta: "Circulante"
-tipo: completar
+respuesta_orden: ["Problema", "Solución", "Modelo de Negocio", "Tracción", "Llamado a la acción"]
+tipo: ordenar
+opciones_explicitas: ["Problema", "Solución", "Modelo de Negocio", "Tracción", "Llamado a la acción"]
 
-enunciado: "Los pasivos que vencen en menos de un año se clasifican como Pasivo _______."
+enunciado: "Ordena los elementos de un pitch de alto impacto siguiendo la lógica de narrativa de ventas (Storytelling):"
 
-respuestas_validas:
-  - "Circulante"
-  - "circulante"
-  - "corriente"
-  - "corriente"
+pasos:
+  - "Identificar la necesidad del mercado"
+  - "Presentar cómo se resuelve"
+  - "Explicar cómo se monetiza"
+  - "Mostrar pruebas de que funciona"
+  - "Indicar qué se necesita del inversor"
 
 explicacion: |
-  Los pasivos de corto plazo se denominan Pasivo Circulante (o Corriente).
-  Los de largo plazo son Pasivo No Circulante (o Largo Plazo).
+  Un buen pitch debe seguir un arco narrativo: Dolor (Problema) -> Alivio (Solución) -> Viabilidad (Modelo) -> Validación (Tracción) -> Cierre (Call to Action).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "estructura_del_patrimonio"
+  tema: "pitch_a_inversores"
   nivel: "basico"
-  tags: ["patrimonio", "componentes", "completar"]
+  tags: ["pitch", "elevator_pitch", "comunicacion"]
 
-respuesta: "Utilidades"
+variables:
+  datos: [["Software de gestión de residuos para PYMES", "resolver el problema de la logística de reciclaje"], ["App de delivery de productos locales", "conectar productores con consumidores finales"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
 tipo: completar
-
-enunciado: "Además del capital social, las _______ acumuladas forman parte del patrimonio neto."
-
 respuestas_validas:
-  - "Utilidades"
-  - "utilidades"
-  - "ganancias"
-  - "ganancias"
+  - datos[idx][1]
+
+enunciado: "En un elevator pitch, después de presentar el problema, el emprendedor debe presentar la propuesta de valor para {datos[idx][0]} con el fin de {datos[idx][1]}."
 
 explicacion: |
-  El patrimonio neto incluye el capital aportado y las utilidades (o pérdidas) acumuladas de la empresa.
+  El objetivo del pitch es conectar el problema detectado con la solución específica que ofrece tu modelo de negocio de forma rápida.
 ```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "intermedio"
+  tags: ["hook", "atencion", "inversores"]
+
+variables:
+  datos: [["Una startup de biotecnología", "revolucionar la medicina preventiva"], ["Una fintech de microcréditos", "democratizar el acceso al capital"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["revolucionar la medicina preventiva", "democratizar el acceso al capital", "ganar dinero rápido", "dominar el mercado global"]
+
+enunciado: "Si estás presentando un caso de {datos[idx][0]}, un buen 'hook' debería enfocarse en la misión de {datos[idx][1]} para captar el interés emocional del inversor."
+
+explicacion: |
+  Un buen gancho no se trata solo de rentabilidad, sino del impacto o la transformación que la idea genera en el mercado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "intermedio"
+  tags: ["validacion", "traction", "datos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Es fundamental presentar métricas de tracción (como usuarios activos o ingresos mensuales) durante el pitch para demostrar que el modelo de negocio es escalable y validado?"
+
+explicacion: |
+  Los inversores buscan evidencia de que el mercado realmente quiere el producto (Product-Market Fit), y las métricas son la prueba de ello.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "avanzado"
+  tags: ["pitch_deck", "orden", "estructura"]
+
+respuesta_orden: ["Problema", "Solución", "Modelo de Negocio", "Tracción", "Equipo", "El Pedido"]
+tipo: ordenar
+opciones_explicitas: ["Problema", "Solución", "Modelo de Negocio", "Tracción", "Equipo", "El Pedido"]
+
+enunciado: "Ordena los elementos esenciales de un Pitch Deck efectivo para asegurar un flujo narrativo lógico que lleve al inversor hacia la llamada a la acción."
+
+explicacion: |
+  La narrativa debe ir de la necesidad (Problema) a la ejecución (Solución/Modelo/Tracción/Equipo) y finalizar con lo que necesitas (El Pedido/Ask).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "pitch_a_inversores"
+  nivel: "avanzado"
+  tags: ["ask", "funding", "financiamiento"]
+
+variables:
+  datos: [["500.000 USD", "expandir operaciones", "18 meses"], ["200.000 USD", "desarrollo de producto", "12 meses"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - datos[idx][1]
+
+enunciado: "Al presentar el 'Ask' en el pitch, no basta con decir cuánto dinero necesitas; es crucial especificar que el objetivo es {datos[idx][1]} en un plazo de {datos[idx][2]}."
+
+explicacion: |
+  Un inversor no solo pone dinero; compra una parte de tu visión. Debe saber exactamente en qué se usará cada centavo y qué hitos se alcanzarán con ello.
+```
+
+## Sección: libro-diario-mayor (21 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué es el Libro Diario?"
+tipo: mc
+opciones_explicitas:
+  - "El registro de todos los asientos contables, en el orden cronológico en que ocurrieron"
+  - "Un resumen de las ganancias del último mes"
+  - "El registro de cada cuenta por separado"
+respuesta: "El registro de todos los asientos contables, en el orden cronológico en que ocurrieron"
+
+explicacion: |
+  Es la fuente original y cronológica de todos los movimientos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué es el Libro Mayor?"
+tipo: mc
+opciones_explicitas:
+  - "La misma información del Diario, reorganizada por cuenta, con una hoja para cada una"
+  - "Un libro distinto que registra información que no está en el Diario"
+  - "El registro exclusivo de las cuentas de Pasivo"
+respuesta: "La misma información del Diario, reorganizada por cuenta, con una hoja para cada una"
+
+explicacion: |
+  No agrega información nueva: reorganiza lo que ya está en el Diario.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Libro Diario organiza los asientos en orden cronológico, por fecha."
+
+explicacion: |
+  Es su criterio de organización principal.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Libro Mayor organiza los movimientos por cuenta, no por fecha."
+
+explicacion: |
+  Cada cuenta acumula todos sus movimientos, sin importar cuándo
+  ocurrieron.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Libro Mayor no es una fuente de información nueva: todo lo que aparece ahí ya estaba registrado en el Libro Diario."
+
+explicacion: |
+  Es un traslado y una reorganización, no un registro independiente.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Cómo se llama, tradicionalmente, el proceso de trasladar cada línea del Diario a la cuenta correspondiente del Mayor?"
+tipo: mc
+opciones_explicitas:
+  - "Pasar al mayor (o mayorización)"
+  - "Cerrar el balance"
+  - "Auditar la cuenta"
+respuesta: "Pasar al mayor (o mayorización)"
+
+explicacion: |
+  Es el nombre técnico de ese traslado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el Libro Mayor, cada cuenta (Caja, Mercadería, etc.) tiene su propia hoja, donde se acumulan todos sus movimientos."
+
+explicacion: |
+  Es lo que permite calcular el saldo de una cuenta puntual sin revisar
+  todo el resto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+enunciado: "¿Qué es la \"cuenta T\"?"
+tipo: mc
+opciones_explicitas:
+  - "Una forma visual simple de representar una cuenta, con el Debe a la izquierda y el Haber a la derecha"
+  - "Una cuenta especial reservada para impuestos"
+  - "El nombre de la primera cuenta de cualquier plan contable"
+respuesta: "Una forma visual simple de representar una cuenta, con el Debe a la izquierda y el Haber a la derecha"
+
+explicacion: |
+  El nombre viene de la forma de letra \"T\" que arma la línea vertical
+  (que separa Debe y Haber) con la horizontal (debajo del nombre de la
+  cuenta).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una cuenta T, el Debe se anota a la izquierda y el Haber a la derecha."
+
+explicacion: |
+  Es la misma convención de columnas ya vista en el tema de Debe y
+  Haber.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Libro Diario sirve para reconstruir la historia completa y en orden de lo que le pasó a la empresa, útil por ejemplo para una auditoría."
+
+explicacion: |
+  Su organización cronológica lo hace ideal para reconstruir secuencias
+  de hechos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Libro Mayor sirve para saber el saldo actual de una cuenta puntual de un vistazo, sin tener que revisar asiento por asiento."
+
+explicacion: |
+  Es su ventaja frente al Diario para esa pregunta puntual.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "avanzado"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  debe_caja: random(100, 500) * 1000
+  haber_caja: random(50, 300) * 1000
+
+respuesta: debe_caja - haber_caja
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En la hoja del Mayor de la cuenta \"Caja\" (de Activo), el total acumulado en el Debe es ${debe_caja}, y en el Haber ${haber_caja}. ¿Cuál es el saldo actual de Caja?"
+
+explicacion: |
+  En una cuenta de Activo, el saldo es el total del Debe menos el total
+  del Haber.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "avanzado"
+  tags: ["contabilidad", "calculo"]
+
+variables:
+  debe_1: random(50, 200) * 1000
+  debe_2: random(50, 200) * 1000
+  haber_1: random(50, 150) * 1000
+
+respuesta: debe_1 + debe_2 - haber_1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La cuenta \"Caja\" tuvo tres movimientos: dos entradas al Debe de ${debe_1} y ${debe_2}, y una salida al Haber de ${haber_1}. ¿Cuál es el saldo final de Caja?"
+
+pasos:
+  - "Total Debe: {debe_1} + {debe_2} = {debe_1 + debe_2}"
+  - "Saldo: {debe_1 + debe_2} - {haber_1}"
+
+explicacion: |
+  Se suman todos los movimientos del Debe, todos los del Haber, y se
+  restan.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "intermedio"
+  tags: ["contabilidad", "problema"]
+
+enunciado: "Para saber exactamente qué movimientos económicos ocurrieron un día puntual, ¿qué libro conviene consultar?"
+tipo: mc
+opciones_explicitas:
+  - "El Libro Diario"
+  - "El Libro Mayor"
+  - "Ninguno de los dos tiene esa información"
+respuesta: "El Libro Diario"
+
+explicacion: |
+  Está organizado cronológicamente, así que es el indicado para
+  reconstruir qué pasó en una fecha concreta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "intermedio"
+  tags: ["contabilidad", "problema"]
+
+enunciado: "Para saber cuánto dinero hay en Caja hoy, sin revisar movimiento por movimiento, ¿qué libro conviene consultar?"
+tipo: mc
+opciones_explicitas:
+  - "El Libro Mayor"
+  - "El Libro Diario"
+  - "Ninguno de los dos tiene esa información"
+respuesta: "El Libro Mayor"
+
+explicacion: |
+  La hoja de Caja en el Mayor ya tiene acumulado el saldo actual.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "basico"
+  tags: ["contabilidad", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos pasos del proceso contable en el orden en que ocurren."
+opciones_explicitas:
+  - "Se calculan los saldos de cada cuenta en el Mayor"
+  - "Se registra el movimiento como asiento en el Libro Diario"
+  - "Se ocurre un movimiento económico en la empresa"
+respuesta_orden: ["Se ocurre un movimiento económico en la empresa", "Se registra el movimiento como asiento en el Libro Diario", "Se calculan los saldos de cada cuenta en el Mayor"]
+
+explicacion: |
+  Primero el hecho económico, después el registro cronológico, y
+  finalmente la reorganización por cuenta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "intermedio"
+  tags: ["contabilidad", "verificacion"]
+
+variables:
+  debe_caja: random(100, 500) * 1000
+  haber_caja: random(50, 300) * 1000
+  correcto: debe_caja - haber_caja
+  error: uno_de([0, 0, 0, 50000, -50000])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 1000)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? Cuenta Caja con ${debe_caja} en el Debe y ${haber_caja} en el Haber, saldo informado: ${mostrado}."
+
+explicacion: |
+  Se vuelve a restar el Haber del Debe y se compara con el valor
+  informado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "intermedio"
+  tags: ["contabilidad"]
+
+variables:
+  debe_caja: random(100, 500) * 1000
+  haber_caja: random(50, 300) * 1000
+  saldo: debe_caja - haber_caja
+
+tipo: completar
+enunciado: "La cuenta Caja tiene ${debe_caja} en el Debe y ${haber_caja} en el Haber. Completá: ___ (saldo) = {debe_caja} - {haber_caja}."
+respuestas_validas:
+  - saldo
+
+explicacion: |
+  Es la aplicación directa de la fórmula de saldo de una cuenta de
+  Activo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para armar el balance final de una empresa, se parte de los saldos que ya están calculados cuenta por cuenta en el Libro Mayor."
+
+explicacion: |
+  Es el paso siguiente en el proceso contable (estados contables), que
+  no se construye en este tema puntual.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "intermedio"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Libro Diario y el Libro Mayor muestran, en el fondo, la misma información contable, organizada de dos formas distintas y complementarias."
+
+explicacion: |
+  Uno por fecha, el otro por cuenta — ninguno reemplaza al otro.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "libro_diario_mayor"
+  nivel: "basico"
+  tags: ["contabilidad", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Libro Diario registra los asientos en orden cronológico; el Libro Mayor reorganiza esos mismos asientos por cuenta, para poder calcular el saldo actual de cada una."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+

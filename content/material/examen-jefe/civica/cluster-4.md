@@ -1,1640 +1,808 @@
-# Examen jefe — Arquitecto del Estado y la Ley
+# Examen jefe — [PENDIENTE #882]
 
-> Logro #138. Completaste el parcial sobre la organización del Estado, los derechos y los organismos internacionales, jefa. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **105 preguntas totales** en 5/5 secciones.
+> Logro #882. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: organismos-internacionales (20 preguntas)
+## Sección: impuestos (22 preguntas)
 
 ```
 metadata:
   materia: "civica"
-  tema: "organismos_internacionales"
+  tema: "impuestos"
   nivel: "basico"
-  tags: ["onu"]
+  tags: ["estructura"]
 
-enunciado: "¿En qué año se creó la ONU?"
+enunciado: "¿En cuántos niveles de gobierno se organiza la potestad de cobrar impuestos en Argentina?"
 tipo: mc
 opciones_explicitas:
-  - "1945"
-  - "1919"
-  - "1948"
-respuesta: "1945"
+  - "3: nacional, provincial y municipal"
+  - "2: nacional y provincial"
+  - "4: nacional, provincial, municipal y de barrio"
+respuesta: "3: nacional, provincial y municipal"
 
 explicacion: |
-  Creada tras la Segunda Guerra Mundial, para mantener la paz y la
-  seguridad internacionales.
+  Cada nivel tiene impuestos propios y financia servicios propios.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "organismos_internacionales"
+  tema: "impuestos"
   nivel: "basico"
-  tags: ["onu"]
+  tags: ["nacional"]
 
-enunciado: "¿Cuál es el objetivo fundacional de la ONU?"
+enunciado: "¿Qué nivel de gobierno cobra el IVA?"
 tipo: mc
 opciones_explicitas:
-  - "Mantener la paz y la seguridad internacionales"
-  - "Regular exclusivamente el comercio mundial"
-  - "Otorgar préstamos a países con problemas económicos"
-respuesta: "Mantener la paz y la seguridad internacionales"
+  - "Nacional"
+  - "Provincial"
+  - "Municipal"
+respuesta: "Nacional"
 
 explicacion: |
-  Ese objetivo se declaró explícitamente tras el fin de la Segunda
-  Guerra Mundial.
+  El IVA grava el valor agregado en cada etapa de producción/venta y
+  lo recauda el Estado nacional.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "organismos_internacionales"
+  tema: "impuestos"
   nivel: "intermedio"
-  tags: ["onu"]
+  tags: ["nacional"]
 
-enunciado: "¿Cuál es el órgano más conocido de la ONU?"
+enunciado: "En la práctica, ¿quién termina pagando el IVA de una compra?"
 tipo: mc
 opciones_explicitas:
-  - "El Consejo de Seguridad"
-  - "La OEA"
-  - "El Mercosur"
-respuesta: "El Consejo de Seguridad"
+  - "El consumidor final"
+  - "Sólo el Estado nacional, sin trasladarlo a nadie"
+  - "Sólo la empresa que fabrica el producto"
+respuesta: "El consumidor final"
 
 explicacion: |
-  Tiene 5 miembros permanentes con poder de veto.
+  Aunque se cobra en cada etapa de la cadena, el impuesto se traslada
+  al precio final que paga el consumidor.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "organismos_internacionales"
-  nivel: "intermedio"
-  tags: ["onu"]
-
-enunciado: "¿Cuántos miembros permanentes tiene el Consejo de Seguridad de la ONU?"
-tipo: mc
-opciones_explicitas:
-  - "5"
-  - "10"
-  - "3"
-respuesta: "5"
-
-explicacion: |
-  Estados Unidos, Rusia, China, Reino Unido y Francia.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organismos_internacionales"
-  nivel: "intermedio"
-  tags: ["onu"]
-
-enunciado: "¿Qué significa el 'poder de veto' de los miembros permanentes del Consejo de Seguridad?"
-tipo: mc
-opciones_explicitas:
-  - "Pueden bloquear cualquier resolución con un solo voto en contra, aunque el resto esté de acuerdo"
-  - "Pueden proponer resoluciones pero no bloquearlas"
-  - "Sólo pueden votar en temas de comercio"
-respuesta: "Pueden bloquear cualquier resolución con un solo voto en contra, aunque el resto esté de acuerdo"
-
-explicacion: |
-  Un solo voto en contra de un miembro permanente bloquea la
-  resolución completa.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organismos_internacionales"
-  nivel: "intermedio"
-  tags: ["onu"]
-
-enunciado: "¿Cuál es el organismo especializado de la ONU dedicado a la salud?"
-tipo: mc
-opciones_explicitas:
-  - "La OMS"
-  - "La UNESCO"
-  - "El FMI"
-respuesta: "La OMS"
-
-explicacion: |
-  Organización Mundial de la Salud, organismo especializado dependiente
-  de la ONU.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organismos_internacionales"
-  nivel: "intermedio"
-  tags: ["onu"]
-
-enunciado: "¿Cuál es el organismo especializado de la ONU dedicado a educación, ciencia y cultura?"
-tipo: mc
-opciones_explicitas:
-  - "La UNESCO"
-  - "La OMS"
-  - "La OEA"
-respuesta: "La UNESCO"
-
-explicacion: |
-  Organismo dependiente de la ONU dedicado a esas 3 áreas.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organismos_internacionales"
+  tema: "impuestos"
   nivel: "basico"
-  tags: ["oea"]
+  tags: ["nacional"]
 
-enunciado: "¿En qué año se creó la OEA?"
+enunciado: "¿Qué nivel de gobierno cobra el Impuesto a las Ganancias?"
 tipo: mc
 opciones_explicitas:
-  - "1948"
-  - "1945"
-  - "1991"
-respuesta: "1948"
+  - "Nacional"
+  - "Provincial"
+  - "Municipal"
+respuesta: "Nacional"
 
 explicacion: |
-  Agrupa a los países del continente americano.
+  Grava la renta de personas y empresas, con alícuota progresiva.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "organismos_internacionales"
+  tema: "impuestos"
   nivel: "intermedio"
-  tags: ["oea"]
+  tags: ["nacional"]
 
-enunciado: "¿Cuál es la función declarada de la OEA?"
+enunciado: "¿Por qué se dice que el Impuesto a las Ganancias es 'progresivo'?"
 tipo: mc
 opciones_explicitas:
-  - "Promover la democracia, los derechos humanos, la seguridad y el desarrollo en América"
-  - "Otorgar préstamos financieros a países miembros"
-  - "Regular exclusivamente el comercio entre 4 países"
-respuesta: "Promover la democracia, los derechos humanos, la seguridad y el desarrollo en América"
+  - "Porque la alícuota aumenta cuanto más se gana"
+  - "Porque su recaudación crece cada año automáticamente"
+  - "Porque sólo lo pagan las empresas, nunca las personas"
+respuesta: "Porque la alícuota aumenta cuanto más se gana"
 
 explicacion: |
-  Agrupa a los países americanos con ese objetivo declarado.
+  A diferencia de un impuesto con alícuota fija para todos, acá el
+  porcentaje sube con el nivel de ingreso.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "organismos_internacionales"
+  tema: "impuestos"
+  nivel: "basico"
+  tags: ["provincial"]
+
+enunciado: "¿Qué nivel de gobierno cobra el impuesto a los Ingresos Brutos?"
+tipo: mc
+opciones_explicitas:
+  - "Provincial"
+  - "Nacional"
+  - "Municipal"
+respuesta: "Provincial"
+
+explicacion: |
+  Cada provincia (y la Ciudad de Buenos Aires) tiene su propio código
+  fiscal y sus propias alícuotas para este impuesto.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "impuestos"
+  nivel: "intermedio"
+  tags: ["provincial"]
+
+enunciado: "¿Qué grava el impuesto a los Ingresos Brutos?"
+tipo: mc
+opciones_explicitas:
+  - "Un porcentaje sobre los ingresos de cualquier actividad económica en el territorio provincial"
+  - "Sólo la venta de inmuebles"
+  - "Sólo la importación de productos extranjeros"
+respuesta: "Un porcentaje sobre los ingresos de cualquier actividad económica en el territorio provincial"
+
+explicacion: |
+  Se aplica a la venta de bienes o servicios de cualquier actividad
+  comercial, industrial o de servicios.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "impuestos"
   nivel: "avanzado"
-  tags: ["oea"]
+  tags: ["provincial"]
 
-enunciado: "¿Qué pasó con la membresía de Cuba en la OEA?"
+enunciado: "¿Cómo es el peso de Ingresos Brutos dentro de la recaudación tributaria propia de las provincias?"
 tipo: mc
 opciones_explicitas:
-  - "Fue reincorporada formalmente en 2009, aunque no participa activamente"
-  - "Nunca fue miembro de la OEA"
-  - "Es miembro pleno y activo desde su fundación en 1948"
-respuesta: "Fue reincorporada formalmente en 2009, aunque no participa activamente"
+  - "Es, con amplia diferencia, el impuesto que más recauda a nivel provincial"
+  - "Es minoritario, la mayoría de la recaudación provincial viene de otro impuesto"
+  - "Las provincias no tienen impuestos propios, todo depende de Nación"
+respuesta: "Es, con amplia diferencia, el impuesto que más recauda a nivel provincial"
 
 explicacion: |
-  Excepción histórica dentro del bloque de países americanos.
+  Representa la gran mayoría de los ingresos tributarios propios de las
+  provincias argentinas.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "organismos_internacionales"
+  tema: "impuestos"
+  nivel: "intermedio"
+  tags: ["provincial"]
+
+enunciado: "¿Qué tipo de gasto financia típicamente la recaudación provincial (Ingresos Brutos)?"
+tipo: mc
+opciones_explicitas:
+  - "Salud pública provincial, educación provincial y seguridad provincial"
+  - "Sólo el pago de deuda externa nacional"
+  - "Sólo obras de alcance internacional"
+respuesta: "Salud pública provincial, educación provincial y seguridad provincial"
+
+explicacion: |
+  Estos son los grandes rubros de gasto que suele cubrir cada provincia
+  con sus recursos propios.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "impuestos"
+  nivel: "intermedio"
+  tags: ["provincial"]
+
+enunciado: "¿Qué nivel de gobierno cobra el Impuesto Inmobiliario?"
+tipo: mc
+opciones_explicitas:
+  - "Provincial"
+  - "Municipal"
+  - "Nacional"
+respuesta: "Provincial"
+
+explicacion: |
+  Grava la propiedad de inmuebles, según su valuación fiscal.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "impuestos"
   nivel: "basico"
-  tags: ["mercosur"]
+  tags: ["municipal"]
 
-enunciado: "¿Qué es el Mercosur?"
+enunciado: "¿Qué nivel de gobierno cobra el ABL (Alumbrado, Barrido y Limpieza)?"
 tipo: mc
 opciones_explicitas:
-  - "Un bloque económico regional para promover el libre comercio entre sus miembros"
-  - "Un organismo financiero mundial de préstamos"
-  - "Un tribunal internacional de derechos humanos"
-respuesta: "Un bloque económico regional para promover el libre comercio entre sus miembros"
+  - "Municipal"
+  - "Provincial"
+  - "Nacional"
+respuesta: "Municipal"
 
 explicacion: |
-  Creado en 1991 por el Tratado de Asunción.
+  El municipio es el nivel de gobierno más cercano a los servicios
+  urbanos cotidianos.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "organismos_internacionales"
-  nivel: "intermedio"
-  tags: ["mercosur"]
-
-enunciado: "¿Cuáles fueron los 4 miembros plenos originales del Mercosur?"
-tipo: mc
-opciones_explicitas:
-  - "Argentina, Brasil, Paraguay y Uruguay"
-  - "Argentina, Chile, Perú y Bolivia"
-  - "Brasil, México, Colombia y Venezuela"
-respuesta: "Argentina, Brasil, Paraguay y Uruguay"
-
-explicacion: |
-  Fundadores del Tratado de Asunción de 1991.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organismos_internacionales"
-  nivel: "intermedio"
-  tags: ["mercosur"]
-
-enunciado: "¿Qué mecanismo usa el Mercosur para promover el libre comercio entre sus miembros?"
-tipo: mc
-opciones_explicitas:
-  - "La eliminación de aranceles internos"
-  - "El aumento de aranceles entre miembros"
-  - "La prohibición total del comercio entre miembros"
-respuesta: "La eliminación de aranceles internos"
-
-explicacion: |
-  Busca facilitar la circulación de bienes entre los países miembros.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organismos_internacionales"
+  tema: "impuestos"
   nivel: "basico"
-  tags: ["fmi"]
+  tags: ["municipal"]
 
-enunciado: "¿Qué es el FMI?"
+enunciado: "¿Qué financia el ABL?"
 tipo: mc
 opciones_explicitas:
-  - "Un organismo financiero internacional que otorga préstamos a países con dificultades de balanza de pagos"
-  - "Un organismo político que reemplaza a la ONU"
-  - "Un bloque de libre comercio regional"
-respuesta: "Un organismo financiero internacional que otorga préstamos a países con dificultades de balanza de pagos"
+  - "Alumbrado público, recolección de residuos y limpieza de espacios públicos"
+  - "Los sueldos de los jueces provinciales"
+  - "El pago de la deuda externa"
+respuesta: "Alumbrado público, recolección de residuos y limpieza de espacios públicos"
 
 explicacion: |
-  Creado en 1944, distinto en naturaleza de organismos políticos como
-  la ONU o la OEA.
+  Servicios de mantenimiento urbano de gestión municipal directa.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "organismos_internacionales"
+  tema: "impuestos"
   nivel: "intermedio"
-  tags: ["fmi"]
+  tags: ["municipal"]
 
-enunciado: "¿Bajo qué condición suele otorgar préstamos el FMI?"
+enunciado: "¿Qué nivel de gobierno cobra el impuesto de Patentes (automotor)?"
 tipo: mc
 opciones_explicitas:
-  - "A cambio de condiciones de política económica (programas o acuerdos stand-by)"
-  - "Sin ninguna condición, de forma incondicional"
-  - "Sólo a cambio de que el país se una a la ONU"
-respuesta: "A cambio de condiciones de política económica (programas o acuerdos stand-by)"
+  - "Municipal"
+  - "Nacional"
+  - "Provincial"
+respuesta: "Municipal"
 
 explicacion: |
-  Los llamados "programas" del FMI incluyen condicionalidades de
-  política económica.
+  Sobre la titularidad de un vehículo; financia en parte el sistema de
+  tránsito y transporte local.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "organismos_internacionales"
+  tema: "impuestos"
   nivel: "avanzado"
   tags: ["fundamento"]
 
-enunciado: "¿Cuál es la diferencia de fondo entre la competencia de partidos dentro de un Estado y los organismos internacionales?"
+enunciado: "¿En qué se diferencia este módulo del cálculo de IVA visto en Matemática?"
 tipo: mc
 opciones_explicitas:
-  - "Entre Estados no hay un 'gobierno mundial' elegido por elección: hay organismos de cooperación con reglas y vetos propios"
-  - "Son exactamente lo mismo, sólo cambia la escala"
-  - "Los organismos internacionales reemplazan a los partidos dentro de cada país"
-respuesta: "Entre Estados no hay un 'gobierno mundial' elegido por elección: hay organismos de cooperación con reglas y vetos propios"
+  - "Acá se estudia qué nivel de Estado cobra cada impuesto y qué financia, no el cálculo del monto en una compra puntual"
+  - "En nada, son exactamente el mismo contenido repetido"
+  - "Acá se calculan alícuotas concretas, en Matemática no"
+respuesta: "Acá se estudia qué nivel de Estado cobra cada impuesto y qué financia, no el cálculo del monto en una compra puntual"
 
 explicacion: |
-  Es el último paso de la cadena de Ciencia Política: de competir
-  dentro de un Estado a cooperar entre Estados.
+  Matemática calcula cuánto IVA paga una persona en una compra; acá se
+  responde la pregunta cívica de fondo (quién cobra, qué financia).
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "organismos_internacionales"
+  tema: "impuestos"
   nivel: "intermedio"
-  tags: ["onu"]
-
-enunciado: "Todos los países miembros de la ONU tienen poder de veto en el Consejo de Seguridad."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Sólo los 5 miembros permanentes del Consejo de Seguridad tienen ese
-  poder.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organismos_internacionales"
-  nivel: "intermedio"
-  tags: ["mercosur"]
-
-enunciado: "El Mercosur es un organismo financiero que otorga préstamos a sus países miembros."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Es un bloque de libre comercio regional, no un organismo de
-  préstamos como el FMI.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organismos_internacionales"
-  nivel: "intermedio"
-  tags: ["fmi"]
-
-enunciado: "El FMI (Fondo Monetario Internacional) se creó en el año ______."
-tipo: completar
-respuestas_validas:
-  - "1944"
-
-explicacion: |
-  Un año antes que la ONU (1945).
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organismos_internacionales"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-enunciado: "Ordená estos 4 organismos internacionales del más antiguo al más reciente."
-tipo: ordenar
-opciones_explicitas:
-  - "FMI (1944)"
-  - "ONU (1945)"
-  - "OEA (1948)"
-  - "Mercosur (1991)"
-respuesta:
-  - "FMI (1944)"
-  - "ONU (1945)"
-  - "OEA (1948)"
-  - "Mercosur (1991)"
-
-explicacion: |
-  El FMI es el más antiguo de los 4, seguido por la ONU, la OEA y por
-  último el Mercosur, ya en la década de 1990.
-```
-
-## Sección: organizacion-del-estado (20 preguntas)
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "basico"
-  tags: ["definicion"]
-
-enunciado: "¿Qué es el Estado?"
-tipo: mc
-opciones_explicitas:
-  - "La organización política con autoridad sobre un territorio y una población"
-  - "Un edificio de gobierno"
-  - "Un partido político"
-respuesta: "La organización política con autoridad sobre un territorio y una población"
-
-explicacion: |
-  El Estado ejerce soberanía: dicta y hace cumplir normas.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "basico"
-  tags: ["elementos"]
-
-enunciado: "¿Cuáles son los 3 elementos clásicos del Estado?"
-tipo: mc
-opciones_explicitas:
-  - "Territorio, población y gobierno/poder soberano"
-  - "Bandera, escudo e himno"
-  - "Presidente, Congreso y Corte Suprema"
-respuesta: "Territorio, población y gobierno/poder soberano"
-
-explicacion: |
-  Sin alguno de estos 3, no hay Estado en sentido pleno.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "intermedio"
-  tags: ["elementos"]
-
-enunciado: "¿Verdadero o falso? Un territorio delimitado sin ningún gobierno reconocido constituye un Estado en sentido pleno."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Falta el elemento de gobierno/poder soberano organizado.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "intermedio"
-  tags: ["formas_de_estado"]
-
-enunciado: "En un Estado unitario, el poder se organiza..."
-tipo: mc
-opciones_explicitas:
-  - "Desde un solo centro de poder que gobierna todo el territorio"
-  - "Repartido entre provincias con su propia constitución"
-  - "Sin ningún gobierno central"
-respuesta: "Desde un solo centro de poder que gobierna todo el territorio"
-
-explicacion: |
-  Ejemplo: Francia, Chile.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "intermedio"
-  tags: ["formas_de_estado"]
-
-enunciado: "En un Estado federal, el poder se reparte entre..."
-tipo: mc
-opciones_explicitas:
-  - "Un gobierno central y estados/provincias con autonomía propia"
-  - "Sólo los municipios, sin gobierno nacional"
-  - "Los partidos políticos y las empresas privadas"
-respuesta: "Un gobierno central y estados/provincias con autonomía propia"
-
-explicacion: |
-  Ejemplo: Argentina, Estados Unidos, Brasil.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "basico"
-  tags: ["argentina"]
-
-enunciado: "¿Qué forma de Estado tiene Argentina?"
-tipo: mc
-opciones_explicitas:
-  - "Federal"
-  - "Unitario"
-  - "Confederal sin gobierno central"
-respuesta: "Federal"
-
-explicacion: |
-  23 provincias más CABA, cada una con su propia constitución
-  provincial, dentro del marco de la Constitución Nacional.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "basico"
-  tags: ["argentina"]
-
-enunciado: "¿Cuántas provincias tiene Argentina (sin contar CABA)?"
-tipo: input
-respuesta: 23
-
-explicacion: |
-  23 provincias más la Ciudad Autónoma de Buenos Aires.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "basico"
-  tags: ["formas_de_gobierno"]
-
-enunciado: "En una república, el poder se ejerce..."
-tipo: mc
-opciones_explicitas:
-  - "Por representantes elegidos, por tiempo limitado, con rendición de cuentas"
-  - "De forma hereditaria, sin elecciones"
-  - "Por sorteo entre toda la población, cada día"
-respuesta: "Por representantes elegidos, por tiempo limitado, con rendición de cuentas"
-
-explicacion: |
-  No es hereditario; hay límite de tiempo en el cargo.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "basico"
-  tags: ["formas_de_gobierno"]
-
-enunciado: "En una monarquía, la jefatura del Estado es..."
-tipo: mc
-opciones_explicitas:
-  - "Hereditaria"
-  - "Elegida por votación popular directa cada 4 años"
-  - "Rotativa entre los ministros"
-respuesta: "Hereditaria"
-
-explicacion: |
-  Puede combinarse con formas parlamentarias modernas (España, Reino
-  Unido), donde el monarca no gobierna políticamente.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "basico"
-  tags: ["argentina"]
-
-enunciado: "¿Qué forma de gobierno establece el art. 1 de la Constitución Nacional Argentina?"
-tipo: mc
-opciones_explicitas:
-  - "República representativa y federal"
-  - "Monarquía parlamentaria"
-  - "Confederación sin Constitución escrita"
-respuesta: "República representativa y federal"
-
-explicacion: |
-  Art. 1 de la Constitución Nacional Argentina.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "avanzado"
-  tags: ["formas_de_gobierno"]
-
-enunciado: "¿Verdadero o falso? En una monarquía parlamentaria moderna como España o el Reino Unido, el monarca gobierna políticamente igual que un presidente."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  El monarca es jefe de Estado simbólico; el gobierno político recae
-  en el parlamento/primer ministro.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "intermedio"
-  tags: ["prerrequisito"]
-
-enunciado: "¿Por qué saber leer un mapa con división política (límites, provincias) es un prerrequisito de este tema?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el Estado es la organización que gobierna un territorio ya delimitado por esos límites"
-  - "Porque no tiene ninguna relación con la organización del Estado"
-  - "Porque los límites políticos se crean después del Estado, nunca antes"
-respuesta: "Porque el Estado es la organización que gobierna un territorio ya delimitado por esos límites"
-
-explicacion: |
-  El territorio es uno de los 3 elementos clásicos del Estado.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "intermedio"
-  tags: ["argentina"]
-
-enunciado: "¿Verdadero o falso? En Argentina, cada provincia tiene su propia constitución provincial, dentro del marco de la Constitución Nacional."
-tipo: vf
-respuesta: verdadero
-
-explicacion: |
-  Es una consecuencia directa de ser un Estado federal.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "avanzado"
-  tags: ["elementos"]
-
-enunciado: "¿Qué elemento adicional suele exigirse en la práctica internacional para que un Estado sea reconocido plenamente por otros?"
-tipo: mc
-opciones_explicitas:
-  - "Reconocimiento (al menos parcial) de otros Estados"
-  - "Tener un equipo de fútbol propio"
-  - "Tener moneda propia obligatoriamente"
-respuesta: "Reconocimiento (al menos parcial) de otros Estados"
-
-explicacion: |
-  Sin ese reconocimiento, la soberanía queda en disputa (casos de
-  Estados no reconocidos universalmente).
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "basico"
-  tags: ["formas_de_estado"]
-
-enunciado: "¿Cuál de estos países es un ejemplo de Estado unitario?"
-tipo: mc
-opciones_explicitas:
-  - "Chile"
-  - "Argentina"
-  - "Estados Unidos"
-respuesta: "Chile"
-
-explicacion: |
-  Chile tiene un solo centro de poder que gobierna todo el territorio,
-  a diferencia de Argentina o EE.UU. (federales).
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "basico"
-  tags: ["elementos"]
-
-enunciado: "¿Qué se entiende por 'población' como elemento del Estado?"
-tipo: mc
-opciones_explicitas:
-  - "El conjunto de personas que habitan el territorio y están sujetas a sus leyes"
-  - "Sólo los ciudadanos con derecho a voto"
-  - "Sólo los funcionarios del gobierno"
-respuesta: "El conjunto de personas que habitan el territorio y están sujetas a sus leyes"
-
-explicacion: |
-  Incluye a toda la población sujeta a la jurisdicción del Estado, no
-  sólo a quienes votan.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "intermedio"
-  tags: ["elementos"]
-
-enunciado: "¿Qué significa que el poder de un Estado sea 'soberano'?"
-tipo: mc
-opciones_explicitas:
-  - "Que tiene capacidad de dictar y hacer cumplir normas dentro de su territorio, sin someterse a otro poder superior"
-  - "Que depende siempre de la aprobación de otro país"
-  - "Que sólo aplica dentro de la capital"
-respuesta: "Que tiene capacidad de dictar y hacer cumplir normas dentro de su territorio, sin someterse a otro poder superior"
-
-explicacion: |
-  Es la nota distintiva del poder estatal frente a otras
-  organizaciones sociales.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "intermedio"
-  tags: ["puente"]
-
-enunciado: "¿Por qué el estudio del Preámbulo de la Constitución Nacional viene después de este tema?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el Preámbulo declara los objetivos concretos de la organización estatal ya presentada acá"
-  - "Porque no tiene ninguna relación con la organización del Estado"
-  - "Porque el Preámbulo es anterior a la existencia de cualquier Estado"
-respuesta: "Porque el Preámbulo declara los objetivos concretos de la organización estatal ya presentada acá"
-
-explicacion: |
-  Se profundiza en `../constitucion-preambulo/`.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "avanzado"
-  tags: ["distincion"]
-
-enunciado: "¿Verdadero o falso? El Estado y el gobierno de turno son exactamente lo mismo, y el Estado desaparece cuando cambia el gobierno."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  El Estado es la estructura permanente (territorio, población,
-  poder soberano organizado); el gobierno de turno es quien ocupa esa
-  estructura en un momento dado.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "organizacion_del_estado"
-  nivel: "intermedio"
-  tags: ["sintesis"]
-
-enunciado: "¿Cuál resume mejor qué es el Estado y sus 2 grandes clasificaciones (forma de Estado y forma de gobierno)?"
-tipo: mc
-opciones_explicitas:
-  - "Una organización política soberana sobre territorio y población, que puede ser unitaria o federal, y republicana o monárquica"
-  - "Un sinónimo exacto de nación, sin ninguna clasificación posible"
-  - "Sólo el edificio donde funciona el gobierno"
-respuesta: "Una organización política soberana sobre territorio y población, que puede ser unitaria o federal, y republicana o monárquica"
-
-explicacion: |
-  Cierra el concepto general antes de entrar al caso argentino en
-  detalle.
-```
-
-## Sección: origen-estado-derecho (25 preguntas)
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "basico"
-  tags: ["estado", "poder", "territorio"]
-
-tipo: mc
-opciones_explicitas: ["Una organización social sin fronteras", "Una institución que centraliza el poder político sobre un territorio y población", "Un grupo de personas con la misma cultura", "Un sistema de comercio internacional"]
-
-enunciado: "El Estado se define fundamentalmente como la institución que centraliza el ___ sobre un territorio y una población determinada."
-
-respuesta: "Una institución que centraliza el poder político sobre un territorio y población"
-
-explicacion: |
-  El Estado requiere de un poder político centralizado, un territorio delimitado y una población que lo integre.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "intermedio"
-  tags: ["excedente", "jerarquia", "historia"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [
-    ["La aparición de excedentes agrícolas permitió la especialización y la jerarquización social.", "excedente"],
-    ["La migración constante impidió la formación de estructuras de poder fijas.", "migración"]
-  ]
-
-tipo: completar
-respuestas_validas: ["excedente", "migración"]
-
-enunciado: "Históricamente, el surgimiento de sociedades con ___ permitió que aparecieran jerarquías sociales y, eventualmente, la formación del Estado."
-
-respuesta: escenario[escenario_idx][1
-
-explicacion: |
-  El control de un excedente de producción (comida, bienes) permitió que no todos los miembros de la sociedad se dedicaran a la agricultura, dando lugar a clases sociales y una autoridad centralizada.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "basico"
-  tags: ["elementos", "territorio", "poblacion"]
-
-tipo: ordenar
-opciones_explicitas: ["Población", "Territorio", "Poder Político"]
-
-enunciado: "Ordene los tres elementos constitutivos del Estado desde su base social hasta su ejercicio de autoridad:"
-
-respuesta: ["Población", "Territorio", "Poder Político"]
-
-explicacion: |
-  Para que exista un Estado, primero debe haber un grupo de personas (población), un espacio físico donde habitar (territorio) y una estructura que ejerza autoridad (poder político).
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "avanzado"
-  tags: ["jerarquia", "sociedad"]
-
-tipo: vf
-
-enunciado: "Las sociedades igualitarias, donde no existen jerarquías de mando ni acumulación de excedentes, son la base del surgimiento del Estado moderno."
-
-respuesta: falso
-
-explicacion: |
-  Es falso. El Estado surge precisamente cuando las sociedades dejan de ser igualitarias y aparecen la jerarquía y la acumulación de excedentes.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "intermedio"
-  tags: ["poder", "control"]
-
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "El Estado ejerce su soberanía a través del poder ___, que es la capacidad de dictar normas y hacerlas cumplir dentro de su ámbito."
-
-respuesta: "político"
-
-explicacion: |
-  El poder político es la facultad del Estado para organizar la convivencia social mediante leyes y el uso legítimo de la fuerza.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "basico"
-  tags: ["normas", "convivencia", "estado"]
-
-respuesta: "normas escritas y obligatorias"
-tipo: completar
-respuestas_validas: ["normas escritas y obligatorias"]
-
-enunciado: "El Derecho se define como el conjunto de ___ que regulan la conducta humana en sociedad para organizar la convivencia."
-
-explicacion: |
-  El Derecho es un sistema de normas que el Estado establece para garantizar el orden y la convivencia social.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "basico"
-  tags: ["historia", "hammurabi", "babilonia"]
-
-variables:
-  escenario: uno_de([
-    ["Código de Hammurabi", "Babilonia"],
-    ["Código de Ur-Nammu", "Sumeria"],
-    ["Ley de las XII Tablas", "Roma"]
-  ])
-
-respuesta: escenario[1
-tipo: mc
-opciones_explicitas: ["Babilonia", "Sumeria", "Roma", "Egipto"]
-
-enunciado: "El Código de Hammurabi es uno de los primeros conjuntos de leyes escritas de la historia y pertenece a la civilización de {escenario[0]}."
-
-explicacion: |
-  El Código de Hammurabi fue creado en la antigua Babilonia y es uno de los pilares del derecho histórico.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "intermedio"
-  tags: ["estado", "poder", "normas"]
-
-respuesta: "organizar la convivencia"
-tipo: mc
-opciones_explicitas: ["imponer el miedo", "organizar la convivencia", "eliminar la libertad", "controlar la economía"]
-
-enunciado: "Desde la perspectiva del Estado de Derecho, el objetivo principal de la creación de leyes es ___."
-
-explicacion: |
-  El Estado utiliza el derecho no solo para castigar, sino para establecer reglas que permitan la convivencia armónica entre los ciudadanos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "basico"
-  tags: ["caracteristicas", "normas"]
-
-respuesta: "obligatorias"
-tipo: mc
-opciones_explicitas: ["opcionales", "sugeridas", "obligatorias", "deseables"]
-
-enunciado: "Para que una norma sea considerada parte del Derecho y sea aplicada por el Estado, debe poseer un carácter ___."
-
-explicacion: |
-  La obligatoriedad es la característica que distingue a la norma jurídica de una norma moral o social.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "avanzado"
-  tags: ["orden", "caos", "derecho"]
-
-respuesta: ["caos", "normas escritas", "orden social"]
-tipo: ordenar
-opciones_explicitas: ["caos", "normas escritas", "orden social"]
-
-enunciado: "El paso de una sociedad sin leyes a una organizada por el Estado sigue este proceso lógico:"
-
-pasos:
-  - "Estado de naturaleza o caos inicial"
-  - "Creación de normas escritas"
-  - "Establecimiento del orden social"
-
-explicacion: |
-  La transición hacia el Estado de Derecho implica pasar de la arbitrariedad (caos) a la previsibilidad mediante leyes escritas que aseguran el orden.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "basico"
-  tags: ["sociologia", "derecho"]
-
-enunciado: "En sociedades pequeñas y con pocos miembros, el orden social se mantiene principalmente mediante normas ___ que se basan en la repetición de conductas aceptadas."
-
-respuestas_validas: ["informales", "consuetudinarias"]
-tipo: completar
-
-explicacion: |
-  En grupos reducidos, la costumbre (derecho consuetudinario) es suficiente para regular la convivencia, ya que todos se conocen y la presión social es efectiva.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "intermedio"
-  tags: ["evolucion", "derecho_formal"]
-
-variables:
-  escenario: uno_de([["tribu_pequena", "costumbres"], ["estado_moderno", "leyes escritas"]])
-
-enunciado: "Considerando el desarrollo de las sociedades, si nos encontramos en un {escenario[0]}, el control social se ejerce mediante {escenario[1]}. Sin embargo, en un {escenario[0]} de gran escala, se requiere de un sistema de {escenario[1]} para garantizar la certeza jurídica."
-
-opciones_explicitas: ["costumbres", "leyes escritas"]
-respuesta: escenario[1
-tipo: mc
-
-explicacion: |
-  A medida que la sociedad crece en complejidad y población, las costumbres se vuelven insuficientes para regular interacciones entre extraños, haciendo necesario el derecho formal escrito.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "intermedio"
-  tags: ["derecho_formal", "estado"]
-
-enunciado: "El derecho formal, propio de sociedades complejas, se diferencia de la costumbre principalmente porque es:"
-
-opciones_explicitas: ["Escrito y sancionado por el Estado", "Basado en la tradición oral", "Aplicado solo por líderes religiosos", "Difuso y poco claro"]
-respuesta: "Escrito y sancionado por el Estado"
-tipo: mc
-
-explicacion: |
-  El derecho formal requiere instituciones (como el Estado) que garanticen su cumplimiento mediante sanciones institucionalizadas y su publicidad mediante la escritura.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "avanzado"
-  tags: ["evolucion", "complejidad"]
-
-enunciado: "Ordene los niveles de complejidad social según la necesidad de formalización del derecho:"
-
-opciones_explicitas: ["Sociedad de bandas (costumbres)", "Sociedades tribales (normas consuetudinarias)", "Estados modernos (derecho escrito)"]
-respuesta: ["Sociedades de bandas (costumbres)", "Sociedades tribales (normas consuetudinarias)", "Estados modernos (derecho escrito)"]
-tipo: ordenar
-
-explicacion: |
-  La evolución sociológica sugiere que a mayor densidad poblacional y especialización de funciones, mayor es la necesidad de normas escritas, abstractas y universales.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "intermedio"
-  tags: ["estado", "normas"]
-
-variables:
-  caso: uno_de([["sociedad_simple", "presión social"], ["sociedad_compleja", "coacción estatal"]])
-
-enunciado: "En una {caso[0]}, la desviación de la norma se sanciona mediante la {caso[1]}. En una {caso[1]}, la sanción es ejercida por el aparato de {caso[1]}."
-
-opciones_explicitas: ["presión social", "coacción estatal"]
-respuesta: caso[1
-tipo: mc
-
-explicacion: |
-  El paso de la costumbre al derecho formal implica el paso de una sanción social (basada en la reputación o el grupo) a una sanción institucionalizada (basada en la fuerza legítima del Estado).
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "basico"
-  tags: ["contrato_social", "seguridad"]
-
-variables:
-  datos: [["un estado de naturaleza sin leyes", "la inseguridad constante"], ["un sistema de normas claras", "la convivencia pacífica"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
-tipo: mc
-
-opciones_explicitas: ["la inseguridad constante", "la convivencia pacífica"]
-
-enunciado: "Según la teoría del contrato social, el paso del estado de naturaleza al Estado busca evitar {datos[idx][0]}."
-
-explicacion: |
-  El Estado surge para garantizar la seguridad y la vida de los ciudadanos, evitando el caos o la violencia constante propia de un estado de naturaleza sin autoridad central.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "intermedio"
-  tags: ["funciones_estado", "bienes_colectivos"]
-
-respuesta: "provisión de bienes colectivos"
-tipo: completar
-respuestas_validas: ["provisión de bienes colectivos"]
-
-enunciado: "Una de las funciones fundamentales del Estado es la __________, que consiste en ofrecer servicios que no pueden ser provistos de manera eficiente por el mercado individualmente, como la infraestructura o la salud pública."
-
-pasos:
-  - "Identificar la función que atiende necesidades de la comunidad."
-  - "Diferenciar entre bienes privados y bienes de uso público."
-
-explicacion: |
-  El Estado interviene para proveer bienes colectivos (como alumbrado, carreteras o defensa) que son esenciales para la sociedad pero que el sector privado no siempre cubre por su naturaleza no excluyente.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "basico"
-  tags: ["justicia", "conflictos"]
-
-respuesta: "Poder Judicial"
-tipo: mc
-
-opciones_explicitas: ["Poder Judicial", "Poder Ejecutivo", "Poder Legislativo"]
-
-enunciado: "Para garantizar la resolución pacífica de conflictos entre ciudadanos, el Estado delega esta función en el:"
-
-explicacion: |
-  El Estado monopoliza el uso de la fuerza y la administración de justicia para que los conflictos se resuelvan mediante leyes y tribunales, y no mediante la venganza privada.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "intermedio"
-  tags: ["recaudación", "impuestos"]
-
-variables:
-  tipo_recaudacion: uno_de(["impuestos", "tasas"])
-
-respuesta: tipo_recaudacion
-
-tipo: mc
-
-opciones_explicitas: ["impuestos", "tasas", "contribuciones"]
-
-enunciado: "Para poder cumplir con sus funciones de defensa, seguridad y provisión de servicios, el Estado requiere de la __________, que es la principal herramienta de recaudación de recursos."
-
-explicacion: |
-  La recaudación fiscal es el mecanismo mediante el cual el Estado obtiene los recursos necesarios para financiar el gasto público y el bienestar general.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "avanzado"
-  tags: ["secuencia", "funciones"]
-
-respuesta: ["Seguridad y Defensa", "Resolución de Conflictos", "Provisión de Bienes Colectivos", "Recaudación Fiscal"]
-tipo: ordenar
-
-opciones_explicitas: ["Seguridad y Defensa", "Resolución de Conflictos", "Provisión de Bienes Colectivos", "Recaudación Fiscal"]
-
-enunciado: "Ordene las funciones del Estado siguiendo un orden lógico de prioridad histórica y de necesidad para la consolidación de la soberanía estatal:"
-
-explicacion: |
-  Históricamente, la prioridad es la supervivencia (seguridad/defensa), seguida por la estabilidad social (resolución de conflictos), luego la organización de la vida común (bienes colectivos) y finalmente la estructura financiera para sostener todo lo anterior (recaudación).
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "basico"
-  tags: ["funciones_estado", "orden_social"]
-
-variables:
-  datos: [["Un grupo de ciudadanos no logra resolver un conflicto de límites entre propiedades", "Poder Judicial"], ["Un ciudadano es víctima de un robo y busca justicia", "Poder Judicial"], ["Dos empresas tienen una disputa contractual que no pueden solucionar solas", "Poder Judicial"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Poder Judicial", "Poder Ejecutivo", "Poder Legislativo", "Poder de la Policía"]
-
-enunciado: "En el siguiente caso, se requiere la intervención del Estado para aplicar la ley: {datos[idx][0]}"
-
-explicacion: |
-  El Poder Judicial es el encargado de administrar justicia y resolver conflictos mediante la aplicación del derecho.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "basico"
-  tags: ["normas", "derecho"]
-
-variables:
-  datos: [["La creación de una nueva norma que regula el tránsito", "Legislativo"], ["La firma de un decreto para implementar una política de salud", "Ejecutivo"], ["La sanción de una ley de presupuesto nacional", "Legislativo"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: mc
-opciones_explicitas: ["Legislativo", "Ejecutivo", "Judicial"]
-
-enunciado: "Analice la acción: {datos[idx][0]}. ¿A qué órgano corresponde esta función primordial?"
-
-explicacion: |
-  El órgano encargado de crear, modificar o derogar las leyes es el Poder Legislativo.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "intermedio"
-  tags: ["soberania", "territorio"]
-
-variables:
-  datos: [["Un Estado establece sus fronteras y límites territoriales", "Soberanía"], ["Un Estado ejerce autoridad sobre su población", "Soberanía"], ["Un Estado mantiene el orden interno sin interferencia externa", "Soberanía"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
-tipo: completar
-respuestas_validas: ["Soberanía"]
-
-enunciado: "La capacidad de un Estado para ejercer autoridad suprema sobre su territorio y población se denomina ___."
-
-explicacion: |
-  La soberanía es la facultad del Estado para autoorganizarse y ejercer poder dentro de sus límites sin subordinación a otros Estados.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "intermedio"
-  tags: ["elementos_estado", "componentes"]
-
-variables:
-  elementos: ["Población", "Territorio", "Gobierno", "Soberanía"]
-
-respuesta: elementos
-tipo: ordenar
-opciones_explicitas: ["Población", "Territorio", "Gobierno", "Soberanía"]
-
-enunciado: "Ordene los elementos constitutivos del Estado desde el componente humano hasta la capacidad de mando:"
-
-explicacion: |
-  Para que exista un Estado, debe haber una población asentada en un territorio, con un gobierno que ejerza soberanía.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "origen_estado_derecho"
-  nivel: "basico"
-  tags: ["administracion", "ejecutivo"]
-
-variables:
-  datos: [["La construcción de una nueva carretera nacional", "Ejecutivo"], ["La gestión de los servicios de salud pública", "Ejecutivo"], ["La implementación de un plan de seguridad ciudadana", "Ejecutivo"]]
-  idx: uno_de([0,1,2])
-
-respuestas_validas: [datos[idx][1]]
-respuesta: datos[idx][1]
-tipo: completar
-tolerancia_abs: 0
-
-enunciado: "El Estado debe gestionar recursos para la obra descrita: {datos[idx][0]}. ¿Qué poder se encarga de la administración y ejecución de estas políticas?"
-
-explicacion: |
-  El Poder Ejecutivo es el encargado de la gestión diaria, la administración de los recursos y la ejecución de las leyes.
-```
-
-## Sección: partidos-politicos (20 preguntas)
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "basico"
-  tags: ["definicion"]
-
-enunciado: "¿Qué es un partido político?"
-tipo: mc
-opciones_explicitas:
-  - "Una organización estable que agrupa personas afines para competir por el poder en elecciones"
-  - "Un grupo de presión que sólo influye sin buscar cargos"
-  - "Una ONG dedicada a causas sociales sin fines electorales"
-respuesta: "Una organización estable que agrupa personas afines para competir por el poder en elecciones"
-
-explicacion: |
-  A diferencia de un grupo de presión, el partido busca ocupar cargos
-  de gobierno, no sólo influir.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "intermedio"
-  tags: ["funciones"]
-
-enunciado: "¿En qué consiste la función de 'agregación de intereses' de un partido?"
-tipo: mc
-opciones_explicitas:
-  - "Junta demandas dispersas de la sociedad en una propuesta de gobierno coherente"
-  - "Elimina toda demanda social que no coincida con su ideología"
-  - "Se limita a repetir el programa de otro partido más grande"
-respuesta: "Junta demandas dispersas de la sociedad en una propuesta de gobierno coherente"
-
-explicacion: |
-  Salud, educación, seguridad — demandas dispersas que se agrupan en
-  una propuesta única.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "intermedio"
-  tags: ["funciones"]
-
-enunciado: "¿Qué función cumple un partido al definir, mediante internas o listas, quién lo representa en cada elección?"
-tipo: mc
-opciones_explicitas:
-  - "Selección de candidatos"
-  - "Socialización política"
-  - "Formación de gobierno"
-respuesta: "Selección de candidatos"
-
-explicacion: |
-  Se conecta con cómo esos votos se traducen en bancas, según el
-  sistema electoral vigente.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "basico"
-  tags: ["funciones"]
-
-enunciado: "¿Cuál es el rol de un partido que pierde una elección?"
-tipo: mc
-opciones_explicitas:
-  - "Ejercer la oposición, controlando al gobierno de turno"
-  - "Disolverse automáticamente"
-  - "Formar gobierno igual, sin importar el resultado"
-respuesta: "Ejercer la oposición, controlando al gobierno de turno"
-
-explicacion: |
-  La oposición es una función democrática activa, no la ausencia de
-  rol político.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "avanzado"
-  tags: ["funciones"]
-
-enunciado: "¿Qué función cumple un partido al formar cuadros dirigentes y educar políticamente a sus afiliados?"
-tipo: mc
-opciones_explicitas:
-  - "Socialización política"
-  - "Agregación de intereses"
-  - "Selección de candidatos"
-respuesta: "Socialización política"
-
-explicacion: |
-  Es la función de formación interna del partido, distinta de agregar
-  demandas o elegir candidatos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "basico"
-  tags: ["sistemas_de_partidos"]
-
-enunciado: "¿Qué caracteriza a un sistema bipartidista?"
-tipo: mc
-opciones_explicitas:
-  - "2 partidos grandes concentran casi todo el voto y se alternan en el poder"
-  - "Un solo partido gana siempre, sin competencia real"
-  - "Ningún partido supera el 10% de los votos"
-respuesta: "2 partidos grandes concentran casi todo el voto y se alternan en el poder"
-
-explicacion: |
-  Ejemplo histórico: Estados Unidos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "basico"
-  tags: ["sistemas_de_partidos"]
-
-enunciado: "¿Qué caracteriza a un sistema multipartidista?"
-tipo: mc
-opciones_explicitas:
-  - "Varios partidos con representación relevante, obligando a coaliciones de gobierno"
-  - "Sólo 2 partidos con representación relevante"
-  - "Un único partido, sin ninguna competencia legal"
-respuesta: "Varios partidos con representación relevante, obligando a coaliciones de gobierno"
-
-explicacion: |
-  Ninguno tiene mayoría absoluta habitual; ejemplo típico: la mayoría
-  de Europa continental.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "avanzado"
-  tags: ["sistemas_de_partidos"]
-
-enunciado: "¿En qué se diferencia un sistema de partido dominante de un sistema de partido único?"
-tipo: mc
-opciones_explicitas:
-  - "En el dominante existe competencia legal formal de otros partidos, aunque uno gane siempre; en el único no hay competencia legal posible"
-  - "Son exactamente lo mismo con distinto nombre"
-  - "El partido único permite alternancia en el poder, el dominante no"
-respuesta: "En el dominante existe competencia legal formal de otros partidos, aunque uno gane siempre; en el único no hay competencia legal posible"
-
-explicacion: |
-  El sistema de partido único ya no se considera democrático.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "avanzado"
-  tags: ["sistemas_de_partidos"]
-
-enunciado: "¿A qué politólogo se atribuye la clasificación clásica de sistemas de partidos (bipartidismo, multipartidismo, partido dominante)?"
-tipo: mc
-opciones_explicitas:
-  - "Giovanni Sartori"
-  - "Domingo Faustino Sarmiento"
-  - "Victor D'Hondt"
-respuesta: "Giovanni Sartori"
-
-explicacion: |
-  Politólogo italiano de referencia en la teoría de sistemas de
-  partidos.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "intermedio"
-  tags: ["argentina"]
-
-enunciado: "¿Cómo se describe el sistema de partidos argentino en los últimos años?"
-tipo: mc
-opciones_explicitas:
-  - "Multipartidismo con tendencia a agruparse en 2 grandes coaliciones electorales"
-  - "Bipartidismo puro, con sólo 2 partidos existentes"
-  - "Sistema de partido único, sin competencia legal"
-respuesta: "Multipartidismo con tendencia a agruparse en 2 grandes coaliciones electorales"
-
-explicacion: |
-  Conviven partidos provinciales y de menor escala con peso en
-  distritos puntuales.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "avanzado"
-  tags: ["dependencia"]
-
-enunciado: "En un sistema parlamentarista, ¿qué ocurre cuando un partido gana la elección legislativa?"
-tipo: mc
-opciones_explicitas:
-  - "Forma directamente el gobierno, y su líder suele ser el Primer Ministro"
-  - "No tiene ninguna injerencia en la formación del gobierno"
-  - "Debe esperar una elección presidencial separada para gobernar"
-respuesta: "Forma directamente el gobierno, y su líder suele ser el Primer Ministro"
-
-explicacion: |
-  A diferencia del presidencialismo, ganar la elección legislativa
-  significa formar gobierno directamente.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "avanzado"
-  tags: ["dependencia"]
-
-enunciado: "¿Qué puede ocurrir en un sistema presidencialista, a diferencia del parlamentarismo, respecto de qué partido gobierna?"
-tipo: mc
-opciones_explicitas:
-  - "Que el partido que gana la presidencia y el que gana la mayoría legislativa sean distintos (gobierno dividido)"
-  - "Es imposible que ocurra, siempre coinciden"
-  - "El Congreso elige directamente al presidente"
-respuesta: "Que el partido que gana la presidencia y el que gana la mayoría legislativa sean distintos (gobierno dividido)"
-
-explicacion: |
-  Presidencia y Congreso se eligen en elecciones separadas, con
-  resultados que pueden no coincidir.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "avanzado"
   tags: ["fundamento"]
 
-enunciado: "¿Por qué este módulo depende de `../sistemas-politicos-comparados/`?"
+enunciado: "Ante un impuesto nuevo en una noticia, ¿cuáles son las 2 preguntas clave para entenderlo con criterio cívico?"
 tipo: mc
 opciones_explicitas:
-  - "Porque el rol de un partido político cambia según sea un sistema presidencialista o parlamentarista"
-  - "Porque no existe ninguna relación conceptual real entre ambos temas"
-  - "Porque los partidos políticos sólo existen en sistemas parlamentaristas"
-respuesta: "Porque el rol de un partido político cambia según sea un sistema presidencialista o parlamentarista"
+  - "Qué nivel de gobierno lo cobra y qué servicio público ayuda a financiar"
+  - "Cuánto cuesta pagarlo y quién lo diseñó"
+  - "Si es legal o ilegal y cuándo se creó"
+respuesta: "Qué nivel de gobierno lo cobra y qué servicio público ayuda a financiar"
 
 explicacion: |
-  El mismo hecho (ganar una elección) tiene consecuencias distintas
-  según el sistema político de base.
+  Sin esas 2 respuestas, "pagar impuestos" queda como un concepto
+  abstracto sin conexión con los servicios recibidos a cambio.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "partidos_politicos"
+  tema: "impuestos"
   nivel: "intermedio"
-  tags: ["definicion"]
+  tags: ["fundamento"]
 
-enunciado: "¿Cuál es la diferencia clave entre un partido político y un grupo de presión (lobby)?"
+enunciado: "¿Por qué este módulo no enseña los porcentajes concretos de cada impuesto?"
 tipo: mc
 opciones_explicitas:
-  - "El partido busca ocupar cargos de gobierno; el grupo de presión sólo busca influir sobre quien ya está en el poder"
-  - "No hay ninguna diferencia entre ambos"
-  - "El grupo de presión siempre es más grande que un partido"
-respuesta: "El partido busca ocupar cargos de gobierno; el grupo de presión sólo busca influir sobre quien ya está en el poder"
+  - "Porque las alícuotas cambian con frecuencia, y lo estable es la estructura de niveles y financiamiento"
+  - "Porque los porcentajes son secretos de Estado"
+  - "Porque Argentina no tiene alícuotas definidas para ningún impuesto"
+respuesta: "Porque las alícuotas cambian con frecuencia, y lo estable es la estructura de niveles y financiamiento"
 
 explicacion: |
-  Esa diferencia de objetivo es la que distingue a ambos tipos de
-  organización.
+  Se prioriza la estructura (qué nivel cobra qué, qué financia) sobre
+  cifras que quedan desactualizadas rápido.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "intermedio"
-  tags: ["sistemas_de_partidos"]
+  tema: "impuestos"
+  nivel: "basico"
+  tags: ["nacional"]
 
-enunciado: "En un sistema multipartidista, es habitual que se formen coaliciones de gobierno."
-tipo: vf
-respuesta: verdadero
-
-explicacion: |
-  Ningún partido suele tener mayoría absoluta por sí solo.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "intermedio"
-  tags: ["sistemas_de_partidos"]
-
-enunciado: "En un sistema bipartidista está legalmente prohibido que existan más de 2 partidos."
+enunciado: "El IVA es un impuesto provincial."
 tipo: vf
 respuesta: falso
 
 explicacion: |
-  Pueden existir otros partidos legalmente, pero 2 grandes concentran
-  casi todo el voto en la práctica.
+  Es un impuesto nacional, uno de los de mayor recaudación del país.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "partidos_politicos"
+  tema: "impuestos"
   nivel: "avanzado"
-  tags: ["sistemas_de_partidos"]
+  tags: ["provincial"]
 
-enunciado: "El sistema de partido único, donde no hay competencia legal posible de otros partidos, se considera democrático."
+enunciado: "El impuesto a los Ingresos Brutos tiene exactamente las mismas alícuotas en todas las provincias argentinas."
 tipo: vf
 respuesta: falso
 
 explicacion: |
-  Se diferencia justamente del sistema de partido dominante (que sí
-  permite competencia legal) porque ese caso ya no es democrático.
+  Cada provincia (y CABA) tiene su propio código fiscal, con alícuotas
+  propias.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "intermedio"
-  tags: ["funciones"]
+  tema: "impuestos"
+  nivel: "basico"
+  tags: ["municipal"]
 
-enunciado: "La función de juntar demandas dispersas de la sociedad en una propuesta coherente se llama agregación de ______."
-tipo: completar
-respuestas_validas:
-  - "intereses"
+enunciado: "El ABL financia principalmente la seguridad nacional y las fuerzas armadas."
+tipo: vf
+respuesta: falso
 
 explicacion: |
-  Agregación de intereses, una de las funciones clásicas de un partido.
+  El ABL financia servicios urbanos municipales: alumbrado, barrido y
+  limpieza.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "partidos_politicos"
-  nivel: "intermedio"
-  tags: ["argentina"]
+  tema: "impuestos"
+  nivel: "basico"
+  tags: ["nacional"]
 
-enunciado: "En los últimos años, el sistema de partidos argentino tiende a agruparse en 2 grandes ______."
+enunciado: "El Impuesto a las Ganancias y el IVA son ambos impuestos de nivel ______."
 tipo: completar
 respuestas_validas:
-  - "coaliciones"
+  - "nacional"
 
 explicacion: |
-  Frentes electorales que concentran la mayoría del voto, sin dejar de
-  convivir con partidos menores.
+  Ambos son recaudados por el Estado nacional.
 ```
 
 ```
 metadata:
   materia: "civica"
-  tema: "partidos_politicos"
+  tema: "impuestos"
+  nivel: "intermedio"
+  tags: ["provincial"]
+
+enunciado: "El impuesto que más recauda a nivel provincial en Argentina es Ingresos ______."
+tipo: completar
+respuestas_validas:
+  - "Brutos"
+
+explicacion: |
+  Representa la gran mayoría de la recaudación tributaria propia de las
+  provincias.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "impuestos"
+  nivel: "intermedio"
+  tags: ["sintesis"]
+
+enunciado: "Ordená estos 3 impuestos según el nivel de gobierno que los cobra, de nacional a municipal."
+tipo: ordenar
+opciones_explicitas:
+  - "IVA (nacional)"
+  - "Ingresos Brutos (provincial)"
+  - "ABL (municipal)"
+respuesta_orden: ["IVA (nacional)", "Ingresos Brutos (provincial)", "ABL (municipal)"]
+explicacion: |
+  Los 3 niveles de gobierno argentino, cada uno con su impuesto
+  representativo.
+```
+
+## Sección: alcoholemia-y-conduccion (20 preguntas)
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "basico"
+  tags: ["fundamento"]
+
+enunciado: "¿Por qué la ley usa un límite objetivo de gramos de alcohol por litro de sangre, en vez de evaluar si la persona 'está borracha'?"
+tipo: mc
+opciones_explicitas:
+  - "Porque los reflejos y la capacidad de reacción se reducen incluso con niveles bajos, antes de un estado de ebriedad evidente"
+  - "Porque no existe forma de medir el alcohol en sangre"
+  - "Porque la ley considera irrelevante el efecto del alcohol al conducir"
+respuesta: "Porque los reflejos y la capacidad de reacción se reducen incluso con niveles bajos, antes de un estado de ebriedad evidente"
+
+explicacion: |
+  El límite objetivo evita depender de una apreciación subjetiva de
+  "cuánto se siente" el efecto.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "basico"
+  tags: ["fundamento"]
+
+enunciado: "¿En qué unidad se mide el límite legal de alcohol en sangre?"
+tipo: mc
+opciones_explicitas:
+  - "Gramos de alcohol por litro de sangre (g/l)"
+  - "Miligramos por litro de aire"
+  - "Porcentaje de volumen corporal"
+respuesta: "Gramos de alcohol por litro de sangre (g/l)"
+
+explicacion: |
+  El alcoholímetro mide el aire espirado y lo traduce a esta
+  equivalencia.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "intermedio"
+  tags: ["marco_normativo"]
+
+enunciado: "¿Qué ley argentina, en su versión original, fija el límite de alcoholemia para conductores?"
+tipo: mc
+opciones_explicitas:
+  - "Ley de Tránsito 24.449"
+  - "Ley 26.529"
+  - "Ley 26.061"
+respuesta: "Ley de Tránsito 24.449"
+
+explicacion: |
+  Misma ley que regula las prioridades de paso, ver
+  `../prioridades-de-paso/`.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "intermedio"
+  tags: ["marco_normativo"]
+
+enunciado: "¿Cuál es el límite original de la Ley 24.449 para conductores de vehículos particulares?"
+tipo: mc
+opciones_explicitas:
+  - "0,5 g/l"
+  - "0,0 g/l"
+  - "1,0 g/l"
+respuesta: "0,5 g/l"
+
+explicacion: |
+  Límite más estricto para motociclistas y conductores profesionales.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "basico"
+  tags: ["marco_normativo"]
+
+enunciado: "¿Qué significa la política de 'alcohol cero' adoptada por algunas jurisdicciones?"
+tipo: mc
+opciones_explicitas:
+  - "Un límite de 0,0 g/l para todos los conductores, sin distinción de tipo de vehículo"
+  - "Un límite de 0,5 g/l igual al de la ley original"
+  - "La prohibición total de vender alcohol en esa jurisdicción"
+respuesta: "Un límite de 0,0 g/l para todos los conductores, sin distinción de tipo de vehículo"
+
+explicacion: |
+  Política más estricta que el límite original de 0,5 g/l de la Ley
+  24.449.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "avanzado"
+  tags: ["marco_normativo"]
+
+enunciado: "¿Cuál de estas jurisdicciones NO adoptó la política de alcohol cero, manteniendo el límite de 0,5 g/l para autos particulares?"
+tipo: mc
+opciones_explicitas:
+  - "Ciudad de Buenos Aires, Santa Fe, Mendoza, Misiones, Corrientes y San Juan"
+  - "Ninguna, todo el país tiene el mismo límite obligatorio"
+  - "Sólo la Patagonia adoptó un límite distinto"
+respuesta: "Ciudad de Buenos Aires, Santa Fe, Mendoza, Misiones, Corrientes y San Juan"
+
+explicacion: |
+  Estas jurisdicciones mantienen vigente el límite de 0,5 g/l para
+  autos particulares, a diferencia de otras que sí adoptaron alcohol
+  cero.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "intermedio"
+  tags: ["marco_normativo"]
+
+enunciado: "¿Cuál es el límite de alcoholemia obligatorio en todas las rutas nacionales de Argentina?"
+tipo: mc
+opciones_explicitas:
+  - "0,0 g/l (alcohol cero), independientemente de la jurisdicción"
+  - "0,5 g/l, igual en toda ruta nacional"
+  - "No existe ningún límite específico para rutas nacionales"
+respuesta: "0,0 g/l (alcohol cero), independientemente de la jurisdicción"
+
+explicacion: |
+  Aplica aunque la provincia atravesada mantenga el límite de 0,5 g/l
+  para sus calles internas.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "avanzado"
+  tags: ["marco_normativo"]
+
+enunciado: "Si una provincia mantiene el límite de 0,5 g/l, pero se conduce por una ruta nacional que la atraviesa, ¿qué límite aplica?"
+tipo: mc
+opciones_explicitas:
+  - "0,0 g/l, porque las rutas nacionales tienen alcohol cero independientemente del límite provincial"
+  - "0,5 g/l, el límite provincial siempre prevalece"
+  - "No hay ningún control en rutas nacionales"
+respuesta: "0,0 g/l, porque las rutas nacionales tienen alcohol cero independientemente del límite provincial"
+
+explicacion: |
+  El límite depende del tipo de vía, no sólo de la jurisdicción.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "basico"
+  tags: ["mecanismo_de_control"]
+
+enunciado: "¿Con qué instrumento se controla la alcoholemia de un conductor?"
+tipo: mc
+opciones_explicitas:
+  - "Un alcoholímetro (etilómetro)"
+  - "Un tensiómetro"
+  - "Un radar de velocidad"
+respuesta: "Un alcoholímetro (etilómetro)"
+
+explicacion: |
+  Mide la concentración de alcohol en el aire espirado y la traduce a
+  gramos por litro de sangre.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "intermedio"
+  tags: ["mecanismo_de_control"]
+
+enunciado: "¿Qué mide directamente un alcoholímetro?"
+tipo: mc
+opciones_explicitas:
+  - "La concentración de alcohol en el aire espirado"
+  - "La concentración de alcohol directamente en una muestra de sangre"
+  - "La velocidad de reacción del conductor"
+respuesta: "La concentración de alcohol en el aire espirado"
+
+explicacion: |
+  El resultado se traduce después a una equivalencia de gramos por
+  litro de sangre.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "intermedio"
+  tags: ["mecanismo_de_control"]
+
+enunciado: "¿Qué tipo de sanciones puede generar dar positivo por encima del límite de alcoholemia?"
+tipo: mc
+opciones_explicitas:
+  - "Multas, retención del vehículo e inhabilitación para conducir"
+  - "Ninguna sanción real, es sólo un registro informativo"
+  - "Únicamente la pérdida del DNI de forma permanente"
+respuesta: "Multas, retención del vehículo e inhabilitación para conducir"
+
+explicacion: |
+  Las sanciones concretas varían según la provincia y la gravedad de
+  la infracción.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "avanzado"
+  tags: ["mecanismo_de_control"]
+
+enunciado: "¿Por qué este módulo no da un monto único de multa por dar positivo en alcoholemia?"
+tipo: mc
+opciones_explicitas:
+  - "Porque las sanciones varían según la provincia y la gravedad, por la misma razón de variabilidad jurisdiccional del límite"
+  - "Porque no existen sanciones reales en ningún lugar del país"
+  - "Porque el monto es siempre exactamente el mismo en toda Argentina"
+respuesta: "Porque las sanciones varían según la provincia y la gravedad, por la misma razón de variabilidad jurisdiccional del límite"
+
+explicacion: |
+  Mismo criterio que con el límite de g/l: se enseña la estructura, no
+  una cifra puntual que cambia según jurisdicción.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "intermedio"
+  tags: ["fundamento"]
+
+enunciado: "¿Por qué este módulo depende de `../documentos-y-tramites/`?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el control de alcoholemia se hace, en la práctica, junto con el control de la documentación del conductor"
+  - "Porque el DNI reemplaza al alcoholímetro"
+  - "Porque no tiene relación con ese módulo"
+respuesta: "Porque el control de alcoholemia se hace, en la práctica, junto con el control de la documentación del conductor"
+
+explicacion: |
+  Mismo criterio que los otros 2 módulos de educación vial.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "avanzado"
+  tags: ["marco_normativo"]
+
+enunciado: "¿Por qué este módulo describe el límite de alcoholemia como un tema 'en debate legislativo activo', en vez de dar un único número?"
+tipo: mc
+opciones_explicitas:
+  - "Porque no hay un único límite vigente en todo el país, depende de jurisdicción y tipo de vía"
+  - "Porque el límite de alcoholemia no existe legalmente en Argentina"
+  - "Porque el tema no tiene ninguna regulación, cada conductor decide su propio límite"
+respuesta: "Porque no hay un único límite vigente en todo el país, depende de jurisdicción y tipo de vía"
+
+explicacion: |
+  Se enseña la lógica de la variabilidad, no un número fijo que podría
+  quedar desactualizado o ser incorrecto según la jurisdicción.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "intermedio"
+  tags: ["marco_normativo"]
+
+enunciado: "El límite legal de alcoholemia para conducir es exactamente el mismo en todas las jurisdicciones argentinas."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Varía según la provincia haya adoptado o no la política de alcohol
+  cero, y según el tipo de vía (ruta nacional vs. calle provincial).
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "intermedio"
+  tags: ["marco_normativo"]
+
+enunciado: "Según la Ley 24.449 original, los motociclistas tienen exactamente el mismo límite de alcoholemia que los conductores de autos particulares."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  El límite es más estricto para motociclistas y conductores
+  profesionales que para autos particulares.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "avanzado"
+  tags: ["marco_normativo"]
+
+enunciado: "En las rutas nacionales rige siempre el límite de alcoholemia de la provincia que se está atravesando."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Las rutas nacionales tienen alcohol cero obligatorio, sin importar el
+  límite provincial.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "basico"
+  tags: ["mecanismo_de_control"]
+
+enunciado: "El instrumento que mide la concentración de alcohol en el aire espirado se llama ______."
+tipo: completar
+respuestas_validas:
+  - "alcoholimetro"
+  - "alcoholímetro"
+  - "etilometro"
+  - "etilómetro"
+
+explicacion: |
+  También se lo conoce como etilómetro.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
+  nivel: "intermedio"
+  tags: ["marco_normativo"]
+
+enunciado: "En todas las rutas nacionales de Argentina rige el límite de alcohol ______, sin importar la jurisdicción."
+tipo: completar
+respuestas_validas:
+  - "cero"
+
+explicacion: |
+  0,0 g/l obligatorio en rutas nacionales.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "alcoholemia_y_conduccion"
   nivel: "avanzado"
   tags: ["sintesis"]
 
-enunciado: "Ordená estas 3 funciones de un partido según el momento típico del ciclo electoral en que se cumplen."
+enunciado: "Ordená estas 3 situaciones según el nivel creciente de restricción de alcohol permitido."
 tipo: ordenar
 opciones_explicitas:
-  - "Selección de candidatos (antes de la elección)"
-  - "Agregación de intereses (durante la campaña)"
-  - "Formación de gobierno u oposición (después de la elección)"
-respuesta:
-  - "Selección de candidatos (antes de la elección)"
-  - "Agregación de intereses (durante la campaña)"
-  - "Formación de gobierno u oposición (después de la elección)"
-
+  - "Auto particular en provincia con límite original (0,5 g/l)"
+  - "Auto particular en jurisdicción con alcohol cero (0,0 g/l)"
+  - "Cualquier conductor en ruta nacional (0,0 g/l obligatorio, sin excepción)"
+respuesta_orden: ["Auto particular en provincia con límite original (0,5 g/l)", "Auto particular en jurisdicción con alcohol cero (0,0 g/l)", "Cualquier conductor en ruta nacional (0,0 g/l obligatorio, sin excepción)"]
 explicacion: |
-  Un ciclo típico: primero se seleccionan candidatos, luego se hace
-  campaña agregando demandas, y al final se gobierna o se hace
-  oposición según el resultado.
+  El límite original de 0,5 g/l es el menos restrictivo; el alcohol
+  cero jurisdiccional y el de rutas nacionales llegan al mismo número
+  pero con distinto alcance (uno es decisión provincial, el otro es
+  obligatorio en todo el país en esas vías).
 ```
 
 ## Sección: prioridades-de-paso (20 preguntas)
@@ -2008,13 +1176,848 @@ opciones_explicitas:
   - "Vehículo de emergencia con sirena y balizas"
   - "Semáforo"
   - "Regla general de mano derecha"
-respuesta:
-  - "Vehículo de emergencia con sirena y balizas"
-  - "Semáforo"
-  - "Regla general de mano derecha"
-
+respuesta_orden: ["Vehículo de emergencia con sirena y balizas", "Semáforo", "Regla general de mano derecha"]
 explicacion: |
   Los vehículos de emergencia tienen prioridad absoluta, por encima
   incluso del semáforo; el semáforo, a su vez, prevalece sobre la regla
   general de mano derecha.
 ```
+
+## Sección: proyecto-ciudadano-participativo (22 preguntas)
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "basico"
+  tags: ["definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "identificar, analizar y resolver un problema de la comunidad"
+tipo: mc
+opciones_explicitas: ["esperar a que las autoridades actúen solas", "identificar, analizar y resolver un problema de la comunidad", "votar únicamente en elecciones"]
+
+enunciado: "Un proyecto ciudadano participativo busca principalmente..."
+
+explicacion: |
+  Es una iniciativa organizada que propone soluciones concretas y trabaja
+  colectivamente, no sólo espera o se queja.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "basico"
+  tags: ["ciudadania activa"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los proyectos ciudadanos participativos transforman a la ciudadanía de un estado pasivo a uno activo."
+
+explicacion: |
+  La democracia no funciona sólo con el voto periódico: requiere
+  vigilancia, propuesta y colaboración constante de la sociedad civil.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "intermedio"
+  tags: ["etapas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "identificación y diagnóstico del problema"
+tipo: mc
+opciones_explicitas: ["identificación y diagnóstico del problema", "ejecución y evaluación", "formulación del objetivo"]
+
+enunciado: "El primer paso de un proyecto ciudadano participativo exitoso es la..."
+
+explicacion: |
+  No basta con notar que algo anda mal: hay que investigar causas,
+  afectados y situación actual antes de actuar.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "intermedio"
+  tags: ["etapas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "claro, alcanzable y medible"
+tipo: mc
+opciones_explicitas: ["vago y ambicioso", "claro, alcanzable y medible", "secreto hasta el final del proyecto"]
+
+enunciado: "En la etapa de formulación del objetivo, éste debe ser..."
+
+explicacion: |
+  Un objetivo como "recuperar el área verde del parque mediante limpieza
+  y plantación en tres meses" es preciso, a diferencia de algo vago como
+  "mejorar el parque".
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "avanzado"
+  tags: ["etapas"]
+
+variables:
+  etapa: uno_de(["identificación y diagnóstico del problema", "formulación del objetivo", "estrategia de acción", "ejecución y evaluación"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{etapa}\" es una de las etapas clave de un proyecto ciudadano participativo."
+
+explicacion: |
+  Las cuatro etapas (diagnóstico, objetivo, estrategia, ejecución/
+  evaluación) forman el proceso estructurado que va de un problema a una
+  solución concreta.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "intermedio"
+  tags: ["estrategia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "actividades, recursos necesarios y plazos"
+tipo: mc
+opciones_explicitas: ["actividades, recursos necesarios y plazos", "sólo un presupuesto sin actividades", "una lista de quejas"]
+
+enunciado: "La estrategia de acción de un proyecto ciudadano incluye principalmente..."
+
+explicacion: |
+  Reuniones, campañas o trabajos manuales (actividades), voluntarios,
+  herramientas y permisos (recursos), y tiempos definidos (plazos).
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "basico"
+  tags: ["etapas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La etapa de evaluación permite aprender de los errores y celebrar los aciertos, cerrando el ciclo de participación democrática."
+
+explicacion: |
+  Evaluar lo hecho, no sólo ejecutar el plan, es lo que prepara el
+  terreno para futuros proyectos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "intermedio"
+  tags: ["ejemplos argentinos"]
+
+variables:
+  ciudad: uno_de(["Buenos Aires", "Rosario", "Córdoba"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{ciudad}\" es una ciudad argentina donde existen instancias de Presupuesto Participativo."
+
+explicacion: |
+  En las tres ciudades hay experiencias donde los vecinos deciden en qué
+  se invierten parte de los fondos públicos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "basico"
+  tags: ["presupuesto participativo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "priorizan necesidades como veredas, iluminación o centros culturales"
+tipo: mc
+opciones_explicitas: ["priorizan necesidades como veredas, iluminación o centros culturales", "eligen al intendente de la ciudad", "administran impuestos nacionales"]
+
+enunciado: "En un Presupuesto Participativo, los vecinos..."
+
+explicacion: |
+  El Presupuesto Participativo permite decidir en qué se invierte parte
+  del dinero público, priorizando necesidades concretas del barrio.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "intermedio"
+  tags: ["organizaciones"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Asociaciones de Vecinos"
+tipo: completar
+
+enunciado: "Las organizaciones legales que agrupan a residentes de una zona para gestionar problemas locales como seguridad o espacios públicos se llaman ___."
+
+respuestas_validas:
+  - "Asociaciones de Vecinos"
+  - "asociaciones de vecinos"
+
+explicacion: |
+  Estas asociaciones muchas veces trabajan junto a municipalidades o el
+  gobierno nacional para lograr mejoras que individualmente serían
+  imposibles.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "basico"
+  tags: ["ejemplos"]
+
+variables:
+  ejemplo: uno_de(["huertas comunitarias en escuelas", "campañas de recolección de residuos electrónicos"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{ejemplo}\" es un ejemplo de iniciativa ciudadana impulsada por jóvenes u ONGs mencionado en la teoría."
+
+explicacion: |
+  Estas acciones resuelven problemas inmediatos y educan en valores de
+  sostenibilidad y solidaridad.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "avanzado"
+  tags: ["derechos y obligaciones"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para exigir servicios públicos de calidad, es necesario comprender cómo funcionan las instituciones y participar en su mejora."
+
+explicacion: |
+  Los derechos y las obligaciones están interconectados: exigir calidad
+  requiere entender y participar en el funcionamiento institucional.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "intermedio"
+  tags: ["participacion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "no es exclusiva de los políticos, es un derecho y un deber de todos"
+tipo: mc
+opciones_explicitas: ["es exclusiva de funcionarios electos", "no es exclusiva de los políticos, es un derecho y un deber de todos", "sólo corresponde a mayores de 40 años"]
+
+enunciado: "Según la teoría, la participación ciudadana..."
+
+explicacion: |
+  Participar activamente ayuda a combatir la apatía política y muestra
+  que involucrarse es un derecho y un deber de toda la ciudadanía, no
+  sólo de los políticos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "basico"
+  tags: ["diagnostico"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Basta con decir \"el barrio está sucio\" para tener un diagnóstico completo del problema."
+
+explicacion: |
+  Un diagnóstico preciso requiere investigar las causas reales
+  (recolección, educación ambiental, infraestructura), no quedarse en
+  una afirmación general.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "intermedio"
+  tags: ["habilidades"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "dialogar, negociar y asumir responsabilidades comunes"
+tipo: mc
+opciones_explicitas: ["dialogar, negociar y asumir responsabilidades comunes", "trabajar siempre en soledad", "evitar el contacto con vecinos"]
+
+enunciado: "Al participar en un proyecto ciudadano, estudiantes y ciudadanos aprenden principalmente a..."
+
+explicacion: |
+  Pasar de identificar un problema a ejecutar un proyecto exige aprender
+  a dialogar, negociar y compartir responsabilidades con otros.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "basico"
+  tags: ["tejido social"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los proyectos ciudadanos participativos fortalecen el tejido social y la capacidad de incidencia política."
+
+explicacion: |
+  Al organizarse colectivamente, la comunidad gana cohesión y más
+  capacidad real de influir en decisiones que la afectan.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "intermedio"
+  tags: ["comisiones de barrio"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Comisiones de Barrio"
+tipo: completar
+
+enunciado: "Un ejemplo clásico de instancia formal de participación vecinal en Argentina son las ___."
+
+respuestas_validas:
+  - "Comisiones de Barrio"
+  - "comisiones de barrio"
+
+explicacion: |
+  Junto con el Presupuesto Participativo, las Comisiones de Barrio son
+  ejemplos de espacios formales de participación ciudadana.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "avanzado"
+  tags: ["valores"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "sostenibilidad y solidaridad"
+tipo: mc
+opciones_explicitas: ["sostenibilidad y solidaridad", "competencia individual", "indiferencia frente al entorno"]
+
+enunciado: "Las iniciativas como las huertas comunitarias en escuelas educan, además de resolver un problema inmediato, en valores de..."
+
+explicacion: |
+  Estas acciones muestran que la participación ciudadana también cumple
+  una función educativa, formando valores colectivos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "intermedio"
+  tags: ["asociaciones de vecinos"]
+
+variables:
+  problema: uno_de(["la seguridad", "el mantenimiento de espacios públicos", "la defensa del patrimonio histórico"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"{problema}\" es un tipo de problema local que las Asociaciones de Vecinos suelen gestionar."
+
+explicacion: |
+  Las Asociaciones de Vecinos agrupan residentes para atender justamente
+  este tipo de problemas de su zona.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "basico"
+  tags: ["apatia politica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Participar en proyectos ciudadanos ayuda a combatir la apatía política."
+
+explicacion: |
+  Al mostrar que la participación produce cambios reales, se contrarresta
+  la sensación de que "no vale la pena" involucrarse.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "avanzado"
+  tags: ["democracia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "vigilancia, propuesta y colaboración constante"
+tipo: mc
+opciones_explicitas: ["únicamente el voto cada cierto tiempo", "vigilancia, propuesta y colaboración constante", "delegar todo en los representantes electos"]
+
+enunciado: "Según la teoría, la democracia requiere, además del voto periódico..."
+
+explicacion: |
+  La democracia no se agota en votar: necesita vigilancia ciudadana,
+  propuestas concretas y colaboración sostenida en el tiempo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "proyecto_ciudadano_participativo"
+  nivel: "intermedio"
+  tags: ["formulacion de objetivos"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "\"Mejorar el parque\" es un ejemplo de objetivo bien formulado (claro, alcanzable y medible) para un proyecto ciudadano."
+
+explicacion: |
+  Es demasiado vago; un objetivo bien formulado sería algo como
+  "recuperar el área verde del parque mediante limpieza y plantación de
+  especies nativas en tres meses".
+```
+
+## Sección: senalizacion-vial (20 preguntas)
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "basico"
+  tags: ["reglamentacion"]
+
+enunciado: "¿Qué forma tienen típicamente las señales de reglamentación (obligan o prohíben)?"
+tipo: mc
+opciones_explicitas:
+  - "Circular"
+  - "Rombo"
+  - "Rectangular"
+respuesta: "Circular"
+
+explicacion: |
+  Fondo blanco con borde rojo, salvo el octógono de "Pare".
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "basico"
+  tags: ["reglamentacion"]
+
+enunciado: "¿Qué tipo de mensaje transmiten las señales de reglamentación?"
+tipo: mc
+opciones_explicitas:
+  - "Una obligación o prohibición concreta"
+  - "Sólo advertencias de peligro"
+  - "Sólo información de distancias"
+respuesta: "Una obligación o prohibición concreta"
+
+explicacion: |
+  Velocidad máxima, sentido único, prohibido girar, entre otras.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "intermedio"
+  tags: ["reglamentacion"]
+
+enunciado: "¿Qué forma tiene la señal de 'PARE', a diferencia del resto de las señales de reglamentación?"
+tipo: mc
+opciones_explicitas:
+  - "Octógono"
+  - "Rombo"
+  - "Círculo, igual que el resto"
+respuesta: "Octógono"
+
+explicacion: |
+  Se eligió una forma única y reconocible incluso desde atrás, distinta
+  del resto de las señales circulares.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "avanzado"
+  tags: ["reglamentacion"]
+
+enunciado: "¿Por qué la señal de PARE usa una forma distinta (octógono) al resto de las señales de reglamentación?"
+tipo: mc
+opciones_explicitas:
+  - "Para que sea reconocible incluso desde atrás, donde el reverso de un octógono se distingue del de un círculo"
+  - "Porque es la única señal que no tiene ningún significado real"
+  - "Por un error histórico en el diseño original"
+respuesta: "Para que sea reconocible incluso desde atrás, donde el reverso de un octógono se distingue del de un círculo"
+
+explicacion: |
+  Una forma única permite identificar la señal aun sin ver el frente.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "basico"
+  tags: ["prevencion"]
+
+enunciado: "¿Qué forma tienen las señales de prevención (advierten un peligro)?"
+tipo: mc
+opciones_explicitas:
+  - "Rombo (cuadrado apoyado sobre un vértice)"
+  - "Círculo"
+  - "Rectángulo"
+respuesta: "Rombo (cuadrado apoyado sobre un vértice)"
+
+explicacion: |
+  Fondo amarillo con borde negro.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "basico"
+  tags: ["prevencion"]
+
+enunciado: "¿De qué color es el fondo de las señales de prevención?"
+tipo: mc
+opciones_explicitas:
+  - "Amarillo, con borde negro"
+  - "Rojo, con borde blanco"
+  - "Verde, con borde azul"
+respuesta: "Amarillo, con borde negro"
+
+explicacion: |
+  El amarillo se usa universalmente para advertir peligro, sin obligar
+  ni prohibir nada.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "intermedio"
+  tags: ["prevencion"]
+
+enunciado: "¿Qué tipo de situación anticipan las señales de prevención?"
+tipo: mc
+opciones_explicitas:
+  - "Un peligro adelante (curva, cruce de peatones, escuela cercana)"
+  - "Una obligación legal que hay que cumplir de inmediato"
+  - "La distancia exacta a la próxima ciudad"
+respuesta: "Un peligro adelante (curva, cruce de peatones, escuela cercana)"
+
+explicacion: |
+  A diferencia de las de reglamentación, no obligan ni prohíben, sólo
+  advierten.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "basico"
+  tags: ["prevencion"]
+
+enunciado: "¿Cuál de estas es un ejemplo típico de señal de prevención?"
+tipo: mc
+opciones_explicitas:
+  - "Cruce de vías del ferrocarril"
+  - "Prohibido estacionar"
+  - "Ubicación de un hospital"
+respuesta: "Cruce de vías del ferrocarril"
+
+explicacion: |
+  Advierte un peligro adelante, no una prohibición ni información de
+  servicio.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "basico"
+  tags: ["informativa"]
+
+enunciado: "¿Qué forma tienen las señales informativas (orientan)?"
+tipo: mc
+opciones_explicitas:
+  - "Rectangular, generalmente horizontal"
+  - "Rombo"
+  - "Octógono"
+respuesta: "Rectangular, generalmente horizontal"
+
+explicacion: |
+  Fondo verde o azul, según el tipo de información.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "intermedio"
+  tags: ["informativa"]
+
+enunciado: "¿Qué tipo de información suele indicar una señal informativa con fondo verde?"
+tipo: mc
+opciones_explicitas:
+  - "Rutas y autopistas"
+  - "Ubicación de servicios como hospitales"
+  - "Prohibiciones de tránsito"
+respuesta: "Rutas y autopistas"
+
+explicacion: |
+  El fondo azul, en cambio, se reserva para información de servicios.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "intermedio"
+  tags: ["informativa"]
+
+enunciado: "¿Qué tipo de información suele indicar una señal informativa con fondo azul?"
+tipo: mc
+opciones_explicitas:
+  - "Ubicación de servicios (hospital, estación de servicio, área de descanso)"
+  - "Rutas y autopistas"
+  - "Prohibiciones de velocidad"
+respuesta: "Ubicación de servicios (hospital, estación de servicio, área de descanso)"
+
+explicacion: |
+  El fondo verde, en cambio, se reserva típicamente para rutas.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "avanzado"
+  tags: ["fundamento"]
+
+enunciado: "¿Por qué las señales viales se organizan por forma y color, en vez de solamente por texto?"
+tipo: mc
+opciones_explicitas:
+  - "Para reconocer el tipo de señal aunque no se lea el texto, útil de noche o a alta velocidad"
+  - "Porque es una convención sin ningún propósito práctico"
+  - "Porque el texto en las señales está prohibido por ley"
+respuesta: "Para reconocer el tipo de señal aunque no se lea el texto, útil de noche o a alta velocidad"
+
+explicacion: |
+  El código visual (forma + color) permite una lectura rápida, más allá
+  del contenido textual.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "avanzado"
+  tags: ["marco_normativo"]
+
+enunciado: "¿Qué cambió el Decreto 436/2025 respecto de la Educación Vial en las escuelas argentinas?"
+tipo: mc
+opciones_explicitas:
+  - "Derogó los artículos de la Ley 27.214 que la hacían obligatoria a nivel nacional; hoy es decisión de cada provincia"
+  - "La hizo obligatoria por primera vez en todo el país"
+  - "Prohibió enseñar Educación Vial en las escuelas"
+respuesta: "Derogó los artículos de la Ley 27.214 que la hacían obligatoria a nivel nacional; hoy es decisión de cada provincia"
+
+explicacion: |
+  El contenido sigue siendo currícula real donde se dicta, pero sin
+  respaldo de obligatoriedad nacional.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "intermedio"
+  tags: ["fundamento"]
+
+enunciado: "¿Por qué este módulo depende de `../documentos-y-tramites/`?"
+tipo: mc
+opciones_explicitas:
+  - "Porque presupone el marco de identificación legal del conductor (DNI, licencia) antes de entrar en el contenido de las señales"
+  - "Porque no tiene relación real con ese módulo"
+  - "Porque el DNI reemplaza a la licencia de conducir"
+respuesta: "Porque presupone el marco de identificación legal del conductor (DNI, licencia) antes de entrar en el contenido de las señales"
+
+explicacion: |
+  El MAPA cuelga los 3 nodos de educación vial de los 4 documentos ya
+  vistos.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "intermedio"
+  tags: ["reglamentacion"]
+
+enunciado: "Todas las señales de reglamentación, sin excepción, tienen forma circular."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  El octógono de "Pare" es la excepción del grupo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "basico"
+  tags: ["prevencion"]
+
+enunciado: "Las señales de prevención prohíben una acción concreta, igual que las de reglamentación."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  No obligan ni prohíben, sólo advierten un peligro para que se conduzca
+  con prudencia.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "avanzado"
+  tags: ["marco_normativo"]
+
+enunciado: "Hoy, la Educación Vial en las escuelas es obligatoria a nivel nacional en toda Argentina."
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  Desde el Decreto 436/2025, es decisión de cada provincia.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "basico"
+  tags: ["reglamentacion"]
+
+enunciado: "La señal de PARE tiene fondo de color ______ sólido."
+tipo: completar
+respuestas_validas:
+  - "rojo"
+
+explicacion: |
+  A diferencia del resto de las señales de reglamentación, que suelen
+  tener fondo blanco con borde rojo.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "basico"
+  tags: ["prevencion"]
+
+enunciado: "Las señales de prevención tienen fondo ______ con borde negro."
+tipo: completar
+respuestas_validas:
+  - "amarillo"
+
+explicacion: |
+  Color universal para advertir peligro.
+```
+
+```
+metadata:
+  materia: "civica"
+  tema: "senalizacion_vial"
+  nivel: "avanzado"
+  tags: ["sintesis"]
+
+enunciado: "Ordená estas 3 categorías de señales según el nivel de urgencia/obligatoriedad de su mensaje, de mayor a menor."
+tipo: ordenar
+opciones_explicitas:
+  - "Reglamentación (obliga o prohíbe)"
+  - "Prevención (advierte)"
+  - "Informativa (orienta)"
+respuesta_orden: ["Reglamentación (obliga o prohíbe)", "Prevención (advierte)", "Informativa (orienta)"]
+explicacion: |
+  La reglamentación es la de mayor peso legal (obligación), seguida por
+  la advertencia de la prevención, y por último la información neutra.
+```
+

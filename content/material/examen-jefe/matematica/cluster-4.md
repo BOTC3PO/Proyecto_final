@@ -1,2441 +1,2457 @@
-# Examen jefe — Maestro de la Continuidad
+# Examen jefe — [PENDIENTE #604]
 
-> Logro #55. Has dominado la continuidad, las coordenadas y los cuerpos redondos para resolver con precisión. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **120 preguntas totales** en 5/5 secciones.
+> Logro #604. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **121 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: continuidad (24 preguntas)
+## Sección: magnitud-unidad-instrumento (24 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "continuidad"
+  tema: "magnitud_unidad_instrumento"
   nivel: "basico"
-  tags: ["verdadero_falso"]
+  tags: ["magnitud", "vocabulario"]
 
-variables:
-  a: random(1, 10)
-  b: random(-10, 10)
-  punto: random(-10, 10)
+enunciado: "¿Qué es una magnitud?"
+tipo: mc
+opciones_explicitas:
+  - "Cualquier propiedad de algo que se puede medir"
+  - "Un número cualquiera"
+  - "El nombre de un objeto"
+respuesta: "Cualquier propiedad de algo que se puede medir"
+
+explicacion: |
+  Longitud, masa, tiempo, temperatura: todas son propiedades que se
+  pueden medir con un número y una unidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["unidad", "vocabulario"]
+
+enunciado: "¿Qué es una unidad de medida?"
+tipo: mc
+opciones_explicitas:
+  - "Una cantidad fija de una magnitud, usada como referencia para medir"
+  - "El instrumento que se usa para medir"
+  - "El resultado final de una medición"
+respuesta: "Una cantidad fija de una magnitud, usada como referencia para medir"
+
+explicacion: |
+  Medir es preguntar cuántas veces entra la unidad en lo que se mide.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["instrumento", "vocabulario"]
+
+enunciado: "¿Qué es un instrumento de medición?"
+tipo: mc
+opciones_explicitas:
+  - "La herramienta física que permite comparar algo con la unidad elegida"
+  - "Una magnitud especial"
+  - "Un sinónimo de unidad"
+respuesta: "La herramienta física que permite comparar algo con la unidad elegida"
+
+explicacion: |
+  Una regla, una balanza, un cronómetro: cada uno compara físicamente el
+  objeto con la unidad y permite leer el resultado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["magnitud", "unidad"]
+
+enunciado: "¿Cuál de estas es una unidad de LONGITUD?"
+tipo: mc
+opciones_explicitas:
+  - "Metro"
+  - "Kilogramo"
+  - "Litro"
+respuesta: "Metro"
+
+explicacion: |
+  El metro (y sus múltiplos/submúltiplos: km, cm, mm) mide longitud.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["magnitud", "unidad"]
+
+enunciado: "¿Cuál de estas es una unidad de MASA?"
+tipo: mc
+opciones_explicitas:
+  - "Kilogramo"
+  - "Segundo"
+  - "Metro"
+respuesta: "Kilogramo"
+
+explicacion: |
+  El kilogramo (y el gramo) miden masa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["magnitud", "unidad"]
+
+enunciado: "¿Cuál de estas es una unidad de TIEMPO?"
+tipo: mc
+opciones_explicitas:
+  - "Segundo"
+  - "Litro"
+  - "Grado Celsius"
+respuesta: "Segundo"
+
+explicacion: |
+  El segundo (y el minuto, la hora) miden tiempo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["magnitud", "unidad"]
+
+enunciado: "¿Cuál de estas es una unidad de CAPACIDAD?"
+tipo: mc
+opciones_explicitas:
+  - "Litro"
+  - "Metro"
+  - "Kilogramo"
+respuesta: "Litro"
+
+explicacion: |
+  El litro (y el mililitro) miden capacidad, el volumen que ocupa un
+  líquido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["magnitud", "unidad"]
+
+enunciado: "¿Cuál de estas es una unidad de TEMPERATURA?"
+tipo: mc
+opciones_explicitas:
+  - "Grado Celsius"
+  - "Segundo"
+  - "Litro"
+respuesta: "Grado Celsius"
+
+explicacion: |
+  El grado Celsius (°C) mide temperatura.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["instrumento"]
+
+enunciado: "¿Qué instrumento se usa para medir la longitud de una mesa?"
+tipo: mc
+opciones_explicitas:
+  - "Cinta métrica"
+  - "Balanza"
+  - "Termómetro"
+respuesta: "Cinta métrica"
+
+explicacion: |
+  La cinta métrica (o la regla) compara la longitud con la unidad
+  elegida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["instrumento"]
+
+enunciado: "¿Qué instrumento se usa para medir la masa de una fruta?"
+tipo: mc
+opciones_explicitas:
+  - "Balanza"
+  - "Cronómetro"
+  - "Probeta"
+respuesta: "Balanza"
+
+explicacion: |
+  La balanza compara la masa del objeto con la unidad (kg o g).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["instrumento"]
+
+enunciado: "¿Qué instrumento se usa para medir cuánto dura una carrera?"
+tipo: mc
+opciones_explicitas:
+  - "Cronómetro"
+  - "Termómetro"
+  - "Regla"
+respuesta: "Cronómetro"
+
+explicacion: |
+  El cronómetro mide tiempo con precisión.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["instrumento"]
+
+enunciado: "¿Qué instrumento se usa para medir cuánto líquido hay en un frasco?"
+tipo: mc
+opciones_explicitas:
+  - "Probeta"
+  - "Balanza"
+  - "Transportador"
+respuesta: "Probeta"
+
+explicacion: |
+  La probeta (o una jarra medidora) mide capacidad, en litros o
+  mililitros.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["instrumento"]
+
+enunciado: "¿Qué instrumento se usa para medir la temperatura del aire?"
+tipo: mc
+opciones_explicitas:
+  - "Termómetro"
+  - "Cinta métrica"
+  - "Cronómetro"
+respuesta: "Termómetro"
+
+explicacion: |
+  El termómetro mide temperatura, en grados Celsius.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["instrumento"]
+
+enunciado: "¿Qué instrumento se usa para medir un ángulo?"
+tipo: mc
+opciones_explicitas:
+  - "Transportador"
+  - "Balanza"
+  - "Probeta"
+respuesta: "Transportador"
+
+explicacion: |
+  El transportador mide ángulos en grados. Se ve en detalle en
+  `../angulos/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["magnitud", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El color de un objeto es una magnitud, porque se puede describir."
+
+explicacion: |
+  El color no es una magnitud: se puede describir, pero no medir con un
+  número y una unidad como se mide una longitud. No tiene unidad ni
+  instrumento que lo mida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["magnitud", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "f(x) = {a}x² + {b}x. ¿Es continua f en x={punto}?"
+enunciado: "La longitud es una magnitud, porque se puede medir con una unidad (el metro) y un instrumento (una regla)."
 
 explicacion: |
-  Todos los polinomios son continuos en todos los reales.
+  Cumple las dos condiciones: tiene unidad e instrumento asociados.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "continuidad"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-variables:
-  a: random(1, 8)
-  b: random(-10, 10)
-  punto: random(-8, 8)
-
-respuesta: a * punto ^ 2 + b * punto
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = {a}x² + {b}x, continua en todos lados. ¿Cuánto vale f({punto}) (que también es el límite ahí)?"
-
-explicacion: |
-  Al ser continua, f({punto}) y el límite en {punto} son el mismo
-  número.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
+  tema: "magnitud_unidad_instrumento"
   nivel: "intermedio"
-  tags: ["evitable", "verdadero_falso"]
+  tags: ["magnitud", "unidad"]
 
-variables:
-  a: random(1, 15)
-
-respuesta: falso
-
+respuesta: verdadero
 tipo: vf
 
-enunciado: "f(x) = (x² − {a ^ 2}) / (x − {a}). ¿Es f continua en x={a}?"
+enunciado: "Una misma magnitud, como la longitud, se puede medir con distintas unidades (metros, centímetros, kilómetros)."
 
 explicacion: |
-  f no está definida en x={a} (denominador 0) — no es continua ahí,
-  aunque el límite exista.
+  Cambia el número, pero lo que se mide sigue siendo lo mismo. Es la base
+  de las conversiones (ver `../sistema-metrico-y-conversiones/`).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "continuidad"
+  tema: "magnitud_unidad_instrumento"
   nivel: "intermedio"
-  tags: ["evitable"]
+  tags: ["instrumento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un instrumento como la balanza sirve para medir una sola magnitud (masa), no cualquiera."
+
+explicacion: |
+  Una balanza no mide tiempo, y un termómetro no mide longitud: cada
+  instrumento está hecho para una magnitud puntual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "intermedio"
+  tags: ["instrumento", "precision"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La precisión de un instrumento es la división más chica que puede distinguir al medir."
+
+explicacion: |
+  Una regla escolar que marca hasta el milímetro tiene esa precisión: no
+  puede distinguir nada más chico que eso.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "intermedio"
+  tags: ["unidad", "problema"]
+
+enunciado: "¿Qué unidad conviene usar para medir la distancia entre dos ciudades?"
+tipo: mc
+opciones_explicitas:
+  - "Kilómetros"
+  - "Centímetros"
+  - "Milímetros"
+respuesta: "Kilómetros"
+
+explicacion: |
+  Conviene elegir una unidad cuyo tamaño esté cerca de lo que se mide:
+  medir en centímetros o milímetros daría un número enorme e incómodo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "intermedio"
+  tags: ["unidad", "problema"]
+
+enunciado: "¿Qué unidad conviene usar para medir el largo de un lápiz?"
+tipo: mc
+opciones_explicitas:
+  - "Centímetros"
+  - "Kilómetros"
+  - "Kilogramos"
+respuesta: "Centímetros"
+
+explicacion: |
+  Medirlo en kilómetros daría un número casi cero e incómodo de leer.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "intermedio"
+  tags: ["unidad", "problema"]
+
+enunciado: "¿Qué unidad conviene usar para expresar la masa de una persona adulta?"
+tipo: mc
+opciones_explicitas:
+  - "Kilogramos"
+  - "Gramos"
+  - "Litros"
+respuesta: "Kilogramos"
+
+explicacion: |
+  En gramos el número sería innecesariamente grande (por ejemplo, 70000 g
+  en vez de 70 kg); litros ni siquiera es la unidad correcta, porque mide
+  capacidad, no masa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["vocabulario", "completar"]
+
+tipo: completar
+enunciado: "Completá: la ___ es la propiedad de algo que se puede medir con una unidad."
+respuestas_validas:
+  - "magnitud"
+
+explicacion: |
+  Longitud, masa, tiempo: todas son magnitudes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "magnitud_unidad_instrumento"
+  nivel: "basico"
+  tags: ["vocabulario", "completar"]
+
+tipo: completar
+enunciado: "Completá: medir es usar un instrumento para comparar algo con la ___ elegida."
+respuestas_validas:
+  - "unidad"
+
+explicacion: |
+  El instrumento compara físicamente el objeto con la unidad y permite
+  leer cuántas veces entra.
+```
+
+## Sección: construir-un-grafico (24 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "basico"
+  tags: ["construir_grafico", "vocabulario"]
+
+enunciado: "Para comparar valores entre categorías sin orden numérico propio (por ejemplo, ventas por producto), ¿qué tipo de gráfico conviene?"
+tipo: mc
+opciones_explicitas:
+  - "Gráfico de barras"
+  - "Gráfico de líneas"
+  - "Gráfico de torta"
+respuesta: "Gráfico de barras"
+
+explicacion: |
+  Las categorías se comparan bien con la altura de una barra por cada
+  una.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "basico"
+  tags: ["construir_grafico", "vocabulario"]
+
+enunciado: "Para mostrar cómo cambia un valor a lo largo del tiempo (por ejemplo, temperatura mes a mes), ¿qué tipo de gráfico conviene?"
+tipo: mc
+opciones_explicitas:
+  - "Gráfico de líneas"
+  - "Gráfico de barras"
+  - "Gráfico de torta"
+respuesta: "Gráfico de líneas"
+
+explicacion: |
+  La línea conecta los puntos y muestra la tendencia completa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "basico"
+  tags: ["construir_grafico", "vocabulario"]
+
+enunciado: "Para mostrar cómo se reparte un presupuesto total entre distintas categorías, ¿qué tipo de gráfico conviene?"
+tipo: mc
+opciones_explicitas:
+  - "Gráfico de torta"
+  - "Gráfico de líneas"
+  - "Gráfico de barras"
+respuesta: "Gráfico de torta"
+
+explicacion: |
+  Cada porción muestra directamente qué proporción del 100% ocupa
+  cada categoría.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "intermedio"
+  tags: ["construir_grafico", "problema"]
+
+enunciado: "Se quiere mostrar cómo variaron las ventas de una tienda mes a mes durante todo el año. ¿Qué tipo de gráfico conviene?"
+tipo: mc
+opciones_explicitas:
+  - "De líneas"
+  - "De torta"
+  - "De barras horizontales sin ningún orden"
+respuesta: "De líneas"
+
+explicacion: |
+  Los meses son una secuencia temporal ordenada — el caso típico de
+  un gráfico de líneas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "intermedio"
+  tags: ["construir_grafico", "problema"]
+
+enunciado: "Se quiere comparar el puntaje final de 5 equipos de un torneo, sin relación temporal entre ellos. ¿Qué tipo de gráfico conviene?"
+tipo: mc
+opciones_explicitas:
+  - "De barras"
+  - "De líneas"
+  - "De torta"
+respuesta: "De barras"
+
+explicacion: |
+  Los equipos son categorías sin un orden numérico propio entre sí.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "intermedio"
+  tags: ["construir_grafico", "problema"]
+
+enunciado: "Se quiere mostrar qué porcentaje del presupuesto familiar se destina a cada gasto (alquiler, comida, transporte, etc.), sumando 100%. ¿Qué tipo de gráfico conviene?"
+tipo: mc
+opciones_explicitas:
+  - "De torta"
+  - "De líneas"
+  - "De barras"
+respuesta: "De torta"
+
+explicacion: |
+  Es exactamente el caso de proporciones de un total.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "basico"
+  tags: ["construir_grafico", "vocabulario"]
+
+enunciado: "¿Qué elementos básicos debería tener cualquier gráfico bien construido?"
+tipo: mc
+opciones_explicitas:
+  - "Título, ejes etiquetados con su unidad, y una escala con intervalos iguales"
+  - "Sólo los datos, sin ninguna etiqueta ni título"
+  - "Sólo colores llamativos, sin importar la escala"
+respuesta: "Título, ejes etiquetados con su unidad, y una escala con intervalos iguales"
+
+explicacion: |
+  Sin esos elementos, el gráfico se vuelve ambiguo o directamente
+  ilegible.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "intermedio"
+  tags: ["construir_grafico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la escala numérica de un gráfico, la distancia entre dos marcas consecutivas (por ejemplo, de 0 a 10, y de 10 a 20) siempre debería representar el mismo intervalo."
+
+explicacion: |
+  Si los intervalos no fueran iguales, la posición visual dejaría de
+  representar fielmente el valor real.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "intermedio"
+  tags: ["construir_grafico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El eje numérico de un gráfico de barras debería empezar en 0, para que la altura de cada barra represente fielmente la proporción real entre los valores."
+
+explicacion: |
+  Si no empieza en 0, diferencias chicas entre barras pueden verse
+  exageradamente grandes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "intermedio"
+  tags: ["construir_grafico"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La leyenda (qué representa cada color) es un elemento obligatorio en TODOS los gráficos, incluso cuando hay una sola serie de datos."
+
+explicacion: |
+  Con una sola serie no hace falta distinguir colores — la leyenda se
+  vuelve necesaria recién cuando hay más de una serie.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "avanzado"
+  tags: ["construir_grafico", "problema"]
 
 variables:
-  a: random(1, 20)
+  minimo: 0
+  maximo: uno_de([50, 100, 200])
+  marcas: uno_de([5, 10])
 
-respuesta: 2 * a
+respuesta: maximo / marcas
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "f(x) = (x² − {a ^ 2}) / (x − {a}) tiene una discontinuidad evitable en x={a}. ¿Qué valor habría que asignarle a f({a}) para que quedara continua ahí?"
+enunciado: "Se quiere construir una escala de 0 a {maximo}, con {marcas} intervalos iguales. ¿De cuánto tiene que ser cada intervalo?"
 
 pasos:
-  - "El límite en x={a} es 2×{a} = {2 * a} — ese es el valor que 'tapa el agujero'"
+  - "Intervalo = ({maximo} − 0) / {marcas} = {maximo / marcas}"
 
 explicacion: |
-  Redefinir f({a}) como el valor del límite convierte la discontinuidad
-  evitable en una función continua.
+  Se reparte el rango total en la cantidad de intervalos pedida.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["evitable"]
-
-variables:
-  r1: random(1, 15)
-  r2: random(1, 15)
-
-respuesta: r1 - r2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = (x² − {r1 + r2}x + {r1 * r2}) / (x − {r1}) tiene una discontinuidad evitable en x={r1}. ¿Qué valor habría que asignarle a f({r1}) para arreglarla?"
-
-pasos:
-  - "El límite en x={r1} es {r1}−{r2} = {r1 - r2}"
-
-explicacion: |
-  Se factorea el numerador, se cancela el factor común, y se evalúa el
-  resultado en x={r1}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["verdadero_falso"]
-
-variables:
-  a: random(1, 15)
-  otro_punto: a + random(1, 10)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "f(x) = (x² − {a ^ 2}) / (x − {a}). ¿Es f continua en x={otro_punto} (un punto distinto de {a})?"
-
-explicacion: |
-  El denominador sólo se anula en x={a} — en cualquier otro punto, f es
-  una función racional bien definida y continua.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["opcion_multiple"]
-
-respuesta: "Evitable (el límite existe, pero no coincide con f(a) o f(a) no está definida)"
-tipo: mc
-opciones_explicitas:
-  - "Evitable (el límite existe, pero no coincide con f(a) o f(a) no está definida)"
-  - "No evitable (el límite no existe)"
-
-enunciado: "f(x) = (x²−9)/(x−3). En x=3, el límite existe (vale 6) pero f(3) no está definida. ¿Qué tipo de discontinuidad es?"
-
-explicacion: |
-  Se podría "arreglar" definiendo f(3)=6 — por eso es evitable.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
+  tema: "construir_un_grafico"
   nivel: "avanzado"
-  tags: ["opcion_multiple"]
+  tags: ["construir_grafico", "ordenar"]
 
-respuesta: "No evitable (el límite no existe)"
-tipo: mc
-opciones_explicitas:
-  - "No evitable (el límite no existe)"
-  - "Evitable (el límite existe, pero no coincide con f(a))"
-
-enunciado: "En x=2, el límite por la izquierda de f da 5, y el límite por la derecha da 9. ¿Qué tipo de discontinuidad es?"
-
-explicacion: |
-  Como los límites laterales no coinciden, el límite completo no
-  existe — no hay ningún valor que "tape el agujero".
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para que f sea continua en x=a, hacen falta tres cosas a la vez: que f(a) esté definida, que el límite exista, y que ese límite coincida con f(a)."
-
-explicacion: |
-  Si falta cualquiera de las tres, f es discontinua en a.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["concepto", "error_comun", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Si el límite de f en x=a existe, entonces f ya es continua en a, sin necesidad de chequear nada más."
-
-explicacion: |
-  Falta comparar ese límite con f(a) — y f(a) tiene que estar definida
-  primero. Las dos condiciones adicionales son necesarias.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "Cualquier función que tenga una fracción (con x en el denominador) es discontinua en todos los puntos de su dominio."
-
-explicacion: |
-  Sólo es discontinua donde el denominador se anula (fuera del
-  dominio) — en el resto de los puntos puede ser perfectamente continua.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una discontinuidad evitable se puede 'arreglar' redefiniendo el valor de la función en ese único punto, igualándolo al límite."
-
-explicacion: |
-  Es justamente por eso que se llama "evitable" — a diferencia de la no
-  evitable, donde no hay ningún valor que sirva.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "basico"
-  tags: ["verdadero_falso"]
-
-variables:
-  m: random(1, 10)
-  b: random(-15, 15)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "f(x) = {m}x + {b}. ¿Es f continua en TODOS los números reales?"
-
-explicacion: |
-  Cualquier función lineal es continua en todo su dominio, sin ninguna
-  excepción.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["verdadero_falso"]
-
-variables:
-  k: random(1, 20)
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "f(x) = {k}/x. ¿Es f continua en TODOS los números reales (incluido x=0)?"
-
-explicacion: |
-  En x=0, f ni siquiera está definida (denominador 0) — no puede ser
-  continua ahí. Es discontinua (no evitable: el límite tampoco existe,
-  la función se dispara al infinito).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "avanzado"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  a: random(1, 15)
-  valor_asignado: uno_de([2, 0, -1]) + 2 * a
-
-respuesta: (valor_asignado == (2 * a))
-tipo: vf
-
-enunciado: "Se define f(x) = (x²−{a ^ 2})/(x−{a}) para x≠{a}, y f({a}) = {valor_asignado} (a mano). ¿Queda f continua en x={a} con esa definición?"
-
-explicacion: |
-  Queda continua sólo si el valor asignado coincide exactamente con el
-  límite, que es 2×{a} = {2 * a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "avanzado"
-  tags: ["verdadero_falso"]
-
-variables:
-  a: random(1, 10)
-  b: random(11, 20)
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "f(x) = {a} para x < 2, y f(x) = {b} para x ≥ 2. ¿Es f continua en x=2?"
-
-explicacion: |
-  El límite por la izquierda ({a}) y por la derecha ({b}) no coinciden
-  — el límite en x=2 no existe, así que f no es continua ahí.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que una función sea 'continua en un intervalo' significa que es continua en cada uno de los puntos de ese intervalo, sin excepción."
-
-explicacion: |
-  Basta con que falle en un solo punto del intervalo para que ya no sea
-  continua "en todo el intervalo".
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-variables:
-  a: random(2, 20)
-
-respuesta: a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "f(x) = 5 / (x − {a}). ¿En qué valor de x es discontinua f?"
-
-explicacion: |
-  El único punto problemático es donde el denominador se anula: x={a}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando una función se dispara hacia el infinito cerca de un punto (como y=k/x en x=0), la discontinuidad en ese punto es no evitable."
-
-explicacion: |
-  No hay ningún valor finito que se le pueda asignar a la función ahí
-  para "tapar" ese comportamiento.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["verificacion", "verdadero_falso"]
-
-variables:
-  a: random(1, 20)
-  real: 2 * a
-  error: uno_de([0, 0, 1, -1])
-  propuesto: real + error
-
-respuesta: (propuesto == real)
-tipo: vf
-
-enunciado: "f(x) = (x²−{a ^ 2})/(x−{a}) tiene discontinuidad evitable en x={a}. ¿Es correcto que el valor que la arregla sea {propuesto}?"
-
-explicacion: |
-  El valor correcto es el límite, 2×{a} = {real}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "avanzado"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El producto de dos funciones continuas en un punto también es continuo en ese punto."
-
-explicacion: |
-  Se deriva directo de la propiedad del límite de un producto (ver
-  `../limite/`).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["verdadero_falso"]
-
-variables:
-  a: random(2, 10)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "f(x) = {a}^x. ¿Es f continua en todos los números reales?"
-
-explicacion: |
-  Las funciones exponenciales (ver `../familias-exponencial-logaritmica/`)
-  son continuas en todo su dominio, que ya es todos los reales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "intermedio"
-  tags: ["verdadero_falso"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "g(x) = log₁₀(x). ¿Es g continua en TODOS los números reales (incluidos los negativos y el 0)?"
-
-explicacion: |
-  g ni siquiera está DEFINIDA para x≤0 — no puede ser continua ahí. Es
-  continua sólo en su dominio, x>0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "continuidad"
-  nivel: "basico"
-  tags: ["concepto", "verdadero_falso"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una forma intuitiva de pensar la continuidad es: se puede dibujar el gráfico de la función sin levantar el lápiz del papel."
-
-explicacion: |
-  No es una definición matemática rigurosa, pero ayuda a visualizar
-  dónde aparecen las discontinuidades (los puntos donde sí hay que
-  levantar el lápiz).
-```
-
-## Sección: coordenadas-de-un-punto (24 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "basico"
-  tags: ["coordenadas", "vocabulario"]
-
-enunciado: "¿Qué es un par ordenado, como (3, 5)?"
-tipo: mc
-opciones_explicitas:
-  - "Dos números que identifican un punto: el primero es la posición horizontal, el segundo la vertical"
-  - "Dos números que se pueden escribir en cualquier orden sin cambiar el punto"
-  - "Un número dividido en dos partes"
-respuesta: "Dos números que identifican un punto: el primero es la posición horizontal, el segundo la vertical"
-
-explicacion: |
-  Se llama "ordenado" porque el orden de los dos números importa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "basico"
-  tags: ["coordenadas", "vocabulario"]
-
-enunciado: "¿Qué es la abscisa de un punto?"
-tipo: mc
-opciones_explicitas:
-  - "La primera coordenada (x), la posición horizontal"
-  - "La segunda coordenada (y), la posición vertical"
-  - "La distancia del punto al origen"
-respuesta: "La primera coordenada (x), la posición horizontal"
-
-explicacion: |
-  La ordenada es la segunda coordenada (y).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "basico"
-  tags: ["coordenadas", "vocabulario"]
-
-enunciado: "¿Qué es la ordenada de un punto?"
-tipo: mc
-opciones_explicitas:
-  - "La segunda coordenada (y), la posición vertical"
-  - "La primera coordenada (x), la posición horizontal"
-  - "El nombre del propio punto"
-respuesta: "La segunda coordenada (y), la posición vertical"
-
-explicacion: |
-  La abscisa es la primera coordenada (x).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los puntos (2, 3) y (3, 2) son puntos distintos en el plano cartesiano."
-
-explicacion: |
-  El orden de las coordenadas importa: invertirlo cambia el punto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "basico"
-  tags: ["coordenadas", "problema"]
-
-variables:
-  x: random(-10, 10)
-  y: random(-10, 10)
-
-respuesta: x
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es la abscisa (primera coordenada) del punto ({x}, {y})?"
-
-explicacion: |
-  Es el primer número del par ordenado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "basico"
-  tags: ["coordenadas", "problema"]
-
-variables:
-  x: random(-10, 10)
-  y: random(-10, 10)
-
-respuesta: y
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es la ordenada (segunda coordenada) del punto ({x}, {y})?"
-
-explicacion: |
-  Es el segundo número del par ordenado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas", "vocabulario"]
-
-enunciado: "Para ubicar el punto (4, -2) en el plano, ¿cuál es el primer movimiento desde el origen?"
-tipo: mc
-opciones_explicitas:
-  - "Moverse 4 unidades a la derecha"
-  - "Moverse 2 unidades hacia abajo"
-  - "Moverse 4 unidades hacia arriba"
-respuesta: "Moverse 4 unidades a la derecha"
-
-explicacion: |
-  Primero se mueve sobre el eje x (la abscisa), y recién después sobre
-  el eje y.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cualquier punto de la forma (a, 0), con la segunda coordenada en 0, está siempre sobre el eje x."
-
-explicacion: |
-  No se mueve nada en dirección vertical, así que queda sobre el eje
-  horizontal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cualquier punto de la forma (0, b), con la primera coordenada en 0, está siempre sobre el eje y."
-
-explicacion: |
-  No se mueve nada en dirección horizontal, así que queda sobre el eje
-  vertical.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "basico"
-  tags: ["coordenadas", "problema"]
-
-respuesta: "(0, 0)"
-tipo: mc
-opciones_explicitas:
-  - "(0, 0)"
-  - "(1, 1)"
-  - "(0, 1)"
-
-enunciado: "¿Cuáles son las coordenadas del origen del plano cartesiano?"
-
-explicacion: |
-  Es el único punto que no se mueve en ninguna dirección desde sí
-  mismo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas", "vocabulario"]
-
-enunciado: "Si la abscisa de un punto es negativa, ¿hacia qué lado del origen queda ese punto?"
-tipo: mc
-opciones_explicitas:
-  - "A la izquierda"
-  - "A la derecha"
-  - "Hacia abajo"
-respuesta: "A la izquierda"
-
-explicacion: |
-  Los valores negativos de x quedan a la izquierda del origen.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas", "vocabulario"]
-
-enunciado: "Si la ordenada de un punto es negativa, ¿hacia qué lado del origen queda ese punto?"
-tipo: mc
-opciones_explicitas:
-  - "Hacia abajo"
-  - "Hacia arriba"
-  - "A la izquierda"
-respuesta: "Hacia abajo"
-
-explicacion: |
-  Los valores negativos de y quedan hacia abajo del origen.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas", "problema"]
-
-variables:
-  x: random(1, 10)
-  y: random(1, 10)
-
-respuesta: 0 - y
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un punto está {x} unidades a la derecha del origen y {y} unidades hacia abajo. ¿Cuál es su ordenada?"
-
-explicacion: |
-  Hacia abajo es y negativo: la ordenada es -{y}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "avanzado"
-  tags: ["coordenadas"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Los puntos (5, -1) y (-1, 5) representan la misma posición en el plano."
-
-explicacion: |
-  Tienen las mismas dos cifras, pero en orden distinto: son puntos
-  distintos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "basico"
-  tags: ["coordenadas", "vocabulario"]
-
-enunciado: "¿Qué nombre recibe el punto (0, 0) en el plano cartesiano?"
-tipo: mc
-opciones_explicitas:
-  - "El origen"
-  - "El vértice"
-  - "El centro de masa"
-respuesta: "El origen"
-
-explicacion: |
-  Es el punto de referencia desde el que se miden todas las posiciones.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas", "problema"]
-
-variables:
-  n: random(1, 15)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El punto ({n}, {n}) tiene la misma distancia horizontal y vertical al origen, porque su abscisa y su ordenada son iguales."
-
-explicacion: |
-  Ambas coordenadas valen {n}, así que el punto se mueve lo mismo en
-  ambas direcciones desde el origen.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "basico"
-  tags: ["coordenadas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un par ordenado en el plano cartesiano siempre tiene exactamente dos números: la abscisa y la ordenada."
-
-explicacion: |
-  Un tercer número haría falta recién en un espacio de tres dimensiones,
-  fuera del alcance de este módulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas", "ordenar"]
-
-enunciado: "Ordená los pasos para ubicar el punto (x, y) en el plano cartesiano."
+enunciado: "Ordená los pasos generales para construir un gráfico a partir de una tabla de datos."
 tipo: ordenar
 opciones_explicitas:
-  - "Desde ahí, moverse y unidades en dirección vertical"
-  - "Partir del origen (0, 0)"
-  - "Moverse x unidades sobre el eje horizontal"
-respuesta_orden:
-  - "Partir del origen (0, 0)"
-  - "Moverse x unidades sobre el eje horizontal"
-  - "Desde ahí, moverse y unidades en dirección vertical"
-
+  - "Definir una escala con intervalos iguales que cubra el rango de los datos"
+  - "Decidir qué tipo de gráfico corresponde según el tipo de dato (categorías, tiempo, o proporciones)"
+  - "Dibujar los datos sobre esa escala, y agregar título, etiquetas de ejes y leyenda si hace falta"
+respuesta_orden: ["Decidir qué tipo de gráfico corresponde según el tipo de dato (categorías, tiempo, o proporciones)", "Definir una escala con intervalos iguales que cubra el rango de los datos", "Dibujar los datos sobre esa escala, y agregar título, etiquetas de ejes y leyenda si hace falta"]
 explicacion: |
-  Siempre se resuelve primero el movimiento horizontal (x), y recién
-  después el vertical (y).
+  Elegir el tipo de gráfico es siempre la primera decisión — condiciona
+  todo lo que sigue.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas", "problema"]
-
-variables:
-  y: random(-10, 10)
-
-respuesta: 0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un punto está sobre el eje y, en la posición vertical {y}. ¿Cuál es su abscisa?"
-
-explicacion: |
-  Todo punto sobre el eje y tiene abscisa 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas", "problema"]
-
-variables:
-  x: random(-10, 10)
-
-respuesta: 0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un punto está sobre el eje x, en la posición horizontal {x}. ¿Cuál es su ordenada?"
-
-explicacion: |
-  Todo punto sobre el eje x tiene ordenada 0.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas", "completar"]
-
-tipo: completar
-enunciado: "Completá: la primera coordenada de un par ordenado se llama ___."
-respuestas_validas:
-  - "abscisa"
-
-explicacion: |
-  La segunda coordenada se llama ordenada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
-  nivel: "intermedio"
-  tags: ["coordenadas", "completar"]
-
-tipo: completar
-enunciado: "Completá: la segunda coordenada de un par ordenado se llama ___."
-respuestas_validas:
-  - "ordenada"
-
-explicacion: |
-  La primera coordenada se llama abscisa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
+  tema: "construir_un_grafico"
   nivel: "avanzado"
-  tags: ["coordenadas"]
+  tags: ["construir_grafico"]
+
+enunciado: "¿Por qué usar un gráfico de torta para mostrar datos que cambian mes a mes sería una mala elección?"
+tipo: mc
+opciones_explicitas:
+  - "Porque una torta no muestra tendencia en el tiempo — esconde si el valor subió, bajó o se mantuvo estable mes a mes"
+  - "Porque una torta nunca puede tener más de 2 categorías"
+  - "No hay ningún problema real en usarla para eso"
+respuesta: "Porque una torta no muestra tendencia en el tiempo — esconde si el valor subió, bajó o se mantuvo estable mes a mes"
+
+explicacion: |
+  Cada tipo de gráfico está pensado para un tipo de pregunta distinta
+  sobre los datos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "avanzado"
+  tags: ["construir_grafico", "problema"]
+
+variables:
+  maximo: uno_de([300, 500, 800])
+  marcas: uno_de([4, 5, 8])
+
+respuesta: maximo / marcas
+tipo: input
+
+enunciado: "Los datos van de 0 a {maximo}. Si se quiere marcar la escala en {marcas} intervalos iguales, ¿de cuánto debería ser cada intervalo?"
+
+pasos:
+  - "{maximo} / {marcas} = {maximo / marcas}"
+
+explicacion: |
+  Mismo procedimiento que la pregunta 11, con otros números.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "intermedio"
+  tags: ["construir_grafico"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un par ordenado describe una posición exacta y única en el plano: no puede haber dos puntos distintos con exactamente las mismas dos coordenadas."
+enunciado: "Un gráfico sin título sigue mostrando los datos correctamente, pero es más difícil saber de qué trata sin más contexto."
 
 explicacion: |
-  Es lo que hace útil al sistema de coordenadas: cada punto tiene un
-  'nombre' numérico propio.
+  El título no cambia los datos, pero ayuda mucho a interpretarlos sin
+  ambigüedad.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "coordenadas_de_un_punto"
+  tema: "construir_un_grafico"
+  nivel: "basico"
+  tags: ["construir_grafico", "aplicacion"]
+
+enunciado: "Un reporte anual quiere mostrar la evolución de las ventas mes a mes, y además qué porcentaje de las ventas totales representó cada producto. ¿Cuántos tipos de gráfico distintos convendría usar, y cuáles?"
+tipo: mc
+opciones_explicitas:
+  - "Dos: uno de líneas (evolución mensual) y uno de torta (porcentaje por producto)"
+  - "Uno solo de torta, sirve para ambas cosas"
+  - "Uno solo de barras, sirve para ambas cosas"
+respuesta: "Dos: uno de líneas (evolución mensual) y uno de torta (porcentaje por producto)"
+
+explicacion: |
+  Son dos preguntas distintas sobre los datos, y cada una tiene su
+  tipo de gráfico más adecuado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "avanzado"
+  tags: ["construir_grafico", "problema"]
+
+enunciado: "Los datos de un gráfico van de 40 a 60. ¿Cuál de estas escalas para el eje numérico aprovecha mejor el espacio del gráfico?"
+tipo: mc
+opciones_explicitas:
+  - "De 0 a 100, en intervalos de 10"
+  - "De 0 a 10.000, en intervalos de 1.000"
+  - "De 0 a 1.000.000, en intervalos de 100.000"
+respuesta: "De 0 a 100, en intervalos de 10"
+
+explicacion: |
+  Las otras dos escalas son tan grandes comparadas con el rango real
+  de los datos (40-60) que toda la variación se vería aplastada en
+  una línea casi plana.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "intermedio"
+  tags: ["construir_grafico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El eje numérico de un gráfico de líneas también debería tener intervalos iguales entre sí, igual que el de un gráfico de barras."
+
+explicacion: |
+  La regla de intervalos iguales aplica a cualquier eje numérico, sin
+  importar el tipo de gráfico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "intermedio"
+  tags: ["construir_grafico", "problema"]
+
+variables:
+  maximo: uno_de([25, 35, 45])
+
+respuesta: maximo / 5
+tipo: input
+
+enunciado: "Se quiere marcar una escala de 0 a {maximo} en intervalos de tamaño 5. ¿Cuántas marcas (sin contar el 0) tendría esa escala?"
+
+pasos:
+  - "{maximo} / 5 = {maximo / 5} marcas"
+
+explicacion: |
+  Se divide el máximo por el tamaño del intervalo elegido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "avanzado"
+  tags: ["construir_grafico"]
+
+enunciado: "Si el eje numérico de un gráfico de barras empieza, por ejemplo, en 80 en vez de en 0, ¿qué efecto visual puede producir?"
+tipo: mc
+opciones_explicitas:
+  - "Puede hacer que diferencias chicas entre barras se vean exageradamente grandes"
+  - "No produce ningún efecto, siempre se ve exactamente igual"
+  - "Hace que las barras sean automáticamente más precisas"
+respuesta: "Puede hacer que diferencias chicas entre barras se vean exageradamente grandes"
+
+explicacion: |
+  Es uno de los errores de construcción más comunes (a veces
+  intencional) para exagerar una diferencia real.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "intermedio"
+  tags: ["construir_grafico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La etiqueta de un eje numérico debería indicar la unidad de medida (pesos, personas, grados, etc.), no sólo los números sueltos."
+
+explicacion: |
+  Sin la unidad, un '50' en el eje podría significar cualquier cosa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "avanzado"
+  tags: ["construir_grafico", "problema"]
+
+variables:
+  maximo: uno_de([120, 150, 180])
+  intervalo: uno_de([10, 15, 30])
+
+restricciones:
+  - maximo - floor(maximo / intervalo) * intervalo == 0
+
+respuesta: maximo / intervalo
+tipo: input
+
+enunciado: "Se quiere construir una escala de 0 a {maximo}, con intervalos de tamaño {intervalo}. ¿Cuántos intervalos tendría la escala completa?"
+
+pasos:
+  - "{maximo} / {intervalo} = {maximo / intervalo} intervalos"
+
+explicacion: |
+  Se divide el rango total por el tamaño de cada intervalo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
+  nivel: "basico"
+  tags: ["construir_grafico", "aplicacion"]
+
+enunciado: "Se quiere mostrar qué proporción de una clase de 30 estudiantes son varones y cuál mujeres. ¿Qué tipo de gráfico conviene?"
+tipo: mc
+opciones_explicitas:
+  - "De torta (dos porciones que suman el 100% de la clase)"
+  - "De líneas (porque el año tiene 12 meses)"
+  - "No se puede graficar ese tipo de dato"
+respuesta: "De torta (dos porciones que suman el 100% de la clase)"
+
+explicacion: |
+  Es exactamente proporciones de un total, aunque sean sólo 2
+  categorías.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "construir_un_grafico"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirve nombrar un punto con un par ordenado?"
+enunciado: "¿Para qué sirve saber construir un gráfico?"
 tipo: mc
 opciones_explicitas:
-  - "Es la forma más compacta de describir una posición exacta, necesaria para medir distancias y hallar puntos medios más adelante"
-  - "Sólo sirve para dibujar triángulos"
-  - "Sólo aplica a puntos que están sobre los ejes"
-respuesta: "Es la forma más compacta de describir una posición exacta, necesaria para medir distancias y hallar puntos medios más adelante"
+  - "Para elegir el tipo correcto según el dato, armar una escala razonable, y comunicar los datos de forma clara y sin distorsión"
+  - "Sólo sirve para hacer un gráfico más lindo visualmente"
+  - "Sólo aplica cuando los datos ya vienen en un gráfico hecho"
+respuesta: "Para elegir el tipo correcto según el dato, armar una escala razonable, y comunicar los datos de forma clara y sin distorsión"
 
 explicacion: |
-  Sin coordenadas, no se podría calcular ni distancia ni punto medio
-  entre dos puntos.
+  Es el paso siguiente a leer gráficos: ahora hay que decidir y armar
+  uno propio. Es también el prerrequisito de `../media-mediana-y-moda/`.
 ```
 
-## Sección: correlacion-no-es-causalidad (22 preguntas)
+## Sección: grafico-eje-truncado (20 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "basico"
-  tags: ["correlacion", "vocabulario"]
+  tags: ["eje_truncado", "vocabulario"]
 
-enunciado: "¿Qué significa el principio 'correlación no implica causalidad'?"
+enunciado: "¿Qué es un eje Y 'truncado' en un gráfico de barras o líneas?"
 tipo: mc
 opciones_explicitas:
-  - "Que dos variables correlacionadas (que se mueven juntas) no necesariamente significan que una cause a la otra"
-  - "Que dos variables correlacionadas siempre están relacionadas por causalidad"
-  - "Que la correlación y la causalidad son exactamente lo mismo"
-respuesta: "Que dos variables correlacionadas (que se mueven juntas) no necesariamente significan que una cause a la otra"
+  - "Un eje que no empieza en 0, sino en un valor mucho más alto"
+  - "Un eje que muestra valores negativos"
+  - "Un eje que tiene demasiadas marcas numéricas"
+respuesta: "Un eje que no empieza en 0, sino en un valor mucho más alto"
 
 explicacion: |
-  Un coeficiente de correlación alto (`../regresion-lineal/`) no
-  prueba causalidad por sí solo.
+  A diferencia del eje 'completo', que arranca en 0.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "intermedio"
-  tags: ["tercera_variable", "aplicacion"]
+  tags: ["eje_truncado"]
 
-enunciado: "Las ventas de helado y los ahogamientos en piletas están correlacionados: ambos suben en la misma época del año. ¿Cuál es la explicación real de esta correlación?"
+enunciado: "¿Por qué un eje truncado puede hacer que una diferencia chica entre dos valores se vea mucho más grande de lo que realmente es?"
 tipo: mc
 opciones_explicitas:
-  - "Una tercera variable (el calor del verano) hace subir a ambas cosas a la vez, sin que ninguna cause a la otra"
-  - "Comer helado causa directamente más ahogamientos"
-  - "Los ahogamientos causan que suban las ventas de helado"
-respuesta: "Una tercera variable (el calor del verano) hace subir a ambas cosas a la vez, sin que ninguna cause a la otra"
+  - "Porque al achicar el rango del eje, la misma diferencia absoluta ocupa una proporción mucho mayor del alto total del gráfico"
+  - "Porque cambia los valores numéricos reales de los datos"
+  - "Un eje truncado nunca puede hacer que una diferencia se vea más grande"
+respuesta: "Porque al achicar el rango del eje, la misma diferencia absoluta ocupa una proporción mucho mayor del alto total del gráfico"
 
 explicacion: |
-  Es el ejemplo clásico de variable de confusión (tercera variable).
+  El dato no cambia — sólo cambia cuánto 'estira' visualmente la
+  diferencia el rango elegido para el eje.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "intermedio"
-  tags: ["causalidad_inversa", "vocabulario"]
+  tags: ["eje_truncado", "problema"]
 
-enunciado: "¿Qué es la 'causalidad inversa' como explicación alternativa a una correlación?"
-tipo: mc
-opciones_explicitas:
-  - "Que la dirección real de la causa está invertida: no es que A cause B, sino que B cause A"
-  - "Que ninguna de las dos variables está relacionada con la otra"
-  - "Que la correlación calculada tiene un error de signo"
-respuesta: "Que la dirección real de la causa está invertida: no es que A cause B, sino que B cause A"
+variables:
+  a: uno_de([48, 49])
+  b: uno_de([51, 52])
+
+respuesta: abs(a - b)
+tipo: input
+unidad: "puntos porcentuales"
+
+enunciado: "Dos candidatos sacaron {a}% y {b}% de los votos. ¿Cuál es la diferencia REAL entre ambos, en puntos porcentuales?"
+
+pasos:
+  - "Diferencia = |{a} − {b}| = {abs(a - b)} puntos porcentuales"
 
 explicacion: |
-  Ejemplo: ¿sonreír causa felicidad, o la felicidad causa que la
-  gente sonría más?
+  Esta es la diferencia real, sin importar cómo se dibuje después el
+  gráfico.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
-  nivel: "avanzado"
-  tags: ["correlacion_espuria", "vocabulario"]
-
-enunciado: "¿Qué es una correlación espuria (por coincidencia)?"
-tipo: mc
-opciones_explicitas:
-  - "Una correlación fuerte entre dos variables que aparece por pura casualidad estadística, sin ningún mecanismo real que las conecte"
-  - "Una correlación calculada con un método matemático incorrecto"
-  - "Otro nombre para cualquier correlación negativa"
-respuesta: "Una correlación fuerte entre dos variables que aparece por pura casualidad estadística, sin ningún mecanismo real que las conecte"
-
-explicacion: |
-  Como el consumo de queso mozzarella correlacionando con los
-  doctorados en ingeniería civil — puro azar, sin relación real.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "intermedio"
-  tags: ["correlacion"]
+  tags: ["eje_truncado"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Dos variables pueden estar fuertemente correlacionadas sin que ninguna de las dos cause a la otra en absoluto."
+enunciado: "Truncar el eje Y de un gráfico no cambia los datos reales en absoluto — sólo cambia la percepción visual de qué tan grande parece la diferencia entre ellos."
 
 explicacion: |
-  Puede deberse a una tercera variable, a coincidencia, o a
-  causalidad inversa.
+  Los números siguen siendo los mismos; lo que cambia es la
+  impresión visual que produce el gráfico.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
-  nivel: "avanzado"
-  tags: ["tercera_variable", "problema"]
+  tema: "grafico_eje_truncado"
+  nivel: "basico"
+  tags: ["eje_truncado", "aplicacion"]
 
-enunciado: "Las ventas de paraguas y la cantidad de accidentes de tránsito están correlacionadas: ambas suben los mismos días. ¿Cuál es la tercera variable más probable detrás de esta correlación?"
+enunciado: "¿Cuál es el primer paso para detectar si un gráfico de barras está usando un eje truncado para exagerar una diferencia?"
 tipo: mc
 opciones_explicitas:
-  - "La lluvia: hace que más gente compre/use paraguas, y también que haya más accidentes (piso resbaladizo, menor visibilidad)"
-  - "Los paraguas causan directamente los accidentes de tránsito"
-  - "No existe ninguna explicación posible para esta correlación"
-respuesta: "La lluvia: hace que más gente compre/use paraguas, y también que haya más accidentes (piso resbaladizo, menor visibilidad)"
+  - "Revisar dónde arranca el eje Y — si no arranca en 0 y no hay ninguna marca que lo avise, sospechar"
+  - "Contar cuántas barras tiene el gráfico"
+  - "Fijarse en qué colores se usaron para las barras"
+respuesta: "Revisar dónde arranca el eje Y — si no arranca en 0 y no hay ninguna marca que lo avise, sospechar"
 
 explicacion: |
-  Mismo patrón que el ejemplo de helados y ahogamientos: una tercera
-  variable (el clima) mueve a ambas.
+  Es lo primero que hay que mirar antes de sacar cualquier conclusión
+  del gráfico.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
-  nivel: "intermedio"
-  tags: ["experimento", "vocabulario"]
-
-enunciado: "¿Cuál es la forma estándar de probar que A realmente CAUSA a B, más allá de una simple correlación?"
-tipo: mc
-opciones_explicitas:
-  - "Un experimento controlado y aleatorizado, comparando un grupo que recibe el tratamiento contra un grupo de control"
-  - "Calcular un coeficiente de correlación todavía más alto"
-  - "No existe ninguna forma de probar causalidad de verdad"
-respuesta: "Un experimento controlado y aleatorizado, comparando un grupo que recibe el tratamiento contra un grupo de control"
-
-explicacion: |
-  La aleatorización reparte parejo cualquier tercera variable posible
-  entre ambos grupos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "avanzado"
-  tags: ["experimento"]
+  tags: ["eje_truncado", "problema"]
+
+variables:
+  a: uno_de([95, 98])
+  b: 100
+
+respuesta: redondear((b - a) / a * 100, 2)
+tipo: input
+tolerancia_abs: 0.1
+unidad: "%"
+
+enunciado: "Producto A vende {a} unidades; Producto B vende {b} unidades. Un gráfico con eje truncado (arrancando en 90) hace ver a B como 'mucho más grande'. ¿Cuál es la diferencia porcentual REAL entre A y B, respecto de A?"
+
+pasos:
+  - "Diferencia % = ({b} − {a}) / {a} × 100 = {redondear((b - a) / a * 100, 2)}%"
+
+explicacion: |
+  Calcular la diferencia porcentual real es la forma de contrastar lo
+  que dice el número contra lo que 'muestra' el gráfico truncado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafico_eje_truncado"
+  nivel: "avanzado"
+  tags: ["eje_truncado"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un estudio puramente observacional (medir variables tal como ocurren, sin intervenir) no puede, por sí solo, probar causalidad — siempre queda abierta la posibilidad de una tercera variable o causalidad inversa."
+enunciado: "Truncar el eje Y no siempre es un engaño — puede ser legítimo cuando los datos varían en un rango angosto dentro de valores grandes, siempre que el gráfico lo declare explícitamente (por ejemplo, con una marca de quiebre en el eje)."
 
 explicacion: |
-  Por eso los estudios científicos serios buscan, cuando es posible,
-  complementar con experimentos controlados.
+  Como graficar temperatura corporal entre 36,5°C y 37,5°C: truncar
+  ahí permite ver la variación real con claridad, si se avisa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "basico"
-  tags: ["aplicacion"]
+  tags: ["eje_truncado", "aplicacion"]
 
-enunciado: "Un titular dice: 'Un estudio encuentra que las personas que duermen con la luz prendida tienen más problemas de salud'. ¿Qué pregunta crítica conviene hacerse antes de aceptar que dormir con luz CAUSA problemas de salud?"
+enunciado: "Una noticia muestra un gráfico de barras donde el 'crecimiento' de una empresa de 100 a 103 unidades se ve como una barra el TRIPLE de alta que el año anterior, con el eje arrancando en 99. ¿Qué está pasando?"
 tipo: mc
 opciones_explicitas:
-  - "¿El estudio fue un experimento controlado, o sólo observó una correlación que podría explicarse por una tercera variable (por ejemplo, quienes ya tienen problemas de salud podrían dormir distinto por otras razones)?"
-  - "Ninguna pregunta hace falta, un titular de un estudio siempre implica causalidad probada"
-  - "Sólo importa cuántas personas participaron en el estudio, nada más"
-respuesta: "¿El estudio fue un experimento controlado, o sólo observó una correlación que podría explicarse por una tercera variable (por ejemplo, quienes ya tienen problemas de salud podrían dormir distinto por otras razones)?"
+  - "El eje truncado (arrancando en 99, no en 0) exagera visualmente un crecimiento real de apenas 3%"
+  - "La empresa realmente triplicó su tamaño, y el gráfico lo muestra correctamente"
+  - "Es imposible saber nada sin más información sobre la empresa"
+respuesta: "El eje truncado (arrancando en 99, no en 0) exagera visualmente un crecimiento real de apenas 3%"
 
 explicacion: |
-  Es la aplicación directa del pensamiento crítico de este módulo a
-  una noticia real.
+  El crecimiento real es de 3 unidades sobre 100 (3%) — el gráfico lo
+  hace ver mucho más grande de lo que es.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "avanzado"
-  tags: ["causalidad_inversa", "problema"]
+  tags: ["eje_truncado", "problema"]
 
-enunciado: "Un estudio encuentra que las personas con más amigos reportan sentirse más felices. Alguien concluye: 'tener más amigos causa felicidad'. ¿Qué explicación alternativa (causalidad inversa) también es plausible?"
-tipo: mc
-opciones_explicitas:
-  - "Que ser feliz haga a alguien más sociable y agradable de tratar, y por eso termine consiguiendo más amigos (la felicidad causaría los amigos, no al revés)"
-  - "No hay ninguna explicación alternativa posible en este caso"
-  - "Los amigos y la felicidad no pueden estar relacionados de ninguna forma"
-respuesta: "Que ser feliz haga a alguien más sociable y agradable de tratar, y por eso termine consiguiendo más amigos (la felicidad causaría los amigos, no al revés)"
+variables:
+  valor_a: 90
+  valor_b: 95
+  inicio_eje: uno_de([80, 85])
+
+respuesta: redondear((valor_b - inicio_eje) / (valor_a - inicio_eje), 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Dos barras representan {valor_a} y {valor_b}, con el eje Y truncado arrancando en {inicio_eje} (en vez de 0). En este gráfico, ¿cuántas veces más alta se ve la barra de {valor_b} respecto de la de {valor_a}?"
+
+pasos:
+  - "Altura visual de {valor_a} = {valor_a} − {inicio_eje} = {valor_a - inicio_eje}"
+  - "Altura visual de {valor_b} = {valor_b} − {inicio_eje} = {valor_b - inicio_eje}"
+  - "Razón = {valor_b - inicio_eje} / {valor_a - inicio_eje} = {redondear((valor_b - inicio_eje) / (valor_a - inicio_eje), 2)}"
 
 explicacion: |
-  La correlación sola no distingue cuál de las dos direcciones (o
-  ambas a la vez) es la real.
+  Esa razón visual es mucho más grande que la razón real
+  ({valor_b}/{valor_a} ≈ {redondear(valor_b / valor_a, 2)}) — el eje
+  truncado exagera la diferencia.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "intermedio"
-  tags: ["experimento", "vocabulario"]
+  tags: ["eje_truncado", "clasificar"]
 
-enunciado: "¿Qué caracteriza a un ensayo controlado aleatorizado (RCT)?"
+enunciado: "¿Qué tipo de gráfico es más susceptible al engaño del eje truncado?"
 tipo: mc
 opciones_explicitas:
-  - "Los participantes se asignan AL AZAR a un grupo que recibe el tratamiento o a un grupo de control, para poder comparar el efecto real"
-  - "Los participantes eligen ellos mismos si quieren recibir el tratamiento o no"
-  - "No tiene grupo de control, sólo mide a quienes ya recibieron el tratamiento"
-respuesta: "Los participantes se asignan AL AZAR a un grupo que recibe el tratamiento o a un grupo de control, para poder comparar el efecto real"
+  - "Gráficos de barras o líneas, donde la altura representa la magnitud del dato de forma proporcional al eje"
+  - "Gráficos de torta, porque siempre representan porcentajes sobre un total"
+respuesta: "Gráficos de barras o líneas, donde la altura representa la magnitud del dato de forma proporcional al eje"
 
 explicacion: |
-  Si los participantes eligieran ellos mismos su grupo, podría
-  aparecer sesgo del voluntario (`../muestreo-y-sesgo/`).
+  En barras y líneas, la altura ES la información visual central —
+  truncar el eje distorsiona directamente esa lectura.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "avanzado"
-  tags: ["correlacion_espuria"]
+  tags: ["eje_truncado", "torta"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cuantos más pares de variables se comparen al azar (sin ninguna hipótesis previa), más probable es encontrar correlaciones fuertes por pura coincidencia, sin ninguna relación real de por medio."
+enunciado: "El concepto de 'eje truncado' no tiene sentido para un gráfico de torta, porque un gráfico de torta no tiene eje — cada porción representa directamente un porcentaje del total (100%)."
 
 explicacion: |
-  Es la razón matemática detrás de ejemplos absurdos como el consumo
-  de mozzarella correlacionando con doctorados en ingeniería civil.
+  Un gráfico de torta puede engañar de otras formas (por ejemplo,
+  usando perspectiva 3D que distorsiona el tamaño aparente de cada
+  porción), pero no con un eje truncado.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "basico"
-  tags: ["correlacion_espuria", "aplicacion"]
+  tags: ["eje_truncado", "aplicacion"]
 
-enunciado: "El sitio 'Spurious Correlations' (Tyler Vigen) documenta con datos reales que el consumo per cápita de queso mozzarella en EE.UU. correlaciona fuertemente, año a año, con la cantidad de doctorados otorgados en ingeniería civil. ¿Qué explica esta correlación?"
+enunciado: "Un aviso publicitario muestra un gráfico de barras donde 'su producto es más efectivo' (94% vs. 91% de un competidor), con el eje arrancando en 88 y sin ninguna marca de quiebre. ¿Qué recurso está usando?"
 tipo: mc
 opciones_explicitas:
-  - "Pura coincidencia estadística: no hay ningún mecanismo real que conecte el consumo de mozzarella con los doctorados en ingeniería"
-  - "El consumo de mozzarella mejora el rendimiento académico en ingeniería civil"
-  - "Los doctorados en ingeniería civil aumentan la producción de mozzarella"
-respuesta: "Pura coincidencia estadística: no hay ningún mecanismo real que conecte el consumo de mozzarella con los doctorados en ingeniería"
+  - "Un eje truncado sin declarar, para hacer ver una diferencia real de apenas 3 puntos porcentuales como una ventaja mucho más grande"
+  - "Un gráfico completamente honesto, sin ningún truco visual"
+  - "Un gráfico de torta disfrazado de gráfico de barras"
+respuesta: "Un eje truncado sin declarar, para hacer ver una diferencia real de apenas 3 puntos porcentuales como una ventaja mucho más grande"
 
 explicacion: |
-  Es el ejemplo clásico de correlación espuria, usado justamente para
-  ilustrar este error de razonamiento de forma memorable.
+  Es un uso clásico del eje truncado en publicidad comparativa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "avanzado"
-  tags: ["problema"]
+  tags: ["eje_truncado", "problema"]
 
-enunciado: "¿Cuál de estos dos casos tiene MÁS evidencia a favor de causalidad real, más allá de la correlación simple?"
-tipo: mc
-opciones_explicitas:
-  - "Fumar y cáncer de pulmón: además de la correlación observacional, hay experimentos en animales, mecanismos biológicos conocidos (sustancias cancerígenas del humo) y estudios longitudinales que refuerzan la causalidad"
-  - "Ventas de helado y ahogamientos: sólo hay una correlación estacional, sin ningún mecanismo biológico que conecte comer helado con ahogarse"
-respuesta: "Fumar y cáncer de pulmón: además de la correlación observacional, hay experimentos en animales, mecanismos biológicos conocidos (sustancias cancerígenas del humo) y estudios longitudinales que refuerzan la causalidad"
+variables:
+  a: 40
+  b: 44
+
+respuesta: redondear(b / a, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Con un eje que arranca en 0, dos barras de {a} y {b}. ¿Cuál es la razón real de alturas (barra mayor sobre barra menor) en ese gráfico honesto?"
+
+pasos:
+  - "Razón = {b}/{a} = {redondear(b / a, 3)}"
 
 explicacion: |
-  La causalidad se establece con evidencia ACUMULADA de varios tipos,
-  no con una sola correlación aislada.
+  Con el eje en 0, la razón visual coincide exactamente con la razón
+  numérica real de los datos — es el gráfico que no engaña.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
+  nivel: "intermedio"
+  tags: ["eje_truncado", "aplicacion"]
+
+enunciado: "Al ver un gráfico de barras con una diferencia que parece enorme, ¿qué conviene hacer antes de sacar conclusiones?"
+tipo: mc
+opciones_explicitas:
+  - "Revisar dónde arranca el eje Y y calcular la diferencia numérica real entre los valores, en vez de confiar sólo en la impresión visual"
+  - "Confiar directamente en lo que muestra el gráfico, sin revisar nada más"
+  - "Ignorar el gráfico por completo, sin mirar ningún dato"
+respuesta: "Revisar dónde arranca el eje Y y calcular la diferencia numérica real entre los valores, en vez de confiar sólo en la impresión visual"
+
+explicacion: |
+  Es la aplicación práctica del pensamiento crítico de este módulo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafico_eje_truncado"
   nivel: "avanzado"
-  tags: ["correlacion"]
+  tags: ["eje_truncado"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una correlación muy fuerte (r cercano a ±1) puede ser más llamativa que una débil, pero por sí sola sigue sin probar causalidad — las mismas explicaciones alternativas (tercera variable, causalidad inversa, coincidencia) siguen siendo posibles."
+enunciado: "El eje truncado es sólo un caso particular de gráfico engañoso — también existen otros trucos, como usar una escala no lineal sin avisar, o elegir un rango de tiempo que muestre sólo la parte más favorable de una tendencia."
 
 explicacion: |
-  La fuerza de la correlación no cambia el tipo de evidencia que
-  aporta.
+  Todos comparten el mismo principio: los datos no cambian, pero la
+  forma de presentarlos distorsiona la impresión visual.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
-  nivel: "intermedio"
-  tags: ["experimento", "aplicacion"]
-
-enunciado: "¿Por qué un ensayo clínico serio siempre compara el tratamiento contra un grupo de control, en vez de sólo medir a quienes recibieron el tratamiento?"
-tipo: mc
-opciones_explicitas:
-  - "Porque sin un grupo de control no hay forma de saber si la mejora observada se debe realmente al tratamiento, o hubiera pasado igual sin él"
-  - "El grupo de control es sólo un formalismo sin ninguna utilidad real"
-  - "Porque la ley obliga a tener siempre un grupo de control, sin ninguna razón científica"
-respuesta: "Porque sin un grupo de control no hay forma de saber si la mejora observada se debe realmente al tratamiento, o hubiera pasado igual sin él"
-
-explicacion: |
-  El grupo de control es el punto de comparación que aísla el efecto
-  real del tratamiento.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
-  nivel: "basico"
-  tags: ["experimento", "vocabulario"]
-
-enunciado: "¿Qué función cumple el grupo de control en un experimento?"
-tipo: mc
-opciones_explicitas:
-  - "Sirve de punto de comparación: no recibe el tratamiento (o recibe un placebo), para poder medir qué hubiera pasado sin él"
-  - "Recibe una dosis doble del tratamiento, para maximizar el efecto"
-  - "Se elige siempre a mano, nunca al azar"
-respuesta: "Sirve de punto de comparación: no recibe el tratamiento (o recibe un placebo), para poder medir qué hubiera pasado sin él"
-
-explicacion: |
-  Sin ese punto de comparación, no se puede aislar el efecto real del
-  tratamiento.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "avanzado"
-  tags: ["tercera_variable", "problema"]
+  tags: ["eje_truncado", "problema"]
 
-enunciado: "En los incendios, se observa que a mayor cantidad de bomberos presentes, mayor es el monto de daños materiales del incendio. ¿Los bomberos CAUSAN más daños?"
-tipo: mc
-opciones_explicitas:
-  - "No: la tercera variable es el TAMAÑO del incendio — los incendios más grandes necesitan más bomberos Y producen más daños, sin que unos causen los otros"
-  - "Sí: enviar más bomberos causa directamente más daños materiales"
-respuesta: "No: la tercera variable es el TAMAÑO del incendio — los incendios más grandes necesitan más bomberos Y producen más daños, sin que unos causen los otros"
+variables:
+  a: 80
+  b: 84
+  inicio_truncado: 75
+
+respuesta: redondear((b - inicio_truncado) / (a - inicio_truncado), 3) > redondear(b / a, 3)
+tipo: vf
+
+enunciado: "Con los mismos valores {a} y {b}: en un gráfico con eje desde 0, la razón de alturas es {redondear(b / a, 3)}. En un gráfico con eje truncado desde {inicio_truncado}, ¿la razón de alturas visual es MAYOR que esa razón real?"
 
 explicacion: |
-  Es un ejemplo clásico usado para ilustrar variables de confusión en
-  cursos de estadística.
+  El eje truncado siempre agranda la razón visual de alturas respecto
+  de la razón real de los valores, cuando el eje no arranca en 0.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "basico"
-  tags: ["aplicacion"]
+  tags: ["eje_truncado", "aplicacion"]
 
-enunciado: "Al leer un estudio que reporta sólo una correlación (sin experimento controlado), ¿qué actitud es la más razonable?"
+enunciado: "¿Cómo se puede 'arreglar' un gráfico de barras que usa un eje truncado sin declarar, para que muestre la información de forma honesta?"
 tipo: mc
 opciones_explicitas:
-  - "Tomarlo como una pista interesante que merece más investigación, sin aceptar automáticamente que una variable causa a la otra"
-  - "Rechazar por completo cualquier estudio que no sea un experimento controlado"
-  - "Aceptar automáticamente que la variable que aparece primero en el titular es la causa"
-respuesta: "Tomarlo como una pista interesante que merece más investigación, sin aceptar automáticamente que una variable causa a la otra"
+  - "Rehacer el gráfico con el eje Y arrancando en 0, o mantener el truncado pero agregar una marca de quiebre visible que lo declare"
+  - "Es imposible arreglar un gráfico así, hay que descartarlo por completo"
+  - "Agregar más colores a las barras"
+respuesta: "Rehacer el gráfico con el eje Y arrancando en 0, o mantener el truncado pero agregar una marca de quiebre visible que lo declare"
 
 explicacion: |
-  Los estudios observacionales tienen valor real (generan hipótesis a
-  investigar), pero no alcanzan solos para probar causalidad.
+  Ambas soluciones devuelven la transparencia que le faltaba al
+  gráfico original.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
-  nivel: "intermedio"
-  tags: ["completar"]
-
-tipo: completar
-enunciado: "Completá: ante una correlación entre A y B, además de 'A causa B', las otras explicaciones posibles son causalidad ___, una tercera variable, o pura coincidencia."
-respuestas_validas:
-  - "inversa"
-
-explicacion: |
-  Las cuatro explicaciones posibles: A causa B, B causa A (inversa),
-  una tercera variable causa a ambas, o coincidencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
   nivel: "avanzado"
-  tags: ["experimento", "completar"]
+  tags: ["eje_truncado"]
 
-tipo: completar
-enunciado: "Completá: en un experimento aleatorizado, asignar los participantes al azar entre grupo de tratamiento y grupo de control reparte parejo cualquier ___ variable posible entre ambos grupos."
-respuestas_validas:
-  - "tercera"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ante un gráfico de barras con un eje que claramente no arranca en 0 y sin ninguna marca de quiebre que lo avise, es razonable sospechar que se está exagerando la diferencia entre los datos a propósito."
 
 explicacion: |
-  Es la razón por la que un experimento aleatorizado permite concluir
-  causalidad de una forma que un estudio observacional no puede.
+  No es una prueba definitiva de mala intención, pero sí una señal de
+  alerta que justifica revisar los números reales.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "correlacion_no_es_causalidad"
+  tema: "grafico_eje_truncado"
+  nivel: "intermedio"
+  tags: ["eje_truncado", "problema"]
+
+variables:
+  minimo_dato: uno_de([45, 60, 80])
+
+respuesta: 0
+tipo: input
+
+enunciado: "Un conjunto de datos de barras tiene un valor mínimo de {minimo_dato}. Para armar un gráfico de barras que NO exagere las diferencias entre los valores, ¿en qué valor debería arrancar el eje Y?"
+
+explicacion: |
+  El eje Y de un gráfico de barras honesto arranca en 0,
+  independientemente de cuál sea el valor mínimo de los datos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "grafico_eje_truncado"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirve tener presente que 'correlación no implica causalidad'?"
+enunciado: "¿Para qué sirve saber detectar un gráfico con eje truncado?"
 tipo: mc
 opciones_explicitas:
-  - "Para leer con pensamiento crítico noticias, estudios y estadísticas, distinguiendo cuándo hay evidencia real de causalidad y cuándo sólo hay una correlación que podría explicarse de otra forma"
-  - "Para rechazar automáticamente cualquier resultado estadístico, sin importar la evidencia"
-  - "Sólo tiene aplicación en estudios médicos, no en otros campos"
-respuesta: "Para leer con pensamiento crítico noticias, estudios y estadísticas, distinguiendo cuándo hay evidencia real de causalidad y cuándo sólo hay una correlación que podría explicarse de otra forma"
+  - "Para no dejarse convencer por la forma visual de un gráfico, y en cambio evaluar la diferencia real entre los datos que representa"
+  - "Para poder armar gráficos siempre con ejes truncados"
+  - "Sólo sirve para leer gráficos de elecciones políticas"
+respuesta: "Para no dejarse convencer por la forma visual de un gráfico, y en cambio evaluar la diferencia real entre los datos que representa"
 
 explicacion: |
-  Cierra la cadena que empezó en `../regresion-lineal/`: ajustar una
-  recta es sólo el primer paso, interpretarla con cuidado es el
-  segundo.
+  Es una aplicación directa de `../leer-grafico/barras/` al
+  pensamiento crítico frente a noticias, publicidad e informes.
 ```
 
-## Sección: cual-miente-y-cuando (24 preguntas)
+## Sección: media-mediana-y-moda (25 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cual_miente_y_cuando"
+  tema: "media_mediana_y_moda"
   nivel: "basico"
-  tags: ["criterio", "vocabulario"]
+  tags: ["media", "vocabulario"]
 
-enunciado: "¿Qué determina si una medida de tendencia central 'engaña' en una situación dada?"
+enunciado: "¿Qué es la media (promedio) de un conjunto de datos?"
 tipo: mc
 opciones_explicitas:
-  - "Usar la medida equivocada para la pregunta que se está haciendo, o presentarla como si fuera toda la historia"
-  - "La media siempre miente y la mediana siempre dice la verdad"
-  - "Ninguna medida puede usarse mal, todas dan siempre la misma información"
-respuesta: "Usar la medida equivocada para la pregunta que se está haciendo, o presentarla como si fuera toda la historia"
+  - "La suma de todos los valores, dividida por la cantidad de valores"
+  - "El valor que aparece más veces"
+  - "El valor que queda justo en el medio al ordenar los datos"
+respuesta: "La suma de todos los valores, dividida por la cantidad de valores"
 
 explicacion: |
-  Cada medida responde una pregunta distinta — el problema es elegir
-  mal cuál usar, no que alguna sea inherentemente falsa.
+  Es la medida de tendencia central más usada.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cual_miente_y_cuando"
+  tema: "media_mediana_y_moda"
+  nivel: "basico"
+  tags: ["mediana", "vocabulario"]
+
+enunciado: "¿Qué es la mediana de un conjunto de datos?"
+tipo: mc
+opciones_explicitas:
+  - "El valor que queda exactamente en el medio, una vez que los datos están ordenados de menor a mayor"
+  - "El valor que aparece más veces"
+  - "La suma de todos los valores"
+respuesta: "El valor que queda exactamente en el medio, una vez que los datos están ordenados de menor a mayor"
+
+explicacion: |
+  Hay que ordenar los datos primero — sin ordenar, 'el del medio' no
+  significa nada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "basico"
+  tags: ["moda", "vocabulario"]
+
+enunciado: "¿Qué es la moda de un conjunto de datos?"
+tipo: mc
+opciones_explicitas:
+  - "El valor (o valores) que aparece con más frecuencia"
+  - "El valor más grande de todos"
+  - "El promedio de todos los valores"
+respuesta: "El valor (o valores) que aparece con más frecuencia"
+
+explicacion: |
+  Es la única de las tres medidas que también tiene sentido con datos
+  que no son números (como colores o talles).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "basico"
+  tags: ["media", "completar"]
+
+tipo: completar
+enunciado: "Completá: media = suma de todos los valores / ___."
+respuestas_validas:
+  - "cantidad de valores"
+  - "cantidad"
+
+explicacion: |
+  Dividir por la cantidad de datos es lo que convierte la suma total
+  en un promedio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "intermedio"
+  tags: ["media", "problema"]
+
+variables:
+  a: random(1, 20)
+  b: random(1, 20)
+  c: random(1, 20)
+  d: random(1, 20)
+  e: random(1, 20)
+  datos: [a, b, c, d, e]
+
+respuesta: redondear(promedio(datos), 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Calculá la media de estos 5 valores: {a}, {b}, {c}, {d}, {e}."
+
+pasos:
+  - "Suma = {a}+{b}+{c}+{d}+{e} = {a + b + c + d + e}"
+  - "Media = {a + b + c + d + e} / 5 = {redondear(promedio(datos), 2)}"
+
+explicacion: |
+  Se suman los 5 valores y se divide por 5.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "intermedio"
+  tags: ["mediana", "problema"]
+
+variables:
+  a: random(1, 30)
+  b: random(1, 30)
+  c: random(1, 30)
+  d: random(1, 30)
+  e: random(1, 30)
+  datos: [a, b, c, d, e]
+
+respuesta: mediana(datos)
+tipo: input
+
+enunciado: "Calculá la mediana de estos 5 valores: {a}, {b}, {c}, {d}, {e}."
+
+pasos:
+  - "Se ordenan de menor a mayor, y se toma el valor del medio (el 3° de 5)."
+  - "Mediana = {mediana(datos)}"
+
+explicacion: |
+  Con 5 valores (cantidad impar), hay un único valor central una vez
+  ordenados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "avanzado"
+  tags: ["mediana", "problema"]
+
+variables:
+  a: random(1, 30)
+  b: random(1, 30)
+  c: random(1, 30)
+  d: random(1, 30)
+  datos: [a, b, c, d]
+
+respuesta: mediana(datos)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Calculá la mediana de estos 4 valores: {a}, {b}, {c}, {d}."
+
+pasos:
+  - "Se ordenan de menor a mayor, y se promedian los dos valores centrales (el 2° y el 3° de 4)."
+  - "Mediana = {mediana(datos)}"
+
+explicacion: |
+  Con una cantidad par de datos, no hay un único valor central — se
+  promedian los dos del medio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "intermedio"
+  tags: ["mediana"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuando hay una cantidad PAR de datos, la mediana es el promedio de los dos valores que quedan en el medio, una vez ordenados."
+
+explicacion: |
+  No hay un único valor central posible con una cantidad par, así que
+  se promedian los dos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "intermedio"
+  tags: ["moda", "problema"]
+
+variables:
+  repetido: random(1, 10)
+  otro1: random(11, 20)
+  otro2: random(11, 20)
+  datos: [repetido, repetido, repetido, otro1, otro2]
+
+respuesta: repetido
+tipo: input
+
+enunciado: "Calculá la moda de estos 5 valores: {repetido}, {repetido}, {repetido}, {otro1}, {otro2}."
+
+pasos:
+  - "{repetido} aparece 3 veces; los demás aparecen 1 vez cada uno."
+  - "Moda = {repetido}"
+
+explicacion: |
+  Es el valor con la frecuencia más alta del conjunto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "avanzado"
+  tags: ["moda"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si todos los valores de un conjunto de datos aparecen exactamente la misma cantidad de veces, no hay moda."
+
+explicacion: |
+  No hay ningún valor que se destaque por frecuencia más alta que los
+  demás.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "avanzado"
+  tags: ["moda"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si dos o más valores empatan en la frecuencia más alta, un conjunto de datos puede tener más de una moda a la vez."
+
+explicacion: |
+  Por ejemplo, en {1, 1, 2, 2, 3}, tanto 1 como 2 aparecen 2 veces —
+  hay dos modas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "intermedio"
+  tags: ["mediana", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular la mediana de un conjunto de datos."
+tipo: ordenar
+opciones_explicitas:
+  - "Si la cantidad es par, promediar los dos valores centrales; si es impar, tomar el único valor central"
+  - "Ordenar todos los datos de menor a mayor"
+  - "Contar cuántos datos hay en total, para saber si es una cantidad par o impar"
+respuesta_orden: ["Ordenar todos los datos de menor a mayor", "Contar cuántos datos hay en total, para saber si es una cantidad par o impar", "Si la cantidad es par, promediar los dos valores centrales; si es impar, tomar el único valor central"]
+explicacion: |
+  Sin ordenar primero, 'el valor del medio' no tiene ningún sentido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
   nivel: "avanzado"
   tags: ["media", "mediana", "problema"]
 
 variables:
-  a: random(20, 30)
-  b: random(20, 30)
-  c: random(20, 30)
-  d: random(20, 30)
-  atipico: random(200, 300)
+  a: random(8, 12)
+  b: random(8, 12)
+  c: random(8, 12)
+  d: random(8, 12)
+  atipico: random(80, 100)
   datos: [a, b, c, d, atipico]
 
 respuesta: redondear(promedio(datos), 2)
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Cinco sueldos son (en miles): {a}, {b}, {c}, {d} y {atipico}. ¿Cuál es el sueldo PROMEDIO?"
+enunciado: "Un grupo de 5 valores son: {a}, {b}, {c}, {d} y un valor mucho más grande, {atipico}. ¿Cuál es la MEDIA de estos 5 valores?"
 
 pasos:
   - "Media = ({a}+{b}+{c}+{d}+{atipico}) / 5 = {redondear(promedio(datos), 2)}"
 
 explicacion: |
-  El sueldo de {atipico} arrastra bastante el promedio hacia arriba.
+  El valor atípico ({atipico}) empuja bastante la media hacia arriba,
+  aunque los otros 4 valores sean todos parecidos y chicos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "intermedio"
+  tema: "media_mediana_y_moda"
+  nivel: "avanzado"
   tags: ["media", "mediana"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La media es más sensible a valores atípicos que la mediana — un solo valor extremo puede correr bastante el promedio, sin afectar casi a la mediana."
+enunciado: "Un valor atípico (mucho más grande o más chico que el resto) puede correr bastante el valor de la media, mientras que la mediana casi no se ve afectada por él."
 
 explicacion: |
-  Es la razón matemática detrás de todo este módulo.
+  La mediana sólo depende del ORDEN, no del valor exacto de cada
+  dato — un valor extremo sigue siendo 'el más alto', sin importar
+  cuán extremo sea.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cual_miente_y_cuando"
+  tema: "media_mediana_y_moda"
   nivel: "basico"
   tags: ["media", "mediana", "aplicacion"]
 
-enunciado: "Si un país anuncia que 'el sueldo promedio subió 15%', pero unas pocas personas con sueldos muy altos ganaron mucho más este año, ¿qué podría estar pasando con el sueldo mediano?"
+enunciado: "¿Por qué a veces se prefiere hablar del sueldo MEDIANO de un país en vez del sueldo PROMEDIO (media)?"
 tipo: mc
 opciones_explicitas:
-  - "Podría haber subido mucho menos que 15% (o incluso no haber subido), porque el promedio está siendo arrastrado por esos pocos sueldos altos"
-  - "El sueldo mediano tiene que haber subido exactamente lo mismo, siempre"
-  - "El sueldo mediano no puede calcularse a partir de datos de sueldos"
-respuesta: "Podría haber subido mucho menos que 15% (o incluso no haber subido), porque el promedio está siendo arrastrado por esos pocos sueldos altos"
+  - "Porque unos pocos sueldos extremadamente altos pueden subir mucho la media, sin representar el sueldo 'típico' de la mayoría"
+  - "Porque la mediana siempre da un número más alto que la media"
+  - "Porque la media no se puede calcular con sueldos"
+respuesta: "Porque unos pocos sueldos extremadamente altos pueden subir mucho la media, sin representar el sueldo 'típico' de la mayoría"
 
 explicacion: |
-  Es el caso real más citado de esta distorsión — el promedio sube sin
-  que la mayoría de la gente lo note en su propio bolsillo.
+  Es el ejemplo clásico de por qué elegir bien la medida importa —
+  desarrollado en detalle en `../cual-miente-y-cuando/`.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "avanzado"
-  tags: ["media", "mediana", "problema"]
+  tema: "media_mediana_y_moda"
+  nivel: "intermedio"
+  tags: ["mediana", "problema"]
 
 variables:
-  a: random(15, 25)
-  b: random(15, 25)
-  c: random(15, 25)
-  atipico: random(150, 200)
-  datos: [a, b, c, atipico]
+  paso: uno_de([2, 3, 5])
+  inicio: random(1, 10)
+  datos: [inicio, inicio + paso, inicio + paso * 2, inicio + paso * 3, inicio + paso * 4, inicio + paso * 5, inicio + paso * 6]
 
-respuesta: redondear(promedio(datos) - mediana(datos), 2)
+respuesta: mediana(datos)
 tipo: input
-tolerancia_abs: 0.01
 
-enunciado: "Cuatro valores son: {a}, {b}, {c}, {atipico}. ¿Cuál es la diferencia entre la media y la mediana de este conjunto (media menos mediana)?"
+enunciado: "Estos 7 valores ya están ordenados de menor a mayor: {inicio}, {inicio + paso}, {inicio + paso * 2}, {inicio + paso * 3}, {inicio + paso * 4}, {inicio + paso * 5}, {inicio + paso * 6}. ¿Cuál es la mediana?"
 
 pasos:
-  - "Media = {redondear(promedio(datos), 2)}. Mediana = {mediana(datos)}."
-  - "Diferencia = {redondear(promedio(datos), 2)} − {mediana(datos)} = {redondear(promedio(datos) - mediana(datos), 2)}"
+  - "Con 7 valores ya ordenados, la mediana es el 4° valor: {mediana(datos)}"
 
 explicacion: |
-  Cuanto más grande esta diferencia, más está siendo arrastrada la
-  media por valores extremos.
+  Ya estando ordenados, sólo hace falta contar hasta el valor central.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cual_miente_y_cuando"
+  tema: "media_mediana_y_moda"
+  nivel: "avanzado"
+  tags: ["media", "mediana"]
+
+enunciado: "¿Cuál de las tres medidas de tendencia central es más resistente a la presencia de valores atípicos?"
+tipo: mc
+opciones_explicitas:
+  - "La mediana"
+  - "La media"
+  - "Las tres son igual de sensibles a los valores atípicos"
+respuesta: "La mediana"
+
+explicacion: |
+  Sólo depende del orden de los datos, no de cuán extremo sea el
+  valor más alto o más bajo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
   nivel: "avanzado"
   tags: ["mediana"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Dos conjuntos de datos con valores muy distintos entre sí pueden tener exactamente la misma mediana."
+enunciado: "Cuando hay una cantidad par de datos, la mediana (el promedio de los dos centrales) puede ser un valor que no está entre los datos originales."
 
 explicacion: |
-  Por ejemplo, {4, 5, 6} y {1, 5, 100} tienen la misma mediana (5),
-  aunque estén repartidos de forma completamente distinta.
+  Por ejemplo, con {2, 4, 6, 8}, la mediana es (4+6)/2=5, que no
+  aparece en la lista original.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "avanzado"
-  tags: ["mediana", "problema"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El grupo A tiene las notas 6, 7, 8 (mediana 7). El grupo B tiene las notas 2, 7, 10 (mediana también 7). Aunque tengan la misma mediana, ambos grupos tienen un desempeño igual de parejo entre sus alumnos."
-
-explicacion: |
-  Es falso: el grupo A es mucho más parejo (todas cerca de 7); el
-  grupo B tiene mucha más dispersión (de 2 a 10) — la mediana sola no
-  muestra esa diferencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "intermedio"
-  tags: ["media"]
-
-enunciado: "¿Qué tipo de información se pierde al resumir un conjunto de datos en un solo promedio, sin ningún dato adicional?"
-tipo: mc
-opciones_explicitas:
-  - "Cuánto varían los datos entre sí (la dispersión), y si hay valores atípicos que estén distorsionando ese promedio"
-  - "Ninguna información se pierde nunca al calcular un promedio"
-  - "Se pierde sólo el orden en que se recolectaron los datos, nada más relevante"
-respuesta: "Cuánto varían los datos entre sí (la dispersión), y si hay valores atípicos que estén distorsionando ese promedio"
-
-explicacion: |
-  Un solo número nunca cuenta toda la historia de un conjunto de
-  datos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "avanzado"
-  tags: ["media"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un promedio alto no garantiza que la mayoría de los casos individuales estén por encima de ese valor — es posible que la mayoría esté por debajo, y sólo unos pocos casos muy altos suban el promedio."
-
-explicacion: |
-  Es exactamente lo que pasa con el sueldo promedio cuando hay mucha
-  desigualdad: la mayoría puede estar por debajo del promedio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
+  tema: "media_mediana_y_moda"
   nivel: "avanzado"
   tags: ["media", "mediana", "problema"]
 
 variables:
-  base: random(10, 20)
-  atipico: random(150, 250)
-  datos: [base, base + 1, base + 2, atipico]
+  centro: random(20, 50)
+  paso: uno_de([3, 5, 8])
+  datos: [centro - paso * 2, centro - paso, centro, centro + paso, centro + paso * 2]
+
+respuesta: promedio(datos)
+tipo: input
+
+enunciado: "Con los valores {centro - paso * 2}, {centro - paso}, {centro}, {centro + paso}, {centro + paso * 2} (equidistantes entre sí), ¿cuál es la media?"
+
+pasos:
+  - "Al ser equidistantes alrededor de {centro}, la media coincide exactamente con la mediana: {promedio(datos)}"
+
+explicacion: |
+  Cuando los datos son simétricos alrededor de un valor central, media
+  y mediana coinciden.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "intermedio"
+  tags: ["moda", "problema"]
+
+variables:
+  talle_popular: uno_de([38, 40, 42])
+  otro1: uno_de([36, 44])
+  otro2: uno_de([36, 44])
+  datos: [talle_popular, talle_popular, talle_popular, talle_popular, otro1, otro2]
+
+respuesta: talle_popular
+tipo: input
+
+enunciado: "Una tienda vendió estos talles de zapatillas: {talle_popular}, {talle_popular}, {talle_popular}, {talle_popular}, {otro1}, {otro2}. ¿Cuál es el talle moda (el más vendido)?"
+
+pasos:
+  - "{talle_popular} se repite 4 veces, más que cualquier otro talle."
+
+explicacion: |
+  La moda es especialmente útil para decidir qué talle pedir más stock.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "avanzado"
+  tags: ["media", "mediana", "moda"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ninguna de las tres medidas (media, mediana, moda) es 'la correcta' en todos los casos — cuál conviene usar depende de qué pregunta se quiere responder y de cómo están distribuidos los datos."
+
+explicacion: |
+  Por eso el próximo módulo se llama justamente 'Cuál miente y
+  cuándo'.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "media_mediana_y_moda"
+  nivel: "intermedio"
+  tags: ["media", "problema"]
+
+variables:
+  a: random(50, 70)
+  b: random(50, 70)
+  c: random(50, 70)
+  datos: [a, b, c]
 
 respuesta: redondear(promedio(datos), 2)
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Cuatro valores son: {base}, {base + 1}, {base + 2} y {atipico}. La mediana de este conjunto es {mediana(datos)}. ¿Cuál es la media?"
+enunciado: "Tres exámenes de un alumno dieron estas notas: {a}, {b}, {c} (sobre 100). ¿Cuál es la nota media?"
 
 pasos:
-  - "Media = ({base}+{base + 1}+{base + 2}+{atipico}) / 4 = {redondear(promedio(datos), 2)}"
+  - "({a}+{b}+{c}) / 3 = {redondear(promedio(datos), 2)}"
 
 explicacion: |
-  La media queda muy por encima de la mediana — señal clara de que hay
-  un valor mucho más alto que el resto, distorsionando el promedio.
+  Con valores parecidos entre sí (sin atípicos), la media representa
+  bien el rendimiento típico.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "basico"
-  tags: ["criterio"]
-
-enunciado: "Frente a cualquier estadística resumida en un solo número (un promedio, un porcentaje), ¿qué pregunta conviene hacerse?"
-tipo: mc
-opciones_explicitas:
-  - "¿Qué información se pierde al resumir todo en este solo número?"
-  - "¿El número es par o impar?"
-  - "No hace falta hacerse ninguna pregunta, los números nunca engañan"
-respuesta: "¿Qué información se pierde al resumir todo en este solo número?"
-
-explicacion: |
-  Es la pregunta base del pensamiento crítico frente a cualquier dato
-  estadístico.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
+  tema: "media_mediana_y_moda"
   nivel: "avanzado"
-  tags: ["criterio", "ordenar"]
-
-enunciado: "Ordená los pasos para evaluar si un promedio dado representa bien a la mayoría de los casos."
-tipo: ordenar
-opciones_explicitas:
-  - "Si la diferencia es grande, sospechar que hay valores atípicos distorsionando el promedio"
-  - "Calcular también la mediana del mismo conjunto de datos"
-  - "Comparar ambos valores: si son parecidos, el promedio representa bien; si difieren mucho, no"
-respuesta_orden:
-  - "Calcular también la mediana del mismo conjunto de datos"
-  - "Comparar ambos valores: si son parecidos, el promedio representa bien; si difieren mucho, no"
-  - "Si la diferencia es grande, sospechar que hay valores atípicos distorsionando el promedio"
-
-explicacion: |
-  Comparar media y mediana es la forma más directa de detectar esta
-  distorsión sin necesitar ver todos los datos originales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "intermedio"
-  tags: ["media", "aplicacion"]
-
-enunciado: "Una noticia dice 'el ingreso promedio de las familias subió este año'. ¿Por qué esto no garantiza que la situación económica de la mayoría de las familias haya mejorado?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el promedio puede haber subido sólo por una mejora fuerte en un grupo chico de familias con más ingresos, sin que la mayoría haya mejorado"
-  - "Porque los promedios de ingresos nunca pueden subir realmente"
-  - "Porque la noticia tiene que estar necesariamente mintiendo"
-respuesta: "Porque el promedio puede haber subido sólo por una mejora fuerte en un grupo chico de familias con más ingresos, sin que la mayoría haya mejorado"
-
-explicacion: |
-  No implica mala intención de quien da la noticia — el dato en sí es
-  cierto, sólo que incompleto sin la mediana o la distribución al lado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "avanzado"
-  tags: ["moda", "problema"]
-
-variables:
-  repetido: random(10, 20)
-  a: random(21, 30)
-  b: random(31, 40)
-  c: random(41, 50)
-  d: random(51, 60)
-
-respuesta: repetido
-tipo: input
-
-enunciado: "En un grupo de 6 personas, las edades son: {repetido}, {repetido}, {a}, {b}, {c}, {d}. ¿Cuál es la moda de este grupo?"
-
-pasos:
-  - "{repetido} aparece 2 veces, el resto aparece 1 vez cada uno — apenas alcanza para ser la moda."
-
-explicacion: |
-  Con sólo 2 repeticiones sobre 6 datos casi todos distintos, la moda
-  no dice mucho sobre el grupo en general — es una moda 'débil'.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "intermedio"
-  tags: ["media", "mediana"]
-
-enunciado: "¿En qué situación conviene usar la mediana en vez de la media?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando hay valores atípicos que distorsionarían mucho el promedio"
-  - "Cuando se necesita saber la suma total de todos los datos"
-  - "Cuando todos los datos son exactamente iguales entre sí"
-respuesta: "Cuando hay valores atípicos que distorsionarían mucho el promedio"
-
-explicacion: |
-  Es justamente lo que resiste bien la mediana y no la media.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "avanzado"
-  tags: ["media", "mediana"]
-
-enunciado: "¿En qué situación conviene usar la media en vez de la mediana?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando se necesita reconstruir el TOTAL a partir del promedio y la cantidad de datos (media × cantidad = total), algo que la mediana no permite"
-  - "Siempre, la mediana nunca sirve para nada"
-  - "Sólo cuando hay valores atípicos muy grandes"
-respuesta: "Cuando se necesita reconstruir el TOTAL a partir del promedio y la cantidad de datos (media × cantidad = total), algo que la mediana no permite"
-
-explicacion: |
-  Es una ventaja práctica real de la media que la mediana no tiene.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "avanzado"
-  tags: ["media", "problema"]
-
-variables:
-  media_gasto: random(200, 500)
-  personas: random(10, 30)
-
-respuesta: media_gasto * personas
-tipo: input
-unidad: "$"
-
-enunciado: "El gasto PROMEDIO de {personas} personas en un evento fue de ${media_gasto} cada una. ¿Cuál fue el gasto TOTAL de todas juntas?"
-
-pasos:
-  - "Total = media × cantidad = {media_gasto} × {personas} = {media_gasto * personas}"
-
-explicacion: |
-  Con la mediana sola, este cálculo no sería posible — sólo la media
-  tiene esta propiedad de reconstruir el total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "avanzado"
-  tags: ["mediana"]
+  tags: ["moda"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Conociendo sólo la mediana de un conjunto de datos y la cantidad de datos, NO se puede calcular la suma total de todos los valores (a diferencia de la media, que sí lo permite)."
+enunciado: "La moda es la única de las tres medidas que tiene sentido calcular incluso con datos que no son números (como colores favoritos o marcas de auto más elegidas)."
 
 explicacion: |
-  La mediana no 'contiene' la información de cuánto suman todos los
-  valores, sólo cuál queda en el medio.
+  No se puede sumar ni ordenar "rojo" y "azul", pero sí se puede
+  contar cuál aparece más veces.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "intermedio"
-  tags: ["media", "aplicacion"]
-
-enunciado: "Si se dice que 'la temperatura promedio global subió 1,5°C', ¿significa que TODOS los lugares del planeta subieron exactamente 1,5°C?"
-tipo: mc
-opciones_explicitas:
-  - "No — es un promedio global; algunas zonas pueden haber subido mucho más y otras mucho menos (o incluso bajado)"
-  - "Sí, un promedio global siempre significa que todos los lugares cambiaron exactamente igual"
-  - "No tiene sentido promediar temperaturas de distintos lugares"
-respuesta: "No — es un promedio global; algunas zonas pueden haber subido mucho más y otras mucho menos (o incluso bajado)"
-
-explicacion: |
-  Es el mismo problema de fondo que el sueldo promedio: un promedio
-  resume, pero no describe cada caso individual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
+  tema: "media_mediana_y_moda"
   nivel: "avanzado"
-  tags: ["criterio"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Presentar sólo una medida (como el promedio) sin más contexto puede ser matemáticamente correcto y honesto, y AL MISMO TIEMPO dar una idea incompleta o engañosa de la situación real."
-
-explicacion: |
-  No hace falta mala intención para que un resumen estadístico, sin
-  contexto, dé una impresión equivocada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "avanzado"
-  tags: ["media", "mediana", "problema"]
+  tags: ["mediana", "problema"]
 
 variables:
-  a: random(60, 80)
-  b: random(60, 80)
-  c: random(60, 80)
-  d: random(60, 80)
-  bajo: random(5, 20)
-  datos: [a, b, c, d, bajo]
+  valor: random(10, 30)
+  extra1: random(1, 9)
+  extra2: random(31, 40)
 
-respuesta: redondear(mediana(datos) - promedio(datos), 2)
+respuesta: valor
 tipo: input
-tolerancia_abs: 0.01
 
-enunciado: "Las notas de 5 alumnos (sobre 100) son: {a}, {b}, {c}, {d} y {bajo} (un alumno con una nota muy baja). ¿Cuál es la diferencia entre la mediana y la media (mediana menos media)?"
+enunciado: "Estos 4 valores son: {extra1}, {valor}, {valor}, {extra2}. ¿Cuál es la mediana?"
 
 pasos:
-  - "Mediana = {mediana(datos)}. Media = {redondear(promedio(datos), 2)}."
-  - "Mediana − Media = {mediana(datos)} − {redondear(promedio(datos), 2)} = {redondear(mediana(datos) - promedio(datos), 2)}"
+  - "Ordenados: {extra1}, {valor}, {valor}, {extra2}. Los dos centrales son {valor} y {valor}."
+  - "Mediana = ({valor}+{valor})/2 = {valor}"
 
 explicacion: |
-  Acá el valor atípico es BAJO, no alto — arrastra la media hacia
-  abajo, por eso la mediana queda por encima de la media (al revés
-  que en el caso del sueldo alto).
+  Cuando los dos valores centrales son iguales, la mediana coincide
+  exactamente con ese valor repetido.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "avanzado"
-  tags: ["media"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un valor atípico puede distorsionar la media hacia arriba (si es mucho más grande que el resto) o hacia abajo (si es mucho más chico), según el caso."
-
-explicacion: |
-  No siempre el problema es un valor 'demasiado alto' — también puede
-  ser uno 'demasiado bajo'.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
-  nivel: "avanzado"
-  tags: ["criterio", "problema"]
-
-enunciado: "Un estudio mide el tiempo que tardan 100 personas en resolver un problema, y hay 3 personas que tardaron muchísimo más que las demás (rezagadas). ¿Qué medida conviene reportar como 'tiempo típico'?"
-tipo: mc
-opciones_explicitas:
-  - "La mediana, porque esos 3 casos extremos no la distorsionan tanto como distorsionarían a la media"
-  - "La media, porque siempre es la medida más precisa"
-  - "La moda, porque siempre representa mejor que las otras dos"
-respuesta: "La mediana, porque esos 3 casos extremos no la distorsionan tanto como distorsionarían a la media"
-
-explicacion: |
-  Es exactamente el criterio de este módulo: elegir la medida según
-  si hay o no valores atípicos relevantes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cual_miente_y_cuando"
+  tema: "media_mediana_y_moda"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirve entender cuál medida 'miente' y cuándo?"
+enunciado: "¿Para qué sirven la media, la mediana y la moda?"
 tipo: mc
 opciones_explicitas:
-  - "Para elegir la medida de tendencia central correcta según la pregunta y los datos, y para leer con criterio crítico cualquier estadística resumida en un solo número"
-  - "Para saber que la mediana siempre es mejor que la media en todos los casos"
-  - "Para desconfiar de todas las estadísticas, sin excepción"
-respuesta: "Para elegir la medida de tendencia central correcta según la pregunta y los datos, y para leer con criterio crítico cualquier estadística resumida en un solo número"
+  - "Para resumir un conjunto de datos en un solo número que represente su 'centro', cada una desde un criterio distinto"
+  - "Sólo sirven para calcular notas escolares"
+  - "Las tres dan siempre exactamente el mismo resultado"
+respuesta: "Para resumir un conjunto de datos en un solo número que represente su 'centro', cada una desde un criterio distinto"
 
 explicacion: |
-  Es el puente directo hacia
-  `../tablas-de-frecuencia-cuartiles-percentiles-y-varianza/` — ver
-  cuánto varían los datos es la forma más completa de responder
-  'cuánto se pierde al resumir en un solo número'.
+  Es la base directa de `../cual-miente-y-cuando/` y de
+  `../tablas-de-frecuencia-cuartiles-percentiles-y-varianza/`.
 ```
 
-## Sección: cuerpos-redondos-y-poliedros/cilindros (26 preguntas)
+## Sección: razones-trigonometricas (28 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cilindros"
+  tema: "razones_trigonometricas"
   nivel: "basico"
-  tags: ["cilindro", "vocabulario"]
+  tags: ["trigonometria", "vocabulario"]
 
-enunciado: "¿Qué es un cilindro?"
+enunciado: "En un triángulo rectángulo, respecto de un ángulo agudo elegido, ¿qué es el cateto opuesto?"
 tipo: mc
 opciones_explicitas:
-  - "Un cuerpo redondo con dos bases circulares iguales unidas por una superficie curva"
-  - "Un poliedro con caras triangulares"
-  - "Un cuerpo con una sola base circular terminada en punta"
-respuesta: "Un cuerpo redondo con dos bases circulares iguales unidas por una superficie curva"
+  - "El cateto que no toca a ese ángulo, el que está 'enfrente'"
+  - "El cateto que sí toca a ese ángulo"
+  - "La hipotenusa"
+respuesta: "El cateto que no toca a ese ángulo, el que está 'enfrente'"
 
 explicacion: |
-  Es el equivalente "redondo" de un prisma: base circular en vez de
-  polígono.
+  El cateto adyacente es el que sí toca al ángulo elegido.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cilindros"
+  tema: "razones_trigonometricas"
   nivel: "basico"
-  tags: ["cilindro", "vocabulario"]
+  tags: ["trigonometria", "vocabulario"]
 
-enunciado: "¿Cuáles son los dos datos que definen el tamaño de un cilindro?"
+enunciado: "En un triángulo rectángulo, respecto de un ángulo agudo elegido, ¿qué es el cateto adyacente?"
 tipo: mc
 opciones_explicitas:
-  - "El radio de la base y la altura"
-  - "El perímetro y el área"
-  - "La cantidad de caras y de vértices"
-respuesta: "El radio de la base y la altura"
+  - "El cateto que sí toca a ese ángulo (además de la hipotenusa)"
+  - "El cateto que no toca a ese ángulo"
+  - "La hipotenusa"
+respuesta: "El cateto que sí toca a ese ángulo (además de la hipotenusa)"
 
 explicacion: |
-  Con el radio (r) y la altura (h) alcanza para calcular volumen y
-  superficie.
+  El cateto opuesto es el que no lo toca.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cilindros"
-  nivel: "basico"
-  tags: ["cilindro", "volumen", "vocabulario"]
-
-enunciado: "¿Cuál es la fórmula del volumen de un cilindro?"
-tipo: mc
-opciones_explicitas:
-  - "π × r² × h"
-  - "π × r × h"
-  - "2 × π × r × h"
-respuesta: "π × r² × h"
-
-explicacion: |
-  Área de la base circular (π × r²) por la altura.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
+  tema: "razones_trigonometricas"
   nivel: "intermedio"
-  tags: ["cilindro", "volumen"]
-
-variables:
-  r: random(2, 15)
-  h: random(3, 20)
-
-respuesta: redondear(pi * r * r * h, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "¿Cuál es el volumen de un cilindro de radio {r} cm y altura {h} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "π × {r}² × {h} = {redondear(pi * r * r * h, 2)} cm³"
-
-explicacion: |
-  Se aplica π × r² × h directamente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "intermedio"
-  tags: ["cilindro", "volumen"]
-
-variables:
-  d: random(4, 30)
-  h: random(3, 20)
-  r: d / 2
-
-respuesta: redondear(pi * r * r * h, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "¿Cuál es el volumen de un cilindro de diámetro {d} cm y altura {h} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "Radio: {d} ÷ 2 = {r} cm. Volumen: π × {r}² × {h} = {redondear(pi * r * r * h, 2)} cm³."
-
-explicacion: |
-  Primero hay que pasar de diámetro a radio (dividir por 2) antes de
-  aplicar la fórmula.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "avanzado"
-  tags: ["cilindro", "volumen"]
-
-variables:
-  r: random(2, 10)
-  h: random(3, 15)
-  volumen: pi * r * r * h
-
-respuesta: redondear(h, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Un cilindro de radio {r} cm tiene un volumen de {redondear(volumen, 2)} cm³. ¿Cuál es su altura?"
-
-pasos:
-  - "{redondear(volumen, 2)} ÷ (π × {r}²) = {redondear(volumen / (pi * r * r), 2)} cm"
-
-explicacion: |
-  Se despeja la altura dividiendo el volumen por el área de la base
-  circular (π × r²).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "avanzado"
-  tags: ["cilindro", "volumen"]
-
-variables:
-  r: random(2, 10)
-  h: random(3, 15)
-  volumen: pi * r * r * h
-
-respuesta: redondear(r, 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Un cilindro de altura {h} cm tiene un volumen de {redondear(volumen, 2)} cm³. ¿Cuál es su radio?"
-
-pasos:
-  - "sqrt({redondear(volumen, 2)} ÷ (π × {h})) = {redondear(sqrt(volumen / (pi * h)), 2)} cm"
-
-explicacion: |
-  Se despeja: primero se divide el volumen por (π × altura), y después
-  se saca la raíz cuadrada (porque el radio está al cuadrado).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "intermedio"
-  tags: ["cilindro", "superficie"]
-
-variables:
-  r: random(2, 12)
-  h: random(3, 20)
-
-respuesta: redondear(2 * pi * r * h, 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "¿Cuál es el área de la superficie lateral (curva) de un cilindro de radio {r} cm y altura {h} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "2 × π × {r} × {h} = {redondear(2 * pi * r * h, 2)} cm²"
-
-explicacion: |
-  Es la circunferencia de la base (2πr) multiplicada por la altura —
-  como "desenrollar" la parte curva en un rectángulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "avanzado"
-  tags: ["cilindro", "superficie"]
-
-variables:
-  r: random(2, 10)
-  h: random(3, 15)
-
-respuesta: redondear((2 * pi * r * h) + (2 * pi * r * r), 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "¿Cuál es el área total (lateral + las dos bases) de un cilindro de radio {r} cm y altura {h} cm? Redondeá a 2 decimales."
-
-pasos:
-  - "Lateral: 2 × π × {r} × {h} = {redondear(2 * pi * r * h, 2)} cm². Bases: 2 × π × {r}² = {redondear(2 * pi * r * r, 2)} cm². Total: {redondear((2 * pi * r * h) + (2 * pi * r * r), 2)} cm²."
-
-explicacion: |
-  Se suma el área lateral más las dos bases circulares.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "avanzado"
-  tags: ["cilindro", "capacidad", "problema"]
-
-variables:
-  r: random(3, 6)
-  h: random(8, 15)
-
-respuesta: redondear((pi * r * r * h) / 1000, 3)
-tipo: input
-tolerancia_abs: 0.005
-
-enunciado: "Una lata cilíndrica tiene {r} cm de radio y {h} cm de altura. ¿Cuántos litros de líquido puede contener? Redondeá a 3 decimales."
-
-pasos:
-  - "Volumen: π × {r}² × {h} = {redondear(pi * r * r * h, 2)} cm³. En litros: {redondear(pi * r * r * h, 2)} ÷ 1000 = {redondear((pi * r * r * h) / 1000, 3)}."
-
-explicacion: |
-  Se calcula el volumen en cm³ y se convierte a litros (1000 cm³ = 1
-  litro).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "basico"
-  tags: ["cilindro", "vocabulario"]
+  tags: ["trigonometria"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El cilindro NO es un poliedro, porque tiene una superficie curva (no todas sus caras son planas)."
+enunciado: "El cateto opuesto de un ángulo agudo es, al mismo tiempo, el cateto adyacente del otro ángulo agudo del mismo triángulo."
 
 explicacion: |
-  Prismas y pirámides son poliedros (todas sus caras son polígonos
-  planos); el cilindro tiene una superficie lateral curva, así que se
-  clasifica como cuerpo redondo.
+  Los nombres "opuesto" y "adyacente" dependen de qué ángulo se elija
+  como referencia.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cilindros"
+  tema: "razones_trigonometricas"
   nivel: "basico"
-  tags: ["cilindro", "vocabulario"]
+  tags: ["trigonometria", "vocabulario"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un cilindro tiene dos bases circulares, iguales y paralelas."
-
-explicacion: |
-  Es la misma idea que las dos bases de un prisma, pero circulares en
-  vez de poligonales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "intermedio"
-  tags: ["cilindro", "prisma", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El volumen del cilindro se calcula con la misma lógica que el de un prisma (área de la base por altura), sólo que la base es un círculo."
-
-explicacion: |
-  V = π×r²×h es exactamente área de la base (π×r²) por altura, igual
-  patrón que `../prismas/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "avanzado"
-  tags: ["cilindro", "volumen"]
-
-variables:
-  r: random(2, 8)
-  h: random(3, 12)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si el radio de un cilindro de {r} cm y altura {h} cm se duplica (manteniendo la misma altura), su volumen también se duplica."
-
-pasos:
-  - "Volumen original: π × {r}² × {h} = {redondear(pi * r * r * h, 2)} cm³. Con el radio doble: π × {2 * r}² × {h} = {redondear(pi * (2 * r) * (2 * r) * h, 2)} cm³."
-
-explicacion: |
-  Como el radio está al cuadrado en la fórmula, duplicarlo multiplica el
-  volumen por 4, no por 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "intermedio"
-  tags: ["cilindro", "volumen"]
-
-variables:
-  r: random(2, 8)
-  h: random(3, 12)
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si la altura de un cilindro de radio {r} cm y altura {h} cm se duplica (manteniendo el mismo radio), su volumen también se duplica."
-
-pasos:
-  - "Volumen original: π × {r}² × {h} = {redondear(pi * r * r * h, 2)} cm³. Con la altura doble: π × {r}² × {2 * h} = {redondear(pi * r * r * (2 * h), 2)} cm³."
-
-explicacion: |
-  A diferencia del radio, la altura NO está al cuadrado en la fórmula:
-  duplicarla sí duplica el volumen.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "avanzado"
-  tags: ["cilindro", "comparacion"]
-
-variables:
-  r1: random(2, 10)
-  h1: random(3, 15)
-  r2: random(2, 10)
-  h2: random(3, 15)
-
-restricciones:
-  - (r1 * r1 * h1) != (r2 * r2 * h2)
-
-respuesta: (r1 * r1 * h1) > (r2 * r2 * h2)
-tipo: vf
-
-enunciado: "¿Tiene mayor volumen un cilindro de radio {r1} cm y altura {h1} cm, que otro de radio {r2} cm y altura {h2} cm?"
-
-pasos:
-  - "Como ambos multiplican por π, alcanza con comparar r² × h: {r1}² × {h1} = {r1 * r1 * h1} contra {r2}² × {h2} = {r2 * r2 * h2}."
-
-explicacion: |
-  Se puede comparar sin calcular π × r² × h completo, porque el factor π
-  es el mismo en los dos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "intermedio"
-  tags: ["cilindro", "superficie", "vocabulario"]
-
-enunciado: "¿Cuál es la fórmula del área lateral (curva) de un cilindro?"
+enunciado: "¿Qué representa la regla mnemotécnica SOH-CAH-TOA?"
 tipo: mc
 opciones_explicitas:
-  - "2 × π × r × h"
-  - "π × r²"
-  - "π × r² × h"
-respuesta: "2 × π × r × h"
+  - "Seno=Opuesto/Hipotenusa, Coseno=Adyacente/Hipotenusa, Tangente=Opuesto/Adyacente"
+  - "Los nombres de los tres ángulos de cualquier triángulo"
+  - "El orden en que se miden los lados de un triángulo"
+respuesta: "Seno=Opuesto/Hipotenusa, Coseno=Adyacente/Hipotenusa, Tangente=Opuesto/Adyacente"
 
 explicacion: |
-  Es la circunferencia de la base (2πr) por la altura — como
-  "desenrollar" la superficie curva en un rectángulo.
+  Es una forma de memorizar las tres razones sin confundir cuál lado va
+  en el numerador y cuál en el denominador.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cilindros"
-  nivel: "intermedio"
-  tags: ["cilindro", "superficie", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si se \"desenrolla\" la superficie lateral de un cilindro, queda un rectángulo cuyo largo es la circunferencia de la base y cuyo ancho es la altura del cilindro."
-
-explicacion: |
-  Se retoma en detalle en `../desarrollo-plano/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
+  tema: "razones_trigonometricas"
   nivel: "basico"
-  tags: ["cilindro", "completar"]
+  tags: ["trigonometria", "completar"]
 
 tipo: completar
-enunciado: "Completá: el volumen del cilindro es π por el radio al cuadrado, por la ___."
+enunciado: "Completá: seno = cateto opuesto / ___."
 respuestas_validas:
-  - "altura"
+  - "hipotenusa"
 
 explicacion: |
-  V = π × r² × h.
+  El coseno también divide por la hipotenusa, pero usa el cateto
+  adyacente.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cilindros"
-  nivel: "intermedio"
-  tags: ["cilindro", "completar"]
-
-variables:
-  r: random(2, 8)
-  h: random(3, 12)
+  tema: "razones_trigonometricas"
+  nivel: "basico"
+  tags: ["trigonometria", "completar"]
 
 tipo: completar
-enunciado: "Completá: el volumen de un cilindro de radio {r} cm y altura {h} cm es ___ cm³ (redondeado a 2 decimales)."
+enunciado: "Completá: coseno = cateto ___ / hipotenusa."
 respuestas_validas:
-  - redondear(pi * r * r * h, 2)
+  - "adyacente"
 
 explicacion: |
-  V = π × r² × h.
+  El seno usa el cateto opuesto en el numerador.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cilindros"
-  nivel: "avanzado"
-  tags: ["cilindro", "prisma", "problema"]
+  tema: "razones_trigonometricas"
+  nivel: "basico"
+  tags: ["trigonometria", "completar"]
+
+tipo: completar
+enunciado: "Completá: tangente = cateto opuesto / cateto ___."
+respuestas_validas:
+  - "adyacente"
+
+explicacion: |
+  A diferencia de seno y coseno, la tangente no usa la hipotenusa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria", "problema"]
 
 variables:
-  r: random(3, 10)
-  h: random(3, 15)
+  k: random(1, 8)
+  opuesto: 3 * k
+  adyacente: 4 * k
+  hipotenusa: 5 * k
 
-respuesta: (r * r) * h
+respuesta: redondear(opuesto / hipotenusa, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo α, cateto opuesto {opuesto}, cateto adyacente {adyacente} e hipotenusa {hipotenusa}. ¿Cuánto vale sen(α)?"
+
+pasos:
+  - "{opuesto} ÷ {hipotenusa} = {redondear(opuesto / hipotenusa, 2)}"
+
+explicacion: |
+  Seno es opuesto sobre hipotenusa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria", "problema"]
+
+variables:
+  k: random(1, 8)
+  opuesto: 3 * k
+  adyacente: 4 * k
+  hipotenusa: 5 * k
+
+respuesta: redondear(adyacente / hipotenusa, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo α, cateto opuesto {opuesto}, cateto adyacente {adyacente} e hipotenusa {hipotenusa}. ¿Cuánto vale cos(α)?"
+
+pasos:
+  - "{adyacente} ÷ {hipotenusa} = {redondear(adyacente / hipotenusa, 2)}"
+
+explicacion: |
+  Coseno es adyacente sobre hipotenusa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria", "problema"]
+
+variables:
+  k: random(1, 8)
+  opuesto: 3 * k
+  adyacente: 4 * k
+
+respuesta: redondear(opuesto / adyacente, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo α, cateto opuesto {opuesto} y cateto adyacente {adyacente}. ¿Cuánto vale tan(α)?"
+
+pasos:
+  - "{opuesto} ÷ {adyacente} = {redondear(opuesto / adyacente, 2)}"
+
+explicacion: |
+  Tangente es opuesto sobre adyacente, sin usar la hipotenusa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "problema"]
+
+variables:
+  k: random(1, 6)
+  opuesto: 5 * k
+  adyacente: 12 * k
+  hipotenusa: 13 * k
+
+respuesta: redondear(opuesto / hipotenusa, 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo β, cateto opuesto {opuesto}, cateto adyacente {adyacente} e hipotenusa {hipotenusa}. ¿Cuánto vale sen(β)? Redondeá a 3 decimales."
+
+pasos:
+  - "{opuesto} ÷ {hipotenusa} = {redondear(opuesto / hipotenusa, 3)}"
+
+explicacion: |
+  Esta vez la razón no da un número tan "redondo" como 3/5, pero se
+  calcula exactamente igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si se agranda un triángulo rectángulo manteniendo el mismo ángulo agudo, el valor del seno de ese ángulo NO cambia."
+
+explicacion: |
+  Los triángulos son semejantes, así que la razón entre lados se
+  mantiene igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "problema"]
+
+variables:
+  k1: random(1, 5)
+  k2: k1 + random(1, 5)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un triángulo con catetos {3 * k1} y {4 * k1} (hipotenusa {5 * k1}) tiene el mismo ángulo agudo que otro con catetos {3 * k2} y {4 * k2} (hipotenusa {5 * k2}). ¿El seno de ese ángulo da el mismo valor (0,6) en ambos triángulos?"
+
+explicacion: |
+  {3 * k1}/{5 * k1} y {3 * k2}/{5 * k2} son ambos iguales a 3/5 = 0,6:
+  son triángulos semejantes, misma razón.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "vocabulario"]
+
+enunciado: "¿Por qué una razón trigonométrica da siempre el mismo valor para un ángulo dado, sin importar el tamaño del triángulo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque dos triángulos rectángulos con el mismo ángulo agudo son semejantes (criterio AA), y sus lados son proporcionales"
+  - "Porque todos los triángulos rectángulos son congruentes entre sí"
+  - "Es una coincidencia, sin explicación geométrica"
+respuesta: "Porque dos triángulos rectángulos con el mismo ángulo agudo son semejantes (criterio AA), y sus lados son proporcionales"
+
+explicacion: |
+  Es la razón por la que este módulo depende de
+  `../semejanza-y-teorema-de-thales/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La tangente de un ángulo es igual al seno de ese ángulo dividido su coseno (tan = sen / cos)."
+
+explicacion: |
+  Al dividir (opuesto/hipotenusa) por (adyacente/hipotenusa), la
+  hipotenusa se simplifica y queda opuesto/adyacente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "problema"]
+
+variables:
+  k: random(1, 8)
+
+respuesta: redondear(0.6 / 0.8, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Para un ángulo α, sen(α) = 0,6 y cos(α) = 0,8. ¿Cuánto vale tan(α)?"
+
+pasos:
+  - "0,6 ÷ 0,8 = {redondear(0.6 / 0.8, 2)}"
+
+explicacion: |
+  Coincide con calcular directamente opuesto/adyacente = 3/4 = 0,75 en
+  el triángulo 3-4-5.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "vocabulario"]
+
+enunciado: "¿Qué dice la identidad sen² + cos² = 1, para cualquier ángulo?"
+tipo: mc
+opciones_explicitas:
+  - "Que el cuadrado del seno más el cuadrado del coseno de un mismo ángulo siempre suma 1"
+  - "Que el seno y el coseno de cualquier ángulo son siempre iguales"
+  - "Que la suma de seno y coseno siempre da 1, sin elevar al cuadrado"
+respuesta: "Que el cuadrado del seno más el cuadrado del coseno de un mismo ángulo siempre suma 1"
+
+explicacion: |
+  Es consecuencia directa del teorema de Pitágoras aplicado a los
+  catetos y la hipotenusa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "problema"]
+
+respuesta: 1
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Para el ángulo del triángulo 3-4-5, sen(α) = 0,6 y cos(α) = 0,8. ¿Cuánto da sen(α)² + cos(α)²?"
+
+pasos:
+  - "0,6² + 0,8² = 0,36 + 0,64 = 1"
+
+explicacion: |
+  Se cumple exactamente, porque 3² + 4² = 5² (el propio teorema de
+  Pitágoras, dividido por 5² de los dos lados).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria", "completar"]
+
+tipo: completar
+enunciado: "Completá: sen(30°) = ___ (como número decimal)."
+respuestas_validas:
+  - "0.5"
+  - "0,5"
+
+explicacion: |
+  Es uno de los valores notables que conviene memorizar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "sen(30°) y cos(60°) valen exactamente lo mismo."
+
+explicacion: |
+  Los ángulos que suman 90° "intercambian" seno y coseno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "sen(45°) y cos(45°) valen exactamente lo mismo."
+
+explicacion: |
+  Tiene sentido: 45° + 45° = 90°, así que se intercambian entre sí — y
+  como son iguales, coinciden.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "tan(45°) vale exactamente 1."
+
+explicacion: |
+  Como sen(45°) = cos(45°), su cociente (la tangente) da 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "problema"]
+
+variables:
+  seno_30: 0.5
+  hipotenusa: uno_de([10, 20, 30, 40])
+
+respuesta: hipotenusa * seno_30
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Un prisma de base cuadrada tiene {r} cm de lado y {h} cm de altura. ¿Cuál es su volumen?"
+enunciado: "Un triángulo rectángulo tiene un ángulo de 30° y una hipotenusa de {hipotenusa}. ¿Cuánto mide el cateto opuesto a ese ángulo? (usá sen(30°) = 0,5)"
+
+pasos:
+  - "{hipotenusa} × 0,5 = {hipotenusa * seno_30}"
 
 explicacion: |
-  Volumen del prisma cuadrado: lado² × altura — sirve como referencia
-  para comparar con un cilindro de radio equivalente en el próximo
-  ejercicio.
+  Cateto opuesto = hipotenusa × sen(ángulo).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cilindros"
-  nivel: "intermedio"
-  tags: ["cilindro", "verificacion"]
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "problema"]
 
 variables:
-  r: random(2, 10)
-  h: random(3, 15)
-  correcto: redondear(pi * r * r * h, 1)
-  error: uno_de([0, 0, 0, 5, -5])
-  mostrado: correcto + error
+  coseno_60: 0.5
+  hipotenusa: uno_de([10, 20, 30, 40])
 
-respuesta: (abs(mostrado - correcto) < 0.01)
-tipo: vf
+respuesta: hipotenusa * coseno_60
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "¿Está bien calculado esto? El volumen de un cilindro de radio {r} cm y altura {h} cm es {mostrado} cm³ (redondeado a 1 decimal)."
+enunciado: "Un triángulo rectángulo tiene un ángulo de 60° y una hipotenusa de {hipotenusa}. ¿Cuánto mide el cateto adyacente a ese ángulo? (usá cos(60°) = 0,5)"
+
+pasos:
+  - "{hipotenusa} × 0,5 = {hipotenusa * coseno_60}"
 
 explicacion: |
-  Se recalcula π × r² × h y se compara con el valor mostrado.
+  Cateto adyacente = hipotenusa × cos(ángulo).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cilindros"
-  nivel: "intermedio"
-  tags: ["cilindro", "comparacion"]
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "problema"]
 
-enunciado: "¿Cuál de estos cilindros tiene mayor volumen: uno de radio 4 cm y altura 10 cm, o uno de radio 5 cm y altura 6 cm?"
+variables:
+  adyacente: uno_de([5, 8, 10, 15])
+
+respuesta: adyacente
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un triángulo rectángulo tiene un ángulo de 45° y un cateto adyacente de {adyacente}. ¿Cuánto mide el cateto opuesto a ese ángulo? (usá tan(45°) = 1)"
+
+pasos:
+  - "{adyacente} × 1 = {adyacente}"
+
+explicacion: |
+  En un triángulo con un ángulo de 45°, los dos catetos miden siempre
+  lo mismo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria", "ordenar"]
+
+enunciado: "Ordená los pasos para hallar un lado desconocido de un triángulo rectángulo, conociendo un ángulo agudo y otro lado."
+tipo: ordenar
+opciones_explicitas:
+  - "Despejar el lado desconocido y calcular"
+  - "Identificar qué lados están involucrados (opuesto, adyacente o hipotenusa) respecto del ángulo conocido"
+  - "Elegir la razón trigonométrica correcta (seno, coseno o tangente) según esos dos lados"
+respuesta_orden: ["Identificar qué lados están involucrados (opuesto, adyacente o hipotenusa) respecto del ángulo conocido", "Elegir la razón trigonométrica correcta (seno, coseno o tangente) según esos dos lados", "Despejar el lado desconocido y calcular"]
+explicacion: |
+  Elegir mal la razón (usar coseno cuando corresponde seno, por
+  ejemplo) es el error más común.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria", "vocabulario"]
+
+enunciado: "¿Cómo se puede calcular la altura de un edificio sin medirla directamente, usando trigonometría?"
 tipo: mc
 opciones_explicitas:
-  - "Radio 4 cm y altura 10 cm"
-  - "Radio 5 cm y altura 6 cm"
-respuesta: "Radio 4 cm y altura 10 cm"
-
-pasos:
-  - "r²×h: 4² × 10 = 160 contra 5² × 6 = 150."
+  - "Midiendo el ángulo de elevación desde una distancia conocida, y usando la tangente de ese ángulo"
+  - "Contando la cantidad de pisos y multiplicando por 3 metros siempre"
+  - "No es posible calcular una altura sin medirla directamente"
+respuesta: "Midiendo el ángulo de elevación desde una distancia conocida, y usando la tangente de ese ángulo"
 
 explicacion: |
-  Aunque el segundo tiene mayor radio, el primero gana porque el radio
-  al cuadrado no compensa la diferencia de altura en este caso.
+  La distancia horizontal es el cateto adyacente, la altura es el
+  cateto opuesto: tan(ángulo) = altura / distancia.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "cilindros"
-  nivel: "avanzado"
-  tags: ["cilindro", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estos cilindros de menor a mayor volumen (comparando r²×h, ya que todos comparten el factor π): radio 2 y altura 20; radio 5 y altura 2; radio 3 y altura 8; radio 4 y altura 6."
-opciones_explicitas:
-  - "Radio 3 y altura 8"
-  - "Radio 2 y altura 20"
-  - "Radio 4 y altura 6"
-  - "Radio 5 y altura 2"
-respuesta_orden:
-  - "Radio 5 y altura 2"
-  - "Radio 3 y altura 8"
-  - "Radio 2 y altura 20"
-  - "Radio 4 y altura 6"
-
-pasos:
-  - "r²×h: 2²×20=80; 5²×2=50; 3²×8=72; 4²×6=96."
-
-explicacion: |
-  Se calcula r²×h para cada uno (el factor π es común a todos, así que
-  no hace falta calcularlo) y se ordena: 50 < 72 < 80 < 96.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
-  nivel: "intermedio"
-  tags: ["cilindro", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La fórmula del volumen del cilindro usa el diámetro al cuadrado, no el radio al cuadrado."
-
-explicacion: |
-  Usa el RADIO al cuadrado (V = π × r² × h). Si sólo se conoce el
-  diámetro, hay que dividirlo por 2 primero para obtener el radio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "cilindros"
+  tema: "razones_trigonometricas"
   nivel: "basico"
-  tags: ["cilindro", "vocabulario"]
+  tags: ["cierre"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todo lo que hace falta saber para calcular el volumen o la superficie de un cilindro es el radio de su base circular y su altura."
+enunciado: "¿Para qué sirven las razones trigonométricas?"
+tipo: mc
+opciones_explicitas:
+  - "Para calcular lados o ángulos de un triángulo rectángulo sin medirlos directamente, a partir de datos conocidos"
+  - "Sólo sirven para triángulos equiláteros"
+  - "Sólo tienen aplicación teórica, sin uso práctico"
+respuesta: "Para calcular lados o ángulos de un triángulo rectángulo sin medirlos directamente, a partir de datos conocidos"
 
 explicacion: |
-  Con esos dos datos alcanza para aplicar todas las fórmulas del cilindro
-  vistas en este módulo.
+  Desde la altura de un edificio hasta el diseño de una rampa, siempre
+  que hay un ángulo y un triángulo rectángulo, aparecen estas razones.
 ```
+

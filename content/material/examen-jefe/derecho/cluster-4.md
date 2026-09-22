@@ -1,6 +1,6 @@
-# Examen jefe — Dominio del Sistema Penal
+# Examen jefe — [PENDIENTE #897]
 
-> Logro #205. Completaste el examen jefe sobre la estructura, normas y procesos del derecho penal argentino. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas. **149 preguntas totales** en 6/6 secciones.
+> Logro #897. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **149 preguntas totales** en 6/6 secciones.
 
 ---
 
@@ -15,7 +15,9 @@ metadata:
 
 respuesta: "dirigir"
 tipo: completar
-respuestas_validas: ["dirigir", "dirigir la investigación"]
+respuestas_validas:
+  - "dirigir"
+  - "dirigir la investigación"
 
 enunciado: "En el proceso penal, el Fiscal es el encargado de ___ la investigación para determinar la existencia de un delito y la responsabilidad de los autores."
 
@@ -30,11 +32,8 @@ metadata:
   nivel: "basico"
   tags: ["evidencia", "prueba"]
 
-variables:
-  es_falso: uno_de([verdadero, falso])
-
-respuesta: es_falso
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "La evidencia recolectada durante la investigación es, por definición, una prueba por sí misma, independientemente de su valoración judicial."
 
 explicacion: |
@@ -65,10 +64,10 @@ metadata:
   nivel: "intermedio"
   tags: ["cadena_de_custodia", "procedimiento"]
 
-respuesta: ["hallazgo", "recolección", "preservación", "traslado"]
+respuesta_orden: ["hallazgo", "recolección", "preservación", "traslado"]
 tipo: ordenar
 
-opciones_explicitas: ["hallazgo", "recolección", "preservación", "traslado", "anulación"]
+opciones_explicitas: ["hallazgo", "recolección", "preservación", "traslado"]
 
 enunciado: "Ordene cronológicamente los pasos lógicos para asegurar la integridad de un elemento de convicción desde que se encuentra en la escena:"
 
@@ -101,17 +100,13 @@ metadata:
   tags: ["carga_de_la_prueba", "fiscalia", "proceso_penal"]
 
 variables:
-  caso_id: uno_de([0, 1])
-  escenario: uno_de([
-    ["El fiscal acusa a Juan de robo, pero no presenta testigos ni cámaras.", "El fiscal no cumplió con su carga de prueba."],
-    ["El fiscal presenta un video donde se ve a Juan robando, pero la defensa no aporta nada.", "El fiscal cumplió con su carga de prueba."]
-  ])
+  escenario: uno_de([["El fiscal acusa a Juan de robo, pero no presenta testigos ni cámaras.", "El fiscal no cumplió con su carga de prueba."], ["El fiscal presenta un video donde se ve a Juan robando, pero la defensa no aporta nada.", "El fiscal cumplió con su carga de prueba."]])
 
-respuesta: escenario[caso_id][1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["El fiscal no cumplió con su carga de prueba.", "El fiscal cumplió con su carga de prueba."]
 
-enunciado: "En un proceso penal, la carga de la prueba recae sobre la parte acusadora. Analice el siguiente escenario: {escenario[caso_id][0]}"
+enunciado: "En un proceso penal, la carga de la prueba recae sobre la parte acusadora. Analice el siguiente escenario: {escenario[0]}"
 
 explicacion: |
   En el proceso penal, rige el principio de presunción de inocencia. Corresponde al Fiscal (parte acusadora) la carga de probar la culpabilidad del imputado mediante evidencia suficiente y lícita. Si no logra desvirtuar la presunción de inocencia, el imputado debe ser absuelto.
@@ -142,7 +137,7 @@ metadata:
 
 opciones_explicitas: ["Preservación de la escena", "Recolección de elementos", "Fijación de la evidencia", "Traslado a depósito"]
 
-respuesta: ["Preservación de la escena", "Fijación de la evidencia", "Recolección de elementos", "Traslado a depósito"]
+respuesta_orden: ["Preservación de la escena", "Fijación de la evidencia", "Recolección de elementos", "Traslado a depósito"]
 tipo: ordenar
 
 enunciado: "Un perito llega a la escena de un crimen. Ordene cronológicamente los pasos técnicos para asegurar la integridad de la evidencia:"
@@ -158,16 +153,10 @@ metadata:
   nivel: "avanzado"
   tags: ["prueba_ilícita", "derechos_fundamentales"]
 
-variables:
-  es_ilegal: uno_de([0, 1])
-  caso: uno_de([
-    ["La policía entra a una casa sin orden judicial y encuentra una droga.", "ilegal"],
-    ["La policía encuentra la droga tras una persecución en flagrancia.", "legal"]
-  ])
-
-respuesta: caso[es_ilegal][1
+respuesta: "ilegal"
 tipo: completar
-respuestas_validas: ["ilegal", "legal"]
+respuestas_validas:
+  - "ilegal"
 
 enunciado: "Si la evidencia fue obtenida mediante la violación de un derecho fundamental (como la inviolabilidad del domicilio sin orden), su calificación jurídica es: ___"
 
@@ -201,7 +190,8 @@ metadata:
 
 respuesta: "recaudar y presentar"
 tipo: completar
-respuestas_validas: ["recaudar y presentar", "decidir la culpabilidad", "dictar sentencia"]
+respuestas_validas:
+  - "recaudar y presentar"
 
 enunciado: "En la etapa de investigación de un proceso penal, la función principal del Fiscal es ___ la evidencia necesaria para sustentar la acusación ante el juez."
 
@@ -249,7 +239,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "secuencia_fiscal"]
 
-respuesta: ["recolección", "preservación", "cadena_de_custodia", "presentación"]
+respuesta_orden: ["recolección", "preservación", "cadena_de_custodia", "presentación"]
 tipo: ordenar
 opciones_explicitas: ["recolección", "preservación", "cadena_de_custodia", "presentación"]
 
@@ -266,16 +256,10 @@ metadata:
   nivel: "avanzado"
   tags: ["principio_oportunidad", "discrecionalidad"]
 
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: tabla[idx][1
 tipo: mc
 opciones_explicitas: ["siempre debe acusar", "puede prescindir de la acción penal", "debe esperar siempre al juicio"]
 
-tabla:
-  - ["siempre debe acusar", "siempre debe acusar"]
-  - ["puede prescindir de la acción penal", "puede prescindir de la acción penal"]
+respuesta: "puede prescindir de la acción penal"
 
 enunciado: "El principio de oportunidad permite que el Fiscal, ante ciertos supuestos de política criminal, ___"
 
@@ -292,7 +276,8 @@ metadata:
 
 respuesta: "reunir elementos de convicción"
 tipo: completar
-respuestas_validas: ["reunir elementos de convicción", "dictar sentencia", "acusar al imputado", "defender al procesado"]
+respuestas_validas:
+  - "reunir elementos de convicción"
 
 enunciado: "A diferencia del juez, cuya función es decidir sobre la aplicación de la ley, el rol principal del Fiscal durante la etapa de investigación es ___."
 
@@ -309,7 +294,7 @@ metadata:
 
 opciones_explicitas: ["La prueba es un elemento que se produce en el juicio oral, mientras que el elemento de convicción es el que se recaba en la etapa de investigación.", "La prueba y el elemento de convicción son términos sinónimos en cualquier etapa del proceso.", "El elemento de convicción solo lo puede recolectar el juez.", "La prueba es exclusiva de la defensa y el elemento de convicción de la fiscalía."]
 
-respuesta: opciones_explicitas[0
+respuesta: "La prueba es un elemento que se produce en el juicio oral, mientras que el elemento de convicción es el que se recaba en la etapa de investigación."
 tipo: mc
 
 enunciado: "¿Cuál es la distinción técnica fundamental entre un elemento de convicción y una prueba?"
@@ -342,9 +327,9 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "fiscalia", "investigacion"]
 
-opciones_explicitas: ["Recolección de indicios", "Planteamiento de la acusación", "Solicitud de medidas cautelares", "Presentación de la teoría del caso"]
+opciones_explicitas: ["Recolección de indicios", "Planteamiento de la acusación", "Presentación de la teoría del caso"]
 
-respuesta: ["Recolección de indicios", "Planteamiento de la acusación", "Presentación de la teoría del caso"]
+respuesta_orden: ["Recolección de indicios", "Planteamiento de la acusación", "Presentación de la teoría del caso"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente las acciones que un Fiscal realiza desde el inicio de la investigación hasta la etapa intermedia:"
@@ -360,13 +345,7 @@ metadata:
   nivel: "intermedio"
   tags: ["fiscalia", "juez_de_control", "controversia"]
 
-variables:
-  idx: uno_de([0, 1])
-
-datos:
-  - ["El Fiscal es una parte procesal que busca la verdad histórica para acusar.", "El Juez de Control es un tercero imparcial que garantiza la legalidad de la investigación."]
-
-respuesta: datos[idx][0
+respuesta: "El Fiscal es una parte procesal que busca la verdad histórica para acusar."
 tipo: mc
 opciones_explicitas: ["El Fiscal es una parte procesal que busca la verdad histórica para acusar.", "El Juez de Control es una parte procesal que busca la verdad histórica para acusar.", "El Fiscal es un tercero imparcial que controla la legalidad.", "El Juez de Control es una parte que busca la verdad para acusar."]
 
@@ -387,7 +366,8 @@ variables:
   datos: [["El fiscal debe dirigir la investigación para recabar pruebas que sustenten la acusación", "verdadero"], ["El fiscal es el encargado de la defensa técnica del imputado", "falso"], ["El fiscal debe buscar tanto la prueba de cargo como la de descargo", "verdadero"]]
   idx: uno_de([0, 1, 2])
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 enunciado: "En un proceso penal, ¿es correcto afirmar que: {datos[idx][0]}?"
@@ -424,7 +404,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "cadena_de_custodia"]
 
-respuesta: ["Preservación", "Recolección", "Embalaje", "Traslado"]
+respuesta_orden: ["Preservación", "Recolección", "Embalaje", "Traslado"]
 tipo: ordenar
 opciones_explicitas: ["Preservación", "Recolección", "Embalaje", "Traslado"]
 
@@ -468,7 +448,10 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["anula", "esencial", "responsable"]
+respuestas_validas:
+  - "anula"
+  - "esencial"
+  - "responsable"
 
 enunciado: "Complete la afirmación según el caso: {datos[idx][0]}."
 
@@ -487,6 +470,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["La etapa de investigación donde se recolectan elementos de convicción.", "La etapa de debate público donde se presentan pruebas y argumentos para obtener un veredicto.", "La etapa de revisión de la sentencia por un tribunal superior.", "La fase de detención del imputado por parte de la policía."]
+
+respuesta: "La etapa de debate público donde se presentan pruebas y argumentos para obtener un veredicto."
 
 enunciado: "El juicio oral se define fundamentalmente como:"
 
@@ -522,7 +507,7 @@ opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos
 
 enunciado: "Ordene cronológicamente las etapas principales de un debate en juicio oral:"
 
-respuesta: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Sentencia"]
+respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Sentencia"]
 
 explicacion: |
   El juicio comienza con la presentación de las teorías del caso (apertura), sigue con el examen de testigos y peritos (prueba), los alegatos finales (clausura) y concluye con el fallo (sentencia).
@@ -536,7 +521,9 @@ metadata:
   tags: ["argumentacion", "terminos"]
 
 tipo: completar
-respuestas_validas: ["clausura", "apertura"]
+respuestas_validas:
+  - "clausura"
+  - "apertura"
 
 enunciado: "El alegato de ___ es la exposición final que realiza cada parte para convencer al tribunal de su teoría del caso tras la producción de la prueba."
 
@@ -553,22 +540,10 @@ metadata:
   nivel: "intermedio"
   tags: ["principios", "publicidad"]
 
-variables:
-  escenario: uno_de([0,1])
-
-enunciado: "Si el juicio se realiza en una sala abierta al público y sin restricciones de acceso, se está cumpliendo con el principio de {escenario_tipo}."
+enunciado: "Si el juicio se realiza en una sala abierta al público y sin restricciones de acceso, se está cumpliendo con el principio de ___."
 
 pasos:
   - "Identificar el principio relacionado con la visibilidad del acto."
-
-variables_texto:
-  escenario_tipo: uno_de(["publicidad", "inmediación"])
-
-# Nota: Para cumplir con la regla de que la respuesta sea del mismo tipo que la variable de sorteo en un contexto de completar/mc complejo, 
-# en este caso simplificamos para asegurar que la lógica de respuesta sea directa según el escenario sorteado.
-
-# Re-estructurando para cumplir estrictamente la regla de respuesta igual al dato sorteado:
-# (En este caso, como es un concepto fijo, se usa el escenario para el texto pero la respuesta depende del valor)
 
 tipo: mc
 opciones_explicitas: ["Publicidad", "Inmediación", "Contradicción", "Oralidad"]
@@ -588,7 +563,8 @@ metadata:
 
 respuesta: "testigo"
 tipo: completar
-respuestas_validas: ["testigo"]
+respuestas_validas:
+  - "testigo"
 
 enunciado: "Durante la etapa de debate en el juicio oral, la persona que comparece para declarar sobre hechos que presenció se denomina ___."
 
@@ -619,11 +595,7 @@ metadata:
   nivel: "intermedio"
   tags: ["etapas", "procedimiento"]
 
-variables:
-  pasos_ordenados: [["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"], ["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"], ["Producción de prueba", "Alegato de apertura", "Alegatos de clausura"]]
-  idx: uno_de([0,1,2])
-
-respuesta: ["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"]
+respuesta_orden: ["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"]
 tipo: ordenar
 opciones_explicitas: ["Alegato de apertura", "Producción de prueba", "Alegatos de clausura"]
 
@@ -639,10 +611,6 @@ metadata:
   tema: "juicio_oral"
   nivel: "basico"
   tags: ["sentencia", "veredicto"]
-
-variables:
-  caso_escenario: [["absolución", "el acusado es libre de cargos"], ["condena", "el acusado es hallado culpable"]]
-  idx: uno_de([0,1])
 
 respuesta: "condena"
 tipo: mc
@@ -661,11 +629,10 @@ metadata:
   nivel: "avanzado"
   tags: ["derechos", "defensa"]
 
-respuesta: 1
-tipo: mc
-opciones_explicitas: ["0", "1"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En el juicio oral, el derecho a la contradicción implica que las partes pueden objetar la prueba presentada por la contraparte. ¿Es este un derecho fundamental para asegurar un juicio justo? (1: Sí / 0: No)"
+enunciado: "En el juicio oral, el derecho a la contradicción implica que las partes pueden objetar la prueba presentada por la contraparte. ¿Es este un derecho fundamental para asegurar un juicio justo?"
 
 explicacion: |
   La contradicción es la facultad de controlar la prueba de la contraparte, permitiendo el control de la veracidad y legalidad de los elementos presentados.
@@ -698,7 +665,7 @@ variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [[0, "El imputado debe demostrar su inocencia"], [1, "La fiscalía debe demostrar la culpabilidad"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["El imputado debe demostrar su inocencia", "La fiscalía debe demostrar la culpabilidad", "Ambas partes deben probar todo lo que aleguen", "El juez decide qué debe probarse"]
 
@@ -715,9 +682,9 @@ metadata:
   nivel: "basico"
   tags: ["etapas", "procedimiento"]
 
-respuesta: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
+respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
 tipo: ordenar
-opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto", "Examen de testigos"]
+opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
 
 enunciado: "Para que el juicio oral sea válido, se debe respetar un orden lógico y cronológico en sus etapas. Ordene las siguientes fases según el desarrollo estándar de un debate oral:"
 
@@ -734,7 +701,8 @@ metadata:
 
 respuesta: "imparcial"
 tipo: completar
-respuestas_validas: ["imparcial", "activo", "perito", "acusador"]
+respuestas_validas:
+  - "imparcial"
 
 enunciado: "Durante la etapa de producción de prueba en el juicio oral, el juez debe mantener un rol ___ y no debe proponer pruebas de oficio que no hayan sido solicitadas por las partes, para no vulnerar la imparcialidad."
 
@@ -749,11 +717,7 @@ metadata:
   nivel: "avanzado"
   tags: ["pruebas", "limites"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [[0, "prohibido"], [1, "excepcional"]]
-
-respuesta: casos[caso_idx][1
+respuesta: "excepcional"
 
 enunciado: "En un juicio oral, la regla general es la prohibición de introducir elementos de convicción que no hayan sido debidamente anunciados y admitidos en la etapa intermedia. Sin embargo, la incorporación de prueba nueva es ___ si se demuestra que es un elemento sobreviniente que no pudo ser conocido antes."
 
@@ -773,7 +737,8 @@ metadata:
 
 respuesta: "audiencia"
 tipo: "completar"
-respuestas_validas: ["audiencia"]
+respuestas_validas:
+  - "audiencia"
 
 enunciado: "A diferencia de la etapa de instrucción, donde se recolectan elementos de convicción, el juicio oral se desarrolla mediante una ___ pública y contradictoria."
 
@@ -788,10 +753,7 @@ metadata:
   nivel: "intermedio"
   tags: ["principios_procesales", "inmediación"]
 
-variables:
-  es_inmediato: true
-
-respuesta: es_inmediato
+respuesta: verdadero
 tipo: "vf"
 
 enunciado: "El principio de inmediación exige que el tribunal debe tener contacto directo con la producción de la prueba durante el juicio oral, sin intermediarios."
@@ -824,7 +786,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "orden"]
 
-respuesta: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura"]
+respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura"]
 tipo: "ordenar"
 opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura"]
 
@@ -845,11 +807,11 @@ variables:
   escenario: uno_de([0, 1])
   datos: [["presentación de pruebas", "determinar culpabilidad"], ["argumentos", "convencer al juez"]]
 
-respuesta: datos[escenario][1
+respuesta: datos[escenario][1]
 tipo: "mc"
 opciones_explicitas: ["presentación de pruebas", "argumentos", "determinar culpabilidad", "convencer al juez"]
 
-enunciado: "En el juicio oral, la etapa de {datos[escenario][0]} tiene como objetivo principal {datos[escenario][1]}."
+enunciado: "En el juicio oral, ¿cuál es el objetivo principal de la etapa de {datos[escenario][0]}?"
 
 explicacion: |
   El objetivo de la producción probatoria es aportar elementos que permitan al tribunal alcanzar la certeza necesaria para dictar un veredicto.
@@ -862,13 +824,9 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso_penal", "fiscalia"]
 
-variables:
-  datos: [["El fiscal presenta un testigo que afirma haber visto al imputado cometiendo el robo.", "acusación"], ["El abogado defensor presenta una pericia que exculpa al imputado.", "defensa"]]
-  idx: uno_de([0, 1])
+enunciado: "En el escenario donde el fiscal presenta un testigo que afirma haber visto al imputado cometiendo el robo, ¿qué parte está ejerciendo la carga de la prueba?"
 
-enunciado: "En el escenario donde el {datos[idx][0]}, la parte que está ejerciendo la carga de la prueba es la de {datos[idx][1]}."
-
-respuesta: datos[idx][1]
+respuesta: "acusación"
 tipo: mc
 opciones_explicitas: ["acusación", "defensa", "tribunal", "testigo"]
 
@@ -899,12 +857,9 @@ metadata:
   nivel: "intermedio"
   tags: ["etapas", "debate"]
 
-variables:
-  secuencia: [["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]]
-
 enunciado: "Ordene cronológicamente las etapas fundamentales de un juicio oral:"
 
-respuesta: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
+respuesta_orden: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
 tipo: ordenar
 opciones_explicitas: ["Alegatos de apertura", "Producción de prueba", "Alegatos de clausura", "Deliberación y veredicto"]
 
@@ -927,7 +882,8 @@ enunciado: "Si en un juicio {datos[idx][0]}, la validez del acto procesal se con
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["invalida", "valida"]
+respuestas_validas:
+  - datos[idx][1]
 
 explicacion: |
   El principio de inmediación exige que el tribunal esté en contacto directo con la producción de la prueba para poder valorarla correctamente.
@@ -940,11 +896,7 @@ metadata:
   nivel: "intermedio"
   tags: ["principios", "in dubio pro reo"]
 
-variables:
-  resultado_prueba: uno_de(["insuficiente", "contundente"])
-  idx: uno_de([0, 1])
-
-enunciado: "Si la prueba presentada por la fiscalía es {resultado_prueba[idx]}, y surge una duda razonable, el juez debe dictar una sentencia de ___."
+enunciado: "Si la prueba presentada por la fiscalía es insuficiente y surge una duda razonable, el juez debe dictar una sentencia de ___."
 
 respuesta: "absolución"
 tipo: mc
@@ -986,7 +938,7 @@ opciones_explicitas: ["Constitución Nacional", "Leyes Nacionales", "Decretos de
 
 enunciado: "Ordene las siguientes normas de mayor a menor jerarquía según la doctrina de la Pirámide de Kelsen:"
 
-respuesta: ["Constitución Nacional", "Leyes Nacionales", "Decretos del Poder Ejecutivo", "Reglamentos"]
+respuesta_orden: ["Constitución Nacional", "Leyes Nacionales", "Decretos del Poder Ejecutivo", "Reglamentos"]
 
 explicacion: |
   En un sistema jurídico jerarquizado, la Constitución es la norma suprema. Las leyes nacionales se encuentran por debajo de la Constitución, seguidas por los decretos y, finalmente, los reglamentos.
@@ -999,16 +951,13 @@ metadata:
   nivel: "intermedio"
   tags: ["vigencia", "publicacion"]
 
-variables:
-  datos: [["publicación en el Boletín Oficial", "vigente"], ["omisión de publicación", "inexistente"]]
-  idx: uno_de([0, 1])
-
 tipo: completar
-respuestas_validas: ["publicación en el Boletín Oficial", "omisión de publicación"]
+respuestas_validas:
+  - "publicación en el Boletín Oficial"
 
 enunciado: "Para que una norma sea obligatoria y tenga vigencia, es requisito indispensable su ___."
 
-respuesta: datos[idx][0]
+respuesta: "publicación en el Boletín Oficial"
 
 explicacion: |
   La vigencia de una norma comienza, por regla general, desde su publicación en el órgano oficial correspondiente (como el Boletín Oficial), permitiendo que sea conocida por todos los ciudadanos.
@@ -1058,12 +1007,9 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  escenarios: [
-    ["Una ley sancionada por el Congreso contradice un artículo de la Constitución Nacional.", "inconstitucional"],
-    ["Un decreto presidencial contradice una ley vigente.", "ilegal"]
-  ]
+  escenarios: [["Una ley sancionada por el Congreso contradice un artículo de la Constitución Nacional.", "inconstitucional"], ["Un decreto presidencial contradice una ley vigente.", "ilegal"]]
 
-respuesta: escenarios[caso_idx][1
+respuesta: escenarios[caso_idx][1]
 tipo: mc
 opciones_explicitas: ["constitucional", "inconstitucional", "ilegal", "nulo"]
 
@@ -1080,7 +1026,7 @@ metadata:
   nivel: "basico"
   tags: ["vigencia", "promulgacion"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
 enunciado: "¿Una norma jurídica adquiere vigencia obligatoria desde el momento exacto de su sanción por el legislativo, incluso antes de su publicación en el Boletín Oficial?"
@@ -1096,10 +1042,7 @@ metadata:
   nivel: "intermedio"
   tags: ["orden", "jerarquia"]
 
-variables:
-  orden_lista: ["Constitución Nacional", "Tratados Internacionales", "Leyes", "Decretos", "Reglamentos"]
-
-respuesta: ["Constitución Nacional", "Tratados Internacionales", "Leyes", "Decretos", "Reglamentos"]
+respuesta_orden: ["Constitución Nacional", "Tratados Internacionales", "Leyes", "Decretos", "Reglamentos"]
 tipo: ordenar
 
 enunciado: "Ordene de mayor a menor jerarquía el siguiente bloque normativo:"
@@ -1124,16 +1067,10 @@ metadata:
   nivel: "intermedio"
   tags: ["decreto", "poder_ejecutivo"]
 
-variables:
-  caso_tipo: uno_de([0, 1])
-  casos: [
-    ["El Presidente dicta un decreto que busca regular una materia reservada exclusivamente a la ley.", "decreto"],
-    ["El Presidente dicta un decreto para reglamentar una ley ya existente.", "decreto"]
-  ]
-
 respuesta: "decreto"
 tipo: completar
-respuestas_validas: ["decreto"]
+respuestas_validas:
+  - "decreto"
 
 enunciado: "Si el Poder Ejecutivo dicta una norma para reglamentar una ley, estamos ante un ___."
 
@@ -1148,16 +1085,10 @@ metadata:
   nivel: "avanzado"
   tags: ["irretroactividad", "vigencia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Una nueva ley de tránsito se publica hoy y busca sancionar conductas de ayer.", "irretroactiva"],
-    ["Una ley de impuestos se publica hoy y rige para las ventas de mañana.", "prospectiva"]
-  ]
-
-respuesta: escenarios[escenario_idx][0
 tipo: mc
-opciones_explicitas: ["irretroactiva", "prospectiva", "inaplicable", "nula"]
+opciones_explicitas: ["retroactiva", "prospectiva", "inaplicable", "nula"]
+
+respuesta: "retroactiva"
 
 enunciado: "Si una ley establece sanciones para hechos ocurridos antes de su entrada en vigencia, se trata de una norma ___."
 
@@ -1205,15 +1136,12 @@ metadata:
   nivel: "intermedio"
   tags: ["ley", "decreto", "jerarquia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [[["Ley", "Decreto"], ["Decreto", "Ley"]]]
-
-respuesta: datos[escenario_idx][0][0
 tipo: "mc"
 opciones_explicitas: ["Ley", "Decreto", "Resolución"]
 
-enunciado: "Si un {datos[escenario_idx][0][1]} contradice lo establecido en una {datos[escenario_idx][0][0]}, la norma de mayor jerarquía prevalece y el acto administrativo es inválido por jerarquía."
+respuesta: "Ley"
+
+enunciado: "Si un Decreto contradice lo establecido en una Ley, la norma de mayor jerarquía prevalece y el acto administrativo es inválido por jerarquía. ¿Cuál de las dos normas es la de mayor jerarquía?"
 
 explicacion: |
   En la jerarquía normativa, la Ley (dictada por el Congreso) tiene un rango superior al Decreto (dictado por el Ejecutivo). Por lo tanto, un decreto no puede modificar ni contradecir una ley.
@@ -1227,7 +1155,7 @@ metadata:
   tags: ["orden", "jerarquia"]
 
 opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales con jerarquía constitucional", "Leyes", "Decretos", "Reglamentos"]
-respuesta: ["Constitución Nacional", "Tratados Internacionales con jerarquía constitucional", "Leyes", "Decretos", "Reglamentos"]
+respuesta_orden: ["Constitución Nacional", "Tratados Internacionales con jerarquía constitucional", "Leyes", "Decretos", "Reglamentos"]
 tipo: "ordenar"
 
 enunciado: "Ordene las siguientes normas desde la de mayor jerarquía a la de menor jerarquía, considerando el bloque de constitucionalidad y la normativa infralegal."
@@ -1245,7 +1173,9 @@ metadata:
 
 respuesta: "Constitución Nacional"
 tipo: completar
-respuestas_validas: ["Constitución Nacional", "Constitución"]
+respuestas_validas:
+  - "Constitución Nacional"
+  - "Constitución"
 
 enunciado: "En el sistema jurídico, la norma de mayor jerarquía que fundamenta la validez de todo el ordenamiento es la ___."
 
@@ -1260,11 +1190,8 @@ metadata:
   nivel: "intermedio"
   tags: ["ley", "decreto"]
 
-variables:
-  es_ley_que_prevalece: true
-
-respuesta: es_ley_que_prevalece
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En una comparación de jerarquía, una Ley sancionada por el Congreso tiene un rango superior a un Decreto emitido por el Poder Ejecutivo."
 
 explicacion: |
@@ -1279,7 +1206,7 @@ metadata:
   tags: ["orden_jerarquico", "normas"]
 
 opciones_explicitas: ["Constitución Nacional", "Leyes", "Decretos", "Reglamentos"]
-respuesta: ["Constitución Nacional", "Leyes", "Decretos", "Reglamentos"]
+respuesta_orden: ["Constitución Nacional", "Leyes", "Decretos", "Reglamentos"]
 tipo: ordenar
 
 enunciado: "Ordene las siguientes normas de mayor a menor jerarquía jurídica:"
@@ -1301,15 +1228,12 @@ metadata:
   nivel: "basico"
   tags: ["vigencia", "publicacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["publicación en el Boletín Oficial", "vigente"], ["sanción por el Congreso", "no vigente"]]
-
-respuesta: datos[escenario_idx][1
 tipo: mc
 opciones_explicitas: ["publicación en el Boletín Oficial", "sanción por el Congreso", "firma del Presidente", "debate parlamentario"]
 
-enunciado: "Para que una norma sea jurídicamente {datos[escenario_idx][0]} y obligatoria para todos, es requisito indispensable su ___."
+respuesta: "publicación en el Boletín Oficial"
+
+enunciado: "Para que una norma sea jurídicamente vigente y obligatoria para todos, es requisito indispensable su ___."
 
 explicacion: |
   La sanción es un paso necesario, pero la vigencia (obligatoriedad) se perfecciona con la publicación oficial.
@@ -1322,11 +1246,8 @@ metadata:
   nivel: "avanzado"
   tags: ["reglamento", "ley"]
 
-variables:
-  es_reglamento_que_crea_derechos: falso
-
-respuesta: es_reglamento_que_crea_derechos
-tipo: completar
+respuesta: falso
+tipo: vf
 enunciado: "A diferencia de la Ley, un Reglamento tiene la capacidad de crear derechos y obligaciones nuevos de manera autónoma, sin necesidad de una ley previa."
 
 explicacion: |
@@ -1342,17 +1263,14 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  datos: [
-    ["Una ley sancionada por el Congreso contradice un artículo de la Constitución Nacional.", "Constitución"],
-    ["Un decreto presidencial contradice una Ley Nacional vigente.", "Ley Nacional"]
-  ]
+  datos: [["Una ley sancionada por el Congreso contradice un artículo de la Constitución Nacional.", "Constitución"], ["Un decreto presidencial contradice una Ley Nacional vigente.", "Ley Nacional"]]
 
 tipo: mc
 opciones_explicitas: ["Constitución", "Ley Nacional", "Decreto Presidencial", "Reglamento"]
 
 enunciado: "En el caso de un conflicto normativo donde {datos[escenario_idx][0]}, ¿qué norma prevalece según la jerarquía jurídica?"
 
-respuesta: datos[escenario_idx][1
+respuesta: datos[escenario_idx][1]
 
 explicacion: |
   De acuerdo al principio de jerarquía normativa (Pirámide de Kelsen), la norma de mayor rango prevalece sobre las de menor rango. En este caso, la Constitución es la norma suprema.
@@ -1384,7 +1302,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Constitución Nacional", "Tratados Internacionales con jerarquía constitucional", "Leyes Nacionales", "Decretos Reglamentarios"]
 
-respuesta: ["Constitución Nacional", "Tratados Internacionales con jerarquía constitucional", "Leyes Nacionales", "Decretos Reglamentarios"]
+respuesta_orden: ["Constitución Nacional", "Tratados Internacionales con jerarquía constitucional", "Leyes Nacionales", "Decretos Reglamentarios"]
 
 enunciado: "Ordene de mayor a menor jerarquía el siguiente bloque normativo:"
 
@@ -1399,19 +1317,13 @@ metadata:
   nivel: "basico"
   tags: ["reglamento", "decreto"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [
-    ["El Poder Ejecutivo dicta un decreto para reglamentar una ley existente.", "reglamentar"],
-    ["Un Ministerio dicta una resolución para aplicar una norma superior.", "aplicar"]
-  ]
-
 tipo: completar
-respuestas_validas: ["reglamentar", "aplicar"]
+respuestas_validas:
+  - "reglamentar"
 
 enunciado: "El objetivo principal de un decreto reglamentario es ___ la norma de jerarquía superior para facilitar su ejecución."
 
-respuesta: casos[caso_idx][1
+respuesta: "reglamentar"
 
 explicacion: |
   Los reglamentos y decretos no pueden modificar el espíritu de la ley, sino que su función es reglamentar o aplicar los detalles técnicos para su cumplimiento.
@@ -1426,17 +1338,14 @@ metadata:
 
 variables:
   situacion_idx: uno_de([0, 1])
-  situaciones: [
-    ["Una ley ha sido derogada por una nueva ley posterior.", "no tiene vigencia"],
-    ["Una ley fue sancionada pero aún no se publicó en el Boletín Oficial.", "no tiene vigencia"]
-  ]
+  situaciones: [["Una ley ha sido derogada por una nueva ley posterior.", "no tiene vigencia"], ["Una ley fue sancionada pero aún no se publicó en el Boletín Oficial.", "no tiene vigencia"]]
 
 tipo: mc
 opciones_explicitas: ["tiene vigencia", "no tiene vigencia", "es nula"]
 
 enunciado: "Si una norma se encuentra en la situación descrita: {situaciones[situacion_idx][0]}, ¿cuál es su estado respecto a la vigencia?"
 
-respuesta: situaciones[situacion_idx][1
+respuesta: situaciones[situacion_idx][1]
 
 explicacion: |
   Para que una norma sea vigente debe estar publicada y no haber sido derogada por otra norma de igual o superior jerarquía.
@@ -1453,7 +1362,8 @@ metadata:
 
 respuesta: "garantismo"
 tipo: "completar"
-respuestas_validas: ["garantismo"]
+respuestas_validas:
+  - "garantismo"
 
 enunciado: "El modelo de política criminal que pone el foco en la protección de los derechos fundamentales del imputado y el respeto irrestricto a las garantías procesales se denomina ___."
 
@@ -1503,7 +1413,8 @@ metadata:
 
 respuesta: "debido proceso"
 tipo: "completar"
-respuestas_validas: ["debido proceso"]
+respuestas_validas:
+  - "debido proceso"
 
 enunciado: "Para el garantismo, el ___ es el pilar fundamental que asegura que la aplicación de la ley penal sea justa y no arbitraria."
 
@@ -1518,9 +1429,9 @@ metadata:
   nivel: "intermedio"
   tags: ["mano_dura", "proceso"]
 
-respuesta: ["Aumento de penas", "Mayor presencia policial", "Incremento de la percepción de seguridad"]
 tipo: "ordenar"
 opciones_explicitas: ["Aumento de penas", "Mayor presencia policial", "Incremento de la percepción de seguridad"]
+respuesta_orden: ["Aumento de penas", "Mayor presencia policial", "Incremento de la percepción de seguridad"]
 
 enunciado: "Ordene la secuencia lógica de objetivos/acciones que suele promover una política de 'mano dura' para combatir la criminalidad:"
 
@@ -1553,17 +1464,13 @@ metadata:
   tags: ["seguridad", "castigo", "mano_dura"]
 
 variables:
-  escenario: uno_de([
-    ["Aumento de la criminalidad", "mano_dura"],
-    ["Inseguridad ciudadana", "mano_dura"],
-    ["Crisis de delincuencia", "mano_dura"]
-  ])
+  escenario: uno_de(["Aumento de la criminalidad", "Inseguridad ciudadana", "Crisis de delincuencia"])
 
-respuesta: escenario[1
+respuesta: "mano_dura"
 tipo: "mc"
 opciones_explicitas: ["garantismo", "mano_dura"]
 
-enunciado: "Ante el escenario de {escenario[0]}, una política criminal de tipo {escenario[1]} suele proponer el endurecimiento de las penas y la expansión de la vigilancia policial para restaurar el orden."
+enunciado: "Ante el escenario de {escenario}, ¿qué tipo de política criminal suele proponer el endurecimiento de las penas y la expansión de la vigilancia policial para restaurar el orden?"
 
 explicacion: |
   La política de "mano dura" responde a la percepción de inseguridad mediante el incremento de la severidad penal, priorizando la prevención general a través del castigo.
@@ -1592,9 +1499,9 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "etapas"]
 
-respuesta: ["Detención", "Imputación", "Juicio Oral", "Sentencia"]
 tipo: "ordenar"
 opciones_explicitas: ["Detención", "Imputación", "Juicio Oral", "Sentencia"]
+respuesta_orden: ["Detención", "Imputación", "Juicio Oral", "Sentencia"]
 
 enunciado: "Ordene las etapas de un proceso penal bajo un modelo de garantías, partiendo desde la privación de la libertad hasta la resolución del conflicto:"
 
@@ -1610,14 +1517,12 @@ metadata:
   tags: ["medidas_cautelares", "prision_preventiva"]
 
 variables:
-  caso: uno_de([
-    ["El juez dicta prisión preventiva automática para todos los imputados sin analizar riesgos", "mano_dura"],
-    ["El juez dicta prisión preventiva solo si hay riesgo real de fuga o entorpecimiento", "garantismo"]
-  ])
+  caso: uno_de([["El juez dicta prisión preventiva automática para todos los imputados sin analizar riesgos", "mano_dura"], ["El juez dicta prisión preventiva solo si hay riesgo real de fuga o entorpecimiento", "garantismo"]])
 
-respuesta: caso[1
+respuesta: caso[1]
 tipo: "completar"
-respuestas_validas: ["mano_dura", "garantismo"]
+respuestas_validas:
+  - caso[1]
 
 enunciado: "En un caso donde {caso[0]}, estamos ante una política de tipo ___."
 
@@ -1634,6 +1539,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Minimizar la impunidad mediante el aumento de penas y vigilancia", "Asegurar que el Estado respete las garantías procesales del imputado", "Eliminar la posibilidad de defensa técnica para agilizar juicios", "Priorizar la sensación de seguridad ciudadana sobre el debido proceso"]
+
+respuesta: "Priorizar la sensación de seguridad ciudadana sobre el debido proceso"
 
 enunciado: "El enfoque de la política criminal de 'mano dura' se caracteriza primordialmente por:"
 
@@ -1664,10 +1571,12 @@ metadata:
   nivel: "intermedio"
   tags: ["procesal", "garantismo"]
 
+respuesta: "debido proceso"
 tipo: completar
-respuestas_validas: ["derecho", "debido proceso"]
+respuestas_validas:
+  - "debido proceso"
 
-enunciado: "El garantismo penal se fundamenta en la protección de los ___ del imputado y la observancia estricta del ___."
+enunciado: "El garantismo penal se fundamenta en la protección de los derechos del imputado y la observancia estricta del ___."
 
 explicacion: |
   El garantismo actúa como un límite al poder punitivo del Estado, asegurando que el proceso penal sea una herramienta de justicia y no de arbitrariedad, respetando los derechos fundamentales y las reglas de procedimiento.
@@ -1687,6 +1596,7 @@ enunciado: "Ordene los pasos de un proceso penal bajo un modelo estrictamente ga
 
 explicacion: |
   Un modelo garantista asegura que cada etapa (investigación, defensa, prueba y ejecución) esté sujeta a controles de legalidad y respeto de los derechos humanos.
+respuesta_orden: ["Investigación con respeto a la presunción de inocencia", "Debido proceso y derecho de defensa", "Sentencia basada en pruebas lícitas", "Ejecución de la pena conforme a la ley"]
 ```
 
 ```
@@ -1696,14 +1606,12 @@ metadata:
   nivel: "intermedio"
   tags: ["seguridad", "derecho_penal"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["El aumento de la población carcelaria es una medida de seguridad", "La restricción de derechos es un medio para la paz social"], ["El garantismo es un obstáculo para la justicia", "La mano dura es la respuesta a la crisis de seguridad"]]
-
 tipo: mc
 opciones_explicitas: ["La seguridad ciudadana es un derecho absoluto que justifica cualquier medida", "El garantismo y la seguridad ciudadana son objetivos que deben equilibrarse dentro de la ley", "La política criminal debe centrarse únicamente en la prevención mediante el castigo", "El derecho penal debe ser puramente retributivo"]
 
-enunciado: "Ante la crisis de inseguridad, una visión de 'mano dura' suele argumentar que: {datos[escenario_idx][0]}"
+respuesta: "El garantismo y la seguridad ciudadana son objetivos que deben equilibrarse dentro de la ley"
+
+enunciado: "En el debate entre garantismo y mano dura, ¿cuál es la postura más equilibrada respecto a la política criminal?"
 
 explicacion: |
   El debate suele centrarse en si la seguridad ciudadana es un valor que puede desplazar a las garantías individuales (visión de mano dura) o si la seguridad solo es legítima si se obtiene respetando el marco constitucional (visión garantista).
@@ -1718,6 +1626,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["El garantismo busca minimizar el poder punitivo del Estado para proteger derechos fundamentales.", "La mano dura busca maximizar la respuesta punitiva para disuadir el delito.", "El garantismo se enfoca exclusivamente en la seguridad ciudadana.", "La mano dura prioriza el debido proceso sobre la eficacia de la condena."]
+
+respuesta: "El garantismo busca minimizar el poder punitivo del Estado para proteger derechos fundamentales."
 
 enunciado: "Al contrastar ambos modelos, ¿cuál es la premisa fundamental que distingue al garantismo de la política de mano dura?"
 
@@ -1749,10 +1659,12 @@ metadata:
   nivel: "intermedio"
   tags: ["garantismo", "principios"]
 
+respuesta: "presunción de inocencia"
 tipo: completar
-respuestas_validas: ["debido proceso", "presunción de inocencia"]
+respuestas_validas:
+  - "presunción de inocencia"
 
-enunciado: "Para que una política criminal sea considerada estrictamente garantista, debe asegurar el ___ y respetar la ___ como pilares del sistema penal."
+enunciado: "Para que una política criminal sea considerada estrictamente garantista, debe asegurar el debido proceso y respetar la ___ como pilares del sistema penal."
 
 explicacion: |
   El garantismo penal se sostiene sobre la idea de que el Estado debe respetar el debido proceso y la presunción de inocencia, limitando su capacidad de sanción a lo estrictamente necesario y legalmente establecido.
@@ -1770,7 +1682,7 @@ opciones_explicitas: ["Garantía de derechos individuales", "Control de la legal
 
 enunciado: "Ordene los pasos de un proceso penal bajo un enfoque estrictamente garantista, desde la etapa de instrucción hasta la sentencia:"
 
-respuesta: ["Garantía de derechos individuales", "Control de la legalidad de la prueba", "Aplicación de la pena"]
+respuesta_orden: ["Garantía de derechos individuales", "Control de la legalidad de la prueba", "Aplicación de la pena"]
 
 explicacion: |
   En el garantismo, el orden lógico y jurídico exige primero asegurar los derechos del imputado, luego validar que la prueba sea legal y, solo tras cumplir todo el proceso, aplicar la pena.
@@ -1784,17 +1696,14 @@ metadata:
   tags: ["seguridad", "derechos_fundamentales"]
 
 variables:
-  escenario: uno_de([
-    ["Enfoque en la prevención mediante el control social y la sanción severa", "mano dura"],
-    ["Enfoque en la limitación del poder punitivo y el respeto a la norma", "garantismo"]
-  ])
+  escenario: uno_de([["Enfoque en la prevención mediante el control social y la sanción severa", "mano dura"], ["Enfoque en la limitación del poder punitivo y el respeto a la norma", "garantismo"]])
 
 tipo: mc
 opciones_explicitas: ["mano dura", "garantismo"]
 
 enunciado: "Identifique el modelo descrito: {escenario[0]}"
 
-respuesta: {escenario[1]}
+respuesta: escenario[1]
 
 explicacion: |
   El modelo de mano dura se centra en la respuesta punitiva y la seguridad como respuesta al fenómeno criminal, mientras que el garantismo se centra en la legalidad y los límites al Estado.
@@ -1808,15 +1717,11 @@ metadata:
   tags: ["derecho_penal", "politica_criminal"]
 
 variables:
-  escenario: uno_de([
-    ["Un aumento en la tasa de robos en un barrio requiere aumentar las penas mínimas y la presencia policial agresiva.", "mano_dura"],
-    ["Un aumento en la tasa de robos en un barrio requiere fortalecer el debido proceso y la revisión de las condiciones de detención.", "garantismo"]
-  ])
-  idx: uno_de([0, 1])
+  escenario: uno_de([["Un aumento en la tasa de robos en un barrio requiere aumentar las penas mínimas y la presencia policial agresiva.", "mano_dura"], ["Un aumento en la tasa de robos en un barrio requiere fortalecer el debido proceso y la revisión de las condiciones de detención.", "garantismo"]])
 
-enunciado: "Ante un aumento de la criminalidad, la aplicación de medidas que priorizan la seguridad pública y el castigo severo por sobre las garantías procesales se define como una política de {escenario[idx][0]}."
+enunciado: "Ante un aumento de la criminalidad, la siguiente medida: '{escenario[0]}' se define como una política de ___."
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["garantismo", "mano_dura"]
 
@@ -1848,17 +1753,14 @@ metadata:
   tags: ["seguridad", "populismo_penal"]
 
 variables:
-  caso: uno_de([
-    ["La implementación de leyes de detención preventiva automática para reducir la sensación de inseguridad.", "mano_dura"],
-    ["La creación de defensorías públicas para asegurar que todo procesado tenga asistencia legal técnica.", "garantismo"]
-  ])
-  idx: uno_de([0, 1])
+  caso: uno_de([["La implementación de leyes de detención preventiva automática para reducir la sensación de inseguridad.", "mano_dura"], ["La creación de defensorías públicas para asegurar que todo procesado tenga asistencia legal técnica.", "garantismo"]])
 
-enunciado: "La estrategia de {caso[idx][0]} es un ejemplo característico de una política de tipo ___________."
+enunciado: "La estrategia de {caso[0]} es un ejemplo característico de una política de tipo ___________."
 
-respuesta: caso[idx][1
+respuesta: caso[1]
 tipo: completar
-respuestas_validas: ["garantismo", "mano_dura"]
+respuestas_validas:
+  - caso[1]
 
 explicacion: |
   Las medidas que buscan la eficacia punitiva inmediata suelen asociarse al modelo de mano dura.
@@ -1871,7 +1773,7 @@ metadata:
   nivel: "avanzado"
   tags: ["proceso_penal", "garantismo"]
 
-respuesta: ["Presunción de inocencia", "Derecho a la defensa", "Debido proceso", "Principio de legalidad"]
+respuesta_orden: ["Presunción de inocencia", "Derecho a la defensa", "Debido proceso", "Principio de legalidad"]
 tipo: ordenar
 
 opciones_explicitas: ["Presunción de inocencia", "Derecho a la defensa", "Debido proceso", "Principio de legalidad"]
@@ -1890,15 +1792,11 @@ metadata:
   tags: ["seguridad", "derecho_penal"]
 
 variables:
-  medida: uno_de([
-    ["Aumentar el número de cárceles y reducir beneficios carcelarios para disuadir el delito.", "mano_dura"],
-    ["Limitar el uso de la prisión preventiva para evitar el hacinamiento y la criminalización de la pobreza.", "garantismo"]
-  ])
-  idx: uno_de([0, 1])
+  medida: uno_de([["Aumentar el número de cárceles y reducir beneficios carcelarios para disuadir el delito.", "mano_dura"], ["Limitar el uso de la prisión preventiva para evitar el hacinamiento y la criminalización de la pobreza.", "garantismo"]])
 
-enunciado: "La medida consistente en {medida[idx][0]} es un ejemplo de política de ___________."
+enunciado: "La medida consistente en {medida[0]} es un ejemplo de política de ___________."
 
-respuesta: medida[idx][1
+respuesta: medida[1]
 tipo: mc
 opciones_explicitas: ["garantismo", "mano_dura"]
 
@@ -1917,7 +1815,8 @@ metadata:
 
 respuesta: "personas y relaciones privadas"
 tipo: completar
-respuestas_validas: ["personas y relaciones privadas", "delitos y penas", "contratos laborales"]
+respuestas_validas:
+  - "personas y relaciones privadas"
 
 enunciado: "El Derecho Civil es la rama que regula las relaciones entre ___."
 
@@ -1948,21 +1847,14 @@ metadata:
   nivel: "intermedio"
   tags: ["comercial", "laboral", "administrativo"]
 
-variables:
-  escenario: uno_de([
-    ["relaciones de trabajo", "laboral"],
-    ["actos de comercio", "comercial"],
-    ["relación Estado-ciudadano", "administrativo"]
-  ])
-
-respuesta: escenario[1
+respuesta: "comercial"
 tipo: mc
 opciones_explicitas: ["laboral", "comercial", "administrativo", "penal"]
 
 enunciado: "Si una disputa surge a raíz de un contrato de compraventa entre dos empresas, ¿qué rama del derecho regula este conflicto?"
 
 explicacion: |
-  El escenario seleccionado fue: {escenario[0]}. Por lo tanto, la rama correspondiente es el Derecho {escenario[1]}.
+  Un contrato de compraventa entre empresas es un acto de comercio, por lo tanto la rama correspondiente es el Derecho Comercial.
 ```
 
 ```
@@ -1974,7 +1866,8 @@ metadata:
 
 respuesta: "Estado"
 tipo: completar
-respuestas_validas: ["Estado", "Empresas", "Ciudadanos"]
+respuestas_validas:
+  - "Estado"
 
 enunciado: "El Derecho Administrativo regula la organización y el funcionamiento del ___ y sus relaciones con los particulares."
 
@@ -1989,7 +1882,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "orden"]
 
-respuesta: ["delito", "investigación", "juicio", "sentencia"]
+respuesta_orden: ["delito", "investigación", "juicio", "sentencia"]
 tipo: ordenar
 opciones_explicitas: ["delito", "investigación", "juicio", "sentencia"]
 
@@ -2023,14 +1916,11 @@ metadata:
   nivel: "basico"
   tags: ["laboral", "trabajo"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["despido sin indemnización", "reclamación de salarios"], ["renuncia sin aviso", "liquidación final"]]
-  respuesta_correcta: ["laboral", "laboral"]
-
-respuesta: datos[escenario_idx][1
+respuesta: "laboral"
 tipo: completar
-enunciado: "Un empleado es despedido sin causa y sin recibir la indemnización que establece la ley. El trabajador decide demandar para reclamar sus derechos. ¿La rama del derecho que interviene en este caso es el derecho laboral? {datos[escenario_idx][0]}"
+respuestas_validas:
+  - "laboral"
+enunciado: "Un empleado es despedido sin causa y sin recibir la indemnización que establece la ley. El trabajador decide demandar para reclamar sus derechos. ¿Qué rama del derecho interviene en este caso? Derecho ___."
 
 explicacion: |
   El derecho laboral regula el vínculo entre empleadores y empleados, protegiendo la parte más débil de la relación y regulando despidos y salarios.
@@ -2045,7 +1935,8 @@ metadata:
 
 respuesta: "penal"
 tipo: completar
-respuestas_validas: ["penal"]
+respuestas_validas:
+  - "penal"
 
 enunciado: "Una persona entra a un supermercado y sustrae una mercadería sin pagar, siendo capturada por la seguridad. Dado que este acto constituye un delito contra la propiedad, la rama del derecho que debe intervenir es el derecho ___."
 
@@ -2077,7 +1968,7 @@ metadata:
   nivel: "intermedio"
   tags: ["comercial", "ordenar"]
 
-respuesta: ["oferta", "aceptación", "entrega de mercadería", "pago"]
+respuesta_orden: ["oferta", "aceptación", "entrega de mercadería", "pago"]
 tipo: ordenar
 opciones_explicitas: ["oferta", "aceptación", "entrega de mercadería", "pago"]
 
@@ -2135,15 +2026,12 @@ metadata:
   nivel: "intermedio"
   tags: ["penal", "delitos"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["robo", "delito"], ["incumplimiento de contrato", "civil"]]
-
 respuesta: "penal"
 tipo: completar
-respuestas_validas: ["penal"]
+respuestas_validas:
+  - "penal"
 
-enunciado: "Si una persona comete un ___, el Estado interviene para imponer una sanción punitiva; esta materia es regulada por el Derecho ___."
+enunciado: "Si una persona comete un delito, el Estado interviene para imponer una sanción punitiva; esta materia es regulada por el Derecho ___."
 
 explicacion: |
   El Derecho Penal se encarga de las conductas que son consideradas delitos y las sanciones que el Estado impone. No debe confundirse con el Derecho Civil, que busca la reparación de daños pero no la pena criminal.
@@ -2177,7 +2065,7 @@ metadata:
 tipo: ordenar
 opciones_explicitas: ["Identificar el vínculo laboral", "Determinar la normativa aplicable (Derecho Laboral)", "Calificar la sanción o indemnización"]
 
-respuesta: ["Identificar el vínculo laboral", "Determinar la normativa aplicable (Derecho Laboral)", "Calificar la sanción o indemnización"]
+respuesta_orden: ["Identificar el vínculo laboral", "Determinar la normativa aplicable (Derecho Laboral)", "Calificar la sanción o indemnización"]
 
 enunciado: "Ante un conflicto por un despido, el abogado debe seguir este orden lógico para aplicar correctamente el Derecho Laboral:"
 
@@ -2209,7 +2097,7 @@ metadata:
   nivel: "basico"
   tags: ["penal", "civil"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "A diferencia del Derecho Civil, que busca la reparación de un daño, el Derecho Penal tiene como fin principal la imposición de una sanción o pena por la comisión de un delito."
@@ -2225,12 +2113,10 @@ metadata:
   nivel: "intermedio"
   tags: ["laboral", "civil"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-
-respuesta: tabla[escenario_idx][1
+respuesta: "subordinación"
 tipo: completar
-respuestas_validas: ["subordinación", "igualdad"]
+respuestas_validas:
+  - "subordinación"
 
 enunciado: "A diferencia de un contrato de locación de servicios (civil), donde prima la autonomía de la voluntad, el Derecho Laboral se distingue por la existencia de una relación de ___ entre las partes."
 
@@ -2240,10 +2126,6 @@ pasos:
 
 explicacion: |
   El elemento distintivo del Derecho Laboral es la subordinación (dependencia técnica, económica y jurídica) del trabajador respecto al empleador.
-
-tabla:
-  - ["subordinación", "subordinación"]
-  - ["igualdad", "igualdad"]
 ```
 
 ```
@@ -2270,7 +2152,7 @@ metadata:
   nivel: "avanzado"
   tags: ["administrativo", "ordenamiento"]
 
-respuesta: ["Constitución", "Ley", "Reglamento"]
+respuesta_orden: ["Constitución", "Ley", "Reglamento"]
 tipo: ordenar
 
 opciones_explicitas: ["Constitución", "Ley", "Reglamento"]
@@ -2309,12 +2191,8 @@ metadata:
   nivel: "basico"
   tags: ["penal", "delitos"]
 
-variables:
-  caso: uno_de([["Un individuo es detenido por sustraer mercadería de un comercio sin pagar.", true], ["Un incumplimiento de contrato de alquiler es un delito penal.", false]])
-  tipo_caso: uno_de([0, 1])
-
-respuesta: caso[tipo_caso
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Un individuo es detenido por sustraer mercadería de un comercio sin pagar. ¿Este hecho es regulado por el derecho penal?"
 
 explicacion: |
@@ -2328,15 +2206,12 @@ metadata:
   nivel: "basico"
   tags: ["laboral", "trabajo"]
 
-variables:
-  datos: [["Un empleado es despedido sin causa y reclama sus indemnizaciones.", "laboral"], ["Un comerciante tiene una disputa por una deuda de mercadería.", "comercial"]]
-  idx: uno_de([0, 1])
-
-respuesta: "___"
+respuesta: "laboral"
 tipo: completar
-respuestas_validas: ["laboral"]
+respuestas_validas:
+  - "laboral"
 
-enunciado: "{datos[idx][0]} El conflicto se debe resolver ante el derecho ___."
+enunciado: "Un empleado es despedido sin causa y reclama sus indemnizaciones. El conflicto se debe resolver ante el derecho ___."
 
 explicacion: |
   El derecho laboral regula las relaciones entre empleadores y trabajadores, incluyendo despidos, salarios y condiciones de trabajo.
@@ -2355,7 +2230,7 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["civil", "penal", "laboral", "comercial"]
+opciones_explicitas: ["civil", "penal", "comercial", "administrativo"]
 
 enunciado: "{datos[idx][0]} ¿Qué rama del derecho regula esta actividad?"
 
@@ -2370,7 +2245,7 @@ metadata:
   nivel: "intermedio"
   tags: ["ordenar", "conceptos"]
 
-respuesta: ["Derecho Civil", "Derecho Comercial", "Derecho Administrativo", "Derecho Penal"]
+respuesta_orden: ["Derecho Civil", "Derecho Comercial", "Derecho Administrativo", "Derecho Penal"]
 tipo: ordenar
 
 opciones_explicitas: ["Derecho Penal", "Derecho Civil", "Derecho Administrativo", "Derecho Comercial"]
@@ -2424,18 +2299,12 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura", "sentencia"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [
-    ["vistos", "considerando", "fallo"],
-    ["pretensiones", "pruebas", "resolución"]
-  ]
-
 tipo: completar
-respuestas_validas: ["vistos", "considerando", "fallo"]
-respuesta: datos[escenario_idx][0
+respuestas_validas:
+  - "fallo"
 
-enunciado: "La estructura clásica de una sentencia contiene los ___ (antecedentes), los ___ (fundamentos de derecho) y el ___ (la decisión final)."
+enunciado: "La estructura clásica de una sentencia contiene los vistos (antecedentes), los considerando (fundamentos de derecho) y el ___ (la decisión final)."
+respuesta: "fallo"
 
 explicacion: |
   La estructura lógica de una sentencia requiere la exposición de los hechos, el análisis jurídico y la decisión final.
@@ -2468,7 +2337,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Demanda", "Práctica de pruebas", "Sentencia"]
-respuesta: ["Demanda", "Práctica de pruebas", "Sentencia"]
+respuesta_orden: ["Demanda", "Práctica de pruebas", "Sentencia"]
 
 enunciado: "Ordene cronológicamente las etapas fundamentales para llegar a una sentencia en un proceso de conocimiento:"
 
@@ -2485,12 +2354,14 @@ metadata:
 
 variables:
   caso_id: uno_de([0, 1])
-  datos: [[["testigo_falso", "prueba_insuficiente"], ["documento_autentico", "prueba_plena"]]]
+  datos: [["prueba_insuficiente", "desestimada"], ["prueba_plena", "estimada"]]
 
 enunciado: "En un juicio por incumplimiento de contrato, el juez analiza la evidencia. Si el juez determina que la evidencia presentada es {datos[caso_id][0]}, la conclusión lógica es que la demanda será ___."
 
-respuestas_validas: ["desestimada", "estimada"]
-respuesta: datos[caso_id][1
+respuestas_validas:
+  - "desestimada"
+  - "estimada"
+respuesta: datos[caso_id][1]
 tipo: completar
 
 explicacion: |
@@ -2505,7 +2376,7 @@ metadata:
   tags: ["procedimiento", "etapas"]
 
 opciones_explicitas: ["Presentación de la demanda", "Producción de pruebas", "Dictado de la sentencia"]
-respuesta: ["Presentación de la demanda", "Producción de pruebas", "Dictado de la sentencia"]
+respuesta_orden: ["Presentación de la demanda", "Producción de pruebas", "Dictado de la sentencia"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente las etapas fundamentales para que un juez llegue a una decisión definitiva en un proceso civil."
@@ -2521,9 +2392,8 @@ metadata:
   nivel: "avanzado"
   tags: ["motivacion", "derecho_constitucional"]
 
-opciones_explicitas: ["Verdadero", "Falso"]
-respuesta: "Verdadero"
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La 'motivación' de una sentencia es el deber del juez de explicar las razones fácticas y jurídicas que lo llevaron a tomar una decisión, evitando la arbitrariedad."
 
 explicacion: |
@@ -2556,11 +2426,10 @@ metadata:
 
 variables:
   monto: uno_de([1000.0, 5000.0])
-  valor_real: [[1000.0, 5000.0]]
 
-enunciado: "En un caso de responsabilidad civil, el juez determina que el demandado debe pagar una indemnización de ${monto}. Si el demandado apela y el tribunal superior confirma el monto, la resolución final es de ${valor_real[uno_de([0,1])]}."
+enunciado: "En un caso de responsabilidad civil, el juez determina que el demandado debe pagar una indemnización de ${monto}. Si el demandado apela y el tribunal superior confirma el monto sin modificarlo, ¿cuál es el monto de la resolución final?"
 
-respuesta: 5000.0
+respuesta: monto
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -2591,13 +2460,10 @@ metadata:
   nivel: "avanzado"
   tags: ["congruencia", "sentencia", "linderos_judiciales"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [[0, "El juez otorga una indemnización por daños que no fueron pedidos en la demanda."], [1, "El juez resuelve sobre todos los puntos objeto del litigio planteados por las partes."]]
-
 tipo: mc
 opciones_explicitas: ["Principio de Congruencia", "Principio de Preclusión", "Principio de Inmediación", "Principio de Oralidad"]
-respuesta: escenarios[escenario_idx][0
+
+respuesta: "Principio de Congruencia"
 
 enunciado: "Si un juez decide sobre una cuestión que no ha sido objeto de la controversia planteada por las partes, está incurriendo en una violación del: ___"
 
@@ -2614,7 +2480,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Vistos", "Considerando", "Fallo"]
-respuesta: ["Vistos", "Considerando", "Fallo"]
+respuesta_orden: ["Vistos", "Considerando", "Fallo"]
 
 enunciado: "Ordene cronológicamente las partes de una sentencia judicial estándar:"
 
@@ -2630,7 +2496,8 @@ metadata:
   tags: ["hechos", "derecho", "subsuncion"]
 
 tipo: completar
-respuestas_validas: ["subsunción"]
+respuestas_validas:
+  - "subsunción"
 respuesta: "subsunción"
 
 enunciado: "El proceso de razonamiento mediante el cual el juez encuadra los hechos probados dentro de la norma jurídica aplicable se denomina ___."
@@ -2680,11 +2547,8 @@ metadata:
   nivel: "avanzado"
   tags: ["cosa_juzgada", "derecho_procesal"]
 
-variables:
-  es_cosa_juzgada: true
-
-respuesta: es_cosa_juzgada
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "La 'cosa juzgada' se distingue de la 'cosa decidida' porque la primera implica una inmutabilidad absoluta de la decisión debido a que no admite más recursos, mientras que la segunda se refiere a una decisión que aún es susceptible de ser revisada mediante un recurso."
 
 explicacion: |
@@ -2700,12 +2564,9 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["En la mediación, un tercero neutral facilita la comunicación para que las partes encuentren su propia solución.", "mediación"],
-    ["En la conciliación, el tercero tiene una función más activa y puede proponer fórmulas de solución que las partes pueden aceptar.", "conciliación"]
-  ]
+  escenarios: [["En la mediación, un tercero neutral facilita la comunicación para que las partes encuentren su propia solución.", "mediación"], ["En la conciliación, el tercero tiene una función más activa y puede proponer fórmulas de solución que las partes pueden aceptar.", "conciliación"]]
 
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 opciones_explicitas: ["mediación", "conciliación"]
 
@@ -2722,7 +2583,7 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura_sentencia", "proceso"]
 
-respuesta: ["encabezamiento", "vistos", "considerandos", "fallo"]
+respuesta_orden: ["encabezamiento", "vistos", "considerandos", "fallo"]
 tipo: ordenar
 opciones_explicitas: ["encabezamiento", "vistos", "considerandos", "fallo"]
 
@@ -2739,18 +2600,10 @@ metadata:
   nivel: "intermedio"
   tags: ["arbitraje", "jurisdiccion"]
 
-variables:
-  tipo_resolucion: uno_de(["laudo", "sentencia"])
-  datos: [
-    ["En un proceso judicial ordinario, la decisión se denomina ___.", "sentencia"],
-    ["En un proceso de arbitraje, la decisión se denomina ___.", "laudo"]
-  ]
-
-respuesta: datos[idx][1
-  idx: uno_de([0, 1])
-
+respuesta: "laudo"
 tipo: completar
-respuestas_validas: ["sentencia", "laudo"]
+respuestas_validas:
+  - "laudo"
 
 enunciado: "En un proceso de arbitraje, la decisión final que resuelve la controversia se denomina ___."
 
@@ -2766,14 +2619,15 @@ metadata:
   tags: ["sentencia", "juez", "derecho_procesal"]
 
 variables:
-  datos: [["Juan demanda a Pedro por una deuda de $1000", "Pedro debe pagar $1000"], ["María demanda a Luis por daños en un auto", "Luis debe reparar el auto"], ["Un vecino demanda a otro por ruido excesivo", "Se debe ordenar el cese de ruidos"]]
+  datos: ["Juan demanda a Pedro por una deuda de $1000", "María demanda a Luis por daños en un auto", "Un vecino demanda a otro por ruido excesivo"]
   idx: uno_de([0, 1, 2])
 
-respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["La decisión del juez", "El contrato entre las partes", "La demanda inicial", "La mediación previa"]
 
-enunciado: "En el caso donde {datos[idx][0]}, la decisión final del juez que pone fin al conflicto se denomina:"
+respuesta: "La decisión del juez"
+
+enunciado: "En el caso donde {datos[idx]}, ¿cómo se denomina la decisión final del juez que pone fin al conflicto?"
 
 explicacion: |
   La sentencia es el acto procesal mediante el cual el juez resuelve la cuestión sometida a su decisión, poniendo fin al proceso.
@@ -2786,11 +2640,7 @@ metadata:
   nivel: "intermedio"
   tags: ["estructura", "sentencia", "vistos", "fallo"]
 
-variables:
-  orden_partes: ["Vistos", "Considerandos", "Fallo"]
-  idx: 0
-
-respuesta: ["Vistos", "Considerandos", "Fallo"]
+respuesta_orden: ["Vistos", "Considerandos", "Fallo"]
 tipo: ordenar
 opciones_explicitas: ["Vistos", "Considerandos", "Fallo"]
 
@@ -2833,11 +2683,12 @@ metadata:
   nivel: "basico"
   tags: ["elementos", "sentencia", "fundamentación"]
 
-respuesta: ["fundamentación", "resolución"]
+respuesta: "resolución"
 tipo: completar
-respuestas_validas: ["fundamentación", "resolución"]
+respuestas_validas:
+  - "resolución"
 
-enunciado: "Toda sentencia debe contener una ___ (donde se explica el porqué de la decisión) y una ___ (donde se dicta el mandato final)."
+enunciado: "Toda sentencia debe contener una fundamentación (donde se explica el porqué de la decisión) y una ___ (donde se dicta el mandato final)."
 
 explicacion: |
   La fundamentación es la parte donde el juez aplica la ley a los hechos, y la resolución es la parte dispositiva donde se decide el conflicto.
@@ -2863,3 +2714,4 @@ enunciado: "Si la sentencia es de carácter {datos[idx][0]}, entonces se dice qu
 explicacion: |
   La sentencia definitiva es la que tiene autoridad de cosa juzgada, impidiendo que el mismo conflicto sea juzgado nuevamente.
 ```
+

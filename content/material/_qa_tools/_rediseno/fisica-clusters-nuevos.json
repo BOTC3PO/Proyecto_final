@@ -1,0 +1,184 @@
+[
+ {
+  "id": 736,
+  "cluster": 1,
+  "temas": [
+   "calor-q-m-c-deltat",
+   "cambios-de-estado-calor-latente",
+   "campo-electrico",
+   "campo-magnetico-imanes-corrientes",
+   "cargas-electricas"
+  ],
+  "preguntas": 122
+ },
+ {
+  "id": 737,
+  "cluster": 2,
+  "temas": [
+   "caudal-q-a-v",
+   "choques-elasticos-inelasticos",
+   "circuitos-en-paralelo",
+   "circuitos-en-serie",
+   "circuitos-mixtos"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 738,
+  "cluster": 3,
+  "temas": [
+   "conservacion-energia-mecanica",
+   "corriente-electrica",
+   "decaimiento-radiactivo-alfa-beta-gamma",
+   "decibeles-richter",
+   "dilatacion-termica-lineal"
+  ],
+  "preguntas": 122
+ },
+ {
+  "id": 739,
+  "cluster": 4,
+  "temas": [
+   "dinamica-fuerzas-concurrentes",
+   "dualidad-onda-particula",
+   "energia-cinetica",
+   "energia-potencial-gravitatoria",
+   "entropia-segunda-ley-termodinamica"
+  ],
+  "preguntas": 130
+ },
+ {
+  "id": 740,
+  "cluster": 5,
+  "temas": [
+   "escalas-de-temperatura-c-f-k",
+   "estatica/centro-de-gravedad",
+   "estatica/equilibrio-de-cuerpo-rigido",
+   "estatica/momento-de-una-fuerza",
+   "estructura-del-nucleo-atomico"
+  ],
+  "preguntas": 118
+ },
+ {
+  "id": 741,
+  "cluster": 6,
+  "temas": [
+   "fisica-medica",
+   "fision-y-fusion-nuclear",
+   "formacion-de-imagenes-optica",
+   "formulas-con-literales",
+   "frecuencia"
+  ],
+  "preguntas": 142
+ },
+ {
+  "id": 742,
+  "cluster": 7,
+  "temas": [
+   "generador-motor-transformador",
+   "gravitacion-universal",
+   "iman-polos-atraccion-repulsion",
+   "impulso-cambio-momento",
+   "induccion-electromagnetica-faraday-lenz"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 743,
+  "cluster": 8,
+  "temas": [
+   "lentes-convergentes-divergentes",
+   "ley-de-coulomb",
+   "ley-de-ohm",
+   "leyes-de-newton/primera-inercia",
+   "leyes-de-newton/segunda-fma"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 744,
+  "cluster": 9,
+  "temas": [
+   "leyes-de-newton/tercera-accion-reaccion",
+   "longitud-onda-velocidad-propagacion",
+   "luz-onda-espectro-electromagnetico",
+   "maquina-termica-termodinamica-nivel2",
+   "maquinas-simples"
+  ],
+  "preguntas": 127
+ },
+ {
+  "id": 745,
+  "cluster": 10,
+  "temas": [
+   "momento-lineal",
+   "movimiento-circular-y-fuerza-centripeta",
+   "mru",
+   "ojo-humano-instrumento-optico",
+   "mruv"
+  ],
+  "preguntas": 130
+ },
+ {
+  "id": 746,
+  "cluster": 11,
+  "temas": [
+   "oscilacion-periodo",
+   "plano-inclinado-y-rozamiento",
+   "potencia-electrica",
+   "potencia-mecanica",
+   "presion-atmosferica"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 747,
+  "cluster": 12,
+  "temas": [
+   "presion-f-sobre-a",
+   "masas-de-aire-y-frentes",
+   "presion-hidrostatica",
+   "formacion-de-nubes",
+   "principio-de-arquimedes-empuje-flotacion"
+  ],
+  "preguntas": 119
+ },
+ {
+  "id": 748,
+  "cluster": 13,
+  "temas": [
+   "precipitacion",
+   "principio-de-pascal-prensa-hidraulica",
+   "reflexion-espejos-planos-curvos",
+   "refraccion-indice-ley-snell",
+   "relatividad-especial-conceptual"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 749,
+  "cluster": 14,
+  "temas": [
+   "resistencia-electrica",
+   "resonancia-frecuencia-natural",
+   "semivida-desintegracion-exponencial",
+   "sonido-timbre-altura-intensidad",
+   "temperatura-equilibrio-termico"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 750,
+  "cluster": 15,
+  "temas": [
+   "tension-diferencia-potencial",
+   "tiro-oblicuo",
+   "tiro-vertical",
+   "tormentas-y-fenomenos-severos",
+   "trabajo-de-una-fuerza",
+   "transmision-calor-conduccion-conveccion-radiacion",
+   "velocidad-aceleracion-instantaneas"
+  ],
+  "preguntas": 180
+ }
+]

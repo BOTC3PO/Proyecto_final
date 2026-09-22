@@ -1,522 +1,8 @@
-# Examen jefe — Maestro de los Campos y Movimientos
+# Examen jefe — [PENDIENTE #742]
 
-> Logro #162. Dominaste los conceptos de frecuencias, máquinas eléctricas, gravitación, magnetismo e impulso en el examen jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #742. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: frecuencia (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_basica"
-  nivel: "basico"
-  tags: ["oscilaciones", "definicion"]
-
-tipo: mc
-opciones_explicitas: ["El tiempo que tarda en completarse una oscilación", "La cantidad de oscilaciones por unidad de tiempo", "La distancia máxima desde el punto de equilibrio", "La velocidad de un objeto en movimiento"]
-
-respuesta: "La cantidad de oscilaciones por unidad de tiempo"
-
-enunciado: "La frecuencia se define como ___."
-
-explicacion: |
-  La frecuencia mide cuántos ciclos o vueltas ocurren en un intervalo de tiempo determinado.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "relacion_frecuencia_periodo"
-  nivel: "basico"
-  tags: ["periodo", "formula"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["T = 2 s", "f = 0.5 Hz"], ["T = 0.5 s", "f = 2 Hz"]]
-
-tipo: mc
-opciones_explicitas: ["f = T", "f = 1 / T", "f = T * 2", "f = 1 / (2 * T)"]
-
-respuesta: "f = 1 / T"
-
-enunciado: "Si un fenómeno tiene un período de {datos[idx][0]}, su frecuencia es de {datos[idx][1]}."
-
-explicacion: |
-  La relación entre frecuencia (f) y período (T) es inversamente proporcional: f = 1/T.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "unidades_frecuencia"
-  nivel: "basico"
-  tags: ["unidades", "herتz"]
-
-tipo: completar
-respuestas_validas: ["Hz", "Hertz"]
-
-respuesta: "Hz"
-
-enunciado: "La unidad de medida de la frecuencia en el Sistema Internacional es el ___."
-
-explicacion: |
-  El Hertz (Hz) equivale a 1 ciclo por segundo (1/s).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "propiedades_frecuencia"
-  nivel: "basico"
-  tags: ["conceptual"]
-
-tipo: vf
-
-respuesta: falso
-
-enunciado: "Si el período de un péndulo aumenta, su frecuencia también aumenta."
-
-explicacion: |
-  Falso. Como la relación es inversa (f = 1/T), si el período aumenta, la frecuencia disminuye.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "calculo_frecuencia"
-  nivel: "intermedio"
-  tags: ["calculo", "ejercicio"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[5, 0.2], [10, 0.1]]
-
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un objeto realiza un ciclo completo cada {datos[idx][0]} segundos. ¿Cuál es su frecuencia en Hz?"
-
-pasos:
-  - "Identificar el período (T = {datos[idx][0]} s)"
-  - "Aplicar la fórmula f = 1 / T"
-  - "Calcular el resultado: 1 / {datos[idx][0]}"
-
-respuesta: datos[idx][1
-
-explicacion: |
-  Usando la fórmula f = 1 / T:
-  f = 1 / {datos[idx][0]} = {datos[idx][1]} Hz.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_periodo"
-  nivel: "basico"
-  tags: ["frecuencia", "periodo", "oscilaciones"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si el período de una oscilación aumenta, la frecuencia de la misma también aumenta."
-
-explicacion: |
-  La frecuencia ($f$) es inversamente proporcional al período ($T$), según la fórmula $f = 1/T$. Si el tiempo que tarda un ciclo (período) es mayor, ocurren menos ciclos por segundo (frecuencia menor).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_calculo"
-  nivel: "basico"
-  tags: ["frecuencia", "calculo"]
-
-variables:
-  periodo: 0.5
-
-respuesta: 2.0
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un péndulo completa un ciclo cada {periodo} segundos. ¿Cuál es su frecuencia en Hz?"
-
-pasos:
-  - "Identificar el período: $T = {periodo}$ s"
-  - "Aplicar la fórmula: $f = 1 / T$"
-  - "Calcular: $f = 1 / 0.5 = 2.0$ Hz"
-
-explicacion: |
-  La frecuencia se calcula dividiendo 1 entre el período. En este caso, $1 / 0.5 = 2$ Hz.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_definicion"
-  nivel: "basico"
-  tags: ["definicion", "frecuencia"]
-
-opciones_explicitas: ["Cantidad de ciclos por unidad de tiempo", "Tiempo que tarda un ciclo", "Distancia recorrida en un ciclo", "Velocidad de la oscilación"]
-respuesta: "Cantidad de ciclos por unidad de tiempo"
-tipo: mc
-
-enunciado: "¿Cuál es la definición física de frecuencia?"
-
-explicacion: |
-  La frecuencia mide cuántas veces se repite un evento (u oscilación) en un intervalo de tiempo determinado (generalmente un segundo).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_unidades"
-  nivel: "intermedio"
-  tags: ["unidades", "hercios"]
-
-variables:
-  f_valor: 50
-  f_unid: "Hz"
-
-respuesta: "50"
-tipo: completar
-respuestas_validas: ["50"]
-
-enunciado: "Si un objeto oscila con una frecuencia de {f_valor} {f_unid}, esto significa que realiza ___ oscilaciones por segundo."
-
-explicacion: |
-  El Hertz (Hz) es la unidad del Sistema Internacional para la frecuencia y equivale a $1/s$ (un ciclo por segundo).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_inversa"
-  nivel: "intermedio"
-  tags: ["frecuencia", "periodo"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[0.2, 5.0], [0.5, 2.0]]
-
-respuesta: datos[idx][1
-tipo: mc
-opciones_explicitas: [datos[idx][1]]
-
-enunciado: "Si el período de un fenómeno es de {datos[idx][0]} segundos, ¿cuál es su frecuencia?"
-
-pasos:
-  - "Datos: $T = {datos[idx][0]}$ s"
-  - "Fórmula: $f = 1 / T$"
-  - "Resultado: $f = 1 / {datos[idx][0]} = {datos[idx][1]}$ Hz"
-
-explicacion: |
-  Usando la relación $f = 1/T$, para un período de {datos[idx][0]} s, la frecuencia es {datos[idx][1]} Hz.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_periodo"
-  nivel: "basico"
-  tags: ["oscilaciones", "periodo"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [[0.5, 2.0], [2.0, 0.5]]
-
-enunciado: "Si un objeto realiza una oscilación cada {datos[idx][0]} segundos (período), su frecuencia será de {datos[idx][1]} Hz."
-
-respuesta: datos[idx][1
-tipo: mc
-opciones_explicitas: ["0.5", "2.0", "1.0", "0.25"]
-
-explicacion: |
-  La frecuencia (f) es el inverso del período (T): f = 1/T. 
-  Si T = {datos[idx][0]} s, entonces f = 1 / {datos[idx][0]} = {datos[idx][1]} Hz.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "unidades_frecuencia"
-  nivel: "basico"
-  tags: ["unidades", "hertz"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La unidad de medida de la frecuencia, el Hertz (Hz), representa el tiempo que tarda en completarse un ciclo completo."
-
-explicacion: |
-  Falso. El Hertz (Hz) mide la cantidad de ciclos por segundo (1/s). 
-  La unidad que mide el tiempo de un ciclo es el segundo (s), que corresponde al período.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_oscilaciones"
-  nivel: "intermedio"
-  tags: ["calculo", "tiempo"]
-
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[10, 60], [5, 120]]
-
-enunciado: "Un péndulo oscila con una frecuencia de {escenario[idx][0]} Hz. ¿Cuántas oscilaciones completará en un intervalo de tiempo de {escenario[idx][1]} segundos?"
-
-respuesta: escenario[idx][0] * escenario[idx][1]
-tipo: completar
-tolerancia_abs: 0
-
-pasos:
-  - "Identificar la frecuencia (f) y el tiempo (t)."
-  - "Multiplicar el número de ciclos por segundo por el tiempo total: N = f * t."
-
-explicacion: |
-  Para hallar el número total de oscilaciones, multiplicamos la frecuencia por el tiempo transcurrido.
-  N = {escenario[idx][0]} Hz * {escenario[idx][1]} s = {escenario[idx][0] * escenario[idx][1]} oscilaciones.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_periodo"
-  nivel: "basico"
-  tags: ["relacion_inversa"]
-
-respuesta: "Si el período aumenta, la frecuencia disminuye"
-tipo: mc
-opciones_explicitas: ["Si el período aumenta, la frecuencia aumenta", "Si el período aumenta, la frecuencia disminuye", "Si el período aumenta, la frecuencia se mantiene igual"]
-
-enunciado: "Considerando la relación f = 1/T, ¿cuál de las siguientes afirmaciones es correcta sobre el comportamiento de la frecuencia cuando el período se hace más largo?"
-
-explicacion: |
-  Debido a que la frecuencia es inversamente proporcional al período, si el denominador (T) crece, el resultado (f) se reduce.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "metodologia_resolucion"
-  nivel: "intermedio"
-  tags: ["ordenar", "pasos"]
-
-respuesta: ["Identificar el período (T)", "Calcular el inverso (1/T)", "Asignar la unidad Hertz (Hz)"]
-tipo: ordenar
-opciones_explicitas: ["Identificar el período (T)", "Calcular el inverso (1/T)", "Asignar la unidad Hertz (Hz)", "Multiplicar por el tiempo"]
-
-enunciado: "Ordena los pasos lógicos para convertir un período de 0.25 segundos a frecuencia en Hertz:"
-
-explicacion: |
-  1. Primero identificas el valor del período.
-  2. Aplicas la fórmula matemática de la inversa.
-  3. Expresas el resultado en la unidad de medida correcta.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_periodo"
-  nivel: "basico"
-  tags: ["oscilaciones", "periodo"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [
-    ["0.5", "2.0"],
-    ["2.0", "0.5"]
-  ]
-
-enunciado: "Si el período de un oscilador es de {datos[idx][0]} segundos, su frecuencia será de {datos[idx][1]} Hz."
-
-respuesta: datos[idx][1
-tipo: mc
-opciones_explicitas: ["0.5", "1.0", "2.0", "4.0"]
-
-explicacion: |
-  La frecuencia (f) es el inverso del período (T), es decir, f = 1/T. 
-  Si T = 0.5 s, entonces f = 1 / 0.5 = 2.0 Hz.
-  Si T = 2.0 s, entonces f = 1 / 2.0 = 0.5 Hz.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_definicion"
-  nivel: "basico"
-  tags: ["definicion", "conceptos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La frecuencia se define como la cantidad de ciclos o oscilaciones completas que ocurren en una unidad de tiempo."
-
-explicacion: |
-  Correcto. La frecuencia mide la rapidez con la que se repite un fenómeno periódico.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "unidades_frecuencia"
-  nivel: "basico"
-  tags: ["unidades", "si_no"]
-
-respuesta: "Hz"
-tipo: completar
-respuestas_validas: ["Hz", "Hertz"]
-
-enunciado: "La unidad de medida de la frecuencia en el Sistema Internacional es el ___."
-
-explicacion: |
-  La unidad es el Hertz (Hz), que equivale a 1/s (ciclos por segundo).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_periodo_comparacion"
-  nivel: "intermedio"
-  tags: ["relacion_inversa"]
-
-respuesta: "inversamente"
-tipo: completar
-respuestas_validas: ["directamente", "inversamente"]
-
-enunciado: "Mientras que el período mide el tiempo de un solo ciclo, la frecuencia y el período tienen una relación ___."
-
-explicacion: |
-  Es una relación inversa: a mayor período (más tiempo por ciclo), menor frecuencia (menos ciclos por segundo).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "magnitudes_periodicas"
-  nivel: "basico"
-  tags: ["identificacion"]
-
-respuesta: ["Período", "Frecuencia", "Amplitud"]
-tipo: ordenar
-
-opciones_explicitas: ["Período", "Frecuencia", "Amplitud"]
-
-enunciado: "Ordene las siguientes magnitudes de mayor a menor, considerando un sistema donde el tiempo de un ciclo es mayor que el número de ciclos por segundo, y la distancia máxima es la mayor de todas:"
-
-explicacion: |
-  El enunciado pide ordenar: 
-  1. Período (tiempo de un ciclo, ej: 2s).
-  2. Frecuencia (ciclos por segundo, ej: 0.5Hz).
-  3. Amplitud (distancia, ej: 5m).
-  Nota: El orden depende de los valores numéricos dados en el enunciado para establecer la jerarquía.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_periodo"
-  nivel: "basico"
-  tags: ["oscilaciones", "periodo"]
-
-variables:
-  escenario: uno_de([[0.5, "0.5"], [2.0, "2.0"], [0.2, "0.2"]])
-  frecuencia: 1 / escenario[0]
-
-respuesta: frecuencia
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un péndulo de un reloj antiguo realiza un movimiento oscilatorio. Si el tiempo que tarda en completar una oscilación completa (período) es de {escenario[0]} segundos, ¿cuál es la frecuencia de oscilación en Hz?"
-
-pasos:
-  - "Identificar el período T = {escenario[0]} s"
-  - "Aplicar la fórmula de la frecuencia: f = 1 / T"
-  - "Calcular f = 1 / {escenario[0]}"
-
-explicacion: |
-  La frecuencia (f) es el inverso del período (T). Si tarda {escenario[0]} s en oscilar una vez, en un segundo realiza {frecuencia} oscilaciones.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_periodo"
-  nivel: "intermedio"
-  tags: ["mecanica", "frecuencia"]
-
-variables:
-  motor_data: uno_de([[1200, "1200"], [3000, "3000"], [600, "600"]])
-  f_valor: motor_data[0] / 60
-
-respuesta: f_valor
-tipo: mc
-opciones_explicitas: ["1200", "3000", "600", "20"]
-
-enunciado: "Un motor de combustión interna realiza {motor_data[0]} revoluciones por minuto (RPM). ¿Cuántas revoluciones (frecuencia) realiza por segundo (Hz)?"
-
-explicacion: |
-  Para convertir de RPM a Hz, debemos dividir la cantidad de revoluciones por 60, ya que un minuto tiene 60 segundos. {motor_data[0]} / 60 = {f_valor} Hz.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_periodo"
-  nivel: "basico"
-  tags: ["ondas", "radio"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si una onda electromagnética tiene una frecuencia muy alta, su período de oscilación debe ser muy corto."
-
-explicacion: |
-  Es verdadero. Como f = 1/T, la frecuencia y el período son inversamente proporcionales. A mayor frecuencia, menor período.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_periodo"
-  nivel: "basico"
-  tags: ["biologia_fisica", "frecuencia"]
-
-variables:
-  datos_ritmo: uno_de([[60, "60"], [80, "80"], [100, "100"]])
-  periodo_calculado: 60 / datos_ritmo[0]
-
-respuesta: periodo_calculado
-tipo: completar
-respuestas_validas: [60 / 60, 60 / 80, 60 / 100]
-
-enunciado: "Una persona tiene una frecuencia cardíaca de {datos_ritmo[0]} latidos por minuto. El tiempo transcurrido entre cada latido (período) es de ___ segundos."
-
-explicacion: |
-  Si hay {datos_ritmo[0]} latidos en 60 segundos, el tiempo por latido es 60 / {datos_ritmo[0]} = {periodo_calculado} segundos.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "frecuencia_periodo"
-  nivel: "intermedio"
-  tags: ["ritmo", "orden"]
-
-variables:
-  f_val: 2.0
-  t_val: 0.5
-
-respuesta: ["0.5", "1.0", "2.0"]
-tipo: ordenar
-opciones_explicitas: ["0.5", "1.0", "2.0"]
-
-enunciado: "Un metrónomo marca una frecuencia de {f_val} Hz. Ordena los siguientes valores de período (en segundos) de menor a mayor:"
-
-explicacion: |
-  Si f = 2 Hz, el período es T = 1/2 = 0.5 s. Los períodos correspondientes a frecuencias de 2Hz, 1Hz y 0.5Hz son 0.5s, 1s y 2s respectivamente.
-```
 
 ## Sección: generador-motor-transformador (25 preguntas)
 
@@ -529,7 +15,9 @@ metadata:
 
 respuesta: "convertir energía eléctrica en energía mecánica"
 tipo: completar
-respuestas_validas: ["convertir energía eléctrica en energía mecánica", "transformar electricidad en movimiento"]
+respuestas_validas:
+  - "convertir energía eléctrica en energía mecánica"
+  - "transformar electricidad en movimiento"
 
 enunciado: "La función principal de un motor eléctrico es ___."
 
@@ -596,13 +84,9 @@ metadata:
 
 variables:
   idx: uno_de([0, 1, 2])
-  escenario: [
-    ["Generador", "Mecánica -> Eléctrica"],
-    ["Motor", "Eléctrica -> Mecánica"],
-    ["Transformador", "Eléctrica -> Eléctrica"]
-  ]
+  escenario: [["Generador", "Mecánica -> Eléctrica"], ["Motor", "Eléctrica -> Mecánica"], ["Transformador", "Eléctrica -> Eléctrica"]]
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: mc
 opciones_explicitas: ["Mecánica -> Eléctrica", "Eléctrica -> Mecánica", "Eléctrica -> Eléctrica"]
 
@@ -696,7 +180,7 @@ metadata:
   nivel: "basico"
   tags: ["componentes", "motor"]
 
-respuesta: ["Armadura", "Colector", "Escobillas"]
+respuesta_orden: ["Escobillas", "Colector", "Armadura"]
 tipo: ordenar
 
 opciones_explicitas: ["Escobillas", "Colector", "Armadura"]
@@ -723,9 +207,10 @@ variables:
   Ns: 12
   Is: 50
 
-respuesta: "600"
+respuesta: "50"
 tipo: completar
-respuestas_validas: ["600"]
+respuestas_validas:
+  - "50"
 
 enunciado: "En un transformador ideal, la potencia de entrada es igual a la potencia de salida (Pin = Pout). Si el voltaje primario es de {Vp} V con una corriente de {Ip} A, y el voltaje secundario es de {Ns} V, ¿cuál es el valor de la corriente secundaria Is en Amperios?"
 
@@ -744,7 +229,10 @@ metadata:
 
 enunciado: "Para que un generador eléctrico produzca corriente continua o alterna, es indispensable que exista un ___ campo magnético que cambie respecto a las bobinas para inducir una fuerza electromotriz."
 
-respuestas_validas: ["variación", "cambio", "movimiento"]
+respuestas_validas:
+  - "variación"
+  - "cambio"
+  - "movimiento"
 tipo: completar
 
 explicacion: |
@@ -815,7 +303,7 @@ metadata:
 enunciado: "Ordena los pasos que ocurren en una central hidroeléctrica para obtener electricidad en un hogar:"
 
 opciones_explicitas: ["Energía cinética del agua", "Rotación del eje del generador", "Inducción de corriente eléctrica", "Distribución por líneas de alta tensión"]
-respuesta: ["Energía cinética del agua", "Rotación del eje del generador", "Inducción de corriente eléctrica", "Distribución por líneas de alta tensión"]
+respuesta_orden: ["Energía cinética del agua", "Rotación del eje del generador", "Inducción de corriente eléctrica", "Distribución por líneas de alta tensión"]
 tipo: ordenar
 
 explicacion: |
@@ -829,13 +317,13 @@ metadata:
   nivel: "basico"
   tags: ["electromagnetismo", "motor"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "En un motor eléctrico, la energía eléctrica se transforma en energía mecánica."
 
 explicacion: |
-  Es falso. En un motor, la energía eléctrica se transforma en energía mecánica. El enunciado describe correctamente el proceso, pero la pregunta pide validar la afirmación. (Nota: Si la afirmación es verdadera, la respuesta debe ser verdadero).
+  Es verdadero. En un motor, la energía eléctrica se transforma en energía mecánica mediante la fuerza de Lorentz sobre los conductores con corriente dentro de un campo magnético.
 ```
 
 ```
@@ -846,9 +334,9 @@ metadata:
   tags: ["generador", "energia"]
 
 variables:
-  escenario: uno_de([["mecánica", "eléctrica"], ["eléctrica", "mecánica"]])
+  escenario: ["mecánica", "eléctrica"]
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["mecánica", "eléctrica"]
 
@@ -867,7 +355,10 @@ metadata:
 
 respuesta: "campo magnético variable"
 tipo: completar
-respuestas_validas: ["campo magnético variable", "corriente continua", "resistencia"]
+respuestas_validas:
+  - "campo magnético variable"
+  - "corriente continua"
+  - "resistencia"
 
 enunciado: "A diferencia de un motor o generador que requiere movimiento físico, el transformador funciona mediante la variación de un ___ entre dos bobinas."
 
@@ -900,14 +391,10 @@ metadata:
   tags: ["comparacion", "energia"]
 
 variables:
-  datos: [
-    ["Generador", "Mecánica -> Eléctrica"],
-    ["Motor", "Eléctrica -> Mecánica"],
-    ["Transformador", "Eléctrica -> Eléctrica"]
-  ]
+  datos: [["Generador", "Mecánica -> Eléctrica"], ["Motor", "Eléctrica -> Mecánica"], ["Transformador", "Eléctrica -> Eléctrica"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["Mecánica -> Eléctrica", "Eléctrica -> Mecánica", "Eléctrica -> Eléctrica"]
 
@@ -926,14 +413,14 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0,1])
-  datos: [["un ventilador de techo", "energía eléctrica"], ["un taladro de mano", "energía eléctrica"]]
-  salida: [["energía mecánica", "movimiento"], ["energía mecánica", "rotación"]]
+  dispositivos: ["un ventilador de techo", "un taladro de mano"]
+  entrada_energia: "energía eléctrica"
 
-respuesta: datos[escenario_idx][1
+respuesta: entrada_energia
 tipo: mc
-opciones_explicitas: ["energía mecánica", "energía térmica", "energía química"]
+opciones_explicitas: ["energía eléctrica", "energía mecánica", "energía térmica"]
 
-enunciado: "Un motor eléctrico, como el de {datos[escenario_idx][0]}, funciona transformando {datos[escenario_idx][1]} en {datos[escenario_idx][1]}."
+enunciado: "Un motor eléctrico, como el de {dispositivos[escenario_idx]}, funciona transformando {entrada_energia} en energía mecánica."
 
 explicacion: |
   El motor eléctrico consume energía eléctrica para producir movimiento (energía mecánica).
@@ -948,9 +435,9 @@ metadata:
 
 variables:
   caso_idx: uno_de([0,1])
-  info: [["aumentar el voltaje", "bajar el voltaje"], ["aumentar el voltaje", "bajar el voltaje"]]
+  info: [["bajar el voltaje", "aumentar el voltaje"], ["bajar el voltaje", "aumentar el voltaje"]]
 
-respuesta: info[caso_idx][0
+respuesta: info[caso_idx][0]
 tipo: mc
 opciones_explicitas: ["aumentar el voltaje", "bajar el voltaje", "cambiar la frecuencia"]
 
@@ -968,10 +455,10 @@ metadata:
   tags: ["induccion", "generador"]
 
 variables:
-  tipo_gen: uno_de([0,1])
-  principio: [["movimiento mecánico", "energía eléctrica"], ["energía eléctrica", "energía mecánica"]]
+  tipo_gen: 0
+  principio: [["movimiento mecánico", "energía eléctrica"]]
 
-respuesta: principio[tipo_gen][1
+respuesta: principio[tipo_gen][1]
 tipo: completar
 enunciado: "En un generador eléctrico, la conversión de {principio[tipo_gen][0]} en {principio[tipo_gen][1]} se basa en la inducción electromagnética."
 
@@ -986,7 +473,7 @@ metadata:
   nivel: "basico"
   tags: ["componentes", "transformador"]
 
-respuesta: ["Núcleo ferromagnético", "Bobina primaria", "Bobina secundaria"]
+respuesta_orden: ["Bobina primaria", "Núcleo ferromagnético", "Bobina secundaria"]
 tipo: ordenar
 
 opciones_explicitas: ["Núcleo ferromagnético", "Bobina primaria", "Bobina secundaria"]
@@ -1008,9 +495,11 @@ variables:
   tipo_dispositivo: uno_de([0,1])
   flujo: [["Eléctrica $\\rightarrow$ Mecánica", "Mecánica $\\rightarrow$ Eléctrica"], ["Eléctrica $\\rightarrow$ Mecánica", "Mecánica $\\rightarrow$ Eléctrica"]]
 
-respuesta: flujo[tipo_dispositivo][0
+respuesta: flujo[tipo_dispositivo][0]
 tipo: completar
-respuestas_validas: ["Eléctrica $\\rightarrow$ Mecánica", "Mecánica $\\rightarrow$ Eléctrica"]
+respuestas_validas:
+  - "Eléctrica $\\rightarrow$ Mecánica"
+  - "Mecánica $\\rightarrow$ Eléctrica"
 
 enunciado: "La dirección del flujo de energía en un motor es ___."
 
@@ -1438,11 +927,7 @@ opciones_explicitas:
   - "Al combinar esa fuerza con la necesidad de una fuerza centrípeta para mantener una órbita, las tres leyes de Kepler quedan explicadas matemáticamente"
   - "Kepler observa los datos astronómicos y describe tres patrones (órbitas, áreas, períodos)"
   - "Newton propone que dos masas cualesquiera se atraen con F = G×m₁×m₂/r²"
-respuesta_orden:
-  - "Kepler observa los datos astronómicos y describe tres patrones (órbitas, áreas, períodos)"
-  - "Newton propone que dos masas cualesquiera se atraen con F = G×m₁×m₂/r²"
-  - "Al combinar esa fuerza con la necesidad de una fuerza centrípeta para mantener una órbita, las tres leyes de Kepler quedan explicadas matemáticamente"
-
+respuesta_orden: ["Kepler observa los datos astronómicos y describe tres patrones (órbitas, áreas, períodos)", "Newton propone que dos masas cualesquiera se atraen con F = G×m₁×m₂/r²", "Al combinar esa fuerza con la necesidad de una fuerza centrípeta para mantener una órbita, las tres leyes de Kepler quedan explicadas matemáticamente"]
 explicacion: |
   Primero el patrón, después la causa — un ejemplo clásico de cómo
   avanza la ciencia.
@@ -1550,17 +1035,21 @@ metadata:
   tags: ["atracción", "repulsión"]
 
 variables:
-  escenario: uno_de([["Norte", "Sur"], ["Sur", "Norte"], ["Norte", "Norte"], ["Sur", "Sur"]])
-  respuesta_correcta: si (escenario[0][1] == escenario[0][0]) entonces "repulsión" sino "atracción"
+  idx: uno_de([0, 1, 2, 3])
+  polo_a: ["Norte", "Sur", "Norte", "Sur"]
+  polo_b: ["Sur", "Norte", "Norte", "Sur"]
+  resultados_texto: ["atracción", "atracción", "repulsión", "repulsión"]
 
 tipo: completar
-respuestas_validas: ["atracción", "repulsión"]
-respuesta: respuesta_correcta
+respuestas_validas:
+  - "atracción"
+  - "repulsión"
+respuesta: resultados_texto[idx]
 
-enunciado: "Cuando se aproximan dos polos de distinta naturaleza (por ejemplo, un polo {escenario[0][0]} y un polo {escenario[0][1]}), la fuerza resultante es de ___."
+enunciado: "Cuando se aproximan dos polos magnéticos (un polo {polo_a[idx]} y un polo {polo_b[idx]}), la fuerza resultante es de ___."
 
 explicacion: |
-  Al ser polos opuestos, la fuerza magnética es de atracción.
+  Si los polos son opuestos (Norte-Sur), la fuerza es de atracción. Si los polos son iguales (Norte-Norte o Sur-Sur), la fuerza es de repulsión.
 ```
 
 ```
@@ -1638,22 +1127,23 @@ metadata:
   tags: ["calculo", "fuerza"]
 
 variables:
-  escenario: uno_de([[2.5, "2.5"], [4.0, "4.0"], [1.2, "1.2"]])
+  idx: uno_de([0, 1, 2])
+  datos: [2.5, 4.0, 1.2]
 
-respuesta: escenario[0][0
+respuesta: 10 / (datos[idx] * datos[idx])
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "La fuerza de atracción entre dos imanes se puede modelar simplificadamente como F = k / d^2. Si la constante k es 10 y la distancia d es {escenario[0][0]} cm, ¿cuál es la fuerza F en unidades arbitrarias?"
+enunciado: "La fuerza de atracción entre dos imanes se puede modelar simplificadamente como F = k / d^2. Si la constante k es 10 y la distancia d es {datos[idx]} cm, ¿cuál es la fuerza F en unidades arbitrarias?"
 
 pasos:
   - "Identificar la constante k = 10"
-  - "Identificar la distancia d = 2.5"
-  - "Calcular el cuadrado de la distancia: 2.5 * 2.5 = 6.25"
-  - "Dividir la constante por el resultado: 10 / 6.25 = 1.6"
+  - "Identificar la distancia d = {datos[idx]}"
+  - "Calcular el cuadrado de la distancia: {datos[idx]} * {datos[idx]} = {datos[idx] * datos[idx]}"
+  - "Dividir la constante por el resultado: 10 / {datos[idx] * datos[idx]}"
 
 explicacion: |
-  Usando la fórmula F = 10 / (2.5^2) = 10 / 6.25 = 1.6.
+  Usando la fórmula F = k / d^2 con k = 10.
 ```
 
 ```
@@ -1663,10 +1153,10 @@ metadata:
   nivel: "basico"
   tags: ["polos", "direccion"]
 
-respuesta: ["Norte", "Sur"]
+respuesta_orden: ["Norte", "Sur"]
 tipo: ordenar
 
-opciones_explicitas: ["Sur", "Norte", "Este", "Oeste"]
+opciones_explicitas: ["Sur", "Norte"]
 
 enunciado: "En un imán de barra, las líneas de campo magnético en su exterior viajan desde el polo ___ hacia el polo ___."
 
@@ -1682,13 +1172,13 @@ metadata:
   tags: ["comparacion", "distancia"]
 
 variables:
-  distancia_inicial: uno_de([[0.1, "0.1"], [0.2, "0.2"]])
+  distancia_inicial: uno_de([0.1, 0.2])
 
 respuesta: "se reduce"
 tipo: mc
 opciones_explicitas: ["aumenta", "se reduce", "se mantiene"]
 
-enunciado: "Si mantenemos constante la fuerza de los imanes y duplicamos la distancia entre ellos (de {distancia_inicial[0][0]} m a {distancia_inicial[1][1]} m), la fuerza de atracción ___."
+enunciado: "Si mantenemos constante la fuerza de los imanes y duplicamos la distancia entre ellos (de {distancia_inicial} m a {distancia_inicial * 2} m), la fuerza de atracción ___."
 
 explicacion: |
   Según la ley de la inversa del cuadrado, si la distancia se duplica, la fuerza se reduce a la cuarta parte (1/2^2 = 1/4).
@@ -1737,9 +1227,12 @@ metadata:
   tags: ["magnetismo", "monopolos"]
 
 tipo: completar
-respuestas_validas: ["monopolo", "un solo polo", "polo único"]
+respuestas_validas:
+  - "monopolo"
+  - "un solo polo"
+  - "polo único"
 
-enunciado: "Si cortas un imán por la mitad para intentar separar su polo norte del polo sur, obtendrás dos imanes nuevos, cada uno con un ___."
+enunciado: "Si cortas un imán por la mitad para intentar separar su polo norte del polo sur, obtendrás dos imanes nuevos, cada uno con su propio polo norte y sur; en ningún caso lograrás aislar un imán de un solo polo, es decir, un ___."
 
 respuesta: "monopolo"
 
@@ -1777,7 +1270,7 @@ opciones_explicitas: ["Norte-Norte (Repulsión)", "Norte-Sur (Atracción)", "Sur
 
 enunciado: "Ordena las siguientes interacciones magnéticas de la que presenta mayor fuerza de atracción a la que presenta mayor fuerza de repulsión (considerando imanes de igual intensidad):"
 
-respuesta: ["Norte-Sur (Atracción)", "Norte-Norte (Repulsión)", "Sur-Sur (Repulsión)"]
+respuesta_orden: ["Norte-Sur (Atracción)", "Norte-Norte (Repulsión)", "Sur-Sur (Repulsión)"]
 
 explicacion: |
   La atracción ocurre entre polos opuestos. La repulsión ocurre entre polos iguales. En términos de magnitud, la interacción es simétrica para polos iguales.
@@ -1792,7 +1285,9 @@ metadata:
 
 respuesta: "repulsión"
 tipo: completar
-respuestas_validas: ["repulsión", "atracción"]
+respuestas_validas:
+  - "repulsión"
+  - "atracción"
 
 enunciado: "Mientras que las cargas eléctricas de igual signo se repelen, los polos magnéticos del mismo nombre (ej. Norte y Norte) también experimentan una ___."
 
@@ -1807,12 +1302,9 @@ metadata:
   nivel: "intermedio"
   tags: ["magnetismo", "electricidad"]
 
-variables:
-  es_magnetico: uno_de([verdadero, falso])
-
-respuesta: es_magnetico
-tipo: completar
-enunciado: "Si un objeto tiene una carga eléctrica neta, se puede separar en un polo positivo y un polo negativo de forma independiente. ¿Es esto una propiedad de los imanes magnéticos? {es_magnetico}"
+respuesta: falso
+tipo: vf
+enunciado: "Si un objeto tiene una carga eléctrica neta, se puede separar en un polo positivo y un polo negativo de forma independiente. ¿Es esto también una propiedad de los imanes magnéticos?"
 
 explicacion: |
   Falso. Los imanes son dipolos; si cortas un imán por la mitad, obtendrás dos imanes más pequeños, cada uno con su propio polo norte y sur. No existen los "monopolos magnéticos" en la naturaleza.
@@ -1826,18 +1318,13 @@ metadata:
   tags: ["magnetismo"]
 
 variables:
-  escenario: uno_de([
-    ["Norte", "Sur", "atracción"],
-    ["Sur", "Norte", "atracción"],
-    ["Norte", "Norte", "repulsión"],
-    ["Sur", "Sur", "repulsión"]
-  ])
+  escenario: uno_de([["Norte", "Sur", "atracción"], ["Sur", "Norte", "atracción"], ["Norte", "Norte", "repulsión"], ["Sur", "Sur", "repulsión"]])
 
-respuesta: escenario[2
+respuesta: escenario[2]
 tipo: mc
 opciones_explicitas: ["atracción", "repulsión"]
 
-enunciado: "Considerando el escenario donde se aproximan un polo {escenario[0]} y un polo {escenario[1]}, la fuerza resultante es de {escenario[2]}."
+enunciado: "Considerando el escenario donde se aproximan un polo {escenario[0]} y un polo {escenario[1]}, la fuerza resultante es de ___."
 
 explicacion: |
   Los polos opuestos (Norte-Sur) se atraen, mientras que los polos iguales (Norte-Norte o Sur-Sur) se repelen.
@@ -1850,10 +1337,12 @@ metadata:
   nivel: "basico"
   tags: ["magnetismo", "brújula"]
 
-respuesta: ["Norte Magnético", "Sur Magnético"]
-tipo: ordenar
+respuesta: "Polo Eléctrico Positivo"
+tipo: mc
 
 opciones_explicitas: ["Norte Magnético", "Sur Magnético", "Polo Eléctrico Positivo"]
+
+enunciado: "¿Cuál de los siguientes términos NO corresponde a un concepto del magnetismo?"
 
 explicacion: |
   La brújula es un imán que se alinea con el campo magnético terrestre. El polo norte de la aguja apunta al polo sur magnético de la Tierra (que está cerca del polo norte geográfico). Los conceptos de "positivo" y "negativo" pertenecen a la electricidad, no al magnetismo.
@@ -1867,16 +1356,13 @@ metadata:
   tags: ["magnetismo", "electricidad"]
 
 variables:
-  tipo_interaccion: uno_de([
-    ["iguales", "repulsión"],
-    ["opuestos", "atracción"]
-  ])
+  tipo_interaccion: uno_de([["iguales", "repulsión"], ["opuestos", "atracción"]])
 
-respuesta: tipo_interaccion[1
+respuesta: tipo_interaccion[1]
 tipo: mc
 opciones_explicitas: ["atracción", "repulsión"]
 
-enunciado: "En un sistema de dos imanes, si la interacción entre sus polos es de {tipo_interaccion[1]}, esto significa que los polos presentados son {tipo_interaccion[0]}."
+enunciado: "En un sistema de dos imanes, si los polos presentados son {tipo_interaccion[0]}, la interacción resultante es de ___."
 
 explicacion: |
   La regla fundamental es: polos iguales se repelen, polos opuestos se atraen.
@@ -1913,8 +1399,8 @@ metadata:
 variables:
   situacion: uno_de([["un polo norte cerca de la aguja norte", "repulsión"], ["un polo sur cerca de la aguja norte", "atracción"]])
 
-respuesta: situacion[idx][1
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "Si colocamos un polo norte de un imán frente al polo norte de una aguja de brújula, la aguja experimentará una fuerza de repulsión. ¿Es esto verdadero o falso?"
 
 explicacion: |
@@ -1931,12 +1417,14 @@ metadata:
 variables:
   par_polos: uno_de([["Norte y Sur", "atracción"], ["Norte y Norte", "repulsión"], ["Sur y Sur", "repulsión"]])
 
-respuesta: par_polos[idx][1
+respuesta: par_polos[1]
 tipo: completar
 opciones_explicitas: ["atracción", "repulsión"]
-respuestas_validas: ["atracción", "repulsión"]
+respuestas_validas:
+  - "atracción"
+  - "repulsión"
 
-enunciado: "En un experimento de laboratorio, se observa que un par de polos {par_polos[idx][0]} genera una fuerza de ___."
+enunciado: "En un experimento de laboratorio, se observa que un par de polos {par_polos[0]} genera una fuerza de ___."
 
 explicacion: |
   La regla fundamental del magnetismo establece que polos opuestos se atraen y polos iguales se repelen.
@@ -1949,8 +1437,9 @@ metadata:
   nivel: "intermedio"
   tags: ["magnetismo", "secuencia"]
 
-respuesta: ["Polos iguales", "Repulsión", "Polos opuestos", "Atracción"]
+respuesta_orden: ["Polos iguales", "Repulsión", "Polos opuestos", "Atracción"]
 tipo: ordenar
+opciones_explicitas: ["Repulsión", "Polos opuestos", "Polos iguales", "Atracción"]
 
 enunciado: "Ordena la lógica de interacción magnética de la siguiente manera: primero la relación de polos iguales y su efecto, y luego la de polos opuestos y su efecto."
 
@@ -1966,13 +1455,13 @@ metadata:
   tags: ["magnetismo", "vida_diaria"]
 
 variables:
-  caso: uno_de([["el imán tiene polo sur y la puerta polo norte", "atracción"], ["el imán tiene polo norte y la puerta polo norte", "repulsión"]])
+  caso: ["el imán tiene polo sur y la puerta polo norte", "atracción"]
 
-respuesta: caso[idx][1
+respuesta: caso[1]
 tipo: mc
 opciones_explicitas: ["atracción", "repulsión"]
 
-enunciado: "Un imán de puerta se pega fuertemente porque {caso[idx][0]}. Esto se debe a una fuerza de ___."
+enunciado: "Un imán de puerta se pega fuertemente porque {caso[0]}. Esto se debe a una fuerza de ___."
 
 explicacion: |
   Para que un imán se pegue (atraiga), los polos deben ser de distinta naturaleza.
@@ -1989,7 +1478,9 @@ metadata:
 
 respuesta: "J"
 tipo: "completar"
-respuestas_validas: ["J", "impulso"]
+respuestas_validas:
+  - "J"
+  - "impulso"
 
 enunciado: "El producto de la fuerza aplicada sobre un objeto por el intervalo de tiempo durante el cual actúa se denomina ___."
 
@@ -2004,8 +1495,8 @@ metadata:
   nivel: "basico"
   tags: ["teorema_impulso_momento"]
 
-respuesta: "verdadero"
-tipo: "vf"
+tipo: vf
+respuesta: verdadero
 
 enunciado: "Según el teorema del impulso y la cantidad de movimiento, el impulso aplicado a un objeto es igual al cambio en su momento lineal (Δp)."
 
@@ -2021,10 +1512,11 @@ metadata:
   tags: ["unidades", "SI"]
 
 variables:
-  opciones: [["N·s", "kg·m/s"], ["kg·m/s", "N·s"], ["N/s", "kg·m/s"]]
-  idx: uno_de([0, 1])
+  opciones_correctas: ["N·s", "kg·m/s"]
+  opciones_incorrectas: ["N/s"]
+  opciones_validas: ["N·s", "kg·m/s", "N/s"]
 
-respuesta: opciones[idx][0
+respuesta: "N·s"
 tipo: "mc"
 opciones_explicitas: ["N·s", "kg·m/s", "N/s"]
 
@@ -2043,7 +1535,10 @@ metadata:
 
 respuesta: "m * v"
 tipo: "completar"
-respuestas_validas: ["m * v", "m*v", "p = m*v"]
+respuestas_validas:
+  - "m * v"
+  - "m*v"
+  - "p = m*v"
 
 enunciado: "La cantidad de movimiento o momento lineal de un objeto se define matemáticamente como el producto de su masa por su ___."
 
@@ -2058,8 +1553,8 @@ metadata:
   nivel: "intermedio"
   tags: ["relacion_variables"]
 
-respuesta: "falso"
-tipo: "vf"
+respuesta: falso
+tipo: vf
 
 enunciado: "Si se mantiene constante la fuerza aplicada sobre un objeto, aumentar el tiempo de aplicación reducirá el cambio en el momento lineal."
 
@@ -2076,6 +1571,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["El cambio en el momento lineal", "La velocidad instantánea", "La masa del objeto", "La aceleración gravitatoria"]
+respuesta: "El cambio en el momento lineal"
 
 enunciado: "Según el teorema del impulso y la cantidad de movimiento, el impulso aplicado a un objeto es igual a ___."
 
@@ -2123,7 +1619,8 @@ variables:
   v_final: 8.0
 
 tipo: completar
-respuestas_validas: ["10.0", "30.0", "40.0"]
+respuestas_validas:
+  - "30.0"
 
 enunciado: "Un objeto de {masa} kg pasa de una velocidad de {v_inicial} m/s a una de {v_final} m/s. El cambio en su momento lineal (Δp) es de ___ kg·m/s."
 
@@ -2166,7 +1663,7 @@ enunciado: "Ordena los pasos lógicos para resolver un problema donde se pide ha
 explicacion: |
   Para resolver problemas de este tipo, primero se extraen los datos, luego se calcula la variación de la cantidad de movimiento y finalmente se despeja la fuerza de la fórmula J = Δp.
 
-respuesta: ["Identificar los datos del problema", "Calcular el cambio de momento lineal (Δp)", "Determinar la fuerza aplicada (F)"]
+respuesta_orden: ["Identificar los datos del problema", "Calcular el cambio de momento lineal (Δp)", "Determinar la fuerza aplicada (F)"]
 ```
 
 ```
@@ -2183,7 +1680,7 @@ opciones_explicitas: ["mismo", "mayor", "menor", "inverso"]
 enunciado: "Si una fuerza constante se aplica sobre un objeto durante un intervalo de tiempo determinado, el cambio en el momento lineal del objeto es ___ que el impulso aplicado."
 
 explicacion: |
-  Por el teorema del impulso y la cantidad de movimiento, el impulso aplicado a un objeto es exactamente igual al cambio en su momento lineal ($\vec{J} = \Delta\vec{p}$).
+  Por el teorema del impulso y la cantidad de movimiento, el impulso aplicado a un objeto es exactamente igual al cambio en su momento lineal.
 ```
 
 ```
@@ -2197,21 +1694,21 @@ variables:
   escenario_idx: uno_de([0, 1])
   datos: [[10.0, 2.0, 20.0], [5.0, 4.0, 20.0]]
 
-respuesta: datos[escenario_idx][2
+respuesta: datos[escenario_idx][2]
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Se aplica una fuerza media de {datos[escenario_idx][0]} N sobre un objeto durante un intervalo de tiempo de {datos[escenario_idx][1]} s. ¿Cuál es el cambio en el momento lineal ($\Delta p$) del objeto?"
+enunciado: "Se aplica una fuerza media de {datos[escenario_idx][0]} N sobre un objeto durante un intervalo de tiempo de {datos[escenario_idx][1]} s. ¿Cuál es el cambio en el momento lineal (___) del objeto?"
 
 pasos:
-  - "Identificar la fuerza aplicada ($F = 10$ N o $5$ N)."
-  - "Identificar el intervalo de tiempo ($\Delta t = 2$ s o $4$ s)."
-  - "Calcular el impulso usando $J = F \cdot \Delta t$."
+  - "Identificar la fuerza aplicada."
+  - "Identificar el intervalo de tiempo."
+  - "Calcular el impulso usando J = F * Delta t."
 
 explicacion: |
   El cambio en el momento lineal es igual al impulso. 
-  En el caso 1: $10 \text{ N} \cdot 2 \text{ s} = 20 \text{ kg}\cdot\text{m/s}$.
-  En el caso 2: $5 \text{ N} \cdot 4 \text{ s} = 20 \text{ kg}\cdot\text{m/s}$.
+  En el caso 1: 10 N * 2 s = 20 kg*m/s.
+  En el caso 2: 5 N * 4 s = 20 kg*m/s.
 ```
 
 ```
@@ -2221,13 +1718,13 @@ metadata:
   nivel: "intermedio"
   tags: ["vector", "direccion"]
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 enunciado: "Si el cambio en el momento lineal de un objeto es un vector, ¿el impulso aplicado debe tener la misma dirección y sentido que el cambio de momento?"
 
 explicacion: |
-  Correcto. El impulso es una magnitud vectorial definida como $\vec{J} = \Delta\vec{p}$, por lo tanto, ambos vectores son idénticos en magnitud, dirección y sentido.
+  Correcto. El impulso es una magnitud vectorial definida como J = Delta p, por lo tanto, ambos vectores son idénticos en magnitud, dirección y sentido.
 ```
 
 ```
@@ -2237,15 +1734,16 @@ metadata:
   nivel: "avanzado"
   tags: ["fuerza_media", "integral"]
 
-respuesta: "fuerza_media"
+respuesta: "fuerza"
 tipo: completar
 
 enunciado: "Cuando una fuerza no es constante en el tiempo, el impulso total se calcula como la integral de la ___ en el intervalo de tiempo dado."
 
-respuestas_validas: ["fuerza_media"]
+respuestas_validas:
+  - "fuerza"
 
 explicacion: |
-  Para fuerzas variables, el impulso es la integral temporal de la fuerza: $\vec{J} = \int_{t_1}^{t_2} \vec{F}(t) dt$. En este contexto, el resultado de la integral representa la fuerza media aplicada durante ese periodo.
+  Para fuerzas variables, el impulso es la integral temporal de la fuerza: J = integral de F(t) dt. El resultado de esa integral es el impulso (en N·s), no una fuerza; si se conoce el impulso J y la duración Δt, puede definirse una fuerza media equivalente como F_media = J / Δt.
 ```
 
 ```
@@ -2255,12 +1753,12 @@ metadata:
   nivel: "basico"
   tags: ["masa", "velocidad", "momento"]
 
-respuesta: ["masa", "velocidad"]
-tipo: ordenar
+respuesta: "Masa y velocidad"
+tipo: mc
 
-opciones_explicitas: ["masa", "velocidad", "temperatura", "color"]
+opciones_explicitas: ["Masa y velocidad", "Masa y temperatura", "Velocidad y color", "Temperatura y color"]
 
-enunciado: "Para determinar el momento lineal ($p = m \cdot v$) de un objeto, ¿qué dos magnitudes físicas son necesarias para realizar el cálculo? (Ordénalas)"
+enunciado: "Para determinar el momento lineal (p = m · v) de un objeto, ¿qué dos magnitudes físicas son necesarias para realizar el cálculo?"
 
 explicacion: |
   El momento lineal depende directamente de la masa del objeto y de su velocidad instantánea. La temperatura y el color no afectan el momento lineal.
@@ -2291,16 +1789,12 @@ metadata:
   tags: ["teorema", "momento", "impulso"]
 
 variables:
-  escenario: uno_de([
-    ["un objeto gana velocidad", "aumenta"],
-    ["un objeto frena", "disminuye"],
-    ["un objeto mantiene velocidad", "es_cero"]
-  ])
+  escenario: uno_de([["un objeto gana velocidad", "aumenta"], ["un objeto frena", "disminuye"], ["un objeto mantiene velocidad", "es_cero"]])
 
-respuesta: escenario[1
+respuesta: verdadero
 tipo: "vf"
 
-enunciado: "Si el impulso aplicado a un objeto es positivo (J > 0), el cambio en el momento lineal del objeto es ___."
+enunciado: "Si el impulso aplicado a un objeto es positivo (J > 0), el cambio en el momento lineal del objeto es positivo."
 
 explicacion: |
   Según el teorema del impulso y la cantidad de movimiento, el impulso es igual al cambio en el momento lineal (J = Δp). Si el impulso es positivo, el momento final es mayor que el inicial, por lo tanto, el cambio es positivo (aumenta).
@@ -2315,7 +1809,8 @@ metadata:
 
 respuesta: "kg·m/s"
 tipo: "completar"
-respuestas_validas: ["kg·m/s", "N·s", "kg·m/s^2"]
+respuestas_validas:
+  - "kg·m/s"
 
 enunciado: "El impulso puede expresarse en unidades de Newton-segundo (N·s) o en unidades de momento lineal, que son ___."
 
@@ -2330,7 +1825,7 @@ metadata:
   nivel: "avanzado"
   tags: ["vector", "direccion"]
 
-respuesta: ["Fuerza", "Tiempo", "Cambio de momento"]
+respuesta_orden: ["Fuerza", "Tiempo", "Cambio de momento"]
 tipo: "ordenar"
 opciones_explicitas: ["Fuerza", "Tiempo", "Cambio de momento"]
 
@@ -2347,18 +1842,11 @@ metadata:
   nivel: "intermedio"
   tags: ["grafico", "fuerza_tiempo"]
 
-variables:
-  caso: uno_de([
-    [100.0, "aumenta"],
-    [20.0, "disminuye"],
-    [0.0, "se_mantiene"]
-  ])
-
-respuesta: caso[1
+respuesta: "aumenta"
 tipo: "mc"
 opciones_explicitas: ["aumenta", "disminuye", "se_mantiene"]
 
-enunciado: "Si una fuerza constante de {caso[0]} N actúa sobre un objeto durante un tiempo de {caso[1]} s, el cambio en el momento lineal será de {caso[2]} unidades de medida. Si el tiempo de aplicación se duplica, el cambio en el momento lineal..."
+enunciado: "Si una fuerza constante actúa sobre un objeto durante cierto tiempo, produciendo un impulso (cambio en el momento lineal), y el tiempo de aplicación se duplica manteniendo la fuerza constante, el cambio en el momento lineal..."
 
 explicacion: |
   Dado que J = F * Δt, el impulso es directamente proporcional al tiempo. Si el tiempo se duplica manteniendo la fuerza constante, el cambio en el momento lineal también se duplica (aumenta).
@@ -2408,7 +1896,7 @@ variables:
 
 respuesta: m * (v_f - v_i)
 tipo: mc
-opciones_explicitas: ["0.0", "50.0", "-100.0", "-200.0"]
+opciones_explicitas: [0.0, -50.0, -200.0, -10.0]
 
 enunciado: "Un objeto de masa {m} kg se desplaza con una velocidad inicial de {v_i} m/s y se detiene por completo tras un choque. ¿Cuál es el cambio en su momento lineal (Δp)?"
 
@@ -2427,7 +1915,7 @@ metadata:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si el impulso aplicado a un objeto es nulo (J = 0), entonces el cambio en su momento lineal (Δp) debe ser ___."
+enunciado: "Si el impulso aplicado a un objeto es nulo (J = 0), entonces el cambio en su momento lineal (Δp) también es nulo."
 
 explicacion: |
   Según el teorema del impulso y la cantidad de movimiento, J = Δp. Si el impulso es cero, el cambio en el momento también lo es, lo que significa que el objeto mantiene su estado de movimiento original.
@@ -2446,11 +1934,11 @@ variables:
   impulse: datos[idx][0]
   tiempo: datos[idx][1]
 
-respuesta: "fuerza_media"
+respuesta: impulse / tiempo
 tipo: completar
-respuestas_validas: ["fuerza_media"]
+tolerancia_abs: 0.1
 
-enunciado: "Un astronauta de masa constante recibe un impulso de {impulse} kg·m/s durante un tiempo de {tiempo} s. La fuerza media aplicada se calcula como ___."
+enunciado: "Un astronauta de masa constante recibe un impulso de {impulse} kg·m/s durante un tiempo de {tiempo} s. ¿Cuál es la fuerza media aplicada, en N?"
 
 pasos:
   - "Recordar que J = F_media * Δt"
@@ -2468,7 +1956,7 @@ metadata:
   tags: ["metodologia"]
 
 opciones_explicitas: ["Calcular Δp = m(v_f - v_i)", "Identificar datos (m, v_i, v_f)", "Igualar J = Δp", "Calcular J = F * Δt"]
-respuesta: ["Identificar datos (m, v_i, v_f)", "Calcular Δp = m(v_f - v_i)", "Igualar J = Δp", "Calcular J = F * Δt"]
+respuesta_orden: ["Identificar datos (m, v_i, v_f)", "Calcular Δp = m(v_f - v_i)", "Igualar J = Δp", "Calcular J = F * Δt"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos para resolver un problema donde se pide hallar la fuerza media aplicada durante un choque, conociendo la masa y las velocidades inicial y final."
@@ -2476,3 +1964,492 @@ enunciado: "Ordena los pasos lógicos para resolver un problema donde se pide ha
 explicacion: |
   Para resolver problemas de dinámica de colisiones, primero se extraen los datos, luego se calcula el cambio de movimiento (Δp), se aplica la equivalencia con el impulso y finalmente se despeja la incógnita (fuerza).
 ```
+
+## Sección: induccion-electromagnetica-faraday-lenz (25 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["flujo_magnetico", "definicion"]
+
+enunciado: "El producto escalar entre el vector campo magnético B y el vector área A se define como el ___ magnético."
+
+respuestas_validas:
+  - "flujo"
+tipo: completar
+
+explicacion: |
+  El flujo magnético ($\Phi$) mide la cantidad de campo magnético que atraviesa una superficie determinada.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["ley_faraday", "fem"]
+
+opciones_explicitas: ["La variación del flujo magnético en el tiempo", "La intensidad del campo magnético constante", "La resistencia del conductor", "La carga eléctrica total"]
+respuesta: "La variación del flujo magnético en el tiempo"
+tipo: mc
+
+enunciado: "¿Qué magnitud es proporcional a la fuerza electromotriz (FEM) inducida según la Ley de Faraday?"
+
+explicacion: |
+  La Ley de Faraday establece que la FEM inducida es igual a la rapidez con la que cambia el flujo magnético a través de un circuito.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["ley_lenz", "polaridad"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenario_data: [["aumento", "se oponga"], ["disminución", "se oponga"]]
+
+enunciado: "Considerando el escenario {escenario_data[escenario_idx][0]}, la corriente inducida tendrá una dirección tal que el campo magnético creado por ella ___ el cambio en el flujo original."
+
+respuesta: "se oponga"
+tipo: mc
+
+opciones_explicitas: ["se oponga", "favorezca", "no tiene efecto"]
+
+explicacion: |
+  La Ley de Lenz es una consecuencia del principio de conservación de la energía y establece que el sentido de la corriente inducida es tal que el campo magnético que genera se opone a la variación del flujo que la produjo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["conceptos_clave"]
+
+enunciado: "¿Es necesario que exista un movimiento relativo entre un imán y una espira para que se induzca una corriente eléctrica?"
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  No necesariamente. La inducción ocurre siempre que haya una variación del flujo magnético. Esto puede lograrse moviendo el imán, moviendo la espira, o incluso variando la intensidad del campo magnético con el imán en reposo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["componentes", "formula"]
+
+enunciado: "Para calcular la magnitud de la FEM inducida (epsilon) en un circuito de N espiras, se requiere conocer el número de vueltas, la variación del flujo (Delta Phi) y el ___ (Delta t)."
+
+respuestas_validas:
+  - "tiempo"
+tipo: completar
+
+explicacion: |
+  La fórmula de la Ley de Faraday es epsilon = -N * (Delta Phi / Delta t), donde el denominador representa el intervalo de tiempo en el que ocurre la variación.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["ley_de_faraday", "flujo_magnetico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Según la Ley de Faraday, la magnitud de la fuerza electromotriz (FEM) inducida en un circuito es proporcional a la rapidez con la que cambia el flujo magnético a través de él."
+
+explicacion: |
+  La ley de Faraday establece que la magnitud de la FEM inducida es proporcional a la tasa de cambio del flujo magnético. El signo negativo representa la Ley de Lenz, indicando que la corriente inducida crea un campo magnético que se opone al cambio del flujo original.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["calculo_fem", "flujo_magnetico"]
+
+variables:
+  escenario_idx: uno_de([0,1])
+  datos: [[4.0, 5.0], [10.0, 5.0]]
+  tiempo: 2.0
+  flujo_inicial: datos[escenario_idx][0]
+  flujo_final: datos[escenario_idx][1]
+  fem: abs((flujo_final - flujo_inicial) / tiempo)
+
+respuesta: fem
+
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un circuito experimenta un cambio en su flujo magnético de {flujo_inicial} Wb a {flujo_final} Wb en un intervalo de tiempo de {tiempo} segundos. ¿Cuál es la magnitud de la FEM inducida (en Voltios)?"
+
+pasos:
+  - "Calcular la variación del flujo: DeltaPhi = Phi_final - Phi_inicial"
+  - "Dividir la variación por el tiempo: epsilon = DeltaPhi / Delta t"
+
+explicacion: |
+  La magnitud de la FEM se calcula como el cambio de flujo dividido por el tiempo.
+  Para el caso 1: |(5.0 - 4.0) / 2.0| = 0.5 V.
+  Para el caso 2: |(10.0 - 5.0) / 2.0| = 2.5 V.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["ley_de_lenz", "campo_magnetico"]
+
+opciones_explicitas: ["Aumenta el flujo magnético", "Disminuye el flujo magnético", "No afecta el flujo"]
+
+respuesta: "Disminuye el flujo magnético"
+tipo: mc
+
+enunciado: "Si un imán se acerca a una espira conductorista, la corriente inducida en la espira creará un campo magnético con la intención de:"
+
+explicacion: |
+  La Ley de Lenz establece que el efecto inducido siempre se opone a la causa que lo produce. Si el flujo aumenta (acercar imán), la espira crea un campo opuesto para intentar disminuirlo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["formula", "flujo_magnetico"]
+
+respuestas_validas:
+  - "coseno"
+  - "cos"
+
+respuesta: "coseno"
+tipo: completar
+
+enunciado: "La expresión del flujo magnético $\\Phi$ a través de una superficie es el producto del campo magnético $B$ por el área $A$ por el ___ del ángulo entre el vector campo y la normal a la superficie."
+
+explicacion: |
+  La fórmula es $\Phi = B \cdot A \cdot \cos(\theta)$.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["metodologia", "problema_fisica"]
+
+opciones_explicitas: ["Calcular el flujo magnético $\\Phi$", "Determinar la variación $\\Delta\\Phi$", "Dividir por el tiempo $\\Delta t$"]
+
+respuesta_orden: ["Calcular el flujo magnético $\\Phi$", "Determinar la variación $\\Delta\\Phi$", "Dividir por el tiempo $\\Delta t$"]
+tipo: ordenar
+
+enunciado: "Ordena los pasos lógicos para hallar la magnitud de la FEM inducida cuando el flujo magnético cambia en un intervalo de tiempo determinado:"
+
+explicacion: |
+  Para aplicar la Ley de Faraday, primero debemos conocer el estado inicial y final del flujo para hallar la diferencia ($\Delta\Phi$) y luego aplicar la derivada temporal (división por el tiempo en casos discretos).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["faraday", "lenz", "flujo_magnetico"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["aumenta", "-"], ["disminuye", "+"]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["-", "+"]
+
+enunciado: "Si el flujo magnético a través de una espira cerrada está {datos[idx][0]} (en valor absoluto), la corriente inducida generará un campo magnético que se opone a ese cambio. El signo de la FEM inducida según la Ley de Lenz para contrarrestar dicho cambio es ___."
+
+explicacion: |
+  La Ley de Lenz establece que el sentido de la corriente inducida es tal que el campo magnético creado por ella se opone a la variación del flujo que la produjo. Si el flujo aumenta, la espira intenta disminuirlo (signo opuesto); si el flujo disminuye, intenta aumentarlo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["faraday", "lenz"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para que se produzca una corriente inducida en un conductor, es estrictamente necesario que el campo magnético sea constante en el tiempo, pero su intensidad debe variar de forma no lineal."
+
+explicacion: |
+  Falso. La condición fundamental para la inducción es la variación del flujo magnético ($\Phi = B \cdot A \cdot \cos\theta$). Un campo magnético puede ser constante en intensidad pero producir corriente si la espira se mueve (cambia el ángulo o el área), o un campo variable puede no producir corriente si el área de la espira es cero.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["flujo_magnetico", "geometria"]
+
+variables:
+  idx: uno_de([0, 1])
+  angulos: [0, 90]
+  senos: [0.0, 1.0]
+
+respuesta: senos[idx]
+tipo: completar
+respuestas_validas:
+  - 1.0
+  - 0.0
+
+enunciado: "El flujo magnético depende del ángulo entre el vector campo magnético y la normal a la superficie. Si dicho ángulo es de {angulos[idx]} grados, el valor del seno de ese ángulo es ___."
+
+explicacion: |
+  El flujo magnético es $\Phi = B \cdot A \cdot \cos(\theta)$. Sin embargo, la pregunta pide el seno del ángulo para evaluar la comprensión trigonométrica de la orientación. Si el ángulo es 90°, el seno es 1; si el ángulo es 0°, el seno es 0.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["faraday", "movimiento"]
+
+respuesta: "se produce una corriente inducida"
+tipo: completar
+respuestas_validas:
+  - "se produce una corriente inducida"
+
+enunciado: "Si un imán se mueve lentamente hacia una espira de cobre colocada sobre una superficie no conductora, la variación del flujo magnético provoca que ___."
+
+explicacion: |
+  La variación del flujo magnético $\Delta\Phi/\Delta t$ es la causa de la fuerza electromotriz inducida según la Ley de Faraday. Al acercar el imán, el flujo cambia y se induce corriente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["faraday", "calculo"]
+
+respuesta: "mayor"
+tipo: mc
+opciones_explicitas: ["mayor", "menor", "igual"]
+
+enunciado: "Considerando la Ley de Faraday (E = -dPhi/dt), si la rapidez con la que cambia el flujo magnético a través de una espira aumenta, la magnitud de la fuerza electromotriz inducida será ___."
+
+explicacion: |
+  La magnitud de la FEM inducida es directamente proporcional a la rapidez de la variación del flujo magnético. A mayor velocidad de cambio, mayor es la tensión inducida.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "basico"
+  tags: ["faraday", "flujo_magnetico"]
+
+variables:
+  es_variable: verdadero
+
+respuesta: "flujo magnético"
+tipo: completar
+respuestas_validas:
+  - "flujo magnético"
+  - "flujo"
+
+enunciado: "Mientras que el campo magnético B describe la intensidad del campo en un punto, la magnitud que describe la cantidad de líneas de campo que atraviesan una superficie dada es el ___."
+
+explicacion: |
+  El flujo magnético (Phi) depende tanto de la intensidad del campo (B) como del area (A) y del angulo de incidencia (theta), segun la formula Phi = B * A * cos(theta).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "intermedio"
+  tags: ["lenz", "energia"]
+
+variables:
+  es_correcta: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Ley de Lenz, que establece que la corriente inducida se opone a la variación del flujo que la produce, es una manifestación de la Ley de Conservación de la Energía."
+
+explicacion: |
+  Si la corriente inducida ayudara a aumentar el flujo en lugar de oponerse, se crearía un sistema de retroalimentación positiva que generaría energía de la nada, violando la primera ley de la termodinámica.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "intermedio"
+  tags: ["faraday", "fem"]
+
+respuesta: "voltaje"
+tipo: mc
+opciones_explicitas: ["voltaje", "corriente"]
+
+enunciado: "En un proceso de inducción, la Ley de Faraday describe la magnitud de la FEM (una diferencia de potencial) que surge debido al cambio en el flujo magnético; esta magnitud se mide en unidades de ___."
+
+explicacion: |
+  La Ley de Faraday se centra en la Fuerza Electromotriz (FEM), que tiene unidades de voltios, mientras que la corriente es el movimiento de carga resultante.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "basico"
+  tags: ["faraday", "proceso"]
+
+respuesta_orden: ["Cambio en el campo magnético", "Cambio en el flujo magnético", "FEM inducida", "Corriente inducida"]
+tipo: ordenar
+opciones_explicitas: ["Cambio en el campo magnético", "Cambio en el flujo magnético", "FEM inducida", "Corriente inducida"]
+
+enunciado: "Ordena cronológicamente los eventos que ocurren cuando movemos un imán cerca de una bobina de cobre:"
+
+pasos:
+  - "Se altera la intensidad del campo magnético en la zona."
+  - "El número de líneas de campo que atraviesan la bobina cambia."
+  - "Se genera una diferencia de potencial (voltaje)."
+  - "Se establece un movimiento de electrones en el conductor."
+
+explicacion: |
+  El proceso es causal: el cambio en el campo magnético provoca un cambio en el flujo, lo que induce una FEM, la cual finalmente impulsa la corriente.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica"
+  nivel: "avanzado"
+  tags: ["electromagnetismo", "faraday"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia de la electrostática donde las cargas se mueven por diferencias de potencial estáticas, en la inducción electromagnética la corriente surge únicamente debido a un campo eléctrico inducido por un flujo magnético variable."
+
+explicacion: |
+  Es verdadero: la inducción requiere un campo magnético *variable* en el tiempo para generar el campo eléctrico que mueve las cargas.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["faraday", "lenz", "aplicacion"]
+
+variables:
+  datos: [["un disco de cobre que gira entre imanes", "frenado"], ["una barra de aluminio que se mueve en un tubo de cobre", "frenado"]]
+  idx: uno_de([0, 1])
+
+enunciado: "En un sistema de frenado electromagnético, si el flujo magnético a través de una bobina cambia, se induce una corriente. Según la Ley de Lenz, la dirección de la corriente inducida será tal que el campo magnético creado por ella se oponga al ___ del flujo magnético que la produjo."
+
+respuestas_validas:
+  - "cambio"
+tipo: completar
+
+explicacion: |
+  La Ley de Lenz es una consecuencia de la conservación de la energía. La corriente inducida crea un campo magnético que se opone al cambio de flujo que la originó.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["faraday", "generador"]
+
+variables:
+  casos: [[15, 2], [25, 5], [40, 8]]
+  idx: uno_de([0, 1, 2])
+  N: casos[idx][0]
+  phi: casos[idx][1]
+  fem: N * phi / 2
+
+enunciado: "Un generador eléctrico tiene {N} espiras. Si el flujo magnético a través de cada espira cambia de 0 a {phi} Wb en un intervalo de 2 segundos, la magnitud de la fuerza electromotriz (FEM) inducida es de ___ V."
+
+pasos:
+  - "Calcular el cambio de flujo total: ΔΦ_total = N * Δφ"
+  - "Aplicar la Ley de Faraday: ε = ΔΦ_total / Δt"
+
+respuesta: fem
+tipo: completar
+tolerancia_abs: 0.1
+
+explicacion: |
+  Usando la Ley de Faraday: ε = (N * Δφ) / Δt. 
+  Para el caso seleccionado: ε = ({N} * {phi}) / 2 = {fem} V.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "basico"
+  tags: ["lenz", "teoria"]
+
+enunciado: "Si acercamos el polo norte de un imán hacia una bobina, la bobina experimentará una fuerza de repulsión porque la corriente inducida creará un campo magnético con el mismo polo (norte) hacia el imán. ¿Es esto verdadero o falso?"
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  Verdadero. Según la Ley de Lenz, la corriente inducida crea un campo que se opone al aumento de flujo causado por el imán que se acerca; ese campo opuesto presenta un polo norte hacia el imán entrante, lo que produce una fuerza de repulsión.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "intermedio"
+  tags: ["faraday", "formula"]
+
+enunciado: "En la expresión de la magnitud de la FEM inducida, ε = -N * (dΦ/dt), el signo negativo representa la dirección de la corriente según la Ley de ___."
+
+opciones_explicitas: ["Faraday", "Lenz", "Ohm", "Coulomb"]
+respuesta: "Lenz"
+tipo: mc
+
+explicacion: |
+  El signo negativo es la expresión matemática de la Ley de Lenz, indicando la oposición al cambio de flujo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "induccion_electromagnetica_faraday_lenz"
+  nivel: "avanzado"
+  tags: ["procedimiento", "faraday"]
+
+enunciado: "Para determinar la magnitud de la fuerza electromotriz inducida en un conductor en movimiento dentro de un campo magnético uniforme, ¿cuál es el orden correcto de los pasos?"
+
+opciones_explicitas: ["Determinar el cambio de flujo magnético", "Calcular la derivada del flujo respecto al tiempo", "Multiplicar por el número de espiras"]
+respuesta_orden: ["Determinar el cambio de flujo magnético", "Calcular la derivada del flujo respecto al tiempo", "Multiplicar por el número de espiras"]
+tipo: ordenar
+
+explicacion: |
+  Primero se identifica cuánto cambia el flujo (ΔΦ), luego la tasa de cambio (dΦ/dt) y finalmente se escala por el número de vueltas (N) de la bobina.
+```
+

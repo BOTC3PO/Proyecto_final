@@ -1,1370 +1,1576 @@
-# Examen jefe — Maestro de series y conicas
+# Examen jefe — [PENDIENTE #627]
 
-> Logro #78. Resolviste el parcial dominando resta, riesgos, circunferencias, Thales y series geométricas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **140 preguntas totales** en 5/5 secciones.
+> Logro #627. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: resta (40 preguntas)
+## Sección: ecuaciones-diferenciales (26 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
+  tema: "ecuaciones_diferenciales"
   nivel: "basico"
-  tags: ["resta", "sin_prestamo"]
+  tags: ["crecimiento"]
 
 variables:
-  a: random(1, 9)
-  b: random(0, a)
+  y0: random(10, 200)
+  a: random(2, 4)
+  t: random(1, 5)
 
-respuesta: a - b
+respuesta: y0 * a ^ t
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto es {a} - {b}?"
+enunciado: "y(t) = {y0}×{a}^t (modelo de crecimiento, solución de dy/dt=ky). ¿Cuánto vale y({t})?"
 
 explicacion: |
-  Restar sin pedir prestado es contar hacia atrás desde el minuendo tantas
-  veces como indica el sustraendo.
+  {y0}×{a}^{t} = {y0 * a ^ t}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
+  tema: "ecuaciones_diferenciales"
   nivel: "basico"
-  tags: ["resta", "sin_prestamo", "problema"]
+  tags: ["crecimiento"]
 
 variables:
-  a: random(2, 9)
-  b: random(0, a)
+  y0: random(50, 500)
+  a: 2
+  t: random(1, 6)
 
-respuesta: a - b
+respuesta: y0 * a ^ t
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Tenías {a} galletitas y comiste {b}. ¿Cuántas galletitas te quedan?"
+enunciado: "Una población se duplica cada período: y(t) = {y0}×2^t. ¿Cuántos hay después de {t} períodos?"
 
 explicacion: |
-  "Tener y que se use una parte" es restar: lo que queda es el minuendo
-  menos lo que se sacó.
+  {y0}×2^{t} = {y0 * a ^ t}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "sin_prestamo"]
+  tema: "ecuaciones_diferenciales"
+  nivel: "intermedio"
+  tags: ["decaimiento"]
 
 variables:
-  da: random(2, 9)
-  au: random(0, 9)
-  db: random(1, da)
-  bu: random(0, au)
-  a: da * 10 + au
-  b: db * 10 + bu
+  base_inv: uno_de([2, 5])
+  y0: random(10, 20) * (base_inv ^ 3)
+  t: random(1, 3)
 
-respuesta: a - b
+respuesta: y0 / (base_inv ^ t)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto es {a} - {b}?"
+enunciado: "y(t) = {y0}×(1/{base_inv})^t (modelo de decaimiento). ¿Cuánto vale y({t})?"
 
 pasos:
-  - "Unidades: {au} - {bu} = {au - bu}. Decenas: {da} - {db} = {da - db}."
+  - "{y0}×(1/{base_inv})^{t} = {y0}/{base_inv ^ t} = {y0 / (base_inv ^ t)}"
 
 explicacion: |
-  Sin pedir prestado, cada columna se resta por separado: la cifra de
-  arriba siempre alcanza para restar la de abajo.
+  Con base entre 0 y 1, la cantidad decrece con el tiempo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "calculo_mental"]
-
-variables:
-  da: random(2, 9)
-  db: random(1, da)
-  a: da * 10
-  b: db * 10
-
-respuesta: a - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} - {b}?"
-
-pasos:
-  - "Restar decenas completas es restar las decenas y agregar el cero: {da} - {db} = {da - db}, entonces {a} - {b} = {a - b}"
-
-explicacion: |
-  Cuando ambos números son "redondos", alcanza con restar las cifras
-  significativas y agregar los ceros al final.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
+  tema: "ecuaciones_diferenciales"
   nivel: "intermedio"
-  tags: ["resta", "con_prestamo"]
+  tags: ["decaimiento", "problema"]
 
 variables:
-  da: random(3, 9)
-  au: random(0, 4)
-  db: random(1, da - 1)
-  bu: random(au + 1, 9)
-  a: da * 10 + au
-  b: db * 10 + bu
+  cantidad_inicial: random(4, 20) * 16
+  periodos: random(1, 4)
 
-respuesta: a - b
+respuesta: cantidad_inicial / (2 ^ periodos)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuánto es {a} - {b}?"
-
-pasos:
-  - "Unidades: {au} es menor que {bu}, así que se pide prestada 1 decena: {au + 10} - {bu} = {au + 10 - bu}, y las decenas quedan en {da - 1} - {db}"
+enunciado: "Una muestra radiactiva de {cantidad_inicial}g se reduce a la mitad cada período (vida media). ¿Cuánto queda después de {periodos} períodos?"
 
 explicacion: |
-  Cuando la cifra de arriba es menor que la de abajo, se pide prestada 1
-  unidad a la columna de al lado (que baja en 1) para poder restar.
+  Cada período multiplica por 1/2 — después de {periodos} períodos,
+  queda dividido por 2^{periodos}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
+  tema: "ecuaciones_diferenciales"
   nivel: "intermedio"
-  tags: ["resta", "con_prestamo", "problema"]
+  tags: ["verdadero_falso"]
 
 variables:
-  da: random(3, 9)
-  au: random(0, 4)
-  db: random(1, da - 1)
-  bu: random(au + 1, 9)
-  a: da * 10 + au
-  b: db * 10 + bu
+  y0: random(10, 100)
+  a: random(2, 5)
+  t: random(0, 5)
 
-respuesta: a - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Había {a} personas en la plaza y se fueron {b}. ¿Cuántas personas quedan?"
-
-explicacion: |
-  El planteo es el mismo que una resta numérica; el contexto sólo dice qué
-  representa el minuendo y qué el sustraendo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "con_prestamo"]
-
-variables:
-  da: random(4, 9)
-  au: random(0, 3)
-  db: random(1, da - 2)
-  bu: random(au + 2, 9)
-  a: da * 10 + au
-  b: db * 10 + bu
-
-respuesta: a - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} - {b}?"
-
-explicacion: |
-  Pedir prestado no cambia el valor del número, sólo reorganiza dónde está
-  guardado ese valor: 1 decena son 10 unidades.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "con_prestamo"]
-
-variables:
-  ca: random(2, 9)
-  da: random(0, 9)
-  au: random(0, 4)
-  cb: random(1, ca)
-  db: random(0, da)
-  bu: random(au + 1, 9)
-  a: ca * 100 + da * 10 + au
-  b: cb * 100 + db * 10 + bu
-
-respuesta: a - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} - {b}?"
-
-explicacion: |
-  Con 3 cifras el procedimiento es el mismo, columna por columna; el
-  préstamo puede afectar sólo a una columna o encadenarse a más de una.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "avanzado"
-  tags: ["resta", "con_prestamo"]
-
-variables:
-  ca: random(3, 9)
-  da: random(0, 4)
-  au: random(0, 4)
-  cb: random(1, ca - 1)
-  db: random(da + 1, 9)
-  bu: random(au + 1, 9)
-  a: ca * 100 + da * 10 + au
-  b: cb * 100 + db * 10 + bu
-
-respuesta: a - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} - {b}?"
-
-explicacion: |
-  Acá el préstamo se encadena: las unidades le piden prestado a las
-  decenas, y las decenas (que ya quedaron más chicas) le piden prestado a
-  las centenas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "con_prestamo", "problema"]
-
-variables:
-  a: random(300, 900)
-  b: random(50, 299)
-
-respuesta: a - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Tenías ${a} y gastaste ${b}. ¿Cuánto dinero te queda?"
-
-explicacion: |
-  Restar montos de dinero es restar los números igual que siempre; el
-  signo $ no cambia el procedimiento.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "propiedades"]
-
-variables:
-  a: random(1, 90)
-  b: random(1, 90)
-
-restricciones:
-  - a != b
-
-respuesta: (a - b == b - a)
+respuesta: (((y0 * a ^ (t + 1)) / (y0 * a ^ t)) == a)
 tipo: vf
 
-enunciado: "¿Es cierto que {a} - {b} da el mismo resultado que {b} - {a}?"
+enunciado: "y(t) = {y0}×{a}^t. ¿Es siempre igual a {a} la razón y(t+1)/y(t), sin importar el valor de t={t}?"
 
 explicacion: |
-  A diferencia de la suma, en la resta el orden importa: cambiar el
-  minuendo por el sustraendo cambia el resultado (incluso el signo).
+  Es justo la propiedad que hace que este modelo sea solución de
+  dy/dt=ky: la razón entre valores consecutivos es constante.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
+  tema: "ecuaciones_diferenciales"
+  nivel: "avanzado"
+  tags: ["verdadero_falso"]
+
+variables:
+  y0: random(10, 100)
+  a: random(2, 5)
+  t: random(0, 5)
+  b_propuesto: uno_de([a, a + 1, a - 1])
+
+respuesta: (((y0 * a ^ (t + 1)) / (y0 * a ^ t)) == b_propuesto)
+tipo: vf
+
+enunciado: "y(t) = {y0}×{a}^t. ¿Es y(t+1)/y(t) igual a {b_propuesto}?"
+
+explicacion: |
+  La razón real siempre es {a}, la base del modelo — cualquier otro
+  número no coincide.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_diferenciales"
+  nivel: "intermedio"
+  tags: ["vida_media"]
+
+variables:
+  n: random(1, 5)
+  y0: random(10, 30) * (2 ^ n)
+
+respuesta: n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una muestra de {y0}g tiene vida media de 1 día (se reduce a la mitad cada día). ¿Cuántos días tardan en quedar {y0 / (2 ^ n)}g?"
+
+pasos:
+  - "{y0}/2^t = {y0 / (2 ^ n)} → 2^t = {2 ^ n} → t = {n}"
+
+explicacion: |
+  Se reconoce {y0 / (2 ^ n)} como {y0} dividido por una potencia exacta
+  de 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_diferenciales"
+  nivel: "intermedio"
+  tags: ["duplicacion"]
+
+variables:
+  n: random(1, 5)
+  y0: random(10, 30)
+
+respuesta: n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una población de {y0} se duplica cada período. ¿Cuántos períodos tardan en llegar a {y0 * (2 ^ n)}?"
+
+pasos:
+  - "{y0}×2^t = {y0 * (2 ^ n)} → 2^t = {2 ^ n} → t = {n}"
+
+explicacion: |
+  Se reconoce {y0 * (2 ^ n)} como {y0} multiplicado por una potencia
+  exacta de 2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_diferenciales"
+  nivel: "avanzado"
+  tags: ["duplicacion"]
+
+variables:
+  n: random(1, 5)
+  y0: random(5, 50)
+
+respuesta: n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "y(t) = {y0}×10^t. ¿Para qué valor de t es y(t) = {y0 * (10 ^ n)}?"
+
+pasos:
+  - "10^t = {10 ^ n} → t = log₁₀({10 ^ n}) = {n}"
+
+explicacion: |
+  Se despeja t aplicando logaritmo, igual que en
+  `../ecuaciones-exponenciales-logaritmicas/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_diferenciales"
   nivel: "basico"
-  tags: ["resta", "propiedades"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En una resta, el orden de los números sí importa: no es lo mismo el minuendo que el sustraendo."
+enunciado: "Una ecuación diferencial relaciona una función con su derivada, en vez de dar directamente el valor de la función."
 
 explicacion: |
-  A diferencia de la suma (donde el orden de los sumandos no importa), acá
-  cambiar el orden cambia el resultado.
+  Es la diferencia clave con una ecuación algebraica común.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
+  tema: "ecuaciones_diferenciales"
   nivel: "intermedio"
-  tags: ["resta", "propiedades"]
+  tags: ["concepto", "verdadero_falso"]
 
-variables:
-  a: random(50, 99)
-  b: random(1, 20)
-  c: random(1, 20)
-
-respuesta: a - b - c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} - {b} - {c}?"
-
-pasos:
-  - "Se resuelve de izquierda a derecha: {a} - {b} = {a - b}, y después {a - b} - {c} = {a - b - c}"
-
-explicacion: |
-  En una cadena de restas no se puede reagrupar como en la suma: hay que
-  resolver siempre en el orden en que aparecen, de izquierda a derecha.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "propiedades"]
-
-variables:
-  a: random(50, 99)
-  b: random(1, 20)
-  c: random(1, 20)
-
-respuesta: ((a - b) - c == a - (b - c))
+respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es cierto que ({a} - {b}) - {c} da lo mismo que {a} - ({b} - {c})?"
+enunciado: "La solución de dy/dt = k·y siempre tiene la forma y(t) = y₀·aᵗ, una función exponencial."
 
 explicacion: |
-  Salvo casos puntuales, no da lo mismo: agrupar distinto una cadena de
-  restas cambia el resultado (a diferencia de la suma, que sí es
-  asociativa).
+  Es el resultado central de este modelo — cualquier fenómeno con esa
+  estructura de crecimiento se describe con una exponencial.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "prueba_de_la_resta"]
+  tema: "ecuaciones_diferenciales"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
 
-variables:
-  a: random(50, 900)
-  b: random(10, 49)
-  diferencia: a - b
+respuesta: falso
 
-respuesta: (diferencia + b == a)
 tipo: vf
 
-enunciado: "Si {a} - {b} = {diferencia}, ¿tiene que ser cierto que {diferencia} + {b} da {a}?"
+enunciado: "Si la tasa de cambio de y es proporcional a y, entonces y crece de forma lineal (sumando siempre lo mismo)."
 
 explicacion: |
-  Es la prueba de la resta: como restar es la operación inversa de sumar,
-  la diferencia más el sustraendo siempre reconstruye el minuendo.
+  Crece de forma EXPONENCIAL (multiplicando), no lineal — confundir
+  estos dos modelos es el error central del tema.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "prueba_de_la_resta"]
+  tema: "ecuaciones_diferenciales"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
-variables:
-  a: random(100, 900)
-  b: random(10, 99)
-  diferencia_correcta: a - b
-  error: uno_de([0, 0, 0, 1, -1])
-  diferencia_mostrada: diferencia_correcta + error
-
-respuesta: ((diferencia_mostrada + b) == a)
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Alguien dice que {a} - {b} = {diferencia_mostrada}. Usando la prueba de la resta (sumar la diferencia al sustraendo), ¿el resultado es correcto?"
+enunciado: "En dy/dt=ky, si k es positivo, y crece con el tiempo."
 
 explicacion: |
-  Si {diferencia_mostrada} + {b} no da {a}, la resta está mal hecha —
-  la prueba de la resta sirve exactamente para detectar ese error.
+  k>0 corresponde a una base a>1 en la solución y=y₀aᵗ.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
+  tema: "ecuaciones_diferenciales"
   nivel: "basico"
-  tags: ["resta", "prueba_de_la_resta"]
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En dy/dt=ky, si k es negativo, y decrece con el tiempo (acercándose a 0)."
+
+explicacion: |
+  k<0 corresponde a una base 0<a<1 en la solución.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_diferenciales"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un modelo de decaimiento exponencial, y se acerca a 0 pero nunca llega a valer exactamente 0 (ni se vuelve negativa)."
+
+explicacion: |
+  Es la misma asíntota horizontal en y=0 ya vista en
+  `../familias-exponencial-logaritmica/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_diferenciales"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un decaimiento exponencial, la vida media (tiempo para reducirse a la mitad) es siempre la misma, sin importar desde qué cantidad se empiece a contar."
+
+explicacion: |
+  Es una propiedad característica del decaimiento exponencial: tarda lo
+  mismo en pasar de 100 a 50 que de 50 a 25.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_diferenciales"
+  nivel: "avanzado"
+  tags: ["problema"]
 
 variables:
-  a: random(5, 9)
-  b: random(1, a - 1)
-  diferencia: a - b
+  capital: random(1000, 5000)
+  tasa: 2
+  anios: random(1, 5)
 
-respuesta: (diferencia + b)
+respuesta: capital * tasa ^ anios
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Sabiendo que {a} - {b} = {diferencia}, ¿cuánto tiene que dar {diferencia} + {b}?"
+enunciado: "Un capital de {capital} se duplica cada año (modelo dC/dt=kC). ¿Cuánto hay después de {anios} años?"
 
 explicacion: |
-  Por la prueba de la resta, sumar la diferencia y el sustraendo siempre
-  reconstruye el minuendo original.
+  El interés compuesto es, exactamente, un modelo de crecimiento
+  proporcional a lo que ya se tiene.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "vocabulario"]
-
-enunciado: "En la resta 13 - 5 = 8, ¿cómo se llama el 8?"
-tipo: mc
-opciones_explicitas:
-  - "Diferencia"
-  - "Minuendo"
-  - "Sustraendo"
-respuesta: "Diferencia"
-
-explicacion: |
-  El resultado de una resta se llama diferencia (o "resto").
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "vocabulario"]
-
-enunciado: "En la resta 13 - 5 = 8, ¿cómo se llaman el 13 y el 5, respectivamente?"
-tipo: mc
-opciones_explicitas:
-  - "Minuendo y sustraendo"
-  - "Sustraendo y minuendo"
-  - "Sumando y diferencia"
-respuesta: "Minuendo y sustraendo"
-
-explicacion: |
-  El primer número (del que se resta) es el minuendo; el que se resta es
-  el sustraendo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
+  tema: "ecuaciones_diferenciales"
   nivel: "intermedio"
-  tags: ["resta", "estimacion"]
+  tags: ["verificacion", "verdadero_falso"]
 
 variables:
-  a: random(100, 988)
-  b: random(11, 99)
-  ra: redondear(a / 10, 0) * 10
-  rb: redondear(b / 10, 0) * 10
+  y0: random(10, 100)
+  a: random(2, 4)
+  t: random(1, 4)
+  real: y0 * a ^ t
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
 
-respuesta: ra - rb
-tipo: input
-tolerancia_abs: 0
+respuesta: (propuesto == real)
+tipo: vf
 
-enunciado: "Redondeá {a} y {b} a la decena más cercana, y restá esos redondeos. ¿Cuánto da la estimación?"
-
-pasos:
-  - "{a} redondea a {ra}. {b} redondea a {rb}. {ra} - {rb} = {ra - rb}"
+enunciado: "y(t) = {y0}×{a}^t. ¿Es correcto que y({t}) sea {propuesto}?"
 
 explicacion: |
-  Estimar una resta es redondear minuendo y sustraendo por separado antes
-  de restar, para tener una idea rápida del resultado.
+  El valor correcto es {real}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "estimacion"]
-
-variables:
-  a: random(1000, 9888)
-  b: random(101, 999)
-  ra: redondear(a / 100, 0) * 100
-  rb: redondear(b / 100, 0) * 100
-
-respuesta: ra - rb
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Redondeá {a} y {b} a la centena más cercana, y restá esos redondeos. ¿Cuánto da la estimación?"
-
-explicacion: |
-  Con números más grandes conviene redondear a la centena para que la
-  estimación sea más rápida.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
+  tema: "ecuaciones_diferenciales"
   nivel: "basico"
-  tags: ["resta", "termino_faltante"]
+  tags: ["concepto"]
 
 variables:
-  a: random(20, 99)
-  diferencia: random(1, a - 1)
-  x: a - diferencia
+  y0: random(10, 500)
+  a: random(2, 5)
 
-respuesta: x
+respuesta: y0
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Qué número hay que restarle a {a} para obtener {diferencia}?"
-
-pasos:
-  - "{a} - {diferencia} = {a - diferencia}"
+enunciado: "y(t) = {y0}×{a}^t. ¿Cuál es la cantidad inicial y₀ (en t=0)?"
 
 explicacion: |
-  Buscar el sustraendo que falta es restar la diferencia conocida al
-  minuendo.
+  y(0) = {y0}×{a}^0 = {y0}×1 = {y0} — el coeficiente que multiplica a
+  la potencia.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "termino_faltante"]
+  tema: "ecuaciones_diferenciales"
+  nivel: "basico"
+  tags: ["concepto"]
 
 variables:
-  b: random(10, 90)
-  diferencia: random(10, 90)
-  a: b + diferencia
+  y0: random(10, 500)
+  a: random(2, 5)
 
 respuesta: a
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿A qué número hay que restarle {b} para obtener {diferencia}?"
-
-pasos:
-  - "{diferencia} + {b} = {diferencia + b}"
+enunciado: "y(t) = {y0}×{a}^t. ¿Cuál es la base a del modelo?"
 
 explicacion: |
-  El minuendo que falta se encuentra sumando la diferencia y el
-  sustraendo — es la misma prueba de la resta, usada al revés.
+  Es el factor por el que se multiplica y en cada período.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "termino_faltante"]
-
-variables:
-  b: random(10, 90)
-  diferencia: random(10, 90)
-  a: b + diferencia
-
-tipo: completar
-enunciado: "Completá: ___ - {b} = {diferencia}."
-respuestas_validas:
-  - a
-
-explicacion: |
-  El número que falta es el minuendo: el que, al restarle {b}, da
-  exactamente {diferencia}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "verificacion"]
-
-variables:
-  a: random(3, 9)
-  b: random(1, a - 1)
-  correcto: a - b
-  error: uno_de([0, 0, 0, 1, -1])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien resuelta esta resta? {a} - {b} = {mostrado}"
-
-explicacion: |
-  Para verificar una resta hay que volver a calcularla (o usar la prueba
-  de la resta) y comparar, no alcanza con que el número parezca razonable.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "verificacion"]
-
-variables:
-  da: random(3, 9)
-  au: random(0, 4)
-  db: random(1, da - 1)
-  bu: random(au + 1, 9)
-  a: da * 10 + au
-  b: db * 10 + bu
-  correcto: a - b
-  error: uno_de([0, 0, 0, 1, -1, 10])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien resuelta esta resta? {a} - {b} = {mostrado}"
-
-explicacion: |
-  Un error típico al restar con préstamo es olvidarse de descontarle 1 a
-  la columna que prestó: por eso conviene revisar columna por columna.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
+  tema: "ecuaciones_diferenciales"
   nivel: "avanzado"
-  tags: ["resta", "verificacion"]
+  tags: ["problema"]
 
 variables:
-  a: random(300, 900)
-  b: random(50, 299)
-  correcto: a - b
-  error: uno_de([0, 0, 0, 1, -1, 100])
-  mostrado: correcto + error
+  diferencia_inicial: random(20, 30) * 4
+  periodos: random(1, 2)
 
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien resuelta esta resta? {a} - {b} = {mostrado}"
-
-explicacion: |
-  Con más cifras hay más columnas donde puede haber un error: conviene
-  verificar de derecha a izquierda, igual que al resolver.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "problema"]
-
-variables:
-  a: random(20, 90)
-  b: random(1, a - 1)
-
-respuesta: a - b
+respuesta: diferencia_inicial / (2 ^ periodos)
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Había {a} alumnos en el patio y {b} entraron al aula. ¿Cuántos alumnos quedan en el patio?"
+enunciado: "La diferencia de temperatura entre un objeto y el ambiente empieza en {diferencia_inicial}°C y se reduce a la mitad cada hora (ley de enfriamiento de Newton, otro modelo dy/dt=ky). ¿Cuál es la diferencia después de {periodos} horas?"
 
 explicacion: |
-  "Quedar" después de que una parte se va es restar: lo que queda es el
-  total menos lo que se fue.
+  Mismo modelo matemático que el decaimiento radiactivo, aplicado a
+  temperatura en vez de masa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "resta"
+  tema: "ecuaciones_diferenciales"
   nivel: "intermedio"
-  tags: ["resta", "problema"]
-
-variables:
-  a: random(100, 500)
-  b: random(20, 99)
-
-respuesta: a - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un edificio tiene {a} metros de altura y otro tiene {b} metros menos. ¿Cuántos metros tiene el segundo edificio?"
-
-explicacion: |
-  "Tener X metros menos" es restar esa cantidad al primer valor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "problema"]
-
-variables:
-  a: random(15, 30)
-  b: random(3, 14)
-
-respuesta: a - b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A la mañana había {a} grados y a la noche bajó {b} grados. ¿Cuántos grados hay a la noche?"
-
-explicacion: |
-  Bajar una cantidad respecto de un valor inicial es restar esa cantidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "termino_faltante", "problema"]
-
-variables:
-  a: random(50, 200)
-  meta: random(1, a - 1)
-
-respuesta: a - meta
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un termo tiene {a} ml de agua. ¿Cuánta agua hay que sacarle para que queden {meta} ml?"
-
-explicacion: |
-  Lo que hay que sacar es, exactamente, la diferencia entre lo que hay
-  ahora y lo que se quiere que quede.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "termino_faltante", "problema"]
-
-variables:
-  a: random(500, 2000)
-  meta: random(100, a - 1)
-
-respuesta: a - meta
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un producto cuesta ${a} y va a quedar en ${meta} tras un descuento. ¿De cuánto es el descuento?"
-
-explicacion: |
-  El descuento es la diferencia entre el precio original y el precio final.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "calculo_mental"]
-
-variables:
-  x: random(1, 99)
-
-respuesta: 100 - x
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es 100 - {x}?"
-
-explicacion: |
-  Restar de un número redondo como 100 es un caso frecuente al calcular
-  vueltos: conviene practicarlo aparte de la resta en columna general.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "calculo_mental", "problema"]
-
-variables:
-  billete: uno_de([100, 500, 1000])
-  precio: random(1, billete - 1)
-
-respuesta: billete - precio
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Pagás con un billete de ${billete} algo que cuesta ${precio}. ¿Cuánto te tienen que dar de vuelto?"
-
-explicacion: |
-  El vuelto es la diferencia entre lo que se paga y el precio real.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estas restas de menor a mayor resultado (sin calcularlas todas de una)."
-opciones_explicitas:
-  - "15 - 7"
-  - "9 - 2"
-  - "20 - 3"
-  - "11 - 4"
-respuesta_orden: ["9 - 2", "11 - 4", "15 - 7", "20 - 3"]
-
-explicacion: |
-  9-2=7, 11-4=7... en realidad hay que resolver cada resta antes de poder
-  ordenarlas: 9-2=7, 11-4=7, 15-7=8, 20-3=17.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "algoritmo_columna"]
-
-variables:
-  da: random(2, 9)
-  au: random(0, 9)
-  db: random(1, da)
-  bu: random(0, au)
-  a: da * 10 + au
-  b: db * 10 + bu
-  diferencia: a - b
-
-tipo: completar
-enunciado: "Completá el resultado: {a} - {b} = ___."
-respuestas_validas:
-  - diferencia
-
-explicacion: |
-  Se resuelve la resta en columna, de derecha a izquierda, y se completa
-  con el resultado final.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "propiedades"]
-
-variables:
-  a: random(1, 999)
-
-respuesta: 0
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} - {a}?"
-
-explicacion: |
-  Cualquier número menos sí mismo da 0: no queda nada por quitar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "propiedades"]
-
-variables:
-  a: random(1, 999)
-
-respuesta: a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuánto es {a} - 0?"
-
-explicacion: |
-  Restar 0 no quita nada: el resultado es siempre el mismo número con el
-  que se empezó — pero ojo, esto sólo vale restando 0 (no sumando 0 al
-  revés: 0 - {a} no da {a}).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "intermedio"
-  tags: ["resta", "problema"]
-
-variables:
-  a: random(80, 150)
-  b: random(10, 30)
-  c: random(10, 30)
-
-respuesta: a - b - c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Tenías {a} figuritas, regalaste {b} a un amigo y {c} a otro. ¿Cuántas figuritas te quedan?"
-
-pasos:
-  - "Se resta en el orden en que ocurrieron los regalos: {a} - {b} - {c} = {a - b - c}"
-
-explicacion: |
-  Cuando se resta más de una vez en un problema, se va restando en el
-  orden en que van ocurriendo los descuentos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "resta"
-  nivel: "basico"
-  tags: ["resta", "vocabulario"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Restar es quitarle una cantidad a otra para ver cuánto queda."
+enunciado: "Crecimiento poblacional, interés compuesto y decaimiento radiactivo son fenómenos distintos, pero todos se modelan con la misma ecuación diferencial dy/dt=ky."
 
 explicacion: |
-  Es la idea central de la resta: separar una parte de una cantidad para
-  ver qué queda de ella.
-```
-
-## Sección: riesgo-relativo-vs-absoluto (20 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "basico"
-  tags: ["riesgo_absoluto", "vocabulario"]
-
-enunciado: "¿Qué es el riesgo absoluto de un evento en un grupo?"
-tipo: mc
-opciones_explicitas:
-  - "La probabilidad simple de que ocurra el evento en ese grupo (por ejemplo, 70 de cada 10.000 personas)"
-  - "La comparación entre el riesgo de dos grupos distintos"
-  - "El porcentaje de personas que NO tuvieron el evento"
-respuesta: "La probabilidad simple de que ocurra el evento en ese grupo (por ejemplo, 70 de cada 10.000 personas)"
-
-explicacion: |
-  Es la misma probabilidad condicional P(evento|grupo) de
-  `../probabilidad-condicional/`.
+  Es el valor central de estudiar el modelo en abstracto: una vez
+  entendida la estructura, se aplica a cualquier fenómeno con esa misma
+  forma de cambio.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "intermedio"
-  tags: ["riesgo_relativo", "vocabulario"]
-
-enunciado: "¿Qué es el riesgo relativo (RR)?"
-tipo: mc
-opciones_explicitas:
-  - "La razón entre el riesgo de un grupo expuesto y el riesgo de un grupo no expuesto (P(evento|expuesto) / P(evento|no expuesto))"
-  - "La probabilidad absoluta de un único grupo, sin comparar con ningún otro"
-  - "La diferencia de edad entre dos grupos comparados"
-respuesta: "La razón entre el riesgo de un grupo expuesto y el riesgo de un grupo no expuesto (P(evento|expuesto) / P(evento|no expuesto))"
-
-explicacion: |
-  RR=1 significa que no hay diferencia entre ambos grupos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
+  tema: "ecuaciones_diferenciales"
   nivel: "avanzado"
-  tags: ["riesgo_relativo", "problema"]
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Resolver una ecuación diferencial (encontrar la función y) usa integración, mientras que verificar que una función propuesta es solución usa derivación."
+
+explicacion: |
+  Cierra el círculo de Análisis: se necesitan las dos operaciones,
+  `../derivada/` e `../integral/`, para trabajar con estos modelos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_diferenciales"
+  nivel: "avanzado"
+  tags: ["problema"]
 
 variables:
-  riesgo_expuesto: uno_de([0.04, 0.06, 0.08])
-  riesgo_no_expuesto: uno_de([0.02, 0.03])
+  y0: random(5, 20)
+  n: random(1, 6)
 
-respuesta: redondear(riesgo_expuesto / riesgo_no_expuesto, 2)
+respuesta: n
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una población de {y0} se duplica cada período: y(t) = {y0}×2^t. ¿Después de cuántos períodos completos llega exactamente a {y0 * (2 ^ n)}?"
+
+explicacion: |
+  Se reconoce el factor 2^{n}, contando cuántas duplicaciones hicieron
+  falta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_diferenciales"
+  nivel: "avanzado"
+  tags: ["verdadero_falso"]
+
+variables:
+  y0: random(50, 200)
+  a1: 2
+  a2: 3
+  t: random(2, 5)
+
+respuesta: ((y0 * a2 ^ t) > (y0 * a1 ^ t))
+tipo: vf
+
+enunciado: "Dos poblaciones iguales parten de {y0}: una con tasa 2 (se duplica) y otra con tasa 3 (se triplica) cada período. ¿Es mayor la de tasa 3 después de {t} períodos?"
+
+explicacion: |
+  Una tasa de crecimiento mayor siempre termina superando a una menor,
+  a igualdad de punto de partida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "ecuaciones_diferenciales"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El modelo básico y=y₀aᵗ (con a>1) predice un crecimiento sin límite, aunque en la realidad casi todo crecimiento poblacional termina frenándose por recursos limitados."
+
+explicacion: |
+  Es una limitación conocida del modelo simple — modelos más avanzados
+  (fuera de este módulo) agregan un límite de capacidad.
+```
+
+## Sección: redondeo (22 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "basico"
+  tags: ["redondeo"]
+
+variables:
+  entero: random(1, 50)
+  h: random(1, 9)
+  m: random(0, 9)
+  n: entero + h / 10 + m / 100
+
+respuesta: redondear(n, 1)
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "El riesgo de un evento es {riesgo_expuesto} en el grupo expuesto y {riesgo_no_expuesto} en el grupo no expuesto. ¿Cuál es el riesgo relativo (RR)?"
+enunciado: "Redondeá {n} a 1 cifra decimal."
 
 pasos:
-  - "RR = {riesgo_expuesto} / {riesgo_no_expuesto} = {redondear(riesgo_expuesto / riesgo_no_expuesto, 2)}"
+  - "Se mira la segunda cifra decimal ({m}) para decidir si la primera sube o queda igual: {redondear(n, 1)}"
 
 explicacion: |
-  Un RR mayor a 1 indica más riesgo en el grupo expuesto.
+  Se mira la cifra que sigue a la posición buscada: 5 o más, sube; menos
+  de 5, queda igual.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "avanzado"
-  tags: ["riesgo_absoluto", "problema"]
+  tema: "redondeo"
+  nivel: "basico"
+  tags: ["redondeo"]
 
 variables:
-  riesgo_expuesto: uno_de([0.04, 0.06, 0.08])
-  riesgo_no_expuesto: uno_de([0.02, 0.03])
+  entero: random(1, 50)
+  h: random(1, 9)
+  m: random(0, 9)
+  mil: random(0, 9)
+  n: entero + h / 10 + m / 100 + mil / 1000
 
-respuesta: redondear(riesgo_expuesto - riesgo_no_expuesto, 3)
+respuesta: redondear(n, 2)
 tipo: input
 tolerancia_abs: 0.001
 
-enunciado: "Con los mismos riesgos ({riesgo_expuesto} expuesto, {riesgo_no_expuesto} no expuesto), ¿cuál es la diferencia de riesgo ABSOLUTA?"
+enunciado: "Redondeá {n} a 2 cifras decimales."
 
 pasos:
-  - "Diferencia = {riesgo_expuesto} − {riesgo_no_expuesto} = {redondear(riesgo_expuesto - riesgo_no_expuesto, 3)}"
+  - "Se mira la tercera cifra decimal ({mil}) para decidir: {redondear(n, 2)}"
 
 explicacion: |
-  Es una resta simple, a diferencia del riesgo relativo (que es un
-  cociente).
+  Es el mismo criterio, mirando ahora la tercera cifra decimal.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "avanzado"
-  tags: ["riesgo_relativo", "riesgo_absoluto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un riesgo relativo alto (por ejemplo, RR=2) puede corresponder a una diferencia de riesgo absoluta insignificante, si el riesgo base (sin exposición) ya era muy bajo de por sí."
-
-explicacion: |
-  Duplicar un riesgo de 1 en un millón sigue siendo un riesgo
-  absoluto mínimo, aunque el riesgo relativo (RR=2) suene alarmante.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "avanzado"
-  tags: ["riesgo_absoluto", "problema"]
-
-variables:
-  riesgo_base: 0.000001
-  rr: 2
-
-respuesta: redondear(riesgo_base * rr - riesgo_base, 7)
-tipo: input
-tolerancia_abs: 0.0000001
-
-enunciado: "Un hábito duplica (RR={rr}) el riesgo de una enfermedad muy rara, cuyo riesgo base sin el hábito es {riesgo_base} (1 en 1.000.000). ¿Cuál es la diferencia de riesgo ABSOLUTA real?"
-
-pasos:
-  - "Riesgo con el hábito = {riesgo_base} × {rr} = {riesgo_base * rr}"
-  - "Diferencia absoluta = {riesgo_base * rr} − {riesgo_base} = {redondear(riesgo_base * rr - riesgo_base, 7)}"
-
-explicacion: |
-  A pesar de 'duplicar el riesgo', el aumento absoluto real es de
-  apenas 1 en 1.000.000 — prácticamente insignificante en términos
-  prácticos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "Un titular dice: 'Comer X duplica el riesgo de la enfermedad Y'. ¿Qué información falta para poder evaluar si esto es realmente preocupante?"
-tipo: mc
-opciones_explicitas:
-  - "El riesgo ABSOLUTO de base (sin comer X): duplicar un riesgo de 1 en un millón no es lo mismo que duplicar uno de 1 en 10"
-  - "No falta ninguna información: 'duplica el riesgo' ya dice todo lo necesario"
-  - "Sólo importa saber cuántas personas participaron en el estudio"
-respuesta: "El riesgo ABSOLUTO de base (sin comer X): duplicar un riesgo de 1 en un millón no es lo mismo que duplicar uno de 1 en 10"
-
-explicacion: |
-  El riesgo relativo solo, sin el riesgo absoluto de referencia, no
-  alcanza para evaluar la relevancia práctica de la noticia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "avanzado"
-  tags: ["riesgo_relativo", "problema"]
-
-variables:
-  riesgo_no_expuesto: 0.001
-  riesgo_expuesto: 0.003
-
-respuesta: redondear(riesgo_expuesto / riesgo_no_expuesto, 1)
-tipo: input
-tolerancia_abs: 0.1
-
-enunciado: "Un titular dice 'esto TRIPLICA el riesgo'. El riesgo sin exposición es {riesgo_no_expuesto} y con exposición es {riesgo_expuesto}. ¿El riesgo relativo confirma ese 'triplica'?"
-
-pasos:
-  - "RR = {riesgo_expuesto} / {riesgo_no_expuesto} = {redondear(riesgo_expuesto / riesgo_no_expuesto, 1)}"
-
-explicacion: |
-  El cálculo confirma el RR=3 del titular — pero sigue haciendo falta
-  el riesgo absoluto para saber si es relevante en la práctica.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
+  tema: "redondeo"
   nivel: "intermedio"
-  tags: ["riesgo_relativo"]
-
-enunciado: "¿Por qué el riesgo relativo, reportado SOLO (sin el riesgo absoluto), no cuenta toda la historia?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el mismo número de riesgo relativo puede corresponder a situaciones con consecuencias prácticas muy distintas, según cuál sea el riesgo absoluto de base"
-  - "Porque el riesgo relativo siempre es un número inventado, sin ninguna base real"
-  - "El riesgo relativo solo siempre es suficiente, no hace falta nada más"
-respuesta: "Porque el mismo número de riesgo relativo puede corresponder a situaciones con consecuencias prácticas muy distintas, según cuál sea el riesgo absoluto de base"
-
-explicacion: |
-  Es la idea central de todo el módulo, ilustrada con el ejemplo del
-  riesgo base de 1 en un millón.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "avanzado"
-  tags: ["riesgo_relativo", "riesgo_absoluto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos situaciones con el mismo riesgo relativo (RR=2) pueden tener consecuencias prácticas muy distintas, según si el riesgo base era del 0,0001% o del 10%."
-
-explicacion: |
-  Duplicar 10% a 20% (10 puntos de diferencia absoluta) es mucho más
-  relevante que duplicar 0,0001% a 0,0002%.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "avanzado"
-  tags: ["riesgo_relativo", "problema"]
+  tags: ["redondeo"]
 
 variables:
-  riesgo_base_a: 0.001
-  riesgo_base_b: 0.15
-  rr: 2
+  entero: random(1, 50)
+  h: random(0, 9)
+  m: random(0, 9)
+  n: entero + h / 10 + m / 100 + 5 / 1000
 
-respuesta: (riesgo_base_b * rr - riesgo_base_b) > (riesgo_base_a * rr - riesgo_base_a)
-tipo: vf
+respuesta: redondear(n, 2)
+tipo: input
+tolerancia_abs: 0.001
 
-enunciado: "Escenario A tiene riesgo base {riesgo_base_a}; Escenario B tiene riesgo base {riesgo_base_b}. En ambos, el RR de la exposición es {rr}. ¿La diferencia de riesgo ABSOLUTA del Escenario B es MAYOR que la del Escenario A?"
+enunciado: "Redondeá {n} a 2 cifras decimales."
+
+pasos:
+  - "La tercera cifra decimal es 5: la segunda cifra sube."
 
 explicacion: |
-  Con el mismo riesgo relativo, un riesgo base más alto siempre
-  produce una diferencia absoluta mayor.
+  Cuando la cifra que decide es exactamente 5, la posición anterior sube.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
+  tema: "redondeo"
   nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "Al leer 'X aumenta el riesgo de Y en un Z%', ¿qué conviene preguntarse antes de preocuparse?"
-tipo: mc
-opciones_explicitas:
-  - "¿Cuál es el riesgo ABSOLUTO de base? Un aumento relativo grande sobre una base muy chica puede seguir siendo un riesgo absoluto insignificante"
-  - "Nada más: el porcentaje ya dice todo lo que hace falta saber"
-  - "Sólo importa el nombre de la revista que publicó el estudio"
-respuesta: "¿Cuál es el riesgo ABSOLUTO de base? Un aumento relativo grande sobre una base muy chica puede seguir siendo un riesgo absoluto insignificante"
-
-explicacion: |
-  Es la pregunta crítica central de este módulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "intermedio"
-  tags: ["probabilidad_condicional", "bayes"]
-
-enunciado: "¿Qué relación tienen el riesgo absoluto y el riesgo relativo con `../probabilidad-condicional/` y `../teorema-de-bayes/`?"
-tipo: mc
-opciones_explicitas:
-  - "Ambos son formas de reportar y comparar probabilidades condicionales (P(evento|expuesto) vs. P(evento|no expuesto)), la misma maquinaria ya vista en esos módulos"
-  - "No tienen ninguna relación con la probabilidad condicional"
-  - "Reemplazan por completo la necesidad de calcular probabilidad condicional"
-respuesta: "Ambos son formas de reportar y comparar probabilidades condicionales (P(evento|expuesto) vs. P(evento|no expuesto)), la misma maquinaria ya vista en esos módulos"
-
-explicacion: |
-  El riesgo relativo es, literalmente, un cociente de dos
-  probabilidades condicionales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "avanzado"
-  tags: ["riesgo_relativo", "problema"]
+  tags: ["redondeo"]
 
 variables:
-  riesgo_expuesto: 0.02
-  riesgo_no_expuesto: 0.08
+  entero: random(1, 100)
+  h: random(0, 9)
+  n: entero + h / 10
 
-respuesta: redondear(riesgo_expuesto / riesgo_no_expuesto, 2)
+respuesta: redondear(n, 0)
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "El riesgo de un evento es {riesgo_expuesto} en el grupo expuesto a un factor protector, y {riesgo_no_expuesto} en el grupo no expuesto. ¿Cuál es el riesgo relativo?"
+enunciado: "Redondeá {n} al entero más cercano."
 
 pasos:
-  - "RR = {riesgo_expuesto} / {riesgo_no_expuesto} = {redondear(riesgo_expuesto / riesgo_no_expuesto, 2)}"
+  - "Se mira la primera cifra decimal ({h}) para decidir: {redondear(n, 0)}"
 
 explicacion: |
-  Un RR menor a 1 indica que la exposición está asociada con MENOS
-  riesgo (un factor protector), no con más.
+  Redondear al entero es mirar sólo la primera cifra decimal.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
+  tema: "redondeo"
   nivel: "intermedio"
-  tags: ["riesgo_relativo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un riesgo relativo de exactamente 1 significa que no hay ninguna diferencia de riesgo entre el grupo expuesto y el no expuesto."
-
-explicacion: |
-  P(evento|expuesto) = P(evento|no expuesto) cuando el cociente entre
-  ambos da 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
-
-enunciado: "En medicina se usa el 'número necesario a tratar' (NNT): el inverso de la diferencia de riesgo absoluta, que dice a cuántas personas hay que tratar para evitar un caso. ¿Por qué esta medida es útil, más allá del riesgo relativo?"
-tipo: mc
-opciones_explicitas:
-  - "Porque traduce la diferencia de riesgo absoluta a una cifra concreta y fácil de interpretar en la práctica clínica, en vez de un cociente abstracto como el riesgo relativo"
-  - "Porque reemplaza por completo la necesidad de calcular riesgo relativo o absoluto"
-  - "El NNT no tiene ninguna aplicación médica real"
-respuesta: "Porque traduce la diferencia de riesgo absoluta a una cifra concreta y fácil de interpretar en la práctica clínica, en vez de un cociente abstracto como el riesgo relativo"
-
-explicacion: |
-  Un NNT de 100 dice 'hay que tratar a 100 personas para evitar 1
-  caso' — una forma muy concreta de leer la diferencia de riesgo
-  absoluta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "avanzado"
-  tags: ["aplicacion", "problema"]
+  tags: ["redondeo"]
 
 variables:
-  diferencia_riesgo: uno_de([0.01, 0.02, 0.05])
+  entero: random(1, 100)
+  n: entero + 5 / 10
 
-respuesta: redondear(1 / diferencia_riesgo, 0)
+respuesta: redondear(n, 0)
 tipo: input
+tolerancia_abs: 0.01
 
-enunciado: "Un tratamiento reduce el riesgo de un evento en {diferencia_riesgo} (diferencia de riesgo absoluta). ¿Cuál es el número necesario a tratar (NNT) para evitar 1 caso, aproximadamente?"
+enunciado: "Redondeá {n} al entero más cercano."
 
 pasos:
-  - "NNT = 1 / {diferencia_riesgo} = {redondear(1 / diferencia_riesgo, 0)}"
+  - "La primera cifra decimal es 5: la parte entera sube."
 
 explicacion: |
-  El NNT es, simplemente, el inverso de la diferencia de riesgo
-  absoluta.
+  El caso frontera (cifra exactamente 5) sigue subiendo, igual que con
+  enteros.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
+  tema: "redondeo"
+  nivel: "basico"
+  tags: ["redondeo", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un estudio serio de salud debería reportar tanto el riesgo relativo como el riesgo absoluto (o la diferencia de riesgo), porque cada uno responde una pregunta distinta y complementaria."
+enunciado: "La regla de redondeo de decimales es la misma que la de enteros: se mira la cifra siguiente a la posición buscada."
 
 explicacion: |
-  El relativo dice 'qué tan grande es el efecto, proporcionalmente';
-  el absoluto dice 'qué tan probable es que me pase a mí'.
+  No es una regla nueva: es la misma idea de `../valor-posicional/`,
+  aplicada del otro lado de la coma.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "avanzado"
-  tags: ["aplicacion", "problema"]
+  tema: "redondeo"
+  nivel: "intermedio"
+  tags: ["redondeo", "truncar"]
 
 variables:
-  diferencia_a: 0.1
-  diferencia_b: 0.02
+  entero: random(1, 50)
+  h: random(0, 4)
+  m: random(0, 9)
+  n: entero + h / 10 + m / 100
+  truncado: floor(n * 10) / 10
 
-respuesta: (1 / diferencia_a) < (1 / diferencia_b)
+respuesta: (redondear(n, 1) == truncado)
 tipo: vf
 
-enunciado: "Tratamiento A reduce el riesgo en {diferencia_a}; Tratamiento B lo reduce en {diferencia_b}. ¿El NNT del Tratamiento A es MENOR que el del Tratamiento B (hace falta tratar a menos personas para evitar 1 caso)?"
+enunciado: "¿Coinciden redondear {n} a 1 cifra decimal y truncarlo a 1 cifra decimal?"
 
 explicacion: |
-  Una diferencia de riesgo absoluta más grande siempre da un NNT más
-  chico (más eficiente en términos prácticos).
+  Cuando la cifra que decide el redondeo es menor a 5, redondear y
+  truncar dan el mismo resultado (los dos "se quedan" con la cifra
+  anterior).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "riesgo_relativo_vs_absoluto"
-  nivel: "basico"
-  tags: ["cierre"]
+  tema: "redondeo"
+  nivel: "intermedio"
+  tags: ["redondeo", "truncar"]
 
-enunciado: "¿Para qué sirve distinguir entre riesgo relativo y riesgo absoluto al leer una noticia de salud?"
-tipo: mc
-opciones_explicitas:
-  - "Para evaluar con criterio propio si un titular alarmante ('duplica el riesgo') es realmente relevante en la práctica, o si esconde un riesgo absoluto insignificante"
-  - "Para descartar automáticamente cualquier noticia que mencione un riesgo relativo"
-  - "Sólo tiene aplicación en estudios de medicamentos, no en otro tipo de noticias"
-respuesta: "Para evaluar con criterio propio si un titular alarmante ('duplica el riesgo') es realmente relevante en la práctica, o si esconde un riesgo absoluto insignificante"
+variables:
+  entero: random(1, 50)
+  h: random(0, 9)
+  m: random(5, 9)
+  n: entero + h / 10 + m / 100
+
+respuesta: floor(n * 10) / 10
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Truncá {n} a 1 cifra decimal (sin redondear, cortando directo)."
 
 explicacion: |
-  Es la misma familia de pensamiento crítico estadístico que
-  `../grafico-eje-truncado/` y `../correlacion-no-es-causalidad/`.
+  Truncar corta directo, sin mirar si la cifra siguiente es 5 o más — a
+  diferencia de redondear, siempre "se queda" con la cifra anterior tal
+  cual está.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "intermedio"
+  tags: ["redondeo", "truncar"]
+
+variables:
+  entero: random(1, 50)
+  h: random(0, 9)
+  m: random(5, 9)
+  n: entero + h / 10 + m / 100
+  truncado: floor(n * 10) / 10
+
+respuesta: (redondear(n, 1) == truncado)
+tipo: vf
+
+enunciado: "¿Coinciden redondear {n} a 1 cifra decimal y truncarlo a 1 cifra decimal?"
+
+explicacion: |
+  Acá la cifra que decide es 5 o más, así que redondear hace subir la
+  cifra anterior — pero truncar no sube nunca. Por eso no coinciden.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "intermedio"
+  tags: ["redondeo", "problema"]
+
+variables:
+  entero: random(10, 500)
+  c1: random(0, 9)
+  c2: random(0, 9)
+  c3: random(0, 9)
+  precio: entero + c1 / 10 + c2 / 100 + c3 / 1000
+
+respuesta: redondear(precio, 2)
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "Un cálculo da un precio de ${precio}. Redondeado a centavos (2 cifras decimales), ¿cuánto queda?"
+
+explicacion: |
+  Los precios en pesos se redondean a 2 cifras decimales porque no
+  existen fracciones de centavo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "avanzado"
+  tags: ["redondeo", "problema"]
+
+variables:
+  a: random(1, 10)
+  b: random(1, 10)
+  c: random(1, 10)
+  promedio: (a + b + c) / 3
+
+respuesta: redondear(promedio, 2)
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "El promedio de {a}, {b} y {c} da {promedio}. Redondeado a 2 cifras decimales, ¿cuánto queda?"
+
+explicacion: |
+  Un promedio rara vez da un número "redondo": conviene redondearlo a una
+  cantidad razonable de cifras decimales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "intermedio"
+  tags: ["redondeo"]
+
+variables:
+  entero: random(1, 50)
+  h: random(0, 9)
+  m: random(0, 9)
+  n: entero + h / 10 + m / 100
+  correcto: redondear(n, 1)
+
+respuesta: correcto
+tipo: mc
+opciones_explicitas:
+  - correcto
+  - floor(n * 10) / 10
+  - correcto + 0.1
+
+enunciado: "¿Cuál es el redondeo correcto de {n} a 1 cifra decimal?"
+
+explicacion: |
+  Las otras opciones son truncar (no mirar la cifra siguiente) o un error
+  de un décimo de más.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "intermedio"
+  tags: ["redondeo", "verificacion"]
+
+variables:
+  entero: random(1, 50)
+  h: random(0, 9)
+  m: random(0, 9)
+  n: entero + h / 10 + m / 100
+  correcto: redondear(n, 1)
+  error: uno_de([0, 0, 0, 0.1, -0.1])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 0.01)
+tipo: vf
+
+enunciado: "¿Está bien redondeado {n} a 1 cifra decimal, si el resultado dado es {mostrado}?"
+
+explicacion: |
+  Hay que volver a aplicar la regla (mirar la segunda cifra decimal) y
+  comparar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "avanzado"
+  tags: ["redondeo"]
+
+variables:
+  entero: random(1, 20)
+  h: random(0, 9)
+  m: random(0, 9)
+  mil: random(0, 9)
+  diez_mil: random(0, 9)
+  n: entero + h / 10 + m / 100 + mil / 1000 + diez_mil / 10000
+
+respuesta: redondear(n, 3)
+tipo: input
+tolerancia_abs: 0.0001
+
+enunciado: "Redondeá {n} a 3 cifras decimales."
+
+explicacion: |
+  Con más cifras decimales, el procedimiento es el mismo: mirar la cifra
+  que sigue a la posición buscada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "basico"
+  tags: ["redondeo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al redondear, la cifra de la posición buscada sólo puede subir en 1 o quedar igual — nunca baja."
+
+explicacion: |
+  Redondear nunca resta a la cifra buscada: como mucho, la deja igual (si
+  la siguiente es menor a 5) o la sube en 1 (si es 5 o más).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "intermedio"
+  tags: ["redondeo"]
+
+tipo: completar
+enunciado: "¿A partir de qué cifra (0 a 9) la posición anterior sube al redondear? Nombrá la más chica que hace subir."
+respuestas_validas:
+  - 5
+
+explicacion: |
+  A partir del 5 (inclusive), la posición anterior sube.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "basico"
+  tags: ["redondeo", "orden"]
+
+tipo: ordenar
+enunciado: "Estos números ya están redondeados a 1 cifra decimal. Ordenalos de menor a mayor."
+opciones_explicitas:
+  - "3,4"
+  - "3,1"
+  - "3,8"
+  - "3,2"
+respuesta_orden: ["3,1", "3,2", "3,4", "3,8"]
+
+explicacion: |
+  Una vez redondeados, se ordenan igual que cualquier lista de decimales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "basico"
+  tags: ["redondeo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Redondear un número a 0 cifras decimales es lo mismo que redondearlo al entero más cercano."
+
+explicacion: |
+  0 cifras decimales significa "sin ninguna cifra después de la coma": es
+  exactamente el entero más cercano.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "basico"
+  tags: ["redondeo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Redondear un número casi siempre pierde algo de precisión: el número redondeado no es exactamente igual al original (salvo que ya terminara justo ahí)."
+
+explicacion: |
+  Redondear es una aproximación útil, no magia: se gana simplicidad a
+  cambio de exactitud.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "avanzado"
+  tags: ["redondeo"]
+
+variables:
+  entero: random(1, 30)
+  m: random(5, 9)
+  n: entero + m / 10
+  correcto: redondear(n, 0)
+  mal_hecho: entero
+
+respuesta: mal_hecho
+tipo: mc
+opciones_explicitas:
+  - correcto
+  - mal_hecho
+
+enunciado: "Para redondear {n} al entero más cercano, ¿cuál de estos dos resultados está mal (no aplicó la regla)?"
+
+explicacion: |
+  {mal_hecho} simplemente descartó la parte decimal sin mirar si tenía
+  que subir — eso es truncar, no redondear.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "intermedio"
+  tags: ["redondeo"]
+
+variables:
+  entero: random(1, 999)
+
+respuesta: entero
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Redondeá {entero} (un número entero) a 2 cifras decimales."
+
+explicacion: |
+  Un número que ya no tiene cifras decimales de sobra no cambia al
+  redondearlo: queda igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "redondeo"
+  nivel: "basico"
+  tags: ["redondeo", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Redondear es aproximar un número a una cantidad determinada de cifras, mirando la cifra siguiente para decidir si la última que queda sube o se mantiene igual."
+
+explicacion: |
+  Es la idea central de todo el tema, aplicada tanto a enteros como a
+  decimales.
+```
+
+## Sección: regla-de-tres-directa (24 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "basico"
+  tags: ["regla_de_tres_directa"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 30)
+  c: random(2, 9)
+
+respuesta: (b * c) / a
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Resolvé la regla de tres directa: {a} es a {b} como {c} es a x. ¿Cuánto vale x?"
+
+pasos:
+  - "x = ({b} × {c}) ÷ {a} = {b * c} ÷ {a} = {(b * c) / a}"
+
+explicacion: |
+  Se multiplican los dos términos que están cruzados con la incógnita, y
+  se divide por el tercero.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "basico"
+  tags: ["regla_de_tres_directa", "problema"]
+
+variables:
+  kilos_base: random(2, 6)
+  precio_base: kilos_base * random(100, 500)
+  kilos_nuevo: random(2, 15)
+
+respuesta: (precio_base * kilos_nuevo) / kilos_base
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Si {kilos_base} kg de manzanas cuestan ${precio_base}, ¿cuánto cuestan {kilos_nuevo} kg (a precio proporcional)?"
+
+pasos:
+  - "x = ({precio_base} × {kilos_nuevo}) ÷ {kilos_base}"
+
+explicacion: |
+  Más kilos, más precio: es una relación directamente proporcional.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa", "problema"]
+
+variables:
+  horas_base: random(1, 4)
+  km_base: horas_base * random(40, 100)
+  horas_nueva: random(2, 10)
+
+respuesta: (km_base * horas_nueva) / horas_base
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un auto recorre {km_base} km en {horas_base} horas, a velocidad constante. ¿Cuántos km recorre en {horas_nueva} horas?"
+
+explicacion: |
+  A velocidad constante, más horas significa más distancia recorrida:
+  relación directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa", "problema"]
+
+variables:
+  horas_base: random(2, 8)
+  sueldo_base: horas_base * random(500, 2000)
+  horas_nueva: random(3, 12)
+
+respuesta: (sueldo_base * horas_nueva) / horas_base
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Por {horas_base} horas de trabajo se cobran ${sueldo_base}. Manteniendo la misma paga por hora, ¿cuánto se cobra por {horas_nueva} horas?"
+
+explicacion: |
+  Más horas trabajadas, más plata cobrada: relación directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "basico"
+  tags: ["regla_de_tres_directa", "problema"]
+
+variables:
+  personas_base: random(2, 6)
+  huevos_base: personas_base * random(1, 3)
+  personas_nueva: random(3, 20)
+
+respuesta: (huevos_base * personas_nueva) / personas_base
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una receta para {personas_base} personas usa {huevos_base} huevos. Manteniendo la proporción, ¿cuántos huevos hacen falta para {personas_nueva} personas?"
+
+explicacion: |
+  Más personas, más ingredientes en la misma proporción: relación
+  directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa", "problema"]
+
+variables:
+  km_base: random(50, 200)
+  litros_base: random(4, 20)
+  km_nuevo: random(100, 600)
+
+respuesta: (litros_base * km_nuevo) / km_base
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un auto gasta {litros_base} litros cada {km_base} km. ¿Cuántos litros gasta en {km_nuevo} km?"
+
+explicacion: |
+  Más kilómetros recorridos, más combustible consumido: relación directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa", "problema"]
+
+variables:
+  dolares_base: random(1, 10)
+  pesos_base: dolares_base * random(800, 1200)
+  dolares_nuevo: random(5, 100)
+
+respuesta: (pesos_base * dolares_nuevo) / dolares_base
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Si {dolares_base} dólar(es) equivalen a ${pesos_base}, ¿cuántos pesos equivalen a {dolares_nuevo} dólares (mismo tipo de cambio)?"
+
+explicacion: |
+  El tipo de cambio se mantiene constante: más dólares, más pesos en la
+  misma proporción.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa", "problema"]
+
+variables:
+  horas_base: random(1, 5)
+  piezas_base: horas_base * random(10, 40)
+  horas_nueva: random(2, 12)
+
+respuesta: (piezas_base * horas_nueva) / horas_base
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una máquina produce {piezas_base} piezas en {horas_base} horas, a ritmo constante. ¿Cuántas piezas produce en {horas_nueva} horas?"
+
+explicacion: |
+  Más horas de producción a ritmo constante, más piezas: relación
+  directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "basico"
+  tags: ["regla_de_tres_directa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"Más horas trabajadas, más plata cobrada\" es un ejemplo de relación directamente proporcional."
+
+explicacion: |
+  Las dos magnitudes suben juntas: es directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "\"Más obreros trabajando, más días tarda en terminarse la obra\" es un ejemplo de relación directamente proporcional."
+
+explicacion: |
+  Acá pasa lo contrario: más obreros, MENOS días (terminan antes) — es
+  una relación inversa, no directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "basico"
+  tags: ["regla_de_tres_directa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "\"Más kilos de fruta comprados, más se paga\" es una relación directamente proporcional."
+
+explicacion: |
+  Las dos magnitudes (kilos y precio) aumentan juntas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "basico"
+  tags: ["regla_de_tres_directa", "vocabulario"]
+
+enunciado: "¿Cómo se reconoce que un problema es de regla de tres directa?"
+tipo: mc
+opciones_explicitas:
+  - "Las dos magnitudes aumentan (o disminuyen) juntas"
+  - "Una magnitud siempre vale el doble de la otra"
+  - "Los números del problema son todos pares"
+respuesta: "Las dos magnitudes aumentan (o disminuyen) juntas"
+
+explicacion: |
+  Si al aumentar una también aumenta la otra (y al disminuir una también
+  disminuye la otra), es directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa"]
+
+variables:
+  a: random(2, 9)
+  b: random(10, 90)
+  c: random(2, 9)
+  correcto: (b * c) / a
+
+respuesta: correcto
+tipo: mc
+opciones_explicitas:
+  - correcto
+  - a * b * c
+  - (a * b) / c
+
+enunciado: "En la regla de tres directa {a}—{b} / {c}—x, ¿cuál es la fórmula correcta para x?"
+
+explicacion: |
+  x se calcula multiplicando los dos términos cruzados con la incógnita
+  ({b} y {c}) y dividiendo por el tercero ({a}).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa", "verificacion"]
+
+variables:
+  a: random(2, 9)
+  b: random(10, 90)
+  c: random(2, 9)
+  correcto: (b * c) / a
+  error: uno_de([0, 0, 0, a, -a])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 0.01)
+tipo: vf
+
+enunciado: "¿Está bien resuelta esta regla de tres? {a} es a {b} como {c} es a {mostrado}."
+
+explicacion: |
+  Se verifica volviendo a aplicar la fórmula x = (b × c) ÷ a.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa"]
+
+variables:
+  a: random(2, 9)
+  b: random(10, 90)
+  c: random(2, 9)
+
+tipo: completar
+enunciado: "Completá: {a} es a {b} como {c} es a ___."
+respuestas_validas:
+  - (b * c) / a
+
+explicacion: |
+  Se aplica la fórmula de la regla de tres directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "basico"
+  tags: ["regla_de_tres_directa", "problema"]
+
+variables:
+  plantas_base: random(2, 6)
+  litros_base: plantas_base * random(1, 3)
+  plantas_nueva: random(3, 20)
+
+respuesta: (litros_base * plantas_nueva) / plantas_base
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Regar {plantas_base} plantas usa {litros_base} litros de agua. Manteniendo la misma cantidad por planta, ¿cuántos litros hacen falta para {plantas_nueva} plantas?"
+
+explicacion: |
+  Más plantas, más agua necesaria en la misma proporción: relación
+  directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa", "problema"]
+
+variables:
+  entradas_base: random(2, 8)
+  recaudado_base: entradas_base * random(500, 3000)
+  entradas_nueva: random(5, 100)
+
+respuesta: (recaudado_base * entradas_nueva) / entradas_base
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Vendiendo {entradas_base} entradas se recaudaron ${recaudado_base}. Al mismo precio, ¿cuánto se recauda vendiendo {entradas_nueva} entradas?"
+
+explicacion: |
+  Más entradas vendidas, más dinero recaudado: relación directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "avanzado"
+  tags: ["regla_de_tres_directa"]
+
+variables:
+  a: random(2, 9)
+  b: random(10, 90)
+  c: random(2, 9)
+  correcto_directa: (b * c) / a
+  formula_inversa: (a * b) / c
+
+restricciones:
+  - correcto_directa != formula_inversa
+
+respuesta: correcto_directa
+tipo: mc
+opciones_explicitas:
+  - correcto_directa
+  - formula_inversa
+
+enunciado: "En una regla de tres DIRECTA, {a} es a {b} como {c} es a x. ¿Cuál de estos dos valores es x?"
+
+explicacion: |
+  La segunda opción usa la fórmula de la regla de tres inversa (que no
+  aplica acá): hay que usar la fórmula directa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa", "problema"]
+
+variables:
+  horas_base: random(1, 3)
+  km_base: horas_base * random(60, 120)
+  horas_nueva: random(4, 10)
+
+respuesta: (km_base * horas_nueva) / horas_base
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un tren recorre {km_base} km en {horas_base} horas, a velocidad constante. ¿Cuántos km recorre en {horas_nueva} horas?"
+
+explicacion: |
+  Misma idea que un auto: a velocidad constante, distancia y tiempo son
+  directamente proporcionales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "avanzado"
+  tags: ["regla_de_tres_directa"]
+
+variables:
+  a: random(3, 9)
+  b: random(3, 9)
+  c: random(3, 9)
+
+respuesta: (b * c) / a
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "{a} es a {b} como {c} es a x. ¿Cuánto vale x (puede no ser un número entero)?"
+
+explicacion: |
+  La regla de tres no siempre da un resultado entero: hay que aceptar
+  también resultados con decimales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa", "orden"]
+
+tipo: ordenar
+enunciado: "Resolvé estas tres reglas de tres directas y ordenalas de menor a mayor resultado."
+opciones_explicitas:
+  - "2 es a 10 como 5 es a x"
+  - "4 es a 8 como 3 es a x"
+  - "3 es a 30 como 1 es a x"
+respuesta_orden: ["3 es a 30 como 1 es a x", "4 es a 8 como 3 es a x", "2 es a 10 como 5 es a x"]
+
+explicacion: |
+  Primero se resuelve cada una (x=10, x=6, x=25) y recién ahí se ordenan.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa", "problema"]
+
+variables:
+  m2_base: random(5, 20)
+  litros_base: random(1, 8)
+  m2_nuevo: random(20, 100)
+
+respuesta: (litros_base * m2_nuevo) / m2_base
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Se necesitan {litros_base} litros de pintura para {m2_base} m². ¿Cuántos litros hacen falta para {m2_nuevo} m²?"
+
+explicacion: |
+  Más superficie a pintar, más pintura necesaria en la misma proporción.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "intermedio"
+  tags: ["regla_de_tres_directa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En una relación directamente proporcional, si se duplica una magnitud, la otra también se duplica."
+
+explicacion: |
+  Es la esencia de la proporcionalidad directa: la razón entre las dos
+  magnitudes se mantiene siempre constante.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "regla_de_tres_directa"
+  nivel: "basico"
+  tags: ["regla_de_tres_directa", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La regla de tres directa sirve para encontrar un valor desconocido cuando dos magnitudes son directamente proporcionales."
+
+explicacion: |
+  Es la idea central de todo el tema: aplicar la propiedad fundamental de
+  la proporción a un problema concreto.
 ```
 
 ## Sección: secciones-conicas-circunferencia (26 preguntas)
@@ -1751,11 +1957,7 @@ opciones_explicitas:
   - "Elevar ambos lados al cuadrado para eliminar la raíz"
   - "Plantear que la distancia entre un punto (x, y) y el centro (h, k) es igual al radio r"
   - "Escribir esa distancia con la fórmula de distancia entre dos puntos"
-respuesta_orden:
-  - "Plantear que la distancia entre un punto (x, y) y el centro (h, k) es igual al radio r"
-  - "Escribir esa distancia con la fórmula de distancia entre dos puntos"
-  - "Elevar ambos lados al cuadrado para eliminar la raíz"
-
+respuesta_orden: ["Plantear que la distancia entre un punto (x, y) y el centro (h, k) es igual al radio r", "Escribir esa distancia con la fórmula de distancia entre dos puntos", "Elevar ambos lados al cuadrado para eliminar la raíz"]
 explicacion: |
   El resultado final es (x−h)² + (y−k)² = r².
 ```
@@ -1897,1195 +2099,603 @@ explicacion: |
   Como el alcance de una señal, una zona de cobertura, o un radar.
 ```
 
-## Sección: semejanza-y-teorema-de-thales (28 preguntas)
+## Sección: porcentaje (28 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
+  tema: "porcentaje"
   nivel: "basico"
-  tags: ["semejanza", "vocabulario"]
+  tags: ["porcentaje", "vocabulario"]
 
-enunciado: "¿Qué significa que dos triángulos sean semejantes?"
+enunciado: "¿Qué es un porcentaje?"
 tipo: mc
 opciones_explicitas:
-  - "Que tienen la misma forma (mismos ángulos y lados proporcionales), aunque no el mismo tamaño"
-  - "Que tienen exactamente el mismo tamaño y la misma forma"
-  - "Que comparten al menos un lado"
-respuesta: "Que tienen la misma forma (mismos ángulos y lados proporcionales), aunque no el mismo tamaño"
+  - "Una razón con denominador 100"
+  - "Cualquier número decimal"
+  - "La mitad de un número"
+respuesta: "Una razón con denominador 100"
 
 explicacion: |
-  La semejanza exige la misma forma, no el mismo tamaño: uno puede ser una
-  ampliación o reducción del otro.
+  p% significa "p de cada 100": es una fracción con denominador fijo
+  en 100.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
+  tema: "porcentaje"
   nivel: "basico"
-  tags: ["semejanza", "vocabulario"]
-
-enunciado: "¿Qué es la \"razón de semejanza\" entre dos triángulos semejantes?"
-tipo: mc
-opciones_explicitas:
-  - "El número fijo por el que hay que multiplicar cada lado de uno para obtener el lado correspondiente del otro"
-  - "La suma de los tres lados de un triángulo"
-  - "La diferencia entre el ángulo mayor y el ángulo menor"
-respuesta: "El número fijo por el que hay que multiplicar cada lado de uno para obtener el lado correspondiente del otro"
-
-explicacion: |
-  Es la escala: si la razón es 3, cada lado del primer triángulo mide 3
-  veces el lado correspondiente del segundo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "basico"
-  tags: ["semejanza", "congruencia", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia entre semejanza y congruencia?"
-tipo: mc
-opciones_explicitas:
-  - "La congruencia exige misma forma Y mismo tamaño; la semejanza sólo exige misma forma"
-  - "Son exactamente lo mismo, con nombres distintos"
-  - "La semejanza sólo se aplica a triángulos rectángulos"
-respuesta: "La congruencia exige misma forma Y mismo tamaño; la semejanza sólo exige misma forma"
-
-explicacion: |
-  Congruencia es un caso particular de semejanza, con razón de semejanza
-  igual a 1 (ver `../congruencia-de-triangulos/`).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["semejanza", "congruencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Toda pareja de triángulos congruentes es también una pareja de triángulos semejantes."
-
-explicacion: |
-  Congruentes es semejantes con razón de semejanza 1: mismos ángulos y
-  lados proporcionales (con razón 1), que es exactamente lo que pide la
-  semejanza.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["semejanza", "congruencia"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Toda pareja de triángulos semejantes es también una pareja de triángulos congruentes."
-
-explicacion: |
-  Falso: dos triángulos semejantes pueden tener tamaños distintos (razón
-  de semejanza distinta de 1) y seguir sin ser congruentes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["semejanza", "criterios", "vocabulario"]
-
-enunciado: "¿Qué dice el criterio de semejanza AA (Ángulo-Ángulo)?"
-tipo: mc
-opciones_explicitas:
-  - "Si dos ángulos de un triángulo son iguales a dos ángulos de otro, los triángulos son semejantes"
-  - "Si dos lados de un triángulo son iguales a dos lados de otro, los triángulos son semejantes"
-  - "Si un ángulo de un triángulo es igual a un ángulo de otro, alcanza para asegurar semejanza"
-respuesta: "Si dos ángulos de un triángulo son iguales a dos ángulos de otro, los triángulos son semejantes"
-
-explicacion: |
-  Con dos ángulos iguales alcanza — el tercero queda determinado por la
-  suma de 180°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["semejanza", "criterios", "triangulos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el criterio AA no hace falta verificar el tercer ángulo, porque queda determinado por los otros dos (la suma de los ángulos internos de un triángulo siempre es 180°)."
-
-explicacion: |
-  Es la misma propiedad vista en `../triangulos/`: fijados dos ángulos, el
-  tercero sale de 180° menos la suma de esos dos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["semejanza", "criterios", "vocabulario"]
-
-enunciado: "¿Qué dice el criterio de semejanza LLL proporcional?"
-tipo: mc
-opciones_explicitas:
-  - "Si los tres lados de un triángulo son proporcionales a los tres lados de otro (misma razón), son semejantes"
-  - "Si los tres lados de un triángulo son iguales a los tres lados de otro, son semejantes"
-  - "Si un lado de un triángulo es proporcional a un lado de otro, alcanza"
-respuesta: "Si los tres lados de un triángulo son proporcionales a los tres lados de otro (misma razón), son semejantes"
-
-explicacion: |
-  A diferencia del LLL de congruencia (lados IGUALES), acá alcanza con que
-  guarden la misma razón entre sí.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["semejanza", "criterios", "vocabulario"]
-
-enunciado: "¿Qué dice el criterio de semejanza LAL proporcional?"
-tipo: mc
-opciones_explicitas:
-  - "Si dos lados de un triángulo son proporcionales a dos lados de otro, y el ángulo comprendido entre ellos es igual en ambos, son semejantes"
-  - "Si dos lados de un triángulo son iguales a dos lados de otro, son semejantes sin importar los ángulos"
-  - "Si dos ángulos cualquiera son proporcionales, son semejantes"
-respuesta: "Si dos lados de un triángulo son proporcionales a dos lados de otro, y el ángulo comprendido entre ellos es igual en ambos, son semejantes"
-
-explicacion: |
-  El ángulo comprendido tiene que ser igual (no proporcional) — sólo los
-  lados van en razón.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["semejanza", "problema"]
+  tags: ["porcentaje", "calcular"]
 
 variables:
-  a: random(4, 12)
-  b: random(4, 12)
-  c: random(4, 12)
-  k: random(2, 4)
+  v: random(10, 90) * 10
+  p: uno_de([10, 20, 25, 50])
 
-restricciones:
-  - a != b
-  - b != c
-
-respuesta: c * k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El triángulo 1 tiene lados {a} cm, {b} cm y {c} cm. El triángulo 2 es semejante al primero, con razón de semejanza {k}: sus lados correspondientes son {a * k} cm y {b * k} cm. ¿Cuánto mide su tercer lado?"
-
-pasos:
-  - "{c} cm × {k} = {c * k} cm"
-
-explicacion: |
-  Cada lado del triángulo 2 es {k} veces el lado correspondiente del
-  triángulo 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["semejanza", "problema"]
-
-variables:
-  a: random(3, 9)
-  k: random(2, 5)
-
-respuesta: k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un triángulo tiene un lado de {a} cm. Su semejante tiene el lado correspondiente de {a * k} cm. ¿Cuál es la razón de semejanza (del triángulo grande respecto del chico)?"
-
-pasos:
-  - "{a * k} cm ÷ {a} cm = {k}"
-
-explicacion: |
-  La razón de semejanza es el cociente entre lados correspondientes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "avanzado"
-  tags: ["semejanza", "problema"]
-
-variables:
-  a: random(3, 10)
-  b: random(3, 10)
-  a2: random(11, 20)
-
-restricciones:
-  - a != b
-  - (b * a2) - floor((b * a2) / a) * a == 0
-
-respuesta: (b * a2) / a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Dos triángulos son semejantes. En el primero, dos lados miden {a} cm y {b} cm. En el segundo, el lado correspondiente a los {a} cm mide {a2} cm. ¿Cuánto mide el lado correspondiente a los {b} cm?"
-
-pasos:
-  - "{a}/{a2} = {b}/x → x = ({b} × {a2}) ÷ {a} = {(b * a2) / a}"
-
-explicacion: |
-  Se plantea la proporción entre lados correspondientes y se despeja con
-  producto cruzado, igual que en `../proporcion/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["semejanza", "triangulos"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos triángulos equiláteros cualquiera siempre son semejantes entre sí (aunque tengan tamaños distintos)."
-
-explicacion: |
-  Todo triángulo equilátero tiene sus tres ángulos de 60°: dos ángulos
-  iguales (en realidad los tres) alcanzan para AA.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "avanzado"
-  tags: ["semejanza", "triangulos"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Dos triángulos isósceles cualquiera siempre son semejantes entre sí."
-
-explicacion: |
-  Falso: \"isósceles\" sólo dice que dos lados son iguales, pero no fija los
-  ángulos — un isósceles muy achatado y uno muy alto pueden tener ángulos
-  bien distintos, así que no cumplen AA.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["thales", "vocabulario"]
-
-enunciado: "¿Qué dice el Teorema de Thales?"
-tipo: mc
-opciones_explicitas:
-  - "Si dos o más rectas paralelas cortan a dos rectas transversales, los segmentos que determinan sobre una transversal son proporcionales a los correspondientes de la otra"
-  - "La suma de los ángulos internos de un triángulo es 180°"
-  - "Todo triángulo rectángulo cumple que el cuadrado de la hipotenusa es la suma de los cuadrados de los catetos"
-respuesta: "Si dos o más rectas paralelas cortan a dos rectas transversales, los segmentos que determinan sobre una transversal son proporcionales a los correspondientes de la otra"
-
-explicacion: |
-  Es un teorema sobre proporcionalidad de segmentos generados por
-  paralelas, no sobre ángulos internos ni sobre triángulos rectángulos
-  (eso es Pitágoras, un módulo aparte).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "avanzado"
-  tags: ["thales", "problema"]
-
-variables:
-  p: random(2, 8)
-  q: random(2, 8)
-  r: random(2, 12)
-
-restricciones:
-  - (r * q) - floor((r * q) / p) * p == 0
-
-respuesta: (r * q) / p
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Tres rectas paralelas cortan a dos transversales. Sobre la primera transversal, los segmentos miden {p} cm y {q} cm. Sobre la segunda, el segmento correspondiente a los {p} cm mide {r} cm. ¿Cuánto mide el segmento correspondiente a los {q} cm?"
-
-pasos:
-  - "{p}/{r} = {q}/x → x = ({q} × {r}) ÷ {p} = {(r * q) / p}"
-
-explicacion: |
-  Las paralelas hacen que los segmentos de una transversal sean
-  proporcionales a los correspondientes de la otra.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["thales", "vocabulario"]
-
-enunciado: "Si se traza una recta paralela a un lado de un triángulo, cortando a los otros dos lados, ¿qué pasa?"
-tipo: mc
-opciones_explicitas:
-  - "Divide a esos dos lados en segmentos proporcionales, y el triángulo chico que se forma es semejante al original"
-  - "Divide a esos dos lados en segmentos iguales, sin importar dónde se trace la paralela"
-  - "No tiene ningún efecto sobre las proporciones de los lados"
-respuesta: "Divide a esos dos lados en segmentos proporcionales, y el triángulo chico que se forma es semejante al original"
-
-explicacion: |
-  Es el corolario de Thales aplicado al triángulo: la paralela genera un
-  triángulo más chico, semejante al grande.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["thales", "semejanza"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El triángulo chico que se forma al trazar una paralela a un lado de un triángulo es semejante al triángulo original completo."
-
-explicacion: |
-  Comparten el ángulo del vértice, y la paralela genera un ángulo
-  correspondiente igual al que ya existía en el otro vértice — dos
-  ángulos iguales alcanzan para AA.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "avanzado"
-  tags: ["thales", "problema"]
-
-variables:
-  lado1: random(6, 16)
-  segmento1: random(2, lado1 - 2)
-  lado2: random(6, 16)
-
-restricciones:
-  - (lado2 * segmento1) - floor((lado2 * segmento1) / lado1) * lado1 == 0
-
-respuesta: (lado2 * segmento1) / lado1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En un triángulo, un lado mide {lado1} cm y otro mide {lado2} cm. Una paralela al tercer lado corta al primero a {segmento1} cm de un vértice. ¿A qué distancia de ese mismo vértice corta al segundo lado?"
-
-pasos:
-  - "{segmento1}/{lado1} = x/{lado2} → x = ({segmento1} × {lado2}) ÷ {lado1} = {(lado2 * segmento1) / lado1}"
-
-explicacion: |
-  Los segmentos que corta la paralela en cada lado guardan la misma razón
-  que los lados completos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "avanzado"
-  tags: ["thales", "semejanza"]
-
-enunciado: "¿Por qué el triángulo chico formado por la paralela es semejante al triángulo grande?"
-tipo: mc
-opciones_explicitas:
-  - "Porque comparten el ángulo del vértice y la paralela genera un ángulo correspondiente igual al otro vértice: se cumple AA"
-  - "Porque sus tres lados miden siempre lo mismo"
-  - "Porque toda paralela genera automáticamente un triángulo congruente, no sólo semejante"
-respuesta: "Porque comparten el ángulo del vértice y la paralela genera un ángulo correspondiente igual al otro vértice: se cumple AA"
-
-explicacion: |
-  Dos ángulos iguales entre el triángulo chico y el grande alcanzan para
-  aplicar el criterio AA.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["semejanza", "criterios", "completar"]
-
-enunciado: "Completar: para que dos triángulos sean semejantes por el criterio AA, alcanza con que tengan ___ ángulos correspondientes iguales."
-tipo: completar
-respuestas_validas:
-  - "dos"
-  - "2"
-
-explicacion: |
-  Con dos ángulos iguales, el tercero queda determinado por la suma de
-  180°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["thales", "completar"]
-
-enunciado: "Completar: cuando rectas paralelas cortan a dos transversales, los segmentos que determinan sobre las transversales son ___."
-tipo: completar
-respuestas_validas:
-  - "proporcionales"
-
-explicacion: |
-  Esa es la idea central del Teorema de Thales: proporcionalidad de
-  segmentos, no igualdad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "avanzado"
-  tags: ["thales", "aplicacion", "ordenar"]
-
-enunciado: "Ordenar los pasos para calcular la altura de un poste midiendo sombras (con un bastón de altura conocida, al mismo momento del día)."
-tipo: ordenar
-opciones_explicitas:
-  - "Despejar la altura del poste con producto cruzado"
-  - "Medir la altura del bastón y la longitud de su sombra"
-  - "Plantear la proporción: altura del bastón / sombra del bastón = altura del poste / sombra del poste"
-  - "Medir la longitud de la sombra del poste (misma hora, mismo sol)"
-respuesta_orden:
-  - "Medir la altura del bastón y la longitud de su sombra"
-  - "Medir la longitud de la sombra del poste (misma hora, mismo sol)"
-  - "Plantear la proporción: altura del bastón / sombra del bastón = altura del poste / sombra del poste"
-  - "Despejar la altura del poste con producto cruzado"
-
-explicacion: |
-  El bastón y el poste, con sus sombras, forman dos triángulos semejantes
-  (mismo ángulo del sol): las alturas y las sombras guardan la misma
-  razón.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "avanzado"
-  tags: ["thales", "aplicacion", "problema"]
-
-variables:
-  altura_baston: random(1, 3)
-  sombra_baston: random(1, 4)
-  sombra_poste: random(5, 20)
-
-restricciones:
-  - (altura_baston * sombra_poste) - floor((altura_baston * sombra_poste) / sombra_baston) * sombra_baston == 0
-
-respuesta: (altura_baston * sombra_poste) / sombra_baston
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un bastón de {altura_baston} m proyecta una sombra de {sombra_baston} m. En ese mismo momento, un poste proyecta una sombra de {sombra_poste} m. ¿Cuánto mide el poste?"
-
-pasos:
-  - "{altura_baston}/{sombra_baston} = x/{sombra_poste} → x = ({altura_baston} × {sombra_poste}) ÷ {sombra_baston} = {(altura_baston * sombra_poste) / sombra_baston}"
-
-explicacion: |
-  El bastón y el poste forman triángulos semejantes con sus sombras: la
-  razón altura/sombra es la misma para los dos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["semejanza", "aplicacion", "problema"]
-
-variables:
-  escala: uno_de([100, 500, 1000, 10000])
-  medida_mapa: random(2, 15)
-
-respuesta: medida_mapa * escala
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En un mapa a escala 1:{escala}, una distancia entre dos ciudades mide {medida_mapa} cm. ¿Cuántos cm mide esa distancia en la realidad?"
-
-pasos:
-  - "{medida_mapa} cm × {escala} = {medida_mapa * escala} cm"
-
-explicacion: |
-  La escala de un mapa es una razón de semejanza entre el dibujo y la
-  realidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "intermedio"
-  tags: ["semejanza", "problema"]
-
-variables:
-  a: random(3, 10)
-  b: random(3, 10)
-  c: random(3, 10)
-  k: random(2, 5)
-
-respuesta: (a + b + c) * k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un triángulo tiene lados {a} cm, {b} cm y {c} cm (perímetro {a + b + c} cm). Su semejante tiene razón de semejanza {k}. ¿Cuál es el perímetro del triángulo semejante?"
-
-pasos:
-  - "({a} + {b} + {c}) cm × {k} = {(a + b + c) * k} cm"
-
-explicacion: |
-  El perímetro es una suma de longitudes: escala igual que los lados, por
-  {k}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "avanzado"
-  tags: ["semejanza", "problema"]
-
-variables:
-  area1: random(4, 30)
-  k: random(2, 5)
-
-respuesta: area1 * k^2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un triángulo tiene área {area1} cm². Su semejante tiene razón de semejanza {k}. ¿Cuál es el área del triángulo semejante?"
-
-pasos:
-  - "{area1} cm² × {k}² = {area1} cm² × {k^2} = {area1 * k^2} cm²"
-
-explicacion: |
-  El área escala por el cuadrado de la razón de semejanza, porque es un
-  producto de dos longitudes (no una suma, como el perímetro).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "semejanza_y_teorema_de_thales"
-  nivel: "basico"
-  tags: ["semejanza", "thales", "cierre"]
-
-enunciado: "¿Cuál de estas es una aplicación real de la semejanza y el Teorema de Thales?"
-tipo: mc
-opciones_explicitas:
-  - "Calcular la altura de un poste sin medirlo directamente, usando sombras"
-  - "Sumar los ángulos internos de un triángulo"
-  - "Calcular el área de un círculo"
-respuesta: "Calcular la altura de un poste sin medirlo directamente, usando sombras"
-
-explicacion: |
-  Semejanza y Thales permiten medir indirectamente (alturas, distancias en
-  mapas) usando proporciones entre triángulos, en vez de medir todo a
-  mano.
-```
-
-## Sección: series-geometricas (26 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "basico"
-  tags: ["series_geometricas", "vocabulario"]
-
-enunciado: "¿Qué es una sucesión geométrica?"
-tipo: mc
-opciones_explicitas:
-  - "Una lista de números donde siempre se multiplica por la misma razón para pasar al siguiente"
-  - "Una lista de números donde siempre se suma la misma cantidad"
-  - "Una lista de números al azar"
-respuesta: "Una lista de números donde siempre se multiplica por la misma razón para pasar al siguiente"
-
-explicacion: |
-  Esa cantidad fija por la que se multiplica se llama razón (r).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "basico"
-  tags: ["series_geometricas"]
-
-variables:
-  a1: random(1, 10)
-  r: random(2, 4)
-  n: random(3, 6)
-
-respuesta: a1 * (r ^ (n - 1))
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión geométrica con a₁ = {a1} y razón r = {r}, ¿cuánto vale a{n}?"
-
-pasos:
-  - "aₙ = a₁ × r^(n−1) = {a1} × {r}^{n - 1} = {a1} × {r ^ (n - 1)} = {a1 * (r ^ (n - 1))}"
-
-explicacion: |
-  Se aplica la fórmula del término general: multiplicar el primer
-  término por la razón elevada a (n−1).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "intermedio"
-  tags: ["series_geometricas"]
-
-variables:
-  a1: random(1, 5)
-  r: 2
-  n: random(6, 10)
-
-respuesta: a1 * (r ^ (n - 1))
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión geométrica con a₁ = {a1} y razón r = {r}, ¿cuánto vale a{n}?"
-
-explicacion: |
-  El crecimiento geométrico se nota más cuanto más lejano es el término.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "basico"
-  tags: ["series_geometricas"]
-
-variables:
-  a1: random(1, 10)
-  r: random(2, 6)
-  a2: a1 * r
-
-respuesta: r
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión geométrica, dos términos consecutivos son {a1} y {a2}. ¿Cuál es la razón?"
-
-explicacion: |
-  La razón es el término siguiente dividido por el anterior.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "intermedio"
-  tags: ["series_geometricas"]
-
-variables:
-  a1: random(1, 10)
-  r: random(2, 4)
-  a2: a1 * r
-  a3: a2 * r
-  a4: a3 * r
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "¿Es geométrica la sucesión {a1}, {a2}, {a3}, {a4}?"
-
-explicacion: |
-  La razón entre cada par de términos consecutivos es siempre {r}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "intermedio"
-  tags: ["series_geometricas"]
-
-variables:
-  a1: random(1, 10)
-  r: random(2, 4)
-  a2: a1 * r
-  a3: a2 * r
-  a4: a3 * r + 1
-
-respuesta: falso
-tipo: vf
-
-enunciado: "¿Es geométrica la sucesión {a1}, {a2}, {a3}, {a4}?"
-
-explicacion: |
-  Los primeros pares mantienen razón {r}, pero el último par rompe esa
-  proporción: no es geométrica.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "basico"
-  tags: ["series_geometricas", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia entre una sucesión aritmética y una geométrica?"
-tipo: mc
-opciones_explicitas:
-  - "La aritmética suma siempre la misma diferencia; la geométrica multiplica siempre por la misma razón"
-  - "No hay ninguna diferencia, son lo mismo"
-  - "La geométrica sólo sirve para figuras geométricas"
-respuesta: "La aritmética suma siempre la misma diferencia; la geométrica multiplica siempre por la misma razón"
-
-explicacion: |
-  Son dos formas distintas de generar el siguiente término.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "intermedio"
-  tags: ["series_geometricas"]
-
-variables:
-  a1: random(1, 10)
-  r: 2
-  n: random(3, 8)
-
-respuesta: a1 * ((r ^ n) - 1) / (r - 1)
+respuesta: v * p / 100
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Sumá los primeros {n} términos de una sucesión geométrica con a₁ = {a1} y r = {r}."
+enunciado: "¿Cuánto es el {p}% de {v}?"
 
 pasos:
-  - "Sₙ = a₁ × (rⁿ−1) ÷ (r−1) = {a1} × ({r}^{n}−1) ÷ ({r}−1) = {a1 * ((r ^ n) - 1) / (r - 1)}"
+  - "{v} × {p} ÷ 100 = {v * p / 100}"
 
 explicacion: |
-  Se aplica la fórmula de la suma de una serie geométrica finita.
+  Se multiplica el valor por el porcentaje y se divide por 100.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "avanzado"
-  tags: ["series_geometricas"]
+  tema: "porcentaje"
+  nivel: "intermedio"
+  tags: ["porcentaje", "calcular"]
 
 variables:
-  a1: random(1, 5)
-  r: 3
-  n: random(3, 6)
+  v: random(20, 900)
+  p: random(1, 99)
 
-respuesta: a1 * ((r ^ n) - 1) / (r - 1)
+respuesta: v * p / 100
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Sumá los primeros {n} términos de una sucesión geométrica con a₁ = {a1} y r = {r}."
+enunciado: "¿Cuánto es el {p}% de {v}?"
 
 explicacion: |
-  El procedimiento es el mismo con cualquier razón (distinta de 1).
+  El procedimiento es el mismo, aunque el porcentaje no sea uno
+  "redondo".
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "series_geometricas"
+  tema: "porcentaje"
   nivel: "intermedio"
-  tags: ["series_geometricas", "verificacion"]
+  tags: ["porcentaje", "calcular"]
 
 variables:
-  a1: random(1, 10)
-  r: 2
-  n: random(3, 6)
-  correcto: a1 * ((r ^ n) - 1) / (r - 1)
-  error: uno_de([0, 0, 0, a1, -a1])
-  mostrado: correcto + error
+  t: random(2, 20) * 10
+  p: uno_de([10, 20, 25, 50, 75])
+  parte: t * p / 100
 
-respuesta: (abs(mostrado - correcto) < 0.01)
+respuesta: p
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "¿Qué porcentaje de {t} representa {parte}?"
+
+pasos:
+  - "({parte} ÷ {t}) × 100 = {(parte / t) * 100}"
+
+explicacion: |
+  Se divide la parte por el total y se multiplica por 100.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "intermedio"
+  tags: ["porcentaje", "calcular"]
+
+variables:
+  t: random(2, 20) * 10
+  p: uno_de([10, 20, 25, 50])
+  parte: t * p / 100
+
+respuesta: t
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "{parte} es el {p}% de un número. ¿Cuál es ese número?"
+
+pasos:
+  - "{parte} × 100 ÷ {p} = {(parte * 100) / p}"
+
+explicacion: |
+  Se multiplica la parte por 100 y se divide por el porcentaje.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "basico"
+  tags: ["porcentaje", "conversion"]
+
+enunciado: "¿A qué fracción equivale el 25%?"
+tipo: mc
+opciones_explicitas:
+  - "1/4"
+  - "1/2"
+  - "1/3"
+respuesta: "1/4"
+
+explicacion: |
+  25% = 25/100, que simplificado da 1/4.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "basico"
+  tags: ["porcentaje", "conversion"]
+
+variables:
+  p: random(1, 99)
+
+respuesta: p / 100
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "¿Cómo se escribe {p}% en decimal?"
+
+explicacion: |
+  Se divide el porcentaje por 100 (se corre la coma dos lugares a la
+  izquierda).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "basico"
+  tags: ["porcentaje", "conversion"]
+
+variables:
+  centesimos: random(1, 99)
+  n: centesimos / 100
+
+respuesta: centesimos
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "¿A qué porcentaje equivale {n}?"
+
+explicacion: |
+  Se multiplica el decimal por 100 (se corre la coma dos lugares a la
+  derecha).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "intermedio"
+  tags: ["porcentaje", "aumento"]
+
+variables:
+  v: random(20, 900)
+  p: uno_de([5, 10, 15, 20, 25])
+
+respuesta: v * (1 + p / 100)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Aumentá {v} en un {p}%. ¿Cuánto queda?"
+
+pasos:
+  - "{v} × (1 + {p}/100) = {v} × {1 + p / 100} = {v * (1 + p / 100)}"
+
+explicacion: |
+  Aumentar en p% es multiplicar por (1 + p/100).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "intermedio"
+  tags: ["porcentaje", "descuento"]
+
+variables:
+  v: random(20, 900)
+  p: uno_de([5, 10, 15, 20, 25])
+
+respuesta: v * (1 - p / 100)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Descontá un {p}% a {v}. ¿Cuánto queda?"
+
+pasos:
+  - "{v} × (1 - {p}/100) = {v} × {1 - p / 100} = {v * (1 - p / 100)}"
+
+explicacion: |
+  Descontar p% es multiplicar por (1 − p/100).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "avanzado"
+  tags: ["porcentaje", "descuento"]
+
+variables:
+  v: random(100, 900)
+  p1: uno_de([10, 20])
+  p2: uno_de([10, 20])
+
+respuesta: v * (1 - p1 / 100) * (1 - p2 / 100)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "A {v} se le aplica primero un {p1}% de descuento, y después otro {p2}% de descuento (sobre el nuevo precio). ¿Cuánto queda?"
+
+pasos:
+  - "{v} × (1 - {p1}/100) × (1 - {p2}/100) = {v * (1 - p1 / 100) * (1 - p2 / 100)}"
+
+explicacion: |
+  El segundo descuento se aplica sobre el precio YA descontado, no sobre
+  el original.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "avanzado"
+  tags: ["porcentaje", "aumento"]
+
+variables:
+  v: random(100, 900)
+  p1: uno_de([10, 20])
+  p2: uno_de([10, 20])
+
+respuesta: v * (1 + p1 / 100) * (1 + p2 / 100)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "{v} recibe primero un aumento del {p1}%, y después otro aumento del {p2}% (sobre el nuevo valor). ¿Cuánto queda?"
+
+explicacion: |
+  El segundo aumento se aplica sobre el valor ya aumentado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "intermedio"
+  tags: ["porcentaje", "problema"]
+
+variables:
+  precio: random(100, 900)
+
+respuesta: precio * 1.21
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un producto cuesta ${precio} sin IVA. Con un IVA del 21%, ¿cuál es el precio final?"
+
+explicacion: |
+  El precio final es el precio original más el 21% de aumento.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "intermedio"
+  tags: ["porcentaje", "problema"]
+
+variables:
+  precio: random(100, 900)
+  p: uno_de([10, 15, 20, 25, 30])
+
+respuesta: precio * (1 - p / 100)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una remera cuesta ${precio} y está en oferta con {p}% de descuento. ¿Cuánto sale ahora?"
+
+explicacion: |
+  El precio de oferta es el precio original menos el porcentaje de
+  descuento.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "intermedio"
+  tags: ["porcentaje", "problema"]
+
+variables:
+  venta: random(1000, 9000)
+  comision: uno_de([2, 5, 8, 10])
+
+respuesta: venta * comision / 100
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un vendedor cobra {comision}% de comisión sobre cada venta. Si vendió ${venta}, ¿cuánto cobra de comisión?"
+
+explicacion: |
+  La comisión es un porcentaje calculado sobre el monto vendido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "basico"
+  tags: ["porcentaje", "problema"]
+
+variables:
+  cuenta: random(1000, 9000)
+
+respuesta: cuenta * 0.1
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "La cuenta de un restaurante da ${cuenta}. Dejando un 10% de propina, ¿cuánto es la propina?"
+
+explicacion: |
+  Calcular una propina es calcular el porcentaje de un valor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "basico"
+  tags: ["porcentaje", "vocabulario"]
+
+respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Está bien calculada esta suma? Los primeros {n} términos (a₁={a1}, r={r}) suman {mostrado}."
+enunciado: "El 100% de cualquier cantidad es esa misma cantidad completa."
 
 explicacion: |
-  Se vuelve a aplicar la fórmula y se compara.
+  100% = 100/100 = 1: multiplicar por 1 no cambia nada.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "series_geometricas"
+  tema: "porcentaje"
+  nivel: "basico"
+  tags: ["porcentaje", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El 50% de cualquier cantidad es la mitad de esa cantidad."
+
+explicacion: |
+  50% = 50/100 = 1/2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "basico"
+  tags: ["porcentaje", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El 0% de cualquier cantidad es 0."
+
+explicacion: |
+  0% = 0/100 = 0: no queda nada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
   nivel: "intermedio"
-  tags: ["series_geometricas"]
+  tags: ["porcentaje"]
 
 variables:
-  a1: random(1, 10)
-  r: random(2, 4)
-  n: random(3, 6)
-  correcto: a1 * (r ^ (n - 1))
+  v: random(100, 900)
+  p: uno_de([10, 20, 25, 50])
+  correcto: v * p / 100
 
 respuesta: correcto
 tipo: mc
 opciones_explicitas:
   - correcto
-  - a1 * r * n
-  - a1 + (r ^ (n - 1))
+  - v * p
+  - v / p
 
-enunciado: "En una sucesión geométrica con a₁={a1}, r={r}, ¿cuánto vale a{n}?"
+enunciado: "¿Cuál es el {p}% de {v}?"
 
 explicacion: |
-  Las otras opciones confunden multiplicar por r elevado al exponente con
-  multiplicar por r y n, o mezclan suma con potencia.
+  Las otras opciones se olvidan de dividir por 100, o confunden la
+  operación.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "series_geometricas"
+  tema: "porcentaje"
   nivel: "intermedio"
-  tags: ["series_geometricas"]
+  tags: ["porcentaje", "verificacion"]
 
 variables:
-  a1: random(1, 10)
-  r: random(2, 4)
-  a2: a1 * r
-  a4: a1 * (r ^ 3)
+  v: random(100, 900)
+  p: uno_de([10, 20, 25, 50])
+  correcto: v * p / 100
+  error: uno_de([0, 0, 0, 1, -1])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 0.01)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? El {p}% de {v} es {mostrado}."
+
+explicacion: |
+  Se vuelve a calcular (valor × porcentaje ÷ 100) y se compara.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "intermedio"
+  tags: ["porcentaje"]
+
+variables:
+  t: random(2, 20) * 10
+  p: uno_de([10, 20, 25, 50, 75])
+  parte: t * p / 100
 
 tipo: completar
-enunciado: "Completá el término que falta: {a1}, {a2}, ___, {a4}."
+enunciado: "Completá: el ___% de {t} es {parte}."
 respuestas_validas:
-  - a1 * (r ^ 2)
+  - p
 
 explicacion: |
-  El término que falta sigue multiplicando por la misma razón r.
+  Se despeja el porcentaje: (parte ÷ total) × 100.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "intermedio"
-  tags: ["series_geometricas", "problema"]
-
-variables:
-  inicial: random(2, 20)
-  horas: random(3, 8)
-
-respuesta: inicial * (2 ^ horas)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una población de {inicial} bacterias se duplica cada hora. ¿Cuántas bacterias hay después de {horas} horas?"
-
-pasos:
-  - "Es una sucesión geométrica con r=2: {inicial} × 2^{horas} = {inicial * (2 ^ horas)}"
-
-explicacion: |
-  Duplicarse cada hora es multiplicar por 2 en cada paso: razón
-  geométrica r=2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
+  tema: "porcentaje"
   nivel: "avanzado"
-  tags: ["series_geometricas", "problema"]
+  tags: ["porcentaje", "problema"]
 
 variables:
-  capital: random(1000, 5000)
-  periodos: random(2, 5)
+  precio: random(500, 2000)
+  descuento_alto: 30
+  descuento_bajo: 20
 
-respuesta: capital * (1.1 ^ periodos)
-tipo: input
-tolerancia_abs: 0.1
-
-enunciado: "Un capital de ${capital} crece un 10% cada período. ¿Cuánto queda después de {periodos} períodos?"
-
-pasos:
-  - "Cada período se multiplica por 1,1: {capital} × 1,1^{periodos} = {capital * (1.1 ^ periodos)}"
-
-explicacion: |
-  El interés compuesto es, exactamente, una sucesión geométrica con razón
-  (1 + tasa).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "avanzado"
-  tags: ["series_geometricas", "problema"]
-
-variables:
-  altura_inicial: random(100, 500)
-  rebotes: random(2, 4)
-
-respuesta: altura_inicial * (0.5 ^ rebotes)
-tipo: input
-tolerancia_abs: 0.1
-
-enunciado: "Una pelota cae desde {altura_inicial} cm, y en cada rebote alcanza la mitad de la altura anterior. ¿A qué altura llega en el rebote número {rebotes}?"
-
-pasos:
-  - "Razón r=0,5: {altura_inicial} × 0,5^{rebotes} = {altura_inicial * (0.5 ^ rebotes)}"
-
-explicacion: |
-  Con razón menor a 1, la sucesión geométrica decrece en vez de crecer.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "avanzado"
-  tags: ["series_geometricas"]
-
-variables:
-  a1: random(50, 200)
-  n: random(2, 4)
-
-respuesta: a1 * (0.5 ^ (n - 1))
-tipo: input
-tolerancia_abs: 0.1
-
-enunciado: "En una sucesión geométrica con a₁ = {a1} y r = 0,5, ¿cuánto vale a{n}?"
-
-explicacion: |
-  La fórmula funciona igual con razones menores a 1: el resultado va
-  bajando en vez de subir.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "intermedio"
-  tags: ["series_geometricas", "vocabulario"]
-
-respuesta: verdadero
+respuesta: (precio * (1 - descuento_alto / 100)) < (precio * (1 - descuento_bajo / 100))
 tipo: vf
 
-enunciado: "Con el mismo punto de partida, una sucesión geométrica (con razón mayor a 1) termina superando a una aritmética, sin importar cuán grande sea la diferencia de la aritmética."
+enunciado: "¿Es cierto que un descuento del {descuento_alto}% deja un precio final más barato que un descuento del {descuento_bajo}%, sobre el mismo precio de ${precio}?"
 
 explicacion: |
-  El crecimiento exponencial siempre "gana" al lineal a largo plazo,
-  aunque al principio la aritmética pueda ir adelante.
+  A mayor porcentaje de descuento, menor el precio final.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "basico"
-  tags: ["series_geometricas", "vocabulario"]
+  tema: "porcentaje"
+  nivel: "avanzado"
+  tags: ["porcentaje", "vocabulario"]
 
-respuesta: verdadero
+variables:
+  v: random(100, 900)
+  p: uno_de([10, 20, 25])
+
+respuesta: falso
 tipo: vf
 
-enunciado: "En una sucesión geométrica, la razón entre cualquier par de términos consecutivos es siempre la misma."
+enunciado: "Si a {v} se le aumenta un {p}% y después se le descuenta ese mismo {p}%, el resultado vuelve a ser {v}."
 
 explicacion: |
-  Es la propia definición de sucesión geométrica.
+  No vuelve al original: el aumento y el descuento se calculan sobre
+  valores distintos (el segundo, sobre el ya aumentado), así que el
+  resultado final queda un poco por debajo de {v}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "basico"
-  tags: ["series_geometricas", "orden"]
+  tema: "porcentaje"
+  nivel: "intermedio"
+  tags: ["porcentaje"]
+
+variables:
+  v: random(50, 500)
+
+respuesta: v * 1.5
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "¿Cuánto es el 150% de {v}?"
+
+explicacion: |
+  Un porcentaje mayor a 100% da un resultado mayor que el valor original
+  — 150% es "una vez y media" el valor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "porcentaje"
+  nivel: "intermedio"
+  tags: ["porcentaje", "orden"]
 
 tipo: ordenar
-enunciado: "Ordená estos términos de una sucesión geométrica (a₁=2, r=3) de menor a mayor."
+enunciado: "Calculá estos porcentajes de 200, y ordená los resultados de menor a mayor."
 opciones_explicitas:
-  - "54"
-  - "2"
-  - "18"
-  - "6"
-respuesta_orden: ["2", "6", "18", "54"]
+  - "10% de 200"
+  - "50% de 200"
+  - "25% de 200"
+  - "5% de 200"
+respuesta_orden: ["5% de 200", "10% de 200", "25% de 200", "50% de 200"]
 
 explicacion: |
-  2, 2×3=6, 6×3=18, 18×3=54: con razón mayor a 1, ya están en orden
-  creciente por cómo se construyen.
+  A mayor porcentaje del mismo valor, mayor el resultado: 10, 20, 50,
+  100.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "avanzado"
-  tags: ["series_geometricas"]
-
-variables:
-  a1: random(1, 10)
-  r: random(2, 4)
-  n: random(3, 5)
-  an: a1 * (r ^ (n - 1))
-
-respuesta: a1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión geométrica con r = {r}, el término {n} vale {an} (a{n} = {an}). ¿Cuál es a₁?"
-
-pasos:
-  - "a₁ = a{n} ÷ r^(n−1) = {an} ÷ {r}^{n - 1} = {an / (r ^ (n - 1))}"
-
-explicacion: |
-  Se despeja a₁ de la fórmula del término general.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "avanzado"
-  tags: ["series_geometricas", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si la razón de una sucesión geométrica está entre -1 y 1 (sin ser 0), la suma de TODOS sus infinitos términos da un resultado finito."
-
-explicacion: |
-  Es contraintuitivo, pero pasa porque cada término agregado es cada vez
-  más chico: la suma converge a a₁ ÷ (1−r).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "avanzado"
-  tags: ["series_geometricas", "casos_especiales"]
-
-variables:
-  a1: random(2, 10)
-  n: random(2, 5)
-
-respuesta: a1 * ((-2) ^ (n - 1))
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En una sucesión geométrica con a₁ = {a1} y r = -2, ¿cuánto vale a{n}?"
-
-explicacion: |
-  Con razón negativa, los signos de los términos van alternando entre
-  positivo y negativo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "avanzado"
-  tags: ["series_geometricas", "comparacion"]
-
-variables:
-  r1: random(2, 5)
-  r2: random(2, 5)
-
-restricciones:
-  - r1 != r2
-
-respuesta: (r1 > r2)
-tipo: vf
-
-enunciado: "Dos sucesiones geométricas empiezan igual (mismo a₁). Una tiene razón {r1} y la otra {r2}. Después de varios términos, ¿la primera va a estar por delante?"
-
-explicacion: |
-  A mayor razón (siendo ambas mayores a 1), más rápido crece la
-  sucesión.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
+  tema: "porcentaje"
   nivel: "intermedio"
-  tags: ["series_geometricas", "problema"]
+  tags: ["porcentaje", "problema"]
 
 variables:
-  inicial: random(2, 15)
-  ciclos: random(3, 6)
+  precio: random(500, 3000)
+  p: uno_de([10, 20, 30])
 
-respuesta: inicial * (3 ^ ciclos)
+respuesta: precio * p / 100
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.01
 
-enunciado: "Un cultivo de {inicial} bacterias se triplica en cada ciclo. ¿Cuántas bacterias hay después de {ciclos} ciclos?"
+enunciado: "Un producto de ${precio} tiene {p}% de descuento. ¿Cuántos pesos te ahorrás (no el precio final, el ahorro)?"
 
 explicacion: |
-  Triplicarse es multiplicar por 3 en cada paso: razón geométrica r=3.
+  El ahorro es, directamente, el porcentaje de descuento calculado sobre
+  el precio original.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "series_geometricas"
+  tema: "porcentaje"
   nivel: "basico"
-  tags: ["series_geometricas", "vocabulario"]
-
-enunciado: "¿Cuál es la fórmula del término general de una sucesión geométrica?"
-tipo: mc
-opciones_explicitas:
-  - "aₙ = a₁ × r^(n−1)"
-  - "aₙ = a₁ + (n−1)×r"
-  - "aₙ = a₁ × n × r"
-respuesta: "aₙ = a₁ × r^(n−1)"
-
-explicacion: |
-  La segunda opción es la fórmula de la sucesión ARITMÉTICA, no la
-  geométrica.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "series_geometricas"
-  nivel: "basico"
-  tags: ["series_geometricas", "vocabulario"]
+  tags: ["porcentaje", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una sucesión geométrica es una lista de números donde cada uno se obtiene multiplicando siempre por la misma razón al anterior."
+enunciado: "Porcentaje, fracción con denominador 100 y decimal son tres formas distintas de escribir la misma cantidad."
 
 explicacion: |
-  Es la idea central de todo el tema, y el puente hacia el crecimiento
-  exponencial que se profundiza en Álgebra.
+  25%, 25/100 y 0,25 representan exactamente el mismo valor.
 ```
+

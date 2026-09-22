@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de los Ciclos de Vida
+# Examen jefe — [PENDIENTE #862]
 
-> Logro #150. Completaste este examen jefe dominando los ciclos biogeoquímicos, la metamorfosis, la evolución y la conservación poblacional. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **115 preguntas totales** en 5/5 secciones.
+> Logro #862. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **115 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -47,7 +47,8 @@ metadata:
 
 respuesta: "vivos"
 tipo: completar
-respuestas_validas: ["vivos"]
+respuestas_validas:
+  - "vivos"
 
 enunciado: "El prefijo 'bio' en biogeoquímico se refiere a los seres ___."
 
@@ -64,7 +65,9 @@ metadata:
 
 respuesta: "fisico"
 tipo: completar
-respuestas_validas: ["fisico", "no vivo"]
+respuestas_validas:
+  - "fisico"
+  - "no vivo"
 
 enunciado: "El prefijo 'geo' en biogeoquímico se refiere al ambiente ___."
 
@@ -230,7 +233,9 @@ metadata:
 
 respuesta: "fijacion"
 tipo: completar
-respuestas_validas: ["fijacion", "fijación"]
+respuestas_validas:
+  - "fijacion"
+  - "fijación"
 
 enunciado: "El proceso por el cual bacterias especializadas convierten el N2 atmosférico en formas utilizables se llama ___."
 
@@ -263,7 +268,9 @@ metadata:
 
 respuesta: "desnitrificacion"
 tipo: completar
-respuestas_validas: ["desnitrificacion", "desnitrificación"]
+respuestas_validas:
+  - "desnitrificacion"
+  - "desnitrificación"
 
 enunciado: "El proceso por el cual bacterias convierten formas fijadas de nitrógeno de vuelta a N2 gaseoso se llama ___."
 
@@ -479,7 +486,8 @@ metadata:
 
 respuesta: "adulto"
 tipo: completar
-respuestas_validas: ["adulto"]
+respuestas_validas:
+  - "adulto"
 
 enunciado: "Las 4 etapas de la metamorfosis completa son huevo, larva, pupa y ___."
 
@@ -549,7 +557,8 @@ metadata:
 
 respuesta: "adulto"
 tipo: completar
-respuestas_validas: ["adulto"]
+respuestas_validas:
+  - "adulto"
 
 enunciado: "Las 3 etapas de la metamorfosis incompleta son huevo, ninfa y ___."
 
@@ -804,7 +813,8 @@ metadata:
 
 respuesta: "dominio"
 tipo: completar
-respuestas_validas: ["dominio"]
+respuestas_validas:
+  - "dominio"
 
 enunciado: "El orden de la jerarquía taxonómica de más específica a más general es: especie, género, familia, orden, clase, filo, reino y ___."
 
@@ -1086,7 +1096,9 @@ metadata:
 
 enunciado: "La construcción de una carretera que divide un bosque en dos partes menores se conoce como ___ de hábitat."
 
-respuestas_validas: ["fragmentación", "fragmentacion"]
+respuestas_validas:
+  - "fragmentación"
+  - "fragmentacion"
 respuesta: "fragmentación"
 tipo: completar
 
@@ -1103,7 +1115,8 @@ metadata:
 
 enunciado: "Cuando una especie introducida en un ecosistema se reproduce sin control y desplaza a las especies nativas, se dice que es una especie ___."
 
-respuestas_validas: ["invasora"]
+respuestas_validas:
+  - "invasora"
 respuesta: "invasora"
 tipo: completar
 
@@ -1120,7 +1133,9 @@ metadata:
 
 enunciado: "Si la tasa de captura de una especie de pez es mayor que su tasa de reproducción natural, estamos ante un caso de ___."
 
-respuestas_validas: ["sobreexplotación", "sobreexplotacion"]
+respuestas_validas:
+  - "sobreexplotación"
+  - "sobreexplotacion"
 respuesta: "sobreexplotación"
 tipo: completar
 
@@ -1137,7 +1152,9 @@ metadata:
 
 enunciado: "La introducción de sustancias químicas, plásticos o exceso de nutrientes en un ecosistema que altera su equilibrio se denomina ___."
 
-respuestas_validas: ["contaminación", "contaminacion"]
+respuestas_validas:
+  - "contaminación"
+  - "contaminacion"
 respuesta: "contaminación"
 tipo: completar
 
@@ -1154,7 +1171,9 @@ metadata:
 
 enunciado: "El aumento global de la temperatura media de la atmósfera y los océanos, causado principalmente por el efecto invernadero, es el ___."
 
-respuestas_validas: ["cambio climático", "cambio climatico"]
+respuestas_validas:
+  - "cambio climático"
+  - "cambio climatico"
 respuesta: "cambio climático"
 tipo: completar
 
@@ -1188,7 +1207,9 @@ metadata:
   tags: ["parque_nacional", "proteccion_estricta"]
 
 tipo: completar
-respuestas_validas: ["Parque Nacional", "parque nacional"]
+respuestas_validas:
+  - "Parque Nacional"
+  - "parque nacional"
 respuesta: "Parque Nacional"
 
 enunciado: "Un área de protección estricta, donde las actividades humanas están limitadas casi exclusivamente a la investigación científica y el turismo de bajo impacto, se denomina generalmente: ___"
@@ -1223,7 +1244,8 @@ metadata:
   tags: ["objetivos", "biodiversidad"]
 
 tipo: completar
-respuestas_validas: ["conservar"]
+respuestas_validas:
+  - "conservar"
 respuesta: "conservar"
 
 enunciado: "El objetivo principal de establecer áreas protegidas es ___ la biodiversidad y los servicios ecosistémicos."
@@ -1259,7 +1281,9 @@ metadata:
 
 respuesta: "flujo génico"
 tipo: completar
-respuestas_validas: ["flujo génico", "flujo genico"]
+respuestas_validas:
+  - "flujo génico"
+  - "flujo genico"
 
 enunciado: "Los corredores biológicos permiten el movimiento de individuos entre fragmentos de hábitat, lo que facilita el ___ entre las poblaciones."
 
@@ -1276,7 +1300,8 @@ metadata:
 
 respuesta: "islas"
 tipo: completar
-respuestas_validas: ["islas"]
+respuestas_validas:
+  - "islas"
 
 enunciado: "Cuando un hábitat es fragmentado por actividades humanas (como carreteras o agricultura), las áreas protegidas pueden quedar funcionando como ___ biológicas, donde las poblaciones quedan aisladas."
 
@@ -1293,7 +1318,8 @@ metadata:
 
 respuesta: "conectar"
 tipo: completar
-respuestas_validas: ["conectar"]
+respuestas_validas:
+  - "conectar"
 
 enunciado: "Los corredores biológicos tienen como objetivo principal ___ áreas protegidas que de otro modo quedarían aisladas entre sí."
 
@@ -1310,7 +1336,8 @@ metadata:
 
 respuesta: "endogamia"
 tipo: completar
-respuestas_validas: ["endogamia"]
+respuestas_validas:
+  - "endogamia"
 
 enunciado: "Si una población queda totalmente aislada en un fragmento pequeño sin corredores, aumenta el riesgo de ___ debido al apareamiento entre individuos estrechamente emparentados."
 
@@ -1327,7 +1354,8 @@ metadata:
 
 respuesta: "matriz"
 tipo: completar
-respuestas_validas: ["matriz"]
+respuestas_validas:
+  - "matriz"
 
 enunciado: "El área de terreno que rodea a los parches de hábitat y que un corredor debe atravesar de forma permeable para funcionar bien se llama ___."
 
@@ -1360,7 +1388,9 @@ metadata:
   tags: ["conectividad", "flujo_genico"]
 
 tipo: completar
-respuestas_validas: ["flujo génico", "flujo genico"]
+respuestas_validas:
+  - "flujo génico"
+  - "flujo genico"
 respuesta: "flujo génico"
 
 enunciado: "Cuando dos áreas protegidas están separadas por una matriz hostil (como una ciudad), se impide el ___ entre las poblaciones, lo que aumenta el riesgo de endogamia."
@@ -1394,7 +1424,9 @@ metadata:
   tags: ["endogamia", "fitness"]
 
 tipo: completar
-respuestas_validas: ["depresión por endogamia", "depresion por endogamia"]
+respuestas_validas:
+  - "depresión por endogamia"
+  - "depresion por endogamia"
 respuesta: "depresión por endogamia"
 
 enunciado: "El apareamiento entre individuos estrechamente emparentados en poblaciones pequeñas y aisladas suele provocar la ___ debido a la expresión de alelos recesivos deletéreos."
@@ -1430,12 +1462,11 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["se talaron bosques nativos para plantar soja", "la expansión de la frontera agrícola avanzó sobre un bosque nativo"]]
-  causas: [["deforestación", "deforestación"]]
 
-enunciado: "En un ecosistema donde {escenarios[escenario_idx][0]}, la causa principal de la pérdida de biodiversidad es la ___."
+enunciado: "En un ecosistema donde {escenarios[0][escenario_idx]}, la causa principal de la pérdida de biodiversidad es la ___."
 
 opciones_explicitas: ["deforestación", "especies exóticas", "cambio climático", "contaminación"]
-respuesta: causas[escenario_idx][0]
+respuesta: "deforestación"
 tipo: mc
 
 explicacion: |
@@ -1452,12 +1483,12 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["se introdujo un pez depredador en un lago sin depredadores naturales", "un felino no nativo fue liberado en una isla"]]
-  causas: [["especie invasora", "especie invasora"]]
 
-enunciado: "Cuando {escenarios[escenario_idx][0]}, el factor que altera el equilibrio ecológico es la presencia de una ___."
+enunciado: "Cuando {escenarios[0][escenario_idx]}, el factor que altera el equilibrio ecológico es la presencia de una ___."
 
-respuestas_validas: ["especie invasora"]
-respuesta: causas[escenario_idx][0]
+respuestas_validas:
+  - "especie invasora"
+respuesta: "especie invasora"
 tipo: completar
 
 explicacion: |
@@ -1474,12 +1505,12 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["se capturaron ejemplares de una especie por debajo de su edad reproductiva", "se extrajeron individuos de una población de peces de forma masiva"]]
-  causas: [["sobrepesca", "sobrepesca"]]
 
-enunciado: "En el escenario donde {escenarios[escenario_idx][0]}, el proceso que pone en riesgo la supervivencia de la especie es la ___."
+enunciado: "En el escenario donde {escenarios[0][escenario_idx]}, el proceso que pone en riesgo la supervivencia de la especie es la ___."
 
-respuestas_validas: ["sobrepesca"]
-respuesta: causas[escenario_idx][0]
+respuestas_validas:
+  - "sobrepesca"
+respuesta: "sobrepesca"
 tipo: completar
 
 explicacion: |
@@ -1496,12 +1527,11 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["una carretera divide un bosque en dos sectores aislados", "una red eléctrica atraviesa una reserva natural dividiéndola en dos"]]
-  causas: [["fragmentación de hábitat", "fragmentación de hábitat"]]
 
-enunciado: "Si {escenarios[escenario_idx][0]}, el efecto directo sobre la biodiversidad es la ___."
+enunciado: "Si {escenarios[0][escenario_idx]}, el efecto directo sobre la biodiversidad es la ___."
 
 opciones_explicitas: ["fragmentación de hábitat", "contaminación del suelo", "erosión", "especie invasora"]
-respuesta: causas[escenario_idx][0]
+respuesta: "fragmentación de hábitat"
 tipo: mc
 
 explicacion: |
@@ -1518,12 +1548,13 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   escenarios: [["se utilizan pesticidas en campos vecinos a una reserva", "se filtran fertilizantes hacia un arroyo cercano a una reserva"]]
-  causas: [["contaminación por agroquímicos", "contaminación por agroquímicos"]]
 
-enunciado: "Ante el escenario donde {escenarios[escenario_idx][0]}, la causa del declive de la fauna local es la ___."
+enunciado: "Ante el escenario donde {escenarios[0][escenario_idx]}, la causa del declive de la fauna local es la ___."
 
-respuestas_validas: ["contaminación por agroquímicos", "contaminacion por agroquimicos"]
-respuesta: causas[escenario_idx][0]
+respuestas_validas:
+  - "contaminación por agroquímicos"
+  - "contaminacion por agroquimicos"
+respuesta: "contaminación por agroquímicos"
 tipo: completar
 
 explicacion: |
@@ -2030,3 +2061,4 @@ explicacion: |
   Es el resumen central del tema: ningún modelo es "el correcto"
   siempre — depende de la escala y el contexto.
 ```
+

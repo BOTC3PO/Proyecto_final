@@ -1,6 +1,6 @@
-# Examen jefe — Maestro del Equilibrio y Gibbs
+# Examen jefe — [PENDIENTE #843]
 
-> Logro #143. Demuestra dominio total sobre la energía libre, polaridad de enlaces y los distintos tipos de equilibrio químico. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **104 preguntas totales** en 5/5 secciones.
+> Logro #843. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,7 +15,9 @@ metadata:
 
 respuesta: "entropia"
 tipo: completar
-respuestas_validas: ["entropía", "entropia"]
+respuestas_validas:
+  - "entropía"
+  - "entropia"
 
 enunciado: "La medida del desorden o dispersión de energía de un sistema se llama ___."
 
@@ -83,7 +85,7 @@ variables:
   idx: uno_de([0, 1, 2, 3])
 
 respuesta: datos[idx][0] - datos[idx][1] * datos[idx][2]
-tipo: input
+tipo: completar
 tolerancia_abs: 0.5
 
 enunciado: "Calculá ΔG para una reacción con ΔH = {datos[idx][0]} kJ/mol, T = {datos[idx][1]} K y ΔS = {datos[idx][2]} kJ/(K·mol)."
@@ -252,7 +254,9 @@ metadata:
 
 respuesta: "S"
 tipo: completar
-respuestas_validas: ["S", "entropia"]
+respuestas_validas:
+  - "S"
+  - "entropia"
 
 enunciado: "La ecuación de Gibbs es ΔG = ΔH - T × Δ___."
 
@@ -368,7 +372,8 @@ metadata:
 
 respuesta: "octeto"
 tipo: completar
-respuestas_validas: ["octeto"]
+respuestas_validas:
+  - "octeto"
 
 enunciado: "La regla que dice que los átomos buscan 8 electrones de valencia se llama regla del ___."
 
@@ -471,7 +476,8 @@ metadata:
 
 respuesta: "mar"
 tipo: completar
-respuestas_validas: ["mar"]
+respuestas_validas:
+  - "mar"
 
 enunciado: "En el enlace metálico, los electrones de valencia se deslocalizan formando un ___ de electrones."
 
@@ -553,7 +559,9 @@ metadata:
 
 respuesta: "positiva (delta mas)"
 tipo: completar
-respuestas_validas: ["positiva (delta mas)", "positiva (delta más)"]
+respuestas_validas:
+  - "positiva (delta mas)"
+  - "positiva (delta más)"
 
 enunciado: "En un enlace covalente polar, el átomo menos electronegativo queda con carga parcial ___."
 
@@ -723,7 +731,8 @@ metadata:
 
 respuesta: "dinamico"
 tipo: completar
-respuestas_validas: ["dinamico"]
+respuestas_validas:
+  - "dinamico"
 
 enunciado: "Por eso el equilibrio químico se llama equilibrio ___."
 
@@ -760,7 +769,7 @@ variables:
   c: uno_de([2, 4, 8])
 
 respuesta: c / (a * b)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para la reacción A + B ⇌ C en equilibrio, con [A] = {a} M, [B] = {b} M y [C] = {c} M, calculá la constante de equilibrio Kc."
@@ -813,7 +822,8 @@ metadata:
 
 respuesta: "equilibrio"
 tipo: completar
-respuestas_validas: ["equilibrio"]
+respuestas_validas:
+  - "equilibrio"
 
 enunciado: "En la expresión de Kc, la notación [X] representa la concentración de X en el ___ (no la inicial)."
 
@@ -1047,7 +1057,8 @@ metadata:
 
 respuesta: "solubilidad"
 tipo: completar
-respuestas_validas: ["solubilidad"]
+respuestas_validas:
+  - "solubilidad"
 
 enunciado: "Ksp significa producto de ___."
 
@@ -1067,7 +1078,7 @@ variables:
   b: uno_de([1, 2, 3])
 
 respuesta: a * b
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para AB ⇌ A+ + B-, Ksp = [A+] × [B-]. Si [A+] = {a} M y [B-] = {b} M, ¿cuál es el valor de Ksp?"
@@ -1121,7 +1132,7 @@ variables:
   b: uno_de([2, 3, 4, 5])
 
 respuesta: a2 * (b ^ 2)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para AB2(s) ⇌ A2+(ac) + 2B-(ac), con [A2+] = {a2} M y [B-] = {b} M en el equilibrio, calculá Ksp."
@@ -1160,7 +1171,7 @@ variables:
   s: uno_de([2, 3, 4, 5])
 
 respuesta: s * s
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para una sal AB (1:1), Ksp = s², con s la solubilidad molar. Si s = {s} mol/L, ¿cuál es Ksp?"
@@ -1184,7 +1195,7 @@ variables:
   ksp: uno_de([4, 9, 16, 25])
 
 respuesta: sqrt(ksp)
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "Para una sal AB (1:1), Ksp = s². Si Ksp = {ksp}, ¿cuál es la solubilidad molar s?"
@@ -1221,7 +1232,8 @@ metadata:
 
 respuesta: "2"
 tipo: completar
-respuestas_validas: ["2"]
+respuestas_validas:
+  - "2"
 
 enunciado: "Para una sal AB (1:1), la fórmula que relaciona Ksp con la solubilidad molar s es Ksp = s elevado a la ___."
 
@@ -1461,7 +1473,8 @@ variables:
 
 respuesta: pares[idx][1]
 tipo: completar
-respuestas_validas: [pares[idx][1]]
+respuestas_validas:
+  - pares[idx][1]
 
 enunciado: "Identifica el cambio de estado que ocurre cuando: {pares[idx][0]}."
 
@@ -1499,7 +1512,8 @@ variables:
 
 respuesta: pares[idx][0]
 tipo: completar
-respuestas_validas: [pares[idx][0]]
+respuestas_validas:
+  - pares[idx][0]
 
 enunciado: "¿Cómo se llama el cambio de estado descrito como: {pares[idx][1]}?"
 
@@ -1568,7 +1582,8 @@ variables:
 
 respuesta: valor
 tipo: completar
-respuestas_validas: [valor]
+respuestas_validas:
+  - valor
 
 enunciado: "El agua hirviendo a presión atmosférica normal no supera los {valor} grados Celsius."
 
@@ -1643,7 +1658,8 @@ variables:
 
 respuesta: cambios[idx][1]
 tipo: completar
-respuestas_validas: [cambios[idx][1]]
+respuestas_validas:
+  - cambios[idx][1]
 
 enunciado: "El proceso de {cambios[idx][0]} es un proceso ___ (absorbe o libera calor)."
 
@@ -1678,7 +1694,7 @@ metadata:
 variables:
   orden_correcto: ["Sólido", "Líquido", "Gas"]
 
-respuesta: orden_correcto
+respuesta_orden: orden_correcto
 tipo: ordenar
 opciones_explicitas: ["Sólido", "Líquido", "Gas"]
 
@@ -1730,7 +1746,8 @@ metadata:
 
 respuesta: "gas"
 tipo: completar
-respuestas_validas: ["gas"]
+respuestas_validas:
+  - "gas"
 
 enunciado: "El estado que no tiene forma propia NI volumen propio es el ___."
 
@@ -1749,7 +1766,7 @@ variables:
   valor_fusion: 0
 
 respuesta: valor_fusion
-tipo: input
+tipo: completar
 
 enunciado: "Indica el punto de fusión del agua en grados Celsius a presión atmosférica normal."
 
@@ -1768,7 +1785,7 @@ variables:
   valor_ebullicion: 100
 
 respuesta: valor_ebullicion
-tipo: input
+tipo: completar
 
 enunciado: "Indica el punto de ebullición del agua en grados Celsius a presión atmosférica normal."
 
@@ -1808,3 +1825,4 @@ enunciado: "¿Es el plasma el estado de la materia más común en el universo, s
 explicacion: |
   Debido a la enorme cantidad de estrellas y gas ionizado en el espacio, el plasma es el estado predominante en el cosmos.
 ```
+

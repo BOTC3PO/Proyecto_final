@@ -1,1163 +1,730 @@
-# Examen jefe — Dominio de Vectores y Estadística
+# Examen jefe — [PENDIENTE #629]
 
-> Logro #80. Resolviste el parcial integrando vectores, distribuciones y teoremas probabilísticos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **118 preguntas totales** en 5/5 secciones.
+> Logro #629. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **119 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: suma-de-vectores-y-descomposicion (27 preguntas)
+## Sección: matrices/sistemas-nxn (27 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
+  tema: "matrices_sistemas_nxn"
+  nivel: "intermedio"
+  tags: ["operacion_fila"]
+
+variables:
+  r1: random(1, 10)
+  r2: random(1, 10)
+  r3: random(1, 10)
+  s1: random(1, 10)
+  s2: random(1, 10)
+  s3: random(1, 10)
+  k: random(2, 5)
+
+respuesta: s1 - k * r1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Fila 1 = ({r1}, {r2}, {r3}), Fila 2 = ({s1}, {s2}, {s3}). Si se hace Fila 2 → Fila 2 − {k}×Fila 1, ¿qué queda en la primera posición de la nueva Fila 2?"
+
+explicacion: |
+  s1 − {k}×r1 = {s1} − {k}×{r1} = {s1 - k * r1}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_sistemas_nxn"
+  nivel: "intermedio"
+  tags: ["operacion_fila"]
+
+variables:
+  r1: random(1, 10)
+  r2: random(1, 10)
+  r3: random(1, 10)
+  s1: random(1, 10)
+  s2: random(1, 10)
+  s3: random(1, 10)
+  k: random(2, 5)
+
+respuesta: s3 - k * r3
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Fila 1 = ({r1}, {r2}, {r3}), Fila 2 = ({s1}, {s2}, {s3}). Si se hace Fila 2 → Fila 2 − {k}×Fila 1, ¿qué queda en la tercera posición de la nueva Fila 2?"
+
+explicacion: |
+  s3 − {k}×r3.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_sistemas_nxn"
+  nivel: "intermedio"
+  tags: ["operacion_fila"]
+
+variables:
+  r1: random(1, 10)
+  r2: random(1, 10)
+  r3: random(1, 10)
+  s1: random(1, 10)
+  s2: random(1, 10)
+  s3: random(1, 10)
+  k: random(2, 5)
+
+respuesta: s2 + k * r2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Fila 1 = ({r1}, {r2}, {r3}), Fila 2 = ({s1}, {s2}, {s3}). Si se hace Fila 2 → Fila 2 + {k}×Fila 1, ¿qué queda en la segunda posición de la nueva Fila 2?"
+
+explicacion: |
+  s2 + {k}×r2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_sistemas_nxn"
   nivel: "basico"
-  tags: ["suma_vectores", "vocabulario"]
-
-enunciado: "¿Cómo se suman dos vectores usando sus componentes?"
-tipo: mc
-opciones_explicitas:
-  - "Se suman las componentes x entre sí, y por separado las componentes y entre sí"
-  - "Se suman todas las componentes en un solo número"
-  - "Se multiplican las componentes de un vector por las del otro"
-respuesta: "Se suman las componentes x entre sí, y por separado las componentes y entre sí"
-
-explicacion: |
-  (x₁,y₁) + (x₂,y₂) = (x₁+x₂, y₁+y₂).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["suma_vectores", "problema"]
+  tags: ["operacion_fila"]
 
 variables:
-  x1: random(1, 10)
-  y1: random(1, 10)
-  x2: random(1, 10)
-  y2: random(1, 10)
+  r1: random(1, 10)
+  r2: random(1, 10)
+  r3: random(1, 10)
+  k: random(2, 6)
 
-respuesta: x1 + x2
+respuesta: k * r2
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Se suman los vectores ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es la componente x del vector resultante?"
-
-pasos:
-  - "{x1} + {x2} = {x1 + x2}"
+enunciado: "Fila 1 = ({r1}, {r2}, {r3}). Si se hace Fila 1 → {k}×Fila 1, ¿qué queda en la segunda posición?"
 
 explicacion: |
-  Se suman sólo las dos componentes x.
+  Multiplicar una fila por un escalar multiplica cada valor de la fila.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["suma_vectores", "problema"]
+  tema: "matrices_sistemas_nxn"
+  nivel: "basico"
+  tags: ["operacion_fila"]
 
 variables:
-  x1: random(1, 10)
-  y1: random(1, 10)
-  x2: random(1, 10)
-  y2: random(1, 10)
+  r1: random(1, 10)
+  r2: random(1, 10)
+  r3: random(1, 10)
+  s1: random(1, 10)
+  s2: random(1, 10)
+  s3: random(1, 10)
 
-respuesta: y1 + y2
+respuesta: s2
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Se suman los vectores ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es la componente y del vector resultante?"
-
-pasos:
-  - "{y1} + {y2} = {y1 + y2}"
+enunciado: "Fila 1 = ({r1}, {r2}, {r3}), Fila 2 = ({s1}, {s2}, {s3}). Si se intercambian Fila 1 y Fila 2, ¿qué valor queda ahora en la segunda posición de la nueva Fila 1?"
 
 explicacion: |
-  Se suman sólo las dos componentes y.
+  Después del intercambio, la nueva Fila 1 es la vieja Fila 2 completa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
+  tema: "matrices_sistemas_nxn"
   nivel: "avanzado"
-  tags: ["suma_vectores", "problema"]
+  tags: ["operacion_fila", "matriz_aumentada"]
 
 variables:
-  k: random(1, 6)
-  x1: uno_de([1, 2, 3])
-  y1: uno_de([1, 2])
-  x2: (3 * k) - x1
-  y2: (4 * k) - y1
+  r1: random(1, 8)
+  r2: random(1, 8)
+  r3: random(1, 8)
+  d1: random(1, 20)
+  s1: random(1, 8)
+  s2: random(1, 8)
+  s3: random(1, 8)
+  d2: random(1, 20)
+  k: random(2, 5)
 
-respuesta: 5 * k
+respuesta: d2 - k * d1
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Se suman los vectores ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es el módulo del vector resultante?"
-
-pasos:
-  - "Suma: ({x1 + x2}, {y1 + y2})"
-  - "√({x1 + x2}² + {y1 + y2}²) = {5 * k}"
+enunciado: "Fila 1 = ({r1}, {r2}, {r3} | {d1}), Fila 2 = ({s1}, {s2}, {s3} | {d2}). Si se hace Fila 2 → Fila 2 − {k}×Fila 1, ¿qué queda en la columna de términos independientes de la nueva Fila 2?"
 
 explicacion: |
-  Primero se suman las componentes, y recién con el resultado se aplica
-  Pitágoras para hallar el módulo.
+  La operación se aplica a la fila COMPLETA, incluida la columna de
+  términos independientes — no sólo a los coeficientes.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
+  tema: "matrices_sistemas_nxn"
+  nivel: "avanzado"
+  tags: ["sistema_3x3"]
+
+variables:
+  x_sol: random(1, 15)
+  y_sol: random(1, 15)
+  z_sol: random(1, 15)
+  p1: random(1, 5)
+  q1: random(1, 5)
+  r1: random(1, 5)
+  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
+  p2: random(1, 5)
+  q2: random(1, 5)
+  r2: random(1, 5)
+  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
+  p3: random(1, 5)
+  q3: random(1, 5)
+  r3: random(1, 5)
+  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé el sistema: {p1}x + {q1}y + {r1}z = {d1}; {p2}x + {q2}y + {r2}z = {d2}; {p3}x + {q3}y + {r3}z = {d3}. ¿Cuánto vale x?"
+
+pasos:
+  - "Armar la matriz aumentada 3×4 y triangular con operaciones de fila, o eliminar x entre pares de ecuaciones como en un sistema 2×2"
+
+explicacion: |
+  Mismo método de eliminación de siempre, con un paso más: eliminar una
+  incógnita entre dos pares de ecuaciones antes de llegar a una sola
+  incógnita.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_sistemas_nxn"
+  nivel: "avanzado"
+  tags: ["sistema_3x3"]
+
+variables:
+  x_sol: random(1, 15)
+  y_sol: random(1, 15)
+  z_sol: random(1, 15)
+  p1: random(1, 5)
+  q1: random(1, 5)
+  r1: random(1, 5)
+  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
+  p2: random(1, 5)
+  q2: random(1, 5)
+  r2: random(1, 5)
+  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
+  p3: random(1, 5)
+  q3: random(1, 5)
+  r3: random(1, 5)
+  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
+
+respuesta: y_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé el sistema: {p1}x + {q1}y + {r1}z = {d1}; {p2}x + {q2}y + {r2}z = {d2}; {p3}x + {q3}y + {r3}z = {d3}. ¿Cuánto vale y?"
+
+explicacion: |
+  Con x ya encontrado, queda un sistema 2×2 en y y z.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_sistemas_nxn"
+  nivel: "avanzado"
+  tags: ["sistema_3x3"]
+
+variables:
+  x_sol: random(1, 15)
+  y_sol: random(1, 15)
+  z_sol: random(1, 15)
+  p1: random(1, 5)
+  q1: random(1, 5)
+  r1: random(1, 5)
+  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
+  p2: random(1, 5)
+  q2: random(1, 5)
+  r2: random(1, 5)
+  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
+  p3: random(1, 5)
+  q3: random(1, 5)
+  r3: random(1, 5)
+  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
+
+respuesta: z_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé el sistema: {p1}x + {q1}y + {r1}z = {d1}; {p2}x + {q2}y + {r2}z = {d2}; {p3}x + {q3}y + {r3}z = {d3}. ¿Cuánto vale z?"
+
+explicacion: |
+  Con x e y ya encontrados, z se despeja de cualquiera de las tres
+  ecuaciones originales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_sistemas_nxn"
+  nivel: "avanzado"
+  tags: ["sistema_3x3"]
+
+variables:
+  x_sol: random(1, 12)
+  y_sol: random(1, 12)
+  z_sol: random(1, 12)
+  p1: random(1, 4)
+  q1: random(1, 4)
+  r1: random(1, 4)
+  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
+  p2: random(1, 4)
+  q2: random(1, 4)
+  r2: random(1, 4)
+  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
+  p3: random(1, 4)
+  q3: random(1, 4)
+  r3: random(1, 4)
+  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé el sistema: {p1}x + {q1}y + {r1}z = {d1}; {p2}x + {q2}y + {r2}z = {d2}; {p3}x + {q3}y + {r3}z = {d3}. ¿Cuánto vale x?"
+
+explicacion: |
+  Se puede resolver triangulando la matriz aumentada con operaciones de
+  fila, o eliminando de a una incógnita como en un sistema 2×2.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_sistemas_nxn"
+  nivel: "avanzado"
+  tags: ["sistema_3x3"]
+
+variables:
+  x_sol: random(1, 12)
+  y_sol: random(1, 12)
+  z_sol: random(1, 12)
+  p1: random(1, 4)
+  q1: random(1, 4)
+  r1: random(1, 4)
+  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
+  p2: random(1, 4)
+  q2: random(1, 4)
+  r2: random(1, 4)
+  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
+  p3: random(1, 4)
+  q3: random(1, 4)
+  r3: random(1, 4)
+  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
+
+respuesta: y_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé el sistema: {p1}x + {q1}y + {r1}z = {d1}; {p2}x + {q2}y + {r2}z = {d2}; {p3}x + {q3}y + {r3}z = {d3}. ¿Cuánto vale y?"
+
+explicacion: |
+  y = resultado de eliminar x y z entre pares de ecuaciones.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_sistemas_nxn"
+  nivel: "avanzado"
+  tags: ["sistema_3x3"]
+
+variables:
+  x_sol: random(1, 12)
+  y_sol: random(1, 12)
+  z_sol: random(1, 12)
+  p1: random(1, 4)
+  q1: random(1, 4)
+  r1: random(1, 4)
+  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
+  p2: random(1, 4)
+  q2: random(1, 4)
+  r2: random(1, 4)
+  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
+  p3: random(1, 4)
+  q3: random(1, 4)
+  r3: random(1, 4)
+  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
+
+respuesta: z_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Resolvé el sistema: {p1}x + {q1}y + {r1}z = {d1}; {p2}x + {q2}y + {r2}z = {d2}; {p3}x + {q3}y + {r3}z = {d3}. ¿Cuánto vale z?"
+
+explicacion: |
+  Último paso: reemplazar x e y ya encontrados en cualquier ecuación
+  original.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_sistemas_nxn"
+  nivel: "avanzado"
+  tags: ["sistema_3x3", "problema"]
+
+variables:
+  x_sol: random(2, 15)
+  y_sol: random(2, 15)
+  z_sol: random(2, 15)
+  p1: random(1, 3)
+  q1: random(1, 3)
+  r1: random(1, 3)
+  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
+  p2: random(1, 3)
+  q2: random(1, 3)
+  r2: random(1, 3)
+  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
+  p3: random(1, 3)
+  q3: random(1, 3)
+  r3: random(1, 3)
+  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Tres combos de compras dan: {p1} unidades de A + {q1} de B + {r1} de C = {d1}; {p2} de A + {q2} de B + {r2} de C = {d2}; {p3} de A + {q3} de B + {r3} de C = {d3} (en costo total). ¿Cuánto cuesta una unidad de A?"
+
+explicacion: |
+  Es el mismo sistema 3×3 de siempre, con nombres de producto en vez de
+  x, y, z.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_sistemas_nxn"
   nivel: "basico"
-  tags: ["suma_vectores", "vocabulario"]
-
-enunciado: "¿Cómo se restan dos vectores usando sus componentes?"
-tipo: mc
-opciones_explicitas:
-  - "Se restan las componentes x entre sí, y por separado las componentes y entre sí"
-  - "Se restan los módulos, sin tocar las componentes"
-  - "No es posible restar vectores, sólo sumarlos"
-respuesta: "Se restan las componentes x entre sí, y por separado las componentes y entre sí"
-
-explicacion: |
-  Es exactamente el mismo procedimiento que sumar, con resta en vez de
-  suma.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["suma_vectores", "problema"]
-
-variables:
-  x1: random(10, 20)
-  y1: random(10, 20)
-  x2: random(1, 9)
-  y2: random(1, 9)
-
-respuesta: x1 - x2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se resta el vector ({x2}, {y2}) al vector ({x1}, {y1}). ¿Cuál es la componente x del resultado?"
-
-pasos:
-  - "{x1} − {x2} = {x1 - x2}"
-
-explicacion: |
-  Se restan sólo las componentes x, en el orden dado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar", "vocabulario"]
-
-enunciado: "¿Qué le pasa a un vector si se lo multiplica por un escalar k > 1?"
-tipo: mc
-opciones_explicitas:
-  - "Se alarga (su módulo aumenta), sin cambiar de dirección"
-  - "Se acorta"
-  - "Cambia de dirección, apuntando al lado opuesto"
-respuesta: "Se alarga (su módulo aumenta), sin cambiar de dirección"
-
-explicacion: |
-  Cada componente queda multiplicada por k, que es mayor a 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar", "vocabulario"]
-
-enunciado: "¿Qué le pasa a un vector si se lo multiplica por un escalar k, con 0 < k < 1?"
-tipo: mc
-opciones_explicitas:
-  - "Se acorta (su módulo disminuye), sin cambiar de dirección"
-  - "Se alarga"
-  - "Se vuelve el vector nulo"
-respuesta: "Se acorta (su módulo disminuye), sin cambiar de dirección"
-
-explicacion: |
-  Cada componente queda multiplicada por un número menor a 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar", "vocabulario"]
-
-enunciado: "¿Qué le pasa a un vector si se lo multiplica por un escalar negativo?"
-tipo: mc
-opciones_explicitas:
-  - "Cambia de dirección, quedando apuntando exactamente al lado opuesto"
-  - "Se vuelve el vector nulo automáticamente"
-  - "No cambia nada, sólo el módulo se hace negativo"
-respuesta: "Cambia de dirección, quedando apuntando exactamente al lado opuesto"
-
-explicacion: |
-  El módulo (que nunca es negativo) puede cambiar, pero la dirección
-  gira 180°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar", "problema"]
-
-variables:
-  x: random(2, 10)
-  y: random(2, 10)
-  k: uno_de([2, 3, 4])
-
-respuesta: x * k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se multiplica el vector ({x}, {y}) por el escalar {k}. ¿Cuál es la componente x del resultado?"
-
-pasos:
-  - "{x} × {k} = {x * k}"
-
-explicacion: |
-  Cada componente se multiplica por el mismo escalar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar", "vocabulario"]
-
-enunciado: "¿Qué es el vector opuesto de v?"
-tipo: mc
-opciones_explicitas:
-  - "El vector -v: mismo módulo, dirección exactamente contraria (180°)"
-  - "Un vector con módulo 0"
-  - "Un vector perpendicular a v"
-respuesta: "El vector -v: mismo módulo, dirección exactamente contraria (180°)"
-
-explicacion: |
-  Se obtiene multiplicando v por el escalar -1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El vector opuesto de v tiene exactamente el mismo módulo que v."
+enunciado: "Intercambiar dos filas de una matriz aumentada no cambia el conjunto solución del sistema."
 
 explicacion: |
-  Multiplicar por -1 sólo cambia la dirección, no la longitud.
+  Cambia el orden en que están escritas las ecuaciones, no las
+  ecuaciones en sí.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
+  tema: "matrices_sistemas_nxn"
   nivel: "intermedio"
-  tags: ["escalar"]
+  tags: ["concepto", "error_comun", "verdadero_falso"]
 
 respuesta: falso
+
 tipo: vf
 
-enunciado: "El vector opuesto de v tiene exactamente la misma dirección que v."
+enunciado: "Al restar un múltiplo de una fila a otra, sólo hace falta aplicarlo a los coeficientes, no a la columna de términos independientes."
 
 explicacion: |
-  Tiene dirección opuesta (girada 180°), no la misma.
+  Hay que aplicarlo a la fila completa, columna de términos
+  independientes incluida — es el error más común del método.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
+  tema: "matrices_sistemas_nxn"
   nivel: "intermedio"
-  tags: ["suma_vectores", "vocabulario"]
+  tags: ["concepto", "verdadero_falso"]
 
-enunciado: "En el método gráfico para sumar vectores, ¿cómo se dibuja el segundo vector respecto del primero?"
-tipo: mc
-opciones_explicitas:
-  - "Empezando justo donde termina el primero (uniendo punta con cola)"
-  - "Superpuesto exactamente sobre el primero"
-  - "Siempre partiendo del origen, sin importar el primero"
-respuesta: "Empezando justo donde termina el primero (uniendo punta con cola)"
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Multiplicar una fila entera por 0 es una operación elemental válida."
 
 explicacion: |
-  El vector suma va desde el origen del primero hasta el extremo del
-  segundo.
+  Multiplicar por 0 borraría información de esa ecuación — la operación
+  válida es multiplicar por cualquier número DISTINTO de 0.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["suma_vectores"]
+  tema: "matrices_sistemas_nxn"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El método gráfico (punta con cola) y el método por componentes dan exactamente el mismo vector suma."
+enunciado: "El método de Gauss busca, usando operaciones de fila, dejar ceros debajo de la diagonal principal de la matriz."
 
 explicacion: |
-  Son dos formas distintas de llegar al mismo resultado; el de
-  componentes es más preciso para calcular.
+  Esa forma triangular es la que permite despejar una incógnita por vez
+  con sustitución hacia atrás.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
+  tema: "matrices_sistemas_nxn"
   nivel: "intermedio"
-  tags: ["descomposicion", "vocabulario"]
+  tags: ["concepto", "verdadero_falso"]
 
-enunciado: "¿Qué es descomponer un vector?"
-tipo: mc
-opciones_explicitas:
-  - "Hallar sus componentes x e y, a partir de su módulo y su dirección"
-  - "Dividir su módulo por 2"
-  - "Convertirlo en dos vectores nulos"
-respuesta: "Hallar sus componentes x e y, a partir de su módulo y su dirección"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La sustitución hacia atrás empieza resolviendo la incógnita de la última fila triangulada."
 
 explicacion: |
-  Es el proceso inverso a calcular módulo y dirección a partir de las
-  componentes.
+  Esa fila queda con una sola incógnita — de ahí se sube reemplazando en
+  las filas anteriores.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["descomposicion", "completar"]
+  tema: "matrices_sistemas_nxn"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
-tipo: completar
-enunciado: "Completá: componente x = módulo × ___(dirección)."
-respuestas_validas:
-  - "cos"
-  - "coseno"
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Con un sistema de 4 ecuaciones y 4 incógnitas, el método de Gauss ya no sirve y hace falta usar otro método distinto."
 
 explicacion: |
-  La componente y usa seno en cambio.
+  El método es exactamente el mismo, sólo con más filas y columnas —
+  matriz aumentada de 4×5 en vez de 3×4.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["descomposicion", "completar"]
-
-tipo: completar
-enunciado: "Completá: componente y = módulo × ___(dirección)."
-respuestas_validas:
-  - "sen"
-  - "seno"
-
-explicacion: |
-  La componente x usa coseno en cambio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "avanzado"
-  tags: ["descomposicion", "problema"]
+  tema: "matrices_sistemas_nxn"
+  nivel: "basico"
+  tags: ["matriz_aumentada"]
 
 variables:
-  modulo: uno_de([10, 20, 40])
-  cos_30: 0.87
+  n: random(2, 8)
 
-respuesta: redondear(modulo * cos_30, 1)
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Una fuerza tiene módulo {modulo} N y dirección 30° (cos 30° ≈ 0,87). ¿Cuál es su componente horizontal?"
-
-pasos:
-  - "{modulo} × 0,87 = {redondear(modulo * cos_30, 1)} N"
-
-explicacion: |
-  x = módulo × cos(dirección).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "avanzado"
-  tags: ["descomposicion", "problema"]
-
-variables:
-  modulo: uno_de([10, 20, 40])
-  sen_60: 0.87
-
-respuesta: redondear(modulo * sen_60, 1)
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Una fuerza tiene módulo {modulo} N y dirección 60° (sen 60° ≈ 0,87). ¿Cuál es su componente vertical?"
-
-pasos:
-  - "{modulo} × 0,87 = {redondear(modulo * sen_60, 1)} N"
-
-explicacion: |
-  y = módulo × sen(dirección).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "avanzado"
-  tags: ["descomposicion", "ordenar"]
-
-enunciado: "Ordená los pasos para sumar dos vectores que no están alineados con los ejes (cada uno con su propio módulo y dirección)."
-tipo: ordenar
-opciones_explicitas:
-  - "Calcular el módulo del vector resultante con esas componentes sumadas"
-  - "Descomponer cada vector en sus componentes x e y"
-  - "Sumar todas las componentes x entre sí, y todas las componentes y entre sí"
-respuesta_orden:
-  - "Descomponer cada vector en sus componentes x e y"
-  - "Sumar todas las componentes x entre sí, y todas las componentes y entre sí"
-  - "Calcular el módulo del vector resultante con esas componentes sumadas"
-
-explicacion: |
-  Sin descomponer primero, no se pueden sumar directamente dos vectores
-  con direcciones distintas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "avanzado"
-  tags: ["suma_vectores", "problema"]
-
-variables:
-  k: random(1, 5)
-  x1: uno_de([1, 2])
-  y1: uno_de([1, 2, 3])
-  x2: (5 * k) - x1
-  y2: (12 * k) - y1
-
-respuesta: 13 * k
+respuesta: n
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Se suman los vectores ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es el módulo del vector resultante?"
-
-pasos:
-  - "Suma: ({x1 + x2}, {y1 + y2})"
-  - "√({x1 + x2}² + {y1 + y2}²) = {13 * k}"
+enunciado: "Un sistema de {n} ecuaciones con {n} incógnitas se representa con una matriz aumentada. ¿Cuántas filas tiene?"
 
 explicacion: |
-  Es la terna pitagórica 5-12-13 aplicada al resultado de la suma.
+  Una fila por ecuación.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["suma_vectores"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sumar vectores por componentes funciona siempre, sin importar en qué dirección apunte cada uno."
-
-explicacion: |
-  A diferencia del método gráfico (que depende de dibujar bien), el
-  método por componentes es puramente numérico y siempre da el
-  resultado correcto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["vocabulario"]
-
-enunciado: "¿Por qué hace falta descomponer las fuerzas antes de sumarlas, cuando dos personas empujan un mismo objeto desde ángulos distintos?"
-tipo: mc
-opciones_explicitas:
-  - "Porque no se pueden sumar directamente dos vectores con direcciones distintas sin pasar por sus componentes"
-  - "Porque las fuerzas nunca se pueden sumar entre sí"
-  - "No hace falta descomponer nada, alcanza con sumar los módulos"
-respuesta: "Porque no se pueden sumar directamente dos vectores con direcciones distintas sin pasar por sus componentes"
-
-explicacion: |
-  Sumar los módulos directamente (sin descomponer) da un resultado
-  incorrecto, salvo que ambos vectores tengan la misma dirección.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "avanzado"
-  tags: ["descomposicion", "problema"]
+  tema: "matrices_sistemas_nxn"
+  nivel: "basico"
+  tags: ["matriz_aumentada"]
 
 variables:
-  fx1: uno_de([10, 20])
-  fx2: uno_de([5, 15])
+  n: random(2, 8)
 
-respuesta: fx1 + fx2
+respuesta: n + 1
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Dos fuerzas actúan sobre un objeto. Al descomponerlas, la primera tiene componente horizontal {fx1} N, y la segunda {fx2} N. ¿Cuál es la componente horizontal de la fuerza neta (la suma de ambas)?"
-
-pasos:
-  - "{fx1} + {fx2} = {fx1 + fx2} N"
+enunciado: "Un sistema de {n} ecuaciones con {n} incógnitas se representa con una matriz aumentada. ¿Cuántas columnas tiene en total (coeficientes más términos independientes)?"
 
 explicacion: |
-  Las componentes horizontales de cada fuerza se suman entre sí, por
-  separado de las verticales.
+  {n} columnas de coeficientes (una por incógnita) más 1 columna de
+  términos independientes = {n + 1}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
+  tema: "matrices_sistemas_nxn"
+  nivel: "basico"
+  tags: ["matriz_aumentada", "opcion_multiple"]
+
+respuesta: "Los términos independientes"
+tipo: mc
+opciones_explicitas:
+  - "Los términos independientes"
+  - "Los coeficientes de una incógnita más"
+  - "El resultado de sumar todas las filas"
+
+enunciado: "En la matriz aumentada de un sistema, ¿qué representa la última columna?"
+
+explicacion: |
+  Es el número que está del otro lado del "=" en cada ecuación.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matrices_sistemas_nxn"
   nivel: "avanzado"
-  tags: ["suma_vectores"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sumar el vector nulo a cualquier otro vector no cambia nada: da el mismo vector original."
-
-explicacion: |
-  (x, y) + (0, 0) = (x, y): el vector nulo es el "cero" de la suma de
-  vectores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve saber sumar y descomponer vectores?"
-tipo: mc
-opciones_explicitas:
-  - "Para calcular el efecto neto de varias magnitudes vectoriales (fuerzas, velocidades) que actúan juntas, incluso en direcciones distintas"
-  - "Sólo sirve para vectores que ya están alineados con los ejes"
-  - "No tiene aplicación fuera de la matemática pura"
-respuesta: "Para calcular el efecto neto de varias magnitudes vectoriales (fuerzas, velocidades) que actúan juntas, incluso en direcciones distintas"
-
-explicacion: |
-  Es el paso que conecta directamente con las leyes de Newton en
-  Física.
-```
-
-## Sección: tablas-de-frecuencia-cuartiles-percentiles-y-varianza (29 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "basico"
-  tags: ["frecuencia", "vocabulario"]
-
-enunciado: "¿Qué es la frecuencia absoluta de un valor?"
-tipo: mc
-opciones_explicitas:
-  - "La cantidad de veces que ese valor aparece en el conjunto de datos"
-  - "El porcentaje que representa ese valor sobre el total"
-  - "La suma de las frecuencias de todos los valores anteriores"
-respuesta: "La cantidad de veces que ese valor aparece en el conjunto de datos"
-
-explicacion: |
-  Es un conteo directo, en cantidad concreta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "basico"
-  tags: ["frecuencia", "vocabulario"]
-
-enunciado: "¿Qué es la frecuencia relativa de un valor?"
-tipo: mc
-opciones_explicitas:
-  - "La proporción (o porcentaje) que esa frecuencia absoluta representa sobre el total de datos"
-  - "La cantidad de veces que aparece ese valor, en número entero"
-  - "El valor más repetido de todo el conjunto"
-respuesta: "La proporción (o porcentaje) que esa frecuencia absoluta representa sobre el total de datos"
-
-explicacion: |
-  Frecuencia relativa = frecuencia absoluta / total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "intermedio"
-  tags: ["frecuencia", "vocabulario"]
-
-enunciado: "¿Qué responde la frecuencia acumulada de un valor?"
-tipo: mc
-opciones_explicitas:
-  - "Cuántos casos hay hasta ese valor, inclusive, sumando las frecuencias de ese valor y de todos los anteriores"
-  - "Cuántas veces aparece únicamente ese valor, sin sumar nada más"
-  - "El porcentaje de datos que quedan por ENCIMA de ese valor"
-respuesta: "Cuántos casos hay hasta ese valor, inclusive, sumando las frecuencias de ese valor y de todos los anteriores"
-
-explicacion: |
-  Se va acumulando fila por fila, según el orden de los valores.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "intermedio"
-  tags: ["frecuencia", "problema"]
+  tags: ["verificacion", "verdadero_falso"]
 
 variables:
-  tabla: [{nota: 5, frecuencia: 3}, {nota: 6, frecuencia: 5}, {nota: 7, frecuencia: 8}, {nota: 8, frecuencia: 4}]
-  idx: uno_de([0, 1, 2, 3])
+  x_sol: random(1, 12)
+  y_sol: random(1, 12)
+  z_sol: random(1, 12)
+  p1: random(1, 4)
+  q1: random(1, 4)
+  r1: random(1, 4)
+  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
+  p2: random(1, 4)
+  q2: random(1, 4)
+  r2: random(1, 4)
+  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
+  p3: random(1, 4)
+  q3: random(1, 4)
+  r3: random(1, 4)
+  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
 
-respuesta: tabla[idx].frecuencia
-tipo: input
+respuesta: ((p1 * x_sol + q1 * y_sol + r1 * z_sol - d1) ^ 2 + (p2 * x_sol + q2 * y_sol + r2 * z_sol - d2) ^ 2 + (p3 * x_sol + q3 * y_sol + r3 * z_sol - d3) ^ 2) == 0
+tipo: vf
 
-enunciado: "Tabla de frecuencias de notas de un curso: nota 5 → 3 alumnos; nota 6 → 5 alumnos; nota 7 → 8 alumnos; nota 8 → 4 alumnos. ¿Cuántos alumnos sacaron la nota {tabla[idx].nota}?"
+enunciado: "¿(x, y, z) = ({x_sol}, {y_sol}, {z_sol}) es solución del sistema {p1}x+{q1}y+{r1}z={d1}; {p2}x+{q2}y+{r2}z={d2}; {p3}x+{q3}y+{r3}z={d3}?"
 
 explicacion: |
-  Se lee directamente la frecuencia absoluta de esa fila.
+  Es exactamente la terna con la que se armó el sistema, así que cumple
+  las tres ecuaciones a la vez.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  tema: "matrices_sistemas_nxn"
   nivel: "avanzado"
-  tags: ["frecuencia", "problema"]
+  tags: ["verificacion", "verdadero_falso"]
 
 variables:
-  tabla: [{nota: 5, frecuencia: 3}, {nota: 6, frecuencia: 5}, {nota: 7, frecuencia: 8}, {nota: 8, frecuencia: 4}]
-  idx: uno_de([0, 1, 2, 3])
+  x_sol: random(1, 12)
+  y_sol: random(1, 12)
+  z_sol: random(1, 12)
+  p1: random(1, 4)
+  q1: random(1, 4)
+  r1: random(1, 4)
+  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
+  p2: random(1, 4)
+  q2: random(1, 4)
+  r2: random(1, 4)
+  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
+  p3: random(1, 4)
+  q3: random(1, 4)
+  r3: random(1, 4)
+  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
+  val_z: z_sol + 1
 
-respuesta: redondear(tabla[idx].frecuencia / 20 * 100, 1)
-tipo: input
-tolerancia_abs: 0.1
-unidad: "%"
-
-enunciado: "Con la misma tabla de notas (3+5+8+4 = 20 alumnos en total), ¿qué porcentaje del curso sacó la nota {tabla[idx].nota}?"
-
-pasos:
-  - "Frecuencia relativa = {tabla[idx].frecuencia}/20 × 100 = {redondear(tabla[idx].frecuencia / 20 * 100, 1)}%"
-
-explicacion: |
-  Se divide la frecuencia absoluta de esa fila por el total de datos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "avanzado"
-  tags: ["frecuencia", "problema"]
-
-respuesta: 16
-tipo: input
-
-enunciado: "Con la tabla de notas — 5→3 alumnos, 6→5 alumnos, 7→8 alumnos, 8→4 alumnos —, ¿cuántos alumnos sacaron nota 7 O MENOS (frecuencia acumulada hasta la nota 7)?"
-
-pasos:
-  - "Acumulada hasta 7 = 3 + 5 + 8 = 16"
-
-explicacion: |
-  Se suman las frecuencias absolutas de esa fila y de todas las
-  anteriores (según el orden de los valores).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "intermedio"
-  tags: ["frecuencia"]
-
-respuesta: verdadero
+respuesta: ((p1 * x_sol + q1 * y_sol + r1 * val_z - d1) ^ 2 + (p2 * x_sol + q2 * y_sol + r2 * val_z - d2) ^ 2 + (p3 * x_sol + q3 * y_sol + r3 * val_z - d3) ^ 2) == 0
 tipo: vf
 
-enunciado: "La suma de las frecuencias relativas de todos los valores de una tabla siempre da exactamente 100% (o 1, si se expresa como proporción)."
+enunciado: "¿(x, y, z) = ({x_sol}, {y_sol}, {val_z}) es solución del sistema {p1}x+{q1}y+{r1}z={d1}; {p2}x+{q2}y+{r2}z={d2}; {p3}x+{q3}y+{r3}z={d3}?"
 
 explicacion: |
-  Es la misma idea de que las probabilidades de todo el espacio
-  muestral suman 1.
+  x e y están bien, pero z está corrida en 1 — no cumple las tres
+  ecuaciones a la vez, así que no es solución del sistema.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "intermedio"
-  tags: ["frecuencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La frecuencia acumulada del último valor de la tabla (el más grande) siempre coincide con el total de datos."
-
-explicacion: |
-  Al llegar al último valor, ya se sumaron las frecuencias de todos
-  los valores posibles.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  tema: "matrices_sistemas_nxn"
   nivel: "avanzado"
-  tags: ["frecuencia", "ordenar"]
-
-enunciado: "Ordená los pasos para construir una tabla de frecuencia a partir de una lista de datos sin organizar."
-tipo: ordenar
-opciones_explicitas:
-  - "Calcular la frecuencia relativa y la acumulada de cada valor"
-  - "Listar los valores distintos que aparecen en los datos"
-  - "Contar cuántas veces aparece cada valor (frecuencia absoluta)"
-respuesta_orden:
-  - "Listar los valores distintos que aparecen en los datos"
-  - "Contar cuántas veces aparece cada valor (frecuencia absoluta)"
-  - "Calcular la frecuencia relativa y la acumulada de cada valor"
-
-explicacion: |
-  Sin la frecuencia absoluta primero, no hay nada de donde calcular la
-  relativa ni la acumulada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "intermedio"
-  tags: ["cuartiles", "vocabulario"]
-
-enunciado: "¿Qué representa el primer cuartil, Q1?"
-tipo: mc
-opciones_explicitas:
-  - "El valor que deja el 25% de los datos por debajo"
-  - "El valor que deja el 75% de los datos por debajo"
-  - "El valor más chico de todo el conjunto"
-respuesta: "El valor que deja el 25% de los datos por debajo"
-
-explicacion: |
-  Divide, junto con Q2 y Q3, los datos ordenados en 4 partes iguales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "intermedio"
-  tags: ["cuartiles", "vocabulario"]
-
-enunciado: "¿Qué representa el tercer cuartil, Q3?"
-tipo: mc
-opciones_explicitas:
-  - "El valor que deja el 75% de los datos por debajo"
-  - "El valor que deja el 25% de los datos por debajo"
-  - "El valor más grande de todo el conjunto"
-respuesta: "El valor que deja el 75% de los datos por debajo"
-
-explicacion: |
-  Es el cuartil 'alto' de los tres.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "basico"
-  tags: ["cuartiles"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El segundo cuartil, Q2, es exactamente la mediana del conjunto de datos (el 50%)."
-
-explicacion: |
-  Son el mismo concepto, con dos nombres distintos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "intermedio"
-  tags: ["cuartiles", "completar"]
-
-tipo: completar
-enunciado: "Completá: Q1 es equivalente al percentil ___."
-respuestas_validas:
-  - "25"
-  - "P25"
-
-explicacion: |
-  Ambos dejan el 25% de los datos por debajo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "intermedio"
-  tags: ["cuartiles", "completar"]
-
-tipo: completar
-enunciado: "Completá: Q3 es equivalente al percentil ___."
-respuestas_validas:
-  - "75"
-  - "P75"
-
-explicacion: |
-  Ambos dejan el 75% de los datos por debajo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "avanzado"
-  tags: ["cuartiles", "problema"]
+  tags: ["verificacion", "verdadero_falso"]
 
 variables:
-  datos: [10, 12, 15, 18, 20, 22, 25, 30]
+  x_sol: random(1, 12)
+  y_sol: random(1, 12)
+  z_sol: random(1, 12)
+  p1: random(1, 4)
+  q1: random(1, 4)
+  r1: random(1, 4)
+  d1: p1 * x_sol + q1 * y_sol + r1 * z_sol
+  p2: random(1, 4)
+  q2: random(1, 4)
+  r2: random(1, 4)
+  d2: p2 * x_sol + q2 * y_sol + r2 * z_sol
+  p3: random(1, 4)
+  q3: random(1, 4)
+  r3: random(1, 4)
+  d3: p3 * x_sol + q3 * y_sol + r3 * z_sol
+  error: uno_de([0, 0, 2, -2])
+  val_x: x_sol + error
 
-respuesta: mediana(datos)
-tipo: input
-
-enunciado: "Con los 8 valores ya ordenados 10, 12, 15, 18, 20, 22, 25, 30, ¿cuál es Q2 (la mediana)?"
-
-pasos:
-  - "Con 8 valores (par), Q2 = promedio de los dos centrales (18 y 20) = {mediana(datos)}"
-
-explicacion: |
-  Es el mismo procedimiento de mediana ya conocido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "avanzado"
-  tags: ["cuartiles", "problema"]
-
-respuesta: 13.5
-tipo: input
-
-enunciado: "Con los mismos 8 valores 10, 12, 15, 18, 20, 22, 25, 30, ¿cuál es Q1?"
-
-pasos:
-  - "Mitad inferior (los primeros 4): 10, 12, 15, 18"
-  - "Q1 = mediana de esa mitad = (12+15)/2 = 13,5"
-
-explicacion: |
-  Q1 es la mediana de la mitad inferior de los datos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "avanzado"
-  tags: ["cuartiles", "problema"]
-
-respuesta: 23.5
-tipo: input
-
-enunciado: "Con los mismos 8 valores 10, 12, 15, 18, 20, 22, 25, 30, ¿cuál es Q3?"
-
-pasos:
-  - "Mitad superior (los últimos 4): 20, 22, 25, 30"
-  - "Q3 = mediana de esa mitad = (22+25)/2 = 23,5"
-
-explicacion: |
-  Q3 es la mediana de la mitad superior de los datos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "avanzado"
-  tags: ["cuartiles", "problema"]
-
-respuesta: 10
-tipo: input
-
-enunciado: "Con Q1 = 13,5 y Q3 = 23,5 (del mismo conjunto de 8 valores), ¿cuál es el rango intercuartílico (IQR)?"
-
-pasos:
-  - "IQR = Q3 − Q1 = 23,5 − 13,5 = 10"
-
-explicacion: |
-  El IQR mide cuánto ocupa el 50% central de los datos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "avanzado"
-  tags: ["cuartiles"]
-
-respuesta: verdadero
+respuesta: ((p1 * val_x + q1 * y_sol + r1 * z_sol - d1) ^ 2 + (p2 * val_x + q2 * y_sol + r2 * z_sol - d2) ^ 2 + (p3 * val_x + q3 * y_sol + r3 * z_sol - d3) ^ 2) == 0
 tipo: vf
 
-enunciado: "El rango intercuartílico (IQR) es menos sensible a valores atípicos que el rango completo (máximo menos mínimo), porque ignora el 25% más bajo y el 25% más alto de los datos."
+enunciado: "¿(x, y, z) = ({val_x}, {y_sol}, {z_sol}) es solución del sistema {p1}x+{q1}y+{r1}z={d1}; {p2}x+{q2}y+{r2}z={d2}; {p3}x+{q3}y+{r3}z={d3}?"
 
 explicacion: |
-  Un valor atípico extremo cambiaría mucho el rango completo, pero
-  puede no afectar en nada a Q1 ni a Q3.
+  Se reemplaza la terna completa en las tres ecuaciones — si falla en
+  cualquiera de las tres, no es solución del sistema.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "basico"
-  tags: ["cuartiles", "aplicacion"]
-
-enunciado: "Si un examen estandarizado dice que un puntaje está en el percentil 90 (P90), ¿qué significa eso?"
-tipo: mc
-opciones_explicitas:
-  - "Que ese puntaje es mayor o igual que el 90% de todos los puntajes de referencia"
-  - "Que ese puntaje representa el 90% del puntaje máximo posible"
-  - "Que el examen tiene 90 preguntas en total"
-respuesta: "Que ese puntaje es mayor o igual que el 90% de todos los puntajes de referencia"
-
-explicacion: |
-  Un percentil describe la posición RELATIVA respecto de otros
-  puntajes, no una proporción del puntaje máximo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  tema: "matrices_sistemas_nxn"
   nivel: "intermedio"
-  tags: ["varianza", "vocabulario"]
-
-enunciado: "¿Qué mide la varianza de un conjunto de datos?"
-tipo: mc
-opciones_explicitas:
-  - "En promedio, qué tan lejos está cada dato de la media (usando distancias al cuadrado)"
-  - "El valor más frecuente del conjunto"
-  - "La suma total de todos los valores"
-respuesta: "En promedio, qué tan lejos está cada dato de la media (usando distancias al cuadrado)"
-
-explicacion: |
-  Es una medida de dispersión, no de tendencia central.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "avanzado"
-  tags: ["varianza", "completar"]
-
-tipo: completar
-enunciado: "Completá: varianza = suma de (cada valor − media) al cuadrado, dividida por la ___."
-respuestas_validas:
-  - "cantidad de valores"
-  - "cantidad"
-
-explicacion: |
-  Es un promedio de distancias al cuadrado respecto de la media.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "avanzado"
-  tags: ["varianza"]
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Se elevan al cuadrado las distancias a la media para que las distancias positivas (valores por encima) y negativas (por debajo) no se cancelen entre sí al promediarlas."
+enunciado: "En general, para encontrar un único valor de cada una de n incógnitas hacen falta al menos n ecuaciones independientes."
 
 explicacion: |
-  Sin el cuadrado, el promedio de las distancias siempre daría 0, sin
-  importar la dispersión real.
+  Con menos ecuaciones que incógnitas, sobran grados de libertad y el
+  sistema queda con infinitas soluciones posibles (no una única terna).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
+  tema: "matrices_sistemas_nxn"
   nivel: "avanzado"
-  tags: ["varianza", "problema"]
+  tags: ["operacion_fila"]
 
 variables:
-  a: random(1, 10)
-  b: random(1, 10)
-  c: random(1, 10)
-  datos: [a, b, c]
-  media: promedio(datos)
+  r1: random(2, 6)
+  r2: random(1, 10)
+  r3: random(1, 10)
+  mult: random(1, 4)
+  s1: r1 * mult
+  s2: random(1, 10)
+  s3: random(1, 10)
 
-respuesta: redondear(((a - media) ^ 2 + (b - media) ^ 2 + (c - media) ^ 2) / 3, 3)
+respuesta: s2 - (s1 / r1) * r2
 tipo: input
-tolerancia_abs: 0.01
+tolerancia_abs: 0
 
-enunciado: "Calculá la varianza de estos 3 valores: {a}, {b}, {c}."
+enunciado: "Fila 1 = ({r1}, {r2}, {r3}), Fila 2 = ({s1}, {s2}, {s3}). Para anular el primer valor de la Fila 2, se hace Fila 2 → Fila 2 − (s1/r1)×Fila 1. ¿Qué queda en la segunda posición de la nueva Fila 2?"
 
 pasos:
-  - "Media = ({a}+{b}+{c})/3 = {redondear(media, 2)}"
-  - "Distancias al cuadrado: ({a}−{redondear(media, 2)})², ({b}−{redondear(media, 2)})², ({c}−{redondear(media, 2)})²"
-  - "Varianza = suma de esos cuadrados / 3 = {redondear(((a - media) ^ 2 + (b - media) ^ 2 + (c - media) ^ 2) / 3, 3)}"
+  - "El múltiplo a restar es s1/r1 = {s1}/{r1} = {s1 / r1}"
+  - "Segunda posición: {s2} − {s1 / r1}×{r2} = {s2 - (s1 / r1) * r2}"
 
 explicacion: |
-  Se calcula la media primero, y después el promedio de las
-  distancias al cuadrado respecto de ella.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "avanzado"
-  tags: ["varianza", "problema"]
-
-variables:
-  a: random(5, 15)
-  b: random(5, 15)
-  c: random(5, 15)
-  d: random(5, 15)
-  datos: [a, b, c, d]
-  media: promedio(datos)
-
-respuesta: redondear(((a - media) ^ 2 + (b - media) ^ 2 + (c - media) ^ 2 + (d - media) ^ 2) / 4, 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Calculá la varianza de estos 4 valores: {a}, {b}, {c}, {d}."
-
-pasos:
-  - "Media = ({a}+{b}+{c}+{d})/4 = {redondear(media, 2)}"
-  - "Varianza = suma de (cada valor − media)² / 4 = {redondear(((a - media) ^ 2 + (b - media) ^ 2 + (c - media) ^ 2 + (d - media) ^ 2) / 4, 3)}"
-
-explicacion: |
-  Mismo procedimiento que con 3 valores, ahora con 4.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "intermedio"
-  tags: ["varianza"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuanto mayor es la varianza, más dispersos (alejados entre sí) están los datos; cuanto menor, más parecidos son entre sí."
-
-explicacion: |
-  Es la lectura práctica de la varianza como medida de dispersión.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "avanzado"
-  tags: ["varianza", "problema"]
-
-variables:
-  valor: random(1, 100)
-  datos: [valor, valor, valor, valor]
-  media: promedio(datos)
-
-respuesta: ((valor - media) ^ 2 + (valor - media) ^ 2 + (valor - media) ^ 2 + (valor - media) ^ 2) / 4
-tipo: input
-
-enunciado: "Calculá la varianza de estos 4 valores, todos iguales: {valor}, {valor}, {valor}, {valor}."
-
-pasos:
-  - "Media = {valor} (todos son iguales)"
-  - "Todas las distancias a la media son 0, así que la varianza es 0"
-
-explicacion: |
-  Sin ninguna diferencia entre los valores, no hay ninguna dispersión
-  que medir.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "avanzado"
-  tags: ["varianza", "ordenar"]
-
-enunciado: "Ordená los pasos para calcular la varianza de un conjunto de datos."
-tipo: ordenar
-opciones_explicitas:
-  - "Promediar todos esos valores al cuadrado"
-  - "Calcular la media del conjunto de datos"
-  - "Calcular la distancia de cada valor a la media, y elevarla al cuadrado"
-respuesta_orden:
-  - "Calcular la media del conjunto de datos"
-  - "Calcular la distancia de cada valor a la media, y elevarla al cuadrado"
-  - "Promediar todos esos valores al cuadrado"
-
-explicacion: |
-  Sin la media primero, no hay 'distancia a la media' que calcular.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "tablas_de_frecuencia_cuartiles_percentiles_y_varianza"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirven las tablas de frecuencia, los cuartiles/percentiles y la varianza, juntos?"
-tipo: mc
-opciones_explicitas:
-  - "Para organizar datos repetidos, ubicar posiciones relativas dentro de un conjunto, y medir cuán dispersos están entre sí — un resumen mucho más completo que un solo promedio"
-  - "Sólo sirven para calcular notas de exámenes"
-  - "Las tres ideas son exactamente lo mismo, con nombres distintos"
-respuesta: "Para organizar datos repetidos, ubicar posiciones relativas dentro de un conjunto, y medir cuán dispersos están entre sí — un resumen mucho más completo que un solo promedio"
-
-explicacion: |
-  Es el puente directo hacia `Dispersión: rango y desvío` (el próximo
-  módulo del MAPA), que retoma la varianza para llegar al desvío
-  estándar.
+  El múltiplo exacto que hace falta restar es el cociente entre el valor
+  a anular y el "pivote" (el valor de esa columna en la fila de arriba).
 ```
 
 ## Sección: tecnicas-de-integracion (22 preguntas)
@@ -1624,411 +1191,626 @@ explicacion: |
   fracciones parciales sobre una función racional más compleja.
 ```
 
-## Sección: teorema-central-del-limite (20 preguntas)
+## Sección: determinante (26 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_central_del_limite"
+  tema: "determinante"
   nivel: "basico"
-  tags: ["tcl", "vocabulario"]
-
-enunciado: "¿Qué dice el teorema central del límite?"
-tipo: mc
-opciones_explicitas:
-  - "Que la distribución de los promedios de muestras suficientemente grandes se aproxima a una distribución normal, sin importar la forma de la población original"
-  - "Que todas las poblaciones tienen forma de distribución normal"
-  - "Que una sola muestra grande es siempre igual a la población completa"
-respuesta: "Que la distribución de los promedios de muestras suficientemente grandes se aproxima a una distribución normal, sin importar la forma de la población original"
-
-explicacion: |
-  Es válido incluso si la población original no es normal en
-  absoluto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "intermedio"
-  tags: ["tcl"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El teorema central del límite aplica sin importar qué forma tenga la distribución de la población original (uniforme, sesgada, con varios picos...)."
-
-explicacion: |
-  Es la parte más sorprendente del teorema: no hace falta que la
-  población de partida sea normal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "intermedio"
-  tags: ["tcl", "completar"]
-
-tipo: completar
-enunciado: "Completá: la distribución de los promedios de las muestras queda centrada exactamente en la media ___."
-respuestas_validas:
-  - "poblacional"
-  - "de la población"
-
-explicacion: |
-  El promedio de los promedios muestrales coincide con la media real
-  de toda la población.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "intermedio"
-  tags: ["error_estandar", "vocabulario"]
-
-enunciado: "¿Qué es el error estándar?"
-tipo: mc
-opciones_explicitas:
-  - "El desvío estándar de la distribución de los promedios muestrales (no del dato individual)"
-  - "Otro nombre para el desvío estándar de la población original"
-  - "La diferencia entre el máximo y el mínimo de una muestra"
-respuesta: "El desvío estándar de la distribución de los promedios muestrales (no del dato individual)"
-
-explicacion: |
-  Mide qué tan dispersos están, entre sí, los promedios de distintas
-  muestras.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "avanzado"
-  tags: ["error_estandar", "completar"]
-
-tipo: completar
-enunciado: "Completá: error estándar = desvío estándar poblacional (σ) / raíz cuadrada de ___."
-respuestas_validas:
-  - "n"
-  - "el tamaño de muestra"
-
-explicacion: |
-  error estándar = σ / √n.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "avanzado"
-  tags: ["error_estandar", "problema"]
+  tags: ["2x2"]
 
 variables:
-  sigma: uno_de([10, 20, 30])
-  n: uno_de([25, 100])
+  a: random(1, 15)
+  b: random(1, 15)
+  c: random(1, 15)
+  d: random(1, 15)
 
-respuesta: redondear(sigma / sqrt(n), 3)
+respuesta: a * d - b * c
 tipo: input
-tolerancia_abs: 0.01
+tolerancia_abs: 0
 
-enunciado: "Una población tiene desvío estándar σ = {sigma}. Se toman muestras de tamaño n = {n}. ¿Cuál es el error estándar de la distribución de promedios muestrales?"
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
 
 pasos:
-  - "error estándar = {sigma} / √{n} = {sigma} / {sqrt(n)} = {redondear(sigma / sqrt(n), 3)}"
+  - "det(A) = {a}×{d} − {b}×{c} = {a * d} − {b * c} = {a * d - b * c}"
 
 explicacion: |
-  Se divide el desvío poblacional por la raíz del tamaño de muestra.
+  Producto de la diagonal principal menos producto de la diagonal
+  secundaria.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "intermedio"
-  tags: ["error_estandar"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuanto más grande es el tamaño de la muestra (n), menor es el error estándar — los promedios de muestras grandes varían menos entre sí que los de muestras chicas."
-
-explicacion: |
-  Porque n está en el denominador, dentro de la raíz cuadrada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "intermedio"
-  tags: ["tcl", "vocabulario"]
-
-enunciado: "¿Qué regla práctica se suele usar para saber si una muestra es 'suficientemente grande' para que el teorema central del límite dé una buena aproximación?"
-tipo: mc
-opciones_explicitas:
-  - "n ≥ 30 (no es una ley exacta, pero suele alcanzar aunque la población original tenga una forma rara)"
-  - "n ≥ 1.000.000, sin excepción"
-  - "Cualquier n sirve exactamente igual, no hay ninguna regla práctica"
-respuesta: "n ≥ 30 (no es una ley exacta, pero suele alcanzar aunque la población original tenga una forma rara)"
-
-explicacion: |
-  Es una convención práctica, no un límite matemático exacto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "avanzado"
-  tags: ["error_estandar", "problema"]
+  tema: "determinante"
+  nivel: "basico"
+  tags: ["2x2", "signos"]
 
 variables:
-  sigma: 20
-  n_chico: 25
-  n_grande: 100
+  a: random(1, 5)
+  b: random(10, 20)
+  c: random(1, 5)
+  d: random(1, 5)
 
-respuesta: (sigma / sqrt(n_chico)) > (sigma / sqrt(n_grande))
-tipo: vf
-
-enunciado: "Con σ = {sigma}, ¿el error estándar de una muestra de n = {n_chico} es MAYOR que el de una muestra de n = {n_grande}?"
-
-explicacion: |
-  A menor tamaño de muestra, mayor error estándar (más variabilidad
-  entre los promedios de distintas muestras chicas).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "intermedio"
-  tags: ["tcl", "aplicacion"]
-
-enunciado: "El resultado de tirar un dado (1 a 6) es una distribución uniforme, no normal. Si se tiran 30 dados y se promedia el resultado, y se repite ese experimento muchas veces, ¿cómo se distribuyen esos promedios?"
-tipo: mc
-opciones_explicitas:
-  - "Se distribuyen aproximadamente como una normal, aunque el resultado de un solo dado no lo sea"
-  - "Se distribuyen exactamente igual que el resultado de un solo dado (uniforme)"
-  - "No se puede predecir ningún patrón en esos promedios"
-respuesta: "Se distribuyen aproximadamente como una normal, aunque el resultado de un solo dado no lo sea"
-
-explicacion: |
-  Es el ejemplo clásico para mostrar el teorema central del límite en
-  acción.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "avanzado"
-  tags: ["tcl", "aplicacion"]
-
-enunciado: "¿Por qué el teorema central del límite es tan importante en estadística aplicada?"
-tipo: mc
-opciones_explicitas:
-  - "Porque permite usar el aparato de la distribución normal (z-scores, regla empírica) sobre promedios de muestras, aunque la población original no sea normal"
-  - "Porque demuestra que todas las poblaciones del mundo real son normales"
-  - "Porque elimina por completo la necesidad de tomar muestras grandes"
-respuesta: "Porque permite usar el aparato de la distribución normal (z-scores, regla empírica) sobre promedios de muestras, aunque la población original no sea normal"
-
-explicacion: |
-  Es el fundamento matemático de `../intervalo-de-confianza/` y
-  `../test-de-hipotesis/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "avanzado"
-  tags: ["tcl", "problema"]
-
-variables:
-  media_poblacional: uno_de([50, 100])
-  sigma: uno_de([10, 20])
-  n: 25
-  media_muestral: media_poblacional + sigma / sqrt(n)
-
-respuesta: redondear((media_muestral - media_poblacional) / (sigma / sqrt(n)), 2)
+respuesta: a * d - b * c
 tipo: input
-tolerancia_abs: 0.01
+tolerancia_abs: 0
 
-enunciado: "Una población tiene media {media_poblacional} y desvío σ = {sigma}. Se toma una muestra de n = {n}, cuyo promedio dio {redondear(media_muestral, 2)}. ¿Cuál es el z-score de ese promedio muestral, usando el error estándar en vez del desvío poblacional?"
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
+
+explicacion: |
+  El determinante puede dar negativo — no hay que "corregir" el signo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "basico"
+  tags: ["2x2"]
+
+variables:
+  a: random(2, 20)
+  b: random(1, 10)
+  c: random(1, 10)
+  d: random(2, 20)
+
+respuesta: a * d - b * c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
+
+explicacion: |
+  det(A) = ad − bc.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "basico"
+  tags: ["2x2"]
+
+variables:
+  a: random(1, 15)
+  d: random(1, 15)
+  b: random(1, 10)
+  c: random(1, 10)
+
+respuesta: a * d - b * c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
+
+explicacion: |
+  det(A) = {a}×{d} − {b}×{c}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "intermedio"
+  tags: ["2x2"]
+
+variables:
+  a: random(10, 30)
+  b: random(5, 20)
+  c: random(5, 20)
+  d: random(10, 30)
+
+respuesta: a * d - b * c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
+
+explicacion: |
+  det(A) = {a}×{d} − {b}×{c} = {a * d - b * c}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "intermedio"
+  tags: ["2x2", "singular"]
+
+variables:
+  a: random(1, 10)
+  b: random(1, 10)
+  k: random(2, 5)
+  c: a * k
+  d: b * k
+
+respuesta: a * d - b * c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
+
+explicacion: |
+  Acá la segunda fila es exactamente {k} veces la primera, así que el
+  determinante da 0: filas proporcionales.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "avanzado"
+  tags: ["3x3", "sarrus"]
+
+variables:
+  a: random(1, 6)
+  b: random(1, 6)
+  c: random(1, 6)
+  d: random(1, 6)
+  e: random(1, 6)
+  f: random(1, 6)
+  g: random(1, 6)
+  h: random(1, 6)
+  i: random(1, 6)
+
+respuesta: a * e * i + b * f * g + c * d * h - c * e * g - a * f * h - b * d * i
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}, {c}], [{d}, {e}, {f}], [{g}, {h}, {i}]]. ¿Cuál es el determinante de A?"
 
 pasos:
-  - "error estándar = {sigma}/√{n} = {sigma / sqrt(n)}"
-  - "z = ({redondear(media_muestral, 2)} − {media_poblacional}) / {sigma / sqrt(n)} = {redondear((media_muestral - media_poblacional) / (sigma / sqrt(n)), 2)}"
+  - "Diagonales +: {a}×{e}×{i} + {b}×{f}×{g} + {c}×{d}×{h}"
+  - "Diagonales −: {c}×{e}×{g} + {a}×{f}×{h} + {b}×{d}×{i}"
 
 explicacion: |
-  Es el mismo cálculo de z-score de `../distribucion-normal/`, pero
-  usando el error estándar en vez del desvío de un dato individual.
+  Regla de Sarrus: suma de las tres diagonales principales, menos la
+  suma de las tres diagonales secundarias.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_central_del_limite"
+  tema: "determinante"
   nivel: "avanzado"
-  tags: ["tcl"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El teorema central del límite describe cómo se distribuyen los PROMEDIOS de muchas muestras, no cómo se distribuye cada dato individual dentro de la población."
-
-explicacion: |
-  Un dato individual de una población no normal sigue sin ser normal
-  — lo que sí tiende a normal es el promedio de un grupo de datos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "basico"
-  tags: ["tcl", "aplicacion"]
-
-enunciado: "¿Por qué las encuestas y estudios estadísticos pueden confiar en que el promedio de una muestra (bien tomada) se acerca al valor real de la población?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el teorema central del límite garantiza que, con una muestra suficientemente grande, ese promedio se distribuye de forma predecible alrededor del valor poblacional real"
-  - "Porque cualquier muestra, sin importar cómo se tomó, siempre da el valor exacto de la población"
-  - "Porque las encuestas nunca tienen margen de error"
-respuesta: "Porque el teorema central del límite garantiza que, con una muestra suficientemente grande, ese promedio se distribuye de forma predecible alrededor del valor poblacional real"
-
-explicacion: |
-  Esa "forma predecible" (la normal, con su error estándar) es lo que
-  permite calcular después un margen de error concreto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "avanzado"
-  tags: ["error_estandar", "problema"]
+  tags: ["3x3", "sarrus"]
 
 variables:
-  sigma: 40
-  n: 25
+  a: random(1, 5)
+  b: random(1, 5)
+  c: random(1, 5)
+  d: random(1, 5)
+  e: random(1, 5)
+  f: random(1, 5)
+  g: random(1, 5)
+  h: random(1, 5)
+  i: random(1, 5)
 
-respuesta: redondear((sigma / sqrt(n)) / (sigma / sqrt(n * 4)), 2)
+respuesta: a * e * i + b * f * g + c * d * h - c * e * g - a * f * h - b * d * i
 tipo: input
-tolerancia_abs: 0.01
+tolerancia_abs: 0
 
-enunciado: "Con σ = {sigma} y n = {n}, ¿por qué factor se reduce el error estándar si se CUADRUPLICA el tamaño de la muestra (n × 4)?"
+enunciado: "A = [[{a}, {b}, {c}], [{d}, {e}, {f}], [{g}, {h}, {i}]]. ¿Cuál es el determinante de A?"
+
+explicacion: |
+  Mismo procedimiento de Sarrus con otros números.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "avanzado"
+  tags: ["3x3", "sarrus"]
+
+variables:
+  a: random(1, 6)
+  b: random(1, 6)
+  c: random(1, 6)
+  e: random(1, 6)
+  f: random(1, 6)
+  h: random(1, 6)
+  i: random(1, 6)
+
+respuesta: a * e * i + b * f * 0 + c * 0 * h - c * e * 0 - a * f * h - b * 0 * i
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}, {c}], [0, {e}, {f}], [0, {h}, {i}]]. ¿Cuál es el determinante de A?"
 
 pasos:
-  - "error estándar original = {sigma}/√{n} = {sigma / sqrt(n)}"
-  - "error estándar con n×4 = {sigma}/√{n * 4} = {sigma / sqrt(n * 4)}"
-  - "Factor de reducción = {sigma / sqrt(n)} / {sigma / sqrt(n * 4)} = {redondear((sigma / sqrt(n)) / (sigma / sqrt(n * 4)), 2)}"
+  - "Con ceros en la primera columna de las filas 2 y 3, varios productos de Sarrus se anulan directamente"
 
 explicacion: |
-  Cuadruplicar n reduce el error estándar a la MITAD, no a un cuarto
-  — porque depende de la raíz cuadrada de n.
+  Los productos que incluyen alguno de los ceros se anulan, así que sólo
+  quedan los términos que no los usan.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_central_del_limite"
+  tema: "determinante"
+  nivel: "intermedio"
+  tags: ["3x3", "diagonal"]
+
+variables:
+  a: random(2, 10)
+  e: random(2, 10)
+  i: random(2, 10)
+
+respuesta: a * e * i
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, 0, 0], [0, {e}, 0], [0, 0, {i}]]. ¿Cuál es el determinante de A?"
+
+explicacion: |
+  En una matriz diagonal, todos los productos de Sarrus que no usan sólo
+  la diagonal principal se anulan — el determinante queda el producto de
+  la diagonal: {a}×{e}×{i}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
   nivel: "avanzado"
-  tags: ["error_estandar"]
+  tags: ["3x3", "sarrus"]
+
+variables:
+  a: random(1, 4)
+  b: random(1, 4)
+  c: random(1, 4)
+  d: random(1, 4)
+  e: random(1, 4)
+  f: random(1, 4)
+  g: random(1, 4)
+  h: random(1, 4)
+  i: random(1, 4)
+
+respuesta: a * e * i + b * f * g + c * d * h - c * e * g - a * f * h - b * d * i
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}, {c}], [{d}, {e}, {f}], [{g}, {h}, {i}]]. ¿Cuál es el determinante de A?"
+
+explicacion: |
+  Sarrus: suma de diagonales principales menos suma de diagonales
+  secundarias.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "avanzado"
+  tags: ["3x3", "singular"]
+
+variables:
+  a: random(1, 5)
+  b: random(1, 5)
+  c: random(1, 5)
+  d: random(1, 5)
+  e: random(1, 5)
+  f: random(1, 5)
+  k: random(2, 3)
+  g: a * k
+  h: b * k
+  i: c * k
+
+respuesta: a * e * i + b * f * g + c * d * h - c * e * g - a * f * h - b * d * i
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}, {c}], [{d}, {e}, {f}], [{g}, {h}, {i}]]. ¿Cuál es el determinante de A?"
+
+explicacion: |
+  La tercera fila es {k} veces la primera — filas proporcionales dan
+  determinante 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "intermedio"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  a: random(1, 15)
+  b: random(1, 15)
+  c: random(1, 15)
+  d: random(1, 15)
+  real: a * d - b * c
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Es correcto que det(A) = {propuesto}?"
+
+explicacion: |
+  El valor correcto es ad − bc = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "intermedio"
+  tags: ["error_comun", "verdadero_falso"]
+
+variables:
+  a: random(1, 10)
+  b: random(11, 20)
+  c: random(1, 10)
+  d: random(1, 10)
+
+respuesta: (b * c - a * d) == (a * d - b * c)
+tipo: vf
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Es lo mismo calcular bc − ad que ad − bc para el determinante?"
+
+explicacion: |
+  No — el determinante es ad − bc, en ese orden. Invertirlo cambia el
+  signo del resultado (y en general el número también).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Si det(A) = 0, la matriz A es invertible."
+
+explicacion: |
+  Es al revés: det(A) = 0 significa que A NO es invertible.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cuadruplicar el tamaño de la muestra reduce el error estándar a la MITAD, no a un cuarto — porque el error estándar depende de la raíz cuadrada de n, y √4 = 2."
+enunciado: "Si det(A) ≠ 0, el sistema de ecuaciones asociado a A tiene una única solución."
 
 explicacion: |
-  Es un error común asumir que la reducción es proporcional a n en
-  vez de a √n.
+  Es la propiedad central que hace útil al determinante para sistemas de
+  ecuaciones.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_central_del_limite"
+  tema: "determinante"
   nivel: "intermedio"
-  tags: ["tcl", "aplicacion"]
+  tags: ["concepto", "verdadero_falso"]
 
-enunciado: "¿Qué relación tiene el teorema central del límite con el intervalo de confianza (el módulo que sigue)?"
-tipo: mc
-opciones_explicitas:
-  - "El TCL es la razón matemática por la que se puede construir un intervalo de confianza usando la distribución normal, aunque la población original no sea normal"
-  - "No tienen ninguna relación entre sí"
-  - "El intervalo de confianza reemplaza por completo al teorema central del límite"
-respuesta: "El TCL es la razón matemática por la que se puede construir un intervalo de confianza usando la distribución normal, aunque la población original no sea normal"
-
-explicacion: |
-  Sin el TCL, no habría justificación para usar la normal al estimar
-  un rango de confianza a partir de una muestra.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "avanzado"
-  tags: ["tcl", "aplicacion"]
-
-enunciado: "Una fábrica controla la calidad de sus piezas tomando muestras de 30 piezas por lote y calculando el promedio de cada muestra, aunque el peso de una pieza individual no siga una distribución normal. ¿Por qué este método sigue siendo válido?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el teorema central del límite garantiza que el promedio de muestras de tamaño 30 se distribuye aproximadamente normal, sin importar la forma de la distribución de una pieza individual"
-  - "Porque el peso de cualquier pieza individual siempre es normal, sin excepción"
-  - "Porque las fábricas no necesitan ninguna base matemática para este tipo de control"
-respuesta: "Porque el teorema central del límite garantiza que el promedio de muestras de tamaño 30 se distribuye aproximadamente normal, sin importar la forma de la distribución de una pieza individual"
-
-explicacion: |
-  Es la misma regla práctica de n≥30 aplicada a control de calidad
-  industrial.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "avanzado"
-  tags: ["error_estandar", "problema"]
-
-variables:
-  sigma_a: 15
-  sigma_b: 45
-  n: 25
-
-respuesta: (sigma_a / sqrt(n)) < (sigma_b / sqrt(n))
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Población A tiene σ = {sigma_a}; Población B tiene σ = {sigma_b}. Tomando muestras del mismo tamaño n = {n} de cada una, ¿el error estándar de la Población A es MENOR que el de la Población B?"
+enunciado: "Si una fila de una matriz cuadrada es un múltiplo exacto de otra fila, el determinante da 0."
 
 explicacion: |
-  A mayor dispersión de la población original (σ más grande), mayor
-  también el error estándar de sus promedios muestrales, para el
-  mismo tamaño de muestra.
+  Las filas "no aportan información independiente" — es la misma
+  situación que un sistema con infinitas soluciones o ninguna.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_central_del_limite"
-  nivel: "basico"
-  tags: ["cierre"]
+  tema: "determinante"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
 
-enunciado: "¿Para qué sirve el teorema central del límite?"
-tipo: mc
-opciones_explicitas:
-  - "Es la base matemática que permite estimar y calcular márgenes de error sobre promedios de muestras, usando la distribución normal, aunque la población original no sea normal"
-  - "Sirve sólo para calcular la media de una población conocida por completo"
-  - "Sirve sólo cuando la población ya es normal de por sí"
-respuesta: "Es la base matemática que permite estimar y calcular márgenes de error sobre promedios de muestras, usando la distribución normal, aunque la población original no sea normal"
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La regla de Sarrus se puede usar para calcular el determinante de una matriz de cualquier tamaño."
 
 explicacion: |
-  Sostiene directamente `../intervalo-de-confianza/` y
-  `../test-de-hipotesis/`, los dos módulos que siguen.
+  Sarrus sólo funciona para matrices 3×3 — para tamaños mayores hace
+  falta otro método (cofactores), fuera de este módulo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "El determinante sólo puede dar 0 si la matriz tiene algún elemento igual a 0."
+
+explicacion: |
+  Una matriz sin ningún cero puede tener determinante 0 igual, si sus
+  filas (o columnas) son proporcionales entre sí.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "basico"
+  tags: ["opcion_multiple"]
+
+variables:
+  a: random(2, 15)
+  b: random(1, 10)
+  c: random(1, 10)
+  d: random(2, 15)
+
+respuesta: a * d - b * c
+tipo: mc
+opciones_explicitas:
+  - a * d - b * c
+  - a * b - c * d
+  - a * d + b * c
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
+
+explicacion: |
+  det(A) = ad − bc: diagonal principal menos diagonal secundaria.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "basico"
+  tags: ["opcion_multiple"]
+
+variables:
+  a: random(2, 10)
+  d: random(2, 10)
+
+respuesta: a * d
+tipo: mc
+opciones_explicitas:
+  - a * d
+  - a + d
+  - a * d * 2
+
+enunciado: "A = [[{a}, 0], [0, {d}]]. ¿Cuál es el determinante de A?"
+
+explicacion: |
+  Con ceros fuera de la diagonal, det(A) = ad − 0×0 = ad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "basico"
+  tags: ["identidad"]
+
+respuesta: 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el determinante de la matriz identidad 2×2?"
+
+explicacion: |
+  det(I) = (1×1) − (0×0) = 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "intermedio"
+  tags: ["signos", "verdadero_falso"]
+
+variables:
+  a: random(1, 5)
+  b: random(10, 20)
+  c: random(1, 5)
+  d: random(1, 5)
+  real: a * d - b * c
+
+respuesta: (real < 0)
+tipo: vf
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Es negativo el determinante de A?"
+
+explicacion: |
+  det(A) = {a}×{d} − {b}×{c} = {real}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+variables:
+  a: random(1, 10)
+  b: random(1, 10)
+  c: random(1, 10)
+  d: random(1, 10)
+  det_val: a * d - b * c
+
+respuesta: (det_val != 0)
+tipo: vf
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Es invertible A?"
+
+explicacion: |
+  A es invertible si y sólo si su determinante es distinto de 0. Acá
+  det(A) = {det_val}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "avanzado"
+  tags: ["concepto", "verdadero_falso"]
+
+variables:
+  a: random(1, 5)
+  b: random(1, 5)
+  c: random(1, 5)
+  d: random(1, 5)
+  e: random(1, 5)
+  f: random(1, 5)
+  g: random(1, 5)
+  h: random(1, 5)
+  i: random(1, 5)
+  det_val: a * e * i + b * f * g + c * d * h - c * e * g - a * f * h - b * d * i
+
+respuesta: (det_val != 0)
+tipo: vf
+
+enunciado: "A = [[{a}, {b}, {c}], [{d}, {e}, {f}], [{g}, {h}, {i}]]. ¿Es invertible A?"
+
+explicacion: |
+  Se calcula el determinante con Sarrus y se comprueba si es distinto de
+  0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "determinante"
+  nivel: "intermedio"
+  tags: ["2x2", "signos"]
+
+variables:
+  a: random(1, 10)
+  b: random(-10, -1)
+  c: random(1, 10)
+  d: random(1, 10)
+
+respuesta: a * d - b * c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. ¿Cuál es el determinante de A?"
+
+explicacion: |
+  Con un elemento negativo, el procedimiento no cambia: det(A) = ad − bc,
+  llevando el signo con cuidado.
 ```
 
 ## Sección: teorema-de-bayes (20 preguntas)
@@ -2472,3 +2254,584 @@ explicacion: |
   probable es la evidencia si la hipótesis fuera cierta" a "qué tan
   probable es la hipótesis, dada la evidencia observada".
 ```
+
+## Sección: matriz-inversa (24 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "basico"
+  tags: ["adjunta"]
+
+variables:
+  a: random(1, 20)
+  b: random(1, 20)
+  c: random(1, 20)
+  d: random(1, 20)
+
+respuesta: d
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. Antes de dividir por el determinante, ¿cuál es el elemento (1,1) de la matriz adjunta?"
+
+explicacion: |
+  El primer movimiento es intercambiar a y d de lugar — el (1,1) de la
+  adjunta es la d original.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "basico"
+  tags: ["adjunta"]
+
+variables:
+  a: random(1, 20)
+  b: random(1, 20)
+  c: random(1, 20)
+  d: random(1, 20)
+
+respuesta: a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. Antes de dividir por el determinante, ¿cuál es el elemento (2,2) de la matriz adjunta?"
+
+explicacion: |
+  El (2,2) de la adjunta es la a original.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "basico"
+  tags: ["adjunta", "signos"]
+
+variables:
+  a: random(1, 20)
+  b: random(1, 20)
+  c: random(1, 20)
+  d: random(1, 20)
+
+respuesta: -b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. Antes de dividir por el determinante, ¿cuál es el elemento (1,2) de la matriz adjunta?"
+
+explicacion: |
+  b se queda en su lugar, pero cambia de signo: −b.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "basico"
+  tags: ["adjunta", "signos"]
+
+variables:
+  a: random(1, 20)
+  b: random(1, 20)
+  c: random(1, 20)
+  d: random(1, 20)
+
+respuesta: -c
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[{a}, {b}], [{c}, {d}]]. Antes de dividir por el determinante, ¿cuál es el elemento (2,1) de la matriz adjunta?"
+
+explicacion: |
+  c se queda en su lugar, pero cambia de signo: −c.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "intermedio"
+  tags: ["inversa"]
+
+variables:
+  b: random(1, 8)
+  c: random(1, 8)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+
+respuesta: d / (a * d - b * c)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Cuál es el elemento (1,1) de A⁻¹?"
+
+pasos:
+  - "det(A) = 1×{d} − {b}×{c} = {a * d - b * c}"
+  - "Elemento (1,1) de la adjunta: {d}. Dividido por el determinante: {d / (a * d - b * c)}"
+
+explicacion: |
+  Se arma la adjunta y se divide cada elemento por el determinante.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "intermedio"
+  tags: ["inversa"]
+
+variables:
+  b: random(1, 8)
+  c: random(1, 8)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+
+respuesta: a / (a * d - b * c)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Cuál es el elemento (2,2) de A⁻¹?"
+
+explicacion: |
+  Elemento (2,2) de la adjunta es a = 1, dividido por det(A).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "intermedio"
+  tags: ["inversa", "signos"]
+
+variables:
+  b: random(1, 8)
+  c: random(1, 8)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+
+respuesta: (-b) / (a * d - b * c)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Cuál es el elemento (1,2) de A⁻¹?"
+
+explicacion: |
+  Elemento (1,2) de la adjunta es −b, dividido por det(A).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "intermedio"
+  tags: ["inversa", "signos"]
+
+variables:
+  b: random(1, 8)
+  c: random(1, 8)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+
+respuesta: (-c) / (a * d - b * c)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Cuál es el elemento (2,1) de A⁻¹?"
+
+explicacion: |
+  Elemento (2,1) de la adjunta es −c, dividido por det(A).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  b: random(1, 8)
+  c: random(1, 8)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+  det: a * d - b * c
+  inv11: d / det
+  inv21: (-c) / det
+
+respuesta: ((a * inv11 + b * inv21) == 1)
+tipo: vf
+
+enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿El elemento (1,1) de A · A⁻¹ da 1, como en la identidad?"
+
+explicacion: |
+  Multiplicar A por su inversa tiene que dar exactamente la matriz
+  identidad — es la forma de verificar que la inversa está bien
+  calculada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  b: random(1, 8)
+  c: random(1, 8)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+  det: a * d - b * c
+  inv12: (-b) / det
+  inv22: a / det
+
+respuesta: ((a * inv12 + b * inv22) == 0)
+tipo: vf
+
+enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿El elemento (1,2) de A · A⁻¹ da 0, como en la identidad?"
+
+explicacion: |
+  Fuera de la diagonal, A · A⁻¹ tiene que dar 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "avanzado"
+  tags: ["verificacion", "error_comun", "verdadero_falso"]
+
+variables:
+  b: random(1, 8)
+  c: random(1, 8)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+  det: a * d - b * c
+  inv11_mal: b / det
+
+respuesta: ((a * inv11_mal + b * ((-c) / det)) == 1)
+tipo: vf
+
+enunciado: "Si por error se usa b en vez de d como elemento (1,1) de la adjunta de A = [[1, {b}], [{c}, {d}]], ¿el producto A · A⁻¹ igual da la identidad en su elemento (1,1)?"
+
+explicacion: |
+  No — usar el elemento equivocado de la adjunta rompe la verificación:
+  A · A⁻¹ deja de dar la identidad, que es justamente la señal de que
+  algo está mal calculado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "avanzado"
+  tags: ["sistema"]
+
+variables:
+  b: random(1, 6)
+  c: random(1, 6)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+  x_sol: random(1, 15)
+  y_sol: random(1, 15)
+  bx: a * x_sol + b * y_sol
+  by: c * x_sol + d * y_sol
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El sistema x + {b}y = {bx}; {c}x + {d}y = {by} se puede escribir como A·v = b, con A = [[1, {b}], [{c}, {d}]]. Usando x = A⁻¹·b, ¿cuánto vale x?"
+
+pasos:
+  - "det(A) = {a * d - b * c}, así que A⁻¹ existe"
+  - "x = A⁻¹·b da el mismo resultado que resolver el sistema por eliminación"
+
+explicacion: |
+  Es el mismo sistema de siempre, resuelto con la inversa en vez de
+  sustitución o eliminación — el resultado es idéntico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "avanzado"
+  tags: ["sistema"]
+
+variables:
+  b: random(1, 6)
+  c: random(1, 6)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+  x_sol: random(1, 15)
+  y_sol: random(1, 15)
+  bx: a * x_sol + b * y_sol
+  by: c * x_sol + d * y_sol
+
+respuesta: y_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "El sistema x + {b}y = {bx}; {c}x + {d}y = {by} se puede escribir como A·v = b, con A = [[1, {b}], [{c}, {d}]]. Usando v = A⁻¹·b, ¿cuánto vale y?"
+
+explicacion: |
+  y = segunda componente de A⁻¹·b.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "avanzado"
+  tags: ["sistema"]
+
+variables:
+  b: random(2, 7)
+  c: random(2, 7)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+  x_sol: random(5, 20)
+  y_sol: random(1, 10)
+  bx: a * x_sol + b * y_sol
+  by: c * x_sol + d * y_sol
+
+respuesta: x_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A·v = b, con A = [[1, {b}], [{c}, {d}]] y b = ({bx}, {by}). ¿Cuánto vale la primera componente de v = A⁻¹·b?"
+
+explicacion: |
+  Es la misma idea que despejar x en una ecuación de un número, con
+  matrices en vez de números.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "avanzado"
+  tags: ["sistema"]
+
+variables:
+  b: random(2, 7)
+  c: random(2, 7)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+  x_sol: random(5, 20)
+  y_sol: random(1, 10)
+  bx: a * x_sol + b * y_sol
+  by: c * x_sol + d * y_sol
+
+respuesta: y_sol
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "A·v = b, con A = [[1, {b}], [{c}, {d}]] y b = ({bx}, {by}). ¿Cuánto vale la segunda componente de v = A⁻¹·b?"
+
+explicacion: |
+  Segunda componente de A⁻¹·b.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una matriz cuadrada tiene inversa sólo si su determinante es distinto de 0."
+
+explicacion: |
+  Si det(A) = 0, no se puede dividir por el determinante — la inversa
+  simplemente no existe.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A · A⁻¹ da exactamente la matriz identidad."
+
+explicacion: |
+  Es la definición misma de matriz inversa — el equivalente matricial de
+  x · (1/x) = 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "intermedio"
+  tags: ["concepto", "error_comun", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Para armar la matriz adjunta 2×2, se cambia el signo de los elementos de la diagonal principal (a y d)."
+
+explicacion: |
+  Al revés: a y d se INTERCAMBIAN de lugar (sin cambiar signo). Los que
+  cambian de signo son b y c, quedándose en su misma posición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Si el determinante de una matriz es 0, su inversa da una matriz con todos ceros."
+
+explicacion: |
+  No da una matriz de ceros — directamente NO EXISTE inversa (dividir
+  por 0 no está definido).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "intermedio"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un sistema Ax = b se puede resolver como x = A⁻¹·b, siempre que A tenga inversa."
+
+explicacion: |
+  Es una alternativa a sustitución, igualación o eliminación — el mismo
+  resultado, otro camino.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "intermedio"
+  tags: ["opcion_multiple"]
+
+variables:
+  b: random(1, 6)
+  c: random(1, 6)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+
+respuesta: d / (a * d - b * c)
+tipo: mc
+opciones_explicitas:
+  - d / (a * d - b * c)
+  - a / (a * d - b * c)
+  - d * (a * d - b * c)
+
+enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Cuál es el elemento (1,1) de A⁻¹?"
+
+explicacion: |
+  Es d (no a) dividido por el determinante — el (1,1) de la adjunta es el
+  elemento que estaba en (2,2) de la matriz original.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "intermedio"
+  tags: ["opcion_multiple", "signos"]
+
+variables:
+  b: random(1, 6)
+  c: random(1, 6)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+
+respuesta: (-b) / (a * d - b * c)
+tipo: mc
+opciones_explicitas:
+  - (-b) / (a * d - b * c)
+  - b / (a * d - b * c)
+  - (-b) * (a * d - b * c)
+
+enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Cuál es el elemento (1,2) de A⁻¹?"
+
+explicacion: |
+  b cambia de signo al armar la adjunta, y después se divide por el
+  determinante.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "basico"
+  tags: ["concepto", "verdadero_falso"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Antes de intentar calcular una matriz inversa, conviene calcular primero el determinante."
+
+explicacion: |
+  Si el determinante da 0, ya se sabe que no hace falta seguir: la
+  inversa no existe.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "matriz_inversa"
+  nivel: "avanzado"
+  tags: ["verificacion", "verdadero_falso"]
+
+variables:
+  b: random(1, 8)
+  c: random(1, 8)
+  signo: uno_de([1, -1])
+  d: b * c + signo
+  a: 1
+  real: d / (a * d - b * c)
+  error: uno_de([0, 0, 1, -1])
+  propuesto: real + error
+
+respuesta: (propuesto == real)
+tipo: vf
+
+enunciado: "A = [[1, {b}], [{c}, {d}]]. ¿Es correcto que el elemento (1,1) de A⁻¹ sea {propuesto}?"
+
+explicacion: |
+  El valor correcto es d/det(A) = {real}.
+```
+

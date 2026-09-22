@@ -1,6 +1,6 @@
-# Examen jefe — Explorador de la Historia Profunda
+# Examen jefe — [PENDIENTE #699]
 
-> Logro #117. Dominaste los temas clave del examen jefe con maestría. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **123 preguntas totales** en 5/5 secciones.
+> Logro #699. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -15,7 +15,8 @@ metadata:
 
 respuesta: "radiación adaptativa"
 tipo: completar
-respuestas_validas: ["radiación adaptativa"]
+respuestas_validas:
+  - "radiación adaptativa"
 
 enunciado: "Tras la extinción de los dinosaurios hace 66 millones de años, los mamíferos experimentaron un proceso de diversificación rápida para ocupar nuevos nichos, proceso conocido como ________."
 
@@ -30,18 +31,11 @@ metadata:
   nivel: "intermedio"
   tags: ["tiempo", "geologia", "paleontologia"]
 
-variables:
-  escenario: uno_de([
-    ["66 millones de años", "Cenomaniense"],
-    ["230 millones de años", "Triásico"],
-    ["66 millones de años", "Cretácico-Paleógeno"]
-  ])
-
-respuesta: escenario[0
+respuesta: "66 millones de años"
 tipo: mc
-opciones_explicitas: ["66 millones de años", "230 millones de años", "66 millones de años", "100 millones de años"]
+opciones_explicitas: ["66 millones de años", "230 millones de años", "100 millones de años", "500 millones de años"]
 
-enunciado: "La gran extinción que permitió la radiación de los mamíferos ocurrió hace aproximadamente {escenario[0]}."
+enunciado: "La gran extinción que permitió la radiación de los mamíferos ocurrió hace aproximadamente:"
 
 explicacion: |
   El evento de extinción masiva del Cretácico-Paleógeno ocurrió hace unos 66 millones de años, marcando el inicio de la era de los mamíferos.
@@ -71,7 +65,7 @@ metadata:
   nivel: "avanzado"
   tags: ["proceso", "evolucion"]
 
-respuesta: ["Extinción masiva", "Ocupación de nichos", "Radiación adaptativa", "Diversificación moderna"]
+respuesta_orden: ["Extinción masiva", "Ocupación de nichos", "Radiación adaptativa", "Diversificación moderna"]
 tipo: ordenar
 opciones_explicitas: ["Extinción masiva", "Ocupación de nichos", "Radiación adaptativa", "Diversificación moderna"]
 
@@ -107,6 +101,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Eran grandes y dominantes", "Eran pequeños y nocturnos", "Eran reptiles gigantes", "Eran exclusivamente acuáticos"]
+respuesta: "Eran pequeños y nocturnos"
 
 enunciado: "Durante la era de los dinosaurios, los ancestros de los mamíferos se caracterizaban por ser ___."
 
@@ -121,12 +116,10 @@ metadata:
   nivel: "intermedio"
   tags: ["extincion_kp", "adaptacion"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["Extinción K-Pg", "Diversificación"], ["Evento de extinción", "Radiación"]]
-
 tipo: completar
-respuestas_validas: ["Diversificación", "Radiación"]
+respuestas_validas:
+  - "Diversificación"
+  - "Radiación"
 
 enunciado: "Tras la extinción masiva del Cretácico-Paleógeno (K-Pg), los mamíferos experimentaron una gran ___ en tamaño y forma."
 
@@ -152,6 +145,7 @@ enunciado: "Ordene cronológicamente los siguientes eventos históricos:"
 
 explicacion: |
   Primero aparecieron los mamíferos (coexistiendo con dinosaurios), luego ocurrió la extinción masiva, lo que finalmente permitió la radiación de los mamíferos actuales.
+respuesta_orden: ["Aparición de mamíferos pequeños", "Dominio de los dinosaurios", "Extinción K-Pg", "Diversificación de mamíferos modernos"]
 ```
 
 ```
@@ -163,6 +157,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Diurno", "Nocturno", "Subterráneo", "Acuático"]
+respuesta: "Nocturno"
 
 enunciado: "Para evitar la competencia y la depredación por parte de los dinosaurios, la mayoría de los mamíferos primitivos adoptaron un estilo de vida ___."
 
@@ -177,14 +172,12 @@ metadata:
   nivel: "intermedio"
   tags: ["ecologia", "evolucion"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  info: [["K-Pg", "liberó nichos"], ["Extinción", "permitió la radiación"]]
-
 tipo: completar
 tolerancia_abs: 0
 
 enunciado: "El evento de extinción ___ fue el catalizador que permitió la expansión de los mamíferos."
+
+respuesta: "K-Pg"
 
 explicacion: |
   La extinción K-Pg eliminó a los grandes depredadores y herbívoros dominantes, dejando el camino libre para que los mamíferos evolucionaran hacia formas más grandes y diversas.
@@ -199,9 +192,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Un cambio lento y gradual de una especie", "La diversificación rápida de un linaje al ocupar nuevos nichos", "La extinción masiva de un grupo de especies", "La mutación de un solo gen en un individuo"]
-
+respuesta: "La diversificación rápida de un linaje al ocupar nuevos nichos"
 enunciado: "En biología evolutiva, ¿qué describe mejor el proceso de una radiación adaptativa?"
-
 explicacion: |
   La radiación adaptativa ocurre cuando un linaje ancestral se diversifica rápidamente en una gran variedad de formas para aprovechar diferentes recursos o nichos ecológicos disponibles.
 ```
@@ -214,17 +206,12 @@ metadata:
   tags: ["ecologia", "nichos"]
 
 variables:
-  escenario: uno_de([
-    ["aparición de nuevas islas volcánicas", "colonización de hábitats vacíos"],
-    ["extinción masiva de competidores", "disponibilidad de nuevos nichos ecológicos"],
-    ["cambio climático global", "apertura de nuevos espacios adaptativos"]
-  ])
+  escenario: uno_de([["aparición de nuevas islas volcánicas", "colonización de hábitats vacíos"], ["extinción masiva de competidores", "disponibilidad de nuevos nichos ecológicos"], ["cambio climático global", "apertura de nuevos espacios adaptativos"]])
 
 tipo: completar
-respuestas_validas: ["disponibilidad de nuevos nichos ecológicos", "disponibilidad de nuevos nichos ecológicos", "disponibilidad de nuevos nichos ecológicos"]
-respuesta: escenario[0][1
+respuesta: escenario[1]
 
-enunciado: "La radiación adaptativa suele ser desencadenada por la {escenario[0][0]}, lo que permite la ___."
+enunciado: "La radiación adaptativa suele ser desencadenada por la {escenario[0]}, lo que permite la ___."
 
 explicacion: |
   Cuando aparecen nuevos entornos o se liberan nichos (por ejemplo, tras una extinción masiva), los linajes sobrevivientes pueden diversificarse rápidamente para ocupar esos espacios.
@@ -239,9 +226,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Los dinosaurios no pudieron adaptarse", "La extinción de los dinosaurios permitió la radiación de los mamíferos", "Los mamíferos ya eran gigantes antes de la extinción", "La radiación ocurrió por la aparición de las plantas"]
-
+respuesta: "La extinción de los dinosaurios permitió la radiación de los mamíferos"
 enunciado: "Tras la extinción masiva del Cretácico-Paleógeno, ¿por qué los mamíferos experimentaron una radiación adaptativa tan marcada?"
-
 explicacion: |
   La desaparición de los dinosaurios no avianos liberó una enorme cantidad de nichos ecológicos, permitiendo que los mamíferos, que antes eran mayormente pequeños, se diversificaran en una multitud de formas.
 ```
@@ -260,6 +246,7 @@ enunciado: "Ordena cronológicamente los pasos típicos de una radiación adapta
 
 explicacion: |
   Primero debe existir una oportunidad ecológica (nicho), luego el linaje debe colonizar ese espacio y finalmente la selección natural debe favorecer la especialización en diferentes formas.
+respuesta_orden: ["Aparición de nuevos nichos o hábitats", "Colonización de los nuevos entornos", "Diversificación en múltiples especies con rasgos distintos"]
 ```
 
 ```
@@ -270,24 +257,20 @@ metadata:
   tags: ["matematica", "especiacion"]
 
 variables:
-  datos: uno_de([
-    [10, 5],
-    [100, 20],
-    [1000, 50]
-  ])
+  datos: uno_de([[10, 5], [100, 50], [1000, 500]])
 
 tipo: completar
-respuesta: datos[0][1
+respuesta: datos[1]
 tolerancia_abs: 0
 
-enunciado: "Si un linaje de mamíferos experimenta una radiación adaptativa donde se crean {datos[0][0]} especies nuevas en un periodo de tiempo determinado, y la tasa de especiación efectiva es de la mitad del total de especies nuevas, ¿cuántas especies nuevas se crearon en este escenario de diversificación rápida?"
+enunciado: "Si un linaje de mamíferos experimenta una radiación adaptativa en la que se generan {datos[0]} especies nuevas en total, y la tasa de especiación efectiva equivale a la mitad de ese total, ¿cuántas especies representa la tasa de especiación efectiva en este escenario?"
 
 pasos:
-  - "Identificar el número total de especies nuevas en el escenario: {datos[0][0]}"
+  - "Identificar el número total de especies nuevas en el escenario: {datos[0]}"
   - "Calcular la mitad de ese valor para obtener la respuesta."
 
 explicacion: |
-  En este ejercicio hipotético, si el total de nuevas especies es {datos[0][0]}, la respuesta es la mitad de ese valor según el enunciado.
+  En este ejercicio hipotético, si el total de nuevas especies es {datos[0]}, la tasa de especiación efectiva es la mitad de ese valor, es decir, {datos[1]}.
 ```
 
 ```
@@ -299,7 +282,8 @@ metadata:
 
 respuesta: "Cenozoico"
 tipo: completar
-respuestas_validas: ["Cenozoico"]
+respuestas_validas:
+  - "Cenozoico"
 
 enunciado: "La gran radiación de los mamíferos placentarios, que dio lugar a los órdenes actuales como primates y carnívoros, ocurrió principalmente durante la era ___."
 
@@ -318,7 +302,7 @@ variables:
   idx: uno_de([0, 1, 2])
   datos: [["Primates", "Primates"], ["Carnivora", "Carnívoros"], ["Cetacea", "Cetáceos"]]
 
-respuesta: datos[idx][0
+respuesta: datos[idx][0]
 tipo: mc
 opciones_explicitas: ["Primates", "Carnivora", "Cetacea", "Ungulata"]
 
@@ -337,7 +321,9 @@ metadata:
 
 respuesta: "puntas"
 tipo: completar
-respuestas_validas: ["puntas", "puntas"]
+respuestas_validas:
+  - "puntas"
+  - "puntas"
 
 enunciado: "Durante la expansión de las praderas en el Cenozoico, muchos ungulados desarrollaron ___ extremidades para una carrera más eficiente."
 
@@ -352,17 +338,14 @@ metadata:
   nivel: "avanzado"
   tags: ["filogenia", "ordenar"]
 
-respuesta: ["Euteria", "Primates", "Carnivora", "Cetacea"]
+respuesta_orden: ["Mammalia", "Eutheria", "Primates", "Hominidae"]
 tipo: ordenar
-opciones_explicitas: ["Euteria", "Primates", "Carnivora", "Cetacea"]
+opciones_explicitas: ["Mammalia", "Eutheria", "Primates", "Hominidae"]
 
-enunciado: "Ordene de mayor a menor nivel taxonómico (de lo más general a lo más específico) la siguiente jerarquía de un humano: [Primates, Euteria, Carnivora, Cetacea] (Nota: El usuario debe identificar la jerarquía correcta de un orden específico dentro de los Euterios, pero para este ejercicio de ordenamiento use la secuencia de niveles de un ancestro común a los órdenes)."
+enunciado: "Ordene la jerarquía taxonómica del ser humano desde la Clase hasta la Familia:"
 
-# Nota: El prompt pide ordenar una secuencia real. Reajustando para evitar ambigüedad:
-# El usuario debe ordenar la jerarquía de un grupo específico.
-# Como "ordenar" requiere la lista completa, usaré la jerarquía de un Cetáceo.
-
-# Re-haciendo pregunta 4 para cumplir estrictamente con el tipo "ordenar" (secuencia real):
+explicacion: |
+  La secuencia correcta es Clase Mammalia, Infraclase Eutheria, Orden Primates y Familia Hominidae (los grandes simios, incluyendo al ser humano).
 ```
 
 ```
@@ -372,7 +355,7 @@ metadata:
   nivel: "avanzado"
   tags: ["taxonomia", "ordenar"]
 
-respuesta: ["Mammalia", "Eutheria", "Cetartiodactyla", "Cetacea"]
+respuesta_orden: ["Mammalia", "Eutheria", "Cetartiodactyla", "Cetacea"]
 tipo: ordenar
 opciones_explicitas: ["Mammalia", "Eutheria", "Cetartiodactyla", "Cetacea"]
 
@@ -393,7 +376,7 @@ variables:
   idx: uno_de([0, 1])
   escenarios: [["Cetáceos", "acuáticos"], ["Primates", "arbóreos"]]
 
-respuesta: escenarios[idx][1
+respuesta: escenarios[idx][1]
 tipo: mc
 opciones_explicitas: ["acuáticos", "arbóreos", "terrestres", "voladores"]
 
@@ -458,7 +441,9 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: completar
-respuestas_validas: ["causa", "consecuencia"]
+respuestas_validas:
+  - "causa"
+  - "consecuencia"
 
 enunciado: "Analizando la relación temporal: {datos[idx][0]}"
 
@@ -476,7 +461,7 @@ metadata:
 variables:
   secuencia: ["Impacto del asteroide", "Extinción de dinosaurios", "Ocupación de nichos por mamíferos", "Diversificación de órdenes modernos"]
 
-respuesta: secuencia
+respuesta_orden: secuencia
 tipo: ordenar
 opciones_explicitas: ["Impacto del asteroide", "Extinción de dinosaurios", "Ocupación de nichos por mamíferos", "Diversificación de órdenes modernos"]
 
@@ -493,15 +478,12 @@ metadata:
   nivel: "intermedio"
   tags: ["competencia", "ecologia"]
 
-variables:
-  datos: [["Sin la presión de los dinosaurios, los mamíferos habrían sido...", "menos diversos"], ["La radiación ocurrió porque los mamíferos eran...", "menos diversos"]]
-  idx: uno_de([0, 1])
-
 respuesta: "menos diversos"
 tipo: completar
-respuestas_validas: ["menos diversos", "más grandes"]
+respuestas_validas:
+  - "menos diversos"
 
-enunciado: "{datos[idx][0]} ___"
+enunciado: "Durante el Mesozoico, la presión competitiva y depredadora de los dinosaurios mantuvo a los mamíferos ___."
 
 explicacion: |
   La competencia por recursos y la depredación por parte de los dinosaurios habrían limitado la diversificación y el tamaño de los mamíferos durante el Mesozoico.
@@ -518,7 +500,8 @@ metadata:
 
 respuesta: "democracia"
 tipo: completar
-respuestas_validas: ["democracia"]
+respuestas_validas:
+  - "democracia"
 
 enunciado: "Tras el fin de la última dictadura militar en Argentina, las elecciones de 1983 marcaron el retorno a la ________."
 
@@ -567,8 +550,8 @@ metadata:
   nivel: "intermedio"
   tags: ["transicion", "procesos", "orden"]
 
-opciones_explicitas: ["Fin de la dictadura", "Elecciones de 1983", "Asunción de Alfonsín", "Fin de la dictadura", "Elecciones de 1983", "Asunción de Alfonsín"]
-respuesta: ["Fin de la dictadura", "Elecciones de 1983", "Asunción de Alfonsín"]
+opciones_explicitas: ["Fin de la dictadura", "Elecciones de 1983", "Asunción de Alfonsín"]
+respuesta_orden: ["Fin de la dictadura", "Elecciones de 1983", "Asunción de Alfonsín"]
 tipo: ordenar
 
 enunciado: "Ordena cronológicamente los siguientes hitos del proceso de democratización:"
@@ -585,11 +568,7 @@ metadata:
   tags: ["derechos_humanos", "etica", "memoria"]
 
 variables:
-  escenario: uno_de([
-    ["reparación", "reparación"],
-    ["olvido", "olvido"],
-    ["justicia", "justicia"]
-  ])
+  escenario: uno_de([["reparación", "reparación"], ["olvido", "olvido"], ["justicia", "justicia"]])
 
 respuesta: "justicia"
 tipo: mc
@@ -610,7 +589,8 @@ metadata:
 
 respuesta: "Juicio a las Juntas"
 tipo: completar
-respuestas_validas: ["Juicio a las Juntas"]
+respuestas_validas:
+  - "Juicio a las Juntas"
 
 enunciado: "El proceso judicial histórico llevado a cabo en 1985 para juzgar a los máximos responsables de la dictadura militar argentina se conoce como el ___."
 
@@ -645,7 +625,7 @@ metadata:
   nivel: "avanzado"
   tags: ["delitos", "terrorismo_de_estado"]
 
-respuesta: ["terrorismo de Estado", "secuestro", "tortura", "homicidio"]
+respuesta_orden: ["terrorismo de Estado", "secuestro", "tortura", "homicidio"]
 tipo: ordenar
 opciones_explicitas: ["terrorismo de Estado", "secuestro", "tortura", "homicidio"]
 
@@ -664,7 +644,8 @@ metadata:
 
 respuesta: "CONADEP"
 tipo: completar
-respuestas_validas: ["CONADEP"]
+respuestas_validas:
+  - "CONADEP"
 
 enunciado: "El informe fundamental que recopiló testimonios sobre la represión sistemática durante la última dictadura militar fue elaborado por la ___."
 
@@ -717,9 +698,9 @@ metadata:
   nivel: "avanzado"
   tags: ["cronologia", "democracia"]
 
-respuesta: ["Fin de la dictadura", "Informe Nunca Más", "Juicio a las Juntas"]
+respuesta_orden: ["Fin de la dictadura", "Informe Nunca Más", "Juicio a las Juntas"]
 tipo: ordenar
-opciones_explicitas: ["Fin de la dictadura", "Informe Nunca Más", "Juicio a las Juntas", "Ley de Amnistía"]
+opciones_explicitas: ["Fin de la dictadura", "Informe Nunca Más", "Juicio a las Juntas"]
 
 enunciado: "Ordene cronológicamente los hitos fundamentales del proceso de justicia y memoria tras el retorno a la democracia en Argentina:"
 
@@ -736,7 +717,10 @@ metadata:
 
 respuesta: "imprescindible"
 tipo: completar
-respuestas_validas: ["imprescindible", "fundamental", "clave"]
+respuestas_validas:
+  - "imprescindible"
+  - "fundamental"
+  - "clave"
 
 enunciado: "Para el proceso de reconstrucción del Estado de Derecho, la aplicación de la ___ para juzgar los crímenes de lesa humanidad fue considerada ___."
 
@@ -753,7 +737,8 @@ metadata:
 
 respuesta: "1983"
 tipo: completar
-respuestas_validas: ["1983"]
+respuestas_validas:
+  - "1983"
 
 enunciado: "El año en que se produjo el retorno a la democracia y se inició el período democrático ininterrumpido más largo de la historia argentina fue en ___."
 
@@ -772,7 +757,7 @@ variables:
   idx: uno_de([0, 1])
   datos: [["Raúl Alfonsín", "Presidente de la Nación"], ["Raúl Alfonsín", "Dictador militar"]]
 
-respuesta: datos[idx][0
+respuesta: datos[idx][0]
 tipo: mc
 opciones_explicitas: ["Raúl Alfonsín", "Dictador militar", "Juan Carlos Onganía", "Jorge Rafael Videla"]
 
@@ -789,7 +774,7 @@ metadata:
   nivel: "intermedio"
   tags: ["procesos", "historia"]
 
-respuesta: ["Dictadura Militar", "Elecciones de 1983", "Juicio a las Juntas"]
+respuesta_orden: ["Dictadura Militar", "Elecciones de 1983", "Juicio a las Juntas"]
 tipo: ordenar
 
 opciones_explicitas: ["Dictadura Militar", "Elecciones de 1983", "Juicio a las Juntas"]
@@ -831,20 +816,11 @@ metadata:
 
 variables:
   idx: uno_de([0, 1, 2])
-  escenarios: [
-    ["El proceso de Memoria, Verdad y Justicia busca...", "reparar el tejido social y la verdad histórica"],
-    ["El proceso de Memoria, Verdad y Justicia busca...", "la reconstrucción de la identidad democrática"],
-    ["El proceso de Memoria, Verdad y Justicia busca...", "la aplicación de la justicia sobre los crímenes de lesa humanidad"]
-  ]
+  escenarios: [["El proceso de Memoria, Verdad y Justicia busca...", "reparar el tejido social y la verdad histórica"], ["El proceso de Memoria, Verdad y Justicia busca...", "la reconstrucción de la identidad democrática"], ["El proceso de Memoria, Verdad y Justicia busca...", "la aplicación de la justicia sobre los crímenes de lesa humanidad"]]
 
-respuesta: escenarios[idx][1
+respuesta: escenarios[idx][1]
 tipo: mc
-opciones_explicitas: [
-  "reparar el tejido social y la verdad histórica",
-  "la reconstrucción de la identidad democrática",
-  "la aplicación de la justicia sobre los crímenes de lesa humanidad",
-  "la restauración del orden militar"
-]
+opciones_explicitas: ["reparar el tejido social y la verdad histórica", "la reconstrucción de la identidad democrática", "la aplicación de la justicia sobre los crímenes de lesa humanidad", "la restauración del orden militar"]
 
 enunciado: "Dentro del marco de la recuperación democrática, el proceso de Memoria, Verdad y Justicia busca {escenarios[idx][1]}."
 
@@ -860,18 +836,13 @@ metadata:
   tags: ["argentina", "democracia", "historia"]
 
 variables:
-  escenario: uno_de([
-    ["¿Qué presidente asumió en 1983 tras el fin de la dictadura?", "Raúl Alfonsín"],
-    ["¿Qué presidente asumió en 1983 tras el fin de la dictadura?", "Raúl Alfonsín"],
-    ["¿Qué presidente asumió en 1983 tras el fin de la dictadura?", "Raúl Alfonsín"]
-  ])
-  idx: uno_de([0, 1, 2])
+  escenario: uno_de([["¿Qué presidente asumió en 1983 tras el fin de la dictadura?", "Raúl Alfonsín"], ["¿Qué presidente asumió en 1983 tras el fin de la dictadura?", "Raúl Alfonsín"], ["¿Qué presidente asumió en 1983 tras el fin de la dictadura?", "Raúl Alfonsín"]])
 
-respuesta: escenario[idx][1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["Raúl Alfonsín", "Carlos Menem", "Alfonsín", "Raúl Alfonsín"]
 
-enunciado: "En el contexto de la recuperación democrática argentina, {escenario[idx][0]}"
+enunciado: "En el contexto de la recuperación democrática argentina, {escenario[0]}"
 
 explicacion: |
   Raúl Alfonsín asumió la presidencia en 1983, marcando el inicio del periodo democrático tras la última dictadura militar.
@@ -885,16 +856,12 @@ metadata:
   tags: ["justicia", "derechos_humanos"]
 
 variables:
-  evento: uno_de([
-    ["El proceso de juzgar a las cúpulas militares se conoce como el...", "Juicio a las Juntas"],
-    ["El proceso de juzgar a las cúpulas militares se conoce como el...", "Juicio a las Juntas"],
-    ["El proceso de juzgar a las cúpulas militares se conoce como el...", "Juicio a las Juntas"]
-  ])
-  idx: uno_de([0, 1, 2])
+  evento: uno_de([["El proceso de juzgar a las cúpulas militares se conoce como el...", "Juicio a las Juntas"], ["El proceso de juzgar a las cúpulas militares se conoce como el...", "Juicio a las Juntas"], ["El proceso de juzgar a las cúpulas militares se conoce como el...", "Juicio a las Juntas"]])
 
-respuesta: evento[idx][1
+respuesta: evento[1]
 tipo: completar
-respuestas_validas: ["Juicio a las Juntas"]
+respuestas_validas:
+  - "Juicio a las Juntas"
 
 enunciado: "El proceso histórico fundamental para la memoria y la justicia en 1985 fue el ___."
 
@@ -926,7 +893,7 @@ metadata:
   nivel: "avanzado"
   tags: ["cronologia", "transicion"]
 
-respuesta: ["Dictadura Militar", "Elecciones de 1983", "Juicio a las Juntas", "Ley de Obediencia Debida"]
+respuesta_orden: ["Dictadura Militar", "Elecciones de 1983", "Juicio a las Juntas", "Ley de Obediencia Debida"]
 tipo: ordenar
 opciones_explicitas: ["Dictadura Militar", "Elecciones de 1983", "Juicio a las Juntas", "Ley de Obediencia Debida"]
 
@@ -944,18 +911,13 @@ metadata:
   tags: ["movimientos_sociales", "memoria"]
 
 variables:
-  sujeto: uno_de([
-    ["¿Qué colectivo social luchó por la aparición con vida de los desaparecidos?", "Madres de Plaza de Mayo"],
-    ["¿Qué colectivo social luchó por la aparición con vida de los desaparecidos?", "Madres de Plaza de Mayo"],
-    ["¿Qué colectivo social luchó por la aparición con vida de los desaparecidos?", "Madres de Plaza de Mayo"]
-  ])
-  idx: uno_de([0, 1, 2])
+  sujeto: uno_de([["¿Qué colectivo social luchó por la aparición con vida de los desaparecidos?", "Madres de Plaza de Mayo"], ["¿Qué colectivo social luchó por la aparición con vida de los desaparecidos?", "Madres de Plaza de Mayo"], ["¿Qué colectivo social luchó por la aparición con vida de los desaparecidos?", "Madres de Plaza de Mayo"]])
 
-respuesta: sujeto[idx][1
+respuesta: sujeto[1]
 tipo: completar
 opciones_explicitas: [verdadero, falso]
 
-enunciado: "Las {sujeto[idx][0]} fueron actores fundamentales en la exigencia de justicia durante la transición democrática."
+enunciado: "Las {sujeto[0]} fueron actores fundamentales en la exigencia de justicia durante la transición democrática."
 
 explicacion: |
   Las Madres de Plaza de Mayo fueron un símbolo global de la lucha por la verdad y la justicia durante y después de la dictadura.
@@ -972,7 +934,8 @@ metadata:
 
 respuesta: "bordes"
 tipo: completar
-respuestas_validas: ["bordes"]
+respuestas_validas:
+  - "bordes"
 
 enunciado: "El relieve terrestre, como la formación de montañas y fosas, es una consecuencia directa de la tectónica de placas y se produce principalmente en los ___ de las placas tectónicas."
 
@@ -989,17 +952,13 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1, 2])
-  escenarios: [[
-    ["divergente", "se separan las placas", "creación de dorsales oceánicas"],
-    ["convergente", "chocan las placas", "formación de cordilleras o fosas"],
-    ["transformante", "se deslizan lateralmente", "fallas como la de San Andrés"]
-  ]]
+  escenarios: [["divergente", "se separan las placas", "creación de dorsales oceánicas"], ["convergente", "chocan las placas", "formación de cordilleras o fosas"], ["transformante", "se deslizan lateralmente", "fallas como la de San Andrés"]]
 
-respuesta: escenarios[escenario_idx][0
+respuesta: escenarios[escenario_idx][0]
 tipo: mc
 opciones_explicitas: ["divergente", "convergente", "transformante"]
 
-enunciado: "Si observamos un movimiento donde las placas tectónicas ___ , estamos ante un límite de tipo {escenarios[escenario_idx][1]}."
+enunciado: "Si observamos un movimiento donde las placas tectónicas {escenarios[escenario_idx][1]} , estamos ante un límite de tipo {escenarios[escenario_idx][0]}."
 
 explicacion: |
   En el escenario seleccionado ({escenarios[escenario_idx][0]}), el movimiento principal es {escenarios[escenario_idx][2]}.
@@ -1029,7 +988,7 @@ metadata:
   nivel: "avanzado"
   tags: ["procesos", "relieve"]
 
-respuesta: ["choque de placas", "subducción de la placa", "formación de fosa oceánica", "erupción volcánica"]
+respuesta_orden: ["choque de placas", "subducción de la placa", "formación de fosa oceánica", "erupción volcánica"]
 tipo: ordenar
 opciones_explicitas: ["choque de placas", "subducción de la placa", "formación de fosa oceánica", "erupción volcánica"]
 
@@ -1047,13 +1006,10 @@ metadata:
   tags: ["fosas", "oceanos"]
 
 variables:
-  dato_fosa: [
-    ["Fosa de las Marianas", "subducción", "más profunda"],
-    ["Fosa de Atacama", "subducción", "muy profunda"]
-  ]
+  dato_fosa: [["Fosa de las Marianas", "subducción", "más profunda"], ["Fosa de Atacama", "subducción", "muy profunda"]]
   idx: uno_de([0, 1])
 
-respuesta: dato_fosa[idx][1
+respuesta: dato_fosa[idx][1]
 tipo: mc
 opciones_explicitas: ["subducción", "divergencia", "transformación"]
 
@@ -1072,6 +1028,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Fricción entre placas", "Erosión eólica", "Movimiento de las mareas", "Ciclos solares"]
+respuesta: "Fricción entre placas"
 
 enunciado: "Los sismos se producen principalmente debido a la acumulación y posterior liberación repentina de energía causada por la ________ entre las placas tectónicas."
 
@@ -1086,17 +1043,11 @@ metadata:
   nivel: "basico"
   tags: ["placas_tectonicas", "bordes_de_placas"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["el Cinturón de Fuego del Pacífico", "bordes de placas tectónicas"],
-    ["la zona central de una placa continental", "zonas de estabilidad tectónica"]
-  ]
-
 tipo: mc
 opciones_explicitas: ["Bordes de placas tectónicas", "Zonas de estabilidad tectónica", "Cimas de las montañas", "Fondos oceánicos estables"]
+respuesta: "Bordes de placas tectónicas"
 
-enunciado: "Los terremotos ocurren mayormente en los {escenarios[escenario_idx][1]}."
+enunciado: "Los terremotos ocurren mayormente en los ___."
 
 explicacion: |
   La mayor actividad sísmica se concentra en los límites o bordes de las placas tectónicas, donde la interacción entre ellas es constante.
@@ -1110,7 +1061,9 @@ metadata:
   tags: ["energia", "friccion"]
 
 tipo: completar
-respuestas_validas: ["energía", "fuerza"]
+respuestas_validas:
+  - "energía"
+  - "fuerza"
 
 enunciado: "Durante un sismo, la energía acumulada por la fricción se libera de forma repentina en forma de ________ sísmica."
 
@@ -1132,6 +1085,7 @@ enunciado: "Ordena el proceso físico que da lugar a un terremoto, desde el movi
 
 explicacion: |
   El proceso comienza con el movimiento de las placas, seguido de la fricción que acumula tensión, la ruptura que libera energía y finalmente la propagación de ondas.
+respuesta_orden: ["Movimiento de las placas", "Acumulación de tensión por fricción", "Liberación repentina de energía", "Ondas sísmicas"]
 ```
 
 ```
@@ -1141,17 +1095,12 @@ metadata:
   nivel: "avanzado"
   tags: ["placas_tectonicas", "friccion"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [
-    ["fricción", "movimiento constante"],
-    ["presión", "estabilidad absoluta"]
-  ]
-
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Si las placas tectónicas se encuentran en un estado de {casos[caso_idx][0]}, la acumulación de tensión es mayor que en un estado de {casos[caso_idx][1]}."
+enunciado: "Si las placas tectónicas se encuentran en un estado de ___, la acumulación de tensión es mayor que en un estado de estabilidad absoluta."
+
+respuesta: "fricción"
 
 explicacion: |
   A mayor fricción o resistencia al movimiento entre placas, mayor es la acumulación de energía elástica que, al liberarse, provoca sismos de mayor magnitud.
@@ -1204,7 +1153,9 @@ variables:
   proceso: escenario[1]
 
 tipo: completar
-respuestas_validas: ["subducción", "separación"]
+respuestas_validas:
+  - "subducción"
+  - "separación"
 respuesta: proceso
 
 enunciado: "Si nos encontramos en un borde de tipo {tipo_borde}, el proceso geológico predominante es la ___."
@@ -1239,7 +1190,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Movimiento de placas", "Fusión de material", "Ascenso de magma", "Erupción volcánica"]
-respuesta: ["Movimiento de placas", "Fusión de material", "Ascenso de magma", "Erupción volcánica"]
+respuesta_orden: ["Movimiento de placas", "Fusión de material", "Ascenso de magma", "Erupción volcánica"]
 
 enunciado: "Ordena los pasos que ocurren típicamente en una zona de subducción hasta la erupción:"
 
@@ -1256,6 +1207,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["El océano Índico", "El océano Atlántico", "El océano Pacífico", "El océano Ártico"]
+respuesta: "El océano Pacífico"
 
 enunciado: "El Cinturón de Fuego es una zona de intensa actividad sísmica y volcánica que rodea el océano ________."
 
@@ -1271,20 +1223,15 @@ metadata:
   tags: ["tectonica_de_placas", "sismos"]
 
 variables:
-  escenario: uno_de([
-    ["subducción", "una placa se desliza debajo de otra", "se produce un arco volcánico y fosas marinas"],
-    ["divergencia", "las placas se separan", "se crea nueva corteza oceánica en dorsales"],
-    ["transformación", "las placas se deslizan lateralmente", "se generan grandes fallas como la de San Andrés"]
-  ])
+  escenario: uno_de([["subducción", "una placa se desliza debajo de otra", "se produce un arco volcánico y fosas marinas"], ["divergencia", "las placas se separan", "se crea nueva corteza oceánica en dorsales"], ["transformación", "las placas se deslizan lateralmente", "se generan grandes fallas como la de San Andrés"]])
 
 tipo: completar
-respuestas_validas: ["subducción", "divergencia", "transformación"]
-respuesta: escenario[0][0
+respuesta: escenario[0]
 
-enunciado: "En el Cinturón de Fuego, el proceso de {escenario[0][1]} es el principal responsable de la formación de fosas oceánicas profundas y la actividad volcánica intensa."
+enunciado: "Cuando en un límite de placas tectónicas {escenario[1]}, {escenario[2]}. Este tipo de límite se denomina límite de ___."
 
 explicacion: |
-  La subducción ocurre cuando una placa tectónica (generalmente más densa, la oceánica) se hunde bajo otra placa, fundiéndose en el manto y generando magma que alimenta los volcanes.
+  Los tres tipos principales de límites de placas tectónicas son divergentes (separación), convergentes o de subducción (una placa se hunde bajo otra) y transformantes (deslizamiento lateral). Cada uno genera fenómenos geológicos característicos, desde dorsales oceánicas hasta fosas y fallas.
 ```
 
 ```
@@ -1296,6 +1243,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Baja", "Moderada", "Muy alta"]
+respuesta: "Muy alta"
 
 enunciado: "Debido a la constante interacción de los bordes de placas, la densidad de volcanes activos en el Cinturón de Fuego es ________."
 
@@ -1312,7 +1260,7 @@ metadata:
 
 tipo: ordenar
 opciones_explicitas: ["Acumulación de tensión elástica", "Ruptura de la falla", "Liberación de energía (sismo)", "Movimiento de la placa"]
-respuesta: ["Acumulación de tensión elástica", "Ruptura de la falla", "Liberación de energía (sismo)", "Movimiento de la placa"]
+respuesta_orden: ["Acumulación de tensión elástica", "Ruptura de la falla", "Liberación de energía (sismo)", "Movimiento de la placa"]
 
 enunciado: "Ordena cronológicamente los eventos que ocurren durante un terremoto causado por la interacción de placas en el Cinturón de Fuego:"
 
@@ -1328,25 +1276,21 @@ metadata:
   tags: ["sismos", "calculo"]
 
 variables:
-  datos: uno_de([
-    [3000, 15.0],
-    [5000, 25.0],
-    [8000, 40.0]
-  ])
+  datos: uno_de([[3000, 15.0], [5000, 25.0], [8000, 40.0]])
 
 tipo: completar
-respuesta: datos[0][1
+respuesta: datos[1]
 tolerancia_abs: 0.1
 
-enunciado: "Si una onda sísmica detectada en el Cinturón de Fuego viaja a una velocidad constante de 200 km/min, ¿a cuántos minutos llegará al observador si el epicentro está a {datos[0][0]} km de distancia?"
+enunciado: "Si una onda sísmica detectada en el Cinturón de Fuego viaja a una velocidad constante de 200 km/min, ¿a cuántos minutos llegará al observador si el epicentro está a {datos[0]} km de distancia?"
 
 pasos:
-  - "Identificar la distancia: {datos[0][0]} km"
+  - "Identificar la distancia: {datos[0]} km"
   - "Identificar la velocidad: 200 km/min"
-  - "Dividir distancia / velocidad: {datos[0][0]} / 200"
+  - "Dividir distancia / velocidad: {datos[0]} / 200"
 
 explicacion: |
-  El tiempo se calcula dividiendo la distancia recorrida por la velocidad: 3000 km / 200 km/min = 15 minutos.
+  El tiempo se calcula dividiendo la distancia recorrida por la velocidad: {datos[0]} km / 200 km/min = {datos[1]} minutos.
 ```
 
 ```
@@ -1444,7 +1388,8 @@ variables:
   datos: [["crecimiento de la dorsal", "divergente"], ["separación de placas", "divergente"]]
   idx: uno_de([0, 1])
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 opciones_explicitas: ["divergente", "convergente", "transformante"]
@@ -1455,102 +1400,436 @@ explicacion: |
   La expansión del fondo marino ocurre en los límites divergentes donde el magma asciende para rellenar el espacio entre placas.
 ```
 
-## Sección: renacimiento-y-reforma (24 preguntas)
+## Sección: renacimiento-y-reforma (25 preguntas)
 
 ```
-### 2 — Obra clave de la Reforma
-```
-
-```
-### 3 — Concepto humanista
-```
-
-```
-### 4 — Técnica pictórica
-```
-
-```
-### 5 — Concilio de Trento
-```
-
-```
-### 6 — Imprenta de Gutenberg
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["renacimiento", "economia", "burguesia"]
+tipo: mc
+enunciado: "¿Cuál de los siguientes factores económicos fue fundamental para el surgimiento del mecenazgo artístico en las ciudades italianas del siglo XV?"
+opciones_explicitas:
+  - "El colapso del comercio marítimo en el Mediterráneo"
+  - "La acumulación de capital por parte de las familias mercantiles y banqueras"
+  - "La imposición de impuestos eclesiásticos sobre la nobleza feudal"
+  - "La escasez de mano de obra debido a la Peste Negra"
+respuesta: "La acumulación de capital por parte de las familias mercantiles y banqueras"
+explicacion: "El auge del comercio y la banca (ej. los Médici) generó una nueva clase rica que buscaba legitimidad social y religiosa a través del mecenazgo, financiando artistas y humanistas."
 ```
 
 ```
-### 7 — Arte del Norte
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["reforma", "luteranismo", "teologia"]
+tipo: completar
+enunciado: "En 1517, Martín Lutero publicó sus tesis en Wittenberg, cuestionando la venta de este documento que prometía la reducción del purgatorio."
+variables:
+  documento: uno_de(["indulgencias", "indulgencia"])
+respuesta: "indulgencias"
+respuestas_validas:
+  - "indulgencias"
+  - "indulgencia"
+  - "Indulgencias"
+  - "Indulgencia"
+explicacion: "Las indulgencias eran certificados vendidos por la Iglesia Católica que, según la doctrina de la época, reducían el tiempo de castigo en el purgatorio. Lutero rechazó esta práctica como una distorsión de la fe."
 ```
 
 ```
-### 8 — Maquiavelo y el poder
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["humanismo", "filosofia", "antropocentrismo"]
+tipo: vf
+enunciado: "El antropocentrismo, concepto central del humanismo renacentista, sostiene que el ser humano es la medida de todas las cosas y el centro de interés y preocupación del pensamiento humanista."
+respuesta: verdadero
+explicacion: "A diferencia del teocentrismo medieval, el humanismo puso al ser humano en el centro, valorando la razón, la libertad y el potencial individual sin negar necesariamente la religión, sino reinterpretándola."
 ```
 
 ```
-### 9 — Calvinismo y economía
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arte", "pintura", "tecnicas"]
+tipo: completar
+enunciado: "Leonardo da Vinci perfeccionó la técnica de aplicar capas finas de pintura sobre una base para lograr transiciones suaves de color y luz, conocida como {{técnica}}."
+variables:
+  tecnica: uno_de(["sfumato", "Sfumato"])
+respuesta: "sfumato"
+respuestas_validas:
+  - "sfumato"
+  - "Sfumato"
+  - "SFUMATO"
+explicacion: "El sfumato (del italiano 'sfumare', difuminar) elimina los contornos duros, creando una atmósfera neblinosa y realista, visible en obras como la Mona Lisa."
 ```
 
 ```
-### 10 — Escultura de Miguel Ángel
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["contrarreforma", "iglesia", "concilios"]
+tipo: mc
+enunciado: "¿Cuál fue el principal objetivo del Concilio de Trento (1545-1563) convocado por la Iglesia Católica?"
+opciones_explicitas:
+  - "Promover la traducción de la Biblia a las lenguas vernáculas"
+  - "Negociar la paz con los príncipes protestantes"
+  - "Definir la doctrina católica y reformar los abusos internos"
+  - "Establecer el calvinismo como religión oficial de Europa"
+respuesta: "Definir la doctrina católica y reformar los abusos internos"
+explicacion: "El Concilio de Trento fue la respuesta de la Iglesia Católica a la Reforma Protestante, reafirmando dogmas como la autoridad del Papa, la validez de los sacramentos y la necesidad de fe y obras, mientras se implementaban reformas disciplinarias."
 ```
 
 ```
-### 11 — Paz de Augsburgo
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["tecnologia", "imprenta", "difusion"]
+tipo: vf
+enunciado: "La invención de la imprenta de tipos móviles por Johannes Gutenberg alrededor de 1450 permitió la difusión masiva y barata de textos, acelerando tanto el Renacimiento como la Reforma."
+respuesta: verdadero
+explicacion: "Antes de la imprenta, los libros eran manuscritos costosos y raros. La reproducción mecánica permitió que las ideas humanistas y los escritos de Lutero circulasen rápidamente por toda Europa."
 ```
 
 ```
-### 12 — Literatura humanista
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arte", "norte-europa", "realismo"]
+tipo: mc
+enunciado: "¿Qué característica distingue principalmente al Renacimiento del Norte de Europa (ej. Dürer, Van Eyck) respecto al italiano?"
+opciones_explicitas:
+  - "El uso exclusivo de la perspectiva lineal geométrica"
+  - "El enfoque detallado en el realismo doméstico y la naturaleza"
+  - "La ausencia total de temas religiosos"
+  - "La preferencia por la escultura en mármol sobre la pintura"
+respuesta: "El enfoque detallado en el realismo doméstico y la naturaleza"
+explicacion: "Los artistas del norte, como Jan van Eyck o Albrecht Dürer, se destacaron por su atención meticulosa al detalle, la textura y la luz natural, a menudo integrando lo espiritual en lo cotidiano."
 ```
 
 ```
-### 13 — Reforma en Suiza
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["politica", "maquiavelo", "principe"]
+tipo: completar
+enunciado: "Nicolás Maquiavelo escribió \"El Príncipe\", una obra que analiza la adquisición y mantenimiento del poder político, separando la ética cristiana de la ___ política."
+respuesta: "virtu"
+respuestas_validas:
+  - "virtu"
+  - "virtù"
+  - "Virtu"
+  - "Virtù"
+explicacion: "Para Maquiavelo, la 'virtù' no es la bondad moral, sino la habilidad, la energía y la astucia del gobernante para adaptarse a la fortuna (fortuna) y mantener el estado."
 ```
 
 ```
-### 14 — Arquitectura renacentista
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["calvinismo", "etica", "economia"]
+tipo: mc
+enunciado: "Según el sociólogo Max Weber, ¿qué concepto calvinista se asocia con el surgimiento del espíritu del capitalismo?"
+opciones_explicitas:
+  - "La justificación por la fe sola"
+  - "La predestinación y el ascetismo en el mundo"
+  - "La veneración de las reliquias santas"
+  - "El celibato obligatorio para el clero"
+respuesta: "La predestinación y el ascetismo en el mundo"
+explicacion: "La ansiedad por la salvación (predestinación) llevó a los calvinos a ver el éxito laboral y la riqueza (ganada sin lujos innecesarios) como posibles signos de la gracia divina, fomentando la acumulación de capital."
 ```
 
 ```
-### 15 — Guerra de los Treinta Años
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arte", "miguel-angel", "escultura"]
+tipo: vf
+enunciado: "La escultura \"David\" de Miguel Ángel representa al héroe bíblico en el momento anterior a la batalla con Goliat, exaltando la tensión muscular y la concentración humana."
+respuesta: verdadero
+explicacion: "A diferencia de versiones anteriores que mostraban a David ya victorioso con la cabeza de Goliat, Miguel Ángel captura el instante de preparación, simbolizando la defensa de la libertad republicana frente a tiranos."
 ```
 
 ```
-### 16 — Retrato de El Cortesano
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["guerras", "paz", "religion"]
+tipo: completar
+enunciado: "La Paz de Augsburgo de 1555 estableció el principio de {{cuius regio, eius religio}}, permitiendo a los príncipes alemanes elegir entre catolicismo y luteranismo."
+variables:
+  principio: uno_de(["cuius regio, eius religio", "cuiusregio", "eius religio"])
+respuesta: "cuius regio, eius religio"
+respuestas_validas:
+  - "cuius regio, eius religio"
+  - "cuiusregio"
+  - "eius religio"
+  - "Cuius regio, eius religio"
+explicacion: "Este principio latino significa \"cuyo es el reino, de él es la religión\", legalizando la división religiosa en el Sacro Imperio Romano Germánico y reconociendo solo a católicos y luteranos."
 ```
 
 ```
-### 17 — Iconoclastia
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["literatura", "maquiavelo", "principe"]
+tipo: mc
+enunciado: "¿Qué obra de Nicolás Maquiavelo analiza la historia romana para extraer lecciones sobre la virtud cívica y la república?"
+opciones_explicitas:
+  - "El Príncipe"
+  - "Los Discursos sobre la primera década de Tito Livio"
+  - "La Mandrágora"
+  - "El Cortesano"
+respuesta: "Los Discursos sobre la primera década de Tito Livio"
+explicacion: "Mientras \"El Príncipe\" se centra en la monarquía y la adquisición del poder, los \"Discursos\" defienden la república y la libertad política basándose en el ejemplo de la Roma antigua."
 ```
 
 ```
-### 18 — Erasmo de Rotterdam
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["reforma", "zwinglio", "suiza"]
+tipo: completar
+enunciado: "Ulrico Zwinglio lideró la Reforma en Zürich, eliminando las imágenes religiosas y la música de la liturgia, influido por el humanismo y la lectura directa de {{autor}}."
+variables:
+  autor: uno_de(["pablo", "San Pablo", "paulo", "San Paulo"])
+respuesta: "pablo"
+respuestas_validas:
+  - "pablo"
+  - "San Pablo"
+  - "paulo"
+  - "San Paulo"
+  - "Pablo"
+  - "San Pablo"
+explicacion: "Zwinglio, al igual que Lutero, se basó en la autoridad de las Escrituras, pero fue aún más radical en la iconoclastia y la interpretación literal de los textos del apóstol Pablo sobre la justificación."
 ```
 
 ```
-### 19 — Perspectiva lineal
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arquitectura", "filarete", "domingo"]
+tipo: mc
+enunciado: "¿Cuál de los siguientes elementos arquitectónicos es característico de la transición del Gótico al Renacimiento en la Catedral de Santa María del Fiore en Florencia?"
+opciones_explicitas:
+  - "La bóveda de crucería compleja"
+  - "La enorme cúpula diseñada por Brunelleschi"
+  - "Los arcos apuntados de estilo ojival"
+  - "Las torres gemelas de piedra caliza"
+respuesta: "La enorme cúpula diseñada por Brunelleschi"
+explicacion: "Filippo Brunelleschi resolvió el problema de cubrir la nave central con una cúpula de doble capa y estilo clásico (romano), marcando el inicio de la arquitectura renacentista moderna."
 ```
 
 ```
-### 20 — Reforma Anglicana
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["guerra", "europa", "religion"]
+tipo: vf
+enunciado: "La Guerra de los Treinta Años (1618-1648) comenzó como un conflicto religioso entre católicos y protestantes en el Sacro Imperio, pero evolucionó hacia una lucha geopolítica por la hegemonía europea."
+respuesta: verdadero
+explicacion: "Aunque el detonante fue la Defenestración de Praga (conflicto religioso), potencias católicas como Francia se aliaron con protestantes contra los Habsburgo, priorizando el interés estatal sobre la fe."
 ```
 
 ```
-### 21 — Humanismo septentrional
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["literatura", "castiglione", "ideal"]
+tipo: completar
+enunciado: "Baldassare Castiglione escribió \"El Cortesano\", definiendo el ideal del hombre renacentista que debe poseer la {{grazia}} o gracia natural en todas sus acciones."
+variables:
+  grazia: uno_de(["grazia", "grace", "gracia", "Grazia"])
+respuesta: "grazia"
+respuestas_validas:
+  - "grazia"
+  - "grace"
+  - "gracia"
+  - "Grazia"
+  - "Grace"
+  - "Gracia"
+explicacion: "La 'sprezzatura' o gracia natural era esencial: hacer cosas difíciles parecer fáciles y naturales, demostrando nobleza sin esfuerzo aparente, combinando armas y letras."
 ```
 
 ```
-### 22 — Pintura veneciana
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["reforma", "iconoclastia", "arte"]
+tipo: mc
+enunciado: "¿Qué fenómeno artístico ocurrió en Flandes y otras regiones calvinistas durante la Reforma?"
+opciones_explicitas:
+  - "El florecimiento de la pintura de retratos nobles"
+  - "La destrucción masiva de imágenes religiosas en las iglesias"
+  - "La construcción de catedrales góticas gigantes"
+  - "El patrocinio público de esculturas mitológicas"
+respuesta: "La destrucción masiva de imágenes religiosas en las iglesias"
+explicacion: "Los reformadores calvinos consideraban las imágenes como idolatría prohibida por los mandamientos bíblicos, lo que llevó a la 'Beeldenstorm' (tormenta de imágenes) en los Países Bajos."
 ```
 
 ```
-### 23 — Edicto de Nantes
+metadata:
+  materia: "historia-profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["humanismo", "erasmo", "cristianismo"]
+tipo: completar
+enunciado: "Erasmo de Rotterdam, conocido como \"el príncipe de los humanistas\", criticó los abusos de la Iglesia desde dentro, abogando por un {{cristianismo}} simple y basado en los textos originales."
+variables:
+  cristianismo: uno_de(["cristianismo filosófico", "cristianismo humano", "filosofia christi", "christianismo"])
+respuesta: "cristianismo filosófico"
+respuestas_validas:
+  - "cristianismo filosófico"
+  - "cristianismo humano"
+  - "filosofia christi"
+  - "christianismo"
+  - "Cristianismo filosófico"
+  - "Cristianismo humano"
+  - "Filosofia Christi"
+  - "Christianismo"
+explicacion: "Erasmo buscaba una reforma moral y educativa basada en el estudio de la Biblia y los Padres de la Iglesia, influenciando a Lutero inicialmente antes de distanciarse por temas teológicos."
 ```
 
 ```
-### 24 — Arte manierista
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arte", "perspectiva", " Brunelleschi"]
+tipo: vf
+enunciado: "La invención de la perspectiva lineal matemática permitió a los artistas renacentistas representar el espacio tridimensional en un plano bidimensional de manera científica y coherente."
+respuesta: verdadero
+explicacion: "Desarrollada por Brunelleschi y teorizada por Alberti, la perspectiva utiliza un punto de fuga y líneas convergentes para crear la ilusión de profundidad, revolucionando la pintura."
 ```
 
 ```
-### 25 — Contra-Reforma y Jesuitas
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["reforma", "inglaterra", "henry"]
+tipo: completar
+enunciado: "Enrique VIII de Inglaterra rompió con la Iglesia Católica principalmente por razones políticas y dinásticas al buscar la anulación de su matrimonio con {{esposa}}."
+variables:
+  esposa: uno_de(["Catalina de Aragón", "catalina de aragon", "Catherine of Aragon", "catalina"])
+respuesta: "Catalina de Aragón"
+respuestas_validas:
+  - "Catalina de Aragón"
+  - "catalina de aragon"
+  - "Catherine of Aragon"
+  - "catalina"
+  - "Catalina"
+  - "Catalina de Aragon"
+explicacion: "La necesidad de un heredero varón llevó a Enrique a buscar la anulación, lo que le llevó a proclamarse Jefe Supremo de la Iglesia de Inglaterra mediante el Acta de Supremacía (1534)."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["humanismo", "norte-europa", "educacion"]
+tipo: mc
+enunciado: "¿Qué enfoque caracterizó al humanismo del Norte de Europa en comparación con el italiano?"
+opciones_explicitas:
+  - "El interés exclusivo por la mitología clásica pagana"
+  - "La fusión del humanismo clásico con la devoción religiosa cristiana"
+  - "El rechazo total de la religión en favor del materialismo"
+  - "La priorización de la escultura sobre la literatura"
+respuesta: "La fusión del humanismo clásico con la devoción religiosa cristiana"
+explicacion: "Humanistas como Erasmo y Tomás Moro utilizaron la filología clásica para estudiar la Biblia y los Padres de la Iglesia, buscando una reforma religiosa basada en el conocimiento y la piedad personal."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arte", "venecia", "color"]
+tipo: completar
+enunciado: "Los pintores venecianos como Tiziano se distinguieron por su uso magistral del {{color} en lugar del dibujo lineal (disegno) predominante en Florencia."
+variables:
+  color: uno_de(["color", "colore", "colour", "Color"])
+respuesta: "color"
+respuestas_validas:
+  - "color"
+  - "colore"
+  - "colour"
+  - "Color"
+  - "Colore"
+  - "Colour"
+explicacion: "En Venecia, la riqueza de los colores y la luz reflejada en el agua eran prioritarias (colore), mientras que en Florencia y Roma se valoraba más el diseño y la estructura (disegno)."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["francia", "guerras", "hugonotes"]
+tipo: vf
+enunciado: "El Edicto de Nantes (1598) promulgado por Enrique IV puso fin a las guerras de religión en Francia otorgando ciertos derechos a los hugonotes (protestantes)."
+respuesta: verdadero
+explicacion: "Fue un edicto de tolerancia que permitía la libertad de culto en lugares específicos para los protestantes, estableciendo una coexistencia precaria pero crucial en un país mayoritariamente católico."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["arte", "manierismo", "estilo"]
+tipo: mc
+enunciado: "¿Qué característica define al Manierismo, fase final del Renacimiento?"
+opciones_explicitas:
+  - "El equilibrio perfecto y la claridad clásica"
+  - "La distorsión de la figura humana y la composición inestable"
+  - "El realismo fotográfico y el detalle hiperdetallado"
+  - "El uso exclusivo de colores pasteles suaves"
+respuesta: "La distorsión de la figura humana y la composición inestable"
+explicacion: "Artistas como Pontormo y Parmigianino buscaban la elegancia artificial, la complejidad y la tensión emocional, rompiendo con las reglas armónicas del Alto Renacimiento."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "renacimiento-y-reforma"
+  nivel: "intermedio"
+  tags: ["jesuitas", "ignacio", "mision"]
+tipo: completar
+enunciado: "San Ignacio de Loyza fundó la Compañía de Jesús, un orden religiosa dedicada a la {{educacion}} y la misión, que se convirtió en la principal arma de la Iglesia Católica contra la Reforma."
+variables:
+  educacion: uno_de(["educacion", "educación", "education", "enseñanza", "instruction"])
+respuesta: "educacion"
+respuestas_validas:
+  - "educacion"
+  - "educación"
+  - "education"
+  - "enseñanza"
+  - "instruction"
+  - "Educacion"
+  - "Educación"
+  - "Education"
+  - "Enseñanza"
+  - "Instruction"
+explicacion: "Los jesuitas establecieron colegios y universidades en toda Europa y el mundo, formando a las élites y contrarrestando la influencia protestante a través de la educación y la obediencia al Papa."
 ```
 
 ## Sección: revolucion-de-mayo (25 preguntas)
@@ -1564,7 +1843,8 @@ metadata:
 
 respuesta: "Baltasar Hidalgo de Cisneros"
 tipo: completar
-respuestas_validas: ["Baltasar Hidalgo de Cisneros"]
+respuestas_validas:
+  - "Baltasar Hidalgo de Cisneros"
 
 enunciado: "El virrey que fue depuesto tras la Revolución de Mayo fue ___."
 
@@ -1581,13 +1861,9 @@ metadata:
 
 variables:
   idx: uno_de([0, 1, 2])
-  datos: [
-    ["Cornelio Saavedra", "Presidente"],
-    ["Mariano Moreno", "Secretario"],
-    ["Juan José Paso", "Secretario"]
-  ]
+  datos: [["Cornelio Saavedra", "Presidente"], ["Mariano Moreno", "Secretario"], ["Juan José Paso", "Secretario"]]
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["Presidente", "Secretario", "Vocal"]
 
@@ -1606,7 +1882,8 @@ metadata:
 
 respuesta: "Napoleón Bonaparte"
 tipo: completar
-respuestas_validas: ["Napoleón Bonaparte"]
+respuestas_validas:
+  - "Napoleón Bonaparte"
 
 enunciado: "Un factor externo crucial que aceleró la crisis de legitimidad en el Virreinato fue la invasión de ___ a España."
 
@@ -1621,7 +1898,7 @@ metadata:
   nivel: "avanzado"
   tags: ["cronologia", "eventos"]
 
-respuesta: ["Cabildo Abierto", "Junta de Gobierno", "Primera Junta"]
+respuesta_orden: ["Cabildo Abierto", "Junta de Gobierno", "Primera Junta"]
 tipo: ordenar
 opciones_explicitas: ["Cabildo Abierto", "Junta de Gobierno", "Primera Junta"]
 
@@ -1657,7 +1934,9 @@ metadata:
 
 respuesta: "Napoleón Bonaparte"
 tipo: completar
-respuestas_validas: ["Napoleón Bonaparte", "Napoleón"]
+respuestas_validas:
+  - "Napoleón Bonaparte"
+  - "Napoleón"
 
 enunciado: "La invasión de ___ a España en 1808 provocó una crisis de legitimidad que debilitó el control sobre las colonias americanas."
 
@@ -1690,7 +1969,7 @@ metadata:
   tags: ["cronologia", "causas"]
 
 opciones_explicitas: ["Invasión napoleónica", "Crisis de la monarquía española", "Revolución de Mayo"]
-respuesta: ["Invasión napoleónica", "Crisis de la monarquía española", "Revolución de Mayo"]
+respuesta_orden: ["Invasión napoleónica", "Crisis de la monarquía española", "Revolución de Mayo"]
 tipo: ordenar
 
 enunciado: "Ordena cronológicamente los sucesos que desencadenaron el proceso revolucionario:"
@@ -1706,12 +1985,7 @@ metadata:
   nivel: "avanzado"
   tags: ["soberania", "derecho"]
 
-variables:
-  escenario: uno_de([0, 1])
-
-respuesta: tabla[escenario][1
-tabla:
-  - ["La autoridad reside en el Rey", "La soberanía recae en el pueblo"]
+respuesta: "La soberanía recae en el pueblo"
 tipo: mc
 
 opciones_explicitas: ["La autoridad reside en el Rey", "La soberanía recae en el pueblo"]
@@ -1748,7 +2022,8 @@ metadata:
 
 respuesta: "Cornelio Saavedra"
 tipo: completar
-respuestas_validas: ["Cornelio Saavedra"]
+respuestas_validas:
+  - "Cornelio Saavedra"
 
 enunciado: "La Primera Junta, conformada tras la Revolución de Mayo, fue presidida por ___."
 
@@ -1782,7 +2057,8 @@ metadata:
 
 respuesta: "Fernando VII"
 tipo: completar
-respuestas_validas: ["Fernando VII"]
+respuestas_validas:
+  - "Fernando VII"
 
 enunciado: "Debido a la estrategia política de la época, la Primera Junta gobernaba en nombre del rey depuesto, un fenómeno conocido como la 'máscara de ___'."
 
@@ -1799,8 +2075,9 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
+  tabla: [["Cornelio Saavedra", "Cornelio Saavedra"], ["Mariano Moreno", "Mariano Moreno"]]
 
-respuesta: tabla[idx][1
+respuesta: tabla[idx][1]
 tipo: mc
 opciones_explicitas: ["Cornelio Saavedra", "Mariano Moreno", "Juan José Paso", "Domingo Saavedra"]
 
@@ -1811,9 +2088,6 @@ pasos:
 
 explicacion: |
   La Primera Junta estaba integrada por miembros del cabildo y militares; Saavedra era el presidente y Moreno el secretario.
-
-variables:
-  tabla: [["Cornelio Saavedra", "Cornelio Saavedra"], ["Mariano Moreno", "Mariano Moreno"]]
 ```
 
 ```
@@ -1824,7 +2098,7 @@ metadata:
   tags: ["orden_gobiernos", "etapas"]
 
 opciones_explicitas: ["Primera Junta", "Junta Grande", "Directorio"]
-respuesta: ["Primera Junta", "Junta Grande", "Directorio"]
+respuesta_orden: ["Primera Junta", "Junta Grande", "Directorio"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente las etapas de los gobiernos patrios tras la Revolución de Mayo, desde el primero hasta el último de esta lista."
@@ -1859,10 +2133,7 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["La Primera Junta", "el gobierno de la Junta"],
-    ["El Primer Congreso", "la autoridad del Congreso"]
-  ]
+  escenarios: [["La Primera Junta", "el gobierno de la Junta"], ["El Primer Congreso", "la autoridad del Congreso"]]
 
 opciones_explicitas: ["gobernanza local", "soberanía absoluta", "restitución de la monarquía española", "subordinación a la corona británica"]
 respuesta: "gobernanza local"
@@ -1881,9 +2152,9 @@ metadata:
   nivel: "intermedio"
   tags: ["cronologia", "procesos"]
 
+tipo: ordenar
 opciones_explicitas: ["Revolución de Mayo", "Congreso de Tucumán", "Declaración de la Independencia"]
-respuesta: ["Revolución de Mayo", "Congreso de Tucumán", "Declaración de la Independencia"]
-tipo: "ordenar"
+respuesta_orden: ["Revolución de Mayo", "Congreso de Tucumán", "Declaración de la Independencia"]
 
 enunciado: "Ordena cronológicamente los hitos del proceso de emancipación argentina:"
 
@@ -1900,7 +2171,10 @@ metadata:
 
 respuesta: "proceso"
 tipo: "completar"
-respuestas_validas: ["proceso", "etapa", "punto de partida"]
+respuestas_validas:
+  - "proceso"
+  - "etapa"
+  - "punto de partida"
 
 enunciado: "La Revolución de Mayo no debe entenderse como el fin de la lucha, sino como el ___ que dio inicio a una compleja serie de conflictos y debates políticos."
 
@@ -1917,14 +2191,8 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [
-    ["la legitimidad del Rey", "la autoridad de las juntas"],
-    ["la soberanía popular", "la voluntad de los pueblos"]
-  ]
-  respuestas: [
-    ["la legitimidad del Rey", "la autoridad de las juntas"],
-    ["la soberanía popular", "la voluntad de los pueblos"]
-  ]
+  casos: [["la legitimidad del Rey", "la autoridad de las juntas"], ["la soberanía popular", "la voluntad de los pueblos"]]
+  respuestas: [["la legitimidad del Rey", "la autoridad de las juntas"], ["la soberanía popular", "la voluntad de los pueblos"]]
 
 opciones_explicitas: ["la legitimidad del Rey", "la autoridad de las juntas", "la soberanía popular", "la voluntad de los pueblos"]
 respuesta: "la autoridad de las juntas"
@@ -1941,17 +2209,13 @@ metadata:
   materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "basico"
-  tags: ["cabildo", "mayo_1816"]
+  tags: ["cabildo", "mayo_1810"]
 
-variables:
-  escenario: [[ "El 22 de mayo de 1816, se debatió la legitimidad del virrey en el Cabildo Abierto.", "Juan José Castelli"], ["El 22 de mayo de 1816, se debatió la legitimidad del virrey en el Cabildo Abierto.", "Cornelio Saavedra"]]
-  idx: uno_de([0,1])
-
-respuesta: escenario[idx][1
+respuesta: "Juan José Castelli"
 tipo: mc
 opciones_explicitas: ["Juan José Castelli", "Cornelio Saavedra", "Mariano Moreno", "Manuel Belgrano"]
 
-enunciado: "En el Cabildo Abierto del 22 de mayo, ¿qué figura fue uno de los principales oradores defendiendo la soberanía del pueblo frente al virreinato? {escenario[idx][0]}"
+enunciado: "En el Cabildo Abierto del 22 de mayo de 1810, ¿qué figura fue uno de los principales oradores defendiendo la soberanía del pueblo frente al virreinato?"
 
 explicacion: |
   Juan José Castelli fue conocido como 'el orador de la Revolución', defendiendo la postura de que el poder volvía al pueblo ante la caída de la Junta de Sevilla.
@@ -1965,17 +2229,17 @@ metadata:
   tags: ["primera_junta", "gobierno"]
 
 variables:
-  datos: [["Presidente", "Cornelio Saavedra"], ["Secretario", "Mariano Moreno"], ["Secretario", "Juan José Castelli"]]
+  datos: [["Presidente", "Cornelio Saavedra"], ["Secretario", "Mariano Moreno"], ["Secretario", "Juan José Paso"]]
   idx: uno_de([0,1,2])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["Cornelio Saavedra", "Mariano Moreno", "Juan José Castelli", "Baltasar Hidalgo de Cisneros"]
+opciones_explicitas: ["Cornelio Saavedra", "Mariano Moreno", "Juan José Paso", "Baltasar Hidalgo de Cisneros"]
 
-enunciado: "La Primera Junta de Gobierno, establecida tras la Revolución de Mayo, tenía una estructura con un Presidente y dos Secretarios. Si el rol seleccionado es {datos[idx][0]}, ¿quién ocupaba dicho cargo? {datos[idx][1]}"
+enunciado: "La Primera Junta de Gobierno, establecida tras la Revolución de Mayo, tenía una estructura con un Presidente y dos Secretarios. Si el rol seleccionado es {datos[idx][0]}, ¿quién ocupaba dicho cargo?"
 
 explicacion: |
-  La Primera Junta estaba integrada por Saavedra (Presidente), Moreno y Castelli (Secretarios), junto a otros miembros vocales.
+  La Primera Junta estaba integrada por Saavedra (Presidente), Moreno y Paso (Secretarios), junto a Castelli, Belgrano y otros como vocales.
 ```
 
 ```
@@ -1985,15 +2249,13 @@ metadata:
   nivel: "basico"
   tags: ["virrey", "cisneros"]
 
-variables:
-  caso: [["El último virrey del Río de la Plata fue...", "Baltasar Hidalgo de Cisneros"], ["El último virrey del Río de Plata fue...", "Cisneros"]]
-  idx: uno_de([0,1])
-
-respuesta: caso[idx][1
+respuesta: "Baltasar Hidalgo de Cisneros"
 tipo: completar
-respuestas_validas: ["Baltasar Hidalgo de Cisneros", "Cisneros"]
+respuestas_validas:
+  - "Baltasar Hidalgo de Cisneros"
+  - "Cisneros"
 
-enunciado: "El proceso revolucionario de mayo de 1816 culminó con la destitución de ___. "
+enunciado: "El proceso revolucionario de mayo de 1810 culminó con la destitución de ___. "
 
 explicacion: |
   Baltasar Hidalgo de Cisneros fue el último virrey enviado por la corona española que gobernó el territorio antes de la formación de la Primera Junta.
@@ -2006,11 +2268,11 @@ metadata:
   nivel: "intermedio"
   tags: ["cronologia", "mayo"]
 
-respuesta: ["Llegada de la Primera Junta", "Establecimiento de la Junta de Gobierno", "Cabildo Abierto del 22 de mayo", "Junta de los 25 de mayo"]
+respuesta_orden: ["Llegada de la Primera Junta", "Establecimiento de la Junta de Gobierno", "Cabildo Abierto del 22 de mayo", "Junta de los 25 de mayo"]
 tipo: ordenar
 opciones_explicitas: ["Llegada de la Primera Junta", "Establecimiento de la Junta de Gobierno", "Cabildo Abierto del 22 de mayo", "Junta de los 25 de mayo"]
 
-enunciado: "Ordena cronológicamente los hitos clave de la Semana de Mayo de 1816:"
+enunciado: "Ordena cronológicamente los hitos clave de la Semana de Mayo de 1810:"
 
 explicacion: |
   La secuencia comenzó con la crisis de legitimidad, el debate en el Cabildo, la formación de la Junta de Gobierno y finalmente la instauración de la Primera Junta.
@@ -2023,16 +2285,15 @@ metadata:
   nivel: "avanzado"
   tags: ["prensa", "ideologia"]
 
-variables:
-  rol: [["La principal publicación de ideas revolucionarias fue la...", "La Gazeta de Buenos Ayres"], ["La principal publicación de ideas revolucionarias fue la...", "El Correo de la Patria"]]
-  idx: uno_de([0,1])
-
-respuesta: rol[idx][1
+respuesta: "La Gazeta de Buenos Ayres"
 tipo: completar
-respuestas_validas: ["La Gazeta de Buenos Ayres", "El Correo de la Patria"]
+respuestas_validas:
+  - "La Gazeta de Buenos Ayres"
+  - "La Gaceta de Buenos Aires"
 
 enunciado: "Durante el proceso revolucionario, la difusión de ideas fue vital. Se destaca que la principal publicación de ideas revolucionarias fue la ___. "
 
 explicacion: |
   La Gazeta de Buenos Ayres fue el primer periódico de la ciudad, utilizado para difundir los ideales de la revolución.
 ```
+

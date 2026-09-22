@@ -1,6 +1,6 @@
-# Examen jefe — De Big Bang a Perón
+# Examen jefe — [PENDIENTE #697]
 
-> Logro #115. Completaste este examen jefe abarcando desde el origen del universo hasta la historia social argentina. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **124 preguntas totales** en 5/5 secciones.
+> Logro #697. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -30,14 +30,7 @@ metadata:
   nivel: "intermedio"
   tags: ["miller_urey", "aminoacidos"]
 
-variables:
-  idx: uno_de([0,1])
-
-enunciado: "En el famoso experimento de Miller y Urey, se simularon las condiciones de la Tierra primitiva mediante descargas eléctricas. El resultado principal fue la formación de {datos[idx][0]} a partir de sustancias inorgánicas."
-
-variables:
-  datos: [["aminoácidos", "aminoácidos"], ["nucleótidos", "nucleótidos"]]
-  idx: uno_de([0,1])
+enunciado: "En el famoso experimento de Miller y Urey, se simularon las condiciones de la Tierra primitiva mediante descargas eléctricas. ¿Cuál fue el resultado principal a partir de sustancias inorgánicas?"
 
 respuesta: "aminoácidos"
 tipo: "mc"
@@ -56,7 +49,8 @@ metadata:
 
 enunciado: "La hipótesis del 'Mundo del ARN' sugiere que antes de la aparición del ADN y las proteínas, el ___ cumplía la función de almacenar información genética y catalizar reacciones químicas."
 
-respuestas_validas: ["ARN"]
+respuestas_validas:
+  - "ARN"
 respuesta: "ARN"
 tipo: "completar"
 
@@ -74,7 +68,7 @@ metadata:
 enunciado: "Ordena correctamente los procesos de la evolución química, desde la materia más simple hasta la vida:"
 
 opciones_explicitas: ["Moléculas inorgánicas", "Monómeros orgánicos", "Polímeros complejos", "Protobiontes"]
-respuesta: ["Moléculas inorgánicas", "Monómeros orgánicos", "Polímeros complejos", "Protobiontes"]
+respuesta_orden: ["Moléculas inorgánicas", "Monómeros orgánicos", "Polímeros complejos", "Protobiontes"]
 tipo: "ordenar"
 
 explicacion: |
@@ -88,18 +82,10 @@ metadata:
   nivel: "avanzado"
   tags: ["quimiosintesis", "metabolismo"]
 
-variables:
-  escenario: uno_de([0,1])
-
 enunciado: "En las fuentes hidrotermales del fondo oceánico, la vida pudo haber comenzado mediante un proceso de ___ que utilizaba la energía química de los minerales."
 
-variables:
-  escenario: uno_de([0,1])
-  opciones: [["quimiosíntesis", "fotosíntesis"], ["quimiosíntesis", "fotosíntesis"]]
-
-respuestas_validas: ["quimiosíntesis"]
+tipo: completar
 respuesta: "quimiosíntesis"
-tipo: "completar"
 
 explicacion: |
   Antes de la fotosíntesis, los primeros organismos probablemente obtenían energía de las reacciones redox de compuestos inorgánicos en las chimeneas hidrotermales.
@@ -114,7 +100,9 @@ metadata:
 
 respuesta: "Miller-Urey"
 tipo: completar
-respuestas_validas: ["Miller-Urey", "Miller-Urey"]
+respuestas_validas:
+  - "Miller-Urey"
+  - "Miller-Urey"
 
 enunciado: "El experimento diseñado para probar la hipótesis de la 'sopa primordial' en charcos superficiales fue el de ___."
 
@@ -129,15 +117,11 @@ metadata:
   nivel: "intermedio"
   tags: ["fuentes_hidrotermales", "quimiosintesis"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenario: [["charcos superficiales", "exposición a radiación UV"], ["fuentes hidrotermales", "protección de la radiación UV"]]
-
-respuesta: escenario[escenario_idx][1
+respuesta: "protección de la radiación UV"
 tipo: mc
 opciones_explicitas: ["exposición a radiación UV", "protección de la radiación UV", "alta radiación solar", "ausencia de calor"]
 
-enunciado: "A diferencia de la hipótesis de la sopa primordial, la teoría de las fuentes hidrotermales sugiere que la vida pudo originarse en el fondo oceánico debido a la {escenario[escenario_idx][0]}."
+enunciado: "A diferencia de la hipótesis de la sopa primordial, la teoría de las fuentes hidrotermales sugiere que la vida pudo originarse en el fondo oceánico debido a la ___."
 
 explicacion: |
   Las fuentes hidrotermales ofrecen un ambiente protegido de la radiación UV superficial y proporcionan gradientes térmicos y químicos esenciales para la síntesis de moléculas complejas.
@@ -152,7 +136,9 @@ metadata:
 
 respuesta: "quimiosintesis"
 tipo: completar
-respuestas_validas: ["quimiosintesis", "quimiosintesis"]
+respuestas_validas:
+  - "quimiosintesis"
+  - "quimiosintesis"
 
 enunciado: "Mientras que la sopa primordial se basa en la energía solar y descargas, las fuentes hidrotermales proponen un metabolismo basado en la ___."
 
@@ -167,7 +153,7 @@ metadata:
   nivel: "basico"
   tags: ["miller_urey", "moléculas"]
 
-respuesta: ["Metano", "Amoníaco", "Hidrógeno", "Agua"]
+respuesta_orden: ["Metano", "Amoníaco", "Hidrógeno", "Agua"]
 tipo: ordenar
 opciones_explicitas: ["Metano", "Amoníaco", "Hidrógeno", "Agua"]
 
@@ -184,15 +170,11 @@ metadata:
   nivel: "avanzado"
   tags: ["energia", "hipotesis"]
 
-variables:
-  tipo_energia_idx: uno_de([0, 1])
-  tipo_energia: [["descargas eléctricas"], ["gradientes térmicos"]]
-
-respuesta: tipo_energia[tipo_energia_idx][0
+respuesta: "descargas eléctricas"
 tipo: mc
 opciones_explicitas: ["descargas eléctricas", "gradientes térmicos", "radiación gamma", "energía cinética"]
 
-enunciado: "En el modelo de la sopa primordial, el motor energético para la síntesis de moléculas orgánicas es la {tipo_energia[tipo_energia_idx][0]}."
+enunciado: "En el modelo de la sopa primordial, ¿cuál es el motor energético propuesto para la síntesis de moléculas orgánicas?"
 
 explicacion: |
   En el modelo de Miller-Urey, las descargas eléctricas (simulando rayos) proporcionan la energía necesaria para romper los enlaces de los gases y formar nuevas moléculas.
@@ -207,6 +189,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Un organismo pluricelular complejo", "El último ancestro común de todos los organismos actuales", "Un organismo que vivió solo en la atmósfera", "La primera célula que apareció en la Tierra"]
+respuesta: "El último ancestro común de todos los organismos actuales"
 
 enunciado: "El término LUCA hace referencia a un concepto fundamental en la biología evolutiva. ¿Qué significa exactamente?"
 
@@ -221,12 +204,10 @@ metadata:
   nivel: "intermedio"
   tags: ["biologia", "bioquimica"]
 
-variables:
-  escenario: uno_de([["metabolismo_quimiosintetico", "quimiosíntesis"], ["fotosintesis", "fotosíntesis"]])
-
 tipo: completar
-respuestas_validas: ["quimiosíntesis", "fotosíntesis"]
-respuesta: escenario[0][1
+respuestas_validas:
+  - "quimiosíntesis"
+respuesta: "quimiosíntesis"
 
 enunciado: "Se postula que LUCA habitaba en entornos extremos, como fuentes hidrotermales, y que su principal fuente de energía era la ___."
 
@@ -248,6 +229,7 @@ enunciado: "Ordena cronológicamente estos hitos evolutivos, desde el ancestro c
 
 explicacion: |
   La evolución biológica siguió una progresión desde un ancestro común unicelular, pasando por la especialización procariota y eucariota, hasta la complejidad de la pluricelularidad.
+respuesta_orden: ["LUCA", "Primeras células procariotas", "Células eucariotas", "Organismos pluricelulares"]
 ```
 
 ```
@@ -260,11 +242,15 @@ metadata:
 variables:
   mol_idx: uno_de([0, 1])
   mol_datos: [["ATP", "energía celular"], ["ADN", "información genética"]]
+  mol_nombre: mol_datos[mol_idx][0]
+  mol_funcion: mol_datos[mol_idx][1]
+  respuesta_correcta: mol_datos[mol_idx][0]
 
 tipo: mc
-opciones_explicitas: ["El uso de " + "ATP" + " como moneda energética", "La presencia de " + "ADN" + " como almacén de información", "La capacidad de realizar " + "fotosíntesis" + " en la superficie", "La existencia de " + "núcleo" + " celular"]
+respuesta: respuesta_correcta
+opciones_explicitas: ["ATP", "ADN", "ARN", "Proteínas"]
 
-enunciado: "La existencia de {mol_datos[mol_idx][0]} en todos los dominios de la vida es una evidencia clave de que todos los seres vivos comparten un ancestro común."
+enunciado: "La existencia de {mol_nombre} en todos los dominios de la vida es una evidencia clave de que todos los seres vivos comparten un ancestro común, ya que cumple la función de {mol_funcion}."
 
 explicacion: |
   El hecho de que todos los seres vivos utilicen la misma molécula para almacenar información genética (ADN/ARN) y la misma para transferir energía (ATP) es la prueba más fuerte de un origen común.
@@ -279,6 +265,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Almacenar información genética y actuar como catalizador", "Solo almacenar información genética", "Solo actuar como catalizador enzimático", "Transportar aminoácidos a los ribosomas"]
+respuesta: "Almacenar información genética y actuar como catalizador"
 
 enunciado: "La hipótesis del 'mundo de ARN' sugiere que esta molécula fue clave en el origen de la vida debido a que puede ___."
 
@@ -294,7 +281,9 @@ metadata:
   tags: ["adn", "arn", "proteinas"]
 
 tipo: completar
-respuestas_validas: ["ADN", "proteínas"]
+respuestas_validas:
+  - "ADN"
+  - "proteínas"
 
 enunciado: "En la hipótesis del mundo de ARN, se postula que el ARN precedió tanto al ___ como a las ___ en la evolución biológica."
 
@@ -311,6 +300,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Capacidad de catalizar reacciones químicas", "Capacidad de replicarse sin proteínas", "Capacidad de formar dobles hélices estables", "Capacidad de almacenar aminoácidos"]
+respuesta: "Capacidad de catalizar reacciones químicas"
 
 enunciado: "Una de las propiedades fundamentales que permite al ARN ser el protagonista del 'mundo de ARN' es su capacidad de actuar como una ___."
 
@@ -332,6 +322,7 @@ enunciado: "Según la hipótesis del mundo de ARN, ¿cuál sería el orden evolu
 
 explicacion: |
   El ARN habría servido como la molécula 'todo en uno' que permitió la aparición de la autorreplicación, antes de la especialización funcional del ADN y las proteínas.
+respuesta_orden: ["ARN", "ADN", "Proteínas"]
 ```
 
 ```
@@ -342,12 +333,13 @@ metadata:
   tags: ["paradoja", "evolucion"]
 
 variables:
-  escenario: uno_de([[1, "necesidad de una plantilla"], [2, "necesidad de un catalizador"]])
+  escenario: uno_de(["plantilla", "catalizador"])
 
 tipo: mc
 opciones_explicitas: ["La estabilidad del ADN", "La velocidad de la proteína", "La dualidad funcional del ARN", "La complejidad del núcleo"]
+respuesta: "La dualidad funcional del ARN"
 
-enunciado: "El 'dilema de la replicación' se resuelve con el ARN porque este puede resolver la {escenario} mediante su estructura química."
+enunciado: "El 'dilema de la replicación' se resuelve con el ARN porque este puede resolver la necesidad de un {escenario} mediante su estructura química."
 
 explicacion: |
   Si el escenario es la necesidad de una plantilla, el ARN sirve como molde. Si es la necesidad de un catalizador, el ARN actúa como enzima. Esto permite que la vida comience sin depender de un sistema complejo de tres moléculas distintas.
@@ -364,7 +356,7 @@ variables:
   escenario: [[["metano", "amoniaco", "hidrogeno", "vapor de agua"], "aminoácidos"], [["metano", "amoniaco", "hidrogeno", "vapor de agua"], "azúcares"], [["metano", "amoniaco", "hidrogeno", "vapor de agua"], "lípidos"]]
   idx: uno_de([0,1,2])
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: mc
 opciones_explicitas: ["aminoácidos", "azúcares", "lípidos"]
 
@@ -381,11 +373,7 @@ metadata:
   nivel: "basico"
   tags: ["atmosfera", "gases"]
 
-variables:
-  gas_principal: ["metano", "oxígeno", "nitrógeno"]
-  idx: uno_de([0,1,2])
-
-respuesta: gas_principal[idx
+respuesta: "metano"
 tipo: mc
 opciones_explicitas: ["metano", "oxígeno", "nitrógeno"]
 
@@ -402,13 +390,10 @@ metadata:
   nivel: "basico"
   tags: ["energia", "descarga"]
 
-variables:
-  fuente: ["descargas eléctricas", "radiación solar", "calor volcánico"]
-  idx: uno_de([0,1,2])
-
-respuesta: fuente[idx
+respuesta: "descargas eléctricas"
 tipo: completar
-respuestas_validas: ["descargas eléctricas", "radiación solar", "calor volcánico"]
+respuestas_validas:
+  - "descargas eléctricas"
 
 enunciado: "Para simular la energía disponible en la atmósfera primitiva, el aparato de Miller utilizó ___ entre los gases."
 
@@ -427,7 +412,7 @@ variables:
   proceso: [["condensación", "evaporación"], ["condensación", "sublimación"], ["condensación", "fusión"]]
   idx: uno_de([0,1,2])
 
-respuesta: proceso[idx][0
+respuesta: proceso[idx][0]
 tipo: mc
 opciones_explicitas: ["condensación", "evaporación", "sublimación", "fusión"]
 
@@ -444,15 +429,11 @@ metadata:
   nivel: "avanzado"
   tags: ["montaje", "componentes"]
 
-variables:
-  orden: [["gases", "descargas", "condensación"], ["gases", "condensación", "descargas"], ["condensación", "gases", "descargas"]]
-  idx: uno_de([0,1,2])
-
-respuesta: orden[idx
+respuesta_orden: ["gases", "descargas", "condensación"]
 tipo: ordenar
 opciones_explicitas: ["gases", "descargas", "condensación"]
 
-enunciado: "Ordena los elementos o procesos según el flujo lógico de la síntesis química en el experimento de Miller: primero los ___; luego las ___; y finalmente la ___ de los productos."
+enunciado: "Ordena los elementos o procesos según el flujo lógico de la síntesis química en el experimento de Miller:"
 
 explicacion: |
   El experimento requiere primero la mezcla de gases, luego la aplicación de energía (descargas) y finalmente la recuperación de productos mediante condensación.
@@ -471,7 +452,9 @@ tipo: completar
 
 enunciado: "Una idea errónea común es que el Big Bang fue una explosión de materia en un espacio vacío preexistente. Sin embargo, la teoría científica actual establece que el Big Bang fue la expansión del propio ___."
 
-respuestas_validas: ["espacio-tiempo", "espacio y tiempo"]
+respuestas_validas:
+  - "espacio-tiempo"
+  - "espacio y tiempo"
 
 respuesta: "espacio-tiempo"
 
@@ -490,7 +473,9 @@ tipo: completar
 
 enunciado: "Dado que el Big Bang fue una expansión del espacio-tiempo en todos los puntos simultáneamente, el universo ___ tiene un centro único o un punto de origen espacial."
 
-respuestas_validas: ["no", "no posee"]
+respuestas_validas:
+  - "no"
+  - "no posee"
 
 respuesta: "no"
 
@@ -509,7 +494,9 @@ tipo: completar
 
 enunciado: "Si el Big Bang creó el espacio-tiempo, esto implica que el universo no se está expandiendo hacia un espacio vacío que ya existía, por lo tanto, no existe un ___ que el universo esté ocupando."
 
-respuestas_validas: ["afuera", "exterior"]
+respuestas_validas:
+  - "afuera"
+  - "exterior"
 
 respuesta: "afuera"
 
@@ -528,7 +515,9 @@ tipo: completar
 
 enunciado: "Para entender que el espacio se estira, se suele usar la analogía de la superficie de un globo que se infla. En este modelo, las galaxias se alejan entre sí porque el ___ entre ellas aumenta, no porque se desplacen por un espacio vacío."
 
-respuestas_validas: ["espacio", "distancia"]
+respuestas_validas:
+  - "espacio"
+  - "distancia"
 
 respuesta: "espacio"
 
@@ -547,7 +536,8 @@ tipo: completar
 
 enunciado: "Si el Big Bang marca el inicio del espacio-tiempo, esto significa que el ___ no existía antes de este evento, invalidando la idea de un 'antes' en términos temporales clásicos."
 
-respuestas_validas: ["tiempo"]
+respuestas_validas:
+  - "tiempo"
 
 respuesta: "tiempo"
 
@@ -580,7 +570,8 @@ metadata:
   tags: ["particulas", "temperatura"]
 
 tipo: completar
-respuestas_validas: ["enfriamiento"]
+respuestas_validas:
+  - "enfriamiento"
 respuesta: "enfriamiento"
 
 enunciado: "A medida que el universo se expandía tras el Big Bang, la temperatura descendía, permitiendo el ___ del cosmos y la formación de estructuras."
@@ -631,7 +622,8 @@ metadata:
   tags: ["estrellas", "galaxias"]
 
 tipo: completar
-respuestas_validas: ["estrellas"]
+respuestas_validas:
+  - "estrellas"
 respuesta: "estrellas"
 
 enunciado: "Mucho tiempo después de la formación de los primeros átomos, la gravedad agrupó las nubes de gas para dar origen a las primeras ___."
@@ -649,7 +641,8 @@ metadata:
 
 respuesta: "corrimiento al rojo"
 tipo: completar
-respuestas_validas: ["corrimiento al rojo"]
+respuestas_validas:
+  - "corrimiento al rojo"
 
 enunciado: "El fenómeno observado en la luz de galaxias lejanas que indica que el universo se está expandiendo se conoce como ___."
 
@@ -666,7 +659,9 @@ metadata:
 
 respuesta: "380000"
 tipo: completar
-respuestas_validas: ["380000", "380.000"]
+respuestas_validas:
+  - "380000"
+  - "380.000"
 
 enunciado: "La Radiación Cósmica de Fondo de Microondas (CMB) se originó aproximadamente ___ años después del Big Bang, cuando el universo se volvió transparente."
 
@@ -683,7 +678,9 @@ metadata:
 
 respuesta: "hidrógeno"
 tipo: completar
-respuestas_validas: ["hidrógeno", "hidrogeno"]
+respuestas_validas:
+  - "hidrógeno"
+  - "hidrogeno"
 
 enunciado: "Según el modelo del Big Bang, el elemento más abundante creado en las primeras etapas del universo (junto con el helio) fue el ___."
 
@@ -700,7 +697,8 @@ metadata:
 
 respuesta: "rojo"
 tipo: completar
-respuestas_validas: ["rojo"]
+respuestas_validas:
+  - "rojo"
 
 enunciado: "Cuando una galaxia se aleja de un observador, la luz que emite se desplaza hacia el extremo ___ del espectro electromagnético."
 
@@ -717,7 +715,9 @@ metadata:
 
 respuesta: "radiación cósmica de fondo de microondas"
 tipo: completar
-respuestas_validas: ["radiación cósmica de fondo de microondas", "radiación de fondo"]
+respuestas_validas:
+  - "radiación cósmica de fondo de microondas"
+  - "radiación de fondo"
 
 enunciado: "La evidencia que consiste en un resplandor térmico que llena todo el universo y es un 'eco' del Big Bang se denomina ___."
 
@@ -820,10 +820,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenarios: [
-    ["Observamos que la luz de las galaxias lejanas se desplaza hacia longitudes de onda más largas (rojas).", "corrimiento al rojo"],
-    ["Observamos que las galaxias se alejan de nosotros a velocidades proporcionales a su distancia.", "corrimiento al rojo"]
-  ]
+  escenarios: [["Observamos que la luz de las galaxias lejanas se desplaza hacia longitudes de onda más largas (rojas).", "corrimiento al rojo"], ["Observamos que las galaxias se alejan de nosotros a velocidades proporcionales a su distancia.", "corrimiento al rojo"]]
 
 opciones_explicitas: ["corrimiento al rojo", "corrimiento al azul", "estacionarismo galáctico"]
 
@@ -845,10 +842,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  evidencias: [
-    ["un resplandor de microondas que llena todo el cielo de forma casi uniforme", "radiación de fondo de microondas"],
-    ["una temperatura residual de aproximadamente 2.7 Kelvin presente en todo el espacio", "radiación de fondo de microondas"]
-  ]
+  evidencias: [["un resplandor de microondas que llena todo el cielo de forma casi uniforme", "radiación de fondo de microondas"], ["una temperatura residual de aproximadamente 2.7 Kelvin presente en todo el espacio", "radiación de fondo de microondas"]]
 
 opciones_explicitas: ["radiación de fondo de microondas", "luz visible de estrellas", "nebulosas de gas"]
 
@@ -870,10 +864,7 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [
-    ["la proporción observada de helio y deuterio en el universo temprano", "nucleosíntesis primordial"],
-    ["la cantidad de helio-4 presente en las nubes de gas más antiguas", "nucleosíntesis primordial"]
-  ]
+  datos: [["la proporción observada de helio y deuterio en el universo temprano", "nucleosíntesis primordial"], ["la cantidad de helio-4 presente en las nubes de gas más antiguas", "nucleosíntesis primordial"]]
 
 opciones_explicitas: ["nucleosíntesis estelar", "nucleosíntesis primordial", "fusión de agujeros negros"]
 
@@ -895,7 +886,9 @@ metadata:
 
 respuesta: "expansión"
 tipo: completar
-respuestas_validas: ["expansión", "expansion"]
+respuestas_validas:
+  - "expansión"
+  - "expansion"
 
 enunciado: "Según la evidencia del corrimiento al rojo, el universo no es estático, sino que se encuentra en un proceso de ___ constante."
 
@@ -912,7 +905,8 @@ metadata:
 
 respuesta: "singularidad"
 tipo: completar
-respuestas_validas: ["singularidad"]
+respuestas_validas:
+  - "singularidad"
 
 enunciado: "La teoría del Big Bang postula que el universo comenzó a partir de un estado de densidad y temperatura infinitas llamado ___."
 
@@ -931,7 +925,8 @@ metadata:
 
 respuesta: "paleoclima"
 tipo: completar
-respuestas_validas: ["paleoclima"]
+respuestas_validas:
+  - "paleoclima"
 
 enunciado: "El estudio de los climas de la Tierra en el pasado geológico se denomina ___."
 
@@ -946,15 +941,11 @@ metadata:
   nivel: "intermedio"
   tags: ["metodos", "reconstruccion"]
 
-variables:
-  metodo_idx: uno_de([0, 1, 2])
-  metodos: [["núcleos de hielo", "sedimentos marinos", "anillos de árboles"]]
-
-respuesta: metodos[metodo_idx
+respuesta: "núcleos de hielo"
 tipo: mc
 opciones_explicitas: ["núcleos de hielo", "sedimentos marinos", "anillos de árboles", "fósiles de insectos"]
 
-enunciado: "Un método común para reconstruir el paleoclima mediante el análisis de capas de precipitación congelada es el uso de {metodos[metodo_idx]}."
+enunciado: "Un método común para reconstruir el paleoclima mediante el análisis de capas de precipitación congelada es el uso de ___."
 
 explicacion: |
   Los núcleos de hielo almacenan burbujas de aire y partículas que permiten conocer la composición atmosférica de hace miles de años.
@@ -984,7 +975,7 @@ metadata:
   nivel: "avanzado"
   tags: ["metodologia", "proceso"]
 
-respuesta: ["extracción", "datación", "análisis químico"]
+respuesta_orden: ["extracción", "datación", "análisis químico"]
 tipo: ordenar
 opciones_explicitas: ["extracción", "datación", "análisis químico"]
 
@@ -1008,10 +999,10 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  escenarios: [["ancho", "estrecho"]]
+  escenarios: ["ancho", "estrecho"]
   resultado: ["clima favorable", "clima adverso"]
 
-respuesta: resultado[caso_idx
+respuesta: resultado[caso_idx]
 tipo: mc
 opciones_explicitas: ["clima favorable", "clima adverso"]
 
@@ -1046,22 +1037,18 @@ metadata:
   nivel: "avanzado"
   tags: ["oblicuidad", "inclinacion", "clima"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[15, 23.5], [24.5, 22.1]]
-
-respuesta: escenario[idx][1
+respuesta: 22.1
 tipo: completar
 tolerancia_abs: 0.1
 
-enunciado: "La inclinación del eje terrestre (oblicuidad) varía periódicamente. Si la inclinación aumenta hacia el valor de {escenario[idx][0]} grados, ¿cuál es el valor aproximado de la inclinación mínima que alcanza en el ciclo?"
+enunciado: "La inclinación del eje terrestre (oblicuidad) varía periódicamente entre aproximadamente 22.1° y 24.5°. Si la inclinación aumenta hacia el valor máximo de 24.5 grados, ¿cuál es el valor aproximado de la inclinación mínima que alcanza en el ciclo?"
 
 pasos:
   - "Identificar el valor máximo de inclinación proporcionado."
-  - "Identificar el valor mínimo de inclinación proporcionado en el escenario."
+  - "Identificar el valor mínimo de inclinación del ciclo real (22.1°-24.5°)."
 
 explicacion: |
-  La oblicuidad influye en la estacionalidad. Una mayor inclinación genera estaciones más marcadas, mientras que una menor inclinación (como el valor de {escenario[idx][1]} grados) tiende a favorecer la glaciación al hacer los veranos menos intensos en las altas latitudes.
+  La oblicuidad influye en la estacionalidad. Una mayor inclinación genera estaciones más marcadas, mientras que una menor inclinación (22.1 grados) tiende a favorecer la glaciación al hacer los veranos menos intensos en las altas latitudes.
 ```
 
 ```
@@ -1073,7 +1060,10 @@ metadata:
 
 respuesta: "el eje de rotación"
 tipo: completar
-respuestas_validas: ["el eje de rotación", "la órbita", "el sol"]
+respuestas_validas:
+  - "el eje de rotación"
+  - "la órbita"
+  - "el sol"
 
 enunciado: "La precesión es el movimiento de bamboleo de ___ terrestre, similar al de un trompo, que cambia la orientación de los polos respecto a la eclíptica."
 
@@ -1088,7 +1078,7 @@ metadata:
   nivel: "basico"
   tags: ["causas", "glaciaciones"]
 
-respuesta: ["excentricidad", "oblicuidad", "precesión"]
+respuesta_orden: ["excentricidad", "oblicuidad", "precesión"]
 tipo: ordenar
 
 opciones_explicitas: ["excentricidad", "oblicuidad", "precesión"]
@@ -1106,14 +1096,10 @@ metadata:
   nivel: "intermedio"
   tags: ["radiacion", "insolacion"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [["disminuye", "glaciación"], ["aumenta", "interglaciar"]]
-
-respuesta: datos[idx][1
+respuesta: "glaciación"
 tipo: mc
 
-enunciado: "Si los ciclos de Milankovitch provocan que la insolación estival en las altas latitudes sea significativamente menor, el efecto resultante en el clima global es una: {datos[idx][0]}"
+enunciado: "Si los ciclos de Milankovitch provocan que la insolación estival en las altas latitudes sea significativamente menor, el efecto resultante en el clima global es una:"
 
 opciones_explicitas: ["glaciación", "interglaciar", "estabilidad térmica"]
 
@@ -1130,7 +1116,9 @@ metadata:
 
 respuesta: "Tierra bola de nieve"
 tipo: completar
-respuestas_validas: ["Tierra bola de nieve", "Snowball Earth"]
+respuestas_validas:
+  - "Tierra bola de nieve"
+  - "Snowball Earth"
 
 enunciado: "La hipótesis que propone que, durante el Precámbrico, la Tierra estuvo casi totalmente cubierta por capas de hielo se denomina ___."
 
@@ -1148,8 +1136,9 @@ metadata:
 variables:
   escenario_idx: uno_de([0, 1])
   evidencias: [["diamictitas", "depósitos de tilita"], ["capas de carbonatos", "depósitos de hierro bandeado"]]
+  respuesta_correcta: evidencias[escenario_idx][0]
 
-respuesta: escenario_idx_datos[1
+respuesta: respuesta_correcta
 tipo: mc
 opciones_explicitas: ["diamictitas", "capas de carbonatos", "depósitos de hierro bandeado", "depósitos de tilita"]
 
@@ -1172,7 +1161,9 @@ metadata:
 
 respuesta: "albedo"
 tipo: completar
-respuestas_validas: ["albedo", "efecto invernadero"]
+respuestas_validas:
+  - "albedo"
+  - "efecto invernadero"
 
 enunciado: "El principal mecanismo de retroalimentación positiva que acelera el enfriamiento en la hipótesis de la Tierra bola de nieve es el aumento del ___ terrestre."
 
@@ -1204,7 +1195,7 @@ metadata:
   nivel: "avanzado"
   tags: ["secuencia", "clima", "precambrico"]
 
-respuesta: ["Glaciación global", "Acumulación de gases volcánicos", "Efecto invernadero extremo", "Deshielo masivo"]
+respuesta_orden: ["Glaciación global", "Acumulación de gases volcánicos", "Efecto invernadero extremo", "Deshielo masivo"]
 tipo: ordenar
 opciones_explicitas: ["Glaciación global", "Acumulación de gases volcánicos", "Efecto invernadero extremo", "Deshielo masivo"]
 
@@ -1229,7 +1220,8 @@ metadata:
 
 respuesta: "Pleistoceno"
 tipo: completar
-respuestas_validas: ["Pleistoceno"]
+respuestas_validas:
+  - "Pleistoceno"
 
 enunciado: "El periodo geológico que comprende la mayor parte del Cuaternario y que se caracteriza por ciclos de glaciaciones es el ___________."
 
@@ -1261,21 +1253,14 @@ metadata:
   nivel: "avanzado"
   tags: ["milankovitch", "ciclos"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [
-    ["Excentricidad", "Cambio en la forma de la órbita terrestre"],
-    ["Precesión", "Cambio en la orientación del eje terrestre"]
-  ]
-
-respuesta: escenario[idx][1
 tipo: mc
 opciones_explicitas: ["Excentricidad", "Precesión", "Oblicuidad", "Efecto Coriolis"]
+respuesta: "Excentricidad"
 
-enunciado: "Si nos referimos al ciclo que altera la forma de la órbita terrestre de circular a elíptica, estamos hablando de la: {escenario[idx][0]}."
+enunciado: "El ciclo de Milankovitch que altera la forma de la órbita terrestre, haciéndola pasar de casi circular a más elíptica y viceversa a lo largo de miles de años, se conoce como:"
 
 explicacion: |
-  La {escenario[idx][0]} es uno de los tres ciclos astronómicos principales que modulan la insolación terrestre.
+  La Excentricidad es uno de los tres ciclos astronómicos principales (junto con la Precesión y la Oblicuidad) que modulan la insolación terrestre, con un período aproximado de 100.000 años.
 ```
 
 ```
@@ -1285,11 +1270,11 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "clima"]
 
-respuesta: ["Glaciación", "Interglaciar", "Glaciación", "Interglaciar"]
+respuesta_orden: ["Interglaciar actual (Holoceno)", "Enfriamiento gradual", "Máximo glacial", "Deshielo hacia el siguiente interglaciar"]
 tipo: ordenar
-opciones_explicitas: ["Glaciación", "Interglaciar", "Glaciación", "Interglaciar"]
+opciones_explicitas: ["Interglaciar actual (Holoceno)", "Enfriamiento gradual", "Máximo glacial", "Deshielo hacia el siguiente interglaciar"]
 
-enunciado: "Ordena la secuencia típica de los ciclos climáticos que han definido el Cuaternario (de mayor a menor cobertura de hielo):"
+enunciado: "Ordena las etapas de un ciclo climático típico del Cuaternario, comenzando desde el interglaciar actual:"
 
 explicacion: |
   El Cuaternario se caracteriza por la alternancia entre periodos fríos (glaciaciones) y periodos cálidos (interglaciares).
@@ -1319,15 +1304,11 @@ metadata:
   nivel: "intermedio"
   tags: ["milankovitch", "astronomia"]
 
-variables:
-  escenario: [[ "excentricidad", "cambios en la órbita terrestre" ], [ "oblicuidad", "inclinación del eje terrestre" ], [ "precesión", "balanceo del eje terrestre" ]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: escenario[idx][1
+respuesta: "cambios en la órbita terrestre"
 tipo: mc
 opciones_explicitas: ["cambios en la órbita terrestre", "inclinación del eje terrestre", "balanceo del eje terrestre"]
 
-enunciado: "La variación en la forma de la órbita terrestre alrededor del Sol, conocida como ciclo de {escenario[idx][0]}, es un factor clave en las glaciaciones."
+enunciado: "La variación en la forma de la órbita terrestre alrededor del Sol, conocida como ciclo de excentricidad, consiste en:"
 
 explicacion: |
   La excentricidad describe qué tan elíptica es la órbita, afectando la distancia promedio al Sol.
@@ -1340,15 +1321,11 @@ metadata:
   nivel: "basico"
   tags: ["volcanes", "clima"]
 
-variables:
-  caso: [[ "ceniza y aerosoles", "enfriamiento" ], [ "gases de efecto invernadero", "calentamiento" ]]
-  idx: uno_de([0, 1])
-
-respuesta: caso[idx][1
+respuesta: "enfriamiento"
 tipo: mc
 opciones_explicitas: ["enfriamiento", "calentamiento"]
 
-enunciado: "Una erupción volcánica masiva inyecta partículas en la estratosfera. Dependiendo de la composición predominante, el efecto inmediato sobre la temperatura global puede ser de ___."
+enunciado: "Una erupción volcánica masiva inyecta ceniza y aerosoles en la estratosfera. El efecto inmediato de estas partículas sobre la temperatura global es de ___."
 
 explicacion: |
   Las erupciones grandes suelen causar enfriamiento temporal debido al efecto albedo de los aerosoles.
@@ -1361,13 +1338,10 @@ metadata:
   nivel: "avanzado"
   tags: ["carbono", "geoquimica"]
 
-variables:
-  evento: [[ "aumento", "liberación de CO2" ], [ "disminución", "secuestro de CO2" ]]
-  idx: uno_de([0, 1])
-
-respuesta: evento[idx][1
+respuesta: "secuestro de CO2"
 tipo: completar
-respuestas_validas: ["liberación de CO2", "secuestro de CO2"]
+respuestas_validas:
+  - "secuestro de CO2"
 
 enunciado: "Durante un periodo de glaciación, la actividad biológica y la sedimentación oceánica provocan una ___ de carbono atmosférico."
 
@@ -1382,7 +1356,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "procesos"]
 
-respuesta: ["Aumento de radiación solar", "Derretimiento de glaciares", "Aumento del nivel del mar"]
+respuesta_orden: ["Aumento de radiación solar", "Derretimiento de glaciares", "Aumento del nivel del mar"]
 tipo: ordenar
 opciones_explicitas: ["Aumento de radiación solar", "Derretimiento de glaciares", "Aumento del nivel del mar"]
 
@@ -1399,15 +1373,11 @@ metadata:
   nivel: "basico"
   tags: ["escalas", "tiempo"]
 
-variables:
-  escala: [[ "Milankovitch", "Ciclos orbitales" ], [ "Ciclos de hielo", "Variaciones milenarias" ]]
-  idx: uno_de([0, 1])
-
-respuesta: escala[idx][1
+respuesta: "Ciclos orbitales"
 tipo: mc
 opciones_explicitas: ["Ciclos orbitales", "Variaciones milenarias"]
 
-enunciado: "Las variaciones climáticas de escala geológica, como las glaciaciones, están impulsadas principalmente por los ciclos de ___."
+enunciado: "Las variaciones climáticas de escala geológica, como las glaciaciones, están impulsadas principalmente por los ciclos de Milankovitch, es decir, por:"
 
 explicacion: |
   Los ciclos de Milankovitch operan en escalas de decenas de miles de años.
@@ -1424,7 +1394,8 @@ metadata:
 
 respuesta: "Paleolítico"
 tipo: completar
-respuestas_validas: ["Paleolítico"]
+respuestas_validas:
+  - "Paleolítico"
 
 enunciado: "La etapa más larga de la prehistoria humana, caracterizada por el uso de herramientas de piedra tallada, se denomina ___."
 
@@ -1439,14 +1410,7 @@ metadata:
   nivel: "basico"
   tags: ["economia", "nomadismo"]
 
-variables:
-  escenario: uno_de([
-    ["caza y recolección", "nómadas"],
-    ["agricultura y ganadería", "sedentarios"],
-    ["comercio de metales", "urbanos"]
-  ])
-
-respuesta: escenario[1
+respuesta: "nómadas"
 tipo: mc
 opciones_explicitas: ["nómadas", "sedentarios", "urbanos"]
 
@@ -1465,7 +1429,8 @@ metadata:
 
 respuesta: "piedra tallada"
 tipo: completar
-respuestas_validas: ["piedra tallada"]
+respuestas_validas:
+  - "piedra tallada"
 
 enunciado: "A diferencia del Neolítico donde la piedra se pulía, en el Paleolítico la principal técnica de fabricación consistía en la ___."
 
@@ -1480,7 +1445,7 @@ metadata:
   nivel: "intermedio"
   tags: ["evolucion", "orden"]
 
-respuesta: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
+respuesta_orden: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
 tipo: ordenar
 opciones_explicitas: ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"]
 
@@ -1497,16 +1462,9 @@ metadata:
   nivel: "avanzado"
   tags: ["cultura", "fuego"]
 
-variables:
-  caso: uno_de([
-    ["cocinar alimentos", "socialización"],
-    ["protección de depredadores", "luz"],
-    ["calor en climas fríos", "cocción"]
-  ])
-
-respuesta: caso[0
 tipo: mc
 opciones_explicitas: ["socialización", "cocción", "iluminación"]
+respuesta: "cocción"
 
 enunciado: "El control del fuego fue un hito crucial. Además de la luz y el calor, su uso permitió principalmente la ___."
 
@@ -1523,7 +1481,9 @@ metadata:
 
 respuesta: "cocinar"
 tipo: completar
-respuestas_validas: ["cocinar", "la cocción"]
+respuestas_validas:
+  - "cocinar"
+  - "la cocción"
 
 enunciado: "El control del fuego permitió a los homínidos ___ los alimentos, lo que facilitó la digestión y aumentó la ingesta calórica."
 
@@ -1557,17 +1517,13 @@ metadata:
 
 variables:
   beneficio_idx: uno_de([0, 1, 2])
-  escenario: [
-    ["iluminar", "permitió extender las horas de actividad social y exploración en cuevas"],
-    ["calentar", "permitió la migración hacia climas más fríos"],
-    ["cocinar", "permitió el desarrollo de mandíbulas más pequeñas y cerebros más grandes"]
-  ]
+  escenario: [["iluminar", "permitió extender las horas de actividad social y exploración en cuevas"], ["calentar", "permitió la migración hacia climas más fríos"], ["cocinar", "permitió el desarrollo de mandíbulas más pequeñas y cerebros más grandes"]]
 
-respuesta: escenario[beneficio_idx][1
 tipo: mc
-opciones_explicitas: ["iluminar", "calentar", "cocinar"]
+opciones_explicitas: ["permitió extender las horas de actividad social y exploración en cuevas", "permitió la migración hacia climas más fríos", "permitió el desarrollo de mandíbulas más pequeñas y cerebros más grandes"]
+respuesta: escenario[beneficio_idx][1]
 
-enunciado: "Si el control del fuego sirvió para {escenario[beneficio_idx][0]}, esto significó que: ___"
+enunciado: "El control del fuego sirvió, entre otras cosas, para {escenario[beneficio_idx][0]}. ¿Cuál fue la consecuencia principal de este uso?"
 
 explicacion: |
   {escenario[beneficio_idx][1]}
@@ -1582,7 +1538,9 @@ metadata:
 
 respuesta: "social"
 tipo: completar
-respuestas_validas: ["social", "comunitaria"]
+respuestas_validas:
+  - "social"
+  - "comunitaria"
 
 enunciado: "El uso del fuego alrededor de la hoguera fomentó la cohesión ___ de los grupos de homínidos."
 
@@ -1598,7 +1556,7 @@ metadata:
   tags: ["fuego", "causa_efecto"]
 
 opciones_explicitas: ["Fuego", "Cocción", "Mejor nutrición", "Cerebro más grande"]
-respuesta: ["Fuego", "Cocción", "Mejor nutrición", "Cerebro más grande"]
+respuesta_orden: ["Fuego", "Cocción", "Mejor nutrición", "Cerebro más grande"]
 tipo: ordenar
 
 enunciado: "Ordena la secuencia lógica de causa y efecto iniciada por el control del fuego:"
@@ -1615,15 +1573,11 @@ metadata:
   tags: ["nomadismo", "supervivencia"]
 
 variables:
-  escenario: uno_de([
-    ["el movimiento de las manadas de renos", "el renos"],
-    ["la maduración de frutos silvestres", "los frutos"],
-    ["el ciclo de vida de los grandes mamíferos", "los mamíferos"]
-  ])
+  escenario: uno_de([["el movimiento de las manadas de renos", "el movimiento de las manadas de renos"], ["la maduración de frutos silvestres", "la maduración de frutos silvestres"], ["el ciclo de vida de los grandes mamíferos", "el ciclo de vida de los grandes mamíferos"]])
 
 enunciado: "En el Paleolítico, los grupos humanos se desplazaban siguiendo {escenario[0]} para asegurar su subsistencia."
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["el movimiento de las manadas de renos", "la maduración de frutos silvestres", "el ciclo de vida de los grandes mamíferos"]
 
@@ -1642,7 +1596,10 @@ enunciado: "A diferencia de los grupos nómadas, los asentamientos fijos no exis
 
 respuesta: "no existían"
 tipo: completar
-respuestas_validas: ["no existían", "no existían", "no existían"]
+respuestas_validas:
+  - "no existían"
+  - "no existían"
+  - "no existían"
 
 explicacion: |
   La falta de agricultura obligaba a los grupos humanos a desplazarse constantemente para no agotar los recursos de una zona.
@@ -1655,15 +1612,9 @@ metadata:
   nivel: "intermedio"
   tags: ["recoleccion", "caza"]
 
-variables:
-  tipo_recurso: uno_de([
-    ["caza de animales", "la caza"],
-    ["recolección de plantas", "la recolección"]
-  ])
+enunciado: "La economía del Paleolítico se basaba principalmente en la caza de animales y la recolección de plantas. Ordena estas actividades:"
 
-enunciado: "La economía del Paleolítico se basaba principalmente en {tipo_recurso[0]} y {tipo_recurso[1]}."
-
-respuesta: ["la caza", "la recolección"]
+respuesta_orden: ["la caza", "la recolección"]
 tipo: ordenar
 opciones_explicitas: ["la caza", "la recolección"]
 
@@ -1678,13 +1629,7 @@ metadata:
   nivel: "intermedio"
   tags: ["estacionalidad", "clima"]
 
-variables:
-  clima: uno_de([
-    ["el invierno", "el frío"],
-    ["el verano", "el calor"]
-  ])
-
-enunciado: "Los cambios en {clima[0]} afectaban la disponibilidad de alimento, obligando a los grupos a migrar hacia zonas más favorables."
+enunciado: "Los cambios estacionales asociados al invierno afectaban la disponibilidad de alimento, obligando a los grupos a migrar hacia zonas más favorables debido al ___."
 
 respuesta: "el frío"
 tipo: mc
@@ -1702,16 +1647,15 @@ metadata:
   tags: ["sociedad", "movilidad"]
 
 variables:
-  grupo: uno_de([
-    ["pequeños grupos familiares", "pequeños grupos familiares"],
-    ["grandes tribus sedentarias", "grandes tribus sedentarias"]
-  ])
+  grupo: uno_de([["pequeños grupos familiares", "pequeños grupos familiares"], ["grandes tribus sedentarias", "grandes tribus sedentarias"]])
 
 enunciado: "La vida nómada era compatible con la organización en ___ debido a la necesidad de movilidad constante."
 
 respuesta: "pequeños grupos familiares"
 tipo: completar
-respuestas_validas: ["pequeños grupos familiares", "pequeños grupos familiares"]
+respuestas_validas:
+  - "pequeños grupos familiares"
+  - "pequeños grupos familiares"
 
 explicacion: |
   Los grupos eran pequeños para facilitar el desplazamiento rápido y evitar el agotamiento de los recursos en un mismo territorio.
@@ -1726,7 +1670,8 @@ metadata:
 
 respuesta: "Olduvayense"
 tipo: completar
-respuestas_validas: ["Olduvayense"]
+respuestas_validas:
+  - "Olduvayense"
 
 enunciado: "La industria lítica más antigua conocida, caracterizada por el uso de percutores para obtener filos rudimentarios, se denomina industria ___."
 
@@ -1758,14 +1703,7 @@ metadata:
   nivel: "intermedio"
   tags: ["evolucion", "tecnologia"]
 
-variables:
-  escenario: uno_de([
-    ["Olduvayense", "Choppers"],
-    ["Acheulense", "Bifaces"],
-    ["Musteriense", "Láminas"]
-  ])
-
-respuesta: escenario[1
+respuesta: "Bifaces"
 tipo: mc
 opciones_explicitas: ["Choppers", "Bifaces", "Láminas"]
 
@@ -1783,7 +1721,7 @@ metadata:
   tags: ["proceso", "fabricacion"]
 
 opciones_explicitas: ["Selección de materia prima", "Percutaje/Talla", "Afilado/Retoque final"]
-respuesta: ["Selección de materia prima", "Percutaje/Talla", "Afilado/Retoque final"]
+respuesta_orden: ["Selección de materia prima", "Percutaje/Talla", "Afilado/Retoque final"]
 tipo: ordenar
 
 enunciado: "Ordena los pasos lógicos que un homínido debía seguir para fabricar una herramienta de piedra tallada:"
@@ -1799,7 +1737,7 @@ metadata:
   nivel: "intermedio"
   tags: ["impacto", "alimentacion"]
 
-respuesta: 10
+respuesta: 55
 tipo: completar
 tolerancia_abs: 0.1
 
@@ -1810,7 +1748,7 @@ pasos:
   - "Sumar el material base y el excedente de filo"
 
 explicacion: |
-  El cálculo es: 50 + (50 * 0.10) = 55. Sin embargo, la pregunta pide el material efectivo de corte basado en la eficiencia añadida (50 * 1.1 = 55). Nota: El usuario debe calcular el valor total resultante.
+  El cálculo es: 50 kg + (50 kg * 0.10) = 55 kg de material efectivo de corte.
 ```
 
 ```
@@ -1822,11 +1760,14 @@ metadata:
 
 variables:
   idx: uno_de([0,1,2])
-  datos: [["hacha de mano de piedra tallada", "bifaz"], ["lanzas de piedra", "punta de proyectil"], ["hachas de piedra pulida", "hacha de piedra"]]
+  datos: [["hacha de mano de piedra tallada", "bifaz"], ["lanzas de piedra", "punta de proyectil"], ["raspadores de piedra tallada", "raspador"]]
 
 enunciado: "Durante el Paleolítico, los homínidos utilizaban diversas herramientas de piedra. Si encontramos un objeto con la forma de un {datos[idx][0]}, estamos ante un/a ___."
 
-respuestas_validas: ["bifaz", "punta de proyectil", "hacha de piedra"]
+respuestas_validas:
+  - "bifaz"
+  - "punta de proyectil"
+  - "raspador"
 respuesta: datos[idx][1]
 tipo: completar
 
@@ -1841,14 +1782,10 @@ metadata:
   nivel: "basico"
   tags: ["subsistencia", "nómada"]
 
-variables:
-  idx: uno_de([0,1,2])
-  datos: [["recolección de frutos y caza", "nómada"], ["agricultura de cereales", "sedentario"], ["pastoreo de ganado", "sedentario"]]
-
-enunciado: "La principal actividad económica en el Paleolítico era la {datos[idx][0]}, lo que obligaba a los grupos humanos a tener un estilo de vida ___."
+enunciado: "La principal actividad económica en el Paleolítico era la recolección de frutos y la caza, lo que obligaba a los grupos humanos a tener un estilo de vida ___."
 
 opciones_explicitas: ["nómada", "sedentario"]
-respuesta: datos[idx][1]
+respuesta: "nómada"
 tipo: mc
 
 explicacion: |
@@ -1862,18 +1799,14 @@ metadata:
   nivel: "intermedio"
   tags: ["arte", "rupestre"]
 
-variables:
-  idx: uno_de([0,1,2])
-  datos: [["pinturas en el interior de cuevas", "arte rupestre"], ["esculturas de mármol", "arte clásico"], ["mosaicos de piedra", "arte romano"]]
-
-enunciado: "El estilo artístico característico del Paleolítico, que consistía en {datos[idx][0]}, se denomina ___."
+enunciado: "El estilo artístico característico del Paleolítico, que consistía en pinturas en el interior de cuevas, se denomina ___."
 
 opciones_explicitas: ["arte rupestre", "arte clásico", "arte romano"]
-respuesta: datos[idx][1]
+respuesta: "arte rupestre"
 tipo: mc
 
 explicacion: |
-  El {datos[idx][0]} es la expresión máxima del arte rupestre, utilizada para representar animales y escenas de caza.
+  Las pinturas en el interior de cuevas son la expresión máxima del arte rupestre, utilizada para representar animales y escenas de caza.
 ```
 
 ```
@@ -1890,7 +1823,7 @@ variables:
 enunciado: "Ordena las siguientes etapas de la evolución tecnológica humana de la más antigua a la más reciente:"
 
 opciones_explicitas: ["Paleolítico", "Neolítico", "Edad de los Metales"]
-respuesta: ["Paleolítico", "Neolítico", "Edad de los Metales"]
+respuesta_orden: ["Paleolítico", "Neolítico", "Edad de los Metales"]
 tipo: ordenar
 
 explicacion: |
@@ -1904,18 +1837,15 @@ metadata:
   nivel: "basico"
   tags: ["fuego", "supervivencia"]
 
-variables:
-  idx: uno_de([0,1,2])
-  datos: [["dominio del fuego", "protección y calor"], ["domesticación de plantas", "agricultura"], ["uso de la rueda", "transporte"]]
+enunciado: "El dominio del fuego fue un hito fundamental en el Paleolítico que proporcionó ___."
 
-enunciado: "El {datos[idx][0]} fue un hito fundamental en el Paleolítico que proporcionó ___."
-
-respuestas_validas: ["protección y calor", "agricultura", "transporte"]
-respuesta: datos[idx][1]
+respuestas_validas:
+  - "protección y calor"
+respuesta: "protección y calor"
 tipo: completar
 
 explicacion: |
-  El {datos[idx][0]} permitió a los homínidos cocinar alimentos, calentarse y ahuyentar depredadores.
+  El dominio del fuego permitió a los homínidos cocinar alimentos, calentarse y ahuyentar depredadores.
 ```
 
 ## Sección: peronismo-derechos-sociales (25 preguntas)
@@ -1929,7 +1859,8 @@ metadata:
 
 respuesta: "Juan Domingo Perón"
 tipo: completar
-respuestas_validas: ["Juan Domingo Perón"]
+respuestas_validas:
+  - "Juan Domingo Perón"
 
 enunciado: "El líder que encabezó el movimiento que transformó la estructura política y social de Argentina a partir de 1946 fue ___."
 
@@ -1963,18 +1894,14 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["vacaciones pagas", "la implementación de las vacaciones pagas"],
-    ["aguinaldo", "la instauración del aguinaldo"]
-  ]
-  respuestas: [
-    ["vacaciones pagas", "la implementación de las vacaciones pagas"],
-    ["aguinaldo", "la instauración del aguinaldo"]
-  ]
+  escenarios: [["vacaciones pagas", "la implementación de las vacaciones pagas"], ["aguinaldo", "la instauración del aguinaldo"]]
+  respuestas: [["vacaciones pagas", "la implementación de las vacaciones pagas"], ["aguinaldo", "la instauración del aguinaldo"]]
 
 respuesta: "la implementación de las vacaciones pagas"
 tipo: completar
-respuestas_validas: ["la implementación de las vacaciones pagas", "la instauración del aguinaldo"]
+respuestas_validas:
+  - "la implementación de las vacaciones pagas"
+  - "la instauración del aguinaldo"
 
 enunciado: "Uno de los grandes hitos de la justicia social peronista fue {escenarios[escenario_idx][1]}."
 
@@ -2007,7 +1934,7 @@ metadata:
   tags: ["proceso_historico", "ordenar"]
 
 opciones_explicitas: ["Surgimiento del movimiento obrero", "Llegada al poder en 1946", "Consolidación de derechos sociales", "Expansión de la industria nacional"]
-respuesta: ["Surgimiento del movimiento obrero", "Llegada al poder en 1946", "Consolidación de derechos sociales", "Expansión de la industria nacional"]
+respuesta_orden: ["Surgimiento del movimiento obrero", "Llegada al poder en 1946", "Consolidación de derechos sociales", "Expansión de la industria nacional"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los procesos que permitieron el ascenso y consolidación del peronismo:"
@@ -2025,7 +1952,10 @@ metadata:
 
 respuesta: "Sueldo Anual Complementario"
 tipo: completar
-respuestas_validas: ["Sueldo Anual Complementario", "sueldo anual complementario", "Aguinaldo"]
+respuestas_validas:
+  - "Sueldo Anual Complementario"
+  - "sueldo anual complementario"
+  - "Aguinaldo"
 
 enunciado: "El beneficio laboral que consiste en la percepción de una parte del sueldo en dos cuotas durante el año se conoce formalmente como ___."
 
@@ -2057,15 +1987,12 @@ metadata:
   nivel: "intermedio"
   tags: ["sindicatos", "derechos_laborales"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["fortalecimiento de la negociación colectiva", "mayor poder de presión sindical"], ["protección de la actividad gremial", "reconocimiento de la personería gremial"]]
-
-respuesta: uno_de(datos[escenario_idx][0])
-tipo: mc
-opciones_explicitas: ["Debilitamiento de la negociación colectiva", "Pérdida de autonomía sindical", "Debilitamiento de la actividad gremial", "Fragmentación de los sectores obreros"]
-
-enunciado: "Uno de los pilares de la reforma laboral peronista fue el ___."
+tipo: completar
+enunciado: "Uno de los pilares de la reforma laboral peronista fue el ___ sindical, que dio a los trabajadores mayor poder de negociación colectiva."
+respuesta: "fortalecimiento"
+respuestas_validas:
+  - "fortalecimiento"
+  - "fortalecimiento sindical"
 
 explicacion: |
   El fortalecimiento de los sindicatos permitió que los trabajadores tuvieran una voz institucionalizada en la negociación de sus condiciones de vida.
@@ -2078,13 +2005,9 @@ metadata:
   nivel: "intermedio"
   tags: ["jubilaciones", "seguridad_social"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["jubilaciones", "pensiones"], ["ancianos", "retirados"]]
-
-respuesta: uno_de(casos[caso_idx][0])
 tipo: mc
 opciones_explicitas: ["seguros de vida", "jubilaciones", "créditos hipotecarios", "asistencia escolar"]
+respuesta: "jubilaciones"
 
 enunciado: "La ampliación de la cobertura de la seguridad social se manifestó principalmente en la expansión de las ___ para la clase trabajadora."
 
@@ -2100,7 +2023,7 @@ metadata:
   tags: ["ordenar", "derechos_laborales"]
 
 opciones_explicitas: ["Preexistencia de leyes", "Promulgación de leyes de protección", "Consolidación de derechos sociales"]
-respuesta: ["Preexistencia de leyes", "Promulgación de leyes de protección", "Consolidación de derechos sociales"]
+respuesta_orden: ["Preexistencia de leyes", "Promulgación de leyes de protección", "Consolidación de derechos sociales"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente la evolución de la situación de los derechos laborales en Argentina durante el proceso de transformación social de mediados del siglo XX:"
@@ -2118,12 +2041,13 @@ metadata:
 
 respuesta: "1947"
 tipo: "completar"
-respuestas_validas: ["1947"]
+respuestas_validas:
+  - "1947"
 
 enunciado: "La Ley de Sufragio Femenino en Argentina, que garantizó el derecho político de las mujeres, fue sancionada en el año ___."
 
 explicacion: |
-  La Ley 13.510 fue sancionada el 9 de septiembre de 1947, marcando un hito en la democracia argentina.
+  La Ley 13.010 fue sancionada el 9 de septiembre de 1947, marcando un hito en la democracia argentina.
 ```
 
 ```
@@ -2170,9 +2094,9 @@ metadata:
   nivel: "intermedio"
   tags: ["derechos_civiles", "ciudadania"]
 
-respuesta: ["Ley 13.510", "Sufragio Femenino", "Ciudadanía Plena"]
+respuesta_orden: ["Ley 13.010", "Sufragio Femenino", "Ciudadanía Plena"]
 tipo: "ordenar"
-opciones_explicitas: ["Ley 13.510", "Sufragio Femenino", "Ciudadanía Plena"]
+opciones_explicitas: ["Ley 13.010", "Sufragio Femenino", "Ciudadanía Plena"]
 
 enunciado: "Ordena cronológicamente los procesos que permitieron la integración política de la mujer en Argentina:"
 
@@ -2187,14 +2111,11 @@ metadata:
   nivel: "avanzado"
   tags: ["democracia", "participacion"]
 
-variables:
-  caso: uno_de([[true, "se amplió la base electoral"], [false, "se redujo la participación"]])
-
 respuesta: "se amplió la base electoral"
-tipo: "mc"
+tipo: mc
 opciones_explicitas: ["se amplió la base electoral", "se redujo la participación"]
 
-enunciado: "Considerando el impacto del voto femenino en la democracia argentina, ¿qué ocurrió con la participación política? {caso[0]}"
+enunciado: "Considerando el impacto del voto femenino en la democracia argentina, ¿qué ocurrió con la participación política?"
 
 explicacion: |
   La incorporación de las mujeres como electoras amplió significativamente la base de representatividad del sistema democrático.
@@ -2209,12 +2130,9 @@ metadata:
 
 variables:
   idx: uno_de([0,1])
-  escenario: [
-    ["El peronismo generó una división entre sectores que lo veían como una herramienta de justicia social y sectores que lo veían como una amenaza a las instituciones.", "La polarización fue un rasgo distintivo del periodo."],
-    ["El apoyo masivo de los trabajadores consolidó una nueva base política, mientras que la oposición se concentró en las clases medias y élites.", "La base social del movimiento fue transformadora."]
-  ]
+  escenario: [["El peronismo generó una división entre sectores que lo veían como una herramienta de justicia social y sectores que lo veían como una amenaza a las instituciones.", "La polarización fue un rasgo distintivo del periodo."], ["El apoyo masivo de los trabajadores consolidó una nueva base política, mientras que la oposición se concentró en las clases medias y élites.", "La base social del movimiento fue transformadora."]]
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][1]
 tipo: mc
 opciones_explicitas: ["La polarización fue un rasgo distintivo del periodo.", "La base social del movimiento fue transformadora."]
 
@@ -2233,7 +2151,9 @@ metadata:
 
 respuesta: "clase_obrera"
 tipo: completar
-respuestas_validas: ["clase_obrera", "clases_medias", "élite_terrateniente"]
+respuestas_validas:
+  - "clase_obrera"
+  - "clase trabajadora"
 
 enunciado: "El principal sector social que brindó el apoyo masivo y sostenido al movimiento peronista fue la ___."
 
@@ -2272,7 +2192,9 @@ metadata:
 
 respuesta: "identidad_politica"
 tipo: completar
-respuestas_validas: ["identidad_politica", "estabilidad_institucional", "sistema_partidario_unicos"]
+respuestas_validas:
+  - "identidad_politica"
+  - "identidad política"
 
 enunciado: "El peronismo no solo fue un gobierno, sino que configuró una nueva ___ que sigue siendo un eje central en la política argentina contemporánea."
 
@@ -2287,7 +2209,7 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso_historico", "derechos"]
 
-respuesta: ["Reivindicación de derechos laborales", "Fortalecimiento del rol sindical", "Polarización de la estructura social"]
+respuesta_orden: ["Reivindicación de derechos laborales", "Fortalecimiento del rol sindical", "Polarización de la estructura social"]
 tipo: ordenar
 opciones_explicitas: ["Reivindicación de derechos laborales", "Fortalecimiento del rol sindical", "Polarización de la estructura social"]
 
@@ -2325,15 +2247,12 @@ metadata:
   nivel: "intermedio"
   tags: ["voto_femenino", "derechos_civiles"]
 
-variables:
-  datos: [["Ley_1420", "educacion_comun"], ["Ley_13.001", "voto_femenino"], ["Ley_Estatuto", "derechos_sociales"]]
-  idx: uno_de([0, 1, 2])
-
-respuesta: datos[idx][1]
+respuesta: "voto_femenino"
 tipo: completar
-respuestas_validas: ["descanso_pago", "voto_femenino", "estabilidad_laboral"]
+respuestas_validas:
+  - "voto_femenino"
 
-enunciado: "La promulgación de la Ley 14.240 en 1947 permitió que las mujeres ejercieran su derecho al ___ en Argentina."
+enunciado: "La promulgación de la Ley 13.010 en 1947 permitió que las mujeres ejercieran su derecho al ___ en Argentina."
 
 explicacion: |
   La Ley de Sufragio Femenino fue fundamental para la integración de la mujer a la vida política y ciudadana del país.
@@ -2370,7 +2289,7 @@ metadata:
 variables:
   orden_correcta: ["Estatuto del Peón", "Ley de Vacaciones", "Voto Femenino", "Seguros de Vida"]
 
-respuesta: orden_correcta
+respuesta_orden: orden_correcta
 tipo: ordenar
 opciones_explicitas: ["Estatuto del Peón", "Ley de Vacaciones", "Voto Femenino", "Seguros de Vida"]
 
@@ -2391,7 +2310,8 @@ variables:
   datos: [["salario_justo", "dignidad"], ["jornada_8h", "salud"], ["afiliacion_sindicato", "poder"]]
   idx: uno_de([0, 1, 2])
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0
@@ -2401,3 +2321,4 @@ enunciado: "Para el peronismo, el trabajo no era solo una mercancía, sino un me
 explicacion: |
   La noción de 'dignidad' fue el eje transversal de todas las reformas laborales impulsadas por el Estado.
 ```
+

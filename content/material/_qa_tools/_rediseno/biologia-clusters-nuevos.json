@@ -1,0 +1,88 @@
+[
+ {
+  "id": 861,
+  "cluster": 1,
+  "temas": [
+   "adn-gen-proteina",
+   "biodiversidad-indices",
+   "biotecnologia-pcr-crispr",
+   "cadenas-redes-troficas",
+   "celula-organelas"
+  ],
+  "preguntas": 113
+ },
+ {
+  "id": 862,
+  "cluster": 2,
+  "temas": [
+   "ciclos-biogeoquimicos",
+   "ciclos-vida-metamorfosis",
+   "clasificacion-evolucion",
+   "conservacion-areas-protegidas",
+   "crecimiento-poblacional"
+  ],
+  "preguntas": 115
+ },
+ {
+  "id": 863,
+  "cluster": 3,
+  "temas": [
+   "cruce-dihibrido",
+   "deriva-genetica-flujo-genico",
+   "dinamica-poblacional-capacidad-carga",
+   "enzimas-proteina-sustrato-ph",
+   "especiacion"
+  ],
+  "preguntas": 131
+ },
+ {
+  "id": 864,
+  "cluster": 4,
+  "temas": [
+   "filogenia-arboles-evolutivos",
+   "flujo-materia-energia",
+   "fotosintesis-respiracion-celular",
+   "genetica-mendeliana-punnett",
+   "grupos-sanguineos"
+  ],
+  "preguntas": 111
+ },
+ {
+  "id": 865,
+  "cluster": 5,
+  "temas": [
+   "habitats-adaptacion",
+   "herencia-ligada-al-sexo",
+   "mal-de-chagas",
+   "microbiologia-virus-inmunitario",
+   "mitosis-meiosis"
+  ],
+  "preguntas": 105
+ },
+ {
+  "id": 866,
+  "cluster": 6,
+  "temas": [
+   "necesidades-basicas-seres-vivos",
+   "nicho-ecologico",
+   "partes-planta-germinacion",
+   "piramide-biomasas",
+   "presion-arterial"
+  ],
+  "preguntas": 110
+ },
+ {
+  "id": 867,
+  "cluster": 7,
+  "temas": [
+   "quimiosintesis",
+   "seleccion-natural",
+   "ser-vivo-caracteristicas",
+   "sistema-endocrino-hormonas-glandulas",
+   "sistema-nervioso-neurona-sinapsis",
+   "sistemas-cuerpo-humano",
+   "transgenicos-bioetica"
+  ],
+  "preguntas": 172
+ }
+]

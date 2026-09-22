@@ -1,0 +1,138 @@
+[
+ {
+  "id": 816,
+  "cluster": 1,
+  "temas": [
+   "algebra-booleana",
+   "algoritmo-secuencia-de-pasos",
+   "algoritmos-busqueda-ordenamiento",
+   "almacenamiento-volatil-vs-no-volatil",
+   "archivos-y-persistencia"
+  ],
+  "preguntas": 120
+ },
+ {
+  "id": 817,
+  "cluster": 2,
+  "temas": [
+   "buses-y-entrada-salida",
+   "ciclo-de-instruccion-fetch-decode-execute",
+   "complejidad-asintotica",
+   "control-de-versiones",
+   "cpu-unidad-de-control-y-alu"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 818,
+  "cluster": 3,
+  "temas": [
+   "criptografia-clave-simetrica-asimetrica-hash",
+   "direccionamiento-ip-dns",
+   "diseno-y-arquitectura-de-software",
+   "estructuras-de-control-bucles",
+   "estructuras-de-control-condicionales"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 819,
+  "cluster": 4,
+  "temas": [
+   "estructuras-de-datos-listas-pilas-colas",
+   "etica-de-la-ia-sesgo-privacidad",
+   "funciones-y-modularidad",
+   "historia-y-evolucion-de-los-sistemas-operativos",
+   "inteligencia-artificial-reglas-a-aprendizaje"
+  ],
+  "preguntas": 124
+ },
+ {
+  "id": 820,
+  "cluster": 5,
+  "temas": [
+   "arranque-de-la-computadora-boot",
+   "mantenimiento-y-deuda-tecnica",
+   "memoria-asignacion-memoria-virtual",
+   "memoria-ram-cache-jerarquia",
+   "modelo-relacional-tabla-registro-clave-primaria"
+  ],
+  "preguntas": 127
+ },
+ {
+  "id": 821,
+  "cluster": 6,
+  "temas": [
+   "normalizacion-bases-datos",
+   "ofimatica-planilla-de-calculo",
+   "paginacion",
+   "patrones-y-buenas-practicas",
+   "permisos-y-usuarios"
+  ],
+  "preguntas": 121
+ },
+ {
+  "id": 822,
+  "cluster": 7,
+  "temas": [
+   "planificacion-de-procesos",
+   "poo-clases-y-objetos",
+   "interrupciones",
+   "proceso-programa-en-ejecucion",
+   "protocolo-http-peticion-respuesta"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 823,
+  "cluster": 8,
+  "temas": [
+   "comunicacion-entre-procesos",
+   "pruebas-unitarias-integracion",
+   "que-es-la-tecnica-y-la-tecnologia",
+   "recursividad",
+   "medios-tecnicos-extension-capacidades-humanas"
+  ],
+  "preguntas": 116
+ },
+ {
+  "id": 824,
+  "cluster": 9,
+  "temas": [
+   "relaciones-y-claves-foraneas",
+   "procesos-tecnicos-artesanales-e-industriales",
+   "requisitos-funcionales-no-funcionales",
+   "revolucion-informatica",
+   "segmentacion"
+  ],
+  "preguntas": 120
+ },
+ {
+  "id": 825,
+  "cluster": 10,
+  "temas": [
+   "seguridad-de-red-firewall-vpn-cifrado",
+   "seguridad-informatica",
+   "sistema-de-archivos",
+   "sistemas-numeracion",
+   "sistema-de-archivos-por-bitacora"
+  ],
+  "preguntas": 120
+ },
+ {
+  "id": 826,
+  "cluster": 11,
+  "temas": [
+   "sql-consultas-joins-agregaciones",
+   "subsistema-de-entrada-y-salida",
+   "tcp-ip-capas-enrutamiento",
+   "tipos-de-licencias-de-software",
+   "tipos-de-so-por-dispositivo",
+   "transacciones-acid",
+   "unidades-almacenamiento",
+   "variables-y-tipos-de-dato",
+   "virtualizacion-maquina-virtual-contenedor"
+  ],
+  "preguntas": 213
+ }
+]

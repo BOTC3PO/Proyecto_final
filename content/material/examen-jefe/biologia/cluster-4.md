@@ -1,6 +1,6 @@
-# Examen jefe — Experto en Dinámica Evolutiva y Genética
+# Examen jefe — [PENDIENTE #864]
 
-> Logro #152. Completaste el parcial dominando filogenia, metabolismo y herencia mendeliana, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **111 preguntas totales** en 5/5 secciones.
+> Logro #864. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -34,7 +34,8 @@ tipo: completar
 
 enunciado: "En un cladograma, los puntos donde las ramas se bifurcan se denominan ___."
 
-respuestas_validas: ["nodos"]
+respuestas_validas:
+  - "nodos"
 respuesta: "nodos"
 
 explicacion: |
@@ -69,7 +70,8 @@ tipo: completar
 
 enunciado: "Las líneas que conectan los nodos en un árbol filogenético se llaman ___."
 
-respuestas_validas: ["ramas"]
+respuestas_validas:
+  - "ramas"
 respuesta: "ramas"
 
 explicacion: |
@@ -191,7 +193,9 @@ tipo: completar
 
 enunciado: "Un error común al interpretar árboles filogenéticos es verlos como una 'escalera de progreso' donde las especies más modernas son 'mejores' que las antiguas. En realidad, todas las especies actuales tienen la misma cantidad de tiempo transcurrido desde su ancestro común. Por lo tanto, la evolución no es una ___."
 
-respuestas_validas: ["jerarquía", "jerarquia"]
+respuestas_validas:
+  - "jerarquía"
+  - "jerarquia"
 respuesta: "jerarquía"
 
 explicacion: |
@@ -209,7 +213,8 @@ tipo: completar
 
 enunciado: "En un árbol filogenético, si rotamos las ramas alrededor de un nodo, la relación de parentesco entre las especies no cambia. Esto significa que el orden en que aparecen las especies en las puntas del árbol es ___."
 
-respuestas_validas: ["arbitrario"]
+respuestas_validas:
+  - "arbitrario"
 respuesta: "arbitrario"
 
 explicacion: |
@@ -227,7 +232,8 @@ tipo: completar
 
 enunciado: "Considerando un grupo de especies actuales, todas ellas han evolucionado desde su ancestro común durante el mismo período de tiempo. Si el ancestro común apareció hace 50 millones de años, todas las especies actuales del grupo tienen exactamente ___ millones de años de historia evolutiva desde ese punto."
 
-respuestas_validas: ["50"]
+respuestas_validas:
+  - "50"
 respuesta: "50"
 
 explicacion: |
@@ -245,7 +251,10 @@ tipo: completar
 
 enunciado: "Es incorrecto afirmar que un ser humano es 'más evolucionado' que un hongo: ambos han acumulado cambios genéticos y adaptaciones desde sus respectivos ancestros comunes. La evolución no busca la ___ de una especie sobre otra, sino la adaptación al entorno."
 
-respuestas_validas: ["superioridad", "perfección", "perfeccion"]
+respuestas_validas:
+  - "superioridad"
+  - "perfección"
+  - "perfeccion"
 respuesta: "superioridad"
 
 explicacion: |
@@ -263,7 +272,8 @@ tipo: completar
 
 enunciado: "En un árbol filogenético, un nodo representa el punto donde un linaje se divide en dos. Este punto simboliza un ___ común que ya no existe como una única población, sino que dio lugar a las especies actuales."
 
-respuestas_validas: ["ancestro"]
+respuestas_validas:
+  - "ancestro"
 respuesta: "ancestro"
 
 explicacion: |
@@ -278,11 +288,7 @@ metadata:
   tags: ["adn", "evolucion", "filogenia"]
 
 variables:
-  escenario: uno_de([
-    ["ATGC", "ATGG", "Muy emparentadas"],
-    ["CCGA", "TTAG", "Poco emparentadas"],
-    ["TTAA", "TTAG", "Muy emparentadas"]
-  ])
+  escenario: uno_de([["ATGC", "ATGG", "Muy emparentadas"], ["CCGA", "TTAG", "Poco emparentadas"], ["TTAA", "TTAG", "Muy emparentadas"]])
 
 enunciado: "Se comparan las secuencias de ADN de dos especies: la especie A tiene la secuencia {escenario[0]} y la especie B tiene la secuencia {escenario[1]}. Contando las diferencias entre ambas secuencias, ¿qué tan emparentadas están?"
 
@@ -303,7 +309,9 @@ metadata:
 
 enunciado: "En un árbol filogenético, el punto donde dos ramas se unen se denomina nodo, el cual representa el ___ común de las especies que de él derivan."
 
-respuestas_validas: ["ancestro", "antepasado"]
+respuestas_validas:
+  - "ancestro"
+  - "antepasado"
 respuesta: "ancestro"
 tipo: completar
 
@@ -341,7 +349,9 @@ metadata:
 
 enunciado: "Las estructuras que derivan de un mismo ancestro común, aunque tengan funciones distintas, se llaman estructuras ___."
 
-respuestas_validas: ["homologas", "homólogas"]
+respuestas_validas:
+  - "homologas"
+  - "homólogas"
 respuesta: "homologas"
 tipo: completar
 
@@ -357,17 +367,14 @@ metadata:
   tags: ["cladogramas", "adn"]
 
 variables:
-  escenario: uno_de([
-    ["chimpancé", "1", "cerdo"],
-    ["gorila", "2", "ratón"]
-  ])
+  escenario: uno_de([["chimpancé", "1", "cerdo"], ["gorila", "2", "ratón"]])
 
 enunciado: "El ser humano comparte más secuencia de ADN con el {escenario[0]} (diferencia de apenas {escenario[1]}% en algunas regiones comparadas) que con el {escenario[2]}. ¿Cuál de los dos animales comparte un ancestro común más reciente con el ser humano?"
 
-opciones_explicitas: ["{escenario[0]}", "{escenario[2]}"]
 respuesta: escenario[0]
 tipo: completar
-respuestas_validas: ["chimpancé", "chimpance", "gorila"]
+respuestas_validas:
+  - escenario[0]
 
 explicacion: |
   Cuanto menor es la diferencia porcentual entre secuencias de ADN, más reciente es el ancestro común compartido — por eso el árbol filogenético ubica a los primates mucho más cerca del ser humano que a otros mamíferos.
@@ -415,7 +422,9 @@ metadata:
   tags: ["filogenia", "conceptos"]
 
 tipo: completar
-respuestas_validas: ["especiación", "especiacion"]
+respuestas_validas:
+  - "especiación"
+  - "especiacion"
 respuesta: "especiación"
 
 enunciado: "Cuando un nodo se bifurca, se está representando un evento de ___ que da origen a nuevos linajes."
@@ -449,7 +458,8 @@ metadata:
   tags: ["filogenia", "interpretacion"]
 
 tipo: completar
-respuestas_validas: ["extinta"]
+respuestas_validas:
+  - "extinta"
 respuesta: "extinta"
 
 enunciado: "Si una rama del árbol termina antes de llegar al presente (no es una punta terminal de un árbol de especies actuales), esa rama representa una especie ___."
@@ -646,7 +656,8 @@ metadata:
 
 respuesta: "termodinamica"
 tipo: completar
-respuestas_validas: ["termodinamica"]
+respuestas_validas:
+  - "termodinamica"
 
 enunciado: "La ley que explica por qué el calor no se puede recapturar como energía útil es la segunda ley de la ___."
 
@@ -764,7 +775,7 @@ variables:
   porcentaje_transferido: 10
 
 respuesta: energia_nivel1 * porcentaje_transferido / 100
-tipo: input
+tipo: completar
 tolerancia_abs: 0.1
 
 enunciado: "Un productor tiene {energia_nivel1} kJ. Con la regla del 10%, ¿cuánta energía llega al consumidor de segundo nivel?"
@@ -900,7 +911,9 @@ metadata:
 
 respuesta: "oxigeno"
 tipo: completar
-respuestas_validas: ["oxigeno", "oxígeno"]
+respuestas_validas:
+  - "oxigeno"
+  - "oxígeno"
 
 enunciado: "La fotosíntesis usa CO2, agua y luz para producir glucosa y ___."
 
@@ -965,7 +978,9 @@ metadata:
 
 respuesta: "ATP"
 tipo: completar
-respuestas_validas: ["ATP", "energia"]
+respuestas_validas:
+  - "ATP"
+  - "energia"
 
 enunciado: "La respiración celular usa glucosa y oxígeno para producir CO2, agua y ___."
 
@@ -1165,7 +1180,7 @@ variables:
   co2_consumido: uno_de([6, 12, 18])
 
 respuesta: co2_consumido
-tipo: input
+tipo: completar
 tolerancia_abs: 0.01
 
 enunciado: "En la fotosíntesis, la proporción CO2 consumido : O2 producido es 1:1. Si se consumen {co2_consumido} moléculas de CO2, ¿cuántas de O2 se producen?"
@@ -2010,3 +2025,4 @@ explicacion: |
   del nodo `B3` del MAPA — dos mecanismos genéticos distintos, ambos
   resueltos con probabilidad condicional.
 ```
+

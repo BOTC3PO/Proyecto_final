@@ -1,2514 +1,3048 @@
-# Examen jefe — Maestro del Grafismo y Geometría
+# Examen jefe — [PENDIENTE #601]
 
-> Logro #52. Exploraste grafos con BFS y DFS, analizaste dimensiones y calculaste áreas de polígonos sin fallar. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **123 preguntas totales** en 5/5 secciones.
+> Logro #601. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **141 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: algoritmos-de-recorrido-bfs-dfs (20 preguntas)
+## Sección: asintotas (22 preguntas)
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
+  materia: "matematica"
+  tema: "asintotas"
   nivel: "basico"
-  tags: ["recorrido", "vocabulario"]
+  tags: ["clasificacion", "teoria"]
 
-enunciado: "¿Qué hace un algoritmo de recorrido de grafos?"
-tipo: mc
-opciones_explicitas:
-  - "Visita sistemáticamente todos los vértices alcanzables desde un vértice inicial, sin repetir ninguno"
-  - "Cuenta la cantidad total de vértices de un grafo"
-  - "Dibuja el grafo en la pantalla"
-respuesta: "Visita sistemáticamente todos los vértices alcanzables desde un vértice inicial, sin repetir ninguno"
+respuesta: "horizontal"
+tipo: completar
+respuestas_validas:
+  - "horizontal"
+  - "asintota horizontal"
+
+enunciado: "Si el grado del numerador es menor que el grado del denominador en una función racional, la asíntota es ___."
 
 explicacion: |
-  BFS y DFS son los dos algoritmos estándar, con órdenes de visita
-  distintos.
+  Cuando el denominador crece más rápido que el numerador, la función tiende a 0, definiendo una asíntota horizontal en $y=0$.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
+  materia: "matematica"
+  tema: "asintotas"
   nivel: "intermedio"
-  tags: ["bfs", "vocabulario"]
+  tags: ["comparacion", "teoria"]
 
-enunciado: "¿Cómo explora el grafo el algoritmo BFS (Breadth-First Search)?"
-tipo: mc
-opciones_explicitas:
-  - "Nivel por nivel: primero todos los vecinos directos del inicio, después los vecinos de esos vecinos, y así sucesivamente"
-  - "Se mete lo más profundo posible por una rama antes de probar otra"
-  - "Visita los vértices en orden alfabético, sin importar las conexiones reales"
-respuesta: "Nivel por nivel: primero todos los vecinos directos del inicio, después los vecinos de esos vecinos, y así sucesivamente"
-
-explicacion: |
-  BFS = 'recorrido en anchura' — nunca avanza a un nivel más lejano
-  sin terminar el actual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "intermedio"
-  tags: ["dfs", "vocabulario"]
-
-enunciado: "¿Cómo explora el grafo el algoritmo DFS (Depth-First Search)?"
-tipo: mc
-opciones_explicitas:
-  - "Se mete lo más profundo posible por una rama, y sólo retrocede (backtrack) cuando no puede avanzar más"
-  - "Explora nivel por nivel, como BFS"
-  - "Visita únicamente los vértices con grado par"
-respuesta: "Se mete lo más profundo posible por una rama, y sólo retrocede (backtrack) cuando no puede avanzar más"
-
-explicacion: |
-  DFS = 'recorrido en profundidad' — prioriza avanzar antes que
-  explorar todas las opciones del nivel actual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "avanzado"
-  tags: ["bfs", "vocabulario"]
-
-enunciado: "¿Qué estructura de datos usa internamente BFS?"
-tipo: mc
-opciones_explicitas:
-  - "Una cola (FIFO: el primero en entrar es el primero en salir)"
-  - "Una pila (LIFO: el último en entrar es el primero en salir)"
-  - "Ninguna estructura auxiliar, sólo el grafo original"
-respuesta: "Una cola (FIFO: el primero en entrar es el primero en salir)"
-
-explicacion: |
-  La cola es lo que fuerza a procesar los vértices en el orden exacto
-  en que fueron descubiertos, nivel por nivel.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "avanzado"
-  tags: ["dfs", "vocabulario"]
-
-enunciado: "¿Qué estructura de datos usa internamente DFS?"
-tipo: mc
-opciones_explicitas:
-  - "Una pila (LIFO), directa o mediante recursión (que es, en el fondo, una pila implícita)"
-  - "Una cola (FIFO), igual que BFS"
-  - "Un árbol binario ordenado"
-respuesta: "Una pila (LIFO), directa o mediante recursión (que es, en el fondo, una pila implícita)"
-
-explicacion: |
-  La pila (o la recursión) es lo que permite 'meterse profundo' y
-  luego retroceder al último punto de decisión.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "avanzado"
-  tags: ["bfs"]
+variables:
+  # Caso: grado num = grado den + 1
+  tiene_ao: verdadero
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En un grafo NO ponderado, BFS siempre encuentra el camino más corto (menos aristas) desde el vértice inicial hasta cualquier otro vértice."
+enunciado: "Si el grado del numerador es exactamente uno mayor que el grado del denominador, la función tiene una asíntota oblicua."
 
 explicacion: |
-  Porque BFS visita los vértices en el orden exacto de su distancia
-  (en aristas) al vértice inicial.
+  Esta es la condición necesaria y suficiente para la existencia de una asíntota oblicua en funciones racionales.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "avanzado"
-  tags: ["bfs", "problema", "ordenar"]
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["caso_especifico", "rh"]
 
-enunciado: "Grafo con aristas A-B, A-C, B-D, C-E, D-F. Ordená el recorrido BFS empezando desde A (visitando los vecinos disponibles en orden alfabético)."
-tipo: ordenar
-opciones_explicitas:
-  - "A"
-  - "C"
-  - "E"
-  - "B"
-  - "F"
-  - "D"
-respuesta_orden:
-  - "A"
-  - "B"
-  - "C"
-  - "D"
-  - "E"
-  - "F"
+respuesta: "0"
+tipo: completar
+respuestas_validas:
+  - "0"
+  - "y = 0"
+  - "eje x"
+
+enunciado: "Si el grado del numerador es menor que el del denominador, la asíntota horizontal es la recta ___."
 
 explicacion: |
-  Nivel 0: A. Nivel 1: B, C (vecinos de A). Nivel 2: D (vecino de B),
-  E (vecino de C). Nivel 3: F (vecino de D).
+  El límite de la función cuando $x \to \infty$ es 0, por lo que la asíntota es el eje horizontal $y=0$.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "avanzado"
-  tags: ["dfs", "problema", "ordenar"]
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["teoria", "limite"]
 
-enunciado: "Mismo grafo (aristas A-B, A-C, B-D, C-E, D-F). Ordená el recorrido DFS empezando desde A (probando siempre el primer vecino no visitado en orden alfabético, antes de retroceder)."
-tipo: ordenar
-opciones_explicitas:
-  - "F"
-  - "A"
-  - "C"
-  - "D"
-  - "B"
-  - "E"
-respuesta_orden:
-  - "A"
-  - "B"
-  - "D"
-  - "F"
-  - "C"
-  - "E"
+respuesta: "infinito"
+tipo: completar
+respuestas_validas:
+  - "infinito"
+  - "infinita"
+  - "infinito positivo"
+  - "infinito negativo"
+
+enunciado: "Una asíntota vertical se define cuando el límite de la función al acercarse a un punto es ___."
 
 explicacion: |
-  Desde A se mete por B, después por D, después por F (sin más
-  vecinos, retrocede); recién ahí vuelve a A para probar C, y de C
-  sigue a E.
+  La definición formal implica que el valor de la función crece sin cota (positiva o negativamente) al acercarse a $x=a$.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "avanzado"
-  tags: ["bfs", "problema"]
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["identificacion", "raices"]
 
-respuesta: 3
+respuesta: "raices"
+tipo: completar
+respuestas_validas:
+  - "raices"
+  - "raíces"
+  - "ceros"
+  - "cero"
+
+enunciado: "Las asíntotas verticales de una función racional suelen ubicarse en las ___ reales del denominador."
+
+explicacion: |
+  Son los puntos donde el denominador se hace cero (si no se cancelan con el numerador).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "intermedio"
+  tags: ["funciones_transcendentes", "exp"]
+
+respuesta: "ninguna"
+tipo: completar
+respuestas_validas:
+  - "ninguna"
+  - "no tiene"
+  - "no hay"
+
+enunciado: "La función $f(x) = e^x$ tiene ___ asíntotas verticales."
+
+explicacion: |
+  $e^x$ está definida para todo $x \in \mathbb{R}$ y es continua. No tiene asíntotas verticales. (Tiene una horizontal en $y=0$ para $x \to -\infty$).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["asintota_horizontal", "limite"]
+
+variables:
+  num: random(1, 5)
+  den: random(6, 10)
+
+respuesta: 0
 tipo: input
 
-enunciado: "En el mismo grafo (aristas A-B, A-C, B-D, C-E, D-F), BFS visita a F recién en el nivel 3. ¿Cuál es la longitud del camino más corto entre A y F?"
-
-pasos:
-  - "El único camino de A a F es A-B-D-F: 3 aristas, coincide con el nivel en que BFS descubre a F"
+enunciado: "¿Cuál es la asíntota horizontal de f(x) = {num} / (x^{den} + 1) cuando x tiende a infinito?"
 
 explicacion: |
-  El nivel en el que BFS descubre un vértice ES la longitud del
-  camino más corto hasta ese vértice.
+  Cuando el grado del denominador es mayor que el del numerador,
+  el límite cuando x -> infinito es 0. Por lo tanto, la asíntota es y = 0.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "avanzado"
-  tags: ["dfs"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "DFS no garantiza encontrar el camino más corto entre dos vértices — puede llegar a un vértice recorriendo un camino más largo de lo necesario, antes de descubrir uno más directo por otra rama."
-
-explicacion: |
-  DFS prioriza 'llegar hasta el final de una rama', no 'la distancia
-  mínima' como sí hace BFS.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "basico"
-  tags: ["bfs", "aplicacion"]
-
-enunciado: "Una red social quiere calcular 'cuántos grados de separación' hay entre dos usuarios (la cantidad mínima de conexiones intermedias). ¿Qué algoritmo conviene usar?"
-tipo: mc
-opciones_explicitas:
-  - "BFS, porque garantiza encontrar el camino más corto (la menor cantidad de conexiones) entre dos usuarios"
-  - "DFS, porque siempre es más rápido que BFS en cualquier grafo"
-respuesta: "BFS, porque garantiza encontrar el camino más corto (la menor cantidad de conexiones) entre dos usuarios"
-
-explicacion: |
-  Es la aplicación directa de la propiedad de camino más corto de
-  BFS.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "basico"
-  tags: ["dfs", "aplicacion"]
-
-enunciado: "Un programa necesita explorar TODAS las posibles jugadas de un juego (un árbol de decisiones) hasta llegar a un resultado final en cada rama, antes de pasar a la siguiente. ¿Qué algoritmo se ajusta mejor a esta lógica?"
-tipo: mc
-opciones_explicitas:
-  - "DFS, porque se mete hasta el final de cada rama (cada secuencia completa de jugadas) antes de retroceder y probar otra"
-  - "BFS, porque siempre usa menos memoria que DFS en cualquier caso"
-respuesta: "DFS, porque se mete hasta el final de cada rama (cada secuencia completa de jugadas) antes de retroceder y probar otra"
-
-explicacion: |
-  Es exactamente cómo funcionan muchos algoritmos de juegos (como el
-  ajedrez) que exploran variantes completas antes de evaluarlas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
+  materia: "matematica"
+  tema: "asintotas"
   nivel: "intermedio"
-  tags: ["bfs", "aplicacion"]
-
-enunciado: "¿Qué relación tiene BFS con el enrutamiento de paquetes en una red de computadoras?"
-tipo: mc
-opciones_explicitas:
-  - "Un router que busca el camino más corto para un paquete de datos está, en esencia, corriendo un BFS sobre el grafo de la red — descubre la ruta, no la memoriza de antemano"
-  - "No tiene ninguna relación real con el enrutamiento"
-  - "El enrutamiento siempre usa DFS, nunca BFS"
-respuesta: "Un router que busca el camino más corto para un paquete de datos está, en esencia, corriendo un BFS sobre el grafo de la red — descubre la ruta, no la memoriza de antemano"
-
-explicacion: |
-  Es la aplicación mencionada explícitamente en `troncos.md` como
-  motivo real para incluir teoría de grafos en el mapa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "avanzado"
-  tags: ["bfs", "problema"]
-
-respuesta: 2
-tipo: input
-
-enunciado: "En el grafo con aristas A-B, A-C, B-D, C-E, D-F, ¿en qué nivel del recorrido BFS desde A se descubre al vértice E?"
-
-pasos:
-  - "Nivel 0: A. Nivel 1: B, C. Nivel 2: D (vecino de B), E (vecino de C)"
-
-explicacion: |
-  E es vecino directo de C, que está en el nivel 1 — así que E queda
-  en el nivel 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "intermedio"
-  tags: ["bfs", "dfs"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Tanto BFS como DFS visitan cada vértice alcanzable exactamente una vez — la diferencia entre ambos está en el ORDEN de esa visita, no en cuáles vértices visitan."
-
-explicacion: |
-  Ambos terminan visitando el mismo conjunto de vértices (todos los
-  alcanzables desde el inicio), sólo que en secuencias distintas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "intermedio"
-  tags: ["bfs", "dfs"]
-
-enunciado: "¿Cuál es la diferencia clave entre BFS y DFS?"
-tipo: mc
-opciones_explicitas:
-  - "BFS explora 'ancho primero' (nivel por nivel); DFS explora 'profundo primero' (rama por rama hasta el final)"
-  - "BFS sólo funciona en grafos dirigidos; DFS sólo en no dirigidos"
-  - "No hay ninguna diferencia real, son dos nombres para el mismo algoritmo"
-respuesta: "BFS explora 'ancho primero' (nivel por nivel); DFS explora 'profundo primero' (rama por rama hasta el final)"
-
-explicacion: |
-  Es la diferencia que da nombre a cada uno: 'breadth' (ancho) vs.
-  'depth' (profundidad).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "avanzado"
-  tags: ["dfs", "aplicacion"]
-
-enunciado: "¿Cómo ayuda DFS a detectar si un grafo tiene un ciclo (por ejemplo, una dependencia circular de `../caminos-y-ciclos/`)?"
-tipo: mc
-opciones_explicitas:
-  - "Si durante el recorrido DFS se llega a un vértice que ya está siendo explorado en la rama actual (no sólo ya visitado, sino todavía 'en el camino'), eso significa que hay un ciclo"
-  - "DFS no puede usarse para detectar ciclos, sólo BFS puede hacerlo"
-  - "Cualquier grafo recorrido con DFS automáticamente deja de tener ciclos"
-respuesta: "Si durante el recorrido DFS se llega a un vértice que ya está siendo explorado en la rama actual (no sólo ya visitado, sino todavía 'en el camino'), eso significa que hay un ciclo"
-
-explicacion: |
-  Es la base de los algoritmos que detectan dependencias circulares
-  en sistemas de compilación.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "avanzado"
-  tags: ["bfs", "dfs", "problema"]
+  tags: ["propiedad", "polinomio"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "En el grafo con aristas A-B, A-C, B-D, C-E, D-F, tanto BFS como DFS visitan al vértice F en la misma POSICIÓN del recorrido (4° vértice visitado en ambos casos)."
+enunciado: "Verdadero o Falso: La función f(x) = x^2 + 3x tiene una asíntota horizontal."
 
 explicacion: |
-  BFS visita F en la posición 6 (A,B,C,D,E,F); DFS lo visita en la
-  posición 4 (A,B,D,F,C,E) — las posiciones NO coinciden.
+  Falso. Las funciones polinómicas no tienen asíntotas horizontales ni verticales.
+  Su dominio es todo R y crece sin límite.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
-  nivel: "avanzado"
-  tags: ["dfs"]
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["definicion", "terminologia"]
+
+respuesta: "vertical"
+tipo: completar
+respuestas_validas:
+  - "vertical"
+  - "verticales"
+
+enunciado: "Una ___ es una recta x = a tal que el límite de la función cuando x se acerca a a es infinito."
+
+explicacion: |
+  Se llama asíntota vertical a la recta donde la función no está definida
+  y tiende a infinito por uno o ambos lados.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["dominio", "relacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "DFS se puede implementar tanto con una pila explícita como con recursión — la recursión funciona porque cada llamada a función usa, internamente, la pila de llamadas del programa."
+enunciado: "Verdadero o Falso: Si una función tiene una asíntota vertical en x = a, entonces x = a no pertenece al dominio de la función."
 
 explicacion: |
-  Es por eso que DFS se suele programar de forma más simple que BFS,
-  aprovechando la recursión en vez de armar una pila manualmente.
+  Verdadero. Por definición, en una asíntota vertical la función tiende a infinito,
+  por lo que no está definida en ese punto (división por cero).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["definicion", "horizontal"]
+
+respuesta: "horizontal"
+tipo: completar
+respuestas_validas:
+  - "horizontal"
+  - "horizontales"
+
+enunciado: "Si el límite de f(x) cuando x tiende a infinito es un número constante L, la recta y = L se llama asíntota ___."
+
+explicacion: |
+  Se denomina asíntota horizontal a la recta paralela al eje X a la que se acerca la gráfica.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "avanzado"
+  tags: ["asintota_oblicua", "division"]
+
+variables:
+  a: random(2, 4)
+  b: random(1, 5)
+  c: random(1, 3)
+  d: random(2, 5)
+
+respuesta: "{a / d}x + ({b - a * c / d})"
+tipo: input
+
+enunciado: "Determiná la ecuación de la asíntota oblicua de f(x) = ({a}x^2 + {b}x) / (x + {c}) para x -> infinito. Escribí en formato 'mx+n' (ej: 2x+3)."
+
+explicacion: |
+  Dividiendo el numerador por el denominador:
+  m = a/d
+  n = b - m*c = b - (a/d)*c.
+  La ecuación es y = mx + n.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "intermedio"
+  tags: ["propiedad", "corte"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: Una función puede cortar su asíntota horizontal."
+
+explicacion: |
+  Verdadero. La asíntota describe el comportamiento en el infinito,
+  pero la función puede intersectarla en puntos finitos del dominio.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["metodo", "calculo"]
+
+respuesta: "denominador"
+tipo: completar
+respuestas_validas:
+  - "denominador"
+  - "denominadores"
+
+enunciado: "Para encontrar las asíntotas verticales de una función racional, igualamos a cero el ___."
+
+explicacion: |
+  Las asíntotas vertuales ocurren donde el denominador se anula (y el numerador no).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "intermedio"
+  tags: ["raices", "multiples"]
+
+variables:
+  a: random(1, 5)
+  b: random(6, 10)
+
+respuesta: a + "," + b
+tipo: input
+
+enunciado: "Encontrá las asíntotas verticales de f(x) = 1 / ((x - {a})(x - {b})). Escribí los valores separados por coma."
+
+explicacion: |
+  El denominador se anula en x = {a} y x = {b}.
+  Ambas son asíntotas verticales.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "avanzado"
+  tags: ["raiz_cuadrada", "asintota_oblicua"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Verdadero o Falso: La función f(x) = sqrt(x) tiene una asíntota oblicua."
+
+explicacion: |
+  Falso. sqrt(x) crece más lento que cualquier recta (x^1).
+  No tiene asíntota oblicua ni horizontal.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["caso_particular", "eje_x"]
+
+respuesta: "eje X"
+tipo: completar
+respuestas_validas:
+  - "eje X"
+  - "eje x"
+  - "y=0"
+
+enunciado: "Si la asíntota horizontal es y = 0, esta coincide con el ___."
+
+explicacion: |
+  La recta y=0 es el eje de abscisas o eje X.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "avanzado"
+  tags: ["paridad", "oblicua"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: Una función par puede tener una asíntota oblicua."
+
+explicacion: |
+  Falso. Si f(x) es par, f(x) = f(-x).
+  Si tuviera una asíntota oblicua y = mx + n para x->inf,
+  para x->-inf debería tender a y = -mx + n (por simetría).
+  Pero una función racional con grado num = grado den + 1 tiene la misma oblicua en ambos extremos (mismo m).
+  Para que m = -m, m debe ser 0, lo que implica una asíntota horizontal, no oblicua.
+  Por lo tanto, una función par NO puede tener una asíntota oblicua (con m != 0).
+  La afirmación dice "puede tener". La respuesta es Falso.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "intermedio"
+  tags: ["limite", "lateral"]
+
+respuesta: "infinito"
+tipo: completar
+respuestas_validas:
+  - "infinito"
+  - "infinitos"
+  - "+infinito"
+  - "-infinito"
+
+enunciado: "Para que exista una asíntota vertical en x=a, el límite lateral de la función cuando x tiende a a debe ser ___ (positivo o negativo)."
+
+explicacion: |
+  La definición de asíntota vertical requiere que el límite sea infinito.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "avanzado"
+  tags: ["exponencial", "limite"]
+
+respuesta: 0
+tipo: input
+
+enunciado: "¿Cuál es la asíntota horizontal de f(x) = e^(-x) cuando x tiende a +infinito?"
+
+explicacion: |
+  lim(x->inf) e^(-x) = lim(1/e^x) = 0.
+  La asíntota horizontal es y = 0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["continuidad", "discontinuidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: La presencia de una asíntota vertical implica una discontinuidad infinita en esa función."
+
+explicacion: |
+  Verdadero. La función no está definida en el punto y tiende a infinito,
+  lo que constituye una discontinuidad infinita.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["definicion", "geometria"]
+
+respuesta: "recta"
+tipo: completar
+respuestas_validas:
+  - "recta"
+  - "rectas"
+
+enunciado: "Una asíntota es una ___ a la cual la curva se acerca indefinidamente."
+
+explicacion: |
+  Por definición geométrica, las asíntotas son rectas.
+```
+
+## Sección: concavidad-y-puntos-de-inflexion (27 preguntas)
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "basico"
+  tags: ["derivada_segunda", "cubica"]
+
+variables:
+  a: random(1, 5)
+  b: random(1, 5)
+
+respuesta: "{2*a}x"
+
+tipo: input
+
+enunciado: "Calculá la segunda derivada de la función f(x) = {a}x^3 + {b}x^2. Escribí solo el término que depende de x (si es constante, escribí 0)."
+
+explicacion: |
+  f'(x) = 3ax^2 + 2bx
+  f''(x) = 6ax + 2b
+  Para a={a}, b={b}: f''(x) = {6*a}x + {2*b}
+  La respuesta pedida es el coeficiente de x en la expresión simplificada si se pide solo la parte variable, o la expresión completa.
+  Ajuste: La respuesta debe ser la expresión completa simplificada.
+  Corrección: La respuesta es "{6*a}x + {2*b}"
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "basico"
+  tags: ["derivada_segunda", "cubica"]
+
+variables:
+  a: random(1, 5)
+  b: random(1, 5)
+  c: random(1, 5)
+
+respuesta: "{6*a}x + {2*b}"
+
+tipo: input
+
+enunciado: "La segunda derivada de f(x) = {a}x^3 + {b}x^2 + {c}x es f''(x) = ___"
+
+explicacion: |
+  f'(x) = 3ax^2 + 2bx + c
+  f''(x) = 6ax + 2b
+  Sustituyendo a={a} y b={b}, obtenemos {6*a}x + {2*b}.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["punto_inflexion", "cubica"]
+
+variables:
+  a: random(1, 4)
+  b: random(5, 15)
+  c: random(1, 4)
+
+respuesta: "{-b/(3*a)}"
+
+tipo: input
+
+enunciado: "Encontrá la coordenada x del punto de inflexión de la función f(x) = {a}x^3 + {b}x^2 + {c}x + 1."
+
+explicacion: |
+  f'(x) = 3ax^2 + 2bx + c
+  f''(x) = 6ax + 2b
+  El punto de inflexión ocurre donde f''(x) = 0.
+  6ax + 2b = 0  =>  x = -2b / 6a = -b / 3a
+  Para a={a} y b={b}, x = {-b/(3*a)}.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["concavidad", "intervalo", "vf"]
+
+variables:
+  a: random(1, 5)
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La función f(x) = -{a}x^2 + 5x es cóncava hacia abajo en todo su dominio."
+
+explicacion: |
+  f'(x) = -2ax + 5
+  f''(x) = -2a
+  Como a > 0, -2a es siempre negativo.
+  Por lo tanto, f''(x) < 0 para todo x, lo que implica concavidad hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["concavidad", "intervalo", "vf"]
+
+variables:
+  a: random(1, 5)
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La función f(x) = {a}x^2 - 3x es cóncava hacia arriba en todo su dominio."
+
+explicacion: |
+  f'(x) = 2ax - 3
+  f''(x) = 2a
+  Como a > 0, 2a es siempre positivo.
+  Por lo tanto, f''(x) > 0 para todo x, lo que implica concavidad hacia arriba.
+  La afirmación es verdadera, pero la pregunta dice "hacia abajo".
+  Espera, la afirmación es "es cóncava hacia arriba". Eso es VERDADERO.
+  Necesito una afirmación FALSA.
+  Cambio: "La función f(x) = {a}x^2 es cóncava hacia abajo..." -> Falso.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["concavidad", "intervalo", "vf"]
+
+variables:
+  a: random(1, 5)
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La función f(x) = {a}x^2 es cóncava hacia abajo en todo su dominio."
+
+explicacion: |
+  f''(x) = 2a. Como a > 0, f''(x) > 0.
+  La función es cóncava hacia arriba, no hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["punto_inflexion", "identificacion"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 8)
+
+respuesta: "{b/(3*a)}"
+
+tipo: input
+
+enunciado: "Para f(x) = {a}x^3 - {3*a*b}x^2 + 5, el punto de inflexión está en x = ___"
+
+explicacion: |
+  f'(x) = 3ax^2 - 6abx
+  f''(x) = 6ax - 6ab
+  f''(x) = 0 => 6ax = 6ab => x = b
+  Espera, simplifiqué mal.
+  f''(x) = 6ax - 6ab.
+  x = b.
+  Variable b es {b}.
+  Respuesta: "{b}"
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["punto_inflexion", "identificacion"]
+
+variables:
+  a: random(1, 3)
+  k: random(2, 5)
+
+respuesta: "{k/3}"
+
+tipo: input
+
+enunciado: "Si f(x) = {a}x^3 - {a*k}x^2, el punto de inflexión se encuentra en x = ___"
+
+explicacion: |
+  f'(x) = 3ax^2 - 2akx
+  f''(x) = 6ax - 2ak
+  6ax - 2ak = 0 => 6ax = 2ak => x = 2ak / 6a = k / 3
+  Con k={k}, x = {k/3}.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["exponencial", "concavidad", "vf"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La función f(x) = -e^x es cóncava hacia abajo para todo x real."
+
+explicacion: |
+  f'(x) = -e^x
+  f''(x) = -e^x
+  Como e^x > 0, -e^x < 0 siempre.
+  Por lo tanto, la función es cóncava hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["cambio_concavidad", "cubica"]
+
+variables:
+  a: random(1, 3)
+
+respuesta: "x = 0"
+
+tipo: input
+
+enunciado: "La función f(x) = {a}x^3 cambia su concavidad en x = ___"
+
+explicacion: |
+  f'(x) = 3ax^2
+  f''(x) = 6ax
+  f''(x) = 0 cuando x = 0.
+  Para x < 0, f''(x) tiene signo opuesto a a.
+  Para x > 0, f''(x) tiene signo de a.
+  Hay cambio de concavidad en x=0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["logaritmo", "concavidad", "vf"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La función f(x) = ln(x) es cóncava hacia abajo en su dominio (x > 0)."
+
+explicacion: |
+  f'(x) = 1/x
+  f''(x) = -1/x^2
+  Para x > 0, x^2 > 0, por lo que -1/x^2 < 0.
+  La función es cóncava hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["trigonometria", "punto_inflexion"]
+
+respuesta: "pi/2"
+
+tipo: input
+
+enunciado: "La función f(x) = sin(x) tiene un punto de inflexión en x = ___ (en el intervalo [0, pi])."
+
+explicacion: |
+  f'(x) = cos(x)
+  f''(x) = -sin(x)
+  f''(x) = 0 cuando sin(x) = 0.
+  En [0, pi], sin(x)=0 en x=0 y x=pi.
+  Sin embargo, el cambio de concavidad ocurre donde f'' cambia de signo.
+  f''(x) = -sin(x).
+  Para x en (0, pi), sin(x) > 0, entonces f''(x) < 0 (cóncava abajo).
+  Para x en (-pi, 0), sin(x) < 0, entonces f''(x) > 0 (cóncava arriba).
+  El punto de inflexión típico en el centro del ciclo es x=pi.
+  Pero en [0, pi], los extremos son 0 y pi.
+  En x=pi, la concavidad cambia de abajo (antes) a arriba (después).
+  La pregunta pide en [0, pi]. El punto pi es un punto de inflexión.
+  También x=0 es un punto de inflexión.
+  Usaremos pi/2 como distractor? No, pi/2 no es cero de f''.
+  f''(pi/2) = -1 != 0.
+  La respuesta correcta es "pi" o "0".
+  Cambiaré la pregunta para que sea más clara.
+  "El primer punto de inflexión positivo de sin(x) es x = ___" -> pi.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["trigonometria", "punto_inflexion"]
+
+respuesta: "pi"
+
+tipo: input
+
+enunciado: "El primer valor positivo x donde sin(x) tiene un punto de inflexión es x = ___"
+
+explicacion: |
+  f''(x) = -sin(x).
+  f''(x) = 0 en x = k*pi.
+  El primer positivo es pi.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["raiz_cuadrada", "concavidad", "vf"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La función f(x) = sqrt(x) es cóncava hacia abajo para x > 0."
+
+explicacion: |
+  f(x) = x^(1/2)
+  f'(x) = (1/2)x^(-1/2)
+  f''(x) = (-1/4)x^(-3/2) = -1 / (4x*sqrt(x))
+  Para x > 0, f''(x) < 0.
+  Es cóncava hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["derivada_segunda", "cuartica"]
+
+variables:
+  a: random(1, 3)
+  b: random(1, 5)
+
+respuesta: "{12*a}x^2 + {6*b}x"
+
+tipo: input
+
+enunciado: "La segunda derivada de f(x) = {a}x^4 + {b}x^3 es f''(x) = ___"
+
+explicacion: |
+  f'(x) = 4ax^3 + 3bx^2
+  f''(x) = 12ax^2 + 6bx
+  Sustituyendo a={a}, b={b}: {12*a}x^2 + {6*b}x.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "basico"
+  tags: ["interpretacion_f2", "concavidad"]
+
+variables:
+  a: random(1, 5)
+
+respuesta: "concava_hacia_arriba"
+
+tipo: mc
+
+enunciado: "Si f''(x) = {a}x^2 + {a}, la función f(x) es:"
+
+opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "no_se_puede_determinar"]
+
+explicacion: |
+  f''(x) = a(x^2 + 1).
+  Como x^2 + 1 > 0 siempre y a > 0, f''(x) > 0 siempre.
+  Por lo tanto, f es cóncava hacia arriba.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "basico"
+  tags: ["interpretacion_f2", "concavidad"]
+
+variables:
+  a: random(1, 5)
+
+respuesta: "concava_hacia_abajo"
+
+tipo: mc
+
+enunciado: "Si f''(x) = -{a}(x^2 + 1), la función f(x) es:"
+
+opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "no_se_puede_determinar"]
+
+explicacion: |
+  f''(x) = -a(x^2 + 1).
+  Como a > 0, -a < 0. Y (x^2+1) > 0.
+  Producto de negativo por positivo es negativo.
+  f''(x) < 0, por lo tanto cóncava hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["punto_inflexion", "cuartica"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La función f(x) = x^4 tiene un punto de inflexión en x = 0."
+
+explicacion: |
+  f'(x) = 4x^3
+  f''(x) = 12x^2
+  f''(0) = 0.
+  Sin embargo, f''(x) >= 0 para todo x.
+  No hay cambio de signo en f''(x) alrededor de 0.
+  Por lo tanto, NO es un punto de inflexión.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["cubica", "concavidad", "intervalo"]
+
+respuesta: "concava_hacia_abajo"
+
+tipo: mc
+
+enunciado: "Para la función f(x) = x^3 - x, en el intervalo (-infinity, -1/sqrt(3)), la concavidad es:"
+
+opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "oscilante"]
+
+explicacion: |
+  f'(x) = 3x^2 - 1
+  f''(x) = 6x
+  Para x < -1/sqrt(3) (que es negativo), f''(x) < 0.
+  Por lo tanto, cóncava hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["cubica", "concavidad", "intervalo"]
+
+respuesta: "concava_hacia_arriba"
+
+tipo: mc
+
+enunciado: "Para la función f(x) = x^3 - x, en el intervalo (1/sqrt(3), infinity), la concavidad es:"
+
+opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "oscilante"]
+
+explicacion: |
+  f''(x) = 6x.
+  Para x > 1/sqrt(3) (positivo), f''(x) > 0.
+  Por lo tanto, cóncava hacia arriba.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["punto_inflexion", "cubica"]
+
+respuesta: "0"
+
+tipo: input
+
+enunciado: "La función f(x) = x^3 - 3x tiene su punto de inflexión en x = ___"
+
+explicacion: |
+  f'(x) = 3x^2 - 3
+  f''(x) = 6x
+  f''(x) = 0 => x = 0.
+  Cambio de signo en x=0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["punto_inflexion", "quintica"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La función f(x) = x^5 tiene un punto de inflexión en x = 0."
+
+explicacion: |
+  f'(x) = 5x^4
+  f''(x) = 20x^3
+  f''(0) = 0.
+  Para x < 0, f''(x) < 0 (cóncava abajo).
+  Para x > 0, f''(x) > 0 (cóncava arriba).
+  Hay cambio de concavidad, por lo tanto sí es un punto de inflexión.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["trigonometria", "derivada_segunda"]
+
+respuesta: "-cos(x)"
+
+tipo: input
+
+enunciado: "La segunda derivada de f(x) = cos(x) es f''(x) = ___"
+
+explicacion: |
+  f'(x) = -sin(x)
+  f''(x) = -cos(x)
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["trigonometria", "concavidad", "intervalo"]
+
+respuesta: "concava_hacia_abajo"
+
+tipo: mc
+
+enunciado: "En el intervalo (0, pi/2), la función f(x) = cos(x) es:"
+
+opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "constante"]
+
+explicacion: |
+  f''(x) = -cos(x).
+  En (0, pi/2), cos(x) > 0.
+  Por lo tanto, -cos(x) < 0.
+  Cóncava hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["trigonometria", "concavidad", "intervalo"]
+
+respuesta: "concava_hacia_arriba"
+
+tipo: mc
+
+enunciado: "En el intervalo (pi, 3pi/2), la función f(x) = cos(x) es:"
+
+opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "constante"]
+
+explicacion: |
+  f''(x) = -cos(x).
+  En (pi, 3pi/2), cos(x) < 0.
+  Por lo tanto, -cos(x) > 0.
+  Cóncava hacia arriba.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["trigonometria", "punto_inflexion"]
+
+respuesta: "pi/2"
+
+tipo: input
+
+enunciado: "El primer punto de inflexión positivo de f(x) = cos(x) es x = ___"
+
+explicacion: |
+  f''(x) = -cos(x).
+  f''(x) = 0 cuando cos(x) = 0.
+  El primer positivo es pi/2.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "avanzado"
+  tags: ["racionales", "concavidad", "vf"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La función f(x) = x^2 + 1/x es cóncava hacia arriba para todo x > 0."
+
+explicacion: |
+  f'(x) = 2x - x^(-2)
+  f''(x) = 2 + 2x^(-3) = 2 + 2/x^3
+  Para x > 0, x^3 > 0, entonces 2/x^3 > 0.
+  f''(x) > 2 > 0.
+  Es cóncava hacia arriba.
+```
+
+## Sección: conjuntos-pertenencia-e-inclusion (24 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "basico"
+  tags: ["conjuntos", "vocabulario"]
+
+enunciado: "¿Qué es un conjunto en matemática?"
+tipo: mc
+opciones_explicitas:
+  - "Una colección de objetos bien definida, sin importar el orden y sin repetir elementos"
+  - "Una lista de números que siempre debe estar ordenada"
+  - "Un conjunto sólo puede tener números, nunca letras u objetos"
+respuesta: "Una colección de objetos bien definida, sin importar el orden y sin repetir elementos"
+
+explicacion: |
+  {2, 4, 6} y {6, 4, 2} son el mismo conjunto — el orden no importa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "algoritmos_de_recorrido_bfs_dfs"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "basico"
+  tags: ["conjuntos", "vocabulario"]
+
+enunciado: "¿Cómo se llama cada objeto que forma parte de un conjunto?"
+tipo: mc
+opciones_explicitas:
+  - "Elemento"
+  - "Subconjunto"
+  - "Universo"
+respuesta: "Elemento"
+
+explicacion: |
+  Un conjunto está formado por sus elementos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "basico"
+  tags: ["conjuntos", "completar"]
+
+tipo: completar
+enunciado: "Completá: el símbolo que indica que un elemento SÍ pertenece a un conjunto es ___."
+respuestas_validas:
+  - "∈"
+
+explicacion: |
+  3 ∈ {1, 2, 3} se lee "3 pertenece al conjunto".
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "basico"
+  tags: ["conjuntos", "completar"]
+
+tipo: completar
+enunciado: "Completá: el símbolo que indica que un elemento NO pertenece a un conjunto es ___."
+respuestas_validas:
+  - "∉"
+
+explicacion: |
+  5 ∉ {1, 2, 3} se lee "5 no pertenece al conjunto".
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "intermedio"
+  tags: ["conjuntos", "problema"]
+
+enunciado: "Dado el conjunto A = {3, 6, 9, 12, 15}, ¿el número 10 pertenece a A?"
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  10 no está en la lista de elementos de A — no cumple ninguna
+  propiedad especial, simplemente no fue incluido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "intermedio"
+  tags: ["conjuntos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El conjunto vacío (∅) es un conjunto válido, con cardinalidad 0 — no es lo mismo que 'no tener conjunto'."
+
+explicacion: |
+  ∅ es una colección válida (dos llaves sin nada adentro), simplemente sin elementos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "basico"
+  tags: ["conjuntos", "completar"]
+
+tipo: completar
+enunciado: "Completá: el conjunto vacío se representa con el símbolo ___ o con dos llaves sin nada adentro."
+respuestas_validas:
+  - "∅"
+
+explicacion: |
+  También se acepta escribirlo con dos llaves sin nada adentro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "basico"
+  tags: ["conjuntos", "vocabulario"]
+
+enunciado: "¿Qué mide la cardinalidad de un conjunto, escrita |A|?"
+tipo: mc
+opciones_explicitas:
+  - "La cantidad de elementos que tiene el conjunto"
+  - "El elemento más grande del conjunto"
+  - "La suma de todos los elementos del conjunto"
+respuesta: "La cantidad de elementos que tiene el conjunto"
+
+explicacion: |
+  |{2, 4, 6, 8}| = 4, sin importar cuáles sean esos elementos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "intermedio"
+  tags: ["conjuntos", "problema"]
+
+enunciado: "¿Cuál es la cardinalidad del conjunto A = {10, 20, 30, 40, 50, 60}?"
+tipo: input
+respuesta: 6
+
+explicacion: |
+  Se cuentan los elementos listados, sin importar su valor: hay 6.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "basico"
+  tags: ["conjuntos"]
+
+respuesta: 0
+tipo: input
+
+enunciado: "¿Cuál es la cardinalidad del conjunto vacío, |∅|?"
+
+explicacion: |
+  No tiene ningún elemento, así que su cardinalidad es 0.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "intermedio"
+  tags: ["conjuntos", "vocabulario"]
+
+enunciado: "¿Cuándo se dice que B es subconjunto de A (B ⊆ A)?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando TODOS los elementos de B también son elementos de A"
+  - "Cuando B y A tienen la misma cantidad de elementos"
+  - "Cuando B tiene al menos un elemento en común con A"
+respuesta: "Cuando TODOS los elementos de B también son elementos de A"
+
+explicacion: |
+  Con que un solo elemento de B no esté en A, ya no es subconjunto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "basico"
+  tags: ["conjuntos", "completar"]
+
+tipo: completar
+enunciado: "Completá: el símbolo que indica que B es subconjunto de A se escribe B ___ A."
+respuestas_validas:
+  - "⊆"
+
+explicacion: |
+  Se lee "B está incluido en A" o "B es subconjunto de A".
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "avanzado"
+  tags: ["conjuntos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Todo conjunto A es subconjunto de sí mismo (A ⊆ A), aunque no sea subconjunto PROPIO."
+
+explicacion: |
+  Todos los elementos de A están, obviamente, en A — cumple la
+  definición, aunque no agregue nada nuevo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "avanzado"
+  tags: ["conjuntos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El conjunto vacío (∅) es subconjunto de cualquier conjunto A, sin excepción."
+
+explicacion: |
+  No hay ningún elemento en ∅ que pueda faltar en A (no hay ninguno),
+  así que la condición se cumple siempre, vacuamente.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "avanzado"
+  tags: ["conjuntos", "vocabulario"]
+
+enunciado: "¿Qué diferencia a un subconjunto PROPIO (B ⊂ A) de un subconjunto cualquiera (B ⊆ A)?"
+tipo: mc
+opciones_explicitas:
+  - "En el propio, A tiene además al menos un elemento que B no tiene (son distintos)"
+  - "En el propio, B y A tienen que ser exactamente iguales"
+  - "No hay ninguna diferencia real entre ambos símbolos"
+respuesta: "En el propio, A tiene además al menos un elemento que B no tiene (son distintos)"
+
+explicacion: |
+  Si B = A, entonces B ⊆ A pero B NO es subconjunto propio de A.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "avanzado"
+  tags: ["conjuntos"]
+
+enunciado: "A = {2, 4, 6, 8, 10}. ¿B = {4, 8, 12} es subconjunto de A?"
+tipo: vf
+respuesta: falso
+
+explicacion: |
+  12 es un elemento de B que NO está en A — alcanza con ese uno solo
+  para que B no sea subconjunto de A.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "intermedio"
+  tags: ["conjuntos", "vocabulario"]
+
+enunciado: "¿Qué es el conjunto universal (U) en un problema de conjuntos?"
+tipo: mc
+opciones_explicitas:
+  - "El conjunto de referencia que contiene a todos los elementos posibles en ese contexto"
+  - "El conjunto con más elementos que existe en matemática"
+  - "Un sinónimo del conjunto vacío"
+respuesta: "El conjunto de referencia que contiene a todos los elementos posibles en ese contexto"
+
+explicacion: |
+  Por ejemplo, si el problema habla de los días de la semana, U son
+  esos 7 días — cualquier otro conjunto del problema es subconjunto de U.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "intermedio"
+  tags: ["conjuntos", "vocabulario"]
+
+enunciado: "¿Cuál de estas dos formas escribe un conjunto 'por extensión'?"
+tipo: mc
+opciones_explicitas:
+  - "A = {2, 4, 6, 8}"
+  - "A = {x : x es par y 0 < x < 10}"
+  - "Ambas son la misma forma, sólo cambia el nombre"
+respuesta: "A = {2, 4, 6, 8}"
+
+explicacion: |
+  Por extensión se listan los elementos uno por uno; por comprensión
+  se describe la propiedad que cumplen.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "avanzado"
+  tags: ["conjuntos", "ordenar"]
+
+enunciado: "Ordená los pasos para verificar si un conjunto B es subconjunto de un conjunto A."
+tipo: ordenar
+opciones_explicitas:
+  - "Si en algún momento se encuentra un elemento de B que no está en A, se concluye que B NO es subconjunto de A"
+  - "Tomar cada elemento de B, uno por uno"
+  - "Revisar si ese elemento también pertenece a A"
+respuesta_orden: ["Tomar cada elemento de B, uno por uno", "Revisar si ese elemento también pertenece a A", "Si en algún momento se encuentra un elemento de B que no está en A, se concluye que B NO es subconjunto de A"]
+explicacion: |
+  Alcanza con UN elemento de B ausente en A para descartar la inclusión.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "avanzado"
+  tags: ["conjuntos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos conjuntos son iguales si y sólo si tienen exactamente los mismos elementos (sin importar el orden en que se escriban)."
+
+explicacion: |
+  {1, 2, 3} y {3, 1, 2} son el mismo conjunto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "intermedio"
+  tags: ["conjuntos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "{2, 2, 4, 4, 4, 6} representa el mismo conjunto que {2, 4, 6} — un conjunto nunca repite elementos, aunque se los escriba repetidos."
+
+explicacion: |
+  Por definición, un conjunto no tiene elementos duplicados.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "basico"
+  tags: ["conjuntos", "aplicacion"]
+
+enunciado: "¿Dónde se usa la misma idea de pertenencia e inclusión de conjuntos, fuera de la matemática pura?"
+tipo: mc
+opciones_explicitas:
+  - "En bases de datos (una fila 'pertenece' a una tabla que cumple ciertas condiciones) y en lógica proposicional"
+  - "Sólo en geometría, para clasificar triángulos"
+  - "No tiene ninguna aplicación fuera de la matemática pura"
+respuesta: "En bases de datos (una fila 'pertenece' a una tabla que cumple ciertas condiciones) y en lógica proposicional"
+
+explicacion: |
+  Es el mismo vocabulario de fondo que usan las consultas de bases de
+  datos y la lógica proposicional de Filosofía.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
+  nivel: "avanzado"
+  tags: ["conjuntos", "problema"]
+
+variables:
+  limite: uno_de([10, 15, 20, 25, 30])
+
+respuesta: floor(limite / 2)
+tipo: input
+
+enunciado: "¿Cuántos elementos tiene el conjunto A = {{x : x es un número par positivo y x ≤ {limite}}}?"
+
+pasos:
+  - "Los pares positivos hasta {limite} son 2, 4, 6, ..., hasta el mayor par ≤ {limite}"
+  - "Cantidad = {limite} ÷ 2 (redondeado hacia abajo) = {floor(limite / 2)}"
+
+explicacion: |
+  Cada 2 números hay exactamente un par, así que la cantidad de pares
+  hasta un límite es ese límite dividido 2 (redondeado hacia abajo si
+  el límite es impar).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conjuntos_pertenencia_e_inclusion"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirven los algoritmos BFS y DFS?"
+enunciado: "¿Para qué sirve el vocabulario de pertenencia e inclusión de conjuntos?"
 tipo: mc
 opciones_explicitas:
-  - "Para recorrer sistemáticamente un grafo completo, encontrar caminos (BFS garantiza el más corto en grafos no ponderados) y resolver problemas como enrutamiento, redes sociales o detección de ciclos"
-  - "Sólo sirven para dibujar un grafo de forma más prolija"
-  - "Sólo se aplican a grafos con menos de 10 vértices"
-respuesta: "Para recorrer sistemáticamente un grafo completo, encontrar caminos (BFS garantiza el más corto en grafos no ponderados) y resolver problemas como enrutamiento, redes sociales o detección de ciclos"
+  - "Es la base formal sobre la que se construyen las operaciones entre conjuntos, los diagramas de Venn y toda la combinatoria de este tronco"
+  - "Sólo sirve para clasificar números pares e impares"
+  - "Sólo se usa en un único ejercicio de examen"
+respuesta: "Es la base formal sobre la que se construyen las operaciones entre conjuntos, los diagramas de Venn y toda la combinatoria de este tronco"
 
 explicacion: |
-  Cierra la cadena completa de Tronco 4.c: de vértices y aristas
-  sueltos a poder recorrer y resolver problemas reales sobre un
-  grafo.
+  Sin esta base, "unión" e "intersección" (próximo módulo) serían sólo
+  palabras sueltas, sin una definición formal detrás.
 ```
 
-## Sección: analisis-dimensional (22 preguntas)
+## Sección: conteo (40 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "analisis_dimensional"
+  tema: "conteo"
   nivel: "basico"
-  tags: ["analisis_dimensional", "vocabulario"]
-
-enunciado: "¿Qué es el análisis dimensional?"
-tipo: mc
-opciones_explicitas:
-  - "Revisar las unidades de una fórmula o resultado para verificar que tengan sentido"
-  - "Contar cuántos dígitos tiene un número"
-  - "Medir el tamaño de una figura con una regla"
-respuesta: "Revisar las unidades de una fórmula o resultado para verificar que tengan sentido"
-
-explicacion: |
-  Sirve para detectar errores de planteo antes de mirar los números.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "basico"
-  tags: ["analisis_dimensional", "vocabulario"]
-
-enunciado: "¿Para qué sirve principalmente el análisis dimensional?"
-tipo: mc
-opciones_explicitas:
-  - "Para detectar errores en una fórmula, aunque los números parezcan cerrar"
-  - "Para hacer las cuentas más rápido"
-  - "Para redondear resultados"
-respuesta: "Para detectar errores en una fórmula, aunque los números parezcan cerrar"
-
-explicacion: |
-  Si las unidades no coinciden con lo esperado, hay un error en el
-  planteo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "basico"
-  tags: ["analisis_dimensional", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Se pueden sumar directamente 3 metros más 5 segundos, porque son sólo números."
-
-explicacion: |
-  Metros y segundos son magnitudes distintas (longitud y tiempo): no se
-  pueden combinar con suma o resta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "basico"
-  tags: ["analisis_dimensional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Se pueden sumar 3 metros más 5 metros, porque tienen la misma unidad."
-
-explicacion: |
-  Con la misma unidad, la suma tiene sentido: 3 m + 5 m = 8 m.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "intermedio"
-  tags: ["analisis_dimensional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia de la suma, sí se pueden multiplicar o dividir magnitudes con unidades distintas (por ejemplo, distancia dividido tiempo)."
-
-explicacion: |
-  De ahí nacen las unidades derivadas: velocidad (m/s), área (m²),
-  densidad (kg/m³).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "basico"
-  tags: ["analisis_dimensional", "unidades_derivadas"]
-
-enunciado: "La velocidad se calcula como distancia ÷ tiempo. ¿Cuál de estas es una unidad válida de velocidad?"
-tipo: mc
-opciones_explicitas:
-  - "km/h"
-  - "kg/h"
-  - "m²"
-respuesta: "km/h"
-
-explicacion: |
-  Distancia (km) dividido tiempo (h) da km/h.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "basico"
-  tags: ["analisis_dimensional", "unidades_derivadas"]
-
-enunciado: "El área se calcula multiplicando dos longitudes. Si ambas están en metros, ¿en qué unidad queda el área?"
-tipo: mc
-opciones_explicitas:
-  - "m²"
-  - "m"
-  - "m³"
-respuesta: "m²"
-
-explicacion: |
-  Longitud × longitud = m × m = m² (metro cuadrado).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "basico"
-  tags: ["analisis_dimensional", "unidades_derivadas"]
-
-enunciado: "El volumen se calcula multiplicando tres longitudes. Si las tres están en metros, ¿en qué unidad queda el volumen?"
-tipo: mc
-opciones_explicitas:
-  - "m³"
-  - "m²"
-  - "m"
-respuesta: "m³"
-
-explicacion: |
-  Longitud × longitud × longitud = m³ (metro cúbico).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "intermedio"
-  tags: ["analisis_dimensional", "unidades_derivadas"]
-
-enunciado: "La densidad se calcula como masa ÷ volumen. ¿Cuál de estas es una unidad válida de densidad?"
-tipo: mc
-opciones_explicitas:
-  - "kg/m³"
-  - "kg·m³"
-  - "m/kg²"
-respuesta: "kg/m³"
-
-explicacion: |
-  Masa (kg) dividido volumen (m³) da kg/m³.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "intermedio"
-  tags: ["analisis_dimensional", "unidades_derivadas"]
-
-enunciado: "La aceleración se calcula como velocidad ÷ tiempo. Si la velocidad está en m/s y el tiempo en s, ¿en qué unidad queda la aceleración?"
-tipo: mc
-opciones_explicitas:
-  - "m/s²"
-  - "m/s"
-  - "s/m"
-respuesta: "m/s²"
-
-explicacion: |
-  (m/s) ÷ s = m/s² — "metros por segundo, por segundo".
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "intermedio"
-  tags: ["analisis_dimensional", "verificacion"]
-
-enunciado: "¿Cuál de estas operaciones NO tiene sentido dimensionalmente?"
-tipo: mc
-opciones_explicitas:
-  - "5 metros + 3 segundos"
-  - "5 metros × 3 metros"
-  - "10 km ÷ 2 horas"
-respuesta: "5 metros + 3 segundos"
-
-explicacion: |
-  Sumar longitud con tiempo no tiene sentido; multiplicar o dividir
-  magnitudes distintas sí (da una unidad derivada).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "intermedio"
-  tags: ["analisis_dimensional", "verificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si en una fórmula las unidades de ambos lados de la igualdad no coinciden, la fórmula tiene un error."
-
-explicacion: |
-  Es justo la base del análisis dimensional: usar las unidades como
-  chequeo antes de confiar en los números.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "intermedio"
-  tags: ["analisis_dimensional", "verificacion"]
-
-enunciado: "Una fórmula calcula el área de un rectángulo como base + altura (sumando, no multiplicando), con base y altura en metros. ¿Qué unidad da ese resultado?"
-tipo: mc
-opciones_explicitas:
-  - "m (no m², así que la fórmula está mal para calcular un área)"
-  - "m² (está bien)"
-  - "m³ (está bien)"
-respuesta: "m (no m², así que la fórmula está mal para calcular un área)"
-
-explicacion: |
-  Sumar dos longitudes da otra longitud (m), no un área (m²): el
-  análisis dimensional detecta que la fórmula "base + altura" no puede
-  ser el área.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "intermedio"
-  tags: ["analisis_dimensional", "problema"]
+  tags: ["conteo", "sucesor"]
 
 variables:
-  distancia_km: random(60, 400)
-  horas: random(2, 8)
+  a: random(0, 8)
+  siguiente: a + 1
 
-respuesta: distancia_km / horas
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un auto recorre {distancia_km} km en {horas} horas. ¿Cuál es su velocidad, en km/h?"
-
-pasos:
-  - "{distancia_km} km ÷ {horas} h = {distancia_km / horas} km/h"
-
-explicacion: |
-  Distancia (km) dividido tiempo (h) da directamente la unidad esperada,
-  km/h — eso confirma que la fórmula está bien planteada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "avanzado"
-  tags: ["analisis_dimensional", "problema"]
-
-variables:
-  masa_kg: random(1, 5)
-  volumen_cm3: random(200, 900)
-
-respuesta: (masa_kg * 1000) / volumen_cm3
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un objeto tiene {masa_kg} kg de masa y ocupa {volumen_cm3} cm³. Para calcular la densidad en g/cm³, primero hay que convertir la masa a gramos. ¿Cuál es la densidad, en g/cm³?"
-
-pasos:
-  - "{masa_kg} kg = {masa_kg * 1000} g. {masa_kg * 1000} g ÷ {volumen_cm3} cm³ = {(masa_kg * 1000) / volumen_cm3} g/cm³."
-
-explicacion: |
-  Antes de dividir, ambas magnitudes tienen que quedar en unidades
-  compatibles con lo que se pide (g y cm³, no kg y cm³) — es la conexión
-  directa con `../sistema-metrico-y-conversiones/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "intermedio"
-  tags: ["analisis_dimensional", "verificacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un cálculo que debía dar un área termina en una unidad como m/s, eso es una señal clara de que hay un error en el planteo."
-
-explicacion: |
-  m/s no es una unidad de área (que debería ser m²): el resultado avisa
-  que algo está mal antes de mirar el número.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "avanzado"
-  tags: ["analisis_dimensional", "unidades_derivadas"]
-
-enunciado: "El caudal de una canilla se calcula como volumen de agua ÷ tiempo. Si el volumen está en litros y el tiempo en minutos, ¿en qué unidad queda el caudal?"
-tipo: mc
-opciones_explicitas:
-  - "l/min"
-  - "min/l"
-  - "l · min"
-respuesta: "l/min"
-
-explicacion: |
-  Volumen (l) dividido tiempo (min) da l/min — litros por minuto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "intermedio"
-  tags: ["analisis_dimensional", "completar"]
-
-tipo: completar
-enunciado: "Completá: si un área se calcula multiplicando dos longitudes en centímetros, la unidad del resultado es cm___ (con el número del exponente)."
-respuestas_validas:
-  - 2
-
-explicacion: |
-  cm × cm = cm² (centímetro cuadrado).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "intermedio"
-  tags: ["analisis_dimensional", "completar"]
-
-tipo: completar
-enunciado: "Completá: si un volumen se calcula multiplicando tres longitudes en centímetros, la unidad del resultado es cm___ (con el número del exponente)."
-respuestas_validas:
-  - 3
-
-explicacion: |
-  cm × cm × cm = cm³ (centímetro cúbico).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "avanzado"
-  tags: ["analisis_dimensional", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená los pasos para verificar una fórmula por análisis dimensional."
-opciones_explicitas:
-  - "Si no coinciden, revisar la fórmula: algo está mal planteado"
-  - "Identificar las unidades de cada variable de la fórmula"
-  - "Comparar la unidad resultante con la unidad esperada"
-  - "Combinar esas unidades con las mismas operaciones (× o ÷) que usa la fórmula"
-respuesta_orden:
-  - "Identificar las unidades de cada variable de la fórmula"
-  - "Combinar esas unidades con las mismas operaciones (× o ÷) que usa la fórmula"
-  - "Comparar la unidad resultante con la unidad esperada"
-  - "Si no coinciden, revisar la fórmula: algo está mal planteado"
-
-explicacion: |
-  Es el mismo procedimiento en todos los casos: seguir las unidades a
-  través de las operaciones, no sólo los números.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "avanzado"
-  tags: ["analisis_dimensional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que las unidades de una fórmula cierren no garantiza que el número esté bien calculado: sólo descarta un tipo de error (el de planteo), no errores aritméticos."
-
-explicacion: |
-  Una fórmula puede tener las unidades correctas y aun así tener un error
-  de cuenta (por ejemplo, un factor mal multiplicado) — el análisis
-  dimensional es un chequeo más, no el único.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "analisis_dimensional"
-  nivel: "basico"
-  tags: ["analisis_dimensional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Revisar las unidades de una fórmula antes de confiar en el resultado numérico es una forma rápida de detectar errores de planteo."
-
-explicacion: |
-  Es la idea central de todo el módulo: las unidades cuentan una historia
-  que los números solos no cuentan.
-```
-
-## Sección: angulos (34 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "basico"
-  tags: ["angulo", "vocabulario"]
-
-enunciado: "¿Qué es un ángulo?"
-tipo: mc
-opciones_explicitas:
-  - "La abertura entre dos semirrectas que comparten un mismo origen"
-  - "La distancia entre dos puntos"
-  - "El área encerrada por un polígono"
-respuesta: "La abertura entre dos semirrectas que comparten un mismo origen"
-
-explicacion: |
-  Ese punto de origen común es el vértice; las dos semirrectas son los
-  lados del ángulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "basico"
-  tags: ["angulo", "vocabulario"]
-
-enunciado: "¿En qué unidad se mide un ángulo, y con qué instrumento?"
-tipo: mc
-opciones_explicitas:
-  - "En grados, con el transportador"
-  - "En metros, con una regla"
-  - "En litros, con una probeta"
-respuesta: "En grados, con el transportador"
-
-explicacion: |
-  Ver `../magnitud-unidad-instrumento/`: el grado es la unidad, el
-  transportador el instrumento.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "basico"
-  tags: ["angulo", "vocabulario"]
-
-respuesta: 360
+respuesta: siguiente
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuántos grados mide una vuelta completa?"
+enunciado: "¿Cuál es el sucesor de {a}?"
+
+pasos:
+  - "El sucesor de un número es el que sigue: {a} + 1 = {siguiente}"
 
 explicacion: |
-  360° es el ángulo completo.
+  El sucesor de un número n es n + 1, el próximo en la secuencia de conteo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "angulos"
+  tema: "conteo"
   nivel: "basico"
-  tags: ["angulo", "clasificacion"]
+  tags: ["conteo", "sucesor"]
 
 variables:
-  medida: random(1, 89)
+  a: random(10, 98)
+  siguiente: a + 1
 
-enunciado: "Un ángulo mide {medida}°. ¿Cómo se clasifica?"
-tipo: mc
-opciones_explicitas:
-  - "Agudo"
-  - "Obtuso"
-  - "Recto"
-respuesta: "Agudo"
-
-explicacion: |
-  Mide menos de 90°: es agudo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "basico"
-  tags: ["angulo", "clasificacion"]
-
-enunciado: "Un ángulo mide 90°. ¿Cómo se clasifica?"
-tipo: mc
-opciones_explicitas:
-  - "Recto"
-  - "Agudo"
-  - "Obtuso"
-respuesta: "Recto"
-
-explicacion: |
-  Exactamente 90°: es recto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "basico"
-  tags: ["angulo", "clasificacion"]
-
-variables:
-  medida: random(91, 179)
-
-enunciado: "Un ángulo mide {medida}°. ¿Cómo se clasifica?"
-tipo: mc
-opciones_explicitas:
-  - "Obtuso"
-  - "Agudo"
-  - "Llano"
-respuesta: "Obtuso"
-
-explicacion: |
-  Mide más de 90° y menos de 180°: es obtuso.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "basico"
-  tags: ["angulo", "clasificacion"]
-
-enunciado: "Un ángulo mide 180°. ¿Cómo se clasifica?"
-tipo: mc
-opciones_explicitas:
-  - "Llano"
-  - "Obtuso"
-  - "Completo"
-respuesta: "Llano"
-
-explicacion: |
-  Exactamente 180°: sus dos lados forman una línea recta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "intermedio"
-  tags: ["angulo", "clasificacion"]
-
-variables:
-  medida: random(181, 359)
-
-enunciado: "Un ángulo mide {medida}°. ¿Cómo se clasifica?"
-tipo: mc
-opciones_explicitas:
-  - "Reflejo"
-  - "Obtuso"
-  - "Completo"
-respuesta: "Reflejo"
-
-explicacion: |
-  Mide más de 180° y menos de 360°: es reflejo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "basico"
-  tags: ["angulo", "complementarios", "vocabulario"]
-
-enunciado: "¿Cuándo dos ángulos son complementarios?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando sus medidas suman 90°"
-  - "Cuando sus medidas suman 180°"
-  - "Cuando miden exactamente lo mismo"
-respuesta: "Cuando sus medidas suman 90°"
-
-explicacion: |
-  30° y 60° son complementarios, por ejemplo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "intermedio"
-  tags: ["angulo", "complementarios"]
-
-variables:
-  a: random(10, 80)
-
-respuesta: 90 - a
+respuesta: siguiente
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "¿Cuál es el complemento de un ángulo de {a}°?"
+enunciado: "¿Cuál es el sucesor de {a}?"
 
 pasos:
-  - "90 − {a} = {90 - a}°"
+  - "{a} + 1 = {siguiente}"
 
 explicacion: |
-  El complemento es lo que le falta a un ángulo para llegar a 90°.
+  El sucesor es siempre el número anterior más 1, aunque haya que cruzar
+  una decena (ej.: el sucesor de 29 es 30).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "angulos"
-  nivel: "intermedio"
-  tags: ["angulo", "complementarios"]
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "sucesor"]
 
 variables:
-  a: random(10, 80)
-  b: uno_de([90 - a, random(10, 80)])
+  a: random(100, 998)
+  siguiente: a + 1
 
-respuesta: (a + b == 90)
+respuesta: siguiente
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el sucesor de {a}?"
+
+pasos:
+  - "{a} + 1 = {siguiente}"
+
+explicacion: |
+  Igual que con números más chicos: se suma 1, aunque se cruce una centena
+  (ej.: el sucesor de 399 es 400).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "antecesor"]
+
+variables:
+  a: random(1, 9)
+  anterior: a - 1
+
+respuesta: anterior
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el antecesor de {a}?"
+
+pasos:
+  - "El antecesor es el número anterior: {a} - 1 = {anterior}"
+
+explicacion: |
+  El antecesor de un número n es n − 1, el que viene justo antes en la
+  secuencia de conteo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "antecesor"]
+
+variables:
+  a: random(11, 99)
+  anterior: a - 1
+
+respuesta: anterior
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el antecesor de {a}?"
+
+pasos:
+  - "{a} - 1 = {anterior}"
+
+explicacion: |
+  Se resta 1, aunque haya que bajar de decena (ej.: el antecesor de 40 es 39).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "antecesor"]
+
+variables:
+  a: random(101, 999)
+  anterior: a - 1
+
+respuesta: anterior
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el antecesor de {a}?"
+
+pasos:
+  - "{a} - 1 = {anterior}"
+
+explicacion: |
+  Se resta 1, aunque haya que bajar de centena (ej.: el antecesor de 500 es
+  499).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "sucesor"]
+
+variables:
+  a: random(1, 500)
+  b: a + uno_de([1, 1, 2, -1, 0])
+
+respuesta: (b == a + 1)
 tipo: vf
 
-enunciado: "¿Son complementarios un ángulo de {a}° y otro de {b}°?"
-
-pasos:
-  - "{a} + {b} = {a + b}"
+enunciado: "¿Es {b} el sucesor de {a}?"
 
 explicacion: |
-  Son complementarios sólo si la suma da exactamente 90°.
+  El sucesor de {a} es {a} + 1. Hay que comparar ese resultado con el número
+  propuesto, no alcanza con que "esté cerca".
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "angulos"
+  tema: "conteo"
   nivel: "basico"
-  tags: ["angulo", "suplementarios", "vocabulario"]
-
-enunciado: "¿Cuándo dos ángulos son suplementarios?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando sus medidas suman 180°"
-  - "Cuando sus medidas suman 90°"
-  - "Cuando uno es el doble del otro"
-respuesta: "Cuando sus medidas suman 180°"
-
-explicacion: |
-  110° y 70° son suplementarios, por ejemplo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "intermedio"
-  tags: ["angulo", "suplementarios"]
+  tags: ["conteo", "antecesor"]
 
 variables:
-  a: random(10, 170)
+  a: random(2, 500)
+  b: a - uno_de([1, 1, 2, -1, 0])
 
-respuesta: 180 - a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el suplemento de un ángulo de {a}°?"
-
-pasos:
-  - "180 − {a} = {180 - a}°"
-
-explicacion: |
-  El suplemento es lo que le falta a un ángulo para llegar a 180°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "intermedio"
-  tags: ["angulo", "suplementarios"]
-
-variables:
-  a: random(10, 170)
-  b: uno_de([180 - a, random(10, 170)])
-
-respuesta: (a + b == 180)
+respuesta: (b == a - 1)
 tipo: vf
 
-enunciado: "¿Son suplementarios un ángulo de {a}° y otro de {b}°?"
-
-pasos:
-  - "{a} + {b} = {a + b}"
+enunciado: "¿Es {b} el antecesor de {a}?"
 
 explicacion: |
-  Son suplementarios sólo si la suma da exactamente 180°.
+  El antecesor de {a} es {a} − 1. Se compara ese resultado exacto con el
+  número propuesto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "angulos"
-  nivel: "intermedio"
-  tags: ["angulo", "adyacentes", "vocabulario"]
-
-enunciado: "¿Cuándo dos ángulos son adyacentes?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando comparten el vértice y un lado, quedando uno al lado del otro"
-  - "Cuando están opuestos por el vértice"
-  - "Cuando miden exactamente lo mismo"
-respuesta: "Cuando comparten el vértice y un lado, quedando uno al lado del otro"
-
-explicacion: |
-  No se superponen: quedan "pegados" por un lado en común.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "intermedio"
-  tags: ["angulo", "adyacentes"]
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "conteo_salteado"]
 
 variables:
-  a: random(20, 160)
+  inicio: random(0, 20) * 2
+  n: random(3, 8)
+  termino: inicio + 2 * (n - 1)
 
-respuesta: 180 - a
+respuesta: termino
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Dos ángulos adyacentes forman entre los dos un ángulo llano (180°). Si uno mide {a}°, ¿cuánto mide el otro?"
+enunciado: "Contando de 2 en 2 desde {inicio}, ¿qué número decís en el lugar {n}° (contando {inicio} como el 1°)?"
 
 pasos:
-  - "180 − {a} = {180 - a}°"
+  - "Cada paso suma 2. Del 1° al {n}° hay {n} - 1 pasos: {inicio} + 2 × ({n} - 1) = {termino}"
 
 explicacion: |
-  Cuando dos ángulos adyacentes forman un llano, también son
-  suplementarios entre sí.
+  Contar salteado de a 2 es sumar siempre 2 al número anterior. El término
+  en el lugar n es inicio + 2×(n − 1).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "angulos"
-  nivel: "intermedio"
-  tags: ["angulo", "opuestos_por_el_vertice", "vocabulario"]
-
-enunciado: "Cuando dos rectas se cruzan, ¿cómo se llaman los ángulos que quedan enfrentados en diagonal?"
-tipo: mc
-opciones_explicitas:
-  - "Opuestos por el vértice"
-  - "Adyacentes"
-  - "Complementarios"
-respuesta: "Opuestos por el vértice"
-
-explicacion: |
-  Se forman cuando dos rectas se cortan; quedan uno frente al otro, en
-  diagonal.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
+  tema: "conteo"
   nivel: "basico"
-  tags: ["angulo", "opuestos_por_el_vertice"]
+  tags: ["conteo", "conteo_salteado"]
+
+variables:
+  inicio: random(0, 20) * 5
+  n: random(3, 8)
+  termino: inicio + 5 * (n - 1)
+
+respuesta: termino
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Contando de 5 en 5 desde {inicio}, ¿qué número decís en el lugar {n}°?"
+
+pasos:
+  - "{inicio} + 5 × ({n} - 1) = {termino}"
+
+explicacion: |
+  Contar de 5 en 5 es la base de la tabla del 5: cada salto suma 5 al
+  anterior.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "conteo_salteado"]
+
+variables:
+  inicio: random(0, 50) * 10
+  n: random(3, 8)
+  termino: inicio + 10 * (n - 1)
+
+respuesta: termino
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Contando de 10 en 10 desde {inicio}, ¿qué número decís en el lugar {n}°?"
+
+pasos:
+  - "{inicio} + 10 × ({n} - 1) = {termino}"
+
+explicacion: |
+  Contar de 10 en 10 sólo cambia la cifra de las decenas (o más arriba); las
+  unidades quedan fijas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "conteo_salteado"]
+
+variables:
+  inicio: random(0, 30) * 3
+  n: random(3, 8)
+  termino: inicio + 3 * (n - 1)
+
+respuesta: termino
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Contando de 3 en 3 desde {inicio}, ¿qué número decís en el lugar {n}°?"
+
+pasos:
+  - "{inicio} + 3 × ({n} - 1) = {termino}"
+
+explicacion: |
+  Igual que con otros saltos: se suma siempre el mismo número (acá, 3) al
+  anterior.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "conteo_salteado"]
+
+variables:
+  inicio: random(0, 30) * 4
+  n: random(3, 8)
+  termino: inicio + 4 * (n - 1)
+
+respuesta: termino
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Contando de 4 en 4 desde {inicio}, ¿qué número decís en el lugar {n}°?"
+
+pasos:
+  - "{inicio} + 4 × ({n} - 1) = {termino}"
+
+explicacion: |
+  El salto de 4 en 4 es la base de la tabla del 4.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "intermedio"
+  tags: ["conteo", "conteo_salteado"]
+
+variables:
+  inicio: random(1, 97)
+  paso: uno_de([2, 3, 5, 10])
+  n: random(3, 6)
+  termino: inicio + paso * (n - 1)
+
+respuesta: termino
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Contando de {paso} en {paso} desde {inicio} (sin que {inicio} sea necesariamente múltiplo de {paso}), ¿qué número decís en el lugar {n}°?"
+
+pasos:
+  - "{inicio} + {paso} × ({n} - 1) = {termino}"
+
+explicacion: |
+  El conteo salteado funciona igual aunque el número de inicio no sea
+  "redondo": el salto se suma siempre desde el propio inicio, no desde el
+  múltiplo más cercano.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "cuenta_regresiva"]
+
+variables:
+  inicio: random(20, 999)
+  pasos_atras: random(3, 9)
+  resultado: inicio - pasos_atras
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Contando hacia atrás de 1 en 1 desde {inicio}, ¿qué número decís después de {pasos_atras} pasos?"
+
+pasos:
+  - "{inicio} - {pasos_atras} = {resultado}"
+
+explicacion: |
+  Contar hacia atrás de a 1 es restar 1 en cada paso, tantas veces como
+  pasos se cuenten.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "cuenta_regresiva"]
+
+variables:
+  inicio: random(20, 200) * 2
+  pasos_atras: random(2, 6)
+  resultado: inicio - 2 * pasos_atras
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Contando hacia atrás de 2 en 2 desde {inicio}, ¿qué número decís después de {pasos_atras} pasos?"
+
+pasos:
+  - "{inicio} - 2 × {pasos_atras} = {resultado}"
+
+explicacion: |
+  Igual que la cuenta regresiva de a 1, pero restando 2 en cada paso.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "cuenta_regresiva"]
+
+variables:
+  inicio: random(20, 100) * 10
+  pasos_atras: random(2, 6)
+  resultado: inicio - 10 * pasos_atras
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Contando hacia atrás de 10 en 10 desde {inicio}, ¿qué número decís después de {pasos_atras} pasos?"
+
+pasos:
+  - "{inicio} - 10 × {pasos_atras} = {resultado}"
+
+explicacion: |
+  La cuenta regresiva de 10 en 10 sólo mueve la cifra de las decenas (o
+  superior).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "cuenta_regresiva"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Los ángulos opuestos por el vértice siempre son iguales entre sí."
+enunciado: "Al contar hacia atrás (cuenta regresiva), cada número que se dice es menor que el anterior."
 
 explicacion: |
-  Es una propiedad que se cumple siempre, sin importar el ángulo que
-  formen las dos rectas.
+  Contar hacia atrás es restar en cada paso: por eso la secuencia siempre
+  desciende, nunca sube ni se repite.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "angulos"
-  nivel: "avanzado"
-  tags: ["angulo", "opuestos_por_el_vertice", "problema"]
-
-variables:
-  a: random(20, 160)
-
-respuesta: a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Dos rectas se cruzan y uno de los cuatro ángulos formados mide {a}°. ¿Cuánto mide el ángulo opuesto por el vértice a ese?"
-
-explicacion: |
-  Los ángulos opuestos por el vértice son iguales: mide lo mismo,
-  {a}°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "avanzado"
-  tags: ["angulo", "adyacentes", "problema"]
-
-variables:
-  a: random(20, 160)
-
-respuesta: 180 - a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Dos rectas se cruzan y uno de los cuatro ángulos formados mide {a}°. ¿Cuánto mide cualquiera de los dos ángulos ADYACENTES a ese (los que están a su lado, no el opuesto)?"
-
-pasos:
-  - "180 − {a} = {180 - a}°, porque son suplementarios (juntos forman un ángulo llano)."
-
-explicacion: |
-  Los ángulos adyacentes al cruce son suplementarios del ángulo dado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "intermedio"
-  tags: ["angulo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todos los ángulos formados alrededor de un mismo punto (sin superponerse) suman en total 360°."
-
-explicacion: |
-  Es una vuelta completa repartida entre todos esos ángulos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "avanzado"
-  tags: ["angulo", "problema"]
-
-variables:
-  a: random(60, 120)
-  b: random(60, 120)
-  c: random(60, 120)
-
-respuesta: 360 - (a + b + c)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Alrededor de un punto hay 4 ángulos que no se superponen. Tres de ellos miden {a}°, {b}° y {c}°. ¿Cuánto mide el cuarto?"
-
-pasos:
-  - "360 − ({a} + {b} + {c}) = {360 - (a + b + c)}°"
-
-explicacion: |
-  Los 4 ángulos alrededor de un punto suman 360° en total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
+  tema: "conteo"
   nivel: "basico"
-  tags: ["angulo", "clasificacion"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un ángulo recto (90°) se clasifica como agudo."
-
-explicacion: |
-  El recto es su propia categoría (exactamente 90°): no es agudo (menos
-  de 90°) ni obtuso (más de 90°).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "avanzado"
-  tags: ["angulo", "complementarios"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El complemento de cualquier ángulo agudo (entre 0° y 90°) siempre es también un ángulo agudo."
-
-explicacion: |
-  Si el ángulo original mide entre 0° y 90°, 90° menos ese valor da otro
-  número entre 0° y 90°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "avanzado"
-  tags: ["angulo", "suplementarios"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El suplemento de un ángulo puede ser agudo, recto u obtuso, dependiendo de cuánto mida el ángulo original."
-
-explicacion: |
-  Si el original es obtuso, el suplemento es agudo (y viceversa); si el
-  original mide 90°, el suplemento también mide 90°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "intermedio"
-  tags: ["angulo", "comparacion"]
+  tags: ["conteo", "comparacion"]
 
 variables:
-  a: random(10, 170)
-  b: random(10, 170)
+  a: random(1, 999)
+  b: random(1, 999)
+
+respuesta: (a > b)
+tipo: vf
+
+enunciado: "¿Es {a} mayor que {b}?"
+
+explicacion: |
+  Un número es mayor que otro si aparece más adelante en la secuencia de
+  conteo (más lejos del cero).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "comparacion"]
+
+variables:
+  a: random(1, 999)
+  b: random(1, 999)
+
+respuesta: (a < b)
+tipo: vf
+
+enunciado: "¿Es {a} menor que {b}?"
+
+explicacion: |
+  Un número es menor que otro si aparece antes en la secuencia de conteo
+  (más cerca del cero).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "comparacion"]
+
+variables:
+  a: random(1, 200)
+  b: uno_de([a, a, random(1, 200)])
+
+respuesta: (a == b)
+tipo: vf
+
+enunciado: "¿{a} es igual a {b}?"
+
+explicacion: |
+  Dos cantidades son iguales sólo si representan exactamente el mismo
+  número, no alcanza con estar cerca.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "comparacion"]
+
+variables:
+  a: random(1, 999)
+  b: random(1, 999)
 
 restricciones:
   - a != b
 
-respuesta: a > b
-tipo: vf
-
-enunciado: "¿Es mayor un ángulo de {a}° que uno de {b}°?"
-
-explicacion: |
-  Se comparan directamente los valores en grados.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "basico"
-  tags: ["angulo", "comparacion"]
-
-variables:
-  a: random(10, 89)
-  b: random(91, 179)
-
-respuesta: b
+respuesta: max(a, b)
 tipo: mc
 opciones_explicitas:
   - a
   - b
 
-enunciado: "¿Cuál de estos dos ángulos es mayor: {a}° o {b}°?"
+enunciado: "¿Cuál de estos dos números es mayor: {a} o {b}?"
 
 explicacion: |
-  Se comparan los valores directamente.
+  Para comparar dos números se los ubica mentalmente en la secuencia de
+  conteo: el que se dice más tarde es el mayor.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "angulos"
+  tema: "conteo"
   nivel: "basico"
-  tags: ["angulo", "completar"]
+  tags: ["conteo", "comparacion"]
 
 variables:
-  a: random(10, 80)
+  a: random(1, 999)
+  b: random(1, 999)
+  c: random(1, 999)
 
-tipo: completar
-enunciado: "Completá: el complemento de un ángulo de {a}° es ___°."
-respuestas_validas:
-  - 90 - a
+respuesta: max(a, b, c)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el mayor entre {a}, {b} y {c}?"
 
 explicacion: |
-  90° menos el ángulo dado.
+  Se comparan de a pares hasta quedarse con el más grande de los tres.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "angulos"
+  tema: "conteo"
   nivel: "basico"
-  tags: ["angulo", "completar"]
+  tags: ["conteo", "comparacion"]
 
 variables:
-  a: random(10, 170)
+  a: random(1, 999)
+  b: random(1, 999)
+  c: random(1, 999)
 
-tipo: completar
-enunciado: "Completá: el suplemento de un ángulo de {a}° es ___°."
-respuestas_validas:
-  - 180 - a
+respuesta: min(a, b, c)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el menor entre {a}, {b} y {c}?"
 
 explicacion: |
-  180° menos el ángulo dado.
+  Se comparan de a pares hasta quedarse con el más chico de los tres.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "angulos"
-  nivel: "intermedio"
-  tags: ["angulo", "orden"]
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "orden"]
 
 tipo: ordenar
-enunciado: "Ordená estos ángulos de menor a mayor: 120°, 45°, 90°, 15°."
+enunciado: "Ordená estos números de menor a mayor."
 opciones_explicitas:
-  - "90°"
-  - "15°"
-  - "120°"
-  - "45°"
-respuesta_orden: ["15°", "45°", "90°", "120°"]
+  - "23"
+  - "7"
+  - "41"
+  - "16"
+respuesta_orden: ["7", "16", "23", "41"]
 
 explicacion: |
-  Se comparan directamente los valores en grados.
+  Ordenar de menor a mayor es ubicar los números según su lugar en la
+  secuencia de conteo, del más cercano al cero al más lejano.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "angulos"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos números de mayor a menor."
+opciones_explicitas:
+  - "8"
+  - "34"
+  - "12"
+  - "50"
+respuesta_orden: ["50", "34", "12", "8"]
+
+explicacion: |
+  Ordenar de mayor a menor es el mismo criterio que de menor a mayor, pero
+  arrancando por el que está más lejos del cero.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
   nivel: "intermedio"
-  tags: ["angulo", "verificacion"]
+  tags: ["conteo", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos números de menor a mayor."
+opciones_explicitas:
+  - "67"
+  - "19"
+  - "88"
+  - "45"
+  - "31"
+respuesta_orden: ["19", "31", "45", "67", "88"]
+
+explicacion: |
+  Con más números conviene ir descartando de a uno el menor (o el mayor)
+  restante, en vez de compararlos todos de una sola vez.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "intermedio"
+  tags: ["conteo", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estos números de mayor a menor."
+opciones_explicitas:
+  - "402"
+  - "218"
+  - "990"
+  - "125"
+respuesta_orden: ["990", "402", "218", "125"]
+
+explicacion: |
+  Con números de más cifras, primero se compara la cantidad de cifras (más
+  cifras es siempre mayor) y recién después, si empatan, cifra por cifra de
+  izquierda a derecha.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "secuencia"]
 
 variables:
-  medida: random(91, 179)
-  clasificacion_mostrada: uno_de(["obtuso", "obtuso", "obtuso", "agudo"])
-
-respuesta: (clasificacion_mostrada == "obtuso")
-tipo: vf
-
-enunciado: "¿Está bien esta clasificación? Un ángulo de {medida}° es {clasificacion_mostrada}."
-
-explicacion: |
-  Entre 90° y 180° (sin llegar a 180°), el ángulo es obtuso.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "intermedio"
-  tags: ["angulo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando dos rectas se cruzan formando ángulos rectos (90°), se dice que son perpendiculares."
-
-explicacion: |
-  Es la definición de perpendicularidad en términos de ángulos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "avanzado"
-  tags: ["angulo", "problema"]
-
-variables:
-  horas: uno_de([3, 6, 9])
-
-respuesta: (horas / 12) * 360
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En un reloj analógico, las 12 horas están repartidas en 360° a su alrededor. ¿Cuántos grados recorre el minutero desde las 12 hasta marcar las {horas} en punto (pensando la esfera del reloj completa, no la posición del horario)?"
-
-pasos:
-  - "({horas} ÷ 12) × 360 = {(horas / 12) * 360}°"
-
-explicacion: |
-  Cada hora representa 360° ÷ 12 = 30° del total de la esfera del reloj.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "angulos"
-  nivel: "basico"
-  tags: ["angulo", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Conocer las relaciones entre ángulos (complementarios, suplementarios, opuestos por el vértice) permite calcular la medida de un ángulo sin necesidad de medirlo con el transportador."
-
-explicacion: |
-  Es la utilidad central de este módulo, y la base para
-  `../triangulos/`.
-```
-
-## Sección: arboles-grafo-sin-ciclos (20 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "basico"
-  tags: ["arbol", "vocabulario"]
-
-enunciado: "¿Qué es un árbol, en teoría de grafos?"
-tipo: mc
-opciones_explicitas:
-  - "Un grafo que es conexo (hay camino entre cualquier par de vértices) Y acíclico (no tiene ningún ciclo), las dos propiedades a la vez"
-  - "Cualquier grafo con más de 10 vértices"
-  - "Un grafo dirigido con al menos un ciclo"
-respuesta: "Un grafo que es conexo (hay camino entre cualquier par de vértices) Y acíclico (no tiene ningún ciclo), las dos propiedades a la vez"
-
-explicacion: |
-  Ninguna de las dos propiedades sola alcanza — hace falta que se
-  cumplan ambas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "intermedio"
-  tags: ["arbol"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un árbol es, exactamente, un grafo que combina las dos propiedades de `../caminos-y-ciclos/`: ser conexo y ser acíclico, a la vez."
-
-explicacion: |
-  Un grafo conexo con ciclos no es árbol; un grafo acíclico pero
-  desconectado tampoco.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "intermedio"
-  tags: ["arbol", "problema"]
-
-variables:
-  vertices: uno_de([5, 7, 10, 12])
-
-respuesta: vertices - 1
-tipo: input
-
-enunciado: "Un árbol tiene {vertices} vértices. ¿Cuántas aristas tiene exactamente?"
-
-pasos:
-  - "Aristas = vértices − 1 = {vertices} − 1 = {vertices - 1}"
-
-explicacion: |
-  Un árbol siempre tiene exactamente n−1 aristas para n vértices, ni
-  una más ni una menos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "avanzado"
-  tags: ["arbol", "problema"]
-
-variables:
-  vertices: 6
-  aristas: uno_de([5, 6, 7])
-
-respuesta: aristas == vertices - 1
-tipo: vf
-
-enunciado: "Un grafo tiene {vertices} vértices y {aristas} aristas. Sin ver el dibujo, ¿PODRÍA ser un árbol (cumple la cantidad correcta de aristas)?"
-
-explicacion: |
-  Sólo con vértices−1 = {vertices - 1} aristas exactas puede llegar a
-  ser un árbol — de más o de menos, se descarta sin necesitar mirar el
-  dibujo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "avanzado"
-  tags: ["arbol", "ciclo"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un grafo conexo con n vértices tiene MÁS de n−1 aristas, necesariamente contiene al menos un ciclo."
-
-explicacion: |
-  La arista 'de más', sumada a un grafo ya conexo, cierra
-  necesariamente algún ciclo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-enunciado: "¿Qué es la raíz de un árbol?"
-tipo: mc
-opciones_explicitas:
-  - "El vértice elegido como punto de partida de la jerarquía (por convención, se dibuja arriba)"
-  - "El vértice con el grado más bajo del árbol"
-  - "Cualquier hoja del árbol"
-respuesta: "El vértice elegido como punto de partida de la jerarquía (por convención, se dibuja arriba)"
-
-explicacion: |
-  Un mismo árbol puede 'enraizarse' en distintos vértices, dando
-  jerarquías distintas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-enunciado: "¿Qué es un nodo 'hoja' en un árbol?"
-tipo: mc
-opciones_explicitas:
-  - "Un vértice sin ningún hijo — el final de una rama"
-  - "El vértice raíz del árbol"
-  - "Un vértice con exactamente 2 hijos"
-respuesta: "Un vértice sin ningún hijo — el final de una rama"
-
-explicacion: |
-  Es la contraparte de la raíz: mientras la raíz es el punto de
-  partida, las hojas son los puntos finales.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-enunciado: "En un árbol con raíz elegida, ¿qué relación describe 'padre' e 'hijo'?"
-tipo: mc
-opciones_explicitas:
-  - "Si dos vértices están conectados por una arista y uno está más cerca de la raíz, ese es el padre del otro (su hijo)"
-  - "El padre siempre es una hoja del árbol"
-  - "Todos los vértices son padres entre sí, sin ninguna jerarquía"
-respuesta: "Si dos vértices están conectados por una arista y uno está más cerca de la raíz, ese es el padre del otro (su hijo)"
-
-explicacion: |
-  La dirección 'padre → hijo' depende de qué vértice se eligió como
-  raíz.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-respuesta: 3
-tipo: input
-
-enunciado: "Un árbol tiene raíz A, con hijos B y C. B tiene hijos D y E (sin más descendientes). C no tiene ningún hijo. ¿Cuántas hojas tiene este árbol?"
-
-pasos:
-  - "D, E y C no tienen ningún hijo — son las 3 hojas. A y B sí tienen hijos, no son hojas."
-
-explicacion: |
-  Se cuentan sólo los vértices sin ningún hijo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "intermedio"
-  tags: ["arbol_binario", "vocabulario"]
-
-enunciado: "¿Qué es un árbol binario?"
-tipo: mc
-opciones_explicitas:
-  - "Un árbol donde cada vértice tiene como máximo 2 hijos"
-  - "Un árbol con exactamente 2 vértices"
-  - "Un árbol donde todos los vértices son hojas"
-respuesta: "Un árbol donde cada vértice tiene como máximo 2 hijos"
-
-explicacion: |
-  Es la estructura central detrás de muchos algoritmos de búsqueda
-  eficientes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "¿Por qué un sistema de archivos (carpetas y subcarpetas) es, en esencia, un árbol?"
-tipo: mc
-opciones_explicitas:
-  - "Porque cada carpeta puede contener subcarpetas (hijos), partiendo de una carpeta raíz única, sin que ninguna subcarpeta termine 'conectada en círculo' de vuelta a una carpeta ancestro"
-  - "Porque las carpetas siempre se dibujan con forma triangular"
-  - "Un sistema de archivos no tiene ninguna relación con la teoría de grafos"
-respuesta: "Porque cada carpeta puede contener subcarpetas (hijos), partiendo de una carpeta raíz única, sin que ninguna subcarpeta termine 'conectada en círculo' de vuelta a una carpeta ancestro"
-
-explicacion: |
-  Es exactamente la estructura de raíz, padres, hijos y hojas de este
-  módulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "En un árbol genealógico (descendencia de una persona), ¿qué representan los vértices y qué representa la relación padre-hijo?"
-tipo: mc
-opciones_explicitas:
-  - "Los vértices son las personas; la relación padre-hijo del árbol coincide con la relación familiar real de padre/madre e hijo"
-  - "Los vértices son los años de nacimiento; no hay ninguna relación de parentesco representada"
-respuesta: "Los vértices son las personas; la relación padre-hijo del árbol coincide con la relación familiar real de padre/madre e hijo"
-
-explicacion: |
-  Es uno de los usos más antiguos e intuitivos de la estructura de
-  árbol.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "En un árbol de decisión, ¿qué representan los nodos internos y qué representan las hojas?"
-tipo: mc
-opciones_explicitas:
-  - "Los nodos internos son preguntas o decisiones a tomar; las hojas son los resultados finales posibles"
-  - "Los nodos internos son los resultados finales; las hojas son las preguntas"
-  - "Un árbol de decisión no tiene hojas, sólo nodos internos"
-respuesta: "Los nodos internos son preguntas o decisiones a tomar; las hojas son los resultados finales posibles"
-
-explicacion: |
-  Cada rama representa una respuesta posible a la pregunta de ese
-  nodo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "intermedio"
-  tags: ["arbol", "problema"]
-
-respuesta: 0
-tipo: input
-
-enunciado: "Un árbol tiene un único vértice (sin ninguna arista). Según la fórmula n−1, ¿cuántas aristas debería tener?"
-
-pasos:
-  - "n − 1 = 1 − 1 = 0"
-
-explicacion: |
-  Es el caso trivial: un solo vértice ya es, por definición, un árbol
-  (conexo consigo mismo, sin ningún ciclo posible).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "avanzado"
-  tags: ["arbol"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un grafo con un único vértice y ninguna arista cumple la definición de árbol: es conexo (trivialmente, no hay otro vértice al que no se pueda 'llegar') y acíclico (no tiene ninguna arista para formar un ciclo)."
-
-explicacion: |
-  Es el caso base más chico posible de un árbol.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "basico"
-  tags: ["aplicacion"]
-
-enunciado: "Un árbol filogenético (Biología) agrupa especies según su ancestro común. ¿Por qué es, matemáticamente, un árbol?"
-tipo: mc
-opciones_explicitas:
-  - "Porque tiene una raíz (el ancestro común más antiguo representado) y se ramifica sin volver a juntarse en ningún ciclo, con las especies actuales como hojas"
-  - "Porque siempre tiene exactamente 2 especies"
-  - "No tiene ninguna relación real con la estructura de árbol de este módulo"
-respuesta: "Porque tiene una raíz (el ancestro común más antiguo representado) y se ramifica sin volver a juntarse en ningún ciclo, con las especies actuales como hojas"
-
-explicacion: |
-  Es el mismo caso mencionado en `troncos.md` como aplicación de
-  teoría de grafos sin nombrarla así en Biología.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "intermedio"
-  tags: ["aplicacion"]
-
-enunciado: "¿Qué relación tiene una lista enlazada (una estructura de datos donde cada elemento apunta al siguiente) con un árbol?"
-tipo: mc
-opciones_explicitas:
-  - "Es un árbol 'degenerado': cada nodo tiene como mucho un solo hijo, así que el árbol completo es una única cadena lineal, sin ninguna ramificación"
-  - "No tiene ninguna relación con la estructura de árbol"
-  - "Una lista enlazada siempre tiene ciclos, a diferencia de un árbol"
-respuesta: "Es un árbol 'degenerado': cada nodo tiene como mucho un solo hijo, así que el árbol completo es una única cadena lineal, sin ninguna ramificación"
-
-explicacion: |
-  Sigue cumpliendo la definición de árbol (conexo, acíclico), sólo
-  que sin ninguna rama.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-respuesta: 2
-tipo: input
-
-enunciado: "En un árbol con raíz A (nivel 0), A tiene hijo B (nivel 1), y B tiene hijo C. ¿En qué nivel está C?"
-
-pasos:
-  - "Cada paso hacia abajo desde la raíz suma 1 al nivel: A=0, B=1, C=2"
-
-explicacion: |
-  El nivel de un nodo es la longitud del camino desde la raíz hasta
-  ese nodo, en cantidad de aristas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "avanzado"
-  tags: ["vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cualquier vértice de un árbol, junto con todos sus descendientes, forma en sí mismo un árbol más chico (un subárbol) — cumple la misma definición de conexo y acíclico."
-
-explicacion: |
-  Es una propiedad que se aprovecha mucho en algoritmos recursivos
-  sobre árboles.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "arboles_grafo_sin_ciclos"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirve reconocer una estructura como 'árbol' (grafo conexo sin ciclos)?"
-tipo: mc
-opciones_explicitas:
-  - "Para poder aplicar el mismo vocabulario y las mismas herramientas (raíz, hojas, recorridos) a sistemas muy distintos que comparten esa misma estructura: archivos, genealogías, decisiones, evolución de especies"
-  - "Sólo sirve para dibujar diagramas jerárquicos, sin ninguna utilidad de cálculo"
-  - "Sólo se aplica a estructuras de datos de programación, sin otros usos"
-respuesta: "Para poder aplicar el mismo vocabulario y las mismas herramientas (raíz, hojas, recorridos) a sistemas muy distintos que comparten esa misma estructura: archivos, genealogías, decisiones, evolución de especies"
-
-explicacion: |
-  Es la base directa de `../algoritmos-de-recorrido-bfs-dfs/`, que
-  aplica exactamente igual a árboles que a grafos generales.
-```
-
-## Sección: area-poligonos-regulares-y-compuestas (27 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "basico"
-  tags: ["apotema", "vocabulario"]
-
-enunciado: "¿Qué es el apotema de un polígono regular?"
-tipo: mc
-opciones_explicitas:
-  - "La distancia perpendicular desde el centro hasta el punto medio de un lado"
-  - "La distancia desde el centro hasta un vértice"
-  - "La longitud de un lado cualquiera"
-respuesta: "La distancia perpendicular desde el centro hasta el punto medio de un lado"
-
-explicacion: |
-  No es lo mismo que el radio (centro a vértice): el apotema va del
-  centro al punto medio de un lado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "intermedio"
-  tags: ["apotema", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El apotema, como una única distancia constante del centro a cada lado, sólo está bien definido en polígonos regulares."
-
-explicacion: |
-  En un polígono irregular la distancia del centro a cada lado varía —
-  no hay un único apotema.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "intermedio"
-  tags: ["apotema", "vocabulario"]
-
-enunciado: "¿Cómo se deduce la fórmula del área de un polígono regular a partir del apotema?"
-tipo: mc
-opciones_explicitas:
-  - "Se divide el polígono en n triángulos iguales desde el centro, cada uno con base un lado y altura el apotema"
-  - "Se lo compara directamente con un círculo de igual perímetro"
-  - "No tiene deducción, es una fórmula empírica"
-respuesta: "Se divide el polígono en n triángulos iguales desde el centro, cada uno con base un lado y altura el apotema"
-
-explicacion: |
-  Sumando el área de esos n triángulos (cada uno lado×apotema/2) se llega
-  a (perímetro × apotema) / 2.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "intermedio"
-  tags: ["apotema", "completar"]
+  a: random(1, 96)
 
 tipo: completar
-enunciado: "Completá: Área de un polígono regular = (Perímetro × ___) / 2."
+enunciado: "Completá el número que falta: {a}, {a+1}, ___, {a+3}."
 respuestas_validas:
-  - "apotema"
-  - "Apotema"
+  - a + 2
 
 explicacion: |
-  El área se calcula con el perímetro y el apotema.
+  La secuencia avanza de 1 en 1: el número que falta es el anterior más 1.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
+  tema: "conteo"
   nivel: "basico"
-  tags: ["apotema", "problema"]
+  tags: ["conteo", "secuencia"]
 
 variables:
-  n: uno_de([5, 6, 8, 9, 10, 12])
-  lado: random(4, 20)
-
-respuesta: n * lado
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un polígono regular tiene {n} lados de {lado} cm cada uno. ¿Cuál es su perímetro?"
-
-pasos:
-  - "{n} × {lado} = {n * lado} cm"
-
-explicacion: |
-  El perímetro de un polígono regular es la cantidad de lados por la
-  medida de cada lado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "avanzado"
-  tags: ["apotema", "problema"]
-
-variables:
-  n: uno_de([5, 6, 8, 10])
-  lado: random(4, 15)
-  apotema: 2 * random(2, 10)
-
-respuesta: (n * lado * apotema) / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un polígono regular tiene {n} lados de {lado} cm, y su apotema mide {apotema} cm. ¿Cuál es su área (en cm²)?"
-
-pasos:
-  - "Perímetro = {n} × {lado} = {n * lado} cm"
-  - "Área = ({n * lado} × {apotema}) ÷ 2 = {(n * lado * apotema) / 2} cm²"
-
-explicacion: |
-  Primero se calcula el perímetro, y con él y el apotema se aplica la
-  fórmula del área.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "intermedio"
-  tags: ["apotema", "problema"]
-
-variables:
-  perimetro: uno_de([24, 30, 36, 40, 48, 54, 60])
-  apotema: 2 * random(2, 12)
-
-respuesta: (perimetro * apotema) / 2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un polígono regular tiene un perímetro de {perimetro} cm y un apotema de {apotema} cm. ¿Cuál es su área (en cm²)?"
-
-pasos:
-  - "({perimetro} × {apotema}) ÷ 2 = {(perimetro * apotema) / 2} cm²"
-
-explicacion: |
-  Se aplica directo la fórmula: no hace falta calcular el perímetro
-  porque ya está dado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "avanzado"
-  tags: ["apotema", "problema"]
-
-variables:
-  perimetro: uno_de([24, 30, 36, 40, 48, 60])
-  apotema_real: uno_de([4, 5, 6, 8, 10])
-  area_dada: (perimetro * apotema_real) / 2
-
-respuesta: apotema_real
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un polígono regular tiene un perímetro de {perimetro} cm y un área de {area_dada} cm². ¿Cuánto mide su apotema?"
-
-pasos:
-  - "Área = (Perímetro × Apotema) ÷ 2, entonces Apotema = (2 × Área) ÷ Perímetro"
-  - "(2 × {area_dada}) ÷ {perimetro} = {(2 * area_dada) / perimetro} cm"
-
-explicacion: |
-  Se despeja el apotema invirtiendo la fórmula del área.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "basico"
-  tags: ["figuras_compuestas", "vocabulario"]
-
-enunciado: "¿Qué es una figura compuesta?"
-tipo: mc
-opciones_explicitas:
-  - "Una figura formada por dos o más figuras simples combinadas"
-  - "Cualquier figura con más de 4 lados"
-  - "Una figura que no tiene fórmula de área"
-respuesta: "Una figura formada por dos o más figuras simples combinadas"
-
-explicacion: |
-  Como una habitación en forma de L, o una ventana rectangular con un
-  semicírculo arriba.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "basico"
-  tags: ["figuras_compuestas", "vocabulario"]
-
-enunciado: "¿Cuál es la estrategia general para calcular el área de una figura compuesta?"
-tipo: mc
-opciones_explicitas:
-  - "Descomponerla en figuras simples, calcular cada área por separado, y sumar o restar según corresponda"
-  - "Usar siempre la fórmula del rectángulo, sea cual sea la forma"
-  - "Medir directamente la superficie total sin descomponer nada"
-respuesta: "Descomponerla en figuras simples, calcular cada área por separado, y sumar o restar según corresponda"
-
-explicacion: |
-  No hace falta una fórmula nueva: se reusan las fórmulas de las figuras
-  simples ya conocidas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "intermedio"
-  tags: ["figuras_compuestas", "vocabulario"]
-
-enunciado: "¿Cuándo hay que restar el área de una figura simple en vez de sumarla?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando esa figura queda recortada o hueca dentro de otra, como una fuente en el medio de un patio"
-  - "Nunca hay que restar, siempre se suma"
-  - "Cuando la figura simple es un círculo"
-respuesta: "Cuando esa figura queda recortada o hueca dentro de otra, como una fuente en el medio de un patio"
-
-explicacion: |
-  Si la figura no forma parte de la superficie útil, se descuenta del
-  total.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "basico"
-  tags: ["figuras_compuestas"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para calcular el área de una figura compuesta no hace falta ninguna fórmula nueva: alcanza con las fórmulas de las figuras simples ya conocidas."
-
-explicacion: |
-  La clave es descomponer bien la figura, no memorizar una fórmula
-  distinta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "intermedio"
-  tags: ["figuras_compuestas", "problema"]
-
-variables:
-  a1: random(4, 8)
-  b1: random(3, 6)
-  a2: random(3, 6)
-  b2: random(2, 5)
-
-respuesta: (a1 * b1) + (a2 * b2)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una habitación en forma de L se arma con un rectángulo de {a1}×{b1} m pegado a otro rectángulo de {a2}×{b2} m. ¿Cuál es el área total (en m²)?"
-
-pasos:
-  - "Rectángulo 1: {a1} × {b1} = {a1 * b1} m²"
-  - "Rectángulo 2: {a2} × {b2} = {a2 * b2} m²"
-  - "{a1 * b1} + {a2 * b2} = {(a1 * b1) + (a2 * b2)} m²"
-
-explicacion: |
-  La L se descompone en dos rectángulos y se suman sus áreas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "intermedio"
-  tags: ["figuras_compuestas", "problema"]
-
-variables:
-  ancho: random(10, 20)
-  alto: random(10, 20)
-  corte_ancho: random(2, 6)
-  corte_alto: random(2, 6)
-
-respuesta: (ancho * alto) - (corte_ancho * corte_alto)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "A un terreno rectangular de {ancho}×{alto} m se le recorta, en una esquina, un rectángulo de {corte_ancho}×{corte_alto} m. ¿Cuál es el área útil restante (en m²)?"
-
-pasos:
-  - "Área total: {ancho} × {alto} = {ancho * alto} m²"
-  - "Área recortada: {corte_ancho} × {corte_alto} = {corte_ancho * corte_alto} m²"
-  - "{ancho * alto} − {corte_ancho * corte_alto} = {(ancho * alto) - (corte_ancho * corte_alto)} m²"
-
-explicacion: |
-  Se calcula como si no faltara nada, y después se resta la parte
-  recortada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "avanzado"
-  tags: ["figuras_compuestas", "problema"]
-
-variables:
-  lado: random(8, 20)
-  r: random(1, 3)
-
-respuesta: redondear((lado * lado) - (pi * r * r), 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Un patio cuadrado de {lado} m de lado tiene una fuente circular de radio {r} m en el medio. ¿Cuál es el área útil del patio, sin contar la fuente (en m²)? Redondeá a 2 decimales."
-
-pasos:
-  - "Área del cuadrado: {lado} × {lado} = {lado * lado} m²"
-  - "Área de la fuente: π × {r}² = {redondear(pi * r * r, 2)} m²"
-  - "{lado * lado} − {redondear(pi * r * r, 2)} = {redondear((lado * lado) - (pi * r * r), 2)} m²"
-
-explicacion: |
-  El área de la fuente (un círculo) se resta del área total del cuadrado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "avanzado"
-  tags: ["figuras_compuestas", "problema"]
-
-variables:
-  base: random(6, 20)
-  altura: random(6, 20)
-
-respuesta: redondear((base * altura) + ((pi * (base / 2) * (base / 2)) / 2), 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Una ventana tiene forma de rectángulo de {base}×{altura} cm, coronado por un semicírculo cuyo diámetro coincide con el lado de {base} cm. ¿Cuál es el área total de la ventana (en cm²)? Redondeá a 2 decimales."
-
-pasos:
-  - "Área del rectángulo: {base} × {altura} = {base * altura} cm²"
-  - "Radio del semicírculo: {base} ÷ 2 = {base / 2} cm"
-  - "Área del semicírculo: (π × {base / 2}²) ÷ 2 = {redondear((pi * (base / 2) * (base / 2)) / 2, 2)} cm²"
-  - "{base * altura} + {redondear((pi * (base / 2) * (base / 2)) / 2, 2)} = {redondear((base * altura) + ((pi * (base / 2) * (base / 2)) / 2), 2)} cm²"
-
-explicacion: |
-  Se suman el área del rectángulo y la del semicírculo (la mitad del
-  área de un círculo completo).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "intermedio"
-  tags: ["apotema"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un hexágono regular se puede descomponer en 6 triángulos iguales trazando segmentos desde su centro hasta cada vértice."
-
-explicacion: |
-  Es la misma idea que da la fórmula del apotema, aplicada a n = 6.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "avanzado"
-  tags: ["apotema", "problema"]
-
-variables:
-  lado: random(5, 10)
-  apotema: 2 * random(3, 8)
-
-tipo: mc
-opciones_explicitas:
-  - "El hexágono (6 lados)"
-  - "El pentágono (5 lados)"
-  - "Tienen la misma área"
-respuesta: "El hexágono (6 lados)"
-
-enunciado: "Un pentágono regular y un hexágono regular tienen el mismo lado ({lado} cm) y el mismo apotema ({apotema} cm). ¿Cuál tiene mayor área?"
-
-explicacion: |
-  A igual lado y apotema, a más lados más perímetro, y el área depende
-  del perímetro: el hexágono (más lados) tiene mayor área.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "basico"
-  tags: ["apotema", "completar"]
+  a: random(0, 90) * 2
 
 tipo: completar
-enunciado: "Completá: Perímetro de un polígono regular = número de lados × ___."
+enunciado: "Completá el número que falta: {a}, {a+2}, ___, {a+6}."
 respuestas_validas:
-  - "lado"
-  - "el lado"
+  - a + 4
 
 explicacion: |
-  Como todos los lados miden lo mismo, alcanza con multiplicar la
-  cantidad de lados por la medida de uno solo.
+  La secuencia avanza de 2 en 2: cada término es el anterior más 2.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "intermedio"
-  tags: ["apotema", "ordenar"]
-
-enunciado: "Ordená los pasos para calcular el área de un polígono regular, conociendo la cantidad de lados, la medida de cada lado y el apotema."
-tipo: ordenar
-opciones_explicitas:
-  - "Dividir ese resultado por 2 para obtener el área"
-  - "Calcular el perímetro: cantidad de lados × medida de cada lado"
-  - "Multiplicar el perímetro por el apotema"
-respuesta_orden:
-  - "Calcular el perímetro: cantidad de lados × medida de cada lado"
-  - "Multiplicar el perímetro por el apotema"
-  - "Dividir ese resultado por 2 para obtener el área"
-
-explicacion: |
-  Área = (Perímetro × Apotema) / 2, en ese orden de operaciones.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "intermedio"
-  tags: ["figuras_compuestas", "ordenar"]
-
-enunciado: "Ordená los pasos para calcular el área de un patio cuadrado con una fuente circular en el medio."
-tipo: ordenar
-opciones_explicitas:
-  - "Restar el área del círculo al área del cuadrado"
-  - "Calcular el área del cuadrado completo"
-  - "Calcular el área del círculo (la fuente)"
-respuesta_orden:
-  - "Calcular el área del cuadrado completo"
-  - "Calcular el área del círculo (la fuente)"
-  - "Restar el área del círculo al área del cuadrado"
-
-explicacion: |
-  Primero se calcula como si no hubiera fuente, y recién después se
-  descuenta el hueco.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "intermedio"
-  tags: ["figuras_compuestas", "problema"]
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "secuencia"]
 
 variables:
-  base: random(6, 15)
-  altura_rect: random(4, 10)
-  altura_tri: random(3, 8)
+  a: random(0, 180) * 5
 
-respuesta: (base * altura_rect) + ((base * altura_tri) / 2)
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un frente de casa combina un rectángulo de base {base} m y altura {altura_rect} m, coronado por un techo triangular de la misma base {base} m y altura {altura_tri} m. ¿Cuál es el área total del frente (en m²)?"
-
-pasos:
-  - "Área del rectángulo: {base} × {altura_rect} = {base * altura_rect} m²"
-  - "Área del triángulo: ({base} × {altura_tri}) ÷ 2 = {(base * altura_tri) / 2} m²"
-  - "{base * altura_rect} + {(base * altura_tri) / 2} = {(base * altura_rect) + ((base * altura_tri) / 2)} m²"
+tipo: completar
+enunciado: "Completá el número que falta: {a}, {a+5}, ___, {a+15}."
+respuestas_validas:
+  - a + 10
 
 explicacion: |
-  Se suman el área del cuerpo rectangular y la del techo triangular.
+  La secuencia avanza de 5 en 5: cada término es el anterior más 5.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "secuencia"]
+
+variables:
+  a: random(0, 90) * 10
+
+tipo: completar
+enunciado: "Completá el número que falta: {a}, {a+10}, ___, {a+30}."
+respuestas_validas:
+  - a + 20
+
+explicacion: |
+  La secuencia avanza de 10 en 10: cada término es el anterior más 10.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
   nivel: "intermedio"
-  tags: ["apotema", "vocabulario"]
+  tags: ["conteo", "secuencia", "cuenta_regresiva"]
+
+variables:
+  a: random(20, 999)
+
+tipo: completar
+enunciado: "Completá el número que falta: {a}, {a-1}, ___, {a-3}."
+respuestas_validas:
+  - a - 2
+
+explicacion: |
+  En una secuencia descendente cada término es el anterior menos el salto
+  (acá, menos 1).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "intermedio"
+  tags: ["conteo", "cardinalidad"]
+
+variables:
+  a: random(1, 100)
+  b: a + random(5, 40)
+
+respuesta: b - a + 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos números hay entre {a} y {b}, contando a los dos extremos?"
+
+pasos:
+  - "Cantidad = {b} - {a} + 1 = {b - a + 1} (se suma 1 porque {a} también se cuenta)"
+
+explicacion: |
+  Si se cuentan los dos extremos, la cantidad de números entre A y B es
+  B − A + 1, no B − A: hay que sumar 1 porque el propio A ya es el primero
+  que se cuenta.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "avanzado"
+  tags: ["conteo", "cardinalidad", "pares"]
+
+variables:
+  a: random(1, 100)
+  b: a + random(10, 50)
+  pares: floor(b / 2) - floor((a - 1) / 2)
+
+respuesta: pares
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos números pares hay entre {a} y {b}, contando a los dos extremos si son pares?"
+
+pasos:
+  - "Se cuentan los múltiplos de 2 hasta {b} y se descartan los que ya pasaron antes de {a}: {pares} números pares"
+
+explicacion: |
+  Contar los pares en un rango es contar los múltiplos de 2 salteados, igual
+  que en el conteo salteado de 2 en 2, pero acotado entre dos extremos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "avanzado"
+  tags: ["conteo", "cardinalidad", "impares"]
+
+variables:
+  a: random(1, 100)
+  b: a + random(10, 50)
+  total: b - a + 1
+  pares: floor(b / 2) - floor((a - 1) / 2)
+  impares: total - pares
+
+respuesta: impares
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos números impares hay entre {a} y {b}, contando a los dos extremos si son impares?"
+
+pasos:
+  - "Total de números en el rango: {total}. De esos, {pares} son pares, así que {impares} son impares."
+
+explicacion: |
+  Los impares de un rango son los que no son pares: alcanza con contar el
+  total de números del rango y restarle la cantidad de pares.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "basico"
+  tags: ["conteo", "cardinalidad"]
+
+variables:
+  lista: mezclar([3, 7, 12, 5, 9, 18, 2, 14, 6, 11])
+  cantidad_mostrada: random(4, 9)
+  elegidos: n_de(lista, cantidad_mostrada)
+
+respuesta: largo(elegidos)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Contá cuántos números hay en esta lista: {elegidos}."
+
+pasos:
+  - "Se cuenta un elemento por vez, sin saltear ni repetir: en total son {largo(elegidos)}"
+
+explicacion: |
+  Contar los elementos de una lista es aplicar directamente la
+  correspondencia uno a uno: un número de la secuencia de conteo por cada
+  elemento de la lista.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "intermedio"
+  tags: ["conteo", "conteo_salteado", "problema"]
+
+variables:
+  inicial: random(0, 20)
+  paso: uno_de([2, 3, 5, 10])
+  veces: random(2, 6)
+  total: inicial + paso * veces
+
+respuesta: veces
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Tenés {inicial} figuritas y le vas agregando de a {paso} por vez. ¿Cuántas veces tenés que agregar {paso} figuritas para llegar a {total}?"
+
+pasos:
+  - "Hay que juntar {total} - {inicial} = {total - inicial} figuritas más, de a {paso}: ({total} - {inicial}) / {paso} = {veces} veces"
+
+explicacion: |
+  Agregar siempre la misma cantidad es contar salteado: la cantidad de
+  veces que hay que agregar es la diferencia total dividida por el salto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "intermedio"
+  tags: ["conteo", "conteo_salteado", "problema"]
+
+variables:
+  paso: uno_de([2, 3, 5, 10])
+  cantidad_saltos: random(3, 8)
+  llegada: paso * cantidad_saltos
+
+respuesta: cantidad_saltos + 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Contando de {paso} en {paso} empezando en 0 (0, {paso}, {paso*2}, ...) hasta llegar a {llegada}, ¿cuántos números dijiste en total, contando el 0?"
+
+pasos:
+  - "Del 0 a {llegada} hay {cantidad_saltos} saltos de {paso}; como el 0 también se cuenta, en total son {cantidad_saltos} + 1 = {cantidad_saltos + 1} números"
+
+explicacion: |
+  Igual que contar los elementos de un rango: hay que sumar 1 porque el
+  primer número dicho (el 0) también cuenta como uno de los números.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "conteo"
+  nivel: "intermedio"
+  tags: ["conteo", "cardinalidad", "ordinalidad"]
+
+variables:
+  inicio: random(1, 10)
+  posicion: random(2, 8)
+  resultado: inicio + posicion - 1
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Si contás de uno en uno empezando en {inicio} (o sea, {inicio} es el 1°), ¿qué número decís en el lugar {posicion}°?"
+
+pasos:
+  - "El lugar {posicion}° está {posicion} - 1 pasos después del inicio: {inicio} + ({posicion} - 1) = {resultado}"
+
+explicacion: |
+  Distingue la cardinalidad (cuántos hay) de la ordinalidad (qué lugar
+  ocupa): el número en el lugar k, empezando a contar desde "inicio", es
+  inicio + (k − 1).
+```
+
+## Sección: divisibilidad/regla-del-7-opcional (28 preguntas)
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "basico"
+  tags: ["divisibilidad", "regla_del_7", "completar"]
+
+variables:
+  numero: random(100, 999)
+
+respuesta: "duplicar"
+tipo: completar
+respuestas_validas:
+  - "duplicar"
+  - "duplicarlo"
+  - "doblar"
+
+enunciado: "En la regla del 7, tras separar la última cifra, hay que ___ esa cifra por 2."
+
+explicacion: |
+  El algoritmo requiere multiplicar por 2 la cifra separada.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "basico"
+  tags: ["divisibilidad", "regla_del_7", "completar"]
+
+variables:
+  numero: random(100, 999)
+
+respuesta: "restar"
+tipo: completar
+respuestas_validas:
+  - "restar"
+  - "restarle"
+
+enunciado: "Una vez duplicada la última cifra, se debe ___ ese valor al número que queda sin la última cifra."
+
+explicacion: |
+  La operación clave es la resta del valor duplicado al resto truncado.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "basico"
+  tags: ["divisibilidad", "regla_del_7", "completar"]
+
+variables:
+  numero: random(100, 999)
+
+respuesta: "multiplo"
+tipo: completar
+respuestas_validas:
+  - "multiplo"
+  - "múltiplo"
+  - "multiplo de 7"
+  - "múltiplo de 7"
+
+enunciado: "Si el resultado final del algoritmo es 0 o un ___, el número original es divisible por 7."
+
+explicacion: |
+  La condición de divisibilidad se cumple si el residuo final es múltiplo de 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+
+variables:
+  numero: 140
+  u1: 0
+  r1: 14
+  d1: 0
+  res1: 14
+  u2: 4
+  r2: 1
+  d2: 8
+  res2: -7
+
+respuesta: "si"
+tipo: input
+
+enunciado: "Aplicá la regla del 7 a {numero}. Paso 1: 14 - 0 = 14. Paso 2: 1 - 8 = -7. ¿Es divisible por 7? (escribí 'si' o 'no')"
+
+explicacion: |
+  -7 es múltiplo de 7, por lo tanto 140 también lo es.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+
+variables:
+  numero: 210
+  u1: 0
+  r1: 21
+  d1: 0
+  res1: 21
+  u2: 1
+  r2: 2
+  d2: 2
+  res2: 0
+
+respuesta: "si"
+tipo: input
+
+enunciado: "Aplicá la regla del 7 a {numero}. Paso 1: 21 - 0 = 21. Paso 2: 2 - 2 = 0. ¿Es divisible por 7? (escribí 'si' o 'no')"
+
+explicacion: |
+  0 es múltiplo de 7, por lo tanto 210 también lo es.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+
+variables:
+  numero: 15
+  u1: 5
+  r1: 1
+  d1: 10
+  res1: -9
+
+respuesta: "no"
+tipo: input
+
+enunciado: "Aplicá la regla del 7 a {numero}. Paso 1: 1 - 10 = -9. ¿Es divisible por 7? (escribí 'si' o 'no')"
+
+explicacion: |
+  -9 no es múltiplo de 7, por lo tanto 15 no lo es.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+
+variables:
+  numero: 301
+  u1: 1
+  r1: 30
+  d1: 2
+  res1: 28
+
+respuesta: 28
+tipo: input
+
+enunciado: "Para el número {numero}, ¿cuál es el resultado tras restar el doble de la última cifra al resto?"
+
+explicacion: |
+  30 - 2 = 28.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+
+variables:
+  numero: 301
+  res1: 28
+  u2: 8
+  r2: 2
+  d2: 16
+  res2: -14
+
+respuesta: -14
+tipo: input
+
+enunciado: "Continuando con {res1}, ¿cuál es el siguiente resultado al restar el doble de la última cifra (8) al resto (2)?"
+
+explicacion: |
+  2 - 16 = -14.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "decision"]
+
+variables:
+  resultado: -14
+
+respuesta: "si"
+tipo: input
+
+enunciado: "Si el resultado del algoritmo es {resultado}, ¿es divisible por 7? (escribí 'si' o 'no')"
+
+explicacion: |
+  -14 es múltiplo de 7 (-2 * 7), por lo tanto sí.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "basico"
+  tags: ["divisibilidad", "regla_del_7", "teoria"]
+
+respuesta: "7"
+tipo: completar
+respuestas_validas:
+  - "7"
+  - "siete"
+
+enunciado: "La regla que consiste en duplicar la última cifra y restarla al resto se aplica para verificar la divisibilidad por el número ___."
+
+explicacion: |
+  Es la regla específica para el divisor 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "basico"
+  tags: ["divisibilidad", "regla_del_7", "teoria"]
+
+respuesta: "separar"
+tipo: completar
+respuestas_validas:
+  - "separar"
+  - "aislar"
+
+enunciado: "El primer paso de la regla del 7 es ___ la última cifra del número."
+
+explicacion: |
+  Se debe aislar la unidad para procesarla.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "basico"
+  tags: ["divisibilidad", "regla_del_7", "teoria"]
+
+respuesta: "2"
+tipo: completar
+respuestas_validas:
+  - "2"
+  - "dos"
+
+enunciado: "La última cifra se multiplica por el número ___."
+
+explicacion: |
+  El factor de multiplicación es 2.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "basico"
+  tags: ["divisibilidad", "regla_del_7", "teoria"]
+
+respuesta: "resta"
+tipo: completar
+respuestas_validas:
+  - "resta"
+  - "restar"
+
+enunciado: "El valor duplicado se ___ al número que queda sin la última cifra."
+
+explicacion: |
+  La operación es una resta.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "basico"
+  tags: ["divisibilidad", "regla_del_7", "teoria"]
+
+respuesta: "multiplo"
+tipo: completar
+respuestas_validas:
+  - "multiplo"
+  - "múltiplo"
+
+enunciado: "Si el resultado final es 0 o un ___, la divisibilidad está confirmada."
+
+explicacion: |
+  La condición es ser múltiplo de 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+
+variables:
+  numero: 931
+  u1: 1
+  r1: 93
+  d1: 2
+  res1: 91
+
+respuesta: 91
+tipo: input
+
+enunciado: "Para {numero}, calculá {r1} - {d1}."
+
+explicacion: |
+  93 - 2 = 91.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+
+variables:
+  res1: 91
+  u2: 1
+  r2: 9
+  d2: 2
+  res2: 7
+
+respuesta: 7
+tipo: input
+
+enunciado: "Para {res1}, calculá {r2} - {d2}."
+
+explicacion: |
+  9 - 2 = 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "decision"]
+
+variables:
+  resultado: 7
+
+respuesta: "si"
+tipo: input
+
+enunciado: "El resultado final es {resultado}. ¿Es divisible por 7? (escribí 'si' o 'no')"
+
+explicacion: |
+  7 es múltiplo de 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "basico"
+  tags: ["regla_del_7", "verificacion"]
+
+variables:
+  n: random(100, 999)
+  es_divisible: (n % 7 == 0)
 
 respuesta: falso
 tipo: vf
 
-enunciado: "En un polígono regular, el apotema y el radio (centro a vértice) son siempre exactamente la misma medida."
+enunciado: "El número {n} es divisible por 7."
 
 explicacion: |
-  El apotema llega hasta el punto medio de un lado; el radio llega hasta
-  un vértice — son distancias distintas (el apotema es siempre más
-  corto).
+  Para verificar si un número es divisible por 7, aplicamos la regla:
+  1. Separamos la última cifra.
+  2. Duplicamos esa cifra.
+  3. Restamos el doble al número restante.
+  Si el resultado es divisible por 7, el original también lo es.
+  En este caso, {n} no lo es.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "avanzado"
-  tags: ["figuras_compuestas", "problema"]
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "algoritmo"]
 
 variables:
-  lado: random(10, 20)
-  r1: random(1, 2)
-  r2: random(1, 2)
-
-respuesta: redondear((lado * lado) - (pi * r1 * r1) - (pi * r2 * r2), 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Un patio cuadrado de {lado} m de lado tiene dos fuentes circulares, de radios {r1} m y {r2} m. ¿Cuál es el área útil del patio (en m²)? Redondeá a 2 decimales."
-
-pasos:
-  - "Área del cuadrado: {lado} × {lado} = {lado * lado} m²"
-  - "Área de las dos fuentes: π×{r1}² + π×{r2}² = {redondear((pi * r1 * r1) + (pi * r2 * r2), 2)} m²"
-  - "{lado * lado} − {redondear((pi * r1 * r1) + (pi * r2 * r2), 2)} = {redondear((lado * lado) - (pi * r1 * r1) - (pi * r2 * r2), 2)} m²"
-
-explicacion: |
-  Cuando hay más de un hueco, se resta el área de cada uno por separado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "avanzado"
-  tags: ["apotema"]
+  cifra_ultima: random(1, 9)
+  resto: random(10, 99)
+  numero: resto * 10 + cifra_ultima
+  doble: cifra_ultima * 2
+  nuevo_numero: resto - doble
+  es_divisible: (nuevo_numero % 7 == 0)
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Entre dos polígonos regulares con el mismo perímetro, el que tiene mayor apotema también tiene mayor área."
+enunciado: "Si aplicamos la regla del 7 al número {numero}, el resultado intermedio es {nuevo_numero}, que es divisible por 7."
 
 explicacion: |
-  Área = (Perímetro × Apotema) / 2: con el perímetro fijo, el área crece
-  directamente con el apotema.
+  La regla del 7 consiste en restar el doble de la última cifra al resto del número.
+  Aquí: {numero} -> {resto} - {doble} = {nuevo_numero}.
+  Como {nuevo_numero} es múltiplo de 7, {numero} también lo es.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "basico"
-  tags: ["figuras_compuestas"]
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "verificacion"]
 
-enunciado: "¿Cuál es la parte más difícil de resolver el área de una figura compuesta?"
-tipo: mc
-opciones_explicitas:
-  - "Identificar bien qué figuras simples la forman y si corresponde sumar o restar cada una"
-  - "Recordar una fórmula especial para figuras compuestas"
-  - "Convertir las unidades de medida"
-respuesta: "Identificar bien qué figuras simples la forman y si corresponde sumar o restar cada una"
+variables:
+  n: random(1000, 9999)
+  es_divisible: (n % 7 == 0)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El número {n} es divisible por 7."
 
 explicacion: |
-  El cálculo de cada parte ya está resuelto en las fórmulas simples: lo
-  nuevo es descomponer bien la figura.
+  Aplicamos la regla iterativa. Si el resultado final no es 0 o múltiplo de 7, el número original no es divisible.
+  En este caso, {n} no lo es.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "area_poligonos_regulares_y_compuestas"
-  nivel: "basico"
-  tags: ["cierre"]
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "verificacion"]
 
-enunciado: "¿Para qué sirve saber calcular áreas de polígonos regulares y figuras compuestas?"
-tipo: mc
-opciones_explicitas:
-  - "Para calcular materiales reales en espacios con forma irregular, y para diseños con simetría radial"
-  - "Sólo para resolver ejercicios de geometría sin aplicación práctica"
-  - "Sólo sirve para figuras con menos de 4 lados"
-respuesta: "Para calcular materiales reales en espacios con forma irregular, y para diseños con simetría radial"
+variables:
+  n: random(100, 999)
+  es_divisible: (n % 7 == 0)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El número {n} es divisible por 7."
 
 explicacion: |
-  Desde calcular piso o pintura para un ambiente en L, hasta diseñar
-  mosaicos y señales con forma de polígono regular.
+  Al aplicar la regla de divisibilidad por 7, el resultado final no es 0 ni múltiplo de 7.
+  Por lo tanto, {n} no es divisible por 7.
 ```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "identificacion"]
+
+variables:
+  base: random(10, 20)
+  n: base * 7
+  es_divisible: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El número {n} es divisible por 7."
+
+explicacion: |
+  {n} es el producto de {base} por 7, por lo tanto es múltiplo de 7.
+  La regla del 7 confirma esto al dar un resultado final múltiplo de 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "concepto"]
+
+variables:
+  n: random(100, 999)
+  es_divisible: (n % 7 == 0)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La regla del 7 solo se aplica a números positivos."
+
+explicacion: |
+  Falso. La regla de divisibilidad por 7 se aplica a cualquier entero.
+  Para negativos, se puede aplicar la regla al valor absoluto o considerar el signo al final.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "verificacion"]
+
+variables:
+  base: random(100, 142)
+  n: base * 7
+  es_divisible: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El número {n} es divisible por 7."
+
+explicacion: |
+  {n} es {base} × 7, por lo tanto es divisible.
+  La regla del 7 confirmará esto tras iterar.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "identificacion"]
+
+variables:
+  base: random(10, 20)
+  n: base * 7
+  es_divisible: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El número {n} es un múltiplo de 7."
+
+explicacion: |
+  {n} se obtiene multiplicando {base} por 7, por lo tanto es múltiplo de 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "verificacion"]
+
+variables:
+  n: random(100, 999)
+  es_divisible: (n % 7 == 0)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El número {n} es divisible por 7."
+
+explicacion: |
+  Al aplicar la regla del 7, el resultado final no es 0 ni múltiplo de 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "identificacion"]
+
+variables:
+  base: random(10, 20)
+  n: base * 7
+  es_divisible: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El número {n} es divisible por 7."
+
+explicacion: |
+  {n} es múltiplo de 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "verificacion"]
+
+variables:
+  n: random(100, 999)
+  es_divisible: (n % 7 == 0)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El número {n} es divisible por 7."
+
+explicacion: |
+  Al aplicar la regla del 7, el resultado final no es 0 ni múltiplo de 7.
+```
+

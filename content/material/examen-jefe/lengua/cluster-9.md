@@ -1,2088 +1,1801 @@
-# Examen jefe — Dominio Persuasivo Ético
+# Examen jefe — [PENDIENTE #659]
 
-> Logro #92. Aprobaste el parcial demostrando capacidad para distinguir entre persuasión ética y manipulación en producciones escritas complejas con progresión temática clara. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **100 preguntas totales** en 5/5 secciones.
+> Logro #659. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: persuasion-etica-vs-manipulacion (20 preguntas)
+## Sección: sujeto-y-predicado (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
+  tema: "sujeto_y_predicado"
   nivel: "basico"
-  tags: ["prerrequisito"]
+  tags: ["oracion_bimembre", "vocabulario"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Este tema reusa dos cosas a la vez: las técnicas de convencer en vivo del debate, y el vocabulario de errores de razonamiento de detectar falacias."
-
-pasos:
-  - "Ver `../debate-refutar-en-vivo/` y `../detectar-falacias/`: son los dos prerrequisitos de este tema."
-
-explicacion: |
-  Verdadero: es la razón por la que este nodo tiene doble padre en el
-  MAPA.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "intermedio"
-  tags: ["criterio_central"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El criterio central para distinguir persuasión ética de manipulación es si se respeta o se evita la capacidad de decisión libre e informada de la otra persona."
-
-pasos:
-  - "No está siempre en la técnica en sí, sino en si se respeta esa autonomía."
-
-explicacion: |
-  Verdadero: es el criterio central de este tema.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "basico"
-  tags: ["persuasion_etica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La persuasión ética usa argumentos, evidencia y apelaciones emocionales honestas, dejando que la otra persona decida libremente e informada."
-
-pasos:
-  - "Es la definición central de persuasión legítima."
-
-explicacion: |
-  Verdadero: es la definición de persuasión ética descrita en la
-  teoría.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "basico"
-  tags: ["manipulacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La manipulación usa técnicas que distorsionan la información o explotan sesgos psicológicos para que la otra persona decida algo sin haberlo evaluado realmente por sí misma."
-
-pasos:
-  - "Es la definición central de manipulación descrita en la teoría."
-
-explicacion: |
-  Verdadero: es la definición de manipulación descrita en la teoría.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "intermedio"
-  tags: ["manipulacion", "urgencia_artificial"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "manipulación"
+enunciado: "¿En qué dos partes se divide una oración bimembre?"
 tipo: mc
-opciones_explicitas: ["persuasión ética", "manipulación"]
-
-enunciado: "Decir \"sólo por hoy\" cuando no es cierto, para evitar que la persona lo piense con calma, es un ejemplo de..."
-
-pasos:
-  - "La urgencia artificial busca evitar la reflexión informada, no facilitarla."
-
-explicacion: |
-  Es un ejemplo clásico de manipulación por presión de urgencia
-  falsa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "intermedio"
-  tags: ["manipulacion", "miedo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "manipulación"
-tipo: mc
-opciones_explicitas: ["persuasión ética", "manipulación"]
-
-enunciado: "Exagerar un riesgo mínimo para generar una decisión apurada por pánico es un ejemplo de..."
-
-pasos:
-  - "Exagerar deliberadamente el riesgo distorsiona la información real."
-
-explicacion: |
-  Es un ejemplo de manipulación por explotación del miedo
-  desproporcionado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "intermedio"
-  tags: ["manipulacion", "ocultamiento"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "manipulación"
-tipo: mc
-opciones_explicitas: ["persuasión ética", "manipulación"]
-
-enunciado: "Ocultar información que cambiaría la decisión de la otra persona si la conociera es un ejemplo de..."
-
-pasos:
-  - "Impide que la persona decida con información completa."
-
-explicacion: |
-  Es un ejemplo de manipulación por ocultamiento de información
-  relevante.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "avanzado"
-  tags: ["manipulacion", "detectar_falacias"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Recurrir deliberadamente a un ad hominem o una falsa dicotomía, sabiendo que es un error de razonamiento porque \"funciona\" para convencer, es un ejemplo de manipulación."
-
-pasos:
-  - "Ver `../detectar-falacias/`: es la aplicación intencional de una falacia como técnica manipuladora."
-
-explicacion: |
-  Verdadero: es el punto central que conecta este tema con su
-  prerrequisito de falacias.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "intermedio"
-  tags: ["persuasion_etica", "datos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "persuasión ética"
-tipo: mc
-opciones_explicitas: ["persuasión ética", "manipulación"]
-
-enunciado: "Presentar datos verificables junto con su fuente para respaldar un argumento es un ejemplo de..."
-
-pasos:
-  - "Permite que la otra persona evalúe la información por sí misma."
-
-explicacion: |
-  Es un ejemplo de persuasión ética, porque da la información
-  necesaria para decidir informadamente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "intermedio"
-  tags: ["persuasion_etica", "concesion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "persuasión ética"
-tipo: mc
-opciones_explicitas: ["persuasión ética", "manipulación"]
-
-enunciado: "Reconocer honestamente las limitaciones del propio argumento (concesión), en vez de ocultarlas, es un ejemplo de..."
-
-pasos:
-  - "Ver `../contraargumentos/`: la concesión honesta es coherente con el respeto a la autonomía del otro."
-
-explicacion: |
-  Es un ejemplo de persuasión ética, porque da una imagen más
-  completa y honesta de la situación.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "avanzado"
-  tags: ["persuasion_etica", "emociones"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "persuasión ética"
-tipo: mc
-opciones_explicitas: ["persuasión ética", "manipulación"]
-
-enunciado: "Mostrar el impacto real de un problema (sin exagerarlo) para apelar a una emoción genuina y relevante al tema es un ejemplo de..."
-
-pasos:
-  - "Apelar a una emoción no es automáticamente manipulación, si es genuina y no distorsiona la información."
-
-explicacion: |
-  Es un ejemplo de persuasión ética, porque la emoción apelada es
-  real y proporcional al problema, no exagerada.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "avanzado"
-  tags: ["criterio_central", "matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Apelar a la emoción no es, por sí mismo, manipulación: depende de si la emoción apelada es genuina y relevante o está exagerada/inventada para nublar el juicio."
-
-pasos:
-  - "El criterio no es \"¿usa emociones?\" sino \"¿respeta que la otra persona decida con información real?\"."
-
-explicacion: |
-  Verdadero: es el matiz central que evita clasificar toda apelación
-  emocional como manipuladora de forma automática.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "avanzado"
-  tags: ["criterio_central", "practica"]
-
-variables:
-  usos: ["mostrar fotos reales del impacto de un desastre natural para pedir donaciones, con datos verificables sobre la ayuda necesaria", "mostrar imágenes exageradas y descontextualizadas de sufrimiento, sin datos concretos, sólo para generar pánico"]
-  tipos: ["persuasión ética", "manipulación"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["persuasión ética", "manipulación"]
-
-enunciado: "\"{usos[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "La diferencia está en si la emoción apelada es genuina y con datos verificables, o exagerada/descontextualizada para generar pánico sin sustento."
-
-explicacion: |
-  El mismo recurso (mostrar imágenes fuertes) puede usarse de forma
-  ética o manipuladora según cómo se emplee.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "intermedio"
-  tags: ["manipulacion", "distincion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Cualquier intento de convencer a alguien de algo, sin importar el método usado, cuenta como manipulación."
-
-pasos:
-  - "Persuadir con argumentos honestos y evidencia verificable (persuasión ética) es distinto de distorsionar información o explotar sesgos (manipulación)."
-
-explicacion: |
-  Falso: no todo intento de convencer es manipulación, sólo cuando se
-  distorsiona información o se explotan sesgos psicológicos.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "avanzado"
-  tags: ["publicidad_enganosa"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La distinción entre persuasión ética y manipulación es relevante para analizar publicidad, política, ventas y cualquier contexto donde se busca influir en decisiones ajenas."
-
-pasos:
-  - "Ver `../../ciudadania-digital/publicidad-enganosa/`: es una de las aplicaciones prácticas más directas de este criterio."
-
-explicacion: |
-  Verdadero: es la conexión entre este tema y sus aplicaciones
-  prácticas en otros contextos ya estudiados.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "intermedio"
-  tags: ["persuasion_etica", "transparencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ser transparente sobre las fuentes y limitaciones del propio argumento es central para que la persuasión sea considerada ética, no manipuladora."
-
-pasos:
-  - "La transparencia permite que la otra persona evalúe la información real antes de decidir."
-
-explicacion: |
-  Verdadero: la transparencia es uno de los pilares del criterio de
-  persuasión ética.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "avanzado"
-  tags: ["manipulacion", "matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La manipulación no siempre usa una falacia lógica identificable: técnicas como la presión de urgencia artificial o el ocultamiento de información también son manipuladoras sin encajar en una falacia específica ya nombrada."
-
-pasos:
-  - "El criterio central de manipulación (distorsionar/explotar/no respetar autonomía) es más amplio que el catálogo de falacias formales."
-
-explicacion: |
-  Verdadero: es un matiz importante, la manipulación no se agota en
-  el catálogo de falacias ya estudiado.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "intermedio"
-  tags: ["criterio_central", "metodo"]
-
-enunciado: "Ordená los pasos para analizar si un intento de convencer es persuasión ética o manipulación."
-tipo: ordenar
 opciones_explicitas:
-  - "Identificar la técnica usada (dato, apelación emocional, urgencia, etc.)"
-  - "Revisar si la información presentada es verificable y completa, o distorsionada/incompleta"
-  - "Revisar si se le da a la otra persona tiempo y espacio para decidir con calma"
-  - "Concluir si se respeta o se evita la autonomía de decisión informada del otro"
-respuesta_orden:
-  - "Identificar la técnica usada (dato, apelación emocional, urgencia, etc.)"
-  - "Revisar si la información presentada es verificable y completa, o distorsionada/incompleta"
-  - "Revisar si se le da a la otra persona tiempo y espacio para decidir con calma"
-  - "Concluir si se respeta o se evita la autonomía de decisión informada del otro"
+  - "Sujeto (de quién se habla) y predicado (qué se dice de él)"
+  - "Sustantivo y verbo, únicamente"
+  - "Principio y final, sin ninguna otra distinción"
+respuesta: "Sujeto (de quién se habla) y predicado (qué se dice de él)"
 
 explicacion: |
-  El análisis va de identificar la técnica a evaluar si respeta o
-  evita la autonomía informada del otro, el criterio central del
-  tema.
+  Son dos mitades complementarias — no se puede tener una sin la
+  otra.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "avanzado"
-  tags: ["sintesis"]
+  tema: "sujeto_y_predicado"
+  nivel: "basico"
+  tags: ["sujeto", "vocabulario"]
 
-variables:
-  n: uno_de([1, 1])
+enunciado: "¿Qué es el sujeto de una oración?"
+tipo: mc
+opciones_explicitas:
+  - "Un sintagma nominal, cuyo núcleo es un sustantivo o pronombre, que determina la concordancia del verbo"
+  - "El verbo principal de la oración"
+  - "Cualquier palabra que aparezca al final de la oración"
+respuesta: "Un sintagma nominal, cuyo núcleo es un sustantivo o pronombre, que determina la concordancia del verbo"
+
+explicacion: |
+  El núcleo del sujeto es, justamente, lo que decide si el verbo va
+  en singular o plural.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "basico"
+  tags: ["predicado", "vocabulario"]
+
+enunciado: "¿Qué es el predicado de una oración?"
+tipo: mc
+opciones_explicitas:
+  - "La parte que contiene el verbo (su núcleo) y todo lo que lo acompaña"
+  - "La parte que nombra de quién se habla"
+  - "Otro nombre para el sujeto tácito"
+respuesta: "La parte que contiene el verbo (su núcleo) y todo lo que lo acompaña"
+
+explicacion: |
+  El núcleo del predicado es siempre el verbo conjugado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "avanzado"
+  tags: ["nucleo", "problema"]
+
+enunciado: "En la oración 'Los estudiantes de la clase aprobaron el examen', ¿cuál es el núcleo del sujeto?"
+tipo: mc
+opciones_explicitas:
+  - "estudiantes"
+  - "los"
+  - "clase"
+  - "aprobaron"
+respuesta: "estudiantes"
+
+explicacion: |
+  Es el sustantivo principal del sintagma nominal sujeto — el que
+  determina la concordancia verbal ('aprobaron', no 'aprobó').
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+enunciado: "Marcá el sujeto y el predicado de esta oración."
+tipo: analisis_spans
+texto_analizar: "El perro grande corre por el parque"
+spans_pedidos:
+  - { desde: 0, hasta: 2, etiqueta: "sujeto" }
+  - { desde: 3, hasta: 6, etiqueta: "predicado" }
+
+explicacion: |
+  'El perro grande' es el sujeto (de quién se habla); 'corre por el
+  parque' es el predicado (qué se dice de él).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+enunciado: "Marcá el sujeto y el predicado de esta oración."
+tipo: analisis_spans
+texto_analizar: "Los estudiantes de la clase aprobaron el examen"
+spans_pedidos:
+  - { desde: 0, hasta: 4, etiqueta: "sujeto" }
+  - { desde: 5, hasta: 7, etiqueta: "predicado" }
+
+explicacion: |
+  'Los estudiantes de la clase' (incluye el complemento del nombre)
+  es el sujeto completo; 'aprobaron el examen' es el predicado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "avanzado"
+  tags: ["sujeto_tacito", "problema"]
+
+tipo: completar
+enunciado: "En la oración 'Comieron toda la pizza', el sujeto es ___ porque no aparece expresado en la oración."
+respuestas_validas:
+  - "tácito"
+  - "tacito"
+  - "elíptico"
+  - "eliptico"
+  - "omitido"
+
+explicacion: |
+  Se deduce por la desinencia verbal: '-ieron' indica tercera persona
+  del plural (ellos/ellas).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "avanzado"
+  tags: ["impersonal", "problema"]
+
+enunciado: "¿Qué tipo de sujeto tiene la oración 'Llueve mucho en otoño'?"
+tipo: mc
+opciones_explicitas:
+  - "No tiene sujeto: es una oración impersonal (verbo meteorológico)"
+  - "Sujeto tácito: 'el cielo', deducido por el contexto"
+  - "Sujeto explícito: 'otoño'"
+respuesta: "No tiene sujeto: es una oración impersonal (verbo meteorológico)"
+
+explicacion: |
+  Los verbos meteorológicos ('llover', 'nevar', 'amanecer') no tienen
+  ningún sujeto gramatical, ni explícito ni tácito.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "intermedio"
+  tags: ["sujeto_explicito", "problema"]
+
+enunciado: "¿Qué tipo de sujeto tiene la oración 'María lee novelas'?"
+tipo: mc
+opciones_explicitas:
+  - "Sujeto explícito (nombre propio): 'María'"
+  - "Sujeto tácito, deducido por la desinencia"
+  - "No tiene sujeto: es una oración impersonal"
+respuesta: "Sujeto explícito (nombre propio): 'María'"
+
+explicacion: |
+  El sujeto aparece escrito directamente en la oración.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "avanzado"
+  tags: ["sujeto_tacito", "problema"]
+
+enunciado: "¿Qué tipo de sujeto tiene la oración 'Somos estudiantes'?"
+tipo: mc
+opciones_explicitas:
+  - "Sujeto tácito (nosotros, deducido por la desinencia '-mos')"
+  - "Sujeto explícito: 'estudiantes'"
+  - "No tiene sujeto: es una oración impersonal"
+respuesta: "Sujeto tácito (nosotros, deducido por la desinencia '-mos')"
+
+explicacion: |
+  'Estudiantes' es parte del predicado (atributo), no el sujeto —
+  'nosotros' es el sujeto, tácito.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "avanzado"
+  tags: ["pasiva_refleja", "problema"]
+
+enunciado: "¿Qué tipo de sujeto tiene la oración 'Se venden casas'?"
+tipo: mc
+opciones_explicitas:
+  - "Sujeto paciente (pasiva refleja): 'casas'"
+  - "Sujeto tácito: 'alguien'"
+  - "No tiene sujeto: es una oración impersonal"
+respuesta: "Sujeto paciente (pasiva refleja): 'casas'"
+
+explicacion: |
+  Es el mismo caso visto en `../concordancia-nominal-y-verbal/`: el
+  verbo concuerda con 'casas' porque es su sujeto gramatical.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "intermedio"
+  tags: ["sujeto_tacito"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Este tema cierra la subrama de comunicación en vivo con una capa ética: no sólo cómo convencer efectivamente, sino cuándo esas técnicas cruzan la línea hacia algo que no respeta la autonomía del otro."
-
-pasos:
-  - "Ver `../exposicion-oral/`, `../debate-refutar-en-vivo/` y `../negociacion/`: son los temas previos de la subrama que este tema completa con la dimensión ética."
+enunciado: "El sujeto tácito no aparece escrito en la oración, pero se puede deducir por la desinencia (terminación) del verbo conjugado."
 
 explicacion: |
-  Verdadero: es la síntesis del rol de este tema dentro de la
-  subrama completa de comunicación oral.
+  Por ejemplo, '-amos' siempre indica primera persona del plural
+  (nosotros).
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
+  tema: "sujeto_y_predicado"
   nivel: "avanzado"
+  tags: ["impersonal"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los verbos meteorológicos ('llover', 'nevar', 'amanecer') forman oraciones impersonales, sin ningún sujeto gramatical, ni explícito ni tácito."
+
+explicacion: |
+  No hay ningún 'algo' o 'alguien' que realice la acción de llover o
+  nevar.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "intermedio"
+  tags: ["nucleo", "problema"]
+
+enunciado: "En la oración 'El perro grande corre por el parque', ¿cuál es el núcleo del predicado?"
+tipo: mc
+opciones_explicitas:
+  - "corre"
+  - "perro"
+  - "parque"
+respuesta: "corre"
+
+explicacion: |
+  El núcleo del predicado siempre es el verbo conjugado de la
+  oración.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "intermedio"
   tags: ["aplicacion"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al escuchar un discurso que busca convencer sobre algo importante (una compra, un voto, una decisión personal), conviene preguntarse si se está dando información completa y tiempo para decidir con calma, o si se están usando técnicas de urgencia artificial o miedo exagerado."
-
-pasos:
-  - "Es la aplicación práctica directa del criterio central de este tema para evaluar discursos persuasivos reales."
+enunciado: "¿Por qué es necesario identificar bien el sujeto de una oración antes de conjugar el verbo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el núcleo del sujeto es lo que determina la persona y el número correctos del verbo (concordancia verbal)"
+  - "Porque el sujeto siempre determina el tiempo verbal (pasado, presente o futuro)"
+  - "No hay ninguna relación real entre sujeto y verbo"
+respuesta: "Porque el núcleo del sujeto es lo que determina la persona y el número correctos del verbo (concordancia verbal)"
 
 explicacion: |
-  Verdadero: es la aplicación concreta de este tema como herramienta
-  de pensamiento crítico ante intentos de persuasión cotidianos.
-```
-
-## Sección: presentacion-con-apoyo-visual (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "basico"
-  tags: ["apoyo_visual", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El apoyo visual (diapositivas, gráficos) es un complemento para reforzar lo que se dice, no un guion para leer en voz alta palabra por palabra."
-
-pasos:
-  - "Ver `../exposicion-oral/`: la base sigue siendo la exposición oral bien planificada."
-
-explicacion: |
-  Verdadero: es la relación central entre este tema y su
-  prerrequisito.
+  Es la conexión directa con `../concordancia-nominal-y-verbal/`.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "intermedio"
-  tags: ["errores_comunes"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Llenar una diapositiva de texto y leerla en voz alta es el error más frecuente: la audiencia no puede leer y escuchar con atención al mismo tiempo."
-
-pasos:
-  - "Termina sin hacer bien ninguna de las dos cosas: ni leer con atención ni escuchar."
-
-explicacion: |
-  Verdadero: es el error central que describe la teoría de este tema.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "basico"
-  tags: ["principio_de_diseno"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada diapositiva debería comunicar una sola idea central, con el mínimo texto necesario (títulos cortos, palabras clave, no oraciones completas)."
-
-pasos:
-  - "El detalle se explica hablando, no leyendo de la pantalla."
-
-explicacion: |
-  Verdadero: es el principio central de diseño de diapositivas
-  descrito en la teoría.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "intermedio"
-  tags: ["graficos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un gráfico de barras o de torta comunica una comparación de datos mucho más rápido que una tabla de números leída en voz alta."
-
-pasos:
-  - "Es uno de los casos recomendados para usar imagen/gráfico en vez de texto."
-
-explicacion: |
-  Verdadero: los datos numéricos comparativos se comunican mejor
-  visualmente que en formato de tabla leída.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "intermedio"
-  tags: ["diagramas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un diagrama de flujo o una línea de tiempo es más claro que describir un proceso paso a paso sólo con palabras."
-
-pasos:
-  - "Es otro de los casos recomendados para usar apoyo visual en vez de sólo texto/palabras."
-
-explicacion: |
-  Verdadero: los procesos y secuencias se comunican mejor con
-  diagramas que con descripción puramente verbal.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "intermedio"
-  tags: ["conceptos_espaciales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un mapa, una foto o un esquema comunican mejor la disposición física de algo que una descripción verbal."
-
-pasos:
-  - "Es otro de los casos recomendados para usar apoyo visual, específicamente para conceptos espaciales."
-
-explicacion: |
-  Verdadero: los conceptos espaciales se comunican mejor con
-  elementos visuales que con palabras.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "intermedio"
-  tags: ["legibilidad", "tamano"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El tamaño de letra de una diapositiva debe ser suficientemente grande para leerse desde el fondo de la sala."
-
-pasos:
-  - "Una regla práctica: si no se lee bien impreso en una hoja a distancia de brazo extendido, es demasiado chico en pantalla."
-
-explicacion: |
-  Verdadero: es un criterio de legibilidad central para el apoyo
-  visual.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "intermedio"
-  tags: ["legibilidad", "contraste"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Usar texto oscuro sobre fondo claro (o viceversa), y evitar combinaciones de colores difíciles de distinguir, es un criterio de legibilidad recomendado."
-
-pasos:
-  - "Es otro de los criterios de legibilidad descritos en la teoría."
-
-explicacion: |
-  Verdadero: el contraste adecuado es central para que el contenido
-  visual sea legible.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "intermedio"
-  tags: ["legibilidad", "cantidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una diapositiva sobrecargada de elementos distrae en vez de ayudar: conviene usar pocos elementos y mucho espacio en blanco."
-
-pasos:
-  - "Es otro de los criterios de legibilidad descritos en la teoría."
-
-explicacion: |
-  Verdadero: la cantidad de contenido por diapositiva afecta
-  directamente su claridad.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "intermedio"
-  tags: ["sincronizacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El apoyo visual debe cambiar o resaltarse en el momento en que se habla de eso específicamente; mostrar contenido que todavía no se explicó genera confusión."
-
-pasos:
-  - "La audiencia intenta leer algo que no entiende todavía si se muestra antes de tiempo."
-
-explicacion: |
-  Verdadero: la sincronización entre lo dicho y lo mostrado es
-  central para que el apoyo visual funcione bien.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
+  tema: "sujeto_y_predicado"
   nivel: "avanzado"
-  tags: ["apoyo_visual", "exposicion_oral"]
+  tags: ["nucleo", "problema"]
+
+enunciado: "Etiquetá el núcleo del sujeto y el núcleo del predicado de esta oración."
+tipo: analisis_sintactico
+texto_analizar: "Los estudiantes de la clase aprobaron el examen"
+etiquetas_pedidas:
+  - { palabra: "estudiantes", etiqueta: "núcleo del sujeto" }
+  - { palabra: "aprobaron", etiqueta: "núcleo del predicado" }
+
+explicacion: |
+  'Estudiantes' concentra el significado del sujeto; 'aprobaron' es
+  el verbo, núcleo del predicado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "avanzado"
+  tags: ["nucleo", "problema"]
+
+enunciado: "En 'Los estudiantes de la clase aprobaron el examen', ¿qué función cumple 'de la clase'?"
+tipo: mc
+opciones_explicitas:
+  - "Es un complemento del nombre 'estudiantes' — precisa de qué estudiantes se habla, pero no es el núcleo del sujeto"
+  - "Es el núcleo del sujeto"
+  - "Es parte del predicado"
+respuesta: "Es un complemento del nombre 'estudiantes' — precisa de qué estudiantes se habla, pero no es el núcleo del sujeto"
+
+explicacion: |
+  Acompaña al núcleo sin reemplazarlo — el núcleo sigue siendo
+  'estudiantes'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "intermedio"
+  tags: ["oracion_bimembre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Por definición, toda oración BIMEMBRE tiene sujeto y predicado — las oraciones impersonales (sin sujeto) se llaman, en cambio, unimembres."
+
+explicacion: |
+  'Llueve' es una oración unimembre: no tiene la división en dos
+  mitades complementarias.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué distinguir sujeto y predicado es la base de un análisis sintáctico más completo (núcleos, modificadores, objetos)?"
+tipo: mc
+opciones_explicitas:
+  - "Porque es la primera división de cualquier oración bimembre — sin saber qué parte es sujeto y cuál predicado, no se puede seguir analizando núcleos ni complementos dentro de cada una"
+  - "No tiene ninguna relación con análisis sintácticos más complejos"
+  - "Sólo se usa para contar palabras de una oración"
+respuesta: "Porque es la primera división de cualquier oración bimembre — sin saber qué parte es sujeto y cuál predicado, no se puede seguir analizando núcleos ni complementos dentro de cada una"
+
+explicacion: |
+  Es el punto de partida de cualquier análisis sintáctico más
+  detallado.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "sujeto_y_predicado"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve identificar el sujeto y el predicado de una oración?"
+tipo: mc
+opciones_explicitas:
+  - "Para aplicar correctamente la concordancia verbal y para poder analizar la estructura completa de cualquier oración"
+  - "Sólo sirve para completar ejercicios de gramática, sin ninguna utilidad al hablar o escribir"
+  - "Sólo se aplica a oraciones muy largas y complejas"
+respuesta: "Para aplicar correctamente la concordancia verbal y para poder analizar la estructura completa de cualquier oración"
+
+explicacion: |
+  Cierra la cadena de `../clases-de-palabras/` →
+  `../concordancia-nominal-y-verbal/` → sujeto y predicado: de
+  reconocer palabras sueltas a poder analizar una oración completa.
+```
+
+## Sección: conjugacion-verbal-subjuntivo (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "basico"
+  tags: ["subjuntivo", "vocabulario"]
+
+enunciado: "¿Qué expresa el modo subjuntivo?"
+tipo: mc
+opciones_explicitas:
+  - "Duda, deseo, emoción, ruego o valoración subjetiva"
+  - "Hechos que el hablante considera reales y ciertos"
+  - "Órdenes directas exclusivamente"
+respuesta: "Duda, deseo, emoción, ruego o valoración subjetiva"
+
+explicacion: |
+  Se opone al indicativo, que expresa hechos considerados reales.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "intermedio"
+  tags: ["subjuntivo", "problema"]
+
+enunciado: "¿En cuál de estas oraciones se usa correctamente el subjuntivo?"
+tipo: mc
+opciones_explicitas:
+  - "Espero que vengas pronto."
+  - "Espero que vienes pronto."
+  - "Es obvio que vengas."
+respuesta: "Espero que vengas pronto."
+
+explicacion: |
+  Tras verbos de deseo (esperar, querer, desear) + 'que', el verbo de
+  la subordinada va en subjuntivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "avanzado"
+  tags: ["subjuntivo", "indicativo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Con expresiones de certeza ('sé que', 'es obvio que', 'es cierto que'), corresponde usar el modo indicativo, no el subjuntivo."
+
+explicacion: |
+  'Sé que hablas español' (indicativo, correcto) vs. 'Sé que hables
+  español' (subjuntivo, incorrecto acá).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "intermedio"
+  tags: ["presente_subjuntivo", "problema"]
+
+tipo: completar
+enunciado: "Completá: 'Espero que tú ___ (hablar) con ella.'"
+respuestas_validas:
+  - "hables"
+
+explicacion: |
+  Presente de subjuntivo de 'hablar', segunda persona del singular.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "avanzado"
+  tags: ["imperfecto_subjuntivo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El pretérito imperfecto de subjuntivo tiene dos formas válidas: una en '-ra' y otra en '-se' (ej.: hablara / hablase), ambas igualmente normativas."
+
+explicacion: |
+  Son intercambiables en la mayoría de los contextos, reconocidas
+  ambas por la RAE.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "avanzado"
+  tags: ["imperfecto_subjuntivo", "problema"]
+
+tipo: completar
+enunciado: "La forma 'cantara' (pretérito imperfecto de subjuntivo) tiene una forma alternativa igualmente correcta, terminada en '-se'. ¿Cuál es?"
+respuestas_validas:
+  - "cantase"
+
+explicacion: |
+  Ambos paradigmas ('-ra' y '-se') son intercambiables.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "intermedio"
+  tags: ["subjuntivo", "problema"]
+
+enunciado: "¿Por qué la oración 'Espero que vengas pronto' usa el verbo 'vengas' en subjuntivo y no 'vienes' en indicativo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque 'esperar' es un verbo de deseo, y los verbos de deseo + 'que' piden subjuntivo en la oración subordinada"
+  - "Porque 'venir' siempre se conjuga en subjuntivo, sin importar el contexto"
+  - "No hay ninguna razón gramatical, ambas formas son igual de correctas"
+respuesta: "Porque 'esperar' es un verbo de deseo, y los verbos de deseo + 'que' piden subjuntivo en la oración subordinada"
+
+explicacion: |
+  Es la regla práctica central de este módulo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "avanzado"
+  tags: ["subjuntivo", "problema"]
+
+enunciado: "'Sé que hables español' tiene un error de modo verbal. ¿Cuál es la corrección correcta?"
+tipo: mc
+opciones_explicitas:
+  - "'Sé que hablas español' — 'saber' expresa certeza y pide indicativo, no subjuntivo"
+  - "'Sé que hablarás español' — hay que usar futuro en vez de subjuntivo"
+respuesta: "'Sé que hablas español' — 'saber' expresa certeza y pide indicativo, no subjuntivo"
+
+explicacion: |
+  'Saber' (conocimiento seguro) no admite subjuntivo en la
+  subordinada.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "intermedio"
+  tags: ["imperativo", "problema"]
+
+tipo: completar
+enunciado: "Para pedirle a un amigo que cierre la puerta, le decís: '___ la puerta, por favor.' (imperativo, tú, 'cerrar')"
+respuestas_validas:
+  - "cierra"
+  - "Cierra"
+
+explicacion: |
+  El imperativo de 'cerrar' para 'tú' toma la forma del presente de
+  indicativo sin la 's' final: 'cierras' → 'cierra'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "avanzado"
+  tags: ["imperativo", "subjuntivo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El imperativo NEGATIVO usa exactamente las mismas formas que el presente de subjuntivo: '¡No cierres la puerta!' usa 'cierres', la misma forma que 'espero que cierres la puerta'."
+
+explicacion: |
+  Es la conexión directa entre imperativo y subjuntivo mencionada en
+  `teoria.md`.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "intermedio"
+  tags: ["subjuntivo", "vocabulario"]
+
+enunciado: "¿Cuál de estos grupos de expresiones pide subjuntivo en la oración subordinada?"
+tipo: mc
+opciones_explicitas:
+  - "Deseo, duda, emoción, ruego, valoración subjetiva (esperar que, dudar que, alegrarse de que, pedir que, es una pena que)"
+  - "Certeza (saber que, es obvio que, es cierto que, ver que)"
+respuesta: "Deseo, duda, emoción, ruego, valoración subjetiva (esperar que, dudar que, alegrarse de que, pedir que, es una pena que)"
+
+explicacion: |
+  El segundo grupo (certeza) pide indicativo, no subjuntivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "avanzado"
+  tags: ["subjuntivo", "problema"]
+
+tipo: completar
+enunciado: "Completá: 'Me alegro de que ustedes ___ (estar) bien.'"
+respuestas_validas:
+  - "estén"
+
+explicacion: |
+  'Alegrarse de que' expresa emoción, así que pide subjuntivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué el modo subjuntivo suele considerarse más difícil de dominar que el indicativo, incluso para hablantes nativos en producción escrita formal?"
+tipo: mc
+opciones_explicitas:
+  - "Porque elegirlo depende de reconocer una intención subjetiva (duda, deseo, emoción) en el verbo principal, no de una regla mecánica simple como en el indicativo"
+  - "Porque el subjuntivo no tiene ninguna forma verbal propia"
+  - "Porque el subjuntivo sólo existe en la lengua escrita, nunca en la hablada"
+respuesta: "Porque elegirlo depende de reconocer una intención subjetiva (duda, deseo, emoción) en el verbo principal, no de una regla mecánica simple como en el indicativo"
+
+explicacion: |
+  Es la razón por la que este módulo se separó del indicativo, aunque
+  comparta buena parte del mismo vocabulario de formas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "intermedio"
+  tags: ["subjuntivo", "problema"]
+
+tipo: completar
+enunciado: "Completá: 'Te pido que me ___ (ayudar) con esto.'"
+respuestas_validas:
+  - "ayudes"
+
+explicacion: |
+  'Pedir que' expresa ruego, pide subjuntivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "avanzado"
+  tags: ["subjuntivo", "indicativo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "'Creo que viene' (indicativo, cierta seguridad) y 'No creo que venga' (subjuntivo, duda) usan el mismo verbo principal ('creer'), pero cambian de modo según si la oración es afirmativa o negativa."
+
+explicacion: |
+  Negar 'creer' introduce duda, y por eso cambia a subjuntivo — un
+  matiz avanzado de la regla general.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "avanzado"
+  tags: ["subjuntivo", "problema"]
+
+tipo: completar
+enunciado: "Completá: 'Dudo que ellos ___ (llegar) a tiempo.'"
+respuestas_validas:
+  - "lleguen"
+
+explicacion: |
+  'Dudar que' expresa duda, pide subjuntivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "intermedio"
+  tags: ["subjuntivo", "problema"]
+
+enunciado: "'Es una pena que no puedas venir' usa el subjuntivo 'puedas'. ¿Por qué?"
+tipo: mc
+opciones_explicitas:
+  - "Porque 'es una pena que' expresa una valoración subjetiva sobre el hecho, no una afirmación de certeza"
+  - "Porque el verbo 'poder' siempre se conjuga en subjuntivo"
+  - "Es un error, debería decir 'puedes'"
+respuesta: "Porque 'es una pena que' expresa una valoración subjetiva sobre el hecho, no una afirmación de certeza"
+
+explicacion: |
+  Las expresiones de valoración ('es una pena que', 'es genial que')
+  son otro disparador típico del subjuntivo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "avanzado"
+  tags: ["imperativo", "problema"]
+
+tipo: completar
+enunciado: "Completá el imperativo negativo: 'No ___ (hablar) tan fuerte.' (a 'tú')"
+respuestas_validas:
+  - "hables"
+
+explicacion: |
+  El imperativo negativo de 'tú' usa la misma forma que el presente
+  de subjuntivo de segunda persona.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "Al escribir una oración con 'que', ¿qué conviene revisar para decidir si el verbo de la subordinada va en indicativo o en subjuntivo?"
+tipo: mc
+opciones_explicitas:
+  - "Qué tipo de verbo o expresión introduce la oración: si es de certeza (indicativo) o de deseo/duda/emoción/ruego/valoración (subjuntivo)"
+  - "Sólo importa si el verbo principal es regular o irregular"
+  - "El modo no depende del verbo principal, es aleatorio"
+respuesta: "Qué tipo de verbo o expresión introduce la oración: si es de certeza (indicativo) o de deseo/duda/emoción/ruego/valoración (subjuntivo)"
+
+explicacion: |
+  Es la estrategia práctica central de todo este módulo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "conjugacion_verbal_subjuntivo"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve el modo subjuntivo?"
+tipo: mc
+opciones_explicitas:
+  - "Para expresar duda, deseo, emoción, ruego o valoración subjetiva, distinguiéndolo de las afirmaciones de hechos reales del indicativo"
+  - "Para narrar hechos que ya ocurrieron con certeza"
+  - "Sólo se usa en la lengua escrita formal, nunca al hablar"
+respuesta: "Para expresar duda, deseo, emoción, ruego o valoración subjetiva, distinguiéndolo de las afirmaciones de hechos reales del indicativo"
+
+explicacion: |
+  Cierra la cadena de `../conjugacion-verbal-indicativo/`: los dos
+  modos verbales centrales del español.
+```
+
+## Sección: nucleos-y-modificadores (20 preguntas)
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "basico"
+  tags: ["nucleo", "vocabulario"]
+
+enunciado: "¿Qué es el núcleo de un sintagma?"
+tipo: mc
+opciones_explicitas:
+  - "La palabra principal, que concentra el significado central y determina la categoría gramatical de todo el grupo"
+  - "La primera palabra del sintagma, sin importar su función"
+  - "Cualquier palabra que se pueda quitar sin cambiar el sentido"
+respuesta: "La palabra principal, que concentra el significado central y determina la categoría gramatical de todo el grupo"
+
+explicacion: |
+  En un sintagma nominal, el núcleo siempre es un sustantivo o
+  pronombre.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "basico"
+  tags: ["modificador", "vocabulario"]
+
+enunciado: "¿Qué es un modificador?"
+tipo: mc
+opciones_explicitas:
+  - "Una palabra o grupo de palabras que acompaña al núcleo, agregando información sin ser imprescindible para la estructura básica"
+  - "Otro nombre para el núcleo de un sintagma"
+  - "Una palabra que siempre va al final de la oración"
+respuesta: "Una palabra o grupo de palabras que acompaña al núcleo, agregando información sin ser imprescindible para la estructura básica"
+
+explicacion: |
+  Se puede quitar y la oración sigue siendo gramaticalmente correcta,
+  aunque pierda información.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "avanzado"
+  tags: ["nucleo", "modificador_directo", "problema"]
+
+enunciado: "Etiquetá el núcleo del sujeto y su modificador directo en esta oración."
+tipo: analisis_sintactico
+texto_analizar: "Los estudiantes de la clase aprobaron el examen"
+etiquetas_pedidas:
+  - { palabra: "estudiantes", etiqueta: "núcleo" }
+  - { palabra: "Los", etiqueta: "modificador directo" }
+
+explicacion: |
+  'Estudiantes' es el núcleo; 'Los' lo acompaña directamente, sin
+  preposición.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "intermedio"
+  tags: ["modificador_directo", "vocabulario"]
+
+enunciado: "¿Qué es un modificador directo?"
+tipo: mc
+opciones_explicitas:
+  - "Un determinante o adjetivo que se agrega al núcleo sin preposición ('el perro grande')"
+  - "Un sintagma con preposición que complementa al núcleo"
+  - "Un sustantivo que explica a otro, separado por comas"
+respuesta: "Un determinante o adjetivo que se agrega al núcleo sin preposición ('el perro grande')"
+
+explicacion: |
+  'El' y 'grande' son modificadores directos de 'perro'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "intermedio"
+  tags: ["modificador_indirecto", "vocabulario"]
+
+enunciado: "¿Qué es un modificador indirecto (complemento del nombre)?"
+tipo: mc
+opciones_explicitas:
+  - "Un sintagma CON preposición que complementa al núcleo ('la casa de María')"
+  - "Un determinante que acompaña al núcleo sin preposición"
+  - "Otro nombre para el núcleo del predicado"
+respuesta: "Un sintagma CON preposición que complementa al núcleo ('la casa de María')"
+
+explicacion: |
+  La preposición ('de', en este caso) es lo que distingue al
+  modificador indirecto del directo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "avanzado"
+  tags: ["modificador_indirecto", "problema"]
+
+enunciado: "Marcá el modificador indirecto (complemento del nombre) del núcleo 'estudiantes' en esta oración."
+tipo: analisis_spans
+texto_analizar: "Los estudiantes de la clase aprobaron el examen"
+spans_pedidos:
+  - { desde: 2, hasta: 4, etiqueta: "modificador indirecto" }
+
+explicacion: |
+  'De la clase' es un sintagma preposicional que complementa a
+  'estudiantes' — a diferencia de 'Los', que lo modifica sin
+  preposición.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "avanzado"
+  tags: ["aposicion", "vocabulario"]
+
+enunciado: "¿Qué es una aposición?"
+tipo: mc
+opciones_explicitas:
+  - "Un sustantivo (o sintagma nominal) que se agrega a otro para explicarlo, sin preposición, generalmente separado por comas"
+  - "Un adjetivo que concuerda en género y número con el núcleo"
+  - "Otro nombre para el modificador indirecto"
+respuesta: "Un sustantivo (o sintagma nominal) que se agrega a otro para explicarlo, sin preposición, generalmente separado por comas"
+
+explicacion: |
+  Como 'el profesor' en 'Javier, el profesor, llegó tarde'.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "avanzado"
+  tags: ["aposicion", "problema"]
+
+tipo: completar
+enunciado: "En la oración 'Javier, el profesor, llegó tarde', ¿qué palabras forman la aposición de 'Javier'?"
+respuestas_validas:
+  - "el profesor"
+
+explicacion: |
+  Explica quién es Javier, sin usar ninguna preposición, separado por
+  comas.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "intermedio"
+  tags: ["modificador"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Se puede quitar un modificador de un sintagma y la oración sigue siendo gramaticalmente correcta, aunque pierda parte de la información."
+
+explicacion: |
+  'Los estudiantes aprobaron el examen' (sin 'de la clase') sigue
+  siendo una oración válida, con menos precisión.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "intermedio"
+  tags: ["nucleo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si se quita el núcleo de un sintagma, la oración deja de tener sentido o cambia por completo su estructura — a diferencia de quitar un modificador."
+
+explicacion: |
+  Es la prueba práctica para distinguir núcleo de modificador: lo
+  imprescindible vs. lo prescindible.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "avanzado"
+  tags: ["modificador_directo", "problema"]
+
+enunciado: "Marcá los modificadores directos del núcleo 'perro' en esta oración."
+tipo: identificar_palabras
+texto_analizar: "El perro grande corre"
+respuestas_validas:
+  - "El"
+  - "grande"
+
+explicacion: |
+  Ambos acompañan a 'perro' sin preposición: uno antes (determinante),
+  otro después (adjetivo).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "intermedio"
+  tags: ["nucleo", "problema"]
+
+enunciado: "¿Cuál es el núcleo del sujeto en 'El perro grande corre'?"
+tipo: mc
+opciones_explicitas:
+  - "perro"
+  - "El"
+  - "grande"
+respuesta: "perro"
+
+explicacion: |
+  Es el sustantivo que concentra el significado central del sujeto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
+
+enunciado: "¿Qué relación tiene 'núcleo y modificadores' con lo ya visto en `../sujeto-y-predicado/`?"
+tipo: mc
+opciones_explicitas:
+  - "Le da nombre formal a lo que ya se distinguía informalmente: el núcleo del sujeto (ya identificado) y todo lo que lo acompaña (ahora llamado 'modificador')"
+  - "No tiene ninguna relación real con sujeto y predicado"
+  - "Reemplaza por completo la necesidad de identificar sujeto y predicado"
+respuesta: "Le da nombre formal a lo que ya se distinguía informalmente: el núcleo del sujeto (ya identificado) y todo lo que lo acompaña (ahora llamado 'modificador')"
+
+explicacion: |
+  Es la continuación directa de ese módulo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "avanzado"
+  tags: ["predicado"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El mismo patrón de núcleo y modificadores se repite en el predicado: su núcleo es el verbo, y sus complementos (objeto directo, objeto indirecto, circunstanciales) funcionan como modificadores de ese núcleo verbal."
+
+explicacion: |
+  Profundizar en esos tipos específicos de complemento verbal es el
+  tema de un módulo posterior ('Objetos y circunstanciales').
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "avanzado"
+  tags: ["modificador_directo", "modificador_indirecto", "problema"]
+
+enunciado: "En 'la mesa de madera', ¿qué tipo de modificador es 'de madera' respecto del núcleo 'mesa'?"
+tipo: mc
+opciones_explicitas:
+  - "Modificador indirecto (complemento del nombre): usa la preposición 'de'"
+  - "Modificador directo: no usa ninguna preposición"
+  - "Aposición: es un sustantivo que explica a 'mesa'"
+respuesta: "Modificador indirecto (complemento del nombre): usa la preposición 'de'"
+
+explicacion: |
+  La presencia de la preposición 'de' es la marca distintiva del
+  modificador indirecto.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "avanzado"
+  tags: ["aposicion", "modificador_indirecto"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A diferencia del modificador indirecto, la aposición no usa ninguna preposición para unirse al núcleo — por eso 'el profesor' en 'Javier, el profesor,...' es aposición y no modificador indirecto."
+
+explicacion: |
+  Si dijera 'Javier, DE profesión profesor,...' ahí sí habría una
+  preposición de por medio.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Cómo ayuda distinguir núcleo de modificadores a resumir o parafrasear una oración larga?"
+tipo: mc
+opciones_explicitas:
+  - "Permite quedarse con el esqueleto básico (los núcleos) y decidir qué modificadores son prescindibles según qué tan importante sea la información que agregan"
+  - "No tiene ninguna utilidad práctica fuera del análisis gramatical"
+  - "Obliga a mantener siempre todos los modificadores de la oración original"
+respuesta: "Permite quedarse con el esqueleto básico (los núcleos) y decidir qué modificadores son prescindibles según qué tan importante sea la información que agregan"
+
+explicacion: |
+  Es una aplicación práctica directa de este módulo a la producción
+  de textos.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "avanzado"
+  tags: ["nucleo", "problema"]
+
+tipo: completar
+enunciado: "En 'Javier, el profesor, llegó tarde', ¿cuál es el núcleo del sujeto completo ('Javier, el profesor')?"
+respuestas_validas:
+  - "Javier"
+
+explicacion: |
+  La aposición ('el profesor') explica a 'Javier', pero no lo
+  reemplaza como núcleo.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "intermedio"
+  tags: ["modificador_directo"]
+
+enunciado: "¿Cuáles son las dos clases de palabras que típicamente funcionan como modificador directo de un sustantivo?"
+tipo: mc
+opciones_explicitas:
+  - "Determinantes (artículos) y adjetivos"
+  - "Preposiciones y conjunciones"
+  - "Verbos y adverbios"
+respuesta: "Determinantes (artículos) y adjetivos"
+
+explicacion: |
+  Ambos acompañan al sustantivo sin necesitar ninguna preposición de
+  por medio.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "nucleos_y_modificadores"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve distinguir el núcleo de un sintagma de sus modificadores?"
+tipo: mc
+opciones_explicitas:
+  - "Para entender qué parte de un sintagma es imprescindible (el núcleo) y qué parte agrega información prescindible (los modificadores), la base de cualquier análisis sintáctico más detallado"
+  - "Sólo sirve para contar palabras de una oración"
+  - "No tiene relación con analizar objetos y circunstanciales más adelante"
+respuesta: "Para entender qué parte de un sintagma es imprescindible (el núcleo) y qué parte agrega información prescindible (los modificadores), la base de cualquier análisis sintáctico más detallado"
+
+explicacion: |
+  Es el paso siguiente después de `../sujeto-y-predicado/`, y la base
+  del módulo que sigue en la currícula: 'Objetos y circunstanciales'.
+```
+
+## Sección: tipos-de-sujeto (22 preguntas)
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
+  nivel: "basico"
+  tags: ["sujeto_tacito", "elipsis"]
 
 variables:
-  n: uno_de([1, 1])
+  pronombre: uno_de(["nosotros", "tú", "ellos", "yo"])
+  verbo: uno_de(["estudiamos", "estudias", "estudian", "estudio"])
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Tener buenas diapositivas hace innecesario planificar la estructura de introducción, desarrollo y cierre de la exposición oral."
-
-pasos:
-  - "Ver `../exposicion-oral/`: la estructura de la exposición sigue siendo necesaria, el apoyo visual sólo la complementa."
+enunciado: "En la oración '{verbo} mucho para el examen', el sujeto es expreso porque aparece escrito."
 
 explicacion: |
-  Falso: el apoyo visual no reemplaza la planificación de la
-  exposición oral, la complementa.
+  Falso. El sujeto es tácito (elíptico). Aunque no se escribe, se sobreentiende por la conjugación verbal ('{pronombre}'). En español, es común omitir el pronombre sujeto.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
   nivel: "intermedio"
-  tags: ["apoyo_visual", "practica"]
+  tags: ["sujeto_simple", "nucleo"]
 
 variables:
-  contenidos: ["comparar las ventas de tres productos en un año", "explicar los pasos de un proceso de fabricación", "mostrar la ubicación geográfica de un evento histórico"]
-  tipos: ["gráfico de barras", "diagrama de flujo", "mapa"]
-  idx: uno_de([0, 1, 2])
+  nombre_propio: uno_de(["Pedro", "Laura", "Martín", "Sofía", "Tomás"])
 
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["gráfico de barras", "diagrama de flujo", "mapa"]
+respuesta: verdadero
+tipo: vf
 
-enunciado: "Para \"{contenidos[idx]}\", el apoyo visual más adecuado sería un..."
-
-pasos:
-  - "Cada tipo de contenido se comunica mejor con un tipo de apoyo visual específico."
+enunciado: "En la oración '{nombre_propio} juega al fútbol', el sujeto es simple porque tiene un solo núcleo."
 
 explicacion: |
-  Elegir el tipo correcto de apoyo visual depende de qué tipo de
-  información se quiere comunicar.
+  Verdadero. El sujeto '{nombre_propio}' tiene un único núcleo (el nombre propio) — eso lo hace simple, tenga o no modificadores acompañándolo.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
   nivel: "intermedio"
-  tags: ["principio_de_diseno", "practica"]
+  tags: ["sujeto_simple", "modificadores"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: "\"Revolución Industrial — Inglaterra, fines s. XVIII\""
-tipo: mc
-opciones_explicitas: ["\"La Revolución Industrial comenzó en Inglaterra a fines del siglo XVIII debido a varios factores económicos y tecnológicos combinados\"", "\"Revolución Industrial — Inglaterra, fines s. XVIII\""]
-
-enunciado: "¿Cuál de estas dos versiones sigue mejor el principio de \"pocas palabras, una idea por diapositiva\"?"
-
-pasos:
-  - "La versión con palabras clave deja el detalle para ser explicado hablando, no leído de la pantalla."
-
-explicacion: |
-  La versión corta con palabras clave es más adecuada para una
-  diapositiva; los detalles se explican verbalmente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "avanzado"
-  tags: ["sincronizacion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
+  adjetivo: uno_de(["grandes", "inteligentes", "divertidos", "serios", "alegres"])
+  sustantivo: uno_de(["niños", "estudiantes", "amigos", "compañeros", "vecinos"])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si se muestra una diapositiva con un gráfico complejo varios minutos antes de explicarlo, la audiencia puede distraerse intentando entenderlo por su cuenta, en vez de prestar atención a lo que se está diciendo mientras tanto."
-
-pasos:
-  - "Es la aplicación práctica de por qué la sincronización entre lo mostrado y lo dicho es importante."
+enunciado: "En la oración 'Los {sustantivo} {adjetivo} llegaron tarde', el sujeto sigue siendo simple, aunque tenga modificadores."
 
 explicacion: |
-  Verdadero: es un ejemplo concreto del problema de falta de
-  sincronización descrito en la teoría.
+  Verdadero. 'Los {sustantivo} {adjetivo}' tiene un único núcleo ('{sustantivo}'), acompañado de modificadores ('Los', '{adjetivo}'). Tener modificadores no lo convierte en compuesto — sigue siendo simple porque hay un solo núcleo.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "avanzado"
-  tags: ["apoyo_visual", "contexto"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "No toda exposición oral necesita apoyo visual: para audiencias chicas o contenidos muy simples, puede bastar con la exposición oral sola, sin diapositivas."
-
-pasos:
-  - "El apoyo visual es una herramienta adicional, no un requisito obligatorio en todos los contextos."
-
-explicacion: |
-  Verdadero: es un matiz sobre cuándo conviene (o no) usar apoyo
-  visual, según el contexto de la exposición.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "avanzado"
-  tags: ["legibilidad", "distraccion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Usar demasiadas animaciones, transiciones o efectos visuales llamativos puede distraer a la audiencia del contenido central, en vez de ayudar a comunicarlo."
-
-pasos:
-  - "Es coherente con el principio general de que el apoyo visual debe apoyar el mensaje, no competir con él por atención."
-
-explicacion: |
-  Verdadero: el exceso de efectos visuales es otro tipo de
-  sobrecarga que dificulta, en vez de ayudar, la comunicación.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
   nivel: "intermedio"
-  tags: ["principio_de_diseno", "practica"]
+  tags: ["sujeto_compuesto", "coordinacion"]
 
 variables:
-  n: uno_de([1, 1])
+  nombre1: uno_de(["María", "Juan", "Ana", "Luis", "Pedro"])
+  nombre2: uno_de(["Carlos", "Laura", "Sofía", "Martín", "Elena"])
+  accion: uno_de(["llegaron", "vinieron", "estudiaron", "jugaron", "hablaron"])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una diapositiva con un título corto, una imagen relevante y pocas palabras clave, con texto grande y buen contraste, sigue los principios de diseño recomendados para apoyo visual."
-
-pasos:
-  - "Combina todos los criterios descritos en la teoría: una idea, pocos elementos, buena legibilidad."
+enunciado: "En la oración '{nombre1} y {nombre2} {accion} tarde', el sujeto es compuesto."
 
 explicacion: |
-  Verdadero: es un ejemplo de diapositiva bien diseñada según los
-  criterios de este tema.
+  Verdadero. El sujeto tiene dos núcleos ('{nombre1}' y '{nombre2}') coordinados por 'y'. Al tener más de un núcleo, es un sujeto compuesto — y por eso el verbo va en plural.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "intermedio"
-  tags: ["apoyo_visual", "metodo"]
-
-enunciado: "Ordená los pasos para diseñar una presentación con apoyo visual, después de ya tener planificada la exposición oral."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar qué partes del contenido se benefician de un apoyo visual (datos, procesos, conceptos espaciales)"
-  - "Diseñar cada diapositiva con una sola idea central y texto mínimo"
-  - "Revisar legibilidad: tamaño de letra, contraste, cantidad de elementos"
-  - "Ensayar la exposición sincronizando lo que se dice con lo que se muestra en cada momento"
-respuesta_orden:
-  - "Identificar qué partes del contenido se benefician de un apoyo visual (datos, procesos, conceptos espaciales)"
-  - "Diseñar cada diapositiva con una sola idea central y texto mínimo"
-  - "Revisar legibilidad: tamaño de letra, contraste, cantidad de elementos"
-  - "Ensayar la exposición sincronizando lo que se dice con lo que se muestra en cada momento"
-
-explicacion: |
-  El proceso va de decidir dónde usar apoyo visual a diseñarlo bien y
-  finalmente ensayar la sincronización con la exposición oral.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "avanzado"
-  tags: ["apoyo_visual", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Este tema agrega una capa práctica muy usada (presentaciones escolares, laborales, académicas) a la base de exposición oral ya dominada."
-
-pasos:
-  - "Ver `../exposicion-oral/`: es la relación de prerrequisito y complemento entre ambos temas."
-
-explicacion: |
-  Verdadero: es la síntesis de la relación entre este tema y su
-  prerrequisito.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "presentacion_con_apoyo_visual"
-  nivel: "avanzado"
-  tags: ["apoyo_visual", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al preparar diapositivas para un trabajo escolar, conviene usar pocas palabras clave por diapositiva, elegir gráficos o imágenes cuando ayuden a comunicar mejor que el texto, y ensayar la sincronización entre lo dicho y lo mostrado."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema en la
-  preparación real de una presentación escolar.
-```
-
-## Sección: produccion-escrita-compleja (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
   nivel: "basico"
-  tags: ["produccion_escrita_compleja", "definicion"]
+  tags: ["sujeto_simple", "pronombre"]
 
 variables:
-  n: uno_de([1, 1])
+  pronombre: uno_de(["Yo", "Tú", "Él", "Nosotros", "Ellos"])
+  accion: uno_de(["estudio", "estudias", "estudia", "estudiamos", "estudian"])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Producción escrita compleja no enseña una técnica nueva, sino que integra la oración compuesta y la puntuación ya vistas para producir un texto largo y coherente."
-
-pasos:
-  - "Ver `../oracion-compuesta-coordinacion-y-subordinacion/` y `../signos-de-puntuacion/`: son sus dos prerrequisitos directos."
+enunciado: "En la oración '{pronombre} {accion} mañana', el sujeto es simple."
 
 explicacion: |
-  Verdadero: este tema combina herramientas previas, no introduce
-  contenido gramatical nuevo.
+  Verdadero. El sujeto '{pronombre}' es un pronombre personal que funciona como único núcleo — eso lo hace simple.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
+  nivel: "intermedio"
+  tags: ["sujeto_simple", "modificador"]
+
+variables:
+  sustantivo: uno_de(["amigos", "compañeros", "vecinos", "colegas"])
+  complemento: uno_de(["de la escuela", "del trabajo", "del barrio", "de la clase"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la oración 'Los {sustantivo} {complemento} llegaron', el sujeto es simple."
+
+explicacion: |
+  Verdadero. 'Los {sustantivo} {complemento}' tiene un único núcleo ('{sustantivo}') con un modificador preposicional ('{complemento}') — sigue siendo simple, porque hay un solo núcleo.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
   nivel: "basico"
-  tags: ["planificacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "planificación"
-tipo: mc
-opciones_explicitas: ["planificación", "redacción", "revisión"]
-
-enunciado: "La etapa en la que se decide el tipo textual, la idea principal o tesis, y se arma un esquema de párrafos, ANTES de escribir, se llama..."
-
-pasos:
-  - "Es el primer paso del proceso, antes de poner una palabra en el papel."
-
-explicacion: |
-  La planificación organiza el texto antes de comenzar a redactar.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "basico"
-  tags: ["redaccion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "redacción"
-tipo: mc
-opciones_explicitas: ["planificación", "redacción", "revisión"]
-
-enunciado: "La etapa en la que se escribe el borrador sin frenarse a corregir cada detalle, siguiendo el esquema hecho antes, se llama..."
-
-pasos:
-  - "El objetivo de esta etapa es sacar las ideas al papel, no lograr la versión final."
-
-explicacion: |
-  La redacción es la etapa de escribir el primer borrador completo.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "basico"
-  tags: ["revision"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "revisión"
-tipo: mc
-opciones_explicitas: ["planificación", "redacción", "revisión"]
-
-enunciado: "La etapa en la que se relee con ojo crítico buscando errores de coherencia, gramática, ortografía y puntuación se llama..."
-
-pasos:
-  - "Es el paso que sigue a tener un borrador completo escrito."
-
-explicacion: |
-  La revisión busca errores y aspectos a mejorar antes de la versión
-  final.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "intermedio"
-  tags: ["edicion_final"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "edición final"
-tipo: mc
-opciones_explicitas: ["edición final", "planificación", "redacción"]
-
-enunciado: "La etapa en la que se aplican las correcciones encontradas en la revisión para producir la versión definitiva se llama..."
-
-pasos:
-  - "Es el último paso del proceso de escritura, después de revisar."
-
-explicacion: |
-  La edición final cierra el proceso aplicando todas las correcciones
-  detectadas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "intermedio"
-  tags: ["produccion_escrita_compleja", "proceso"]
-
-enunciado: "Ordená las cuatro etapas del proceso de escritura de un texto complejo."
-tipo: ordenar
-opciones_explicitas:
-  - "Planificación"
-  - "Redacción (borrador)"
-  - "Revisión"
-  - "Edición final"
-respuesta_orden:
-  - "Planificación"
-  - "Redacción (borrador)"
-  - "Revisión"
-  - "Edición final"
-
-explicacion: |
-  El proceso completo va de organizar las ideas a escribirlas, luego
-  revisarlas críticamente, y finalmente corregirlas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "basico"
-  tags: ["produccion_escrita_compleja", "proceso"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Escribir un texto complejo tiene etapas distintas, cada una con un objetivo propio, en vez de ser un proceso de \"escribir de una sola vez\"."
-
-pasos:
-  - "Planificar, redactar, revisar y editar son pasos con objetivos distintos entre sí."
-
-explicacion: |
-  Verdadero: separar el proceso en etapas es una estrategia central
-  de la producción escrita compleja.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "intermedio"
-  tags: ["parrafos", "idea_principal"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada párrafo de un texto complejo debería desarrollar una sola idea principal propia, conectada con la del párrafo anterior y siguiente."
-
-pasos:
-  - "Ver `../comprension-idea-principal/`: mezclar varias ideas grandes en un solo párrafo dificulta la lectura."
-
-explicacion: |
-  Verdadero: la organización \"un párrafo, una idea\" es un principio
-  central de la escritura clara.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "intermedio"
-  tags: ["estructura_sintactica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un texto complejo bien escrito combina oraciones simples y compuestas (coordinadas y subordinadas), en vez de repetir siempre la misma estructura corta."
-
-pasos:
-  - "Ver `../oracion-compuesta-coordinacion-y-subordinacion/`: la variedad sintáctica distingue la escritura madura."
-
-explicacion: |
-  Verdadero: la variedad en la estructura de las oraciones es una
-  marca de escritura compleja bien lograda.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "intermedio"
-  tags: ["puntuacion", "oraciones_largas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuanto más larga y combinada es una oración, más depende de una buena puntuación para seguir siendo legible."
-
-pasos:
-  - "Ver `../signos-de-puntuacion/`: es la razón concreta de por qué este tema depende también de la puntuación."
-
-explicacion: |
-  Verdadero: la puntuación es lo que hace legibles a las oraciones
-  compuestas más largas.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "intermedio"
-  tags: ["redaccion", "estrategia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Durante la etapa de redacción del borrador, conviene no frenarse a corregir cada detalle, porque esa revisión detallada corresponde a una etapa posterior."
-
-pasos:
-  - "Mezclar redacción y revisión al mismo tiempo puede hacer más lento y difícil sacar las ideas completas al papel."
-
-explicacion: |
-  Verdadero: separar redactar de revisar es una estrategia práctica
-  para no trabarse durante el primer borrador.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "intermedio"
-  tags: ["planificacion", "tipos_textuales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la planificación se decide de qué tipo textual va a ser el texto (narrativo, expositivo, argumentativo...) antes de empezar a redactar."
-
-pasos:
-  - "Ver `../tipos-textuales/`: saber el propósito del texto orienta cómo se organiza el esquema."
-
-explicacion: |
-  Verdadero: definir el tipo textual es parte de la planificación
-  previa a la redacción.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "intermedio"
-  tags: ["revision", "errores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La etapa de revisión busca errores de distinto tipo: coherencia (¿se entiende la idea?), gramática, ortografía/tildación y puntuación."
-
-pasos:
-  - "No es una sola revisión de un solo aspecto, sino varias capas de lectura crítica."
-
-explicacion: |
-  Verdadero: la revisión abarca múltiples niveles del texto, no sólo
-  la ortografía.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "intermedio"
-  tags: ["planificacion", "esquema"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Armar un esquema breve de los párrafos que van a desarrollar la idea principal o tesis es parte de la planificación, antes de escribir el borrador completo."
-
-pasos:
-  - "Ese esquema orienta la redacción y evita perder el hilo del texto en el camino."
-
-explicacion: |
-  Verdadero: el esquema de párrafos es una herramienta práctica
-  central de la planificación.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "avanzado"
-  tags: ["prerrequisito", "estructura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Producción escrita compleja tiene dos prerrequisitos directos en el MAPA: oración compuesta (para combinar oraciones) y signos de puntuación (para que esas combinaciones se lean sin ambigüedad)."
-
-pasos:
-  - "Ambos prerrequisitos son necesarios en conjunto: combinar oraciones sin puntuar bien resulta igual de ilegible."
-
-explicacion: |
-  Verdadero: es el caso de un nodo con doble padre en el MAPA,
-  explicado en `../dependencias.md`.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "intermedio"
-  tags: ["parrafos", "coherencia"]
-
-variables:
-  n: uno_de([1, 1])
+  tags: ["oracion_bimembre_unimembre", "distincion"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Es una buena práctica de escritura mezclar varias ideas grandes distintas dentro de un mismo párrafo, para que el texto sea más corto."
-
-pasos:
-  - "Mezclar varias ideas grandes en un párrafo suele dificultar la lectura, en vez de facilitarla."
+enunciado: "'Bimembre' y 'unimembre' son términos que clasifican al sujeto según tenga o no modificadores."
 
 explicacion: |
-  Falso: la regla \"un párrafo, una idea\" existe justamente para
-  evitar esa confusión, no para acortar el texto a costa de la
-  claridad.
+  Falso. 'Bimembre' y 'unimembre' clasifican a la ORACIÓN completa (si se puede dividir en sujeto y predicado, o no) — no al sujeto. El sujeto se clasifica, entre otros criterios, en simple o compuesto según su número de núcleos.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "intermedio"
-  tags: ["produccion_escrita_compleja", "practica"]
-
-variables:
-  acciones: ["armar un esquema de los párrafos antes de escribir", "corregir una falta de ortografía detectada al releer el borrador"]
-  etapas: ["planificación", "revisión"]
-  idx: uno_de([0, 1])
-
-respuesta: etapas[idx]
-tipo: mc
-opciones_explicitas: ["planificación", "redacción", "revisión", "edición final"]
-
-enunciado: "La acción de \"{acciones[idx]}\" corresponde a la etapa de..."
-
-pasos:
-  - "Antes de escribir = planificación. Detectar un error al releer = revisión."
-
-explicacion: |
-  Cada acción concreta del proceso de escritura corresponde a una
-  etapa específica.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
   nivel: "avanzado"
-  tags: ["produccion_escrita_compleja", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
+  tags: ["oracion_unimembre", "impersonal"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Separar redactar (sacar todas las ideas) de revisar (corregir con ojo crítico) suele producir mejores textos que intentar escribir la versión perfecta desde la primera oración."
-
-pasos:
-  - "Frenar cada oración para corregirla antes de seguir suele hacer perder el hilo general del texto."
+enunciado: "'¡Fuego!' o 'Llueve mucho' son ejemplos de oraciones unimembres, porque no se pueden dividir en sujeto y predicado."
 
 explicacion: |
-  Verdadero: es la justificación práctica de por qué separar el
-  proceso en etapas mejora el resultado final.
+  Verdadero. Son oraciones unimembres: no tienen la estructura de dos miembros (sujeto + predicado) que sí tiene una oración bimembre como 'Juan corre'.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "avanzado"
-  tags: ["produccion_escrita_compleja", "prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una vez que se puede producir un borrador completo con estructura básica correcta, el siguiente paso es refinar específicamente cómo se conectan las oraciones y párrafos entre sí (cohesión y coherencia)."
-
-pasos:
-  - "Ver `../conectores-textuales/`, `../referencia-anafora-y-catafora/`, `../progresion-tematica/`: los tres temas siguientes de la cadena."
-
-explicacion: |
-  Verdadero: por eso producción escrita compleja es prerrequisito
-  directo de esos tres temas de cohesión y coherencia.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "avanzado"
-  tags: ["produccion_escrita_compleja", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Antes de escribir un informe escolar largo, conviene dedicar tiempo a planificar (tipo textual, tesis o idea central, esquema de párrafos) en vez de empezar a escribir directamente sin ningún plan."
-
-pasos:
-  - "La planificación previa suele ahorrar tiempo de reescritura y mejorar la coherencia general del texto final."
-
-explicacion: |
-  Verdadero: la aplicación práctica más directa de este tema es
-  planificar antes de encarar cualquier texto extenso real.
-```
-
-## Sección: progresion-tematica (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
   nivel: "basico"
-  tags: ["tema", "rema"]
+  tags: ["sujeto_simple", "sustantivo_propio"]
 
 variables:
-  n: uno_de([1, 1])
+  nombre: uno_de(["Buenos Aires", "España", "Argentina", "México", "Colombia"])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En cada oración, el tema es de qué habla (generalmente lo ya conocido) y el rema es la información nueva que se dice sobre ese tema."
-
-pasos:
-  - "\"El río nace en la montaña\": \"el río\" es el tema, \"nace en la montaña\" es el rema."
+enunciado: "En la oración '{nombre} tiene mucha historia', el sujeto es simple."
 
 explicacion: |
-  Verdadero: tema y rema son las dos partes básicas del análisis de
-  progresión temática.
+  Verdadero. El sujeto '{nombre}' es un sustantivo propio que funciona como único núcleo — eso lo hace simple.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
   nivel: "basico"
-  tags: ["progresion_tematica", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
+  tags: ["sujeto_tacito", "verdad_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La progresión temática es el patrón según el cual el tema de cada oración se relaciona con la información de las oraciones anteriores."
-
-pasos:
-  - "Es lo que hace que un texto avance de forma ordenada y no salte de un lado a otro sin conexión."
+enunciado: "En la oración 'Estudiamos mucho', el sujeto 'nosotros' no aparece escrito pero se sobreentiende por la conjugación verbal. Esta afirmación es:"
 
 explicacion: |
-  Verdadero: es la definición central de este tema.
+  Correcto. Es un sujeto tácito (o elíptico) porque la persona y número están indicados en el verbo 'estudiamos' (1ra persona del plural).
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "intermedio"
-  tags: ["tema_constante"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "tema constante"
-tipo: mc
-opciones_explicitas: ["tema constante", "progresión lineal", "temas derivados"]
-
-enunciado: "\"El río nace en la montaña. Él atraviesa tres provincias. Él desemboca en el mar.\" ¿Qué tipo de progresión temática usa este texto?"
-
-pasos:
-  - "El mismo tema (\"el río\"/\"él\") se mantiene a lo largo de las tres oraciones, agregando remas distintos."
-
-explicacion: |
-  La progresión de tema constante mantiene el mismo tema y va
-  agregando información nueva sobre él.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "intermedio"
-  tags: ["progresion_lineal"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "progresión lineal"
-tipo: mc
-opciones_explicitas: ["tema constante", "progresión lineal", "temas derivados"]
-
-enunciado: "\"El río nace en la montaña. La montaña tiene nieves eternas. Las nieves se derriten en verano.\" ¿Qué tipo de progresión temática usa este texto?"
-
-pasos:
-  - "El rema de cada oración (\"la montaña\", \"las nieves\") se convierte en el tema de la siguiente."
-
-explicacion: |
-  La progresión lineal encadena el rema de una oración como tema de
-  la siguiente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "intermedio"
-  tags: ["temas_derivados"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "temas derivados"
-tipo: mc
-opciones_explicitas: ["tema constante", "progresión lineal", "temas derivados"]
-
-enunciado: "\"La ciudad tiene un clima variado. Sus calles son angostas. Su gente es muy hospitalaria.\" ¿Qué tipo de progresión temática usa este texto?"
-
-pasos:
-  - "\"Clima\", \"calles\" y \"gente\" son distintos aspectos derivados de un hipertema común: \"la ciudad\"."
-
-explicacion: |
-  La progresión con temas derivados desarrolla varios aspectos
-  distintos de un mismo hipertema general.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "intermedio"
-  tags: ["tema_constante", "referencia"]
-
-variables:
-  n: uno_de([1, 1])
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
+  nivel: "basico"
+  tags: ["sujeto_expreso", "verdad_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En la progresión de tema constante, el tema que se repite suele expresarse con pronombres u otros mecanismos de referencia en vez de repetir siempre la misma palabra."
-
-pasos:
-  - "Ver `../referencia-anafora-y-catafora/`: \"él\" en vez de repetir \"el río\" en cada oración."
+enunciado: "En la oración 'María lee un libro', el sujeto 'María' es un sujeto expreso porque aparece claramente en la oración. Esta afirmación es:"
 
 explicacion: |
-  Verdadero: la progresión temática se apoya directamente en los
-  mecanismos de referencia ya vistos.
+  Correcto. El sujeto está presente explícitamente en la oración.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
   nivel: "intermedio"
-  tags: ["progresion_tematica", "claridad"]
+  tags: ["sujeto_compuesto", "definicion"]
+
+respuesta: "dos o mas nucleos coordinados"
+tipo: completar
+respuestas_validas:
+  - "dos o mas nucleos coordinados"
+  - "dos o más núcleos coordinados"
+  - "dos o mas nucleos"
+  - "dos núcleos coordinados"
+
+enunciado: "Un sujeto compuesto se define por tener ___."
+
+explicacion: |
+  Un sujeto compuesto tiene dos o más núcleos coordinados entre sí (por ejemplo, unidos por 'y'), a diferencia del sujeto simple, que tiene un único núcleo.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
+  nivel: "intermedio"
+  tags: ["sujeto_simple", "definicion"]
+
+respuesta: "un solo nucleo"
+tipo: completar
+respuestas_validas:
+  - "un solo nucleo"
+  - "un solo núcleo"
+  - "un unico nucleo"
+  - "un único núcleo"
+
+enunciado: "Un sujeto simple se define por tener ___, tenga o no modificadores."
+
+explicacion: |
+  Un sujeto simple tiene un único núcleo (sustantivo o pronombre) — puede o no llevar modificadores, eso no cambia su clasificación como simple.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
+  nivel: "basico"
+  tags: ["identificacion", "sujeto_expreso"]
 
 variables:
-  n: uno_de([1, 1])
+  sujeto: uno_de(["El perro", "La casa", "Mi hermano", "Tus amigos"])
+  verbo: uno_de(["corre", "brilla", "trabaja", "juegan"])
+  complemento: uno_de(["en el parque", "por la noche", "en la oficina", "con sus vecinos"])
+
+respuesta: sujeto
+tipo: input
+
+enunciado: "Identificá el sujeto en la siguiente oración: '{sujeto} {verbo} {complemento}'"
+
+explicacion: |
+  El sujeto es quien realiza la acción o sobre quien recae el estado. En este caso, '{sujeto}' es el sujeto.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
+  nivel: "basico"
+  tags: ["concordancia", "sujeto"]
+
+respuesta: 3
+tipo: mc
+opciones: 4
+
+enunciado: "El sujeto concuerda con el verbo en:"
+
+explicacion: |
+  El sujeto y el verbo deben concordar en persona y número.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
+  nivel: "intermedio"
+  tags: ["nucleo", "sujeto"]
+
+respuesta: 2
+tipo: mc
+opciones: 4
+
+enunciado: "En un sujeto simple con modificadores, el núcleo es:"
+
+explicacion: |
+  El núcleo es la palabra principal del sujeto, generalmente un sustantivo o pronombre — el resto son modificadores que lo acompañan.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
+  nivel: "intermedio"
+  tags: ["comparacion", "sujeto"]
+
+respuesta: 1
+tipo: mc
+opciones: 4
+
+enunciado: "La principal diferencia entre sujeto simple y sujeto compuesto es:"
+
+explicacion: |
+  La diferencia radica en el número de núcleos: uno solo (simple) o dos o más coordinados (compuesto) — no la presencia o ausencia de modificadores.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
+  nivel: "basico"
+  tags: ["sujeto_agente", "verdad_falso"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un texto sin progresión temática ordenada resulta confuso, aunque cada oración esté bien escrita por separado."
-
-pasos:
-  - "El lector pierde el hilo de qué se está desarrollando si el texto salta de tema en tema sin patrón."
+enunciado: "El sujeto siempre es quien realiza la acción en una oración. Esta afirmación es:"
 
 explicacion: |
-  Verdadero: la falta de progresión temática es un problema de
-  coherencia global, no de corrección oración por oración.
+  Falso. El sujeto puede ser agente (realiza la acción) o paciente (sobre quien recae la acción o estado).
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
   nivel: "avanzado"
-  tags: ["progresion_tematica", "conectores_textuales", "referencia"]
+  tags: ["impersonal", "sujeto"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: 4
+tipo: mc
+opciones: 4
+
+enunciado: "En las oraciones impersonales (ej: 'Llueve mucho'), el sujeto es:"
+
+explicacion: |
+  En las oraciones impersonales no hay sujeto.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
+  nivel: "avanzado"
+  tags: ["comparacion", "sujeto_tacito"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Se puede conectar bien las oraciones y usar bien la referencia, y aun así el texto puede saltar de tema en tema sin ningún patrón reconocible."
-
-pasos:
-  - "Ver `../conectores-textuales/` y `../referencia-anafora-y-catafora/`: cada herramienta cubre un aspecto distinto de la cohesión, ninguna sola es suficiente."
+enunciado: "A diferencia del español, el inglés generalmente requiere un sujeto explícito incluso cuando la persona está clara por la conjugación. Esta afirmación es:"
 
 explicacion: |
-  Verdadero: es la razón por la que hace falta un tercer tema
-  (progresión temática) además de conectores y referencia.
+  Correcto. El español permite la omisión del sujeto (tácito) con mayor frecuencia que el inglés.
 ```
 
 ```
 metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "avanzado"
-  tags: ["progresion_tematica", "practica"]
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
+  nivel: "basico"
+  tags: ["sujeto_expreso", "pronombre"]
 
 variables:
-  fragmentos: ["El auto se averió en la ruta. El auto tenía diez años. El auto nunca había recibido mantenimiento", "El auto se averió en la ruta. La ruta estaba desierta a esa hora. Esa hora era la peor para pedir ayuda"]
-  tipos: ["tema constante", "progresión lineal"]
-  idx: uno_de([0, 1])
+  pronombre: uno_de(["Ellos", "Ellas", "Nosotros", "Yo"])
+  verbo: uno_de(["juegan", "cantan", "estudiamos", "leo"])
+  complemento: uno_de(["fútbol", "canciones", "matemáticas", "un libro"])
 
-respuesta: tipos[idx]
+respuesta: pronombre
+tipo: input
+
+enunciado: "Identificá el sujeto en la oración: '{pronombre} {verbo} {complemento}'"
+
+explicacion: |
+  El sujeto es el pronombre '{pronombre}'.
+```
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "tipos_de_sujeto"
+  nivel: "basico"
+  tags: ["definicion", "sujeto"]
+
+respuesta: 1
 tipo: mc
-opciones_explicitas: ["tema constante", "progresión lineal", "temas derivados"]
+opciones: 4
 
-enunciado: "\"{fragmentos[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "Si el mismo tema se repite en las tres oraciones, es tema constante. Si el rema de una pasa a ser tema de la siguiente, es lineal."
+enunciado: "El sujeto es:"
 
 explicacion: |
-  Cada fragmento fue construido para ejemplificar un tipo distinto de
-  progresión temática.
+  El sujeto es el elemento de la oración que concuerda en persona y número con el verbo.
 ```
+
+## Sección: objetos-y-circunstanciales (20 preguntas)
 
 ```
 metadata:
   materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "avanzado"
-  tags: ["temas_derivados", "hipertema"]
+  tema: "objetos_y_circunstanciales"
+  nivel: "basico"
+  tags: ["objeto_directo", "reconocimiento"]
 
 variables:
-  n: uno_de([1, 1])
+  frases: ["Juan compró el pan", "María leyó el libro", "Pedro rompió la ventana", "Ana pintó la pared"]
+  ods: ["el pan", "el libro", "la ventana", "la pared"]
+  idx: uno_de([0, 1, 2, 3])
 
-respuesta: "hipertema"
+respuesta: ods[idx]
 tipo: completar
 
-enunciado: "En la progresión con temas derivados, el tema general del que se desprenden los distintos aspectos particulares se llama..."
+enunciado: "En la oración \"{frases[idx]}\", ¿cuál es el objeto directo?"
 
 pasos:
-  - "\"La ciudad\" es el hipertema del que \"clima\", \"calles\" y \"gente\" son aspectos derivados."
+  - "El OD es lo que recibe la acción directamente: se lo puede reemplazar por lo/la/los/las."
 
 explicacion: |
-  El hipertema es el tema general que engloba a los temas derivados
-  particulares de cada oración.
+  El objeto directo responde a "¿qué cosa?" y se reemplaza por un
+  pronombre (lo/la/los/las).
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "avanzado"
-  tags: ["progresion_tematica", "combinacion"]
+  tema: "objetos_y_circunstanciales"
+  nivel: "basico"
+  tags: ["objeto_directo", "pronombres"]
 
 variables:
-  n: uno_de([1, 1])
+  ods: ["el pan", "los libros", "la ventana", "las cartas"]
+  pronombres: ["lo", "los", "la", "las"]
+  idx: uno_de([0, 1, 2, 3])
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un texto largo puede combinar los tres tipos de progresión temática en distintos tramos, no tiene que usar sólo uno de principio a fin."
-
-pasos:
-  - "Un párrafo puede usar tema constante y el siguiente pasar a progresión lineal, según convenga a lo que se está desarrollando."
-
-explicacion: |
-  Verdadero: los tres tipos son herramientas complementarias, no
-  opciones excluyentes para todo un texto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "avanzado"
-  tags: ["progresion_tematica", "errores"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "\"El río nace en la montaña. Mi comida favorita es la pizza. El auto de mi tío es rojo.\" es un buen ejemplo de progresión temática bien construida."
-
-pasos:
-  - "No hay ninguna relación entre los temas de las tres oraciones: cada una salta a algo completamente distinto sin conexión."
-
-explicacion: |
-  Falso: es exactamente el tipo de texto sin progresión temática que
-  resulta confuso para el lector, aunque cada oración esté bien
-  escrita.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "intermedio"
-  tags: ["progresion_lineal"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la progresión lineal, el texto avanza como una cadena: lo nuevo de una oración se convierte en el punto de partida de la siguiente."
-
-pasos:
-  - "Cada rema pasa a ser tema en la oración siguiente, formando una secuencia encadenada."
-
-explicacion: |
-  Verdadero: es la imagen central para entender la progresión
-  lineal, distinta del tema constante.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "avanzado"
-  tags: ["tema_constante", "temas_derivados", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La diferencia entre tema constante y temas derivados es que en el primero se repite literalmente el mismo tema, y en el segundo cada oración toca un aspecto distinto de un hipertema común."
-
-pasos:
-  - "\"El río... él... él...\" (mismo tema) vs. \"la ciudad → su clima, sus calles, su gente\" (aspectos distintos de un hipertema)."
-
-explicacion: |
-  Verdadero: la repetición del mismo tema vs. la derivación de
-  distintos aspectos es lo que distingue estos dos tipos de
-  progresión.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "avanzado"
-  tags: ["progresion_tematica", "parrafos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La progresión temática aplica tanto dentro de un párrafo (entre sus oraciones) como entre distintos párrafos de un mismo texto."
-
-pasos:
-  - "Ver `../produccion-escrita-compleja/`: cada párrafo desarrolla una idea, y esas ideas también deberían progresar de forma ordenada entre sí."
-
-explicacion: |
-  Verdadero: el mismo patrón de progresión se puede analizar en
-  distintas escalas del texto.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "avanzado"
-  tags: ["progresion_tematica", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para describir varios aspectos distintos de un mismo lugar (clima, arquitectura, gente), conviene usar progresión con temas derivados antes que progresión lineal."
-
-pasos:
-  - "Los temas derivados son ideales cuando se quiere presentar distintas facetas de un mismo hipertema, no una cadena de causa-efecto."
-
-explicacion: |
-  Verdadero: elegir el tipo de progresión adecuado depende de qué
-  relación existe realmente entre las ideas a desarrollar.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "intermedio"
-  tags: ["rema", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "atraviesa tres provincias"
+respuesta: pronombres[idx]
 tipo: completar
 
-enunciado: "En la oración \"El río atraviesa tres provincias\", ¿cuál es el rema (la información nueva sobre el tema)?"
+enunciado: "Para reemplazar el objeto directo \"{ods[idx]}\" por un pronombre, se usa..."
 
 pasos:
-  - "El tema es \"el río\" (ya mencionado); el rema es lo nuevo que se dice sobre él."
+  - "El pronombre concuerda en género y número con el sustantivo reemplazado."
 
 explicacion: |
-  El rema es el aporte informativo nuevo de la oración, distinto del
-  tema ya conocido.
+  lo/la para singular, los/las para plural, según el género del
+  sustantivo reemplazado.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "progresion_tematica"
+  tema: "objetos_y_circunstanciales"
+  nivel: "basico"
+  tags: ["objeto_indirecto", "reconocimiento"]
+
+variables:
+  frases: ["Juan le regaló un libro a María", "El profesor les explicó el tema a los alumnos", "Ana le escribió una carta a su abuela", "Le dieron un premio al ganador"]
+  ois: ["a María", "a los alumnos", "a su abuela", "al ganador"]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: ois[idx]
+tipo: completar
+
+enunciado: "En la oración \"{frases[idx]}\", ¿cuál es el objeto indirecto?"
+
+pasos:
+  - "El OI es el destinatario/beneficiario de la acción, siempre con preposición \"a\"."
+  - "Se reemplaza por le/les."
+
+explicacion: |
+  El objeto indirecto responde a "¿a quién?"/"¿para quién?" y se
+  reemplaza por le/les.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "objetos_y_circunstanciales"
+  nivel: "basico"
+  tags: ["objeto_indirecto", "pronombres"]
+
+variables:
+  destinatarios: ["a María", "a los alumnos", "a mi hermano"]
+  pronombres: ["le", "les", "le"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: pronombres[idx]
+tipo: completar
+
+enunciado: "El objeto indirecto \"{destinatarios[idx]}\" se reemplaza por el pronombre..."
+
+pasos:
+  - "le para singular, les para plural, sin distinguir género."
+
+explicacion: |
+  A diferencia del OD, el OI no distingue género: siempre es
+  le (singular) o les (plural).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "objetos_y_circunstanciales"
   nivel: "intermedio"
-  tags: ["progresion_tematica", "metodo"]
-
-enunciado: "Ordená los pasos para analizar la progresión temática de un párrafo."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar el tema y el rema de cada oración"
-  - "Revisar si el tema se repite igual en varias oraciones seguidas (tema constante)"
-  - "Revisar si el rema de una oración pasa a ser el tema de la siguiente (progresión lineal)"
-  - "Si ninguna de las dos aplica, revisar si hay un hipertema común del que se derivan los distintos temas (temas derivados)"
-respuesta_orden:
-  - "Identificar el tema y el rema de cada oración"
-  - "Revisar si el tema se repite igual en varias oraciones seguidas (tema constante)"
-  - "Revisar si el rema de una oración pasa a ser el tema de la siguiente (progresión lineal)"
-  - "Si ninguna de las dos aplica, revisar si hay un hipertema común del que se derivan los distintos temas (temas derivados)"
-
-explicacion: |
-  El análisis va de identificar tema/rema en cada oración a
-  clasificar qué patrón de progresión conecta a las oraciones entre
-  sí.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "avanzado"
-  tags: ["progresion_tematica", "sintesis"]
+  tags: ["objeto_directo", "od_de_persona"]
 
 variables:
-  n: uno_de([1, 1])
+  frases: ["Vi a María en el parque", "Saludé a mi profesor", "Llamé a mi amigo"]
+  pronombres: ["la vi", "lo saludé", "lo llamé"]
+  idx: uno_de([0, 1, 2])
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La progresión temática cierra la subrama de cohesión y coherencia: conectores marcan relaciones lógicas, la referencia evita repetición, y la progresión temática asegura que el texto avance de forma reconocible."
-
-pasos:
-  - "Ver `../conectores-textuales/` y `../referencia-anafora-y-catafora/`: los tres temas hermanos cubren aspectos complementarios de la cohesión textual."
-
-explicacion: |
-  Verdadero: es la síntesis de los tres temas hermanos de esta
-  subrama, cada uno con su función específica.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "progresion_tematica"
-  nivel: "avanzado"
-  tags: ["progresion_tematica", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al revisar un texto propio, conviene chequear si cada oración se conecta temáticamente con la anterior (constante, lineal o derivada), y reordenar si se detectan saltos de tema sin conexión."
-
-pasos:
-  - "Ese chequeo específico de progresión temática complementa la revisión de conectores y referencias ya vista en los temas hermanos."
-
-explicacion: |
-  Verdadero: es la aplicación práctica central de este tema durante
-  la etapa de revisión de un texto propio.
-```
-
-## Sección: punto-de-vista (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "intermedio"
-  tags: ["punto_de_vista", "narrador", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El narrador responde \"¿quién cuenta la historia?\", mientras que el punto de vista responde \"¿desde dónde/con qué perspectiva se cuenta?\" — son dos preguntas distintas sobre el mismo texto."
-
-pasos:
-  - "Dos narradores del mismo tipo pueden tener puntos de vista distintos."
-
-explicacion: |
-  Verdadero: narrador y punto de vista analizan aspectos diferentes
-  de cómo se cuenta una historia.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "intermedio"
-  tags: ["focalizacion_cero"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "focalización cero"
+respuesta: pronombres[idx]
 tipo: mc
-opciones_explicitas: ["focalización cero", "focalización interna", "focalización externa"]
+opciones_explicitas: [pronombres[idx], "le vi", "les saludé", "le llamé"]
 
-enunciado: "Cuando el narrador accede a todo sin ninguna restricción, sin filtrar la información a través de un personaje en particular, la focalización es..."
+enunciado: "En \"{frases[idx]}\", el complemento con \"a\" es un OD de persona. ¿Cómo queda la oración al reemplazarlo por el pronombre correcto?"
 
 pasos:
-  - "Sin filtro = el punto de vista más amplio posible = focalización cero."
+  - "Aunque lleve \"a\", si responde \"¿a quién?\" en sentido de OD (no de destinatario), se reemplaza por lo/la/los/las, no por le/les."
 
 explicacion: |
-  La focalización cero es característica del narrador omnisciente
-  clásico, sin restricciones de conocimiento.
+  El OD de persona lleva "a" (a María, a mi profesor) pero sigue
+  siendo OD: se reemplaza por lo/la/los/las, nunca por le/les.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "punto_de_vista"
+  tema: "objetos_y_circunstanciales"
   nivel: "intermedio"
-  tags: ["focalizacion_interna"]
+  tags: ["objeto_directo", "objeto_indirecto", "diferenciacion"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: "focalización interna"
-tipo: mc
-opciones_explicitas: ["focalización cero", "focalización interna", "focalización externa"]
-
-enunciado: "Cuando la información pasa por la conciencia de UN solo personaje, y el lector sólo sabe lo que ese personaje sabe o percibe, la focalización es..."
-
-pasos:
-  - "Filtro por un solo personaje = focalización interna."
-
-explicacion: |
-  La focalización interna limita la información a la perspectiva de
-  un personaje específico.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "intermedio"
-  tags: ["focalizacion_externa"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "focalización externa"
-tipo: mc
-opciones_explicitas: ["focalización cero", "focalización interna", "focalización externa"]
-
-enunciado: "Cuando el punto de vista queda fuera de cualquier conciencia y sólo se cuenta lo observable, la focalización es..."
-
-pasos:
-  - "Sin acceso a ninguna mente, sólo lo visible/audible = focalización externa."
-
-explicacion: |
-  La focalización externa coincide con lo que narra un narrador
-  observador.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "intermedio"
-  tags: ["focalizacion_cero", "narrador_omnisciente"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un narrador omnisciente normalmente tiene focalización cero: no hay ningún filtro que limite lo que puede contar."
-
-pasos:
-  - "Ambos conceptos (narrador omnisciente y focalización cero) describen el mismo acceso ilimitado a la información."
-
-explicacion: |
-  Verdadero: es la relación típica (aunque no la única posible) entre
-  tipo de narrador y focalización.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "intermedio"
-  tags: ["focalizacion_externa", "narrador_observador"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un narrador observador coincide con la focalización externa: en ambos casos sólo se cuenta lo observable, sin acceso a pensamientos."
-
-pasos:
-  - "Los dos conceptos describen la misma limitación a lo visible/audible."
-
-explicacion: |
-  Verdadero: narrador observador y focalización externa se
-  corresponden directamente.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "avanzado"
-  tags: ["focalizacion_interna", "3a_persona"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un narrador en 3ª persona (que no dice \"yo\") puede igual tener focalización interna, si el relato se limita a lo que percibe un solo personaje."
-
-pasos:
-  - "Persona gramatical y focalización no siempre coinciden de forma obvia: es el caso más avanzado del tema."
-
-explicacion: |
-  Verdadero: aunque el narrador no use \"yo\", puede filtrar toda la
-  información a través de la conciencia de un único personaje.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "avanzado"
-  tags: ["focalizacion", "practica"]
-
-variables:
-  fragmentos: ["Juan sabía que algo andaba mal, aunque no podía explicar por qué. Miró a María, que reía sin sospechar nada", "Juan miró a María, que reía sin que él dijera nada"]
-  tipos: ["focalización interna (en Juan)", "focalización externa"]
+  casos: ["Vi a María", "Le regalé un libro a María"]
+  tipos: ["objeto directo", "objeto indirecto"]
   idx: uno_de([0, 1])
 
 respuesta: tipos[idx]
 tipo: mc
-opciones_explicitas: ["focalización cero", "focalización interna (en Juan)", "focalización externa"]
+opciones_explicitas: ["objeto directo", "objeto indirecto"]
 
-enunciado: "\"{fragmentos[idx]}\" tiene..."
+enunciado: "En \"{casos[idx]}\", el complemento \"a María\" es..."
 
 pasos:
-  - "Si se accede a lo que Juan sabe/siente pero no a lo que piensa María (\"sin sospechar nada\" es evaluación externa), es focalización interna en Juan. Si sólo se describen acciones observables, es externa."
+  - "Si María recibe directamente la acción del verbo (vi A MARÍA), es OD."
+  - "Si María es destinataria de algo que se le da/dice/cuenta, es OI."
 
 explicacion: |
-  El primer fragmento filtra la información a través de la
-  conciencia de Juan; el segundo se limita a lo observable.
+  "Vi a María": María es lo que se ve → OD. "Le regalé un libro a
+  María": María recibe el libro, no la acción del regalo en sí → OI.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "punto_de_vista"
+  tema: "objetos_y_circunstanciales"
+  nivel: "basico"
+  tags: ["circunstancial", "lugar"]
+
+variables:
+  frases: ["Juan estudió en la biblioteca", "Ana durmió en su casa", "Los chicos jugaron en el patio"]
+  ccs: ["en la biblioteca", "en su casa", "en el patio"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: ccs[idx]
+tipo: completar
+
+enunciado: "En \"{frases[idx]}\", ¿cuál es el circunstancial y de qué tipo es (lugar)?"
+
+pasos:
+  - "Preguntar ¿dónde? para encontrar el CC de lugar."
+
+explicacion: |
+  El CC de lugar responde a "¿dónde?".
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "objetos_y_circunstanciales"
+  nivel: "basico"
+  tags: ["circunstancial", "tiempo"]
+
+variables:
+  frases: ["Juan llegó ayer", "María se fue temprano", "El examen es mañana"]
+  ccs: ["ayer", "temprano", "mañana"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: ccs[idx]
+tipo: completar
+
+enunciado: "En \"{frases[idx]}\", ¿cuál es el circunstancial de tiempo?"
+
+pasos:
+  - "Preguntar ¿cuándo? para encontrar el CC de tiempo."
+
+explicacion: |
+  El CC de tiempo responde a "¿cuándo?".
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "objetos_y_circunstanciales"
+  nivel: "basico"
+  tags: ["circunstancial", "modo"]
+
+variables:
+  frases: ["Juan estudió con dedicación", "María habló despacio", "El equipo jugó bien"]
+  ccs: ["con dedicación", "despacio", "bien"]
+  idx: uno_de([0, 1, 2])
+
+respuesta: ccs[idx]
+tipo: completar
+
+enunciado: "En \"{frases[idx]}\", ¿cuál es el circunstancial de modo?"
+
+pasos:
+  - "Preguntar ¿cómo? para encontrar el CC de modo."
+
+explicacion: |
+  El CC de modo responde a "¿cómo?".
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "objetos_y_circunstanciales"
   nivel: "intermedio"
-  tags: ["focalizacion_cero", "informacion"]
+  tags: ["circunstancial", "clasificacion"]
+
+variables:
+  ccs: ["en la biblioteca", "ayer", "con dedicación", "por miedo", "mucho"]
+  tipos: ["lugar", "tiempo", "modo", "causa", "cantidad"]
+  idx: uno_de([0, 1, 2, 3, 4])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["lugar", "tiempo", "modo", "causa", "cantidad"]
+
+enunciado: "El circunstancial \"{ccs[idx]}\" es de tipo..."
+
+pasos:
+  - "Cada CC responde a una pregunta distinta: dónde/cuándo/cómo/por qué/cuánto."
+
+explicacion: |
+  lugar → ¿dónde?, tiempo → ¿cuándo?, modo → ¿cómo?, causa → ¿por
+  qué?, cantidad → ¿cuánto?.
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "objetos_y_circunstanciales"
+  nivel: "intermedio"
+  tags: ["circunstancial", "multiplicidad"]
 
 variables:
   n: uno_de([1, 1])
@@ -2090,114 +1803,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "De las tres focalizaciones, la cero es la que le da al lector la mayor cantidad de información posible, sin restricciones."
+enunciado: "Una misma oración puede tener varios circunstanciales al mismo tiempo (de modo, lugar y tiempo juntos, por ejemplo)."
 
 pasos:
-  - "Sin filtro alguno, el narrador puede contar todo lo que sabe de cualquier personaje o situación."
+  - "A diferencia del OD y el OI (que suelen ser uno solo por verbo), los CC se pueden acumular libremente."
 
 explicacion: |
-  Verdadero: focalización cero significa ausencia total de filtro
-  informativo.
+  Verdadero: "Juan estudió con dedicación en la biblioteca ayer"
+  tiene CC de modo, lugar y tiempo en la misma oración.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "avanzado"
-  tags: ["focalizacion_interna", "efecto"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Usar focalización interna en un personaje que no sabe todo lo que está pasando puede generar suspenso, porque el lector descubre la información al mismo tiempo que ese personaje."
-
-pasos:
-  - "El lector queda limitado al mismo conocimiento que tiene el personaje focal."
-
-explicacion: |
-  Verdadero: es un recurso deliberado en géneros como el misterio o
-  el suspenso.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "avanzado"
-  tags: ["focalizacion", "misterio"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una novela de misterio, elegir focalización interna en el detective (en vez de focalización cero) evita que el lector sepa la solución antes de tiempo."
-
-pasos:
-  - "Con focalización cero, el narrador podría revelar información que el detective todavía no descubrió, arruinando el misterio."
-
-explicacion: |
-  Verdadero: la elección de focalización controla deliberadamente
-  cuánta información recibe el lector.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "avanzado"
-  tags: ["punto_de_vista", "narrador_omnisciente"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos textos con narrador omnisciente pueden tener puntos de vista distintos si uno se centra más en la perspectiva de un personaje en particular que el otro."
-
-pasos:
-  - "El tipo de narrador (persona + conocimiento general) no agota la pregunta de \"desde dónde\" se enfoca la narración."
-
-explicacion: |
-  Verdadero: por eso el punto de vista es un análisis complementario,
-  no redundante, al de narrador.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "avanzado"
-  tags: ["focalizacion_externa", "efecto"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La focalización externa genera cierto misterio sobre lo que sienten o piensan los personajes, porque el lector debe inferirlo sólo a partir de sus acciones."
-
-pasos:
-  - "Sin acceso a la mente de nadie, el lector interpreta como si viera la escena desde afuera, sin ayuda del narrador."
-
-explicacion: |
-  Verdadero: la ausencia de acceso interno es lo que genera esa
-  distancia interpretativa.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "avanzado"
-  tags: ["focalizacion", "distincion"]
+  tema: "objetos_y_circunstanciales"
+  nivel: "basico"
+  tags: ["objeto_directo", "preposicion"]
 
 variables:
   n: uno_de([1, 1])
@@ -2205,22 +1826,22 @@ variables:
 respuesta: falso
 tipo: vf
 
-enunciado: "La focalización clasifica al narrador según si es protagonista, testigo, omnisciente u observador."
+enunciado: "El objeto directo siempre necesita una preposición para formarse."
 
 pasos:
-  - "Esa clasificación (protagonista/testigo/omnisciente/observador) es la del tema \"narrador\"; la focalización usa otras tres categorías (cero/interna/externa)."
+  - "\"Juan compró el pan\": \"el pan\" es OD sin ninguna preposición."
 
 explicacion: |
-  Falso: son dos sistemas de clasificación relacionados pero
-  distintos, cada uno con su propio vocabulario técnico.
+  Falso. El OD normalmente no lleva preposición ("compró el pan");
+  sólo lleva "a" cuando es una persona ("vi a María").
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "avanzado"
-  tags: ["focalizacion_interna", "cambios"]
+  tema: "objetos_y_circunstanciales"
+  nivel: "basico"
+  tags: ["objeto_indirecto", "preposicion"]
 
 variables:
   n: uno_de([1, 1])
@@ -2228,96 +1849,168 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un texto con focalización interna puede cambiar de personaje focal entre capítulos, mostrando primero la perspectiva de uno y después la de otro."
+enunciado: "El objeto indirecto siempre lleva la preposición \"a\" (o \"para\")."
 
 pasos:
-  - "Mientras el cambio sea deliberado y claro (por ejemplo, un capítulo por personaje), es una técnica narrativa válida."
+  - "\"Le regaló un libro a María\": \"a María\" no puede faltar la preposición."
 
 explicacion: |
-  Verdadero: alternar el personaje focal es un recurso narrativo
-  común en novelas con varios protagonistas.
+  Verdadero: el OI siempre se introduce con "a" o "para".
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "punto_de_vista"
+  tema: "objetos_y_circunstanciales"
   nivel: "intermedio"
-  tags: ["punto_de_vista", "vocabulario"]
+  tags: ["objeto_directo", "objeto_indirecto", "coexistencia"]
 
 variables:
-  n: uno_de([1, 1])
+  frases: ["Juan le regaló un libro a María", "Ana le contó un secreto a su amiga", "El profesor les entregó las notas a los alumnos"]
+  ods: ["un libro", "un secreto", "las notas"]
+  idx: uno_de([0, 1, 2])
 
-respuesta: verdadero
-tipo: vf
+respuesta: ods[idx]
+tipo: completar
 
-enunciado: "En el análisis literario, \"punto de vista\" es un término técnico que se estudia principalmente a través del concepto de focalización, no sólo como sinónimo cotidiano de \"opinión\"."
+enunciado: "En \"{frases[idx]}\", además del objeto indirecto, hay un objeto directo. ¿Cuál es?"
 
 pasos:
-  - "El uso cotidiano (\"mi punto de vista sobre algo\") es distinto del uso técnico literario (por dónde pasa la información narrativa)."
+  - "Preguntar ¿qué cosa se regala/cuenta/entrega? para encontrar el OD, distinto del destinatario (OI)."
 
 explicacion: |
-  Verdadero: distinguir el uso técnico evita confundir este análisis
-  con dar una opinión sobre el texto.
+  Un mismo verbo puede tener OD (lo que se da) y OI (a quién se le
+  da) al mismo tiempo.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "avanzado"
-  tags: ["focalizacion", "practica"]
+  tema: "objetos_y_circunstanciales"
+  nivel: "intermedio"
+  tags: ["objeto_directo", "circunstancial", "diferenciacion"]
 
 variables:
-  fragmentos: ["Todos en el pueblo sabían la verdad, menos Juan, que seguía confiando ciegamente", "Juan sospechaba de todos, aunque no tenía pruebas de nada", "Juan caminó por la calle principal y se detuvo frente a la panadería"]
-  tipos: ["focalización cero", "focalización interna (en Juan)", "focalización externa"]
-  idx: uno_de([0, 1, 2])
+  casos: ["compró el pan", "estudió con dedicación"]
+  tipos: ["objeto directo", "circunstancial de modo"]
+  idx: uno_de([0, 1])
 
 respuesta: tipos[idx]
 tipo: mc
-opciones_explicitas: ["focalización cero", "focalización interna (en Juan)", "focalización externa"]
+opciones_explicitas: ["objeto directo", "circunstancial de modo"]
 
-enunciado: "\"{fragmentos[idx]}\" tiene..."
+enunciado: "En la frase \"Juan {casos[idx]}\", el complemento subrayado es..."
 
 pasos:
-  - "Si sabe más que cualquier personaje (incluido lo que \"todos sabían\"), es cero. Si se limita a lo que Juan piensa/sospecha, es interna. Si sólo describe acciones, es externa."
+  - "Si se reemplaza por lo/la/los/las, es OD. Si responde ¿cómo?, es CC de modo."
 
 explicacion: |
-  Cada fragmento fue construido para ejemplificar una focalización
-  distinta según cuánta y de quién es la información que se cuenta.
+  "el pan" se reemplaza por "lo" (compró) → OD. "con dedicación"
+  responde ¿cómo estudió? → CC de modo, no se reemplaza por un
+  pronombre único.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "punto_de_vista"
+  tema: "objetos_y_circunstanciales"
   nivel: "intermedio"
-  tags: ["punto_de_vista", "metodo"]
+  tags: ["circunstancial", "causa"]
 
-enunciado: "Ordená los pasos para analizar el punto de vista de un fragmento narrativo, después de ya haber identificado el tipo de narrador."
+variables:
+  frases: ["Juan faltó por enfermedad", "María llegó tarde por el tráfico"]
+  ccs: ["por enfermedad", "por el tráfico"]
+  idx: uno_de([0, 1])
+
+respuesta: ccs[idx]
+tipo: completar
+
+enunciado: "En \"{frases[idx]}\", ¿cuál es el circunstancial de causa?"
+
+pasos:
+  - "Preguntar ¿por qué? para encontrar el CC de causa."
+
+explicacion: |
+  El CC de causa responde a "¿por qué?".
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "objetos_y_circunstanciales"
+  nivel: "intermedio"
+  tags: ["circunstancial", "cantidad"]
+
+variables:
+  frases: ["Juan comió mucho", "María trabajó poco esta semana"]
+  ccs: ["mucho", "poco"]
+  idx: uno_de([0, 1])
+
+respuesta: ccs[idx]
+tipo: completar
+
+enunciado: "En \"{frases[idx]}\", ¿cuál es el circunstancial de cantidad?"
+
+pasos:
+  - "Preguntar ¿cuánto? para encontrar el CC de cantidad."
+
+explicacion: |
+  El CC de cantidad responde a "¿cuánto?".
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "objetos_y_circunstanciales"
+  nivel: "basico"
+  tags: ["objeto_directo", "metodo"]
+
+enunciado: "Ordená los pasos para reconocer el objeto directo de una oración."
 tipo: ordenar
 opciones_explicitas:
-  - "Revisar si el narrador accede a pensamientos internos de algún personaje"
-  - "Si accede, determinar si es de UN personaje (interna) o de TODOS sin restricción (cero)"
-  - "Si no accede a ningún pensamiento interno, clasificar como focalización externa"
-  - "Confirmar que la focalización identificada es consistente con el tipo de narrador ya reconocido"
-respuesta_orden:
-  - "Revisar si el narrador accede a pensamientos internos de algún personaje"
-  - "Si accede, determinar si es de UN personaje (interna) o de TODOS sin restricción (cero)"
-  - "Si no accede a ningún pensamiento interno, clasificar como focalización externa"
-  - "Confirmar que la focalización identificada es consistente con el tipo de narrador ya reconocido"
+  - "Ubicar el verbo de la oración"
+  - "Preguntar \"¿qué cosa?\" después del verbo"
+  - "Intentar reemplazar la respuesta por lo/la/los/las"
+  - "Si el reemplazo tiene sentido, es objeto directo"
+respuesta_orden: ["Ubicar el verbo de la oración", "Preguntar \"¿qué cosa?\" después del verbo", "Intentar reemplazar la respuesta por lo/la/los/las", "Si el reemplazo tiene sentido, es objeto directo"]
+pasos:
+  - "El reconocimiento sigue siempre el mismo método: verbo → pregunta → reemplazo → confirmación."
 
 explicacion: |
-  El análisis parte del acceso (o no) a lo interno, y termina
-  contrastando esa conclusión con el tipo de narrador ya establecido.
+  Se ubica el verbo, se pregunta "¿qué cosa?", se prueba el
+  reemplazo por lo/la/los/las y si funciona, se confirma como OD.
 ```
 
 ```
 metadata:
   materia: "lengua"
-  tema: "punto_de_vista"
+  tema: "objetos_y_circunstanciales"
   nivel: "avanzado"
-  tags: ["punto_de_vista", "prerrequisito"]
+  tags: ["objeto_directo", "objeto_indirecto", "verbos"]
+
+variables:
+  verbos: ["dar", "regalar", "contar", "prestar"]
+  idx: uno_de([0, 1, 2, 3])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El verbo \"{verbos[idx]}\" es de los que típicamente piden un objeto directo (lo que se da/regala/cuenta/presta) y un objeto indirecto (a quién) al mismo tiempo."
+
+pasos:
+  - "\"Le {verbos[idx]} algo a alguien\": \"algo\" = OD, \"a alguien\" = OI."
+
+explicacion: |
+  Verbos como dar, regalar, contar y prestar necesitan naturalmente
+  los dos complementos: qué se da (OD) y a quién (OI).
+```
+
+```
+metadata:
+  materia: "lengua"
+  tema: "objetos_y_circunstanciales"
+  nivel: "avanzado"
+  tags: ["objetos_y_circunstanciales", "aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -2325,35 +2018,14 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Una vez establecido desde qué perspectiva se cuenta una historia (punto de vista), el siguiente paso lógico es analizar en qué orden se cuentan los hechos (estructura narrativa)."
+enunciado: "Reconocer el objeto directo es necesario para entender cómo se forma la voz pasiva, porque el OD de la oración activa pasa a ser el sujeto de la oración pasiva."
 
 pasos:
-  - "Primero se resuelve QUIÉN cuenta y DESDE DÓNDE; después, EN QUÉ ORDEN lo cuenta."
+  - "\"Juan compró el pan\" (OD: el pan) → \"El pan fue comprado por Juan\" (sujeto: el pan)."
 
 explicacion: |
-  Verdadero: por eso punto de vista es prerrequisito directo de
-  estructura narrativa, el siguiente tema de la subrama.
+  Verdadero: identificar el OD es el paso previo indispensable para
+  pasar una oración de voz activa a voz pasiva, tema siguiente de la
+  currícula.
 ```
 
-```
-metadata:
-  materia: "lengua"
-  tema: "punto_de_vista"
-  nivel: "avanzado"
-  tags: ["focalizacion", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un autor quiere que el lector sienta la misma confusión que un personaje perdido en un lugar desconocido, conviene usar focalización interna en ese personaje antes que focalización cero."
-
-pasos:
-  - "La focalización cero le daría al lector información (como el mapa completo del lugar) que el personaje no tiene, rompiendo el efecto de confusión buscado."
-
-explicacion: |
-  Verdadero: elegir la focalización adecuada es una herramienta
-  directa para controlar la experiencia del lector.
-```

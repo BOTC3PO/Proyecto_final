@@ -1,6 +1,6 @@
-# Examen jefe — Crónica del Cosmos y la Vida
+# Examen jefe — [PENDIENTE #688]
 
-> Logro #106. Dominaste los eventos que forjaron el universo y el origen de la atmósfera. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #688. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -31,12 +31,9 @@ metadata:
   tags: ["taxonomia", "evolucion"]
 
 variables:
-  escenario: uno_de([
-    ["la mayoría de los grupos corporales", "phyla"],
-    ["la mayor parte de los animales", "phyla"]
-  ])
+  escenario: uno_de([["la mayoría de los grupos corporales", "phyla"], ["la mayor parte de los animales", "phyla"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["phyla", "clases", "especies", "órdenes"]
 
@@ -73,13 +70,7 @@ metadata:
   nivel: "avanzado"
   tags: ["paleontologia", "fósiles"]
 
-variables:
-  comparacion: uno_de([
-    ["más complejos", "más complejos"],
-    ["más simples", "más simples"]
-  ])
-
-respuesta: comparacion[1
+respuesta: "más complejos"
 tipo: mc
 opciones_explicitas: ["más complejos", "más simples", "idénticos", "menos diversos"]
 
@@ -97,7 +88,7 @@ metadata:
   tags: ["cronologia"]
 
 opciones_explicitas: ["Precámbrico", "Cámbrico", "Ordovícico"]
-respuesta: ["Precámbrico", "Cámbrico", "Ordovícico"]
+respuesta_orden: ["Precámbrico", "Cámbrico", "Ordovícico"]
 tipo: ordenar
 
 enunciado: "Ordena cronológicamente los siguientes periodos/eones, empezando por el más antiguo:"
@@ -118,16 +109,9 @@ metadata:
   nivel: "intermedio"
   tags: ["oxigeno", "geologia", "evolucion"]
 
-variables:
-  escenario: uno_de([
-    ["aumento de oxígeno", "oxígeno"],
-    ["cambio en la salinidad", "salinidad"],
-    ["descarga de metano", "metano"]
-  ])
+enunciado: "¿Cuál de las siguientes teorías explica el desarrollo de organismos con metabolismos más complejos durante la explosión cámbrica?"
 
-enunciado: "Una de las teorías principales sostiene que el aumento de {escenario[0]} en los océanos permitió el desarrollo de organismos con metabolismos más complejos durante la explosión cámbrica."
-
-respuesta: escenario[1
+respuesta: "aumento de oxígeno"
 tipo: mc
 opciones_explicitas: ["aumento de oxígeno", "cambio en la salinidad", "descarga de metano"]
 
@@ -144,8 +128,9 @@ metadata:
 
 enunciado: "La aparición de una familia de genes reguladores fundamentales para el plan corporal de los animales se denomina genes ___."
 
-respuesta: ["Hox"]
-respuestas_validas: ["Hox"]
+respuesta: "Hox"
+respuestas_validas:
+  - "Hox"
 tipo: completar
 
 explicacion: |
@@ -159,16 +144,9 @@ metadata:
   nivel: "intermedio"
   tags: ["depredacion", "seleccion_natural"]
 
-variables:
-  caso: uno_de([
-    ["depredación", "depredación"],
-    ["simbiósis", "simbiósis"],
-    ["filtración", "filtración"]
-  ])
+enunciado: "La aparición de la depredación actuó como una presión evolutiva masiva, obligando a los organismos a desarrollar conchas, esqueletos y sistemas sensoriales."
 
-enunciado: "La aparición de la {caso[0]} actuó como una presión evolutiva masiva, obligando a los organismos a desarrollar conchas, esqueletos y sistemas sensoriales."
-
-respuesta: caso[1
+respuesta: "depredación"
 tipo: mc
 opciones_explicitas: ["depredación", "simbiósis", "filtración"]
 
@@ -187,7 +165,7 @@ opciones_explicitas: ["Aumento de O2", "Evolución de genes Hox", "Aparición de
 
 enunciado: "Ordena los factores que se consideran un modelo de causalidad en cascada para la explosión cámbrica (de la causa ambiental a la consecuencia biológica):"
 
-respuesta: ["Aumento de O2", "Evolución de genes Hox", "Aparición de depredación"]
+respuesta_orden: ["Aumento de O2", "Evolución de genes Hox", "Aparición de depredación"]
 tipo: ordenar
 
 explicacion: |
@@ -203,8 +181,9 @@ metadata:
 
 enunciado: "Si el nivel de oxígeno en el océano aumenta, la probabilidad de que surjan organismos de gran tamaño es: ___"
 
-respuesta: ["mayor"]
-respuestas_validas: ["mayor", "menor"]
+respuesta: "mayor"
+respuestas_validas:
+  - "mayor"
 tipo: completar
 
 explicacion: |
@@ -220,7 +199,9 @@ metadata:
 
 respuesta: "blandos"
 tipo: completar
-respuestas_validas: ["blandos", "blandos"]
+respuestas_validas:
+  - "blandos"
+  - "blandos"
 
 enunciado: "Antes de la explosión cámbrica, los organismos que componían la fauna de Ediacara eran mayormente de cuerpo ___."
 
@@ -236,13 +217,9 @@ metadata:
   tags: ["evolucion", "esqueletos"]
 
 variables:
-  escenario: uno_de([
-    ["aparición de esqueletos", "estructuras duras"],
-    ["aparición de ojos", "órganos sensoriales"],
-    ["aparición de depredadores", "planes complejos"]
-  ])
+  escenario: uno_de([["aparición de esqueletos", "estructuras duras"], ["aparición de ojos", "órganos sensoriales"], ["aparición de depredadores", "planes complejos"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["estructuras duras", "órganos sensoriales", "planes complejos"]
 
@@ -260,7 +237,7 @@ metadata:
   tags: ["secuencia", "evolucion"]
 
 opciones_explicitas: ["Organismos de Ediacara", "Aparición de esqueletos", "Diversificación de planos corporales"]
-respuesta: ["Organismos de Ediacara", "Aparición de esqueletos", "Diversificación de planos corporales"]
+respuesta_orden: ["Organismos de Ediacara", "Aparición de esqueletos", "Diversificación de planos corporales"]
 tipo: ordenar
 
 enunciado: "Ordena cronológicamente los eventos biológicos desde el Precámbrico hasta el Cámbrico:"
@@ -293,13 +270,10 @@ metadata:
   tags: ["comparacion"]
 
 variables:
-  datos: [
-    ["Ediacara", "simples"],
-    ["Cámbrico", "complejos"]
-  ]
+  datos: [["Ediacara", "simples"], ["Cámbrico", "complejos"]]
   idx: uno_de([0,1])
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["simples", "complejos"]
 
@@ -318,7 +292,8 @@ metadata:
 
 respuesta: "Canadá"
 tipo: completar
-respuestas_validas: ["Canadá"]
+respuestas_validas:
+  - "Canadá"
 
 enunciado: "El famoso yacimiento de Burgess Shale, que documenta la diversidad de la fauna del Cámbrico, se encuentra ubicado en el país de ___."
 
@@ -354,7 +329,7 @@ metadata:
   tags: ["cronologia", "eventos"]
 
 opciones_explicitas: ["Explosión de la vida multicelular", "Aparición de los primeros organismos unicelulares", "Extinción masiva del Pérmico", "Aparición de las plantas terrestres"]
-respuesta: ["Aparición de los primeros organismos unicelulares", "Explosión de la vida multicelular", "Aparición de las plantas terrestres", "Extinción masiva del Pérmico"]
+respuesta_orden: ["Aparición de los primeros organismos unicelulares", "Explosión de la vida multicelular", "Aparición de las plantas terrestres", "Extinción masiva del Pérmico"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente los siguientes eventos biológicos/geológicos, desde el más antiguo al más reciente:"
@@ -370,14 +345,10 @@ metadata:
   nivel: "avanzado"
   tags: ["anomalocaris", "depredador"]
 
-variables:
-  es_depredador: uno_de([verdadero, falso])
+respuesta: verdadero
+tipo: vf
 
-respuesta: es_depredador
-tipo: mc
-opciones_explicitas: ["verdadero", "falso"]
-
-enunciado: "Basándonos en la morfología de *Anomalocaris canadensis* hallado en Burgess Shale, se considera que era un ___ depredador de ápice."
+enunciado: "Basándonos en la morfología de *Anomalocaris canadensis* hallado en Burgess Shale, se considera que era un depredador de ápice."
 
 explicacion: |
   *Anomalocaris* es uno de los depredadores más conocidos del Cámbrico, con apéndices frontales diseñados para capturar presas.
@@ -390,21 +361,16 @@ metadata:
   nivel: "intermedio"
   tags: ["biologia", "evolucion"]
 
-variables:
-  valor_diversidad: uno_de([1, 2])
-
-respuesta: tabla[valor_diversidad][1
+respuesta: "alta"
 tipo: completar
-respuestas_validas: ["alta", "baja"]
+respuestas_validas:
+  - "alta"
 
 pasos:
   - "Identificar el periodo de la explosión cámbrica."
   - "Determinar el nivel de diversidad biológica observado en Burgess Shale."
 
 enunciado: "La diversidad de filos animales documentada en Burgess Shale durante la explosión cámbrica se caracteriza por ser de una magnitud ___."
-
-variables:
-  tabla: [["baja", "baja"], ["alta", "alta"]]
 
 explicacion: |
   La explosión cámbrica representó un aumento drástico en la complejidad y diversidad de los cuerpos animales en el registro fósil.
@@ -417,15 +383,11 @@ metadata:
   nivel: "basico"
   tags: ["geologia", "paleontologia"]
 
-variables:
-  datos: [["Hace aproximadamente 541 millones de años", "Paleozoico"], ["Hace aproximadamente 541 millones de años", "Proterozoico"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "Paleozoico"
 tipo: mc
 opciones_explicitas: ["Paleozoico", "Proterozoico", "Mesozoico", "Cenozoico"]
 
-enunciado: "La explosión cámbrica marca el inicio del eón Phanerozoico, específicamente de la era del {datos[idx][0]}."
+enunciado: "La explosión cámbrica marca el inicio del eón Fanerozoico, específicamente de la era del ___."
 
 explicacion: |
   La explosión cámbrica ocurrió hace unos 541 millones de años, marcando el inicio del eón Fanerozoico y la era Paleozoica.
@@ -438,13 +400,11 @@ metadata:
   nivel: "intermedio"
   tags: ["escala_tiempo", "geologia"]
 
-variables:
-  datos: [["Ediacarano", "Cámbrico"], ["Cámbrico", "Ordovícico"], ["Ordovícico", "Silúrico"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1
+respuesta: "Ediacárico"
 tipo: completar
-respuestas_validas: ["Cámbrico", "Ordovícico", "Silúrico"]
+respuestas_validas:
+  - "Ediacárico"
+  - "Ediacarano"
 
 enunciado: "Si nos situamos inmediatamente antes de la explosión cámbrica, nos encontramos en el periodo ___."
 
@@ -462,7 +422,7 @@ metadata:
 variables:
   secuencia: ["Ediacarano", "Cámbrico", "Ordovícico", "Silúrico"]
 
-respuesta: ["Ediacarano", "Cámbrico", "Ordovícico", "Silúrico"]
+respuesta_orden: ["Ediacarano", "Cámbrico", "Ordovícico", "Silúrico"]
 tipo: ordenar
 opciones_explicitas: ["Ediacarano", "Cámbrico", "Ordovícico", "Silúrico"]
 
@@ -479,15 +439,11 @@ metadata:
   nivel: "avanzado"
   tags: ["geologia", "eventos"]
 
-variables:
-  datos: [["541 Ma", "Cambriano"], ["252 Ma", "Triásico"]]
-  idx: uno_de([0,1])
-
-respuesta: datos[idx][1]
+respuesta: "Cambriano"
 tipo: mc
 opciones_explicitas: ["Cambriano", "Triásico", "Jurásico", "Permiano"]
 
-enunciado: "La diversificación masiva de la vida animal, conocida como la explosión cámbrica, ocurrió hace aproximadamente {datos[idx][0]}."
+enunciado: "La diversificación masiva de la vida animal, conocida como la explosión cámbrica, ocurrió hace aproximadamente 541 Ma, dando inicio al periodo ___."
 
 explicacion: |
   La explosión cámbrica es el evento que define el inicio del periodo Cámbrico hace unos 541 millones de años.
@@ -500,13 +456,10 @@ metadata:
   nivel: "basico"
   tags: ["geologia"]
 
-variables:
-  contexto: [["Paleozoico", "Cámbrico"], ["Mesozoico", "Jurásico"]]
-  idx: uno_de([0,1])
-
-respuesta: contexto[idx][1
+respuesta: "Cámbrico"
 tipo: completar
-respuestas_validas: ["Cámbrico", "Jurásico"]
+respuestas_validas:
+  - "Cámbrico"
 
 enunciado: "La explosión cámbrica es el evento fundacional del periodo ___."
 
@@ -556,7 +509,10 @@ metadata:
   nivel: "intermedio"
   tags: ["astronomia", "terminologia"]
 
-respuestas_validas: ["porción", "parte", "fracción"]
+respuestas_validas:
+  - "porción"
+  - "parte"
+  - "fracción"
 respuesta: "porción"
 tipo: completar
 
@@ -575,7 +531,8 @@ metadata:
 
 respuesta: "eclipse lunar"
 tipo: completar
-respuestas_validas: ["eclipse lunar"]
+respuestas_validas:
+  - "eclipse lunar"
 
 enunciado: "Si la Luna entra en la sombra proyectada por la Tierra (un evento raro, no mensual), estamos ante un ___."
 
@@ -608,7 +565,8 @@ metadata:
 
 respuesta: "luna nueva"
 tipo: completar
-respuestas_validas: ["luna nueva"]
+respuestas_validas:
+  - "luna nueva"
 
 enunciado: "La fase en la que la Luna se encuentra entre la Tierra y el Sol, por lo que su cara iluminada no es visible desde nuestro planeta, se denomina ___."
 
@@ -641,7 +599,7 @@ metadata:
   tags: ["astronomia", "luna"]
 
 opciones_explicitas: ["luna creciente iluminante", "cuarto creciente", "gibosa creciente", "luna llena"]
-respuesta: ["luna creciente iluminante", "cuarto creciente", "gibosa creciente", "luna llena"]
+respuesta_orden: ["luna creciente iluminante", "cuarto creciente", "gibosa creciente", "luna llena"]
 tipo: ordenar
 
 enunciado: "Ordena las siguientes fases lunares según aparecen en el ciclo de crecimiento (de menor a mayor iluminación):"
@@ -680,7 +638,11 @@ metadata:
 
 respuesta: "0.5"
 tipo: completar
-respuestas_validas: ["0.5", "0,5", "1/2", "50%"]
+respuestas_validas:
+  - "0.5"
+  - "0,5"
+  - "1/2"
+  - "50%"
 
 enunciado: "En las fases de 'cuarto creciente' y 'cuarto menguante', la fracción (en decimal) de la cara visible de la Luna que está iluminada es ___."
 
@@ -700,7 +662,10 @@ metadata:
 
 respuesta: "29.5"
 tipo: completar
-respuestas_validas: ["29.5", "29,5", "29"]
+respuestas_validas:
+  - "29.5"
+  - "29,5"
+  - "29"
 
 enunciado: "El ciclo completo de las fases de la Luna, conocido como mes sinódico o lunación, dura aproximadamente ___ días."
 
@@ -734,7 +699,8 @@ metadata:
 
 respuesta: "la cara iluminada mira a la Tierra"
 tipo: completar
-respuestas_validas: ["la cara iluminada mira a la Tierra"]
+respuestas_validas:
+  - "la cara iluminada mira a la Tierra"
 
 enunciado: "En la fase de Luna Llena, podemos ver el disco completo porque ___."
 
@@ -750,7 +716,7 @@ metadata:
   tags: ["orden", "fases"]
 
 opciones_explicitas: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
-respuesta: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
+respuesta_orden: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
 tipo: ordenar
 
 enunciado: "Ordena cronológicamente las fases lunares desde la ausencia de luz visible hasta la plenitud del disco."
@@ -784,7 +750,9 @@ metadata:
 
 respuesta: "sincrónica"
 tipo: completar
-respuestas_validas: ["sincrónica", "sincronizada"]
+respuestas_validas:
+  - "sincrónica"
+  - "sincronizada"
 
 enunciado: "El fenómeno por el cual la Luna tarda el mismo tiempo en rotar sobre su propio eje que en completar su órbita alrededor de la Tierra se denomina rotación ___."
 
@@ -801,7 +769,8 @@ metadata:
 
 respuesta: "cara visible"
 tipo: completar
-respuestas_validas: ["cara visible"]
+respuestas_validas:
+  - "cara visible"
 
 enunciado: "Gracias a la rotación sincrónica, la parte de la Luna que siempre está orientada hacia nosotros se conoce como la ___."
 
@@ -849,7 +818,7 @@ metadata:
   nivel: "avanzado"
   tags: ["luna", "astronomia"]
 
-respuesta: ["rotación sincrónica", "cara visible", "cara oculta"]
+respuesta_orden: ["rotación sincrónica", "cara visible", "cara oculta"]
 tipo: ordenar
 
 opciones_explicitas: ["rotación sincrónica", "cara visible", "cara oculta"]
@@ -869,13 +838,14 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  datos: [[0.0, "Luna Nueva"], [1.0, "Luna Llena"]]
+  porcentajes: [0.0, 1.0]
+  fases: ["Luna Nueva", "Luna Llena"]
 
-respuesta: datos[idx][1]
+respuesta: fases[idx]
 tipo: mc
 opciones_explicitas: ["Luna Nueva", "Cuarto Creciente", "Cuarto Menguante", "Luna Llena"]
 
-enunciado: "Si la iluminación visible de la Luna es del {redondear(datos[idx][0] * 100, 0)}%, ¿qué fase lunar estamos observando?"
+enunciado: "Si la iluminación visible de la Luna es del {redondear(porcentajes[idx] * 100, 0)}%, ¿qué fase lunar estamos observando?"
 
 explicacion: |
   0% de iluminación visible es Luna Nueva; 100% es Luna Llena. (El 50% no alcanza para distinguir por sí solo entre cuarto creciente y cuarto menguante — hace falta saber si la iluminación está aumentando o disminuyendo.)
@@ -894,7 +864,8 @@ variables:
 
 respuesta: datos[idx][0]
 tipo: completar
-respuestas_validas: [datos[idx][0]]
+respuestas_validas:
+  - datos[idx][0]
 
 enunciado: "Si la Luna se encuentra en fase {datos[idx][1]}, el porcentaje de su cara visible que está iluminado es ___%."
 
@@ -915,7 +886,9 @@ variables:
 
 respuesta: datos[idx][0]
 tipo: completar
-respuestas_validas: ["Luna Nueva", "Luna Llena"]
+respuestas_validas:
+  - "Luna Nueva"
+  - "Luna Llena"
 
 enunciado: "Cuando la Luna presenta una iluminación visible del {datos[idx][1]}%, la fase se llama ___."
 
@@ -930,7 +903,7 @@ metadata:
   nivel: "intermedio"
   tags: ["astronomia", "luna"]
 
-respuesta: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
+respuesta_orden: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
 tipo: ordenar
 opciones_explicitas: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
 
@@ -967,7 +940,8 @@ metadata:
 
 enunciado: "Las estrellas nacen a partir de gigantescas nubes de gas y polvo interestelar conocidas como ___."
 
-respuestas_validas: ["nebulosas"]
+respuestas_validas:
+  - "nebulosas"
 
 respuesta: "nebulosas"
 tipo: completar
@@ -985,7 +959,8 @@ metadata:
 
 enunciado: "La fuerza principal que provoca que una nebulosa comience a contraerse y colapsar sobre sí misma es la ___."
 
-respuestas_validas: ["gravedad"]
+respuestas_validas:
+  - "gravedad"
 
 respuesta: "gravedad"
 tipo: completar
@@ -1003,7 +978,8 @@ metadata:
 
 enunciado: "A medida que la nube colapsa, su velocidad de rotación aumenta para conservar el ___."
 
-respuestas_validas: ["momento angular"]
+respuestas_validas:
+  - "momento angular"
 
 respuesta: "momento angular"
 tipo: completar
@@ -1021,7 +997,9 @@ metadata:
 
 enunciado: "Durante el colapso, la energía potencial gravitatoria se transforma en ___ en el núcleo de la protoestrella."
 
-respuestas_validas: ["energía térmica", "energia termica"]
+respuestas_validas:
+  - "energía térmica"
+  - "energia termica"
 
 respuesta: "energía térmica"
 tipo: completar
@@ -1039,7 +1017,10 @@ metadata:
 
 respuesta: "disco de acreción"
 tipo: completar
-respuestas_validas: ["disco de acreción", "disco protoplanetario", "disco de acrecion"]
+respuestas_validas:
+  - "disco de acreción"
+  - "disco protoplanetario"
+  - "disco de acrecion"
 
 enunciado: "Cuando la materia gira rápidamente alrededor del centro, se aplana formando un ___."
 
@@ -1072,7 +1053,9 @@ metadata:
   tags: ["equilibrio", "gravedad", "presion"]
 
 tipo: completar
-respuestas_validas: ["equilibrio hidrostático", "equilibrio hidrostatico"]
+respuestas_validas:
+  - "equilibrio hidrostático"
+  - "equilibrio hidrostatico"
 respuesta: "equilibrio hidrostático"
 
 enunciado: "Para que una estrella sea estable y no colapse ni se expanda descontroladamente, debe existir un ___ entre la gravedad (que empuja hacia adentro) y la presión de la fusión (que empuja hacia afuera)."
@@ -1106,7 +1089,9 @@ metadata:
   tags: ["temperatura", "presion", "nucleos"]
 
 tipo: completar
-respuestas_validas: ["Fusión de hidrógeno", "fusión de hidrógeno"]
+respuestas_validas:
+  - "Fusión de hidrógeno"
+  - "fusión de hidrógeno"
 respuesta: "Fusión de hidrógeno"
 
 enunciado: "El primer paso crucial en el ciclo de vida de una estrella es la ___."
@@ -1141,7 +1126,8 @@ metadata:
 
 respuesta: "enana blanca"
 tipo: completar
-respuestas_validas: ["enana blanca"]
+respuestas_validas:
+  - "enana blanca"
 
 enunciado: "Una estrella de masa media, similar a nuestro Sol, tras agotar su combustible de hidrógeno y helio, termina su ciclo de vida convirtiéndose en una ___."
 
@@ -1158,7 +1144,8 @@ metadata:
 
 respuesta: "supernova"
 tipo: completar
-respuestas_validas: ["supernova"]
+respuestas_validas:
+  - "supernova"
 
 enunciado: "Las estrellas con una masa muy superior a la del Sol tienen un destino violento: terminan su vida en una explosión masiva conocida como ___."
 
@@ -1179,7 +1166,9 @@ variables:
 
 respuesta: escenario[idx][1]
 tipo: completar
-respuestas_validas: ["miles de millones", "millones"]
+respuestas_validas:
+  - "miles de millones"
+  - "millones"
 
 enunciado: "El tiempo de vida de una estrella depende de su masa. Una estrella de masa {escenario[idx][0]} vivirá durante aproximadamente ___ de años."
 
@@ -1196,7 +1185,8 @@ metadata:
 
 respuesta: "agujero negro"
 tipo: completar
-respuestas_validas: ["agujero negro"]
+respuestas_validas:
+  - "agujero negro"
 
 enunciado: "Cuando una estrella extremadamente masiva colapsa tras una supernova y su remanente es lo suficientemente denso como para que ni la luz pueda escapar de su gravedad, se forma un ___."
 
@@ -1217,7 +1207,9 @@ variables:
 
 respuesta: caso[idx][0]
 tipo: completar
-respuestas_validas: ["enana blanca", "agujero negro"]
+respuestas_validas:
+  - "enana blanca"
+  - "agujero negro"
 
 enunciado: "Si analizamos el remanente final de una estrella de masa {caso[idx][1]}, el objeto resultante será una/un ___."
 
@@ -1250,7 +1242,9 @@ metadata:
   tags: ["fusion", "nucleosintesis"]
 
 tipo: completar
-respuestas_validas: ["fusión nuclear", "fusion nuclear"]
+respuestas_validas:
+  - "fusión nuclear"
+  - "fusion nuclear"
 respuesta: "fusión nuclear"
 
 enunciado: "El proceso físico que ocurre en el núcleo de una estrella y permite la creación de elementos más pesados que el helio se denomina ___."
@@ -1284,7 +1278,8 @@ metadata:
   tags: ["nucleosintesis", "evolucion"]
 
 tipo: completar
-respuestas_validas: ["helio"]
+respuestas_validas:
+  - "helio"
 respuesta: "helio"
 
 enunciado: "Antes de que las estrellas comenzaran a fusionar elementos más pesados, el universo era una mezcla primordial de hidrógeno y ___."
@@ -1319,7 +1314,8 @@ metadata:
 
 respuesta: "enana blanca"
 tipo: completar
-respuestas_validas: ["enana blanca"]
+respuestas_validas:
+  - "enana blanca"
 
 enunciado: "Una estrella con una masa similar a la del Sol llegará al final de su vida convirtiéndose en una ___."
 
@@ -1370,7 +1366,8 @@ metadata:
 
 respuesta: "estrella de neutrones"
 tipo: completar
-respuestas_validas: ["estrella de neutrones"]
+respuestas_validas:
+  - "estrella de neutrones"
 
 enunciado: "Tras una supernova, si el objeto restante tiene una masa intermedia (entre 1,4 y 3 masas solares), se convierte en una ___."
 
@@ -1405,7 +1402,8 @@ metadata:
   tags: ["nube_molecular", "estrellas_previas"]
 
 enunciado: "Antes de la formación del Sol, el sistema solar se originó a partir de una ___ de gas y polvo que contenía elementos pesados fabricados por estrellas anteriores."
-respuestas_validas: ["nube molecular"]
+respuestas_validas:
+  - "nube molecular"
 respuesta: "nube molecular"
 tipo: completar
 
@@ -1421,7 +1419,8 @@ metadata:
   tags: ["supernova", "colapso"]
 
 enunciado: "El colapso de la nube molecular que dio origen al sistema solar fue provocado por la onda de choque de una cercana ___."
-respuestas_validas: ["supernova"]
+respuestas_validas:
+  - "supernova"
 respuesta: "supernova"
 tipo: completar
 
@@ -1437,7 +1436,8 @@ metadata:
   tags: ["gravedad", "colapso"]
 
 enunciado: "Una vez que la nube molecular se comprimió, la ___ fue la fuerza principal que causó el colapso continuo hacia un centro común."
-respuestas_validas: ["gravedad"]
+respuestas_validas:
+  - "gravedad"
 respuesta: "gravedad"
 tipo: completar
 
@@ -1453,7 +1453,9 @@ metadata:
   tags: ["acrecion", "planetesimales"]
 
 enunciado: "Durante el proceso de formación, las partículas de polvo y hielo comenzaron a chocar y pegarse entre sí mediante un proceso llamado ___."
-respuestas_validas: ["acreción", "acrecion"]
+respuestas_validas:
+  - "acreción"
+  - "acrecion"
 respuesta: "acreción"
 tipo: completar
 
@@ -1469,7 +1471,8 @@ metadata:
   tags: ["secuencia", "colapso"]
 
 enunciado: "En la secuencia lógica del origen de nuestro sistema solar, el evento astronómico que perturbó la nube molecular con su onda de choque fue una ___."
-respuestas_validas: ["supernova"]
+respuestas_validas:
+  - "supernova"
 respuesta: "supernova"
 tipo: completar
 
@@ -1486,7 +1489,8 @@ metadata:
 
 respuesta: "Sol"
 tipo: completar
-respuestas_validas: ["Sol"]
+respuestas_validas:
+  - "Sol"
 
 enunciado: "Durante la formación del sistema solar, aproximadamente el 99% de la masa del disco protoplanetario se concentró en el centro para formar el ___."
 
@@ -1520,7 +1524,8 @@ metadata:
 
 respuesta: "rocosos"
 tipo: completar
-respuestas_validas: ["rocosos"]
+respuestas_validas:
+  - "rocosos"
 
 enunciado: "Debido a la alta temperatura cerca del Sol, sólo los materiales con alto punto de fusión pudieron condensarse allí, dando lugar a la formación de planetas ___."
 
@@ -1554,7 +1559,8 @@ metadata:
 
 respuesta: "gaseosos"
 tipo: completar
-respuestas_validas: ["gaseosos"]
+respuestas_validas:
+  - "gaseosos"
 
 enunciado: "Los planetas que pudieron retener grandes capas de hidrógeno y helio en su atmósfera debido a la baja temperatura en su zona de formación son los planetas ___."
 
@@ -1571,7 +1577,8 @@ metadata:
 
 respuesta: "polvo"
 tipo: completar
-respuestas_validas: ["polvo"]
+respuestas_validas:
+  - "polvo"
 
 enunciado: "En las etapas iniciales de la formación del sistema solar, pequeñas partículas de ___ cósmico comenzaron a colisionar entre sí debido a la gravedad."
 
@@ -1588,7 +1595,8 @@ metadata:
 
 respuesta: "planetesimales"
 tipo: completar
-respuestas_validas: ["planetesimales"]
+respuestas_validas:
+  - "planetesimales"
 
 enunciado: "Cuando las partículas de polvo crecen lo suficiente por acreción, forman objetos de mayor tamaño llamados ___."
 
@@ -1605,7 +1613,8 @@ metadata:
 
 respuesta: "millones"
 tipo: completar
-respuestas_validas: ["millones"]
+respuestas_validas:
+  - "millones"
 
 enunciado: "El proceso de acreción que transformó el disco protoplanetario en el sistema solar actual duró decenas de ___ de años."
 
@@ -1620,7 +1629,7 @@ metadata:
   nivel: "avanzado"
   tags: ["secuencia", "acreción"]
 
-respuesta: ["polvo", "planetesimales", "protoplanetas", "planetas"]
+respuesta_orden: ["polvo", "planetesimales", "protoplanetas", "planetas"]
 tipo: ordenar
 opciones_explicitas: ["polvo", "planetesimales", "protoplanetas", "planetas"]
 
@@ -1639,7 +1648,9 @@ metadata:
 
 respuesta: "acreción"
 tipo: completar
-respuestas_validas: ["acreción", "acrecion"]
+respuestas_validas:
+  - "acreción"
+  - "acrecion"
 
 enunciado: "El proceso físico mediante el cual la gravedad atrae materia para formar cuerpos cada vez más grandes se denomina ___."
 
@@ -1781,7 +1792,9 @@ metadata:
 
 respuesta: "hielos volátiles"
 tipo: completar
-respuestas_validas: ["hielos volátiles", "hielos volatiles"]
+respuestas_validas:
+  - "hielos volátiles"
+  - "hielos volatiles"
 
 enunciado: "Si la temperatura del disco protoplanetario permite la condensación de ___ en grandes cantidades, el planeta resultante será un gigante gaseoso."
 
@@ -1815,7 +1828,8 @@ metadata:
 
 respuesta: "gaseoso"
 tipo: completar
-respuestas_validas: ["gaseoso"]
+respuestas_validas:
+  - "gaseoso"
 
 enunciado: "Si la acreción resulta en un núcleo de unas 10 masas terrestres, el planeta podrá capturar rápidamente la atmósfera del disco, resultando en un planeta ___."
 
@@ -1834,6 +1848,7 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Dióxido de carbono", "Nitrógeno", "Oxígeno", "Metano"]
+respuesta: "Oxígeno"
 
 enunciado: "Durante la fotosíntesis oxigénica realizada por las cianobacterias, se produce la fotólisis del agua, liberando como subproducto gaseoso el ___."
 
@@ -1848,14 +1863,11 @@ metadata:
   nivel: "intermedio"
   tags: ["gran_oxidacion", "atmosfera", "cianobacterias"]
 
-variables:
-  escenario: uno_de([["La liberación masiva de O2", "La extinción de organismos anaerobios"], ["La acumulación de metano", "La formación de la capa de ozono"]])
-  resultado: uno_de(["La atmósfera se volvió oxidante", "La atmósfera se volvió reductora"])
-
 tipo: mc
+respuesta: "La atmósfera se volvió oxidante"
 opciones_explicitas: ["La atmósfera se volvió oxidante", "La atmósfera se volvió reductora", "La atmósfera se volvió rica en metano", "La atmósfera se volvió rica en nitrógeno"]
 
-enunciado: "El aumento de la concentración de oxígeno atmosférico debido a la actividad de las cianobacterias provocó que la atmósfera dejara de ser reductora para convertirse en {escenario[0]}."
+enunciado: "El aumento de la concentración de oxígeno atmosférico debido a la actividad de las cianobacterias provocó que la atmósfera dejara de ser reductora. ¿En qué se convirtió?"
 
 explicacion: |
   La Gran Oxidación (o Evento de la Gran Oxidación) transformó la atmósfera primitiva de un estado reductor (rico en gases como CH4 y NH3) a uno oxidante, debido a la acumulación de O2.
@@ -1869,7 +1881,8 @@ metadata:
   tags: ["extincion", "anaerobios", "evolucion"]
 
 tipo: completar
-respuestas_validas: ["anaerobios"]
+respuestas_validas:
+  - "anaerobios"
 
 enunciado: "La acumulación de oxígeno en la atmósfera fue un evento catastrófico para las formas de vida ___ que dominaban la Tierra primitiva."
 
@@ -1891,6 +1904,7 @@ enunciado: "Ordena cronológicamente los eventos que llevaron a la Gran Oxidaci�
 
 explicacion: |
   Primero surge la fotosíntesis oxigénica; el oxígeno producido es inicialmente absorbido por minerales (como el hierro en los océanos); una vez saturados estos sumideros, el oxígeno comienza a acumularse en la atmósfera.
+respuesta_orden: ["Evolución de la fotosíntesis oxigénica", "Liberación de O2 por cianobacterias", "Saturación de sumideros de hierro", "Aumento de O2 atmosférico"]
 ```
 
 ```
@@ -1900,17 +1914,15 @@ metadata:
   nivel: "avanzado"
   tags: ["metano", "clima", "oxidacion"]
 
-variables:
-  factor: uno_de([["metano", "dióxido de carbono"]])
-  impacto: uno_de(["disminuyó", "aumentó"])
-
 tipo: completar
 tolerancia_abs: 0
 
-enunciado: "Antes de la Gran Oxidación, la atmósfera era rica en {factor[0]}. La introducción de oxígeno causó que la concentración de este gas ___ drásticamente, afectando el efecto invernadero global."
+enunciado: "Antes de la Gran Oxidación, la atmósfera era rica en metano. La introducción de oxígeno causó que la concentración de este gas ___ drásticamente, afectando el efecto invernadero global."
 
 explicacion: |
   El metano (CH4) es un potente gas de efecto invernadero. La oxidación del metano por el nuevo oxígeno atmosférico redujo el efecto invernadero, lo que posiblemente contribuyó a la primera glaciación global (Glaciación Huronesiana).
+
+respuesta: "disminuir"
 ```
 
 ```
@@ -1922,7 +1934,9 @@ metadata:
 
 enunciado: "En el proceso de la fotosíntesis, los organismos autótrofos utilizan la energía lumínica para transformar el dióxido de carbono (CO2) y el agua (H2O) en un producto orgánico esencial y un subproducto gaseoso. El producto orgánico es ___ y el subproducto es ___."
 
-respuestas_validas: ["glucosa", "O2"]
+respuestas_validas:
+  - "glucosa"
+  - "O2"
 tipo: completar
 
 explicacion: |
@@ -1937,16 +1951,10 @@ metadata:
   nivel: "intermedio"
   tags: ["evolucion", "oxigeno", "geologia"]
 
-variables:
-  escenario: uno_de([
-    ["el oxígeno se acumuló en los océanos", "el oxígeno se acumuló en la atmósfera", "el oxígeno reaccionó con el metano"],
-    ["el oxígeno se acumuló en los océanos", "el oxígeno se acumuló en la atmósfera", "el oxígeno reaccionó con el metano"]
-  ])
-
-enunciado: "Durante el Gran Evento de Oxidación, antes de que el oxígeno se acumulara masivamente en la atmósfera, ¿qué sucedió principalmente con el O2 producido por las cianobacterias? {escenario[0]}"
+enunciado: "Durante el Gran Evento de Oxidación, antes de que el oxígeno se acumulara masivamente en la atmósfera, ¿qué sucedió principalmente con el O2 producido por las cianobacterias?"
 
 opciones_explicitas: ["el oxígeno se acumuló en los océanos", "el oxígeno se acumuló en la atmósfera", "el oxígeno reaccionó con el metano"]
-respuesta: escenario[1
+respuesta: "el oxígeno se acumuló en los océanos"
 tipo: mc
 
 explicacion: |
@@ -1977,16 +1985,10 @@ metadata:
   nivel: "avanzado"
   tags: ["geologia", "oxigenacion"]
 
-variables:
-  caso: uno_de([
-    ["el hierro disuelto en el agua", "la presencia de metano atmosférico"],
-    ["el hierro disuelto en el agua", "la presencia de metano atmosférico"]
-  ])
-
-enunciado: "La acumulación de oxígeno en la atmósfera fue un proceso extremadamente lento debido a la existencia de sumideros. Un ejemplo principal fue {caso[0]}."
+enunciado: "La acumulación de oxígeno en la atmósfera fue un proceso extremadamente lento debido a la existencia de sumideros. Un ejemplo principal fue el hierro disuelto en el agua."
 
 opciones_explicitas: ["el hierro disuelto en el agua", "la presencia de metano atmosférico"]
-respuesta: caso[0
+respuesta: "el hierro disuelto en el agua"
 tipo: mc
 
 explicacion: |
@@ -2003,7 +2005,7 @@ metadata:
 enunciado: "Ordena cronológicamente los eventos que permitieron la oxigenación de la atmósfera terrestre:"
 
 opciones_explicitas: ["Aparición de fotosíntesis oxigénica", "Oxidación de hierro disuelto en océanos", "Saturación de sumideros de metano", "Acumulación masiva de O2 atmosférico"]
-respuesta: ["Aparición de fotosíntesis oxigénica", "Oxidación de hierro disuelto en océanos", "Saturación de sumideros de metano", "Acumulación masiva de O2 atmosférico"]
+respuesta_orden: ["Aparición de fotosíntesis oxigénica", "Oxidación de hierro disuelto en océanos", "Saturación de sumideros de metano", "Acumulación masiva de O2 atmosférico"]
 tipo: ordenar
 
 explicacion: |
@@ -2022,7 +2024,10 @@ metadata:
 
 respuesta: "tóxico"
 tipo: completar
-respuestas_validas: ["tóxico", "venenoso", "mortal"]
+respuestas_validas:
+  - "tóxico"
+  - "venenoso"
+  - "mortal"
 
 enunciado: "La acumulación de oxígeno en la atmósfera primitiva fue ___ para los organismos anaeróbicos dominantes de esa época."
 
@@ -2039,13 +2044,10 @@ metadata:
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["El oxígeno liberado por la fotosíntesis fue un veneno para los anaerobios.", "tóxico"],
-    ["El oxígeno permitió la aparición de la respiración aeróbica.", "beneficioso"]
-  ]
+  escenarios: [["El oxígeno liberado por la fotosíntesis fue un veneno para los anaerobios.", "tóxico"], ["El oxígeno permitió la aparición de la respiración aeróbica.", "beneficioso"]]
 
 opciones_explicitas: ["tóxico", "beneficioso", "neutro"]
-respuesta: escenarios[escenario_idx][1
+respuesta: escenarios[escenario_idx][1]
 tipo: mc
 
 enunciado: "Considerando el impacto de la fotosíntesis en la atmósfera primitiva, ¿cuál fue el efecto principal del oxígeno sobre los organismos anaeróbicos existentes?"
@@ -2062,7 +2064,7 @@ metadata:
   tags: ["secuencia", "evolucion", "oxigeno"]
 
 opciones_explicitas: ["Aparición de fotosíntesis oxigénica", "Acumulación de O2 atmosférico", "Extinción de anaerobios dominantes"]
-respuesta: ["Aparición de fotosíntesis oxigénica", "Acumulación de O2 atmosférico", "Extinción de anaerobios dominantes"]
+respuesta_orden: ["Aparición de fotosíntesis oxigénica", "Acumulación de O2 atmosférico", "Extinción de anaerobios dominantes"]
 tipo: ordenar
 
 enunciado: "Ordena cronológicamente los eventos que llevaron a la Gran Oxidación:"
@@ -2085,13 +2087,10 @@ metadata:
 
 variables:
   caso_idx: uno_de([0, 1])
-  casos: [
-    ["Si el organismo es anaerobio estricto, el O2 es ___.", "mortal"],
-    ["Si el organismo es aeróbico, el O2 es ___.", "esencial"]
-  ]
+  casos: [["Si el organismo es anaerobio estricto, el O2 es ___.", "mortal"], ["Si el organismo es aeróbico, el O2 es ___.", "esencial"]]
 
 opciones_explicitas: ["mortal", "esencial", "neutro"]
-respuesta: casos[caso_idx][1
+respuesta: casos[caso_idx][1]
 tipo: mc
 
 enunciado: "Analiza el escenario: {casos[caso_idx][0]}"
@@ -2107,7 +2106,7 @@ metadata:
   nivel: "basico"
   tags: ["oxigeno", "atmosfera"]
 
-respuesta: 0.0
+respuesta: 21.0
 tipo: completar
 tolerancia_abs: 0.01
 
@@ -2141,11 +2140,11 @@ metadata:
   nivel: "basico"
   tags: ["radiacion_uv", "proteccion"]
 
-respuesta: "falso"
+respuesta: "verdadero"
 tipo: mc
 opciones_explicitas: ["verdadero", "falso"]
 
-enunciado: "¿Es correcto afirmar que sin la fotosíntesis oxigénica la radiación ultravioleta no habría afectado la vida terrestre de la misma manera debido a la falta de una capa de ozono?"
+enunciado: "¿Es correcto afirmar que sin la fotosíntesis oxigénica la radiación ultravioleta habría afectado la vida terrestre de forma mucho más severa debido a la falta de una capa de ozono?"
 
 explicacion: |
   Correcto. La capa de ozono actúa como un escudo contra la radiación UV. Sin la producción masiva de oxígeno por parte de los organismos fotosintéticos, esta capa no se habría formado.
@@ -2158,15 +2157,9 @@ metadata:
   nivel: "avanzado"
   tags: ["secuencia", "evolucion"]
 
-variables:
-  idx: uno_de([0, 1])
-
-respuesta: tabla[idx][1
+respuesta_orden: ["Fotosíntesis oxigénica", "Acumulación de O2", "Formación de O3 (Ozono)", "Protección UV"]
 tipo: ordenar
-opciones_explicitas: [
-  ["Fotosíntesis oxigénica", "Acumulación de O2", "Formación de O3 (Ozono)", "Protección UV"],
-  ["Acumulación de O2", "Fotosíntesis oxigénica", "Protección UV", "Formación de O3 (Ozono)"]
-]
+opciones_explicitas: ["Formación de O3 (Ozono)", "Fotosíntesis oxigénica", "Protección UV", "Acumulación de O2"]
 
 enunciado: "Ordena cronológicamente los procesos que permitieron la protección de la vida terrestre contra la radiación ultravioleta:"
 
@@ -2183,7 +2176,9 @@ metadata:
 
 respuesta: "O3"
 tipo: completar
-respuestas_validas: ["O3", "ozono"]
+respuestas_validas:
+  - "O3"
+  - "ozono"
 
 enunciado: "La presencia de oxígeno (O2) en la atmósfera permitió la formación de la molécula de ___ mediante la acción de la radiación solar."
 
@@ -2198,7 +2193,7 @@ metadata:
   nivel: "intermedio"
   tags: ["radiacion", "consecuencia"]
 
-respuesta: 1
+respuesta: "Aumento de la radiación UV en la superficie"
 tipo: mc
 opciones_explicitas: ["Aumento de la radiación UV en la superficie", "Disminución de la radiación UV en la superficie", "Aumento del efecto invernadero", "Disminución del oxígeno atmosférico"]
 
@@ -2215,18 +2210,14 @@ metadata:
   nivel: "intermedio"
   tags: ["fotosintesis", "oxigeno", "evolucion"]
 
-variables:
-  datos: [["cianobacterias", "oxigeno"], ["plantas", "oxigeno"], ["algas", "oxigeno"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "oxigeno"
 tipo: mc
 opciones_explicitas: ["oxigeno", "metano", "dióxido de carbono", "nitrógeno"]
 
-enunciado: "Durante el Gran Evento de Oxidación, la actividad de las {datos[idx][0]} liberó un gas que transformó la atmósfera primitiva. ¿Qué gas fue?"
+enunciado: "Durante el Gran Evento de Oxidación, la actividad de las cianobacterias liberó un gas que transformó la atmósfera primitiva. ¿Qué gas fue?"
 
 explicacion: |
-  La aparición de organismos fotosintéticos como las {datos[idx][0]} permitió la liberación masiva de oxígeno como subproducto, cambiando la química atmosférica.
+  La aparición de organismos fotosintéticos como las cianobacterias permitió la liberación masiva de oxígeno como subproducto, cambiando la química atmosférica.
 ```
 
 ```
@@ -2236,18 +2227,14 @@ metadata:
   nivel: "avanzado"
   tags: ["redox", "fotosintesis", "oxigeno"]
 
-variables:
-  datos: [["CO2 + H2O", "O2"], ["CH4 + O2", "CO2"], ["H2O + CO2", "H2"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "O2"
 tipo: mc
 opciones_explicitas: ["O2", "CO2", "H2", "CH4"]
 
-enunciado: "En la fase luminosa de la fotosíntesis, la fotólisis del agua produce el gas que permitió la vida aeróbica. El balance simplificado es: {datos[idx][0]} -> ___ + glucosa."
+enunciado: "En la fase luminosa de la fotosíntesis, la fotólisis del agua produce el gas que permitió la vida aeróbica. El balance simplificado es: CO2 + H2O -> ___ + glucosa."
 
 explicacion: |
-  La fotólisis del agua libera {respuesta}, el cual es fundamental para la respiración celular aeróbica posterior.
+  La fotólisis del agua libera O2, el cual es fundamental para la respiración celular aeróbica posterior.
 ```
 
 ```
@@ -2257,13 +2244,10 @@ metadata:
   nivel: "intermedio"
   tags: ["respiracion", "oxigeno", "metabolismo"]
 
-variables:
-  datos: [["presencia de O2", "respiracion aerobia"], ["ausencia de O2", "fermentacion"], ["exceso de O2", "respiracion aerobia"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "fermentacion"
 tipo: completar
-respuestas_validas: ["respiracion aerobia", "fermentacion"]
+respuestas_validas:
+  - "fermentacion"
 
 enunciado: "La acumulación de oxígeno en la atmósfera permitió que los organismos pasaran de la ___ a la utilización de aceptores de electrones más eficientes."
 
@@ -2278,7 +2262,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "evolucion", "oxigeno"]
 
-respuesta: ["Fotosíntesis oxigénica", "Oxidación de metano", "Acumulación de O2 atmosférico", "Explosión de la vida aeróbica"]
+respuesta_orden: ["Fotosíntesis oxigénica", "Oxidación de metano", "Acumulación de O2 atmosférico", "Explosión de la vida aeróbica"]
 tipo: ordenar
 opciones_explicitas: ["Fotosíntesis oxigénica", "Oxidación de metano", "Acumulación de O2 atmosférico", "Explosión de la vida aeróbica"]
 
@@ -2308,3 +2292,4 @@ enunciado: "Considerando el impacto biológico: Un {datos[idx][0]} en la atmósf
 explicacion: |
   El {datos[idx][0]} permitió la evolución de procesos metabólicos que utilizan oxígeno como aceptor final de electrones.
 ```
+

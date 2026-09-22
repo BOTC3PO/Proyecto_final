@@ -1,6 +1,6 @@
-# Examen jefe — Maestro de escalas temporales
+# Examen jefe — [PENDIENTE #686]
 
-> Logro #104. Atravesaste desde el feudalismo hasta la crisis del '29 dominando las grandes transformaciones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **121 preguntas totales** en 5/5 secciones.
+> Logro #686. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -34,7 +34,7 @@ variables:
   escenario_idx: uno_de([0, 1, 2])
   datos: [[["campesinos", "servidores"], ["nobles", "guerreros"], ["clero", "rezadores"]], [["siervos", "trabajadores"], ["caballeros", "protectores"], ["monjes", "espirituales"]], [["plebe", "campesinos"], ["aristocracia", "señores"], ["clero", "religiosos"]]]
 
-respuesta: datos[escenario_idx][2][1
+respuesta: datos[escenario_idx][2][1]
 tipo: mc
 opciones_explicitas: [datos[escenario_idx][0][1], datos[escenario_idx][1][1], datos[escenario_idx][2][1]]
 
@@ -53,7 +53,10 @@ metadata:
 
 respuesta: "homenaje"
 tipo: completar
-respuestas_validas: ["homenaje", "investidura", "lealtad"]
+respuestas_validas:
+  - "homenaje"
+  - "investidura"
+  - "lealtad"
 
 enunciado: "El ritual mediante el cual un vasallo se convertía en hombre de un señor, mediante un compromiso de fidelidad y protección, se denominaba ceremonia de ___."
 
@@ -68,9 +71,9 @@ metadata:
   nivel: "intermedio"
   tags: ["jerarquia", "ordenar"]
 
-respuesta: ["Campesinos", "Caballeros", "Señores Feudales"]
 tipo: ordenar
-opciones_explicitas: ["Caballeros", "Campesinos", "Señores Feudales", "Campesinos", "Caballeros", "Señores Feudales"]
+opciones_explicitas: ["Campesinos", "Caballeros", "Señores Feudales"]
+respuesta_orden: ["Campesinos", "Caballeros", "Señores Feudales"]
 
 enunciado: "Ordena los siguientes estamentos de menor a mayor poder político y militar en el sistema feudal:"
 
@@ -109,9 +112,8 @@ metadata:
 
 tipo: mc
 opciones_explicitas: ["Protección y tierras a cambio de lealtad y servicio militar", "Pago de impuestos por el uso de herramientas de labranza", "Venta de productos agrícolas en los mercados locales", "Sometimiento total sin derecho a recibir tierras"]
-
+respuesta: "Protección y tierras a cambio de lealtad y servicio militar"
 enunciado: "En el sistema feudal, la relación de vasallaje entre un señor feudal y un vasallo se basaba principalmente en:"
-
 explicacion: |
   El vasallaje era un contrato de carácter personal donde el señor otorgaba un beneficio (fief/feudo) y protección, mientras que el vasallo juraba auxilium (ayuda militar) y consilium (consejo político).
 ```
@@ -125,7 +127,8 @@ metadata:
 
 tipo: completar
 opciones_explicitas: ["siervo", "caballero", "rey", "vasallo"]
-respuestas_validas: ["siervo"]
+respuestas_validas:
+  - "siervo"
 
 enunciado: "A diferencia de los vasallos, los ___ eran campesinos que estaban ligados a la tierra y debían trabajarla para el señor a cambio de protección y una parcela para su subsistencia."
 
@@ -147,6 +150,7 @@ enunciado: "Ordena de mayor a menor jerarquía social y poder político en la es
 
 explicacion: |
   La estructura era piramidal: El Rey era la máxima autoridad (aunque con poder limitado), seguido por los Grandes Señores (Duques/Condes), luego los vasallos (caballeros) y finalmente la base trabajadora (siervos).
+respuesta_orden: ["Rey", "Señor Feudal", "Vasallo", "Siervo"]
 ```
 
 ```
@@ -156,14 +160,11 @@ metadata:
   nivel: "intermedio"
   tags: ["economia", "intercambio"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  datos: [["lealtad y servicio militar", "protección y tierras"], ["trabajo agrícola", "alimento y refugio"]]
-
 tipo: mc
 opciones_explicitas: ["Servicio militar y lealtad", "Pago de oro y plata", "Intercambio de productos artesanales", "Voto de pobreza"]
+respuesta: "Servicio militar y lealtad"
 
-enunciado: "Si un vasallo fallaba en cumplir su parte del contrato hacia su señor, el señor perdía la oportunidad de recibir {datos[escenario_idx][0]}."
+enunciado: "Si un vasallo fallaba en cumplir su parte del contrato hacia su señor, el señor perdía la oportunidad de recibir lealtad y servicio militar."
 
 explicacion: |
   El sistema se basaba en la reciprocidad. Si el vasallo no prestaba el servicio militar o el consejo, el vínculo de vasallaje se rompía.
@@ -181,7 +182,8 @@ tolerancia_abs: 0
 
 enunciado: "El conjunto de tierras, campesinos y derechos que un señor otorgaba a un vasallo como parte del contrato de vasallaje se denomina ___."
 
-respuestas_validas: ["feudo"]
+respuestas_validas:
+  - "feudo"
 
 explicacion: |
   El feudo era la unidad económica y política básica del feudalismo, permitiendo al vasallo mantener a su familia y costear su equipo militar.
@@ -228,7 +230,7 @@ metadata:
   nivel: "intermedio"
   tags: ["ordenar", "jerarquia"]
 
-respuesta: ["Rey", "Señores Feudales", "Caballeros", "Siervos"]
+respuesta_orden: ["Rey", "Señores Feudales", "Caballeros", "Siervos"]
 tipo: ordenar
 opciones_explicitas: ["Rey", "Señores Feudales", "Caballeros", "Siervos"]
 
@@ -245,14 +247,12 @@ metadata:
   nivel: "basico"
   tags: ["campesinado", "siervos"]
 
-variables:
-  escenario: uno_de([["Siervos", "estaban ligados a la tierra"], ["Campesinos libres", "tenían mayor movilidad"]])
-
-respuesta: escenario[0
+respuesta: "Siervos"
 tipo: completar
-respuestas_validas: ["Siervos", "Campesinos libres"]
+respuestas_validas:
+  - "Siervos"
 
-enunciado: "En el sistema feudal, los ___ eran aquellos que no tenían libertad de movimiento y estaban ___."
+enunciado: "En el sistema feudal, los ___ eran aquellos que no tenían libertad de movimiento y estaban ligados a la tierra que trabajaban."
 
 explicacion: |
   A diferencia de los campesinos libres, los siervos estaban legalmente vinculados a la tierra que trabajaban.
@@ -265,15 +265,13 @@ metadata:
   nivel: "avanzado"
   tags: ["vasallaje", "nobleza"]
 
-variables:
-  caso: uno_de([[0, "Señor Feudal"], [1, "Rey"]])
-
-respuesta: caso[0
+respuesta: "Vasallo"
 
 tipo: completar
-tolerancia_abs: 0
+respuestas_validas:
+  - "Vasallo"
 
-enunciado: "Si un noble recibe tierras a cambio de lealtad y apoyo militar, su posición es la de un ___."
+enunciado: "Si un noble recibe tierras a cambio de lealtad y apoyo militar hacia otro noble de mayor rango, su posición en ese vínculo es la de un ___."
 
 explicacion: |
   El intercambio de tierras (feudo) por servicios militares y lealtad definía la relación entre el señor y su vasallo.
@@ -288,7 +286,8 @@ metadata:
 
 respuesta: "monopolio"
 tipo: completar
-respuestas_validas: ["monopolio"]
+respuestas_validas:
+  - "monopolio"
 
 enunciado: "Durante la Edad Media, la Iglesia Católica ejercía un ___ sobre la vida espiritual y cultural de Europa occidental."
 
@@ -321,22 +320,11 @@ metadata:
   nivel: "intermedio"
   tags: ["jerarquia", "iglesia", "poder"]
 
-variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["El Papa", "El Rey"],
-    ["El Obispo", "El Señor Feudal"]
-  ]
-  respuestas: [
-    ["máxima autoridad espiritual", "autoridad política y militar"],
-    ["autoridad sobre una diócesis", "dueño de las tierras y vasallos"]
-  ]
-
-enunciado: "En la jerarquía eclesiástica, {escenarios[escenario_idx][0]} era considerado la {escenarios[escenario_idx][1]}."
-
-respuesta: {respuestas[escenario_idx][1]}
+respuesta: "máxima autoridad espiritual"
 tipo: mc
 opciones_explicitas: ["máxima autoridad espiritual", "autoridad política y militar", "representante del emperador", "jefe de la guardia papal"]
+
+enunciado: "En la jerarquía eclesiástica medieval, el Papa era considerado la ___."
 
 explicacion: |
   La estructura de la Iglesia era altamente jerárquica, donde cada cargo tenía funciones específicas que combinaban lo sagrado con la administración de territorios.
@@ -351,7 +339,8 @@ metadata:
 
 respuesta: "teocentrismo"
 tipo: completar
-respuestas_validas: ["teocentrismo"]
+respuestas_validas:
+  - "teocentrismo"
 
 enunciado: "La cosmovisión medieval se caracterizaba por el ________, donde Dios era el centro de todo el universo y de la explicación de la realidad."
 
@@ -390,7 +379,7 @@ variables:
 
 enunciado: "En el sistema feudal, una persona que {datos[idx][0]} pertenece al grupo de los: ___"
 
-opciones_explicitas: ["Campesinos", "Clero", "Nobleza"]
+opciones_explicitas: ["Caballero", "Señor feudal"]
 respuesta: datos[idx][1]
 tipo: mc
 
@@ -411,7 +400,8 @@ variables:
 
 enunciado: "El individuo cuya tarea es {datos[idx][0]} es un: ___"
 
-respuestas_validas: ["Clérigo", "Noble", "Siervo"]
+respuestas_validas:
+  - "Clérigo"
 respuesta: datos[idx][1]
 tipo: completar
 
@@ -429,7 +419,7 @@ metadata:
 enunciado: "Ordena la jerarquía social feudal desde el estamento con mayor poder político hasta el que tiene menos derechos:"
 
 opciones_explicitas: ["Clero/Nobleza", "Nobleza/Clero", "Campesinado/Siervos"]
-respuesta: ["Clero/Nobleza", "Nobleza/Clero", "Campesinado/Siervos"]
+respuesta_orden: ["Clero/Nobleza", "Nobleza/Clero", "Campesinado/Siervos"]
 tipo: ordenar
 
 explicacion: |
@@ -470,7 +460,8 @@ variables:
 
 enunciado: "Aquella persona que {datos[idx][0]} es un: ___"
 
-respuestas_validas: ["Siervo", "Caballero", "Obispo"]
+respuestas_validas:
+  - "Siervo"
 respuesta: datos[idx][1]
 tipo: completar
 
@@ -478,102 +469,401 @@ explicacion: |
   A diferencia de los campesinos libres, los siervos estaban legalmente ligados a la gleba (la tierra).
 ```
 
-## Sección: edad-media-plena (24 preguntas)
+## Sección: edad-media-plena (25 preguntas)
 
 ```
-### 2 — La Reforma Gregoriana
-```
-
-```
-### 3 — La Batalla de Manzikert
-```
-
-```
-### 4 — El Cisma de 1054
-```
-
-```
-### 5 — La Primera Cruzada
-```
-
-```
-### 6 — La Reforma Cluniacense
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["tratado", "verdun", "francia", "alemania", "italia"]
+tipo: mc
+enunciado: "El Tratado de Verdún, firmado en el año 843, dividió el Imperio Carolingio entre los nietos de Carlomagno. ¿Cuál de las siguientes opciones describe correctamente el territorio asignado a Luis el Germánico?"
+respuesta: "El reino de Francia Oriental, que sentó las bases de lo que luego sería el Sacro Imperio Romano Germánico"
+opciones_explicitas:
+  - "El reino de Francia Occidental, que evolucionaría hacia el reino de Francia moderno"
+  - "El reino de Francia Oriental, que sentó las bases de lo que luego sería el Sacro Imperio Romano Germánico"
+  - "El reino de Italia, que permaneció bajo el control directo del emperador"
+  - "Un reino central que incluía la Borgoña y el norte de Italia"
+explicacion: "El Tratado de Verdún dividió el impero en tres partes: Luis el Germánico recibió la Franconia y territorios al este del Rin (Francia Oriental); Lotario I recibió el título imperial y una franja central (Francia Media); y Carlos el Calvo recibió la Aquitania y territorios al oeste del Rin (Francia Occidental)."
 ```
 
 ```
-### 7 — La Paz de Dios
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["iglesia", "gregorio-vii", "investidura", "laicato"]
+tipo: completar
+enunciado: "Durante el siglo XI, el papa Gregorio VII impulsó la Reforma Gregoriana para afirmar la independencia de la Iglesia frente al poder secular. Uno de sus objetivos principales fue eliminar la práctica de la __________, mediante la cual los monarcas y nobles nombraban a los obispos y abades."
+respuesta: "investidura"
+respuestas_validas:
+  - "investidura"
+  - "Investidura"
+  - "INVESTIDURA"
+explicacion: "La lucha por las investiduras fue el conflicto central entre el papado y el imperio (y otros monarcas) en el siglo XI y XII. La Reforma Gregoriana buscaba que solo la Iglesia pudiera nombrar a sus clérigos, eliminando el control laico sobre los cargos eclesiásticos."
 ```
 
 ```
-### 8 — La Tregua de Dios
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["bizancio", "selyucidas", "anatolia", "1071"]
+tipo: vf
+enunciado: "La derrota del emperador romano de oriente Manuel I Comneno en la batalla de Manzikert en 1071 abrió Anatolia a la invasión turca."
+respuesta: falso
+explicacion: "La batalla de Manzikert ocurrió en 1071, pero el emperador bizantino derrotado fue Romano IV Diógenes, no Manuel I Comneno (quien reinó mucho después, entre 1143 y 1180)."
 ```
 
 ```
-### 9 — La Batalla de Hastings
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["cisma", "iglesia", "roma", "constantinopla"]
+tipo: mc
+enunciado: "El Cisma de 1054 marcó la ruptura definitiva entre la Iglesia de Roma y la Iglesia de Constantinopla. ¿Cuál fue la principal causa teológica y política de este cisma?"
+respuesta: "El desacuerdo sobre la autoridad del Papa y el uso del filioque en el Credo"
+opciones_explicitas:
+  - "La disputa sobre la validez de los sacramentos administrados por sacerdotes casados"
+  - "El desacuerdo sobre la autoridad del Papa y el uso del filioque en el Credo"
+  - "La negativa del Patriarca de Constantinopla a pagar impuestos al Emperador Bizantino"
+  - "La invasión normanda de Italia meridional y el apoyo papal a los normandos"
+explicacion: "Las tensiones acumuladas por diferencias litúrgicas, culturales y políticas, culminando en la excomunión mutua de los legados papales y el Patriarca Miguel I Cerulario, se centraron en la primacía papal y la cláusula del filioque (que el Espíritu Santo procede del Padre y del Hijo) añadida en el occidente al Credo."
 ```
 
 ```
-### 10 — El Sacro Imperio Romano Germánico
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["cruzadas", "urbeles", "jerusalen", "1096"]
+tipo: completar
+enunciado: "En el Concilio de Clermont de 1095, el papa Urbano II llamó a la Primera Cruzada. El objetivo principal declarado era recuperar la ciudad santa de __________ del control musulmán."
+respuesta: "jerusalen"
+respuestas_validas:
+  - "jerusalen"
+  - "jerusalén"
+  - "Jerusalen"
+  - "Jerusalén"
+  - "JERUSALEN"
+  - "JERUSALÉN"
+explicacion: "La recuperación de Jerusalén, donde según la tradición cristiana murió y resucitó Jesucristo, era el objetivo central de la Primera Cruzada, lograda en 1099 con la captura de la ciudad por los cruzados."
 ```
 
 ```
-### 11 — La Escolástica
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["cluny", "monasterio", "reforma", "siglo-x"]
+tipo: mc
+enunciado: "La abadía de Cluny, fundada en 910, jugó un papel crucial en la renovación religiosa de la Edad Media. ¿Cuál era su característica distintiva respecto a la mayoría de los monasterios de la época?"
+respuesta: "Su independencia directa del poder local de los laicos y su influencia en la uniformización de la regla benedictina"
+opciones_explicitas:
+  - "Su adopción de la regla agustina en lugar de la benedictina"
+  - "Su independencia directa del poder local de los laicos y su influencia en la uniformización de la regla benedictina"
+  - "Su enfoque exclusivo en la predicación urbana y la vida activa"
+  - "Su rechazo total a la propiedad territorial y la acumulación de riquezas"
+explicacion: "Cluny fue pionera en liberarse del control de los señores locales (laicos) al poner el monasterio directamente bajo la protección del Papa. Esto le permitió mantener la disciplina monástica original y extender su reforma a cientos de monasterios afiliados."
 ```
 
 ```
-### 12 — La Peste Negra
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["paz-de-dios", "iglesia", "violencia", "campesinos"]
+tipo: vf
+enunciado: "La Paz de Dios fue un movimiento promovido por la Iglesia en el siglo X que buscaba proteger a los no combatientes (clérigos, campesinos, mercaderes) de la violencia feudal."
+respuesta: verdadero
+explicacion: "La Paz de Dios (Pax Dei) fue un intento de la Iglesia para limitar la violencia feudal, prohibiendo a los caballeros atacar a ciertos grupos vulnerables bajo pena de excomunión. Posteriormente, se complementó con la Tregua de Dios."
 ```
 
 ```
-### 13 — La Carta Magna
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["tregua-de-dios", "domingos", "adviento", "cuaresma"]
+tipo: completar
+enunciado: "Junto a la Paz de Dios, la Iglesia promovió la Tregua de Dios, que prohibía la guerra en días específicos. ¿Cuáles eran los días principales en los que estaba prohibida la violencia según esta norma?"
+respuesta: "domingos, festivos y tiempos litúrgicos como adviento y cuaresma"
+respuestas_validas:
+  - "domingos, festivos y tiempos litúrgicos como adviento y cuaresma"
+  - "Domingos, festivos y tiempos litúrgicos como adviento y cuaresma"
+  - "DOMINGOS, FESTIVOS Y TIEMPOS LITURGICOS COMO ADVIENTO Y CUARESMA"
+explicacion: "La Tregua de Dios intentaba reducir los días de combate al prohibir la guerra desde el miércoles al viernes y durante todo el adviento y la cuaresma, reservando el tiempo para la oración y la paz religiosa."
 ```
 
 ```
-### 14 — Las Cruzadas del Norte
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["inglaterra", "normandos", "guillermo-conquistador", "1066"]
+tipo: mc
+enunciado: "La Batalla de Hastings en 1066 fue decisiva para la historia de Inglaterra. ¿Quién fue el vencedor y qué consecuencia inmediata tuvo?"
+respuesta: "Guillermo el Conquistador, lo que llevó a la conquista normanda y la introducción del feudalismo anglonormando"
+opciones_explicitas:
+  - "Harold II Godwinson, consolidando la dinastía anglosajona"
+  - "Guillermo el Conquistador, lo que llevó a la conquista normanda y la introducción del feudalismo anglonormando"
+  - "Los daneses, estableciendo el Reino de Danelaw"
+  - "Los escoceses, uniendo temporalmente las coronas de Escocia e Inglaterra"
+explicacion: "Guillermo, duque de Normandía, derrotó al rey anglosajón Harold II. Esta victoria instaló una nueva élite normanda en Inglaterra, transformando su estructura política, social y lingüística, y conectándola más con el continente europeo que con Escandinavia."
 ```
 
 ```
-### 15 — El Cisma de Occidente
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["otón-i", "coronación", "962", "imperio"]
+tipo: completar
+enunciado: "En el año 962, el rey otón I fue coronado emperador por el papa Juan XII, fundando de facto el __________."
+respuesta: "sacro imperio romano germánico"
+respuestas_validas:
+  - "sacro imperio romano germánico"
+  - "Sacro Imperio Romano Germánico"
+  - "SACRO IMPERIO ROMANO GERMÁNICO"
+explicacion: "La coronación de Otón I revivió la idea del imperio en Occidente, diferenciándose del Imperio Carolingio anterior y estableciendo la estrecha relación (y conflicto) entre el poder imperial alemán y el papado."
 ```
 
 ```
-### 16 — La Batalla de las Esporas
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["tomás-de-aquino", "filosofía", "fe", "razón", "siglo-xiii"]
+tipo: mc
+enunciado: "Tomás de Aquino, figura central de la escolástica del siglo XIII, intentó reconciliar la fe cristiana con la filosofía de Aristóteles. ¿Cuál fue su contribución principal en este sentido?"
+respuesta: "Sostener que la fe y la razón son complementarias y no contradictorias, ya que ambas provienen de Dios"
+opciones_explicitas:
+  - "Sostener que la fe y la razón son complementarias y no contradictorias, ya que ambas provienen de Dios"
+  - "Defender que la razón debe someterse totalmente a la revelación divina sin excepción"
+  - "Proponer que la filosofía aristotélica era pagana y debía ser descartada por los cristianos"
+  - "Argumentar que la Iglesia no debía involucrarse en asuntos filosóficos ni científicos"
+explicacion: "La Suma Teológica de Tomás de Aquino integró la lógica aristotélica con la teología cristiana, argumentando que la verdad revelada y la verdad natural (racional) no pueden contradecirse porque Dios es la fuente de ambas."
 ```
 
 ```
-### 17 — El Feudalismo
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["peste-negra", "1347", "muerte", "demografía"]
+tipo: vf
+enunciado: "La Peste Negra llegó a Europa por primera vez en 1347, causando una drástica reducción de la población en las décadas siguientes."
+respuesta: verdadero
+explicacion: "La peste bubónica, traída probablemente por ratas en barcos mercantes desde Asia, llegó a Messina en 1347 y se extendió rápidamente por toda Europa, matando entre un tercio y la mitad de la población en varias regiones."
 ```
 
 ```
-### 18 — La Peste del Siglo XIV
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["juan-sin-tierra", "1215", "barones", "ley"]
+tipo: completar
+enunciado: "En 1215, el rey Juan de Inglaterra fue obligado por sus barones rebeldes a firmar la Carta Magna, que establecía que el rey estaba sujeto a la __________."
+respuesta: "ley"
+respuestas_validas:
+  - "ley"
+  - "Ley"
+  - "LEY"
+explicacion: "La Carta Magna fue un documento fundamental que limitó el poder absoluto del monarca, estableciendo que nadie, ni siquiera el rey, estaba por encima de la ley, y protegiendo ciertos derechos feudales y libertades eclesiásticas."
 ```
 
 ```
-### 19 — El Concilio de Latrán IV
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["caballeros-teutones", "báltico", "prusianos", "lituania"]
+tipo: mc
+enunciado: "Además de las Cruzadas a Tierra Santa, la Iglesia promovió cruzadas en otras regiones. ¿Cuál fue el objetivo principal de las Cruzadas del Norte en el Báltico?"
+respuesta: "Cristianizar a los pueblos paganos del Báltico y expandir la influencia germánica"
+opciones_explicitas:
+  - "Cristianizar a los pueblos paganos del Báltico y expandir la influencia germánica"
+  - "Recuperar Jerusalén del control de los mamelucos"
+  - "Derrocar al Emperador Bizantino y tomar Constantinopla"
+  - "Combatir a los cátaros en el sur de Francia"
+explicacion: "Los Caballeros Teutónicos y otros órdenes militares se dirigieron al Báltico para conquistar y convertir a los prusianos, lituanos y otros pueblos bálticos, estableciendo un estado monástico en la región."
 ```
 
 ```
-### 20 — La Orden del Temple
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["cisma-occidente", "avignon", "papado", "1378"]
+tipo: completar
+enunciado: "El Cisma de Occidente (1378-1417) fue un período en el que la cristiandad latina tuvo simultáneamente a dos o tres papas rivales, uno en Roma y otro en __________."
+respuesta: "avignon"
+respuestas_validas:
+  - "avignon"
+  - "Avignon"
+  - "AVIGNON"
+  - "avignón"
+  - "Avignón"
+explicacion: "Tras el regreso del papado a Roma, la elección de Urbano VI provocó que un grupo de cardenales eligiera a un antipapa en Avignon. Este cisma debilitó la autoridad papal hasta que el Concilio de Constanza resolvió la situación."
 ```
 
 ```
-### 21 — La Guerra de los Cien Años
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["guerra-pucel", "inglaterra", "francia", "1297"]
+tipo: vf
+enunciado: "La Batalla de las Esporas fue un enfrentamiento naval entre Inglaterra y Francia en 1340, decisivo para el control del canal de la Mancha."
+respuesta: falso
+explicacion: "La Batalla de las Esporas (1297) fue un combate caballeril fuera de las murallas de Furnes (Flanders), no una batalla naval. La gran batalla naval contra Inglaterra fue la Batalla de Sluys en 1340."
 ```
 
 ```
-### 22 — La Peste Negra y la Iglesia
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["feudalismo", "vasallaje", "beneficio", "siglo-x"]
+tipo: mc
+enunciado: "El sistema feudal se basaba en relaciones de dependencia personal. ¿Cuál era el vínculo central que unía al señor con su vasallo?"
+respuesta: "El juramento de homenaje y lealtad a cambio de un beneficio (generalmente tierra)"
+opciones_explicitas:
+  - "El juramento de homenaje y lealtad a cambio de un beneficio (generalmente tierra)"
+  - "Un contrato de arrendamiento mercantil firmado ante notario"
+  - "La propiedad plena de la tierra por parte del vasallo"
+  - "La obligación de servicio militar pago en dinero al rey"
+explicacion: "El feudalismo se estructuraba sobre la base del vasallaje: un hombre (vasallo) juraba fidelidad a otro (señor) a cambio de protección y un feudo (tierra o derechos), obligándose a prestar servicio, generalmente militar."
 ```
 
 ```
-### 23 — El Renacimiento del Siglo XII
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["peste-negra", "consecuencias", "trabajo", "salarios"]
+tipo: completar
+enunciado: "Tras la Peste Negra, la escasez de mano de obra en Europa tuvo como consecuencia económica principal el aumento del poder de negociación de los __________."
+respuesta: "campesinos"
+respuestas_validas:
+  - "campesinos"
+  - "Campesinos"
+  - "CAMPESENOS"
+  - "siervos"
+  - "Siervos"
+explicacion: "La muerte de gran parte de la población hizo que el trabajo escaseara, permitiendo a los campesinos supervivientes exigir mejores condiciones, salarios más altos o la liberación de la servidumbre, debilitando el sistema feudal."
 ```
 
 ```
-### 24 — La Batalla de Lepanto
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["latran-iv", "inocencio-iii", "cristianismo", "1215"]
+tipo: mc
+enunciado: "El Concilio de Letrán IV, convocado en 1215 por el papa Inocencio III, fue uno de los más importantes de la Edad Media. ¿Cuál de sus decretos fue fundamental para la vida religiosa cotidiana?"
+respuesta: "La obligatoriedad de la confesión anual para todos los fieles"
+opciones_explicitas:
+  - "La obligatoriedad de la confesión anual para todos los fieles"
+  - "La prohibición absoluta de cualquier comercio con musulmanes"
+  - "La creación de un ejército permanente bajo mando papal"
+  - "La abolición de la jerarquía episcopal en favor de los obispos electos"
+explicacion: "El Concilio estableció que todo fiel que hubiera alcanzado la edad de discreción debía confesar sus pecados al menos una vez al año a su propio párroco, reforzando el control pastoral de la Iglesia sobre la sociedad."
 ```
 
 ```
-### 25 — La Reforma Franciscana
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["templarios", "jerusalen", "banca", "1307"]
+tipo: completar
+enunciado: "La Orden de los Pobres Compañeros de Cristo del Templo de Salomón, conocidos como templarios, fueron fundados en Jerusalén alrededor de 1119 y se disolvieron oficialmente en 1312 tras la persecución liderada por el rey __________ de Francia."
+respuesta: "filipe"
+respuestas_validas:
+  - "filipe"
+  - "Filipe"
+  - "FILIPE"
+  - "filipe-iv"
+  - "Filipe IV"
+explicacion: "El rey Felipe IV de Francia, conocido como Felipe el Hermoso, acusó a los templarios de herejía y otros cargos para confiscar sus riquezas y cancelar las deudas que debía a la orden, siendo arrestados masivamente en 1307."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["guerra-cien-anos", "edward-iii", "filipe-iv", "reclamación"]
+tipo: mc
+enunciado: "La Guerra de los Cien Años (1337-1453) fue un conflicto prolongado entre Inglaterra y Francia. ¿Cuál fue la causa dinástica principal que la inició?"
+respuesta: "La reclamación del trono francés por parte del rey inglés Eduardo III"
+opciones_explicitas:
+  - "La reclamación del trono francés por parte del rey inglés Eduardo III"
+  - "La invasión normanda de Inglaterra en 1066"
+  - "El deseo de los papas de Avignon de recuperar los estados pontificios"
+  - "La disputa comercial sobre la región de Flandes"
+explicacion: "Al morir Carlos IV de Francia sin heredero varón, su primo Eduardo III de Inglaterra (hijo de Isabel de Francia) reclamó la corona, lo que fue rechazado por los nobles franceses que aplicaron la Ley Sálica, iniciando la guerra."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["peste-negra", "iglesia", "crisis", "autoridad"]
+tipo: vf
+enunciado: "La Peste Negra fortaleció inmediatamente la autoridad y la moral de la Iglesia Católica, ya que los clérigos murieron menos que la población general."
+respuesta: falso
+explicacion: "La alta mortalidad entre el clero (que atendía a los enfermos) y la incapacidad de la Iglesia para explicar o detener la peste minaron su autoridad moral y espiritual, generando movimientos de penitencia extrema y cuestionamientos futuros."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["renacimiento-xii", "universidades", "aristóteles", "traducción"]
+tipo: completar
+enunciado: "El llamado Renacimiento del siglo XII se caracterizó por un florecimiento cultural y intelectual, impulsado en gran parte por la traducción al latín de obras científicas y filosóficas desde el árabe y el griego, lo que llevó al surgimiento de las primeras __________."
+respuesta: "universidades"
+respuestas_validas:
+  - "universidades"
+  - "Universidades"
+  - "UNIVERSIDADES"
+explicacion: "El interés por el conocimiento clásico y el derecho canónico llevó a la formación de escuelas catedralicias que evolucionaron hacia universidades, como las de Bolonia, París y Oxford, institucionalizando el aprendizaje superior."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["leanto", "otomano", "liga-santa", "1571"]
+tipo: vf
+enunciado: "La Batalla de Lepanto, donde la Liga Santa derrotó a la flota otomana, tuvo lugar en 1571, marcando el fin de la Edad Media."
+respuesta: falso
+explicacion: "La Batalla de Lepanto ocurrió en 1571, en la Edad Moderna, no en la Edad Media. La Edad Media generalmente se considera que termina a finales del siglo XV (1453 o 1492)."
+```
+
+```
+metadata:
+  materia: "historia-profunda"
+  tema: "edad-media-plena"
+  nivel: "intermedio"
+  tags: ["francisco-de-asis", "pobreza", "mendicidad", "siglo-xiii"]
+tipo: mc
+enunciado: "San Francisco de Asís fundó la Orden de los Frailes Menores en el siglo XIII. ¿Cuál era el principio central de su vida religiosa?"
+respuesta: "La pobreza evangélica literal y la imitación de la vida de Cristo"
+opciones_explicitas:
+  - "La pobreza evangélica literal y la imitación de la vida de Cristo"
+  - "El estudio académico avanzado en las universidades"
+  - "La acumulación de riquezas para construir catedrales"
+  - "La vida contemplativa en monasterios cerrados y aislados"
+explicacion: "Francisco de Asís rechazó la riqueza y el estatus social, promoviendo una vida de pobreza radical y predicación itinerante, inspirada en el Evangelio, lo que contrastaba con la riqueza de otras órdenes y la Iglesia institucional."
 ```
 
 ## Sección: electrificacion-fabrica-hogar (23 preguntas)
@@ -587,7 +877,8 @@ metadata:
 
 respuesta: "motor eléctrico"
 tipo: completar
-respuestas_validas: ["motor eléctrico"]
+respuestas_validas:
+  - "motor eléctrico"
 
 enunciado: "A finales del siglo XIX, la transición de la energía de vapor a la energía eléctrica en las fábricas fue posible gracias a la invención y adopción masiva del ___."
 
@@ -602,10 +893,7 @@ metadata:
   nivel: "basico"
   tags: ["iluminacion", "hogar"]
 
-variables:
-  escenario: uno_de([["luz de gas", "luz de gas"], ["luz eléctrica", "luz eléctrica"], ["luz de vela", "luz de vela"]])
-
-respuesta: escenario[1
+respuesta: "luz de gas"
 tipo: mc
 opciones_explicitas: ["luz de gas", "luz eléctrica", "luz de vela"]
 
@@ -622,7 +910,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "desarrollo"]
 
-respuesta: ["máquinas de vapor", "motores eléctricos industriales", "iluminación doméstica", "electrodomésticos"]
+respuesta_orden: ["máquinas de vapor", "motores eléctricos industriales", "iluminación doméstica", "electrodomésticos"]
 tipo: ordenar
 opciones_explicitas: ["máquinas de vapor", "motores eléctricos industriales", "iluminación doméstica", "electrodomésticos"]
 
@@ -639,13 +927,9 @@ metadata:
   nivel: "avanzado"
   tags: ["corrientes", "tesla", "edison"]
 
-variables:
-  duelo: uno_de([[0, "Corriente Continua (DC"], [1, "Corriente Alterna (AC"]])
-
-respuesta: duelo[0] == duelo[1]
-
 tipo: mc
-opciones_explicitas: ["Corriente Continua (DC", "Corriente Alterna (AC"]
+opciones_explicitas: ["Corriente Continua (DC)", "Corriente Alterna (AC)"]
+respuesta: "Corriente Continua (DC)"
 
 enunciado: "En la 'Guerra de las Corrientes', ¿qué tipo de corriente defendía Thomas Edison para su sistema de distribución?"
 
@@ -662,7 +946,8 @@ metadata:
 
 respuesta: "iluminación"
 tipo: completar
-respuestas_validas: ["iluminación"]
+respuestas_validas:
+  - "iluminación"
 
 enunciado: "El primer gran cambio que experimentaron los hogares con la llegada de la red eléctrica fue la ___."
 
@@ -679,7 +964,8 @@ metadata:
 
 respuesta: "centralizada"
 tipo: completar
-respuestas_validas: ["centralizada", "distribuida"]
+respuestas_validas:
+  - "centralizada"
 
 enunciado: "A diferencia de los motores eléctricos que permiten una distribución flexible, el sistema de máquinas de vapor dependía de una fuente de energía ___."
 
@@ -694,17 +980,11 @@ metadata:
   nivel: "intermedio"
   tags: ["eficiencia", "motores"]
 
-variables:
-  escenario: uno_de([
-    ["El motor eléctrico permite mover máquinas individuales", "mayor flexibilidad"],
-    ["El motor eléctrico consume menos energía en reposo", "mayor eficiencia"]
-  ])
-
-respuesta: escenario[1
+respuesta: "mayor flexibilidad"
 tipo: mc
 opciones_explicitas: ["mayor flexibilidad", "mayor eficiencia", "menor costo de instalación"]
 
-enunciado: "Al reemplazar la transmisión por correas de cuero de una máquina de vapor por motores eléctricos individuales en cada máquina, se logra principalmente: {escenario[1]}."
+enunciado: "Al reemplazar la transmisión por correas de cuero de una máquina de vapor por motores eléctricos individuales en cada máquina, se logra principalmente:"
 
 explicacion: |
   La electrificación permitió que cada máquina tuviera su propio motor, eliminando la necesidad de mantener todo el sistema funcionando si solo una máquina se necesitaba.
@@ -719,7 +999,8 @@ metadata:
 
 respuesta: "eléctrica"
 tipo: completar
-respuestas_validas: ["eléctrica", "térmica"]
+respuestas_validas:
+  - "eléctrica"
 
 enunciado: "La transición de la energía mecánica a la energía ___ permitió que las fábricas dejaran de depender de la proximidad de fuentes de agua o carbón masivo para sus ejes de transmisión."
 
@@ -735,7 +1016,7 @@ metadata:
   tags: ["cronologia", "procesos"]
 
 opciones_explicitas: ["Implementación de máquinas de vapor", "Instalación de redes eléctricas", "Uso de motores eléctricos individuales", "Sistemas de correas y ejes centrales"]
-respuesta: ["Implementación de máquinas de vapor", "Sistemas de correas y ejes centrales", "Instalación de redes eléctricas", "Uso de motores eléctricos individuales"]
+respuesta_orden: ["Implementación de máquinas de vapor", "Sistemas de correas y ejes centrales", "Instalación de redes eléctricas", "Uso de motores eléctricos individuales"]
 tipo: ordenar
 
 enunciado: "Ordene cronológicamente la evolución de la potencia industrial desde la Primera hasta la Segunda Revolución Industrial:"
@@ -751,17 +1032,11 @@ metadata:
   nivel: "intermedio"
   tags: ["arquitectura", "espacio"]
 
-variables:
-  caso: uno_de([
-    ["una fábrica con motores eléctricos", "espacios más abiertos y seguros"],
-    ["una fábrica con máquinas de vapor", "espacios saturados de ejes y correas"]
-  ])
-
-respuesta: caso[1
+respuesta: "espacios más abiertos y seguros"
 tipo: mc
 opciones_explicitas: ["espacios más abiertos y seguros", "espacios saturados de ejes y correas", "espacios con mayor ruido mecánico"]
 
-enunciado: "Comparado con el sistema de vapor, el uso de {caso[0]} resultó en: {caso[1]}."
+enunciado: "Comparado con el sistema de vapor, el uso de motores eléctricos individuales en cada máquina resultó en:"
 
 explicacion: |
   Al eliminar los enormes ejes de transmisión que atravesaban los techos y suelos de las fábricas, el espacio se volvió más seguro, limpio y versátil.
@@ -795,9 +1070,11 @@ variables:
   escenario_idx: uno_de([0, 1])
   escenario: [["lavadora", "lavado de ropa"], ["refrigerador", "conservación de alimentos"]]
 
-respuesta: escenario[escenario_idx][1
+respuesta: escenario[escenario_idx][1]
 tipo: completar
-respuestas_validas: ["lavado de ropa", "conservación de alimentos"]
+respuestas_validas:
+  - "lavado de ropa"
+  - "conservación de alimentos"
 
 enunciado: "La adopción de la {escenario[escenario_idx][0]} transformó radicalmente el ___."
 
@@ -816,7 +1093,7 @@ metadata:
   nivel: "intermedio"
   tags: ["secuencia", "tecnologia"]
 
-respuesta: ["iluminación", "refrigeración", "comunicación"]
+respuesta_orden: ["iluminación", "refrigeración", "comunicación"]
 tipo: ordenar
 opciones_explicitas: ["iluminación", "refrigeración", "comunicación"]
 
@@ -835,7 +1112,8 @@ metadata:
 
 respuesta: "corriente continua"
 tipo: completar
-respuestas_validas: ["corriente continua"]
+respuestas_validas:
+  - "corriente continua"
 
 enunciado: "Thomas Edison impulsó un sistema de distribución basado en la ___."
 
@@ -850,15 +1128,11 @@ metadata:
   nivel: "intermedio"
   tags: ["tesla", "westinghouse", "corriente_alterna"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [[0, "Tesla y Westinghouse"], [1, "Edison y General Electric"]]
-
-respuesta: escenario[idx][1
+respuesta: "Tesla y Westinghouse"
 tipo: mc
 opciones_explicitas: ["Tesla y Westinghouse", "Edison y General Electric"]
 
-enunciado: "El sistema de corriente alterna, que finalmente se impuso para la distribución a larga distancia, fue promovido principalmente por {escenario[idx][0]}."
+enunciado: "El sistema de corriente alterna, que finalmente se impuso para la distribución a larga distancia, fue promovido principalmente por ___."
 
 explicacion: |
   Nikola Tesla y George Westinghouse desarrollaron el sistema de corriente alterna (AC), permitiendo elevar la tensión con transformadores para el transporte eficiente.
@@ -873,7 +1147,8 @@ metadata:
 
 respuesta: "transformador"
 tipo: completar
-respuestas_validas: ["transformador"]
+respuestas_validas:
+  - "transformador"
 
 enunciado: "La principal ventaja técnica de la corriente alterna sobre la continua en el siglo XIX era la capacidad de modificar el voltaje mediante el uso de un ___."
 
@@ -888,7 +1163,7 @@ metadata:
   nivel: "basico"
   tags: ["personajes"]
 
-respuesta: ["Edison", "Tesla", "Westinghouse"]
+respuesta_orden: ["Edison", "Tesla", "Westinghouse"]
 tipo: ordenar
 
 opciones_explicitas: ["Edison", "Tesla", "Westinghouse"]
@@ -907,14 +1182,16 @@ metadata:
   tags: ["tecnologia", "comparativa"]
 
 variables:
-  idx: uno_de([0, 1])
   datos: [[0, "Alterna", "Larga distancia"], [1, "Continua", "Corta distancia"]]
+  idx: uno_de([0, 1])
+  tipo_corriente: datos[idx][1]
+  distancia: datos[idx][2]
 
-respuesta: datos[idx][1
+respuesta: distancia
 tipo: mc
 opciones_explicitas: ["Larga distancia", "Corta distancia"]
 
-enunciado: "Si comparamos el sistema de {datos[idx][0]}, este fue históricamente preferido para la distribución de ___."
+enunciado: "Si comparamos el sistema de {tipo_corriente}, este fue históricamente preferido para la distribución de ___."
 
 explicacion: |
   La corriente alterna (AC) permite el uso de transformadores para elevar la tensión, lo que minimiza pérdidas y permite llevar energía a ciudades lejanas.
@@ -928,7 +1205,7 @@ metadata:
   tags: ["industria", "motor"]
 
 variables:
-  datos: [["motor_de_induccion", "fábrica"], ["bombilla_incandescente", "hogar"], ["telar_electrico", "fábrica"]]
+  datos: [["motor de inducción", "fábrica"], ["bombilla incandescente", "hogar"], ["telar eléctrico", "fábrica"]]
   idx: uno_de([0,1,2])
 
 respuesta: datos[idx][1]
@@ -948,18 +1225,15 @@ metadata:
   nivel: "basico"
   tags: ["hogar", "iluminacion"]
 
-variables:
-  datos: [["luz_eléctrica", "hogar"], ["máquina_de_vapor", "fábrica"], ["telégrafo", "comunicación"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "hogar"
 tipo: completar
-respuestas_validas: ["fábrica", "hogar", "comunicación"]
+respuestas_validas:
+  - "hogar"
 
-enunciado: "La llegada de la {datos[idx][0]} permitió extender las actividades nocturnas en el ___."
+enunciado: "La llegada de la luz eléctrica permitió extender las actividades nocturnas en el ___."
 
 explicacion: |
-  La {datos[idx][0]} permitió que el ___ cambiara sus hábitos de descanso y ocio.
+  La luz eléctrica permitió que el hogar cambiara sus hábitos de descanso y ocio.
 ```
 
 ```
@@ -969,18 +1243,14 @@ metadata:
   nivel: "intermedio"
   tags: ["produccion", "transicion"]
 
-variables:
-  datos: [["línea_de_montaje", "fábrica"], ["radio_transmisor", "hogar"], ["lavadora", "hogar"]]
-  idx: uno_de([0,1,2])
-
-respuesta: datos[idx][1]
+respuesta: "fábrica"
 tipo: mc
 opciones_explicitas: ["fábrica", "hogar"]
 
-enunciado: "La electrificación de la {datos[idx][0]} fue clave para la producción en serie en la: ___"
+enunciado: "La electrificación de la línea de montaje fue clave para la producción en serie en la: ___"
 
 explicacion: |
-  La {datos[idx][0]} es un ejemplo clásico de la mecanización en la {datos[idx][1]}.
+  La línea de montaje es un ejemplo clásico de la mecanización en la fábrica.
 ```
 
 ```
@@ -990,18 +1260,14 @@ metadata:
   nivel: "avanzado"
   tags: ["orden", "progreso"]
 
-variables:
-  secuencia: ["generación_central", "distribución_red", "consumo_final"]
-  idx: 0
-
-respuesta: ["generación_central", "distribución_red", "consumo_final"]
+respuesta_orden: ["generación central", "distribución en la red", "consumo final"]
 tipo: ordenar
-opciones_explicitas: ["generación_central", "distribución_red", "consumo_final"]
+opciones_explicitas: ["generación central", "distribución en la red", "consumo final"]
 
 enunciado: "Ordena el proceso técnico necesario para que la electricidad llegue desde la central hasta un electrodoméstico:"
 
 explicacion: |
-  El flujo eléctrico sigue la secuencia: {secuencia[0]} -> {secuencia[1]} -> {secuencia[2]}.
+  El flujo eléctrico sigue la secuencia: generación central -> distribución en la red -> consumo final.
 ```
 
 ```
@@ -1012,10 +1278,11 @@ metadata:
   tags: ["tecnologia", "clasificacion"]
 
 variables:
-  datos: [["electrodoméstico", "hogar"], ["transformador_industrial", "fábrica"], ["enchufe_doméstico", "hogar"]]
+  datos: [["electrodoméstico", "hogar"], ["transformador industrial", "fábrica"], ["enchufe doméstico", "hogar"]]
   idx: uno_de([0,1,2])
 
-respuestas_validas: [datos[idx][1]]
+respuestas_validas:
+  - datos[idx][1]
 respuesta: datos[idx][1]
 tipo: completar
 tolerancia_abs: 0
@@ -1026,102 +1293,401 @@ explicacion: |
   El uso de un {datos[idx][0]} es típico del ámbito del {datos[idx][1]}.
 ```
 
-## Sección: entreguerras-y-crisis-de-1929 (24 preguntas)
+## Sección: entreguerras-y-crisis-de-1929 (25 preguntas)
 
 ```
-### 2 — Fecha exacta del "Jueves Negro"
-```
-
-```
-### 3 — Política monetaria del Hoovervilles
-```
-
-```
-### 4 — Tratado de Locarno
-```
-
-```
-### 5 — Ley Smoot-Hawley
-```
-
-```
-### 6 — Ascenso de los nazis y la crisis
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["crisis-economica", "1929", "causas"]
+tipo: mc
+enunciado: "¿Cuál de las siguientes estructuras económicas fue identificada por muchos historiadores como una causa estructural fundamental que impidió la recuperación del mercado de consumo en Estados Unidos antes de la Gran Depresión?"
+opciones_explicitas:
+  - "La fuerte regulación bancaria de la Reserva Federal."
+  - "La sobreproducción industrial y agrícola combinada con un crédito al consumo desmedido y una distribución desigual de la renta."
+  - "El exceso de exportaciones agrícolas hacia Europa devastada por la guerra."
+  - "La escasez de materias primas debido al bloqueo naval de las potencias aliadas."
+respuesta: "La sobreproducción industrial y agrícola combinada con un crédito al consumo desmedido y una distribución desigual de la renta."
+explicacion: "Durante los años 20, la producción aumentó más rápido que los salarios, creando un desequilibrio. El crédito al consumo permitía comprar bienes que la mayoría no podía pagar con su ingreso actual, generando una burbuja de deuda que estalló cuando el mercado se saturó."
 ```
 
 ```
-### 7 — Nueva Política Económica (NEP) en la URSS
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["1929", "bolsa", "cronologia"]
+tipo: vf
+enunciado: "El colapso inicial de la bolsa de Nueva York, conocido como el \"Jueves Negro\", ocurrió el 24 de octubre de 1929, marcando el inicio simbólico de la Gran Depresión."
+respuesta: verdadero
+explicacion: "El jueves 24 de octubre de 1929 fue el primer día de ventas masivas y pánico generalizado. Aunque el \"Martes Negro\" (29 de octubre) fue aún peor en volumen, el Jueves Negro es la fecha tradicionalmente citada como el inicio del colapso financiero."
 ```
 
 ```
-### 8 — Gold Standard y la crisis
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["herbert-hoover", "politica-economica", "respuesta-gobierno"]
+tipo: completar
+enunciado: "El presidente estadounidense Herbert Hoover, aunque reticente a la intervención federal directa masiva, apoyó la creación de la _______ para intentar estabilizar los bancos y las corporaciones en dificultades."
+respuesta: "Reconstruction Finance Corporation"
+respuestas_validas:
+  - "Reconstruction Finance Corporation"
+  - "reconstruction finance corporation"
+  - "RFC"
+  - "Corporación de Financiamiento de la Reconstrucción"
+explicacion: "La RFC (Reconstruction Finance Corporation) fue establecida en 1932 bajo Hoover para prestar dinero a bancos, ferrocarriles y otras instituciones financieras, marcando un paso temprano hacia la intervención federal, aunque insuficiente para detener la crisis."
 ```
 
 ```
-### 9 — Elección de FDR
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["diplomacia", "locarno", "estabilidad-relativa"]
+tipo: mc
+enunciado: "Los Pactos de Locarno (1925) tuvieron un impacto significativo en la diplomacia europea antes de la crisis de 1929. ¿Cuál fue su principal efecto?"
+opciones_explicitas:
+  - "Establecieron las fronteras orientales de Alemania con Polonia y Checoslovaquia de manera irreversible."
+  - "Garantizaron las fronteras occidentales de Alemania y permitieron su entrada en la Sociedad de Naciones, mejorando temporalmente la confianza entre potencias."
+  - "Imponían sanciones económicas automáticas a cualquier nación que rearmara sin autorización."
+  - "Crearon una unión aduanera entre Alemania, Francia e Italia."
+respuesta: "Garantizaron las fronteras occidentales de Alemania y permitieron su entrada en la Sociedad de Naciones, mejorando temporalmente la confianza entre potencias."
+explicacion: "Locarno vio a Alemania, Francia y Bélgica garantizar sus fronteras comunes. Esto llevó a la entrada de Alemania en la Sociedad de Naciones en 1926, creando la llamada \"Espíritu de Locarno\", una breve era de reconciliación que se desvaneció con la crisis."
 ```
 
 ```
-### 10 — Ley de Recuperación Industrial Nacional (NIRA)
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["comercio", "proteccionismo", "smoot-hawley"]
+tipo: completar
+enunciado: "La _______ de 1930 elevó los aranceles estadounidenses a niveles históricos, provocando represalias comerciales globales y profundizando la Gran Depresión."
+respuesta: "Ley Smoot-Hawley"
+respuestas_validas:
+  - "Ley Smoot-Hawley"
+  - "ley smoot-hawley"
+  - "Smoot-Hawley Tariff Act"
+  - "arancel smoot-hawley"
+explicacion: "La Ley Smoot-Hawley aumentó los aranceles a más de 20.000 productos importados. Esto provocó que otros países elevaran sus propios aranceles, colapsando el comercio internacional y reduciendo drásticamente el volumen de intercambios globales."
 ```
 
 ```
-### 11 — Exodo de los Dust Bowl
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["nazismo", "alemania", "crisis-politica"]
+tipo: mc
+enunciado: "¿Cómo contribuyó específicamente la Gran Depresión al ascenso electoral del Partido Nazi (NSDAP) en Alemania entre 1929 y 1933?"
+opciones_explicitas:
+  - "Al garantizar que Hitler fuera nombrado canciller directamente por el presidente Hindenburg en 1930."
+  - "Al provocar una hiperinflación que arruinó a la clase media, haciendo que apoyaran al SPD."
+  - "Al causar un desempleo masivo y desesperación social que erosionó la legitimidad de la República de Weimar y favoreció a los extremos políticos."
+  - "Al permitir que Alemania recibiera más préstamos de EE.UU. que usó para financiar propaganda nazi."
+respuesta: "Al causar un desempleo masivo y desesperación social que erosionó la legitimidad de la República de Weimar y favoreció a los extremos políticos."
+explicacion: "La crisis eliminó los préstamos estadounidenses (efecto de la retirada de capitales), provocando quiebras bancarias y desempleo masivo. Esto debilitó a los partidos moderados y hizo que los votores buscaran soluciones radicales, beneficiando a los nazis y comunistas."
 ```
 
 ```
-### 12 — Tratado de Rappallo
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["urss", "stalin", "nep", "industrializacion"]
+tipo: vf
+enunciado: "Durante la Gran Depresión en Occidente, Stalin mantuvo la Nueva Política Económica (NEP) intacta para proteger a la Unión Soviética del impacto del capitalismo global."
+respuesta: falso
+explicacion: "Stalin abandonó la NEP a finales de los años 20 e inició los Planes Quinquenales, centrados en la industrialización forzada y la colectivización agrícola, independientemente de la crisis capitalista, buscando la autosuficiencia y el desarrollo industrial rápido."
 ```
 
 ```
-### 13 — Ley de Reorganización Bancaria
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["oro", "tipo-cambio", "economia-monetaria"]
+tipo: completar
+enunciado: "La adhesión a la _______ por parte de muchas naciones europeas durante la crisis limitó la capacidad de sus gobiernos para devaluar sus monedas y estimular la economía doméstica."
+respuesta: "Gold Standard"
+respuestas_validas:
+  - "Gold Standard"
+  - "gold standard"
+  - "patrón oro"
+  - "estandar oro"
+  - "patrón de oro"
+explicacion: "Bajo el patrón oro, los países debían mantener reservas de oro. Para defender la convertibilidad, tuvieron que subir tasas de interés y contraer la oferta monetaria, lo que profundizó la deflación y la recesión. Gran Bretaña abandonó el patrón oro en 1931, recuperando flexibilidad monetaria."
 ```
 
 ```
-### 14 — Ascenso del fascismo en Italia
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["fdr", "new-deal", "elecciones"]
+tipo: mc
+enunciado: "¿Qué factor político clave permitió a Franklin D. Roosevelt ganar las elecciones de 1932 con una mayoría abrumadora?"
+opciones_explicitas:
+  - "La popularidad de la Liga de las Naciones."
+  - "El fracaso percibido de la administración de Herbert Hoover para manejar la crisis económica y social."
+  - "Un pacto secreto con el Partido Comunista de EE.UU."
+  - "La intervención militar directa de EE.UU. en Europa."
+respuesta: "El fracaso percibido de la administración de Herbert Hoover para manejar la crisis económica y social."
+explicacion: "La percepción de que Hoover era indiferente al sufrimiento popular (\"Hoovervilles\", \"Hoover flags\") y que sus políticas eran insuficientes, llevó a un cambio de régimen masivo hacia el New Deal de FDR, prometiendo acción federal activa."
 ```
 
 ```
-### 15 — Plan Dawes
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["new-deal", "nira", "constitucionalidad"]
+tipo: vf
+enunciado: "La Ley de Recuperación Industrial Nacional (NIRA) de 1933 fue declarada inconstitucional por la Corte Suprema de EE.UU. en 1935."
+respuesta: verdadero
+explicacion: "En el caso *Schechter Poultry Corp. v. United States*, la Corte Suprema dictaminó que la NIRA delegaba demasiado poder legislativo al ejecutivo y regulaba negocios intrastatales, excediendo la autoridad constitucional de la Unión."
 ```
 
 ```
-### 16 — Ley de Restricción de Inmigración de 1924
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["dust-bowl", "medio-ambiente", "migracion"]
+tipo: completar
+enunciado: "La combinación de sequía severa y prácticas agrícolas inadecuadas en las llanuras centrales de EE.UU. provocó las tormentas de polvo conocidas como _______."
+respuesta: "Dust Bowl"
+respuestas_validas:
+  - "Dust Bowl"
+  - "dust bowl"
+  - "Gran Tormenta de Polvo"
+  - "la gran tormenta de polvo"
+explicacion: "El Dust Bowl (mediados de los años 30) devastó la agricultura, forzando la migración de cientos de miles de personas (los \"Okies\") hacia California, generando una crisis humanitaria y social adicional a la depresión económica."
 ```
 
 ```
-### 17 — Crisis del Sarre
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["alemania", "urss", "diplomacia-secreta"]
+tipo: mc
+enunciado: "El Tratado de Rappallo (1922) fue significativo para la Alemania de Weimar porque:"
+opciones_explicitas:
+  - "Le permitió rearmarse secretamente en territorio soviético, eludiendo las cláusulas militares del Tratado de Versalles."
+  - "Estableció la zona desmilitarizada del Rin."
+  - "Otorgó a Alemania el control de las minas de carbón del Sarre."
+  - "Fue el primer acuerdo de reparación de guerra pagado a Rusia."
+respuesta: "Le permitió rearmarse secretamente en territorio soviético, eludiendo las cláusulas militares del Tratado de Versalles."
+explicacion: "Alemania y la URSS normalizaron relaciones y firmaron acuerdos secretos de cooperación militar y económica. Esto permitió a Alemania entrenar tropas y desarrollar armas prohibidas por Versalles, sentando las bases del futuro rearme nazi."
 ```
 
 ```
-### 18 — Ley de Seguro de Desempleo
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["new-deal", "bancos", "glass-steagall"]
+tipo: completar
+enunciado: "La _______ de 1933 cerró temporalmente todos los bancos en EE.UU. para detener las corridas bancarias y restablecer la confianza en el sistema financiero."
+respuesta: "Ley de Reorganización Bancaria"
+respuestas_validas:
+  - "Ley de Reorganización Bancaria"
+  - "ley de reorganizacion bancaria"
+  - "Banking Act of 1933"
+  - "Ley Bancaria de 1933"
+explicacion: "Conocida como el \"Bank Holiday\", esta medida de emergencia detuvo el pánico bancario. Posteriormente, la Ley Glass-Steagall (parte de esta legislación) separó la banca comercial de la de inversión."
 ```
 
 ```
-### 19 — Conferencia de Génova
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["mussolini", "fascismo", "italia"]
+tipo: vf
+enunciado: "Benito Mussolini llegó al poder en Italia principalmente como respuesta directa a la crisis económica de 1929, ya que la economía italiana estaba completamente intacta antes de esa fecha."
+respuesta: falso
+explicacion: "Mussolini llegó al poder en 1922, mucho antes de la crisis de 1929. Su ascenso se debió a la inestabilidad política post-Primera Guerra Mundial, el miedo al comunismo (Biennio Rosso) y la crisis económica de posguerra (1919-1921), no a la Gran Depresión."
 ```
 
 ```
-### 20 — Ley de Autorización de Préstamos a Beligerantes (Cash and Carry)
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["reparaciones", "alemania", "dawes"]
+tipo: mc
+enunciado: "¿Cuál era el mecanismo principal del Plan Dawes (1924) para manejar las reparaciones de guerra de Alemania?"
+opciones_explicitas:
+  - "Cancelar todas las deudas de Alemania a cambio de concesiones territoriales."
+  - "Proporcionar préstamos internacionales (principalmente de EE.UU.) a Alemania para que pagara a los aliados, quienes a su vez pagaban a EE.UU."
+  - "Transformar las reparaciones en bienes naturales extraídos directamente de la Ruhr."
+  - "Establecer un fondo de compensación mutua entre todas las potencias europeas."
+respuesta: "Proporcionar préstamos internacionales (principalmente de EE.UU.) a Alemania para que pagara a los aliados, quienes a su vez pagaban a EE.UU."
+explicacion: "El Plan Dawes creó un círculo vicioso de deuda: Alemania dependía de préstamos estadounidenses para pagar a Francia/Reino Unido, que usaban ese dinero para pagar sus propias deudas a EE.UU. Cuando los préstamos se detuvieron en 1929, el sistema colapsó."
 ```
 
 ```
-### 21 — Ley de Reembolso de los Veteranos (Bonus March)
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["inmigracion", "eeuu", "nacionalismo"]
+tipo: completar
+enunciado: "La Ley de Inmigración de 1924 estableció cuotas basadas en el censo de _______ para reducir drásticamente la inmigración desde el sur y este de Europa."
+respuesta: 1890
+respuestas_validas:
+  - 1890
+  - "mil ochocientos noventa"
+  - "censo de 1890"
+explicacion: "Al usar el censo de 1890 (antes de la gran ola de inmigrantes del sur/este de Europa), EE.UU. favorecía a los inmigrantes del norte y oeste de Europa, reflejando un fuerte sentimiento nativista y racial antes de la crisis de 1929."
 ```
 
 ```
-### 22 — Pacto Anticomintern
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["sarre", "francia", "reparaciones"]
+tipo: mc
+enunciado: "¿Qué implicación tuvo la ocupación de la zona del Sarre por fuerzas francesas y belgas en 1923 para la estabilidad europea?"
+opciones_explicitas:
+  - "Provocó la retirada inmediata de EE.UU. de la región."
+  - "Generó la pasividad activa (o resistencia pasiva) alemana, hiperinflación y la ruptura de la confianza diplomática previa a Locarno."
+  - "Llevó a la creación inmediata de la Sociedad de Naciones."
+  - "Aseguró el pago completo de las reparaciones alemanas."
+respuesta: "Generó la pasividad activa (o resistencia pasiva) alemana, hiperinflación y la ruptura de la confianza diplomática previa a Locarno."
+explicacion: "La ocupación de la Ruhr/Sarre por Francia y Bélgica para asegurar reparaciones impagas llevó a Alemania a detener los pagos y fomentar la resistencia pasiva, causando hiperinflación y aislamiento diplomático, lo que debilitó la República de Weimar."
 ```
 
 ```
-### 23 — Ley de Regulación de la Industria Azucarera
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["new-deal", "seguridad-social"]
+tipo: vf
+enunciado: "El Seguro de Desempleo federal en Estados Unidos fue establecido inicialmente como parte de la Ley de Seguridad Social (Social Security Act) de 1935."
+respuesta: verdadero
+explicacion: "La Ley de Seguridad Social de 1935 creó el sistema federal de seguro de desempleo, pagado conjuntamente por empleadores y empleados, marcando el inicio de la red de seguridad social moderna en EE.UU., tras intentos previos fallidos a nivel estatal."
 ```
 
 ```
-### 24 — Conferencia de Lausana
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["economia-internacional", "genova", "libre-cambio"]
+tipo: mc
+enunciado: "¿Cuál fue el objetivo principal de la Conferencia Económica Internacional de Génova en 1922?"
+opciones_explicitas:
+  - "Establecer un arancel único para toda Europa."
+  - "Restaurar la convertibilidad de las monedas europeas al patrón oro y promover el libre comercio."
+  - "Imponer sanciones económicas a la Unión Soviética."
+  - "Crear una unión monetaria europea."
+respuesta: "Restaurar la convertibilidad de las monedas europeas al patrón oro y promover el libre comercio."
+explicacion: "Génova buscaba estabilizar las monedas europeas dañadas por la guerra y reintegrar a Alemania y la URSS en la economía global, aunque sus resultados fueron limitados y muchos países mantuvieron controles de cambio por años."
 ```
 
 ```
-### 25 — Ley de Vivienda de Emergencia
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["aislacionismo", "lley-neutralidad", "pre-guerra"]
+tipo: completar
+enunciado: "La Ley de Neutralidad de 1939 permitió a las naciones aliadas comprar armas a EE.UU. bajo la política de _______ y pago inmediato en efectivo."
+respuesta: "Cash and Carry"
+respuestas_validas:
+  - "Cash and Carry"
+  - "cash and carry"
+  - "pago en efectivo y transporte propio"
+  - "efectivo y transporte propio"
+explicacion: "Esta política, aunque mantenía la neutralidad formal, benefició a Gran Bretaña y Francia, ya que podían transportar las armas por mar, mientras que Alemania no podía acceder a ellas debido al bloqueo naval británico."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["veteranos", "bonus", "protesta"]
+tipo: mc
+enunciado: "¿Qué efecto tuvo la represión de la \"Bonus Army\" por George Patton en 1932 en la opinión pública?"
+opciones_explicitas:
+  - "Consolidó el apoyo a Hoover como líder fuerte."
+  - "Generó una ola de simpatía hacia los veteranos y aumentó la crítica a la dureza del gobierno federal ante la crisis."
+  - "No tuvo impacto político significativo."
+  - "Llevó a la creación inmediata del Departamento de Asuntos de Veteranos."
+respuesta: "Generó una ola de simpatía hacia los veteranos y aumentó la crítica a la dureza del gobierno federal ante la crisis."
+explicacion: "La marcha de veteranos desempleados que pedían el pago anticipado de su bono de guerra fue dispersada violentamente por el ejército. Esto fue visto como una crueldad injusta y contribuyó a la derrota de Hoover en 1932."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["pacto-antikomintern", "alemania", "japon", "urss"]
+tipo: completar
+enunciado: "El _______ Anticomintern, firmado inicialmente por Alemania y Japón en 1936, fue un acuerdo para coordinar la oposición a la influencia de la Komintern soviética."
+respuesta: "Pacto"
+respuestas_validas:
+  - "Pacto"
+  - "pacto"
+  - "Anti-Comintern Pact"
+  - "anti-comintern pact"
+explicacion: "Inicialmente dirigido contra la URSS, este pacto sirvió para alinear a las potencias fascistas. Italia se unió después, y aunque fue una declaración ideológica, también sentó las bases para la posterior alianza del Eje."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["new-deal", "agricultura", "aaa"]
+tipo: vf
+enunciado: "La Ley de Ajuste Agrícola (AAA) de 1933 buscó aumentar los precios agrícolas pagando a los productores para que redujeran la producción y mataran ganado existente."
+respuesta: verdadero
+explicacion: "La AAA intentó combatir la deflación rural pagando a los granjeros para que dejaran de cultivar y destruyeran excedentes (ganado, cultivos). Esto fue controversial pero logró subir los precios agrícolas, aunque perjudicó a los inquilinos y trabajadores agrícolas."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["reparaciones", "lausana", "fin-reparaciones"]
+tipo: mc
+enunciado: "¿Qué resultado clave tuvo la Conferencia de Lausana en 1932 respecto a las reparaciones alemanas?"
+opciones_explicitas:
+  - "Aumentó las reparaciones un 50%."
+  - "Suspendió efectivamente el pago de reparaciones de guerra, llevando a su cancelación de facto un año después."
+  - "Obligó a Alemania a hipotecar sus ferrocarriles."
+  - "Estableció un pago único definitivo de 10.000 millones de marcos."
+respuesta: "Suspendió efectivamente el pago de reparaciones de guerra, llevando a su cancelación de facto un año después."
+explicacion: "La Conferencia de Lausana suspendió los pagos de reparaciones. En 1933, se llegó a un acuerdo de facto donde Alemania no pagaría más reparaciones, liberándola de esa carga económica pero también aislándola financieramente de Occidente."
+```
+
+```
+metadata:
+  materia: "historia_profunda"
+  tema: "entreguerras-y-crisis-de-1929"
+  nivel: "avanzado"
+  tags: ["new-deal", "vivienda", "fhla"]
+tipo: completar
+enunciado: "La _______ de Vivienda de Emergencia de 1933 creó la Federal Home Loan Bank para estabilizar el sector inmobiliario y facilitar el crédito hipotecario."
+respuesta: "Ley"
+respuestas_validas:
+  - "Ley"
+  - "ley"
+  - "Emergency Housing Act"
+  - "emergency housing act"
+explicacion: "Esta ley fue parte de los primeros días del New Deal, buscando evitar los desalojos masivos y la quiebra de los bancos hipotecarios, sentando las bases para la posterior creación de la FHLB y la regulación del mercado hipotecario."
 ```
 
 ## Sección: escalas-de-tiempo-profundo (25 preguntas)
@@ -1135,7 +1701,8 @@ metadata:
 
 respuesta: "13800"
 tipo: completar
-respuestas_validas: ["13800"]
+respuestas_validas:
+  - "13800"
 
 enunciado: "Según los modelos cosmológicos actuales basados en la radiación de fondo de microondas, la edad estimada del universo es de aproximadamente ___ millones de años."
 
@@ -1152,7 +1719,8 @@ metadata:
 
 respuesta: "4600 millones de años"
 tipo: completar
-respuestas_validas: ["4600 millones de años"]
+respuestas_validas:
+  - "4600 millones de años"
 
 enunciado: "La formación de la Tierra ocurrió hace aproximadamente ___."
 
@@ -1169,7 +1737,8 @@ metadata:
 
 respuesta: "evolucionado"
 tipo: completar
-respuestas_validas: ["evolucionado"]
+respuestas_validas:
+  - "evolucionado"
 
 enunciado: "Nuestra intuición no está calibrada para las escalas de tiempo profundo porque nuestro cerebro ha ___ para sobrevivir en entornos de corto plazo."
 
@@ -1186,7 +1755,8 @@ metadata:
 
 respuesta: "4600"
 tipo: completar
-respuestas_validas: ["4600"]
+respuestas_validas:
+  - "4600"
 
 enunciado: "Si el universo tiene 13.800 millones de años, la Tierra tiene aproximadamente ___ millones de años."
 
@@ -1203,7 +1773,8 @@ metadata:
 
 respuesta: "insignificante"
 tipo: completar
-respuestas_validas: ["insignificante"]
+respuestas_validas:
+  - "insignificante"
 
 enunciado: "En comparación con la escala de tiempo de la formación de la corteza terrestre, la duración de la civilización humana es prácticamente ___."
 
@@ -1254,7 +1825,8 @@ metadata:
 
 respuesta: "mil millones"
 tipo: completar
-respuestas_validas: ["mil millones"]
+respuestas_validas:
+  - "mil millones"
 
 enunciado: "El valor de un 'billion' en inglés es equivalente, en español, a ___."
 
@@ -1271,7 +1843,9 @@ metadata:
 
 respuesta: "4.5 x 10^9"
 tipo: completar
-respuestas_validas: ["4.5 x 10^9", "4.5x10^9"]
+respuestas_validas:
+  - "4.5 x 10^9"
+  - "4.5x10^9"
 
 enunciado: "La edad estimada de la Tierra es de aproximadamente 4,5 mil millones de años. Expresá este número en notación científica (formato N x 10^x)."
 
@@ -1305,7 +1879,8 @@ metadata:
 
 enunciado: "Si comprimiéramos los 13.800 millones de años de la historia del universo en un solo año calendario, el evento del Big Bang ocurriría el día ___ de enero."
 
-respuestas_validas: ["1"]
+respuestas_validas:
+  - "1"
 respuesta: "1"
 tipo: completar
 
@@ -1322,7 +1897,8 @@ metadata:
 
 respuesta: "septiembre"
 tipo: completar
-respuestas_validas: ["septiembre"]
+respuestas_validas:
+  - "septiembre"
 
 enunciado: "Si el Big Bang es el 1 de enero, la formación de la Tierra ocurriría aproximadamente el 1° de ___."
 
@@ -1339,7 +1915,8 @@ metadata:
 
 respuesta: "24 de diciembre"
 tipo: completar
-respuestas_validas: ["24 de diciembre"]
+respuestas_validas:
+  - "24 de diciembre"
 
 enunciado: "La era de los dinosaurios (que terminó hace unos 66 millones de años) se ubicaría en el calendario cósmico alrededor del ___."
 
@@ -1356,7 +1933,8 @@ metadata:
 
 enunciado: "La historia de la humanidad escrita (desde la invención de la escritura) ocupa apenas unos segundos del día ___ de diciembre."
 
-respuestas_validas: ["31"]
+respuestas_validas:
+  - "31"
 respuesta: "31"
 tipo: completar
 
@@ -1425,7 +2003,7 @@ metadata:
   tags: ["comparacion", "escala"]
 
 opciones_explicitas: ["Historia escrita", "Homo sapiens", "Edad de la Tierra"]
-respuesta: ["Historia escrita", "Homo sapiens", "Edad de la Tierra"]
+respuesta_orden: ["Historia escrita", "Homo sapiens", "Edad de la Tierra"]
 tipo: ordenar
 
 enunciado: "Ordená de MENOR a MAYOR duración estos 3 lapsos de tiempo:"
@@ -1443,7 +2021,10 @@ metadata:
 
 enunciado: "Para entender la 'Historia Profunda', debemos entender que la actividad humana es una escala de tiempo ___ en comparación con los procesos geológicos."
 
-respuestas_validas: ["minúscula", "insignificante", "pequeña"]
+respuestas_validas:
+  - "minúscula"
+  - "insignificante"
+  - "pequeña"
 
 respuesta: "minúscula"
 tipo: completar
@@ -1542,7 +2123,10 @@ variables:
 
 enunciado: "Un eón es una unidad de tiempo geológico muy larga. Si un período geológico duró {eon_datos[idx][0]} años, su valor en notación científica es ___ años."
 
-respuestas_validas: ["1.5e9", "2.0e9", "2.5e9"]
+respuestas_validas:
+  - "1.5e9"
+  - "2.0e9"
+  - "2.5e9"
 respuesta: eon_datos[idx][1]
 tipo: completar
 
@@ -1563,10 +2147,14 @@ variables:
 
 enunciado: "Si un evento ocurrió hace {comparacion[idx][0]} años, la forma abreviada en notación científica es ___."
 
-respuestas_validas: ["1e9", "1e8", "1e6"]
+respuestas_validas:
+  - "1e9"
+  - "1e8"
+  - "1e6"
 respuesta: comparacion[idx][1]
 tipo: completar
 
 explicacion: |
   La notación científica permite manejar grandes escalas de tiempo de forma eficiente, expresando el número como una potencia de 10.
 ```
+

@@ -1,1599 +1,615 @@
-# Examen jefe — Maestro de Guerras e Independencias
+# Examen jefe — [PENDIENTE #723]
 
-> Logro #123. Completaste el examen sobre las guerras, independencias y la historia cultural de Argentina y el mundo. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **119 preguntas totales** en 5/5 secciones.
+> Logro #723. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: guerra-civil-espanola-1936-1939 (26 preguntas)
+## Sección: rosas-y-la-confederacion (24 preguntas)
 
 ```
 metadata:
   materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
+  tema: "rosas_y_la_confederacion"
   nivel: "basico"
-  tags: ["causas", "polarizacion"]
+  tags: ["confederacion", "urquiza", "constitucion"]
 
 variables:
-  anio_estallido: 1936
+  anio_constitucion: 1853
+  provincia_congreso: "Santa Fe"
 
-respuesta: "1936"
+respuesta: "1853"
 tipo: input
 
-enunciado: "En qué año comenzó oficialmente el conflicto armado interno conocido como la Guerra Civil Española?"
+enunciado: "Tras la batalla de Caseros, Urquiza convocó al Congreso Constituyente en {provincia_congreso}. ¿En qué año se promulgó la nueva Constitución?"
 
 explicacion: |
-  El conflicto estalló tras el intento de golpe de Estado en julio de 1936, marcando el fin de la Segunda República.
+  La Constitución de 1853 fue el resultado directo de la convocatoria de Urquiza para organizar la nación tras la caída de Rosas.
 ```
 
 ```
 metadata:
   materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
+  tema: "rosas_y_la_confederacion"
   nivel: "basico"
-  tags: ["bandos", "nacionalistas"]
+  tags: ["unitarios", "federales", "caseros"]
 
 variables:
-  lider: uno_de(["Francisco Franco", "José Sanjurjo"])
+  lider_coalicion: "Justo José de Urquiza"
+  lider_federal: "Juan Manuel de Rosas"
 
-respuesta: "Francisco Franco"
+respuesta: "Justo José de Urquiza"
 tipo: input
 
-enunciado: "¿Quién lideró finalmente al bando sublevado o nacionalista hasta el final de la guerra?"
+enunciado: "¿Quién lideró el 'Ejército Grande' que derrotó al ejército de {lider_federal} en Caseros?"
 
 explicacion: |
-  Aunque José Sanjurjo fue clave inicialmente, murió en un accidente aéreo. Francisco Franco se consolidó como el líder supremo del bando nacionalista.
+  Justo José de Urquiza, gobernador federal de Entre Ríos, lideró la coalición (con Brasil, Uruguay y Corrientes) contra Rosas — una ruptura dentro del propio federalismo, no un regreso de los unitarios al poder.
 ```
 
 ```
 metadata:
   materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
+  tema: "rosas_y_la_confederacion"
   nivel: "intermedio"
-  tags: ["diplomacia", "occidente"]
+  tags: ["soberania", "intervencion", "obligado"]
 
 variables:
-  pais: uno_de(["Reino Unido", "Francia", "Estados Unidos"])
+  pais_a: "Gran Bretaña"
+  pais_b: "Francia"
 
-respuesta: "no intervención"
+respuesta: "Gran Bretaña y Francia"
 tipo: input
 
-enunciado: "¿Qué política adoptaron las democracias liberales como {pais} ante el conflicto?"
+enunciado: "En la batalla de la Vuelta de Obligado (1845), las fuerzas rosistas enfrentaron a una flota conjunta de {pais_a} y {pais_b}."
 
 explicacion: |
-  Estas potencias adoptaron una política de "no intervención", lo que dejó a la República en desventaja frente a los apoyos extranjeros a los nacionalistas.
+  La intervención anglo-francesa buscaba abrir el comercio del Paraná. La resistencia simbolizó la defensa de la soberanía nacional.
 ```
 
 ```
 metadata:
   materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "basico"
-  tags: ["bandos", "republica"]
-
-variables:
-  nombre_bando: "republicano"
-
-respuesta: "republicano"
-tipo: input
-
-enunciado: "¿Cómo se denominaba al bando que defendía al gobierno legítimo de la Segunda República?"
-
-explicacion: |
-  El bando republicano o leal defendía la legalidad constitucional frente al golpe de Estado.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
+  tema: "rosas_y_la_confederacion"
   nivel: "intermedio"
-  tags: ["batallas", "madrid"]
+  tags: ["causas", "alianzas", "caseros"]
 
 variables:
-  ciudad: "Madrid"
+  factor_interno: "disidencia provincial"
+  factor_externo: "intervencion extranjera"
 
-respuesta: "Madrid"
+respuesta: "disidencia provincial"
 tipo: input
 
-enunciado: "¿Qué capital resistió heroicamente durante años bajo asedio nacionalista?"
+enunciado: "La caída de Rosas se debió a una alianza entre fuerzas internas motivadas por el {factor_interno} y la presión externa."
 
 explicacion: |
-  Madrid fue un símbolo de la resistencia republicana y permaneció en manos republicanas hasta el final de la guerra.
+  El descontento de las provincias interiores con la hegemonía porteña fue clave para que Urquiza, al frente del Ejército Grande, pudiera vencer a Rosas.
 ```
 
 ```
 metadata:
   materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
+  tema: "rosas_y_la_confederacion"
   nivel: "avanzado"
-  tags: ["sociedad", "polarizacion"]
+  tags: ["simbolismo", "soberania"]
 
 variables:
-  grupo_opositor: uno_de(["derecha conservadora", "jerarquía católica", "gran parte del ejército"])
+  concepto_clave: "defensa de la soberanía"
 
-respuesta: "derecha conservadora"
+respuesta: "defensa de la soberanía"
 tipo: input
 
-enunciado: "¿Qué sector vio las reformas republicanas como una amenaza existencial al 'España tradicional'?"
+enunciado: "Aunque fue una derrota militar, la Vuelta de Obligado se recuerda principalmente por su valor simbólico de {concepto_clave} frente al intervencionismo."
 
 explicacion: |
-  La derecha conservadora, la jerarquía católica y gran parte del ejército se opusieron a las reformas progresistas.
+  El sacrificio de las tropas rosistas elevó la causa de la independencia nacional a un símbolo patrio, trascendiendo el resultado táctico.
 ```
 
 ```
 metadata:
   materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["unidad", "fragmentacion"]
+
+variables:
+  resultado_politico: "profundizó la división"
+
+respuesta: "profundizó la división"
+tipo: input
+
+enunciado: "¿Cuál fue el efecto político inmediato de la victoria de Urquiza en Caseros: la unificación nacional o {resultado_politico}?"
+
+explicacion: |
+  La victoria no trajo unidad inmediata; por el contrario, aisló a Buenos Aires y profundizó la brecha entre la provincia y el resto del país.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
   nivel: "basico"
-  tags: ["politica", "frente_popular"]
+  tags: ["batallas", "soberania"]
 
 variables:
-  alianza: "Frente Popular"
+  fecha_correcta: "20 de noviembre de 1845"
+  fecha_falsa: "3 de febrero de 1852"
 
-respuesta: "Frente Popular"
-tipo: input
-
-enunciado: "¿Cómo se llamaba la coalición de izquierdas que apoyaba las reformas progresistas antes de la guerra?"
-
-explicacion: |
-  El Frente Popular ganó las elecciones en 1936, representando a quienes apoyaban la modernización y las reformas.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "intermedio"
-  tags: ["estrategia", "frentes"]
-
-variables:
-  tipo_guerra: "desgaste"
-
-respuesta: "desgaste"
-tipo: input
-
-enunciado: "¿Qué tipo de guerra caracterizó al frente de batalla, además de la brutalidad de ambos bandos?"
-
-explicacion: |
-  Fue una guerra de desgaste donde el control territorial se perdió progresivamente para la República.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "intermedio"
-  tags: ["territorio", "autonomias"]
-
-variables:
-  region: uno_de(["Cataluña", "País Vasco"])
-
-respuesta: "Cataluña"
-tipo: input
-
-enunciado: "¿Qué región recibió reconocimiento de autonomía por parte del gobierno republicano, lo que generó resistencia conservadora?"
-
-explicacion: |
-  Cataluña y el País Vasco fueron regiones clave que buscaron o recibieron mayores autonomías, vistas como amenazas por la derecha.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "intermedio"
-  tags: ["reformas", "iglesia"]
-
-variables:
-  reforma: "secularización"
-
-respuesta: "secularización"
-tipo: input
-
-enunciado: "¿Qué medida de modernización del gobierno republicano fue vista como una amenaza por la jerarquía católica?"
-
-explicacion: |
-  La secularización implicaba separar la iglesia del estado, reducir su influencia educativa y legal, lo que enfureció a los conservadores.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "intermedio"
-  tags: ["reformas", "tierra"]
-
-variables:
-  reforma: "reforma agraria"
-
-respuesta: "reforma agraria"
-tipo: input
-
-enunciado: "¿Qué medida buscaba redistribuir la tierra y fue defendida por el Frente Popular?"
-
-explicacion: |
-  La reforma agraria era una de las principales demandas de la izquierda para modernizar el campo español.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "basico"
-  tags: ["inicio", "golpe"]
-
-variables:
-  evento: "golpe de Estado"
-
-respuesta: "golpe de Estado"
-tipo: input
-
-enunciado: "¿Qué evento desencadenó directamente la guerra civil tras ser parcialmente fallido?"
-
-explicacion: |
-  El intento de golpe de Estado en julio de 1936 no logró tomar el poder inmediatamente, derivando en conflicto armado.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "basico"
-  tags: ["final", "cronologia"]
-
-variables:
-  anio_fin: 1939
-
-respuesta: "1939"
-tipo: input
-
-enunciado: "¿En qué año terminó la Guerra Civil Española con la victoria del bando nacionalista?"
-
-explicacion: |
-  La guerra terminó en 1939, iniciando la dictadura de Franco que duraría hasta 1975.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "avanzado"
-  tags: ["brutalidad", "guerra_aerea"]
-
-variables:
-  evento: "Guernica"
-
-respuesta: "Guernica"
-tipo: input
-
-enunciado: "¿Qué pueblo fue bombardeado por la Legión Cóndor alemana, convirtiéndose en símbolo de la brutalidad aérea?"
-
-explicacion: |
-  El bombardeo de Guernica fue un ataque indiscriminado que inspiró la famosa pintura de Picasso.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "intermedio"
-  tags: ["intervencion", "internacional"]
-
-variables:
-  bando: "republicano"
-
-respuesta: "republicano"
-tipo: input
-
-enunciado: "¿A qué bando se unieron voluntarios internacionales conocidos como las Brigadas Internacionales?"
-
-explicacion: |
-  Las Brigadas Internacionales apoyaron principalmente al bando republicano, aunque la "no intervención" oficial dificultó su llegada.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "avanzado"
-  tags: ["ideologia", "conflicto"]
-
-variables:
-  tipo_division: "ideológica"
-
-respuesta: "ideológica"
-tipo: input
-
-enunciado: "¿Qué tipo de división, más allá de la política, transformó la disputa electoral en una lucha por la supervivencia nacional?"
-
-explicacion: |
-  La división fue ideológica y cultural, entre dos visiones incompatibles de la nación: la moderna y la tradicional.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "intermedio"
-  tags: ["contexto", "segunda_republica"]
-
-variables:
-  factor: "inestabilidad institucional"
-
-respuesta: "inestabilidad institucional"
-tipo: input
-
-enunciado: "¿Qué factor previo creó un clima de violencia latente en la Segunda República?"
-
-explicacion: |
-  La inestabilidad institucional, sumada a huelgas y enfrentamientos, preparó el terreno para la guerra.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "intermedio"
-  tags: ["sociedad", "huelgas"]
-
-variables:
-  fenomeno: "huelgas generalizadas"
-
-respuesta: "huelgas generalizadas"
-tipo: input
-
-enunciado: "¿Qué fenómeno social caracterizó la intensa polarización antes de la guerra?"
-
-explicacion: |
-  Las huelgas generalizadas reflejaban el conflicto laboral y social entre obreros y patronos.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "intermedio"
-  tags: ["economia", "conservadurismo"]
-
-variables:
-  valor: "propiedad privada"
-
-respuesta: "propiedad privada"
-tipo: input
-
-enunciado: "¿Qué valor defendían los sublevados como parte del orden tradicional?"
-
-explicacion: |
-  Los nacionalistas defendían la propiedad privada y el orden tradicional contra las reformas republicanas.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "intermedio"
-  tags: ["iglesia", "religion"]
-
-variables:
-  institucion: "Iglesia"
-
-respuesta: "Iglesia"
-tipo: input
-
-enunciado: "¿Qué institución tuvo a la jerarquía católica como opositora clave de las reformas republicanas?"
-
-explicacion: |
-  La jerarquía católica vio las reformas secularizadoras como una amenaza existencial.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "intermedio"
-  tags: ["ejercito", "sublevacion"]
-
-variables:
-  actor: "ejército"
-
-respuesta: "ejército"
-tipo: input
-
-enunciado: "¿Qué institución fue clave en la sublevación contra la República?"
-
-explicacion: |
-  Gran parte del ejército se sublevó, liderando el inicio del conflicto armado.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "avanzado"
-  tags: ["estrategia", "no_intervencion"]
-
-variables:
-  consecuencia: "desventaja estratégica"
-
-respuesta: "desventaja estratégica"
-tipo: input
-
-enunciado: "¿Qué consecuencia tuvo la política de no intervención para la República?"
-
-explicacion: |
-  La no intervención dejó a la República en desventaja, mientras los apoyos a los nacionalistas fluían sin obstáculos.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "intermedio"
-  tags: ["frentes", "avance"]
-
-variables:
-  proceso: "progresivamente"
-
-respuesta: "progresivamente"
-tipo: input
-
-enunciado: "¿Cómo fue controlado el resto del país por las tropas nacionalistas?"
-
-explicacion: |
-  El país fue controlado progresivamente, mientras Madrid resistía aislada.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "avanzado"
-  tags: ["causas", "historia_larga"]
-
-variables:
-  causa_raiz: "luchas por el poder"
-
-respuesta: "luchas por el poder"
-tipo: input
-
-enunciado: "El estallido del conflicto fue resultado de décadas de qué fenómeno?"
-
-explicacion: |
-  Décadas de luchas por el poder y la identidad nacional precedieron al estallido.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "avanzado"
-  tags: ["identidad", "nacion"]
-
-variables:
-  concepto: "identidad nacional"
-
-respuesta: "identidad nacional"
-tipo: input
-
-enunciado: "¿Qué concepto estaba en disputa entre quienes modernizaban y quienes defendían la tradición?"
-
-explicacion: |
-  La identidad nacional era el núcleo del conflicto: una visión moderna frente a una tradicional.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_civil_espanola_1936_1939"
-  nivel: "avanzado"
-  tags: ["importancia", "siglo_xx"]
-
-variables:
-  importancia: "punto de inflexión"
-
-respuesta: "punto de inflexión"
-tipo: input
-
-enunciado: "La Guerra Civil Española marcó un qué crucial en la historia del siglo XX?"
-
-explicacion: |
-  Fue un punto de inflexión que prefiguró los conflictos ideológicos de la Segunda Guerra Mundial.
-```
-
-## Sección: guerra-del-paraguay-y-triple-alianza (33 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "basico"
-  tags: ["lideres", "solano_lopez"]
-
-variables:
-  lider: "Francisco Solano López"
-
-respuesta: "Francisco Solano López"
-tipo: completar
-respuestas_validas:
-  - "Francisco Solano López"
-  - "Solano López"
-  - "López"
-
-enunciado: "El líder de Paraguay durante la Guerra de la Triple Alianza fue {lider}."
-
-explicacion: |
-  Francisco Solano López dirigió al Paraguay durante todo el conflicto hasta su muerte en 1870.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "basico"
-  tags: ["lideres", "mitre"]
-
-variables:
-  lider_arg: "Bartolomé Mitre"
-
-respuesta: "Bartolomé Mitre"
-tipo: completar
-respuestas_validas:
-  - "Bartolomé Mitre"
-  - "Mitre"
-
-enunciado: "El presidente argentino que firmó el tratado de alianza fue {lider_arg}."
-
-explicacion: |
-  Bartolomé Mitre fue el presidente de la Nación Argentina que firmó el Tratado de la Triple Alianza.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["tratados", "navegacion"]
-
-variables:
-  objetivo: "navegación libre"
-
-respuesta: "navegación libre"
-tipo: completar
-respuestas_validas:
-  - "navegación libre"
-  - "libre navegación"
-  - "libre navegacion"
-
-enunciado: "Uno de los objetivos del Tratado de la Triple Alianza era garantizar la {objetivo} de los ríos Paraná y Uruguay."
-
-explicacion: |
-  La libre navegación de los ríos interiores era un objetivo clave para los aliados, especialmente para Brasil y Argentina.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["causas", "economia"]
-
-variables:
-  region: "cuenca del Río de la Plata"
-
-respuesta: "cuenca del Río de la Plata"
-tipo: completar
-respuestas_validas:
-  - "cuenca del Río de la Plata"
-  - "cuenca del rio de la plata"
-
-enunciado: "Brasil y las provincias argentinas buscaban expandir su influencia en la {region}, creando tensión con Paraguay."
-
-explicacion: |
-  El control de la cuenca del Río de la Plata y sus ríos navegables era estratégico para el comercio regional.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "basico"
-  tags: ["fin", "solano_lopez"]
-
-variables:
-  evento_fin: "muerte de Solano López"
-
-respuesta: "muerte de Solano López"
-tipo: completar
-respuestas_validas:
-  - "muerte de Solano López"
-  - "muerte de solano lopez"
-  - "muerte de Francisco Solano López"
-
-enunciado: "La guerra finalizó en 1870 con el {evento_fin}."
-
-explicacion: |
-  La muerte del presidente Francisco Solano López en la batalla de Cerro Corá marcó el fin efectivo de la guerra.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["navegacion", "tratados"]
-
-variables:
-  rio1: "Paraná"
-  rio2: "Uruguay"
-
-respuesta: "Paraná y Uruguay"
-tipo: completar
-respuestas_validas:
-  - "Paraná y Uruguay"
-  - "parana y uruguay"
-  - "Paraná y el Uruguay"
-
-enunciado: "El tratado prometía garantizar la navegación libre de los ríos {rio1} y {rio2}."
-
-explicacion: |
-  Los ríos Paraná y Uruguay eran las vías fluviales principales para el comercio y la logística militar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["tratados", "fronteras"]
-
-variables:
-  objetivo_frontera: "beneficiara a los aliados"
-
-respuesta: "beneficiara a los aliados"
-tipo: completar
-respuestas_validas:
-  - "beneficiara a los aliados"
-  - "beneficiara a los aliados"
-
-enunciado: "El tratado buscaba definir las fronteras de manera que {objetivo_frontera}."
-
-explicacion: |
-  Los aliados buscaban redefinir las fronteras a su favor, lo que generó disputas posteriores.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["brasil", "contraataque"]
-
-variables:
-    accion: "invadiendo el norte"
-
-respuesta: "invadiendo el norte"
-tipo: completar
-respuestas_validas:
-  - "invadiendo el norte"
-  - "invadiendo el norte del paraguay"
-
-enunciado: "Brasil respondió a la invasión paraguaya {accion} del Paraguay."
-
-explicacion: |
-  Tras la invasión al Mato Grosso, Brasil lanzó una contraofensiva invadiendo el norte de Paraguay.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["estrategia", "superioridad"]
-
-variables:
-    factor: "numérica y logística"
-
-respuesta: "numérica y logística"
-tipo: completar
-respuestas_validas:
-  - "numérica y logística"
-  - "superioridad numérica y logística"
-
-enunciado: "Con el tiempo, la superioridad {factor} de la Triple Alianza comenzó a pesar contra Paraguay."
-
-explicacion: |
-  La combinación de más hombres y mejor suministro permitió a los aliados avanzar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["causas", "clima_politico"]
-
-variables:
-    clima: "desconfianza mutua"
-
-respuesta: "desconfianza mutua"
-tipo: completar
-respuestas_validas:
-  - "desconfianza mutua"
-  - "desconfianza"
-
-enunciado: "La rivalidad creó un clima de {clima} que terminó estallando en guerra."
-
-explicacion: |
-  La falta de confianza entre los estados de la región fue un factor subyacente importante.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "basico"
-  tags: ["cronologia", "duracion"]
-
-variables:
-    anio_inicio: 1864
-    anio_fin: 1870
-
-respuesta: "6"
-tipo: input
-
-enunciado: "La guerra duró {anio_fin - anio_inicio} años, desde {anio_inicio} hasta {anio_fin}."
-
-explicacion: |
-  El conflicto abarcó seis años completos de combate intenso.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "basico"
-  tags: ["alianza", "participantes"]
-
-variables:
-  paises: ["Brasil", "Argentina", "Uruguay"]
-
-respuesta: "Brasil, Argentina, Uruguay"
-tipo: completar
-
-enunciado: "La Triple Alianza estuvo conformada por el Imperio de {paises[0]}, la Nación Argentina y la República Oriental del {paises[2]}."
-
-explicacion: |
-  La coalición aliada enfrentó al Paraguay y estaba integrada por Brasil, Argentina y Uruguay.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "basico"
-  tags: ["lideres", "solano_lopez"]
-
-variables:
-  lider: "Francisco Solano López"
-
-respuesta: "Francisco Solano López"
-tipo: completar
-
-enunciado: "El Paraguay, en ese entonces un país industrializado para su época, estaba bajo el mando de {lider}."
-
-explicacion: |
-  Francisco Solano López lideró al Paraguay durante la guerra, manteniendo una política de aislamiento relativo pero con desarrollo industrial interno.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["causas", "uruguay"]
-
-variables:
-  accion: "intervención de Brasil en los asuntos internos de Uruguay"
-
-respuesta: "intervención de Brasil en los asuntos internos de Uruguay"
-tipo: completar
-
-enunciado: "El detonante final fue la {accion}, lo que el Paraguay vio como una amenaza a su soberanía."
-
-explicacion: |
-  Brasil apoyó a los colorados uruguayos, lo que llevó a Solano López a intervenir y comenzar las hostilidades.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["invasion", "mato_grosso"]
-
-variables:
-  territorio: "Mato Grosso"
-  mes: "diciembre"
-  anio: 1864
-
-respuesta: "Mato Grosso"
-tipo: completar
-
-enunciado: "En {mes} de {anio}, Solano López invadió el territorio de {territorio}, iniciando las hostilidades."
-
-explicacion: |
-  La invasión del Mato Grosso fue la primera acción militar concreta de la guerra en diciembre de 1864.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["tratado", "alianza"]
-
-variables:
-  fecha_tratado: "mayo de 1865"
-  lider_argentino: "Bartolomé Mitre"
-
-respuesta: "mayo de 1865"
-tipo: completar
-
-enunciado: "Ante la invasión brasileña al norte del Paraguay, el gobierno argentino liderado por {lider_argentino} firmó el Tratado de la Triple Alianza en {fecha_tratado}."
-
-explicacion: |
-  El tratado se firmó en mayo de 1865 para derrotar a Solano López y garantizar la navegación libre de los ríos.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["objetivos", "navegacion"]
-
-variables:
-  objetivo: "garantizar la navegación libre de los ríos Paraná y Uruguay"
-
-respuesta: "garantizar la navegación libre de los ríos Paraná y Uruguay"
-tipo: completar
-
-enunciado: "Uno de los compromisos del tratado era {objetivo}."
-
-explicacion: |
-  La libre navegación de los ríos fue un objetivo clave para los aliados, especialmente para Brasil y Argentina.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["economia", "industrializacion"]
-
-variables:
-  caracteristica: "aislado pero industrializado"
-
-respuesta: "aislado pero industrializado"
-tipo: completar
-
-enunciado: "Para entender el conflicto, hay que notar que el Paraguay era un país {caracteristica} para sus estándares de la época."
-
-explicacion: |
-  A pesar de su aislamiento político, Paraguay tenía ferrocarriles, astilleros y fábricas de pólvora.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["causas", "hegemonia"]
-
-variables:
-  rivalidad: "control de los ríos navegables y los territorios fronterizos"
-
-respuesta: "control de los ríos navegables y los territorios fronterizos"
-tipo: completar
-
-enunciado: "La tensión previa a la guerra se debía a la rivalidad por el {rivalidad} en la cuenca del Río de la Plata."
-
-explicacion: |
-  La disputa por el control territorial y comercial fue la raíz profunda del conflicto.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "avanzado"
-  tags: ["batallas", "humaita"]
-
-variables:
-  fortaleza: "Humaitá"
-
-respuesta: "Humaitá"
-tipo: completar
-
-enunciado: "Inicialmente, los paraguayos lograron victorias tácticas, como la toma de la fortaleza de {fortaleza}."
-
-explicacion: |
-  La toma de Humaitá fue una de las pocas victorias tácticas significativas iniciales de los paraguayos.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["ejercito", "demografia"]
-
-variables:
-  composicion: "campesinos"
-
-respuesta: "campesinos"
-tipo: completar
-
-enunciado: "El ejército paraguayo, que en su mayoría estaba compuesto por {composicion}, enfrentó una superioridad logística adversa."
-
-explicacion: |
-  La fuerza principal del ejército paraguayo provenía del campesinado, lo que afectaba su logística comparada con los aliados.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["invasion", "mato_grosso"]
-
-variables:
-  territorio: "Mato Grosso"
-
-respuesta: "Mato Grosso"
-tipo: mc
-opciones: 4
-
-enunciado: "¿Qué territorio invadió Solano López en diciembre de 1864 para iniciar la guerra?"
-opciones_explicitas: ["Mato Grosso", "Corrientes", "Rio Grande do Sul", "Paraná"]
-
-explicacion: |
-  La primera acción fue la invasión al Mato Grosso, territorio brasileño.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["tratado", "fechas"]
-
-variables:
-  fecha: "mayo de 1865"
-
-respuesta: "mayo de 1865"
-tipo: mc
-opciones: 4
-
-enunciado: "¿En qué momento se firmó el Tratado de la Triple Alianza?"
-opciones_explicitas: ["mayo de 1865", "diciembre de 1864", "enero de 1866", "octubre de 1867"]
-
-explicacion: |
-  El tratado se firmó en mayo de 1865, tras la invasión brasileña al norte del Paraguay.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "basico"
-  tags: ["lideres"]
-
-variables:
-  lider: "Francisco Solano López"
-
-respuesta: "Francisco Solano López"
-tipo: mc
-opciones: 4
-
-enunciado: "¿Quién era el líder del Paraguay durante la guerra?"
-opciones_explicitas: ["Francisco Solano López", "José Gaspar Rodríguez de Francia", "Juan Manuel de Rosas", "Bartolomé Mitre"]
-
-explicacion: |
-  Francisco Solano López fue el presidente y líder militar del Paraguay en este conflicto.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "basico"
-  tags: ["alianza"]
-
-variables:
-  pais: "Uruguay"
-
-respuesta: "Uruguay"
-tipo: mc
-opciones: 4
-
-enunciado: "¿Cuál de los siguientes países formó parte de la Triple Alianza?"
-opciones_explicitas: ["Uruguay", "Bolivia", "Chile", "Paraguay"]
-
-explicacion: |
-  La Triple Alianza estaba compuesta por Brasil, Argentina y Uruguay.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["economia"]
-
-variables:
-  caracteristica: "industrializado"
-
-respuesta: "industrializado"
-tipo: mc
-opciones: 4
-
-enunciado: "¿Cómo se describe la economía del Paraguay previo al conflicto?"
-opciones_explicitas: ["industrializado", "exclusivamente agrícola", "dependiente del comercio exterior", "basado en la minería"]
-
-explicacion: |
-  Paraguay tenía ferrocarriles, astilleros y fábricas de pólvora, lo que lo hacía industrializado para la región.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["causas"]
-
-variables:
-  causa: "intervención de Brasil en Uruguay"
-
-respuesta: "intervención de Brasil en Uruguay"
-tipo: mc
-opciones: 4
-
-enunciado: "¿Qué evento fue el detonante final del conflicto?"
-opciones_explicitas: ["intervención de Brasil en Uruguay", "invasión argentina a Corrientes", "rebelión en Mato Grosso", "bloqueo naval a Buenos Aires"]
-
-explicacion: |
-  La intervención de Brasil en los asuntos internos de Uruguay fue el detonante directo.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["geografia", "navegacion"]
-
-variables:
-  rios: "Paraná y Uruguay"
-
-respuesta: "Paraná y Uruguay"
-tipo: mc
-opciones: 4
-
-enunciado: "El tratado prometía garantizar la navegación libre de los ríos:"
-opciones_explicitas: ["Paraná y Uruguay", "Amazonas y Madeira", "De la Plata y Uruguay", "Paraná y Paraguay"]
-
-explicacion: |
-  La libre navegación de los ríos Paraná y Uruguay era un objetivo clave de la alianza.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "intermedio"
-  tags: ["ejercito"]
-
-variables:
-  composicion: "campesinos"
-
-respuesta: "campesinos"
-tipo: mc
-opciones: 4
-
-enunciado: "¿De qué grupo social provenía la mayoría del ejército paraguayo?"
-opciones_explicitas: ["campesinos", "oficiales profesionales europeos", "esclavizados liberados", "nobles locales"]
-
-explicacion: |
-  La fuerza militar paraguaya estaba mayoritariamente compuesta por campesinos.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "avanzado"
-  tags: ["batallas"]
-
-variables:
-  fortaleza: "Humaitá"
-
-respuesta: "Humaitá"
-tipo: mc
-opciones: 4
-
-enunciado: "¿Qué fortaleza fue tomada inicialmente por los paraguayos?"
-opciones_explicitas: ["Humaitá", "Curupayty", "Tuyutí", "Piribebuy"]
-
-explicacion: |
-  La toma de Humaitá fue una victoria táctica importante para Paraguay al inicio de la guerra.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "basico"
-  tags: ["cronologia"]
-
-variables:
-  anio: 1864
-
-respuesta: 1864
-tipo: input
-
-enunciado: "¿En qué año comenzó la Guerra del Paraguay con la invasión al Mato Grosso?"
-
-explicacion: |
-  El conflicto comenzó en 1864.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "basico"
-  tags: ["cronologia"]
-
-variables:
-  anio: 1870
-
-respuesta: 1870
-tipo: input
-
-enunciado: "¿En qué año finalizó la Guerra del Paraguay?"
-
-explicacion: |
-  El conflicto terminó en 1870.
-```
-
-```
-metadata:
-  materia: "Historia"
-  tema: "guerra_del_paraguay_y_triple_alianza"
-  nivel: "basico"
-  tags: ["alianza"]
-
-variables:
-  pais1: "Brasil"
-  pais2: "Argentina"
-  pais3: "Uruguay"
-
-respuesta: "Uruguay"
-tipo: input
-
-enunciado: "Completa el nombre del tercer país que formó parte de la Triple Alianza junto a {pais1} y {pais2}."
-
-explicacion: |
-  Los tres miembros de la Triple Alianza fueron Brasil, Argentina y Uruguay.
-```
-
-## Sección: guerras (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "basico"
-  tags: ["guerras", "vocabulario"]
-
-enunciado: "¿Qué es una guerra, como proceso histórico?"
-tipo: mc
-opciones_explicitas:
-  - "Un conflicto armado sostenido entre grupos organizados que se resuelve por la fuerza en vez de por acuerdo"
-  - "Cualquier desacuerdo político sin uso de la fuerza"
-  - "Un tratado firmado entre dos Estados"
-respuesta: "Un conflicto armado sostenido entre grupos organizados que se resuelve por la fuerza en vez de por acuerdo"
-
-explicacion: |
-  Puede ser entre Estados, entre facciones internas, o ambos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Qué rol suele cumplir la guerra respecto a procesos de revolución o independencia?"
-tipo: mc
-opciones_explicitas:
-  - "Es el medio por el que muchas veces se decide si esos procesos se consolidan o fracasan"
-  - "Es exactamente lo mismo que una revolución"
-  - "No tiene ninguna relación con esos procesos"
-respuesta: "Es el medio por el que muchas veces se decide si esos procesos se consolidan o fracasan"
-
-explicacion: |
-  Una revolución cambia estructura interna; una independencia rompe
-  soberanía; la guerra es a menudo el mecanismo que resuelve si eso se
-  logra.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "basico"
-  tags: ["tipos_de_guerra"]
-
-enunciado: "¿Qué caracteriza a una guerra de independencia?"
-tipo: mc
-opciones_explicitas:
-  - "Un territorio contra la metrópoli que no reconoce su independencia declarada"
-  - "Dos facciones del mismo territorio enfrentadas entre sí"
-  - "Dos Estados ya constituidos disputando un territorio puntual"
-respuesta: "Un territorio contra la metrópoli que no reconoce su independencia declarada"
-
-explicacion: |
-  Es el caso típico de las Guerras de independencia sudamericanas
-  contra España.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "basico"
-  tags: ["tipos_de_guerra"]
-
-enunciado: "¿Qué caracteriza a una guerra civil?"
-tipo: mc
-opciones_explicitas:
-  - "Un mismo territorio dividido internamente por un desacuerdo de fondo sobre cómo organizarse"
-  - "Un conflicto exclusivamente contra un enemigo externo"
-  - "Un conflicto entre dos Estados ya reconocidos internacionalmente"
-respuesta: "Un mismo territorio dividido internamente por un desacuerdo de fondo sobre cómo organizarse"
-
-explicacion: |
-  No es contra un enemigo externo, sino entre bandos del mismo país —
-  ejemplo real: unitarios y federales en Argentina.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "intermedio"
-  tags: ["argentina", "tipos_de_guerra"]
-
-enunciado: "¿Cuáles fueron los dos bandos de la guerra civil argentina del siglo XIX?"
-tipo: mc
-opciones_explicitas:
-  - "Unitarios y federales"
-  - "Realistas y patriotas"
-  - "Peronistas y radicales"
-respuesta: "Unitarios y federales"
-
-explicacion: |
-  El desacuerdo de fondo era un Estado centralizado desde Buenos Aires
-  vs. una confederación de provincias autónomas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "avanzado"
-  tags: ["argentina"]
-
-enunciado: "¿Cuál era el desacuerdo de fondo entre unitarios y federales?"
-tipo: mc
-opciones_explicitas:
-  - "Un Estado centralizado desde Buenos Aires vs. una confederación de provincias autónomas"
-  - "Si declarar o no la independencia de España"
-  - "Si mantener o abolir la esclavitud"
-respuesta: "Un Estado centralizado desde Buenos Aires vs. una confederación de provincias autónomas"
-
-explicacion: |
-  Era, en el fondo, la pregunta sin resolver de "cómo nos organizamos"
-  que quedó pendiente después de lograr la independencia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "intermedio"
-  tags: ["tipos_de_guerra"]
-
-enunciado: "¿Qué caracteriza a una guerra internacional entre Estados ya constituidos, como Malvinas?"
-tipo: mc
-opciones_explicitas:
-  - "Es un conflicto entre dos Estados soberanos y reconocidos, por un territorio en disputa"
-  - "Es un conflicto donde uno de los dos Estados no existe todavía"
-  - "Es siempre una guerra civil disfrazada"
-respuesta: "Es un conflicto entre dos Estados soberanos y reconocidos, por un territorio en disputa"
-
-explicacion: |
-  No se discute la existencia de ninguno de los dos Estados, sólo la
-  soberanía sobre un territorio puntual — categoría distinta de la
-  guerra de independencia o la guerra civil.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "intermedio"
-  tags: ["cruce"]
-
-enunciado: "¿En qué nodo de Tronco 8.c está el desarrollo real de la Guerra de Malvinas?"
-tipo: mc
-opciones_explicitas:
-  - "AH13"
-  - "AH5"
-  - "AH1"
-respuesta: "AH13"
-
-explicacion: |
-  El desarrollo completo vive en Tronco 8.c, citando el art. 92 b —
-  acá sólo se referencia, sin duplicarlo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "intermedio"
-  tags: ["herramientas_analisis"]
-
-enunciado: "¿Casi ninguna guerra tiene una sola causa?"
-tipo: vf
 respuesta: verdadero
-
-explicacion: |
-  Combina intereses económicos, políticos e ideológicos, igual que
-  cualquier proceso analizado con la herramienta de multicausalidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "avanzado"
-  tags: ["herramientas_analisis"]
-
-enunciado: "¿Cómo se relacionan, en el patrón `AH5 → AH6` de la cadena argentina, la guerra de independencia y la guerra civil posterior?"
-tipo: mc
-opciones_explicitas:
-  - "La guerra de independencia puede generar, como consecuencia, una guerra civil por no haber acuerdo claro sobre cómo organizar el nuevo Estado"
-  - "No tienen ninguna relación causal entre sí"
-  - "La guerra civil siempre ocurre antes que la de independencia"
-respuesta: "La guerra de independencia puede generar, como consecuencia, una guerra civil por no haber acuerdo claro sobre cómo organizar el nuevo Estado"
-
-explicacion: |
-  Es exactamente el patrón que explica `teoria.md`: independencia
-  resuelve "quién no nos gobierna", pero deja abierto "cómo nos
-  organizamos".
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "avanzado"
-  tags: ["herramientas_analisis"]
-
-enunciado: "¿Por qué el patrón \"independencia seguida de guerra civil\" no es exclusivo de Argentina?"
-tipo: mc
-opciones_explicitas:
-  - "Porque lograr la independencia deja sin resolver \"cómo organizarse entre sí\", pregunta que sin consenso previo suele derivar en conflicto interno"
-  - "Porque todos los países copiaron el modelo argentino"
-  - "Porque España provocaba directamente todas las guerras civiles de sus excolonias"
-respuesta: "Porque lograr la independencia deja sin resolver \"cómo organizarse entre sí\", pregunta que sin consenso previo suele derivar en conflicto interno"
-
-explicacion: |
-  Es un patrón típico de casi cualquier proceso de independencia real,
-  no sólo el argentino.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "avanzado"
-  tags: ["herramientas_analisis"]
-
-enunciado: "¿Qué herramienta del Big Six ayuda a juzgar una guerra pasada sin reducirla a una fecha para memorizar?"
-tipo: mc
-opciones_explicitas:
-  - "Dimensión ética"
-  - "Antes y después de Cristo"
-  - "Década, siglo, milenio"
-respuesta: "Dimensión ética"
-
-explicacion: |
-  Es el mismo criterio que ya se aplicó a `AH12`/`AH13` (Terrorismo de
-  Estado y Malvinas) en Tronco 8.c.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "basico"
-  tags: ["tipos_de_guerra"]
-
-enunciado: "Toda guerra es necesariamente contra un enemigo externo al propio territorio."
 tipo: vf
+
+enunciado: "La batalla de la Vuelta de Obligado, un símbolo de la resistencia contra la intervención anglo-francesa, ocurrió el {fecha_correcta}."
+
+explicacion: |
+  La Vuelta de Obligado se libró el 20 de noviembre de 1845 — fecha que hoy se conmemora en Argentina como el Día de la Soberanía Nacional. La fecha mencionada en el enunciado es correcta.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["constitucion", "fechas"]
+
+variables:
+  anio: 1853
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Constitución Nacional argentina fue sancionada en el año {anio} como resultado del proceso iniciado tras la batalla de Caseros."
+
+explicacion: |
+  Es correcto. La Constitución de 1853 fue la primera carta magna nacional, aunque Buenos Aires no adhirió inicialmente.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["intervencion", "diplomacia"]
+
+variables:
+  paises: "Inglaterra y Francia"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La flota que fue resistida en la Vuelta de Obligado estaba compuesta por fuerzas de {paises}."
+
+explicacion: |
+  Es correcto. La intervención anglo-francesa buscaba abrir los ríos interiores al comercio libre, lo que Rosas consideraba una violación de la soberanía.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["caseros", "fechas"]
+
+variables:
+  fecha: "3 de febrero de 1852"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La batalla de Caseros, que marcó el fin del segundo gobierno de Rosas, se libró el {fecha}."
+
+explicacion: |
+  Es correcto. El 3 de febrero de 1852 es la fecha oficial de la batalla.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["obligado", "soberania", "intervencion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La batalla de la Vuelta de Obligado se interpretó históricamente como un acto de defensa de la soberanía nacional frente al intervencionismo anglo-francés."
+
+explicacion: |
+  Aunque hubo derrotas militares, el sacrificio de las tropas rosistas se convirtió en un símbolo de resistencia contra la injerencia extranjera en el río Paraná.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["caseros", "cronologia"]
+
+variables:
+  dia: 3
+  mes: 2
+
+respuesta: "3 de febrero"
+tipo: completar
+
+enunciado: "La batalla de Caseros, que marcó el fin del gobierno de Rosas, ocurrió el {dia} de {mes}."
+
+explicacion: |
+  La fecha exacta de la batalla es el 3 de febrero de 1852.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["obligado", "alianzas", "guerra"]
+
 respuesta: falso
+tipo: vf
+
+enunciado: "En la batalla de la Vuelta de Obligado, las fuerzas argentinas contaron con el apoyo logístico de Brasil y Uruguay."
 
 explicacion: |
-  Una guerra civil es exactamente el caso contrario: el conflicto es
-  interno, entre bandos del mismo país.
+  Fue al revés: Brasil y Uruguay formaban parte de la coalición anglo-francesa que invadía el río Paraná, mientras que las fuerzas de Rosas las combatían.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "intermedio"
-  tags: ["tipos_de_guerra"]
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["obligado", "cronologia"]
 
-enunciado: "¿Cuál es la diferencia clave entre una guerra de independencia y una guerra civil?"
-tipo: mc
-opciones_explicitas:
-  - "La de independencia es contra una potencia externa; la civil es entre bandos del mismo territorio"
-  - "La guerra civil siempre involucra más países que la de independencia"
-  - "No hay ninguna diferencia real entre ambas"
-respuesta: "La de independencia es contra una potencia externa; la civil es entre bandos del mismo territorio"
+variables:
+  dia: 20
+  mes: 11
+
+respuesta: "20"
+tipo: input
+
+enunciado: "La batalla de la Vuelta de Obligado ocurrió el día {dia} del mes {mes} de 1845. Escribe solo el número del día."
 
 explicacion: |
-  Es la distinción central entre los dos primeros tipos de guerra
-  descritos en `teoria.md`.
+  La fecha es 20 de noviembre de 1845.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "guerras"
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
   nivel: "avanzado"
-  tags: ["tipos_de_guerra"]
+  tags: ["constitucion", "buenos_aires", "integracion"]
 
-enunciado: "En la Guerra de Malvinas de 1982, ¿qué se disputaba entre Argentina y el Reino Unido?"
-tipo: mc
-opciones_explicitas:
-  - "La soberanía sobre un territorio puntual, sin discutir la existencia de ninguno de los dos Estados"
-  - "Si Argentina o el Reino Unido debían dejar de existir como Estados"
-  - "Un desacuerdo interno dentro de un mismo país"
-respuesta: "La soberanía sobre un territorio puntual, sin discutir la existencia de ninguno de los dos Estados"
+respuesta: falso
+tipo: vf
+
+enunciado: "La provincia de Buenos Aires se integró inmediatamente al resto del país tras la sanción de la Constitución de 1853."
 
 explicacion: |
-  Es la categoría "guerra internacional entre Estados ya
-  constituidos", distinta de las guerras de independencia y las
-  guerras civiles.
+  Buenos Aires se separó de la Confederación Argentina entre 1852 y 1861, manteniendo un estado propio hasta su reincorporación posterior.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["constitucion", "objetivo", "unidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Uno de los objetivos principales de la Constitución de 1853 era superar la fragmentación territorial y lograr la unidad nacional."
+
+explicacion: |
+  El texto constitucional buscaba establecer un régimen federal que integrara a las provincias, aunque Buenos Aires se mantuvo al margen inicialmente.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["cronologia", "caseros"]
+
+variables:
+  anio: 1852
+
+respuesta: "1852"
+tipo: input
+
+enunciado: "Juan Manuel de Rosas cayó del poder en el año {anio}."
+
+explicacion: |
+  La batalla de Caseros ocurrió en 1852, poniendo fin al gobierno de Rosas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["gobierno", "centralizacion", "buenos_aires"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Durante el gobierno de Rosas, la provincia de Buenos Aires ejerció un dominio hegemónico sobre el resto del país."
+
+explicacion: |
+  Rosas gestionaba las relaciones exteriores y el comercio portuario, centralizando el poder económico y político en Buenos Aires.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["caseros", "consecuencias", "fractura"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La victoria en Caseros trajo consigo la unificación inmediata del país bajo la Constitución de 1853."
+
+explicacion: |
+  La victoria de Caseros profundizó la división, llevando a la separación de Buenos Aires de la Confederación durante casi una década.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["cronologia", "caseros"]
+
+variables:
+  mes: 2
+
+respuesta: "2"
+tipo: input
+
+enunciado: "La batalla de Caseros ocurrió en el mes {mes} del año 1852."
+
+explicacion: |
+  La fecha es 3 de febrero de 1852.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["politica", "provincias", "resentimiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las provincias interiores sentían que sus intereses estaban subordinados a los de Buenos Aires durante el gobierno de Rosas."
+
+explicacion: |
+  El control portuario y las aduanas por parte de Buenos Aires generaba un fuerte resentimiento en las provincias del interior.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["obligado", "identidad", "sacrificio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A pesar de la derrota militar, la batalla de la Vuelta de Obligado dejó una huella profunda en la identidad nacional como símbolo de sacrificio."
+
+explicacion: |
+  El heroísmo de las tropas y civiles en Obligado fue reinterpretado como un acto de defensa de la soberanía.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "basico"
+  tags: ["cronologia", "constitucion"]
+
+variables:
+  anio: 1853
+
+respuesta: "1853"
+tipo: input
+
+enunciado: "La Constitución Nacional fue sancionada en el año {anio}."
+
+explicacion: |
+  La primera Constitución Nacional de Argentina se sancionó en 1853.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "rosas_y_la_confederacion"
+  nivel: "intermedio"
+  tags: ["caseros", "inestabilidad", "guerra_civil"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La caída de Rosas no trajo la unidad nacional deseada, sino que abrió la puerta a un período de inestabilidad y guerra civil."
+
+explicacion: |
+  Tras Caseros, Argentina vivió una larga etapa de fragmentación política y conflictos entre Buenos Aires y la Confederación.
+```
+
+## Sección: periodizacion-historica (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "basico"
+  tags: ["periodizacion", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Periodizar es dividir el tiempo histórico en bloques delimitados por hechos que se consideran lo suficientemente importantes como para marcar un antes y un después."
+
+pasos:
+  - "Es una herramienta de análisis que los historiadores construyen, no una división natural del tiempo."
+
+explicacion: |
+  Verdadero: es la definición central de periodización.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "guerras"
-  nivel: "intermedio"
-  tags: ["argentina"]
+  tema: "periodizacion_historica"
+  nivel: "basico"
+  tags: ["prehistoria"]
 
-enunciado: "Ordená cronológicamente estos 3 conflictos de la cadena argentina: Guerra de Malvinas, Guerras de independencia, Guerras civiles (unitarios y federales)."
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Prehistoria"
+tipo: mc
+opciones_explicitas: ["Prehistoria", "Edad Antigua", "Edad Media"]
+
+enunciado: "El período que va desde el origen de la humanidad hasta la invención de la escritura se llama..."
+
+pasos:
+  - "Es el primer período de la periodización clásica occidental."
+
+explicacion: |
+  La Prehistoria es el período anterior a la invención de la
+  escritura.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "basico"
+  tags: ["edad_antigua"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Edad Antigua"
+tipo: mc
+opciones_explicitas: ["Prehistoria", "Edad Antigua", "Edad Media"]
+
+enunciado: "El período que va desde la invención de la escritura hasta la caída del Imperio Romano de Occidente (476 d.C.) se llama..."
+
+pasos:
+  - "Es el segundo período de la periodización clásica occidental."
+
+explicacion: |
+  La Edad Antigua va desde la escritura hasta la caída de Roma.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "basico"
+  tags: ["edad_media"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Edad Media"
+tipo: mc
+opciones_explicitas: ["Edad Antigua", "Edad Media", "Edad Moderna"]
+
+enunciado: "El período que va desde el 476 d.C. hasta 1453 o 1492 (según el criterio usado) se llama..."
+
+pasos:
+  - "Es el tercer período de la periodización clásica occidental."
+
+explicacion: |
+  La Edad Media va desde la caída de Roma hasta la caída de
+  Constantinopla o el descubrimiento de América.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "basico"
+  tags: ["edad_moderna"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Edad Moderna"
+tipo: mc
+opciones_explicitas: ["Edad Media", "Edad Moderna", "Edad Contemporánea"]
+
+enunciado: "El período que va desde fines del siglo XV hasta la Revolución Francesa (1789) se llama..."
+
+pasos:
+  - "Es el cuarto período de la periodización clásica occidental."
+
+explicacion: |
+  La Edad Moderna va desde fines del s. XV hasta 1789.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "basico"
+  tags: ["edad_contemporanea"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Edad Contemporánea"
+tipo: mc
+opciones_explicitas: ["Edad Moderna", "Edad Contemporánea", "Edad Media"]
+
+enunciado: "El período que va desde 1789 hasta la actualidad se llama..."
+
+pasos:
+  - "Es el quinto y último período de la periodización clásica occidental."
+
+explicacion: |
+  La Edad Contemporánea va desde la Revolución Francesa hasta hoy.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["periodizacion", "orden"]
+
+enunciado: "Ordená cronológicamente los cinco períodos de la periodización clásica occidental."
 tipo: ordenar
 opciones_explicitas:
-  - "Guerras de independencia"
-  - "Guerras civiles (unitarios y federales)"
-  - "Guerra de Malvinas"
-respuesta: "Guerras de independencia"
-
+  - "Prehistoria"
+  - "Edad Antigua"
+  - "Edad Media"
+  - "Edad Moderna"
+  - "Edad Contemporánea"
+respuesta_orden: ["Prehistoria", "Edad Antigua", "Edad Media", "Edad Moderna", "Edad Contemporánea"]
 explicacion: |
-  Guerras de independencia (principios del s. XIX) → Guerras civiles
-  (mediados del s. XIX) → Guerra de Malvinas (1982).
+  El orden sigue la secuencia cronológica estándar de la
+  periodización clásica occidental.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "guerras"
-  nivel: "intermedio"
-  tags: ["herramientas_analisis"]
-
-enunciado: "¿Cuál de estos es un tipo de causa que suele combinarse en el estallido de una guerra, según la multicausalidad?"
-tipo: mc
-opciones_explicitas:
-  - "Control de territorio, recursos o rutas comerciales"
-  - "El clima del día en que se firmó la declaración de guerra"
-  - "La cantidad de satélites GPS disponibles"
-respuesta: "Control de territorio, recursos o rutas comerciales"
-
-explicacion: |
-  Son causas económicas típicas, que se combinan con las políticas e
-  ideológicas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
+  tema: "periodizacion_historica"
   nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué `guerras/` no repite el desarrollo completo de las Guerras de independencia, guerras civiles y Malvinas, y sólo los referencia?"
-tipo: mc
-opciones_explicitas:
-  - "Para no escribir el mismo contenido histórico dos veces con distintos IDs (`H2c` y `AH5`/`AH6`/`AH12`/`AH13`)"
-  - "Porque esos temas no tienen ninguna relación con las guerras"
-  - "Porque el contenido de Tronco 8.c está desactualizado"
-respuesta: "Para no escribir el mismo contenido histórico dos veces con distintos IDs (`H2c` y `AH5`/`AH6`/`AH12`/`AH13`)"
-
-explicacion: |
-  Mismo criterio de "duplicación resuelta" ya aplicado en otros puntos
-  del MAPA (nota v2.4).
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "intermedio"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué `guerras/` depende de `../independencias/` como prerrequisito?"
-tipo: mc
-opciones_explicitas:
-  - "Porque muchas guerras de este período nacen de procesos de independencia sin resolver del todo"
-  - "Porque las guerras siempre ocurren antes que cualquier independencia"
-  - "Porque no existe relación real entre ambos procesos"
-respuesta: "Porque muchas guerras de este período nacen de procesos de independencia sin resolver del todo"
-
-explicacion: |
-  Ejemplo directo: las guerras civiles argentinas nacieron de la
-  pregunta sin resolver que dejó la independencia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "avanzado"
-  tags: ["herramientas_analisis"]
-
-enunciado: "Independencia, guerra civil y guerra internacional entre Estados son 3 tipos de guerra distintos. ¿Qué tienen en común como forma de analizarlos?"
-tipo: mc
-opciones_explicitas:
-  - "Se benefician del mismo tipo de análisis histórico: multicausalidad, causa/consecuencia y dimensión ética"
-  - "Ninguno de los tres se puede analizar con las mismas herramientas"
-  - "Los tres ocurrieron exactamente el mismo año en Argentina"
-respuesta: "Se benefician del mismo tipo de análisis histórico: multicausalidad, causa/consecuencia y dimensión ética"
-
-explicacion: |
-  Comparten estructura de análisis aunque el contenido y los actores
-  sean distintos — por eso el MAPA los agrupó como 3 nodos hermanos
-  (`H2a`/`H2b`/`H2c`) en vez de tratarlos como temas sin relación.
-```
-
-## Sección: historia-cultural (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "basico"
-  tags: ["historia_cultural", "criterio_central"]
+  tags: ["limites_convencionales"]
 
 variables:
   n: uno_de([1, 1])
@@ -1601,21 +617,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La historia cultural propone analizar un caso chico y aparentemente insignificante en profundidad, mostrando que puede revelar toda una estructura social, mental o cultural de su época."
+enunciado: "Decir que \"la Edad Media terminó en 1492\" es una convención útil para organizar el estudio, no un hecho que ocurrió literalmente ese día para todas las sociedades del planeta."
 
 pasos:
-  - "Invierte la lógica de escala de las corrientes que priorizan lo macro (Annales, positivismo)."
+  - "Ningún cambio histórico ocurre de un día para el otro en todo el mundo a la vez."
 
 explicacion: |
-  Verdadero: es el criterio central de esta corriente.
+  Verdadero: los límites de los períodos son convencionales, no
+  hechos absolutos y simultáneos en todas partes.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
+  tema: "periodizacion_historica"
   nivel: "intermedio"
-  tags: ["microhistoria"]
+  tags: ["limites_convencionales"]
 
 variables:
   n: uno_de([1, 1])
@@ -1623,319 +640,226 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La historia cultural también se asocia con el nombre \"microhistoria\", por su foco en casos individuales y localizados."
+enunciado: "Distintos historiadores pueden proponer límites algo distintos para un mismo período, según qué criterio prioricen."
 
 pasos:
-  - "Ambos nombres se usan para referirse a esta misma corriente historiográfica."
+  - "Por ejemplo, la Edad Media puede terminar en 1453 o en 1492, según el criterio elegido."
 
 explicacion: |
-  Verdadero: es la relación entre los dos nombres usados para esta
-  corriente.
+  Verdadero: es un matiz importante sobre la flexibilidad de los
+  límites de período según el criterio historiográfico usado.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["carlo_ginzburg"]
+  tema: "periodizacion_historica"
+  nivel: "avanzado"
+  tags: ["periodizacion_occidental"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: "Ginzburg"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La periodización clásica (Prehistoria/Antigua/Media/Moderna/Contemporánea) está construida desde la historia europea, y aplicarla sin más a otras regiones puede ser engañoso."
+
+pasos:
+  - "Los hitos que la organizan (caída de Roma, Revolución Francesa) no tienen el mismo peso o sentido en otras historias regionales."
+
+explicacion: |
+  Verdadero: es un matiz importante sobre las limitaciones de esta
+  periodización fuera del contexto europeo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "avanzado"
+  tags: ["periodizacion_occidental", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aplicar directamente el rótulo \"Edad Media\" a la historia de los pueblos originarios de América antes de 1492 puede ser engañoso, porque ese período fue definido a partir de hitos europeos que no aplican de la misma forma a esas sociedades."
+
+pasos:
+  - "Es el ejemplo concreto mencionado en la teoría sobre las limitaciones de esta periodización."
+
+explicacion: |
+  Verdadero: es la aplicación práctica de por qué esta periodización
+  es una herramienta útil pero no neutral.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["utilidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dividir la historia en períodos permite comparar etapas entre sí, como preguntar qué caracterizaba a la Edad Media que ya no estaba en la Edad Moderna."
+
+pasos:
+  - "Es una de las utilidades centrales de periodizar."
+
+explicacion: |
+  Verdadero: la comparación entre períodos es una de las razones
+  principales por las que periodizar ayuda a pensar históricamente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["utilidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin periodizar, la historia sería una lista interminable de hechos sueltos sin ningún marco organizador."
+
+pasos:
+  - "Es la razón central de por qué periodizar es una herramienta valiosa, más allá de memorizar fechas de corte."
+
+explicacion: |
+  Verdadero: es la conclusión central sobre por qué periodizar ayuda
+  a pensar, no sólo a clasificar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["periodizacion", "conceptual"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El tiempo histórico en sí es continuo; la división en períodos es una construcción de los historiadores, no una propiedad del tiempo mismo."
+
+pasos:
+  - "Es la aclaración conceptual central de por qué periodizar es una \"herramienta\" y no una \"división natural\"."
+
+explicacion: |
+  Verdadero: es el punto de partida conceptual de todo este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["edad_antigua", "edad_media"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "476"
 tipo: completar
 
-enunciado: "El historiador italiano referente central de la historia cultural/microhistoria se apellida..."
+enunciado: "El año que marca convencionalmente el límite entre la Edad Antigua y la Edad Media (caída del Imperio Romano de Occidente) es el..."
 
 pasos:
-  - "Carlo Ginzburg es el autor central asociado a esta corriente."
+  - "Es uno de los hitos clásicos de la periodización occidental."
 
 explicacion: |
-  Ginzburg es autor central de esta corriente historiográfica.
+  El 476 d.C. es el año convencional de la caída de Roma que marca el
+  inicio de la Edad Media.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["carlo_ginzburg", "obra_clave"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La obra más famosa de Ginzburg, \"El queso y los gusanos\" (1976), reconstruye el caso de un molinero friulano del siglo XVI, juzgado por la Inquisición por sus ideas heterodoxas sobre el origen del mundo."
-
-pasos:
-  - "Es la obra clave que ejemplifica el método de la microhistoria."
-
-explicacion: |
-  Verdadero: es la obra fundamental de referencia de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["carlo_ginzburg", "obra_clave"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ginzburg usa el caso individual del molinero para iluminar la mentalidad popular de toda una época, algo que las fuentes oficiales rara vez documentan."
-
-pasos:
-  - "Es el propósito central del uso de un caso micro para revelar algo macro."
-
-explicacion: |
-  Verdadero: es la conclusión central de por qué un caso individual
-  puede tener valor histórico más allá de sí mismo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["fuentes_no_convencionales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las fuentes oficiales (el foco del positivismo) rara vez documentan la vida cotidiana y la mentalidad de la gente común."
-
-pasos:
-  - "Es la razón por la que la historia cultural recurre a otro tipo de fuentes."
-
-explicacion: |
-  Verdadero: es la razón central de por qué esta corriente amplía
-  qué cuenta como fuente legítima.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
+  tema: "periodizacion_historica"
   nivel: "intermedio"
-  tags: ["fuentes_no_convencionales"]
+  tags: ["edad_moderna", "edad_contemporanea"]
 
 variables:
   n: uno_de([1, 1])
 
-respuesta: verdadero
-tipo: vf
+respuesta: "1789"
+tipo: completar
 
-enunciado: "La historia cultural suele recurrir a actas de juicios de personas comunes, diarios personales y objetos cotidianos, en vez de sólo tratados y decretos oficiales."
+enunciado: "El año que marca convencionalmente el límite entre la Edad Moderna y la Edad Contemporánea (Revolución Francesa) es el..."
 
 pasos:
-  - "Son las fuentes no convencionales mencionadas en la teoría, distintas del archivo oficial priorizado por el positivismo."
+  - "Es otro de los hitos clásicos de la periodización occidental."
 
 explicacion: |
-  Verdadero: son las fuentes típicas de esta corriente.
+  1789 es el año convencional de la Revolución Francesa que marca el
+  inicio de la Edad Contemporánea.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
+  tema: "periodizacion_historica"
   nivel: "intermedio"
-  tags: ["objeto_de_estudio", "mentalidades"]
+  tags: ["periodizacion", "practica"]
 
 variables:
-  n: uno_de([1, 1])
+  anios: [1200, 1700, 1900]
+  periodos: ["Edad Media", "Edad Moderna", "Edad Contemporánea"]
+  idx: uno_de([0, 1, 2])
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las mentalidades (cómo la gente entendía el mundo) son uno de los objetos de estudio centrales de la historia cultural."
-
-pasos:
-  - "Es uno de los tres objetos de estudio mencionados en la teoría."
-
-explicacion: |
-  Verdadero: las mentalidades son un objeto central de estudio de
-  esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["objeto_de_estudio", "practicas_cotidianas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las prácticas cotidianas (rituales, costumbres) son otro de los objetos de estudio centrales de la historia cultural."
-
-pasos:
-  - "Es otro de los tres objetos de estudio mencionados en la teoría."
-
-explicacion: |
-  Verdadero: las prácticas cotidianas son otro objeto central de
-  estudio de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["objeto_de_estudio", "cultura_popular"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La cultura popular (no sólo la cultura de elite) es otro de los objetos de estudio centrales de la historia cultural."
-
-pasos:
-  - "Es el tercero de los objetos de estudio mencionados en la teoría."
-
-explicacion: |
-  Verdadero: la cultura popular es otro objeto central de estudio de
-  esta corriente, ampliando el foco tradicional en la elite.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["objeto_de_estudio"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia de las corrientes anteriores, la historia cultural amplía qué cuenta como objeto legítimo de estudio histórico, incluyendo mentalidades, prácticas cotidianas y cultura popular."
-
-pasos:
-  - "Es la conclusión central sobre la amplitud de foco de esta corriente."
-
-explicacion: |
-  Verdadero: es una de las contribuciones centrales de esta corriente
-  a la disciplina.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["escuela_de_los_annales", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales mira grandes estructuras de larga duración; la historia cultural invierte la escala, mirando casos individuales chicos para revelar algo general."
-
-pasos:
-  - "Ver `../escuela-de-los-annales/`: es el contraste de escala entre estas dos corrientes."
-
-explicacion: |
-  Verdadero: es la diferencia central de escala entre estas dos
-  corrientes de la subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["positivismo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo se centra en grandes figuras y documentos oficiales; la historia cultural se centra en personas comunes y fuentes no convencionales."
-
-pasos:
-  - "Ver `../positivismo/`: es el contraste de foco entre estas dos corrientes."
-
-explicacion: |
-  Verdadero: es la diferencia central de foco entre estas dos
-  corrientes de la subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["historia_cultural", "practica"]
-
-variables:
-  analisis: ["estudiar el diario personal de una campesina para entender cómo pensaba la gente común de su época", "estudiar un tratado firmado entre dos reyes"]
-  corrientes: ["historia cultural", "positivismo"]
-  idx: uno_de([0, 1])
-
-respuesta: corrientes[idx]
+respuesta: periodos[idx]
 tipo: mc
-opciones_explicitas: ["historia cultural", "positivismo", "materialismo histórico", "Escuela de los Annales"]
+opciones_explicitas: ["Edad Antigua", "Edad Media", "Edad Moderna", "Edad Contemporánea"]
 
-enunciado: "\"{analisis[idx]}\" corresponde principalmente al enfoque de..."
+enunciado: "El año {anios[idx]} corresponde a la..."
 
 pasos:
-  - "Fuente no convencional (diario personal) + caso individual = historia cultural. Documento oficial + grandes figuras = positivismo."
+  - "Ubicar cada año dentro del rango de fechas de cada período de la periodización clásica."
 
 explicacion: |
-  Reconocer el tipo de fuente y de sujeto estudiado permite
-  identificar la corriente historiográfica aplicada.
+  Aplicar los límites de cada período para ubicar años concretos es
+  la práctica central de este tema.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["historia_cultural", "valor_del_caso_micro"]
+  tema: "periodizacion_historica"
+  nivel: "intermedio"
+  tags: ["periodizacion", "metodo"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según la historia cultural, la magnitud aparente de un caso (una sola persona, un solo juicio) no determina su valor histórico: un caso bien documentado puede revelar mucho sobre una época entera."
-
-pasos:
-  - "Es coherente con el ejemplo de Ginzburg sobre el molinero friulano."
-
+enunciado: "Ordená los pasos para periodizar un tema histórico específico."
+tipo: ordenar
+opciones_explicitas:
+  - "Identificar el rango temporal total del tema a estudiar"
+  - "Buscar hechos suficientemente importantes que marquen posibles cortes de período"
+  - "Dividir el rango en bloques delimitados por esos hechos"
+  - "Verificar que la periodización elegida tenga sentido para el criterio que se quiere analizar"
+respuesta_orden: ["Identificar el rango temporal total del tema a estudiar", "Buscar hechos suficientemente importantes que marquen posibles cortes de período", "Dividir el rango en bloques delimitados por esos hechos", "Verificar que la periodización elegida tenga sentido para el criterio que se quiere analizar"]
 explicacion: |
-  Verdadero: es la conclusión central sobre el valor de los casos
-  micro en esta corriente.
+  El proceso va de delimitar el rango total a construir la división
+  en bloques según hitos relevantes.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
+  tema: "periodizacion_historica"
   nivel: "avanzado"
   tags: ["prerrequisito"]
 
@@ -1945,22 +869,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
+enunciado: "Periodizar con precisión es el prerrequisito directo de analizar causa y consecuencia: antes de estudiar por qué ocurrió algo, hace falta un marco temporal claro donde ubicar esas causas y consecuencias."
 
 pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
+  - "Ver `../causa-y-consecuencia/`: es el tema siguiente de la cadena de pensamiento histórico."
 
 explicacion: |
-  Verdadero: es la misma conexión conceptual ya vista en las
-  corrientes anteriores de esta subrama.
+  Verdadero: por eso este tema es prerrequisito directo del
+  siguiente en la cadena.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
+  tema: "periodizacion_historica"
   nivel: "avanzado"
-  tags: ["neutralidad", "sintesis"]
+  tags: ["periodizacion", "aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -1968,47 +892,830 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Positivismo, materialismo histórico, Escuela de los Annales e historia cultural son cuatro lentes distintas y legítimas para hacer historia, ninguna reemplaza del todo a las demás."
+enunciado: "Al estudiar un hecho histórico, ubicarlo primero dentro de la periodización general (qué edad, qué siglo) ayuda a comparar rápidamente con otros procesos conocidos de esa misma etapa."
 
 pasos:
-  - "Ver `../positivismo/`, `../materialismo-historico/` y `../escuela-de-los-annales/`: mismo criterio de neutralidad aplicado a las cuatro."
+  - "Es la aplicación práctica directa de este tema como estrategia de estudio."
 
 explicacion: |
-  Verdadero: es la síntesis del principio de neutralidad aplicado a
-  toda la subrama de corrientes historiográficas.
+  Verdadero: es la aplicación concreta de este tema al estudiar
+  cualquier hecho histórico nuevo.
+```
+
+## Sección: economias-regionales-tempranas (23 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["ley_aduanas", "urquiza", "proteccionismo"]
+
+variables:
+  anio: 1854
+
+respuesta: "proteger la producción local"
+tipo: completar
+
+enunciado: "La Ley de Aduanas promulgada en {anio} por el gobierno de Justo José de Urquiza tenía como objetivo principal:"
+
+explicacion: |
+  La ley buscaba proteger la industria naciente y la producción local frente a la competencia extranjera, especialmente la británica.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["historia_cultural", "metodo"]
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["comercio_exterior", "britanicos"]
 
-enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque de la historia cultural."
+respuesta: "británica"
+tipo: completar
+
+enunciado: "La Ley de Aduanas de 1854 buscaba proteger la producción local frente a la competencia de la industria ___."
+
+explicacion: |
+  La industria británica era la principal competidora en el mercado argentino de la época.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["litoral", "entre_rios", "corrientes"]
+
+variables:
+  regiones: "Entre Ríos y Corrientes"
+
+respuesta: "Entre Ríos y Corrientes"
+tipo: completar
+
+enunciado: "Las provincias que más resistieron la Ley de Aduanas por considerar que amenazaba su autonomía económica fueron:"
+
+explicacion: |
+  Las provincias del Litoral, especialmente Entre Ríos y Corrientes, dependían más del comercio internacional y menos de la protección arancelaria.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["economia_litoral", "comercio"]
+
+respuesta: "abierta"
+tipo: completar
+
+enunciado: "La economía de las provincias del Litoral se caracterizaba por ser más ___ al comercio internacional."
+
+explicacion: |
+  A diferencia del centro del país, el Litoral tenía una economía más integrada y dependiente del comercio exterior.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["conflicto_armado", "causas"]
+
+respuesta: "Ley de Aduanas"
+tipo: completar
+
+enunciado: "La resistencia a la ___ se convirtió en el detonante de una nueva guerra civil entre la Confederación y el Litoral."
+
+explicacion: |
+  La aplicación estricta de la ley por Urquiza provocó la reacción armada de los caudillos litorales.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["ideologia", "descentralizacion"]
+
+respuesta: "descentralizada"
+tipo: completar
+
+enunciado: "Los rebeldes del Litoral defendían una visión política más ___, donde las provincias tendrían mayor control sobre sus recursos."
+
+explicacion: |
+  Los caudillos litorales argumentaban a favor de una mayor autonomía provincial frente al centralismo confederado.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["exportaciones", "carne"]
+
+respuesta: "carne salada y cueros"
+tipo: completar
+
+enunciado: "En la década de 1850, las exportaciones de ___ seguían siendo vitales para la economía argentina."
+
+explicacion: |
+  Aunque la industria nacía, la ganadería y sus derivados seguían siendo la base de las exportaciones.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["fiscalidad", "estado"]
+
+respuesta: "asegurar ingresos"
+tipo: completar
+
+enunciado: "Además de proteger la industria, la Ley de Aduanas buscaba ___ para el Estado nacional."
+
+explicacion: |
+  El Estado nacional necesitaba recursos fiscales para estructurarse tras la caída de Rosas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["soberania", "comercio"]
+
+respuesta: "soberanía sobre el comercio exterior"
+tipo: completar
+
+enunciado: "Mientras la Confederación buscaba consolidar la ___, los rebeldes defendían la autonomía provincial."
+
+explicacion: |
+  El conflicto fue también una disputa sobre quién controlaba las tarifas y el comercio exterior.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["confederacion", "estructuracion"]
+
+respuesta: "recién comenzaba a estructurarse"
+tipo: completar
+
+enunciado: "La Ley de Aduanas se promulgó cuando el Estado nacional ___ tras la caída de Rosas."
+
+explicacion: |
+  El nuevo orden constitucional estaba frágil y necesitaba consolidar su autoridad fiscal.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["percepcion", "amenaza"]
+
+respuesta: "amenaza directa"
+tipo: completar
+
+enunciado: "Los caudillos litorales percibieron la Ley de Aduanas como una ___ a su autonomía y prosperidad."
+
+explicacion: |
+  La ley fue vista no como una medida técnica, sino como un ataque político y económico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["consecuencias", "guerra"]
+
+respuesta: "no se resolvió con una victoria clara inmediata"
+tipo: completar
+
+enunciado: "La guerra entre la Confederación y el Litoral ___, dejando un legado de desconfianza."
+
+explicacion: |
+  El conflicto prolongado debilitó la legitimidad del gobierno de Urquiza sin definir una supremacía clara de inmediato.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["acuerdos", "federalismo"]
+
+respuesta: "violaba los acuerdos federales"
+tipo: completar
+
+enunciado: "Los rebeldes argumentaban que la ley ___ y perjudicaba sus economías locales."
+
+explicacion: |
+  La imposición unilateral de tarifas fue vista como una violación de los pactos federativos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["diplomacia", "conflicto"]
+
+respuesta: "rompimiento de relaciones"
+tipo: completar
+
+enunciado: "La situación escaló rápidamente, llevando al ___ diplomáticas entre el gobierno nacional y el Litoral."
+
+explicacion: |
+  La tensión económica derivó en una crisis política y diplomática abierta.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["rosas", "urquiza", "control"]
+
+respuesta: "control absoluto"
+tipo: completar
+
+enunciado: "La tensión se generó aunque la capital ya no tuviera el ___ que había tenido bajo Rosas."
+
+explicacion: |
+  Urquiza intentaba centralizar el poder que Rosas había ejercido desde Buenos Aires, pero con menos fuerza coercitiva inicial.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["constitucion", "fragilidad"]
+
+respuesta: "fragilidad del nuevo orden constitucional"
+tipo: completar
+
+enunciado: "El conflicto puso de manifiesto la ___ y la dificultad de integrar intereses dispares."
+
+explicacion: |
+  La incapacidad de resolver el conflicto fiscal mostró los límites del nuevo marco legal.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["integracion", "economia"]
+
+respuesta: "integrar intereses económicos tan dispares"
+tipo: completar
+
+enunciado: "El gran desafío del momento era ___ bajo un mismo marco legal."
+
+explicacion: |
+  Los intereses de Buenos Aires/Confederación y los del Litoral eran económicamente antagónicos en términos arancelarios.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["tarifas", "proteccionismo"]
+
+respuesta: "tarifas altas"
+tipo: completar
+
+enunciado: "La Ley de Aduanas imponía ___ a las importaciones para proteger la industria local."
+
+explicacion: |
+  El proteccionismo se lograba mediante barreras arancelarias elevadas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["regulacion", "comercio_exterior"]
+
+respuesta: "regular el comercio exterior"
+tipo: completar
+
+enunciado: "Además de las tarifas, la ley buscaba ___ bajo el control del Estado nacional."
+
+explicacion: |
+  La centralización del comercio exterior era clave para la soberanía nacional.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["litoral", "economia"]
+
+variables:
+  valor: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Las provincias del Litoral dependían más de la protección arancelaria que el centro del país."
+
+explicacion: |
+  Falso. El Litoral tenía una economía más abierta y dependía menos de la protección que el centro.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["guerra", "resultado"]
+
+variables:
+  valor: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La guerra entre la Confederación y el Litoral se resolvió con una victoria clara inmediata."
+
+explicacion: |
+  Falso. El conflicto dejó un legado de desconfianza y no tuvo un ganador claro de inmediato.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["urquiza", "aplicacion"]
+
+variables:
+  valor: "verdadero"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Justo José de Urquiza intentó aplicar la Ley de Aduanas de manera estricta."
+
+explicacion: |
+  Verdadero. Su estricta aplicación fue el detonante de la rebelión litoraleña.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["industria", "proteccion"]
+
+variables:
+  valor: "verdadero"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Ley de Aduanas buscaba fomentar la industria naciente argentina."
+
+explicacion: |
+  Verdadero. El proteccionismo arancelario tenía como fin desarrollar la manufactura local.
+```
+
+## Sección: causa-y-consecuencia (20 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "basico"
+  tags: ["causa", "definicion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una causa es una condición o hecho que contribuye a producir otro hecho (la consecuencia)."
+
+pasos:
+  - "En historia, rara vez una causa \"obliga\" mecánicamente a la consecuencia, como en física."
+
+explicacion: |
+  Verdadero: es la definición central de causa en el análisis
+  histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["causa", "probabilidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En historia, una causa hace que la consecuencia sea más probable o posible, dentro de decisiones humanas que podrían haber sido distintas."
+
+pasos:
+  - "A diferencia de una relación mecánica como en física, hay margen de decisión humana involucrado."
+
+explicacion: |
+  Verdadero: es un matiz importante sobre cómo funciona la
+  causalidad en el análisis histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["causas_inmediatas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "causa inmediata"
+tipo: mc
+opciones_explicitas: ["causa inmediata", "causa profunda"]
+
+enunciado: "El asesinato del archiduque Francisco Fernando, como el hecho puntual que \"disparó\" directamente la Primera Guerra Mundial, es un ejemplo de..."
+
+pasos:
+  - "Es el hecho puntual que desencadena directamente el acontecimiento."
+
+explicacion: |
+  La causa inmediata es el hecho puntual que dispara directamente un
+  acontecimiento.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["causas_profundas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "causa profunda"
+tipo: mc
+opciones_explicitas: ["causa inmediata", "causa profunda"]
+
+enunciado: "Las tensiones entre potencias europeas, las alianzas militares y el nacionalismo, que ya existían antes del asesinato de Francisco Fernando, son ejemplos de..."
+
+pasos:
+  - "Son condiciones de fondo que venían gestándose desde antes del hecho puntual."
+
+explicacion: |
+  Las causas profundas (o estructurales) son condiciones de fondo que
+  explican por qué la causa inmediata tuvo el efecto que tuvo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["causas_inmediatas", "causas_profundas"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sin las causas profundas, la causa inmediata (el asesinato del archiduque) no habría tenido el mismo efecto: explica por qué ese hecho puntual desató una guerra mundial y no un conflicto menor."
+
+pasos:
+  - "Es la razón por la que ambos tipos de causa se analizan juntos, no por separado."
+
+explicacion: |
+  Verdadero: es la relación central entre causa inmediata y causa
+  profunda en el análisis histórico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["correlacion_vs_causalidad"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Que dos hechos ocurran cerca en el tiempo no significa que uno haya causado al otro: puede ser coincidencia, o ambos pueden ser consecuencia de una tercera causa común."
+
+pasos:
+  - "Es el error más común al analizar relaciones causales en historia."
+
+explicacion: |
+  Verdadero: es el principio central para no confundir cercanía
+  temporal con causalidad real.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["correlacion_vs_causalidad", "evidencia"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Establecer una relación de causa-consecuencia requiere evidencia de un mecanismo real que conecte ambos hechos, no sólo cercanía temporal."
+
+pasos:
+  - "Es el criterio central para validar una relación causal, más allá de que los hechos ocurran cerca en el tiempo."
+
+explicacion: |
+  Verdadero: es el requisito central para afirmar una relación
+  causal de forma rigurosa.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["correlacion_vs_causalidad", "detectar_falacias"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Confundir correlación con causalidad en historia es el mismo tipo de error de razonamiento que la generalización apresurada ya vista en `../../lengua/detectar-falacias/`, aplicado ahora al análisis histórico."
+
+pasos:
+  - "Ver `../../lengua/detectar-falacias/`: es la conexión directa entre este tema y esa falacia ya estudiada."
+
+explicacion: |
+  Verdadero: es la relación entre este error histórico y su
+  equivalente ya conocido en Lengua.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["consecuencias_corto_plazo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una consecuencia a corto plazo es un efecto que se ve poco después del hecho causante."
+
+pasos:
+  - "Es una de las dos categorías de consecuencia según el tiempo que tardan en manifestarse."
+
+explicacion: |
+  Verdadero: es la definición de consecuencia a corto plazo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["consecuencias_largo_plazo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una consecuencia a largo plazo se manifiesta años o décadas después, y a veces es más importante que los efectos inmediatos, aunque menos evidente en el momento."
+
+pasos:
+  - "Es la otra categoría de consecuencia según el tiempo que tardan en manifestarse."
+
+explicacion: |
+  Verdadero: es la definición de consecuencia a largo plazo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["cadenas_causales"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las cadenas causales no terminan en un solo eslabón: la consecuencia de un hecho puede convertirse en la causa de otro hecho posterior."
+
+pasos:
+  - "Analizar historia a menudo implica seguir estas cadenas varios pasos hacia adelante o hacia atrás."
+
+explicacion: |
+  Verdadero: es el concepto de cadena causal, más allá de una
+  relación causa-consecuencia aislada.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["causas_inmediatas", "causas_profundas", "practica"]
+
+variables:
+  ejemplos: ["la firma de un tratado que desencadenó directamente una guerra", "décadas de crisis económica y descontento social que venían acumulándose antes de una revolución"]
+  tipos: ["causa inmediata", "causa profunda"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["causa inmediata", "causa profunda"]
+
+enunciado: "\"{ejemplos[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "El hecho puntual que dispara directamente es inmediata; las condiciones de fondo acumuladas son profundas."
+
+explicacion: |
+  Distinguir causa inmediata de causa profunda en un ejemplo concreto
+  es la aplicación central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["causas_profundas", "matiz"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un mismo hecho histórico puede tener varias causas profundas al mismo tiempo (económicas, sociales, políticas), no sólo una."
+
+pasos:
+  - "Es un anticipo del concepto de multicausalidad, tema más adelante en la cadena."
+
+explicacion: |
+  Verdadero: es coherente con la idea de que rara vez hay una única
+  causa detrás de un hecho histórico importante.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["consecuencias_corto_plazo", "consecuencias_largo_plazo", "practica"]
+
+variables:
+  consecuencias: ["la caída inmediata de un gobierno tras un golpe de Estado", "un cambio profundo en las instituciones políticas de un país, visible recién décadas después"]
+  tipos: ["consecuencia a corto plazo", "consecuencia a largo plazo"]
+  idx: uno_de([0, 1])
+
+respuesta: tipos[idx]
+tipo: mc
+opciones_explicitas: ["consecuencia a corto plazo", "consecuencia a largo plazo"]
+
+enunciado: "\"{consecuencias[idx]}\" es un ejemplo de..."
+
+pasos:
+  - "El efecto inmediato es corto plazo; el efecto que tarda décadas en verse es largo plazo."
+
+explicacion: |
+  Distinguir consecuencias según su horizonte temporal es una
+  aplicación práctica central de este tema.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["correlacion_vs_causalidad", "practica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si dos hechos ocurrieron el mismo año en distintas partes del mundo sin ninguna relación demostrable entre ellos, se puede afirmar con seguridad que uno causó al otro."
+
+pasos:
+  - "Sin evidencia de un mecanismo real que los conecte, la simultaneidad no es suficiente para afirmar causalidad."
+
+explicacion: |
+  Falso: la coincidencia temporal sola no es evidencia suficiente de
+  causalidad, hace falta un mecanismo demostrable.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["prerrequisito"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Analizar causas y consecuencias requiere un marco temporal claro (periodización), para poder ubicar en qué momento ocurrió cada hecho relacionado."
+
+pasos:
+  - "Ver `../periodizacion-historica/`: es el prerrequisito directo de este tema."
+
+explicacion: |
+  Verdadero: es la conexión central entre este tema y su
+  prerrequisito de la cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "avanzado"
+  tags: ["big_six"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Causa y consecuencia es uno de los 6 conceptos del marco \"Big Six\" (Seixas & Morton) de pensamiento histórico, una referencia internacional en didáctica de la Historia."
+
+pasos:
+  - "Es el contexto académico de este tema, mencionado en la teoría."
+
+explicacion: |
+  Verdadero: es el marco teórico de referencia que organiza este
+  tema y varios de los siguientes en la cadena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "causa_y_consecuencia"
+  nivel: "intermedio"
+  tags: ["causa_y_consecuencia", "metodo"]
+
+enunciado: "Ordená los pasos para analizar las causas de un hecho histórico."
 tipo: ordenar
 opciones_explicitas:
-  - "Revisar si el foco está en un caso individual chico, no en grandes estructuras o figuras"
-  - "Identificar si usa fuentes no convencionales (diarios, juicios de personas comunes)"
-  - "Revisar si el objeto de estudio incluye mentalidades, prácticas cotidianas o cultura popular"
-  - "Concluir si el texto corresponde al enfoque de la historia cultural"
-respuesta_orden:
-  - "Revisar si el foco está en un caso individual chico, no en grandes estructuras o figuras"
-  - "Identificar si usa fuentes no convencionales (diarios, juicios de personas comunes)"
-  - "Revisar si el objeto de estudio incluye mentalidades, prácticas cotidianas o cultura popular"
-  - "Concluir si el texto corresponde al enfoque de la historia cultural"
-
+  - "Identificar la causa inmediata (el hecho puntual que disparó el acontecimiento)"
+  - "Buscar las causas profundas o estructurales que venían gestándose desde antes"
+  - "Revisar si hay evidencia real de conexión entre esas causas y la consecuencia, no sólo cercanía temporal"
+  - "Distinguir consecuencias a corto y largo plazo del hecho analizado"
+respuesta_orden: ["Identificar la causa inmediata (el hecho puntual que disparó el acontecimiento)", "Buscar las causas profundas o estructurales que venían gestándose desde antes", "Revisar si hay evidencia real de conexión entre esas causas y la consecuencia, no sólo cercanía temporal", "Distinguir consecuencias a corto y largo plazo del hecho analizado"]
 explicacion: |
-  El análisis va de la escala del caso estudiado al tipo de fuentes y
-  objeto de estudio, para concluir si corresponde a esta corriente.
+  El proceso va de la causa más visible (inmediata) a las más
+  profundas, verificando evidencia real y considerando el horizonte
+  temporal de las consecuencias.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
+  tema: "causa_y_consecuencia"
   nivel: "avanzado"
-  tags: ["sintesis"]
+  tags: ["prerrequisito"]
 
 variables:
   n: uno_de([1, 1])
@@ -2016,22 +1723,22 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La historia cultural cierra la subrama de corrientes historiográficas: hechos y figuras (positivismo) → clases y producción (materialismo histórico) → estructuras de larga duración (Annales) → lo micro que revela lo macro (historia cultural)."
+enunciado: "Comparar qué cambió y qué se mantuvo en el tiempo (cambio y continuidad) presupone ya poder identificar qué causó cada cambio."
 
 pasos:
-  - "Ver `../positivismo/`, `../materialismo-historico/` y `../escuela-de-los-annales/`: es el recorrido completo de las cuatro corrientes de esta subrama."
+  - "Ver `../cambio-y-continuidad/`: es el tema siguiente de la cadena de pensamiento histórico."
 
 explicacion: |
-  Verdadero: es la síntesis del recorrido completo de la subrama de
-  corrientes historiográficas.
+  Verdadero: por eso este tema es prerrequisito directo del
+  siguiente en la cadena.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
+  tema: "causa_y_consecuencia"
   nivel: "avanzado"
-  tags: ["historia_cultural", "aplicacion"]
+  tags: ["causa_y_consecuencia", "aplicacion"]
 
 variables:
   n: uno_de([1, 1])
@@ -2039,407 +1746,529 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Al leer un libro de historia centrado en el diario de una sola persona común, usado para entender cómo se vivía y pensaba en su época, conviene reconocer que está aplicando un enfoque cercano a la historia cultural."
+enunciado: "Al analizar cualquier hecho histórico o actual, conviene distinguir la causa inmediata de las causas profundas, y evitar afirmar una relación causal sin evidencia de un mecanismo real, sólo por cercanía temporal."
 
 pasos:
-  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
+  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
 
 explicacion: |
-  Verdadero: es la aplicación concreta de este tema para reconocer el
-  enfoque historiográfico de un texto real.
+  Verdadero: es la aplicación concreta de este tema al análisis de
+  cualquier hecho histórico, pasado o presente.
 ```
 
-## Sección: independencias (20 preguntas)
+## Sección: semana-tragica-1919 (27 preguntas)
 
 ```
 metadata:
-  materia: "historia"
-  tema: "independencias"
+  materia: "Historia"
+  tema: "semana_tragica_1919"
   nivel: "basico"
-  tags: ["independencias", "vocabulario"]
-
-enunciado: "¿Qué es un proceso de independencia?"
-tipo: mc
-opciones_explicitas:
-  - "El proceso por el cual un territorio deja de estar bajo la soberanía de otro Estado y se constituye como Estado propio"
-  - "Un cambio de gobernante dentro del mismo Estado"
-  - "Un tratado comercial entre dos países"
-respuesta: "El proceso por el cual un territorio deja de estar bajo la soberanía de otro Estado y se constituye como Estado propio"
-
-explicacion: |
-  No es un evento instantáneo: es un proceso que puede durar años.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "intermedio"
-  tags: ["cruce"]
-
-enunciado: "En el caso rioplatense, ¿la independencia fue el primer paso del proceso o la consecuencia de una revolución previa?"
-tipo: mc
-opciones_explicitas:
-  - "Fue la consecuencia de la Revolución de Mayo, un proceso revolucionario previo"
-  - "Fue el primer paso, antes de cualquier revolución"
-  - "No tuvo ninguna relación con la Revolución de Mayo"
-respuesta: "Fue la consecuencia de la Revolución de Mayo, un proceso revolucionario previo"
-
-explicacion: |
-  Es la razón por la que `independencias/` depende de
-  `../revoluciones/` en `../dependencias.md`.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "avanzado"
-  tags: ["revolucion_de_mayo"]
-
-enunciado: "¿En nombre de quién decía gobernar la Junta de 1810, aunque en la práctica ejercía el poder de forma autónoma?"
-tipo: mc
-opciones_explicitas:
-  - "Del rey depuesto, Fernando VII"
-  - "Del rey de Portugal"
-  - "De ningún rey, declarándose independiente desde el primer día"
-respuesta: "Del rey depuesto, Fernando VII"
-
-explicacion: |
-  Era una ambigüedad deliberada para no provocar una reacción militar
-  inmediata mientras el nuevo gobierno se afianzaba.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "avanzado"
-  tags: ["revolucion_de_mayo"]
-
-enunciado: "¿Por qué la Junta de 1810 no declaró la independencia total de inmediato?"
-tipo: mc
-opciones_explicitas:
-  - "Para ganar tiempo y consolidarse sin provocar una reacción militar inmediata de España"
-  - "Porque no existía ninguna intención de romper con España"
-  - "Porque España ya había reconocido la independencia en 1810"
-respuesta: "Para ganar tiempo y consolidarse sin provocar una reacción militar inmediata de España"
-
-explicacion: |
-  Era una estrategia deliberada de radicalización progresiva, no
-  indecisión.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "basico"
-  tags: ["argentina"]
-
-enunciado: "¿En qué año se declaró formalmente la independencia de las Provincias Unidas en Sudamérica?"
-tipo: input
-respuesta: 1816
-
-explicacion: |
-  El Congreso de Tucumán declaró la independencia en 1816, 6 años
-  después de la Revolución de Mayo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "intermedio"
-  tags: ["argentina", "calculo"]
+  tags: ["semana_tragica", "contexto", "primera_guerra"]
 
 variables:
-  anio_revolucion: 1810
-  anio_independencia: 1816
+  anio_fin_guerra: 1918
 
-respuesta: anio_independencia - anio_revolucion
+respuesta: "1918"
 tipo: input
 
-enunciado: "Entre la Revolución de Mayo ({anio_revolucion}) y la declaración de independencia en el Congreso de Tucumán ({anio_independencia}), ¿cuántos años pasaron?"
-
-pasos:
-  - "{anio_independencia} - {anio_revolucion}"
+enunciado: "La Primera Guerra Mundial concluyó en el año {anio_fin_guerra}, momento en que los precios de los alimentos comenzaron a caer drásticamente, afectando la economía argentina."
 
 explicacion: |
-  El proceso completo llevó más tiempo que el evento fundacional que
-  se suele recordar como "punto de partida".
+  El fin de la Primera Guerra Mundial en 1918 provocó un colapso en la demanda de productos agropecuarios, lo que llevó a los empresarios a recortar salarios para mantener sus ganancias.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "independencias"
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["huelga", "fora", "vasena"]
+
+variables:
+  lugar_huelga: "los Talleres Metalúrgicos Vasena"
+
+respuesta: "los Talleres Metalúrgicos Vasena"
+tipo: input
+
+enunciado: "El conflicto tuvo como detonante inicial una huelga en {lugar_huelga}, en el barrio de Nueva Pompeya."
+
+explicacion: |
+  La huelga comenzó en los Talleres Metalúrgicos Vasena; la represión policial al piquete y el entierro de las víctimas escalaron hacia una huelga general convocada por la FORA en Buenos Aires.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
   nivel: "basico"
-  tags: ["argentina"]
+  tags: ["liga_patriota", "extrema_derecha"]
 
-enunciado: "¿En qué Congreso se declaró la independencia argentina en 1816?"
-tipo: mc
-opciones_explicitas:
-  - "Congreso de Tucumán"
-  - "Congreso de Viena"
-  - "Congreso de Panamá"
-respuesta: "Congreso de Tucumán"
+variables:
+  tipo_organizacion: "extrema derecha"
+
+respuesta: "extrema derecha"
+tipo: input
+
+enunciado: "La Liga Patriótica Argentina fue una organización de {tipo_organizacion} compuesta por sectores conservadores, nacionalistas y militares."
 
 explicacion: |
-  Fue el Congreso que reunió representantes de las Provincias Unidas
-  para declarar formalmente la independencia.
+  La Liga Patriótica actuó como una milicia privada de extrema derecha para defender los intereses de las clases dominantes contra el movimiento obrero.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "independencias"
+  materia: "Historia"
+  tema: "semana_tragica_1919"
   nivel: "intermedio"
-  tags: ["cruce"]
+  tags: ["yrigoyen", "partido_radical", "intervencion"]
 
-enunciado: "¿Por qué declarar la independencia en 1816 no la hizo efectiva de forma automática?"
-tipo: mc
-opciones_explicitas:
-  - "Porque España no reconoció la declaración y siguió enviando fuerzas militares para reconquistar el territorio"
-  - "Porque el Congreso de Tucumán no tenía autoridad legal"
-  - "Porque la independencia ya era efectiva desde 1810"
-respuesta: "Porque España no reconoció la declaración y siguió enviando fuerzas militares para reconquistar el territorio"
+variables:
+  presidente: "Hipólito Yrigoyen"
+
+respuesta: "Hipólito Yrigoyen"
+tipo: input
+
+enunciado: "El presidente de la Nación durante la Semana Trágica, {presidente}, del Partido Radical, intervino militarmente para restablecer el orden."
 
 explicacion: |
-  La declaración política y la victoria militar que la sostiene son
-  dos cosas distintas — ver `../guerras/`.
+  Aunque Yrigoyen tenía apoyo popular, su gobierno se alió con las fuerzas conservadoras para reprimir la huelga, priorizando la estabilidad sobre los derechos laborales.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Son la declaración política de independencia y la victoria militar que la consolida exactamente lo mismo?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Son dos cosas distintas, aunque en la práctica una depende de la
-  otra: sin ganar la guerra, la declaración queda sin efecto real.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "avanzado"
-  tags: ["revolucion_de_mayo"]
-
-enunciado: "¿Qué provocó que la postura independentista se consolidara como la única salida viable con el paso de los años?"
-tipo: mc
-opciones_explicitas:
-  - "Los intentos de España de reconquistar el territorio"
-  - "Un tratado de paz firmado en 1810"
-  - "La ausencia total de conflicto con España"
-respuesta: "Los intentos de España de reconquistar el territorio"
-
-explicacion: |
-  A medida que España insistía en recuperar el control, la ambigüedad
-  inicial se volvió insostenible.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "intermedio"
-  tags: ["proceso_continental"]
-
-enunciado: "¿Qué campaña de San Martín llevó la independencia más allá del territorio rioplatense?"
-tipo: mc
-opciones_explicitas:
-  - "El cruce de los Andes y la liberación de Chile"
-  - "La expedición al Amazonas"
-  - "La conquista de México"
-respuesta: "El cruce de los Andes y la liberación de Chile"
-
-explicacion: |
-  Muestra que el proceso se pensó, en parte, como un proyecto
-  continental, no aislado a un solo territorio.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "intermedio"
-  tags: ["proceso_continental"]
-
-enunciado: "¿Qué líder independentista lideró procesos en el norte de Sudamérica, en paralelo al de San Martín en el sur?"
-tipo: mc
-opciones_explicitas:
-  - "Simón Bolívar"
-  - "Napoleón Bonaparte"
-  - "Bernardo O'Higgins"
-respuesta: "Simón Bolívar"
-
-explicacion: |
-  Junto con San Martín, es una de las dos grandes figuras de la
-  independencia hispanoamericana como proceso continental.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "avanzado"
-  tags: ["proceso_continental"]
-
-enunciado: "¿Por qué la independencia hispanoamericana se pensó, en parte, como un proyecto continental y no aislado por territorio?"
-tipo: mc
-opciones_explicitas:
-  - "Porque ningún territorio quedaba realmente seguro mientras España mantuviera fuerzas militares en la región"
-  - "Porque todos los territorios hispanoamericanos tenían el mismo gobierno"
-  - "Porque España ya había reconocido todas las independencias en 1810"
-respuesta: "Porque ningún territorio quedaba realmente seguro mientras España mantuviera fuerzas militares en la región"
-
-explicacion: |
-  Mientras hubiera fuerzas españolas activas en la región, cualquier
-  territorio independizado corría riesgo de reconquista.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "independencias"
+  materia: "Historia"
+  tema: "semana_tragica_1919"
   nivel: "basico"
-  tags: ["independencias"]
+  tags: ["ideologias", "anarquismo", "socialismo"]
 
-enunciado: "Un proceso de independencia siempre es un evento instantáneo, que ocurre en un solo día."
-tipo: vf
-respuesta: falso
+variables:
+  ideas_influyentes: "anarquistas y socialistas"
+
+respuesta: "anarquistas y socialistas"
+tipo: input
+
+enunciado: "El movimiento obrero argentino en 1919 estaba influenciado principalmente por las ideas {ideas_influyentes}."
 
 explicacion: |
-  Es un proceso que puede durar años y atravesar varias etapas antes
-  de consolidarse — el caso rioplatense llevó al menos 6 años sólo
-  hasta la declaración formal, y más tiempo hasta consolidarse
-  militarmente.
+  La FORA y otros grupos obreros estaban fuertemente influenciados por corrientes anarquistas y socialistas que buscaban la justicia social.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "independencias"
+  materia: "Historia"
+  tema: "semana_tragica_1919"
   nivel: "intermedio"
-  tags: ["revolucion_de_mayo"]
+  tags: ["liga_patriota", "objetivo"]
 
-enunciado: "Ordená estas 3 etapas del proceso rioplatense: Declaración formal de independencia, Ambigüedad inicial (gobernar \"a nombre\" del rey), Radicalización progresiva."
-tipo: ordenar
-opciones_explicitas:
-  - "Ambigüedad inicial (gobernar \"a nombre\" del rey)"
-  - "Radicalización progresiva"
-  - "Declaración formal de independencia"
-respuesta: "Ambigüedad inicial (gobernar \"a nombre\" del rey)"
+variables:
+  objetivo_liga: "defender la civilización"
+
+respuesta: "defender la civilización"
+tipo: input
+
+enunciado: "La Liga Patriótica justificaba sus acciones violentas como una necesidad para {objetivo_liga} contra el 'peligro rojo'."
 
 explicacion: |
-  Es la secuencia real: 1810 (ambigüedad) → años intermedios
-  (radicalización) → 1816 (declaración formal).
+  La retórica de la Liga se basaba en la defensa de la 'civilización' occidental contra lo que percibían como una amenaza bolchevique o roja.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "independencias"
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["cronologia", "fechas"]
+
+variables:
+  inicio: 7
+  fin: 13
+
+respuesta: "7 y 13"
+tipo: input
+
+enunciado: "La Semana Trágica ocurrió entre el día {inicio} y el día {fin} de enero de 1919."
+
+explicacion: |
+  El conflicto violento se extendió durante una semana, específicamente del 7 al 13 de enero de 1919.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
   nivel: "intermedio"
-  tags: ["independencias"]
+  tags: ["liga_patriota", "milicia"]
 
-enunciado: "¿Qué necesita un territorio, además de declararse independiente, para consolidarse como Estado propio?"
-tipo: mc
-opciones_explicitas:
-  - "Gobierno y reconocimiento internacional autónomos"
-  - "Sólo una bandera y un himno nuevos"
-  - "La aprobación exclusiva de la antigua metrópoli"
-respuesta: "Gobierno y reconocimiento internacional autónomos"
+variables:
+  caracterizacion: "milicia privada"
+
+respuesta: "milicia privada"
+tipo: input
+
+enunciado: "La Liga Patriótica actuaba efectivamente como una {caracterizacion} encargada de atacar a huelguistas e inmigrantes."
 
 explicacion: |
-  Un Estado necesita ejercer soberanía real y ser reconocido, no sólo
-  declarar la intención.
+  No era un cuerpo oficial del estado, sino una organización civil de extrema derecha que operaba como una milicia paramilitar.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "avanzado"
-  tags: ["independencias"]
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["clases_sociales", "trabajadores"]
 
-enunciado: "¿Por qué conviene analizar la independencia rioplatense como un \"proceso\" y no como un único \"evento\" (la Revolución de Mayo)?"
-tipo: mc
-opciones_explicitas:
-  - "Porque incluyó varias etapas a lo largo de años: ambigüedad, radicalización, declaración formal y consolidación militar"
-  - "Porque la Revolución de Mayo no tuvo ninguna relación con la independencia"
-  - "Porque el proceso terminó exactamente en 1810"
-respuesta: "Porque incluyó varias etapas a lo largo de años: ambigüedad, radicalización, declaración formal y consolidación militar"
+variables:
+  sector: "trabajadores"
+
+respuesta: "trabajadores"
+tipo: input
+
+enunciado: "Los recortes salariales y el aumento de la jornada laboral afectaron directamente a los {sector}."
 
 explicacion: |
-  Reducirlo a un solo evento (la Revolución de Mayo) pierde toda la
-  complejidad del proceso completo.
+  La crisis económica post-guerra llevó a los empresarios a trasladar la carga a los trabajadores mediante peores condiciones laborales.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "independencias"
+  materia: "Historia"
+  tema: "semana_tragica_1919"
   nivel: "intermedio"
-  tags: ["cruce"]
+  tags: ["burguesia", "socialismo"]
 
-enunciado: "¿Por qué el proceso de independencia rioplatense se conecta directamente con `../guerras/`?"
-tipo: mc
-opciones_explicitas:
-  - "Porque España resistió militarmente la independencia declarada, generando las Guerras de independencia"
-  - "Porque `../guerras/` trata sobre un conflicto sin ninguna relación con la independencia"
-  - "Porque la independencia se logró sin ningún conflicto armado"
-respuesta: "Porque España resistió militarmente la independencia declarada, generando las Guerras de independencia"
+variables:
+  amenaza_percebida: "socialismo"
+
+respuesta: "socialismo"
+tipo: input
+
+enunciado: "La burguesía conservadora temía principalmente la expansión del {amenaza_percebida} durante este período."
 
 explicacion: |
-  Es la razón por la que `H2c` (guerras) depende de `H2b`
-  (independencias) en `../dependencias.md`.
+  El auge del movimiento obrero organizado era visto por las élites como una amenaza directa al orden capitalista y social establecido.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "avanzado"
-  tags: ["cruce"]
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["huelga", "conflicto"]
 
-enunciado: "¿Cuál es la diferencia central entre \"revolución\" e \"independencia\" como procesos históricos?"
-tipo: mc
-opciones_explicitas:
-  - "La revolución cambia el poder o la estructura interna de una sociedad; la independencia rompe la relación de soberanía con otro Estado"
-  - "Son exactamente el mismo proceso con dos nombres distintos"
-  - "La independencia siempre ocurre antes que cualquier revolución"
-respuesta: "La revolución cambia el poder o la estructura interna de una sociedad; la independencia rompe la relación de soberanía con otro Estado"
+variables:
+  tipo_conflicto: "disputa económica"
+
+respuesta: "disputa económica"
+tipo: input
+
+enunciado: "Inicialmente, la huelga en los Talleres Vasena fue una {tipo_conflicto}, pero pronto se transformó en un choque político más amplio."
 
 explicacion: |
-  Pueden estar conectadas (como en el caso rioplatense) pero son
-  conceptos distintos.
+  El conflicto comenzó por demandas salariales y de condiciones laborales, escalando a una crisis política nacional.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "avanzado"
-  tags: ["cruce"]
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["liga_patriota", "violencia", "inmigrantes"]
 
-enunciado: "¿Por qué el desarrollo real y detallado de la independencia argentina se ubica en la cadena `AH4`-`AH5` de Tronco 8.c y no acá?"
-tipo: mc
-opciones_explicitas:
-  - "Para no duplicar el mismo contenido con dos IDs distintos — acá se explica el proceso general, allá el caso puntual con más contexto"
-  - "Porque Tronco 8.c no tiene relación alguna con la independencia"
-  - "Porque este tema y `AH4`/`AH5` tratan procesos completamente distintos"
-respuesta: "Para no duplicar el mismo contenido con dos IDs distintos — acá se explica el proceso general, allá el caso puntual con más contexto"
+variables:
+  grupo_objetivo: "inmigrantes"
+
+respuesta: "inmigrantes"
+tipo: input
+
+enunciado: "Los grupos de choque de la Liga Patriótica atacaban no solo a huelguistas, sino también a {grupo_objetivo} y sospechosos de izquierda."
 
 explicacion: |
-  Mismo criterio de "no repetir el mismo tema dos veces" que ya usa el
-  MAPA en varios puntos (ver nota v2.4 sobre `AH12`/`AH13`).
+  La xenofobia fue un componente clave de la Liga, que asociaba a los inmigrantes europeos con el anarquismo y el bolchevismo.
 ```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["represión", "ejecuciones"]
+
+variables:
+  metodo: "ejecuciones extrajudiciales"
+
+respuesta: "ejecuciones extrajudiciales"
+tipo: input
+
+enunciado: "La violencia de la Liga Patriótica incluyó detenciones arbitrarias, torturas y {metodo} contra los trabajadores."
+
+explicacion: |
+  La represión fue brutal y muchas víctimas fueron asesinadas sin proceso legal alguno por parte de los grupos de choque.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["migración", "boom_económico"]
+
+variables:
+  causa_migracion: "boom económico"
+
+respuesta: "boom económico"
+tipo: input
+
+enunciado: "Durante la Primera Guerra Mundial, la demanda de productos argentinos generó un {causa_migracion} que atrajo a miles de personas a las ciudades."
+
+explicacion: |
+  La guerra creó una coyuntura económica favorable para Argentina, impulsando la urbanización y el crecimiento de la clase obrera.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["fora", "organización"]
+
+variables:
+  rol_fora: "organizar"
+
+respuesta: "organizar"
+tipo: input
+
+enunciado: "La FORA tuvo un rol central en {rol_fora} la huelga general que desencadenó la Semana Trágica."
+
+explicacion: |
+  La Federación Obrera Regional Argentina fue la principal entidad que coordinó la acción obrera durante este período.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["gobierno", "justificación"]
+
+variables:
+  justificacion: "restablecer el orden"
+
+respuesta: "restablecer el orden"
+tipo: input
+
+enunciado: "El gobierno de Yrigoyen justificó la intervención militar como necesaria para {justificacion} en la capital."
+
+explicacion: |
+  La narrativa oficial presentaba la represión como una medida de emergencia para proteger la seguridad pública.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["economía", "precios"]
+
+variables:
+  tendencia_precios: "cayeron drásticamente"
+
+respuesta: "cayeron drásticamente"
+tipo: input
+
+enunciado: "Al terminar la guerra, los precios de los alimentos {tendencia_precios}, desestabilizando la economía."
+
+explicacion: |
+  El fin de la demanda bélica provocó una caída abrupta en los ingresos del sector agroexportador, clave para la economía argentina.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["liga_patriota", "composición"]
+
+variables:
+  miembros: "conservadores, nacionalistas y militares"
+
+respuesta: "conservadores, nacionalistas y militares"
+tipo: input
+
+enunciado: "La Liga Patriótica estaba compuesta por {miembros} que buscaban proteger sus privilegios."
+
+explicacion: |
+  Fue una coalición heterogénea de élites que unieron sus fuerzas contra el movimiento obrero.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["burguesía", "objetivo"]
+
+variables:
+  objetivo_burguesia: "mantener sus ganancias"
+
+respuesta: "mantener sus ganancias"
+tipo: input
+
+enunciado: "Los empresarios recortaron salarios para {objetivo_burguesia} frente a la caída de los precios de exportación."
+
+explicacion: |
+  La lógica empresarial priorizó la rentabilidad sobre las condiciones de vida de los trabajadores.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "avanzado"
+  tags: ["conflicto", "visión_sociedad"]
+
+variables:
+  naturaleza: "choque frontal"
+
+respuesta: "choque frontal"
+tipo: input
+
+enunciado: "La huelga general representó un {naturaleza} entre dos visiones de sociedad: la burguesía y el proletariado."
+
+explicacion: |
+  Fue más que una disputa laboral; fue un enfrentamiento ideológico y político por la dirección del país.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["liga_patriota", "víctimas"]
+
+variables:
+  victimas: "huelguistas"
+
+respuesta: "huelguistas"
+tipo: input
+
+enunciado: "Los grupos de choque de la Liga Patriótica recorrían las calles atacando principalmente a {victimas}."
+
+explicacion: |
+  Los huelguistas eran el blanco principal de la violencia paramilitar organizada por la Liga.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["derechos", "consecuencias"]
+
+variables:
+  resultado_derechos: "restringidos"
+
+respuesta: "restringidos"
+tipo: input
+
+enunciado: "Como consecuencia de la Semana Trágica, los derechos laborales fueron fuertemente {resultado_derechos} por la represión estatal y paramilitar."
+
+explicacion: |
+  La victoria de la Liga y la intervención militar marcaron un retroceso significativo para la organización obrera.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["cronologia", "huelga"]
+
+variables:
+  mes: "enero"
+
+respuesta: "enero"
+tipo: input
+
+enunciado: "La huelga general que derivó en la Semana Trágica ocurrió en el mes de {mes} de 1919."
+
+explicacion: |
+  Los eventos centrales ocurrieron en la primera quincena de enero de 1919.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "intermedio"
+  tags: ["ideología", "anticomunismo"]
+
+variables:
+  concepto: "peligro rojo"
+
+respuesta: "peligro rojo"
+tipo: input
+
+enunciado: "La Liga Patriótica utilizaba el concepto del {concepto} para justificar su violencia contra la izquierda."
+
+explicacion: |
+  El "peligro rojo" era una retórica que asociaba cualquier protesta social con el comunismo bolchevique ruso.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["geografía", "buenos_aires"]
+
+variables:
+  ciudad: "Buenos Aires"
+
+respuesta: "Buenos Aires"
+tipo: input
+
+enunciado: "La violencia de la Semana Trágica se concentró principalmente en la ciudad de {ciudad}."
+
+explicacion: |
+  Aunque hubo ecos en otras ciudades, el epicentro del conflicto fue la capital federal.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "avanzado"
+  tags: ["yrigoyen", "legado", "partido_radical"]
+
+variables:
+  ruptura: "ruptura con la base popular"
+
+respuesta: "ruptura con la base popular"
+tipo: input
+
+enunciado: "La represión de la Semana Trágica marcó una {ruptura} para el gobierno de Yrigoyen, alienando a sus antiguos aliados obreros."
+
+explicacion: |
+  Este evento es visto como un punto de inflexión donde el radicalismo se alejó de sus orígenes más progresistas.
+```
+
+```
+metadata:
+  materia: "Historia"
+  tema: "semana_tragica_1919"
+  nivel: "basico"
+  tags: ["contexto", "primera_guerra_mundial"]
+
+variables:
+  guerra_previa: "Primera Guerra Mundial"
+
+respuesta: "Primera Guerra Mundial"
+tipo: input
+
+enunciado: "El contexto inmediato previo a la crisis de 1919 fue el fin de la {guerra_previa} (1914-1918)."
+
+explicacion: |
+  La Primera Guerra Mundial fue el catalizador económico y social que llevó a la crisis de 1919.
+```
+

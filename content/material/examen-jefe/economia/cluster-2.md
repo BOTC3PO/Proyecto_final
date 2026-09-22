@@ -1,1842 +1,8 @@
-# Examen jefe — Maestro de Contratos y Comercio
+# Examen jefe — [PENDIENTE #767]
 
-> Logro #188. Completaste el examen jefe integrando contabilidad, contratos inteligentes y ventaja comparativa. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **116 preguntas totales** en 5/5 secciones.
+> Logro #767. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: cft-vs-tasa-nominal (23 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "basico"
-  tags: ["cft", "vocabulario"]
-
-enunciado: "¿Qué es la TNA (Tasa Nominal Anual)?"
-tipo: mc
-opciones_explicitas:
-  - "La tasa de interés anual \"de lista\", sin tener en cuenta cómo capitaliza durante el año"
-  - "El costo total real de un préstamo, incluidos seguros y comisiones"
-  - "El monto final que hay que devolver en un crédito"
-respuesta: "La tasa de interés anual \"de lista\", sin tener en cuenta cómo capitaliza durante el año"
-
-explicacion: |
-  La TNA es sólo el porcentaje anual nominal, previo a considerar el
-  efecto de la capitalización.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "basico"
-  tags: ["cft", "vocabulario"]
-
-enunciado: "¿Qué es la TEA (Tasa Efectiva Anual)?"
-tipo: mc
-opciones_explicitas:
-  - "El costo anual real de la tasa, considerando el efecto de la capitalización"
-  - "La tasa que cobra el Estado sobre los intereses"
-  - "Un promedio entre la TNA y el CFT"
-respuesta: "El costo anual real de la tasa, considerando el efecto de la capitalización"
-
-explicacion: |
-  La TEA es lo que la TNA se convierte una vez que se tiene en cuenta el
-  interés compuesto de la capitalización dentro del año.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "basico"
-  tags: ["cft", "vocabulario"]
-
-enunciado: "¿Qué es el CFT (Costo Financiero Total)?"
-tipo: mc
-opciones_explicitas:
-  - "El costo final y real de un crédito: la TEA más comisiones, seguros e IVA sobre los intereses"
-  - "Otro nombre para la TNA"
-  - "El monto original prestado, sin intereses"
-respuesta: "El costo final y real de un crédito: la TEA más comisiones, seguros e IVA sobre los intereses"
-
-explicacion: |
-  Es el número que el BCRA obliga a publicar en toda oferta de crédito
-  en Argentina, justamente para poder comparar el costo real.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "basico"
-  tags: ["cft", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La TNA es sólo la tasa anual nominal: no tiene en cuenta cómo se capitaliza el interés durante el año."
-
-explicacion: |
-  Por eso la TNA sola no alcanza para saber el costo real de un crédito.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "basico"
-  tags: ["cft", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La TEA considera el efecto de la capitalización (interés compuesto) dentro del año, a diferencia de la TNA."
-
-explicacion: |
-  Es exactamente la aplicación de interés compuesto a la TNA con la
-  frecuencia de capitalización del producto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "intermedio"
-  tags: ["cft", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El CFT incluye, además de la TEA, comisiones administrativas, seguros obligatorios y el IVA que se cobra sobre los intereses."
-
-explicacion: |
-  Es lo que lo convierte en el costo REAL del crédito, no sólo la tasa
-  de interés.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "intermedio"
-  tags: ["cft", "calculo"]
-
-variables:
-  tna: random(20, 120)
-
-respuesta: ((1 + tna / 100 / 12) ^ 12 - 1) * 100
-tipo: input
-tolerancia_abs: 0.2
-
-enunciado: "Un préstamo tiene una TNA del {tna}%, con capitalización mensual (n = 12). ¿Cuál es la TEA aproximada, en porcentaje?"
-
-pasos:
-  - "TEA = (1 + {tna}/100/12)^12 - 1"
-
-explicacion: |
-  Se aplica la fórmula TEA = (1 + TNA/n)^n - 1, con n = 12 por ser
-  mensual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "intermedio"
-  tags: ["cft", "comparacion"]
-
-variables:
-  tna: random(20, 120)
-
-respuesta: (((1 + tna / 100 / 12) ^ 12 - 1) * 100 > tna)
-tipo: vf
-
-enunciado: "Con una TNA del {tna}% capitalizada mes a mes, ¿la TEA resultante es mayor que el {tna}% nominal?"
-
-explicacion: |
-  Cuando capitaliza más de una vez al año, la TEA siempre supera a la
-  TNA — es el mismo efecto de "interés sobre interés" del tema anterior.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "avanzado"
-  tags: ["cft", "calculo"]
-
-variables:
-  tna: random(20, 120)
-
-respuesta: ((1 + tna / 100 / 4) ^ 4 - 1) * 100
-tipo: input
-tolerancia_abs: 0.2
-
-enunciado: "Un plazo fijo tiene una TNA del {tna}%, con capitalización trimestral (n = 4). ¿Cuál es la TEA aproximada, en porcentaje?"
-
-pasos:
-  - "TEA = (1 + {tna}/100/4)^4 - 1"
-
-explicacion: |
-  Con menos capitalizaciones al año que en el caso mensual, la brecha
-  entre TNA y TEA es más chica, pero sigue existiendo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "intermedio"
-  tags: ["cft", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un producto capitaliza una sola vez al año (n = 1), la TNA y la TEA dan exactamente el mismo número."
-
-explicacion: |
-  Con n = 1, (1 + TNA/1)^1 - 1 es simplemente TNA — recién con n > 1
-  aparece la diferencia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "avanzado"
-  tags: ["cft", "comparacion"]
-
-variables:
-  tna: random(20, 120)
-
-respuesta: (((1 + tna / 100 / 12) ^ 12 - 1) > ((1 + tna / 100 / 4) ^ 4 - 1))
-tipo: vf
-
-enunciado: "Con la misma TNA del {tna}%, ¿capitalizar mes a mes (n = 12) da una TEA mayor que capitalizar trimestre a trimestre (n = 4)?"
-
-explicacion: |
-  A igual TNA, cuantas más veces capitaliza en el año, mayor es la TEA
-  resultante.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "intermedio"
-  tags: ["cft", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para comparar el costo real de dos ofertas de crédito, hay que mirar el CFT de cada una, no la TNA."
-
-explicacion: |
-  La TNA no incluye comisiones ni seguros, así que dos créditos con la
-  misma TNA pueden terminar costando distinto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "intermedio"
-  tags: ["cft", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos préstamos con exactamente la misma TNA pueden tener un CFT distinto, si uno cobra más comisiones o seguros que el otro."
-
-explicacion: |
-  El CFT depende de todos los costos del crédito, no sólo de la tasa de
-  interés.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "intermedio"
-  tags: ["cft", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La TNA suele ser el número más bajo de los tres (TNA, TEA, CFT), por eso a veces se destaca más en la publicidad, aunque el CFT sea el dato regulado por el BCRA para comparar ofertas."
-
-explicacion: |
-  No es ilegal mostrar la TNA, pero por regulación el CFT tiene que estar
-  igual publicado — es el número que conviene mirar.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "avanzado"
-  tags: ["cft", "calculo"]
-
-variables:
-  tna: random(20, 120)
-  tea: ((1 + tna / 100 / 12) ^ 12 - 1) * 100
-  costos_extra: random(2, 10)
-
-respuesta: tea + costos_extra
-tipo: input
-tolerancia_abs: 0.2
-
-enunciado: "Un préstamo tiene una TEA de {redondear(tea, 2)}% (con TNA del {tna}% capitalizada mes a mes). Sumando comisiones, seguros e IVA sobre intereses, agrega {costos_extra} puntos porcentuales más. ¿Cuál es el CFT aproximado?"
-
-explicacion: |
-  En este modelo simplificado, el CFT es la TEA más los puntos
-  porcentuales de costos adicionales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "intermedio"
-  tags: ["cft", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El CFT de un crédito siempre es mayor o igual a su TEA, nunca menor."
-
-explicacion: |
-  El CFT parte de la TEA y le suma costos adicionales (nunca los resta),
-  así que como mínimo queda igual, y en la práctica casi siempre es
-  mayor.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "avanzado"
-  tags: ["cft"]
-
-variables:
-  tna: random(20, 120)
-  tea: ((1 + tna / 100 / 12) ^ 12 - 1) * 100
-  costos_extra: random(2, 10)
-  cft: tea + costos_extra
-
-tipo: completar
-enunciado: "Un préstamo tiene un CFT de {redondear(cft, 2)}%, con {costos_extra} puntos porcentuales de costos adicionales sobre la TEA. Completá: ___ (TEA) = {redondear(cft, 2)} (CFT) - {costos_extra} (costos adicionales)."
-respuestas_validas:
-  - tea
-
-explicacion: |
-  Se despeja restando los costos adicionales del CFT.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "avanzado"
-  tags: ["cft", "calculo"]
-
-variables:
-  tna: random(20, 120)
-  tea: (1 + tna / 100 / 12) ^ 12 - 1
-
-respuesta: tna
-tipo: input
-tolerancia_abs: 0.1
-
-enunciado: "Un producto capitaliza mes a mes (n = 12) y tiene una TEA de {redondear(tea * 100, 2)}%. ¿Qué TNA tiene?"
-
-pasos:
-  - "TNA = n × (raíz-n-ésima(1 + TEA) - 1) = 12 × ({raiz(1 + tea, 12)} - 1)"
-
-explicacion: |
-  Se despeja la TNA de TEA = (1 + TNA/n)^n - 1 usando la raíz n-ésima:
-  TNA = n × (raíz-n-ésima(1 + TEA) - 1).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "basico"
-  tags: ["cft", "orden"]
-
-tipo: ordenar
-enunciado: "Para un mismo crédito que capitaliza más de una vez al año y tiene costos adicionales, ordená estos tres números de menor a mayor."
-opciones_explicitas:
-  - "CFT"
-  - "TNA"
-  - "TEA"
-respuesta_orden: ["TNA", "TEA", "CFT"]
-
-explicacion: |
-  La TNA es el número base; la TEA ya incluye la capitalización (es
-  mayor o igual a la TNA); el CFT suma además los costos adicionales
-  (es mayor o igual a la TEA).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "intermedio"
-  tags: ["cft", "verificacion"]
-
-variables:
-  tna: random(20, 120)
-  correcto: ((1 + tna / 100 / 12) ^ 12 - 1) * 100
-  error: uno_de([0, 0, 0, 3, -3])
-  mostrado: correcto + error
-
-respuesta: (abs(mostrado - correcto) < 0.5)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? TNA del {tna}% con capitalización mensual, TEA resultante: {redondear(mostrado, 2)}%."
-
-explicacion: |
-  Se vuelve a calcular TEA = (1 + TNA/12)^12 - 1 y se compara con el
-  valor mostrado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "basico"
-  tags: ["cft", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En Argentina, el BCRA obliga a las entidades financieras a publicar el CFT en toda oferta de crédito."
-
-explicacion: |
-  Es justamente para que cualquiera pueda comparar el costo real entre
-  distintas ofertas, más allá de qué número destaque cada publicidad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "intermedio"
-  tags: ["cft", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La TNA de un producto cambia según qué tan seguido capitaliza (mensual, trimestral, anual)."
-
-explicacion: |
-  Es al revés: la TNA es fija (el número "de lista"); lo que cambia
-  según la frecuencia de capitalización es la TEA que resulta de esa
-  TNA.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "cft_vs_tasa_nominal"
-  nivel: "basico"
-  tags: ["cft", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La TNA es la tasa nominal sin capitalizar, la TEA ya incluye el efecto de la capitalización, y el CFT suma a la TEA los demás costos del crédito — por eso el CFT es el número que hay que mirar para comparar ofertas."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```
-
-## Sección: comercio-internacional-ventaja-comparativa (21 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Qué explica la teoría de la ventaja comparativa?"
-tipo: mc
-opciones_explicitas:
-  - "Por qué un país se especializa en producir ciertos bienes y comercia con otros países, en vez de producir todo por su cuenta"
-  - "Cómo se calcula el tipo de cambio de una moneda"
-  - "Cómo funciona el banco central de un país"
-respuesta: "Por qué un país se especializa en producir ciertos bienes y comercia con otros países, en vez de producir todo por su cuenta"
-
-explicacion: |
-  Es la pregunta central que responde este tema.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Quién formuló la teoría de la ventaja comparativa, en 1817?"
-tipo: mc
-opciones_explicitas:
-  - "David Ricardo"
-  - "Adam Smith"
-  - "John Maynard Keynes"
-respuesta: "David Ricardo"
-
-explicacion: |
-  Es el economista que formuló esta teoría específica.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Qué es tener \"ventaja absoluta\" en la producción de un bien?"
-tipo: mc
-opciones_explicitas:
-  - "Producirlo con menos horas de trabajo que otro país, en términos absolutos"
-  - "Tener menor costo de oportunidad al producirlo, sin importar las horas totales"
-  - "Ser el único país que produce ese bien en el mundo"
-respuesta: "Producirlo con menos horas de trabajo que otro país, en términos absolutos"
-
-explicacion: |
-  Es la idea intuitiva (y limitada) que la ventaja comparativa viene a
-  superar.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si un país fuera mejor que otro produciendo TODOS los bienes en términos absolutos, la lógica de la ventaja absoluta sugeriría, incorrectamente, que no le conviene comerciar con nadie."
-
-explicacion: |
-  Es justamente el problema que Ricardo resolvió con el concepto de
-  costo de oportunidad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "En el contexto de la ventaja comparativa, ¿qué es el costo de oportunidad de producir un bien?"
-tipo: mc
-opciones_explicitas:
-  - "Cuánto hay que dejar de producir de otro bien para producir una unidad más del primero"
-  - "El precio en dólares de ese bien"
-  - "El impuesto que paga ese bien al exportarse"
-respuesta: "Cuánto hay que dejar de producir de otro bien para producir una unidad más del primero"
-
-explicacion: |
-  Es el concepto central que reemplaza a la comparación absoluta de
-  horas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Cuándo tiene un país \"ventaja comparativa\" en un bien?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando su costo de oportunidad de producir ese bien es MENOR que el de otro país"
-  - "Cuando produce ese bien con menos horas en términos absolutos que otro país"
-  - "Cuando es el único país que exporta ese bien"
-respuesta: "Cuando su costo de oportunidad de producir ese bien es MENOR que el de otro país"
-
-explicacion: |
-  Es la definición central del tema: comparar costos de oportunidad,
-  no horas absolutas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "En el ejemplo clásico de Ricardo (Inglaterra y Portugal, tela y vino), ¿qué característica tiene Portugal en términos absolutos?"
-tipo: mc
-opciones_explicitas:
-  - "Es absolutamente mejor produciendo las dos cosas (tela y vino), necesita menos horas para ambas"
-  - "Es absolutamente peor produciendo las dos cosas"
-  - "Sólo puede producir vino, no tela"
-respuesta: "Es absolutamente mejor produciendo las dos cosas (tela y vino), necesita menos horas para ambas"
-
-explicacion: |
-  Es el punto de partida del ejemplo: Portugal gana en términos
-  absolutos en ambos bienes.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "En el ejemplo clásico de Ricardo, aunque Portugal sea absolutamente mejor en todo, ¿quién termina teniendo ventaja comparativa en tela?"
-tipo: mc
-opciones_explicitas:
-  - "Inglaterra, porque su costo de oportunidad de producir tela (en términos de vino) es menor que el de Portugal"
-  - "Portugal, porque produce tela con menos horas en términos absolutos"
-  - "Ninguno de los dos: la ventaja comparativa no aplica en este ejemplo"
-respuesta: "Inglaterra, porque su costo de oportunidad de producir tela (en términos de vino) es menor que el de Portugal"
-
-explicacion: |
-  Es el resultado central y contraintuitivo del ejemplo: la ventaja
-  comparativa no depende de quién es mejor en términos absolutos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "calculo"]
-
-variables:
-  horas_vino: random(2, 8)
-  multiplicador: uno_de([2, 3, 4])
-  horas_tela: horas_vino * multiplicador
-
-respuesta: horas_tela / horas_vino
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En un país, producir una unidad de tela lleva {horas_tela} horas, y producir una unidad de vino lleva {horas_vino} horas. ¿Cuántas unidades de vino se sacrifican (costo de oportunidad) por producir una unidad de tela?"
-
-explicacion: |
-  Costo de oportunidad de la tela (en vino) = horas de tela / horas de
-  vino.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "calculo"]
-
-variables:
-  horas_tela_pais1: random(50, 150)
-  horas_vino_pais1: random(50, 150)
-  horas_tela_pais2: random(50, 150)
-  horas_vino_pais2: random(50, 150)
-
-respuesta: (horas_tela_pais1 / horas_vino_pais1 < horas_tela_pais2 / horas_vino_pais2)
-tipo: vf
-
-enunciado: "País 1: {horas_tela_pais1} horas por tela, {horas_vino_pais1} horas por vino. País 2: {horas_tela_pais2} horas por tela, {horas_vino_pais2} horas por vino. ¿Tiene el País 1 ventaja comparativa en tela (menor costo de oportunidad de tela que el País 2)?"
-
-explicacion: |
-  Se compara el costo de oportunidad de tela (horas de tela / horas de
-  vino) de cada país; el menor tiene la ventaja comparativa en tela.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según la teoría de la ventaja comparativa, si cada país se especializa en el bien donde tiene ventaja comparativa y comercian entre sí, los dos pueden terminar con más de ambos bienes que si cada uno hubiera intentado producir todo por su cuenta."
-
-explicacion: |
-  Es la conclusión central de la teoría: la especialización y el
-  comercio generan una ganancia conjunta.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un país muy desarrollado, con salarios altos, puede seguir teniendo ventaja comparativa en ciertos productos frente a un país con salarios mucho más bajos, porque lo que importa es el costo de oportunidad relativo, no el nivel absoluto de desarrollo."
-
-explicacion: |
-  Es una consecuencia directa de que la ventaja comparativa se define
-  en términos relativos dentro de cada país, no en comparación
-  absoluta de niveles de desarrollo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Qué tipo de razonamiento comparte la ventaja comparativa con el \"punto de equilibrio\" de Administración?"
-tipo: mc
-opciones_explicitas:
-  - "El de \"por qué esta decisión y no otra\", comparando costos relativos en vez de valores absolutos"
-  - "Los dos calculan exactamente la misma fórmula matemática"
-  - "No comparten ningún tipo de razonamiento"
-respuesta: "El de \"por qué esta decisión y no otra\", comparando costos relativos en vez de valores absolutos"
-
-explicacion: |
-  Es la analogía que hace la teoría del MAPA para explicar por qué
-  esta idea cruza con Administración.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "problema"]
-
-enunciado: "Un país con mucha tierra fértil pero poca industria pesada exporta productos agrícolas e importa maquinaria, en vez de fabricar su propia maquinaria con mucho esfuerzo relativo. ¿Qué principio explica mejor esta decisión?"
-tipo: mc
-opciones_explicitas:
-  - "Ventaja comparativa: le conviene especializarse donde su costo de oportunidad es menor"
-  - "Devaluación de su moneda"
-  - "Déficit de su balanza comercial"
-respuesta: "Ventaja comparativa: le conviene especializarse donde su costo de oportunidad es menor"
-
-explicacion: |
-  Es una aplicación directa del concepto central del tema.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuando se argumenta a favor del libre comercio diciendo que \"cada país debería producir lo que sabe hacer mejor, en términos relativos\", se está citando, en esencia, la ventaja comparativa."
-
-explicacion: |
-  Es la aplicación más habitual de esta teoría en el debate de
-  política comercial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená esta secuencia de razonamiento sobre la ventaja comparativa entre dos países."
-opciones_explicitas:
-  - "Los países comercian entre sí, terminando con más de ambos bienes que produciendo todo por su cuenta"
-  - "Cada país se especializa en producir ese bien"
-  - "Se calcula el costo de oportunidad de cada bien en cada país"
-  - "Se identifica en qué bien tiene cada país el menor costo de oportunidad"
-respuesta_orden: ["Se calcula el costo de oportunidad de cada bien en cada país", "Se identifica en qué bien tiene cada país el menor costo de oportunidad", "Cada país se especializa en producir ese bien", "Los países comercian entre sí, terminando con más de ambos bienes que produciendo todo por su cuenta"]
-
-explicacion: |
-  Es el proceso completo de razonamiento detrás de la teoría de la
-  ventaja comparativa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "avanzado"
-  tags: ["comercio_internacional", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia central entre \"ventaja absoluta\" y \"ventaja comparativa\"?"
-tipo: mc
-opciones_explicitas:
-  - "La absoluta compara horas totales por unidad; la comparativa compara el costo de oportunidad relativo entre bienes"
-  - "Son exactamente lo mismo, con nombres distintos"
-  - "La comparativa sólo aplica quiénes tienen tipo de cambio fijo"
-respuesta: "La absoluta compara horas totales por unidad; la comparativa compara el costo de oportunidad relativo entre bienes"
-
-explicacion: |
-  Es la distinción central de todo el tema.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el ejemplo clásico de Ricardo, Portugal termina con ventaja comparativa en vino, aunque sea absolutamente mejor que Inglaterra en ambos bienes."
-
-explicacion: |
-  Es el resultado complementario al de la tela (que quedaba en manos
-  de Inglaterra).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "intermedio"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aunque la teoría de la ventaja comparativa se formuló en 1817, sigue siendo el argumento central que se usa hoy para explicar por qué los países se especializan y comercian entre sí."
-
-explicacion: |
-  Es una teoría económica clásica que sigue vigente en el debate
-  actual sobre comercio internacional.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "basico"
-  tags: ["comercio_internacional"]
-
-tipo: completar
-enunciado: "Completá: un país tiene ventaja comparativa en un bien cuando su costo de ___ (lo que sacrifica de otro bien) de producirlo es menor que el de otro país."
-respuestas_validas:
-  - "oportunidad"
-
-explicacion: |
-  Es el concepto central de todo el tema.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "comercio_internacional_ventaja_comparativa"
-  nivel: "basico"
-  tags: ["comercio_internacional", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La ventaja comparativa explica por qué a un país le conviene especializarse y comerciar según su costo de oportunidad relativo, incluso si otro país es absolutamente mejor produciendo todo."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```
-
-## Sección: contabilidad-ambiental (25 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["calculos", "externalidades"]
-
-variables:
-  costo_externo: random(1000, 5000)
-  costo_privado: random(2000, 8000)
-
-respuesta: "{costo_privado + costo_externo}"
-tipo: input
-
-enunciado: "Una empresa tiene un costo privado de producción de {costo_privado} pesos y genera una externalidad negativa valorizada en {costo_externo} pesos. Según la contabilidad ambiental, ¿cuál es el costo económico total real de esta actividad?"
-
-explicacion: |
-  El costo económico total es la suma del costo privado (pagado por la empresa) más el costo externo (impuesto a la sociedad). Internalizar la externalidad implica reconocer esta suma como el costo real de la actividad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["eficiencia", "calculos"]
-
-variables:
-  ingreso_bruto: random(100000, 200000)
-  costo_operativo: random(40000, 60000)
-  costo_ambiental: random(10000, 30000)
-
-respuesta: "{ingreso_bruto - costo_operativo - costo_ambiental}"
-tipo: input
-
-enunciado: "Una empresa tiene un ingreso bruto de {ingreso_bruto}, costos operativos de {costo_operativo} y un costo ambiental internalizado de {costo_ambiental}. ¿Cuál es su beneficio económico real ajustado?"
-
-explicacion: |
-  El beneficio real se calcula restando tanto los costos operativos tradicionales como los costos ambientales internalizados. Esto muestra la verdadera sostenibilidad financiera de la actividad.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["carbono", "calculos"]
-
-variables:
-  emisiones_co2: random(100, 1000)
-  precio_carbono: random(10, 50)
-
-respuesta: "{emisiones_co2 * precio_carbono}"
-tipo: input
-
-enunciado: "Si una fábrica emite {emisiones_co2} toneladas de CO2 y el precio social del carbono es de {precio_carbono} pesos por tonelada, ¿cuál es el costo ambiental total de estas emisiones?"
-
-explicacion: |
-  El costo ambiental se calcula multiplicando la cantidad de emisiones por el precio social del carbono, que representa el daño económico estimado por cada unidad emitida.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["suelos", "recuperacion"]
-
-variables:
-  costo_recuperacion: random(10000, 50000)
-  vida_util: random(5, 10)
-
-respuesta: "{costo_recuperacion / vida_util}"
-tipo: input
-
-enunciado: "Si el costo total de recuperación de un suelo degradado es de {costo_recuperacion} pesos y la vida útil estimada de la recuperación es de {vida_util} años, ¿cuál es el costo anualizado?"
-
-explicacion: |
-  El costo anualizado permite distribuir el gasto de recuperación a lo largo del tiempo, facilitando su comparación con los beneficios anuales de la actividad productiva que causó el daño.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["eficiencia", "recursos"]
-
-variables:
-  valor_produccion: random(100000, 300000)
-  consumo_recursos: random(1000, 5000)
-
-respuesta: "{valor_produccion / consumo_recursos}"
-tipo: input
-
-enunciado: "Si una empresa genera {valor_produccion} pesos de valor con {consumo_recursos} unidades de recurso natural, ¿cuál es su eficiencia de recursos (valor por unidad de recurso)?"
-
-explicacion: |
-  La eficiencia de recursos mide cuánta valor económico se genera por cada unidad de recurso consumido. Un valor más alto indica una gestión más sostenible y eficiente.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["daños", "estimacion"]
-
-variables:
-  daño_directo: random(5000, 20000)
-  daño_indirecto: random(10000, 40000)
-
-respuesta: "{daño_directo + daño_indirecto}"
-tipo: input
-
-enunciado: "Si un derrame causa un daño directo de {daño_directo} y un daño indirecto (pérdida de turismo, etc.) de {daño_indirecto}, ¿cuál es el costo total del incidente?"
-
-explicacion: |
-  El costo total de un incidente ambiental incluye tanto los daños directos (limpieza, multas) como los indirectos (pérdida de ingresos para otros sectores, salud pública), reflejando el impacto completo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["externalidades", "costos"]
-
-variables:
-  a: random(10, 50)
-  b: random(1, 10)
-  costo_total: a + b
-
-respuesta: "{costo_total}"
-tipo: input
-
-enunciado: "Si una fábrica genera un beneficio privado de {a} millones pero traslada un costo de salud pública de {b} millones a la comunidad, ¿cuál es el costo social total no internalizado inicialmente?"
-
-explicacion: |
-  La externalidad negativa traslada el costo a terceros. El costo social total es la suma del beneficio privado (que no refleja el daño) más el costo del daño. En este contexto de cálculo simple de impacto, sumamos las magnitudes dadas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["riesgo", "sostenibilidad"]
-
-variables:
-  a: random(1, 5)
-  b: random(1, 5)
-
-respuesta: "{max(a, b)}"
-tipo: input
-
-enunciado: "Si ignoramos los costos ocultos, el riesgo financiero asociado al cambio climático se subestima. Si el riesgo directo es {a} y el indirecto es {b}, ¿cuál es el valor máximo de riesgo individual considerado en la evaluación básica?"
-
-explicacion: |
-  Se pide el máximo de dos valores de riesgo hipotéticos para evaluar la comprensión de la magnitud del impacto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["calculos", "emisiones"]
-
-variables:
-  a: random(100, 500)
-  b: random(100, 500)
-  c: random(100, 500)
-  promedio: redondear((a + b + c) / 3, 2)
-
-respuesta: "{promedio}"
-tipo: input
-
-enunciado: "Si una empresa emitió {a} toneladas en Q1, {b} en Q2 y {c} en Q3, ¿cuál fue la emisión promedio trimestral?"
-
-explicacion: |
-  Se calcula el promedio aritmético de las emisiones para entender la magnitud del impacto ambiental anual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["costos", "suelos"]
-
-variables:
-  a: random(10, 100)
-  b: random(1, 10)
-  costo: a * b
-
-respuesta: "{costo}"
-tipo: input
-
-enunciado: "Si el costo de recuperación por hectárea es de {a} mil pesos y se degradaron {b} hectáreas, ¿cuál es el costo total de recuperación?"
-
-explicacion: |
-  Multiplicación simple para estimar el costo financiero de la restauración ambiental mencionada en la teoría.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["precios", "GEE"]
-
-variables:
-  a: random(5, 20)
-  b: random(100, 1000)
-  costo_total: a * b
-
-respuesta: "{costo_total}"
-tipo: input
-
-enunciado: "Si el precio por tonelada de CO2 es de {a} dólares y la empresa emite {b} toneladas, ¿cuál es el costo total de las emisiones?"
-
-explicacion: |
-  Cálculo del costo interno que la empresa debería asumir si internalizara el costo de las emisiones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["costos", "limpieza"]
-
-variables:
-  a: random(50, 200)
-  b: random(10, 50)
-  total: a + b
-
-respuesta: "{total}"
-tipo: input
-
-enunciado: "Si el costo de limpieza del río es {a} millones y el de salud pública es {b} millones, ¿cuál es el costo total trasladado a la comunidad?"
-
-explicacion: |
-  Suma de los costos externos generados por la contaminación, que la contabilidad ambiental busca internalizar.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["huella_carbono", "calculos"]
-
-variables:
-  a: random(10, 50)
-  b: random(10, 50)
-  c: random(10, 50)
-  total: a + b + c
-
-respuesta: "{total}"
-tipo: input
-
-enunciado: "Si las fuentes fijas emiten {a}, las móviles {b} y los residuos {c}, ¿cuál es la huella total de emisiones?"
-
-explicacion: |
-  Suma de las emisiones directas e indirectas para determinar el impacto ambiental total.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["costo_oportunidad", "decisiones"]
-
-variables:
-  a: random(100, 500)
-  b: random(10, 50)
-  ratio: redondear(a / b, 2)
-
-respuesta: "{ratio}"
-tipo: input
-
-enunciado: "Si el beneficio privado es {a} y el costo ambiental es {b}, ¿cuál es la relación beneficio/costo ambiental?"
-
-explicacion: |
-  Cálculo de la relación para evaluar la eficiencia económica ignorando el impacto ambiental.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "basico"
-  tags: ["capital_natural", "recursos"]
-
-variables:
-  recurso: "uno_de(['agua potable', 'aire limpio', 'fertilidad del suelo'])"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El {recurso} es considerado un bien gratuito e infinito en los modelos económicos tradicionales, pero tiene un valor económico real en la contabilidad ambiental."
-
-explicacion: |
-  Falso en la teoría moderna/ambiental. La contabilidad ambiental sostiene que estos recursos tienen valor económico real y no son infinitos, por lo que deben ser cuantificados.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["internalizacion", "mecanismos"]
-
-variables:
-  agente: "uno_de(['quien contamina', 'el consumidor', 'el estado'])"
-
-respuesta: "quien contamina"
-tipo: completar
-
-enunciado: "El principio de 'quien contamina paga' busca que el costo de la degradación ambiental sea asumido por {agente}."
-
-respuestas_validas:
-  - "quien contamina"
-  - "el contaminador"
-
-explicacion: |
-  La internalización de costos implica que el agente que genera la externalidad negativa debe asumir el costo económico del daño causado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["servicios_ecosistemicos", "valoracion"]
-
-variables:
-  valor_polinizacion: random(10000, 20000)
-  valor_purificacion_agua: random(5000, 10000)
-  porcentaje_perdida: uno_de([0.1, 0.2, 0.3])
-
-respuesta: redondear((valor_polinizacion + valor_purificacion_agua) * porcentaje_perdida, 0)
-tipo: input
-
-enunciado: "Si el valor anual de los servicios de polinización es {valor_polinizacion} y de purificación de agua es {valor_purificacion_agua}, y un proyecto destruye el {porcentaje_perdida} de estos servicios, ¿cuál es el costo económico de la pérdida?"
-
-explicacion: |
-  Se calcula sumando los valores de los servicios ecosistémicos y aplicando el porcentaje de daño causado por la actividad humana.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "basico"
-  tags: ["externalidades", "definicion"]
-
-variables:
-  tipo_ext: "una externalidad negativa"
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una {tipo_ext} ocurre cuando una actividad económica afecta a terceros sin compensación monetaria."
-
-explicacion: |
-  Correcto. Las externalidades negativas son costos impuestos a terceros que no figuran en los precios de mercado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "basico"
-  tags: ["sostenibilidad", "gestion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad ambiental permite tomar decisiones que consideren la sostenibilidad futura, no solo la rentabilidad inmediata."
-
-explicacion: |
-  Correcto. Al integrar variables ecológicas, se evalúa el impacto a largo plazo de las decisiones económicas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["eficiencia", "recursos"]
-
-variables:
-  input_total: random(1000, 5000)
-  output_util: random(600, 4000)
-
-respuesta: redondear((output_util / input_total) * 100, 2)
-tipo: input
-
-enunciado: "Si una empresa utiliza {input_total} unidades de recurso para generar {output_util} unidades de producto útil, ¿cuál es el porcentaje de eficiencia de uso?"
-
-explicacion: |
-  La eficiencia se calcula como (producto útil / insumo total) * 100.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "basico"
-  tags: ["salud", "externalidades"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contaminación industrial puede generar costos de salud pública que deben ser considerados en la contabilidad ambiental."
-
-explicacion: |
-  Correcto. Los impactos en la salud de la comunidad son externalidades negativas que tienen un costo económico.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "basico"
-  tags: ["incentivos", "practicas_limpias"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Asignar un precio a la contaminación crea incentivos económicos para favorecer prácticas más limpias."
-
-explicacion: |
-  Correcto. Al internalizar el costo, las empresas tienen un incentivo financiero para reducir su impacto ambiental.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "avanzado"
-  tags: ["sensibilidad", "riesgo"]
-
-variables:
-  costo_base: random(10000, 50000)
-  factor_riesgo: uno_de([1.1, 1.2, 1.5, 2.0])
-
-respuesta: redondear(costo_base * factor_riesgo, 0)
-tipo: input
-
-enunciado: "Si el costo base de un proyecto es {costo_base} y se aplica un factor de riesgo ambiental del {factor_riesgo}, ¿cuál es el costo ajustado por riesgo?"
-
-explicacion: |
-  El costo ajustado se obtiene multiplicando el costo base por el factor de riesgo ambiental seleccionado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "intermedio"
-  tags: ["agua", "costos"]
-
-variables:
-  litros_usados: random(1000, 10000)
-  costo_por_litro: random(0.1, 1.0)
-
-respuesta: redondear(litros_usados * costo_por_litro, 2)
-tipo: input
-
-enunciado: "Si una industria utiliza {litros_usados} litros de agua y el costo económico del recurso es {costo_por_litro} por litro, ¿cuál es el costo total del agua utilizada?"
-
-explicacion: |
-  El costo total se calcula multiplicando el volumen de agua por su costo económico unitario.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_ambiental"
-  nivel: "basico"
-  tags: ["visibilidad", "transparencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad ambiental busca dar visibilidad a los costos ocultos que los modelos tradicionales ignoran."
-
-explicacion: |
-  Correcto. Su objetivo es revelar el verdadero impacto económico de las actividades productivas sobre el medio ambiente.
-```
-
-## Sección: contabilidad-como-sistema-de-informacion (26 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["sistema_informacion", "definicion"]
-
-variables:
-  analogia: uno_de(["sistema nervioso", "corazón", "estómago"])
-
-respuesta: "sistema nervioso"
-tipo: completar
-
-enunciado: "En la analogía corporativa, la contabilidad funciona como el {analogia} de la empresa, llevando información vital a quienes toman decisiones."
-
-explicacion: |
-  La contabilidad se compara con el sistema nervioso y circulatorio porque transporta datos financieros cruciales para la "salud" y decisión empresarial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["objetivo", "informacion"]
-
-variables:
-  dato_crudo: random(1, 100)
-  conocimiento: redondear(dato_crudo / 10, 1)
-
-respuesta: "conocimiento"
-tipo: completar
-
-enunciado: "La contabilidad transforma datos crudos como ventas o compras en {conocimiento} útil para la gestión."
-
-explicacion: |
-  El proceso clave es la transformación de datos operativos en información procesada que permite la toma de decisiones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["ciclo_comercial", "comercio"]
-
-variables:
-  ejemplo: uno_de(["supermercado", "fábrica de autos", "panadería"])
-  accion: "compra y venta de bienes ya terminados"
-
-respuesta: "compra y venta de bienes ya terminados"
-tipo: completar
-
-enunciado: "En el ciclo comercial, típico de empresas como {ejemplo}, la actividad central es la {accion}."
-
-explicacion: |
-  El ciclo comercial implica intermediación: comprar productos terminados y venderlos sin alterar su forma física.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "avanzado"
-  tags: ["costos", "industrial"]
-
-variables:
-  costo1: "materiales directos"
-  costo2: "mano de obra directa"
-  costo3: "gastos generales de fabricación"
-
-respuesta: "gastos generales de fabricación"
-tipo: completar
-
-enunciado: "La contabilidad industrial rastrea materiales directos, mano de obra directa y {costo3}."
-
-explicacion: |
-  Los tres componentes esenciales del costo de producción son materiales, mano de obra y gastos indirectos o generales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["informes", "balance"]
-
-variables:
-  informe: "Balance General"
-
-respuesta: "Balance General"
-tipo: completar
-
-enunciado: "Uno de los principales informes que actúan como 'informes médicos' de la compañía es el {informe}."
-
-explicacion: |
-  El Balance General muestra la situación patrimonial (activos, pasivos y patrimonio) en un momento dado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["informes", "resultados"]
-
-variables:
-  informe: "Estado de Resultados"
-
-respuesta: "Estado de Resultados"
-tipo: completar
-
-enunciado: "El {informe} muestra la capacidad de generar ganancias o pérdidas en un período."
-
-explicacion: |
-  El Estado de Resultados (o de Ganancias y Pérdidas) resume ingresos y egresos del periodo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "intermedio"
-  tags: ["comercio", "inventario"]
-
-variables:
-  foco: "control de inventarios"
-
-respuesta: "control de inventarios"
-tipo: completar
-
-enunciado: "En el ciclo comercial, la contabilidad se centra en el {foco} de mercadería."
-
-explicacion: |
-  Para los comerciantes, el manejo preciso del stock es vital para calcular el margen de ganancia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["ejemplos", "industria"]
-
-variables:
-  ejemplo: uno_de(["fábrica de muebles", "supermercado", "agencia de viajes"])
-
-respuesta: "fábrica de muebles"
-tipo: completar
-
-enunciado: "Un ejemplo clásico de ciclo industrial es una {ejemplo}."
-
-explicacion: |
-  Las fábricas transforman madera en muebles, requiriendo contabilidad de costos compleja.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["ejemplos", "comercio"]
-
-variables:
-  ejemplo: uno_de(["tienda de ropa", "planta de alimentos", "taller mecánico"])
-
-respuesta: "tienda de ropa"
-tipo: completar
-
-enunciado: "Un ejemplo clásico de ciclo comercial es una {ejemplo}."
-
-explicacion: |
-  Las tiendas de ropa compran prendas terminadas y las venden, sin manufacturarlas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["definicion", "sistema_informacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad se define fundamentalmente como un sistema de información diseñado para captar, procesar y comunicar datos económicos, más que como un simple conjunto de cálculos numéricos."
-
-explicacion: |
-  Correcto. La contabilidad funciona como el 'sistema nervioso' de la empresa, transformando datos crudos en información útil para la toma de decisiones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "intermedio"
-  tags: ["clasificacion", "ciclo_industrial"]
-
-variables:
-  caso: uno_de(["fabrica_de_muebles", "planta_de_alimentos", "taller_de_autos"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una {caso} opera bajo el ciclo industrial porque transforma materias primas en productos terminados."
-
-explicacion: |
-  Correcto. La transformación física del producto es la marca distintiva del ciclo industrial frente al comercial.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "avanzado"
-  tags: ["gastos", "industrial"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El alquiler de un galpón de producción se considera un gasto general de fabricación en el ciclo industrial."
-
-explicacion: |
-  Correcto. Los gastos indirectos necesarios para la producción, como el alquiler de la fábrica, son gastos generales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "avanzado"
-  tags: ["materia_prima", "industrial"]
-
-variables:
-  materia: uno_de(["madera", "cuero", "harina"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "{materia} es un ejemplo de materia prima directa en una fábrica de muebles."
-
-explicacion: |
-  La madera es el insumo principal que se transforma en el producto final en una carpintería.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["analogia", "comunicacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la analogía, la contabilidad también funciona como el sistema circulatorio, distribuyendo la información a los stakeholders."
-
-explicacion: |
-  La analogía completa incluye el sistema nervioso (captación) y circulatorio (distribución) de la información.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["accountability", "ética"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad facilita la rendición de cuentas (accountability) a dueños e inversores."
-
-explicacion: |
-  Permite verificar que los recursos se usen conforme a lo esperado y reportar resultados reales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "intermedio"
-  tags: ["ejemplo", "industrial"]
-
-variables:
-  planta: uno_de(["planta_de_alimentos", "fábrica_de_textiles", "fundición"])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "{planta} es un ejemplo de entidad que opera en el ciclo industrial."
-
-explicacion: |
-  Estas plantas transforman materias primas en productos finales mediante procesos productivos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["transparencia", "confianza"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La transparencia financiera promovida por la contabilidad ayuda a atraer socios e inversores."
-
-explicacion: |
-  Los inversores confían en empresas con informes claros y auditables.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["definicion", "sistema_informacion"]
-
-variables:
-  pass: 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad se define fundamentalmente como un sistema de información diseñado para captar, procesar y comunicar datos económicos, más que como un mero conjunto de cálculos numéricos."
-
-explicacion: |
-  La contabilidad es el sistema nervioso de la empresa. Su función principal es transformar datos crudos en información útil para la toma de decisiones, asegurando transparencia y rendición de cuentas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["analogia", "funcion"]
-
-variables:
-  pass: 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la analogía propuesta, la contabilidad funciona como el sistema nervioso y circulatorio de la empresa, llevando información vital sobre su salud financiera a los decisores."
-
-explicacion: |
-  Sin este flujo de información, dueños e inversores navegarían a ciegas. La contabilidad permite saber si hay ganancias, cuánto se debe y cómo se usan los recursos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-variables:
-  pass: 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La diferencia estructural clave entre ciclo comercial e industrial es la existencia de un proceso de transformación de materias primas en el industrial."
-
-explicacion: |
-  El comercial solo mueve bienes terminados. El industrial los crea, lo que exige un sistema de costos más complejo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["transparencia"]
-
-variables:
-  pass: 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad es la herramienta básica para la transparencia y la rendición de cuentas en el mundo de los negocios."
-
-explicacion: |
-  Permite a los externos (inversores, bancos) y internos verificar el estado real de la organización y la gestión de los recursos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "avanzado"
-  tags: ["complejidad"]
-
-variables:
-  pass: 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad del ciclo industrial es más compleja que la del ciclo comercial debido al rastreo de tres tipos de costos."
-
-explicacion: |
-  La necesidad de imputar costos indirectos y calcular el costo de producción hace que el sistema contable industrial sea más robusto y detallado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "intermedio"
-  tags: ["impacto"]
-
-variables:
-  pass: 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La claridad en los informes contables determina la capacidad de la empresa para conseguir créditos y atraer socios."
-
-explicacion: |
-  Los terceros externos confían en la información contable para evaluar el riesgo y la solvencia de la empresa antes de prestar dinero o invertir.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["consecuencias"]
-
-variables:
-  pass: 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin el sistema de información contable, los dueños e inversores navegarían a ciegas respecto a la salud financiera."
-
-explicacion: |
-  La falta de información impide detectar problemas a tiempo, optimizar recursos o justificar la gestión ante los stakeholders.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "avanzado"
-  tags: ["estructura_costos"]
-
-variables:
-  pass: 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el ciclo industrial, la diferencia clave es la necesidad de rastrear materiales directos, mano de obra y gastos generales."
-
-explicacion: |
-  Esta triple estructura de costos es lo que distingue contablemente a la industria del comercio puro.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "contabilidad_como_sistema_de_informacion"
-  nivel: "basico"
-  tags: ["definicion"]
-
-variables:
-  pass: 1
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La contabilidad NO es simplemente una obligación tributaria, sino un sistema de información clave."
-
-explicacion: |
-  Aunque tiene fines fiscales, su esencia es la gestión interna y la comunicación externa de la realidad económica de la empresa.
-```
 
 ## Sección: contratos-inteligentes (21 preguntas)
 
@@ -2231,3 +397,2016 @@ enunciado: "Un contrato inteligente es una regla \"si-entonces\" escrita en cód
 explicacion: |
   Es la idea central de todo el tema.
 ```
+
+## Sección: control-de-gestion-e-indicadores (25 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "basico"
+  tags: ["definicion", "gestion"]
+
+respuesta: "proceso"
+tipo: "completar"
+respuestas_validas:
+  - "proceso"
+
+enunciado: "El control de gestión se define como el ________ de recolectar, analizar y utilizar información para asegurar que la organización alcance sus objetivos."
+
+explicacion: |
+  El control de gestión es un proceso continuo que permite comparar el desempeño real con los planes establecidos para tomar medidas correctivas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "basico"
+  tags: ["indicadores", "KPI"]
+
+respuesta: "eficiencia"
+tipo: "mc"
+opciones_explicitas: ["eficiencia", "eficacia", "efectividad"]
+
+enunciado: "Si una empresa logra sus objetivos de ventas utilizando la menor cantidad de recursos posibles, está demostrando un alto nivel de ___."
+
+explicacion: |
+  La eficiencia se refiere a la relación entre los resultados obtenidos y los recursos utilizados. La eficacia, en cambio, se centra solo en el cumplimiento del objetivo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "intermedio"
+  tags: ["balanced_scorecard", "perspectivas"]
+
+respuesta: falso
+tipo: "vf"
+
+enunciado: "¿El Cuadro de Mando Integral (Balanced Scorecard) propone medir a la organización únicamente desde una perspectiva financiera?"
+
+explicacion: |
+  Falso. El Balanced Scorecard integra cuatro perspectivas: Financiera, Cliente, Procesos Internos y Aprendizaje/Crecimiento.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "basico"
+  tags: ["ciclo_pdca", "gestion"]
+
+tipo: "ordenar"
+opciones_explicitas: ["Planificar", "Hacer", "Verificar", "Actuar"]
+respuesta_orden: ["Planificar", "Hacer", "Verificar", "Actuar"]
+
+enunciado: "Ordene las etapas del ciclo PHVA (Ciclo de Deming) para asegurar la mejora continua en el control de gestión:"
+
+explicacion: |
+  El ciclo PHVA (Plan, Do, Check, Act) es la base de la mejora continua: se planifica, se ejecuta, se verifica el resultado y se actúa sobre las desviaciones.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "intermedio"
+  tags: ["desviacion", "analisis"]
+
+tipo: "mc"
+opciones_explicitas: ["Positiva", "Negativa", "Nula"]
+
+respuesta: "Negativa"
+
+enunciado: "En un escenario donde el gasto real es mayor al presupuesto planificado, la desviación presupuestaria es considerada: ___."
+
+explicacion: |
+  En términos de control de costos, una desviación negativa suele indicar que se ha excedido el presupuesto, lo cual requiere una acción correctiva.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "intermedio"
+  tags: ["eficiencia", "indicadores_desempeño"]
+
+variables:
+  datos: [[1200, 1500], [800, 1000], [2000, 2500]]
+  idx: uno_de([0,1,2])
+  produccion_real: datos[idx][0]
+  produccion_esperada: datos[idx][1]
+  eficiencia: (produccion_real / produccion_esperada) * 100
+
+respuesta: eficiencia
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "En una planta de ensamblaje, la producción real de la jornada fue de {produccion_real} unidades, mientras que el objetivo establecido era de {produccion_esperada} unidades. ¿Cuál es el índice de eficiencia de producción expresado en porcentaje?"
+
+pasos:
+  - "Dividir la producción real por la producción esperada: {produccion_real} / {produccion_esperada}"
+  - "Multiplicar el resultado por 100 para obtener el porcentaje."
+
+explicacion: |
+  La eficiencia se calcula como el cociente entre la producción real y la estándar. En este caso, la eficiencia es del {eficiencia}%."
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "basico"
+  tags: ["desviacion", "presupuesto"]
+
+variables:
+  escenario: [[100, 120], [150, 130], [200, 200]]
+  clasificaciones: ["Desviación Positiva", "Desviación Negativa", "Sin Desviación"]
+  idx: uno_de([0,1,2])
+  costo_real: escenario[idx][0]
+  costo_presupuestado: escenario[idx][1]
+
+respuesta: clasificaciones[idx]
+tipo: mc
+opciones_explicitas: ["Desviación Positiva", "Desviación Negativa", "Sin Desviación"]
+
+enunciado: "Si el costo real de un proyecto es de ${costo_real} y el presupuesto asignado era de ${costo_presupuestado}, y considerando que un costo mayor al presupuestado es desfavorable para la organización, ¿cómo se clasifica la desviación?"
+
+explicacion: |
+  Si el costo real ({costo_real}) es mayor al presupuestado ({costo_presupuestado}), la desviación es negativa (desfavorable); si es menor, es positiva; si son iguales, no hay desviación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "basico"
+  tags: ["kpi", "conceptos"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un Indicador Clave de Desempeño (KPI) debe ser necesariamente medible y estar alineado con los objetivos estratégicos de la organización para ser útil en el control de gestión."
+
+explicacion: |
+  Correcto. Para que un indicador sea efectivo en el control de gestión, debe permitir la medición del progreso hacia un objetivo específico."
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "intermedio"
+  tags: ["proceso", "ciclo_pdca"]
+
+respuesta_orden: ["Establecer estándares", "Medir el desempeño", "Comparar con estándares", "Tomar acciones correctivas"]
+tipo: ordenar
+
+opciones_explicitas: ["Establecer estándares", "Medir el desempeño", "Comparar con estándares", "Tomar acciones correctivas"]
+
+enunciado: "Ordene cronológicamente las etapas del proceso de control de gestión para asegurar que una empresa corrija una desviación en sus ventas:"
+
+explicacion: |
+  El proceso lógico comienza con la definición de la meta (estándar), sigue con la medición de lo ocurrido, la comparación para detectar brechas y finalmente la acción para corregir."
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "avanzado"
+  tags: ["roi", "rentabilidad"]
+
+variables:
+  datos: [[5000, 20000], [8000, 40000], [12000, 30000]]
+  idx: uno_de([0,1,2])
+  ganancia_neta: datos[idx][0]
+  inversion_total: datos[idx][1]
+  roi: (ganancia_neta / inversion_total) * 100
+
+respuesta: "ROI"
+tipo: completar
+respuestas_validas:
+  - "ROI"
+  - "roi"
+
+enunciado: "Si una empresa obtiene una ganancia neta de ${ganancia_neta} tras haber realizado una inversión total de ${inversion_total}, el indicador que mide la rentabilidad de esa inversión se denomina ___."
+
+explicacion: |
+  El ROI (Return on Investment) es el indicador que relaciona la ganancia obtenida con la inversión realizada. En este caso, el ROI es del {roi}%."
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "intermedio"
+  tags: ["indicadores", "gestion", "eficiencia"]
+
+respuesta: "eficiencia"
+tipo: mc
+opciones_explicitas: ["eficiencia", "eficacia", "efectividad", "productividad"]
+
+enunciado: "Un gerente observa que su equipo produjo 100 unidades usando 15 horas de trabajo. Si el objetivo era producir 80 unidades en 12 horas, el equipo cumplió y superó el objetivo (fue eficaz), pero utilizó más horas de las previstas, sin optimizar los recursos. El indicador que mide la relación entre resultados y recursos utilizados se denomina ___."
+
+explicacion: |
+  La eficacia mide el grado de cumplimiento de los objetivos (lograr la meta), mientras que la eficiencia mide la relación entre los resultados obtenidos y los recursos empleados para lograrlos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "avanzado"
+  tags: ["metricas", "vanidad", "toma_de_decisiones"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Las llamadas 'métricas de vanidad' (vanity metrics) son indicadores que, aunque muestran números positivos y crecientes, no proporcionan información relevante para la toma de decisiones estratégicas ni para medir el éxito real del modelo de negocio."
+
+explicacion: |
+  Es falso. Las métricas de vanidad son precisamente aquellas que parecen buenas (como el número de 'likes' o visitas) pero no ayudan a entender la salud real del negocio o el cumplimiento de objetivos críticos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "intermedio"
+  tags: ["jerarquia", "indicadores", "estrategia"]
+
+respuesta_orden: ["Indicadores Estratégicos", "Indicadores Tácticos", "Indicadores Operativos"]
+tipo: ordenar
+
+opciones_explicitas: ["Indicadores Estratégicos", "Indicadores Tácticos", "Indicadores Operativos"]
+
+enunciado: "Ordene los siguientes niveles de indicadores de gestión desde el nivel de mayor visión global (longitudinal) hasta el nivel de ejecución diaria:"
+
+explicacion: |
+  La jerarquía parte de la estrategia (largo plazo/global), baja a la táctica (departamental/procesos) y culmina en la operación (tareas diarias/específicas).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "avanzado"
+  tags: ["indicadores", "predictivos", "rezagados"]
+
+tipo: mc
+opciones_explicitas: ["Indicador de resultado (Lagging)", "Indicador predictivo (Leading)", "Indicador de proceso"]
+
+respuesta: "Indicador de resultado (Lagging)"
+
+enunciado: "Si un indicador se enfoca en medir un evento que ya ha ocurrido (como las ventas totales del mes pasado), se considera un indicador de tipo: ___."
+
+explicacion: |
+  Los indicadores 'Lagging' miden resultados pasados (lo que ya sucedió), mientras que los 'Leading' intentan predecir resultados futuros basándose en variables actuales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "basico"
+  tags: ["kpi", "definicion"]
+
+respuesta: ["KPI", "Key Performance Indicator"]
+tipo: completar
+respuestas_validas:
+  - "KPI"
+  - "Key Performance Indicator"
+
+enunciado: "Para que un indicador sea considerado un ___ real, debe estar directamente alineado con un objetivo crítico del negocio y permitir una acción correctiva clara."
+
+explicacion: |
+  No todo indicador es un KPI. Un KPI (Key Performance Indicator) es un indicador clave; es decir, aquel que es vital para medir el éxito de un proceso o estrategia específica.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "basico"
+  tags: ["indicadores", "gestion"]
+
+respuesta: "eficiencia"
+tipo: completar
+respuestas_validas:
+  - "eficiencia"
+
+enunciado: "Mientras que la eficacia se centra en el cumplimiento de las metas u objetivos propuestos, la ___ se enfoca en el uso óptimo de los recursos para alcanzar dichos objetivos."
+
+explicacion: |
+  La eficacia mide el grado de cumplimiento de los objetivos (lograr la meta), mientras que la eficiencia mide la relación entre los resultados obtenidos y los recursos utilizados (lograr la meta con el mínimo de recursos).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "intermedio"
+  tags: ["indicadores", "control"]
+
+variables:
+  idx: uno_de([0, 1])
+  escenario: [[ "ventas_totales", "resultado_final" ], [ "costo_por_unidad", "medida_de_proceso" ]]
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["resultado_final", "medida_de_proceso", "indicador_de_esfuerzo", "indicador_de_input"]
+
+enunciado: "Si una empresa mide el '___', está analizando un indicador de: {escenario[idx][0]}."
+
+explicacion: |
+  Los indicadores de resultado (lagging) miden el producto final de una actividad, mientras que los de proceso (leading) miden las actividades necesarias para llegar a ese resultado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "basico"
+  tags: ["kpi", "indicadores"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "¿Un KPI (Indicador Clave de Desempeño) se distingue de un indicador común en que es crítico para la toma de decisiones estratégicas y está directamente vinculado a los objetivos principales de la organización?"
+
+explicacion: |
+  Correcto. Un KPI no es solo cualquier dato, sino un indicador seleccionado específicamente por su relevancia para medir el éxito de una estrategia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "intermedio"
+  tags: ["jerarquia", "indicadores"]
+
+respuesta_orden: ["indicadores_operativos", "indicadores_tácticos", "indicadores_estratégicos"]
+tipo: ordenar
+opciones_explicitas: ["indicadores_operativos", "indicadores_tácticos", "indicadores_estratégicos"]
+
+enunciado: "Ordene los siguientes tipos de indicadores desde el nivel más bajo (operativo/día a día) hasta el nivel más alto (estratégico/largo plazo):"
+
+explicacion: |
+  La jerarquía típica va desde el control de las tareas diarias (operativo), pasando por el control de departamentos o áreas (táctico), hasta el control de la visión global de la empresa (estratégico).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion_e_indicadores"
+  nivel: "avanzado"
+  tags: ["calidad", "eficacia"]
+
+variables:
+  idx: uno_de([0, 1])
+  caso: [[ "cumplir_el_plazo", "eficacia" ], [ "cero_defectos", "calidad" ]]
+
+respuesta: caso[idx][1]
+tipo: mc
+opciones_explicitas: ["eficacia", "calidad", "eficiencia", "rentabilidad"]
+
+enunciado: "En el contexto de control de gestión, si el objetivo es asegurar que un producto no tenga errores de fabricación, el indicador principal para medir este aspecto es la: {caso[idx][0]}."
+
+explicacion: |
+  Aunque la calidad puede influir en la eficacia, la medición de la ausencia de defectos se clasifica específicamente como un indicador de calidad o conformidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion"
+  nivel: "intermedio"
+  tags: ["indicadores", "eficacia", "eficiencia"]
+
+variables:
+  escenario: uno_de([["La empresa produjo 100 unidades con 10 horas de trabajo, pero su objetivo era 120 unidades.", "eficacia"], ["La empresa produjo 100 unidades usando 8 horas de trabajo, cumpliendo su objetivo de 100 unidades.", "eficiencia"], ["La empresa produjo 120 unidades usando 15 horas de trabajo, superando su objetivo de 100 unidades.", "ambos"]])
+
+enunciado: "En el escenario donde {escenario[0]}, ¿qué indicador se ve comprometido o destacado?"
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["eficacia", "eficiencia", "ambos", "ninguno"]
+
+explicacion: |
+  La eficacia mide el grado de cumplimiento de los objetivos (lograr la meta), mientras que la eficiencia mide la relación entre los resultados obtenidos y los recursos utilizados.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion"
+  nivel: "avanzado"
+  tags: ["presupuesto", "desviacion", "calculo"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  presupuestos: [5000, 8000, 1000]
+  reales: [4500, 9200, 1000]
+  desviaciones: ["-10%", "+15%", "0%"]
+
+enunciado: "Si el presupuesto asignado fue de ${presupuestos[idx]} y el gasto real fue de ${reales[idx]}, la desviación porcentual respecto al presupuesto es de ___."
+
+pasos:
+  - "Identificar el valor presupuestado (P) y el valor real (R)."
+  - "Calcular la diferencia: (R - P) / P."
+  - "Multiplicar por 100 para obtener el porcentaje."
+
+respuesta: desviaciones[idx]
+tipo: completar
+respuestas_validas:
+  - "-10%"
+  - "+15%"
+  - "0%"
+
+explicacion: |
+  La desviación presupuestaria indica la diferencia entre lo planificado y lo ejecutado. Una desviación positiva indica sobre-ejecución (gasto mayor al previsto).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion"
+  nivel: "basico"
+  tags: ["kpi", "calidad", "verdadero_falso"]
+
+enunciado: "Un KPI (Key Performance Indicator) de calidad que mide el porcentaje de productos defectuosos sobre el total producido es un indicador de proceso."
+
+respuesta: verdadero
+tipo: vf
+
+explicacion: |
+  Los indicadores de calidad suelen medir la efectividad de los procesos internos para asegurar que el output cumpla con los estándares establecidos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion"
+  nivel: "intermedio"
+  tags: ["pdca", "deming", "procesos"]
+
+enunciado: "Ordene las etapas del ciclo de mejora continua (PDCA) en su secuencia lógica de ejecución:"
+
+opciones_explicitas: ["Planificar", "Hacer", "Verificar", "Actuar"]
+respuesta_orden: ["Planificar", "Hacer", "Verificar", "Actuar"]
+tipo: ordenar
+
+explicacion: |
+  El ciclo PDCA consiste en: Planificar (establecer objetivos), Hacer (implementar), Verificar (comparar resultados con objetivos) y Actuar (ajustar para mejorar).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "control_de_gestion"
+  nivel: "avanzado"
+  tags: ["rentabilidad", "margen", "calculo"]
+
+variables:
+  caso: uno_de([["Ventas: 1000, Costos: 700", "300"], ["Ventas: 500, Costos: 100", "400"], ["Ventas: 2000, Costos: 1800", "200"]])
+
+enunciado: "Si una unidad de negocio presenta los siguientes datos: {caso[0]}, su margen de contribución absoluto es de ___."
+
+pasos:
+  - "Identificar el total de ventas."
+  - "Identificar los costos variables/directos."
+  - "Restar los costos de las ventas."
+
+respuesta: caso[1]
+tipo: completar
+tolerancia_abs: 0
+
+explicacion: |
+  El margen de contribución es la diferencia entre las ventas y los costos variables, indicando cuánto aporta cada unidad a cubrir los costos fijos y generar utilidad.
+```
+
+## Sección: cooperativismo-y-mutualismo (25 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["definicion", "organizacion"]
+
+respuesta: "democráticamente"
+tipo: completar
+respuestas_validas:
+  - "democráticamente"
+
+enunciado: "Según los principios de la economía social, las cooperativas son organizaciones gestionadas ________ por sus miembros."
+
+explicacion: |
+  El principio de gestión democrática es fundamental: cada miembro tiene un voto, independientemente del capital aportado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["principios", "gestion"]
+
+respuesta: falso
+tipo: vf
+enunciado: "En una cooperativa, el poder de decisión se distribuye de manera proporcional a la cantidad de acciones o capital aportado por cada socio."
+
+pasos:
+  - "Analizar el principio de 'una persona, un voto'."
+
+explicacion: |
+  Falso. En las cooperativas rige el principio de gestión democrática (un socio, un voto), a diferencia de las sociedades de capital donde el voto depende de las acciones.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["diferencias", "objetivo"]
+
+tipo: mc
+opciones_explicitas: ["ayuda_mutua", "servicios_comunes", "prestamos_y_ayuda", "excedentes_y_servicios"]
+
+respuesta: "ayuda_mutua"
+
+enunciado: "Si nos enfocamos en el objetivo principal de una mutual, estamos hablando de la práctica de la ________."
+
+explicacion: |
+  Mientras las cooperativas buscan satisfacer necesidades de sus socios mediante la prestación de servicios, el mutualismo se centra en la ayuda mutua entre sus integrantes.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["vocabulario"]
+
+respuesta: "socios"
+tipo: completar
+respuestas_validas:
+  - "socios"
+
+enunciado: "Las cooperativas están compuestas por un grupo de ________ que se unen voluntariamente para satisfacer sus necesidades económicas, sociales y culturales."
+
+explicacion: |
+  Los socios son la base fundamental de cualquier organización de economía social.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["procedimiento"]
+
+respuesta_orden: ["reunión_fundacional", "redacción_estatuto", "inscripción_registro"]
+tipo: ordenar
+opciones_explicitas: ["reunión_fundacional", "redacción_estatuto", "inscripción_registro"]
+
+enunciado: "Ordene cronológicamente los pasos básicos para la formación legal de una cooperativa:"
+
+explicacion: |
+  Primero se debe realizar la reunión de fundadores, luego redactar los estatutos que regirán la entidad y finalmente inscribirse en el registro correspondiente para obtener la personería jurídica.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["ley_26206", "gestion_democratica"]
+
+respuesta: verdadero
+tipo: vf
+enunciado: "En una cooperativa de trabajo, según el principio de gestión democrática, cada asociado tiene un voto, independientemente del capital aportado."
+
+explicacion: |
+  Correcto. A diferencia de una sociedad anónima donde el poder depende de la cantidad de acciones, en las cooperativas rige el principio de 'un asociado, un voto', garantizando la gestión democrática.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["caracteristicas", "economia_social"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["Una agrupación de productores de leche que se unen para procesar su materia prima y distribuir sus productos bajo una marca común, compartiendo excedentes según el uso de servicios.", "cooperativa"], ["Un grupo de vecinos que crean un fondo común para prestarse dinero entre ellos con tasas sociales, sin fines de lucro.", "mutual"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["cooperativa", "mutual", "sociedad_anónima", "s.r.l."]
+
+enunciado: "Analice el siguiente caso: {escenarios[escenario_idx][0]}"
+
+explicacion: |
+  La respuesta es {escenarios[escenario_idx][1]}. Las cooperativas buscan satisfacer necesidades de sus miembros mediante la producción o comercialización de bienes/servicios, mientras que las mutuales se centran en la prestación de servicios sociales y ayuda recíproca.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["excedentes", "distribucion"]
+
+variables:
+  excedente_total: 1000
+  porcentaje_reserva_legal: 0.05
+  porcentaje_fondo_educacion: 0.05
+  porcentaje_reparto_asociados: 0.90
+
+respuesta: redondear(excedente_total * porcentaje_reparto_asociados, 2)
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Una cooperativa de consumo al cierre de su ejercicio obtiene un excedente neto de ${excedente_total}. Tras destinar el 5% a la reserva legal y el 5% al fondo de educación, el resto se distribuye entre los asociados proporcionalmente al consumo realizado. ¿Cuánto dinero se reparte entre los asociados?"
+
+pasos:
+  - "Calcular el monto para reserva legal: ${excedente_total} * {porcentaje_reserva_legal}"
+  - "Calcular el monto para el fondo de educación: ${excedente_total} * {porcentaje_fondo_educacion}"
+  - "Restar ambos montos al excedente total para obtener el remanente a repartir."
+
+explicacion: |
+  El cálculo es: ${excedente_total} - (${excedente_total} * 0.05) - (${excedente_total} * 0.05) = ${excedente_total} * 0.90 = ${redondear(excedente_total * porcentaje_reparto_asociados, 2)}.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "avanzado"
+  tags: ["procedimiento", "constitucion"]
+
+respuesta_orden: ["Reunión de fundadores", "Redacción de Estatuto", "Asamblea de constitución", "Inscripción en el INAES"]
+tipo: ordenar
+opciones_explicitas: ["Reunión de fundadores", "Redacción de Estatuto", "Asamblea de constitución", "Inscripción en el INAES"]
+
+enunciado: "Ordene cronológicamente los pasos para la constitución legal de una cooperativa de trabajo en Argentina:"
+
+explicacion: |
+  Primero se reúnen los interesados, luego se redacta el estatuto que regirá la entidad, se celebra la asamblea donde se aprueba dicho estatuto y finalmente se inscribe ante el ente regulador (INAES).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["capital", "asociados"]
+
+respuesta: "variable"
+tipo: completar
+respuestas_validas:
+  - "variable"
+
+enunciado: "En el cooperativismo, el capital social es de naturaleza ___, ya que su monto cambia con la entrada y salida de nuevos asociados."
+
+explicacion: |
+  El capital es variable porque no está representado por acciones de libre negociación en bolsa, sino que depende de la integración de los asociados a la entidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["cooperativas", "diferencias"]
+
+respuesta: "sin fines de lucro"
+tipo: completar
+respuestas_validas:
+  - "sin fines de lucro"
+  - "no lucrativa"
+
+enunciado: "A diferencia de las sociedades comerciales tradicionales, las cooperativas se rigen por el principio de que su actividad es ___."
+
+explicacion: |
+  Las cooperativas son entidades de economía social cuyo objetivo principal es satisfacer las necesidades de sus asociados y no la maximización de beneficios para terceros. Aunque pueden generar excedentes, estos se reinvierten o distribuyen según el uso de servicios, no como lucro comercial puro.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["gestion", "democracia"]
+
+respuesta: falso
+tipo: vf
+enunciado: "En una cooperativa, el poder de decisión se distribuye según el capital aportado por cada socio (a más capital, más votos)."
+
+explicacion: |
+  Falso. El principio de democracia cooperativa establece que cada socio tiene un voto, independientemente de la cantidad de capital que haya aportado. Esto es lo que las distingue de las sociedades anónimas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["mutualismo", "ayuda_mutua"]
+
+respuesta: "ayuda mutua"
+tipo: mc
+opciones_explicitas: ["ayuda mutua", "maximización de dividendos", "especulación financiera", "competencia de mercado"]
+
+enunciado: "El principio fundamental que distingue al mutualismo de otras formas de asociación es la ___ entre sus miembros para satisfacer necesidades comunes."
+
+explicacion: |
+  El mutualismo se basa en el principio de ayuda mutua, donde los asociados se asocian para prestarse servicios de previsión, asistencia o ayuda recíproca.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "avanzado"
+  tags: ["ley_26206", "marco_legal"]
+
+respuesta: "sociedad de personas"
+tipo: mc
+opciones_explicitas: ["sociedad de personas", "sociedad de capitales"]
+
+enunciado: "Según el marco legal de las cooperativas, estas se definen esencialmente como una ___."
+
+explicacion: |
+  Las cooperativas son sociedades de personas, ya que lo fundamental es la calidad de los asociados y su voluntad de cooperación, no la cuantía de su capital.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["principios", "valores"]
+
+respuesta_orden: ["Ingreso voluntario y abierto de socios", "Control democrático de los socios", "Participación económica de los socios"]
+tipo: ordenar
+opciones_explicitas: ["Ingreso voluntario y abierto de socios", "Control democrático de los socios", "Participación económica de los socios"]
+
+enunciado: "Ordene los siguientes principios cooperativos según la lógica de constitución de una organización: primero la apertura, luego la gestión y finalmente la distribución."
+
+explicacion: |
+  Para que exista una cooperativa, primero deben ingresar los socios libremente (apertura), luego deben decidir cómo gestionarse (democracia) y finalmente cómo gestionar sus recursos (participación económica).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["gestion", "democracia"]
+
+tipo: mc
+opciones_explicitas: ["La búsqueda de lucro máximo para accionistas externos", "La gestión democrática por parte de sus miembros", "La propiedad estatal de los medios de producción", "La primacía del capital sobre el trabajo"]
+
+respuesta: "La gestión democrática por parte de sus miembros"
+
+enunciado: "A diferencia de las sociedades de capital tradicionales, donde el poder de voto depende de la cantidad de acciones, las cooperativas se distinguen por un modelo de gestión donde cada miembro tiene un voto, independientemente de su aporte. Esto se conoce como:"
+
+explicacion: |
+  En el cooperativismo, rige el principio de 'un hombre, un voto', asegurando que el control sea democrático y no dependa de la riqueza de los socios.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["mutualismo", "ayuda_mutua"]
+
+tipo: vf
+
+enunciado: "El mutualismo se distingue del cooperativismo principalmente en que su fin primordial es la ayuda mutua para satisfacer necesidades comunes, sin tener como objetivo principal la distribución de excedentes entre sus miembros."
+
+respuesta: verdadero
+
+explicacion: |
+  Correcto. Las cooperativas suelen distribuir excedentes entre sus socios según el uso de servicios, mientras que las mutuales no distribuyen ganancias: su propósito es cubrir gastos comunes o brindar asistencia recíproca.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["ley_26206", "principios"]
+
+tipo: completar
+respuestas_validas:
+  - "ayuda mutua"
+
+enunciado: "Según el espíritu de la Ley 26.206, una organización que se distingue de una empresa comercial por su fin social debe basarse en el principio de ___."
+
+pasos:
+  - "Identificar el principio fundamental de la economía social."
+
+explicacion: |
+  La ayuda mutua es el pilar que diferencia a estas organizaciones de las empresas de capital, donde el fin es el lucro.
+
+respuesta: "ayuda mutua"
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "avanzado"
+  tags: ["principios", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Ingreso libre y voluntario", "Gestión democrática", "Participación económica"]
+
+respuesta_orden: ["Ingreso libre y voluntario", "Gestión democrática", "Participación económica"]
+
+enunciado: "Para que una organización sea considerada cooperativa bajo los estándares de la economía social, debe seguir una secuencia lógica de principios. Ordene los siguientes principios según la estructura clásica de la identidad cooperativa (desde la pertenencia hasta la gestión):"
+
+explicacion: |
+  Primero se define quién puede entrar (Ingreso libre), luego cómo se decide (Gestión democrática) y finalmente cómo se gestionan los recursos (Participación económica).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["excedente", "lucro"]
+
+tipo: mc
+opciones_explicitas: ["El excedente es igual al lucro de una empresa comercial", "El excedente se distribuye según el capital aportado", "El excedente se distribuye según el uso de los servicios", "El excedente se reinvierte íntegramente en el Estado"]
+
+respuesta: "El excedente se distribuye según el uso de los servicios"
+
+enunciado: "Una diferencia clave entre el 'lucro' de una sociedad comercial y el 'excedente' de una cooperativa es que el segundo se distribuye en función de la ___ realizada por los socios."
+
+explicacion: |
+  En las cooperativas, el retorno de excedentes no depende de cuánto capital puso cada uno, sino de cuánto utilizó los servicios de la cooperativa (retorno cooperativo).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["ley_26206", "organizacion"]
+
+variables:
+  datos: [["Un grupo de agricultores se une para comprar insumos por menor precio y vender su cosecha sin intermediarios", "cooperativa"], ["Un grupo de vecinos se une para prestar servicios de asistencia sanitaria y farmacia con fines de ayuda mutua", "mutual"]]
+  idx: uno_de([0, 1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["cooperativa", "mutual"]
+
+enunciado: "Un grupo de personas se organiza bajo el modelo de economía social. Si el objetivo principal es la gestión de servicios de ayuda mutua y asistencia, estamos ante una: ___"
+
+explicacion: |
+  Según la normativa, las cooperativas buscan satisfacer necesidades de sus socios mediante la explotación de una actividad económica, mientras que las mutuales se centran en la ayuda mutua y servicios de asistencia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["gestion", "democracia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En una organización cooperativa, el principio de 'una persona, un voto' implica que el poder de decisión es proporcional al capital aportado por cada socio."
+
+explicacion: |
+  Falso. El principio fundamental de las cooperativas es la gestión democrática: cada socio tiene un voto, independientemente de la cantidad de capital que haya aportado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "basico"
+  tags: ["estructura", "socios"]
+
+variables:
+  datos: [["Asamblea de Socios", "Máximo órgano de decisión"], ["Consejo de Administración", "Órgano de gobierno y dirección"], ["Sindicatura", "Control de legalidad"]]
+
+respuesta: "Asamblea de Socios"
+tipo: completar
+respuestas_validas:
+  - "Asamblea de Socios"
+  - "Consejo de Administración"
+  - "Sindicatura"
+
+enunciado: "En la estructura de una cooperativa, el ___ es el órgano máximo de gobierno donde se toman las decisiones fundamentales por parte de los asociados."
+
+explicacion: |
+  La Asamblea de Socios es el órgano supremo donde se ejerce la soberanía de los miembros.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "intermedio"
+  tags: ["fin_lucro", "economia_social"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Las entidades de la economía social, como cooperativas y mutuales, tienen como objetivo primordial la maximización de beneficios económicos para sus accionistas externos."
+
+explicacion: |
+  Falso. El fin es satisfacer necesidades de los asociados y promover el bienestar de la comunidad; no buscan el lucro para terceros, sino el beneficio de sus propios miembros.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "cooperativismo_y_mutualismo"
+  nivel: "avanzado"
+  tags: ["procedimiento", "pasos"]
+
+respuesta_orden: ["Reunión de interesados y definición de objeto social", "Redacción del contrato social y estatutos", "Inscripción en el registro de cooperativas"]
+tipo: ordenar
+opciones_explicitas: ["Redacción del contrato social y estatutos", "Reunión de interesados y definición de objeto social", "Inscripción en el registro de cooperativas"]
+
+enunciado: "Ordene cronológicamente los pasos para la constitución legal de una cooperativa:"
+
+explicacion: |
+  Primero se define el objeto y los socios, luego se formaliza en un estatuto y finalmente se inscribe ante la autoridad de aplicación para obtener personería jurídica.
+```
+
+## Sección: coordinar-personas-y-recursos (25 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "basico"
+  tags: ["definicion", "organizacion"]
+
+respuesta: "coordinacion"
+tipo: completar
+respuestas_validas:
+  - "coordinacion"
+
+enunciado: "El proceso de integrar las actividades de diversos departamentos y asegurar que se dirijan hacia el cumplimiento de los objetivos organizacionales se denomina ___."
+
+explicacion: |
+  La coordinación es el proceso de asegurar que las actividades de los distintos miembros de una organización se realicen de manera armoniosa para alcanzar los objetivos comunes.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "basico"
+  tags: ["recursos", "factores_produccion"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["capital", "recursos financieros y maquinaria"], ["humanos", "conocimientos y habilidades de las personas"]]
+
+respuesta: datos[escenario_idx][0]
+tipo: mc
+opciones_explicitas: ["capital", "humanos", "tecnología", "materias primas"]
+
+enunciado: "En el contexto de la coordinación de recursos, ¿qué factor se refiere a {datos[escenario_idx][1]}?"
+
+explicacion: |
+  Las organizaciones deben coordinar diversos recursos. El tipo seleccionado en este ejercicio es {datos[escenario_idx][0]}.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "basico"
+  tags: ["division_trabajo", "eficiencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La división del trabajo consiste en descomponer una tarea compleja en tareas más pequeñas y especializadas para aumentar la eficiencia."
+
+explicacion: |
+  Efectivamente, la especialización mediante la división del trabajo es una herramienta fundamental para optimizar la productividad en la coordinación de equipos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "intermedio"
+  tags: ["estructura", "jerarquia"]
+
+respuesta_orden: ["Planificación", "Organización", "Dirección", "Control"]
+tipo: ordenar
+opciones_explicitas: ["Planificación", "Organización", "Dirección", "Control"]
+
+enunciado: "Ordene las cuatro funciones administrativas del proceso de gestión en el orden lógico de su ciclo de ejecución:"
+
+explicacion: |
+  El proceso administrativo clásico sigue la secuencia: primero se establece lo que se quiere hacer (Planificación), luego se asignan recursos (Organización), se guía a las personas (Dirección) y finalmente se verifica el cumplimiento (Control).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "intermedio"
+  tags: ["control", "supervision"]
+
+variables:
+  caso_idx: uno_de([0, 1])
+  casos: [["se detecta una desviación en la producción", "corregir la desviación"], ["se comparan los resultados con los objetivos", "verificar el desempeño"]]
+
+respuesta: casos[caso_idx][1]
+tipo: mc
+opciones_explicitas: ["corregir la desviación", "verificar el desempeño", "asignar tareas", "contratar personal"]
+
+enunciado: "Si en una empresa {casos[caso_idx][0]}, ¿cuál es la acción inmediata que corresponde a la función de control?"
+
+explicacion: |
+  El control implica comparar el desempeño real con los estándares planeados y, si hay diferencias, tomar medidas para corregirlas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos"
+  nivel: "basico"
+  tags: ["gestion", "equipo"]
+
+enunciado: "Una empresa de desarrollo de software tiene dos programadores (A y B) y dos tareas (X e Y). El programador A es más eficiente en la tarea X, mientras que el programador B es más eficiente en la tarea Y. Para maximizar la productividad total, la asignación óptima es que el programador ___ realice la tarea ___."
+
+pasos:
+  - "Identificar la especialización de cada recurso."
+  - "Asignar cada tarea al recurso con mayor ventaja comparativa."
+
+opciones_explicitas: ["A, X", "A, Y", "B, X", "B, Y"]
+respuesta: "A, X"
+tipo: "mc"
+
+explicacion: |
+  La coordinación eficiente busca la especialización. Si asignamos a cada persona la tarea donde su productividad es mayor, la producción total del equipo será máxima.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos"
+  nivel: "intermedio"
+  tags: ["costo_oportunidad", "decision"]
+
+enunciado: "Si una empresa decide utilizar todo su presupuesto disponible para contratar más personal de producción en lugar de invertir en publicidad, el costo de oportunidad es el ___ que se dejó de obtener."
+
+respuestas_validas:
+  - "beneficio de la publicidad"
+  - "incremento de ventas"
+  - "crecimiento de marca"
+respuesta: "beneficio de la publicidad"
+tipo: "completar"
+
+explicacion: |
+  El costo de oportunidad no es solo el dinero gastado, sino el valor de la mejor alternativa sacrificada al tomar una decisión de asignación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos"
+  nivel: "intermedio"
+  tags: ["rendimientos", "escala"]
+
+enunciado: "Al duplicar la cantidad de trabajadores en una cocina pequeña sin aumentar el espacio físico ni el número de hornos, la producción total no se duplica, sino que aumenta de forma desproporcionada hacia abajo debido a la falta de coordinación y el exceso de gente en el mismo espacio. Este fenómeno se conoce como rendimientos decrecientes a escala."
+
+respuesta: verdadero
+tipo: "vf"
+
+explicacion: |
+  La coordinación de recursos físicos es tan importante como la de recursos humanos. Si los recursos físicos (capital) no crecen al mismo ritmo que el trabajo, la eficiencia cae.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos"
+  nivel: "basico"
+  tags: ["flujo_trabajo", "procesos"]
+
+enunciado: "Para coordinar la producción de una silla de madera, se deben seguir los pasos lógicos de transformación de recursos. Ordena los siguientes pasos desde la adquisición de insumos hasta el producto final:"
+
+opciones_explicitas: ["Compra de madera y clavos", "Corte y ensamblado de piezas", "Lijado y barnizado", "Control de calidad y empaque"]
+respuesta_orden: ["Compra de madera y clavos", "Corte y ensamblado de piezas", "Lijado y barnizado", "Control de calidad y empaque"]
+tipo: ordenar
+
+explicacion: |
+  La coordinación de procesos requiere una secuencia lógica donde la salida de una etapa sea la entrada de la siguiente para evitar cuellos de botella.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos"
+  nivel: "avanzado"
+  tags: ["tecnologia", "productividad"]
+
+enunciado: "Una fábrica decide implementar un software de gestión para coordinar mejor sus turnos de trabajo. Si esta implementación reduce el tiempo de inactividad de los trabajadores en un 15%, la productividad laboral total de la empresa ___."
+
+respuestas_validas:
+  - "aumentará"
+  - "disminuirá"
+  - "se mantendrá igual"
+respuesta: "aumentará"
+tipo: "completar"
+
+explicacion: |
+  La tecnología actúa como un multiplicador de la coordinación. Al reducir los tiempos muertos (desperdicio de recursos), se produce más con la misma cantidad de insumos y horas hombre.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "intermedio"
+  tags: ["gestion", "recursos", "eficiencia"]
+
+respuesta: "ineficiencia"
+tipo: mc
+opciones_explicitas: ["eficiencia", "ineficiencia", "especializacion", "productividad"]
+
+enunciado: "Cuando un gestor asigna a un trabajador altamente capacitado a una tarea que requiere habilidades mínimas, ignorando el costo de oportunidad de su talento, está provocando una ___ en la organización."
+
+explicacion: |
+  La asignación ineficiente de recursos humanos (especialmente el talento especializado) genera un costo de oportunidad elevado, reduciendo la productividad global del equipo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "basico"
+  tags: ["gestion", "procesos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En la gestión de equipos, la coordinación se limita exclusivamente a la supervisión directa y el control de horarios de los empleados."
+
+explicacion: |
+  Falso. La coordinación implica también la sincronización de flujos de información, la alineación de objetivos y la gestión de la interdependencia entre tareas y recursos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "avanzado"
+  tags: ["planificacion", "logistica"]
+
+respuesta_orden: ["Identificar necesidades", "Asignar recursos", "Monitorear ejecución"]
+tipo: ordenar
+opciones_explicitas: ["Monitorear ejecución", "Identificar necesidades", "Asignar recursos"]
+
+enunciado: "Para coordinar eficazmente un proyecto, se debe seguir un orden lógico de gestión de recursos. Ordene los siguientes pasos:"
+
+pasos:
+  - "Determinar qué materiales y personas se requieren para el objetivo."
+  - "Distribuir los insumos y el personal a las tareas específicas."
+  - "Verificar que el uso de los recursos coincida con lo planificado."
+
+explicacion: |
+  La planificación requiere primero el diagnóstico de necesidades, luego la distribución (asignación) y finalmente el control para corregir desviaciones.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "intermedio"
+  tags: ["especializacion", "costos"]
+
+respuesta: "exceso"
+tipo: completar
+respuestas_validas:
+  - "exceso"
+
+enunciado: "Si una empresa asigna demasiados trabajadores a una misma tarea de modo que se estorben entre sí, se produce un ___ de recursos humanos."
+
+explicacion: |
+  El exceso de recursos en una tarea específica genera rendimientos marginales decrecientes y aumenta los costos de coordinación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "intermedio"
+  tags: ["informacion", "asimetria"]
+
+respuesta: 56
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Un equipo de 10 personas debe completar 200 unidades. Si la capacidad actual es de 7 unidades por persona al día, pero la coordinación falla y la productividad cae un 20% por falta de comunicación, ¿cuántas unidades producirá el equipo en un día?"
+
+pasos:
+  - "Calcular la producción teórica: 10 personas * 7 unidades = 70 unidades."
+  - "Aplicar la reducción por falta de coordinación: 70 * (1 - 0.20) = 56."
+
+explicacion: |
+  La falta de coordinación actúa como una fricción que reduce la productividad real por debajo de la capacidad teórica de los recursos individuales.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos_humanos"
+  nivel: "basico"
+  tags: ["coordinacion", "division_trabajo"]
+
+respuesta: "coordinacion"
+tipo: "completar"
+respuestas_validas:
+  - "coordinacion"
+
+enunciado: "Mientras que la división del trabajo se encarga de fragmentar una tarea compleja en actividades simples, la ___ es el proceso de asegurar que estas tareas fragmentadas se integren de manera coherente para alcanzar el objetivo común."
+
+explicacion: |
+  La división del trabajo aumenta la eficiencia mediante la especialización, pero genera la necesidad de la coordinación para evitar que los esfuerzos individuales se desvíen o choquen entre sí.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos_humanos"
+  nivel: "intermedio"
+  tags: ["administracion", "recursos"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  escenarios: [["un equipo de producción de automóviles", "gestionar la cadena de suministros"], ["una clínica médica", "coordinar turnos de especialistas"]]
+
+respuesta: escenarios[escenario_idx][1]
+tipo: "mc"
+opciones_explicitas: ["gestionar la cadena de suministros", "coordinar turnos de especialistas", "eliminar la necesidad de supervisión", "maximizar la autonomía individual sin control"]
+
+enunciado: "En el escenario de {escenarios[escenario_idx][0]}, ¿cuál es la función principal de la coordinación de recursos?"
+
+explicacion: |
+  La coordinación busca sincronizar los recursos (humanos o materiales) con la demanda o el flujo de trabajo para evitar cuellos de botella.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos_humanos"
+  nivel: "intermedio"
+  tags: ["eficiencia", "eficacia"]
+
+respuesta: verdadero
+
+tipo: "vf"
+
+enunciado: "Si un equipo logra alcanzar la meta de producción establecida (eficacia) pero utiliza el doble de la materia prima presupuestada debido a una mala organización de los recursos, se ha fallado en la eficiencia de la coordinación."
+
+explicacion: |
+  La eficacia se refiere al cumplimiento del objetivo, mientras que la eficiencia se refiere al uso óptimo de los recursos para alcanzar dicho objetivo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos_humanos"
+  nivel: "avanzado"
+  tags: ["procesos", "organizacion"]
+
+respuesta_orden: ["identificar tareas", "asignar responsabilidades", "establecer mecanismos de control"]
+tipo: "ordenar"
+opciones_explicitas: ["identificar tareas", "asignar responsabilidades", "establecer mecanismos de control"]
+
+enunciado: "Para coordinar eficazmente un equipo de trabajo, un gestor debe seguir este orden lógico de organización de recursos:"
+
+explicacion: |
+  Primero se descompone el trabajo (identificación), luego se distribuyen los roles (asignación) y finalmente se verifica el cumplimiento (control).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinacion_recursos_humanos"
+  nivel: "intermedio"
+  tags: ["estructura", "decision"]
+
+variables:
+  tipo_estructura: uno_de(["centralizada", "descentralizada"])
+
+respuesta: tipo_estructura
+tipo: "mc"
+opciones_explicitas: ["centralizada", "descentralizada"]
+
+enunciado: "En una estructura organizacional {tipo_estructura}, la coordinación se logra mediante la jerarquía y la toma de decisiones concentrada en la parte superior, a diferencia de la estructura opuesta."
+
+explicacion: |
+  La centralización busca uniformidad y control estricto, mientras que la descentralización busca agilidad y empoderamiento en los niveles operativos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "intermedio"
+  tags: ["gestion", "recursos", "productividad"]
+
+variables:
+  escenario: uno_de([["La empresa A tiene 10 operarios y cada uno produce 5 unidades/hora.", 50], ["La empresa B tiene 12 operarios y cada uno produce 4 unidades/hora.", 48], ["La empresa C tiene 8 operarios y cada uno produce 6 unidades/hora.", 48]])
+  valor_total: escenario[0]
+  resultado_esperado: escenario[1]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si una empresa cuenta con {escenario[0]}, ¿cuál es la capacidad de producción total de unidades por hora?"
+
+explicacion: |
+  La capacidad total se calcula multiplicando el número de operarios por la productividad individual de cada uno.
+
+respuesta: resultado_esperado
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "basico"
+  tags: ["costos", "decision"]
+
+variables:
+  idx: uno_de([0, 1])
+  casos: ["El costo de contratar un nuevo empleado es de $500 y el aumento en ingresos es de $600.", "El costo de contratar un nuevo empleado es de $700 y el aumento en ingresos es de $650."]
+  valores: [verdadero, falso]
+
+respuesta: valores[idx]
+tipo: vf
+
+enunciado: "Si el costo marginal de contratar a un nuevo trabajador es menor al ingreso marginal que este genera, la decisión de contratar es rentable. En el escenario actual: {casos[idx]}"
+
+explicacion: |
+  En economía, una acción es rentable si el beneficio marginal es mayor al costo marginal.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "intermedio"
+  tags: ["procesos", "orden"]
+
+tipo: ordenar
+
+opciones_explicitas: ["Planificación de tareas", "Asignación de recursos", "Ejecución del trabajo", "Control de calidad"]
+respuesta_orden: ["Planificación de tareas", "Asignación de recursos", "Ejecución del trabajo", "Control de calidad"]
+
+enunciado: "Ordene cronológicamente las etapas lógicas para coordinar un equipo de trabajo en una línea de producción:"
+
+explicacion: |
+  Para una coordinación eficiente, primero se debe planificar, luego asignar los recursos necesarios, ejecutar la tarea y finalmente controlar los resultados.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "basico"
+  tags: ["productividad", "especializacion"]
+
+tipo: mc
+
+opciones_explicitas: ["Aumenta", "Disminuye", "Se mantiene igual"]
+
+enunciado: "Considerando la teoría de la división del trabajo de Adam Smith, si aplicamos la especialización en un taller, ¿qué ocurre con la eficiencia?"
+
+respuesta: "Aumenta"
+
+explicacion: |
+  La especialización permite que los trabajadores se vuelvan más hábiles en tareas específicas, reduciendo tiempos de transición y aumentando la productividad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "coordinar_personas_y_recursos"
+  nivel: "avanzado"
+  tags: ["inventario", "recursos"]
+
+variables:
+  datos: [["El stock actual es de 150 unidades y el consumo diario es de 30 unidades. Faltan ___ días para agotar el stock.", "5"], ["El stock actual es de 200 unidades y el consumo diario es de 50 unidades. Faltan ___ días para agotar el stock.", "4"], ["El stock actual es de 100 unidades y el consumo diario de 10 unidades. Faltan ___ días para agotar el stock.", "10"]]
+  idx: uno_de([0, 1, 2])
+
+tipo: completar
+
+respuestas_validas:
+  - "5"
+  - "4"
+  - "10"
+respuesta: datos[idx][1]
+
+enunciado: "Si el stock actual es de {datos[idx][0]}, ¿cuántos días faltan para agotar el stock?"
+
+explicacion: |
+  El tiempo de agotamiento se calcula dividiendo el stock total disponible por la tasa de consumo diaria.
+```
+
+## Sección: costo-de-oportunidad (30 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["definicion", "concepto_basico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo de oportunidad se define como el valor de la mejor alternativa a la que se renuncia al tomar una decisión."
+
+explicacion: |
+  Esta es la definición fundamental. El costo no es lo que se gasta, sino lo que se deja de obtener por elegir otra opción.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["intangibles", "tiempo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo de oportunidad puede incluir factores intangibles como el tiempo o la satisfacción personal, no solo dinero."
+
+explicacion: |
+  Correcto. El tiempo dedicado a una actividad es tiempo que no se puede usar en otra, generando un costo de oportunidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["escasez", "fundamento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo de oportunidad existe porque los recursos son limitados y los deseos humanos son prácticamente ilimitados."
+
+explicacion: |
+  La escasez es la condición necesaria para que exista el costo de oportunidad. Si todo fuera abundante, no habría que renunciar a nada.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["mitos", "confusion_comun"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El costo de oportunidad es igual al dinero que se gasta en la opción elegida."
+
+explicacion: |
+  Falso. El dinero gastado es el costo contable o explícito. El costo de oportunidad es el valor de la alternativa renuncada.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "costo_de_oportunidad"
+  nivel: "intermedio"
+  tags: ["frontera_posibilidades", "grafico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la Frontera de Posibilidades de Producción (FPP), el costo de oportunidad se representa por la pendiente de la curva."
+
+explicacion: |
+  La pendiente de la FPP indica cuánto de un bien hay que dejar de producir para obtener una unidad adicional del otro bien.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["tiempo_libre", "satisfaccion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si elegís leer un libro en lugar de dormir la siesta, el costo de oportunidad es la satisfacción del descanso perdido."
+
+explicacion: |
+  Correcto. El costo de oportunidad es el beneficio de la mejor alternativa no elegida, en este caso, el descanso.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "costo_de_oportunidad"
+  nivel: "intermedio"
+  tags: ["costos_ocultos", "contabilidad"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El costo de oportunidad siempre es un costo explícito que aparece en los libros contables."
+
+explicacion: |
+  Falso. El costo de oportunidad es un costo implícito (no monetario directo) que no aparece en la contabilidad tradicional.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["consumo", "decision_financiera"]
+
+respuesta: "el valor del auto usado"
+tipo: completar
+
+enunciado: "Si comprás un auto nuevo, el costo de oportunidad es el valor del auto usado que podrías haber comprado con ese mismo dinero."
+
+explicacion: |
+  El dinero gastado en el auto nuevo no puede usarse para comprar el auto usado. Ese es el sacrificio realizado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "costo_de_oportunidad"
+  nivel: "avanzado"
+  tags: ["analisis_marginal", "decision_limite"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las decisiones marginales se toman comparando el beneficio marginal con el costo de oportunidad marginal."
+
+explicacion: |
+  Correcto. Una decisión racional se toma hasta que el beneficio marginal es igual al costo marginal (que incluye el costo de oportunidad).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "costo_de_oportunidad"
+  nivel: "intermedio"
+  tags: ["subjetividad", "valor_personal"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo de oportunidad es subjetivo porque depende del valor que el individuo asigna a las alternativas."
+
+explicacion: |
+  Correcto. Dos personas pueden tener diferentes costos de oportunidad para la misma decisión según sus preferencias y circunstancias.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "costo_de_oportunidad"
+  nivel: "avanzado"
+  tags: ["politica_publica", "bien_comun"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El costo de oportunidad de mantener la paz es la infraestructura militar que no se puede construir con esos recursos."
+
+explicacion: |
+  Correcto. Los recursos destinados a la paz (o a otros bienes civiles) no pueden usarse para fines militares.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["condicion_necesaria", "teoria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si no existe ninguna alternativa viable, el costo de oportunidad de la decisión es cero."
+
+explicacion: |
+  Correcto. Sin alternativas, no hay nada que renunciar, por lo tanto, el costo de oportunidad es nulo.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "intermedio"
+  tags: ["costo_explicito", "costo_implicito"]
+
+variables:
+  costo_alquiler: random(50000, 100000)
+  ganancia_potencial: random(120000, 200000)
+
+respuesta: ganancia_potencial
+tipo: input
+
+enunciado: "Un empresario deja de ganar {ganancia_potencial} pesos por su sueldo anterior para abrir su negocio. El alquiler del local cuesta {costo_alquiler}. ¿Cuál es el costo de oportunidad de la primera decisión (abrir el negocio) respecto a su empleo anterior?"
+
+explicacion: |
+  El costo de oportunidad de la decisión principal es la mejor alternativa renunciada (el sueldo), no el costo contable del alquiler.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["ejemplo_cotidiano", "mc"]
+
+variables:
+  opcion_a: "El dinero gastado en la comida"
+  opcion_b: "El tiempo y disfrute de ver la película"
+  opcion_c: "El precio del transporte"
+  opcion_d: "El ahorro que dejaste de tener"
+
+respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
+opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
+tipo: mc
+
+enunciado: "Si decidís ver una película en casa en lugar de ir al trabajo, el costo de oportunidad es:"
+
+explicacion: |
+  El costo de oportunidad es el beneficio de la mejor alternativa no elegida, en este caso, el salario del trabajo.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "intermedio"
+  tags: ["inversiones", "intereses"]
+
+variables:
+  capital: random(100000, 500000)
+  tasa_otro_banco: random(5, 15)
+  tasa_actual: 0
+
+respuesta: "{capital * tasa_otro_banco / 100}"
+tipo: input
+
+enunciado: "Tenés {capital} pesos. Si los dejás en tu cuenta corriente (0% interés) en lugar de invertirlos en un bono que paga {tasa_otro_banco}% anual, ¿cuánto dinero dejás de ganar en un año?"
+
+explicacion: |
+  El costo de oportunidad es el rendimiento perdido al no elegir la mejor alternativa de inversión.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "avanzado"
+  tags: ["comparacion", "racionalidad"]
+
+variables:
+  valor_opcion_a: random(100, 500)
+  valor_opcion_b: random(200, 600)
+  valor_opcion_c: random(50, 300)
+
+respuesta: uno_de(["opcion_b", "opcion_a", "opcion_c"])
+opciones_explicitas: ["opcion_b", "opcion_a", "opcion_c"]
+tipo: mc
+
+enunciado: "Si elegís la opción A (valor 100) en lugar de la B (valor 200) y la C (valor 50), ¿cuál fue el costo de oportunidad de tu decisión?"
+
+explicacion: |
+  El costo de oportunidad es el valor de la MEJOR alternativa no elegida. Entre B y C, la mejor es B.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["educacion", "tiempo"]
+
+variables:
+  horas_estudio: random(2, 5)
+  salario_hora: random(800, 1200)
+
+respuesta: "{horas_estudio * salario_hora}"
+tipo: input
+
+enunciado: "Si dedicas {horas_estudio} horas a estudiar y podrías haber trabajado a {salario_hora} pesos/hora, tu costo de oportunidad monetario es:"
+
+explicacion: |
+  Multiplicamos el tiempo dedicado a la actividad no remunerada por el salario de la mejor alternativa laboral.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "intermedio"
+  tags: ["definicion_tecnica", "mc"]
+
+variables:
+  opcion_a: "El costo total de producción"
+  opcion_b: "El beneficio de la mejor alternativa renunciada"
+  opcion_c: "El gasto fijo"
+  opcion_d: "El ingreso marginal"
+
+respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
+opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
+tipo: mc
+
+enunciado: "En economía, el costo de oportunidad es:"
+
+explicacion: |
+  Es el beneficio de la mejor alternativa a la que se renuncia.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "avanzado"
+  tags: ["politica_publica", "presupuesto"]
+
+variables:
+  presupuesto: random(1000000000, 5000000000)
+  hospitales: 5
+  escuelas: 10
+
+respuesta: "{presuesto / escuelas}"
+tipo: input
+
+enunciado: "Con un presupuesto de {presupuesto}, un gobierno puede construir {escuelas} escuelas o {hospitales} hospitales. ¿Cuál es el costo de oportunidad de construir una escuela en términos de hospitales?"
+
+explicacion: |
+  Primero calculamos el costo de una escuela (presupuesto/escuelas) y luego cuántos hospitales se pueden construir con ese monto (costo escuela / costo hospital). Nota: La respuesta correcta requiere calcular el valor relativo. Aquí simplificamos a la proporción directa si los costos unitarios fueran iguales, pero en realidad es (Presupuesto/Escuelas) / (Presupuesto/Hospitales) = Hospitales/Escuelas. Corrigiendo lógica: Costo 1 escuela = P/E. Costo 1 hospital = P/H. Cuántos hospitales con P/E? (P/E) / (P/H) = H/E.
+```
+
+```
+variables:
+  presupuesto: random(1000000000, 5000000000)
+  hospitales: 5
+  escuelas: 10
+
+respuesta: "{hospitales / escuelas}"
+tipo: input
+
+enunciado: "Con un presupuesto de {presupuesto}, un gobierno puede construir {escuelas} escuelas o {hospitales} hospitales. ¿Cuántos hospitales se dejan de construir por cada escuela construida?"
+
+explicacion: |
+  La proporción de intercambio es Hospitales/Escuelas. Por cada escuela, renunciamos a 0.5 hospitales.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "intermedio"
+  tags: ["distractor", "relevancia"]
+
+variables:
+  costo_pasaje: random(200, 500)
+  tiempo_viaje: 1
+  salario_hora: 1000
+
+respuesta: costo_pasaje
+tipo: input
+
+enunciado: "Si vas al trabajo, gastas {costo_pasaje} en pasaje y tardas {tiempo_viaje} hora. Si quedás en casa, ahorrás el pasaje pero perdés el salario de {salario_hora}. Si tu decisión es ir al trabajo, ¿cuál es el costo de oportunidad de QUEDARTE en casa?"
+
+explicacion: |
+  Si te quedás en casa, el costo es el salario perdido. El pasaje es un costo de ir al trabajo, no de quedarte.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "intermedio"
+  tags: ["distractor", "relevancia"]
+
+variables:
+  costo_pasaje: random(200, 500)
+  tiempo_viaje: 1
+  salario_hora: 1000
+
+respuesta: salario_hora
+tipo: input
+
+enunciado: "Si vas al trabajo, gastas {costo_pasaje} en pasaje. Si quedás en casa, ahorrás el pasaje pero perdés el salario de {salario_hora}. Si tu opción elegida es 'quedarse en casa', ¿cuál es el costo de oportunidad monetario?"
+
+explicacion: |
+  El costo de oportunidad de quedarse en casa es el ingreso que dejás de ganar trabajando.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["tiempo", "mc"]
+
+variables:
+  opcion_a: "El sueño perdido"
+  opcion_b: "El salario de la hora no trabajada"
+  opcion_c: "El precio del café"
+  opcion_d: "El tiempo de preparación del café"
+
+respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
+opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
+tipo: mc
+
+enunciado: "Si te tomás un café de 15 minutos en lugar de trabajar, el costo de oportunidad es:"
+
+explicacion: |
+  El costo de oportunidad es el valor de la mejor alternativa, es decir, el salario que dejás de ganar en esos 15 minutos.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "intermedio"
+  tags: ["educacion_superior", "costo_total"]
+
+variables:
+  matricula: random(10000, 50000)
+  mensualidad: random(5000, 20000)
+  salario_anual: random(2000000, 4000000)
+  anos: 4
+
+respuesta: "{matricula + (mensualidad * 12 * anos) + (salario_anual * anos)}"
+tipo: input
+
+enunciado: "Para estudiar una carrera de {anos} años, pagás {matricula} de matrícula y {mensualidad} mensuales. Además, dejás de ganar {salario_anual} anuales. ¿Cuál es el costo de oportunidad total de la carrera?"
+
+explicacion: |
+  El costo de oportunidad total incluye los costos directos (matrícula y mensualidades) más el ingreso perdido (salario).
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["definicion", "mc"]
+
+variables:
+  opcion_a: "Cualquier alternativa"
+  opcion_b: "La alternativa con menor costo monetario"
+  opcion_c: "La mejor alternativa disponible"
+  opcion_d: "La primera alternativa pensada"
+
+respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
+opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
+tipo: mc
+
+enunciado: "El costo de oportunidad se calcula considerando:"
+
+explicacion: |
+  Solo la MEJOR alternativa disponible. Las otras opciones no elegidas no cuentan.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["tiempo_libre", "ejemplo"]
+
+variables:
+  horas_libres: random(2, 4)
+  valor_hora_diversion: random(500, 1000)
+
+respuesta: "{horas_libres * valor_hora_diversion}"
+tipo: input
+
+enunciado: "Si valorás tu hora de diversión en {valor_hora_diversion} pesos y decidís trabajar por {horas_libres} horas en lugar de divertirte, ¿cuál es el costo de oportunidad de trabajar?"
+
+explicacion: |
+  El costo de oportunidad es el valor subjetivo de la diversión perdida.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "intermedio"
+  tags: ["costo_implicito", "mc"]
+
+variables:
+  opcion_a: "El alquiler del local"
+  opcion_b: "El salario que el dueño deja de ganar"
+  opcion_c: "La luz del negocio"
+  opcion_d: "El sueldo de los empleados"
+
+respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
+opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
+tipo: mc
+
+enunciado: "En un negocio propio, ¿cuál de estos es un costo de oportunidad implícito?"
+
+explicacion: |
+  El salario que el dueño deja de ganar trabajando en otra parte es un costo implícito. Los otros son costos explícitos.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "intermedio"
+  tags: ["tierra", "uso_suelo"]
+
+variables:
+  opcion_a: "El precio de venta de la tierra"
+  opcion_b: "El cultivo que se deja de sembrar"
+  opcion_c: "El costo de la maquinaria"
+  opcion_d: "El salario del agricultor"
+
+respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
+opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
+tipo: mc
+
+enunciado: "Si usás una tierra para construir casas en lugar de sembrar trigo, el costo de oportunidad es:"
+
+explicacion: |
+  El beneficio que hubieras obtenido con la siembra de trigo.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "basico"
+  tags: ["transporte", "tiempo"]
+
+variables:
+  tiempo_auto: 60
+  tiempo_bus: 90
+  salario_hora: 1000
+
+respuesta: "{(tiempo_bus - tiempo_auto) * salario_hora / 60}"
+tipo: input
+
+enunciado: "El auto tarda {tiempo_auto} minutos y el bus {tiempo_bus} minutos. Si tu hora vale {salario_hora} pesos, ¿cuánto dinero perdés de tiempo si elegís el bus en lugar del auto?"
+
+explicacion: |
+  La diferencia de tiempo multiplicada por el valor de tu hora.
+```
+
+```
+metadata:
+  materia: "Economía"
+  tema: "costo_de_oportunidad"
+  nivel: "avanzado"
+  tags: ["naturaleza", "subjetivo"]
+
+variables:
+  opcion_a: "Objetivo y contable"
+  opcion_b: "Subjetivo y basado en preferencias"
+  opcion_c: "Fijo e inmutable"
+  opcion_d: "Irrelevante para la decisión"
+
+respuesta: uno_de([opcion_a, opcion_b, opcion_c, opcion_d])
+opciones_explicitas: [opcion_a, opcion_b, opcion_c, opcion_d]
+tipo: mc
+
+enunciado: "El costo de oportunidad es fundamentalmente:"
+
+explicacion: |
+  Subjetivo, ya que depende de las preferencias y valoraciones individuales de la mejor alternativa.
+```
+

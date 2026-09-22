@@ -1,1977 +1,2437 @@
-# Examen jefe — Dominio de Obligaciones Fiscales y Oportunidades
+# Examen jefe — [PENDIENTE #770]
 
-> Logro #191. Completaste el parcial sobre descuentos obligatorios, deuda pública y detección de oportunidades de negocio. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **105 preguntas totales** en 5/5 secciones.
+> Logro #770. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: descuentos-obligatorios/jubilacion (20 preguntas)
+## Sección: ecuacion-contable-fundamental (26 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion"
+  tema: "ecuacion_contable_fundamental"
   nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Qué significa jubilarse?"
-tipo: mc
-opciones_explicitas:
-  - "Dejar de trabajar y empezar a cobrar un haber mensual financiado por los aportes hechos durante la vida laboral"
-  - "Cambiar de trabajo a uno mejor pago"
-  - "Dejar de pagar impuestos"
-respuesta: "Dejar de trabajar y empezar a cobrar un haber mensual financiado por los aportes hechos durante la vida laboral"
-
-explicacion: |
-  Es la contrapartida de haber aportado durante los años de actividad
-  laboral.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Cómo funciona el sistema de reparto en Argentina?"
-tipo: mc
-opciones_explicitas:
-  - "Lo que aportan los trabajadores activos hoy financia las jubilaciones que se pagan hoy"
-  - "Cada persona junta su propia plata en una cuenta individual para su futuro"
-  - "El Estado paga las jubilaciones con impuestos al consumo únicamente"
-respuesta: "Lo que aportan los trabajadores activos hoy financia las jubilaciones que se pagan hoy"
-
-explicacion: |
-  Es un pacto entre generaciones, no un ahorro individual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "En el sistema de reparto, cada trabajador junta su propia plata en una cuenta individual para cuando se jubile."
-
-explicacion: |
-  Eso sería un sistema de capitalización individual, no de reparto. En el
-  reparto, los aportes de los activos de hoy pagan a los jubilados de
-  hoy.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
+  tags: ["activo", "concepto"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En el sistema de reparto argentino, los aportes de los trabajadores activos financian las jubilaciones que se pagan en ese mismo momento."
+enunciado: "El Activo representa lo que la empresa posee o tiene derecho a cobrar, como dinero, mercadería o edificios."
 
 explicacion: |
-  Es la característica central del sistema de reparto.
+  Correcto. El Activo refleja los recursos económicos controlados por la entidad.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["financiamiento", "pasivo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Pasivo representa la parte del Activo que fue financiada con recursos de terceros (prestamistas)."
+
+explicacion: |
+  Correcto. El Pasivo son fondos externos que la empresa debe devolver.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["equilibrio", "principio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada transacción comercial afecta al menos dos elementos de la ecuación contable, manteniendo siempre el equilibrio."
+
+explicacion: |
+  Correcto. La partida doble asegura que la ecuación siempre se mantenga balanceada.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
   nivel: "basico"
-  tags: ["jubilacion"]
+  tags: ["pasivo", "deuda"]
 
-respuesta: 65
-tipo: input
-tolerancia_abs: 0
+respuesta: verdadero
+tipo: vf
 
-enunciado: "En el régimen general argentino, ¿a qué edad mínima se puede jubilar un varón?"
+enunciado: "El Pasivo se refiere a las deudas que la empresa tiene con proveedores, bancos o el Estado."
 
 explicacion: |
-  65 años es la edad mínima general para varones.
+  Correcto. Las deudas comerciales y financieras forman parte del Pasivo.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion"
+  tema: "ecuacion_contable_fundamental"
   nivel: "basico"
-  tags: ["jubilacion"]
-
-respuesta: 60
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el régimen general argentino, ¿a qué edad mínima se puede jubilar una mujer?"
-
-explicacion: |
-  60 años es la edad mínima general para mujeres, 5 años antes que los
-  varones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "basico"
-  tags: ["jubilacion"]
-
-respuesta: 30
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el régimen general, ¿cuántos años mínimos de aportes hacen falta para jubilarse?"
-
-explicacion: |
-  30 años de aportes es el mínimo del régimen general.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
+  tags: ["activo", "derechos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para jubilarse en el régimen general hacen falta la edad mínima Y los años de aportes al mismo tiempo, no alcanza con cumplir sólo una de las dos condiciones."
+enunciado: "El Activo incluye tanto bienes tangibles como derechos, como facturas por cobrar."
 
 explicacion: |
-  Son dos requisitos que se piden juntos.
+  Correcto. Los derechos de cobro son activos corrientes o no corrientes.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-enunciado: "¿Qué organismo administra el sistema jubilatorio argentino?"
-tipo: mc
-opciones_explicitas:
-  - "ANSES"
-  - "AFIP"
-  - "El Banco Central"
-respuesta: "ANSES"
-
-explicacion: |
-  ANSES recauda los aportes, liquida y paga los haberes jubilatorios.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Existen mecanismos (como moratorias previsionales o la PUAM) para dar alguna cobertura a quienes llegan a la edad pero no completaron los 30 años de aportes."
-
-explicacion: |
-  El sistema busca dar algún tipo de cobertura incluso a quien no
-  completó el régimen general.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "problema"]
-
-variables:
-  edad_actual: random(30, 64)
-
-respuesta: 65 - edad_actual
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un varón tiene {edad_actual} años. ¿Cuántos años le faltan para la edad jubilatoria mínima (65)?"
-
-explicacion: |
-  Se resta la edad actual a la edad mínima requerida.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "problema"]
-
-variables:
-  anios_aportados: random(5, 29)
-
-respuesta: 30 - anios_aportados
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Alguien ya aportó {anios_aportados} años. ¿Cuántos años más de aportes necesita para llegar a los 30 requeridos?"
-
-explicacion: |
-  Se resta lo ya aportado al mínimo requerido.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El sistema de reparto funciona como un pacto entre generaciones: la generación activa sostiene a la jubilada, esperando que la próxima generación activa la sostenga a ella después."
-
-explicacion: |
-  Es la lógica de fondo del sistema, distinta de un ahorro individual.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Además de las jubilaciones, ANSES gestiona otras prestaciones sociales, como la Asignación Universal por Hijo (AUH)."
-
-explicacion: |
-  ANSES no administra sólo jubilaciones, sino varios programas de
-  seguridad social.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion"]
-
-enunciado: "¿Cuál definición corresponde al sistema de reparto?"
-tipo: mc
-opciones_explicitas:
-  - "Los aportes de los activos de hoy financian las jubilaciones de hoy"
-  - "Cada trabajador ahorra en una cuenta propia que usa cuando se jubila"
-  - "El Estado no participa para nada en el sistema"
-respuesta: "Los aportes de los activos de hoy financian las jubilaciones de hoy"
-
-explicacion: |
-  La segunda opción describe un sistema de capitalización individual, no
-  de reparto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "intermedio"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Además del régimen general, existen regímenes jubilatorios especiales para ciertas actividades (como docentes o tareas insalubres), con requisitos propios."
-
-explicacion: |
-  No todos los trabajadores se jubilan bajo exactamente las mismas
-  condiciones.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "basico"
-  tags: ["jubilacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el régimen general, la edad mínima jubilatoria de las mujeres (60) es menor que la de los varones (65)."
-
-explicacion: |
-  Hay una diferencia de 5 años entre ambas edades mínimas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
+  tema: "ecuacion_contable_fundamental"
   nivel: "avanzado"
-  tags: ["jubilacion", "problema"]
+  tags: ["solvencia", "analisis"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ecuación contable permite evaluar si una compañía es solvente comparando sus activos con sus pasivos."
+
+explicacion: |
+  Correcto. Un Patrimonio Neto positivo indica que los activos superan a las deudas.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["teoria", "logica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ecuación contable es una representación lógica de la realidad económica de la empresa."
+
+explicacion: |
+  Correcto. Refleja cómo se han financiado los recursos de la empresa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "basico"
+  tags: ["clasificacion", "activo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El dinero en caja de una empresa se clasifica como Activo."
+
+explicacion: |
+  El dinero en caja es un bien tangible que la empresa posee, por lo tanto, forma parte del Activo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "basico"
+  tags: ["clasificacion", "pasivo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las deudas con proveedores se clasifican como Pasivo."
+
+explicacion: |
+  Las deudas con proveedores son obligaciones con terceros externos, lo que las define como Pasivo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "basico"
+  tags: ["clasificacion", "patrimonio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El capital aportado por los socios se clasifica como Patrimonio Neto."
+
+explicacion: |
+  El capital aportado por los dueños representa la riqueza neta que les pertenece, por lo tanto, es Patrimonio Neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["calculo", "patrimonio"]
 
 variables:
-  edad_jubilacion: uno_de([60, 65])
-  anios_trabajados: 30
+  activo: random(100000, 500000)
+  pasivo: random(20000, 100000)
 
-respuesta: edad_jubilacion - anios_trabajados
+respuesta: activo + " - " + pasivo
+tipo: input
+
+enunciado: "Si una empresa tiene un Activo total de ${activo} y un Pasivo total de ${pasivo}, ¿cuál es su Patrimonio Neto?"
+
+explicacion: |
+  Despejando la ecuación fundamental: Patrimonio Neto = Activo - Pasivo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["calculo", "pasivo"]
+
+variables:
+  activo: random(100000, 500000)
+  patrimonio: random(20000, 100000)
+
+respuesta: activo + " - " + patrimonio
+tipo: input
+
+enunciado: "Si el Activo total es ${activo} y el Patrimonio Neto es ${patrimonio}, ¿cuánto es el Pasivo?"
+
+explicacion: |
+  Despejando la ecuación fundamental: Pasivo = Activo - Patrimonio Neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["calculo", "activo"]
+
+variables:
+  pasivo: random(20000, 100000)
+  patrimonio: random(20000, 100000)
+
+respuesta: pasivo + " + " + patrimonio
+tipo: input
+
+enunciado: "Si el Pasivo es ${pasivo} y el Patrimonio Neto es ${patrimonio}, ¿cuál es el Activo total?"
+
+explicacion: |
+  Despejando la ecuación fundamental: Activo = Pasivo + Patrimonio Neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "basico"
+  tags: ["equilibrio", "lógica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cada transacción comercial afecta al menos dos elementos, pero la igualdad de la ecuación siempre se mantiene."
+
+explicacion: |
+  La doble entrada asegura que la ecuación se mantenga equilibrada después de cualquier operación.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["transaccion", "activo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una empresa compra una máquina pagando en efectivo, el total del Activo no cambia."
+
+explicacion: |
+  Un activo (máquina) aumenta y otro activo (caja) disminuye en la misma cantidad, manteniendo el total inalterado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["transaccion", "pasivo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una empresa compra mercadería a crédito, tanto el Activo como el Pasivo aumentan."
+
+explicacion: |
+  La mercadería aumenta el Activo y la deuda con el proveedor aumenta el Pasivo, manteniendo el equilibrio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["transaccion", "liquidez"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una empresa paga una deuda con dinero en caja, tanto el Activo como el Pasivo disminuyen."
+
+explicacion: |
+  El dinero sale (Activo baja) y la deuda se reduce (Pasivo baja), manteniendo la igualdad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["transaccion", "patrimonio"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si los socios aportan más dinero a la empresa, el Activo y el Patrimonio Neto aumentan."
+
+explicacion: |
+  Entra dinero (Activo sube) y el derecho de los socios sobre ese dinero (Patrimonio Neto) también sube.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "basico"
+  tags: ["relacion", "logica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La ecuación contable es una representación lógica de la realidad financiera de la empresa."
+
+explicacion: |
+  No es solo una fórmula, sino un reflejo de cómo se financian los recursos (deuda vs propio).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["calculo", "activo"]
+
+variables:
+  pasivo: random(10000, 50000)
+  patrimonio: random(10000, 50000)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el Pasivo es {pasivo} y el Patrimonio Neto es {patrimonio}, el Activo debe ser {pasivo} + {patrimonio}."
+
+explicacion: |
+  La ecuación fundamental exige que Activo sea la suma de Pasivo y Patrimonio Neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["calculo", "patrimonio"]
+
+variables:
+  activo: random(100000, 500000)
+  pasivo: random(20000, 100000)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el Activo es {activo} y el Pasivo es {pasivo}, el Patrimonio Neto debe ser {activo} - {pasivo}."
+
+explicacion: |
+  Despejando la ecuación, el Patrimonio Neto es la diferencia entre lo que tiene y lo que debe.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["calculo", "pasivo"]
+
+variables:
+  activo: random(100000, 500000)
+  patrimonio: random(20000, 100000)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el Activo es {activo} y el Patrimonio Neto es {patrimonio}, el Pasivo debe ser {activo} - {patrimonio}."
+
+explicacion: |
+  Despejando la ecuación, el Pasivo es lo que resta del Activo una vez descontado el capital propio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "basico"
+  tags: ["equilibrio", "regla"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si los recursos de la empresa no se explican como deuda o capital propio, hay un error en el registro."
+
+explicacion: |
+  La ecuación garantiza el equilibrio interno; cualquier desbalance indica un error contable.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "intermedio"
+  tags: ["patrimonio", "definicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Patrimonio Neto incluye el capital inicial y las ganancias reinvertidas."
+
+explicacion: |
+  Es la riqueza neta que pertenece a los socios, formada por lo aportado y lo generado por la actividad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "basico"
+  tags: ["activo", "definicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Activo incluye bienes tangibles como edificios y máquinas."
+
+explicacion: |
+  Los activos son los recursos que la empresa posee o tiene derecho a cobrar, incluyendo bienes físicos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "ecuacion_contable_fundamental"
+  nivel: "basico"
+  tags: ["pasivo", "definicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El Pasivo son los fondos que provienen de prestamistas o proveedores."
+
+explicacion: |
+  El Pasivo representa las obligaciones financieras con terceros externos que financian los recursos de la empresa.
+```
+
+## Sección: interes-simple (24 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "basico"
+  tags: ["interes_simple", "vocabulario"]
+
+enunciado: "¿Qué es el interés?"
+tipo: mc
+opciones_explicitas:
+  - "El extra que se paga por usar plata prestada durante un tiempo"
+  - "El nombre que se le da al capital inicial"
+  - "Un impuesto que cobra el Estado sobre los préstamos"
+respuesta: "El extra que se paga por usar plata prestada durante un tiempo"
+
+explicacion: |
+  El interés es el costo de usar la plata de otro (o la ganancia de
+  prestar la propia) durante un período de tiempo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "basico"
+  tags: ["interes_simple", "vocabulario"]
+
+enunciado: "En la fórmula del interés simple, ¿qué es el capital (C)?"
+tipo: mc
+opciones_explicitas:
+  - "La plata original prestada o invertida"
+  - "El interés generado en un período"
+  - "El tiempo que dura el préstamo"
+respuesta: "La plata original prestada o invertida"
+
+explicacion: |
+  El capital es el punto de partida; el interés se calcula a partir de él.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "basico"
+  tags: ["interes_simple", "calculo"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tasa: random(2, 20)
+  tiempo: random(1, 5)
+
+respuesta: capital * (tasa / 100) * tiempo
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Alguien se jubiló justo a la edad mínima ({edad_jubilacion} años) con exactamente los 30 años de aportes requeridos, sin ninguna interrupción. ¿A qué edad empezó a trabajar en blanco?"
+enunciado: "Un capital de ${capital} se presta a una tasa del {tasa}% anual durante {tiempo} años. ¿Cuánto interés genera?"
 
 explicacion: |
-  Se resta la cantidad de años trabajados a la edad de jubilación.
+  I = C × r × t, con la tasa en forma decimal: {capital} × {tasa/100} × {tiempo}.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "jubilacion"
+  tema: "interes_simple"
   nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El haber que se cobra al jubilarse está relacionado con los aportes hechos durante la vida laboral activa."
-
-explicacion: |
-  Es la contrapartida de haber aportado: a más historia de aportes,
-  mejor el haber (dentro de las reglas del sistema).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "jubilacion"
-  nivel: "basico"
-  tags: ["jubilacion", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El aporte jubilatorio del 11% no es sólo un descuento del sueldo: financia un sistema de reparto que sostiene a quienes ya se jubilaron, con la expectativa de sostener también a quien aporta hoy cuando le toque jubilarse."
-
-explicacion: |
-  Es la idea central de todo el tema: el por qué y el cómo detrás del
-  número que ya se calculó en `../../recibo-de-sueldo/argentina/`.
-```
-
-## Sección: descuentos-obligatorios/obra-social (20 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "vocabulario"]
-
-enunciado: "¿Qué es una obra social?"
-tipo: mc
-opciones_explicitas:
-  - "Una entidad que brinda cobertura de salud a los trabajadores y sus familias"
-  - "Un impuesto que se paga al Estado"
-  - "Una empresa de medicina prepaga privada"
-respuesta: "Una entidad que brinda cobertura de salud a los trabajadores y sus familias"
-
-explicacion: |
-  Se financia con el aporte del trabajador más la contribución del
-  empleador.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-enunciado: "¿Con qué se financia una obra social?"
-tipo: mc
-opciones_explicitas:
-  - "El aporte del empleado (3% del bruto) más la contribución del empleador"
-  - "Sólo con impuestos generales del Estado"
-  - "Sólo con lo que paga el empleado, el empleador no aporta nada"
-respuesta: "El aporte del empleado (3% del bruto) más la contribución del empleador"
-
-explicacion: |
-  Es el mismo esquema aporte+contribución que la jubilación, aplicado a
-  la cobertura de salud.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-enunciado: "¿Qué es el PMO (Programa Médico Obligatorio)?"
-tipo: mc
-opciones_explicitas:
-  - "El piso mínimo de prestaciones que todas las obras sociales tienen que cubrir por ley"
-  - "El máximo de prestaciones que una obra social puede dar"
-  - "Un impuesto adicional sobre la salud"
-respuesta: "El piso mínimo de prestaciones que todas las obras sociales tienen que cubrir por ley"
-
-explicacion: |
-  Ninguna obra social puede cubrir menos que el PMO, sin importar cuál
-  sea.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todas las obras sociales, sin importar cuál sea, tienen que cubrir el PMO como mínimo."
-
-explicacion: |
-  Es un piso obligatorio por ley, parejo para todas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una obra social puede ofrecer prestaciones adicionales por encima del PMO, pero nunca menos que ese piso."
-
-explicacion: |
-  El PMO es un mínimo, no un máximo ni un techo fijo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-enunciado: "¿Qué es la \"opción de cambio\" de obra social?"
-tipo: mc
-opciones_explicitas:
-  - "El derecho de un afiliado a pasar de una obra social a otra, bajo ciertas condiciones"
-  - "La obligación de cambiar de obra social cada año"
-  - "Un descuento extra en el sueldo"
-respuesta: "El derecho de un afiliado a pasar de una obra social a otra, bajo ciertas condiciones"
-
-explicacion: |
-  No es automática: suele pedir una antigüedad mínima de afiliación.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un afiliado puede ejercer la opción de cambio para pasar de la obra social que le corresponde a otra, cumpliendo ciertos requisitos."
-
-explicacion: |
-  No es un derecho ilimitado en cualquier momento, pero sí existe.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-enunciado: "¿Cuál es la diferencia principal entre una obra social y una prepaga?"
-tipo: mc
-opciones_explicitas:
-  - "La obra social se financia con aportes/contribuciones obligatorios del trabajo formal; la prepaga es un seguro privado al que cualquiera se afilia pagando de su bolsillo"
-  - "No hay ninguna diferencia real"
-  - "La prepaga es gratis y la obra social se paga"
-respuesta: "La obra social se financia con aportes/contribuciones obligatorios del trabajo formal; la prepaga es un seguro privado al que cualquiera se afilia pagando de su bolsillo"
-
-explicacion: |
-  Una depende de tener trabajo en blanco; la otra no.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cualquier persona puede afiliarse a una prepaga pagando la cuota, sin necesidad de tener un trabajo formal."
-
-explicacion: |
-  A diferencia de la obra social, que depende del aporte de un trabajo
-  registrado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "PAMI (INSSJP) es la obra social específica para jubilados y pensionados."
-
-explicacion: |
-  Funciona en paralelo a las obras sociales "de actividad" de los
-  trabajadores activos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aunque PAMI cubre a jubilados, también recibe un aporte (3%) directamente del sueldo de los trabajadores activos."
-
-explicacion: |
-  Es el mismo 3% ya calculado en `../../recibo-de-sueldo/argentina/`: los
-  activos también sostienen la cobertura de los jubilados de hoy, igual
-  que en el sistema jubilatorio de reparto.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada rama de actividad o sindicato suele tener su propia obra social (la de comercio, la de metalúrgicos, etc.)."
-
-explicacion: |
-  La afiliación inicial depende del convenio de la actividad en la que
-  trabaja cada uno.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "calculo"]
+  tags: ["interes_simple", "calculo"]
 
 variables:
-  bruto: random(50, 300) * 1000
+  capital: random(10, 100) * 1000
+  tasa: random(2, 20)
+  tiempo: random(1, 5)
 
-respuesta: bruto * 0.03
+respuesta: capital * (1 + tasa / 100 * tiempo)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un capital de ${capital} se invierte a una tasa del {tasa}% anual durante {tiempo} años, a interés simple. ¿Cuál es el monto final?"
+
+pasos:
+  - "Interés: {capital} × {tasa/100} × {tiempo} = {capital * tasa/100 * tiempo}"
+  - "Monto: {capital} + {capital * tasa/100 * tiempo}"
+
+explicacion: |
+  El monto final es el capital más el interés generado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "avanzado"
+  tags: ["interes_simple", "calculo"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tiempo: random(1, 5)
+  tasa: random(2, 20)
+  interes: capital * (tasa / 100) * tiempo
+
+respuesta: tasa
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "Con un sueldo bruto de ${bruto}, ¿cuánto financia el trabajador para su obra social (3%)?"
+enunciado: "Un capital de ${capital} generó ${interes} de interés en {tiempo} años, a interés simple. ¿Qué tasa anual (%) se aplicó?"
+
+pasos:
+  - "r = I ÷ (C × t) = {interes} ÷ ({capital} × {tiempo})"
 
 explicacion: |
-  Es el mismo cálculo ya visto en `../../recibo-de-sueldo/argentina/`,
-  ahora aplicado a lo que financia en concreto.
+  Se despeja r de I = C × r × t: r = I ÷ (C × t), y se multiplica por 100
+  para expresarla como porcentaje.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "obra_social"
+  tema: "interes_simple"
   nivel: "avanzado"
-  tags: ["obra_social", "vocabulario"]
+  tags: ["interes_simple", "calculo"]
+
+variables:
+  tasa: random(2, 20)
+  tiempo: random(1, 5)
+  capital: random(10, 100) * 1000
+  interes: capital * (tasa / 100) * tiempo
+
+respuesta: capital
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "A una tasa del {tasa}% anual durante {tiempo} años, un capital generó ${interes} de interés. ¿Cuál era ese capital?"
+
+pasos:
+  - "C = I ÷ (r × t) = {interes} ÷ ({tasa/100} × {tiempo})"
+
+explicacion: |
+  Se despeja C de I = C × r × t: C = I ÷ (r × t).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "avanzado"
+  tags: ["interes_simple", "calculo"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tasa: random(2, 20)
+  tiempo: random(1, 5)
+  interes: capital * (tasa / 100) * tiempo
+
+respuesta: tiempo
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un capital de ${capital} a una tasa del {tasa}% anual generó ${interes} de interés. ¿Cuántos años estuvo prestado, a interés simple?"
+
+pasos:
+  - "t = I ÷ (C × r) = {interes} ÷ ({capital} × {tasa/100})"
+
+explicacion: |
+  Se despeja t de I = C × r × t: t = I ÷ (C × r).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "basico"
+  tags: ["interes_simple", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Es posible derivar el aporte de obra social hacia una empresa de medicina prepaga, generalmente pagando una diferencia adicional de bolsillo."
+enunciado: "En el interés simple, el interés de cada período se calcula siempre sobre el mismo capital inicial, no sobre el capital más los intereses ya generados."
 
 explicacion: |
-  El aporte obligatorio no desaparece, sólo cambia de destino — y suele
-  no alcanzar para cubrir el costo total de una prepaga por sí solo.
+  Esa es justamente la diferencia con el interés compuesto, que sí
+  reinvierte el interés generado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social"]
+  tema: "interes_simple"
+  nivel: "basico"
+  tags: ["interes_simple", "vocabulario"]
 
-enunciado: "¿Cuál definición corresponde al PMO?"
+enunciado: "El interés simple crece de manera..."
 tipo: mc
 opciones_explicitas:
-  - "El conjunto mínimo de prestaciones de salud que toda obra social debe cubrir por ley"
-  - "El monto máximo que puede cobrar una obra social"
-  - "Un programa exclusivo de PAMI"
-respuesta: "El conjunto mínimo de prestaciones de salud que toda obra social debe cubrir por ley"
+  - "Lineal (la misma cantidad de interés en cada período)"
+  - "Exponencial (cada vez más interés por período)"
+  - "Logarítmica (cada vez menos interés por período)"
+respuesta: "Lineal (la misma cantidad de interés en cada período)"
 
 explicacion: |
-  Aplica a todas las obras sociales, no sólo a PAMI.
+  Como siempre se calcula sobre el mismo capital, cada período agrega
+  exactamente la misma cantidad de interés.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "obra_social"
+  tema: "interes_simple"
   nivel: "basico"
-  tags: ["obra_social", "vocabulario"]
+  tags: ["interes_simple", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La obra social de un trabajador suele cubrir también a su grupo familiar (cónyuge, hijos), no sólo al propio trabajador."
+enunciado: "Antes de aplicar la fórmula del interés simple, una tasa del 8% se usa como 0,08, no como 8."
 
 explicacion: |
-  Es una de las razones por las que el aporte de obra social se
-  considera parte de un sistema colectivo, no sólo individual.
+  Usar el 8 directo (sin dividir por 100) multiplicaría el interés por
+  100 de más.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "obra_social"
+  tema: "interes_simple"
   nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
+  tags: ["interes_simple", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Además del 3% que aporta el trabajador, el empleador también hace una contribución adicional para la obra social, que no se descuenta del sueldo del empleado."
+enunciado: "Si la tasa de interés es anual, el tiempo debe expresarse en años (o convertirse a años) antes de aplicar la fórmula."
 
 explicacion: |
-  Mismo esquema aporte+contribución que la jubilación (ver
-  `../jubilacion/teoria.md`).
+  Mezclar una tasa anual con un tiempo en meses sin convertir es el
+  error más común al calcular interés simple.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "obra_social"
-  nivel: "intermedio"
-  tags: ["obra_social", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El PMO es el mismo piso mínimo obligatorio sin importar cuál sea la obra social específica del trabajador."
-
-explicacion: |
-  Es un piso parejo por ley, para cualquier obra social del país.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "obra_social"
+  tema: "interes_simple"
   nivel: "avanzado"
-  tags: ["obra_social", "vocabulario"]
+  tags: ["interes_simple", "problema"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  capital: random(10, 100) * 1000
+  tasa: random(4, 24)
+  meses: random(3, 36)
 
-enunciado: "Es posible tener obra social y, además, pagar una prepaga particular por separado, sin depender exclusivamente de una sola cobertura."
+respuesta: capital * (tasa / 100) * (meses / 12)
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Un capital de ${capital} se presta a una tasa del {tasa}% anual durante {meses} meses. ¿Cuánto interés genera, a interés simple?"
+
+pasos:
+  - "Primero se convierten los meses a años: {meses} ÷ 12 = {meses/12}"
+  - "I = {capital} × {tasa/100} × {meses/12}"
 
 explicacion: |
-  No son mutuamente excluyentes: alguien puede tener las dos coberturas
-  a la vez, aunque implique un gasto adicional.
+  Como la tasa es anual, el tiempo en meses se convierte a años (se
+  divide por 12) antes de multiplicar.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "obra_social"
-  nivel: "basico"
-  tags: ["obra_social", "vocabulario"]
+  tema: "interes_simple"
+  nivel: "intermedio"
+  tags: ["interes_simple", "comparacion"]
 
-respuesta: verdadero
+variables:
+  capital: random(10, 100) * 1000
+  tiempo: random(1, 5)
+  tasa_a: random(2, 15)
+  tasa_b: random(16, 30)
+
+respuesta: ((capital * (tasa_b / 100) * tiempo) > (capital * (tasa_a / 100) * tiempo))
 tipo: vf
 
-enunciado: "El aporte de obra social del 3% no es sólo un descuento del sueldo: financia un sistema de cobertura de salud colectiva, con un piso mínimo garantizado por ley (el PMO)."
+enunciado: "Con el mismo capital de ${capital} y el mismo plazo de {tiempo} años, ¿una tasa del {tasa_b}% anual genera más interés que una del {tasa_a}% anual?"
 
 explicacion: |
-  Es la idea central de todo el tema: el por qué y el cómo detrás del
-  número ya calculado en `../../recibo-de-sueldo/argentina/`.
+  A mayor tasa, mayor interés, si el capital y el tiempo no cambian.
 ```
-
-## Sección: detectar-una-oportunidad-de-negocio (25 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "basico"
-  tags: ["conceptos", "mercado"]
+  tema: "interes_simple"
+  nivel: "intermedio"
+  tags: ["interes_simple", "comparacion"]
 
-respuesta: "oportunidad de negocio"
+variables:
+  tasa: random(2, 20)
+  tiempo: random(1, 5)
+  capital_a: random(10, 50) * 1000
+  capital_b: random(51, 100) * 1000
+
+respuesta: ((capital_b * (tasa / 100) * tiempo) > (capital_a * (tasa / 100) * tiempo))
+tipo: vf
+
+enunciado: "A la misma tasa del {tasa}% anual y el mismo plazo de {tiempo} años, ¿un capital de ${capital_b} genera más interés que uno de ${capital_a}?"
+
+explicacion: |
+  A mayor capital, mayor interés, si la tasa y el tiempo no cambian.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "intermedio"
+  tags: ["interes_simple", "comparacion"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tasa: random(2, 20)
+  tiempo_a: random(1, 3)
+  tiempo_b: random(4, 8)
+
+respuesta: ((capital * (tasa / 100) * tiempo_b) > (capital * (tasa / 100) * tiempo_a))
+tipo: vf
+
+enunciado: "Con el mismo capital de ${capital} y la misma tasa del {tasa}% anual, ¿dejarlo {tiempo_b} años genera más interés que dejarlo {tiempo_a} años?"
+
+explicacion: |
+  A mayor tiempo, mayor interés acumulado, si el capital y la tasa no
+  cambian.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "intermedio"
+  tags: ["interes_simple", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para un solo período (t = 1), el interés simple y el interés compuesto dan exactamente el mismo resultado."
+
+explicacion: |
+  La diferencia entre ambos aparece recién a partir del segundo período,
+  cuando el compuesto empieza a generar interés sobre el interés previo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "intermedio"
+  tags: ["interes_simple", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para un plazo de varios períodos (t > 1), el interés compuesto siempre da un monto final igual o menor que el interés simple."
+
+explicacion: |
+  Es al revés: a partir del segundo período, el compuesto siempre da un
+  monto mayor, porque reinvierte el interés generado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "intermedio"
+  tags: ["interes_simple"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tasa: random(2, 20)
+  tiempo: random(1, 5)
+  interes: capital * (tasa / 100) * tiempo
+  monto: capital + interes
+
 tipo: completar
-respuestas_validas: ["oportunidad de negocio"]
-
-enunciado: "Una ___ es la identificación de una necesidad insatisfecha o un problema no resuelto en un mercado específico que puede ser aprovechado para crear valor."
+enunciado: "Un capital generó ${interes} de interés y quedó en un monto final de ${monto}. Completá: ___ (capital) = {monto} (monto) - {interes} (interés)."
+respuestas_validas:
+  - capital
 
 explicacion: |
-  La oportunidad de negocio surge cuando se detecta un segmento de clientes con una necesidad que no está siendo cubierta adecuadamente por la oferta actual.
+  El capital es lo que queda del monto final al restarle el interés
+  generado.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
+  tema: "interes_simple"
   nivel: "basico"
-  tags: ["mercado", "clientes"]
+  tags: ["interes_simple", "orden"]
+
+tipo: ordenar
+enunciado: "A la misma tasa y el mismo plazo, ordená estos capitales de menor a mayor interés generado."
+opciones_explicitas:
+  - "$30.000"
+  - "$10.000"
+  - "$50.000"
+  - "$20.000"
+respuesta_orden: ["$10.000", "$20.000", "$30.000", "$50.000"]
+
+explicacion: |
+  A igual tasa y tiempo, el interés generado sigue el mismo orden que el
+  capital: a mayor capital, mayor interés.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "intermedio"
+  tags: ["interes_simple", "problema"]
 
 variables:
-  escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Un grupo de personas busca comida saludable pero no hay locales cerca de su oficina.", "necesidad de conveniencia y salud"],
-    ["Los usuarios de una app de transporte se quejan de los altos precios en hora pico.", "necesidad de economía"]
-  ]
+  capital: random(5, 50) * 1000
+  tasa_mensual: random(2, 8)
+  meses: random(2, 6)
 
-respuesta: escenarios[escenario_idx][1
-tipo: mc
-opciones_explicitas: ["necesidad de conveniencia y salud", "necesidad de economía", "necesidad de estatus", "necesidad de entretenimiento"]
+respuesta: capital * (1 + tasa_mensual / 100 * meses)
+tipo: input
+tolerancia_abs: 0.5
 
-enunciado: "Analiza el siguiente caso: {escenarios[escenario_idx][0]}. ¿Qué tipo de oportunidad se detecta principalmente?"
+enunciado: "Un amigo presta ${capital} a otro, con un {tasa_mensual}% de interés simple por mes, a devolver en {meses} meses. ¿Cuánto tiene que devolver en total?"
+
+pasos:
+  - "Interés: {capital} × {tasa_mensual/100} × {meses} = {capital * tasa_mensual/100 * meses}"
+  - "Total: {capital} + {capital * tasa_mensual/100 * meses}"
 
 explicacion: |
-  En el escenario seleccionado, el problema identificado apunta directamente a la {escenarios[escenario_idx][1]}.
+  El total a devolver es el capital prestado más el interés simple
+  acumulado en los {meses} meses.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
+  tema: "interes_simple"
+  nivel: "avanzado"
+  tags: ["interes_simple", "problema"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tna: random(20, 60)
+  dias: random(30, 180)
+
+respuesta: capital * (tna / 100) * (dias / 365)
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Un plazo fijo de ${capital} tiene una TNA (tasa nominal anual) del {tna}%, a {dias} días. Dentro de ese plazo el banco no capitaliza (interés simple proporcional a los días). ¿Cuánto interés genera?"
+
+pasos:
+  - "I = C × TNA ÷ 100 × días ÷ 365 = {capital} × {tna/100} × {dias}/365"
+
+explicacion: |
+  El plazo fijo tradicional aplica la TNA de forma proporcional a los
+  días del plazo, sin interés sobre interés dentro de ese mismo período.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
   nivel: "intermedio"
-  tags: ["validación", "riesgo"]
+  tags: ["interes_simple", "verificacion"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tasa: random(2, 20)
+  tiempo: random(1, 5)
+  correcto: capital * (tasa / 100) * tiempo
+  error: uno_de([0, 0, 0, 500, -500])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 1)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? Capital ${capital}, tasa {tasa}% anual, {tiempo} años, interés generado: ${mostrado}."
+
+explicacion: |
+  Se vuelve a calcular I = C × r × t y se compara con el valor mostrado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "basico"
+  tags: ["interes_simple", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En el interés simple, el interés generado en un período se suma al capital para calcular el interés del período siguiente."
+
+explicacion: |
+  Eso es lo que hace el interés COMPUESTO. En el interés simple, cada
+  período usa siempre el capital original, nunca el capital más
+  intereses previos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_simple"
+  nivel: "basico"
+  tags: ["interes_simple", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "¿Es correcto afirmar que una idea de negocio solo se convierte en una oportunidad real si existe un grupo de clientes dispuestos a pagar por la solución propuesta?"
+enunciado: "El interés simple se calcula con I = C × r × t: siempre sobre el capital original, con la tasa en forma decimal y el tiempo en la misma unidad que la tasa."
 
 explicacion: |
-  Correcto. Una idea sin mercado potencial (clientes dispuestos a pagar) es solo una idea, no una oportunidad de negocio viable.
+  Es la idea central de todo el tema.
 ```
+
+## Sección: iva (26 preguntas)
 
 ```
 metadata:
   materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "intermedio"
-  tags: ["proceso", "metodología"]
-
-respuesta: ["Observación del entorno", "Identificación del problema", "Análisis de la competencia", "Validación con clientes"]
-tipo: ordenar
-opciones_explicitas: ["Observación del entorno", "Identificación del problema", "Análisis de la competencia", "Validación con clientes"]
-
-enunciado: "Ordena cronológicamente los pasos lógicos para detectar y validar una oportunidad de negocio:"
-
-explicacion: |
-  Primero se observa el entorno, luego se define el problema, se analiza qué hace la competencia y finalmente se valida con usuarios reales.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
+  tema: "iva"
   nivel: "basico"
-  tags: ["segmentación", "público"]
+  tags: ["iva", "vocabulario"]
 
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [
-    ["Vender juguetes educativos para niños de 0 a 5 años.", "segmento infantil"],
-    ["Ofrecer software contable para pequeñas empresas de servicios.", "segmento empresarial"]
-  ]
-
-respuesta: casos[caso_idx][1
+enunciado: "¿Qué es el IVA?"
 tipo: mc
-opciones_explicitas: ["segmento infantil", "segmento empresarial", "segmento de lujo", "segmento masivo"]
-
-enunciado: "Si el problema detectado es: {casos[caso_idx][0]}. ¿A qué grupo pertenece el mercado objetivo?"
+opciones_explicitas:
+  - "Un impuesto nacional que se cobra sobre casi todas las ventas de bienes y servicios"
+  - "Un impuesto que sólo pagan las empresas grandes"
+  - "Un impuesto exclusivo de productos importados"
+respuesta: "Un impuesto nacional que se cobra sobre casi todas las ventas de bienes y servicios"
 
 explicacion: |
-  La segmentación permite enfocar los esfuerzos de marketing y producto hacia el {casos[caso_idx][1]}.
+  Es de los pocos impuestos verdaderamente parejos en casi todo lo que se
+  compra.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
+  tema: "iva"
   nivel: "basico"
-  tags: ["mercado", "necesidad", "oportunidad"]
+  tags: ["iva"]
 
-enunciado: "Un emprendedor observa que en un barrio con muchas oficinas, la mayoría de los locales venden comida rápida con alto contenido de sodio y azúcar, pero no hay opciones de ensaladas o snacks naturales. Este vacío representa una ___."
+respuesta: 21
+tipo: input
+tolerancia_abs: 0
 
-opciones_explicitas: ["amenaza", "oportunidad de negocio", "barrera de entrada", "pérdida de capital"]
-respuesta: "oportunidad de negocio"
-tipo: "mc"
+enunciado: "¿Cuál es la alícuota general del IVA en Argentina?"
 
 explicacion: |
-  Una oportunidad de negocio surge cuando se identifica una necesidad insatisfecha o un problema no resuelto en un segmento de mercado específico.
+  21% es la alícuota que aplica a la mayoría de productos y servicios.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
+  tema: "iva"
   nivel: "intermedio"
-  tags: ["validación", "encuesta", "cliente"]
+  tags: ["iva", "calculo"]
 
 variables:
-  escenario: uno_de([
-    ["¿Compraría este producto si estuviera disponible mañana?", "verdadero"],
-    ["¿Cuánto pagaría por este servicio?", "falso"]
-  ])
+  precio_sin_iva: random(1, 50) * 1000
 
-enunciado: "Para validar si la necesidad detectada es real, el emprendedor realiza una encuesta. Si la pregunta es '{escenario[0]}', el objetivo principal es validar la ___."
+respuesta: precio_sin_iva * 0.21
+tipo: input
+tolerancia_abs: 0.5
 
-respuestas_validas: ["demanda", "rentabilidad", "ubicación"]
-respuesta: "demanda"
-tipo: "completar"
+enunciado: "Un producto vale ${precio_sin_iva} sin IVA. ¿Cuánto es el IVA (21%)?"
 
 explicacion: |
-  La validación de la demanda busca confirmar si existe un grupo de clientes dispuestos a pagar por la solución propuesta antes de invertir capital.
+  Se calcula el 21% del precio sin IVA.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
+  tema: "iva"
   nivel: "intermedio"
-  tags: ["metodologia", "pasos"]
+  tags: ["iva", "calculo"]
 
-opciones_explicitas: [
-    "Lanzar el producto al mercado", 
-    "Identificar una necesidad insatisfecha", 
-    "Analizar la competencia y el segmento", 
-    "Diseñar un prototipo o MVP"
-]
-respuesta: ["Identificar una necesidad insatisfecha", "Analizar la competencia y el segmento", "Diseñar un prototipo o MVP", "Lanzar el producto al mercado"]
-tipo: "ordenar"
+variables:
+  precio_sin_iva: random(1, 50) * 1000
+
+respuesta: precio_sin_iva * 1.21
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Un producto vale ${precio_sin_iva} sin IVA. ¿Cuánto es el precio final, con el 21% de IVA incluido?"
 
 explicacion: |
-  El proceso lógico comienza con la detección del problema, sigue con el análisis del entorno, la creación de una solución mínima viable y finalmente la salida al mercado.
+  Se multiplica por 1,21 (el 100% original más el 21% de IVA).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "basico"
-  tags: ["competencia", "ventaja_competitiva"]
+  tema: "iva"
+  nivel: "avanzado"
+  tags: ["iva", "calculo"]
 
-enunciado: "Si un emprendedor detecta una necesidad insatisfecha, pero ya existen tres empresas ofreciendo exactamente lo mismo con el mismo precio y calidad, la probabilidad de que sea una oportunidad de negocio rentable es baja sin una ventaja competitiva clara."
+variables:
+  precio_sin_iva: random(1, 50) * 1000
+  precio_final: precio_sin_iva * 1.21
+
+respuesta: precio_sin_iva
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Un producto cuesta ${precio_final} con IVA incluido (21%). ¿Cuánto vale sin IVA?"
+
+pasos:
+  - "{precio_final} ÷ 1,21 = {precio_final / 1.21}"
+
+explicacion: |
+  Se divide el precio final por 1,21 para deshacer el IVA incluido.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "avanzado"
+  tags: ["iva", "calculo"]
+
+variables:
+  precio_sin_iva: random(1, 50) * 1000
+  precio_final: precio_sin_iva * 1.21
+
+respuesta: precio_final - precio_sin_iva
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Un producto cuesta ${precio_final} con IVA incluido. ¿Cuántos pesos de eso son el IVA en sí?"
+
+pasos:
+  - "Precio sin IVA: {precio_final} ÷ 1,21 = {precio_final / 1.21}. IVA: {precio_final} - {precio_final / 1.21} = {precio_final - precio_final / 1.21}"
+
+explicacion: |
+  El IVA es la diferencia entre el precio final y el precio sin IVA.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "basico"
+  tags: ["iva"]
+
+respuesta: 10.5
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "¿Cuál es la alícuota reducida del IVA (para ciertos bienes y servicios, como algunas frutas y verduras)?"
+
+explicacion: |
+  10,5% es la mitad, aproximadamente, de la alícuota general.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "intermedio"
+  tags: ["iva"]
+
+respuesta: 27
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es la alícuota agravada del IVA para algunos servicios públicos (electricidad, gas, telecomunicaciones), en ciertos casos?"
+
+explicacion: |
+  27% es más alta que la general, y aplica en casos puntuales de
+  servicios públicos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "basico"
+  tags: ["iva", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Algunos productos de la canasta básica están exentos de IVA (pagan 0%)."
+
+explicacion: |
+  No todo paga la alícuota general: hay una categoría exenta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "intermedio"
+  tags: ["iva", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Desde 2018, servicios digitales del exterior como Netflix, Spotify o Steam pagan 21% de IVA en Argentina, cobrado directo en la tarjeta usada para pagar."
+
+explicacion: |
+  Es uno de los pocos impuestos que se aplica igual a lo digital que a lo
+  físico, aunque la empresa esté radicada afuera del país.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "basico"
+  tags: ["iva", "problema"]
+
+variables:
+  precio_dolares: random(5, 20)
+  cotizacion: random(900, 1300)
+  precio_pesos: precio_dolares * cotizacion
+
+respuesta: precio_pesos * 1.21
+tipo: input
+tolerancia_abs: 5
+
+enunciado: "Una suscripción a una plataforma extranjera cuesta US$ {precio_dolares}, que a ${cotizacion} el dólar son ${precio_pesos}. Con el 21% de IVA sobre servicios digitales, ¿cuánto se termina pagando en pesos?"
+
+explicacion: |
+  El IVA se suma sobre el monto en pesos de la suscripción, igual que a
+  cualquier otro servicio.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "intermedio"
+  tags: ["iva", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La compra, venta o intercambio de criptomonedas está excluida del objeto del IVA en Argentina: no se le cobra ese impuesto a esa operación."
+
+explicacion: |
+  La ley de IVA no la considera una \"venta\" en el sentido que el
+  impuesto grava.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "intermedio"
+  tags: ["iva", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Que una operación esté excluida del IVA (como las criptomonedas) significa que esa operación no tiene absolutamente ningún impuesto ni percepción."
+
+explicacion: |
+  Sólo significa que no se le cobra ESE impuesto puntual; pueden existir
+  otros impuestos o percepciones aplicando igual, según el caso.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "intermedio"
+  tags: ["iva"]
+
+enunciado: "¿Qué alícuota de IVA aplica a la mayoría de productos y servicios, salvo excepciones puntuales?"
+tipo: mc
+opciones_explicitas:
+  - "21%"
+  - "27%"
+  - "0%"
+respuesta: "21%"
+
+explicacion: |
+  Es la alícuota general, la que aplica "por defecto" salvo que el
+  producto tenga un tratamiento especial.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "intermedio"
+  tags: ["iva", "verificacion"]
+
+variables:
+  precio_sin_iva: random(1, 50) * 1000
+  correcto: precio_sin_iva * 1.21
+  error: uno_de([0, 0, 0, 500, -500])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 1)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? Precio sin IVA ${precio_sin_iva}, con IVA incluido queda ${mostrado}."
+
+explicacion: |
+  Se vuelve a multiplicar por 1,21 y se compara.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "avanzado"
+  tags: ["iva"]
+
+variables:
+  precio_sin_iva: random(1, 50) * 1000
+  precio_final: precio_sin_iva * 1.21
+
+tipo: completar
+enunciado: "Completá: ___ (precio sin IVA) × 1,21 = ${precio_final} (precio final)."
+respuestas_validas:
+  - precio_sin_iva
+
+explicacion: |
+  Se despeja dividiendo el precio final por 1,21.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "intermedio"
+  tags: ["iva", "comparacion"]
+
+variables:
+  precio: random(10, 50) * 1000
+
+respuesta: ((precio * 0.27) > (precio * 0.105))
+tipo: vf
+
+enunciado: "Sobre el mismo precio de ${precio}, ¿el IVA calculado con la alícuota del 27% da más que con la del 10,5%?"
+
+explicacion: |
+  A mayor alícuota, mayor el monto de IVA sobre el mismo precio base.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "avanzado"
+  tags: ["iva", "problema"]
+
+variables:
+  precio_sin_iva: random(5, 100) * 1000
+  precio_final: precio_sin_iva * 1.21
+
+respuesta: precio_sin_iva
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Una factura muestra un total de ${precio_final}, con el 21% de IVA ya incluido. ¿Cuál es el monto neto (sin IVA) de esa factura?"
+
+explicacion: |
+  Es el mismo cálculo de \"deshacer\" el IVA: dividir por 1,21.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "basico"
+  tags: ["iva", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estas alícuotas de IVA de menor a mayor."
+opciones_explicitas:
+  - "21%"
+  - "0%"
+  - "27%"
+  - "10,5%"
+respuesta_orden: ["0%", "10,5%", "21%", "27%"]
+
+explicacion: |
+  Exenta (0%), reducida (10,5%), general (21%), agravada (27%).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "intermedio"
+  tags: ["iva", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El IVA se llama \"al valor agregado\" porque en cada etapa de una cadena de producción se cobra sólo sobre el valor que esa etapa agregó, no sobre el precio total de nuevo en cada paso."
+
+explicacion: |
+  Es la idea detrás del nombre del impuesto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "basico"
+  tags: ["iva", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El IVA se cobra tanto en productos físicos como en servicios digitales (con algunas excepciones puntuales, como las criptomonedas)."
+
+explicacion: |
+  Es uno de los pocos impuestos genuinamente parejos entre lo físico y lo
+  digital.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "intermedio"
+  tags: ["iva", "problema"]
+
+variables:
+  precio_sin_iva: random(5, 50) * 1000
+
+respuesta: precio_sin_iva * 1.105
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Un producto con alícuota reducida (10,5%) vale ${precio_sin_iva} sin IVA. ¿Cuál es el precio final?"
+
+explicacion: |
+  Se multiplica por 1,105 en vez de 1,21.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "intermedio"
+  tags: ["iva", "problema"]
+
+variables:
+  precio_sin_iva: random(5, 50) * 1000
+
+respuesta: precio_sin_iva * 1.27
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Un servicio con alícuota agravada (27%) vale ${precio_sin_iva} sin IVA. ¿Cuál es el precio final?"
+
+explicacion: |
+  Se multiplica por 1,27.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "avanzado"
+  tags: ["iva", "comparacion"]
+
+variables:
+  precio_a: random(10, 50) * 1000
+  precio_b: random(10, 50) * 1000
+
+respuesta: ((precio_a * 0.21) > (precio_b * 0.105))
+tipo: vf
+
+enunciado: "¿El IVA (21%) de un producto de ${precio_a} da más pesos que el IVA (10,5%) de otro de ${precio_b}?"
+
+explicacion: |
+  Hay que calcular los dos montos de IVA antes de poder comparar — ni la
+  alícuota ni el precio solos alcanzan.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "basico"
+  tags: ["iva", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Aunque el 21% es la alícuota más conocida, el IVA argentino tiene otras alícuotas (10,5%, 27%, 0%) según el tipo de bien o servicio."
+
+explicacion: |
+  No hay un único porcentaje de IVA para todo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "iva"
+  nivel: "basico"
+  tags: ["iva", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El IVA es uno de los pocos impuestos que aplica de forma pareja a casi todo lo que se compra, físico o digital, con pocas excepciones reales (como las criptomonedas)."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: interes-compuesto (22 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "basico"
+  tags: ["interes_compuesto", "vocabulario"]
+
+enunciado: "¿Qué diferencia al interés compuesto del interés simple?"
+tipo: mc
+opciones_explicitas:
+  - "El interés generado se suma al capital, y el período siguiente genera interés sobre ese total"
+  - "Se calcula con una tasa más alta"
+  - "Sólo se usa en préstamos, nunca en inversiones"
+respuesta: "El interés generado se suma al capital, y el período siguiente genera interés sobre ese total"
+
+explicacion: |
+  En el interés simple cada período usa siempre el capital original; en
+  el compuesto, el capital "crece" período a período.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "basico"
+  tags: ["interes_compuesto", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el interés compuesto, el interés generado en un período se suma al capital para calcular el interés del período siguiente."
+
+explicacion: |
+  Es exactamente la idea de "interés sobre interés".
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "basico"
+  tags: ["interes_compuesto", "vocabulario"]
+
+enunciado: "El interés compuesto crece de manera..."
+tipo: mc
+opciones_explicitas:
+  - "Exponencial (cada período genera más interés que el anterior)"
+  - "Lineal (la misma cantidad de interés en cada período)"
+  - "Constante (el mismo monto final sin importar el tiempo)"
+respuesta: "Exponencial (cada período genera más interés que el anterior)"
+
+explicacion: |
+  Como el capital sobre el que se calcula crece cada período, el interés
+  generado también crece período a período.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "intermedio"
+  tags: ["interes_compuesto", "calculo"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tasa: random(2, 20)
+  tiempo: random(1, 6)
+
+respuesta: capital * (1 + tasa / 100) ^ tiempo
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Un capital de ${capital} se invierte a una tasa del {tasa}% anual, a interés compuesto, durante {tiempo} años. ¿Cuál es el monto final?"
+
+pasos:
+  - "M = C × (1 + r)^t = {capital} × (1 + {tasa/100})^{tiempo}"
+
+explicacion: |
+  Se multiplica el capital por (1 + la tasa en decimal) elevado a la
+  cantidad de períodos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "intermedio"
+  tags: ["interes_compuesto", "calculo"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tasa: random(2, 20)
+  tiempo: random(1, 6)
+
+respuesta: capital * (1 + tasa / 100) ^ tiempo - capital
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Un capital de ${capital} se invierte a una tasa del {tasa}% anual, a interés compuesto, durante {tiempo} años. ¿Cuánto interés total generó (sin contar el capital)?"
+
+pasos:
+  - "M = {capital} × (1 + {tasa/100})^{tiempo}"
+  - "I = M - {capital}"
+
+explicacion: |
+  El interés total es la diferencia entre el monto final y el capital
+  original.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "avanzado"
+  tags: ["interes_compuesto", "calculo"]
+
+variables:
+  tasa: random(2, 20)
+  tiempo: random(1, 6)
+  capital: random(10, 100) * 1000
+  monto: capital * (1 + tasa / 100) ^ tiempo
+
+respuesta: capital
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "A una tasa del {tasa}% anual a interés compuesto, un capital creció hasta ${monto} en {tiempo} años. ¿Cuál era ese capital?"
+
+pasos:
+  - "C = M ÷ (1 + r)^t = {monto} ÷ (1 + {tasa/100})^{tiempo}"
+
+explicacion: |
+  Se despeja C de M = C × (1 + r)^t dividiendo el monto por (1 + r)^t.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "intermedio"
+  tags: ["interes_compuesto", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para un solo período (t = 1), el interés simple y el interés compuesto dan exactamente el mismo monto final."
+
+explicacion: |
+  Recién a partir del segundo período el interés generado en el primero
+  empieza a generar interés propio, y ahí aparece la diferencia.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "intermedio"
+  tags: ["interes_compuesto", "comparacion"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tasa: random(2, 20)
+  tiempo: random(2, 6)
+
+respuesta: ((capital * (1 + tasa / 100) ^ tiempo) > (capital * (1 + tasa / 100 * tiempo)))
+tipo: vf
+
+enunciado: "Con el mismo capital de ${capital}, la misma tasa del {tasa}% anual y el mismo plazo de {tiempo} años, ¿el monto final a interés compuesto es mayor que a interés simple?"
+
+explicacion: |
+  A partir de t > 1, el compuesto siempre da un monto mayor, porque
+  reinvierte el interés generado en cada período.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "intermedio"
+  tags: ["interes_compuesto", "comparacion"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tasa: random(2, 20)
+  tiempo_a: random(1, 3)
+  tiempo_b: random(4, 8)
+
+respuesta: ((capital * (1 + tasa / 100) ^ tiempo_b) > (capital * (1 + tasa / 100) ^ tiempo_a))
+tipo: vf
+
+enunciado: "Con el mismo capital de ${capital} y la misma tasa del {tasa}% anual, ¿dejarlo {tiempo_b} años a interés compuesto da un monto final mayor que dejarlo {tiempo_a} años?"
+
+explicacion: |
+  A más períodos capitalizando, mayor el monto final, con capital y tasa
+  fijos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "intermedio"
+  tags: ["interes_compuesto", "comparacion"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tiempo: random(2, 6)
+  tasa_a: random(2, 10)
+  tasa_b: random(11, 25)
+
+respuesta: ((capital * (1 + tasa_b / 100) ^ tiempo) > (capital * (1 + tasa_a / 100) ^ tiempo))
+tipo: vf
+
+enunciado: "Con el mismo capital de ${capital} y el mismo plazo de {tiempo} años, ¿una tasa del {tasa_b}% anual da un monto final mayor que una del {tasa_a}% anual, a interés compuesto?"
+
+explicacion: |
+  A mayor tasa, mayor monto final, con capital y tiempo fijos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "intermedio"
+  tags: ["interes_compuesto", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si la tasa de interés compuesto es anual pero se quiere capitalizar mes a mes, hay que convertir la tasa anual a mensual antes de aplicar la fórmula."
+
+explicacion: |
+  El exponente `t` de la fórmula cuenta períodos de capitalización, así
+  que la tasa `r` tiene que estar expresada en esa misma unidad de
+  tiempo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "avanzado"
+  tags: ["interes_compuesto", "problema"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tasa_anual: random(6, 24)
+  meses: random(3, 24)
+
+respuesta: capital * (1 + tasa_anual / 100 / 12) ^ meses
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Un capital de ${capital} capitaliza mes a mes a una tasa nominal del {tasa_anual}% anual, durante {meses} meses. ¿Cuál es el monto final?"
+
+pasos:
+  - "Tasa mensual: {tasa_anual}% ÷ 12 = {tasa_anual/100/12} (en decimal)"
+  - "M = {capital} × (1 + {tasa_anual/100/12})^{meses}"
+
+explicacion: |
+  Se convierte la tasa anual a mensual dividiendo por 12, y se usan los
+  meses como cantidad de períodos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "avanzado"
+  tags: ["interes_compuesto", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Con la misma tasa nominal anual, capitalizar mes a mes da un monto final mayor que capitalizar una sola vez al año."
+
+explicacion: |
+  Cuantos más períodos de capitalización hay en el mismo año, antes
+  empieza a generarse interés sobre interés — esa diferencia entre tasa
+  nominal y tasa efectiva es el tema del próximo módulo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "basico"
+  tags: ["interes_compuesto", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el saldo de una tarjeta de crédito no se paga, los intereses de un período se suman al saldo y generan interés propio en el período siguiente — por eso una deuda chica sin pagar puede crecer rápido."
+
+explicacion: |
+  Es un ejemplo real de interés compuesto: el interés no pagado pasa a
+  formar parte del capital sobre el que se calcula el siguiente interés.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "intermedio"
+  tags: ["interes_compuesto"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tasa: random(2, 20)
+  tiempo: random(1, 6)
+  monto: capital * (1 + tasa / 100) ^ tiempo
+  interes: monto - capital
+
+tipo: completar
+enunciado: "Una inversión a interés compuesto generó ${interes} de interés y quedó en un monto final de ${monto}. Completá: ___ (capital) = {monto} (monto) - {interes} (interés)."
+respuestas_validas:
+  - capital
+
+explicacion: |
+  El capital es lo que queda del monto final al restarle el interés
+  total generado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "basico"
+  tags: ["interes_compuesto", "orden"]
+
+tipo: ordenar
+enunciado: "Con el mismo capital y la misma tasa, a interés compuesto, ordená estos plazos de menor a mayor monto final."
+opciones_explicitas:
+  - "5 años"
+  - "1 año"
+  - "10 años"
+  - "3 años"
+respuesta_orden: ["1 año", "3 años", "5 años", "10 años"]
+
+explicacion: |
+  A igual capital y tasa, a más años capitalizando, mayor el monto final.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "intermedio"
+  tags: ["interes_compuesto", "verificacion"]
+
+variables:
+  capital: random(10, 100) * 1000
+  tasa: random(2, 20)
+  tiempo: random(1, 6)
+  correcto: capital * (1 + tasa / 100) ^ tiempo
+  error: uno_de([0, 0, 0, 1000, -1000])
+  mostrado: correcto + error
+
+respuesta: (abs(mostrado - correcto) < 1)
+tipo: vf
+
+enunciado: "¿Está bien calculado esto? Capital ${capital}, tasa {tasa}% anual a interés compuesto, {tiempo} años, monto final: ${mostrado}."
+
+explicacion: |
+  Se vuelve a calcular M = C × (1 + r)^t y se compara con el valor
+  mostrado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "basico"
+  tags: ["interes_compuesto"]
+
+enunciado: "¿Cuál es la fórmula del monto final a interés compuesto?"
+tipo: mc
+opciones_explicitas:
+  - "M = C × (1 + r)^t"
+  - "M = C × (1 + r × t)"
+  - "M = C + r × t"
+respuesta: "M = C × (1 + r)^t"
+
+explicacion: |
+  La segunda opción es la fórmula del interés SIMPLE, no del compuesto —
+  la diferencia clave es el exponente en vez de la multiplicación directa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "intermedio"
+  tags: ["interes_compuesto", "problema"]
+
+variables:
+  capital: random(10, 60) * 1000
+  tasa: random(3, 15)
+
+respuesta: (capital * (1 + tasa / 100)) * (1 + tasa / 100)
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "Un capital de ${capital} se pone a plazo fijo un año a una tasa del {tasa}% anual. Al vencimiento, se retira todo (capital + interés) y se vuelve a poner un año más, a la misma tasa. ¿Cuánto queda al final del segundo año?"
+
+pasos:
+  - "Fin del año 1: {capital} × (1 + {tasa/100}) = {capital * (1 + tasa/100)}"
+  - "Fin del año 2: {capital * (1 + tasa/100)} × (1 + {tasa/100})"
+
+explicacion: |
+  Reinvertir capital + interés hace que el segundo año genere interés
+  también sobre el interés del primero — es interés compuesto, aunque
+  cada plazo fijo individual se haya calculado con interés simple.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "avanzado"
+  tags: ["interes_compuesto", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Reinvertir capital + interés en un segundo plazo fijo de un año, a la misma tasa, da el mismo resultado que aplicar directamente M = C × (1 + r)^2."
+
+explicacion: |
+  Multiplicar dos veces por (1 + r) es exactamente lo mismo que elevar
+  (1 + r) al cuadrado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "basico"
+  tags: ["interes_compuesto", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En el interés compuesto, el capital original deja de tener importancia después del primer período, porque todo el cálculo pasa a depender sólo del interés acumulado."
+
+explicacion: |
+  El capital original sigue siendo la base de todo el cálculo: el monto
+  final siempre es C × (1 + r)^t, con el capital multiplicando todo el
+  resultado.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "interes_compuesto"
+  nivel: "basico"
+  tags: ["interes_compuesto", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El interés compuesto se calcula con M = C × (1 + r)^t: el interés de cada período se suma al capital, y el período siguiente genera interés sobre ese nuevo total, por eso el crecimiento es exponencial."
+
+explicacion: |
+  Es la idea central de todo el tema.
+```
+
+## Sección: margenes-bruto-y-neto (26 preguntas)
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "basico"
+  tags: ["definicion", "margen_bruto"]
+
+respuesta: "ventas_netas - costo_ventas"
+tipo: completar
+respuestas_validas:
+  - "ventas_netas - costo_ventas"
+  - "Ventas Netas - Costo de Ventas"
+
+enunciado: "El margen bruto se calcula restando el costo de ventas a las ___."
+
+explicacion: |
+  El margen bruto mide la rentabilidad de la producción o compra de bienes, sin tener en cuenta los gastos operativos (alquiler, sueldos administrativos, etc.).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "basico"
+  tags: ["diferencia", "margen_neto"]
+
+opciones_explicitas: ["El margen neto incluye los gastos operativos y financieros, mientras que el bruto no.", "El margen bruto es mayor que el neto siempre.", "El margen neto solo considera el costo de la mercadería.", "No hay diferencia entre ambos."]
+respuesta: "El margen neto incluye los gastos operativos y financieros, mientras que el bruto no."
+tipo: mc
+
+enunciado: "Si una empresa tiene un margen bruto alto pero un margen neto muy bajo, ¿qué se puede deducir?"
+
+explicacion: |
+  Un margen neto bajo con un margen bruto alto indica que la empresa tiene costos operativos (gastos de administración, ventas o financieros) muy elevados que consumen la utilidad bruta.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "basico"
+  tags: ["veracidad", "margen_neto"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El margen neto representa la rentabilidad de la empresa antes de considerar impuestos y gastos operativos."
+
+explicacion: |
+  Falso. El margen neto es el indicador de rentabilidad final, ya que se calcula después de restar todos los gastos, incluyendo operativos, financieros e impuestos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "intermedio"
+  tags: ["calculo", "margen_bruto"]
+
+variables:
+  escenario: uno_de([[1000, 600], [500, 350], [2000, 1200]])
+
+respuesta: escenario[0] - escenario[1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si las ventas netas son {escenario[0]} y el costo de ventas es {escenario[1]}, ¿cuál es el valor del margen bruto?"
+
+pasos:
+  - "Identificar las Ventas Netas: {escenario[0]}"
+  - "Identificar el Costo de Ventas: {escenario[1]}"
+  - "Restar: Ventas - Costo"
+
+explicacion: |
+  El margen bruto es la diferencia entre el ingreso por ventas y lo que costó producir o comprar esa mercadería vendida.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "intermedio"
+  tags: ["orden", "jerarquia"]
+
+opciones_explicitas: ["Ventas Netas", "Margen Bruto", "Margen Operativo", "Margen Neto"]
+respuesta_orden: ["Ventas Netas", "Margen Bruto", "Margen Operativo", "Margen Neto"]
+tipo: ordenar
+
+enunciado: "Ordena los conceptos desde el ingreso total hasta la utilidad final (el resultado más pequeño), siguiendo la estructura lógica de un estado de resultados."
+
+explicacion: |
+  La estructura lógica comienza con el ingreso total (Ventas), se le resta el costo para obtener el Margen Bruto, luego se restan los gastos operativos para el Margen Operativo, y finalmente impuestos y financieros para llegar al Margen Neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "basico"
+  tags: ["conceptos", "margen_bruto", "margen_neto"]
+
+respuesta: "bruto"
+tipo: "completar"
+respuestas_validas:
+  - "bruto"
+
+enunciado: "El margen que se calcula restando únicamente los costos de ventas a los ingresos totales se denomina margen ___."
+
+explicacion: |
+  El margen bruto mide la rentabilidad directa del producto/servicio (Ingresos - Costo de Ventas). El margen neto es el beneficio real final tras considerar todos los gastos de la estructura operativa.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "intermedio"
+  tags: ["calculo", "margen_bruto"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[1000, 600], [2500, 1500]]
+
+respuesta: datos[idx][1]
+tipo: "completar"
+tolerancia_abs: 0.01
+
+enunciado: "Una empresa tiene un nivel de ventas de ${datos[idx][0]} y un costo de ventas de ${datos[idx][0] - datos[idx][1]}. ¿Cuál es el valor del margen bruto (en unidades monetarias)?"
+
+pasos:
+  - "Identificar Ingresos Totales: ${datos[idx][0]}"
+  - "Identificar Costo de Ventas: ${datos[idx][0] - datos[idx][1]}"
+  - "Calcular Margen Bruto: Ingresos - Costo de Ventas"
+
+explicacion: |
+  El margen bruto se obtiene restando el costo de los bienes vendidos a las ventas totales. En este caso: ${datos[idx][0]} - (${datos[idx][0]} - ${datos[idx][1]}) = ${datos[idx][1]}.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "intermedio"
+  tags: ["relacion", "conceptos"]
 
 respuesta: falso
 tipo: "vf"
 
+enunciado: "Si una empresa tiene un margen neto positivo, es matemáticamente imposible que su margen bruto sea negativo."
+
 explicacion: |
-  La saturación de un mercado con ofertas idénticas dificulta la entrada. Una oportunidad real requiere diferenciación o una mejora en la propuesta de valor.
+  Falso. El margen bruto es el primer paso; si es negativo, el margen neto será aún más negativo (ya que se le restan más gastos). Un margen neto positivo implica necesariamente que el margen bruto también lo es.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
+  tema: "margenes_bruto_y_neto"
   nivel: "avanzado"
-  tags: ["TAM", "SAM", "SOM"]
+  tags: ["analisis", "mc"]
 
 variables:
-  datos: uno_de([
-    [10000, 2000, 500],
-    [5000, 1000, 200]
-  ])
+  idx: uno_de([0, 1, 2])
+  empresas: ["Empresa A", "Empresa B", "Empresa C"]
+  margenes_brutos: [40, 20, 50]
+  margenes_netos: [10, 5, 2]
+  diferencias_texto: ["30%", "15%", "48%"]
 
-enunciado: "Si el mercado total (TAM) es de {datos[0]} personas, el mercado que puede alcanzar tu modelo de negocio (SAM) es de {datos[1]} personas, y tu capacidad real de captación (SOM) es de {datos[2]} personas, ¿cuál es el valor del SOM?"
+respuesta: diferencias_texto[idx]
+tipo: "mc"
+opciones_explicitas: ["30%", "15%", "48%"]
 
-respuesta: 500
-tipo: "input"
-tolerancia_abs: 0
+enunciado: "Si la {empresas[idx]} presenta un margen bruto del {margenes_brutos[idx]}% y un margen neto del {margenes_netos[idx]}%, ¿cuál es la diferencia absoluta entre el margen bruto y el margen neto (en puntos porcentuales)?"
 
 explicacion: |
-  El SOM (Serviceable Obtainable Market) representa la parte del mercado que realmente puedes capturar en el corto plazo con tus recursos actuales.
+  La diferencia se calcula restando el margen neto del margen bruto.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
+  tema: "margenes_bruto_y_neto"
   nivel: "basico"
-  tags: ["emprendimiento", "error_comun"]
+  tags: ["proceso", "ordenar"]
 
-respuesta: "necesidad"
-tipo: "completar"
-respuestas_validas: ["necesidad", "problema"]
+respuesta_orden: ["Ingresos", "Costo de Ventas", "Gastos Operativos", "Utilidad Neta"]
+tipo: "ordenar"
+opciones_explicitas: ["Ingresos", "Costo de Ventas", "Gastos Operativos", "Utilidad Neta"]
 
-enunciado: "Un error común en el emprendimiento es centrarse exclusivamente en tener una idea innovadora y brillante, cuando el foco real debe estar en resolver una ___ insatisfecha en el mercado."
+enunciado: "Ordena los conceptos según el proceso lógico para llegar desde el ingreso bruto hasta la utilidad neta (margen neto):"
 
 explicacion: |
-  Una idea por sí sola no tiene valor si no resuelve un problema o satisface una necesidad real de un grupo de personas.
+  El flujo contable estándar es: 1. Ingresos -> 2. Restar Costo de Ventas (Margen Bruto) -> 3. Restar Gastos Operativos -> 4. Resultado final (Utilidad Neta/Margen Neto).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
+  tema: "margenes_bruto_y_neto"
+  nivel: "basico"
+  tags: ["rentabilidad", "conceptos_clave"]
+
+tipo: mc
+opciones_explicitas: ["La diferencia entre ventas y costo de ventas", "La diferencia entre ventas y todos los gastos operativos", "La diferencia entre ingresos totales y impuestos"]
+respuesta: "La diferencia entre ventas y costo de ventas"
+
+enunciado: "Un error común es confundir el margen bruto con el margen neto. ¿Qué mide específicamente el margen bruto?"
+
+explicacion: |
+  El margen bruto solo considera la diferencia entre las ventas y el costo de los bienes vendidos (COGS). No tiene en cuenta los gastos de administración, ventas o financieros.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
   nivel: "intermedio"
-  tags: ["conceptos_clave", "validacion"]
+  tags: ["gastos_operativos", "margen_neto"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "Si una empresa aumenta sus gastos de alquiler y salarios administrativos, pero mantiene sus costos de producción constantes, su margen bruto aumentará."
+
+explicacion: |
+  Falso. El aumento de gastos operativos (alquiler, salarios) reduce el margen neto, pero el margen bruto solo se ve afectado por los costos directos de producción.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "intermedio"
+  tags: ["calculo", "margen_neto"]
 
 variables:
   escenario_idx: uno_de([0, 1])
-  escenarios: [
-    ["Un inventor crea un dispositivo para limpiar nubes, pero nadie está dispuesto a pagarlo.", "falso"],
-    ["Un emprendedor nota que en su barrio no hay lavanderías y abre una con alta demanda.", "verdadero"]
-  ]
+  datos: [[1000, 400, 200, 100], [2000, 1200, 500, 300]]
 
-respuesta: escenarios[escenario_idx][1
-tipo: "vf"
-
-enunciado: "Si un producto es altamente innovador pero no existe un segmento de clientes con la disposición y capacidad de pago para adquirirlo, ¿podemos decir que se ha detectado una oportunidad de negocio real? {escenarios[escenario_idx][0]}"
-
-explicacion: |
-  Para que una idea sea oportunidad, debe haber un mercado (clientes con necesidad y capacidad de pago).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "intermedio"
-  tags: ["enfoque_cliente"]
-
-respuesta: "solución"
-tipo: "completar"
-respuestas_validas: ["solución", "solucion"]
-
-enunciado: "Muchos emprendedores cometen el error de enamorarse de su ___ (el producto) en lugar de enamorarse del problema del cliente."
-
-explicacion: |
-  El producto puede cambiar (pivotar), pero el problema que resuelves debe ser el centro de tu estrategia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "avanzado"
-  tags: ["metodologia", "validacion"]
-
-opciones_explicitas: ["Observar el mercado y detectar dolores", "Desarrollar el producto final con todo el capital", "Lanzar una campaña de marketing masiva", "Crear un plan de negocios de 50 páginas"]
-respuesta: ["Observar el mercado y detectar dolores", "Crear un producto mínimo viable (MVP)", "Validar la solución con clientes reales"]
-tipo: "ordenar"
-
-enunciado: "Ordena los pasos lógicos para validar una oportunidad de negocio de manera eficiente, evitando el desperdicio de recursos:"
-
-explicacion: |
-  La validación debe ser incremental: primero entiendes el problema, luego pruebas una solución mínima y finalmente escalas.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "intermedio"
-  tags: ["investigacion", "errores"]
-
-respuesta: "falso"
-tipo: "vf"
-
-enunciado: "¿Es suficiente con observar cómo se comporta la competencia para identificar una oportunidad de negocio única? falso"
-
-explicacion: |
-  Observar a la competencia es útil, pero centrarse solo en ellos puede llevarte a copiar modelos existentes en lugar de descubrir necesidades que la competencia está ignorando.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "basico"
-  tags: ["emprendimiento", "conceptos_clave"]
-
-variables:
-  es_oportunidad: false
-
-respuesta: es_oportunidad
 tipo: completar
-enunciado: "Una idea de negocio se convierte en una oportunidad real cuando existe un segmento de mercado con una necesidad insatisfecha y capacidad de pago. ¿Es una idea de negocio siempre una oportunidad de negocio? ___"
+tolerancia_abs: 0
+respuesta: datos[escenario_idx][0] - datos[escenario_idx][1] - datos[escenario_idx][2] - datos[escenario_idx][3]
+
+enunciado: "Considera el siguiente escenario: Ventas: {datos[escenario_idx][0]}, Costo de Ventas: {datos[escenario_idx][1]}, Gastos Operativos: {datos[escenario_idx][2]}, Impuestos: {datos[escenario_idx][3]}. El margen neto (en valor absoluto) es ___."
+
+pasos:
+  - "Restar el costo de ventas a las ventas para obtener la utilidad bruta."
+  - "Restar los gastos operativos y los impuestos a la utilidad bruta."
 
 explicacion: |
-  Una idea es un concepto abstracto, mientras que una oportunidad es una idea validada que tiene viabilidad comercial y un mercado dispuesto a pagar por ella.
+  El margen neto es la ganancia final después de restar TODOS los costos y gastos: {datos[escenario_idx][0]} - {datos[escenario_idx][1]} - {datos[escenario_idx][2]} - {datos[escenario_idx][3]}.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "intermedio"
-  tags: ["segmentacion", "nicho"]
-
-variables:
-  escenario: uno_de([
-    ["vender calzado para corredores de montaña", "nicho"],
-    ["vender calzado genérico para todo público", "mercado_masivo"],
-    ["vender calzado de lujo para eventos", "nicho"]
-  ])
-
-respuesta: escenario[1
-tipo: mc
-
-opciones_explicitas: ["nicho", "mercado_masivo"]
-
-enunciado: "Si una empresa decide enfocarse exclusivamente en satisfacer las necesidades de un grupo de consumidores con características muy específicas y requerimientos particulares, como es el caso de {escenario[0]}, está buscando un ___."
-
-explicacion: |
-  El nicho de mercado es un segmento especializado dentro de un mercado más amplio, caracterizado por necesidades muy particulares que no son cubiertas por los productos masivos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
+  tema: "margenes_bruto_y_neto"
   nivel: "basico"
-  tags: ["consumidor", "marketing"]
-
-variables:
-  ejemplo: uno_de([
-    ["Tener sed", "necesidad"],
-    ["Beber una gaseosa de marca específica", "deseo"],
-    ["Tener hambre", "necesidad"],
-    ["Comer una hamburguesa de una cadena famosa", "deseo"]
-  ])
-
-respuesta: ejemplo[1
-tipo: completar
-
-respuestas_validas: ["necesidad", "deseo"]
-
-enunciado: "En marketing, es crucial distinguir entre una necesidad (un estado de carencia percibida) y un ___ (la forma específica en que se busca satisfacer esa carencia)."
-
-explicacion: |
-  La necesidad es la base (ej. transporte), mientras que el deseo es la forma cultural o personal de satisfacerla (ej. un coche de lujo).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "avanzado"
-  tags: ["metodologia", "validacion"]
-
-variables:
-  pasos_ordenados: [
-    "Observar el mercado y detectar problemas",
-    "Entrevistar a clientes potenciales",
-    "Diseñar un Producto Mínimo Viable (MVP)",
-    "Analizar la viabilidad financiera"
-  ]
-
-respuesta: pasos_ordenados
-tipo: ordenar
-
-opciones_explicitas: [
-  "Observar el mercado y detectar problemas",
-  "Entrevistar a clientes potenciales",
-  "Diseñar un Producto Mínimo Viable (MVP)",
-  "Analizar la viabilidad financiera"
-]
-
-enunciado: "Ordena los pasos lógicos para validar una oportunidad de negocio desde la detección hasta la viabilidad:"
-
-explicacion: |
-  Primero se identifica el problema (observación), luego se valida con usuarios (entrevistas), se prueba la solución (MVP) y finalmente se asegura la rentabilidad (finanzas).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "intermedio"
-  tags: ["competencia", "valor"]
-
-variables:
-  caso: uno_de([
-    ["ofrecer un producto idéntico al de la competencia pero más caro", "no_hay_ventaja"],
-    ["ofrecer un producto con una característica única que resuelve un problema mejor", "hay_ventaja"],
-    ["ofrecer un producto con el mismo precio y calidad que la competencia", "no_hay_ventaja"]
-  ])
-
-respuesta: caso[1
-tipo: mc
-
-opciones_explicitas: ["hay_ventaja", "no_hay_ventaja"]
-
-enunciado: "Para que una oportunidad de negocio sea sostenible, la empresa debe presentar una propuesta de valor que se distinga de la competencia. Si una empresa logra {caso[0]}, podemos decir que ___."
-
-explicacion: |
-  La ventaja competitiva es lo que hace que un cliente elija una opción sobre otra; sin una diferenciación clara, la oportunidad es débil.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "basico"
-  tags: ["mercado", "necesidades"]
-
-variables:
-  escenario_idx: uno_de([0, 1, 2])
-  escenarios: [["comunidad de ciclistas urbanos sin talleres cerca", "falta de servicios de reparación rápida"], ["estudiantes universitarios con poco tiempo para cocinar", "demanda de comida saludable y rápida"], ["dueños de mascotas que trabajan todo el día", "necesidad de cuidado canino a domicilio"]]
-  datos: [["ciclistas", "reparación"], ["estudiantes", "comida"], ["dueños de mascotas", "cuidado"]]
-
-enunciado: "Un emprendedor observa que en un barrio con muchos {datos[escenario_idx][0]} existe una oportunidad basada en la {datos[escenario_idx][1]}."
-
-respuesta: escenarios[escenario_idx][1
-tipo: completar
-respuestas_validas: ["reparación rápida", "comida saludable y rápida", "cuidado canino a domicilio"]
-
-explicacion: |
-  La identificación de una oportunidad surge al detectar una brecha entre una necesidad existente y la oferta actual del mercado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "intermedio"
-  tags: ["validación", "mercado"]
-
-variables:
-  caso_idx: uno_de([0, 1])
-  casos: [["Se lanza un producto premium en un barrio de bajos ingresos", "falso"], ["Se detecta una queja recurrente sobre el envío de un competidor", "verdadero"]]
-
-enunciado: "Si un emprendedor observa que los clientes de la competencia se quejan constantemente de la lentitud en la entrega, ¿es este un indicador válido para una nueva oportunidad de negocio? (Verdadero/Falso)"
-
-respuesta: casos[caso_idx][1
-tipo: completar
-explicacion: |
-  Las quejas de los clientes son "puntos de dolor" (pain points) que representan oportunidades de mejora y diferenciación para un nuevo negocio.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "intermedio"
-  tags: ["metodologia", "pasos"]
-
-variables:
-  pasos_orden: ["Observar el problema", "Entrevistar clientes potenciales", "Crear un Producto Mínimo Viable", "Escalar el modelo de negocio"]
-
-enunciado: "Ordena los pasos lógicos para validar una oportunidad de negocio desde la detección hasta el crecimiento:"
-
-opciones_explicitas: ["Observar el problema", "Entrevistar clientes potenciales", "Crear un Producto Mínimo Viable", "Escalar el modelo de negocio"]
-respuesta: ["Observar el problema", "Entrevistar clientes potenciales", "Crear un Producto Mínimo Viable", "Escalar el modelo de negocio"]
-tipo: ordenar
-
-explicacion: |
-  Primero se identifica el problema, luego se valida con usuarios reales, se prueba con un producto mínimo y finalmente se escala.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "avanzado"
-  tags: ["competencia", "estrategia"]
-
-variables:
-  situacion_idx: uno_de([0, 1])
-  situaciones: [["Hay muchos competidores pero todos ofrecen lo mismo", "alta"], ["Hay pocos competidores pero la demanda es muy baja", "baja"]]
-
-enunciado: "Si el análisis de mercado muestra que la competencia es muy similar entre sí y no cubre una necesidad específica, la intensidad de la oportunidad se considera: ___"
-
-respuesta: situaciones[situacion_idx][0
-tipo: completar
-respuestas_validas: ["alta", "baja"]
-
-explicacion: |
-  La falta de diferenciación en la competencia actual indica un espacio para la innovación y la captura de mercado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "detectar_una_oportunidad_de_negocio"
-  nivel: "basico"
-  tags: ["conceptos", "cliente"]
-
-enunciado: "¿Cuál de los siguientes elementos es el motor principal para identificar una oportunidad de negocio real?"
-
-opciones_explicitas: ["La cantidad de dinero que tiene un competidor", "La resolución de un problema o necesidad no satisfecha", "El uso de la tecnología más cara disponible", "Tener un local en la avenida principal"]
-respuesta: "La resolución de un problema o necesidad no satisfecha"
-tipo: mc
-
-explicacion: |
-  Una oportunidad de negocio no es solo una idea, es la capacidad de resolver un problema real para un grupo de personas dispuestas a pagar por ello.
-```
-
-## Sección: deuda-publica-externa (20 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "basico"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Qué es la deuda pública externa?"
-tipo: mc
-opciones_explicitas:
-  - "La parte de la deuda de un Estado contraída con acreedores de afuera del país, típicamente en moneda extranjera"
-  - "La deuda que un Estado tiene con sus propios bancos comerciales"
-  - "El total de impuestos que un país no logró cobrar en un año"
-respuesta: "La parte de la deuda de un Estado contraída con acreedores de afuera del país, típicamente en moneda extranjera"
-
-explicacion: |
-  Es la definición central del tema, en contraste con la deuda
-  interna.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Cuál de estos es un ejemplo típico de acreedor de deuda pública externa?"
-tipo: mc
-opciones_explicitas:
-  - "El Fondo Monetario Internacional (FMI)"
-  - "Un fondo de pensión que sólo invierte en bonos del propio país"
-  - "Un banco comercial local, exclusivamente"
-respuesta: "El Fondo Monetario Internacional (FMI)"
-
-explicacion: |
-  Es uno de los acreedores externos habituales mencionados en la
-  teoría.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Por qué la moneda en la que está denominada la deuda externa es tan relevante?"
-tipo: mc
-opciones_explicitas:
-  - "Porque el Estado no puede emitir esa moneda extranjera para pagarla, a diferencia de lo que puede intentar con deuda en moneda propia"
-  - "Porque la moneda extranjera no tiene ningún valor real"
-  - "En realidad no tiene ninguna relevancia especial"
-respuesta: "Porque el Estado no puede emitir esa moneda extranjera para pagarla, a diferencia de lo que puede intentar con deuda en moneda propia"
-
-explicacion: |
-  Es la diferencia estructural central frente a la deuda interna.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿De qué formas puede un país conseguir la moneda extranjera necesaria para pagar deuda externa?"
-tipo: mc
-opciones_explicitas:
-  - "Usando reservas, generando superávit comercial, o pidiendo un préstamo nuevo para pagar el vencimiento anterior"
-  - "Emitiendo esa moneda extranjera directamente con su propio banco central"
-  - "No existe ninguna forma de conseguir moneda extranjera"
-respuesta: "Usando reservas, generando superávit comercial, o pidiendo un préstamo nuevo para pagar el vencimiento anterior"
-
-explicacion: |
-  Son las tres vías mencionadas en la teoría, todas conectadas con
-  temas anteriores de esta sub-rama.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "Si la moneda local se devalúa, ¿qué pasa con el costo (medido en moneda local) de pagar una deuda externa en dólares?"
-tipo: mc
-opciones_explicitas:
-  - "Aumenta: hace falta más moneda local para juntar la misma cantidad de dólares que antes"
-  - "Disminuye: hace falta menos moneda local para pagar la misma deuda"
-  - "No cambia en absoluto"
-respuesta: "Aumenta: hace falta más moneda local para juntar la misma cantidad de dólares que antes"
-
-explicacion: |
-  Es la conexión directa con `devaluacion/`: la deuda externa es
-  sensible al tipo de cambio.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La deuda externa en moneda extranjera es más sensible a los movimientos del tipo de cambio que la deuda interna denominada en moneda propia."
-
-explicacion: |
-  Es la diferencia clave entre los dos tipos de deuda pública.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Cuál es el riesgo específico central de la deuda externa?"
-tipo: mc
-opciones_explicitas:
-  - "Que el país necesite conseguir suficiente moneda extranjera al vencimiento, sin controlar directamente esa moneda"
-  - "Que la deuda externa nunca genera intereses"
-  - "Que sólo puede pagarse en la moneda del propio país"
-respuesta: "Que el país necesite conseguir suficiente moneda extranjera al vencimiento, sin controlar directamente esa moneda"
-
-explicacion: |
-  Es el riesgo estructural que distingue a la deuda externa de la
-  interna.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "basico"
-  tags: ["deuda_publica", "problema"]
-
-enunciado: "Un país recibe un préstamo del FMI, en dólares. ¿Qué tipo de deuda es esta?"
-tipo: mc
-opciones_explicitas:
-  - "Deuda pública externa"
-  - "Deuda pública interna"
-  - "No es deuda: es una donación"
-respuesta: "Deuda pública externa"
-
-explicacion: |
-  Acreedor de afuera, en moneda extranjera: es exactamente la
-  definición de deuda externa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un bono emitido \"bajo ley de Nueva York\", vendido a inversores extranjeros en dólares, es un ejemplo real de deuda pública externa."
-
-explicacion: |
-  Es el ejemplo concreto citado en la teoría.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "problema"]
-
-enunciado: "Una noticia dice \"el país tiene vencimientos de deuda externa por U$S 2.000 millones el año que viene\". ¿Qué está informando esa cifra?"
-tipo: mc
-opciones_explicitas:
-  - "Cuánta moneda extranjera necesita conseguir el país en ese plazo para cumplir sus pagos"
-  - "Cuánto va a recaudar el país en impuestos ese año"
-  - "El tamaño total del PBI del país"
-respuesta: "Cuánta moneda extranjera necesita conseguir el país en ese plazo para cumplir sus pagos"
-
-explicacion: |
-  Es la lectura directa de un vencimiento de deuda externa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "calculo"]
-
-variables:
-  capital_usd: random(1, 20) * 100
-  tasa_pct: uno_de([4, 5, 8])
-  anios: uno_de([1, 2])
-
-respuesta: capital_usd * (1 + tasa_pct / 100) ^ anios
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Un país toma un préstamo externo de U$S {capital_usd} millones, a una tasa anual del {tasa_pct}%, a devolver en {anios} año(s), con interés compuesto anual. ¿Cuántos millones de dólares tiene que devolver en total?"
-
-explicacion: |
-  Misma fórmula de interés compuesto que en `deuda-publica-interna/`,
-  ahora en dólares en vez de moneda local.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los inversores privados de otros países que compran bonos de un Estado en moneda extranjera (\"bonistas\") son un tipo habitual de acreedor de deuda externa."
-
-explicacion: |
-  Es uno de los tres tipos de acreedores externos mencionados en la
-  teoría.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un Estado no puede emitir dólares (u otra moneda extranjera) para pagar su deuda externa: sólo puede emitir su propia moneda local."
-
-explicacion: |
-  Es la limitación estructural central que distingue a la deuda
-  externa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las reservas del banco central son una de las formas con las que un país puede afrontar un vencimiento de deuda externa."
-
-explicacion: |
-  Es la conexión directa con `reservas-banco-central/`.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "problema"]
-
-enunciado: "Un gobierno le pide un préstamo en euros a otro país europeo. ¿Qué tipo de deuda pública está tomando?"
-tipo: mc
-opciones_explicitas:
-  - "Deuda pública externa"
-  - "Deuda pública interna"
-  - "No es deuda pública: es deuda privada"
-respuesta: "Deuda pública externa"
-
-explicacion: |
-  Acreedor de otro país, en moneda extranjera (euros): es deuda
-  externa.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un país puede pedir un préstamo externo nuevo específicamente para pagar el vencimiento de un préstamo externo anterior — el mismo mecanismo de rollover, ahora en moneda extranjera."
-
-explicacion: |
-  Es la misma lógica de refinanciación ya vista en
-  `deuda-publica-interna/`, aplicada a deuda en moneda extranjera.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "orden"]
+  tags: ["orden", "estructura_contable"]
 
 tipo: ordenar
-enunciado: "Ordená esta secuencia de lo que puede pasar cuando se acerca un vencimiento grande de deuda externa."
-opciones_explicitas:
-  - "Si no los consigue, el país queda en riesgo de no poder pagar en la fecha comprometida"
-  - "Se acerca la fecha de un vencimiento grande de deuda en dólares"
-  - "Si consigue los dólares, paga el vencimiento a tiempo"
-  - "El país busca conseguir esos dólares: con reservas, superávit comercial o un préstamo nuevo"
-respuesta_orden: ["Se acerca la fecha de un vencimiento grande de deuda en dólares", "El país busca conseguir esos dólares: con reservas, superávit comercial o un préstamo nuevo", "Si consigue los dólares, paga el vencimiento a tiempo", "Si no los consigue, el país queda en riesgo de no poder pagar en la fecha comprometida"]
+opciones_explicitas: ["Ventas Totales", "Utilidad Bruta", "Utilidad Operativa", "Utilidad Neta"]
+respuesta_orden: ["Ventas Totales", "Utilidad Bruta", "Utilidad Operativa", "Utilidad Neta"]
+
+enunciado: "Ordena los conceptos de mayor a menor nivel de rentabilidad (desde el ingreso bruto hasta la ganancia final):"
 
 explicacion: |
-  Es la secuencia de riesgo central de la deuda externa, que conecta
-  directo con el tema siguiente (`default-deuda/`).
+  La estructura contable sigue un orden descendente: primero se restan los costos directos (Bruta), luego los gastos operativos (Operativa) y finalmente impuestos y otros (Neta).
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "deuda_publica_externa"
+  tema: "margenes_bruto_y_neto"
   nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
+  tags: ["analisis", "eficiencia"]
 
-respuesta: verdadero
-tipo: vf
+tipo: mc
+opciones_explicitas: ["Un margen bruto alto con un margen neto muy bajo", "Un margen bruto bajo con un margen neto alto", "Un margen bruto igual al margen neto"]
+respuesta: "Un margen bruto alto con un margen neto muy bajo"
 
-enunciado: "Un país con superávit comercial sostenido tiene más facilidad para conseguir la moneda extranjera necesaria para pagar su deuda externa, que uno con déficit comercial persistente."
+enunciado: "Si una empresa reporta un margen bruto muy elevado, pero su margen neto es casi cero, ¿qué es lo más probable que esté sucediendo?"
 
 explicacion: |
-  Es la conexión directa con `balanza-comercial/`: más dólares
-  entrando por exportaciones, más margen para afrontar deuda externa.
+  Esto indica que la empresa es eficiente en su producción (bajo costo de ventas), pero tiene una estructura de gastos operativos (administración, marketing, alquileres) extremadamente pesada.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "deuda_publica_externa"
+  tema: "margenes_bruto_y_neto"
   nivel: "basico"
-  tags: ["deuda_publica"]
+  tags: ["definicion", "conceptos_clave"]
+
+tipo: mc
+opciones_explicitas: ["La diferencia entre el margen bruto y el neto es la inclusión de los gastos operativos y otros costos indirectos.", "La diferencia radica en que el margen bruto mide la rentabilidad sobre la inversión y el neto sobre las ventas.", "El margen bruto es siempre mayor que el margen neto porque incluye los impuestos.", "No existe diferencia, son términos sinónimos en contabilidad básica."]
+
+respuesta: "La diferencia entre el margen bruto y el neto es la inclusión de los gastos operativos y otros costos indirectos."
+
+enunciado: "Al comparar ambos indicadores, ¿cuál es la principal distinción conceptual?"
+
+explicacion: |
+  El margen bruto se calcula restando solo el costo de los bienes vendidos (COGS) de las ventas totales. El margen neto es lo que queda después de restar TODOS los gastos (operativos, financieros, impuestos, etc.).
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "intermedio"
+  tags: ["calculo", "gastos_operativos"]
+
+variables:
+  escenario: uno_de([["Ventas: 1000, Costo de Ventas: 400, Gastos Operativos: 200", "400"], ["Ventas: 5000, Costo de Ventas: 2000, Gastos Operativos: 1500", "1500"]])
 
 tipo: completar
-enunciado: "Completá: a diferencia de la deuda interna, la deuda pública externa está contraída con acreedores de ___ (dentro o fuera) del país."
 respuestas_validas:
-  - "fuera"
-  - "afuera"
+  - escenario[1]
+
+enunciado: "Si una empresa tiene {escenario[0]}, su margen neto es ___."
+
+pasos:
+  - "1. Calcular Margen Bruto: Ventas - Costo de Ventas"
+  - "2. Calcular Margen Neto: Margen Bruto - Gastos Operativos"
 
 explicacion: |
-  Es el criterio central que distingue a la deuda externa.
+  El margen bruto se calcula restando el Costo de Ventas a las Ventas.
+  El margen neto se calcula restando los Gastos Operativos al Margen Bruto.
+  Dependiendo del escenario sorteado, los valores cambian, pero la lógica es la misma.
+
+respuesta: escenario[1]
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "deuda_publica_externa"
-  nivel: "basico"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La deuda pública externa está contraída con acreedores de afuera del país, típicamente en moneda extranjera que el Estado no puede emitir por su cuenta, lo que la hace más sensible al tipo de cambio que la deuda interna."
-
-explicacion: |
-  Es la idea central de todo el tema.
-```
-
-## Sección: deuda-publica-interna (20 preguntas)
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "basico"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Cómo hace un Estado para pedir dinero prestado?"
-tipo: mc
-opciones_explicitas:
-  - "Emite títulos de deuda (bonos), que promete pagar con interés en fechas determinadas"
-  - "Sólo puede pedir dinero directamente al Fondo Monetario Internacional"
-  - "No existe ningún mecanismo para que un Estado se endeude"
-respuesta: "Emite títulos de deuda (bonos), que promete pagar con interés en fechas determinadas"
-
-explicacion: |
-  Es el mecanismo central de endeudamiento de cualquier Estado.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "basico"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Qué es la deuda pública interna?"
-tipo: mc
-opciones_explicitas:
-  - "La parte de la deuda de un Estado contraída con acreedores dentro del propio país"
-  - "La deuda que un Estado tiene con organismos internacionales exclusivamente"
-  - "El total de impuestos que recauda un Estado en un año"
-respuesta: "La parte de la deuda de un Estado contraída con acreedores dentro del propio país"
-
-explicacion: |
-  Es la definición central del tema.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
+  tema: "margenes_bruto_y_neto"
   nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Cuál de estos es un ejemplo típico de acreedor de deuda pública interna?"
-tipo: mc
-opciones_explicitas:
-  - "Un fondo de pensión local que compra bonos del propio país"
-  - "Un turista extranjero de visita"
-  - "Un organismo internacional exclusivamente"
-respuesta: "Un fondo de pensión local que compra bonos del propio país"
-
-explicacion: |
-  Es uno de los acreedores internos habituales mencionados en la
-  teoría.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La deuda pública reutiliza la misma matemática del interés compuesto ya vista para un crédito personal, sólo que quien pide prestado es un Estado en vez de una familia."
-
-explicacion: |
-  Es la conexión directa con `interes-compuesto/`.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Qué es el \"rollover\" de deuda pública?"
-tipo: mc
-opciones_explicitas:
-  - "Emitir un título nuevo para juntar el dinero y pagar un vencimiento anterior, refinanciando en vez de cancelar de una vez"
-  - "Cancelar toda la deuda de una sola vez con lo recaudado en un año"
-  - "Dejar de pagar la deuda por completo"
-respuesta: "Emitir un título nuevo para juntar el dinero y pagar un vencimiento anterior, refinanciando en vez de cancelar de una vez"
-
-explicacion: |
-  Es la práctica habitual de la mayoría de los Estados con su deuda.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En la práctica, los Estados rara vez pagan toda su deuda de una sola vez con lo recaudado en un año: lo habitual es refinanciar, estirando el pago en el tiempo."
-
-explicacion: |
-  Es la práctica estándar de gestión de deuda pública.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "Si la deuda interna está en la propia moneda del país, ¿qué opción tiene el Estado que no tiene con deuda en moneda extranjera?"
-tipo: mc
-opciones_explicitas:
-  - "En principio, podría pedirle al banco central que emita más moneda para pagarla"
-  - "Puede pagarla automáticamente sin ningún costo, sin excepción"
-  - "Puede eliminarla por decreto sin ninguna consecuencia"
-respuesta: "En principio, podría pedirle al banco central que emita más moneda para pagarla"
-
-explicacion: |
-  Es una opción real que sólo existe para deuda en moneda propia.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Emitir moneda sin respaldo en más producción para pagar deuda tiende a generar inflación — no es una salida sin costo."
-
-explicacion: |
-  Es la conexión con `pbi-e-inflacion/`: emitir de más presiona los
-  precios generales al alza.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un banco central con autonomía respecto del gobierno suele resistirse a financiar el pago de deuda emitiendo moneda sin límite, justamente por el riesgo de inflación que eso implica."
-
-explicacion: |
-  Es la conexión con la independencia del banco central vista en
-  `reservas-banco-central/`.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "problema"]
-
-enunciado: "Un gobierno emite un bono en su propia moneda y lo vende a bancos e inversores del propio país. ¿Qué tipo de deuda está tomando?"
-tipo: mc
-opciones_explicitas:
-  - "Deuda pública interna"
-  - "Deuda pública externa"
-  - "No es deuda: es un impuesto nuevo"
-respuesta: "Deuda pública interna"
-
-explicacion: |
-  Acreedores dentro del país, en moneda local: es exactamente la
-  definición de deuda interna.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "basico"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Qué es un título de deuda (bono) emitido por un Estado?"
-tipo: mc
-opciones_explicitas:
-  - "Una promesa de pago: el Estado se compromete a devolver el capital prestado más un interés en fechas determinadas"
-  - "Un impuesto obligatorio que paga toda la población"
-  - "Un tipo de moneda extranjera"
-respuesta: "Una promesa de pago: el Estado se compromete a devolver el capital prestado más un interés en fechas determinadas"
-
-explicacion: |
-  Es la definición básica de un bono estatal.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "calculo"]
+  tags: ["calculo", "gastos_operativos"]
 
 variables:
-  capital: random(1, 20) * 100000
-  tasa_pct: uno_de([5, 10, 20])
-  anios: uno_de([1, 2])
-
-respuesta: capital * (1 + tasa_pct / 100) ^ anios
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "Un Estado emite un bono por ${capital}, a una tasa de interés anual del {tasa_pct}%, a devolver en {anios} año(s), capitalizando el interés cada año. ¿Cuánto tiene que devolver en total?"
-
-explicacion: |
-  Es la misma fórmula de interés compuesto ya vista en
-  `interes-compuesto/`, aplicada a deuda estatal: Monto = Capital ×
-  (1 + tasa)^tiempo.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El propio banco central de un país puede ser, en algunos casos, un acreedor de la deuda pública interna, cuando compra deuda emitida por el Tesoro."
-
-explicacion: |
-  Es uno de los acreedores internos mencionados en la teoría.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "Si la deuda interna está denominada en moneda local, ¿la afecta directamente una devaluación de esa moneda, de la misma forma en que afecta a una deuda en dólares?"
-tipo: mc
-opciones_explicitas:
-  - "No de la misma forma: al estar en moneda propia, el monto adeudado en esa misma moneda no cambia por una devaluación"
-  - "Sí, exactamente igual que la deuda externa en dólares"
-  - "La devaluación siempre cancela automáticamente la deuda interna"
-respuesta: "No de la misma forma: al estar en moneda propia, el monto adeudado en esa misma moneda no cambia por una devaluación"
-
-explicacion: |
-  Es una diferencia clave con la deuda externa, que sí se ve afectada
-  directo por el tipo de cambio (ver `deuda-publica-externa/`).
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená esta secuencia de un rollover de deuda pública."
-opciones_explicitas:
-  - "La deuda queda refinanciada, estirada en el tiempo"
-  - "Vence un título de deuda emitido hace tiempo"
-  - "Con lo recaudado del título nuevo, se paga el vencimiento del título viejo"
-  - "El Estado emite un título nuevo para juntar el dinero necesario"
-respuesta_orden: ["Vence un título de deuda emitido hace tiempo", "El Estado emite un título nuevo para juntar el dinero necesario", "Con lo recaudado del título nuevo, se paga el vencimiento del título viejo", "La deuda queda refinanciada, estirada en el tiempo"]
-
-explicacion: |
-  Es la secuencia típica de cómo un Estado refinancia sus
-  vencimientos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "avanzado"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aunque la deuda interna en moneda propia tiene la opción de pagarse emitiendo dinero, esa opción tiene el costo real de la inflación — no está exenta de todo riesgo."
-
-explicacion: |
-  Es la aclaración explícita de la teoría: no es una salida
-  \"gratis\".
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "basico"
-  tags: ["deuda_publica", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los bancos comerciales del propio país son uno de los tipos de acreedores habituales de la deuda pública interna."
-
-explicacion: |
-  Es uno de los ejemplos mencionados en la teoría.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "intermedio"
-  tags: ["deuda_publica", "vocabulario"]
-
-enunciado: "¿Cuál es el criterio central que distingue la deuda pública interna de la externa?"
-tipo: mc
-opciones_explicitas:
-  - "Si el acreedor está dentro o fuera del país"
-  - "El monto total de la deuda"
-  - "La tasa de interés que paga"
-respuesta: "Si el acreedor está dentro o fuera del país"
-
-explicacion: |
-  Es el criterio central de la distinción entre los dos tipos.
-```
-
-```
-metadata:
-  materia: "economia"
-  tema: "deuda_publica_interna"
-  nivel: "basico"
-  tags: ["deuda_publica"]
+  escenario: uno_de([[1000, 600, 250], [5000, 3000, 1200]])
 
 tipo: completar
-enunciado: "Completá: cuando un Estado emite un título nuevo para pagar uno que vence, en vez de cancelarlo con lo recaudado, está haciendo un ___ (nombre en inglés usado para esta práctica)."
-respuestas_validas:
-  - "rollover"
+tolerancia_abs: 0
+
+enunciado: "Si una empresa tiene ventas de {escenario[0]}, un margen bruto de {escenario[1]} y gastos operativos de {escenario[2]}, el margen neto es ___."
+
+respuesta: escenario[1] - escenario[2]
 
 explicacion: |
-  Es el término técnico central del tema.
+  El margen neto se obtiene restando los gastos operativos al margen bruto.
 ```
 
 ```
 metadata:
   materia: "economia"
-  tema: "deuda_publica_interna"
+  tema: "margenes_bruto_y_neto"
   nivel: "basico"
-  tags: ["deuda_publica", "vocabulario"]
+  tags: ["verdadero_falso"]
 
-respuesta: verdadero
 tipo: vf
+respuesta: falso
 
-enunciado: "La deuda pública interna es la parte de la deuda de un Estado con acreedores dentro del propio país, típicamente en moneda local, y suele refinanciarse en vez de pagarse toda de una vez."
+enunciado: "¿Es posible que el margen neto de una empresa sea mayor que su margen bruto?"
 
 explicacion: |
-  Es la idea central de todo el tema.
+  No, porque el margen neto es el resultado de seguir restando costos y gastos al margen bruto. Por lo tanto, el margen neto siempre será menor o igual al margen bruto.
 ```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "basico"
+  tags: ["ordenar", "flujo_contable"]
+
+tipo: ordenar
+opciones_explicitas: ["Ventas Totales", "Margen Bruto", "Margen Neto"]
+respuesta_orden: ["Ventas Totales", "Margen Bruto", "Margen Neto"]
+
+enunciado: "Ordena los conceptos según el flujo lógico de una cuenta de resultados (desde el ingreso bruto hasta la utilidad final):"
+
+explicacion: |
+  Primero se registran las ventas, a las que se les resta el costo de ventas para obtener el margen bruto, y finalmente se restan los gastos operativos para llegar al margen neto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "avanzado"
+  tags: ["analisis", "eficiencia"]
+
+tipo: mc
+opciones_explicitas: ["Un margen bruto alto con un margen neto muy bajo indica ineficiencia en los gastos operativos.", "Un margen neto alto siempre garantiza que el margen bruto sea aún más alto.", "El margen bruto no tiene relación con el margen neto.", "Si el margen neto es positivo, el margen bruto debe ser necesariamente mayor al doble."]
+
+respuesta: "Un margen bruto alto con un margen neto muy bajo indica ineficiencia en los gastos operativos."
+
+enunciado: "Si una empresa presenta un margen bruto muy elevado pero su margen neto es casi nulo, ¿qué se puede deducir?"
+
+explicacion: |
+  Esto indica que, aunque el producto es rentable por sí mismo (buen margen bruto), la estructura de costos fijos o gastos de administración y ventas (gastos operativos) es demasiado pesada, consumiendo casi toda la utilidad.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "basico"
+  tags: ["margen_bruto", "ventas", "costos_directos"]
+
+variables:
+  escenario: uno_de([["Ventas: 1000, Costo de Mercadería: 600", "400"], ["Ventas: 5000, Costo de Mercadería: 3500", "1500"], ["Ventas: 2500, Costo de Mercadería: 1200", "1300"]])
+
+respuesta: escenario[1]
+tipo: completar
+
+enunciado: "Si una empresa registra {escenario[0]}, el margen bruto es de ___."
+
+explicacion: |
+  El margen bruto se calcula restando el Costo de Mercadería Vendida (CMV) a las Ventas Totales. 
+  Fórmula: Ventas - Costo de Mercadería = Margen Bruto.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "basico"
+  tags: ["conceptos", "definiciones"]
+
+respuesta: "Margen Neto"
+tipo: mc
+opciones_explicitas: ["Margen Bruto", "Margen Neto", "Margen de Contribución", "EBITDA"]
+
+enunciado: "El indicador que mide la rentabilidad final de la empresa después de restar todos los gastos operativos, financieros e impuestos es el ___."
+
+explicacion: |
+  El margen neto es el indicador de rentabilidad más completo, ya que considera todos los costos y gastos de la estructura, no solo los directos de la mercadería.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "intermedio"
+  tags: ["gastos_operativos", "logica"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "Si una empresa tiene un margen bruto elevado, esto garantiza automáticamente que el margen neto también sea elevado, independientemente de sus gastos operativos."
+
+explicacion: |
+  Falso. Una empresa puede tener un margen bruto excelente, pero si sus gastos operativos (alquileres, sueldos administrativos, marketing) son excesivamente altos, el margen neto puede ser negativo.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "intermedio"
+  tags: ["calculo", "margen_neto"]
+
+variables:
+  escenario: uno_de([["Ventas: 1000, Gastos: 800", "200"], ["Ventas: 5000, Gastos: 4500", "500"], ["Ventas: 2000, Gastos: 1900", "100"]])
+
+respuesta: escenario[1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Considerando que los gastos totales (incluyendo operativos e impuestos) son de {escenario[0]}, el margen neto es ___."
+
+explicacion: |
+  El margen neto es el remanente final: Ventas Totales - Todos los Gastos.
+```
+
+```
+metadata:
+  materia: "economia"
+  tema: "margenes_bruto_y_neto"
+  nivel: "basico"
+  tags: ["proceso", "orden"]
+
+respuesta_orden: ["Ventas", "Margen Bruto", "Margen Neto"]
+tipo: ordenar
+opciones_explicitas: ["Ventas", "Margen Bruto", "Margen Neto"]
+
+enunciado: "Ordena los conceptos según el flujo lógico de cálculo de rentabilidad, desde el ingreso total hasta el beneficio final:"
+
+explicacion: |
+  Primero se obtienen las Ventas, a las que se les resta el costo directo para obtener el Margen Bruto, y finalmente a este se le restan los gastos operativos para llegar al Margen Neto.
+```
+

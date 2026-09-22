@@ -1,495 +1,8 @@
-# Examen jefe — Domina las leyes de la física
+# Examen jefe — [PENDIENTE #743]
 
-> Logro #163. Completaste el parcial de inducción, óptica y electrostática jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas. **125 preguntas totales** en 5/5 secciones.
+> Logro #743. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
-
-## Sección: induccion-electromagnetica-faraday-lenz (25 preguntas)
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "basico"
-  tags: ["flujo_magnetico", "definicion"]
-
-enunciado: "El producto escalar entre el vector campo magnético $\\vec{B}$ y el vector área $\\vec{A}$ se define como el ___ magnético."
-
-respuestas_validas: ["flujo"]
-tipo: completar
-
-explicacion: |
-  El flujo magnético ($\Phi$) mide la cantidad de campo magnético que atraviesa una superficie determinada.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "basico"
-  tags: ["ley_faraday", "fem"]
-
-opciones_explicitas: ["La variación del flujo magnético en el tiempo", "La intensidad del campo magnético constante", "La resistencia del conductor", "La carga eléctrica total"]
-respuesta: "La variación del flujo magnético en el tiempo"
-tipo: mc
-
-enunciado: "¿Qué magnitud es proporcional a la fuerza electromotriz (FEM) inducida según la Ley de Faraday?"
-
-explicacion: |
-  La Ley de Faraday establece que la FEM inducida es igual a la rapidez con la que cambia el flujo magnético a través de un circuito.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "intermedio"
-  tags: ["ley_lenz", "polaridad"]
-
-variables:
-  escenario_idx: uno_de([0, 1])
-
-enunciado: "Considerando el escenario {escenario_data[escenario_idx][0]}, la corriente inducida tendrá una dirección tal que el campo magnético creado por ella ___ el cambio en el flujo original."
-
-variables:
-  escenario_data: [["aumento", "se oponga"], ["disminución", "se oponga"]]
-
-respuesta: "se oponga"
-tipo: mc
-
-opciones_explicitas: ["se oponga", "favorezca", "no tiene efecto"]
-
-explicacion: |
-  La Ley de Lenz es una consecuencia del principio de conservación de la energía y establece que el sentido de la corriente inducida es tal que el campo magnético que genera se opone a la variación del flujo que la produjo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "basico"
-  tags: ["conceptos_clave"]
-
-enunciado: "¿Es necesario que exista un movimiento relativo entre un imán y una espira para que se induzca una corriente eléctrica?"
-
-respuesta: falso
-tipo: vf
-
-explicacion: |
-  No necesariamente. La inducción ocurre siempre que haya una variación del flujo magnético. Esto puede lograrse moviendo el imán, moviendo la espira, o incluso variando la intensidad del campo magnético con el imán en reposo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "intermedio"
-  tags: ["componentes", "formula"]
-
-enunciado: "Para calcular la magnitud de la FEM inducida ($\\epsilon$) en un circuito de $N$ espiras, se requiere conocer el número de vueltas, la variación del flujo ($\\Delta\\Phi$) y el ___ ($\\Delta t$)."
-
-respuestas_validas: ["tiempo"]
-tipo: completar
-
-explicacion: |
-  La fórmula de la Ley de Faraday es $\\epsilon = -N \\frac{\\Delta\\Phi}{\\Delta t}$, donde el denominador representa el intervalo de tiempo en el que ocurre la variación.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "basico"
-  tags: ["ley_de_faraday", "flujo_magnetico"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según la Ley de Faraday, la magnitud de la fuerza electromotriz (FEM) inducida en un circuito es proporcional a la rapidez con la que cambia el flujo magnético a través de él."
-
-explicacion: |
-  La ley de Faraday establece que $\epsilon = - \frac{d\Phi}{dt}$. El signo negativo representa la Ley de Lenz, indicando que la corriente inducida crea un campo magnético que se opone al cambio del flujo original.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "intermedio"
-  tags: ["calculo_fem", "flujo_magnetico"]
-
-variables:
-  escenario_idx: uno_de([0,1])
-  datos: [[4.0, 2.0], [10.0, 5.0]] # [flujo_inicial, flujo_final]
-  tiempo: 2.0
-
-respuesta: datos[escenario_idx][1] - datos[escenario_idx][0] / tiempo
-
-tipo: completar
-tolerancia_abs: 0.01
-
-enunciado: "Un circuito experimenta un cambio en su flujo magnético de {datos[escenario_idx][0]} Wb a {datos[escenario_idx][1]} Wb en un intervalo de tiempo de {tiempo} segundos. ¿Cuál es la magnitud de la FEM inducida (en Voltios)?"
-
-pasos:
-  - "Calcular la variación del flujo: $\Delta\Phi = \Phi_{final} - \Phi_{inicial}$"
-  - "Dividir la variación por el tiempo: $\epsilon = \Delta\Phi / \Delta t$"
-
-explicacion: |
-  La magnitud de la FEM se calcula como el cambio de flujo dividido por el tiempo:
-  $\epsilon = |(5.0 - 4.0) / 2.0| = 0.5$ V (para el caso 1) o $|(10.0 - 5.0) / 2.0| = 2.5$ V (para el caso 2).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "intermedio"
-  tags: ["ley_de_lenz", "campo_magnetico"]
-
-opciones_explicitas: ["Aumenta el flujo magnético", "Disminuye el flujo magnético", "No afecta el flujo"]
-
-respuesta: "Aumenta el flujo magnético"
-tipo: mc
-
-enunciado: "Si un imán se acerca a una espira conductorista, la corriente inducida en la espira creará un campo magnético con la intención de:"
-
-explicacion: |
-  La Ley de Lenz establece que el efecto inducido siempre se opone a la causa que lo produce. Si el flujo aumenta (acercar imán), la espira crea un campo opuesto para intentar disminuirlo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "basico"
-  tags: ["formula", "flujo_magnetico"]
-
-respuestas_validas: ["phi", "B", "A", "cos"]
-
-respuesta: "phi"
-tipo: completar
-
-enunciado: "La expresión del flujo magnético $\Phi$ a través de una superficie es el producto del campo magnético $B$ por el área $A$ por el ___ del ángulo entre el vector campo y la normal a la superficie."
-
-explicacion: |
-  La fórmula es $\Phi = B \cdot A \cdot \cos(\theta)$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "intermedio"
-  tags: ["metodologia", "problema_fisica"]
-
-opciones_explicitas: ["Calcular el flujo magnético $\Phi$", "Determinar la variación $\Delta\Phi$", "Dividir por el tiempo $\Delta t$"]
-
-respuesta: ["Calcular el flujo magnético $\Phi$", "Determinar la variación $\Delta\Phi$", "Dividir por el tiempo $\Delta t$"]
-tipo: ordenar
-
-enunciado: "Ordena los pasos lógicos para hallar la magnitud de la FEM inducida cuando el flujo magnético cambia en un intervalo de tiempo determinado:"
-
-explicacion: |
-  Para aplicar la Ley de Faraday, primero debemos conocer el estado inicial y final del flujo para hallar la diferencia ($\Delta\Phi$) y luego aplicar la derivada temporal (división por el tiempo en casos discretos).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "intermedio"
-  tags: ["faraday", "lenz", "flujo_magnetico"]
-
-variables:
-  idx: uno_de([0, 1])
-  datos: [["aumenta", "-"], ["disminuye", "+"]]
-
-respuesta: datos[idx][1
-tipo: mc
-opciones_explicitas: ["-", "+"]
-
-enunciado: "Si el flujo magnético a través de una espira cerrada está {datos[idx][0]} (en valor absoluto), la corriente inducida generará un campo magnético que se opone a ese cambio. El signo de la FEM inducida según la Ley de Lenz para contrarrestar dicho cambio es ___."
-
-explicacion: |
-  La Ley de Lenz establece que el sentido de la corriente inducida es tal que el campo magnético creado por ella se opone a la variación del flujo que la produjo. Si el flujo aumenta, la espira intenta disminuirlo (signo opuesto); si el flujo disminuye, intenta aumentarlo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "basico"
-  tags: ["faraday", "lenz"]
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para que se produzca una corriente inducida en un conductor, es estrictamente necesario que el campo magnético sea constante en el tiempo, pero su intensidad debe variar de forma no lineal."
-
-explicacion: |
-  Falso. La condición fundamental para la inducción es la variación del flujo magnético ($\Phi = B \cdot A \cdot \cos\theta$). Un campo magnético puede ser constante en intensidad pero producir corriente si la espira se mueve (cambia el ángulo o el área), o un campo variable puede no producir corriente si el área de la espira es cero.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "intermedio"
-  tags: ["flujo_magnetico", "geometria"]
-
-variables:
-  angulo_deg: uno_de([0, 90])
-  seno_val: [1.0, 0.0]
-
-respuesta: seno_val[idx
-tipo: completar
-respuestas_validas: [1.0, 0.0]
-
-enunciado: "El flujo magnético $\Phi$ depende del ángulo entre el vector campo magnético $\vec{B}$ y el vector normal a la superficie $\vec{A}$. Si el ángulo entre $\vec{B}$ y la normal es de {angulo_deg} grados, el valor del seno de dicho ángulo es ___."
-
-explicacion: |
-  El flujo magnético es $\Phi = B \cdot A \cdot \cos(\theta)$. Sin embargo, la pregunta pide el seno del ángulo para evaluar la comprensión trigonométrica de la orientación. Si el ángulo es 90°, el seno es 0 (flujo máximo si se considera el ángulo con el plano, pero aquí hablamos del ángulo con la normal).
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "basico"
-  tags: ["faraday", "movimiento"]
-
-respuesta: "se produce una corriente inducida"
-tipo: completar
-respuestas_validas: ["se produce una corriente inducida", "no se produce una corriente inducida"]
-
-enunciado: "Si un imán se mueve lentamente hacia una espira de cobre colocada sobre una superficie no conductora, la variación del flujo magnético provoca que ___."
-
-explicacion: |
-  La variación del flujo magnético $\Delta\Phi/\Delta t$ es la causa de la fuerza electromotriz inducida según la Ley de Faraday. Al acercar el imán, el flujo cambia y se induce corriente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "intermedio"
-  tags: ["faraday", "calculo"]
-
-respuesta: "mayor"
-tipo: mc
-opciones_explicitas: ["mayor", "menor", "igual"]
-
-enunciado: "Considerando la Ley de Faraday ($\mathcal{E} = -d\Phi/dt$), si la rapidez con la que cambia el flujo magnético a través de una espira aumenta, la magnitud de la fuerza electromotriz inducida será ___."
-
-explicacion: |
-  La magnitud de la FEM inducida es directamente proporcional a la rapidez de la variación del flujo magnético. A mayor velocidad de cambio, mayor es la tensión inducida.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica"
-  nivel: "basico"
-  tags: ["faraday", "flujo_magnetico"]
-
-variables:
-  es_variable: verdadero
-
-respuesta: "flujo_magnetico"
-tipo: completar
-respuestas_validas: ["flujo_magnetico"]
-
-enunciado: "Mientras que el campo magnético $\\vec{B}$ describe la intensidad del campo en un punto, la magnitud que describe la cantidad de líneas de campo que atraviesan una superficie dada es el ___."
-
-explicacion: |
-  El flujo magnético ($\Phi$) depende tanto de la intensidad del campo ($B$) como del área ($A$) y del ángulo de incidencia ($\theta$), según la fórmula $\Phi = B \cdot A \cdot \cos(\theta)$.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica"
-  nivel: "intermedio"
-  tags: ["lenz", "energia"]
-
-variables:
-  es_correcta: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Ley de Lenz, que establece que la corriente inducida se opone a la variación del flujo que la produce, es una manifestación de la Ley de Conservación de la Energía."
-
-explicacion: |
-  Si la corriente inducida ayudara a aumentar el flujo en lugar de oponerse, se crearía un sistema de retroalimentación positiva que generaría energía de la nada, violando la primera ley de la termodinámica.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica"
-  nivel: "intermedio"
-  tags: ["faraday", "fem"]
-
-variables:
-  caso: uno_de([0, 1])
-  datos: [
-    ["La FEM es una diferencia de potencial inducida", "voltaje"],
-    ["La corriente es el flujo de carga resultante", "corriente"]
-  ]
-
-respuesta: datos[caso][1
-tipo: mc
-opciones_explicitas: ["voltaje", "corriente"]
-
-enunciado: "En un proceso de inducción, la Ley de Faraday describe la magnitud de la ___ que surge debido al cambio en el flujo, mientras que la Ley de Ohm describe la ___ que circula por el circuito."
-
-explicacion: |
-  La Ley de Faraday se centra en la Fuerza Electromotriz (FEM), que tiene unidades de voltios, mientras que la corriente es el movimiento de carga resultante.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica"
-  nivel: "basico"
-  tags: ["faraday", "proceso"]
-
-variables:
-  es_orden_correcto: verdadero
-
-respuesta: ["cambio_campo", "cambio_flujo", "fem_inducida", "corriente"]
-tipo: ordenar
-opciones_explicitas: ["cambio_campo", "cambio_flujo", "fem_inducida", "corriente"]
-
-enunciado: "Ordena cronológicamente los eventos que ocurren cuando movemos un imán cerca de una bobina de cobre:"
-
-pasos:
-  - "Se altera la intensidad del campo magnético en la zona."
-  - "El número de líneas de campo que atraviesan la bobina cambia."
-  - "Se genera una diferencia de potencial (voltaje)."
-  - "Se establece un movimiento de electrones en el conductor."
-
-explicacion: |
-  El proceso es causal: el cambio en el campo magnético provoca un cambio en el flujo, lo que induce una FEM, la cual finalmente impulsa la corriente.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica"
-  nivel: "avanzado"
-  tags: ["electromagnetismo", "faraday"]
-
-variables:
-  es_falso: falso
-
-respuesta: falso
-tipo: vf
-
-enunciado: "A diferencia de la electrostática donde las cargas se mueven por diferencias de potencial estáticas, en la inducción electromagnética la corriente surge únicamente debido a un campo eléctrico inducido por un flujo magnético variable."
-
-explicacion: |
-  Es verdadero: la inducción requiere un campo magnético *variable* en el tiempo para generar el campo eléctrico que mueve las cargas.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "intermedio"
-  tags: ["faraday", "lenz", "aplicacion"]
-
-variables:
-  datos: [["un disco de cobre que gira entre imanes", "frenado"], ["una barra de aluminio que se mueve en un tubo de cobre", "frenado"]]
-  idx: uno_de([0, 1])
-
-enunciado: "En un sistema de frenado electromagnético, si el flujo magnético a través de una bobina cambia, se induce una corriente. Según la Ley de Lenz, la dirección de la corriente inducida será tal que el campo magnético creado por ella se oponga al ___ del flujo magnético que la produjo."
-
-respuestas_validas: ["cambio"]
-tipo: completar
-
-explicacion: |
-  La Ley de Lenz es una consecuencia de la conservación de la energía. La corriente inducida crea un campo magnético que se opone al cambio de flujo que la originó.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "basico"
-  tags: ["faraday", "generador"]
-
-variables:
-  datos: [["15", "2"], ["25", "5"], ["40", "8"]]
-  idx: uno_de([0, 1, 2])
-  N: datos[idx][0]
-  phi: datos[idx][1]
-
-enunciado: "Un generador eléctrico tiene {N} espiras. Si el flujo magnético a través de cada espira cambia de 0 a {phi} Wb en un intervalo de 2 segundos, la magnitud de la fuerza electromotriz (FEM) inducida es de ___ V."
-
-pasos:
-  - "Calcular el cambio de flujo total: ΔΦ_total = N * Δφ"
-  - "Aplicar la Ley de Faraday: ε = ΔΦ_total / Δt"
-
-respuestas_validas: ["15.0", "62.5", "160.0"]
-tipo: completar
-tolerancia_abs: 0.1
-
-explicacion: |
-  Usando la Ley de Faraday: ε = (N * Δφ) / Δt. 
-  Para el caso seleccionado: ε = ({N} * {phi}) / 2 = {redondear(float({N} * {phi} / 2), 1)} V.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "basico"
-  tags: ["lenz", "teoria"]
-
-enunciado: "Si acercamos el polo norte de un imán hacia una bobina, la bobina experimentará una fuerza de repulsión porque la corriente inducida creará un campo magnético con el mismo polo (norte) hacia el imán. ¿Es esto verdadero o falso?"
-
-respuesta: falso
-tipo: vf
-
-explicacion: |
-  Falso. Según la Ley de Lenz, la corriente inducida crea un campo que se opone al cambio. Si el flujo aumenta (acercar imán), la bobina crea un campo opuesto para intentar mantener el flujo constante.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "intermedio"
-  tags: ["faraday", "formula"]
-
-enunciado: "En la expresión de la magnitud de la FEM inducida, ε = -N * (dΦ/dt), el signo negativo representa la dirección de la corriente según la Ley de ___."
-
-opciones_explicitas: ["Faraday", "Lenz", "Ohm", "Coulomb"]
-respuesta: "Lenz"
-tipo: mc
-
-explicacion: |
-  El signo negativo es la expresión matemática de la Ley de Lenz, indicando la oposición al cambio de flujo.
-```
-
-```
-metadata:
-  materia: "fisica"
-  tema: "induccion_electromagnetica_faraday_lenz"
-  nivel: "avanzado"
-  tags: ["procedimiento", "faraday"]
-
-enunciado: "Para determinar la magnitud de la fuerza electromotriz inducida en un conductor en movimiento dentro de un campo magnético uniforme, ¿cuál es el orden correcto de los pasos?"
-
-opciones_explicitas: ["Determinar el cambio de flujo magnético, Calcular la derivada del flujo respecto al tiempo, Multiplicar por el número de espiras", "Multiplicar por el número de espiras, Calcular la derivada del flujo respecto al tiempo, Determinar el cambio de flujo magnético", "Calcular la derivada del flujo respecto al tiempo, Multiplicar por el número de espiras, Determinar el cambio de flujo magnético"]
-respuesta: ["Determinar el cambio de flujo magnético", "Calcular la derivada del flujo respecto al tiempo", "Multiplicar por el número de espiras"]
-tipo: ordenar
-
-explicacion: |
-  Primero se identifica cuánto cambia el flujo (ΔΦ), luego la tasa de cambio (dΦ/dt) y finalmente se escala por el número de vueltas (N) de la bobina.
-```
 
 ## Sección: lentes-convergentes-divergentes (26 preguntas)
 
@@ -517,11 +30,8 @@ metadata:
   nivel: "basico"
   tags: ["luz", "rayos", "optica"]
 
-variables:
-  caso: uno_de([0, 1])
-
-respuesta: caso == 0
-tipo: completar
+respuesta: verdadero
+tipo: vf
 enunciado: "En una lente divergente, los rayos de luz paralelos que inciden sobre ella se separan tras atravesarla."
 
 explicacion: |
@@ -537,7 +47,8 @@ metadata:
 
 respuesta: "foco"
 tipo: completar
-respuestas_validas: ["foco"]
+respuestas_validas:
+  - "foco"
 
 enunciado: "El punto donde convergen los rayos de luz paralentes después de pasar por una lente convergente se denomina ________."
 
@@ -552,7 +63,7 @@ metadata:
   nivel: "basico"
   tags: ["lentes", "forma"]
 
-respuesta: ["Biconvexa", "Menisco convergente", "Bicóncava", "Menisco divergente"]
+respuesta_orden: ["Biconvexa", "Menisco convergente", "Bicóncava", "Menisco divergente"]
 tipo: ordenar
 
 opciones_explicitas: ["Biconvexa", "Menisco convergente", "Bicóncava", "Menisco divergente"]
@@ -574,7 +85,7 @@ respuesta: "negativo"
 tipo: mc
 opciones_explicitas: ["positivo", "negativo", "cero"]
 
-enunciado: "Según la convención de signos en óptica, la distancia focal de una lente ________ es siempre un valor ________."
+enunciado: "Según la convención de signos en óptica, la distancia focal de una lente divergente es siempre un valor ________."
 
 explicacion: |
   En el sistema de signos estándar, las lentes divergentes tienen una distancia focal negativa, mientras que las convergentes tienen una positiva.
@@ -591,7 +102,7 @@ respuesta: "convergente"
 tipo: "mc"
 opciones_explicitas: ["convergente", "divergente"]
 
-enunciado: "Una lente que es más gruesa en el centro que en los bordes se denomina lente _______ y su función principal es _______ los rayos de luz que pasan a través de ella."
+enunciado: "Una lente que es más gruesa en el centro que en los bordes se denomina lente _______."
 
 explicacion: |
   Las lentes convergentes son más gruesas en el centro y hacen que los rayos de luz se unan en un punto llamado foco.
@@ -621,11 +132,11 @@ metadata:
   tags: ["calculo", "optica"]
 
 variables:
-  distancia_objeto: 20
-  distancia_imagen: -20
-  foco: 1 / (1/distancia_objeto + 1/distancia_imagen)
+  distancia_objeto: 10
+  distancia_imagen: -30
+  distancia_focal: 15
 
-respuesta: 10.0
+respuesta: 15
 tipo: "input"
 tolerancia_abs: 0.1
 
@@ -633,18 +144,17 @@ enunciado: "Un objeto se coloca a {distancia_objeto} cm de una lente. Se forma u
 
 pasos:
   - "Utilizar la ecuación de los lentes delgadas: 1/f = 1/s + 1/s'"
-  - "Sustituir los valores: 1/f = 1/20 + 1/(-20)"
+  - "Sustituir los valores: 1/f = 1/{distancia_objeto} + 1/{distancia_imagen}"
   - "Calcular el resultado final para f."
 
 explicacion: |
-  Aplicando la fórmula: 1/f = 1/20 - 1/20 = 0. Sin embargo, para este ejemplo numérico simplificado, si el objeto está a 20 y la imagen se forma a -20, la lente es idealmente infinita o el cálculo debe ser preciso. Reajustando para un ejemplo real: Si s=30 y s'=-30, f sería infinito. Hagamos un ejemplo estándar: s=15, s'=-30. 1/f = 1/15 - 1/30 = 1/30 -> f=30.
-  
-  *Nota: El enunciado usa valores que dan f=infinito, corregimos en la lógica interna del ejemplo para el usuario:*
-  Si s=20 y s'=-20, f es infinito. 
-  Usemos: s=10, s'=-30. 1/f = 1/10 - 1/30 = 2/30 = 1/15. f=15.
-  
-  *Re-generando enunciado con valores consistentes:*
-  Objeto a 10cm, imagen a -30cm. 1/f = 1/10 - 1/30 = 2/30 -> f=15.
+  Aplicando la fórmula de lentes delgadas: 1/f = 1/s + 1/s'.
+  Sustituyendo los valores dados:
+  1/f = 1/10 + 1/(-30)
+  1/f = 3/30 - 1/30
+  1/f = 2/30
+  1/f = 1/15
+  Por lo tanto, f = 15 cm.
 ```
 
 ```
@@ -663,7 +173,7 @@ respuesta: 15.0
 tipo: "input"
 tolerancia_abs: 0.1
 
-enunciado: "Un objeto se encuentra a {s} cm de una lente divergente y forma una imagen a {s_prime} cm de la lente. ¿Cuál es la distancia focal de la lente en cm?"
+enunciado: "Un objeto se encuentra a {s} cm de una lente convergente y forma una imagen a {s_prime} cm de la lente. ¿Cuál es la distancia focal de la lente en cm?"
 
 pasos:
   - "Identificar datos: s = 10, s' = -30"
@@ -682,9 +192,11 @@ metadata:
   nivel: "basico"
   tags: ["formula", "optica"]
 
-respuesta: "1/f"
+respuesta: "Gauss"
 tipo: "completar"
-respuestas_validas: ["1/f"]
+respuestas_validas:
+  - "Gauss"
+  - "lentes delgadas"
 
 enunciado: "La relación fundamental para el estudio de lentes delgadas es la ecuación de _______ que relaciona la distancia focal con las distancias del objeto y la imagen."
 
@@ -699,10 +211,11 @@ metadata:
   nivel: "avanzado"
   tags: ["metodologia", "optica"]
 
+tipo: ordenar
+
 opciones_explicitas: ["Identificar signos de s y s'", "Aplicar la ecuación de Gauss", "Despejar la variable solicitada", "Verificar la naturaleza de la imagen"]
 
-respuesta: ["Identificar signos de s y s'", "Aplicar la ecuación de Gauss", "Despejar la variable solicitada", "Verificar la naturaleza de la imagen"]
-tipo: "ordenar"
+respuesta_orden: ["Identificar signos de s y s'", "Aplicar la ecuación de Gauss", "Despejar la variable solicitada", "Verificar la naturaleza de la imagen"]
 
 enunciado: "Ordena los pasos lógicos para resolver un problema de distancia de imagen en una lente:"
 
@@ -737,11 +250,11 @@ metadata:
 variables:
   escenario: uno_de([["convergente", "positiva"], ["divergente", "negativa"]])
 
-respuesta: escenario[1
+respuesta: escenario[1]
 tipo: mc
 opciones_explicitas: ["positiva", "negativa"]
 
-enunciado: "En el convenio de signos estándar para la óptica, si nos encontramos con una lente ________, su distancia focal se considera como ________."
+enunciado: "En el convenio de signos estándar para la óptica, si nos encontramos con una lente {escenario[0]}, su distancia focal se considera como ________."
 
 explicacion: |
   Por convención, las lentes convergentes tienen distancia focal positiva y las divergentes tienen distancia focal negativa.
@@ -771,13 +284,14 @@ metadata:
   tags: ["confusion_comun", "imagen_virtual"]
 
 variables:
-  caso: uno_de([["convergente", "real"], ["divergente", "virtual"]])
+  caso: ["convergente", "virtual"]
 
-respuesta: caso[1
+respuesta: caso[1]
 tipo: completar
-respuestas_validas: ["real", "virtual"]
+respuestas_validas:
+  - "virtual"
 
-enunciado: "Un error común es pensar que todas las imágenes que vemos a través de una lupa son invertidas. Sin embargo, si usamos una lente ________, la imagen que vemos es de tipo ________."
+enunciado: "Un error común es pensar que todas las imágenes que vemos a través de una lupa son invertidas. Sin embargo, si usamos una lente {caso[0]} como lupa (con el objeto dentro del foco), la imagen que vemos es de tipo ________."
 
 explicacion: |
   Las lentes divergentes solo producen imágenes virtuales (derechas), mientras que las convergentes pueden producir imágenes reales (invertidas) o virtuales (derechas) dependiendo de la posición del objeto.
@@ -790,9 +304,9 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso_optico"]
 
-respuesta: ["emisión", "refracción", "enfoque"]
+respuesta_orden: ["emisión", "refracción", "enfoque"]
 tipo: ordenar
-opciones_explicitas: ["emisión", "refracción", "enfoque", "reflexión"]
+opciones_explicitas: ["emisión", "refracción", "enfoque"]
 
 enunciado: "Ordena los pasos lógicos que ocurren cuando un objeto real es proyectado por una lente convergente sobre una pantalla:"
 
@@ -814,7 +328,7 @@ metadata:
 
 opciones_explicitas: ["Las lentes convergentes son más gruesas en el centro que en los bordes", "Las lentes divergentes son más gruesas en el centro que en los bordes", "Ambas tienen la misma forma"]
 
-respuesta: opciones_explicitas[0
+respuesta: "Las lentes convergentes son más gruesas en el centro que en los bordes"
 tipo: mc
 
 enunciado: "En términos de su geometría física, la principal distinción respecto a su espesor es que ___."
@@ -833,8 +347,8 @@ metadata:
 variables:
   tipo_lente: uno_de(["convergente", "divergente"])
 
-respuesta: tipo_lente == "convergente"
-tipo: completar
+respuesta: tipo_lente == "divergente"
+tipo: vf
 enunciado: "Si utilizamos una lente {tipo_lente}, los rayos de luz paralelos que inciden sobre ella se separan (divergen) tras el paso por la lente."
 
 explicacion: |
@@ -850,13 +364,15 @@ metadata:
 
 variables:
   escenario: uno_de([0, 1])
-
-respuesta: escenario_datos[escenario][1
-
-enunciado: "Considerando una lente {escenario_datos[escenario][0]}, la imagen formada por un objeto situado más allá del foco es ___."
-
-variables:
   escenario_datos: [["lente convergente", "real"], ["lente divergente", "virtual"]]
+
+respuesta: escenario_datos[escenario][1]
+tipo: completar
+respuestas_validas:
+  - "real"
+  - "virtual"
+
+enunciado: "Considerando una lente {escenario_datos[escenario][0]}, la imagen formada por un objeto situado más allá del foco es ________."
 
 explicacion: |
   Las lentes convergentes pueden formar imágenes reales (si el objeto está lejos) o virtuales (si está muy cerca). Las lentes divergentes siempre forman imágenes virtuales.
@@ -869,12 +385,11 @@ metadata:
   nivel: "intermedio"
   tags: ["foco", "signo"]
 
-opciones_explicitas: ["Positiva", "Negativa"]
-
-respuesta: opciones_explicitas[0
 tipo: mc
+opciones_explicitas: ["Positiva", "Negativa"]
+respuesta: "Positiva"
 
-enunciado: "En el convenio de signos de la óptica, la distancia focal de una lente convergente se representa con un valor ___."
+enunciado: "En el convenio de signos de la óptica, la distancia focal de una lente convergente es siempre ________."
 
 explicacion: |
   Por convención, las lentes convergentes tienen una distancia focal positiva ($f > 0$), mientras que las lentes divergentes tienen una distancia focal negativa ($f < 0$).
@@ -889,7 +404,7 @@ metadata:
 
 opciones_explicitas: ["Incidencia de rayos paralelos", "Refracción en la superficie de la lente", "Convergencia en el punto focal"]
 
-respuesta: ["Incidencia de rayos paralelos", "Refracción en la superficie de la lente", "Convergencia en el punto focal"]
+respuesta_orden: ["Incidencia de rayos paralelos", "Refracción en la superficie de la lente", "Convergencia en el punto focal"]
 tipo: ordenar
 
 enunciado: "Para que una lente convergente enfoque la luz en un punto, el proceso sigue este orden lógico:"
@@ -928,7 +443,8 @@ metadata:
 
 respuesta: "convergen"
 tipo: completar
-respuestas_validas: ["convergen", "divergen"]
+respuestas_validas:
+  - "convergen"
 
 enunciado: "Cuando los rayos de luz paralelos atraviesan una lente convergente, estos ___ en un punto llamado foco."
 
@@ -947,13 +463,13 @@ variables:
   caso: uno_de([[10, 20], [15, 30], [20, 40]])
   focal: caso[1]
 
-enunciado: "Si un objeto se coloca a una distancia de {caso[0]} cm de una lente convergente y la distancia focal es de {focal} cm, la imagen se formará en una posición que es ___ a la distancia del objeto."
+enunciado: "Un objeto se coloca a una distancia de {caso[0]} cm de una lente convergente cuya distancia focal es de {focal} cm (el objeto está dentro del foco, ya que {caso[0]} < {focal}). ¿La imagen formada será virtual y estará ubicada del mismo lado de la lente que el objeto?"
 
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
 explicacion: |
-  Si el objeto está entre el foco y la lente (distancia objeto < f), la imagen es virtual, derecha y aumenta su tamaño, pero la posición depende de la ecuación de Gauss. En este caso, la imagen es virtual.
+  Como el objeto está entre el foco y la lente (distancia objeto < f), la imagen es virtual, derecha, aumentada y se ubica del mismo lado de la lente que el objeto.
 ```
 
 ```
@@ -963,7 +479,7 @@ metadata:
   nivel: "intermedio"
   tags: ["proceso", "optica"]
 
-respuesta: ["Luz incidente", "Refracción en la lente", "Formación de la imagen"]
+respuesta_orden: ["Luz incidente", "Refracción en la lente", "Formación de la imagen"]
 tipo: ordenar
 
 opciones_explicitas: ["Luz incidente", "Refracción en la lente", "Formación de la imagen"]
@@ -982,8 +498,10 @@ metadata:
   tags: ["geometria", "lentes"]
 
 variables:
-  tipo_lente: uno_de(["convergente", "divergente"])
-  forma: uno_de(["más gruesa en el centro", "más delgada en el centro"])
+  idx: uno_de([0, 1])
+  pares: [["convergente", "más gruesa en el centro"], ["divergente", "más delgada en el centro"]]
+  tipo_lente: pares[idx][0]
+  forma: pares[idx][1]
 
 enunciado: "Una lente es de tipo {tipo_lente} si es {forma}."
 
@@ -1300,11 +818,7 @@ opciones_explicitas:
   - "Determinar si la fuerza es atractiva o repulsiva según el signo de las cargas"
   - "Convertir las cargas de microcoulombs a Coulombs (×10⁻⁶)"
   - "Aplicar F = k × q₁ × q₂ / r² con k=9×10⁹"
-respuesta_orden:
-  - "Convertir las cargas de microcoulombs a Coulombs (×10⁻⁶)"
-  - "Aplicar F = k × q₁ × q₂ / r² con k=9×10⁹"
-  - "Determinar si la fuerza es atractiva o repulsiva según el signo de las cargas"
-
+respuesta_orden: ["Convertir las cargas de microcoulombs a Coulombs (×10⁻⁶)", "Aplicar F = k × q₁ × q₂ / r² con k=9×10⁹", "Determinar si la fuerza es atractiva o repulsiva según el signo de las cargas"]
 explicacion: |
   El cálculo numérico y la dirección (atrae/repele) se resuelven por
   separado.
@@ -1487,7 +1001,9 @@ tipo: completar
 
 enunciado: "La magnitud física que mide la cantidad de carga eléctrica que fluye por unidad de tiempo a través de una sección de un conductor se denomina ___."
 
-respuestas_validas: ["intensidad_de_corriente", "corriente_electrica"]
+respuestas_validas:
+  - "intensidad_de_corriente"
+  - "corriente_electrica"
 
 explicacion: |
   La intensidad de corriente eléctrica ($I$) se define como el flujo de carga eléctrica por unidad de tiempo ($I = dQ/dt$).
@@ -1521,7 +1037,7 @@ variables:
   idx: uno_de([0, 1])
   datos: [["Voltaje", "Voltios"], ["Resistencia", "Ohmios"]]
 
-respuesta: datos[idx][1
+respuesta: datos[idx][1]
 tipo: mc
 opciones_explicitas: ["Voltios", "Amperios", "Ohmios", "Watts"]
 
@@ -1554,14 +1070,7 @@ metadata:
   nivel: "intermedio"
   tags: ["calculo", "despeje"]
 
-variables:
-  idx: uno_de([0, 1])
-  escenario: [
-    ["V = I * R", "I = V / R"],
-    ["I = V / R", "R = V / I"]
-  ]
-
-respuesta: escenario[idx][1
+respuesta: "R = V / I"
 tipo: mc
 opciones_explicitas: ["I = V / R", "R = V / I", "V = I / R", "R = I / V"]
 
@@ -1580,7 +1089,9 @@ metadata:
 
 respuesta: "V = I * R"
 tipo: completar
-respuestas_validas: ["V = I * R", "V = R * I"]
+respuestas_validas:
+  - "V = I * R"
+  - "V = R * I"
 
 enunciado: "La Ley de Ohm establece que la diferencia de potencial (V) es igual al producto de la intensidad de corriente (I) por la resistencia (R). La expresión matemática es: ___"
 
@@ -1596,22 +1107,18 @@ metadata:
   tags: ["calculo"]
 
 variables:
-  escenario: uno_de([
-    [2, 5, 10],
-    [12, 4, 30],
-    [5, 10, 50]
-  ])
+  escenario: uno_de([[2, 5, 10], [6, 5, 30], [5, 10, 50]])
 
-respuesta: escenario[0][2
+respuesta: escenario[2]
 tipo: mc
-opciones_explicitas: ["10V", "30V", "50V", "60V"]
+opciones_explicitas: [10, 30, 50, 60]
 
-enunciado: "Si una resistencia de {escenario[0][1]} Ω es atravesada por una corriente de {escenario[0][0]} A, ¿cuál es la diferencia de potencial aplicada?"
+enunciado: "Si una resistencia de {escenario[1]} Ω es atravesada por una corriente de {escenario[0]} A, ¿cuál es la diferencia de potencial aplicada (en voltios)?"
 
 pasos:
-  - "Identificar los datos: I = {escenario[0][0]} A, R = {escenario[0][1]} Ω"
+  - "Identificar los datos: I = {escenario[0]} A, R = {escenario[1]} Ω"
   - "Aplicar la fórmula: V = I * R"
-  - "Calcular: V = {escenario[0][0]} * {escenario[0][1]} = {escenario[0][2]} V"
+  - "Calcular: V = {escenario[0]} * {escenario[1]} = {escenario[2]} V"
 
 explicacion: |
   Usando la fórmula V = I * R, multiplicamos la corriente por la resistencia para obtener la tensión.
@@ -1625,22 +1132,18 @@ metadata:
   tags: ["calculo"]
 
 variables:
-  escenario: uno_de([
-    [12, 4],
-    [220, 110],
-    [10, 5]
-  ])
+  escenario: uno_de([[12, 4], [220, 110], [10, 5]])
 
-respuesta: escenario[0][0] / escenario[0][1]
+respuesta: escenario[0] / escenario[1]
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Una bombilla está conectada a una fuente de {escenario[0][0]} V y tiene una resistencia interna de {escenario[0][1]} Ω. ¿Cuál es la intensidad de la corriente que circula por ella (en Amperes)?"
+enunciado: "Una bombilla está conectada a una fuente de {escenario[0]} V y tiene una resistencia interna de {escenario[1]} Ω. ¿Cuál es la intensidad de la corriente que circula por ella (en Amperes)?"
 
 pasos:
   - "Despejar la fórmula de Ohm para la corriente: I = V / R"
-  - "Sustituir valores: I = {escenario[0][0]} / {escenario[0][1]}"
-  - "Resultado: I = {redondear(escenario[0][0] / escenario[0][1], 2)} A"
+  - "Sustituir valores: I = {escenario[0]} / {escenario[1]}"
+  - "Resultado: I = {escenario[0] / escenario[1]} A"
 
 explicacion: |
   Para hallar la corriente cuando conocemos la tensión y la resistencia, despejamos la fórmula original obteniendo I = V / R.
@@ -1670,22 +1173,18 @@ metadata:
   tags: ["calculo"]
 
 variables:
-  escenario: uno_de([
-    [10, 2, 5],
-    [24, 3, 8],
-    [100, 10, 10]
-  ])
+  escenario: uno_de([[10, 2, 5], [24, 3, 8], [100, 10, 10]])
 
-respuesta: escenario[0][1] / escenario[0][0]
+respuesta: escenario[2]
 tipo: mc
-opciones_explicitas: ["5 Ω", "8 Ω", "10 Ω", "20 Ω"]
+opciones_explicitas: [5, 8, 10, 20]
 
-enunciado: "Un dispositivo electrónico consume una corriente de {escenario[0][1]} A cuando se conecta a una batería de {escenario[0][0]} V. ¿Cuál es el valor de su resistencia?"
+enunciado: "Un dispositivo electrónico consume una corriente de {escenario[1]} A cuando se conecta a una batería de {escenario[0]} V. ¿Cuál es el valor de su resistencia (en ohmios)?"
 
 pasos:
-  - "Identificar datos: V = {escenario[0][0]} V, I = {escenario[0][1]} A"
+  - "Identificar datos: V = {escenario[0]} V, I = {escenario[1]} A"
   - "Despejar R de la fórmula V = I * R: R = V / I"
-  - "Calcular: R = {escenario[0][0]} / {escenario[0][1]} = {escenario[0][2]} Ω"
+  - "Calcular: R = {escenario[0]} / {escenario[1]} = {escenario[2]} Ω"
 
 explicacion: |
   Para encontrar la resistencia, dividimos la tensión aplicada entre la intensidad de la corriente que circula por el circuito.
@@ -1698,16 +1197,12 @@ metadata:
   nivel: "basico"
   tags: ["ley_de_ohm", "relaciones_proporcionales"]
 
-variables:
-  idx: uno_de([0, 1])
-  datos: [
-    [2.0, 5.0, 10.0], 
-    [12.0, 4.0, 3.0]
-  ]
-
-respuesta: datos[idx][2
+respuesta: "reducirse a la mitad"
 tipo: completar
-tolerancia_abs: 0.01
+respuestas_validas:
+  - "reducirse a la mitad"
+  - "disminuir a la mitad"
+  - "la mitad"
 
 enunciado: "Si mantenemos el voltaje constante y duplicamos la resistencia, la intensidad de corriente debe ___ para mantener la igualdad de la Ley de Ohm."
 
@@ -1731,10 +1226,10 @@ respuesta: "mA"
 tipo: mc
 opciones_explicitas: ["A", "mA", "kΩ", "V"]
 
-enunciado: "Un error común es no convertir las unidades antes de operar. Si tienes un voltaje de $5\text{ V}$ y una resistencia de $1\text{ k}\Omega$, el resultado de $I = V / R$ es $0.005\text{ A}$. ¿En qué unidad se expresa este valor si queremos evitar el uso de decimales muy pequeños?"
+enunciado: "Un error común es no convertir las unidades antes de operar. Si tienes un voltaje de 5 V y una resistencia de 1 kΩ, el resultado de I = V / R es 0.005 A. ¿En qué unidad se expresa este valor si queremos evitar el uso de decimales muy pequeños?"
 
 explicacion: |
-  Para evitar errores de escala, es común trabajar con múltiplos. $0.005\text{ A}$ es equivalente a $5\text{ mA}$ (miliamperios).
+  Para evitar errores de escala, es común trabajar con múltiplos. 0.005 A es equivalente a 5 mA (miliamperios).
 ```
 
 ```
@@ -1762,23 +1257,20 @@ metadata:
 
 variables:
   idx: uno_de([0, 1])
-  escenario: [
-    [12.0, 2.5],
-    [24.0, 4.0]
-  ]
+  escenario: [[24.0, 12.0, 2.0], [40.0, 8.0, 5.0]]
 
-respuesta: escenario[idx][1
+respuesta: escenario[idx][2]
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un circuito tiene una corriente de {escenario[idx][0]} A y una resistencia de {escenario[idx][1]} $\Omega$. ¿Cuál es el valor de la resistencia si el voltaje es {escenario[idx][0]} V?"
+enunciado: "Un circuito tiene un voltaje de {escenario[idx][0]} V y una corriente de {escenario[idx][1]} A. ¿Cuál es el valor de su resistencia (en $\\Omega$)?"
 
 pasos:
   - "Usar la fórmula despejada: $R = V / I$."
-  - "Sustituir los valores: $R = {escenario[idx][0]} / {escenario[idx][0]}$."
+  - "Sustituir los valores: $R = {escenario[idx][0]} / {escenario[idx][1]}$."
 
 explicacion: |
-  Utilizando $R = V / I$, dividimos el voltaje por la corriente para hallar la resistencia.
+  Utilizando $R = V / I$, dividimos el voltaje por la corriente para hallar la resistencia: $R = {escenario[idx][0]} / {escenario[idx][1]} = {escenario[idx][2]}$ Ω.
 ```
 
 ```
@@ -1788,7 +1280,7 @@ metadata:
   nivel: "basico"
   tags: ["despeje", "formula"]
 
-respuesta: ["V = I * R", "I = V / R", "R = V / I"]
+respuesta_orden: ["V = I * R", "I = V / R", "R = V / I"]
 tipo: ordenar
 
 opciones_explicitas: ["V = I * R", "I = V / R", "R = V / I"]
@@ -1847,9 +1339,9 @@ variables:
 tipo: completar
 tolerancia_abs: 0.01
 
-enunciado: "Un circuito tiene una diferencia de potencial de {escenario[0]} V y una corriente que circula por él es de {escenario[1]} A. ¿Cuál es el valor de la resistencia en Ohmios ($\Omega$)?"
+enunciado: "Un circuito tiene una diferencia de potencial de {escenario[0]} V y una corriente que circula por él es de {escenario[1]} A. ¿Cuál es el valor de la resistencia en Ohmios ($\\Omega$)?"
 
-respuesta: escenario[1
+respuesta: escenario[0] / escenario[1]
 
 explicacion: |
   Usando la fórmula $R = V / I$:
@@ -1867,7 +1359,9 @@ tipo: completar
 
 enunciado: "Mientras que el voltaje se mide en ___ y representa la diferencia de potencial, la intensidad de corriente se mide en ___ y representa el flujo de carga."
 
-respuestas_validas: ["Voltios", "Amperios"]
+respuestas_validas:
+  - "Voltios"
+  - "Amperios"
 
 respuesta: ["Voltios", "Amperios"]
 
@@ -1884,9 +1378,10 @@ metadata:
 
 tipo: completar
 
-enunciado: "Para despejar la intensidad de corriente (I) de la Ley de Ohm ($V = I \cdot R$), la operación matemática correcta es dividir el voltaje por la ___."
+enunciado: "Para despejar la intensidad de corriente (I) de la Ley de Ohm ($V = I \\cdot R$), la operación matemática correcta es dividir el voltaje por la ___."
 
-respuestas_validas: ["resistencia"]
+respuestas_validas:
+  - "resistencia"
 
 respuesta: "resistencia"
 
@@ -1909,7 +1404,10 @@ variables:
 
 respuesta: r
 tipo: completar
-respuestas_validas: ["60.0", "44.0", "24.0"]
+respuestas_validas:
+  - "60.0"
+  - "44.0"
+  - "24.0"
 
 enunciado: "Un dispositivo eléctrico se conecta a una fuente de tensión de {v} V y por él circula una corriente de {i} A. ¿Cuál es el valor de la resistencia del dispositivo?"
 
@@ -1926,19 +1424,20 @@ metadata:
   tags: ["corriente", "voltaje", "resistencia"]
 
 variables:
-  escenario: uno_de([[9.0, "0.2"], [12.0, "0.5"], [3.0, "1.0"]])
+  escenario: uno_de([[9.0, "0.2", "45.0"], [12.0, "0.5", "24.0"], [3.0, "1.0", "3.0"]])
   v: escenario[0]
   r: escenario[1]
+  i: escenario[2]
 
-respuesta: escenario[2
+respuesta: i
 tipo: mc
-opciones_explicitas: ["0.2", "0.5", "1.0"]
+opciones_explicitas: ["45.0", "24.0", "3.0"]
 
 enunciado: "Una linterna funciona con una batería de {v} V y tiene una resistencia interna de {r} Ω. ¿Qué intensidad de corriente circula por el circuito?"
 
 explicacion: |
   Usamos la fórmula I = V / R.
-  I = {v} / {r} = {escenario[2]} A.
+  I = {v} / {r} = {i} A.
 ```
 
 ```
@@ -1971,14 +1470,17 @@ metadata:
   tags: ["voltaje", "corriente", "resistencia"]
 
 variables:
-  escenario: uno_de([[5.0, "0.1"], [10.0, "2.0"], [12.0, "0.5"]])
-  v: escenario[0]
+  escenario: uno_de([[5.0, "0.1", "0.5"], [10.0, "2.0", "20.0"], [12.0, "0.5", "6.0"]])
+  r: escenario[0]
   i: escenario[1]
-  r: escenario[2]
+  v: escenario[2]
 
 respuesta: v
 tipo: completar
-respuestas_validas: ["5.0", "10.0", "12.0"]
+respuestas_validas:
+  - "0.5"
+  - "20.0"
+  - "6.0"
 
 enunciado: "Un componente electrónico tiene una resistencia de {r} Ω y es atravesado por una corriente de {i} A. ¿Qué voltaje se aplica a dicho componente?"
 
@@ -1994,9 +1496,9 @@ metadata:
   nivel: "intermedio"
   tags: ["procedimiento", "metodologia"]
 
-respuesta: ["Identificar datos", "Seleccionar fórmula", "Realizar cálculo"]
+respuesta_orden: ["Identificar datos", "Seleccionar fórmula", "Realizar cálculo"]
 tipo: ordenar
-opciones_explicitas: ["Identificar datos", "Seleccionar fórmula", "Realizar cálculo", "Verificar unidades"]
+opciones_explicitas: ["Identificar datos", "Seleccionar fórmula", "Realizar cálculo"]
 
 enunciado: "Ordena los pasos lógicos para resolver un problema de Ley de Ohm donde conoces la resistencia y la corriente para hallar el voltaje:"
 
@@ -2396,11 +1898,7 @@ opciones_explicitas:
   - "Si da cero, el objeto está en equilibrio (en reposo o a velocidad constante)"
   - "Sumar vectorialmente todas las fuerzas que actúan sobre el objeto"
   - "Verificar si esa suma (la fuerza neta) da cero"
-respuesta_orden:
-  - "Sumar vectorialmente todas las fuerzas que actúan sobre el objeto"
-  - "Verificar si esa suma (la fuerza neta) da cero"
-  - "Si da cero, el objeto está en equilibrio (en reposo o a velocidad constante)"
-
+respuesta_orden: ["Sumar vectorialmente todas las fuerzas que actúan sobre el objeto", "Verificar si esa suma (la fuerza neta) da cero", "Si da cero, el objeto está en equilibrio (en reposo o a velocidad constante)"]
 explicacion: |
   El equilibrio se define completamente por el resultado de la fuerza
   neta.
@@ -2488,3 +1986,530 @@ explicacion: |
   Es la base conceptual sobre la que se construyen la segunda y tercera
   ley.
 ```
+
+## Sección: leyes-de-newton/segunda-fma (26 preguntas)
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "basico"
+  tags: ["segunda_ley", "vocabulario"]
+
+enunciado: "¿Qué dice la segunda ley de Newton?"
+tipo: mc
+opciones_explicitas:
+  - "La aceleración de un objeto es directamente proporcional a la fuerza neta, e inversamente proporcional a su masa"
+  - "Todo objeto acelera siempre a la misma velocidad, sin importar la fuerza"
+  - "La masa de un objeto cambia según la fuerza que se le aplica"
+respuesta: "La aceleración de un objeto es directamente proporcional a la fuerza neta, e inversamente proporcional a su masa"
+
+explicacion: |
+  Es la relación F = m × a.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "intermedio"
+  tags: ["segunda_ley", "problema"]
+
+variables:
+  m: uno_de([2, 4, 5, 10])
+  a_real: uno_de([2, 3, 4, 5])
+
+respuesta: a_real
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una fuerza neta de {m * a_real} N actúa sobre un objeto de {m} kg. ¿Cuál es su aceleración?"
+
+pasos:
+  - "{m * a_real} ÷ {m} = {a_real} m/s²"
+
+explicacion: |
+  a = F / m.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "intermedio"
+  tags: ["segunda_ley", "problema"]
+
+variables:
+  m: uno_de([3, 6, 8, 12])
+  a: uno_de([2, 3, 4])
+
+respuesta: m * a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Qué fuerza neta hace falta para darle una aceleración de {a} m/s² a un objeto de {m} kg?"
+
+pasos:
+  - "{m} × {a} = {m * a} N"
+
+explicacion: |
+  F = m × a.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "intermedio"
+  tags: ["segunda_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A igual masa, aplicar más fuerza neta produce más aceleración."
+
+explicacion: |
+  Es la relación directamente proporcional entre fuerza y aceleración.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "intermedio"
+  tags: ["segunda_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A igual fuerza neta aplicada, un objeto con más masa acelera menos que uno con menos masa."
+
+explicacion: |
+  Es la relación inversamente proporcional entre masa y aceleración.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "avanzado"
+  tags: ["segunda_ley", "problema"]
+
+variables:
+  fuerza: uno_de([20, 40, 60])
+  masa1: uno_de([2, 4])
+  masa2: masa1 * 2
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La misma fuerza de {fuerza} N se aplica a dos objetos: uno de {masa1} kg y otro de {masa2} kg. ¿Acelera más el de {masa1} kg?"
+
+explicacion: |
+  Con menos masa, la misma fuerza produce más aceleración: {fuerza}/{masa1}
+  es mayor que {fuerza}/{masa2}.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "intermedio"
+  tags: ["newton_unidad", "completar"]
+
+tipo: completar
+enunciado: "Completá: 1 Newton es la fuerza necesaria para darle una aceleración de 1 m/s² a una masa de 1 ___."
+respuestas_validas:
+  - "kg"
+  - "kilogramo"
+
+explicacion: |
+  1 N = 1 kg × 1 m/s².
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "basico"
+  tags: ["newton_unidad", "vocabulario"]
+
+enunciado: "¿Cuál es la unidad de fuerza en el sistema internacional?"
+tipo: mc
+opciones_explicitas:
+  - "El Newton (N)"
+  - "El kilogramo (kg)"
+  - "El Joule (J)"
+respuesta: "El Newton (N)"
+
+explicacion: |
+  Se define directamente a partir de la segunda ley de Newton.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "intermedio"
+  tags: ["peso", "vocabulario"]
+
+enunciado: "¿Qué es el peso de un objeto, en términos de la segunda ley de Newton?"
+tipo: mc
+opciones_explicitas:
+  - "Un caso particular de F = m·a, donde la aceleración es la de la gravedad (g)"
+  - "Lo mismo que la masa, sólo que en otra unidad"
+  - "Una fuerza que no tiene relación con la segunda ley"
+respuesta: "Un caso particular de F = m·a, donde la aceleración es la de la gravedad (g)"
+
+explicacion: |
+  Peso = m × g.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "intermedio"
+  tags: ["peso", "problema"]
+
+variables:
+  m: uno_de([3, 5, 7, 8, 10, 12])
+
+respuesta: m * 10
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el peso de un objeto de {m} kg en la superficie terrestre? (usá g = 10 m/s²)"
+
+pasos:
+  - "{m} × 10 = {m * 10} N"
+
+explicacion: |
+  Peso = masa × g.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "intermedio"
+  tags: ["peso", "problema"]
+
+variables:
+  m_real: uno_de([4, 6, 9, 15])
+
+respuesta: m_real
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un objeto pesa {m_real * 10} N en la Tierra (g = 10 m/s²). ¿Cuál es su masa?"
+
+pasos:
+  - "{m_real * 10} ÷ 10 = {m_real} kg"
+
+explicacion: |
+  Se despeja la masa: masa = peso / g.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "intermedio"
+  tags: ["segunda_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Según F = m·a, si la fuerza neta sobre un objeto es cero, su aceleración también es cero."
+
+explicacion: |
+  Es la conexión directa con la primera ley: sin fuerza neta, no hay
+  cambio de velocidad.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "avanzado"
+  tags: ["segunda_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La primera ley de Newton (inercia) es, en el fondo, el caso particular de la segunda ley cuando la fuerza neta es exactamente cero."
+
+explicacion: |
+  Con F_neta = 0, la fórmula F=ma da a=0: velocidad constante, la propia
+  definición de inercia.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "avanzado"
+  tags: ["peso", "vocabulario"]
+
+enunciado: "La gravedad en la Luna es aproximadamente 1/6 de la gravedad terrestre. Un objeto de 60 kg, ¿qué le pasa a su PESO en la Luna, comparado con la Tierra?"
+tipo: mc
+opciones_explicitas:
+  - "Se reduce a aproximadamente 1/6 de su peso en la Tierra"
+  - "Se mantiene exactamente igual"
+  - "Su masa también se reduce a 1/6"
+respuesta: "Se reduce a aproximadamente 1/6 de su peso en la Tierra"
+
+explicacion: |
+  Peso = m × g: con g mucho menor, el peso baja proporcionalmente. La
+  masa (60 kg) no cambia en ningún lugar.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "avanzado"
+  tags: ["segunda_ley", "problema"]
+
+variables:
+  m: uno_de([800, 1000, 1200])
+  a: uno_de([2, 3, 4])
+
+respuesta: m * a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un auto de {m} kg frena con una desaceleración de {a} m/s². ¿Cuál es la magnitud de la fuerza neta (de frenado) que actúa sobre él?"
+
+pasos:
+  - "{m} × {a} = {m * a} N"
+
+explicacion: |
+  El cálculo es el mismo, aunque la aceleración esté frenando el auto
+  en vez de acelerarlo.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "avanzado"
+  tags: ["segunda_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "F = m·a describe DOS proporcionalidades a la vez: directa entre fuerza y aceleración, e inversa entre masa y aceleración."
+
+explicacion: |
+  Es la forma más completa de leer la segunda ley.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "avanzado"
+  tags: ["segunda_ley", "problema"]
+
+variables:
+  m: uno_de([4, 5, 10])
+  a: uno_de([2, 3])
+
+respuesta: a * 2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una fuerza de {m * a} N le da a un objeto de {m} kg una aceleración de {a} m/s². Si se DUPLICA la fuerza (manteniendo la misma masa), ¿cuál es la nueva aceleración?"
+
+pasos:
+  - "{m * a * 2} ÷ {m} = {a * 2} m/s²"
+
+explicacion: |
+  Al duplicar la fuerza con la misma masa, la aceleración también se
+  duplica (proporcionalidad directa).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "avanzado"
+  tags: ["segunda_ley", "problema"]
+
+variables:
+  m: uno_de([4, 6, 10])
+  a: uno_de([2, 4, 6])
+
+respuesta: a / 2
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una fuerza de {m * a} N le da a un objeto de {m} kg una aceleración de {a} m/s². Si se DUPLICA la masa (manteniendo la misma fuerza), ¿cuál es la nueva aceleración?"
+
+pasos:
+  - "{m * a} ÷ {m * 2} = {a / 2} m/s²"
+
+explicacion: |
+  Al duplicar la masa con la misma fuerza, la aceleración se reduce a
+  la mitad (proporcionalidad inversa).
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "intermedio"
+  tags: ["segunda_ley", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular la aceleración de un objeto, conociendo la fuerza neta y la masa."
+tipo: ordenar
+opciones_explicitas:
+  - "Dividir la fuerza neta por la masa"
+  - "Identificar la fuerza neta que actúa sobre el objeto"
+  - "Identificar la masa del objeto"
+respuesta_orden: ["Identificar la fuerza neta que actúa sobre el objeto", "Identificar la masa del objeto", "Dividir la fuerza neta por la masa"]
+explicacion: |
+  a = F_neta / m.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "avanzado"
+  tags: ["segunda_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En F = m·a, la masa m es la masa total del objeto que está siendo acelerado."
+
+explicacion: |
+  Es un dato fijo del objeto, no algo que varíe según la fuerza
+  aplicada.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "basico"
+  tags: ["peso", "problema"]
+
+respuesta: 5
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el peso de un objeto de 0,5 kg en la Tierra? (usá g = 10 m/s²)"
+
+pasos:
+  - "0,5 × 10 = 5 N"
+
+explicacion: |
+  Mismo cálculo, con una masa menor a 1 kg.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "avanzado"
+  tags: ["segunda_ley", "vocabulario"]
+
+enunciado: "¿Para qué sirve, en la práctica, poder calcular la aceleración con F = m·a?"
+tipo: mc
+opciones_explicitas:
+  - "Para predecir cómo se va a mover un objeto, conociendo sólo la fuerza neta y su masa"
+  - "Sólo sirve para calcular la masa de objetos ya conocidos"
+  - "No tiene ninguna aplicación práctica real"
+respuesta: "Para predecir cómo se va a mover un objeto, conociendo sólo la fuerza neta y su masa"
+
+explicacion: |
+  Es la fórmula central de la dinámica.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "avanzado"
+  tags: ["peso", "problema"]
+
+variables:
+  m: uno_de([20, 40, 60])
+  g_marte: 4
+
+respuesta: m * g_marte
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La gravedad en Marte es aproximadamente 4 m/s². ¿Cuál sería el peso de un objeto de {m} kg en Marte?"
+
+pasos:
+  - "{m} × 4 = {m * g_marte} N"
+
+explicacion: |
+  Mismo cálculo que en la Tierra, sólo que con la gravedad de Marte en
+  vez de 10 m/s².
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "intermedio"
+  tags: ["segunda_ley"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La segunda ley de Newton, F = m·a, sólo tiene sentido para objetos que tienen masa."
+
+explicacion: |
+  Es un principio de la mecánica clásica, pensado para objetos con
+  masa.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "avanzado"
+  tags: ["segunda_ley", "problema"]
+
+variables:
+  m: uno_de([5, 10])
+  f1: uno_de([20, 30])
+  f2: f1 * 2
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sobre un objeto de {m} kg actúan, en dos situaciones distintas, fuerzas de {f1} N y de {f2} N. ¿Es la aceleración en la segunda situación el doble que en la primera?"
+
+explicacion: |
+  Con la misma masa, duplicar la fuerza duplica la aceleración.
+```
+
+```
+metadata:
+  materia: "fisica"
+  tema: "segunda_ley_newton_fma"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve la segunda ley de Newton?"
+tipo: mc
+opciones_explicitas:
+  - "Para calcular cuánto acelera un objeto dado la fuerza neta y su masa, incluyendo el caso particular del peso"
+  - "Sólo sirve para calcular masas en el laboratorio"
+  - "Sólo aplica a objetos en reposo"
+respuesta: "Para calcular cuánto acelera un objeto dado la fuerza neta y su masa, incluyendo el caso particular del peso"
+
+explicacion: |
+  Es la fórmula que cuantifica lo que la primera ley sólo describía en
+  palabras.
+```
+
