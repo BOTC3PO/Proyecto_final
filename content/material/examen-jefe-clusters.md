@@ -23,6 +23,26 @@ solo nodo fantasma cuando en realidad ya son 9 temas reales (atomizados en
 otra sesión) — pasó de 15 a 17 clusters. Historia profunda sumó 26 preguntas
 que sus 109 temas ya tenían pero el agregado viejo no había recogido.
 
+**Aviso importante (2026-09-22, no ocultar)**: "migrada" no es lo mismo que
+"realmente reordenada por conocimientos previos" — depende de cuánto
+`dependencias.md` documenta. Cobertura real (temas con fila propia en la
+tabla / temas reales de la materia):
+
+| Cobertura | Materias |
+|---|---|
+| **Alta (87-100%)**, el reordenamiento es real | Historia (100%), Química (100%), Matemática (99%), Lengua (99%), Geografía (98%), Biología (97%), Cívica (87%) |
+| **Media (54-78%)**, parcialmente real | Economía (78%), Historia profunda (54%) |
+| **Baja (≤35%)**, sigue siendo mayormente alfabético por falta de datos, no por el algoritmo | Arte (60%), Física (35%), Informática (29%), Investigación (25%), **Derecho (5%, 1 de 21 temas documentados)** |
+
+Para las de cobertura baja, el algoritmo hizo lo correcto con lo que tenía
+(orden topológico válido, 0 violaciones), pero la mayoría de sus temas no
+tiene prerrequisito documentado, así que terminan en el mismo lugar que les
+tocaría alfabéticamente — no es un bug de `gen_examen_jefe_prereq_clusters.py`,
+es que sus `dependencias.md` están incompletos (Derecho en particular:
+prácticamente vacío). Mismo tratamiento pendiente que las 8 materias sin
+`dependencias.md` de arriba: para que el rediseño las beneficie de verdad,
+hace falta completar esa documentación primero.
+
 ## Matemática (161 temas, 32 clusters)
 
 - **Cluster 1** (5): asintotas, concavidad-y-puntos-de-inflexion, conjuntos-pertenencia-e-inclusion, conteo, divisibilidad/regla-del-7-opcional
