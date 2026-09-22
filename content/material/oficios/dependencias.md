@@ -309,6 +309,25 @@ camino desbloqueado.
 | `herrero-forjador/tecnicas-herreria/` | `herramientas-herreria/` | Sección 5. |
 | `herrero-forjador/diagnostico-forja-por-casos/` | `tecnicas-herreria/` | Sección 6, cierre. |
 
+## Cocina / Gastronomía (`OF19`)
+
+Ruta A (técnica y teoría, evaluable) del diseño de
+`../oficios-orientacion-vocacional-PLANIFICACION.md`. Mismo piso que
+`../panadero/` (`OF14`) — escalar receta (`E8`) y temperatura/equilibrio
+térmico (`TER1`) — pero destino laboral distinto (cocinero vs. panadero,
+oficios reales separados en la práctica). La Ruta B (recetas, entrega
+práctica) no usa este patrón `teoria.md`/`cuestionario.md` — queda fuera
+de esta tabla.
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `cocina-gastronomia/fundamentos-cocina/` | `../../vida-cotidiana/escalar-una-receta/`, `../../fisica/temperatura-equilibrio-termico/` | Sección 1. Escalado de receta por comensales (ficha técnica) y temperatura de cocción/servicio — comparte piso con `../panadero/fundamentos-panaderia/`. |
+| `cocina-gastronomia/seguridad-e-higiene-cocina/` | `fundamentos-cocina/` | Sección 2. Manipulación de alimentos, cadena de frío, alérgenos, HACCP básico — comparte base con `../procesador-de-alimentos/seguridad-e-higiene-procesamiento-alimentos/`, aplicada a cocina de restaurante en vez de industria alimentaria. |
+| `cocina-gastronomia/tecnicas-de-coccion/` | `seguridad-e-higiene-cocina/` | Sección 3. Mise en place, métodos de cocción húmeda/seca/combinada, puntos de cocción. |
+| `cocina-gastronomia/materia-prima-cocina/` | `tecnicas-de-coccion/` | Sección 4. Cortes de verdura y de carne, técnicas de conservación, productos de temporada. |
+| `cocina-gastronomia/calculo-cocina/` | `materia-prima-cocina/` | Sección 5. Escalado de receta por comensales, rendimiento y merma, costeo de plato (food cost). |
+| `cocina-gastronomia/diagnostico-cocina-por-casos/` | `calculo-cocina/` | Sección 6, cierre — única sección con `cuestionario.md` (salsa cortada, guiso soso, carne dura). |
+
 ## Relojero (`OF27`)
 
 | Tema (carpeta) | Depende de | Por qué |
