@@ -1,0 +1,122 @@
+[
+ {
+  "id": 796,
+  "materia": "Geografía",
+  "cluster": 1,
+  "temas": [
+   "america-anglosajona",
+   "coordenadas-y-husos-horarios",
+   "densidad-poblacion",
+   "escala-de-mapa",
+   "huella-de-carbono-agua-virtual"
+  ],
+  "nombre": "Maestro de Coordenadas y Huella Ecológica",
+  "descripcion": "Completaste el parcial dominando husos horarios, escala de mapa, densidad de población y huella de carbono.",
+  "icono": "🌍"
+ },
+ {
+  "id": 797,
+  "materia": "Geografía",
+  "cluster": 2,
+  "temas": [
+   "orientacion-puntos-cardinales",
+   "urbanizacion-migracion-ciudad",
+   "mapa-plano-escala",
+   "coordenadas-geograficas",
+   "division-politica"
+  ],
+  "nombre": "Maestro de la Orientación y la Urbanización",
+  "descripcion": "Dominaste los puntos cardinales, las coordenadas geográficas, la urbanización y la división política, jefe.",
+  "icono": "🧭"
+ },
+ {
+  "id": 798,
+  "materia": "Geografía",
+  "cluster": 3,
+  "temas": [
+   "sig-mapas-digitales",
+   "estados-y-globalizacion",
+   "region",
+   "sig-gps",
+   "relieve-clima-biomas"
+  ],
+  "nombre": "Maestro de los SIG y el Relieve",
+  "descripcion": "Completaste el examen integrando mapas digitales, GPS, relieve, clima y biomas, además de estados y globalización.",
+  "icono": "🛰️"
+ },
+ {
+  "id": 799,
+  "materia": "Geografía",
+  "cluster": 4,
+  "temas": [
+   "sig-imagenes-satelitales",
+   "recursos-actividades-economicas",
+   "regiones-naturales-de-argentina",
+   "geografia-economica-agricola-argentina",
+   "geografia-industrial-mundial"
+  ],
+  "nombre": "Maestro de la Geografía Económica Argentina",
+  "descripcion": "Dominaste las imágenes satelitales, las regiones naturales y la geografía agrícola e industrial de Argentina.",
+  "icono": "🌾"
+ },
+ {
+  "id": 800,
+  "materia": "Geografía",
+  "cluster": 5,
+  "temas": [
+   "mineria-e-hidrocarburos-en-argentina",
+   "america-latina-industria-y-energia",
+   "poblacion-piramides-migraciones",
+   "produccion-agraria-mundial-y-biotecnologia",
+   "ambiente-y-recursos"
+  ],
+  "nombre": "Maestro de la Energía y la Población",
+  "descripcion": "Completaste el parcial sobre minería e hidrocarburos, industria y energía latinoamericana, y pirámides de población.",
+  "icono": "⛏️"
+ },
+ {
+  "id": 801,
+  "materia": "Geografía",
+  "cluster": 6,
+  "temas": [
+   "america-latina-formacion-poblacion",
+   "ambientalismo-liberal",
+   "conservacionismo",
+   "decrecimiento",
+   "ecologismo-politico"
+  ],
+  "nombre": "Maestro del Ambientalismo Latinoamericano",
+  "descripcion": "Integraste la formación de la población de América Latina con el conservacionismo, el decrecimiento y el ecologismo político.",
+  "icono": "🌱"
+ },
+ {
+  "id": 802,
+  "materia": "Geografía",
+  "cluster": 7,
+  "temas": [
+   "indicadores-sociales-de-argentina",
+   "migraciones-internacionales",
+   "indice-de-desarrollo-humano",
+   "migraciones-internas-en-argentina",
+   "paises-de-america-latina"
+  ],
+  "nombre": "Maestro de Indicadores Sociales y Migraciones",
+  "descripcion": "Completaste el examen jefe sobre el IDH, las migraciones internas e internacionales y los países de América Latina.",
+  "icono": "📊"
+ },
+ {
+  "id": 803,
+  "materia": "Geografía",
+  "cluster": 8,
+  "temas": [
+   "recursos-hidricos-y-gestion",
+   "riesgos-naturales-argentinos",
+   "trabajo-y-desempleo-mundial",
+   "riesgos-ambientales-mundiales",
+   "turismo-mundial"
+  ],
+  "nombre": "Maestro de Riesgos y Recursos Globales",
+  "descripcion": "Dominaste la gestión de recursos hídricos, los riesgos naturales y ambientales, el desempleo mundial y el turismo, jefe.",
+  "icono": "🌊"
+ }
+]

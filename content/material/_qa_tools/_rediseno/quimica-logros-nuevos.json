@@ -1,0 +1,124 @@
+[
+ {
+  "id": 841,
+  "materia": "Química",
+  "cluster": 1,
+  "temas": [
+   "atomo-particulas-subatomicas",
+   "balanceo-ecuaciones",
+   "biomoleculas-glucidos-lipidos-proteinas",
+   "carbono-tetravalencia-cadenas",
+   "cinetica-reaccion"
+  ],
+  "nombre": "Maestro del Átomo y las Biomoléculas",
+  "descripcion": "Dominaste las partículas subatómicas, el balanceo de ecuaciones, las biomoléculas y la cinética de reacción.",
+  "icono": "⚛️"
+ },
+ {
+  "id": 842,
+  "materia": "Química",
+  "cluster": 2,
+  "temas": [
+   "concentracion-de-una-solucion",
+   "configuracion-electronica",
+   "densidad",
+   "dilucion-soluciones",
+   "electrolisis"
+  ],
+  "nombre": "Maestro de Soluciones y Electrólisis",
+  "descripcion": "Completaste el parcial dominando la concentración y dilución de soluciones, la configuración electrónica y la electrólisis.",
+  "icono": "🧪"
+ },
+ {
+  "id": 843,
+  "materia": "Química",
+  "cluster": 3,
+  "temas": [
+   "energia-libre-gibbs",
+   "enlace-quimico-polaridad",
+   "equilibrio-quimico-kc",
+   "equilibrio-solubilidad-ksp",
+   "estados-y-cambios"
+  ],
+  "nombre": "Maestro del Equilibrio y la Energía Libre",
+  "descripcion": "Integraste la energía libre de Gibbs, la polaridad de enlaces y los equilibrios Kc y Ksp, jefe.",
+  "icono": "⚖️"
+ },
+ {
+  "id": 844,
+  "materia": "Química",
+  "cluster": 4,
+  "temas": [
+   "estequiometria",
+   "gases-ideales",
+   "geometria-molecular-vsepr",
+   "grupos-funcionales",
+   "hidrocarburos-alcanos-alquenos-alquinos"
+  ],
+  "nombre": "Maestro de la Estequiometría y los Hidrocarburos",
+  "descripcion": "Completaste el examen sobre estequiometría, gases ideales, geometría molecular VSEPR e hidrocarburos.",
+  "icono": "⛽"
+ },
+ {
+  "id": 845,
+  "materia": "Química",
+  "cluster": 5,
+  "temas": [
+   "medicion-de-laboratorio",
+   "mezclas-metodos-separacion",
+   "modelos-atomicos",
+   "mol-masa-molar",
+   "nanotecnologia"
+  ],
+  "nombre": "Maestro de la Medición y los Modelos Atómicos",
+  "descripcion": "Dominaste la medición de laboratorio, los métodos de separación de mezclas, los modelos atómicos y el mol.",
+  "icono": "🔬"
+ },
+ {
+  "id": 846,
+  "materia": "Química",
+  "cluster": 6,
+  "temas": [
+   "nomenclatura-compuestos",
+   "numero-atomico-masico",
+   "oxidacion-reduccion",
+   "petroleo-como-recurso-energetico",
+   "ph-poh"
+  ],
+  "nombre": "Maestro de la Nomenclatura y el Redox",
+  "descripcion": "Completaste el parcial integrando nomenclatura química, número atómico y másico, oxidación-reducción y pH/pOH.",
+  "icono": "🧫"
+ },
+ {
+  "id": 847,
+  "materia": "Química",
+  "cluster": 7,
+  "temas": [
+   "pilas-celdas-galvanicas",
+   "polimeros-naturales-sinteticos",
+   "presiones-parciales",
+   "propiedades-coligativas",
+   "quimica-analitica"
+  ],
+  "nombre": "Maestro de las Celdas Galvánicas y los Polímeros",
+  "descripcion": "Dominaste las pilas galvánicas, los polímeros naturales y sintéticos, las presiones parciales y las propiedades coligativas, jefe.",
+  "icono": "🔋"
+ },
+ {
+  "id": 848,
+  "materia": "Química",
+  "cluster": 8,
+  "temas": [
+   "quimica-de-la-atmosfera",
+   "reactivo-limitante-rendimiento",
+   "seguridad-laboratorio",
+   "superconductividad",
+   "tabla-periodica-tendencias",
+   "termoquimica",
+   "tipos-reacciones-quimicas"
+  ],
+  "nombre": "Maestro de la Tabla Periódica y la Termoquímica",
+  "descripcion": "Completaste el examen jefe sobre tendencias periódicas, termoquímica, tipos de reacciones y reactivo limitante.",
+  "icono": "🧯"
+ }
+]
