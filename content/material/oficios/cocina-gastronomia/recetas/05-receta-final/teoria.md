@@ -27,6 +27,11 @@ Las dos recetas siguientes son las del equipo, no reescritas ni
 gusto interno a cebolla: ahora la cebolla se dora en sartén con aceite
 y se deja enfriar antes de mezclarla con la carne.
 
+**Nivel:** E (especial, cierre de la ruta) · **Dificultad:** 3,5 de 5. Cada parte es
+accesible (cebolla dorada, medallón, masa con harina con levadura); lo exigente es coordinar tres
+procesos y dejar el medallón completamente frío antes del armado. Escala y criterios en
+`../catalogo-recetas/PLAN-progresion.md`.
+
 ## Medallones de hamburguesa
 
 Ingredientes:

@@ -63,6 +63,35 @@ dado en Ruta A y no la repite. Son 12 fichas, no recetas.
 Orden dentro de la ruta: Nivel 0 → fichas y recetas básicas → intermedias → avanzadas →
 especiales. La teoría y la técnica de cada bloque nunca van después de sus recetas.
 
+### Dificultad (1 a 5), aparte del nivel
+
+El **nivel** es el lugar de la receta en la ruta; la **dificultad** es cuánta habilidad y riesgo
+exige. No siempre coinciden: una especial puede ser fácil de hacer y una avanzada, muy exigente.
+Cada receta lleva un número de 1 a 5 (se permiten medios puntos) que sale de estos cuatro
+factores, a juicio de quien la escribe y con la escala de abajo como guía:
+
+1. **Técnicas distintas** que hay que dominar a la vez.
+2. **Procesos en secuencia o en paralelo** que hay que coordinar (y cuánto se arruina si uno se atrasa).
+3. **Margen de error**: qué tan sensible es a tiempo, temperatura o punto.
+4. **Riesgo**: seguridad alimentaria (carne cruda, cocción interna), quemaduras, equipo especial.
+
+| Dificultad | Cómo se siente | Ejemplos de anclaje |
+|---:|---|---|
+| 1 | Una técnica, casi no se puede arruinar | huevo duro, arroz blanco, vinagreta |
+| 2 | Una técnica con un punto a cuidar | bechamel, omelette, masa de pan simple |
+| 3 | Dos técnicas combinadas o un punto exigente | holandesa, pastas rellenas, bizcochuelo |
+| 4 | Varias preparaciones, tiempos ajustados, poco margen | demi-glacé, laminados, cocciones largas |
+| 5 | Muchas partes coordinadas con errores costosos | menús completos, piezas de pastelería de varias capas |
+
+Rangos esperables por nivel (orientativos, se puede salir con una nota que lo explique):
+**B** 1 a 2, **I** 2 a 3, **A** 3 a 5. **E** no tiene rango: lo especial se define por ser
+particular o poco convencional, no por ser lo más difícil. La receta final (medallón en pan
+brioche relleno) es **3,5**: cada parte es accesible, lo exigente es coordinar tres procesos y
+dejar el medallón completamente frío antes del armado.
+
+La dificultad sirve para ordenar dentro de un mismo nivel (de menor a mayor) y para que la
+persona sepa qué esperar. No afecta nada fuera del texto: la plataforma no evalúa la práctica.
+
 ## 4. Reparto de las 150 recetas por nivel
 
 | Categoría | B | I | A | E | Total |
@@ -104,7 +133,7 @@ Todo lo demás de la ruta tiene que poder hacerse antes sin haber visto las espe
 
 Mismas reglas del catálogo (sin alcohol por los menores; fermentación y maceración solo como
 teoría) y una ficha fija:
-- Nivel, categoría, tiempo, rinde.
+- Nivel, **dificultad (1 a 5)**, categoría, tiempo, rinde.
 - Ingredientes en **gramos** (y la proporción clave en %, por ejemplo sal como % del peso de la harina).
 - Pasos numerados con **temperatura y punto** (qué tiene que verse, no solo cuánto tiempo).
 - **Lista de cotejo** de 3 a 5 ítems observables (color, textura, punto, aspecto) para que la
