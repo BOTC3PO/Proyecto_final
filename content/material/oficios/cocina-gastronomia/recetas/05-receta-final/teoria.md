@@ -7,13 +7,6 @@
 > evaluar ni recibir evidencia) — **no hay cuestionario para este
 > tema**, a propósito (ver planificación y
 > `../catalogo-recetas/PLAN-progresion.md`).
->
-> **Aviso (2026-10-03): receta del medallón desactualizada.** El equipo
-> actualizó la receta de los devs para reducir el gusto interno a
-> cebolla. El texto de abajo es la versión anterior (2 cebollas chicas
-> o 1 mediana picadas dentro de la carne); falta reemplazarlo cuando
-> llegue la receta nueva. No tomar las cantidades de cebolla como
-> definitivas.
 
 ## Por qué esta receta es el cierre de la cadena, no una receta aislada
 
@@ -29,8 +22,10 @@ esos cuatro pasos significa poder copiar la lista de instrucciones,
 pero no poder corregir nada si algo sale distinto a lo esperado (masa
 que no leva, que se rompe al estirar, que queda cruda por dentro).
 
-Las dos recetas siguientes están copiadas tal cual las escribió
-Javier — no reescritas ni "mejoradas".
+Las dos recetas siguientes son las del equipo, no reescritas ni
+"mejoradas". El medallón se actualizó el 2026-10-03 para reducir el
+gusto interno a cebolla: ahora la cebolla se dora en sartén con aceite
+y se deja enfriar antes de mezclarla con la carne.
 
 ## Medallones de hamburguesa
 
@@ -38,19 +33,22 @@ Ingredientes:
 - Carne picada especial 82%
 - Mostaza
 - 2 cebollas chicas (o 1 mediana)
+- Aceite (lo necesario para dorar la cebolla)
 - Pan rallado (aglutinante)
 - Sal
 - Provenzal
 
 Preparación:
-1. En un recipiente, mezclar la carne picada con la cebolla picada
-   fina, mostaza a gusto, sal entre 1% y 1.5% del peso de la carne (en
+1. Cocinar la cebolla picada fina en una sartén con aceite hasta que
+   se dore y dejar enfriar.
+2. En un recipiente, mezclar la carne picada con la cebolla ya dorada
+   y fría, mostaza a gusto, sal entre 1% y 1.5% del peso de la carne (en
    este ejemplo, para 1kg de carne: 10g a 15g), pan rallado entre 30g y
    50g, y provenzal a gusto.
-2. Pesar y dividir en bollos de aproximadamente 80g.
-3. Cocinar los medallones a la plancha o sartén, retirando/desgrasando
+3. Pesar y dividir en bollos de aproximadamente 80g.
+4. Cocinar los medallones a la plancha o sartén, retirando/desgrasando
    bien durante la cocción.
-4. Retirar del fuego y dejar enfriar completamente antes del armado
+5. Retirar del fuego y dejar enfriar completamente antes del armado
    (para no transmitir calor a la masa cruda).
 
 Enlaces: Picada Especial - Los Prados.

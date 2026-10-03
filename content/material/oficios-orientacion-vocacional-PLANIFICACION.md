@@ -1038,19 +1038,22 @@ Ingredientes:
 - Carne picada especial 82%
 - Mostaza
 - 2 cebollas chicas (o 1 mediana)
+- Aceite (lo necesario para dorar la cebolla)
 - Pan rallado (aglutinante)
 - Sal
 - Provenzal
 
 Preparación:
-1. En un recipiente, mezclar la carne picada con la cebolla picada
-   fina, mostaza a gusto, sal entre 1% y 1.5% del peso de la carne (en
+1. Cocinar la cebolla picada fina en una sartén con aceite hasta que
+   se dore y dejar enfriar.
+2. En un recipiente, mezclar la carne picada con la cebolla ya dorada
+   y fría, mostaza a gusto, sal entre 1% y 1.5% del peso de la carne (en
    este ejemplo, para 1kg de carne: 10g a 15g), pan rallado entre 30g y
    50g, y provenzal a gusto.
-2. Pesar y dividir en bollos de aproximadamente 80g.
-3. Cocinar los medallones a la plancha o sartén, retirando/desgrasando
+3. Pesar y dividir en bollos de aproximadamente 80g.
+4. Cocinar los medallones a la plancha o sartén, retirando/desgrasando
    bien durante la cocción.
-4. Retirar del fuego y dejar enfriar completamente antes del armado
+5. Retirar del fuego y dejar enfriar completamente antes del armado
    (para no transmitir calor a la masa cruda).
 
 Enlaces: Picada Especial - Los Prados.

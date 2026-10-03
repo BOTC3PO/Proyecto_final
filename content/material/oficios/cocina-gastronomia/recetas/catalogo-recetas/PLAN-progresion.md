@@ -98,13 +98,7 @@ Una receta entra a E solo si cumple una de estas tres:
 El último lugar de E (y de toda la ruta) es el medallón en pan brioche relleno.
 Todo lo demás de la ruta tiene que poder hacerse antes sin haber visto las especiales.
 
-**Receta final con actualización pendiente (2026-10-03):** la receta de los devs (medallón de
-hamburguesa) fue actualizada por el equipo para **reducir el gusto interno a cebolla**. Hoy el
-repo todavía tiene la versión anterior (2 cebollas chicas o 1 mediana picadas dentro de la carne,
-en `../05-receta-final/teoria.md`). No se tocaron las cantidades porque falta la receta nueva:
-cuando llegue, se reemplaza en `../05-receta-final/`, en este catálogo y en
-`oficios-orientacion-vocacional-PLANIFICACION.md`. Mientras tanto, `../05-receta-final/` lleva
-un aviso de que esa parte está desactualizada.
+**Receta final actualizada (2026-10-03):** el equipo cambió el medallón de hamburguesa para reducir el gusto interno a cebolla: la cebolla se cocina en sartén con aceite hasta que se dore y se deja enfriar antes de mezclarla con la carne. Ya está aplicado en `../05-receta-final/` y en `oficios-orientacion-vocacional-PLANIFICACION.md`. La cantidad de aceite no se especificó (figura "lo necesario").
 
 ## 6. Ficha de cada receta
 
@@ -134,6 +128,5 @@ teoría) y una ficha fija:
 ## 8. Pendiente de decidir
 
 - Si el reparto 43 / 49 / 35 / 23 queda así.
-- La receta actualizada de los devs (sin cebolla fuerte): hace falta el texto nuevo.
 - Quién carga las demás especiales del equipo y cuándo.
 - Si se baja el Recetario Federal para extraer las 40 regionales (necesita descarga manual).
