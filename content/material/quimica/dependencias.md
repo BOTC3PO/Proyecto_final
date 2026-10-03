@@ -65,10 +65,10 @@ pendiente".
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
 | `nanotecnologia/` | `./geometria-molecular-vsepr/` | Nodo `QNANO` (`QG2 --> QNANO`). Misma estructura molecular a escala nanométrica. |
-| `superconductividad/` | `./pilas-y-celdas-galvanicas/` | Nodo `QSUPERCOND` (`QX --> QSUPERCOND`). Nodo más cercano de conductividad eléctrica ya existente. |
+| `superconductividad/` | `./pilas-celdas-galvanicas/` | Nodo `QSUPERCOND` (`QX --> QSUPERCOND`). Nodo más cercano de conductividad eléctrica ya existente. |
 | `petroleo-como-recurso-energetico/` | `./carbono-tetravalencia-cadenas/` | Nodo `QPETROLEO` (`QR --> QPETROLEO`). Distinto del ángulo molecular de los hidrocarburos y del territorial de `../geografia/mineria-e-hidrocarburos-en-argentina/`. |
-| `quimica-analitica/` | `./acido-base-ph/` | Nodo `QANALIT` (`QN --> QANALIT`). Titulación, espectroscopía, cromatografía. |
-| `quimica-de-la-atmosfera/` | `./acido-base-ph/`, `../fisica/presion-atmosferica/` | Nodo `QATMOS` (`QN --> QATMOS`, `MET1P --> QATMOS`). Ozono, lluvia ácida, esmog — distinto del cambio climático genérico. |
+| `quimica-analitica/` | `./ph-poh/` | Nodo `QANALIT` (`QN --> QANALIT`). Titulación, espectroscopía, cromatografía. |
+| `quimica-de-la-atmosfera/` | `./ph-poh/`, `../fisica/presion-atmosferica/` | Nodo `QATMOS` (`QN --> QATMOS`, `MET1P --> QATMOS`). Ozono, lluvia ácida, esmog — distinto del cambio climático genérico. |
 
 **Nota sobre nodos legacy duplicados**: 4 temas de esta lista ya estaban
 construidos con IDs de nodo *distintos* (creados antes de que existiera

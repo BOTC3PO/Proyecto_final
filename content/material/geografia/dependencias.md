@@ -67,4 +67,5 @@ que se revise a mano.
 | `america-latina-formacion-poblacion/` | `poblacion-piramides-migraciones/` | Nodo `GAM1` (`G8 --> GAM1`). Primero de 4 nodos del bloque América (expandido de 1 a 4 porque la fuente, Gambuzzi/López, está organizada así). |
 | `america-latina-industria-y-energia/` | `geografia-industrial-mundial/` | Nodo `GAM2` (`GM4 --> GAM2`). |
 | `paises-de-america-latina/` | `america-latina-formacion-poblacion/` | Nodo `GAM3` (`GAM1 --> GAM3`). México/Centroamérica/Caribe/Paraguay — casos concretos, distinto de la Argentina ya cubierta aparte. |
-| `america-anglosajona-poblamiento-territorio/` | `poblacion-piramides-migraciones/` | Nodo `GAM4` (`G8 --> GAM4`). |
+| `america-anglosajona/` | `poblacion-piramides-migraciones/` | Nodo `GAM4` (`G8 --> GAM4`). Antes figuraba como `america-anglosajona-poblamiento-territorio/` (nombre viejo de la carpeta). |
+| `urbanizacion-migracion-ciudad/` | `../historia-profunda/revolucion-industrial/`, `poblacion-piramides-migraciones/` | Nodo `G11` de `troncos.md` (`H24 --> G11`, `H24` = Revolución industrial, Historia profunda). `poblacion-piramides-migraciones/` como prerrequisito local *deducido acá, no está en el MAPA*: su `teoria.md` trata la migración rural-urbana, que presupone los conceptos de población y migración de ese tema (mismo patrón que `migraciones-internas-en-argentina/`). |
