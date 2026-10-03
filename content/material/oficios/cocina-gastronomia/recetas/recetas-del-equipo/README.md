@@ -34,11 +34,13 @@ aclara está marcado en "Todavía sin aclarar" más abajo, sin completarlo.*
 - Zanahoria: 1
 - Cebolla: 1 (pueden ser 2, según el contexto)
 - Levadura: 1 cubo (de 50 g; puede pesar menos)
-- Sal: 20 g
+- Sal: 20 g en la masa, y en la salsa a gusto, entre 5 y 7 g
 - Aceite: 40 g para la masa, más el necesario para freír las cebollas y untar el molde
 - Miel: media cucharada
 - Agua tibia: 100 g (con la levadura) + 500 g (en la masa)
-- Paprika, provenzal y condimento para pizza: a gusto (un poco)
+- Paprika: media cucharada
+- Provenzal: 1 o 2 cucharadas
+- Condimento para pizza: 1 cucharada
 - Ajo: opcional
 - Queso fresco o mozzarella: para terminar
 
@@ -52,7 +54,10 @@ original del equipo).
    y 500 g de agua tibia.
 3. Amasar todo hasta tener un bollo liso. Si se pasó de agua, se puede agregar harina, o usar el
    cornet para ayudarse a levantar la masa y golpearla contra la mesa para activarla.
-4. Al terminar el amasado, dejar reposar la masa entre 1 hora y 48 horas.
+4. Al terminar el amasado, dejar reposar la masa entre 1 hora y 48 horas, a temperatura ambiente.
+   El tiempo depende de la temperatura: con mucho calor, 24 horas ya dan la fermentación
+   necesaria; a 40 grados bastan unas 3 horas (la masa triplica su volumen en ese tiempo y ya se
+   puede cocinar); con mucho frío hay que esperar más.
 
 ### Salsa (mientras reposa la masa o cuando termina el tiempo)
 
@@ -60,8 +65,8 @@ original del equipo).
 2. Mientras se fríen, en una batidora procesar el tomate y la zanahoria hasta que se forme un
    líquido y no queden piezas grandes.
 3. Cuando las cebollas estén cocidas, agregar la mezcla de tomate y zanahoria y, mientras se
-   revuelve, sumar paprika, un poco de sal, provenzal y condimento para pizza. Si se quiere, se
-   puede agregar ajo.
+   revuelve, sumar la paprika, la sal (a gusto, entre 5 y 7 g), el provenzal y el condimento
+   para pizza en las cantidades de la lista de ingredientes. Si se quiere, se puede agregar ajo.
 4. Cuando la salsa esté lista, dejarla enfriar un poco.
 
 ### Armado y horneado
@@ -92,12 +97,15 @@ original del equipo).
 - **Horno**: cualquier temperatura dentro de 180 a 250 grados; a 250 tarda menos, a 180 tarda
   más y permite calcular mejor el tostado y sacarlo antes (solo importa si es para vender).
 
+- **Condimentos**: paprika media cucharada, provenzal 1 o 2 cucharadas, condimento para pizza
+  1 cucharada; sal de la salsa a gusto, entre 5 y 7 g.
+- **Reposo**: a temperatura ambiente, y el tiempo depende del clima. Con mucho calor, 24 horas ya
+  alcanzan; a 40 grados, unas 3 horas (la masa triplica su volumen y se puede cocinar); con mucho
+  frío, más tiempo.
+
 ### Todavía sin aclarar
 
-- **Reposo de hasta 48 h**: ¿es a temperatura ambiente o en heladera? Con un cubo de 50 g sobre
-  1 kg de harina (5 %), un reposo largo fuera de la heladera sería mucha fermentación.
-- **Cantidades de paprika, provenzal, condimento para pizza, sal de la salsa y queso**: figuran
-  como "un poco" o sin cantidad.
+- **Cantidad de queso** (fresco o mozzarella) para terminar: figura sin dato.
 
 Datos que calculé yo, no del equipo: las dos aguas suman 600 g sobre 1 kg de harina (hidratación
-cercana al 60 %), la sal es el 2 % de la harina y la levadura de 50 g es el 5 %.
+cercana al 60 %), la sal de la masa es el 2 % de la harina y la levadura de 50 g es el 5 %.
