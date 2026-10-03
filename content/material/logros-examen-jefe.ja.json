@@ -1,157 +1,5 @@
 [
   {
-    "id": 183,
-    "materia": "Ingeniería",
-    "cluster": 1,
-    "temas": [
-      "comunicar-la-solucion",
-      "disciplinas-de-la-ingenieria",
-      "diseno-conceptual",
-      "ensayo-y-medicion",
-      "investigar-soluciones-existentes"
-    ],
-    "nombre": "デザインとコミュニケーションの達人",
-    "descripcion": "概念設計、調査、ソリューションの伝達を統合して中間試験を完了しました。",
-    "icono": "📐"
-  },
-  {
-    "id": 184,
-    "materia": "Ingeniería",
-    "cluster": 2,
-    "temas": [
-      "modelado-y-calculo",
-      "modelizacion-matematica",
-      "optimizacion-e-iteracion",
-      "problema-y-restricciones",
-      "prototipo",
-      "resistencia-de-materiales"
-    ],
-    "nombre": "モデリングと最適化",
-    "descripcion": "数学的モデリング、最適化、材料強度をエンジニアリングの視点で統合して中間試験を解決しました。",
-    "icono": "📐"
-  },
-  {
-    "id": 206,
-    "materia": "Dibujo Técnico",
-    "cluster": 1,
-    "temas": [
-      "acotacion-normalizada",
-      "escalas-numericas-y-graficas",
-      "perspectivas-isometrica-y-caballera",
-      "sistemas-de-proyeccion",
-      "vistas-frontal-superior-lateral"
-    ],
-    "nombre": "図法と縮尺の支配者",
-    "descripcion": "投影法、縮尺、遠近法に関する試験を完了しました。",
-    "icono": "📐"
-  },
-  {
-    "id": 207,
-    "materia": "Psicología",
-    "cluster": 1,
-    "temas": [
-      "autoconocimiento-como-busqueda-humana",
-      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
-      "dependencia-del-otro-cultura-como-herencia",
-      "edades-del-ser-humano-ninez-pubertad-identidad",
-      "lenguaje-pensamiento-y-creatividad"
-    ],
-    "nombre": "心の探求者",
-    "descripcion": "心理的潮流、人間発達、自己理解の構築に関する試験を完了しました。",
-    "icono": "🧠"
-  },
-  {
-    "id": 208,
-    "materia": "Psicología",
-    "cluster": 2,
-    "temas": [
-      "memoria-y-olvido-represion-inconsciente",
-      "psicologia-cognitiva-percepcion-memoria-atencion",
-      "psicologia-modernidad-y-el-yo",
-      "salud-mental-ansiedad-depresion-pedir-ayuda",
-      "sesgos-cognitivos-heuristicas-error-sistematico"
-    ],
-    "nombre": "心の達人",
-    "descripcion": "記憶、バイアス、メンタルヘルスに関する総合試験をクリアしました、ボス。",
-    "icono": "🧠"
-  },
-  {
-    "id": 209,
-    "materia": "Comunicación",
-    "cluster": 1,
-    "temas": [
-      "corrientes-de-la-comunicacion",
-      "etica-y-responsabilidad-de-los-medios",
-      "generos-periodisticos",
-      "publicidad-y-persuasion",
-      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido"
-    ],
-    "nombre": "潮流とジャンルの支配者",
-    "descripcion": "潮流、倫理、広告、コミュニケーション理論に関する試験を完了しました。",
-    "icono": "📰"
-  },
-  {
-    "id": 210,
-    "materia": "Electrónica",
-    "cluster": 1,
-    "temas": [
-      "circuitos-y-leyes-de-kirchhoff",
-      "componentes-resistencia-capacitor-diodo-transistor",
-      "logica-digital-puertas-and-or-not",
-      "microcontroladores-y-microprocesadores",
-      "sensores-y-actuadores"
-    ],
-    "nombre": "回路と論理の達人",
-    "descripcion": "キルヒホッフの法則からマイクロコントローラのプログラミングまでを完璧に扱った試験を完了しました。",
-    "icono": "🔧"
-  },
-  {
-    "id": 211,
-    "materia": "Ciencia de Materiales",
-    "cluster": 1,
-    "temas": [
-      "corrosion",
-      "elasticidad-ley-de-hooke-modulo-de-young",
-      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
-      "fatiga-y-fractura",
-      "plasticidad-y-punto-de-fluencia",
-      "propiedades-mecanicas-dureza-tenacidad-ductilidad"
-    ],
-    "nombre": "機械的性質の達人",
-    "descripcion": "腐食、弾性、疲労、材料特性に関する中間試験をクリアしました、ボス。",
-    "icono": "🛡️"
-  },
-  {
-    "id": 212,
-    "materia": "Automatización",
-    "cluster": 1,
-    "temas": [
-      "control-pid-proporcional-integral-derivativo",
-      "lazo-abierto-vs-lazo-cerrado",
-      "plc-logica-de-control-industrial",
-      "realimentacion-feedback",
-      "servomecanismos"
-    ],
-    "nombre": "PIDとPLCの達人",
-    "descripcion": "サーボ機構、産業用ロジック、マスターループ制御の基礎をマスターしました。",
-    "icono": "🤖"
-  },
-  {
-    "id": 213,
-    "materia": "UX/Diseño",
-    "cluster": 1,
-    "temas": [
-      "accesibilidad-wcag-contraste-lectores-de-pantalla",
-      "jerarquia-visual-e-informacion",
-      "prototipado-wireframe-mockup-prototipo-interactivo",
-      "pruebas-de-usuario",
-      "usabilidad-heuristicas-de-nielsen"
-    ],
-    "nombre": "ユーザビリティとアクセシビリティの達人",
-    "descripcion": "WCAG、ニールセンのヒューリスティック、プロトタイピングを習得したマスター試験を完了しました。",
-    "icono": "👁️"
-  },
-  {
     "id": 601,
     "materia": "Matemática",
     "cluster": 1,
@@ -638,14 +486,14 @@
     "cluster": 1,
     "temas": [
       "conciencia-fonologica",
-      "escritura-como-tecnologia",
-      "decodificacion-y-fluidez",
       "ortografia-y-tildacion",
+      "decodificacion-y-fluidez",
+      "signos-de-puntuacion",
       "circuito-de-la-comunicacion"
     ],
-    "nombre": "読み書きの基礎の達人",
-    "descripcion": "音韻認識、デコーディングと読みの流暢さ、正書法とアクセント記号、コミュニケーション回路を完璧に習得しました。",
-    "icono": "🔤📖"
+    "nombre": "正書法と初期読解マスター",
+    "descripcion": "音韻意識、デコーディングと流暢さ、正書法とアクセント記号、句読点、コミュニケーションの回路を習得して、中間試験を完了しました。",
+    "icono": "✍️"
   },
   {
     "id": 652,
@@ -653,14 +501,14 @@
     "cluster": 2,
     "temas": [
       "comprension-idea-principal",
-      "signos-de-puntuacion",
+      "escritura-como-tecnologia",
       "tecnicas-de-estudio-resumen-y-organizadores-graficos",
       "tipos-textuales",
       "variedades-de-la-lengua"
     ],
-    "nombre": "読解の達人",
-    "descripcion": "中心的なアイデア、句読点、テキストの種類、言語のバリエーションを完璧に習得して中間試験を完了しました、ボス。",
-    "icono": "🧩📚"
+    "nombre": "読解力と文章類型の専門家",
+    "descripcion": "主題の把握、文章の種類、言語の変種、技術としての書くこと、要約や図解整理などの学習技法を習得しました、ボス。",
+    "icono": "📖"
   },
   {
     "id": 653,
@@ -862,180 +710,180 @@
     "materia": "Historia profunda",
     "cluster": 1,
     "temas": [
-      "absolutismo-europeo",
-      "agujeros-negros",
-      "ampliacion-democratica-ley-saenz-pena",
-      "antigua-grecia",
-      "antigua-roma"
+      "escalas-de-tiempo-profundo",
+      "origen-del-universo",
+      "formacion-de-estrellas",
+      "galaxias-tipos-escala",
+      "nucleosintesis"
     ],
-    "nombre": "ギリシャ・ローマから絶対主義へ",
-    "descripcion": "古代ギリシャ、古代ローマ、ヨーロッパの絶対主義を完璧に習得し、ブラックホールにも立ち寄って中間試験を完了しました。",
-    "icono": "🏛️"
+    "nombre": "宇宙の起源の達人",
+    "descripcion": "ディープタイムのスケール、宇宙の起源、元素合成、恒星の形成、銀河の種類を習得して、中間試験を完了しました。",
+    "icono": "🌌"
   },
   {
     "id": 682,
     "materia": "Historia profunda",
     "cluster": 2,
     "temas": [
-      "antiguo-egipto",
-      "atmosfera-primitiva",
-      "baja-edad-media-y-crisis",
-      "caida-de-roma-y-alta-edad-media",
-      "cambio-climatico-linea-base-historica"
+      "corrimiento-al-rojo-expansion-universo",
+      "agujeros-negros",
+      "formacion-del-sistema-solar",
+      "ley-de-hubble",
+      "movimiento-rotacion-traslacion"
     ],
-    "nombre": "エジプトと中世の危機",
-    "descripcion": "古代エジプト、ローマの崩壊、中世盛期、中世後期の危機に関する試験を完了しました、ボス。",
-    "icono": "🏺"
+    "nombre": "宇宙膨張マスター",
+    "descripcion": "ハッブルの法則、赤方偏移、ブラックホール、太陽系の形成、自転と公転の運動についての中間試験に合格しました、ボス。",
+    "icono": "🔭"
   },
   {
     "id": 683,
     "materia": "Historia profunda",
     "cluster": 3,
     "temas": [
-      "china-antigua",
-      "ciclo-de-las-rocas",
-      "ciencia-revolucion-cientifica",
-      "cinco-extinciones-masivas",
-      "civilizaciones-antiguas"
+      "materia-energia-oscura",
+      "estaciones-del-ano",
+      "fases-lunares",
+      "movimiento-aparente-constelaciones",
+      "eclipses-sol-luna"
     ],
-    "nombre": "科学と古代文明",
-    "descripcion": "古代中国、古代文明、5大量絶滅、科学革命を同じ中間試験で完璧に習得しました。",
-    "icono": "🔬🏺"
+    "nombre": "空と暗黒宇宙の専門家",
+    "descripcion": "暗黒物質と暗黒エネルギー、そして観測可能な空（季節、月の満ち欠け、食、星座の見かけの動き）を習得しました。",
+    "icono": "🌙"
   },
   {
     "id": 684,
     "materia": "Historia profunda",
     "cluster": 4,
     "temas": [
-      "civilizaciones-de-america-precolombinas",
-      "conquista-colonizacion-america",
-      "conquista-tierra-firme",
-      "conquista-y-colonia-argentina",
-      "corrimiento-al-rojo-expansion-universo"
+      "tabla-periodica-nivel2-cosmologico",
+      "tierra-primitiva-diferenciacion",
+      "atmosfera-primitiva",
+      "minerales-estructura-cristalina",
+      "origen-de-la-vida"
     ],
-    "nombre": "先コロンブス期アメリカから宇宙へ",
-    "descripcion": "先コロンブス期の文明とアメリカ征服から、赤方偏移と宇宙の膨張までをカバーする試験を完了しました。",
-    "icono": "🌎"
+    "nombre": "原始地球の達人",
+    "descripcion": "原始地球とその分化、原始大気、鉱物、宇宙論的な周期表、生命の起源を習得して、中間試験を完了しました。",
+    "icono": "🌋"
   },
   {
     "id": 685,
     "materia": "Historia profunda",
     "cluster": 5,
     "temas": [
-      "datacion-radiometrica",
-      "descolonizacion-de-africa-y-asia",
-      "distribucion-biomas",
-      "division-del-trabajo",
-      "eclipses-sol-luna"
+      "rocas-igneas-sedimentarias-metamorficas",
+      "procariotas",
+      "tiempo-geologico-eones-eras-periodos",
+      "gran-oxidacion",
+      "datacion-radiometrica"
     ],
-    "nombre": "年代測定、バイオーム、非植民地化",
-    "descripcion": "放射年代測定、アフリカとアジアの非植民地化、バイオームの分布、日食と月食を統合して中間試験に合格しました。",
-    "icono": "⏳🌍"
+    "nombre": "地質時代の専門家",
+    "descripcion": "累代・代・紀、放射年代測定、岩石の種類、原核生物、大酸化イベントを習得しました、ボス。",
+    "icono": "🪨"
   },
   {
     "id": 686,
     "materia": "Historia profunda",
     "cluster": 6,
     "temas": [
-      "edad-media-feudalismo",
-      "edad-media-plena",
-      "electrificacion-fabrica-hogar",
-      "entreguerras-y-crisis-de-1929",
-      "escalas-de-tiempo-profundo"
+      "eucariotas",
+      "fotosintesis-cambio-atmosfera-nivel2",
+      "multicelularidad",
+      "tectonica-placas-deriva-continental",
+      "explosion-cambrica"
     ],
-    "nombre": "封建制から29年の危機へ",
-    "descripcion": "中世封建制、工場と家庭の電化、1929年の危機を通り抜け、大きな変革を完璧に習得しました、ボス。",
-    "icono": "🏰"
+    "nombre": "複雑な生命マスター",
+    "descripcion": "真核生物、光合成と大気の変化、多細胞化、カンブリア爆発、プレートテクトニクスについての中間試験に合格しました。",
+    "icono": "🦠"
   },
   {
     "id": 687,
     "materia": "Historia profunda",
     "cluster": 7,
     "temas": [
-      "escritura-primeras-ciudades",
-      "estaciones-del-ano",
-      "estados-nacionales",
-      "eucariotas",
-      "expansion-del-imperio-romano"
+      "ciclo-de-las-rocas",
+      "conquista-tierra-firme",
+      "distribucion-biomas",
+      "cinco-extinciones-masivas",
+      "paleoclima-glaciaciones"
     ],
-    "nombre": "文字からローマ帝国へ",
-    "descripcion": "文字と最初の都市、国民国家、ローマ帝国の拡大に関する総合試験を完了しました。",
-    "icono": "📜🏛️"
+    "nombre": "大量絶滅と古気候の達人",
+    "descripcion": "陸上への進出、5回の大量絶滅、古気候と氷河期、岩石の循環、バイオームの分布を習得して、中間試験を完了しました。",
+    "icono": "🦖"
   },
   {
     "id": 688,
     "materia": "Historia profunda",
     "cluster": 8,
     "temas": [
-      "explosion-cambrica",
-      "fases-lunares",
-      "formacion-de-estrellas",
-      "formacion-del-sistema-solar",
-      "fotosintesis-cambio-atmosfera-nivel2"
+      "radiacion-mamiferos",
+      "cambio-climatico-linea-base-historica",
+      "hominizacion",
+      "relieve-sismos-volcanes",
+      "paleolitico"
     ],
-    "nombre": "恒星、光合成、カンブリア紀",
-    "descripcion": "恒星と太陽系の形成、月の満ち欠け、光合成、カンブリア爆発を完璧に習得しました。",
-    "icono": "⭐🧬"
+    "nombre": "哺乳類と人類の起源の専門家",
+    "descripcion": "哺乳類の適応放散、ヒト化と旧石器時代、そして地震や火山を伴う地形と気候変動の基準線を習得しました、ボス。",
+    "icono": "🦴"
   },
   {
     "id": 689,
     "materia": "Historia profunda",
     "cluster": 9,
     "temas": [
-      "galaxias-tipos-escala",
-      "globalizacion-era-digital",
-      "golpes-de-estado-interrupciones",
-      "gran-oxidacion",
-      "guerra-de-malvinas"
+      "seleccion-natural-evidencias-nivel2",
+      "herramientas-arte-rupestre",
+      "poblamiento-planeta-america",
+      "revolucion-neolitica",
+      "sedentarizacion-excedente"
     ],
-    "nombre": "銀河、クーデター、マルビナス戦争",
-    "descripcion": "銀河、大酸化イベント、クーデター、マルビナス戦争に関する中間試験を完了しました、ボス。",
-    "icono": "🌌🎖️"
+    "nombre": "新石器革命マスター",
+    "descripcion": "自然選択、道具と洞窟壁画、アメリカ大陸への入植、新石器革命、余剰を伴う定住化を習得して、中間試験を完了しました。",
+    "icono": "🌾"
   },
   {
     "id": 690,
     "materia": "Historia profunda",
     "cluster": 10,
     "temas": [
-      "guerra-fria-descolonizacion",
-      "guerras-civiles-unitarios-federales",
-      "guerras-de-independencia-argentina",
-      "guerras-mundiales",
-      "herramientas-arte-rupestre"
+      "division-del-trabajo",
+      "metalurgia-cobre-hierro",
+      "propiedad-jerarquia-estado",
+      "escritura-primeras-ciudades",
+      "antigua-grecia"
     ],
-    "nombre": "独立から冷戦へ",
-    "descripcion": "アルゼンチン独立戦争、中央集権派と連邦派の内戦、世界大戦、冷戦に関する試験を完了しました。",
-    "icono": "⚔️"
+    "nombre": "最初の国家の達人",
+    "descripcion": "分業、冶金、所有と国家に至る階層、文字と最初の都市、古代ギリシャについての中間試験に合格しました。",
+    "icono": "🏺"
   },
   {
     "id": 691,
     "materia": "Historia profunda",
     "cluster": 11,
     "temas": [
-      "historia-contemporanea-de-africa",
-      "historia-contemporanea-de-asia-y-pacifico",
-      "historia-contemporanea-de-medio-oriente",
-      "historia-reciente-argentina",
-      "hominizacion"
+      "antigua-roma",
+      "antiguo-egipto",
+      "china-antigua",
+      "civilizaciones-de-america-precolombinas",
+      "india-antigua"
     ],
-    "nombre": "世界の現代史",
-    "descripcion": "アフリカ、アジア、太平洋の現代史、中東、現代アルゼンチンを統合して中間試験に合格しました。",
-    "icono": "🌍"
+    "nombre": "古代の大文明の専門家",
+    "descripcion": "ローマ、エジプト、中国、インド、そしてアメリカ大陸のコロンブス以前の文明を習得しました、ボス。",
+    "icono": "🏛️"
   },
   {
     "id": 692,
     "materia": "Historia profunda",
     "cluster": 12,
     "temas": [
-      "huella-humana-en-el-clima-inicio",
-      "ilustracion",
-      "imperialismo",
-      "imperio-bizantino",
+      "mesopotamia",
+      "pueblos-originarios-territorio-argentino",
+      "civilizaciones-antiguas",
+      "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
-    "nombre": "ヘレニズムから帝国主義へ",
-    "descripcion": "アレクサンダー大王のヘレニズム帝国、ビザンツ帝国、啓蒙思想、帝国主義に関する試験を完了しました。",
-    "icono": "🏺🌐"
+    "nombre": "古代世界の帝国マスター",
+    "descripcion": "メソポタミア、アレクサンドロス大王とヘレニズム、ローマ帝国の拡大、現在のアルゼンチン領土の先住民族についての中間試験を完了しました。",
+    "icono": "⚔️"
   },
   {
     "id": 693,
@@ -1045,165 +893,165 @@
       "imperio-han-china",
       "imperio-persa",
       "imperios-expansion",
-      "imprenta",
-      "india-antigua"
+      "caida-de-roma-y-alta-edad-media",
+      "edad-media-feudalismo"
     ],
-    "nombre": "古代帝国と活版印刷",
-    "descripcion": "ペルシア帝国、中国の漢帝国、古代インド、活版印刷の到来を完璧に習得しました、ボス。",
-    "icono": "👑📖"
+    "nombre": "帝国と封建制の達人",
+    "descripcion": "漢帝国とペルシャ帝国、帝国の拡大、ローマの滅亡と中世前期、そして封建制を習得しました、ボス。",
+    "icono": "🏰"
   },
   {
     "id": 694,
     "materia": "Historia profunda",
     "cluster": 14,
     "temas": [
-      "internet-redes-globalizacion-digital",
+      "imperio-bizantino",
       "islam-y-expansion-arabe",
-      "ley-de-hubble",
-      "materia-energia-oscura",
-      "mesopotamia"
+      "edad-media-plena",
+      "baja-edad-media-y-crisis",
+      "renacimiento-y-reforma"
     ],
-    "nombre": "メソポタミアからインターネットへ",
-    "descripcion": "メソポタミアとイスラムから、インターネットとデジタルグローバル化まで、ハッブルの法則にも立ち寄る復習を完了しました。",
-    "icono": "🕌💻"
+    "nombre": "中世とルネサンスの専門家",
+    "descripcion": "ビザンツ帝国、イスラームとそのアラブの拡大、中世盛期、中世後期の危機、宗教改革を伴うルネサンスについての中間試験に合格しました。",
+    "icono": "📜"
   },
   {
     "id": 695,
     "materia": "Historia profunda",
     "cluster": 15,
     "temas": [
-      "metalurgia-cobre-hierro",
-      "minerales-estructura-cristalina",
-      "modelo-agroexportador-inmigracion",
-      "modernidad-imprenta-navegacion-ciencia",
-      "movimiento-aparente-constelaciones"
+      "ciencia-revolucion-cientifica",
+      "imprenta",
+      "navegacion",
+      "conquista-colonizacion-america",
+      "modernidad-imprenta-navegacion-ciencia"
     ],
-    "nombre": "冶金、鉱物、近代性",
-    "descripcion": "銅と鉄の冶金、鉱物、農産物輸出モデル、印刷術と航海術の近代に関する総合試験を完了しました。",
-    "icono": "⚒️🔭"
+    "nombre": "近代と征服マスター",
+    "descripcion": "科学革命、印刷術、航海術、そしてアメリカ大陸の征服と植民地化を習得して、中間試験を完了しました。",
+    "icono": "⛵"
   },
   {
     "id": 696,
     "materia": "Historia profunda",
     "cluster": 16,
     "temas": [
-      "movimiento-rotacion-traslacion",
-      "multicelularidad",
-      "navegacion",
-      "nucleosintesis",
-      "organizacion-nacional-constitucion-1853"
+      "absolutismo-europeo",
+      "conquista-y-colonia-argentina",
+      "ilustracion",
+      "virreinato-y-comercio",
+      "revolucion-industrial"
     ],
-    "nombre": "宇宙と1853年憲法",
-    "descripcion": "地球の自転と公転、核合成から1853年の国家組織化まで、完璧な習得を証明しました、ボス。",
-    "icono": "🌐📜"
+    "nombre": "絶対主義と啓蒙の達人",
+    "descripcion": "ヨーロッパの絶対主義、啓蒙思想、産業革命、アルゼンチンの征服と植民地時代、副王領とその交易を習得しました、ボス。",
+    "icono": "👑"
   },
   {
     "id": 697,
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "origen-de-la-vida",
-      "origen-del-universo",
-      "paleoclima-glaciaciones",
-      "paleolitico",
-      "peronismo-derechos-sociales"
+      "revolucion-de-mayo",
+      "electrificacion-fabrica-hogar",
+      "guerras-de-independencia-argentina",
+      "huella-humana-en-el-clima-inicio",
+      "guerras-civiles-unitarios-federales"
     ],
-    "nombre": "ビッグバンからペロン主義へ",
-    "descripcion": "宇宙と生命の起源から旧石器時代とペロン主義まで網羅するこの総合試験を完了しました。",
-    "icono": "💥🗳️"
+    "nombre": "アルゼンチン独立の専門家",
+    "descripcion": "五月革命、独立戦争、ウニタリオとフェデラルの内戦、さらに電化と気候への人類の痕跡の始まりについての中間試験に合格しました。",
+    "icono": "🇦🇷"
   },
   {
     "id": 698,
     "materia": "Historia profunda",
     "cluster": 18,
     "temas": [
-      "poblamiento-planeta-america",
-      "primera-guerra-mundial-y-revolucion-rusa",
-      "procariotas",
-      "propiedad-jerarquia-estado",
-      "pueblos-originarios-territorio-argentino"
+      "revoluciones-burguesas-liberalismo",
+      "organizacion-nacional-constitucion-1853",
+      "estados-nacionales",
+      "modelo-agroexportador-inmigracion",
+      "imperialismo"
     ],
-    "nombre": "原核生物からロシア革命へ",
-    "descripcion": "原核生物、アメリカ大陸への人類の定住、先住民族、第一次世界大戦とロシア革命に関する試験を完了しました。",
-    "icono": "🧫🚩"
+    "nombre": "自由主義と国民秩序マスター",
+    "descripcion": "ブルジョア革命と自由主義、国民国家、帝国主義、1853年憲法、移民を伴う農牧輸出モデルを習得して、中間試験を完了しました。",
+    "icono": "📈"
   },
   {
     "id": 699,
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "radiacion-mamiferos",
-      "recuperacion-democratica-memoria",
-      "relieve-sismos-volcanes",
-      "renacimiento-y-reforma",
-      "revolucion-de-mayo"
+      "ampliacion-democratica-ley-saenz-pena",
+      "sociedad-de-masas-y-democracia-liberal",
+      "primera-guerra-mundial-y-revolucion-rusa",
+      "entreguerras-y-crisis-de-1929",
+      "golpes-de-estado-interrupciones"
     ],
-    "nombre": "ルネサンスから民主主義の回復へ",
-    "descripcion": "ルネサンスと宗教改革、五月革命、民主主義の回復と記憶を完璧に習得して中間試験を完了しました、ボス。",
-    "icono": "🎨🕊️"
+    "nombre": "20世紀初頭の達人",
+    "descripcion": "大衆社会と自由民主主義、第一次世界大戦とロシア革命、戦間期と1929年の恐慌、サエンス・ペーニャ法とクーデターを習得しました、ボス。",
+    "icono": "📰"
   },
   {
     "id": 700,
     "materia": "Historia profunda",
     "cluster": 20,
     "temas": [
-      "revolucion-industrial",
-      "revolucion-neolitica",
-      "revoluciones-burguesas-liberalismo",
-      "rocas-igneas-sedimentarias-metamorficas",
-      "sedentarizacion-excedente"
+      "segunda-guerra-mundial",
+      "peronismo-derechos-sociales",
+      "descolonizacion-de-africa-y-asia",
+      "guerras-mundiales",
+      "guerra-fria-descolonizacion"
     ],
-    "nombre": "新石器革命から産業革命へ",
-    "descripcion": "新石器革命、定住化と余剰生産物から、産業革命とブルジョワ革命までを通り抜けました。",
-    "icono": "🌾🏭"
+    "nombre": "戦争と冷戦の専門家",
+    "descripcion": "世界大戦、第二次世界大戦、冷戦、アフリカとアジアの脱植民地化、社会的権利を伴うペロン主義についての中間試験に合格しました。",
+    "icono": "🕊️"
   },
   {
     "id": 701,
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "segunda-guerra-mundial",
-      "seleccion-natural-evidencias-nivel2",
-      "sociedad-de-masas-y-democracia-liberal",
-      "tabla-periodica-nivel2-cosmologico",
-      "tectonica-placas-deriva-continental",
       "terrorismo-de-estado-argentina",
-      "tiempo-geologico-eones-eras-periodos",
-      "tierra-primitiva-diferenciacion",
-      "virreinato-y-comercio"
+      "historia-contemporanea-de-africa",
+      "guerra-de-malvinas",
+      "historia-contemporanea-de-asia-y-pacifico",
+      "historia-contemporanea-de-medio-oriente",
+      "recuperacion-democratica-memoria",
+      "globalizacion-era-digital",
+      "historia-reciente-argentina",
+      "internet-redes-globalizacion-digital"
     ],
-    "nombre": "深層史の達人",
-    "descripcion": "原始地球とプレートテクトニクスから、第二次世界大戦、国家テロ、副王領までを完璧に習得して中間試験を突破しました、ボス。",
-    "icono": "🌋🎖️"
+    "nombre": "現代史マスター",
+    "descripcion": "国家テロリズム、フォークランド紛争とアルゼンチンの民主主義の回復、アフリカ・アジア・中東の現代史、デジタル時代のグローバル化を習得して、中間試験を完了しました。",
+    "icono": "🌍"
   },
   {
     "id": 721,
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "conquista-del-desierto-y-campana-al-chaco",
       "crisis-de-2001",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "interpretar-una-fuente-historica"
+      "interpretar-una-fuente-historica",
+      "linea-de-tiempo-y-antes-despues",
+      "reforma-universitaria-1918",
+      "decada-siglo-milenio"
     ],
-    "nombre": "戦争と危機の達人",
-    "descripcion": "砂漠の征服、パラグアイ戦争、スペイン内戦、2001年危機に関する中間試験に合格し、歴史史料を解釈しました。",
-    "icono": "⚔️"
+    "nombre": "史料と年代学の専門家",
+    "descripcion": "歴史史料の解釈、年表、十年・世紀・千年紀、そして1918年の大学改革や2001年の危機といったアルゼンチンの事例を習得しました、ボス。",
+    "icono": "🗂️"
   },
   {
     "id": 722,
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
-      "decada-siglo-milenio",
-      "revolucion-mexicana-1910-1920",
-      "antes-y-despues-de-cristo"
+      "semana-tragica-1919",
+      "antes-y-despues-de-cristo",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "periodizacion-historica",
+      "causa-y-consecuencia"
     ],
-    "nombre": "時間軸と革命の達人",
-    "descripcion": "年表、1918年の大学改革、メキシコ革命に関する総合試験を完了しました。",
+    "nombre": "時代区分と因果関係マスター",
+    "descripcion": "時代区分、紀元前と紀元後、原因と結果、1919年の悲劇の週間、輸入代替工業化を習得して、中間試験を完了しました。",
     "icono": "⏳"
   },
   {
@@ -1211,515 +1059,515 @@
     "materia": "Historia",
     "cluster": 3,
     "temas": [
-      "rosas-y-la-confederacion",
-      "periodizacion-historica",
-      "economias-regionales-tempranas",
-      "causa-y-consecuencia",
-      "semana-tragica-1919"
+      "significancia-historica",
+      "cambio-y-continuidad",
+      "evidencia",
+      "dimension-etica",
+      "multicausalidad"
     ],
-    "nombre": "ロサスと悲劇の週の達人",
-    "descripcion": "ロサスと連合、初期の地域経済、1919年の悲劇の週に関する中間試験に合格しました、ボス。",
-    "icono": "📜"
+    "nombre": "歴史的思考の達人",
+    "descripcion": "歴史的意義、変化と連続性、証拠、多因果性、倫理的側面を習得しました、ボス。",
+    "icono": "🧠"
   },
   {
     "id": 724,
     "materia": "Historia",
     "cluster": 4,
     "temas": [
-      "cambio-y-continuidad",
-      "evidencia",
-      "dimension-etica",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
-      "multicausalidad"
+      "escuela-de-los-annales",
+      "historia-cultural",
+      "materialismo-historico",
+      "positivismo",
+      "revoluciones"
     ],
-    "nombre": "歴史的思考とISIの達人",
-    "descripcion": "変化と連続性、多因果性、歴史的証拠、輸入代替工業化を完璧に習得して総合試験を完了しました。",
-    "icono": "🏭"
+    "nombre": "歴史学の潮流の専門家",
+    "descripcion": "アナール学派、文化史、史的唯物論、実証主義、革命の研究についての中間試験に合格しました。",
+    "icono": "📚"
   },
   {
     "id": 725,
     "materia": "Historia",
     "cluster": 5,
     "temas": [
-      "significancia-historica",
-      "escuela-de-los-annales",
-      "historia-cultural",
-      "materialismo-historico",
-      "positivismo",
-      "revoluciones",
       "independencias",
-      "guerras"
+      "revolucion-mexicana-1910-1920",
+      "guerras",
+      "guerra-civil-espanola-1936-1939",
+      "guerra-del-paraguay-y-triple-alianza",
+      "rosas-y-la-confederacion",
+      "conquista-del-desierto-y-campana-al-chaco",
+      "economias-regionales-tempranas"
     ],
-    "nombre": "史学史の達人",
-    "descripcion": "アナール学派、史的唯物論、実証主義を大革命、独立、戦争と統合して中間試験に合格しました。",
-    "icono": "📚"
+    "nombre": "アメリカ大陸の戦争と過程マスター",
+    "descripcion": "独立、メキシコ革命、スペイン内戦、パラグアイ戦争、ロサスと連邦、砂漠の征服、初期の地域経済についての中間試験を完了しました。",
+    "icono": "🗺️"
   },
   {
     "id": 736,
     "materia": "Física",
     "cluster": 1,
     "temas": [
-      "calor-q-m-c-deltat",
-      "cambios-de-estado-calor-latente",
+      "cargas-electricas",
+      "estatica/centro-de-gravedad",
       "campo-electrico",
-      "campo-magnetico-imanes-corrientes",
-      "cargas-electricas"
+      "corriente-electrica",
+      "estatica/momento-de-una-fuerza"
     ],
-    "nombre": "熱と電荷の達人",
-    "descripcion": "比熱、状態変化、電場と磁場を完璧に習得して中間試験を完了しました、ボス。",
-    "icono": "🔥⚡"
+    "nombre": "電荷・電場・静力学",
+    "descripcion": "電荷、電場と電流、そして静力学での力のモーメントと重心を習得して、中間試験を完了しました。",
+    "icono": "⚡"
   },
   {
     "id": 737,
     "materia": "Física",
     "cluster": 2,
     "temas": [
-      "caudal-q-a-v",
-      "choques-elasticos-inelasticos",
-      "circuitos-en-paralelo",
-      "circuitos-en-serie",
-      "circuitos-mixtos"
+      "estructura-del-nucleo-atomico",
+      "estatica/equilibrio-de-cuerpo-rigido",
+      "decaimiento-radiactivo-alfa-beta-gamma",
+      "formulas-con-literales",
+      "fision-y-fusion-nuclear"
     ],
-    "nombre": "回路と衝突の専門家",
-    "descripcion": "直列・並列・混合回路に加えて、流量、弾性衝突と非弾性衝突を完璧に習得しました。",
-    "icono": "🔌💥"
+    "nombre": "原子核と剛体の釣り合い",
+    "descripcion": "アルファ・ベータ・ガンマ崩壊、核分裂と核融合、原子核の構造、そして剛体の釣り合いと文字式を習得しました、ボス。",
+    "icono": "☢️"
   },
   {
     "id": 738,
     "materia": "Física",
     "cluster": 3,
     "temas": [
-      "conservacion-energia-mecanica",
-      "corriente-electrica",
-      "decaimiento-radiactivo-alfa-beta-gamma",
-      "decibeles-richter",
-      "dilatacion-termica-lineal"
+      "iman-polos-atraccion-repulsion",
+      "ley-de-coulomb",
+      "leyes-de-newton/primera-inercia",
+      "maquinas-simples",
+      "leyes-de-newton/segunda-fma"
     ],
-    "nombre": "エネルギーと放射能の達人",
-    "descripcion": "力学的エネルギー保存、電流、放射性崩壊、熱膨張を完璧に習得して試験を完了しました、ボス。",
-    "icono": "☢️⚡"
+    "nombre": "クーロンとニュートンの達人",
+    "descripcion": "クーロンの法則と磁石の磁性、ニュートンの第一・第二法則、単純機械についての中間試験に合格しました、ボス。",
+    "icono": "🧲"
   },
   {
     "id": 739,
     "materia": "Física",
     "cluster": 4,
     "temas": [
+      "mru",
+      "leyes-de-newton/tercera-accion-reaccion",
+      "mruv",
       "dinamica-fuerzas-concurrentes",
-      "dualidad-onda-particula",
-      "energia-cinetica",
-      "energia-potencial-gravitatoria",
-      "entropia-segunda-ley-termodinamica"
+      "oscilacion-periodo"
     ],
-    "nombre": "力学とエントロピーの達人",
-    "descripcion": "共点力、運動エネルギーと位置エネルギーを完璧に習得し、エントロピーと波動・粒子の二重性で締めくくりました。",
-    "icono": "⚛️⚖️"
+    "nombre": "運動学と力学マスター",
+    "descripcion": "等速直線運動、等加速度運動、ニュートンの第三法則、共点力、振動の周期についての中間試験を完了しました。",
+    "icono": "🚀"
   },
   {
     "id": 740,
     "materia": "Física",
     "cluster": 5,
     "temas": [
-      "escalas-de-temperatura-c-f-k",
-      "estatica/centro-de-gravedad",
-      "estatica/equilibrio-de-cuerpo-rigido",
-      "estatica/momento-de-una-fuerza",
-      "estructura-del-nucleo-atomico"
+      "gravitacion-universal",
+      "frecuencia",
+      "momento-lineal",
+      "longitud-onda-velocidad-propagacion",
+      "impulso-cambio-momento"
     ],
-    "nombre": "平衡と温度目盛りの支配",
-    "descripcion": "重心、剛体の平衡、温度目盛り、原子核の構造を完璧に習得して中間試験を完了しました、ボス。",
-    "icono": "⚖️🌡️"
+    "nombre": "運動量と波の専門家",
+    "descripcion": "運動量、力積、万有引力、そして周波数と波長・伝播速度の関係を習得しました。",
+    "icono": "🌊"
   },
   {
     "id": 741,
     "materia": "Física",
     "cluster": 6,
     "temas": [
-      "fisica-medica",
-      "fision-y-fusion-nuclear",
-      "formacion-de-imagenes-optica",
-      "formulas-con-literales",
-      "frecuencia"
+      "luz-onda-espectro-electromagnetico",
+      "movimiento-circular-y-fuerza-centripeta",
+      "dualidad-onda-particula",
+      "plano-inclinado-y-rozamiento",
+      "fisica-medica"
     ],
-    "nombre": "医療物理学と核物理学の専門家",
-    "descripcion": "核分裂と核融合、光学的結像、医療物理学を完璧に習得し、文字式を一つも間違えませんでした。",
-    "icono": "🏥☢️"
+    "nombre": "量子の光と円運動",
+    "descripcion": "電磁スペクトル、波と粒子の二重性、医学物理学、そして円運動と摩擦のある斜面を習得して、中間試験を完了しました、ボス。",
+    "icono": "💡"
   },
   {
     "id": 742,
     "materia": "Física",
     "cluster": 7,
     "temas": [
-      "generador-motor-transformador",
-      "gravitacion-universal",
-      "iman-polos-atraccion-repulsion",
-      "impulso-cambio-momento",
-      "induccion-electromagnetica-faraday-lenz"
+      "presion-f-sobre-a",
+      "reflexion-espejos-planos-curvos",
+      "caudal-q-a-v",
+      "presion-atmosferica",
+      "presion-hidrostatica"
     ],
-    "nombre": "電磁気学と万有引力の達人",
-    "descripcion": "発電機、モーター、変圧器、ファラデーとレンツの電磁誘導、万有引力を完璧に習得して試験を完了しました、ボス。",
-    "icono": "🧲🌍"
+    "nombre": "圧力と流体の専門家",
+    "descripcion": "圧力、静水圧と大気圧、流量を習得し、さらに平面鏡と曲面鏡での反射も加えました。",
+    "icono": "💧"
   },
   {
     "id": 743,
     "materia": "Física",
     "cluster": 8,
     "temas": [
-      "lentes-convergentes-divergentes",
-      "ley-de-coulomb",
-      "ley-de-ohm",
-      "leyes-de-newton/primera-inercia",
-      "leyes-de-newton/segunda-fma"
+      "masas-de-aire-y-frentes",
+      "principio-de-arquimedes-empuje-flotacion",
+      "formacion-de-nubes",
+      "principio-de-pascal-prensa-hidraulica",
+      "precipitacion"
     ],
-    "nombre": "基本法則の支配",
-    "descripcion": "クーロンの法則、オームの法則、ニュートンの第一・第二法則に加えて、凸レンズと凹レンズを完璧に習得しました。",
-    "icono": "🔍⚡"
+    "nombre": "流体と気象学",
+    "descripcion": "アルキメデスの原理とパスカルの原理、そして気団と前線、雲の形成、降水についての中間試験に合格しました。",
+    "icono": "☁️"
   },
   {
     "id": 744,
     "materia": "Física",
     "cluster": 9,
     "temas": [
-      "leyes-de-newton/tercera-accion-reaccion",
-      "longitud-onda-velocidad-propagacion",
-      "luz-onda-espectro-electromagnetico",
-      "maquina-termica-termodinamica-nivel2",
-      "maquinas-simples"
+      "refraccion-indice-ley-snell",
+      "relatividad-especial-conceptual",
+      "lentes-convergentes-divergentes",
+      "resonancia-frecuencia-natural",
+      "formacion-de-imagenes-optica"
     ],
-    "nombre": "波と機械の達人",
-    "descripcion": "ニュートンの第三法則、波の伝播、電磁スペクトル、単純機械を完璧に習得して中間試験を完了しました、ボス。",
-    "icono": "🌊⚙️"
+    "nombre": "幾何光学の達人",
+    "descripcion": "屈折とスネルの法則、凸レンズと凹レンズ、像の形成、さらに共鳴と特殊相対性理論を習得して、中間試験を完了しました。",
+    "icono": "🔭"
   },
   {
     "id": 745,
     "materia": "Física",
     "cluster": 10,
     "temas": [
-      "momento-lineal",
-      "movimiento-circular-y-fuerza-centripeta",
-      "mru",
+      "semivida-desintegracion-exponencial",
       "ojo-humano-instrumento-optico",
-      "mruv"
+      "sonido-timbre-altura-intensidad",
+      "temperatura-equilibrio-termico",
+      "decibeles-richter"
     ],
-    "nombre": "運動と視覚の達人",
-    "descripcion": "等速直線運動、等加速度直線運動、運動量、円運動を完璧に習得し、光学器械としての人間の目を理解しました。",
-    "icono": "🏃‍♂️👁️"
+    "nombre": "音・視覚・半減期",
+    "descripcion": "音（音色、高さ、強さ）、デシベルとリヒタースケール、光学機器としての人間の目、半減期、熱平衡を習得しました、ボス。",
+    "icono": "🔊"
   },
   {
     "id": 746,
     "materia": "Física",
     "cluster": 11,
     "temas": [
-      "oscilacion-periodo",
-      "plano-inclinado-y-rozamiento",
-      "potencia-electrica",
-      "potencia-mecanica",
-      "presion-atmosferica"
+      "calor-q-m-c-deltat",
+      "dilatacion-termica-lineal",
+      "cambios-de-estado-calor-latente",
+      "escalas-de-temperatura-c-f-k",
+      "maquina-termica-termodinamica-nivel2"
     ],
-    "nombre": "仕事率と振動の達人",
-    "descripcion": "電力と仕事率、摩擦のある斜面、振動、大気圧を完璧に習得して試験を完了しました、ボス。",
-    "icono": "🔄⚡"
+    "nombre": "熱と温度測定マスター",
+    "descripcion": "熱量 Q=m·c·ΔT、熱膨張、潜熱、温度目盛、熱機関についての中間試験を完了しました。",
+    "icono": "🌡️"
   },
   {
     "id": 747,
     "materia": "Física",
     "cluster": 12,
     "temas": [
-      "presion-f-sobre-a",
-      "masas-de-aire-y-frentes",
-      "presion-hidrostatica",
-      "formacion-de-nubes",
-      "principio-de-arquimedes-empuje-flotacion"
+      "tension-diferencia-potencial",
+      "entropia-segunda-ley-termodinamica",
+      "resistencia-electrica",
+      "tiro-oblicuo",
+      "ley-de-ohm"
     ],
-    "nombre": "圧力と気象の達人",
-    "descripcion": "静水圧、アルキメデスの原理、気団と前線、雲の形成を完璧に習得しました。",
-    "icono": "🌬️☁️"
+    "nombre": "オームの法則と斜方投射",
+    "descripcion": "電圧、抵抗、オームの法則、そして斜方投射と熱力学第二法則におけるエントロピーについての中間試験に合格しました。",
+    "icono": "🔌"
   },
   {
     "id": 748,
     "materia": "Física",
     "cluster": 13,
     "temas": [
-      "precipitacion",
-      "principio-de-pascal-prensa-hidraulica",
-      "reflexion-espejos-planos-curvos",
-      "refraccion-indice-ley-snell",
-      "relatividad-especial-conceptual"
+      "tiro-vertical",
+      "circuitos-en-paralelo",
+      "circuitos-en-serie",
+      "potencia-electrica",
+      "circuitos-mixtos"
     ],
-    "nombre": "光学と相対性理論の達人",
-    "descripcion": "反射、スネルの法則による屈折、パスカルの原理、特殊相対性理論を完璧に習得して中間試験を完了しました、ボス。",
-    "icono": "🔭🌀"
+    "nombre": "電気回路の専門家",
+    "descripcion": "直列回路、並列回路、混合回路と電力、さらに鉛直投射を習得しました、ボス。",
+    "icono": "🔋"
   },
   {
     "id": 749,
     "materia": "Física",
     "cluster": 14,
     "temas": [
-      "resistencia-electrica",
-      "resonancia-frecuencia-natural",
-      "semivida-desintegracion-exponencial",
-      "sonido-timbre-altura-intensidad",
-      "temperatura-equilibrio-termico"
+      "tormentas-y-fenomenos-severos",
+      "campo-magnetico-imanes-corrientes",
+      "trabajo-de-una-fuerza",
+      "induccion-electromagnetica-faraday-lenz",
+      "energia-cinetica"
     ],
-    "nombre": "音と抵抗の達人",
-    "descripcion": "電気抵抗、共鳴、音色と音の強さ、半減期の指数関数的減衰を完璧に習得しました。",
-    "icono": "🔊🔋"
+    "nombre": "電磁気・仕事・エネルギー",
+    "descripcion": "磁場、ファラデー・レンツの電磁誘導、力の仕事と運動エネルギー、そして雷雨や激しい気象現象を習得して、中間試験を完了しました。",
+    "icono": "🧭"
   },
   {
     "id": 750,
     "materia": "Física",
     "cluster": 15,
     "temas": [
-      "tension-diferencia-potencial",
-      "tiro-oblicuo",
-      "tiro-vertical",
-      "tormentas-y-fenomenos-severos",
-      "trabajo-de-una-fuerza",
+      "generador-motor-transformador",
+      "choques-elasticos-inelasticos",
+      "energia-potencial-gravitatoria",
       "transmision-calor-conduccion-conveccion-radiacion",
-      "velocidad-aceleracion-instantaneas"
+      "conservacion-energia-mecanica",
+      "velocidad-aceleracion-instantaneas",
+      "potencia-mecanica"
     ],
-    "nombre": "投射と嵐の達人",
-    "descripcion": "斜方投射と鉛直投射、力のする仕事、熱伝達、激しい嵐を完璧に習得して試験を完了しました、ボス。",
-    "icono": "🎯🌪️"
+    "nombre": "エネルギーと機械の達人",
+    "descripcion": "力学的エネルギー保存、重力による位置エネルギー、仕事率、弾性衝突と非弾性衝突、熱の伝達、発電機・モーター・変圧器を習得しました。",
+    "icono": "⚙️"
   },
   {
     "id": 766,
     "materia": "Economía",
     "cluster": 1,
     "temas": [
-      "balanza-comercial",
       "blockchain-claves-wallet",
-      "business-model-canvas",
       "capitalismo-industrial-trabajo-asalariado",
-      "comercio-internacional-ventaja-comparativa"
+      "contratos-inteligentes",
+      "costo-marginal",
+      "debe-haber-balance"
     ],
-    "nombre": "グローバル貿易とブロックチェーンの達人",
-    "descripcion": "貿易収支と比較優位を理解し、ブロックチェーンとビジネスモデルの第一歩を踏み出しました。",
-    "icono": "🌐"
+    "nombre": "ブロックチェーン・限界費用・貸借対照表",
+    "descripcion": "ブロックチェーンの鍵とウォレット、スマートコントラクト、限界費用、貸借対照表の借方・貸方を巡って、中間試験を完了しました、ボス。",
+    "icono": "⛓️"
   },
   {
     "id": 767,
     "materia": "Economía",
     "cluster": 2,
     "temas": [
-      "contratos-inteligentes",
-      "control-de-gestion-e-indicadores",
-      "cooperativismo-y-mutualismo",
-      "coordinar-personas-y-recursos",
-      "costo-de-oportunidad"
+      "detectar-una-oportunidad-de-negocio",
+      "elasticidad",
+      "estructura-del-patrimonio",
+      "estructura-productiva-dependencia",
+      "ecuacion-contable-fundamental"
     ],
-    "nombre": "経営管理と機会費用の達人",
-    "descripcion": "経営管理を完璧に習得し、人と資源を調整して、機会費用と協同組合主義を理解しました。",
-    "icono": "🤝"
+    "nombre": "資本と弾力性マスター",
+    "descripcion": "基本的な会計等式と資本の構造、さらに弾力性、生産の依存関係、ビジネスチャンスの見つけ方を習得しました。",
+    "icono": "📊"
   },
   {
     "id": 768,
     "materia": "Economía",
     "cluster": 3,
     "temas": [
-      "costo-marginal",
-      "debe-haber-balance",
-      "detectar-una-oportunidad-de-negocio",
-      "dex-swap",
-      "division-formal-microeconomia-macroeconomia"
+      "interes-simple",
+      "iva",
+      "interes-compuesto",
+      "origen-excedente-moneda-mercado",
+      "cft-vs-tasa-nominal"
     ],
-    "nombre": "限界費用と会計の基礎の達人",
-    "descripcion": "借方と貸方を学び、限界費用を計算して、ミクロ経済学とマクロ経済学を区別しました、ボス。",
-    "icono": "⚖️"
+    "nombre": "利子と利率の達人",
+    "descripcion": "単利と複利、付加価値税、CFTと名目金利の違いを計算し、剰余の起源と通貨も見失わずに中間試験を完了しました。",
+    "icono": "💹"
   },
   {
     "id": 769,
     "materia": "Economía",
     "cluster": 4,
     "temas": [
-      "elasticidad",
-      "economia-positiva-y-normativa",
-      "estado-de-resultados",
-      "estructura-del-patrimonio",
-      "estructura-productiva-dependencia"
+      "cuota-credito-frances",
+      "dex-swap",
+      "interes-compuesto-funcion",
+      "partida-doble",
+      "plazo-fijo-vs-inflacion"
     ],
-    "nombre": "弾力性と財務諸表の達人",
-    "descripcion": "弾力性、損益計算書、国の生産構造を分析して中間試験を完了しました。",
-    "icono": "📉"
+    "nombre": "融資とデジタル金融の専門家",
+    "descripcion": "フランス式ローンの返済額、インフレに対する定期預金、複式簿記、分散型取引所でのスワップを習得しました、ボス。",
+    "icono": "🏦"
   },
   {
     "id": 770,
     "materia": "Economía",
     "cluster": 5,
     "temas": [
-      "ecuacion-contable-fundamental",
-      "interes-simple",
-      "iva",
-      "interes-compuesto",
-      "margenes-bruto-y-neto"
+      "libro-diario-mayor",
+      "pools-liquidez-amm",
+      "estados-contables",
+      "precio-final",
+      "contabilidad-ambiental"
     ],
-    "nombre": "会計等式と利息の達人",
-    "descripcion": "単利と複利を計算し、付加価値税を適用して、粗利益率と純利益率を完璧に習得しました。",
-    "icono": "🧮"
+    "nombre": "会計記録とプールマスター",
+    "descripcion": "仕訳帳と元帳、財務諸表、環境会計、最終価格、AMMの流動性プールについての中間試験を完了しました。",
+    "icono": "📒"
   },
   {
     "id": 771,
     "materia": "Economía",
     "cluster": 6,
     "temas": [
-      "cft-vs-tasa-nominal",
-      "cuota-credito-frances",
-      "interes-compuesto-funcion",
-      "mejora-continua",
-      "mvp-producto-minimo-viable"
+      "contabilidad-como-sistema-de-informacion",
+      "costo-de-oportunidad",
+      "indices-financieros",
+      "division-formal-microeconomia-macroeconomia",
+      "oferta-y-demanda"
     ],
-    "nombre": "信用と継続的改善の達人",
-    "descripcion": "総合金融費用と名目金利を区別し、フランス式返済方式の分割払いを計算して、MVPに継続的改善を適用しました。",
-    "icono": "💳"
+    "nombre": "ミクロ経済と会計の達人",
+    "descripcion": "ミクロ経済学とマクロ経済学の区分、需要と供給、機会費用、財務指標、情報システムとしての会計を習得しました。",
+    "icono": "⚖️"
   },
   {
     "id": 772,
     "materia": "Economía",
     "cluster": 7,
     "temas": [
-      "objetivos-y-metas",
-      "origen-excedente-moneda-mercado",
-      "partida-doble",
-      "pitch-a-inversores",
-      "libro-diario-mayor"
+      "economia-positiva-y-normativa",
+      "fisiocracia",
+      "mercantilismo",
+      "pbi-e-inflacion",
+      "liberalismo-clasico-y-escuela-austriaca"
     ],
-    "nombre": "複式簿記とピッチの達人",
-    "descripcion": "仕訳帳に複式簿記を記帳し、貨幣的余剰の起源を理解して、投資家向けピッチを準備しました。",
-    "icono": "📒"
+    "nombre": "古典派経済学の専門家",
+    "descripcion": "重農主義、重商主義、古典的自由主義、オーストリア学派、さらにGDPとインフレ、実証経済学と規範経済学を巡って中間試験を完了しました、ボス。",
+    "icono": "📜"
   },
   {
     "id": 773,
     "materia": "Economía",
     "cluster": 8,
     "temas": [
-      "planificacion-administrativa",
-      "estados-contables",
-      "plazo-fijo-vs-inflacion",
-      "contabilidad-ambiental",
-      "contabilidad-como-sistema-de-informacion"
+      "balanza-comercial",
+      "recibo-de-sueldo/general",
+      "comercio-internacional-ventaja-comparativa",
+      "recibo-de-sueldo/argentina",
+      "sectores-economicos"
     ],
-    "nombre": "計画立案と財務諸表の支配",
-    "descripcion": "経営者として計画を立て、財務諸表を読み、定期預金とインフレーションを比較しました、ボス。",
-    "icono": "📑"
+    "nombre": "貿易と給与マスター",
+    "descripcion": "貿易収支、比較優位、経済部門を習得し、一般的な給与明細とアルゼンチンの給与明細の読み方も学びました。",
+    "icono": "🌍"
   },
   {
     "id": 774,
     "materia": "Economía",
     "cluster": 9,
     "temas": [
-      "indices-financieros",
-      "pools-liquidez-amm",
-      "precio-final",
-      "presupuesto-administrativo",
-      "oferta-y-demanda"
+      "descuentos-obligatorios/jubilacion",
+      "descuentos-obligatorios/obra-social",
+      "jubilacion-sistema-previsional",
+      "monotributo",
+      "socialismo-utopico"
     ],
-    "nombre": "財務指標と流動性の達人",
-    "descripcion": "財務指標、流動性プール、最終価格、需要と供給の法則を分析しました。",
-    "icono": "💧"
+    "nombre": "社会保障と労働の専門家",
+    "descripcion": "年金、医療保険、社会保障制度、モノトリブートについての中間試験を完了し、空想的社会主義への視点で締めくくりました、ボス。",
+    "icono": "🧾"
   },
   {
     "id": 775,
     "materia": "Economía",
     "cluster": 10,
     "temas": [
-      "productividad-produccion-insumos",
-      "fisiocracia",
-      "mercantilismo",
-      "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "sueldo-promedio-pais",
+      "marxismo",
+      "tipo-cambio-fijo",
+      "economia-feminista-y-del-cuidado",
+      "keynesianismo"
     ],
-    "nombre": "古典派経済思想の達人",
-    "descripcion": "重商主義、重農主義、古典的自由主義をたどり、GDPとインフレーションを理解しました。",
-    "icono": "🏛️"
+    "nombre": "マルクス・ケインズ・為替レート",
+    "descripcion": "マルクス主義、ケインズ主義、フェミニスト経済学とケアの経済学、そして固定為替レートと国の平均給与を習得しました。",
+    "icono": "🧠"
   },
   {
     "id": 776,
     "materia": "Economía",
     "cluster": 11,
     "temas": [
-      "punto-de-equilibrio",
-      "recibo-de-sueldo/general",
-      "sectores-economicos",
-      "recibo-de-sueldo/argentina",
-      "socialismo-utopico"
+      "tipo-cambio-flotante",
+      "neoliberalismo",
+      "devaluacion",
+      "ordoliberalismo",
+      "reservas-banco-central"
     ],
-    "nombre": "損益分岐点と給与明細の達人",
-    "descripcion": "損益分岐点を計算し、アルゼンチンの給与明細を読んで、空想的社会主義を知りました。",
-    "icono": "💵"
+    "nombre": "為替と新自由主義の達人",
+    "descripcion": "変動為替レート、通貨切り下げ、中央銀行の外貨準備、さらに新自由主義とオルド自由主義を習得して、中間試験を完了しました、ボス。",
+    "icono": "💱"
   },
   {
     "id": 777,
     "materia": "Economía",
     "cluster": 12,
     "temas": [
-      "descuentos-obligatorios/jubilacion",
-      "descuentos-obligatorios/obra-social",
-      "jubilacion-sistema-previsional",
-      "marxismo",
-      "monotributo"
+      "tipos-de-organizaciones",
+      "deuda-publica-externa",
+      "deuda-publica-interna",
+      "elementos-de-las-organizaciones",
+      "default-deuda"
     ],
-    "nombre": "年金と法定控除の達人",
-    "descripcion": "年金と健康保険の控除、年金制度、単一課税制度、マルクスの思想を理解しました。",
-    "icono": "🏦"
+    "nombre": "組織と公的債務",
+    "descripcion": "組織の種類と要素、そして国内・対外の公的債務とデフォルトを習得しました。",
+    "icono": "🏛️"
   },
   {
     "id": 778,
     "materia": "Economía",
     "cluster": 13,
     "temas": [
-      "economia-feminista-y-del-cuidado",
-      "keynesianismo",
-      "sueldo-promedio-pais",
-      "neoliberalismo",
-      "ordoliberalismo"
+      "ambiente-interno-y-externo-organizacion",
+      "cultura-organizacional",
+      "estructura-organizacional",
+      "objetivos-y-metas",
+      "tipos-de-proyecto"
     ],
-    "nombre": "現代経済思想の達人",
-    "descripcion": "ケインズ主義、ネオリベラリズム、オルド自由主義を比較し、フェミニスト経済学とケアの経済学を発見しました。",
-    "icono": "📚"
+    "nombre": "組織運営の専門家",
+    "descripcion": "組織文化と組織構造、内部環境と外部環境、目的と目標、プロジェクトの種類についての中間試験を完了しました。",
+    "icono": "🏢"
   },
   {
     "id": 779,
     "materia": "Economía",
     "cluster": 14,
     "temas": [
-      "tipo-cambio-fijo",
-      "tipo-cambio-flotante",
-      "tipos-de-organizaciones",
-      "devaluacion",
-      "elementos-de-las-organizaciones"
+      "cooperativismo-y-mutualismo",
+      "planificacion-administrativa",
+      "tipos-de-sociedades",
+      "coordinar-personas-y-recursos",
+      "presupuesto-administrativo"
     ],
-    "nombre": "為替相場と組織の達人",
-    "descripcion": "固定相場制と変動相場制を区別し、通貨切り下げと組織の要素を理解しました。",
-    "icono": "💱"
+    "nombre": "経営管理の達人",
+    "descripcion": "管理上の計画と予算、会社の種類、協同組合主義と相互扶助主義、そして人と資源の調整方法を習得しました、ボス。",
+    "icono": "🤝"
   },
   {
     "id": 780,
     "materia": "Economía",
     "cluster": 15,
     "temas": [
-      "reservas-banco-central",
-      "ambiente-interno-y-externo-organizacion",
-      "cultura-organizacional",
-      "deuda-publica-externa",
-      "deuda-publica-interna"
+      "validar-con-clientes-construir-medir-aprender",
+      "control-de-gestion-e-indicadores",
+      "estado-de-resultados",
+      "mejora-continua",
+      "margenes-bruto-y-neto"
     ],
-    "nombre": "外貨準備と公的債務の達人",
-    "descripcion": "中央銀行の外貨準備、国内・対外公的債務、組織文化を分析しました、ボス。",
-    "icono": "🏦"
+    "nombre": "経営と成果マスター",
+    "descripcion": "損益計算書、売上総利益率と純利益率、経営管理と指標、継続的改善、検証・構築・測定・学習のサイクルについての中間試験を完了しました。",
+    "icono": "📈"
   },
   {
     "id": 781,
     "materia": "Economía",
     "cluster": 16,
     "temas": [
-      "estructura-organizacional",
-      "default-deuda",
-      "tipos-de-proyecto",
-      "tipos-de-sociedades",
-      "validar-con-clientes-construir-medir-aprender"
+      "mvp-producto-minimo-viable",
+      "productividad-produccion-insumos",
+      "business-model-canvas",
+      "punto-de-equilibrio",
+      "pitch-a-inversores"
     ],
-    "nombre": "組織構造とデフォルトの達人",
-    "descripcion": "組織構造、会社形態とプロジェクトの種類を理解し、債務不履行で何が起こるかを学びました。",
-    "icono": "🏢"
+    "nombre": "起業と損益分岐の専門家",
+    "descripcion": "MVP、ビジネスモデルキャンバス、投資家向けピッチ、損益分岐点、生産性を習得しました、ボス。",
+    "icono": "🚀"
   },
   {
     "id": 782,
@@ -1741,44 +1589,44 @@
     "materia": "Geografía",
     "cluster": 1,
     "temas": [
-      "america-anglosajona",
       "coordenadas-y-husos-horarios",
       "densidad-poblacion",
       "escala-de-mapa",
-      "huella-de-carbono-agua-virtual"
+      "huella-de-carbono-agua-virtual",
+      "orientacion-puntos-cardinales"
     ],
-    "nombre": "座標とエコロジカル・フットプリントの達人",
-    "descripcion": "タイムゾーン、地図の縮尺、人口密度、カーボンフットプリントを完璧に習得して中間試験を完了しました。",
-    "icono": "🌍"
+    "nombre": "地図と座標の達人",
+    "descripcion": "地図の縮尺、方位、座標、時間帯についての中間試験を完了し、さらに人口密度、カーボンフットプリント、バーチャルウォーターも加えました。",
+    "icono": "🧭"
   },
   {
     "id": 797,
     "materia": "Geografía",
     "cluster": 2,
     "temas": [
-      "orientacion-puntos-cardinales",
-      "urbanizacion-migracion-ciudad",
       "mapa-plano-escala",
       "coordenadas-geograficas",
-      "division-politica"
+      "division-politica",
+      "sig-mapas-digitales",
+      "estados-y-globalizacion"
     ],
-    "nombre": "方位と都市化の達人",
-    "descripcion": "方位、地理座標、都市化、政治的区分を完璧に習得しました、ボス。",
-    "icono": "🧭"
+    "nombre": "地図作成とGISの専門家",
+    "descripcion": "縮尺のある地図、地理座標、地理情報システム、そして政治区分、国家、グローバル化を習得しました、ボス。",
+    "icono": "🗺️"
   },
   {
     "id": 798,
     "materia": "Geografía",
     "cluster": 3,
     "temas": [
-      "sig-mapas-digitales",
-      "estados-y-globalizacion",
       "region",
       "sig-gps",
-      "relieve-clima-biomas"
+      "relieve-clima-biomas",
+      "sig-imagenes-satelitales",
+      "recursos-actividades-economicas"
     ],
-    "nombre": "GISと地形の達人",
-    "descripcion": "デジタル地図、GPS、地形、気候とバイオームに加えて、国家とグローバル化を統合した試験を完了しました。",
+    "nombre": "領土とリモートセンシングマスター",
+    "descripcion": "地域、地形、気候とバイオーム、資源と経済活動、そしてGPSや衛星画像といったGISのツールについての中間試験を完了しました。",
     "icono": "🛰️"
   },
   {
@@ -1786,30 +1634,30 @@
     "materia": "Geografía",
     "cluster": 4,
     "temas": [
-      "sig-imagenes-satelitales",
-      "recursos-actividades-economicas",
       "regiones-naturales-de-argentina",
       "geografia-economica-agricola-argentina",
-      "geografia-industrial-mundial"
+      "geografia-industrial-mundial",
+      "mineria-e-hidrocarburos-en-argentina",
+      "america-latina-industria-y-energia"
     ],
-    "nombre": "アルゼンチン経済地理の達人",
-    "descripcion": "衛星画像、自然地域、アルゼンチンの農業と工業の地理を完璧に習得しました。",
-    "icono": "🌾"
+    "nombre": "生産地理の専門家",
+    "descripcion": "アルゼンチンの自然地域、鉱業と炭化水素、農業・工業の地理、ラテンアメリカの産業とエネルギーを習得しました、ボス。",
+    "icono": "⛏️"
   },
   {
     "id": 800,
     "materia": "Geografía",
     "cluster": 5,
     "temas": [
-      "mineria-e-hidrocarburos-en-argentina",
-      "america-latina-industria-y-energia",
       "poblacion-piramides-migraciones",
       "produccion-agraria-mundial-y-biotecnologia",
-      "ambiente-y-recursos"
+      "ambiente-y-recursos",
+      "america-anglosajona",
+      "ambientalismo-liberal"
     ],
-    "nombre": "エネルギーと人口の達人",
-    "descripcion": "鉱業と炭化水素、ラテンアメリカの産業とエネルギー、人口ピラミッドに関する中間試験を完了しました。",
-    "icono": "⛏️"
+    "nombre": "人口・環境・世界の農業",
+    "descripcion": "人口ピラミッドと移民、農業生産とバイオテクノロジー、環境と資源、アングロアメリカ、自由主義的環境主義についての中間試験を完了しました。",
+    "icono": "🌾"
   },
   {
     "id": 801,
@@ -1817,13 +1665,13 @@
     "cluster": 6,
     "temas": [
       "america-latina-formacion-poblacion",
-      "ambientalismo-liberal",
       "conservacionismo",
       "decrecimiento",
-      "ecologismo-politico"
+      "ecologismo-politico",
+      "indicadores-sociales-de-argentina"
     ],
-    "nombre": "ラテンアメリカ環境主義の達人",
-    "descripcion": "ラテンアメリカの人口形成を保全主義、脱成長、政治的エコロジズムと統合しました。",
+    "nombre": "環境主義と社会の達人",
+    "descripcion": "保全主義、脱成長、政治的エコロジー、そしてラテンアメリカの人口形成とアルゼンチンの社会指標を習得しました、ボス。",
     "icono": "🌱"
   },
   {
@@ -1831,30 +1679,30 @@
     "materia": "Geografía",
     "cluster": 7,
     "temas": [
-      "indicadores-sociales-de-argentina",
       "migraciones-internacionales",
       "indice-de-desarrollo-humano",
       "migraciones-internas-en-argentina",
-      "paises-de-america-latina"
+      "paises-de-america-latina",
+      "recursos-hidricos-y-gestion"
     ],
-    "nombre": "社会指標と移住の達人",
-    "descripcion": "HDI、国内移住と国際移住、ラテンアメリカ諸国に関する総合試験を完了しました。",
-    "icono": "📊"
+    "nombre": "移民と開発の専門家",
+    "descripcion": "国際移民と国内移民、人間開発指数、ラテンアメリカ諸国、水資源管理についての中間試験を完了しました。",
+    "icono": "👥"
   },
   {
     "id": 803,
     "materia": "Geografía",
     "cluster": 8,
     "temas": [
-      "recursos-hidricos-y-gestion",
       "riesgos-naturales-argentinos",
       "trabajo-y-desempleo-mundial",
       "riesgos-ambientales-mundiales",
-      "turismo-mundial"
+      "turismo-mundial",
+      "urbanizacion-migracion-ciudad"
     ],
-    "nombre": "リスクと世界資源の達人",
-    "descripcion": "水資源管理、自然災害と環境リスク、世界の失業、観光を完璧に習得しました、ボス。",
-    "icono": "🌊"
+    "nombre": "リスクと都市化マスター",
+    "descripcion": "アルゼンチンの自然災害リスクと世界の環境リスク、さらに観光、労働と失業、都市化を習得しました、ボス。",
+    "icono": "🌋"
   },
   {
     "id": 816,
@@ -1862,197 +1710,197 @@
     "cluster": 1,
     "temas": [
       "algebra-booleana",
-      "algoritmo-secuencia-de-pasos",
-      "algoritmos-busqueda-ordenamiento",
-      "almacenamiento-volatil-vs-no-volatil",
-      "archivos-y-persistencia"
+      "complejidad-asintotica",
+      "ofimatica-planilla-de-calculo",
+      "que-es-la-tecnica-y-la-tecnologia",
+      "revolucion-informatica"
     ],
-    "nombre": "アルゴリズムと永続化の達人",
-    "descripcion": "ブール代数、探索アルゴリズムとソートアルゴリズム、ファイルの永続化を完璧に習得して中間試験を完了しました。",
-    "icono": "🧠"
+    "nombre": "論理・計算量・デジタル革命",
+    "descripcion": "ブール代数、漸近的計算量、表計算、そして技術とテクノロジーの概念および情報革命についての中間試験を完了しました。",
+    "icono": "💻"
   },
   {
     "id": 817,
     "materia": "Informática",
     "cluster": 2,
     "temas": [
-      "buses-y-entrada-salida",
-      "ciclo-de-instruccion-fetch-decode-execute",
-      "complejidad-asintotica",
-      "control-de-versiones",
-      "cpu-unidad-de-control-y-alu"
+      "medios-tecnicos-extension-capacidades-humanas",
+      "historia-y-evolucion-de-los-sistemas-operativos",
+      "procesos-tecnicos-artesanales-e-industriales",
+      "arranque-de-la-computadora-boot",
+      "sistemas-numeracion"
     ],
-    "nombre": "命令サイクルの達人",
-    "descripcion": "バス、フェッチ・デコード・実行サイクル、漸近的計算量、バージョン管理を一つも間違えずに習得しました。",
-    "icono": "🖥️"
+    "nombre": "技術・記数法・起動",
+    "descripcion": "技術的手段、手工業的・工業的プロセス、オペレーティングシステムの歴史、コンピュータの起動、記数法を習得しました、ボス。",
+    "icono": "🛠️"
   },
   {
     "id": 818,
     "materia": "Informática",
     "cluster": 3,
     "temas": [
-      "criptografia-clave-simetrica-asimetrica-hash",
-      "direccionamiento-ip-dns",
-      "diseno-y-arquitectura-de-software",
-      "estructuras-de-control-bucles",
-      "estructuras-de-control-condicionales"
+      "tipos-de-so-por-dispositivo",
+      "cpu-unidad-de-control-y-alu",
+      "unidades-almacenamiento",
+      "ciclo-de-instruccion-fetch-decode-execute",
+      "memoria-ram-cache-jerarquia"
     ],
-    "nombre": "ネットワークと制御フローの達人",
-    "descripcion": "暗号技術、IPアドレッシングとDNS、ソフトウェア設計、制御構造を統合して中間試験を完了しました。",
-    "icono": "🔐"
+    "nombre": "コンピュータアーキテクチャの専門家",
+    "descripcion": "CPU、フェッチ・デコード・実行サイクル、RAMとキャッシュのメモリ階層、記憶装置の単位、デバイス別のOSの種類についての中間試験に合格しました。",
+    "icono": "🖥️"
   },
   {
     "id": 819,
     "materia": "Informática",
     "cluster": 4,
     "temas": [
-      "estructuras-de-datos-listas-pilas-colas",
-      "etica-de-la-ia-sesgo-privacidad",
-      "funciones-y-modularidad",
-      "historia-y-evolucion-de-los-sistemas-operativos",
-      "inteligencia-artificial-reglas-a-aprendizaje"
+      "algoritmo-secuencia-de-pasos",
+      "almacenamiento-volatil-vs-no-volatil",
+      "buses-y-entrada-salida",
+      "variables-y-tipos-de-dato",
+      "estructuras-de-control-condicionales"
     ],
-    "nombre": "データ構造とAIの達人",
-    "descripcion": "リスト、スタック、キュー、関数のモジュール性、オペレーティングシステムの歴史、AI倫理を完璧に習得しました、ボス。",
-    "icono": "🤖"
+    "nombre": "アルゴリズムとハードウェアの基礎",
+    "descripcion": "アルゴリズム、変数、条件分岐、さらに入出力バスと揮発性・不揮発性ストレージを習得して、中間試験を完了しました。",
+    "icono": "🧮"
   },
   {
     "id": 820,
     "materia": "Informática",
     "cluster": 5,
     "temas": [
-      "arranque-de-la-computadora-boot",
-      "mantenimiento-y-deuda-tecnica",
-      "memoria-asignacion-memoria-virtual",
-      "memoria-ram-cache-jerarquia",
-      "modelo-relacional-tabla-registro-clave-primaria"
+      "estructuras-de-control-bucles",
+      "funciones-y-modularidad",
+      "estructuras-de-datos-listas-pilas-colas",
+      "poo-clases-y-objetos",
+      "algoritmos-busqueda-ordenamiento"
     ],
-    "nombre": "起動とメモリの達人",
-    "descripcion": "システムの起動、RAM・キャッシュのメモリ階層、仮想メモリ、リレーショナルモデルを完璧に習得して中間試験を完了しました。",
-    "icono": "💾"
+    "nombre": "プログラミングの達人",
+    "descripcion": "ループ、関数、データ構造（リスト、スタック、キュー）、オブジェクト指向プログラミング、探索・整列アルゴリズムを習得しました。",
+    "icono": "👨‍💻"
   },
   {
     "id": 821,
     "materia": "Informática",
     "cluster": 6,
     "temas": [
-      "normalizacion-bases-datos",
-      "ofimatica-planilla-de-calculo",
-      "paginacion",
-      "patrones-y-buenas-practicas",
-      "permisos-y-usuarios"
+      "archivos-y-persistencia",
+      "inteligencia-artificial-reglas-a-aprendizaje",
+      "modelo-relacional-tabla-registro-clave-primaria",
+      "etica-de-la-ia-sesgo-privacidad",
+      "criptografia-clave-simetrica-asimetrica-hash"
     ],
-    "nombre": "データベースと権限の達人",
-    "descripcion": "正規化、ページング、ユーザー権限、設計のベストプラクティスを統合して試験に合格しました。",
-    "icono": "🗄️"
+    "nombre": "データ・AI・暗号",
+    "descripcion": "ファイルと永続化、リレーショナルモデル、人工知能とその倫理、共通鍵暗号・公開鍵暗号・ハッシュについての中間試験を完了しました、ボス。",
+    "icono": "🔐"
   },
   {
     "id": 822,
     "materia": "Informática",
     "cluster": 7,
     "temas": [
-      "planificacion-de-procesos",
-      "poo-clases-y-objetos",
-      "interrupciones",
+      "direccionamiento-ip-dns",
       "proceso-programa-en-ejecucion",
-      "protocolo-http-peticion-respuesta"
+      "protocolo-http-peticion-respuesta",
+      "comunicacion-entre-procesos",
+      "memoria-asignacion-memoria-virtual"
     ],
-    "nombre": "プロセスとオブジェクトの達人",
-    "descripcion": "プロセススケジューリング、オブジェクト指向プログラミング、割り込み、HTTPプロトコルを完璧に習得して中間試験を完了しました。",
-    "icono": "⚙️"
+    "nombre": "ネットワーク・プロセス・仮想メモリ",
+    "descripcion": "IPアドレッシング、DNS、HTTP、そしてプロセス、プロセス間通信、仮想メモリについての中間試験に合格しました。",
+    "icono": "🌐"
   },
   {
     "id": 823,
     "materia": "Informática",
     "cluster": 8,
     "temas": [
-      "comunicacion-entre-procesos",
-      "pruebas-unitarias-integracion",
-      "que-es-la-tecnica-y-la-tecnologia",
+      "planificacion-de-procesos",
+      "paginacion",
+      "interrupciones",
       "recursividad",
-      "medios-tecnicos-extension-capacidades-humanas"
+      "relaciones-y-claves-foraneas"
     ],
-    "nombre": "技術と再帰の達人",
-    "descripcion": "プロセス間通信、単体テスト、再帰、技術とテクノロジーの概念を統合しました、ボス。",
-    "icono": "🔁"
+    "nombre": "OSカーネルマスター",
+    "descripcion": "プロセススケジューリング、ページング、割り込み、さらに再帰と外部キーを習得しました。",
+    "icono": "⚡"
   },
   {
     "id": 824,
     "materia": "Informática",
     "cluster": 9,
     "temas": [
-      "relaciones-y-claves-foraneas",
-      "procesos-tecnicos-artesanales-e-industriales",
       "requisitos-funcionales-no-funcionales",
-      "revolucion-informatica",
-      "segmentacion"
+      "normalizacion-bases-datos",
+      "diseno-y-arquitectura-de-software",
+      "segmentacion",
+      "control-de-versiones"
     ],
-    "nombre": "関係と要件の達人",
-    "descripcion": "外部キー、技術的プロセス、機能要件、情報革命に関する試験を完了しました。",
-    "icono": "🔗"
+    "nombre": "ソフトウェア工学とデータベース",
+    "descripcion": "機能要件と非機能要件、設計とアーキテクチャ、バージョン管理、データベースの正規化、セグメンテーションについての中間試験を完了しました、ボス。",
+    "icono": "📐"
   },
   {
     "id": 825,
     "materia": "Informática",
     "cluster": 10,
     "temas": [
-      "seguridad-de-red-firewall-vpn-cifrado",
-      "seguridad-informatica",
+      "patrones-y-buenas-practicas",
+      "pruebas-unitarias-integracion",
       "sistema-de-archivos",
-      "sistemas-numeracion",
-      "sistema-de-archivos-por-bitacora"
+      "mantenimiento-y-deuda-tecnica",
+      "permisos-y-usuarios"
     ],
-    "nombre": "セキュリティとファイルの守護者",
-    "descripcion": "ファイアウォール、VPN、暗号化でシステムを保護し、数体系とジャーナリングファイルシステムを完璧に習得しました。",
-    "icono": "🛡️"
+    "nombre": "ソフトウェア品質とファイル",
+    "descripcion": "パターンとベストプラクティス、単体テストと結合テスト、保守と技術的負債、さらにファイルシステムとユーザー権限を習得しました。",
+    "icono": "🧪"
   },
   {
     "id": 826,
     "materia": "Informática",
     "cluster": 11,
     "temas": [
+      "sistema-de-archivos-por-bitacora",
       "sql-consultas-joins-agregaciones",
       "subsistema-de-entrada-y-salida",
       "tcp-ip-capas-enrutamiento",
       "tipos-de-licencias-de-software",
-      "tipos-de-so-por-dispositivo",
+      "seguridad-de-red-firewall-vpn-cifrado",
       "transacciones-acid",
-      "unidades-almacenamiento",
-      "variables-y-tipos-de-dato",
+      "seguridad-informatica",
       "virtualizacion-maquina-virtual-contenedor"
     ],
-    "nombre": "SQL・ネットワーク・仮想化の達人",
-    "descripcion": "SQLのJOIN、TCP/IPの階層、ACIDトランザクション、仮想化を完璧に習得して総合試験を完了しました。",
-    "icono": "☁️"
+    "nombre": "システム・ネットワーク・セキュリティの専門家",
+    "descripcion": "SQLとACIDトランザクション、TCP/IP、ネットワークセキュリティと情報セキュリティ、仮想化、入出力、ジャーナリングファイルシステム、ソフトウェアライセンスについての中間試験を完了しました、ボス。",
+    "icono": "🛡️"
   },
   {
     "id": 841,
     "materia": "Química",
     "cluster": 1,
     "temas": [
-      "atomo-particulas-subatomicas",
       "balanceo-ecuaciones",
-      "biomoleculas-glucidos-lipidos-proteinas",
-      "carbono-tetravalencia-cadenas",
-      "cinetica-reaccion"
+      "concentracion-de-una-solucion",
+      "densidad",
+      "dilucion-soluciones",
+      "equilibrio-quimico-kc"
     ],
-    "nombre": "原子と生体分子の達人",
-    "descripcion": "素粒子、化学反応式の係数調整、生体分子、反応速度論を完璧に習得しました。",
-    "icono": "⚛️"
+    "nombre": "溶液と平衡の達人",
+    "descripcion": "溶液の濃度と希釈、化学反応式の係数合わせ、密度、化学平衡定数Kcについての中間試験を完了しました、ボス。",
+    "icono": "⚗️"
   },
   {
     "id": 842,
     "materia": "Química",
     "cluster": 2,
     "temas": [
-      "concentracion-de-una-solucion",
-      "configuracion-electronica",
-      "densidad",
-      "dilucion-soluciones",
-      "electrolisis"
+      "estados-y-cambios",
+      "cinetica-reaccion",
+      "equilibrio-solubilidad-ksp",
+      "estequiometria",
+      "medicion-de-laboratorio"
     ],
-    "nombre": "溶液と電気分解の達人",
-    "descripcion": "溶液の濃度と希釈、電子配置、電気分解を完璧に習得して中間試験を完了しました。",
+    "nombre": "反応と化学量論の専門家",
+    "descripcion": "化学量論、反応速度論、溶解度積Ksp、状態と変化、実験室での測定を習得しました。",
     "icono": "🧪"
   },
   {
@@ -2060,74 +1908,74 @@
     "materia": "Química",
     "cluster": 3,
     "temas": [
-      "energia-libre-gibbs",
-      "enlace-quimico-polaridad",
-      "equilibrio-quimico-kc",
-      "equilibrio-solubilidad-ksp",
-      "estados-y-cambios"
+      "mezclas-metodos-separacion",
+      "ph-poh",
+      "modelos-atomicos",
+      "propiedades-coligativas",
+      "atomo-particulas-subatomicas"
     ],
-    "nombre": "平衡と自由エネルギーの達人",
-    "descripcion": "ギブズ自由エネルギー、結合の極性、平衡定数KcとKspを統合しました、ボス。",
-    "icono": "⚖️"
+    "nombre": "原子・混合物・pHマスター",
+    "descripcion": "原子モデルと素粒子、混合物の分離法、pHとpOH、束一的性質についての中間試験を完了しました、ボス。",
+    "icono": "⚛️"
   },
   {
     "id": 844,
     "materia": "Química",
     "cluster": 4,
     "temas": [
-      "estequiometria",
-      "gases-ideales",
-      "geometria-molecular-vsepr",
-      "grupos-funcionales",
-      "hidrocarburos-alcanos-alquenos-alquinos"
+      "quimica-analitica",
+      "numero-atomico-masico",
+      "quimica-de-la-atmosfera",
+      "configuracion-electronica",
+      "reactivo-limitante-rendimiento"
     ],
-    "nombre": "化学量論と炭化水素の達人",
-    "descripcion": "化学量論、理想気体、VSEPR分子形状、炭化水素に関する試験を完了しました。",
-    "icono": "⛽"
+    "nombre": "原子構造と分析化学の専門家",
+    "descripcion": "原子番号と質量数、電子配置、限定試薬と収率、分析化学、大気化学を習得しました。",
+    "icono": "🔬"
   },
   {
     "id": 845,
     "materia": "Química",
     "cluster": 5,
     "temas": [
-      "medicion-de-laboratorio",
-      "mezclas-metodos-separacion",
-      "modelos-atomicos",
-      "mol-masa-molar",
-      "nanotecnologia"
+      "seguridad-laboratorio",
+      "tabla-periodica-tendencias",
+      "tipos-reacciones-quimicas",
+      "enlace-quimico-polaridad",
+      "carbono-tetravalencia-cadenas"
     ],
-    "nombre": "測定と原子模型の達人",
-    "descripcion": "実験室での測定、混合物の分離法、原子模型、モルを完璧に習得しました。",
-    "icono": "🔬"
+    "nombre": "結合と周期表の達人",
+    "descripcion": "周期的傾向、化学結合と極性、反応の種類、炭素の四価性についての中間試験を完了し、実験室の安全も忘れませんでした、ボス。",
+    "icono": "🔗"
   },
   {
     "id": 846,
     "materia": "Química",
     "cluster": 6,
     "temas": [
-      "nomenclatura-compuestos",
-      "numero-atomico-masico",
-      "oxidacion-reduccion",
-      "petroleo-como-recurso-energetico",
-      "ph-poh"
+      "geometria-molecular-vsepr",
+      "hidrocarburos-alcanos-alquenos-alquinos",
+      "nanotecnologia",
+      "grupos-funcionales",
+      "nomenclatura-compuestos"
     ],
-    "nombre": "命名法と酸化還元の達人",
-    "descripcion": "化学命名法、原子番号と質量数、酸化還元、pH・pOHを統合して中間試験を完了しました。",
-    "icono": "🧫"
+    "nombre": "有機化学マスター",
+    "descripcion": "VSEPR分子構造、炭化水素、官能基と化合物の命名法を習得し、ナノテクノロジーにも触れました。",
+    "icono": "🧬"
   },
   {
     "id": 847,
     "materia": "Química",
     "cluster": 7,
     "temas": [
-      "pilas-celdas-galvanicas",
-      "polimeros-naturales-sinteticos",
-      "presiones-parciales",
-      "propiedades-coligativas",
-      "quimica-analitica"
+      "biomoleculas-glucidos-lipidos-proteinas",
+      "mol-masa-molar",
+      "oxidacion-reduccion",
+      "gases-ideales",
+      "electrolisis"
     ],
-    "nombre": "ガルバニ電池と高分子の達人",
-    "descripcion": "ガルバニ電池、天然高分子と合成高分子、分圧、束一性を完璧に習得しました、ボス。",
+    "nombre": "モル・気体・酸化還元の専門家",
+    "descripcion": "モルとモル質量、理想気体、酸化還元と電気分解についての中間試験を完了し、糖質、脂質、タンパク質などの生体分子も加えました、ボス。",
     "icono": "🔋"
   },
   {
@@ -2135,31 +1983,31 @@
     "materia": "Química",
     "cluster": 8,
     "temas": [
-      "quimica-de-la-atmosfera",
-      "reactivo-limitante-rendimiento",
-      "seguridad-laboratorio",
+      "petroleo-como-recurso-energetico",
+      "pilas-celdas-galvanicas",
+      "polimeros-naturales-sinteticos",
+      "presiones-parciales",
       "superconductividad",
-      "tabla-periodica-tendencias",
       "termoquimica",
-      "tipos-reacciones-quimicas"
+      "energia-libre-gibbs"
     ],
-    "nombre": "周期表と熱化学の達人",
-    "descripcion": "周期的傾向、熱化学、反応の種類、限定試薬に関する総合試験を完了しました。",
-    "icono": "🧯"
+    "nombre": "エネルギーと材料の達人",
+    "descripcion": "熱化学とギブズ自由エネルギー、ガルバニ電池、エネルギー資源としての石油、さらに高分子、分圧、超伝導を習得しました。",
+    "icono": "⚡"
   },
   {
     "id": 861,
     "materia": "Biología",
     "cluster": 1,
     "temas": [
-      "adn-gen-proteina",
-      "biodiversidad-indices",
-      "biotecnologia-pcr-crispr",
-      "cadenas-redes-troficas",
-      "celula-organelas"
+      "crecimiento-poblacional",
+      "genetica-mendeliana-punnett",
+      "grupos-sanguineos",
+      "cruce-dihibrido",
+      "herencia-ligada-al-sexo"
     ],
-    "nombre": "DNAと細胞の達人",
-    "descripcion": "DNAのセントラルドグマ、CRISPRによる遺伝子編集、食物網、細胞の内部構造を完璧に習得しました。",
+    "nombre": "遺伝の達人",
+    "descripcion": "パネットの方形、二遺伝子雑種交配、伴性遺伝、血液型、さらに個体群の成長を習得して、中間試験を完了しました。",
     "icono": "🧬"
   },
   {
@@ -2167,74 +2015,74 @@
     "materia": "Biología",
     "cluster": 2,
     "temas": [
-      "ciclos-biogeoquimicos",
+      "necesidades-basicas-seres-vivos",
+      "ser-vivo-caracteristicas",
+      "celula-organelas",
       "ciclos-vida-metamorfosis",
-      "clasificacion-evolucion",
-      "conservacion-areas-protegidas",
-      "crecimiento-poblacional"
+      "clasificacion-evolucion"
     ],
-    "nombre": "循環と保全の達人",
-    "descripcion": "生物地球化学的循環、変態、進化的分類、保護区の保全に関する中間試験に合格しました、ボス。",
-    "icono": "🌎"
+    "nombre": "生物の基礎",
+    "descripcion": "生物を定義するもの、基本的な必要条件、細胞とその細胞小器官、変態を伴う生活環、進化に基づく分類を習得しました、ボス。",
+    "icono": "🔬"
   },
   {
     "id": 863,
     "materia": "Biología",
     "cluster": 3,
     "temas": [
-      "cruce-dihibrido",
-      "deriva-genetica-flujo-genico",
-      "dinamica-poblacional-capacidad-carga",
+      "fotosintesis-respiracion-celular",
+      "habitats-adaptacion",
       "enzimas-proteina-sustrato-ph",
-      "especiacion"
+      "flujo-materia-energia",
+      "microbiologia-virus-inmunitario"
     ],
-    "nombre": "集団遺伝学の達人",
-    "descripcion": "二遺伝子雑種交配、遺伝的浮動、環境収容力、種分化に関する総合試験を完了しました。",
-    "icono": "🧬"
+    "nombre": "代謝とエネルギーの専門家",
+    "descripcion": "光合成と細胞呼吸、酵素、物質とエネルギーの流れ、生息環境への適応、免疫系を含む微生物学についての中間試験に合格しました。",
+    "icono": "⚡"
   },
   {
     "id": 864,
     "materia": "Biología",
     "cluster": 4,
     "temas": [
-      "filogenia-arboles-evolutivos",
-      "flujo-materia-energia",
-      "fotosintesis-respiracion-celular",
-      "genetica-mendeliana-punnett",
-      "grupos-sanguineos"
+      "cadenas-redes-troficas",
+      "mal-de-chagas",
+      "ciclos-biogeoquimicos",
+      "dinamica-poblacional-capacidad-carga",
+      "mitosis-meiosis"
     ],
-    "nombre": "系統学とメンデル遺伝の専門家",
-    "descripcion": "系統樹、光合成、細胞呼吸、パネットの方形を統合して中間試験を完了しました。",
-    "icono": "🧬"
+    "nombre": "生態系と細胞分裂マスター",
+    "descripcion": "食物網、生物地球化学的循環、環境収容力と、体細胞分裂・減数分裂を組み合わせ、さらにシャーガス病を事例研究として取り上げて、中間試験を完了しました。",
+    "icono": "🌿"
   },
   {
     "id": 865,
     "materia": "Biología",
     "cluster": 5,
     "temas": [
-      "habitats-adaptacion",
-      "herencia-ligada-al-sexo",
-      "mal-de-chagas",
-      "microbiologia-virus-inmunitario",
-      "mitosis-meiosis"
+      "biodiversidad-indices",
+      "adn-gen-proteina",
+      "conservacion-areas-protegidas",
+      "biotecnologia-pcr-crispr",
+      "nicho-ecologico"
     ],
-    "nombre": "遺伝と身体防御の達人",
-    "descripcion": "生息地への適応、伴性遺伝、シャーガス病、ウイルスに対する免疫応答に関する試験に合格しました。",
-    "icono": "🦠"
+    "nombre": "生物多様性とバイオテクノロジーの専門家",
+    "descripcion": "生物多様性指数、生態的地位、保護区、そしてDNAから遺伝子、タンパク質への経路とPCRやCRISPRなどの手法を習得しました。",
+    "icono": "🧪"
   },
   {
     "id": 866,
     "materia": "Biología",
     "cluster": 6,
     "temas": [
-      "necesidades-basicas-seres-vivos",
-      "nicho-ecologico",
       "partes-planta-germinacion",
       "piramide-biomasas",
-      "presion-arterial"
+      "quimiosintesis",
+      "seleccion-natural",
+      "sistemas-cuerpo-humano"
     ],
-    "nombre": "生物とそのニーズの達人",
-    "descripcion": "生物の基本的なニーズ、生態的ニッチ、植物の発芽、バイオマスピラミッドに関する中間試験を完了しました。",
+    "nombre": "進化と人体の達人",
+    "descripcion": "自然選択、化学合成、生物量ピラミッド、さらに植物の各部、発芽、人体の器官系についての中間試験に合格しました。",
     "icono": "🌱"
   },
   {
@@ -2242,16 +2090,16 @@
     "materia": "Biología",
     "cluster": 7,
     "temas": [
-      "quimiosintesis",
-      "seleccion-natural",
-      "ser-vivo-caracteristicas",
+      "deriva-genetica-flujo-genico",
+      "especiacion",
+      "presion-arterial",
+      "filogenia-arboles-evolutivos",
       "sistema-endocrino-hormonas-glandulas",
       "sistema-nervioso-neurona-sinapsis",
-      "sistemas-cuerpo-humano",
       "transgenicos-bioetica"
     ],
-    "nombre": "身体の系統と生命倫理の達人",
-    "descripcion": "神経系、内分泌系、自然選択、遺伝子組み換え生物をめぐる生命倫理の議論を完璧に習得して総合試験を完了しました。",
+    "nombre": "進化と生理学の専門家",
+    "descripcion": "種分化、遺伝的浮動、系統発生、神経系と内分泌系、血圧、遺伝子組換え生物の生命倫理を習得して、中間試験を完了しました、ボス。",
     "icono": "🧠"
   },
   {
@@ -2259,45 +2107,45 @@
     "materia": "Cívica",
     "cluster": 1,
     "temas": [
-      "constitucion-nacional-jerarquia-normativa",
       "derechos-nino",
-      "discriminacion-y-organismos-de-proteccion",
+      "encuesta-electoral",
       "derechos-indigenas",
-      "encuesta-electoral"
+      "discriminacion-y-organismos-de-proteccion",
+      "derechos-genero"
     ],
-    "nombre": "権利と憲法の擁護者",
-    "descripcion": "憲法の階層、子どもの権利、先住民族、差別禁止機関に関する中間試験に合格しました。",
-    "icono": "⚖️"
+    "nombre": "権利と差別禁止の専門家",
+    "descripcion": "子どもの権利、ジェンダーの権利、先住民の権利、差別から守る機関、選挙世論調査の読み方を習得しました、ボス。",
+    "icono": "✊"
   },
   {
     "id": 880,
     "materia": "Cívica",
     "cluster": 2,
     "temas": [
-      "derechos-genero",
       "estado-de-derecho-por-que-importa",
       "marchas-patrioticas",
       "organizacion-del-estado",
-      "origen-estado-derecho"
+      "origen-estado-derecho",
+      "constitucion-preambulo"
     ],
-    "nombre": "法治国家の達人",
-    "descripcion": "法治国家の起源と重要性、国家組織、ジェンダーの権利に関する総合試験を完了しました。",
-    "icono": "🏛️"
+    "nombre": "法の支配の達人",
+    "descripcion": "法の支配の起源と重要性、国家の組織、憲法の前文、愛国行進曲を習得して、中間試験を完了しました。",
+    "icono": "⚖️"
   },
   {
     "id": 881,
     "materia": "Cívica",
     "cluster": 3,
     "temas": [
-      "constitucion-preambulo",
       "division-de-poderes",
-      "derechos-y-garantias",
+      "constitucion-nacional-jerarquia-normativa",
       "como-se-hace-una-ley",
+      "derechos-y-garantias",
       "documentos-y-tramites"
     ],
-    "nombre": "憲法と法律の達人",
-    "descripcion": "憲法前文、三権分立、権利保障、法律の制定過程に関する中間試験に合格しました。",
-    "icono": "📜"
+    "nombre": "憲法と法律マスター",
+    "descripcion": "三権分立、国家憲法の規範の階層、法律の作り方、権利と保障、手続きと書類を習得しました、ボス。",
+    "icono": "📕"
   },
   {
     "id": 882,
@@ -2350,14 +2198,14 @@
     "materia": "Derecho",
     "cluster": 1,
     "temas": [
-      "apelacion-e-instancias",
-      "argumentacion-juridica",
-      "corrientes-interpretacion-juridica",
-      "denuncia-y-etapa-de-instruccion",
-      "derecho-administrativo"
+      "ramas-del-derecho",
+      "derecho-administrativo",
+      "derecho-civil",
+      "derecho-comercial",
+      "derecho-constitucional"
     ],
-    "nombre": "上訴と論証の達人",
-    "descripcion": "上訴審級、法的論証、捜査段階に関する総合試験を完了しました。",
+    "nombre": "法の分野の達人",
+    "descripcion": "法の分野の全体像とその柱である憲法、民法、商法、行政法を習得しました。",
     "icono": "⚖️"
   },
   {
@@ -2365,46 +2213,46 @@
     "materia": "Derecho",
     "cluster": 2,
     "temas": [
-      "derecho-civil",
-      "derecho-comercial",
-      "derecho-constitucional",
       "derecho-internacional",
-      "derecho-laboral"
+      "derecho-laboral",
+      "derecho-penal",
+      "denuncia-y-etapa-de-instruccion",
+      "hecho-juridicamente-relevante"
     ],
-    "nombre": "多分野の法律家",
-    "descripcion": "民法、商法、憲法、国際法、労働法を統合した中間試験に合格しました、ボス。",
-    "icono": "⚖️"
+    "nombre": "刑法と労働法の専門家",
+    "descripcion": "刑法、労働法、国際法、そして法的に重要な事実が告発と予審に至る過程についての中間試験を完了しました、ボス。",
+    "icono": "🏛️"
   },
   {
     "id": 896,
     "materia": "Derecho",
     "cluster": 3,
     "temas": [
-      "derecho-penal",
-      "ejecucion-de-la-sentencia",
+      "investigacion-prueba-y-fiscalia",
       "fuentes-del-derecho",
-      "hecho-juridicamente-relevante",
+      "norma-jerarquia-y-vigencia",
+      "corrientes-interpretacion-juridica",
       "interpretacion-normativa"
     ],
-    "nombre": "刑法とその法源の達人",
-    "descripcion": "刑法、法源、判決の執行に関する総合試験を完了しました。",
-    "icono": "⚖️"
+    "nombre": "法源と解釈マスター",
+    "descripcion": "法源、規範の階層と効力、解釈の潮流、検察と証拠による捜査を習得しました。",
+    "icono": "📜"
   },
   {
     "id": 897,
     "materia": "Derecho",
     "cluster": 4,
     "temas": [
-      "investigacion-prueba-y-fiscalia",
-      "juicio-oral",
-      "norma-jerarquia-y-vigencia",
       "politica-criminal-garantismo-mano-dura",
-      "ramas-del-derecho",
-      "resolucion-de-conflictos-y-sentencia"
+      "argumentacion-juridica",
+      "resolucion-de-conflictos-y-sentencia",
+      "juicio-oral",
+      "apelacion-e-instancias",
+      "ejecucion-de-la-sentencia"
     ],
-    "nombre": "刑事訴訟と判決の達人",
-    "descripcion": "検察の捜査、公判、刑事政策、判決に至るまでの紛争解決に関する中間試験に合格しました。",
-    "icono": "👨‍⚖️"
+    "nombre": "刑事手続と判決の達人",
+    "descripcion": "法的論証、口頭審理、判断と判決、控訴と審級、刑の執行、そして権利保障主義と厳罰主義の論争を巡って、中間試験に合格しました。",
+    "icono": "🔨"
   },
   {
     "id": 904,
@@ -2412,13 +2260,13 @@
     "cluster": 1,
     "temas": [
       "acustica-instrumento-musical",
-      "armonia-basica-acordes-tonalidad",
       "composicion-y-proporcion",
-      "danza-ritmo-tiempo-expresion-corporal",
-      "elementos-del-arte"
+      "origen-del-arte",
+      "elementos-del-arte",
+      "principios-de-diseno"
     ],
-    "nombre": "芸術の要素の達人",
-    "descripcion": "音響学、音楽の和声、構図、ダンスにおける身体表現を統合した総合試験を完了しました。",
+    "nombre": "芸術の基礎の達人",
+    "descripcion": "芸術の起源、デザインの要素と原則、構図と比率、楽器の音響学を習得して、中間試験を完了しました。",
     "icono": "🎨"
   },
   {
@@ -2426,14 +2274,14 @@
     "materia": "Arte",
     "cluster": 2,
     "temas": [
-      "lenguaje-musical-pentagrama-escalas-intervalos",
-      "origen-del-arte",
-      "principios-de-diseno",
       "ritmo-compas-pulso-figuras-musicales",
-      "narrativa-audiovisual/plano"
+      "narrativa-audiovisual/plano",
+      "danza-ritmo-tiempo-expresion-corporal",
+      "lenguaje-musical-pentagrama-escalas-intervalos",
+      "narrativa-audiovisual/encuadre"
     ],
-    "nombre": "音楽言語とデザインの達人",
-    "descripcion": "五線譜、音階、デザインの原則、映像ナラティブにおけるショットに関する中間試験に合格しました、ボス。",
+    "nombre": "リズム・音楽・平面の専門家",
+    "descripcion": "拍、小節、音符、五線譜と音階・音程、ダンスと身体表現、映像における平面とフレーミングを習得しました、ボス。",
     "icono": "🎼"
   },
   {
@@ -2441,46 +2289,198 @@
     "materia": "Arte",
     "cluster": 3,
     "temas": [
-      "rosetones-y-simetria",
-      "narrativa-audiovisual/encuadre",
-      "teatro-dramaturgia-y-actuacion",
+      "armonia-basica-acordes-tonalidad",
       "narrativa-audiovisual/montaje",
-      "produccion-multimedial"
+      "rosetones-y-simetria",
+      "produccion-multimedial",
+      "teatro-dramaturgia-y-actuacion"
     ],
-    "nombre": "舞台と映像の達人",
-    "descripcion": "演劇と演技、映像のフレーミングと編集、マルチメディア制作、薔薇窓の対称性に関する総合試験を完了しました。",
-    "icono": "🎬"
+    "nombre": "和声・編集・舞台マスター",
+    "descripcion": "和声と和音、映像編集、マルチメディア制作、演劇と戯曲、そしてバラ窓の対称性についての中間試験に合格しました。",
+    "icono": "🎭"
   },
   {
     "id": 912,
     "materia": "Investigación",
     "cluster": 1,
     "temas": [
-      "analisis-estadistico-de-resultados",
-      "argumentar-desde-evidencia",
-      "conclusion-y-comunicacion-de-resultados",
+      "observacion-y-pregunta-investigable",
+      "hipotesis-buena-o-mala",
+      "metodologia-cualitativa-vs-cuantitativa",
       "construir-y-usar-un-modelo-cientifico",
-      "corrientes-filosofia-de-la-ciencia"
+      "trabajo-de-campo-enfoque-socioantropologico"
     ],
-    "nombre": "科学的方法の支配",
-    "descripcion": "統計分析、証拠に基づく論証、科学哲学の潮流を統合した総合試験を完了しました。",
-    "icono": "🔬"
+    "nombre": "科学的方法の入門者",
+    "descripcion": "観察と調査可能な問い、良い仮説、質的・量的方法論、科学モデル、フィールドワークを習得して、中間試験を完了しました。",
+    "icono": "🔎"
   },
   {
     "id": 913,
     "materia": "Investigación",
     "cluster": 2,
     "temas": [
+      "corrientes-filosofia-de-la-ciencia",
       "diseno-experimental-variables-y-control",
-      "hipotesis-buena-o-mala",
-      "observacion-y-pregunta-investigable",
+      "tecnicas-de-investigacion-social",
       "recoleccion-de-datos",
-      "metodologia-cualitativa-vs-cuantitativa",
-      "trabajo-de-campo-enfoque-socioantropologico",
-      "tecnicas-de-investigacion-social"
+      "analisis-estadistico-de-resultados",
+      "conclusion-y-comunicacion-de-resultados",
+      "argumentar-desde-evidencia"
     ],
-    "nombre": "実験・野外調査計画の達人",
-    "descripcion": "実験計画、仮説の設定、質的・量的方法論、社会人類学的フィールドワークに関する中間試験に合格しました。",
-    "icono": "🧪"
+    "nombre": "研究デザインと分析の専門家",
+    "descripcion": "実験デザイン、データ収集、統計分析、証拠に基づく論証、結論の伝達を、科学哲学や社会調査の技法とともに習得しました。",
+    "icono": "📊"
+  },
+  {
+    "id": 918,
+    "materia": "Ingeniería",
+    "cluster": 1,
+    "temas": [
+      "modelizacion-matematica",
+      "problema-y-restricciones",
+      "disciplinas-de-la-ingenieria",
+      "investigar-soluciones-existentes",
+      "diseno-conceptual"
+    ],
+    "nombre": "工学設計の入口の達人",
+    "descripcion": "問題とその制約、解決策の調査、概念設計、数理モデル化、工学の各分野を習得して、中間試験を完了しました。",
+    "icono": "📐"
+  },
+  {
+    "id": 919,
+    "materia": "Ingeniería",
+    "cluster": 2,
+    "temas": [
+      "modelado-y-calculo",
+      "prototipo",
+      "resistencia-de-materiales",
+      "ensayo-y-medicion",
+      "optimizacion-e-iteracion",
+      "comunicar-la-solucion"
+    ],
+    "nombre": "解決策の構築と検証の専門家",
+    "descripcion": "モデリングと計算、材料の強度、試作品、試験と測定、反復的な最適化、解決策の伝え方についての中間試験に合格しました、ボス。",
+    "icono": "🛠️"
+  },
+  {
+    "id": 924,
+    "materia": "Psicología",
+    "cluster": 1,
+    "temas": [
+      "psicologia-modernidad-y-el-yo",
+      "autoconocimiento-como-busqueda-humana",
+      "dependencia-del-otro-cultura-como-herencia",
+      "memoria-y-olvido-represion-inconsciente",
+      "psicologia-cognitiva-percepcion-memoria-atencion"
+    ],
+    "nombre": "自己・記憶・文化の専門家",
+    "descripcion": "近代の心理学と自己、自己理解、遺産としての文化、そして記憶、忘却、抑圧を習得して、中間試験を完了しました。",
+    "icono": "🧠"
+  },
+  {
+    "id": 925,
+    "materia": "Psicología",
+    "cluster": 2,
+    "temas": [
+      "lenguaje-pensamiento-y-creatividad",
+      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
+      "edades-del-ser-humano-ninez-pubertad-identidad",
+      "salud-mental-ansiedad-depresion-pedir-ayuda",
+      "sesgos-cognitivos-heuristicas-error-sistematico"
+    ],
+    "nombre": "心理学の潮流と人間の心の達人",
+    "descripcion": "心理学の潮流、認知バイアス、言語・思考・創造性、人間のライフステージ、メンタルヘルスを習得しました、ボス。",
+    "icono": "💭"
+  },
+  {
+    "id": 930,
+    "materia": "Ciencia de Materiales",
+    "cluster": 1,
+    "temas": [
+      "corrosion",
+      "elasticidad-ley-de-hooke-modulo-de-young",
+      "propiedades-mecanicas-dureza-tenacidad-ductilidad",
+      "plasticidad-y-punto-de-fluencia",
+      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
+      "fatiga-y-fractura"
+    ],
+    "nombre": "材料の挙動の専門家",
+    "descripcion": "弾性とフックの法則、塑性と降伏点、硬さと靭性、疲労と破壊、腐食、材料の種類についての中間試験に合格しました。",
+    "icono": "🔩"
+  },
+  {
+    "id": 934,
+    "materia": "Dibujo Técnico",
+    "cluster": 1,
+    "temas": [
+      "sistemas-de-proyeccion",
+      "vistas-frontal-superior-lateral",
+      "perspectivas-isometrica-y-caballera",
+      "escalas-numericas-y-graficas",
+      "acotacion-normalizada"
+    ],
+    "nombre": "製図の達人",
+    "descripcion": "投影法、図面、等角図とキャビネット図、尺度と規格化された寸法記入を習得して、中間試験を完了しました、ボス。",
+    "icono": "📏"
+  },
+  {
+    "id": 938,
+    "materia": "Comunicación",
+    "cluster": 1,
+    "temas": [
+      "generos-periodisticos",
+      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido",
+      "etica-y-responsabilidad-de-los-medios",
+      "corrientes-de-la-comunicacion",
+      "publicidad-y-persuasion"
+    ],
+    "nombre": "コミュニケーションとメディアの専門家",
+    "descripcion": "コミュニケーション理論とその潮流、報道のジャンル、メディア倫理、広告と説得を習得しました。",
+    "icono": "📰"
+  },
+  {
+    "id": 942,
+    "materia": "Electrónica",
+    "cluster": 1,
+    "temas": [
+      "componentes-resistencia-capacitor-diodo-transistor",
+      "circuitos-y-leyes-de-kirchhoff",
+      "logica-digital-puertas-and-or-not",
+      "microcontroladores-y-microprocesadores",
+      "sensores-y-actuadores"
+    ],
+    "nombre": "回路とデジタル制御の達人",
+    "descripcion": "抵抗、コンデンサ、ダイオード、トランジスタ、キルヒホッフの法則、デジタル論理、マイクロコントローラ、センサー、アクチュエータについての中間試験を完了しました。",
+    "icono": "🔌"
+  },
+  {
+    "id": 946,
+    "materia": "Automatización",
+    "cluster": 1,
+    "temas": [
+      "lazo-abierto-vs-lazo-cerrado",
+      "plc-logica-de-control-industrial",
+      "realimentacion-feedback",
+      "control-pid-proporcional-integral-derivativo",
+      "servomecanismos"
+    ],
+    "nombre": "制御システムの専門家",
+    "descripcion": "開ループと閉ループ、フィードバック、PID制御、サーボ機構、PLCによる制御論理を習得しました、ボス。",
+    "icono": "🤖"
+  },
+  {
+    "id": 950,
+    "materia": "UX/Diseño",
+    "cluster": 1,
+    "temas": [
+      "usabilidad-heuristicas-de-nielsen",
+      "accesibilidad-wcag-contraste-lectores-de-pantalla",
+      "jerarquia-visual-e-informacion",
+      "prototipado-wireframe-mockup-prototipo-interactivo",
+      "pruebas-de-usuario"
+    ],
+    "nombre": "ユーザー体験の達人",
+    "descripcion": "ユーザビリティとニールセンのヒューリスティクス、WCAGアクセシビリティ、視覚的階層、プロトタイピング、ユーザーテストを習得して、中間試験に合格しました。",
+    "icono": "🖥️"
   }
 ]

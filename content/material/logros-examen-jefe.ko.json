@@ -1,157 +1,5 @@
 [
   {
-    "id": 183,
-    "materia": "Ingeniería",
-    "cluster": 1,
-    "temas": [
-      "comunicar-la-solucion",
-      "disciplinas-de-la-ingenieria",
-      "diseno-conceptual",
-      "ensayo-y-medicion",
-      "investigar-soluciones-existentes"
-    ],
-    "nombre": "디자인 및 소통 마스터",
-    "descripcion": "개념적 설계, 연구 및 솔루션 소통을 통합하여 중간고사를 완료했습니다.",
-    "icono": "📐"
-  },
-  {
-    "id": 184,
-    "materia": "Ingeniería",
-    "cluster": 2,
-    "temas": [
-      "modelado-y-calculo",
-      "modelizacion-matematica",
-      "optimizacion-e-iteracion",
-      "problema-y-restricciones",
-      "prototipo",
-      "resistencia-de-materiales"
-    ],
-    "nombre": "모델링 및 최적화",
-    "descripcion": "수학적 모델링, 최적화 및 재료 역학을 공학적 판단으로 통합하여 해결했습니다.",
-    "icono": "📐"
-  },
-  {
-    "id": 206,
-    "materia": "Dibujo Técnico",
-    "cluster": 1,
-    "temas": [
-      "acotacion-normalizada",
-      "escalas-numericas-y-graficas",
-      "perspectivas-isometrica-y-caballera",
-      "sistemas-de-proyeccion",
-      "vistas-frontal-superior-lateral"
-    ],
-    "nombre": "시각과 축척 장악",
-    "descripcion": "투영 시스템, 축척, 원근법 관련 시험을 완료했습니다.",
-    "icono": "📐"
-  },
-  {
-    "id": 207,
-    "materia": "Psicología",
-    "cluster": 1,
-    "temas": [
-      "autoconocimiento-como-busqueda-humana",
-      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
-      "dependencia-del-otro-cultura-como-herencia",
-      "edades-del-ser-humano-ninez-pubertad-identidad",
-      "lenguaje-pensamiento-y-creatividad"
-    ],
-    "nombre": "마음의 탐험가",
-    "descripcion": "심리 학파, 인간 발달, 자기 이해 형성 관련 시험을 완료했습니다.",
-    "icono": "🧠"
-  },
-  {
-    "id": 208,
-    "materia": "Psicología",
-    "cluster": 2,
-    "temas": [
-      "memoria-y-olvido-represion-inconsciente",
-      "psicologia-cognitiva-percepcion-memoria-atencion",
-      "psicologia-modernidad-y-el-yo",
-      "salud-mental-ansiedad-depresion-pedir-ayuda",
-      "sesgos-cognitivos-heuristicas-error-sistematico"
-    ],
-    "nombre": "마음의 달인",
-    "descripcion": "기억, 편향, 정신 건강 관련 종합 시험을 완료했습니다, 보스.",
-    "icono": "🧠"
-  },
-  {
-    "id": 209,
-    "materia": "Comunicación",
-    "cluster": 1,
-    "temas": [
-      "corrientes-de-la-comunicacion",
-      "etica-y-responsabilidad-de-los-medios",
-      "generos-periodisticos",
-      "publicidad-y-persuasion",
-      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido"
-    ],
-    "nombre": "학파와 장르 장악",
-    "descripcion": "학파, 윤리, 광고, 커뮤니케이션 이론 관련 시험을 완료했습니다.",
-    "icono": "📰"
-  },
-  {
-    "id": 210,
-    "materia": "Electrónica",
-    "cluster": 1,
-    "temas": [
-      "circuitos-y-leyes-de-kirchhoff",
-      "componentes-resistencia-capacitor-diodo-transistor",
-      "logica-digital-puertas-and-or-not",
-      "microcontroladores-y-microprocesadores",
-      "sensores-y-actuadores"
-    ],
-    "nombre": "회로와 논리의 달인",
-    "descripcion": "키르히호프의 법칙부터 마이크로컨트롤러 프로그래밍까지 마스터한 시험을 완료했습니다.",
-    "icono": "🔧"
-  },
-  {
-    "id": 211,
-    "materia": "Ciencia de Materiales",
-    "cluster": 1,
-    "temas": [
-      "corrosion",
-      "elasticidad-ley-de-hooke-modulo-de-young",
-      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
-      "fatiga-y-fractura",
-      "plasticidad-y-punto-de-fluencia",
-      "propiedades-mecanicas-dureza-tenacidad-ductilidad"
-    ],
-    "nombre": "기계적 특성의 달인",
-    "descripcion": "부식, 탄성, 피로, 재료 특성 관련 중간고사를 완료했습니다, 보스.",
-    "icono": "🛡️"
-  },
-  {
-    "id": 212,
-    "materia": "Automatización",
-    "cluster": 1,
-    "temas": [
-      "control-pid-proporcional-integral-derivativo",
-      "lazo-abierto-vs-lazo-cerrado",
-      "plc-logica-de-control-industrial",
-      "realimentacion-feedback",
-      "servomecanismos"
-    ],
-    "nombre": "PID 및 PLC 마스터",
-    "descripcion": "서보 메커니즘, 산업용 로직 및 상위 제어 루프의 기초를 완벽히 습득했습니다.",
-    "icono": "🤖"
-  },
-  {
-    "id": 213,
-    "materia": "UX/Diseño",
-    "cluster": 1,
-    "temas": [
-      "accesibilidad-wcag-contraste-lectores-de-pantalla",
-      "jerarquia-visual-e-informacion",
-      "prototipado-wireframe-mockup-prototipo-interactivo",
-      "pruebas-de-usuario",
-      "usabilidad-heuristicas-de-nielsen"
-    ],
-    "nombre": "사용성 및 접근성 마스터",
-    "descripcion": "WCAG, 니엘슨의 휴리스틱, 프로토타이핑을 숙지한 최종 시험을 완료했습니다.",
-    "icono": "👁️"
-  },
-  {
     "id": 601,
     "materia": "Matemática",
     "cluster": 1,
@@ -638,14 +486,14 @@
     "cluster": 1,
     "temas": [
       "conciencia-fonologica",
-      "escritura-como-tecnologia",
-      "decodificacion-y-fluidez",
       "ortografia-y-tildacion",
+      "decodificacion-y-fluidez",
+      "signos-de-puntuacion",
       "circuito-de-la-comunicacion"
     ],
-    "nombre": "문해력 기초의 달인",
-    "descripcion": "음운 인식, 해독과 유창성, 맞춤법과 강세 표기, 의사소통 회로까지 마스터했습니다.",
-    "icono": "🔤📖"
+    "nombre": "맞춤법과 초기 읽기 장악",
+    "descripcion": "음운 인식, 해독과 유창성, 맞춤법과 강세 표기, 문장부호, 의사소통 회로를 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "✍️"
   },
   {
     "id": 652,
@@ -653,14 +501,14 @@
     "cluster": 2,
     "temas": [
       "comprension-idea-principal",
-      "signos-de-puntuacion",
+      "escritura-como-tecnologia",
       "tecnicas-de-estudio-resumen-y-organizadores-graficos",
       "tipos-textuales",
       "variedades-de-la-lengua"
     ],
-    "nombre": "텍스트 이해력 장악",
-    "descripcion": "중심 내용, 문장부호, 텍스트 유형, 언어의 변이형을 마스터하며 중간고사를 완료했습니다, 보스.",
-    "icono": "🧩📚"
+    "nombre": "이해력과 글 유형 전문가",
+    "descripcion": "중심 생각, 글의 유형, 언어의 변이형, 기술로서의 글쓰기, 요약과 그래픽 조직자 같은 학습 기법을 마스터했습니다, 보스.",
+    "icono": "📖"
   },
   {
     "id": 653,
@@ -862,180 +710,180 @@
     "materia": "Historia profunda",
     "cluster": 1,
     "temas": [
-      "absolutismo-europeo",
-      "agujeros-negros",
-      "ampliacion-democratica-ley-saenz-pena",
-      "antigua-grecia",
-      "antigua-roma"
+      "escalas-de-tiempo-profundo",
+      "origen-del-universo",
+      "formacion-de-estrellas",
+      "galaxias-tipos-escala",
+      "nucleosintesis"
     ],
-    "nombre": "그리스·로마에서 절대주의까지",
-    "descripcion": "고대 그리스와 고대 로마, 유럽의 절대주의를 마스터하고 블랙홀까지 짚어보며 중간고사를 완료했습니다.",
-    "icono": "🏛️"
+    "nombre": "우주 기원의 달인",
+    "descripcion": "심원한 시간의 척도, 우주의 기원, 핵합성, 별의 형성, 은하의 종류를 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "🌌"
   },
   {
     "id": 682,
     "materia": "Historia profunda",
     "cluster": 2,
     "temas": [
-      "antiguo-egipto",
-      "atmosfera-primitiva",
-      "baja-edad-media-y-crisis",
-      "caida-de-roma-y-alta-edad-media",
-      "cambio-climatico-linea-base-historica"
+      "corrimiento-al-rojo-expansion-universo",
+      "agujeros-negros",
+      "formacion-del-sistema-solar",
+      "ley-de-hubble",
+      "movimiento-rotacion-traslacion"
     ],
-    "nombre": "이집트와 중세의 위기",
-    "descripcion": "고대 이집트, 로마의 몰락, 중세 전기, 중세 후기의 위기에 관한 시험을 완료했습니다, 보스.",
-    "icono": "🏺"
+    "nombre": "우주 팽창 장악",
+    "descripcion": "허블 법칙, 적색편이, 블랙홀, 태양계의 형성, 자전과 공전 운동에 관한 중간고사를 통과했습니다, 보스.",
+    "icono": "🔭"
   },
   {
     "id": 683,
     "materia": "Historia profunda",
     "cluster": 3,
     "temas": [
-      "china-antigua",
-      "ciclo-de-las-rocas",
-      "ciencia-revolucion-cientifica",
-      "cinco-extinciones-masivas",
-      "civilizaciones-antiguas"
+      "materia-energia-oscura",
+      "estaciones-del-ano",
+      "fases-lunares",
+      "movimiento-aparente-constelaciones",
+      "eclipses-sol-luna"
     ],
-    "nombre": "과학과 고대 문명",
-    "descripcion": "고대 중국, 고대 문명들, 다섯 번의 대멸종, 과학혁명을 한 중간고사에서 마스터했습니다.",
-    "icono": "🔬🏺"
+    "nombre": "하늘과 암흑 우주 전문가",
+    "descripcion": "암흑 물질과 암흑 에너지, 그리고 관측 가능한 하늘인 계절, 달의 위상, 식, 별자리의 겉보기 운동을 마스터했습니다.",
+    "icono": "🌙"
   },
   {
     "id": 684,
     "materia": "Historia profunda",
     "cluster": 4,
     "temas": [
-      "civilizaciones-de-america-precolombinas",
-      "conquista-colonizacion-america",
-      "conquista-tierra-firme",
-      "conquista-y-colonia-argentina",
-      "corrimiento-al-rojo-expansion-universo"
+      "tabla-periodica-nivel2-cosmologico",
+      "tierra-primitiva-diferenciacion",
+      "atmosfera-primitiva",
+      "minerales-estructura-cristalina",
+      "origen-de-la-vida"
     ],
-    "nombre": "아메리카 원주민 문명에서 우주까지",
-    "descripcion": "아메리카 원주민 문명과 정복부터 적색편이와 우주 팽창까지 아우르는 시험을 완료했습니다.",
-    "icono": "🌎"
+    "nombre": "원시 지구의 달인",
+    "descripcion": "원시 지구와 그 분화, 원시 대기, 광물, 우주론적 주기율표, 생명의 기원을 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "🌋"
   },
   {
     "id": 685,
     "materia": "Historia profunda",
     "cluster": 5,
     "temas": [
-      "datacion-radiometrica",
-      "descolonizacion-de-africa-y-asia",
-      "distribucion-biomas",
-      "division-del-trabajo",
-      "eclipses-sol-luna"
+      "rocas-igneas-sedimentarias-metamorficas",
+      "procariotas",
+      "tiempo-geologico-eones-eras-periodos",
+      "gran-oxidacion",
+      "datacion-radiometrica"
     ],
-    "nombre": "연대측정, 생물군계, 탈식민화",
-    "descripcion": "방사성 연대측정, 아프리카와 아시아의 탈식민화, 생물군계 분포, 일식과 월식을 통합하여 중간고사에 합격했습니다.",
-    "icono": "⏳🌍"
+    "nombre": "지질 시대 전문가",
+    "descripcion": "누대·대·기, 방사성 연대 측정, 암석의 종류, 원핵생물, 대산화 사건을 마스터했습니다, 보스.",
+    "icono": "🪨"
   },
   {
     "id": 686,
     "materia": "Historia profunda",
     "cluster": 6,
     "temas": [
-      "edad-media-feudalismo",
-      "edad-media-plena",
-      "electrificacion-fabrica-hogar",
-      "entreguerras-y-crisis-de-1929",
-      "escalas-de-tiempo-profundo"
+      "eucariotas",
+      "fotosintesis-cambio-atmosfera-nivel2",
+      "multicelularidad",
+      "tectonica-placas-deriva-continental",
+      "explosion-cambrica"
     ],
-    "nombre": "봉건제에서 29년 대공황까지",
-    "descripcion": "중세 봉건제, 공장과 가정의 전기화, 1929년 대공황까지 거대한 변화들을 마스터했습니다, 보스.",
-    "icono": "🏰"
+    "nombre": "복잡한 생명 장악",
+    "descripcion": "진핵생물, 광합성과 대기 변화, 다세포성, 캄브리아 폭발, 판 구조론에 관한 중간고사를 통과했습니다.",
+    "icono": "🦠"
   },
   {
     "id": 687,
     "materia": "Historia profunda",
     "cluster": 7,
     "temas": [
-      "escritura-primeras-ciudades",
-      "estaciones-del-ano",
-      "estados-nacionales",
-      "eucariotas",
-      "expansion-del-imperio-romano"
+      "ciclo-de-las-rocas",
+      "conquista-tierra-firme",
+      "distribucion-biomas",
+      "cinco-extinciones-masivas",
+      "paleoclima-glaciaciones"
     ],
-    "nombre": "문자에서 로마 제국까지",
-    "descripcion": "문자와 최초의 도시들, 국민국가, 로마 제국의 팽창에 관한 보스 시험을 완료했습니다.",
-    "icono": "📜🏛️"
+    "nombre": "대멸종과 고대 기후의 달인",
+    "descripcion": "육지 정복, 다섯 번의 대멸종, 고기후와 빙하기, 암석 순환, 생물군계 분포를 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "🦖"
   },
   {
     "id": 688,
     "materia": "Historia profunda",
     "cluster": 8,
     "temas": [
-      "explosion-cambrica",
-      "fases-lunares",
-      "formacion-de-estrellas",
-      "formacion-del-sistema-solar",
-      "fotosintesis-cambio-atmosfera-nivel2"
+      "radiacion-mamiferos",
+      "cambio-climatico-linea-base-historica",
+      "hominizacion",
+      "relieve-sismos-volcanes",
+      "paleolitico"
     ],
-    "nombre": "별, 광합성, 캄브리아기",
-    "descripcion": "별과 태양계의 형성, 달의 위상, 광합성, 캄브리아 대폭발을 마스터했습니다.",
-    "icono": "⭐🧬"
+    "nombre": "포유류와 인류 기원 전문가",
+    "descripcion": "포유류의 적응방산, 호미니제이션과 구석기 시대, 그리고 지진과 화산이 있는 지형과 기후 변화의 기준선을 마스터했습니다, 보스.",
+    "icono": "🦴"
   },
   {
     "id": 689,
     "materia": "Historia profunda",
     "cluster": 9,
     "temas": [
-      "galaxias-tipos-escala",
-      "globalizacion-era-digital",
-      "golpes-de-estado-interrupciones",
-      "gran-oxidacion",
-      "guerra-de-malvinas"
+      "seleccion-natural-evidencias-nivel2",
+      "herramientas-arte-rupestre",
+      "poblamiento-planeta-america",
+      "revolucion-neolitica",
+      "sedentarizacion-excedente"
     ],
-    "nombre": "은하, 쿠데타, 말비나스 전쟁",
-    "descripcion": "은하, 대산화 사건, 쿠데타, 말비나스(포클랜드) 전쟁에 관한 중간고사를 완료했습니다, 보스.",
-    "icono": "🌌🎖️"
+    "nombre": "신석기 혁명 장악",
+    "descripcion": "자연선택, 도구와 동굴 벽화, 아메리카 대륙 정착, 신석기 혁명, 잉여를 동반한 정착 생활을 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "🌾"
   },
   {
     "id": 690,
     "materia": "Historia profunda",
     "cluster": 10,
     "temas": [
-      "guerra-fria-descolonizacion",
-      "guerras-civiles-unitarios-federales",
-      "guerras-de-independencia-argentina",
-      "guerras-mundiales",
-      "herramientas-arte-rupestre"
+      "division-del-trabajo",
+      "metalurgia-cobre-hierro",
+      "propiedad-jerarquia-estado",
+      "escritura-primeras-ciudades",
+      "antigua-grecia"
     ],
-    "nombre": "독립전쟁에서 냉전까지",
-    "descripcion": "아르헨티나 독립전쟁, 중앙집권파와 연방파의 내전, 세계대전, 냉전에 관한 시험을 완료했습니다.",
-    "icono": "⚔️"
+    "nombre": "최초의 국가들의 달인",
+    "descripcion": "분업, 야금술, 소유와 국가에 이르는 위계, 문자와 최초의 도시, 고대 그리스에 관한 중간고사를 통과했습니다.",
+    "icono": "🏺"
   },
   {
     "id": 691,
     "materia": "Historia profunda",
     "cluster": 11,
     "temas": [
-      "historia-contemporanea-de-africa",
-      "historia-contemporanea-de-asia-y-pacifico",
-      "historia-contemporanea-de-medio-oriente",
-      "historia-reciente-argentina",
-      "hominizacion"
+      "antigua-roma",
+      "antiguo-egipto",
+      "china-antigua",
+      "civilizaciones-de-america-precolombinas",
+      "india-antigua"
     ],
-    "nombre": "세계 현대사",
-    "descripcion": "아프리카, 아시아·태평양, 중동, 최근 아르헨티나의 현대사를 통합하여 중간고사에 합격했습니다.",
-    "icono": "🌍"
+    "nombre": "고대 대문명 전문가",
+    "descripcion": "로마, 이집트, 중국, 인도, 그리고 아메리카의 콜럼버스 이전 문명을 마스터했습니다, 보스.",
+    "icono": "🏛️"
   },
   {
     "id": 692,
     "materia": "Historia profunda",
     "cluster": 12,
     "temas": [
-      "huella-humana-en-el-clima-inicio",
-      "ilustracion",
-      "imperialismo",
-      "imperio-bizantino",
+      "mesopotamia",
+      "pueblos-originarios-territorio-argentino",
+      "civilizaciones-antiguas",
+      "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
-    "nombre": "헬레니즘에서 제국주의까지",
-    "descripcion": "알렉산드로스 대왕의 헬레니즘 제국, 비잔티움 제국, 계몽주의, 제국주의에 관한 시험을 완료했습니다.",
-    "icono": "🏺🌐"
+    "nombre": "고대 세계의 제국 장악",
+    "descripcion": "메소포타미아, 알렉산드로스 대왕과 헬레니즘, 로마 제국의 팽창, 오늘날 아르헨티나 영토의 원주민에 관한 중간고사를 마쳤습니다.",
+    "icono": "⚔️"
   },
   {
     "id": 693,
@@ -1045,165 +893,165 @@
       "imperio-han-china",
       "imperio-persa",
       "imperios-expansion",
-      "imprenta",
-      "india-antigua"
+      "caida-de-roma-y-alta-edad-media",
+      "edad-media-feudalismo"
     ],
-    "nombre": "고대 제국과 인쇄술",
-    "descripcion": "페르시아 제국, 중국 한 제국, 고대 인도, 인쇄술의 등장을 마스터했습니다, 보스.",
-    "icono": "👑📖"
+    "nombre": "제국과 봉건제의 달인",
+    "descripcion": "한 제국과 페르시아 제국, 제국의 팽창, 로마의 멸망과 중세 전기, 그리고 봉건제를 마스터했습니다, 보스.",
+    "icono": "🏰"
   },
   {
     "id": 694,
     "materia": "Historia profunda",
     "cluster": 14,
     "temas": [
-      "internet-redes-globalizacion-digital",
+      "imperio-bizantino",
       "islam-y-expansion-arabe",
-      "ley-de-hubble",
-      "materia-energia-oscura",
-      "mesopotamia"
+      "edad-media-plena",
+      "baja-edad-media-y-crisis",
+      "renacimiento-y-reforma"
     ],
-    "nombre": "메소포타미아에서 인터넷까지",
-    "descripcion": "메소포타미아와 이슬람부터 인터넷과 디지털 세계화까지, 허블의 법칙까지 짚어보는 복습을 완료했습니다.",
-    "icono": "🕌💻"
+    "nombre": "중세와 르네상스 전문가",
+    "descripcion": "비잔티움 제국, 이슬람과 아랍의 팽창, 중세 전성기, 중세 후기의 위기, 종교개혁을 동반한 르네상스에 관한 중간고사를 통과했습니다.",
+    "icono": "📜"
   },
   {
     "id": 695,
     "materia": "Historia profunda",
     "cluster": 15,
     "temas": [
-      "metalurgia-cobre-hierro",
-      "minerales-estructura-cristalina",
-      "modelo-agroexportador-inmigracion",
-      "modernidad-imprenta-navegacion-ciencia",
-      "movimiento-aparente-constelaciones"
+      "ciencia-revolucion-cientifica",
+      "imprenta",
+      "navegacion",
+      "conquista-colonizacion-america",
+      "modernidad-imprenta-navegacion-ciencia"
     ],
-    "nombre": "야금술, 광물, 근대성",
-    "descripcion": "구리와 철의 야금술, 광물, 농업수출 모델, 인쇄술과 항해가 이끈 근대성에 관한 보스 시험을 완료했습니다.",
-    "icono": "⚒️🔭"
+    "nombre": "근대와 정복 장악",
+    "descripcion": "과학 혁명, 인쇄술, 항해술, 그리고 아메리카의 정복과 식민지화를 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "⛵"
   },
   {
     "id": 696,
     "materia": "Historia profunda",
     "cluster": 16,
     "temas": [
-      "movimiento-rotacion-traslacion",
-      "multicelularidad",
-      "navegacion",
-      "nucleosintesis",
-      "organizacion-nacional-constitucion-1853"
+      "absolutismo-europeo",
+      "conquista-y-colonia-argentina",
+      "ilustracion",
+      "virreinato-y-comercio",
+      "revolucion-industrial"
     ],
-    "nombre": "우주와 1853년 헌법",
-    "descripcion": "지구의 자전과 공전, 원소 합성부터 1853년 국가 조직화까지 마스터했음을 입증했습니다, 보스.",
-    "icono": "🌐📜"
+    "nombre": "절대주의와 계몽주의의 달인",
+    "descripcion": "유럽의 절대주의, 계몽주의, 산업 혁명, 아르헨티나의 정복과 식민지 시대, 부왕령과 그 교역을 마스터했습니다, 보스.",
+    "icono": "👑"
   },
   {
     "id": 697,
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "origen-de-la-vida",
-      "origen-del-universo",
-      "paleoclima-glaciaciones",
-      "paleolitico",
-      "peronismo-derechos-sociales"
+      "revolucion-de-mayo",
+      "electrificacion-fabrica-hogar",
+      "guerras-de-independencia-argentina",
+      "huella-humana-en-el-clima-inicio",
+      "guerras-civiles-unitarios-federales"
     ],
-    "nombre": "빅뱅에서 페론주의까지",
-    "descripcion": "우주와 생명의 기원부터 구석기 시대와 페론주의까지 아우르는 보스 시험을 완료했습니다.",
-    "icono": "💥🗳️"
+    "nombre": "아르헨티나 독립 전문가",
+    "descripcion": "5월 혁명, 독립 전쟁, 통일파와 연방파의 내전, 그리고 전기화와 기후에 인류 흔적이 시작된 시기에 관한 중간고사를 통과했습니다.",
+    "icono": "🇦🇷"
   },
   {
     "id": 698,
     "materia": "Historia profunda",
     "cluster": 18,
     "temas": [
-      "poblamiento-planeta-america",
-      "primera-guerra-mundial-y-revolucion-rusa",
-      "procariotas",
-      "propiedad-jerarquia-estado",
-      "pueblos-originarios-territorio-argentino"
+      "revoluciones-burguesas-liberalismo",
+      "organizacion-nacional-constitucion-1853",
+      "estados-nacionales",
+      "modelo-agroexportador-inmigracion",
+      "imperialismo"
     ],
-    "nombre": "원핵생물에서 러시아 혁명까지",
-    "descripcion": "원핵생물, 아메리카 대륙의 인류 정착, 원주민, 제1차 세계대전과 러시아 혁명에 관한 시험을 완료했습니다.",
-    "icono": "🧫🚩"
+    "nombre": "자유주의와 국민 질서 장악",
+    "descripcion": "부르주아 혁명과 자유주의, 민족 국가, 제국주의, 1853년 헌법, 이민을 동반한 농산물 수출 모델을 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "📈"
   },
   {
     "id": 699,
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "radiacion-mamiferos",
-      "recuperacion-democratica-memoria",
-      "relieve-sismos-volcanes",
-      "renacimiento-y-reforma",
-      "revolucion-de-mayo"
+      "ampliacion-democratica-ley-saenz-pena",
+      "sociedad-de-masas-y-democracia-liberal",
+      "primera-guerra-mundial-y-revolucion-rusa",
+      "entreguerras-y-crisis-de-1929",
+      "golpes-de-estado-interrupciones"
     ],
-    "nombre": "르네상스에서 민주주의 회복까지",
-    "descripcion": "르네상스와 종교개혁, 5월 혁명, 민주주의 회복과 기억의 문제를 마스터하며 중간고사를 완료했습니다, 보스.",
-    "icono": "🎨🕊️"
+    "nombre": "20세기 초반의 달인",
+    "descripcion": "대중 사회와 자유민주주의, 제1차 세계대전과 러시아 혁명, 전간기와 1929년 공황, 사엔스 페냐 법과 쿠데타를 마스터했습니다, 보스.",
+    "icono": "📰"
   },
   {
     "id": 700,
     "materia": "Historia profunda",
     "cluster": 20,
     "temas": [
-      "revolucion-industrial",
-      "revolucion-neolitica",
-      "revoluciones-burguesas-liberalismo",
-      "rocas-igneas-sedimentarias-metamorficas",
-      "sedentarizacion-excedente"
+      "segunda-guerra-mundial",
+      "peronismo-derechos-sociales",
+      "descolonizacion-de-africa-y-asia",
+      "guerras-mundiales",
+      "guerra-fria-descolonizacion"
     ],
-    "nombre": "신석기 혁명에서 산업혁명까지",
-    "descripcion": "신석기 혁명, 정착생활과 잉여생산물부터 산업혁명과 시민혁명들까지 다뤘습니다.",
-    "icono": "🌾🏭"
+    "nombre": "전쟁과 냉전 전문가",
+    "descripcion": "세계 대전, 제2차 세계대전, 냉전, 아프리카와 아시아의 탈식민지화, 사회적 권리를 동반한 페론주의에 관한 중간고사를 통과했습니다.",
+    "icono": "🕊️"
   },
   {
     "id": 701,
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "segunda-guerra-mundial",
-      "seleccion-natural-evidencias-nivel2",
-      "sociedad-de-masas-y-democracia-liberal",
-      "tabla-periodica-nivel2-cosmologico",
-      "tectonica-placas-deriva-continental",
       "terrorismo-de-estado-argentina",
-      "tiempo-geologico-eones-eras-periodos",
-      "tierra-primitiva-diferenciacion",
-      "virreinato-y-comercio"
+      "historia-contemporanea-de-africa",
+      "guerra-de-malvinas",
+      "historia-contemporanea-de-asia-y-pacifico",
+      "historia-contemporanea-de-medio-oriente",
+      "recuperacion-democratica-memoria",
+      "globalizacion-era-digital",
+      "historia-reciente-argentina",
+      "internet-redes-globalizacion-digital"
     ],
-    "nombre": "빅 히스토리의 달인",
-    "descripcion": "원시 지구와 판구조론부터 제2차 세계대전, 국가 테러리즘, 부왕령까지 마스터하며 중간고사를 통과했습니다, 보스.",
-    "icono": "🌋🎖️"
+    "nombre": "현대사 장악",
+    "descripcion": "국가 테러리즘, 포클랜드 전쟁과 아르헨티나의 민주주의 회복, 아프리카·아시아·중동의 현대사, 디지털 시대의 세계화를 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "🌍"
   },
   {
     "id": 721,
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "conquista-del-desierto-y-campana-al-chaco",
       "crisis-de-2001",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "interpretar-una-fuente-historica"
+      "interpretar-una-fuente-historica",
+      "linea-de-tiempo-y-antes-despues",
+      "reforma-universitaria-1918",
+      "decada-siglo-milenio"
     ],
-    "nombre": "전쟁과 위기의 달인",
-    "descripcion": "사막 정복, 파라과이 전쟁, 스페인 내전, 2001년 위기에 관한 중간고사에 합격하며 역사 사료를 해석했습니다.",
-    "icono": "⚔️"
+    "nombre": "사료와 연대기 전문가",
+    "descripcion": "역사 사료의 해석, 연표, 십 년·세기·천 년, 그리고 1918년 대학 개혁과 2001년 위기 같은 아르헨티나 사례를 마스터했습니다, 보스.",
+    "icono": "🗂️"
   },
   {
     "id": 722,
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
-      "decada-siglo-milenio",
-      "revolucion-mexicana-1910-1920",
-      "antes-y-despues-de-cristo"
+      "semana-tragica-1919",
+      "antes-y-despues-de-cristo",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "periodizacion-historica",
+      "causa-y-consecuencia"
     ],
-    "nombre": "연표와 혁명의 달인",
-    "descripcion": "연표, 1918년 대학 개혁, 멕시코 혁명에 관한 보스 시험을 완료했습니다.",
+    "nombre": "시대 구분과 인과관계 장악",
+    "descripcion": "시대 구분, 기원전과 기원후, 원인과 결과, 1919년 비극의 주간, 수입 대체 산업화를 마스터하며 중간고사를 마쳤습니다.",
     "icono": "⏳"
   },
   {
@@ -1211,515 +1059,515 @@
     "materia": "Historia",
     "cluster": 3,
     "temas": [
-      "rosas-y-la-confederacion",
-      "periodizacion-historica",
-      "economias-regionales-tempranas",
-      "causa-y-consecuencia",
-      "semana-tragica-1919"
+      "significancia-historica",
+      "cambio-y-continuidad",
+      "evidencia",
+      "dimension-etica",
+      "multicausalidad"
     ],
-    "nombre": "로사스와 비극의 일주일의 달인",
-    "descripcion": "로사스와 연방, 초기 지역 경제, 1919년 비극의 일주일에 관한 중간고사에 합격했습니다, 보스.",
-    "icono": "📜"
+    "nombre": "역사적 사고의 달인",
+    "descripcion": "역사적 중요성, 변화와 연속성, 증거, 다중 인과관계, 윤리적 차원을 마스터했습니다, 보스.",
+    "icono": "🧠"
   },
   {
     "id": 724,
     "materia": "Historia",
     "cluster": 4,
     "temas": [
-      "cambio-y-continuidad",
-      "evidencia",
-      "dimension-etica",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
-      "multicausalidad"
+      "escuela-de-los-annales",
+      "historia-cultural",
+      "materialismo-historico",
+      "positivismo",
+      "revoluciones"
     ],
-    "nombre": "역사적 사고와 수입대체산업화의 달인",
-    "descripcion": "변화와 연속성, 다중 인과관계, 역사적 증거, 수입대체산업화를 마스터하며 보스 시험을 완료했습니다.",
-    "icono": "🏭"
+    "nombre": "역사학 사조 전문가",
+    "descripcion": "아날 학파, 문화사, 사적 유물론, 실증주의, 혁명 연구에 관한 중간고사를 통과했습니다.",
+    "icono": "📚"
   },
   {
     "id": 725,
     "materia": "Historia",
     "cluster": 5,
     "temas": [
-      "significancia-historica",
-      "escuela-de-los-annales",
-      "historia-cultural",
-      "materialismo-historico",
-      "positivismo",
-      "revoluciones",
       "independencias",
-      "guerras"
+      "revolucion-mexicana-1910-1920",
+      "guerras",
+      "guerra-civil-espanola-1936-1939",
+      "guerra-del-paraguay-y-triple-alianza",
+      "rosas-y-la-confederacion",
+      "conquista-del-desierto-y-campana-al-chaco",
+      "economias-regionales-tempranas"
     ],
-    "nombre": "역사서술 학파의 달인",
-    "descripcion": "아날학파, 사적 유물론, 실증주의를 주요 혁명·독립·전쟁과 통합하여 중간고사에 합격했습니다.",
-    "icono": "📚"
+    "nombre": "아메리카의 전쟁과 과정 장악",
+    "descripcion": "독립, 멕시코 혁명, 스페인 내전, 파라과이 전쟁, 로사스와 연합, 사막 정복, 초기 지역 경제에 관한 중간고사를 마쳤습니다.",
+    "icono": "🗺️"
   },
   {
     "id": 736,
     "materia": "Física",
     "cluster": 1,
     "temas": [
-      "calor-q-m-c-deltat",
-      "cambios-de-estado-calor-latente",
+      "cargas-electricas",
+      "estatica/centro-de-gravedad",
       "campo-electrico",
-      "campo-magnetico-imanes-corrientes",
-      "cargas-electricas"
+      "corriente-electrica",
+      "estatica/momento-de-una-fuerza"
     ],
-    "nombre": "열과 전하의 달인",
-    "descripcion": "비열, 상태 변화, 전기장과 자기장을 마스터하며 중간고사를 완료했습니다, 보스.",
-    "icono": "🔥⚡"
+    "nombre": "전하, 전기장, 정역학",
+    "descripcion": "전하, 전기장과 전류, 그리고 정역학의 힘의 모멘트와 무게중심을 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "⚡"
   },
   {
     "id": 737,
     "materia": "Física",
     "cluster": 2,
     "temas": [
-      "caudal-q-a-v",
-      "choques-elasticos-inelasticos",
-      "circuitos-en-paralelo",
-      "circuitos-en-serie",
-      "circuitos-mixtos"
+      "estructura-del-nucleo-atomico",
+      "estatica/equilibrio-de-cuerpo-rigido",
+      "decaimiento-radiactivo-alfa-beta-gamma",
+      "formulas-con-literales",
+      "fision-y-fusion-nuclear"
     ],
-    "nombre": "회로와 충돌 전문가",
-    "descripcion": "직렬, 병렬, 혼합 회로는 물론 유량과 탄성·비탄성 충돌까지 마스터했습니다.",
-    "icono": "🔌💥"
+    "nombre": "원자핵과 강체 평형",
+    "descripcion": "알파·베타·감마 붕괴, 핵분열과 핵융합, 원자핵의 구조, 그리고 강체의 평형과 문자식을 마스터했습니다, 보스.",
+    "icono": "☢️"
   },
   {
     "id": 738,
     "materia": "Física",
     "cluster": 3,
     "temas": [
-      "conservacion-energia-mecanica",
-      "corriente-electrica",
-      "decaimiento-radiactivo-alfa-beta-gamma",
-      "decibeles-richter",
-      "dilatacion-termica-lineal"
+      "iman-polos-atraccion-repulsion",
+      "ley-de-coulomb",
+      "leyes-de-newton/primera-inercia",
+      "maquinas-simples",
+      "leyes-de-newton/segunda-fma"
     ],
-    "nombre": "에너지와 방사능 장악",
-    "descripcion": "역학적 에너지 보존, 전류, 방사성 붕괴, 열팽창을 마스터하며 시험을 완료했습니다, 보스.",
-    "icono": "☢️⚡"
+    "nombre": "쿨롱과 뉴턴의 달인",
+    "descripcion": "쿨롱의 법칙과 자석의 자기, 뉴턴의 제1·제2법칙, 단순 기계에 관한 중간고사를 통과했습니다, 보스.",
+    "icono": "🧲"
   },
   {
     "id": 739,
     "materia": "Física",
     "cluster": 4,
     "temas": [
+      "mru",
+      "leyes-de-newton/tercera-accion-reaccion",
+      "mruv",
       "dinamica-fuerzas-concurrentes",
-      "dualidad-onda-particula",
-      "energia-cinetica",
-      "energia-potencial-gravitatoria",
-      "entropia-segunda-ley-termodinamica"
+      "oscilacion-periodo"
     ],
-    "nombre": "동역학과 엔트로피의 달인",
-    "descripcion": "공점력, 운동에너지와 위치에너지를 마스터하고 엔트로피와 파동-입자 이중성으로 마무리했습니다.",
-    "icono": "⚛️⚖️"
+    "nombre": "운동학과 동역학 장악",
+    "descripcion": "등속 직선 운동, 등가속도 운동, 뉴턴의 제3법칙, 공점력, 진동 주기에 관한 중간고사를 마쳤습니다.",
+    "icono": "🚀"
   },
   {
     "id": 740,
     "materia": "Física",
     "cluster": 5,
     "temas": [
-      "escalas-de-temperatura-c-f-k",
-      "estatica/centro-de-gravedad",
-      "estatica/equilibrio-de-cuerpo-rigido",
-      "estatica/momento-de-una-fuerza",
-      "estructura-del-nucleo-atomico"
+      "gravitacion-universal",
+      "frecuencia",
+      "momento-lineal",
+      "longitud-onda-velocidad-propagacion",
+      "impulso-cambio-momento"
     ],
-    "nombre": "평형과 온도 척도 장악",
-    "descripcion": "무게중심, 강체의 평형, 온도 척도, 원자핵의 구조를 마스터하며 중간고사를 완료했습니다, 보스.",
-    "icono": "⚖️🌡️"
+    "nombre": "운동량과 파동 전문가",
+    "descripcion": "운동량, 충격량, 만유인력, 그리고 진동수와 파장·전파 속도의 관계를 마스터했습니다.",
+    "icono": "🌊"
   },
   {
     "id": 741,
     "materia": "Física",
     "cluster": 6,
     "temas": [
-      "fisica-medica",
-      "fision-y-fusion-nuclear",
-      "formacion-de-imagenes-optica",
-      "formulas-con-literales",
-      "frecuencia"
+      "luz-onda-espectro-electromagnetico",
+      "movimiento-circular-y-fuerza-centripeta",
+      "dualidad-onda-particula",
+      "plano-inclinado-y-rozamiento",
+      "fisica-medica"
     ],
-    "nombre": "의학 및 원자핵 물리학 전문가",
-    "descripcion": "핵분열과 핵융합, 광학적 상 형성, 의학물리학을 문자식 하나 틀리지 않고 마스터했습니다.",
-    "icono": "🏥☢️"
+    "nombre": "양자 빛과 원운동",
+    "descripcion": "전자기 스펙트럼, 파동-입자 이중성, 의학 물리학, 그리고 원운동과 마찰이 있는 경사면을 마스터하며 중간고사를 마쳤습니다, 보스.",
+    "icono": "💡"
   },
   {
     "id": 742,
     "materia": "Física",
     "cluster": 7,
     "temas": [
-      "generador-motor-transformador",
-      "gravitacion-universal",
-      "iman-polos-atraccion-repulsion",
-      "impulso-cambio-momento",
-      "induccion-electromagnetica-faraday-lenz"
+      "presion-f-sobre-a",
+      "reflexion-espejos-planos-curvos",
+      "caudal-q-a-v",
+      "presion-atmosferica",
+      "presion-hidrostatica"
     ],
-    "nombre": "전자기학과 중력의 달인",
-    "descripcion": "발전기, 전동기, 변압기, 패러데이와 렌츠의 전자기 유도, 만유인력을 마스터하며 시험을 완료했습니다, 보스.",
-    "icono": "🧲🌍"
+    "nombre": "압력과 유체 전문가",
+    "descripcion": "압력, 정수압과 대기압, 유량을 마스터했고, 평면거울과 곡면거울의 반사까지 더했습니다.",
+    "icono": "💧"
   },
   {
     "id": 743,
     "materia": "Física",
     "cluster": 8,
     "temas": [
-      "lentes-convergentes-divergentes",
-      "ley-de-coulomb",
-      "ley-de-ohm",
-      "leyes-de-newton/primera-inercia",
-      "leyes-de-newton/segunda-fma"
+      "masas-de-aire-y-frentes",
+      "principio-de-arquimedes-empuje-flotacion",
+      "formacion-de-nubes",
+      "principio-de-pascal-prensa-hidraulica",
+      "precipitacion"
     ],
-    "nombre": "기본 법칙 장악",
-    "descripcion": "쿨롱의 법칙, 옴의 법칙, 뉴턴의 제1·2법칙은 물론 볼록렌즈와 오목렌즈까지 마스터했습니다.",
-    "icono": "🔍⚡"
+    "nombre": "유체와 기상학",
+    "descripcion": "아르키메데스 원리와 파스칼 원리, 그리고 기단과 전선, 구름의 형성, 강수에 관한 중간고사를 통과했습니다.",
+    "icono": "☁️"
   },
   {
     "id": 744,
     "materia": "Física",
     "cluster": 9,
     "temas": [
-      "leyes-de-newton/tercera-accion-reaccion",
-      "longitud-onda-velocidad-propagacion",
-      "luz-onda-espectro-electromagnetico",
-      "maquina-termica-termodinamica-nivel2",
-      "maquinas-simples"
+      "refraccion-indice-ley-snell",
+      "relatividad-especial-conceptual",
+      "lentes-convergentes-divergentes",
+      "resonancia-frecuencia-natural",
+      "formacion-de-imagenes-optica"
     ],
-    "nombre": "파동과 기계의 달인",
-    "descripcion": "뉴턴의 제3법칙, 파동의 전파, 전자기 스펙트럼, 단순 기계를 마스터하며 중간고사를 완료했습니다, 보스.",
-    "icono": "🌊⚙️"
+    "nombre": "기하광학의 달인",
+    "descripcion": "굴절과 스넬의 법칙, 볼록렌즈와 오목렌즈, 상의 형성, 그리고 공명과 특수 상대성 이론을 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "🔭"
   },
   {
     "id": 745,
     "materia": "Física",
     "cluster": 10,
     "temas": [
-      "momento-lineal",
-      "movimiento-circular-y-fuerza-centripeta",
-      "mru",
+      "semivida-desintegracion-exponencial",
       "ojo-humano-instrumento-optico",
-      "mruv"
+      "sonido-timbre-altura-intensidad",
+      "temperatura-equilibrio-termico",
+      "decibeles-richter"
     ],
-    "nombre": "운동과 시각 장악",
-    "descripcion": "등속운동과 등가속운동, 운동량, 원운동을 마스터하고 눈을 광학 기기로서 이해했습니다.",
-    "icono": "🏃‍♂️👁️"
+    "nombre": "소리, 시각, 반감기",
+    "descripcion": "소리(음색, 높이, 세기), 데시벨과 리히터 규모, 광학 기기로서의 사람 눈, 반감기, 열평형을 마스터했습니다, 보스.",
+    "icono": "🔊"
   },
   {
     "id": 746,
     "materia": "Física",
     "cluster": 11,
     "temas": [
-      "oscilacion-periodo",
-      "plano-inclinado-y-rozamiento",
-      "potencia-electrica",
-      "potencia-mecanica",
-      "presion-atmosferica"
+      "calor-q-m-c-deltat",
+      "dilatacion-termica-lineal",
+      "cambios-de-estado-calor-latente",
+      "escalas-de-temperatura-c-f-k",
+      "maquina-termica-termodinamica-nivel2"
     ],
-    "nombre": "일률과 진동의 달인",
-    "descripcion": "전력과 역학적 일률, 마찰이 있는 경사면, 진동, 대기압을 마스터하며 시험을 완료했습니다, 보스.",
-    "icono": "🔄⚡"
+    "nombre": "열과 온도 측정 장악",
+    "descripcion": "열량 Q=m·c·ΔT, 열팽창, 잠열, 온도 눈금, 열기관에 관한 중간고사를 마쳤습니다.",
+    "icono": "🌡️"
   },
   {
     "id": 747,
     "materia": "Física",
     "cluster": 12,
     "temas": [
-      "presion-f-sobre-a",
-      "masas-de-aire-y-frentes",
-      "presion-hidrostatica",
-      "formacion-de-nubes",
-      "principio-de-arquimedes-empuje-flotacion"
+      "tension-diferencia-potencial",
+      "entropia-segunda-ley-termodinamica",
+      "resistencia-electrica",
+      "tiro-oblicuo",
+      "ley-de-ohm"
     ],
-    "nombre": "압력과 기후 장악",
-    "descripcion": "정수압, 아르키메데스의 원리, 기단과 전선, 구름의 형성을 마스터했습니다.",
-    "icono": "🌬️☁️"
+    "nombre": "옴의 법칙과 비스듬한 던지기",
+    "descripcion": "전압, 저항, 옴의 법칙, 그리고 비스듬한 던지기와 열역학 제2법칙의 엔트로피에 관한 중간고사를 통과했습니다.",
+    "icono": "🔌"
   },
   {
     "id": 748,
     "materia": "Física",
     "cluster": 13,
     "temas": [
-      "precipitacion",
-      "principio-de-pascal-prensa-hidraulica",
-      "reflexion-espejos-planos-curvos",
-      "refraccion-indice-ley-snell",
-      "relatividad-especial-conceptual"
+      "tiro-vertical",
+      "circuitos-en-paralelo",
+      "circuitos-en-serie",
+      "potencia-electrica",
+      "circuitos-mixtos"
     ],
-    "nombre": "광학과 상대성의 달인",
-    "descripcion": "반사, 스넬의 법칙에 따른 굴절, 파스칼의 원리, 특수 상대성이론을 마스터하며 중간고사를 완료했습니다, 보스.",
-    "icono": "🔭🌀"
+    "nombre": "전기 회로 전문가",
+    "descripcion": "직렬·병렬·혼합 회로와 전력을 마스터했고, 수직 던지기까지 더했습니다, 보스.",
+    "icono": "🔋"
   },
   {
     "id": 749,
     "materia": "Física",
     "cluster": 14,
     "temas": [
-      "resistencia-electrica",
-      "resonancia-frecuencia-natural",
-      "semivida-desintegracion-exponencial",
-      "sonido-timbre-altura-intensidad",
-      "temperatura-equilibrio-termico"
+      "tormentas-y-fenomenos-severos",
+      "campo-magnetico-imanes-corrientes",
+      "trabajo-de-una-fuerza",
+      "induccion-electromagnetica-faraday-lenz",
+      "energia-cinetica"
     ],
-    "nombre": "소리와 저항 장악",
-    "descripcion": "전기 저항, 공명, 음색과 소리의 세기, 반감기의 지수적 붕괴를 마스터했습니다.",
-    "icono": "🔊🔋"
+    "nombre": "전자기학, 일, 에너지",
+    "descripcion": "자기장, 패러데이-렌츠 유도, 힘의 일과 운동 에너지, 그리고 뇌우와 극한 기상 현상을 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "🧭"
   },
   {
     "id": 750,
     "materia": "Física",
     "cluster": 15,
     "temas": [
-      "tension-diferencia-potencial",
-      "tiro-oblicuo",
-      "tiro-vertical",
-      "tormentas-y-fenomenos-severos",
-      "trabajo-de-una-fuerza",
+      "generador-motor-transformador",
+      "choques-elasticos-inelasticos",
+      "energia-potencial-gravitatoria",
       "transmision-calor-conduccion-conveccion-radiacion",
-      "velocidad-aceleracion-instantaneas"
+      "conservacion-energia-mecanica",
+      "velocidad-aceleracion-instantaneas",
+      "potencia-mecanica"
     ],
-    "nombre": "포물선운동과 폭풍의 달인",
-    "descripcion": "비스듬한 던지기와 수직 던지기, 힘이 한 일, 열의 전달, 강한 폭풍우를 마스터하며 시험을 완료했습니다, 보스.",
-    "icono": "🎯🌪️"
+    "nombre": "에너지와 기계의 달인",
+    "descripcion": "역학적 에너지 보존, 중력 위치 에너지, 일률, 탄성 충돌과 비탄성 충돌, 열의 전달, 발전기·모터·변압기를 마스터했습니다.",
+    "icono": "⚙️"
   },
   {
     "id": 766,
     "materia": "Economía",
     "cluster": 1,
     "temas": [
-      "balanza-comercial",
       "blockchain-claves-wallet",
-      "business-model-canvas",
       "capitalismo-industrial-trabajo-asalariado",
-      "comercio-internacional-ventaja-comparativa"
+      "contratos-inteligentes",
+      "costo-marginal",
+      "debe-haber-balance"
     ],
-    "nombre": "글로벌 무역과 블록체인의 달인",
-    "descripcion": "무역수지와 비교우위를 이해하고 블록체인과 비즈니스 모델에 첫발을 내디뎠습니다.",
-    "icono": "🌐"
+    "nombre": "블록체인, 한계비용, 대차대조표",
+    "descripcion": "블록체인의 키와 지갑, 스마트 계약, 한계비용, 대차대조표의 차변·대변을 거치며 중간고사를 마쳤습니다, 보스.",
+    "icono": "⛓️"
   },
   {
     "id": 767,
     "materia": "Economía",
     "cluster": 2,
     "temas": [
-      "contratos-inteligentes",
-      "control-de-gestion-e-indicadores",
-      "cooperativismo-y-mutualismo",
-      "coordinar-personas-y-recursos",
-      "costo-de-oportunidad"
+      "detectar-una-oportunidad-de-negocio",
+      "elasticidad",
+      "estructura-del-patrimonio",
+      "estructura-productiva-dependencia",
+      "ecuacion-contable-fundamental"
     ],
-    "nombre": "경영과 기회비용의 달인",
-    "descripcion": "경영 통제를 마스터하고 인력과 자원을 조정했으며, 기회비용과 협동조합주의를 이해했습니다.",
-    "icono": "🤝"
+    "nombre": "자산과 탄력성 장악",
+    "descripcion": "기본 회계 등식과 자산의 구조, 그리고 탄력성, 생산 의존성, 사업 기회를 알아보는 방법을 마스터했습니다.",
+    "icono": "📊"
   },
   {
     "id": 768,
     "materia": "Economía",
     "cluster": 3,
     "temas": [
-      "costo-marginal",
-      "debe-haber-balance",
-      "detectar-una-oportunidad-de-negocio",
-      "dex-swap",
-      "division-formal-microeconomia-macroeconomia"
+      "interes-simple",
+      "iva",
+      "interes-compuesto",
+      "origen-excedente-moneda-mercado",
+      "cft-vs-tasa-nominal"
     ],
-    "nombre": "한계비용과 회계 기초 장악",
-    "descripcion": "차변과 대변을 배우고 한계비용을 계산했으며, 미시경제학과 거시경제학을 구별했습니다, 보스.",
-    "icono": "⚖️"
+    "nombre": "이자와 이율의 달인",
+    "descripcion": "단리와 복리, 부가가치세, CFT와 명목 이율의 차이를 계산했고, 잉여의 기원과 화폐도 놓치지 않으며 중간고사를 마쳤습니다.",
+    "icono": "💹"
   },
   {
     "id": 769,
     "materia": "Economía",
     "cluster": 4,
     "temas": [
-      "elasticidad",
-      "economia-positiva-y-normativa",
-      "estado-de-resultados",
-      "estructura-del-patrimonio",
-      "estructura-productiva-dependencia"
+      "cuota-credito-frances",
+      "dex-swap",
+      "interes-compuesto-funcion",
+      "partida-doble",
+      "plazo-fijo-vs-inflacion"
     ],
-    "nombre": "탄력성과 재무제표의 달인",
-    "descripcion": "탄력성, 손익계산서, 국가의 생산 구조를 분석하며 중간고사를 완료했습니다.",
-    "icono": "📉"
+    "nombre": "대출과 디지털 금융 전문가",
+    "descripcion": "프랑스식 대출 상환액, 인플레이션 앞의 정기예금, 복식부기, 탈중앙화 거래소의 스왑을 마스터했습니다, 보스.",
+    "icono": "🏦"
   },
   {
     "id": 770,
     "materia": "Economía",
     "cluster": 5,
     "temas": [
-      "ecuacion-contable-fundamental",
-      "interes-simple",
-      "iva",
-      "interes-compuesto",
-      "margenes-bruto-y-neto"
+      "libro-diario-mayor",
+      "pools-liquidez-amm",
+      "estados-contables",
+      "precio-final",
+      "contabilidad-ambiental"
     ],
-    "nombre": "회계등식과 이자의 달인",
-    "descripcion": "단리와 복리를 계산하고 부가가치세를 적용했으며, 매출총이익과 순이익을 마스터했습니다.",
-    "icono": "🧮"
+    "nombre": "회계 기록과 풀 장악",
+    "descripcion": "분개장과 원장, 재무제표, 환경 회계, 최종 가격, AMM 유동성 풀에 관한 중간고사를 마쳤습니다.",
+    "icono": "📒"
   },
   {
     "id": 771,
     "materia": "Economía",
     "cluster": 6,
     "temas": [
-      "cft-vs-tasa-nominal",
-      "cuota-credito-frances",
-      "interes-compuesto-funcion",
-      "mejora-continua",
-      "mvp-producto-minimo-viable"
+      "contabilidad-como-sistema-de-informacion",
+      "costo-de-oportunidad",
+      "indices-financieros",
+      "division-formal-microeconomia-macroeconomia",
+      "oferta-y-demanda"
     ],
-    "nombre": "신용과 지속적 개선 장악",
-    "descripcion": "총금융비용과 명목이자율을 구별하고 원리금균등상환액을 계산했으며, MVP에 지속적 개선을 적용했습니다.",
-    "icono": "💳"
+    "nombre": "미시경제와 회계의 달인",
+    "descripcion": "미시경제와 거시경제의 구분, 수요와 공급, 기회비용, 재무 지표, 정보 시스템으로서의 회계를 마스터했습니다.",
+    "icono": "⚖️"
   },
   {
     "id": 772,
     "materia": "Economía",
     "cluster": 7,
     "temas": [
-      "objetivos-y-metas",
-      "origen-excedente-moneda-mercado",
-      "partida-doble",
-      "pitch-a-inversores",
-      "libro-diario-mayor"
+      "economia-positiva-y-normativa",
+      "fisiocracia",
+      "mercantilismo",
+      "pbi-e-inflacion",
+      "liberalismo-clasico-y-escuela-austriaca"
     ],
-    "nombre": "복식부기와 피치의 달인",
-    "descripcion": "분개장에 복식부기를 기록하고 화폐 잉여의 기원을 이해했으며, 투자자를 위한 피치를 준비했습니다.",
-    "icono": "📒"
+    "nombre": "고전 경제학파 전문가",
+    "descripcion": "중농주의, 중상주의, 고전 자유주의, 오스트리아 학파, 그리고 GDP와 인플레이션, 실증경제학과 규범경제학을 두루 거치며 중간고사를 마쳤습니다, 보스.",
+    "icono": "📜"
   },
   {
     "id": 773,
     "materia": "Economía",
     "cluster": 8,
     "temas": [
-      "planificacion-administrativa",
-      "estados-contables",
-      "plazo-fijo-vs-inflacion",
-      "contabilidad-ambiental",
-      "contabilidad-como-sistema-de-informacion"
+      "balanza-comercial",
+      "recibo-de-sueldo/general",
+      "comercio-internacional-ventaja-comparativa",
+      "recibo-de-sueldo/argentina",
+      "sectores-economicos"
     ],
-    "nombre": "계획 수립과 재무제표 장악",
-    "descripcion": "관리자로서 계획을 세우고 재무제표를 읽었으며, 정기예금과 인플레이션을 비교했습니다, 보스.",
-    "icono": "📑"
+    "nombre": "무역과 급여 장악",
+    "descripcion": "무역수지, 비교우위, 경제 부문을 마스터했고, 일반적인 급여명세서와 아르헨티나 급여명세서를 읽는 법도 배웠습니다.",
+    "icono": "🌍"
   },
   {
     "id": 774,
     "materia": "Economía",
     "cluster": 9,
     "temas": [
-      "indices-financieros",
-      "pools-liquidez-amm",
-      "precio-final",
-      "presupuesto-administrativo",
-      "oferta-y-demanda"
+      "descuentos-obligatorios/jubilacion",
+      "descuentos-obligatorios/obra-social",
+      "jubilacion-sistema-previsional",
+      "monotributo",
+      "socialismo-utopico"
     ],
-    "nombre": "재무 지표와 유동성의 달인",
-    "descripcion": "재무 지표, 유동성 풀, 최종 가격, 수요와 공급의 법칙을 분석했습니다.",
-    "icono": "💧"
+    "nombre": "사회보장과 노동 전문가",
+    "descripcion": "연금, 건강보험, 사회보장 제도, 모노트리부토에 관한 중간고사를 마치고 공상적 사회주의를 돌아보며 마무리했습니다, 보스.",
+    "icono": "🧾"
   },
   {
     "id": 775,
     "materia": "Economía",
     "cluster": 10,
     "temas": [
-      "productividad-produccion-insumos",
-      "fisiocracia",
-      "mercantilismo",
-      "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "sueldo-promedio-pais",
+      "marxismo",
+      "tipo-cambio-fijo",
+      "economia-feminista-y-del-cuidado",
+      "keynesianismo"
     ],
-    "nombre": "고전 경제사조의 달인",
-    "descripcion": "중상주의, 중농주의, 고전적 자유주의를 훑어보고 GDP와 인플레이션을 이해했습니다.",
-    "icono": "🏛️"
+    "nombre": "마르크스, 케인스, 환율",
+    "descripcion": "마르크스주의, 케인스주의, 페미니스트 경제학과 돌봄 경제학, 그리고 고정 환율과 국가 평균 급여를 마스터했습니다.",
+    "icono": "🧠"
   },
   {
     "id": 776,
     "materia": "Economía",
     "cluster": 11,
     "temas": [
-      "punto-de-equilibrio",
-      "recibo-de-sueldo/general",
-      "sectores-economicos",
-      "recibo-de-sueldo/argentina",
-      "socialismo-utopico"
+      "tipo-cambio-flotante",
+      "neoliberalismo",
+      "devaluacion",
+      "ordoliberalismo",
+      "reservas-banco-central"
     ],
-    "nombre": "손익분기점과 급여명세서 장악",
-    "descripcion": "손익분기점을 계산하고 아르헨티나식 급여명세서를 읽었으며, 공상적 사회주의를 알게 되었습니다.",
-    "icono": "💵"
+    "nombre": "환율과 신자유주의의 달인",
+    "descripcion": "변동 환율, 평가절하, 중앙은행 외환보유액, 그리고 신자유주의와 질서자유주의를 마스터하며 중간고사를 마쳤습니다, 보스.",
+    "icono": "💱"
   },
   {
     "id": 777,
     "materia": "Economía",
     "cluster": 12,
     "temas": [
-      "descuentos-obligatorios/jubilacion",
-      "descuentos-obligatorios/obra-social",
-      "jubilacion-sistema-previsional",
-      "marxismo",
-      "monotributo"
+      "tipos-de-organizaciones",
+      "deuda-publica-externa",
+      "deuda-publica-interna",
+      "elementos-de-las-organizaciones",
+      "default-deuda"
     ],
-    "nombre": "연금과 의무 공제의 달인",
-    "descripcion": "연금과 의료보험 공제, 연금 제도, 소상공인 간이과세, 마르크스의 사상을 이해했습니다.",
-    "icono": "🏦"
+    "nombre": "조직과 공공 부채",
+    "descripcion": "조직의 유형과 요소, 그리고 국내외 공공 부채와 디폴트를 마스터했습니다.",
+    "icono": "🏛️"
   },
   {
     "id": 778,
     "materia": "Economía",
     "cluster": 13,
     "temas": [
-      "economia-feminista-y-del-cuidado",
-      "keynesianismo",
-      "sueldo-promedio-pais",
-      "neoliberalismo",
-      "ordoliberalismo"
+      "ambiente-interno-y-externo-organizacion",
+      "cultura-organizacional",
+      "estructura-organizacional",
+      "objetivos-y-metas",
+      "tipos-de-proyecto"
     ],
-    "nombre": "현대 경제사조의 달인",
-    "descripcion": "케인스주의, 신자유주의, 질서자유주의를 비교하고 페미니즘 경제학과 돌봄 경제학을 발견했습니다.",
-    "icono": "📚"
+    "nombre": "조직 관리 전문가",
+    "descripcion": "조직 문화와 구조, 내부 환경과 외부 환경, 목표와 목적, 프로젝트 유형에 관한 중간고사를 마쳤습니다.",
+    "icono": "🏢"
   },
   {
     "id": 779,
     "materia": "Economía",
     "cluster": 14,
     "temas": [
-      "tipo-cambio-fijo",
-      "tipo-cambio-flotante",
-      "tipos-de-organizaciones",
-      "devaluacion",
-      "elementos-de-las-organizaciones"
+      "cooperativismo-y-mutualismo",
+      "planificacion-administrativa",
+      "tipos-de-sociedades",
+      "coordinar-personas-y-recursos",
+      "presupuesto-administrativo"
     ],
-    "nombre": "환율과 조직 장악",
-    "descripcion": "고정환율과 변동환율을 구별하고 평가절하와 조직의 구성요소를 이해했습니다.",
-    "icono": "💱"
+    "nombre": "행정 관리의 달인",
+    "descripcion": "행정 계획과 예산, 회사의 유형, 협동조합주의와 상호부조주의, 그리고 사람과 자원을 조율하는 방법을 마스터했습니다, 보스.",
+    "icono": "🤝"
   },
   {
     "id": 780,
     "materia": "Economía",
     "cluster": 15,
     "temas": [
-      "reservas-banco-central",
-      "ambiente-interno-y-externo-organizacion",
-      "cultura-organizacional",
-      "deuda-publica-externa",
-      "deuda-publica-interna"
+      "validar-con-clientes-construir-medir-aprender",
+      "control-de-gestion-e-indicadores",
+      "estado-de-resultados",
+      "mejora-continua",
+      "margenes-bruto-y-neto"
     ],
-    "nombre": "외환보유고와 공공부채의 달인",
-    "descripcion": "중앙은행의 외환보유고, 국내외 공공부채, 조직문화를 분석했습니다, 보스.",
-    "icono": "🏦"
+    "nombre": "경영과 성과 장악",
+    "descripcion": "손익계산서, 매출총이익률과 순이익률, 경영 통제와 지표, 지속적 개선, 검증-구축-측정-학습 사이클에 관한 중간고사를 마쳤습니다.",
+    "icono": "📈"
   },
   {
     "id": 781,
     "materia": "Economía",
     "cluster": 16,
     "temas": [
-      "estructura-organizacional",
-      "default-deuda",
-      "tipos-de-proyecto",
-      "tipos-de-sociedades",
-      "validar-con-clientes-construir-medir-aprender"
+      "mvp-producto-minimo-viable",
+      "productividad-produccion-insumos",
+      "business-model-canvas",
+      "punto-de-equilibrio",
+      "pitch-a-inversores"
     ],
-    "nombre": "조직 구조와 디폴트 장악",
-    "descripcion": "조직 구조, 회사와 프로젝트의 유형을 이해하고 채무불이행 시 벌어지는 일을 파악했습니다.",
-    "icono": "🏢"
+    "nombre": "창업과 손익분기 전문가",
+    "descripcion": "MVP, 비즈니스 모델 캔버스, 투자자 대상 피치, 손익분기점, 생산성을 마스터했습니다, 보스.",
+    "icono": "🚀"
   },
   {
     "id": 782,
@@ -1741,44 +1589,44 @@
     "materia": "Geografía",
     "cluster": 1,
     "temas": [
-      "america-anglosajona",
       "coordenadas-y-husos-horarios",
       "densidad-poblacion",
       "escala-de-mapa",
-      "huella-de-carbono-agua-virtual"
+      "huella-de-carbono-agua-virtual",
+      "orientacion-puntos-cardinales"
     ],
-    "nombre": "좌표와 생태발자국의 달인",
-    "descripcion": "표준시간대, 지도 축척, 인구 밀도, 탄소발자국을 마스터하며 중간고사를 완료했습니다.",
-    "icono": "🌍"
+    "nombre": "지도와 좌표의 달인",
+    "descripcion": "지도 축척, 방위, 좌표, 시간대에 관한 중간고사를 마쳤고, 인구 밀도, 탄소 발자국, 가상수까지 더했습니다.",
+    "icono": "🧭"
   },
   {
     "id": 797,
     "materia": "Geografía",
     "cluster": 2,
     "temas": [
-      "orientacion-puntos-cardinales",
-      "urbanizacion-migracion-ciudad",
       "mapa-plano-escala",
       "coordenadas-geograficas",
-      "division-politica"
+      "division-politica",
+      "sig-mapas-digitales",
+      "estados-y-globalizacion"
     ],
-    "nombre": "방위와 도시화의 달인",
-    "descripcion": "방위, 지리 좌표, 도시화, 행정구역을 마스터했습니다, 보스.",
-    "icono": "🧭"
+    "nombre": "지도 제작과 GIS 전문가",
+    "descripcion": "축척 지도, 지리 좌표, 지리 정보 시스템, 그리고 정치적 구분, 국가, 세계화를 마스터했습니다, 보스.",
+    "icono": "🗺️"
   },
   {
     "id": 798,
     "materia": "Geografía",
     "cluster": 3,
     "temas": [
-      "sig-mapas-digitales",
-      "estados-y-globalizacion",
       "region",
       "sig-gps",
-      "relieve-clima-biomas"
+      "relieve-clima-biomas",
+      "sig-imagenes-satelitales",
+      "recursos-actividades-economicas"
     ],
-    "nombre": "GIS와 지형의 달인",
-    "descripcion": "디지털 지도, GPS, 지형, 기후, 생물군계에 국가와 세계화까지 통합하여 시험을 완료했습니다.",
+    "nombre": "영토와 원격 탐사 장악",
+    "descripcion": "지역, 지형, 기후와 생물군계, 자원과 경제 활동, 그리고 GPS와 위성 영상 같은 GIS 도구에 관한 중간고사를 마쳤습니다.",
     "icono": "🛰️"
   },
   {
@@ -1786,30 +1634,30 @@
     "materia": "Geografía",
     "cluster": 4,
     "temas": [
-      "sig-imagenes-satelitales",
-      "recursos-actividades-economicas",
       "regiones-naturales-de-argentina",
       "geografia-economica-agricola-argentina",
-      "geografia-industrial-mundial"
+      "geografia-industrial-mundial",
+      "mineria-e-hidrocarburos-en-argentina",
+      "america-latina-industria-y-energia"
     ],
-    "nombre": "아르헨티나 경제지리의 달인",
-    "descripcion": "위성 이미지, 자연 지역, 아르헨티나의 농업 및 산업 지리를 마스터했습니다.",
-    "icono": "🌾"
+    "nombre": "생산 지리 전문가",
+    "descripcion": "아르헨티나의 자연 지역, 광업과 탄화수소, 농업 및 산업 지리, 라틴아메리카의 산업과 에너지를 마스터했습니다, 보스.",
+    "icono": "⛏️"
   },
   {
     "id": 800,
     "materia": "Geografía",
     "cluster": 5,
     "temas": [
-      "mineria-e-hidrocarburos-en-argentina",
-      "america-latina-industria-y-energia",
       "poblacion-piramides-migraciones",
       "produccion-agraria-mundial-y-biotecnologia",
-      "ambiente-y-recursos"
+      "ambiente-y-recursos",
+      "america-anglosajona",
+      "ambientalismo-liberal"
     ],
-    "nombre": "에너지와 인구의 달인",
-    "descripcion": "광업과 탄화수소, 라틴아메리카의 산업과 에너지, 인구 피라미드에 관한 중간고사를 완료했습니다.",
-    "icono": "⛏️"
+    "nombre": "인구, 환경, 세계 농업",
+    "descripcion": "인구 피라미드와 이주, 농업 생산과 생명공학, 환경과 자원, 앵글로아메리카, 자유주의적 환경주의에 관한 중간고사를 마쳤습니다.",
+    "icono": "🌾"
   },
   {
     "id": 801,
@@ -1817,13 +1665,13 @@
     "cluster": 6,
     "temas": [
       "america-latina-formacion-poblacion",
-      "ambientalismo-liberal",
       "conservacionismo",
       "decrecimiento",
-      "ecologismo-politico"
+      "ecologismo-politico",
+      "indicadores-sociales-de-argentina"
     ],
-    "nombre": "라틴아메리카 환경주의의 달인",
-    "descripcion": "라틴아메리카 인구 형성을 자연보호주의, 탈성장, 정치생태학과 통합했습니다.",
+    "nombre": "환경주의와 사회의 달인",
+    "descripcion": "보존주의, 탈성장, 정치 생태주의, 그리고 라틴아메리카 인구의 형성과 아르헨티나의 사회 지표를 마스터했습니다, 보스.",
     "icono": "🌱"
   },
   {
@@ -1831,30 +1679,30 @@
     "materia": "Geografía",
     "cluster": 7,
     "temas": [
-      "indicadores-sociales-de-argentina",
       "migraciones-internacionales",
       "indice-de-desarrollo-humano",
       "migraciones-internas-en-argentina",
-      "paises-de-america-latina"
+      "paises-de-america-latina",
+      "recursos-hidricos-y-gestion"
     ],
-    "nombre": "사회 지표와 이주의 달인",
-    "descripcion": "인간개발지수, 국내외 이주, 라틴아메리카 국가들에 관한 보스 시험을 완료했습니다.",
-    "icono": "📊"
+    "nombre": "이주와 개발 전문가",
+    "descripcion": "국제 이주와 국내 이주, 인간개발지수, 라틴아메리카 국가들, 수자원 관리에 관한 중간고사를 마쳤습니다.",
+    "icono": "👥"
   },
   {
     "id": 803,
     "materia": "Geografía",
     "cluster": 8,
     "temas": [
-      "recursos-hidricos-y-gestion",
       "riesgos-naturales-argentinos",
       "trabajo-y-desempleo-mundial",
       "riesgos-ambientales-mundiales",
-      "turismo-mundial"
+      "turismo-mundial",
+      "urbanizacion-migracion-ciudad"
     ],
-    "nombre": "위험과 세계 자원의 달인",
-    "descripcion": "수자원 관리, 자연·환경 위험, 세계 실업, 관광을 마스터했습니다, 보스.",
-    "icono": "🌊"
+    "nombre": "위험과 도시화 장악",
+    "descripcion": "아르헨티나의 자연 재해 위험과 세계의 환경 위험, 그리고 관광, 노동과 실업, 도시화를 마스터했습니다, 보스.",
+    "icono": "🌋"
   },
   {
     "id": 816,
@@ -1862,197 +1710,197 @@
     "cluster": 1,
     "temas": [
       "algebra-booleana",
-      "algoritmo-secuencia-de-pasos",
-      "algoritmos-busqueda-ordenamiento",
-      "almacenamiento-volatil-vs-no-volatil",
-      "archivos-y-persistencia"
+      "complejidad-asintotica",
+      "ofimatica-planilla-de-calculo",
+      "que-es-la-tecnica-y-la-tecnologia",
+      "revolucion-informatica"
     ],
-    "nombre": "알고리즘과 영속성의 달인",
-    "descripcion": "불 대수, 탐색·정렬 알고리즘, 파일의 영속성을 마스터하며 중간고사를 완료했습니다.",
-    "icono": "🧠"
+    "nombre": "논리, 복잡도, 디지털 혁명",
+    "descripcion": "불 대수, 점근적 복잡도, 스프레드시트, 그리고 기술과 테크놀로지의 개념 및 정보 혁명에 관한 중간고사를 마쳤습니다.",
+    "icono": "💻"
   },
   {
     "id": 817,
     "materia": "Informática",
     "cluster": 2,
     "temas": [
-      "buses-y-entrada-salida",
-      "ciclo-de-instruccion-fetch-decode-execute",
-      "complejidad-asintotica",
-      "control-de-versiones",
-      "cpu-unidad-de-control-y-alu"
+      "medios-tecnicos-extension-capacidades-humanas",
+      "historia-y-evolucion-de-los-sistemas-operativos",
+      "procesos-tecnicos-artesanales-e-industriales",
+      "arranque-de-la-computadora-boot",
+      "sistemas-numeracion"
     ],
-    "nombre": "명령어 사이클의 달인",
-    "descripcion": "버스, 인출-해독-실행 사이클, 점근적 복잡도, 버전 관리를 실수 없이 다뤘습니다.",
-    "icono": "🖥️"
+    "nombre": "기술, 수 체계, 부팅",
+    "descripcion": "기술적 수단, 수공업 및 산업 공정, 운영체제의 역사, 컴퓨터 부팅, 수 체계를 마스터했습니다, 보스.",
+    "icono": "🛠️"
   },
   {
     "id": 818,
     "materia": "Informática",
     "cluster": 3,
     "temas": [
-      "criptografia-clave-simetrica-asimetrica-hash",
-      "direccionamiento-ip-dns",
-      "diseno-y-arquitectura-de-software",
-      "estructuras-de-control-bucles",
-      "estructuras-de-control-condicionales"
+      "tipos-de-so-por-dispositivo",
+      "cpu-unidad-de-control-y-alu",
+      "unidades-almacenamiento",
+      "ciclo-de-instruccion-fetch-decode-execute",
+      "memoria-ram-cache-jerarquia"
     ],
-    "nombre": "네트워크와 제어 흐름의 달인",
-    "descripcion": "암호학, IP/DNS 주소 지정, 소프트웨어 설계, 제어 구조를 통합하여 중간고사를 완료했습니다.",
-    "icono": "🔐"
+    "nombre": "컴퓨터 구조 전문가",
+    "descripcion": "CPU, 페치-디코드-실행 사이클, RAM과 캐시의 메모리 계층, 저장 장치 단위, 기기별 운영체제 유형에 관한 중간고사를 통과했습니다.",
+    "icono": "🖥️"
   },
   {
     "id": 819,
     "materia": "Informática",
     "cluster": 4,
     "temas": [
-      "estructuras-de-datos-listas-pilas-colas",
-      "etica-de-la-ia-sesgo-privacidad",
-      "funciones-y-modularidad",
-      "historia-y-evolucion-de-los-sistemas-operativos",
-      "inteligencia-artificial-reglas-a-aprendizaje"
+      "algoritmo-secuencia-de-pasos",
+      "almacenamiento-volatil-vs-no-volatil",
+      "buses-y-entrada-salida",
+      "variables-y-tipos-de-dato",
+      "estructuras-de-control-condicionales"
     ],
-    "nombre": "자료구조와 AI의 달인",
-    "descripcion": "리스트, 스택, 큐, 함수의 모듈화, 운영체제의 역사, AI 윤리를 마스터했습니다, 보스.",
-    "icono": "🤖"
+    "nombre": "알고리즘과 하드웨어 기초",
+    "descripcion": "알고리즘, 변수, 조건문, 그리고 입출력 버스와 휘발성 대 비휘발성 저장소를 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "🧮"
   },
   {
     "id": 820,
     "materia": "Informática",
     "cluster": 5,
     "temas": [
-      "arranque-de-la-computadora-boot",
-      "mantenimiento-y-deuda-tecnica",
-      "memoria-asignacion-memoria-virtual",
-      "memoria-ram-cache-jerarquia",
-      "modelo-relacional-tabla-registro-clave-primaria"
+      "estructuras-de-control-bucles",
+      "funciones-y-modularidad",
+      "estructuras-de-datos-listas-pilas-colas",
+      "poo-clases-y-objetos",
+      "algoritmos-busqueda-ordenamiento"
     ],
-    "nombre": "부팅과 메모리의 달인",
-    "descripcion": "시스템 부팅, RAM/캐시 메모리 계층 구조, 가상 메모리, 관계형 모델을 마스터하며 중간고사를 완료했습니다.",
-    "icono": "💾"
+    "nombre": "프로그래밍의 달인",
+    "descripcion": "반복문, 함수, 자료구조(리스트, 스택, 큐), 객체 지향 프로그래밍, 탐색 및 정렬 알고리즘을 마스터했습니다.",
+    "icono": "👨‍💻"
   },
   {
     "id": 821,
     "materia": "Informática",
     "cluster": 6,
     "temas": [
-      "normalizacion-bases-datos",
-      "ofimatica-planilla-de-calculo",
-      "paginacion",
-      "patrones-y-buenas-practicas",
-      "permisos-y-usuarios"
+      "archivos-y-persistencia",
+      "inteligencia-artificial-reglas-a-aprendizaje",
+      "modelo-relacional-tabla-registro-clave-primaria",
+      "etica-de-la-ia-sesgo-privacidad",
+      "criptografia-clave-simetrica-asimetrica-hash"
     ],
-    "nombre": "데이터베이스와 권한의 달인",
-    "descripcion": "정규화, 페이징, 사용자 권한, 설계 모범 사례를 통합하여 시험에 합격했습니다.",
-    "icono": "🗄️"
+    "nombre": "데이터, AI, 암호학",
+    "descripcion": "파일과 영속성, 관계형 모델, 인공지능과 그 윤리, 대칭·비대칭 암호와 해시에 관한 중간고사를 마쳤습니다, 보스.",
+    "icono": "🔐"
   },
   {
     "id": 822,
     "materia": "Informática",
     "cluster": 7,
     "temas": [
-      "planificacion-de-procesos",
-      "poo-clases-y-objetos",
-      "interrupciones",
+      "direccionamiento-ip-dns",
       "proceso-programa-en-ejecucion",
-      "protocolo-http-peticion-respuesta"
+      "protocolo-http-peticion-respuesta",
+      "comunicacion-entre-procesos",
+      "memoria-asignacion-memoria-virtual"
     ],
-    "nombre": "프로세스와 객체의 달인",
-    "descripcion": "프로세스 스케줄링, 객체지향 프로그래밍, 인터럽트, HTTP 프로토콜을 마스터하며 중간고사를 완료했습니다.",
-    "icono": "⚙️"
+    "nombre": "네트워크, 프로세스, 가상 메모리",
+    "descripcion": "IP 주소 지정, DNS, HTTP, 그리고 프로세스, 프로세스 간 통신, 가상 메모리에 관한 중간고사를 통과했습니다.",
+    "icono": "🌐"
   },
   {
     "id": 823,
     "materia": "Informática",
     "cluster": 8,
     "temas": [
-      "comunicacion-entre-procesos",
-      "pruebas-unitarias-integracion",
-      "que-es-la-tecnica-y-la-tecnologia",
+      "planificacion-de-procesos",
+      "paginacion",
+      "interrupciones",
       "recursividad",
-      "medios-tecnicos-extension-capacidades-humanas"
+      "relaciones-y-claves-foraneas"
     ],
-    "nombre": "기술과 재귀의 달인",
-    "descripcion": "프로세스 간 통신, 단위 테스트, 재귀, 기술과 테크놀로지의 개념을 통합했습니다, 보스.",
-    "icono": "🔁"
+    "nombre": "운영체제 커널 장악",
+    "descripcion": "프로세스 스케줄링, 페이징, 인터럽트, 그리고 재귀와 외래 키를 마스터했습니다.",
+    "icono": "⚡"
   },
   {
     "id": 824,
     "materia": "Informática",
     "cluster": 9,
     "temas": [
-      "relaciones-y-claves-foraneas",
-      "procesos-tecnicos-artesanales-e-industriales",
       "requisitos-funcionales-no-funcionales",
-      "revolucion-informatica",
-      "segmentacion"
+      "normalizacion-bases-datos",
+      "diseno-y-arquitectura-de-software",
+      "segmentacion",
+      "control-de-versiones"
     ],
-    "nombre": "관계와 요구사항의 달인",
-    "descripcion": "외래키, 기술적 프로세스, 기능 요구사항, 정보혁명에 관한 시험을 완료했습니다.",
-    "icono": "🔗"
+    "nombre": "소프트웨어 공학과 데이터베이스",
+    "descripcion": "기능 및 비기능 요구사항, 설계와 아키텍처, 버전 관리, 데이터베이스 정규화, 세분화에 관한 중간고사를 마쳤습니다, 보스.",
+    "icono": "📐"
   },
   {
     "id": 825,
     "materia": "Informática",
     "cluster": 10,
     "temas": [
-      "seguridad-de-red-firewall-vpn-cifrado",
-      "seguridad-informatica",
+      "patrones-y-buenas-practicas",
+      "pruebas-unitarias-integracion",
       "sistema-de-archivos",
-      "sistemas-numeracion",
-      "sistema-de-archivos-por-bitacora"
+      "mantenimiento-y-deuda-tecnica",
+      "permisos-y-usuarios"
     ],
-    "nombre": "보안과 파일의 수호자",
-    "descripcion": "방화벽, VPN, 암호화로 시스템을 보호하고 진법과 저널링 파일 시스템을 마스터했습니다.",
-    "icono": "🛡️"
+    "nombre": "소프트웨어 품질과 파일",
+    "descripcion": "패턴과 모범 사례, 단위 테스트와 통합 테스트, 유지보수와 기술 부채, 그리고 파일 시스템과 사용자 권한을 마스터했습니다.",
+    "icono": "🧪"
   },
   {
     "id": 826,
     "materia": "Informática",
     "cluster": 11,
     "temas": [
+      "sistema-de-archivos-por-bitacora",
       "sql-consultas-joins-agregaciones",
       "subsistema-de-entrada-y-salida",
       "tcp-ip-capas-enrutamiento",
       "tipos-de-licencias-de-software",
-      "tipos-de-so-por-dispositivo",
+      "seguridad-de-red-firewall-vpn-cifrado",
       "transacciones-acid",
-      "unidades-almacenamiento",
-      "variables-y-tipos-de-dato",
+      "seguridad-informatica",
       "virtualizacion-maquina-virtual-contenedor"
     ],
-    "nombre": "SQL, 네트워크, 가상화의 달인",
-    "descripcion": "SQL 조인, TCP/IP 계층, ACID 트랜잭션, 가상화를 마스터하며 보스 시험을 완료했습니다.",
-    "icono": "☁️"
+    "nombre": "시스템, 네트워크, 보안 전문가",
+    "descripcion": "SQL과 ACID 트랜잭션, TCP/IP, 네트워크 보안과 정보 보안, 가상화, 입출력, 저널링 파일 시스템, 소프트웨어 라이선스에 관한 중간고사를 마쳤습니다, 보스.",
+    "icono": "🛡️"
   },
   {
     "id": 841,
     "materia": "Química",
     "cluster": 1,
     "temas": [
-      "atomo-particulas-subatomicas",
       "balanceo-ecuaciones",
-      "biomoleculas-glucidos-lipidos-proteinas",
-      "carbono-tetravalencia-cadenas",
-      "cinetica-reaccion"
+      "concentracion-de-una-solucion",
+      "densidad",
+      "dilucion-soluciones",
+      "equilibrio-quimico-kc"
     ],
-    "nombre": "원자와 생체분자의 달인",
-    "descripcion": "아원자 입자, 화학반응식 균형 맞추기, 생체분자, 반응속도론을 마스터했습니다.",
-    "icono": "⚛️"
+    "nombre": "용액과 평형의 달인",
+    "descripcion": "용액의 농도와 희석, 화학 반응식 균형 맞추기, 밀도, 화학 평형 Kc에 관한 중간고사를 마쳤습니다, 보스.",
+    "icono": "⚗️"
   },
   {
     "id": 842,
     "materia": "Química",
     "cluster": 2,
     "temas": [
-      "concentracion-de-una-solucion",
-      "configuracion-electronica",
-      "densidad",
-      "dilucion-soluciones",
-      "electrolisis"
+      "estados-y-cambios",
+      "cinetica-reaccion",
+      "equilibrio-solubilidad-ksp",
+      "estequiometria",
+      "medicion-de-laboratorio"
     ],
-    "nombre": "용액과 전기분해의 달인",
-    "descripcion": "용액의 농도와 희석, 전자 배치, 전기분해를 마스터하며 중간고사를 완료했습니다.",
+    "nombre": "반응과 화학량론 전문가",
+    "descripcion": "화학량론, 반응 속도론, 용해도곱 Ksp 평형, 상태와 변화, 실험실 측정을 마스터했습니다.",
     "icono": "🧪"
   },
   {
@@ -2060,74 +1908,74 @@
     "materia": "Química",
     "cluster": 3,
     "temas": [
-      "energia-libre-gibbs",
-      "enlace-quimico-polaridad",
-      "equilibrio-quimico-kc",
-      "equilibrio-solubilidad-ksp",
-      "estados-y-cambios"
+      "mezclas-metodos-separacion",
+      "ph-poh",
+      "modelos-atomicos",
+      "propiedades-coligativas",
+      "atomo-particulas-subatomicas"
     ],
-    "nombre": "평형과 자유에너지의 달인",
-    "descripcion": "깁스 자유에너지, 결합의 극성, 평형상수 Kc와 Ksp를 통합했습니다, 보스.",
-    "icono": "⚖️"
+    "nombre": "원자, 혼합물, pH 장악",
+    "descripcion": "원자 모형과 아원자 입자, 혼합물 분리법, pH와 pOH, 총괄성에 관한 중간고사를 마쳤습니다, 보스.",
+    "icono": "⚛️"
   },
   {
     "id": 844,
     "materia": "Química",
     "cluster": 4,
     "temas": [
-      "estequiometria",
-      "gases-ideales",
-      "geometria-molecular-vsepr",
-      "grupos-funcionales",
-      "hidrocarburos-alcanos-alquenos-alquinos"
+      "quimica-analitica",
+      "numero-atomico-masico",
+      "quimica-de-la-atmosfera",
+      "configuracion-electronica",
+      "reactivo-limitante-rendimiento"
     ],
-    "nombre": "화학양론과 탄화수소의 달인",
-    "descripcion": "화학양론, 이상기체, VSEPR 분자 구조, 탄화수소에 관한 시험을 완료했습니다.",
-    "icono": "⛽"
+    "nombre": "원자 구조와 분석화학 전문가",
+    "descripcion": "원자 번호와 질량수, 전자 배치, 한계 반응물과 수득률, 분석화학, 대기 화학을 마스터했습니다.",
+    "icono": "🔬"
   },
   {
     "id": 845,
     "materia": "Química",
     "cluster": 5,
     "temas": [
-      "medicion-de-laboratorio",
-      "mezclas-metodos-separacion",
-      "modelos-atomicos",
-      "mol-masa-molar",
-      "nanotecnologia"
+      "seguridad-laboratorio",
+      "tabla-periodica-tendencias",
+      "tipos-reacciones-quimicas",
+      "enlace-quimico-polaridad",
+      "carbono-tetravalencia-cadenas"
     ],
-    "nombre": "측정과 원자모형의 달인",
-    "descripcion": "실험실 측정, 혼합물 분리법, 원자모형, 몰 개념을 마스터했습니다.",
-    "icono": "🔬"
+    "nombre": "결합과 주기율표의 달인",
+    "descripcion": "주기적 경향, 화학 결합과 극성, 반응의 유형, 탄소의 4가성에 관한 중간고사를 마쳤고, 실험실 안전도 잊지 않았습니다, 보스.",
+    "icono": "🔗"
   },
   {
     "id": 846,
     "materia": "Química",
     "cluster": 6,
     "temas": [
-      "nomenclatura-compuestos",
-      "numero-atomico-masico",
-      "oxidacion-reduccion",
-      "petroleo-como-recurso-energetico",
-      "ph-poh"
+      "geometria-molecular-vsepr",
+      "hidrocarburos-alcanos-alquenos-alquinos",
+      "nanotecnologia",
+      "grupos-funcionales",
+      "nomenclatura-compuestos"
     ],
-    "nombre": "명명법과 산화환원의 달인",
-    "descripcion": "화학 명명법, 원자번호와 질량수, 산화-환원, pH/pOH를 통합하여 중간고사를 완료했습니다.",
-    "icono": "🧫"
+    "nombre": "유기화학 장악",
+    "descripcion": "VSEPR 분자 구조, 탄화수소, 작용기와 화합물 명명법을 마스터했고, 나노기술도 살펴봤습니다.",
+    "icono": "🧬"
   },
   {
     "id": 847,
     "materia": "Química",
     "cluster": 7,
     "temas": [
-      "pilas-celdas-galvanicas",
-      "polimeros-naturales-sinteticos",
-      "presiones-parciales",
-      "propiedades-coligativas",
-      "quimica-analitica"
+      "biomoleculas-glucidos-lipidos-proteinas",
+      "mol-masa-molar",
+      "oxidacion-reduccion",
+      "gases-ideales",
+      "electrolisis"
     ],
-    "nombre": "갈바니 전지와 고분자의 달인",
-    "descripcion": "갈바니 전지, 천연·합성 고분자, 부분압력, 총괄성을 마스터했습니다, 보스.",
+    "nombre": "몰, 기체, 산화환원 전문가",
+    "descripcion": "몰과 몰 질량, 이상 기체, 산화-환원과 전기분해에 관한 중간고사를 마쳤고, 당질, 지질, 단백질 같은 생체 분자까지 더했습니다, 보스.",
     "icono": "🔋"
   },
   {
@@ -2135,31 +1983,31 @@
     "materia": "Química",
     "cluster": 8,
     "temas": [
-      "quimica-de-la-atmosfera",
-      "reactivo-limitante-rendimiento",
-      "seguridad-laboratorio",
+      "petroleo-como-recurso-energetico",
+      "pilas-celdas-galvanicas",
+      "polimeros-naturales-sinteticos",
+      "presiones-parciales",
       "superconductividad",
-      "tabla-periodica-tendencias",
       "termoquimica",
-      "tipos-reacciones-quimicas"
+      "energia-libre-gibbs"
     ],
-    "nombre": "주기율표와 열화학의 달인",
-    "descripcion": "주기적 경향성, 열화학, 반응의 종류, 한계반응물에 관한 보스 시험을 완료했습니다.",
-    "icono": "🧯"
+    "nombre": "에너지와 재료의 달인",
+    "descripcion": "열화학과 깁스 자유 에너지, 갈바니 전지와 에너지 자원으로서의 석유, 그리고 고분자, 분압, 초전도성을 마스터했습니다.",
+    "icono": "⚡"
   },
   {
     "id": 861,
     "materia": "Biología",
     "cluster": 1,
     "temas": [
-      "adn-gen-proteina",
-      "biodiversidad-indices",
-      "biotecnologia-pcr-crispr",
-      "cadenas-redes-troficas",
-      "celula-organelas"
+      "crecimiento-poblacional",
+      "genetica-mendeliana-punnett",
+      "grupos-sanguineos",
+      "cruce-dihibrido",
+      "herencia-ligada-al-sexo"
     ],
-    "nombre": "DNA와 세포의 달인",
-    "descripcion": "DNA의 중심원리, 크리스퍼 유전자 편집, 먹이그물, 세포의 내부 구조를 마스터했습니다.",
+    "nombre": "유전의 달인",
+    "descripcion": "퍼넷 사각형, 이인자 교배, 반성 유전, 혈액형, 그리고 개체군 성장을 마스터하며 중간고사를 마쳤습니다.",
     "icono": "🧬"
   },
   {
@@ -2167,74 +2015,74 @@
     "materia": "Biología",
     "cluster": 2,
     "temas": [
-      "ciclos-biogeoquimicos",
+      "necesidades-basicas-seres-vivos",
+      "ser-vivo-caracteristicas",
+      "celula-organelas",
       "ciclos-vida-metamorfosis",
-      "clasificacion-evolucion",
-      "conservacion-areas-protegidas",
-      "crecimiento-poblacional"
+      "clasificacion-evolucion"
     ],
-    "nombre": "순환과 보전의 달인",
-    "descripcion": "생지화학적 순환, 변태, 진화적 분류, 보호구역 보전에 관한 중간고사에 합격했습니다, 보스.",
-    "icono": "🌎"
+    "nombre": "생명체의 기초",
+    "descripcion": "생명체를 정의하는 것, 기본 요구 조건, 세포와 세포 소기관, 변태를 동반한 생활사, 진화적 분류를 마스터했습니다, 보스.",
+    "icono": "🔬"
   },
   {
     "id": 863,
     "materia": "Biología",
     "cluster": 3,
     "temas": [
-      "cruce-dihibrido",
-      "deriva-genetica-flujo-genico",
-      "dinamica-poblacional-capacidad-carga",
+      "fotosintesis-respiracion-celular",
+      "habitats-adaptacion",
       "enzimas-proteina-sustrato-ph",
-      "especiacion"
+      "flujo-materia-energia",
+      "microbiologia-virus-inmunitario"
     ],
-    "nombre": "집단유전학의 달인",
-    "descripcion": "양성잡종교배, 유전적 부동, 개체군의 수용력, 종분화에 관한 보스 시험을 완료했습니다.",
-    "icono": "🧬"
+    "nombre": "대사와 에너지 전문가",
+    "descripcion": "광합성과 세포 호흡, 효소, 물질과 에너지의 흐름, 서식지 적응, 면역계를 포함한 미생물학에 관한 중간고사를 통과했습니다.",
+    "icono": "⚡"
   },
   {
     "id": 864,
     "materia": "Biología",
     "cluster": 4,
     "temas": [
-      "filogenia-arboles-evolutivos",
-      "flujo-materia-energia",
-      "fotosintesis-respiracion-celular",
-      "genetica-mendeliana-punnett",
-      "grupos-sanguineos"
+      "cadenas-redes-troficas",
+      "mal-de-chagas",
+      "ciclos-biogeoquimicos",
+      "dinamica-poblacional-capacidad-carga",
+      "mitosis-meiosis"
     ],
-    "nombre": "계통학과 멘델 유전 전문가",
-    "descripcion": "계통수, 광합성, 세포호흡, 퍼넷 사각형을 통합하여 중간고사를 완료했습니다.",
-    "icono": "🧬"
+    "nombre": "생태계와 세포 분열 장악",
+    "descripcion": "먹이 그물, 생지화학적 순환, 환경 수용력을 체세포 분열 및 감수 분열과 엮었고, 사례 연구로 샤가스병까지 다루며 중간고사를 마쳤습니다.",
+    "icono": "🌿"
   },
   {
     "id": 865,
     "materia": "Biología",
     "cluster": 5,
     "temas": [
-      "habitats-adaptacion",
-      "herencia-ligada-al-sexo",
-      "mal-de-chagas",
-      "microbiologia-virus-inmunitario",
-      "mitosis-meiosis"
+      "biodiversidad-indices",
+      "adn-gen-proteina",
+      "conservacion-areas-protegidas",
+      "biotecnologia-pcr-crispr",
+      "nicho-ecologico"
     ],
-    "nombre": "유전과 신체 방어의 달인",
-    "descripcion": "서식지 적응, 반성유전, 샤가스병, 바이러스에 대한 면역 반응에 관한 시험에 합격했습니다.",
-    "icono": "🦠"
+    "nombre": "생물 다양성과 생명공학 전문가",
+    "descripcion": "생물 다양성 지수, 생태적 지위, 보호 구역, 그리고 DNA에서 유전자, 단백질에 이르는 경로와 PCR, CRISPR 같은 도구를 마스터했습니다.",
+    "icono": "🧪"
   },
   {
     "id": 866,
     "materia": "Biología",
     "cluster": 6,
     "temas": [
-      "necesidades-basicas-seres-vivos",
-      "nicho-ecologico",
       "partes-planta-germinacion",
       "piramide-biomasas",
-      "presion-arterial"
+      "quimiosintesis",
+      "seleccion-natural",
+      "sistemas-cuerpo-humano"
     ],
-    "nombre": "생물과 그 필요의 달인",
-    "descripcion": "생물의 기본적 필요, 생태적 지위, 식물의 발아, 생물량 피라미드에 관한 중간고사를 완료했습니다.",
+    "nombre": "진화와 인체의 달인",
+    "descripcion": "자연선택, 화학합성, 생물량 피라미드, 그리고 식물의 각 부분, 발아, 인체의 계통에 관한 중간고사를 통과했습니다.",
     "icono": "🌱"
   },
   {
@@ -2242,16 +2090,16 @@
     "materia": "Biología",
     "cluster": 7,
     "temas": [
-      "quimiosintesis",
-      "seleccion-natural",
-      "ser-vivo-caracteristicas",
+      "deriva-genetica-flujo-genico",
+      "especiacion",
+      "presion-arterial",
+      "filogenia-arboles-evolutivos",
       "sistema-endocrino-hormonas-glandulas",
       "sistema-nervioso-neurona-sinapsis",
-      "sistemas-cuerpo-humano",
       "transgenicos-bioetica"
     ],
-    "nombre": "신체 계통과 생명윤리의 달인",
-    "descripcion": "신경계, 내분비계, 자연선택, 유전자변형생물에 관한 생명윤리 논쟁을 마스터하며 보스 시험을 완료했습니다.",
+    "nombre": "진화와 생리학 전문가",
+    "descripcion": "종 분화, 유전자 부동, 계통 발생, 신경계와 내분비계, 혈압, 유전자 변형 생물의 생명윤리를 마스터하며 중간고사를 마쳤습니다, 보스.",
     "icono": "🧠"
   },
   {
@@ -2259,45 +2107,45 @@
     "materia": "Cívica",
     "cluster": 1,
     "temas": [
-      "constitucion-nacional-jerarquia-normativa",
       "derechos-nino",
-      "discriminacion-y-organismos-de-proteccion",
+      "encuesta-electoral",
       "derechos-indigenas",
-      "encuesta-electoral"
+      "discriminacion-y-organismos-de-proteccion",
+      "derechos-genero"
     ],
-    "nombre": "권리와 헌법의 수호자",
-    "descripcion": "헌법의 위계, 아동의 권리, 원주민, 차별금지 기구에 관한 중간고사에 합격했습니다.",
-    "icono": "⚖️"
+    "nombre": "권리와 차별 금지 전문가",
+    "descripcion": "아동의 권리, 성별 권리, 원주민의 권리, 차별에 맞선 보호 기관, 선거 여론조사 읽는 법을 마스터했습니다, 보스.",
+    "icono": "✊"
   },
   {
     "id": 880,
     "materia": "Cívica",
     "cluster": 2,
     "temas": [
-      "derechos-genero",
       "estado-de-derecho-por-que-importa",
       "marchas-patrioticas",
       "organizacion-del-estado",
-      "origen-estado-derecho"
+      "origen-estado-derecho",
+      "constitucion-preambulo"
     ],
-    "nombre": "법치주의의 달인",
-    "descripcion": "법치주의의 기원과 중요성, 국가 조직, 젠더 권리에 관한 보스 시험을 완료했습니다.",
-    "icono": "🏛️"
+    "nombre": "법치 국가의 달인",
+    "descripcion": "법치 국가의 기원과 중요성, 국가 조직, 헌법 전문, 애국 행진곡을 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "⚖️"
   },
   {
     "id": 881,
     "materia": "Cívica",
     "cluster": 3,
     "temas": [
-      "constitucion-preambulo",
       "division-de-poderes",
-      "derechos-y-garantias",
+      "constitucion-nacional-jerarquia-normativa",
       "como-se-hace-una-ley",
+      "derechos-y-garantias",
       "documentos-y-tramites"
     ],
-    "nombre": "헌법과 법률의 달인",
-    "descripcion": "헌법 전문, 삼권분립, 기본권 보장, 법률 제정 과정에 관한 중간고사에 합격했습니다.",
-    "icono": "📜"
+    "nombre": "헌법과 법률 장악",
+    "descripcion": "권력 분립, 국가 헌법의 규범 위계, 법률이 만들어지는 과정, 권리와 보장, 행정 절차와 서류를 마스터했습니다, 보스.",
+    "icono": "📕"
   },
   {
     "id": 882,
@@ -2350,14 +2198,14 @@
     "materia": "Derecho",
     "cluster": 1,
     "temas": [
-      "apelacion-e-instancias",
-      "argumentacion-juridica",
-      "corrientes-interpretacion-juridica",
-      "denuncia-y-etapa-de-instruccion",
-      "derecho-administrativo"
+      "ramas-del-derecho",
+      "derecho-administrativo",
+      "derecho-civil",
+      "derecho-comercial",
+      "derecho-constitucional"
     ],
-    "nombre": "항소와 법적 논증의 달인",
-    "descripcion": "항소 절차, 법적 논증, 수사 단계에 관한 보스 시험을 완료했습니다.",
+    "nombre": "법 분야의 달인",
+    "descripcion": "법 분야의 지도와 그 기둥인 헌법, 민법, 상법, 행정법을 마스터했습니다.",
     "icono": "⚖️"
   },
   {
@@ -2365,46 +2213,46 @@
     "materia": "Derecho",
     "cluster": 2,
     "temas": [
-      "derecho-civil",
-      "derecho-comercial",
-      "derecho-constitucional",
       "derecho-internacional",
-      "derecho-laboral"
+      "derecho-laboral",
+      "derecho-penal",
+      "denuncia-y-etapa-de-instruccion",
+      "hecho-juridicamente-relevante"
     ],
-    "nombre": "다학제 법률가",
-    "descripcion": "민법, 상법, 헌법, 국제법, 노동법을 통합하여 중간고사에 합격했습니다, 보스.",
-    "icono": "⚖️"
+    "nombre": "형법과 노동법 전문가",
+    "descripcion": "형법, 노동법, 국제법, 그리고 법적으로 의미 있는 사실이 고발과 예심에 이르는 과정에 관한 중간고사를 마쳤습니다, 보스.",
+    "icono": "🏛️"
   },
   {
     "id": 896,
     "materia": "Derecho",
     "cluster": 3,
     "temas": [
-      "derecho-penal",
-      "ejecucion-de-la-sentencia",
+      "investigacion-prueba-y-fiscalia",
       "fuentes-del-derecho",
-      "hecho-juridicamente-relevante",
+      "norma-jerarquia-y-vigencia",
+      "corrientes-interpretacion-juridica",
       "interpretacion-normativa"
     ],
-    "nombre": "형법과 법원(法源)의 달인",
-    "descripcion": "형법, 법의 연원, 판결의 집행에 관한 보스 시험을 완료했습니다.",
-    "icono": "⚖️"
+    "nombre": "법원과 해석 장악",
+    "descripcion": "법원(法源), 규범의 위계와 효력, 해석의 사조, 검찰과 증거를 통한 수사를 마스터했습니다.",
+    "icono": "📜"
   },
   {
     "id": 897,
     "materia": "Derecho",
     "cluster": 4,
     "temas": [
-      "investigacion-prueba-y-fiscalia",
-      "juicio-oral",
-      "norma-jerarquia-y-vigencia",
       "politica-criminal-garantismo-mano-dura",
-      "ramas-del-derecho",
-      "resolucion-de-conflictos-y-sentencia"
+      "argumentacion-juridica",
+      "resolucion-de-conflictos-y-sentencia",
+      "juicio-oral",
+      "apelacion-e-instancias",
+      "ejecucion-de-la-sentencia"
     ],
-    "nombre": "형사소송과 판결의 달인",
-    "descripcion": "검찰 수사, 구두 재판, 형사정책, 판결에 이르는 분쟁 해결에 관한 중간고사에 합격했습니다.",
-    "icono": "👨‍⚖️"
+    "nombre": "형사 절차와 판결의 달인",
+    "descripcion": "법적 논증, 구두 재판, 결정과 판결, 항소와 심급, 형의 집행, 그리고 권리 보장주의 대 강경 대응 논쟁을 거치며 중간고사를 통과했습니다.",
+    "icono": "🔨"
   },
   {
     "id": 904,
@@ -2412,13 +2260,13 @@
     "cluster": 1,
     "temas": [
       "acustica-instrumento-musical",
-      "armonia-basica-acordes-tonalidad",
       "composicion-y-proporcion",
-      "danza-ritmo-tiempo-expresion-corporal",
-      "elementos-del-arte"
+      "origen-del-arte",
+      "elementos-del-arte",
+      "principios-de-diseno"
     ],
-    "nombre": "예술 요소의 달인",
-    "descripcion": "음향학, 화성, 구도, 춤의 신체 표현을 통합한 보스 시험을 완료했습니다.",
+    "nombre": "예술 기초의 달인",
+    "descripcion": "예술의 기원, 디자인의 요소와 원리, 구성과 비례, 악기의 음향학을 마스터하며 중간고사를 마쳤습니다.",
     "icono": "🎨"
   },
   {
@@ -2426,14 +2274,14 @@
     "materia": "Arte",
     "cluster": 2,
     "temas": [
-      "lenguaje-musical-pentagrama-escalas-intervalos",
-      "origen-del-arte",
-      "principios-de-diseno",
       "ritmo-compas-pulso-figuras-musicales",
-      "narrativa-audiovisual/plano"
+      "narrativa-audiovisual/plano",
+      "danza-ritmo-tiempo-expresion-corporal",
+      "lenguaje-musical-pentagrama-escalas-intervalos",
+      "narrativa-audiovisual/encuadre"
     ],
-    "nombre": "음악 언어와 디자인의 달인",
-    "descripcion": "오선보, 음계, 디자인 원리, 영상 서사의 화면 구도에 관한 중간고사에 합격했습니다, 보스.",
+    "nombre": "리듬, 음악, 화면 전문가",
+    "descripcion": "박, 마디, 음표, 오선보와 음계·음정, 춤과 신체 표현, 그리고 영상의 화면과 프레임 구성을 마스터했습니다, 보스.",
     "icono": "🎼"
   },
   {
@@ -2441,46 +2289,198 @@
     "materia": "Arte",
     "cluster": 3,
     "temas": [
-      "rosetones-y-simetria",
-      "narrativa-audiovisual/encuadre",
-      "teatro-dramaturgia-y-actuacion",
+      "armonia-basica-acordes-tonalidad",
       "narrativa-audiovisual/montaje",
-      "produccion-multimedial"
+      "rosetones-y-simetria",
+      "produccion-multimedial",
+      "teatro-dramaturgia-y-actuacion"
     ],
-    "nombre": "무대와 영상의 달인",
-    "descripcion": "연극과 연기, 영상 프레이밍과 편집, 멀티미디어 제작, 장미창의 대칭에 관한 보스 시험을 완료했습니다.",
-    "icono": "🎬"
+    "nombre": "화성, 편집, 무대 장악",
+    "descripcion": "화성과 화음, 영상 편집, 멀티미디어 제작, 연극과 희곡, 그리고 장미창의 대칭에 관한 중간고사를 통과했습니다.",
+    "icono": "🎭"
   },
   {
     "id": 912,
     "materia": "Investigación",
     "cluster": 1,
     "temas": [
-      "analisis-estadistico-de-resultados",
-      "argumentar-desde-evidencia",
-      "conclusion-y-comunicacion-de-resultados",
+      "observacion-y-pregunta-investigable",
+      "hipotesis-buena-o-mala",
+      "metodologia-cualitativa-vs-cuantitativa",
       "construir-y-usar-un-modelo-cientifico",
-      "corrientes-filosofia-de-la-ciencia"
+      "trabajo-de-campo-enfoque-socioantropologico"
     ],
-    "nombre": "과학적 방법 장악",
-    "descripcion": "통계 분석, 근거 기반 논증, 과학철학 사조를 통합한 보스 시험을 완료했습니다.",
-    "icono": "🔬"
+    "nombre": "과학적 방법 입문자",
+    "descripcion": "관찰과 탐구 가능한 질문, 좋은 가설, 질적·양적 방법론, 과학적 모형, 현장 조사를 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "🔎"
   },
   {
     "id": 913,
     "materia": "Investigación",
     "cluster": 2,
     "temas": [
+      "corrientes-filosofia-de-la-ciencia",
       "diseno-experimental-variables-y-control",
-      "hipotesis-buena-o-mala",
-      "observacion-y-pregunta-investigable",
+      "tecnicas-de-investigacion-social",
       "recoleccion-de-datos",
-      "metodologia-cualitativa-vs-cuantitativa",
-      "trabajo-de-campo-enfoque-socioantropologico",
-      "tecnicas-de-investigacion-social"
+      "analisis-estadistico-de-resultados",
+      "conclusion-y-comunicacion-de-resultados",
+      "argumentar-desde-evidencia"
     ],
-    "nombre": "실험 및 현장 설계의 달인",
-    "descripcion": "실험 설계, 가설 수립, 질적·양적 방법론, 사회인류학적 현장 조사에 관한 중간고사에 합격했습니다.",
-    "icono": "🧪"
+    "nombre": "연구 설계와 분석 전문가",
+    "descripcion": "실험 설계, 자료 수집, 통계 분석, 증거에 기반한 논증, 결론 전달을 과학 철학 및 사회 조사 기법과 함께 마스터했습니다.",
+    "icono": "📊"
+  },
+  {
+    "id": 918,
+    "materia": "Ingeniería",
+    "cluster": 1,
+    "temas": [
+      "modelizacion-matematica",
+      "problema-y-restricciones",
+      "disciplinas-de-la-ingenieria",
+      "investigar-soluciones-existentes",
+      "diseno-conceptual"
+    ],
+    "nombre": "공학 설계 입문의 달인",
+    "descripcion": "문제와 그 제약 조건, 해결책 조사, 개념 설계, 수학적 모델링, 공학의 여러 분야를 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "📐"
+  },
+  {
+    "id": 919,
+    "materia": "Ingeniería",
+    "cluster": 2,
+    "temas": [
+      "modelado-y-calculo",
+      "prototipo",
+      "resistencia-de-materiales",
+      "ensayo-y-medicion",
+      "optimizacion-e-iteracion",
+      "comunicar-la-solucion"
+    ],
+    "nombre": "해결책 구축과 검증 전문가",
+    "descripcion": "모델링과 계산, 재료의 강도, 시제품, 시험과 측정, 반복적 최적화, 해결책을 전달하는 방법에 관한 중간고사를 통과했습니다, 보스.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 924,
+    "materia": "Psicología",
+    "cluster": 1,
+    "temas": [
+      "psicologia-modernidad-y-el-yo",
+      "autoconocimiento-como-busqueda-humana",
+      "dependencia-del-otro-cultura-como-herencia",
+      "memoria-y-olvido-represion-inconsciente",
+      "psicologia-cognitiva-percepcion-memoria-atencion"
+    ],
+    "nombre": "자아, 기억, 문화 전문가",
+    "descripcion": "근대 심리학과 자아, 자기 이해, 유산으로서의 문화, 그리고 기억, 망각, 억압을 마스터하며 중간고사를 마쳤습니다.",
+    "icono": "🧠"
+  },
+  {
+    "id": 925,
+    "materia": "Psicología",
+    "cluster": 2,
+    "temas": [
+      "lenguaje-pensamiento-y-creatividad",
+      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
+      "edades-del-ser-humano-ninez-pubertad-identidad",
+      "salud-mental-ansiedad-depresion-pedir-ayuda",
+      "sesgos-cognitivos-heuristicas-error-sistematico"
+    ],
+    "nombre": "심리학 사조와 인간 정신의 달인",
+    "descripcion": "심리학의 사조, 인지 편향, 언어·사고·창의성, 인간의 생애 단계, 정신 건강을 마스터했습니다, 보스.",
+    "icono": "💭"
+  },
+  {
+    "id": 930,
+    "materia": "Ciencia de Materiales",
+    "cluster": 1,
+    "temas": [
+      "corrosion",
+      "elasticidad-ley-de-hooke-modulo-de-young",
+      "propiedades-mecanicas-dureza-tenacidad-ductilidad",
+      "plasticidad-y-punto-de-fluencia",
+      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
+      "fatiga-y-fractura"
+    ],
+    "nombre": "재료 거동 전문가",
+    "descripcion": "탄성과 훅의 법칙, 소성과 항복점, 경도와 인성, 피로와 파괴, 부식, 재료의 종류에 관한 중간고사를 통과했습니다.",
+    "icono": "🔩"
+  },
+  {
+    "id": 934,
+    "materia": "Dibujo Técnico",
+    "cluster": 1,
+    "temas": [
+      "sistemas-de-proyeccion",
+      "vistas-frontal-superior-lateral",
+      "perspectivas-isometrica-y-caballera",
+      "escalas-numericas-y-graficas",
+      "acotacion-normalizada"
+    ],
+    "nombre": "기술 제도의 달인",
+    "descripcion": "투영 체계, 도면, 등각 투상과 카발리에 투상, 축척과 규격화된 치수 기입을 마스터하며 중간고사를 마쳤습니다, 보스.",
+    "icono": "📏"
+  },
+  {
+    "id": 938,
+    "materia": "Comunicación",
+    "cluster": 1,
+    "temas": [
+      "generos-periodisticos",
+      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido",
+      "etica-y-responsabilidad-de-los-medios",
+      "corrientes-de-la-comunicacion",
+      "publicidad-y-persuasion"
+    ],
+    "nombre": "커뮤니케이션과 미디어 전문가",
+    "descripcion": "커뮤니케이션 이론과 그 사조, 저널리즘 장르, 미디어 윤리, 광고와 설득을 마스터했습니다.",
+    "icono": "📰"
+  },
+  {
+    "id": 942,
+    "materia": "Electrónica",
+    "cluster": 1,
+    "temas": [
+      "componentes-resistencia-capacitor-diodo-transistor",
+      "circuitos-y-leyes-de-kirchhoff",
+      "logica-digital-puertas-and-or-not",
+      "microcontroladores-y-microprocesadores",
+      "sensores-y-actuadores"
+    ],
+    "nombre": "회로와 디지털 제어의 달인",
+    "descripcion": "저항, 축전기, 다이오드, 트랜지스터, 키르히호프 법칙, 디지털 논리, 마이크로컨트롤러, 센서, 액추에이터에 관한 중간고사를 마쳤습니다.",
+    "icono": "🔌"
+  },
+  {
+    "id": 946,
+    "materia": "Automatización",
+    "cluster": 1,
+    "temas": [
+      "lazo-abierto-vs-lazo-cerrado",
+      "plc-logica-de-control-industrial",
+      "realimentacion-feedback",
+      "control-pid-proporcional-integral-derivativo",
+      "servomecanismos"
+    ],
+    "nombre": "제어 시스템 전문가",
+    "descripcion": "개루프와 폐루프, 피드백, PID 제어, 서보 기구, PLC를 이용한 제어 논리를 마스터했습니다, 보스.",
+    "icono": "🤖"
+  },
+  {
+    "id": 950,
+    "materia": "UX/Diseño",
+    "cluster": 1,
+    "temas": [
+      "usabilidad-heuristicas-de-nielsen",
+      "accesibilidad-wcag-contraste-lectores-de-pantalla",
+      "jerarquia-visual-e-informacion",
+      "prototipado-wireframe-mockup-prototipo-interactivo",
+      "pruebas-de-usuario"
+    ],
+    "nombre": "사용자 경험의 달인",
+    "descripcion": "사용성과 닐슨의 휴리스틱, WCAG 접근성, 시각적 위계, 프로토타이핑, 사용자 테스트를 마스터하며 중간고사를 통과했습니다.",
+    "icono": "🖥️"
   }
 ]
