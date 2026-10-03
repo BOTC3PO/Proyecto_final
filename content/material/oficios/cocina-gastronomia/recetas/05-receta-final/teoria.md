@@ -82,9 +82,10 @@ Preparación:
 7. Hornear a 180°C durante 15 a 18 minutos.
 8. Retirar del horno y dejar enfriar.
 
-## Entrega
+## Práctica y revisión
 
-Como en el resto de los oficios en su tramo práctico: foto o video del
-resultado (los bollos rellenos terminados), entregado al tutor. No hay
-cuestionario de opción múltiple para este tema — es evaluación por
-evidencia práctica, no por preguntas.
+La práctica se hace fuera del programa: la plataforma no recibe fotos ni videos ni corrige. No
+hay cuestionario para este tema. Para revisar el resultado, la persona (o su tutor, afuera del
+programa) puede mirar: la cebolla quedó dorada y fría antes de mezclarla; el medallón se enfrió
+por completo antes del armado; la masa creció y se pudo estirar sin romperse; el bollo
+terminado está dorado y cocido por dentro.

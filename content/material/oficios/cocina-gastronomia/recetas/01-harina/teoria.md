@@ -4,8 +4,9 @@
 > `troncos.md`) — caso especial documentado en `PROCEDIMIENTO.md`: NO
 > sigue el patrón estándar `oficios/<oficio>/<subtema>/teoria.md` +
 > `cuestionario.md` del resto de `oficios/`. Es la ruta práctica ("qué
-> cocinar"), sin cuestionario, con entrega por evidencia foto/video +
-> tutor, igual que el resto de los oficios en su tramo práctico. Ver
+> cocinar"), sin cuestionario ni nota: la práctica se hace fuera del
+> programa (la plataforma no puede cocinar, recibir ni evaluar nada). Ver
+> `catalogo-recetas/PLAN-progresion.md` y
 > `oficios-orientacion-vocacional-PLANIFICACION.md`, sección
 > Cocina/Gastronomía, para la Ruta A (técnica/teoría evaluable, carpeta
 > separada `cocina-gastronomia/fundamentos-cocina/` y afines).
