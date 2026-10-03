@@ -2,10 +2,18 @@
 
 > Ruta B de Cocina/Gastronomía (`OF19`, pendiente de formalizar en
 > `troncos.md`). Caso especial, ver nota en `01-harina/teoria.md`.
-> Depende de `../04-pan-brioche/` (ya construido). Entrega por
-> evidencia (foto/video) + tutor, igual que el resto de los oficios en
-> su tramo práctico — **no hay cuestionario para este tema**, a
-> propósito (ver planificación).
+> Depende de `../04-pan-brioche/` (ya construido). La práctica de
+> cocina se hace fuera del programa (la plataforma no la puede
+> evaluar ni recibir evidencia) — **no hay cuestionario para este
+> tema**, a propósito (ver planificación y
+> `../catalogo-recetas/PLAN-progresion.md`).
+>
+> **Aviso (2026-10-03): receta del medallón desactualizada.** El equipo
+> actualizó la receta de los devs para reducir el gusto interno a
+> cebolla. El texto de abajo es la versión anterior (2 cebollas chicas
+> o 1 mediana picadas dentro de la carne); falta reemplazarlo cuando
+> llegue la receta nueva. No tomar las cantidades de cebolla como
+> definitivas.
 
 ## Por qué esta receta es el cierre de la cadena, no una receta aislada
 
